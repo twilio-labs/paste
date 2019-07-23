@@ -1,0 +1,81 @@
+global:
+  type: color
+  category: background-color
+imports:
+  - ../aliases/color.yml
+  - ../aliases/color-palette.yml
+props:
+  # base background
+  color_background_default:
+    value: "{!palette_gray_20}"
+    comment: Some background
+
+  # brand backgrounds
+  color_background_brand_primary:
+    value: "{!haiti}"
+    comment: Primary brand background, accessible with black text
+  color_background_brand_highlight:
+    value: "{!amaranth}"
+    comment: Primary brand background, accessible with black text
+  color_background_brand_highlight_dark:
+    value: "{!red_ribbon}"
+    comment: Dark Primary brand background, accessible with black and white text
+  color_background_brand_highlight_darker:
+    value: "{!palette_red_50}"
+    comment: Darker Primary brand background, accessible with black and white text
+
+  # page body
+  color_background_body:
+    value: "{!white}"
+    comment: Some background
+
+  # status
+  color_background_success:
+    value: "{!palette_green_50}"
+    comment: Some background
+  color_background_success_light:
+    value: "{!palette_green_30}"
+    comment: Some background
+  color_background_success_dark:
+    value: "{!palette_green_70}"
+    comment: Some background
+  color_background_warning:
+    value: "{!palette_orange_30}"
+    comment: Some background
+  color_background_warning_light:
+    value: "{!palette_orange_50}"
+    comment: Some background
+  color_background_warning_dark:
+    value: "{!palette_orange_70}"
+    comment: Some background
+  color_background_error:
+    value: "{!palette_red_40}"
+    comment: Some background
+  color_background_error_light:
+    value: "{!palette_red_50}"
+    comment: Some background
+  color_background_error_dark:
+    value: "{!palette_red_60}"
+    comment: Some background
+
+  # row backgrounds
+  color_background_row_striped:
+    value: "{!palette_gray_30}"
+    comment: Some background
+  color_background_row_active:
+    value: "{!palette_gray_40}"
+    comment: Some background
+  color_background_row_selected:
+    value: "{!palette_gray_40}"
+    comment: Some background
+  color_background_row_hover:
+    value: "{!palette_gray_50}"
+    comment: Some background
+  color_background_row_focus:
+    value: "{!palette_gray_50}"
+    comment: Some background
+
+  # text selection
+  color_background_element_selection:
+    value: "{!palette_red_20}"
+    comment: Some background

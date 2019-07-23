@@ -1,0 +1,36 @@
+global:
+  category: font-size
+  type: font-size
+imports:
+  - ../aliases/font-size.yml
+props:
+  font_size_0:
+    value: "{!font_size_0}"
+    comment: "Constant typography token for font size 0"
+  font_size_1:
+    value: "{!font_size_1}"
+    comment: "Constant typography token for font size 1"
+  font_size_2:
+    value: "{!font_size_2}"
+    comment: "Constant typography token for font size 2"
+  font_size_3:
+    value: "{!font_size_3}"
+    comment: "Constant typography token for font size 3"
+  font_size_4:
+    value: "{!font_size_4}"
+    comment: "Constant typography token for font size 4"
+  font_size_5:
+    value: "{!font_size_5}"
+    comment: "Constant typography token for font size 5"
+  font_size_6:
+    value: "{!font_size_6}"
+    comment: "Constant typography token for font size 6"
+  font_size_7:
+    value: "{!font_size_7}"
+    comment: "Constant typography token for font size 7"
+  font_size_8:
+    value: "{!font_size_8}"
+    comment: "Constant typography token for font size 8"
+  font_size_9:
+    value: "{!font_size_9}"
+    comment: "Constant typography token for font size 9"

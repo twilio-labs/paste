@@ -1,0 +1,9 @@
+global:
+  type: box-shadow
+  category: shadow
+imports:
+  - ../aliases/box-shadow.yml
+props:
+  shadow-card:
+    value: "{!shadow-elevation-10}"
+    comment: Shadow for cards.

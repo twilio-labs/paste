@@ -1,0 +1,15 @@
+global:
+  type: size
+  category: border-width
+imports:
+  - ../aliases/border-width.yml
+props:
+  border-width-0:
+    value: "{!border-width-0}"
+    comment: Border width reset
+  border-width-10:
+    value: "{!border-width-10}"
+    comment: Small border width
+  border-width-20:
+    value: "{!border-width-20}"
+    comment: Large border width

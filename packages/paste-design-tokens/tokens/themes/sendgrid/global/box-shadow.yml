@@ -1,0 +1,6 @@
+global:
+  type: box-shadow
+  category: shadow
+imports:
+  - ../../../global/box-shadow.yml
+  - ../aliases/box-shadow.yml

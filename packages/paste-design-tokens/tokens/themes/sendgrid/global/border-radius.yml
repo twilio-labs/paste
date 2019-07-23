@@ -1,0 +1,6 @@
+global:
+  type: size
+  category: radius
+imports:
+  - ../../../global/border-radius.yml
+  - ../aliases/border-radius.yml

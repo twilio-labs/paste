@@ -1,0 +1,10 @@
+global:
+  category: font
+  type: font
+imports:
+  - ../aliases/font-family.yml
+props:
+  font-family-text:
+    value: "{!font-family-10}"
+  font-family-code:
+    value: "{!font-family-20}"

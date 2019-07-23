@@ -1,0 +1,5 @@
+/node_modules/**
+/bower_components/**
+/packages/**/node_modules/**
+**/lib/**
+rollup.config.js

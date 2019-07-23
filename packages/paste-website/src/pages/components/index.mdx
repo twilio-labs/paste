@@ -1,0 +1,37 @@
+---
+title: Overview
+description: Our components are rad
+---
+
+import {graphql} from 'gatsby';
+import {ComponentOverviewTable} from '../../components/component-overview-table';
+
+# Component Overview
+
+## Components
+
+<ComponentOverviewTable componentsList={props.data.allPasteComponent.edges} />
+
+## Utilities
+
+<ComponentOverviewTable componentsList={props.data.allPasteUtility.edges} />
+
+export const pageQuery = graphql`
+{
+  allPasteComponent {
+    edges {
+      node {
+        name
+        version
+      }
+    }
+  }
+  allPasteUtility {
+    edges {
+      node {
+        version
+        name
+      }
+    }
+  }
+}`;

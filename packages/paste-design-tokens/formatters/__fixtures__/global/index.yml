@@ -1,0 +1,6 @@
+imports:
+  - ./background-color.yml
+  - ./font-size.yml
+  - ./palette-color.yml
+  - ./spacing.yml
+  - ./text-color.yml

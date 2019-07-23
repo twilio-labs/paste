@@ -1,0 +1,6 @@
+global:
+  type: z-index
+  category: z-index
+imports:
+  - ../../../global/z-index.yml
+  - ../aliases/z-index.yml

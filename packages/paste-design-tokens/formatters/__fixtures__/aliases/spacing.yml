@@ -1,0 +1,17 @@
+aliases:
+  space_0: "0.25rem" #4px
+  space_1: "0.5rem" #8px
+  space_2: "0.75rem" #12px
+  space_3: "1rem" #16px
+  space_4: "1.25rem" #20px
+  space_5: "1.5rem" #24px
+  space_6: "1.75rem" #28px
+  space_7: "2rem" #32px
+  space_8: "2.25rem" #36px
+  space_9: "2.5rem" #40px
+  space_10: "2.75rem" #44px
+  space_11: "3rem" #48px
+  space_12: "3.25rem" #52px
+  space_13: "3.5rem" #56px
+  space_14: "3.75rem" #60px
+  space_15: "4rem" #64px

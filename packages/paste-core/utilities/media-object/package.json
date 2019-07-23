@@ -1,0 +1,39 @@
+{
+  "name": "@paste/media-object",
+  "version": "0.2.3",
+  "description": "",
+  "author": "Twilio Inc.",
+  "license": "ISC",
+  "main:dev": "src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn clean && yarn compile",
+    "build:dev": "yarn clean && yarn compile:dev",
+    "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
+    "compile": "rollup -c --environment NODE_ENV:production",
+    "compile:dev": "rollup -c --environment NODE_ENV:development",
+    "prepublishOnly": "yarn build",
+    "type-check": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@emotion/styled": "^10.0.10",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "styled-system": "^4.1.0"
+  },
+  "devDependencies": {
+    "rollup": "^1.16.2",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.0.1",
+    "rollup-plugin-node-resolve": "^5.1.0",
+    "rollup-plugin-terser": "^5.0.0",
+    "rollup-plugin-typescript2": "^0.21.2",
+    "typescript": "^3.5.2"
+  }
+}

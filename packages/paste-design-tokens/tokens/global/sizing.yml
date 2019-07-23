@@ -1,0 +1,56 @@
+global:
+  type: size
+  category: sizing
+imports:
+  - ../aliases/sizing.yml
+props:
+  size-0:
+    value: "{!size-0}"
+    comment: Generic sizing token scale for UI components.
+  size-10:
+    value: "{!size-10}"
+    comment: Generic sizing token scale for UI components.
+  size-20:
+    value: "{!size-20}"
+    comment: Generic sizing token scale for UI components.
+  size-30:
+    value: "{!size-30}"
+    comment: Generic sizing token scale for UI components.
+  size-40:
+    value: "{!size-40}"
+    comment: Generic sizing token scale for UI components.
+  size-50:
+    value: "{!size-50}"
+    comment: Generic sizing token scale for UI components.
+  size-60:
+    value: "{!size-60}"
+    comment: Generic sizing token scale for UI components.
+  size-70:
+    value: "{!size-70}"
+    comment: Generic sizing token scale for UI components.
+  size-80:
+    value: "{!size-80}"
+    comment: Generic sizing token scale for UI components.
+  size-90:
+    value: "{!size-90}"
+    comment: Generic sizing token scale for UI components.
+  size-100:
+    value: "{!size-100}"
+    comment: Generic sizing token scale for UI components.
+  size-110:
+    value: "{!size-110}"
+    comment: Generic sizing token scale for UI components.
+  size-120:
+    value: "{!size-120}"
+    comment: Generic sizing token scale for UI components.
+
+  # icons
+  size-icon-10:
+    value: "{!size-square-30}"
+    comment: Icon sizing token
+  size-icon-20:
+    value: "{!size-square-40}"
+    comment: Icon sizing token
+  size-icon-30:
+    value: "{!size-square-50}"
+    comment: Icon sizing token

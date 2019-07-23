@@ -1,0 +1,21 @@
+global:
+  type: size
+  category: radius
+imports:
+  - ../aliases/border-radius.yml
+props:
+  border-radius-0:
+    value: "{!border-radius-0}"
+    comment: Border radius reset
+  border-radius-10:
+    value: "{!border-radius-10}"
+    comment: Small border radius
+  border-radius-20:
+    value: "{!border-radius-20}"
+    comment: Large border radius
+  border-radius-30:
+    value: "{!border-radius-30}"
+    comment: Larger border radius
+  border-radius-circle:
+    value: "{!border-radius-circle}"
+    comment: Circular border radius

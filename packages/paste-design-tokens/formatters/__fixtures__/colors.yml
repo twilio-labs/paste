@@ -1,0 +1,4 @@
+imports:
+  - ./global/background-color.yml
+  - ./global/palette-color.yml
+  - ./global/text-color.yml

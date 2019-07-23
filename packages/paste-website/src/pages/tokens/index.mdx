@@ -1,0 +1,33 @@
+---
+title: Tokens
+description: Our tokens are rad
+---
+
+import {graphql} from 'gatsby';
+import {TokensList} from '../../components/tokens-list';
+
+# Design Tokens
+
+<TokensList data={props.data.allPasteToken.edges} />
+
+export const pageQuery = graphql`
+{
+  allPasteToken {
+    edges {
+      node {
+        id
+        tokens {
+          categoryName
+          tokens {
+            category
+            comment
+            name
+            originalValue
+            type
+            value
+          }
+        }
+      }
+    }
+  }
+}`;

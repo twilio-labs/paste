@@ -1,0 +1,11 @@
+aliases:
+  font_size_0: "0.6875rem" #11px
+  font_size_1: "0.75rem" #12px
+  font_size_2: "0.8125rem" #13px
+  font_size_3: "0.875rem" #14px
+  font_size_4: "0.9375rem" #15px
+  font_size_5: "1rem" #16px
+  font_size_6: "1.125rem" #18px
+  font_size_7: "1.25rem" #20px
+  font_size_8: "1.875rem" #30px
+  font_size_9: "2.25rem" #36px

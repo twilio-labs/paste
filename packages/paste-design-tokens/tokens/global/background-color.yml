@@ -1,0 +1,89 @@
+global:
+  type: color
+  category: background-color
+imports:
+  - ../aliases/color.yml
+  - ../aliases/color-palette.yml
+props:
+  # base background
+  color-background:
+    value: "{!palette-gray-0}"
+    comment: Default background color for any container
+
+  # brand backgrounds
+  color-background-brand:
+    value: "{!midnight}"
+    comment: Primary brand background, accessible with inverse text
+  color-background-brand-highlight:
+    value: "{!amaranth}"
+    comment: Highlight brand background, accessible with black text
+
+  # page body
+  color-background-body:
+    value: "{!palette-gray-0}"
+    comment: Background color of the main page body
+
+  # status
+  color-background-success:
+    value: "{!palette-green-60}"
+    comment: Success background color
+  color-background-success-lightest:
+    value: "{!palette-green-10}"
+    comment: Lightest success background color
+  color-background-warning:
+    value: "{!palette-orange-60}"
+    comment: Warning background color
+  color-background-warning-lightest:
+    value: "{!palette-orange-10}"
+    comment: Lightest warning background color
+  color-background-error:
+    value: "{!palette-red-60}"
+    comment: Error background color
+  color-background-error-lightest:
+    value: "{!palette-red-10}"
+    comment: Lightest error background color
+
+  # row backgrounds
+  color-background-row-striped:
+    value: "{!palette-gray-20}"
+    comment: Background color for alternative striped rows
+
+  # primary background
+  color-background-primary-darker:
+    value: "{!palette-blue-80}"
+    comment: Darker background for primary actions or highlights
+  color-background-primary-dark:
+    value: "{!palette-blue-70}"
+    comment: Dark background for primary actions or highlights
+  color-background-primary:
+    value: "{!palette-blue-60}"
+    comment: Background for primary actions or highlights
+  color-background-primary-light:
+    value: "{!palette-blue-40}"
+    comment: Light background for primary actions or highlights
+  color-background-primary-lighter:
+    value: "{!palette-blue-30}"
+    comment: Lighter background for primary actions or highlights
+  color-background-primary-lightest:
+    value: "{!palette-blue-10}"
+    comment: Lightest background for primary actions or highlights
+
+  # destructive backgrounds
+  color-background-destructive-darker:
+    value: "{!palette-red-80}"
+    comment: Darker background for destructive actions or highlights
+  color-background-destructive-dark:
+    value: "{!palette-red-70}"
+    comment: Dark background for destructive actions or highlights
+  color-background-destructive:
+    value: "{!palette-red-60}"
+    comment: Background for destructive actions or highlights
+  color-background-destructive-light:
+    value: "{!palette-red-40}"
+    comment: Light background for destructive actions or highlights
+  color-background-destructive-lighter:
+    value: "{!palette-red-30}"
+    comment: Lighter background for destructive actions or highlights
+  color-background-destructive-lightest:
+    value: "{!palette-red-10}"
+    comment: Lightest background for destructive actions or highlights

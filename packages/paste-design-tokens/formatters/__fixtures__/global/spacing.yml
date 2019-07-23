@@ -1,0 +1,38 @@
+global:
+  category: spacing
+  type: size
+imports:
+  - ../aliases/spacing.yml
+props:
+  space_0:
+    value: "{!space_0}"
+  space_1:
+    value: "{!space_1}"
+  space_2:
+    value: "{!space_2}"
+  space_3:
+    value: "{!space_3}"
+  space_4:
+    value: "{!space_4}"
+  space_5:
+    value: "{!space_5}"
+  space_6:
+    value: "{!space_6}"
+  space_7:
+    value: "{!space_7}"
+  space_8:
+    value: "{!space_8}"
+  space_9:
+    value: "{!space_9}"
+  space_10:
+    value: "{!space_10}"
+  space_11:
+    value: "{!space_11}"
+  space_12:
+    value: "{!space_12}"
+  space_13:
+    value: "{!space_13}"
+  space_14:
+    value: "{!space_14}"
+  space_15:
+    value: "{!space_15}"

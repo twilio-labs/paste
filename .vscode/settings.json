@@ -1,0 +1,7 @@
+{
+  "editor.formatOnSave": true,
+  "search.exclude": {
+    "**/dist": true,
+    "**/docs": true
+  }
+}
