@@ -2,7 +2,7 @@ import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
 import {withKnobs, select, text, boolean} from '@storybook/addon-knobs';
-import {LogoIcon} from '@paste/icons/src/react/LogoIcon';
+import {LogoIcon} from '@twilio-paste/icons/src/react/LogoIcon';
 import {Button} from '../src';
 import {ButtonVariants, ButtonSizes, ButtonTabIndexes} from '../src/types';
 

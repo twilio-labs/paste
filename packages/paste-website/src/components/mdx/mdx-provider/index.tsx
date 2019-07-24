@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {MDXProvider} from '@mdx-js/react';
-import {Heading} from '@paste/heading';
+import {Heading} from '@twilio-paste/heading';
 
 interface PasteMDXProviderProps {
   children?: React.ReactElement;

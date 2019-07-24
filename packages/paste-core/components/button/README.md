@@ -3,13 +3,13 @@
 ## Installation
 
 ```
-yarn add @paste/button
+yarn add @twilio-paste/button
 ```
 
 ## Usage
 
 ```js
-import {Button} from '@paste/button';
+import {Button} from '@twilio-paste/button';
 
 <Button variant="secondary" size="small" onClick={() => {}}>
   Submit

@@ -11,7 +11,7 @@ import {
   textAlign,
   TextAlignProps,
 } from 'styled-system';
-import {ThemeShape} from '@paste/theme-tokens';
+import {ThemeShape} from '@twilio-paste/theme-tokens';
 
 interface TextProps extends TextAlignProps, SpaceProps {
   as?: string;

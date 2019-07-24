@@ -1,5 +1,5 @@
 {
-  "name": "@paste/button",
+  "name": "@twilio-paste/button",
   "version": "0.1.6",
   "description": "Twilio's Button component",
   "author": "Twilio Inc.",
@@ -24,13 +24,13 @@
   "peerDependencies": {
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.10",
-    "@paste/spinner": "^0.1.2",
+    "@twilio-paste/spinner": "^0.1.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-system": "^4.1.0"
   },
   "devDependencies": {
-    "@paste/spinner": "^0.1.4",
+    "@twilio-paste/spinner": "^0.1.4",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.0.1",

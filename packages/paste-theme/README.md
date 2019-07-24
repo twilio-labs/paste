@@ -9,7 +9,7 @@ The Paste Theme Provider is a wrapper around the [Emotion Theme Provider](https:
 You should place the `Theme.Provider` around the root of your React application.
 
 ```js
-import {Theme} from '@paste/theme';
+import {Theme} from '@twilio-paste/theme';
 
 <Theme.Provider>
   ...
@@ -41,7 +41,7 @@ const custom = styled.div`
 Paste Theme provides a React Context Consumer for the theme called `Theme.Consumer`. The `Theme.Consumer` takes a function as a child, which provides the theme object as an argument.
 
 ```js
-import {Theme} from '@paste/theme';
+import {Theme} from '@twilio-paste/theme';
 
 <Theme.Consumer>
   {({theme}) => {
@@ -56,7 +56,7 @@ Paste Theme provides a React Hook called `useTheme` which returns the theme obje
 
 ```js
 import React from 'react';
-import { useTheme } from '@paste/theme';
+import { useTheme } from '@twilio-paste/theme';
 
 const HookExampleComponent = (): React.ReactElement => {
   const theme = useTheme();
@@ -70,7 +70,7 @@ Paste also provides a HOC Component, which is a wrapper around the Emotion [HOC 
 
 ```js
 import React from 'react';
-import { withTheme } from '@paste/theme';
+import { withTheme } from '@twilio-paste/theme';
 
 const ExampleComponent = ({theme}) => (
   <p>What is the default text color {theme.textColors.colorText}</p>

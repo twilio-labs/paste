@@ -14,7 +14,7 @@ import {
   width,
   WidthProps,
 } from 'styled-system';
-import {ThemeShape} from '@paste/theme-tokens';
+import {ThemeShape} from '@twilio-paste/theme-tokens';
 import {SpacingThemeProps} from '../../../../../types';
 
 export interface BoxProps extends HeightProps, MaxWidthProps, MinWidthProps, WidthProps, SpacingThemeProps {

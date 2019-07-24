@@ -3,7 +3,7 @@ import {graphql, useStaticQuery, Link} from 'gatsby';
 import {Global, css} from '@emotion/core';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
-import {Theme} from '@paste/theme';
+import {Theme} from '@twilio-paste/theme';
 import {Header} from '../header';
 
 interface SiteWrapperProps {
@@ -136,8 +136,8 @@ const SiteWrapper: React.FC<SiteWrapperProps> = props => {
                   {data.allPasteComponent.edges.map(({node}) => {
                     return (
                       <SiteNavItem key={node.name}>
-                        <SiteNavAnchor to={`/components/${node.name.replace('@paste/', '')}`}>
-                          {node.name.replace('@paste/', '')}
+                        <SiteNavAnchor to={`/components/${node.name.replace('@twilio-paste/', '')}`}>
+                          {node.name.replace('@twilio-paste/', '')}
                         </SiteNavAnchor>
                       </SiteNavItem>
                     );
@@ -150,8 +150,8 @@ const SiteWrapper: React.FC<SiteWrapperProps> = props => {
                   {data.allPasteUtility.edges.map(({node}) => {
                     return (
                       <SiteNavItem key={node.name}>
-                        <SiteNavAnchor to={`/components/${node.name.replace('@paste/', '')}`}>
-                          {node.name.replace('@paste/', '')}
+                        <SiteNavAnchor to={`/components/${node.name.replace('@twilio-paste/', '')}`}>
+                          {node.name.replace('@twilio-paste/', '')}
                         </SiteNavAnchor>
                       </SiteNavItem>
                     );

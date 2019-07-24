@@ -5,7 +5,7 @@ let repoPackages = null;
 /* 
  * Returned Shape
  [{ 
-    name: '@paste/icons',
+    name: '@twilio-paste/icons',
     version: '0.2.0',
     private: false,
     location: '/.../paste/packages/paste-icons' 

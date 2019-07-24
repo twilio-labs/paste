@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
-import {Box} from '@paste/box';
-import {Text} from '@paste/text';
+import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
 import {Truncate} from '../src';
 
 storiesOf('Utilities|Truncate', module).add('Default', () => {

@@ -3,15 +3,15 @@
 ## Installation
 
 ```
-yarn add @paste/icons
+yarn add @twilio-paste/icons
 ```
 
 ## Usage
 
 ```js
-import AssetsIcon from '@paste/icons/react/AssetsIcon';
+import AssetsIcon from '@twilio-paste/icons/react/AssetsIcon';
 // For the SVG:
-// import AssetsSvg from '@paste/icons/svg/assets.svg';
+// import AssetsSvg from '@twilio-paste/icons/svg/assets.svg';
 // Note: make sure you have the webpack loader for loading svgs.
 
 <AssetsIcon title={string} decorative={boolean} size={number} color={token} />;
@@ -46,7 +46,7 @@ Wrap these icons with a component that animates its children or pass in a classN
 
 - Clone or `git pull` the master branch
 - Move any number of svg files into `./svg/`
-- From the icons folder, run `yarn run convert-new`. Conversely, from the root of paste you can run `yarn workspace @paste/icons convert-new`
+- From the icons folder, run `yarn run convert-new`. Conversely, from the root of paste you can run `yarn workspace @twilio-paste/icons convert-new`
 - Check the `./react` folder and make sure you like how your components turned out
 - Run `yarn list-icons` to update the story
 - Submit a PR!

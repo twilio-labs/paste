@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {withKnobs, select} from '@storybook/addon-knobs';
-import {DefaultTheme, ThemeShape} from '@paste/theme-tokens';
-import {Text} from '@paste/text';
+import {DefaultTheme, ThemeShape} from '@twilio-paste/theme-tokens';
+import {Text} from '@twilio-paste/text';
 import {Box} from '../src';
 
 const backgroundColorOptions = Object.keys(DefaultTheme.backgroundColors);

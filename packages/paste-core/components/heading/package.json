@@ -1,5 +1,5 @@
 {
-  "name": "@paste/heading",
+  "name": "@twilio-paste/heading",
   "version": "0.3.2",
   "description": "",
   "author": "Twilio Inc.",
@@ -24,13 +24,13 @@
   "peerDependencies": {
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.10",
-    "@paste/text": "^0.3.1",
+    "@twilio-paste/text": "^0.3.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-system": "^4.1.0"
   },
   "devDependencies": {
-    "@paste/text": "^0.3.1",
+    "@twilio-paste/text": "^0.3.1",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.0.1",

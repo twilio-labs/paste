@@ -1,5 +1,5 @@
 import {SpaceProps} from 'styled-system';
-import {DefaultTheme} from '@paste/theme-tokens';
+import {DefaultTheme} from '@twilio-paste/theme-tokens';
 
 declare module '@styled-system/should-forward-prop';
 declare module 'gulp-theo';
