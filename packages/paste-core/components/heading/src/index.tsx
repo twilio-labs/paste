@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text} from '@paste/text';
+import {Text} from '@twilio-paste/text';
 
 export type asTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'label';
 export type HeadingStyle =

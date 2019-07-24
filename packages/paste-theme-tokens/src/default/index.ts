@@ -12,7 +12,7 @@ import {
   spacings,
   textColors,
   zIndices,
-} from '@paste/design-tokens';
+} from '@twilio-paste/design-tokens';
 
 const breakpoints = [sizings.size40, sizings.size100, sizings.size120];
 const space = {...spacings};

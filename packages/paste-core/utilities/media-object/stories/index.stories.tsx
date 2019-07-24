@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {withKnobs, boolean, select} from '@storybook/addon-knobs';
-import {Text} from '@paste/text';
-import {Box} from '@paste/box';
+import {Text} from '@twilio-paste/text';
+import {Box} from '@twilio-paste/box';
 import {Media} from '../src';
 
 storiesOf('Utilities|Media Object', module)

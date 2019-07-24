@@ -15,7 +15,7 @@ const listTemplate = iconList => {
 
   return `
 import * as React from 'react';
-import {Text} from '@paste/text';
+import {Text} from '@twilio-paste/text';
 import {Grid, StoryIcon} from './__StoryStyles';
 
 ${importIconList}

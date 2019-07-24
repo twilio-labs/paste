@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {mount} from 'enzyme';
-import {ThemeShape} from '@paste/theme-tokens';
+import {ThemeShape} from '@twilio-paste/theme-tokens';
 import {Theme, withTheme} from '../src';
 
 const MockComponent = ({theme}: {theme: ThemeShape}): React.ReactElement => <p>{theme.textColors.colorText}</p>;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Spinner} from '@paste/spinner';
+import {Spinner} from '@twilio-paste/spinner';
 import {ButtonWrapper, ButtonChildren, SpinnerWrapper} from './styles';
 import {ButtonProps, ButtonStates} from './types';
 

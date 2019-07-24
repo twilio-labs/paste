@@ -12,7 +12,7 @@ import {
   spacings,
   textColors,
   zIndices,
-} from '@paste/design-tokens/dist/themes/sendgrid/tokens.es6';
+} from '@twilio-paste/design-tokens/dist/themes/sendgrid/tokens.es6';
 
 const breakpoints = [sizings.size40, sizings.size100, sizings.size120];
 const space = {...spacings};

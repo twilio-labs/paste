@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {keyframes, css} from '@emotion/core';
 import styled from '@emotion/styled';
-import {SpinnerIcon, SpinnerIconProps} from '@paste/icons/react/SpinnerIcon';
+import {SpinnerIcon, SpinnerIconProps} from '@twilio-paste/icons/react/SpinnerIcon';
 
 const rotate = keyframes`
   0% {

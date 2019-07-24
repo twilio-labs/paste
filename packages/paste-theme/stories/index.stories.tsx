@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
-import {ThemeShape} from '@paste/theme-tokens';
+import {ThemeShape} from '@twilio-paste/theme-tokens';
 import {Theme, withTheme, useTheme} from '../src';
 // TODO this should recognise the md file as a module based on ./types/index.d.ts module declaration but it doesn't https://github.com/storybookjs/storybook/issues/2883
 // @ts-ignore

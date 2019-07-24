@@ -1,5 +1,5 @@
 {
-  "name": "@paste/theme",
+  "name": "@twilio-paste/theme",
   "version": "0.3.0",
   "description": "",
   "author": "Twilio Inc.",
@@ -22,7 +22,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@paste/theme-tokens": "^0.4.0",
+    "@twilio-paste/theme-tokens": "^0.4.0",
     "emotion-theming": "^10.0.10"
   },
   "peerDependencies": {

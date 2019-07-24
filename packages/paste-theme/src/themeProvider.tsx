@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import {Global, css} from '@emotion/core';
 import {themeGet} from 'styled-system';
 import {ThemeProvider as StyledThemeProvider} from 'emotion-theming';
-import {DefaultTheme, SendGridTheme} from '@paste/theme-tokens';
+import {DefaultTheme, SendGridTheme} from '@twilio-paste/theme-tokens';
 
 const pasteGlobalStyles = css`
   html {

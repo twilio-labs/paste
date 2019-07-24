@@ -9,7 +9,7 @@ const {resolve, relative} = require('path');
 const {getRepoPackages} = require('./getRepoPackages');
 const {sortObjectByKey} = require('./sortObjectByKey');
 
-const isPasteDependency = packageName => packageName.includes('@paste/');
+const isPasteDependency = packageName => packageName.includes('@twilio-paste/');
 const getPasteDependencyList = dependencyObject => Object.keys(dependencyObject).filter(isPasteDependency);
 
 async function updateTsconfigFile(path, referencesList = [], packagesList) {

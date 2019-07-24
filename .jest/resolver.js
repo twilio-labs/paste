@@ -8,8 +8,8 @@ const cachedPackages = require('../tools/.cache/packages.json');
  * 
  * Shape:
  * {
- *   '@paste/button': {
- *     name: '@paste/button',
+ *   '@twilio-paste/button': {
+ *     name: '@twilio-paste/button',
        version: '0.1.2',
        private: false,
        location: '/Users/username/paste/packages/paste-core/components/button/dist/index.js' 
@@ -43,7 +43,7 @@ const keyedPackages = cachedPackages.reduce((acc, currentPackage) => {
  * @param {*} details
  */
 function customResolver(package, details) {
-  if (package.includes('@paste/')) {
+  if (package.includes('@twilio-paste/')) {
     return keyedPackages[package].location;
   }
 

@@ -3,13 +3,13 @@
 ## Installation
 
 ```
-yarn add @paste/anchor
+yarn add @twilio-paste/anchor
 ```
 
 ## Usage
 
 ```js
-import {Anchor} from '@paste/anchor';
+import {Anchor} from '@twilio-paste/anchor';
 
 <Anchor href="/app">
   Link Text
