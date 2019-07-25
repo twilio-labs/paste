@@ -58,7 +58,7 @@ typings/
 .env
 
 # gatsby files
-.cache/
+packages/paste-website/.cache/
 public
 
 # next.js build output
