@@ -14,9 +14,8 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      - run:
-          name: Install dependencies
-          command: yarn bootstrap
+      - run: yarn
+      - run: yarn bootstrap
       - save_cache:
           key: v1-dependencies-{{ checksum "package.json" }}
           paths:
@@ -34,9 +33,8 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      - run:
-          name: Install dependencies
-          command: yarn bootstrap
+      - run: yarn
+      - run: yarn bootstrap
       - save_cache:
           key: v1-dependencies-{{ checksum "package.json" }}
           paths:
@@ -57,9 +55,8 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      - run:
-          name: Install dependencies
-          command: yarn bootstrap
+      - run: yarn
+      - run: yarn bootstrap
       - save_cache:
           key: v1-dependencies-{{ checksum "package.json" }}
           paths:
@@ -77,9 +74,8 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      - run:
-          name: Install dependencies
-          command: yarn bootstrap
+      - run: yarn
+      - run: yarn bootstrap
       - save_cache:
           key: v1-dependencies-{{ checksum "package.json" }}
           paths:
