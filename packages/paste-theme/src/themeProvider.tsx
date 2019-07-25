@@ -14,6 +14,7 @@ const pasteGlobalStyles = css`
 export const StyledBase = styled.div`
   font-family: ${themeGet('fonts.fontFamilyText')};
   line-height: 1.15;
+  color: ${themeGet('textColors.colorText')};
   font-weight: ${themeGet('fontWeights.fontWeightNormal')};
 
   *,
