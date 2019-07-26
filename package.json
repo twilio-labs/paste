@@ -22,7 +22,7 @@
     "build:dev": "yarn prebuild && yarn build:tokens && lerna run build:dev",
     "build:tokens": "yarn workspace @twilio-paste/design-tokens tokens",
     "build:icons": "yarn workspace @twilio-paste/icons build",
-    "build:docs": "build-storybook -c .storybook -o docs",
+    "build:storybook": "build-storybook -c .storybook -o /docs",
     "build:website": "yarn workspace @twilio-paste/website build",
     "pre-push": "yarn build && yarn lint && yarn test && yarn prettier",
     "release": "yarn lerna publish --skip-npm",
