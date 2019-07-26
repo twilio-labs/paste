@@ -52,6 +52,8 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
     "@babel/register": "^7.4.4",
+    "@commitlint/cli": "8.0.0",
+    "@commitlint/config-conventional": "8.0.0",
     "@emotion/babel-preset-css-prop": "^10.0.14",
     "@emotion/core": "^10.0.14",
     "@expo/spawn-async": "^1.5.0",
@@ -112,7 +114,8 @@
   "husky": {
     "hooks": {
       "pre-commit": "precise-commits",
-      "pre-push": "yarn pre-push"
+      "pre-push": "yarn pre-push",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
 }
