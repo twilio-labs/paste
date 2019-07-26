@@ -2,12 +2,17 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
-version: 2
+version: 2.1
+
+executors:
+  job-executor:
+    docker:
+      - image: circleci/node:latest
+    working_directory: ~/repo
+
 jobs:
   build:
-    docker:
-      - image: circleci/node:latest
-    working_directory: ~/repo
+    executor: job-executor
     steps:
       - checkout
       - restore_cache:
@@ -23,66 +28,44 @@ jobs:
       - run:
           name: Run build
           command: yarn build
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - repo/packages
   test:
-    docker:
-      - image: circleci/node:latest
-    working_directory: ~/repo
+    executor: job-executor
     steps:
       - checkout
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      - run: yarn
-      - run: yarn bootstrap
-      - save_cache:
-          key: v1-dependencies-{{ checksum "package.json" }}
-          paths:
-            - node_modules
-      - run:
-          name: Run build
-          command: yarn build
+      - attach_workspace:
+          at: ~/
       - run:
           name: Run tests
           command: yarn test
   lint:
-    docker:
-      - image: circleci/node:latest
-    working_directory: ~/repo
+    executor: job-executor
     steps:
       - checkout
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      - run: yarn
-      - run: yarn bootstrap
-      - save_cache:
-          key: v1-dependencies-{{ checksum "package.json" }}
-          paths:
-            - node_modules
-      - run:
-          name: Run build
-          command: yarn build
+      - attach_workspace:
+          at: ~/
       - run:
           name: Run eslint
           command: yarn lint
   prettier:
-    docker:
-      - image: circleci/node:latest
-    working_directory: ~/repo
+    executor: job-executor
     steps:
       - checkout
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      - run: yarn
-      - run: yarn bootstrap
-      - save_cache:
-          key: v1-dependencies-{{ checksum "package.json" }}
-          paths:
-            - node_modules
       - run:
           name: Run prettier
           command: yarn prettier
@@ -92,6 +75,12 @@ workflows:
   Build and Test:
     jobs:
       - build
-      - test
-      - lint
-      - prettier
+      - test:
+          requires:
+            - build
+      - lint:
+          requires:
+            - build
+      - prettier:
+          requires:
+            - build
