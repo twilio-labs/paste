@@ -10,6 +10,8 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "yarn type-check -- --watch",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
