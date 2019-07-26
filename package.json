@@ -22,7 +22,7 @@
     "build:dev": "yarn prebuild && yarn build:tokens && lerna run build:dev",
     "build:tokens": "yarn workspace @twilio-paste/design-tokens tokens",
     "build:icons": "yarn workspace @twilio-paste/icons build",
-    "build:docs": "build-storybook -c .storybook -o .www",
+    "build:storybook": "build-storybook -c .storybook -o /docs",
     "build:website": "yarn workspace @twilio-paste/website build",
     "pre-push": "yarn build && yarn lint && yarn test && yarn prettier",
     "release": "yarn lerna publish --skip-npm",
@@ -33,8 +33,7 @@
     "prettier": "prettier --list-different '{.storybook,packages}/**/*.{ts,tsx}'",
     "prettier-clean": "prettier --write '{.storybook,packages}/**/*.{ts,tsx}'",
     "lint": "eslint ./packages/**/*.ts ./packages/**/*.tsx ",
-    "type-check": "lerna run type-check",
-    "now-build": "yarn bootstrap && yarn build && yarn build:docs"
+    "type-check": "lerna run type-check"
   },
   "dependencies": {
     "@emotion/core": "^10.0.14",

@@ -6,11 +6,6 @@
     {
       "src": "package.json",
       "use": "@now/static-build",
-      "config": { "distDir": ".www" }
-    },
-    {
-      "src": "website-deploy.sh",
-      "use": "@now/static-build",
       "config": { "distDir": "packages/paste-website/public" }
     }
   ]
