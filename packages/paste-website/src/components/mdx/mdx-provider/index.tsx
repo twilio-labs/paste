@@ -10,29 +10,41 @@ export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMD
   return (
     <MDXProvider
       components={{
-        h1: (props): React.ReactElement => <Heading {...props} as="h1" headingStyle="headingStyle60" />,
-        h2: (props): React.ReactElement => <Heading {...props} as="h2" headingStyle="headingStyle50" />,
-        h3: (props): React.ReactElement => <Heading {...props} as="h3" headingStyle="headingStyle40" />,
-        h4: (props): React.ReactElement => <Heading {...props} as="h4" headingStyle="headingStyle30" />,
-        h5: (props): React.ReactElement => <Heading {...props} as="h5" headingStyle="headingStyle20" />,
-        h6: (props): React.ReactElement => <Heading {...props} as="h6" headingStyle="headingStyle10" />,
-        p: (props): React.ReactElement => <p {...props} />,
-        ul: (props): React.ReactElement => <ul {...props} />,
-        ol: (props): React.ReactElement => <ol {...props} />,
-        li: (props): React.ReactElement => <li {...props} />,
-        blockquote: (props): React.ReactElement => <blockquote {...props} />,
-        table: (props): React.ReactElement => <table {...props} />,
-        tr: (props): React.ReactElement => <tr {...props} />,
-        th: (props): React.ReactElement => <th {...props} />,
-        td: (props): React.ReactElement => <td {...props} />,
-        pre: (props): React.ReactElement => <pre {...props} />,
-        code: (props): React.ReactElement => <code {...props} />,
-        em: (props): React.ReactElement => <em {...props} />,
-        strong: (props): React.ReactElement => <strong {...props} />,
-        del: (props): React.ReactElement => <del {...props} />,
-        hr: (props): React.ReactElement => <hr {...props} />,
-        a: (props): React.ReactElement => <a {...props} />, // eslint-disable-line jsx-a11y/anchor-has-content
-        img: (props): React.ReactElement => <img {...props} />, // eslint-disable-line jsx-a11y/alt-text
+        h1: (props: React.ComponentProps<typeof Heading>): React.ReactElement => (
+          <Heading {...props} as="h1" headingStyle="headingStyle60" />
+        ),
+        h2: (props: React.ComponentProps<typeof Heading>): React.ReactElement => (
+          <Heading {...props} as="h2" headingStyle="headingStyle50" />
+        ),
+        h3: (props: React.ComponentProps<typeof Heading>): React.ReactElement => (
+          <Heading {...props} as="h3" headingStyle="headingStyle40" />
+        ),
+        h4: (props: React.ComponentProps<typeof Heading>): React.ReactElement => (
+          <Heading {...props} as="h4" headingStyle="headingStyle30" />
+        ),
+        h5: (props: React.ComponentProps<typeof Heading>): React.ReactElement => (
+          <Heading {...props} as="h5" headingStyle="headingStyle20" />
+        ),
+        h6: (props: React.ComponentProps<typeof Heading>): React.ReactElement => (
+          <Heading {...props} as="h6" headingStyle="headingStyle10" />
+        ),
+        p: (props: React.ComponentProps<'p'>): React.ReactElement => <p {...props} />,
+        ul: (props: React.ComponentProps<'ul'>): React.ReactElement => <ul {...props} />,
+        ol: (props: React.ComponentProps<'ol'>): React.ReactElement => <ol {...props} />,
+        li: (props: React.ComponentProps<'li'>): React.ReactElement => <li {...props} />,
+        blockquote: (props: React.ComponentProps<'blockquote'>): React.ReactElement => <blockquote {...props} />,
+        table: (props: React.ComponentProps<'table'>): React.ReactElement => <table {...props} />,
+        tr: (props: React.ComponentProps<'tr'>): React.ReactElement => <tr {...props} />,
+        th: (props: React.ComponentProps<'th'>): React.ReactElement => <th {...props} />,
+        td: (props: React.ComponentProps<'td'>): React.ReactElement => <td {...props} />,
+        pre: (props: React.ComponentProps<'pre'>): React.ReactElement => <pre {...props} />,
+        code: (props: React.ComponentProps<'code'>): React.ReactElement => <code {...props} />,
+        em: (props: React.ComponentProps<'em'>): React.ReactElement => <em {...props} />,
+        strong: (props: React.ComponentProps<'strong'>): React.ReactElement => <strong {...props} />,
+        del: (props: React.ComponentProps<'del'>): React.ReactElement => <del {...props} />,
+        hr: (props: React.ComponentProps<'hr'>): React.ReactElement => <hr {...props} />,
+        a: (props: React.ComponentProps<'a'>): React.ReactElement => <a {...props} />, // eslint-disable-line jsx-a11y/anchor-has-content
+        img: (props: React.ComponentProps<'img'>): React.ReactElement => <img {...props} />, // eslint-disable-line jsx-a11y/alt-text
       }}
     >
       {props.children}

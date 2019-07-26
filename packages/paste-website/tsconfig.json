@@ -1,15 +1,9 @@
 {
-  "extends": "../../../../tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "module": "commonjs",
     "target": "esnext",
-    "jsx": "preserve",
-    "lib": ["dom", "esnext"],
-    "strict": true,
-    "noEmit": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "noUnusedLocals": false
+    "jsx": "preserve"
   },
   "exclude": ["node_modules", "public", ".cache"]
 }
