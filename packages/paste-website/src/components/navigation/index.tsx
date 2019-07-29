@@ -1,6 +1,14 @@
 import * as React from 'react';
 import {graphql, useStaticQuery} from 'gatsby';
-import {SiteNav, SiteNavList, SiteNavNestList, SiteNavItem, SiteNavAnchor, SiteNavAnchorArrow} from './styles';
+import {
+  SiteNav,
+  SiteNavList,
+  SiteNavNestList,
+  SiteNavItem,
+  SiteNavAnchor,
+  SiteNavButton,
+  SiteNavAnchorArrow,
+} from './styles';
 
 interface NavigationProps {
   children?: React.ReactNode;
@@ -65,6 +73,10 @@ const pageQuery = graphql`
 const Navigation: React.FC<NavigationProps> = props => {
   const data: SiteWrapperPageQuery = useStaticQuery(pageQuery);
   console.log('SiteWrapper Query', data);
+
+  const [componentsOpen, setComponentsOpen] = React.useState(false);
+  const [utilitiesOpen, setutilitiesOpen] = React.useState(false);
+
   return (
     <SiteNav>
       <SiteNavList>
@@ -84,11 +96,14 @@ const Navigation: React.FC<NavigationProps> = props => {
           </SiteNavAnchor>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavAnchor to="/components" activeClassName="is-active">
+          <SiteNavButton
+            onClick={() => setComponentsOpen(!componentsOpen)}
+            className={componentsOpen ? 'is-open' : undefined}
+          >
             Components
             <SiteNavAnchorArrow />
-          </SiteNavAnchor>
-          <SiteNavNestList>
+          </SiteNavButton>
+          <SiteNavNestList className={componentsOpen ? 'is-open' : undefined}>
             {data.allPasteComponent.edges.map(({node}) => {
               return (
                 <SiteNavItem key={node.name}>
@@ -101,11 +116,14 @@ const Navigation: React.FC<NavigationProps> = props => {
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavAnchor to="/utilities" activeClassName="is-active">
+          <SiteNavButton
+            onClick={() => setutilitiesOpen(!utilitiesOpen)}
+            className={utilitiesOpen ? 'is-open' : undefined}
+          >
             Utilities
             <SiteNavAnchorArrow />
-          </SiteNavAnchor>
-          <SiteNavNestList>
+          </SiteNavButton>
+          <SiteNavNestList className={utilitiesOpen ? 'is-open' : undefined}>
             {data.allPasteUtility.edges.map(({node}) => {
               return (
                 <SiteNavItem key={node.name}>

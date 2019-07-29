@@ -17,6 +17,10 @@ export const SiteNavNestList = styled(SiteNavList)`
   text-transform: capitalize;
   background-color: ${themeGet('colors.colorGray30')};
   overflow: hidden;
+
+  &.is-open {
+    max-height: 100%;
+  }
 `;
 
 export const SiteNavItem = styled.li`
@@ -34,18 +38,50 @@ export const SiteNavAnchor = styled(Link)`
   text-decoration: none;
   transition: 0.1s background-color ease-in-out;
 
-  &:hover,
-  &.is-active {
+  &:hover {
     color: ${themeGet('textColors.colorText')};
     background-color: ${themeGet('colors.colorGray30')};
     border-radius: ${themeGet('radii.borderRadius20')};
   }
+`;
 
-  &.is-active ~ ul {
-    max-height: 100%;
+export const SiteNavButton = styled.button`
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: ${themeGet('space.space40')};
+  font-size: inherit;
+  font-weight: ${themeGet('fontWeights.fontWeightMedium')};
+  text-align: left;
+  color: ${themeGet('colors.colorGray80')};
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  transition: 0.1s background-color ease-in-out;
+  -webkit-appearance: none;
+
+  &:hover,
+  &.is-open {
+    color: ${themeGet('textColors.colorText')};
+    background-color: ${themeGet('colors.colorGray30')};
+    border-radius: ${themeGet('radii.borderRadius20')};
+    cursor: pointer;
   }
 
-  &.is-active > div {
+  &:hover {
+    outline: none;
+  }
+
+  &.is-open {
+    border-radius: ${themeGet('radii.borderRadius20')} ${themeGet('radii.borderRadius20')} 0 0;
+  }
+
+  &.is-open ~ ul {
+    max-height: 3000px;
+  }
+
+  &.is-open > div {
+    margin-top: -5px;
     transform: rotate(45deg);
   }
 `;
