@@ -9,15 +9,24 @@ export const globalStyles = css`
 `;
 
 export const SiteBody = styled.div`
-  display: grid;
-  grid-template-columns: 240px 1fr;
+  display: flex;
   min-height: 100vh;
+  min-width: 240px;
   height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol';
+
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+  }
 `;
 
 export const SiteMain = styled.main`
   padding: ${themeGet('space.space110')} ${themeGet('space.space200')};
   overflow: auto;
+
+  @supports not (display: grid) {
+    flex: 1;
+  }
 `;
