@@ -1,6 +1,8 @@
 {
   "name": "@twilio-paste/box",
   "version": "0.2.4",
+  "category": "layout",
+  "status": "alpha",
   "description": "",
   "author": "Twilio Inc.",
   "license": "ISC",
