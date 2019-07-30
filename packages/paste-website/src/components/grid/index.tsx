@@ -19,6 +19,7 @@ const Grid = styled.div<GridProps>`
   }
 
   & > div:nth-of-type(2n) {
+    margin-right: ${props => props.gap}px;
     margin-left: ${props => props.gap}px;
   }
 
@@ -30,6 +31,7 @@ const Grid = styled.div<GridProps>`
     }
 
     & > div:nth-of-type(2n) {
+      margin-right: 0;
       margin-left: 0;
     }
   }
