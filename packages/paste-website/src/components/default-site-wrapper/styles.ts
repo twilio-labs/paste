@@ -3,8 +3,15 @@ import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
 
 export const globalStyles = css`
+  *,
+  :after,
+  :before {
+    box-sizing: border-box;
+  }
+
   body {
     margin: 0;
+    font-size: 14px;
   }
 `;
 
@@ -15,6 +22,8 @@ export const SiteBody = styled.div`
   height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-size: ${themeGet('fontSizes.fontSize20')};
+  line-height: ${themeGet('space.space70')};
 
   @supports (display: grid) {
     display: grid;
@@ -29,4 +38,8 @@ export const SiteMain = styled.main`
   @supports not (display: grid) {
     flex: 1;
   }
+`;
+
+export const SiteInner = styled.div`
+  max-width: 984px;
 `;

@@ -26,6 +26,7 @@ export const SiteNavNestList = styled(SiteNavList)`
 export const SiteNavItem = styled.li`
   margin: ${themeGet('space.space10')} 0;
   font-size: ${themeGet('fontSizes.fontSize20')};
+  line-height: normal;
 `;
 
 export const SiteNavAnchor = styled(Link)`
@@ -38,7 +39,8 @@ export const SiteNavAnchor = styled(Link)`
   text-decoration: none;
   transition: 0.1s background-color ease-in-out;
 
-  &:hover {
+  &:hover,
+  &.is-active {
     color: ${themeGet('textColors.colorText')};
     background-color: ${themeGet('colors.colorGray30')};
     border-radius: ${themeGet('radii.borderRadius20')};
