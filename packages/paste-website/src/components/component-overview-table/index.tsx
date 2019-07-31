@@ -7,6 +7,7 @@ interface ComponentOverviewTableProps {
       node: {
         name: string;
         version: string;
+        status: string;
       };
     }
   ];
@@ -31,7 +32,7 @@ export const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = (
                 <td>
                   <code>{node.name}</code>
                 </td>
-                <td />
+                <td>{node.status}</td>
                 <td>{node.version}</td>
               </tr>
             );
