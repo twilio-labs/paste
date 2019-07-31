@@ -72,7 +72,6 @@ const pageQuery = graphql`
 
 const Navigation: React.FC<NavigationProps> = props => {
   const data: SiteWrapperPageQuery = useStaticQuery(pageQuery);
-  console.log('SiteWrapper Query', data);
 
   const [componentsOpen, setComponentsOpen] = React.useState(false);
   const [utilitiesOpen, setutilitiesOpen] = React.useState(false);
