@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {MDXProvider} from '@mdx-js/react';
 import {Heading} from '@twilio-paste/heading';
-import {Table, Thead, Tbody, Tfoot, Tr, Th, Td} from '../../table';
+import {Table, Tbody, Tr, Th, Td} from '../../table';
 
 interface PasteMDXProviderProps {
   children?: React.ReactElement;
@@ -35,9 +35,9 @@ export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMD
         li: (props: React.ComponentProps<'li'>): React.ReactElement => <li {...props} />,
         blockquote: (props: React.ComponentProps<'blockquote'>): React.ReactElement => <blockquote {...props} />,
         table: (props: React.ComponentProps<'table'>): React.ReactElement => <Table {...props} />,
-        thead: (props: React.ComponentProps<'thead'>): React.ReactElement => <Thead {...props} />,
+        thead: (props: React.ComponentProps<'thead'>): React.ReactElement => <thead {...props} />,
         tbody: (props: React.ComponentProps<'tbody'>): React.ReactElement => <Tbody {...props} />,
-        tfoot: (props: React.ComponentProps<'tfoot'>): React.ReactElement => <Tfoot {...props} />,
+        tfoot: (props: React.ComponentProps<'tfoot'>): React.ReactElement => <tfoot {...props} />,
         tr: (props: React.ComponentProps<'tr'>): React.ReactElement => <Tr {...props} />,
         th: (props: React.ComponentProps<'th'>): React.ReactElement => <Th {...props} />,
         td: (props: React.ComponentProps<'td'>): React.ReactElement => <Td {...props} />,
