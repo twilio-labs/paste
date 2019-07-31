@@ -70,7 +70,7 @@ const pageQuery = graphql`
   }
 `;
 
-const Navigation: React.FC<NavigationProps> = props => {
+const Navigation: React.FC<NavigationProps> = () => {
   const data: SiteWrapperPageQuery = useStaticQuery(pageQuery);
 
   const [componentsOpen, setComponentsOpen] = React.useState(false);
@@ -80,33 +80,24 @@ const Navigation: React.FC<NavigationProps> = props => {
     <SiteNav>
       <SiteNavList>
         <SiteNavItem>
-          <SiteNavAnchor to="/" activeClassName="is-active">
-            Home
-          </SiteNavAnchor>
+          <SiteNavAnchor to="/">Home</SiteNavAnchor>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavAnchor to="/getting-started" activeClassName="is-active">
-            Getting Started
-          </SiteNavAnchor>
+          <SiteNavAnchor to="/getting-started">Getting Started</SiteNavAnchor>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavAnchor to="/tokens" activeClassName="is-active">
-            Tokens
-          </SiteNavAnchor>
+          <SiteNavAnchor to="/tokens">Tokens</SiteNavAnchor>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavButton
-            onClick={() => setComponentsOpen(!componentsOpen)}
-            className={componentsOpen ? 'is-open' : undefined}
-          >
+          <SiteNavButton onClick={() => setComponentsOpen(!componentsOpen)} isOpen={componentsOpen}>
             Components
-            <SiteNavAnchorArrow />
+            <SiteNavAnchorArrow isOpen={componentsOpen} />
           </SiteNavButton>
-          <SiteNavNestList className={componentsOpen ? 'is-open' : undefined}>
+          <SiteNavNestList isOpen={componentsOpen}>
             {data.allPasteComponent.edges.map(({node}) => {
               return (
                 <SiteNavItem key={node.name}>
-                  <SiteNavAnchor to={`/components/${node.name.replace('@paste/', '')}`} activeClassName="is-active">
+                  <SiteNavAnchor to={`/components/${node.name.replace('@paste/', '')}`}>
                     {node.name.replace('@paste/', '')}
                   </SiteNavAnchor>
                 </SiteNavItem>
@@ -115,18 +106,15 @@ const Navigation: React.FC<NavigationProps> = props => {
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavButton
-            onClick={() => setutilitiesOpen(!utilitiesOpen)}
-            className={utilitiesOpen ? 'is-open' : undefined}
-          >
+          <SiteNavButton onClick={() => setutilitiesOpen(!utilitiesOpen)} isOpen={utilitiesOpen}>
             Utilities
-            <SiteNavAnchorArrow />
+            <SiteNavAnchorArrow isOpen={utilitiesOpen} />
           </SiteNavButton>
-          <SiteNavNestList className={utilitiesOpen ? 'is-open' : undefined}>
+          <SiteNavNestList isOpen={utilitiesOpen}>
             {data.allPasteUtility.edges.map(({node}) => {
               return (
                 <SiteNavItem key={node.name}>
-                  <SiteNavAnchor to={`/utilities/${node.name.replace('@paste/', '')}`} activeClassName="is-active">
+                  <SiteNavAnchor to={`/utilities/${node.name.replace('@paste/', '')}`}>
                     {node.name.replace('@paste/', '')}
                   </SiteNavAnchor>
                 </SiteNavItem>

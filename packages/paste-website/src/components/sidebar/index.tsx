@@ -9,10 +9,10 @@ const Sidebar: React.FC<SidebarProps> = props => {
   return (
     <Box
       backgroundColor="colorBackgroundRowStriped"
-      paddingTop={24}
-      paddingRight={12}
-      paddingBottom={24}
-      paddingLeft={12}
+      paddingTop="space70"
+      paddingRight="space40"
+      paddingBottom="space70"
+      paddingLeft="space40"
     >
       {props.children}
     </Box>
