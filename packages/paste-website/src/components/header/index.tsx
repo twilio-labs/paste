@@ -1,8 +1,7 @@
 import * as React from 'react';
-import {Link} from 'gatsby';
-import styled from '@emotion/styled';
 import {Text} from '@twilio-paste/text';
-import {StyledHeader} from './styled-header';
+import {StyledHeader, StyledH3, StyledSpan, StyledLink} from './styles';
+import {TWILIO_RED} from '../../constants';
 import TwilioIcon from '../svg/twilio-icon';
 
 interface HeaderProps {
@@ -11,26 +10,17 @@ interface HeaderProps {
   siteVersion?: string;
 }
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: inherit;
-
-  &:visited {
-    color: inherit;
-  }
-`;
-
 const Header: React.FC<HeaderProps> = props => {
   return (
     <StyledHeader>
-      <TwilioIcon color="#F22F46" size={30} />
-      <Text as="h2" fontSize="fontSize50" marginTop={12} marginBottom={4}>
+      <TwilioIcon color={TWILIO_RED} size={30} />
+      <Text as="h2" fontSize="fontSize50" marginTop="space40" marginBottom="space20">
         <StyledLink to="/">{props.siteTitle}</StyledLink>
       </Text>
-      <Text as="h3" fontSize="fontSize10" textColor="colorTextPlaceholder" margin={0}>
-        <span>{props.siteSubTitle}</span>
-        <span>{props.siteVersion}</span>
-      </Text>
+      <StyledH3 as="h3" fontSize="fontSize10" textColor="colorTextPlaceholder" margin={0}>
+        <StyledSpan>{props.siteSubTitle}</StyledSpan>
+        <StyledSpan>{props.siteVersion}</StyledSpan>
+      </StyledH3>
     </StyledHeader>
   );
 };

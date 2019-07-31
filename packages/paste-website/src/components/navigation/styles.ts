@@ -12,15 +12,15 @@ export const SiteNavList = styled.ul`
   list-style: none;
 `;
 
-export const SiteNavNestList = styled(SiteNavList)`
-  max-height: 0;
+interface SiteNavNestListProps {
+  isOpen?: boolean;
+}
+
+export const SiteNavNestList: React.FC<SiteNavNestListProps> = styled(SiteNavList)`
+  max-height: ${props => (props.isOpen ? '3000px' : '0')};
   text-transform: capitalize;
   background-color: ${themeGet('colors.colorGray30')};
   overflow: hidden;
-
-  &.is-open {
-    max-height: 100%;
-  }
 `;
 
 export const SiteNavItem = styled.li`
@@ -40,14 +40,19 @@ export const SiteNavAnchor = styled(Link)`
   transition: 0.1s background-color ease-in-out;
 
   &:hover,
-  &.is-active {
+  &[aria-current='page'] {
     color: ${themeGet('textColors.colorText')};
     background-color: ${themeGet('colors.colorGray30')};
     border-radius: ${themeGet('radii.borderRadius20')};
   }
 `;
 
-export const SiteNavButton = styled.button`
+interface SiteNavButtonProps {
+  isOpen?: boolean;
+  onClick?(event: React.MouseEvent<HTMLElement>): void;
+}
+
+export const SiteNavButton: React.FC<SiteNavButtonProps> = styled.button`
   position: relative;
   display: block;
   width: 100%;
@@ -55,48 +60,36 @@ export const SiteNavButton = styled.button`
   font-size: inherit;
   font-weight: ${themeGet('fontWeights.fontWeightMedium')};
   text-align: left;
-  color: ${themeGet('colors.colorGray80')};
-  background-color: transparent;
+  color: ${props => (props.isOpen ? themeGet('textColors.colorText') : themeGet('colors.colorGray80'))};
+  background-color: ${props => (props.isOpen ? themeGet('colors.colorGray30') : 'transparent')};
   border: none;
+  border-radius: ${props => (props.isOpen ? themeGet('radii.borderRadius20') : '0')};
   text-decoration: none;
   transition: 0.1s background-color ease-in-out;
   -webkit-appearance: none;
 
-  &:hover,
-  &.is-open {
+  &:hover {
     color: ${themeGet('textColors.colorText')};
     background-color: ${themeGet('colors.colorGray30')};
     border-radius: ${themeGet('radii.borderRadius20')};
     cursor: pointer;
-  }
-
-  &:hover {
     outline: none;
-  }
-
-  &.is-open {
-    border-radius: ${themeGet('radii.borderRadius20')} ${themeGet('radii.borderRadius20')} 0 0;
-  }
-
-  &.is-open ~ ul {
-    max-height: 3000px;
-  }
-
-  &.is-open > div {
-    margin-top: -5px;
-    transform: rotate(45deg);
   }
 `;
 
-export const SiteNavAnchorArrow = styled.div`
+interface SiteNavAnchorArrowProps {
+  isOpen?: boolean;
+}
+
+export const SiteNavAnchorArrow: React.FC<SiteNavAnchorArrowProps> = styled.div`
   position: absolute;
   right: ${themeGet('space.space40')};
   top: 50%;
-  margin-top: -3px;
+  margin-top: ${props => (props.isOpen ? '-5px' : '-3px')};
   width: 7px;
   height: 7px;
   border-color: ${themeGet('colors.colorGray60')};
   border-style: solid;
   border-width: 0 ${themeGet('borderWidths.borderWidth20')} ${themeGet('borderWidths.borderWidth20')} 0;
-  transform: rotate(-45deg);
+  transform: ${props => (props.isOpen ? 'rotate(45deg);' : 'rotate(-45deg);')};
 `;
