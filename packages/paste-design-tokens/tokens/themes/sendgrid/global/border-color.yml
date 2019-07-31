@@ -10,10 +10,10 @@ props:
     value: "{!palette-gray-50}"
     comment: Default border color
   color-border-light:
-    value: "{!palette-gray-60}"
+    value: "{!palette-gray-40}"
     comment: Light border color
   color-border-dark:
-    value: "{!palette-gray-40}"
+    value: "{!palette-gray-60}"
     comment: Dark border color
 
   # input borders
