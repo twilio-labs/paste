@@ -10,6 +10,7 @@ interface PasteMDXProviderProps {
 }
 
 const StyledContent = styled.div`
+  /* magic number from Jasons initial layout */
   max-width: 816px;
 `;
 
@@ -47,22 +48,36 @@ export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMD
     <MDXProvider
       components={{
         h1: (props: React.ComponentProps<typeof Text>): React.ReactElement => (
-          <Text {...props} as="h1" marginBottom={32} fontSize="fontSize80" lineHeight="lineHeight60" />
+          <Text {...props} as="h1" marginBottom="space90" fontSize="fontSize80" lineHeight="lineHeight60" />
         ),
         h2: (props: React.ComponentProps<typeof Text>): React.ReactElement => (
-          <Text {...props} as="h2" marginTop={20} marginBottom={20} fontSize="fontSize60" lineHeight="lineHeight40" />
+          <Text
+            {...props}
+            as="h2"
+            marginTop="space60"
+            marginBottom="space60"
+            fontSize="fontSize60"
+            lineHeight="lineHeight40"
+          />
         ),
         h3: (props: React.ComponentProps<typeof Text>): React.ReactElement => (
-          <Text {...props} as="h3" marginTop={20} marginBottom={20} fontSize="fontSize50" lineHeight="lineHeight30" />
+          <Text
+            {...props}
+            as="h3"
+            marginTop="space60"
+            marginBottom="space60"
+            fontSize="fontSize50"
+            lineHeight="lineHeight30"
+          />
         ),
         h4: (props: React.ComponentProps<typeof Text>): React.ReactElement => (
-          <Text {...props} as="h4" marginTop={20} marginBottom={20} fontSize="fontSize30" />
+          <Text {...props} as="h4" marginTop="space60" marginBottom="space60" fontSize="fontSize30" />
         ),
         h5: (props: React.ComponentProps<typeof Text>): React.ReactElement => (
-          <Text {...props} as="h5" marginTop={20} marginBottom={20} fontSize="fontSize20" />
+          <Text {...props} as="h5" marginTop="space60" marginBottom="space60" fontSize="fontSize20" />
         ),
         h6: (props: React.ComponentProps<typeof Text>): React.ReactElement => (
-          <Text {...props} as="h6" marginTop={20} marginBottom={20} fontSize="fontSize20" />
+          <Text {...props} as="h6" marginTop="space60" marginBottom="space60" fontSize="fontSize20" />
         ),
         p: (props: React.ComponentProps<'p'>): React.ReactElement => <p {...props} />,
         ul: (props: React.ComponentProps<'ul'>): React.ReactElement => <StyledUl {...props} />,

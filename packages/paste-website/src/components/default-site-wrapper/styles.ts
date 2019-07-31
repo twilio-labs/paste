@@ -41,5 +41,6 @@ export const SiteMain = styled.main`
 `;
 
 export const SiteInner = styled.div`
+  /* magic number from Jasons initial layout */
   max-width: 984px;
 `;
