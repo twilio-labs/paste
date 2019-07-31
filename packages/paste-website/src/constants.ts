@@ -1,1 +1,1 @@
-export const twilioRed = '#F22F46';
+export const TWILIO_RED = '#F22F46';

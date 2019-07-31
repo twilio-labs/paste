@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Text} from '@twilio-paste/text';
 import {StyledHeader, StyledH3, StyledSpan, StyledLink} from './styles';
-import {twilioRed} from '../../constants';
+import {TWILIO_RED} from '../../constants';
 import TwilioIcon from '../svg/twilio-icon';
 
 interface HeaderProps {
@@ -13,7 +13,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = props => {
   return (
     <StyledHeader>
-      <TwilioIcon color={twilioRed} size={30} />
+      <TwilioIcon color={TWILIO_RED} size={30} />
       <Text as="h2" fontSize="fontSize50" marginTop="space40" marginBottom="space20">
         <StyledLink to="/">{props.siteTitle}</StyledLink>
       </Text>
