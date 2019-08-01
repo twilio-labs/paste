@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
+import {Header} from './Header';
+import {Navigation} from './Navigation';
 
-interface SidebarProps {
-  children: React.ReactNode;
-}
+interface SidebarProps {}
 
-const Sidebar: React.FC<SidebarProps> = props => {
+const Sidebar: React.FC<SidebarProps> = () => {
   return (
     <Box
       backgroundColor="colorBackground"
@@ -14,7 +14,8 @@ const Sidebar: React.FC<SidebarProps> = props => {
       paddingBottom="space70"
       paddingLeft="space40"
     >
-      {props.children}
+      <Header siteTitle="Paste" siteSubTitle="Design System" siteVersion="v0.1" />
+      <Navigation />
     </Box>
   );
 };

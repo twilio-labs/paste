@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Table, Thead, Tbody, Tr, Th, Td} from './Table';
 
 interface ComponentOverviewTableProps {
   children?: React.ReactElement;
@@ -12,32 +13,33 @@ interface ComponentOverviewTableProps {
     }
   ];
 }
+
 export const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = (
   props: ComponentOverviewTableProps
 ): React.ReactElement => {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Status</th>
-          <th>Version</th>
-        </tr>
-      </thead>
-      <tbody>
+    <Table>
+      <Thead>
+        <Tr>
+          <Th>Name</Th>
+          <Th>Status</Th>
+          <Th>Version</Th>
+        </Tr>
+      </Thead>
+      <Tbody>
         {props.componentsList != null &&
           props.componentsList.map(({node}) => {
             return (
-              <tr key={node.name}>
-                <td>
+              <Tr key={node.name}>
+                <Td>
                   <code>{node.name}</code>
-                </td>
-                <td>{node.status}</td>
-                <td>{node.version}</td>
-              </tr>
+                </Td>
+                <Td>{node.status}</Td>
+                <Td>{node.version}</Td>
+              </Tr>
             );
           })}
-      </tbody>
-    </table>
+      </Tbody>
+    </Table>
   );
 };

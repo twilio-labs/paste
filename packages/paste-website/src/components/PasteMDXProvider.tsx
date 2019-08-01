@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
-import {Table, Tbody, Tr, Th, Td} from '../../table';
+import {Table, Tbody, Tr, Th, Td} from './Table';
 
 interface PasteMDXProviderProps {
   children?: React.ReactElement;

@@ -4,21 +4,22 @@ description: Our utilities are rad
 ---
 
 import {graphql} from 'gatsby';
-import {ComponentOverviewTable} from '../../components/component-overview-table';
+import {ComponentOverviewTable} from '../../components/ComponentOverviewTable';
 
 # Utilities Overview
 
 <ComponentOverviewTable componentsList={props.data.allPasteUtility.edges} />
 
 export const pageQuery = graphql`
-{
-  allPasteUtility {
-    edges {
-      node {
-        version
-        name
-        status
+  {
+    allPasteUtility {
+      edges {
+        node {
+          version
+          name
+          status
+        }
       }
     }
   }
-}`;
+`;

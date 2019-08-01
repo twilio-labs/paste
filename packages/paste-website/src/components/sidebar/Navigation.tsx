@@ -8,7 +8,7 @@ import {
   SiteNavAnchor,
   SiteNavButton,
   SiteNavAnchorArrow,
-} from './styles';
+} from './Navigation.styles';
 
 interface NavigationProps {
   children?: React.ReactNode;

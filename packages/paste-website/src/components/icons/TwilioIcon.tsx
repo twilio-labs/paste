@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {useUID} from 'react-uid';
 
 export interface TwilioIconProps {
@@ -33,4 +33,4 @@ const TwilioIcon = React.memo(({title = 'Twilio Icon', decorative = true, classN
   );
 });
 
-export default TwilioIcon;
+export {TwilioIcon};

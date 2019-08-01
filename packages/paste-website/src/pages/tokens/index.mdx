@@ -7,7 +7,7 @@ import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
-import {TokensList} from '../../components/tokens-list';
+import {TokensList} from '../../components/TokenList';
 
 # Design Tokens
 
@@ -57,15 +57,18 @@ export const pageQuery = graphql`
         tokens {
           categoryName
           tokens {
-            category
-            comment
-            name
-            originalValue
-            type
-            value
+            categoryName
+            tokens {
+              category
+              comment
+              name
+              originalValue
+              type
+              value
+            }
           }
         }
       }
     }
   }
-}`;
+`;

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import css from '@emotion/css';
 import {themeGet} from 'styled-system';
 import {Link} from 'gatsby';
 
@@ -12,11 +11,11 @@ const CrumbSlashStyled = styled.aside(props => ({
 
 const CrumbSlash = () => <CrumbSlashStyled>/</CrumbSlashStyled>;
 
-interface Breadcrumb {
-  children?: React.ReactElement;
+interface BreadcrumbProps {
+  children?: React.ReactElement[];
 }
 
-const Breadcrumb: React.FC<Breadcrumb> = ({children}) => {
+const Breadcrumb: React.FC<BreadcrumbProps> = ({children}) => {
   return React.Children.map(children, child => (
     <>
       {child}
