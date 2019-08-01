@@ -1,6 +1,8 @@
 {
   "name": "@twilio-paste/input",
   "version": "0.1.2",
+  "category": "user input",
+  "status": "backlog",
   "description": "",
   "author": "Twilio Inc.",
   "license": "ISC",

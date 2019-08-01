@@ -1,6 +1,8 @@
 {
   "name": "@twilio-paste/spinner",
   "version": "0.1.4",
+  "category": "feedback",
+  "status": "beta",
   "description": "Twilio's Spinner component",
   "author": "Twilio Inc.",
   "license": "ISC",

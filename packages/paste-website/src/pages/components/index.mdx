@@ -8,13 +8,7 @@ import {ComponentOverviewTable} from '../../components/component-overview-table'
 
 # Component Overview
 
-## Components
-
 <ComponentOverviewTable componentsList={props.data.allPasteComponent.edges} />
-
-## Utilities
-
-<ComponentOverviewTable componentsList={props.data.allPasteUtility.edges} />
 
 export const pageQuery = graphql`
 {
@@ -23,14 +17,7 @@ export const pageQuery = graphql`
       node {
         name
         version
-      }
-    }
-  }
-  allPasteUtility {
-    edges {
-      node {
-        version
-        name
+        status
       }
     }
   }

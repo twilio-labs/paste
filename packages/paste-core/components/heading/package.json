@@ -1,6 +1,8 @@
 {
   "name": "@twilio-paste/heading",
   "version": "0.3.2",
+  "category": "typography",
+  "status": "alpha",
   "description": "",
   "author": "Twilio Inc.",
   "license": "ISC",

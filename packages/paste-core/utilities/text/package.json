@@ -1,6 +1,8 @@
 {
   "name": "@twilio-paste/text",
   "version": "0.3.1",
+  "category": "typography",
+  "status": "alpha",
   "description": "",
   "author": "Twilio Inc.",
   "license": "MIT",
