@@ -7,7 +7,7 @@ imports:
 props:
   # base background
   color-background:
-    value: "{!palette-gray-0}"
+    value: "{!palette-gray-20}"
     comment: Default background color for any container
   color-background-inverse:
     value: "{!palette-gray-80}"

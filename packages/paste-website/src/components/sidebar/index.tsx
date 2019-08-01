@@ -8,7 +8,7 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = props => {
   return (
     <Box
-      backgroundColor="colorBackgroundRowStriped"
+      backgroundColor="colorBackground"
       paddingTop="space70"
       paddingRight="space40"
       paddingBottom="space70"

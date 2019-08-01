@@ -71,6 +71,15 @@ module.exports = {
     eqeqeq: ['error', 'smart'],
     'no-plusplus': 'off',
     'consistent-return': 'off',
+    // deprecated rule
+    'jsx-a11y/label-has-for': 'off',
+    'jsx-a11y/label-has-associated-control': [
+      2,
+      {
+        assert: 'either',
+        depth: 3,
+      },
+    ],
   },
   settings: {
     'import/resolver': {

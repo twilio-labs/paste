@@ -16,17 +16,19 @@ storiesOf('Utilities|Text', module)
   .addDecorator(withKnobs)
   .add('Default', () => {
     const fontFamilyValue = select('fontFamily', fontFamilyOptions, 'fontFamilyText') as keyof ThemeShape['fonts'];
-    const fontSizeValue = select('fontSize', fontSizeOptions, 'fontSize30') as keyof ThemeShape['fontSizes'];
+    const fontSizeValue = select('fontSize', fontSizeOptions, 'fontSize20') as keyof ThemeShape['fontSizes'];
     const fontWeightValue = select(
       'fontWeight',
       fontWeightOptions,
       'fontWeightNormal'
     ) as keyof ThemeShape['fontWeights'];
+    const displayValue = text('display', '');
     const lineHeightValue = select('lineHeight', lineHeightOptions, 'lineHeight20') as keyof ThemeShape['lineHeights'];
     const textAlignValue = text('textAlign', '') as ResponsiveValue<CSS.TextAlignProperty>;
     const textColorValue = select('textColor', textColorOptions, 'colorText') as keyof ThemeShape['textColors'];
     return (
       <Text
+        display={displayValue}
         fontFamily={fontFamilyValue}
         fontSize={fontSizeValue}
         fontWeight={fontWeightValue}
