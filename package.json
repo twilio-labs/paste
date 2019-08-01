@@ -25,7 +25,7 @@
     "build:icons": "yarn workspace @twilio-paste/icons build",
     "build:storybook": "build-storybook -c .storybook -o /docs",
     "build:website": "yarn workspace @twilio-paste/website build",
-    "pre-push": "yarn build && yarn lint && yarn test && yarn prettier",
+    "pre-push": "yarn build && concurrently \"yarn:lint\" \"yarn:test\" \"yarn:prettier\"",
     "release": "yarn lerna publish --skip-npm",
     "clean": "node ./tools/build/clean-repo.js && lerna clean --yes && lerna run clean && yarn bootstrap",
     "pre-test": "node ./tools/build/pre-test.js",
