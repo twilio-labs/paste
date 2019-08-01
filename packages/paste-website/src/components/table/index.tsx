@@ -32,23 +32,17 @@ export const Tr = styled.tr(props => ({
   },
 }));
 
-export const Td = styled.td(props => {
-  // FIXME: this is jank.
-  // 6px since two subsequent TDs add up to 12px
-  const halfSpace40 = `calc(${themeGet('space.space40')(props)} / 2)`;
+export const Td = styled.td(props => ({
+  padding: `${themeGet('space.space40')(props)} ${themeGet('space.space30')(props)}`,
 
-  return {
-    padding: `${themeGet('space.space40')(props)} ${halfSpace40}`,
+  '&:nth-of-type(1)': {
+    paddingLeft: themeGet('space.space50')(props),
+  },
 
-    '&:nth-of-type(1)': {
-      paddingLeft: themeGet('space.space60')(props),
-    },
-
-    '&:last-child': {
-      paddingRight: themeGet('space.space60')(props),
-    },
-  };
-});
+  '&:last-child': {
+    paddingRight: themeGet('space.space50')(props),
+  },
+}));
 
 export const Th = styled(Td)(props => ({
   textAlign: 'left',

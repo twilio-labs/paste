@@ -20,7 +20,7 @@ import {Button} from '@twilio-paste/button';
 
 <Button variant="secondary" size="small" onClick={() => {}}>
   Submit
-</Button>;
+</Button>
 ```
 
 ### Props
@@ -46,21 +46,3 @@ import {Button} from '@twilio-paste/button';
 | aria-haspopup? | {'true', 'dialog', 'menu'}             | A11y: For modals and menus                                                          | null      |
 | aria-controls? | string                                 | A11y: For modals and menus                                                          | null      |
 | data-test?     | string                                 | To detect the element to run tests against.                                         | null      |
-
-
-## Changes from react-components-button
-
-- The `btnStyle` prop is renamed to `variant`. The new values are:
-  - "primary" (blue, filled)
-  - "secondary" (blue, outlined)
-  - "destructive" (red, filled)
-  - "destructive_link" (a red link)
-  - "link" (a blue link)
-  - "reset" (all default styles removed)
-- The `btnSize` prop is renamed to `size`. The new values are:
-  - "default" (normal size, grows to content)
-  - "small" (less padding than auto, grows to content)
-  - "icon" (used for icon buttons only, balanced padding on all sides)
-  - "reset" (no padding or any additional sizing is applied)
-- The `ButtonPlus` component has been deprecated.
-- Our new button component can be used as a link.
