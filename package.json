@@ -13,7 +13,7 @@
     "bootstrap": "lerna bootstrap",
     "prestart": "yarn prebuild",
     "start": "yarn build:tokens && concurrently \"yarn:start:tokens\" \"yarn:start:storybook\"",
-    "start:all": "yarn build:tokens && concurrently \"yarn:start:*\"",
+    "start:all": "yarn build:tokens && concurrently \"yarn:start:tokens\" \"yarn:start:storybook\" \"yarn:start:website\"",
     "start:storybook": "start-storybook",
     "start:tokens": "yarn workspace @twilio-paste/design-tokens build:dev",
     "start:website": "yarn workspace @twilio-paste/website develop",
