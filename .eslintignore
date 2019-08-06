@@ -6,10 +6,4 @@
 **/paste-icons/react/
 rollup.config.js
 **/tsconfig.build.tsbuildinfo
-
-# ignore these dodgy build artifacts as they get generated before the eslint run
-# TODO: fix build so we can remove this
-/packages/paste-theme-tokens/src/default/index.d.ts
-/packages/paste-theme-tokens/src/index.d.ts
-/packages/paste-theme-tokens/src/sendgrid/index.d.ts
-/packages/paste-theme-tokens/src/types/index.d.ts
+**/*.d.ts
