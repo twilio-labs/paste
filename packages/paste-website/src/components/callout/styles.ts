@@ -3,24 +3,22 @@ import {themeGet} from 'styled-system';
 import {Box} from '@twilio-paste/box';
 import {CalloutProps} from './types';
 
-const borderColorPartial = ({variant}: CalloutProps) => {
+const borderColorPartial = ({variant}: CalloutProps): string => {
   if (variant === 'secondary') {
     return themeGet('backgroundColors.colorBackgroundPrimaryDarker');
   } else if (variant === 'warning') {
     return themeGet('backgroundColors.colorBackgroundWarningLightest');
-  } else {
-    return themeGet('backgroundColors.colorBackgroundPrimaryLighter');
   }
+  return themeGet('backgroundColors.colorBackgroundPrimaryLighter');
 };
 
-const backgroundColorPartial = ({variant}: CalloutProps) => {
+const backgroundColorPartial = ({variant}: CalloutProps): string => {
   if (variant === 'secondary') {
     return themeGet('backgroundColors.colorBackgroundPrimaryDark');
   } else if (variant === 'warning') {
     return themeGet('backgroundColors.colorBackgroundWarning');
-  } else {
-    return themeGet('backgroundColors.colorBackgroundPrimaryLight');
   }
+  return themeGet('backgroundColors.colorBackgroundPrimaryLight');
 };
 
 export const StyledCallout: React.FC<CalloutProps> = styled(Box)`
