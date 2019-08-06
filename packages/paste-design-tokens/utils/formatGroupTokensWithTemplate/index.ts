@@ -44,13 +44,13 @@ const getPluralCatName = (name: string): string => {
   return pluralName;
 };
 
-export default (
+export const formatGroupTokensWithTemplate = (
   tokens: ImmutableStyleMap,
   categories: any,
-  categoryTemplate: (cat: string, props: Token[]) => void
+  categoryTemplate: (cat: string, props: Token[]) => string
 ): string => {
   return categories
-    .map((cat: string) => {
+    .map((cat: string): string | undefined => {
       const catProps = tokens
         .get('props')
         .sortBy(prop => {
@@ -64,6 +64,7 @@ export default (
       if (typeof cat === 'string') {
         return categoryTemplate(getPluralCatName(cat), catProps);
       }
+      return undefined;
     })
     .join('\n');
 };

@@ -1,12 +1,13 @@
 import {ImmutableStyleMap} from 'theo';
 
-export default (tokens: ImmutableStyleMap) => {
+export const getTokenCategories = (tokens: ImmutableStyleMap): any => {
   return tokens
     .get('props')
-    .map(prop => {
+    .map((prop): string | number | undefined => {
       if (prop !== undefined) {
         return prop.get('category');
       }
+      return undefined;
     })
     .toSet()
     .sort();

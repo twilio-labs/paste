@@ -2,4 +2,8 @@
 /bower_components/**
 /packages/**/node_modules/**
 **/lib/**
+**/dist/**
+**/paste-icons/react/
 rollup.config.js
+**/tsconfig.build.tsbuildinfo
+**/*.d.ts

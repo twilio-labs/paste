@@ -6,7 +6,12 @@ import {Table, Tbody, Tr, Th, Td} from '../../table';
 interface PasteMDXProviderProps {
   children?: React.ReactElement;
 }
-
+/* eslint-disable no-shadow */
+/*
+  "error  'props' is already declared in the upper scope": these errors I don't
+  think are actually real. Because top level props is actually a different set of
+  props than that are passed to the components. I think eslint is confused.
+*/
 export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMDXProviderProps): React.ReactElement => {
   return (
     <MDXProvider
@@ -55,3 +60,4 @@ export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMD
     </MDXProvider>
   );
 };
+/* eslint-enable no-shadow */
