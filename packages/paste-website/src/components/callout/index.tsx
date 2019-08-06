@@ -10,7 +10,7 @@ const CalloutTitle: React.FC<CalloutTitleProps> = ({as, children}) => (
 );
 
 const CalloutContent: React.FC<CalloutContentProps> = ({as, children}) => (
-  <Text as={as} marginBottom="0" fontSize="fontSize20">
+  <Text as={as} marginBottom="space0" fontSize="fontSize20">
     {children}
   </Text>
 );
