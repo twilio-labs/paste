@@ -8,9 +8,9 @@ interface PasteMDXProviderProps {
 }
 /* eslint-disable no-shadow */
 /*
-  "error  'props' is already declared in the upper scope" errors I don't think are actually
-  real. Because top level props is different than the one passed to the components. I think
-  esling is confused.
+  "error  'props' is already declared in the upper scope": these errors I don't
+  think are actually real. Because top level props is actually a different set of
+  props than that are passed to the components. I think eslint is confused.
 */
 export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMDXProviderProps): React.ReactElement => {
   return (
