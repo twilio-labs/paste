@@ -6,7 +6,8 @@ import {CalloutProps} from './types';
 const borderColorPartial = ({variant}: CalloutProps): string => {
   if (variant === 'secondary') {
     return themeGet('backgroundColors.colorBackgroundPrimaryDarker');
-  } else if (variant === 'warning') {
+  }
+  if (variant === 'warning') {
     return themeGet('backgroundColors.colorBackgroundWarningLightest');
   }
   return themeGet('backgroundColors.colorBackgroundPrimaryLighter');
@@ -15,7 +16,8 @@ const borderColorPartial = ({variant}: CalloutProps): string => {
 const backgroundColorPartial = ({variant}: CalloutProps): string => {
   if (variant === 'secondary') {
     return themeGet('backgroundColors.colorBackgroundPrimaryDark');
-  } else if (variant === 'warning') {
+  }
+  if (variant === 'warning') {
     return themeGet('backgroundColors.colorBackgroundWarning');
   }
   return themeGet('backgroundColors.colorBackgroundPrimaryLight');
