@@ -3,6 +3,8 @@ title: Getting Started
 description: Our components are rad
 ---
 
+import {Callout} from '../../components/callout';
+
 <h1>{props.pageContext.frontmatter.title}</h1>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper posuere dui. Suspendisse gravida odio vestibulum, condimentum nibh ultrices, fermentum odio. Nam placerat lobortis augue, non eleifend nulla fringilla a.
@@ -26,6 +28,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper posuere 
 #### Heading 4
 
 ##### Heading 5
+
+<Callout calloutTitle="Hot accessibility tip" variant="warning">
+  Before using this component, we recommend reading the guidelines first.
+</Callout>
 
 ###### Heading 6
 
