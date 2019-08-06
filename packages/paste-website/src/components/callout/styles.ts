@@ -12,7 +12,7 @@ export const StyledCallout: React.FC<CalloutProps> = styled.div`
   border-style: solid;
   border-color: ${props =>
     props.variant === 'secondary'
-      ? themeGet('backgroundColors.colorBackgroundSuccessLightest')
+      ? themeGet('backgroundColors.colorBackgroundPrimaryDarker')
       : props.variant === 'warning'
       ? themeGet('backgroundColors.colorBackgroundWarningLightest')
       : themeGet('backgroundColors.colorBackgroundPrimaryLighter')};
@@ -28,7 +28,7 @@ export const StyledCallout: React.FC<CalloutProps> = styled.div`
     width: ${themeGet('space.space30')};
     background-color: ${props =>
       props.variant === 'secondary'
-        ? themeGet('backgroundColors.colorBackgroundSuccess')
+        ? themeGet('backgroundColors.colorBackgroundPrimaryDark')
         : props.variant === 'warning'
         ? themeGet('backgroundColors.colorBackgroundWarning')
         : themeGet('backgroundColors.colorBackgroundPrimaryLight')};
