@@ -26,7 +26,7 @@ interface SpinnerProps extends SpinnerIconProps {
   title: string;
 }
 
-const Spinner = (props: SpinnerProps) => (
+const Spinner: React.FC<SpinnerProps> = props => (
   <SpinningWrapper>
     <SpinnerIcon {...props} />
   </SpinningWrapper>

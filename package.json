@@ -33,7 +33,7 @@
     "test:coverage": "yarn pre-test && node --experimental-worker ./node_modules/.bin/jest --coverage",
     "prettier": "prettier --list-different '{.storybook,packages}/**/*.{ts,tsx}'",
     "prettier-clean": "prettier --write '{.storybook,packages}/**/*.{ts,tsx}'",
-    "lint": "eslint ./packages/**/*.ts ./packages/**/*.tsx ",
+    "lint": "eslint --ext .tsx,.ts ./packages/**",
     "type-check": "lerna run type-check"
   },
   "dependencies": {

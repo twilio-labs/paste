@@ -51,7 +51,8 @@ module.exports = {
     // with babel compiled typescript.
     '@typescript-eslint/no-var-requires': 'off',
     // Enforce template strings for styles over objects for consistent codebase
-    'emotion/syntax-preference': [2, 'string'],
+    // We can switch this to object at anytime, but lowering to warn as we have a mixed condebase right now.
+    'emotion/syntax-preference': [1, 'string'],
     // PropTypes are useless with typescript
     'react/prop-types': 'off',
     // Avoid having to redefine story deps for this monorepo

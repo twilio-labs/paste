@@ -1,7 +1,7 @@
 import {ImmutableStyleMap} from 'theo';
 import {Token} from '../types';
-import getTokenCategories from '../utils/getTokenCategories';
-import formatGroupTokensWithTemplate from '../utils/formatGroupTokensWithTemplate';
+import {getTokenCategories} from '../utils/getTokenCategories';
+import {formatGroupTokensWithTemplate} from '../utils/formatGroupTokensWithTemplate';
 
 export const categoryTemplate = (categoryName: string, props: Token[]): string => {
   return `{

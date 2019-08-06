@@ -4,7 +4,7 @@ import {Theme} from '@twilio-paste/theme';
 import {Sidebar} from '../sidebar';
 import {Header} from '../header';
 import {Navigation} from '../navigation';
-import {globalStyles, SiteBody, SiteMain} from './styles';
+import {globalStyles, SiteBody, SiteMain, SiteInner} from './styles';
 
 interface SiteWrapperProps {
   children: React.ReactNode;
@@ -19,7 +19,9 @@ const SiteWrapper: React.FC<SiteWrapperProps> = props => {
           <Header siteTitle="Paste" siteSubTitle="Design System" siteVersion="v0.1" />
           <Navigation />
         </Sidebar>
-        <SiteMain>{props.children}</SiteMain>
+        <SiteMain>
+          <SiteInner>{props.children}</SiteInner>
+        </SiteMain>
       </SiteBody>
     </Theme.Provider>
   );
