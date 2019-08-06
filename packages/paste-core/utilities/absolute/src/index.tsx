@@ -92,7 +92,6 @@ interface PositionStyles {
 const preset: styleFn = ({preset: _preset}) => {
   const positionStyles: PositionStyles = {};
 
-  console.log(_preset);
   if (_preset == null) {
     return positionStyles;
   }
