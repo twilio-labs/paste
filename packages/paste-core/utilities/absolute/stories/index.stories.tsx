@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
-import {withKnobs, number, select} from '@storybook/addon-knobs';
+import {withKnobs, text, select} from '@storybook/addon-knobs';
 import {Text} from '@twilio-paste/text';
-import {Absolute, AbsolutePositions} from '../src/index';
+import {Absolute, Presets} from '../src';
 
-const Positions = [
+const PresetValues = [
   'fill',
   'top',
   'top_left',
@@ -28,39 +28,36 @@ storiesOf('Utilities|Absolute', module)
   .addDecorator(withKnobs)
   .add('Default', () => {
     // Get knob values
-    const position = select('position', Positions, Positions[1]) as AbsolutePositions;
-    const top = number('top', null);
-    const right = number('right', null);
-    const bottom = number('bottom', null);
-    const left = number('left', null);
+    const preset = select('preset', PresetValues, PresetValues[1]) as Presets;
+    const top = text('top', '');
+    const right = text('right', '');
+    const bottom = text('bottom', '');
+    const left = text('left', '');
 
     // Throw them in a props object
     const props = {
       backgroundColor: 'colorBackgroundPrimaryLight', // Makes the demo easier to visualize
-      position,
-      // Add PX units here so we can use `number` knobs rather than `text` knobs for better UX
-      top: top != null ? `${top}px` : null,
-      right: right != null ? `${right}px` : null,
-      bottom: bottom != null ? `${bottom}px` : null,
-      left: left != null ? `${left}px` : null,
+      preset,
+      top,
+      right,
+      bottom,
+      left,
     };
 
     return (
-      <Absolute position={position} {...props}>
+      <Absolute {...props}>
+        <Text>The `position` prop should be sufficient, but you can also pass overrides directly:</Text>
         <Text>
-          <p>The `position` prop should be sufficient, but you can also pass overrides directly:</p>
-          <div>
-            <strong>Top:</strong> {top != null ? props.top : 'not provided'}
-          </div>
-          <div>
-            <strong>Right:</strong> {right != null ? props.right : 'not provided'}
-          </div>
-          <div>
-            <strong>Bottom:</strong> {bottom != null ? props.bottom : 'not provided'}
-          </div>
-          <div>
-            <strong>Left:</strong> {left != null ? props.left : 'not provided'}
-          </div>
+          <strong>Top:</strong> {top ? props.top : 'not provided'}
+        </Text>
+        <Text>
+          <strong>Right:</strong> {right ? props.right : 'not provided'}
+        </Text>
+        <Text>
+          <strong>Bottom:</strong> {bottom ? props.bottom : 'not provided'}
+        </Text>
+        <Text>
+          <strong>Left:</strong> {left ? props.left : 'not provided'}
         </Text>
       </Absolute>
     );
