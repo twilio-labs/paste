@@ -1,7 +1,16 @@
 export type CalloutVariants = 'primary' | 'secondary' | 'warning';
 
+export interface CalloutTitleProps {
+  as?: string;
+}
+
 export interface CalloutProps {
-  calloutTitle?: string;
   children?: React.ReactNode;
+  marginTop?: string;
+  marginBottom?: string;
+  paddingTop?: string;
+  paddingRight?: string;
+  paddingBottom?: string;
+  paddingLeft?: string;
   variant?: CalloutVariants;
 }

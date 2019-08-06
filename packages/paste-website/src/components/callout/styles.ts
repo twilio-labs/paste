@@ -1,21 +1,34 @@
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
-import {Text} from '@twilio-paste/text';
+import {Box} from '@twilio-paste/box';
 import {CalloutProps} from './types';
 
-export const StyledCallout: React.FC<CalloutProps> = styled.div`
+const borderColorPartial = ({variant}: CalloutProps) => {
+  if (variant === 'secondary') {
+    return themeGet('backgroundColors.colorBackgroundPrimaryDarker');
+  } else if (variant === 'warning') {
+    return themeGet('backgroundColors.colorBackgroundWarningLightest');
+  } else {
+    return themeGet('backgroundColors.colorBackgroundPrimaryLighter');
+  }
+};
+
+const backgroundColorPartial = ({variant}: CalloutProps) => {
+  if (variant === 'secondary') {
+    return themeGet('backgroundColors.colorBackgroundPrimaryDark');
+  } else if (variant === 'warning') {
+    return themeGet('backgroundColors.colorBackgroundWarning');
+  } else {
+    return themeGet('backgroundColors.colorBackgroundPrimaryLight');
+  }
+};
+
+export const StyledCallout: React.FC<CalloutProps> = styled(Box)`
   position: relative;
-  margin: ${themeGet('space.space60')} 0;
-  padding: ${themeGet('space.space40')} ${themeGet('space.space60')};
   font-size: ${themeGet('fontSizes.fontSize20')};
   border-width: ${themeGet('borderWidths.borderWidth20')};
   border-style: solid;
-  border-color: ${props =>
-    props.variant === 'secondary'
-      ? themeGet('backgroundColors.colorBackgroundPrimaryDarker')
-      : props.variant === 'warning'
-      ? themeGet('backgroundColors.colorBackgroundWarningLightest')
-      : themeGet('backgroundColors.colorBackgroundPrimaryLighter')};
+  border-color: ${borderColorPartial};
   border-radius: 0 ${themeGet('radii.borderRadius20')} ${themeGet('radii.borderRadius20')} 0;
 
   &::before {
@@ -26,16 +39,6 @@ export const StyledCallout: React.FC<CalloutProps> = styled.div`
     display: block;
     content: '';
     width: ${themeGet('space.space30')};
-    background-color: ${props =>
-      props.variant === 'secondary'
-        ? themeGet('backgroundColors.colorBackgroundPrimaryDark')
-        : props.variant === 'warning'
-        ? themeGet('backgroundColors.colorBackgroundWarning')
-        : themeGet('backgroundColors.colorBackgroundPrimaryLight')};
+    background-color: ${backgroundColorPartial};
   }
-`;
-
-export const StyledCalloutTitle = styled(Text)`
-  margin: 0 0 ${themeGet('space.space40')};
-  font-size: ${themeGet('fontSizes.fontSize20')};
 `;
