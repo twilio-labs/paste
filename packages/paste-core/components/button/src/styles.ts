@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import {css, SerializedStyles} from '@emotion/core';
 import {buttonStyle, themeGet} from 'styled-system';
+import {Absolute} from '@twilio-paste/absolute';
 import {ButtonWrapperProps, ButtonChildrenProps} from './types';
 
 // TODO transitions - blocked on design
@@ -397,12 +398,7 @@ export const ButtonChildren = styled.span<ButtonChildrenProps>`
   ${childrenOpacityStyles}
 `;
 
-export const SpinnerWrapper = styled.span`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+export const SpinnerWrapper = styled(Absolute)`
   display: flex;
   justify-content: center;
   align-items: center;
