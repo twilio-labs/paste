@@ -26,6 +26,7 @@ export const SiteNavNestList: React.FC<SiteNavNestListProps> = styled(SiteNavLis
 export const SiteNavItem = styled.li`
   margin: ${themeGet('space.space10')} 0;
   font-size: ${themeGet('fontSizes.fontSize20')};
+  line-height: normal;
 `;
 
 export const SiteNavAnchor = styled(Link)`

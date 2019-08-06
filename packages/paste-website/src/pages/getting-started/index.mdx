@@ -1,11 +1,21 @@
 ---
 title: Getting Started
-description: Our components are rad
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper posuere dui. Suspendisse gravida odio vestibulum, condimentum nibh ultrices, fermentum odio. Nam placerat lobortis augue, non eleifend nulla fringilla a.
 ---
+
+import {Grid} from '../../components/grid';
+
+<content>
 
 <h1>{props.pageContext.frontmatter.title}</h1>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper posuere dui. Suspendisse gravida odio vestibulum, condimentum nibh ultrices, fermentum odio. Nam placerat lobortis augue, non eleifend nulla fringilla a.
+<p>{props.pageContext.frontmatter.description}</p>
+
+</content>
+
+***
+
+<content>
 
 ## Install
 
@@ -37,8 +47,6 @@ Labore enim ipsum mollit cillum nostrud magna aute adipisicing velit. Qui irure 
 
 ***
 
-> Eiusmod Lorem cillum nostrud culpa quis deserunt ea est reprehenderit enim elit consequat.
-
 1. Dolore occaecat elit eiusmod culpa pariatur cillum sint non fugiat ex ut.
 2. Non proident adipisicing minim voluptate voluptate eiusmod consectetur nisi.
 3. Eu magna nulla adipisicing duis eu id Lorem adipisicing non nostrud.
@@ -53,9 +61,58 @@ const comp = props => <div> hello </div>
 
 Irure ex duis proident incididunt. Non culpa ullamco velit dolor nisi nisi id pariatur in consequat et officia commodo incididunt. Quis laborum est sit sit est aliqua pariatur. Ea irure id fugiat labore commodo tempor. Aliquip officia ea magna dolor est. Eiusmod consectetur magna incididunt mollit mollit pariatur irure sunt magna cillum incididunt. Tempor reprehenderit ullamco aliqua ullamco labore officia.
 
+<Grid columnWidth={320} gap={24}>
 
+<div>
+<h5>Heading 5</h5>
+
+Irure ex duis proident incididunt. Non culpa ullamco velit dolor nisi nisi id pariatur in consequat et officia commodo incididunt.
+</div>
+
+<div>
+<h5>Heading 5</h5>
+
+Irure ex duis proident incididunt. Non culpa ullamco velit dolor nisi nisi id pariatur in consequat et officia commodo incididunt.
+</div>
+
+<div>
+<h5>Heading 5</h5>
+
+Irure ex duis proident incididunt. Non culpa ullamco velit dolor nisi nisi id pariatur in consequat et officia commodo incididunt.
+</div>
+
+<div>
+<h5>Heading 5</h5>
+
+Irure ex duis proident incididunt. Non culpa ullamco velit dolor nisi nisi id pariatur in consequat et officia commodo incididunt.
+</div>
+
+</Grid>
+
+<Grid columnWidth={220} gap={24}>
+
+<div>
+<h5>Heading 5</h5>
+
+Irure ex duis proident incididunt. Non culpa ullamco velit dolor nisi nisi id pariatur in consequat et officia commodo incididunt.
+</div>
+
+<div>
+<h5>Heading 5</h5>
+
+Irure ex duis proident incididunt. Non culpa ullamco velit dolor nisi nisi id pariatur in consequat et officia commodo incididunt.
+</div>
+
+<div>
+<h5>Heading 5</h5>
+
+Irure ex duis proident incididunt. Non culpa ullamco velit dolor nisi nisi id pariatur in consequat et officia commodo incididunt.
+</div>
+
+</Grid>
 
 | header | header |
 |--------|--------|
 | row | row |
 
+</content>
