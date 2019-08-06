@@ -9,6 +9,9 @@ props:
   color-background:
     value: "{!palette-gray-0}"
     comment: Default background color for any container
+  color-background-inverse:
+    value: "{!palette-gray-80}"
+    comment: Inverse background color for any container
 
   # brand backgrounds
   color-background-brand:

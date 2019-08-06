@@ -6,6 +6,16 @@ imports:
   - ../aliases/color.yml
   - ../aliases/color-palette.yml
 props:
+  # base background
+  color-background:
+    value: "{!palette-gray-20}"
+    comment: Default background color for any container
+
+  # page body
+  color-background-body:
+    value: "{!palette-gray-0}"
+    comment: Background color of the main page body
+
   # status
   color-background-success:
     value: "{!palette-green-60}"
@@ -25,6 +35,11 @@ props:
   color-background-error-lightest:
     value: "{!palette-red-10}"
     comment: Lightest error background color
+
+  # row backgrounds
+  color-background-row-striped:
+    value: "{!palette-gray-10}"
+    comment: Background color for alternative striped rows
 
   # primary background
   color-background-primary-darker:
