@@ -1,6 +1,8 @@
 {
   "name": "@twilio-paste/media-object",
   "version": "0.2.3",
+  "category": "layout",
+  "status": "alpha",
   "description": "",
   "author": "Twilio Inc.",
   "license": "ISC",

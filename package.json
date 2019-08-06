@@ -12,11 +12,12 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "prestart": "yarn prebuild",
-    "start": "yarn build:icons && concurrently \"yarn:start:*\"",
+    "start": "yarn build:tokens && concurrently \"yarn:start:tokens\" \"yarn:start:storybook\"",
+    "start:all": "yarn build:tokens && concurrently \"yarn:start:tokens\" \"yarn:start:storybook\" \"yarn:start:website\"",
     "start:storybook": "start-storybook",
     "start:tokens": "yarn workspace @twilio-paste/design-tokens build:dev",
-    "start:icons": "yarn workspace @twilio-paste/icons watch",
     "start:website": "yarn workspace @twilio-paste/website develop",
+    "watch:icons": "yarn workspace @twilio-paste/icons watch",
     "prebuild": "node ./tools/build/pre-build.js",
     "build": "lerna run build",
     "build:dev": "yarn prebuild && yarn build:tokens && lerna run build:dev",
@@ -24,7 +25,7 @@
     "build:icons": "yarn workspace @twilio-paste/icons build",
     "build:storybook": "build-storybook -c .storybook -o /docs",
     "build:website": "yarn workspace @twilio-paste/website build",
-    "pre-push": "yarn build && yarn lint && yarn test && yarn prettier",
+    "pre-push": "yarn build && concurrently \"yarn:lint\" \"yarn:test\" \"yarn:prettier\"",
     "release": "yarn lerna publish --skip-npm",
     "clean": "node ./tools/build/clean-repo.js && lerna clean --yes && lerna run clean && yarn bootstrap",
     "pre-test": "node ./tools/build/pre-test.js",
@@ -32,7 +33,7 @@
     "test:coverage": "yarn pre-test && node --experimental-worker ./node_modules/.bin/jest --coverage",
     "prettier": "prettier --list-different '{.storybook,packages}/**/*.{ts,tsx}'",
     "prettier-clean": "prettier --write '{.storybook,packages}/**/*.{ts,tsx}'",
-    "lint": "eslint ./packages/**/*.ts ./packages/**/*.tsx ",
+    "lint": "eslint --ext .tsx,.ts ./packages/**",
     "type-check": "lerna run type-check"
   },
   "dependencies": {

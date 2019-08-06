@@ -94,11 +94,14 @@ const Navigation: React.FC<NavigationProps> = () => {
             <SiteNavAnchorArrow isOpen={componentsOpen} />
           </SiteNavButton>
           <SiteNavNestList isOpen={componentsOpen}>
+            <SiteNavItem>
+              <SiteNavAnchor to="/components">Overview</SiteNavAnchor>
+            </SiteNavItem>
             {data.allPasteComponent.edges.map(({node}) => {
               return (
                 <SiteNavItem key={node.name}>
-                  <SiteNavAnchor to={`/components/${node.name.replace('@paste/', '')}`}>
-                    {node.name.replace('@paste/', '')}
+                  <SiteNavAnchor to={`/components/${node.name.replace('@twilio-paste/', '')}`}>
+                    {node.name.replace('@twilio-paste/', '')}
                   </SiteNavAnchor>
                 </SiteNavItem>
               );
@@ -111,11 +114,12 @@ const Navigation: React.FC<NavigationProps> = () => {
             <SiteNavAnchorArrow isOpen={utilitiesOpen} />
           </SiteNavButton>
           <SiteNavNestList isOpen={utilitiesOpen}>
+            <SiteNavAnchor to="/utilities">Overview</SiteNavAnchor>
             {data.allPasteUtility.edges.map(({node}) => {
               return (
                 <SiteNavItem key={node.name}>
-                  <SiteNavAnchor to={`/utilities/${node.name.replace('@paste/', '')}`}>
-                    {node.name.replace('@paste/', '')}
+                  <SiteNavAnchor to={`/utilities/${node.name.replace('@twilio-paste/', '')}`}>
+                    {node.name.replace('@twilio-paste/', '')}
                   </SiteNavAnchor>
                 </SiteNavItem>
               );

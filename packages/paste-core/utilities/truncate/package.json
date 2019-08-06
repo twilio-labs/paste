@@ -1,6 +1,8 @@
 {
   "name": "@twilio-paste/truncate",
   "version": "0.1.2",
+  "category": "typography",
+  "status": "alpha",
   "description": "",
   "author": "Twilio Inc.",
   "license": "ISC",

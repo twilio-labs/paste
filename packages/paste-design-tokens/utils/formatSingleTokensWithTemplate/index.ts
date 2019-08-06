@@ -1,7 +1,10 @@
 import {ImmutableStyleMap} from 'theo';
 import {Token} from '../../types';
 
-export default (tokens: ImmutableStyleMap, tokenTemplate: (prop: Token) => void) => {
+export const formatSingleTokensWithTemplate = (
+  tokens: ImmutableStyleMap,
+  tokenTemplate: (prop: Token) => string
+): string => {
   return tokens
     .get('props')
     .sortBy(prop => {
@@ -9,10 +12,11 @@ export default (tokens: ImmutableStyleMap, tokenTemplate: (prop: Token) => void)
         return prop.get('name');
       }
     })
-    .map(prop => {
+    .map((prop): string | undefined => {
       if (prop !== undefined) {
         return tokenTemplate(prop.toJS());
       }
+      return undefined;
     })
     .join('\n');
 };
