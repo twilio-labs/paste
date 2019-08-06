@@ -11,19 +11,19 @@ import {ButtonWrapperProps, ButtonChildrenProps} from './types';
 const sizeReset = css`
   padding: 0;
 `;
-const sizeIcon = (props: ButtonWrapperProps) => css`
+const sizeIcon = (props: ButtonWrapperProps): SerializedStyles => css`
   padding: ${themeGet('space.space30')(props)};
   border-radius: ${themeGet('radii.borderRadius20')(props)};
   /* To fix abnormal button padding-bottom */
   line-height: unset;
 `;
-const sizeSmall = (props: ButtonWrapperProps) => css`
+const sizeSmall = (props: ButtonWrapperProps): SerializedStyles => css`
   padding: ${themeGet('space.space10')(props)} ${themeGet('space.space30')(props)};
   border-radius: ${themeGet('radii.borderRadius10')(props)};
   font-size: ${themeGet('fontSizes.fontSize20')(props)};
   line-height: 24px;
 `;
-const sizeDefault = (props: ButtonWrapperProps) => css`
+const sizeDefault = (props: ButtonWrapperProps): SerializedStyles => css`
   padding: ${themeGet('space.space30')(props)} ${themeGet('space.space60')(props)};
   border-radius: ${themeGet('radii.borderRadius20')(props)};
   font-size: ${themeGet('fontSizes.fontSize20')(props)};
@@ -79,7 +79,7 @@ const baseDisabled = css([
  * Variants
  */
 // Primary
-const variantPrimaryBase = (props: ButtonWrapperProps) => css`
+const variantPrimaryBase = (props: ButtonWrapperProps): SerializedStyles => css`
   border-width: ${themeGet('borderWidths.borderWidth10')(props)};
   border-style: solid;
   color: ${themeGet('textColors.colorTextInverse')(props)};
@@ -134,7 +134,7 @@ const variantPrimaryDisabled = (props: ButtonWrapperProps): SerializedStyles =>
   ]);
 
 // Secondary
-const variantSecondaryBase = (props: ButtonWrapperProps) => css`
+const variantSecondaryBase = (props: ButtonWrapperProps): SerializedStyles => css`
   border-width: ${themeGet('borderWidths.borderWidth10')(props)};
   border-style: solid;
   background-color: ${themeGet('backgroundColors.colorBackgroundBody')(props)};
@@ -182,7 +182,7 @@ const variantSecondaryDisabled = (props: ButtonWrapperProps): SerializedStyles =
   ]);
 
 // Destructive
-const variantDestructiveBase = (props: ButtonWrapperProps) => css`
+const variantDestructiveBase = (props: ButtonWrapperProps): SerializedStyles => css`
   border-width: ${themeGet('borderWidths.borderWidth10')(props)};
   border-style: solid;
   background-color: ${themeGet('backgroundColors.colorBackgroundBody')(props)};
