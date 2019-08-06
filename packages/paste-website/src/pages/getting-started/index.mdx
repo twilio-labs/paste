@@ -3,7 +3,7 @@ title: Getting Started
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper posuere dui. Suspendisse gravida odio vestibulum, condimentum nibh ultrices, fermentum odio. Nam placerat lobortis augue, non eleifend nulla fringilla a.
 ---
 
-import {Callout, CalloutTitle} from '../../components/callout';
+import {Callout, CalloutTitle, CalloutContent} from '../../components/callout';
 import {Grid} from '../../components/grid';
 
 <content>
@@ -40,15 +40,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper posuere 
 
 <Callout variant="warning">
   <CalloutTitle as="h4">Hot accessibility tip</CalloutTitle>
-  Before using this component, we recommend reading the guidelines first.
+  <CalloutContent>Before using this component, we recommend reading the guidelines first.</CalloutContent>
 </Callout>
 
 <Callout>
-  Before using this component, we recommend reading the guidelines first.
+  <CalloutContent>Before using this component, we recommend reading the guidelines first.</CalloutContent>
 </Callout>
 
 <Callout variant="secondary">
-  Before using this component, we recommend reading the guidelines first.
+  <CalloutContent>Before using this component, we recommend reading the guidelines first.</CalloutContent>
 </Callout>
 
 ###### Heading 6

@@ -25,7 +25,6 @@ const backgroundColorPartial = ({variant}: CalloutProps): string => {
 
 export const StyledCallout: React.FC<CalloutProps> = styled(Box)`
   position: relative;
-  font-size: ${themeGet('fontSizes.fontSize20')};
   border-width: ${themeGet('borderWidths.borderWidth20')};
   border-style: solid;
   border-color: ${borderColorPartial};

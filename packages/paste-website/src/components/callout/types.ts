@@ -4,6 +4,10 @@ export interface CalloutTitleProps {
   as?: string;
 }
 
+export interface CalloutContentProps {
+  as?: string;
+}
+
 export interface CalloutProps {
   children?: React.ReactNode;
   marginTop?: string;
