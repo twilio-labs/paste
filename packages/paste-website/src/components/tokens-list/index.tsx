@@ -1,6 +1,4 @@
-/** @jsx jsx */
 import * as React from 'react';
-import {jsx} from '@emotion/core';
 import {Heading} from '@twilio-paste/heading';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';

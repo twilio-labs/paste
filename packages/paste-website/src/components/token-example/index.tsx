@@ -1,6 +1,4 @@
-/** @jsx jsx */
 import * as React from 'react';
-import {jsx} from '@emotion/core';
 import * as lodash from 'lodash';
 import {ThemeShape} from '@twilio-paste/theme-tokens';
 import {Absolute, AbsoluteProps} from '@twilio-paste/absolute';
