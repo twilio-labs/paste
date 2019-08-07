@@ -9,10 +9,7 @@
   ],
   "references": [
     {
-      "path": "../../utilities/absolute"
-    },
-    {
-      "path": "../spinner"
+      "path": "../box"
     }
   ]
 }

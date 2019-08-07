@@ -28,10 +28,15 @@ jobs:
       - run:
           name: Run build
           command: yarn build
+      - run:
+          name: Build monorepo package cache
+          command: yarn pre-test
       - persist_to_workspace:
           root: ~/
           paths:
             - repo/packages
+            - repo/tools/.cache
+
   test:
     executor: job-executor
     steps:

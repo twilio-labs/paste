@@ -66,7 +66,7 @@ const Button: React.FC<ButtonProps> = props => {
     >
       <ButtonChildren buttonState={buttonState}>{props.children}</ButtonChildren>
       {showLoading ? (
-        <SpinnerWrapper>
+        <SpinnerWrapper as="span">
           <Spinner size={20} title=". Loading, please wait." />
         </SpinnerWrapper>
       ) : null}
