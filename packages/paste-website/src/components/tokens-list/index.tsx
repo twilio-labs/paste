@@ -73,7 +73,7 @@ export const TokensList: React.FC<TokensListProps> = props => {
     });
   };
 
-  const handleOnInput = (e: React.FormEvent<HTMLInputElement>): void => {
+  const handleInput = (e: React.FormEvent<HTMLInputElement>): void => {
     const filter = e.currentTarget.value;
     filterTokenList(filter);
   };
@@ -88,7 +88,7 @@ export const TokensList: React.FC<TokensListProps> = props => {
           aria-label="Filter the token list"
           autoComplete="off"
           id={uid}
-          onInput={handleOnInput}
+          onInput={handleInput}
           placeholder="filter by name or value"
           type="text"
         />
