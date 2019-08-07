@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Text} from '@twilio-paste/text';
 import {StyledCallout} from './styles';
-import {CalloutProps, CalloutTitleProps, CalloutContentProps} from './types';
+import {CalloutProps, CalloutTitleProps, CalloutTextProps} from './types';
 
 const CalloutTitle: React.FC<CalloutTitleProps> = ({as, children}) => (
   <Text as={as} marginBottom="space40" fontSize="fontSize20">
@@ -9,11 +9,7 @@ const CalloutTitle: React.FC<CalloutTitleProps> = ({as, children}) => (
   </Text>
 );
 
-const CalloutContent: React.FC<CalloutContentProps> = ({as, children}) => (
-  <Text as={as} marginBottom="space0" fontSize="fontSize20">
-    {children}
-  </Text>
-);
+const CalloutText: React.FC<CalloutTextProps> = ({children}) => <Text fontSize="fontSize20">{children}</Text>;
 
 const Callout: React.FC<CalloutProps> = props => {
   return (
@@ -35,4 +31,4 @@ Callout.defaultProps = {
   variant: 'primary',
 };
 
-export {Callout, CalloutTitle, CalloutContent};
+export {Callout, CalloutTitle, CalloutText};
