@@ -16,11 +16,11 @@ const BASE_PLUGINS = ['@babel/proposal-object-rest-spread'];
 module.exports = {
   env: {
     production: {
-      presets: getPresets(true),
+      presets: getPresets(false),
       plugins: BASE_PLUGINS,
     },
     development: {
-      presets: getPresets(false),
+      presets: getPresets(true),
       plugins: BASE_PLUGINS,
     },
   },
