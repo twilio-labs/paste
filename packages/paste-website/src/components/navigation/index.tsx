@@ -75,6 +75,7 @@ const Navigation: React.FC<NavigationProps> = () => {
 
   const [componentsOpen, setComponentsOpen] = React.useState(false);
   const [utilitiesOpen, setutilitiesOpen] = React.useState(false);
+  const [gettingStartedOpen, setGettingStartedOpen] = React.useState(false);
 
   return (
     <SiteNav>
@@ -82,8 +83,22 @@ const Navigation: React.FC<NavigationProps> = () => {
         <SiteNavItem>
           <SiteNavAnchor to="/">Home</SiteNavAnchor>
         </SiteNavItem>
-        <SiteNavItem>
+        {/* <SiteNavItem>
           <SiteNavAnchor to="/getting-started">Getting Started</SiteNavAnchor>
+        </SiteNavItem> */}
+        <SiteNavItem>
+          <SiteNavButton onClick={() => setGettingStartedOpen(!gettingStartedOpen)} isOpen={gettingStartedOpen}>
+            Getting Started
+            <SiteNavAnchorArrow isOpen={gettingStartedOpen} />
+          </SiteNavButton>
+          <SiteNavNestList isOpen={gettingStartedOpen}>
+            <SiteNavItem>
+              <SiteNavAnchor to="/getting-started">General Guidelines</SiteNavAnchor>
+            </SiteNavItem>
+            <SiteNavItem>
+              <SiteNavAnchor to="/getting-started/design">Design Guidelines</SiteNavAnchor>
+            </SiteNavItem>
+          </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
           <SiteNavAnchor to="/tokens">Tokens</SiteNavAnchor>

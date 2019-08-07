@@ -15,7 +15,7 @@ Build things 🎉
 ## To build docs
 
 ```
-yarn build-docs
+yarn start:website
 ```
 
 Then commit + push the changes
