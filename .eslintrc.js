@@ -1,3 +1,5 @@
+const path = require('path');
+
 // Based on https://github.com/iamturns/create-exposed-app/blob/master/.eslintrc.js
 module.exports = {
   parser: '@typescript-eslint/parser',
@@ -72,6 +74,7 @@ module.exports = {
   },
   settings: {
     'import/resolver': {
+      [path.resolve('./.eslint/resolver')]: {someConfig: ''},
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts'],
       },
