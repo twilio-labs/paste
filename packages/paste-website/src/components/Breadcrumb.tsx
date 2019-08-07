@@ -9,19 +9,19 @@ const CrumbSlashStyled = styled.aside(props => ({
   color: themeGet('textColors.colorTextWeak')(props),
 }));
 
-const CrumbSlash = () => <CrumbSlashStyled>/</CrumbSlashStyled>;
+const CrumbSlash: React.FC<{}> = () => <CrumbSlashStyled>/</CrumbSlashStyled>;
 
-interface BreadcrumbProps {
-  children?: React.ReactElement[];
-}
-
-const Breadcrumb: React.FC<BreadcrumbProps> = ({children}) => {
-  return React.Children.map(children, child => (
+const Breadcrumb: React.FC<{}> = ({children}) => {
+  return (
     <>
-      {child}
-      <CrumbSlash />
+      {React.Children.map(children, child => (
+        <>
+          {child}
+          <CrumbSlash />
+        </>
+      ))}
     </>
-  ));
+  );
 };
 
 const BreadcrumbItem = styled(Link)`

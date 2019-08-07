@@ -3,9 +3,7 @@ import {Box} from '@twilio-paste/box';
 import {Header} from './Header';
 import {Navigation} from './Navigation';
 
-interface SidebarProps {}
-
-const Sidebar: React.FC<SidebarProps> = () => {
+const Sidebar: React.FC<{}> = () => {
   return (
     <Box
       backgroundColor="colorBackground"

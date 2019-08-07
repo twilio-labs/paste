@@ -10,8 +10,7 @@ interface ComponentLayoutProps {
   pageContext?: {};
 }
 
-const ComponentLayout: React.FC<ComponentLayoutProps> = ({children, ...props}) => {
-  // console.log(props.pageResources.json.pageContext.frontmatter);
+const ComponentLayout: React.FC<ComponentLayoutProps> = ({children}) => {
   return (
     <SiteWrapper>
       <PasteMDXProvider>

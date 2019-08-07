@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {Text} from '@twilio-paste/text';
 import styled from '@emotion/styled';
-import {TWILIO_RED} from '../../constants';
-import {TwilioIcon} from '../icons/TwilioIcon';
 import {Link} from 'gatsby';
 import {themeGet} from 'styled-system';
+import {TwilioIcon} from '../icons/TwilioIcon';
+import {TWILIO_RED} from '../../constants';
 
 const StyledHeader = styled.header`
   padding: 0 ${themeGet('space.space40')} ${themeGet('space.space40')};

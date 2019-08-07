@@ -2,7 +2,6 @@ import * as React from 'react';
 import {MDXProvider} from '@mdx-js/react';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
-import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
 import {Table, Tbody, Tr, Th, Td} from './Table';
 
