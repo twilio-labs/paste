@@ -13,7 +13,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn clean && yarn compile",
+    "build": "yarn compile",
     "build:dev": "yarn clean && yarn compile:dev",
     "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
     "compile": "rollup -c --environment NODE_ENV:production",
@@ -22,7 +22,7 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@twilio-paste/design-tokens": "^2.0.2"
+    "@twilio-paste/design-tokens": "^2.2.0"
   },
   "devDependencies": {
     "@twilio-paste/design-tokens": "^2.2.0",
