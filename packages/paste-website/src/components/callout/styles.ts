@@ -5,12 +5,12 @@ import {CalloutProps} from './types';
 
 const borderColorPartial = ({variant}: CalloutProps): string => {
   if (variant === 'secondary') {
-    return themeGet('backgroundColors.colorBackgroundPrimaryDarker');
+    return themeGet('borderColors.colorBorderPrimaryDark');
   }
   if (variant === 'warning') {
-    return themeGet('backgroundColors.colorBackgroundWarningLightest');
+    return themeGet('borderColors.colorBorderWarning');
   }
-  return themeGet('backgroundColors.colorBackgroundPrimaryLighter');
+  return themeGet('borderColors.colorBorderPrimaryLight');
 };
 
 const backgroundColorPartial = ({variant}: CalloutProps): string => {

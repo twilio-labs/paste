@@ -5,7 +5,9 @@ export interface CalloutTitleProps {
 }
 
 export interface CalloutTextProps {
-  children?: React.ReactNode;
+  as?: string;
+  marginTop?: string;
+  marginBottom?: string;
 }
 
 export interface CalloutProps {

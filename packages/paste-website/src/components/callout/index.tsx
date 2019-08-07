@@ -9,7 +9,11 @@ const CalloutTitle: React.FC<CalloutTitleProps> = ({as, children}) => (
   </Text>
 );
 
-const CalloutText: React.FC<CalloutTextProps> = ({children}) => <Text fontSize="fontSize20">{children}</Text>;
+const CalloutText: React.FC<CalloutTextProps> = ({as, children, marginTop, marginBottom}) => (
+  <Text as={as} marginTop={marginTop} marginBottom={marginBottom} fontSize="fontSize20">
+    {children}
+  </Text>
+);
 
 const Callout: React.FC<CalloutProps> = props => {
   return (
