@@ -43,12 +43,27 @@ props:
     value: "{!palette-blue-30}"
     comment: Lighter primary border color
 
-  # error borders
+  # status borders
+  color-border-success:
+    value: "{!palette-green-60}"
+    comment: Success borderr color
+  color-border-success-lightest:
+    value: "{!palette-green-10}"
+    comment: Lightest success borderr color
+  color-border-warning:
+    value: "{!palette-orange-60}"
+    comment: Warning borderr color
+  color-border-warning-lightest:
+    value: "{!palette-orange-10}"
+    comment: Lightest warning borderr color
   color-border-error:
     value: "{!palette-red-60}"
     comment: Error border color
+  color-border-error-lightest:
+    value: "{!palette-red-10}"
+    comment: Lightest error borderr color
 
-  # destrcuctive borders
+  # destructive borders
   color-border-destructive-darker:
     value: "{!palette-red-80}"
     comment: Destructive hover border color
