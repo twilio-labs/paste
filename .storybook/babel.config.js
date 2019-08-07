@@ -19,11 +19,11 @@ const BASE_PLUGINS = ['macros', '@babel/proposal-class-properties', '@babel/prop
 module.exports = {
   env: {
     production: {
-      presets: getPresets(true),
+      presets: getPresets(false),
       plugins: BASE_PLUGINS,
     },
     development: {
-      presets: getPresets(false),
+      presets: getPresets(true),
       plugins: BASE_PLUGINS,
     },
   },

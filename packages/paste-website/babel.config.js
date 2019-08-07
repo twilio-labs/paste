@@ -1,9 +1,6 @@
 const getPresets = isDev => [
-  '@babel/preset-env',
-  '@babel/preset-react',
-  '@babel/preset-typescript',
+  'babel-preset-gatsby',
   [
-    // Automatically includes the 'emotion' preset.
     '@emotion/babel-preset-css-prop',
     {
       sourceMap: isDev,
@@ -14,7 +11,7 @@ const getPresets = isDev => [
   ],
 ];
 
-const BASE_PLUGINS = ['macros', '@babel/proposal-class-properties', '@babel/proposal-object-rest-spread'];
+const BASE_PLUGINS = ['@babel/proposal-object-rest-spread'];
 
 module.exports = {
   env: {

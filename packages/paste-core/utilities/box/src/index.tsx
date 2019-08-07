@@ -1,28 +1,44 @@
 import styled from '@emotion/styled';
 import {
-  borders,
   display,
+  DisplayProps,
+  borders,
+  BorderProps,
   height,
-  HeightProps,
   maxWidth,
-  MaxWidthProps,
   minWidth,
-  MinWidthProps,
   space,
   style,
-  themeGet,
   width,
-  WidthProps,
 } from 'styled-system';
-import {ThemeShape} from '@twilio-paste/theme-tokens';
-import {SpacingThemeProps} from '../../../../../types';
 
-export interface BoxProps extends HeightProps, MaxWidthProps, MinWidthProps, WidthProps, SpacingThemeProps {
-  as?: string;
-  backgroundColor?: keyof ThemeShape['backgroundColors'];
-  borderRadius?: keyof ThemeShape['radii'];
-  borderType?: keyof ThemeShape['borderTypes'];
-  borderWidth?: keyof ThemeShape['borderWidths'];
+import {
+  SpacingThemeProps,
+  BackgroundColorProp,
+  BorderRadiusProps,
+  BorderWidthProps,
+  WidthProps,
+  HeightProp,
+  MaxWidthProp,
+  MinWidthProp,
+  BorderColorProps,
+  BorderStyleProp,
+} from './types';
+
+export interface BoxProps
+  extends DisplayProps,
+    BorderProps,
+    HeightProp,
+    MaxWidthProp,
+    MinWidthProp,
+    WidthProps,
+    SpacingThemeProps,
+    BackgroundColorProp,
+    BorderColorProps,
+    BorderRadiusProps,
+    BorderStyleProp,
+    BorderWidthProps {
+  as?: keyof JSX.IntrinsicElements;
 }
 
 const backgroundColor = style({
@@ -31,14 +47,72 @@ const backgroundColor = style({
   key: 'backgroundColors',
 });
 
-const BorderType = (props: BoxProps): string | null => {
-  return props.borderType ? themeGet(`borderTypes.${props.borderType}`)(props) : null;
-};
+const borderBottomLeftRadius = style({
+  prop: 'borderBottomLeftRadius',
+  cssProperty: 'borderBottomLeftRadius',
+  key: 'radii',
+});
+
+const borderBottomRightRadius = style({
+  prop: 'borderBottomRightRadius',
+  cssProperty: 'borderBottomRightRadius',
+  key: 'radii',
+});
+
+const borderTopLeftRadius = style({
+  prop: 'borderTopLeftRadius',
+  cssProperty: 'borderTopLeftRadius',
+  key: 'radii',
+});
+
+const borderTopRightRadius = style({
+  prop: 'borderTopRightRadius',
+  cssProperty: 'borderTopRightRadius',
+  key: 'radii',
+});
+
+const borderColor = style({
+  prop: 'borderColor',
+  cssProperty: 'borderColor',
+  key: 'borderColors',
+});
+
+const borderBottomWidth = style({
+  prop: 'borderBottomWidth',
+  cssProperty: 'borderBottomWidth',
+  key: 'borderWidths',
+});
+
+const borderLeftWidth = style({
+  prop: 'borderLeftWidth',
+  cssProperty: 'borderLeftWidth',
+  key: 'borderWidths',
+});
+
+const borderRightWidth = style({
+  prop: 'borderRightWidth',
+  cssProperty: 'borderRightWidth',
+  key: 'borderWidths',
+});
+
+const borderTopWidth = style({
+  prop: 'borderTopWidth',
+  cssProperty: 'borderTopWidth',
+  key: 'borderWidths',
+});
 
 const Box = styled.div<BoxProps>`
   ${backgroundColor};
   ${borders};
-  ${BorderType};
+  ${borderColor}
+  ${borderBottomWidth}
+  ${borderLeftWidth}
+  ${borderRightWidth}
+  ${borderTopWidth}
+  ${borderBottomLeftRadius};
+  ${borderBottomRightRadius};
+  ${borderTopLeftRadius};
+  ${borderTopRightRadius};
   ${display};
   ${height};
   ${maxWidth};
@@ -48,7 +122,7 @@ const Box = styled.div<BoxProps>`
 `;
 
 Box.defaultProps = {
-  minWidth: 0,
+  minWidth: 'size0',
 };
 
 export {Box};
