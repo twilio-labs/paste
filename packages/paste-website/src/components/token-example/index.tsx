@@ -1,29 +1,18 @@
 /** @jsx jsx */
 import * as React from 'react';
 import {jsx} from '@emotion/core';
-import camelCase from 'lodash.camelcase';
+import * as lodash from 'lodash';
 import {ThemeShape} from '@twilio-paste/theme-tokens';
+import {Absolute, AbsoluteProps} from '@twilio-paste/absolute';
 import {Box, BoxProps} from '@twilio-paste/box';
 import {Text, TextProps} from '@twilio-paste/text';
 
 // Traditional import as the color package isn't exported and typed correctly
 const Color = require('color');
 
-type BackgroundColor = Pick<BoxProps, 'backgroundColor'>;
+type BackgroundColor = Pick<AbsoluteProps, 'backgroundColor'>;
 export const ColorBox: React.FC<BackgroundColor> = ({backgroundColor}) => {
-  return (
-    <Box
-      backgroundColor={backgroundColor}
-      p="space50"
-      css={{
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        top: 0,
-      }}
-    />
-  );
+  return <Absolute backgroundColor={backgroundColor} p="space50" preset="fill" />;
 };
 
 type BorderBoxProps = Pick<BoxProps, 'borderColor' | 'borderWidth'>;
@@ -41,15 +30,11 @@ export const TextBox: React.FC<TextBoxProps> = ({color, fontFamily, fontSize, fo
   const colorFn = Color(color);
   const isInverse = colorFn.isLight();
   return (
-    <Box
+    <Absolute
       backgroundColor={isInverse ? 'colorBackgroundBrand' : 'colorBackgroundBody'}
       p="space60"
+      preset="fill"
       css={{
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        top: 0,
         display: 'flex',
         alignItems: 'center',
       }}
@@ -63,7 +48,7 @@ export const TextBox: React.FC<TextBoxProps> = ({color, fontFamily, fontSize, fo
       >
         Ag
       </Text>
-    </Box>
+    </Absolute>
   );
 };
 
@@ -101,7 +86,7 @@ interface TokenExampleProps {
   };
 }
 export const TokenExample: React.FC<TokenExampleProps> = ({token}) => {
-  const tokenName = camelCase(token.name);
+  const tokenName = lodash.camelCase(token.name);
   switch (token.category) {
     case 'background-color':
       return <ColorBox backgroundColor={tokenName as keyof ThemeShape['backgroundColors']} />;

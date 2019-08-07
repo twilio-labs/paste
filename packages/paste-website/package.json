@@ -34,7 +34,7 @@
     "gatsby-plugin-typescript": "^2.1.0",
     "gatsby-source-filesystem": "^2.1.2",
     "gatsby-transformer-json": "^2.2.0",
-    "lodash.camelcase": "^4.3.0",
+    "lodash": "^4.17.15",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "@types/color": "^3.0.0",
+    "@types/lodash": "^4.14.136",
     "prettier": "^1.18.2",
     "typescript": "^3.5.2"
   }
