@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Box} from '@twilio-paste/box';
 import {Table, Thead, Tbody, Tr, Th, Td} from './Table';
 
 interface ComponentOverviewTableProps {
@@ -14,9 +15,12 @@ interface ComponentOverviewTableProps {
   ];
 }
 
-export const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = (
-  props: ComponentOverviewTableProps
-): React.ReactElement => {
+const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({componentsList}) => {
+  if (componentsList == null) {
+    return null;
+  }
+  const sortedComponentsList = componentsList.sort((a, b) => a.node.status === 'backlog');
+
   return (
     <Table>
       <Thead>
@@ -27,19 +31,20 @@ export const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = (
         </Tr>
       </Thead>
       <Tbody>
-        {props.componentsList != null &&
-          props.componentsList.map(({node}) => {
-            return (
-              <Tr key={node.name}>
-                <Td>
-                  <code>{node.name}</code>
-                </Td>
-                <Td>{node.status}</Td>
-                <Td>{node.version}</Td>
-              </Tr>
-            );
-          })}
+        {sortedComponentsList.map(({node}) => {
+          return (
+            <Tr key={node.name}>
+              <Td>
+                <code>{node.name}</code>
+              </Td>
+              <Td>{node.status}</Td>
+              <Td>{node.version === '0.0.0' ? '' : node.version}</Td>
+            </Tr>
+          );
+        })}
       </Tbody>
     </Table>
   );
 };
+
+export {ComponentOverviewTable};
