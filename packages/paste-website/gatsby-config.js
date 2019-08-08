@@ -47,7 +47,6 @@ module.exports = {
       options: {
         defaultLayouts: {
           default: require.resolve('./src/layouts/DefaultLayout.tsx'),
-          components: require.resolve('./src/layouts/ComponentLayout.tsx'),
         },
       },
     },
