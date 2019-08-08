@@ -42,8 +42,8 @@ interface TokensListProps {
 
 const setInitialState = (data: DataShape[]): TokenCategory[] | null => {
   if (data != null) {
-    // eslint-disable-next-line prefer-destructuring
-    return data[0].node.tokens;
+    const {tokens} = data[0].node;
+    return tokens;
   }
   return null;
 };
@@ -105,7 +105,7 @@ export const TokensList: React.FC<TokensListProps> = props => {
                   <thead>
                     <Tr>
                       <Th>Token</Th>
-                      <Th>Value</Th>
+                      <Th width="150px">Value</Th>
                       <Th>Description</Th>
                       <Th>Example</Th>
                     </Tr>

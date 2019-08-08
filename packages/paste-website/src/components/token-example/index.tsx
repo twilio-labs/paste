@@ -2,8 +2,11 @@ import * as React from 'react';
 import * as lodash from 'lodash';
 import {ThemeShape} from '@twilio-paste/theme-tokens';
 import {Absolute, AbsoluteProps} from '@twilio-paste/absolute';
+import {useTheme} from '@twilio-paste/theme';
 import {Box, BoxProps} from '@twilio-paste/box';
 import {Text, TextProps} from '@twilio-paste/text';
+import ColorCombos, {ColorCombinationAccessibility} from '../../utils/color-combos';
+import colorRating from '../../utils/color-rating';
 
 // Traditional import as the color package isn't exported and typed correctly
 const Color = require('color');
@@ -20,13 +23,34 @@ export const BorderBox: React.FC<BorderBoxProps> = ({borderColor, borderWidth}) 
   );
 };
 
-type TextBoxProp = Pick<TextProps, 'fontFamily' | 'fontSize' | 'fontWeight' | 'textColor'>;
-interface TextBoxProps extends TextBoxProp {
-  color?: string;
+type TextBoxProp = Pick<TextProps, 'fontFamily' | 'fontSize' | 'fontWeight'>;
+export const TextBox: React.FC<TextBoxProp> = ({fontFamily, fontSize, fontWeight}) => {
+  return (
+    <Text fontFamily={fontFamily} fontSize={fontSize || 'fontSize60'} fontWeight={fontWeight} lineHeight="lineHeight60">
+      Ag
+    </Text>
+  );
+};
+
+type TextColorBoxProp = Pick<TextProps, 'textColor'>;
+interface TextColorBoxProps extends TextColorBoxProp {
+  color: string;
 }
-export const TextBox: React.FC<TextBoxProps> = ({color, fontFamily, fontSize, fontWeight, textColor}) => {
+export const TextColorBox: React.FC<TextColorBoxProps> = ({color, textColor}) => {
+  const theme = useTheme();
   const colorFn = Color(color);
   const isInverse = colorFn.isLight();
+  const backgroundColorValue = isInverse
+    ? theme.backgroundColors.colorBackgroundBrand
+    : theme.backgroundColors.colorBackgroundBody;
+  const colorCombos = ColorCombos([color, backgroundColorValue]);
+  const {accessibility} = colorCombos[1].combinations[0];
+
+  const getContrastRating = (acc: ColorCombinationAccessibility): string => {
+    const rating = colorRating(acc);
+    return rating.small;
+  };
+
   return (
     <Absolute
       backgroundColor={isInverse ? 'colorBackgroundBrand' : 'colorBackgroundBody'}
@@ -35,16 +59,14 @@ export const TextBox: React.FC<TextBoxProps> = ({color, fontFamily, fontSize, fo
       css={{
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'space-between',
       }}
     >
-      <Text
-        fontFamily={fontFamily}
-        fontSize={fontSize || 'fontSize60'}
-        fontWeight={fontWeight}
-        lineHeight="lineHeight60"
-        textColor={textColor}
-      >
+      <Text as="span" fontSize="fontSize60" lineHeight="lineHeight60" textColor={textColor}>
         Ag
+      </Text>
+      <Text as="span" fontSize="fontSize40" lineHeight="lineHeight30" textColor={textColor}>
+        {getContrastRating(accessibility)}
       </Text>
     </Absolute>
   );
@@ -107,7 +129,7 @@ export const TokenExample: React.FC<TokenExampleProps> = ({token}) => {
     case 'spacing':
       return <SpacingBox padding={tokenName as keyof ThemeShape['space']} />;
     case 'text-color':
-      return <TextBox color={token.value} textColor={tokenName as keyof ThemeShape['textColors']} />;
+      return <TextColorBox color={token.value} textColor={tokenName as keyof ThemeShape['textColors']} />;
     default:
       return <Box>{token.value}</Box>;
   }
