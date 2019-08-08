@@ -4,11 +4,25 @@ package: '@twilio-paste/button'
 description: Buttons are hot
 ---
 
-import ComponentLayout from '../../../layouts/ComponentLayout';
 import {graphql} from 'gatsby';
-export default ComponentLayout;
+import {ComponentHeader} from '../../../components/ComponentHeader';
 
-# Button
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/button"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+  }
+`;
+
+<ComponentHeader name="Button" data={props.data.allPasteComponent.edges} />
 
 ## Installation
 
