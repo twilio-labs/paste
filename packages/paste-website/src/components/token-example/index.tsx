@@ -5,6 +5,7 @@ import {Absolute, AbsoluteProps} from '@twilio-paste/absolute';
 import {useTheme} from '@twilio-paste/theme';
 import {Box, BoxProps} from '@twilio-paste/box';
 import {Text, TextProps} from '@twilio-paste/text';
+import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import ColorCombos, {ColorCombinationAccessibility} from '../../utils/color-combos';
 import colorRating from '../../utils/color-rating';
 
@@ -63,9 +64,10 @@ export const TextColorBox: React.FC<TextColorBoxProps> = ({color, textColor}) =>
       }}
     >
       <Text as="span" fontSize="fontSize60" lineHeight="lineHeight60" textColor={textColor}>
-        Ag
+        <ScreenReaderOnly>Example text: </ScreenReaderOnly>Ag
       </Text>
       <Text as="span" fontSize="fontSize40" lineHeight="lineHeight30" textColor={textColor}>
+        <ScreenReaderOnly>Accessibility rating: </ScreenReaderOnly>
         {getContrastRating(accessibility)}
       </Text>
     </Absolute>
