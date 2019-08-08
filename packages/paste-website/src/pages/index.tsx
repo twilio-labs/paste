@@ -4,7 +4,7 @@ import {SiteWrapper} from '../components/site-wrapper';
 const IndexPage: React.FC<{}> = (): React.ReactElement => {
   return (
     <SiteWrapper>
-      <h1>dHome</h1>
+      <h1>Home</h1>
     </SiteWrapper>
   );
 };
