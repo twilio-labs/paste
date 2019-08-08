@@ -24,6 +24,7 @@ const lineHeights = {
   lineHeight50: '1.75rem', // #28px
   lineHeight60: '2rem', // #32px
   lineHeight70: '2.25rem', // #36px
+  lineHeight80: '2.5rem', // #40px
 };
 const maxWidths = {
   ...sizings,
