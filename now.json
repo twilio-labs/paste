@@ -4,9 +4,9 @@
   "version": 2,
   "builds": [
     {
-      "src": "package.json",
+      "src": "now-build.sh",
       "use": "@now/static-build",
-      "config": { "distDir": "packages/paste-website/public" }
+      "config": {"distDir": "packages/paste-website/public"}
     }
   ]
 }
