@@ -10,7 +10,7 @@ export const StyledBox = styled(Box)`
   width: 100%;
 `;
 
-// TODO: raplce TS 'any' with real value
+// TODO: replace TS 'any' with real value
 export const Input: React.FC<any> = props => {
   return (
     <StyledBox
