@@ -17,7 +17,7 @@ interface ComponentOverviewTableProps {
   ];
 }
 
-function getPackageRoute(name: string, status: string) {
+function getPackageRoute(name: string, status: string): string | React.ReactNode {
   if (status === PackageStatus.BACKLOG) {
     return getNameFromPackageName(name);
   }

@@ -16,7 +16,6 @@ import {ThemeShape} from '@twilio-paste/theme-tokens';
 
 interface MarginProps {
   m?: keyof ThemeShape['space'];
-  margin?: keyof ThemeShape['space'];
   mt?: keyof ThemeShape['space'];
   marginTop?: keyof ThemeShape['space'];
   mr?: keyof ThemeShape['space'];

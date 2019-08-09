@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = props => {
       <Text as="h2" fontSize="fontSize50" marginTop="space40" marginBottom="space20">
         <StyledLink to="/">{props.siteTitle}</StyledLink>
       </Text>
-      <StyledH3 as="h3" fontSize="fontSize10" textColor="colorTextPlaceholder" margin={0}>
+      <StyledH3 as="h3" fontSize="fontSize10" textColor="colorTextPlaceholder">
         <StyledSpan>{props.siteSubTitle}</StyledSpan>
         <StyledSpan>{props.siteVersion}</StyledSpan>
       </StyledH3>

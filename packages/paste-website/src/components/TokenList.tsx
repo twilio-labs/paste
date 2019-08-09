@@ -3,10 +3,10 @@ import {Heading} from '@twilio-paste/heading';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {useUID} from 'react-uid';
-import {Table, Tr, Th, Td, Tbody} from '../table';
-import {TokenExample} from '../token-example';
-import {Input} from '../input';
-import {Label} from '../label';
+import {Table, Tr, Th, Td, Tbody} from './Table';
+import {TokenExample} from './TokenExample';
+import {Input} from './Input';
+import {Label} from './Label';
 
 const sentenceCase = (catName: string): string => {
   return catName

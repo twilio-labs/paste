@@ -2,10 +2,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import {Box} from '@twilio-paste/box';
 
-interface StyledBoxProps {
-  ariaLabel?: string;
-}
-export const StyledBox = styled(Box)<StyledBoxProps>`
+export const StyledBox = styled(Box)`
   font-family: inherit;
   font-size: 100%;
   line-height: 1.15;
@@ -13,7 +10,8 @@ export const StyledBox = styled(Box)<StyledBoxProps>`
   width: 100%;
 `;
 
-export const Input: React.FC<React.HTMLProps<HTMLInputElement>> = props => {
+// TODO: raplce TS 'any' with real value
+export const Input: React.FC<any> = props => {
   return (
     <StyledBox
       as="input"
