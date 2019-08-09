@@ -2,7 +2,10 @@ import {PASTE_PACKAGE_PREFIX} from '../constants';
 
 // Gets the current browser pathname
 export function getCurrentPathname(): string {
-  return window != null && window.location != null ? window.location.pathname : '';
+  if (typeof window === `undefined` || window.location == null) {
+    return '';
+  }
+  return window.location.pathname;
 }
 
 // Returns `button` from `@twilio-paste/button`
