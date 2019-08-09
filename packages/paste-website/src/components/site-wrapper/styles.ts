@@ -44,4 +44,5 @@ export const SiteMainInner = styled.div`
   /* magic number from Jasons initial layout */
   max-width: 984px;
   padding-bottom: ${themeGet('space.space110')};
+  -webkit-overflow-scrolling: touch;
 `;

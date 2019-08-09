@@ -4,6 +4,7 @@ import {themeGet} from 'styled-system';
 
 export const SiteNav = styled.nav`
   margin-top: ${themeGet('space.space70')};
+  margin-bottom: ${themeGet('space.space90')};
 `;
 
 export const SiteNavList = styled.ul`

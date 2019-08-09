@@ -1,6 +1,8 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
+import {Link} from 'gatsby';
 import {Table, Thead, Tbody, Tr, Th, Td} from './Table';
+import {SidebarCategoryRoutes, PackageStatus} from '../constants';
+import {getPackagePath, getNameFromPackageName} from '../utils/RouteUtils';
 
 interface ComponentOverviewTableProps {
   children?: React.ReactElement;
@@ -15,11 +17,21 @@ interface ComponentOverviewTableProps {
   ];
 }
 
+function getPackageRoute(name: string, status: string) {
+  if (status === PackageStatus.BACKLOG) {
+    return getNameFromPackageName(name);
+  }
+
+  return <Link to={getPackagePath(SidebarCategoryRoutes.COMPONENTS, name)}>{getNameFromPackageName(name)}</Link>;
+}
+
 const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({componentsList}) => {
   if (componentsList == null) {
     return null;
   }
-  const sortedComponentsList = componentsList.sort((a, b) => a.node.status === 'backlog');
+
+  // Sort backlog items to the bottom of the list
+  const sortedComponentsList = componentsList.sort(({node}) => (node.status === PackageStatus.BACKLOG ? 1 : -1));
 
   return (
     <Table>
@@ -34,11 +46,9 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({componen
         {sortedComponentsList.map(({node}) => {
           return (
             <Tr key={node.name}>
-              <Td>
-                <code>{node.name}</code>
-              </Td>
+              <Td>{getPackageRoute(node.name, node.status)}</Td>
               <Td>{node.status}</Td>
-              <Td>{node.version === '0.0.0' ? '' : node.version}</Td>
+              <Td>{node.status === PackageStatus.BACKLOG ? '' : node.version}</Td>
             </Tr>
           );
         })}

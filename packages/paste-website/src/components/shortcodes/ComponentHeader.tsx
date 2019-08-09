@@ -4,12 +4,13 @@ import {themeGet} from 'styled-system';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Breadcrumb, BreadcrumbItem} from '../Breadcrumb';
+import {SidebarCategoryRoutes} from '../../constants';
 
 const ComponentHeaderBasic: React.FC<{name: string}> = ({name}) => (
   <>
     <Breadcrumb>
       <BreadcrumbItem to="/">Home</BreadcrumbItem>
-      <BreadcrumbItem to="/components">Components</BreadcrumbItem>
+      <BreadcrumbItem to={SidebarCategoryRoutes.COMPONENTS}>Components</BreadcrumbItem>
     </Breadcrumb>
     <Text
       fontSize="fontSize80"
@@ -26,6 +27,7 @@ const ComponentHeaderBasic: React.FC<{name: string}> = ({name}) => (
 interface ComponentHeaderProps {
   children?: React.ReactElement;
   name: string;
+  githubUrl: string;
   data?: [
     {
       node: {
@@ -51,7 +53,7 @@ const PackageLabel = styled(PackageValue)({
   width: '80px',
 });
 
-const ComponentHeader: React.FC<ComponentHeaderProps> = ({name, data}) => {
+const ComponentHeader: React.FC<ComponentHeaderProps> = ({name, githubUrl, data}) => {
   if (data == null || data[0] == null || data[0].node == null) {
     return <ComponentHeaderBasic name={name} />;
   }
@@ -74,7 +76,9 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({name, data}) => {
         </Box>
         <Box mb="space20">
           <PackageLabel>Sources</PackageLabel>
-          <PackageValue>TODO</PackageValue>
+          <PackageValue>
+            <a href={githubUrl}>Github</a>
+          </PackageValue>
         </Box>
         <Box mb="space20">
           <PackageLabel>Install</PackageLabel>
