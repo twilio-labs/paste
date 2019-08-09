@@ -70,6 +70,8 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
+      - attach_workspace:
+          at: ~/
       - run:
           name: Run prettier
           command: yarn prettier
@@ -81,6 +83,8 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
+      - attach_workspace:
+          at: ~/
       - run:
           name: Run type checker
           command: yarn type-check
