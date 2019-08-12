@@ -4,48 +4,34 @@ import {themeGet} from 'styled-system';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
-import {Grid} from '../components/grid';
 import {SiteWrapper} from '../components/default-site-wrapper';
-import Brush from '../components/svg/brush';
-import Terminal from '../components/svg/terminal';
-import WindowLayout from '../components/svg/window-layout';
+import {Grid} from '../components/grid';
+import {StyledHr} from '../components/StyledHr';
+import {Brush} from '../components/icons/Brush';
+import {Terminal} from '../components/icons/Terminal';
+import {WindowLayout} from '../components/icons/WindowLayout';
 
 const LandingContainer = styled(Box)`
-  margin: ${themeGet('space.space200')} auto;
+  margin-right: auto;
+  margin-left: auto;
 `;
 
-const ButtonRow = styled.div`
-  display: flex;
-  margin: ${themeGet('space.space80')} 0;
-
-  a {
-    margin-right: ${themeGet('space.space40')};
-    text-decoration: none;
-  }
+const StyledButton = styled(Button)`
+  margin-right: ${themeGet('space.space40')};
+  text-decoration: none;
 `;
 
-const StyledHr = styled.hr`
-  height: ${themeGet('borderWidths.borderWidth20')};
-  margin: ${themeGet('space.space50')} 0;
-  background-color: ${themeGet('borderColors.colorBorderDark')};
-  border: 0;
-`;
-
-const IconCircle = styled.div`
-  display: flex;
+const IconCircle = styled(Box)`
   justify-content: center;
   align-items: center;
-  width: 60px;
-  height: 60px;
-  margin-bottom: ${themeGet('space.space50')};
-  background-color: ${themeGet('backgroundColors.colorBackground')};
-  border-radius: 50%;
+  width: ${themeGet('space.space160')};
+  height: ${themeGet('space.space160')};
 `;
 
 const IndexPage: React.FC<{}> = (): React.ReactElement => {
   return (
     <SiteWrapper>
-      <LandingContainer maxWidth="size60">
+      <LandingContainer maxWidth="size60" marginTop="space200" marginBottom="space200">
         <Text as="h1" fontSize="fontSize100" marginBottom="space60" lineHeight="lineHeight70">
           Paste
         </Text>
@@ -54,20 +40,25 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
           hexagon wolf wayfarers whatever. Locavore stumptown VHS semiotics. Woke selfies 8-bit tofu cliche portland
           synth glossier fanny pack. Meditation 3 wolf moon beard drinking vinegar.
         </Text>
-        <ButtonRow>
-          <Button as="a" href="/" size="default" variant="primary">
+        <Box marginTop="space80" marginBottom="space80">
+          <StyledButton as="a" href="/" size="default" variant="primary">
             Install Paste 0.1
-          </Button>
-          <Button as="a" href="/components" size="default" variant="secondary">
+          </StyledButton>
+          <StyledButton as="a" href="/components" size="default" variant="secondary">
             View Components
-          </Button>
-        </ButtonRow>
+          </StyledButton>
+        </Box>
       </LandingContainer>
       <StyledHr />
-      <LandingContainer>
+      <LandingContainer marginTop="space200" marginBottom="space200">
         <Grid columnWidth={220} gap={30}>
-          <div>
-            <IconCircle>
+          <Box>
+            <IconCircle
+              display="flex"
+              marginBottom="space50"
+              backgroundColor="colorBackground"
+              borderRadius="borderRadiusCircle"
+            >
               <Brush size={24} />
             </IconCircle>
             <Text as="h3" fontSize="fontSize60" lineHeight="lineHeight50" marginBottom="space60">
@@ -77,9 +68,14 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               Prism glossier photo booth godard synth vape tumeric subway tile trust fund cred hexagon raw denim master
               cleanse.
             </Text>
-          </div>
-          <div>
-            <IconCircle>
+          </Box>
+          <Box>
+            <IconCircle
+              display="flex"
+              marginBottom="space50"
+              backgroundColor="colorBackground"
+              borderRadius="borderRadiusCircle"
+            >
               <WindowLayout size={24} />
             </IconCircle>
             <Text as="h3" fontSize="fontSize60" lineHeight="lineHeight50" marginBottom="space60">
@@ -89,9 +85,14 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               Prism glossier photo booth godard synth vape tumeric subway tile trust fund cred hexagon raw denim master
               cleanse.
             </Text>
-          </div>
-          <div>
-            <IconCircle>
+          </Box>
+          <Box>
+            <IconCircle
+              display="flex"
+              marginBottom="space50"
+              backgroundColor="colorBackground"
+              borderRadius="borderRadiusCircle"
+            >
               <Terminal size={24} />
             </IconCircle>
             <Text as="h3" fontSize="fontSize60" lineHeight="lineHeight50" marginBottom="space60">
@@ -101,7 +102,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               Prism glossier photo booth godard synth vape tumeric subway tile trust fund cred hexagon raw denim master
               cleanse.
             </Text>
-          </div>
+          </Box>
         </Grid>
       </LandingContainer>
       <StyledHr />

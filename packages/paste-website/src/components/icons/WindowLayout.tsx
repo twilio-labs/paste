@@ -27,4 +27,4 @@ const WindowLayout = React.memo(
   }
 );
 
-export default WindowLayout;
+export {WindowLayout};

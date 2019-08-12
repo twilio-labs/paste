@@ -25,4 +25,4 @@ const Brush = React.memo(({title = 'Brush', decorative = true, className, color,
   );
 });
 
-export default Brush;
+export {Brush};

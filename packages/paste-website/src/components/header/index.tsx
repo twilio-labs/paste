@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Text} from '@twilio-paste/text';
 import {StyledHeader, StyledH3, StyledSpan, StyledLink} from './styles';
 import {TWILIO_RED} from '../../constants';
-import TwilioIcon from '../svg/twilio-icon';
+import TwilioIcon from '../icons/twilio-icon';
 
 interface HeaderProps {
   siteTitle?: string;

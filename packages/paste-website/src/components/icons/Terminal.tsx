@@ -25,4 +25,4 @@ const Terminal = React.memo(({title = 'Terminal', decorative = true, className, 
   );
 });
 
-export default Terminal;
+export {Terminal};

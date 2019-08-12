@@ -2,9 +2,9 @@ import * as React from 'react';
 import {MDXProvider} from '@mdx-js/react';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
-import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
 import {Table, Tbody, Tr, Th, Td} from '../../table';
+import {StyledHr} from '../../StyledHr';
 
 interface PasteMDXProviderProps {
   children?: React.ReactElement;
@@ -35,13 +35,6 @@ const StyledCode = styled.code`
   padding: ${themeGet('space.space40')} ${themeGet('space.space60')};
   background-color: ${themeGet('colors.colorGray20')};
   border-radius: ${themeGet('radii.borderRadius20')};
-`;
-
-const StyledHr = styled.hr`
-  height: ${themeGet('borderWidths.borderWidth20')};
-  margin: ${themeGet('space.space50')} 0;
-  background-color: ${themeGet('borderColors.colorBorderDark')};
-  border: 0;
 `;
 
 /* eslint-disable no-shadow */
