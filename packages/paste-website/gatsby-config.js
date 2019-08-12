@@ -54,7 +54,9 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-json',
       options: {
-        typeName: ({node}) => {
+        typeName: ({
+          node
+        }) => {
           if (node.relativePath.startsWith('paste-core/components') && node.relativePath.endsWith('package.json')) {
             return 'PasteComponent';
           }
@@ -74,7 +76,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: 'UA-xxxxxxx-x',
+        trackingId: 'UA-145457417-1',
       },
     },
     'gatsby-plugin-sitemap',
