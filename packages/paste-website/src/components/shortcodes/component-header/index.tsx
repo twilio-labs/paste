@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
-import {Breadcrumb, BreadcrumbItem} from '../breadcrumb';
-import {SidebarCategoryRoutes} from '../../constants';
+import {Breadcrumb, BreadcrumbItem} from '../../breadcrumb';
+import {SidebarCategoryRoutes} from '../../../constants';
 
 const ComponentHeaderBasic: React.FC<{name: string}> = ({name}) => (
   <>

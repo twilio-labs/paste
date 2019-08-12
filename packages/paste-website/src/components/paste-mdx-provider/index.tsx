@@ -3,10 +3,12 @@ import {MDXProvider} from '@mdx-js/react';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
 import {Text} from '@twilio-paste/text';
+import {Codeblock, CodeblockProps} from '../codeblock';
 import {Table, Tbody, Tr, Th, Td} from '../table';
 import {StyledHr} from '../StyledHr';
 // Shortcode imports
-import {ComponentHeader} from '../shortcodes/ComponentHeader';
+import {ComponentHeader} from '../shortcodes/component-header';
+import {LivePreview} from '../shortcodes/live-preview';
 
 interface PasteMDXProviderProps {
   children?: React.ReactElement;
@@ -31,13 +33,7 @@ const StyledLi = styled.li`
   margin-left: ${themeGet('space.space60')};
 `;
 
-const StyledCode = styled.code`
-  display: block;
-  margin: ${themeGet('space.space70')} 0;
-  padding: ${themeGet('space.space40')} ${themeGet('space.space60')};
-  background-color: ${themeGet('colors.colorGray20')};
-  border-radius: ${themeGet('radii.borderRadius20')};
-`;
+const shortcodes = {ComponentHeader, LivePreview};
 
 /* eslint-disable no-shadow */
 /*
@@ -45,9 +41,6 @@ const StyledCode = styled.code`
   think are actually real. Because top level props is actually a different set of
   props than that are passed to the components. I think eslint is confused.
 */
-
-const shortcodes = {ComponentHeader};
-
 export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMDXProviderProps): React.ReactElement => {
   return (
     <MDXProvider
@@ -98,7 +91,7 @@ export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMD
         th: (props: React.ComponentProps<'th'>): React.ReactElement => <Th {...props} />,
         td: (props: React.ComponentProps<'td'>): React.ReactElement => <Td {...props} />,
         pre: (props: React.ComponentProps<'pre'>): React.ReactElement => <pre {...props} />,
-        code: (props: React.ComponentProps<'code'>): React.ReactElement => <StyledCode {...props} />,
+        code: (props: CodeblockProps): React.ReactElement => <Codeblock {...props} />,
         em: (props: React.ComponentProps<'em'>): React.ReactElement => <em {...props} />,
         strong: (props: React.ComponentProps<'strong'>): React.ReactElement => <strong {...props} />,
         del: (props: React.ComponentProps<'del'>): React.ReactElement => <del {...props} />,
