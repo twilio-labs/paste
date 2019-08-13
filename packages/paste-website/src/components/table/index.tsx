@@ -44,7 +44,10 @@ export const Td = styled.td(props => ({
   },
 }));
 
-export const Th = styled(Td)(props => ({
+interface ThProps {
+  width?: string;
+}
+export const Th = styled<ThProps>(Td)(props => ({
   textAlign: 'left',
   fontWeight: themeGet('fontWeights.fontWeightSemibold')(props),
 })).withComponent('th');

@@ -65,8 +65,12 @@ module.exports = {
             return 'PasteUtility';
           }
 
-          if (node.relativePath.endsWith('gatsby.json')) {
-            return 'PasteToken';
+          if (node.relativePath.endsWith('dist/tokens.gatsby.json')) {
+            return 'PasteTokenDefault';
+          }
+
+          if (node.relativePath.endsWith('dist/themes/sendgrid/tokens.gatsby.json')) {
+            return 'PasteTokenSendGrid';
           }
 
           return 'DefaultJson';
