@@ -17,8 +17,7 @@ const TwilioIcon = React.memo(({title = 'Twilio Icon', decorative = true, classN
         role="img"
         aria-hidden={decorative}
         aria-labelledby={uid}
-        className="prefix__twilio-mark"
-        fill="#F22F46"
+        fill={color}
         viewBox="0 0 30 30"
         width="100%"
         height="100%"
