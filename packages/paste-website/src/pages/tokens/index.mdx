@@ -57,18 +57,15 @@ export const pageQuery = graphql`
         tokens {
           categoryName
           tokens {
-            categoryName
-            tokens {
-              category
-              comment
-              name
-              originalValue
-              type
-              value
-            }
+            category
+            comment
+            name
+            originalValue
+            type
+            value
           }
         }
       }
     }
   }
-`;
+}`;

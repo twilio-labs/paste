@@ -32,7 +32,7 @@ export const Tr = styled.tr(props => ({
   },
 }));
 
-export const Td = styled.td(props => ({
+const getTdStyles = (props: {theme: {}}): {} => ({
   padding: `${themeGet('space.space40')(props)} ${themeGet('space.space30')(props)}`,
   verticalAlign: 'top',
   wordWrap: 'break-word',
@@ -44,12 +44,11 @@ export const Td = styled.td(props => ({
   '&:last-child': {
     paddingRight: themeGet('space.space50')(props),
   },
-}));
+});
 
-interface ThProps {
-  width?: string;
-}
-export const Th = styled<ThProps>(Td)(props => ({
+export const Td = styled.td(getTdStyles);
+
+export const Th = styled.th(getTdStyles, props => ({
   textAlign: 'left',
   fontWeight: themeGet('fontWeights.fontWeightSemibold')(props),
-})).withComponent('th');
+}));

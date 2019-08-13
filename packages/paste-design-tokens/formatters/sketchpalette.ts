@@ -1,4 +1,4 @@
-import color from 'color';
+import * as color from 'color';
 import * as Immutable from 'immutable';
 import {ImmutableStyleMap} from 'theo';
 
@@ -17,6 +17,7 @@ interface ColorRGB {
 }
 
 const convertToSketchPaletteColor = (input: string): {[key: string]: number} => {
+  // @ts-ignore FIXME
   const convertedColor: ColorRGB = color.rgb(input);
 
   return {
