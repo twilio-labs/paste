@@ -7,13 +7,13 @@ import {ThemeSwitcher} from '../theme-switcher';
 import GithubIcon from '../svg/github-icon';
 
 interface StyledFlexProps {
-  justifyContent: string;
-  alignItems: string;
+  justifyContent?: string;
+  alignItems?: string;
 }
 export const StyledFlex = styled.div<StyledFlexProps>(({justifyContent, alignItems = 'center'}) => ({
   display: 'flex',
-  justifyContent: justifyContent ? justifyContent : null,
-  alignItems: alignItems ? alignItems : null,
+  justifyContent,
+  alignItems,
 }));
 
 export const SiteStickyHeader: React.FC<{}> = () => {
