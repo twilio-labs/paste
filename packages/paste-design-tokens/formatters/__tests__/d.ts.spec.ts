@@ -4,8 +4,8 @@ import {dTSTokenFormat} from '../d.ts';
 theo.registerFormat('d.ts', dTSTokenFormat);
 
 describe('dTSFormatter', () => {
-  test('should return typescript definitions formatted tokens', () => {
-    theo
+  it('should return typescript definitions formatted tokens', () => {
+    return theo
       .convert({
         transform: {
           type: 'web',
