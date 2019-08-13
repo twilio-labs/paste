@@ -106,8 +106,8 @@ export const TokensList: React.FC<TokensListProps> = props => {
                   <thead>
                     <Tr>
                       <Th>Token</Th>
-                      <Th width="250px">Value</Th>
-                      <Th width="250px">Example</Th>
+                      <Th style={{width: '250px'}}>Value</Th>
+                      <Th style={{width: '250px'}}>Example</Th>
                     </Tr>
                   </thead>
                   <Tbody>
