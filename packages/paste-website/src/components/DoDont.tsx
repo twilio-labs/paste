@@ -7,13 +7,17 @@ const StyledWrapper = styled.div`
   grid-column-gap: 24px;
 `;
 
-function DoDont(props) {
+interface DoDontProps {
+  children?: React.ReactNode;
+}
+
+function DoDont(props: DoDontProps) {
   return <StyledWrapper>{props.children}</StyledWrapper>;
 }
 
 const StyledChild = styled.div``;
 
-const StyledChildImg = styled.div`
+const StyledChildImg: React.FC<ChildProps> = styled.div`
   margin-bottom: 16px;
   border: 1px solid #ccd2dc;
   border-bottom: ${(props: ChildProps) => (props.do ? '2px solid #23bf6e' : '2px solid #ce241a')};
@@ -29,7 +33,9 @@ const StyledChildTitle = styled.h5`
 `;
 
 interface ChildProps {
+  children?: React.ReactNode;
   do: boolean;
+  image: string;
 }
 
 function Child(props: ChildProps) {
@@ -47,11 +53,11 @@ function Child(props: ChildProps) {
   );
 }
 
-function Do(props) {
+function Do(props: ChildProps) {
   return <Child do={true} {...props} />;
 }
 
-function Dont(props) {
+function Dont(props: ChildProps) {
   return <Child do={false} {...props} />;
 }
 
