@@ -3,9 +3,9 @@ import {MDXProvider} from '@mdx-js/react';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
 import {Text} from '@twilio-paste/text';
-import {Table, Tbody, Tr, Th, Td} from './Table';
+import {Table, Tbody, Tr, Th, Td} from '../table';
 // Shortcode imports
-import {ComponentHeader} from './shortcodes/ComponentHeader';
+import {ComponentHeader} from '../shortcodes/ComponentHeader';
 
 interface PasteMDXProviderProps {
   children?: React.ReactElement;

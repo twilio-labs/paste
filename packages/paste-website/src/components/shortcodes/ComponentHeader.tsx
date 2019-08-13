@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
-import {Breadcrumb, BreadcrumbItem} from '../Breadcrumb';
+import {Breadcrumb, BreadcrumbItem} from '../breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
 
 const ComponentHeaderBasic: React.FC<{name: string}> = ({name}) => (
@@ -42,13 +42,15 @@ interface ComponentHeaderProps {
   ];
 }
 
-const PackageValue = styled.div(props => ({
+const getPackageItemStyles = (props: {}): {} => ({
   display: 'inline-block',
   color: themeGet('textColors.colorText')(props),
   fontSize: themeGet('fontSizes.fontSize20')(props),
-}));
+});
 
-const PackageLabel = styled(PackageValue)({
+const PackageValue = styled.dd(getPackageItemStyles);
+
+const PackageLabel = styled.dt(getPackageItemStyles, {
   color: '#465672',
   width: '80px',
 });
@@ -65,7 +67,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({name, githubUrl, data}
       <Text fontSize="fontSize30" mb="space50">
         {description}
       </Text>
-      <Box mb="space100">
+      <Box as="dl" mb="space100">
         <Box mb="space20">
           <PackageLabel>Status</PackageLabel>
           <PackageValue>{status}</PackageValue>
@@ -82,7 +84,9 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({name, githubUrl, data}
         </Box>
         <Box mb="space20">
           <PackageLabel>Install</PackageLabel>
-          <PackageValue>yarn add {packageName}</PackageValue>
+          <PackageValue>
+            <code>yarn add {packageName}</code>
+          </PackageValue>
         </Box>
       </Box>
     </>

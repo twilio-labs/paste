@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {Link} from 'gatsby';
-import {Table, Thead, Tbody, Tr, Th, Td} from './Table';
-import {SidebarCategoryRoutes, PackageStatus} from '../constants';
-import {getPackagePath, getNameFromPackageName} from '../utils/RouteUtils';
+import {Table, Thead, Tbody, Tr, Th, Td} from '../table';
+import {SidebarCategoryRoutes, PackageStatus} from '../../constants';
+import {getPackagePath, getNameFromPackageName} from '../../utils/RouteUtils';
 
 interface ComponentOverviewTableProps {
   children?: React.ReactElement;
