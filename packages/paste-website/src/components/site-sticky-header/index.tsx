@@ -1,6 +1,5 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import {Absolute} from '@twilio-paste/absolute';
 import {Box} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';
 import {useTheme} from '@twilio-paste/theme';
@@ -20,22 +19,26 @@ export const StyledFlex = styled.div<StyledFlexProps>(({justifyContent, alignIte
 export const SiteStickyHeader: React.FC<{}> = () => {
   const theme = useTheme();
   return (
-    <Absolute
+    <Box
       as="aside"
       backgroundColor="colorBackgroundBody"
       borderColor="colorBorderLight"
       borderStyle="none none solid none"
       borderBottomWidth="borderWidth10"
-      pl="space200"
-      pr="space80"
+      px="space80"
       py="space60"
-      preset="top_fill"
       mb="space140"
-      zIndex="zIndex10"
       css={{
-        marginLeft: `-${theme.space.space200}`,
-        marginRight: `-${theme.space.space200}`,
-        position: 'sticky',
+        '@supports (position: sticky)': {
+          left: 0,
+          marginLeft: `-${theme.space.space200}`,
+          marginRight: `-${theme.space.space200}`,
+          paddingLeft: `${theme.space.space200}`,
+          position: 'sticky',
+          right: 0,
+          top: 0,
+          zIndex: 10,
+        },
       }}
     >
       <StyledFlex justifyContent="space-between">
@@ -61,6 +64,6 @@ export const SiteStickyHeader: React.FC<{}> = () => {
           </StyledFlex>
         </StyledFlex>
       </StyledFlex>
-    </Absolute>
+    </Box>
   );
 };
