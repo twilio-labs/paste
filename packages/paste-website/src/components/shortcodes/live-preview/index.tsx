@@ -32,7 +32,13 @@ const LivePreview: React.FC<CodeblockProps> = ({children, language = 'jsx', scop
         >
           <ReactLivePreview />
         </Box>
-        <LiveEditor style={{padding: '2px 10px', borderBottomLeftRadius: '4px', borderBottomRightRadius: '4px'}} />
+        <Box
+          style={{padding: '2px 10px', backgroundColor: '#011627'}}
+          borderBottomLeftRadius="borderRadius20"
+          borderBottomRightRadius="borderRadius20"
+        >
+          <LiveEditor />
+        </Box>
         <LiveError />
       </LiveProvider>
     </StyledPreviewWrapper>
