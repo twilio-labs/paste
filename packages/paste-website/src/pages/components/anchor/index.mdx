@@ -1,0 +1,103 @@
+---
+title: Anchor
+description: The anchor can be used to hyperlink to another URL. It accepts both internal and external URLs.
+---
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<p>{props.pageContext.frontmatter.description}</p>
+
+<p>Example use cases may include:</p>
+
+<ul>
+  <li>Linking to another page within an app or website</li>
+  <li>Linking to an external domain outside of the current app or website</li>
+</ul>
+
+<p>Anchors can only include text.</p>
+
+</content>
+
+***
+
+<content>
+
+### Anchor vs. Button
+
+Anchors should be used in place of a button if you only need to create a hyperlink to some other page or content. Anchors should not be used for submitting a form, closing a modal, moving to the next step in a flow, or any other click action that a button should handle.
+
+If you need a click handler, you can use our button component. See the button documentation here.
+
+### Accessibility
+
+The anchor is built with standard accessible practices in mind. Those include an href attribute, link context, and opening and closing tags.
+
+The title attribute was not included because it’s not exposed to all browsers in an accessible way, meaning most screen readers and touch-only devices will likely never see that information.
+
+***
+
+## Examples
+
+### Default anchor
+The default anchor is a basic text hyperlink. Only text can be used to compose the anchor. There are no other anchor variants at this time.
+
+### External anchor
+
+If an external URL is used for the href, the target and rel will automatically be updated to:
+`target=”_blank”`
+`rel=”noreferrer noopener”`
+
+Even though the target and rel are set by default for external anchors, they can be overridden using the target and rel props.
+
+***
+
+## When to use an anchor
+Use an anchor when you need to hyperlink to another page, app, or website.
+
+Do
+[an anchor to link to another page]
+Anchors should only be used to link to another page, app, or another website.
+Don’t
+[an anchor in place of a button]
+Don’t use an anchor where a button makes more sense, i.e., closing a modal..
+
+Do
+[an anchor including text only]
+Anchors should only include text.
+Don’t
+[an anchor including an icon]
+Don’t use an icon in place of or with anchor text.
+
+***
+
+## Installation
+
+```bash
+yarn add @twilio-paste/anchor
+```
+
+### Usage
+
+```js
+import {Anchor} from '@twilio-paste/anchor';
+
+<Anchor href="/">
+  Link text
+</Anchor>
+```
+
+### Props
+
+| Prop           | Type                                   | Description                                                                         | Default   |
+| -------------- | -------------------------------------- | ----------------------------------------------------------------------------------- | --------- |
+| href?          | string                                 | A URL to route to. Required.                                                                             | null      |
+| tabindex?      | AnchorTabIndexes                       | '0', '-1'                                                                                                | null      |
+| target?        | AnchorTargets                          | '_self', '_blank', '_parent', '_top'.  If external href, defaults to '_blank'. Can be overwritten.       | null      |
+| rel?           | string                                 | Sets the anchor rel attribute. If external href, defaults to 'noreferrer noopener'. Can be overwritten.  | false     |
+| onClick?       | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                          | null      |
+| onFocus?       | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                          | null      |
+| onBlur?        | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                          | null      |
+
+</content>
