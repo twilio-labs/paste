@@ -77,9 +77,6 @@ workflows:
       - test:
           requires:
             - build
-      - lint:
-          requires:
-            - build
       - prettier:
           requires:
             - build
