@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
 import {Text} from '@twilio-paste/text';
 import {Table, Tbody, Tr, Th, Td} from '../table';
-import {StyledHr} from '../../StyledHr';
+import {StyledHr} from '../StyledHr';
 // Shortcode imports
 import {ComponentHeader} from '../shortcodes/ComponentHeader';
 

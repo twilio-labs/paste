@@ -5,7 +5,7 @@ import {Link} from 'gatsby';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
-import {SiteWrapper} from '../components/default-site-wrapper';
+import {SiteWrapper} from '../components/site-wrapper';
 import {Grid} from '../components/grid';
 import {StyledHr} from '../components/StyledHr';
 import {Brush} from '../components/icons/Brush';
