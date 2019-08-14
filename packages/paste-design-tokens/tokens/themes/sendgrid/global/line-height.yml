@@ -23,7 +23,7 @@ props:
     value: "1.5" #24px * 1.5 = 36px
     comment: "Constant line-height token for font size 60"
   line-height-70:
-    value: "1.5" #28px * 1.57 = 44px
+    value: "1.57" #28px * 1.57 = 44px
     comment: "Constant line-height token for font size 70"
   line-height-80:
     value: "1.5" #32px * 1.5 = 48px
