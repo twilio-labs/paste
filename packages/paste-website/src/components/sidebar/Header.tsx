@@ -38,7 +38,6 @@ const StyledSpan = styled.span`
 interface HeaderProps {
   siteTitle?: string;
   siteSubTitle?: string;
-  siteVersion?: string;
 }
 
 const Header: React.FC<HeaderProps> = props => {
@@ -50,7 +49,6 @@ const Header: React.FC<HeaderProps> = props => {
       </Text>
       <StyledH3 as="h3" fontSize="fontSize10" textColor="colorTextPlaceholder">
         <StyledSpan>{props.siteSubTitle}</StyledSpan>
-        <StyledSpan>{props.siteVersion}</StyledSpan>
       </StyledH3>
     </StyledHeader>
   );
