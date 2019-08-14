@@ -25,9 +25,8 @@ const Breadcrumb: React.FC<{}> = ({children}) => {
 };
 
 const BreadcrumbItem = styled(Link)`
-  height: 24px;
-  font-size: 14px;
-  line-height: 1.71;
+  font-size: ${themeGet('fontSizes.fontSize10')};
+  line-height: ${themeGet('lineHeights.lineHeight40')};
   letter-spacing: normal;
   color: ${themeGet('textColors.colorTextLink')};
 `;
