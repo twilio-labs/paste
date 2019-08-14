@@ -24,6 +24,9 @@ description: The anchor can be used to hyperlink to another URL. It accepts both
 
 <content>
 
+### When to Use an Anchor
+Use an anchor when you need to hyperlink to another page, app, or website.
+
 ### Anchor vs. Button
 
 Anchors should be used in place of a button if you only need to create a hyperlink to some other page or content. Anchors should not be used for submitting a form, closing a modal, moving to the next step in a flow, or any other click action that a button should handle.
@@ -40,35 +43,16 @@ The title attribute was not included because it’s not exposed to all browsers 
 
 ## Examples
 
-### Default anchor
+### Default Anchor
 The default anchor is a basic text hyperlink. Only text can be used to compose the anchor. There are no other anchor variants at this time.
 
-### External anchor
+### External Anchor
 
 If an external URL is used for the href, the target and rel will automatically be updated to:
 `target=”_blank”`
 `rel=”noreferrer noopener”`
 
 Even though the target and rel are set by default for external anchors, they can be overridden using the target and rel props.
-
-***
-
-## When to use an anchor
-Use an anchor when you need to hyperlink to another page, app, or website.
-
-Do
-[an anchor to link to another page]
-Anchors should only be used to link to another page, app, or another website.
-Don’t
-[an anchor in place of a button]
-Don’t use an anchor where a button makes more sense, i.e., closing a modal..
-
-Do
-[an anchor including text only]
-Anchors should only include text.
-Don’t
-[an anchor including an icon]
-Don’t use an icon in place of or with anchor text.
 
 ***
 
