@@ -50,6 +50,7 @@ const baseButtonWrapper = css`
 const baseEnabled = css([
   baseButtonWrapper,
   css`
+    text-decoration: none;
     cursor: pointer;
 
     &:hover {

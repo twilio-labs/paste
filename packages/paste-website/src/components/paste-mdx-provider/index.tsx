@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
 import {Text} from '@twilio-paste/text';
 import {Table, Tbody, Tr, Th, Td} from '../table';
+import {StyledHr} from '../StyledHr';
 // Shortcode imports
 import {ComponentHeader} from '../shortcodes/ComponentHeader';
 
@@ -36,13 +37,6 @@ const StyledCode = styled.code`
   padding: ${themeGet('space.space40')} ${themeGet('space.space60')};
   background-color: ${themeGet('colors.colorGray20')};
   border-radius: ${themeGet('radii.borderRadius20')};
-`;
-
-const StyledHr = styled.hr`
-  height: ${themeGet('borderWidths.borderWidth20')};
-  margin: ${themeGet('space.space50')} 0;
-  background-color: ${themeGet('borderColors.colorBorderDark')};
-  border: 0;
 `;
 
 /* eslint-disable no-shadow */
