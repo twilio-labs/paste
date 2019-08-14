@@ -1,5 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import {themeGet} from 'styled-system';
+import {Text} from '@twilio-paste/text';
 
 const StyledWrapper = styled.div`
   display: grid;
@@ -15,50 +17,54 @@ function DoDont(props: DoDontProps) {
   return <StyledWrapper>{props.children}</StyledWrapper>;
 }
 
-const StyledChild = styled.div``;
-
-const StyledChildImg: React.FC<ChildProps> = styled.div`
-  margin-bottom: 16px;
-  border: 1px solid #ccd2dc;
-  border-bottom: ${(props: ChildProps) => (props.do ? '2px solid #23bf6e' : '2px solid #ce241a')};
+const StyledExampleImg: React.FC<ExampleProps> = styled.div`
+  margin-bottom: ${themeGet('space.space50')};
+  border: ${themeGet('borderWidths.borderWidth10')} solid #ccd2dc;
+  border-bottom: ${(props: ExampleProps) =>
+    props.do
+      ? `${themeGet('borderWidths.borderWidth20')(props)} solid #23bf6e`
+      : `${themeGet('borderWidths.borderWidth20')(props)} solid #ce241a`};
+  img {
+    display: block;
+    width: 100%;
+  }
 `;
 
-const StyledChildContent = styled.div``;
-
-const StyledChildTitle = styled.h5`
-  margin-bottom: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 24px;
-`;
-
-interface ChildProps {
+interface ExampleProps {
   children?: React.ReactNode;
   do: boolean;
   image: string;
 }
 
-function Child(props: ChildProps) {
+function Example(props: ExampleProps) {
   console.log(props);
   return (
-    <StyledChild>
-      <StyledChildImg {...props}>
+    <div>
+      <StyledExampleImg {...props}>
         <img src={props.image} alt="" />
-      </StyledChildImg>
-      <StyledChildContent>
-        <StyledChildTitle>{props.do ? 'Do' : `Don't`}</StyledChildTitle>
+      </StyledExampleImg>
+      <div>
+        <Text
+          as="h5"
+          fontSize="fontSize20"
+          fontWeight="fontWeightSemibold"
+          lineHeight="lineHeight40"
+          marginBottom="space40"
+        >
+          {props.do ? 'Do' : `Don't`}
+        </Text>
         {props.children}
-      </StyledChildContent>
-    </StyledChild>
+      </div>
+    </div>
   );
 }
 
-function Do(props: ChildProps) {
-  return <Child do={true} {...props} />;
+function Do(props: ExampleProps) {
+  return <Example do={true} {...props} />;
 }
 
-function Dont(props: ChildProps) {
-  return <Child do={false} {...props} />;
+function Dont(props: ExampleProps) {
+  return <Example do={false} {...props} />;
 }
 
 export {DoDont, Do, Dont};
