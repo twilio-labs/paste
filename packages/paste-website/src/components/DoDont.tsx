@@ -13,9 +13,9 @@ interface DoDontProps {
   children?: React.ReactNode;
 }
 
-function DoDont(props: DoDontProps) {
+const DoDont: React.FC<DoDontProps> = props => {
   return <StyledWrapper>{props.children}</StyledWrapper>;
-}
+};
 
 const StyledExampleImg: React.FC<ExampleProps> = styled.div`
   margin-bottom: ${themeGet('space.space50')};
@@ -36,8 +36,7 @@ interface ExampleProps {
   image: string;
 }
 
-function Example(props: ExampleProps) {
-  console.log(props);
+const Example: React.FC<ExampleProps> = props => {
   return (
     <div>
       <StyledExampleImg {...props}>
@@ -57,14 +56,14 @@ function Example(props: ExampleProps) {
       </div>
     </div>
   );
-}
+};
 
-function Do(props: ExampleProps) {
+const Do: React.FC<ExampleProps> = props => {
   return <Example do={true} {...props} />;
-}
+};
 
-function Dont(props: ExampleProps) {
+const Dont: React.FC<ExampleProps> = props => {
   return <Example do={false} {...props} />;
-}
+};
 
 export {DoDont, Do, Dont};
