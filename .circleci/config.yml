@@ -34,6 +34,9 @@ jobs:
       - run:
           name: Run type checker
           command: yarn type-check
+      - run:
+          name: Run eslint
+          command: yarn lint
       - persist_to_workspace:
           root: ~/
           paths:
@@ -52,19 +55,6 @@ jobs:
       - run:
           name: Run tests
           command: yarn test
-  lint:
-    executor: job-executor
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
-      - attach_workspace:
-          at: ~/
-      - run:
-          name: Run eslint
-          command: yarn lint
   prettier:
     executor: job-executor
     steps:
