@@ -4,8 +4,8 @@ import {es6TokenFormat} from '../es6';
 theo.registerFormat('es6.js', es6TokenFormat);
 
 describe('es6Formatter', () => {
-  test('should return es6 formatted tokens', () => {
-    theo
+  it('should return es6 formatted tokens', () => {
+    return theo
       .convert({
         transform: {
           type: 'web',

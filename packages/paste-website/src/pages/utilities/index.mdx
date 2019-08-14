@@ -11,14 +11,15 @@ import {ComponentOverviewTable} from '../../components/component-overview-table'
 <ComponentOverviewTable componentsList={props.data.allPasteUtility.edges} />
 
 export const pageQuery = graphql`
-{
-  allPasteUtility {
-    edges {
-      node {
-        version
-        name
-        status
+  {
+    allPasteUtility {
+      edges {
+        node {
+          version
+          name
+          status
+        }
       }
     }
   }
-}`;
+`;

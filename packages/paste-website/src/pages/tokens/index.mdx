@@ -13,9 +13,9 @@ import {TokensList} from '../../components/tokens-list';
 
 Laboris Lorem veniam nostrud enim do esse mollit adipisicing dolore proident labore elit et. Adipisicing sint incididunt ipsum nisi ut mollit et id est consequat qui cillum magna enim. Occaecat voluptate aute nisi aute magna enim minim quis. Irure minim nisi culpa ipsum nisi duis enim laboris officia occaecat laborum est. Duis reprehenderit magna eu laboris. Enim ad id nulla esse do excepteur.
 
-<Box backgroundColor="colorBackground" borderRadius="borderRadius20" padding="space60" my="space100" maxWidth="size40">
-  <Text as="p" marginBottom="space40">
-    Working on Sketch? Download it from here. No access?
+<Box backgroundColor="colorBackground" borderRadius="borderRadius20" padding="space80" my="space100" maxWidth="size40">
+  <Text as="p" lineHeight="lineHeight30" marginBottom="space40">
+    Working on Sketch? Download it from here. No access?{' '}
     <Anchor href="#">
       Send us a request
     </Anchor>.
@@ -28,11 +28,29 @@ Laboris Lorem veniam nostrud enim do esse mollit adipisicing dolore proident lab
   </Text>
 </Box>
 
-<TokensList data={props.data.allPasteToken.edges} />
+<TokensList default={props.data.allPasteTokenDefault.edges} sendgrid={props.data.allPasteTokenSendGrid.edges} />
 
 export const pageQuery = graphql`
 {
-  allPasteToken {
+  allPasteTokenDefault {
+    edges {
+      node {
+        id
+        tokens {
+          categoryName
+          tokens {
+            category
+            comment
+            name
+            originalValue
+            type
+            value
+          }
+        }
+      }
+    }
+  },
+  allPasteTokenSendGrid {
     edges {
       node {
         id

@@ -4,6 +4,7 @@ import {themeGet} from 'styled-system';
 
 export const SiteNav = styled.nav`
   margin-top: ${themeGet('space.space70')};
+  margin-bottom: ${themeGet('space.space90')};
 `;
 
 export const SiteNavList = styled.ul`
@@ -63,7 +64,8 @@ export const SiteNavButton: React.FC<SiteNavButtonProps> = styled.button`
   color: ${props => (props.isOpen ? themeGet('textColors.colorText') : themeGet('colors.colorGray80'))};
   background-color: ${props => (props.isOpen ? themeGet('colors.colorGray30') : 'transparent')};
   border: none;
-  border-radius: ${props => (props.isOpen ? themeGet('radii.borderRadius20') : '0')};
+  border-top-left-radius: ${themeGet('radii.borderRadius20')};
+  border-top-right-radius: ${themeGet('radii.borderRadius20')};
   text-decoration: none;
   transition: 0.1s background-color ease-in-out;
   -webkit-appearance: none;
@@ -71,7 +73,8 @@ export const SiteNavButton: React.FC<SiteNavButtonProps> = styled.button`
   &:hover {
     color: ${themeGet('textColors.colorText')};
     background-color: ${themeGet('colors.colorGray30')};
-    border-radius: ${themeGet('radii.borderRadius20')};
+    border-bottom-left-radius: ${props => (props.isOpen ? 0 : themeGet('radii.borderRadius20'))};
+    border-bottom-right-radius: ${props => (props.isOpen ? 0 : themeGet('radii.borderRadius20'))};
     cursor: pointer;
     outline: none;
   }

@@ -8,7 +8,9 @@ import {
   SiteNavAnchor,
   SiteNavButton,
   SiteNavAnchorArrow,
-} from './styles';
+} from './Navigation.styles';
+import {PackageStatus, SidebarCategoryRoutes} from '../../constants';
+import {getCurrentPathname, getNameFromPackageName} from '../../utils/RouteUtils';
 
 interface NavigationProps {
   children?: React.ReactNode;
@@ -20,6 +22,7 @@ interface SiteWrapperPageQuery {
       {
         node: {
           name: string;
+          status: string;
         };
       }
     ];
@@ -29,6 +32,7 @@ interface SiteWrapperPageQuery {
       {
         node: {
           name: string;
+          status: string;
         };
       }
     ];
@@ -55,15 +59,15 @@ const pageQuery = graphql`
       edges {
         node {
           name
-          version
+          status
         }
       }
     }
     allPasteUtility(sort: {order: ASC, fields: name}) {
       edges {
         node {
-          version
           name
+          status
         }
       }
     }
@@ -73,8 +77,12 @@ const pageQuery = graphql`
 const Navigation: React.FC<NavigationProps> = () => {
   const data: SiteWrapperPageQuery = useStaticQuery(pageQuery);
 
-  const [componentsOpen, setComponentsOpen] = React.useState(false);
-  const [utilitiesOpen, setutilitiesOpen] = React.useState(false);
+  const [componentsOpen, setComponentsOpen] = React.useState(
+    getCurrentPathname().includes(SidebarCategoryRoutes.COMPONENTS)
+  );
+  const [utilitiesOpen, setutilitiesOpen] = React.useState(
+    getCurrentPathname().includes(SidebarCategoryRoutes.UTILITIES)
+  );
 
   return (
     <SiteNav>
@@ -95,17 +103,18 @@ const Navigation: React.FC<NavigationProps> = () => {
           </SiteNavButton>
           <SiteNavNestList isOpen={componentsOpen}>
             <SiteNavItem>
-              <SiteNavAnchor to="/components">Overview</SiteNavAnchor>
+              <SiteNavAnchor to={SidebarCategoryRoutes.COMPONENTS}>Overview</SiteNavAnchor>
             </SiteNavItem>
-            {data.allPasteComponent.edges.map(({node}) => {
-              return (
-                <SiteNavItem key={node.name}>
-                  <SiteNavAnchor to={`/components/${node.name.replace('@twilio-paste/', '')}`}>
-                    {node.name.replace('@twilio-paste/', '')}
-                  </SiteNavAnchor>
-                </SiteNavItem>
-              );
-            })}
+            {data.allPasteComponent.edges
+              .filter(({node}) => node.status !== PackageStatus.BACKLOG)
+              .map(({node}) => {
+                const name = getNameFromPackageName(node.name);
+                return (
+                  <SiteNavItem key={node.name}>
+                    <SiteNavAnchor to={`${SidebarCategoryRoutes.COMPONENTS}/${name}`}>{name}</SiteNavAnchor>
+                  </SiteNavItem>
+                );
+              })}
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
@@ -114,16 +123,17 @@ const Navigation: React.FC<NavigationProps> = () => {
             <SiteNavAnchorArrow isOpen={utilitiesOpen} />
           </SiteNavButton>
           <SiteNavNestList isOpen={utilitiesOpen}>
-            <SiteNavAnchor to="/utilities">Overview</SiteNavAnchor>
-            {data.allPasteUtility.edges.map(({node}) => {
-              return (
-                <SiteNavItem key={node.name}>
-                  <SiteNavAnchor to={`/utilities/${node.name.replace('@twilio-paste/', '')}`}>
-                    {node.name.replace('@twilio-paste/', '')}
-                  </SiteNavAnchor>
-                </SiteNavItem>
-              );
-            })}
+            <SiteNavAnchor to={SidebarCategoryRoutes.UTILITIES}>Overview</SiteNavAnchor>
+            {data.allPasteUtility.edges
+              .filter(({node}) => node.status !== PackageStatus.BACKLOG)
+              .map(({node}) => {
+                const name = getNameFromPackageName(node.name);
+                return (
+                  <SiteNavItem key={node.name}>
+                    <SiteNavAnchor to={`${SidebarCategoryRoutes.UTILITIES}/${name}`}>{name}</SiteNavAnchor>
+                  </SiteNavItem>
+                );
+              })}
           </SiteNavNestList>
         </SiteNavItem>
       </SiteNavList>

@@ -1,11 +1,31 @@
 ---
 title: Button
+package: '@twilio-paste/button'
 description: Buttons are hot
 ---
 
 import {graphql} from 'gatsby';
 
-# Button
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/button"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name="Button"
+  githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/components/button"
+  data={props.data.allPasteComponent.edges}
+/>
 
 ## Installation
 
@@ -20,21 +40,21 @@ import {Button} from '@twilio-paste/button';
 
 <Button variant="secondary" size="small" onClick={() => {}}>
   Submit
-</Button>
+</Button>;
 ```
 
 ### Props
 
-| Prop           | Type                                   | Description                                                                         | Default   |
-| -------------- | -------------------------------------- | ----------------------------------------------------------------------------------- | --------- |
-| type?          | string                                 | If the button is inside a `<form>`: use 'submit'. Otherwise use 'button' (default). | 'button'  |
-| as?            | string                                 | The HTML tag to replace the default `<button>` tag.                                 | 'button'  |
-| href?          | string                                 | A URL to route to. Must use `as="a"` for this prop to work.                         | null      |
-| variant?       | ButtonVariants                         | 'primary', 'secondary', 'destructive', 'destructive_link', 'link', 'reset'          | 'primary' |
-| size?          | ButtonSizes                            | 'default', 'small', 'icon', 'reset'                                                 | 'default' |
-| fullWidth      | boolean                                | Sets the button width to 100% of the parent container.                              | false     |
-| disabled?      | boolean                                | Prevent actions from firing on this button                                          | false     |
-| loading?       | boolean                                | Prevent actions and show a loading spinner                                          | false     |
+| Prop           | Type                                     | Description                                                                         | Default   |
+| -------------- | ---------------------------------------- | ----------------------------------------------------------------------------------- | --------- |
+| type?          | string                                   | If the button is inside a `<form>`: use 'submit'. Otherwise use 'button' (default). | 'button'  |
+| as?            | string                                   | The HTML tag to replace the default `<button>` tag.                                 | 'button'  |
+| href?          | string                                   | A URL to route to. Must use `as="a"` for this prop to work.                         | null      |
+| variant?       | ButtonVariants                           | 'primary', 'secondary', 'destructive', 'destructive_link', 'link', 'reset'          | 'primary' |
+| size?          | ButtonSizes                              | 'default', 'small', 'icon', 'reset'                                                 | 'default' |
+| fullWidth      | boolean                                  | Sets the button width to 100% of the parent container.                              | false     |
+| disabled?      | boolean                                  | Prevent actions from firing on this button                                          | false     |
+| loading?       | boolean                                  | Prevent actions and show a loading spinner                                          | false     |
 | onClick?       | `(event: React.MouseEvent<HTMLElement>)` |                                                                                     | null      |
 | onMouseDown?   | `(event: React.MouseEvent<HTMLElement>)` |                                                                                     | null      |
 | onMouseUp?     | `(event: React.MouseEvent<HTMLElement>)` |                                                                                     | null      |
@@ -42,7 +62,7 @@ import {Button} from '@twilio-paste/button';
 | onMouseLeave?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                                     | null      |
 | onFocus?       | `(event: React.FocusEvent<HTMLElement>)` |                                                                                     | null      |
 | onBlur?        | `(event: React.FocusEvent<HTMLElement>)` |                                                                                     | null      |
-| aria-expanded? | boolean                                | A11y: For accordions                                                                | null      |
-| aria-haspopup? | {'true', 'dialog', 'menu'}             | A11y: For modals and menus                                                          | null      |
-| aria-controls? | string                                 | A11y: For modals and menus                                                          | null      |
-| data-test?     | string                                 | To detect the element to run tests against.                                         | null      |
+| aria-expanded? | boolean                                  | A11y: For accordions                                                                | null      |
+| aria-haspopup? | {'true', 'dialog', 'menu'}               | A11y: For modals and menus                                                          | null      |
+| aria-controls? | string                                   | A11y: For modals and menus                                                          | null      |
+| data-test?     | string                                   | To detect the element to run tests against.                                         | null      |

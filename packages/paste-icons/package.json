@@ -21,7 +21,7 @@
   },
   "peerDependencies": {
     "@emotion/styled": "^10.0.14",
-    "@twilio-paste/theme-tokens": "^0.2.2",
+    "@twilio-paste/theme-tokens": "^0.4.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-uid": "^2.2.0",
