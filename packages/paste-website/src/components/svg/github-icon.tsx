@@ -13,15 +13,7 @@ const GithubIcon = React.memo(({title = 'Github Icon', decorative = true, classN
   const uid = useUID();
   return (
     <div style={{color, width: size, height: size}} className={className}>
-      <svg
-        role="img"
-        aria-hidden={decorative}
-        aria-labelledby={uid}
-        fill="#F22F46"
-        viewBox="0 0 24 24"
-        width="100%"
-        height="100%"
-      >
+      <svg role="img" aria-hidden={decorative} aria-labelledby={uid} viewBox="0 0 24 24" width="100%" height="100%">
         <title id={uid}>{title}</title>
         <path
           fill="currentColor"
