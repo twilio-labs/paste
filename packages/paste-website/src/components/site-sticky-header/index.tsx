@@ -55,9 +55,9 @@ export const SiteStickyHeader: React.FC<{}> = () => {
             <Box ml="space30">
               <Anchor href="http://www.github.com/twilio-labs/paste">
                 <GithubIcon
+                  css={{height: theme.heights.sizeIcon30, width: theme.heights.sizeIcon30}}
                   title="View this project on github"
                   color={theme.textColors.colorTextWeak}
-                  size={theme.heights.sizeIcon30}
                 />
               </Anchor>
             </Box>
