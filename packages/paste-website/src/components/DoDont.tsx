@@ -59,7 +59,7 @@ const Example: React.FC<ExampleProps> = props => {
 };
 
 const Do: React.FC<ExampleProps> = props => {
-  return <Example do={true} {...props} />;
+  return <Example do {...props} />;
 };
 
 const Dont: React.FC<ExampleProps> = props => {
