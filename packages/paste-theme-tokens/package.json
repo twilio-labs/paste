@@ -13,7 +13,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn compile",
+    "build": "yarn clean && yarn compile",
     "build:dev": "yarn clean && yarn compile:dev",
     "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
     "compile": "rollup -c --environment NODE_ENV:production",
