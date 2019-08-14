@@ -44,6 +44,6 @@ export const SiteMain = styled.main`
 export const SiteMainInner = styled.div`
   /* magic number from Jasons initial layout */
   max-width: 984px;
-  padding-bottom: ${themeGet('space.space110')};
+  padding: ${themeGet('space.space110')} ${themeGet('space.space200')};
   -webkit-overflow-scrolling: touch;
 `;
