@@ -37,25 +37,6 @@ const widths = {
 const heights = {
   ...sizings,
 };
-const borderTypes = {
-  Primary: {borderColor: borderColors.colorBorderPrimary, borderStyle: 'solid'},
-  PrimaryLighter: {borderColor: borderColors.colorBorderPrimaryLighter, borderStyle: 'solid'},
-  PrimaryLight: {borderColor: borderColors.colorBorderPrimaryLight, borderStyle: 'solid'},
-  PrimaryDark: {borderColor: borderColors.colorBorderPrimaryDark, borderStyle: 'solid'},
-  PrimaryDarker: {borderColor: borderColors.colorBorderPrimaryDarker, borderStyle: 'solid'},
-  Default: {borderColor: borderColors.colorBorder, borderStyle: 'solid'},
-  Light: {borderColor: borderColors.colorBorderLight, borderStyle: 'solid'},
-  Dark: {borderColor: borderColors.colorBorderDark, borderStyle: 'solid'},
-  Destructive: {borderColor: borderColors.colorBorderDestructive, borderStyle: 'solid'},
-  DestructiveLighter: {borderColor: borderColors.colorBorderDestructiveLighter, borderStyle: 'solid'},
-  DestructiveLight: {borderColor: borderColors.colorBorderDestructiveLight, borderStyle: 'solid'},
-  DestructiveDark: {borderColor: borderColors.colorBorderDestructiveDark, borderStyle: 'solid'},
-  DestructiveDarker: {borderColor: borderColors.colorBorderDestructiveDarker, borderStyle: 'solid'},
-  Error: {borderColor: borderColors.colorBorderError, borderStyle: 'solid'},
-  Input: {borderColor: borderColors.colorBorderInput, borderStyle: 'solid'},
-  InputFocus: {borderColor: borderColors.colorBorderInputFocus, borderStyle: 'solid'},
-  InputHover: {borderColor: borderColors.colorBorderInputHover, borderStyle: 'solid'},
-};
 export const SendGridTheme = {
   colors,
   shadows,
@@ -68,7 +49,6 @@ export const SendGridTheme = {
   textColors,
   backgroundColors,
   borderColors,
-  borderTypes,
   maxWidths,
   minWidths,
   widths,
