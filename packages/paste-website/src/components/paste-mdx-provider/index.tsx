@@ -2,9 +2,10 @@ import * as React from 'react';
 import {MDXProvider} from '@mdx-js/react';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
-import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
-import {Table, Tbody, Tr, Th, Td} from '../../table';
+import {Table, Tbody, Tr, Th, Td} from '../table';
+// Shortcode imports
+import {ComponentHeader} from '../shortcodes/ComponentHeader';
 
 interface PasteMDXProviderProps {
   children?: React.ReactElement;
@@ -51,10 +52,13 @@ const StyledHr = styled.hr`
   props than that are passed to the components. I think eslint is confused.
 */
 
+const shortcodes = {ComponentHeader};
+
 export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMDXProviderProps): React.ReactElement => {
   return (
     <MDXProvider
       components={{
+        ...shortcodes,
         h1: (props: React.ComponentProps<typeof Text>): React.ReactElement => (
           <Text {...props} as="h1" marginBottom="space90" fontSize="fontSize80" lineHeight="lineHeight60" />
         ),

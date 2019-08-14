@@ -1,21 +1,27 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
+import styled from '@emotion/styled';
+import {Header} from './Header';
+import {Navigation} from './Navigation';
 
-interface SidebarProps {
-  children: React.ReactNode;
-}
+const StyledSidebar = styled(Box)`
+  height: 100vh;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+`;
 
-const Sidebar: React.FC<SidebarProps> = props => {
+const Sidebar: React.FC<{}> = () => {
   return (
-    <Box
+    <StyledSidebar
       backgroundColor="colorBackground"
       paddingTop="space70"
       paddingRight="space40"
       paddingBottom="space70"
       paddingLeft="space40"
     >
-      {props.children}
-    </Box>
+      <Header siteTitle="Paste" siteSubTitle="Design System" siteVersion="v0.1" />
+      <Navigation />
+    </StyledSidebar>
   );
 };
 

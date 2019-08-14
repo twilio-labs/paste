@@ -4,7 +4,7 @@ import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {useUID} from 'react-uid';
 import {Table, Tr, Th, Td, Tbody} from '../table';
-import {TokenExample} from '../token-example';
+import {TokenExample} from '../tokens-example';
 import {Input} from '../input';
 import {Label} from '../label';
 
@@ -106,8 +106,8 @@ export const TokensList: React.FC<TokensListProps> = props => {
                   <thead>
                     <Tr>
                       <Th>Token</Th>
-                      <Th width="250px">Value</Th>
-                      <Th width="250px">Example</Th>
+                      <Th style={{width: '250px'}}>Value</Th>
+                      <Th style={{width: '250px'}}>Example</Th>
                     </Tr>
                   </thead>
                   <Tbody>

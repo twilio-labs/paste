@@ -1,13 +1,13 @@
-import color from 'color';
+import * as color from 'color';
 import * as Immutable from 'immutable';
 import {ImmutableStyleMap} from 'theo';
 
 interface SketchPaletteColor {
   name: string;
-  red?: number;
-  green?: number;
-  blue?: number;
-  alpha?: number;
+  red: number;
+  green: number;
+  blue: number;
+  alpha: number;
 }
 
 interface ColorRGB {
@@ -16,7 +16,8 @@ interface ColorRGB {
   valpha: string;
 }
 
-const convertToSketchPaletteColor = (input: string): Partial<SketchPaletteColor> => {
+const convertToSketchPaletteColor = (input: string): {[key: string]: number} => {
+  // @ts-ignore FIXME
   const convertedColor: ColorRGB = color.rgb(input);
 
   return {

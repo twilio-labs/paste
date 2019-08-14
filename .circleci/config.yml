@@ -26,16 +26,18 @@ jobs:
           paths:
             - node_modules
       - run:
-          name: Run build
+          name: Run package builds
           command: yarn build
       - run:
-          name: Build monorepo package cache
-          command: yarn pre-test
+          name: Run website build
+          command: yarn build:website
+      - run:
+          name: Run type checker
+          command: yarn type-check
       - persist_to_workspace:
           root: ~/
           paths:
             - repo/packages
-            - repo/tools/.cache
 
   test:
     executor: job-executor
@@ -71,6 +73,8 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
+      - attach_workspace:
+          at: ~/
       - run:
           name: Run prettier
           command: yarn prettier
