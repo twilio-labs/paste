@@ -57,7 +57,11 @@ const StyledFooterLogo = styled(TwilioIcon)`
   margin: 0 auto ${themeGet('space.space70')};
 `;
 
-function Footer() {
+interface FooterProps {
+  children: React.ReactNode;
+}
+
+const Footer: React.FC<FooterProps> = () => {
   return (
     <StyledFooter>
       <StyledFooterGrid>
@@ -137,6 +141,6 @@ function Footer() {
       </StyledCopyright>
     </StyledFooter>
   );
-}
+};
 
 export {Footer};
