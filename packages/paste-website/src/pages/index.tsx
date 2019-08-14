@@ -17,12 +17,6 @@ const LandingContainer = styled(Box)`
   margin-left: auto;
 `;
 
-const StyledButtonRow = styled(Box)`
-  a {
-    margin-right: ${themeGet('space.space40')};
-  }
-`;
-
 const IconCircle = styled(Box)`
   justify-content: center;
   align-items: center;
@@ -42,14 +36,16 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
           and components, along with in-depth documentation to assist designers and developers faced with solving our
           customers’ problems. It is open source and contributions are welcome.
         </Text>
-        <StyledButtonRow marginTop="space80" marginBottom="space80">
-          <Button as="a" href="/" size="default" variant="primary">
-            Install Paste 0.1
-          </Button>
+        <Box marginTop="space80" marginBottom="space80">
+          <Box display="inline" marginRight="space40">
+            <Button as="a" href="/" size="default" variant="primary">
+              Install Paste 0.1
+            </Button>
+          </Box>
           <Button as="a" href="/components" size="default" variant="secondary">
             View Components
           </Button>
-        </StyledButtonRow>
+        </Box>
       </LandingContainer>
       <StyledHr />
       <LandingContainer marginTop="space200" marginBottom="space200">
