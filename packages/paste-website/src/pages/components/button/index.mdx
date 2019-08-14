@@ -5,7 +5,7 @@ description: Buttons are hot
 ---
 
 import {graphql} from 'gatsby';
-import {Anchor} from '@twilio-paste/anchor';
+import {Button} from '@twilio-paste/button';
 
 export const pageQuery = graphql`
   {
@@ -44,10 +44,10 @@ import {Button} from '@twilio-paste/button';
 </Button>
 ```
 
-<LivePreview scope={{Anchor}} language="jsx">
-  {`<Anchor href="https://google.com">
+<LivePreview scope={{Button}} language="jsx">
+  {`<Button onClick={() => {console.log('clicked!')}} variant="secondary" size="small">
   Submit
-</Anchor>`}
+</Button>`}
 </LivePreview>
 
 ### Props
