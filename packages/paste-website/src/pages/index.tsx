@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
+import {Link} from 'gatsby';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
@@ -37,9 +38,9 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
           Paste
         </Text>
         <Text fontSize="fontSize30" lineHeight="lineHeight50">
-          Enamel pin meh cloud bread copper mug next level gentrify ugh lumbersexual art party selvage chicharrones
-          hexagon wolf wayfarers whatever. Locavore stumptown VHS semiotics. Woke selfies 8-bit tofu cliche portland
-          synth glossier fanny pack. Meditation 3 wolf moon beard drinking vinegar.
+          Paste is a design system for designing and building consistent experiences at Twilio. It is made up of tokens
+          and components, along with in-depth documentation to assist designers and developers faced with solving our
+          customers’ problems. It is open source and contributions are welcome.
         </Text>
         <StyledButtonRow marginTop="space80" marginBottom="space80">
           <Button as="a" href="/" size="default" variant="primary">
@@ -63,11 +64,11 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               <Brush size={24} />
             </IconCircle>
             <Text as="h3" fontSize="fontSize60" lineHeight="lineHeight50" marginBottom="space60">
-              Themeability
+              Themes
             </Text>
             <Text lineHeight="lineHeight30">
-              Prism glossier photo booth godard synth vape tumeric subway tile trust fund cred hexagon raw denim master
-              cleanse.
+              Each component shares a common set of <Link to="/tokens">design tokens</Link> that allow us to easily
+              change their value based on a theme.
             </Text>
           </Box>
           <Box>
@@ -83,8 +84,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               Usage Examples
             </Text>
             <Text lineHeight="lineHeight30">
-              Prism glossier photo booth godard synth vape tumeric subway tile trust fund cred hexagon raw denim master
-              cleanse.
+              Learn how to use Paste components and the underlying tokens through usage examples and guidelines.
             </Text>
           </Box>
           <Box>
@@ -100,8 +100,8 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               Component API
             </Text>
             <Text lineHeight="lineHeight30">
-              Prism glossier photo booth godard synth vape tumeric subway tile trust fund cred hexagon raw denim master
-              cleanse.
+              Each Paste component is thoroughly documented with a list of props and descriptions of how they should be
+              used.
             </Text>
           </Box>
         </Grid>
