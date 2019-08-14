@@ -8,5 +8,8 @@
       "use": "@now/static-build",
       "config": {"distDir": "packages/paste-website/public"}
     }
+  ],
+  "alias": [
+    "paste.twilio.design"
   ]
 }
