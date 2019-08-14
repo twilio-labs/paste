@@ -16,9 +16,10 @@ const LandingContainer = styled(Box)`
   margin-left: auto;
 `;
 
-const StyledButton = styled(Button)`
-  margin-right: ${themeGet('space.space40')};
-  text-decoration: none;
+const StyledButtonRow = styled(Box)`
+  a {
+    margin-right: ${themeGet('space.space40')};
+  }
 `;
 
 const IconCircle = styled(Box)`
@@ -40,14 +41,14 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
           hexagon wolf wayfarers whatever. Locavore stumptown VHS semiotics. Woke selfies 8-bit tofu cliche portland
           synth glossier fanny pack. Meditation 3 wolf moon beard drinking vinegar.
         </Text>
-        <Box marginTop="space80" marginBottom="space80">
-          <StyledButton as="a" href="/" size="default" variant="primary">
+        <StyledButtonRow marginTop="space80" marginBottom="space80">
+          <Button as="a" href="/" size="default" variant="primary">
             Install Paste 0.1
-          </StyledButton>
-          <StyledButton as="a" href="/components" size="default" variant="secondary">
+          </Button>
+          <Button as="a" href="/components" size="default" variant="secondary">
             View Components
-          </StyledButton>
-        </Box>
+          </Button>
+        </StyledButtonRow>
       </LandingContainer>
       <StyledHr />
       <LandingContainer marginTop="space200" marginBottom="space200">
