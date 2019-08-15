@@ -10,12 +10,18 @@ const StyledWrapper = styled.div`
 `;
 
 interface DoDontProps {
-  children?: React.ReactNode;
+  children: React.ReactNode;
 }
 
 const DoDont: React.FC<DoDontProps> = props => {
   return <StyledWrapper>{props.children}</StyledWrapper>;
 };
+
+interface ExampleProps {
+  children: React.ReactNode;
+  do: boolean;
+  image: string;
+}
 
 const StyledExampleImg: React.FC<ExampleProps> = styled.div`
   margin-bottom: ${themeGet('space.space50')};
@@ -29,12 +35,6 @@ const StyledExampleImg: React.FC<ExampleProps> = styled.div`
     width: 100%;
   }
 `;
-
-interface ExampleProps {
-  children?: React.ReactNode;
-  do: boolean;
-  image: string;
-}
 
 const Example: React.FC<ExampleProps> = props => {
   return (
