@@ -5,7 +5,7 @@ import {Link} from 'gatsby';
 
 import {Anchor} from '@twilio-paste/anchor';
 import {TWILIO_BLUE} from '../constants';
-import TwilioIcon from './svg/twilio-icon';
+import {TwilioIcon} from './icons/TwilioIcon';
 
 const StyledFooter = styled.footer`
   margin-top: 96px;
