@@ -83,6 +83,9 @@ const Navigation: React.FC<NavigationProps> = () => {
   const [utilitiesOpen, setutilitiesOpen] = React.useState(
     getCurrentPathname().includes(SidebarCategoryRoutes.UTILITIES)
   );
+  const [gettingStartedOpen, setgettingStartedOpen] = React.useState(
+    getCurrentPathname().includes(SidebarCategoryRoutes.GETTINGSTARTED)
+  );
 
   return (
     <SiteNav>
@@ -91,7 +94,18 @@ const Navigation: React.FC<NavigationProps> = () => {
           <SiteNavAnchor to="/">Home</SiteNavAnchor>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavAnchor to="/getting-started">Getting Started</SiteNavAnchor>
+          <SiteNavButton onClick={() => setgettingStartedOpen(!gettingStartedOpen)} isOpen={gettingStartedOpen}>
+            Getting Started
+            <SiteNavAnchorArrow isOpen={gettingStartedOpen} />
+          </SiteNavButton>
+          <SiteNavNestList isOpen={gettingStartedOpen}>
+            <SiteNavItem>
+              <SiteNavAnchor to="/getting-started/">General Guidelines</SiteNavAnchor>
+            </SiteNavItem>
+            <SiteNavItem>
+              <SiteNavAnchor to="/getting-started/design">Design Guidelines</SiteNavAnchor>
+            </SiteNavItem>
+          </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
           <SiteNavAnchor to="/tokens">Tokens</SiteNavAnchor>
