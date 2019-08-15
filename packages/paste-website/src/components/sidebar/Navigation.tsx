@@ -84,7 +84,7 @@ const Navigation: React.FC<NavigationProps> = () => {
     getCurrentPathname().includes(SidebarCategoryRoutes.UTILITIES)
   );
   const [gettingStartedOpen, setgettingStartedOpen] = React.useState(
-    getCurrentPathname().includes(SidebarCategoryRoutes.GETTINGSTARTED)
+    getCurrentPathname().includes(SidebarCategoryRoutes.GETTING_STARTED)
   );
 
   return (
