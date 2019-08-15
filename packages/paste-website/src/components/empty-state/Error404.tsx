@@ -1,25 +1,37 @@
 import * as React from 'react';
+import {InDevelopment} from './InDevelopment';
 import {NotBuilt} from './NotBuilt';
 import {NotFound} from './NotFound';
 import {SidebarCategoryRoutes} from '../../constants';
 
 interface Error404Props {
   pathname: string;
-  componentList: string[];
-  utilitityList: string[];
+  componentList: {name: string; version: string}[];
+  utilitityList: {name: string; version: string}[];
 }
 
 const Error404 = ({pathname, componentList, utilitityList}: Error404Props): React.ReactNode => {
   const pathParts = pathname.split('/');
-  const name = pathParts[pathParts.length - 1];
-  const packageName = `@twilio-paste/${name}`;
+  const pageName = pathParts[pathParts.length - 1];
+  const packageName = `@twilio-paste/${pageName}`;
+  const packageObj = [...componentList, ...utilitityList].find(({name}) => name === packageName);
 
-  if (pathname.includes(SidebarCategoryRoutes.COMPONENTS) && componentList.includes(packageName)) {
-    return <NotBuilt type="component" name={name} />;
-  }
+  if (packageObj != null) {
+    const isInDevelopment = packageObj.version !== '0.0.0';
 
-  if (pathname.includes(SidebarCategoryRoutes.UTILITIES) && utilitityList.includes(packageName)) {
-    return <NotBuilt type="utility" name={name} />;
+    if (pathname.includes(SidebarCategoryRoutes.COMPONENTS)) {
+      if (isInDevelopment) {
+        return <InDevelopment type="component" name={pageName} />;
+      }
+      return <NotBuilt type="component" name={pageName} />;
+    }
+
+    if (pathname.includes(SidebarCategoryRoutes.UTILITIES)) {
+      if (isInDevelopment) {
+        return <InDevelopment type="utility" name={pageName} />;
+      }
+      return <NotBuilt type="utility" name={pageName} />;
+    }
   }
 
   /* 
