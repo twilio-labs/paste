@@ -120,17 +120,23 @@ const Footer: React.FC<FooterProps> = () => {
         <Styled4Column>
           <div>
             <h4>Support</h4>
-            <p>Vinyl venmo gochujang letterpress pabst drinking vinegar, franzen bitters schlitz fam.</p>
+            <p>
+              If you need support, please open a new issue in our GitHub repository. Please try to provide as much
+              detail as possible in your issue.
+            </p>
             <StyledLinkList>
-              <Anchor href="#">Ask a Question</Anchor>
-              <Anchor href="#">Report a Bug</Anchor>
+              <Anchor href="https://github.com/twilio-labs/paste/issues">Ask a Question</Anchor>
+              <Anchor href="https://github.com/twilio-labs/paste/issues">Report a Bug</Anchor>
             </StyledLinkList>
           </div>
           <div>
-            <h4>Support</h4>
-            <p>Vinyl venmo gochujang letterpress pabst drinking vinegar, franzen bitters schlitz fam.</p>
+            <h4>Contributing</h4>
+            <p>
+              The Paste design system is open source and contributions are welcome. Check out the project on GitHub to
+              learn more about contributing.
+            </p>
             <StyledLinkList>
-              <Anchor href="https://github.com/twilio-labs/paste/issues">GitHub Issues</Anchor>
+              <Anchor href="https://github.com/twilio-labs/paste">GitHub</Anchor>
             </StyledLinkList>
           </div>
         </Styled4Column>
