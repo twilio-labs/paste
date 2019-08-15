@@ -10,7 +10,7 @@ import TwilioIcon from './svg/twilio-icon';
 const StyledFooter = styled.footer`
   margin-top: 96px;
   padding: 120px ${themeGet('space.space200')} 120px;
-  background-color: #f9fafb;
+  background-color: ${themeGet('colors.colorGray10')};
 `;
 
 const StyledFooterGrid = styled.div`
@@ -30,11 +30,11 @@ const StyledFooterList = styled.ul`
 `;
 
 const StyledFooterLink = styled(Link)`
-  color: #465672;
+  color: ${themeGet('colors.colorGray80')};
   text-decoration: none;
 
   &:hover {
-    color: #08152c;
+    color: ${themeGet('textColors.colorText')};
   }
 `;
 
