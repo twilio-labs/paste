@@ -4,9 +4,7 @@ import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Breadcrumb, BreadcrumbItem} from '../breadcrumb';
 
-interface NotFoundProps {}
-
-const NotFound: React.FC<NotFoundProps> = () => (
+const NotFound: React.FC<{}> = () => (
   <>
     <Breadcrumb>
       <BreadcrumbItem to="/">Home</BreadcrumbItem>
@@ -18,7 +16,7 @@ const NotFound: React.FC<NotFoundProps> = () => (
       color="colorText"
       mb="space90"
     >
-      Oops, this page doesn't exist
+      Oops, this page doesn&apos;t exist
     </Text>
     <Box>
       <Text>
