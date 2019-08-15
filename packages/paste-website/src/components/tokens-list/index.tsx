@@ -4,7 +4,7 @@ import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {useUID} from 'react-uid';
 import {Table, Tr, Th, Td, Tbody} from '../table';
-import {TokenExample} from '../token-example';
+import {TokenExample} from '../tokens-example';
 import {Input} from '../input';
 import {Label} from '../label';
 
@@ -29,7 +29,7 @@ interface TokenCategory {
   tokens: Token[];
 }
 
-interface DataShape {
+interface TokensShape {
   node: {
     tokens: TokenCategory[];
   };
@@ -37,23 +37,24 @@ interface DataShape {
 
 interface TokensListProps {
   children?: React.ReactElement;
-  data: DataShape[];
+  default: TokensShape[];
+  sendgrid: TokensShape[];
 }
 
-const setInitialState = (data: DataShape[]): TokenCategory[] | null => {
+const setInitialState = (data: TokensShape[]): TokenCategory[] | null => {
   if (data != null) {
-    // eslint-disable-next-line prefer-destructuring
-    return data[0].node.tokens;
+    const {tokens} = data[0].node;
+    return tokens;
   }
   return null;
 };
 
 export const TokensList: React.FC<TokensListProps> = props => {
-  const [tokens, setTokens] = React.useState(setInitialState(props.data));
+  const [tokens, setTokens] = React.useState(setInitialState(props.sendgrid));
 
   const filterTokenList = (filter: string): void => {
     setTokens(() => {
-      const newTokenCategories = props.data[0].node.tokens.map(
+      const newTokenCategories = props.sendgrid[0].node.tokens.map(
         (category): TokenCategory => {
           const newTokens = category.tokens.filter(token => {
             return token.name.includes(filter) || token.value.includes(filter);
@@ -105,9 +106,8 @@ export const TokensList: React.FC<TokensListProps> = props => {
                   <thead>
                     <Tr>
                       <Th>Token</Th>
-                      <Th>Value</Th>
-                      <Th>Description</Th>
-                      <Th>Example</Th>
+                      <Th style={{width: '250px'}}>Value</Th>
+                      <Th style={{width: '250px'}}>Example</Th>
                     </Tr>
                   </thead>
                   <Tbody>
@@ -115,12 +115,12 @@ export const TokensList: React.FC<TokensListProps> = props => {
                       return (
                         <Tr key={`token${token.name}`}>
                           <Td>
-                            <Text fontSize="fontSize30">
+                            <Text fontSize="fontSize30" mb="space30">
                               <code>${token.name}</code>
                             </Text>
+                            <Text textColor="colorTextWeak">{token.comment}</Text>
                           </Td>
                           <Td>{token.value}</Td>
-                          <Td>{token.comment}</Td>
                           <Td
                             css={{
                               position: 'relative',

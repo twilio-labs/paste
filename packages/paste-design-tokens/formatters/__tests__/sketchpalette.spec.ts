@@ -4,8 +4,8 @@ import {sketchpaletteTokenFormat} from '../sketchpalette';
 theo.registerFormat('sketchpalette', sketchpaletteTokenFormat);
 
 describe('sketchPaletteTokenFormatter', () => {
-  test('should return sketch palette color formatted tokens', () => {
-    theo
+  it('should return sketch palette color formatted tokens', () => {
+    return theo
       .convert({
         transform: {
           type: 'web',

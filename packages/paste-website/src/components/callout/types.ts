@@ -1,14 +1,12 @@
+import {TextProps} from '@twilio-paste/text';
+
 export type CalloutVariants = 'primary' | 'secondary' | 'warning';
 
 export interface CalloutTitleProps {
   as?: string;
 }
 
-export interface CalloutTextProps {
-  as?: string;
-  marginTop?: string;
-  marginBottom?: string;
-}
+export type CalloutTextProps = Pick<TextProps, 'marginTop' | 'marginBottom' | 'as'>;
 
 export interface CalloutProps {
   marginTop?: string;

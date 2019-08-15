@@ -14,7 +14,7 @@ export const Table = styled.table(props => ({
   lineHeight: '24px',
 }));
 
-// export const Thead = styled.thead({});
+export const Thead = styled.thead({});
 
 // export const Tfoot = styled.tfoot({});
 
@@ -34,6 +34,8 @@ export const Tr = styled.tr(props => ({
 
 export const Td = styled.td(props => ({
   padding: `${themeGet('space.space40')(props)} ${themeGet('space.space30')(props)}`,
+  verticalAlign: 'top',
+  wordWrap: 'break-word',
 
   '&:nth-of-type(1)': {
     paddingLeft: themeGet('space.space50')(props),

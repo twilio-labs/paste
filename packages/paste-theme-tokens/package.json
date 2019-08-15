@@ -22,7 +22,7 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@twilio-paste/design-tokens": "^2.0.2"
+    "@twilio-paste/design-tokens": "^2.2.0"
   },
   "devDependencies": {
     "@twilio-paste/design-tokens": "^2.2.0",

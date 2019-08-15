@@ -46,15 +46,16 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         defaultLayouts: {
-          default: require.resolve('./src/templates/index.tsx'),
-          components: require.resolve('./src/templates/components.tsx'),
+          default: require.resolve('./src/layouts/DefaultLayout.tsx'),
         },
       },
     },
     {
       resolve: 'gatsby-transformer-json',
       options: {
-        typeName: ({node}) => {
+        typeName: ({
+          node
+        }) => {
           if (node.relativePath.startsWith('paste-core/components') && node.relativePath.endsWith('package.json')) {
             return 'PasteComponent';
           }
@@ -63,8 +64,12 @@ module.exports = {
             return 'PasteUtility';
           }
 
-          if (node.relativePath.endsWith('gatsby.json')) {
-            return 'PasteToken';
+          if (node.relativePath.endsWith('dist/tokens.gatsby.json')) {
+            return 'PasteTokenDefault';
+          }
+
+          if (node.relativePath.endsWith('dist/themes/sendgrid/tokens.gatsby.json')) {
+            return 'PasteTokenSendGrid';
           }
 
           return 'DefaultJson';
@@ -74,7 +79,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: 'UA-xxxxxxx-x',
+        trackingId: 'UA-145457417-1',
       },
     },
     'gatsby-plugin-sitemap',
