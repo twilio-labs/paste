@@ -22,6 +22,8 @@ export const SiteNavNestList: React.FC<SiteNavNestListProps> = styled(SiteNavLis
   text-transform: capitalize;
   background-color: ${themeGet('colors.colorGray30')};
   overflow: hidden;
+  border-bottom-right-radius: ${themeGet('radii.borderRadius20')};
+  border-bottom-left-radius: ${themeGet('radii.borderRadius20')};
 `;
 
 export const SiteNavItem = styled.li`

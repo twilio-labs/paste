@@ -5,6 +5,7 @@ description: Buttons are hot
 ---
 
 import {graphql} from 'gatsby';
+import {Button} from '@twilio-paste/button';
 
 export const pageQuery = graphql`
   {
@@ -35,13 +36,19 @@ yarn add @twilio-paste/button
 
 ## Usage
 
-```js
+```jsx
 import {Button} from '@twilio-paste/button';
 
 <Button variant="secondary" size="small" onClick={() => {}}>
   Submit
-</Button>;
+</Button>
 ```
+
+<LivePreview scope={{Button}} language="jsx">
+  {`<Button onClick={() => {console.log('clicked!')}} variant="secondary" size="small">
+  Submit
+</Button>`}
+</LivePreview>
 
 ### Props
 
