@@ -6,6 +6,7 @@ export const SidebarCategoryRoutes = {
   COMPONENTS: '/components',
   PRIMITIVES: '/primitives',
   UTILITIES: '/utilities',
+  GETTINGSTARTED: '/getting-started',
 };
 
 export const PackageStatus = {
