@@ -1,6 +1,12 @@
 import * as React from 'react';
+import styled from '@emotion/styled';
+import {themeGet} from 'styled-system';
 import Highlight, {defaultProps} from 'prism-react-renderer';
 import {CodeblockTheme} from './theme';
+
+const StyledPre = styled.pre(props => ({
+  padding: `${themeGet('space.space40')(props)} ${themeGet('space.space60')(props)}`,
+}));
 
 export type Language =
   | 'markup'
@@ -49,7 +55,7 @@ const Codeblock: React.FC<CodeblockProps> = ({children, className = 'language-js
       {({className: _className, style, tokens, getLineProps, getTokenProps}) => {
         const lastLineIndex = tokens.length - 1;
         return (
-          <pre className={_className} style={{...style, padding: '12px 20px'}}>
+          <StyledPre className={_className} style={style}>
             {tokens.map((line, i) => {
               // Codeblocks keep adding an extra blank line, this checks for that and removes it
               if (i === lastLineIndex && line.length === 1 && line[0].content === '') {
@@ -66,7 +72,7 @@ const Codeblock: React.FC<CodeblockProps> = ({children, className = 'language-js
                 </div>
               );
             })}
-          </pre>
+          </StyledPre>
         );
       }}
     </Highlight>

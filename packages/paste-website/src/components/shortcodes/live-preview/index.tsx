@@ -33,7 +33,7 @@ const LivePreview: React.FC<CodeblockProps> = ({children, language = 'jsx', scop
           <ReactLivePreview />
         </Box>
         <Box
-          style={{padding: '2px 10px', backgroundColor: '#011627'}}
+          css={{padding: '2px 10px', backgroundColor: '#011627'}}
           borderBottomLeftRadius="borderRadius20"
           borderBottomRightRadius="borderRadius20"
         >
