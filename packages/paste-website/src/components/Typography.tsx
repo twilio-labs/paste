@@ -4,7 +4,7 @@ import {Text} from '@twilio-paste/text';
 import {themeGet} from 'styled-system';
 
 export interface PProps {
-  variant: 'default' | 'lead';
+  variant?: 'default' | 'lead';
 }
 export const P: React.FC<PProps> = ({children, variant}) => {
   return (
