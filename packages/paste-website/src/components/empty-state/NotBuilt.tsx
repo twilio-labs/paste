@@ -16,7 +16,9 @@ const NotBuilt: React.FC<NotBuiltProps> = ({type, name}) => {
     <>
       <Breadcrumb>
         <BreadcrumbItem to="/">Home</BreadcrumbItem>
-        <BreadcrumbItem to={SidebarCategoryRoutes.COMPONENTS}>Components</BreadcrumbItem>
+        <BreadcrumbItem to={type === 'utility' ? SidebarCategoryRoutes.UTILITIES : SidebarCategoryRoutes.COMPONENTS}>
+          {type === 'utility' ? 'Utilities' : 'Components'}
+        </BreadcrumbItem>
       </Breadcrumb>
       <Text
         fontSize="fontSize80"
