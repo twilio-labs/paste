@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/text",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "category": "typography",
   "status": "alpha",
   "description": "",
@@ -31,7 +31,7 @@
     "styled-system": "^4.1.0"
   },
   "devDependencies": {
-    "@twilio-paste/theme-tokens": "^0.4.0",
+    "@twilio-paste/theme-tokens": "^0.5.0",
     "csstype": "^2.6.5",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",
