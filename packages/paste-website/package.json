@@ -20,6 +20,7 @@
     "@mdx-js/mdx": "^1.0.23",
     "@mdx-js/react": "^1.0.23",
     "@mdx-js/tag": "^0.20.3",
+    "@twilio-paste/anchor": "0.1.3",
     "@twilio-paste/box": "^0.2.4",
     "@twilio-paste/button": "0.1.6",
     "@twilio-paste/heading": "^0.3.0",
