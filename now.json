@@ -8,5 +8,9 @@
       "use": "@now/static-build",
       "config": {"distDir": "packages/paste-website/public"}
     }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/.*", "status": 404, "dest": "404/index.html" }
   ]
 }
