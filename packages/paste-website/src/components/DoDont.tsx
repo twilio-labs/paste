@@ -1,12 +1,13 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
+import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 
-const StyledWrapper = styled.div`
+const StyledWrapper = styled(Box)`
   display: grid;
-  grid-template-columns: repeat(2, auto);
-  grid-column-gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: ${themeGet('space.space70')};
 `;
 
 interface DoDontProps {
@@ -14,13 +15,17 @@ interface DoDontProps {
 }
 
 const DoDont: React.FC<DoDontProps> = props => {
-  return <StyledWrapper>{props.children}</StyledWrapper>;
+  return (
+    <StyledWrapper marginTop="space90" marginBottom="space90">
+      {props.children}
+    </StyledWrapper>
+  );
 };
 
 interface ExampleProps {
   children: React.ReactNode;
   do: boolean;
-  image: string;
+  image?: string;
 }
 
 const StyledExampleImg: React.FC<ExampleProps> = styled.div`
@@ -37,11 +42,10 @@ const StyledExampleImg: React.FC<ExampleProps> = styled.div`
 `;
 
 const Example: React.FC<ExampleProps> = props => {
+  const hasImage = props.image;
   return (
     <div>
-      <StyledExampleImg {...props}>
-        <img src={props.image} alt="" />
-      </StyledExampleImg>
+      <StyledExampleImg {...props}>{hasImage ? <img src={props.image} alt="" /> : null}</StyledExampleImg>
       <div>
         <Text
           as="h5"

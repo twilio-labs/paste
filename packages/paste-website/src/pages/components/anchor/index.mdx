@@ -6,6 +6,7 @@ description: The anchor can be used to hyperlink to another URL. It accepts both
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
 
 export const pageQuery = graphql`
   {
@@ -23,20 +24,12 @@ export const pageQuery = graphql`
 `;
 
 <ComponentHeader
-  name="Anchor"
+  name={props.pageContext.frontmatter.title}
   githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/components/anchor"
   data={props.data.allPasteComponent.edges}
 />
 
-<LivePreview scope={{Anchor}} language="jsx">
-  {`<Anchor href="https://google.com">
-  Go to Google
-</Anchor>`}
-</LivePreview>
-
 <content>
-
-<h1>{props.pageContext.frontmatter.title}</h1>
 
 <p>{props.pageContext.frontmatter.description}</p>
 
@@ -57,6 +50,24 @@ export const pageQuery = graphql`
 
 ### When to Use an Anchor
 Use an anchor when you need to hyperlink to another page, app, or website.
+
+<DoDont>
+  <Do>
+    Anchors should only be used to link to another page, app, or another website.
+  </Do>
+  <Dont>
+    Don’t use an anchor where a button makes more sense, i.e., closing a modal.
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do>
+    Anchors should only include text.
+  </Do>
+  <Dont>
+    Don’t use an icon in place of or with anchor text.
+  </Dont>
+</DoDont>
 
 ### Anchor vs. Button
 
@@ -98,10 +109,16 @@ yarn add @twilio-paste/anchor
 ```js
 import {Anchor} from '@twilio-paste/anchor';
 
-<Anchor href="/">
-  Link text
+<Anchor href="https://paste.twilio.design">
+  Go to Paste
 </Anchor>
 ```
+
+<LivePreview scope={{Anchor}} language="jsx">
+  {`<Anchor href="https://paste.twilio.design">
+  Go to Paste
+</Anchor>`}
+</LivePreview>
 
 ### Props
 
