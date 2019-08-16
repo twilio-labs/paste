@@ -4,8 +4,8 @@ import {themeGet} from 'styled-system';
 
 import {Box} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';
-import {TWILIO_BLUE} from '../constants';
-import {TwilioIcon} from './icons/TwilioIcon';
+import {TWILIO_BLUE} from '../../constants';
+import {TwilioIcon} from '../icons/TwilioIcon';
 
 const StyledFooter = styled.footer`
   margin-top: 96px;
@@ -26,7 +26,7 @@ const StyledFooterLogo = styled(TwilioIcon)`
   margin: 0 auto ${themeGet('space.space40')};
 `;
 
-const Footer: React.FC<{}> = () => {
+const SiteFooter: React.FC<{}> = () => {
   return (
     <StyledFooter>
       <Box
@@ -62,4 +62,4 @@ const Footer: React.FC<{}> = () => {
   );
 };
 
-export {Footer};
+export {SiteFooter};

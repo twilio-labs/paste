@@ -32,11 +32,10 @@ export const SiteBody = styled.div`
 `;
 
 export const SiteMain = styled.main`
-  padding: 0 ${themeGet('space.space200')};
   position: relative;
   overflow: auto;
 
-  @supports not (display: grid) {
+  @supports not (display: flex) {
     flex: 1;
   }
 `;
@@ -44,6 +43,6 @@ export const SiteMain = styled.main`
 export const SiteMainInner = styled.div`
   /* magic number from Jasons initial layout */
   max-width: 984px;
-  padding: ${themeGet('space.space110')} ${themeGet('space.space200')};
+  padding: 0 ${themeGet('space.space200')};
   -webkit-overflow-scrolling: touch;
 `;
