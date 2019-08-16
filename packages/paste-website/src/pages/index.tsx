@@ -4,11 +4,12 @@ import {themeGet} from 'styled-system';
 import {Link} from 'gatsby';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
+import {Anchor} from '@twilio-paste/anchor';
 import {SiteWrapper} from '../components/site-wrapper';
 import {Grid} from '../components/grid';
 import {StyledHr} from '../components/StyledHr';
 import {Heading} from '../components/Heading';
-import {P} from '../components/Typography';
+import {P, UL, LI} from '../components/Typography';
 import {Brush} from '../components/icons/Brush';
 import {Terminal} from '../components/icons/Terminal';
 import {WindowLayout} from '../components/icons/WindowLayout';
@@ -56,18 +57,20 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
         <Callout>
           <CalloutTitle as="h4">Looking for Flex / Console / SendGrid design systems?</CalloutTitle>
           <CalloutText as="div" marginTop="space40">
-            <ul>
-              <li>
-                <a href="http://styleguide.sendgrid.com/">SendGrid Style Guide</a>
-              </li>
-              <li>
-                <a href="https://code.hq.twilio.com/pages/react/react-components/">Console React Components</a> (VPN
-                Required)
-              </li>
-              <li>
-                <a href="https://zpl.io/2yOZ0Dy">Frame Elements for Flex</a>
-              </li>
-            </ul>
+            <UL>
+              <LI>
+                <Anchor href="http://styleguide.sendgrid.com/">SendGrid Style Guide</Anchor>
+              </LI>
+              <LI>
+                <Anchor href="https://code.hq.twilio.com/pages/react/react-components/">
+                  Console React Components
+                </Anchor>{' '}
+                (VPN Required)
+              </LI>
+              <LI>
+                <Anchor href="https://zpl.io/2yOZ0Dy">Frame Elements for Flex</Anchor>
+              </LI>
+            </UL>
           </CalloutText>
         </Callout>
       </LandingContainer>
