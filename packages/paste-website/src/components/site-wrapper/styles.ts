@@ -32,7 +32,8 @@ export const SiteBody = styled.div`
 `;
 
 export const SiteMain = styled.main`
-  padding: ${themeGet('space.space110')} ${themeGet('space.space200')};
+  padding: 0 ${themeGet('space.space200')};
+  position: relative;
   overflow: auto;
 
   @supports not (display: grid) {

@@ -13,16 +13,7 @@ const TwilioIcon = React.memo(({title = 'Twilio Icon', decorative = true, classN
   const uid = useUID();
   return (
     <div style={{color, width: size, height: size}} className={className}>
-      <svg
-        role="img"
-        aria-hidden={decorative}
-        aria-labelledby={uid}
-        className="prefix__twilio-mark"
-        fill="#F22F46"
-        viewBox="0 0 30 30"
-        width="100%"
-        height="100%"
-      >
+      <svg role="img" aria-hidden={decorative} aria-labelledby={uid} viewBox="0 0 30 30" width="100%" height="100%">
         <title id={uid}>{title}</title>
         <path
           fill="currentColor"

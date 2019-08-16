@@ -4,36 +4,32 @@ description: Our components are rad
 ---
 
 import {graphql} from 'gatsby';
-import {Text} from '@twilio-paste/text';
+import {Heading} from '../../components/Heading.tsx';
+import {P} from '../../components/Typography.tsx';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
 import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 
 <Breadcrumb>
   <BreadcrumbItem to="/">Home</BreadcrumbItem>
 </Breadcrumb>
-<Text
-  fontSize="fontSize80"
-  lineHeight="lineHeight80"
-  fontWeight="fontWeightSemibold"
-  color="colorText"
-  mb="space90"
+<Heading as="h1" headingStyle="headingStyle10"
 >
   Components
-</Text>
+</Heading>
 
-<Text fontSize="fontSize30" mb="space50">
+<P>
   Components listed here are on the Paste roadmap or are available today.
-</Text>
+</P>
 
-<Text fontSize="fontSize30" mb="space50">
+<P>
   If you’re planning on using an alpha or beta component, please check in with the Paste team through ???.
-</Text>
+</P>
 
-<Text fontSize="fontSize30" mb="space90">
+<P>
   Don't see a component you need listed here? Create an issue on GitHub, and we'll evaluate it. Not all component
   requests are accepted for the design system. We’ll have guidelines soon for what to do if your component isn’t
   supported.
-</Text>
+</P>
 
 <ComponentOverviewTable componentsList={props.data.allPasteComponent.edges} />
 
