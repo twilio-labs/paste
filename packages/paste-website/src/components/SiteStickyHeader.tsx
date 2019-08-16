@@ -25,14 +25,12 @@ export const SiteStickyHeader: React.FC<{}> = () => {
       borderColor="colorBorderLight"
       borderStyle="none none solid none"
       borderBottomWidth="borderWidth10"
-      px="space80"
+      pl="space200"
+      pr="space80"
       py="space60"
       mb="space140"
       css={{
         '@supports (position: sticky)': {
-          marginLeft: `-${theme.space.space200}`,
-          marginRight: `-${theme.space.space200}`,
-          paddingLeft: `${theme.space.space200}`,
           position: 'sticky',
           top: 0,
           zIndex: 10,
