@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Global} from '@emotion/core';
 import {Theme} from '@twilio-paste/theme';
 import {Sidebar} from '../sidebar';
+import {SiteStickyHeader} from '../SiteStickyHeader';
 import {globalStyles, SiteBody, SiteMain, SiteMainInner} from './styles';
 
 interface SiteWrapperProps {
@@ -15,6 +16,7 @@ const SiteWrapper: React.FC<SiteWrapperProps> = props => {
       <SiteBody>
         <Sidebar />
         <SiteMain>
+          <SiteStickyHeader />
           <SiteMainInner>{props.children}</SiteMainInner>
         </SiteMain>
       </SiteBody>
