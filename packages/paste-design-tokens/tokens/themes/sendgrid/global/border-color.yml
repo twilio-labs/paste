@@ -47,22 +47,22 @@ props:
   # status borders
   color-border-success:
     value: "{!palette-green-60}"
-    comment: Success borderr color
+    comment: Success border color
   color-border-success-lightest:
     value: "{!palette-green-10}"
-    comment: Lightest success borderr color
+    comment: Lightest success border color
   color-border-warning:
     value: "{!palette-orange-60}"
-    comment: Warning borderr color
+    comment: Warning border color
   color-border-warning-lightest:
     value: "{!palette-orange-10}"
-    comment: Lightest warning borderr color
+    comment: Lightest warning border color
   color-border-error:
     value: "{!palette-red-60}"
     comment: Error border color
   color-border-error-lightest:
     value: "{!palette-red-10}"
-    comment: Lightest error borderr color
+    comment: Lightest error border color
 
   # destructive borders
   color-border-destructive-darker:
