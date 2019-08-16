@@ -19,7 +19,7 @@ const Sidebar: React.FC<{}> = () => {
       paddingBottom="space70"
       paddingLeft="space40"
     >
-      <Header siteTitle="Paste" siteSubTitle="Design System" siteVersion="v0.1" />
+      <Header siteTitle="Paste" siteSubTitle="Design System" />
       <Navigation />
     </StyledSidebar>
   );

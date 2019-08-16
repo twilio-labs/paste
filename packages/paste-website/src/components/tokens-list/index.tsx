@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {Heading} from '@twilio-paste/heading';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {useUID} from 'react-uid';
@@ -7,6 +6,8 @@ import {Table, Tr, Th, Td, Tbody} from '../table';
 import {TokenExample} from '../tokens-example';
 import {Input} from '../input';
 import {Label} from '../label';
+import {InlineCode} from '../Typography';
+import {Heading} from '../Heading';
 
 const sentenceCase = (catName: string): string => {
   return catName
@@ -22,6 +23,7 @@ interface Token {
   value: string;
   comment: string;
   category: string;
+  type: string;
 }
 
 interface TokenCategory {
@@ -81,7 +83,7 @@ export const TokensList: React.FC<TokensListProps> = props => {
 
   return (
     <>
-      <Box as="form" my="space80" maxWidth="size40">
+      <Box as="form" my="space100" maxWidth="size40">
         <Label htmlFor={uid}>Filter tokens</Label>
         <Input
           aria-label="Filter the token list"
@@ -96,11 +98,9 @@ export const TokensList: React.FC<TokensListProps> = props => {
         tokens.map(cat => {
           return (
             <React.Fragment key={`catname${cat.categoryName}`}>
-              <Box my="space60">
-                <Heading as="h2" headingStyle="headingStyle20">
-                  {sentenceCase(cat.categoryName)}
-                </Heading>
-              </Box>
+              <Heading as="h2" headingStyle="headingStyle20">
+                {sentenceCase(cat.categoryName)}
+              </Heading>
               <Box mb="space160">
                 <Table>
                   <thead>
@@ -115,12 +115,12 @@ export const TokensList: React.FC<TokensListProps> = props => {
                       return (
                         <Tr key={`token${token.name}`}>
                           <Td>
-                            <Text fontSize="fontSize30" mb="space30">
-                              <code>${token.name}</code>
+                            <Text mb="space30" lineHeight="lineHeight40">
+                              <InlineCode>${token.name}</InlineCode>
                             </Text>
-                            <Text textColor="colorTextWeak">{token.comment}</Text>
+                            <Text>{token.comment}</Text>
                           </Td>
-                          <Td>{token.value}</Td>
+                          <Td>{token.type === 'color' ? token.value.toUpperCase() : token.value}</Td>
                           <Td
                             css={{
                               position: 'relative',

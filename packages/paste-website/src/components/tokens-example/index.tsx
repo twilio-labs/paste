@@ -95,7 +95,7 @@ export const ShadowBox: React.FC<ShadowBoxProps> = ({shadow}) => {
 
 type SpacingBoxProps = Pick<BoxProps, 'padding'>;
 export const SpacingBox: React.FC<SpacingBoxProps> = ({padding}) => {
-  return <Box backgroundColor="colorBackgroundBrand" display="inline-block" p={padding} />;
+  return <Box backgroundColor="colorBackgroundBrand" display="inline-block" pl={padding} pt={padding} />;
 };
 
 interface TokenExampleProps {

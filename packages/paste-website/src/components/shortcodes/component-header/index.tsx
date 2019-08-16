@@ -1,10 +1,11 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
-import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Breadcrumb, BreadcrumbItem} from '../../breadcrumb';
 import {SidebarCategoryRoutes} from '../../../constants';
+import {P} from '../../Typography';
+import {Heading} from '../../Heading';
 
 const ComponentHeaderBasic: React.FC<{name: string}> = ({name}) => (
   <>
@@ -12,15 +13,9 @@ const ComponentHeaderBasic: React.FC<{name: string}> = ({name}) => (
       <BreadcrumbItem to="/">Home</BreadcrumbItem>
       <BreadcrumbItem to={SidebarCategoryRoutes.COMPONENTS}>Components</BreadcrumbItem>
     </Breadcrumb>
-    <Text
-      fontSize="fontSize80"
-      lineHeight="lineHeight80"
-      fontWeight="fontWeightSemibold"
-      color="colorText"
-      mb="space90"
-    >
+    <Heading as="h1" headingStyle="headingStyle10">
       {name}
-    </Text>
+    </Heading>
   </>
 );
 
@@ -64,9 +59,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({name, githubUrl, data}
   return (
     <>
       <ComponentHeaderBasic name={name} />
-      <Text fontSize="fontSize30" mb="space50">
-        {description}
-      </Text>
+      <P variant="lead">{description}</P>
       <Box as="dl" mb="space100">
         <Box mb="space20">
           <PackageLabel>Status</PackageLabel>
