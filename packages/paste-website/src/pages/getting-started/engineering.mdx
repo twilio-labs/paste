@@ -1,0 +1,57 @@
+---
+title: Engineering Guidelines for Paste
+description: This document will highlight our approach for unified design libraries, tips for getting started, and similar resources for Engineers using Paste.
+---
+
+import DogVideo from "../../assets/quickstart_alpha.mp4"
+
+
+## Installation
+
+Currently, every package is standalone in the paste project.  While this means you only get what you need, it makes it a little more tedious to get started.  We hope to address this in the near future, but for now you can run:
+
+#### External dependencies
+
+```shell
+yarn add @emotion/core @emotion/styled styled-system@4.1.0 react-uid
+```
+
+#### System packages
+
+```shell
+yarn add @twilio-paste/theme @twilio-paste/design-tokens @twilio-paste/theme-tokens @twilio-paste/box @twilio-paste/icons @twilio-paste/spinner @twilio-paste/text @twilio-paste/button @twilio-paste/anchor @twilio-paste/absolute @twilio-paste/screen-reader-only @twilio-paste/media-object
+```
+
+
+## 8 minute video walkthrough
+
+Be gentle :P  - this was recorded in one take on zoom.
+
+<video controls width="640px" height="480px">
+    <source src={DogVideo} type="video/mp4" />
+</video>
+
+
+## Usage
+
+```jsx
+import {Theme} from '@twilio-paste/theme';
+
+// Wrap your root component with the Theme.Provider like so:
+<Theme.Provider theme="default">
+    // other stuff here
+</Theme.Provider>
+```
+
+Now you can use our themed and tokenized components anywhere in your app:
+
+```jsx
+import {Box} from '@twilio-paste/box';
+
+<Box margin="space20" backgroundColor="colorBackground">
+    Hello Paste!
+</Box>
+```
+
+Our tokens are readily available on our components and typescript typings are provided. 
+
