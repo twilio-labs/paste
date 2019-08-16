@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
 
 import {Box} from '@twilio-paste/box';
+import {Heading} from '../Heading';
 import {Anchor} from '@twilio-paste/anchor';
 import {TWILIO_BLUE} from '../../constants';
 import {TwilioIcon} from '../icons/TwilioIcon';
@@ -37,7 +38,9 @@ const SiteFooter: React.FC<{}> = () => {
       >
         <Flex>
           <Box mr="space60">
-            <h4>Support</h4>
+            <Heading as="h4" headingStyle="headingStyle50">
+              Support
+            </Heading>
             <p>
               If you need support,{' '}
               <Anchor href="https://github.com/twilio-labs/paste/issues">please open a new issue</Anchor> in our GitHub
@@ -45,7 +48,9 @@ const SiteFooter: React.FC<{}> = () => {
             </p>
           </Box>
           <Box ml="space50">
-            <h4>Contributing</h4>
+            <Heading as="h4" headingStyle="headingStyle50">
+              Contributing
+            </Heading>
             <p>
               The Paste design system is open source and contributions are welcome.{' '}
               <Anchor href="https://github.com/twilio-labs/paste">Check out the project on GitHub</Anchor> to learn more
