@@ -43,17 +43,18 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               Get Started
             </Button>
           </Box>
-          <Button as="a" href="/components" size="default" variant="secondary">
-            View Components
+          <Box display="inline" marginRight="space40">
+            <Button as="a" href="/components" size="default" variant="secondary">
+              View Components
+            </Button>
+          </Box>
+          <Button as="a" href="/migrate" size="default" variant="secondary">
+            Migration Guide
           </Button>
         </Box>
         <Callout>
           <CalloutTitle as="h4">Looking for Flex / Console / SendGrid design systems?</CalloutTitle>
-          <CalloutText>
-            Paste is in early access. For now, you will still need to use your current design systems as well. More
-            information about this will come in a future release.
-          </CalloutText>
-          <CalloutText marginTop="space40">
+          <CalloutText as="div" marginTop="space40">
             <ul>
               <li>
                 <a href="http://styleguide.sendgrid.com/">SendGrid Style Guide</a>
@@ -102,6 +103,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               Usage Examples
             </Text>
             <Text lineHeight="lineHeight30">
+              Learn how to use Paste components and the underlying tokens through{' '}
               <Link to="/getting-started">usage examples and guidelines</Link>.
             </Text>
           </Box>
