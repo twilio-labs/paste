@@ -11,6 +11,7 @@ import {StyledHr} from '../components/StyledHr';
 import {Brush} from '../components/icons/Brush';
 import {Terminal} from '../components/icons/Terminal';
 import {WindowLayout} from '../components/icons/WindowLayout';
+import {Callout, CalloutTitle, CalloutText} from '../components/callout';
 
 const LandingContainer = styled(Box)`
   margin-right: auto;
@@ -46,6 +47,27 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
             View Components
           </Button>
         </Box>
+        <Callout>
+          <CalloutTitle as="h4">Looking for Flex / Console / SendGrid design systems?</CalloutTitle>
+          <CalloutText>
+            Paste is in early access. For now, you will still need to use your current design systems as well. More
+            information about this will come in a future release.
+          </CalloutText>
+          <CalloutText marginTop="space40">
+            <ul>
+              <li>
+                <a href="http://styleguide.sendgrid.com/">SendGrid Style Guide</a>
+              </li>
+              <li>
+                <a href="https://code.hq.twilio.com/pages/react/react-components/">Console React Components</a> (VPN
+                Required)
+              </li>
+              <li>
+                <a href="https://zpl.io/2yOZ0Dy">Frame Elements for Flex</a>
+              </li>
+            </ul>
+          </CalloutText>
+        </Callout>
       </LandingContainer>
       <StyledHr />
       <LandingContainer marginTop="space200" marginBottom="space200">
@@ -80,7 +102,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               Usage Examples
             </Text>
             <Text lineHeight="lineHeight30">
-              Learn how to use Paste components and the underlying tokens through usage examples and guidelines.
+              <Link to="/getting-started">usage examples and guidelines</Link>.
             </Text>
           </Box>
           <Box>
@@ -96,8 +118,8 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               Component API
             </Text>
             <Text lineHeight="lineHeight30">
-              Each Paste component is thoroughly documented with a list of props and descriptions of how they should be
-              used.
+              Each <Link to="/components">Paste component</Link> is thoroughly documented with a list of props and
+              descriptions of how they should be used.
             </Text>
           </Box>
         </Grid>
