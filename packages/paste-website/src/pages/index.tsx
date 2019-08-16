@@ -38,7 +38,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
         </Text>
         <Box marginTop="space80" marginBottom="space80">
           <Box display="inline" marginRight="space40">
-            <Button as="a" href="/" size="default" variant="primary">
+            <Button as="a" href="/getting-started/" size="default" variant="primary">
               Get Started
             </Button>
           </Box>
