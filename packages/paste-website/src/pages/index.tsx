@@ -75,7 +75,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
         </Callout>
       </LandingContainer>
       <StyledHr />
-      <LandingContainer marginTop="space200" marginBottom="space200">
+      <LandingContainer marginTop="space200" marginBottom="space200" maxWidth="size100">
         <Grid columnWidth={220} gap={30}>
           <Box>
             <IconCircle
@@ -130,7 +130,6 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
           </Box>
         </Grid>
       </LandingContainer>
-      <StyledHr />
     </SiteWrapper>
   );
 };
