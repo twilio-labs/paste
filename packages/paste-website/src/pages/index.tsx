@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Helmet from 'react-helmet';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
 import {Link} from 'gatsby';
@@ -14,6 +15,7 @@ import {Brush} from '../components/icons/Brush';
 import {Terminal} from '../components/icons/Terminal';
 import {WindowLayout} from '../components/icons/WindowLayout';
 import {Callout, CalloutTitle, CalloutText} from '../components/callout';
+import {SiteMetaDefaults} from '../constants';
 
 const LandingContainer = styled(Box)`
   margin-right: auto;
@@ -30,6 +32,12 @@ const IconCircle = styled(Box)`
 const IndexPage: React.FC<{}> = (): React.ReactElement => {
   return (
     <SiteWrapper>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{SiteMetaDefaults.TITLE}</title>
+        <link rel="canonical" href="https://paste.twilio.design" />
+        <meta name="description" content={SiteMetaDefaults.DESCRIPTION} />
+      </Helmet>
       <LandingContainer maxWidth="size60" marginTop="space200" marginBottom="space200">
         <Heading as="h1" headingStyle="headingStyle10">
           Paste

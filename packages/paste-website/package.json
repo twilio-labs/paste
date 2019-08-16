@@ -51,6 +51,7 @@
     "@emotion/babel-preset-css-prop": "^10.0.14",
     "@types/color": "^3.0.0",
     "@types/lodash": "^4.14.136",
+    "@types/react-helmet": "^5.0.9",
     "babel-preset-gatsby": "^0.2.8",
     "prettier": "^1.18.2",
     "typescript": "^3.5.2"
