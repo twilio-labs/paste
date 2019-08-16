@@ -4,14 +4,16 @@ import {themeGet} from 'styled-system';
 import {Link} from 'gatsby';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
+import {Anchor} from '@twilio-paste/anchor';
 import {SiteWrapper} from '../components/site-wrapper';
 import {Grid} from '../components/grid';
 import {StyledHr} from '../components/StyledHr';
 import {Heading} from '../components/Heading';
-import {P} from '../components/Typography';
+import {P, UL, LI} from '../components/Typography';
 import {Brush} from '../components/icons/Brush';
 import {Terminal} from '../components/icons/Terminal';
 import {WindowLayout} from '../components/icons/WindowLayout';
+import {Callout, CalloutTitle, CalloutText} from '../components/callout';
 
 const LandingContainer = styled(Box)`
   margin-right: auto;
@@ -43,10 +45,34 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               Get Started
             </Button>
           </Box>
-          <Button as="a" href="/components" size="default" variant="secondary">
-            View Components
+          <Box display="inline" marginRight="space40">
+            <Button as="a" href="/components" size="default" variant="secondary">
+              View Components
+            </Button>
+          </Box>
+          <Button as="a" href="/migrate" size="default" variant="secondary">
+            Migration Guide
           </Button>
         </Box>
+        <Callout>
+          <CalloutTitle as="h4">Looking for Flex / Console / SendGrid design systems?</CalloutTitle>
+          <CalloutText as="div" marginTop="space40">
+            <UL>
+              <LI>
+                <Anchor href="http://styleguide.sendgrid.com/">SendGrid Style Guide</Anchor>
+              </LI>
+              <LI>
+                <Anchor href="https://code.hq.twilio.com/pages/react/react-components/">
+                  Console React Components
+                </Anchor>{' '}
+                (VPN Required)
+              </LI>
+              <LI>
+                <Anchor href="https://zpl.io/2yOZ0Dy">Frame Elements for Flex</Anchor>
+              </LI>
+            </UL>
+          </CalloutText>
+        </Callout>
       </LandingContainer>
       <StyledHr />
       <LandingContainer marginTop="space200" marginBottom="space200">
@@ -80,7 +106,10 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
             <Heading as="h2" headingStyle="headingStyle20">
               Usage Examples
             </Heading>
-            <P>Learn how to use Paste components and the underlying tokens through usage examples and guidelines.</P>
+            <P>
+              Learn how to use Paste components and the underlying tokens through{' '}
+              <Link to="/getting-started">usage examples and guidelines</Link>.
+            </P>
           </Box>
           <Box>
             <IconCircle
@@ -95,8 +124,8 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               Component API
             </Heading>
             <P>
-              Each Paste component is thoroughly documented with a list of props and descriptions of how they should be
-              used.
+              Each <Link to="/components">Paste component</Link> is thoroughly documented with a list of props and
+              descriptions of how they should be used.
             </P>
           </Box>
         </Grid>
