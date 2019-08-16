@@ -10,8 +10,7 @@ export const Table = styled.table(props => ({
   color: themeGet('textColors.colorText')(props),
   fontSize: themeGet('fontSizes.fontSize20')(props),
   fontWeight: themeGet('fontWeights.fontWeightNormal')(props),
-  fontFamily: themeGet('fonts.fontFamilyText')(props),
-  lineHeight: '24px',
+  lineHeight: themeGet('lineHeights.lineHeight40')(props),
 }));
 
 export const Thead = styled.thead({});
