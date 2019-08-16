@@ -33,7 +33,12 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = () => {
   return (
     <StyledFooter>
-      <Box m="0 auto" maxWidth="640px">
+      <Box
+        css={{
+          margin: '0 auto',
+          maxWidth: '640px',
+        }}
+      >
         <Flex>
           <Box mr="space60">
             <h4>Support</h4>
