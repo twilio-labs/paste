@@ -105,6 +105,9 @@ const Navigation: React.FC<NavigationProps> = () => {
             <SiteNavItem>
               <SiteNavAnchor to="/getting-started/design">Design Guidelines</SiteNavAnchor>
             </SiteNavItem>
+            <SiteNavItem>
+              <SiteNavAnchor to="/getting-started/engineering">Engineering Guidelines</SiteNavAnchor>
+            </SiteNavItem>
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
