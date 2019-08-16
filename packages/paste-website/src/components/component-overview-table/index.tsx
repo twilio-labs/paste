@@ -4,26 +4,19 @@ import {Table, Thead, Tbody, Tr, Th, Td} from '../table';
 import {SidebarCategoryRoutes, PackageStatus} from '../../constants';
 import {getPackagePath, getNameFromPackageName} from '../../utils/RouteUtils';
 
+interface ComponentNode {
+  node: {
+    name: string;
+    version: string;
+    status: string;
+  };
+}
 interface ComponentOverviewTableProps {
   children?: React.ReactElement;
-  componentsList?: [
-    {
-      node: {
-        name: string;
-        version: string;
-        status: string;
-      };
-    }
-  ];
+  componentsList?: [ComponentNode];
 }
 
-function getPackageRoute(name: string, status: string): string | React.ReactNode {
-  if (status === PackageStatus.BACKLOG) {
-    return getNameFromPackageName(name);
-  }
-
-  return <Link to={getPackagePath(SidebarCategoryRoutes.COMPONENTS, name)}>{getNameFromPackageName(name)}</Link>;
-}
+const sortNodeByName = (a: ComponentNode, b: ComponentNode): number => (a.node.name > b.node.name ? 1 : -1);
 
 const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({componentsList}) => {
   if (componentsList == null) {
@@ -31,7 +24,12 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({componen
   }
 
   // Sort backlog items to the bottom of the list
-  const sortedComponentsList = componentsList.sort(({node}) => (node.status === PackageStatus.BACKLOG ? 1 : -1));
+  const sortedBacklogList = componentsList
+    .filter(({node}) => node.status === PackageStatus.BACKLOG)
+    .sort(sortNodeByName);
+  const sortedComponentsList = componentsList
+    .filter(({node}) => node.status !== PackageStatus.BACKLOG)
+    .sort(sortNodeByName);
 
   return (
     <Table>
@@ -46,9 +44,26 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({componen
         {sortedComponentsList.map(({node}) => {
           return (
             <Tr key={node.name}>
-              <Td>{getPackageRoute(node.name, node.status)}</Td>
+              <Td>
+                <Link to={getPackagePath(SidebarCategoryRoutes.COMPONENTS, node.name)}>
+                  {getNameFromPackageName(node.name)}
+                </Link>
+              </Td>
               <Td>{node.status}</Td>
-              <Td>{node.status === PackageStatus.BACKLOG ? '' : node.version}</Td>
+              <Td>{node.version}</Td>
+            </Tr>
+          );
+        })}
+        {sortedBacklogList.map(({node}) => {
+          return (
+            <Tr key={node.name}>
+              <Td>
+                <Link to={getPackagePath(SidebarCategoryRoutes.COMPONENTS, node.name)}>
+                  {getNameFromPackageName(node.name)}
+                </Link>
+              </Td>
+              <Td>{node.status}</Td>
+              <Td />
             </Tr>
           );
         })}

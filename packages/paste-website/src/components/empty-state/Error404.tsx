@@ -2,12 +2,12 @@ import * as React from 'react';
 import {InDevelopment} from './InDevelopment';
 import {NotBuilt} from './NotBuilt';
 import {NotFound} from './NotFound';
-import {SidebarCategoryRoutes} from '../../constants';
+import {SidebarCategoryRoutes, PackageStatus} from '../../constants';
 
 interface Error404Props {
   pathname: string;
-  componentList: {name: string; version: string}[];
-  utilitityList: {name: string; version: string}[];
+  componentList: {name: string; status: string}[];
+  utilitityList: {name: string; status: string}[];
 }
 
 const Error404 = ({pathname, componentList, utilitityList}: Error404Props): React.ReactNode => {
@@ -17,7 +17,7 @@ const Error404 = ({pathname, componentList, utilitityList}: Error404Props): Reac
   const packageObj = [...componentList, ...utilitityList].find(({name}) => name === packageName);
 
   if (packageObj != null) {
-    const isInDevelopment = packageObj.version !== '0.0.0';
+    const isInDevelopment = packageObj.status !== PackageStatus.BACKLOG;
 
     if (pathname.includes(SidebarCategoryRoutes.COMPONENTS)) {
       if (isInDevelopment) {

@@ -32,8 +32,8 @@ const InDevelopment: React.FC<InDevelopmentProps> = ({type, name}) => {
       <Box>
         <Text>This {type} is in active development, but we haven&apos;t gotten to the docs yet.</Text>
         <Text>
-          Feel free to <Anchor href="https://github.com/twilio-labs/paste/issues">file a ticket</Anchor> to help us
-          prioritize writing the docs if you need this.
+          Feel free to <Anchor href="https://github.com/twilio-labs/paste/issues">file a feature request</Anchor> with
+          details on how you want to use this {type} and we&apos;ll respond to you directly.
         </Text>
       </Box>
     </>
