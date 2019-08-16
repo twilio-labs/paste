@@ -28,13 +28,17 @@ interface ExampleProps {
   image?: string;
 }
 
-const StyledExampleImg: React.FC<ExampleProps> = styled.div`
-  margin-bottom: ${themeGet('space.space50')};
-  border: ${themeGet('borderWidths.borderWidth10')} solid #ccd2dc;
-  border-bottom: ${(props: ExampleProps) =>
+const StyledExampleWraper: React.FC<ExampleProps> = styled(Box)`
+  border-top: ${(props: ExampleProps) =>
     props.do
       ? `${themeGet('borderWidths.borderWidth20')(props)} solid #23bf6e`
       : `${themeGet('borderWidths.borderWidth20')(props)} solid #ce241a`};
+`;
+
+const StyledExampleImg: React.FC<ExampleProps> = styled(Box)`
+  border: ${themeGet('borderWidths.borderWidth10')} solid #ccd2dc;
+  border-top: 0;
+
   img {
     display: block;
     width: 100%;
@@ -44,9 +48,13 @@ const StyledExampleImg: React.FC<ExampleProps> = styled.div`
 const Example: React.FC<ExampleProps> = props => {
   const hasImage = props.image;
   return (
-    <div>
-      <StyledExampleImg {...props}>{hasImage ? <img src={props.image} alt="" /> : null}</StyledExampleImg>
-      <div>
+    <StyledExampleWraper {...props}>
+      {hasImage ? (
+        <StyledExampleImg {...props}>
+          <img src={props.image} alt="" />
+        </StyledExampleImg>
+      ) : null}
+      <Box marginTop="space50">
         <Text
           as="h5"
           fontSize="fontSize20"
@@ -57,8 +65,8 @@ const Example: React.FC<ExampleProps> = props => {
           {props.do ? 'Do' : `Don't`}
         </Text>
         {props.children}
-      </div>
-    </div>
+      </Box>
+    </StyledExampleWraper>
   );
 };
 
