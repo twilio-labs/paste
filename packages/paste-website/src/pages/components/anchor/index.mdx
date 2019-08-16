@@ -1,11 +1,12 @@
 ---
 title: Anchor
 package: '@twilio-paste/anchor'
-description: Anchor component to replace HTML `<a>` tags
+description: The anchor can be used to hyperlink to another URL. It accepts both internal and external URLs.
 ---
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
 
 export const pageQuery = graphql`
   {
@@ -23,13 +24,111 @@ export const pageQuery = graphql`
 `;
 
 <ComponentHeader
-  name="Anchor"
+  name={props.pageContext.frontmatter.title}
   githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/components/anchor"
   data={props.data.allPasteComponent.edges}
 />
 
+<content>
+
+<p>{props.pageContext.frontmatter.description}</p>
+
+<p>Example use cases may include:</p>
+
+<ul>
+  <li>Linking to another page within an app or website</li>
+  <li>Linking to an external domain outside of the current app or website</li>
+</ul>
+
+</content>
+
+***
+
+<content>
+
+### When to Use an Anchor
+You can use an anchor to navigate the user to another webpage.
+
+<DoDont>
+  <Do>
+    Anchors should only be used to link to another page, app, or another website.
+  </Do>
+  <Dont>
+    Don’t use an anchor where a button makes more sense, i.e., closing a modal.
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do>
+    Anchors should only include text.
+  </Do>
+  <Dont>
+    Don’t use an icon in place of or with anchor text.
+  </Dont>
+</DoDont>
+
+### Anchor vs. Button
+
+Anchors should be used in place of a button if you only need to create a hyperlink to some other page or content. Anchors should not be used for submitting a form, closing a modal, moving to the next step in a flow, or any other click action that a button should handle. Buttons perform an action, like submitting a form; Anchors take you somewhere, like to the documentation page.
+
+If you need a click handler, you can use our button component. See the button documentation here.
+
+### Accessibility
+
+The anchor is built with standard accessible practices in mind. Those include an href attribute, link context, and opening and closing tags.
+
+The title attribute was not included because it’s not exposed to all browsers in an accessible way, meaning most screen readers and touch-only devices will likely never see that information.
+
+***
+
+## Examples
+
+### Default Anchor
+The default anchor is a basic text hyperlink. There are no other anchor variants at this time.
+
+### External Anchor
+
+If an external URL is used for the href, the target and rel will automatically be updated to:
+
+`target=”_blank”`
+`rel=”noreferrer noopener”`
+
+This is done for security purposes. Even though the target and rel are set by default for external anchors, they can be overridden using the target and rel props.
+
+***
+
+## Installation
+
+```bash
+yarn add @twilio-paste/anchor
+```
+
+### Usage
+
+```js
+import {Anchor} from '@twilio-paste/anchor';
+
+<Anchor href="https://paste.twilio.design">
+  Go to Paste
+</Anchor>
+```
+
 <LivePreview scope={{Anchor}} language="jsx">
-  {`<Anchor href="https://google.com">
-  Go to Google
+  {`<Anchor href="https://paste.twilio.design">
+  Go to Paste
 </Anchor>`}
 </LivePreview>
+
+### Props
+
+| Prop           | Type                                   | Description                                                                         | Default   |
+| -------------- | -------------------------------------- | ----------------------------------------------------------------------------------- | --------- |
+| href?          | string                                 | A URL to route to. Required.                                                                             | null      |
+| tabindex?      | AnchorTabIndexes                       | '0', '-1'                                                                                                | null      |
+| target?        | AnchorTargets                          | '_self', '_blank', '_parent', '_top'.  If external href, defaults to '_blank'. Can be overwritten.       | null      |
+| rel?           | string                                 | Sets the anchor rel attribute. If external href, defaults to 'noreferrer noopener'. Can be overwritten.  | false     |
+| onClick?       | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                          | null      |
+| onFocus?       | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                          | null      |
+| onBlur?        | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                          | null      |
+
+</content>

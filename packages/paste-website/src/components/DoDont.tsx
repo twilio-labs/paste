@@ -1,12 +1,13 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
+import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 
-const StyledWrapper = styled.div`
+const StyledWrapper = styled(Box)`
   display: grid;
-  grid-template-columns: repeat(2, auto);
-  grid-column-gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: ${themeGet('space.space70')};
 `;
 
 interface DoDontProps {
@@ -14,22 +15,30 @@ interface DoDontProps {
 }
 
 const DoDont: React.FC<DoDontProps> = props => {
-  return <StyledWrapper>{props.children}</StyledWrapper>;
+  return (
+    <StyledWrapper marginTop="space90" marginBottom="space90">
+      {props.children}
+    </StyledWrapper>
+  );
 };
 
 interface ExampleProps {
   children: React.ReactNode;
   do: boolean;
-  image: string;
+  image?: string;
 }
 
-const StyledExampleImg: React.FC<ExampleProps> = styled.div`
-  margin-bottom: ${themeGet('space.space50')};
-  border: ${themeGet('borderWidths.borderWidth10')} solid #ccd2dc;
-  border-bottom: ${(props: ExampleProps) =>
+const StyledExampleWraper: React.FC<ExampleProps> = styled(Box)`
+  border-top: ${(props: ExampleProps) =>
     props.do
       ? `${themeGet('borderWidths.borderWidth20')(props)} solid #23bf6e`
       : `${themeGet('borderWidths.borderWidth20')(props)} solid #ce241a`};
+`;
+
+const StyledExampleImg: React.FC<ExampleProps> = styled(Box)`
+  border: ${themeGet('borderWidths.borderWidth10')} solid #ccd2dc;
+  border-top: 0;
+
   img {
     display: block;
     width: 100%;
@@ -37,12 +46,15 @@ const StyledExampleImg: React.FC<ExampleProps> = styled.div`
 `;
 
 const Example: React.FC<ExampleProps> = props => {
+  const hasImage = props.image;
   return (
-    <div>
-      <StyledExampleImg {...props}>
-        <img src={props.image} alt="" />
-      </StyledExampleImg>
-      <div>
+    <StyledExampleWraper {...props}>
+      {hasImage ? (
+        <StyledExampleImg {...props}>
+          <img src={props.image} alt="" />
+        </StyledExampleImg>
+      ) : null}
+      <Box marginTop="space50">
         <Text
           as="h5"
           fontSize="fontSize20"
@@ -53,8 +65,8 @@ const Example: React.FC<ExampleProps> = props => {
           {props.do ? 'Do' : `Don't`}
         </Text>
         {props.children}
-      </div>
-    </div>
+      </Box>
+    </StyledExampleWraper>
   );
 };
 
