@@ -70,12 +70,6 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
                 <Anchor href="http://styleguide.sendgrid.com/">SendGrid Style Guide</Anchor>
               </LI>
               <LI>
-                <Anchor href="https://code.hq.twilio.com/pages/react/react-components/">
-                  Console React Components
-                </Anchor>{' '}
-                (VPN Required)
-              </LI>
-              <LI>
                 <Anchor href="https://zpl.io/2yOZ0Dy">Frame Elements for Flex</Anchor>
               </LI>
             </UL>
