@@ -11,7 +11,7 @@ export const P: React.FC<PProps> = ({children, variant}) => {
     <Text
       as="p"
       my="space50"
-      lineHeight={variant === 'lead' ? 'lineHeight50' : 'lineHeight40'}
+      lineHeight={variant === 'lead' ? 'lineHeight30' : 'lineHeight20'}
       fontSize={variant === 'lead' ? 'fontSize30' : undefined}
     >
       {children}
@@ -21,7 +21,7 @@ export const P: React.FC<PProps> = ({children, variant}) => {
 
 export const UL: React.FC<{}> = props => {
   return (
-    <Text as="ul" my="space50" lineHeight="lineHeight40">
+    <Text as="ul" my="space50" lineHeight="lineHeight20">
       {props.children}
     </Text>
   );
@@ -29,7 +29,7 @@ export const UL: React.FC<{}> = props => {
 
 export const OL: React.FC<{}> = props => {
   return (
-    <Text as="ol" my="space50" lineHeight="lineHeight40">
+    <Text as="ol" my="space50" lineHeight="lineHeight20">
       {props.children}
     </Text>
   );
@@ -37,7 +37,7 @@ export const OL: React.FC<{}> = props => {
 
 export const LI: React.FC<{}> = props => {
   return (
-    <Text as="li" ml="space60" lineHeight="lineHeight40">
+    <Text as="li" ml="space60" lineHeight="lineHeight20">
       {props.children}
     </Text>
   );
