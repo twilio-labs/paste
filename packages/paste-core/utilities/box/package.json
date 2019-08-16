@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/box",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "category": "layout",
   "status": "alpha",
   "description": "",
@@ -25,13 +25,13 @@
   },
   "peerDependencies": {
     "@emotion/styled": "^10.0.10",
-    "@twilio-paste/theme-tokens": "^0.2.2",
+    "@twilio-paste/theme-tokens": "^0.4.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-system": "^4.1.0"
   },
   "devDependencies": {
-    "@twilio-paste/theme-tokens": "^0.4.0",
+    "@twilio-paste/theme-tokens": "^0.5.0",
     "csstype": "^2.6.6",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",

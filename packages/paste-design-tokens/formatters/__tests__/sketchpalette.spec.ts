@@ -1,4 +1,5 @@
 import * as theo from 'theo';
+import {resolve} from 'path';
 import {sketchpaletteTokenFormat} from '../sketchpalette';
 
 theo.registerFormat('sketchpalette', sketchpaletteTokenFormat);
@@ -9,7 +10,7 @@ describe('sketchPaletteTokenFormatter', () => {
       .convert({
         transform: {
           type: 'web',
-          file: './packages/paste-design-tokens/formatters/__fixtures__/colors.yml',
+          file: resolve(__dirname, '../__fixtures__/colors.yml'),
         },
         format: {
           // @ts-ignore Theo isn't typed for custom format types

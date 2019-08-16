@@ -1,7 +1,38 @@
 ---
 title: Anchor
+package: '@twilio-paste/anchor'
 description: The anchor can be used to hyperlink to another URL. It accepts both internal and external URLs.
 ---
+
+import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/anchor"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name="Anchor"
+  githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/components/anchor"
+  data={props.data.allPasteComponent.edges}
+/>
+
+<LivePreview scope={{Anchor}} language="jsx">
+  {`<Anchor href="https://google.com">
+  Go to Google
+</Anchor>`}
+</LivePreview>
 
 <content>
 

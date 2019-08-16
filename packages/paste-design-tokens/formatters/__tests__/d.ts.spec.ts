@@ -1,4 +1,5 @@
 import * as theo from 'theo';
+import {resolve} from 'path';
 import {dTSTokenFormat} from '../d.ts';
 
 theo.registerFormat('d.ts', dTSTokenFormat);
@@ -9,7 +10,7 @@ describe('dTSFormatter', () => {
       .convert({
         transform: {
           type: 'web',
-          file: './packages/paste-design-tokens/formatters/__fixtures__/index.yml',
+          file: resolve(__dirname, '../__fixtures__/index.yml'),
         },
         format: {
           // @ts-ignore Theo isn't typed for custom format types

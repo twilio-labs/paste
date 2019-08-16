@@ -7,6 +7,7 @@ imports:
   - ./font-family.yml
   - ./font-size.yml
   - ./font-weight.yml
+  - ./line-height.yml
   - ./palette-color.yml
   - ./sizing.yml
   - ./spacing.yml

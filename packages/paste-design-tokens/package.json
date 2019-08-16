@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/design-tokens",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Design Tokens for the Paste Design System",
   "main": "dist/tokens.common.js",
   "module": "dist/tokens.es6.js",

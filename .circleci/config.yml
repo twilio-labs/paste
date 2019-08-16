@@ -26,16 +26,21 @@ jobs:
           paths:
             - node_modules
       - run:
-          name: Run build
+          name: Run package builds
           command: yarn build
       - run:
-          name: Build monorepo package cache
-          command: yarn pre-test
+          name: Run website build
+          command: yarn build:website
+      - run:
+          name: Run type checker
+          command: yarn type-check
+      - run:
+          name: Run eslint
+          command: yarn lint
       - persist_to_workspace:
           root: ~/
           paths:
             - repo/packages
-            - repo/tools/.cache
 
   test:
     executor: job-executor
@@ -50,7 +55,7 @@ jobs:
       - run:
           name: Run tests
           command: yarn test
-  lint:
+  prettier:
     executor: job-executor
     steps:
       - checkout
@@ -61,17 +66,6 @@ jobs:
       - attach_workspace:
           at: ~/
       - run:
-          name: Run eslint
-          command: yarn lint
-  prettier:
-    executor: job-executor
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
-      - run:
           name: Run prettier
           command: yarn prettier
 
@@ -81,9 +75,6 @@ workflows:
     jobs:
       - build
       - test:
-          requires:
-            - build
-      - lint:
           requires:
             - build
       - prettier:
