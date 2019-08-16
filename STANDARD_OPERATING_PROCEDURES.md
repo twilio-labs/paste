@@ -31,6 +31,7 @@ Then we think about the development and technical debt incurred by this product.
 - [ ] This product follows semver.
 - [ ] This product has a changelog.
 - [ ] This product is documented.
+- [ ] This product is accessible.
 - [ ] Is the solution future proof?
   - [ ] Throughout technology changes?
   - [ ] Throughout version changes?
