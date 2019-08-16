@@ -26,11 +26,7 @@ const StyledFooterLogo = styled(TwilioIcon)`
   margin: 0 auto ${themeGet('space.space40')};
 `;
 
-interface FooterProps {
-  children: React.ReactNode;
-}
-
-const Footer: React.FC<FooterProps> = () => {
+const Footer: React.FC<{}> = () => {
   return (
     <StyledFooter>
       <Box
