@@ -4,19 +4,19 @@ import {Table, Thead, Tbody, Tr, Th, Td} from '../table';
 import {SidebarCategoryRoutes, PackageStatus} from '../../constants';
 import {getPackagePath, getNameFromPackageName} from '../../utils/RouteUtils';
 
-type ComponentNode = {
+interface ComponentNode {
   node: {
     name: string;
     version: string;
     status: string;
   };
-};
+}
 interface ComponentOverviewTableProps {
   children?: React.ReactElement;
   componentsList?: [ComponentNode];
 }
 
-const sortNodeByName = (a: ComponentNode, b: ComponentNode) => (a.node.name > b.node.name ? 1 : -1);
+const sortNodeByName = (a: ComponentNode, b: ComponentNode): number => (a.node.name > b.node.name ? 1 : -1);
 
 const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({componentsList}) => {
   if (componentsList == null) {
@@ -63,7 +63,7 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({componen
                 </Link>
               </Td>
               <Td>{node.status}</Td>
-              <Td></Td>
+              <Td />
             </Tr>
           );
         })}
