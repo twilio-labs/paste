@@ -39,7 +39,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
         <Box marginTop="space80" marginBottom="space80">
           <Box display="inline" marginRight="space40">
             <Button as="a" href="/" size="default" variant="primary">
-              Install Paste 0.1
+              Get Started
             </Button>
           </Box>
           <Button as="a" href="/components" size="default" variant="secondary">
