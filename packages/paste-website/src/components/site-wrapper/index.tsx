@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Global} from '@emotion/core';
 import {Theme} from '@twilio-paste/theme';
 import {Sidebar} from '../sidebar';
-import {SiteStickyHeader} from '../site-sticky-header';
+import {SiteStickyHeader} from '../SiteStickyHeader';
 import {globalStyles, SiteBody, SiteMain, SiteMainInner} from './styles';
 
 interface SiteWrapperProps {

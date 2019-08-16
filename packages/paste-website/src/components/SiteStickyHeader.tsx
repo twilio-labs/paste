@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 import {Box} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';
 import {useTheme} from '@twilio-paste/theme';
-import {ThemeSwitcher} from '../theme-switcher';
-import GithubIcon from '../svg/github-icon';
+import {ThemeSwitcher} from './ThemeSwitcher';
+import GithubIcon from './icons/GithubIcon';
 
 interface StyledFlexProps {
   justifyContent?: string;
@@ -30,12 +30,10 @@ export const SiteStickyHeader: React.FC<{}> = () => {
       mb="space140"
       css={{
         '@supports (position: sticky)': {
-          left: 0,
           marginLeft: `-${theme.space.space200}`,
           marginRight: `-${theme.space.space200}`,
           paddingLeft: `${theme.space.space200}`,
           position: 'sticky',
-          right: 0,
           top: 0,
           zIndex: 10,
         },
