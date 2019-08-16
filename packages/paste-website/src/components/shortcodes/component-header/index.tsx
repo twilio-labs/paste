@@ -19,10 +19,15 @@ const ComponentHeaderBasic: React.FC<{name: string}> = ({name}) => (
   </>
 );
 
+const ExternalLink = styled.a`
+  margin-right: ${themeGet('space.space20')};
+`;
+
 interface ComponentHeaderProps {
   children?: React.ReactElement;
   name: string;
   githubUrl: string;
+  storybookUrl: string;
   data?: [
     {
       node: {
@@ -50,7 +55,7 @@ const PackageLabel = styled.dt(getPackageItemStyles, {
   width: '80px',
 });
 
-const ComponentHeader: React.FC<ComponentHeaderProps> = ({name, githubUrl, data}) => {
+const ComponentHeader: React.FC<ComponentHeaderProps> = ({name, githubUrl, storybookUrl, data}) => {
   if (data == null || data[0] == null || data[0].node == null) {
     return <ComponentHeaderBasic name={name} />;
   }
@@ -72,7 +77,8 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({name, githubUrl, data}
         <Box mb="space20">
           <PackageLabel>Sources</PackageLabel>
           <PackageValue>
-            <a href={githubUrl}>Github</a>
+            <ExternalLink href={githubUrl}>Github</ExternalLink>
+            {storybookUrl != null ? <ExternalLink href={storybookUrl}>Storybook</ExternalLink> : null}
           </PackageValue>
         </Box>
         <Box mb="space20">
