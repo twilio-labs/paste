@@ -60,7 +60,7 @@ export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMD
       components={{
         ...shortcodes,
         h1: (props: React.ComponentProps<typeof Text>): React.ReactElement => (
-          <Text {...props} as="h1" marginBottom="space90" fontSize="fontSize80" lineHeight="lineHeight60" />
+          <Text {...props} as="h1" marginBottom="space90" fontSize="fontSize80" lineHeight="lineHeight80" />
         ),
         h2: (props: React.ComponentProps<typeof Text>): React.ReactElement => (
           <Text
@@ -69,7 +69,7 @@ export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMD
             marginTop="space60"
             marginBottom="space60"
             fontSize="fontSize60"
-            lineHeight="lineHeight40"
+            lineHeight="lineHeight60"
           />
         ),
         h3: (props: React.ComponentProps<typeof Text>): React.ReactElement => (
@@ -79,7 +79,7 @@ export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMD
             marginTop="space60"
             marginBottom="space60"
             fontSize="fontSize50"
-            lineHeight="lineHeight30"
+            lineHeight="lineHeight50"
           />
         ),
         h4: (props: React.ComponentProps<typeof Text>): React.ReactElement => (

@@ -66,7 +66,7 @@ export const TextColorBox: React.FC<TextColorBoxProps> = ({color, textColor}) =>
       <Text as="span" fontSize="fontSize60" lineHeight="lineHeight60" textColor={textColor}>
         <ScreenReaderOnly>Example text: </ScreenReaderOnly>Ag
       </Text>
-      <Text as="span" fontSize="fontSize40" lineHeight="lineHeight30" textColor={textColor}>
+      <Text as="span" fontSize="fontSize40" lineHeight="lineHeight40" textColor={textColor}>
         <ScreenReaderOnly>Accessibility rating: </ScreenReaderOnly>
         {getContrastRating(accessibility)}
       </Text>

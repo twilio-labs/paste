@@ -27,7 +27,7 @@ const Breadcrumb: React.FC<{}> = ({children}) => {
 // TODO use correct tokens for lineHeight after fix
 const BreadcrumbItem = styled(Link)`
   font-size: ${themeGet('fontSizes.fontSize20')};
-  line-height: ${themeGet('lineHeights.lineHeight50')};
+  line-height: ${themeGet('lineHeights.lineHeight20')};
   letter-spacing: normal;
   color: ${themeGet('textColors.colorTextLink')};
 `;

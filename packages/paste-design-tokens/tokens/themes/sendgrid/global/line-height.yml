@@ -5,16 +5,16 @@ imports:
   - ../../../global/line-height.yml
 props:
   line-height-10:
-    value: "1.67" #12px * 1.67 = 20px
+    value: "1.666666667" #12px * 1.666666667 = 20px
     comment: "Constant line-height token for font size 10"
   line-height-20:
-    value: "1.71" #14px * 1.71 = 24px
+    value: "1.714285714" #14px * 1.714285714 = 24px
     comment: "Constant line-height token for font size 20"
   line-height-30:
     value: "1.5" #16px * 1.5 = 24px
     comment: "Constant line-height token for font size 30"
   line-height-40:
-    value: "1.56" #18px * 1.56 = 28px
+    value: "1.555555556" #18px * 1.555555556 = 28px
     comment: "Constant line-height token for font size 40"
   line-height-50:
     value: "1.6" #20px * 1.6 = 32px
@@ -23,7 +23,7 @@ props:
     value: "1.5" #24px * 1.5 = 36px
     comment: "Constant line-height token for font size 60"
   line-height-70:
-    value: "1.57" #28px * 1.57 = 44px
+    value: "1.571428571" #28px * 1.57 = 44px
     comment: "Constant line-height token for font size 70"
   line-height-80:
     value: "1.5" #32px * 1.5 = 48px
