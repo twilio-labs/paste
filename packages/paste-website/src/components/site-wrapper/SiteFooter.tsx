@@ -2,9 +2,9 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
 
+import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '../Heading';
-import {Anchor} from '@twilio-paste/anchor';
 import {TWILIO_BLUE} from '../../constants';
 import {TwilioIcon} from '../icons/TwilioIcon';
 
