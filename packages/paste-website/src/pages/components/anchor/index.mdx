@@ -40,8 +40,6 @@ export const pageQuery = graphql`
   <li>Linking to an external domain outside of the current app or website</li>
 </ul>
 
-<p>Anchors can only include text.</p>
-
 </content>
 
 ***
@@ -49,7 +47,7 @@ export const pageQuery = graphql`
 <content>
 
 ### When to Use an Anchor
-Use an anchor when you need to hyperlink to another page, app, or website.
+You can use an anchor to navigate the user to another webpage.
 
 <DoDont>
   <Do>
@@ -71,7 +69,7 @@ Use an anchor when you need to hyperlink to another page, app, or website.
 
 ### Anchor vs. Button
 
-Anchors should be used in place of a button if you only need to create a hyperlink to some other page or content. Anchors should not be used for submitting a form, closing a modal, moving to the next step in a flow, or any other click action that a button should handle.
+Anchors should be used in place of a button if you only need to create a hyperlink to some other page or content. Anchors should not be used for submitting a form, closing a modal, moving to the next step in a flow, or any other click action that a button should handle. Buttons perform an action, like submitting a form; Anchors take you somewhere, like to the documentation page.
 
 If you need a click handler, you can use our button component. See the button documentation here.
 
@@ -86,15 +84,16 @@ The title attribute was not included because it’s not exposed to all browsers 
 ## Examples
 
 ### Default Anchor
-The default anchor is a basic text hyperlink. Only text can be used to compose the anchor. There are no other anchor variants at this time.
+The default anchor is a basic text hyperlink. There are no other anchor variants at this time.
 
 ### External Anchor
 
 If an external URL is used for the href, the target and rel will automatically be updated to:
+
 `target=”_blank”`
 `rel=”noreferrer noopener”`
 
-Even though the target and rel are set by default for external anchors, they can be overridden using the target and rel props.
+This is done for security purposes. Even though the target and rel are set by default for external anchors, they can be overridden using the target and rel props.
 
 ***
 
