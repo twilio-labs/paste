@@ -6,6 +6,7 @@ import {CodeblockTheme} from './theme';
 
 const StyledPre = styled.pre(props => ({
   padding: `${themeGet('space.space40')(props)} ${themeGet('space.space60')(props)}`,
+  overflow: 'auto',
 }));
 
 export type Language =
