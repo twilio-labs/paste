@@ -18,8 +18,7 @@ const Flex = styled.div`
   display: flex;
 `;
 
-const StyledCopyright = styled.p`
-  margin-top: ${themeGet('space.space120')};
+const StyledCopyright = styled(Box)`
   text-align: center;
 `;
 
@@ -59,7 +58,7 @@ const SiteFooter: React.FC<{}> = () => {
           </Box>
         </Flex>
       </Box>
-      <StyledCopyright>
+      <StyledCopyright marginTop="space120">
         <StyledFooterLogo color={TWILIO_BLUE} size={30} />
         Copyright &copy; 2019 Twilio, Inc.
       </StyledCopyright>
