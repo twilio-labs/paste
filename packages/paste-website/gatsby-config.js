@@ -74,7 +74,8 @@ module.exports = {
           options: {
             maxWidth: 1632,
             linkImagesToOriginal: false,
-        }, ],
+          },
+        }],
       },
     },
     {
