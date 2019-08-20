@@ -9,6 +9,7 @@ import {Heading} from '../../components/Heading.tsx';
 import {P} from '../../components/Typography.tsx';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
 import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
+import {SidebarCategoryRoutes} from '../../constants';
 
 <Breadcrumb>
   <BreadcrumbItem to="/">Home</BreadcrumbItem>
@@ -27,7 +28,10 @@ requests are accepted for the design system. We’ll have guidelines soon for wh
 supported.
 
 
-<ComponentOverviewTable componentsList={props.data.allPasteComponent.edges} />
+<ComponentOverviewTable 
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS} 
+  componentsList={props.data.allPasteComponent.edges} 
+/>
 
 export const pageQuery = graphql`
   {

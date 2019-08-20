@@ -7,11 +7,16 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import {P} from '../../Typography';
 import {Heading} from '../../Heading';
 
-const ComponentHeaderBasic: React.FC<{name: string}> = ({name}) => (
+const ComponentHeaderBasic: React.FC<{
+  name: string;
+  categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
+}> = ({name, categoryRoute}) => (
   <>
     <Breadcrumb>
       <BreadcrumbItem to="/">Home</BreadcrumbItem>
-      <BreadcrumbItem to={SidebarCategoryRoutes.COMPONENTS}>Components</BreadcrumbItem>
+      <BreadcrumbItem to={categoryRoute}>
+        {categoryRoute === SidebarCategoryRoutes.COMPONENTS ? 'Components' : 'Utilities'}
+      </BreadcrumbItem>
     </Breadcrumb>
     <Heading as="h1" headingStyle="headingStyle10">
       {name}
@@ -26,6 +31,7 @@ const ExternalLink = styled.a`
 interface ComponentHeaderProps {
   children?: React.ReactElement;
   name: string;
+  categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
   githubUrl: string;
   storybookUrl: string;
   data?: [
@@ -55,15 +61,15 @@ const PackageLabel = styled.dt(getPackageItemStyles, {
   width: '80px',
 });
 
-const ComponentHeader: React.FC<ComponentHeaderProps> = ({name, githubUrl, storybookUrl, data}) => {
+const ComponentHeader: React.FC<ComponentHeaderProps> = ({name, categoryRoute, githubUrl, storybookUrl, data}) => {
   if (data == null || data[0] == null || data[0].node == null) {
-    return <ComponentHeaderBasic name={name} />;
+    return <ComponentHeaderBasic categoryRoute={categoryRoute} name={name} />;
   }
   const {description, status, name: packageName, version} = data[0].node;
 
   return (
     <>
-      <ComponentHeaderBasic name={name} />
+      <ComponentHeaderBasic categoryRoute={categoryRoute} name={name} />
       <P variant="lead">{description}</P>
       <Box as="dl" mb="space100">
         <Box mb="space20">

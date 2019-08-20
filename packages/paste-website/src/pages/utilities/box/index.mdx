@@ -3,6 +3,31 @@ title: Box - Utilities
 description: One of our primitive components.
 ---
 
-Im a box
+import {graphql} from 'gatsby';
+import {SidebarCategoryRoutes} from '../../../constants';
 
-|=|
+export const pageQuery = graphql`
+  {
+    allPasteUtility(filter: {name: {eq: "@twilio-paste/box"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name="Box"
+  categoryRoute={SidebarCategoryRoutes.UTILITIES}
+  githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/utilities/box"
+  storybookUrl="http://localhost:57128/?path=/story/utilities-box--default"
+  data={props.data.allPasteUtility.edges}
+/>
+
+
+## WIP

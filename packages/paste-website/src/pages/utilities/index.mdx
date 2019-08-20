@@ -5,10 +5,14 @@ description: Our utilities are rad
 
 import {graphql} from 'gatsby';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
+import {SidebarCategoryRoutes} from '../../constants';
 
 # Utilities Overview
 
-<ComponentOverviewTable componentsList={props.data.allPasteUtility.edges} />
+<ComponentOverviewTable 
+  categoryRoute={SidebarCategoryRoutes.UTILITIES} 
+  componentsList={props.data.allPasteUtility.edges} 
+/>
 
 export const pageQuery = graphql`
   {

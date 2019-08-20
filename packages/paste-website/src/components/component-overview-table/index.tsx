@@ -13,13 +13,14 @@ interface ComponentNode {
 }
 interface ComponentOverviewTableProps {
   children?: React.ReactElement;
+  categoryRoute?: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
   componentsList?: [ComponentNode];
 }
 
 const sortNodeByName = (a: ComponentNode, b: ComponentNode): number => (a.node.name > b.node.name ? 1 : -1);
 
-const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({componentsList}) => {
-  if (componentsList == null) {
+const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({categoryRoute, componentsList}) => {
+  if (componentsList == null || categoryRoute == null) {
     return null;
   }
 
@@ -45,9 +46,7 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({componen
           return (
             <Tr key={node.name}>
               <Td>
-                <Link to={getPackagePath(SidebarCategoryRoutes.COMPONENTS, node.name)}>
-                  {getNameFromPackageName(node.name)}
-                </Link>
+                <Link to={getPackagePath(categoryRoute, node.name)}>{getNameFromPackageName(node.name)}</Link>
               </Td>
               <Td>{node.status}</Td>
               <Td>{node.version}</Td>
@@ -58,9 +57,7 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({componen
           return (
             <Tr key={node.name}>
               <Td>
-                <Link to={getPackagePath(SidebarCategoryRoutes.COMPONENTS, node.name)}>
-                  {getNameFromPackageName(node.name)}
-                </Link>
+                <Link to={getPackagePath(categoryRoute, node.name)}>{getNameFromPackageName(node.name)}</Link>
               </Td>
               <Td>{node.status}</Td>
               <Td />
