@@ -4,6 +4,7 @@ import {themeGet} from 'styled-system';
 
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
 import {Heading} from '../Heading';
 import {TWILIO_BLUE} from '../../constants';
 import {TwilioIcon} from '../icons/TwilioIcon';
@@ -18,7 +19,7 @@ const Flex = styled.div`
   display: flex;
 `;
 
-const StyledCopyright = styled(Box)`
+const StyledCopyright = styled(Text)`
   text-align: center;
 `;
 
