@@ -7,6 +7,7 @@ description: The anchor can be used to hyperlink to another URL. It accepts both
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {SidebarCategoryRoutes} from '../../../constants';
 
 export const pageQuery = graphql`
   {
@@ -25,6 +26,7 @@ export const pageQuery = graphql`
 
 <ComponentHeader
   name={props.pageContext.frontmatter.title}
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/components/anchor"
   storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-anchor--default"
   data={props.data.allPasteComponent.edges}
