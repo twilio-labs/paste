@@ -11,7 +11,7 @@ export interface TwilioIconProps {
 }
 
 const TwilioIcon = React.memo(
-  ({title = 'Twilio Icon', decorative = true, className, color, size, display = 'block'}: TwilioIconProps) => {
+  ({title = 'Twilio Icon', className, color, decorative = true, display, size}: TwilioIconProps) => {
     const uid = useUID();
     return (
       <span style={{color, display, width: size, height: size}} className={className}>
