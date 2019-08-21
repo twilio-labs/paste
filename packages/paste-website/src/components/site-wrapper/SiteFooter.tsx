@@ -4,6 +4,7 @@ import {themeGet} from 'styled-system';
 
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
 import {Heading} from '../Heading';
 import {TWILIO_BLUE} from '../../constants';
 import {TwilioIcon} from '../icons/TwilioIcon';
@@ -18,8 +19,7 @@ const Flex = styled.div`
   display: flex;
 `;
 
-const StyledCopyright = styled.p`
-  margin-top: ${themeGet('space.space120')};
+const StyledCopyright = styled(Text)`
   text-align: center;
 `;
 
@@ -59,8 +59,8 @@ const SiteFooter: React.FC<{}> = () => {
           </Box>
         </Flex>
       </Box>
-      <StyledCopyright>
-        <StyledFooterLogo color={TWILIO_BLUE} size={30} />
+      <StyledCopyright marginTop="space120">
+        <StyledFooterLogo color={TWILIO_BLUE} display="block" size={30} />
         Copyright &copy; 2019 Twilio, Inc.
       </StyledCopyright>
     </StyledFooter>

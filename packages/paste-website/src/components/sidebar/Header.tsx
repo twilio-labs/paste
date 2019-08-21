@@ -43,7 +43,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = props => {
   return (
     <StyledHeader>
-      <TwilioIcon color={TWILIO_RED} size={30} />
+      <TwilioIcon color={TWILIO_RED} display="block" size={30} />
       <Text as="h2" fontSize="fontSize50" marginTop="space40" marginBottom="space20">
         <StyledLink to="/">{props.siteTitle}</StyledLink>
       </Text>
