@@ -38,4 +38,6 @@ HomeIcon.defaultProps = {
   decorative: true,
 };
 
+HomeIcon.displayName = 'HomeIcon';
+
 export {HomeIcon};

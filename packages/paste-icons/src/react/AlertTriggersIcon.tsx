@@ -38,4 +38,6 @@ AlertTriggersIcon.defaultProps = {
   decorative: true,
 };
 
+AlertTriggersIcon.displayName = 'AlertTriggersIcon';
+
 export {AlertTriggersIcon};

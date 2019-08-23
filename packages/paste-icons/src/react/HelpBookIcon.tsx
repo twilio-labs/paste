@@ -38,4 +38,6 @@ HelpBookIcon.defaultProps = {
   decorative: true,
 };
 
+HelpBookIcon.displayName = 'HelpBookIcon';
+
 export {HelpBookIcon};

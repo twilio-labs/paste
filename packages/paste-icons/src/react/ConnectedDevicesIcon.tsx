@@ -38,4 +38,6 @@ ConnectedDevicesIcon.defaultProps = {
   decorative: true,
 };
 
+ConnectedDevicesIcon.displayName = 'ConnectedDevicesIcon';
+
 export {ConnectedDevicesIcon};

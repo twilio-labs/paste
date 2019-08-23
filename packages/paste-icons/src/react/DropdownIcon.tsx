@@ -38,4 +38,6 @@ DropdownIcon.defaultProps = {
   decorative: true,
 };
 
+DropdownIcon.displayName = 'DropdownIcon';
+
 export {DropdownIcon};

@@ -38,4 +38,6 @@ ClockRegularIcon.defaultProps = {
   decorative: true,
 };
 
+ClockRegularIcon.displayName = 'ClockRegularIcon';
+
 export {ClockRegularIcon};

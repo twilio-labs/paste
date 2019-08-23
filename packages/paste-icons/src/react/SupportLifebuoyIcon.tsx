@@ -38,4 +38,6 @@ SupportLifebuoyIcon.defaultProps = {
   decorative: true,
 };
 
+SupportLifebuoyIcon.displayName = 'SupportLifebuoyIcon';
+
 export {SupportLifebuoyIcon};

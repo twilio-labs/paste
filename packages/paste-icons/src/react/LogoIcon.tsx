@@ -38,4 +38,6 @@ LogoIcon.defaultProps = {
   decorative: true,
 };
 
+LogoIcon.displayName = 'LogoIcon';
+
 export {LogoIcon};

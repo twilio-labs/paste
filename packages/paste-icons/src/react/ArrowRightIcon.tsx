@@ -38,4 +38,6 @@ ArrowRightIcon.defaultProps = {
   decorative: true,
 };
 
+ArrowRightIcon.displayName = 'ArrowRightIcon';
+
 export {ArrowRightIcon};

@@ -38,4 +38,6 @@ ViewIcon.defaultProps = {
   decorative: true,
 };
 
+ViewIcon.displayName = 'ViewIcon';
+
 export {ViewIcon};

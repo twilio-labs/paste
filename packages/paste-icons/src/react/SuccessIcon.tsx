@@ -38,4 +38,6 @@ SuccessIcon.defaultProps = {
   decorative: true,
 };
 
+SuccessIcon.displayName = 'SuccessIcon';
+
 export {SuccessIcon};

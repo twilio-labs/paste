@@ -38,4 +38,6 @@ MessagingIcon.defaultProps = {
   decorative: true,
 };
 
+MessagingIcon.displayName = 'MessagingIcon';
+
 export {MessagingIcon};

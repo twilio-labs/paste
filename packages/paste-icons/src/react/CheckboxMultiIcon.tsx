@@ -38,4 +38,6 @@ CheckboxMultiIcon.defaultProps = {
   decorative: true,
 };
 
+CheckboxMultiIcon.displayName = 'CheckboxMultiIcon';
+
 export {CheckboxMultiIcon};

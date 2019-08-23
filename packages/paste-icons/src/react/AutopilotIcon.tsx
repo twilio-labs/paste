@@ -38,4 +38,6 @@ AutopilotIcon.defaultProps = {
   decorative: true,
 };
 
+AutopilotIcon.displayName = 'AutopilotIcon';
+
 export {AutopilotIcon};

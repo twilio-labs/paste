@@ -38,4 +38,6 @@ AddOnsIcon.defaultProps = {
   decorative: true,
 };
 
+AddOnsIcon.displayName = 'AddOnsIcon';
+
 export {AddOnsIcon};

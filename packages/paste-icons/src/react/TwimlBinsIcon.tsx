@@ -38,4 +38,6 @@ TwimlBinsIcon.defaultProps = {
   decorative: true,
 };
 
+TwimlBinsIcon.displayName = 'TwimlBinsIcon';
+
 export {TwimlBinsIcon};

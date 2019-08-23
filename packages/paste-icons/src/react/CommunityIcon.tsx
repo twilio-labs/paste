@@ -38,4 +38,6 @@ CommunityIcon.defaultProps = {
   decorative: true,
 };
 
+CommunityIcon.displayName = 'CommunityIcon';
+
 export {CommunityIcon};

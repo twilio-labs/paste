@@ -28,4 +28,6 @@ ResetIcon.defaultProps = {
   decorative: true,
 };
 
+ResetIcon.displayName = 'ResetIcon';
+
 export {ResetIcon};

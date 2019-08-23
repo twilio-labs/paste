@@ -38,4 +38,6 @@ DocsIcon.defaultProps = {
   decorative: true,
 };
 
+DocsIcon.displayName = 'DocsIcon';
+
 export {DocsIcon};

@@ -38,4 +38,6 @@ ConsoleDashIcon.defaultProps = {
   decorative: true,
 };
 
+ConsoleDashIcon.displayName = 'ConsoleDashIcon';
+
 export {ConsoleDashIcon};

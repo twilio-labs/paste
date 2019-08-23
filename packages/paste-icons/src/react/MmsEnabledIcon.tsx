@@ -38,4 +38,6 @@ MmsEnabledIcon.defaultProps = {
   decorative: true,
 };
 
+MmsEnabledIcon.displayName = 'MmsEnabledIcon';
+
 export {MmsEnabledIcon};

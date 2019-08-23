@@ -38,4 +38,6 @@ TemplatesIcon.defaultProps = {
   decorative: true,
 };
 
+TemplatesIcon.displayName = 'TemplatesIcon';
+
 export {TemplatesIcon};

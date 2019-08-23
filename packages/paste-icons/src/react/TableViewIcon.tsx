@@ -32,4 +32,6 @@ TableViewIcon.defaultProps = {
   decorative: true,
 };
 
+TableViewIcon.displayName = 'TableViewIcon';
+
 export {TableViewIcon};

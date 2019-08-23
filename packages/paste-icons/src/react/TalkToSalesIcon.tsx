@@ -38,4 +38,6 @@ TalkToSalesIcon.defaultProps = {
   decorative: true,
 };
 
+TalkToSalesIcon.displayName = 'TalkToSalesIcon';
+
 export {TalkToSalesIcon};

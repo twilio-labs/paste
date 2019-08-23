@@ -38,4 +38,6 @@ InformationIcon.defaultProps = {
   decorative: true,
 };
 
+InformationIcon.displayName = 'InformationIcon';
+
 export {InformationIcon};

@@ -38,4 +38,6 @@ ProductsIcon.defaultProps = {
   decorative: true,
 };
 
+ProductsIcon.displayName = 'ProductsIcon';
+
 export {ProductsIcon};

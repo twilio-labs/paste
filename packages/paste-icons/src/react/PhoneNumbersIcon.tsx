@@ -38,4 +38,6 @@ PhoneNumbersIcon.defaultProps = {
   decorative: true,
 };
 
+PhoneNumbersIcon.displayName = 'PhoneNumbersIcon';
+
 export {PhoneNumbersIcon};

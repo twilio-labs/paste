@@ -38,4 +38,6 @@ SupportIcon.defaultProps = {
   decorative: true,
 };
 
+SupportIcon.displayName = 'SupportIcon';
+
 export {SupportIcon};

@@ -32,4 +32,6 @@ KeyboardIcon.defaultProps = {
   decorative: true,
 };
 
+KeyboardIcon.displayName = 'KeyboardIcon';
+
 export {KeyboardIcon};

@@ -38,4 +38,6 @@ IpMessagingIcon.defaultProps = {
   decorative: true,
 };
 
+IpMessagingIcon.displayName = 'IpMessagingIcon';
+
 export {IpMessagingIcon};

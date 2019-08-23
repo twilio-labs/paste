@@ -38,4 +38,6 @@ ThumbTackIcon.defaultProps = {
   decorative: true,
 };
 
+ThumbTackIcon.displayName = 'ThumbTackIcon';
+
 export {ThumbTackIcon};

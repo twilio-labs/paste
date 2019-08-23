@@ -38,4 +38,6 @@ SmsEnabledIcon.defaultProps = {
   decorative: true,
 };
 
+SmsEnabledIcon.displayName = 'SmsEnabledIcon';
+
 export {SmsEnabledIcon};

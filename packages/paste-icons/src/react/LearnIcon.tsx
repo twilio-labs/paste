@@ -32,4 +32,6 @@ LearnIcon.defaultProps = {
   decorative: true,
 };
 
+LearnIcon.displayName = 'LearnIcon';
+
 export {LearnIcon};

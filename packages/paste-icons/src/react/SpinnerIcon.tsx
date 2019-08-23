@@ -38,4 +38,6 @@ SpinnerIcon.defaultProps = {
   decorative: true,
 };
 
+SpinnerIcon.displayName = 'SpinnerIcon';
+
 export {SpinnerIcon};

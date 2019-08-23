@@ -38,4 +38,6 @@ NotifyIcon.defaultProps = {
   decorative: true,
 };
 
+NotifyIcon.displayName = 'NotifyIcon';
+
 export {NotifyIcon};

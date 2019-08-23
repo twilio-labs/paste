@@ -38,4 +38,6 @@ FaxIcon.defaultProps = {
   decorative: true,
 };
 
+FaxIcon.displayName = 'FaxIcon';
+
 export {FaxIcon};

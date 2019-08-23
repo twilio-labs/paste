@@ -38,4 +38,6 @@ VideoIcon.defaultProps = {
   decorative: true,
 };
 
+VideoIcon.displayName = 'VideoIcon';
+
 export {VideoIcon};

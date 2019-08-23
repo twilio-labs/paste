@@ -38,4 +38,6 @@ PauseIcon.defaultProps = {
   decorative: true,
 };
 
+PauseIcon.displayName = 'PauseIcon';
+
 export {PauseIcon};
