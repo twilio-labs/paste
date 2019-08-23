@@ -54,7 +54,7 @@ const Button: React.FC<ButtonProps> = props => {
   if (defaultSize == null) {
     defaultSize = 'default';
 
-    if (props.variant === 'link') {
+    if (props.variant === 'link' || props.variant === 'destructive_link') {
       defaultSize = 'reset';
     } else if (React.Children.count(props.children) === 1) {
       React.Children.forEach(props.children, child => {
