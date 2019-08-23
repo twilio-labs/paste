@@ -5,7 +5,7 @@
   "status": "beta",
   "description": "Twilio's Button component",
   "author": "Twilio Inc.",
-  "license": "ISC",
+  "license": "MIT",
   "main:dev": "src/index.tsx",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
