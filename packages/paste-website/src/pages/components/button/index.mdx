@@ -5,6 +5,7 @@ description: Buttons are hot
 ---
 
 import {graphql} from 'gatsby';
+import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -32,211 +33,201 @@ export const pageQuery = graphql`
   data={props.data.allPasteComponent.edges}
 />
 
-
 ## Guidelines
 
 ### About buttons
 
-A button communicates that users can trigger an action. Places you’d use 
+A button communicates that users can trigger an action. Places you’d use
 a button include:
-* Submitting a form
-* Closing a modal
-* Moving to the next step in a flow
-A button can contain an icon and/or text. See Composing a button below 
-for more detailed guidelines.
 
+- Submitting a form
+- Closing a modal
+- Moving to the next step in a flow
+  A button can contain an icon and/or text. See Composing a button below
+  for more detailed guidelines.
 
 ### Button vs. Anchor (Link)
 
-**TL;DR** If pressing the trigger results in a URL change, or that resultant 
-page makes sense as a whole new browser tab use an **Anchor** element. 
+**TL;DR** If pressing the trigger results in a URL change, or that resultant
+page makes sense as a whole new browser tab use an **Anchor** element.
 Everything else is a **Button**.
 
-It may not be immediately obvious but the semantic distinction between an 
-anchor and button HTML element is extremely important to learn. Without 
-realising it the decision can cause significant usability problems due to 
-the in-built behaviours, interactions and expectations that come with each. 
+It may not be immediately obvious but the semantic distinction between an
+anchor and button HTML element is extremely important to learn. Without
+realising it the decision can cause significant usability problems due to
+the in-built behaviours, interactions and expectations that come with each.
 
-For example, an anchor element will perform its action when clicked and 
-when the enter key is pressed. A button element will perform its action 
-when clicked and when the enter and spacebar keys are pressed. When 
-holding the control or command key an anchor will open a new browser 
+For example, an anchor element will perform its action when clicked and
+when the enter key is pressed. A button element will perform its action
+when clicked and when the enter and spacebar keys are pressed. When
+holding the control or command key an anchor will open a new browser
 tab, a button will not.
-
 
 You should:
 
-* Use an **Anchor** when you are **navigating the user** to a new page or 
-place on the page
-* Use a **Button** when the user is **performing an action**. An action always 
-happens on the same page as the trigger
+- Use an **Anchor** when you are **navigating the user** to a new page or
+  place on the page
+- Use a **Button** when the user is **performing an action**. An action always
+  happens on the same page as the trigger
 
 If you need to link to content, you can use our [Anchor component](/components/anchor).
 
-
 ### Accessibility
 
-For accessibility, the distinction becomes even more important, 
-especially for those who are using Assistive Technology (A.T.) such as 
+For accessibility, the distinction becomes even more important,
+especially for those who are using Assistive Technology (A.T.) such as
 screen readers and dictation software. Here are some quick tips:
 
-* Correctly choosing between an anchor or button element will help inform A.T. 
-users what will happen next. Will I be taken to an entirely new page or will 
-something happen on the current page?
-* Choose button text that clearly describes the action that is about to happen
-* Don’t repeat the same button text on the same page. Try not to have 20 
-“edit” buttons, add clarifying text, even if it’s visually hidden, to 
-fully describe the action. E.g. “edit home address”, “add new phone number”
-* Don’t communicate with color alone. When choosing a destructive button, 
-make sure the button text also indicates the action is destructive
-* Try not to use anchors that look like buttons. Voice dictation users will 
-struggle with these as they may say “click button” but the software can’t 
-tell what the anchor looks like visually
+- Correctly choosing between an anchor or button element will help inform A.T.
+  users what will happen next. Will I be taken to an entirely new page or will
+  something happen on the current page?
+- Choose button text that clearly describes the action that is about to happen
+- Don’t repeat the same button text on the same page. Try not to have 20
+  “edit” buttons, add clarifying text, even if it’s visually hidden, to
+  fully describe the action. E.g. “edit home address”, “add new phone number”
+- Don’t communicate with color alone. When choosing a destructive button,
+  make sure the button text also indicates the action is destructive
+- Try not to use anchors that look like buttons. Voice dictation users will
+  struggle with these as they may say “click button” but the software can’t
+  tell what the anchor looks like visually
 
-### Examples 
-
+### Examples
 
 <LivePreview scope={{Button}} language="jsx">
   {`<div>
-  <Button variant="primary">
-    Submit
-  </Button>
+  <Box mr="space20">
+    <Button variant="primary">
+      Submit
+    </Button>
+  </Box>
 
-  <Button variant="secondary">
-    Submit
-  </Button>
+<Box mr="space20">
+  <Button variant="secondary">Submit</Button>
+</Box>
 
+<Box mr="space20">
   <Button variant="destructive" size="small">
     Submit
   </Button>
+</Box>
 
-  <Button variant="link">
-    Submit
-  </Button>
+<Box mr="space20">
+  <Button variant="link">Submit</Button>
+</Box>
 
-  <Button variant="destructive_link">
-    Submit
-  </Button>
+<Box mr="space20">
+  <Button variant="destructive_link">Submit</Button>
+</Box>
 
-  <Button variant="reset" size="reset">
-    Submit
-  </Button>
+<Button variant="reset" size="reset">
+  Submit
+</Button>
 </div>`}
 </LivePreview>
 
-
 ##### Primary button
+
 Use a primary button to indicate the most prominent action a customer would
-make on a screen. It should be a safe and if possible, reversible action 
+make on a screen. It should be a safe and if possible, reversible action
 without much cost.
 
-Try to use only one primary button on a screen. Using multiple might be 
+Try to use only one primary button on a screen. Using multiple might be
 distracting.
 
-
 ##### Secondary button
+
 The secondary button is the most frequently used button.
 
-Use a secondary button to indicate an action that should be easy for a customer 
-to make but isn’t the most prominent on a screen. It should be a safe and if 
+Use a secondary button to indicate an action that should be easy for a customer
+to make but isn’t the most prominent on a screen. It should be a safe and if
 possible, reversible action without much cost.
 
 ##### Destructive button
-A destructive button indicates a destructive action, such as “Delete” or 
-“Remove”, that might be difficult to reverse. If possible, give users 
+
+A destructive button indicates a destructive action, such as “Delete” or
+“Remove”, that might be difficult to reverse. If possible, give users
 the ability to undo the action, or at least, confirm the action.
 
 ##### Icon-only button
+
 Use icon-only buttons sparingly.
 
-They should be used only in compact UI situations. Use an icon that can 
+They should be used only in compact UI situations. Use an icon that can
 only convey a single action.
 
 ##### Link-style button
+
 Use link-style buttons when other types of buttons may be too distracting.
 
 ##### Small button
-Use small buttons sparingly, only when needed for vertical density. 
-Guidelines for using variants in small buttons are the same as in 
-their default size.
 
+Use small buttons sparingly, only when needed for vertical density.
+Guidelines for using variants in small buttons are the same as in
+their default size.
 
 ### States
 
 ##### Loading
-Use the loading state if the action doesn’t happen instantly. 
+
+Use the loading state if the action doesn’t happen instantly.
 The button is also disabled in this state.
 
-However, the loading state may make an action appear to take longer 
-than it does and doesn’t communicate what’s preventing the action 
+However, the loading state may make an action appear to take longer
+than it does and doesn’t communicate what’s preventing the action
 from completing. Use it when you can’t move the user to the next state.
 
 ##### Disabled
+
 Use the disabled state sparingly.
 
-The customer shouldn't have to guess why a button is disabled. 
-It should be immediately obvious to the customer why a button 
-might be disabled (*e.g.*, if it follows a single empty text 
-field). Otherwise, show the button in its default state, then 
+The customer shouldn't have to guess why a button is disabled.
+It should be immediately obvious to the customer why a button
+might be disabled (_e.g._, if it follows a single empty text
+field). Otherwise, show the button in its default state, then
 provide helpful error text after it's pressed.
 
-
-
 ### Composing a button
+
 In most cases, you’ll use a text-only button.
 
 Button text should:
-* Use sentence case (“Log in”, not “Log In”)
-* Clearly indicate what’ll happen when a user presses it.
-* Start with a verb, except for a common action like “Done.”
-* Be concise without sacrificing clarity and user confidence.
 
-Pair text with an icon only if the icon clarifies the meaning of 
+- Use sentence case (“Log in”, not “Log In”)
+- Clearly indicate what’ll happen when a user presses it.
+- Start with a verb, except for a common action like “Done.”
+- Be concise without sacrificing clarity and user confidence.
+
+Pair text with an icon only if the icon clarifies the meaning of
 the button. Use no more than one icon before text and one icon after text.
 
-
 ### When to use a button
+
 Use a button to indicate that users can trigger an action.
 
-In general, align buttons to the direction of the text (*e.g.*, 
+In general, align buttons to the direction of the text (_e.g._,
 left-aligned in English) for easy scannability.
 
-When moving customers through a sequence, place the primary button in 
-the direction of the movement (e.g., a “Next” button goes on the 
+When moving customers through a sequence, place the primary button in
+the direction of the movement (e.g., a “Next” button goes on the
 right in an English-language flow).
 
-
 <DoDont>
   <Do>
-    Prioritize actions on a screen. Only one primary button should be used 
-    on each screen so users are clear about what the intended action is.
+    Prioritize actions on a screen. Only one primary button should be used on each screen so users are clear about what
+    the intended action is.
   </Do>
-  <Dont>
-    Don’t use many primary buttons on a screen, which may distract users.
-  </Dont>
+  <Dont>Don’t use many primary buttons on a screen, which may distract users.</Dont>
 </DoDont>
 
 <DoDont>
-  <Do>
-    Use the right variant to communicate meaning and hierarchy.
-  </Do>
-  <Dont>
-    Don’t use a button variant for an action it’s not intended for.
-  </Dont>
+  <Do>Use the right variant to communicate meaning and hierarchy.</Do>
+  <Dont>Don’t use a button variant for an action it’s not intended for.</Dont>
 </DoDont>
-
 
 <DoDont>
-  <Do>
-    Write button text that is clear, starts with a verb, and 
-    helps users confidently trigger an action.
-  </Do>
-  <Dont>
-    Don’t use product or brand icons in buttons since they don’t communicate action.
-  </Dont>
+  <Do>Write button text that is clear, starts with a verb, and helps users confidently trigger an action.</Do>
+  <Dont>Don’t use product or brand icons in buttons since they don’t communicate action.</Dont>
 </DoDont>
-
-
 
 ## API
 
@@ -253,7 +244,7 @@ import {Button} from '@twilio-paste/button';
 
 <Button variant="secondary" size="small" onClick={() => {}}>
   Submit
-</Button>
+</Button>;
 ```
 
 ### Storybook
