@@ -41,6 +41,7 @@ const baseButtonWrapper = css`
   display: inline-block;
   outline: none;
   background: none;
+  font-size: 100%;
   transition: background-color 100ms ease, box-shadow 50ms ease-in;
 
   /* Remove extra black dotted border FF adds */
