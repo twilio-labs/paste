@@ -18,7 +18,7 @@ const handlePropValidation = (props: ButtonProps): void => {
     throw new Error(`[Paste: Button] This should be a link. Use the [Paste: Anchor] component.`);
   }
   if (variant === 'reset' && size !== 'reset') {
-    throw new Error('[Paste: Button] The "RESET" variant can only be used with the "NONE" size.');
+    throw new Error('[Paste: Button] The "RESET" variant can only be used with the "RESET" size.');
   }
   if (size === 'icon' && fullWidth) {
     throw new Error('[Paste: Button] Icon buttons should not be fullWidth.');
@@ -46,6 +46,28 @@ const Button: React.FC<ButtonProps> = props => {
   const showLoading = buttonState === 'loading';
   const disabled = buttonState !== 'default';
 
+  // If size isn't passed, come up with a smart default:
+  // - 'reset' for variant 'link'
+  // - 'icon' if there's 1 child that's an icon
+  // - 'default' otherwise
+  let defaultSize = props.size;
+  if (defaultSize == null) {
+    defaultSize = 'default';
+
+    if (props.variant === 'link') {
+      defaultSize = 'reset';
+    } else if (React.Children.count(props.children) === 1) {
+      React.Children.forEach(props.children, child => {
+        if (React.isValidElement(child)) {
+          // @ts-ignore
+          if (typeof child.type.displayName === 'string' && child.type.displayName.includes('Icon')) {
+            defaultSize = 'icon';
+          }
+        }
+      });
+    }
+  }
+
   handlePropValidation(props);
 
   return (
@@ -59,10 +81,10 @@ const Button: React.FC<ButtonProps> = props => {
       onBlur={props.onBlur}
       onClick={props.onClick}
       onFocus={props.onFocus}
-      size={props.size}
+      variant={props.variant}
+      size={defaultSize}
       tabIndex={props.tabIndex}
       type={props.type}
-      variant={props.variant}
     >
       <ButtonChildren buttonState={buttonState}>{props.children}</ButtonChildren>
       {showLoading ? (
@@ -78,10 +100,11 @@ Button.defaultProps = {
   as: 'button',
   type: 'button',
   variant: 'primary',
-  size: 'default',
   disabled: false,
   loading: false,
   fullWidth: false,
 };
+
+Button.displayName = 'Button';
 
 export {Button};
