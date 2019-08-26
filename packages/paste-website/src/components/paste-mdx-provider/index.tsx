@@ -9,6 +9,7 @@ import {Heading, HeadingProps} from '../Heading';
 import {StyledHr} from '../StyledHr';
 import {P, UL, OL, LI, InlineCode} from '../Typography';
 // Shortcode imports
+import {ComponentChangelog} from '../shortcodes/component-changelog';
 import {ComponentHeader} from '../shortcodes/component-header';
 import {LivePreview} from '../shortcodes/live-preview';
 
@@ -21,7 +22,7 @@ const StyledContent = styled.div`
   max-width: 816px;
 `;
 
-const shortcodes = {ComponentHeader, LivePreview};
+const shortcodes = {ComponentChangelog, ComponentHeader, LivePreview};
 
 /* eslint-disable no-shadow */
 /*
