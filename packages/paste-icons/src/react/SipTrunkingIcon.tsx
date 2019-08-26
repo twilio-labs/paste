@@ -38,4 +38,6 @@ SipTrunkingIcon.defaultProps = {
   decorative: true,
 };
 
+SipTrunkingIcon.displayName = 'SipTrunkingIcon';
+
 export {SipTrunkingIcon};

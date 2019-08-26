@@ -38,4 +38,6 @@ GoArrowIcon.defaultProps = {
   decorative: true,
 };
 
+GoArrowIcon.displayName = 'GoArrowIcon';
+
 export {GoArrowIcon};

@@ -38,4 +38,6 @@ ExpandMenuIcon.defaultProps = {
   decorative: true,
 };
 
+ExpandMenuIcon.displayName = 'ExpandMenuIcon';
+
 export {ExpandMenuIcon};

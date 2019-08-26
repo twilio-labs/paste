@@ -38,4 +38,6 @@ InterconnectIcon.defaultProps = {
   decorative: true,
 };
 
+InterconnectIcon.displayName = 'InterconnectIcon';
+
 export {InterconnectIcon};

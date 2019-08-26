@@ -40,4 +40,6 @@ PartnersIcon.defaultProps = {
   decorative: true,
 };
 
+PartnersIcon.displayName = 'PartnersIcon';
+
 export {PartnersIcon};

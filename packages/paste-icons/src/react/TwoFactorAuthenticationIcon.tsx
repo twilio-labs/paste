@@ -38,4 +38,6 @@ TwoFactorAuthenticationIcon.defaultProps = {
   decorative: true,
 };
 
+TwoFactorAuthenticationIcon.displayName = 'TwoFactorAuthenticationIcon';
+
 export {TwoFactorAuthenticationIcon};

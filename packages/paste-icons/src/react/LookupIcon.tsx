@@ -38,4 +38,6 @@ LookupIcon.defaultProps = {
   decorative: true,
 };
 
+LookupIcon.displayName = 'LookupIcon';
+
 export {LookupIcon};

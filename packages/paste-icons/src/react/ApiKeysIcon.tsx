@@ -38,4 +38,6 @@ ApiKeysIcon.defaultProps = {
   decorative: true,
 };
 
+ApiKeysIcon.displayName = 'ApiKeysIcon';
+
 export {ApiKeysIcon};

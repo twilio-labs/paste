@@ -38,4 +38,6 @@ VoiceIcon.defaultProps = {
   decorative: true,
 };
 
+VoiceIcon.displayName = 'VoiceIcon';
+
 export {VoiceIcon};

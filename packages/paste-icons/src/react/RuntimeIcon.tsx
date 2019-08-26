@@ -38,4 +38,6 @@ RuntimeIcon.defaultProps = {
   decorative: true,
 };
 
+RuntimeIcon.displayName = 'RuntimeIcon';
+
 export {RuntimeIcon};

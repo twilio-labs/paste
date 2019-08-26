@@ -14,7 +14,7 @@ export interface ButtonProps {
   tabIndex?: ButtonTabIndexes;
 
   variant: ButtonVariants;
-  size: ButtonSizes;
+  size?: ButtonSizes;
   fullWidth?: boolean;
 
   children: React.ReactNode;

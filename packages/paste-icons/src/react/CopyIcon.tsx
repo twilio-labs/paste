@@ -38,4 +38,6 @@ CopyIcon.defaultProps = {
   decorative: true,
 };
 
+CopyIcon.displayName = 'CopyIcon';
+
 export {CopyIcon};

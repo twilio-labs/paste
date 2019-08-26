@@ -38,4 +38,6 @@ OnIcon.defaultProps = {
   decorative: true,
 };
 
+OnIcon.displayName = 'OnIcon';
+
 export {OnIcon};

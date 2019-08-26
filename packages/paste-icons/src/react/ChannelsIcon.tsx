@@ -38,4 +38,6 @@ ChannelsIcon.defaultProps = {
   decorative: true,
 };
 
+ChannelsIcon.displayName = 'ChannelsIcon';
+
 export {ChannelsIcon};

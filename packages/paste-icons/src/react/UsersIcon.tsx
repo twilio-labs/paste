@@ -38,4 +38,6 @@ UsersIcon.defaultProps = {
   decorative: true,
 };
 
+UsersIcon.displayName = 'UsersIcon';
+
 export {UsersIcon};

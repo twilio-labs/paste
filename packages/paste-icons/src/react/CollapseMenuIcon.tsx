@@ -38,4 +38,6 @@ CollapseMenuIcon.defaultProps = {
   decorative: true,
 };
 
+CollapseMenuIcon.displayName = 'CollapseMenuIcon';
+
 export {CollapseMenuIcon};

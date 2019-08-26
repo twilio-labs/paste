@@ -38,4 +38,6 @@ PlayIcon.defaultProps = {
   decorative: true,
 };
 
+PlayIcon.displayName = 'PlayIcon';
+
 export {PlayIcon};

@@ -38,4 +38,6 @@ AuditEventsIcon.defaultProps = {
   decorative: true,
 };
 
+AuditEventsIcon.displayName = 'AuditEventsIcon';
+
 export {AuditEventsIcon};

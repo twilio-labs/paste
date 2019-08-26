@@ -38,4 +38,6 @@ CheckboxCheckedIcon.defaultProps = {
   decorative: true,
 };
 
+CheckboxCheckedIcon.displayName = 'CheckboxCheckedIcon';
+
 export {CheckboxCheckedIcon};

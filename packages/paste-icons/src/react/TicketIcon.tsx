@@ -38,4 +38,6 @@ TicketIcon.defaultProps = {
   decorative: true,
 };
 
+TicketIcon.displayName = 'TicketIcon';
+
 export {TicketIcon};

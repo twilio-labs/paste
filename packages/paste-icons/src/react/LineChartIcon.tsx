@@ -38,4 +38,6 @@ LineChartIcon.defaultProps = {
   decorative: true,
 };
 
+LineChartIcon.displayName = 'LineChartIcon';
+
 export {LineChartIcon};

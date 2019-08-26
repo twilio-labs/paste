@@ -38,4 +38,6 @@ DebuggerIcon.defaultProps = {
   decorative: true,
 };
 
+DebuggerIcon.displayName = 'DebuggerIcon';
+
 export {DebuggerIcon};

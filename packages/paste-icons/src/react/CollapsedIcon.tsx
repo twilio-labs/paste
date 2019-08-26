@@ -38,4 +38,6 @@ CollapsedIcon.defaultProps = {
   decorative: true,
 };
 
+CollapsedIcon.displayName = 'CollapsedIcon';
+
 export {CollapsedIcon};

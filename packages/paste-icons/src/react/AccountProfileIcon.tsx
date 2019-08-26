@@ -38,4 +38,6 @@ AccountProfileIcon.defaultProps = {
   decorative: true,
 };
 
+AccountProfileIcon.displayName = 'AccountProfileIcon';
+
 export {AccountProfileIcon};

@@ -32,4 +32,6 @@ UploadIcon.defaultProps = {
   decorative: true,
 };
 
+UploadIcon.displayName = 'UploadIcon';
+
 export {UploadIcon};

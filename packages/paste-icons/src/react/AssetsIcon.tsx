@@ -35,4 +35,6 @@ AssetsIcon.defaultProps = {
   decorative: true,
 };
 
+AssetsIcon.displayName = 'AssetsIcon';
+
 export {AssetsIcon};

@@ -38,4 +38,6 @@ ExclamationCircleIcon.defaultProps = {
   decorative: true,
 };
 
+ExclamationCircleIcon.displayName = 'ExclamationCircleIcon';
+
 export {ExclamationCircleIcon};

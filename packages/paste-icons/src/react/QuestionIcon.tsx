@@ -32,4 +32,6 @@ QuestionIcon.defaultProps = {
   decorative: true,
 };
 
+QuestionIcon.displayName = 'QuestionIcon';
+
 export {QuestionIcon};

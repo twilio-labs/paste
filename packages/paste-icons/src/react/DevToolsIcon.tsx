@@ -38,4 +38,6 @@ DevToolsIcon.defaultProps = {
   decorative: true,
 };
 
+DevToolsIcon.displayName = 'DevToolsIcon';
+
 export {DevToolsIcon};

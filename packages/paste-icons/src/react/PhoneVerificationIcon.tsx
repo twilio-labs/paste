@@ -38,4 +38,6 @@ PhoneVerificationIcon.defaultProps = {
   decorative: true,
 };
 
+PhoneVerificationIcon.displayName = 'PhoneVerificationIcon';
+
 export {PhoneVerificationIcon};

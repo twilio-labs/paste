@@ -32,4 +32,6 @@ BarChartIcon.defaultProps = {
   decorative: true,
 };
 
+BarChartIcon.displayName = 'BarChartIcon';
+
 export {BarChartIcon};

@@ -38,4 +38,6 @@ AuthyIcon.defaultProps = {
   decorative: true,
 };
 
+AuthyIcon.displayName = 'AuthyIcon';
+
 export {AuthyIcon};

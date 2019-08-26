@@ -38,4 +38,6 @@ ExpandIcon.defaultProps = {
   decorative: true,
 };
 
+ExpandIcon.displayName = 'ExpandIcon';
+
 export {ExpandIcon};

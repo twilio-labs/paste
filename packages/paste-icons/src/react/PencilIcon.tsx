@@ -32,4 +32,6 @@ PencilIcon.defaultProps = {
   decorative: true,
 };
 
+PencilIcon.displayName = 'PencilIcon';
+
 export {PencilIcon};

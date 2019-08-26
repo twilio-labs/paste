@@ -38,4 +38,6 @@ ApiExplorerIcon.defaultProps = {
   decorative: true,
 };
 
+ApiExplorerIcon.displayName = 'ApiExplorerIcon';
+
 export {ApiExplorerIcon};

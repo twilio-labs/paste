@@ -38,4 +38,6 @@ MultiFactorAuthenticationIcon.defaultProps = {
   decorative: true,
 };
 
+MultiFactorAuthenticationIcon.displayName = 'MultiFactorAuthenticationIcon';
+
 export {MultiFactorAuthenticationIcon};

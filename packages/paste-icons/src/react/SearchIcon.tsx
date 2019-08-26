@@ -38,4 +38,6 @@ SearchIcon.defaultProps = {
   decorative: true,
 };
 
+SearchIcon.displayName = 'SearchIcon';
+
 export {SearchIcon};

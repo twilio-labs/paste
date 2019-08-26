@@ -32,4 +32,6 @@ FilterIcon.defaultProps = {
   decorative: true,
 };
 
+FilterIcon.displayName = 'FilterIcon';
+
 export {FilterIcon};

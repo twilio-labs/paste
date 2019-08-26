@@ -29,6 +29,8 @@ ${componentName}.defaultProps = {
   decorative: true,
 }
 
+${componentName}.displayName = '${componentName}';
+
 export {${componentName}};
 `;
 

@@ -38,4 +38,6 @@ BillingIcon.defaultProps = {
   decorative: true,
 };
 
+BillingIcon.displayName = 'BillingIcon';
+
 export {BillingIcon};

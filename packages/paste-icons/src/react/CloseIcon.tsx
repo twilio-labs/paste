@@ -38,4 +38,6 @@ CloseIcon.defaultProps = {
   decorative: true,
 };
 
+CloseIcon.displayName = 'CloseIcon';
+
 export {CloseIcon};
