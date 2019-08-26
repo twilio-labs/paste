@@ -38,3 +38,13 @@ Then we think about the development and technical debt incurred by this product.
   - [ ] Throughout feature additions, removals, or modifications?
   - [ ] What kind of updates could we make in the future? (look around the corner)
 - [ ] If any future work is expected, documented the plan so that the future maintainer can gain context.
+
+### Component Library specific
+
+- The `package.json` file contains
+  - [ ] the required yarn scripts: `[build, build:dev, clean, prepublishOnly, type-check]`.
+  - [ ] the following keys: `[name, version, category, status, description, author, license (MIT), main:dev, main, module, types, sideEffects, files]`
+- [ ] The components have defined a `displayName` static.
+- [ ] The package is compiled with rollup and typescript.
+- [ ] The `@twilio-paste/*` dependencies are marked as `peerDependencies`.
+- [ ] The `@twilio-paste/*` peerDependencies are also listed under devDependencies.

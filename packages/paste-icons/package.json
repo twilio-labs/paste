@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "description": "Twilio's icon library, ready for use and with accessibility considerations",
   "author": "Twilio Inc.",
-  "license": "ISC",
+  "license": "MIT",
   "sideEffects": false,
   "files": [
     "react"
