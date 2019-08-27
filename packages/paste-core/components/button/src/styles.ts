@@ -28,6 +28,7 @@ const sizeDefault = (props: ButtonWrapperProps): SerializedStyles => css`
   padding: ${themeGet('space.space30')(props)} ${themeGet('space.space60')(props)};
   border-radius: ${themeGet('radii.borderRadius20')(props)};
   font-size: ${themeGet('fontSizes.fontSize20')(props)};
+  font-weight: ${themeGet('fontWeights.fontWeightSemibold')(props)};
   line-height: 24px;
 `;
 
@@ -84,7 +85,7 @@ const baseDisabled = css([
  */
 // Primary
 const variantPrimaryBase = (props: ButtonWrapperProps): SerializedStyles => css`
-  border-width: ${themeGet('borderWidths.borderWidth10')(props)};
+  border-width: ${themeGet('borderWidths.borderWidth20')(props)};
   border-style: solid;
   color: ${themeGet('textColors.colorTextInverse')(props)};
 `;
@@ -97,10 +98,13 @@ const variantPrimaryEnabled = (props: ButtonWrapperProps): SerializedStyles =>
       border-color: ${themeGet('borderColors.colorBorderPrimary')(props)};
       background-color: ${themeGet('backgroundColors.colorBackgroundPrimary')(props)};
 
-      &:hover,
-      &:focus {
+      &:hover {
         border-color: ${themeGet('borderColors.colorBorderPrimaryDark')(props)};
         background-color: ${themeGet('backgroundColors.colorBackgroundPrimaryDark')(props)};
+      }
+      &:focus {
+        border-color: ${themeGet('borderColors.colorBorderPrimaryDark')(props)};
+        background-color: ${themeGet('backgroundColors.colorBackgroundPrimary')(props)};
       }
       &:active {
         border-color: ${themeGet('borderColors.colorBorderPrimaryDarker')(props)};
@@ -139,7 +143,7 @@ const variantPrimaryDisabled = (props: ButtonWrapperProps): SerializedStyles =>
 
 // Secondary
 const variantSecondaryBase = (props: ButtonWrapperProps): SerializedStyles => css`
-  border-width: ${themeGet('borderWidths.borderWidth10')(props)};
+  border-width: ${themeGet('borderWidths.borderWidth20')(props)};
   border-style: solid;
   background-color: ${themeGet('backgroundColors.colorBackgroundBody')(props)};
 `;
@@ -152,9 +156,15 @@ const variantSecondaryEnabled = (props: ButtonWrapperProps): SerializedStyles =>
       border-color: ${themeGet('borderColors.colorBorderPrimary')(props)};
       background-color: ${themeGet('backgroundColors.colorBackgroundBody')(props)};
 
-      &:focus {
+      &:hover {
         color: ${themeGet('textColors.colorTextLinkDark')(props)};
-        border-color: ${themeGet('borderColors.colorBorderPrimaryDark')(props)};
+        border-color: ${themeGet('borderColors.colorBorderPrimaryDarker')(props)};
+        background-color: ${themeGet('backgroundColors.colorBackgroundPrimaryLightest')(props)};
+      }
+
+      &:focus {
+        color: ${themeGet('textColors.colorTextLink')(props)};
+        border-color: ${themeGet('borderColors.colorBorderPrimary')(props)};
         background-color: ${themeGet('backgroundColors.colorBackgroundPrimaryLightest')(props)};
       }
 
@@ -187,7 +197,7 @@ const variantSecondaryDisabled = (props: ButtonWrapperProps): SerializedStyles =
 
 // Destructive
 const variantDestructiveBase = (props: ButtonWrapperProps): SerializedStyles => css`
-  border-width: ${themeGet('borderWidths.borderWidth10')(props)};
+  border-width: ${themeGet('borderWidths.borderWidth20')(props)};
   border-style: solid;
   background-color: ${themeGet('backgroundColors.colorBackgroundBody')(props)};
 `;
@@ -201,10 +211,15 @@ const variantDestructiveEnabled = (props: ButtonWrapperProps): SerializedStyles 
       border-color: ${themeGet('borderColors.colorBorderDestructive')(props)};
       background-color: ${themeGet('backgroundColors.colorBackgroundBody')(props)};
 
-      &:hover,
+      &:hover {
+        color: ${themeGet('textColors.colorTextLinkDestructiveDarker')(props)};
+        border-color: ${themeGet('borderColors.colorBorderDestructiveDarker')(props)};
+        background-color: ${themeGet('backgroundColors.colorBackgroundDestructiveLightest')(props)};
+      }
+
       &:focus {
-        color: ${themeGet('textColors.colorTextLinkDestructiveDark')(props)};
-        border-color: ${themeGet('borderColors.colorBorderDestructiveDark')(props)};
+        color: ${themeGet('textColors.colorTextLinkDestructive')(props)};
+        border-color: ${themeGet('borderColors.colorBorderDestructive')(props)};
         background-color: ${themeGet('backgroundColors.colorBackgroundDestructiveLightest')(props)};
       }
 
