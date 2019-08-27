@@ -21,6 +21,13 @@ export const pageQuery = graphql`
         }
       }
     }
+    file(sourceInstanceName: {eq: "packages"}, relativePath: {eq: "paste-core/components/anchor/CHANGELOG.md"}) {
+      id
+      childMarkdownRemark {
+        html
+        rawMarkdownBody
+      }
+    }
   }
 `;
 
@@ -140,6 +147,6 @@ import {Anchor} from '@twilio-paste/anchor';
 | onFocus?       | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                          | null      |
 | onBlur?        | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                          | null      |
 
-<ComponentChangelog component="/anchor/"/>
+<ComponentChangelog data={props.data.file.childMarkdownRemark.html}/>
 
 </content>
