@@ -25,7 +25,7 @@ props:
 
   # links
   color-text-link:
-    value: "{!palette-blue-60}"
+    value: "{!palette-blue-50}"
     comment: Link text
   color-text-link-light:
     value: "{!palette-blue-40}"
@@ -37,16 +37,16 @@ props:
     value: "{!palette-blue-80}"
     comment: Darker shade of link text to be used in interactions
   color-text-link-destructive:
-    value: "{!palette-red-60}"
+    value: "{!palette-red-50}"
     comment: Destructive link text
   color-text-link-destructive-light:
     value: "{!palette-red-40}"
     comment: Light shade of destructive link text to be used in interactions
   color-text-link-destructive-dark:
-    value: "{!palette-red-70}"
+    value: "{!palette-red-60}"
     comment: Dark shade of destructive link text to be used in interactions
   color-text-link-destructive-darker:
-    value: "{!palette-red-80}"
+    value: "{!palette-red-70}"
     comment: Darker shade of destructive link text to be used in interactions
 
   #status
