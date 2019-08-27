@@ -1,29 +1,70 @@
 import * as React from 'react';
-import {StaticQuery, graphql} from 'gatsby';
+import Parser from 'html-react-parser';
+import styled from '@emotion/styled';
+import {themeGet} from 'styled-system';
 import {Box} from '@twilio-paste/box';
 
-const ComponentChangelog: React.FC<{}> = () => {
+interface ComponentChangelogProps {
+  data?: {
+    childMarkdownRemark: {
+      html: string;
+      rawMarkdownBody: string;
+    };
+  };
+}
+
+export const StyledChangelogContent = styled(Box)`
+  h1 {
+    font-size: ${themeGet('fontSizes.fontSize100')};
+    font-weight: ${themeGet('fontWeights.fontWeightSemibold')};
+    margin-top: ${themeGet('spacings.space60')};
+    margin-bottom: ${themeGet('spacings.space60')};
+  }
+
+  h2 {
+    font-size: ${themeGet('fontSizes.fontSize60')};
+    font-weight: ${themeGet('fontWeights.fontWeightSemibold')};
+    margin-top: ${themeGet('spacings.space60')};
+    margin-bottom: ${themeGet('spacings.space60')};
+  }
+
+  h3 {
+    font-size: ${themeGet('fontSizes.fontSize50')};
+    font-weight: ${themeGet('fontWeights.fontWeightSemibold')};
+    margin-top: ${themeGet('spacings.space60')};
+    margin-bottom: ${themeGet('spacings.space60')};
+  }
+
+  p,
+  ul {
+    font-size: ${themeGet('fontSizes.fontSize20')};
+    margin-top: ${themeGet('spacings.space50')};
+    margin-bottom: ${themeGet('spacings.space50')};
+  }
+
+  li {
+    font-size: ${themeGet('fontSizes.fontSize20')};
+    margin-left: ${themeGet('spacings.space60')};
+  }
+
+  a {
+    color: ${themeGet('textColors.colorTextLink')};
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;
+
+const ComponentChangelog: React.FC<ComponentChangelogProps> = ({data}) => {
+  if (data == null) {
+    null;
+  }
   return (
-    <StaticQuery
-      query={graphql`
-        query {
-          file(sourceInstanceName: {eq: "packages"}, relativePath: {regex: "/anchor/"}, name: {eq: "CHANGELOG"}) {
-            id
-            childMarkdownRemark {
-              html
-              rawMarkdownBody
-            }
-          }
-        }
-      `}
-      render={data => (
-        <>
-          <Box key={data.file.id} marginTop="space120">
-            <Box dangerouslySetInnerHTML={{__html: `${data.file.childMarkdownRemark.html}`}} />
-          </Box>
-        </>
-      )}
-    />
+    <>
+      <StyledChangelogContent marginTop="space120">{Parser(`${data}`)}</StyledChangelogContent>
+    </>
   );
 };
 

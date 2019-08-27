@@ -2588,6 +2588,10 @@
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/debug/-/debug-0.0.29.tgz#a1e514adfbd92f03a224ba54d693111dbf1f3754"
 
+"@types/domhandler@2.4.1":
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/@types/domhandler/-/domhandler-2.4.1.tgz#7b3b347f7762180fbcb1ece1ce3dd0ebbb8c64cf"
+
 "@types/enzyme@^3.10.1":
   version "3.10.3"
   resolved "https://registry.yarnpkg.com/@types/enzyme/-/enzyme-3.10.3.tgz#02b6c5ac7d0472005944a652e79045e2f6c66804"
@@ -6653,6 +6657,12 @@ domexception@^1.0.1:
   dependencies:
     webidl-conversions "^4.0.2"
 
+domhandler@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/domhandler/-/domhandler-2.3.0.tgz#2de59a0822d5027fabff6f032c2b25a2a8abe738"
+  dependencies:
+    domelementtype "1"
+
 domhandler@^2.3.0:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/domhandler/-/domhandler-2.4.2.tgz#8805097e933d65e85546f726d60f5eb88b44f803"
@@ -9421,6 +9431,14 @@ html-comment-regex@^1.1.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/html-comment-regex/-/html-comment-regex-1.1.2.tgz#97d4688aeb5c81886a364faa0cad1dda14d433a7"
 
+html-dom-parser@0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/html-dom-parser/-/html-dom-parser-0.2.2.tgz#960bdbf82632f11dfa7550c1b6f2aabcd6307243"
+  dependencies:
+    "@types/domhandler" "2.4.1"
+    domhandler "2.3.0"
+    htmlparser2 "3.9.1"
+
 html-element-map@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/html-element-map/-/html-element-map-1.1.0.tgz#e5aab9a834caf883b421f8bd9eaedcaac887d63c"
@@ -9471,6 +9489,15 @@ html-minifier@^4.0.0:
     relateurl "^0.2.7"
     uglify-js "^3.5.1"
 
+html-react-parser@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/html-react-parser/-/html-react-parser-0.9.1.tgz#1fc1434c201c18930a20b271f862b1967f0497e2"
+  dependencies:
+    "@types/domhandler" "2.4.1"
+    html-dom-parser "0.2.2"
+    react-property "1.0.1"
+    style-to-object "0.2.3"
+
 html-tag@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/html-tag/-/html-tag-2.0.0.tgz#36c3bc8d816fd30b570d5764a497a641640c2fed"
@@ -9492,6 +9519,17 @@ html-webpack-plugin@^4.0.0-beta.2:
     pretty-error "^2.1.1"
     tapable "^1.1.3"
     util.promisify "1.0.0"
+
+htmlparser2@3.9.1:
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-3.9.1.tgz#621b7a58bc9acd003f7af0a2c9a00aa67c8505d2"
+  dependencies:
+    domelementtype "^1.3.0"
+    domhandler "^2.3.0"
+    domutils "^1.5.1"
+    entities "^1.1.1"
+    inherits "^2.0.1"
+    readable-stream "^2.0.2"
 
 htmlparser2@^3.10.0, htmlparser2@^3.3.0, htmlparser2@^3.9.1:
   version "3.10.1"
@@ -14434,6 +14472,10 @@ react-popper@^1.3.3:
     prop-types "^15.6.1"
     typed-styles "^0.0.7"
     warning "^4.0.2"
+
+react-property@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-property/-/react-property-1.0.1.tgz#4ae4211557d0a0ae050a71aa8ad288c074bea4e6"
 
 react-reconciler@^0.20.0:
   version "0.20.4"

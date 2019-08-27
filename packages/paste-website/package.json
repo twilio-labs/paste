@@ -39,6 +39,7 @@
     "gatsby-source-filesystem": "^2.1.2",
     "gatsby-transformer-json": "^2.2.0",
     "gatsby-transformer-remark": "^2.6.19",
+    "html-react-parser": "^0.9.1",
     "lodash": "^4.17.15",
     "prism-react-renderer": "^0.1.7",
     "react": "^16.8.6",
