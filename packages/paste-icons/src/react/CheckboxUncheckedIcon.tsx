@@ -35,4 +35,6 @@ CheckboxUncheckedIcon.defaultProps = {
   decorative: true,
 };
 
+CheckboxUncheckedIcon.displayName = 'CheckboxUncheckedIcon';
+
 export {CheckboxUncheckedIcon};

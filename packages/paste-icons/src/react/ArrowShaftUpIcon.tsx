@@ -32,4 +32,6 @@ ArrowShaftUpIcon.defaultProps = {
   decorative: true,
 };
 
+ArrowShaftUpIcon.displayName = 'ArrowShaftUpIcon';
+
 export {ArrowShaftUpIcon};

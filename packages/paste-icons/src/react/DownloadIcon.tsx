@@ -38,4 +38,6 @@ DownloadIcon.defaultProps = {
   decorative: true,
 };
 
+DownloadIcon.displayName = 'DownloadIcon';
+
 export {DownloadIcon};

@@ -28,4 +28,6 @@ PauseFlatIcon.defaultProps = {
   decorative: true,
 };
 
+PauseFlatIcon.displayName = 'PauseFlatIcon';
+
 export {PauseFlatIcon};

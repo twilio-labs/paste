@@ -38,4 +38,6 @@ HideIcon.defaultProps = {
   decorative: true,
 };
 
+HideIcon.displayName = 'HideIcon';
+
 export {HideIcon};

@@ -38,4 +38,6 @@ OffIcon.defaultProps = {
   decorative: true,
 };
 
+OffIcon.displayName = 'OffIcon';
+
 export {OffIcon};

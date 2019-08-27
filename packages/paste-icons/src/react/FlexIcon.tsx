@@ -38,4 +38,6 @@ FlexIcon.defaultProps = {
   decorative: true,
 };
 
+FlexIcon.displayName = 'FlexIcon';
+
 export {FlexIcon};

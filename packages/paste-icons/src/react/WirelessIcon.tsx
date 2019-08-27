@@ -38,4 +38,6 @@ WirelessIcon.defaultProps = {
   decorative: true,
 };
 
+WirelessIcon.displayName = 'WirelessIcon';
+
 export {WirelessIcon};

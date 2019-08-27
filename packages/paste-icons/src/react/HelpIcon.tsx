@@ -38,4 +38,6 @@ HelpIcon.defaultProps = {
   decorative: true,
 };
 
+HelpIcon.displayName = 'HelpIcon';
+
 export {HelpIcon};

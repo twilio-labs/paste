@@ -38,4 +38,6 @@ TaskrouterIcon.defaultProps = {
   decorative: true,
 };
 
+TaskrouterIcon.displayName = 'TaskrouterIcon';
+
 export {TaskrouterIcon};

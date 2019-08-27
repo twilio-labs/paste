@@ -38,4 +38,6 @@ StudioIcon.defaultProps = {
   decorative: true,
 };
 
+StudioIcon.displayName = 'StudioIcon';
+
 export {StudioIcon};

@@ -38,4 +38,6 @@ SettingsIcon.defaultProps = {
   decorative: true,
 };
 
+SettingsIcon.displayName = 'SettingsIcon';
+
 export {SettingsIcon};

@@ -38,4 +38,6 @@ ProxyIcon.defaultProps = {
   decorative: true,
 };
 
+ProxyIcon.displayName = 'ProxyIcon';
+
 export {ProxyIcon};

@@ -38,4 +38,6 @@ TicketHistoryIcon.defaultProps = {
   decorative: true,
 };
 
+TicketHistoryIcon.displayName = 'TicketHistoryIcon';
+
 export {TicketHistoryIcon};

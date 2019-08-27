@@ -35,4 +35,6 @@ PlusButtonIcon.defaultProps = {
   decorative: true,
 };
 
+PlusButtonIcon.displayName = 'PlusButtonIcon';
+
 export {PlusButtonIcon};

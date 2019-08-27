@@ -38,4 +38,6 @@ PieChartIcon.defaultProps = {
   decorative: true,
 };
 
+PieChartIcon.displayName = 'PieChartIcon';
+
 export {PieChartIcon};

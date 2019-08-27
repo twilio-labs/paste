@@ -38,4 +38,6 @@ MoreIcon.defaultProps = {
   decorative: true,
 };
 
+MoreIcon.displayName = 'MoreIcon';
+
 export {MoreIcon};

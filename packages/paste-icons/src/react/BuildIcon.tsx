@@ -32,4 +32,6 @@ BuildIcon.defaultProps = {
   decorative: true,
 };
 
+BuildIcon.displayName = 'BuildIcon';
+
 export {BuildIcon};

@@ -32,4 +32,6 @@ ArrowShaftLeftIcon.defaultProps = {
   decorative: true,
 };
 
+ArrowShaftLeftIcon.displayName = 'ArrowShaftLeftIcon';
+
 export {ArrowShaftLeftIcon};

@@ -32,4 +32,6 @@ PlayFlatIcon.defaultProps = {
   decorative: true,
 };
 
+PlayFlatIcon.displayName = 'PlayFlatIcon';
+
 export {PlayFlatIcon};

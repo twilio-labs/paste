@@ -38,4 +38,6 @@ WhatsappIcon.defaultProps = {
   decorative: true,
 };
 
+WhatsappIcon.displayName = 'WhatsappIcon';
+
 export {WhatsappIcon};

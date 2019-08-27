@@ -38,4 +38,6 @@ ConnectAppsIcon.defaultProps = {
   decorative: true,
 };
 
+ConnectAppsIcon.displayName = 'ConnectAppsIcon';
+
 export {ConnectAppsIcon};

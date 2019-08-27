@@ -38,4 +38,6 @@ PluginIcon.defaultProps = {
   decorative: true,
 };
 
+PluginIcon.displayName = 'PluginIcon';
+
 export {PluginIcon};

@@ -38,4 +38,6 @@ EmailIcon.defaultProps = {
   decorative: true,
 };
 
+EmailIcon.displayName = 'EmailIcon';
+
 export {EmailIcon};

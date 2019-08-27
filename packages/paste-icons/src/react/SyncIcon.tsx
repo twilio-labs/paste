@@ -38,4 +38,6 @@ SyncIcon.defaultProps = {
   decorative: true,
 };
 
+SyncIcon.displayName = 'SyncIcon';
+
 export {SyncIcon};

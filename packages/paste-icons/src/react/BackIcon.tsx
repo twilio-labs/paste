@@ -38,4 +38,6 @@ BackIcon.defaultProps = {
   decorative: true,
 };
 
+BackIcon.displayName = 'BackIcon';
+
 export {BackIcon};

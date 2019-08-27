@@ -6,7 +6,7 @@
   "module": "dist/tokens.es6.js",
   "types": "dist/tokens.common.d.ts",
   "author": "Twilio",
-  "license": "ISC",
+  "license": "MIT",
   "sideEffects": false,
   "files": [
     "dist"

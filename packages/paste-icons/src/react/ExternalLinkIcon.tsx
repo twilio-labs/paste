@@ -38,4 +38,6 @@ ExternalLinkIcon.defaultProps = {
   decorative: true,
 };
 
+ExternalLinkIcon.displayName = 'ExternalLinkIcon';
+
 export {ExternalLinkIcon};

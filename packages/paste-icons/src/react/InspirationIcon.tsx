@@ -38,4 +38,6 @@ InspirationIcon.defaultProps = {
   decorative: true,
 };
 
+InspirationIcon.displayName = 'InspirationIcon';
+
 export {InspirationIcon};

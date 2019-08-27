@@ -32,4 +32,6 @@ DoNotIcon.defaultProps = {
   decorative: true,
 };
 
+DoNotIcon.displayName = 'DoNotIcon';
+
 export {DoNotIcon};
