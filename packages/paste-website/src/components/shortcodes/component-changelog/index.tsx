@@ -59,7 +59,7 @@ export const StyledChangelogContent = styled(Box)`
 
 const ComponentChangelog: React.FC<ComponentChangelogProps> = ({data}) => {
   if (data == null) {
-    null;
+    return null;
   }
   return (
     <>
