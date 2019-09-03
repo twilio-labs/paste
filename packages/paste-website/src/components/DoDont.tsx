@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Img from 'gatsby-image';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
 import {Box} from '@twilio-paste/box';
@@ -28,33 +29,33 @@ interface ExampleProps {
   image?: string;
 }
 
-const StyledExampleWraper: React.FC<ExampleProps> = styled(Box)`
+const StyledExampleImg: React.FC<ExampleProps> = styled(Box)`
+  border: ${themeGet('borderWidths.borderWidth10')} solid #ccd2dc;
+  border-bottom: 0;
+`;
+
+const StyledExampleContent: React.FC<ExampleProps> = styled(Box)`
+  margin-right: 1px;
+  margin-left: 1px;
+  padding-top: ${themeGet('space.space50')};
   border-top: ${(props: ExampleProps) =>
     props.do
       ? `${themeGet('borderWidths.borderWidth20')(props)} solid #23bf6e`
       : `${themeGet('borderWidths.borderWidth20')(props)} solid #ce241a`};
 `;
 
-const StyledExampleImg: React.FC<ExampleProps> = styled(Box)`
-  border: ${themeGet('borderWidths.borderWidth10')} solid #ccd2dc;
-  border-top: 0;
-
-  img {
-    display: block;
-    width: 100%;
-  }
-`;
-
 const Example: React.FC<ExampleProps> = props => {
   const hasImage = props.image;
   return (
-    <StyledExampleWraper {...props}>
+    <Box>
       {hasImage ? (
         <StyledExampleImg {...props}>
-          <img src={props.image} alt="" />
+          {/*
+          // @ts-ignore gatsby-image undefined not assiged to FluidObject */}
+          <Img fluid={props.image} />
         </StyledExampleImg>
       ) : null}
-      <Box marginTop="space50">
+      <StyledExampleContent {...props}>
         <Text
           as="h5"
           fontSize="fontSize20"
@@ -65,8 +66,8 @@ const Example: React.FC<ExampleProps> = props => {
           {props.do ? 'Do' : `Don't`}
         </Text>
         {props.children}
-      </Box>
-    </StyledExampleWraper>
+      </StyledExampleContent>
+    </Box>
   );
 };
 
