@@ -5,8 +5,11 @@ description: The anchor can be used to hyperlink to another URL. It accepts both
 ---
 
 import {graphql} from 'gatsby';
+import Img from 'gatsby-image';
 import {Anchor} from '@twilio-paste/anchor';
-import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
+import {DoDont, Do, Dont, DoDontContent, DoDontImage, DoDontComponent, DoDontTitle} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 
 export const pageQuery = graphql`
@@ -18,6 +21,13 @@ export const pageQuery = graphql`
           description
           status
           version
+        }
+      }
+    }
+    file(sourceInstanceName: {eq: "packages"}, relativePath: {eq: "paste-website/src/assets/images/anchor-dont-1@4x.png"}) {
+      childImageSharp {
+        fluid(maxWidth: 504) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -53,12 +63,28 @@ export const pageQuery = graphql`
 You can use an anchor to navigate the user to another webpage.
 
 <DoDont>
-  <Do>
-    Anchors should only be used to link to another page, app, or another website.
-  </Do>
-  <Dont>
-    Don’t use an anchor where a button makes more sense, i.e., closing a modal.
-  </Dont>
+  <Box>
+    <DoDontComponent>
+      <Anchor href="https://paste.twilio.design">Go to API documentation</Anchor>
+    </DoDontComponent>
+    <Do>
+      <DoDontTitle>
+        Do
+      </DoDontTitle>
+      Anchors should only be used to link to another page, app, or another website.
+    </Do>
+  </Box>
+  <Box>
+    <DoDontImage>
+      <Img fluid={props.data.file.childImageSharp.fluid} />
+    </DoDontImage>
+    <Dont>
+      <DoDontTitle>
+        Don’t
+      </DoDontTitle>
+      Don’t use an anchor where a button makes more sense, i.e., closing a modal.
+    </Dont>
+  </Box>
 </DoDont>
 
 <DoDont>
