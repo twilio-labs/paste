@@ -10,7 +10,7 @@ interface AspectRatioProps {
   children: React.ReactElement;
 }
 
-const RATIO_REGEX = /^([0-9]+:[0-9]*)$/;
+const RATIO_REGEX = /^(\d+:\d*)$/;
 
 const isCorrectPattern = (ratio: string): boolean => RATIO_REGEX.test(ratio);
 
