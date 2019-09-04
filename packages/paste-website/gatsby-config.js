@@ -42,6 +42,20 @@ module.exports = {
         path: `${__dirname}/src/pages/components`,
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [{
+          resolve: `gatsby-remark-images`,
+          options: {
+            maxWidth: 1632,
+            linkImagesToOriginal: false,
+          },
+        }, ],
+      }
+    },
     {
       resolve: `gatsby-transformer-remark`
     },
@@ -51,6 +65,13 @@ module.exports = {
         defaultLayouts: {
           default: require.resolve('./src/layouts/DefaultLayout.tsx'),
         },
+        gatsbyRemarkPlugins: [{
+          resolve: `gatsby-remark-images`,
+          options: {
+            maxWidth: 1632,
+            linkImagesToOriginal: false,
+          },
+        }],
       },
     },
     {

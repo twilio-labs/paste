@@ -1,7 +1,7 @@
-const {addDecorator, addParameters, configure} = require('@storybook/react');
-const {withThemeProvider} = require('./withThemePovider');
-const requireContext = require('require-context.macro');
+import {addDecorator, addParameters, configure} from '@storybook/react';
+import requireContext from 'require-context.macro';
 import {addReadme} from 'storybook-readme';
+import withThemeSwitcher from './addons/theme-switcher-addon';
 
 addParameters({
   isFullScreen: false,
@@ -14,7 +14,7 @@ addParameters({
   sidebarAnimations: true,
   enableShortcuts: true,
 });
-addDecorator(withThemeProvider);
+addDecorator(withThemeSwitcher);
 addDecorator(addReadme);
 
 const req = requireContext('../packages/', true, /\.stories.tsx?$/);

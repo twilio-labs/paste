@@ -37,8 +37,8 @@ props:
     value: "{!palette-gray-100}"
     comment: "Gray Color 10"
   color-brand:
-    value: "{!curious-blue}"
-    comment: "Default branding color"
+    value: "{!palette-gray-100}"
+    comment: "SendGrid product dark gray"
   color-brand-highlight:
-    value: "{!san-juan}"
-    comment: "SendGrid brand slate"
+    value: "{!palette-blue-50}"
+    comment: "SendGrid product blue"
