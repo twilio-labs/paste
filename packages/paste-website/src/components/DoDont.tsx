@@ -50,7 +50,11 @@ const Dont = styled(Box)`
   border-top: ${themeGet('borderWidths.borderWidth20')} solid #ce241a;
 `;
 
-const DoDontTitle: React.FC<DoDontProps> = props => {
+interface DoDontTitleProps {
+  do: boolean;
+}
+
+const DoDontTitle: React.FC<DoDontTitleProps> = props => {
   return (
     <Text
       as="h5"
@@ -59,7 +63,7 @@ const DoDontTitle: React.FC<DoDontProps> = props => {
       lineHeight="lineHeight40"
       marginBottom="space40"
     >
-      {props.children}
+      {props.do ? 'Do' : `Don't`}
     </Text>
   );
 };

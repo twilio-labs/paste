@@ -71,9 +71,7 @@ You can use an anchor to navigate the user to another webpage.
       </DoDontComponent>
     </AspectRatio>
     <Do>
-      <DoDontTitle>
-        Do
-      </DoDontTitle>
+      <DoDontTitle do />
       Anchors should only be used to link to another page, app, or another website.
     </Do>
   </Box>
@@ -82,21 +80,24 @@ You can use an anchor to navigate the user to another webpage.
       <Img fluid={props.data.file.childImageSharp.fluid} />
     </DoDontImage>
     <Dont>
-      <DoDontTitle>
-        Don’t
-      </DoDontTitle>
+      <DoDontTitle />
       Don’t use an anchor where a button makes more sense, i.e., closing a modal.
     </Dont>
   </Box>
 </DoDont>
 
 <DoDont>
-  <Do>
-    Anchors should only include text.
-  </Do>
-  <Dont>
-    Don’t use an icon in place of or with anchor text.
-  </Dont>
+  <Box>
+    <Do>
+      Anchors should only include text.
+    </Do>
+  </Box>
+  <Box>
+    <Dont>
+      <DoDontTitle />
+      Don’t use an icon in place of or with anchor text.
+    </Dont>
+  </Box>
 </DoDont>
 
 ### Anchor vs. Button
