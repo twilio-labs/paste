@@ -9,6 +9,7 @@ import Img from 'gatsby-image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
+import {AspectRatio} from '../../../components/AspectRatio'
 import {DoDont, Do, Dont, DoDontContent, DoDontImage, DoDontComponent, DoDontTitle} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 
@@ -26,7 +27,7 @@ export const pageQuery = graphql`
     }
     file(sourceInstanceName: {eq: "packages"}, relativePath: {eq: "paste-website/src/assets/images/anchor-dont-1@4x.png"}) {
       childImageSharp {
-        fluid(maxWidth: 504) {
+        fluid(maxWidth: 500) {
           ...GatsbyImageSharpFluid
         }
       }
@@ -64,9 +65,11 @@ You can use an anchor to navigate the user to another webpage.
 
 <DoDont>
   <Box>
-    <DoDontComponent>
-      <Anchor href="https://paste.twilio.design">Go to API documentation</Anchor>
-    </DoDontComponent>
+    <AspectRatio>
+      <DoDontComponent>
+        <Anchor href="https://paste.twilio.design">Go to API documentation</Anchor>
+      </DoDontComponent>
+    </AspectRatio>
     <Do>
       <DoDontTitle>
         Do

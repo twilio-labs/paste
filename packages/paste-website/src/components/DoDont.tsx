@@ -28,10 +28,14 @@ const DoDontImage = styled(Box)`
 `;
 
 const DoDontComponent = styled(Box)`
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 313px;
   border: ${themeGet('borderWidths.borderWidth10')} solid #ccd2dc;
   border-bottom: 0;
 `;
