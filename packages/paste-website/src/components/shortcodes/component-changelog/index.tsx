@@ -61,11 +61,7 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = ({data}) => {
   if (data == null) {
     return null;
   }
-  return (
-    <>
-      <StyledChangelogContent marginTop="space120">{Parser(`${data}`)}</StyledChangelogContent>
-    </>
-  );
+  return <StyledChangelogContent marginTop="space120">{Parser(`${data}`)}</StyledChangelogContent>;
 };
 
 export {ComponentChangelog};
