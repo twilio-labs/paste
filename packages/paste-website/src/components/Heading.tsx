@@ -34,7 +34,7 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
     case 'headingStyle40':
       return {
         my: 'space60',
-        fontSize: 'fontSize60',
+        fontSize: 'fontSize30',
         fontWeight: 'fontWeightSemibold',
       };
     case 'headingStyle30':
