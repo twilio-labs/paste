@@ -12,7 +12,7 @@ const RATIO_REGEX = /^(\d+:\d*)$/;
 
 const isCorrectPattern = (ratio: string): boolean => RATIO_REGEX.test(ratio);
 
-const handlePropValidation = ({aspectRatio, children}: AspectRatioProps): void => {
+const handlePropValidation = ({aspectRatio}: AspectRatioProps): void => {
   const hasRatio = aspectRatio != null && aspectRatio !== '';
 
   if (!hasRatio) {
