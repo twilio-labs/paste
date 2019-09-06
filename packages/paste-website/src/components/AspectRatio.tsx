@@ -5,7 +5,7 @@ import {Box} from '@twilio-paste/box';
 
 interface AspectRatioProps {
   aspectRatio: string;
-  children: React.ReactElement;
+  children: NonNullable<React.ReactNode>;
 }
 
 const RATIO_REGEX = /^(\d+:\d*)$/;
@@ -16,17 +16,11 @@ const handlePropValidation = ({aspectRatio, children}: AspectRatioProps): void =
   const hasRatio = aspectRatio != null && aspectRatio !== '';
 
   if (!hasRatio) {
-    throw new Error(`[Paste: AspectRatio] Missing hasRatio prop for AspectRatio.`);
+    throw new Error(`[Paste: AspectRatio] Missing 'aspectRatio' prop.`);
   }
 
   if (!isCorrectPattern(aspectRatio)) {
-    throw new Error(
-      `[Paste: AspectRatio] hasRatio prop for AspectRatio is incorrect. Use a colon separated number pattern like 4:3.`
-    );
-  }
-
-  if (children == null) {
-    throw new Error(`[Paste: AspectRatio] Must have non-null children.`);
+    throw new Error(`[Paste: AspectRatio] 'aspectRatio' is invalid. Use a colon separated number pattern (4:3).`);
   }
 };
 

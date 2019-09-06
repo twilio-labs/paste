@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
+import {Absolute} from '@twilio-paste/absolute';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 
@@ -27,12 +28,7 @@ const DoDontImage = styled(Box)`
   border-bottom: 0;
 `;
 
-const DoDontComponent = styled(Box)`
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
+const DoDontComponent = styled(Absolute)`
   display: flex;
   align-items: center;
   justify-content: center;
