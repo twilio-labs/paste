@@ -8,6 +8,7 @@ import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
 
 export const pageQuery = graphql`
@@ -33,6 +34,10 @@ export const pageQuery = graphql`
   data={props.data.allPasteComponent.edges}
 />
 
+***
+
+<content>
+
 ## Guidelines
 
 ### About buttons
@@ -46,7 +51,7 @@ a button include:
   A button can contain an icon and/or text. See Composing a button below
   for more detailed guidelines.
 
-### Button vs. Anchor (Link)
+#### Button vs. Anchor (Link)
 
 **TL;DR** If pressing the trigger results in a URL change, or that resultant
 page makes sense as a whole new browser tab use an **Anchor** element.
@@ -72,7 +77,7 @@ You should:
 
 If you need to link to content, you can use our [Anchor component](/components/anchor).
 
-### Accessibility
+#### Accessibility
 
 For accessibility, the distinction becomes even more important,
 especially for those who are using Assistive Technology (A.T.) such as
@@ -91,41 +96,58 @@ screen readers and dictation software. Here are some quick tips:
   struggle with these as they may say “click button” but the software can’t
   tell what the anchor looks like visually
 
+
 ### Examples
 
 <LivePreview scope={{Button, Box}} language="jsx">
   {`<div>
-  <Box mb="space30">
+  <Box display="inline-block" mr="space30">
     <Button variant="primary">
       Submit
     </Button>
   </Box>
 
-<Box mb="space30">
-  <Button variant="secondary">Submit</Button>
-</Box>
+  <Box display="inline-block" mr="space30">
+    <Button variant="secondary">Submit</Button>
+  </Box>
 
-<Box mb="space30">
-  <Button variant="destructive" size="small">
+  <Box display="inline-block" mr="space30">
+    <Button variant="destructive">
+      Submit
+    </Button>
+  </Box>
+
+  <Box display="inline-block" mr="space30">
+    <Button variant="primary" size="small">
+      Submit
+    </Button>
+  </Box>
+
+  <Box display="inline-block" mr="space30">
+    <Button variant="secondary" size="small">Submit</Button>
+  </Box>
+
+  <Box display="inline-block" mr="space30">
+    <Button variant="destructive" size="small">
+      Submit
+    </Button>
+  </Box>
+
+  <Box display="inline-block" mr="space30">
+    <Button variant="link">Submit</Button>
+  </Box>
+
+  <Box display="inline-block" mr="space30">
+    <Button variant="destructive_link">Submit</Button>
+  </Box>
+
+  <Button variant="reset" size="reset">
     Submit
   </Button>
-</Box>
-
-<Box mb="space30">
-  <Button variant="link">Submit</Button>
-</Box>
-
-<Box mb="space30">
-  <Button variant="destructive_link">Submit</Button>
-</Box>
-
-<Button variant="reset" size="reset">
-  Submit
-</Button>
 </div>`}
 </LivePreview>
 
-##### Primary button
+#### Primary button
 
 Use a primary button to indicate the most prominent action a customer would
 make on a screen. It should be a safe and if possible, reversible action
@@ -134,7 +156,13 @@ without much cost.
 Try to use only one primary button on a screen. Using multiple might be
 distracting.
 
-##### Secondary button
+<LivePreview scope={{Button}} language="jsx">
+  {`<Button variant="primary">
+  Submit
+</Button>`}
+</LivePreview>
+
+#### Secondary button
 
 The secondary button is the most frequently used button.
 
@@ -142,32 +170,84 @@ Use a secondary button to indicate an action that should be easy for a customer
 to make but isn’t the most prominent on a screen. It should be a safe and if
 possible, reversible action without much cost.
 
-##### Destructive button
+<LivePreview scope={{Button}} language="jsx">
+  {`<Button variant="secondary">
+  Submit
+</Button>`}
+</LivePreview>
+
+#### Destructive button
 
 A destructive button indicates a destructive action, such as “Delete” or
 “Remove”, that might be difficult to reverse. If possible, give users
 the ability to undo the action, or at least, confirm the action.
 
-##### Icon-only button
+<LivePreview scope={{Button}} language="jsx">
+  {`<Button variant="destructive">
+  Submit
+</Button>`}
+</LivePreview>
+
+#### Icon-only button
 
 Use icon-only buttons sparingly.
 
 They should be used only in compact UI situations. Use an icon that can
 only convey a single action.
 
-##### Link-style button
+<LivePreview scope={{Button}} language="jsx">
+  {`<span>Example coming soon</span>`}
+</LivePreview>
+
+#### Link-style button
 
 Use link-style buttons when other types of buttons may be too distracting.
 
-##### Small button
+<Callout>
+  <CalloutTitle as="h4">Hot accessibility tip</CalloutTitle>
+  <CalloutText>To reiterate, be mindful when choosing this variant as dictation software users may experience usability issues. Read the guidelines first. </CalloutText>
+</Callout>
+
+<LivePreview scope={{Button, Box}} language="jsx">
+  {`<div>
+  <Box display="inline-block" mr="space30">
+    <Button variant="link">Submit</Button>
+  </Box>
+  <Button variant="destructive_link">
+    Submit
+  </Button>
+</div>`}
+</LivePreview>
+
+#### Small button
 
 Use small buttons sparingly, only when needed for vertical density.
 Guidelines for using variants in small buttons are the same as in
 their default size.
 
+<LivePreview scope={{Button, Box}} language="jsx">
+  {`<div>
+  <Box display="inline-block" mr="space30">
+    <Button variant="primary" size="small">
+      Submit
+    </Button>
+  </Box>
+
+  <Box display="inline-block" mr="space30">
+    <Button variant="secondary" size="small">Submit</Button>
+  </Box>
+
+  <Box display="inline-block" mr="space30">
+    <Button variant="destructive" size="small">
+      Submit
+    </Button>
+  </Box>
+</div>`}
+</LivePreview>
+
 ### States
 
-##### Loading
+#### Loading
 
 Use the loading state if the action doesn’t happen instantly.
 The button is also disabled in this state.
@@ -176,7 +256,11 @@ However, the loading state may make an action appear to take longer
 than it does and doesn’t communicate what’s preventing the action
 from completing. Use it when you can’t move the user to the next state.
 
-##### Disabled
+<LivePreview scope={{Button}} language="jsx">
+  {`<span>Example coming soon</span>`}
+</LivePreview>
+
+#### Disabled
 
 Use the disabled state sparingly.
 
@@ -185,6 +269,54 @@ It should be immediately obvious to the customer why a button
 might be disabled (_e.g._, if it follows a single empty text
 field). Otherwise, show the button in its default state, then
 provide helpful error text after it's pressed.
+
+<LivePreview scope={{Button, Box}} language="jsx">
+  {`<div>
+  <Box display="inline-block" mr="space30">
+    <Button variant="primary" disabled>
+      Submit
+    </Button>
+  </Box>
+
+  <Box display="inline-block" mr="space30">
+    <Button variant="secondary" disabled>Submit</Button>
+  </Box>
+
+  <Box display="inline-block" mr="space30">
+    <Button variant="destructive"  disabled>
+      Submit
+    </Button>
+  </Box>
+
+  <Box display="inline-block" mr="space30">
+    <Button variant="primary" size="small" disabled>
+      Submit
+    </Button>
+  </Box>
+
+  <Box display="inline-block" mr="space30">
+    <Button variant="secondary" size="small" disabled>Submit</Button>
+  </Box>
+
+  <Box display="inline-block" mr="space30">
+    <Button variant="destructive" size="small"  disabled>
+      Submit
+    </Button>
+  </Box>
+
+  <Box display="inline-block" mr="space30">
+    <Button variant="link" disabled>Submit</Button>
+  </Box>
+
+  <Box display="inline-block" mr="space30">
+    <Button variant="destructive_link" disabled>Submit</Button>
+  </Box>
+
+  <Button variant="reset" size="reset" disabled>
+    Submit
+  </Button>
+</div>`}
+</LivePreview>
 
 ### Composing a button
 
@@ -228,6 +360,12 @@ right in an English-language flow).
   <Do>Write button text that is clear, starts with a verb, and helps users confidently trigger an action.</Do>
   <Dont>Don’t use product or brand icons in buttons since they don’t communicate action.</Dont>
 </DoDont>
+
+</content>
+
+***
+
+<content>
 
 ## API
 
@@ -274,3 +412,5 @@ import {Button} from '@twilio-paste/button';
 | aria-haspopup? | {'true', 'dialog', 'menu'}               | A11y: For modals and menus                                                          | null      |
 | aria-controls? | string                                   | A11y: For modals and menus                                                          | null      |
 | data-test?     | string                                   | To detect the element to run tests against.                                         | null      |
+
+</content>
