@@ -7,6 +7,7 @@ description: Buttons are hot
 import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
+import Changelog from '@twilio-paste/button/CHANGELOG.md';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -21,12 +22,6 @@ export const pageQuery = graphql`
           status
           version
         }
-      }
-    }
-    file(sourceInstanceName: {eq: "packages"}, relativePath: {eq: "paste-core/components/button/CHANGELOG.md"}) {
-      id
-      childMarkdownRemark {
-        html
       }
     }
   }
@@ -418,5 +413,9 @@ import {Button} from '@twilio-paste/button';
 | aria-haspopup? | {'true', 'dialog', 'menu'}               | A11y: For modals and menus                                                          | null      |
 | aria-controls? | string                                   | A11y: For modals and menus                                                          | null      |
 | data-test?     | string                                   | To detect the element to run tests against.                                         | null      |
+
+<Box marginTop={30}>
+  <Changelog />
+</Box>
 
 </content>

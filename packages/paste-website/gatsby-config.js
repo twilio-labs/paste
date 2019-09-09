@@ -25,6 +25,8 @@ module.exports = {
           '**/__snapshots__/**',
           '**/__fixtures__/**',
           '**/__tests__/**',
+          '**/paste-website/**/*',
+          '**/README.md',
         ],
       },
     },
@@ -33,6 +35,9 @@ module.exports = {
       options: {
         name: 'pages',
         path: `${__dirname}/src/pages`,
+        ignore: [
+          '**/components/**/*',
+        ],
       },
     },
     {
@@ -40,6 +45,20 @@ module.exports = {
       options: {
         name: 'components',
         path: `${__dirname}/src/pages/components`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'websiteCore',
+        path: `${__dirname}/src/../`,
+        ignore: [
+          '**/.cache/**',
+          '**/public/**',
+          '**/src/**/*',
+          '**/static/**',
+          '**/types/**',
+        ],
       },
     },
     `gatsby-transformer-sharp`,
@@ -57,13 +76,13 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-transformer-remark`
-    },
-    {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        extensions: [`.mdx`, `.md`],
         defaultLayouts: {
           default: require.resolve('./src/layouts/DefaultLayout.tsx'),
+          packages: require.resolve('./src/layouts/GenericLayout.tsx'),
+          websiteCore: require.resolve('./src/layouts/GenericLayout.tsx'),
         },
         gatsbyRemarkPlugins: [{
           resolve: `gatsby-remark-images`,

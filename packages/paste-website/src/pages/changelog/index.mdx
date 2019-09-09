@@ -2,22 +2,11 @@
 title: Changelog
 ---
 
-import {graphql} from 'gatsby';
-
-export const pageQuery = graphql`
-  {
-    file(sourceInstanceName: {eq: "packages"}, relativePath: {eq: "paste-website/CHANGELOG.md"}) {
-      id
-      childMarkdownRemark {
-        html
-      }
-    }
-  }
-`;
+import Changelog from '../../../CHANGELOG.md';
 
 
 <content>
 
-<ComponentChangelog data={props.data.file.childMarkdownRemark.html}/>
+<Changelog />
 
 </content>

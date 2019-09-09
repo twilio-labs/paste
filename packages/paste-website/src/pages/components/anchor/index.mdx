@@ -6,6 +6,7 @@ description: The anchor can be used to hyperlink to another URL. It accepts both
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
+import Changelog from '@twilio-paste/anchor/CHANGELOG.md';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {P} from '../../../components/Typography.tsx';
@@ -20,12 +21,6 @@ export const pageQuery = graphql`
           status
           version
         }
-      }
-    }
-    file(sourceInstanceName: {eq: "packages"}, relativePath: {eq: "paste-core/components/anchor/CHANGELOG.md"}) {
-      id
-      childMarkdownRemark {
-        html
       }
     }
   }
@@ -153,6 +148,8 @@ import {Anchor} from '@twilio-paste/anchor';
 | onFocus?       | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                          | null      |
 | onBlur?        | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                          | null      |
 
-<ComponentChangelog data={props.data.file.childMarkdownRemark.html}/>
+<Box marginTop={30}>
+  <Changelog />
+</Box>
 
 </content>
