@@ -20,7 +20,7 @@ interface DefaultLayoutProps {
 
 const DefaultLayout: React.FC<DefaultLayoutProps> = ({children, pageContext, location}) => {
   const pageTitle = pageContext.frontmatter.title
-    ? `${pageContext.frontmatter.title} -  ${SiteMetaDefaults.TITLE}`
+    ? `${pageContext.frontmatter.title} - ${SiteMetaDefaults.TITLE}`
     : SiteMetaDefaults.TITLE;
   const pageDescription = pageContext.frontmatter.description || SiteMetaDefaults.DESCRIPTION;
   return (

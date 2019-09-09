@@ -156,6 +156,9 @@ const Navigation: React.FC<NavigationProps> = () => {
         <SiteNavItem>
           <SiteNavAnchor to="/migrate">Migration Guide</SiteNavAnchor>
         </SiteNavItem>
+        <SiteNavItem>
+          <SiteNavAnchor to="/changelog">Changelog</SiteNavAnchor>
+        </SiteNavItem>
       </SiteNavList>
     </SiteNav>
   );
