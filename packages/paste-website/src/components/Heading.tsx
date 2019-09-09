@@ -1,5 +1,7 @@
 import * as React from 'react';
 import {Text} from '@twilio-paste/text';
+import styled from '@emotion/styled';
+import {themeGet} from 'styled-system';
 import {slugify} from '../utils/RouteUtils';
 
 export type asTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'label';
@@ -15,6 +17,16 @@ export interface HeadingProps {
   as: asTags;
   headingStyle?: HeadingStyle;
 }
+
+const StyledAnchorHyperlink = styled.a`
+  text-decoration: none;
+  margin-left: ${themeGet('space.space30')};
+  color: ${themeGet('textColors.colorTextWeak')};
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
 
 function getHeadingStyles(headingStyle?: HeadingStyle): {} {
   switch (headingStyle) {
@@ -70,13 +82,12 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
 
 const Heading: React.FC<HeadingProps> = props => {
   // Only generate slugs for headings where children is 'string'
-  if (typeof props.children === 'string') {
+  if (props.as !== 'h1' && typeof props.children === 'string') {
     const id = slugify(props.children);
-    // TODO Style the Anchor
     return (
       <Text {...props} id={id} textColor="colorText" {...getHeadingStyles(props.headingStyle)}>
-        <a href={`#${id}`}>Link </a>
         {props.children}
+        <StyledAnchorHyperlink href={`#${id}`}>#</StyledAnchorHyperlink>
       </Text>
     );
   }

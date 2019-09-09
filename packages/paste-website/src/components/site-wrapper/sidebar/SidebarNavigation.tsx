@@ -8,11 +8,11 @@ import {
   SiteNavAnchor,
   SiteNavButton,
   SiteNavAnchorArrow,
-} from './Navigation.styles';
+} from './SidebarNavigation.styles';
 import {PackageStatus, SidebarCategoryRoutes} from '../../../constants';
 import {getCurrentPathname, getNameFromPackageName} from '../../../utils/RouteUtils';
 
-interface NavigationProps {
+interface SidebarNavigationProps {
   children?: React.ReactNode;
 }
 
@@ -74,7 +74,7 @@ const pageQuery = graphql`
   }
 `;
 
-const Navigation: React.FC<NavigationProps> = () => {
+const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
   const data: SiteWrapperPageQuery = useStaticQuery(pageQuery);
 
   const [componentsOpen, setComponentsOpen] = React.useState(
@@ -164,4 +164,4 @@ const Navigation: React.FC<NavigationProps> = () => {
   );
 };
 
-export {Navigation};
+export {SidebarNavigation};

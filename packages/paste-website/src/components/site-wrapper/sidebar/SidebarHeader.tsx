@@ -35,12 +35,12 @@ const StyledSpan = styled.span`
   }
 `;
 
-interface HeaderProps {
+interface SidebarHeaderProps {
   siteTitle?: string;
   siteSubTitle?: string;
 }
 
-const Header: React.FC<HeaderProps> = props => {
+const SidebarHeader: React.FC<SidebarHeaderProps> = props => {
   return (
     <StyledHeader>
       <TwilioIcon color={TWILIO_RED} display="block" size={30} />
@@ -54,4 +54,4 @@ const Header: React.FC<HeaderProps> = props => {
   );
 };
 
-export {Header};
+export {SidebarHeader};
