@@ -9,8 +9,8 @@ import {
   SiteNavButton,
   SiteNavAnchorArrow,
 } from './Navigation.styles';
-import {PackageStatus, SidebarCategoryRoutes} from '../../constants';
-import {getCurrentPathname, getNameFromPackageName} from '../../utils/RouteUtils';
+import {PackageStatus, SidebarCategoryRoutes} from '../../../constants';
+import {getCurrentPathname, getNameFromPackageName} from '../../../utils/RouteUtils';
 
 interface NavigationProps {
   children?: React.ReactNode;

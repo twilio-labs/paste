@@ -3,9 +3,11 @@ import {Box} from '@twilio-paste/box';
 import styled from '@emotion/styled';
 import {Header} from './Header';
 import {Navigation} from './Navigation';
+import {SIDEBAR_WIDTH} from '../constants';
 
 const StyledSidebar = styled(Box)`
   height: 100vh;
+  width: ${SIDEBAR_WIDTH};
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 `;

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Text} from '@twilio-paste/text';
+import {slugify} from '../utils/RouteUtils';
 
 export type asTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'label';
 export type HeadingStyle =
@@ -67,11 +68,25 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
   }
 }
 
-const Heading: React.FC<HeadingProps> = props => (
-  <Text {...props} as={props.as} textColor="colorText" {...getHeadingStyles(props.headingStyle)}>
-    {props.children}
-  </Text>
-);
+const Heading: React.FC<HeadingProps> = props => {
+  // Only generate slugs for headings where children is 'string'
+  if (typeof props.children === 'string') {
+    const id = slugify(props.children);
+    // TODO Style the Anchor
+    return (
+      <Text {...props} id={id} textColor="colorText" {...getHeadingStyles(props.headingStyle)}>
+        <a href={`#${id}`}>Link </a>
+        {props.children}
+      </Text>
+    );
+  }
+
+  return (
+    <Text {...props} textColor="colorText" {...getHeadingStyles(props.headingStyle)}>
+      {props.children}
+    </Text>
+  );
+};
 
 Heading.defaultProps = {
   as: 'h2',
