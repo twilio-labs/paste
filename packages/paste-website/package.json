@@ -22,6 +22,7 @@
     "@mdx-js/react": "^1.0.23",
     "@mdx-js/tag": "^0.20.3",
     "@twilio-paste/anchor": "^0.1.4",
+    "@twilio-paste/aspect-ratio": "^0.1.0",
     "@twilio-paste/box": "^0.3.0",
     "@twilio-paste/button": "^0.2.0",
     "@twilio-paste/heading": "^0.3.3",
