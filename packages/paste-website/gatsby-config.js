@@ -129,7 +129,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Paste: A Design System for Twilio`,
+        name: `Paste: An Internal Design System for Twilio`,
         short_name: `Paste`,
         start_url: `/`,
         background_color: `#fff`,

@@ -18,7 +18,7 @@ export const PackageStatus = {
 };
 
 export const SiteMetaDefaults = {
-  TITLE: 'Paste: A Design System for Twilio',
+  TITLE: 'Paste: An Internal Design System for Twilio',
   DESCRIPTION:
     'Paste is an internal design system for designing and building consistent experiences at Twilio. It is made up of tokens and components, along with in-depth documentation to assist designers and developers faced with solving our customers’ problems. It is open source and contributions are welcome.',
 };
