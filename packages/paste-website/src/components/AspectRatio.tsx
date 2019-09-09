@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import {Absolute} from '@twilio-paste/absolute';
-import {Box} from '@twilio-paste/box';
 
 interface AspectRatioProps {
   aspectRatio: string;
@@ -24,9 +23,8 @@ const handlePropValidation = ({aspectRatio}: AspectRatioProps): void => {
   }
 };
 
-const AspectRatioContainer = styled(Box)`
+const AspectRatioContainer = styled.div`
   position: relative;
-  min-width: auto;
 `;
 
 const AspectRatio: React.FC<AspectRatioProps> = props => {
