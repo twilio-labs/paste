@@ -13,21 +13,6 @@ export type HeadingStyle =
   | 'headingStyle50'
   | 'headingStyle60';
 
-export interface HeadingProps {
-  as: asTags;
-  headingStyle?: HeadingStyle;
-}
-
-const StyledAnchorHyperlink = styled.a`
-  text-decoration: none;
-  margin-left: ${themeGet('space.space30')};
-  color: ${themeGet('textColors.colorTextWeak')};
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
 function getHeadingStyles(headingStyle?: HeadingStyle): {} {
   switch (headingStyle) {
     case 'headingStyle60':
@@ -80,18 +65,12 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
   }
 }
 
-const Heading: React.FC<HeadingProps> = props => {
-  // Only generate slugs for headings where children is 'string'
-  if (props.as !== 'h1' && typeof props.children === 'string') {
-    const id = slugify(props.children);
-    return (
-      <Text {...props} id={id} textColor="colorText" {...getHeadingStyles(props.headingStyle)}>
-        {props.children}
-        <StyledAnchorHyperlink href={`#${id}`}>#</StyledAnchorHyperlink>
-      </Text>
-    );
-  }
+interface HeadingProps {
+  as: asTags;
+  headingStyle?: HeadingStyle;
+}
 
+const Heading: React.FC<HeadingProps> = props => {
   return (
     <Text {...props} textColor="colorText" {...getHeadingStyles(props.headingStyle)}>
       {props.children}
@@ -104,4 +83,29 @@ Heading.defaultProps = {
   headingStyle: 'headingStyle20',
 };
 
-export {Heading};
+const StyledAnchorHyperlink = styled.a`
+  text-decoration: none;
+  margin-left: ${themeGet('space.space30')};
+  color: ${themeGet('textColors.colorTextWeak')};
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+const AnchoredHeading: React.FC<HeadingProps> = props => {
+  // Only generate slugs for headings where children is 'string'
+  if (typeof props.children === 'string') {
+    const id = slugify(props.children);
+    return (
+      <Text {...props} id={id} textColor="colorText" {...getHeadingStyles(props.headingStyle)}>
+        {props.children}
+        <StyledAnchorHyperlink href={`#${id}`}>#</StyledAnchorHyperlink>
+      </Text>
+    );
+  }
+
+  return <Heading {...props} />;
+};
+
+export {Heading, AnchoredHeading, HeadingProps};
