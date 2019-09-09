@@ -65,7 +65,7 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
   }
 }
 
-interface HeadingProps {
+export interface HeadingProps {
   as: asTags;
   headingStyle?: HeadingStyle;
 }
@@ -108,4 +108,4 @@ const AnchoredHeading: React.FC<HeadingProps> = props => {
   return <Heading {...props} />;
 };
 
-export {Heading, AnchoredHeading, HeadingProps};
+export {Heading, AnchoredHeading};
