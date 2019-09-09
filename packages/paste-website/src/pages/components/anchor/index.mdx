@@ -6,6 +6,8 @@ description: The anchor can be used to hyperlink to another URL. It accepts both
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import Changelog from '@twilio-paste/anchor/CHANGELOG.md';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {P} from '../../../components/Typography.tsx';
@@ -146,5 +148,9 @@ import {Anchor} from '@twilio-paste/anchor';
 | onClick?       | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                          | null      |
 | onFocus?       | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                          | null      |
 | onBlur?        | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                          | null      |
+
+<Box marginTop={30}>
+  <Changelog />
+</Box>
 
 </content>
