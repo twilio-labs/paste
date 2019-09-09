@@ -15,7 +15,7 @@ interface CodeblockProps {
 }
 
 const StyledPreviewWrapper = styled.div(props => ({
-  marginTop: themeGet('space.space110')(props),
+  marginBottom: themeGet('space.space110')(props),
 }));
 
 // FIXME use tokens for theme and LiveEditor
