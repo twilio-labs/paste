@@ -39,7 +39,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
         <meta name="description" content={SiteMetaDefaults.DESCRIPTION} />
       </Helmet>
       <LandingContainer maxWidth="size60" marginTop="space200" marginBottom="space200">
-        <Heading as="h1" headingStyle="headingStyle10">
+        <Heading as="h2" headingStyle="headingStyle10">
           Paste
         </Heading>
         <P variant="lead">
@@ -88,7 +88,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
             >
               <Brush size={24} />
             </IconCircle>
-            <Heading as="h2" headingStyle="headingStyle20">
+            <Heading as="h3" headingStyle="headingStyle20">
               Themes
             </Heading>
             <P>
@@ -105,7 +105,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
             >
               <WindowLayout size={24} />
             </IconCircle>
-            <Heading as="h2" headingStyle="headingStyle20">
+            <Heading as="h3" headingStyle="headingStyle20">
               Usage Examples
             </Heading>
             <P>
@@ -122,7 +122,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
             >
               <Terminal size={24} />
             </IconCircle>
-            <Heading as="h2" headingStyle="headingStyle20">
+            <Heading as="h3" headingStyle="headingStyle20">
               Component API
             </Heading>
             <P>
