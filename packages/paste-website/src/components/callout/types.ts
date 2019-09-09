@@ -1,4 +1,5 @@
 import {TextProps} from '@twilio-paste/text';
+import {BoxProps} from '@twilio-paste/box';
 
 export type CalloutVariants = 'primary' | 'secondary' | 'warning';
 
@@ -8,13 +9,7 @@ export interface CalloutTitleProps {
 
 export type CalloutTextProps = Pick<TextProps, 'marginTop' | 'marginBottom' | 'as'>;
 
-export interface CalloutProps {
-  marginTop?: string;
-  marginBottom?: string;
-  paddingTop?: string;
-  paddingRight?: string;
-  paddingBottom?: string;
-  paddingLeft?: string;
+export interface CalloutProps extends BoxProps {
   children?: React.ReactNode;
   variant?: CalloutVariants;
 }
