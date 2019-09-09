@@ -9,7 +9,7 @@ export interface AnchorProps {
   target?: AnchorTargets;
   rel?: string;
 
-  children: React.ReactNode;
+  children: NonNullable<React.ReactNode>;
 
   onClick?(event: React.MouseEvent<HTMLElement>): void;
   onFocus?(event: React.FocusEvent<HTMLElement>): void;

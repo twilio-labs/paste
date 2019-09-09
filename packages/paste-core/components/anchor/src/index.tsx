@@ -8,7 +8,7 @@ const EXTERNAL_REL_DEFAULT = 'noreferrer noopener';
 
 const isExternalUrl = (url: string): boolean => EXTERNAL_LINK_REGEX.test(url);
 
-const handlePropValidation = ({href, tabIndex, children}: AnchorProps): void => {
+const handlePropValidation = ({href, tabIndex}: AnchorProps): void => {
   const hasHref = href != null && href !== '';
   const hasTabIndex = tabIndex != null;
 
@@ -16,10 +16,6 @@ const handlePropValidation = ({href, tabIndex, children}: AnchorProps): void => 
     throw new Error(
       `[Paste: Anchor] Missing href prop for anchor. Maybe you're looking for the [Paste: Button] component.`
     );
-  }
-
-  if (children == null) {
-    throw new Error(`[Paste: Anchor] Must have non-null children.`);
   }
 
   if (hasTabIndex && !(tabIndex === 0 || tabIndex === -1)) {
