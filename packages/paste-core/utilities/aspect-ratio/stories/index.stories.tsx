@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {withKnobs, text} from '@storybook/addon-knobs';
-import {AspectRatio} from '../src';
 import {Box} from '@twilio-paste/box';
 import {Absolute} from '@twilio-paste/absolute';
+import {AspectRatio} from '../src';
 
 storiesOf('Utilities|Aspect Ratio', module)
   .addDecorator(withKnobs)
