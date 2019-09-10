@@ -1,19 +1,21 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
+import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Absolute} from '@twilio-paste/absolute';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
-
-interface DoDontProps {
-  children: React.ReactNode;
-}
 
 const StyledWrapper = styled(Box)`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: ${themeGet('space.space70')};
 `;
+
+interface DoDontProps {
+  children: React.ReactNode;
+  do: boolean;
+}
 
 const DoDont: React.FC<DoDontProps> = props => {
   return (
@@ -23,45 +25,70 @@ const DoDont: React.FC<DoDontProps> = props => {
   );
 };
 
-const DoDontImage = styled(Box)`
-  border: ${themeGet('borderWidths.borderWidth10')} solid #ccd2dc;
-  border-bottom: 0;
-`;
-
-const DoDontComponent = styled(Absolute)`
+const Center = styled(Absolute)`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: ${themeGet('borderWidths.borderWidth10')} solid #ccd2dc;
-  border-bottom: 0;
 `;
 
-const Do = styled(Box)`
-  padding-top: ${themeGet('space.space50')};
-  border-top: ${themeGet('borderWidths.borderWidth20')} solid #23bf6e;
-`;
-
-const Dont = styled(Box)`
-  padding-top: ${themeGet('space.space50')};
-  border-top: ${themeGet('borderWidths.borderWidth20')} solid #ce241a;
-`;
-
-interface DoDontTitleProps {
+interface DoProps {
+  body: string;
+  center: boolean;
+  children: NonNullable<React.ReactNode>;
   do: boolean;
+  title: string;
 }
 
-const DoDontTitle: React.FC<DoDontTitleProps> = props => {
+const Item: React.FC<DoProps> = ({center = false, ...props}) => {
+  let preview = props.children;
+
+  if (center) {
+    preview = <Center>{props.children}</Center>;
+  }
+
   return (
-    <Text
-      as="h5"
-      fontSize="fontSize20"
-      fontWeight="fontWeightSemibold"
-      lineHeight="lineHeight40"
-      marginBottom="space40"
-    >
-      {props.do ? 'Do' : `Don't`}
-    </Text>
+    <div>
+      <Box
+        borderStyle="solid"
+        borderTopWidth="borderWidth10"
+        borderRightWidth="borderWidth10"
+        borderBottomWidth="borderWidth0"
+        borderLeftWidth="borderWidth10"
+        borderColor="colorBorderLight"
+        display={props.children == null ? 'none' : 'block'}
+      >
+        <AspectRatio aspectRatio="4:3">{preview}</AspectRatio>
+      </Box>
+      <Box
+        pt="space50"
+        borderStyle="solid"
+        borderTopWidth="borderWidth20"
+        borderRightWidth="borderWidth0"
+        borderBottomWidth="borderWidth0"
+        borderLeftWidth="borderWidth0"
+        borderColor={props.do ? 'colorBorderSuccess' : 'colorBorderError'}
+      >
+        <Text
+          as="h5"
+          fontSize="fontSize20"
+          fontWeight="fontWeightSemibold"
+          lineHeight="lineHeight40"
+          marginBottom="space40"
+        >
+          {props.title}
+        </Text>
+        <Text>{props.body}</Text>
+      </Box>
+    </div>
   );
 };
 
-export {DoDont, Do, Dont, DoDontImage, DoDontComponent, DoDontTitle};
+const Do: React.FC<DoProps> = props => {
+  return <Item {...props} do />;
+};
+
+const Dont: React.FC<DoProps> = props => {
+  return <Item {...props} do={false} />;
+};
+
+export {DoDont, Do, Dont};

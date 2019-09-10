@@ -8,9 +8,7 @@ import {graphql} from 'gatsby';
 import Img from 'gatsby-image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {AspectRatio} from '@twilio-paste/aspect-ratio'
-import {DoDont, Do, Dont, DoDontContent, DoDontImage, DoDontComponent, DoDontTitle} from '../../../components/DoDont';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {P} from '../../../components/Typography.tsx';
 import Changelog from '@twilio-paste/anchor/CHANGELOG.md';
@@ -103,41 +101,17 @@ This is done for security purposes. Even though the target and rel are set by de
 You can use an anchor to navigate the user to another webpage.
 
 <DoDont>
-  <Box>
-    <AspectRatio>
-      <DoDontComponent>
-        <Anchor href="https://paste.twilio.design">Go to API documentation</Anchor>
-      </DoDontComponent>
-    </AspectRatio>
-    <Do>
-      <DoDontTitle do />
-      Anchors should only be used to link to another page, app, or another website.
-    </Do>
-  </Box>
-  <Box>
-    <DoDontImage>
-      <Img fluid={props.data.file.childImageSharp.fluid} />
-    </DoDontImage>
-    <Dont>
-      <DoDontTitle />
-      Don’t use an anchor where a button makes more sense, i.e., closing a modal.
-    </Dont>
-  </Box>
+  <Do title="Do" body="Anchors should only be used to link to another page, app, or another website." center>
+    <Anchor href="https://paste.twilio.design">Go to API documentation</Anchor>
+  </Do>
+  <Dont title="Don't" body="Don’t use an anchor where a button makes more sense, i.e., closing a modal.">
+    <Img fluid={props.data.file.childImageSharp.fluid} />
+  </Dont>
 </DoDont>
 
 <DoDont>
-  <Box>
-    <Do>
-      <DoDontTitle do />
-      Anchors should only include text.
-    </Do>
-  </Box>
-  <Box>
-    <Dont>
-      <DoDontTitle />
-      Don’t use an icon in place of or with anchor text.
-    </Dont>
-  </Box>
+  <Do title="Do" body="Anchors should only include text." preview={false} />
+  <Dont title="Don't" body="Don’t use an icon in place of or with anchor text." preview={false} />
 </DoDont>
 
 </content>
