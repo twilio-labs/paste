@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
+import {useUID} from 'react-uid';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {Box} from '@twilio-paste/box';
 import {Themes, ThemesType} from '../constants';
@@ -36,9 +37,12 @@ const StyledThemeSwitcherRadio = styled.input<{}>(props => ({
 export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
   const {theme, updateActiveSiteTheme} = useActiveSiteTheme();
 
-  const handleChange = (event: React.FormEvent<HTMLInputElement>): void => {
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = event => {
     updateActiveSiteTheme(event.currentTarget.value as ThemesType);
   };
+
+  const consoleID = useUID();
+  const sendGridID = useUID();
 
   return (
     <Box
@@ -50,29 +54,25 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
       padding="space10"
     >
       <Box as="fieldset" borderWidth="borderWidth0" padding="space0" margin="space0">
-        <legend>
-          <ScreenReaderOnly>Change the site theme</ScreenReaderOnly>
-        </legend>
+        <ScreenReaderOnly as="legend">Change the site theme</ScreenReaderOnly>
         <StyledThemeSwitcherRadio
           checked={theme === Themes.CONSOLE}
-          id="console"
+          id={consoleID}
           name="sitetheme"
-          onClick={handleChange}
           onChange={handleChange}
           type="radio"
           value={Themes.CONSOLE}
         />
-        <StyledThemeSwitcherLabel htmlFor="console">Console</StyledThemeSwitcherLabel>
+        <StyledThemeSwitcherLabel htmlFor={consoleID}>Console</StyledThemeSwitcherLabel>
         <StyledThemeSwitcherRadio
           checked={theme === Themes.SENDGRID}
-          id="sendgrid"
+          id={sendGridID}
           name="sitetheme"
-          onClick={handleChange}
           onChange={handleChange}
           type="radio"
           value={Themes.SENDGRID}
         />
-        <StyledThemeSwitcherLabel htmlFor="sendgrid">SendGrid</StyledThemeSwitcherLabel>
+        <StyledThemeSwitcherLabel htmlFor={sendGridID}>SendGrid</StyledThemeSwitcherLabel>
       </Box>
     </Box>
   );
