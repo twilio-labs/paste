@@ -5,7 +5,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {AnchorProps} from '@twilio-paste/anchor/dist/types';
 import {Codeblock, CodeblockProps} from '../codeblock';
 import {Table, Tbody, Tr, Th, Td} from '../table';
-import {Heading, HeadingProps} from '../Heading';
+import {Heading, AnchoredHeading, HeadingProps} from '../Heading';
 import {StyledHr} from '../StyledHr';
 import {P, UL, OL, LI, InlineCode} from '../Typography';
 // Shortcode imports
@@ -35,11 +35,21 @@ export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMD
       components={{
         ...shortcodes,
         h1: (props: HeadingProps): React.ReactElement => <Heading {...props} as="h1" headingStyle="headingStyle10" />,
-        h2: (props: HeadingProps): React.ReactElement => <Heading {...props} as="h2" headingStyle="headingStyle20" />,
-        h3: (props: HeadingProps): React.ReactElement => <Heading {...props} as="h3" headingStyle="headingStyle30" />,
-        h4: (props: HeadingProps): React.ReactElement => <Heading {...props} as="h4" headingStyle="headingStyle40" />,
-        h5: (props: HeadingProps): React.ReactElement => <Heading {...props} as="h5" headingStyle="headingStyle50" />,
-        h6: (props: HeadingProps): React.ReactElement => <Heading {...props} as="h6" headingStyle="headingStyle60" />,
+        h2: (props: HeadingProps): React.ReactElement => (
+          <AnchoredHeading {...props} as="h2" headingStyle="headingStyle20" />
+        ),
+        h3: (props: HeadingProps): React.ReactElement => (
+          <AnchoredHeading {...props} as="h3" headingStyle="headingStyle30" />
+        ),
+        h4: (props: HeadingProps): React.ReactElement => (
+          <AnchoredHeading {...props} as="h4" headingStyle="headingStyle40" />
+        ),
+        h5: (props: HeadingProps): React.ReactElement => (
+          <AnchoredHeading {...props} as="h5" headingStyle="headingStyle50" />
+        ),
+        h6: (props: HeadingProps): React.ReactElement => (
+          <AnchoredHeading {...props} as="h6" headingStyle="headingStyle60" />
+        ),
         p: (props: React.ComponentProps<typeof P>): React.ReactElement => <P {...props} />,
         ul: (props: React.ComponentProps<typeof UL>): React.ReactElement => <UL {...props} />,
         ol: (props: React.ComponentProps<typeof OL>): React.ReactElement => <OL {...props} />,

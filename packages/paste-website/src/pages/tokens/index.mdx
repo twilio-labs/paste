@@ -28,7 +28,7 @@ Paste is using tokens as part of the design system. Tokens allow us to have a co
   </Text>
 </Box>
 
-<TokensList default={props.data.allPasteTokenDefault.edges} sendgrid={props.data.allPasteTokenSendGrid.edges} />
+<TokensList consoleTokens={props.data.allPasteTokenDefault.edges} sendgridTokens={props.data.allPasteTokenSendGrid.edges} />
 
 export const pageQuery = graphql`
 {

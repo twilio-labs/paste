@@ -1,13 +1,16 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
+import {Theme} from '@twilio-paste/theme';
 import {useUID} from 'react-uid';
 import {Table, Tr, Th, Td, Tbody} from '../table';
 import {TokenExample} from '../tokens-example';
 import {Input} from '../input';
 import {Label} from '../label';
 import {InlineCode} from '../Typography';
-import {Heading} from '../Heading';
+import {AnchoredHeading} from '../Heading';
+import {useActiveSiteTheme} from '../../context/ActiveSiteThemeContext';
+import {Themes, ThemesType} from '../../constants';
 
 const sentenceCase = (catName: string): string => {
   return catName
@@ -39,27 +42,38 @@ interface TokensShape {
 
 interface TokensListProps {
   children?: React.ReactElement;
-  default: TokensShape[];
-  sendgrid: TokensShape[];
+  consoleTokens: TokensShape[];
+  sendgridTokens: TokensShape[];
 }
 
-const setInitialState = (data: TokensShape[]): TokenCategory[] | null => {
-  if (data != null) {
-    const {tokens} = data[0].node;
-    return tokens;
+const getTokensByTheme = (theme: ThemesType, props: TokensListProps): TokenCategory[] => {
+  let tokens = [] as TokenCategory[];
+  if (theme === Themes.CONSOLE) {
+    if (props.consoleTokens != null) {
+      // eslint-disable-next-line prefer-destructuring
+      tokens = props.consoleTokens[0].node.tokens;
+    }
   }
-  return null;
+  if (theme === Themes.SENDGRID) {
+    if (props.sendgridTokens != null) {
+      // eslint-disable-next-line prefer-destructuring
+      tokens = props.sendgridTokens[0].node.tokens;
+    }
+  }
+  return tokens;
 };
 
 export const TokensList: React.FC<TokensListProps> = props => {
-  const [tokens, setTokens] = React.useState(setInitialState(props.sendgrid));
+  const {theme} = useActiveSiteTheme();
+  const [tokens, setTokens] = React.useState<TokenCategory[] | null>(getTokensByTheme(theme, props));
+  const [filterString, setFilterString] = React.useState('');
 
-  const filterTokenList = (filter: string): void => {
+  const filterTokenList = (): void => {
     setTokens(() => {
-      const newTokenCategories = props.sendgrid[0].node.tokens.map(
+      const newTokenCategories = getTokensByTheme(theme, props).map(
         (category): TokenCategory => {
           const newTokens = category.tokens.filter(token => {
-            return token.name.includes(filter) || token.value.includes(filter);
+            return token.name.includes(filterString) || token.value.includes(filterString);
           });
           return {...category, tokens: newTokens};
         }
@@ -74,9 +88,14 @@ export const TokensList: React.FC<TokensListProps> = props => {
     });
   };
 
+  React.useEffect((): void => {
+    filterTokenList();
+  }, [theme]);
+
   const handleInput = (e: React.FormEvent<HTMLInputElement>): void => {
     const filter = e.currentTarget.value;
-    filterTokenList(filter);
+    setFilterString(filter);
+    filterTokenList();
   };
 
   const uid = useUID();
@@ -98,42 +117,44 @@ export const TokensList: React.FC<TokensListProps> = props => {
         tokens.map(cat => {
           return (
             <React.Fragment key={`catname${cat.categoryName}`}>
-              <Heading as="h2" headingStyle="headingStyle20">
+              <AnchoredHeading as="h2" headingStyle="headingStyle20">
                 {sentenceCase(cat.categoryName)}
-              </Heading>
-              <Box mb="space160">
-                <Table>
-                  <thead>
-                    <Tr>
-                      <Th>Token</Th>
-                      <Th style={{width: '250px'}}>Value</Th>
-                      <Th style={{width: '250px'}}>Example</Th>
-                    </Tr>
-                  </thead>
-                  <Tbody>
-                    {cat.tokens.map((token: Token) => {
-                      return (
-                        <Tr key={`token${token.name}`}>
-                          <Td>
-                            <Text mb="space30" lineHeight="lineHeight40">
-                              <InlineCode>${token.name}</InlineCode>
-                            </Text>
-                            <Text>{token.comment}</Text>
-                          </Td>
-                          <Td>{token.type === 'color' ? token.value.toUpperCase() : token.value}</Td>
-                          <Td
-                            css={{
-                              position: 'relative',
-                            }}
-                          >
-                            <TokenExample token={token} />
-                          </Td>
-                        </Tr>
-                      );
-                    })}
-                  </Tbody>
-                </Table>
-              </Box>
+              </AnchoredHeading>
+              <Theme.Provider theme={theme}>
+                <Box mb="space160">
+                  <Table>
+                    <thead>
+                      <Tr>
+                        <Th>Token</Th>
+                        <Th style={{width: '250px'}}>Value</Th>
+                        <Th style={{width: '250px'}}>Example</Th>
+                      </Tr>
+                    </thead>
+                    <Tbody>
+                      {cat.tokens.map((token: Token) => {
+                        return (
+                          <Tr key={`token${token.name}`}>
+                            <Td>
+                              <Text mb="space30" lineHeight="lineHeight40">
+                                <InlineCode>${token.name}</InlineCode>
+                              </Text>
+                              <Text>{token.comment}</Text>
+                            </Td>
+                            <Td>{token.type === 'color' ? token.value.toUpperCase() : token.value}</Td>
+                            <Td
+                              css={{
+                                position: 'relative',
+                              }}
+                            >
+                              <TokenExample token={token} />
+                            </Td>
+                          </Tr>
+                        );
+                      })}
+                    </Tbody>
+                  </Table>
+                </Box>
+              </Theme.Provider>
             </React.Fragment>
           );
         })}

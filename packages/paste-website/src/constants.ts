@@ -1,3 +1,5 @@
+import {ValueOf} from '../types/utils';
+
 export const TWILIO_RED = '#F22F46';
 export const TWILIO_BLUE = '#0D122B';
 
@@ -22,3 +24,10 @@ export const SiteMetaDefaults = {
   DESCRIPTION:
     'Paste is an internal design system for designing and building consistent experiences at Twilio. It is made up of tokens and components, along with in-depth documentation to assist designers and developers faced with solving our customers’ problems. It is open source and contributions are welcome.',
 };
+
+export const Themes = {
+  CONSOLE: 'default',
+  SENDGRID: 'sendgrid',
+} as const;
+
+export type ThemesType = ValueOf<typeof Themes>;

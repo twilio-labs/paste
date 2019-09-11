@@ -10,6 +10,5 @@ export interface CalloutTitleProps {
 export type CalloutTextProps = Pick<TextProps, 'marginTop' | 'marginBottom' | 'as'>;
 
 export interface CalloutProps extends BoxProps {
-  children?: React.ReactNode;
   variant?: CalloutVariants;
 }
