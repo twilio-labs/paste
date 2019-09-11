@@ -67,6 +67,7 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
 
 export interface HeadingProps {
   as: asTags;
+  id?: string;
   headingStyle?: HeadingStyle;
 }
 
@@ -98,10 +99,10 @@ const AnchoredHeading: React.FC<HeadingProps> = props => {
   if (typeof props.children === 'string') {
     const id = slugify(props.children);
     return (
-      <Text {...props} id={id} textColor="colorText" {...getHeadingStyles(props.headingStyle)}>
+      <Heading {...props} id={id}>
         {props.children}
         <StyledAnchorHyperlink href={`#${id}`}>#</StyledAnchorHyperlink>
-      </Text>
+      </Heading>
     );
   }
 
