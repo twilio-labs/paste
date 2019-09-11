@@ -1,6 +1,11 @@
 import styled from '@emotion/styled';
 
-export const ScreenReaderOnly = styled.span<{}>`
+interface ScreenReaderOnlyProps {
+  // as prop isn't typed correctly from styled package https://github.com/emotion-js/emotion/issues/1137
+  as?: keyof JSX.IntrinsicElements;
+}
+
+export const ScreenReaderOnly = styled.span<ScreenReaderOnlyProps>`
   position: absolute;
   margin: -1px;
   border: 0;

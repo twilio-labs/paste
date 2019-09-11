@@ -26,7 +26,7 @@ export const Tbody = styled.tbody(props => ({
 }));
 
 export const Tr = styled.tr(props => ({
-  '&:nth-child(even)': {
+  '&:nth-of-type(even)': {
     background: themeGet('backgroundColors.colorBackgroundRowStriped')(props),
   },
 }));
