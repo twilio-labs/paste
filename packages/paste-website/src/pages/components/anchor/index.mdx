@@ -5,12 +5,13 @@ description: The anchor can be used to hyperlink to another URL. It accepts both
 ---
 
 import {graphql} from 'gatsby';
+import Img from 'gatsby-image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
-import Changelog from '@twilio-paste/anchor/CHANGELOG.md';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {P} from '../../../components/Typography.tsx';
+import Changelog from '@twilio-paste/anchor/CHANGELOG.md';
 
 export const pageQuery = graphql`
   {
@@ -21,6 +22,13 @@ export const pageQuery = graphql`
           description
           status
           version
+        }
+      }
+    }
+    file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/anchor-dont-1@4x.png"}) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -93,21 +101,17 @@ This is done for security purposes. Even though the target and rel are set by de
 You can use an anchor to navigate the user to another webpage.
 
 <DoDont>
-  <Do>
-    Anchors should only be used to link to another page, app, or another website.
+  <Do title="Do" body="Anchors should only be used to link to another page, app, or another website." center>
+    <Anchor href="https://paste.twilio.design">Go to API documentation</Anchor>
   </Do>
-  <Dont>
-    Don’t use an anchor where a button makes more sense, i.e., closing a modal.
+  <Dont title="Don't" body="Don’t use an anchor where a button makes more sense, i.e., closing a modal.">
+    <Img fluid={props.data.file.childImageSharp.fluid} />
   </Dont>
 </DoDont>
 
 <DoDont>
-  <Do>
-    Anchors should only include text.
-  </Do>
-  <Dont>
-    Don’t use an icon in place of or with anchor text.
-  </Dont>
+  <Do title="Do" body="Anchors should only include text." preview={false} />
+  <Dont title="Don't" body="Don’t use an icon in place of or with anchor text." preview={false} />
 </DoDont>
 
 </content>

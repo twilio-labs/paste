@@ -1,6 +1,8 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
+import {AspectRatio} from '@twilio-paste/aspect-ratio';
+import {Absolute} from '@twilio-paste/absolute';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 
@@ -12,49 +14,60 @@ const StyledWrapper = styled(Box)`
 
 interface DoDontProps {
   children: React.ReactNode;
+  do: boolean;
 }
 
 const DoDont: React.FC<DoDontProps> = props => {
   return (
-    <StyledWrapper marginTop="space90" marginBottom="space90">
+    <StyledWrapper marginTop="space90" marginBottom="space130">
       {props.children}
     </StyledWrapper>
   );
 };
 
-interface ExampleProps {
-  children: React.ReactNode;
+const Center = styled(Absolute)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+interface DoProps {
+  body: string;
+  center: boolean;
+  children: NonNullable<React.ReactNode>;
   do: boolean;
-  image?: string;
+  title: string;
 }
 
-const StyledExampleWraper: React.FC<ExampleProps> = styled(Box)`
-  border-top: ${(props: ExampleProps) =>
-    props.do
-      ? `${themeGet('borderWidths.borderWidth20')(props)} solid #23bf6e`
-      : `${themeGet('borderWidths.borderWidth20')(props)} solid #ce241a`};
-`;
+const Item: React.FC<DoProps> = ({center = false, ...props}) => {
+  let preview = props.children;
 
-const StyledExampleImg: React.FC<ExampleProps> = styled(Box)`
-  border: ${themeGet('borderWidths.borderWidth10')} solid #ccd2dc;
-  border-top: 0;
-
-  img {
-    display: block;
-    width: 100%;
+  if (center) {
+    preview = <Center>{props.children}</Center>;
   }
-`;
 
-const Example: React.FC<ExampleProps> = props => {
-  const hasImage = props.image;
   return (
-    <StyledExampleWraper {...props}>
-      {hasImage ? (
-        <StyledExampleImg {...props}>
-          <img src={props.image} alt="" />
-        </StyledExampleImg>
-      ) : null}
-      <Box marginTop="space50">
+    <div>
+      <Box
+        borderStyle="solid"
+        borderTopWidth="borderWidth10"
+        borderRightWidth="borderWidth10"
+        borderBottomWidth="borderWidth0"
+        borderLeftWidth="borderWidth10"
+        borderColor="colorBorderLight"
+        display={props.children == null ? 'none' : 'block'}
+      >
+        <AspectRatio ratio="4:3">{preview}</AspectRatio>
+      </Box>
+      <Box
+        pt="space50"
+        borderStyle="solid"
+        borderTopWidth="borderWidth20"
+        borderRightWidth="borderWidth0"
+        borderBottomWidth="borderWidth0"
+        borderLeftWidth="borderWidth0"
+        borderColor={props.do ? 'colorBorderSuccess' : 'colorBorderError'}
+      >
         <Text
           as="h5"
           fontSize="fontSize20"
@@ -62,20 +75,20 @@ const Example: React.FC<ExampleProps> = props => {
           lineHeight="lineHeight40"
           marginBottom="space40"
         >
-          {props.do ? 'Do' : `Don't`}
+          {props.title}
         </Text>
-        {props.children}
+        <Text>{props.body}</Text>
       </Box>
-    </StyledExampleWraper>
+    </div>
   );
 };
 
-const Do: React.FC<ExampleProps> = props => {
-  return <Example do {...props} />;
+const Do: React.FC<DoProps> = props => {
+  return <Item {...props} do />;
 };
 
-const Dont: React.FC<ExampleProps> = props => {
-  return <Example do={false} {...props} />;
+const Dont: React.FC<DoProps> = props => {
+  return <Item {...props} do={false} />;
 };
 
 export {DoDont, Do, Dont};
