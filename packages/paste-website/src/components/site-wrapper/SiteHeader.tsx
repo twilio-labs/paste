@@ -32,7 +32,7 @@ export const SiteHeader: React.FC<{}> = () => {
       borderBottomWidth="borderWidth10"
       pl="space200"
       pr="space80"
-      py="space60"
+      py="space50"
       mb="space140"
       css={{
         left: SIDEBAR_WIDTH,
