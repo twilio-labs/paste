@@ -5,7 +5,7 @@ interface ScreenReaderOnlyProps {
   as?: keyof JSX.IntrinsicElements;
 }
 
-export const ScreenReaderOnly = styled.div<ScreenReaderOnlyProps>`
+export const ScreenReaderOnly = styled.span<ScreenReaderOnlyProps>`
   position: absolute;
   margin: -1px;
   border: 0;
