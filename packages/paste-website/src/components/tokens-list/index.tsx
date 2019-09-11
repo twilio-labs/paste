@@ -7,7 +7,7 @@ import {TokenExample} from '../tokens-example';
 import {Input} from '../input';
 import {Label} from '../label';
 import {InlineCode} from '../Typography';
-import {Heading} from '../Heading';
+import {AnchoredHeading} from '../Heading';
 
 const sentenceCase = (catName: string): string => {
   return catName
@@ -98,9 +98,9 @@ export const TokensList: React.FC<TokensListProps> = props => {
         tokens.map(cat => {
           return (
             <React.Fragment key={`catname${cat.categoryName}`}>
-              <Heading as="h2" headingStyle="headingStyle20">
+              <AnchoredHeading as="h2" headingStyle="headingStyle20">
                 {sentenceCase(cat.categoryName)}
-              </Heading>
+              </AnchoredHeading>
               <Box mb="space160">
                 <Table>
                   <thead>

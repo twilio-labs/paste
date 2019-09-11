@@ -3,23 +3,28 @@ import styled from '@emotion/styled';
 import {Box} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';
 import {useTheme} from '@twilio-paste/theme';
-import {ThemeSwitcher} from './ThemeSwitcher';
-import GithubIcon from './icons/GithubIcon';
+import {Absolute} from '@twilio-paste/absolute';
+import {ThemeSwitcher} from '../ThemeSwitcher';
+import GithubIcon from '../icons/GithubIcon';
+import {SIDEBAR_WIDTH, HEADER_HEIGHT} from './constants';
 
-interface StyledFlexProps {
+interface FlexProps {
   justifyContent?: string;
   alignItems?: string;
 }
-export const StyledFlex = styled.div<StyledFlexProps>(({justifyContent, alignItems = 'center'}) => ({
+
+// TODO: Replace with Paste Flex component
+export const Flex = styled.div<FlexProps>(({justifyContent, alignItems = 'center'}) => ({
   display: 'flex',
   justifyContent,
   alignItems,
 }));
 
-export const SiteStickyHeader: React.FC<{}> = () => {
+export const SiteHeader: React.FC<{}> = () => {
   const theme = useTheme();
   return (
-    <Box
+    <Absolute
+      preset="top_fill"
       as="aside"
       backgroundColor="colorBackgroundBody"
       borderColor="colorBorderLight"
@@ -30,23 +35,20 @@ export const SiteStickyHeader: React.FC<{}> = () => {
       py="space60"
       mb="space140"
       css={{
-        '@supports (position: sticky)': {
-          position: 'sticky',
-          top: 0,
-          zIndex: 10,
-        },
+        left: SIDEBAR_WIDTH,
+        height: HEADER_HEIGHT,
       }}
     >
-      <StyledFlex justifyContent="space-between">
+      <Flex justifyContent="space-between">
         <ThemeSwitcher />
-        <StyledFlex>
+        <Flex>
           <Box mr="space60">
             <Anchor href="http://www.github.com/twilio-labs/paste/issues">Ask a question</Anchor>
           </Box>
           <Box mr="space60">
             <Anchor href="http://www.github.com/twilio-labs/paste/issues">Report a bug</Anchor>
           </Box>
-          <StyledFlex>
+          <Flex>
             v0.1
             <Box ml="space30">
               <Anchor href="http://www.github.com/twilio-labs/paste">
@@ -57,9 +59,9 @@ export const SiteStickyHeader: React.FC<{}> = () => {
                 />
               </Anchor>
             </Box>
-          </StyledFlex>
-        </StyledFlex>
-      </StyledFlex>
-    </Box>
+          </Flex>
+        </Flex>
+      </Flex>
+    </Absolute>
   );
 };

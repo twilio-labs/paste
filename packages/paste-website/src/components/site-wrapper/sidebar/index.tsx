@@ -1,11 +1,13 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import styled from '@emotion/styled';
-import {Header} from './Header';
-import {Navigation} from './Navigation';
+import {SidebarHeader} from './SidebarHeader';
+import {SidebarNavigation} from './SidebarNavigation';
+import {SIDEBAR_WIDTH} from '../constants';
 
 const StyledSidebar = styled(Box)`
   height: 100vh;
+  width: ${SIDEBAR_WIDTH};
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 `;
@@ -19,8 +21,8 @@ const Sidebar: React.FC<{}> = () => {
       paddingBottom="space70"
       paddingLeft="space40"
     >
-      <Header siteTitle="Paste" siteSubTitle="Design System" />
-      <Navigation />
+      <SidebarHeader siteTitle="Paste" siteSubTitle="Design System" />
+      <SidebarNavigation />
     </StyledSidebar>
   );
 };

@@ -1,24 +1,36 @@
 import * as React from 'react';
-import {Global} from '@emotion/core';
+import {css, Global} from '@emotion/core';
 import {Theme} from '@twilio-paste/theme';
-import {Sidebar} from '../sidebar';
-import {SiteStickyHeader} from '../SiteStickyHeader';
+import {SiteBody} from './SiteBody';
+import {Sidebar} from './sidebar';
+import {SiteHeader} from './SiteHeader';
+import {SiteMain, SiteMainInner} from './SiteMain';
 import {SiteFooter} from './SiteFooter';
-import {globalStyles, SiteBody, SiteMain, SiteMainInner} from './styles';
+import {ScrollAnchorIntoView} from './ScrollAnchorIntoView';
 
-interface SiteWrapperProps {
-  children: React.ReactNode;
-}
+const globalStyles = css`
+  *,
+  :after,
+  :before {
+    box-sizing: border-box;
+  }
 
-const SiteWrapper: React.FC<SiteWrapperProps> = props => {
+  body {
+    margin: 0;
+    font-size: 14px;
+  }
+`;
+
+const SiteWrapper: React.FC = ({children}) => {
   return (
     <Theme.Provider theme="sendgrid">
       <Global styles={globalStyles} />
       <SiteBody>
         <Sidebar />
+        <SiteHeader />
         <SiteMain>
-          <SiteStickyHeader />
-          <SiteMainInner>{props.children}</SiteMainInner>
+          <ScrollAnchorIntoView />
+          <SiteMainInner>{children}</SiteMainInner>
           <SiteFooter />
         </SiteMain>
       </SiteBody>
