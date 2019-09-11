@@ -67,7 +67,9 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
           <CalloutText as="div" marginTop="space40">
             <UL>
               <LI>
-                <Anchor href="https://code.hq.twilio.com/pages/react/react-components/">Console React Components</Anchor>
+                <Anchor href="https://code.hq.twilio.com/pages/react/react-components/">
+                  Console React Components
+                </Anchor>
               </LI>
               <LI>
                 <Anchor href="http://styleguide.sendgrid.com/">SendGrid Style Guide</Anchor>
