@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import {Absolute} from '@twilio-paste/absolute';
 
 interface AspectRatioProps {
-  aspectRatio: string;
+  ratio: string;
   children: NonNullable<React.ReactNode>;
 }
 
@@ -11,15 +11,15 @@ const RATIO_REGEX = /^(\d+:\d*)$/;
 
 const isCorrectPattern = (ratio: string): boolean => RATIO_REGEX.test(ratio);
 
-const handlePropValidation = ({aspectRatio}: AspectRatioProps): void => {
-  const hasRatio = aspectRatio != null && aspectRatio !== '';
+const handlePropValidation = ({ratio}: AspectRatioProps): void => {
+  const hasRatio = ratio != null && ratio !== '';
 
   if (!hasRatio) {
-    throw new Error(`[Paste: AspectRatio] Missing 'aspectRatio' prop.`);
+    throw new Error(`[Paste: AspectRatio] Missing 'ratio' prop.`);
   }
 
-  if (!isCorrectPattern(aspectRatio)) {
-    throw new Error(`[Paste: AspectRatio] 'aspectRatio' is invalid. Use a colon separated number pattern (4:3).`);
+  if (!isCorrectPattern(ratio)) {
+    throw new Error(`[Paste: AspectRatio] 'ratio' is invalid. Use a colon separated number pattern (4:3).`);
   }
 };
 
@@ -30,7 +30,7 @@ const AspectRatioContainer = styled.div`
 const AspectRatio: React.FC<AspectRatioProps> = props => {
   handlePropValidation(props);
 
-  const aspectArray = props.aspectRatio.split(':').map(Number);
+  const aspectArray = props.ratio.split(':').map(Number);
   const aspectPercent = (aspectArray[1] / aspectArray[0]) * 100;
 
   return (
@@ -41,7 +41,7 @@ const AspectRatio: React.FC<AspectRatioProps> = props => {
 };
 
 AspectRatio.defaultProps = {
-  aspectRatio: '4:3',
+  ratio: '4:3',
 };
 
 export {AspectRatio};

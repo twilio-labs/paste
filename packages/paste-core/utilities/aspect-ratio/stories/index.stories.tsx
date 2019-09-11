@@ -16,7 +16,7 @@ storiesOf('Utilities|Aspect Ratio', module)
         borderStyle="solid"
         borderWidth="borderWidth10"
       >
-        <AspectRatio aspectRatio={text('aspectRatio', '4:3')}>
+        <AspectRatio ratio={text('ratio', '4:3')}>
           <Absolute backgroundColor="colorBackgroundBrand" />
         </AspectRatio>
       </Box>

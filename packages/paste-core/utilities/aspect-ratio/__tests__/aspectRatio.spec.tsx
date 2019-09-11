@@ -5,7 +5,7 @@ import {AspectRatio} from '../src';
 describe('AspectRatio', () => {
   it('should render a 4:3 aspect ratio div', () => {
     const wrapper = mount(
-      <AspectRatio aspectRatio="4:3">
+      <AspectRatio ratio="4:3">
         <p>This is the AspectRatio utility.</p>
       </AspectRatio>
     );
