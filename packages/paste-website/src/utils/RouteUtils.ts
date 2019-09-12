@@ -1,4 +1,4 @@
-import {kebabCase} from 'lodash';
+import {kebabCase, camelCase, upperFirst} from 'lodash';
 import {PASTE_PACKAGE_PREFIX} from '../constants';
 
 const hasWindowObject = (): boolean => typeof window !== `undefined` && window.location != null;
@@ -18,9 +18,14 @@ export function getCurrentPathHash(): string {
   return window.location.hash;
 }
 
-// Returns `button` from `@twilio-paste/button`
+// Returns "aspect-ratio" from "@twilio-paste/aspect-ratio"
 export function getNameFromPackageName(packageName: string): string {
   return packageName.replace(PASTE_PACKAGE_PREFIX, '');
+}
+
+// Returns "AspectRatio" from "@twilio-paste/aspect-ratio"
+export function getComponentNameFromPackageName(packageName: string): string {
+  return upperFirst(camelCase(packageName.replace(PASTE_PACKAGE_PREFIX, '')));
 }
 
 // Returns `/components/button` from a category constant and package name

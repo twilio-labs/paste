@@ -10,7 +10,7 @@ import {
   SiteNavAnchorArrow,
 } from './SidebarNavigation.styles';
 import {PackageStatus, SidebarCategoryRoutes} from '../../../constants';
-import {getCurrentPathname, getNameFromPackageName} from '../../../utils/RouteUtils';
+import {getCurrentPathname, getNameFromPackageName, getComponentNameFromPackageName} from '../../../utils/RouteUtils';
 
 interface SidebarNavigationProps {
   children?: React.ReactNode;
@@ -125,10 +125,11 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
             {data.allPasteComponent.edges
               .filter(({node}) => node.status !== PackageStatus.BACKLOG)
               .map(({node}) => {
-                const name = getNameFromPackageName(node.name);
                 return (
                   <SiteNavItem key={node.name}>
-                    <SiteNavAnchor to={`${SidebarCategoryRoutes.COMPONENTS}/${name}`}>{name}</SiteNavAnchor>
+                    <SiteNavAnchor to={`${SidebarCategoryRoutes.COMPONENTS}/${getNameFromPackageName(node.name)}`}>
+                      {getComponentNameFromPackageName(node.name)}
+                    </SiteNavAnchor>
                   </SiteNavItem>
                 );
               })}
@@ -144,10 +145,11 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
             {data.allPasteUtility.edges
               .filter(({node}) => node.status !== PackageStatus.BACKLOG)
               .map(({node}) => {
-                const name = getNameFromPackageName(node.name);
                 return (
                   <SiteNavItem key={node.name}>
-                    <SiteNavAnchor to={`${SidebarCategoryRoutes.UTILITIES}/${name}`}>{name}</SiteNavAnchor>
+                    <SiteNavAnchor to={`${SidebarCategoryRoutes.UTILITIES}/${getNameFromPackageName(node.name)}`}>
+                      {getComponentNameFromPackageName(node.name)}
+                    </SiteNavAnchor>
                   </SiteNavItem>
                 );
               })}
