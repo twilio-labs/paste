@@ -8,7 +8,7 @@ import {
   fontSizes,
   fontWeights,
   lineHeights,
-  shadows,
+  boxShadows,
   sizings,
   spacings,
   textColors,
@@ -29,6 +29,7 @@ const widths = {
 const heights = {
   ...sizings,
 };
+const shadows = {...boxShadows};
 export const DefaultTheme = {
   colors,
   shadows,
