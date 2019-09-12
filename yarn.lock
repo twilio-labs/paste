@@ -3160,10 +3160,10 @@
     "@svgr/plugin-svgo" "^4.3.1"
     loader-utils "^1.2.3"
 
-"@twilio-labs/svg-to-react@^1.0.1":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@twilio-labs/svg-to-react/-/svg-to-react-1.0.2.tgz#0a8d43e6d70bbd1beda8230e1fb43cca091c778f"
-  integrity sha512-fP2ISIlTQZdzVrONy6HbOtTuSZWId79O9+dTTeBNACx8sgINXtKiVpNi83DmTodQEVqkrfTi7XtgFahaXb6eZA==
+"@twilio-labs/svg-to-react@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@twilio-labs/svg-to-react/-/svg-to-react-2.0.0.tgz#ca7db16fc0501afff63a6690d6111cb8642468c7"
+  integrity sha512-ugLlMUlppvp5wxg7hAENBu7Zt/iODU91b4Oem/TAVYE34NNT9fPU/aijBDaS6HSkJ58YajvLOmvjNUzxtiRLmw==
   dependencies:
     "@svgr/babel-plugin-add-jsx-attribute" "^4.2.0"
     "@svgr/babel-plugin-remove-jsx-attribute" "^4.2.0"
