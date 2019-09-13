@@ -1,6 +1,6 @@
 global:
-  type: box-shadow
-  category: shadow
+  type: shadow
+  category: box-shadow
 imports:
   - ../aliases/box-shadow.yml
   - ../aliases/offset.yml

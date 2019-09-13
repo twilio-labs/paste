@@ -8,7 +8,7 @@ import {
   fontSizes,
   fontWeights,
   lineHeights,
-  shadows,
+  boxShadows,
   sizings,
   spacings,
   textColors,
@@ -16,19 +16,6 @@ import {
 } from '@twilio-paste/design-tokens/dist/themes/sendgrid/tokens.es6';
 
 const breakpoints = [sizings.size40, sizings.size100, sizings.size120];
-const space = {...spacings};
-const maxWidths = {
-  ...sizings,
-};
-const minWidths = {
-  ...sizings,
-};
-const widths = {
-  ...sizings,
-};
-const heights = {
-  ...sizings,
-};
 export const SendGridTheme = {
   backgroundColors,
   borderColors,
@@ -38,14 +25,14 @@ export const SendGridTheme = {
   fonts,
   fontSizes,
   fontWeights,
-  heights,
+  heights: sizings,
   lineHeights,
-  maxWidths,
-  minWidths,
+  maxWidths: sizings,
+  minWidths: sizings,
   radii,
-  shadows,
-  space,
+  shadows: boxShadows,
+  space: spacings,
   textColors,
-  widths,
+  widths: sizings,
   zIndices,
 };

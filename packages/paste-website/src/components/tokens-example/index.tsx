@@ -126,7 +126,7 @@ export const TokenExample: React.FC<TokenExampleProps> = ({token}) => {
       return <TextBox fontWeight={tokenName as keyof ThemeShape['fontWeights']} />;
     case 'radius':
       return <RadiiBox borderRadius={tokenName as keyof ThemeShape['radii']} />;
-    case 'shadow':
+    case 'box-shadow':
       return <ShadowBox shadow={token.value} />;
     case 'spacing':
       return <SpacingBox padding={tokenName as keyof ThemeShape['space']} />;
