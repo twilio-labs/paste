@@ -102,7 +102,7 @@
     "husky": "^3.0.0",
     "jest": "^24.8.0",
     "jest-emotion": "^10.0.14",
-    "lerna": "^3.15.0",
+    "lerna": "^3.16.4",
     "lodash": "^4.17.14",
     "precise-commits": "^1.0.2",
     "prettier": "^1.18.2",
