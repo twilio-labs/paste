@@ -135,5 +135,17 @@ module.exports = {
       },
     },
     'gatsby-plugin-sitemap',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Paste: An Internal Design System for Twilio`,
+        short_name: `Paste`,
+        start_url: `/`,
+        background_color: `#fff`,
+        theme_color: `#f22f46`,
+        display: `standalone`,
+        icon: `static/favicon.png`,
+      },
+    },
   ],
 };
