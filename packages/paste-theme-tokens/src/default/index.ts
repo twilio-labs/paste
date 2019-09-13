@@ -16,37 +16,23 @@ import {
 } from '@twilio-paste/design-tokens';
 
 const breakpoints = [sizings.size40, sizings.size100, sizings.size120];
-const space = {...spacings};
-const maxWidths = {
-  ...sizings,
-};
-const minWidths = {
-  ...sizings,
-};
-const widths = {
-  ...sizings,
-};
-const heights = {
-  ...sizings,
-};
-const shadows = {...boxShadows};
 export const DefaultTheme = {
-  colors,
-  shadows,
-  space,
-  breakpoints,
-  fontSizes,
-  fonts,
-  fontWeights,
-  lineHeights,
-  textColors,
   backgroundColors,
   borderColors,
-  maxWidths,
-  minWidths,
-  widths,
-  heights,
-  radii,
   borderWidths,
+  breakpoints,
+  colors,
+  fonts,
+  fontSizes,
+  fontWeights,
+  heights: sizings,
+  lineHeights,
+  maxWidths: sizings,
+  minWidths: sizings,
+  radii,
+  shadows: boxShadows,
+  space: spacings,
+  textColors,
+  widths: sizings,
   zIndices,
 };
