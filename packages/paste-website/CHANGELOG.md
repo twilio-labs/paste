@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@0.1.0...@twilio-paste/website@0.2.0) (2019-09-16)
+
+
+### Bug Fixes
+
+* make CI/CI great again ([#89](https://github.com/twilio-labs/paste/issues/89)) ([6195dac](https://github.com/twilio-labs/paste/commit/6195dac))
+* **website:** component header and overview with utilities ([#64](https://github.com/twilio-labs/paste/issues/64)) ([07bf7aa](https://github.com/twilio-labs/paste/commit/07bf7aa))
+* typography polish and Token page ([#43](https://github.com/twilio-labs/paste/issues/43)) ([e27f113](https://github.com/twilio-labs/paste/commit/e27f113))
+* **button:** adding some polish ([#67](https://github.com/twilio-labs/paste/issues/67)) ([2644657](https://github.com/twilio-labs/paste/commit/2644657))
+* **tokens:** correct the box shadow tokens category and type ([#95](https://github.com/twilio-labs/paste/issues/95)) ([fe0f946](https://github.com/twilio-labs/paste/commit/fe0f946))
+* **website:** add button docs ([#51](https://github.com/twilio-labs/paste/issues/51)) ([7ffc6d3](https://github.com/twilio-labs/paste/commit/7ffc6d3))
+* **website:** Anchor doc ([#37](https://github.com/twilio-labs/paste/issues/37)) ([b3deb11](https://github.com/twilio-labs/paste/commit/b3deb11))
+* **website:** change intro copy ([#55](https://github.com/twilio-labs/paste/issues/55)) ([67b3317](https://github.com/twilio-labs/paste/commit/67b3317))
+* **website:** changed p to Text ([#63](https://github.com/twilio-labs/paste/issues/63)) ([05f38ae](https://github.com/twilio-labs/paste/commit/05f38ae))
+* **website:** composable do-dont, add anchor examples ([#81](https://github.com/twilio-labs/paste/issues/81)) ([a799f1b](https://github.com/twilio-labs/paste/commit/a799f1b))
+* **website:** empty state / 404, component overview tweaks ([#46](https://github.com/twilio-labs/paste/issues/46)) ([d9bf17f](https://github.com/twilio-labs/paste/commit/d9bf17f))
+* **website:** fix missing link in anchors page [#60](https://github.com/twilio-labs/paste/issues/60) ([1972aa0](https://github.com/twilio-labs/paste/commit/1972aa0))
+* **website:** import order lint ([2a8ec35](https://github.com/twilio-labs/paste/commit/2a8ec35))
+* **website:** tody up the button and anchor docs ([#84](https://github.com/twilio-labs/paste/issues/84)) ([300a4bf](https://github.com/twilio-labs/paste/commit/300a4bf))
+* **website:** update favicon, add manifest plugin ([#90](https://github.com/twilio-labs/paste/issues/90)) ([b2ee34b](https://github.com/twilio-labs/paste/commit/b2ee34b))
+* **website:** update flex docs links ([#65](https://github.com/twilio-labs/paste/issues/65)) ([d901ba1](https://github.com/twilio-labs/paste/commit/d901ba1))
+
+
+### Features
+
+* **tokens:** Add box-shadow and line-height tokens ([#35](https://github.com/twilio-labs/paste/issues/35)) ([706643b](https://github.com/twilio-labs/paste/commit/706643b))
+* **website:** add theme switcher and theme switching  ([#82](https://github.com/twilio-labs/paste/issues/82)) ([a3b400d](https://github.com/twilio-labs/paste/commit/a3b400d))
+* **website:** gatsby-image and image plugins ([#62](https://github.com/twilio-labs/paste/issues/62)) ([c3e48fd](https://github.com/twilio-labs/paste/commit/c3e48fd))
+* **website:** hyperlink doc site headers ([#88](https://github.com/twilio-labs/paste/issues/88)) ([ed7d2da](https://github.com/twilio-labs/paste/commit/ed7d2da))
+* **website:** site header ([#33](https://github.com/twilio-labs/paste/issues/33)) ([cb044c4](https://github.com/twilio-labs/paste/commit/cb044c4))
+* **website:** website changelogs ([#70](https://github.com/twilio-labs/paste/issues/70)) ([f56cf51](https://github.com/twilio-labs/paste/commit/f56cf51))
+* **website:** website footer ([#38](https://github.com/twilio-labs/paste/issues/38)) ([22cae4c](https://github.com/twilio-labs/paste/commit/22cae4c))
+
+
+
+
+
 # 0.1.0 (2019-08-15)
 
 

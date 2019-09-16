@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@0.2.0...@twilio-paste/button@0.2.1) (2019-09-16)
+
+
+### Bug Fixes
+
+* **button:** adding some polish ([#67](https://github.com/twilio-labs/paste/issues/67)) ([2644657](https://github.com/twilio-labs/paste/commit/2644657))
+* **button:** adjust primary, secondary, desctructive styles ([#72](https://github.com/twilio-labs/paste/issues/72)) ([670faef](https://github.com/twilio-labs/paste/commit/670faef))
+
+
+
+
+
 # 0.2.0 (2019-08-15)
 
 

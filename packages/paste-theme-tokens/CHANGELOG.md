@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-tokens@0.5.0...@twilio-paste/theme-tokens@0.6.0) (2019-09-16)
+
+
+### Bug Fixes
+
+* **tokens:** correct the box shadow tokens category and type ([#95](https://github.com/twilio-labs/paste/issues/95)) ([fe0f946](https://github.com/twilio-labs/paste/commit/fe0f946))
+
+
+### Features
+
+* **tokens:** Add box-shadow and line-height tokens ([#35](https://github.com/twilio-labs/paste/issues/35)) ([706643b](https://github.com/twilio-labs/paste/commit/706643b))
+
+
+
+
+
 # 0.5.0 (2019-08-15)
 
 
