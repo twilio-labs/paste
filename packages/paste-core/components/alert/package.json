@@ -2,5 +2,6 @@
   "name": "@twilio-paste/alert",
   "version": "0.0.1",
   "category": "feedback",
-  "status": "backlog"
+  "status": "backlog",
+  "private": true
 }

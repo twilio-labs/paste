@@ -2,5 +2,6 @@
   "name": "@twilio-paste/breadcrumb",
   "version": "0.0.1",
   "category": "navigation",
-  "status": "backlog"
+  "status": "backlog",
+  "private": true
 }

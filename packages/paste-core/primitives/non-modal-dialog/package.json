@@ -2,5 +2,6 @@
   "name": "@twilio-paste/primitive-non-modal-dialog",
   "version": "0.0.1",
   "category": "overlay",
-  "status": "backlog"
+  "status": "backlog",
+  "private": true
 }

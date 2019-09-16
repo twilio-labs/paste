@@ -2,5 +2,6 @@
   "name": "@twilio-paste/avatar",
   "version": "0.0.1",
   "category": "graphic",
-  "status": "backlog"
+  "status": "backlog",
+  "private": true
 }

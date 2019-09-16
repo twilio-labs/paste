@@ -2,5 +2,6 @@
   "name": "@twilio-paste/badge",
   "version": "0.0.1",
   "category": "data display",
-  "status": "backlog"
+  "status": "backlog",
+  "private": true
 }

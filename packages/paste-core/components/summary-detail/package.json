@@ -2,5 +2,6 @@
   "name": "@twilio-paste/summary-detail",
   "version": "0.0.1",
   "category": "interaction",
-  "status": "backlog"
+  "status": "backlog",
+  "private": true
 }

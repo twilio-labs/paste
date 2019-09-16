@@ -3,6 +3,7 @@
   "version": "0.1.4",
   "category": "user input",
   "status": "backlog",
+  "private": true,
   "description": "",
   "author": "Twilio Inc.",
   "license": "MIT",

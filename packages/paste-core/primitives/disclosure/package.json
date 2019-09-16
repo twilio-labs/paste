@@ -2,5 +2,6 @@
   "name": "@twilio-paste/primitive-disclosure",
   "version": "0.0.1",
   "category": "interaction",
-  "status": "backlog"
+  "status": "backlog",
+  "private": true
 }

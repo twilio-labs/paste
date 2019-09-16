@@ -2,5 +2,6 @@
   "name": "@twilio-paste/page-header",
   "version": "0.0.1",
   "category": "layout",
-  "status": "backlog"
+  "status": "backlog",
+  "private": true
 }
