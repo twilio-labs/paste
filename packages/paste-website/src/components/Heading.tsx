@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Text} from '@twilio-paste/text';
+import {css} from '@emotion/core';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
 import {slugify} from '../utils/RouteUtils';
@@ -69,6 +70,7 @@ export interface HeadingProps {
   as: asTags;
   id?: string;
   headingStyle?: HeadingStyle;
+  tag?: React.ReactNode;
 }
 
 const Heading: React.FC<HeadingProps> = props => {
@@ -94,14 +96,40 @@ const StyledAnchorHyperlink = styled.a`
   }
 `;
 
+const StyledHeaderTag = styled.span`
+  margin-left: ${themeGet('space.space40')};
+  padding: ${themeGet('space.space10')} ${themeGet('space.space20')};
+  font-size: ${themeGet('fontSizes.fontSize20')};
+  font-weight: ${themeGet('fontWeights.fontWeightNormal')};
+  text-transform: uppercase;
+  background-color: ${themeGet('colors.colorGray30')};
+  border-radius: ${themeGet('radii.borderRadius10')};
+`;
+
 const AnchoredHeading: React.FC<HeadingProps> = props => {
   // Only generate slugs for headings where children is 'string'
   if (typeof props.children === 'string') {
     const id = slugify(props.children);
+
+    // get tag prop and add flexStyles if tag prop
+    let flexStyles;
+    let tag = props.tag;
+    if (tag) {
+      flexStyles = `display: flex; align-items: center;`;
+      tag = <StyledHeaderTag>{props.tag}</StyledHeaderTag>;
+    }
+
     return (
-      <Heading {...props} id={id}>
+      <Heading
+        {...props}
+        id={id}
+        css={css`
+          ${flexStyles}
+        `}
+      >
         {props.children}
         <StyledAnchorHyperlink href={`#${id}`}>#</StyledAnchorHyperlink>
+        {tag}
       </Heading>
     );
   }
