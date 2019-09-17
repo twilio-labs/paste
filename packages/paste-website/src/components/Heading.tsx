@@ -113,7 +113,7 @@ const AnchoredHeading: React.FC<HeadingProps> = props => {
 
     // get tag prop and add flexStyles if tag prop
     let flexStyles;
-    let tag = props.tag;
+    let {tag} = props;
     if (tag) {
       flexStyles = `display: flex; align-items: center;`;
       tag = <StyledHeaderTag>{props.tag}</StyledHeaderTag>;
