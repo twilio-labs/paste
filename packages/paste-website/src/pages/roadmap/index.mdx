@@ -1,6 +1,6 @@
 ---
 title: Roadmap
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mollis eu turpis sed semper. Nulla facilisi. Integer dapibus ullamcorper odio ut vestibulum. Duis sit amet eros placerat, ornare nisl eget, tincidunt est.
+description: Here's a glimpse of what is coming up in future releases of Paste. Unless explicitly mentioned, all roadmap dates are tentative and subject to change.
 ---
 
 import {Box} from '@twilio-paste/box';
@@ -14,50 +14,96 @@ import {AnchoredHeading} from '../../components/Heading';
 
 <Box marginTop={60}>
 
-<AnchoredHeading tag="Current Release">Release 0.2</AnchoredHeading>
+<AnchoredHeading tag="Current Release">Release 0.3</AnchoredHeading>
 
-September 17, 2019
+Codenamed *Oh Point Three*. This release is _expected_ to land in the last week of October.
 
-### Features
+### Component Updates
 
-**Codify Internal Design Process**<br/>
-Define standards for project organization, commits, branches, design reviews, kickoffs, and specs.
+**Text &amp; Box Primitive**<br/>
+We'll polish our Text and Box Primitives. Together, these primitive components will be used to build significant amounts of the Paste Design System. Also expect to see guides for how to use them to build your own interfaces in a future release.
 
-**Implement Theme Switcher in Doc Site**<br/>
-Toggle UI to show tokens and components for Console, SendGrid, eventually Flex.
+**paste-core package**<br/>
+We recognize that it can be tedious to install multiple commonly used components across every project you work on. In 0.3, we'll implement `paste-core`, a wrapper component that you can install for common components. Yay for quality of life!
 
-**Define Contribution Model**<br/>
-Top line description about what has been added goes here. Cras ut semper neque, eget fermentum urna. Ut pharetra fermentum lacus, quis commodo sem condimentum sit amet.
+**Heading, Paragraph Components**<br/>
+We'll expand on the Text primitive to build out Heading and Paragraph components.
+
+**Card Component**<br/>
+We're designing and building a unified card component for Paste. This will replace our legacy card soup with a composable card that you can customize for your products.
+
+**Grid Component (Design Preview)**<br/>
+A standard 12-column grid for Paste will drop in 0.3. There's been a few discussions around responsiveness, and to give some clarity:
+
+- This will be a responsive grid layout system
+- All components will be designed to be 100% width to their containers.
+
+_Note:_ Just like accessibility, responsiveness is not an out-of-the-box solution. Consumers of any design system still need to compose their responsive screens based on their unique requirements. We'll provide the layout system and fluid components. Teamwork!
+
+**Flex Component**<br/>
+A layout component that simplifies aligning a single horizontal row of elements. Also has a fondness for protein shakes.
+
+**Paste Utilities**<br/>
+You remember the first time you uploaded a profile picture to AIM and it was skewed out? No, that was just us? Well, the Aspect Ratio utility will drop in this release and give guidance on how to maintain proportions while embedding images, video, media, and live components.
+
+Oh, we'll also ship an Absolute utility for positioning stuff on a page.
+
+**Alert &amp; Toast Components (Design Preview)**<br/>
+We're going to share designs and documentation for our proposal on unified Alert and Toast components. As always, these will be pure UI, and not concerned with any notification engines or product specific code.
+
+### Community &amp; Education Updates
 
 **Document how to use tokens for composition**<br/>
-Guidelines on how tokens can be used to build a component in the doc site.
+Guidelines on how we use Paste Tokens to build a component will be published in the Doc Site. This will enable the _last ditch effort_ for teams that need truly custom experiences but still want to use the Design System for composition.
 
 **Brown Bag Session + Video Record on Abstract**<br/>
-Abstract BBB best practices + FAQ on doc site.
+We'll document questions from the Abstract brown bag session that was hosted by our team, along with the video!
+
+### Process Updates
+
+**Theme Switcher for Paste**<br/>
+We'll polish the theme switching experience for Paste. This means that our implementation of SendGrid and Console themes will be more thorough. 
+
+After this is released, if you see visual or functional issues in the doc site, let us know! It's a sign that we need to fix an underlying Paste component.
+
+**Theme Switcher for Paste**<br/>
+We'll polish the theme switching experience for Paste. This means that our implementation of SendGrid and Console themes will be more thorough. 
 
 </Box>
 <Box marginTop={60}>
 
-## Release 0.3
+## Release 0.4
 
-Around the first week of October.
+Codenamed *that one after Oh Point Three*. This release is _expected_ to land in the third week of November. Thie release is *not locked in*, but here are candidates for the release.
 
-### Features
+- Polish and Document Truncate Component
+- Polish and Document Media object Component
+- Ship our grid component
+- Document accessibility guidelines and principles for Paste and downstream teams
+- Add svg-to-react as "Utility" in Paste Doc Site
+- Build a list Component
+- Design Input and label component 
+- Design a Tab component
+- Build Doc Site Document Outline System
+- Document our approach to writing CSS 
+- Document our approach to building Components
+- Document our approach to systemizing Twilio's Design Language
+- Design a Block Quote Component for Doc Site
+- Cleaning up Tokens in SendGrid
+- Build a Props Table Component for better documentation
+- Document our approach on responsiveness
 
-**Codify Internal Design Process**<br/>
-Define standards for project organization, commits, branches, design reviews, kickoffs, and specs.
+## Release 0.5
 
-**Implement Theme Switcher in Doc Site**<br/>
-Toggle UI to show tokens and components for Console, SendGrid, eventually Flex.
+We are working hard on a unique codename for this release. It is _expected_ to land in the first week of January, 2020. Thie release is *not locked in*, but here are candidates for the release.
 
-**Define Contribution Model**<br/>
-Top line description about what has been added goes here. Cras ut semper neque, eget fermentum urna. Ut pharetra fermentum lacus, quis commodo sem condimentum sit amet.
-
-**Document how to use tokens for composition**<br/>
-Guidelines on how tokens can be used to build a component in the doc site.
-
-**Brown Bag Session + Video Record on Abstract**<br/>
-Abstract BBB best practices + FAQ on doc site.
+- Improvements for visual regression testing on the website, and core features
+- Ship Icon system for the doc site
+- Ship Input and Label components
+- Design a Select Component
+- Design a Form Footer Component
+- Design Checkbox and Radiobutton Components
+- Implement Continuous deployment of paste packages
 
 </Box>
 
