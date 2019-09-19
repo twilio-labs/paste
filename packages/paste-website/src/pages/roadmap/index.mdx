@@ -5,6 +5,7 @@ description: Here's a glimpse of what is coming up in future releases of Paste. 
 
 import {Box} from '@twilio-paste/box';
 import {AnchoredHeading} from '../../components/Heading';
+import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 
 <content>
 
@@ -12,11 +13,13 @@ import {AnchoredHeading} from '../../components/Heading';
 
 <p>{props.pageContext.frontmatter.description}</p>
 
-<Box marginTop={60}>
+<Box marginTop={40}>
 
-<AnchoredHeading tag="Current Release">Release 0.3</AnchoredHeading>
+<AnchoredHeading>Release 0.3</AnchoredHeading>
 
-Codenamed *Oh Point Three*. This release is _expected_ to land in the last week of October.
+<Callout>
+  <CalloutText>Codenamed <strong>Oh! Point Three!</strong> This release is expected to land in the <em>last week of October.</em></CalloutText>
+</Callout>
 
 ### Component Updates
 
@@ -74,7 +77,9 @@ We'll polish the theme switching experience for Paste. This means that our imple
 
 ## Release 0.4
 
-Codenamed *that one after Oh Point Three*. This release is _expected_ to land in the third week of November. Thie release is *not locked in*, but here are candidates for the release.
+<Callout>
+  <CalloutText>Codenamed <strong>that one after Oh! Point Three!</strong> This release is expected to land in the <em>third week of November</em>. This release is *not locked in*, but here are candidates for the release.</CalloutText>
+</Callout>
 
 - Polish and Document Truncate Component
 - Polish and Document Media object Component
@@ -95,7 +100,9 @@ Codenamed *that one after Oh Point Three*. This release is _expected_ to land in
 
 ## Release 0.5
 
-We are working hard on a unique codename for this release. It is _expected_ to land in the first week of January, 2020. Thie release is *not locked in*, but here are candidates for the release.
+<Callout>
+  <CalloutText>We are working hard on a unique codename for this release. This release is expected to land in the <em>first week of January, 2020</em>. This release is *not locked in*, but here are candidates for the release.</CalloutText>
+</Callout>
 
 - Improvements for visual regression testing on the website, and core features
 - Ship Icon system for the doc site
@@ -104,6 +111,10 @@ We are working hard on a unique codename for this release. It is _expected_ to l
 - Design a Form Footer Component
 - Design Checkbox and Radiobutton Components
 - Implement Continuous deployment of paste packages
+
+## Releases in 2020
+
+Coming soon!
 
 </Box>
 
