@@ -7,6 +7,7 @@ import {Absolute} from '@twilio-paste/absolute';
 import {ThemeSwitcher} from '../ThemeSwitcher';
 import GithubIcon from '../icons/GithubIcon';
 import {SIDEBAR_WIDTH, HEADER_HEIGHT} from './constants';
+import {version} from '../../../package.json';
 
 interface FlexProps {
   justifyContent?: string;
@@ -49,7 +50,7 @@ export const SiteHeader: React.FC<{}> = () => {
             <Anchor href="http://www.github.com/twilio-labs/paste/issues">Report a bug</Anchor>
           </Box>
           <Flex>
-            v0.1
+            v{version}
             <Box ml="space30">
               <Anchor href="http://www.github.com/twilio-labs/paste">
                 <GithubIcon

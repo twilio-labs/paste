@@ -42,9 +42,7 @@ module.exports = {
       options: {
         name: 'pages',
         path: `${__dirname}/src/pages`,
-        ignore: [
-          '**/components/**/*',
-        ],
+        ignore: ['**/components/**/*'],
       },
     },
     {
@@ -58,14 +56,8 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'websiteCore',
-        path: `${__dirname}/src/../`,
-        ignore: [
-          '**/.cache/**',
-          '**/public/**',
-          '**/src/**/*',
-          '**/static/**',
-          '**/types/**',
-        ],
+        path: `${__dirname}/`,
+        ignore: ['**/.cache/**', '**/public/**', '**/src/**/*', '**/static/**', '**/types/**'],
       },
     },
     `gatsby-transformer-sharp`,
