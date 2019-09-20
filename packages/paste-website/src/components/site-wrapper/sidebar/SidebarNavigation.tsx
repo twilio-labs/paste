@@ -86,6 +86,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
   const [gettingStartedOpen, setgettingStartedOpen] = React.useState(
     getCurrentPathname().includes(SidebarCategoryRoutes.GETTING_STARTED)
   );
+  const [tokensOpen, setTokensOpen] = React.useState(getCurrentPathname().includes(SidebarCategoryRoutes.TOKENS));
 
   return (
     <SiteNav>
@@ -111,7 +112,21 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavAnchor to="/tokens">Tokens</SiteNavAnchor>
+          <SiteNavButton onClick={() => setTokensOpen(!tokensOpen)} isOpen={tokensOpen}>
+            Design Tokens
+            <SiteNavAnchorArrow isOpen={tokensOpen} />
+          </SiteNavButton>
+          <SiteNavNestList isOpen={tokensOpen}>
+            <SiteNavItem>
+              <SiteNavAnchor to={SidebarCategoryRoutes.TOKENS}>Token list</SiteNavAnchor>
+            </SiteNavItem>
+            <SiteNavItem>
+              <SiteNavAnchor to={`${SidebarCategoryRoutes.TOKENS}/design-tokens-package`}>Tokens package</SiteNavAnchor>
+              <SiteNavItem>
+                <SiteNavAnchor to={`${SidebarCategoryRoutes.TOKENS}/theme-package`}>Theme package</SiteNavAnchor>
+              </SiteNavItem>
+            </SiteNavItem>
+          </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
           <SiteNavButton onClick={() => setComponentsOpen(!componentsOpen)} isOpen={componentsOpen}>

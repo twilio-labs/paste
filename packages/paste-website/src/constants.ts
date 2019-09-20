@@ -10,6 +10,7 @@ export const SidebarCategoryRoutes = {
   PRIMITIVES: '/primitives',
   UTILITIES: '/utilities',
   GETTING_STARTED: '/getting-started',
+  TOKENS: '/tokens',
 };
 
 export const PackageStatus = {

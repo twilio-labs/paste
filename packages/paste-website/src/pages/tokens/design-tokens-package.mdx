@@ -1,0 +1,73 @@
+---
+title: Design Tokens Package
+package: '@twilio-paste/design-tokens'
+description: The Paste design tokens package allows you to install Paste design tokens in a variety of different formats
+---
+
+import {graphql} from 'gatsby';
+import {Box} from '@twilio-paste/box';
+import Changelog from '@twilio-paste/design-tokens/CHANGELOG.md';
+import {SidebarCategoryRoutes} from '../../constants';
+
+export const pageQuery = graphql`
+  {
+    allPasteDesignTokensPackage(filter: {name: {eq: "@twilio-paste/design-tokens"}}) {
+      edges {
+        node {
+          name
+          description
+          version
+        }
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name="Design Tokens package"
+  categoryRoute={SidebarCategoryRoutes.TOKENS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/components/button"
+  data={props.data.allPasteDesignTokensPackage.edges}
+/>
+
+***
+
+<content>
+
+The Paste design tokens are available as an NPM package to download and install the latest design tokens and values from a central source of truth.
+
+Paste currently exports design tokens into different formats to be used in a variety of technology stacks. The formats we currently support are:
+
+- JSON
+- Less
+- Scss
+  - as individual variables
+  - as an scss map
+- CSS custom properties
+- Android xml
+- iOS JSON
+- JavaScript
+  - commonJS
+  - es2015
+- Typescript definitions
+  - commonJS
+  - es2015
+- Sketch palette
+
+A simple way to grab or view the latest files is to visit [https://unpkg.com/browse/@twilio-paste/design-tokens/dist/](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/)
+
+## Themes
+
+Paste supports multiple themes and as such exports the same token formats for each theme. Each file in the root of the design tokens package is re exported for each theme with the corresponding values updated for each token.
+
+You can access the tokens for a given theme by installing the design tokens package and importing the file from the theme folder that you want to use.
+
+You can view the themes we currently support in design tokens at [https://unpkg.com/browse/@twilio-paste/design-tokens/dist/themes/](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/themes/).
+
+***
+
+<Box marginTop={30}>
+  <Changelog />
+</Box>
+
+</content>
