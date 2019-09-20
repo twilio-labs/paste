@@ -1,7 +1,7 @@
 ---
 title: Design Tokens Package
 package: '@twilio-paste/design-tokens'
-description: The Paste design tokens package allows you to install Paste design tokens in a variety of different formats
+description: The Paste design tokens package allows you to install design tokens in a variety of different formats
 ---
 
 import {graphql} from 'gatsby';
@@ -34,9 +34,7 @@ export const pageQuery = graphql`
 
 <content>
 
-The Paste design tokens are available as an NPM package to download and install the latest design tokens and values from a central source of truth.
-
-Paste currently exports design tokens into different formats to be used in a variety of technology stacks. The formats we currently support are:
+The Paste design tokens are available as an NPM package to download and install the latest design tokens and values from a central source of truth. A simple way to grab or view the latest files is to visit [https://unpkg.com/browse/@twilio-paste/design-tokens/dist/](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/). Paste currently exports design tokens into different formats to be used in a variety of technology stacks. The formats we currently support are:
 
 - JSON
 - Less
@@ -54,11 +52,15 @@ Paste currently exports design tokens into different formats to be used in a var
   - es2015
 - Sketch palette
 
-A simple way to grab or view the latest files is to visit [https://unpkg.com/browse/@twilio-paste/design-tokens/dist/](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/)
-
 ## Themes
 
-Paste supports multiple themes and as such exports the same token formats for each theme. Each file in the root of the design tokens package is re exported for each theme with the corresponding values updated for each token.
+Paste supports multiple themes. This is done by exporting the same token formats for each theme. Each file in the root of the design tokens package is exported for each theme with the corresponding values updated for each token. For example:
+
+| Default theme                   | SendGrid theme                  |
+|---------------------------------|---------------------------------|
+| $color-brand-highlight: #F22F46 | $color-brand-highlight: #3368FA |
+
+
 
 You can access the tokens for a given theme by installing the design tokens package and importing the file from the theme folder that you want to use.
 
