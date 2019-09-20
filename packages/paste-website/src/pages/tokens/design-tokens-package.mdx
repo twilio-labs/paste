@@ -34,23 +34,23 @@ export const pageQuery = graphql`
 
 <content>
 
-The Paste design tokens are available as an NPM package to download and install the latest design tokens and values from a central source of truth. A simple way to grab or view the latest files is to visit [https://unpkg.com/browse/@twilio-paste/design-tokens/dist/](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/). Paste currently exports design tokens into different formats to be used in a variety of technology stacks. The formats we currently support are:
+The Paste design tokens are available as an NPM package to download and install the latest design tokens and values from a central source of truth. A simple way to grab or view the latest files is to visit [https://unpkg.com/browse/@twilio-paste/design-tokens/dist/](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/). Tokens are supported for different formats within the NPM package:
 
-- JSON
-- Less
+- [JSON](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.json)
+- [Less](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.less)
 - Scss
-  - as individual variables
-  - as an scss map
-- CSS custom properties
-- Android xml
-- iOS JSON
+  - [as individual variables](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.default.scss)
+  - [as an scss map](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.map.scss)
+- [CSS custom properties](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.custom-properties.css)
+- [Android xml](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.android.xml)
+- [iOS JSON](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.ios.json)
 - JavaScript
-  - commonJS
-  - es2015
+  - [commonJS](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.common.js)
+  - [es2015](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.es6.js)
 - Typescript definitions
-  - commonJS
-  - es2015
-- Sketch palette
+  - [commonJS](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.common.d.ts)
+  - [es2015](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.es6.d.ts)
+- [Sketch palette](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/sketch.sketchpalette)
 
 ## Themes
 
@@ -60,11 +60,10 @@ Paste supports multiple themes. This is done by exporting the same token formats
 |---------------------------------|---------------------------------|
 | $color-brand-highlight: #F22F46 | $color-brand-highlight: #3368FA |
 
+Within themes, we presently have support for:
 
-
-You can access the tokens for a given theme by installing the design tokens package and importing the file from the theme folder that you want to use.
-
-You can view the themes we currently support in design tokens at [https://unpkg.com/browse/@twilio-paste/design-tokens/dist/themes/](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/themes/).
+- [Console](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/)
+- [SendGrid](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/themes/sendgrid/)
 
 ***
 

@@ -7,6 +7,7 @@ description: The Paste Theme Package allows easy and simple access to the design
 import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import Changelog from '@twilio-paste/theme/CHANGELOG.md';
+import {ThemeObjectDisplay} from '../../components/ThemeObjectDisplay.tsx';
 import {SidebarCategoryRoutes} from '../../constants';
 
 export const pageQuery = graphql`
@@ -35,6 +36,20 @@ export const pageQuery = graphql`
 
 <content>
 
+## Theme
+
+Paste components are built using [Emotion](https://emotion.sh/) and [Styled System](https://styled-system.com) and providing a Theme object containing our design tokens. This enables our components to be themed, and also provide styling properties to our some of our design primtive components like `Box` and `Text`. The theme object is grouped by categories and for each category, each key represents a camelCase formatted design token name from the [tokens list](/tokens/).
+
+For examle the `$color-background-success` token would be available on the `backgrounds` key as `colorBackgroundSuccess`.
+
+```
+theme.backgroundColors.colorBackgroundSuccess
+```
+
+The shape of the theme object currently looks like:
+
+<ThemeObjectDisplay />
+
 ## Theme Provider
 
 Paste Components require you to wrap your application in the Paste Theme provider. This supplies Paste components with design token values needed to render each component, and provides a way to access those token values in your custom components.
@@ -50,6 +65,13 @@ import {Theme} from '@twilio-paste/theme';
   ...
 </Theme.Provider>
 ```
+
+### Props
+
+| Prop               | Type     | Description                                                                               | Default           |
+| ------------------ | -------- | ----------------------------------------------------------------------------------------- | ----------------- |
+| theme?             | enum     | 'default',  'sendgrid'                                                                    | 'default'         |
+| customBreakpoints? | string[] | An optional array of string values for custom screen sizes in the usual CSS width formats | theme.breakpoints |
 
 ## Using tokens in custom components
 
