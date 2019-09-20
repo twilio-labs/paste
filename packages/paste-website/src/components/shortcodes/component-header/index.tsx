@@ -6,6 +6,7 @@ import {Breadcrumb, BreadcrumbItem} from '../../breadcrumb';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {P} from '../../Typography';
 import {Heading} from '../../Heading';
+import {getComponentNameFromPackageName} from '../../../utils/RouteUtils';
 
 const ComponentHeaderBasic: React.FC<{
   name: string;
@@ -19,7 +20,7 @@ const ComponentHeaderBasic: React.FC<{
       </BreadcrumbItem>
     </Breadcrumb>
     <Heading as="h1" headingStyle="headingStyle10">
-      {name}
+      {getComponentNameFromPackageName(name)}
     </Heading>
   </>
 );
