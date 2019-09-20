@@ -1,4 +1,4 @@
-import {kebabCase, camelCase, upperFirst} from 'lodash';
+import {kebabCase, startCase, toLower} from 'lodash';
 import {PASTE_PACKAGE_PREFIX} from '../constants';
 
 const hasWindowObject = (): boolean => typeof window !== `undefined` && window.location != null;
@@ -23,9 +23,9 @@ export function getNameFromPackageName(packageName: string): string {
   return packageName.replace(PASTE_PACKAGE_PREFIX, '');
 }
 
-// Returns "AspectRatio" from "@twilio-paste/aspect-ratio"
+// Returns "Aspect Ratio" from "@twilio-paste/aspect-ratio"
 export function getComponentNameFromPackageName(packageName: string): string {
-  return upperFirst(camelCase(packageName.replace(PASTE_PACKAGE_PREFIX, '')));
+  return startCase(toLower(packageName.replace(PASTE_PACKAGE_PREFIX, '')));
 }
 
 // Returns `/components/button` from a category constant and package name
