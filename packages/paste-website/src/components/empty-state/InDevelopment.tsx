@@ -4,7 +4,7 @@ import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Breadcrumb, BreadcrumbItem} from '../breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
-import {getComponentNameFromPackageName} from '../../utils/RouteUtils';
+import {getHumanizedNameFromPackageName} from '../../utils/RouteUtils';
 
 interface InDevelopmentProps {
   type?: 'component' | 'primitive' | 'utility';
@@ -27,7 +27,7 @@ const InDevelopment: React.FC<InDevelopmentProps> = ({type, name}) => {
         color="colorText"
         mb="space90"
       >
-        {getComponentNameFromPackageName(name)}
+        {getHumanizedNameFromPackageName(name)}
       </Text>
       <Box>
         <Text>This {type} is in active development, but we haven&apos;t gotten to the docs yet.</Text>

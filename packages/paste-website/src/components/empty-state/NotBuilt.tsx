@@ -4,7 +4,7 @@ import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Breadcrumb, BreadcrumbItem} from '../breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
-import {getComponentNameFromPackageName} from '../../utils/RouteUtils';
+import {getHumanizedNameFromPackageName} from '../../utils/RouteUtils';
 
 interface NotBuiltProps {
   type?: 'component' | 'primitive' | 'utility';
@@ -27,7 +27,7 @@ const NotBuilt: React.FC<NotBuiltProps> = ({type, name}) => {
         color="colorText"
         mb="space90"
       >
-        {getComponentNameFromPackageName(name)}
+        {getHumanizedNameFromPackageName(name)}
       </Text>
       <Box>
         <Text>

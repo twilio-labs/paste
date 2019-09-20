@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Link} from 'gatsby';
 import {Table, Thead, Tbody, Tr, Th, Td} from '../table';
 import {SidebarCategoryRoutes, PackageStatus} from '../../constants';
-import {getPackagePath, getComponentNameFromPackageName} from '../../utils/RouteUtils';
+import {getPackagePath, getHumanizedNameFromPackageName} from '../../utils/RouteUtils';
 
 interface ComponentNode {
   node: {
@@ -46,7 +46,7 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({category
           return (
             <Tr key={node.name}>
               <Td>
-                <Link to={getPackagePath(categoryRoute, node.name)}>{getComponentNameFromPackageName(node.name)}</Link>
+                <Link to={getPackagePath(categoryRoute, node.name)}>{getHumanizedNameFromPackageName(node.name)}</Link>
               </Td>
               <Td>{node.status}</Td>
               <Td>{node.version}</Td>
@@ -57,7 +57,7 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({category
           return (
             <Tr key={node.name}>
               <Td>
-                <Link to={getPackagePath(categoryRoute, node.name)}>{getComponentNameFromPackageName(node.name)}</Link>
+                <Link to={getPackagePath(categoryRoute, node.name)}>{getHumanizedNameFromPackageName(node.name)}</Link>
               </Td>
               <Td>{node.status}</Td>
               <Td />

@@ -24,7 +24,7 @@ export function getNameFromPackageName(packageName: string): string {
 }
 
 // Returns "Aspect Ratio" from "@twilio-paste/aspect-ratio"
-export function getComponentNameFromPackageName(packageName: string): string {
+export function getHumanizedNameFromPackageName(packageName: string): string {
   return startCase(toLower(packageName.replace(PASTE_PACKAGE_PREFIX, '')));
 }
 
