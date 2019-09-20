@@ -18,9 +18,11 @@ describe('es6Formatter', () => {
         },
       })
       .then((es6JS: string) => {
-        expect(es6JS).toMatchSnapshot();
-        return true;
+        return expect(es6JS).toMatchSnapshot();
       })
-      .catch((error: string) => console.log(`Something went wrong: ${error}`));
+      .catch((error: string) => {
+        console.log(`Something  went wrong: ${error}`);
+        throw new Error('[es6Formatter test]: should return es6 formatted tokens');
+      });
   });
 });
