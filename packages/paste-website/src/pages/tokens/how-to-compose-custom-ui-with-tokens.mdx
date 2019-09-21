@@ -1,0 +1,136 @@
+---
+title: How to compose custom UI with tokens
+description: You may encounter times where you are required to build an experience that isn't covered by out of the box Paste components. This guide aims to help you create custom experiences whilst still using the design system.
+---
+
+import {graphql} from 'gatsby';
+import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<p>{props.pageContext.frontmatter.description}</p>
+
+</content>
+
+***
+
+<content>
+
+Paste will never aim to cover every experience that Twilio ships to customers, it will make our very small but mighty team an incredible bottle neck to you doing your job and we don't want that to happen. We also fully expect that there will be certain, very product specific experiences for certain user personas that would make no sense as generic components or design patterns that can apply to all product verticals. With that in mind we have hopefully devised some ways that will help you and your team to meet your deliverables whilst still being able to use assets from the design system.
+
+## The happy path
+
+Obviously the first option is to work with your design partner and identify all the existing Paste components that can be used to create the experience. If you are struggling or have quesitons come to Design System Office Hours or post in the #help-design-system slack, we'll get you back on track.
+
+If it absolutely doesn't exist in Paste, then the first option is to use our Design Primitive Components.
+
+## Design Primitive Components
+
+Design Primitive Components are React components that expose style properties using [Styled-System](https://www.styled-system.com). These style properties are typed React props that only expose design tokens for each of the categories that are included on the [theme object](theme-package#theme), from the [theme package](theme-package).
+
+We use these internally to create almost every component in Paste, and provide an incredible number of combinations of design tokens to create new things that will look exactly like a pre-built Paste component. It will also provide support for each theme that Paste offers out of the box, and an free upgrade path if we evolve the design language via token updates.
+
+Each Design Primitive is an Emotion Styled Component, that creates an encapsulated style for each of your custom components that will never clash with another teams work.
+
+### Box
+
+The Box component is designed to be a block level utility, you can think of it as a super `div`. By exposing the `as` prop any box can become any valid HTML element, but obviously the sensible choices would be box or block style things. It exposes box like styling properties like background color, padding, margin, border styles to allow you to create custom block level containers. The values the styling properties take are the names of the design tokens exposed on the theme object.
+
+You can compose any number of Boxes together to create new UI components.
+
+<LivePreview scope={{Box}} language="jsx">
+  {`<Box
+  as="article"
+  backgroundColor="colorBackgroundBody"
+  padding="space60"
+>
+  <Box
+    backgroundColor="colorBackgroundSuccessLightest"
+    display="inline-block"
+    padding="space40"
+  >
+    Some child elements
+  </Box>
+  <Box
+    backgroundColor="colorBackgroundPrimaryLight"
+    display="inline-block"
+    padding="space40"
+  >
+    Some child elements
+  </Box>
+</Box>`}
+</LivePreview>
+
+
+### Text
+
+The text component is designed to be a general purpose text utilty. It too exposes the `as` prop to allow it to be transformed into any valid HTML element and comes with a number of text styling properties such as font-size, text color, weight and line height to allow you to create text styles that should match the design system.
+
+<LivePreview scope={{Box, Text}} language="jsx">
+  {`<Box padding="space20">
+  <Text as="p" marginBottom="space40">Some text</Text>
+  <Text as="h1" fontSize="fontSize70" fontWeight="fontWeightMedium" lineHeight="lineHeight70" mb="space80">Custom heading</Text>
+  <Text as="ul" ml="space60">
+    <Text as="li" fontSize="fontSize30">Custom list item</Text>
+    <Text as="li" fontSize="fontSize30">Custom list item</Text>
+  </Text>
+  <Text as="p" textColor="colorTextError" fontSize="fontSize20" fontWeight="fontWeightBold">Custom Error Message</Text>
+</Box>`}
+</LivePreview>
+
+### Compositions
+
+You can use combinations of Box and Text to create custom compositions utilizing the design token values from the system. This should mean that your custom components should look like that are part of the same design language as the rest of the application. These automatically respond to the theme that the provider has set, try the theme switcher in the site header to see how these Design Primitive components respond to switching the theme used.
+
+<LivePreview scope={{Box, Text}} language="jsx">
+  {`<Box padding="space20">
+  <Box
+    as="article"
+    backgroundColor="colorBackgroundBody"
+    borderBottomLeftRadius="borderRadius30"
+    borderBottomRightRadius="borderRadius30"
+    borderWidth="borderWidth0"
+    borderTopWidth="borderWidth20"
+    borderStyle="solid"
+    borderColor="colorBorderPrimary"
+    mb="space60"
+    px="space80"
+    py="space60"
+  >
+    <Text as="h2" fontSize="fontSize50" fontWeight="fontWeightMedium" mb="space40">
+      Custom Card Heading
+    </Text>
+    <Text as="p">
+      Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas faucibus mollis interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla.
+    </Text>
+  </Box>
+  <Box
+    role="alert"
+    backgroundColor="colorBackgroundErrorLightest"
+    borderRadius="borderRadius20"
+    borderWidth="borderWidth10"
+    borderStyle="solid"
+    borderColor="colorBorderError"
+    px="space40"
+    py="space30"
+  >
+    <Text fontWeight="fontWeightMedium" textColor="colorTextError">
+      Custom inline alert message
+    </Text>
+  </Box>
+</Box>`}
+</LivePreview>
+
+## Other alternatives to Design Primitives
+
+If you choose to not use the design primitive components directly, there are a couple of options for you. Firstly you can check out the options provided by the [theme package](theme-package). This package showcases ways you can harness design tokens in React in a few different ways, including styled components, a theme hook and a higher order component.
+
+### Not using React
+
+If you aren't even using react, you can hop over to the [design token package](token-package) page. The design token package distributes the tokens and their values via NPM in a variety of different formats, for a bunch of different technologies. There really isn't any excuse to creating your new experiences and not using the design language provided by Paste.
+
+
+</content>

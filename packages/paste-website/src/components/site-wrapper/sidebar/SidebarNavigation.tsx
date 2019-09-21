@@ -121,10 +121,15 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
               <SiteNavAnchor to={SidebarCategoryRoutes.TOKENS}>Token list</SiteNavAnchor>
             </SiteNavItem>
             <SiteNavItem>
+              <SiteNavAnchor to={`${SidebarCategoryRoutes.TOKENS}/how-to-compose-custom-ui-with-tokens`}>
+                How to compose custom UI with tokens
+              </SiteNavAnchor>
+            </SiteNavItem>
+            <SiteNavItem>
               <SiteNavAnchor to={`${SidebarCategoryRoutes.TOKENS}/design-tokens-package`}>Tokens package</SiteNavAnchor>
-              <SiteNavItem>
-                <SiteNavAnchor to={`${SidebarCategoryRoutes.TOKENS}/theme-package`}>Theme package</SiteNavAnchor>
-              </SiteNavItem>
+            </SiteNavItem>
+            <SiteNavItem>
+              <SiteNavAnchor to={`${SidebarCategoryRoutes.TOKENS}/theme-package`}>Theme package</SiteNavAnchor>
             </SiteNavItem>
           </SiteNavNestList>
         </SiteNavItem>
