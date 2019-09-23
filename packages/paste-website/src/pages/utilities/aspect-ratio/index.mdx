@@ -1,0 +1,161 @@
+---
+title: Aspect Ratio - Utilities
+package: '@twilio-paste/aspect-ratio'
+description: The Aspect Ratio utility is used to embed images, video, media, components, or other HTML elements. It prevents skewing, cropping, etc.
+---
+
+import {graphql} from 'gatsby';
+import Img from 'gatsby-image';
+import {Anchor} from '@twilio-paste/anchor';
+import {Absolute} from '@twilio-paste/absolute';
+import {AspectRatio} from '@twilio-paste/aspect-ratio';
+import {Box} from '@twilio-paste/box';
+import Changelog from '@twilio-paste/aspect-ratio/CHANGELOG.md';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {SidebarCategoryRoutes} from '../../../constants';
+
+export const pageQuery = graphql`
+  {
+    allPasteUtility(filter: {name: {eq: "@twilio-paste/aspect-ratio"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/anchor-dont-1@4x.png"}) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name="Aspect Ratio"
+  categoryRoute={SidebarCategoryRoutes.UTILITIES}
+  githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/utilities/aspect-ratio"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/utilities-aspect-ratio--default"
+  data={props.data.allPasteUtility.edges}
+/>
+
+***
+
+<content>
+
+## Guidelines
+
+### About Aspect Ratio
+
+The Aspect Ratio component dynamically modifies the height of an element based on its
+current width to match a height-to-width ratio. For example, a 4:3 ratio would make
+an element with a width of 400px have a height of 300px. This updates in real time
+when you resize the screen.
+
+### Accessibility Information
+
+When using Aspect Ratio, be considerate of small devices, for example changing the ratio
+at different breakpoints.
+
+## Composition Notes
+
+Aspect Ratio must contain at least one child element. Absolute elements may be used,
+as well as 100% width elements since Aspect Ratio is 100% width by default.
+
+### When to use Aspect Ratio
+
+Aspect Ratio can be used to embed images and videos.
+
+Use Aspect Ratio to make sure images and videos are scaled correctly on
+displays of various sizes. For example, you can use Aspect Ratio when a
+customer needs to see a preview of an uploaded document.
+
+Aspect Ratio can also be used to embed components, or other HTML elements that
+needs to be set to a specific height-to-width ratio. A component or other HTML
+element use case is the need to align an HTML element with an image in two columns.
+See examples.
+
+Another use case is for color swatches on a documentation site. These color swatches
+could be a specific height/width div that need to resize on specific devices.
+Aspect Ratio will allow the color swatches to resize correctly based on a ratio.
+
+<DoDont>
+  <Do title="Do" body="Use for an image or embedded video, and have it resize at a specific ratio." preview={false} />
+  <Dont title="Don't" body="Don’t use with fixed size (width & height) elements, as those will not adhere to the height-to-width ratio." preview={false} />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use to embed a component or other HTML element." preview={false} />
+  <Dont title="Don't" body="Don’t use without any child elements, because this is only a container element." preview={false} />
+</DoDont>
+
+### Examples
+
+Color swatch use case:
+
+<LivePreview scope={{Absolute, AspectRatio, Box}} language="jsx">
+  {`<Box
+      padding="space30"
+      maxWidth="size40"
+      borderColor="colorBorderLight"
+      borderStyle="solid"
+      borderWidth="borderWidth10"
+    >
+      <AspectRatio ratio="4:3">
+        <Absolute backgroundColor="colorBackgroundBrand" />
+      </AspectRatio>
+    </Box>`}
+</LivePreview>
+
+### Anatomy
+
+No tokens are used.
+
+</content>
+
+***
+
+<content>
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/anchor
+```
+
+#### Usage
+
+```js
+import {AspectRatio} from '@twilio-paste/aspect-ratio';
+
+<AspectRatio ratio="4:3">
+  ... Embedded element
+</AspectRatio>
+```
+
+#### Storybook
+
+[View Aspect Ratio in Storybook](https://twilio-labs.github.io/paste/?path=/story/utilities-aspect-ratio--default)
+
+
+#### Props
+
+| Prop           | Type                  | Description                                                                                                              | Default   |
+| -------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------ | --------- |
+| ratio?         | string                | Determines the aspect ratio of the element. Use a colon separated number pattern (width:height). Required                | 4:3       |
+
+<Box marginTop={30}>
+  <Changelog />
+</Box>
+
+</content>
