@@ -98,6 +98,7 @@ const AnchoredHeading: React.FC<HeadingProps> = props => {
   // Only generate slugs for headings where children is 'string'
   if (typeof props.children === 'string') {
     const id = slugify(props.children);
+
     return (
       <Heading {...props} id={id}>
         {props.children}
