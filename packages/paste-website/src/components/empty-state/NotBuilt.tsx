@@ -2,9 +2,9 @@ import * as React from 'react';
 import {Anchor} from '@twilio-paste/anchor';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
-import {capitalize} from 'lodash';
 import {Breadcrumb, BreadcrumbItem} from '../breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
+import {getHumanizedNameFromPackageName} from '../../utils/RouteUtils';
 
 interface NotBuiltProps {
   type?: 'component' | 'primitive' | 'utility';
@@ -27,7 +27,7 @@ const NotBuilt: React.FC<NotBuiltProps> = ({type, name}) => {
         color="colorText"
         mb="space90"
       >
-        {capitalize(name)}
+        {getHumanizedNameFromPackageName(name)}
       </Text>
       <Box>
         <Text>
