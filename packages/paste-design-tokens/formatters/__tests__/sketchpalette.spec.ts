@@ -18,9 +18,11 @@ describe('sketchPaletteTokenFormatter', () => {
         },
       })
       .then((sketchPalette: string) => {
-        expect(sketchPalette).toMatchSnapshot();
-        return true;
+        return expect(sketchPalette).toMatchSnapshot();
       })
-      .catch((error: string) => console.log(`Something went wrong: ${error}`));
+      .catch((error: string) => {
+        console.log(`Something  went wrong: ${error}`);
+        throw new Error('[sketchpalette test]: should return sketch palette color formatted tokens threw');
+      });
   });
 });

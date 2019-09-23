@@ -43,6 +43,7 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "skipLibCheck": true,
+    "resolveJsonModule": true,
     "typeRoots": ["node_modules/@types", "./types/index.d.ts"]
   },
   "exclude": ["node_modules", "docs", "stories", "__tests__", "dist"]

@@ -39,6 +39,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.15",
     "@emotion/styled": "^10.0.15",
+    "emotion": "^10.0.17",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-uid": "^2.2.0",
@@ -97,6 +98,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-unicorn": "^9.1.1",
+    "git-branch-is": "^3.0.0",
     "husky": "^3.0.0",
     "jest": "^24.8.0",
     "jest-emotion": "^10.0.14",
@@ -114,8 +116,8 @@
   "husky": {
     "hooks": {
       "pre-commit": "precise-commits",
-      "pre-push": "yarn pre-push",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "if git-branch-is master; then yarn pre-push; fi"
     }
   },
   "engines": {
