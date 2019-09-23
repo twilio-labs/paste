@@ -58,8 +58,8 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               View Components
             </Button>
           </Box>
-          <Button as="a" href="/migrate" size="default" variant="secondary">
-            Migration Guide
+          <Button as="a" href="/roadmap" size="default" variant="secondary">
+            Roadmap
           </Button>
         </Box>
         <Callout>
