@@ -12,7 +12,6 @@ import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
 import Changelog from '@twilio-paste/aspect-ratio/CHANGELOG.md';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
 
 export const pageQuery = graphql`
@@ -97,20 +96,31 @@ Aspect Ratio will allow the color swatches to resize correctly based on a ratio.
 
 ### Examples
 
-Color swatch use case:
+**Image and embedded component use case:**<br/>
+(Using an Anchor component do/don't for this example).
+
+<DoDont>
+  <Do title="Do" body="Anchors should only be used to link to another page, app, or another website." center>
+    <Anchor href="https://paste.twilio.design">Go to API documentation</Anchor>
+  </Do>
+  <Dont title="Don't" body="Don’t use an anchor where a button makes more sense, i.e., closing a modal.">
+    <Img fluid={props.data.file.childImageSharp.fluid} />
+  </Dont>
+</DoDont>
+
+**Color swatch use case:**
 
 <LivePreview scope={{Absolute, AspectRatio, Box}} language="jsx">
   {`<Box
-      padding="space30"
-      maxWidth="size40"
-      borderColor="colorBorderLight"
-      borderStyle="solid"
-      borderWidth="borderWidth10"
-    >
-      <AspectRatio ratio="4:3">
-        <Absolute backgroundColor="colorBackgroundBrand" />
-      </AspectRatio>
-    </Box>`}
+  padding="space30"
+  borderColor="colorBorderLight"
+  borderStyle="solid"
+  borderWidth="borderWidth10"
+>
+  <AspectRatio ratio="4:3">
+    <Absolute backgroundColor="colorBackgroundBrand" />
+  </AspectRatio>
+</Box>`}
 </LivePreview>
 
 ### Anatomy
