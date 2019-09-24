@@ -17,7 +17,7 @@ async function runCmd(cmd, args = [], options = {}) {
 }
 
 // Takes a shell commands output and gets the JSON from stdout safely
-async function getJsonFromCmdResults(result) {
+function getJsonFromCmdResults(result) {
   if (result == null || result.stdout == null || result.stdout === '') {
     throw new Error(`Invalid result passed to processCmdJsonOutput.  Provided: ${JSON.stringify(result)}`);
   }
