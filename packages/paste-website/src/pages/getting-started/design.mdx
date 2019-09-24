@@ -48,7 +48,7 @@ However, this release is not:
 
 ### Basic Terminology
 
-If you’re unfamiliar with Abstract, version control, or git workflows, read through <a href="https://www.goabstract.com/how-it-works/">how it works</a>. Abstract assumes you have working knowledge of version control since they use version control terms. Brushing up on these would be a good first step.
+If you’re unfamiliar with Abstract, version control, or git workflows, read through <a href="https://www.goabstract.com/how-it-works/">how it works</a>. Since Abstract uses version control terms, brushing up on these would be a good first step.
 
 *Some terms you'll encounter:*
 
@@ -62,7 +62,9 @@ If you’re unfamiliar with Abstract, version control, or git workflows, read th
 
 - *Merge*: The way you combine your branch with the Master files
 
-- *Merge conflict*: This happens when there’s a conflicting version of an artboard with the Master and a branch. Abstract will walk you through which artboards are conflicting so you can choose what you want to appear in Master. The best way to avoid these conflicts would be to plan out and split up the work between your collaborators before making the changes. You can also split up your Sketch files into more granular pieces (*e.g.*, split a Sketch library and product feature work into separate files). Merge conflicts can prevent you from overriding work unintentionally, but can’t tell you which change is the “right” one.
+- *Merge conflict*: This happens when there’s a conflicting version of an artboard with the Master and a branch. Abstract will walk you through which artboards are conflicting so you can choose what you want to appear in Master. To avoid these conflicts, we recommend:
+  - Planning out and splitting up the work between your collaborators before making the changes. Merge conflicts can prevent you from overriding work unintentionally, but can’t tell you which change is the “right” one.
+  - Splitting up your Sketch files into more granular pieces (*e.g.*, split a Sketch library and product feature work into separate files).
 
 - *Paste*: _This_ design system
 
@@ -91,16 +93,26 @@ If you’re unfamiliar with Abstract, version control, or git workflows, read th
 
 <Callout>
   <CalloutTitle as="h4">Do a quick font check!</CalloutTitle>    
-  <CalloutText>Now is a good time to test your fonts to ensure that the components look right! In Abstract, go to the DesignOps project and open "Font tester.sketch" in untracked mode. Use the Font Tester artboard to make sure your font files have been installed correctly. </CalloutText>
+  <CalloutText>Now is a good time to test your fonts to ensure that the components look right! In Abstract, go to the DesignOps project and open
+    <Anchor href="https://share.goabstract.com/c33c9dd8-5b0a-48a3-ab56-83a6fdffa869?sha=9a058708bfc5c9f741f3e62195e18e2cdc6ba329">
+      Font tester.sketch
+    </Anchor>
+     in untracked mode. Use the Font Tester artboard to make sure your font files have been installed correctly.</CalloutText>
 </Callout>
 
 You’re all set to work with Abstract and the Paste Sketch Libraries!
 
 ### Your First Commit in Abstract
 
+A commit is the way you save your work so it’s publicly viewable to the rest of the team. Any changes you make before you commit are saved locally to your computer and only viewable by you.
+
+Committing is like saving a snapshot of your work. You can always revert your work back to previous commits when you need to, so get comfortable deleting explorations of work! If you commit before and after you delete a bunch of explorations, you’ll be able to find those explorations in the future. More importantly, your files will be easier to grok for anyone who’s looking for the latest version of the work.
+
+How often you might commit depends on the scope of your project. If the scope is to do an icon color change or a typo fix, you might commit for that change only and close out the branch and project. If the scope is much larger (like creating a new component or laying out a sign-up flow), then commits might bundle more changes together. In general, **Always Be Committing!**
+
 1. To start work in any project, you’ll create a branch. A branch is a copy of the Master file that lets you make any changes without affecting the rest of the team’s work.
 
-To create a branch, click *Master* in the left sidebar and then click *New Branch…* in the upper right.
+   To create a branch, click *Master* in the left sidebar and then click *New Branch…* in the upper right.
 
 <Callout variant="warning">
   <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>  
@@ -121,18 +133,11 @@ For example:
 
 3. To start working in Sketch, return to Files and double-click on a Sketch file.
 
-4. Once you’ve made changes, you’ll commit your work. It does not affect the Master branch. **Always Be Committing!**
+4. Once you’ve made changes, you’ll commit your work. It does not affect the Master branch.
 
-**Changes in Abstract are tracked per artboard.** If you don’t want to lose track of an Abstract comment thread on an artboard, make sure you don’t delete it (even if you rename another artboard with the same name), or don’t copy-and-paste it and start working off the duplicate.
+   **Changes in Abstract are tracked per artboard.** If you don’t want to lose track of an Abstract comment thread on an artboard, make sure you don’t delete it (even if you rename another artboard with the same name), or don’t copy-and-paste it and start working off the duplicate.
 
-<Callout>
-  <CalloutTitle as="h4">What's a Commit?</CalloutTitle>
-  <CalloutText>A commit is the way you save your work so it’s publicly viewable to the rest of the team. Any changes you make before you commit are saved locally to your computer and only viewable by you.</CalloutText> 
-  <CalloutText marginTop="space40">Committing is like saving a snapshot of your work, so you can revert your work back to previous commits when you need to. So get comfortable deleting explorations of work! If you commit before and after you delete a bunch of explorations, you’ll be able to find those explorations in the future. More importantly, your files will be easier to grok for anyone who’s looking for the latest version of the work.</CalloutText>
-  <CalloutText marginTop="space40">How often you might commit depends on the scope of your project. If the scope is to do an icon color change or a typo fix, you might commit for that change only and close out the branch and project. If the scope is much larger (like creating a new component or laying out a sign-up flow), then commits might bundle more changes together.</CalloutText>
-</Callout>
-
-To commit, click *Commit Changes* on the Abstract plugin in Sketch. When working on design system projects, please follow our commit message conventions below.
+   To commit, click *Commit Changes* on the Abstract plugin in Sketch. When working on design system projects, please follow our commit message conventions below.
 
 ### Commit Message Conventions
 
