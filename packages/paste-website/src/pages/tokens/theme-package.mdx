@@ -38,9 +38,9 @@ export const pageQuery = graphql`
 
 ## Theme
 
-Paste components are built using [Emotion](https://emotion.sh/) and [Styled System](https://styled-system.com) and providing a Theme object containing our design tokens. This enables our components to be themed, and also provide styling properties to our some of our design primtive components like `Box` and `Text`. The theme object is grouped by categories and for each category, each key represents a camelCase formatted design token name from the [tokens list](/tokens/).
+Paste components are built using [Emotion](https://emotion.sh/) and [Styled System](https://styled-system.com) and provide a Theme object containing our design tokens. This enables our components to be themed, and also provide styling properties to our some of our design primtive components like `Box` and `Text`. The theme object is grouped by categories and for each category, each key represents a camelCase formatted design token name from the [tokens list](/tokens/).
 
-For examle the `$color-background-success` token would be available on the `backgrounds` key as `colorBackgroundSuccess`.
+For example the `$color-background-success` token would be available on the `backgroundColors` key as `colorBackgroundSuccess`.
 
 ```
 theme.backgroundColors.colorBackgroundSuccess
@@ -139,7 +139,7 @@ const ExampleComponentwithTheme = withTheme(ExampleComponent);
 
 ***
 
-<Box marginTop={30}>
+<Box marginTop="space90">
   <Changelog />
 </Box>
 

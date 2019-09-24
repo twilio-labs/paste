@@ -1,6 +1,6 @@
 ---
 title: How to compose custom UI with tokens
-description: You may encounter times where you are required to build an experience that isn't covered by out of the box Paste components. This guide aims to help you create custom experiences whilst still using the design system.
+description: You may encounter times where you are required to build an experience that isn't covered by out of the box Paste components. This guide aims to help you create custom experiences while still using the design system.
 ---
 
 import {graphql} from 'gatsby';
@@ -19,11 +19,11 @@ import {Text} from '@twilio-paste/text';
 
 <content>
 
-Paste will never aim to cover every experience that Twilio ships to customers, it will make our very small but mighty team an incredible bottle neck to you doing your job and we don't want that. We also fully expect that there will be certain, very product specific experiences that would make little sense as generic components or design patterns that can be used in any product vertical. With that in mind we have hopefully devised some ways that will help you and your team ship your products whilst still being able to use assets from the design system.
+Paste will never aim to cover every experience that Twilio ships to customers, it will make our very small but mighty team an incredible bottle neck to you doing your job and we don't want that. We also fully expect that there will be certain, very product specific experiences that would make little sense as generic components or design patterns that can be used in any product vertical. With that in mind we have hopefully devised some ways that will help you and your team ship your products while still being able to use assets from the design system.
 
 ## The happy path
 
-Obviously the first option is to work with your design partner and identify all the existing Paste components that can be used to create the experience. If you are struggling or have quesitons come to Design System Office Hours or post in the #help-design-system slack channel, we'll get you back on track.
+Obviously the first option is to work with your design partner and identify all the existing Paste components that can be used to create the experience. If you are struggling or have questions come to Design System Office Hours or post in the #help-design-system slack channel, we'll get you back on track.
 
 If it absolutely doesn't exist in Paste then the first option is to use our Design Primitive Components.
 
@@ -33,7 +33,7 @@ Design Primitive Components are React components that expose style properties us
 
 We use these components internally to create almost everything in Paste. When used, they provide an incredible number of different combinations of design tokens that can be used to create new, unique things that will look exactly like they came directly from Paste. They also provide support for the themes that Paste offers out of the box and a free upgrade path to any new design language updates in the future. Your custom components will never be left behind.
 
-Each Design Primitive is an Emotion Styled Component that creates styles that are encapsulated to component. This way you can style your custom components with the confidence that your styles should never clash with another teams work.
+Each Design Primitive is an [Emotion Styled Component](https://emotion.sh/docs/styled) that creates styles that are encapsulated to component. This way you can style your custom components with the confidence that your styles should never clash with another teams work.
 
 ### Box
 
@@ -67,7 +67,7 @@ You can compose any number of Boxes together to create new UI components. Here's
 
 ### Text
 
-The text component is designed to be a general purpose text utilty. It too exposes the `as` prop to allow it to be transformed into any valid HTML element and comes with a number of text styling properties. These properties include font-size, text color, weight and line height and allow you to create text styles that should match the design system.
+The text component is designed to be a general purpose text utility. It too exposes the `as` prop to allow it to be transformed into any valid HTML element and comes with a number of text styling properties. These properties include font-size, text color, weight and line height, allowing you to create text styles that should match the design system.
 
 <LivePreview scope={{Box, Text}} language="jsx">
   {`<Box padding="space20">
@@ -83,7 +83,7 @@ The text component is designed to be a general purpose text utilty. It too expos
 
 ### Compositions
 
-You can use combinations of Box and Text to create custom compositions, utilizing the design token values from Paste. This should mean that your custom components should look like that are part of the same design language as the rest of the application. These automatically respond to the theme that the provider has set, try the theme switcher in the site header to see how the examples below respond to switching the theme.
+You can use combinations of Box and Text to create custom compositions utilizing the design token values from Paste. This should mean that your custom components should look like that are part of the same design language as the rest of the application. These automatically respond to the theme that the provider has set, try the theme switcher in the site header to see how the examples below respond to switching the theme.
 
 <LivePreview scope={{Box, Text}} language="jsx">
   {`<Box padding="space20">

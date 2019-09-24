@@ -34,7 +34,7 @@ export const pageQuery = graphql`
 
 <content>
 
-The Paste design tokens are available as an NPM package to download and install the latest design tokens and values from a central source of truth. A simple way to grab or view the latest files is to visit [https://unpkg.com/browse/@twilio-paste/design-tokens/dist/](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/). Tokens are supported for different formats within the NPM package:
+The Paste design tokens are available as an NPM package which acts as the central source of truth. A simple way to grab or view the latest files is to visit [https://unpkg.com/browse/@twilio-paste/design-tokens/dist/](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/). Tokens are supported for different formats within the NPM package:
 
 - [JSON](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.json)
 - [Less](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.less)
@@ -59,6 +59,7 @@ Paste supports multiple themes. This is done by exporting the same token formats
 | Default theme                   | SendGrid theme                  |
 |---------------------------------|---------------------------------|
 | $color-brand-highlight: #F22F46 | $color-brand-highlight: #3368FA |
+| $font-size-70: 1.5rem           | $font-size-70: 1.75rem          |
 
 Within themes, we presently have support for:
 
@@ -67,7 +68,7 @@ Within themes, we presently have support for:
 
 ***
 
-<Box marginTop={30}>
+<Box marginTop="space90">
   <Changelog />
 </Box>
 

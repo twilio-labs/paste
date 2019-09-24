@@ -126,7 +126,9 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
               </SiteNavAnchor>
             </SiteNavItem>
             <SiteNavItem>
-              <SiteNavAnchor to={`${SidebarCategoryRoutes.TOKENS}/design-tokens-package`}>Tokens package</SiteNavAnchor>
+              <SiteNavAnchor to={`${SidebarCategoryRoutes.TOKENS}/design-tokens-package`}>
+                Design Tokens package
+              </SiteNavAnchor>
             </SiteNavItem>
             <SiteNavItem>
               <SiteNavAnchor to={`${SidebarCategoryRoutes.TOKENS}/theme-package`}>Theme package</SiteNavAnchor>
