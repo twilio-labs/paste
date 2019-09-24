@@ -5,6 +5,7 @@ description: The Aspect Ratio utility is used to embed images, video, media, com
 ---
 
 import {graphql} from 'gatsby';
+import {Link} from 'gatsby';
 import Img from 'gatsby-image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Absolute} from '@twilio-paste/absolute';
@@ -59,13 +60,14 @@ when you resize the screen.
 
 ### Accessibility Information
 
-When using Aspect Ratio, be considerate of small devices, for example changing the ratio
-at different breakpoints.
+Be considerate of smaller devices when using this component. If necessary, you can
+modify the aspect ratio property at certain media query breakpoints.
 
 ## Composition Notes
 
-Aspect Ratio must contain at least one child element. Absolute elements may be used,
-as well as 100% width elements since Aspect Ratio is 100% width by default.
+Aspect Ratio must contain exactly one child element. The child element should be sized
+fully to the Aspect Ratio bounding box so that it resizes correctly. One way of achieving
+this is through the <Link to="/utilities/absolute">Absolute</Link> component.
 
 ### When to use Aspect Ratio
 
@@ -96,8 +98,7 @@ Aspect Ratio will allow the color swatches to resize correctly based on a ratio.
 
 ### Examples
 
-**Image and embedded component use case:**<br/>
-(Using an Anchor component do/don't for this example).
+**Image and embedded <Link to="/components/anchor">Anchor</Link> component use case:**<br/>
 
 <DoDont>
   <Do title="" body="" center>
@@ -124,10 +125,6 @@ Aspect Ratio will allow the color swatches to resize correctly based on a ratio.
 </Box>`}
 </LivePreview>
 
-### Anatomy
-
-No tokens are used.
-
 </content>
 
 ***
@@ -141,7 +138,7 @@ No tokens are used.
 #### Installation
 
 ```bash
-yarn add @twilio-paste/anchor
+yarn add @twilio-paste/aspect-ratio
 ```
 
 #### Usage
@@ -150,20 +147,15 @@ yarn add @twilio-paste/anchor
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 
 <AspectRatio ratio="4:3">
-  ... Embedded element
+  <Absolute>Test</Absolute>
 </AspectRatio>
 ```
-
-#### Storybook
-
-[View Aspect Ratio in Storybook](https://twilio-labs.github.io/paste/?path=/story/utilities-aspect-ratio--default)
-
 
 #### Props
 
 | Prop           | Type                  | Description                                                                                                              | Default   |
 | -------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------ | --------- |
-| ratio?         | string                | Determines the aspect ratio of the element. Use a colon separated number pattern (width:height). Required                | 4:3       |
+| ratio          | string                | Determines the aspect ratio of the element. Use a colon separated number pattern (width:height). Required                | 4:3       |
 
 <Box marginTop="space90">
   <Changelog />
