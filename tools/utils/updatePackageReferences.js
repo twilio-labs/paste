@@ -89,7 +89,9 @@ async function updatePackageReferences() {
       if (pasteDependencies > 0) {
         // eslint-disable-next-line no-console
         console.log(
-          chalk.red.bold.underline(`[Error] ${packageJsonData.name}: do not declare @paste packages as dependencies!`)
+          chalk.red.bold.underline(
+            `[Error] ${packageJsonData.name}: do not declare @twilio-paste packages as dependencies!`
+          )
         );
       }
     }
