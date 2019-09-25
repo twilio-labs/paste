@@ -25,6 +25,17 @@ const handlePropValidation = ({ratio}: AspectRatioProps): void => {
 
 const AspectRatioContainer = styled.div`
   position: relative;
+
+  embed,
+  iframe,
+  object,
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
 `;
 
 const AspectRatio: React.FC<AspectRatioProps> = props => {
