@@ -20,14 +20,6 @@ const globalStyles = css`
     margin: 0;
     font-size: 14px;
   }
-
-  iframe {
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-  }
 `;
 
 const SiteWrapper: React.FC = ({children}) => {
