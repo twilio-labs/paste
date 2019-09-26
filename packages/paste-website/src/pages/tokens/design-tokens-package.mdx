@@ -1,13 +1,17 @@
 ---
 title: Design Tokens Package
 package: '@twilio-paste/design-tokens'
-description: The Paste design tokens package allows you to install design tokens in a variety of different formats
+description: The Paste Design Tokens package allows you to install design tokens in a variety of different formats (Web, Mobile, Sketch, etc.)
 ---
 
 import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import Changelog from '@twilio-paste/design-tokens/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import { Link } from "gatsby"
+
+
 
 export const pageQuery = graphql`
   {
@@ -34,15 +38,23 @@ export const pageQuery = graphql`
 
 <content>
 
-The Paste design tokens are available as an NPM package which acts as the central source of truth. A simple way to grab or view the latest files is to visit [https://unpkg.com/browse/@twilio-paste/design-tokens/dist/](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/). Tokens are supported for different formats within the NPM package:
+The Paste design tokens are available as a NPM package which acts as the central source of truth for Paste. By using this package correctly, you can rely on a well-maintained, up-to-date definition of Twilio's Design Language. A simple way to grab or view the latest files in this package is to visit [UNPKG - @twilio-paste/design-tokens](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/). 
+
+## Supported Formats
+
+<Callout>
+  <CalloutText>While the Paste Tokens Package supports the following formats, our roadmap <strong>currently prioritizes React Components and Sketch Libraries</strong> as primary deliverables of the Design System. Reach out to us at <em>#help-design-system</em> if you'd like to use Paste for another format: we'll help you out as much as we can!</CalloutText>
+</Callout>
+
+Paste Design Tokens are supported in the following formats within this package:
 
 - [JSON](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.json)
 - [Less](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.less)
-- Scss
-  - [as individual variables](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.default.scss)
-  - [as an scss map](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.map.scss)
+- SCSS
+  -  [as individual variables](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.default.scss)
+  - [as a SCSS map](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.map.scss)
 - [CSS custom properties](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.custom-properties.css)
-- [Android xml](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.android.xml)
+- [Android XML](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.android.xml)
 - [iOS JSON](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.ios.json)
 - JavaScript
   - [commonJS](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.common.js)
@@ -50,21 +62,24 @@ The Paste design tokens are available as an NPM package which acts as the centra
 - Typescript definitions
   - [commonJS](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.common.d.ts)
   - [es2015](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.es6.d.ts)
-- [Sketch palette](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/sketch.sketchpalette)
+- [Sketch Palette](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/sketch.sketchpalette)
 
 ## Themes
 
-Paste supports multiple themes. This is done by exporting the same token formats for each theme. Each file in the root of the design tokens package is exported for each theme with the corresponding values updated for each token. For example:
+Paste supports multiple themes. This is done by exporting the same token formats for each theme. Each file in the root of the design tokens package is exported for each theme with the corresponding values updated for each token. This allows different parts of Twilio to have their own visual styles whilst still maintaining a consistent Twilio feel, coherent component behavior, and preventing Design System bloat. Here's an example of Themes:
 
 | Default theme                   | SendGrid theme                  |
 |---------------------------------|---------------------------------|
 | $color-brand-highlight: #F22F46 | $color-brand-highlight: #3368FA |
 | $font-size-70: 1.5rem           | $font-size-70: 1.75rem          |
 
+See our list of Tokens and their corresponding values in the <Link to="/tokens/">Token List</Link> page.
+
 Within themes, we presently have support for:
 
-- [Console](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/)
+- [Console (Default)](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/)
 - [SendGrid](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/themes/sendgrid/)
+
 
 ***
 
