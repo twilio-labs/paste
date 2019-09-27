@@ -44,7 +44,7 @@ export type Language =
 
 export interface CodeblockProps extends React.ComponentProps<'code'> {
   children: string;
-  className: string;
+  className?: string;
   live?: boolean;
 }
 
