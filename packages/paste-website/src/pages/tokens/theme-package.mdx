@@ -9,6 +9,7 @@ import {Box} from '@twilio-paste/box';
 import Changelog from '@twilio-paste/theme/CHANGELOG.md';
 import {ThemeObjectDisplay} from '../../components/ThemeObjectDisplay.tsx';
 import {SidebarCategoryRoutes} from '../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 
 export const pageQuery = graphql`
   {
@@ -36,23 +37,21 @@ export const pageQuery = graphql`
 
 <content>
 
+This package allows for straight-forward access to Paste design tokens via a Theme Provider to React components. By using this package, you can express your UIs with each of our supported themes, and get their associated token values.
+
 ## Theme
 
-Paste components are built using [Emotion](https://emotion.sh/) and [Styled System](https://styled-system.com) and provide a Theme object containing our design tokens. This enables our components to be themed, and also provide styling properties to our some of our design primtive components like `Box` and `Text`. The theme object is grouped by categories and for each category, each key represents a camelCase formatted design token name from the [tokens list](/tokens/).
+Paste components are built using [Emotion](https://emotion.sh/) and [Styled System](https://styled-system.com), and provide a **Theme object** containing our design tokens. This enables our components to be themed, and also provide styling properties to some of our design primtive components like `Box` and `Text`. The theme object is grouped by categories and within each category, a key represents a camelCase formatted design token name. To see our supported themes and their values, check out the [Token List](/tokens/) page.
 
-For example the `$color-background-success` token would be available on the `backgroundColors` key as `colorBackgroundSuccess`.
+For example: If you were looking for token `$color-background-success`, you would see it listed on key `backgroundColors` as `colorBackgroundSuccess` i.e. `theme.backgroundColors.colorBackgroundSuccess`.
 
-```
-theme.backgroundColors.colorBackgroundSuccess
-```
-
-The shape of the theme object currently looks like:
+The shape of the Theme object currently looks like this:
 
 <ThemeObjectDisplay />
 
 ## Theme Provider
 
-Paste Components require you to wrap your application in the Paste Theme provider. This supplies Paste components with design token values needed to render each component, and provides a way to access those token values in your custom components.
+By design, all Paste Components require you to wrap your application in the Paste Theme provider. This gives all wrapped components the necessary design token values with theme support needed to render correctly.
 
 The Paste Theme Provider is a wrapper around the [Emotion Theme Provider](https://emotion.sh/docs/emotion-theming) and comes with a default theme.
 
@@ -73,13 +72,15 @@ import {Theme} from '@twilio-paste/theme';
 | theme?             | enum     | 'default',  'sendgrid'                                                                    | 'default'         |
 | customBreakpoints? | string[] | An optional array of string values for custom screen sizes in the usual CSS width formats | theme.breakpoints |
 
-## Using tokens in custom components
+## Using Tokens in Custom Components
 
-Sometimes you will need to create something custom that is not available in Paste but you need that component to still look like it's from Paste. The use of Paste Tokens in your styles is the way that you can access global design properties used in all Paste Components.
+While Paste will aim to provide ample coverage of Components for teams to compose UIs, there will be occasions where you may need to build a custom component. This may be because it's in Paste's future roadmap (and it's worthwhile to create a parallel component in the short term for your own product), or something that Paste will explicitly not build. In these cases, it's still critical to ensure that your component looks like a Paste component in order to build a seamless experience. To do so, we recommend the use of Paste Tokens in your styles to access global design properties used across Paste.
 
-### Emotion Styled Components (recommended)
+### Emotion Styled Components (Recommended Approach)
 
-By using the `Theme.Provider`, when you create a custom component using Emotion CSS, the theme object is available on `props` via context. You can access those via the [Styled-System `themeGet` utility](https://styled-system.com/api#themeget) or props object directly.
+By using `Theme.Provider` while creating a custom component using Emotion CSS, the theme object is available on `props` via context. You can access it via the [Styled-System `themeGet` utility](https://styled-system.com/api#themeget) or accessing the props object directly.
+
+For example:
 
 ```js
 import styled from '@emotion/styled';
@@ -93,11 +94,16 @@ const custom = styled.div`
 
 ### Alternatives when not using Emotion
 
-If you are not using Emotion styled components or want to access the values of tokens in your React components outside of styling, there are three ways this can be achieved.
+<Callout variant="warning">
+  <CalloutTitle as="h4">Careful!</CalloutTitle>
+  <CalloutText>This is not a recommended approach for using Tokens. If you must do so, we strongly recommend reaching out at <em>#help-design-system</em></CalloutText>
+</Callout>
+
+If you are not using Emotion Styled Components or want to access the values of tokens in your React components outside of styling, there are three ways this can be achieved.
 
 #### Paste ThemeConsumer
 
-Paste Theme provides a React Context Consumer for the theme called `Theme.Consumer`. The `Theme.Consumer` takes a function as a child, which provides the theme object as an argument.
+Paste Theme provides `Theme.Consumer` - a React Context Consumer for the theme. It takes a function as a child, which provides the theme object as an argument.
 
 ```js
 import {Theme} from '@twilio-paste/theme';
@@ -125,7 +131,7 @@ const HookExampleComponent = (): React.ReactElement => {
 
 #### Higher Order Component
 
-Paste also provides a HOC Component, which is a wrapper around the Emotion [HOC Component](https://emotion.sh/docs/emotion-theming#withthemecomponent-reactcomponenttype-reactcomponenttype) to be able to access the theme object.
+Paste also provides a HOC Component, which is a wrapper around the Emotion [HOC Component](https://emotion.sh/docs/emotion-theming#withthemecomponent-reactcomponenttype-reactcomponenttype) to access the theme object.
 
 ```js
 import React from 'react';
@@ -137,6 +143,14 @@ const ExampleComponent = ({theme}) => (
 const ExampleComponentwithTheme = withTheme(ExampleComponent);
 ```
 
+## Give us Feedback on this Page
+
+As you use Paste, you'll likely encounter things that _don't seem right_. Please reach out with your feedback! Here's some prompts to consider: 
+
+- Is this page easy for me to consume?
+- Is the information supporting it sufficient / well-described?
+- What information is missing?
+- How approachable is the documentation? Can a new engineer / PM / designer at Twilio get started with it easily?
 ***
 
 <Box marginTop="space90">

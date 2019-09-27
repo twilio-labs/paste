@@ -1,7 +1,7 @@
 {
   "name": "@twilio-paste/theme",
   "version": "0.4.1",
-  "description": "",
+  "description": "Paste Design System Theme Package which provides support for APIs to theme UIs and components.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
