@@ -53,7 +53,7 @@ export const pageQuery = graphql`
 ### About Aspect Ratio
 
 The Aspect Ratio component dynamically modifies the height of an element based on its
-current width to match a height-to-width ratio. For example, a 4:3 ratio would make
+current width to match a width-to-height ratio. For example, a 4:3 ratio would make
 an element with a width of 400px have a height of 300px. This updates in real time
 when you resize the screen.
 
@@ -89,7 +89,7 @@ customer needs to see a preview of an uploaded document.
 </LivePreview>
 
 Aspect Ratio can also be used to embed components, or other HTML elements that
-needs to be set to a specific height-to-width ratio. A component or other HTML
+needs to be set to a specific width-to-height ratio. A component or other HTML
 element use case is the need to align an HTML element with an image in two columns.
 
 <LivePreview scope={{Absolute, Anchor, AspectRatio, Box}} language="jsx">
@@ -128,7 +128,7 @@ Aspect Ratio will allow the color swatches to resize correctly based on a ratio.
 
 <DoDont>
   <Do title="Do" body="Use for an image or embedded video, and have it resize at a specific ratio." preview={false} />
-  <Dont title="Don't" body="Don’t use with fixed size (width & height) elements, as those will not adhere to the height-to-width ratio." preview={false} />
+  <Dont title="Don't" body="Don’t use with fixed size (width & height) elements, as those will not adhere to the width-to-height ratio." preview={false} />
 </DoDont>
 
 <DoDont>
