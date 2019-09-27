@@ -108,6 +108,14 @@ module.exports = {
             return 'PasteUtility';
           }
 
+          if (node.relativePath.startsWith('paste-theme') && node.relativePath.endsWith('package.json')) {
+            return 'PasteThemePackage';
+          }
+
+          if (node.relativePath.startsWith('paste-design-tokens') && node.relativePath.endsWith('package.json')) {
+            return 'PasteDesignTokensPackage';
+          }
+
           if (node.relativePath.endsWith('dist/tokens.gatsby.json')) {
             return 'PasteTokenDefault';
           }

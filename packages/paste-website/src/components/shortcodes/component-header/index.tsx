@@ -8,6 +8,19 @@ import {P} from '../../Typography';
 import {Heading} from '../../Heading';
 import {getHumanizedNameFromPackageName} from '../../../utils/RouteUtils';
 
+const getCategoryNameFromRoute = (categoryRoute: string): string => {
+  switch (categoryRoute) {
+    case SidebarCategoryRoutes.COMPONENTS:
+      return 'Components';
+    case SidebarCategoryRoutes.UTILITIES:
+      return 'Utilities';
+    case SidebarCategoryRoutes.TOKENS:
+      return 'Tokens';
+    default:
+      return 'Utilities';
+  }
+};
+
 const ComponentHeaderBasic: React.FC<{
   name: string;
   categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
@@ -15,9 +28,7 @@ const ComponentHeaderBasic: React.FC<{
   <>
     <Breadcrumb>
       <BreadcrumbItem to="/">Home</BreadcrumbItem>
-      <BreadcrumbItem to={categoryRoute}>
-        {categoryRoute === SidebarCategoryRoutes.COMPONENTS ? 'Components' : 'Utilities'}
-      </BreadcrumbItem>
+      <BreadcrumbItem to={categoryRoute}>{getCategoryNameFromRoute(categoryRoute)}</BreadcrumbItem>
     </Breadcrumb>
     <Heading as="h1" headingStyle="headingStyle10">
       {getHumanizedNameFromPackageName(name)}
@@ -73,10 +84,12 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({name, categoryRoute, g
       <ComponentHeaderBasic categoryRoute={categoryRoute} name={name} />
       <P variant="lead">{description}</P>
       <Box as="dl" mb="space100">
-        <Box mb="space20">
-          <PackageLabel>Status</PackageLabel>
-          <PackageValue>{status}</PackageValue>
-        </Box>
+        {status && (
+          <Box mb="space20">
+            <PackageLabel>Status</PackageLabel>
+            <PackageValue>{status}</PackageValue>
+          </Box>
+        )}
         <Box mb="space20">
           <PackageLabel>Version</PackageLabel>
           <PackageValue>{version}</PackageValue>
