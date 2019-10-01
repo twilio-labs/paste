@@ -71,7 +71,7 @@ jobs:
           command: "export APPLITOOLS_BATCH_ID=`echo $CIRCLE_SHA1`"
       - run:
           name: Run applitools eyes-storybook
-          command: yarn applitools
+          command: yarn test:vrt
 
   prettier:
     executor: job-executor
