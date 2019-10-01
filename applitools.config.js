@@ -1,3 +1,3 @@
 module.exports = {
-  serverUrl: "https://twilioeyesapi.applitools.com",
-}
+  serverUrl: 'https://twilioeyesapi.applitools.com',
+};
