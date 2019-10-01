@@ -55,6 +55,24 @@ jobs:
       - run:
           name: Run tests
           command: yarn test
+
+  applitools:
+    executor: job-executor
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: Set applitools api key
+          command: "export APPLITOOLS_BATCH_ID=`echo $CIRCLE_SHA1`"
+      - run:
+          name: Run applitools eyes-storybook
+          command: yarn applitools
+
   prettier:
     executor: job-executor
     steps:
@@ -75,6 +93,9 @@ workflows:
     jobs:
       - build
       - test:
+          requires:
+            - build
+      - applitools:
           requires:
             - build
       - prettier:
