@@ -32,6 +32,12 @@ export const pageQuery = graphql`
         }
       }
     }
+    mdx(fields: { slug: { eq: "/anchor/" } }) {
+      headings {
+        depth
+        value
+      }
+    }
   }
 `;
 
