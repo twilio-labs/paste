@@ -1,4 +1,15 @@
-const cachedPackages = require('../tools/.cache/packages.json');
+const fs = require('fs');
+const path = require('path');
+
+const PACKAGES_CACHE_PATH = path.join(__dirname, '../tools/.cache/packages.json');
+
+if (!fs.existsSync(PACKAGES_CACHE_PATH)) {
+  throw new Error(
+    `[Jest resolver]: The "/tools/.cache/packages.json" file does not exist.  Please run "yarn pre-test"`
+  );
+}
+
+const cachedPackages = require(PACKAGES_CACHE_PATH);
 
 /**
  * Holds information about every @paste package in our repo
