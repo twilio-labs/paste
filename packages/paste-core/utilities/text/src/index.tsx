@@ -14,7 +14,7 @@ import {
 } from 'styled-system';
 import {ThemeShape, FontProps, TextColorProps, SpacingProps} from '@twilio-paste/types';
 
-interface TextProps extends DisplayProps, TextAlignProps, SpacingProps, FontProps, TextColorProps {
+export interface TextProps extends DisplayProps, TextAlignProps, SpacingProps, FontProps, TextColorProps {
   as?: string;
   children: ReactNode | string;
   theme?: ThemeShape;
@@ -46,4 +46,4 @@ Text.defaultProps = {
   textColor: 'colorText',
 };
 
-export {Text, TextProps};
+export {Text};
