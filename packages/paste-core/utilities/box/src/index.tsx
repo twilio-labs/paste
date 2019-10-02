@@ -13,30 +13,30 @@ import {
 } from 'styled-system';
 
 import {
-  SpacingThemeProps,
-  BackgroundColorProp,
+  SpacingProps,
+  BackgroundColorProps,
   BorderRadiusProps,
   BorderWidthProps,
   WidthProps,
-  HeightProp,
-  MaxWidthProp,
-  MinWidthProp,
+  HeightProps,
+  MaxWidthProps,
+  MinWidthProps,
   BorderColorProps,
-  BorderStyleProp,
-} from './types';
+  BorderStyleProps,
+} from '@twilio-paste/types';
 
 export interface BoxProps
   extends DisplayProps,
     BorderProps,
-    HeightProp,
-    MaxWidthProp,
-    MinWidthProp,
+    HeightProps,
+    MaxWidthProps,
+    MinWidthProps,
     WidthProps,
-    SpacingThemeProps,
-    BackgroundColorProp,
+    SpacingProps,
+    BackgroundColorProps,
     BorderColorProps,
     BorderRadiusProps,
-    BorderStyleProp,
+    BorderStyleProps,
     BorderWidthProps {
   as?: keyof JSX.IntrinsicElements;
 }
