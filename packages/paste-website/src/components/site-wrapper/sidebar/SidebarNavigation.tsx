@@ -1,5 +1,5 @@
-import * as React from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
+import * as React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import {
   SiteNav,
   SiteNavList,
@@ -7,10 +7,14 @@ import {
   SiteNavItem,
   SiteNavAnchor,
   SiteNavButton,
-  SiteNavAnchorArrow,
-} from './SidebarNavigation.styles';
-import {PackageStatus, SidebarCategoryRoutes} from '../../../constants';
-import {getCurrentPathname, getNameFromPackageName, getHumanizedNameFromPackageName} from '../../../utils/RouteUtils';
+  SiteNavAnchorArrow
+} from "./SidebarNavigation.styles";
+import { PackageStatus, SidebarCategoryRoutes } from "../../../constants";
+import {
+  getCurrentPathname,
+  getNameFromPackageName,
+  getHumanizedNameFromPackageName
+} from "../../../utils/RouteUtils";
 
 interface SidebarNavigationProps {
   children?: React.ReactNode;
@@ -41,7 +45,7 @@ interface SiteWrapperPageQuery {
 
 const pageQuery = graphql`
   {
-    allSitePage(filter: {path: {ne: "/dev-404-page/"}}) {
+    allSitePage(filter: { path: { ne: "/dev-404-page/" } }) {
       edges {
         node {
           path
@@ -55,7 +59,7 @@ const pageQuery = graphql`
         }
       }
     }
-    allPasteComponent(sort: {order: ASC, fields: name}) {
+    allPasteComponent(sort: { order: ASC, fields: name }) {
       edges {
         node {
           name
@@ -63,7 +67,7 @@ const pageQuery = graphql`
         }
       }
     }
-    allPasteUtility(sort: {order: ASC, fields: name}) {
+    allPasteUtility(sort: { order: ASC, fields: name }) {
       edges {
         node {
           name
@@ -86,7 +90,9 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
   const [gettingStartedOpen, setgettingStartedOpen] = React.useState(
     getCurrentPathname().includes(SidebarCategoryRoutes.GETTING_STARTED)
   );
-  const [tokensOpen, setTokensOpen] = React.useState(getCurrentPathname().includes(SidebarCategoryRoutes.TOKENS));
+  const [tokensOpen, setTokensOpen] = React.useState(
+    getCurrentPathname().includes(SidebarCategoryRoutes.TOKENS)
+  );
 
   return (
     <SiteNav>
@@ -95,61 +101,95 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <SiteNavAnchor to="/">Home</SiteNavAnchor>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavButton onClick={() => setgettingStartedOpen(!gettingStartedOpen)} isOpen={gettingStartedOpen}>
+          <SiteNavButton
+            onClick={() => setgettingStartedOpen(!gettingStartedOpen)}
+            isOpen={gettingStartedOpen}
+          >
             Getting Started
             <SiteNavAnchorArrow isOpen={gettingStartedOpen} />
           </SiteNavButton>
+          <SiteNavItem>
+            <SiteNavAnchor to="/principles">Principles</SiteNavAnchor>
+          </SiteNavItem>
           <SiteNavNestList isOpen={gettingStartedOpen}>
             <SiteNavItem>
-              <SiteNavAnchor to="/getting-started/">General Guidelines</SiteNavAnchor>
+              <SiteNavAnchor to="/getting-started/">
+                General Guidelines
+              </SiteNavAnchor>
             </SiteNavItem>
             <SiteNavItem>
-              <SiteNavAnchor to="/getting-started/design">Design Guidelines</SiteNavAnchor>
+              <SiteNavAnchor to="/getting-started/design">
+                Design Guidelines
+              </SiteNavAnchor>
             </SiteNavItem>
             <SiteNavItem>
-              <SiteNavAnchor to="/getting-started/engineering">Engineering Guidelines</SiteNavAnchor>
+              <SiteNavAnchor to="/getting-started/engineering">
+                Engineering Guidelines
+              </SiteNavAnchor>
             </SiteNavItem>
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavButton onClick={() => setTokensOpen(!tokensOpen)} isOpen={tokensOpen}>
+          <SiteNavButton
+            onClick={() => setTokensOpen(!tokensOpen)}
+            isOpen={tokensOpen}
+          >
             Design Tokens
             <SiteNavAnchorArrow isOpen={tokensOpen} />
           </SiteNavButton>
           <SiteNavNestList isOpen={tokensOpen}>
             <SiteNavItem>
-              <SiteNavAnchor to={SidebarCategoryRoutes.TOKENS}>Token list</SiteNavAnchor>
+              <SiteNavAnchor to={SidebarCategoryRoutes.TOKENS}>
+                Token list
+              </SiteNavAnchor>
             </SiteNavItem>
             <SiteNavItem>
-              <SiteNavAnchor to={`${SidebarCategoryRoutes.TOKENS}/how-to-compose-custom-ui-with-tokens`}>
+              <SiteNavAnchor
+                to={`${SidebarCategoryRoutes.TOKENS}/how-to-compose-custom-ui-with-tokens`}
+              >
                 How to compose custom UI with tokens
               </SiteNavAnchor>
             </SiteNavItem>
             <SiteNavItem>
-              <SiteNavAnchor to={`${SidebarCategoryRoutes.TOKENS}/design-tokens-package`}>
+              <SiteNavAnchor
+                to={`${SidebarCategoryRoutes.TOKENS}/design-tokens-package`}
+              >
                 Design Tokens package
               </SiteNavAnchor>
             </SiteNavItem>
             <SiteNavItem>
-              <SiteNavAnchor to={`${SidebarCategoryRoutes.TOKENS}/theme-package`}>Theme package</SiteNavAnchor>
+              <SiteNavAnchor
+                to={`${SidebarCategoryRoutes.TOKENS}/theme-package`}
+              >
+                Theme package
+              </SiteNavAnchor>
             </SiteNavItem>
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavButton onClick={() => setComponentsOpen(!componentsOpen)} isOpen={componentsOpen}>
+          <SiteNavButton
+            onClick={() => setComponentsOpen(!componentsOpen)}
+            isOpen={componentsOpen}
+          >
             Components
             <SiteNavAnchorArrow isOpen={componentsOpen} />
           </SiteNavButton>
           <SiteNavNestList isOpen={componentsOpen}>
             <SiteNavItem>
-              <SiteNavAnchor to={SidebarCategoryRoutes.COMPONENTS}>Overview</SiteNavAnchor>
+              <SiteNavAnchor to={SidebarCategoryRoutes.COMPONENTS}>
+                Overview
+              </SiteNavAnchor>
             </SiteNavItem>
             {data.allPasteComponent.edges
-              .filter(({node}) => node.status !== PackageStatus.BACKLOG)
-              .map(({node}) => {
+              .filter(({ node }) => node.status !== PackageStatus.BACKLOG)
+              .map(({ node }) => {
                 return (
                   <SiteNavItem key={node.name}>
-                    <SiteNavAnchor to={`${SidebarCategoryRoutes.COMPONENTS}/${getNameFromPackageName(node.name)}`}>
+                    <SiteNavAnchor
+                      to={`${
+                        SidebarCategoryRoutes.COMPONENTS
+                      }/${getNameFromPackageName(node.name)}`}
+                    >
                       {getHumanizedNameFromPackageName(node.name)}
                     </SiteNavAnchor>
                   </SiteNavItem>
@@ -158,18 +198,27 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavButton onClick={() => setutilitiesOpen(!utilitiesOpen)} isOpen={utilitiesOpen}>
+          <SiteNavButton
+            onClick={() => setutilitiesOpen(!utilitiesOpen)}
+            isOpen={utilitiesOpen}
+          >
             Utilities
             <SiteNavAnchorArrow isOpen={utilitiesOpen} />
           </SiteNavButton>
           <SiteNavNestList isOpen={utilitiesOpen}>
-            <SiteNavAnchor to={SidebarCategoryRoutes.UTILITIES}>Overview</SiteNavAnchor>
+            <SiteNavAnchor to={SidebarCategoryRoutes.UTILITIES}>
+              Overview
+            </SiteNavAnchor>
             {data.allPasteUtility.edges
-              .filter(({node}) => node.status !== PackageStatus.BACKLOG)
-              .map(({node}) => {
+              .filter(({ node }) => node.status !== PackageStatus.BACKLOG)
+              .map(({ node }) => {
                 return (
                   <SiteNavItem key={node.name}>
-                    <SiteNavAnchor to={`${SidebarCategoryRoutes.UTILITIES}/${getNameFromPackageName(node.name)}`}>
+                    <SiteNavAnchor
+                      to={`${
+                        SidebarCategoryRoutes.UTILITIES
+                      }/${getNameFromPackageName(node.name)}`}
+                    >
                       {getHumanizedNameFromPackageName(node.name)}
                     </SiteNavAnchor>
                   </SiteNavItem>
@@ -191,4 +240,4 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
   );
 };
 
-export {SidebarNavigation};
+export { SidebarNavigation };
