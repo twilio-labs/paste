@@ -66,7 +66,7 @@ module.exports = {
         packageDir: [context.getFilename(), __dirname],
       },
     ],
-
+    'react/jsx-curly-brace-presence': 'ignore',
     'no-useless-constructor': 'off',
     eqeqeq: ['error', 'smart'],
     'no-plusplus': 'off',
