@@ -67,7 +67,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
           <CalloutText as="div" marginTop="space40">
             <UL>
               <LI>
-                <Anchor href="https://code.hq.twilio.com/pages/react/react-components/">
+                <Anchor href="https://www.twilio.com/docs/glossary/what-is-react#components-and-data-flow">
                   Console React Components
                 </Anchor>
               </LI>
