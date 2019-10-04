@@ -84,6 +84,16 @@ export declare const space6 = \\"1.75rem\\";
 export declare const space7 = \\"2rem\\";
 export declare const space8 = \\"2.25rem\\";
 export declare const space9 = \\"2.5rem\\";
+export declare const zIndex0 = \\"0\\";
+export declare const zIndex10 = \\"10\\";
+export declare const zIndex20 = \\"20\\";
+export declare const zIndex30 = \\"30\\";
+export declare const zIndex40 = \\"40\\";
+export declare const zIndex50 = \\"50\\";
+export declare const zIndex60 = \\"60\\";
+export declare const zIndex70 = \\"70\\";
+export declare const zIndex80 = \\"80\\";
+export declare const zIndex90 = \\"90\\";
 export declare const backgroundColors: {
   colorBackgroundBody: \\"rgb(255, 255, 255)\\";
   colorBackgroundBrandHighlight: \\"rgb(242, 47, 70)\\";
@@ -176,5 +186,17 @@ export declare const textColors: {
   colorTextSuccess: \\"rgb(100, 209, 138)\\";
   colorTextWarning: \\"rgb(249, 177, 71)\\";
   colorTextWeak: \\"rgb(230, 230, 230)\\";
+};
+export declare const zIndices: {
+  zIndex0: 0;
+  zIndex10: 10;
+  zIndex20: 20;
+  zIndex30: 30;
+  zIndex40: 40;
+  zIndex50: 50;
+  zIndex60: 60;
+  zIndex70: 70;
+  zIndex80: 80;
+  zIndex90: 90;
 };"
 `;

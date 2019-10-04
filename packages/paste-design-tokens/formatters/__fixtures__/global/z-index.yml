@@ -1,0 +1,26 @@
+global:
+  type: z-index
+  category: z-index
+imports:
+  - ../aliases/z-index.yml
+props:
+  z-index-0:
+    value: "{!z-index-0}"
+  z-index-10:
+    value: "{!z-index-10}"
+  z-index-20:
+    value: "{!z-index-20}"
+  z-index-30:
+    value: "{!z-index-30}"
+  z-index-40:
+    value: "{!z-index-40}"
+  z-index-50:
+    value: "{!z-index-50}"
+  z-index-60:
+    value: "{!z-index-60}"
+  z-index-70:
+    value: "{!z-index-70}"
+  z-index-80:
+    value: "{!z-index-80}"
+  z-index-90:
+    value: "{!z-index-90}"
