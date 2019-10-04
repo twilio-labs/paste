@@ -99,9 +99,6 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
             Getting Started
             <SiteNavAnchorArrow isOpen={gettingStartedOpen} />
           </SiteNavButton>
-          <SiteNavItem>
-            <SiteNavAnchor to="/principles">Principles</SiteNavAnchor>
-          </SiteNavItem>
           <SiteNavNestList isOpen={gettingStartedOpen}>
             <SiteNavItem>
               <SiteNavAnchor to="/getting-started/">General Guidelines</SiteNavAnchor>
@@ -113,6 +110,9 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
               <SiteNavAnchor to="/getting-started/engineering">Engineering Guidelines</SiteNavAnchor>
             </SiteNavItem>
           </SiteNavNestList>
+        </SiteNavItem>
+        <SiteNavItem>
+          <SiteNavAnchor to="/principles">Principles</SiteNavAnchor>
         </SiteNavItem>
         <SiteNavItem>
           <SiteNavButton onClick={() => setTokensOpen(!tokensOpen)} isOpen={tokensOpen}>
