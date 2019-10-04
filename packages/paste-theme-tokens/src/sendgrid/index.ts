@@ -17,22 +17,24 @@ import {
 
 const breakpoints = [sizings.size40, sizings.size100, sizings.size120];
 export const SendGridTheme = {
+  shadows: boxShadows,
   backgroundColors,
   borderColors,
   borderWidths,
+  radii,
   breakpoints,
   colors,
   fonts,
   fontSizes,
   fontWeights,
-  heights: sizings,
   lineHeights,
+  widths: sizings,
   maxWidths: sizings,
   minWidths: sizings,
-  radii,
-  shadows: boxShadows,
+  heights: sizings,
+  maxHeights: sizings,
+  minHeights: sizings,
   space: spacings,
   textColors,
-  widths: sizings,
   zIndices,
 };

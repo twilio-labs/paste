@@ -5,13 +5,24 @@ import {getTokenCategories} from '../utils/getTokenCategories';
 import {formatSingleTokensWithTemplate} from '../utils/formatSingleTokensWithTemplate';
 import {formatGroupTokensWithTemplate} from '../utils/formatGroupTokensWithTemplate';
 
+const isNumeric = (value: string): boolean => {
+  // To check if a string is a number, we check if it isn't a number
+  // eslint-disable-next-line no-restricted-globals
+  return !isNaN((value as unknown) as number);
+};
+
 export const tokenTemplate = ({name, value}: {name: string; value: string}): string =>
   `export declare const ${lodash.camelCase(name)} = "${value}";`;
 
 const categoryTemplate = (categoryName: string, props: Token[]): string => `export declare const ${lodash.camelCase(
   categoryName
 )}: {
-${props.map(prop => `  ${lodash.camelCase(prop.name)}: 'string';`).join('\n')}
+${props
+  .map(prop => {
+    const value = isNumeric(prop.value) ? prop.value : `"${prop.value}"`;
+    return `  ${lodash.camelCase(prop.name)}: ${value};`;
+  })
+  .join('\n')}
 };`;
 
 export const dTSTokenFormat = (result: ImmutableStyleMap): string => {
