@@ -1,5 +1,5 @@
 {
-  "extends": "../../../../tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src"
@@ -9,7 +9,7 @@
   ],
   "references": [
     {
-      "path": "../../../paste-types"
+      "path": "../paste-theme-tokens"
     }
   ]
 }

@@ -1,9 +1,31 @@
 import * as CSS from 'csstype';
 import {ThemeShape} from '@twilio-paste/theme-tokens';
 
-export interface BackgroundColorProp {
+export interface BackgroundColorProps {
   backgroundColor?: keyof ThemeShape['backgroundColors'];
 }
+
+export interface FontFamilyProps {
+  fontFamily?: keyof ThemeShape['fonts'];
+}
+
+export interface FontSizeProps {
+  fontSize?: keyof ThemeShape['fontSizes'];
+}
+
+export interface FontWeightProps {
+  fontWeight?: keyof ThemeShape['fontWeights'];
+}
+
+export interface LineHeightProps {
+  lineHeight?: keyof ThemeShape['lineHeights'];
+}
+
+export interface TextColorProps {
+  textColor?: keyof ThemeShape['textColors'];
+}
+
+export interface FontProps extends FontFamilyProps, FontSizeProps, FontWeightProps, LineHeightProps {}
 
 export interface BorderColorProps {
   borderColor?: keyof ThemeShape['borderColors'];
@@ -21,7 +43,7 @@ export interface BorderRadiusProps {
   borderTopRightRadius?: keyof ThemeShape['radii'];
 }
 
-export interface BorderStyleProp {
+export interface BorderStyleProps {
   borderStyle?: CSS.BorderStyleProperty;
 }
 
@@ -33,8 +55,30 @@ export interface BorderWidthProps {
   borderTopWidth?: keyof ThemeShape['borderWidths'];
 }
 
-export interface HeightProp {
+export interface BorderProps extends BorderWidthProps, BorderStyleProps, BorderRadiusProps, BorderColorProps {}
+
+export interface WidthProps {
+  width?: keyof ThemeShape['widths'];
+}
+
+export interface MaxWidthProps {
+  maxWidth?: keyof ThemeShape['maxWidths'];
+}
+
+export interface MinWidthProps {
+  minWidth?: keyof ThemeShape['minWidths'];
+}
+
+export interface HeightProps {
   height?: keyof ThemeShape['heights'];
+}
+
+export interface MaxHeightProps {
+  maxHeight?: keyof ThemeShape['heights'];
+}
+
+export interface MinHeightProps {
+  minHeight?: keyof ThemeShape['heights'];
 }
 
 export interface MarginProps {
@@ -52,14 +96,6 @@ export interface MarginProps {
   my?: keyof ThemeShape['space'];
 }
 
-export interface MaxWidthProp {
-  maxWidth?: keyof ThemeShape['maxWidths'];
-}
-
-export interface MinWidthProp {
-  minWidth?: keyof ThemeShape['maxWidths'];
-}
-
 export interface PaddingProps {
   p?: keyof ThemeShape['space'];
   padding?: keyof ThemeShape['space'];
@@ -75,8 +111,4 @@ export interface PaddingProps {
   py?: keyof ThemeShape['space'];
 }
 
-export interface SpacingThemeProps extends MarginProps, PaddingProps {}
-
-export interface WidthProps {
-  width?: keyof ThemeShape['widths'];
-}
+export interface SpacingProps extends MarginProps, PaddingProps {}

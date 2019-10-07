@@ -28,13 +28,13 @@
   },
   "peerDependencies": {
     "@emotion/styled": "^10.0.10",
-    "@twilio-paste/theme-tokens": "^0.4.0",
+    "@twilio-paste/types": "^0.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-system": "^4.1.0"
   },
   "devDependencies": {
-    "@twilio-paste/theme-tokens": "^0.6.0",
+    "@twilio-paste/types": "^0.0.1",
     "csstype": "^2.6.5",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",
