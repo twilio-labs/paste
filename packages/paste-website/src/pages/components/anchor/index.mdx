@@ -49,6 +49,8 @@ export const pageQuery = graphql`
   data={props.data.allPasteComponent.edges}
 />
 
+<TableOfContents data={props.data.mdx.headings} />
+
 ***
 
 <content>

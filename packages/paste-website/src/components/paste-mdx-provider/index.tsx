@@ -11,6 +11,7 @@ import {P, UL, OL, LI, InlineCode} from '../Typography';
 // Shortcode imports
 import {ComponentHeader} from '../shortcodes/component-header';
 import {LivePreview} from '../shortcodes/live-preview';
+import {TableOfContents} from '../shortcodes/table-of-contents';
 
 interface PasteMDXProviderProps {
   children?: React.ReactElement;
@@ -21,7 +22,7 @@ const StyledContent = styled.div`
   max-width: 816px;
 `;
 
-const shortcodes = {ComponentHeader, LivePreview};
+const shortcodes = {ComponentHeader, LivePreview, TableOfContents};
 
 /* eslint-disable no-shadow */
 /*
