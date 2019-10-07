@@ -4,12 +4,14 @@ import {
   DisplayProps,
   borders,
   BorderProps,
-  height,
-  maxWidth,
+  width,
   minWidth,
+  maxWidth,
+  height,
+  minHeight,
+  maxHeight,
   space,
   style,
-  width,
 } from 'styled-system';
 
 import {
@@ -121,11 +123,13 @@ const Box = styled.div<BoxProps>`
   ${borderTopLeftRadius};
   ${borderTopRightRadius};
   ${display};
-  ${height};
-  ${maxWidth};
-  ${minWidth};
-  ${space};
   ${width};
+  ${minWidth};
+  ${maxWidth};
+  ${height};
+  ${minHeight};
+  ${maxHeight};
+  ${space};
 `;
 
 Box.defaultProps = {
