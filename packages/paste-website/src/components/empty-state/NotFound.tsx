@@ -14,7 +14,7 @@ const NotFound: React.FC<{}> = () => (
       lineHeight="lineHeight80"
       fontWeight="fontWeightSemibold"
       color="colorText"
-      mb="space90"
+      marginBottom="space90"
     >
       Oops, this page doesn&apos;t exist
     </Text>

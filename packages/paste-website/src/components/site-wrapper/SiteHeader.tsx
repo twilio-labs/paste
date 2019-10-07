@@ -31,10 +31,11 @@ export const SiteHeader: React.FC<{}> = () => {
       borderColor="colorBorderLight"
       borderStyle="none none solid none"
       borderBottomWidth="borderWidth10"
-      pl="space200"
-      pr="space80"
-      py="space50"
-      mb="space140"
+      paddingLeft="space200"
+      paddingRight="space80"
+      paddingTop="space50"
+      paddingBottom="space50"
+      marginBottom="space140"
       css={{
         left: SIDEBAR_WIDTH,
         height: HEADER_HEIGHT,
@@ -43,15 +44,15 @@ export const SiteHeader: React.FC<{}> = () => {
       <Flex justifyContent="space-between">
         <ThemeSwitcher />
         <Flex>
-          <Box mr="space60">
+          <Box marginRight="space60">
             <Anchor href="http://www.github.com/twilio-labs/paste/issues">Ask a question</Anchor>
           </Box>
-          <Box mr="space60">
+          <Box marginRight="space60">
             <Anchor href="http://www.github.com/twilio-labs/paste/issues">Report a bug</Anchor>
           </Box>
           <Flex>
             v{version}
-            <Box ml="space30">
+            <Box marginLeft="space30">
               <Anchor href="http://www.github.com/twilio-labs/paste">
                 <GithubIcon
                   css={{height: theme.heights.sizeIcon30, width: theme.heights.sizeIcon30}}

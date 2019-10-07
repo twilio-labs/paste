@@ -14,7 +14,7 @@ const Color = require('color');
 
 type BackgroundColor = Pick<AbsoluteProps, 'backgroundColor'>;
 export const ColorBox: React.FC<BackgroundColor> = ({backgroundColor}) => {
-  return <Absolute backgroundColor={backgroundColor} p="space50" preset="fill" />;
+  return <Absolute backgroundColor={backgroundColor} padding="space50" preset="fill" />;
 };
 
 type BorderBoxProps = Pick<BoxProps, 'borderColor' | 'borderWidth'>;
@@ -55,7 +55,7 @@ export const TextColorBox: React.FC<TextColorBoxProps> = ({color, textColor}) =>
   return (
     <Absolute
       backgroundColor={isInverse ? 'colorBackgroundBrand' : 'colorBackgroundBody'}
-      p="space60"
+      padding="space60"
       preset="fill"
       css={{
         display: 'flex',
@@ -80,7 +80,7 @@ export const RadiiBox: React.FC<RadiiBoxProps> = ({borderRadius}) => {
     <Box
       backgroundColor="colorBackgroundBrand"
       borderRadius={borderRadius}
-      p="space60"
+      padding="space60"
       display={borderRadius === 'borderRadiusCircle' ? 'inline-block' : undefined}
     />
   );
@@ -90,12 +90,14 @@ interface ShadowBoxProps extends BoxProps {
   shadow?: string;
 }
 export const ShadowBox: React.FC<ShadowBoxProps> = ({shadow}) => {
-  return <Box borderRadius="borderRadius20" p="space60" css={{boxShadow: shadow}} />;
+  return <Box borderRadius="borderRadius20" padding="space60" css={{boxShadow: shadow}} />;
 };
 
 type SpacingBoxProps = Pick<BoxProps, 'padding'>;
 export const SpacingBox: React.FC<SpacingBoxProps> = ({padding}) => {
-  return <Box backgroundColor="colorBackgroundBrand" display="inline-block" pl={padding} pt={padding} />;
+  return (
+    <Box backgroundColor="colorBackgroundBrand" display="inline-block" paddingLeft={padding} paddingTop={padding} />
+  );
 };
 
 interface TokenExampleProps {

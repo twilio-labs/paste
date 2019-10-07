@@ -15,8 +15,8 @@ export const Input: React.FC<any> = props => {
   return (
     <StyledBox
       as="input"
-      m="space0"
-      p="space30"
+      margin="space0"
+      padding="space30"
       borderColor="colorBorder"
       borderRadius="borderRadius20"
       borderStyle="solid"

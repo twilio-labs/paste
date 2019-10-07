@@ -102,7 +102,7 @@ export const TokensList: React.FC<TokensListProps> = props => {
 
   return (
     <>
-      <Box as="form" my="space100" maxWidth="size40">
+      <Box as="form" marginTop="space100" marginBottom="space100" maxWidth="size40">
         <Label htmlFor={uid}>Filter tokens</Label>
         <Input
           aria-label="Filter the token list"
@@ -121,7 +121,7 @@ export const TokensList: React.FC<TokensListProps> = props => {
                 {sentenceCase(cat.categoryName)}
               </AnchoredHeading>
               <Theme.Provider theme={theme}>
-                <Box mb="space160">
+                <Box marginBottom="space160">
                   <Table>
                     <thead>
                       <Tr>
@@ -135,7 +135,7 @@ export const TokensList: React.FC<TokensListProps> = props => {
                         return (
                           <Tr key={`token${token.name}`}>
                             <Td>
-                              <Text mb="space30" lineHeight="lineHeight40">
+                              <Text marginBottom="space30" lineHeight="lineHeight40">
                                 <InlineCode>${token.name}</InlineCode>
                               </Text>
                               <Text>{token.comment}</Text>

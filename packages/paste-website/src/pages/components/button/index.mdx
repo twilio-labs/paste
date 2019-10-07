@@ -41,7 +41,7 @@ export const pageQuery = graphql`
   data={props.data.allPasteComponent.edges}
 />
 
-***
+---
 
 <contentwrapper>
 
@@ -108,50 +108,49 @@ screen readers and dictation software. Here are some quick tips:
   struggle with these as they may say “click button” but the software can’t
   tell what the anchor looks like visually
 
-
 ### Examples
 
 <LivePreview scope={{Button, Box}} language="jsx">
   {`<div>
-  <Box display="inline-block" mr="space30">
+  <Box display="inline-block" marginRight="space30">
     <Button variant="primary">
       Submit
     </Button>
   </Box>
 
-  <Box display="inline-block" mr="space30">
-    <Button variant="secondary">Submit</Button>
-  </Box>
+<Box display="inline-block" marginRight="space30">
+  <Button variant="secondary">Submit</Button>
+</Box>
 
-  <Box display="inline-block" mr="space30">
-    <Button variant="destructive">
-      Submit
-    </Button>
-  </Box>
+<Box display="inline-block" marginRight="space30">
+  <Button variant="destructive">Submit</Button>
+</Box>
 
-  <Box display="inline-block" mr="space30">
-    <Button variant="primary" size="small">
-      Submit
-    </Button>
-  </Box>
+<Box display="inline-block" marginRight="space30">
+  <Button variant="primary" size="small">
+    Submit
+  </Button>
+</Box>
 
-  <Box display="inline-block" mr="space30">
-    <Button variant="secondary" size="small">Submit</Button>
-  </Box>
+<Box display="inline-block" marginRight="space30">
+  <Button variant="secondary" size="small">
+    Submit
+  </Button>
+</Box>
 
-  <Box display="inline-block" mr="space30">
-    <Button variant="destructive" size="small">
-      Submit
-    </Button>
-  </Box>
+<Box display="inline-block" marginRight="space30">
+  <Button variant="destructive" size="small">
+    Submit
+  </Button>
+</Box>
 
-  <Box display="inline-block" mr="space30">
-    <Button variant="link">Submit</Button>
-  </Box>
+<Box display="inline-block" marginRight="space30">
+  <Button variant="link">Submit</Button>
+</Box>
 
-  <Box display="inline-block" mr="space30">
-    <Button variant="destructive_link">Submit</Button>
-  </Box>
+<Box display="inline-block" marginRight="space30">
+  <Button variant="destructive_link">Submit</Button>
+</Box>
 
   <Button variant="reset" size="reset">
     Submit
@@ -217,12 +216,15 @@ Use link-style buttons when other types of buttons may be too distracting.
 
 <Callout>
   <CalloutTitle as="h4">Hot accessibility tip</CalloutTitle>
-  <CalloutText>To reiterate, be mindful when choosing this variant as dictation software users may experience usability issues. Read the guidelines first. </CalloutText>
+  <CalloutText>
+    To reiterate, be mindful when choosing this variant as dictation software users may experience usability issues.
+    Read the guidelines first.
+  </CalloutText>
 </Callout>
 
 <LivePreview scope={{Button, Box}} language="jsx">
   {`<div>
-  <Box display="inline-block" mr="space30">
+  <Box display="inline-block" marginRight="space30">
     <Button variant="link">Submit</Button>
   </Box>
   <Button variant="destructive_link">
@@ -239,17 +241,19 @@ their default size.
 
 <LivePreview scope={{Button, Box}} language="jsx">
   {`<div>
-  <Box display="inline-block" mr="space30">
+  <Box display="inline-block" marginRight="space30">
     <Button variant="primary" size="small">
       Submit
     </Button>
   </Box>
 
-  <Box display="inline-block" mr="space30">
-    <Button variant="secondary" size="small">Submit</Button>
-  </Box>
+<Box display="inline-block" marginRight="space30">
+  <Button variant="secondary" size="small">
+    Submit
+  </Button>
+</Box>
 
-  <Box display="inline-block" mr="space30">
+  <Box display="inline-block" marginRight="space30">
     <Button variant="destructive" size="small">
       Submit
     </Button>
@@ -284,45 +288,53 @@ provide helpful error text after it's pressed.
 
 <LivePreview scope={{Button, Box}} language="jsx">
   {`<div>
-  <Box display="inline-block" mr="space30">
+  <Box display="inline-block" marginRight="space30">
     <Button variant="primary" disabled>
       Submit
     </Button>
   </Box>
 
-  <Box display="inline-block" mr="space30">
-    <Button variant="secondary" disabled>Submit</Button>
-  </Box>
+<Box display="inline-block" marginRight="space30">
+  <Button variant="secondary" disabled>
+    Submit
+  </Button>
+</Box>
 
-  <Box display="inline-block" mr="space30">
-    <Button variant="destructive"  disabled>
-      Submit
-    </Button>
-  </Box>
+<Box display="inline-block" marginRight="space30">
+  <Button variant="destructive" disabled>
+    Submit
+  </Button>
+</Box>
 
-  <Box display="inline-block" mr="space30">
-    <Button variant="primary" size="small" disabled>
-      Submit
-    </Button>
-  </Box>
+<Box display="inline-block" marginRight="space30">
+  <Button variant="primary" size="small" disabled>
+    Submit
+  </Button>
+</Box>
 
-  <Box display="inline-block" mr="space30">
-    <Button variant="secondary" size="small" disabled>Submit</Button>
-  </Box>
+<Box display="inline-block" marginRight="space30">
+  <Button variant="secondary" size="small" disabled>
+    Submit
+  </Button>
+</Box>
 
-  <Box display="inline-block" mr="space30">
-    <Button variant="destructive" size="small"  disabled>
-      Submit
-    </Button>
-  </Box>
+<Box display="inline-block" marginRight="space30">
+  <Button variant="destructive" size="small" disabled>
+    Submit
+  </Button>
+</Box>
 
-  <Box display="inline-block" mr="space30">
-    <Button variant="link" disabled>Submit</Button>
-  </Box>
+<Box display="inline-block" marginRight="space30">
+  <Button variant="link" disabled>
+    Submit
+  </Button>
+</Box>
 
-  <Box display="inline-block" mr="space30">
-    <Button variant="destructive_link" disabled>Submit</Button>
-  </Box>
+<Box display="inline-block" marginRight="space30">
+  <Button variant="destructive_link" disabled>
+    Submit
+  </Button>
+</Box>
 
   <Button variant="reset" size="reset" disabled>
     Submit
@@ -356,7 +368,11 @@ the direction of the movement (e.g., a “Next” button goes on the
 right in an English-language flow).
 
 <DoDont>
-  <Do title="Do" body="Prioritize actions on a screen. Only one primary button should be used on each screen so users are clear about what the intended action is." preview={false} />
+  <Do
+    title="Do"
+    body="Prioritize actions on a screen. Only one primary button should be used on each screen so users are clear about what the intended action is."
+    preview={false}
+  />
   <Dont title="Don't" body="Don’t use many primary buttons on a screen, which may distract users." preview={false} />
 </DoDont>
 
@@ -366,8 +382,16 @@ right in an English-language flow).
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Write button text that is clear, starts with a verb, and helps users confidently trigger an action." preview={false} />
-  <Dont title="Don't" body="Don’t use product or brand icons in buttons since they don’t communicate action." preview={false} />
+  <Do
+    title="Do"
+    body="Write button text that is clear, starts with a verb, and helps users confidently trigger an action."
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body="Don’t use product or brand icons in buttons since they don’t communicate action."
+    preview={false}
+  />
 </DoDont>
 
 ***

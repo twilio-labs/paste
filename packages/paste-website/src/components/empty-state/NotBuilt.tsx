@@ -25,7 +25,7 @@ const NotBuilt: React.FC<NotBuiltProps> = ({type, name}) => {
         lineHeight="lineHeight80"
         fontWeight="fontWeightSemibold"
         color="colorText"
-        mb="space90"
+        marginBottom="space90"
       >
         {getHumanizedNameFromPackageName(name)}
       </Text>
