@@ -112,6 +112,9 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
+          <SiteNavAnchor to="/principles">Principles</SiteNavAnchor>
+        </SiteNavItem>
+        <SiteNavItem>
           <SiteNavButton onClick={() => setTokensOpen(!tokensOpen)} isOpen={tokensOpen}>
             Design Tokens
             <SiteNavAnchorArrow isOpen={tokensOpen} />
