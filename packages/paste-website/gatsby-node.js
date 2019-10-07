@@ -1,3 +1,10 @@
+/**
+ * Creates slugs from file names for pages.
+ * This allows us to query slug nodes within GraphQL.
+ *
+ * See: https://www.gatsbyjs.org/docs/creating-slugs-for-pages/
+ */
+
 const {createFilePath} = require(`gatsby-source-filesystem`);
 
 exports.onCreateNode = ({node, getNode, actions}) => {
