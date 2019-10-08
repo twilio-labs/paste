@@ -1,12 +1,12 @@
 /* This file contains the code for the addon's decorator that wraps each story */
 import * as React from 'react';
-import {Theme} from '@twilio-paste/theme';
+import {Theme, ThemeVariants} from '@twilio-paste/theme';
 import addonsAPI, {makeDecorator} from '@storybook/addons';
-import {Events, Themes, THEME_STORAGE_KEY} from './constants';
+import {Events, THEME_STORAGE_KEY} from './constants';
 
 class ThemeWrapper extends React.Component {
   state = {
-    theme: localStorage.getItem(THEME_STORAGE_KEY) || Themes.CONSOLE,
+    theme: localStorage.getItem(THEME_STORAGE_KEY) || ThemeVariants.CONSOLE,
   };
 
   componentDidMount() {
@@ -26,8 +26,10 @@ class ThemeWrapper extends React.Component {
   };
 
   render() {
+    // These are dummy breakpoints for testing
+    const breakpoints = ['40em', '52em', '64em', '80em'];
     return (
-      <Theme.Provider theme={this.state.theme} customBreakpoints={[]}>
+      <Theme.Provider theme={this.state.theme} customBreakpoints={breakpoints}>
         {this.props.children}
       </Theme.Provider>
     );

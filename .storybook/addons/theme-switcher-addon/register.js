@@ -1,20 +1,21 @@
 /* This file contains the code for the addon's panel */
 import * as React from 'react';
 import addonAPI from '@storybook/addons';
-import {Themes, Events, ADDON_CODENAME, THEME_STORAGE_KEY} from './constants';
+import {ThemeVariants} from '@twilio-paste/theme';
+import {Events, ADDON_CODENAME, THEME_STORAGE_KEY} from './constants';
 
 function findKeyByValue(value) {
-  return Object.keys(Themes).find(key => Themes[key] === value);
+  return Object.keys(ThemeVariants).find(key => ThemeVariants[key] === value);
 }
 
 class ThemeSwitcherPanel extends React.Component {
   state = {
-    theme: localStorage.getItem(THEME_STORAGE_KEY) || Themes.CONSOLE,
+    theme: localStorage.getItem(THEME_STORAGE_KEY) || ThemeVariants.CONSOLE,
   };
 
   onChangeTheme = e => {
     const {channel} = this.props;
-    const theme = Themes[e.target.value];
+    const theme = ThemeVariants[e.target.value];
 
     this.setState({
       theme,
@@ -39,7 +40,7 @@ class ThemeSwitcherPanel extends React.Component {
     const {theme} = this.state;
 
     // Get all theme options
-    const options = Object.keys(Themes).map((value, i) => (
+    const options = Object.keys(ThemeVariants).map((value, i) => (
       <option key={i} value={value}>
         {value.toLowerCase()}
       </option>
