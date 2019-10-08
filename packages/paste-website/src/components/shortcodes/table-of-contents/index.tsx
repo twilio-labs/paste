@@ -21,10 +21,19 @@ const TableOfContents: React.FC<TableOfContentsProps> = data => {
               .split(' ')
               .join('-')
               .toLowerCase()}`;
+
             const depthLevel = depth.toString();
+
+            let active;
+            if (window.location.hash === headingLink) {
+              active = true;
+            }
+
             return (
-              <StyledListItem key={value} depth={depthLevel}>
-                <Anchor href={headingLink}>{value}</Anchor>
+              <StyledListItem key={value} depth={depthLevel} active={active}>
+                <Anchor href={headingLink}>
+                  {value} {active}
+                </Anchor>
               </StyledListItem>
             );
           })}

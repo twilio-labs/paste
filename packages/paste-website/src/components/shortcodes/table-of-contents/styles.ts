@@ -37,6 +37,20 @@ export const fontSizePartial = ({depth}: TableOfContentsListItemProps): string =
   return themeGet('fontSizes.fontSize20');
 };
 
+export const activeBorderPartial = ({active}: TableOfContentsListItemProps): string => {
+  if (active === true) {
+    return themeGet('borderColors.colorBorderPrimary');
+  }
+  return 'transparent';
+};
+
+export const activeColorPartial = ({active}: TableOfContentsListItemProps): string => {
+  if (active === true) {
+    return themeGet('textColors.colorTextLink');
+  }
+  return themeGet('colors.colorGray80');
+};
+
 export const StyledListItem: React.FC<TableOfContentsListItemProps> = styled.li`
   display: block;
   margin-top: ${marginTopPartial};
@@ -44,15 +58,11 @@ export const StyledListItem: React.FC<TableOfContentsListItemProps> = styled.li`
   padding-left: ${themeGet('space.space30')};
   font-size: ${fontSizePartial};
   color: ${themeGet('colors.colorGray80')};
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: ${activeBorderPartial};
 
   a {
-    color: ${themeGet('colors.colorGray80')};
-  }
-
-  &.is-current {
-    border-left: 2px solid ${themeGet('borderColors.colorBorderPrimary')};
-    a {
-      color: ${themeGet('textColors.colorTextLink')};
-    }
+    color: ${activeColorPartial};
   }
 `;

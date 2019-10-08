@@ -8,6 +8,7 @@ export interface TableOfContentsProps {
 }
 
 export interface TableOfContentsListItemProps {
+  active?: boolean;
   depth?: string;
   key?: string;
 }
