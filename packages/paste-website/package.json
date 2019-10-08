@@ -30,6 +30,7 @@
     "@twilio-paste/text": "^0.4.1",
     "@twilio-paste/theme": "^0.4.1",
     "@twilio-paste/theme-tokens": "^0.6.0",
+    "@types/react-scrollspy": "^3.3.1",
     "color": "^3.1.2",
     "gatsby": "^2.13.4",
     "gatsby-image": "^2.2.8",
@@ -52,6 +53,7 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-live": "^2.1.2",
+    "react-scrollspy": "^3.4.0",
     "react-uid": "^2.2.0",
     "styled-system": "^4.1.0"
   },

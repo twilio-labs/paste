@@ -1,3 +1,4 @@
+import Scrollspy from 'react-scrollspy';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
 import {Box} from '@twilio-paste/box';
@@ -7,7 +8,7 @@ export const StyledWrapper = styled(Box)`
   order: 2;
 `;
 
-export const StyledList = styled.ul`
+export const StyledScrollSpy = styled(Scrollspy)`
   position: sticky;
   top: 0;
   right: 0;
@@ -37,20 +38,6 @@ export const fontSizePartial = ({depth}: TableOfContentsListItemProps): string =
   return themeGet('fontSizes.fontSize20');
 };
 
-export const activeBorderPartial = ({active}: TableOfContentsListItemProps): string => {
-  if (active === true) {
-    return themeGet('borderColors.colorBorderPrimary');
-  }
-  return 'transparent';
-};
-
-export const activeColorPartial = ({active}: TableOfContentsListItemProps): string => {
-  if (active === true) {
-    return themeGet('textColors.colorTextLink');
-  }
-  return themeGet('colors.colorGray80');
-};
-
 export const StyledListItem: React.FC<TableOfContentsListItemProps> = styled.li`
   display: block;
   margin-top: ${marginTopPartial};
@@ -60,9 +47,17 @@ export const StyledListItem: React.FC<TableOfContentsListItemProps> = styled.li`
   color: ${themeGet('colors.colorGray80')};
   border-left-width: 2px;
   border-left-style: solid;
-  border-left-color: ${activeBorderPartial};
+  border-left-color: transparent;
 
   a {
-    color: ${activeColorPartial};
+    color: ${themeGet('colors.colorGray80')};
+  }
+
+  &.is-current {
+    border-color: ${themeGet('borderColors.colorBorderPrimary')};
+
+    a {
+      color: ${themeGet('textColors.colorTextLink')};
+    }
   }
 `;

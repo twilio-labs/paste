@@ -33,6 +33,12 @@ export const pageQuery = graphql`
         }
       }
     }
+    mdx(fields: { slug: { eq: "/aspect-ratio/" } }) {
+      headings {
+        depth
+        value
+      }
+    }
   }
 `;
 
@@ -45,6 +51,10 @@ export const pageQuery = graphql`
 />
 
 ***
+
+<contentwrapper>
+
+<TableOfContents data={props.data.mdx.headings} />
 
 <content>
 
@@ -136,11 +146,7 @@ Aspect Ratio will allow the color swatches to resize correctly based on a ratio.
   <Dont title="Don't" body="Don’t use without any child elements, because this is only a container element." preview={false} />
 </DoDont>
 
-</content>
-
 ***
-
-<content>
 
 ## Usage Guide
 
@@ -168,8 +174,10 @@ import {AspectRatio} from '@twilio-paste/aspect-ratio';
 | -------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------ | --------- |
 | ratio          | string                | Determines the aspect ratio of the element. Use a colon separated number pattern (width:height). Required                | 4:3       |
 
-<Box marginTop="space90">
+<Box marginTop="space90" id="changelog">
   <Changelog />
 </Box>
 
 </content>
+
+</contentwrapper>

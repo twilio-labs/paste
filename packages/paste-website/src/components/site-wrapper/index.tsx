@@ -30,7 +30,7 @@ const SiteWrapper: React.FC = ({children}) => {
         <SiteBody>
           <Sidebar />
           <SiteHeader />
-          <SiteMain>
+          <SiteMain id="site-main">
             <ScrollAnchorIntoView />
             <SiteMainInner>{children}</SiteMainInner>
             <SiteFooter />

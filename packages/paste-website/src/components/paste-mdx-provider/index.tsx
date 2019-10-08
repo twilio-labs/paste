@@ -17,7 +17,7 @@ interface PasteMDXProviderProps {
   children?: React.ReactElement;
 }
 
-const StyledWrapper = styled.div`
+const StyledContentWrapper = styled.div`
   display: flex;
 `;
 
@@ -77,7 +77,7 @@ export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMD
         a: (props: AnchorProps): React.ReactElement => <Anchor {...props} />, // eslint-disable-line jsx-a11y/anchor-has-content
         img: (props: React.ComponentProps<'img'>): React.ReactElement => <img {...props} />, // eslint-disable-line jsx-a11y/alt-text
         content: (props: React.ComponentProps<'div'>): React.ReactElement => <StyledContent {...props} />,
-        wrapper: (props: React.ComponentProps<'div'>): React.ReactElement => <StyledWrapper {...props} />,
+        contentwrapper: (props: React.ComponentProps<'div'>): React.ReactElement => <StyledContentWrapper {...props} />,
       }}
     >
       {props.children}

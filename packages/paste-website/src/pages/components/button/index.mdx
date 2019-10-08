@@ -24,6 +24,12 @@ export const pageQuery = graphql`
         }
       }
     }
+    mdx(fields: { slug: { eq: "/button/" } }) {
+      headings {
+        depth
+        value
+      }
+    }
   }
 `;
 
@@ -36,6 +42,10 @@ export const pageQuery = graphql`
 />
 
 ***
+
+<contentwrapper>
+
+<TableOfContents data={props.data.mdx.headings} />
 
 <content>
 
@@ -360,11 +370,7 @@ right in an English-language flow).
   <Dont title="Don't" body="Don’t use product or brand icons in buttons since they don’t communicate action." preview={false} />
 </DoDont>
 
-</content>
-
 ***
-
-<content>
 
 ## Usage Guide
 
@@ -410,8 +416,10 @@ import {Button} from '@twilio-paste/button';
 | aria-controls? | string                                   | A11y: For modals and menus                                                          | null      |
 | data-test?     | string                                   | To detect the element to run tests against.                                         | null      |
 
-<Box marginTop="space90">
+<Box marginTop="space90" id="changelog">
   <Changelog />
 </Box>
 
 </content>
+
+</contentwrapper>
