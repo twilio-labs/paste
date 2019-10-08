@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
-import {Theme} from '@twilio-paste/theme';
+import {Theme, ThemeVariants} from '@twilio-paste/theme';
 import {useUID} from 'react-uid';
 import {Table, Tr, Th, Td, Tbody} from '../table';
 import {TokenExample} from '../tokens-example';
@@ -10,7 +10,6 @@ import {Label} from '../label';
 import {InlineCode} from '../Typography';
 import {AnchoredHeading} from '../Heading';
 import {useActiveSiteTheme} from '../../context/ActiveSiteThemeContext';
-import {Themes, ThemesType} from '../../constants';
 
 const sentenceCase = (catName: string): string => {
   return catName
@@ -46,15 +45,15 @@ interface TokensListProps {
   sendgridTokens: TokensShape[];
 }
 
-const getTokensByTheme = (theme: ThemesType, props: TokensListProps): TokenCategory[] => {
+const getTokensByTheme = (theme: ThemeVariants, props: TokensListProps): TokenCategory[] => {
   let tokens = [] as TokenCategory[];
-  if (theme === Themes.CONSOLE) {
+  if (theme === ThemeVariants.CONSOLE) {
     if (props.consoleTokens != null) {
       // eslint-disable-next-line prefer-destructuring
       tokens = props.consoleTokens[0].node.tokens;
     }
   }
-  if (theme === Themes.SENDGRID) {
+  if (theme === ThemeVariants.SENDGRID) {
     if (props.sendgridTokens != null) {
       // eslint-disable-next-line prefer-destructuring
       tokens = props.sendgridTokens[0].node.tokens;

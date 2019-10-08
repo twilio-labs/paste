@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
 import {useUID} from 'react-uid';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+import {ThemeVariants} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
-import {Themes, ThemesType} from '../constants';
 import {useActiveSiteTheme} from '../context/ActiveSiteThemeContext';
 
 interface ThemeSwitcherProps {
@@ -38,7 +38,7 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
   const {theme, updateActiveSiteTheme} = useActiveSiteTheme();
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = event => {
-    updateActiveSiteTheme(event.currentTarget.value as ThemesType);
+    updateActiveSiteTheme(event.currentTarget.value as ThemeVariants);
   };
 
   const consoleID = useUID();
@@ -56,21 +56,21 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
       <Box as="fieldset" borderWidth="borderWidth0" padding="space0" margin="space0">
         <ScreenReaderOnly as="legend">Change the site theme</ScreenReaderOnly>
         <StyledThemeSwitcherRadio
-          checked={theme === Themes.CONSOLE}
+          checked={theme === ThemeVariants.CONSOLE}
           id={consoleID}
           name="sitetheme"
           onChange={handleChange}
           type="radio"
-          value={Themes.CONSOLE}
+          value={ThemeVariants.CONSOLE}
         />
         <StyledThemeSwitcherLabel htmlFor={consoleID}>Console</StyledThemeSwitcherLabel>
         <StyledThemeSwitcherRadio
-          checked={theme === Themes.SENDGRID}
+          checked={theme === ThemeVariants.SENDGRID}
           id={sendGridID}
           name="sitetheme"
           onChange={handleChange}
           type="radio"
-          value={Themes.SENDGRID}
+          value={ThemeVariants.SENDGRID}
         />
         <StyledThemeSwitcherLabel htmlFor={sendGridID}>SendGrid</StyledThemeSwitcherLabel>
       </Box>

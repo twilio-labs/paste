@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Themes, ThemesType} from '../constants';
+import {ThemeVariants} from '@twilio-paste/theme';
 
 declare global {
   interface Window {
@@ -8,8 +8,8 @@ declare global {
 }
 
 export interface ActiveSiteThemeContextProps {
-  theme: ThemesType;
-  updateActiveSiteTheme: (newTheme: ThemesType) => void;
+  theme: ThemeVariants;
+  updateActiveSiteTheme: (newTheme: ThemeVariants) => void;
 }
 
 if (typeof window !== 'undefined') {
@@ -26,12 +26,12 @@ export const useActiveSiteTheme = (): ActiveSiteThemeContextProps => {
   return context;
 };
 
-const getThemeFromWindow = (): ThemesType => {
-  let theme: ThemesType;
+const getThemeFromWindow = (): ThemeVariants => {
+  let theme: ThemeVariants;
   if (typeof window !== 'undefined' && window.activeTheme !== '') {
-    theme = window.activeTheme as ThemesType;
+    theme = window.activeTheme as ThemeVariants;
   } else {
-    theme = Themes.CONSOLE as ThemesType;
+    theme = ThemeVariants.CONSOLE as ThemeVariants;
   }
   return theme;
 };
@@ -39,7 +39,7 @@ const getThemeFromWindow = (): ThemesType => {
 export const ActiveSiteThemeProvider: React.FunctionComponent<{}> = (props: {}): React.ReactElement => {
   const [theme, setTheme] = React.useState(getThemeFromWindow());
 
-  const handleThemeChange = (newTheme: ThemesType): void => {
+  const handleThemeChange = (newTheme: ThemeVariants): void => {
     setTheme(newTheme);
     window.activeTheme = newTheme;
   };
