@@ -1,16 +1,20 @@
 import styled from '@emotion/styled';
+import * as CSS from 'csstype';
 import {
-  display,
-  DisplayProps,
-  borders,
-  BorderProps,
+  space,
   width,
   minWidth,
   maxWidth,
   height,
   minHeight,
   maxHeight,
-  space,
+  borders,
+  BorderProps,
+  display,
+  DisplayProps,
+  boxShadow,
+  zIndex,
+  overflow,
   style,
 } from 'styled-system';
 
@@ -28,6 +32,7 @@ import {
   BorderStyleProps,
   BorderColorProps,
   BoxShadowProps,
+  ZIndexProps,
 } from '@twilio-paste/types';
 
 export interface BoxProps
@@ -44,10 +49,12 @@ export interface BoxProps
     BorderStyleProps,
     BorderColorProps,
     BoxShadowProps,
+    ZIndexProps,
     // styled-system
     DisplayProps,
     BorderProps {
   as?: keyof JSX.IntrinsicElements;
+  overflow?: CSS.OverflowProperty;
 }
 
 const backgroundColor = style({
@@ -129,7 +136,10 @@ const Box = styled.div<BoxProps>`
   ${height};
   ${minHeight};
   ${maxHeight};
+  ${boxShadow};
   ${space};
+  ${zIndex};
+  ${overflow};
 `;
 
 Box.defaultProps = {
