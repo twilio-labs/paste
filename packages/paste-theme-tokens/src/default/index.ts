@@ -34,6 +34,7 @@ export const DefaultTheme = {
   heights: sizings,
   maxHeights: sizings,
   minHeights: sizings,
+  sizes: sizings,
   space: spacings,
   textColors,
   zIndices,
