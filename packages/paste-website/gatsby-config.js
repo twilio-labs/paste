@@ -72,27 +72,13 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [
-            
-            
-            
-            
-            
-            
-          {
-            resolve: `gatsby-remark-images`,
-                        options: {
-                          maxWidth: 1632,
-                          linkImagesToOriginal: false,
-                        },
-         
-         
-            
-       },
-         
-         
-         
-        ],
+        plugins: [{
+          resolve: `gatsby-remark-images`,
+          options: {
+            maxWidth: 1632,
+            linkImagesToOriginal: false,
+          },
+        }, ],
       },
     },
     {
@@ -104,24 +90,21 @@ module.exports = {
           packages: require.resolve('./src/layouts/GenericLayout.tsx'),
           websiteCore: require.resolve('./src/layouts/GenericLayout.tsx'),
         },
-        gatsbyRemarkPlugins: [
-          
-            
-            
-         
-              
-  
-              {
-     resolve: `gatsby-remark-images`,
-                            options: {                   maxWidth: 1632,
-                          linkImagesToOriginal: false,      },},  
-        ],
+        gatsbyRemarkPlugins: [{
+          resolve: `gatsby-remark-images`,
+          options: {
+            maxWidth: 1632,
+            linkImagesToOriginal: false,
+          },
+        }, ],
       },
     },
     {
       resolve: 'gatsby-transformer-json',
       options: {
-        typeName: ({node}) => {
+        typeName: ({
+          node
+        }) => {
           if (node.relativePath.startsWith('paste-core/components') && node.relativePath.endsWith('package.json')) {
             return 'PasteComponent';
           }
