@@ -49,9 +49,11 @@ export const pageQuery = graphql`
   data={props.data.allPasteComponent.edges}
 />
 
-<TableOfContents data={props.data.mdx.headings} />
-
 ***
+
+<wrapper>
+
+<TableOfContents data={props.data.mdx.headings} />
 
 <content>
 
@@ -122,11 +124,7 @@ You can use an anchor to navigate the user to another webpage.
   <Dont title="Don't" body="Don’t use an icon in place of or with anchor text." preview={false} />
 </DoDont>
 
-</content>
-
 ***
-
-<content>
 
 ## Usage Guide
 
@@ -160,8 +158,10 @@ import {Anchor} from '@twilio-paste/anchor';
 | onFocus?       | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                          | null      |
 | onBlur?        | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                          | null      |
 
-<Box marginTop="space90">
+<Box marginTop="space90" id="changelog">
   <Changelog />
 </Box>
 
 </content>
+
+</wrapper>
