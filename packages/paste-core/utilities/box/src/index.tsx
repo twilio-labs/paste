@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import * as CSS from 'csstype';
 import {
   space,
   width,
@@ -15,6 +14,7 @@ import {
   boxShadow,
   zIndex,
   overflow,
+  OverflowProps,
   style,
 } from 'styled-system';
 
@@ -52,9 +52,9 @@ export interface BoxProps
     ZIndexProps,
     // styled-system
     DisplayProps,
+    OverflowProps,
     BorderProps {
   as?: keyof JSX.IntrinsicElements;
-  overflow?: CSS.OverflowProperty;
 }
 
 const backgroundColor = style({

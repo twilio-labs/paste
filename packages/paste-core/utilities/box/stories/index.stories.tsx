@@ -17,6 +17,7 @@ const borderRadiusOptions = Object.keys(DefaultTheme.radii);
 const borderColorOptions = Object.keys(DefaultTheme.borderColors);
 const borderWidthOptions = Object.keys(DefaultTheme.borderWidths);
 const boxShadowOptions = Object.keys(DefaultTheme.shadows);
+const zIndexOptions = Object.keys(DefaultTheme.zIndices);
 
 const demoString = `I'm some text in a box`;
 
@@ -26,10 +27,14 @@ storiesOf('Utilities|Box', module)
     const backgroudColorValue = select(
       'backgroundColor',
       backgroundColorOptions,
-      'colorBackgroundBody'
+      'colorBackgroundPrimaryLight'
     ) as keyof ThemeShape['backgroundColors'];
 
-    const borderRadiusValue = select('borderRadius', borderRadiusOptions, '') as keyof ThemeShape['radii'];
+    const borderRadiusValue = select(
+      'borderRadius',
+      borderRadiusOptions,
+      'borderRadius20'
+    ) as keyof ThemeShape['radii'];
     const borderTopLeftRadiusValue = select(
       'borderTopLeftRadius',
       borderRadiusOptions,
@@ -65,21 +70,27 @@ storiesOf('Utilities|Box', module)
       ''
     ) as keyof ThemeShape['borderWidths'];
     const borderLeftWidthValue = select('borderLeftWidth', borderWidthOptions, '') as keyof ThemeShape['borderWidths'];
-    const borderColorValue = select('borderColor', borderColorOptions, '') as keyof ThemeShape['borderColors'];
-    const borderStyleValue = text('borderStyle', '');
+    const borderColorValue = select(
+      'borderColor',
+      borderColorOptions,
+      'colorBorderPrimaryDark'
+    ) as keyof ThemeShape['borderColors'];
+    const borderStyleValue = text('borderStyle', 'solid');
 
-    const paddingValue = select('padding', spaceOptions, '') as keyof ThemeShape['space'];
-    const marginValue = select('margin', spaceOptions, '') as keyof ThemeShape['space'];
+    const paddingValue = select('padding', spaceOptions, 'space20') as keyof ThemeShape['space'];
+    const marginValue = select('margin', spaceOptions, 'space40') as keyof ThemeShape['space'];
 
     const widthValue = select('width', widthOptions, '') as keyof ThemeShape['widths'];
     const minWidthValue = select('minWidth', minWidthOptions, '') as keyof ThemeShape['minWidths'];
     const maxWidthValue = select('maxWidth', maxWidthOptions, '') as keyof ThemeShape['maxWidths'];
-    const heightValue = select('height', heightOptions, '') as keyof ThemeShape['heights'];
+    const heightValue = select('height', heightOptions, 'size10') as keyof ThemeShape['heights'];
     const minHeightValue = select('minHeight', minHeightOptions, '') as keyof ThemeShape['minHeights'];
     const maxHeightValue = select('maxHeight', maxHeightOptions, '') as keyof ThemeShape['maxHeights'];
-    
+
     const boxShadowValue = select('boxShadow', boxShadowOptions, '') as keyof ThemeShape['shadows'];
-    const displayValue = text('display', '');
+    const zIndexValue = select('zIndex', zIndexOptions, '') as keyof ThemeShape['zIndices'];
+    const displayValue = text('display', 'block');
+    const overflowValue = text('overflow', 'hidden');
 
     return (
       <Box
@@ -106,8 +117,23 @@ storiesOf('Utilities|Box', module)
         padding={paddingValue}
         boxShadow={boxShadowValue}
         display={displayValue}
+        zIndex={zIndexValue}
+        overflow={overflowValue}
       >
-        <Text>{demoString}</Text>
+        <Text textColor="colorText">{demoString}</Text>
+      </Box>
+    );
+  })
+  .add('Responsive', () => {
+    return (
+      <Box
+        backgroundColor={['colorBackgroundPrimaryLight', 'colorBackgroundPrimary']}
+        padding={['space20', 'space70']}
+        height={['size10', 'size20']}
+      >
+        <Text textColor="colorText">
+          DO NOTE: `widths` isn't responsive due to a bug in Styled System v4. To be fixed in an upgrade.
+        </Text>
       </Box>
     );
   });
