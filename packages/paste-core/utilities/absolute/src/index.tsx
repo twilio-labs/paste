@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import {top, right, bottom, left, zIndex, TopProps, BottomProps, LeftProps, RightProps, styleFn} from 'styled-system';
 import {Box, BoxProps} from '@twilio-paste/box';
-import {ThemeShape} from '@twilio-paste/theme-tokens';
 
 const LEFT_OPTIONS = [
   'fill',
@@ -67,11 +66,7 @@ export type Presets =
   | 'right_bottom'
   | 'right_fill';
 
-export interface ZIndexProps {
-  zIndex?: keyof ThemeShape['zIndices'];
-}
-
-export interface AbsoluteProps extends TopProps, BottomProps, LeftProps, RightProps, ZIndexProps, BoxProps {
+export interface AbsoluteProps extends TopProps, BottomProps, LeftProps, RightProps, BoxProps {
   preset?: Presets;
 }
 
