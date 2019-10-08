@@ -1,27 +1,27 @@
 import {ThemeShape} from '@twilio-paste/theme-tokens';
 
 export interface WidthProps {
-  width?: keyof ThemeShape['widths'];
+  width?: keyof ThemeShape['widths'] | Array<keyof ThemeShape['widths']>;
 }
 
 export interface MinWidthProps {
-  minWidth?: keyof ThemeShape['minWidths'];
+  minWidth?: keyof ThemeShape['minWidths'] | Array<keyof ThemeShape['minWidths']>;
 }
 
 export interface MaxWidthProps {
-  maxWidth?: keyof ThemeShape['maxWidths'];
+  maxWidth?: keyof ThemeShape['maxWidths'] | Array<keyof ThemeShape['maxWidths']>;
 }
 
 export interface HeightProps {
-  height?: keyof ThemeShape['heights'];
+  height?: keyof ThemeShape['heights'] | Array<keyof ThemeShape['heights']>;
 }
 
 export interface MinHeightProps {
-  minHeight?: keyof ThemeShape['heights'];
+  minHeight?: keyof ThemeShape['minHeights'] | Array<keyof ThemeShape['minHeights']>;
 }
 
 export interface MaxHeightProps {
-  maxHeight?: keyof ThemeShape['heights'];
+  maxHeight?: keyof ThemeShape['maxHeights'] | Array<keyof ThemeShape['maxHeights']>;
 }
 
 export interface SizingProps

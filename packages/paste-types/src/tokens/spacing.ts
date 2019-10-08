@@ -1,19 +1,21 @@
 import {ThemeShape} from '@twilio-paste/theme-tokens';
 
+type Spacing = keyof ThemeShape['space'] | Array<keyof ThemeShape['space']>;
+
 export interface MarginProps {
-  margin?: keyof ThemeShape['space'];
-  marginTop?: keyof ThemeShape['space'];
-  marginRight?: keyof ThemeShape['space'];
-  marginBottom?: keyof ThemeShape['space'];
-  marginLeft?: keyof ThemeShape['space'];
+  margin?: Spacing;
+  marginTop?: Spacing;
+  marginRight?: Spacing;
+  marginBottom?: Spacing;
+  marginLeft?: Spacing;
 }
 
 export interface PaddingProps {
-  padding?: keyof ThemeShape['space'];
-  paddingTop?: keyof ThemeShape['space'];
-  paddingRight?: keyof ThemeShape['space'];
-  paddingBottom?: keyof ThemeShape['space'];
-  paddingLeft?: keyof ThemeShape['space'];
+  padding?: Spacing;
+  paddingTop?: Spacing;
+  paddingRight?: Spacing;
+  paddingBottom?: Spacing;
+  paddingLeft?: Spacing;
 }
 
 export interface SpacingProps extends MarginProps, PaddingProps {}
