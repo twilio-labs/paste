@@ -1,10 +1,12 @@
 ---
 title: Box - Utilities
-description: One of our primitive components.
+description: The Box component is one of the pillars of our system. It can be any HTML element and can receive many of our token values as props. We use Box to build most of our other components.
 ---
 
 import {graphql} from 'gatsby';
+import {Box} from '@twilio-paste/box';
 import {SidebarCategoryRoutes} from '../../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 
 export const pageQuery = graphql`
   {
@@ -29,5 +31,187 @@ export const pageQuery = graphql`
   data={props.data.allPasteUtility.edges}
 />
 
+<content>
 
-## WIP
+## Guidelines
+
+The Box component is one of the pillars of our system. It can be any HTML element
+and can receive many of our token values as props. We use Box to build most of
+our other components.
+
+### About Box
+
+All HTML elements can be considered as **boxes**. In CSS, the term **"box model"** is used when
+talking about design and layout. It consists of: margins, borders, padding, and the actual content.
+
+The Box component is inspired from the “box model". It is a simple wrapper component
+that takes tokens instead of using CSS. The limited but scoped set of tokens allowed
+on Box act as guardrails. They provide quick and direct access to the Twilio design
+language while preventing any other value. We prevent other values to protect our
+product from inconsistent and inaccessible designs.
+
+For this reason, we can use the Box component to build out most of the interfaces at
+Twilio. Using this component will make our products resilient to design changes and
+themeable.
+
+#### Accessibility
+
+The Box component is an all purpose component. By default, it has no accessibility
+concerns. If you use the Box as a custom element, it is up to you to manage the
+resulting accessibility implications.
+
+<Callout>
+  <CalloutText>
+    Be sure to use the <strong>as</strong> prop to select semantically meaningful HTML elements. By default the Box
+    component renders as a <strong>div</strong> which doesn’t provide much meaning to the user.
+  </CalloutText>
+</Callout>
+
+### Examples
+
+<LivePreview scope={{Box}} language="jsx">
+  {`<Box
+  as="article"
+  backgroundColor="colorBackgroundBody"
+  padding="space60"
+>
+Parent box on the hill side
+  <Box
+    backgroundColor="colorBackgroundSuccessLightest"
+    display="inline-block"
+    padding="space40"
+  >
+    nested box 1 made out of ticky tacky
+  </Box>
+  <Box
+    backgroundColor="colorBackgroundPrimaryLight"
+    display="inline-block"
+    padding="space40"
+  >
+    Nested box 2 may look the same
+  </Box>
+</Box>`}
+</LivePreview>
+
+### Composition Notes
+
+The Box component is used to compose other experiences. If you imagine everything on
+a webpage as a Box, you can see how they all come together. Let's assume we need to
+build a modal component: it has a header, a body and a footer. Here's how we’ll
+compose the modal using Box:
+
+<LivePreview scope={{Box}} language="jsx">
+  {`<Box borderRadius="borderRadius20" overflow="hidden">
+  <Box
+    backgroundColor="colorBackgroundPrimary"
+    padding="space40"
+  >
+    Header area
+  </Box>
+  <Box
+    backgroundColor="colorBackgroundPrimaryLight"
+    padding="space40"
+  >
+    Body area
+  </Box>
+  <Box
+    backgroundColor="colorBackgroundPrimaryLight"
+    padding="space40"
+  >
+    Footer area
+  </Box>
+</Box>`}
+</LivePreview>
+
+WIP: making our own version of https://react-layouts.com/ to demo here.
+
+### When to use Box
+
+The Paste component library aims to cover the widest range of base use-cases.
+Sometimes, product requirements are more specific than what is offered here.
+When no other component in Paste works, use the Box component to build
+new experiences.
+
+Be wary of building slightly different versions of existing Paste components.
+If what you need is only a little different, try to constrain the design into
+one of our provided solutions. This will allow you to leverage more of our
+system and reduce your maintenance costs. On the surface our components may
+look simple or restrictive. They are often limited for very specific reasons,
+such as accessibility.
+
+<DoDont>
+  <Do title="Do" body="Use Box to build new components and experiences." preview={false} />
+  <Dont
+    title="Don't"
+    body="Use Box to build slightly different versions of existing Paste components."
+    preview={false}
+  />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use Box to layout your page or to apply padding to your components." preview={false} />
+  <Dont
+    title="Don't"
+    body="Use inline CSS, the CSS Cascade, or classNames to add styles that Box can provide."
+    preview={false}
+  />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use Box with an 'as' prop to style custom HTML elements with tokens." preview={false} />
+  <Dont title="Don't" body="Use HTML elements for functionality covered by the Box component." preview={false} />
+</DoDont>
+
+### Anatomy
+
+The Box component permits every token under the following properties:
+
+backgroundColor
+Border (color, style, radius, width)
+Sizing (width, maxWidth, height, maxHeight)
+Spacing (margin, padding)
+
+Via a number of shorthand props.
+
+</content>
+
+---
+
+<content>
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/box
+```
+
+#### Usage
+
+```jsx
+import {Box, BoxProps} from '@twilio-paste/box';
+
+<Box as="article" backgroundColor="colorBackgroundBody" padding="space60">
+  Foo
+</Box>;
+```
+
+#### Props
+
+| Prop              | Type                                   | Description                                      | Default |
+| ----------------- | -------------------------------------- | ------------------------------------------------ | ------- |
+| as?               | string                                 | The HTML tag to replace the default `<div>` tag. | 'div'   |
+| backgroundColor?  | keyof ThemeShape['backgroundColors']   | One of our token background colors               |         |
+| borderColor?      | keyof ThemeShape['borderColors']       | One of our token border colors                   |         |
+| borderBottomColor | keyof ThemeShape['borderColors']       | One of our token border colors                   |         |
+| overflow?         | string                                 | CSS overflow property                            |         |
+| display?          | `ResponsiveValue<CSS.DisplayProperty>` | The CSS display property                         | 'block' |
+
+<Box marginTop="space90">
+  <Changelog />
+</Box>
+
+</content>
