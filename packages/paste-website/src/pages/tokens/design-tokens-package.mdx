@@ -24,6 +24,12 @@ export const pageQuery = graphql`
         }
       }
     }
+    mdx(fields: { slug: { eq: "/tokens/design-tokens-package/" } }) {
+      headings {
+        depth
+        value
+      }
+    }
   }
 `;
 
@@ -36,9 +42,13 @@ export const pageQuery = graphql`
 
 ***
 
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings} />
+
 <content>
 
-The Paste design tokens are available as a NPM package which acts as the central source of truth for Paste. By using this package correctly, you can rely on a well-maintained, up-to-date definition of Twilio's Design Language. A simple way to grab or view the latest files in this package is to visit [UNPKG - @twilio-paste/design-tokens](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/). 
+The Paste design tokens are available as a NPM package which acts as the central source of truth for Paste. By using this package correctly, you can rely on a well-maintained, up-to-date definition of Twilio's Design Language. A simple way to grab or view the latest files in this package is to visit [UNPKG - @twilio-paste/design-tokens](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/).
 
 ## Supported Formats
 
@@ -82,7 +92,7 @@ Within themes, we presently have support for:
 
 ## Give us Feedback on this Page
 
-As you use Paste, you'll likely encounter things that _don't seem right_. Please reach out with your feedback! Here's some prompts to consider: 
+As you use Paste, you'll likely encounter things that _don't seem right_. Please reach out with your feedback! Here's some prompts to consider:
 
 - Is this page easy for me to consume?
 - Is the information supporting it sufficient / well-described?
@@ -96,3 +106,5 @@ As you use Paste, you'll likely encounter things that _don't seem right_. Please
 </Box>
 
 </content>
+
+</contentwrapper>

@@ -22,6 +22,12 @@ export const pageQuery = graphql`
         }
       }
     }
+    mdx(fields: { slug: { eq: "/tokens/theme-package/" } }) {
+      headings {
+        depth
+        value
+      }
+    }
   }
 `;
 
@@ -34,6 +40,10 @@ export const pageQuery = graphql`
 />
 
 ***
+
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings} />
 
 <content>
 
@@ -145,7 +155,7 @@ const ExampleComponentwithTheme = withTheme(ExampleComponent);
 
 ## Give us Feedback on this Page
 
-As you use Paste, you'll likely encounter things that _don't seem right_. Please reach out with your feedback! Here's some prompts to consider: 
+As you use Paste, you'll likely encounter things that _don't seem right_. Please reach out with your feedback! Here's some prompts to consider:
 
 - Is this page easy for me to consume?
 - Is the information supporting it sufficient / well-described?
@@ -158,3 +168,5 @@ As you use Paste, you'll likely encounter things that _don't seem right_. Please
 </Box>
 
 </content>
+
+</contentwrapper>

@@ -11,17 +11,22 @@ import {P, UL, OL, LI, InlineCode} from '../Typography';
 // Shortcode imports
 import {ComponentHeader} from '../shortcodes/component-header';
 import {LivePreview} from '../shortcodes/live-preview';
+import {TableOfContents} from '../shortcodes/table-of-contents';
 
 interface PasteMDXProviderProps {
   children?: React.ReactElement;
 }
+
+const StyledContentWrapper = styled.div`
+  display: flex;
+`;
 
 const StyledContent = styled.div`
   /* magic number from Jasons initial layout */
   max-width: 816px;
 `;
 
-const shortcodes = {ComponentHeader, LivePreview};
+const shortcodes = {ComponentHeader, LivePreview, TableOfContents};
 
 /* eslint-disable no-shadow */
 /*
@@ -72,6 +77,7 @@ export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMD
         a: (props: AnchorProps): React.ReactElement => <Anchor {...props} />, // eslint-disable-line jsx-a11y/anchor-has-content
         img: (props: React.ComponentProps<'img'>): React.ReactElement => <img {...props} />, // eslint-disable-line jsx-a11y/alt-text
         content: (props: React.ComponentProps<'div'>): React.ReactElement => <StyledContent {...props} />,
+        contentwrapper: (props: React.ComponentProps<'div'>): React.ReactElement => <StyledContentWrapper {...props} />,
       }}
     >
       {props.children}

@@ -3,12 +3,22 @@ title: Design Guidelines for Paste
 description: This document will highlight our approach for unified design libraries, tips for getting started, and similar resources for Product Designers using Paste.
 ---
 
+import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 import {Grid} from '../../components/grid';
 import { Link } from "gatsby"
 
-
+export const pageQuery = graphql`
+  {
+    mdx(fields: { slug: { eq: "/getting-started/design/" } }) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
 
 
 <content>
@@ -21,9 +31,13 @@ import { Link } from "gatsby"
 
 ***
 
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings} />
+
 <content>
 <Callout variant="warning">
-  <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>  
+  <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>
   <CalloutText>These guidelines are a living document, and not final. Reach out with comments &amp; concerns at #help-design-system</CalloutText>
 </Callout>
 
@@ -31,8 +45,8 @@ import { Link } from "gatsby"
 
 Welcome! Paste is currently in early access. The intention of this release is to:
 
-- Give clarity to the UX Org for what our vision for a Unified Design System is, through a working example. 
-- Validate our ability to execute together as a larger systems team. 
+- Give clarity to the UX Org for what our vision for a Unified Design System is, through a working example.
+- Validate our ability to execute together as a larger systems team.
 - Get folks excited!
 
 However, this release is not:
@@ -74,7 +88,7 @@ If you’re unfamiliar with Abstract, version control, or git workflows, read th
 ### Joining or Creating a New Project in Abstract
 
 <Callout variant="warning">
-  <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>  
+  <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>
   <CalloutText>This section will be updated in the future for specific guidance for SendGrid and Flex Product Designers.</CalloutText>
 </Callout>
 
@@ -93,11 +107,11 @@ If you’re unfamiliar with Abstract, version control, or git workflows, read th
 5. Select all the Console components files, then click *Link Library*
 
 <Callout>
-  <CalloutTitle as="h4">Do a quick font check!</CalloutTitle>    
+  <CalloutTitle as="h4">Do a quick font check!</CalloutTitle>
   <CalloutText>Now is a good time to test your fonts to ensure that the components look right! In Abstract, go to the DesignOps project and open{' '}
     <Anchor href="https://share.goabstract.com/c33c9dd8-5b0a-48a3-ab56-83a6fdffa869?sha=9a058708bfc5c9f741f3e62195e18e2cdc6ba329">
       Font tester.sketch
-    </Anchor> 
+    </Anchor>
     {' '}in untracked mode. Use the Font Tester artboard to make sure your font files have been installed correctly.</CalloutText>
 </Callout>
 
@@ -116,7 +130,7 @@ How often you might commit depends on the scope of your project. If the scope is
    To create a branch, click *Master* in the left sidebar and then click *New Branch…* in the upper right.
 
 <Callout variant="warning">
-  <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>  
+  <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>
   <CalloutText>This section will be updated in the future with specific guidance for Flex &amp; SendGrid.</CalloutText>
 </Callout>
 
@@ -145,7 +159,7 @@ For example:
 Commit messages are important. You may be tempted to write "updates" as your commit’s description while you're working hard, but will that be useful in six months when you’re trying to find a specific exploration? We recommend using the `conventional commit` format for messages, which attaches a strict style to commits, and makes them readable: not just for you, but also for your peers!
 
 <Callout variant="warning">
-  <CalloutTitle as="h4">Commit Message Conventions are Mandatory for Design System Contributions</CalloutTitle>  
+  <CalloutTitle as="h4">Commit Message Conventions are Mandatory for Design System Contributions</CalloutTitle>
   <CalloutText>While we can only strongly recommend what you do in your own Abstract projects, following this convention is mandatory for Design System projects. We'll have to ask you to redo your branch, so please follow this format! </CalloutText>
 </Callout>
 
@@ -158,7 +172,7 @@ Commit messages are important. You may be tempted to write "updates" as your com
 ### Creating your own libraries
 
 <Callout variant="warning">
-  <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>  
+  <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>
   <CalloutText>This section will be updated in a future release.</CalloutText>
 </Callout>
 
@@ -173,12 +187,13 @@ As your projects become more and more complex (or you start working on multiple 
 
 ## Give us Feedback on this Page
 
-As you use Paste, you’ll likely encounter things that _don’t seem right_. Please reach out with your feedback! Here are some prompts to consider: 
+As you use Paste, you’ll likely encounter things that _don’t seem right_. Please reach out with your feedback! Here are some prompts to consider:
 
 - Is this page easy for me to consume?
 - Is the information supporting it sufficient / well-described?
 - What information is missing?
 - How approachable is the documentation? Can a new engineer / PM / designer at Twilio get started with it easily?
 
-
 </content>
+
+</contentwrapper>

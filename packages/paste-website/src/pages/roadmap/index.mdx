@@ -3,9 +3,25 @@ title: Roadmap
 description: Here's a glimpse of what is coming up in future releases of Paste. Unless explicitly mentioned, all roadmap dates are tentative and subject to change.
 ---
 
+import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {AnchoredHeading} from '../../components/Heading';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: { slug: { eq: "/roadmap/" } }) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings} />
 
 <content>
 
@@ -116,3 +132,5 @@ Coming soon!
 </Box>
 
 </content>
+
+</contentwrapper>

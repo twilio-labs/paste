@@ -51,6 +51,10 @@ export const pageQuery = graphql`
 
 ***
 
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings} />
+
 <content>
 
 ## Guidelines
@@ -120,11 +124,7 @@ You can use an anchor to navigate the user to another webpage.
   <Dont title="Don't" body="Don’t use an icon in place of or with anchor text." preview={false} />
 </DoDont>
 
-</content>
-
 ***
-
-<content>
 
 ## Usage Guide
 
@@ -163,3 +163,5 @@ import {Anchor} from '@twilio-paste/anchor';
 </Box>
 
 </content>
+
+</contentwrapper>

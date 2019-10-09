@@ -24,6 +24,12 @@ export const pageQuery = graphql`
         }
       }
     }
+    mdx(fields: { slug: { eq: "/button/" } }) {
+      headings {
+        depth
+        value
+      }
+    }
   }
 `;
 
@@ -36,6 +42,10 @@ export const pageQuery = graphql`
 />
 
 ***
+
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings} />
 
 <content>
 
@@ -360,11 +370,7 @@ right in an English-language flow).
   <Dont title="Don't" body="Don’t use product or brand icons in buttons since they don’t communicate action." preview={false} />
 </DoDont>
 
-</content>
-
 ***
-
-<content>
 
 ## Usage Guide
 
@@ -415,3 +421,5 @@ import {Button} from '@twilio-paste/button';
 </Box>
 
 </content>
+
+</contentwrapper>
