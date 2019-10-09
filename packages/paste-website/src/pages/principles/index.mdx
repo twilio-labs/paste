@@ -3,9 +3,25 @@ title: Principles of Operation
 description: Here, you can read about our unified UX Principles (How we work, How we build), as well as the operating principles for Paste.
 ---
 
+import {graphql} from 'gatsby';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 import {Grid} from '../../components/grid';
 import { Link } from "gatsby"
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: { slug: { eq: "/principles/" } }) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<contentwrapper>
+
+<TableOfContents data={props.data.mdx.headings} />
 
 <content>
 
@@ -13,14 +29,10 @@ import { Link } from "gatsby"
 
 <p>{props.pageContext.frontmatter.description}</p>
 
-</content>
-
 ---
 
-<content>
-
 <Callout>
-  <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>  
+  <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>
   <CalloutText>We're living the principles by taking small steps to document these UX Principles. We'll have more supporting visuals and examples soon.</CalloutText>
 </Callout>
 
@@ -32,20 +44,20 @@ These principles are statements of how I work, how you work, how we work as a UX
 
 
 #### Think big and take small steps
-Work methodically towards a compelling vision. Be willing to iterate your work as you build an understanding of customer needs, capturing the vision as you adjust and progress. 
+Work methodically towards a compelling vision. Be willing to iterate your work as you build an understanding of customer needs, capturing the vision as you adjust and progress.
 
 
 #### Start with the customer
 Understand the customer, their problem, and the context first. Begin by conducting or seeking out the customer research that will enable you to create a compelling solution.
 
 #### Seek feedback early and often
-Share work while it’s still scrappy to shape its direction. Collaborate with other disciplines to expose different ideas that challenge your thinking and strengthen your work as it evolves. 
+Share work while it’s still scrappy to shape its direction. Collaborate with other disciplines to expose different ideas that challenge your thinking and strengthen your work as it evolves.
 
 #### Validate work with customer testing
 Invite real customers to test and challenge solutions. Gather robust feedback and iterate your work until it both solves the customer problem and improves the overall product experience.
 
 #### Shepherd work all the way to the customer
-Take responsibility for every detail that’s delivered to the customer. Share the work’s intent with your team and ensure that its implementation is true to the vision. 
+Take responsibility for every detail that’s delivered to the customer. Share the work’s intent with your team and ensure that its implementation is true to the vision.
 
 ### How we build
 
@@ -53,7 +65,7 @@ Take responsibility for every detail that’s delivered to the customer. Share t
 Create customer experiences that are unified in look and feel. Make the transitions between business units unnoticeable with consistent use of styles, patterns, and interactions.
 
 #### Refine to the essentials
-Choose every element with a clear purpose that’s attached to a customer need. Refine the experience until every component is essential in solving the customer problem. 
+Choose every element with a clear purpose that’s attached to a customer need. Refine the experience until every component is essential in solving the customer problem.
 
 #### Set the bar higher
 Meet the high standard that’s expected, then push past it. Elevate function, form, language, and design to ensure that the quality of the experience raises the bar for future work.
@@ -81,7 +93,7 @@ Systems should never have single points of failure. Good documentation, reliable
 
 ## Give us Feedback on this Page
 
-As you use Paste, you'll likely encounter things that _don't seem right_. Please reach out with your feedback! Here's some prompts to consider: 
+As you use Paste, you'll likely encounter things that _don't seem right_. Please reach out with your feedback! Here's some prompts to consider:
 
 - Is this page easy for me to consume?
 - Is the information supporting it sufficient / well-described?
@@ -89,3 +101,5 @@ As you use Paste, you'll likely encounter things that _don't seem right_. Please
 - How approachable is the documentation? Can a new engineer / PM / designer at Twilio get started with it easily?
 
 </content>
+
+</contentwrapper>

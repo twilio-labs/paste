@@ -4,10 +4,26 @@ description: Paste is a large, multi-year project. This document covers how and 
 
 ---
 
+import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 import {Grid} from '../../components/grid';
 import { Link } from "gatsby"
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: { slug: { eq: "/migrate/" } }) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<contentwrapper>
+
+<TableOfContents data={props.data.mdx.headings} />
 
 <content>
 
@@ -15,11 +31,8 @@ import { Link } from "gatsby"
 
 <p>{props.pageContext.frontmatter.description}</p>
 
-</content>
-
 ---
 
-<content>
 <Callout variant="warning">
   <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>
   <CalloutText>These guidelines are a living document, and not final. Reach out with comments &amp; concerns at #help-design-system</CalloutText>
@@ -103,3 +116,5 @@ Information coming soon!
 Information coming soon!
 
 </content>
+
+</contentwrapper>

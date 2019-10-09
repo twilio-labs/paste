@@ -3,9 +3,21 @@ title: Getting Started
 description: This document will get you started with Paste, what's in it, and what's coming soon.
 ---
 
+import {graphql} from 'gatsby';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 import {Grid} from '../../components/grid';
 import { Link } from "gatsby"
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: { slug: { eq: "/getting-started/" } }) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
 
 <content>
 
@@ -17,9 +29,13 @@ import { Link } from "gatsby"
 
 ---
 
+<contentwrapper>
+
+<TableOfContents data={props.data.mdx.headings} />
+
 <content>
 <Callout variant="warning">
-  <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>  
+  <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>
   <CalloutText>These guidelines are a living document, and not final. Reach out with comments &amp; concerns at #help-design-system</CalloutText>
 </Callout>
 
@@ -27,8 +43,8 @@ import { Link } from "gatsby"
 
 Welcome! Paste is currently in early access. The intention of this release is to:
 
-- Give clarity to the UX Org for what our vision for a Unified Design System is, through a working example. 
-- Validate our ability to execute together as a larger systems team. 
+- Give clarity to the UX Org for what our vision for a Unified Design System is, through a working example.
+- Validate our ability to execute together as a larger systems team.
 - Get folks excited!
 
 However, this release is not:
@@ -53,7 +69,7 @@ Paste is currently in its early stages. It will include:
 ### Tokens &amp; Themes
 
 <Callout variant="warning">
-  <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>  
+  <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>
   <CalloutText>This section will be updated with specific guidance for Flex.</CalloutText>
 </Callout>
 
@@ -73,7 +89,7 @@ Paste is currently in its early stages. It will include:
 
 ## Give us Feedback on this Page
 
-As you use Paste, you'll likely encounter things that _don't seem right_. Please reach out with your feedback! Here's some prompts to consider: 
+As you use Paste, you'll likely encounter things that _don't seem right_. Please reach out with your feedback! Here's some prompts to consider:
 
 - Is this page easy for me to consume?
 - Is the information supporting it sufficient / well-described?
@@ -81,3 +97,5 @@ As you use Paste, you'll likely encounter things that _don't seem right_. Please
 - How approachable is the documentation? Can a new engineer / PM / designer at Twilio get started with it easily?
 
 </content>
+
+</contentwrapper>

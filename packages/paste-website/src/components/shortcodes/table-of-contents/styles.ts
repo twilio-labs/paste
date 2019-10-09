@@ -18,21 +18,21 @@ export const StyledScrollSpy = styled(Scrollspy)`
 `;
 
 export const marginTopPartial = ({depth}: TableOfContentsListItemProps): string => {
-  if (depth === '4') {
+  if (depth === '3' || depth === '4') {
     return '0';
   }
   return themeGet('space.space30');
 };
 
 export const marginLeftPartial = ({depth}: TableOfContentsListItemProps): string => {
-  if (depth === '4') {
+  if (depth === '3' || depth === '4') {
     return themeGet('space.space50');
   }
   return '0';
 };
 
 export const fontSizePartial = ({depth}: TableOfContentsListItemProps): string => {
-  if (depth === '4') {
+  if (depth === '3' || depth === '4') {
     return themeGet('fontSizes.fontSize10');
   }
   return themeGet('fontSizes.fontSize20');

@@ -8,17 +8,28 @@ import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 
+export const pageQuery = graphql`
+  {
+    mdx(fields: { slug: { eq: "/tokens/how-to-compose-custom-ui-with-tokens/" } }) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<contentwrapper>
+
+<TableOfContents data={props.data.mdx.headings} />
+
 <content>
 
 <h1>{props.pageContext.frontmatter.title}</h1>
 
 <p>{props.pageContext.frontmatter.description}</p>
 
-</content>
-
 ***
-
-<content>
 
 ## Why would I need to build Custom Components?
 
@@ -169,3 +180,5 @@ As you use Paste, you'll likely encounter things that _don't seem right_. Please
 - How approachable is the documentation? Can a new engineer / PM / designer at Twilio get started with it easily?
 
 </content>
+
+</contentwrapper>
