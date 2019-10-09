@@ -5,8 +5,10 @@ description: The Box component is one of the pillars of our system. It can be an
 
 import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
+import Changelog from '@twilio-paste/box/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
 
 export const pageQuery = graphql`
   {
@@ -101,29 +103,34 @@ build a modal component: it has a header, a body and a footer. Here's how we’l
 compose the modal using Box:
 
 <LivePreview scope={{Box}} language="jsx">
-  {`<Box borderRadius="borderRadius20" overflow="hidden">
-  <Box
-    backgroundColor="colorBackgroundPrimary"
-    padding="space40"
+  {`<Box 
+  overflow="hidden" 
+  borderRadius="borderRadius20" 
+  borderStyle="solid" 
+  borderWidth="borderWidth10" 
+  borderColor="colorBorderPrimaryLight"
   >
+  <Box backgroundColor="colorBackgroundPrimaryLight" padding="space40">
     Header area
   </Box>
-  <Box
-    backgroundColor="colorBackgroundPrimaryLight"
-    padding="space40"
-  >
+  <Box backgroundColor="colorBackgroundPrimaryLightest" padding="space40">
     Body area
+    <Box 
+      width="sizes10" 
+      marginTop="space30" 
+      marginBottom="space30" 
+      padding="space30"
+    >
+      An inner box with margin and padding
+    </Box>
   </Box>
-  <Box
-    backgroundColor="colorBackgroundPrimaryLight"
-    padding="space40"
-  >
+  <Box backgroundColor="colorBackgroundPrimaryLight" padding="space40">
     Footer area
   </Box>
 </Box>`}
 </LivePreview>
 
-WIP: making our own version of https://react-layouts.com/ to demo here.
+
 
 ### When to use Box
 
@@ -162,16 +169,6 @@ such as accessibility.
   <Dont title="Don't" body="Use HTML elements for functionality covered by the Box component." preview={false} />
 </DoDont>
 
-### Anatomy
-
-The Box component permits every token under the following properties:
-
-backgroundColor
-Border (color, style, radius, width)
-Sizing (width, maxWidth, height, maxHeight)
-Spacing (margin, padding)
-
-Via a number of shorthand props.
 
 </content>
 
@@ -196,19 +193,53 @@ import {Box, BoxProps} from '@twilio-paste/box';
 
 <Box as="article" backgroundColor="colorBackgroundBody" padding="space60">
   Foo
-</Box>;
+</Box>
 ```
 
 #### Props
 
-| Prop              | Type                                   | Description                                      | Default |
-| ----------------- | -------------------------------------- | ------------------------------------------------ | ------- |
-| as?               | string                                 | The HTML tag to replace the default `<div>` tag. | 'div'   |
-| backgroundColor?  | keyof ThemeShape['backgroundColors']   | One of our token background colors               |         |
-| borderColor?      | keyof ThemeShape['borderColors']       | One of our token border colors                   |         |
-| borderBottomColor | keyof ThemeShape['borderColors']       | One of our token border colors                   |         |
-| overflow?         | string                                 | CSS overflow property                            |         |
-| display?          | `ResponsiveValue<CSS.DisplayProperty>` | The CSS display property                         | 'block' |
+All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
+
+| Prop                     | Type                                                    | Description       | Default |
+| ------------------------ | ------------------------------------------------------- | ----------------- | ------- |
+| as?                      | string                                                  | A custom HTML tag | 'div'   |
+| display?                 | `ResponsiveValue<CSS.DisplayProperty>`                  |                   |         |
+| overflow?                | `ResponsiveValue<CSS.OverflowProperty>`                 |                   |         |
+| backgroundColor?         | `ResponsiveValue<keyof ThemeShape['backgroundColors']>` |                   |         |
+| width?                   | `ResponsiveValue<keyof ThemeShape['widths']>`           |                   |         |
+| minWidth?                | `ResponsiveValue<keyof ThemeShape['minWidths']>`        |                   |         |
+| maxWidth?                | `ResponsiveValue<keyof ThemeShape['maxWidths']>`        |                   |         |
+| height?                  | `ResponsiveValue<keyof ThemeShape['heights']>`          |                   |         |
+| minHeight?               | `ResponsiveValue<keyof ThemeShape['minHeights']>`       |                   |         |
+| maxHeight?               | `ResponsiveValue<keyof ThemeShape['maxHeights']>`       |                   |         |
+| margin?                  | `ResponsiveValue<keyof ThemeShape['space']>`            |                   |         |
+| marginTop?               | `ResponsiveValue<keyof ThemeShape['space']>`            |                   |         |
+| marginRight?             | `ResponsiveValue<keyof ThemeShape['space']>`            |                   |         |
+| marginBottom?            | `ResponsiveValue<keyof ThemeShape['space']>`            |                   |         |
+| marginLeft?              | `ResponsiveValue<keyof ThemeShape['space']>`            |                   |         |
+| padding?                 | `ResponsiveValue<keyof ThemeShape['space']>`            |                   |         |
+| paddingTop?              | `ResponsiveValue<keyof ThemeShape['space']>`            |                   |         |
+| paddingRight?            | `ResponsiveValue<keyof ThemeShape['space']>`            |                   |         |
+| paddingBottom?           | `ResponsiveValue<keyof ThemeShape['space']>`            |                   |         |
+| paddingLeft?             | `ResponsiveValue<keyof ThemeShape['space']>`            |                   |         |
+| borderRadius?            | `ResponsiveValue<keyof ThemeShape['radii']>`            |                   |         |
+| borderTopLeftRadius?     | `ResponsiveValue<keyof ThemeShape['radii']>`            |                   |         |
+| borderTopRightRadius?    | `ResponsiveValue<keyof ThemeShape['radii']>`            |                   |         |
+| borderBottomRightRadius? | `ResponsiveValue<keyof ThemeShape['radii']>`            |                   |         |
+| borderBottomLeftRadius?  | `ResponsiveValue<keyof ThemeShape['radii']>`            |                   |         |
+| borderWidth?             | `ResponsiveValue<keyof ThemeShape['borderWidths']>`     |                   |         |
+| borderTopWidth?          | `ResponsiveValue<keyof ThemeShape['borderWidths']>`     |                   |         |
+| borderRightWidth?        | `ResponsiveValue<keyof ThemeShape['borderWidths']>`     |                   |         |
+| borderBottomWidth?       | `ResponsiveValue<keyof ThemeShape['borderWidths']>`     |                   |         |
+| borderLeftWidth?         | `ResponsiveValue<keyof ThemeShape['borderWidths']>`     |                   |         |
+| borderColor?             | `ResponsiveValue<keyof ThemeShape['borderColors']>`     |                   |         |
+| borderTopColor?          | `ResponsiveValue<keyof ThemeShape['borderColors']>`     |                   |         |
+| borderRightColor?        | `ResponsiveValue<keyof ThemeShape['borderColors']>`     |                   |         |
+| borderBottomColor?       | `ResponsiveValue<keyof ThemeShape['borderColors']>`     |                   |         |
+| borderLeftColor?         | `ResponsiveValue<keyof ThemeShape['borderColors']>`     |                   |         |
+| borderStyle?             | `ResponsiveValue<CSS.BorderStyleProperty>`              |                   |         |
+| boxshadow?               | `ResponsiveValue<keyof ThemeShape['shadows']>`          |                   |         |
+| zIndex?                  | `ResponsiveValue<keyof ThemeShape['zIndices']>`         |                   |         |
 
 <Box marginTop="space90">
   <Changelog />
