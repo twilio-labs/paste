@@ -132,7 +132,7 @@ storiesOf('Utilities|Box', module)
         height={['size10', 'size20']}
       >
         <Text textColor="colorText">
-          DO NOTE: `widths` isn't responsive due to a bug in Styled System v4. To be fixed in an upgrade.
+          DO NOTE: 'width' isn't responsive due to a bug in Styled System v4. To be fixed in an upgrade.
         </Text>
       </Box>
     );
