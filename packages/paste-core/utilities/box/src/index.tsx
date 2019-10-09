@@ -8,7 +8,6 @@ import {
   minHeight,
   maxHeight,
   borders,
-  BorderProps,
   display,
   DisplayProps,
   boxShadow,
@@ -27,10 +26,7 @@ import {
   MaxHeightProps,
   SpacingProps,
   BackgroundColorProps,
-  BorderRadiusProps,
-  BorderWidthProps,
-  BorderStyleProps,
-  BorderColorProps,
+  BorderProps,
   BoxShadowProps,
   ZIndexProps,
 } from '@twilio-paste/types';
@@ -44,16 +40,12 @@ export interface BoxProps
     MaxHeightProps,
     SpacingProps,
     BackgroundColorProps,
-    BorderRadiusProps,
-    BorderWidthProps,
-    BorderStyleProps,
-    BorderColorProps,
+    BorderProps,
     BoxShadowProps,
     ZIndexProps,
     // styled-system
     DisplayProps,
-    OverflowProps,
-    BorderProps {
+    OverflowProps {
   as?: keyof JSX.IntrinsicElements;
 }
 
