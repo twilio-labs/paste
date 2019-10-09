@@ -1,7 +1,7 @@
-import * as CSS from 'csstype';
 import {ThemeShape} from '@twilio-paste/theme-tokens';
+import {ResponsiveValue, BorderStyleProps as _BorderStyleProps} from 'styled-system';
 
-type Radii = keyof ThemeShape['radii'] | Array<keyof ThemeShape['radii']>;
+type Radii = ResponsiveValue<keyof ThemeShape['radii']>;
 
 export interface BorderRadiusProps {
   borderRadius?: Radii;
@@ -11,7 +11,7 @@ export interface BorderRadiusProps {
   borderTopRightRadius?: Radii;
 }
 
-type BorderWidths = keyof ThemeShape['borderWidths'] | Array<keyof ThemeShape['borderWidths']>;
+type BorderWidths = ResponsiveValue<keyof ThemeShape['borderWidths']>;
 
 export interface BorderWidthProps {
   borderWidth?: BorderWidths;
@@ -21,11 +21,9 @@ export interface BorderWidthProps {
   borderTopWidth?: BorderWidths;
 }
 
-export interface BorderStyleProps {
-  borderStyle?: CSS.BorderStyleProperty | Array<CSS.BorderStyleProperty>;
-}
+export interface BorderStyleProps extends _BorderStyleProps {}
 
-type BorderColors = keyof ThemeShape['borderColors'] | Array<keyof ThemeShape['borderColors']>;
+type BorderColors = ResponsiveValue<keyof ThemeShape['borderColors']>;
 
 export interface BorderColorProps {
   borderColor?: BorderColors;

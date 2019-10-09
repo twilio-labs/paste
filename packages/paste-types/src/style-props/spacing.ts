@@ -1,6 +1,7 @@
 import {ThemeShape} from '@twilio-paste/theme-tokens';
+import {ResponsiveValue} from 'styled-system';
 
-type Spacing = keyof ThemeShape['space'] | Array<keyof ThemeShape['space']>;
+type Spacing = ResponsiveValue<keyof ThemeShape['space']>;
 
 export interface MarginProps {
   margin?: Spacing;

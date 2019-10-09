@@ -10,6 +10,9 @@
   "references": [
     {
       "path": "../paste-theme-tokens"
+    },
+    {
+      "path": "../paste-types"
     }
   ]
 }
