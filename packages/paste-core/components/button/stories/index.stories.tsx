@@ -2,7 +2,7 @@ import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
 import {withKnobs, select, text, boolean} from '@storybook/addon-knobs';
-import {LogoIcon} from '@twilio-paste/icons/src/react/LogoIcon';
+import {PlusIcon} from '@twilio-paste/icons/src/react/PlusIcon';
 import {Button} from '../src';
 import {ButtonVariants, ButtonSizes, ButtonTabIndexes} from '../src/types';
 
@@ -50,7 +50,7 @@ storiesOf('Components|Button', module)
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
       >
-        <LogoIcon size={20} />
+        <PlusIcon size={20} />
         <span>Activate</span>
       </Button>
     );
@@ -71,7 +71,7 @@ storiesOf('Components|Button', module)
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
       >
-        <LogoIcon size={20} />
+        <PlusIcon size={20} />
       </Button>
     );
   })
