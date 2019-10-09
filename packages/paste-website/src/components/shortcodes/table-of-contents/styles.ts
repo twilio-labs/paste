@@ -49,15 +49,7 @@ export const StyledListItem: React.FC<TableOfContentsListItemProps> = styled.li`
   border-left-style: solid;
   border-left-color: transparent;
 
-  a {
-    color: ${themeGet('colors.colorGray80')};
-  }
-
   &.is-current {
     border-color: ${themeGet('borderColors.colorBorderPrimary')};
-
-    a {
-      color: ${themeGet('textColors.colorTextLink')};
-    }
   }
 `;
