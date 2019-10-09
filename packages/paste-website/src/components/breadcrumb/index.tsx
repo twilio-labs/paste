@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
 import {Link} from 'gatsby';
 
-const CrumbSlashStyled = styled.aside(props => ({
+const CrumbSlashStyled = styled.span(props => ({
   padding: `0 ${themeGet('space.space20')(props)}`,
   display: 'inline',
   color: themeGet('textColors.colorTextWeak')(props),
