@@ -26,13 +26,7 @@ class ThemeWrapper extends React.Component {
   };
 
   render() {
-    // These are dummy breakpoints for testing
-    const breakpoints = ['40em', '52em', '64em', '80em'];
-    return (
-      <Theme.Provider theme={this.state.theme} customBreakpoints={breakpoints}>
-        {this.props.children}
-      </Theme.Provider>
-    );
+    return <Theme.Provider theme={this.state.theme}>{this.props.children}</Theme.Provider>;
   }
 }
 
