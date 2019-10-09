@@ -1,5 +1,5 @@
 import {ThemeShape} from '@twilio-paste/theme-tokens';
-import {ResponsiveValue, BorderStyleProps as _BorderStyleProps} from 'styled-system';
+import {ResponsiveValue, BorderStyleProps} from 'styled-system';
 
 type Radii = ResponsiveValue<keyof ThemeShape['radii']>;
 
@@ -20,8 +20,6 @@ export interface BorderWidthProps {
   borderRightWidth?: BorderWidths;
   borderTopWidth?: BorderWidths;
 }
-
-export interface BorderStyleProps extends _BorderStyleProps {}
 
 type BorderColors = ResponsiveValue<keyof ThemeShape['borderColors']>;
 
