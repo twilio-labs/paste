@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {keyframes, css} from '@emotion/core';
 import styled from '@emotion/styled';
-import {SpinnerIcon, SpinnerIconProps} from '@twilio-paste/icons/react/SpinnerIcon';
+import {LoadingIcon, LoadingIconProps} from '@twilio-paste/icons/react/LoadingIcon';
 
 const rotate = keyframes`
   0% {
@@ -22,13 +22,13 @@ const SpinningWrapper = styled.div(
   })
 );
 
-interface SpinnerProps extends SpinnerIconProps {
+interface SpinnerProps extends LoadingIconProps {
   title: string;
 }
 
 const Spinner: React.FC<SpinnerProps> = props => (
   <SpinningWrapper>
-    <SpinnerIcon {...props} />
+    <LoadingIcon {...props} />
   </SpinningWrapper>
 );
 
