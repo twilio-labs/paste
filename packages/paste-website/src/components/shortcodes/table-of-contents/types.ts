@@ -1,5 +1,5 @@
 export interface TableOfContentsProps {
-  data?: [
+  headings?: [
     {
       value: string;
       depth: number;

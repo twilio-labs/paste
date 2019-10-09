@@ -4,15 +4,13 @@ import {TableOfContentsProps} from './types';
 import {StyledWrapper, StyledScrollSpy, StyledListItem} from './styles';
 import {slugify} from '../../../utils/RouteUtils';
 
-const TableOfContents: React.FC<TableOfContentsProps> = headings => {
-  if (headings == null || headings.data == null) {
+const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
+  if (headings == null) {
     return null;
   }
 
-  const allHeadings = headings.data;
-
   // Get Array of heading anchors. Excluding h1 elements.
-  const headingsList = allHeadings
+  const headingsList = headings
     .filter(heading => heading.depth !== 1)
     .map(({value}) => {
       const headingAnchor = slugify(value);
@@ -26,7 +24,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = headings => {
     <StyledWrapper marginTop="space40" marginLeft="space140">
       <StyledScrollSpy items={headingsList} currentClassName="is-current" rootEl="#site-main">
         {// Get heading anchors and convert to #anchor format. Excluding h1 elements.
-        allHeadings
+        headings
           .filter(heading => heading.depth !== 1)
           .map(({value, depth}) => {
             const headingLink = `#${slugify(value)}`;
