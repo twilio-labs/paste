@@ -1,43 +1,51 @@
 import styled from '@emotion/styled';
 import {
+  space,
+  width,
+  minWidth,
+  maxWidth,
+  height,
+  minHeight,
+  maxHeight,
+  borders,
   display,
   DisplayProps,
-  borders,
-  BorderProps,
-  height,
-  maxWidth,
-  minWidth,
-  space,
+  boxShadow,
+  zIndex,
+  overflow,
+  OverflowProps,
   style,
-  width,
 } from 'styled-system';
 
 import {
+  WidthProps,
+  MinWidthProps,
+  MaxWidthProps,
+  HeightProps,
+  MinHeightProps,
+  MaxHeightProps,
   SpacingProps,
   BackgroundColorProps,
-  BorderRadiusProps,
-  BorderWidthProps,
-  WidthProps,
-  HeightProps,
-  MaxWidthProps,
-  MinWidthProps,
-  BorderColorProps,
-  BorderStyleProps,
+  BorderProps,
+  BoxShadowProps,
+  ZIndexProps,
 } from '@twilio-paste/types';
 
 export interface BoxProps
-  extends DisplayProps,
-    BorderProps,
-    HeightProps,
-    MaxWidthProps,
+  extends WidthProps,
     MinWidthProps,
-    WidthProps,
+    MaxWidthProps,
+    HeightProps,
+    MinHeightProps,
+    MaxHeightProps,
     SpacingProps,
     BackgroundColorProps,
-    BorderColorProps,
-    BorderRadiusProps,
-    BorderStyleProps,
-    BorderWidthProps {
+    BorderProps,
+    BoxShadowProps,
+    ZIndexProps,
+    // styled-system
+    DisplayProps,
+    OverflowProps {
   as?: keyof JSX.IntrinsicElements;
 }
 
@@ -114,11 +122,16 @@ const Box = styled.div<BoxProps>`
   ${borderTopLeftRadius};
   ${borderTopRightRadius};
   ${display};
-  ${height};
-  ${maxWidth};
-  ${minWidth};
-  ${space};
   ${width};
+  ${minWidth};
+  ${maxWidth};
+  ${height};
+  ${minHeight};
+  ${maxHeight};
+  ${boxShadow};
+  ${space};
+  ${zIndex};
+  ${overflow};
 `;
 
 Box.defaultProps = {

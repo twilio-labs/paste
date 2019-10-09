@@ -67,7 +67,10 @@ The Box Primitive component is designed to be a block level utility. Think of it
 
 <Callout>
   <CalloutTitle as="h4">RIP Hex Values!</CalloutTitle>
-  <CalloutText>To ensure design system resiliency, Box and Text <strong>do not</strong> accept HTML Color Codes, Font Sizes, or arbitrary pixel values. Any styling choices must be expressed using tokens, and tokens only.</CalloutText>
+  <CalloutText>
+    To ensure design system resiliency, Box and Text <strong>do not</strong> accept HTML Color Codes, Font Sizes, or
+    arbitrary pixel values. Any styling choices must be expressed using tokens, and tokens only.
+  </CalloutText>
 </Callout>
 
 You can compose any number of Boxes together to create new UI components. Here's an example of three boxes, two of which are nested.
@@ -103,8 +106,8 @@ The Text component is designed to be a general purpose text utility. Similar to 
 <LivePreview scope={{Box, Text}} language="jsx">
   {`<Box padding="space20">
   <Text as="p" marginBottom="space40">the</Text>
-  <Text as="h1" fontSize="fontSize70" fontWeight="fontWeightMedium" lineHeight="lineHeight70" mb="space80">Plan</Text>
-  <Text as="ol" ml="space60">
+  <Text as="h1" fontSize="fontSize70" fontWeight="fontWeightMedium" lineHeight="lineHeight70" marginBottom="space80">Plan</Text>
+  <Text as="ol" marginLeft="space60">
     <Text as="li" fontSize="fontSize30">collect components</Text>
     <Text as="li" fontSize="fontSize30">???</Text>
     <Text as="li" fontSize="fontSize30">Profit</Text>
@@ -130,11 +133,13 @@ These compositions will automatically respond to the theme that the provider has
     borderTopWidth="borderWidth20"
     borderStyle="solid"
     borderColor="colorBorderPrimary"
-    mb="space60"
-    px="space80"
-    py="space60"
-  >
-    <Text as="h2" fontSize="fontSize50" fontWeight="fontWeightMedium" mb="space40">
+    marginBottom="space60"
+    paddingLeft="space80"
+    paddingRight="space80"
+    paddingTop="space60"
+    paddingBottom="space60"
+>
+    <Text as="h2" fontSize="fontSize50" fontWeight="fontWeightMedium" marginBottom="space40">
       The Last Question
     </Text>
     <Text as="p">
@@ -148,8 +153,10 @@ These compositions will automatically respond to the theme that the provider has
     borderWidth="borderWidth10"
     borderStyle="solid"
     borderColor="colorBorderError"
-    px="space40"
-    py="space30"
+    paddingLeft="space40"
+    paddingRight="space40"
+    paddingTop="space30"
+    paddingBottom="space30"
   >
     <Text fontWeight="fontWeightMedium" textColor="colorTextError">
       LET THERE BE LIGHT!

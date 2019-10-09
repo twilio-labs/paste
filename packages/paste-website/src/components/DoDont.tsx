@@ -60,7 +60,7 @@ const Item: React.FC<DoProps> = ({center = false, ...props}) => {
         <AspectRatio ratio="4:3">{preview}</AspectRatio>
       </Box>
       <Box
-        pt="space50"
+        paddingTop="space50"
         borderStyle="solid"
         borderTopWidth="borderWidth20"
         borderRightWidth="borderWidth0"

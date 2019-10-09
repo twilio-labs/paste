@@ -34,6 +34,7 @@ export const SendGridTheme = {
   heights: sizings,
   maxHeights: sizings,
   minHeights: sizings,
+  sizes: sizings,
   space: spacings,
   textColors,
   zIndices,

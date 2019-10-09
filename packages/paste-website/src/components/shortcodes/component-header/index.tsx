@@ -83,25 +83,25 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({name, categoryRoute, g
     <>
       <ComponentHeaderBasic categoryRoute={categoryRoute} name={name} />
       <P variant="lead">{description}</P>
-      <Box as="dl" mb="space100">
+      <Box as="dl" marginBottom="space100">
         {status && (
-          <Box mb="space20">
+          <Box marginBottom="space20">
             <PackageLabel>Status</PackageLabel>
             <PackageValue>{status}</PackageValue>
           </Box>
         )}
-        <Box mb="space20">
+        <Box marginBottom="space20">
           <PackageLabel>Version</PackageLabel>
           <PackageValue>{version}</PackageValue>
         </Box>
-        <Box mb="space20">
+        <Box marginBottom="space20">
           <PackageLabel>Sources</PackageLabel>
           <PackageValue>
             <ExternalLink href={githubUrl}>Github</ExternalLink>
             {storybookUrl != null ? <ExternalLink href={storybookUrl}>Storybook</ExternalLink> : null}
           </PackageValue>
         </Box>
-        <Box mb="space20">
+        <Box marginBottom="space20">
           <PackageLabel>Install</PackageLabel>
           <PackageValue>
             <code>yarn add {packageName}</code>

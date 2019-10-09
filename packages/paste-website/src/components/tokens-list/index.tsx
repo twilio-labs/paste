@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
-import {Theme} from '@twilio-paste/theme';
+import {Theme, ThemeVariants} from '@twilio-paste/theme';
 import {useUID} from 'react-uid';
 import {Table, Tr, Th, Td, Tbody} from '../table';
 import {TokenExample} from '../tokens-example';
@@ -10,7 +10,6 @@ import {Label} from '../label';
 import {InlineCode} from '../Typography';
 import {AnchoredHeading} from '../Heading';
 import {useActiveSiteTheme} from '../../context/ActiveSiteThemeContext';
-import {Themes, ThemesType} from '../../constants';
 
 const sentenceCase = (catName: string): string => {
   return catName
@@ -46,15 +45,15 @@ interface TokensListProps {
   sendgridTokens: TokensShape[];
 }
 
-const getTokensByTheme = (theme: ThemesType, props: TokensListProps): TokenCategory[] => {
+const getTokensByTheme = (theme: ThemeVariants, props: TokensListProps): TokenCategory[] => {
   let tokens = [] as TokenCategory[];
-  if (theme === Themes.CONSOLE) {
+  if (theme === ThemeVariants.CONSOLE) {
     if (props.consoleTokens != null) {
       // eslint-disable-next-line prefer-destructuring
       tokens = props.consoleTokens[0].node.tokens;
     }
   }
-  if (theme === Themes.SENDGRID) {
+  if (theme === ThemeVariants.SENDGRID) {
     if (props.sendgridTokens != null) {
       // eslint-disable-next-line prefer-destructuring
       tokens = props.sendgridTokens[0].node.tokens;
@@ -102,7 +101,7 @@ export const TokensList: React.FC<TokensListProps> = props => {
 
   return (
     <>
-      <Box as="form" my="space100" maxWidth="size40">
+      <Box as="form" marginTop="space100" marginBottom="space100" maxWidth="size40">
         <Label htmlFor={uid}>Filter tokens</Label>
         <Input
           aria-label="Filter the token list"
@@ -121,7 +120,7 @@ export const TokensList: React.FC<TokensListProps> = props => {
                 {sentenceCase(cat.categoryName)}
               </AnchoredHeading>
               <Theme.Provider theme={theme}>
-                <Box mb="space160">
+                <Box marginBottom="space160">
                   <Table>
                     <thead>
                       <Tr>
@@ -135,7 +134,7 @@ export const TokensList: React.FC<TokensListProps> = props => {
                         return (
                           <Tr key={`token${token.name}`}>
                             <Td>
-                              <Text mb="space30" lineHeight="lineHeight40">
+                              <Text marginBottom="space30" lineHeight="lineHeight40">
                                 <InlineCode>${token.name}</InlineCode>
                               </Text>
                               <Text>{token.comment}</Text>

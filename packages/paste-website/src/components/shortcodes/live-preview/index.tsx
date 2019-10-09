@@ -28,8 +28,10 @@ const LivePreview: React.FC<CodeblockProps> = ({children, language = 'jsx', scop
       <StyledPreviewWrapper>
         <LiveProvider code={children} scope={scope} language={language} theme={CodeblockTheme} disabled={disabled}>
           <Box
-            px="space50"
-            py="space80"
+            paddingLeft="space50"
+            paddingRight="space50"
+            paddingTop="space80"
+            paddingBottom="space80"
             backgroundColor="colorBackground"
             borderTopLeftRadius="borderRadius20"
             borderTopRightRadius="borderRadius20"

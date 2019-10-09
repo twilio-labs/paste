@@ -25,7 +25,8 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@twilio-paste/theme-tokens": "^0.6.0"
+    "@twilio-paste/theme-tokens": "^0.6.0",
+    "styled-system": "^4.1.0"
   },
   "devDependencies": {
     "@twilio-paste/theme-tokens": "^0.6.0",

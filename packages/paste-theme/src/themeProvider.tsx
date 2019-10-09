@@ -4,6 +4,7 @@ import {Global, css} from '@emotion/core';
 import {themeGet} from 'styled-system';
 import {ThemeProvider as StyledThemeProvider} from 'emotion-theming';
 import {DefaultTheme, SendGridTheme} from '@twilio-paste/theme-tokens';
+import {ThemeVariants} from './constants';
 
 const pasteGlobalStyles = css`
   html {
@@ -24,17 +25,15 @@ export const StyledBase = styled.div`
   }
 `;
 
-export type ThemeOptions = 'default' | 'sendgrid';
-
 export interface ThemeProviderProps {
   customBreakpoints?: string[];
-  theme?: ThemeOptions;
+  theme?: ThemeVariants;
 }
 
 const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   customBreakpoints,
-  // theme = 'default' | 'console' | 'sendgrid' | 'flex' eventually
-  theme = 'default',
+  // theme = 'console' | 'sendgrid' | 'flex' & 'default' eventually
+  theme = ThemeVariants.CONSOLE,
   ...props
 }) => {
   let breakpoints = {};
@@ -42,11 +41,13 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
 
   // when we have more theme-tokens themes, switch the object here based on the theme prop
   switch (theme) {
-    case 'sendgrid':
+    case ThemeVariants.SENDGRID:
       themeObject = SendGridTheme;
       breakpoints = customBreakpoints || SendGridTheme.breakpoints;
       break;
-    case 'default':
+    case ThemeVariants.FLEX:
+    case ThemeVariants.CONSOLE:
+    case ThemeVariants.DEFAULT:
     default:
       themeObject = DefaultTheme;
       breakpoints = customBreakpoints || DefaultTheme.breakpoints;

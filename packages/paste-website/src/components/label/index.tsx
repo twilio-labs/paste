@@ -8,7 +8,7 @@ interface LabelProps {
 export const Label: React.FC<LabelProps> = ({children, htmlFor}) => {
   return (
     // @ts-ignore display prop buggy
-    <Text as="label" display="block" htmlFor={htmlFor} my="space20">
+    <Text as="label" display="block" htmlFor={htmlFor} marginTop="space20" marginBottom="space20">
       {children}
     </Text>
   );

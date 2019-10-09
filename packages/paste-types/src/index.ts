@@ -1,2 +1,4 @@
 export {SendGridThemeShape, ThemeShape} from '@twilio-paste/theme-tokens';
-export * from './tokenProps';
+
+export * from './utils';
+export * from './style-props';

@@ -37,7 +37,7 @@ const SiteFooter: React.FC<{}> = () => {
         }}
       >
         <Flex>
-          <Box mr="space60">
+          <Box marginRight="space60">
             <Heading as="h4" headingStyle="headingStyle50">
               Support
             </Heading>
@@ -47,7 +47,7 @@ const SiteFooter: React.FC<{}> = () => {
               repository. Please try to provide as much detail as possible in your issue.
             </p>
           </Box>
-          <Box ml="space50">
+          <Box marginLeft="space50">
             <Heading as="h4" headingStyle="headingStyle50">
               Contributing
             </Heading>
