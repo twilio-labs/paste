@@ -4,8 +4,6 @@ import {buttonStyle, themeGet} from 'styled-system';
 import {Absolute} from '@twilio-paste/absolute';
 import {ButtonWrapperProps, ButtonChildrenProps} from './types';
 
-// TODO transitions - blocked on design
-
 /*
  * Sizes
  */
@@ -43,7 +41,7 @@ const baseButtonWrapper = css`
   outline: none;
   background: none;
   font-size: 100%;
-  transition: background-color 100ms ease-in;
+  transition: background-color 100ms ease-in, border-color 100ms ease-in;
 
   /* Remove extra black dotted border FF adds */
   &::-moz-focus-inner {
