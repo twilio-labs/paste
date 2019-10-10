@@ -22,6 +22,12 @@ export const pageQuery = graphql`
         }
       }
     }
+    mdx(fields: { slug: { eq: "/box/" } }) {
+      headings {
+        depth
+        value
+      }
+    }
   }
 `;
 
@@ -32,6 +38,10 @@ export const pageQuery = graphql`
   storybookUrl="http://localhost:57128/?path=/story/utilities-box--default"
   data={props.data.allPasteUtility.edges}
 />
+
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings} />
 
 <content>
 
@@ -169,12 +179,7 @@ such as accessibility.
   <Dont title="Don't" body="Use HTML elements for functionality covered by the Box component." preview={false} />
 </DoDont>
 
-
-</content>
-
 ---
-
-<content>
 
 ## Usage Guide
 
@@ -246,3 +251,5 @@ All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including 
 </Box>
 
 </content>
+
+</contentwrapper>
