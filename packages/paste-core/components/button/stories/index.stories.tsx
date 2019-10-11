@@ -50,7 +50,7 @@ storiesOf('Components|Button', module)
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
       >
-        <PlusIcon size={20} />
+        <PlusIcon />
         <span>Activate</span>
       </Button>
     );
@@ -71,7 +71,7 @@ storiesOf('Components|Button', module)
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
       >
-        <PlusIcon size={20} />
+        <PlusIcon />
       </Button>
     );
   })
