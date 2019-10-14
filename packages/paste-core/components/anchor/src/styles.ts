@@ -14,7 +14,7 @@ export const StyledLink = styled.a`
 
   &:focus,
   &:active {
-    box-shadow: 0 0 0 4px rgba(0, 117, 195, 0.5);
+    box-shadow: ${themeGet('shadows.shadowFocus')};
     text-decoration: underline;
   }
 
