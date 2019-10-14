@@ -6,9 +6,9 @@ type Spacing = ResponsiveValue<keyof ThemeShape['space']>;
 export interface MarginProps {
   margin?: Spacing;
   marginTop?: Spacing;
-  marginRight?: Spacing;
+  marginRight?: Spacing | 'auto';
   marginBottom?: Spacing;
-  marginLeft?: Spacing;
+  marginLeft?: Spacing | 'auto';
 }
 
 export interface PaddingProps {
