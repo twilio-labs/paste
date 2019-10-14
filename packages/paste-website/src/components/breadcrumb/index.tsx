@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
-import {Link} from 'gatsby';
+import {SiteLink} from '../SiteLink';
 
 const CrumbSlashStyled = styled.aside(props => ({
   padding: `0 ${themeGet('space.space20')(props)}`,
@@ -25,32 +25,10 @@ const Breadcrumb: React.FC<{}> = ({children}) => {
 };
 
 // TODO use correct tokens for lineHeight after fix
-const BreadcrumbItem = styled(Link)`
+const BreadcrumbItem = styled(SiteLink)`
   font-size: ${themeGet('fontSizes.fontSize20')};
   line-height: ${themeGet('lineHeights.lineHeight20')};
   letter-spacing: normal;
-  color: ${themeGet('textColors.colorTextLink')};
-  text-decoration: none;
-  outline: none;
-
-  &:hover {
-    color: ${themeGet('textColors.colorTextLinkHover')};
-    text-decoration: underline;
-  }
-
-  &:focus,
-  &:active {
-    box-shadow: ${themeGet('shadows.shadowFocus')};
-    text-decoration: underline;
-  }
-
-  &:focus {
-    color: ${themeGet('textColors.colorTextLinkFocus')};
-  }
-
-  &:active {
-    color: ${themeGet('textColors.colorTextLinkActive')};
-  }
 `;
 
 export {Breadcrumb, BreadcrumbItem};
