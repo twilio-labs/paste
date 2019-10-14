@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Link} from 'gatsby';
+import {SiteLink} from '../SiteLink';
 import {Table, Thead, Tbody, Tr, Th, Td} from '../table';
 import {SidebarCategoryRoutes, PackageStatus} from '../../constants';
 import {getPackagePath, getHumanizedNameFromPackageName} from '../../utils/RouteUtils';
@@ -46,7 +46,9 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({category
           return (
             <Tr key={node.name}>
               <Td>
-                <Link to={getPackagePath(categoryRoute, node.name)}>{getHumanizedNameFromPackageName(node.name)}</Link>
+                <SiteLink to={getPackagePath(categoryRoute, node.name)}>
+                  {getHumanizedNameFromPackageName(node.name)}
+                </SiteLink>
               </Td>
               <Td>{node.status}</Td>
               <Td>{node.version}</Td>
@@ -57,7 +59,9 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({category
           return (
             <Tr key={node.name}>
               <Td>
-                <Link to={getPackagePath(categoryRoute, node.name)}>{getHumanizedNameFromPackageName(node.name)}</Link>
+                <SiteLink to={getPackagePath(categoryRoute, node.name)}>
+                  {getHumanizedNameFromPackageName(node.name)}
+                </SiteLink>
               </Td>
               <Td>{node.status}</Td>
               <Td />
