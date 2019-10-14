@@ -72,7 +72,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
                 </Anchor>
               </LI>
               <LI>
-                <Anchor href="http://styleguide.sendgrid.com/">SendGrid Style Guide</Anchor>
+                <Anchor href="https://styleguide.sendgrid.com/">SendGrid Style Guide</Anchor>
               </LI>
               <LI>
                 <Anchor href="https://www.twilio.com/docs/flex/flex-overview-ui-programmability">Flex UI Docs</Anchor>
