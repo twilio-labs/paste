@@ -18,6 +18,7 @@ import {
 } from 'styled-system';
 
 import {
+  StaticComponent,
   WidthProps,
   MinWidthProps,
   MaxWidthProps,
@@ -32,7 +33,8 @@ import {
 } from '@twilio-paste/types';
 
 export interface BoxProps
-  extends WidthProps,
+  extends StaticComponent,
+    WidthProps,
     MinWidthProps,
     MaxWidthProps,
     HeightProps,
@@ -137,5 +139,7 @@ const Box = styled.div<BoxProps>`
 Box.defaultProps = {
   minWidth: 'size0',
 };
+
+Box.displayName = 'Box';
 
 export {Box};
