@@ -24,4 +24,5 @@ const Paragraph: React.FC<ParagraphProps> = props => {
   );
 };
 
+Paragraph.displayName = 'Paragraph';
 export {Paragraph};
