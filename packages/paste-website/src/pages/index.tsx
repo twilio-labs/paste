@@ -50,7 +50,13 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
         </P>
         <Box marginTop="space80" marginBottom="space80">
           <Box display="inline" marginRight="space40">
-            <Button as="a" href="/getting-started/" size="default" variant="primary">
+            <Button
+              size="default"
+              variant="primary"
+              onClick={() => {
+                navigate('/getting-started/');
+              }}
+            >
               Get Started
             </Button>
           </Box>
@@ -59,13 +65,19 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               size="default"
               variant="secondary"
               onClick={() => {
-                navigate('/components');
+                navigate('/components/');
               }}
             >
               View Components
             </Button>
           </Box>
-          <Button as="a" href="/roadmap" size="default" variant="secondary">
+          <Button
+            size="default"
+            variant="secondary"
+            onClick={() => {
+              navigate('/roadmap/');
+            }}
+          >
             Roadmap
           </Button>
         </Box>
