@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
+import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Breadcrumb, BreadcrumbItem} from '../../breadcrumb';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -35,10 +36,6 @@ const ComponentHeaderBasic: React.FC<{
     </Heading>
   </>
 );
-
-const ExternalLink = styled.a`
-  margin-right: ${themeGet('space.space20')};
-`;
 
 interface ComponentHeaderProps {
   children?: React.ReactElement;
@@ -97,8 +94,10 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({name, categoryRoute, g
         <Box marginBottom="space20">
           <PackageLabel>Sources</PackageLabel>
           <PackageValue>
-            <ExternalLink href={githubUrl}>Github</ExternalLink>
-            {storybookUrl != null ? <ExternalLink href={storybookUrl}>Storybook</ExternalLink> : null}
+            <Box display="inline" marginRight="space30">
+              <Anchor href={githubUrl}>Github</Anchor>
+            </Box>
+            {storybookUrl != null ? <Anchor href={storybookUrl}>Storybook</Anchor> : null}
           </PackageValue>
         </Box>
         <Box marginBottom="space20">

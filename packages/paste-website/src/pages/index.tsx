@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {Helmet} from 'react-helmet';
+import {navigate} from 'gatsby';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
-import {Link} from 'gatsby';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';
@@ -15,6 +15,7 @@ import {Brush} from '../components/icons/Brush';
 import {Terminal} from '../components/icons/Terminal';
 import {WindowLayout} from '../components/icons/WindowLayout';
 import {Callout, CalloutTitle, CalloutText} from '../components/callout';
+import {SiteLink} from '../components/SiteLink';
 import {SiteMetaDefaults} from '../constants';
 
 const LandingContainer = styled(Box)`
@@ -49,16 +50,34 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
         </P>
         <Box marginTop="space80" marginBottom="space80">
           <Box display="inline" marginRight="space40">
-            <Button as="a" href="/getting-started/" size="default" variant="primary">
+            <Button
+              size="default"
+              variant="primary"
+              onClick={() => {
+                navigate('/getting-started/');
+              }}
+            >
               Get Started
             </Button>
           </Box>
           <Box display="inline" marginRight="space40">
-            <Button as="a" href="/components" size="default" variant="secondary">
+            <Button
+              size="default"
+              variant="secondary"
+              onClick={() => {
+                navigate('/components/');
+              }}
+            >
               View Components
             </Button>
           </Box>
-          <Button as="a" href="/roadmap" size="default" variant="secondary">
+          <Button
+            size="default"
+            variant="secondary"
+            onClick={() => {
+              navigate('/roadmap/');
+            }}
+          >
             Roadmap
           </Button>
         </Box>
@@ -97,8 +116,8 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               Themes
             </Heading>
             <P>
-              Each component shares a common set of <Link to="/tokens">design tokens</Link> that allow us to easily
-              change their value based on a theme.
+              Each component shares a common set of <SiteLink to="/tokens">design tokens</SiteLink> that allow us to
+              easily change their value based on a theme.
             </P>
           </Box>
           <Box>
@@ -115,7 +134,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
             </Heading>
             <P>
               Learn how to use Paste components and the underlying tokens through{' '}
-              <Link to="/getting-started">usage examples and guidelines</Link>.
+              <SiteLink to="/getting-started">usage examples and guidelines</SiteLink>.
             </P>
           </Box>
           <Box>
@@ -131,8 +150,8 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               Component API
             </Heading>
             <P>
-              Each <Link to="/components">Paste component</Link> is thoroughly documented with a list of props and
-              descriptions of how they should be used.
+              Each <SiteLink to="/components">Paste component</SiteLink> is thoroughly documented with a list of props
+              and descriptions of how they should be used.
             </P>
           </Box>
         </Grid>

@@ -1,8 +1,10 @@
+import * as React from 'react';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
+import {Link} from 'gatsby';
 
-// Link
-export const StyledLink = styled.a`
+// Link styles copied from @twilio-paste/anchor
+const StyledLink = styled(Link)`
   color: ${themeGet('textColors.colorTextLink')};
   text-decoration: none;
   outline: none;
@@ -26,3 +28,12 @@ export const StyledLink = styled.a`
     color: ${themeGet('textColors.colorTextLinkActive')};
   }
 `;
+
+interface SiteLinkProps {
+  children: React.ReactNode;
+  to: string;
+}
+
+const SiteLink: React.FC<SiteLinkProps> = ({children, to}) => <StyledLink to={to}>{children}</StyledLink>;
+
+export {SiteLink};
