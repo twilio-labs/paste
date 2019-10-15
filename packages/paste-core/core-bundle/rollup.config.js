@@ -2,7 +2,7 @@ import typescript from 'rollup-plugin-typescript2';
 import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
-// import {terser} from 'rollup-plugin-terser';
+import {terser} from 'rollup-plugin-terser';
 import pkg from './package.json';
 
 export default {
@@ -29,6 +29,6 @@ export default {
     babel({
       exclude: 'node_modules/**',
     }),
-    // process.env.NODE_ENV === 'production' ? terser() : null,
+    process.env.NODE_ENV === 'production' ? terser() : null,
   ],
 };
