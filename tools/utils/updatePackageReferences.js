@@ -36,7 +36,6 @@ async function updateTsconfigFile(path, referencesList = [], packagesList) {
   });
 }
 
-// TODO
 async function updatePackageDevDependencies(packageJsonPath, pastePeerDeps = [], packageJson) {
   // Let's start by assuming we need to put all pastePeerDeps into devDeps
   let missingDevDeps = pastePeerDeps;
