@@ -1,7 +1,6 @@
-const fs = require('fs');
-const chalk = require('chalk');
 const {resolve} = require('path');
 const {getRepoPackages} = require('./getRepoPackages');
+const {writeToFile} = require('./writeToFile');
 
 const CACHE_FILE_PATH = resolve(__dirname, '../.cache/packages.json');
 
@@ -12,14 +11,9 @@ const CACHE_FILE_PATH = resolve(__dirname, '../.cache/packages.json');
 async function updatePackageCache() {
   const packagesList = await getRepoPackages();
 
-  fs.writeFile(CACHE_FILE_PATH, JSON.stringify(packagesList, null, 2), error => {
-    if (error) {
-      // eslint-disable-next-line no-console
-      console.log(error);
-      return false;
-    }
-    // eslint-disable-next-line no-console
-    console.log(chalk.green(`[Monorepo cache] Cache was successfully saved to: ${CACHE_FILE_PATH}`));
+  writeToFile(CACHE_FILE_PATH, packagesList, {
+    formatJson: true,
+    successMessage: `[Monorepo cache] Cache was successfully saved to: ${CACHE_FILE_PATH}`,
   });
 
   return packagesList;

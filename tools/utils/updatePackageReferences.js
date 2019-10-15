@@ -2,12 +2,12 @@
  * Updates tsconfig.build.json with paste peerDependencies
  * Updates devDependencies with paste peerDependencies
  */
-const fs = require('fs');
 const chalk = require('chalk');
 const lodash = require('lodash');
 const {resolve, relative} = require('path');
 const {getRepoPackages} = require('./getRepoPackages');
 const {sortObjectByKey} = require('./sortObjectByKey');
+const {writeToFile} = require('./writeToFile');
 
 const isPasteDependency = packageName => packageName.includes('@twilio-paste/');
 const getPasteDependencyList = dependencyObject => Object.keys(dependencyObject).filter(isPasteDependency);
@@ -27,12 +27,9 @@ async function updateTsconfigFile(path, referencesList = [], packagesList) {
 
   // write it back to the file
   tsconfigData.references = references;
-  fs.writeFile(TSCONFIG_FILE_PATH, JSON.stringify(tsconfigData, null, 2), error => {
-    if (error != null) {
-      // eslint-disable-next-line no-console
-      console.log(chalk.red('[TSConfig] Writing Tsconfig file failed'));
-      throw error;
-    }
+  writeToFile(TSCONFIG_FILE_PATH, tsconfigData, {
+    formatJson: true,
+    errorMessage: '[TSConfig] Writing Tsconfig file failed',
   });
 }
 
@@ -63,14 +60,9 @@ async function updatePackageDevDependencies(packageJsonPath, pastePeerDeps = [],
     devDependencies: sortObjectByKey(newDevDeps),
   };
 
-  fs.writeFile(packageJsonPath, JSON.stringify(newPackageJson, null, 2), error => {
-    if (error) {
-      // eslint-disable-next-line no-console
-      console.log(error);
-      return false;
-    }
-    // eslint-disable-next-line no-console
-    console.log(chalk.green(`[${packageJson.name}] Successfully added ${missingDevDeps}`));
+  writeToFile(packageJsonPath, newPackageJson, {
+    formatJson: true,
+    successMessage: `[${packageJson.name}] Successfully added ${missingDevDeps}`,
   });
 }
 
