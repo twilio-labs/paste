@@ -45,15 +45,15 @@ export const SiteHeader: React.FC<{}> = () => {
         <ThemeSwitcher />
         <Flex>
           <Box marginRight="space60">
-            <Anchor href="http://www.github.com/twilio-labs/paste/issues">Ask a question</Anchor>
+            <Anchor href="https://www.github.com/twilio-labs/paste/issues">Ask a question</Anchor>
           </Box>
           <Box marginRight="space60">
-            <Anchor href="http://www.github.com/twilio-labs/paste/issues">Report a bug</Anchor>
+            <Anchor href="https://www.github.com/twilio-labs/paste/issues">Report a bug</Anchor>
           </Box>
           <Flex>
             v{version}
             <Box marginLeft="space30">
-              <Anchor href="http://www.github.com/twilio-labs/paste">
+              <Anchor href="https://www.github.com/twilio-labs/paste">
                 <GithubIcon
                   css={{height: theme.heights.sizeIcon30, width: theme.heights.sizeIcon30}}
                   title="View this project on github"
