@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Helmet} from 'react-helmet';
+import {navigate} from 'gatsby';
 import styled from '@emotion/styled';
 import {themeGet} from 'styled-system';
 import {Button} from '@twilio-paste/button';
@@ -54,7 +55,13 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
             </Button>
           </Box>
           <Box display="inline" marginRight="space40">
-            <Button as="a" href="/components" size="default" variant="secondary">
+            <Button
+              size="default"
+              variant="secondary"
+              onClick={() => {
+                navigate('/components');
+              }}
+            >
               View Components
             </Button>
           </Box>
