@@ -38,3 +38,6 @@ Build things 🎉
 | yarn build:dev       | Builds the compiled JS into `/dist` in dev mode                                                                          |
 | yarn build           | Builds the compiled JS into `/dist`                                                                                      |
 | yarn pre-push        | A series of commands that are run as a pre-commit hook.                                                                  |
+
+
+📌 Fell Free to ask anything
