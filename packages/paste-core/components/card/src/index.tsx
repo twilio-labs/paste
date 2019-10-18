@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {SpacingProps} from '@twilio-paste/types';
-import {StaticDiv} from '@twilio-paste/types/DomTypes';
+import {StaticDiv} from '@twilio-paste/types/src/DomTypes';
 
 interface CardFooterProps extends SpacingProps, StaticDiv {}
 

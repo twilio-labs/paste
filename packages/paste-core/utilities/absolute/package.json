@@ -28,7 +28,7 @@
   },
   "peerDependencies": {
     "@emotion/styled": "^10.0.10",
-    "@twilio-paste/box": "^0.2.4",
+    "@twilio-paste/box": "^0.3.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-system": "^4.1.0"
