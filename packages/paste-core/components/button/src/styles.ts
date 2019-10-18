@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import {css, SerializedStyles} from '@emotion/core';
-import {buttonStyle, themeGet} from 'styled-system';
+import {buttonStyle} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 import {Absolute} from '@twilio-paste/absolute';
 import {ButtonWrapperProps, ButtonChildrenProps} from './types';
 

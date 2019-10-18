@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import {Global, css} from '@emotion/core';
-import {themeGet} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 import {ThemeProvider as StyledThemeProvider} from 'emotion-theming';
 import {DefaultTheme, SendGridTheme} from '@twilio-paste/theme-tokens';
 import {ThemeVariants} from './constants';

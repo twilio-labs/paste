@@ -26,7 +26,7 @@
   },
   "peerDependencies": {
     "@twilio-paste/theme-tokens": "^0.6.0",
-    "styled-system": "^4.1.0"
+    "styled-system": "^5.1.2"
   },
   "devDependencies": {
     "@twilio-paste/theme-tokens": "^0.6.0",

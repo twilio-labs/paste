@@ -31,8 +31,7 @@
     "@emotion/styled": "^10.0.10",
     "@twilio-paste/text": "^0.3.1",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "styled-system": "^4.1.0"
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "@twilio-paste/text": "^0.4.1",

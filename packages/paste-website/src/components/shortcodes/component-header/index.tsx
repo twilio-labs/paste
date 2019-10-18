@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import {themeGet} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Breadcrumb, BreadcrumbItem} from '../../breadcrumb';

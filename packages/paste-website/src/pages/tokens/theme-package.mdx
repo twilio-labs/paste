@@ -22,7 +22,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: { slug: { eq: "/tokens/theme-package/" } }) {
+    mdx(fields: {slug: {eq: "/tokens/theme-package/"}}) {
       headings {
         depth
         value
@@ -39,7 +39,7 @@ export const pageQuery = graphql`
   data={props.data.allPasteThemePackage.edges}
 />
 
-***
+---
 
 <contentwrapper>
 
@@ -70,16 +70,14 @@ You should place the `Theme.Provider` around the root of your React application.
 ```js
 import {Theme} from '@twilio-paste/theme';
 
-<Theme.Provider>
-  ...
-</Theme.Provider>
+<Theme.Provider>...</Theme.Provider>;
 ```
 
 ### Props
 
 | Prop               | Type     | Description                                                                               | Default           |
 | ------------------ | -------- | ----------------------------------------------------------------------------------------- | ----------------- |
-| theme?             | enum     | 'default',  'sendgrid'                                                                    | 'default'         |
+| theme?             | enum     | 'default', 'sendgrid'                                                                     | 'default'         |
 | customBreakpoints? | string[] | An optional array of string values for custom screen sizes in the usual CSS width formats | theme.breakpoints |
 
 ## Using Tokens in Custom Components
@@ -94,19 +92,22 @@ For example:
 
 ```js
 import styled from '@emotion/styled';
-import { themeGet } from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 
 const custom = styled.div`
   background-color: ${themeGet('backgrounds.primary')};
   padding: ${props => props.theme.spacing.spacing20};
-`
+`;
 ```
 
 ### Alternatives when not using Emotion
 
 <Callout variant="warning">
   <CalloutTitle as="h4">Careful!</CalloutTitle>
-  <CalloutText>This is not a recommended approach for using Tokens. If you must do so, we strongly recommend reaching out at <em>#help-design-system</em></CalloutText>
+  <CalloutText>
+    This is not a recommended approach for using Tokens. If you must do so, we strongly recommend reaching out at{' '}
+    <em>#help-design-system</em>
+  </CalloutText>
 </Callout>
 
 If you are not using Emotion Styled Components or want to access the values of tokens in your React components outside of styling, there are three ways this can be achieved.
@@ -122,7 +123,7 @@ import {Theme} from '@twilio-paste/theme';
   {({theme}) => {
     return <p>What is the default text color {theme.textColors.colorText}</p>;
   }}
-</Theme.Consumer>
+</Theme.Consumer>;
 ```
 
 #### Paste useTheme Hook
@@ -131,7 +132,7 @@ Paste Theme provides a React Hook called `useTheme` which returns the theme obje
 
 ```js
 import React from 'react';
-import { useTheme } from '@twilio-paste/theme';
+import {useTheme} from '@twilio-paste/theme';
 
 const HookExampleComponent = (): React.ReactElement => {
   const theme = useTheme();
@@ -145,11 +146,9 @@ Paste also provides a HOC Component, which is a wrapper around the Emotion [HOC 
 
 ```js
 import React from 'react';
-import { withTheme } from '@twilio-paste/theme';
+import {withTheme} from '@twilio-paste/theme';
 
-const ExampleComponent = ({theme}) => (
-  <p>What is the default text color {theme.textColors.colorText}</p>
-);
+const ExampleComponent = ({theme}) => <p>What is the default text color {theme.textColors.colorText}</p>;
 const ExampleComponentwithTheme = withTheme(ExampleComponent);
 ```
 
@@ -161,7 +160,8 @@ As you use Paste, you'll likely encounter things that _don't seem right_. Please
 - Is the information supporting it sufficient / well-described?
 - What information is missing?
 - How approachable is the documentation? Can a new engineer / PM / designer at Twilio get started with it easily?
-***
+
+---
 
 <Box marginTop="space90">
   <Changelog />
