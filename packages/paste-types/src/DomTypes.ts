@@ -1,4 +1,6 @@
 import {DOMAttributes} from 'react';
+/* eslint-disable @typescript-eslint/no-empty-interface */
+// This rule complains when we omit even though our type is not equivalent to the supertype
 
 // Typescript consumers will get this no className passthrough but not js consumers
 // Might want to come up with some way to prevent the injection of these types with js
@@ -20,3 +22,5 @@ export interface InteractiveAnchor extends Omit<React.ComponentProps<'a'>, Attri
 export interface InteractiveInput extends Omit<React.ComponentProps<'input'>, AttributesToDrop> {}
 export interface InteractiveImage extends Omit<React.ComponentProps<'img'>, AttributesToDrop> {}
 export interface InteractiveSelect extends Omit<React.ComponentProps<'select'>, AttributesToDrop> {}
+
+/* eslint-enable @typescript-eslint/no-empty-interface */
