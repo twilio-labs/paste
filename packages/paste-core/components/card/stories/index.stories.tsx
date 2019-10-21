@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 // import {action} from '@storybook/addon-actions';
-import {Card, CardFooter} from '../src';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
+import {Card, CardFooter} from '../src';
 
 storiesOf('Components|Card', module)
   .add('Default', () => (
@@ -11,7 +11,7 @@ storiesOf('Components|Card', module)
       <Heading as="h2">With a heading</Heading>
       <Text>Body</Text>
       <CardFooter>
-        <Text>I'm | The | Footer</Text>
+        <Text>I&apos;m | The | Footer</Text>
       </CardFooter>
     </Card>
   ))

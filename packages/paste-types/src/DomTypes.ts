@@ -2,33 +2,21 @@ import {DOMAttributes} from 'react';
 
 // Typescript consumers will get this no className passthrough but not js consumers
 // Might want to come up with some way to prevent the injection of these types with js
-type BaseComponent = {
-  className?: never;
-  style?: never;
-};
+type AttributesToDrop = 'className' | 'style';
 
-type Events = DOMAttributes<'div'>;
+/* eslint-disable-next-line @typescript-eslint/no-empty-interface */
+export interface Events extends DOMAttributes<'div'> {}
 
-type StaticDiv = BaseComponent & Omit<React.ComponentProps<'div'>, keyof Events>;
-type StaticLabel = BaseComponent & Omit<React.ComponentProps<'label'>, keyof Events>;
+// Unfortunately we can't extend BaseCompoment for these types because Omit
+export interface StaticDiv extends Omit<InteractiveDiv, keyof Events> {}
+export interface StaticLabel extends Omit<InteractiveLabel, keyof Events> {}
 
 // Not a fan of having static interactiveX wish we could do
-// interactive<T> = React.ComponentProps<T>; but couldn't make it work
-type InteractiveDiv = BaseComponent & React.ComponentProps<'div'>;
-type InteractiveButton = BaseComponent & React.ComponentProps<'button'>;
-type InteractiveAnchor = BaseComponent & React.ComponentProps<'a'>;
-type InteractiveInput = BaseComponent & React.ComponentProps<'input'>;
-type InteractiveImage = BaseComponent & React.ComponentProps<'img'>;
-type InteractiveSelect = BaseComponent & React.ComponentProps<'select'>;
-
-export {
-  Events,
-  StaticDiv,
-  StaticLabel,
-  InteractiveDiv,
-  InteractiveButton,
-  InteractiveAnchor,
-  InteractiveInput,
-  InteractiveImage,
-  InteractiveSelect,
-};
+// interactive<T> = React.ComponentProps<T>; but couldn't make it work ¯\_(ツ)_/¯
+export interface InteractiveDiv extends Omit<React.ComponentProps<'div'>, AttributesToDrop> {}
+export interface InteractiveButton extends Omit<React.ComponentProps<'button'>, AttributesToDrop> {}
+export interface InteractiveLabel extends Omit<React.ComponentProps<'label'>, AttributesToDrop> {}
+export interface InteractiveAnchor extends Omit<React.ComponentProps<'a'>, AttributesToDrop> {}
+export interface InteractiveInput extends Omit<React.ComponentProps<'input'>, AttributesToDrop> {}
+export interface InteractiveImage extends Omit<React.ComponentProps<'img'>, AttributesToDrop> {}
+export interface InteractiveSelect extends Omit<React.ComponentProps<'select'>, AttributesToDrop> {}
