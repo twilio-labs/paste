@@ -51,9 +51,12 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
         <Box marginTop="space80" marginBottom="space80">
           <Box display="inline" marginRight="space40">
             <Button
+              as="a"
+              href="/getting-started/"
               size="default"
               variant="primary"
-              onClick={() => {
+              onClick={event => {
+                event.preventDefault();
                 navigate('/getting-started/');
               }}
             >
@@ -62,9 +65,12 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
           </Box>
           <Box display="inline" marginRight="space40">
             <Button
+              as="a"
+              href="/components/"
               size="default"
               variant="secondary"
-              onClick={() => {
+              onClick={event => {
+                event.preventDefault();
                 navigate('/components/');
               }}
             >
@@ -72,9 +78,12 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
             </Button>
           </Box>
           <Button
+            as="a"
+            href="/roadmap/"
             size="default"
             variant="secondary"
-            onClick={() => {
+            onClick={event => {
+              event.preventDefault();
               navigate('/roadmap/');
             }}
           >
