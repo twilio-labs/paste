@@ -18,6 +18,7 @@ const Paragraph: React.FC<Paragraph> = props => {
 
   return (
     <Text
+      as="p"
       marginBottom="space70"
       fontSize="fontSize20"
       lineHeight="lineHeight20"
