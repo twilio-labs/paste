@@ -2,7 +2,7 @@
   "name": "@twilio-paste/card",
   "version": "0.0.2",
   "category": "data display",
-  "status": "backlog",
+  "status": "alpha",
   "private": true,
   "description": "",
   "author": "Twilio Inc.",

@@ -16,7 +16,7 @@ storiesOf('Components|Card', module)
     </Card>
   ))
   .add('Padding', () => (
-    <Card aria-busy aria-atomic padding="space200" data-qahook="ZeCard!">
+    <Card padding="space200">
       <Heading as="h2">With a heading</Heading>
       <Text>Body</Text>
     </Card>
