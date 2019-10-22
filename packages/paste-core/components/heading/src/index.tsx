@@ -19,42 +19,49 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
   switch (headingStyle) {
     case 'headingStyle60':
       return {
+        marginBottom: 'space70',
         fontSize: 'fontSize90',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight60',
       };
     case 'headingStyle50':
       return {
+        marginBottom: 'space60',
         fontSize: 'fontSize70',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight50',
       };
     case 'headingStyle40':
       return {
+        marginBottom: 'space50',
         fontSize: 'fontSize60',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight70',
       };
     case 'headingStyle30':
       return {
+        marginBottom: 'space40',
         fontSize: 'fontSize40',
         fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight70',
+        lineHeight: 'lineHeight50',
       };
     case 'headingStyle20':
       return {
+        marginBottom: 'space30',
         fontSize: 'fontSize30',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight20',
       };
     case 'headingStyle10':
       return {
+        marginBottom: 'space30',
         fontSize: 'fontSize20',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight10',
       };
     default:
       return {
+        marginBottom: 'space60',
         fontSize: 'fontSize70',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight50',
@@ -63,7 +70,7 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
 }
 
 const Heading: React.FC<HeadingProps> = ({as, headingStyle, children}) => (
-  <Text as={as} marginBottom="space60" textColor="colorText" {...getHeadingStyles(headingStyle)}>
+  <Text as={as} textColor="colorText" {...getHeadingStyles(headingStyle)}>
     {children}
   </Text>
 );
