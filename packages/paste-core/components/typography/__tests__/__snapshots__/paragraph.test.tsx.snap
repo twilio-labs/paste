@@ -29,7 +29,7 @@ exports[`Paragraph it should render a single paragraph 1`] = `
 >
   <p
     className="emotion-0"
-    fontSize="fontSize20"
+    fontSize="fontSize30"
     fontWeight="fontWeightNormal"
   >
     This is a paragraph
