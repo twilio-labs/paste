@@ -11,6 +11,7 @@ export type Height = ResponsiveValue<keyof ThemeShape['heights']>;
 export type MinHeight = ResponsiveValue<keyof ThemeShape['minHeights']>;
 export type MaxHeight = ResponsiveValue<keyof ThemeShape['maxHeights']>;
 export type Size = Width | Height;
+export type IconSize = ResponsiveValue<keyof ThemeShape['iconSizes']>;
 
 // CSS native
 export type Display = ResponsiveValue<CSS.DisplayProperty>;
