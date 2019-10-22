@@ -20,56 +20,57 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
     case 'headingStyle60':
       return {
         fontSize: 'fontSize90',
-        fontWeight: 'fontWeightNormal',
-        lineHeight: 'lineHeight70',
+        fontWeight: 'fontWeightSemibold',
+        lineHeight: 'lineHeight60',
       };
     case 'headingStyle50':
       return {
-        fontSize: 'fontSize80',
-        fontWeight: 'fontWeightNormal',
-        lineHeight: 'lineHeight40',
+        fontSize: 'fontSize70',
+        fontWeight: 'fontWeightSemibold',
+        lineHeight: 'lineHeight50',
       };
     case 'headingStyle40':
       return {
-        fontSize: 'fontSize70',
-        fontWeight: 'fontWeightSemiBold',
-        lineHeight: 'lineHeight40',
+        fontSize: 'fontSize60',
+        fontWeight: 'fontWeightSemibold',
+        lineHeight: 'lineHeight70',
       };
     case 'headingStyle30':
       return {
-        fontSize: 'fontSize60',
-        fontWeight: 'fontWeightSemiBold',
-        lineHeight: 'lineHeight30',
+        fontSize: 'fontSize40',
+        fontWeight: 'fontWeightSemibold',
+        lineHeight: 'lineHeight70',
       };
     case 'headingStyle20':
       return {
-        fontSize: 'fontSize50',
-        fontWeight: 'fontWeightSemiBold',
-        lineHeight: 'lineHeight30',
+        fontSize: 'fontSize30',
+        fontWeight: 'fontWeightSemibold',
+        lineHeight: 'lineHeight20',
       };
     case 'headingStyle10':
       return {
-        fontSize: 'fontSize30',
-        fontWeight: 'fontWeightSemiBold',
-        lineHeight: 'lineHeight20',
+        fontSize: 'fontSize20',
+        fontWeight: 'fontWeightSemibold',
+        lineHeight: 'lineHeight10',
       };
     default:
       return {
-        fontSize: 'fontSize80',
-        lineHeight: 'lineHeight40',
+        fontSize: 'fontSize70',
+        fontWeight: 'fontWeightSemibold',
+        lineHeight: 'lineHeight50',
       };
   }
 }
 
 const Heading: React.FC<HeadingProps> = ({as, headingStyle, children}) => (
-  <Text as={as} textColor="colorText" {...getHeadingStyles(headingStyle)}>
+  <Text as={as} marginBottom="space60" textColor="colorText" {...getHeadingStyles(headingStyle)}>
     {children}
   </Text>
 );
 
 Heading.defaultProps = {
   as: 'h2',
-  headingStyle: 'headingStyle60',
+  headingStyle: 'headingStyle50',
 };
 
 export {Heading};

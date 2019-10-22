@@ -16,7 +16,7 @@ storiesOf('Components|Heading', module)
   .addDecorator(withKnobs)
   .add('Default', () => {
     const asOptions = text('as', 'h2') as asTags;
-    const headingStyleValue = select('headingStyle', headingStyleOptions, 'headingStyle60') as HeadingStyle;
+    const headingStyleValue = select('headingStyle', headingStyleOptions, 'headingStyle50') as HeadingStyle;
     return (
       <Heading as={asOptions} headingStyle={headingStyleValue}>
         I am a Very Large Heading
