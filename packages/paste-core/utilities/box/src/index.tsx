@@ -1,29 +1,20 @@
 import styled from '@emotion/styled';
 import {
+  compose,
   space,
-  width,
-  minWidth,
-  maxWidth,
-  height,
-  minHeight,
-  maxHeight,
-  borders,
-  display,
-  DisplayProps,
+  layout,
+  flexbox,
+  background,
+  border,
   boxShadow,
   zIndex,
-  overflow,
+  DisplayProps,
   OverflowProps,
-  style,
+  system,
 } from 'styled-system';
 
 import {
-  WidthProps,
-  MinWidthProps,
-  MaxWidthProps,
-  HeightProps,
-  MinHeightProps,
-  MaxHeightProps,
+  SizingProps,
   SpacingProps,
   BackgroundColorProps,
   BorderProps,
@@ -32,12 +23,7 @@ import {
 } from '@twilio-paste/types';
 
 export interface BoxProps
-  extends WidthProps,
-    MinWidthProps,
-    MaxWidthProps,
-    HeightProps,
-    MinHeightProps,
-    MaxHeightProps,
+  extends SizingProps,
     SpacingProps,
     BackgroundColorProps,
     BorderProps,
@@ -49,90 +35,25 @@ export interface BoxProps
   as?: keyof JSX.IntrinsicElements;
 }
 
-const backgroundColor = style({
-  prop: 'backgroundColor',
-  cssProperty: 'backgroundColor',
-  key: 'backgroundColors',
+const backgroundColor = system({
+  backgroundColor: {
+    property: 'backgroundColor',
+    scale: 'backgroundColors',
+  },
 });
 
-const borderBottomLeftRadius = style({
-  prop: 'borderBottomLeftRadius',
-  cssProperty: 'borderBottomLeftRadius',
-  key: 'radii',
-});
-
-const borderBottomRightRadius = style({
-  prop: 'borderBottomRightRadius',
-  cssProperty: 'borderBottomRightRadius',
-  key: 'radii',
-});
-
-const borderTopLeftRadius = style({
-  prop: 'borderTopLeftRadius',
-  cssProperty: 'borderTopLeftRadius',
-  key: 'radii',
-});
-
-const borderTopRightRadius = style({
-  prop: 'borderTopRightRadius',
-  cssProperty: 'borderTopRightRadius',
-  key: 'radii',
-});
-
-const borderColor = style({
-  prop: 'borderColor',
-  cssProperty: 'borderColor',
-  key: 'borderColors',
-});
-
-const borderBottomWidth = style({
-  prop: 'borderBottomWidth',
-  cssProperty: 'borderBottomWidth',
-  key: 'borderWidths',
-});
-
-const borderLeftWidth = style({
-  prop: 'borderLeftWidth',
-  cssProperty: 'borderLeftWidth',
-  key: 'borderWidths',
-});
-
-const borderRightWidth = style({
-  prop: 'borderRightWidth',
-  cssProperty: 'borderRightWidth',
-  key: 'borderWidths',
-});
-
-const borderTopWidth = style({
-  prop: 'borderTopWidth',
-  cssProperty: 'borderTopWidth',
-  key: 'borderWidths',
-});
-
-const Box = styled.div<BoxProps>`
-  ${backgroundColor};
-  ${borders};
-  ${borderColor}
-  ${borderBottomWidth}
-  ${borderLeftWidth}
-  ${borderRightWidth}
-  ${borderTopWidth}
-  ${borderBottomLeftRadius};
-  ${borderBottomRightRadius};
-  ${borderTopLeftRadius};
-  ${borderTopRightRadius};
-  ${display};
-  ${width};
-  ${minWidth};
-  ${maxWidth};
-  ${height};
-  ${minHeight};
-  ${maxHeight};
-  ${boxShadow};
-  ${space};
-  ${zIndex};
-  ${overflow};
-`;
+const Box = styled.div<BoxProps>(
+  compose(
+    space,
+    layout,
+    flexbox,
+    background,
+    backgroundColor,
+    border,
+    boxShadow,
+    zIndex
+  )
+);
 
 Box.defaultProps = {
   minWidth: 'size0',
