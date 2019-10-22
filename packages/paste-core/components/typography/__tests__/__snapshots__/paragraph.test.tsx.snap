@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Paragraph it should render a single paragraph 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.15;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  font-size: 0.875rem;
+  color: #282a2b;
+  font-weight: 400;
+  line-height: 1.714285714;
+  margin-bottom: 1.5rem;
+}
+
+<div
+  className="emotion-1"
+>
+  <p
+    className="emotion-0"
+    fontSize="fontSize20"
+    fontWeight="fontWeightNormal"
+  >
+    This is a paragraph
+  </p>
+</div>
+`;
