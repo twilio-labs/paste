@@ -1,6 +1,6 @@
 import Scrollspy from 'react-scrollspy';
 import styled from '@emotion/styled';
-import {themeGet} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 import {Box} from '@twilio-paste/box';
 import {TableOfContentsListItemProps} from './types';
 

@@ -4,7 +4,7 @@ import {Box} from '@twilio-paste/box';
 import {Theme} from '@twilio-paste/theme';
 import {LiveProvider, LiveEditor, LiveError, LivePreview as ReactLivePreview} from 'react-live';
 import styled from '@emotion/styled';
-import {themeGet} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 import {CodeblockTheme} from './theme';
 import {Language} from '../../codeblock';
 import {useActiveSiteTheme} from '../../../context/ActiveSiteThemeContext';

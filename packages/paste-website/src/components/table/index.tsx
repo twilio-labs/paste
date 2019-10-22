@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {themeGet} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 
 export const Table = styled.table(props => ({
   borderSpacing: 0,
