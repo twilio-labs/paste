@@ -42,6 +42,13 @@ const backgroundColor = system({
   },
 });
 
+const borderColor = system({
+  borderColor: {
+    property: 'borderColor',
+    scale: 'borderColors',
+  },
+});
+
 const Box = styled.div<BoxProps>(
   compose(
     space,
@@ -50,6 +57,7 @@ const Box = styled.div<BoxProps>(
     background,
     backgroundColor,
     border,
+    borderColor,
     boxShadow,
     zIndex
   )
