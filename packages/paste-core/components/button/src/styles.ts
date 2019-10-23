@@ -19,13 +19,13 @@ const sizeIcon = (props: ButtonWrapperProps): SerializedStyles => css`
 const sizeSmall = (props: ButtonWrapperProps): SerializedStyles => css`
   padding: ${themeGet('space.space10')(props)} ${themeGet('space.space30')(props)};
   border-radius: ${themeGet('radii.borderRadius10')(props)};
-  font-size: ${themeGet('fontSizes.fontSize20')(props)};
+  font-size: ${themeGet('fontSizes.fontSize30')(props)};
   line-height: 24px;
 `;
 const sizeDefault = (props: ButtonWrapperProps): SerializedStyles => css`
   padding: ${themeGet('space.space30')(props)} ${themeGet('space.space60')(props)};
   border-radius: ${themeGet('radii.borderRadius20')(props)};
-  font-size: ${themeGet('fontSizes.fontSize20')(props)};
+  font-size: ${themeGet('fontSizes.fontSize30')(props)};
   font-weight: ${themeGet('fontWeights.fontWeightSemibold')(props)};
   line-height: 24px;
 `;
