@@ -30,6 +30,7 @@ const Card: React.FunctionComponent<CardProps> = ({children, ...attributes}) => 
     borderStyle="solid"
     borderRadius="borderRadius20"
     padding="space60"
+    backgroundColor="colorBackgroundBody"
     {...attributes}
   >
     {children}
