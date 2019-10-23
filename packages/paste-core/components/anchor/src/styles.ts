@@ -6,6 +6,7 @@ export const StyledLink = styled.a`
   color: ${themeGet('textColors.colorTextLink')};
   text-decoration: none;
   outline: none;
+  font-size: 50px;
 
   &:hover {
     color: ${themeGet('textColors.colorTextLinkHover')};
