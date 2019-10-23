@@ -4,13 +4,13 @@ import {StyledCallout} from './styles';
 import {CalloutProps, CalloutTitleProps, CalloutTextProps} from './types';
 
 const CalloutTitle: React.FC<CalloutTitleProps> = ({as, children}) => (
-  <Text as={as} marginBottom="space40" fontSize="fontSize30">
+  <Text as={as} marginBottom="space40">
     {children}
   </Text>
 );
 
 const CalloutText: React.FC<CalloutTextProps> = ({as, children, marginTop, marginBottom}) => (
-  <Text as={as} marginTop={marginTop} marginBottom={marginBottom} fontSize="fontSize30">
+  <Text as={as} marginTop={marginTop} marginBottom={marginBottom}>
     {children}
   </Text>
 );
