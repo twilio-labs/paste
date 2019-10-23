@@ -16,7 +16,7 @@ storiesOf('Utilities|Text', module)
   .addDecorator(withKnobs)
   .add('Default', () => {
     const fontFamilyValue = select('fontFamily', fontFamilyOptions, 'fontFamilyText') as keyof ThemeShape['fonts'];
-    const fontSizeValue = select('fontSize', fontSizeOptions, 'fontSize20') as keyof ThemeShape['fontSizes'];
+    const fontSizeValue = select('fontSize', fontSizeOptions, 'fontSize30') as keyof ThemeShape['fontSizes'];
     const fontWeightValue = select(
       'fontWeight',
       fontWeightOptions,

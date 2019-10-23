@@ -41,7 +41,7 @@ const Text = styled.span<TextProps>`
 
 Text.defaultProps = {
   as: 'p',
-  fontSize: 'fontSize20',
+  fontSize: 'fontSize30',
   lineHeight: 'lineHeight20',
   textColor: 'colorText',
 };
