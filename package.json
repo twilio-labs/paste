@@ -52,7 +52,7 @@
     "@styled-system/css": "^5.0.23"
   },
   "devDependencies": {
-    "@applitools/eyes-storybook": "^2.8.6",
+    "@applitools/eyes-storybook": "^2.9.1",
     "@babel/cli": "^7.5.0",
     "@babel/core": "^7.5.0",
     "@babel/plugin-proposal-class-properties": "^7.5.0",
