@@ -19,52 +19,44 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
   switch (headingStyle) {
     case 'headingStyle60':
       return {
-        marginBottom: 'space70',
         fontSize: 'fontSize90',
-        fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight60',
+        fontWeight: 'fontWeightNormal',
+        lineHeight: 'lineHeight70',
       };
     case 'headingStyle50':
       return {
-        marginBottom: 'space60',
-        fontSize: 'fontSize70',
-        fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight50',
+        fontSize: 'fontSize80',
+        fontWeight: 'fontWeightNormal',
+        lineHeight: 'lineHeight40',
       };
     case 'headingStyle40':
       return {
-        marginBottom: 'space50',
-        fontSize: 'fontSize60',
-        fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight70',
+        fontSize: 'fontSize70',
+        fontWeight: 'fontWeightSemiBold',
+        lineHeight: 'lineHeight40',
       };
     case 'headingStyle30':
       return {
-        marginBottom: 'space40',
-        fontSize: 'fontSize40',
-        fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight50',
+        fontSize: 'fontSize60',
+        fontWeight: 'fontWeightSemiBold',
+        lineHeight: 'lineHeight30',
       };
     case 'headingStyle20':
       return {
-        marginBottom: 'space30',
-        fontSize: 'fontSize30',
-        fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight20',
+        fontSize: 'fontSize50',
+        fontWeight: 'fontWeightSemiBold',
+        lineHeight: 'lineHeight30',
       };
     case 'headingStyle10':
       return {
-        marginBottom: 'space30',
-        fontSize: 'fontSize20',
-        fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight10',
+        fontSize: 'fontSize30',
+        fontWeight: 'fontWeightSemiBold',
+        lineHeight: 'lineHeight20',
       };
     default:
       return {
-        marginBottom: 'space60',
-        fontSize: 'fontSize70',
-        fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight50',
+        fontSize: 'fontSize80',
+        lineHeight: 'lineHeight40',
       };
   }
 }
@@ -77,7 +69,7 @@ const Heading: React.FC<HeadingProps> = ({as, headingStyle, children}) => (
 
 Heading.defaultProps = {
   as: 'h2',
-  headingStyle: 'headingStyle50',
+  headingStyle: 'headingStyle60',
 };
 
 export {Heading};
