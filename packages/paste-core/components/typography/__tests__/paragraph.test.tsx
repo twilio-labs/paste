@@ -1,7 +1,7 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
 import {Theme} from '@twilio-paste/theme';
-import {Paragraph} from '../src';
+import {Paragraph} from '../src/Paragraph';
 
 describe('Paragraph', () => {
   it('it should render a single paragraph', (): void => {
