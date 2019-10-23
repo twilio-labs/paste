@@ -18,48 +18,48 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
     case 'headingStyle60':
       return {
         my: 'space60',
-        fontSize: 'fontSize20',
+        fontSize: 'fontSize30',
         lineHeight: 'lineHeight20',
         fontWeight: 'fontWeightSemibold',
       };
     case 'headingStyle50':
       return {
         my: 'space60',
-        fontSize: 'fontSize20',
+        fontSize: 'fontSize30',
         lineHeight: 'lineHeight20',
         fontWeight: 'fontWeightSemibold',
       };
     case 'headingStyle40':
       return {
         my: 'space60',
-        fontSize: 'fontSize30',
+        fontSize: 'fontSize40',
         fontWeight: 'fontWeightSemibold',
       };
     case 'headingStyle30':
       return {
         my: 'space60',
-        fontSize: 'fontSize50',
+        fontSize: 'fontSize60',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight50',
       };
     case 'headingStyle20':
       return {
         my: 'space60',
-        fontSize: 'fontSize60',
+        fontSize: 'fontSize70',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight60',
       };
     case 'headingStyle10':
       return {
         mb: 'space90',
-        fontSize: 'fontSize80',
+        fontSize: 'fontSize90',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight80',
       };
     default:
       return {
         my: 'space60',
-        fontSize: 'fontSize60',
+        fontSize: 'fontSize70',
         lineHeight: 'lineHeight60',
       };
   }

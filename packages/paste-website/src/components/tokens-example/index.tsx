@@ -27,7 +27,7 @@ export const BorderBox: React.FC<BorderBoxProps> = ({borderColor, borderWidth}) 
 type TextBoxProp = Pick<TextProps, 'fontFamily' | 'fontSize' | 'fontWeight'>;
 export const TextBox: React.FC<TextBoxProp> = ({fontFamily, fontSize, fontWeight}) => {
   return (
-    <Text fontFamily={fontFamily} fontSize={fontSize || 'fontSize60'} fontWeight={fontWeight} lineHeight="lineHeight60">
+    <Text fontFamily={fontFamily} fontSize={fontSize || 'fontSize70'} fontWeight={fontWeight} lineHeight="lineHeight60">
       Ag
     </Text>
   );
@@ -63,10 +63,10 @@ export const TextColorBox: React.FC<TextColorBoxProps> = ({color, textColor}) =>
         justifyContent: 'space-between',
       }}
     >
-      <Text as="span" fontSize="fontSize60" lineHeight="lineHeight60" textColor={textColor}>
+      <Text as="span" fontSize="fontSize70" lineHeight="lineHeight60" textColor={textColor}>
         <ScreenReaderOnly>Example text: </ScreenReaderOnly>Ag
       </Text>
-      <Text as="span" fontSize="fontSize40" lineHeight="lineHeight40" textColor={textColor}>
+      <Text as="span" fontSize="fontSize50" lineHeight="lineHeight40" textColor={textColor}>
         <ScreenReaderOnly>Accessibility rating: </ScreenReaderOnly>
         {getContrastRating(accessibility)}
       </Text>

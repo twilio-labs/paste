@@ -8,7 +8,7 @@ export const Table = styled.table(props => ({
 
   width: '100%',
   color: themeGet('textColors.colorText')(props),
-  fontSize: themeGet('fontSizes.fontSize20')(props),
+  fontSize: themeGet('fontSizes.fontSize30')(props),
   fontWeight: themeGet('fontWeights.fontWeightNormal')(props),
   lineHeight: themeGet('lineHeights.lineHeight40')(props),
 }));

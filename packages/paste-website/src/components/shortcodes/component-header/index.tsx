@@ -60,7 +60,7 @@ interface ComponentHeaderProps {
 const getPackageItemStyles = (props: {}): {} => ({
   display: 'inline-block',
   color: themeGet('textColors.colorText')(props),
-  fontSize: themeGet('fontSizes.fontSize20')(props),
+  fontSize: themeGet('fontSizes.fontSize30')(props),
 });
 
 const PackageValue = styled.dd(getPackageItemStyles);

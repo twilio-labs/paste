@@ -33,9 +33,9 @@ export const marginLeftPartial = ({depth}: TableOfContentsListItemProps): string
 
 export const fontSizePartial = ({depth}: TableOfContentsListItemProps): string => {
   if (depth === '3' || depth === '4') {
-    return themeGet('fontSizes.fontSize10');
+    return themeGet('fontSizes.fontSize20');
   }
-  return themeGet('fontSizes.fontSize20');
+  return themeGet('fontSizes.fontSize30');
 };
 
 export const StyledListItem: React.FC<TableOfContentsListItemProps> = styled.li`

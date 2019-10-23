@@ -44,10 +44,10 @@ const SidebarHeader: React.FC<SidebarHeaderProps> = props => {
   return (
     <StyledHeader>
       <TwilioIcon color={TWILIO_RED} display="block" size={30} />
-      <Text as="h2" fontSize="fontSize50" marginTop="space40" marginBottom="space20">
+      <Text as="h2" fontSize="fontSize60" marginTop="space40" marginBottom="space20">
         <StyledLink to="/">{props.siteTitle}</StyledLink>
       </Text>
-      <StyledH3 as="h3" fontSize="fontSize10" textColor="colorTextPlaceholder">
+      <StyledH3 as="h3" fontSize="fontSize20" textColor="colorTextPlaceholder">
         <StyledSpan>{props.siteSubTitle}</StyledSpan>
       </StyledH3>
     </StyledHeader>

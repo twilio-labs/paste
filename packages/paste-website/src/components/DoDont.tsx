@@ -70,7 +70,7 @@ const Item: React.FC<DoProps> = ({center = false, ...props}) => {
       >
         <Text
           as="h5"
-          fontSize="fontSize20"
+          fontSize="fontSize30"
           fontWeight="fontWeightSemibold"
           lineHeight="lineHeight40"
           marginBottom="space40"
