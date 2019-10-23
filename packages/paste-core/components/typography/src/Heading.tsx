@@ -28,6 +28,7 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
         lineHeight: 'lineHeight60',
       };
     case 'headingStyle50':
+    default:
       return {
         marginBottom: 'space60',
         fontSize: 'fontSize70',
@@ -61,13 +62,6 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
         fontSize: 'fontSize20',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight10',
-      };
-    default:
-      return {
-        marginBottom: 'space60',
-        fontSize: 'fontSize70',
-        fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight50',
       };
   }
 }
