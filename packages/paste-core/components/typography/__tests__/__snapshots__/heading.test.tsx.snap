@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Heading it should render an H1 with 32px font-size 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.15;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
+  color: #282a2b;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+<div
+  className="emotion-1"
+>
+  <h1
+    className="emotion-0"
+    fontSize="fontSize90"
+    fontWeight="fontWeightSemibold"
+  >
+    This is an H1
+  </h1>
+</div>
+`;
+
+exports[`Heading it should render an H2 with 24px font-size 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.15;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  color: #282a2b;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+<div
+  className="emotion-1"
+>
+  <h2
+    className="emotion-0"
+    fontSize="fontSize70"
+    fontWeight="fontWeightSemibold"
+  >
+    This is an H2
+  </h2>
+</div>
+`;
+
+exports[`Heading it should render an H3 with 20px font-size 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.15;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.25rem;
+  color: #282a2b;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+<div
+  className="emotion-1"
+>
+  <h3
+    className="emotion-0"
+    fontSize="fontSize60"
+    fontWeight="fontWeightSemibold"
+  >
+    This is an H3
+  </h3>
+</div>
+`;
+
+exports[`Heading it should render an H4 with 16px font-size 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.15;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  color: #282a2b;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+<div
+  className="emotion-1"
+>
+  <h4
+    className="emotion-0"
+    fontSize="fontSize40"
+    fontWeight="fontWeightSemibold"
+  >
+    This is an H4
+  </h4>
+</div>
+`;
+
+exports[`Heading it should render an H5 with 14px font-size 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.15;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  font-size: 0.875rem;
+  color: #282a2b;
+  font-weight: 600;
+  line-height: 1.714285714;
+  margin-bottom: 0.5rem;
+}
+
+<div
+  className="emotion-1"
+>
+  <h5
+    className="emotion-0"
+    fontSize="fontSize30"
+    fontWeight="fontWeightSemibold"
+  >
+    This is an H5
+  </h5>
+</div>
+`;
+
+exports[`Heading it should render an H6 with 12px font-size 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.15;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  font-size: 0.75rem;
+  color: #282a2b;
+  font-weight: 600;
+  line-height: 1.666666667;
+  margin-bottom: 0.5rem;
+}
+
+<div
+  className="emotion-1"
+>
+  <h6
+    className="emotion-0"
+    fontSize="fontSize20"
+    fontWeight="fontWeightSemibold"
+  >
+    This is an H6
+  </h6>
+</div>
+`;
