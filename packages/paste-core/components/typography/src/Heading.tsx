@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Text} from '@twilio-paste/text';
 
-export type asTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'label';
+export type asTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'label' | 'span';
 export type HeadingStyle =
   | 'headingStyle10'
   | 'headingStyle20'
@@ -72,7 +72,25 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
   }
 }
 
-const handlePropValidation = ({children}: Heading): void => {
+const handlePropValidation = ({as, children}: Heading): void => {
+  const hasAs = as;
+  if (
+    hasAs &&
+    !(
+      as === 'h1' ||
+      as === 'h2' ||
+      as === 'h3' ||
+      as === 'h4' ||
+      as === 'h5' ||
+      as === 'h6' ||
+      as === 'div' ||
+      as === 'label' ||
+      as === 'span'
+    )
+  ) {
+    throw new Error(`[Paste: Typography Heading] As must be h1, h2, h3, h4, h5, h6, div, label, or span`);
+  }
+
   if (children == null) {
     throw new Error(`[Paste: Typography Heading] Must have non-null children.`);
   }
