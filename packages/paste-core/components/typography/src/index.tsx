@@ -1,2 +1,2 @@
-export {Heading} from './Heading';
-export {Paragraph} from './Paragraph';
+export {Heading, HeadingProps} from './Heading';
+export {Paragraph, ParagraphProps} from './Paragraph';

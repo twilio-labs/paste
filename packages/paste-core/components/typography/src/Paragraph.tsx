@@ -1,21 +1,14 @@
 import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import {Text} from '@twilio-paste/text';
 
-interface Paragraph {
+export interface ParagraphProps {
   id?: never;
   className?: never;
   children: NonNullable<React.ReactNode>;
 }
 
-const handlePropValidation = ({children}: Paragraph): void => {
-  if (children == null) {
-    throw new Error(`[Paste: Typography Paragraph] Must have non-null children.`);
-  }
-};
-
-const Paragraph: React.FC<Paragraph> = props => {
-  handlePropValidation(props);
-
+const Paragraph: React.FC<ParagraphProps> = props => {
   return (
     <Text
       as="p"
@@ -28,6 +21,10 @@ const Paragraph: React.FC<Paragraph> = props => {
       {props.children}
     </Text>
   );
+};
+
+Paragraph.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 Paragraph.displayName = 'Paragraph';

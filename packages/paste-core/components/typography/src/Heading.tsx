@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import {Text} from '@twilio-paste/text';
 
 export type asTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'label' | 'span';
@@ -10,12 +11,12 @@ export type HeadingStyle =
   | 'headingStyle50'
   | 'headingStyle60';
 
-interface Heading {
-  as: asTags;
+export interface HeadingProps {
+  as?: asTags;
   id?: never;
   className?: never;
   children: NonNullable<React.ReactNode>;
-  headingStyle?: HeadingStyle;
+  variant?: HeadingStyle;
 }
 
 function getHeadingStyles(headingStyle?: HeadingStyle): {} {
@@ -66,43 +67,31 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
   }
 }
 
-const handlePropValidation = ({as, children}: Heading): void => {
-  const hasAs = as;
-  if (
-    hasAs &&
-    !(
-      as === 'h1' ||
-      as === 'h2' ||
-      as === 'h3' ||
-      as === 'h4' ||
-      as === 'h5' ||
-      as === 'h6' ||
-      as === 'div' ||
-      as === 'label' ||
-      as === 'span'
-    )
-  ) {
-    throw new Error(`[Paste: Typography Heading] As must be h1, h2, h3, h4, h5, h6, div, label, or span`);
-  }
-
-  if (children == null) {
-    throw new Error(`[Paste: Typography Heading] Must have non-null children.`);
-  }
-};
-
-const Heading: React.FC<Heading> = ({as, headingStyle, children}) => {
-  handlePropValidation({as, headingStyle, children});
-
+const Heading: React.FC<HeadingProps> = ({as, children, variant}) => {
   return (
-    <Text as={as} textColor="colorText" {...getHeadingStyles(headingStyle)}>
+    <Text as={as} textColor="colorText" {...getHeadingStyles(variant)}>
       {children}
     </Text>
   );
 };
 
-Heading.defaultProps = {
-  as: 'h2',
-  headingStyle: 'headingStyle50',
+Heading.propTypes = {
+  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span']),
+  variant: PropTypes.oneOf([
+    'headingStyle60',
+    'headingStyle50',
+    'headingStyle40',
+    'headingStyle30',
+    'headingStyle20',
+    'headingStyle10',
+  ]),
+  children: PropTypes.node.isRequired,
 };
 
+Heading.defaultProps = {
+  as: 'h2',
+  variant: 'headingStyle50',
+};
+
+Heading.displayName = 'Heading';
 export {Heading};
