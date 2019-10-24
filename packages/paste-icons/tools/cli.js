@@ -16,6 +16,7 @@ const {
 } = require('./utils');
 const {iconTemplate} = require('./iconTemplate');
 const {listTemplate} = require('./listTemplate');
+const {writeToFile} = require('../../../tools/utils/writeToFile');
 
 const BLACKLIST_FILES = ['.DS_Store'];
 
@@ -39,8 +40,8 @@ function performFileConversion(fileName, outputPath, options) {
     const cleanedFileName = getOutputComponentName(fileName);
     // Convert the SVG into our ideal format
     const generatedComponent = await convertSvgToReact(cleanedFileName, fileContents, options);
-    fs.writeFile(outputPath, generatedComponent, 'utf8', writeFileError => {
-      maybeHandleError(`Couldn't write formatted SVG to disk`, writeFileError);
+    writeToFile(outputPath, generatedComponent, {
+      errorMessage: `Couldn't write formatted SVG to disk`,
     });
   });
 }
@@ -56,8 +57,8 @@ const Actions = {
 
     const iconList = reactDestinationFiles.filter(name => name !== '.DS_Store').map(name => name.replace('.tsx', ''));
 
-    fs.writeFile(path.join(__dirname, './../__IconList.tsx'), listTemplate(iconList), 'utf8', error => {
-      maybeHandleError(`Couldn't write formatted SVG to disk`, error);
+    writeToFile(path.join(__dirname, './../__IconList.tsx'), listTemplate(iconList), 'utf8', {
+      errorMessage: `Couldn't write formatted SVG to disk`,
     });
   },
   convertNew: async () => {

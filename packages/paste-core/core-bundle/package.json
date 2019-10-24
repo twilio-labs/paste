@@ -1,9 +1,8 @@
 {
-  "name": "@twilio-paste/typography",
+  "name": "@twilio-paste/core",
   "version": "0.0.1",
-  "category": "typography",
-  "status": "alpha",
-  "description": "Twilio's Typography component",
+  "status": "beta",
+  "description": "Contains all the core packages from the Paste internal design system.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
@@ -11,13 +10,11 @@
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "sideEffects": false,
-  "publishConfig": {
-    "access": "public"
-  },
   "files": [
     "dist"
   ],
   "scripts": {
+    "prebuild": "node ./tools/generate.js",
     "build": "yarn clean && yarn compile",
     "build:dev": "yarn clean && yarn compile:dev",
     "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
@@ -26,16 +23,28 @@
     "prepublishOnly": "yarn build",
     "type-check": "tsc --noEmit"
   },
+  "dependencies": {
+    "@twilio-paste/anchor": "^0.1.5",
+    "@twilio-paste/button": "^0.2.1",
+    "@twilio-paste/heading": "^0.3.4",
+    "@twilio-paste/spinner": "^0.1.6",
+    "@twilio-paste/absolute": "^0.2.0",
+    "@twilio-paste/aspect-ratio": "^0.1.1",
+    "@twilio-paste/box": "^0.3.1",
+    "@twilio-paste/media-object": "^0.3.1",
+    "@twilio-paste/screen-reader-only": "^0.2.0",
+    "@twilio-paste/text": "^0.4.1",
+    "@twilio-paste/truncate": "^0.1.4"
+  },
   "peerDependencies": {
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.10",
-    "@twilio-paste/text": "^0.4.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-uid": "^2.2.0",
     "styled-system": "^5.1.2"
   },
   "devDependencies": {
-    "@twilio-paste/text": "^0.4.1",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.0.1",
