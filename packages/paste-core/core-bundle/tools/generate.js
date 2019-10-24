@@ -30,7 +30,7 @@ function generateDependenciesFromPackageList(packageList) {
 function getAllCorePackages(packageList) {
   return packageList.filter(item => {
     const isCorePackage = item.location.includes('/paste-core/');
-    const isReleased = !item.private && (item.version !== '0.0.1' || item.version !== '0.0.0');
+    const isReleased = !item.private && item.version !== '0.0.1' && item.version !== '0.0.0';
     const isNotBlacklisted = !BLACKLIST.includes(item.name);
 
     return isCorePackage && isReleased && isNotBlacklisted;

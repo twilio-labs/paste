@@ -28,7 +28,6 @@
     "@twilio-paste/button": "^0.2.1",
     "@twilio-paste/heading": "^0.3.4",
     "@twilio-paste/spinner": "^0.1.6",
-    "@twilio-paste/typography": "^0.0.1",
     "@twilio-paste/absolute": "^0.2.0",
     "@twilio-paste/aspect-ratio": "^0.1.1",
     "@twilio-paste/box": "^0.3.1",
