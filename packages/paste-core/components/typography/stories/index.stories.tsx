@@ -33,9 +33,9 @@ storiesOf('Components|Typography', module)
   })
   .add('Heading', () => {
     const asOptions = text('as', 'h2') as asTags;
-    const headingStyleValue = select('headingStyle', headingStyleOptions, 'headingStyle50') as HeadingStyle;
+    const headingStyleValue = select('variant', headingStyleOptions, 'headingStyle50') as HeadingStyle;
     return (
-      <Heading as={asOptions} headingStyle={headingStyleValue}>
+      <Heading as={asOptions} variant={headingStyleValue}>
         I am a Very Large Heading
       </Heading>
     );
