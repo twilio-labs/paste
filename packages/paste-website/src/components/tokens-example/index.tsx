@@ -17,10 +17,10 @@ export const ColorBox: React.FC<BackgroundColor> = ({backgroundColor}) => {
   return <Absolute backgroundColor={backgroundColor} padding="space50" preset="fill" />;
 };
 
-type BorderBoxProps = Pick<BoxProps, 'borderColor' | 'borderWidth' | 'height'>;
-export const BorderBox: React.FC<BorderBoxProps> = ({borderColor, borderWidth, height}) => {
+type BorderBoxProps = Pick<BoxProps, 'borderColor' | 'borderWidth'>;
+export const BorderBox: React.FC<BorderBoxProps> = ({borderColor, borderWidth}) => {
   return (
-    <Box borderStyle="solid" borderColor={borderColor} borderWidth={borderWidth || 'borderWidth20'} height={height} />
+    <Box borderStyle="solid" borderColor={borderColor} borderWidth={borderWidth || 'borderWidth20'} padding="space60" />
   );
 };
 
@@ -117,7 +117,7 @@ export const TokenExample: React.FC<TokenExampleProps> = ({token}) => {
     case 'color':
       return <ColorBox backgroundColor={token.value as any} />;
     case 'border-color':
-      return <BorderBox borderColor={tokenName as keyof ThemeShape['borderColors']} height="size10" />;
+      return <BorderBox borderColor={tokenName as keyof ThemeShape['borderColors']} />;
     case 'border-width':
       return <BorderBox borderWidth={tokenName as keyof ThemeShape['borderWidths']} />;
     case 'font':
