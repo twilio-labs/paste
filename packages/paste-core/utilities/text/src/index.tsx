@@ -12,7 +12,7 @@ import {
 } from 'styled-system';
 import {FontProps, SpacingProps, TextColorProps, TextDecorationProps} from '@twilio-paste/types';
 
-export interface TextProps
+interface Text
   extends SpacingProps,
     FontProps,
     TextColorProps,
@@ -33,7 +33,7 @@ const textColor = system({
 });
 const textDecoration = system({textDecoration: true});
 
-const Text = styled.span<TextProps>(
+const Text = styled.span<Text>(
   {margin: 0, padding: 0},
   compose(
     display,
