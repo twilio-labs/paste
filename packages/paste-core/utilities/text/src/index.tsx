@@ -1,46 +1,52 @@
-import {ReactNode} from 'react';
 import styled from '@emotion/styled';
 import {
+  compose,
   display,
   DisplayProps,
-  fontFamily,
-  fontSize,
-  fontWeight,
-  lineHeight,
+  FontStyleProps,
+  LetterSpacingProps,
   space,
-  style,
-  textAlign,
+  system,
+  typography,
   TextAlignProps,
 } from 'styled-system';
-import {ThemeShape, FontProps, TextColorProps, SpacingProps} from '@twilio-paste/types';
+import {FontProps, SpacingProps, TextColorProps, TextDecorationProps} from '@twilio-paste/types';
 
-export interface TextProps extends DisplayProps, TextAlignProps, SpacingProps, FontProps, TextColorProps {
-  as?: string;
-  children: ReactNode | string;
-  theme?: ThemeShape;
+export interface TextProps
+  extends SpacingProps,
+    FontProps,
+    TextColorProps,
+    TextDecorationProps,
+    // styled system
+    DisplayProps,
+    FontStyleProps,
+    LetterSpacingProps,
+    TextAlignProps {
+  as: keyof JSX.IntrinsicElements;
 }
 
-const textColor = style({
-  prop: 'textColor',
-  cssProperty: 'color',
-  key: 'textColors',
+const textColor = system({
+  textColor: {
+    property: 'color',
+    scale: 'textColors',
+  },
 });
+const textDecoration = system({textDecoration: true});
 
-const Text = styled.span<TextProps>`
-  margin: 0;
-  padding: 0;
-  ${display}
-  ${fontFamily}
-  ${fontSize}
-  ${textColor}
-  ${fontWeight}
-  ${lineHeight}
-  ${textAlign}
-  ${space}
-`;
+const Text = styled.span<TextProps>(
+  {margin: 0, padding: 0},
+  compose(
+    display,
+    space,
+    textColor,
+    textDecoration,
+    typography
+  )
+);
+
+Text.displayName = 'Text';
 
 Text.defaultProps = {
-  as: 'p',
   fontSize: 'fontSize20',
   lineHeight: 'lineHeight20',
   textColor: 'colorText',

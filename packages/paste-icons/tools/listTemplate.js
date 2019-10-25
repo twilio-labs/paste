@@ -10,7 +10,7 @@ const listTemplate = iconList => {
   const importIconList = mapIconList(iconList, iconName => `import {${iconName}} from './src/react/${iconName}';`);
   const renderedIconList = mapIconList(
     iconList,
-    iconName => `<StoryIcon><${iconName} {...props} /><Text>${iconName}</Text></StoryIcon>`
+    iconName => `<StoryIcon><${iconName} {...props} /><Text as="p">${iconName}</Text></StoryIcon>`
   );
 
   return `

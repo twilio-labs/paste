@@ -3,9 +3,7 @@ import {BoxProps} from '@twilio-paste/box';
 
 export type CalloutVariants = 'primary' | 'secondary' | 'warning';
 
-export interface CalloutTitleProps {
-  as?: string;
-}
+export type CalloutTitleProps = Pick<TextProps, 'as'>;
 
 export type CalloutTextProps = Pick<TextProps, 'marginTop' | 'marginBottom' | 'as'>;
 

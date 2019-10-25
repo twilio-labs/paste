@@ -21,6 +21,7 @@ const NotBuilt: React.FC<NotBuiltProps> = ({type, name}) => {
         </BreadcrumbItem>
       </Breadcrumb>
       <Text
+        as="p"
         fontSize="fontSize80"
         lineHeight="lineHeight80"
         fontWeight="fontWeightSemibold"
@@ -30,7 +31,7 @@ const NotBuilt: React.FC<NotBuiltProps> = ({type, name}) => {
         {getHumanizedNameFromPackageName(name)}
       </Text>
       <Box>
-        <Text>
+        <Text as="p">
           This {type} is on our roadmap, but we haven&apos;t gotten to it yet. This could be for a number of reasons,
           including:
         </Text>
@@ -39,7 +40,7 @@ const NotBuilt: React.FC<NotBuiltProps> = ({type, name}) => {
           <li>Other things are currently prioritized higher.</li>
           <li>You&apos;re the first team requesting this (even though we want to do it).</li>
         </ul>
-        <Text>
+        <Text as="p">
           Feel free to <Anchor href="https://github.com/twilio-labs/paste/issues">file a feature request</Anchor> with
           details on how you want to use this {type} and we&apos;ll respond to you directly.
         </Text>

@@ -77,7 +77,7 @@ const Item: React.FC<DoProps> = ({center = false, ...props}) => {
         >
           {props.title}
         </Text>
-        <Text>{props.body}</Text>
+        <Text as="p">{props.body}</Text>
       </Box>
     </div>
   );

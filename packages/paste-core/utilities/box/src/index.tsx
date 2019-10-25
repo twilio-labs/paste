@@ -63,6 +63,8 @@ const Box = styled.div<BoxProps>(
   )
 );
 
+Box.displayName = 'Box';
+
 Box.defaultProps = {
   minWidth: 'size0',
 };

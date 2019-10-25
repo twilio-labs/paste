@@ -27,7 +27,13 @@ export const BorderBox: React.FC<BorderBoxProps> = ({borderColor, borderWidth}) 
 type TextBoxProp = Pick<TextProps, 'fontFamily' | 'fontSize' | 'fontWeight'>;
 export const TextBox: React.FC<TextBoxProp> = ({fontFamily, fontSize, fontWeight}) => {
   return (
-    <Text fontFamily={fontFamily} fontSize={fontSize || 'fontSize60'} fontWeight={fontWeight} lineHeight="lineHeight60">
+    <Text
+      as="p"
+      fontFamily={fontFamily}
+      fontSize={fontSize || 'fontSize60'}
+      fontWeight={fontWeight}
+      lineHeight="lineHeight60"
+    >
       Ag
     </Text>
   );
