@@ -11,7 +11,7 @@ export type HeadingStyle =
   | 'headingStyle50'
   | 'headingStyle60';
 
-export interface HeadingProps {
+interface Heading {
   as?: asTags;
   id?: never;
   className?: never;
@@ -67,7 +67,7 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
   }
 }
 
-const Heading: React.FC<HeadingProps> = ({as, children, variant}) => {
+const Heading: React.FC<Heading> = ({as, children, variant}) => {
   return (
     <Text as={as} textColor="colorText" {...getHeadingStyles(variant)}>
       {children}
