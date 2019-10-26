@@ -68,3 +68,4 @@ Box.defaultProps = {
 };
 
 export {Box};
+export * from './FilterBoxPropsFromProps';

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import {Box} from '@twilio-paste/box';
+import {Box, BoxProps, filterBoxPropsFromProps} from '@twilio-paste/box';
 
 export const StyledBox = styled(Box)`
   font-family: inherit;
@@ -10,8 +10,10 @@ export const StyledBox = styled(Box)`
   width: 100%;
 `;
 
-// TODO: replace TS 'any' with real value
-export const Input: React.FC<any> = props => {
+type Input = Omit<React.ComponentProps<'input'>, keyof BoxProps | 'ref'>;
+
+export const Input: React.FC<Input> = props => {
+  const propsToSpread = filterBoxPropsFromProps(props);
   return (
     <StyledBox
       as="input"
@@ -21,7 +23,7 @@ export const Input: React.FC<any> = props => {
       borderRadius="borderRadius20"
       borderStyle="solid"
       borderWidth="borderWidth10"
-      {...props}
+      {...propsToSpread}
     />
   );
 };

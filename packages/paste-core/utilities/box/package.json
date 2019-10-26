@@ -29,13 +29,16 @@
   "peerDependencies": {
     "@emotion/styled": "^10.0.10",
     "@twilio-paste/types": "^0.0.1",
+    "lodash": "^4.17.15",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-system": "^5.1.2"
   },
   "devDependencies": {
     "@twilio-paste/types": "^0.0.1",
+    "@types/lodash": "^4.14.144",
     "csstype": "^2.6.6",
+    "lodash": "^4.17.15",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.0.1",
