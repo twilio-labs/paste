@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Heading it should render an H1 with 32px font-size 1`] = `
+exports[`Heading it should render an H1 at fontSize90 1`] = `
 .emotion-1 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.15;
@@ -37,7 +37,7 @@ exports[`Heading it should render an H1 with 32px font-size 1`] = `
 </div>
 `;
 
-exports[`Heading it should render an H2 with 24px font-size 1`] = `
+exports[`Heading it should render an H2 at fontSize70 1`] = `
 .emotion-1 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.15;
@@ -74,7 +74,7 @@ exports[`Heading it should render an H2 with 24px font-size 1`] = `
 </div>
 `;
 
-exports[`Heading it should render an H3 with 20px font-size 1`] = `
+exports[`Heading it should render an H3 at fontSize60 1`] = `
 .emotion-1 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.15;
@@ -111,7 +111,7 @@ exports[`Heading it should render an H3 with 20px font-size 1`] = `
 </div>
 `;
 
-exports[`Heading it should render an H4 with 16px font-size 1`] = `
+exports[`Heading it should render an H4 at fontSize40 1`] = `
 .emotion-1 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.15;
@@ -148,7 +148,7 @@ exports[`Heading it should render an H4 with 16px font-size 1`] = `
 </div>
 `;
 
-exports[`Heading it should render an H5 with 14px font-size 1`] = `
+exports[`Heading it should render an H5 at fontSize30 1`] = `
 .emotion-1 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.15;
@@ -185,7 +185,7 @@ exports[`Heading it should render an H5 with 14px font-size 1`] = `
 </div>
 `;
 
-exports[`Heading it should render an H6 with 12px font-size 1`] = `
+exports[`Heading it should render an H6 at fontSize20 1`] = `
 .emotion-1 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.15;
