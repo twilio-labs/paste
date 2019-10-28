@@ -4,7 +4,7 @@ import {ThemeShape} from '@twilio-paste/theme-tokens';
 import {Absolute, AbsoluteProps} from '@twilio-paste/absolute';
 import {useTheme} from '@twilio-paste/theme';
 import {Box, BoxProps} from '@twilio-paste/box';
-import {Text, TextProps} from '@twilio-paste/text';
+import {Text} from '@twilio-paste/text';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import ColorCombos, {ColorCombinationAccessibility} from '../../utils/color-combos';
 import colorRating from '../../utils/color-rating';
@@ -24,16 +24,22 @@ export const BorderBox: React.FC<BorderBoxProps> = ({borderColor, borderWidth}) 
   );
 };
 
-type TextBoxProp = Pick<TextProps, 'fontFamily' | 'fontSize' | 'fontWeight'>;
+type TextBoxProp = Pick<Text, 'fontFamily' | 'fontSize' | 'fontWeight'>;
 export const TextBox: React.FC<TextBoxProp> = ({fontFamily, fontSize, fontWeight}) => {
   return (
-    <Text fontFamily={fontFamily} fontSize={fontSize || 'fontSize60'} fontWeight={fontWeight} lineHeight="lineHeight60">
+    <Text
+      as="p"
+      fontFamily={fontFamily}
+      fontSize={fontSize || 'fontSize60'}
+      fontWeight={fontWeight}
+      lineHeight="lineHeight60"
+    >
       Ag
     </Text>
   );
 };
 
-type TextColorBoxProp = Pick<TextProps, 'textColor'>;
+type TextColorBoxProp = Pick<Text, 'textColor'>;
 interface TextColorBoxProps extends TextColorBoxProp {
   color: string;
 }

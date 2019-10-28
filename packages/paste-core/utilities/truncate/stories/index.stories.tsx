@@ -7,7 +7,7 @@ import {Truncate} from '../src';
 storiesOf('Utilities|Truncate', module).add('Default', () => {
   return (
     <Box maxWidth="150px">
-      <Text>
+      <Text as="p">
         <Truncate>Some very long text to truncate</Truncate>
       </Text>
     </Box>
