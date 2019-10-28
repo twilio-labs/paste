@@ -1,8 +1,7 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {withKnobs, text, select} from '@storybook/addon-knobs';
-import {Heading, HeadingStyle, asTags} from '../src/Heading';
-import {Paragraph} from '../src/Paragraph';
+import {Heading, Paragraph} from '../src';
 
 const headingStyleOptions = [
   'headingStyle10',
