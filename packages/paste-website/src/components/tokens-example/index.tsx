@@ -20,7 +20,7 @@ export const ColorBox: React.FC<BackgroundColor> = ({backgroundColor}) => {
 type BorderBoxProps = Pick<BoxProps, 'borderColor' | 'borderWidth'>;
 export const BorderBox: React.FC<BorderBoxProps> = ({borderColor, borderWidth}) => {
   return (
-    <Box borderStyle="solid none none none" borderColor={borderColor} borderWidth={borderWidth || 'borderWidth20'} />
+    <Box borderStyle="solid" borderColor={borderColor} borderWidth={borderWidth || 'borderWidth20'} padding="space60" />
   );
 };
 

@@ -33,7 +33,7 @@
     "@twilio-paste/paragraph": "^0.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "styled-system": "^4.1.0"
+    "styled-system": "^5.1.2"
   },
   "devDependencies": {
     "@twilio-paste/heading": "0.3.4",

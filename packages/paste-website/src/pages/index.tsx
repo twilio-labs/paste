@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Helmet} from 'react-helmet';
 import {navigate} from 'gatsby';
 import styled from '@emotion/styled';
-import {themeGet} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';

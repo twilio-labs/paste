@@ -21,6 +21,7 @@
     "@mdx-js/mdx": "^1.0.23",
     "@mdx-js/react": "^1.0.23",
     "@mdx-js/tag": "^0.20.3",
+    "@styled-system/theme-get": "^5.1.2",
     "@twilio-paste/anchor": "^0.1.5",
     "@twilio-paste/aspect-ratio": "^0.1.1",
     "@twilio-paste/box": "^0.3.1",
@@ -55,7 +56,7 @@
     "react-live": "^2.1.2",
     "react-scrollspy": "^3.4.0",
     "react-uid": "^2.2.0",
-    "styled-system": "^4.1.0"
+    "styled-system": "^5.1.2"
   },
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.14",

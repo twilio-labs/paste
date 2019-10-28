@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {themeGet} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 import {SIDEBAR_WIDTH} from './constants';
 
 /* Wraps the entire doc site page */

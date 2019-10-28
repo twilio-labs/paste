@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import {space, Theme, themeGet} from 'styled-system';
+import {space, Theme} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 import {MarginProps, PaddingProps} from '@twilio-paste/types';
 
 export interface MediaObjectProps extends Theme {

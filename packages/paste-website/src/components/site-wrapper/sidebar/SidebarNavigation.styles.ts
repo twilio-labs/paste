@@ -1,6 +1,6 @@
 import {Link} from 'gatsby';
 import styled from '@emotion/styled';
-import {themeGet} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 
 export const SiteNav = styled.nav`
   margin-top: ${themeGet('space.space70')};

@@ -64,11 +64,11 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      - attach_workspace:
-          at: ~/
+      - run: yarn
+      - run: yarn bootstrap
       - run:
-          name: Set applitools api key
-          command: "export APPLITOOLS_BATCH_ID=`echo $CIRCLE_SHA1`"
+          name: Run package builds
+          command: yarn build
       - run:
           name: Run applitools eyes-storybook
           command: yarn test:vrt
@@ -95,9 +95,7 @@ workflows:
       - test:
           requires:
             - build
-      - applitools:
-          requires:
-            - build
+      - applitools
       - prettier:
           requires:
             - build

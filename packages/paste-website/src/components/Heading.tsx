@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Text} from '@twilio-paste/text';
 import styled from '@emotion/styled';
-import {themeGet} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 import {slugify} from '../utils/RouteUtils';
 
 export type asTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'label';

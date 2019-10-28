@@ -23,8 +23,7 @@
     "@emotion/styled": "^10.0.14",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-uid": "^2.2.0",
-    "styled-system": "^4.1.0"
+    "react-uid": "^2.2.0"
   },
   "devDependencies": {
     "@svgr/babel-plugin-add-jsx-attribute": "^4.0.0",

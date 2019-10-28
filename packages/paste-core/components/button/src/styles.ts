@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import {css, SerializedStyles} from '@emotion/core';
-import {buttonStyle, themeGet} from 'styled-system';
+import {buttonStyle} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 import {Absolute} from '@twilio-paste/absolute';
 import {ButtonWrapperProps, ButtonChildrenProps} from './types';
 
@@ -54,13 +55,8 @@ const baseEnabled = css([
     text-decoration: none;
     cursor: pointer;
 
-    &:hover {
-      text-decoration: underline;
-    }
-
     &:focus,
     &:active {
-      text-decoration: underline;
       box-shadow: 0 0 0 4px rgba(0, 117, 195, 0.5);
     }
   `,
@@ -259,6 +255,12 @@ const variantDestructiveLinkEnabled = (props: ButtonWrapperProps): SerializedSty
     css`
       color: ${themeGet('textColors.colorTextLinkDestructive')(props)};
 
+      &:hover,
+      &:focus,
+      &:active {
+        text-decoration: underline;
+      }
+
       &:hover {
         color: ${themeGet('textColors.colorTextLinkDestructiveDark')(props)};
       }
@@ -295,6 +297,12 @@ const variantLinkEnabled = (props: ButtonWrapperProps): SerializedStyles =>
     variantLinkBase,
     css`
       color: ${themeGet('textColors.colorTextLink')(props)};
+
+      &:hover,
+      &:focus,
+      &:active {
+        text-decoration: underline;
+      }
 
       &:hover {
         color: ${themeGet('textColors.colorTextLinkDark')(props)};

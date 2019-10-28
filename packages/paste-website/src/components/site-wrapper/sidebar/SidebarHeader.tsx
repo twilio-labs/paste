@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Text} from '@twilio-paste/text';
 import styled from '@emotion/styled';
 import {Link} from 'gatsby';
-import {themeGet} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 import {TwilioIcon} from '../../icons/TwilioIcon';
 import {TWILIO_RED} from '../../../constants';
 
