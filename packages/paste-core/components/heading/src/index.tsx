@@ -12,7 +12,7 @@ export type HeadingStyle =
   | 'headingStyle60';
 
 interface Heading {
-  as?: asTags;
+  as: asTags;
   id?: never;
   className?: never;
   children: NonNullable<React.ReactNode>;
@@ -76,7 +76,7 @@ const Heading: React.FC<Heading> = ({as, children, variant}) => {
 };
 
 Heading.propTypes = {
-  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span']),
+  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'] as asTags[]).isRequired,
   variant: PropTypes.oneOf([
     'headingStyle60',
     'headingStyle50',

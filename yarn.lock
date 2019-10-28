@@ -2,10 +2,17 @@
 # yarn lockfile v1
 
 
-"@applitools/dom-snapshot@^3.0.2", "@applitools/dom-snapshot@^3.0.3":
+"@applitools/dom-snapshot@^3.0.3":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@applitools/dom-snapshot/-/dom-snapshot-3.0.3.tgz#6745f0065225a329330df7cbf8dd3ff35d90f036"
   integrity sha512-6kMqK/F/bAYLJbcuu3O0CadAp7JHxNGHLf9gsc2yBtTDPFAVxVS6zVODLxohZZKpqudq0Bd4O65C0Ecn1a93yg==
+  dependencies:
+    "@applitools/functional-commons" "^1.5.2"
+
+"@applitools/dom-snapshot@^3.0.4":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@applitools/dom-snapshot/-/dom-snapshot-3.0.5.tgz#6d569af9597ad88135a7f3a3536809588dd7650c"
+  integrity sha512-zdh8TCPtKvrc6f+TkjYy+hf6h+/uLNNkENwHgo709EInXyO6JDCoQG7T7lnl7elRoV9gRlcGAGxbcm9l0obH2Q==
   dependencies:
     "@applitools/functional-commons" "^1.5.2"
 
@@ -86,7 +93,7 @@
   resolved "https://registry.yarnpkg.com/@applitools/visual-grid-client/-/visual-grid-client-12.36.6.tgz#e1792036bcb5b018ccecd2783d2839435f42c4fa"
   integrity sha512-sqC00kpZlgA74VVy2uwhLybdLPyQt8N0wTocotoksNNKiRi7Lxe/8pkdHECqAWRlCpqhjET0JjfWasCXvZBnEg==
   dependencies:
-    "@applitools/dom-snapshot" "^3.0.4"
+    "@applitools/dom-snapshot" "^3.0.2"
     "@applitools/eyes-common" "^3.11.2"
     "@applitools/eyes-sdk-core" "^5.20.2"
     "@applitools/functional-commons" "^1.5.2"
@@ -97,7 +104,6 @@
     lodash.mapvalues "^4.6.0"
     mime-types "^2.1.24"
     mkdirp "^0.5.1"
-    ndb "^1.1.5"
     postcss-value-parser "^4.0.2"
     throat "^5.0.0"
 
@@ -5759,7 +5765,7 @@ blob@0.0.5:
   resolved "https://registry.yarnpkg.com/blob/-/blob-0.0.5.tgz#d680eeef25f8cd91ad533f5b01eed48e64caf683"
   integrity sha512-gaqbzQPqOoamawKg0LGVd7SzLgXS+JH61oWprSLH+P+abTczqJbhTR8CmJ2u9/bUYNmHTGJx/UEmn6doAvvuig==
 
-bluebird@^3.0.5, bluebird@^3.3.5, bluebird@^3.5.1, bluebird@^3.5.3, bluebird@^3.5.5, bluebird@^3.7.0:
+bluebird@^3.0.5, bluebird@^3.3.5, bluebird@^3.5.1, bluebird@^3.5.3, bluebird@^3.5.5, bluebird@^3.7.0, bluebird@^3.7.1:
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.7.1.tgz#df70e302b471d7473489acf26a93d63b53f874de"
   integrity sha512-DdmyoGCleJnkbp3nkbxTLJ18rjDsE4yCggEwKNXkeV123sPNfOCYeDoeuOY+F2FrSjO1YXcTU+dsy96KMy+gcg==
@@ -6507,6 +6513,21 @@ cheerio@^1.0.0-rc.2, cheerio@^1.0.0-rc.3:
     htmlparser2 "^3.9.1"
     lodash "^4.15.0"
     parse5 "^3.0.1"
+
+chokidar@3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.2.1.tgz#4634772a1924512d990d4505957bf3a510611387"
+  integrity sha512-/j5PPkb5Feyps9e+jo07jUZGvkB5Aj953NrI4s8xSVScrAo/RHeILrtdb4uzR7N6aaFFxxJ+gt8mA8HfNpw76w==
+  dependencies:
+    anymatch "~3.1.1"
+    braces "~3.0.2"
+    glob-parent "~5.1.0"
+    is-binary-path "~2.1.0"
+    is-glob "~4.0.1"
+    normalize-path "~3.0.0"
+    readdirp "~3.1.3"
+  optionalDependencies:
+    fsevents "~2.1.0"
 
 chokidar@3.2.3, chokidar@^3.0.2:
   version "3.2.3"
@@ -9928,7 +9949,7 @@ file-type@^10.7.0:
   resolved "https://registry.yarnpkg.com/file-type/-/file-type-10.11.0.tgz#2961d09e4675b9fb9a3ee6b69e9cd23f43fd1890"
   integrity sha512-uzk64HRpUZyTGZtVuvrjP0FYxzQrBf4rojot6J65YMEbwBLB0CWm0CLojVpwpmFmxcE/lkvYICgfcGozbBq6rw==
 
-file-type@^12.3.0:
+file-type@^12.3.1:
   version "12.3.1"
   resolved "https://registry.yarnpkg.com/file-type/-/file-type-12.3.1.tgz#8a13bb49332295e5b02c2d6bba6a6a179bd5898c"
   integrity sha512-FXxY5h6vSYMjrRal4YqbtfuoKD/oE0AMjJ7E5Hm+BdaQECcFVD03B41RAWYJ7wyuLr/wRnCtFo7y37l+nh+TAA==
@@ -10373,7 +10394,7 @@ fsevents@^1.2.7:
     nan "^2.12.1"
     node-pre-gyp "^0.12.0"
 
-fsevents@~2.1.0:
+fsevents@~2.1.0, fsevents@~2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.1.1.tgz#74c64e21df71721845d0c44fe54b7f56b82995a9"
   integrity sha512-4FRPXWETxtigtJW/gxzEDsX1LVbPAM93VleB83kZB+ellqbHMkyt2aJfuzNLRvFPnGi6bcE5SvfxgbXPeKteJw==
@@ -10417,7 +10438,7 @@ gatsby-cli@^2.8.5:
     "@babel/runtime" "^7.6.3"
     "@hapi/joi" "^15.1.1"
     better-opn "^0.1.4"
-    bluebird "^3.7.1"
+    bluebird "^3.7.0"
     chalk "^2.4.2"
     ci-info "^2.0.0"
     clipboardy "^2.1.0"
@@ -10495,7 +10516,7 @@ gatsby-page-utils@^0.0.27:
     bluebird "^3.7.0"
     chokidar "3.2.1"
     fs-exists-cached "^1.0.0"
-    glob "^7.1.5"
+    glob "^7.1.4"
     lodash "^4.17.15"
     micromatch "^3.1.10"
     slash "^3.0.0"
@@ -10553,7 +10574,7 @@ gatsby-plugin-mdx@^1.0.12:
     static-site-generator-webpack-plugin "^3.4.2"
     style-to-object "^0.2.3"
     underscore.string "^3.3.5"
-    unified "^8.4.1"
+    unified "^8.4.0"
     unist-util-map "^1.0.5"
     unist-util-remove "^1.0.3"
     unist-util-visit "^1.4.1"
@@ -10585,7 +10606,7 @@ gatsby-plugin-sharp@^2.2.12:
   dependencies:
     "@babel/runtime" "^7.6.3"
     async "^2.6.3"
-    bluebird "^3.7.1"
+    bluebird "^3.7.0"
     fs-extra "^8.1.0"
     gatsby-core-utils "^1.0.15"
     got "^8.3.2"
@@ -10655,9 +10676,9 @@ gatsby-source-filesystem@^2.1.2:
   dependencies:
     "@babel/runtime" "^7.6.3"
     better-queue "^3.8.10"
-    bluebird "^3.7.1"
-    chokidar "3.2.3"
-    file-type "^12.3.1"
+    bluebird "^3.7.0"
+    chokidar "3.2.1"
+    file-type "^12.3.0"
     fs-extra "^8.1.0"
     gatsby-core-utils "^1.0.15"
     got "^7.1.0"
@@ -10770,12 +10791,12 @@ gatsby@^2.13.4:
     babel-preset-gatsby "^0.2.20"
     better-opn "1.0.0"
     better-queue "^3.8.10"
-    bluebird "^3.7.1"
+    bluebird "^3.7.0"
     browserslist "3.2.8"
     cache-manager "^2.10.0"
     cache-manager-fs-hash "^0.0.7"
     chalk "^2.4.2"
-    chokidar "3.2.3"
+    chokidar "3.2.1"
     common-tags "^1.8.0"
     compression "^1.7.4"
     convert-hrtime "^2.0.0"
@@ -10815,7 +10836,7 @@ gatsby@^2.13.4:
     glob "^7.1.4"
     got "8.3.2"
     graphql "^14.5.8"
-    graphql-compose "^6.3.6"
+    graphql-compose "^6.3.5"
     graphql-playground-middleware-express "^1.7.12"
     invariant "^2.2.4"
     is-relative "^1.0.0"
@@ -10831,7 +10852,7 @@ gatsby@^2.13.4:
     micromatch "^3.1.10"
     mime "^2.4.4"
     mini-css-extract-plugin "^0.8.0"
-    mitt "^1.2.0"
+    mitt "^1.1.3"
     mkdirp "^0.5.1"
     moment "^2.24.0"
     name-all-modules-plugin "^1.0.1"
@@ -10870,7 +10891,7 @@ gatsby@^2.13.4:
     v8-compile-cache "^1.1.2"
     webpack "~4.41.1"
     webpack-dev-middleware "^3.7.2"
-    webpack-dev-server "^3.9.0"
+    webpack-dev-server "^3.8.2"
     webpack-hot-middleware "^2.25.0"
     webpack-merge "^4.2.2"
     webpack-stats-plugin "^0.3.0"
@@ -11146,7 +11167,7 @@ glob@^5.0.15:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
-glob@^7.0.0, glob@^7.0.3, glob@^7.0.5, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4:
+glob@^7.0.0, glob@^7.0.3, glob@^7.0.5, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4, glob@^7.1.5:
   version "7.1.5"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.5.tgz#6714c69bee20f3c3e64c4dd905553e532b40cdc0"
   integrity sha512-J9dlskqUXK1OeTOYBEn5s8aMukWMwWfs+rPTn/jn50Ux4MNXVhubL1wu/j2t+H4NVI+cXEcCaYellqaPVGXNqQ==
@@ -11367,7 +11388,7 @@ graceful-fs@^4.0.0, graceful-fs@^4.1.10, graceful-fs@^4.1.11, graceful-fs@^4.1.1
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
   integrity sha1-TK+tdrxi8C+gObL5Tpo906ORpyU=
 
-graphql-compose@^6.3.5:
+graphql-compose@^6.3.6:
   version "6.3.6"
   resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-6.3.6.tgz#04787745bac26bcce2a80dde4d6872db2590f4f2"
   integrity sha512-R+kOLAICndxinZI4dtRAloIyZGJFmXSHOElptO/G0CInKfvLELE2XpD05d7iXNmZk99riTW1CEVQrHZvVK2Pdg==
@@ -15509,7 +15530,7 @@ mississippi@^3.0.0:
     stream-each "^1.1.0"
     through2 "^2.0.0"
 
-mitt@^1.1.3:
+mitt@^1.1.3, mitt@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/mitt/-/mitt-1.2.0.tgz#cb24e6569c806e31bd4e3995787fe38a04fdf90d"
   integrity sha512-r6lj77KlwqLhIUku9UWYes7KJtsczvolZkzp8hbaDPPaE24OmWl5s539Mytlj22siEQKosZ26qCBgda2PKwoJw==
@@ -15906,6 +15927,13 @@ node-pre-gyp@^0.12.0:
     rimraf "^2.6.1"
     semver "^5.3.0"
     tar "^4"
+
+node-pty@^0.9.0-beta18:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/node-pty/-/node-pty-0.9.0.tgz#8f9bcc0d1c5b970a3184ffd533d862c7eb6590a6"
+  integrity sha512-MBnCQl83FTYOu7B4xWw10AW77AAh7ThCE1VXEv+JeWj8mSpGo+0bwgsV+b23ljBFwEM9OmsOv3kM27iUPPm84g==
+  dependencies:
+    nan "^2.14.0"
 
 node-releases@^1.1.29, node-releases@^1.1.38:
   version "1.1.38"
@@ -18673,6 +18701,13 @@ readdirp@^2.2.1:
     graceful-fs "^4.1.11"
     micromatch "^3.1.10"
     readable-stream "^2.0.2"
+
+readdirp@~3.1.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/readdirp/-/readdirp-3.1.3.tgz#d6e011ed5b9240a92f08651eeb40f7942ceb6cc1"
+  integrity sha512-ZOsfTGkjO2kqeR5Mzr5RYDbTGYneSkdNKX2fOX2P5jF7vMrd/GNnIAUtDldeHHumHUCQ3V05YfWUdxMPAsRu9Q==
+  dependencies:
+    picomatch "^2.0.4"
 
 readdirp@~3.2.0:
   version "3.2.0"
@@ -22446,7 +22481,7 @@ webpack-dev-middleware@^3.7.0, webpack-dev-middleware@^3.7.2:
     range-parser "^1.2.1"
     webpack-log "^2.0.0"
 
-webpack-dev-server@^3.8.2:
+webpack-dev-server@^3.9.0:
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-3.9.0.tgz#27c3b5d0f6b6677c4304465ac817623c8b27b89c"
   integrity sha512-E6uQ4kRrTX9URN9s/lIbqTAztwEPdvzVrcmHE8EQ9YnuT9J8Es5Wrd8n9BKg1a0oZ5EgEke/EQFgUsp18dSTBw==
