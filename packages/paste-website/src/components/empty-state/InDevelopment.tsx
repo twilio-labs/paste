@@ -30,8 +30,8 @@ const InDevelopment: React.FC<InDevelopmentProps> = ({type, name}) => {
         {getHumanizedNameFromPackageName(name)}
       </Text>
       <Box>
-        <Text>This {type} is in active development, but we haven&apos;t gotten to the docs yet.</Text>
-        <Text>
+        <Text as="p">This {type} is in active development, but we haven&apos;t gotten to the docs yet.</Text>
+        <Text as="p">
           Feel free to <Anchor href="https://github.com/twilio-labs/paste/issues">file a feature request</Anchor> with
           details on how you want to use this {type} and we&apos;ll respond to you directly.
         </Text>

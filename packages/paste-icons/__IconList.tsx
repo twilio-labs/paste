@@ -126,119 +126,119 @@ interface IconProps {
 
 const IconList: React.FC<IconProps> = props => (
   <Grid>
-    <StoryIcon><AccountProfileIcon {...props} /><Text>AccountProfileIcon</Text></StoryIcon>
-<StoryIcon><AddOnsIcon {...props} /><Text>AddOnsIcon</Text></StoryIcon>
-<StoryIcon><AlertTriggersIcon {...props} /><Text>AlertTriggersIcon</Text></StoryIcon>
-<StoryIcon><ApiExplorerIcon {...props} /><Text>ApiExplorerIcon</Text></StoryIcon>
-<StoryIcon><ApiKeysIcon {...props} /><Text>ApiKeysIcon</Text></StoryIcon>
-<StoryIcon><ArrowRightIcon {...props} /><Text>ArrowRightIcon</Text></StoryIcon>
-<StoryIcon><ArrowShaftDownIcon {...props} /><Text>ArrowShaftDownIcon</Text></StoryIcon>
-<StoryIcon><ArrowShaftLeftIcon {...props} /><Text>ArrowShaftLeftIcon</Text></StoryIcon>
-<StoryIcon><ArrowShaftRightIcon {...props} /><Text>ArrowShaftRightIcon</Text></StoryIcon>
-<StoryIcon><ArrowShaftUpIcon {...props} /><Text>ArrowShaftUpIcon</Text></StoryIcon>
-<StoryIcon><AssetsIcon {...props} /><Text>AssetsIcon</Text></StoryIcon>
-<StoryIcon><AuditEventsIcon {...props} /><Text>AuditEventsIcon</Text></StoryIcon>
-<StoryIcon><AuthyIcon {...props} /><Text>AuthyIcon</Text></StoryIcon>
-<StoryIcon><AutopilotIcon {...props} /><Text>AutopilotIcon</Text></StoryIcon>
-<StoryIcon><BackIcon {...props} /><Text>BackIcon</Text></StoryIcon>
-<StoryIcon><BarChartIcon {...props} /><Text>BarChartIcon</Text></StoryIcon>
-<StoryIcon><BillingIcon {...props} /><Text>BillingIcon</Text></StoryIcon>
-<StoryIcon><BuildIcon {...props} /><Text>BuildIcon</Text></StoryIcon>
-<StoryIcon><ChannelsIcon {...props} /><Text>ChannelsIcon</Text></StoryIcon>
-<StoryIcon><CheckboxCheckedIcon {...props} /><Text>CheckboxCheckedIcon</Text></StoryIcon>
-<StoryIcon><CheckboxMultiIcon {...props} /><Text>CheckboxMultiIcon</Text></StoryIcon>
-<StoryIcon><CheckboxUncheckedIcon {...props} /><Text>CheckboxUncheckedIcon</Text></StoryIcon>
-<StoryIcon><ClockRegularIcon {...props} /><Text>ClockRegularIcon</Text></StoryIcon>
-<StoryIcon><CloseIcon {...props} /><Text>CloseIcon</Text></StoryIcon>
-<StoryIcon><CollapseIcon {...props} /><Text>CollapseIcon</Text></StoryIcon>
-<StoryIcon><CollapseMenuIcon {...props} /><Text>CollapseMenuIcon</Text></StoryIcon>
-<StoryIcon><CollapsedIcon {...props} /><Text>CollapsedIcon</Text></StoryIcon>
-<StoryIcon><CommunityIcon {...props} /><Text>CommunityIcon</Text></StoryIcon>
-<StoryIcon><ConnectAppsIcon {...props} /><Text>ConnectAppsIcon</Text></StoryIcon>
-<StoryIcon><ConnectedDevicesIcon {...props} /><Text>ConnectedDevicesIcon</Text></StoryIcon>
-<StoryIcon><ConsoleDashIcon {...props} /><Text>ConsoleDashIcon</Text></StoryIcon>
-<StoryIcon><CopyIcon {...props} /><Text>CopyIcon</Text></StoryIcon>
-<StoryIcon><DebuggerIcon {...props} /><Text>DebuggerIcon</Text></StoryIcon>
-<StoryIcon><DebuggerOldIcon {...props} /><Text>DebuggerOldIcon</Text></StoryIcon>
-<StoryIcon><DevToolsIcon {...props} /><Text>DevToolsIcon</Text></StoryIcon>
-<StoryIcon><DoNotIcon {...props} /><Text>DoNotIcon</Text></StoryIcon>
-<StoryIcon><DocsIcon {...props} /><Text>DocsIcon</Text></StoryIcon>
-<StoryIcon><DownloadIcon {...props} /><Text>DownloadIcon</Text></StoryIcon>
-<StoryIcon><DropdownIcon {...props} /><Text>DropdownIcon</Text></StoryIcon>
-<StoryIcon><EmailIcon {...props} /><Text>EmailIcon</Text></StoryIcon>
-<StoryIcon><ExclamationCircleIcon {...props} /><Text>ExclamationCircleIcon</Text></StoryIcon>
-<StoryIcon><ExpandIcon {...props} /><Text>ExpandIcon</Text></StoryIcon>
-<StoryIcon><ExpandMenuIcon {...props} /><Text>ExpandMenuIcon</Text></StoryIcon>
-<StoryIcon><ExternalLinkIcon {...props} /><Text>ExternalLinkIcon</Text></StoryIcon>
-<StoryIcon><FaxEnabledIcon {...props} /><Text>FaxEnabledIcon</Text></StoryIcon>
-<StoryIcon><FaxIcon {...props} /><Text>FaxIcon</Text></StoryIcon>
-<StoryIcon><FilterIcon {...props} /><Text>FilterIcon</Text></StoryIcon>
-<StoryIcon><FlexIcon {...props} /><Text>FlexIcon</Text></StoryIcon>
-<StoryIcon><GoArrowIcon {...props} /><Text>GoArrowIcon</Text></StoryIcon>
-<StoryIcon><HelpBookIcon {...props} /><Text>HelpBookIcon</Text></StoryIcon>
-<StoryIcon><HelpIcon {...props} /><Text>HelpIcon</Text></StoryIcon>
-<StoryIcon><HideIcon {...props} /><Text>HideIcon</Text></StoryIcon>
-<StoryIcon><HomeIcon {...props} /><Text>HomeIcon</Text></StoryIcon>
-<StoryIcon><InfoIcon {...props} /><Text>InfoIcon</Text></StoryIcon>
-<StoryIcon><InformationIcon {...props} /><Text>InformationIcon</Text></StoryIcon>
-<StoryIcon><InspirationIcon {...props} /><Text>InspirationIcon</Text></StoryIcon>
-<StoryIcon><InterconnectIcon {...props} /><Text>InterconnectIcon</Text></StoryIcon>
-<StoryIcon><IpMessagingIcon {...props} /><Text>IpMessagingIcon</Text></StoryIcon>
-<StoryIcon><KeyboardIcon {...props} /><Text>KeyboardIcon</Text></StoryIcon>
-<StoryIcon><LearnIcon {...props} /><Text>LearnIcon</Text></StoryIcon>
-<StoryIcon><LineChartIcon {...props} /><Text>LineChartIcon</Text></StoryIcon>
-<StoryIcon><LogoIcon {...props} /><Text>LogoIcon</Text></StoryIcon>
-<StoryIcon><LookupIcon {...props} /><Text>LookupIcon</Text></StoryIcon>
-<StoryIcon><MessagingIcon {...props} /><Text>MessagingIcon</Text></StoryIcon>
-<StoryIcon><MmsEnabledIcon {...props} /><Text>MmsEnabledIcon</Text></StoryIcon>
-<StoryIcon><MoreIcon {...props} /><Text>MoreIcon</Text></StoryIcon>
-<StoryIcon><MultiFactorAuthenticationIcon {...props} /><Text>MultiFactorAuthenticationIcon</Text></StoryIcon>
-<StoryIcon><NotifyIcon {...props} /><Text>NotifyIcon</Text></StoryIcon>
-<StoryIcon><OffIcon {...props} /><Text>OffIcon</Text></StoryIcon>
-<StoryIcon><OnIcon {...props} /><Text>OnIcon</Text></StoryIcon>
-<StoryIcon><PartnersIcon {...props} /><Text>PartnersIcon</Text></StoryIcon>
-<StoryIcon><PauseFlatIcon {...props} /><Text>PauseFlatIcon</Text></StoryIcon>
-<StoryIcon><PauseIcon {...props} /><Text>PauseIcon</Text></StoryIcon>
-<StoryIcon><PencilIcon {...props} /><Text>PencilIcon</Text></StoryIcon>
-<StoryIcon><PhoneNumbersIcon {...props} /><Text>PhoneNumbersIcon</Text></StoryIcon>
-<StoryIcon><PhoneVerificationIcon {...props} /><Text>PhoneVerificationIcon</Text></StoryIcon>
-<StoryIcon><PieChartIcon {...props} /><Text>PieChartIcon</Text></StoryIcon>
-<StoryIcon><PlayFlatIcon {...props} /><Text>PlayFlatIcon</Text></StoryIcon>
-<StoryIcon><PlayIcon {...props} /><Text>PlayIcon</Text></StoryIcon>
-<StoryIcon><PluginIcon {...props} /><Text>PluginIcon</Text></StoryIcon>
-<StoryIcon><PlusButtonIcon {...props} /><Text>PlusButtonIcon</Text></StoryIcon>
-<StoryIcon><ProductsIcon {...props} /><Text>ProductsIcon</Text></StoryIcon>
-<StoryIcon><ProxyIcon {...props} /><Text>ProxyIcon</Text></StoryIcon>
-<StoryIcon><QuestionIcon {...props} /><Text>QuestionIcon</Text></StoryIcon>
-<StoryIcon><ResetIcon {...props} /><Text>ResetIcon</Text></StoryIcon>
-<StoryIcon><RuntimeIcon {...props} /><Text>RuntimeIcon</Text></StoryIcon>
-<StoryIcon><SearchIcon {...props} /><Text>SearchIcon</Text></StoryIcon>
-<StoryIcon><SettingsIcon {...props} /><Text>SettingsIcon</Text></StoryIcon>
-<StoryIcon><SipTrunkingIcon {...props} /><Text>SipTrunkingIcon</Text></StoryIcon>
-<StoryIcon><SmsEnabledIcon {...props} /><Text>SmsEnabledIcon</Text></StoryIcon>
-<StoryIcon><SpinnerIcon {...props} /><Text>SpinnerIcon</Text></StoryIcon>
-<StoryIcon><StudioIcon {...props} /><Text>StudioIcon</Text></StoryIcon>
-<StoryIcon><SuccessIcon {...props} /><Text>SuccessIcon</Text></StoryIcon>
-<StoryIcon><SupportIcon {...props} /><Text>SupportIcon</Text></StoryIcon>
-<StoryIcon><SupportLifebuoyIcon {...props} /><Text>SupportLifebuoyIcon</Text></StoryIcon>
-<StoryIcon><SyncIcon {...props} /><Text>SyncIcon</Text></StoryIcon>
-<StoryIcon><TableViewIcon {...props} /><Text>TableViewIcon</Text></StoryIcon>
-<StoryIcon><TalkToSalesIcon {...props} /><Text>TalkToSalesIcon</Text></StoryIcon>
-<StoryIcon><TaskrouterIcon {...props} /><Text>TaskrouterIcon</Text></StoryIcon>
-<StoryIcon><TemplatesIcon {...props} /><Text>TemplatesIcon</Text></StoryIcon>
-<StoryIcon><ThumbTackIcon {...props} /><Text>ThumbTackIcon</Text></StoryIcon>
-<StoryIcon><TicketHistoryIcon {...props} /><Text>TicketHistoryIcon</Text></StoryIcon>
-<StoryIcon><TicketIcon {...props} /><Text>TicketIcon</Text></StoryIcon>
-<StoryIcon><TwimlBinsIcon {...props} /><Text>TwimlBinsIcon</Text></StoryIcon>
-<StoryIcon><TwoFactorAuthenticationIcon {...props} /><Text>TwoFactorAuthenticationIcon</Text></StoryIcon>
-<StoryIcon><UploadIcon {...props} /><Text>UploadIcon</Text></StoryIcon>
-<StoryIcon><UsersIcon {...props} /><Text>UsersIcon</Text></StoryIcon>
-<StoryIcon><VideoIcon {...props} /><Text>VideoIcon</Text></StoryIcon>
-<StoryIcon><ViewIcon {...props} /><Text>ViewIcon</Text></StoryIcon>
-<StoryIcon><VoiceEnabledIcon {...props} /><Text>VoiceEnabledIcon</Text></StoryIcon>
-<StoryIcon><VoiceIcon {...props} /><Text>VoiceIcon</Text></StoryIcon>
-<StoryIcon><WhatsappIcon {...props} /><Text>WhatsappIcon</Text></StoryIcon>
-<StoryIcon><WirelessIcon {...props} /><Text>WirelessIcon</Text></StoryIcon>
+    <StoryIcon><AccountProfileIcon {...props} /><Text as="p">AccountProfileIcon</Text></StoryIcon>
+<StoryIcon><AddOnsIcon {...props} /><Text as="p">AddOnsIcon</Text></StoryIcon>
+<StoryIcon><AlertTriggersIcon {...props} /><Text as="p">AlertTriggersIcon</Text></StoryIcon>
+<StoryIcon><ApiExplorerIcon {...props} /><Text as="p">ApiExplorerIcon</Text></StoryIcon>
+<StoryIcon><ApiKeysIcon {...props} /><Text as="p">ApiKeysIcon</Text></StoryIcon>
+<StoryIcon><ArrowRightIcon {...props} /><Text as="p">ArrowRightIcon</Text></StoryIcon>
+<StoryIcon><ArrowShaftDownIcon {...props} /><Text as="p">ArrowShaftDownIcon</Text></StoryIcon>
+<StoryIcon><ArrowShaftLeftIcon {...props} /><Text as="p">ArrowShaftLeftIcon</Text></StoryIcon>
+<StoryIcon><ArrowShaftRightIcon {...props} /><Text as="p">ArrowShaftRightIcon</Text></StoryIcon>
+<StoryIcon><ArrowShaftUpIcon {...props} /><Text as="p">ArrowShaftUpIcon</Text></StoryIcon>
+<StoryIcon><AssetsIcon {...props} /><Text as="p">AssetsIcon</Text></StoryIcon>
+<StoryIcon><AuditEventsIcon {...props} /><Text as="p">AuditEventsIcon</Text></StoryIcon>
+<StoryIcon><AuthyIcon {...props} /><Text as="p">AuthyIcon</Text></StoryIcon>
+<StoryIcon><AutopilotIcon {...props} /><Text as="p">AutopilotIcon</Text></StoryIcon>
+<StoryIcon><BackIcon {...props} /><Text as="p">BackIcon</Text></StoryIcon>
+<StoryIcon><BarChartIcon {...props} /><Text as="p">BarChartIcon</Text></StoryIcon>
+<StoryIcon><BillingIcon {...props} /><Text as="p">BillingIcon</Text></StoryIcon>
+<StoryIcon><BuildIcon {...props} /><Text as="p">BuildIcon</Text></StoryIcon>
+<StoryIcon><ChannelsIcon {...props} /><Text as="p">ChannelsIcon</Text></StoryIcon>
+<StoryIcon><CheckboxCheckedIcon {...props} /><Text as="p">CheckboxCheckedIcon</Text></StoryIcon>
+<StoryIcon><CheckboxMultiIcon {...props} /><Text as="p">CheckboxMultiIcon</Text></StoryIcon>
+<StoryIcon><CheckboxUncheckedIcon {...props} /><Text as="p">CheckboxUncheckedIcon</Text></StoryIcon>
+<StoryIcon><ClockRegularIcon {...props} /><Text as="p">ClockRegularIcon</Text></StoryIcon>
+<StoryIcon><CloseIcon {...props} /><Text as="p">CloseIcon</Text></StoryIcon>
+<StoryIcon><CollapseIcon {...props} /><Text as="p">CollapseIcon</Text></StoryIcon>
+<StoryIcon><CollapseMenuIcon {...props} /><Text as="p">CollapseMenuIcon</Text></StoryIcon>
+<StoryIcon><CollapsedIcon {...props} /><Text as="p">CollapsedIcon</Text></StoryIcon>
+<StoryIcon><CommunityIcon {...props} /><Text as="p">CommunityIcon</Text></StoryIcon>
+<StoryIcon><ConnectAppsIcon {...props} /><Text as="p">ConnectAppsIcon</Text></StoryIcon>
+<StoryIcon><ConnectedDevicesIcon {...props} /><Text as="p">ConnectedDevicesIcon</Text></StoryIcon>
+<StoryIcon><ConsoleDashIcon {...props} /><Text as="p">ConsoleDashIcon</Text></StoryIcon>
+<StoryIcon><CopyIcon {...props} /><Text as="p">CopyIcon</Text></StoryIcon>
+<StoryIcon><DebuggerIcon {...props} /><Text as="p">DebuggerIcon</Text></StoryIcon>
+<StoryIcon><DebuggerOldIcon {...props} /><Text as="p">DebuggerOldIcon</Text></StoryIcon>
+<StoryIcon><DevToolsIcon {...props} /><Text as="p">DevToolsIcon</Text></StoryIcon>
+<StoryIcon><DoNotIcon {...props} /><Text as="p">DoNotIcon</Text></StoryIcon>
+<StoryIcon><DocsIcon {...props} /><Text as="p">DocsIcon</Text></StoryIcon>
+<StoryIcon><DownloadIcon {...props} /><Text as="p">DownloadIcon</Text></StoryIcon>
+<StoryIcon><DropdownIcon {...props} /><Text as="p">DropdownIcon</Text></StoryIcon>
+<StoryIcon><EmailIcon {...props} /><Text as="p">EmailIcon</Text></StoryIcon>
+<StoryIcon><ExclamationCircleIcon {...props} /><Text as="p">ExclamationCircleIcon</Text></StoryIcon>
+<StoryIcon><ExpandIcon {...props} /><Text as="p">ExpandIcon</Text></StoryIcon>
+<StoryIcon><ExpandMenuIcon {...props} /><Text as="p">ExpandMenuIcon</Text></StoryIcon>
+<StoryIcon><ExternalLinkIcon {...props} /><Text as="p">ExternalLinkIcon</Text></StoryIcon>
+<StoryIcon><FaxEnabledIcon {...props} /><Text as="p">FaxEnabledIcon</Text></StoryIcon>
+<StoryIcon><FaxIcon {...props} /><Text as="p">FaxIcon</Text></StoryIcon>
+<StoryIcon><FilterIcon {...props} /><Text as="p">FilterIcon</Text></StoryIcon>
+<StoryIcon><FlexIcon {...props} /><Text as="p">FlexIcon</Text></StoryIcon>
+<StoryIcon><GoArrowIcon {...props} /><Text as="p">GoArrowIcon</Text></StoryIcon>
+<StoryIcon><HelpBookIcon {...props} /><Text as="p">HelpBookIcon</Text></StoryIcon>
+<StoryIcon><HelpIcon {...props} /><Text as="p">HelpIcon</Text></StoryIcon>
+<StoryIcon><HideIcon {...props} /><Text as="p">HideIcon</Text></StoryIcon>
+<StoryIcon><HomeIcon {...props} /><Text as="p">HomeIcon</Text></StoryIcon>
+<StoryIcon><InfoIcon {...props} /><Text as="p">InfoIcon</Text></StoryIcon>
+<StoryIcon><InformationIcon {...props} /><Text as="p">InformationIcon</Text></StoryIcon>
+<StoryIcon><InspirationIcon {...props} /><Text as="p">InspirationIcon</Text></StoryIcon>
+<StoryIcon><InterconnectIcon {...props} /><Text as="p">InterconnectIcon</Text></StoryIcon>
+<StoryIcon><IpMessagingIcon {...props} /><Text as="p">IpMessagingIcon</Text></StoryIcon>
+<StoryIcon><KeyboardIcon {...props} /><Text as="p">KeyboardIcon</Text></StoryIcon>
+<StoryIcon><LearnIcon {...props} /><Text as="p">LearnIcon</Text></StoryIcon>
+<StoryIcon><LineChartIcon {...props} /><Text as="p">LineChartIcon</Text></StoryIcon>
+<StoryIcon><LogoIcon {...props} /><Text as="p">LogoIcon</Text></StoryIcon>
+<StoryIcon><LookupIcon {...props} /><Text as="p">LookupIcon</Text></StoryIcon>
+<StoryIcon><MessagingIcon {...props} /><Text as="p">MessagingIcon</Text></StoryIcon>
+<StoryIcon><MmsEnabledIcon {...props} /><Text as="p">MmsEnabledIcon</Text></StoryIcon>
+<StoryIcon><MoreIcon {...props} /><Text as="p">MoreIcon</Text></StoryIcon>
+<StoryIcon><MultiFactorAuthenticationIcon {...props} /><Text as="p">MultiFactorAuthenticationIcon</Text></StoryIcon>
+<StoryIcon><NotifyIcon {...props} /><Text as="p">NotifyIcon</Text></StoryIcon>
+<StoryIcon><OffIcon {...props} /><Text as="p">OffIcon</Text></StoryIcon>
+<StoryIcon><OnIcon {...props} /><Text as="p">OnIcon</Text></StoryIcon>
+<StoryIcon><PartnersIcon {...props} /><Text as="p">PartnersIcon</Text></StoryIcon>
+<StoryIcon><PauseFlatIcon {...props} /><Text as="p">PauseFlatIcon</Text></StoryIcon>
+<StoryIcon><PauseIcon {...props} /><Text as="p">PauseIcon</Text></StoryIcon>
+<StoryIcon><PencilIcon {...props} /><Text as="p">PencilIcon</Text></StoryIcon>
+<StoryIcon><PhoneNumbersIcon {...props} /><Text as="p">PhoneNumbersIcon</Text></StoryIcon>
+<StoryIcon><PhoneVerificationIcon {...props} /><Text as="p">PhoneVerificationIcon</Text></StoryIcon>
+<StoryIcon><PieChartIcon {...props} /><Text as="p">PieChartIcon</Text></StoryIcon>
+<StoryIcon><PlayFlatIcon {...props} /><Text as="p">PlayFlatIcon</Text></StoryIcon>
+<StoryIcon><PlayIcon {...props} /><Text as="p">PlayIcon</Text></StoryIcon>
+<StoryIcon><PluginIcon {...props} /><Text as="p">PluginIcon</Text></StoryIcon>
+<StoryIcon><PlusButtonIcon {...props} /><Text as="p">PlusButtonIcon</Text></StoryIcon>
+<StoryIcon><ProductsIcon {...props} /><Text as="p">ProductsIcon</Text></StoryIcon>
+<StoryIcon><ProxyIcon {...props} /><Text as="p">ProxyIcon</Text></StoryIcon>
+<StoryIcon><QuestionIcon {...props} /><Text as="p">QuestionIcon</Text></StoryIcon>
+<StoryIcon><ResetIcon {...props} /><Text as="p">ResetIcon</Text></StoryIcon>
+<StoryIcon><RuntimeIcon {...props} /><Text as="p">RuntimeIcon</Text></StoryIcon>
+<StoryIcon><SearchIcon {...props} /><Text as="p">SearchIcon</Text></StoryIcon>
+<StoryIcon><SettingsIcon {...props} /><Text as="p">SettingsIcon</Text></StoryIcon>
+<StoryIcon><SipTrunkingIcon {...props} /><Text as="p">SipTrunkingIcon</Text></StoryIcon>
+<StoryIcon><SmsEnabledIcon {...props} /><Text as="p">SmsEnabledIcon</Text></StoryIcon>
+<StoryIcon><SpinnerIcon {...props} /><Text as="p">SpinnerIcon</Text></StoryIcon>
+<StoryIcon><StudioIcon {...props} /><Text as="p">StudioIcon</Text></StoryIcon>
+<StoryIcon><SuccessIcon {...props} /><Text as="p">SuccessIcon</Text></StoryIcon>
+<StoryIcon><SupportIcon {...props} /><Text as="p">SupportIcon</Text></StoryIcon>
+<StoryIcon><SupportLifebuoyIcon {...props} /><Text as="p">SupportLifebuoyIcon</Text></StoryIcon>
+<StoryIcon><SyncIcon {...props} /><Text as="p">SyncIcon</Text></StoryIcon>
+<StoryIcon><TableViewIcon {...props} /><Text as="p">TableViewIcon</Text></StoryIcon>
+<StoryIcon><TalkToSalesIcon {...props} /><Text as="p">TalkToSalesIcon</Text></StoryIcon>
+<StoryIcon><TaskrouterIcon {...props} /><Text as="p">TaskrouterIcon</Text></StoryIcon>
+<StoryIcon><TemplatesIcon {...props} /><Text as="p">TemplatesIcon</Text></StoryIcon>
+<StoryIcon><ThumbTackIcon {...props} /><Text as="p">ThumbTackIcon</Text></StoryIcon>
+<StoryIcon><TicketHistoryIcon {...props} /><Text as="p">TicketHistoryIcon</Text></StoryIcon>
+<StoryIcon><TicketIcon {...props} /><Text as="p">TicketIcon</Text></StoryIcon>
+<StoryIcon><TwimlBinsIcon {...props} /><Text as="p">TwimlBinsIcon</Text></StoryIcon>
+<StoryIcon><TwoFactorAuthenticationIcon {...props} /><Text as="p">TwoFactorAuthenticationIcon</Text></StoryIcon>
+<StoryIcon><UploadIcon {...props} /><Text as="p">UploadIcon</Text></StoryIcon>
+<StoryIcon><UsersIcon {...props} /><Text as="p">UsersIcon</Text></StoryIcon>
+<StoryIcon><VideoIcon {...props} /><Text as="p">VideoIcon</Text></StoryIcon>
+<StoryIcon><ViewIcon {...props} /><Text as="p">ViewIcon</Text></StoryIcon>
+<StoryIcon><VoiceEnabledIcon {...props} /><Text as="p">VoiceEnabledIcon</Text></StoryIcon>
+<StoryIcon><VoiceIcon {...props} /><Text as="p">VoiceIcon</Text></StoryIcon>
+<StoryIcon><WhatsappIcon {...props} /><Text as="p">WhatsappIcon</Text></StoryIcon>
+<StoryIcon><WirelessIcon {...props} /><Text as="p">WirelessIcon</Text></StoryIcon>
   </Grid>
 );
 

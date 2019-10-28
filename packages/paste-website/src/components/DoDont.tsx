@@ -71,7 +71,7 @@ const Item: React.FC<DoProps> = ({center = false, ...props}) => {
         <Text as="h5" fontWeight="fontWeightSemibold" lineHeight="lineHeight40" marginBottom="space40">
           {props.title}
         </Text>
-        <Text>{props.body}</Text>
+        <Text as="p">{props.body}</Text>
       </Box>
     </div>
   );

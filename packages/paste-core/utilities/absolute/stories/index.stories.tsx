@@ -46,17 +46,17 @@ storiesOf('Utilities|Absolute', module)
 
     return (
       <Absolute {...props}>
-        <Text>The `position` prop should be sufficient, but you can also pass overrides directly:</Text>
-        <Text>
+        <Text as="p">The `position` prop should be sufficient, but you can also pass overrides directly:</Text>
+        <Text as="p">
           <strong>Top:</strong> {top ? props.top : 'not provided'}
         </Text>
-        <Text>
+        <Text as="p">
           <strong>Right:</strong> {right ? props.right : 'not provided'}
         </Text>
-        <Text>
+        <Text as="p">
           <strong>Bottom:</strong> {bottom ? props.bottom : 'not provided'}
         </Text>
-        <Text>
+        <Text as="p">
           <strong>Left:</strong> {left ? props.left : 'not provided'}
         </Text>
       </Absolute>

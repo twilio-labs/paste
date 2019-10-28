@@ -134,10 +134,10 @@ export const TokensList: React.FC<TokensListProps> = props => {
                         return (
                           <Tr key={`token${token.name}`}>
                             <Td>
-                              <Text marginBottom="space30" lineHeight="lineHeight40">
+                              <Text as="p" marginBottom="space30" lineHeight="lineHeight40">
                                 <InlineCode>${token.name}</InlineCode>
                               </Text>
-                              <Text>{token.comment}</Text>
+                              <Text as="p">{token.comment}</Text>
                             </Td>
                             <Td>{token.type === 'color' ? token.value.toUpperCase() : token.value}</Td>
                             <Td

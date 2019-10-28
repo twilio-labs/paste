@@ -1,4 +1,5 @@
 import {ThemeShape} from '@twilio-paste/theme-tokens';
+import {TextDecorationProperty, TextDecorationLineProperty} from 'csstype';
 import {ResponsiveValue} from 'styled-system';
 
 export interface FontFamilyProps {
@@ -19,6 +20,10 @@ export interface LineHeightProps {
 
 export interface TextColorProps {
   textColor?: ResponsiveValue<keyof ThemeShape['textColors']>;
+}
+
+export interface TextDecorationProps {
+  textDecoration?: ResponsiveValue<TextDecorationProperty<TextDecorationLineProperty>>;
 }
 
 export interface FontProps extends FontFamilyProps, FontSizeProps, FontWeightProps, LineHeightProps {}
