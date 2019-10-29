@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/text@0.4.1...@twilio-paste/text@0.5.0) (2019-10-29)
+
+
+### Features
+
+* finalise the Text component ([#151](https://github.com/twilio-labs/paste/issues/151)) ([b51c272](https://github.com/twilio-labs/paste/commit/b51c272cf420380f73c31c3474ebdf23cb7cad3a))
+* upgrading to styled-system v5 ([#18](https://github.com/twilio-labs/paste/issues/18)) ([2b3ebd8](https://github.com/twilio-labs/paste/commit/2b3ebd8b2f701a0c6e8b75ab6978ba936814f455))
+
+
+
+
+
 ## [0.4.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/text@0.4.0...@twilio-paste/text@0.4.1) (2019-09-16)
 
 **Note:** Version bump only for package @twilio-paste/text

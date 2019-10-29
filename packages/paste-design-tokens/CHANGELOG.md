@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@2.4.0...@twilio-paste/design-tokens@2.5.0) (2019-10-29)
+
+
+### Bug Fixes
+
+* token formatter tests ([#102](https://github.com/twilio-labs/paste/issues/102)) ([1599e1e](https://github.com/twilio-labs/paste/commit/1599e1e89b2d64eb2a2898f0240199ac36428f5b))
+
+
+### Features
+
+* design token and theme package documentation ([#103](https://github.com/twilio-labs/paste/issues/103)) ([3060113](https://github.com/twilio-labs/paste/commit/30601132ccdec8f0fee79e0f293c80d0c0cff335))
+
+
+
+
+
 # [2.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@2.3.0...@twilio-paste/design-tokens@2.4.0) (2019-09-16)
 
 

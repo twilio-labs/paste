@@ -3,7 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/absolute@0.2.0...@twilio-paste/absolute@1.0.0) (2019-10-29)
+# 1.0.0 (2019-10-29)
+
+
+### Bug Fixes
+
+* allow 'auto' for marginLeft and marginRight ([#134](https://github.com/twilio-labs/paste/issues/134)) ([b892866](https://github.com/twilio-labs/paste/commit/b8928661558d6ec26dc76598aa479c9e35c9e890))
 
 
 ### Features
@@ -42,25 +47,3 @@ fix: we shouldn't allow users to pass the `border` shorthand, it circumvents tok
 * fix(website): update box docs
 
 * fix(storybook): use theme breakpoints
-
-
-
-
-
-# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/absolute@0.1.0...@twilio-paste/absolute@0.2.0) (2019-09-16)
-
-
-### Features
-
-* **website:** site header ([#33](https://github.com/twilio-labs/paste/issues/33)) ([cb044c4](https://github.com/twilio-labs/paste/commit/cb044c4))
-
-
-
-
-
-# 0.1.0 (2019-08-15)
-
-
-### Features
-
-* add Absolute component ([#24](https://github.com/twilio-labs/paste/issues/24)) ([ff2f1d9](https://github.com/twilio-labs/paste/commit/ff2f1d9))
