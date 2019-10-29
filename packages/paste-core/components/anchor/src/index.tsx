@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {StyledLink} from './styles';
+import {StyledAnchor} from './styles';
 
 export type AnchorTargets = '_self' | '_blank' | '_parent' | '_top';
 export type AnchorTabIndexes = 0 | -1;
@@ -18,35 +18,30 @@ interface Anchor {
   target?: AnchorTargets;
 }
 
-const EXTERNAL_LINK_REGEX = /^(https?:)[^\s]*$/;
+const EXTERNAL_URL_REGEX = /^(https?:)[^\s]*$/;
 const EXTERNAL_TARGET_DEFAULT = '_blank';
 const EXTERNAL_REL_DEFAULT = 'noreferrer noopener';
 
-const isExternalUrl = (url: string): boolean => EXTERNAL_LINK_REGEX.test(url);
+const isExternalUrl = (url: string): boolean => EXTERNAL_URL_REGEX.test(url);
 
 const Anchor: React.FC<Anchor> = props => (
-  <StyledLink
+  <StyledAnchor
     href={props.href}
     rel={isExternalUrl(props.href) && !props.rel ? EXTERNAL_REL_DEFAULT : props.rel}
     onBlur={props.onBlur}
     onClick={props.onClick}
     onFocus={props.onFocus}
     tabIndex={props.tabIndex}
-    target={isExternalUrl(props.href) && !props.target ? EXTERNAL_TARGET_DEFAULT : props.target}
+    target={props.target || isExternalUrl(props.href) ? EXTERNAL_TARGET_DEFAULT : undefined}
   >
     {props.children}
-  </StyledLink>
+  </StyledAnchor>
 );
 
 Anchor.propTypes = {
   children: PropTypes.node.isRequired,
   tabIndex: PropTypes.oneOf([0, -1]),
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-};
-
-Anchor.defaultProps = {
-  tabIndex: 0,
-  target: '_self',
 };
 
 Anchor.displayName = 'Anchor';
