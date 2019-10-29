@@ -42,5 +42,8 @@
     "rollup-plugin-terser": "^5.0.0",
     "rollup-plugin-typescript2": "^0.21.2",
     "typescript": "^3.5.2"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2"
   }
 }
