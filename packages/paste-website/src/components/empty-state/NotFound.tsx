@@ -10,6 +10,7 @@ const NotFound: React.FC<{}> = () => (
       <BreadcrumbItem to="/">Home</BreadcrumbItem>
     </Breadcrumb>
     <Text
+      as="p"
       fontSize="fontSize80"
       lineHeight="lineHeight80"
       fontWeight="fontWeightSemibold"
@@ -19,7 +20,7 @@ const NotFound: React.FC<{}> = () => (
       Oops, this page doesn&apos;t exist
     </Text>
     <Box>
-      <Text>
+      <Text as="p">
         If you think you landed here in error, please let us know by{' '}
         <Anchor href="https://github.com/twilio-labs/paste/issues">filing an issue</Anchor>.
       </Text>

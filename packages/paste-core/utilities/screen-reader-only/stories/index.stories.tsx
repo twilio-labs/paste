@@ -8,7 +8,7 @@ storiesOf('Utilities|Screen reader only', module)
   .addDecorator(withKnobs)
   .add('Default', () => {
     return (
-      <Text>
+      <Text as="p">
         Some visible text <ScreenReaderOnly>some not visible text</ScreenReaderOnly>
       </Text>
     );
