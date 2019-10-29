@@ -17,11 +17,11 @@ exports[`Heading it should render an H1 at fontSize90 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  font-size: 2rem;
   color: #282a2b;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
   font-weight: 600;
   line-height: 1.5;
-  margin-bottom: 1.5rem;
 }
 
 <div
@@ -54,11 +54,11 @@ exports[`Heading it should render an H2 at fontSize70 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  font-size: 1.5rem;
   color: #282a2b;
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.6;
-  margin-bottom: 1.25rem;
 }
 
 <div
@@ -91,11 +91,11 @@ exports[`Heading it should render an H3 at fontSize60 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  font-size: 1.25rem;
   color: #282a2b;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
   font-weight: 600;
   line-height: 1.5;
-  margin-bottom: 1rem;
 }
 
 <div
@@ -128,11 +128,11 @@ exports[`Heading it should render an H4 at fontSize40 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  font-size: 1rem;
   color: #282a2b;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1.6;
-  margin-bottom: 0.75rem;
 }
 
 <div
@@ -165,11 +165,11 @@ exports[`Heading it should render an H5 at fontSize30 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  font-size: 0.875rem;
   color: #282a2b;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.714285714;
-  margin-bottom: 0.5rem;
 }
 
 <div
@@ -202,11 +202,11 @@ exports[`Heading it should render an H6 at fontSize20 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  font-size: 0.75rem;
   color: #282a2b;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
   font-weight: 600;
   line-height: 1.666666667;
-  margin-bottom: 0.5rem;
 }
 
 <div

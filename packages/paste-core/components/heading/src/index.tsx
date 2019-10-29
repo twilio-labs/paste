@@ -89,7 +89,6 @@ Heading.propTypes = {
 };
 
 Heading.defaultProps = {
-  as: 'h2',
   variant: 'headingStyle50',
 };
 
