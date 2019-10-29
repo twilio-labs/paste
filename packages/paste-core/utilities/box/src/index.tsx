@@ -1,37 +1,24 @@
 import styled from '@emotion/styled';
-import {
-  compose,
-  space,
-  layout,
-  flexbox,
-  background,
-  border,
-  boxShadow,
-  zIndex,
-  DisplayProps,
-  OverflowProps,
-  system,
-} from 'styled-system';
+import {compose, layout, space, background, border, boxShadow, position, flexbox, system} from 'styled-system';
 
 import {
-  SizingProps,
-  SpacingProps,
-  BackgroundColorProps,
+  LayoutProps,
+  SpaceProps,
+  BackgroundProps,
   BorderProps,
-  BoxShadowProps,
-  ZIndexProps,
+  ShadowProps,
+  PositionProps,
+  FlexboxProps,
 } from '@twilio-paste/types';
 
 export interface BoxProps
-  extends SizingProps,
-    SpacingProps,
-    BackgroundColorProps,
+  extends LayoutProps,
+    SpaceProps,
+    BackgroundProps,
     BorderProps,
-    BoxShadowProps,
-    ZIndexProps,
-    // styled-system
-    DisplayProps,
-    OverflowProps {
+    ShadowProps,
+    PositionProps,
+    FlexboxProps {
   as?: keyof JSX.IntrinsicElements;
 }
 
@@ -50,6 +37,10 @@ const borderColor = system({
 });
 
 const Box = styled.div<BoxProps>(
+  {
+    boxSizing: 'border-box',
+    minWidth: 0,
+  },
   compose(
     space,
     layout,
@@ -59,14 +50,9 @@ const Box = styled.div<BoxProps>(
     border,
     borderColor,
     boxShadow,
-    zIndex
+    position
   )
 );
 
 Box.displayName = 'Box';
-
-Box.defaultProps = {
-  minWidth: 'size0',
-};
-
 export {Box};
