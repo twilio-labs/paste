@@ -1,16 +1,7 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
-import {withKnobs, text, select} from '@storybook/addon-knobs';
-import {Heading, Paragraph} from '../src';
-
-const headingStyleOptions = [
-  'headingStyle10',
-  'headingStyle20',
-  'headingStyle30',
-  'headingStyle40',
-  'headingStyle50',
-  'headingStyle60',
-];
+import {withKnobs} from '@storybook/addon-knobs';
+import {Paragraph} from '../src';
 
 storiesOf('Components|Typography', module)
   .addDecorator(withKnobs)
@@ -28,14 +19,5 @@ storiesOf('Components|Typography', module)
           intelligentsia. Literally heirloom blue bottle etsy.
         </Paragraph>
       </>
-    );
-  })
-  .add('Heading', () => {
-    const asOptions = text('as', 'h2') as asTags;
-    const headingStyleValue = select('variant', headingStyleOptions, 'headingStyle50') as HeadingStyle;
-    return (
-      <Heading as={asOptions} variant={headingStyleValue}>
-        I am a Very Large Heading
-      </Heading>
     );
   });
