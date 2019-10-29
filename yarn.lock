@@ -3357,6 +3357,11 @@
     prettier "^1.18.2"
     tslib "^1.10.0"
 
+"@twilio-paste/text@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/text/-/text-0.4.1.tgz#88d6b2e91cdb18f378ffb986f5b9a3a60761e99e"
+  integrity sha512-yoyZ2dhhrAWy8NPovVD/AMrEpnUgMAXOZePPqPZbU5gLLRCWDCB9Tw5uEbpjutnRMTzU7N0+PYY3F6DB2E4+rA==
+
 "@types/anymatch@*":
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/@types/anymatch/-/anymatch-1.3.1.tgz#336badc1beecb9dacc38bea2cf32adf627a8421a"
@@ -3553,9 +3558,9 @@
   integrity sha512-Q5hTcfdudEL2yOmluA1zaSyPbzWPmJ3XfSWeP3RyoYvS9hnje1ZyagrZOuQ6+1nQC1Gw+7gap3pLNL3xL6UBug==
 
 "@types/jest@^24.0.15", "@types/jest@^24.0.18":
-  version "24.0.20"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.20.tgz#729d5fe8684e7fb06368d3bd557ac6d91289d861"
-  integrity sha512-M8ebEkOpykGdLoRrmew7UowTZ1DANeeP0HiSIChl/4DGgmnSC1ntitNtkyNSXjMTsZvXuaxJrxjImEnRWNPsPw==
+  version "24.0.21"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.21.tgz#2c0a25440e025bb265f4a17d8b79b11b231426bf"
+  integrity sha512-uyqFvx78Tuy0h5iLCPWRCvi5HhWwEqhIj30doitp191oYLqlCxUyAJHdWVm5+Nr271/vPnkyt6rWeEIjGowBTg==
   dependencies:
     "@types/jest-diff" "*"
 
@@ -18462,9 +18467,9 @@ react-test-renderer@^16.0.0-0, react-test-renderer@^16.8.6:
     scheduler "^0.17.0"
 
 react-textarea-autosize@^7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/react-textarea-autosize/-/react-textarea-autosize-7.1.0.tgz#3132cb77e65d94417558d37c0bfe415a5afd3445"
-  integrity sha512-c2FlR/fP0qbxmlrW96SdrbgP/v0XZMTupqB90zybvmDVDutytUgPl7beU35klwcTeMepUIQEpQUn3P3bdshGPg==
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/react-textarea-autosize/-/react-textarea-autosize-7.1.1.tgz#66ff1b7d6e1ab759fdf35f09e60bdd0e15d8e143"
+  integrity sha512-dVDVXlUm5uUgWyZAL4gaxJiDb2xCWM/qk6Rl2ixXPSKNsngKhvAj3KbDS9mnQn/qIZSYVD+/iuZT/eQWmNjBLw==
   dependencies:
     "@babel/runtime" "^7.1.2"
     prop-types "^15.6.0"

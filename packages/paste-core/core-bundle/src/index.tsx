@@ -1,6 +1,7 @@
 export * from '@twilio-paste/anchor';
 export * from '@twilio-paste/button';
 export * from '@twilio-paste/heading';
+export * from '@twilio-paste/paragraph';
 export * from '@twilio-paste/spinner';
 export * from '@twilio-paste/typography';
 export * from '@twilio-paste/absolute';

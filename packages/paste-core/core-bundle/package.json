@@ -30,6 +30,7 @@
     "@twilio-paste/anchor": "^0.2.0",
     "@twilio-paste/button": "^0.3.0",
     "@twilio-paste/heading": "^0.4.0",
+    "@twilio-paste/paragraph": "^0.0.2",
     "@twilio-paste/spinner": "^0.2.0",
     "@twilio-paste/typography": "^0.1.0",
     "@twilio-paste/absolute": "^1.0.0",
