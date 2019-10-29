@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/typography",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "category": "typography",
   "status": "alpha",
   "description": "Twilio's Typography component",

@@ -26,7 +26,7 @@
     "build:storybook": "build-storybook -c .storybook -o ./docs",
     "build:website": "yarn workspace @twilio-paste/website build",
     "pre-push": "concurrently \"yarn:lint\" \"yarn:test\" \"yarn:prettier\" \"yarn:type-check\"",
-    "publish": "yarn lerna publish -m 'chore(release): publish' --conventional-commits",
+    "release": "yarn lerna publish -m 'chore(release): publish' --conventional-commits",
     "version": "node ./tools/build/version.js",
     "clean": "node ./tools/build/clean-repo.js && lerna clean --yes && lerna run clean && yarn bootstrap",
     "pre-test": "node ./tools/build/pre-test.js",
