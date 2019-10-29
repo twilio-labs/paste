@@ -11,14 +11,7 @@ import {
   FlexboxProps,
 } from '@twilio-paste/types';
 
-export interface BoxProps
-  extends LayoutProps,
-    SpaceProps,
-    BackgroundProps,
-    BorderProps,
-    ShadowProps,
-    PositionProps,
-    FlexboxProps {
+interface Box extends LayoutProps, SpaceProps, BackgroundProps, BorderProps, ShadowProps, PositionProps, FlexboxProps {
   as?: keyof JSX.IntrinsicElements;
 }
 
@@ -36,7 +29,7 @@ const borderColor = system({
   },
 });
 
-const Box = styled.div<BoxProps>(
+const Box = styled.div<Box>(
   {
     boxSizing: 'border-box',
     minWidth: 0,
