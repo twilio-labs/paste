@@ -3,9 +3,7 @@ import {compose, space, layout, typography, system} from 'styled-system';
 import {SpaceProps, LayoutProps, TypographyProps} from '@twilio-paste/types';
 
 interface Text extends SpaceProps, LayoutProps, TypographyProps {
-  className?: never;
   as?: keyof JSX.IntrinsicElements;
-  children: NonNullable<React.ReactNode>;
 }
 
 const textColor = system({
