@@ -27,15 +27,16 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@twilio-paste/absolute": "^1.0.0",
     "@twilio-paste/anchor": "^0.2.0",
-    "@twilio-paste/aspect-ratio": "^0.2.0",
-    "@twilio-paste/box": "^1.0.0",
     "@twilio-paste/button": "^0.3.0",
     "@twilio-paste/heading": "^0.4.0",
+    "@twilio-paste/spinner": "^0.2.0",
+    "@twilio-paste/typography": "^0.1.0",
+    "@twilio-paste/absolute": "^1.0.0",
+    "@twilio-paste/aspect-ratio": "^0.2.0",
+    "@twilio-paste/box": "^1.0.0",
     "@twilio-paste/media-object": "^0.4.0",
     "@twilio-paste/screen-reader-only": "^0.3.0",
-    "@twilio-paste/spinner": "^0.2.0",
     "@twilio-paste/text": "^0.5.0",
     "@twilio-paste/truncate": "^0.2.0"
   },

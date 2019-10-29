@@ -2,6 +2,7 @@ export * from '@twilio-paste/anchor';
 export * from '@twilio-paste/button';
 export * from '@twilio-paste/heading';
 export * from '@twilio-paste/spinner';
+export * from '@twilio-paste/typography';
 export * from '@twilio-paste/absolute';
 export * from '@twilio-paste/aspect-ratio';
 export * from '@twilio-paste/box';
