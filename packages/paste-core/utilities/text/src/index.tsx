@@ -1,28 +1,11 @@
 import styled from '@emotion/styled';
-import {
-  compose,
-  display,
-  DisplayProps,
-  FontStyleProps,
-  LetterSpacingProps,
-  space,
-  system,
-  typography,
-  TextAlignProps,
-} from 'styled-system';
-import {FontProps, SpacingProps, TextColorProps, TextDecorationProps} from '@twilio-paste/types';
+import {compose, space, layout, typography, system} from 'styled-system';
+import {SpaceProps, LayoutProps, TypographyProps} from '@twilio-paste/types';
 
-interface Text
-  extends SpacingProps,
-    FontProps,
-    TextColorProps,
-    TextDecorationProps,
-    // styled system
-    DisplayProps,
-    FontStyleProps,
-    LetterSpacingProps,
-    TextAlignProps {
-  as: keyof JSX.IntrinsicElements;
+interface Text extends SpaceProps, LayoutProps, TypographyProps {
+  className?: never;
+  as?: keyof JSX.IntrinsicElements;
+  children: NonNullable<React.ReactNode>;
 }
 
 const textColor = system({
@@ -31,20 +14,19 @@ const textColor = system({
     scale: 'textColors',
   },
 });
-const textDecoration = system({textDecoration: true});
 
 const Text = styled.span<Text>(
-  {margin: 0, padding: 0},
+  {
+    margin: 0,
+    padding: 0,
+  },
   compose(
-    display,
     space,
-    textColor,
-    textDecoration,
-    typography
+    layout,
+    typography,
+    textColor
   )
 );
-
-Text.displayName = 'Text';
 
 Text.defaultProps = {
   fontSize: 'fontSize20',
@@ -52,4 +34,5 @@ Text.defaultProps = {
   textColor: 'colorText',
 };
 
+Text.displayName = 'Text';
 export {Text};
