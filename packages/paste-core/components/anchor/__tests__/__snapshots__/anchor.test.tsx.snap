@@ -39,6 +39,8 @@ exports[`Anchor it should render an anchor 1`] = `
   <a
     className="emotion-0 emotion-1"
     href="/"
+    tabIndex={0}
+    target="_self"
   >
     This is an anchor
   </a>
@@ -85,7 +87,8 @@ exports[`Anchor it should render an external anchor 1`] = `
     className="emotion-0 emotion-1"
     href="https://twilio.com"
     rel="noreferrer noopener"
-    target="_blank"
+    tabIndex={0}
+    target="_self"
   >
     This is an anchor that links to Twilio.com with an external target and rel
   </a>
@@ -132,6 +135,7 @@ exports[`Anchor it should render an external anchor with overwritten target and 
     className="emotion-0 emotion-1"
     href="https://twilio.com"
     rel="noopener"
+    tabIndex={0}
     target="_self"
   >
     This is an anchor that links to Twilio.com with the target and rel overwritten
