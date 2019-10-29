@@ -30,6 +30,7 @@
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.10",
     "@twilio-paste/text": "^0.4.1",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-system": "^4.1.0"
@@ -43,8 +44,5 @@
     "rollup-plugin-terser": "^5.0.0",
     "rollup-plugin-typescript2": "^0.21.2",
     "typescript": "^3.5.2"
-  },
-  "dependencies": {
-    "prop-types": "^15.7.2"
   }
 }
