@@ -15,10 +15,13 @@ export type LetterSpacing = ResponsiveValue<CSS.LetterSpacingProperty<TLengthSty
 export type TextAlign = ResponsiveValue<CSS.TextAlignProperty>;
 export type FontStyle = ResponsiveValue<CSS.FontStyleProperty>;
 export type TextDecoration = ResponsiveValue<CSS.TextDecorationProperty<CSS.TextDecorationLineProperty>>;
+export type TextOverflow = ResponsiveValue<CSS.TextOverflowProperty>;
+export type WhiteSpace = ResponsiveValue<CSS.WhiteSpaceProperty>;
 
 /* Styled-system grouping
  * ---
  * We add `textColor` here, not in the `color` interface grouping like styled-system does
+ * We also add `whiteSpace` and `textOverflow` to allow for ellipsis text.
  */
 export interface TypographyProps {
   fontFamily?: FontFamily;
@@ -31,4 +34,6 @@ export interface TypographyProps {
   // Our custom addition
   textColor?: TextColor;
   textDecoration?: TextDecoration;
+  textOverflow?: TextOverflow;
+  whiteSpace?: WhiteSpace;
 }
