@@ -10,6 +10,9 @@
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist"
   ],
