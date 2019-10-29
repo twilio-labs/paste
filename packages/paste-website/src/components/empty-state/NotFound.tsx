@@ -10,6 +10,7 @@ const NotFound: React.FC<{}> = () => (
       <BreadcrumbItem to="/">Home</BreadcrumbItem>
     </Breadcrumb>
     <Text
+      as="p"
       fontSize="fontSize90"
       lineHeight="lineHeight80"
       fontWeight="fontWeightSemibold"

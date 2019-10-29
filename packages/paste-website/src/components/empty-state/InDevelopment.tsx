@@ -21,6 +21,7 @@ const InDevelopment: React.FC<InDevelopmentProps> = ({type, name}) => {
         </BreadcrumbItem>
       </Breadcrumb>
       <Text
+        as="p"
         fontSize="fontSize90"
         lineHeight="lineHeight80"
         fontWeight="fontWeightSemibold"
