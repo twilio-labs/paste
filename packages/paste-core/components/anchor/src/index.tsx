@@ -1,48 +1,48 @@
 import * as React from 'react';
-import {StyledLink} from './styles';
-import {AnchorProps} from './types';
+import * as PropTypes from 'prop-types';
+import {StyledAnchor} from './styles';
 
-const EXTERNAL_LINK_REGEX = /^(https?:)[^\s]*$/;
+export type AnchorTargets = '_self' | '_blank' | '_parent' | '_top';
+export type AnchorTabIndexes = 0 | -1;
+
+interface Anchor {
+  className?: never;
+  children: NonNullable<React.ReactNode>;
+  href: string;
+  id?: never;
+  onBlur?(event: React.FocusEvent<HTMLElement>): void;
+  onClick?(event: React.MouseEvent<HTMLElement>): void;
+  onFocus?(event: React.FocusEvent<HTMLElement>): void;
+  rel?: string;
+  tabIndex?: AnchorTabIndexes;
+  target?: AnchorTargets;
+}
+
+const EXTERNAL_URL_REGEX = /^(https?:)[^\s]*$/;
 const EXTERNAL_TARGET_DEFAULT = '_blank';
 const EXTERNAL_REL_DEFAULT = 'noreferrer noopener';
 
-const isExternalUrl = (url: string): boolean => EXTERNAL_LINK_REGEX.test(url);
+const isExternalUrl = (url: string): boolean => EXTERNAL_URL_REGEX.test(url);
 
-const handlePropValidation = ({href, tabIndex, children}: AnchorProps): void => {
-  const hasHref = href != null && href !== '';
-  const hasTabIndex = tabIndex != null;
+const Anchor: React.FC<Anchor> = props => (
+  <StyledAnchor
+    href={props.href}
+    rel={isExternalUrl(props.href) && !props.rel ? EXTERNAL_REL_DEFAULT : props.rel}
+    onBlur={props.onBlur}
+    onClick={props.onClick}
+    onFocus={props.onFocus}
+    tabIndex={props.tabIndex}
+    target={props.target || isExternalUrl(props.href) ? EXTERNAL_TARGET_DEFAULT : undefined}
+  >
+    {props.children}
+  </StyledAnchor>
+);
 
-  if (!hasHref) {
-    throw new Error(
-      `[Paste: Anchor] Missing href prop for anchor. Maybe you're looking for the [Paste: Button] component.`
-    );
-  }
-
-  if (children == null) {
-    throw new Error(`[Paste: Anchor] Must have non-null children.`);
-  }
-
-  if (hasTabIndex && !(tabIndex === 0 || tabIndex === -1)) {
-    throw new Error(`[Paste: Anchor] TabIndex must be 0 or -1.`);
-  }
+Anchor.propTypes = {
+  children: PropTypes.node.isRequired,
+  tabIndex: PropTypes.oneOf([0, -1]),
+  target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
 };
 
-const Anchor: React.FC<AnchorProps> = props => {
-  handlePropValidation(props);
-
-  return (
-    <StyledLink
-      href={props.href}
-      rel={isExternalUrl(props.href) && !props.rel ? EXTERNAL_REL_DEFAULT : props.rel}
-      onBlur={props.onBlur}
-      onClick={props.onClick}
-      onFocus={props.onFocus}
-      tabIndex={props.tabIndex}
-      target={isExternalUrl(props.href) && !props.target ? EXTERNAL_TARGET_DEFAULT : props.target}
-    >
-      {props.children}
-    </StyledLink>
-  );
-};
-
+Anchor.displayName = 'Anchor';
 export {Anchor};
