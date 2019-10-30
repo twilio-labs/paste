@@ -19,8 +19,14 @@ export type Overflow = ResponsiveValue<CSS.OverflowProperty>;
 export type OverflowX = ResponsiveValue<CSS.OverflowXProperty>;
 export type OverflowY = ResponsiveValue<CSS.OverflowYProperty>;
 
+export interface OverflowProps {
+  overflow?: Overflow;
+  overflowX?: OverflowX;
+  overflowY?: OverflowY;
+}
+
 // Styled-system grouping
-export interface LayoutProps {
+export interface LayoutProps extends OverflowProps {
   width?: Width;
   minWidth?: MinWidth;
   maxWidth?: MaxWidth;
@@ -30,7 +36,4 @@ export interface LayoutProps {
   size?: Size;
   display?: Display;
   verticalAlign?: VerticalAlign;
-  overflow?: Overflow;
-  overflowX?: OverflowX;
-  overflowY?: OverflowY;
 }

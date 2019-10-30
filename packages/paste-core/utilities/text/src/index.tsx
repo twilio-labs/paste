@@ -1,9 +1,11 @@
 import styled from '@emotion/styled';
-import {compose, space, layout, typography, system} from 'styled-system';
-import {SpaceProps, LayoutProps, TypographyProps} from '@twilio-paste/types';
+import {compose, space, display, verticalAlign, overflow, typography, system} from 'styled-system';
+import {SpaceProps, Display, VerticalAlign, OverflowProps, TypographyProps} from '@twilio-paste/types';
 
-interface Text extends SpaceProps, LayoutProps, TypographyProps {
+interface Text extends SpaceProps, OverflowProps, TypographyProps {
   as?: keyof JSX.IntrinsicElements;
+  display?: Display;
+  verticalAlign?: VerticalAlign;
 }
 
 const textColor = system({
@@ -20,7 +22,9 @@ const Text = styled.span<Text>(
   },
   compose(
     space,
-    layout,
+    display,
+    verticalAlign,
+    overflow,
     typography,
     textColor
   )

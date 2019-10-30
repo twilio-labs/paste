@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import {compose, layout, space, background, border, boxShadow, position, flexbox, system} from 'styled-system';
-
 import {
   LayoutProps,
   SpaceProps,
