@@ -14,6 +14,7 @@ const textColor = system({
     scale: 'textColors',
   },
 });
+const textDecoration = system({textDecoration: true});
 
 const Text = styled.span<Text>(
   {
@@ -25,6 +26,7 @@ const Text = styled.span<Text>(
     display,
     verticalAlign,
     overflow,
+    textDecoration,
     typography,
     textColor
   )
