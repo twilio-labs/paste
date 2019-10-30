@@ -3,7 +3,7 @@ import * as lodash from 'lodash';
 import {ThemeShape} from '@twilio-paste/theme-tokens';
 import {Absolute, AbsoluteProps} from '@twilio-paste/absolute';
 import {useTheme} from '@twilio-paste/theme';
-import {Box, BoxProps} from '@twilio-paste/box';
+import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import ColorCombos, {ColorCombinationAccessibility} from '../../utils/color-combos';
@@ -17,7 +17,7 @@ export const ColorBox: React.FC<BackgroundColor> = ({backgroundColor}) => {
   return <Absolute backgroundColor={backgroundColor} padding="space50" preset="fill" />;
 };
 
-type BorderBoxProps = Pick<BoxProps, 'borderColor' | 'borderWidth'>;
+type BorderBoxProps = Pick<Box, 'borderColor' | 'borderWidth'>;
 export const BorderBox: React.FC<BorderBoxProps> = ({borderColor, borderWidth}) => {
   return (
     <Box borderStyle="solid" borderColor={borderColor} borderWidth={borderWidth || 'borderWidth20'} padding="space60" />
@@ -80,7 +80,7 @@ export const TextColorBox: React.FC<TextColorBoxProps> = ({color, textColor}) =>
   );
 };
 
-type RadiiBoxProps = Pick<BoxProps, 'borderRadius'>;
+type RadiiBoxProps = Pick<Box, 'borderRadius'>;
 export const RadiiBox: React.FC<RadiiBoxProps> = ({borderRadius}) => {
   return (
     <Box
@@ -92,14 +92,14 @@ export const RadiiBox: React.FC<RadiiBoxProps> = ({borderRadius}) => {
   );
 };
 
-interface ShadowBoxProps extends BoxProps {
+interface ShadowBoxProps extends Box {
   shadow?: string;
 }
 export const ShadowBox: React.FC<ShadowBoxProps> = ({shadow}) => {
   return <Box borderRadius="borderRadius20" padding="space60" css={{boxShadow: shadow}} />;
 };
 
-type SpacingBoxProps = Pick<BoxProps, 'padding'>;
+type SpacingBoxProps = Pick<Box, 'padding'>;
 export const SpacingBox: React.FC<SpacingBoxProps> = ({padding}) => {
   return (
     <Box backgroundColor="colorBackgroundBrand" display="inline-block" paddingLeft={padding} paddingTop={padding} />

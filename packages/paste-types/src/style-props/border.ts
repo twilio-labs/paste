@@ -1,34 +1,57 @@
+// https://styled-system.com/api/#border
+import * as CSS from 'csstype';
 import {ThemeShape} from '@twilio-paste/theme-tokens';
-import {ResponsiveValue, BorderStyleProps} from 'styled-system';
+import {ResponsiveValue} from 'styled-system';
 
-type Radii = ResponsiveValue<keyof ThemeShape['radii']>;
+// Tokens
+export type BorderRadius = ResponsiveValue<keyof ThemeShape['radii']>;
+export type BorderWidth = ResponsiveValue<keyof ThemeShape['borderWidths']>;
+export type BorderColor = ResponsiveValue<keyof ThemeShape['borderColors']>;
 
 export interface BorderRadiusProps {
-  borderRadius?: Radii;
-  borderBottomLeftRadius?: Radii;
-  borderBottomRightRadius?: Radii;
-  borderTopLeftRadius?: Radii;
-  borderTopRightRadius?: Radii;
+  borderRadius?: BorderRadius;
+  borderBottomLeftRadius?: BorderRadius;
+  borderBottomRightRadius?: BorderRadius;
+  borderTopLeftRadius?: BorderRadius;
+  borderTopRightRadius?: BorderRadius;
 }
-
-type BorderWidths = ResponsiveValue<keyof ThemeShape['borderWidths']>;
 
 export interface BorderWidthProps {
-  borderWidth?: BorderWidths;
-  borderBottomWidth?: BorderWidths;
-  borderLeftWidth?: BorderWidths;
-  borderRightWidth?: BorderWidths;
-  borderTopWidth?: BorderWidths;
+  borderWidth?: BorderWidth;
+  borderBottomWidth?: BorderWidth;
+  borderLeftWidth?: BorderWidth;
+  borderRightWidth?: BorderWidth;
+  borderTopWidth?: BorderWidth;
 }
-
-type BorderColors = ResponsiveValue<keyof ThemeShape['borderColors']>;
 
 export interface BorderColorProps {
-  borderColor?: BorderColors;
-  borderBottomColor?: BorderColors;
-  borderLeftColor?: BorderColors;
-  borderRightColor?: BorderColors;
-  borderTopColor?: BorderColors;
+  borderColor?: BorderColor;
+  borderBottomColor?: BorderColor;
+  borderLeftColor?: BorderColor;
+  borderRightColor?: BorderColor;
+  borderTopColor?: BorderColor;
 }
 
-export interface BorderProps extends BorderWidthProps, BorderStyleProps, BorderRadiusProps, BorderColorProps {}
+// CSS native
+export type BorderStyle = ResponsiveValue<CSS.BorderStyleProperty>;
+export type BorderTopStyle = ResponsiveValue<CSS.BorderTopStyleProperty>;
+export type BorderRightStyle = ResponsiveValue<CSS.BorderRightStyleProperty>;
+export type BorderBottomStyle = ResponsiveValue<CSS.BorderBottomStyleProperty>;
+export type BorderLeftStyle = ResponsiveValue<CSS.BorderLeftStyleProperty>;
+
+export interface BorderStyleProps {
+  borderStyle?: BorderStyle;
+  borderTopStyle?: BorderTopStyle;
+  borderRightStyle?: BorderRightStyle;
+  borderBottomStyle?: BorderBottomStyle;
+  borderLeftStyle?: BorderLeftStyle;
+}
+
+// Styled-system grouping
+export interface BorderProps extends BorderWidthProps, BorderStyleProps, BorderColorProps, BorderRadiusProps {
+  border?: never;
+  borderTop?: never;
+  borderRight?: never;
+  borderBottom?: never;
+  borderLeft?: never;
+}
