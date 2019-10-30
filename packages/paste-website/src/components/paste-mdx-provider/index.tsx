@@ -2,7 +2,6 @@ import * as React from 'react';
 import {MDXProvider} from '@mdx-js/react';
 import styled from '@emotion/styled';
 import {Anchor} from '@twilio-paste/anchor';
-import {AnchorProps} from '@twilio-paste/anchor/dist/types';
 import {Codeblock, CodeblockProps} from '../codeblock';
 import {Table, Tbody, Tr, Th, Td} from '../table';
 import {Heading, AnchoredHeading, HeadingProps} from '../Heading';
@@ -74,7 +73,7 @@ export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMD
         strong: (props: React.ComponentProps<'strong'>): React.ReactElement => <strong {...props} />,
         del: (props: React.ComponentProps<'del'>): React.ReactElement => <del {...props} />,
         hr: (props: React.ComponentProps<'hr'>): React.ReactElement => <StyledHr {...props} />,
-        a: (props: AnchorProps): React.ReactElement => <Anchor {...props} />, // eslint-disable-line jsx-a11y/anchor-has-content
+        a: (props: Anchor): React.ReactElement => <Anchor {...props} />, // eslint-disable-line jsx-a11y/anchor-has-content
         img: (props: React.ComponentProps<'img'>): React.ReactElement => <img {...props} />, // eslint-disable-line jsx-a11y/alt-text
         content: (props: React.ComponentProps<'div'>): React.ReactElement => <StyledContent {...props} />,
         contentwrapper: (props: React.ComponentProps<'div'>): React.ReactElement => <StyledContentWrapper {...props} />,

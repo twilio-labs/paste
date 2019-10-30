@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import {themeGet} from '@styled-system/theme-get';
 
 // Link
-export const StyledLink = styled.a`
+export const StyledAnchor = styled.a`
   color: ${themeGet('textColors.colorTextLink')};
   text-decoration: underline;
   outline: none;
