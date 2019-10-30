@@ -221,3 +221,42 @@ exports[`Heading it should render an H6 at fontSize20 1`] = `
   </h6>
 </div>
 `;
+
+exports[`Heading it should render an italic H2 at fontSize50 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.15;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  color: #282a2b;
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+<div
+  className="emotion-1"
+>
+  <h2
+    className="emotion-0"
+    fontSize="fontSize70"
+    fontWeight="fontWeightSemibold"
+  >
+    <i>
+      This is an italic H2
+    </i>
+  </h2>
+</div>
+`;

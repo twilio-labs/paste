@@ -16,6 +16,7 @@ describe('Heading', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
   it('it should render an H2 at fontSize70', (): void => {
     const tree = renderer
       .create(
@@ -28,6 +29,7 @@ describe('Heading', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
   it('it should render an H3 at fontSize60', (): void => {
     const tree = renderer
       .create(
@@ -40,6 +42,7 @@ describe('Heading', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
   it('it should render an H4 at fontSize40', (): void => {
     const tree = renderer
       .create(
@@ -52,6 +55,7 @@ describe('Heading', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
   it('it should render an H5 at fontSize30', (): void => {
     const tree = renderer
       .create(
@@ -64,12 +68,26 @@ describe('Heading', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
   it('it should render an H6 at fontSize20', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider>
           <Heading as="h6" variant="headingStyle10">
             This is an H6
+          </Heading>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('it should render an italic H2 at fontSize50', (): void => {
+    const tree = renderer
+      .create(
+        <Theme.Provider>
+          <Heading as="h2" variant="headingStyle50">
+            <i>This is an italic H2</i>
           </Heading>
         </Theme.Provider>
       )

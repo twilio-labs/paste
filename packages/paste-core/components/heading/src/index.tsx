@@ -28,14 +28,6 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight60',
       };
-    case 'headingStyle50':
-    default:
-      return {
-        marginBottom: 'space60',
-        fontSize: 'fontSize70',
-        fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight50',
-      };
     case 'headingStyle40':
       return {
         marginBottom: 'space50',
@@ -63,6 +55,18 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
         fontSize: 'fontSize20',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight10',
+      };
+    /**
+     * headingStyle50 is out of order because its also default.
+     * Default is at the bottom of switch statement for readability.
+     */
+    case 'headingStyle50':
+    default:
+      return {
+        marginBottom: 'space60',
+        fontSize: 'fontSize70',
+        fontWeight: 'fontWeightSemibold',
+        lineHeight: 'lineHeight50',
       };
   }
 }
