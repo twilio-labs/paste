@@ -15,8 +15,9 @@ exports[`Backgrounds it should render responsive values 1`] = `
 }
 
 .emotion-0 {
-  background-color: #b3d3e9;
+  box-sizing: border-box;
   min-width: 0;
+  background-color: #b3d3e9;
 }
 
 @media screen and (min-width:25rem) {
@@ -51,8 +52,9 @@ exports[`Backgrounds it should render single values 1`] = `
 }
 
 .emotion-0 {
-  background-color: #0075c3;
+  box-sizing: border-box;
   min-width: 0;
+  background-color: #0075c3;
 }
 
 <div
@@ -81,11 +83,12 @@ exports[`Borders it should render responsive values 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
   border-style: dashed;
   border-color: #005ea6;
   border-width: 1px;
   border-radius: 0;
-  min-width: 0;
 }
 
 @media screen and (min-width:25rem) {
@@ -129,11 +132,12 @@ exports[`Borders it should render single values 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
   border-style: solid;
   border-color: #005ea6;
   border-width: 1px;
   border-radius: 4px;
-  min-width: 0;
 }
 
 <div
@@ -162,8 +166,9 @@ exports[`Shadows it should render responsive values 1`] = `
 }
 
 .emotion-0 {
-  box-shadow: 0 2px 4px 0 rgba(40,42,43,0.3);
+  box-sizing: border-box;
   min-width: 0;
+  box-shadow: 0 2px 4px 0 rgba(40,42,43,0.3);
 }
 
 @media screen and (min-width:25rem) {
@@ -198,8 +203,9 @@ exports[`Shadows it should render single values 1`] = `
 }
 
 .emotion-0 {
-  box-shadow: 0 2px 4px 0 rgba(40,42,43,0.3);
+  box-sizing: border-box;
   min-width: 0;
+  box-shadow: 0 2px 4px 0 rgba(40,42,43,0.3);
 }
 
 <div
@@ -228,6 +234,8 @@ exports[`Sizes it should render responsive values 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
   width: 5.5rem;
   min-width: 0;
   max-width: 12rem;
@@ -285,6 +293,8 @@ exports[`Sizes it should render single values 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
   width: 5.5rem;
   min-width: 0;
   max-width: 12rem;
@@ -321,8 +331,9 @@ exports[`Spaces (A) it should render responsive values 1`] = `
 }
 
 .emotion-0 {
-  margin: 0.25rem;
+  box-sizing: border-box;
   min-width: 0;
+  margin: 0.25rem;
 }
 
 @media screen and (min-width:25rem) {
@@ -357,8 +368,9 @@ exports[`Spaces (A) it should render single values 1`] = `
 }
 
 .emotion-0 {
-  margin: 0.25rem;
+  box-sizing: border-box;
   min-width: 0;
+  margin: 0.25rem;
 }
 
 <div
@@ -387,11 +399,12 @@ exports[`Spaces (B) it should render single values 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
   margin-top: 0.25rem;
   margin-right: 0.25rem;
   margin-bottom: 0.5rem;
   margin-left: 0.5rem;
-  min-width: 0;
 }
 
 <div
@@ -420,11 +433,12 @@ exports[`Spaces (B)it should render responsive values 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
   margin-top: 0.25rem;
   margin-right: 0.25rem;
   margin-bottom: 0.5rem;
   margin-left: 0.5rem;
-  min-width: 0;
 }
 
 @media screen and (min-width:25rem) {
@@ -462,8 +476,9 @@ exports[`ZIndex it should render responsive values 1`] = `
 }
 
 .emotion-0 {
-  z-index: 10;
+  box-sizing: border-box;
   min-width: 0;
+  z-index: 10;
 }
 
 @media screen and (min-width:25rem) {
@@ -498,8 +513,9 @@ exports[`ZIndex it should render single values 1`] = `
 }
 
 .emotion-0 {
-  z-index: 10;
+  box-sizing: border-box;
   min-width: 0;
+  z-index: 10;
 }
 
 <div
