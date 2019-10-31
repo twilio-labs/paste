@@ -17,6 +17,7 @@ exports[`Heading it should render an H1 at fontSize90 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
+  display: block;
   color: #282a2b;
   margin-bottom: 1.5rem;
   font-size: 2rem;
@@ -29,6 +30,7 @@ exports[`Heading it should render an H1 at fontSize90 1`] = `
 >
   <h1
     className="emotion-0"
+    display="block"
     fontSize="fontSize90"
     fontWeight="fontWeightSemibold"
   >
@@ -54,6 +56,7 @@ exports[`Heading it should render an H2 at fontSize70 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
+  display: block;
   color: #282a2b;
   margin-bottom: 1.25rem;
   font-size: 1.5rem;
@@ -66,6 +69,7 @@ exports[`Heading it should render an H2 at fontSize70 1`] = `
 >
   <h2
     className="emotion-0"
+    display="block"
     fontSize="fontSize70"
     fontWeight="fontWeightSemibold"
   >
@@ -91,6 +95,7 @@ exports[`Heading it should render an H3 at fontSize60 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
+  display: block;
   color: #282a2b;
   margin-bottom: 1rem;
   font-size: 1.25rem;
@@ -103,6 +108,7 @@ exports[`Heading it should render an H3 at fontSize60 1`] = `
 >
   <h3
     className="emotion-0"
+    display="block"
     fontSize="fontSize60"
     fontWeight="fontWeightSemibold"
   >
@@ -128,6 +134,7 @@ exports[`Heading it should render an H4 at fontSize40 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
+  display: block;
   color: #282a2b;
   margin-bottom: 0.75rem;
   font-size: 1rem;
@@ -140,6 +147,7 @@ exports[`Heading it should render an H4 at fontSize40 1`] = `
 >
   <h4
     className="emotion-0"
+    display="block"
     fontSize="fontSize40"
     fontWeight="fontWeightSemibold"
   >
@@ -165,6 +173,7 @@ exports[`Heading it should render an H5 at fontSize30 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
+  display: block;
   color: #282a2b;
   margin-bottom: 0.5rem;
   font-size: 0.875rem;
@@ -177,6 +186,7 @@ exports[`Heading it should render an H5 at fontSize30 1`] = `
 >
   <h5
     className="emotion-0"
+    display="block"
     fontSize="fontSize30"
     fontWeight="fontWeightSemibold"
   >
@@ -202,6 +212,7 @@ exports[`Heading it should render an H6 at fontSize20 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
+  display: block;
   color: #282a2b;
   margin-bottom: 0.5rem;
   font-size: 0.75rem;
@@ -214,6 +225,7 @@ exports[`Heading it should render an H6 at fontSize20 1`] = `
 >
   <h6
     className="emotion-0"
+    display="block"
     fontSize="fontSize20"
     fontWeight="fontWeightSemibold"
   >
@@ -239,6 +251,7 @@ exports[`Heading it should render an italic H2 at fontSize50 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
+  display: block;
   color: #282a2b;
   margin-bottom: 1.25rem;
   font-size: 1.5rem;
@@ -251,6 +264,7 @@ exports[`Heading it should render an italic H2 at fontSize50 1`] = `
 >
   <h2
     className="emotion-0"
+    display="block"
     fontSize="fontSize70"
     fontWeight="fontWeightSemibold"
   >

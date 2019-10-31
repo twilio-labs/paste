@@ -15,7 +15,6 @@ interface Heading {
   as: asTags;
   id?: never;
   className?: never;
-  children: NonNullable<React.ReactNode>;
   variant?: HeadingStyle;
 }
 
@@ -73,7 +72,7 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
 
 const Heading: React.FC<Heading> = ({as, children, variant}) => {
   return (
-    <Text as={as} textColor="colorText" {...getHeadingStyles(variant)}>
+    <Text as={as} display="block" textColor="colorText" {...getHeadingStyles(variant)}>
       {children}
     </Text>
   );
@@ -89,7 +88,6 @@ Heading.propTypes = {
     'headingStyle20',
     'headingStyle10',
   ]),
-  children: PropTypes.node.isRequired,
 };
 
 Heading.defaultProps = {
