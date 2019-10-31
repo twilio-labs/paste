@@ -49,7 +49,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
           solving our customers’ problems. It is open source and contributions are welcome.
         </P>
         <Box marginTop="space80" marginBottom="space80">
-          <Box display="inline" marginRight="space40">
+          <Box display="inline-block" marginRight="space40">
             <Button
               as="a"
               href="/getting-started/"
@@ -63,7 +63,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               Get Started
             </Button>
           </Box>
-          <Box display="inline" marginRight="space40">
+          <Box display="inline-block" marginRight="space40">
             <Button
               as="a"
               href="/components/"
@@ -156,11 +156,16 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               <Terminal size={24} />
             </IconCircle>
             <Heading as="h2" headingStyle="headingStyle20">
-              Component API
+              Code Sandbox
             </Heading>
             <P>
-              Each <SiteLink to="/components">Paste component</SiteLink> is thoroughly documented with a list of props
-              and descriptions of how they should be used.
+              We&rsquo;ve loaded a Code Sandbox with the latest components from Paste Core for you to get a feel for
+              working with Paste.
+            </P>
+            <P>
+              <Button as="a" href="https://codesandbox.io/s/paste-starter-kit-rj7yy" variant="secondary">
+                Code Sandbox
+              </Button>
             </P>
           </Box>
         </Grid>
