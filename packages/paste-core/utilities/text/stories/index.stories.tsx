@@ -31,6 +31,12 @@ storiesOf('Utilities|Text', module)
       CSS.TextDecorationProperty<CSS.TextDecorationLineProperty>
     >;
 
+    const overflowValue = text('overflow', '') as ResponsiveValue<CSS.OverflowProperty>;
+    const overflowXValue = text('overflowX', '') as ResponsiveValue<CSS.OverflowXProperty>;
+    const overflowYValue = text('overflowY', '') as ResponsiveValue<CSS.OverflowYProperty>;
+    const textOverflowValue = text('textOverflow', '') as ResponsiveValue<CSS.TextOverflowProperty>;
+    const whitespaceValue = text('whitespace', '') as ResponsiveValue<CSS.WhiteSpaceProperty>;
+
     const paddingValue = select('padding', spaceOptions, '') as keyof ThemeShape['space'];
     const paddingBottomValue = select('paddingBottom', spaceOptions, '') as keyof ThemeShape['space'];
     const paddingLeftValue = select('paddingLeft', spaceOptions, '') as keyof ThemeShape['space'];
@@ -56,6 +62,9 @@ storiesOf('Utilities|Text', module)
         marginLeft={marginLeftValue}
         marginRight={marginRightValue}
         marginTop={marginTopValue}
+        overflow={overflowValue}
+        overflowX={overflowXValue}
+        overflowY={overflowYValue}
         padding={paddingValue}
         paddingBottom={paddingBottomValue}
         paddingLeft={paddingLeftValue}
@@ -64,6 +73,8 @@ storiesOf('Utilities|Text', module)
         textAlign={textAlignValue}
         textColor={textColorValue}
         textDecoration={textDecorationValue}
+        textOverflow={textOverflowValue}
+        whiteSpace={whitespaceValue}
       >
         Some text
       </Text>
