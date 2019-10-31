@@ -92,6 +92,7 @@ workflows:
       - prettier:
           requires:
             - build
+      # applitools must come last
       - applitools:
           requires:
             - prettier
