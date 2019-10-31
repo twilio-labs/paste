@@ -92,9 +92,9 @@ workflows:
       - test:
           requires:
             - build
-      - applitools:
-          requires:
-            - build
       - prettier:
           requires:
             - build
+      - applitools:
+          requires:
+            - prettier
