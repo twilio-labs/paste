@@ -6,6 +6,7 @@ export const StyledAnchor = styled.a`
   color: ${themeGet('textColors.colorTextLink')};
   text-decoration: underline;
   outline: none;
+  font-size: 40px;
 
   &:hover {
     color: ${themeGet('textColors.colorTextLinkHover')};
