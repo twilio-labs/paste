@@ -1,11 +1,9 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import {Text} from '@twilio-paste/text';
 
 interface Paragraph {
   id?: never;
   className?: never;
-  children: NonNullable<React.ReactNode>;
 }
 
 const Paragraph: React.FC<Paragraph> = props => {
@@ -21,10 +19,6 @@ const Paragraph: React.FC<Paragraph> = props => {
       {props.children}
     </Text>
   );
-};
-
-Paragraph.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 Paragraph.displayName = 'Paragraph';
