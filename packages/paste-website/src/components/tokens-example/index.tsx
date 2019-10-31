@@ -30,7 +30,7 @@ export const TextBox: React.FC<TextBoxProp> = ({fontFamily, fontSize, fontWeight
     <Text
       as="p"
       fontFamily={fontFamily}
-      fontSize={fontSize || 'fontSize60'}
+      fontSize={fontSize || 'fontSize70'}
       fontWeight={fontWeight}
       lineHeight="lineHeight60"
     >
@@ -69,10 +69,10 @@ export const TextColorBox: React.FC<TextColorBoxProps> = ({color, textColor}) =>
         justifyContent: 'space-between',
       }}
     >
-      <Text as="span" fontSize="fontSize60" lineHeight="lineHeight60" textColor={textColor}>
+      <Text as="span" fontSize="fontSize70" lineHeight="lineHeight60" textColor={textColor}>
         <ScreenReaderOnly>Example text: </ScreenReaderOnly>Ag
       </Text>
-      <Text as="span" fontSize="fontSize40" lineHeight="lineHeight40" textColor={textColor}>
+      <Text as="span" fontSize="fontSize50" lineHeight="lineHeight40" textColor={textColor}>
         <ScreenReaderOnly>Accessibility rating: </ScreenReaderOnly>
         {getContrastRating(accessibility)}
       </Text>

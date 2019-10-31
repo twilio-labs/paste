@@ -15,7 +15,7 @@ export const SiteBody = styled.div`
   height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol';
-  font-size: ${themeGet('fontSizes.fontSize20')};
+  font-size: ${themeGet('fontSizes.fontSize30')};
   line-height: ${themeGet('space.space70')};
   overflow: hidden;
 

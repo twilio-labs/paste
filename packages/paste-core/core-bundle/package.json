@@ -34,6 +34,7 @@
     "@twilio-paste/button": "^0.3.1",
     "@twilio-paste/heading": "^0.4.1",
     "@twilio-paste/media-object": "^0.5.0",
+    "@twilio-paste/paragraph": "^0.0.2",
     "@twilio-paste/screen-reader-only": "^0.3.0",
     "@twilio-paste/spinner": "^0.2.0",
     "@twilio-paste/text": "^0.6.0",

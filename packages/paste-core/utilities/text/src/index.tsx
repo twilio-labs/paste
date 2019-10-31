@@ -33,7 +33,7 @@ const Text = styled.span<Text>(
 );
 
 Text.defaultProps = {
-  fontSize: 'fontSize20',
+  fontSize: 'fontSize30',
   lineHeight: 'lineHeight20',
   textColor: 'colorText',
 };

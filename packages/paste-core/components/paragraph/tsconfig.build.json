@@ -9,10 +9,7 @@
   ],
   "references": [
     {
-      "path": "../heading"
-    },
-    {
-      "path": "../paragraph"
+      "path": "../../utilities/text"
     }
   ]
 }

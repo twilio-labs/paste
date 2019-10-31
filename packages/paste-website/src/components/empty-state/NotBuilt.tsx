@@ -22,7 +22,7 @@ const NotBuilt: React.FC<NotBuiltProps> = ({type, name}) => {
       </Breadcrumb>
       <Text
         as="p"
-        fontSize="fontSize80"
+        fontSize="fontSize90"
         lineHeight="lineHeight80"
         fontWeight="fontWeightSemibold"
         color="colorText"

@@ -13,7 +13,7 @@ export const P: React.FC<PProps> = ({children, variant}) => {
       marginTop="space50"
       marginBottom="space50"
       lineHeight={variant === 'lead' ? 'lineHeight30' : 'lineHeight20'}
-      fontSize={variant === 'lead' ? 'fontSize30' : undefined}
+      fontSize={variant === 'lead' ? 'fontSize40' : undefined}
     >
       {children}
     </Text>

@@ -20,7 +20,7 @@ storiesOf('Utilities|Text', module)
     const displayValue = text('display', '');
 
     const fontFamilyValue = select('fontFamily', fontFamilyOptions, '') as keyof ThemeShape['fonts'];
-    const fontSizeValue = select('fontSize', fontSizeOptions, 'fontSize20') as keyof ThemeShape['fontSizes'];
+    const fontSizeValue = select('fontSize', fontSizeOptions, 'fontSize30') as keyof ThemeShape['fontSizes'];
     const fontStyleValue = text('fontStyle', '') as ResponsiveValue<CSS.FontStyleProperty>;
     const fontWeightValue = select('fontWeight', fontWeightOptions, '') as keyof ThemeShape['fontWeights'];
     const letterSpacingValue = text('letterSpacing', '');

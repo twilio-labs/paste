@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {withKnobs, text, select} from '@storybook/addon-knobs';
-import {Heading, HeadingStyle, asTags} from '../src';
+import {asTags, Heading, HeadingStyle} from '../src';
 
 const headingStyleOptions = [
   'headingStyle10',
@@ -12,13 +12,13 @@ const headingStyleOptions = [
   'headingStyle60',
 ];
 
-storiesOf('Components|Heading', module)
+storiesOf('Components|Typography', module)
   .addDecorator(withKnobs)
-  .add('Default', () => {
+  .add('Heading', () => {
     const asOptions = text('as', 'h2') as asTags;
-    const headingStyleValue = select('headingStyle', headingStyleOptions, 'headingStyle60') as HeadingStyle;
+    const headingStyleValue = select('variant', headingStyleOptions, 'headingStyle50') as HeadingStyle;
     return (
-      <Heading as={asOptions} headingStyle={headingStyleValue}>
+      <Heading as={asOptions} variant={headingStyleValue}>
         I am a Very Large Heading
       </Heading>
     );

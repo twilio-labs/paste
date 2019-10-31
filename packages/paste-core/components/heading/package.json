@@ -3,7 +3,7 @@
   "version": "0.4.1",
   "category": "typography",
   "status": "alpha",
-  "description": "",
+  "description": "Twilio's Heading component",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
@@ -27,11 +27,9 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@emotion/core": "^10.0.10",
-    "@emotion/styled": "^10.0.10",
     "@twilio-paste/text": "^0.6.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6"
   },
   "devDependencies": {
     "@twilio-paste/text": "^0.6.0",
