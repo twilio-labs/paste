@@ -30,7 +30,6 @@ ${componentName}.defaultProps = {
 }
 
 ${componentName}.displayName = '${componentName}';
-
 export {${componentName}};
 `;
 

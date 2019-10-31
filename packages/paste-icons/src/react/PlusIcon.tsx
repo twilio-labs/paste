@@ -19,7 +19,7 @@ const PlusIcon: React.FC<PlusIconProps> = ({title, decorative, ...props}) => (
           <path
             fill="currentColor"
             fillRule="evenodd"
-            d="M12 3.5a.5.5 0 01.5.5v7.5H20a.5.5 0 01.492.41l.008.09a.5.5 0 01-.5.5h-7.5V20a.5.5 0 01-.41.492L12 20.5a.5.5 0 01-.5-.5v-7.5H4a.5.5 0 01-.492-.41L3.5 12a.5.5 0 01.5-.5h7.5V4a.5.5 0 01.41-.492z"
+            d="M12 3.348a1 1 0 011 1V11h6.652a1 1 0 01.993.883l.007.117a1 1 0 01-1 1H13v6.652a1 1 0 01-.883.993l-.117.007a1 1 0 01-1-1V13H4.348a1 1 0 01-.993-.883L3.348 12a1 1 0 011-1H11V4.348a1 1 0 01.883-.993z"
           />
         </svg>
       )}
@@ -33,5 +33,4 @@ PlusIcon.defaultProps = {
 };
 
 PlusIcon.displayName = 'PlusIcon';
-
 export {PlusIcon};
