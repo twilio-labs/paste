@@ -15,7 +15,7 @@ Build things 🎉
 
 ## Contributing
 
-[Please check the contribution docs](https://github.com/twilio-labs/paste/blob/master/CONTRIBUTING.md)
+Before contributing, please make sure that you read our [Contributing Guidelines](https://github.com/twilio-labs/paste/blob/master/CONTRIBUTING.md) and agree with our [Code of Conduct.](https://github.com/twilio-labs/.github/blob/master/CODE_OF_CONDUCT.md)
 
 ## Command List
 
