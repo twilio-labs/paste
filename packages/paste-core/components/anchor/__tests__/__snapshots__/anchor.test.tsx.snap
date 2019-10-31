@@ -16,21 +16,21 @@ exports[`Anchor it should render an anchor 1`] = `
 
 .emotion-0 {
   color: #0075c3;
-  -webkit-text-decoration: none;
-  text-decoration: none;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
   outline: none;
 }
 
 .emotion-0:hover {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-0:focus,
 .emotion-0:active {
   box-shadow: 0 0 0 4px rgba(0,117,195,0.5);
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 <div
@@ -61,21 +61,21 @@ exports[`Anchor it should render an external anchor 1`] = `
 
 .emotion-0 {
   color: #0075c3;
-  -webkit-text-decoration: none;
-  text-decoration: none;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
   outline: none;
 }
 
 .emotion-0:hover {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-0:focus,
 .emotion-0:active {
   box-shadow: 0 0 0 4px rgba(0,117,195,0.5);
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 <div
@@ -108,21 +108,21 @@ exports[`Anchor it should render an external anchor with overwritten target and 
 
 .emotion-0 {
   color: #0075c3;
-  -webkit-text-decoration: none;
-  text-decoration: none;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
   outline: none;
 }
 
 .emotion-0:hover {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-0:focus,
 .emotion-0:active {
   box-shadow: 0 0 0 4px rgba(0,117,195,0.5);
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 <div

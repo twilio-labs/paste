@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.0.0...@twilio-paste/website@1.1.0) (2019-10-31)
+
+
+### Bug Fixes
+
+* change the version number the website displays ([#157](https://github.com/twilio-labs/paste/issues/157)) ([553be6d](https://github.com/twilio-labs/paste/commit/553be6d8a0412e9b0b2f73e017b05c83c21b7361))
+* **anchor:** change hover styles ([#155](https://github.com/twilio-labs/paste/issues/155)) ([5172b0b](https://github.com/twilio-labs/paste/commit/5172b0bb761e6c8334aac7fd94e615cac705d242))
+* **anchor:** export types and add tests ([#153](https://github.com/twilio-labs/paste/issues/153)) ([4086ee2](https://github.com/twilio-labs/paste/commit/4086ee28da829820ca8f791e4bddf2768bd8b2f9))
+
+
+### Features
+
+* update types package to styled-system v5 format ([#154](https://github.com/twilio-labs/paste/issues/154)) ([117c41e](https://github.com/twilio-labs/paste/commit/117c41e463b11440582e740c28cc067c06d16e67))
+
+
+
+
+
 # [1.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@0.2.0...@twilio-paste/website@1.0.0) (2019-10-29)
 
 
