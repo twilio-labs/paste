@@ -29,9 +29,6 @@ jobs:
           name: Run package builds
           command: yarn build
       - run:
-          name: Run website build
-          command: yarn build:website
-      - run:
           name: Run type checker
           command: yarn type-check
       - run:
@@ -64,11 +61,8 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      - run: yarn
-      - run: yarn bootstrap
-      - run:
-          name: Run package builds
-          command: yarn build
+      - attach_workspace:
+          at: ~/
       - run:
           name: Run applitools eyes-storybook
           command: yarn test:vrt
@@ -95,7 +89,9 @@ workflows:
       - test:
           requires:
             - build
-      - applitools
       - prettier:
           requires:
             - build
+      - applitools:
+          requires:
+            - prettier
