@@ -3,13 +3,13 @@ import {Text} from '@twilio-paste/text';
 import {StyledCallout} from './styles';
 import {CalloutProps, CalloutTitleProps, CalloutTextProps} from './types';
 
-const CalloutTitle: React.FC<CalloutTitleProps> = ({as, children}) => (
-  <Text as={as} marginBottom="space40">
+const CalloutTitle: React.FC<CalloutTitleProps> = ({as = 'h3', children}) => (
+  <Text as={as} display="block" fontWeight="fontWeightMedium" marginBottom="space40">
     {children}
   </Text>
 );
 
-const CalloutText: React.FC<CalloutTextProps> = ({as, children, marginTop, marginBottom}) => (
+const CalloutText: React.FC<CalloutTextProps> = ({as = 'p', children, marginTop, marginBottom}) => (
   <Text as={as} marginTop={marginTop} marginBottom={marginBottom}>
     {children}
   </Text>

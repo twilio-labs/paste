@@ -1,9 +1,26 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {withKnobs, text, select} from '@storybook/addon-knobs';
-import {DefaultTheme, ThemeShape} from '@twilio-paste/theme-tokens';
-import {ResponsiveValue} from 'styled-system';
-import * as CSS from 'csstype';
+import {DefaultTheme} from '@twilio-paste/theme-tokens';
+import {
+  Display,
+  FontFamily,
+  FontSize,
+  FontStyle,
+  FontWeight,
+  LetterSpacing,
+  LineHeight,
+  TextAlign,
+  TextColor,
+  TextDecoration,
+  Overflow,
+  OverflowX,
+  OverflowY,
+  TextOverflow,
+  WhiteSpace,
+  Padding,
+  Margin,
+} from '@twilio-paste/types';
 import {Text} from '../src';
 
 const fontSizeOptions = Object.keys(DefaultTheme.fontSizes);
@@ -17,30 +34,34 @@ storiesOf('Utilities|Text', module)
   .addDecorator(withKnobs)
   .add('Default', () => {
     const asValue = text('as', 'p') as keyof JSX.IntrinsicElements;
-    const displayValue = text('display', '');
+    const displayValue = text('display', '') as Display;
 
-    const fontFamilyValue = select('fontFamily', fontFamilyOptions, '') as keyof ThemeShape['fonts'];
-    const fontSizeValue = select('fontSize', fontSizeOptions, 'fontSize30') as keyof ThemeShape['fontSizes'];
-    const fontStyleValue = text('fontStyle', '') as ResponsiveValue<CSS.FontStyleProperty>;
-    const fontWeightValue = select('fontWeight', fontWeightOptions, '') as keyof ThemeShape['fontWeights'];
-    const letterSpacingValue = text('letterSpacing', '');
-    const lineHeightValue = select('lineHeight', lineHeightOptions, 'lineHeight20') as keyof ThemeShape['lineHeights'];
-    const textAlignValue = text('textAlign', '') as ResponsiveValue<CSS.TextAlignProperty>;
-    const textColorValue = select('textColor', textColorOptions, 'colorText') as keyof ThemeShape['textColors'];
-    const textDecorationValue = text('textDecoration', '') as ResponsiveValue<
-      CSS.TextDecorationProperty<CSS.TextDecorationLineProperty>
-    >;
+    const fontFamilyValue = select('fontFamily', fontFamilyOptions, '') as FontFamily;
+    const fontSizeValue = select('fontSize', fontSizeOptions, 'fontSize30') as FontSize;
+    const fontStyleValue = text('fontStyle', '') as FontStyle;
+    const fontWeightValue = select('fontWeight', fontWeightOptions, '') as FontWeight;
+    const letterSpacingValue = text('letterSpacing', '') as LetterSpacing;
+    const lineHeightValue = select('lineHeight', lineHeightOptions, 'lineHeight20') as LineHeight;
+    const textAlignValue = text('textAlign', '') as TextAlign;
+    const textColorValue = select('textColor', textColorOptions, 'colorText') as TextColor;
+    const textDecorationValue = text('textDecoration', '') as TextDecoration;
 
-    const paddingValue = select('padding', spaceOptions, '') as keyof ThemeShape['space'];
-    const paddingBottomValue = select('paddingBottom', spaceOptions, '') as keyof ThemeShape['space'];
-    const paddingLeftValue = select('paddingLeft', spaceOptions, '') as keyof ThemeShape['space'];
-    const paddingRightValue = select('paddingRight', spaceOptions, '') as keyof ThemeShape['space'];
-    const paddingTopValue = select('paddingTop', spaceOptions, '') as keyof ThemeShape['space'];
-    const marginValue = select('margin', spaceOptions, '') as keyof ThemeShape['space'];
-    const marginBottomValue = select('marginBottom', spaceOptions, '') as keyof ThemeShape['space'];
-    const marginLeftValue = select('marginLeft', spaceOptions, '') as keyof ThemeShape['space'];
-    const marginRightValue = select('marginRight', spaceOptions, '') as keyof ThemeShape['space'];
-    const marginTopValue = select('marginTop', spaceOptions, '') as keyof ThemeShape['space'];
+    const overflowValue = text('overflow', '') as Overflow;
+    const overflowXValue = text('overflowX', '') as OverflowX;
+    const overflowYValue = text('overflowY', '') as OverflowY;
+    const textOverflowValue = text('textOverflow', '') as TextOverflow;
+    const whitespaceValue = text('whitespace', '') as WhiteSpace;
+
+    const paddingValue = select('padding', spaceOptions, '') as Padding;
+    const paddingBottomValue = select('paddingBottom', spaceOptions, '') as Padding;
+    const paddingLeftValue = select('paddingLeft', spaceOptions, '') as Padding;
+    const paddingRightValue = select('paddingRight', spaceOptions, '') as Padding;
+    const paddingTopValue = select('paddingTop', spaceOptions, '') as Padding;
+    const marginValue = select('margin', spaceOptions, '') as Margin;
+    const marginBottomValue = select('marginBottom', spaceOptions, '') as Margin;
+    const marginLeftValue = select('marginLeft', spaceOptions, '') as Margin;
+    const marginRightValue = select('marginRight', spaceOptions, '') as Margin;
+    const marginTopValue = select('marginTop', spaceOptions, '') as Margin;
     return (
       <Text
         as={asValue}
@@ -56,6 +77,9 @@ storiesOf('Utilities|Text', module)
         marginLeft={marginLeftValue}
         marginRight={marginRightValue}
         marginTop={marginTopValue}
+        overflow={overflowValue}
+        overflowX={overflowXValue}
+        overflowY={overflowYValue}
         padding={paddingValue}
         paddingBottom={paddingBottomValue}
         paddingLeft={paddingLeftValue}
@@ -64,6 +88,8 @@ storiesOf('Utilities|Text', module)
         textAlign={textAlignValue}
         textColor={textColorValue}
         textDecoration={textDecorationValue}
+        textOverflow={textOverflowValue}
+        whiteSpace={whitespaceValue}
       >
         Some text
       </Text>
