@@ -71,9 +71,9 @@ export interface HeadingProps {
   headingStyle?: HeadingStyle;
 }
 
-const Heading: React.FC<HeadingProps> = ({as = 'h1', ...props}) => {
+const Heading: React.FC<HeadingProps> = props => {
   return (
-    <Text {...props} as={as} textColor="colorText" {...getHeadingStyles(props.headingStyle)}>
+    <Text {...props} textColor="colorText" {...getHeadingStyles(props.headingStyle)}>
       {props.children}
     </Text>
   );
