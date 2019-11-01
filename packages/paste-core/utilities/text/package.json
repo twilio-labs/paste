@@ -35,7 +35,6 @@
   },
   "devDependencies": {
     "@twilio-paste/types": "^1.1.0",
-    "csstype": "^2.6.5",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.0.1",
