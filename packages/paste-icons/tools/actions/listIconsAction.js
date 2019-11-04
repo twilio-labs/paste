@@ -20,7 +20,7 @@ async function listIconsAction() {
   });
 
   // Write the cache file that rollup uses to generate bundles
-  writeToFile(path.join(__dirname, './../.cache/rollupIconList.js'), rollupListTemplate(destinationFiles), 'utf8', {
+  writeToFile(path.join(__dirname, './../../rollup.icon-list.js'), rollupListTemplate(destinationFiles), 'utf8', {
     errorMessage: `Couldn't update 'rollupIconList' cache file!`,
   });
 }

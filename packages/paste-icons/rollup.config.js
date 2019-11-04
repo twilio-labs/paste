@@ -4,7 +4,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import {terser} from 'rollup-plugin-terser';
 import pkg from './package.json';
-import {rollupIconList} from './tools/.cache/rollupIconList';
+import {rollupIconList} from './rollup.icon-list';
 
 export default {
   input: rollupIconList,
