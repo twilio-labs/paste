@@ -3,7 +3,7 @@ import {keyframes, css} from '@emotion/core';
 import styled from '@emotion/styled';
 import {LoadingIcon, LoadingIconProps} from '@twilio-paste/icons/esm/LoadingIcon';
 import {IconSize} from '@twilio-paste/types';
-import {size} from 'styled-system';
+import {size as sizeFn} from 'styled-system';
 
 const rotate = keyframes`
   0% {
@@ -19,7 +19,7 @@ interface SpinnerWrapperProps {
 }
 
 const SpinningWrapper = styled.div<SpinnerWrapperProps>(
-  size,
+  sizeFn,
   css({
     display: 'inline-block',
     animation: `${rotate} 2s linear infinite`,
