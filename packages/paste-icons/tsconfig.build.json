@@ -1,9 +1,15 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": ".",
+    "outDir": "./dist",
     "rootDir": "./src"
   },
-  "include": ["src/**/*"],
-  "references": []
+  "include": [
+    "src/**/*"
+  ],
+  "references": [
+    {
+      "path": "../paste-types"
+    }
+  ]
 }

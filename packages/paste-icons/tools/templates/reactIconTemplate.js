@@ -1,7 +1,7 @@
 // Note on a11y: https://css-tricks.com/can-make-icon-system-accessible/
-const {pascalCaseWordSplitter} = require('./utils');
+const {pascalCaseWordSplitter} = require('../utils');
 
-const iconTemplate = ({componentName, svg}) => `
+const reactIconTemplate = ({componentName, svg}) => `
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
@@ -34,5 +34,5 @@ export {${componentName}};
 `;
 
 module.exports = {
-  iconTemplate,
+  reactIconTemplate,
 };

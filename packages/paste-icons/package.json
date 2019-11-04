@@ -5,17 +5,21 @@
   "author": "Twilio Inc.",
   "license": "MIT",
   "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
-    "react"
+    "cjs",
+    "esm"
   ],
   "scripts": {
     "list-icons": "node ./tools/cli.js list-icons",
     "convert-new": "node ./tools/cli.js convert-new",
     "build": "yarn clean && yarn compile",
     "build:dev": "yarn build",
-    "clean": "rm -rf ./react && rm -rf tsconfig.build.tsbuildinfo",
-    "compile": "tsc -b ./tsconfig.build.json",
-    "watch": "tsc -b -w ./tsconfig.build.json",
+    "clean": "rm -rf ./esm && rm -rf ./cjs && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
+    "compile": "rollup -c --environment NODE_ENV:production",
+    "compile:dev": "rollup -c --environment NODE_ENV:development",
     "prepublishOnly": "yarn build",
     "type-check": "tsc --noEmit"
   },
@@ -39,6 +43,12 @@
     "lodash.difference": "^4.5.0",
     "lodash.kebabcase": "^4.1.1",
     "lodash.startcase": " ^4.4.0",
+    "rollup": "^1.16.2",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.0.1",
+    "rollup-plugin-node-resolve": "^5.1.0",
+    "rollup-plugin-terser": "^5.0.0",
+    "rollup-plugin-typescript2": "^0.21.2",
     "typescript": "^3.5.2"
   }
 }

@@ -6,8 +6,8 @@ const mapIconList = (list, fn) =>
     .join('\n');
 
 // Generates the icon list component
-const listTemplate = iconList => {
-  const importIconList = mapIconList(iconList, iconName => `import {${iconName}} from './src/react/${iconName}';`);
+const storybookListTemplate = iconList => {
+  const importIconList = mapIconList(iconList, iconName => `import {${iconName}} from './src/${iconName}';`);
   const renderedIconList = mapIconList(
     iconList,
     iconName => `<StoryIcon><${iconName} {...props} /><Text as="p">${iconName}</Text></StoryIcon>`
@@ -38,5 +38,5 @@ export {IconList};
 };
 
 module.exports = {
-  listTemplate,
+  storybookListTemplate,
 };

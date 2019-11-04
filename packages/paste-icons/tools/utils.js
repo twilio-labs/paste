@@ -1,21 +1,23 @@
 const {join} = require('path');
 const fs = require('fs');
 const startcase = require('lodash.startcase');
-const kebabcase = require('lodash.kebabcase');
+const {SVG_PATH, REACT_PATH} = require('./constants');
 
 // Ramda-like general purpose functional pipe method
 const pipe = (...fns) => x => fns.reduce((y, f) => f(y), x);
 
 // Split ComponentName (PascalCase) to multi word regex
+// Used for icon title text for a11y
 const pascalCaseWordSplitter = str => str.replace(/([A-Z]+)/g, ' $1').trim();
 
-const addSvgExtension = str => `${str}.svg`;
 const addTsxExtension = str => `${str}.tsx`;
 const addIconSuffix = str => `${str}Icon`;
 const removeIconSuffix = str => str.replace('Icon', '');
 const removeSvgExtension = str => str.replace('.svg', '');
 const removeTsxExtension = str => str.replace('.tsx', '');
 const cleanFileName = str => startcase(str).replace(/ /g, '');
+const removeDashes = str => str.replace(/[-_]/g, '');
+const lowerCase = str => str.toLowerCase();
 
 const getOutputComponentName = pipe(
   removeSvgExtension,
@@ -29,15 +31,29 @@ const getOutputFileName = pipe(
   addTsxExtension
 );
 
-const getInputFileName = pipe(
+const normalizeFileName = pipe(
+  removeSvgExtension,
   removeTsxExtension,
   removeIconSuffix,
-  kebabcase,
-  addSvgExtension
+  removeDashes,
+  cleanFileName,
+  lowerCase
 );
 
-const SVG_PATH = join(__dirname, '../src/svg');
-const REACT_PATH = join(__dirname, '../src/react');
+const getRollupFileName = pipe(
+  str => `src/${str}`,
+  addTsxExtension
+);
+
+// Helper to handle promise/async errors
+function maybeHandleError(msg, error) {
+  // eslint-disable-next-line eqeqeq
+  if (error != null) {
+    // eslint-disable-next-line no-console
+    console.error(msg);
+    throw error;
+  }
+}
 
 function getInputPath(fileName) {
   return join(SVG_PATH, fileName);
@@ -60,16 +76,16 @@ const readdirAsync = path =>
   });
 
 module.exports = {
-  getInputFileName,
   getOutputComponentName,
   pascalCaseWordSplitter,
   cleanFileName,
-
-  SVG_PATH,
-  REACT_PATH,
+  normalizeFileName,
+  removeTsxExtension,
 
   getInputPath,
   getReactOutputPath,
+  getRollupFileName,
 
   readdirAsync,
+  maybeHandleError,
 };
