@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {keyframes, css} from '@emotion/core';
 import styled from '@emotion/styled';
-import {LoadingIcon, LoadingIconProps} from '@twilio-paste/icons/react/LoadingIcon';
+import {LoadingIcon, LoadingIconProps} from '@twilio-paste/icons/esm/LoadingIcon';
 import {IconSize} from '@twilio-paste/types';
 import {size} from 'styled-system';
 
@@ -34,11 +34,16 @@ interface SpinnerProps extends LoadingIconProps {
   size?: IconSize;
 }
 
-const Spinner: React.FC<SpinnerProps> = ({size = 'sizeIcon20', decorative = false, ...props}) => (
+const Spinner: React.FC<SpinnerProps> = ({size, ...props}) => (
   <SpinningWrapper size={size}>
-    <LoadingIcon size={size} decorative={decorative} {...props} />
+    <LoadingIcon size={size} {...props} />
   </SpinningWrapper>
 );
+
+Spinner.defaultProps = {
+  size: 'sizeIcon20',
+  decorative: false,
+};
 
 Spinner.displayName = 'Spinner';
 export {Spinner};
