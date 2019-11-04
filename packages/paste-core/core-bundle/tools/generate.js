@@ -1,4 +1,5 @@
 const {join} = require('path');
+const {sortBy} = require('lodash');
 const {getRepoPackages} = require('../../../../tools/utils/getRepoPackages');
 const {writeToFile} = require('../../../../tools/utils/writeToFile');
 
@@ -44,9 +45,11 @@ function getAllCorePackages(packageList) {
 
   // Filter to all production ready core packages
   const filteredPackageList = getAllCorePackages(packageList);
+  // Sort the list so we don't get inconsistent ordering each rebuild
+  const sortedPackageList = sortBy(filteredPackageList, ['name']);
 
   // Write into core's index file
-  const indexOutput = generateIndexFromPackageList(filteredPackageList);
+  const indexOutput = generateIndexFromPackageList(sortedPackageList);
   writeToFile(CORE_BUNDLE_INDEX_PATH, indexOutput, {
     successMessage: `[@twilio-paste/core] Exports have been successfully updated within: ${CORE_BUNDLE_INDEX_PATH}`,
   });
@@ -54,7 +57,7 @@ function getAllCorePackages(packageList) {
   // Update package dependencies
   // eslint-disable-next-line global-require, import/no-dynamic-require
   const packageJson = require(CORE_BUNDLE_PACKAGE_PATH);
-  const newPackageJson = {...packageJson, dependencies: generateDependenciesFromPackageList(filteredPackageList)};
+  const newPackageJson = {...packageJson, dependencies: generateDependenciesFromPackageList(sortedPackageList)};
   writeToFile(CORE_BUNDLE_PACKAGE_PATH, newPackageJson, {
     formatJson: true,
     successMessage: `[@twilio-paste/core] Successfully updated dependencies.`,
