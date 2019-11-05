@@ -8,7 +8,7 @@ export type FontFamily = ResponsiveValue<keyof ThemeShape['fonts']>;
 export type FontSize = ResponsiveValue<keyof ThemeShape['fontSizes']>;
 export type FontWeight = ResponsiveValue<keyof ThemeShape['fontWeights']>;
 export type LineHeight = ResponsiveValue<keyof ThemeShape['lineHeights']>;
-export type TextColor = ResponsiveValue<keyof ThemeShape['textColors']>;
+export type TextColor = ResponsiveValue<keyof ThemeShape['textColors'] | 'currentColor'>;
 
 // CSS native
 export type LetterSpacing = ResponsiveValue<CSS.LetterSpacingProperty<TLengthStyledSystem>>;

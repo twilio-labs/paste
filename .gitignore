@@ -72,7 +72,8 @@ public
 **/lib/*
 **/dist/*
 packages/**/docs
-**/paste-icons/react/*
+**/paste-icons/cjs/*
+**/paste-icons/esm/*
 *.tsbuildinfo
 package-lock.json
 tools/.cache/packages.json

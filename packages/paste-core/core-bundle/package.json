@@ -51,6 +51,7 @@
     "styled-system": "^5.1.2"
   },
   "devDependencies": {
+    "lodash": "^4.17.15",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.0.1",

@@ -10,6 +10,9 @@
   "references": [
     {
       "path": "../../../paste-icons"
+    },
+    {
+      "path": "../../../paste-types"
     }
   ]
 }

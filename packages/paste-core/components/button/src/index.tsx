@@ -89,7 +89,7 @@ const Button: React.FC<ButtonProps> = props => {
       <ButtonChildren buttonState={buttonState}>{props.children}</ButtonChildren>
       {showLoading ? (
         <SpinnerWrapper as="span">
-          <Spinner size={20} title=". Loading, please wait." />
+          <Spinner title=". Loading, please wait." />
         </SpinnerWrapper>
       ) : null}
     </ButtonWrapper>

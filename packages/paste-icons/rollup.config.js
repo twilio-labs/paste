@@ -4,16 +4,17 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import {terser} from 'rollup-plugin-terser';
 import pkg from './package.json';
+import {rollupIconList} from './rollup.icon-list';
 
 export default {
-  input: pkg['main:dev'],
+  input: rollupIconList,
   output: [
     {
-      file: pkg.main,
+      dir: 'cjs',
       format: 'cjs',
     },
     {
-      file: pkg.module,
+      dir: 'esm',
       format: 'esm',
     },
   ],

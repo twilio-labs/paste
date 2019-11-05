@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
-    <title>chart-view</title>
-    <desc>Created with Sketch.</desc>
-    <g id="chart-view" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M14,4 L15,4 L15,16 L11,16 L11,4 L14,4 Z M14,15 L14,5 L12,5 L12,15 L14,15 Z M7,0 L10,0 L10,16 L6,16 L6,0 L7,0 Z M9,15 L9,1 L7,1 L7,15 L9,15 Z M2,9 L5,9 L5,16 L1,16 L1,9 L2,9 Z M4,15 L4,10 L2,10 L2,15 L4,15 Z" id="Combined-Shape" fill="#666666"></path>
-    </g>
-</svg>

@@ -16,6 +16,7 @@ import {
 } from '@twilio-paste/design-tokens/dist/themes/sendgrid/tokens.es6';
 
 const breakpoints = [sizings.size40, sizings.size100, sizings.size120];
+
 export const SendGridTheme = {
   shadows: boxShadows,
   backgroundColors,
@@ -35,6 +36,11 @@ export const SendGridTheme = {
   maxHeights: sizings,
   minHeights: sizings,
   sizes: sizings,
+  iconSizes: {
+    sizeIcon10: sizings.sizeIcon10,
+    sizeIcon20: sizings.sizeIcon20,
+    sizeIcon30: sizings.sizeIcon30,
+  },
   space: spacings,
   textColors,
   zIndices,
