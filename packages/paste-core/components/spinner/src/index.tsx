@@ -34,9 +34,9 @@ interface SpinnerProps extends LoadingIconProps {
   size?: IconSize;
 }
 
-const Spinner: React.FC<SpinnerProps> = ({size, ...props}) => (
+const Spinner: React.FC<SpinnerProps> = ({as, size, iconColor, decorative}) => (
   <SpinningWrapper size={size}>
-    <LoadingIcon size={size} {...props} />
+    <LoadingIcon as={as} size={size} iconColor={iconColor} decorative={decorative} />
   </SpinningWrapper>
 );
 
