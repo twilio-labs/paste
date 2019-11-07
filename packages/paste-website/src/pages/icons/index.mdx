@@ -4,12 +4,14 @@ description: Our icon system and how it works.
 ---
 
 import {graphql} from 'gatsby';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
-import {Grid} from '../../components/grid';
 import {Link} from 'gatsby';
+import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {LoadingIcon} from '@twilio-paste/icons/esm/LoadingIcon';
+import Changelog from '@twilio-paste/icons/CHANGELOG.md';
+import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {Grid} from '../../components/grid';
 
 export const pageQuery = graphql`
   {
@@ -73,10 +75,10 @@ in different ways and visually impaired users may not see the icon. Here are som
 
 ### Examples
 
-<LivePreview scope={{Button, Box}} language="jsx">
+<LivePreview scope={{PlusIcon, LoadingIcon}} language="jsx">
   {`<div>
   <PlusIcon title="Add to cart" decorative={false} />
-  <LoadingIcon decorative={true} size="sizeIcon30" color="colorText" />
+  <LoadingIcon decorative={true} size="sizeIcon30" iconColor="colorTextError" />
 </div>`}
 </LivePreview>
 
