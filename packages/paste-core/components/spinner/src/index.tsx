@@ -42,7 +42,6 @@ const Spinner: React.FC<SpinnerProps> = ({as, size, iconColor, decorative}) => (
 
 Spinner.defaultProps = {
   size: 'sizeIcon20',
-  decorative: false,
 };
 
 Spinner.displayName = 'Spinner';
