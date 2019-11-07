@@ -21,6 +21,7 @@ const sizeSmall = (props: ButtonWrapperProps): SerializedStyles => css`
   padding: ${themeGet('space.space10')(props)} ${themeGet('space.space30')(props)};
   border-radius: ${themeGet('radii.borderRadius10')(props)};
   font-size: ${themeGet('fontSizes.fontSize30')(props)};
+  font-weight: ${themeGet('fontWeights.fontWeightSemibold')(props)};
   line-height: 24px;
 `;
 const sizeDefault = (props: ButtonWrapperProps): SerializedStyles => css`
