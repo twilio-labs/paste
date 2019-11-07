@@ -30,7 +30,7 @@ storiesOf('Components|Spinner', module)
         iconColor={['colorText', 'colorTextError']}
         size={['sizeIcon10', 'sizeIcon20', 'sizeIcon30', 'sizeIcon40']}
         title={text('title', 'Now loading')}
-        decorative={decorativeValue}
+        decorative={false}
       />
     );
   });
