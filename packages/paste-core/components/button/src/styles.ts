@@ -9,11 +9,13 @@ import {ButtonWrapperProps, ButtonChildrenProps} from './types';
  * Sizes
  */
 const sizeReset = css`
+  font-size: 100%;
   padding: 0;
 `;
 const sizeIcon = (props: ButtonWrapperProps): SerializedStyles => css`
   padding: ${themeGet('space.space30')(props)};
   border-radius: ${themeGet('radii.borderRadius20')(props)};
+  font-size: 100%;
   /* To fix abnormal button padding-bottom */
   line-height: unset;
 `;
@@ -22,58 +24,61 @@ const sizeSmall = (props: ButtonWrapperProps): SerializedStyles => css`
   border-radius: ${themeGet('radii.borderRadius10')(props)};
   font-size: ${themeGet('fontSizes.fontSize30')(props)};
   font-weight: ${themeGet('fontWeights.fontWeightSemibold')(props)};
-  line-height: 24px;
+  line-height: ${themeGet('lineHeights.lineHeight30')(props)};
 `;
 const sizeDefault = (props: ButtonWrapperProps): SerializedStyles => css`
   padding: ${themeGet('space.space30')(props)} ${themeGet('space.space60')(props)};
   border-radius: ${themeGet('radii.borderRadius20')(props)};
   font-size: ${themeGet('fontSizes.fontSize30')(props)};
   font-weight: ${themeGet('fontWeights.fontWeightSemibold')(props)};
-  line-height: 24px;
+  line-height: ${themeGet('lineHeights.lineHeight30')(props)};
 `;
 
 /*
  * Base
  */
-const baseButtonWrapper = css`
+const baseButtonWrapper = (props: ButtonWrapperProps): SerializedStyles => css`
   /* Hide default browser styles */
   appearance: none;
   border: none;
   display: inline-block;
   outline: none;
   background: none;
-  font-size: 100%;
   transition: background-color 100ms ease-in, border-color 100ms ease-in;
+  font-family: ${themeGet('fonts.fontFamilyText')(props)};
 
   /* Remove extra black dotted border FF adds */
   &::-moz-focus-inner {
     border: none;
   }
 `;
-const baseEnabled = css([
-  baseButtonWrapper,
-  css`
-    text-decoration: none;
-    cursor: pointer;
+const baseEnabled = (props: ButtonWrapperProps): SerializedStyles =>
+  css([
+    baseButtonWrapper(props),
+    css`
+      text-decoration: none;
+      cursor: pointer;
 
-    &:focus,
-    &:active {
-      box-shadow: 0 0 0 4px rgba(0, 117, 195, 0.5);
-    }
-  `,
-]);
-const baseLoading = css([
-  baseButtonWrapper,
-  css`
-    cursor: wait;
-  `,
-]);
-const baseDisabled = css([
-  baseButtonWrapper,
-  css`
-    cursor: not-allowed;
-  `,
-]);
+      &:focus,
+      &:active {
+        box-shadow: 0 0 0 4px rgba(0, 117, 195, 0.5);
+      }
+    `,
+  ]);
+const baseLoading = (props: ButtonWrapperProps): SerializedStyles =>
+  css([
+    baseButtonWrapper(props),
+    css`
+      cursor: wait;
+    `,
+  ]);
+const baseDisabled = (props: ButtonWrapperProps): SerializedStyles =>
+  css([
+    baseButtonWrapper(props),
+    css`
+      cursor: not-allowed;
+    `,
+  ]);
 
 /*
  * Variants
@@ -87,7 +92,7 @@ const variantPrimaryBase = (props: ButtonWrapperProps): SerializedStyles => css`
 
 const variantPrimaryEnabled = (props: ButtonWrapperProps): SerializedStyles =>
   css([
-    baseEnabled,
+    baseEnabled(props),
     variantPrimaryBase(props),
     css`
       border-color: ${themeGet('borderColors.colorBorderPrimary')(props)};
@@ -109,7 +114,7 @@ const variantPrimaryEnabled = (props: ButtonWrapperProps): SerializedStyles =>
   ]);
 const variantPrimaryLoading = (props: ButtonWrapperProps): SerializedStyles =>
   css([
-    baseLoading,
+    baseLoading(props),
     variantPrimaryBase(props),
     css`
       &,
@@ -123,7 +128,7 @@ const variantPrimaryLoading = (props: ButtonWrapperProps): SerializedStyles =>
   ]);
 const variantPrimaryDisabled = (props: ButtonWrapperProps): SerializedStyles =>
   css([
-    baseDisabled,
+    baseDisabled(props),
     variantPrimaryBase(props),
     css`
       border-color: ${themeGet('borderColors.colorBorderPrimaryLight')(props)};
@@ -144,7 +149,7 @@ const variantSecondaryBase = (props: ButtonWrapperProps): SerializedStyles => cs
 `;
 const variantSecondaryEnabled = (props: ButtonWrapperProps): SerializedStyles =>
   css([
-    baseEnabled,
+    baseEnabled(props),
     variantSecondaryBase(props),
     css`
       color: ${themeGet('textColors.colorTextLink')(props)};
@@ -172,7 +177,7 @@ const variantSecondaryEnabled = (props: ButtonWrapperProps): SerializedStyles =>
   ]);
 const variantSecondaryLoading = (props: ButtonWrapperProps): SerializedStyles =>
   css([
-    baseLoading,
+    baseLoading(props),
     variantSecondaryBase(props),
     css`
       color: ${themeGet('textColors.colorTextLinkDarker')(props)};
@@ -182,7 +187,7 @@ const variantSecondaryLoading = (props: ButtonWrapperProps): SerializedStyles =>
   ]);
 const variantSecondaryDisabled = (props: ButtonWrapperProps): SerializedStyles =>
   css([
-    baseDisabled,
+    baseDisabled(props),
     variantSecondaryBase(props),
     css`
       color: ${themeGet('textColors.colorTextLinkLight')(props)};
@@ -199,7 +204,7 @@ const variantDestructiveBase = (props: ButtonWrapperProps): SerializedStyles => 
 
 const variantDestructiveEnabled = (props: ButtonWrapperProps): SerializedStyles =>
   css([
-    baseEnabled,
+    baseEnabled(props),
     variantDestructiveBase(props),
     css`
       color: ${themeGet('textColors.colorTextLinkDestructive')(props)};
@@ -227,7 +232,7 @@ const variantDestructiveEnabled = (props: ButtonWrapperProps): SerializedStyles 
   ]);
 const variantDestructiveLoading = (props: ButtonWrapperProps): SerializedStyles =>
   css([
-    baseLoading,
+    baseLoading(props),
     variantDestructiveBase(props),
     css`
       color: ${themeGet('textColors.colorTextLinkDestructiveDarker')(props)};
@@ -237,7 +242,7 @@ const variantDestructiveLoading = (props: ButtonWrapperProps): SerializedStyles 
   ]);
 const variantDestructiveDisabled = (props: ButtonWrapperProps): SerializedStyles =>
   css([
-    baseDisabled,
+    baseDisabled(props),
     variantDestructiveBase(props),
     css`
       color: ${themeGet('textColors.colorTextLinkDestructiveLight')(props)};
@@ -251,7 +256,7 @@ const variantDestructiveLinkBase = css`
 `;
 const variantDestructiveLinkEnabled = (props: ButtonWrapperProps): SerializedStyles =>
   css([
-    baseEnabled,
+    baseEnabled(props),
     variantDestructiveLinkBase,
     css`
       color: ${themeGet('textColors.colorTextLinkDestructive')(props)};
@@ -273,7 +278,7 @@ const variantDestructiveLinkEnabled = (props: ButtonWrapperProps): SerializedSty
   ]);
 const variantDestructiveLinkLoading = (props: ButtonWrapperProps): SerializedStyles =>
   css([
-    baseLoading,
+    baseLoading(props),
     variantDestructiveLinkBase,
     css`
       color: ${themeGet('textColors.colorTextLinkDestructiveDarker')(props)};
@@ -281,7 +286,7 @@ const variantDestructiveLinkLoading = (props: ButtonWrapperProps): SerializedSty
   ]);
 const variantDestructiveLinkDisabled = (props: ButtonWrapperProps): SerializedStyles =>
   css([
-    baseDisabled,
+    baseDisabled(props),
     variantDestructiveLinkBase,
     css`
       color: ${themeGet('textColors.colorTextLinkDestructiveLight')(props)};
@@ -294,7 +299,7 @@ const variantLinkBase = css`
 `;
 const variantLinkEnabled = (props: ButtonWrapperProps): SerializedStyles =>
   css([
-    baseEnabled,
+    baseEnabled(props),
     variantLinkBase,
     css`
       color: ${themeGet('textColors.colorTextLink')(props)};
@@ -316,7 +321,7 @@ const variantLinkEnabled = (props: ButtonWrapperProps): SerializedStyles =>
   ]);
 const variantLinkLoading = (props: ButtonWrapperProps): SerializedStyles =>
   css([
-    baseLoading,
+    baseLoading(props),
     variantLinkBase,
     css`
       color: ${themeGet('textColors.colorTextLinkDarker')(props)};
@@ -324,7 +329,7 @@ const variantLinkLoading = (props: ButtonWrapperProps): SerializedStyles =>
   ]);
 const variantLinkDisabled = (props: ButtonWrapperProps): SerializedStyles =>
   css([
-    baseDisabled,
+    baseDisabled(props),
     variantLinkBase,
     css`
       color: ${themeGet('textColors.colorTextLinkLight')(props)};

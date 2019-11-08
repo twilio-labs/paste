@@ -10,11 +10,16 @@ const pasteGlobalStyles = css`
   html {
     font-size: 100%;
   }
+  body {
+    margin: ${themeGet('space.space0')};
+    font-size: ${themeGet('fontSizes.fontSize30')};
+  }
 `;
 
 export const StyledBase = styled.div`
   font-family: ${themeGet('fonts.fontFamilyText')};
-  line-height: 1.15;
+  font-size: ${themeGet('fontSizes.fontSize30')};
+  line-height: ${themeGet('lineHeights.lineHeight30')};
   color: ${themeGet('textColors.colorText')};
   font-weight: ${themeGet('fontWeights.fontWeightNormal')};
 

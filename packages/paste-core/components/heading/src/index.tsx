@@ -13,7 +13,7 @@ export type HeadingStyle =
 
 interface Heading {
   as: asTags;
-  id?: never;
+  id?: string;
   className?: never;
   variant?: HeadingStyle;
 }
@@ -70,9 +70,9 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
   }
 }
 
-const Heading: React.FC<Heading> = ({as, children, variant}) => {
+const Heading: React.FC<Heading> = ({as, children, id, variant}) => {
   return (
-    <Text as={as} display="block" textColor="colorText" {...getHeadingStyles(variant)}>
+    <Text as={as} display="block" id={id} textColor="colorText" {...getHeadingStyles(variant)}>
       {children}
     </Text>
   );

@@ -3,7 +3,8 @@
 exports[`Anchor it should render an anchor 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -48,7 +49,8 @@ exports[`Anchor it should render an anchor 1`] = `
 exports[`Anchor it should render an external anchor 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -95,7 +97,8 @@ exports[`Anchor it should render an external anchor 1`] = `
 exports[`Anchor it should render an external anchor with overwritten target and rel 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
