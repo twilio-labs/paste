@@ -3,7 +3,7 @@
   "version": "0.6.0",
   "category": "typography",
   "status": "alpha",
-  "description": "",
+  "description": "A primitive component that can be used to create all text styles in Paste",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

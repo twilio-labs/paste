@@ -95,7 +95,11 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <SiteNavAnchor to="/">Home</SiteNavAnchor>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavButton onClick={() => setgettingStartedOpen(!gettingStartedOpen)} isOpen={gettingStartedOpen}>
+          <SiteNavButton
+            onClick={() => setgettingStartedOpen(!gettingStartedOpen)}
+            isOpen={gettingStartedOpen}
+            aria-expanded={gettingStartedOpen}
+          >
             Getting Started
             <SiteNavAnchorArrow isOpen={gettingStartedOpen} />
           </SiteNavButton>
@@ -115,7 +119,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <SiteNavAnchor to="/principles">Principles</SiteNavAnchor>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavButton onClick={() => setTokensOpen(!tokensOpen)} isOpen={tokensOpen}>
+          <SiteNavButton onClick={() => setTokensOpen(!tokensOpen)} isOpen={tokensOpen} aria-expanded={tokensOpen}>
             Design Tokens
             <SiteNavAnchorArrow isOpen={tokensOpen} />
           </SiteNavButton>
@@ -139,7 +143,11 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavButton onClick={() => setComponentsOpen(!componentsOpen)} isOpen={componentsOpen}>
+          <SiteNavButton
+            onClick={() => setComponentsOpen(!componentsOpen)}
+            isOpen={componentsOpen}
+            aria-expanded={componentsOpen}
+          >
             Components
             <SiteNavAnchorArrow isOpen={componentsOpen} />
           </SiteNavButton>
@@ -161,7 +169,11 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavButton onClick={() => setutilitiesOpen(!utilitiesOpen)} isOpen={utilitiesOpen}>
+          <SiteNavButton
+            onClick={() => setutilitiesOpen(!utilitiesOpen)}
+            isOpen={utilitiesOpen}
+            aria-expanded={utilitiesOpen}
+          >
             Utilities
             <SiteNavAnchorArrow isOpen={utilitiesOpen} />
           </SiteNavButton>

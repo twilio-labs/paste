@@ -116,7 +116,7 @@ export const TokensList: React.FC<TokensListProps> = props => {
         tokens.map(cat => {
           return (
             <React.Fragment key={`catname${cat.categoryName}`}>
-              <AnchoredHeading as="h2" headingStyle="headingStyle20">
+              <AnchoredHeading as="h2" variant="headingStyle50">
                 {sentenceCase(cat.categoryName)}
               </AnchoredHeading>
               <Theme.Provider theme={theme}>

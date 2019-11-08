@@ -5,8 +5,7 @@ description: The components listed here are on our roadmap.  Only a few of them 
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
-import {Heading} from '../../components/Heading.tsx';
-import {P} from '../../components/Typography.tsx';
+import {Heading} from '@twilio-paste/heading';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
 import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
@@ -14,12 +13,11 @@ import {SidebarCategoryRoutes} from '../../constants';
 <Breadcrumb>
   <BreadcrumbItem to="/">Home</BreadcrumbItem>
 </Breadcrumb>
-<Heading as="h1" headingStyle="headingStyle10"
->
+<Heading as="h1" variant="headingStyle60">
   Components
 </Heading>
 
-The components listed here are on our roadmap.  Only a few of them are available today.
+The components listed here are on our roadmap. Only a few of them are available today.
 
 If you’re planning on using an alpha or beta component, please check in with the Paste team through the <strong>#help-design-system</strong> channel on Slack.
 
@@ -27,10 +25,9 @@ Don't see a component you need listed here? [Create an issue on GitHub](https://
 requests are accepted for the design system. We’ll have guidelines soon for what to do if your component isn’t
 supported.
 
-
-<ComponentOverviewTable 
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS} 
-  componentsList={props.data.allPasteComponent.edges} 
+<ComponentOverviewTable
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  componentsList={props.data.allPasteComponent.edges}
 />
 
 export const pageQuery = graphql`

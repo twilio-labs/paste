@@ -3,7 +3,8 @@
 exports[`Paragraph it should render a single paragraph 1`] = `
 .emotion-1 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -40,7 +41,8 @@ exports[`Paragraph it should render a single paragraph 1`] = `
 exports[`Paragraph it should render a single paragraph with bold text 1`] = `
 .emotion-1 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -79,7 +81,8 @@ exports[`Paragraph it should render a single paragraph with bold text 1`] = `
 exports[`Paragraph it should render a single paragraph with italic text 1`] = `
 .emotion-1 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }

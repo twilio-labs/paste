@@ -3,7 +3,8 @@
 exports[`as it should render as a provided HTML element 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -37,7 +38,8 @@ exports[`as it should render as a provided HTML element 1`] = `
 exports[`display should set a display property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -73,7 +75,8 @@ exports[`display should set a display property 1`] = `
 exports[`display should set a responsive display property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -120,7 +123,8 @@ exports[`display should set a responsive display property 1`] = `
 exports[`fontFamily should set a font family property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -156,7 +160,8 @@ exports[`fontFamily should set a font family property 1`] = `
 exports[`fontFamily should set a responsive font family property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -203,7 +208,8 @@ exports[`fontFamily should set a responsive font family property 1`] = `
 exports[`fontSize should set a font size property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -237,7 +243,8 @@ exports[`fontSize should set a font size property 1`] = `
 exports[`fontSize should set a responsive font size property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -282,7 +289,8 @@ exports[`fontSize should set a responsive font size property 1`] = `
 exports[`fontStyle should set a font style property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -318,7 +326,8 @@ exports[`fontStyle should set a font style property 1`] = `
 exports[`fontStyle should set a responsive font style property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -365,7 +374,8 @@ exports[`fontStyle should set a responsive font style property 1`] = `
 exports[`fontWeight should set a font weight property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -401,7 +411,8 @@ exports[`fontWeight should set a font weight property 1`] = `
 exports[`fontWeight should set a responsive font weight property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -448,7 +459,8 @@ exports[`fontWeight should set a responsive font weight property 1`] = `
 exports[`letterSpacing should set a letter spacing property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -487,7 +499,8 @@ exports[`letterSpacing should set a letter spacing property 1`] = `
 exports[`letterSpacing should set a responsive letter spacing property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -540,7 +553,8 @@ exports[`letterSpacing should set a responsive letter spacing property 1`] = `
 exports[`lineHeight should set a line height property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -574,7 +588,8 @@ exports[`lineHeight should set a line height property 1`] = `
 exports[`lineHeight should set a responsive line height property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -614,7 +629,8 @@ exports[`lineHeight should set a responsive line height property 1`] = `
 exports[`margin should set a margin property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -649,7 +665,8 @@ exports[`margin should set a margin property 1`] = `
 exports[`margin should set a responsive margin property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -690,7 +707,8 @@ exports[`margin should set a responsive margin property 1`] = `
 exports[`marginBottom should set a marginBottom property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -725,7 +743,8 @@ exports[`marginBottom should set a marginBottom property 1`] = `
 exports[`marginBottom should set a responsive marginBottom property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -766,7 +785,8 @@ exports[`marginBottom should set a responsive marginBottom property 1`] = `
 exports[`marginLeft should set a marginLeft property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -801,7 +821,8 @@ exports[`marginLeft should set a marginLeft property 1`] = `
 exports[`marginLeft should set a responsive marginLeft property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -842,7 +863,8 @@ exports[`marginLeft should set a responsive marginLeft property 1`] = `
 exports[`marginRight should set a marginRight property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -877,7 +899,8 @@ exports[`marginRight should set a marginRight property 1`] = `
 exports[`marginRight should set a responsive marginRight property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -918,7 +941,8 @@ exports[`marginRight should set a responsive marginRight property 1`] = `
 exports[`marginTop should set a marginTop property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -953,7 +977,8 @@ exports[`marginTop should set a marginTop property 1`] = `
 exports[`marginTop should set a responsive marginTop property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -994,7 +1019,8 @@ exports[`marginTop should set a responsive marginTop property 1`] = `
 exports[`padding should set a padding property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -1029,7 +1055,8 @@ exports[`padding should set a padding property 1`] = `
 exports[`padding should set a responsive padding property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -1070,7 +1097,8 @@ exports[`padding should set a responsive padding property 1`] = `
 exports[`paddingBottom should set a paddingBottom property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -1105,7 +1133,8 @@ exports[`paddingBottom should set a paddingBottom property 1`] = `
 exports[`paddingBottom should set a responsive paddingBottom property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -1146,7 +1175,8 @@ exports[`paddingBottom should set a responsive paddingBottom property 1`] = `
 exports[`paddingLeft should set a paddingLeft property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -1181,7 +1211,8 @@ exports[`paddingLeft should set a paddingLeft property 1`] = `
 exports[`paddingLeft should set a responsive paddingLeft property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -1222,7 +1253,8 @@ exports[`paddingLeft should set a responsive paddingLeft property 1`] = `
 exports[`paddingRight should set a paddingRight property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -1257,7 +1289,8 @@ exports[`paddingRight should set a paddingRight property 1`] = `
 exports[`paddingRight should set a responsive paddingRight property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -1298,7 +1331,8 @@ exports[`paddingRight should set a responsive paddingRight property 1`] = `
 exports[`paddingTop should set a paddingTop property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -1333,7 +1367,8 @@ exports[`paddingTop should set a paddingTop property 1`] = `
 exports[`paddingTop should set a responsive paddingTop property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -1374,7 +1409,8 @@ exports[`paddingTop should set a responsive paddingTop property 1`] = `
 exports[`textAlign should set a responsive textAlign property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -1415,7 +1451,8 @@ exports[`textAlign should set a responsive textAlign property 1`] = `
 exports[`textAlign should set a textAlign property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -1450,7 +1487,8 @@ exports[`textAlign should set a textAlign property 1`] = `
 exports[`textColor should set a responsive textColor property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -1490,7 +1528,8 @@ exports[`textColor should set a responsive textColor property 1`] = `
 exports[`textColor should set a textColor property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -1524,7 +1563,8 @@ exports[`textColor should set a textColor property 1`] = `
 exports[`textDecoration should set a responsive textDecoration property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }
@@ -1573,7 +1613,8 @@ exports[`textDecoration should set a responsive textDecoration property 1`] = `
 exports[`textDecoration should set a textDecoration property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: #282a2b;
   font-weight: 400;
 }

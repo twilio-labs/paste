@@ -12,7 +12,7 @@ export const P: React.FC<PProps> = ({children, variant}) => {
       as="p"
       marginTop="space50"
       marginBottom="space50"
-      lineHeight={variant === 'lead' ? 'lineHeight30' : 'lineHeight20'}
+      lineHeight={variant === 'lead' ? 'lineHeight40' : 'lineHeight20'}
       fontSize={variant === 'lead' ? 'fontSize40' : undefined}
     >
       {children}
@@ -48,5 +48,6 @@ export const InlineCode = styled.code<{}>`
   background-color: ${themeGet('backgroundColors.colorBackground')};
   border-radius: ${themeGet('radii.borderRadius20')};
   color: ${themeGet('textColors.colorText')};
+  font-size: ${themeGet('fontSizes.fontSize30')};
   padding: ${themeGet('space.space20')} ${themeGet('space.space30')};
 `;

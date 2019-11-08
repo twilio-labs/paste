@@ -18,7 +18,7 @@ interface SiteNavNestListProps {
 }
 
 export const SiteNavNestList: React.FC<SiteNavNestListProps> = styled(SiteNavList)`
-  max-height: ${props => (props.isOpen ? '3000px' : '0')};
+  display: ${props => (props.isOpen ? 'block' : 'none')};
   text-transform: capitalize;
   background-color: ${themeGet('colors.colorGray30')};
   overflow: hidden;
@@ -29,7 +29,7 @@ export const SiteNavNestList: React.FC<SiteNavNestListProps> = styled(SiteNavLis
 export const SiteNavItem = styled.li`
   margin: ${themeGet('space.space10')} 0;
   font-size: ${themeGet('fontSizes.fontSize30')};
-  line-height: normal;
+  line-height: ${themeGet('lineHeights.lineHeight30')};
 `;
 
 export const SiteNavAnchor = styled(Link)`
@@ -53,6 +53,7 @@ export const SiteNavAnchor = styled(Link)`
 interface SiteNavButtonProps {
   isOpen?: boolean;
   onClick?(event: React.MouseEvent<HTMLElement>): void;
+  'aria-expanded': boolean;
 }
 
 export const SiteNavButton: React.FC<SiteNavButtonProps> = styled.button`
@@ -60,6 +61,7 @@ export const SiteNavButton: React.FC<SiteNavButtonProps> = styled.button`
   display: block;
   width: 100%;
   padding: ${themeGet('space.space40')};
+  font-family: ${themeGet('fonts.fontFamilyText')};
   font-size: inherit;
   font-weight: ${themeGet('fontWeights.fontWeightMedium')};
   text-align: left;

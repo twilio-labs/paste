@@ -5,6 +5,7 @@ import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Absolute} from '@twilio-paste/absolute';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
+import {Heading} from '@twilio-paste/heading';
 
 const StyledWrapper = styled(Box)`
   display: grid;
@@ -68,9 +69,9 @@ const Item: React.FC<DoProps> = ({center = false, ...props}) => {
         borderLeftWidth="borderWidth0"
         borderColor={props.do ? 'colorBorderSuccess' : 'colorBorderError'}
       >
-        <Text as="h5" fontWeight="fontWeightSemibold" lineHeight="lineHeight40" marginBottom="space40">
+        <Heading as="h5" variant="headingStyle20">
           {props.title}
-        </Text>
+        </Heading>
         <Text as="p">{props.body}</Text>
       </Box>
     </div>
