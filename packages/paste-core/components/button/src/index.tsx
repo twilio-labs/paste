@@ -85,6 +85,7 @@ const Button: React.FC<ButtonProps> = props => {
       size={defaultSize}
       tabIndex={props.tabIndex}
       type={props.type}
+      aria-busy={buttonState === 'loading'}
     >
       <ButtonChildren buttonState={buttonState}>{props.children}</ButtonChildren>
       {showLoading ? (
