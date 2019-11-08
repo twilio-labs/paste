@@ -42,28 +42,6 @@ SVG files and React components. Our base icon size is set to 24px. Our icon set 
 we will be adding more as needed. Please [file a feature request](https://github.com/twilio-labs/paste/issues)
 if you need an icon we don't yet have or review our [icon contribution guide](https://docs.google.com/document/d/1a2-KAwU6dOjmcPLRD8zQln_8zS52ti7zziq_JRjUa8E).
 
-#### Why SVG?
-
-PNGs and JPGs are created using thousands of tiny pixels. SVGs are made out of geometric
-primitives such as points, lines, and basic shapes. Because of this attribute, SVGs can
-be resized without any loss of quality to the image. We can also write code to change SVG
-attributes in realtime. These characteristics are ideal for icons since we usually want to
-customize their size or color. To do this with PNGs or JPGs we would need to create a
-separate file for each variation.
-
-#### Why React components?
-
-If you're using any Paste component, you're familiar with how to install and use a React
-component. Our icon components have accessibility baked in. They also use our tokens for
-sizing and coloring. With icon components, you can import only the icons your project needs.
-
-For more reading about icon components, please check our [rationale document](https://github.com/twilio-labs/svg-to-react/blob/master/RATIONALE.md).
-
-### Usage guidelines
-
-Use an icon only when it provides additional clarity or is necessary to draw attention to a UI element.
-If an icon is used to indicate hierarchy of a UI element, all elements at the same hierarchy should also be paired with an icon.
-
 #### Accessibility
 
 Using an icon as the only indication of meaning is inaccessible. Different cultures may interpret the same image
@@ -71,7 +49,12 @@ in different ways and visually impaired users may not see the icon. Here are som
 
 - Set the `decorative` and `title` props correctly on your icons.
 - Try to pair icons with text.
-- Icons should not be interactive (i.e.: clickable or focuseable). They can be wrapped with an interactive element.
+- Icons should not be interactive (i.e., clickable or focusable). They can be wrapped with an interactive element.
+
+### When to use icons
+
+Use an icon only when it provides additional clarity or is necessary to draw attention to a UI element.
+If an icon is used to indicate hierarchy of a UI element, all elements at the same hierarchy should also be paired with an icon.
 
 ### Examples
 
@@ -97,7 +80,7 @@ yarn add @twilio-paste/icons
 #### Usage
 
 Icons have to be imported individually. This import style was decided for performance reasons. As our icon
-set grows to contain over 100 icons, we don't want projects that only use a few icons to be burdened by
+set grows to contain over 100 icons, we don't want projects that use only a few icons to be burdened by
 that large of a payload.
 
 ```jsx
@@ -106,15 +89,34 @@ import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 <Button variant="secondary" size="small" onClick={() => {}}>
   <PlusIcon decorative={true} />
   Add to cart
-</Button>;
+</Button>
 ```
+
+### Implementation
+
+#### Why SVG?
+
+PNGs and JPGs are created using thousands of tiny pixels. SVGs are made out of geometric
+primitives such as points, lines, and basic shapes. Because of this attribute, SVGs can
+be resized without any loss of quality to the image. We can also write code to change SVG
+attributes in realtime. These characteristics are ideal for icons since we usually want to
+customize their size or color. To do this with PNGs or JPGs we would need to create a
+separate file for each variation.
+
+#### Why React components?
+
+If you're using any Paste component, you're familiar with how to install and use a React
+component. Our icon components have accessibility baked in. They also use our tokens for
+sizing and coloring. With icon components, you can import only the icons your project needs.
+
+For more reading about icon components, please check our [rationale document](https://github.com/twilio-labs/svg-to-react/blob/master/RATIONALE.md).
 
 #### Props
 
 | Prop       | Type      | Description                                                                                                                                           | Default        |
 | ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
 | as?        | string    | The HTML tag to replace the default `<button>` tag.                                                                                                   | `span`         |
-| title?     | string    | The accesibility text that is read when screenreaders get to this component.                                                                          |                |
+| title?     | string    | The accessibility text that is read when screenreaders get to this component.                                                                         |                |
 | decorative | boolean   | Whether or not the SVG is just visual flair or adds meaning to the page. Specifically for screenreaders to know whether to read out the title or not. |                |
 | size?      | IconSize  | `sizeIcon10` `sizeIcon20` `sizeIcon30`                                                                                                                | `sizeIcon20`   |
 | iconColor? | TextColor | Sets the icon color to any of our text color tokens or `currentColor`, which inherits text color from the parent element.                             | `currentColor` |
