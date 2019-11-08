@@ -1,12 +1,7 @@
 import Scrollspy from 'react-scrollspy';
 import styled from '@emotion/styled';
 import {themeGet} from '@styled-system/theme-get';
-import {Box} from '@twilio-paste/box';
 import {TableOfContentsListItemProps} from './types';
-
-export const StyledWrapper = styled(Box)`
-  order: 2;
-`;
 
 export const StyledScrollSpy = styled(Scrollspy)`
   position: sticky;
@@ -19,13 +14,16 @@ export const StyledScrollSpy = styled(Scrollspy)`
 
 export const marginTopPartial = ({depth}: TableOfContentsListItemProps): string => {
   if (depth === '3' || depth === '4') {
-    return '0';
+    return themeGet('space.space20');
   }
-  return themeGet('space.space30');
+  return themeGet('space.space40');
 };
 
 export const marginLeftPartial = ({depth}: TableOfContentsListItemProps): string => {
-  if (depth === '3' || depth === '4') {
+  if (depth === '3') {
+    return themeGet('space.space30');
+  }
+  if (depth === '4') {
     return themeGet('space.space50');
   }
   return '0';

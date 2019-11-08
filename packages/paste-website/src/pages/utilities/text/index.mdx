@@ -6,6 +6,7 @@ description: The Text component is a primitive of the system and can output any 
 import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
+import {Paragraph} from '@twilio-paste/paragraph';
 import Changelog from '@twilio-paste/text/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
@@ -63,7 +64,7 @@ export const pageQuery = graphql`
   </CalloutText>
 </Callout>
 
-<P>{props.pageContext.frontmatter.description}</P>
+<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
 ### About Text
 

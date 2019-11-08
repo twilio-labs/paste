@@ -2,11 +2,12 @@ import * as React from 'react';
 import {MDXProvider} from '@mdx-js/react';
 import styled from '@emotion/styled';
 import {Anchor} from '@twilio-paste/anchor';
+import {Heading, Paragraph} from '@twilio-paste/typography';
 import {Codeblock, CodeblockProps} from '../codeblock';
 import {Table, Tbody, Tr, Th, Td} from '../table';
-import {Heading, AnchoredHeading, HeadingProps} from '../Heading';
+import {AnchoredHeading} from '../Heading';
 import {StyledHr} from '../StyledHr';
-import {P, UL, OL, LI, InlineCode} from '../Typography';
+import {UL, OL, LI, InlineCode} from '../Typography';
 // Shortcode imports
 import {ComponentHeader} from '../shortcodes/component-header';
 import {LivePreview} from '../shortcodes/live-preview';
@@ -38,23 +39,13 @@ export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMD
     <MDXProvider
       components={{
         ...shortcodes,
-        h1: (props: HeadingProps): React.ReactElement => <Heading {...props} as="h1" headingStyle="headingStyle10" />,
-        h2: (props: HeadingProps): React.ReactElement => (
-          <AnchoredHeading {...props} as="h2" headingStyle="headingStyle20" />
-        ),
-        h3: (props: HeadingProps): React.ReactElement => (
-          <AnchoredHeading {...props} as="h3" headingStyle="headingStyle30" />
-        ),
-        h4: (props: HeadingProps): React.ReactElement => (
-          <AnchoredHeading {...props} as="h4" headingStyle="headingStyle40" />
-        ),
-        h5: (props: HeadingProps): React.ReactElement => (
-          <AnchoredHeading {...props} as="h5" headingStyle="headingStyle50" />
-        ),
-        h6: (props: HeadingProps): React.ReactElement => (
-          <AnchoredHeading {...props} as="h6" headingStyle="headingStyle60" />
-        ),
-        p: (props: React.ComponentProps<typeof P>): React.ReactElement => <P {...props} />,
+        h1: (props: Heading): React.ReactElement => <Heading {...props} as="h1" variant="headingStyle60" />,
+        h2: (props: Heading): React.ReactElement => <AnchoredHeading {...props} as="h2" variant="headingStyle50" />,
+        h3: (props: Heading): React.ReactElement => <AnchoredHeading {...props} as="h3" variant="headingStyle40" />,
+        h4: (props: Heading): React.ReactElement => <AnchoredHeading {...props} as="h4" variant="headingStyle30" />,
+        h5: (props: Heading): React.ReactElement => <AnchoredHeading {...props} as="h5" variant="headingStyle20" />,
+        h6: (props: Heading): React.ReactElement => <AnchoredHeading {...props} as="h6" variant="headingStyle10" />,
+        p: (props: React.ComponentProps<typeof Paragraph>): React.ReactElement => <Paragraph {...props} />,
         ul: (props: React.ComponentProps<typeof UL>): React.ReactElement => <UL {...props} />,
         ol: (props: React.ComponentProps<typeof OL>): React.ReactElement => <OL {...props} />,
         li: (props: React.ComponentProps<typeof LI>): React.ReactElement => <LI {...props} />,

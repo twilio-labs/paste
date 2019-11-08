@@ -5,6 +5,7 @@ import Highlight, {defaultProps} from 'prism-react-renderer';
 import {CodeblockTheme} from './theme';
 
 const StyledPre = styled.pre(props => ({
+  fontSize: themeGet('fontSizes.fontSize30')(props),
   padding: `${themeGet('space.space40')(props)} ${themeGet('space.space60')(props)}`,
   overflow: 'auto',
 }));

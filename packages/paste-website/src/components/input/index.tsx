@@ -1,11 +1,12 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import {themeGet} from '@styled-system/theme-get';
 import {Box} from '@twilio-paste/box';
 
 export const StyledBox = styled(Box)`
   font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
+  font-size: ${themeGet('fontSizes.fontSize30')};
+  line-height: ${themeGet('lineHeights.lineHeight30')};
   overflow: visible;
   width: 100%;
 `;

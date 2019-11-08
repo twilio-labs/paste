@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
 import {TableOfContentsProps} from './types';
-import {StyledWrapper, StyledScrollSpy, StyledListItem} from './styles';
+import {StyledScrollSpy, StyledListItem} from './styles';
 import {slugify} from '../../../utils/RouteUtils';
 
 const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
@@ -21,7 +22,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
   // headingsList.push('changelog');
 
   return (
-    <StyledWrapper marginTop="space40" marginLeft="space140">
+    <Box as="nav" aria-label="document outline" order={2} marginTop="space40" marginLeft="space140">
       <StyledScrollSpy items={headingsList} currentClassName="is-current" rootEl="#site-main">
         {// Get heading anchors and convert to #anchor format. Excluding h1 elements.
         headings
@@ -38,7 +39,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
             );
           })}
       </StyledScrollSpy>
-    </StyledWrapper>
+    </Box>
   );
 };
 
