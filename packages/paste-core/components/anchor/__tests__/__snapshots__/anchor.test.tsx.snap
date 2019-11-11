@@ -16,7 +16,7 @@ exports[`Anchor it should render an anchor 1`] = `
 }
 
 .emotion-0 {
-  color: #0075c3;
+  color: #005ea6;
   -webkit-text-decoration: underline;
   text-decoration: underline;
   outline: none;
@@ -62,7 +62,7 @@ exports[`Anchor it should render an external anchor 1`] = `
 }
 
 .emotion-0 {
-  color: #0075c3;
+  color: #005ea6;
   -webkit-text-decoration: underline;
   text-decoration: underline;
   outline: none;
@@ -110,7 +110,7 @@ exports[`Anchor it should render an external anchor with overwritten target and 
 }
 
 .emotion-0 {
-  color: #0075c3;
+  color: #005ea6;
   -webkit-text-decoration: underline;
   text-decoration: underline;
   outline: none;
