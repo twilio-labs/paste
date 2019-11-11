@@ -22,7 +22,7 @@ describe('Theme.Provider', () => {
         <ThemeConsumerExampleTextColor />
       </Theme.Provider>
     );
-    expect(wrapper.find('p').text()).toBe('Color: #0075c3');
+    expect(wrapper.find('p').text()).toBe('Color: #005ea6');
   });
 
   it('should render the sendgrid link text color', (): void => {
@@ -31,7 +31,7 @@ describe('Theme.Provider', () => {
         <ThemeConsumerExampleTextColor />
       </Theme.Provider>
     );
-    expect(wrapper.find('p').text()).toBe('Color: #3368fa');
+    expect(wrapper.find('p').text()).toBe('Color: #003adb');
   });
 
   it('should rely on the default breakpoints set on the theme object', () => {
