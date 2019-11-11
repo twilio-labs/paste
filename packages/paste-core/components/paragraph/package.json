@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/paragraph",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "category": "typography",
   "status": "alpha",
   "description": "Twilio's Paragraph component",
@@ -27,7 +27,7 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@twilio-paste/text": "^0.4.1",
+    "@twilio-paste/text": "^1.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6"
   },

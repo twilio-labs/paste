@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/input",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "category": "user input",
   "status": "backlog",
   "private": true,
