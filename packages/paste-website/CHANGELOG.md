@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.1.0...@twilio-paste/website@1.2.0) (2019-11-11)
+
+
+### Bug Fixes
+
+* **website:** update button docs with loading and icon states ([#167](https://github.com/twilio-labs/paste/issues/167)) ([7380889](https://github.com/twilio-labs/paste/commit/73808897ef181da087a5a80a17a80a74409a6c3c))
+
+
+### Features
+
+* **typography:** heading component ([#149](https://github.com/twilio-labs/paste/issues/149)) ([4e033e6](https://github.com/twilio-labs/paste/commit/4e033e6f3e58566107271b18057532e768420827))
+* enable theme switching on the docsite ([#124](https://github.com/twilio-labs/paste/issues/124)) ([df797e5](https://github.com/twilio-labs/paste/commit/df797e57ff1268367053d717f3b3c2ca48a0aa4f))
+* update getting started ([#162](https://github.com/twilio-labs/paste/issues/162)) ([b589641](https://github.com/twilio-labs/paste/commit/b589641d95c98b9cdc244836c2c5736393876a95))
+* **website:** added callout with help for component and utility lists ([#168](https://github.com/twilio-labs/paste/issues/168)) ([b4be1d7](https://github.com/twilio-labs/paste/commit/b4be1d74d369a7312f28e9fd565abab0710676c8))
+
+
+
+
+
 # [1.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.0.0...@twilio-paste/website@1.1.0) (2019-10-31)
 
 
