@@ -1,18 +1,21 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import {Global, css} from '@emotion/core';
+import {Global, css, SerializedStyles} from '@emotion/core';
 import {themeGet} from '@styled-system/theme-get';
 import {ThemeProvider as StyledThemeProvider} from 'emotion-theming';
 import {DefaultTheme, SendGridTheme} from '@twilio-paste/theme-tokens';
 import {ThemeVariants} from './constants';
 
-const pasteGlobalStyles = css`
+interface GlobalStyleProps {
+  theme: {};
+}
+const pasteGlobalStyles = (props: GlobalStyleProps): SerializedStyles => css`
   html {
     font-size: 100%;
   }
   body {
-    margin: ${themeGet('space.space0')};
-    font-size: ${themeGet('fontSizes.fontSize30')};
+    margin: ${themeGet('space.space0')(props)};
+    font-size: ${themeGet('fontSizes.fontSize30')(props)};
   }
 `;
 
@@ -44,7 +47,6 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   let breakpoints = {};
   let themeObject = {};
 
-  // when we have more theme-tokens themes, switch the object here based on the theme prop
   switch (theme) {
     case ThemeVariants.SENDGRID:
       themeObject = SendGridTheme;
@@ -66,7 +68,7 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
 
   return (
     <StyledThemeProvider theme={providerThemeProp}>
-      <Global styles={pasteGlobalStyles} />
+      <Global styles={pasteGlobalStyles({theme: providerThemeProp})} />
       <StyledBase {...props} />
     </StyledThemeProvider>
   );
