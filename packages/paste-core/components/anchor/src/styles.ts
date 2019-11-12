@@ -8,21 +8,14 @@ export const StyledAnchor = styled.a`
   outline: none;
 
   &:hover {
-    color: ${themeGet('textColors.colorTextLinkHover')};
+    color: ${themeGet('textColors.colorTextLinkDarker')};
     text-decoration: none;
   }
 
   &:focus,
   &:active {
     box-shadow: ${themeGet('shadows.shadowFocus')};
+    color: ${themeGet('textColors.colorTextLinkDarker')};
     text-decoration: none;
-  }
-
-  &:focus {
-    color: ${themeGet('textColors.colorTextLinkFocus')};
-  }
-
-  &:active {
-    color: ${themeGet('textColors.colorTextLinkActive')};
   }
 `;
