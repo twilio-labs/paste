@@ -3780,7 +3780,7 @@
     "@types/react" "*"
     "@types/webpack-env" "*"
 
-"@types/styled-system@^5.1.2":
+"@types/styled-system@^5.1.2", "@types/styled-system@^5.1.3":
   version "5.1.3"
   resolved "https://registry.yarnpkg.com/@types/styled-system/-/styled-system-5.1.3.tgz#d840c8369c1b8115b84bff0fb9846fcd494204a5"
   integrity sha512-YLmQz8sNtLBg5JAuCfkdRl0Hf6KB/eM4wVmy+I3HEMWs35rmExF1BOBydEXjcgfiQ3bu/v+7RBu0whkOYtz4WQ==
