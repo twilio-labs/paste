@@ -38,7 +38,7 @@ export const OL: React.FC<{}> = props => {
 
 export const LI: React.FC<{}> = props => {
   return (
-    <Text as="li" marginLeft="space60">
+    <Text as="li" marginLeft="space60" marginBottom="space20">
       {props.children}
     </Text>
   );
@@ -49,6 +49,6 @@ export const InlineCode = styled.code<{}>`
   border-radius: ${themeGet('radii.borderRadius20')};
   color: ${themeGet('textColors.colorText')};
   font-size: ${themeGet('fontSizes.fontSize30')};
-  line-height: ${themeGet('lineHeights.lineHeight30')};
+  line-height: ${themeGet('lineHeights.lineHeight20')};
   padding: ${themeGet('space.space20')} ${themeGet('space.space30')};
 `;

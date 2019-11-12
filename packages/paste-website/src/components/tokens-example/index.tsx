@@ -6,6 +6,7 @@ import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+import {LineHeight} from '@twilio-paste/types';
 import ColorCombos, {ColorCombinationAccessibility} from '../../utils/color-combos';
 import colorRating from '../../utils/color-rating';
 
@@ -26,13 +27,17 @@ export const BorderBox: React.FC<BorderBoxProps> = ({borderColor, borderWidth}) 
 
 type TextBoxProp = Pick<Text, 'fontFamily' | 'fontSize' | 'fontWeight'>;
 export const TextBox: React.FC<TextBoxProp> = ({fontFamily, fontSize, fontWeight}) => {
+  let lineHeight: LineHeight = 'lineHeight70';
+  if (fontSize != null && typeof fontSize === 'string') {
+    lineHeight = `lineHeight${fontSize.replace('fontSize', '')}` as LineHeight;
+  }
   return (
     <Text
       as="p"
       fontFamily={fontFamily}
       fontSize={fontSize || 'fontSize70'}
       fontWeight={fontWeight}
-      lineHeight="lineHeight70"
+      lineHeight={lineHeight}
     >
       Ag
     </Text>

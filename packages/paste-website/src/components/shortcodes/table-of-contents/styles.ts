@@ -42,6 +42,7 @@ export const StyledListItem: React.FC<TableOfContentsListItemProps> = styled.li`
   margin-left: ${marginLeftPartial};
   padding-left: ${themeGet('space.space30')};
   font-size: ${fontSizePartial};
+  line-height: ${themeGet('lineHeights.lineHeight20')};
   color: ${themeGet('colors.colorGray80')};
   border-left-width: 2px;
   border-left-style: solid;

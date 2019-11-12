@@ -134,7 +134,7 @@ export const TokensList: React.FC<TokensListProps> = props => {
                         return (
                           <Tr key={`token${token.name}`}>
                             <Td>
-                              <Text as="p" marginBottom="space30" lineHeight="lineHeight40">
+                              <Text as="p" marginBottom="space30">
                                 <InlineCode>${token.name}</InlineCode>
                               </Text>
                               <Text as="p">{token.comment}</Text>
