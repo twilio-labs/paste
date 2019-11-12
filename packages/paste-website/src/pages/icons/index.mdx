@@ -47,9 +47,10 @@ if you need an icon we don't yet have or review our [icon contribution guide](ht
 Using an icon as the only indication of meaning is inaccessible. Different cultures may interpret the same image
 in different ways and visually impaired users may not see the icon. Here are some helpful guidelines to keep in mind:
 
-- Set the `decorative` and `title` props correctly on your icons.
+- Specify if the icon is [decorative](https://www.w3.org/WAI/tutorials/images/decorative/) through the corresponding prop.
+- If an icon isn't decorative (and thus is informative), specify a `title` prop that screenreaders can read to explain to users what the icon is about.
 - Try to pair icons with text.
-- Icons should not be interactive (i.e., clickable or focusable). They can be wrapped with an interactive element.
+- Icons should not be interactive (i.e., clickable or focusable). They can be wrapped with an interactive element like [Button](/components/button) or [Anchor](/components/anchor).
 
 ### When to use icons
 
