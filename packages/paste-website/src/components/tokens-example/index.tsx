@@ -6,6 +6,7 @@ import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+import {LineHeight} from '@twilio-paste/types';
 import ColorCombos, {ColorCombinationAccessibility} from '../../utils/color-combos';
 import colorRating from '../../utils/color-rating';
 
@@ -26,13 +27,17 @@ export const BorderBox: React.FC<BorderBoxProps> = ({borderColor, borderWidth}) 
 
 type TextBoxProp = Pick<Text, 'fontFamily' | 'fontSize' | 'fontWeight'>;
 export const TextBox: React.FC<TextBoxProp> = ({fontFamily, fontSize, fontWeight}) => {
+  let lineHeight: LineHeight = 'lineHeight70';
+  if (fontSize != null && typeof fontSize === 'string') {
+    lineHeight = `lineHeight${fontSize.replace('fontSize', '')}` as LineHeight;
+  }
   return (
     <Text
       as="p"
       fontFamily={fontFamily}
       fontSize={fontSize || 'fontSize70'}
       fontWeight={fontWeight}
-      lineHeight="lineHeight60"
+      lineHeight={lineHeight}
     >
       Ag
     </Text>
@@ -69,10 +74,10 @@ export const TextColorBox: React.FC<TextColorBoxProps> = ({color, textColor}) =>
         justifyContent: 'space-between',
       }}
     >
-      <Text as="span" fontSize="fontSize70" lineHeight="lineHeight60" textColor={textColor}>
+      <Text as="span" fontSize="fontSize70" lineHeight="lineHeight70" textColor={textColor}>
         <ScreenReaderOnly>Example text: </ScreenReaderOnly>Ag
       </Text>
-      <Text as="span" fontSize="fontSize50" lineHeight="lineHeight40" textColor={textColor}>
+      <Text as="span" fontSize="fontSize50" lineHeight="lineHeight50" textColor={textColor}>
         <ScreenReaderOnly>Accessibility rating: </ScreenReaderOnly>
         {getContrastRating(accessibility)}
       </Text>

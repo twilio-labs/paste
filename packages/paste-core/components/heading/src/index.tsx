@@ -25,35 +25,35 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
         marginBottom: 'space70',
         fontSize: 'fontSize90',
         fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight60',
+        lineHeight: 'lineHeight90',
       };
     case 'headingStyle40':
       return {
         marginBottom: 'space50',
         fontSize: 'fontSize60',
         fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight70',
+        lineHeight: 'lineHeight60',
       };
     case 'headingStyle30':
       return {
         marginBottom: 'space40',
         fontSize: 'fontSize40',
         fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight50',
+        lineHeight: 'lineHeight40',
       };
     case 'headingStyle20':
       return {
         marginBottom: 'space30',
         fontSize: 'fontSize30',
         fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight20',
+        lineHeight: 'lineHeight30',
       };
     case 'headingStyle10':
       return {
         marginBottom: 'space30',
         fontSize: 'fontSize20',
         fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight10',
+        lineHeight: 'lineHeight20',
       };
     /**
      * headingStyle50 is out of order because its also default.
@@ -65,7 +65,7 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
         marginBottom: 'space60',
         fontSize: 'fontSize70',
         fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight50',
+        lineHeight: 'lineHeight70',
       };
   }
 }

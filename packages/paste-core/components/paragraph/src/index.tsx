@@ -12,7 +12,7 @@ const Paragraph: React.FC<Paragraph> = props => {
       as="p"
       marginBottom="space70"
       fontSize="fontSize30"
-      lineHeight="lineHeight20"
+      lineHeight="lineHeight30"
       fontWeight="fontWeightNormal"
       textColor="colorText"
     >

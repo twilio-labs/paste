@@ -4,7 +4,7 @@ exports[`Backgrounds it should render responsive values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -42,7 +42,7 @@ exports[`Backgrounds it should render single values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -74,7 +74,7 @@ exports[`Borders it should render responsive values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -124,7 +124,7 @@ exports[`Borders it should render single values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -159,7 +159,7 @@ exports[`Shadows it should render responsive values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -197,7 +197,7 @@ exports[`Shadows it should render single values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -229,7 +229,7 @@ exports[`Sizes it should render responsive values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -289,7 +289,7 @@ exports[`Sizes it should render single values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -328,7 +328,7 @@ exports[`Spaces (A) it should render responsive values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -366,7 +366,7 @@ exports[`Spaces (A) it should render single values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -398,7 +398,7 @@ exports[`Spaces (B) it should render single values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -433,7 +433,7 @@ exports[`Spaces (B)it should render responsive values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -477,7 +477,7 @@ exports[`ZIndex it should render responsive values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -515,7 +515,7 @@ exports[`ZIndex it should render single values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
