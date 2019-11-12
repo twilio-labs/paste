@@ -3,32 +3,35 @@ global:
   type: number
 props:
   line-height-10:
-    value: "1.666666667" ##12px * 1.666666667 = 20px
+    value: "1rem" ##10px * 1.55 = 16px / 16 = 1
     comment: "Constant line-height token for font size 10"
   line-height-20:
-    value: "1.714285714" ##14px * 1.714285714 = 24px
+    value: "1.25rem" ##12px * 1.55 = 20px / 16 = 1.25
     comment: "Constant line-height token for font size 20"
   line-height-30:
-    value: "1.5" ##16px * 1.5 = 24px
+    value: "1.5rem" ##14px * 1.55 = 24px / 16 = 1.5
     comment: "Constant line-height token for font size 30"
   line-height-40:
-    value: "1.555555556" ##18px * 1.555555556 = 28px
+    value: "1.75rem" ##16px * 1.55 = 28px / 16 = 1.75
     comment: "Constant line-height token for font size 40"
   line-height-50:
-    value: "1.6" ##20px * 1.6 = 32px
+    value: "1.75rem" ##18px * 1.55 = 28px / 16 = 1.75
     comment: "Constant line-height token for font size 50"
   line-height-60:
-    value: "1.5" ##24px * 1.5 = 36px
+    value: "1.75rem" ##20px * 1.25 = 28px / 16 = 1.75
     comment: "Constant line-height token for font size 60"
   line-height-70:
-    value: "1.5" ##24px * 1.5 = 36px
+    value: "2rem" ##24px * 1.25 = 32px / 16 = 2
     comment: "Constant line-height token for font size 70"
   line-height-80:
-    value: "1.5" ##24px * 1.5 = 36px
+    value: "2.25rem" ##28px * 1.25 = 36px / 16 = 2.25
     comment: "Constant line-height token for font size 80"
   line-height-90:
-    value: "1.5" ##24px * 1.5 = 36px
+    value: "2.5rem" ##32px * 1.25 = 40px / 16 = 2.5
     comment: "Constant line-height token for font size 90"
   line-height-100:
-    value: "1.5" ##24px * 1.5 = 36px
+    value: "3.25rem" ##40px * 1.25 = 52px / 16 = 3.25
+    comment: "Constant line-height token for font size 100"
+  line-height-110:
+    value: "3.75rem" ##48px * 1.25 = 60px / 16 = 3.75
     comment: "Constant line-height token for font size 100"
