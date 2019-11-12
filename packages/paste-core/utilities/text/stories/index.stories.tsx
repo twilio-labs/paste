@@ -41,7 +41,7 @@ storiesOf('Utilities|Text', module)
     const fontStyleValue = text('fontStyle', '') as FontStyle;
     const fontWeightValue = select('fontWeight', fontWeightOptions, '') as FontWeight;
     const letterSpacingValue = text('letterSpacing', '') as LetterSpacing;
-    const lineHeightValue = select('lineHeight', lineHeightOptions, 'lineHeight20') as LineHeight;
+    const lineHeightValue = select('lineHeight', lineHeightOptions, 'lineHeight30') as LineHeight;
     const textAlignValue = text('textAlign', '') as TextAlign;
     const textColorValue = select('textColor', textColorOptions, 'colorText') as TextColor;
     const textDecorationValue = text('textDecoration', '') as TextDecoration;
