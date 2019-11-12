@@ -34,4 +34,4 @@ props:
     comment: "Constant line-height token for font size 100"
   line-height-110:
     value: "3.75rem" ##48px * 1.25 = 60px / 16 = 3.75
-    comment: "Constant line-height token for font size 100"
+    comment: "Constant line-height token for font size 110"
