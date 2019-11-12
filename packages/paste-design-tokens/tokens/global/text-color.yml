@@ -66,15 +66,6 @@ props:
   color-text-icon:
     value: "{!palette-gray-100}"
     comment: Default icon color.
-  color-text-icon-link:
-    value: "{!palette-blue-70}"
-    comment: Default icon link color.
-  color-text-icon-link-dark:
-    value: "{!palette-blue-80}"
-    comment: Dark shade of icon link color.
-  color-text-icon-link-darker:
-    value: "{!palette-blue-90}"
-    comment: Darker shade of icon link color.
 
   #forms
   color-text-label:
