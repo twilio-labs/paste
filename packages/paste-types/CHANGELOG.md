@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/types@2.0.0...@twilio-paste/types@2.0.1) (2019-11-12)
+
+
+### Bug Fixes
+
+* **types:** add styled-system types dep ([#164](https://github.com/twilio-labs/paste/issues/164)) ([c235734](https://github.com/twilio-labs/paste/commit/c235734337b37acf23bf3fffacd39df9df02ff54))
+
+
+
+
+
 # [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/types@1.1.0...@twilio-paste/types@2.0.0) (2019-11-11)
 
 

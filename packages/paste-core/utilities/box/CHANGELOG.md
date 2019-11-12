@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.0.0...@twilio-paste/box@2.0.1) (2019-11-12)
+
+
+### Bug Fixes
+
+* prettier updated, updating formatting ([8644831](https://github.com/twilio-labs/paste/commit/86448312b017f13720735525e516f086704b1813))
+
+
+
+
+
 # [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@1.1.0...@twilio-paste/box@2.0.0) (2019-11-11)
 
 
