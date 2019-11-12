@@ -33,7 +33,17 @@ const Box = styled.div<Box>(
     boxSizing: 'border-box',
     minWidth: 0,
   },
-  compose(space, layout, flexbox, background, backgroundColor, border, borderColor, boxShadow, position)
+  compose(
+    space,
+    layout,
+    flexbox,
+    background,
+    backgroundColor,
+    border,
+    borderColor,
+    boxShadow,
+    position
+  )
 );
 
 Box.displayName = 'Box';
