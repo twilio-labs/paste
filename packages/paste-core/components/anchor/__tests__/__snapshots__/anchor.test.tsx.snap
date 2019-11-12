@@ -31,6 +31,7 @@ exports[`Anchor it should render an anchor 1`] = `
 .emotion-0:focus,
 .emotion-0:active {
   box-shadow: 0 0 0 4px rgba(0,117,195,0.5);
+  color: #001f57;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
