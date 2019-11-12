@@ -5,3 +5,4 @@ dist/
 public/
 __IconList.tsx
 *.d.ts
+.yarn/
