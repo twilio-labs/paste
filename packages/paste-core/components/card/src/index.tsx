@@ -6,8 +6,6 @@ import {errorOnBadProps, spacingProps} from './utilities';
 
 interface CardFooterProps extends SpacingProps, StaticDiv {}
 
-/* Where do y'all want to put these prop names? */
-
 const cardProps = spacingProps;
 const cardFooterProps = spacingProps;
 
