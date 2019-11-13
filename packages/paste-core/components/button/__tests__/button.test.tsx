@@ -1,7 +1,7 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
 import {Theme} from '@twilio-paste/theme';
-import {shallow} from 'enzyme';
+import {shallow, ReactWrapper, mount} from 'enzyme';
 import {Button} from '../src';
 
 const NOOP = (): void => {};
@@ -197,5 +197,38 @@ describe('Button Errors', () => {
 
   it('Throws an error when passing an invalid tabIndex', () => {
     expect(() => shallow(<Button variant="primary" tabIndex="-2" />)).toThrowError();
+  });
+});
+
+describe('Button attributes', () => {
+  it('should render aria-expanded attribute', () => {
+    const wrapper: ReactWrapper = mount(
+      <Button variant="secondary" aria-expanded="true">
+        button
+      </Button>
+    );
+    expect(wrapper.prop('aria-expanded')).toBe('true');
+  });
+
+  it('should render aria-controls attribute', () => {
+    const wrapper: ReactWrapper = mount(
+      <Button variant="secondary" aria-controls="some-id">
+        button
+      </Button>
+    );
+    expect(wrapper.prop('aria-controls')).toBe('some-id');
+  });
+});
+
+describe('button event handlers', () => {
+  it('should call the onClick handler', () => {
+    const onClickMock: jest.Mock = jest.fn();
+    const wrapper: ReactWrapper = mount(
+      <Button variant="secondary" onClick={onClickMock}>
+        button
+      </Button>
+    );
+    wrapper.simulate('click');
+    expect(onClickMock).toHaveBeenCalled();
   });
 });
