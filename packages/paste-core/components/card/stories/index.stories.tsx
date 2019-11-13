@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
-// import {action} from '@storybook/addon-actions';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
 import {Card, CardFooter} from '../src';

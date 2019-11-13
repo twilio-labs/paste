@@ -9,10 +9,6 @@ type AttributesToDrop = 'className' | 'style';
 /* eslint-disable-next-line @typescript-eslint/no-empty-interface */
 export interface Events extends DOMAttributes<'div'> {}
 
-// Unfortunately we can't extend BaseCompoment for these types because Omit
-export interface StaticDiv extends Omit<InteractiveDiv, keyof Events> {}
-export interface StaticLabel extends Omit<InteractiveLabel, keyof Events> {}
-
 // Not a fan of having static interactiveX wish we could do
 // interactive<T> = React.ComponentProps<T>; but couldn't make it work ¯\_(ツ)_/¯
 export interface InteractiveDiv extends Omit<React.ComponentProps<'div'>, AttributesToDrop> {}
@@ -22,5 +18,9 @@ export interface InteractiveAnchor extends Omit<React.ComponentProps<'a'>, Attri
 export interface InteractiveInput extends Omit<React.ComponentProps<'input'>, AttributesToDrop> {}
 export interface InteractiveImage extends Omit<React.ComponentProps<'img'>, AttributesToDrop> {}
 export interface InteractiveSelect extends Omit<React.ComponentProps<'select'>, AttributesToDrop> {}
+
+// Unfortunately we can't extend BaseCompoment for these types because Omit
+export interface StaticDiv extends Omit<InteractiveDiv, keyof Events> {}
+export interface StaticLabel extends Omit<InteractiveLabel, keyof Events> {}
 
 /* eslint-enable @typescript-eslint/no-empty-interface */
