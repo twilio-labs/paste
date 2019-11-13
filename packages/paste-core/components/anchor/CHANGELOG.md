@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@1.0.0...@twilio-paste/anchor@1.0.1) (2019-11-12)
+
+
+### Bug Fixes
+
+* **anchor:** fix hover color ([#178](https://github.com/twilio-labs/paste/issues/178)) ([ba37e97](https://github.com/twilio-labs/paste/commit/ba37e9786797d167bf1806ba21ad30eca609b548))
+
+
+
+
+
 # [1.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@0.2.1...@twilio-paste/anchor@1.0.0) (2019-11-11)
 
 

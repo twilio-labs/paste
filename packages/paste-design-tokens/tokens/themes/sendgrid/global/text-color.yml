@@ -25,7 +25,7 @@ props:
 
   # links
   color-text-link:
-    value: "{!palette-blue-50}"
+    value: "{!palette-blue-60}"
     comment: Link text
   color-text-link-light:
     value: "{!palette-blue-40}"

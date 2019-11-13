@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@1.0.0...@twilio-paste/core@1.0.1) (2019-11-12)
+
+
+### Bug Fixes
+
+* paragraph package deps incorrect ([90ad6bc](https://github.com/twilio-labs/paste/commit/90ad6bca9628b2ac85990053d738c92450b4c798))
+
+
+
+
+
 # [1.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@0.2.0...@twilio-paste/core@1.0.0) (2019-11-11)
 
 

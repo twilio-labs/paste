@@ -15,6 +15,7 @@ const StyledThemeSwitcherLabel = styled.label<{}>(props => ({
   cursor: 'pointer',
   display: 'inline-block',
   fontSize: themeGet('fontSizes.fontSize30')(props),
+  lineHeight: themeGet('lineHeights.lineHeight30')(props),
   padding: `${themeGet('space.space20')(props)} ${themeGet('space.space40')(props)}`,
   '&:hover': {
     textDecoration: 'underline',
