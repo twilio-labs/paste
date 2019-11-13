@@ -21,7 +21,15 @@ const Text = styled.span<Text>(
     margin: 0,
     padding: 0,
   },
-  compose(space, display, verticalAlign, overflow, textDecoration, typography, textColor)
+  compose(
+    space,
+    display,
+    verticalAlign,
+    overflow,
+    textDecoration,
+    typography,
+    textColor
+  )
 );
 
 Text.defaultProps = {

@@ -21,7 +21,10 @@ const IconWrapper = styled.span<IconWrapperProps>(
   {
     display: 'inline-block',
   },
-  compose(iconColor, size)
+  compose(
+    iconColor,
+    size
+  )
 );
 
 IconWrapper.defaultProps = {
