@@ -207,7 +207,7 @@ describe('Button attributes', () => {
         button
       </Button>
     );
-    expect(wrapper.prop('aria-expanded')).toBe('true');
+    expect(wrapper.exists('[aria-expanded="true"]')).toEqual(true);
   });
 
   it('should render aria-controls attribute', () => {
@@ -216,7 +216,7 @@ describe('Button attributes', () => {
         button
       </Button>
     );
-    expect(wrapper.prop('aria-controls')).toBe('some-id');
+    expect(wrapper.exists('[aria-controls="some-id"]')).toEqual(true);
   });
 });
 
