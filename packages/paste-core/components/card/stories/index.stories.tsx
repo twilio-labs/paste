@@ -5,7 +5,7 @@ import {withKnobs, select} from '@storybook/addon-knobs';
 import {Text} from '@twilio-paste/text';
 import {Card, CardFooter} from '../src';
 
-import {Padding, Space} from '@twilio-paste/types';
+import {Padding} from '@twilio-paste/types';
 
 const space = [
   'space0',

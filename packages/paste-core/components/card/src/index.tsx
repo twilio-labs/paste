@@ -1,15 +1,8 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import {PaddingProps, BorderWidthProps, BorderColorProps, BorderStyleProps} from '@twilio-paste/types';
+import {PaddingProps} from '@twilio-paste/types';
 import {StaticDiv} from '@twilio-paste/types/src/DomTypes';
-import {
-  errorOnBadProps,
-  spacingProps,
-  borderWidthProps,
-  borderStyleProps,
-  borderColorProps,
-  paddingProps,
-} from './utilities';
+import {errorOnBadProps, paddingProps} from './utilities';
 
 interface CardFooterProps extends PaddingProps, StaticDiv {}
 const cardFooterProps = paddingProps;
@@ -34,8 +27,8 @@ const CardFooter: React.FunctionComponent<CardFooterProps> = ({children, ...attr
   );
 };
 
-interface CardProps extends PaddingProps, BorderStyleProps, BorderColorProps, BorderWidthProps, StaticDiv {}
-const cardProps = [...paddingProps, ...borderWidthProps, ...borderColorProps, ...borderStyleProps];
+interface CardProps extends PaddingProps, StaticDiv {}
+const cardProps = paddingProps;
 
 const Card: React.FunctionComponent<CardProps> = ({children, ...attributes}) => {
   errorOnBadProps(attributes, cardProps);
