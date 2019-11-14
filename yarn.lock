@@ -3415,11 +3415,6 @@
     prettier "^1.18.2"
     tslib "^1.10.0"
 
-"@twilio-paste/box@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@twilio-paste/box/-/box-0.3.1.tgz#8012e233c379238f1f62a83b04a697518138a725"
-  integrity sha512-qpeExApM8dWRW+skuQaI1QwpdFF1fKSEhM8DxFrIVGtpKxCR7IGVaVQvuKbrfMd0I5Gsfff7FsCYylpySoDfAA==
-
 "@types/anymatch@*":
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/@types/anymatch/-/anymatch-1.3.1.tgz#336badc1beecb9dacc38bea2cf32adf627a8421a"
