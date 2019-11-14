@@ -194,7 +194,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavButton onClick={() => setIconsOpen(!iconsOpen)} isOpen={iconsOpen}>
+          <SiteNavButton onClick={() => setIconsOpen(!iconsOpen)} isOpen={iconsOpen} aria-expanded={iconsOpen}>
             Icons
             <SiteNavAnchorArrow isOpen={iconsOpen} />
           </SiteNavButton>
