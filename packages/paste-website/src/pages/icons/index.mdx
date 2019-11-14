@@ -1,17 +1,11 @@
 ---
-title: Icons
-description: Our icon system and how it works.
+title: Icon Guidelines
+description: Overview on how to use icons in the context of Paste projects.
 ---
 
 import {graphql} from 'gatsby';
-import {Link} from 'gatsby';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
-import {LoadingIcon} from '@twilio-paste/icons/esm/LoadingIcon';
-import Changelog from '@twilio-paste/icons/CHANGELOG.md';
+import {Anchor} from '@twilio-paste/anchor';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
-import {Grid} from '../../components/grid';
 
 export const pageQuery = graphql`
   {
@@ -32,102 +26,38 @@ export const pageQuery = graphql`
 
 <h1>{props.pageContext.frontmatter.title}</h1>
 
-For a full list of our system's available icons, please check [our storybook story](https://twilio-labs.github.io/paste/?path=/story/overview-icons--list).
-
-## Guidelines
-
-### About icons
+## About icons
 
 Icons are small graphical representation of a program or a function. They can be used to enhance the
-appearance of a web interface and break up the monotony of text. Paste icons are distributed as both
-SVG files and React components. Our base icon size is set to 24px. Our icon set is still limited,
-we will be adding more as needed. Please [file a feature request](https://github.com/twilio-labs/paste/issues)
-if you need an icon we don't yet have or review our [icon contribution guide](https://docs.google.com/document/d/1a2-KAwU6dOjmcPLRD8zQln_8zS52ti7zziq_JRjUa8E).
+appearance of a web interface and break up the monotony of text.
 
-#### Accessibility
+<Callout>
+  <CalloutText>
+    Our icon set is still limited, more will be adding over time. Please{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/issues">file an icon request</Anchor> if you need an icon we
+    don't yet have. Alternatively, you can provide your own icon asset by following{' '}
+    <Anchor href="https://docs.google.com/document/d/1a2-KAwU6dOjmcPLRD8zQln_8zS52ti7zziq_JRjUa8E">
+      our contribution guide
+    </Anchor>
+    .
+  </CalloutText>
+</Callout>
 
-Using an icon as the only indication of meaning is inaccessible. Different cultures may interpret the same image
-in different ways and visually impaired users may not see the icon. Here are some helpful guidelines to keep in mind:
-
-- Specify if the icon is [decorative](https://www.w3.org/WAI/tutorials/images/decorative/) through the corresponding prop.
-- If an icon isn't decorative (and thus is informative), specify a `title` prop that screenreaders can read to explain to users what the icon is about.
-- Try to pair icons with text.
-- Icons should not be interactive (i.e., clickable or focusable). They can be wrapped with an interactive element like [Button](/components/button) or [Anchor](/components/anchor).
-
-### When to use icons
+## When to use icons
 
 Use an icon only when it provides additional clarity or is necessary to draw attention to a UI element.
 If an icon is used to indicate hierarchy of a UI element, all elements at the same hierarchy should also be paired with an icon.
 
-### Examples
+### Accessibility
 
-<LivePreview scope={{PlusIcon, LoadingIcon}} language="jsx">
-  {`<div>
-  <PlusIcon title="Add to cart" decorative={false} />
-  <LoadingIcon decorative={true} size="sizeIcon30" iconColor="colorTextError" />
-</div>`}
-</LivePreview>
+Using an icon as the only indicator of meaning is inaccessible. Different cultures may interpret the same image
+in different ways and visually impaired users may not see the icon. Here are some helpful guidelines to keep in mind:
 
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/icons
-```
-
-#### Usage
-
-Icons have to be imported individually. This import style was decided for performance reasons. As our icon
-set grows to contain over 100 icons, we don't want projects that use only a few icons to be burdened by
-that large of a payload.
-
-```jsx
-import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
-
-<Button variant="secondary" size="small" onClick={() => {}}>
-  <PlusIcon decorative={true} />
-  Add to cart
-</Button>
-```
-
-### Implementation
-
-#### Why SVG?
-
-PNGs and JPGs are created using thousands of tiny pixels. SVGs are made out of geometric
-primitives such as points, lines, and basic shapes. Because of this attribute, SVGs can
-be resized without any loss of quality to the image. We can also write code to change SVG
-attributes in realtime. These characteristics are ideal for icons since we usually want to
-customize their size or color. To do this with PNGs or JPGs we would need to create a
-separate file for each variation.
-
-#### Why React components?
-
-If you're using any Paste component, you're familiar with how to install and use a React
-component. Our icon components have accessibility baked in. They also use our tokens for
-sizing and coloring. With icon components, you can import only the icons your project needs.
-
-For more reading about icon components, please check our [rationale document](https://github.com/twilio-labs/svg-to-react/blob/master/RATIONALE.md).
-
-#### Props
-
-| Prop       | Type      | Description                                                                                                                                           | Default        |
-| ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| as?        | string    | The HTML tag to replace the default `<button>` tag.                                                                                                   | `span`         |
-| title?     | string    | The accessibility text that is read when screenreaders get to this component.                                                                         |                |
-| decorative | boolean   | Whether or not the SVG is just visual flair or adds meaning to the page. Specifically for screenreaders to know whether to read out the title or not. |                |
-| size?      | IconSize  | `sizeIcon10` `sizeIcon20` `sizeIcon30`                                                                                                                | `sizeIcon20`   |
-| iconColor? | TextColor | Sets the icon color to any of our text color tokens or `currentColor`, which inherits text color from the parent element.                             | `currentColor` |
-
-<Box marginTop="space90">
-  <Changelog />
-</Box>
+- Specify if the icon is [decorative](https://www.w3.org/WAI/tutorials/images/decorative/) through the corresponding prop.
+- If an icon isn't decorative (and thus is informative), you must describe the icon in such a way that users of
+  assistive technology can infer equal meaning as a sighted user would by setting the `title` prop.
+- Try to pair icons with text.
+- Icons should not be interactive (i.e., clickable or focusable). They can be wrapped with an interactive element like [Button](/components/button) or [Anchor](/components/anchor).
 
 </content>
-
 </contentwrapper>

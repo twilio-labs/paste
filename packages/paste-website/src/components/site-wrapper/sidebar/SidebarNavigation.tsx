@@ -78,15 +78,16 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
   const data: SiteWrapperPageQuery = useStaticQuery(pageQuery);
 
   const [componentsOpen, setComponentsOpen] = React.useState(
-    getCurrentPathname().includes(SidebarCategoryRoutes.COMPONENTS)
+    getCurrentPathname().startsWith(SidebarCategoryRoutes.COMPONENTS)
   );
-  const [utilitiesOpen, setutilitiesOpen] = React.useState(
-    getCurrentPathname().includes(SidebarCategoryRoutes.UTILITIES)
+  const [utilitiesOpen, setUtilitiesOpen] = React.useState(
+    getCurrentPathname().startsWith(SidebarCategoryRoutes.UTILITIES)
   );
+  const [iconsOpen, setIconsOpen] = React.useState(getCurrentPathname().startsWith(SidebarCategoryRoutes.ICONS));
   const [gettingStartedOpen, setgettingStartedOpen] = React.useState(
-    getCurrentPathname().includes(SidebarCategoryRoutes.GETTING_STARTED)
+    getCurrentPathname().startsWith(SidebarCategoryRoutes.GETTING_STARTED)
   );
-  const [tokensOpen, setTokensOpen] = React.useState(getCurrentPathname().includes(SidebarCategoryRoutes.TOKENS));
+  const [tokensOpen, setTokensOpen] = React.useState(getCurrentPathname().startsWith(SidebarCategoryRoutes.TOKENS));
 
   return (
     <SiteNav>
@@ -170,7 +171,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
         </SiteNavItem>
         <SiteNavItem>
           <SiteNavButton
-            onClick={() => setutilitiesOpen(!utilitiesOpen)}
+            onClick={() => setUtilitiesOpen(!utilitiesOpen)}
             isOpen={utilitiesOpen}
             aria-expanded={utilitiesOpen}
           >
@@ -193,7 +194,21 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavAnchor to="/icons">Icons</SiteNavAnchor>
+          <SiteNavButton onClick={() => setIconsOpen(!iconsOpen)} isOpen={iconsOpen}>
+            Icons
+            <SiteNavAnchorArrow isOpen={iconsOpen} />
+          </SiteNavButton>
+          <SiteNavNestList isOpen={iconsOpen}>
+            <SiteNavItem>
+              <SiteNavAnchor to={SidebarCategoryRoutes.ICONS}>Guidelines</SiteNavAnchor>
+            </SiteNavItem>
+            <SiteNavItem>
+              <SiteNavAnchor to={`${SidebarCategoryRoutes.ICONS}/components`}>Components</SiteNavAnchor>
+            </SiteNavItem>
+            <SiteNavItem>
+              <SiteNavAnchor to={`${SidebarCategoryRoutes.ICONS}/list`}>List</SiteNavAnchor>
+            </SiteNavItem>
+          </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
           <SiteNavAnchor to="/migrate">Migration Guide</SiteNavAnchor>

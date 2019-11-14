@@ -7,6 +7,7 @@ export const SidebarCategoryRoutes = {
   COMPONENTS: '/components',
   PRIMITIVES: '/primitives',
   UTILITIES: '/utilities',
+  ICONS: '/icons',
   GETTING_STARTED: '/getting-started',
   TOKENS: '/tokens',
 };
