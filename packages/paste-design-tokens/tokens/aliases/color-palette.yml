@@ -1,6 +1,6 @@
 aliases:
   ## Blues
-  palette-blue-10: "#f6fcff"
+  palette-blue-10: "#f5f8ff"
   palette-blue-20: "#eff6fb"
   palette-blue-30: "#dceaf4"
   palette-blue-40: "#b3d3e9"
@@ -13,7 +13,7 @@ aliases:
 
   ## Grays
   palette-gray-0: "#ffffff"
-  palette-gray-10: "#fafafa"
+  palette-gray-10: "#f9fafb"
   palette-gray-20: "#f8f8f9"
   palette-gray-30: "#f2f3f4"
   palette-gray-40: "#e4e7e9"
@@ -49,7 +49,7 @@ aliases:
   palette-green-100: "#00361a"
 
   ## Oranges
-  palette-orange-10: "#fff5eb"
+  palette-orange-10: "#ffecd8"
   palette-orange-20: "#fdd5bf"
   palette-orange-30: "#fbb68f"
   palette-orange-40: "#fa9c66"
@@ -61,7 +61,7 @@ aliases:
   palette-orange-100: "#2c1102"
 
   ## Reds
-  palette-red-10: "#fff6f6"
+  palette-red-10: "#ffe9e7"
   palette-red-20: "#fcf0f0"
   palette-red-30: "#f5dddd"
   palette-red-40: "#ecb6b6"

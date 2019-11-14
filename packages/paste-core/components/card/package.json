@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/card",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "category": "data display",
   "status": "alpha",
   "private": true,
@@ -27,7 +27,7 @@
   "peerDependencies": {
     "react": ">= 16.0.0",
     "react-dom": ">= 16.0.0",
-    "@twilio-paste/box": "^0.3.1",
+    "@twilio-paste/box": "^2.0.1",
     "@twilio-paste/types": "^0.0.1"
   },
   "devDependencies": {

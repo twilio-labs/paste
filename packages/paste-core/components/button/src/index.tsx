@@ -85,11 +85,12 @@ const Button: React.FC<ButtonProps> = props => {
       size={defaultSize}
       tabIndex={props.tabIndex}
       type={props.type}
+      aria-busy={buttonState === 'loading'}
     >
       <ButtonChildren buttonState={buttonState}>{props.children}</ButtonChildren>
       {showLoading ? (
         <SpinnerWrapper as="span">
-          <Spinner size={20} title=". Loading, please wait." />
+          <Spinner title=". Loading, please wait." />
         </SpinnerWrapper>
       ) : null}
     </ButtonWrapper>

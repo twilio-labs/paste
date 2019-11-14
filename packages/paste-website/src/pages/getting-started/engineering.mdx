@@ -30,13 +30,13 @@ Currently, every package is standalone in the paste project.  While this means y
 #### External dependencies
 
 ```shell
-yarn add @emotion/core @emotion/styled styled-system@4.1.0 react-uid
+yarn add react react-dom @emotion/core @emotion/styled styled-system @styled-system/theme-get react-uid
 ```
 
 #### System packages
 
 ```shell
-yarn add @twilio-paste/theme @twilio-paste/design-tokens @twilio-paste/theme-tokens @twilio-paste/box @twilio-paste/icons @twilio-paste/spinner @twilio-paste/text @twilio-paste/button @twilio-paste/anchor @twilio-paste/absolute @twilio-paste/screen-reader-only @twilio-paste/media-object
+yarn add @twilio-paste/types @twilio-paste/design-tokens @twilio-paste/theme-tokens @twilio-paste/theme @twilio-paste/icons @twilio-paste/core
 ```
 
 
@@ -47,7 +47,6 @@ Be gentle :P  - this was recorded in one take on zoom.
 <video controls width="640px" height="480px">
     <source src={QuickstartVideo} type="video/mp4" />
 </video>
-
 
 ## Usage
 
@@ -71,6 +70,16 @@ import {Box} from '@twilio-paste/box';
 ```
 
 Our tokens are readily available on our components and typescript typings are provided.
+
+## Sandbox
+
+<iframe
+  src="https://codesandbox.io/embed/paste-starter-kit-rj7yy?fontsize=14"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="Paste Starter Kit"
+  allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+></iframe>
 
 </content>
 

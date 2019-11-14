@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import {SpacingProps} from '@twilio-paste/types';
+import {SpaceProps} from '@twilio-paste/types';
 import {StaticDiv} from '@twilio-paste/types/src/DomTypes';
 import {errorOnBadProps, spacingProps} from './utilities';
 
-interface CardFooterProps extends SpacingProps, StaticDiv {}
+interface CardFooterProps extends SpaceProps, StaticDiv {}
 
 const cardProps = spacingProps;
 const cardFooterProps = spacingProps;
@@ -29,7 +29,7 @@ const CardFooter: React.FunctionComponent<CardFooterProps> = ({children, ...attr
   );
 };
 
-interface CardProps extends SpacingProps, StaticDiv {}
+interface CardProps extends SpaceProps, StaticDiv {}
 
 const Card: React.FunctionComponent<CardProps> = ({children, ...attributes}) => {
   errorOnBadProps(attributes, cardProps);

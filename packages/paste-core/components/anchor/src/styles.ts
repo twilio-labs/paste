@@ -1,28 +1,21 @@
 import styled from '@emotion/styled';
-import {themeGet} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 
 // Link
-export const StyledLink = styled.a`
+export const StyledAnchor = styled.a`
   color: ${themeGet('textColors.colorTextLink')};
-  text-decoration: none;
+  text-decoration: underline;
   outline: none;
 
   &:hover {
-    color: ${themeGet('textColors.colorTextLinkHover')};
-    text-decoration: underline;
+    color: ${themeGet('textColors.colorTextLinkDarker')};
+    text-decoration: none;
   }
 
   &:focus,
   &:active {
     box-shadow: ${themeGet('shadows.shadowFocus')};
-    text-decoration: underline;
-  }
-
-  &:focus {
-    color: ${themeGet('textColors.colorTextLinkFocus')};
-  }
-
-  &:active {
-    color: ${themeGet('textColors.colorTextLinkActive')};
+    color: ${themeGet('textColors.colorTextLinkDarker')};
+    text-decoration: none;
   }
 `;

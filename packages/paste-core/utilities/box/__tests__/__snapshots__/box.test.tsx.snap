@@ -3,7 +3,8 @@
 exports[`Backgrounds it should render responsive values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -15,8 +16,9 @@ exports[`Backgrounds it should render responsive values 1`] = `
 }
 
 .emotion-0 {
-  background-color: #b3d3e9;
+  box-sizing: border-box;
   min-width: 0;
+  background-color: #b3d3e9;
 }
 
 @media screen and (min-width:25rem) {
@@ -39,7 +41,8 @@ exports[`Backgrounds it should render responsive values 1`] = `
 exports[`Backgrounds it should render single values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -51,8 +54,9 @@ exports[`Backgrounds it should render single values 1`] = `
 }
 
 .emotion-0 {
-  background-color: #0075c3;
+  box-sizing: border-box;
   min-width: 0;
+  background-color: #0075c3;
 }
 
 <div
@@ -69,7 +73,8 @@ exports[`Backgrounds it should render single values 1`] = `
 exports[`Borders it should render responsive values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -81,19 +86,19 @@ exports[`Borders it should render responsive values 1`] = `
 }
 
 .emotion-0 {
-  border-width: 1px;
-  border-style: dashed;
-  border-color: colorBorderPrimaryDark;
-  border-radius: 0;
-  border-color: #005ea6;
+  box-sizing: border-box;
   min-width: 0;
+  border-style: dashed;
+  border-color: #005ea6;
+  border-width: 1px;
+  border-radius: 0;
 }
 
 @media screen and (min-width:25rem) {
   .emotion-0 {
-    border-width: 2px;
     border-style: dotted;
-    border-color: colorBorderPrimaryLight;
+    border-color: #b3d3e9;
+    border-width: 2px;
     border-radius: 3px;
   }
 }
@@ -101,12 +106,6 @@ exports[`Borders it should render responsive values 1`] = `
 @media screen and (min-width:64rem) {
   .emotion-0 {
     border-style: solid;
-  }
-}
-
-@media screen and (min-width:25rem) {
-  .emotion-0 {
-    border-color: #b3d3e9;
   }
 }
 
@@ -124,7 +123,8 @@ exports[`Borders it should render responsive values 1`] = `
 exports[`Borders it should render single values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -136,12 +136,12 @@ exports[`Borders it should render single values 1`] = `
 }
 
 .emotion-0 {
-  border-width: 1px;
-  border-style: solid;
-  border-color: colorBorderPrimaryDark;
-  border-radius: 4px;
-  border-color: #005ea6;
+  box-sizing: border-box;
   min-width: 0;
+  border-style: solid;
+  border-color: #005ea6;
+  border-width: 1px;
+  border-radius: 4px;
 }
 
 <div
@@ -158,7 +158,8 @@ exports[`Borders it should render single values 1`] = `
 exports[`Shadows it should render responsive values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -170,6 +171,7 @@ exports[`Shadows it should render responsive values 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
   min-width: 0;
   box-shadow: 0 2px 4px 0 rgba(40,42,43,0.3);
 }
@@ -194,7 +196,8 @@ exports[`Shadows it should render responsive values 1`] = `
 exports[`Shadows it should render single values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -206,6 +209,7 @@ exports[`Shadows it should render single values 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
   min-width: 0;
   box-shadow: 0 2px 4px 0 rgba(40,42,43,0.3);
 }
@@ -224,7 +228,8 @@ exports[`Shadows it should render single values 1`] = `
 exports[`Sizes it should render responsive values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -236,7 +241,9 @@ exports[`Sizes it should render responsive values 1`] = `
 }
 
 .emotion-0 {
-  width: size10;
+  box-sizing: border-box;
+  min-width: 0;
+  width: 5.5rem;
   min-width: 0;
   max-width: 12rem;
   height: 5.5rem;
@@ -246,36 +253,11 @@ exports[`Sizes it should render responsive values 1`] = `
 
 @media screen and (min-width:25rem) {
   .emotion-0 {
-    width: size20;
-  }
-}
-
-@media screen and (min-width:25rem) {
-  .emotion-0 {
+    width: 12rem;
     min-width: 5.5rem;
-  }
-}
-
-@media screen and (min-width:25rem) {
-  .emotion-0 {
     max-width: 18.5rem;
-  }
-}
-
-@media screen and (min-width:25rem) {
-  .emotion-0 {
     height: 12rem;
-  }
-}
-
-@media screen and (min-width:25rem) {
-  .emotion-0 {
     min-height: 5.5rem;
-  }
-}
-
-@media screen and (min-width:25rem) {
-  .emotion-0 {
     max-height: 18.5rem;
   }
 }
@@ -306,7 +288,8 @@ exports[`Sizes it should render responsive values 1`] = `
 exports[`Sizes it should render single values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -318,7 +301,9 @@ exports[`Sizes it should render single values 1`] = `
 }
 
 .emotion-0 {
-  width: size10;
+  box-sizing: border-box;
+  min-width: 0;
+  width: 5.5rem;
   min-width: 0;
   max-width: 12rem;
   height: 5.5rem;
@@ -342,7 +327,8 @@ exports[`Sizes it should render single values 1`] = `
 exports[`Spaces (A) it should render responsive values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -354,6 +340,7 @@ exports[`Spaces (A) it should render responsive values 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
   min-width: 0;
   margin: 0.25rem;
 }
@@ -378,7 +365,8 @@ exports[`Spaces (A) it should render responsive values 1`] = `
 exports[`Spaces (A) it should render single values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -390,6 +378,7 @@ exports[`Spaces (A) it should render single values 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
   min-width: 0;
   margin: 0.25rem;
 }
@@ -408,7 +397,8 @@ exports[`Spaces (A) it should render single values 1`] = `
 exports[`Spaces (B) it should render single values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -420,11 +410,12 @@ exports[`Spaces (B) it should render single values 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
   min-width: 0;
   margin-top: 0.25rem;
+  margin-right: 0.25rem;
   margin-bottom: 0.5rem;
   margin-left: 0.5rem;
-  margin-right: 0.25rem;
 }
 
 <div
@@ -441,7 +432,8 @@ exports[`Spaces (B) it should render single values 1`] = `
 exports[`Spaces (B)it should render responsive values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -453,19 +445,20 @@ exports[`Spaces (B)it should render responsive values 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
   min-width: 0;
   margin-top: 0.25rem;
+  margin-right: 0.25rem;
   margin-bottom: 0.5rem;
   margin-left: 0.5rem;
-  margin-right: 0.25rem;
 }
 
 @media screen and (min-width:25rem) {
   .emotion-0 {
     margin-top: 0.5rem;
+    margin-right: 0.5rem;
     margin-bottom: 0.75rem;
     margin-left: 0.75rem;
-    margin-right: 0.5rem;
   }
 }
 
@@ -483,7 +476,8 @@ exports[`Spaces (B)it should render responsive values 1`] = `
 exports[`ZIndex it should render responsive values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -495,6 +489,7 @@ exports[`ZIndex it should render responsive values 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
   min-width: 0;
   z-index: 10;
 }
@@ -519,7 +514,8 @@ exports[`ZIndex it should render responsive values 1`] = `
 exports[`ZIndex it should render single values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -531,6 +527,7 @@ exports[`ZIndex it should render single values 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
   min-width: 0;
   z-index: 10;
 }

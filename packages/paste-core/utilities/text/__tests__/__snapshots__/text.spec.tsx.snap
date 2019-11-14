@@ -1,0 +1,1649 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`as it should render as a provided HTML element 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-2"
+>
+  <label
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    background single
+  </label>
+</div>
+`;
+
+exports[`display should set a display property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    display="inline-block"
+    fontSize="fontSize30"
+  >
+    display single
+  </span>
+</div>
+`;
+
+exports[`display should set a responsive display property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    display: block;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    display={
+      Array [
+        "inline-block",
+        "block",
+      ]
+    }
+    fontSize="fontSize30"
+  >
+    display responsive
+  </span>
+</div>
+`;
+
+exports[`fontFamily should set a font family property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  font-family: 'Fira Mono','Courier New',Courier,monospace;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontFamily="fontFamilyCode"
+    fontSize="fontSize30"
+  >
+    font family single
+  </span>
+</div>
+`;
+
+exports[`fontFamily should set a responsive font family property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    font-family: 'Fira Mono','Courier New',Courier,monospace;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontFamily={
+      Array [
+        "fontFamilyText",
+        "fontFamilyCode",
+      ]
+    }
+    fontSize="fontSize30"
+  >
+    font family responsive
+  </span>
+</div>
+`;
+
+exports[`fontSize should set a font size property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  font-size: 0.625rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize10"
+  >
+    font size single
+  </span>
+</div>
+`;
+
+exports[`fontSize should set a responsive font size property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  font-size: 0.75rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    font-size: 0.875rem;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize={
+      Array [
+        "fontSize20",
+        "fontSize30",
+      ]
+    }
+  >
+    font size responsive
+  </span>
+</div>
+`;
+
+exports[`fontStyle should set a font style property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  font-style: italic;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+    fontStyle="italic"
+  >
+    font style single
+  </span>
+</div>
+`;
+
+exports[`fontStyle should set a responsive font style property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  font-style: italic;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    font-style: normal;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+    fontStyle={
+      Array [
+        "italic",
+        "normal",
+      ]
+    }
+  >
+    font style responsive
+  </span>
+</div>
+`;
+
+exports[`fontWeight should set a font weight property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+    fontWeight="fontWeightBold"
+  >
+    font weight single
+  </span>
+</div>
+`;
+
+exports[`fontWeight should set a responsive font weight property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    font-weight: 600;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+    fontWeight={
+      Array [
+        "fontWeightLight",
+        "fontWeightSemibold",
+      ]
+    }
+  >
+    font weight responsive
+  </span>
+</div>
+`;
+
+exports[`letterSpacing should set a letter spacing property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+    letterSpacing="1px"
+  >
+    letter spacing single
+  </span>
+</div>
+`;
+
+exports[`letterSpacing should set a responsive letter spacing property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  -webkit-letter-spacing: -2px;
+  -moz-letter-spacing: -2px;
+  -ms-letter-spacing: -2px;
+  letter-spacing: -2px;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    -webkit-letter-spacing: 3px;
+    -moz-letter-spacing: 3px;
+    -ms-letter-spacing: 3px;
+    letter-spacing: 3px;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+    letterSpacing={
+      Array [
+        "-2px",
+        "3px",
+      ]
+    }
+  >
+    letter spacing responsive
+  </span>
+</div>
+`;
+
+exports[`lineHeight should set a line height property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  line-height: 1rem;
+  font-size: 0.875rem;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    line height single
+  </span>
+</div>
+`;
+
+exports[`lineHeight should set a responsive line height property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  line-height: 1.25rem;
+  font-size: 0.875rem;
+  color: #282a2b;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    line-height: 1.5rem;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    line height responsive
+  </span>
+</div>
+`;
+
+exports[`margin should set a margin property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  margin: 0.125rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    margin single
+  </span>
+</div>
+`;
+
+exports[`margin should set a responsive margin property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  margin: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    margin: 0.5rem;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    margin responsive
+  </span>
+</div>
+`;
+
+exports[`marginBottom should set a marginBottom property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0.125rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    marginBottom single
+  </span>
+</div>
+`;
+
+exports[`marginBottom should set a responsive marginBottom property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    margin-bottom: 0.5rem;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    marginBottom responsive
+  </span>
+</div>
+`;
+
+exports[`marginLeft should set a marginLeft property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  margin-left: 0.125rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    marginLeft single
+  </span>
+</div>
+`;
+
+exports[`marginLeft should set a responsive marginLeft property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  margin-left: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    margin-left: 0.5rem;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    marginLeft responsive
+  </span>
+</div>
+`;
+
+exports[`marginRight should set a marginRight property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  margin-right: 0.125rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    marginRight single
+  </span>
+</div>
+`;
+
+exports[`marginRight should set a responsive marginRight property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  margin-right: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    margin-right: 0.5rem;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    marginRight responsive
+  </span>
+</div>
+`;
+
+exports[`marginTop should set a marginTop property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  margin-top: 0.125rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    marginTop single
+  </span>
+</div>
+`;
+
+exports[`marginTop should set a responsive marginTop property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    margin-top: 0.5rem;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    marginTop responsive
+  </span>
+</div>
+`;
+
+exports[`padding should set a padding property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  padding: 0.125rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    padding single
+  </span>
+</div>
+`;
+
+exports[`padding should set a responsive padding property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  padding: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    padding: 0.5rem;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    padding responsive
+  </span>
+</div>
+`;
+
+exports[`paddingBottom should set a paddingBottom property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 0.125rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    paddingBottom single
+  </span>
+</div>
+`;
+
+exports[`paddingBottom should set a responsive paddingBottom property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    padding-bottom: 0.5rem;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    paddingBottom responsive
+  </span>
+</div>
+`;
+
+exports[`paddingLeft should set a paddingLeft property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  padding-left: 0.125rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    paddingLeft single
+  </span>
+</div>
+`;
+
+exports[`paddingLeft should set a responsive paddingLeft property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  padding-left: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    padding-left: 0.5rem;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    paddingLeft responsive
+  </span>
+</div>
+`;
+
+exports[`paddingRight should set a paddingRight property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  padding-right: 0.125rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    paddingRight single
+  </span>
+</div>
+`;
+
+exports[`paddingRight should set a responsive paddingRight property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  padding-right: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    padding-right: 0.5rem;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    paddingRight responsive
+  </span>
+</div>
+`;
+
+exports[`paddingTop should set a paddingTop property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  padding-top: 0.125rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    paddingTop single
+  </span>
+</div>
+`;
+
+exports[`paddingTop should set a responsive paddingTop property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  padding-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    padding-top: 0.5rem;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    paddingTop responsive
+  </span>
+</div>
+`;
+
+exports[`textAlign should set a responsive textAlign property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    text-align: left;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    textAlign responsive
+  </span>
+</div>
+`;
+
+exports[`textAlign should set a textAlign property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    textAlign single
+  </span>
+</div>
+`;
+
+exports[`textColor should set a responsive textColor property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  color: #cb0000;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    color: #00994a;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    textColor responsive
+  </span>
+</div>
+`;
+
+exports[`textColor should set a textColor property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  color: #282a2b;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+  >
+    textColor single
+  </span>
+</div>
+`;
+
+exports[`textDecoration should set a responsive textDecoration property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    -webkit-text-decoration: normal;
+    text-decoration: normal;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+    textDecoration={
+      Array [
+        "underline",
+        "normal",
+      ]
+    }
+  >
+    textDecoration responsive
+  </span>
+</div>
+`;
+
+exports[`textDecoration should set a textDecoration property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    fontSize="fontSize30"
+    textDecoration="underline"
+  >
+    textDecoration single
+  </span>
+</div>
+`;

@@ -44,7 +44,12 @@
     "noUnusedLocals": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "typeRoots": ["node_modules/@types", "./types/index.d.ts"]
+    // Not sure why, but this is needed for typeRoots to work correctly
+    // Source: https://github.com/microsoft/TypeScript/issues/22217#issuecomment-369783776
+    "paths": {
+      "*": ["./@types/*"]
+    },
+    "typeRoots": ["./@types", "node_modules/@types"]
   },
   "exclude": ["node_modules", "docs", "stories", "__tests__", "dist"]
 }

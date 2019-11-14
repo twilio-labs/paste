@@ -3,8 +3,6 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Theme} from '@twilio-paste/theme';
 import {LiveProvider, LiveEditor, LiveError, LivePreview as ReactLivePreview} from 'react-live';
-import styled from '@emotion/styled';
-import {themeGet} from 'styled-system';
 import {CodeblockTheme} from './theme';
 import {Language} from '../../codeblock';
 import {useActiveSiteTheme} from '../../../context/ActiveSiteThemeContext';
@@ -16,16 +14,12 @@ interface CodeblockProps {
   disabled?: boolean;
 }
 
-const StyledPreviewWrapper = styled.div(props => ({
-  marginBottom: themeGet('space.space110')(props),
-}));
-
 // FIXME use tokens for theme and LiveEditor
 const LivePreview: React.FC<CodeblockProps> = ({children, language = 'jsx', scope, disabled = false}) => {
   const {theme} = useActiveSiteTheme();
   return (
     <Theme.Provider theme={theme}>
-      <StyledPreviewWrapper>
+      <Box marginBottom="space110">
         <LiveProvider code={children} scope={scope} language={language} theme={CodeblockTheme} disabled={disabled}>
           <Box
             paddingLeft="space50"
@@ -39,7 +33,7 @@ const LivePreview: React.FC<CodeblockProps> = ({children, language = 'jsx', scop
             <ReactLivePreview />
           </Box>
           <Box
-            css={{padding: '2px 10px', backgroundColor: '#011627'}}
+            css={{padding: '2px 10px', backgroundColor: '#011627', lineHeight: '1.25rem'}}
             borderBottomLeftRadius="borderRadius20"
             borderBottomRightRadius="borderRadius20"
           >
@@ -47,7 +41,7 @@ const LivePreview: React.FC<CodeblockProps> = ({children, language = 'jsx', scop
           </Box>
           <LiveError />
         </LiveProvider>
-      </StyledPreviewWrapper>
+      </Box>
     </Theme.Provider>
   );
 };

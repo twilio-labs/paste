@@ -8,6 +8,7 @@ import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import Changelog from '@twilio-paste/button/CHANGELOG.md';
+import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -24,7 +25,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: { slug: { eq: "/button/" } }) {
+    mdx(fields: {slug: {eq: "/button/"}}) {
       headings {
         depth
         value
@@ -152,9 +153,9 @@ screen readers and dictation software. Here are some quick tips:
   <Button variant="destructive_link">Submit</Button>
 </Box>
 
-  <Button variant="reset" size="reset">
-    Submit
-  </Button>
+<Button variant="reset" size="reset">
+  Submit
+</Button>
 </div>`}
 </LivePreview>
 
@@ -206,8 +207,34 @@ Use icon-only buttons sparingly.
 They should be used only in compact UI situations. Use an icon that can
 only convey a single action.
 
-<LivePreview scope={{Button}} language="jsx">
-  {`<span>Example coming soon</span>`}
+<LivePreview scope={{Button, Box, PlusIcon}} language="jsx">
+  {`<div>
+  <Box display="inline-block" marginRight="space30">
+    <Button variant="primary" size="icon">
+      <PlusIcon decorative={false} title="Add to cart" />
+    </Button>
+  </Box>
+  <Box display="inline-block" marginRight="space30">
+    <Button variant="secondary" size="icon">
+      <PlusIcon decorative={false} title="Add to cart" />
+    </Button>
+  </Box>
+  <Box display="inline-block" marginRight="space30">
+    <Button variant="link" size="icon">
+      <PlusIcon decorative={false} title="Add to cart" />
+    </Button>
+  </Box>
+  <Box display="inline-block" marginRight="space30">
+    <Button variant="destructive" size="icon">
+      <PlusIcon decorative={false} title="Add to cart" />
+    </Button>
+  </Box>
+  <Box display="inline-block" marginRight="space30">
+    <Button variant="destructive_link" size="icon">
+      <PlusIcon decorative={false} title="Add to cart" />
+    </Button>
+  </Box>
+</div>`}
 </LivePreview>
 
 #### Link-style button
@@ -246,13 +273,11 @@ their default size.
       Submit
     </Button>
   </Box>
-
-<Box display="inline-block" marginRight="space30">
-  <Button variant="secondary" size="small">
-    Submit
-  </Button>
-</Box>
-
+  <Box display="inline-block" marginRight="space30">
+    <Button variant="secondary" size="small">
+      Submit
+    </Button>
+  </Box>
   <Box display="inline-block" marginRight="space30">
     <Button variant="destructive" size="small">
       Submit
@@ -272,8 +297,52 @@ However, the loading state may make an action appear to take longer
 than it does and doesn’t communicate what’s preventing the action
 from completing. Use it when you can’t move the user to the next state.
 
-<LivePreview scope={{Button}} language="jsx">
-  {`<span>Example coming soon</span>`}
+<LivePreview scope={{Button, Box}} language="jsx">
+  {`<div>
+  <Box display="inline-block" marginRight="space30">
+    <Button variant="primary" loading>
+      Submit
+    </Button>
+  </Box>
+  <Box display="inline-block" marginRight="space30">
+    <Button variant="secondary" loading>
+      Submit
+    </Button>
+  </Box>
+  <Box display="inline-block" marginRight="space30">
+    <Button variant="destructive" loading>
+      Submit
+    </Button>
+  </Box>
+  <Box display="inline-block" marginRight="space30">
+    <Button variant="primary" size="small" loading>
+      Submit
+    </Button>
+  </Box>
+  <Box display="inline-block" marginRight="space30">
+    <Button variant="secondary" size="small" loading>
+      Submit
+    </Button>
+  </Box>
+  <Box display="inline-block" marginRight="space30">
+    <Button variant="destructive" size="small" loading>
+      Submit
+    </Button>
+  </Box>
+  <Box display="inline-block" marginRight="space30">
+    <Button variant="link" loading>
+      Submit
+    </Button>
+  </Box>
+  <Box display="inline-block" marginRight="space30">
+    <Button variant="destructive_link" loading>
+      Submit
+    </Button>
+  </Box>
+  <Button variant="reset" size="reset" loading>
+    Submit
+  </Button>
+</div>`}
 </LivePreview>
 
 #### Disabled

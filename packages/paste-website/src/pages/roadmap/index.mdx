@@ -6,11 +6,11 @@ description: Here's a glimpse of what is coming up in future releases of Paste. 
 import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {AnchoredHeading} from '../../components/Heading';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {Callout, CalloutText} from '../../components/callout';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: { slug: { eq: "/roadmap/" } }) {
+    mdx(fields: {slug: {eq: "/roadmap/"}}) {
       headings {
         depth
         value
@@ -29,105 +29,31 @@ export const pageQuery = graphql`
 
 <p>{props.pageContext.frontmatter.description}</p>
 
-<Box marginTop={40}>
-
-## Release 0.3
-
-<Callout>
-  <CalloutText>Codenamed <strong>Oh! Point Three!</strong> This release is expected to land in the <em>last week of October.</em></CalloutText>
-</Callout>
-
-### Component Updates
-
-#### Text & Box Primitives
-We'll polish our Text and Box Primitives. Together, these primitive components will be used to build significant amounts of the Paste Design System. Also expect to see guides for how to use them to build your own interfaces in a future release.
-
-#### Implement a paste-core package
-We recognize that it can be tedious to install multiple commonly used components across every project you work on. In 0.3, we'll implement `paste-core`, a wrapper component that you can install for common components. Yay for quality of life!
-
-#### Heading, Paragraph Components
-We'll expand on the Text primitive to build out Heading and Paragraph components.
-
-#### Card Component
-We're designing and building a unified card component for Paste. This will replace our legacy card soup with a composable card that you can customize for your products.
-
-#### Grid Component (Design Preview)
-A standard 12-column grid for Paste will drop in 0.3. There's been a few discussions around responsiveness, and to give some clarity:
-
-- This will be a responsive grid layout system
-- All components will be designed to be 100% width to their containers.
-
-_Note:_ Just like accessibility, responsiveness is not an out-of-the-box solution. Consumers of any design system still need to compose their responsive screens based on their unique requirements. We'll provide the layout system and fluid components. Teamwork!
-
-#### Flex Component
-A layout component that simplifies aligning a single horizontal row of elements. Also has a fondness for protein shakes.
-
-#### Aspect Ratio & Absolute Utilities
-You remember the first time you uploaded a profile picture to AIM and it was skewed out? No, that was just us? Well, the Aspect Ratio utility will drop in this release and give guidance on how to maintain proportions while embedding images, video, media, and live components.
-
-Oh, we'll also ship an Absolute utility for positioning stuff on a page.
-
-#### Alert & Toast Components (Design Preview)
-We're going to share designs and documentation for our proposal on unified Alert and Toast components. As always, these will be pure UI, and not concerned with any notification engines or product specific code.
-
-### Community & Education Updates
-
-#### Document how to use tokens for composition
-Guidelines on how we use Paste Tokens to build a component will be published in the Doc Site. This will enable the _last ditch effort_ for teams that need truly custom experiences but still want to use the Design System for composition.
-
-#### Brown Bag Session + Video Record on Abstract
-We'll document questions from the Abstract brown bag session that was hosted by our team, along with the video!
-
-### Process Updates
-
-#### Theme Switcher for Paste
-We'll polish the theme switching experience for Paste. This means that our implementation of SendGrid and Console themes will be more thorough.
-
-After this is released, if you see visual or functional issues in the doc site, let us know! It's a sign that we need to fix an underlying Paste component.
-
-</Box>
-<Box marginTop={60}>
+<Box>
 
 ## Release 0.4
 
-<Callout>
-  <CalloutText>Codenamed <strong>that one after Oh! Point Three!</strong> This release is expected to land in the <em>third week of November</em>. This release is <em>not locked in</em>, but here are candidates for the release.</CalloutText>
-</Callout>
+### Release Date: December 6, 2019
 
-- Polish and document Truncate component
-- Polish and document Media Object component
-- Ship our Grid component
-- Document accessibility guidelines and principles for Paste and downstream teams
-- Add svg-to-react as a library in Paste doc site
-- Build a List component
-- Design Input and Label component
-- Design a Tab component
-- Build doc site document outline system
-- Document our approach to writing CSS
-- Document our approach to building components
-- Document our approach to systemizing Twilio's design language
-- Design a Block Quote component for doc site
-- Cleaning up Tokens in SendGrid
-- Build a Props Table component for better documentation
-- Document our approach on responsiveness
+- Flex Tokens will be added to our Design System Sketch files
+- Theme Switcher will work as intended, allowing all styles to be viewable based on SendGrid and Console Themes.
+- Buttons will be productionized 🎉 and usable on SendGrid / Console.
+- Anchors will be productionized too! 🔗
+- Icon Systems will also be on the production train 🚝
+- Alerts will be design ready, and built in an upcoming release.
+- Grids will be design ready, and built in an upcoming release.
+- Form Inputs (Inputs and Textareas) will be design ready, and built in an upcoming release.
 
 ## Release 0.5
 
-<Callout>
-  <CalloutText>We are working hard on a unique codename for this release. This release is expected to land in the <em>first week of January, 2020</em>. This release is <em>not locked in</em>, but here are candidates for the release.</CalloutText>
-</Callout>
+### Release Date: January 17, 2020
 
-- Improvements for visual regression testing on the website, and core features
-- Ship Icon System for the doc site
-- Ship Input and Label components
-- Design a Select component
-- Design a Form Footer component
-- Design Checkbox and Radio Button components
+- Ship Alert Component
+- Ship Grid Component
+- Ship Input, Label, Textarea components
+- Design for Unified Modals
+- Apply Unified Design Language for Alpha
 - Implement continuous deployment of Paste packages
-
-## Releases in 2020
-
-Coming soon!
 
 </Box>
 

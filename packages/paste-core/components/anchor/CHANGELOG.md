@@ -3,6 +3,106 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@1.0.0...@twilio-paste/anchor@1.0.1) (2019-11-12)
+
+
+### Bug Fixes
+
+* **anchor:** fix hover color ([#178](https://github.com/twilio-labs/paste/issues/178)) ([ba37e97](https://github.com/twilio-labs/paste/commit/ba37e9786797d167bf1806ba21ad30eca609b548))
+
+
+
+
+
+# [1.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@0.2.1...@twilio-paste/anchor@1.0.0) (2019-11-11)
+
+
+### Features
+
+* **icons:** delete old icons, add new streamline icons ([#129](https://github.com/twilio-labs/paste/issues/129)) ([571791d](https://github.com/twilio-labs/paste/commit/571791ded8ee4c55bb5a3dbcebee4b17b2c7c826))
+* enable theme switching on the docsite ([#124](https://github.com/twilio-labs/paste/issues/124)) ([df797e5](https://github.com/twilio-labs/paste/commit/df797e57ff1268367053d717f3b3c2ca48a0aa4f))
+
+
+### BREAKING CHANGES
+
+* **icons:** removed all the inherited icons since we're moving to a new system
+
+* chore(icons): update icon list for storybook
+
+* fix(spinner): use new icon
+
+* fix(storybook): use new icon for story
+
+* fix(story): button icons should be 24px
+
+* fix: adjust icon size tokens
+
+* feat: add iconSizes as separate key in theme-tokens
+
+* feat(icons): icons package to use tokens and update icons
+
+* fix(spinner): update to use tokens and new icons
+
+* fix(button): use correct spinner size
+
+* fix(icons): major icons package fixes
+
+- huge overhaul to build process
+- now uses rollup
+- builds into cjs and esm directories
+- made the package publishable to npm
+- moved svg folder out of src, now src only holds react stuff
+- updated scripts to use new paths and cleaned up the code
+- programmatically generates rollup config from the icon-list command
+
+* chore: add new icons dist folders to gitignore
+
+* fix: spinner and button icon usage
+
+* feat(icons): add rollup icon list cache file
+
+* fix(core-bundle): sort packages for consistent builds
+
+* chore: use `esm` instead of `es` in rollup for correctness
+
+* chore: yarn.lock
+
+* fix(spinner): lint error
+
+* chore(icons): move rollup icon list
+
+* chore(spinner): use types package in story
+
+* fix(spinner): swap out destructured props for explicit props
+
+
+
+
+
+## [0.2.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@0.2.0...@twilio-paste/anchor@0.2.1) (2019-10-31)
+
+
+### Bug Fixes
+
+* **anchor:** change hover styles ([#155](https://github.com/twilio-labs/paste/issues/155)) ([5172b0b](https://github.com/twilio-labs/paste/commit/5172b0bb761e6c8334aac7fd94e615cac705d242))
+* **anchor:** export types and add tests ([#153](https://github.com/twilio-labs/paste/issues/153)) ([4086ee2](https://github.com/twilio-labs/paste/commit/4086ee28da829820ca8f791e4bddf2768bd8b2f9))
+
+
+
+
+
+# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@0.1.5...@twilio-paste/anchor@0.2.0) (2019-10-29)
+
+
+### Features
+
+* **website:** SiteLink Component, replace Link with SiteLink ([#135](https://github.com/twilio-labs/paste/issues/135)) ([1295a33](https://github.com/twilio-labs/paste/commit/1295a33862b3ad283c4af793e0566f4b0fcba4b5))
+* upgrading to styled-system v5 ([#18](https://github.com/twilio-labs/paste/issues/18)) ([2b3ebd8](https://github.com/twilio-labs/paste/commit/2b3ebd8b2f701a0c6e8b75ab6978ba936814f455))
+
+
+
+
+
 ## [0.1.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@0.1.4...@twilio-paste/anchor@0.1.5) (2019-09-16)
 
 

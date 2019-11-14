@@ -29,9 +29,6 @@ jobs:
           name: Run package builds
           command: yarn build
       - run:
-          name: Run website build
-          command: yarn build:website
-      - run:
           name: Run type checker
           command: yarn type-check
       - run:
@@ -67,9 +64,6 @@ jobs:
       - attach_workspace:
           at: ~/
       - run:
-          name: Set applitools api key
-          command: "export APPLITOOLS_BATCH_ID=`echo $CIRCLE_SHA1`"
-      - run:
           name: Run applitools eyes-storybook
           command: yarn test:vrt
 
@@ -95,9 +89,10 @@ workflows:
       - test:
           requires:
             - build
-      - applitools:
-          requires:
-            - build
       - prettier:
           requires:
             - build
+      # applitools must come last
+      - applitools:
+          requires:
+            - prettier

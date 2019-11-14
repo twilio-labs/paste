@@ -3,9 +3,10 @@ import * as lodash from 'lodash';
 import {ThemeShape} from '@twilio-paste/theme-tokens';
 import {Absolute, AbsoluteProps} from '@twilio-paste/absolute';
 import {useTheme} from '@twilio-paste/theme';
-import {Box, BoxProps} from '@twilio-paste/box';
-import {Text, TextProps} from '@twilio-paste/text';
+import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+import {LineHeight} from '@twilio-paste/types';
 import ColorCombos, {ColorCombinationAccessibility} from '../../utils/color-combos';
 import colorRating from '../../utils/color-rating';
 
@@ -17,23 +18,33 @@ export const ColorBox: React.FC<BackgroundColor> = ({backgroundColor}) => {
   return <Absolute backgroundColor={backgroundColor} padding="space50" preset="fill" />;
 };
 
-type BorderBoxProps = Pick<BoxProps, 'borderColor' | 'borderWidth'>;
+type BorderBoxProps = Pick<Box, 'borderColor' | 'borderWidth'>;
 export const BorderBox: React.FC<BorderBoxProps> = ({borderColor, borderWidth}) => {
   return (
-    <Box borderStyle="solid none none none" borderColor={borderColor} borderWidth={borderWidth || 'borderWidth20'} />
+    <Box borderStyle="solid" borderColor={borderColor} borderWidth={borderWidth || 'borderWidth20'} padding="space60" />
   );
 };
 
-type TextBoxProp = Pick<TextProps, 'fontFamily' | 'fontSize' | 'fontWeight'>;
+type TextBoxProp = Pick<Text, 'fontFamily' | 'fontSize' | 'fontWeight'>;
 export const TextBox: React.FC<TextBoxProp> = ({fontFamily, fontSize, fontWeight}) => {
+  let lineHeight: LineHeight = 'lineHeight70';
+  if (fontSize != null && typeof fontSize === 'string') {
+    lineHeight = `lineHeight${fontSize.replace('fontSize', '')}` as LineHeight;
+  }
   return (
-    <Text fontFamily={fontFamily} fontSize={fontSize || 'fontSize60'} fontWeight={fontWeight} lineHeight="lineHeight60">
+    <Text
+      as="p"
+      fontFamily={fontFamily}
+      fontSize={fontSize || 'fontSize70'}
+      fontWeight={fontWeight}
+      lineHeight={lineHeight}
+    >
       Ag
     </Text>
   );
 };
 
-type TextColorBoxProp = Pick<TextProps, 'textColor'>;
+type TextColorBoxProp = Pick<Text, 'textColor'>;
 interface TextColorBoxProps extends TextColorBoxProp {
   color: string;
 }
@@ -63,10 +74,10 @@ export const TextColorBox: React.FC<TextColorBoxProps> = ({color, textColor}) =>
         justifyContent: 'space-between',
       }}
     >
-      <Text as="span" fontSize="fontSize60" lineHeight="lineHeight60" textColor={textColor}>
+      <Text as="span" fontSize="fontSize70" lineHeight="lineHeight70" textColor={textColor}>
         <ScreenReaderOnly>Example text: </ScreenReaderOnly>Ag
       </Text>
-      <Text as="span" fontSize="fontSize40" lineHeight="lineHeight40" textColor={textColor}>
+      <Text as="span" fontSize="fontSize50" lineHeight="lineHeight50" textColor={textColor}>
         <ScreenReaderOnly>Accessibility rating: </ScreenReaderOnly>
         {getContrastRating(accessibility)}
       </Text>
@@ -74,7 +85,7 @@ export const TextColorBox: React.FC<TextColorBoxProps> = ({color, textColor}) =>
   );
 };
 
-type RadiiBoxProps = Pick<BoxProps, 'borderRadius'>;
+type RadiiBoxProps = Pick<Box, 'borderRadius'>;
 export const RadiiBox: React.FC<RadiiBoxProps> = ({borderRadius}) => {
   return (
     <Box
@@ -86,14 +97,14 @@ export const RadiiBox: React.FC<RadiiBoxProps> = ({borderRadius}) => {
   );
 };
 
-interface ShadowBoxProps extends BoxProps {
+interface ShadowBoxProps extends Box {
   shadow?: string;
 }
 export const ShadowBox: React.FC<ShadowBoxProps> = ({shadow}) => {
   return <Box borderRadius="borderRadius20" padding="space60" css={{boxShadow: shadow}} />;
 };
 
-type SpacingBoxProps = Pick<BoxProps, 'padding'>;
+type SpacingBoxProps = Pick<Box, 'padding'>;
 export const SpacingBox: React.FC<SpacingBoxProps> = ({padding}) => {
   return (
     <Box backgroundColor="colorBackgroundBrand" display="inline-block" paddingLeft={padding} paddingTop={padding} />

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import {themeGet} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 import {useUID} from 'react-uid';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {ThemeVariants} from '@twilio-paste/theme';
@@ -14,6 +14,8 @@ interface ThemeSwitcherProps {
 const StyledThemeSwitcherLabel = styled.label<{}>(props => ({
   cursor: 'pointer',
   display: 'inline-block',
+  fontSize: themeGet('fontSizes.fontSize30')(props),
+  lineHeight: themeGet('lineHeights.lineHeight30')(props),
   padding: `${themeGet('space.space20')(props)} ${themeGet('space.space40')(props)}`,
   '&:hover': {
     textDecoration: 'underline',

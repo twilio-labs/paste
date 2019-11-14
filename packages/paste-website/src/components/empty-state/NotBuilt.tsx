@@ -1,10 +1,11 @@
 import * as React from 'react';
 import {Anchor} from '@twilio-paste/anchor';
-import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
+import {Heading, Paragraph} from '@twilio-paste/typography';
 import {Breadcrumb, BreadcrumbItem} from '../breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
 import {getHumanizedNameFromPackageName} from '../../utils/RouteUtils';
+import {UL, LI} from '../Typography';
 
 interface NotBuiltProps {
   type?: 'component' | 'primitive' | 'utility';
@@ -20,29 +21,23 @@ const NotBuilt: React.FC<NotBuiltProps> = ({type, name}) => {
           {type === 'utility' ? 'Utilities' : 'Components'}
         </BreadcrumbItem>
       </Breadcrumb>
-      <Text
-        fontSize="fontSize80"
-        lineHeight="lineHeight80"
-        fontWeight="fontWeightSemibold"
-        color="colorText"
-        marginBottom="space90"
-      >
+      <Heading as="h1" variant="headingStyle60">
         {getHumanizedNameFromPackageName(name)}
-      </Text>
+      </Heading>
       <Box>
-        <Text>
+        <Paragraph>
           This {type} is on our roadmap, but we haven&apos;t gotten to it yet. This could be for a number of reasons,
           including:
-        </Text>
-        <ul>
-          <li>This component depends on lower-level components that we haven&apos;t finished building yet.</li>
-          <li>Other things are currently prioritized higher.</li>
-          <li>You&apos;re the first team requesting this (even though we want to do it).</li>
-        </ul>
-        <Text>
+        </Paragraph>
+        <UL>
+          <LI>This component depends on lower-level components that we haven&apos;t finished building yet.</LI>
+          <LI>Other things are currently prioritized higher.</LI>
+          <LI>You&apos;re the first team requesting this (even though we want to do it).</LI>
+        </UL>
+        <Paragraph>
           Feel free to <Anchor href="https://github.com/twilio-labs/paste/issues">file a feature request</Anchor> with
           details on how you want to use this {type} and we&apos;ll respond to you directly.
-        </Text>
+        </Paragraph>
       </Box>
     </>
   );

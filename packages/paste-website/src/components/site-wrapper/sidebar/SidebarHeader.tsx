@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Text} from '@twilio-paste/text';
 import styled from '@emotion/styled';
 import {Link} from 'gatsby';
-import {themeGet} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 import {TwilioIcon} from '../../icons/TwilioIcon';
 import {TWILIO_RED} from '../../../constants';
 
@@ -44,10 +44,10 @@ const SidebarHeader: React.FC<SidebarHeaderProps> = props => {
   return (
     <StyledHeader>
       <TwilioIcon color={TWILIO_RED} display="block" size={30} />
-      <Text as="h2" fontSize="fontSize50" marginTop="space40" marginBottom="space20">
+      <Text as="h2" fontSize="fontSize60" lineHeight="lineHeight60" marginTop="space40" marginBottom="space20">
         <StyledLink to="/">{props.siteTitle}</StyledLink>
       </Text>
-      <StyledH3 as="h3" fontSize="fontSize10" textColor="colorTextPlaceholder">
+      <StyledH3 as="h3" fontSize="fontSize20" lineHeight="lineHeight20" textColor="colorTextPlaceholder">
         <StyledSpan>{props.siteSubTitle}</StyledSpan>
       </StyledH3>
     </StyledHeader>

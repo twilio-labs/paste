@@ -120,7 +120,9 @@ storiesOf('Utilities|Box', module)
         zIndex={zIndexValue}
         overflow={overflowValue}
       >
-        <Text textColor="colorText">{demoString}</Text>
+        <Text as="p" textColor="colorText">
+          {demoString}
+        </Text>
       </Box>
     );
   })
@@ -131,7 +133,7 @@ storiesOf('Utilities|Box', module)
         padding={['space20', 'space70']}
         height={['size10', 'size20']}
       >
-        <Text textColor="colorText">
+        <Text as="p" textColor="colorText">
           DO NOTE: width is not currently responsive due to a bug in Styled System v4. To be fixed in an upgrade.
         </Text>
       </Box>

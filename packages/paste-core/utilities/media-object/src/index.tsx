@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
-import {space, Theme, themeGet} from 'styled-system';
-import {MarginProps, PaddingProps} from '@twilio-paste/types';
+import {space, Theme} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
+import {SpaceProps} from '@twilio-paste/types';
 
 export interface MediaObjectProps extends Theme {
   isCentered?: boolean;
@@ -32,7 +33,7 @@ MediaFigure.defaultProps = {
   spacing: 'space20',
 };
 
-export interface MediaBodyProps extends Theme, MarginProps, PaddingProps {}
+export interface MediaBodyProps extends Theme, SpaceProps {}
 
 const MediaBody = styled.div<MediaBodyProps>`
   flex: 1;

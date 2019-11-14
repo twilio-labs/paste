@@ -6,12 +6,37 @@ description: Our utilities are rad
 import {graphql} from 'gatsby';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
 import {SidebarCategoryRoutes} from '../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {Anchor} from '@twilio-paste/anchor';
+import {UL, LI} from '../../components/Typography';
 
 # Utilities Overview
 
-<ComponentOverviewTable 
-  categoryRoute={SidebarCategoryRoutes.UTILITIES} 
-  componentsList={props.data.allPasteUtility.edges} 
+<Callout>
+  <CalloutTitle as="h4">Don't see a utility or component you need listed here?</CalloutTitle>
+  <UL>
+    <LI>
+      First off, we recommend{' '}
+      <Anchor href="https://github.com/twilio-labs/paste/issues">creating an issue on GitHub</Anchor> with your
+      component / utility proposal.
+    </LI>
+    <LI>
+      While not all requests are accepted for the design system, we may be able to suggest suitable alternatives - for
+      this, drop us a note on #help-design-system or join our Weekly Office hours.
+    </LI>
+    <LI>
+      We've also writtten a guide for{' '}
+      <Anchor href="/tokens/how-to-compose-custom-ui-with-tokens">
+        how you can build custom components with Tokens
+      </Anchor>{' '}
+      and still benefit from Paste design updates
+    </LI>
+  </UL>
+</Callout>
+
+<ComponentOverviewTable
+  categoryRoute={SidebarCategoryRoutes.UTILITIES}
+  componentsList={props.data.allPasteUtility.edges}
 />
 
 export const pageQuery = graphql`

@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import {themeGet} from 'styled-system';
 import {SIDEBAR_WIDTH} from './constants';
 
 /* Wraps the entire doc site page */
@@ -13,10 +12,6 @@ export const SiteBody = styled.div`
   min-height: 100vh;
   min-width: 240px;
   height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol';
-  font-size: ${themeGet('fontSizes.fontSize20')};
-  line-height: ${themeGet('space.space70')};
   overflow: hidden;
 
   @supports (display: grid) {

@@ -1,12 +1,11 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
-import {themeGet} from 'styled-system';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
+import {Heading} from '@twilio-paste/heading';
 import {Breadcrumb, BreadcrumbItem} from '../../breadcrumb';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {P} from '../../Typography';
-import {Heading} from '../../Heading';
 import {getHumanizedNameFromPackageName} from '../../../utils/RouteUtils';
 
 const getCategoryNameFromRoute = (categoryRoute: string): string => {
@@ -31,7 +30,7 @@ const ComponentHeaderBasic: React.FC<{
       <BreadcrumbItem to="/">Home</BreadcrumbItem>
       <BreadcrumbItem to={categoryRoute}>{getCategoryNameFromRoute(categoryRoute)}</BreadcrumbItem>
     </Breadcrumb>
-    <Heading as="h1" headingStyle="headingStyle10">
+    <Heading as="h1" variant="headingStyle60">
       {getHumanizedNameFromPackageName(name)}
     </Heading>
   </>
@@ -57,18 +56,29 @@ interface ComponentHeaderProps {
   ];
 }
 
-const getPackageItemStyles = (props: {}): {} => ({
-  display: 'inline-block',
-  color: themeGet('textColors.colorText')(props),
-  fontSize: themeGet('fontSizes.fontSize20')(props),
-});
+const PackageValue: React.FC<{}> = ({children}) => {
+  return (
+    <Text as="dd" display="inline-block">
+      {children}
+    </Text>
+  );
+};
 
-const PackageValue = styled.dd(getPackageItemStyles);
+const PackageLabel: React.FC<{}> = ({children}) => {
+  return (
+    <Text as="dt" display="inline-block" textColor="colorTextWeak" css={{width: '80px'}}>
+      {children}
+    </Text>
+  );
+};
 
-const PackageLabel = styled.dt(getPackageItemStyles, {
-  color: '#465672',
-  width: '80px',
-});
+const PackageInstallSnippet: React.FC<{}> = ({children}) => {
+  return (
+    <Text as="code" fontSize="fontSize30">
+      {children}
+    </Text>
+  );
+};
 
 const ComponentHeader: React.FC<ComponentHeaderProps> = ({name, categoryRoute, githubUrl, storybookUrl, data}) => {
   if (data == null || data[0] == null || data[0].node == null) {
@@ -103,7 +113,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({name, categoryRoute, g
         <Box marginBottom="space20">
           <PackageLabel>Install</PackageLabel>
           <PackageValue>
-            <code>yarn add {packageName}</code>
+            <PackageInstallSnippet>yarn add {packageName}</PackageInstallSnippet>
           </PackageValue>
         </Box>
       </Box>

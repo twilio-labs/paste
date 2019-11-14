@@ -1,23 +1,23 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import {themeGet} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 import {Link} from 'gatsby';
 
 // Link styles copied from @twilio-paste/anchor
 const StyledLink = styled(Link)`
   color: ${themeGet('textColors.colorTextLink')};
-  text-decoration: none;
+  text-decoration: underline;
   outline: none;
 
   &:hover {
     color: ${themeGet('textColors.colorTextLinkHover')};
-    text-decoration: underline;
+    text-decoration: none;
   }
 
   &:focus,
   &:active {
     box-shadow: ${themeGet('shadows.shadowFocus')};
-    text-decoration: underline;
+    text-decoration: none;
   }
 
   &:focus {

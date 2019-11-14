@@ -8,9 +8,9 @@ import {graphql} from 'gatsby';
 import Img from 'gatsby-image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Paragraph} from '@twilio-paste/paragraph';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {P} from '../../../components/Typography.tsx';
 import Changelog from '@twilio-paste/anchor/CHANGELOG.md';
 
 export const pageQuery = graphql`
@@ -32,7 +32,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: { slug: { eq: "/anchor/" } }) {
+    mdx(fields: {slug: {eq: "/anchor/"}}) {
       headings {
         depth
         value
@@ -49,7 +49,7 @@ export const pageQuery = graphql`
   data={props.data.allPasteComponent.edges}
 />
 
-***
+---
 
 <contentwrapper>
 
@@ -61,7 +61,7 @@ export const pageQuery = graphql`
 
 ### About anchors
 
-<P>{props.pageContext.frontmatter.description}</P>
+<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
 Example use cases may include:
 
@@ -108,6 +108,7 @@ This is done for security purposes. Even though the target and rel are set by de
 </LivePreview>
 
 ## When to Use an Anchor
+
 You can use an anchor to navigate the user to another webpage.
 
 <DoDont>
@@ -119,12 +120,7 @@ You can use an anchor to navigate the user to another webpage.
   </Dont>
 </DoDont>
 
-<DoDont>
-  <Do title="Do" body="Anchors should only include text." preview={false} />
-  <Dont title="Don't" body="Don’t use an icon in place of or with anchor text." preview={false} />
-</DoDont>
-
-***
+---
 
 ## Usage Guide
 
@@ -141,22 +137,20 @@ yarn add @twilio-paste/anchor
 ```js
 import {Anchor} from '@twilio-paste/anchor';
 
-<Anchor href="https://paste.twilio.design">
-  Go to Paste
-</Anchor>
+<Anchor href="https://paste.twilio.design">Go to Paste</Anchor>;
 ```
 
 #### Props
 
-| Prop           | Type                                   | Description                                                                         | Default   |
-| -------------- | -------------------------------------- | ----------------------------------------------------------------------------------- | --------- |
-| href?          | string                                 | A URL to route to. Required.                                                                             | null      |
-| tabindex?      | AnchorTabIndexes                       | '0', '-1'                                                                                                | null      |
-| target?        | AnchorTargets                          | '_self', '_blank', '_parent', '_top'.  If external href, defaults to '_blank'. Can be overwritten.       | null      |
-| rel?           | string                                 | Sets the anchor rel attribute. If external href, defaults to 'noreferrer noopener'. Can be overwritten.  | false     |
-| onClick?       | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                          | null      |
-| onFocus?       | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                          | null      |
-| onBlur?        | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                          | null      |
+| Prop      | Type                                     | Description                                                                                             | Default |
+| --------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------- |
+| href?     | string                                   | A URL to route to. Required.                                                                            | null    |
+| tabindex? | AnchorTabIndexes                         | '0', '-1'                                                                                               | null    |
+| target?   | AnchorTargets                            | '\_self', '\_blank', '\_parent', '\_top'. If external href, defaults to '\_blank'. Can be overwritten.  | null    |
+| rel?      | string                                   | Sets the anchor rel attribute. If external href, defaults to 'noreferrer noopener'. Can be overwritten. | false   |
+| onClick?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                         | null    |
+| onFocus?  | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                         | null    |
+| onBlur?   | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                         | null    |
 
 <Box marginTop="space90">
   <Changelog />

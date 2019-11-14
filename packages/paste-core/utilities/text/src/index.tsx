@@ -1,49 +1,42 @@
-import {ReactNode} from 'react';
 import styled from '@emotion/styled';
-import {
-  display,
-  DisplayProps,
-  fontFamily,
-  fontSize,
-  fontWeight,
-  lineHeight,
-  space,
-  style,
-  textAlign,
-  TextAlignProps,
-} from 'styled-system';
-import {ThemeShape, FontProps, TextColorProps, SpacingProps} from '@twilio-paste/types';
+import {compose, space, display, verticalAlign, overflow, typography, system} from 'styled-system';
+import {SpaceProps, Display, VerticalAlign, OverflowProps, TypographyProps} from '@twilio-paste/types';
 
-export interface TextProps extends DisplayProps, TextAlignProps, SpacingProps, FontProps, TextColorProps {
-  as?: string;
-  children: ReactNode | string;
-  theme?: ThemeShape;
+interface Text extends SpaceProps, OverflowProps, TypographyProps {
+  as?: keyof JSX.IntrinsicElements;
+  display?: Display;
+  verticalAlign?: VerticalAlign;
 }
 
-const textColor = style({
-  prop: 'textColor',
-  cssProperty: 'color',
-  key: 'textColors',
+const textColor = system({
+  textColor: {
+    property: 'color',
+    scale: 'textColors',
+  },
 });
+const textDecoration = system({textDecoration: true});
 
-const Text = styled.span<TextProps>`
-  margin: 0;
-  padding: 0;
-  ${display}
-  ${fontFamily}
-  ${fontSize}
-  ${textColor}
-  ${fontWeight}
-  ${lineHeight}
-  ${textAlign}
-  ${space}
-`;
+const Text = styled.span<Text>(
+  {
+    margin: 0,
+    padding: 0,
+  },
+  compose(
+    space,
+    display,
+    verticalAlign,
+    overflow,
+    textDecoration,
+    typography,
+    textColor
+  )
+);
 
 Text.defaultProps = {
-  as: 'p',
-  fontSize: 'fontSize20',
-  lineHeight: 'lineHeight20',
+  fontSize: 'fontSize30',
+  lineHeight: 'lineHeight30',
   textColor: 'colorText',
 };
 
+Text.displayName = 'Text';
 export {Text};

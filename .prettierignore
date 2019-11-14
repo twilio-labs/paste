@@ -1,5 +1,3 @@
-*.md
-*.mdx
 *.json
 docs
 lib/
@@ -7,3 +5,4 @@ dist/
 public/
 __IconList.tsx
 *.d.ts
+.yarn/

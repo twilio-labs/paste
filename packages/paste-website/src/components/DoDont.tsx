@@ -1,10 +1,11 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import {themeGet} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Absolute} from '@twilio-paste/absolute';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
+import {Heading} from '@twilio-paste/heading';
 
 const StyledWrapper = styled(Box)`
   display: grid;
@@ -68,16 +69,10 @@ const Item: React.FC<DoProps> = ({center = false, ...props}) => {
         borderLeftWidth="borderWidth0"
         borderColor={props.do ? 'colorBorderSuccess' : 'colorBorderError'}
       >
-        <Text
-          as="h5"
-          fontSize="fontSize20"
-          fontWeight="fontWeightSemibold"
-          lineHeight="lineHeight40"
-          marginBottom="space40"
-        >
+        <Heading as="h5" variant="headingStyle20">
           {props.title}
-        </Text>
-        <Text>{props.body}</Text>
+        </Heading>
+        <Text as="p">{props.body}</Text>
       </Box>
     </div>
   );

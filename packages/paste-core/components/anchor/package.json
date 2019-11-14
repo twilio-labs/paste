@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/anchor",
-  "version": "0.1.5",
+  "version": "1.0.1",
   "category": "interaction",
   "status": "beta",
   "description": "Twilio's Anchor component",
@@ -29,9 +29,10 @@
   "peerDependencies": {
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.10",
+    "@styled-system/theme-get": "^5.1.2",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "styled-system": "^4.1.0"
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "rollup": "^1.16.2",

@@ -1,7 +1,9 @@
 import * as React from 'react';
 import {keyframes, css} from '@emotion/core';
 import styled from '@emotion/styled';
-import {SpinnerIcon, SpinnerIconProps} from '@twilio-paste/icons/react/SpinnerIcon';
+import {LoadingIcon, LoadingIconProps} from '@twilio-paste/icons/esm/LoadingIcon';
+import {IconSize} from '@twilio-paste/types';
+import {size as sizeFn} from 'styled-system';
 
 const rotate = keyframes`
   0% {
@@ -12,7 +14,12 @@ const rotate = keyframes`
   }
 `;
 
-const SpinningWrapper = styled.div(
+interface SpinnerWrapperProps {
+  size?: IconSize;
+}
+
+const SpinningWrapper = styled.div<SpinnerWrapperProps>(
+  sizeFn,
   css({
     display: 'inline-block',
     animation: `${rotate} 2s linear infinite`,
@@ -22,18 +29,21 @@ const SpinningWrapper = styled.div(
   })
 );
 
-interface SpinnerProps extends SpinnerIconProps {
+interface SpinnerProps extends LoadingIconProps {
   title: string;
+  size?: IconSize;
 }
 
-const Spinner: React.FC<SpinnerProps> = props => (
-  <SpinningWrapper>
-    <SpinnerIcon {...props} />
+const Spinner: React.FC<SpinnerProps> = ({as, size, iconColor, decorative}) => (
+  <SpinningWrapper size={size}>
+    <LoadingIcon as={as} size={size} iconColor={iconColor} decorative={decorative} />
   </SpinningWrapper>
 );
 
 Spinner.defaultProps = {
+  size: 'sizeIcon20',
   decorative: false,
 };
 
+Spinner.displayName = 'Spinner';
 export {Spinner};

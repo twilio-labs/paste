@@ -5,10 +5,10 @@
  *
  * Until this bites us, we should automate this because not bumping peers has bit us.
  */
-const fs = require('fs');
 const chalk = require('chalk');
 const {resolve} = require('path');
 const {getRepoPackages} = require('./getRepoPackages');
+const {writeToFile} = require('./writeToFile');
 
 const isPasteDependency = packageName => packageName.includes('@twilio-paste/');
 const getPasteDependencyList = dependencyObject => Object.keys(dependencyObject).filter(isPasteDependency);
@@ -36,14 +36,8 @@ async function updatePackagePeerDependencies(packageJsonPath, peerDepsList = [],
   const newPackageJsonString = `${JSON.stringify(newPackageJson, null, 2)}\n`;
 
   // Write it to file
-  fs.writeFile(packageJsonPath, newPackageJsonString, error => {
-    if (error) {
-      // eslint-disable-next-line no-console
-      console.log(error);
-      return false;
-    }
-    // eslint-disable-next-line no-console
-    console.log(chalk.green(`[${packageJsonData.name}] Successfully updated ${JSON.stringify(calibratedPeerDeps)}`));
+  writeToFile(packageJsonPath, newPackageJsonString, {
+    successMessage: `[${packageJsonData.name}] Successfully updated ${JSON.stringify(calibratedPeerDeps)}`,
   });
 }
 

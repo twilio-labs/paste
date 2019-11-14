@@ -1,7 +1,8 @@
 import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import {Text} from '@twilio-paste/text';
 
-export type asTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'label';
+export type asTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'label' | 'span';
 export type HeadingStyle =
   | 'headingStyle10'
   | 'headingStyle20'
@@ -10,66 +11,88 @@ export type HeadingStyle =
   | 'headingStyle50'
   | 'headingStyle60';
 
-interface HeadingProps {
+interface Heading {
   as: asTags;
-  headingStyle?: HeadingStyle;
+  id?: string;
+  className?: never;
+  variant?: HeadingStyle;
 }
 
 function getHeadingStyles(headingStyle?: HeadingStyle): {} {
   switch (headingStyle) {
     case 'headingStyle60':
       return {
+        marginBottom: 'space70',
         fontSize: 'fontSize90',
-        fontWeight: 'fontWeightNormal',
-        lineHeight: 'lineHeight70',
-      };
-    case 'headingStyle50':
-      return {
-        fontSize: 'fontSize80',
-        fontWeight: 'fontWeightNormal',
-        lineHeight: 'lineHeight40',
+        fontWeight: 'fontWeightSemibold',
+        lineHeight: 'lineHeight90',
       };
     case 'headingStyle40':
       return {
-        fontSize: 'fontSize70',
-        fontWeight: 'fontWeightSemiBold',
-        lineHeight: 'lineHeight40',
+        marginBottom: 'space50',
+        fontSize: 'fontSize60',
+        fontWeight: 'fontWeightSemibold',
+        lineHeight: 'lineHeight60',
       };
     case 'headingStyle30':
       return {
-        fontSize: 'fontSize60',
-        fontWeight: 'fontWeightSemiBold',
-        lineHeight: 'lineHeight30',
+        marginBottom: 'space40',
+        fontSize: 'fontSize40',
+        fontWeight: 'fontWeightSemibold',
+        lineHeight: 'lineHeight40',
       };
     case 'headingStyle20':
       return {
-        fontSize: 'fontSize50',
-        fontWeight: 'fontWeightSemiBold',
+        marginBottom: 'space30',
+        fontSize: 'fontSize30',
+        fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight30',
       };
     case 'headingStyle10':
       return {
-        fontSize: 'fontSize30',
-        fontWeight: 'fontWeightSemiBold',
+        marginBottom: 'space30',
+        fontSize: 'fontSize20',
+        fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight20',
       };
+    /**
+     * headingStyle50 is out of order because its also default.
+     * Default is at the bottom of switch statement for readability.
+     */
+    case 'headingStyle50':
     default:
       return {
-        fontSize: 'fontSize80',
-        lineHeight: 'lineHeight40',
+        marginBottom: 'space60',
+        fontSize: 'fontSize70',
+        fontWeight: 'fontWeightSemibold',
+        lineHeight: 'lineHeight70',
       };
   }
 }
 
-const Heading: React.FC<HeadingProps> = ({as, headingStyle, children}) => (
-  <Text as={as} textColor="colorText" {...getHeadingStyles(headingStyle)}>
-    {children}
-  </Text>
-);
-
-Heading.defaultProps = {
-  as: 'h2',
-  headingStyle: 'headingStyle60',
+const Heading: React.FC<Heading> = ({as, children, id, variant}) => {
+  return (
+    <Text as={as} display="block" id={id} textColor="colorText" {...getHeadingStyles(variant)}>
+      {children}
+    </Text>
+  );
 };
 
+Heading.propTypes = {
+  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'] as asTags[]).isRequired,
+  variant: PropTypes.oneOf([
+    'headingStyle60',
+    'headingStyle50',
+    'headingStyle40',
+    'headingStyle30',
+    'headingStyle20',
+    'headingStyle10',
+  ]),
+};
+
+Heading.defaultProps = {
+  variant: 'headingStyle50',
+};
+
+Heading.displayName = 'Heading';
 export {Heading};

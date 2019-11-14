@@ -5,32 +5,49 @@ description: The components listed here are on our roadmap.  Only a few of them 
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
-import {Heading} from '../../components/Heading.tsx';
-import {P} from '../../components/Typography.tsx';
+import {Heading} from '@twilio-paste/heading';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
 import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {UL, LI} from '../../components/Typography';
 
 <Breadcrumb>
   <BreadcrumbItem to="/">Home</BreadcrumbItem>
 </Breadcrumb>
-<Heading as="h1" headingStyle="headingStyle10"
->
+<Heading as="h1" variant="headingStyle60">
   Components
 </Heading>
 
-The components listed here are on our roadmap.  Only a few of them are available today.
+The components listed here are on our roadmap. Only a few of them are available today.
 
 If you’re planning on using an alpha or beta component, please check in with the Paste team through the <strong>#help-design-system</strong> channel on Slack.
 
-Don't see a component you need listed here? [Create an issue on GitHub](https://github.com/twilio-labs/paste/issues), and we'll evaluate it. Not all component
-requests are accepted for the design system. We’ll have guidelines soon for what to do if your component isn’t
-supported.
+<Callout>
+  <CalloutTitle as="h4">Don't see a utility or component you need listed here?</CalloutTitle>
+  <UL>
+    <LI>
+      First off, we recommend{' '}
+      <Anchor href="https://github.com/twilio-labs/paste/issues">creating an issue on GitHub</Anchor> with your
+      component / utility proposal.
+    </LI>
+    <LI>
+      While not all requests are accepted for the design system, we may be able to suggest suitable alternatives - for
+      this, drop us a note on #help-design-system or join our Weekly Office hours.
+    </LI>
+    <LI>
+      We've also writtten a guide for{' '}
+      <Anchor href="/tokens/how-to-compose-custom-ui-with-tokens">
+        how you can build custom components with Tokens
+      </Anchor>{' '}
+      and still benefit from Paste design updates
+    </LI>
+  </UL>
+</Callout>
 
-
-<ComponentOverviewTable 
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS} 
-  componentsList={props.data.allPasteComponent.edges} 
+<ComponentOverviewTable
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  componentsList={props.data.allPasteComponent.edges}
 />
 
 export const pageQuery = graphql`

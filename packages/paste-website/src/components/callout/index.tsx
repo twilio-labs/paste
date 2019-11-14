@@ -1,33 +1,51 @@
 import * as React from 'react';
 import {Text} from '@twilio-paste/text';
-import {StyledCallout} from './styles';
-import {CalloutProps, CalloutTitleProps, CalloutTextProps} from './types';
+import {Heading} from '@twilio-paste/heading';
+import {BorderColor} from '@twilio-paste/types';
+import {Box} from '@twilio-paste/box';
+import {CalloutProps, CalloutTitleProps, CalloutTextProps, CalloutVariants} from './types';
 
-const CalloutTitle: React.FC<CalloutTitleProps> = ({as, children}) => (
-  <Text as={as} marginBottom="space40" fontSize="fontSize20">
+const borderColorPartial = (variant?: CalloutVariants): BorderColor => {
+  if (variant === 'secondary') {
+    return 'colorBorderPrimaryDark';
+  }
+  if (variant === 'warning') {
+    return 'colorBorderWarning';
+  }
+  return 'colorBorderPrimaryLight';
+};
+
+const CalloutTitle: React.FC<CalloutTitleProps> = ({as = 'h3', children}) => (
+  <Heading as={as} variant="headingStyle20">
     {children}
-  </Text>
+  </Heading>
 );
 
-const CalloutText: React.FC<CalloutTextProps> = ({as, children, marginTop, marginBottom}) => (
-  <Text as={as} marginTop={marginTop} marginBottom={marginBottom} fontSize="fontSize20">
+const CalloutText: React.FC<CalloutTextProps> = ({as = 'p', children, marginTop, marginBottom}) => (
+  <Text as={as} marginTop={marginTop} marginBottom={marginBottom}>
     {children}
   </Text>
 );
 
 const Callout: React.FC<CalloutProps> = props => {
   return (
-    <StyledCallout
+    <Box
+      css={{
+        borderLeftWidth: '8px',
+      }}
+      position="relative"
+      borderWidth="borderWidth20"
+      borderStyle="solid"
+      borderColor={borderColorPartial(props.variant)}
       marginTop="space60"
       marginBottom="space60"
       paddingTop="space40"
       paddingRight="space60"
       paddingBottom="space40"
       paddingLeft="space60"
-      variant={props.variant}
     >
       {props.children}
-    </StyledCallout>
+    </Box>
   );
 };
 

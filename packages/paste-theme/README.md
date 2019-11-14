@@ -28,7 +28,7 @@ This is the preferred method.
 
 ```js
 import styled from '@emotion/styled';
-import { themeGet } from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 
 const custom = styled.div`
   background-color: ${themeGet('backgrounds.primary')};

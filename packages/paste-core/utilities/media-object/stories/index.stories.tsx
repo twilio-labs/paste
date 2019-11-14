@@ -15,7 +15,7 @@ storiesOf('Utilities|Media Object', module)
           <Box backgroundColor="colorBackgroundSuccess" height="size10" minWidth="size10" />
         </Media.Figure>
         <Media.Body>
-          <Text>Some media Object body text</Text>
+          <Text as="p">Some media Object body text</Text>
         </Media.Body>
       </Media.Object>
     );
@@ -28,7 +28,7 @@ storiesOf('Utilities|Media Object', module)
           <Box backgroundColor="colorBackgroundSuccess" height="size10" minWidth="size10" />
         </Media.Figure>
         <Media.Body>
-          <Text>Some media Object body text</Text>
+          <Text as="p">Some media Object body text</Text>
         </Media.Body>
         <Media.Figure align="end" spacing={spaceValue}>
           <Box backgroundColor="colorBackgroundSuccess" height="size10" minWidth="size10" />

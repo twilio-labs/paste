@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {themeGet} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 
 export const Table = styled.table(props => ({
   borderSpacing: 0,
@@ -8,9 +8,9 @@ export const Table = styled.table(props => ({
 
   width: '100%',
   color: themeGet('textColors.colorText')(props),
-  fontSize: themeGet('fontSizes.fontSize20')(props),
+  fontSize: themeGet('fontSizes.fontSize30')(props),
   fontWeight: themeGet('fontWeights.fontWeightNormal')(props),
-  lineHeight: themeGet('lineHeights.lineHeight40')(props),
+  lineHeight: themeGet('lineHeights.lineHeight30')(props),
 }));
 
 export const Thead = styled.thead({});

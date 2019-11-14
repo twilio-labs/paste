@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Anchor it should render an anchor 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  color: #005ea6;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  outline: none;
+}
+
+.emotion-0:hover {
+  color: #001f57;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0:focus,
+.emotion-0:active {
+  box-shadow: 0 0 0 4px rgba(0,117,195,0.5);
+  color: #001f57;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<div
+  className="emotion-2"
+>
+  <a
+    className="emotion-0 emotion-1"
+    href="/"
+  >
+    This is an anchor
+  </a>
+</div>
+`;
+
+exports[`Anchor it should render an external anchor 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  color: #005ea6;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  outline: none;
+}
+
+.emotion-0:hover {
+  color: #001f57;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0:focus,
+.emotion-0:active {
+  box-shadow: 0 0 0 4px rgba(0,117,195,0.5);
+  color: #001f57;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<div
+  className="emotion-2"
+>
+  <a
+    className="emotion-0 emotion-1"
+    href="https://twilio.com"
+    rel="noreferrer noopener"
+    target="_blank"
+  >
+    This is an anchor that links to Twilio.com with an external target and rel
+  </a>
+</div>
+`;
+
+exports[`Anchor it should render an external anchor with overwritten target and rel 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  color: #005ea6;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  outline: none;
+}
+
+.emotion-0:hover {
+  color: #001f57;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0:focus,
+.emotion-0:active {
+  box-shadow: 0 0 0 4px rgba(0,117,195,0.5);
+  color: #001f57;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<div
+  className="emotion-2"
+>
+  <a
+    className="emotion-0 emotion-1"
+    href="https://twilio.com"
+    rel="noopener"
+    target="_blank"
+  >
+    This is an anchor that links to Twilio.com with the target and rel overwritten
+  </a>
+</div>
+`;

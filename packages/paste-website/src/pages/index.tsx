@@ -2,14 +2,14 @@ import * as React from 'react';
 import {Helmet} from 'react-helmet';
 import {navigate} from 'gatsby';
 import styled from '@emotion/styled';
-import {themeGet} from 'styled-system';
+import {themeGet} from '@styled-system/theme-get';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';
+import {Heading, Paragraph} from '@twilio-paste/typography';
 import {SiteWrapper} from '../components/site-wrapper';
 import {Grid} from '../components/grid';
 import {StyledHr} from '../components/StyledHr';
-import {Heading} from '../components/Heading';
 import {P, UL, LI} from '../components/Typography';
 import {Brush} from '../components/icons/Brush';
 import {Terminal} from '../components/icons/Terminal';
@@ -34,13 +34,12 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
   return (
     <SiteWrapper>
       <Helmet>
-        <meta charSet="utf-8" />
         <title>{SiteMetaDefaults.TITLE}</title>
         <link rel="canonical" href="https://paste.twilio.design" />
         <meta name="description" content={SiteMetaDefaults.DESCRIPTION} />
       </Helmet>
       <LandingContainer maxWidth="size60" marginTop="space200" marginBottom="space200">
-        <Heading as="h1" headingStyle="headingStyle10">
+        <Heading as="h1" variant="headingStyle60">
           Paste
         </Heading>
         <P variant="lead">
@@ -49,22 +48,28 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
           solving our customers’ problems. It is open source and contributions are welcome.
         </P>
         <Box marginTop="space80" marginBottom="space80">
-          <Box display="inline" marginRight="space40">
+          <Box display="inline-block" marginRight="space40">
             <Button
+              as="a"
+              href="/getting-started/"
               size="default"
               variant="primary"
-              onClick={() => {
+              onClick={event => {
+                event.preventDefault();
                 navigate('/getting-started/');
               }}
             >
               Get Started
             </Button>
           </Box>
-          <Box display="inline" marginRight="space40">
+          <Box display="inline-block" marginRight="space40">
             <Button
+              as="a"
+              href="/components/"
               size="default"
               variant="secondary"
-              onClick={() => {
+              onClick={event => {
+                event.preventDefault();
                 navigate('/components/');
               }}
             >
@@ -72,9 +77,12 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
             </Button>
           </Box>
           <Button
+            as="a"
+            href="/roadmap/"
             size="default"
             variant="secondary"
-            onClick={() => {
+            onClick={event => {
+              event.preventDefault();
               navigate('/roadmap/');
             }}
           >
@@ -112,13 +120,13 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
             >
               <Brush size={24} />
             </IconCircle>
-            <Heading as="h2" headingStyle="headingStyle20">
+            <Heading as="h2" variant="headingStyle50">
               Themes
             </Heading>
-            <P>
+            <Paragraph>
               Each component shares a common set of <SiteLink to="/tokens">design tokens</SiteLink> that allow us to
               easily change their value based on a theme.
-            </P>
+            </Paragraph>
           </Box>
           <Box>
             <IconCircle
@@ -129,13 +137,13 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
             >
               <WindowLayout size={24} />
             </IconCircle>
-            <Heading as="h2" headingStyle="headingStyle20">
+            <Heading as="h2" variant="headingStyle50">
               Usage Examples
             </Heading>
-            <P>
+            <Paragraph>
               Learn how to use Paste components and the underlying tokens through{' '}
               <SiteLink to="/getting-started">usage examples and guidelines</SiteLink>.
-            </P>
+            </Paragraph>
           </Box>
           <Box>
             <IconCircle
@@ -146,13 +154,18 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
             >
               <Terminal size={24} />
             </IconCircle>
-            <Heading as="h2" headingStyle="headingStyle20">
-              Component API
+            <Heading as="h2" variant="headingStyle50">
+              Code Sandbox
             </Heading>
-            <P>
-              Each <SiteLink to="/components">Paste component</SiteLink> is thoroughly documented with a list of props
-              and descriptions of how they should be used.
-            </P>
+            <Paragraph>
+              We&rsquo;ve loaded a Code Sandbox with the latest components from Paste Core for you to get a feel for
+              working with Paste.
+            </Paragraph>
+            <Paragraph>
+              <Button as="a" href="https://codesandbox.io/s/paste-starter-kit-rj7yy" variant="secondary">
+                Code Sandbox
+              </Button>
+            </Paragraph>
           </Box>
         </Grid>
       </LandingContainer>

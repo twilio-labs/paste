@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/screen-reader-only",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "category": "typography",
   "status": "alpha",
   "description": "",
@@ -29,8 +29,7 @@
   "peerDependencies": {
     "@emotion/styled": "^10.0.10",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "styled-system": "^4.1.0"
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "rollup": "^1.16.2",

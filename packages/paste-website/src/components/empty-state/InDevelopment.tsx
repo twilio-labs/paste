@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Anchor} from '@twilio-paste/anchor';
-import {Text} from '@twilio-paste/text';
+import {Heading, Paragraph} from '@twilio-paste/typography';
 import {Box} from '@twilio-paste/box';
 import {Breadcrumb, BreadcrumbItem} from '../breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
@@ -20,21 +20,15 @@ const InDevelopment: React.FC<InDevelopmentProps> = ({type, name}) => {
           {type === 'utility' ? 'Utilities' : 'Components'}
         </BreadcrumbItem>
       </Breadcrumb>
-      <Text
-        fontSize="fontSize80"
-        lineHeight="lineHeight80"
-        fontWeight="fontWeightSemibold"
-        color="colorText"
-        marginBottom="space90"
-      >
+      <Heading as="h1" variant="headingStyle60">
         {getHumanizedNameFromPackageName(name)}
-      </Text>
+      </Heading>
       <Box>
-        <Text>This {type} is in active development, but we haven&apos;t gotten to the docs yet.</Text>
-        <Text>
+        <Paragraph>This {type} is in active development, but we haven&apos;t gotten to the docs yet.</Paragraph>
+        <Paragraph>
           Feel free to <Anchor href="https://github.com/twilio-labs/paste/issues">file a feature request</Anchor> with
           details on how you want to use this {type} and we&apos;ll respond to you directly.
-        </Text>
+        </Paragraph>
       </Box>
     </>
   );
