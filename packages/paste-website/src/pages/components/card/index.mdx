@@ -66,7 +66,7 @@ though children composed inside of it may commonly have event handlers.
 Acknowledging the flexibility of Card component, there are several non-negotiable 
 properties of a Card that differentiate it from a more basic page-layout element, such as Box:
 
-* A background color of $background-color-body.  
+* A background color of $color-background-body.  
 * A border width of $border-width-20.
 * A border radius of $border-radius-20.
 * A border color of $color-border.
@@ -78,30 +78,6 @@ properties of a Card that differentiate it from a more basic page-layout element
 
 A card is a box with default attributes defined above. The purpose of the card is to provide a consistent experience to use across the website the design team can 
 
-
-## Usage Guide
-
-
-### Installation
-
-```bash
-yarn add @twilio-paste/card
-
-or
-
-npm i @twilio-paste/card
-```
-
-### API
-
-| Prop         	| Type             	| Description                              	| Default        	|
-|--------------	|------------------	|------------------------------------------	|----------------	|
-| children?    	| React.ReactNode  	| Child components to render into the card 	| undefined         |
-| borderWidth  	| borderWidths     	| Width of the border                      	| borderWidth20  	|
-| borderColor  	| BorderColors     	| Color of the border                      	| colorBorder    	|
-| borderStyle  	| BorderStyleProps 	| Style of the border                      	| solid          	|
-| borderRadius 	| Radii            	| Radius of the border                     	| borderRadius20 	|
-| padding      	| Spacing          	| Internal spacing of the card             	| space60        	|
 
 ### Examples
 
@@ -152,6 +128,31 @@ npm i @twilio-paste/card
     </Card>
     `}
 </LivePreview>
+
+
+## Usage Guide
+
+
+### Installation
+
+```bash
+yarn add @twilio-paste/card
+
+or
+
+npm i @twilio-paste/card
+```
+
+### API
+
+| Prop         	| Type             	| Description                              	| Default        	|
+|--------------	|------------------	|------------------------------------------	|----------------	|
+| children?    	| React.ReactNode  	| Child components to render into the card 	| undefined         |
+| borderWidth  	| borderWidths     	| Width of the border                      	| borderWidth20  	|
+| borderColor  	| BorderColors     	| Color of the border                      	| colorBorder    	|
+| borderStyle  	| BorderStyleProps 	| Style of the border                      	| solid          	|
+| borderRadius 	| Radii            	| Radius of the border                     	| borderRadius20 	|
+| padding      	| Spacing          	| Internal spacing of the card             	| space60        	|
 
 
 

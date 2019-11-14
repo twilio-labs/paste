@@ -1,26 +1,31 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import {SpaceProps} from '@twilio-paste/types';
+import {PaddingProps, BorderWidthProps, BorderColorProps, BorderStyleProps} from '@twilio-paste/types';
 import {StaticDiv} from '@twilio-paste/types/src/DomTypes';
-import {errorOnBadProps, spacingProps} from './utilities';
+import {
+  errorOnBadProps,
+  spacingProps,
+  borderWidthProps,
+  borderStyleProps,
+  borderColorProps,
+  paddingProps,
+} from './utilities';
 
-interface CardFooterProps extends SpaceProps, StaticDiv {}
-
-const cardProps = spacingProps;
-const cardFooterProps = spacingProps;
+interface CardFooterProps extends PaddingProps, StaticDiv {}
+const cardFooterProps = paddingProps;
 
 const CardFooter: React.FunctionComponent<CardFooterProps> = ({children, ...attributes}) => {
   errorOnBadProps(attributes, cardFooterProps);
 
   return (
     <Box
+      as="article"
       borderTopWidth="borderWidth10"
       borderBottomWidth="borderWidth0"
       borderLeftWidth="borderWidth0"
       borderRightWidth="borderWidth0"
       marginTop="space40"
       paddingTop="space40"
-      borderColor="colorBorder"
       borderStyle="solid"
       {...attributes}
     >
@@ -29,18 +34,21 @@ const CardFooter: React.FunctionComponent<CardFooterProps> = ({children, ...attr
   );
 };
 
-interface CardProps extends SpaceProps, StaticDiv {}
+interface CardProps extends PaddingProps, BorderStyleProps, BorderColorProps, BorderWidthProps, StaticDiv {}
+const cardProps = [...paddingProps, ...borderWidthProps, ...borderColorProps, ...borderStyleProps];
 
 const Card: React.FunctionComponent<CardProps> = ({children, ...attributes}) => {
   errorOnBadProps(attributes, cardProps);
 
   return (
     <Box
+      as="article"
       borderWidth="borderWidth20"
       borderColor="colorBorder"
       borderStyle="solid"
       borderRadius="borderRadius20"
       padding="space60"
+      backgroundColor="colorBackgroundBody"
       {...attributes}
     >
       {children}

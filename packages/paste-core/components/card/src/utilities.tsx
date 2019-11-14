@@ -1,6 +1,9 @@
 const marginProps = ['margin', 'marginTop', 'marginRight', 'marginBottom', 'marginLeft'];
 const paddingProps = ['padding', 'paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft'];
 const spacingProps = [...marginProps, ...paddingProps];
+const borderWidthProps = ['borderWidth', 'borderBottomWidth', 'borderLeftWidth', 'borderRightWidth', 'borderTopWidth'];
+const borderColorProps = ['borderColor', 'borderBottomColor', 'borderLeftColor', 'borderRightColor', 'borderTopColor'];
+const borderStyleProps = ['borderStyle', 'borderTopStyle', 'borderRightStyle', 'borderBottomStyle', 'borderLeftStyle'];
 
 const errorOnBadProps = (props: {[key: string]: any}, propWhitelist: string[]): void => {
   // Object.keys might be slow in the hot path
@@ -13,4 +16,4 @@ const errorOnBadProps = (props: {[key: string]: any}, propWhitelist: string[]): 
   }
 };
 
-export {marginProps, paddingProps, spacingProps, errorOnBadProps};
+export {marginProps, paddingProps, spacingProps, borderWidthProps, borderColorProps, borderStyleProps, errorOnBadProps};
