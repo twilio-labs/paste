@@ -3,7 +3,8 @@
 exports[`Card it should render CardFooter 1`] = `
 .emotion-1 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -15,16 +16,16 @@ exports[`Card it should render CardFooter 1`] = `
 }
 
 .emotion-0 {
-  border-style: solid;
-  border-color: colorBorder;
-  border-color: #c8cccf;
+  box-sizing: border-box;
+  min-width: 0;
+  border-top-width: 1px;
   border-bottom-width: 0;
   border-left-width: 0;
   border-right-width: 0;
-  border-top-width: 1px;
-  min-width: 0;
   margin-top: 0.75rem;
   padding-top: 0.75rem;
+  border-color: #c8cccf;
+  border-style: solid;
 }
 
 <div
@@ -41,7 +42,8 @@ exports[`Card it should render CardFooter 1`] = `
 exports[`Card it should render children 1`] = `
 .emotion-1 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -53,12 +55,12 @@ exports[`Card it should render children 1`] = `
 }
 
 .emotion-0 {
-  border-width: 2px;
-  border-style: solid;
-  border-color: colorBorder;
-  border-radius: 4px;
-  border-color: #c8cccf;
+  box-sizing: border-box;
   min-width: 0;
+  border-width: 2px;
+  border-color: #c8cccf;
+  border-style: solid;
+  border-radius: 4px;
   padding: 1.25rem;
 }
 
@@ -76,7 +78,8 @@ exports[`Card it should render children 1`] = `
 exports[`Card it should render default values 1`] = `
 .emotion-1 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -88,12 +91,12 @@ exports[`Card it should render default values 1`] = `
 }
 
 .emotion-0 {
-  border-width: 2px;
-  border-style: solid;
-  border-color: colorBorder;
-  border-radius: 4px;
-  border-color: #c8cccf;
+  box-sizing: border-box;
   min-width: 0;
+  border-width: 2px;
+  border-color: #c8cccf;
+  border-style: solid;
+  border-radius: 4px;
   padding: 1.25rem;
 }
 
@@ -109,7 +112,8 @@ exports[`Card it should render default values 1`] = `
 exports[`Card it should render default values unless overridden by the component 1`] = `
 .emotion-1 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.15;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   color: #282a2b;
   font-weight: 400;
 }
@@ -121,14 +125,14 @@ exports[`Card it should render default values unless overridden by the component
 }
 
 .emotion-0 {
-  border-width: 2px;
-  border-style: solid;
-  border-color: colorBorder;
-  border-radius: 4px;
-  border-color: #c8cccf;
+  box-sizing: border-box;
   min-width: 0;
-  margin-bottom: 4.75rem;
+  border-width: 2px;
+  border-color: #c8cccf;
+  border-style: solid;
+  border-radius: 4px;
   padding: 1.25rem;
+  margin-bottom: 4.75rem;
 }
 
 <div

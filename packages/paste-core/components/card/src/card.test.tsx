@@ -1,6 +1,7 @@
-import {Card, CardFooter} from './index';
+import * as React from 'react';
 import {Theme} from '@twilio-paste/theme';
 import renderer from 'react-test-renderer';
+import {Card, CardFooter} from './index';
 
 describe('Card', () => {
   it('it should render default values', (): void => {
@@ -21,7 +22,7 @@ describe('Card', () => {
           <Card error="blowitup" />
         </Theme.Provider>
       );
-    }).toThrow;
+    }).toThrow();
   });
 
   it('it should render default values unless overridden by the component', (): void => {
