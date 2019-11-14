@@ -200,35 +200,82 @@ describe('Button Errors', () => {
   });
 });
 
-describe('Button attributes', () => {
-  it('should render aria-expanded attribute', () => {
+describe('Button aria attributes', () => {
+  it('Has an aria-expanded attribute', () => {
     const wrapper: ReactWrapper = mount(
       <Button variant="secondary" aria-expanded="true">
         button
       </Button>
     );
-    expect(wrapper.exists('[aria-expanded="true"]')).toEqual(true);
+    expect(wrapper.exists('button[aria-expanded="true"]')).toEqual(true);
   });
 
-  it('should render aria-controls attribute', () => {
+  it('Has an aria-haspopup attribute', () => {
+    const wrapper: ReactWrapper = mount(
+      <Button variant="secondary" aria-haspopup="true" onClick={NOOP}>
+        button
+      </Button>
+    );
+    expect(wrapper.exists('button[aria-haspopup="true"]')).toEqual(true);
+  });
+
+  it('Has an aria-controls attribute', () => {
     const wrapper: ReactWrapper = mount(
       <Button variant="secondary" aria-controls="some-id">
         button
       </Button>
     );
-    expect(wrapper.exists('[aria-controls="some-id"]')).toEqual(true);
+    expect(wrapper.exists('button[aria-controls="some-id"]')).toEqual(true);
+  });
+
+  it('Has an aria-busy attribute when loading', () => {
+    const wrapper: ReactWrapper = mount(
+      <Button variant="secondary" loading>
+        button
+      </Button>
+    );
+    expect(wrapper.exists('button[aria-busy="true"]')).toEqual(true);
   });
 });
 
 describe('button event handlers', () => {
-  it('should call the onClick handler', () => {
+  it('Should call the appropriate event handlers', () => {
     const onClickMock: jest.Mock = jest.fn();
+    const onMouseDownMock: jest.Mock = jest.fn();
+    const onMouseUpMock: jest.Mock = jest.fn();
+    const onMouseEnterMock: jest.Mock = jest.fn();
+    const onMouseLeaveMock: jest.Mock = jest.fn();
+    const onFocusMock: jest.Mock = jest.fn();
+    const onBlurMock: jest.Mock = jest.fn();
+
     const wrapper: ReactWrapper = mount(
-      <Button variant="secondary" onClick={onClickMock}>
+      <Button
+        variant="secondary"
+        onClick={onClickMock}
+        onMouseDown={onMouseDownMock}
+        onMouseUp={onMouseUpMock}
+        onMouseEnter={onMouseEnterMock}
+        onMouseLeave={onMouseLeaveMock}
+        onFocus={onFocusMock}
+        onBlur={onBlurMock}
+      >
         button
       </Button>
     );
+
     wrapper.simulate('click');
-    expect(onClickMock).toHaveBeenCalled();
+    expect(onClickMock).toHaveBeenCalledTimes(1);
+    wrapper.simulate('mousedown');
+    expect(onMouseDownMock).toHaveBeenCalledTimes(1);
+    wrapper.simulate('mouseup');
+    expect(onMouseUpMock).toHaveBeenCalledTimes(1);
+    wrapper.simulate('mouseenter');
+    expect(onMouseEnterMock).toHaveBeenCalledTimes(1);
+    wrapper.simulate('mouseleave');
+    expect(onMouseLeaveMock).toHaveBeenCalledTimes(1);
+    wrapper.simulate('focus');
+    expect(onFocusMock).toHaveBeenCalledTimes(1);
+    wrapper.simulate('blur');
+    expect(onBlurMock).toHaveBeenCalledTimes(1);
   });
 });
