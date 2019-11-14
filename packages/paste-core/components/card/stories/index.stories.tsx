@@ -6,35 +6,14 @@ import {Text} from '@twilio-paste/text';
 import {Card, CardFooter} from '../src';
 
 import {Padding} from '@twilio-paste/types';
+import {DefaultTheme} from '@twilio-paste/theme-tokens';
 
-const space = [
-  'space0',
-  'space10',
-  'space100',
-  'space110',
-  'space120',
-  'space130',
-  'space140',
-  'space150',
-  'space160',
-  'space170',
-  'space180',
-  'space190',
-  'space20',
-  'space200',
-  'space30',
-  'space40',
-  'space50',
-  'space60',
-  'space70',
-  'space80',
-  'space90',
-];
+const spaceOptions = Object.keys(DefaultTheme.space);
 
 storiesOf('Components|Card', module)
   .addDecorator(withKnobs)
   .add('Default', () => (
-    <Card padding={select('padding', space, 'space10') as Padding}>
+    <Card padding={select('padding', spaceOptions, 'space10') as Padding}>
       <Heading as="h2">With a heading</Heading>
       <Text>Body</Text>
       <CardFooter>
