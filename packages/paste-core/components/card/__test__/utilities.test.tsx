@@ -1,8 +1,8 @@
-import {cardProps} from './index';
-import {errorOnBadProps} from './utilities';
+import {cardProps} from '../src';
+import {errorOnBadProps} from '../src/utilities';
 
 describe('errorOnBadProps', () => {
-  it('it should error when incorrect props are passed in', (): void => {
+  it('it should error when incorrect props are passed in', () => {
     expect(() => {
       errorOnBadProps({stuff: 1}, cardProps);
     }).toThrow();

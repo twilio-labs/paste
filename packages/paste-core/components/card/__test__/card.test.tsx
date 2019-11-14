@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Theme} from '@twilio-paste/theme';
 import renderer from 'react-test-renderer';
-import {Card, CardFooter} from './index';
+import {Card, CardFooter} from '../src';
 
 describe('Card', () => {
   it('it should render default values', (): void => {
