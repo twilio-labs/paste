@@ -14,7 +14,7 @@ describe('Card', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render default values', (): void => {
+  it('it should error with bad propTypes', (): void => {
     expect(() => {
       renderer.create(
         <Theme.Provider>
