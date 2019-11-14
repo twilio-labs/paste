@@ -28,10 +28,10 @@ props:
 
   # primary action borders
   color-border-primary-darker:
-    value: "{!palette-blue-80}"
+    value: "{!palette-blue-90}"
     comment: Darker primary border color
   color-border-primary-dark:
-    value: "{!palette-blue-70}"
+    value: "{!palette-blue-80}"
     comment: Dark primary border color
   color-border-primary:
     value: "{!palette-blue-60}"
@@ -65,10 +65,10 @@ props:
 
   # destructive borders
   color-border-destructive-darker:
-    value: "{!palette-red-80}"
+    value: "{!palette-red-90}"
     comment: Destructive hover border color
   color-border-destructive-dark:
-    value: "{!palette-red-70}"
+    value: "{!palette-red-80}"
     comment: Destructive focus border color
   color-border-destructive:
     value: "{!palette-red-60}"

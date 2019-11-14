@@ -53,10 +53,10 @@ props:
 
   # primary background
   color-background-primary-darker:
-    value: "{!palette-blue-80}"
+    value: "{!palette-blue-90}"
     comment: Darker background for primary actions or highlights
   color-background-primary-dark:
-    value: "{!palette-blue-70}"
+    value: "{!palette-blue-80}"
     comment: Dark background for primary actions or highlights
   color-background-primary:
     value: "{!palette-blue-60}"
@@ -73,10 +73,10 @@ props:
 
   # destructive backgrounds
   color-background-destructive-darker:
-    value: "{!palette-red-80}"
+    value: "{!palette-red-90}"
     comment: Darker background for destructive actions or highlights
   color-background-destructive-dark:
-    value: "{!palette-red-70}"
+    value: "{!palette-red-80}"
     comment: Dark background for destructive actions or highlights
   color-background-destructive:
     value: "{!palette-red-60}"

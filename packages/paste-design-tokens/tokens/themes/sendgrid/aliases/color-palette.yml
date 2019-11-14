@@ -10,7 +10,7 @@ aliases:
   palette-red-60: "#ac1e16"
   palette-red-70: "#940800"
   palette-red-80: "#700600"
-  palette-red-90: "#4a0400"
+  palette-red-90: "#480500"
   palette-red-100: "#2e0200"
 
   ## Oranges
@@ -72,6 +72,18 @@ aliases:
   palette-blue-80: "#001f75"
   palette-blue-90: "#00154d"
   palette-blue-100: "#000e35"
+
+  ## Blues transparent based on primary blue
+  palette-blue-50-transparent-10: "rgba(51, 104, 250, 0.1)"
+  palette-blue-50-transparent-20: "rgba(51, 104, 250, 0.2)"
+  palette-blue-50-transparent-30: "rgba(51, 104, 250, 0.3)"
+  palette-blue-50-transparent-40: "rgba(51, 104, 250, 0.4)"
+  palette-blue-50-transparent-50: "rgba(51, 104, 250, 0.5)"
+  palette-blue-50-transparent-60: "rgba(51, 104, 250, 0.6)"
+  palette-blue-50-transparent-70: "rgba(51, 104, 250, 0.7)"
+  palette-blue-50-transparent-80: "rgba(51, 104, 250, 0.8)"
+  palette-blue-50-transparent-90: "rgba(51, 104, 250, 0.9)"
+  palette-blue-50-transparent-100: "rgba(51, 104, 250, 1)"
 
   ## Turquoise
   palette-turquoise-10: "#ebf7ff"
