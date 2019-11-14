@@ -1,25 +1,52 @@
 import * as React from 'react';
+import {Box} from '@twilio-paste/box';
+import {PaddingProps} from '@twilio-paste/types';
+import {StaticDiv} from '@twilio-paste/types/src/DomTypes';
+import {errorOnBadProps, paddingProps} from './utilities';
 
-interface CardTitleProps {
-  children: React.ReactNode;
-}
-const CardTitle: React.FunctionComponent<CardTitleProps> = ({children}) => <h4>{children}</h4>;
+interface CardFooterProps extends PaddingProps, StaticDiv {}
+const cardFooterProps = paddingProps;
 
-interface CardBodyProps {
-  children: React.ReactNode;
-}
-const CardBody: React.FunctionComponent<CardBodyProps> = ({children}) => <div>{children}</div>;
+const CardFooter: React.FunctionComponent<CardFooterProps> = ({children, ...attributes}) => {
+  errorOnBadProps(attributes, cardFooterProps);
 
-interface CardProps {
-  onClick: () => void;
-  children: React.ReactNode;
-}
+  return (
+    <Box
+      as="article"
+      borderTopWidth="borderWidth10"
+      borderBottomWidth="borderWidth0"
+      borderLeftWidth="borderWidth0"
+      borderRightWidth="borderWidth0"
+      marginTop="space40"
+      paddingTop="space40"
+      borderStyle="solid"
+      {...attributes}
+    >
+      {children}
+    </Box>
+  );
+};
 
-const Card: React.FunctionComponent<CardProps> = ({children, onClick}) => (
-  // eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-tabindex
-  <aside onClick={onClick} tabIndex={onClick != null ? 0 : undefined} role={onClick != null ? 'button' : undefined}>
-    {children}
-  </aside>
-);
+interface CardProps extends PaddingProps, StaticDiv {}
+const cardProps = paddingProps;
 
-export {Card, CardBody, CardTitle};
+const Card: React.FunctionComponent<CardProps> = ({children, ...attributes}) => {
+  errorOnBadProps(attributes, cardProps);
+
+  return (
+    <Box
+      as="article"
+      borderWidth="borderWidth20"
+      borderColor="colorBorder"
+      borderStyle="solid"
+      borderRadius="borderRadius20"
+      padding="space60"
+      backgroundColor="colorBackgroundBody"
+      {...attributes}
+    >
+      {children}
+    </Box>
+  );
+};
+
+export {Card, CardFooter, cardProps, cardFooterProps};
