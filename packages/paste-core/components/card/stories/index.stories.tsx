@@ -3,10 +3,10 @@ import {storiesOf} from '@storybook/react';
 import {Heading} from '@twilio-paste/heading';
 import {withKnobs, select} from '@storybook/addon-knobs';
 import {Text} from '@twilio-paste/text';
-import {Card, CardFooter} from '../src';
-
 import {Padding} from '@twilio-paste/types';
 import {DefaultTheme} from '@twilio-paste/theme-tokens';
+
+import {Card, CardFooter} from '../src';
 
 const spaceOptions = Object.keys(DefaultTheme.space);
 
