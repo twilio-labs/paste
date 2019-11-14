@@ -29,7 +29,7 @@ describe('Card', () => {
     const tree = renderer
       .create(
         <Theme.Provider>
-          <Card marginBottom="space200" />
+          <Card paddingBottom="space200" />
         </Theme.Provider>
       )
       .toJSON();
