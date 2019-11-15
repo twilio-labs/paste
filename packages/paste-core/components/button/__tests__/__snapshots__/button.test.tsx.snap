@@ -36,11 +36,10 @@ exports[`Button States Has a disabled state 1`] = `
 
 .emotion-2 {
   position: relative;
-  padding: 0.5rem 1.25rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -51,6 +50,7 @@ exports[`Button States Has a disabled state 1`] = `
   -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
   transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 600;
   cursor: not-allowed;
   border-width: 2px;
   border-style: solid;
@@ -71,11 +71,10 @@ exports[`Button States Has a disabled state 1`] = `
 
 .emotion-6 {
   position: relative;
-  padding: 0.5rem 1.25rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -86,6 +85,7 @@ exports[`Button States Has a disabled state 1`] = `
   -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
   transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 600;
   cursor: not-allowed;
   border-width: 2px;
   border-style: solid;
@@ -101,11 +101,10 @@ exports[`Button States Has a disabled state 1`] = `
 
 .emotion-10 {
   position: relative;
-  padding: 0.5rem 1.25rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -116,6 +115,7 @@ exports[`Button States Has a disabled state 1`] = `
   -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
   transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 600;
   cursor: not-allowed;
   border-width: 2px;
   border-style: solid;
@@ -143,6 +143,7 @@ exports[`Button States Has a disabled state 1`] = `
   -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
   transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 600;
   cursor: not-allowed;
   background: none;
   color: #ecb6b6;
@@ -167,6 +168,7 @@ exports[`Button States Has a disabled state 1`] = `
   -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
   transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 600;
   cursor: not-allowed;
   background: none;
   color: #b3d3e9;
@@ -191,6 +193,7 @@ exports[`Button States Has a disabled state 1`] = `
   -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
   transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 600;
   cursor: not-allowed;
   width: auto;
 }
@@ -314,11 +317,10 @@ exports[`Button States Has a loading state 1`] = `
 
 .emotion-6 {
   position: relative;
-  padding: 0.5rem 1.25rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -329,6 +331,7 @@ exports[`Button States Has a loading state 1`] = `
   -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
   transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 600;
   cursor: wait;
   border-width: 2px;
   border-style: solid;
@@ -391,8 +394,8 @@ exports[`Button States Has a loading state 1`] = `
 }
 
 .emotion-3 {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
   display: inline-block;
   -webkit-animation: animation-0 2s linear infinite;
   animation: animation-0 2s linear infinite;
@@ -407,18 +410,17 @@ exports[`Button States Has a loading state 1`] = `
 
 .emotion-2 {
   display: inline-block;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
   color: currentColor;
 }
 
 .emotion-14 {
   position: relative;
-  padding: 0.5rem 1.25rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -429,6 +431,7 @@ exports[`Button States Has a loading state 1`] = `
   -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
   transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 600;
   cursor: wait;
   border-width: 2px;
   border-style: solid;
@@ -445,11 +448,10 @@ exports[`Button States Has a loading state 1`] = `
 
 .emotion-22 {
   position: relative;
-  padding: 0.5rem 1.25rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -460,6 +462,7 @@ exports[`Button States Has a loading state 1`] = `
   -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
   transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 600;
   cursor: wait;
   border-width: 2px;
   border-style: solid;
@@ -488,6 +491,7 @@ exports[`Button States Has a loading state 1`] = `
   -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
   transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 600;
   cursor: wait;
   background: none;
   color: #921200;
@@ -512,6 +516,7 @@ exports[`Button States Has a loading state 1`] = `
   -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
   transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 600;
   cursor: wait;
   background: none;
   color: #001f57;
@@ -536,6 +541,7 @@ exports[`Button States Has a loading state 1`] = `
   -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
   transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 600;
   cursor: wait;
   width: auto;
 }
@@ -862,11 +868,10 @@ exports[`Button Variants Has a destructive variant 1`] = `
 
 .emotion-2 {
   position: relative;
-  padding: 0.5rem 1.25rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -877,6 +882,7 @@ exports[`Button Variants Has a destructive variant 1`] = `
   -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
   transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 600;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
@@ -984,6 +990,7 @@ exports[`Button Variants Has a destructive_link variant 1`] = `
   -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
   transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 600;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
@@ -1084,6 +1091,7 @@ exports[`Button Variants Has a link variant 1`] = `
   -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
   transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 600;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
@@ -1153,11 +1161,10 @@ exports[`Button Variants Has a primary variant 1`] = `
 
 .emotion-2 {
   position: relative;
-  padding: 0.5rem 1.25rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -1168,6 +1175,7 @@ exports[`Button Variants Has a primary variant 1`] = `
   -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
   transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 600;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
@@ -1290,6 +1298,7 @@ exports[`Button Variants Has a reset variant 1`] = `
   -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
   transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 600;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
@@ -1361,11 +1370,10 @@ exports[`Button Variants Has a secondary variant 1`] = `
 
 .emotion-2 {
   position: relative;
-  padding: 0.5rem 1.25rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -1376,6 +1384,7 @@ exports[`Button Variants Has a secondary variant 1`] = `
   -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
   transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 600;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;

@@ -6,7 +6,7 @@ import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {Button} from '../src';
 import {ButtonVariants, ButtonSizes, ButtonTabIndexes} from '../src/types';
 
-const ButtonSizeOptions = ['default', 'small', 'icon', 'reset'];
+const ButtonSizeOptions = ['', 'default', 'small', 'icon', 'reset'];
 const ButtonVariantOptions = ['primary', 'secondary', 'destructive', 'destructive_link', 'link', 'reset'];
 const ButtonTabIndexOptions = [0, -1];
 
@@ -76,7 +76,7 @@ storiesOf('Components|Button', module)
     );
   })
   .add('All buttons', () => {
-    const size = select('size', ButtonSizeOptions, 'default') as ButtonSizes;
+    const size = select('size', ButtonSizeOptions, '') as ButtonSizes;
     return (
       <React.Fragment>
         <section>
@@ -87,6 +87,42 @@ storiesOf('Components|Button', module)
             Primary
           </Button>
           <Button variant="primary" size={size} disabled>
+            Primary
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="primary" size="small">
+            Primary
+          </Button>
+          <Button variant="primary" size="small" loading>
+            Primary
+          </Button>
+          <Button variant="primary" size="small" disabled>
+            Primary
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="primary" size="icon">
+            <PlusIcon />
+          </Button>
+          <Button variant="primary" size="icon" loading>
+            <PlusIcon />
+          </Button>
+          <Button variant="primary" size="icon" disabled>
+            <PlusIcon />
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="primary" size="reset">
+            Primary
+          </Button>
+          <Button variant="primary" size="reset" loading>
+            Primary
+          </Button>
+          <Button variant="primary" size="reset" disabled>
             Primary
           </Button>
         </section>
@@ -104,6 +140,42 @@ storiesOf('Components|Button', module)
         </section>
         <br />
         <section>
+          <Button variant="secondary" size="small">
+            Secondary
+          </Button>
+          <Button variant="secondary" size="small" loading>
+            Secondary
+          </Button>
+          <Button variant="secondary" size="small" disabled>
+            Secondary
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="secondary" size="icon">
+            <PlusIcon />
+          </Button>
+          <Button variant="secondary" size="icon" loading>
+            <PlusIcon />
+          </Button>
+          <Button variant="secondary" size="icon" disabled>
+            <PlusIcon />
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="secondary" size="reset">
+            Secondary
+          </Button>
+          <Button variant="secondary" size="reset" loading>
+            Secondary
+          </Button>
+          <Button variant="secondary" size="reset" disabled>
+            Secondary
+          </Button>
+        </section>
+        <br />
+        <section>
           <Button variant="destructive" size={size}>
             Destructive
           </Button>
@@ -111,6 +183,42 @@ storiesOf('Components|Button', module)
             Destructive
           </Button>
           <Button variant="destructive" size={size} disabled>
+            Destructive
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="destructive" size="small">
+            Destructive
+          </Button>
+          <Button variant="destructive" size="small" loading>
+            Destructive
+          </Button>
+          <Button variant="destructive" size="small" disabled>
+            Destructive
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="destructive" size="icon">
+            <PlusIcon />
+          </Button>
+          <Button variant="destructive" size="icon" loading>
+            <PlusIcon />
+          </Button>
+          <Button variant="destructive" size="icon" disabled>
+            <PlusIcon />
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="destructive" size="reset">
+            Destructive
+          </Button>
+          <Button variant="destructive" size="reset" loading>
+            Destructive
+          </Button>
+          <Button variant="destructive" size="reset" disabled>
             Destructive
           </Button>
         </section>
@@ -128,6 +236,42 @@ storiesOf('Components|Button', module)
         </section>
         <br />
         <section>
+          <Button variant="link" size="small">
+            Link
+          </Button>
+          <Button variant="link" size="small" loading>
+            Link
+          </Button>
+          <Button variant="link" size="small" disabled>
+            Link
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="link" size="icon">
+            <PlusIcon />
+          </Button>
+          <Button variant="link" size="icon" loading>
+            <PlusIcon />
+          </Button>
+          <Button variant="link" size="icon" disabled>
+            <PlusIcon />
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="link" size="reset">
+            Link
+          </Button>
+          <Button variant="link" size="reset" loading>
+            Link
+          </Button>
+          <Button variant="link" size="reset" disabled>
+            Link
+          </Button>
+        </section>
+        <br />
+        <section>
           <Button variant="destructive_link" size={size}>
             Destructive Link
           </Button>
@@ -135,6 +279,42 @@ storiesOf('Components|Button', module)
             Destructive Link
           </Button>
           <Button variant="destructive_link" size={size} disabled>
+            Destructive Link
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="destructive_link" size="small">
+            Destructive Link
+          </Button>
+          <Button variant="destructive_link" size="small" loading>
+            Destructive Link
+          </Button>
+          <Button variant="destructive_link" size="small" disabled>
+            Destructive Link
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="destructive_link" size="icon">
+            <PlusIcon />
+          </Button>
+          <Button variant="destructive_link" size="icon" loading>
+            <PlusIcon />
+          </Button>
+          <Button variant="destructive_link" size="icon" disabled>
+            <PlusIcon />
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="destructive_link" size="reset">
+            Destructive Link
+          </Button>
+          <Button variant="destructive_link" size="reset" loading>
+            Destructive Link
+          </Button>
+          <Button variant="destructive_link" size="reset" disabled>
             Destructive Link
           </Button>
         </section>

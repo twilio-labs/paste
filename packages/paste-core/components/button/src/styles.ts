@@ -23,15 +23,14 @@ const sizeSmall = (props: ButtonWrapperProps): SerializedStyles => css`
   padding: ${themeGet('space.space10')(props)} ${themeGet('space.space30')(props)};
   border-radius: ${themeGet('radii.borderRadius10')(props)};
   font-size: ${themeGet('fontSizes.fontSize30')(props)};
-  font-weight: ${themeGet('fontWeights.fontWeightSemibold')(props)};
-  line-height: ${themeGet('lineHeights.lineHeight30')(props)};
+  line-height: ${themeGet('lineHeights.lineHeight20')(props)};
 `;
 const sizeDefault = (props: ButtonWrapperProps): SerializedStyles => css`
-  padding: ${themeGet('space.space30')(props)} ${themeGet('space.space60')(props)};
+  padding: ${themeGet('space.space30')(props)} ${themeGet('space.space50')(props)};
   border-radius: ${themeGet('radii.borderRadius20')(props)};
   font-size: ${themeGet('fontSizes.fontSize30')(props)};
-  font-weight: ${themeGet('fontWeights.fontWeightSemibold')(props)};
-  line-height: ${themeGet('lineHeights.lineHeight30')(props)};
+
+  line-height: ${themeGet('lineHeights.lineHeight20')(props)};
 `;
 
 /*
@@ -46,6 +45,7 @@ const baseButtonWrapper = (props: ButtonWrapperProps): SerializedStyles => css`
   background: none;
   transition: background-color 100ms ease-in, border-color 100ms ease-in;
   font-family: ${themeGet('fonts.fontFamilyText')(props)};
+  font-weight: ${themeGet('fontWeights.fontWeightSemibold')(props)};
 
   /* Remove extra black dotted border FF adds */
   &::-moz-focus-inner {
