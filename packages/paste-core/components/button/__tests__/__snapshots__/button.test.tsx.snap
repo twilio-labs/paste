@@ -895,7 +895,7 @@ exports[`Button Variants Has a destructive variant 1`] = `
 
 .emotion-2:focus,
 .emotion-2:active {
-  box-shadow: 0 0 0 4px rgba(2,123,200,0.8);
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
 .emotion-2:hover {
@@ -998,7 +998,7 @@ exports[`Button Variants Has a destructive_link variant 1`] = `
 
 .emotion-2:focus,
 .emotion-2:active {
-  box-shadow: 0 0 0 4px rgba(2,123,200,0.8);
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
 .emotion-2:hover,
@@ -1098,7 +1098,7 @@ exports[`Button Variants Has a link variant 1`] = `
 
 .emotion-2:focus,
 .emotion-2:active {
-  box-shadow: 0 0 0 4px rgba(2,123,200,0.8);
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
 .emotion-2:hover,
@@ -1185,7 +1185,7 @@ exports[`Button Variants Has a primary variant 1`] = `
 
 .emotion-2:focus,
 .emotion-2:active {
-  box-shadow: 0 0 0 4px rgba(2,123,200,0.8);
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
 .emotion-2:hover {
@@ -1302,7 +1302,7 @@ exports[`Button Variants Has a reset variant 1`] = `
 
 .emotion-2:focus,
 .emotion-2:active {
-  box-shadow: 0 0 0 4px rgba(2,123,200,0.8);
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
 <div
@@ -1394,7 +1394,7 @@ exports[`Button Variants Has a secondary variant 1`] = `
 
 .emotion-2:focus,
 .emotion-2:active {
-  box-shadow: 0 0 0 4px rgba(2,123,200,0.8);
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
 .emotion-2:hover {

@@ -178,7 +178,7 @@ exports[`Shadows it should render responsive values 1`] = `
 
 @media screen and (min-width:25rem) {
   .emotion-0 {
-    box-shadow: 0 0 0 4px rgba(2,123,200,0.8);
+    box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
   }
 }
 

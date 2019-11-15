@@ -12,16 +12,16 @@ aliases:
   palette-blue-100: "#00092b"
 
   ## Blues transparent based on primary blue
-  palette-blue-60-transparent-10: "rgba(2, 123, 200, 0.1)"
-  palette-blue-60-transparent-20: "rgba(2, 123, 200, 0.2)"
-  palette-blue-60-transparent-30: "rgba(2, 123, 200, 0.3)"
-  palette-blue-60-transparent-40: "rgba(2, 123, 200, 0.4)"
-  palette-blue-60-transparent-50: "rgba(2, 123, 200, 0.5)"
-  palette-blue-60-transparent-60: "rgba(2, 123, 200, 0.6)"
-  palette-blue-60-transparent-70: "rgba(2, 123, 200, 0.7)"
-  palette-blue-60-transparent-80: "rgba(2, 123, 200, 0.8)"
-  palette-blue-60-transparent-90: "rgba(2, 123, 200, 0.9)"
-  palette-blue-60-transparent-100: "rgba(2, 123, 200, 1)"
+  palette-blue-60-transparent-10: "rgba(2, 122, 197, 0.1)"
+  palette-blue-60-transparent-20: "rgba(2, 122, 197, 0.2)"
+  palette-blue-60-transparent-30: "rgba(2, 122, 197, 0.3)"
+  palette-blue-60-transparent-40: "rgba(2, 122, 197, 0.4)"
+  palette-blue-60-transparent-50: "rgba(2, 122, 197, 0.5)"
+  palette-blue-60-transparent-60: "rgba(2, 122, 197, 0.6)"
+  palette-blue-60-transparent-70: "rgba(2, 122, 197, 0.7)"
+  palette-blue-60-transparent-80: "rgba(2, 122, 197, 0.8)"
+  palette-blue-60-transparent-90: "rgba(2, 122, 197, 0.9)"
+  palette-blue-60-transparent-100: "rgba(2, 122, 197, 1)"
 
   ## Grays
   palette-gray-0: "#ffffff"

@@ -43,10 +43,10 @@ props:
 
   # primary background
   color-background-primary-darker:
-    value: "{!palette-blue-90}"
+    value: "{!palette-blue-80}"
     comment: Darker background for primary actions or highlights
   color-background-primary-dark:
-    value: "{!palette-blue-80}"
+    value: "{!palette-blue-70}"
     comment: Dark background for primary actions or highlights
   color-background-primary:
     value: "{!palette-blue-50}"
