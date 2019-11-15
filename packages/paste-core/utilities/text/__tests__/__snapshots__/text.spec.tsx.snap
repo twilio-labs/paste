@@ -1502,7 +1502,7 @@ exports[`textColor should set a responsive textColor property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: #cb0000;
+  color: #e22525;
   font-size: 0.875rem;
   line-height: 1.5rem;
 }

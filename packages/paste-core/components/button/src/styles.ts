@@ -61,7 +61,7 @@ const baseEnabled = (props: ButtonWrapperProps): SerializedStyles =>
 
       &:focus,
       &:active {
-        box-shadow: 0 0 0 4px rgba(0, 117, 195, 0.5);
+        box-shadow: ${themeGet('shadows.shadowFocus')(props)};
       }
     `,
   ]);
@@ -99,16 +99,16 @@ const variantPrimaryEnabled = (props: ButtonWrapperProps): SerializedStyles =>
       background-color: ${themeGet('backgroundColors.colorBackgroundPrimary')(props)};
 
       &:hover {
-        border-color: ${themeGet('borderColors.colorBorderPrimaryDark')(props)};
-        background-color: ${themeGet('backgroundColors.colorBackgroundPrimaryDark')(props)};
+        border-color: ${themeGet('borderColors.colorBorderPrimaryDarker')(props)};
+        background-color: ${themeGet('backgroundColors.colorBackgroundPrimaryDarker')(props)};
       }
       &:focus {
-        border-color: ${themeGet('borderColors.colorBorderPrimaryDark')(props)};
+        border-color: ${themeGet('borderColors.colorBorderPrimaryDarker')(props)};
         background-color: ${themeGet('backgroundColors.colorBackgroundPrimary')(props)};
       }
       &:active {
         border-color: ${themeGet('borderColors.colorBorderPrimaryDarker')(props)};
-        background-color: ${themeGet('backgroundColors.colorBackgroundPrimaryDarker')(props)};
+        background-color: ${themeGet('backgroundColors.colorBackgroundPrimaryDark')(props)};
       }
     `,
   ]);
@@ -157,14 +157,14 @@ const variantSecondaryEnabled = (props: ButtonWrapperProps): SerializedStyles =>
       background-color: ${themeGet('backgroundColors.colorBackgroundBody')(props)};
 
       &:hover {
-        color: ${themeGet('textColors.colorTextLinkDark')(props)};
+        color: ${themeGet('textColors.colorTextLinkDarker')(props)};
         border-color: ${themeGet('borderColors.colorBorderPrimaryDarker')(props)};
         background-color: ${themeGet('backgroundColors.colorBackgroundPrimaryLightest')(props)};
       }
 
       &:focus {
-        color: ${themeGet('textColors.colorTextLink')(props)};
-        border-color: ${themeGet('borderColors.colorBorderPrimary')(props)};
+        color: ${themeGet('textColors.colorTextLinkDarker')(props)};
+        border-color: ${themeGet('borderColors.colorBorderPrimaryDarker')(props)};
         background-color: ${themeGet('backgroundColors.colorBackgroundPrimaryLightest')(props)};
       }
 
@@ -191,7 +191,7 @@ const variantSecondaryDisabled = (props: ButtonWrapperProps): SerializedStyles =
     variantSecondaryBase(props),
     css`
       color: ${themeGet('textColors.colorTextLinkLight')(props)};
-      border-color: ${themeGet('borderColors.colorBorderPrimaryLighter')(props)};
+      border-color: ${themeGet('borderColors.colorBorderPrimaryLight')(props)};
     `,
   ]);
 

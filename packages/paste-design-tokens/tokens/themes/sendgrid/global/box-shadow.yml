@@ -1,6 +1,10 @@
 global:
-  type: box-shadow
-  category: shadow
+  type: shadow
+  category: box-shadow
 imports:
   - ../../../global/box-shadow.yml
   - ../aliases/box-shadow.yml
+props:
+  shadow-focus:
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-20}px {!palette-blue-50-transparent-80}"
+    comment: Shadow for focus ring on interactive elements

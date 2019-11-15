@@ -91,7 +91,7 @@ exports[`Button States Has a disabled state 1`] = `
   border-style: solid;
   background-color: #ffffff;
   color: #b3d3e9;
-  border-color: #dceaf4;
+  border-color: #b3d3e9;
   width: auto;
 }
 
@@ -347,8 +347,8 @@ exports[`Button States Has a loading state 1`] = `
 .emotion-6:hover,
 .emotion-6:active,
 .emotion-6:focus {
-  border-color: #003e82;
-  background-color: #003e82;
+  border-color: #032c5e;
+  background-color: #032c5e;
 }
 
 .emotion-0 {
@@ -436,7 +436,7 @@ exports[`Button States Has a loading state 1`] = `
   border-width: 2px;
   border-style: solid;
   background-color: #ffffff;
-  color: #001f57;
+  color: #032c5e;
   border-color: #dceaf4;
   background-color: #dceaf4;
   width: auto;
@@ -519,7 +519,7 @@ exports[`Button States Has a loading state 1`] = `
   font-weight: 600;
   cursor: wait;
   background: none;
-  color: #001f57;
+  color: #032c5e;
   width: auto;
 }
 
@@ -889,8 +889,8 @@ exports[`Button Variants Has a destructive variant 1`] = `
   border-width: 2px;
   border-style: solid;
   background-color: #ffffff;
-  color: #cb0000;
-  border-color: #cb0000;
+  color: #e22525;
+  border-color: #e22525;
   background-color: #ffffff;
   width: auto;
 }
@@ -901,24 +901,24 @@ exports[`Button Variants Has a destructive variant 1`] = `
 
 .emotion-2:focus,
 .emotion-2:active {
-  box-shadow: 0 0 0 4px rgba(0,117,195,0.5);
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
 .emotion-2:hover {
   color: #921200;
-  border-color: #921200;
+  border-color: #600101;
   background-color: #ffe9e7;
 }
 
 .emotion-2:focus {
-  color: #cb0000;
-  border-color: #cb0000;
+  color: #e22525;
+  border-color: #e22525;
   background-color: #ffe9e7;
 }
 
 .emotion-2:active {
   color: #921200;
-  border-color: #921200;
+  border-color: #600101;
   background-color: #f5dddd;
 }
 
@@ -995,7 +995,7 @@ exports[`Button Variants Has a destructive_link variant 1`] = `
   text-decoration: none;
   cursor: pointer;
   background: none;
-  color: #cb0000;
+  color: #e22525;
   width: auto;
 }
 
@@ -1005,7 +1005,7 @@ exports[`Button Variants Has a destructive_link variant 1`] = `
 
 .emotion-2:focus,
 .emotion-2:active {
-  box-shadow: 0 0 0 4px rgba(0,117,195,0.5);
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
 .emotion-2:hover,
@@ -1106,7 +1106,7 @@ exports[`Button Variants Has a link variant 1`] = `
 
 .emotion-2:focus,
 .emotion-2:active {
-  box-shadow: 0 0 0 4px rgba(0,117,195,0.5);
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
 .emotion-2:hover,
@@ -1121,7 +1121,7 @@ exports[`Button Variants Has a link variant 1`] = `
 }
 
 .emotion-2:active {
-  color: #001f57;
+  color: #032c5e;
 }
 
 <div
@@ -1182,8 +1182,8 @@ exports[`Button Variants Has a primary variant 1`] = `
   border-width: 2px;
   border-style: solid;
   color: #ffffff;
-  border-color: #0075c3;
-  background-color: #0075c3;
+  border-color: #027ac5;
+  background-color: #027ac5;
   width: auto;
 }
 
@@ -1193,21 +1193,21 @@ exports[`Button Variants Has a primary variant 1`] = `
 
 .emotion-2:focus,
 .emotion-2:active {
-  box-shadow: 0 0 0 4px rgba(0,117,195,0.5);
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
 .emotion-2:hover {
-  border-color: #005ea6;
-  background-color: #005ea6;
+  border-color: #032c5e;
+  background-color: #032c5e;
 }
 
 .emotion-2:focus {
-  border-color: #005ea6;
-  background-color: #0075c3;
+  border-color: #032c5e;
+  background-color: #027ac5;
 }
 
 .emotion-2:active {
-  border-color: #003e82;
+  border-color: #032c5e;
   background-color: #003e82;
 }
 
@@ -1311,7 +1311,7 @@ exports[`Button Variants Has a reset variant 1`] = `
 
 .emotion-2:focus,
 .emotion-2:active {
-  box-shadow: 0 0 0 4px rgba(0,117,195,0.5);
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
 <div
@@ -1392,7 +1392,7 @@ exports[`Button Variants Has a secondary variant 1`] = `
   border-style: solid;
   background-color: #ffffff;
   color: #005ea6;
-  border-color: #0075c3;
+  border-color: #027ac5;
   background-color: #ffffff;
   width: auto;
 }
@@ -1403,24 +1403,24 @@ exports[`Button Variants Has a secondary variant 1`] = `
 
 .emotion-2:focus,
 .emotion-2:active {
-  box-shadow: 0 0 0 4px rgba(0,117,195,0.5);
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
 .emotion-2:hover {
-  color: #003e82;
-  border-color: #003e82;
+  color: #032c5e;
+  border-color: #032c5e;
   background-color: #f5f8ff;
 }
 
 .emotion-2:focus {
-  color: #005ea6;
-  border-color: #0075c3;
+  color: #032c5e;
+  border-color: #032c5e;
   background-color: #f5f8ff;
 }
 
 .emotion-2:active {
-  color: #001f57;
-  border-color: #003e82;
+  color: #032c5e;
+  border-color: #032c5e;
   background-color: #dceaf4;
 }
 
