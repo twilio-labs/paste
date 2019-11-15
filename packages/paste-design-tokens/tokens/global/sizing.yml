@@ -49,8 +49,11 @@ props:
     value: "{!size-square-30}"
     comment: Icon sizing token
   size-icon-20:
-    value: "{!size-square-50}"
+    value: "{!size-square-40}"
     comment: Icon sizing token
   size-icon-30:
+    value: "{!size-square-50}"
+    comment: Icon sizing token
+  size-icon-40:
     value: "{!size-square-70}"
     comment: Icon sizing token
