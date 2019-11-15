@@ -56,17 +56,17 @@ export const pageQuery = graphql`
 
 ### About Cards
 
-Cards are a specifically-styled container that group relatable content and actions. 
-Card is an extremely flexible container that does not require specific components inside of it, 
-allowing an implementer to compose as needed, but elements such as Title, Body, 
-and Button or Anchor are commonly used. See Examples for common Card patterns. 
-A Card does not currently handle any interactive events such as hover, click or focus, 
+Cards are a specifically-styled container that group relatable content and actions.
+Card is an extremely flexible container that does not require specific components inside of it,
+allowing an implementer to compose as needed, but elements such as Title, Body,
+and Button or Anchor are commonly used. See Examples for common Card patterns.
+A Card does not currently handle any interactive events such as hover, click or focus,
 though children composed inside of it may commonly have event handlers.
 
-Acknowledging the flexibility of Card component, there are several non-negotiable 
+Acknowledging the flexibility of Card component, there are several non-negotiable
 properties of a Card that differentiate it from a more basic page-layout element, such as Box:
 
-* A background color of $color-background-body.  
+* A background color of $color-background-body.
 * A border width of $border-width-20.
 * A border radius of $border-radius-20.
 * A border color of $color-border.
@@ -76,57 +76,49 @@ properties of a Card that differentiate it from a more basic page-layout element
 
 ### Card vs. Box
 
-A card is a box with default attributes defined above. The purpose of the card is to provide a consistent experience to use across the website the design team can 
+A card is a box with default attributes defined above. The purpose of the card is to provide a consistent experience to use across the website the design team can
 
 
 ### Examples
 
 <LivePreview scope={{Card, Text, CardFooter, Heading}} language="jsx">
-  {`
-    <Card>
-        <Heading as="h2">With a heading</Heading>
-        <Text>Body</Text>
-        <CardFooter>
-            <Text>I&apos;m | The | Footer</Text>
-        </CardFooter>
-    </Card>
-    `}
+  {`<Card>
+  <Heading as="h2">With a heading</Heading>
+  <Text as="p">Body</Text>
+  <CardFooter>
+    <Text as="p">I&apos;m | The | Footer</Text>
+  </CardFooter>
+</Card>`}
 </LivePreview>
 
 <LivePreview scope={{Card, Text, CardFooter, Heading, Button}} language="jsx">
-  {`
-    <Card>
-        <Heading as="h2">This is a card with buttons!</Heading>
-        <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dui tellus, 
-            tristique in tincidunt cursus, efficitur at felis. Phasellus imperdiet, 
-            lorem et commodo egestas, arcu.
-        </Text>
-        <CardFooter>
-            <Button variant="destructive">Cancel</Button>
-            <Button variant="submit">Submit</Button>
-        </CardFooter>
-    </Card>
-    `}
+  {`<Card>
+  <Heading as="h2">This is a card with buttons!</Heading>
+  <Text as="p">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dui tellus,
+    tristique in tincidunt cursus, efficitur at felis. Phasellus imperdiet,
+    lorem et commodo egestas, arcu.
+  </Text>
+  <CardFooter>
+    <Button variant="destructive">Cancel</Button>
+    <Button variant="submit">Submit</Button>
+  </CardFooter>
+</Card>`}
 </LivePreview>
 
-<LivePreview scope={{Card, Text, CardFooter, Heading}} language="jsx">
-  {`
-    <Card padding="space200">
-        <Heading as="h2">With some padding</Heading>
-        <Text>Body</Text>
-    </Card>
-    `}
+<LivePreview scope={{Card, Text, Heading}} language="jsx">
+  {`<Card padding="space200">
+  <Heading as="h2">With some padding</Heading>
+  <Text as="p">Body</Text>
+</Card>`}
 </LivePreview>
 
 
-<LivePreview scope={{Card, Text, CardFooter, Heading}} language="jsx">
-  {`
-    <Card aria-busy aria-atomic data-qahook="ZeCard!" >
-        <Heading as="h2">Prop Passthrough</Heading>
-        <Text>Body</Text>
-    </Card>
-    `}
+<LivePreview scope={{Card, Text, Heading}} language="jsx">
+  {`<Card aria-busy aria-atomic data-qahook="ZeCard!" >
+  <Heading as="h2">Prop Passthrough</Heading>
+  <Text as="p">Body</Text>
+</Card>`}
 </LivePreview>
 
 
