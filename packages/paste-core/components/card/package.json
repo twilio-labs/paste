@@ -2,7 +2,7 @@
   "name": "@twilio-paste/card",
   "version": "1.0.0",
   "category": "data display",
-  "status": "backlog",
+  "status": "alpha",
   "private": true,
   "description": "",
   "author": "Twilio Inc.",
@@ -26,9 +26,13 @@
   },
   "peerDependencies": {
     "react": ">= 16.0.0",
-    "react-dom": ">= 16.0.0"
+    "react-dom": ">= 16.0.0",
+    "@twilio-paste/box": "^2.0.1",
+    "@twilio-paste/types": "^2.0.1"
   },
   "devDependencies": {
+    "@twilio-paste/box": "^2.0.1",
+    "@twilio-paste/types": "^2.0.1",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.0.1",
