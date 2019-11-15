@@ -73,19 +73,27 @@ const Button: React.FC<ButtonProps> = props => {
   return (
     <ButtonWrapper
       as={props.as}
-      autoFocus={props.autoFocus}
-      buttonState={buttonState}
-      disabled={disabled}
-      fullWidth={props.fullWidth}
-      href={props.href}
-      onBlur={props.onBlur}
-      onClick={props.onClick}
-      onFocus={props.onFocus}
       variant={props.variant}
       size={defaultSize}
+      buttonState={buttonState}
+      disabled={disabled}
+      autoFocus={props.autoFocus}
+      fullWidth={props.fullWidth}
+      href={props.href}
       tabIndex={props.tabIndex}
       type={props.type}
-      aria-busy={buttonState === 'loading'}
+      onClick={props.onClick}
+      onMouseDown={props.onMouseDown}
+      onMouseUp={props.onMouseUp}
+      onMouseEnter={props.onMouseEnter}
+      onMouseLeave={props.onMouseLeave}
+      onFocus={props.onFocus}
+      onBlur={props.onBlur}
+      aria-expanded={props['aria-expanded']}
+      aria-haspopup={props['aria-haspopup']}
+      aria-controls={props['aria-controls']}
+      aria-busy={buttonState === 'loading' ? 'true' : 'false'}
+      data-test={props['data-test']}
     >
       <ButtonChildren buttonState={buttonState}>{props.children}</ButtonChildren>
       {showLoading ? (

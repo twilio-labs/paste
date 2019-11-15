@@ -1,0 +1,1436 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button States Has a disabled state 1`] = `
+.emotion-24 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-24 *,
+.emotion-24 *::after,
+.emotion-24 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-column-gap: 0.25rem;
+  column-gap: 0.25rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  -webkit-text-decoration: inherit;
+  text-decoration: inherit;
+  opacity: 100%;
+}
+
+.emotion-2 {
+  position: relative;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  cursor: not-allowed;
+  border-width: 2px;
+  border-style: solid;
+  color: #ffffff;
+  border-color: #b3d3e9;
+  background-color: #b3d3e9;
+  width: auto;
+}
+
+.emotion-2::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-2:hover,
+.emotion-2:active {
+  background-color: #b3d3e9;
+}
+
+.emotion-6 {
+  position: relative;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  cursor: not-allowed;
+  border-width: 2px;
+  border-style: solid;
+  background-color: #ffffff;
+  color: #b3d3e9;
+  border-color: #dceaf4;
+  width: auto;
+}
+
+.emotion-6::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-10 {
+  position: relative;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  cursor: not-allowed;
+  border-width: 2px;
+  border-style: solid;
+  background-color: #ffffff;
+  color: #ecb6b6;
+  border-color: #ecb6b6;
+  width: auto;
+}
+
+.emotion-10::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-14 {
+  position: relative;
+  font-size: 100%;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  cursor: not-allowed;
+  background: none;
+  color: #ecb6b6;
+  width: auto;
+}
+
+.emotion-14::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-18 {
+  position: relative;
+  font-size: 100%;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  cursor: not-allowed;
+  background: none;
+  color: #b3d3e9;
+  width: auto;
+}
+
+.emotion-18::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-22 {
+  position: relative;
+  font-size: 100%;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  cursor: not-allowed;
+  width: auto;
+}
+
+.emotion-22::-moz-focus-inner {
+  border: none;
+}
+
+<div
+  className="emotion-24"
+>
+  <button
+    aria-busy="false"
+    className="emotion-2 emotion-3"
+    disabled={true}
+    size="default"
+    type="button"
+  >
+    <span
+      className="emotion-0 emotion-1"
+    >
+      Submit
+    </span>
+  </button>
+  <button
+    aria-busy="false"
+    className="emotion-6 emotion-3"
+    disabled={true}
+    size="default"
+    type="button"
+  >
+    <span
+      className="emotion-0 emotion-1"
+    >
+      Submit
+    </span>
+  </button>
+  <button
+    aria-busy="false"
+    className="emotion-10 emotion-3"
+    disabled={true}
+    size="default"
+    type="button"
+  >
+    <span
+      className="emotion-0 emotion-1"
+    >
+      Submit
+    </span>
+  </button>
+  <button
+    aria-busy="false"
+    className="emotion-14 emotion-3"
+    disabled={true}
+    size="reset"
+    type="button"
+  >
+    <span
+      className="emotion-0 emotion-1"
+    >
+      Submit
+    </span>
+  </button>
+  <button
+    aria-busy="false"
+    className="emotion-18 emotion-3"
+    disabled={true}
+    size="reset"
+    type="button"
+  >
+    <span
+      className="emotion-0 emotion-1"
+    >
+      Submit
+    </span>
+  </button>
+  <button
+    aria-busy="false"
+    className="emotion-22 emotion-3"
+    disabled={true}
+    size="reset"
+    type="button"
+  >
+    <span
+      className="emotion-0 emotion-1"
+    >
+      Submit
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button States Has a loading state 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(359deg);
+    -ms-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+.emotion-48 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-48 *,
+.emotion-48 *::after,
+.emotion-48 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-6 {
+  position: relative;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  cursor: wait;
+  border-width: 2px;
+  border-style: solid;
+  color: #ffffff;
+  width: auto;
+}
+
+.emotion-6::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-6,
+.emotion-6:hover,
+.emotion-6:active,
+.emotion-6:focus {
+  border-color: #003e82;
+  background-color: #003e82;
+}
+
+.emotion-0 {
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-column-gap: 0.25rem;
+  column-gap: 0.25rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  -webkit-text-decoration: inherit;
+  text-decoration: inherit;
+  opacity: 0;
+}
+
+.emotion-4 {
+  box-sizing: border-box;
+  min-width: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  line-height: 14px;
+}
+
+.emotion-3 {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-block;
+  -webkit-animation: animation-0 2s linear infinite;
+  animation: animation-0 2s linear infinite;
+}
+
+@media screen and (prefers-reduced-motion:reduce) {
+  .emotion-3 {
+    -webkit-animation: none;
+    animation: none;
+  }
+}
+
+.emotion-2 {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: currentColor;
+}
+
+.emotion-14 {
+  position: relative;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  cursor: wait;
+  border-width: 2px;
+  border-style: solid;
+  background-color: #ffffff;
+  color: #001f57;
+  border-color: #dceaf4;
+  background-color: #dceaf4;
+  width: auto;
+}
+
+.emotion-14::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-22 {
+  position: relative;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  cursor: wait;
+  border-width: 2px;
+  border-style: solid;
+  background-color: #ffffff;
+  color: #921200;
+  border-color: #f5dddd;
+  background-color: #f5dddd;
+  width: auto;
+}
+
+.emotion-22::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-30 {
+  position: relative;
+  font-size: 100%;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  cursor: wait;
+  background: none;
+  color: #921200;
+  width: auto;
+}
+
+.emotion-30::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-38 {
+  position: relative;
+  font-size: 100%;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  cursor: wait;
+  background: none;
+  color: #001f57;
+  width: auto;
+}
+
+.emotion-38::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-46 {
+  position: relative;
+  font-size: 100%;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  cursor: wait;
+  width: auto;
+}
+
+.emotion-46::-moz-focus-inner {
+  border: none;
+}
+
+<div
+  className="emotion-48"
+>
+  <button
+    aria-busy="true"
+    className="emotion-6 emotion-7"
+    disabled={true}
+    size="default"
+    type="button"
+  >
+    <span
+      className="emotion-0 emotion-1"
+    >
+      Submit
+    </span>
+    <span
+      className="emotion-4 emotion-5"
+    >
+      <div
+        className="emotion-3"
+        size="sizeIcon20"
+      >
+        <span
+          className="emotion-2"
+          size="sizeIcon20"
+        >
+          <svg
+            aria-hidden={false}
+            aria-labelledby="1"
+            height="100%"
+            role="img"
+            viewBox="0 0 24 24"
+            width="100%"
+          >
+            <title
+              id="1"
+            >
+              Loading Icon
+            </title>
+            <path
+              d="M20.085 13.123a1 1 0 01.71 1.224A9.103 9.103 0 014.717 17.46l-.15 1.756a1 1 0 11-1.992-.17l.407-4.773a1 1 0 011.357-.848l4.47 1.728a1 1 0 11-.72 1.865l-1.691-.652a7.103 7.103 0 0012.463-2.533 1 1 0 011.223-.71zM12.008 2.892a9.1 9.1 0 017.283 3.64l.148-1.756a1 1 0 011.993.17l-.407 4.773a1 1 0 01-1.357.847l-4.47-1.727a1 1 0 01.72-1.866l1.691.653a7.103 7.103 0 00-12.463 2.533 1 1 0 01-1.932-.514 9.103 9.103 0 018.794-6.753z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </span>
+      </div>
+    </span>
+  </button>
+  <button
+    aria-busy="true"
+    className="emotion-14 emotion-7"
+    disabled={true}
+    size="default"
+    type="button"
+  >
+    <span
+      className="emotion-0 emotion-1"
+    >
+      Submit
+    </span>
+    <span
+      className="emotion-4 emotion-5"
+    >
+      <div
+        className="emotion-3"
+        size="sizeIcon20"
+      >
+        <span
+          className="emotion-2"
+          size="sizeIcon20"
+        >
+          <svg
+            aria-hidden={false}
+            aria-labelledby="2"
+            height="100%"
+            role="img"
+            viewBox="0 0 24 24"
+            width="100%"
+          >
+            <title
+              id="2"
+            >
+              Loading Icon
+            </title>
+            <path
+              d="M20.085 13.123a1 1 0 01.71 1.224A9.103 9.103 0 014.717 17.46l-.15 1.756a1 1 0 11-1.992-.17l.407-4.773a1 1 0 011.357-.848l4.47 1.728a1 1 0 11-.72 1.865l-1.691-.652a7.103 7.103 0 0012.463-2.533 1 1 0 011.223-.71zM12.008 2.892a9.1 9.1 0 017.283 3.64l.148-1.756a1 1 0 011.993.17l-.407 4.773a1 1 0 01-1.357.847l-4.47-1.727a1 1 0 01.72-1.866l1.691.653a7.103 7.103 0 00-12.463 2.533 1 1 0 01-1.932-.514 9.103 9.103 0 018.794-6.753z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </span>
+      </div>
+    </span>
+  </button>
+  <button
+    aria-busy="true"
+    className="emotion-22 emotion-7"
+    disabled={true}
+    size="default"
+    type="button"
+  >
+    <span
+      className="emotion-0 emotion-1"
+    >
+      Submit
+    </span>
+    <span
+      className="emotion-4 emotion-5"
+    >
+      <div
+        className="emotion-3"
+        size="sizeIcon20"
+      >
+        <span
+          className="emotion-2"
+          size="sizeIcon20"
+        >
+          <svg
+            aria-hidden={false}
+            aria-labelledby="3"
+            height="100%"
+            role="img"
+            viewBox="0 0 24 24"
+            width="100%"
+          >
+            <title
+              id="3"
+            >
+              Loading Icon
+            </title>
+            <path
+              d="M20.085 13.123a1 1 0 01.71 1.224A9.103 9.103 0 014.717 17.46l-.15 1.756a1 1 0 11-1.992-.17l.407-4.773a1 1 0 011.357-.848l4.47 1.728a1 1 0 11-.72 1.865l-1.691-.652a7.103 7.103 0 0012.463-2.533 1 1 0 011.223-.71zM12.008 2.892a9.1 9.1 0 017.283 3.64l.148-1.756a1 1 0 011.993.17l-.407 4.773a1 1 0 01-1.357.847l-4.47-1.727a1 1 0 01.72-1.866l1.691.653a7.103 7.103 0 00-12.463 2.533 1 1 0 01-1.932-.514 9.103 9.103 0 018.794-6.753z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </span>
+      </div>
+    </span>
+  </button>
+  <button
+    aria-busy="true"
+    className="emotion-30 emotion-7"
+    disabled={true}
+    size="reset"
+    type="button"
+  >
+    <span
+      className="emotion-0 emotion-1"
+    >
+      Submit
+    </span>
+    <span
+      className="emotion-4 emotion-5"
+    >
+      <div
+        className="emotion-3"
+        size="sizeIcon20"
+      >
+        <span
+          className="emotion-2"
+          size="sizeIcon20"
+        >
+          <svg
+            aria-hidden={false}
+            aria-labelledby="4"
+            height="100%"
+            role="img"
+            viewBox="0 0 24 24"
+            width="100%"
+          >
+            <title
+              id="4"
+            >
+              Loading Icon
+            </title>
+            <path
+              d="M20.085 13.123a1 1 0 01.71 1.224A9.103 9.103 0 014.717 17.46l-.15 1.756a1 1 0 11-1.992-.17l.407-4.773a1 1 0 011.357-.848l4.47 1.728a1 1 0 11-.72 1.865l-1.691-.652a7.103 7.103 0 0012.463-2.533 1 1 0 011.223-.71zM12.008 2.892a9.1 9.1 0 017.283 3.64l.148-1.756a1 1 0 011.993.17l-.407 4.773a1 1 0 01-1.357.847l-4.47-1.727a1 1 0 01.72-1.866l1.691.653a7.103 7.103 0 00-12.463 2.533 1 1 0 01-1.932-.514 9.103 9.103 0 018.794-6.753z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </span>
+      </div>
+    </span>
+  </button>
+  <button
+    aria-busy="true"
+    className="emotion-38 emotion-7"
+    disabled={true}
+    size="reset"
+    type="button"
+  >
+    <span
+      className="emotion-0 emotion-1"
+    >
+      Submit
+    </span>
+    <span
+      className="emotion-4 emotion-5"
+    >
+      <div
+        className="emotion-3"
+        size="sizeIcon20"
+      >
+        <span
+          className="emotion-2"
+          size="sizeIcon20"
+        >
+          <svg
+            aria-hidden={false}
+            aria-labelledby="5"
+            height="100%"
+            role="img"
+            viewBox="0 0 24 24"
+            width="100%"
+          >
+            <title
+              id="5"
+            >
+              Loading Icon
+            </title>
+            <path
+              d="M20.085 13.123a1 1 0 01.71 1.224A9.103 9.103 0 014.717 17.46l-.15 1.756a1 1 0 11-1.992-.17l.407-4.773a1 1 0 011.357-.848l4.47 1.728a1 1 0 11-.72 1.865l-1.691-.652a7.103 7.103 0 0012.463-2.533 1 1 0 011.223-.71zM12.008 2.892a9.1 9.1 0 017.283 3.64l.148-1.756a1 1 0 011.993.17l-.407 4.773a1 1 0 01-1.357.847l-4.47-1.727a1 1 0 01.72-1.866l1.691.653a7.103 7.103 0 00-12.463 2.533 1 1 0 01-1.932-.514 9.103 9.103 0 018.794-6.753z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </span>
+      </div>
+    </span>
+  </button>
+  <button
+    aria-busy="true"
+    className="emotion-46 emotion-7"
+    disabled={true}
+    size="reset"
+    type="button"
+  >
+    <span
+      className="emotion-0 emotion-1"
+    >
+      Submit
+    </span>
+    <span
+      className="emotion-4 emotion-5"
+    >
+      <div
+        className="emotion-3"
+        size="sizeIcon20"
+      >
+        <span
+          className="emotion-2"
+          size="sizeIcon20"
+        >
+          <svg
+            aria-hidden={false}
+            aria-labelledby="6"
+            height="100%"
+            role="img"
+            viewBox="0 0 24 24"
+            width="100%"
+          >
+            <title
+              id="6"
+            >
+              Loading Icon
+            </title>
+            <path
+              d="M20.085 13.123a1 1 0 01.71 1.224A9.103 9.103 0 014.717 17.46l-.15 1.756a1 1 0 11-1.992-.17l.407-4.773a1 1 0 011.357-.848l4.47 1.728a1 1 0 11-.72 1.865l-1.691-.652a7.103 7.103 0 0012.463-2.533 1 1 0 011.223-.71zM12.008 2.892a9.1 9.1 0 017.283 3.64l.148-1.756a1 1 0 011.993.17l-.407 4.773a1 1 0 01-1.357.847l-4.47-1.727a1 1 0 01.72-1.866l1.691.653a7.103 7.103 0 00-12.463 2.533 1 1 0 01-1.932-.514 9.103 9.103 0 018.794-6.753z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </span>
+      </div>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button Variants Has a destructive variant 1`] = `
+.emotion-4 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-4 *,
+.emotion-4 *::after,
+.emotion-4 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-column-gap: 0.25rem;
+  column-gap: 0.25rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  -webkit-text-decoration: inherit;
+  text-decoration: inherit;
+  opacity: 100%;
+}
+
+.emotion-2 {
+  position: relative;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  border-width: 2px;
+  border-style: solid;
+  background-color: #ffffff;
+  color: #cb0000;
+  border-color: #cb0000;
+  background-color: #ffffff;
+  width: auto;
+}
+
+.emotion-2::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-2:focus,
+.emotion-2:active {
+  box-shadow: 0 0 0 4px rgba(0,117,195,0.5);
+}
+
+.emotion-2:hover {
+  color: #921200;
+  border-color: #921200;
+  background-color: #ffe9e7;
+}
+
+.emotion-2:focus {
+  color: #cb0000;
+  border-color: #cb0000;
+  background-color: #ffe9e7;
+}
+
+.emotion-2:active {
+  color: #921200;
+  border-color: #921200;
+  background-color: #f5dddd;
+}
+
+<div
+  className="emotion-4"
+>
+  <button
+    aria-busy="false"
+    className="emotion-2 emotion-3"
+    disabled={false}
+    onClick={[Function]}
+    size="default"
+    type="button"
+  >
+    <span
+      className="emotion-0 emotion-1"
+    >
+      Delete
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button Variants Has a destructive_link variant 1`] = `
+.emotion-4 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-4 *,
+.emotion-4 *::after,
+.emotion-4 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-column-gap: 0.25rem;
+  column-gap: 0.25rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  -webkit-text-decoration: inherit;
+  text-decoration: inherit;
+  opacity: 100%;
+}
+
+.emotion-2 {
+  position: relative;
+  font-size: 100%;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  color: #cb0000;
+  width: auto;
+}
+
+.emotion-2::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-2:focus,
+.emotion-2:active {
+  box-shadow: 0 0 0 4px rgba(0,117,195,0.5);
+}
+
+.emotion-2:hover,
+.emotion-2:focus,
+.emotion-2:active {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-2:hover {
+  color: #b20600;
+}
+
+.emotion-2:active {
+  color: #921200;
+}
+
+<div
+  className="emotion-4"
+>
+  <button
+    aria-busy="false"
+    className="emotion-2 emotion-3"
+    disabled={false}
+    onClick={[Function]}
+    size="reset"
+    type="button"
+  >
+    <span
+      className="emotion-0 emotion-1"
+    >
+      Undo
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button Variants Has a link variant 1`] = `
+.emotion-4 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-4 *,
+.emotion-4 *::after,
+.emotion-4 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-column-gap: 0.25rem;
+  column-gap: 0.25rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  -webkit-text-decoration: inherit;
+  text-decoration: inherit;
+  opacity: 100%;
+}
+
+.emotion-2 {
+  position: relative;
+  font-size: 100%;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  color: #005ea6;
+  width: auto;
+}
+
+.emotion-2::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-2:focus,
+.emotion-2:active {
+  box-shadow: 0 0 0 4px rgba(0,117,195,0.5);
+}
+
+.emotion-2:hover,
+.emotion-2:focus,
+.emotion-2:active {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-2:hover {
+  color: #003e82;
+}
+
+.emotion-2:active {
+  color: #001f57;
+}
+
+<div
+  className="emotion-4"
+>
+  <button
+    aria-busy="false"
+    className="emotion-2 emotion-3"
+    disabled={false}
+    onClick={[Function]}
+    size="reset"
+    type="button"
+  >
+    <span
+      className="emotion-0 emotion-1"
+    >
+      Go to Paste
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button Variants Has a primary variant 1`] = `
+.emotion-4 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-4 *,
+.emotion-4 *::after,
+.emotion-4 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-2 {
+  position: relative;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  border-width: 2px;
+  border-style: solid;
+  color: #ffffff;
+  border-color: #0075c3;
+  background-color: #0075c3;
+  width: auto;
+}
+
+.emotion-2::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-2:focus,
+.emotion-2:active {
+  box-shadow: 0 0 0 4px rgba(0,117,195,0.5);
+}
+
+.emotion-2:hover {
+  border-color: #005ea6;
+  background-color: #005ea6;
+}
+
+.emotion-2:focus {
+  border-color: #005ea6;
+  background-color: #0075c3;
+}
+
+.emotion-2:active {
+  border-color: #003e82;
+  background-color: #003e82;
+}
+
+.emotion-0 {
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-column-gap: 0.25rem;
+  column-gap: 0.25rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  -webkit-text-decoration: inherit;
+  text-decoration: inherit;
+  opacity: 100%;
+}
+
+<div
+  className="emotion-4"
+>
+  <button
+    aria-busy="false"
+    className="emotion-2 emotion-3"
+    disabled={false}
+    onClick={[Function]}
+    size="default"
+    type="submit"
+  >
+    <span
+      className="emotion-0 emotion-1"
+    >
+      Submit
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button Variants Has a reset variant 1`] = `
+.emotion-4 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-4 *,
+.emotion-4 *::after,
+.emotion-4 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-column-gap: 0.25rem;
+  column-gap: 0.25rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  -webkit-text-decoration: inherit;
+  text-decoration: inherit;
+  opacity: 100%;
+}
+
+.emotion-2 {
+  position: relative;
+  font-size: 100%;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  width: auto;
+}
+
+.emotion-2::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-2:focus,
+.emotion-2:active {
+  box-shadow: 0 0 0 4px rgba(0,117,195,0.5);
+}
+
+<div
+  className="emotion-4"
+>
+  <button
+    aria-busy="false"
+    className="emotion-2 emotion-3"
+    disabled={false}
+    onClick={[Function]}
+    size="reset"
+    type="button"
+  >
+    <span
+      className="emotion-0 emotion-1"
+    >
+      Hello World!
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button Variants Has a secondary variant 1`] = `
+.emotion-4 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-4 *,
+.emotion-4 *::after,
+.emotion-4 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-column-gap: 0.25rem;
+  column-gap: 0.25rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  -webkit-text-decoration: inherit;
+  text-decoration: inherit;
+  opacity: 100%;
+}
+
+.emotion-2 {
+  position: relative;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  border-width: 2px;
+  border-style: solid;
+  background-color: #ffffff;
+  color: #005ea6;
+  border-color: #0075c3;
+  background-color: #ffffff;
+  width: auto;
+}
+
+.emotion-2::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-2:focus,
+.emotion-2:active {
+  box-shadow: 0 0 0 4px rgba(0,117,195,0.5);
+}
+
+.emotion-2:hover {
+  color: #003e82;
+  border-color: #003e82;
+  background-color: #f5f8ff;
+}
+
+.emotion-2:focus {
+  color: #005ea6;
+  border-color: #0075c3;
+  background-color: #f5f8ff;
+}
+
+.emotion-2:active {
+  color: #001f57;
+  border-color: #003e82;
+  background-color: #dceaf4;
+}
+
+<div
+  className="emotion-4"
+>
+  <button
+    aria-busy="false"
+    className="emotion-2 emotion-3"
+    disabled={false}
+    onClick={[Function]}
+    size="default"
+    type="button"
+  >
+    <span
+      className="emotion-0 emotion-1"
+    >
+      Submit
+    </span>
+  </button>
+</div>
+`;

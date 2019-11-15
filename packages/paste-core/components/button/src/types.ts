@@ -23,7 +23,7 @@ export interface ButtonProps {
   loading?: boolean;
 
   // For accordions
-  'aria-expanded'?: boolean;
+  'aria-expanded'?: 'true' | 'false';
   // For modal and menus
   'aria-haspopup'?: 'true' | 'dialog' | 'menu';
   'aria-controls'?: string;
