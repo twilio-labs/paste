@@ -20,7 +20,7 @@ storiesOf('Components|Spinner', module)
     return (
       <Spinner
         iconColor={['colorText', 'colorTextError']}
-        size={['sizeIcon10', 'sizeIcon20', 'sizeIcon30']}
+        size={['sizeIcon10', 'sizeIcon20', 'sizeIcon30', 'sizeIcon40']}
         title={text('title', 'Now loading')}
       />
     );

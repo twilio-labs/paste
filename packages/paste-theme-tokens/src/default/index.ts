@@ -40,6 +40,7 @@ export const DefaultTheme = {
     sizeIcon10: sizings.sizeIcon10,
     sizeIcon20: sizings.sizeIcon20,
     sizeIcon30: sizings.sizeIcon30,
+    sizeIcon40: sizings.sizeIcon40,
   },
   space: spacings,
   textColors,
