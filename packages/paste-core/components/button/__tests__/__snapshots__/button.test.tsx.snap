@@ -119,9 +119,10 @@ exports[`Button States Has a disabled state 1`] = `
   cursor: not-allowed;
   border-width: 2px;
   border-style: solid;
-  background-color: #ffffff;
-  color: #ecb6b6;
+  background-color: #e22525;
+  color: #ffffff;
   border-color: #ecb6b6;
+  background-color: #ecb6b6;
   width: auto;
 }
 
@@ -466,10 +467,10 @@ exports[`Button States Has a loading state 1`] = `
   cursor: wait;
   border-width: 2px;
   border-style: solid;
-  background-color: #ffffff;
-  color: #921200;
-  border-color: #f5dddd;
-  background-color: #f5dddd;
+  background-color: #e22525;
+  color: #ffffff;
+  border-color: #600101;
+  background-color: #600101;
   width: auto;
 }
 
@@ -888,10 +889,9 @@ exports[`Button Variants Has a destructive variant 1`] = `
   cursor: pointer;
   border-width: 2px;
   border-style: solid;
-  background-color: #ffffff;
-  color: #e22525;
+  background-color: #e22525;
+  color: #ffffff;
   border-color: #e22525;
-  background-color: #ffffff;
   width: auto;
 }
 
@@ -905,21 +905,18 @@ exports[`Button Variants Has a destructive variant 1`] = `
 }
 
 .emotion-2:hover {
-  color: #921200;
   border-color: #600101;
-  background-color: #ffe9e7;
+  background-color: #600101;
 }
 
 .emotion-2:focus {
-  color: #e22525;
-  border-color: #e22525;
-  background-color: #ffe9e7;
+  border-color: #600101;
+  background-color: #e22525;
 }
 
 .emotion-2:active {
-  color: #921200;
   border-color: #600101;
-  background-color: #f5dddd;
+  background-color: #921200;
 }
 
 <div
