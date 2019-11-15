@@ -29,10 +29,10 @@ props:
 
   # primary action borders
   color-border-primary-darker:
-    value: "{!palette-blue-70}"
+    value: "{!palette-blue-90}"
     comment: Darker primary border color
   color-border-primary-dark:
-    value: "{!palette-blue-60}"
+    value: "{!palette-blue-80}"
     comment: Dark primary border color
   color-border-primary:
     value: "{!palette-blue-50}"
