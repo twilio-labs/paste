@@ -200,13 +200,12 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </SiteNavButton>
           <SiteNavNestList isOpen={iconsOpen}>
             <SiteNavItem>
-              <SiteNavAnchor to={SidebarCategoryRoutes.ICONS}>Guidelines</SiteNavAnchor>
+              <SiteNavAnchor to={SidebarCategoryRoutes.ICON_SYSTEM}>Icon Guidelines</SiteNavAnchor>
             </SiteNavItem>
             <SiteNavItem>
-              <SiteNavAnchor to={`${SidebarCategoryRoutes.ICONS}/components`}>Components</SiteNavAnchor>
-            </SiteNavItem>
-            <SiteNavItem>
-              <SiteNavAnchor to={`${SidebarCategoryRoutes.ICONS}/list`}>List</SiteNavAnchor>
+              <SiteNavAnchor to={`${SidebarCategoryRoutes.ICON_SYSTEM}/how-to-add-an-icon`}>
+                How to add an icon
+              </SiteNavAnchor>
             </SiteNavItem>
           </SiteNavNestList>
         </SiteNavItem>

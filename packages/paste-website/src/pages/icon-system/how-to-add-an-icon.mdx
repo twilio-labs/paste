@@ -1,0 +1,39 @@
+---
+title: How to add an icon
+description: Guidelines on how to create and export SVG icons for Paste.
+---
+
+import {graphql} from 'gatsby';
+import {Link} from 'gatsby';
+import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
+import {Button} from '@twilio-paste/button';
+import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
+import {LoadingIcon} from '@twilio-paste/icons/esm/LoadingIcon';
+import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {Grid} from '../../components/grid';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/icon-system/how-to-add-an-icon/"}}) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings} />
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+---
+
+</content>
+
+</contentwrapper>
