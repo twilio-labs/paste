@@ -23,7 +23,7 @@ exports[`Backgrounds it should render responsive values 1`] = `
 
 @media screen and (min-width:25rem) {
   .emotion-0 {
-    background-color: #0075c3;
+    background-color: #027bc8;
   }
 }
 
@@ -56,7 +56,7 @@ exports[`Backgrounds it should render single values 1`] = `
 .emotion-0 {
   box-sizing: border-box;
   min-width: 0;
-  background-color: #0075c3;
+  background-color: #027bc8;
 }
 
 <div
@@ -89,7 +89,7 @@ exports[`Borders it should render responsive values 1`] = `
   box-sizing: border-box;
   min-width: 0;
   border-style: dashed;
-  border-color: #005ea6;
+  border-color: #003e82;
   border-width: 1px;
   border-radius: 0;
 }
@@ -139,7 +139,7 @@ exports[`Borders it should render single values 1`] = `
   box-sizing: border-box;
   min-width: 0;
   border-style: solid;
-  border-color: #005ea6;
+  border-color: #003e82;
   border-width: 1px;
   border-radius: 4px;
 }
@@ -178,7 +178,7 @@ exports[`Shadows it should render responsive values 1`] = `
 
 @media screen and (min-width:25rem) {
   .emotion-0 {
-    box-shadow: 0 0 0 4px rgba(0,117,195,0.5);
+    box-shadow: 0 0 0 4px rgba(2,123,200,0.8);
   }
 }
 
