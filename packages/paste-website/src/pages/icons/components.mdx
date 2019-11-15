@@ -87,8 +87,8 @@ Since we didn't pass a color to the `LoadingIcon` directly, it inherited the col
 The `Box` is used for alignment.
 
 <LivePreview scope={{Box, Text, LoadingIcon}} language="jsx">
-  {`<Text textColor="colorTextInverse">
-  <Box display="flex" alignItems="center" backgroundColor="colorBackgroundInverse" padding="space30" borderRadius="borderRadius20">
+  {`<Text as="p" textColor="colorTextInverse">
+  <Box as="span" display="flex" alignItems="center" backgroundColor="colorBackgroundInverse" padding="space30" borderRadius="borderRadius20">
     <LoadingIcon decorative={true}  /> 
     Now loading
   </Box>
@@ -105,12 +105,12 @@ We can also change the icon color directly using [text color tokens](/tokens/#te
 
 Icons accept one of our ['sizeIcon' tokens](/tokens/#sizings).
 
-<LivePreview scope={{PlusIcon}} language="jsx">
-  {`<p>
+<LivePreview scope={{Text, PlusIcon}} language="jsx">
+  {`<Text as="p">
   <PlusIcon decorative={false} title="Add to cart" size="sizeIcon10" />
   <PlusIcon decorative={false} title="Add to cart" />
   <PlusIcon decorative={false} title="Add to cart" size="sizeIcon30" />
-</p>`}
+</Text>`}
 </LivePreview>
 
 <Callout variant="warning">
