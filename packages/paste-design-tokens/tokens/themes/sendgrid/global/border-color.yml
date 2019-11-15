@@ -66,10 +66,10 @@ props:
 
   # destructive borders
   color-border-destructive-darker:
-    value: "{!palette-red-70}"
+    value: "{!palette-red-90}"
     comment: Destructive hover border color
   color-border-destructive-dark:
-    value: "{!palette-red-60}"
+    value: "{!palette-red-80}"
     comment: Destructive focus border color
   color-border-destructive:
     value: "{!palette-red-50}"
