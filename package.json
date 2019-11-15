@@ -14,7 +14,7 @@
     "prestart": "yarn prebuild",
     "start": "yarn build:tokens && concurrently \"yarn:start:tokens\" \"yarn:start:storybook\"",
     "start:all": "yarn build:tokens && concurrently \"yarn:start:tokens\" \"yarn:start:storybook\" \"yarn:start:website\"",
-    "start:storybook": "start-storybook",
+    "start:storybook": "start-storybook -s ./packages/paste-website/static -p 9001",
     "start:tokens": "yarn workspace @twilio-paste/design-tokens build:dev",
     "start:website": "yarn workspace @twilio-paste/website develop",
     "watch:icons": "yarn workspace @twilio-paste/icons watch",
