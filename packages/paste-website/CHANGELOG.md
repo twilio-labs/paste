@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.2.1...@twilio-paste/website@1.3.0) (2019-11-18)
+
+
+### Bug Fixes
+
+* card code example spacing and formatting ([#187](https://github.com/twilio-labs/paste/issues/187)) ([57a46f4](https://github.com/twilio-labs/paste/commit/57a46f41acb8987243917cd31fdb1449c69e89e7))
+* **design-tokens:** update some blues, reds, and focus shadow ([#185](https://github.com/twilio-labs/paste/issues/185)) ([98d70cc](https://github.com/twilio-labs/paste/commit/98d70cc046db0284e151fab7f427ee16b8874c4a))
+* **website:** remove vague anchor do dont ([#177](https://github.com/twilio-labs/paste/issues/177)) ([8530c56](https://github.com/twilio-labs/paste/commit/8530c5679b48da46ddc82a9a7154bca78cacc30a))
+
+
+### Features
+
+* **card:** card component ([#145](https://github.com/twilio-labs/paste/issues/145)) ([9049c5f](https://github.com/twilio-labs/paste/commit/9049c5f8953b8ebee68596fedbcd58f6054ef166))
+
+
+
+
+
 ## [1.2.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.2.0...@twilio-paste/website@1.2.1) (2019-11-12)
 
 **Note:** Version bump only for package @twilio-paste/website

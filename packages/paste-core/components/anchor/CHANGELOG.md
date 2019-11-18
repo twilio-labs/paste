@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@1.0.1...@twilio-paste/anchor@1.0.2) (2019-11-18)
+
+
+### Bug Fixes
+
+* **design-tokens:** change color-text-link token values ([#172](https://github.com/twilio-labs/paste/issues/172)) ([f0a215c](https://github.com/twilio-labs/paste/commit/f0a215cb283f74f268387e744099e337c6489ebd))
+* **design-tokens:** update some blues, reds, and focus shadow ([#185](https://github.com/twilio-labs/paste/issues/185)) ([98d70cc](https://github.com/twilio-labs/paste/commit/98d70cc046db0284e151fab7f427ee16b8874c4a))
+
+
+
+
+
 ## [1.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@1.0.0...@twilio-paste/anchor@1.0.1) (2019-11-12)
 
 

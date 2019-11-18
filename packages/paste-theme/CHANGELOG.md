@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@2.0.1...@twilio-paste/theme@2.0.2) (2019-11-18)
+
+
+### Bug Fixes
+
+* **design-tokens:** change color-text-link token values ([#172](https://github.com/twilio-labs/paste/issues/172)) ([f0a215c](https://github.com/twilio-labs/paste/commit/f0a215cb283f74f268387e744099e337c6489ebd))
+
+
+
+
+
 ## [2.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@2.0.0...@twilio-paste/theme@2.0.1) (2019-11-12)
 
 **Note:** Version bump only for package @twilio-paste/theme

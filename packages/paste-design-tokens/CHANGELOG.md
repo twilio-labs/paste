@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@3.0.1...@twilio-paste/design-tokens@3.0.2) (2019-11-18)
+
+
+### Bug Fixes
+
+* **design-tokens:** change color-text-link token values ([#172](https://github.com/twilio-labs/paste/issues/172)) ([f0a215c](https://github.com/twilio-labs/paste/commit/f0a215cb283f74f268387e744099e337c6489ebd))
+* **design-tokens:** update lightest console color palette ([#174](https://github.com/twilio-labs/paste/issues/174)) ([98b625c](https://github.com/twilio-labs/paste/commit/98b625cc0998381b9a9d43cf590d1bc9cbbed6b6))
+* correct button heights add new default icon size ([#186](https://github.com/twilio-labs/paste/issues/186)) ([2e54478](https://github.com/twilio-labs/paste/commit/2e54478f975cb1930bd6d397d1214947db97c2a3))
+* **design-tokens:** update some blues, reds, and focus shadow ([#185](https://github.com/twilio-labs/paste/issues/185)) ([98d70cc](https://github.com/twilio-labs/paste/commit/98d70cc046db0284e151fab7f427ee16b8874c4a))
+
+
+
+
+
 ## [3.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@3.0.0...@twilio-paste/design-tokens@3.0.1) (2019-11-12)
 
 **Note:** Version bump only for package @twilio-paste/design-tokens

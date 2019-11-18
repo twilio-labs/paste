@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.0.1...@twilio-paste/box@2.0.2) (2019-11-18)
+
+
+### Bug Fixes
+
+* **design-tokens:** update some blues, reds, and focus shadow ([#185](https://github.com/twilio-labs/paste/issues/185)) ([98d70cc](https://github.com/twilio-labs/paste/commit/98d70cc046db0284e151fab7f427ee16b8874c4a))
+* **website:** remove vague anchor do dont ([#177](https://github.com/twilio-labs/paste/issues/177)) ([8530c56](https://github.com/twilio-labs/paste/commit/8530c5679b48da46ddc82a9a7154bca78cacc30a))
+
+
+
+
+
 ## [2.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.0.0...@twilio-paste/box@2.0.1) (2019-11-12)
 
 

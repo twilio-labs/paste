@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@1.0.1...@twilio-paste/spinner@1.0.2) (2019-11-18)
+
+
+### Bug Fixes
+
+* correct button heights add new default icon size ([#186](https://github.com/twilio-labs/paste/issues/186)) ([2e54478](https://github.com/twilio-labs/paste/commit/2e54478f975cb1930bd6d397d1214947db97c2a3))
+
+
+
+
+
 ## [1.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@1.0.0...@twilio-paste/spinner@1.0.1) (2019-11-12)
 
 **Note:** Version bump only for package @twilio-paste/spinner

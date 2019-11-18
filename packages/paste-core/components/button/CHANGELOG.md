@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.0.1...@twilio-paste/button@1.0.2) (2019-11-18)
+
+
+### Bug Fixes
+
+* correct button heights add new default icon size ([#186](https://github.com/twilio-labs/paste/issues/186)) ([2e54478](https://github.com/twilio-labs/paste/commit/2e54478f975cb1930bd6d397d1214947db97c2a3))
+* **design-tokens:** update some blues, reds, and focus shadow ([#185](https://github.com/twilio-labs/paste/issues/185)) ([98d70cc](https://github.com/twilio-labs/paste/commit/98d70cc046db0284e151fab7f427ee16b8874c4a))
+* update destructive button styles to be filled ([#189](https://github.com/twilio-labs/paste/issues/189)) ([c29b7ca](https://github.com/twilio-labs/paste/commit/c29b7cae1e4999ddcee75ba1897e3cf09c17e6df))
+
+
+
+
+
 ## [1.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.0.0...@twilio-paste/button@1.0.1) (2019-11-12)
 
 **Note:** Version bump only for package @twilio-paste/button

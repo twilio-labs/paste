@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@1.0.1...@twilio-paste/icons@1.0.2) (2019-11-18)
+
+
+### Bug Fixes
+
+* **website:** remove vague anchor do dont ([#177](https://github.com/twilio-labs/paste/issues/177)) ([8530c56](https://github.com/twilio-labs/paste/commit/8530c5679b48da46ddc82a9a7154bca78cacc30a))
+
+
+
+
+
 ## [1.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@1.0.0...@twilio-paste/icons@1.0.1) (2019-11-12)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "status": "beta",
   "description": "Contains all the core packages from the Paste internal design system.",
   "author": "Twilio Inc.",
@@ -27,19 +27,19 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@twilio-paste/absolute": "^2.0.1",
-    "@twilio-paste/anchor": "^1.0.1",
-    "@twilio-paste/aspect-ratio": "^1.0.1",
-    "@twilio-paste/box": "^2.0.1",
-    "@twilio-paste/button": "^1.0.1",
-    "@twilio-paste/heading": "^1.0.1",
-    "@twilio-paste/media-object": "^1.0.1",
-    "@twilio-paste/paragraph": "^1.0.1",
+    "@twilio-paste/absolute": "^2.0.2",
+    "@twilio-paste/anchor": "^1.0.2",
+    "@twilio-paste/aspect-ratio": "^1.0.2",
+    "@twilio-paste/box": "^2.0.2",
+    "@twilio-paste/button": "^1.0.2",
+    "@twilio-paste/heading": "^1.0.2",
+    "@twilio-paste/media-object": "^1.0.2",
+    "@twilio-paste/paragraph": "^1.0.2",
     "@twilio-paste/screen-reader-only": "^1.0.0",
-    "@twilio-paste/spinner": "^1.0.1",
-    "@twilio-paste/text": "^1.0.1",
+    "@twilio-paste/spinner": "^1.0.2",
+    "@twilio-paste/text": "^1.0.2",
     "@twilio-paste/truncate": "^1.0.0",
-    "@twilio-paste/typography": "^1.0.1"
+    "@twilio-paste/typography": "^1.0.2"
   },
   "peerDependencies": {
     "@emotion/core": "^10.0.10",
