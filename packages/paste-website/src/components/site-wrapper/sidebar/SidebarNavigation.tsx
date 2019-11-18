@@ -83,7 +83,9 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
   const [utilitiesOpen, setUtilitiesOpen] = React.useState(
     getCurrentPathname().startsWith(SidebarCategoryRoutes.UTILITIES)
   );
-  const [iconsOpen, setIconsOpen] = React.useState(getCurrentPathname().startsWith(SidebarCategoryRoutes.ICONS));
+  const [iconSystemOpen, setIconSystemOpen] = React.useState(
+    getCurrentPathname().startsWith(SidebarCategoryRoutes.ICON_SYSTEM)
+  );
   const [gettingStartedOpen, setgettingStartedOpen] = React.useState(
     getCurrentPathname().startsWith(SidebarCategoryRoutes.GETTING_STARTED)
   );
@@ -194,13 +196,17 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavButton onClick={() => setIconsOpen(!iconsOpen)} isOpen={iconsOpen} aria-expanded={iconsOpen}>
-            Icons
-            <SiteNavAnchorArrow isOpen={iconsOpen} />
+          <SiteNavButton
+            onClick={() => setIconSystemOpen(!iconSystemOpen)}
+            isOpen={iconSystemOpen}
+            aria-expanded={iconSystemOpen}
+          >
+            Icon System
+            <SiteNavAnchorArrow isOpen={iconSystemOpen} />
           </SiteNavButton>
-          <SiteNavNestList isOpen={iconsOpen}>
+          <SiteNavNestList isOpen={iconSystemOpen}>
             <SiteNavItem>
-              <SiteNavAnchor to={SidebarCategoryRoutes.ICON_SYSTEM}>Icon Guidelines</SiteNavAnchor>
+              <SiteNavAnchor to={SidebarCategoryRoutes.ICON_SYSTEM}>Usage Guidelines</SiteNavAnchor>
             </SiteNavItem>
             <SiteNavItem>
               <SiteNavAnchor to={`${SidebarCategoryRoutes.ICON_SYSTEM}/how-to-add-an-icon`}>

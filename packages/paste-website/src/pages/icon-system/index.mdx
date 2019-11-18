@@ -1,5 +1,5 @@
 ---
-title: Icon Guidelines
+title: Usage Guidelines
 description: Overview on how to use icons in the context of Paste projects.
 ---
 
@@ -32,15 +32,8 @@ export const pageQuery = graphql`
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
 
-
-Icons are small graphical representation of a program or a function. They can be used to enhance the
-appearance of a web interface and break up the monotony of text. Use an icon only when it provides additional clarity or is necessary to draw attention to a UI element.
-If an icon is used to indicate hierarchy of a UI element, all elements at the same hierarchy should also be paired with an icon.
-
-
-<Callout>
+<Callout variant="warning">
   <CalloutText>
     You can view and play with icons on <Anchor href="https://twilio-labs.github.io/paste/?path=/story/overview-icons--list">our storybook icon list</Anchor>.
     Our icon set is still limited, more will be adding over time. Please{' '}
@@ -49,19 +42,25 @@ If an icon is used to indicate hierarchy of a UI element, all elements at the sa
   </CalloutText>
 </Callout>
 
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+
+Icons are small graphical representation of a program or a function. They can be used to enhance the
+appearance of a web interface and break up the monotony of text. 
+
+Use an icon only when it provides additional clarity or is necessary to draw attention to a UI element.
+If an icon is used to indicate hierarchy of a UI element, all elements at the same hierarchy should also be paired with an icon.
+
 
 ## Accessibility
-
-Using an icon as the only indicator of meaning is inaccessible. Different cultures may interpret the same image
-in different ways and visually impaired users may not see the icon. Here are some helpful guidelines to keep in mind:
 
 **Specify if an icon is decorative**
 
 Icons can either be **decorative** or **informative**. *"Decorative icons don’t add information to the content 
 of a page. The information provided by the image might already be given using adjacent text, or the image 
-might be included to make the website more visually attractive."*<sup><Anchor href="https://www.w3.org/WAI/tutorials/images/decorative/">w3</Anchor></sup> 
+might be included to make the website more visually attractive."*<sup><Anchor href="https://www.w3.org/WAI/tutorials/images/decorative/">w3.org</Anchor></sup> 
 
-You must specify if an icon is decorative by [providing the required property](/icon-system#making-an-icon-decorative-or-informative).
+Our icons require that the developer says if an icon is decorative by [providing the required property](/icon-system#making-an-icon-decorative-or-informative).
 
 **Give informative icons a title**
 
@@ -81,7 +80,13 @@ A title is required so assistive technology can infer equal meaning as a sighted
 
 **Try pairing icons with text**
 
-Remember that icons are still cultural and in spite of your best intentions it is helpful to provide adjoining text.
+Remember that different cultures may interpret the same image in different ways so despite our best intentions it is helpful to provide adjoining text.
+
+<Callout>
+  <CalloutText>
+    TODO: we should provide a better icon for this example when we have one. 
+  </CalloutText>
+</Callout>
 
 <DoDont>
   <Do title="Do" body="Pair icons with text" center>
@@ -96,8 +101,8 @@ Remember that icons are still cultural and in spite of your best intentions it i
 
 **Icons shouldn't be interactive**
 
-Icons should not be interactive (i.e., clickable or focusable). They can be wrapped with an 
-interactive element like [Button](/components/button) or [Anchor](/components/anchor).
+Icons should not have interactions such as click or hover behavior. Instead they should be wrapped with an 
+interactive element such as [Button](/components/button) and [Anchor](/components/anchor).
 
 <DoDont>
   <Do title="Do" body="Wrap icons in an interactive component" center>
