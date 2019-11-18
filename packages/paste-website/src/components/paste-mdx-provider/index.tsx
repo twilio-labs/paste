@@ -26,15 +26,11 @@ const StyledContent = styled.div`
   max-width: 816px;
 `;
 
-// These sub/sup styles fix a bug that causes these tags to break line-heights
+// These sub styles fix a bug that causes it to break line-heights
 const StyledSup = styled.sup`
   vertical-align: baseline;
   position: relative;
   top: -0.4rem;
-`;
-
-const StyledSub = styled(StyledSup)`
-  top: 0.4rem;
 `;
 
 const shortcodes = {ComponentHeader, LivePreview, TableOfContents};
@@ -78,7 +74,6 @@ export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMD
         a: (props: Anchor): React.ReactElement => <Anchor {...props} />, // eslint-disable-line jsx-a11y/anchor-has-content
         img: (props: React.ComponentProps<'img'>): React.ReactElement => <img {...props} />, // eslint-disable-line jsx-a11y/alt-text
         sup: (props: React.ComponentProps<'sup'>): React.ReactElement => <StyledSup {...props} />,
-        sub: (props: React.ComponentProps<'sub'>): React.ReactElement => <StyledSub {...props} />,
         content: (props: React.ComponentProps<'div'>): React.ReactElement => <StyledContent {...props} />,
         contentwrapper: (props: React.ComponentProps<'div'>): React.ReactElement => <StyledContentWrapper {...props} />,
       }}
