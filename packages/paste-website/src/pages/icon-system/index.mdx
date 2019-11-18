@@ -1,5 +1,5 @@
 ---
-title: Usage Guidelines
+title: Icon Usage Guidelines
 description: Overview on how to use icons in the context of Paste projects.
 ---
 
@@ -33,7 +33,9 @@ export const pageQuery = graphql`
 <content>
 
 
-<Callout variant="warning">
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<Callout>
   <CalloutText>
     You can view and play with icons on <Anchor href="https://twilio-labs.github.io/paste/?path=/story/overview-icons--list">our storybook icon list</Anchor>.
     Our icon set is still limited, more will be adding over time. Please{' '}
@@ -41,8 +43,6 @@ export const pageQuery = graphql`
     don't yet have. 
   </CalloutText>
 </Callout>
-
-<h1>{props.pageContext.frontmatter.title}</h1>
 
 
 Icons are small graphical representation of a program or a function. They can be used to enhance the
@@ -54,7 +54,7 @@ If an icon is used to indicate hierarchy of a UI element, all elements at the sa
 
 ## Accessibility
 
-**Specify if an icon is decorative**
+### Specify if an icon is decorative
 
 Icons can either be **decorative** or **informative**. *"Decorative icons don’t add information to the content 
 of a page. The information provided by the image might already be given using adjacent text, or the image 
@@ -62,7 +62,7 @@ might be included to make the website more visually attractive."*<sup><Anchor hr
 
 Our icons require that the developer says if an icon is decorative by [providing the required property](/icon-system#making-an-icon-decorative-or-informative).
 
-**Give informative icons a title**
+### Give informative icons a title
 
 A title is required so assistive technology can infer equal meaning as a sighted user would.
 
@@ -78,13 +78,13 @@ A title is required so assistive technology can infer equal meaning as a sighted
 </DoDont>
 
 
-**Try pairing icons with text**
+### Try pairing icons with text
 
 Remember that different cultures may interpret the same image in different ways so despite our best intentions it is helpful to provide adjoining text.
 
 <Callout>
   <CalloutText>
-    TODO: we should provide a better icon for this example when we have one. 
+    We're working on a better example for this section. #TODO
   </CalloutText>
 </Callout>
 
@@ -99,7 +99,7 @@ Remember that different cultures may interpret the same image in different ways 
 </DoDont>
 
 
-**Icons shouldn't be interactive**
+### Icons shouldn't be interactive
 
 Icons should not have interactions such as click or hover behavior. Instead they should be wrapped with an 
 interactive element such as [Button](/components/button) and [Anchor](/components/anchor).
@@ -142,7 +142,7 @@ Alternatively, icons can inherit the current text color.
 
 #### Resizing icons
 
-Icons accept one of our ['sizeIcon' tokens](/tokens/#sizings).
+Icons accept one of our `sizeIcon` [tokens](/tokens/#sizings).
 
 <LivePreview scope={{Text, PlusIcon}} language="jsx">
   {`<Text as="p">
@@ -156,8 +156,8 @@ Icons accept one of our ['sizeIcon' tokens](/tokens/#sizings).
 
 #### Making an icon decorative or informative
 
-If an icon is decorative, no title is necessary.  
-If an icon isn't decorative, you must provide a title property.
+If an icon is decorative, no title is necessary.  However, if an icon isn't decorative, 
+you must provide a title property.
 
 <LivePreview scope={{Text, PlusIcon}} language="jsx">
   {`<Text as="p">
@@ -176,8 +176,9 @@ yarn add @twilio-paste/icons
 
 ### Usage
 
-Icons have to be imported individually. This import style was decided for important performance benefits. As our icon
-set grows to contain over 100 icons, we don't want projects that use only a few icons to pay the price of a large bundle.
+Icons have to be imported individually. This import style was decided for [important 
+performance benefits](/icon-system/#why-react-components). As our icon set grows to contain over 100 icons, we don't 
+want projects that use only a few icons to pay the price of a large bundle.
 
 ```jsx
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
