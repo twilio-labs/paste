@@ -1,4 +1,4 @@
 imports:
   - ../../../aliases/font-family.yml
 aliases:
-  font-family-10: "'Colfax', Helvetica, Arial, sans-serif"
+  font-family-10: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
