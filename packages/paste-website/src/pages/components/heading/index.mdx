@@ -61,8 +61,8 @@ export const pageQuery = graphql`
 - Heading types provide specific styles to the font-size, font-weight, and line-height of the text to create hierarchy that allow users to easily scan pages and content
 - Headings should be used with intention that maintains a coherent document outline
 - Don’t use heading tags to resize text. Instead use the `<Text>` utility
-- Don’t skipping headline levels. Always start with `<h1>`, `<h2>`, and so on
-- You should avoid using multiple `<h1>` tags on a single page
+- Don’t skip headline levels. Always start with `<h1>`, `<h2>`, and so on
+- There can only be one `<h1>` tag per page.
 
 #### Accessibility
 
@@ -70,14 +70,6 @@ It is important to not skip one or more heading levels as it is common for scree
 
 - Heading text should meet AA requirements (4.5:1) for color contrast from itself and the background color
 - Headings should be used thoughtfully, with clear hierarchies for content and subsections
-
-<DoDont>
-  <Do
-    title="Do"
-    body="Use a color for your headings that provides a 4.5:1 contrast ratio between itself and it's background."
-  />
-  <Dont title="Don't" body="Don't use colors for your headings that are difficult to see or read." />
-</DoDont>
 
 ## Examples
 
@@ -198,14 +190,14 @@ import {Heading} from '@twilio-paste/heading';
 
 <Heading as="h2" variant="headingStyle50">
   Heading Two
-</Heading>;
+</Heading>
 ```
 
 #### Props
 
 | Prop           | Type                  | Description                                                                                                 | Default          |
 | -------------- | --------------------- | ----------------------------------------------------------------------------------------------------------- | ---------------- |
-| as?            | string                | The HTML tag to replace the default `<h2>` tag.                                                             | 'h2'             |
+| as             | asTags                | 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'                                                  | null             |
 | variant?       | headingStyles         | 'headingStyle60', 'headingStyle50', 'headingStyle40', 'headingStyle30', 'headingStyle20', 'headingStyle10'  | 'headingStyle50' |
 
 <Box marginTop="space90">
