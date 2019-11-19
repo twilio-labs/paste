@@ -1,0 +1,151 @@
+---
+title: Paragraph
+package: '@twilio-paste/paragraph'
+description: The paragraph component is used to render blocks of text, with a preset amount of space beneath it to distinguish from adjacent content.
+---
+
+import {graphql} from 'gatsby';
+import Img from 'gatsby-image';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {SidebarCategoryRoutes} from '../../../constants';
+import Changelog from '@twilio-paste/paragraph/CHANGELOG.md';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/paragraph"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/paragraph/"}}) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name={props.pageContext.frontmatter.title}
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/components/paragraph"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-anchor--default"
+  data={props.data.allPasteComponent.edges}
+/>
+
+---
+
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings} />
+
+<content>
+
+## Guidelines
+
+By default, the paragraph component should provide consistent values for font-size, line-height, and margin-bottom across themes.
+
+### About anchors
+
+Paragraphs are distinct sections of content, typically dealing with a single theme, and are indicated by a new line. Paragraphs are often used for a majority of text on the page and should be able to support a variety of information-dense layouts.
+
+Paragraph is part of the Typography component, which includes Header and List as well.
+
+### Accessibility
+
+Paragraph text should be legible, and easy to read. It should also provide a clear amount of space beneath a block of text to visually separate itself from adjacent content.
+
+- Breaking content up into paragraphs helps screen readers and assistive technology provide shortcuts for users to skip between them
+- Paragraph text should meet AA requirements (4.5:1) for color contrast from itself and the background color
+
+<DoDont>
+  <Do title="Do" body="Use paragraphs for text blocks." center />
+  <Dont title="Don't" body="Don’t use paragraphs for spacing or when more semantic elements can be used in their place, such as headings, lists, or labels." />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Break content up into small paragraphs that allow users to skim the information." center />
+  <Dont title="Don't" body="Don’t create overly long paragraphs that make it difficult for the reader to find information." />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use paragraphs as sibling elements, with only inline elements such as bold or italic as children." center />
+  <Dont title="Don't" body="Don’t nest paragraphs within each other either, only inline elements should be nested within a paragraph." />
+</DoDont>
+
+## Examples
+
+### Default Paragraph
+
+<LivePreview scope={{Paragraph}} language="jsx">
+  {`<article>
+  <Paragraph>
+    Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. <em>Curabitur blandit tempus</em> porttitor. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nulla vitae elit libero, a pharetra augue.
+  </Paragraph>
+  <Paragraph>
+    Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. <strong>Curabitur blandit tempus</strong> porttitor. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nulla vitae elit libero, a pharetra augue.
+  </Paragraph>
+</article>`}
+</LivePreview>
+
+## Composition Notes
+
+### When to Use a Paragraph
+
+Paragraphs should be used for most text blocks. Paragraphs provide defaults for font-size, line-height, and margin-bottom. Paragraphs can be used within other components as well. Typically, these are anywhere from 1-5 sentences. Use paragraphs like you would when authoring a word document, to group sentences of a similar theme.
+
+
+## Anatomy
+
+| Property      | Default token      | Modifiable? |
+| ------------- | ------------------ | ----------- |
+| font-size     | font-size-30       | No          |
+| line-height   | line-height-30     | No          |
+| font-weight   | font-weight-normal | No          |
+| margin-bottom | space-60           | No          |
+| color         | color-text         | No          |
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/paragraph
+```
+
+#### Usage
+
+```jsx
+import {Paragraph} from '@twilio-paste/paragraph';
+
+<Paragraph>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur praesentium voluptate facere suscipit maiores vitae explicabo error ea? Quisquam, nisi excepturi aut esse non iste dolorum dicta. Tempore, doloribus voluptate!
+</Paragraph>;
+```
+
+#### Props
+
+| Prop      | Type                     | Description | Default |
+| --------- | ------------------------ | ----------- | ------- |
+| children? | {'React Node', 'string'} |             | null    |
+
+<Box marginTop="space90">
+  <Changelog />
+</Box>
+
+</content>
+
+</contentwrapper>
