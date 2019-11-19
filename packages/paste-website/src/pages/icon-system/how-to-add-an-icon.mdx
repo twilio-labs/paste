@@ -29,14 +29,14 @@ export const pageQuery = graphql`
 <TableOfContents headings={props.data.mdx.headings} />
 <content>
 
-<small>Written for Sketch 59.1</small>
 <h1>{props.pageContext.frontmatter.title}</h1>
+Written for Sketch 59.1
 
 ---
 
 ## Finding an icon
 
-1. Make sure the icon you need doesn’t already live in the [Paste repo](https://github.com/twilio-labs/paste/tree/master/packages/paste-icons/svg) 
+1. Make sure the icon you need doesn’t already live in the [Paste repo](https://twilio-labs.github.io/paste/?path=/story/overview-icons--list) 
 and that you can’t use one of the existing ones.
 2. Find a new icon by searching through the [Streamline app](https://app.streamlineicons.com/streamline-regular), 
 then message #help-design-system for the Sketch file.
@@ -111,7 +111,7 @@ is already set up to do this.
     1. You shouldn’t see `id`. If you do, make sure the SVGO compressor plugin is properly installed.
     2. You shouldn’t see `transform`. If you do, flatten your shape.
     3. You should see `width=”24" height="24"`. If you don’t, check that the artboard you’re 
-    exporting is 24px × 24px and you’re exporting the artboard itself.
+    exporting is 24px × 24px and you’re exporting the artboard, not the layer.
 4. Commit your changes in Abstract and request a review from the Paste design team.
 5. Add the SVG to your code.
     1. If the icon will be added to Paste, attach the SVG file to the original Github issue. 
@@ -123,8 +123,9 @@ is already set up to do this.
 ## Troubleshooting
 
 If you run into any issues with creating your icon, double check you've followed 
-all the steps. In the past, we've seen icons that had small artifacts or missing 
-pieces because of the order of the paths within the union.
+all the steps. In the past, we've seen icons that had small artifacts or 
+missing pieces because of the order of layers within a combined shape 
+or union. Try moving layers around to get the shape you need.
 
 Get in touch with the Paste team through Slack at #help-design-system.
 

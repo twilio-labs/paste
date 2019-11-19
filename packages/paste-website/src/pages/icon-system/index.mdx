@@ -7,6 +7,7 @@ import {graphql} from 'gatsby';
 import {Link} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
+import {Absolute} from '@twilio-paste/absolute';
 import {Anchor} from '@twilio-paste/anchor';
 import {Button} from '@twilio-paste/button';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
@@ -38,9 +39,9 @@ export const pageQuery = graphql`
 <Callout>
   <CalloutText>
     You can view and play with icons on <Anchor href="https://twilio-labs.github.io/paste/?path=/story/overview-icons--list">our storybook icon list</Anchor>.
-    Our icon set is still limited, more will be adding over time. Please{' '}
-    <Anchor href="https://github.com/twilio-labs/paste/issues">file an icon request</Anchor> if you need an icon we
-    don't yet have. 
+    Our icon set is still limited, and more will be added over time. Please{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/issues">file an icon request</Anchor> or 
+    follow the guide on <Anchor href="/icon-system/how-to-add-an-icon">how to add an icon</Anchor>.
   </CalloutText>
 </Callout>
 
@@ -58,27 +59,27 @@ If an icon is used to indicate hierarchy of a UI element, all elements at the sa
 
 Icons can either be **decorative** or **informative**. *"Decorative icons don’t add information to the content 
 of a page. The information provided by the image might already be given using adjacent text, or the image 
-might be included to make the website more visually attractive."*<sup><Anchor href="https://www.w3.org/WAI/tutorials/images/decorative/">w3.org</Anchor></sup> 
+might be included to make the website more visually attractive."* (<Anchor href="https://www.w3.org/WAI/tutorials/images/decorative/">w3.org</Anchor>)
 
-Our icons require that the developer says if an icon is decorative by [providing the required property](/icon-system#making-an-icon-decorative-or-informative).
+Our icons require the developer define whether an icon is decorative by [providing the required property](/icon-system#making-an-icon-decorative-or-informative).
 
 ### Give informative icons a title
 
 A title is required so assistive technology can infer equal meaning as a sighted user would.
 
 <DoDont>
-  <Do title="Do" body="Use 'title' text that gives context and meaning to the icon." center>
+  <Do title="Do" body="Use title text that gives context and meaning to the icon." center>
     <PlusIcon decorative={false} title="Add to cart" />
-    (hover the icon)
+    <Absolute preset="bottom_right">(Hover over icon for tooltip)</Absolute>
   </Do>
-  <Dont title="Avoid" body="'title' text that only describes the icon image." center>
+  <Dont title="Avoid" body="Avoid title text that only describes the icon image." center>
     <PlusIcon decorative={false} title="Plus" />
-    (hover the icon)
+    <Absolute preset="bottom_right">(Hover over icon for tooltip)</Absolute>
   </Dont>
 </DoDont>
 
 
-### Try pairing icons with text
+### Pair icons with text
 
 Remember that different cultures may interpret the same image in different ways so despite our best intentions it is helpful to provide adjoining text.
 
@@ -89,11 +90,11 @@ Remember that different cultures may interpret the same image in different ways 
 </Callout>
 
 <DoDont>
-  <Do title="Do" body="Pair icons with text" center>
+  <Do title="Do" body="Pair icons with text." center>
     <PlusIcon decorative={true} />
     Add to cart
   </Do>
-  <Dont title="Avoid" body="Having standalone icons" center>
+  <Dont title="Avoid" body="Avoid having standalone icons." center>
     <PlusIcon decorative={false} title="Plus" />
   </Dont>
 </DoDont>
@@ -105,14 +106,16 @@ Icons should not have interactions such as click or hover behavior. Instead they
 interactive element such as [Button](/components/button) and [Anchor](/components/anchor).
 
 <DoDont>
-  <Do title="Do" body="Wrap icons in an interactive component" center>
-    <Button variant="primary" size="icon">
+  <Do title="Do" body="Wrap icons in an interactive component." center>
+    <Button variant="primary">
       <PlusIcon decorative={true} />
       Add to cart
     </Button>
   </Do>
-  <Dont title="Avoid" body="Making icons interactive without an interactive metaphor" center>
-    <PlusIcon decorative={false} title="Add to cart" /> Click here
+  <Dont title="Avoid" body="Avoid making icons interactive without an interactive metaphor." center>
+    <div onClick={() => {alert(`This isn't a great user experience.`)}}>
+      <PlusIcon decorative={false} title="Add to cart" />
+    </div>
   </Dont>
 </DoDont>
 
