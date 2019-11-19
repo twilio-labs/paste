@@ -146,7 +146,7 @@ describe('fontWeight', () => {
     const tree = renderer
       .create(
         <Theme.Provider>
-          <Text as="span" fontWeight={['fontWeightLight', 'fontWeightSemibold']}>
+          <Text as="span" fontWeight={['fontWeightLight', 'fontWeightMedium']}>
             font weight responsive
           </Text>
         </Theme.Provider>

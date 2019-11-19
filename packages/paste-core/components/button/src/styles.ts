@@ -45,7 +45,7 @@ const baseButtonWrapper = (props: ButtonWrapperProps): SerializedStyles => css`
   background: none;
   transition: background-color 100ms ease-in, border-color 100ms ease-in;
   font-family: ${themeGet('fonts.fontFamilyText')(props)};
-  font-weight: ${themeGet('fontWeights.fontWeightSemibold')(props)};
+  font-weight: ${themeGet('fontWeights.fontWeightMedium')(props)};
 
   /* Remove extra black dotted border FF adds */
   &::-moz-focus-inner {

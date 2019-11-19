@@ -101,7 +101,7 @@ const globalStyles = css`
   @font-face {
     font-family: Colfax;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     src: url(/fonts/colfax-medium.woff2) format('woff2'), url(/fonts/colfax-medium.woff) format('woff');
   }
 `;

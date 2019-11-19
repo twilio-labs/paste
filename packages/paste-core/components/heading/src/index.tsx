@@ -24,35 +24,35 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
       return {
         marginBottom: 'space70',
         fontSize: 'fontSize90',
-        fontWeight: 'fontWeightSemibold',
+        fontWeight: 'fontWeightMedium',
         lineHeight: 'lineHeight90',
       };
     case 'headingStyle40':
       return {
         marginBottom: 'space50',
         fontSize: 'fontSize60',
-        fontWeight: 'fontWeightSemibold',
+        fontWeight: 'fontWeightMedium',
         lineHeight: 'lineHeight60',
       };
     case 'headingStyle30':
       return {
         marginBottom: 'space40',
         fontSize: 'fontSize40',
-        fontWeight: 'fontWeightSemibold',
+        fontWeight: 'fontWeightMedium',
         lineHeight: 'lineHeight40',
       };
     case 'headingStyle20':
       return {
         marginBottom: 'space30',
         fontSize: 'fontSize30',
-        fontWeight: 'fontWeightSemibold',
+        fontWeight: 'fontWeightMedium',
         lineHeight: 'lineHeight30',
       };
     case 'headingStyle10':
       return {
         marginBottom: 'space30',
         fontSize: 'fontSize20',
-        fontWeight: 'fontWeightSemibold',
+        fontWeight: 'fontWeightMedium',
         lineHeight: 'lineHeight20',
       };
     /**
@@ -64,7 +64,7 @@ function getHeadingStyles(headingStyle?: HeadingStyle): {} {
       return {
         marginBottom: 'space60',
         fontSize: 'fontSize70',
-        fontWeight: 'fontWeightSemibold',
+        fontWeight: 'fontWeightMedium',
         lineHeight: 'lineHeight70',
       };
   }
