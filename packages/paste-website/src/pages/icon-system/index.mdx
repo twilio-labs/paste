@@ -92,7 +92,7 @@ Remember that different cultures may interpret the same image in different ways 
 <DoDont>
   <Do title="Do" body="Pair icons with text." center>
     <PlusIcon decorative={true} />
-    Add to cart
+    <Box marginLeft="space20">Add to cart</Box>
   </Do>
   <Dont title="Avoid" body="Avoid having standalone icons." center>
     <PlusIcon decorative={false} title="Plus" />
@@ -136,7 +136,7 @@ Alternatively, icons can inherit the current text color.
   {`<Text as="p" textColor="colorTextInverse">
   <Box as="span" display="flex" alignItems="center" backgroundColor="colorBackgroundInverse" padding="space30" borderRadius="borderRadius20">
     <LoadingIcon decorative={true}  /> 
-    Now loading
+    <Box marginLeft="space20">Now loading</Box>
   </Box>
 </Text>`}
 </LivePreview>
@@ -146,12 +146,12 @@ Alternatively, icons can inherit the current text color.
 
 Icons accept one of our `sizeIcon` [tokens](/tokens/#sizings).
 
-<LivePreview scope={{Text, PlusIcon}} language="jsx">
+<LivePreview scope={{Box, Text, PlusIcon}} language="jsx">
   {`<Text as="p">
-  <PlusIcon decorative={false} title="Add to cart" size="sizeIcon10" />
-  <PlusIcon decorative={false} title="Add to cart" size="sizeIcon20" />
-  <PlusIcon decorative={false} title="Add to cart" size="sizeIcon30" />
-  <PlusIcon decorative={false} title="Add to cart" size="sizeIcon40" />
+  <Box><PlusIcon decorative={false} title="Add to cart" size="sizeIcon10" /></Box>
+  <Box><PlusIcon decorative={false} title="Add to cart" size="sizeIcon20" /></Box>
+  <Box><PlusIcon decorative={false} title="Add to cart" size="sizeIcon30" /></Box>
+  <Box><PlusIcon decorative={false} title="Add to cart" size="sizeIcon40" /></Box>
 </Text>`}
 </LivePreview>
 
@@ -159,7 +159,7 @@ Icons accept one of our `sizeIcon` [tokens](/tokens/#sizings).
 #### Making an icon decorative or informative
 
 If an icon is decorative, no title is necessary.  However, if an icon isn't decorative, 
-you must provide a title property.
+you must provide a title property. 
 
 <LivePreview scope={{Text, PlusIcon}} language="jsx">
   {`<Text as="p">
