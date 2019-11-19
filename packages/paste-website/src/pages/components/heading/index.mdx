@@ -1,0 +1,217 @@
+---
+title: Heading
+package: '@twilio-paste/heading'
+description: Headings are words or phrases that are intended to introduce sections of content. Headings are often used for page titles, as well as subsections within the page.
+---
+
+import {graphql} from 'gatsby';
+import {Box} from '@twilio-paste/box';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {SidebarCategoryRoutes} from '../../../constants';
+import Changelog from '@twilio-paste/heading/CHANGELOG.md';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/heading"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/heading/"}}) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name={props.pageContext.frontmatter.title}
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/components/heading"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-heading--default"
+  data={props.data.allPasteComponent.edges}
+/>
+
+---
+
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings} />
+
+<content>
+
+## Guidelines
+
+<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+
+### About Heading
+
+<Paragraph>Headings should allow users to easily distinguish content sections on the page.</Paragraph>
+
+- Headings can have multiple levels of depth to help organize content
+- Heading types provide specific styles to the font-size, font-weight, and line-height of the text to create hierarchy that allow users to easily scan pages and content
+- Headings should be used with intention that maintains a coherent document outline
+- Don’t use heading tags to resize text. Instead use the `<Text>` utility
+- Don’t skipping headline levels. Always start with `<h1>`, `<h2>`, and so on
+- You should avoid using multiple `<h1>` tags on a single page
+
+#### Accessibility
+
+It is important to not skip one or more heading levels as it is common for screen readers to build an outline of the page and assist users as they navigate a page. Skipping a heading level could cause confusion as the user navigating the page may not know why a heading is missing.
+
+- Heading text should meet AA requirements (4.5:1) for color contrast from itself and the background color
+- Headings should be used thoughtfully, with clear hierarchies for content and subsections
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use a color for your headings that provides a 4.5:1 contrast ratio between itself and it's background."
+  />
+  <Dont title="Don't" body="Don't use colors for your headings that are difficult to see or read." />
+</DoDont>
+
+## Examples
+
+<LivePreview scope={{Heading}} language="jsx">
+  {`<div>
+  <Heading as="h1" variant="headingStyle60">
+    Heading One
+  </Heading>
+
+  <Heading as="h2" variant="headingStyle50">
+    Heading Two
+  </Heading>
+
+  <Heading as="h3" variant="headingStyle40">
+    Heading Three
+  </Heading>
+
+  <Heading as="h4" variant="headingStyle30">
+    Heading Four
+  </Heading>
+
+  <Heading as="h5" variant="headingStyle20">
+    Heading Five
+  </Heading>
+
+  <Heading as="h6" variant="headingStyle10">
+    Heading Six
+  </Heading>
+</div>`}
+</LivePreview>
+
+#### Heading One
+
+<LivePreview scope={{Heading}} language="jsx">
+  {`<Heading as="h1" variant="headingStyle60">
+  Heading One
+</Heading>`}
+</LivePreview>
+
+#### Heading Two
+
+<LivePreview scope={{Heading}} language="jsx">
+  {`<Heading as="h2" variant="headingStyle50">
+  Heading Two
+</Heading>`}
+</LivePreview>
+
+#### Heading Three
+
+<LivePreview scope={{Heading}} language="jsx">
+  {`<Heading as="h3" variant="headingStyle40">
+  Heading Three
+</Heading>`}
+</LivePreview>
+
+#### Heading Four
+
+<LivePreview scope={{Heading}} language="jsx">
+  {`<Heading as="h4" variant="headingStyle30">
+  Heading Four
+</Heading>`}
+</LivePreview>
+
+#### Heading Five
+
+<LivePreview scope={{Heading}} language="jsx">
+  {`<Heading as="h5" variant="headingStyle20">
+  Heading Five
+</Heading>`}
+</LivePreview>
+
+#### Heading Six
+
+<LivePreview scope={{Heading}} language="jsx">
+  {`<Heading as="h6" variant="headingStyle10">
+  Heading Six
+</Heading>`}
+</LivePreview>
+
+## Composition Notes
+
+### When to use Heading
+
+Headings should be used for page titles or subsection title. Headings are broken into six levels, where h1 is the highest level and h6 is the lowest. Avoid skipping heading levels. Use the next lowest heading level to maintain a coherent document outline.
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use headings for titles to specific sections of content."
+  />
+  <Dont title="Don't" body="Don’t use headings for pure stylistic purposes." />
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use headings in order, so your content reads like an outline."
+  />
+  <Dont title="Don't" body="Don’t use headings out of order." />
+</DoDont>
+
+***
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/heading
+```
+
+#### Usage
+
+```jsx
+import {Heading} from '@twilio-paste/heading';
+
+<Heading as="h2" variant="headingStyle50">
+  Heading Two
+</Heading>
+```
+
+#### Props
+
+| Prop           | Type                  | Description                                                                                                 | Default          |
+| -------------- | --------------------- | ----------------------------------------------------------------------------------------------------------- | ---------------- |
+| as?            | string                | The HTML tag to replace the default `<h2>` tag.                                                             | 'h2'             |
+| variant?       | headingStyles         | 'headingStyle60', 'headingStyle50', 'headingStyle40', 'headingStyle30', 'headingStyle20', 'headingStyle10'  | 'headingStyle50' |
+
+<Box marginTop="space90">
+  <Changelog />
+</Box>
+
+</content>
+
+</contentwrapper>
