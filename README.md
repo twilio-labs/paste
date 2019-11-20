@@ -41,6 +41,26 @@ Before contributing, please make sure that you read our [Contributing Guidelines
 | yarn release           | Releases the main library to NPM via lerna                                                                               |
 | yarn release:storybook | Releases the latest storybook to github pages                                                                            |
 
+## Hosting Storybook
+
+We use GitHub pages to host the Storybook instance. We use the `gh-pages` branch and the ![`gh-pages` package](https://www.npmjs.com/package/gh-pages) to manage this.
+
+### `gh-pages` branch
+
+The `gh-pages` branch ignores _everything_ other than the built storybook instance in the root of the directory. The package handles everything.
+
+### https://twilio-labs.github.io/paste
+
+#### Updating
+
+To update this we simply run the `gh-pages` package from yarn by using the `release:storybook` task.
+
+```bash
+yarn release:storybook
+```
+
+This task will build the storybook, switch to the `gh-pages` branch, commit the changes from the storybook build and push to GitHub.
+
 ## License
 
 [MIT](/LICENSE)
