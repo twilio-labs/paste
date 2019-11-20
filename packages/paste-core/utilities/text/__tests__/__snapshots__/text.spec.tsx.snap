@@ -434,7 +434,7 @@ exports[`fontWeight should set a responsive font weight property 1`] = `
 
 @media screen and (min-width:25rem) {
   .emotion-0 {
-    font-weight: 600;
+    font-weight: 500;
   }
 }
 
