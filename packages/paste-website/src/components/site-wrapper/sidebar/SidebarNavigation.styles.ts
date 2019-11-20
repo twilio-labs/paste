@@ -24,6 +24,7 @@ export const SiteNavNestList: React.FC<SiteNavNestListProps> = styled(SiteNavLis
   overflow: hidden;
   border-bottom-right-radius: ${themeGet('radii.borderRadius20')};
   border-bottom-left-radius: ${themeGet('radii.borderRadius20')};
+  padding-left: ${themeGet('space.space40')};
 `;
 
 export const SiteNavItem = styled.li`
