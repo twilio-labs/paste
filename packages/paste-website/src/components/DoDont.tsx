@@ -69,7 +69,7 @@ const Item: React.FC<DoProps> = ({center = false, ...props}) => {
         borderLeftWidth="borderWidth0"
         borderColor={props.do ? 'colorBorderSuccess' : 'colorBorderError'}
       >
-        <Heading as="h5" variant="heading20">
+        <Heading as="h5" variant="heading50">
           {props.title}
         </Heading>
         <Text as="p">{props.body}</Text>

@@ -16,7 +16,7 @@ const borderColorPartial = (variant?: CalloutVariants): BorderColor => {
 };
 
 const CalloutTitle: React.FC<CalloutTitleProps> = ({as = 'h3', children}) => (
-  <Heading as={as} variant="heading20">
+  <Heading as={as} variant="heading50">
     {children}
   </Heading>
 );

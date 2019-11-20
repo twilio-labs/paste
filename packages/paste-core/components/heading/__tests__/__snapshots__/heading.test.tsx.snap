@@ -20,7 +20,7 @@ exports[`Heading it should render an H1 at fontSize90 1`] = `
   padding: 0;
   margin-bottom: 1.5rem;
   font-size: 2rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 2.5rem;
   display: block;
   color: #282a2b;
@@ -60,7 +60,7 @@ exports[`Heading it should render an H2 at fontSize70 1`] = `
   padding: 0;
   margin-bottom: 1.25rem;
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 2rem;
   display: block;
   color: #282a2b;
@@ -100,7 +100,7 @@ exports[`Heading it should render an H3 at fontSize60 1`] = `
   padding: 0;
   margin-bottom: 1rem;
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.75rem;
   display: block;
   color: #282a2b;
@@ -140,7 +140,7 @@ exports[`Heading it should render an H4 at fontSize40 1`] = `
   padding: 0;
   margin-bottom: 0.75rem;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.75rem;
   display: block;
   color: #282a2b;
@@ -180,7 +180,7 @@ exports[`Heading it should render an H5 at fontSize30 1`] = `
   padding: 0;
   margin-bottom: 0.5rem;
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.5rem;
   display: block;
   color: #282a2b;
@@ -220,7 +220,7 @@ exports[`Heading it should render an H6 at fontSize20 1`] = `
   padding: 0;
   margin-bottom: 0.5rem;
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.25rem;
   display: block;
   color: #282a2b;
@@ -260,7 +260,7 @@ exports[`Heading it should render an italic H2 at fontSize50 1`] = `
   padding: 0;
   margin-bottom: 1.25rem;
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 2rem;
   display: block;
   color: #282a2b;

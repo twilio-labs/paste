@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import {Text} from '@twilio-paste/text';
 
 export type asTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'label' | 'span';
-export type HeadingVariants = 'heading60' | 'heading50' | 'heading40' | 'heading30' | 'heading20' | 'heading10';
+export type HeadingVariants = 'heading10' | 'heading20' | 'heading30' | 'heading40' | 'heading50' | 'heading60';
 
 interface Heading {
   as: asTags;
@@ -14,35 +14,35 @@ interface Heading {
 
 function getHeadingProps(headingVariant?: HeadingVariants): {} {
   switch (headingVariant) {
-    case 'heading60':
+    case 'heading10':
       return {
         marginBottom: 'space70',
         fontSize: 'fontSize90',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight90',
       };
-    case 'heading40':
+    case 'heading30':
       return {
         marginBottom: 'space50',
         fontSize: 'fontSize60',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight60',
       };
-    case 'heading30':
+    case 'heading40':
       return {
         marginBottom: 'space40',
         fontSize: 'fontSize40',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight40',
       };
-    case 'heading20':
+    case 'heading50':
       return {
         marginBottom: 'space30',
         fontSize: 'fontSize30',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight30',
       };
-    case 'heading10':
+    case 'heading60':
       return {
         marginBottom: 'space30',
         fontSize: 'fontSize20',
@@ -53,7 +53,7 @@ function getHeadingProps(headingVariant?: HeadingVariants): {} {
      * heading50 is out of order because its also default.
      * Default is at the bottom of switch statement for readability.
      */
-    case 'heading50':
+    case 'heading20':
     default:
       return {
         marginBottom: 'space60',
@@ -74,11 +74,11 @@ const Heading: React.FC<Heading> = ({as, children, id, variant}) => {
 
 Heading.propTypes = {
   as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'] as asTags[]).isRequired,
-  variant: PropTypes.oneOf(['heading60', 'heading50', 'heading40', 'heading30', 'heading20', 'heading10']),
+  variant: PropTypes.oneOf(['heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60']),
 };
 
 Heading.defaultProps = {
-  variant: 'heading50',
+  variant: 'heading20',
 };
 
 Heading.displayName = 'Heading';

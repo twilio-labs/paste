@@ -30,7 +30,7 @@ const ComponentHeaderBasic: React.FC<{
       <BreadcrumbItem to="/">Home</BreadcrumbItem>
       <BreadcrumbItem to={categoryRoute}>{getCategoryNameFromRoute(categoryRoute)}</BreadcrumbItem>
     </Breadcrumb>
-    <Heading as="h1" variant="heading60">
+    <Heading as="h1" variant="heading10">
       {getHumanizedNameFromPackageName(name)}
     </Heading>
   </>

@@ -8,7 +8,7 @@ describe('Heading', () => {
     const tree = renderer
       .create(
         <Theme.Provider>
-          <Heading as="h1" variant="heading60">
+          <Heading as="h1" variant="heading10">
             This is an H1
           </Heading>
         </Theme.Provider>
@@ -21,7 +21,7 @@ describe('Heading', () => {
     const tree = renderer
       .create(
         <Theme.Provider>
-          <Heading as="h2" variant="heading50">
+          <Heading as="h2" variant="heading20">
             This is an H2
           </Heading>
         </Theme.Provider>
@@ -34,7 +34,7 @@ describe('Heading', () => {
     const tree = renderer
       .create(
         <Theme.Provider>
-          <Heading as="h3" variant="heading40">
+          <Heading as="h3" variant="heading30">
             This is an H3
           </Heading>
         </Theme.Provider>
@@ -47,7 +47,7 @@ describe('Heading', () => {
     const tree = renderer
       .create(
         <Theme.Provider>
-          <Heading as="h4" variant="heading30">
+          <Heading as="h4" variant="heading40">
             This is an H4
           </Heading>
         </Theme.Provider>
@@ -60,7 +60,7 @@ describe('Heading', () => {
     const tree = renderer
       .create(
         <Theme.Provider>
-          <Heading as="h5" variant="heading20">
+          <Heading as="h5" variant="heading50">
             This is an H5
           </Heading>
         </Theme.Provider>
@@ -73,7 +73,7 @@ describe('Heading', () => {
     const tree = renderer
       .create(
         <Theme.Provider>
-          <Heading as="h6" variant="heading10">
+          <Heading as="h6" variant="heading60">
             This is an H6
           </Heading>
         </Theme.Provider>
@@ -86,7 +86,7 @@ describe('Heading', () => {
     const tree = renderer
       .create(
         <Theme.Provider>
-          <Heading as="h2" variant="heading50">
+          <Heading as="h2" variant="heading20">
             <i>This is an italic H2</i>
           </Heading>
         </Theme.Provider>
