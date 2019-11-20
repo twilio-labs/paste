@@ -4,3 +4,7 @@ global:
 imports:
   - ../../../global/font-weight.yml
   - ../aliases/font-weight.yml
+props:
+  font-weight-semibold:
+    value: "{!font-weight-semibold}"
+    comment: Font weight for semibold weight
