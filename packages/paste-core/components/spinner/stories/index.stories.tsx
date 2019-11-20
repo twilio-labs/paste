@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
-import {withKnobs, text, select} from '@storybook/addon-knobs';
+import {withKnobs, text, select, boolean} from '@storybook/addon-knobs';
 import {TextColor, IconSize} from '@twilio-paste/types';
 import {DefaultTheme} from '@twilio-paste/theme-tokens';
 import {Spinner} from '../src';
@@ -13,8 +13,16 @@ storiesOf('Components|Spinner', module)
   .add('Default', () => {
     const iconColorValue = select('iconColor', IconColorOptions, 'currentColor') as TextColor;
     const sizeValue = select('size', SizeOptions, 'sizeIcon20') as IconSize;
+    const decorativeValue = boolean('decorative', false);
 
-    return <Spinner iconColor={iconColorValue} size={sizeValue} title={text('title', 'Now loading')} />;
+    return (
+      <Spinner
+        iconColor={iconColorValue}
+        size={sizeValue}
+        title={text('title', 'Now loading')}
+        decorative={decorativeValue}
+      />
+    );
   })
   .add('Responsive', () => {
     return (
@@ -22,6 +30,7 @@ storiesOf('Components|Spinner', module)
         iconColor={['colorText', 'colorTextError']}
         size={['sizeIcon10', 'sizeIcon20', 'sizeIcon30', 'sizeIcon40']}
         title={text('title', 'Now loading')}
+        decorative={false}
       />
     );
   });

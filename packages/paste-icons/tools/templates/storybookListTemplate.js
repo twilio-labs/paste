@@ -22,7 +22,7 @@ ${importIconList}
 
 interface IconProps {
   title?: string;
-  decorative?: boolean;
+  decorative: boolean;
   size?: number;
   color?: string;
 }

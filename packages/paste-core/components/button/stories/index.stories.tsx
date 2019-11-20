@@ -50,7 +50,7 @@ storiesOf('Components|Button', module)
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
       >
-        <PlusIcon />
+        <PlusIcon decorative />
         <span>Activate</span>
       </Button>
     );
@@ -71,7 +71,7 @@ storiesOf('Components|Button', module)
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
       >
-        <PlusIcon />
+        <PlusIcon decorative={false} title="Add to cart" />
       </Button>
     );
   })
@@ -105,13 +105,13 @@ storiesOf('Components|Button', module)
         <br />
         <section>
           <Button variant="primary" size="icon">
-            <PlusIcon />
+            <PlusIcon decorative={false} title="Add to cart" />
           </Button>
           <Button variant="primary" size="icon" loading>
-            <PlusIcon />
+            <PlusIcon decorative={false} title="Add to cart" />
           </Button>
           <Button variant="primary" size="icon" disabled>
-            <PlusIcon />
+            <PlusIcon decorative={false} title="Add to cart" />
           </Button>
         </section>
         <br />
@@ -153,13 +153,13 @@ storiesOf('Components|Button', module)
         <br />
         <section>
           <Button variant="secondary" size="icon">
-            <PlusIcon />
+            <PlusIcon decorative={false} title="Add to cart" />
           </Button>
           <Button variant="secondary" size="icon" loading>
-            <PlusIcon />
+            <PlusIcon decorative={false} title="Add to cart" />
           </Button>
           <Button variant="secondary" size="icon" disabled>
-            <PlusIcon />
+            <PlusIcon decorative={false} title="Add to cart" />
           </Button>
         </section>
         <br />
@@ -201,13 +201,13 @@ storiesOf('Components|Button', module)
         <br />
         <section>
           <Button variant="destructive" size="icon">
-            <PlusIcon />
+            <PlusIcon decorative={false} title="Add to cart" />
           </Button>
           <Button variant="destructive" size="icon" loading>
-            <PlusIcon />
+            <PlusIcon decorative={false} title="Add to cart" />
           </Button>
           <Button variant="destructive" size="icon" disabled>
-            <PlusIcon />
+            <PlusIcon decorative={false} title="Add to cart" />
           </Button>
         </section>
         <br />
@@ -249,13 +249,13 @@ storiesOf('Components|Button', module)
         <br />
         <section>
           <Button variant="link" size="icon">
-            <PlusIcon />
+            <PlusIcon decorative={false} title="Add to cart" />
           </Button>
           <Button variant="link" size="icon" loading>
-            <PlusIcon />
+            <PlusIcon decorative={false} title="Add to cart" />
           </Button>
           <Button variant="link" size="icon" disabled>
-            <PlusIcon />
+            <PlusIcon decorative={false} title="Add to cart" />
           </Button>
         </section>
         <br />
@@ -297,13 +297,13 @@ storiesOf('Components|Button', module)
         <br />
         <section>
           <Button variant="destructive_link" size="icon">
-            <PlusIcon />
+            <PlusIcon decorative={false} title="Add to cart" />
           </Button>
           <Button variant="destructive_link" size="icon" loading>
-            <PlusIcon />
+            <PlusIcon decorative={false} title="Add to cart" />
           </Button>
           <Button variant="destructive_link" size="icon" disabled>
-            <PlusIcon />
+            <PlusIcon decorative={false} title="Add to cart" />
           </Button>
         </section>
         <br />

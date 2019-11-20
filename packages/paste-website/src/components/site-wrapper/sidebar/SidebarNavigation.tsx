@@ -78,15 +78,18 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
   const data: SiteWrapperPageQuery = useStaticQuery(pageQuery);
 
   const [componentsOpen, setComponentsOpen] = React.useState(
-    getCurrentPathname().includes(SidebarCategoryRoutes.COMPONENTS)
+    getCurrentPathname().startsWith(SidebarCategoryRoutes.COMPONENTS)
   );
-  const [utilitiesOpen, setutilitiesOpen] = React.useState(
-    getCurrentPathname().includes(SidebarCategoryRoutes.UTILITIES)
+  const [utilitiesOpen, setUtilitiesOpen] = React.useState(
+    getCurrentPathname().startsWith(SidebarCategoryRoutes.UTILITIES)
+  );
+  const [iconSystemOpen, setIconSystemOpen] = React.useState(
+    getCurrentPathname().startsWith(SidebarCategoryRoutes.ICON_SYSTEM)
   );
   const [gettingStartedOpen, setgettingStartedOpen] = React.useState(
-    getCurrentPathname().includes(SidebarCategoryRoutes.GETTING_STARTED)
+    getCurrentPathname().startsWith(SidebarCategoryRoutes.GETTING_STARTED)
   );
-  const [tokensOpen, setTokensOpen] = React.useState(getCurrentPathname().includes(SidebarCategoryRoutes.TOKENS));
+  const [tokensOpen, setTokensOpen] = React.useState(getCurrentPathname().startsWith(SidebarCategoryRoutes.TOKENS));
 
   return (
     <SiteNav>
@@ -170,7 +173,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
         </SiteNavItem>
         <SiteNavItem>
           <SiteNavButton
-            onClick={() => setutilitiesOpen(!utilitiesOpen)}
+            onClick={() => setUtilitiesOpen(!utilitiesOpen)}
             isOpen={utilitiesOpen}
             aria-expanded={utilitiesOpen}
           >
@@ -190,6 +193,26 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
                   </SiteNavItem>
                 );
               })}
+          </SiteNavNestList>
+        </SiteNavItem>
+        <SiteNavItem>
+          <SiteNavButton
+            onClick={() => setIconSystemOpen(!iconSystemOpen)}
+            isOpen={iconSystemOpen}
+            aria-expanded={iconSystemOpen}
+          >
+            Icon System
+            <SiteNavAnchorArrow isOpen={iconSystemOpen} />
+          </SiteNavButton>
+          <SiteNavNestList isOpen={iconSystemOpen}>
+            <SiteNavItem>
+              <SiteNavAnchor to={SidebarCategoryRoutes.ICON_SYSTEM}>Usage Guidelines</SiteNavAnchor>
+            </SiteNavItem>
+            <SiteNavItem>
+              <SiteNavAnchor to={`${SidebarCategoryRoutes.ICON_SYSTEM}/how-to-add-an-icon`}>
+                How to add an icon
+              </SiteNavAnchor>
+            </SiteNavItem>
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>

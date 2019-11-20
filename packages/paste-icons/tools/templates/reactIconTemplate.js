@@ -1,6 +1,4 @@
 // Note on a11y: https://css-tricks.com/can-make-icon-system-accessible/
-const {pascalCaseWordSplitter} = require('../utils');
-
 const reactIconTemplate = ({componentName, svg}) => `
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
@@ -11,23 +9,25 @@ import {IconWrapper, IconWrapperProps} from './helpers/IconWrapper';
 
 export interface ${componentName}Props extends IconWrapperProps {
   title?: string;
-  decorative?: boolean;
+  decorative: boolean;
 }
 
-const ${componentName}: React.FC<${componentName}Props> = ({title, decorative, ...props}) => (
-  <IconWrapper {...props}>
-    <UID>
-      {uid => (
-        ${svg}
-      )}
-    </UID>
-  </IconWrapper>
-);
+const ${componentName}: React.FC<${componentName}Props> = ({as, size, iconColor, title, decorative}) => {
+  if (!decorative && title == null) {
+    throw new Error('[${componentName}]: Missing a title for non-decorative icon.');
+  }
 
-${componentName}.defaultProps = {
-  title: '${pascalCaseWordSplitter(componentName)}',
-  decorative: true,
+  return (
+    <IconWrapper as={as} size={size} iconColor={iconColor}>
+      <UID>
+        {uid => (
+          ${svg}
+        )}
+      </UID>
+    </IconWrapper>
+  );
 }
+  
 
 ${componentName}.displayName = '${componentName}';
 export {${componentName}};
