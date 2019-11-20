@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/text@1.0.2...@twilio-paste/text@1.0.3) (2019-11-20)
+
+
+### Bug Fixes
+
+* remap console semibold to medium font weight ([#195](https://github.com/twilio-labs/paste/issues/195)) ([c01f6b3](https://github.com/twilio-labs/paste/commit/c01f6b30cb0d9d9f24b1a8556b07bee8060f9052))
+
+
+
+
+
 ## [1.0.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/text@1.0.1...@twilio-paste/text@1.0.2) (2019-11-18)
 
 
