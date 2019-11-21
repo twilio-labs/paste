@@ -20,7 +20,7 @@ const InDevelopment: React.FC<InDevelopmentProps> = ({type, name}) => {
           {type === 'utility' ? 'Utilities' : 'Components'}
         </BreadcrumbItem>
       </Breadcrumb>
-      <Heading as="h1" variant="headingStyle60">
+      <Heading as="h1" variant="heading10">
         {getHumanizedNameFromPackageName(name)}
       </Heading>
       <Box>
