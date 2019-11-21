@@ -9,7 +9,7 @@ const NotFound: React.FC<{}> = () => (
     <Breadcrumb>
       <BreadcrumbItem to="/">Home</BreadcrumbItem>
     </Breadcrumb>
-    <Heading as="h1" variant="headingStyle60">
+    <Heading as="h1" variant="heading10">
       Oops, this page doesn&apos;t exist
     </Heading>
     <Box>
