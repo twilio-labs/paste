@@ -1,0 +1,4 @@
+imports:
+  - ../../../aliases/font-family.yml
+aliases:
+  font-family-10: "'Open sans', Helvetica, Arial, sans-serif"

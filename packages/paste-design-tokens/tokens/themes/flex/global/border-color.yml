@@ -1,0 +1,82 @@
+global:
+  type: color
+  category: border-color
+imports:
+  - ../../../global/border-color.yml
+  - ../aliases/color.yml
+  - ../aliases/color-palette.yml
+props:
+  color-border:
+    value: "{!palette-gray-50}"
+    comment: Default border color
+  color-border-light:
+    value: "{!palette-gray-40}"
+    comment: Light border color
+  color-border-dark:
+    value: "{!palette-gray-60}"
+    comment: Dark border color
+
+  # input borders
+  color-border-input:
+    value: "{!palette-gray-60}"
+    comment: Input border color
+  color-border-input-hover:
+    value: "{!palette-blue-60}"
+    comment: Input hover border color
+  color-border-input-focus:
+    value: "{!palette-blue-60}"
+    comment: Input focus border color
+
+  # primary action borders
+  color-border-primary-darker:
+    value: "{!palette-blue-80}"
+    comment: Darker primary border color
+  color-border-primary-dark:
+    value: "{!palette-blue-70}"
+    comment: Dark primary border color
+  color-border-primary:
+    value: "{!palette-blue-50}"
+    comment: Primary border color
+  color-border-primary-light:
+    value: "{!palette-blue-40}"
+    comment: Light primary border color
+  color-border-primary-lighter:
+    value: "{!palette-blue-30}"
+    comment: Lighter primary border color
+
+  # status borders
+  color-border-success:
+    value: "{!palette-green-60}"
+    comment: Success border color
+  color-border-success-lightest:
+    value: "{!palette-green-10}"
+    comment: Lightest success border color
+  color-border-warning:
+    value: "{!palette-orange-60}"
+    comment: Warning border color
+  color-border-warning-lightest:
+    value: "{!palette-orange-10}"
+    comment: Lightest warning border color
+  color-border-error:
+    value: "{!palette-red-60}"
+    comment: Error border color
+  color-border-error-lightest:
+    value: "{!palette-red-10}"
+    comment: Lightest error border color
+
+  # destructive borders
+  color-border-destructive-darker:
+    value: "{!palette-red-90}"
+    comment: Destructive hover border color
+  color-border-destructive-dark:
+    value: "{!palette-red-80}"
+    comment: Destructive focus border color
+  color-border-destructive:
+    value: "{!palette-red-50}"
+    comment: Destructive border color
+  color-border-destructive-light:
+    value: "{!palette-red-40}"
+    comment: Destructive focus border color
+  color-border-destructive-lighter:
+    value: "{!palette-red-30}"
+    comment: Destructive focus border color
