@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.0.2...@twilio-paste/button@1.1.0) (2019-11-20)
+
+
+### Bug Fixes
+
+* remap console semibold to medium font weight ([#195](https://github.com/twilio-labs/paste/issues/195)) ([c01f6b3](https://github.com/twilio-labs/paste/commit/c01f6b30cb0d9d9f24b1a8556b07bee8060f9052))
+
+
+### Features
+
+* **icons:** make decorative required + icon docs ([#165](https://github.com/twilio-labs/paste/issues/165)) ([15ccbc2](https://github.com/twilio-labs/paste/commit/15ccbc2e0f259d60af83bf8503c8ee18a1191cb8))
+
+
+
+
+
 ## [1.0.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.0.1...@twilio-paste/button@1.0.2) (2019-11-18)
 
 
