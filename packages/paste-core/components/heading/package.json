@@ -1,8 +1,8 @@
 {
   "name": "@twilio-paste/heading",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "category": "typography",
-  "status": "alpha",
+  "status": "beta",
   "description": "Twilio's Heading component",
   "author": "Twilio Inc.",
   "license": "MIT",

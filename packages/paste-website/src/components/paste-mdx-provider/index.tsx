@@ -46,12 +46,12 @@ export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMD
     <MDXProvider
       components={{
         ...shortcodes,
-        h1: (props: Heading): React.ReactElement => <Heading {...props} as="h1" variant="headingStyle60" />,
-        h2: (props: Heading): React.ReactElement => <AnchoredHeading {...props} as="h2" variant="headingStyle50" />,
-        h3: (props: Heading): React.ReactElement => <AnchoredHeading {...props} as="h3" variant="headingStyle40" />,
-        h4: (props: Heading): React.ReactElement => <AnchoredHeading {...props} as="h4" variant="headingStyle30" />,
-        h5: (props: Heading): React.ReactElement => <AnchoredHeading {...props} as="h5" variant="headingStyle20" />,
-        h6: (props: Heading): React.ReactElement => <AnchoredHeading {...props} as="h6" variant="headingStyle10" />,
+        h1: (props: Heading): React.ReactElement => <Heading {...props} as="h1" variant="heading10" />,
+        h2: (props: Heading): React.ReactElement => <AnchoredHeading {...props} as="h2" variant="heading20" />,
+        h3: (props: Heading): React.ReactElement => <AnchoredHeading {...props} as="h3" variant="heading30" />,
+        h4: (props: Heading): React.ReactElement => <AnchoredHeading {...props} as="h4" variant="heading40" />,
+        h5: (props: Heading): React.ReactElement => <AnchoredHeading {...props} as="h5" variant="heading50" />,
+        h6: (props: Heading): React.ReactElement => <AnchoredHeading {...props} as="h6" variant="heading60" />,
         p: (props: React.ComponentProps<typeof Paragraph>): React.ReactElement => <Paragraph {...props} />,
         ul: (props: React.ComponentProps<typeof UL>): React.ReactElement => <UL {...props} />,
         ol: (props: React.ComponentProps<typeof OL>): React.ReactElement => <OL {...props} />,

@@ -1,9 +1,9 @@
 {
   "name": "@twilio-paste/paragraph",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "category": "typography",
-  "status": "alpha",
-  "description": "Twilio's Paragraph component",
+  "status": "beta",
+  "description": "The paragraph component is used to render blocks of text, with a preset amount of space beneath it to distinguish from adjacent content.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
