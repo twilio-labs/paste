@@ -50,7 +50,7 @@ function getHeadingProps(headingVariant?: HeadingVariants): {} {
         lineHeight: 'lineHeight20',
       };
     /**
-     * heading50 is out of order because its also default.
+     * heading20 is out of order because its also default.
      * Default is at the bottom of switch statement for readability.
      */
     case 'heading20':
