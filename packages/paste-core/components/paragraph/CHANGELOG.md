@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @twilio-paste/paragraph
 
-
-
-
-
 ## [1.0.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/paragraph@1.0.1...@twilio-paste/paragraph@1.0.2) (2019-11-18)
 
 **Note:** Version bump only for package @twilio-paste/paragraph

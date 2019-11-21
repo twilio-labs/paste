@@ -10,6 +10,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/paragraph/CHANGELOG.md';
 
@@ -64,7 +65,7 @@ By default, the paragraph component should provide consistent values for font-si
 
 Paragraphs are distinct sections of content, typically dealing with a single theme, and are indicated by a new line. Paragraphs are often used for a majority of text on the page and should be able to support a variety of information-dense layouts.
 
-Paragraph is part of the Typography component, which includes Header and List as well.
+Paragraph is part of the [Typography package](/components/typography), which includes Header and List as well.
 
 ### Accessibility
 
@@ -95,18 +96,84 @@ Paragraph text should be legible, and easy to read. It should also provide a cle
 Paragraphs should be used for most text blocks. Paragraphs provide defaults for font-size, line-height, and margin-bottom. Paragraphs can be used within other components as well. Typically, these are anywhere from 1-5 sentences. Use paragraphs like you would when authoring a word document, to group sentences of a similar theme.
 
 <DoDont>
-  <Do title="Do" body="Use paragraphs for text blocks." center />
-  <Dont title="Don't" body="Don’t use paragraphs for spacing or when more semantic elements can be used in their place, such as headings, lists, or labels." />
+  <Do title="Do" body="Use paragraphs for text blocks." center>
+    <Codeblock>{`<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
+</Paragraph>
+<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
+</Paragraph>`}
+    </Codeblock>
+  </Do>
+  <Dont title="Don't" body="Don’t use paragraphs for spacing or when more semantic elements can be used in their place, such as headings, lists, or labels.">
+    <Codeblock>{`<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+</Paragraph>
+<Paragraph />
+<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+</Paragraph>`}
+    </Codeblock>
+  </Dont>
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Break content up into small paragraphs that allow users to skim the information." center />
-  <Dont title="Don't" body="Don’t create overly long paragraphs that make it difficult for the reader to find information." />
+  <Do title="Do" body="Break content up into small paragraphs that allow users to skim the information." center>
+    <Codeblock>{`<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus
+  mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna.
+</Paragraph>
+<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus
+  mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna.
+</Paragraph>`}
+    </Codeblock>
+  </Do>
+  <Dont title="Don't" body="Don’t create overly long paragraphs that make it difficult for the reader to find information.">
+    <Codeblock>{`<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
+
+</Paragraph>`}
+    </Codeblock>
+  </Dont>
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Use paragraphs as sibling elements, with only inline elements such as bold or italic as children." center />
-  <Dont title="Don't" body="Don’t nest paragraphs within each other either, only inline elements should be nested within a paragraph." />
+  <Do title="Do" body="Use paragraphs as sibling elements, with only inline elements such as bold or italic as children." center>
+    <Codeblock>{`<Paragraph>
+  Donec sed odio dui. <a href="#">Aenean lacinia</a> bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+</Paragraph>
+<Paragraph>
+  Donec sed odio dui. <strong>Aenean lacinia bibendum</strong> nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+</Paragraph>`}
+    </Codeblock>
+  </Do>
+  <Dont title="Don't" body="Don’t nest paragraphs within each other either, only inline elements should be nested within a paragraph.">
+    <Codeblock>{`<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+  <Paragraph>
+    Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+    Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+  </Paragraph>
+</Paragraph>`}
+    </Codeblock>
+  </Dont>
 </DoDont>
 
 ## Anatomy
@@ -145,7 +212,7 @@ import {Paragraph} from '@twilio-paste/paragraph';
 
 | Prop      | Type                     | Description | Default |
 | --------- | ------------------------ | ----------- | ------- |
-| children? | {'React Node', 'string'} |             | null    |
+| children? | `ReactNode`              |             | null    |
 
 <Box marginTop="space90">
   <Changelog />
