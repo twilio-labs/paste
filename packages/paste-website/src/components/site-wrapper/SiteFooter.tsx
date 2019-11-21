@@ -29,7 +29,7 @@ const SiteFooter: React.FC<{}> = () => {
       >
         <Box display="flex">
           <Box marginRight="space60">
-            <Heading as="h4" variant="headingStyle30">
+            <Heading as="h4" variant="heading30">
               Support
             </Heading>
             <Paragraph>
@@ -39,7 +39,7 @@ const SiteFooter: React.FC<{}> = () => {
             </Paragraph>
           </Box>
           <Box marginLeft="space50">
-            <Heading as="h4" variant="headingStyle30">
+            <Heading as="h4" variant="heading30">
               Contributing
             </Heading>
             <Paragraph>
