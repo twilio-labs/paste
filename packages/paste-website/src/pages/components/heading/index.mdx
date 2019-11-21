@@ -75,76 +75,76 @@ It is important to not skip one or more heading levels as it is common for scree
 
 <LivePreview scope={{Heading}} language="jsx">
   {`<div>
-  <Heading as="h1" variant="headingStyle60">
+  <Heading as="h1" variant="heading10">
     Heading One
   </Heading>
 
-  <Heading as="h2" variant="headingStyle50">
+  <Heading as="h2" variant="heading20">
     Heading Two
   </Heading>
 
-  <Heading as="h3" variant="headingStyle40">
+  <Heading as="h3" variant="heading30">
     Heading Three
   </Heading>
 
-  <Heading as="h4" variant="headingStyle30">
+  <Heading as="h4" variant="heading40">
     Heading Four
   </Heading>
 
-  <Heading as="h5" variant="headingStyle20">
+  <Heading as="h5" variant="heading50">
     Heading Five
   </Heading>
 
-  <Heading as="h6" variant="headingStyle10">
+  <Heading as="h6" variant="heading60">
     Heading Six
   </Heading>
 </div>`}
 </LivePreview>
 
-#### Heading One
+#### Heading as `h2` with `heading10` variant
 
 <LivePreview scope={{Heading}} language="jsx">
-  {`<Heading as="h1" variant="headingStyle60">
+  {`<Heading as="h2" variant="heading10">
   Heading One
 </Heading>`}
 </LivePreview>
 
-#### Heading Two
+#### Heading as `h2` with `heading20` variant
 
 <LivePreview scope={{Heading}} language="jsx">
-  {`<Heading as="h2" variant="headingStyle50">
+  {`<Heading as="h2" variant="heading20">
   Heading Two
 </Heading>`}
 </LivePreview>
 
-#### Heading Three
+#### Heading as `h2` with `heading30` variant
 
 <LivePreview scope={{Heading}} language="jsx">
-  {`<Heading as="h3" variant="headingStyle40">
+  {`<Heading as="h2" variant="heading30">
   Heading Three
 </Heading>`}
 </LivePreview>
 
-#### Heading Four
+#### Heading as `h2` with `heading40` variant
 
 <LivePreview scope={{Heading}} language="jsx">
-  {`<Heading as="h4" variant="headingStyle30">
+  {`<Heading as="h2" variant="heading40">
   Heading Four
 </Heading>`}
 </LivePreview>
 
-#### Heading Five
+#### Heading as `h2` with `heading50` variant
 
 <LivePreview scope={{Heading}} language="jsx">
-  {`<Heading as="h5" variant="headingStyle20">
+  {`<Heading as="h2" variant="heading50">
   Heading Five
 </Heading>`}
 </LivePreview>
 
-#### Heading Six
+#### Heading as `h2` with `heading60` variant
 
 <LivePreview scope={{Heading}} language="jsx">
-  {`<Heading as="h6" variant="headingStyle10">
+  {`<Heading as="h2" variant="heading60">
   Heading Six
 </Heading>`}
 </LivePreview>
@@ -188,17 +188,17 @@ yarn add @twilio-paste/heading
 ```jsx
 import {Heading} from '@twilio-paste/heading';
 
-<Heading as="h2" variant="headingStyle50">
+<Heading as="h2" variant="heading20">
   Heading Two
 </Heading>
 ```
 
 #### Props
 
-| Prop           | Type                  | Description                                                                                                 | Default          |
-| -------------- | --------------------- | ----------------------------------------------------------------------------------------------------------- | ---------------- |
-| as             | asTags                | 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'                                                  | null             |
-| variant?       | headingStyles         | 'headingStyle60', 'headingStyle50', 'headingStyle40', 'headingStyle30', 'headingStyle20', 'headingStyle10'  | 'headingStyle50' |
+| Prop           | Type                  | Description                                                                        | Default          |
+| -------------- | --------------------- | ---------------------------------------------------------------------------------- | ---------------- |
+| as             | asTags                | 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'                         | null             |
+| variant?       | headingVariants       | 'heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60'       | 'heading20'      |
 
 <Box marginTop="space90">
   <Changelog />
