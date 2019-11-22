@@ -8,33 +8,36 @@ imports:
 props:
   # body text
   color-text:
-    value: "{!palette-gray-100}"
+    value: "{!palette-gray-90}"
     comment: Body text color
   color-text-weak:
-    value: "{!palette-gray-70}"
+    value: "{!palette-gray-60}"
     comment: Weak body text for visual hierarchy.
   color-text-inverse:
     value: "{!palette-gray-0}"
     comment: Inverse text color for dark backgrounds
   color-text-inverse-weak:
-    value: "{!palette-gray-60}"
+    value: "{!palette-gray-40}"
     comment: Weak inverse text color for dark backgrounds
   color-text-brand-inverse:
     value: "{!white}"
     comment: Text color used on any brand color
+  color-text-brand-highlight:
+    value: "{!amaranth}"
+    comment: Twilio brand red, accessible on large text only.
 
   # links
   color-text-link:
-    value: "{!palette-blue-60}"
+    value: "{!palette-blue-50}"
     comment: Link text
   color-text-link-light:
     value: "{!palette-blue-40}"
     comment: Light shade of link text to be used in interactions
   color-text-link-dark:
-    value: "{!palette-blue-70}"
+    value: "{!palette-blue-60}"
     comment: Dark shade of link text to be used in interactions
   color-text-link-darker:
-    value: "{!palette-blue-80}"
+    value: "{!palette-blue-60}"
     comment: Darker shade of link text to be used in interactions
   color-text-link-destructive:
     value: "{!palette-red-50}"
@@ -43,21 +46,21 @@ props:
     value: "{!palette-red-40}"
     comment: Light shade of destructive link text to be used in interactions
   color-text-link-destructive-dark:
-    value: "{!palette-red-80}"
+    value: "{!palette-red-60}"
     comment: Dark shade of destructive link text to be used in interactions
   color-text-link-destructive-darker:
-    value: "{!palette-red-90}"
+    value: "{!palette-red-70}"
     comment: Darker shade of destructive link text to be used in interactions
 
   #status
   color-text-error:
-    value: "{!palette-red-60}"
+    value: "{!palette-red-50}"
     comment: Error text for inputs and error misc
   color-text-success:
-    value: "{!palette-green-60}"
+    value: "{!palette-green-50}"
     comment: Text color for success text.
   color-text-warning:
-    value: "{!palette-orange-60}"
+    value: "{!palette-orange-50}"
     comment: Color for warning text.
 
   #icon

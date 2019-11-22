@@ -7,32 +7,32 @@ imports:
   - ../aliases/color-palette.yml
 props:
   color-border:
-    value: "{!palette-gray-50}"
+    value: "{!palette-blue-50}"
     comment: Default border color
   color-border-light:
-    value: "{!palette-gray-40}"
+    value: "{!palette-gray-30}"
     comment: Light border color
   color-border-dark:
-    value: "{!palette-gray-60}"
+    value: "{!palette-blue-70}"
     comment: Dark border color
 
   # input borders
   color-border-input:
-    value: "{!palette-gray-60}"
+    value: "{!palette-gray-30}"
     comment: Input border color
   color-border-input-hover:
-    value: "{!palette-blue-60}"
+    value: "{!palette-grey-40}"
     comment: Input hover border color
   color-border-input-focus:
-    value: "{!palette-blue-60}"
+    value: "{!palette-blue-50}"
     comment: Input focus border color
 
   # primary action borders
   color-border-primary-darker:
-    value: "{!palette-blue-80}"
+    value: "{!palette-blue-70}"
     comment: Darker primary border color
   color-border-primary-dark:
-    value: "{!palette-blue-70}"
+    value: "{!palette-blue-60}"
     comment: Dark primary border color
   color-border-primary:
     value: "{!palette-blue-50}"
@@ -46,19 +46,19 @@ props:
 
   # status borders
   color-border-success:
-    value: "{!palette-green-60}"
+    value: "{!palette-green-50}"
     comment: Success border color
   color-border-success-lightest:
     value: "{!palette-green-10}"
     comment: Lightest success border color
   color-border-warning:
-    value: "{!palette-orange-60}"
+    value: "{!palette-orange-50}"
     comment: Warning border color
   color-border-warning-lightest:
     value: "{!palette-orange-10}"
     comment: Lightest warning border color
   color-border-error:
-    value: "{!palette-red-60}"
+    value: "{!palette-red-50}"
     comment: Error border color
   color-border-error-lightest:
     value: "{!palette-red-10}"
@@ -66,10 +66,10 @@ props:
 
   # destructive borders
   color-border-destructive-darker:
-    value: "{!palette-red-90}"
+    value: "{!palette-red-70}"
     comment: Destructive hover border color
   color-border-destructive-dark:
-    value: "{!palette-red-80}"
+    value: "{!palette-red-60}"
     comment: Destructive focus border color
   color-border-destructive:
     value: "{!palette-red-50}"
