@@ -1,5 +1,6 @@
 import {DefaultTheme} from './default';
 import {SendGridTheme} from './sendgrid';
-import {SendGridThemeShape, ThemeShape} from './types';
+import {FlexTheme} from './flex';
+import {FlexThemeShape, SendGridThemeShape, ThemeShape} from './types';
 
-export {DefaultTheme, SendGridTheme, SendGridThemeShape, ThemeShape};
+export {DefaultTheme, SendGridTheme, FlexTheme, SendGridThemeShape, ThemeShape, FlexThemeShape};
