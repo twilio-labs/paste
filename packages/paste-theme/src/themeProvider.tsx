@@ -10,6 +10,8 @@ interface GlobalStyleProps {
   theme: {};
 }
 const pasteGlobalStyles = (props: GlobalStyleProps): SerializedStyles => css`
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i&display=swap');
+
   html {
     font-size: 100%;
   }

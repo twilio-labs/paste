@@ -4,3 +4,6 @@ global:
 imports:
   - ../../../global/font-family.yml
   - ../aliases/font-family.yml
+props:
+  font-family-text:
+    value: "{!font-family-10}"

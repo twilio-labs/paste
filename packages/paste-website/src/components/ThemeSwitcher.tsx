@@ -45,6 +45,7 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
 
   const consoleID = useUID();
   const sendGridID = useUID();
+  const flexID = useUID();
 
   return (
     <Box
@@ -75,6 +76,15 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
           value={ThemeVariants.SENDGRID}
         />
         <StyledThemeSwitcherLabel htmlFor={sendGridID}>SendGrid</StyledThemeSwitcherLabel>
+        <StyledThemeSwitcherRadio
+          checked={theme === ThemeVariants.FLEX}
+          id={flexID}
+          name="sitetheme"
+          onChange={handleChange}
+          type="radio"
+          value={ThemeVariants.FLEX}
+        />
+        <StyledThemeSwitcherLabel htmlFor={flexID}>Flex</StyledThemeSwitcherLabel>
       </Box>
     </Box>
   );
