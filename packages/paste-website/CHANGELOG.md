@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.4.0...@twilio-paste/website@1.4.1) (2019-11-21)
+
+
+### Bug Fixes
+
+* change heading variants ([#196](https://github.com/twilio-labs/paste/issues/196)) ([061cc3e](https://github.com/twilio-labs/paste/commit/061cc3ecce7bc7ee5b8c8d2e95ddb8e0cd744e64))
+
+
+
+
+
+# [1.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.3.0...@twilio-paste/website@1.4.0) (2019-11-20)
+
+
+### Features
+
+* **icons:** make decorative required + icon docs ([#165](https://github.com/twilio-labs/paste/issues/165)) ([15ccbc2](https://github.com/twilio-labs/paste/commit/15ccbc2e0f259d60af83bf8503c8ee18a1191cb8))
+
+
+
+
+
 # [1.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.2.1...@twilio-paste/website@1.3.0) (2019-11-18)
 
 
