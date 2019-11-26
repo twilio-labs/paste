@@ -2,27 +2,24 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {FlexboxProps} from '@twilio-paste/types';
 
-export interface FlexProps extends Box {}
-
-// https://blog.buildo.io/flexview-the-easiest-way-to-use-flex-with-react-c698db55926a
 const Flex: React.FC<FlexboxProps> = props => {
   return (
     <Box
       display="flex"
-      alignItems={props.alignItems}
       alignContent={props.alignContent}
-      justifyItems={props.justifyItems}
-      justifyContent={props.justifyContent}
-      flexWrap={props.flexWrap}
-      flexDirection={props.flexDirection}
+      alignItems={props.alignItems}
+      alignSelf={props.alignSelf}
       flex={props.flex}
+      flexBasis={props.flexBasis}
+      flexDirection={props.flexDirection}
       flexGrow={props.flexGrow}
       flexShrink={props.flexShrink}
-      flexBasis={props.flexBasis}
-      justifySelf={props.justifySelf}
-      alignSelf={props.alignSelf}
+      flexWrap={props.flexWrap}
+      justifyContent={props.justifyContent}
       order={props.order}
-    />
+    >
+      {props.children}
+    </Box>
   );
 };
 
