@@ -15,7 +15,9 @@ const Flex: React.FC<FlexboxProps> = props => {
       flexGrow={props.flexGrow}
       flexShrink={props.flexShrink}
       flexWrap={props.flexWrap}
+      justifyItems={props.justifyItems}
       justifyContent={props.justifyContent}
+      justifySelf={props.justifySelf}
       order={props.order}
     >
       {props.children}
