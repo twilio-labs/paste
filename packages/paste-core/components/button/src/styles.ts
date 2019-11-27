@@ -63,6 +63,16 @@ const baseEnabled = (props: ButtonWrapperProps): SerializedStyles =>
       &:active {
         box-shadow: ${themeGet('shadows.shadowFocus')(props)};
       }
+
+      /*
+        defensively resetting from over zealous legacy global
+        styles "a {...}" when button is set as an anchor
+      */
+      &:hover,
+      &:focus,
+      &:active {
+        text-decoration: none;
+      }
     `,
   ]);
 const baseLoading = (props: ButtonWrapperProps): SerializedStyles =>
@@ -88,6 +98,16 @@ const variantPrimaryBase = (props: ButtonWrapperProps): SerializedStyles => css`
   border-width: ${themeGet('borderWidths.borderWidth20')(props)};
   border-style: solid;
   color: ${themeGet('textColors.colorTextInverse')(props)};
+
+  /*
+    defensively resetting from over zealous legacy global
+    styles "a {...}" when button is set as an anchor
+  */
+  &:hover,
+  &:focus,
+  &:active {
+    color: ${themeGet('textColors.colorTextInverse')(props)};
+  }
 `;
 
 const variantPrimaryEnabled = (props: ButtonWrapperProps): SerializedStyles =>
@@ -201,6 +221,16 @@ const variantDestructiveBase = (props: ButtonWrapperProps): SerializedStyles => 
   border-style: solid;
   background-color: ${themeGet('backgroundColors.colorBackgroundDestructive')(props)};
   color: ${themeGet('textColors.colorTextInverse')(props)};
+
+  /*
+    defensively resetting from over zealous legacy global
+    styles "a {...}" when button is set as an anchor
+  */
+  &:hover,
+  &:focus,
+  &:active {
+    color: ${themeGet('textColors.colorTextInverse')(props)};
+  }
 `;
 
 const variantDestructiveEnabled = (props: ButtonWrapperProps): SerializedStyles =>
