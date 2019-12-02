@@ -45,4 +45,4 @@ Spinner.defaultProps = {
 };
 
 Spinner.displayName = 'Spinner';
-export {Spinner};
+export {Spinner, SpinnerProps};
