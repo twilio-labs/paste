@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
+import {FlexboxProps} from '@twilio-paste/types';
 
 export type displayOptions = 'flex' | 'inline-flex';
 export type vAlignOptions = 'top' | 'center' | 'bottom';
@@ -56,7 +57,7 @@ function getBasis(props: Flex): string {
   return 'auto'; // default
 }
 
-function getFlexStyles(props: Flex): React.CSSProperties {
+function getFlexStyles(props: Flex): FlexboxProps {
   const {column, wrap, vAlignContent, hAlignContent} = props;
 
   function alignPropToFlex(align: Flex['vAlignContent'] | Flex['hAlignContent']) {
