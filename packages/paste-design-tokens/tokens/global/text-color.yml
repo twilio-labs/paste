@@ -16,7 +16,7 @@ props:
     value: "{!palette-gray-0}"
     comment: Inverse text color for dark backgrounds
   color-text-inverse-weak:
-    value: "{!palette-gray-60}"
+    value: "{!palette-gray-50}"
     comment: Weak inverse text color for dark backgrounds
   color-text-brand-inverse:
     value: "{!white}"
