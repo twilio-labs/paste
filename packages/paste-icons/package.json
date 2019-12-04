@@ -39,7 +39,7 @@
     "@svgr/plugin-svgo": "^4.0.3",
     "@twilio-labs/svg-to-react": "^2.0.0",
     "@twilio-paste/types": "^2.1.1",
-    "commander": "^2.20.0",
+    "commander": "^4.0.1",
     "lodash.difference": "^4.5.0",
     "lodash.kebabcase": "^4.1.1",
     "lodash.startcase": " ^4.4.0",
