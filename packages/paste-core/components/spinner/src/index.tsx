@@ -29,7 +29,7 @@ const SpinningWrapper = styled.div<SpinnerWrapperProps>(
   })
 );
 
-interface SpinnerProps extends LoadingIconProps {
+export interface SpinnerProps extends LoadingIconProps {
   title: string;
   size?: IconSize;
 }
