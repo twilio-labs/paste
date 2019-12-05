@@ -53,7 +53,7 @@ export const TextColorBox: React.FC<TextColorBoxProps> = ({color, textColor}) =>
   const colorFn = Color(color);
   const isInverse = colorFn.isLight();
   const backgroundColorValue = isInverse
-    ? theme.backgroundColors.colorBackgroundBrand
+    ? theme.backgroundColors.colorBackgroundInverse
     : theme.backgroundColors.colorBackgroundBody;
   const colorCombos = ColorCombos([color, backgroundColorValue]);
   const {accessibility} = colorCombos[1].combinations[0];
@@ -65,7 +65,7 @@ export const TextColorBox: React.FC<TextColorBoxProps> = ({color, textColor}) =>
 
   return (
     <Absolute
-      backgroundColor={isInverse ? 'colorBackgroundBrand' : 'colorBackgroundBody'}
+      backgroundColor={isInverse ? 'colorBackgroundInverse' : 'colorBackgroundBody'}
       padding="space60"
       preset="fill"
       css={{
