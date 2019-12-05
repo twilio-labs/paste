@@ -15,10 +15,10 @@ props:
     comment: Weak body text for visual hierarchy.
   color-text-inverse:
     value: "{!palette-gray-0}"
-    comment: Inverse text color for dark backgrounds
+    comment: Inverse text color for dark backgrounds. Must pass AA color contrast with color-background-inverse.
   color-text-inverse-weak:
     value: "{!palette-gray-60}"
-    comment: Weak inverse text color for dark backgrounds
+    comment: Weak inverse text color for dark backgrounds. Must pass AA color contrast with color-background-inverse.
   color-text-brand-inverse:
     value: "{!white}"
     comment: Text color used on any brand color
