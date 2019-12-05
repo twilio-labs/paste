@@ -10,6 +10,9 @@
   "references": [
     {
       "path": "../box"
+    },
+    {
+      "path": "../../../paste-types"
     }
   ]
 }

@@ -4,10 +4,10 @@ import {Box} from '@twilio-paste/box';
 import {FlexboxProps} from '@twilio-paste/types';
 
 export type displayOptions = 'flex' | 'inline-flex';
-export type vAlignOptions = 'top' | 'center' | 'bottom';
-export type hAlignOptions = 'left' | 'center' | 'right';
+export type vAlignOptions = 'top' | 'center' | 'bottom' | 'stretch';
+export type hAlignOptions = 'left' | 'center' | 'right' | 'around' | 'between';
 
-interface Flex {
+export interface FlexProps {
   display?: displayOptions;
   column?: boolean;
   vAlignContent?: vAlignOptions;
@@ -19,8 +19,7 @@ interface Flex {
   wrap?: boolean;
 }
 
-function getGrow(props: Flex): number {
-  const {grow} = props;
+function getGrow({grow}: FlexProps): number {
   if (typeof grow === 'number') {
     return grow;
   } else if (grow) {
@@ -30,8 +29,7 @@ function getGrow(props: Flex): number {
   return 0; // default
 }
 
-function getShrink(props: Flex): number {
-  const {shrink, basis} = props;
+function getShrink({shrink, basis}: FlexProps): number {
   if (typeof shrink === 'number') {
     return shrink;
   } else if (shrink) {
@@ -47,8 +45,7 @@ function getShrink(props: Flex): number {
   return 1; // default
 }
 
-function getBasis(props: Flex): string {
-  const {basis} = props;
+function getBasis({basis}: FlexProps): string {
   if (basis) {
     const suffix = typeof basis === 'number' || String(parseInt(basis as string, 10)) === basis ? 'px' : '';
     return basis + suffix;
@@ -57,32 +54,48 @@ function getBasis(props: Flex): string {
   return 'auto'; // default
 }
 
-function getFlexStyles(props: Flex): FlexboxProps {
-  const {column, wrap, vAlignContent, hAlignContent} = props;
-
-  function alignPropToFlex(align: Flex['vAlignContent'] | Flex['hAlignContent']) {
-    switch (align) {
-      case 'top':
-      case 'left':
-        return 'flex-start';
-      case 'center':
-        return 'center';
-      case 'bottom':
-      case 'right':
-        return 'flex-end';
-    }
+function alignPropToFlex(align: FlexProps['vAlignContent'] | FlexProps['hAlignContent']) {
+  switch (align) {
+    case 'top':
+    case 'left':
+      return 'flex-start';
+    case 'center':
+      return 'center';
+    case 'bottom':
+    case 'right':
+      return 'flex-end';
+    case 'stretch':
+      return 'stretch';
+    case 'around':
+      return 'space-around';
+    case 'between':
+      return 'space-between';
   }
+}
 
-  return {
-    flex: `${getGrow(props)} ${getShrink(props)} ${getBasis(props)}`,
-    flexDirection: column ? 'column' : 'row',
-    flexWrap: wrap ? 'wrap' : 'nowrap',
+function getFlexStyles(props: FlexProps): FlexboxProps {
+  const {basis, column, grow, shrink, wrap, hAlignContent, vAlignContent} = props;
+  const styles = {
     justifyContent: alignPropToFlex(column ? vAlignContent : hAlignContent),
     alignItems: alignPropToFlex(column ? hAlignContent : vAlignContent),
   };
+
+  if (grow || shrink || basis) {
+    styles.flex = `${getGrow(props)} ${getShrink(props)} ${getBasis(props)}`;
+  }
+
+  if (column) {
+    styles.flexDirection = column ? 'column' : 'row';
+  }
+
+  if (wrap) {
+    styles.flexWrap = wrap ? 'wrap' : 'nowrap';
+  }
+
+  return styles;
 }
 
-const Flex: React.FC<Flex> = props => {
+const Flex: React.FC<FlexProps> = props => {
   return (
     <Box {...getFlexStyles(props)} display={props.display} order={props.order}>
       {props.children}

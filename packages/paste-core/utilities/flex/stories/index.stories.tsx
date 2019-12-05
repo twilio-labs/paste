@@ -6,8 +6,8 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Flex, displayOptions, vAlignOptions, hAlignOptions} from '../src';
 
 const flexDisplayOptions = ['flex', 'inline-flex'];
-const flexVerticalAlignOptions = ['top', 'center', 'bottom'];
-const flexHorizontalAlignOptions = ['left', 'center', 'right'];
+const flexVerticalAlignOptions = ['top', 'center', 'bottom', 'stretch'];
+const flexHorizontalAlignOptions = ['left', 'center', 'right', 'around', 'between'];
 
 storiesOf('Utilities|Flex', module)
   .addDecorator(withKnobs)
