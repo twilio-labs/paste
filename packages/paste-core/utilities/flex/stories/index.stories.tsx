@@ -18,7 +18,7 @@ storiesOf('Utilities|Flex', module)
     return (
       <Flex
         display={flexDisplayValue}
-        column={boolean('column', false)}
+        vertical={boolean('vertical', false)}
         hAlignContent={flexHorizontalAlignValue}
         vAlignContent={flexVerticalAlignValue}
         wrap={boolean('wrap', false)}

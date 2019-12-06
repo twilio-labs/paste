@@ -9,20 +9,21 @@ export type hAlignOptions = 'left' | 'center' | 'right' | 'around' | 'between';
 
 export interface FlexProps {
   display?: displayOptions;
-  column?: boolean;
+  vertical?: boolean;
   vAlignContent?: vAlignOptions;
   hAlignContent?: hAlignOptions;
   grow?: boolean | number;
   shrink?: boolean | number;
   basis?: string | number;
-  order?: number;
   wrap?: boolean;
 }
 
 function getGrow({grow}: FlexProps): number {
   if (typeof grow === 'number') {
     return grow;
-  } else if (grow) {
+  }
+
+  if (grow) {
     return 1;
   }
 
@@ -32,9 +33,13 @@ function getGrow({grow}: FlexProps): number {
 function getShrink({shrink, basis}: FlexProps): number {
   if (typeof shrink === 'number') {
     return shrink;
-  } else if (shrink) {
+  }
+
+  if (shrink) {
     return 1;
-  } else if (shrink === false) {
+  }
+
+  if (shrink === false) {
     return 0;
   }
 
@@ -54,11 +59,8 @@ function getBasis({basis}: FlexProps): string {
   return 'auto'; // default
 }
 
-function alignPropToFlex(align: FlexProps['vAlignContent'] | FlexProps['hAlignContent']) {
+function alignPropToFlex(align: FlexProps['vAlignContent'] | FlexProps['hAlignContent']): {} {
   switch (align) {
-    case 'top':
-    case 'left':
-      return 'flex-start';
     case 'center':
       return 'center';
     case 'bottom':
@@ -70,22 +72,26 @@ function alignPropToFlex(align: FlexProps['vAlignContent'] | FlexProps['hAlignCo
       return 'space-around';
     case 'between':
       return 'space-between';
+    case 'top':
+    case 'left':
+    default:
+      return 'flex-start';
   }
 }
 
 function getFlexStyles(props: FlexProps): FlexboxProps {
-  const {basis, column, grow, shrink, wrap, hAlignContent, vAlignContent} = props;
-  const styles = {
-    justifyContent: alignPropToFlex(column ? vAlignContent : hAlignContent),
-    alignItems: alignPropToFlex(column ? hAlignContent : vAlignContent),
+  const {basis, vertical, grow, shrink, wrap, hAlignContent, vAlignContent} = props;
+  const styles: FlexboxProps = {
+    justifyContent: alignPropToFlex(vertical ? vAlignContent : hAlignContent),
+    alignItems: alignPropToFlex(vertical ? hAlignContent : vAlignContent),
   };
 
   if (grow || shrink || basis) {
     styles.flex = `${getGrow(props)} ${getShrink(props)} ${getBasis(props)}`;
   }
 
-  if (column) {
-    styles.flexDirection = column ? 'column' : 'row';
+  if (vertical) {
+    styles.flexDirection = vertical ? 'column' : 'row';
   }
 
   if (wrap) {
@@ -97,7 +103,7 @@ function getFlexStyles(props: FlexProps): FlexboxProps {
 
 const Flex: React.FC<FlexProps> = props => {
   return (
-    <Box {...getFlexStyles(props)} display={props.display} order={props.order}>
+    <Box {...getFlexStyles(props)} display={props.display}>
       {props.children}
     </Box>
   );
@@ -105,13 +111,12 @@ const Flex: React.FC<FlexProps> = props => {
 
 Flex.propTypes = {
   display: PropTypes.oneOf(['flex', 'inline-flex']),
-  column: PropTypes.bool,
+  vertical: PropTypes.bool,
   vAlignContent: PropTypes.oneOf(['top', 'center', 'bottom']),
   hAlignContent: PropTypes.oneOf(['left', 'center', 'right']),
   grow: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
   shrink: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
   basis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  order: PropTypes.number,
   wrap: PropTypes.bool,
 };
 
