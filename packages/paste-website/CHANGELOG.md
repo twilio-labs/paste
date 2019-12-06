@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.5.0...@twilio-paste/website@1.5.1) (2019-12-05)
+
+
+### Bug Fixes
+
+* **website:** display text tokens on the correct inverse bg color ([#220](https://github.com/twilio-labs/paste/issues/220)) ([3aaa0f8](https://github.com/twilio-labs/paste/commit/3aaa0f886fbf2b38d9de5b3c02fbcc231c56b7e4))
+* **website:** push toast component to release 0.6 ([#207](https://github.com/twilio-labs/paste/issues/207)) ([c510588](https://github.com/twilio-labs/paste/commit/c510588ea84d1aeba8cd216667a319cfccd93742))
+
+
+
+
+
 # [1.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.4.1...@twilio-paste/website@1.5.0) (2019-11-27)
 
 

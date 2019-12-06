@@ -10,6 +10,9 @@ props:
   color-background:
     value: "{!palette-gray-20}"
     comment: Default background color for any container
+  color-background-inverse:
+    value: "{!palette-gray-100}"
+    comment: Inverse background color for any container
 
   # page body
   color-background-body:

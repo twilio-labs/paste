@@ -1,7 +1,7 @@
 {
   "name": "paste",
   "private": true,
-  "version": "0.3.0",
+  "version": "0.4.0",
   "main": "index.js",
   "author": "Twilio Inc.",
   "license": "MIT",
@@ -19,7 +19,7 @@
     "start:website": "yarn workspace @twilio-paste/website develop",
     "watch:icons": "yarn workspace @twilio-paste/icons watch",
     "prebuild": "node ./tools/build/pre-build.js",
-    "build": "lerna run build --ignore @twilio-paste/website",
+    "build": "lerna run build --ignore @twilio-paste/website --concurrency 2",
     "build:dev": "yarn prebuild && yarn build:tokens && lerna run build:dev",
     "build:tokens": "yarn workspace @twilio-paste/design-tokens tokens",
     "build:icons": "yarn workspace @twilio-paste/icons build",
