@@ -1,25 +1,32 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import {ResponsiveValue} from 'styled-system';
 import {Box} from '@twilio-paste/box';
 import {FlexboxProps} from '@twilio-paste/types';
 
-export type displayOptions = 'flex' | 'inline-flex';
-export type vAlignOptions = 'top' | 'center' | 'bottom' | 'stretch';
-export type hAlignOptions = 'left' | 'center' | 'right' | 'around' | 'between';
+export type DisplayOptions = ResponsiveValue<'flex' | 'inline-flex'>;
+export type vAlignOptions = ResponsiveValue<'top' | 'center' | 'bottom' | 'stretch'>;
+export type hAlignOptions = ResponsiveValue<'left' | 'center' | 'right' | 'around' | 'between'>;
+export type AlignOptions = 'top' | 'center' | 'bottom' | 'stretch' | 'left' | 'center' | 'right' | 'around' | 'between';
+export type VerticalOptions = ResponsiveValue<boolean | 'column' | 'row'>;
+export type GrowOptions = ResponsiveValue<boolean | number>;
+export type ShrinkOptions = ResponsiveValue<boolean | number>;
+export type BasisOptions = ResponsiveValue<string | number>;
+export type WrapOptions = ResponsiveValue<boolean | 'wrap' | 'nowrap'>;
 
 export interface FlexProps {
-  display?: displayOptions;
-  vertical?: boolean;
+  display?: DisplayOptions;
+  vertical?: VerticalOptions;
   vAlignContent?: vAlignOptions;
   hAlignContent?: hAlignOptions;
-  grow?: boolean | number;
-  shrink?: boolean | number;
-  basis?: string | number;
-  wrap?: boolean;
+  grow?: GrowOptions;
+  shrink?: ShrinkOptions;
+  basis?: BasisOptions;
+  wrap?: WrapOptions;
 }
 
-function getGrow({grow}: FlexProps): number {
-  if (typeof grow === 'number') {
+function getGrow({grow}: FlexProps): {} {
+  if (typeof grow === 'number' || Array.isArray(grow)) {
     return grow;
   }
 
@@ -30,8 +37,8 @@ function getGrow({grow}: FlexProps): number {
   return 0; // default
 }
 
-function getShrink({shrink, basis}: FlexProps): number {
-  if (typeof shrink === 'number') {
+function getShrink({shrink, basis}: FlexProps): {} {
+  if (typeof shrink === 'number' || Array.isArray(shrink)) {
     return shrink;
   }
 
@@ -50,7 +57,15 @@ function getShrink({shrink, basis}: FlexProps): number {
   return 1; // default
 }
 
-function getBasis({basis}: FlexProps): string {
+function getBasis({basis}: FlexProps): {} {
+  if (Array.isArray(basis)) {
+    return basis.map(value => {
+      // make this a function
+      const suffix = typeof value === 'number' || String(parseInt(value as string, 10)) === value ? 'px' : '';
+      return value + suffix;
+    });
+  }
+
   if (basis) {
     const suffix = typeof basis === 'number' || String(parseInt(basis as string, 10)) === basis ? 'px' : '';
     return basis + suffix;
@@ -59,24 +74,59 @@ function getBasis({basis}: FlexProps): string {
   return 'auto'; // default
 }
 
-function alignPropToFlex(align: FlexProps['vAlignContent'] | FlexProps['hAlignContent']): {} {
-  switch (align) {
-    case 'center':
-      return 'center';
-    case 'bottom':
-    case 'right':
-      return 'flex-end';
-    case 'stretch':
-      return 'stretch';
-    case 'around':
-      return 'space-around';
-    case 'between':
-      return 'space-between';
-    case 'top':
-    case 'left':
-    default:
-      return 'flex-start';
+function getVertical({vertical}: FlexProps): {} {
+  if (Array.isArray(vertical)) {
+    return vertical;
   }
+
+  if (vertical) {
+    return 'column';
+  }
+
+  return 'row'; // default
+}
+
+function getWrap({wrap}: FlexProps): {} {
+  if (Array.isArray(wrap)) {
+    return wrap;
+  }
+
+  if (wrap) {
+    return 'wrap';
+  }
+
+  return 'nowrap'; // default
+}
+
+function getAlign(alignment: AlignOptions) {
+  const alignOptions: {[key in AlignOptions]: string} = {
+    center: 'center',
+    bottom: 'flex-end',
+    right: 'flex-end',
+    stretch: 'stretch',
+    around: 'space-around',
+    between: 'space-between',
+    top: 'flex-start',
+    left: 'flex-start',
+  };
+  return alignOptions[alignment] || alignOptions['default'];
+}
+
+function alignPropToFlex(align: vAlignOptions | hAlignOptions): {} {
+  if (Array.isArray(align)) {
+    const alignment = (align as Array<vAlignOptions | hAlignOptions>).map(function(
+      value: vAlignOptions | hAlignOptions
+    ) {
+      return getAlign(value);
+    });
+    return alignment;
+  }
+
+  if (align) {
+    return getAlign(align);
+  }
+
+  return 'flex-start'; // default
 }
 
 function getFlexStyles(props: FlexProps): FlexboxProps {
@@ -87,15 +137,17 @@ function getFlexStyles(props: FlexProps): FlexboxProps {
   };
 
   if (grow || shrink || basis) {
-    styles.flex = `${getGrow(props)} ${getShrink(props)} ${getBasis(props)}`;
+    styles.flexGrow = getGrow(props);
+    styles.flexShrink = getShrink(props);
+    styles.flexBasis = getBasis(props);
   }
 
   if (vertical) {
-    styles.flexDirection = vertical ? 'column' : 'row';
+    styles.flexDirection = getVertical(props);
   }
 
   if (wrap) {
-    styles.flexWrap = wrap ? 'wrap' : 'nowrap';
+    styles.flexWrap = getWrap(props);
   }
 
   return styles;
@@ -111,13 +163,13 @@ const Flex: React.FC<FlexProps> = props => {
 
 Flex.propTypes = {
   display: PropTypes.oneOf(['flex', 'inline-flex']),
-  vertical: PropTypes.bool,
-  vAlignContent: PropTypes.oneOf(['top', 'center', 'bottom']),
-  hAlignContent: PropTypes.oneOf(['left', 'center', 'right']),
+  vertical: PropTypes.bool || PropTypes.oneOf(['column', 'row']),
+  vAlignContent: PropTypes.oneOf(['top', 'center', 'bottom', 'stretch']),
+  hAlignContent: PropTypes.oneOf(['left', 'center', 'right', 'around', 'between']),
   grow: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
   shrink: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
   basis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  wrap: PropTypes.bool,
+  wrap: PropTypes.bool || PropTypes.oneOf(['wrap', 'nowrap']),
 };
 
 Flex.defaultProps = {
