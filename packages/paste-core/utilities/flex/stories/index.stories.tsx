@@ -3,7 +3,8 @@ import {storiesOf} from '@storybook/react';
 import {withKnobs, select, boolean, number} from '@storybook/addon-knobs';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
-import {Flex, DisplayOptions, vAlignOptions, hAlignOptions} from '../src';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Flex, DisplayOptions, VerticalAlignOptions, HorizontalAlignOptions} from '../src';
 
 const flexDisplayOptions = ['flex', 'inline-flex'];
 const flexVerticalAlignOptions = ['top', 'center', 'bottom', 'stretch'];
@@ -79,7 +80,7 @@ storiesOf('Utilities|Flex', module)
         <Flex display="flex">
           <Flex shrink={0}>
             <Box padding="space30" backgroundColor="colorBackgroundBrand" width="size40" minHeight="size10">
-              <Text textColor="colorTextInverse">I won't shrink</Text>
+              <Text textColor="colorTextInverse">I won&apos;t shrink</Text>
             </Box>
           </Flex>
           <Flex>
@@ -176,7 +177,7 @@ storiesOf('Utilities|Flex', module)
   .add('Vertical Align Top', () => {
     return (
       <Box padding="space30" borderStyle="solid">
-        <Flex display="flex">
+        <Flex display="flex" vAlignContent={['center', 'bottom', 'center']}>
           <Flex>
             <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
           </Flex>
@@ -313,6 +314,24 @@ storiesOf('Utilities|Flex', module)
     return (
       <Box padding="space30" borderStyle="solid">
         <Flex display="flex" hAlignContent="between">
+          <Flex>
+            <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
+          </Flex>
+          <Flex>
+            <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
+          </Flex>
+          <Flex>
+            <Box backgroundColor="colorBackgroundPrimary" minWidth="size20" minHeight="size10" />
+          </Flex>
+        </Flex>
+      </Box>
+    );
+  })
+  .add('Responsive', () => {
+    return (
+      <Box padding="space30" borderStyle="solid">
+        <Paragraph>Boxes will be vertical on mobile and desktop browser sizes.</Paragraph>
+        <Flex display="flex" vertical={['column', 'row', 'column']}>
           <Flex>
             <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
           </Flex>

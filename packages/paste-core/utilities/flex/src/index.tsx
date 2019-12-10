@@ -5,9 +5,8 @@ import {Box} from '@twilio-paste/box';
 import {FlexboxProps} from '@twilio-paste/types';
 
 export type DisplayOptions = ResponsiveValue<'flex' | 'inline-flex'>;
-export type vAlignOptions = ResponsiveValue<'top' | 'center' | 'bottom' | 'stretch'>;
-export type hAlignOptions = ResponsiveValue<'left' | 'center' | 'right' | 'around' | 'between'>;
-export type AlignOptions = 'top' | 'center' | 'bottom' | 'stretch' | 'left' | 'center' | 'right' | 'around' | 'between';
+export type VerticalAlignOptions = ResponsiveValue<'top' | 'center' | 'bottom' | 'stretch'>;
+export type HorizontalAlignOptions = ResponsiveValue<'left' | 'center' | 'right' | 'around' | 'between'>;
 export type VerticalOptions = ResponsiveValue<boolean | 'column' | 'row'>;
 export type GrowOptions = ResponsiveValue<boolean | number>;
 export type ShrinkOptions = ResponsiveValue<boolean | number>;
@@ -17,15 +16,15 @@ export type WrapOptions = ResponsiveValue<boolean | 'wrap' | 'nowrap'>;
 export interface FlexProps {
   display?: DisplayOptions;
   vertical?: VerticalOptions;
-  vAlignContent?: vAlignOptions;
-  hAlignContent?: hAlignOptions;
+  vAlignContent?: VerticalAlignOptions;
+  hAlignContent?: HorizontalAlignOptions;
   grow?: GrowOptions;
   shrink?: ShrinkOptions;
   basis?: BasisOptions;
   wrap?: WrapOptions;
 }
 
-function getGrow({grow}: FlexProps): {} {
+const getGrow = ({grow}: FlexProps): {} => {
   if (typeof grow === 'number' || Array.isArray(grow)) {
     return grow;
   }
@@ -35,9 +34,9 @@ function getGrow({grow}: FlexProps): {} {
   }
 
   return 0; // default
-}
+};
 
-function getShrink({shrink, basis}: FlexProps): {} {
+const getShrink = ({shrink, basis}: FlexProps): {} => {
   if (typeof shrink === 'number' || Array.isArray(shrink)) {
     return shrink;
   }
@@ -55,9 +54,9 @@ function getShrink({shrink, basis}: FlexProps): {} {
   }
 
   return 1; // default
-}
+};
 
-function getBasis({basis}: FlexProps): {} {
+const getBasis = ({basis}: FlexProps): {} => {
   if (Array.isArray(basis)) {
     return basis.map(value => {
       // make this a function
@@ -72,9 +71,9 @@ function getBasis({basis}: FlexProps): {} {
   }
 
   return 'auto'; // default
-}
+};
 
-function getVertical({vertical}: FlexProps): {} {
+const getVertical = ({vertical}: FlexProps): {} => {
   if (Array.isArray(vertical)) {
     return vertical;
   }
@@ -84,9 +83,9 @@ function getVertical({vertical}: FlexProps): {} {
   }
 
   return 'row'; // default
-}
+};
 
-function getWrap({wrap}: FlexProps): {} {
+const getWrap = ({wrap}: FlexProps): {} => {
   if (Array.isArray(wrap)) {
     return wrap;
   }
@@ -96,62 +95,78 @@ function getWrap({wrap}: FlexProps): {} {
   }
 
   return 'nowrap'; // default
-}
+};
 
-function getAlign(alignment: AlignOptions) {
-  const alignOptions: {[key in AlignOptions]: string} = {
+const getVerticalAlign = (vAlign: VerticalAlignOptions) => {
+  return {
+    top: 'flex-start',
     center: 'center',
     bottom: 'flex-end',
-    right: 'flex-end',
     stretch: 'stretch',
-    around: 'space-around',
-    between: 'space-between',
-    top: 'flex-start',
-    left: 'flex-start',
-  };
-  return alignOptions[alignment] || alignOptions['default'];
-}
+  }[vAlign];
+};
 
-function alignPropToFlex(align: vAlignOptions | hAlignOptions): {} {
-  if (Array.isArray(align)) {
-    const alignment = (align as Array<vAlignOptions | hAlignOptions>).map(function(
-      value: vAlignOptions | hAlignOptions
-    ) {
-      return getAlign(value);
+const vAlignToProps = ({vAlignContent}: FlexProps): {} => {
+  if (Array.isArray(vAlignContent)) {
+    return (vAlignContent as VerticalAlignOptions[]).map((value: VerticalAlignOptions) => {
+      return getVerticalAlign(value);
     });
-    return alignment;
   }
 
-  if (align) {
-    return getAlign(align);
+  if (vAlignContent) {
+    return getVerticalAlign(vAlignContent);
   }
 
   return 'flex-start'; // default
-}
+};
 
-function getFlexStyles(props: FlexProps): FlexboxProps {
+const getHorizontalAlign = (hAlign: HorizontalAlignOptions) => {
+  return {
+    left: 'flex-start',
+    center: 'center',
+    right: 'flex-end',
+    around: 'space-around',
+    between: 'space-between',
+  }[hAlign];
+};
+
+const hAlignToProps = ({hAlignContent}: FlexProps): {} => {
+  if (Array.isArray(hAlignContent)) {
+    return (hAlignContent as HorizontalAlignOptions[]).map((value: HorizontalAlignOptions) => {
+      return getHorizontalAlign(value);
+    });
+  }
+
+  if (hAlignContent) {
+    return getHorizontalAlign(hAlignContent);
+  }
+
+  return 'flex-start'; // default
+};
+
+const getFlexStyles = (props: FlexProps): FlexboxProps => {
   const {basis, vertical, grow, shrink, wrap, hAlignContent, vAlignContent} = props;
   const styles: FlexboxProps = {
-    justifyContent: alignPropToFlex(vertical ? vAlignContent : hAlignContent),
-    alignItems: alignPropToFlex(vertical ? hAlignContent : vAlignContent),
+    justifyContent: vertical ? vAlignToProps({vAlignContent}) : hAlignToProps({hAlignContent}),
+    alignItems: vertical ? hAlignToProps({hAlignContent}) : vAlignToProps({vAlignContent}),
   };
 
   if (grow || shrink || basis) {
-    styles.flexGrow = getGrow(props);
-    styles.flexShrink = getShrink(props);
-    styles.flexBasis = getBasis(props);
+    styles.flexGrow = getGrow({grow});
+    styles.flexShrink = getShrink({shrink});
+    styles.flexBasis = getBasis({basis});
   }
 
   if (vertical) {
-    styles.flexDirection = getVertical(props);
+    styles.flexDirection = getVertical({vertical});
   }
 
   if (wrap) {
-    styles.flexWrap = getWrap(props);
+    styles.flexWrap = getWrap({wrap});
   }
 
   return styles;
-}
+};
 
 const Flex: React.FC<FlexProps> = props => {
   return (
