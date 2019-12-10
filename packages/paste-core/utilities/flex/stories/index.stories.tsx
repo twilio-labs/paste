@@ -62,7 +62,7 @@ storiesOf('Utilities|Flex', module)
     return (
       <Box padding="space30" borderStyle="solid">
         <Flex display="flex">
-          <Flex grow={1}>
+          <Flex grow>
             <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10">
               <Text textColor="colorTextInverse">I will grow and shrink</Text>
             </Box>
@@ -78,7 +78,7 @@ storiesOf('Utilities|Flex', module)
     return (
       <Box padding="space30" borderStyle="solid">
         <Flex display="flex">
-          <Flex shrink={0}>
+          <Flex grow shrink={0}>
             <Box padding="space30" backgroundColor="colorBackgroundBrand" width="size40" minHeight="size10">
               <Text textColor="colorTextInverse">I won&apos;t shrink</Text>
             </Box>
