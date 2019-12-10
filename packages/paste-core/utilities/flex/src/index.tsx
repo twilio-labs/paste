@@ -5,7 +5,8 @@ import {Box} from '@twilio-paste/box';
 import {FlexboxProps} from '@twilio-paste/types';
 
 export type DisplayOptions = ResponsiveValue<'flex' | 'inline-flex'>;
-export type VerticalAlignOptions = ResponsiveValue<'top' | 'center' | 'bottom' | 'stretch'>;
+type VerticalAlignOptions = 'top' | 'center' | 'bottom' | 'stretch';
+export type VerticalAlign = ResponsiveValue<VerticalAlignOptions>;
 export type HorizontalAlignOptions = ResponsiveValue<'left' | 'center' | 'right' | 'around' | 'between'>;
 export type VerticalOptions = ResponsiveValue<boolean | 'column' | 'row'>;
 export type GrowOptions = ResponsiveValue<boolean | number>;
@@ -16,7 +17,7 @@ export type WrapOptions = ResponsiveValue<boolean | 'wrap' | 'nowrap'>;
 export interface FlexProps {
   display?: DisplayOptions;
   vertical?: VerticalOptions;
-  vAlignContent?: VerticalAlignOptions;
+  vAlignContent?: VerticalAlign;
   hAlignContent?: HorizontalAlignOptions;
   grow?: GrowOptions;
   shrink?: ShrinkOptions;
@@ -97,30 +98,26 @@ const getWrap = ({wrap}: FlexProps): {} => {
   return 'nowrap'; // default
 };
 
-const getVerticalAlign = (vAlign: VerticalAlignOptions) => {
-  return {
-    top: 'flex-start',
-    center: 'center',
-    bottom: 'flex-end',
-    stretch: 'stretch',
-  }[vAlign];
+const RemapedVerticalAlignments = {
+  top: 'flex-start',
+  center: 'center',
+  bottom: 'flex-end',
+  stretch: 'stretch',
 };
 
 const vAlignToProps = ({vAlignContent}: FlexProps): {} => {
   if (Array.isArray(vAlignContent)) {
-    return (vAlignContent as VerticalAlignOptions[]).map((value: VerticalAlignOptions) => {
-      return getVerticalAlign(value);
-    });
+    return (vAlignContent as Array<VerticalAlignOptions>).map(value => RemapedVerticalAlignments[value]);
   }
 
   if (vAlignContent) {
-    return getVerticalAlign(vAlignContent);
+    return RemapedVerticalAlignments[vAlignContent as VerticalAlignOptions];
   }
 
   return 'flex-start'; // default
 };
 
-const getHorizontalAlign = (hAlign: HorizontalAlignOptions) => {
+const RemapedHorizontalAlignments = (hAlign: HorizontalAlignOptions) => {
   return {
     left: 'flex-start',
     center: 'center',
