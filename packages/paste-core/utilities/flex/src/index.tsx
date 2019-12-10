@@ -58,7 +58,7 @@ const getShrink = ({shrink, basis}: FlexProps): {} => {
   return 1; // default
 };
 
-const getSuffix = (item: BasisOptions) => {
+const getSuffix = (item: BasisOptions): {} => {
   const suffix = typeof item === 'number' || String(parseInt(item as string, 10)) === item ? 'px' : '';
   return item + suffix;
 };
@@ -110,7 +110,7 @@ const RemapedVerticalAlignments = {
 
 const vAlignToProps = ({vAlignContent}: FlexProps): {} => {
   if (Array.isArray(vAlignContent)) {
-    return (vAlignContent as Array<VerticalAlignOptions>).map(value => RemapedVerticalAlignments[value]);
+    return (vAlignContent as VerticalAlignOptions[]).map(value => RemapedVerticalAlignments[value]);
   }
 
   if (vAlignContent) {
@@ -130,7 +130,7 @@ const RemapedHorizontalAlignments = {
 
 const hAlignToProps = ({hAlignContent}: FlexProps): {} => {
   if (Array.isArray(hAlignContent)) {
-    return (hAlignContent as Array<HorizontalAlignOptions>).map(value => RemapedHorizontalAlignments[value]);
+    return (hAlignContent as HorizontalAlignOptions[]).map(value => RemapedHorizontalAlignments[value]);
   }
 
   if (hAlignContent) {
