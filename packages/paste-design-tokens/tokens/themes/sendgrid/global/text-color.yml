@@ -11,8 +11,8 @@ props:
     value: "{!palette-gray-100}"
     comment: Body text color
   color-text-weak:
-    value: "{!palette-gray-70}"
-    comment: Weak body text for visual hierarchy.
+    value: "{!palette-gray-80}"
+    comment: Weak body text for visual hierarchy. Must pass AA color contrast with color-background.
   color-text-inverse:
     value: "{!palette-gray-0}"
     comment: Inverse text color for dark backgrounds. Must pass AA color contrast with color-background-inverse.
