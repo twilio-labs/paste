@@ -4,7 +4,7 @@ import {withKnobs, select, boolean, number} from '@storybook/addon-knobs';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
-import {Flex, DisplayOptions, VerticalAlignOptions, HorizontalAlignOptions} from '../src';
+import {Flex, DisplayOptions, VerticalAlign, HorizontalAlign} from '../src';
 
 const flexDisplayOptions = ['flex', 'inline-flex'];
 const flexVerticalAlignOptions = ['top', 'center', 'bottom', 'stretch'];
@@ -14,8 +14,8 @@ storiesOf('Utilities|Flex', module)
   .addDecorator(withKnobs)
   .add('Flex Alignment Options', () => {
     const flexDisplayValue = select('display', flexDisplayOptions, 'flex') as DisplayOptions;
-    const flexVerticalAlignValue = select('vAlignContent', flexVerticalAlignOptions, 'top') as vAlignOptions;
-    const flexHorizontalAlignValue = select('hAlignContent', flexHorizontalAlignOptions, 'left') as hAlignOptions;
+    const flexVerticalAlignValue = select('vAlignContent', flexVerticalAlignOptions, 'top') as VerticalAlign;
+    const flexHorizontalAlignValue = select('hAlignContent', flexHorizontalAlignOptions, 'left') as HorizontalAlign;
     return (
       <Box padding="space30" borderStyle="solid">
         <Flex
@@ -177,7 +177,7 @@ storiesOf('Utilities|Flex', module)
   .add('Vertical Align Top', () => {
     return (
       <Box padding="space30" borderStyle="solid">
-        <Flex display="flex" vAlignContent={['center', 'bottom', 'center']}>
+        <Flex display="flex" vAlignContent="top">
           <Flex>
             <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
           </Flex>

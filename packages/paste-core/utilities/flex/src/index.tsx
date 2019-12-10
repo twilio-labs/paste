@@ -7,7 +7,8 @@ import {FlexboxProps} from '@twilio-paste/types';
 export type DisplayOptions = ResponsiveValue<'flex' | 'inline-flex'>;
 type VerticalAlignOptions = 'top' | 'center' | 'bottom' | 'stretch';
 export type VerticalAlign = ResponsiveValue<VerticalAlignOptions>;
-export type HorizontalAlignOptions = ResponsiveValue<'left' | 'center' | 'right' | 'around' | 'between'>;
+type HorizontalAlignOptions = 'left' | 'center' | 'right' | 'around' | 'between';
+export type HorizontalAlign = ResponsiveValue<HorizontalAlignOptions>;
 export type VerticalOptions = ResponsiveValue<boolean | 'column' | 'row'>;
 export type GrowOptions = ResponsiveValue<boolean | number>;
 export type ShrinkOptions = ResponsiveValue<boolean | number>;
@@ -18,7 +19,7 @@ export interface FlexProps {
   display?: DisplayOptions;
   vertical?: VerticalOptions;
   vAlignContent?: VerticalAlign;
-  hAlignContent?: HorizontalAlignOptions;
+  hAlignContent?: HorizontalAlign;
   grow?: GrowOptions;
   shrink?: ShrinkOptions;
   basis?: BasisOptions;
@@ -57,18 +58,20 @@ const getShrink = ({shrink, basis}: FlexProps): {} => {
   return 1; // default
 };
 
+const getSuffix = (item: BasisOptions) => {
+  const suffix = typeof item === 'number' || String(parseInt(item as string, 10)) === item ? 'px' : '';
+  return item + suffix;
+};
+
 const getBasis = ({basis}: FlexProps): {} => {
   if (Array.isArray(basis)) {
-    return basis.map(value => {
-      // make this a function
-      const suffix = typeof value === 'number' || String(parseInt(value as string, 10)) === value ? 'px' : '';
-      return value + suffix;
+    return (basis as BasisOptions[]).map((value: BasisOptions) => {
+      return getSuffix(value);
     });
   }
 
   if (basis) {
-    const suffix = typeof basis === 'number' || String(parseInt(basis as string, 10)) === basis ? 'px' : '';
-    return basis + suffix;
+    return getSuffix(basis);
   }
 
   return 'auto'; // default
@@ -117,25 +120,21 @@ const vAlignToProps = ({vAlignContent}: FlexProps): {} => {
   return 'flex-start'; // default
 };
 
-const RemapedHorizontalAlignments = (hAlign: HorizontalAlignOptions) => {
-  return {
-    left: 'flex-start',
-    center: 'center',
-    right: 'flex-end',
-    around: 'space-around',
-    between: 'space-between',
-  }[hAlign];
+const RemapedHorizontalAlignments = {
+  left: 'flex-start',
+  center: 'center',
+  right: 'flex-end',
+  around: 'space-around',
+  between: 'space-between',
 };
 
 const hAlignToProps = ({hAlignContent}: FlexProps): {} => {
   if (Array.isArray(hAlignContent)) {
-    return (hAlignContent as HorizontalAlignOptions[]).map((value: HorizontalAlignOptions) => {
-      return getHorizontalAlign(value);
-    });
+    return (hAlignContent as Array<HorizontalAlignOptions>).map(value => RemapedHorizontalAlignments[value]);
   }
 
   if (hAlignContent) {
-    return getHorizontalAlign(hAlignContent);
+    return RemapedHorizontalAlignments[hAlignContent as HorizontalAlignOptions];
   }
 
   return 'flex-start'; // default
