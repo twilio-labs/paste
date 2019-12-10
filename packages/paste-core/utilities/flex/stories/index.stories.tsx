@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
-import {withKnobs, select, boolean} from '@storybook/addon-knobs';
+import {withKnobs, select, boolean, number} from '@storybook/addon-knobs';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Flex, DisplayOptions, vAlignOptions, hAlignOptions} from '../src';
@@ -11,34 +11,98 @@ const flexHorizontalAlignOptions = ['left', 'center', 'right', 'around', 'betwee
 
 storiesOf('Utilities|Flex', module)
   .addDecorator(withKnobs)
-  .add('Alignment Options', () => {
+  .add('Flex Alignment Options', () => {
     const flexDisplayValue = select('display', flexDisplayOptions, 'flex') as DisplayOptions;
     const flexVerticalAlignValue = select('vAlignContent', flexVerticalAlignOptions, 'top') as vAlignOptions;
     const flexHorizontalAlignValue = select('hAlignContent', flexHorizontalAlignOptions, 'left') as hAlignOptions;
     return (
-      <Flex
-        display={flexDisplayValue}
-        vertical={boolean('vertical', false)}
-        hAlignContent={flexHorizontalAlignValue}
-        vAlignContent={flexVerticalAlignValue}
-        wrap={boolean('wrap', false)}
-      >
-        <Flex shrink>
-          <Box margin="space20" padding="space20" backgroundColor="colorBackgroundBrand" minWidth="size30">
-            <Text textColor="colorTextInverse" textAlign="center">
-              Item 1
-            </Text>
-          </Box>
+      <Box padding="space30" borderStyle="solid">
+        <Flex
+          display={flexDisplayValue}
+          vertical={boolean('vertical', false)}
+          hAlignContent={flexHorizontalAlignValue}
+          vAlignContent={flexVerticalAlignValue}
+          wrap={boolean('wrap', false)}
+        >
+          <Flex shrink>
+            <Box margin="space20" padding="space20" backgroundColor="colorBackgroundBrand" minWidth="size30">
+              <Text textColor="colorTextInverse" textAlign="center">
+                Item 1
+              </Text>
+            </Box>
+          </Flex>
+          <Flex grow>
+            <Box margin="space20" padding="space20" backgroundColor="colorBackgroundBrandHighlight">
+              <Text textColor="colorTextInverse" textAlign="center">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in nunc mi. Duis faucibus, quam id tempus
+                porta, libero sem faucibus odio, ut egestas massa dolor quis mi.
+              </Text>
+            </Box>
+          </Flex>
         </Flex>
-        <Flex grow>
-          <Box margin="space20" padding="space20" backgroundColor="colorBackgroundBrandHighlight">
-            <Text textColor="colorTextInverse" textAlign="center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in nunc mi. Duis faucibus, quam id tempus
-              porta, libero sem faucibus odio, ut egestas massa dolor quis mi.
-            </Text>
-          </Box>
+      </Box>
+    );
+  })
+  .add('Flex Options', () => {
+    return (
+      <Box padding="space30" borderStyle="solid">
+        <Flex display="flex">
+          <Flex grow={number('grow', 0)} shrink={number('shrink', 1)} basis={number('basis', 100)}>
+            <Box backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
+          </Flex>
+          <Flex>
+            <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
+          </Flex>
         </Flex>
-      </Flex>
+      </Box>
+    );
+  })
+  .add('Flex Grow', () => {
+    return (
+      <Box padding="space30" borderStyle="solid">
+        <Flex display="flex">
+          <Flex grow={1}>
+            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10">
+              <Text textColor="colorTextInverse">I will grow and shrink</Text>
+            </Box>
+          </Flex>
+          <Flex>
+            <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
+          </Flex>
+        </Flex>
+      </Box>
+    );
+  })
+  .add('Flex Shrink', () => {
+    return (
+      <Box padding="space30" borderStyle="solid">
+        <Flex display="flex">
+          <Flex shrink={0}>
+            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="size40" minHeight="size10">
+              <Text textColor="colorTextInverse">I won't shrink</Text>
+            </Box>
+          </Flex>
+          <Flex>
+            <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
+          </Flex>
+        </Flex>
+      </Box>
+    );
+  })
+  .add('Flex Basis', () => {
+    return (
+      <Box padding="space30" borderStyle="solid">
+        <Flex display="flex">
+          <Flex basis={400}>
+            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10">
+              <Text textColor="colorTextInverse">I will always be 400px</Text>
+            </Box>
+          </Flex>
+          <Flex>
+            <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
+          </Flex>
+        </Flex>
+      </Box>
     );
   })
   .add('Row', () => {
@@ -165,13 +229,13 @@ storiesOf('Utilities|Flex', module)
       <Box padding="space30" borderStyle="solid">
         <Flex display="flex" vAlignContent="stretch">
           <Flex>
-            <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
+            <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" height="100%" />
           </Flex>
           <Flex>
-            <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size20" />
+            <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size20" height="100%" />
           </Flex>
           <Flex>
-            <Box backgroundColor="colorBackgroundPrimary" minWidth="size20" minHeight="size30" />
+            <Box backgroundColor="colorBackgroundPrimary" minWidth="size20" minHeight="size30" height="100%" />
           </Flex>
         </Flex>
       </Box>
