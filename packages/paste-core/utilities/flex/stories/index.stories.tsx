@@ -4,7 +4,7 @@ import {withKnobs, select, boolean, number} from '@storybook/addon-knobs';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
-import {Flex, DisplayOptions, VerticalAlign, HorizontalAlign} from '../src';
+import {Flex, Display, VerticalAlign, HorizontalAlign} from '../src';
 
 const flexDisplayOptions = ['flex', 'inline-flex'];
 const flexVerticalAlignOptions = ['top', 'center', 'bottom', 'stretch'];
@@ -13,7 +13,7 @@ const flexHorizontalAlignOptions = ['left', 'center', 'right', 'around', 'betwee
 storiesOf('Utilities|Flex', module)
   .addDecorator(withKnobs)
   .add('Flex Alignment Options', () => {
-    const flexDisplayValue = select('display', flexDisplayOptions, 'flex') as DisplayOptions;
+    const flexDisplayValue = select('display', flexDisplayOptions, 'flex') as Display;
     const flexVerticalAlignValue = select('vAlignContent', flexVerticalAlignOptions, 'top') as VerticalAlign;
     const flexHorizontalAlignValue = select('hAlignContent', flexHorizontalAlignOptions, 'left') as HorizontalAlign;
     return (

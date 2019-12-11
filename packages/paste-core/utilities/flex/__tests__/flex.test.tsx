@@ -59,6 +59,32 @@ describe('Flex Options', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('it should set a responsive flex-grow property', (): void => {
+    const tree = renderer
+      .create(
+        <Theme.Provider>
+          <Flex grow={[true, false, 1]}>
+            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
+          </Flex>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('it should set a responsive flex-shrink property', (): void => {
+    const tree = renderer
+      .create(
+        <Theme.Provider>
+          <Flex grow shrink={[true, false, 1]}>
+            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
+          </Flex>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it('it should set a flex-basis property', (): void => {
     const tree = renderer
       .create(
@@ -161,6 +187,24 @@ describe('Flex Row', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('it should set a responsive flex-direction property', (): void => {
+    const tree = renderer
+      .create(
+        <Theme.Provider>
+          <Flex display="flex" vertical={[true, 'row', false]}>
+            <Flex>
+              <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
+            </Flex>
+            <Flex>
+              <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
+            </Flex>
+          </Flex>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
 
 describe('Flex Wrap', () => {
@@ -187,6 +231,24 @@ describe('Flex Wrap', () => {
       .create(
         <Theme.Provider>
           <Flex display="flex" wrap>
+            <Flex>
+              <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
+            </Flex>
+            <Flex>
+              <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
+            </Flex>
+          </Flex>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('it should set a responsive flex-wrap property', (): void => {
+    const tree = renderer
+      .create(
+        <Theme.Provider>
+          <Flex display="flex" wrap={[true, 'wrap', false]}>
             <Flex>
               <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
             </Flex>
