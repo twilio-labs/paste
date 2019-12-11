@@ -9,12 +9,16 @@ type VerticalAlignOptions = 'top' | 'center' | 'bottom' | 'stretch';
 export type VerticalAlign = ResponsiveValue<VerticalAlignOptions>;
 type HorizontalAlignOptions = 'left' | 'center' | 'right' | 'around' | 'between';
 export type HorizontalAlign = ResponsiveValue<HorizontalAlignOptions>;
-export type Vertical = ResponsiveValue<boolean | 'column' | 'row'>;
-export type Grow = ResponsiveValue<boolean | number>;
-export type Shrink = ResponsiveValue<boolean | number>;
+type VerticalOptions = boolean | 'column' | 'row';
+export type Vertical = ResponsiveValue<VerticalOptions>;
+type GrowOptions = boolean | number;
+export type Grow = ResponsiveValue<GrowOptions>;
+type ShrinkOptions = boolean | number;
+export type Shrink = ResponsiveValue<ShrinkOptions>;
 type BasisOptions = string | number;
 export type Basis = ResponsiveValue<BasisOptions>;
-export type Wrap = ResponsiveValue<boolean | 'wrap' | 'nowrap'>;
+type WrapOptions = boolean | 'wrap' | 'nowrap';
+export type Wrap = ResponsiveValue<WrapOptions>;
 
 export interface FlexProps {
   display?: Display;
@@ -28,7 +32,13 @@ export interface FlexProps {
 }
 
 const getGrow = ({grow}: FlexProps): {} => {
-  if (typeof grow === 'number' || Array.isArray(grow)) {
+  if (Array.isArray(grow)) {
+    return (grow as GrowOptions[]).map((value: GrowOptions) => {
+      return Number(value);
+    });
+  }
+
+  if (typeof grow === 'number') {
     return grow;
   }
 
@@ -40,7 +50,13 @@ const getGrow = ({grow}: FlexProps): {} => {
 };
 
 const getShrink = ({shrink, basis}: FlexProps): {} => {
-  if (typeof shrink === 'number' || Array.isArray(shrink)) {
+  if (Array.isArray(shrink)) {
+    return (shrink as ShrinkOptions[]).map((value: ShrinkOptions) => {
+      return Number(value);
+    });
+  }
+
+  if (typeof shrink === 'number') {
     return shrink;
   }
 
@@ -76,7 +92,12 @@ const getBasis = ({basis}: FlexProps): {} => {
 
 const getVertical = ({vertical}: FlexProps): {} => {
   if (Array.isArray(vertical)) {
-    return vertical;
+    return (vertical as VerticalOptions[]).map((value: VerticalOptions) => {
+      if (typeof value === 'boolean') {
+        return value === true ? 'column' : 'row';
+      }
+      return value;
+    });
   }
 
   if (vertical) {
@@ -88,7 +109,12 @@ const getVertical = ({vertical}: FlexProps): {} => {
 
 const getWrap = ({wrap}: FlexProps): {} => {
   if (Array.isArray(wrap)) {
-    return wrap;
+    return (wrap as WrapOptions[]).map((value: WrapOptions) => {
+      if (typeof value === 'boolean') {
+        return value === true ? 'wrap' : 'nowrap';
+      }
+      return value;
+    });
   }
 
   if (wrap) {
