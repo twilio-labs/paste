@@ -112,6 +112,138 @@ exports[`Flex Display it should set a display: inline-flex property 1`] = `
 </div>
 `;
 
+exports[`Flex Options it should set a % flex-basis property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 0.5rem;
+  background-color: #233659;
+  width: 100%;
+  min-height: 5.5rem;
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 50%;
+  -ms-flex-preferred-size: 50%;
+  flex-basis: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<div
+  className="emotion-2"
+>
+  <div
+    className="emotion-1"
+    display="flex"
+  >
+    <div
+      className="emotion-0"
+      width="100%"
+    />
+  </div>
+</div>
+`;
+
+exports[`Flex Options it should set a em flex-basis property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 0.5rem;
+  background-color: #233659;
+  width: 100%;
+  min-height: 5.5rem;
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 400em;
+  -ms-flex-preferred-size: 400em;
+  flex-basis: 400em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<div
+  className="emotion-2"
+>
+  <div
+    className="emotion-1"
+    display="flex"
+  >
+    <div
+      className="emotion-0"
+      width="100%"
+    />
+  </div>
+</div>
+`;
+
 exports[`Flex Options it should set a flex-basis property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -151,9 +283,9 @@ exports[`Flex Options it should set a flex-basis property 1`] = `
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
   flex-grow: 0;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   -webkit-flex-basis: 400px;
   -ms-flex-preferred-size: 400px;
   flex-basis: 400px;
@@ -289,6 +421,138 @@ exports[`Flex Options it should set a flex-shrink property 1`] = `
   -webkit-flex-basis: auto;
   -ms-flex-preferred-size: auto;
   flex-basis: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<div
+  className="emotion-2"
+>
+  <div
+    className="emotion-1"
+    display="flex"
+  >
+    <div
+      className="emotion-0"
+      width="100%"
+    />
+  </div>
+</div>
+`;
+
+exports[`Flex Options it should set a px flex-basis property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 0.5rem;
+  background-color: #233659;
+  width: 100%;
+  min-height: 5.5rem;
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 400px;
+  -ms-flex-preferred-size: 400px;
+  flex-basis: 400px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<div
+  className="emotion-2"
+>
+  <div
+    className="emotion-1"
+    display="flex"
+  >
+    <div
+      className="emotion-0"
+      width="100%"
+    />
+  </div>
+</div>
+`;
+
+exports[`Flex Options it should set a rem flex-basis property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 0.5rem;
+  background-color: #233659;
+  width: 100%;
+  min-height: 5.5rem;
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 400rem;
+  -ms-flex-preferred-size: 400rem;
+  flex-basis: 400rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

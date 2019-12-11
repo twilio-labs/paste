@@ -4,26 +4,27 @@ import {ResponsiveValue} from 'styled-system';
 import {Box} from '@twilio-paste/box';
 import {FlexboxProps} from '@twilio-paste/types';
 
-export type DisplayOptions = ResponsiveValue<'flex' | 'inline-flex'>;
+export type Display = ResponsiveValue<'flex' | 'inline-flex'>;
 type VerticalAlignOptions = 'top' | 'center' | 'bottom' | 'stretch';
 export type VerticalAlign = ResponsiveValue<VerticalAlignOptions>;
 type HorizontalAlignOptions = 'left' | 'center' | 'right' | 'around' | 'between';
 export type HorizontalAlign = ResponsiveValue<HorizontalAlignOptions>;
-export type VerticalOptions = ResponsiveValue<boolean | 'column' | 'row'>;
-export type GrowOptions = ResponsiveValue<boolean | number>;
-export type ShrinkOptions = ResponsiveValue<boolean | number>;
-export type BasisOptions = ResponsiveValue<string | number>;
-export type WrapOptions = ResponsiveValue<boolean | 'wrap' | 'nowrap'>;
+export type Vertical = ResponsiveValue<boolean | 'column' | 'row'>;
+export type Grow = ResponsiveValue<boolean | number>;
+export type Shrink = ResponsiveValue<boolean | number>;
+type BasisOptions = string | number;
+export type Basis = ResponsiveValue<BasisOptions>;
+export type Wrap = ResponsiveValue<boolean | 'wrap' | 'nowrap'>;
 
 export interface FlexProps {
-  display?: DisplayOptions;
-  vertical?: VerticalOptions;
+  display?: Display;
+  vertical?: Vertical;
   vAlignContent?: VerticalAlign;
   hAlignContent?: HorizontalAlign;
-  grow?: GrowOptions;
-  shrink?: ShrinkOptions;
-  basis?: BasisOptions;
-  wrap?: WrapOptions;
+  grow?: Grow;
+  shrink?: Shrink;
+  basis?: Basis;
+  wrap?: Wrap;
 }
 
 const getGrow = ({grow}: FlexProps): {} => {
@@ -35,7 +36,7 @@ const getGrow = ({grow}: FlexProps): {} => {
     return 1;
   }
 
-  return 0; // default
+  return 0;
 };
 
 const getShrink = ({shrink, basis}: FlexProps): {} => {
@@ -43,22 +44,18 @@ const getShrink = ({shrink, basis}: FlexProps): {} => {
     return shrink;
   }
 
-  if (shrink) {
-    return 1;
-  }
-
-  if (shrink === false) {
-    return 0;
+  if (typeof shrink === 'boolean') {
+    return shrink ? 1 : 0;
   }
 
   if (basis && basis !== 'auto') {
     return 0;
   }
 
-  return 1; // default
+  return 1;
 };
 
-const getSuffix = (item: BasisOptions): {} => {
+const getSuffix = (item: Basis): {} => {
   const suffix = typeof item === 'number' || String(parseInt(item as string, 10)) === item ? 'px' : '';
   return item + suffix;
 };
@@ -74,7 +71,7 @@ const getBasis = ({basis}: FlexProps): {} => {
     return getSuffix(basis);
   }
 
-  return 'auto'; // default
+  return 'auto';
 };
 
 const getVertical = ({vertical}: FlexProps): {} => {
@@ -86,7 +83,7 @@ const getVertical = ({vertical}: FlexProps): {} => {
     return 'column';
   }
 
-  return 'row'; // default
+  return 'row';
 };
 
 const getWrap = ({wrap}: FlexProps): {} => {
@@ -98,7 +95,7 @@ const getWrap = ({wrap}: FlexProps): {} => {
     return 'wrap';
   }
 
-  return 'nowrap'; // default
+  return 'nowrap';
 };
 
 const RemapedVerticalAlignments = {
@@ -117,7 +114,7 @@ const vAlignToProps = ({vAlignContent}: FlexProps): {} => {
     return RemapedVerticalAlignments[vAlignContent as VerticalAlignOptions];
   }
 
-  return 'flex-start'; // default
+  return 'flex-start';
 };
 
 const RemapedHorizontalAlignments = {
@@ -137,28 +134,28 @@ const hAlignToProps = ({hAlignContent}: FlexProps): {} => {
     return RemapedHorizontalAlignments[hAlignContent as HorizontalAlignOptions];
   }
 
-  return 'flex-start'; // default
+  return 'flex-start';
 };
 
 const getFlexStyles = (props: FlexProps): FlexboxProps => {
-  const {basis, vertical, grow, shrink, wrap, hAlignContent, vAlignContent} = props;
+  // const {basis, vertical, grow, shrink, wrap, hAlignContent, vAlignContent} = props;
   const styles: FlexboxProps = {
-    justifyContent: vertical ? vAlignToProps({vAlignContent}) : hAlignToProps({hAlignContent}),
-    alignItems: vertical ? hAlignToProps({hAlignContent}) : vAlignToProps({vAlignContent}),
+    justifyContent: props.vertical ? vAlignToProps(props) : hAlignToProps(props),
+    alignItems: props.vertical ? hAlignToProps(props) : vAlignToProps(props),
   };
 
-  if (grow || shrink || basis) {
-    styles.flexGrow = getGrow({grow});
-    styles.flexShrink = getShrink({shrink});
-    styles.flexBasis = getBasis({basis});
+  if (props.grow || props.shrink || props.basis) {
+    styles.flexGrow = getGrow(props);
+    styles.flexShrink = getShrink(props);
+    styles.flexBasis = getBasis(props);
   }
 
-  if (vertical) {
-    styles.flexDirection = getVertical({vertical});
+  if (props.vertical) {
+    styles.flexDirection = getVertical(props);
   }
 
-  if (wrap) {
-    styles.flexWrap = getWrap({wrap});
+  if (props.wrap) {
+    styles.flexWrap = getWrap(props);
   }
 
   return styles;

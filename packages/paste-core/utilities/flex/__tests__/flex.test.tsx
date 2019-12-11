@@ -72,6 +72,58 @@ describe('Flex Options', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('it should set a px flex-basis property', (): void => {
+    const tree = renderer
+      .create(
+        <Theme.Provider>
+          <Flex basis="400px">
+            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
+          </Flex>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('it should set a em flex-basis property', (): void => {
+    const tree = renderer
+      .create(
+        <Theme.Provider>
+          <Flex basis="400em">
+            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
+          </Flex>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('it should set a rem flex-basis property', (): void => {
+    const tree = renderer
+      .create(
+        <Theme.Provider>
+          <Flex basis="400rem">
+            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
+          </Flex>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('it should set a % flex-basis property', (): void => {
+    const tree = renderer
+      .create(
+        <Theme.Provider>
+          <Flex basis="50%">
+            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
+          </Flex>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
 
 describe('Flex Row', () => {
