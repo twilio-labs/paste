@@ -2,7 +2,6 @@ import * as React from 'react';
 import renderer from 'react-test-renderer';
 import {Theme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
-import {shallow, ReactWrapper, mount} from 'enzyme';
 import {Flex} from '../src';
 
 describe('Flex Display', () => {
