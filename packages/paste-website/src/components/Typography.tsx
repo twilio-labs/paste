@@ -29,7 +29,7 @@ export const UL: React.FC<{}> = props => {
 
 export const OL: React.FC<{}> = props => {
   return (
-    <Text as="ol" marginBottom="space60" marginLeft="space70" lineHeight="lineHeight30">
+    <Text as="ol" marginBottom="space70" marginLeft="space70" lineHeight="lineHeight30">
       {props.children}
     </Text>
   );
@@ -52,7 +52,7 @@ export const LI: React.FC<{}> = props => {
 
 export const Pre: React.FC<{}> = props => {
   return (
-    <Text as="pre" marginTop="space60" marginBottom="space60">
+    <Text as="pre" marginBottom="space70" lineHeight="lineHeight20">
       {props.children}
     </Text>
   );
