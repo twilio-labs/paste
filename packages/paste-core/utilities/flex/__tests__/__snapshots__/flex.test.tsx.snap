@@ -56,194 +56,6 @@ exports[`Flex Display it should set a display: flex property 1`] = `
 </div>
 `;
 
-exports[`Flex Display it should set a display: inline-flex property 1`] = `
-.emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  color: #282a2b;
-  font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
-}
-
-.emotion-0 {
-  box-sizing: border-box;
-  min-width: 0;
-  padding: 0.5rem;
-  background-color: #233659;
-  width: 100%;
-  min-height: 5.5rem;
-}
-
-.emotion-1 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
-
-<div
-  className="emotion-2"
->
-  <div
-    className="emotion-1"
-    display="inline-flex"
-  >
-    <div
-      className="emotion-0"
-      width="100%"
-    />
-  </div>
-</div>
-`;
-
-exports[`Flex Options it should set a % flex-basis property 1`] = `
-.emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  color: #282a2b;
-  font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
-}
-
-.emotion-0 {
-  box-sizing: border-box;
-  min-width: 0;
-  padding: 0.5rem;
-  background-color: #233659;
-  width: 100%;
-  min-height: 5.5rem;
-}
-
-.emotion-1 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-flex-basis: 50%;
-  -ms-flex-preferred-size: 50%;
-  flex-basis: 50%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-<div
-  className="emotion-2"
->
-  <div
-    className="emotion-1"
-    display="flex"
-  >
-    <div
-      className="emotion-0"
-      width="100%"
-    />
-  </div>
-</div>
-`;
-
-exports[`Flex Options it should set a em flex-basis property 1`] = `
-.emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  color: #282a2b;
-  font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
-}
-
-.emotion-0 {
-  box-sizing: border-box;
-  min-width: 0;
-  padding: 0.5rem;
-  background-color: #233659;
-  width: 100%;
-  min-height: 5.5rem;
-}
-
-.emotion-1 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-flex-basis: 400em;
-  -ms-flex-preferred-size: 400em;
-  flex-basis: 400em;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-<div
-  className="emotion-2"
->
-  <div
-    className="emotion-1"
-    display="flex"
-  >
-    <div
-      className="emotion-0"
-      width="100%"
-    />
-  </div>
-</div>
-`;
-
 exports[`Flex Options it should set a flex-basis property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -442,7 +254,7 @@ exports[`Flex Options it should set a flex-shrink property 1`] = `
 </div>
 `;
 
-exports[`Flex Options it should set a px flex-basis property 1`] = `
+exports[`Flex Options it should set a responsive flex-basis property 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
@@ -493,70 +305,20 @@ exports[`Flex Options it should set a px flex-basis property 1`] = `
   display: flex;
 }
 
-<div
-  className="emotion-2"
->
-  <div
-    className="emotion-1"
-    display="flex"
-  >
-    <div
-      className="emotion-0"
-      width="100%"
-    />
-  </div>
-</div>
-`;
-
-exports[`Flex Options it should set a rem flex-basis property 1`] = `
-.emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  color: #282a2b;
-  font-weight: 400;
+@media screen and (min-width:25rem) {
+  .emotion-1 {
+    -webkit-flex-basis: 100px;
+    -ms-flex-preferred-size: 100px;
+    flex-basis: 100px;
+  }
 }
 
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
-}
-
-.emotion-0 {
-  box-sizing: border-box;
-  min-width: 0;
-  padding: 0.5rem;
-  background-color: #233659;
-  width: 100%;
-  min-height: 5.5rem;
-}
-
-.emotion-1 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-flex-basis: 400rem;
-  -ms-flex-preferred-size: 400rem;
-  flex-basis: 400rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+@media screen and (min-width:64rem) {
+  .emotion-1 {
+    -webkit-flex-basis: 200px;
+    -ms-flex-preferred-size: 200px;
+    flex-basis: 200px;
+  }
 }
 
 <div
@@ -815,101 +577,6 @@ exports[`Flex Row it should not set a flex-direction property 1`] = `
 </div>
 `;
 
-exports[`Flex Row it should set a flex-direction: column property 1`] = `
-.emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  color: #282a2b;
-  font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
-}
-
-.emotion-1 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-0 {
-  box-sizing: border-box;
-  min-width: 0;
-  background-color: #233659;
-  min-width: 12rem;
-  min-height: 5.5rem;
-}
-
-.emotion-2 {
-  box-sizing: border-box;
-  min-width: 0;
-  background-color: #f22f46;
-  min-width: 12rem;
-  min-height: 5.5rem;
-}
-
-.emotion-4 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-<div
-  className="emotion-5"
->
-  <div
-    className="emotion-4"
-    display="flex"
-  >
-    <div
-      className="emotion-1"
-      display="flex"
-    >
-      <div
-        className="emotion-0"
-      />
-    </div>
-    <div
-      className="emotion-1"
-      display="flex"
-    >
-      <div
-        className="emotion-2"
-      />
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Flex Row it should set a responsive flex-direction property 1`] = `
 .emotion-5 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -1096,101 +763,6 @@ exports[`Flex Wrap it should not set a flex-wrap property 1`] = `
 </div>
 `;
 
-exports[`Flex Wrap it should set a flex-wrap: wrap property 1`] = `
-.emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  color: #282a2b;
-  font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
-}
-
-.emotion-1 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-0 {
-  box-sizing: border-box;
-  min-width: 0;
-  background-color: #233659;
-  min-width: 12rem;
-  min-height: 5.5rem;
-}
-
-.emotion-2 {
-  box-sizing: border-box;
-  min-width: 0;
-  background-color: #f22f46;
-  min-width: 12rem;
-  min-height: 5.5rem;
-}
-
-.emotion-4 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-<div
-  className="emotion-5"
->
-  <div
-    className="emotion-4"
-    display="flex"
-  >
-    <div
-      className="emotion-1"
-      display="flex"
-    >
-      <div
-        className="emotion-0"
-      />
-    </div>
-    <div
-      className="emotion-1"
-      display="flex"
-    >
-      <div
-        className="emotion-2"
-      />
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Flex Wrap it should set a responsive flex-wrap property 1`] = `
 .emotion-5 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -1302,190 +874,6 @@ exports[`Flex Wrap it should set a responsive flex-wrap property 1`] = `
 </div>
 `;
 
-exports[`Horizontal Alignment it should set a justify-content: center property 1`] = `
-.emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  color: #282a2b;
-  font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
-}
-
-.emotion-1 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-0 {
-  box-sizing: border-box;
-  min-width: 0;
-  background-color: #233659;
-  min-width: 12rem;
-  min-height: 5.5rem;
-}
-
-.emotion-2 {
-  box-sizing: border-box;
-  min-width: 0;
-  background-color: #f22f46;
-  min-width: 12rem;
-  min-height: 5.5rem;
-}
-
-.emotion-4 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-<div
-  className="emotion-5"
->
-  <div
-    className="emotion-4"
-    display="flex"
-  >
-    <div
-      className="emotion-1"
-      display="flex"
-    >
-      <div
-        className="emotion-0"
-      />
-    </div>
-    <div
-      className="emotion-1"
-      display="flex"
-    >
-      <div
-        className="emotion-2"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Horizontal Alignment it should set a justify-content: flex-end property 1`] = `
-.emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  color: #282a2b;
-  font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
-}
-
-.emotion-1 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-0 {
-  box-sizing: border-box;
-  min-width: 0;
-  background-color: #233659;
-  min-width: 12rem;
-  min-height: 5.5rem;
-}
-
-.emotion-2 {
-  box-sizing: border-box;
-  min-width: 0;
-  background-color: #f22f46;
-  min-width: 12rem;
-  min-height: 5.5rem;
-}
-
-.emotion-4 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-<div
-  className="emotion-5"
->
-  <div
-    className="emotion-4"
-    display="flex"
-  >
-    <div
-      className="emotion-1"
-      display="flex"
-    >
-      <div
-        className="emotion-0"
-      />
-    </div>
-    <div
-      className="emotion-1"
-      display="flex"
-    >
-      <div
-        className="emotion-2"
-      />
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Horizontal Alignment it should set a justify-content: flex-start property 1`] = `
 .emotion-5 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -1561,191 +949,7 @@ exports[`Horizontal Alignment it should set a justify-content: flex-start proper
 </div>
 `;
 
-exports[`Horizontal Alignment it should set a justify-content: space-around property 1`] = `
-.emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  color: #282a2b;
-  font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
-}
-
-.emotion-1 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-0 {
-  box-sizing: border-box;
-  min-width: 0;
-  background-color: #233659;
-  min-width: 12rem;
-  min-height: 5.5rem;
-}
-
-.emotion-2 {
-  box-sizing: border-box;
-  min-width: 0;
-  background-color: #f22f46;
-  min-width: 12rem;
-  min-height: 5.5rem;
-}
-
-.emotion-4 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: space-around;
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: space-around;
-  justify-content: space-around;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-<div
-  className="emotion-5"
->
-  <div
-    className="emotion-4"
-    display="flex"
-  >
-    <div
-      className="emotion-1"
-      display="flex"
-    >
-      <div
-        className="emotion-0"
-      />
-    </div>
-    <div
-      className="emotion-1"
-      display="flex"
-    >
-      <div
-        className="emotion-2"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Horizontal Alignment it should set a justify-content: space-between property 1`] = `
-.emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  color: #282a2b;
-  font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
-}
-
-.emotion-1 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-0 {
-  box-sizing: border-box;
-  min-width: 0;
-  background-color: #233659;
-  min-width: 12rem;
-  min-height: 5.5rem;
-}
-
-.emotion-2 {
-  box-sizing: border-box;
-  min-width: 0;
-  background-color: #f22f46;
-  min-width: 12rem;
-  min-height: 5.5rem;
-}
-
-.emotion-4 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-<div
-  className="emotion-5"
->
-  <div
-    className="emotion-4"
-    display="flex"
-  >
-    <div
-      className="emotion-1"
-      display="flex"
-    >
-      <div
-        className="emotion-0"
-      />
-    </div>
-    <div
-      className="emotion-1"
-      display="flex"
-    >
-      <div
-        className="emotion-2"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Vertical Alignment it should set a align-items: center property 1`] = `
+exports[`Horizontal Alignment it should set a responsive justify-content property 1`] = `
 .emotion-5 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
@@ -1800,65 +1004,6 @@ exports[`Vertical Alignment it should set a align-items: center property 1`] = `
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-<div
-  className="emotion-5"
->
-  <div
-    className="emotion-4"
-    display="flex"
-  >
-    <div
-      className="emotion-1"
-      display="flex"
-    >
-      <div
-        className="emotion-0"
-      />
-    </div>
-    <div
-      className="emotion-1"
-      display="flex"
-    >
-      <div
-        className="emotion-2"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Vertical Alignment it should set a align-items: flex-end property 1`] = `
-.emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  color: #282a2b;
-  font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
-}
-
-.emotion-1 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -1869,37 +1014,22 @@ exports[`Vertical Alignment it should set a align-items: flex-end property 1`] =
   display: flex;
 }
 
-.emotion-0 {
-  box-sizing: border-box;
-  min-width: 0;
-  background-color: #233659;
-  min-width: 12rem;
-  min-height: 5.5rem;
+@media screen and (min-width:25rem) {
+  .emotion-4 {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
 }
 
-.emotion-2 {
-  box-sizing: border-box;
-  min-width: 0;
-  background-color: #f22f46;
-  min-width: 12rem;
-  min-height: 5.5rem;
-}
-
-.emotion-4 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-end;
-  -webkit-box-align: flex-end;
-  -ms-flex-align: flex-end;
-  align-items: flex-end;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+@media screen and (min-width:64rem) {
+  .emotion-4 {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
 }
 
 <div
@@ -2004,7 +1134,7 @@ exports[`Vertical Alignment it should set a align-items: flex-start property 1`]
 </div>
 `;
 
-exports[`Vertical Alignment it should set a align-items: stretch property 1`] = `
+exports[`Vertical Alignment it should set a responvise align-items property 1`] = `
 .emotion-5 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
@@ -2059,14 +1189,32 @@ exports[`Vertical Alignment it should set a align-items: stretch property 1`] = 
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-4 {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width:64rem) {
+  .emotion-4 {
+    -webkit-align-items: flex-end;
+    -webkit-box-align: flex-end;
+    -ms-flex-align: flex-end;
+    align-items: flex-end;
+  }
 }
 
 <div

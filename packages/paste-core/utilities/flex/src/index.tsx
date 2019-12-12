@@ -4,12 +4,13 @@ import {ResponsiveValue} from 'styled-system';
 import {Box} from '@twilio-paste/box';
 import {FlexboxProps} from '@twilio-paste/types';
 
-export type Display = ResponsiveValue<'flex' | 'inline-flex'>;
+type DisplayOptions = 'flex' | 'inline-flex';
+export type Display = ResponsiveValue<DisplayOptions>;
 type VerticalAlignOptions = 'top' | 'center' | 'bottom' | 'stretch';
 export type VerticalAlign = ResponsiveValue<VerticalAlignOptions>;
 type HorizontalAlignOptions = 'left' | 'center' | 'right' | 'around' | 'between';
 export type HorizontalAlign = ResponsiveValue<HorizontalAlignOptions>;
-type VerticalOptions = boolean | 'column' | 'row';
+type VerticalOptions = boolean;
 export type Vertical = ResponsiveValue<VerticalOptions>;
 type GrowOptions = boolean | number;
 export type Grow = ResponsiveValue<GrowOptions>;
@@ -17,7 +18,7 @@ type ShrinkOptions = boolean | number;
 export type Shrink = ResponsiveValue<ShrinkOptions>;
 type BasisOptions = string | number;
 export type Basis = ResponsiveValue<BasisOptions>;
-type WrapOptions = boolean | 'wrap' | 'nowrap';
+type WrapOptions = boolean;
 export type Wrap = ResponsiveValue<WrapOptions>;
 
 export interface FlexProps {
@@ -165,48 +166,69 @@ export const hAlignToProps = ({hAlignContent}: FlexProps): {} => {
 
 const getFlexStyles = (props: FlexProps): FlexboxProps => {
   const styles: FlexboxProps = {
-    justifyContent: props.vertical
-      ? React.useMemo(() => vAlignToProps(props), [props])
-      : React.useMemo(() => hAlignToProps(props), [props]),
-    alignItems: props.vertical
-      ? React.useMemo(() => hAlignToProps(props), [props])
-      : React.useMemo(() => vAlignToProps(props), [props]),
+    justifyContent: props.vertical ? vAlignToProps(props) : hAlignToProps(props),
+    alignItems: props.vertical ? hAlignToProps(props) : vAlignToProps(props),
   };
 
   if (props.grow || props.shrink || props.basis) {
-    styles.flexGrow = React.useMemo(() => getGrow(props), [props]);
-    styles.flexShrink = React.useMemo(() => getShrink(props), [props]);
-    styles.flexBasis = React.useMemo(() => getBasis(props), [props]);
+    styles.flexGrow = getGrow(props);
+    styles.flexShrink = getShrink(props);
+    styles.flexBasis = getBasis(props);
   }
 
   if (props.vertical) {
-    styles.flexDirection = React.useMemo(() => getVertical(props), [props]);
+    styles.flexDirection = getVertical(props);
   }
 
   if (props.wrap) {
-    styles.flexWrap = React.useMemo(() => getWrap(props), [props]);
+    styles.flexWrap = getWrap(props);
   }
 
   return styles;
 };
 
 const Flex: React.FC<FlexProps> = props => {
+  const FlexStyles = React.useMemo(() => getFlexStyles(props), [props]);
   return (
-    <Box {...getFlexStyles(props)} display={props.display}>
+    <Box {...FlexStyles} display={props.display}>
       {props.children}
     </Box>
   );
 };
 
 Flex.propTypes = {
-  display: PropTypes.oneOf(['flex', 'inline-flex']),
-  vertical: PropTypes.bool || PropTypes.oneOf(['column', 'row']),
-  vAlignContent: PropTypes.oneOf(['top', 'center', 'bottom', 'stretch']),
-  hAlignContent: PropTypes.oneOf(['left', 'center', 'right', 'around', 'between']),
-  grow: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
-  shrink: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
-  basis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  wrap: PropTypes.bool || PropTypes.oneOf(['wrap', 'nowrap']),
+  display: PropTypes.oneOfType([
+    PropTypes.oneOf(['flex', 'inline-flex']),
+    PropTypes.arrayOf(PropTypes.oneOf(['flex', 'inline-flex'])),
+  ] as any),
+  vertical: PropTypes.oneOfType([
+    PropTypes.oneOfType([PropTypes.bool]),
+    PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.bool])),
+  ] as any),
+  vAlignContent: PropTypes.oneOfType([
+    PropTypes.oneOf(['top', 'center', 'bottom', 'stretch']),
+    PropTypes.arrayOf(PropTypes.oneOf(['top', 'center', 'bottom', 'stretch'])),
+  ] as any),
+  hAlignContent: PropTypes.oneOfType([
+    PropTypes.oneOf(['left', 'center', 'right', 'around', 'between']),
+    PropTypes.arrayOf(PropTypes.oneOf(['left', 'center', 'right', 'around', 'between'])),
+  ] as any),
+  grow: PropTypes.oneOfType([
+    PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
+    PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.bool, PropTypes.number])),
+  ] as any),
+  shrink: PropTypes.oneOfType([
+    PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
+    PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.bool, PropTypes.number])),
+  ] as any),
+  basis: PropTypes.oneOfType([
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+  ] as any),
+  wrap: PropTypes.oneOfType([
+    PropTypes.oneOfType([PropTypes.bool]),
+    PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.bool])),
+  ] as any),
 };
 
 Flex.defaultProps = {

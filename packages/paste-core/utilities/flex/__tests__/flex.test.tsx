@@ -207,19 +207,6 @@ describe('Flex Display', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
-
-  it('it should set a display: inline-flex property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider>
-          <Flex display="inline-flex">
-            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
 });
 
 describe('Flex Options', () => {
@@ -241,6 +228,19 @@ describe('Flex Options', () => {
       .create(
         <Theme.Provider>
           <Flex grow shrink>
+            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
+          </Flex>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('it should set a flex-basis property', (): void => {
+    const tree = renderer
+      .create(
+        <Theme.Provider>
+          <Flex basis={400}>
             <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
           </Flex>
         </Theme.Provider>
@@ -275,63 +275,11 @@ describe('Flex Options', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should set a flex-basis property', (): void => {
+  it('it should set a responsive flex-basis property', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider>
-          <Flex basis={400}>
-            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('it should set a px flex-basis property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider>
-          <Flex basis="400px">
-            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('it should set a em flex-basis property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider>
-          <Flex basis="400em">
-            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('it should set a rem flex-basis property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider>
-          <Flex basis="400rem">
-            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('it should set a % flex-basis property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider>
-          <Flex basis="50%">
+          <Flex basis={[400, 100, 200]}>
             <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
           </Flex>
         </Theme.Provider>
@@ -360,29 +308,11 @@ describe('Flex Row', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should set a flex-direction: column property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider>
-          <Flex display="flex" vertical>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
-            </Flex>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
-            </Flex>
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
   it('it should set a responsive flex-direction property', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider>
-          <Flex display="flex" vertical={[true, 'row', false]}>
+          <Flex display="flex" vertical={[true, false, false]}>
             <Flex>
               <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
             </Flex>
@@ -416,29 +346,11 @@ describe('Flex Wrap', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should set a flex-wrap: wrap property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider>
-          <Flex display="flex" wrap>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
-            </Flex>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
-            </Flex>
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
   it('it should set a responsive flex-wrap property', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider>
-          <Flex display="flex" wrap={[true, 'wrap', false]}>
+          <Flex display="flex" wrap={[true, true, false]}>
             <Flex>
               <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
             </Flex>
@@ -472,47 +384,11 @@ describe('Vertical Alignment', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should set a align-items: center property', (): void => {
+  it('it should set a responvise align-items property', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider>
-          <Flex display="flex" vAlignContent="center">
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
-            </Flex>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
-            </Flex>
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('it should set a align-items: flex-end property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider>
-          <Flex display="flex" vAlignContent="bottom">
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
-            </Flex>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
-            </Flex>
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('it should set a align-items: stretch property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider>
-          <Flex display="flex" vAlignContent="stretch">
+          <Flex display="flex" vAlignContent={['top', 'center', 'bottom']}>
             <Flex>
               <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
             </Flex>
@@ -546,65 +422,11 @@ describe('Horizontal Alignment', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should set a justify-content: center property', (): void => {
+  it('it should set a responsive justify-content property', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider>
-          <Flex display="flex" hAlignContent="center">
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
-            </Flex>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
-            </Flex>
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('it should set a justify-content: flex-end property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider>
-          <Flex display="flex" hAlignContent="right">
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
-            </Flex>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
-            </Flex>
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('it should set a justify-content: space-around property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider>
-          <Flex display="flex" hAlignContent="around">
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
-            </Flex>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
-            </Flex>
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('it should set a justify-content: space-between property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider>
-          <Flex display="flex" hAlignContent="between">
+          <Flex display="flex" hAlignContent={['left', 'center', 'right']}>
             <Flex>
               <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
             </Flex>

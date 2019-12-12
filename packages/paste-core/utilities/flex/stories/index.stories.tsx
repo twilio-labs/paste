@@ -331,7 +331,7 @@ storiesOf('Utilities|Flex', module)
     return (
       <Box padding="space30" borderStyle="solid">
         <Paragraph>Boxes will be vertical on mobile and desktop browser sizes.</Paragraph>
-        <Flex display="flex" vertical={['column', 'row', 'column']}>
+        <Flex display="flex" vertical={[true, false, true]}>
           <Flex>
             <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
           </Flex>
