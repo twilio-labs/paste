@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@1.1.0...@twilio-paste/spinner@1.1.1) (2019-12-05)
+
+
+### Bug Fixes
+
+* **spinner:** export the prop types with the component ([#206](https://github.com/twilio-labs/paste/issues/206)) ([e073184](https://github.com/twilio-labs/paste/commit/e073184dbec47ae4572732b2962cf28e8521adb4))
+
+
+
+
+
 # [1.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@1.0.2...@twilio-paste/spinner@1.1.0) (2019-11-20)
 
 
