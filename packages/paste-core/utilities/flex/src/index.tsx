@@ -165,22 +165,26 @@ export const hAlignToProps = ({hAlignContent}: FlexProps): {} => {
 
 const getFlexStyles = (props: FlexProps): FlexboxProps => {
   const styles: FlexboxProps = {
-    justifyContent: props.vertical ? vAlignToProps(props) : hAlignToProps(props),
-    alignItems: props.vertical ? hAlignToProps(props) : vAlignToProps(props),
+    justifyContent: props.vertical
+      ? React.useMemo(() => vAlignToProps(props), [props])
+      : React.useMemo(() => hAlignToProps(props), [props]),
+    alignItems: props.vertical
+      ? React.useMemo(() => hAlignToProps(props), [props])
+      : React.useMemo(() => vAlignToProps(props), [props]),
   };
 
   if (props.grow || props.shrink || props.basis) {
-    styles.flexGrow = getGrow(props);
-    styles.flexShrink = getShrink(props);
-    styles.flexBasis = getBasis(props);
+    styles.flexGrow = React.useMemo(() => getGrow(props), [props]);
+    styles.flexShrink = React.useMemo(() => getShrink(props), [props]);
+    styles.flexBasis = React.useMemo(() => getBasis(props), [props]);
   }
 
   if (props.vertical) {
-    styles.flexDirection = getVertical(props);
+    styles.flexDirection = React.useMemo(() => getVertical(props), [props]);
   }
 
   if (props.wrap) {
-    styles.flexWrap = getWrap(props);
+    styles.flexWrap = React.useMemo(() => getWrap(props), [props]);
   }
 
   return styles;
