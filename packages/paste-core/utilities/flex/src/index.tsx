@@ -31,7 +31,7 @@ export interface FlexProps {
   wrap?: Wrap;
 }
 
-const getGrow = ({grow}: FlexProps): {} => {
+export const getGrow = ({grow}: FlexProps): {} => {
   if (Array.isArray(grow)) {
     return (grow as GrowOptions[]).map((value: GrowOptions) => {
       return Number(value);
@@ -49,7 +49,7 @@ const getGrow = ({grow}: FlexProps): {} => {
   return 0;
 };
 
-const getShrink = ({shrink, basis}: FlexProps): {} => {
+export const getShrink = ({shrink, basis}: FlexProps): {} => {
   if (Array.isArray(shrink)) {
     return (shrink as ShrinkOptions[]).map((value: ShrinkOptions) => {
       return Number(value);
@@ -71,12 +71,12 @@ const getShrink = ({shrink, basis}: FlexProps): {} => {
   return 1;
 };
 
-const getSuffix = (item: Basis): {} => {
+export const getSuffix = (item: Basis): {} => {
   const suffix = typeof item === 'number' || String(parseInt(item as string, 10)) === item ? 'px' : '';
   return item + suffix;
 };
 
-const getBasis = ({basis}: FlexProps): {} => {
+export const getBasis = ({basis}: FlexProps): {} => {
   if (Array.isArray(basis)) {
     return (basis as BasisOptions[]).map((value: BasisOptions) => {
       return getSuffix(value);
@@ -90,7 +90,7 @@ const getBasis = ({basis}: FlexProps): {} => {
   return 'auto';
 };
 
-const getVertical = ({vertical}: FlexProps): {} => {
+export const getVertical = ({vertical}: FlexProps): {} => {
   if (Array.isArray(vertical)) {
     return (vertical as VerticalOptions[]).map((value: VerticalOptions) => {
       if (typeof value === 'boolean') {
@@ -107,7 +107,7 @@ const getVertical = ({vertical}: FlexProps): {} => {
   return 'row';
 };
 
-const getWrap = ({wrap}: FlexProps): {} => {
+export const getWrap = ({wrap}: FlexProps): {} => {
   if (Array.isArray(wrap)) {
     return (wrap as WrapOptions[]).map((value: WrapOptions) => {
       if (typeof value === 'boolean') {
@@ -131,7 +131,7 @@ const RemapedVerticalAlignments = {
   stretch: 'stretch',
 };
 
-const vAlignToProps = ({vAlignContent}: FlexProps): {} => {
+export const vAlignToProps = ({vAlignContent}: FlexProps): {} => {
   if (Array.isArray(vAlignContent)) {
     return (vAlignContent as VerticalAlignOptions[]).map(value => RemapedVerticalAlignments[value]);
   }
@@ -151,7 +151,7 @@ const RemapedHorizontalAlignments = {
   between: 'space-between',
 };
 
-const hAlignToProps = ({hAlignContent}: FlexProps): {} => {
+export const hAlignToProps = ({hAlignContent}: FlexProps): {} => {
   if (Array.isArray(hAlignContent)) {
     return (hAlignContent as HorizontalAlignOptions[]).map(value => RemapedHorizontalAlignments[value]);
   }
@@ -164,7 +164,6 @@ const hAlignToProps = ({hAlignContent}: FlexProps): {} => {
 };
 
 const getFlexStyles = (props: FlexProps): FlexboxProps => {
-  // const {basis, vertical, grow, shrink, wrap, hAlignContent, vAlignContent} = props;
   const styles: FlexboxProps = {
     justifyContent: props.vertical ? vAlignToProps(props) : hAlignToProps(props),
     alignItems: props.vertical ? hAlignToProps(props) : vAlignToProps(props),
