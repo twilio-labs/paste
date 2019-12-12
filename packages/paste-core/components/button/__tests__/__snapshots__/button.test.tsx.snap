@@ -65,6 +65,12 @@ exports[`Button States Has a disabled state 1`] = `
 }
 
 .emotion-2:hover,
+.emotion-2:focus,
+.emotion-2:active {
+  color: #ffffff;
+}
+
+.emotion-2:hover,
 .emotion-2:active {
   background-color: #b3d3e9;
 }
@@ -128,6 +134,12 @@ exports[`Button States Has a disabled state 1`] = `
 
 .emotion-10::-moz-focus-inner {
   border: none;
+}
+
+.emotion-10:hover,
+.emotion-10:focus,
+.emotion-10:active {
+  color: #ffffff;
 }
 
 .emotion-14 {
@@ -344,6 +356,12 @@ exports[`Button States Has a loading state 1`] = `
   border: none;
 }
 
+.emotion-6:hover,
+.emotion-6:focus,
+.emotion-6:active {
+  color: #ffffff;
+}
+
 .emotion-6,
 .emotion-6:hover,
 .emotion-6:active,
@@ -476,6 +494,12 @@ exports[`Button States Has a loading state 1`] = `
 
 .emotion-22::-moz-focus-inner {
   border: none;
+}
+
+.emotion-22:hover,
+.emotion-22:focus,
+.emotion-22:active {
+  color: #ffffff;
 }
 
 .emotion-30 {
@@ -904,6 +928,19 @@ exports[`Button Variants Has a destructive variant 1`] = `
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
+.emotion-2:hover,
+.emotion-2:focus,
+.emotion-2:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-2:hover,
+.emotion-2:focus,
+.emotion-2:active {
+  color: #ffffff;
+}
+
 .emotion-2:hover {
   border-color: #600101;
   background-color: #600101;
@@ -1003,6 +1040,13 @@ exports[`Button Variants Has a destructive_link variant 1`] = `
 .emotion-2:focus,
 .emotion-2:active {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+}
+
+.emotion-2:hover,
+.emotion-2:focus,
+.emotion-2:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-2:hover,
@@ -1109,6 +1153,13 @@ exports[`Button Variants Has a link variant 1`] = `
 .emotion-2:hover,
 .emotion-2:focus,
 .emotion-2:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-2:hover,
+.emotion-2:focus,
+.emotion-2:active {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -1191,6 +1242,19 @@ exports[`Button Variants Has a primary variant 1`] = `
 .emotion-2:focus,
 .emotion-2:active {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+}
+
+.emotion-2:hover,
+.emotion-2:focus,
+.emotion-2:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-2:hover,
+.emotion-2:focus,
+.emotion-2:active {
+  color: #ffffff;
 }
 
 .emotion-2:hover {
@@ -1311,6 +1375,13 @@ exports[`Button Variants Has a reset variant 1`] = `
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
+.emotion-2:hover,
+.emotion-2:focus,
+.emotion-2:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 <div
   className="emotion-4"
 >
@@ -1401,6 +1472,13 @@ exports[`Button Variants Has a secondary variant 1`] = `
 .emotion-2:focus,
 .emotion-2:active {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+}
+
+.emotion-2:hover,
+.emotion-2:focus,
+.emotion-2:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-2:hover {

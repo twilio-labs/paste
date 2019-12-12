@@ -8758,9 +8758,15 @@ ejs@^2.6.1:
   integrity sha512-7vmuyh5+kuUyJKePhQfRQBhXV5Ce+RnaeeQArKu1EAMpL3WbgMt5WG6uQZpEVvYSSsxMXRKOewtDk9RaTKXRlA==
 
 electron-to-chromium@^1.3.247, electron-to-chromium@^1.3.306, electron-to-chromium@^1.3.47:
+<<<<<<< HEAD
   version "1.3.309"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.309.tgz#9e1e5e23c73d04f0364e524afaafd6659289ae1b"
   integrity sha512-NZd91XD15v2UPLjYXoN/gLnkwIUQjdH4SQLpRCCQiYJH6BBkfgp5pWemBJPr1rZ2dl8Ee3o91O9Sa1QuAfZmog==
+=======
+  version "1.3.308"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.308.tgz#73c2cd8f865abc1c31623725e4f89225e9e209e6"
+  integrity sha512-IwU/0LTzTa03Q0YDzg11RlK8e/V92tmPqFOaTEsdv7JJXtC/+v/H4bT2FmsA/xaFQWJvi0ZVcRppw8o0AD9XJQ==
+>>>>>>> af314bb0a53fc0c533821cacf229179618e3312b
 
 element-resize-detector@^1.1.15:
   version "1.1.15"
@@ -13477,7 +13483,11 @@ is-svg@^3.0.0:
   dependencies:
     html-comment-regex "^1.1.0"
 
+<<<<<<< HEAD
 is-symbol@^1.0.2, is-symbol@^1.0.3:
+=======
+is-symbol@^1.0.2:
+>>>>>>> af314bb0a53fc0c533821cacf229179618e3312b
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/is-symbol/-/is-symbol-1.0.3.tgz#38e1014b9e6329be0de9d24a414fd7441ec61937"
   integrity sha512-OwijhaRSgqvhm/0ZdAcXNZt9lYdKFpcRDT5ULUuYXPoT794UNOdU+gpT6Rzo7b4V2HUl/op6GqY894AZwv9faQ==

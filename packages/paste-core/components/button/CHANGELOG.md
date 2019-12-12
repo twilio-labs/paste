@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.1.0...@twilio-paste/button@1.1.1) (2019-11-27)
+
+
+### Bug Fixes
+
+* **button:** defensively set hover/focus/active styles from legacy globals ([#205](https://github.com/twilio-labs/paste/issues/205)) ([2a9ce57](https://github.com/twilio-labs/paste/commit/2a9ce57a61a0ef9c1aadc0cfe0c9c112b4bc784e))
+
+
+
+
+
 # [1.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.0.2...@twilio-paste/button@1.1.0) (2019-11-20)
 
 

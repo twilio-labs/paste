@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.4.1...@twilio-paste/website@1.5.0) (2019-11-27)
+
+
+### Features
+
+* update roadmap page through release 0.7 ([#201](https://github.com/twilio-labs/paste/issues/201)) ([194b360](https://github.com/twilio-labs/paste/commit/194b360afa31d3d429fab2e0f9b302af6fc321cb))
+
+
+
+
+
 ## [1.4.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.4.0...@twilio-paste/website@1.4.1) (2019-11-21)
 
 
