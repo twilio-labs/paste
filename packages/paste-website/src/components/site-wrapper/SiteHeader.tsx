@@ -8,7 +8,6 @@ import {ThemeSwitcher} from '../ThemeSwitcher';
 import GithubIcon from '../icons/GithubIcon';
 import {SIDEBAR_WIDTH, HEADER_HEIGHT} from './constants';
 import {version} from '../../../../../package.json';
-import {useActiveSiteTheme} from '../../context/ActiveSiteThemeContext';
 
 interface FlexProps {
   justifyContent?: string;
@@ -24,7 +23,6 @@ export const Flex = styled.div<FlexProps>(({justifyContent, alignItems = 'center
 
 export const SiteHeader: React.FC<{}> = () => {
   const theme = useTheme();
-  const {theme: activeTheme} = useActiveSiteTheme();
   return (
     <>
       <Absolute
@@ -46,17 +44,6 @@ export const SiteHeader: React.FC<{}> = () => {
       >
         <Flex justifyContent="space-between">
           <ThemeSwitcher />
-          {activeTheme === 'default' && (
-            <Box
-              backgroundColor="colorBackgroundWarningLightest"
-              borderRadius="borderRadius20"
-              padding="space20"
-              paddingLeft="space40"
-              paddingRight="space40"
-            >
-              <strong>WARNING:</strong> The Paste theme is an <em>extremely early</em> preview of future work!!!
-            </Box>
-          )}
           <Flex>
             <Box marginRight="space60">
               <Anchor href="https://www.github.com/twilio-labs/paste/issues">Ask a question</Anchor>
