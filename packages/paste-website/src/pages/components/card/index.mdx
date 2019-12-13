@@ -10,10 +10,13 @@ import {Button} from '@twilio-paste/button';
 import {Card, CardFooter} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
+import {Paragraph} from '@twilio-paste/paragraph';
 import Changelog from '@twilio-paste/card/CHANGELOG.md';
+import Img from 'gatsby-image';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
+import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 
 export const pageQuery = graphql`
   {
@@ -24,6 +27,34 @@ export const pageQuery = graphql`
           description
           status
           version
+        }
+      }
+    }
+    primaryButtonDo: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/do1-primary-button.png"}) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+     primaryButtonDont: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/dont1-primary-button.png"}) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    headingInCardDo: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/do2-heading-in-card.png"}) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    multiplePrimaryDont: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/dont2-multiple-primary.png"}) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -56,70 +87,154 @@ export const pageQuery = graphql`
 
 ### About Cards
 
-Cards are a specifically-styled container that group relatable content and actions.
-Card is an extremely flexible container that does not require specific components inside of it,
-allowing an implementer to compose as needed, but elements such as Title, Body,
-and Button or Anchor are commonly used. See Examples for common Card patterns.
-A Card does not currently handle any interactive events such as hover, click or focus,
-though children composed inside of it may commonly have event handlers.
+Cards are specifically-styled containers that group relatable content and actions. Card is an extremely 
+flexible container that does not require specific components inside of it, allowing an implementer to 
+compose as needed, but elements such as Heading, Text, and Button or Anchor are commonly used.
+See When to use a Card and Examples for common Card patterns and dos/dont’s. A Card does not 
+currently handle any interactive events such as hover, click, or focus, though children 
+composed inside of it may commonly have event handlers.
 
-Acknowledging the flexibility of Card component, there are several non-negotiable
-properties of a Card that differentiate it from a more basic page-layout element, such as Box:
+Acknowledging the flexibility of Card component, there are several non-negotiable properties 
+of a Card that differentiate it from a more basic page-layout element, such as Box:
 
 * A background color of $color-background-body.
 * A border width of $border-width-20.
 * A border radius of $border-radius-20.
-* A border color of $color-border.
+* A border color of $color-border-light.
 * A flexible width and height.
     * Height is determined by a Card’s child components
     * Width is determined by the parent component or container surrounding Card
 
 ### Card vs. Box
 
-A card is a box with default attributes defined above. The purpose of the card is to provide a consistent experience to use across the website the design team can
+At its core, Card is a Box with styled with the specific default attributes above and more explicit use cases 
+and that you can find in Examples. If you find yourself limited by the default styling and constraints of a 
+Card, you may consider using a Box instead, but first consider bringing the problem you are trying to solve 
+to Design System Office Hours to see if another component or pattern could fit your needs. 
 
 
 ### Examples
 
-<LivePreview scope={{Card, Text, CardFooter, Heading}} language="jsx">
+#### Basic Card
+
+An example of a Card with default padding.
+
+
+<LivePreview scope={{Card, Paragraph, CardFooter, Heading}} language="jsx">
+  {`
+    <Card>
+      <Heading as="h2">This is a card</Heading>
+      <Paragraph>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+        labore et dolore magna aliqua.
+      </Paragraph>    
+    </Card>`}
+</LivePreview>
+
+#### Card with Title, Body and Button
+
+One of the most common use cases for a Card is to relate a Title (Heading) , supporting body copy (Text), 
+and Button together. Relating these three elements together with a Card makes it easy for a user to 
+digest and provides a clear call to action. Padding surrounding the inner content of a Card can be 
+adjusted to suit the needs of your implementation. 
+
+
+<LivePreview scope={{Card, Paragraph, CardFooter, Heading, Button}} language="jsx">
   {`<Card>
-  <Heading as="h2">With a heading</Heading>
-  <Text as="p">Body</Text>
-  <CardFooter>
-    <Text as="p">I&apos;m | The | Footer</Text>
-  </CardFooter>
+  <Heading as="h2">This is a card with a primary action</Heading>
+  <Paragraph>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dui tellus, tristique in tincidunt cursus, efficitur
+    at felis. Phasellus imperdiet, lorem et commodo egestas, arcu.
+  </Paragraph>
+
+  <Button variant="submit"> I am a primary action button </Button>
 </Card>`}
 </LivePreview>
 
-<LivePreview scope={{Card, Text, CardFooter, Heading, Button}} language="jsx">
-  {`<Card>
-  <Heading as="h2">This is a card with buttons!</Heading>
-  <Text as="p">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dui tellus,
-    tristique in tincidunt cursus, efficitur at felis. Phasellus imperdiet,
-    lorem et commodo egestas, arcu.
-  </Text>
-  <CardFooter>
-    <Button variant="destructive">Cancel</Button>
-    <Button variant="submit">Submit</Button>
-  </CardFooter>
-</Card>`}
-</LivePreview>
+#### Card with Centered Content
 
-<LivePreview scope={{Card, Text, Heading}} language="jsx">
+Your implementation use case my call for a Card with centered content. You can accommodate this by 
+using the alignment props available on some components, or by creating a custom layout inside your 
+Card using Box or Flex. 
+
+<LivePreview scope={{Card, Paragraph, Heading, Button, PlusIcon}} language="jsx">
   {`<Card padding="space200">
-  <Heading as="h2">With some padding</Heading>
-  <Text as="p">Body</Text>
+  <div style={{textAlign: 'center'}}>
+    <PlusIcon decorative title="There just wasn't a details icon to use"/>
+    <Heading as="h2">Let's verify your integration</Heading>
+    <Paragraph>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua.
+    </Paragraph>
+    <Button variant="submit"> Test my integration </Button>
+  </div>
+</Card>;`}
+</LivePreview>
+
+#### Card with Custom Layout
+
+<LivePreview scope={{Card, Paragraph, Heading, Button}} language="jsx">
+  {`<Card>
+  <Heading as="h2">Heading Two</Heading>
+  <Paragraph>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dui tellus, tristique in tincidunt cursus, efficitur
+    at felis. Phasellus imperdiet, lorem et commodo egestas, arcu.
+  </Paragraph>  
 </Card>`}
 </LivePreview>
 
+## Composing a Card
 
-<LivePreview scope={{Card, Text, Heading}} language="jsx">
-  {`<Card aria-busy aria-atomic data-qahook="ZeCard!" >
-  <Heading as="h2">Prop Passthrough</Heading>
-  <Text as="p">Body</Text>
-</Card>`}
-</LivePreview>
+Cards are a great tool for relating a concise amount of related information together in one object, much like a business card or baseball card in real life. 
+
+For example, you might use a single Card as a summary for a feature whose call to action encourages a user to dive deeper. Alternatively, multiple Cards on a single page with hierarchy of equal weights could be used to highlight multiple choices or paths a user can take. 
+
+Ultimately, Card is a very flexible component that can fit a variety of needs. If you feel that you have a unique use case or are limited by the Card implementation, please visit Design System Office Hours to see how we can help address your needs. 
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Have a clear call to action when including Buttons. Avoid including more than one primary and one secondary button."
+    preview={false}
+  >
+    <Img fluid={props.data.primaryButtonDo.childImageSharp.fluid} />
+  </Do>
+  <Dont title="Don't" body="Don’t put multiple primary actions in a Card" preview={false} >
+    <Img fluid={props.data.primaryButtonDont.childImageSharp.fluid} />
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use a Heading in your Card that appropriately reflects the information architecture of the page." preview={false} >
+    <Img fluid={props.data.headingInCardDo.childImageSharp.fluid} />
+  </Do>
+  <Dont title="Don't" body={<>Don’t use Cards to highlight multiple primary actions on a single page. <br /><br />
+    Don’t use multiple Heading components in one Card</>} preview={false} >
+    <Img fluid={props.data.multiplePrimaryDont.childImageSharp.fluid} />
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use a Heading to set a clear expectation on the Card’s purpose."
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body="Don’t place multiple Header components in a single Card."
+    preview={false}
+  />
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use a consistent location on the bottom of the Card for primary actions or next steps."
+    preview={false}
+  />
+  
+</DoDont>
 
 
 ## Usage Guide

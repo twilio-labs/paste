@@ -4,29 +4,6 @@ import {PaddingProps} from '@twilio-paste/types';
 import {StaticDiv} from '@twilio-paste/types/src/DomTypes';
 import {errorOnBadProps, paddingProps} from './utilities';
 
-interface CardFooterProps extends PaddingProps, StaticDiv {}
-const cardFooterProps = paddingProps;
-
-const CardFooter: React.FunctionComponent<CardFooterProps> = ({children, ...attributes}) => {
-  errorOnBadProps(attributes, cardFooterProps);
-
-  return (
-    <Box
-      as="article"
-      borderTopWidth="borderWidth10"
-      borderBottomWidth="borderWidth0"
-      borderLeftWidth="borderWidth0"
-      borderRightWidth="borderWidth0"
-      marginTop="space40"
-      paddingTop="space40"
-      borderStyle="solid"
-      {...attributes}
-    >
-      {children}
-    </Box>
-  );
-};
-
 interface CardProps extends PaddingProps, StaticDiv {}
 const cardProps = paddingProps;
 
@@ -49,4 +26,4 @@ const Card: React.FunctionComponent<CardProps> = ({children, ...attributes}) => 
   );
 };
 
-export {Card, CardFooter, cardProps, cardFooterProps};
+export {Card, cardProps};
