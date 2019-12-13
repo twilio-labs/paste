@@ -90,12 +90,12 @@ export const pageQuery = graphql`
 Cards are specifically-styled containers that group relatable content and actions. Card is an extremely 
 flexible container that does not require specific components inside of it, allowing an implementer to 
 compose as needed, but elements such as Heading, Text, and Button or Anchor are commonly used.
-See When to use a Card and Examples for common Card patterns and dos/dont’s. A Card does not 
+See [When to use a Card](#when-to-use-a-card) and [Examples](#examples) for common Card patterns and dos/dont’s. A Card does not 
 currently handle any interactive events such as hover, click, or focus, though children 
 composed inside of it may commonly have event handlers.
 
 Acknowledging the flexibility of Card component, there are several non-negotiable properties 
-of a Card that differentiate it from a more basic page-layout element, such as Box:
+of a Card that differentiate it from a more basic page-layout element, such as [Box](/utilities/box):
 
 * A background color of $color-background-body.
 * A border width of $border-width-20.
@@ -120,14 +120,13 @@ to Design System Office Hours to see if another component or pattern could fit y
 An example of a Card with default padding.
 
 
-<LivePreview scope={{Card, Paragraph, CardFooter, Heading}} language="jsx">
-  {`
-    <Card>
+<LivePreview scope={{Card, Text, CardFooter, Heading}} language="jsx">
+  {`    <Card>
       <Heading as="h2">This is a card</Heading>
-      <Paragraph>
+      <Text as="p">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
         labore et dolore magna aliqua.
-      </Paragraph>    
+      </Text>    
     </Card>`}
 </LivePreview>
 
@@ -140,7 +139,7 @@ adjusted to suit the needs of your implementation.
 
 
 <LivePreview scope={{Card, Paragraph, CardFooter, Heading, Button}} language="jsx">
-  {`<Card>
+  {`<Card padding="space120">
   <Heading as="h2">This is a card with a primary action</Heading>
   <Paragraph>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dui tellus, tristique in tincidunt cursus, efficitur
@@ -170,7 +169,8 @@ Card using Box or Flex.
   </div>
 </Card>;`}
 </LivePreview>
-
+{/* 
+We didn't have an icon or grid/layout components so we'll save this example for later.
 #### Card with Custom Layout
 
 <LivePreview scope={{Card, Paragraph, Heading, Button}} language="jsx">
@@ -181,10 +181,10 @@ Card using Box or Flex.
     at felis. Phasellus imperdiet, lorem et commodo egestas, arcu.
   </Paragraph>  
 </Card>`}
-</LivePreview>
+</LivePreview> */}
 
 ## Composing a Card
-
+### When to use a Card
 Cards are a great tool for relating a concise amount of related information together in one object, much like a business card or baseball card in real life. 
 
 For example, you might use a single Card as a summary for a feature whose call to action encourages a user to dive deeper. Alternatively, multiple Cards on a single page with hierarchy of equal weights could be used to highlight multiple choices or paths a user can take. 
@@ -236,6 +236,17 @@ Ultimately, Card is a very flexible component that can fit a variety of needs. I
   
 </DoDont>
 
+## Anatomy
+
+| Property      | Default token      | Modifiable? |
+| ------------- | ------------------ | ----------- |
+| background-color     | background-color-body       | No          |
+| border-width   | border-width-20     | No          |
+| border-radius   | border-radius-20 | No          |
+| border-color | color-border-light           | No          |
+
+
+---
 
 ## Usage Guide
 
