@@ -6,6 +6,7 @@ import {CodeblockTheme} from './theme';
 
 const StyledCode = styled.code<{}>(props => ({
   display: 'block',
+  height: '100%',
   fontSize: themeGet('fontSizes.fontSize30')(props),
   overflowX: 'auto',
   padding: `${themeGet('space.space40')(props)} ${themeGet('space.space60')(props)}`,
