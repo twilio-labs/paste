@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {ResponsiveValue} from 'styled-system';
 import {Box} from '@twilio-paste/box';
-import {FlexboxProps} from '@twilio-paste/types';
+import {FlexboxProps} from '@twilio-paste/style-props';
 
 type DisplayOptions = 'flex' | 'inline-flex';
 export type Display = ResponsiveValue<DisplayOptions>;
