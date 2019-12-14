@@ -1,5 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Card it should filter out style props that are not allowed 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
+  border-width: 2px;
+  border-color: #c8cccf;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 1.25rem;
+  background-color: #ffffff;
+}
+
+<div
+  className="emotion-1"
+>
+  <article
+    className="emotion-0"
+  />
+</div>
+`;
+
 exports[`Card it should render CardFooter 1`] = `
 .emotion-1 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -30,11 +65,11 @@ exports[`Card it should render CardFooter 1`] = `
 <div
   className="emotion-1"
 >
-  <article
+  <footer
     className="emotion-0"
   >
     Just | footer | things
-  </article>
+  </footer>
 </div>
 `;
 
@@ -133,8 +168,8 @@ exports[`Card it should render default values unless overridden by the component
   border-style: solid;
   border-radius: 4px;
   padding: 1.25rem;
-  background-color: #ffffff;
   padding-bottom: 4.75rem;
+  background-color: #ffffff;
 }
 
 <div
