@@ -20,7 +20,7 @@ import {
   WhiteSpace,
   Padding,
   Margin,
-} from '@twilio-paste/types';
+} from '@twilio-paste/style-props';
 import {Text} from '../src';
 
 const fontSizeOptions = Object.keys(DefaultTheme.fontSizes);
