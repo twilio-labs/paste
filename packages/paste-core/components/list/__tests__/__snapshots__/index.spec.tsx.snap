@@ -1,0 +1,233 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem should filter out styling props 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-1"
+>
+  <li
+    className="emotion-0"
+    fontSize="fontSize30"
+    fontWeight="fontWeightNormal"
+  >
+    Children
+  </li>
+</div>
+`;
+
+exports[`ListItem should render a plain list item 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-1"
+>
+  <li
+    className="emotion-0"
+    fontSize="fontSize30"
+    fontWeight="fontWeightNormal"
+  >
+    Children
+  </li>
+</div>
+`;
+
+exports[`Ordered List should filter out styling props 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  margin-left: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-1"
+>
+  <ol
+    className="emotion-0"
+    fontSize="fontSize30"
+    fontWeight="fontWeightNormal"
+  >
+    Children
+  </ol>
+</div>
+`;
+
+exports[`Ordered List should render a plain ordered list wrapper 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  margin-left: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-1"
+>
+  <ol
+    className="emotion-0"
+    fontSize="fontSize30"
+    fontWeight="fontWeightNormal"
+  >
+    Children
+  </ol>
+</div>
+`;
+
+exports[`Unordered List should filter out styling props 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  margin-left: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-1"
+>
+  <ul
+    className="emotion-0"
+    fontSize="fontSize30"
+    fontWeight="fontWeightNormal"
+  >
+    Children
+  </ul>
+</div>
+`;
+
+exports[`Unordered List should render a plain unordered list wrapper 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  margin-left: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-1"
+>
+  <ul
+    className="emotion-0"
+    fontSize="fontSize30"
+    fontWeight="fontWeightNormal"
+  >
+    Children
+  </ul>
+</div>
+`;
