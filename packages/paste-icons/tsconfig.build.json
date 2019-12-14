@@ -9,7 +9,7 @@
   ],
   "references": [
     {
-      "path": "../paste-types"
+      "path": "../paste-style-props"
     }
   ]
 }
