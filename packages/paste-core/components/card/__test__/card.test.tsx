@@ -15,14 +15,15 @@ describe('Card', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should error with bad propTypes', (): void => {
-    expect(() => {
-      renderer.create(
+  it('it should filter out style props that are not allowed', (): void => {
+    const tree = renderer
+      .create(
         <Theme.Provider>
-          <Card error="blowitup" />
+          <Card margin="space10" backgroundColor="colorBackgroundSuccess" />
         </Theme.Provider>
-      );
-    }).toThrow();
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
   it('it should render default values unless overridden by the component', (): void => {
