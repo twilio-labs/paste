@@ -6,7 +6,7 @@ import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {LineHeight} from '@twilio-paste/types';
+import {LineHeight} from '@twilio-paste/style-props';
 import ColorCombos, {ColorCombinationAccessibility} from '../../utils/color-combos';
 import colorRating from '../../utils/color-rating';
 
