@@ -33,6 +33,7 @@
     "@twilio-paste/box": "^2.0.4",
     "@twilio-paste/button": "^1.1.2",
     "@twilio-paste/heading": "^1.0.5",
+    "@twilio-paste/list": "^0.0.2",
     "@twilio-paste/media-object": "^1.0.4",
     "@twilio-paste/paragraph": "^1.0.5",
     "@twilio-paste/screen-reader-only": "^1.0.0",
