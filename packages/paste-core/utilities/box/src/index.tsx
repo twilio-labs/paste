@@ -8,9 +8,17 @@ import {
   ShadowProps,
   PositionProps,
   FlexboxProps,
-} from '@twilio-paste/types';
+} from '@twilio-paste/style-props';
 
-interface Box extends LayoutProps, SpaceProps, BackgroundProps, BorderProps, ShadowProps, PositionProps, FlexboxProps {
+interface Box
+  extends React.HTMLAttributes<any>,
+    LayoutProps,
+    SpaceProps,
+    BackgroundProps,
+    BorderProps,
+    ShadowProps,
+    PositionProps,
+    FlexboxProps {
   as?: keyof JSX.IntrinsicElements;
 }
 
@@ -28,7 +36,7 @@ const borderColor = system({
   },
 });
 
-const Box = styled.div<Box>(
+const Box = styled.div(
   {
     boxSizing: 'border-box',
     minWidth: 0,
@@ -44,7 +52,8 @@ const Box = styled.div<Box>(
     boxShadow,
     position
   )
-);
+) as React.FC<Box>;
 
 Box.displayName = 'Box';
 export {Box};
+export * from './SafelySpreadProps';
