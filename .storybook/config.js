@@ -8,7 +8,7 @@ addParameters({
   isFullScreen: false,
   showNav: true,
   showPanel: true,
-  panelPosition: 'bottom',
+  panelPosition: 'right',
   sortStoriesByKind: false,
   hierarchySeparator: /\/|\./,
   hierarchyRootSeparator: /\|/,
