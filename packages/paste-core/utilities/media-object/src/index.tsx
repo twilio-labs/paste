@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import {space, Theme} from 'styled-system';
 import {themeGet} from '@styled-system/theme-get';
-import {SpaceProps} from '@twilio-paste/types';
+import {SpaceProps} from '@twilio-paste/style-props';
 
 export interface MediaObjectProps extends Theme {
   isCentered?: boolean;
