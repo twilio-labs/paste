@@ -30,6 +30,7 @@
     "@twilio-paste/heading": "^1.0.5",
     "@twilio-paste/paragraph": "^1.0.5",
     "@twilio-paste/screen-reader-only": "^1.0.0",
+    "@twilio-paste/style-props": "^0.0.0",
     "@twilio-paste/text": "^1.0.4",
     "@twilio-paste/theme": "^2.0.4",
     "@twilio-paste/theme-tokens": "^2.0.4",
