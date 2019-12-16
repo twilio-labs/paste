@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Theme} from '@twilio-paste/theme';
 import renderer from 'react-test-renderer';
-import {Card, CardFooter} from '../src';
+import {Card} from '../src';
 
 describe('Card', () => {
   it('it should render default values', (): void => {
@@ -40,16 +40,6 @@ describe('Card', () => {
       .create(
         <Theme.Provider>
           <Card>I AM A JEDI!!!!</Card>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-  it('it should render CardFooter', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider>
-          <CardFooter>Just | footer | things</CardFooter>
         </Theme.Provider>
       )
       .toJSON();
