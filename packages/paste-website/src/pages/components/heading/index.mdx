@@ -64,6 +64,9 @@ Headings should allow users to easily distinguish content sections on the page.
 - Don’t skip headline levels. Always start with `<h1>`, `<h2>`, and so on
 - There can only be one `<h1>` tag per page.
 
+#### Typography Component
+Heading is part of the larger Typography component. The Typography component also includes the Paste [Paragraph](/components/paragraph) component in one easy import. This way you always have everything you need for typographical layouts.
+
 #### Accessibility
 
 It is important to not skip one or more heading levels as it is common for screen readers to build an outline of the page and assist users as they navigate a page. Skipping a heading level could cause confusion as the user navigating the page may not know why a heading is missing.
@@ -181,12 +184,16 @@ Headings should be used for page headings or content subsections. Headings are b
 
 ```bash
 yarn add @twilio-paste/heading
+or
+yarn add @twilio-paste/typography
 ```
 
 #### Usage
 
 ```jsx
 import {Heading} from '@twilio-paste/heading';
+or
+import {Heading} from '@twilio-paste/typography';
 
 <Heading as="h2" variant="heading20">
   Heading Two
