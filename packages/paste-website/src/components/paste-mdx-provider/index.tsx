@@ -7,7 +7,7 @@ import {Codeblock, CodeblockProps} from '../codeblock';
 import {Table, Tbody, Tr, Th, Td} from '../table';
 import {AnchoredHeading} from '../Heading';
 import {StyledHr} from '../StyledHr';
-import {UL, OL, LI, InlineCode} from '../Typography';
+import {UL, OL, LI, InlineCode, Pre} from '../Typography';
 // Shortcode imports
 import {ComponentHeader} from '../shortcodes/component-header';
 import {LivePreview} from '../shortcodes/live-preview';
@@ -24,6 +24,7 @@ const StyledContentWrapper = styled.div`
 const StyledContent = styled.div`
   /* magic number from Jasons initial layout */
   max-width: 816px;
+  min-width: 0;
 `;
 
 // These sub styles fix a bug that causes it to break line-heights
@@ -64,7 +65,7 @@ export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMD
         tr: (props: React.ComponentProps<'tr'>): React.ReactElement => <Tr {...props} />,
         th: (props: React.ComponentProps<'th'>): React.ReactElement => <Th {...props} />,
         td: (props: React.ComponentProps<'td'>): React.ReactElement => <Td {...props} />,
-        pre: (props: React.ComponentProps<'pre'>): React.ReactElement => <pre {...props} />,
+        pre: (props: React.ComponentProps<'pre'>): React.ReactElement => <Pre {...props} />,
         code: (props: CodeblockProps): React.ReactElement => <Codeblock {...props} />,
         inlineCode: (props: React.ComponentProps<typeof InlineCode>): React.ReactElement => <InlineCode {...props} />,
         em: (props: React.ComponentProps<'em'>): React.ReactElement => <em {...props} />,

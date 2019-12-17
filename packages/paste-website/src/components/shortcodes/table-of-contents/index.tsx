@@ -22,7 +22,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
   // headingsList.push('changelog');
 
   return (
-    <Box as="nav" aria-label="document outline" order={2} marginTop="space40" marginLeft="space140">
+    <Box as="nav" aria-label="document outline" order={2} marginTop="space40" marginLeft="space140" minWidth="size20">
       <StyledScrollSpy items={headingsList} currentClassName="is-current" rootEl="#site-main">
         {// Get heading anchors and convert to #anchor format. Excluding h1 elements.
         headings

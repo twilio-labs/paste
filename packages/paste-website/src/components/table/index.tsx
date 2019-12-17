@@ -11,6 +11,7 @@ export const Table = styled.table(props => ({
   fontSize: themeGet('fontSizes.fontSize30')(props),
   fontWeight: themeGet('fontWeights.fontWeightNormal')(props),
   lineHeight: themeGet('lineHeights.lineHeight30')(props),
+  margin: `${themeGet('space.space70')(props)} 0`,
 }));
 
 export const Thead = styled.thead({});

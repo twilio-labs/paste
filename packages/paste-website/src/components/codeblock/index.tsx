@@ -4,11 +4,12 @@ import {themeGet} from '@styled-system/theme-get';
 import Highlight, {defaultProps} from 'prism-react-renderer';
 import {CodeblockTheme} from './theme';
 
-const StyledPre = styled.pre(props => ({
+const StyledCode = styled.code<{}>(props => ({
+  display: 'block',
+  height: '100%',
   fontSize: themeGet('fontSizes.fontSize30')(props),
-  lineHeight: themeGet('lineHeights.lineHeight30')(props),
+  overflowX: 'auto',
   padding: `${themeGet('space.space40')(props)} ${themeGet('space.space60')(props)}`,
-  overflow: 'auto',
 }));
 
 export type Language =
@@ -58,7 +59,7 @@ const Codeblock: React.FC<CodeblockProps> = ({children, className = 'language-js
       {({className: _className, style, tokens, getLineProps, getTokenProps}) => {
         const lastLineIndex = tokens.length - 1;
         return (
-          <StyledPre className={_className} style={style}>
+          <StyledCode className={_className} style={style}>
             {tokens.map((line, i) => {
               // Codeblocks keep adding an extra blank line, this checks for that and removes it
               if (i === lastLineIndex && line.length === 1 && line[0].content === '') {
@@ -75,7 +76,7 @@ const Codeblock: React.FC<CodeblockProps> = ({children, className = 'language-js
                 </div>
               );
             })}
-          </StyledPre>
+          </StyledCode>
         );
       }}
     </Highlight>

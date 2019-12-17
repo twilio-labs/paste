@@ -14,7 +14,7 @@ export const ThemeObjectDisplay: React.FC<{}> = () => {
     reducedTheme[key] = {};
   });
   return (
-    <Box>
+    <Box as="pre" marginBottom="space70">
       <Codeblock>{prettyFormat(reducedTheme)}</Codeblock>
     </Box>
   );
