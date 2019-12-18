@@ -19,18 +19,12 @@ const CopyIcon: React.FC<CopyIconProps> = ({as, size, iconColor, title, decorati
     <IconWrapper as={as} size={size} iconColor={iconColor}>
       <UID>
         {uid => (
-          <svg
-            role="img"
-            aria-hidden={decorative}
-            aria-labelledby={uid}
-            height="100%"
-            width="100%"
-            viewBox="0 0 1024 1024"
-          >
+          <svg role="img" aria-hidden={decorative} aria-labelledby={uid} width="100%" height="100%" viewBox="0 0 24 24">
             {title ? <title id={uid}>{title}</title> : null}
             <path
               fill="currentColor"
-              d="M751.167 204.8V0H68.5v819.2h204.8V1024h682.667V204.8h-204.8M887.7 955.733H341.567V819.2v-34.133-34.134-477.866H887.7v682.666M136.767 68.267H682.9V204.8H273.3v546.133H136.767V68.267"
+              fillRule="evenodd"
+              d="M17 1a1 1 0 01.993.883L18 2v4h4a1 1 0 01.993.883L23 7v15a1 1 0 01-1 1H7a1 1 0 01-1-1v-4H2a1 1 0 01-.993-.883L1 17V2a1 1 0 01.883-.993L2 1h15zm4 7H8v13h13V8zm-5-2V3H3v13h3V7a1 1 0 01.883-.993L7 6h9z"
             />
           </svg>
         )}
