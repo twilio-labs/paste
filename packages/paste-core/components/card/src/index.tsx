@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {PaddingProps} from '@twilio-paste/types';
-import {StaticDiv} from '@twilio-paste/types/src/DomTypes';
-import {errorOnBadProps, paddingProps} from './utilities';
+import { Box } from '@twilio-paste/box';
+import { PaddingProps } from '@twilio-paste/types';
+import { StaticDiv } from '@twilio-paste/types/src/DomTypes';
+import { errorOnBadProps, paddingProps } from './utilities';
 
 interface CardProps extends PaddingProps, StaticDiv { }
 const cardProps = paddingProps;
 
-const Card: React.FunctionComponent<CardProps> = ({children, ...attributes}) => {
+const Card: React.FunctionComponent<CardProps> = ({ children, ...attributes }) => {
   errorOnBadProps(attributes, cardProps);
 
   return (
@@ -26,4 +26,4 @@ const Card: React.FunctionComponent<CardProps> = ({children, ...attributes}) => 
   );
 };
 
-export {Card, cardProps};
+export { Card, cardProps };

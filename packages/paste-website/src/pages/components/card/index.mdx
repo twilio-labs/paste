@@ -124,8 +124,8 @@ An example of a Card with default padding.
 
 #### Card with Title, Body and Button
 
-One of the most common use cases for a Card is to relate a Title (Heading) , supporting body copy (Text), 
-and Button together. Relating these three elements together with a Card makes it easy for a user to 
+One of the most common use cases for a Card is to relate a title ([Heading](/components/heading)), supporting body copy ([Paragraph](/components/paragraph)), 
+and primary action ([Button](/components/button)) together. Relating these three elements together with a Card makes it easy for a user to 
 digest and provides a clear call to action. Padding surrounding the inner content of a Card can be 
 adjusted to suit the needs of your implementation. 
 
@@ -143,7 +143,7 @@ adjusted to suit the needs of your implementation.
 
 #### Card with Centered Content
 
-Your implementation use case my call for a Card with centered content. You can accommodate this by 
+Your implementation use case may call for a Card with centered content. You can accommodate this by 
 using the alignment props available on some components, or by creating a custom layout inside your 
 Card using Box or Flex. 
 
@@ -199,8 +199,7 @@ Ultimately, Card is a very flexible component that can fit a variety of needs. I
   <Do title="Do" body="Use a Heading in your Card that appropriately reflects the information architecture of the page." preview={false} >
     <Img fluid={props.data.headingInCardDo.childImageSharp.fluid} />
   </Do>
-  <Dont title="Don't" body={<>Don’t use Cards to highlight multiple primary actions on a single page. <br /><br />
-    Don’t use multiple Heading components in one Card</>} preview={false} >
+  <Dont title="Don't" body="Don’t use Cards to highlight multiple primary actions on a single page." preview={false} >
     <Img fluid={props.data.multiplePrimaryDont.childImageSharp.fluid} />
   </Dont>
 </DoDont>
