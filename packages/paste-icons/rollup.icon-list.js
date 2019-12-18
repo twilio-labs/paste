@@ -1,1 +1,1 @@
-export const rollupIconList = ['src/LoadingIcon.tsx', 'src/PlusIcon.tsx'];
+export const rollupIconList = ['src/CopyIcon.tsx', 'src/LoadingIcon.tsx', 'src/PlusIcon.tsx'];
