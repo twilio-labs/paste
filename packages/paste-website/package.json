@@ -27,6 +27,7 @@
     "@twilio-paste/aspect-ratio": "^1.0.4",
     "@twilio-paste/box": "^2.0.4",
     "@twilio-paste/button": "^1.1.2",
+    "@twilio-paste/flex": "^0.0.1",
     "@twilio-paste/heading": "^1.0.5",
     "@twilio-paste/paragraph": "^1.0.5",
     "@twilio-paste/screen-reader-only": "^1.0.0",

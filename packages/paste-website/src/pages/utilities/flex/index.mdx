@@ -1,0 +1,348 @@
+---
+title: Flex - Utilities
+description: Flex is a utility component that allows engineers to build flexbox based elements and layouts. These flexible elements and layouts allow your components to adapt to the available space or screen size.
+---
+
+import {graphql} from 'gatsby';
+import {Box} from '@twilio-paste/box';
+import {Flex} from '@twilio-paste/flex';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {Callout, CalloutText} from '../../../components/callout';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+
+export const pageQuery = graphql`
+  {
+    allPasteUtility(filter: {name: {eq: "@twilio-paste/flex"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/flex/"}}) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name="Flex"
+  categoryRoute={SidebarCategoryRoutes.UTILITIES}
+  githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/utilities/flex"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/utilities-flex--flex-alignment-options"
+  data={props.data.allPasteUtility.edges}
+/>
+
+---
+
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings} />
+
+<content>
+
+## Guidelines
+
+<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+
+### About Flex
+
+Flex utilizes a simplified flexbox API that allow engineers more efficient ways to layout, align, and
+distribute space among elements in a container. The Flex API helps take the confusion out of using
+flexbox CSS properties, by giving engineers simple methods to change properties like flex,
+flex-direction, flex-wrap, and so on.
+
+Flexible elements can adapt to fill space within the layout. This allows Flex to work well for
+product layouts or elements that change orientation, resize, stretch, or shrink.
+
+The Flex API was created because flexbox can be a difficult CSS property to wrap your head around,
+which leads to confusion on how it all works. If you’d like to learn more about flexbox, the
+learning resources below provide further information:
+
+- [MDN Learn Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
+- [CSS Tricks Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
+#### Accessibility
+
+When using Flex, one must keep in mind the reading order of the elements. This helps people with
+specific focus/tracking needs. Flex also allows for RTL (Right to Left) support, so that should
+also be considered when building flexible elements.
+
+## Examples
+
+<LivePreview scope={{Box, Flex}} language="jsx">
+  {`<Flex>
+    <Flex>
+      <Box
+        backgroundColor="colorBackgroundPrimaryLight"
+        padding="space40"
+      >
+        Left area
+      </Box>
+    </Flex>
+    <Flex grow>
+      <Box
+        backgroundColor="colorBackgroundPrimaryLighter"
+        padding="space40"
+        width="100%"
+      >
+        Right area
+      </Box>
+    </Flex>
+  </Flex>`}
+</LivePreview>
+
+#### Flex Properties
+
+<LivePreview scope={{Box, Flex}} language="jsx">
+  {`<Flex>
+    <Flex grow shrink basis>
+      <Box
+        backgroundColor="colorBackgroundPrimaryLight"
+        padding="space40"
+        width="100%"
+      >
+        Left area
+      </Box>
+    </Flex>
+    <Flex grow shrink basis>
+      <Box
+        backgroundColor="colorBackgroundPrimaryLighter"
+        padding="space40"
+        width="100%"
+      >
+        Right area
+      </Box>
+    </Flex>
+  </Flex>`}
+</LivePreview>
+
+#### Vertical Property
+
+<LivePreview scope={{Box, Flex}} language="jsx">
+  {`<Flex vertical>
+    <Flex grow>
+      <Box
+        backgroundColor="colorBackgroundPrimaryLight"
+        padding="space40"
+        width="100%"
+      >
+        Left area
+      </Box>
+    </Flex>
+    <Flex grow>
+      <Box
+        backgroundColor="colorBackgroundPrimaryLighter"
+        padding="space40"
+        width="100%"
+      >
+        Right area
+      </Box>
+    </Flex>
+  </Flex>`}
+</LivePreview>
+
+#### Wrap Property
+
+<LivePreview scope={{Box, Flex}} language="jsx">
+  {`<Flex wrap>
+    <Flex basis={800}>
+      <Box
+        backgroundColor="colorBackgroundPrimaryLight"
+        padding="space40"
+        width="100%"
+      >
+        Left area
+      </Box>
+    </Flex>
+    <Flex>
+      <Box
+        backgroundColor="colorBackgroundPrimaryLighter"
+        padding="space40"
+        width="100%"
+      >
+        Right area
+      </Box>
+    </Flex>
+  </Flex>`}
+</LivePreview>
+
+#### Vertical Alignment Properties
+
+<LivePreview scope={{Box, Flex}} language="jsx">
+  {`<Flex vAlignContent="center">
+    <Flex grow>
+      <Box
+        backgroundColor="colorBackgroundPrimaryLight"
+        padding="space40"
+        width="100%"
+      >
+        Left area
+      </Box>
+    </Flex>
+    <Flex grow>
+      <Box
+        backgroundColor="colorBackgroundPrimaryLighter"
+        padding="space40"
+        width="100%"
+        height="size10"
+      >
+        Right area
+      </Box>
+    </Flex>
+  </Flex>`}
+</LivePreview>
+
+#### Horizontal Alignment Properties
+
+<LivePreview scope={{Box, Flex}} language="jsx">
+  {`<Flex hAlignContent="center" vertical>
+    <Flex>
+      <Box
+        backgroundColor="colorBackgroundPrimaryLight"
+        padding="space40"
+        width="100%"
+      >
+        Left area
+      </Box>
+    </Flex>
+    <Flex>
+      <Box
+        backgroundColor="colorBackgroundPrimaryLighter"
+        padding="space40"
+        width="size30"
+      >
+        Right area
+      </Box>
+    </Flex>
+  </Flex>`}
+</LivePreview>
+
+### Composition Notes
+
+The Flex component is used to compose flexible layout experiences. Let's look at an example
+where we need to build a flexible content layout with two sidebars: its has a left sidebar,
+a content area, and a right sidebar. Here's how we’ll compose the flexible layout using Flex:
+
+<LivePreview scope={{Box, Flex}} language="jsx">
+  {`<Flex>
+    <Flex>
+      <Box
+        backgroundColor="colorBackgroundPrimaryLight"
+        padding="space40"
+        height="size20"
+      >
+        Left sidebar area
+      </Box>
+    </Flex>
+    <Flex grow>
+      <Box
+        backgroundColor="colorBackgroundPrimaryLighter"
+        padding="space40"
+        width="100%"
+        height="size20"
+      >
+        Content area
+      </Box>
+    </Flex>
+    <Flex>
+      <Box
+        backgroundColor="colorBackgroundPrimaryLight"
+        padding="space40"
+        height="size20"
+      >
+        Right sidebar area
+      </Box>
+    </Flex>
+  </Flex>`}
+</LivePreview>
+
+### When to use Flex
+
+The Flex component should be used when a flexible layout is needed with a page layout or custom component layout.
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use Flex to build responsive experiences."
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body="Use Flex to set margins or padding within layouts and components."
+    preview={false}
+  />
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use Flex to layout your page or custom component."
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body="Use Flex to without any child elements, because this is only a container element."
+    preview={false}
+  />
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use Flex to build a flexible grid."
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body="Use inline CSS or classNames to add styles that Flex can provide."
+    preview={false}
+  />
+</DoDont>
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/flex
+```
+
+#### Usage
+
+```jsx
+import {Flex} from '@twilio-paste/flex';
+
+<Flex display="flex">
+  Foo
+</Flex>;
+```
+
+#### Props
+
+| Prop           | Type                                                | Description                   | Default |
+| ---------------| ----------------------------------------------------| ----------------------------- | ------- |
+| display?       | `string, ResponsiveValue<'flex', 'inline-flex'>`    | Display property              | 'flex'  |
+| basis?         | `string, number, ResponsiveValue<string, number>`   | Flex basis property           |         |
+| grow?          | `boolean, number, ResponsiveValue<boolean, number>` | Flex grow property            |         |
+| hAlignContent? | `string, number, ResponsiveValue<string, number>`   | Horizontal alignment property |         |
+| shrink?        | `string, number, ResponsiveValue<string, number>`   | Flex shrink property          |         |
+| vAlignContent? | `string, number, ResponsiveValue<string, number>`   | Vertical alignment property   |         |
+| vertical?      | `boolean, number, ResponsiveValue<boolean, number>` | Flex direction property       |         |
+| wrap?          | `boolean, number, ResponsiveValue<boolean, number>` | Flex wrap property            |         |
+
+</content>
+
+</contentwrapper>
