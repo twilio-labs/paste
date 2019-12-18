@@ -4,7 +4,7 @@ import {PaddingProps} from '@twilio-paste/types';
 import {StaticDiv} from '@twilio-paste/types/src/DomTypes';
 import {errorOnBadProps, paddingProps} from './utilities';
 
-interface CardProps extends PaddingProps, StaticDiv {}
+interface CardProps extends PaddingProps, StaticDiv { }
 const cardProps = paddingProps;
 
 const Card: React.FunctionComponent<CardProps> = ({children, ...attributes}) => {
@@ -14,7 +14,7 @@ const Card: React.FunctionComponent<CardProps> = ({children, ...attributes}) => 
     <Box
       as="article"
       borderWidth="borderWidth20"
-      borderColor="colorBorder"
+      borderColor="colorBorderLight"
       borderStyle="solid"
       borderRadius="borderRadius20"
       padding="space60"

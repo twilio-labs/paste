@@ -88,28 +88,20 @@ export const pageQuery = graphql`
 ### About Cards
 
 Cards are specifically-styled containers that group relatable content and actions. Card is an extremely 
-flexible container that does not require specific components inside of it, allowing an implementer to 
-compose as needed, but elements such as Heading, Text, and Button or Anchor are commonly used.
-See [When to use a Card](#when-to-use-a-card) and [Examples](#examples) for common Card patterns and dos/dont’s. A Card does not 
+flexible container that does not require specific components inside of it. You can compose a Card to support your use case, 
+but elements such as [Heading](/components/heading), [Paragraph](/components/paragraph), and [Button](/components/button) or [Anchor](/components/anchor) are commonly used.
+See [When to use a Card](#when-to-use-a-card) and [Examples](#examples) for common Card patterns and dos/donts. A Card does not 
 currently handle any interactive events such as hover, click, or focus, though children 
 composed inside of it may commonly have event handlers.
 
-Acknowledging the flexibility of Card component, there are several non-negotiable properties 
-of a Card that differentiate it from a more basic page-layout element, such as [Box](/utilities/box):
-
-* A background color of $color-background-body.
-* A border width of $border-width-20.
-* A border radius of $border-radius-20.
-* A border color of $color-border-light.
-* A flexible width and height.
-    * Height is determined by a Card’s child components
-    * Width is determined by the parent component or container surrounding Card
+Acknowledging the flexibility of Card component, there are several [non-negotiable properties](#anatomy) 
+of a Card that differentiate it from a more basic page-layout element, such as [Box](/utilities/box) including background color, border width, border radius, and border color.
 
 ### Card vs. Box
 
-At its core, Card is a Box with styled with the specific default attributes above and more explicit use cases 
-and that you can find in Examples. If you find yourself limited by the default styling and constraints of a 
-Card, you may consider using a Box instead, but first consider bringing the problem you are trying to solve 
+At its core, Card is a [Box](/utilities/box) with specific styling attributes and more explicit use cases and that you can find in [Examples](#examples). 
+If you find yourself limited by the default styling and constraints of a Card, you may consider using a Box instead, 
+but first consider bringing the problem you are trying to solve 
 to Design System Office Hours to see if another component or pattern could fit your needs. 
 
 
@@ -145,7 +137,6 @@ adjusted to suit the needs of your implementation.
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dui tellus, tristique in tincidunt cursus, efficitur
     at felis. Phasellus imperdiet, lorem et commodo egestas, arcu.
   </Paragraph>
-
   <Button variant="submit"> I am a primary action button </Button>
 </Card>`}
 </LivePreview>
@@ -159,7 +150,7 @@ Card using Box or Flex.
 <LivePreview scope={{Card, Paragraph, Heading, Button, PlusIcon}} language="jsx">
   {`<Card padding="space200">
   <div style={{textAlign: 'center'}}>
-    <PlusIcon decorative title="There just wasn't a details icon to use"/>
+    <PlusIcon size='sizeIcon40' decorative title="There just wasn't a details icon to use"/>
     <Heading as="h2">Let's verify your integration</Heading>
     <Paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -238,12 +229,13 @@ Ultimately, Card is a very flexible component that can fit a variety of needs. I
 
 ## Anatomy
 
-| Property      | Default token      | Modifiable? |
-| ------------- | ------------------ | ----------- |
-| background-color     | background-color-body       | No          |
-| border-width   | border-width-20     | No          |
-| border-radius   | border-radius-20 | No          |
-| border-color | color-border-light           | No          |
+| Property         | Default token         | Modifiable? |
+| ---------------- | --------------------- | ----------- |
+| background-color | background-color-body | No          |
+| border-width     | border-width-20       | No          |
+| border-radius    | border-radius-20      | No          |
+| border-color     | color-border-light    | No          |
+| padding          | space-60              | Yes         |
 
 
 ---
