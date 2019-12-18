@@ -90,8 +90,9 @@ export const pageQuery = graphql`
 Cards are specifically-styled containers that group relatable content and actions. Card is an extremely 
 flexible container that does not require specific components inside of it. You can compose a Card to support your use case, 
 but elements such as [Heading](/components/heading), [Paragraph](/components/paragraph), and [Button](/components/button) or [Anchor](/components/anchor) are commonly used.
-See [When to use a Card](#when-to-use-a-card) and [Examples](#examples) for common Card patterns and dos/donts. A Card does not 
-currently handle any interactive events such as hover, click, or focus, though children 
+See [When to use a Card](#when-to-use-a-card) and [Examples](#examples) for common Card patterns and dos/donts. 
+
+A Card does not handle any interactive events such as hover, click, or focus, though children 
 composed inside of it may commonly have event handlers.
 
 Acknowledging the flexibility of Card component, there are several [non-negotiable properties](#anatomy) 
@@ -99,7 +100,7 @@ of a Card that differentiate it from a more basic page-layout element, such as [
 
 ### Card vs. Box
 
-At its core, Card is a [Box](/utilities/box) with specific styling attributes and more explicit use cases and that you can find in [Examples](#examples). 
+At its core, Card is a [Box](/utilities/box) with specific styling attributes and more explicit use cases that you can find in [Examples](#examples). 
 If you find yourself limited by the default styling and constraints of a Card, you may consider using a Box instead, 
 but first consider bringing the problem you are trying to solve 
 to Design System Office Hours to see if another component or pattern could fit your needs. 
@@ -230,7 +231,7 @@ Ultimately, Card is a very flexible component that can fit a variety of needs. I
 
 | Property         | Default token         | Modifiable? |
 | ---------------- | --------------------- | ----------- |
-| background-color | background-color-body | No          |
+| background-color | color-background-body | No          |
 | border-width     | border-width-20       | No          |
 | border-radius    | border-radius-20      | No          |
 | border-color     | color-border-light    | No          |
