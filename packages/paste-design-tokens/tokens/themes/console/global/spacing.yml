@@ -1,0 +1,49 @@
+global:
+  category: spacing
+  type: size
+imports:
+  - ../../../global/spacing.yml
+  - ../aliases/spacing.yml
+props:
+  space-0:
+    value: "{!space-0}"
+  space-10:
+    value: "{!space-10}"
+  space-20:
+    value: "{!space-20}"
+  space-30:
+    value: "{!space-30}"
+  space-40:
+    value: "{!space-40}"
+  space-50:
+    value: "{!space-50}"
+  space-60:
+    value: "{!space-60}"
+  space-70:
+    value: "{!space-70}"
+  space-80:
+    value: "{!space-80}"
+  space-90:
+    value: "{!space-90}"
+  space-100:
+    value: "{!space-100}"
+  space-110:
+    value: "{!space-110}"
+  space-120:
+    value: "{!space-120}"
+  space-130:
+    value: "{!space-130}"
+  space-140:
+    value: "{!space-140}"
+  space-150:
+    value: "{!space-150}"
+  space-160:
+    value: "{!space-160}"
+  space-170:
+    value: "{!space-170}"
+  space-180:
+    value: "{!space-180}"
+  space-190:
+    value: "{!space-190}"
+  space-200:
+    value: "{!space-200}"
