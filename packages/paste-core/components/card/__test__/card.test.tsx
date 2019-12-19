@@ -7,7 +7,7 @@ describe('Card', () => {
   it('it should render default values', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Card />
         </Theme.Provider>
       )
@@ -18,7 +18,7 @@ describe('Card', () => {
   it('it should filter out style props that are not allowed', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Card margin="space10" backgroundColor="colorBackgroundSuccess" />
         </Theme.Provider>
       )
@@ -29,7 +29,7 @@ describe('Card', () => {
   it('it should render default values unless overridden by the component', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Card paddingBottom="space200" />
         </Theme.Provider>
       )
@@ -39,7 +39,7 @@ describe('Card', () => {
   it('it should render children', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Card>I AM A JEDI!!!!</Card>
         </Theme.Provider>
       )
@@ -49,7 +49,7 @@ describe('Card', () => {
   it('it should render CardFooter', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <CardFooter>Just | footer | things</CardFooter>
         </Theme.Provider>
       )
