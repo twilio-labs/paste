@@ -11,7 +11,7 @@ describe('Button Variants', () => {
   it('Has a primary variant', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Button variant="primary" type="submit" onClick={NOOP}>
             Submit
           </Button>
@@ -23,7 +23,7 @@ describe('Button Variants', () => {
   it('Has a secondary variant', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Button variant="secondary" type="button" onClick={NOOP}>
             Submit
           </Button>
@@ -35,7 +35,7 @@ describe('Button Variants', () => {
   it('Has a destructive variant', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Button variant="destructive" onClick={NOOP}>
             Delete
           </Button>
@@ -47,7 +47,7 @@ describe('Button Variants', () => {
   it('Has a destructive_link variant', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Button variant="destructive_link" onClick={NOOP}>
             Undo
           </Button>
@@ -59,7 +59,7 @@ describe('Button Variants', () => {
   it('Has a link variant', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Button variant="link" onClick={NOOP}>
             Go to Paste
           </Button>
@@ -71,7 +71,7 @@ describe('Button Variants', () => {
   it('Has a reset variant', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Button variant="reset" size="reset" onClick={NOOP}>
             Hello World!
           </Button>
@@ -86,7 +86,7 @@ describe('Button States', () => {
   it('Has a loading state', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Button variant="primary" loading>
             Submit
           </Button>
@@ -114,7 +114,7 @@ describe('Button States', () => {
   it('Has a disabled state', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Button variant="primary" disabled>
             Submit
           </Button>
