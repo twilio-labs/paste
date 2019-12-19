@@ -2,6 +2,7 @@ global:
   category: font-weight
   type: font-weight
 imports:
+  - ../../../global/font-weight.yml
   - ../aliases/font-weight.yml
 props:
   font-weight-light:
@@ -14,7 +15,7 @@ props:
     value: "{!font-weight-medium}"
     comment: Font weight for medium weight
   font-weight-semibold:
-    value: "{!font-weight-semibold}"
+    value: "{!font-weight-medium}"
     comment: Font weight for semibold weight
   font-weight-bold:
     value: "{!font-weight-bold}"

@@ -1,0 +1,6 @@
+imports:
+  - ../../../aliases/border-width.yml
+aliases:
+  border-width-0: "0"
+  border-width-10: "1px"
+  border-width-20: "2px"
