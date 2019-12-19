@@ -1,16 +1,26 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
+import {IconSize, TextColor} from '@twilio-paste/types';
+import {DefaultTheme} from '@twilio-paste/theme-tokens';
 
-import {withKnobs, number, text, boolean} from '@storybook/addon-knobs';
+import {withKnobs, select, text, boolean} from '@storybook/addon-knobs';
 import {IconList} from './__IconList';
+
+const IconColorOptions = Object.keys(DefaultTheme.textColors);
+const SizeOptions = Object.keys(DefaultTheme.iconSizes);
 
 storiesOf('Overview|Icons', module)
   .addDecorator(withKnobs)
-  .add('List', () => (
-    <IconList
-      size={number('size', 24)}
-      color={text('color', '#000')}
-      title={text('title', 'Icon text')}
-      decorative={boolean('decorative', true)}
-    />
-  ));
+  .add('List', () => {
+    const sizeValue = select('size', SizeOptions, 'sizeIcon20') as IconSize;
+    const iconColorValue = select('iconColor', IconColorOptions, 'currentColor') as TextColor;
+
+    return (
+      <IconList
+        size={sizeValue}
+        iconColor={iconColorValue}
+        title={text('title', 'Icon text')}
+        decorative={boolean('decorative', true)}
+      />
+    );
+  });
