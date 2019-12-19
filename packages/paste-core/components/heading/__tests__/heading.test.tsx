@@ -7,7 +7,7 @@ describe('Heading', () => {
   it('it should render an H1 at fontSize90', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Heading as="h1" variant="heading10">
             This is an H1
           </Heading>
@@ -20,7 +20,7 @@ describe('Heading', () => {
   it('it should render an H2 at fontSize70', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Heading as="h2" variant="heading20">
             This is an H2
           </Heading>
@@ -33,7 +33,7 @@ describe('Heading', () => {
   it('it should render an H3 at fontSize60', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Heading as="h3" variant="heading30">
             This is an H3
           </Heading>
@@ -46,7 +46,7 @@ describe('Heading', () => {
   it('it should render an H4 at fontSize40', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Heading as="h4" variant="heading40">
             This is an H4
           </Heading>
@@ -59,7 +59,7 @@ describe('Heading', () => {
   it('it should render an H5 at fontSize30', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Heading as="h5" variant="heading50">
             This is an H5
           </Heading>
@@ -72,7 +72,7 @@ describe('Heading', () => {
   it('it should render an H6 at fontSize20', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Heading as="h6" variant="heading60">
             This is an H6
           </Heading>
@@ -85,7 +85,7 @@ describe('Heading', () => {
   it('it should render an italic H2 at fontSize50', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Heading as="h2" variant="heading20">
             <i>This is an italic H2</i>
           </Heading>
