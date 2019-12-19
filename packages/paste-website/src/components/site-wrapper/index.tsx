@@ -1,12 +1,7 @@
 import * as React from 'react';
 import {css, Global} from '@emotion/core';
 import {SiteBody} from './SiteBody';
-import {Sidebar} from './sidebar';
-import {SiteHeader} from './SiteHeader';
 import {ActiveSiteThemeProvider} from '../../context/ActiveSiteThemeContext';
-import {SiteMain, SiteMainInner} from './SiteMain';
-import {SiteFooter} from './SiteFooter';
-import {ScrollAnchorIntoView} from './ScrollAnchorIntoView';
 import {SiteThemeProvider} from './SiteThemeProvider';
 
 const globalStyles = css`
@@ -110,15 +105,7 @@ const SiteWrapper: React.FC = ({children}) => {
     <ActiveSiteThemeProvider>
       <SiteThemeProvider>
         <Global styles={globalStyles} />
-        <SiteBody>
-          <Sidebar />
-          <SiteHeader />
-          <SiteMain id="site-main">
-            <ScrollAnchorIntoView />
-            <SiteMainInner>{children}</SiteMainInner>
-            <SiteFooter />
-          </SiteMain>
-        </SiteBody>
+        <SiteBody>{children}</SiteBody>
       </SiteThemeProvider>
     </ActiveSiteThemeProvider>
   );

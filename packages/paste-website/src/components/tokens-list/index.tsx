@@ -43,6 +43,7 @@ interface TokensListProps {
   children?: React.ReactElement;
   consoleTokens: TokensShape[];
   sendgridTokens: TokensShape[];
+  defaultTokens: TokensShape[];
 }
 
 const getTokensByTheme = (theme: ThemeVariants, props: TokensListProps): TokenCategory[] => {
@@ -57,6 +58,12 @@ const getTokensByTheme = (theme: ThemeVariants, props: TokensListProps): TokenCa
     if (props.sendgridTokens != null) {
       // eslint-disable-next-line prefer-destructuring
       tokens = props.sendgridTokens[0].node.tokens;
+    }
+  }
+  if (theme === ThemeVariants.DEFAULT) {
+    if (props.defaultTokens != null) {
+      // eslint-disable-next-line prefer-destructuring
+      tokens = props.defaultTokens[0].node.tokens;
     }
   }
   return tokens;
