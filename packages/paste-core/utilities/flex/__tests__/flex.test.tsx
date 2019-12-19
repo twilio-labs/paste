@@ -198,7 +198,7 @@ describe('Flex Display', () => {
   it('it should set a display: flex property', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Flex>
             <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
           </Flex>
@@ -213,7 +213,7 @@ describe('Flex Options', () => {
   it('it should set a flex-grow property', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Flex grow>
             <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
           </Flex>
@@ -226,7 +226,7 @@ describe('Flex Options', () => {
   it('it should set a flex-shrink property', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Flex grow shrink>
             <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
           </Flex>
@@ -239,7 +239,7 @@ describe('Flex Options', () => {
   it('it should set a flex-basis property', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Flex basis={400}>
             <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
           </Flex>
@@ -252,7 +252,7 @@ describe('Flex Options', () => {
   it('it should set a responsive flex-grow property', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Flex grow={[true, false, 1]}>
             <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
           </Flex>
@@ -265,7 +265,7 @@ describe('Flex Options', () => {
   it('it should set a responsive flex-shrink property', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Flex grow shrink={[true, false, 1]}>
             <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
           </Flex>
@@ -278,7 +278,7 @@ describe('Flex Options', () => {
   it('it should set a responsive flex-basis property', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Flex basis={[400, 100, 200]}>
             <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
           </Flex>
@@ -293,7 +293,7 @@ describe('Flex Row', () => {
   it('it should not set a flex-direction property', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Flex display="flex">
             <Flex>
               <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
@@ -311,7 +311,7 @@ describe('Flex Row', () => {
   it('it should set a responsive flex-direction property', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Flex display="flex" vertical={[true, false, false]}>
             <Flex>
               <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
@@ -331,7 +331,7 @@ describe('Flex Wrap', () => {
   it('it should not set a flex-wrap property', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Flex display="flex">
             <Flex>
               <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
@@ -349,7 +349,7 @@ describe('Flex Wrap', () => {
   it('it should set a responsive flex-wrap property', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Flex display="flex" wrap={[true, true, false]}>
             <Flex>
               <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
@@ -369,7 +369,7 @@ describe('Vertical Alignment', () => {
   it('it should set a align-items: flex-start property', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Flex display="flex" vAlignContent="top">
             <Flex>
               <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
@@ -387,7 +387,7 @@ describe('Vertical Alignment', () => {
   it('it should set a responvise align-items property', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Flex display="flex" vAlignContent={['top', 'center', 'bottom']}>
             <Flex>
               <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
@@ -407,7 +407,7 @@ describe('Horizontal Alignment', () => {
   it('it should set a justify-content: flex-start property', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Flex display="flex" hAlignContent="left">
             <Flex>
               <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
@@ -425,7 +425,7 @@ describe('Horizontal Alignment', () => {
   it('it should set a responsive justify-content property', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Flex display="flex" hAlignContent={['left', 'center', 'right']}>
             <Flex>
               <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
