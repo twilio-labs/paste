@@ -29,7 +29,8 @@ In Paste, **1 rem unit = 16 pixels**.
 </Box>
 
 <TokensList
-  consoleTokens={props.data.allPasteTokenDefault.edges}
+  defaultTokens={props.data.allPasteTokenDefault.edges}
+  consoleTokens={props.data.allPasteTokenConsole.edges}
   sendgridTokens={props.data.allPasteTokenSendGrid.edges}
 />
 
@@ -54,6 +55,24 @@ export const pageQuery = graphql`
       }
     }
     allPasteTokenSendGrid {
+      edges {
+        node {
+          id
+          tokens {
+            categoryName
+            tokens {
+              category
+              comment
+              name
+              originalValue
+              type
+              value
+            }
+          }
+        }
+      }
+    }
+    allPasteTokenConsole {
       edges {
         node {
           id
