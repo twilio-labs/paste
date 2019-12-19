@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@3.0.4...@twilio-paste/design-tokens@3.0.5) (2019-12-19)
+
+
+### Bug Fixes
+
+* **SG:** change `color-text-weak` to `gray-80 for a11y ([#225](https://github.com/twilio-labs/paste/issues/225)) ([12e1261](https://github.com/twilio-labs/paste/commit/12e12614acb87d70fcc07be92f8c04496c787214))
+
+
+
+
+
 ## [3.0.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@3.0.3...@twilio-paste/design-tokens@3.0.4) (2019-12-05)
 
 

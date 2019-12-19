@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@1.1.1...@twilio-paste/icons@1.2.0) (2019-12-19)
+
+
+### Features
+
+* **icons:** add CopyIcon ([#235](https://github.com/twilio-labs/paste/issues/235)) ([d51d0d2](https://github.com/twilio-labs/paste/commit/d51d0d266514d0a2122f50d0fdeb29b62f7501a0))
+* **icons:** adding close, error, information, warning ([#239](https://github.com/twilio-labs/paste/issues/239)) ([f9b632b](https://github.com/twilio-labs/paste/commit/f9b632b55d44bf3df07755a2ff4f57646365abcc))
+
+
+
+
+
 ## [1.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@1.1.0...@twilio-paste/icons@1.1.1) (2019-12-05)
 
 **Note:** Version bump only for package @twilio-paste/icons
