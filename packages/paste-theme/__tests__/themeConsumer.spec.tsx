@@ -10,7 +10,7 @@ const ThemeConsumerExampleComponent = (): React.ReactElement => {
 describe('Theme.Consumer', () => {
   it('should render without crashing', (): void => {
     ReactDOM.render(
-      <Theme.Provider>
+      <Theme.Provider theme="console">
         <ThemeConsumerExampleComponent />
       </Theme.Provider>,
       document.createElement('div')
@@ -19,7 +19,7 @@ describe('Theme.Consumer', () => {
 
   it('should be able to access the theme object', () => {
     const wrapper = mount(
-      <Theme.Provider>
+      <Theme.Provider theme="console">
         <ThemeConsumerExampleComponent />
       </Theme.Provider>
     );

@@ -11,7 +11,7 @@ const HookExampleComponent = (): React.ReactElement => {
 describe('useTheme', () => {
   it('should render without crashing', (): void => {
     ReactDOM.render(
-      <Theme.Provider>
+      <Theme.Provider theme="console">
         <HookExampleComponent />
       </Theme.Provider>,
       document.createElement('div')
@@ -20,7 +20,7 @@ describe('useTheme', () => {
 
   it('should be able to access the theme object', () => {
     const wrapper = mount(
-      <Theme.Provider>
+      <Theme.Provider theme="console">
         <HookExampleComponent />
       </Theme.Provider>
     );
