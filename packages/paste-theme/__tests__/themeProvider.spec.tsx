@@ -18,7 +18,7 @@ describe('Theme.Provider', () => {
 
   it('should render the console link text color', (): void => {
     const wrapper = mount(
-      <Theme.Provider>
+      <Theme.Provider theme="console">
         <ThemeConsumerExampleTextColor />
       </Theme.Provider>
     );
@@ -36,7 +36,7 @@ describe('Theme.Provider', () => {
 
   it('should rely on the default breakpoints set on the theme object', () => {
     const wrapper = mount(
-      <Theme.Provider>
+      <Theme.Provider theme="console">
         <ThemeConsumerExampleComponent />
       </Theme.Provider>
     );
