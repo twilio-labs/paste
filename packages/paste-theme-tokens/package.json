@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/theme-tokens",
-  "version": "2.0.5",
+  "version": "3.0.0",
   "description": "",
   "author": "Twilio Inc.",
   "license": "MIT",
@@ -22,10 +22,10 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@twilio-paste/design-tokens": "^3.0.5"
+    "@twilio-paste/design-tokens": "^4.0.0"
   },
   "devDependencies": {
-    "@twilio-paste/design-tokens": "^3.0.5",
+    "@twilio-paste/design-tokens": "^4.0.0",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.0.1",

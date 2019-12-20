@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/paragraph",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "category": "typography",
   "status": "beta",
   "description": "The paragraph component is used to render blocks of text, with a preset amount of space beneath it to distinguish from adjacent content.",
@@ -27,12 +27,12 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@twilio-paste/text": "^1.1.0",
+    "@twilio-paste/text": "^1.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/text": "^1.1.0",
+    "@twilio-paste/text": "^1.1.1",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.0.1",

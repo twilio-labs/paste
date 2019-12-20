@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@1.2.0...@twilio-paste/core@1.3.0) (2019-12-20)
+
+
+### Bug Fixes
+
+* **core:** missing dependency for flex component ([900e56b](https://github.com/twilio-labs/paste/commit/900e56b8ea28c9e0a980370670712ee387bbf93a))
+
+
+### Features
+
+* **core:** add card to core package ([306876a](https://github.com/twilio-labs/paste/commit/306876ad910fedb45f6e15d6489599ddd599d0b2))
+* **core:** add flex ([0d48965](https://github.com/twilio-labs/paste/commit/0d48965677c587f9b9dfdb9c77e8e7d49bfad28e))
+
+
+
+
+
 # [1.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@1.1.4...@twilio-paste/core@1.2.0) (2019-12-19)
 
 

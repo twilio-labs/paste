@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@3.0.5...@twilio-paste/design-tokens@4.0.0) (2019-12-20)
+
+
+### Features
+
+* **design-tokens:** create paste and console themes ([d550e4e](https://github.com/twilio-labs/paste/commit/d550e4e3ad29ef8d428031ff3e915e8a511df1c8))
+
+
+### BREAKING CHANGES
+
+* **design-tokens:** Move the default theme values to be the console theme
+Make the default theme the Paste theme based on new unified design language
+
+
+
+
+
 ## [3.0.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@3.0.4...@twilio-paste/design-tokens@3.0.5) (2019-12-19)
 
 
