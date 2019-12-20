@@ -1,5 +1,6 @@
 import {DefaultTheme} from './default';
 import {SendGridTheme} from './sendgrid';
-import {SendGridThemeShape, ThemeShape} from './types';
+import {ConsoleTheme} from './console';
+import {ThemeShape, SendGridThemeShape, ConsoleThemeShape} from './types';
 
-export {DefaultTheme, SendGridTheme, SendGridThemeShape, ThemeShape};
+export {DefaultTheme, ConsoleTheme, SendGridTheme, ThemeShape, ConsoleThemeShape, SendGridThemeShape};

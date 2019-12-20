@@ -10,7 +10,7 @@ const MockComponentWithTheme = withTheme(MockComponent);
 describe('withTheme', () => {
   it('should render without crashing', (): void => {
     ReactDOM.render(
-      <Theme.Provider>
+      <Theme.Provider theme="console">
         <MockComponentWithTheme />
       </Theme.Provider>,
       document.createElement('div')
@@ -19,7 +19,7 @@ describe('withTheme', () => {
 
   it('should be able to access the theme object', () => {
     const wrapper = mount(
-      <Theme.Provider>
+      <Theme.Provider theme="console">
         <MockComponentWithTheme />
       </Theme.Provider>
     );

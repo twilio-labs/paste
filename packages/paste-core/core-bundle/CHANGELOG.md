@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@1.1.4...@twilio-paste/core@1.2.0) (2019-12-19)
+
+
+### Bug Fixes
+
+* **website:** mobile experience of website ([#226](https://github.com/twilio-labs/paste/issues/226)) ([203159e](https://github.com/twilio-labs/paste/commit/203159e33c859c5eb45638707c392c7e3831b0b9))
+
+
+### Features
+
+* **core:** add the list component ([bcc14fb](https://github.com/twilio-labs/paste/commit/bcc14fb3fd66a43850836b1c4d2c073504554034))
+
+
+
+
+
 ## [1.1.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@1.1.3...@twilio-paste/core@1.1.4) (2019-12-05)
 
 **Note:** Version bump only for package @twilio-paste/core

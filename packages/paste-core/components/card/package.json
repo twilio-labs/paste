@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/card",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "category": "data display",
   "status": "alpha",
   "private": true,
@@ -25,14 +25,16 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@twilio-paste/box": "^2.0.4",
-    "@twilio-paste/types": "^2.1.2",
+    "@twilio-paste/box": "^2.1.0",
+    "@twilio-paste/style-props": "^0.1.0",
+    "@twilio-paste/types": "^2.2.0",
     "react": ">= 16.0.0",
     "react-dom": ">= 16.0.0"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^2.0.4",
-    "@twilio-paste/types": "^2.1.2",
+    "@twilio-paste/box": "^2.1.0",
+    "@twilio-paste/style-props": "^0.1.0",
+    "@twilio-paste/types": "^2.2.0",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.0.1",

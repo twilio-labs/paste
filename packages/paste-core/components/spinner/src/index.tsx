@@ -2,7 +2,7 @@ import * as React from 'react';
 import {keyframes, css} from '@emotion/core';
 import styled from '@emotion/styled';
 import {LoadingIcon, LoadingIconProps} from '@twilio-paste/icons/esm/LoadingIcon';
-import {IconSize} from '@twilio-paste/types';
+import {IconSize} from '@twilio-paste/style-props';
 import {size as sizeFn} from 'styled-system';
 
 const rotate = keyframes`

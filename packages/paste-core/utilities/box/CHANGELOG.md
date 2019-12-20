@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.0.4...@twilio-paste/box@2.1.0) (2019-12-19)
+
+
+### Features
+
+* **box:** use style-props package, create method to safelySpreadProps ([dc9f7fb](https://github.com/twilio-labs/paste/commit/dc9f7fbc89d7ccfc382dc74185e8a699c658d55e))
+
+
+
+
+
 ## [2.0.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.0.3...@twilio-paste/box@2.0.4) (2019-12-05)
 
 **Note:** Version bump only for package @twilio-paste/box

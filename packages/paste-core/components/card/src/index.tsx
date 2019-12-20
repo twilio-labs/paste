@@ -1,29 +1,36 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {PaddingProps} from '@twilio-paste/types';
-import {StaticDiv} from '@twilio-paste/types/src/DomTypes';
-import {errorOnBadProps, paddingProps} from './utilities';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import {PaddingProps} from '@twilio-paste/style-props';
 
-interface CardProps extends PaddingProps, StaticDiv { }
-const cardProps = paddingProps;
+export interface CardProps extends React.HTMLAttributes<''>, PaddingProps {}
 
-const Card: React.FunctionComponent<CardProps> = ({children, ...attributes}) => {
-  errorOnBadProps(attributes, cardProps);
-
+const Card: React.FunctionComponent<CardProps> = ({
+  children,
+  padding = 'space60',
+  paddingBottom,
+  paddingLeft,
+  paddingRight,
+  paddingTop,
+  ...props
+}) => {
   return (
     <Box
+      {...safelySpreadBoxProps(props)}
       as="article"
       borderWidth="borderWidth20"
       borderColor="colorBorderLight"
       borderStyle="solid"
       borderRadius="borderRadius20"
-      padding="space60"
+      padding={padding}
+      paddingBottom={paddingBottom}
+      paddingLeft={paddingLeft}
+      paddingRight={paddingRight}
+      paddingTop={paddingTop}
       backgroundColor="colorBackgroundBody"
-      {...attributes}
     >
       {children}
     </Box>
   );
 };
 
-export {Card, cardProps};
+export {Card};

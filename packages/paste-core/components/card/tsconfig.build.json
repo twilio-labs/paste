@@ -12,6 +12,9 @@
       "path": "../../utilities/box"
     },
     {
+      "path": "../../../paste-style-props"
+    },
+    {
       "path": "../../../paste-types"
     }
   ]

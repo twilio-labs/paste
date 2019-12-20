@@ -10,12 +10,14 @@ const storybookListTemplate = iconList => {
   const importIconList = mapIconList(iconList, iconName => `import {${iconName}} from './src/${iconName}';`);
   const renderedIconList = mapIconList(
     iconList,
-    iconName => `<StoryIcon><${iconName} {...props} /><Text as="p">${iconName}</Text></StoryIcon>`
+    iconName =>
+      `<StoryIcon><${iconName} {...props} /><Text as="p" textColor="currentColor">${iconName}</Text></StoryIcon>`
   );
 
   return `
 import * as React from 'react';
 import {Text} from '@twilio-paste/text';
+import {IconSize, TextColor} from '@twilio-paste/types';
 import {Grid, StoryIcon} from './__StoryStyles';
 
 ${importIconList}
@@ -23,8 +25,8 @@ ${importIconList}
 interface IconProps {
   title?: string;
   decorative: boolean;
-  size?: number;
-  color?: string;
+  size?: IconSize;
+  iconColor?: TextColor;
 }
 
 const IconList: React.FC<IconProps> = props => (

@@ -27,7 +27,8 @@
     "build:storybook": "build-storybook -c .storybook -o ./docs",
     "build:website": "yarn workspace @twilio-paste/website build",
     "pre-push": "concurrently \"yarn:lint\" \"yarn:test\" \"yarn:prettier\" \"yarn:type-check\"",
-    "release": "yarn lerna publish -m 'chore(release): publish' --conventional-commits",
+    "release": "yarn lerna publish -m 'chore(release): publish' --conventional-commits --canary --preid beta",
+    "release:stable": "yarn lerna publish -m 'chore(release): publish' --conventional-commits",
     "release:storybook": "yarn build:storybook && gh-pages -d docs",
     "version": "node ./tools/build/version.js",
     "clean": "node ./tools/build/clean-repo.js && lerna clean --yes && lerna run clean && yarn bootstrap",
@@ -55,7 +56,7 @@
     "styled-system": "^5.1.2"
   },
   "devDependencies": {
-    "@applitools/eyes-storybook": "^2.9.1",
+    "@applitools/eyes-storybook": "^3.1.0",
     "@babel/cli": "^7.5.0",
     "@babel/core": "^7.5.0",
     "@babel/plugin-proposal-class-properties": "^7.5.0",
