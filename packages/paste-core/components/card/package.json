@@ -2,9 +2,8 @@
   "name": "@twilio-paste/card",
   "version": "1.2.0",
   "category": "data display",
-  "status": "alpha",
-  "private": true,
-  "description": "",
+  "status": "beta",
+  "description": "The Paste cards are specifically-styled containers that group relatable content and actions.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
@@ -12,6 +11,9 @@
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist"
   ],
