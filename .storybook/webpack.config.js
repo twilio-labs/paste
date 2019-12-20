@@ -23,6 +23,11 @@ module.exports = ({config}) => {
 
   config.resolve.extensions.push('.ts', '.tsx');
 
+  if (process.env.DROP_PROGRESS !== undefined) {
+    console.log('Removing Progress Plugin');
+    config.plugins.splice(5, 1);
+  }
+
   // To make Storybook build from src files
   const customPlugins = [new DirectoryNamedWebpackPlugin({honorPackage: ['main:dev', 'main']})];
   config.resolve.plugins =

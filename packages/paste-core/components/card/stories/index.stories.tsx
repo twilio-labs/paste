@@ -6,7 +6,7 @@ import {Text} from '@twilio-paste/text';
 import {Padding} from '@twilio-paste/style-props';
 import {DefaultTheme} from '@twilio-paste/theme-tokens';
 
-import {Card, CardFooter} from '../src';
+import {Card} from '../src';
 
 const spaceOptions = Object.keys(DefaultTheme.space);
 
@@ -16,9 +16,6 @@ storiesOf('Components|Card', module)
     <Card padding={select('padding', spaceOptions, 'space10') as Padding}>
       <Heading as="h2">With a heading</Heading>
       <Text as="p">Body</Text>
-      <CardFooter>
-        <Text as="p">I&apos;m | The | Footer</Text>
-      </CardFooter>
     </Card>
   ))
   .add('Padding', () => (
