@@ -43,7 +43,10 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
           Paste
         </Heading>
         <P variant="lead">
-          Paste is a design system for Twilio. We use it to build consistent, high quality customer experiences at Twilio. This site documents the design system: you will find design tokens, primitives, UI components, and utilities, along with in-depth documentation to assist product designers and developers. Paste is open source and contributions are welcome.
+          Paste is a design system for Twilio. We use it to build consistent, high quality customer experiences at
+          Twilio. This site documents the design system: you will find design tokens, primitives, UI components, and
+          utilities, along with in-depth documentation to assist product designers and developers. Paste is open source
+          and contributions are welcome.
         </P>
         <Box marginTop="space80" marginBottom="space80">
           <Box display="inline-block" marginRight="space40">
