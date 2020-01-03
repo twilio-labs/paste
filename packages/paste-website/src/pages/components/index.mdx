@@ -6,11 +6,11 @@ description: The components listed here are on our roadmap.  Only a few of them 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
 import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
-import {UL, LI} from '../../components/Typography';
 
 <Breadcrumb>
   <BreadcrumbItem to="/">Home</BreadcrumbItem>
@@ -25,24 +25,24 @@ If you’re planning on using an alpha or beta component, please check in with t
 
 <Callout>
   <CalloutTitle as="h4">Don't see a utility or component you need listed here?</CalloutTitle>
-  <UL>
-    <LI>
+  <UnorderedList>
+    <ListItem>
       First off, we recommend{' '}
       <Anchor href="https://github.com/twilio-labs/paste/issues">creating an issue on GitHub</Anchor> with your
       component / utility proposal.
-    </LI>
-    <LI>
+    </ListItem>
+    <ListItem>
       While not all requests are accepted for the design system, we may be able to suggest suitable alternatives - for
       this, drop us a note on #help-design-system or join our Weekly Office hours.
-    </LI>
-    <LI>
+    </ListItem>
+    <ListItem>
       We've also writtten a guide for{' '}
       <Anchor href="/tokens/how-to-compose-custom-ui-with-tokens">
         how you can build custom components with Tokens
       </Anchor>{' '}
       and still benefit from Paste design updates
-    </LI>
-  </UL>
+    </ListItem>
+  </UnorderedList>
 </Callout>
 <ComponentOverviewTable
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}

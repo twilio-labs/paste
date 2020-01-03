@@ -19,37 +19,6 @@ export const P: React.FC<PProps> = ({children, variant}) => {
   );
 };
 
-export const UL: React.FC<{}> = props => {
-  return (
-    <Text as="ul" marginBottom="space70" marginLeft="space70" lineHeight="lineHeight30">
-      {props.children}
-    </Text>
-  );
-};
-
-export const OL: React.FC<{}> = props => {
-  return (
-    <Text as="ol" marginBottom="space70" marginLeft="space70" lineHeight="lineHeight30">
-      {props.children}
-    </Text>
-  );
-};
-
-export const LI: React.FC<{}> = props => {
-  return (
-    <Text
-      as="li"
-      marginBottom="space30"
-      fontSize="fontSize30"
-      lineHeight="lineHeight30"
-      fontWeight="fontWeightNormal"
-      textColor="colorText"
-    >
-      {props.children}
-    </Text>
-  );
-};
-
 export const Pre: React.FC<{}> = props => {
   return (
     <Text as="pre" marginBottom="space70" lineHeight="lineHeight20">

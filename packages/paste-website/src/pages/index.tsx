@@ -8,10 +8,11 @@ import {Box} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {SiteWrapper} from '../components/site-wrapper';
 import {Grid} from '../components/grid';
 import {StyledHr} from '../components/StyledHr';
-import {P, UL, LI} from '../components/Typography';
+import {P} from '../components/Typography';
 import {Brush} from '../components/icons/Brush';
 import {Terminal} from '../components/icons/Terminal';
 import {WindowLayout} from '../components/icons/WindowLayout';
@@ -95,19 +96,19 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
         <Callout>
           <CalloutTitle as="h4">Looking for Flex / Console / SendGrid design systems?</CalloutTitle>
           <CalloutText as="div" marginTop="space40">
-            <UL>
-              <LI>
+            <UnorderedList>
+              <ListItem>
                 <Anchor href="https://code.hq.twilio.com/pages/react/react-components/">
                   Console React Components
                 </Anchor>
-              </LI>
-              <LI>
+              </ListItem>
+              <ListItem>
                 <Anchor href="https://styleguide.sendgrid.com/">SendGrid Style Guide</Anchor>
-              </LI>
-              <LI>
+              </ListItem>
+              <ListItem>
                 <Anchor href="https://www.twilio.com/docs/flex/flex-overview-ui-programmability">Flex UI Docs</Anchor>
-              </LI>
-            </UL>
+              </ListItem>
+            </UnorderedList>
           </CalloutText>
         </Callout>
         <Grid columnWidth={220} gap={30}>
