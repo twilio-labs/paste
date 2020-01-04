@@ -83,9 +83,6 @@ storiesOf('Components|Button', module)
           <Button variant="primary" size={size}>
             Primary
           </Button>
-          <Button variant="primary" size={size} loading>
-            Primary
-          </Button>
           <Button variant="primary" size={size} disabled>
             Primary
           </Button>
@@ -93,9 +90,6 @@ storiesOf('Components|Button', module)
         <br />
         <section>
           <Button variant="primary" size="small">
-            Primary
-          </Button>
-          <Button variant="primary" size="small" loading>
             Primary
           </Button>
           <Button variant="primary" size="small" disabled>
@@ -107,9 +101,6 @@ storiesOf('Components|Button', module)
           <Button variant="primary" size="icon">
             <PlusIcon decorative={false} title="Add to cart" />
           </Button>
-          <Button variant="primary" size="icon" loading>
-            <PlusIcon decorative={false} title="Add to cart" />
-          </Button>
           <Button variant="primary" size="icon" disabled>
             <PlusIcon decorative={false} title="Add to cart" />
           </Button>
@@ -117,9 +108,6 @@ storiesOf('Components|Button', module)
         <br />
         <section>
           <Button variant="primary" size="reset">
-            Primary
-          </Button>
-          <Button variant="primary" size="reset" loading>
             Primary
           </Button>
           <Button variant="primary" size="reset" disabled>
@@ -131,9 +119,6 @@ storiesOf('Components|Button', module)
           <Button variant="secondary" size={size}>
             Secondary
           </Button>
-          <Button variant="secondary" size={size} loading>
-            Secondary
-          </Button>
           <Button variant="secondary" size={size} disabled>
             Secondary
           </Button>
@@ -141,9 +126,6 @@ storiesOf('Components|Button', module)
         <br />
         <section>
           <Button variant="secondary" size="small">
-            Secondary
-          </Button>
-          <Button variant="secondary" size="small" loading>
             Secondary
           </Button>
           <Button variant="secondary" size="small" disabled>
@@ -155,9 +137,6 @@ storiesOf('Components|Button', module)
           <Button variant="secondary" size="icon">
             <PlusIcon decorative={false} title="Add to cart" />
           </Button>
-          <Button variant="secondary" size="icon" loading>
-            <PlusIcon decorative={false} title="Add to cart" />
-          </Button>
           <Button variant="secondary" size="icon" disabled>
             <PlusIcon decorative={false} title="Add to cart" />
           </Button>
@@ -165,9 +144,6 @@ storiesOf('Components|Button', module)
         <br />
         <section>
           <Button variant="secondary" size="reset">
-            Secondary
-          </Button>
-          <Button variant="secondary" size="reset" loading>
             Secondary
           </Button>
           <Button variant="secondary" size="reset" disabled>
@@ -179,9 +155,6 @@ storiesOf('Components|Button', module)
           <Button variant="destructive" size={size}>
             Destructive
           </Button>
-          <Button variant="destructive" size={size} loading>
-            Destructive
-          </Button>
           <Button variant="destructive" size={size} disabled>
             Destructive
           </Button>
@@ -189,9 +162,6 @@ storiesOf('Components|Button', module)
         <br />
         <section>
           <Button variant="destructive" size="small">
-            Destructive
-          </Button>
-          <Button variant="destructive" size="small" loading>
             Destructive
           </Button>
           <Button variant="destructive" size="small" disabled>
@@ -203,9 +173,6 @@ storiesOf('Components|Button', module)
           <Button variant="destructive" size="icon">
             <PlusIcon decorative={false} title="Add to cart" />
           </Button>
-          <Button variant="destructive" size="icon" loading>
-            <PlusIcon decorative={false} title="Add to cart" />
-          </Button>
           <Button variant="destructive" size="icon" disabled>
             <PlusIcon decorative={false} title="Add to cart" />
           </Button>
@@ -213,9 +180,6 @@ storiesOf('Components|Button', module)
         <br />
         <section>
           <Button variant="destructive" size="reset">
-            Destructive
-          </Button>
-          <Button variant="destructive" size="reset" loading>
             Destructive
           </Button>
           <Button variant="destructive" size="reset" disabled>
@@ -227,9 +191,6 @@ storiesOf('Components|Button', module)
           <Button variant="link" size={size}>
             Link
           </Button>
-          <Button variant="link" size={size} loading>
-            Link
-          </Button>
           <Button variant="link" size={size} disabled>
             Link
           </Button>
@@ -237,9 +198,6 @@ storiesOf('Components|Button', module)
         <br />
         <section>
           <Button variant="link" size="small">
-            Link
-          </Button>
-          <Button variant="link" size="small" loading>
             Link
           </Button>
           <Button variant="link" size="small" disabled>
@@ -251,9 +209,6 @@ storiesOf('Components|Button', module)
           <Button variant="link" size="icon">
             <PlusIcon decorative={false} title="Add to cart" />
           </Button>
-          <Button variant="link" size="icon" loading>
-            <PlusIcon decorative={false} title="Add to cart" />
-          </Button>
           <Button variant="link" size="icon" disabled>
             <PlusIcon decorative={false} title="Add to cart" />
           </Button>
@@ -261,9 +216,6 @@ storiesOf('Components|Button', module)
         <br />
         <section>
           <Button variant="link" size="reset">
-            Link
-          </Button>
-          <Button variant="link" size="reset" loading>
             Link
           </Button>
           <Button variant="link" size="reset" disabled>
@@ -275,9 +227,6 @@ storiesOf('Components|Button', module)
           <Button variant="destructive_link" size={size}>
             Destructive Link
           </Button>
-          <Button variant="destructive_link" size={size} loading>
-            Destructive Link
-          </Button>
           <Button variant="destructive_link" size={size} disabled>
             Destructive Link
           </Button>
@@ -285,9 +234,6 @@ storiesOf('Components|Button', module)
         <br />
         <section>
           <Button variant="destructive_link" size="small">
-            Destructive Link
-          </Button>
-          <Button variant="destructive_link" size="small" loading>
             Destructive Link
           </Button>
           <Button variant="destructive_link" size="small" disabled>
@@ -299,9 +245,6 @@ storiesOf('Components|Button', module)
           <Button variant="destructive_link" size="icon">
             <PlusIcon decorative={false} title="Add to cart" />
           </Button>
-          <Button variant="destructive_link" size="icon" loading>
-            <PlusIcon decorative={false} title="Add to cart" />
-          </Button>
           <Button variant="destructive_link" size="icon" disabled>
             <PlusIcon decorative={false} title="Add to cart" />
           </Button>
@@ -309,9 +252,6 @@ storiesOf('Components|Button', module)
         <br />
         <section>
           <Button variant="destructive_link" size="reset">
-            Destructive Link
-          </Button>
-          <Button variant="destructive_link" size="reset" loading>
             Destructive Link
           </Button>
           <Button variant="destructive_link" size="reset" disabled>
@@ -322,10 +262,138 @@ storiesOf('Components|Button', module)
           <Button variant="reset" size="reset">
             Reset
           </Button>
-          <Button variant="reset" size="reset" loading>
+          <Button variant="reset" size="reset" disabled>
             Reset
           </Button>
-          <Button variant="reset" size="reset" disabled>
+        </section>
+      </React.Fragment>
+    );
+  })
+  .add('All loading buttons', () => {
+    const size = select('size', ButtonSizeOptions, '') as ButtonSizes;
+    return (
+      <React.Fragment>
+        <section>
+          <Button variant="primary" size={size} loading>
+            Primary
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="primary" size="small" loading>
+            Primary
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="primary" size="icon" loading>
+            <PlusIcon decorative={false} title="Add to cart" />
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="primary" size="reset" loading>
+            Primary
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="secondary" size={size} loading>
+            Secondary
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="secondary" size="small" loading>
+            Secondary
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="secondary" size="icon" loading>
+            <PlusIcon decorative={false} title="Add to cart" />
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="secondary" size="reset" loading>
+            Secondary
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="destructive" size={size} loading>
+            Destructive
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="destructive" size="small" loading>
+            Destructive
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="destructive" size="icon" loading>
+            <PlusIcon decorative={false} title="Add to cart" />
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="destructive" size="reset" loading>
+            Destructive
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="link" size={size} loading>
+            Link
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="link" size="small" loading>
+            Link
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="link" size="icon" loading>
+            <PlusIcon decorative={false} title="Add to cart" />
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="link" size="reset" loading>
+            Link
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="destructive_link" size={size} loading>
+            Destructive Link
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="destructive_link" size="small" loading>
+            Destructive Link
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="destructive_link" size="icon" loading>
+            <PlusIcon decorative={false} title="Add to cart" />
+          </Button>
+        </section>
+        <br />
+        <section>
+          <Button variant="destructive_link" size="reset" loading>
+            Destructive Link
+          </Button>
+        </section>
+        <section>
+          <Button variant="reset" size="reset" loading>
             Reset
           </Button>
         </section>
