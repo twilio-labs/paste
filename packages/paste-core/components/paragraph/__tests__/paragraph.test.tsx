@@ -1,5 +1,7 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
+import {render} from 'react-dom';
+import {axe} from 'jest-axe';
 import {Theme} from '@twilio-paste/theme';
 import {Paragraph} from '../src';
 
@@ -13,6 +15,19 @@ describe('Paragraph', () => {
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
+  });
+
+  it('should have no accessibility violations', async () => {
+    const container = document.createElement('div');
+    document.body.append(container);
+    render(
+      <Theme.Provider theme="console">
+        <Paragraph>This is a paragraph</Paragraph>
+      </Theme.Provider>,
+      container
+    );
+    const results = await axe(document.body);
+    expect(results).toHaveNoViolations();
   });
 
   it('it should render a single paragraph with italic text', (): void => {

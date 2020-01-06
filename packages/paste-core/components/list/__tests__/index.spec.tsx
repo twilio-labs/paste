@@ -1,7 +1,9 @@
 import * as React from 'react';
+import {render} from 'react-dom';
 import renderer from 'react-test-renderer';
-import {Theme} from '@twilio-paste/theme';
 import {ReactWrapper, mount} from 'enzyme';
+import {axe} from 'jest-axe';
+import {Theme} from '@twilio-paste/theme';
 import {OrderedList, UnorderedList, ListItem} from '../src';
 
 describe('Ordered List', () => {
@@ -14,6 +16,21 @@ describe('Ordered List', () => {
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
+  });
+
+  it('should have no accessibility violations', async () => {
+    const container = document.createElement('div');
+    document.body.append(container);
+    render(
+      <Theme.Provider theme="console">
+        <OrderedList>
+          <ListItem>item</ListItem>
+        </OrderedList>
+      </Theme.Provider>,
+      container
+    );
+    const results = await axe(document.body);
+    expect(results).toHaveNoViolations();
   });
 
   it('should filter out styling props', () => {
@@ -53,6 +70,21 @@ describe('Unordered List', () => {
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
+  });
+
+  it('should have no accessibility violations', async () => {
+    const container = document.createElement('div');
+    document.body.append(container);
+    render(
+      <Theme.Provider theme="console">
+        <UnorderedList>
+          <ListItem>item</ListItem>
+        </UnorderedList>
+      </Theme.Provider>,
+      container
+    );
+    const results = await axe(document.body);
+    expect(results).toHaveNoViolations();
   });
 
   it('should filter out styling props', () => {
