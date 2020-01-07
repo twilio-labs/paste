@@ -1,52 +1,36 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {PaddingProps} from '@twilio-paste/types';
-import {StaticDiv} from '@twilio-paste/types/src/DomTypes';
-import {errorOnBadProps, paddingProps} from './utilities';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import {PaddingProps} from '@twilio-paste/style-props';
 
-interface CardFooterProps extends PaddingProps, StaticDiv {}
-const cardFooterProps = paddingProps;
+export interface CardProps extends React.HTMLAttributes<''>, PaddingProps {}
 
-const CardFooter: React.FunctionComponent<CardFooterProps> = ({children, ...attributes}) => {
-  errorOnBadProps(attributes, cardFooterProps);
-
+const Card: React.FunctionComponent<CardProps> = ({
+  children,
+  padding = 'space60',
+  paddingBottom,
+  paddingLeft,
+  paddingRight,
+  paddingTop,
+  ...props
+}) => {
   return (
     <Box
-      as="article"
-      borderTopWidth="borderWidth10"
-      borderBottomWidth="borderWidth0"
-      borderLeftWidth="borderWidth0"
-      borderRightWidth="borderWidth0"
-      marginTop="space40"
-      paddingTop="space40"
-      borderStyle="solid"
-      {...attributes}
-    >
-      {children}
-    </Box>
-  );
-};
-
-interface CardProps extends PaddingProps, StaticDiv {}
-const cardProps = paddingProps;
-
-const Card: React.FunctionComponent<CardProps> = ({children, ...attributes}) => {
-  errorOnBadProps(attributes, cardProps);
-
-  return (
-    <Box
+      {...safelySpreadBoxProps(props)}
       as="article"
       borderWidth="borderWidth20"
-      borderColor="colorBorder"
+      borderColor="colorBorderLight"
       borderStyle="solid"
       borderRadius="borderRadius20"
-      padding="space60"
+      padding={padding}
+      paddingBottom={paddingBottom}
+      paddingLeft={paddingLeft}
+      paddingRight={paddingRight}
+      paddingTop={paddingTop}
       backgroundColor="colorBackgroundBody"
-      {...attributes}
     >
       {children}
     </Box>
   );
 };
 
-export {Card, CardFooter, cardProps, cardFooterProps};
+export {Card};

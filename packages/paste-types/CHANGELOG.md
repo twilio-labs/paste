@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/types@2.2.0...@twilio-paste/types@2.2.1) (2019-12-20)
+
+**Note:** Version bump only for package @twilio-paste/types
+
+
+
+
+
+# [2.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/types@2.1.2...@twilio-paste/types@2.2.0) (2019-12-19)
+
+
+### Features
+
+* **Flex:** add Flex component package ([#204](https://github.com/twilio-labs/paste/issues/204)) ([74877c4](https://github.com/twilio-labs/paste/commit/74877c4b0b260c5c6451bf9eb95c2baf3b1b7751))
+* **style-props:** create the style-props package ([2bc21e9](https://github.com/twilio-labs/paste/commit/2bc21e9fb685e598710e2a4ff89114f2b6287b2f))
+
+
+
+
+
 ## [2.1.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/types@2.1.1...@twilio-paste/types@2.1.2) (2019-12-05)
 
 **Note:** Version bump only for package @twilio-paste/types

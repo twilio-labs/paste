@@ -11,9 +11,7 @@ You should place the `Theme.Provider` around the root of your React application.
 ```js
 import {Theme} from '@twilio-paste/theme';
 
-<Theme.Provider>
-  ...
-</Theme.Provider>
+<Theme.Provider theme="console">...</Theme.Provider>;
 ```
 
 ## Using tokens in custom components
@@ -33,7 +31,7 @@ import {themeGet} from '@styled-system/theme-get';
 const custom = styled.div`
   background-color: ${themeGet('backgrounds.primary')};
   padding: ${props => props.theme.spacing.spacing20};
-`
+`;
 ```
 
 ### Paste ThemeConsumer
@@ -47,7 +45,7 @@ import {Theme} from '@twilio-paste/theme';
   {({theme}) => {
     return <p>What is the default text color {theme.textColors.colorText}</p>;
   }}
-</Theme.Consumer>
+</Theme.Consumer>;
 ```
 
 ### Paste useTheme Hook
@@ -56,7 +54,7 @@ Paste Theme provides a React Hook called `useTheme` which returns the theme obje
 
 ```js
 import React from 'react';
-import { useTheme } from '@twilio-paste/theme';
+import {useTheme} from '@twilio-paste/theme';
 
 const HookExampleComponent = (): React.ReactElement => {
   const theme = useTheme();
@@ -70,10 +68,8 @@ Paste also provides a HOC Component, which is a wrapper around the Emotion [HOC 
 
 ```js
 import React from 'react';
-import { withTheme } from '@twilio-paste/theme';
+import {withTheme} from '@twilio-paste/theme';
 
-const ExampleComponent = ({theme}) => (
-  <p>What is the default text color {theme.textColors.colorText}</p>
-);
+const ExampleComponent = ({theme}) => <p>What is the default text color {theme.textColors.colorText}</p>;
 const ExampleComponentwithTheme = withTheme(ExampleComponent);
 ```

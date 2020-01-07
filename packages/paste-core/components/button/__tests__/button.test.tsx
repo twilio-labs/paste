@@ -1,5 +1,7 @@
 import * as React from 'react';
+import {render} from 'react-dom';
 import renderer from 'react-test-renderer';
+import {axe} from 'jest-axe';
 import {Theme} from '@twilio-paste/theme';
 import {shallow, ReactWrapper, mount} from 'enzyme';
 import {Button} from '../src';
@@ -11,7 +13,7 @@ describe('Button Variants', () => {
   it('Has a primary variant', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Button variant="primary" type="submit" onClick={NOOP}>
             Submit
           </Button>
@@ -20,10 +22,26 @@ describe('Button Variants', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('Primary has no accessibility violations', async () => {
+    const container = document.createElement('div');
+    document.body.append(container);
+    render(
+      <Theme.Provider theme="console">
+        <Button variant="primary" type="submit" onClick={NOOP}>
+          Submit
+        </Button>
+      </Theme.Provider>,
+      container
+    );
+    const results = await axe(document.body);
+    expect(results).toHaveNoViolations();
+  });
+
   it('Has a secondary variant', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Button variant="secondary" type="button" onClick={NOOP}>
             Submit
           </Button>
@@ -32,10 +50,26 @@ describe('Button Variants', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('Secondary has no accessibility violations', async () => {
+    const container = document.createElement('div');
+    document.body.append(container);
+    render(
+      <Theme.Provider theme="console">
+        <Button variant="secondary" type="button" onClick={NOOP}>
+          Submit
+        </Button>
+      </Theme.Provider>,
+      container
+    );
+    const results = await axe(document.body);
+    expect(results).toHaveNoViolations();
+  });
+
   it('Has a destructive variant', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Button variant="destructive" onClick={NOOP}>
             Delete
           </Button>
@@ -44,10 +78,26 @@ describe('Button Variants', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('Destructive has no accessibility violations', async () => {
+    const container = document.createElement('div');
+    document.body.append(container);
+    render(
+      <Theme.Provider theme="console">
+        <Button variant="destructive" onClick={NOOP}>
+          Delete
+        </Button>
+      </Theme.Provider>,
+      container
+    );
+    const results = await axe(document.body);
+    expect(results).toHaveNoViolations();
+  });
+
   it('Has a destructive_link variant', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Button variant="destructive_link" onClick={NOOP}>
             Undo
           </Button>
@@ -56,10 +106,26 @@ describe('Button Variants', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('Destructive_link has no accessibility violations', async () => {
+    const container = document.createElement('div');
+    document.body.append(container);
+    render(
+      <Theme.Provider theme="console">
+        <Button variant="destructive_link" onClick={NOOP}>
+          Undo
+        </Button>
+      </Theme.Provider>,
+      container
+    );
+    const results = await axe(document.body);
+    expect(results).toHaveNoViolations();
+  });
+
   it('Has a link variant', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Button variant="link" onClick={NOOP}>
             Go to Paste
           </Button>
@@ -68,10 +134,26 @@ describe('Button Variants', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('Link button has no accessibility violations', async () => {
+    const container = document.createElement('div');
+    document.body.append(container);
+    render(
+      <Theme.Provider theme="console">
+        <Button variant="link" onClick={NOOP}>
+          Go to Paste
+        </Button>
+      </Theme.Provider>,
+      container
+    );
+    const results = await axe(document.body);
+    expect(results).toHaveNoViolations();
+  });
+
   it('Has a reset variant', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Button variant="reset" size="reset" onClick={NOOP}>
             Hello World!
           </Button>
@@ -86,7 +168,7 @@ describe('Button States', () => {
   it('Has a loading state', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Button variant="primary" loading>
             Submit
           </Button>
@@ -111,10 +193,40 @@ describe('Button States', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('Loading states have no accessibility violations', async () => {
+    const container = document.createElement('div');
+    document.body.append(container);
+    render(
+      <Theme.Provider theme="console">
+        <Button variant="primary" loading>
+          Submit
+        </Button>
+        <Button variant="secondary" loading>
+          Submit
+        </Button>
+        <Button variant="destructive" loading>
+          Submit
+        </Button>
+        <Button variant="destructive_link" loading>
+          Submit
+        </Button>
+        <Button variant="link" loading>
+          Submit
+        </Button>
+        <Button variant="reset" size="reset" loading>
+          Submit
+        </Button>
+      </Theme.Provider>,
+      container
+    );
+    const results = await axe(document.body);
+    expect(results).toHaveNoViolations();
+  });
+
   it('Has a disabled state', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Button variant="primary" disabled>
             Submit
           </Button>
@@ -137,6 +249,36 @@ describe('Button States', () => {
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
+  });
+
+  it('Disabled states have no accessibility violations', async () => {
+    const container = document.createElement('div');
+    document.body.append(container);
+    render(
+      <Theme.Provider theme="console">
+        <Button variant="primary" disabled>
+          Submit
+        </Button>
+        <Button variant="secondary" disabled>
+          Submit
+        </Button>
+        <Button variant="destructive" disabled>
+          Submit
+        </Button>
+        <Button variant="destructive_link" disabled>
+          Submit
+        </Button>
+        <Button variant="link" disabled>
+          Submit
+        </Button>
+        <Button variant="reset" size="reset" disabled>
+          Submit
+        </Button>
+      </Theme.Provider>,
+      container
+    );
+    const results = await axe(document.body);
+    expect(results).toHaveNoViolations();
   });
 });
 

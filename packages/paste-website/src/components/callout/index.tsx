@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Text} from '@twilio-paste/text';
 import {Heading} from '@twilio-paste/heading';
-import {BorderColor} from '@twilio-paste/types';
+import {BorderColor} from '@twilio-paste/style-props';
 import {Box} from '@twilio-paste/box';
 import {CalloutProps, CalloutTitleProps, CalloutTextProps, CalloutVariants} from './types';
 

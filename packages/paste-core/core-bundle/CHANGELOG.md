@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@1.2.0...@twilio-paste/core@1.3.0) (2019-12-20)
+
+
+### Bug Fixes
+
+* **core:** missing dependency for flex component ([900e56b](https://github.com/twilio-labs/paste/commit/900e56b8ea28c9e0a980370670712ee387bbf93a))
+
+
+### Features
+
+* **core:** add card to core package ([306876a](https://github.com/twilio-labs/paste/commit/306876ad910fedb45f6e15d6489599ddd599d0b2))
+* **core:** add flex ([0d48965](https://github.com/twilio-labs/paste/commit/0d48965677c587f9b9dfdb9c77e8e7d49bfad28e))
+
+
+
+
+
+# [1.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@1.1.4...@twilio-paste/core@1.2.0) (2019-12-19)
+
+
+### Bug Fixes
+
+* **website:** mobile experience of website ([#226](https://github.com/twilio-labs/paste/issues/226)) ([203159e](https://github.com/twilio-labs/paste/commit/203159e33c859c5eb45638707c392c7e3831b0b9))
+
+
+### Features
+
+* **core:** add the list component ([bcc14fb](https://github.com/twilio-labs/paste/commit/bcc14fb3fd66a43850836b1c4d2c073504554034))
+
+
+
+
+
 ## [1.1.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@1.1.3...@twilio-paste/core@1.1.4) (2019-12-05)
 
 **Note:** Version bump only for package @twilio-paste/core

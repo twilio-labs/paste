@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/text@1.1.0...@twilio-paste/text@1.1.1) (2019-12-20)
+
+**Note:** Version bump only for package @twilio-paste/text
+
+
+
+
+
+# [1.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/text@1.0.4...@twilio-paste/text@1.1.0) (2019-12-19)
+
+
+### Features
+
+* **text:** use style-props package, create method to safelySpreadProps ([29da81f](https://github.com/twilio-labs/paste/commit/29da81ffb15bb2d97ed383d5110991a878cbe87b))
+
+
+
+
+
 ## [1.0.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/text@1.0.3...@twilio-paste/text@1.0.4) (2019-12-05)
 
 **Note:** Version bump only for package @twilio-paste/text

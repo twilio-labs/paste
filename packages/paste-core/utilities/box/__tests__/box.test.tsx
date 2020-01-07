@@ -7,7 +7,7 @@ describe('Backgrounds', () => {
   it('it should render single values', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Box backgroundColor="colorBackgroundPrimary">background single</Box>
         </Theme.Provider>
       )
@@ -18,7 +18,7 @@ describe('Backgrounds', () => {
   it('it should render responsive values', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Box backgroundColor={['colorBackgroundPrimaryLight', 'colorBackgroundPrimary']}>background responsive</Box>
         </Theme.Provider>
       )
@@ -31,7 +31,7 @@ describe('Borders', () => {
   it('it should render single values', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Box
             borderStyle="solid"
             borderColor="colorBorderPrimaryDark"
@@ -49,7 +49,7 @@ describe('Borders', () => {
   it('it should render responsive values', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Box
             borderStyle={['dashed', 'dotted', 'solid']}
             borderColor={['colorBorderPrimaryDark', 'colorBorderPrimaryLight']}
@@ -69,7 +69,7 @@ describe('Sizes', () => {
   it('it should render single values', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Box width="size10" minWidth="size0" maxWidth="size20" height="size10" minHeight="size0" maxHeight="size20">
             size single
           </Box>
@@ -82,7 +82,7 @@ describe('Sizes', () => {
   it('it should render responsive values', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Box
             width={['size10', 'size20']}
             minWidth={['size0', 'size10']}
@@ -104,7 +104,7 @@ describe('Spaces', () => {
   it('(A) it should render single values', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Box margin="space20">space single 1</Box>
         </Theme.Provider>
       )
@@ -115,7 +115,7 @@ describe('Spaces', () => {
   it('(A) it should render responsive values', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Box margin={['space20', 'space30']}>space responsive 1</Box>
         </Theme.Provider>
       )
@@ -126,7 +126,7 @@ describe('Spaces', () => {
   it('(B) it should render single values', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Box marginTop="space20" marginRight="space20" marginBottom="space30" marginLeft="space30">
             space single 2
           </Box>
@@ -139,7 +139,7 @@ describe('Spaces', () => {
   it('(B)it should render responsive values', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Box
             marginTop={['space20', 'space30']}
             marginRight={['space20', 'space30']}
@@ -159,7 +159,7 @@ describe('Shadows', () => {
   it('it should render single values', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Box boxShadow="shadowCard">shadow single</Box>
         </Theme.Provider>
       )
@@ -170,7 +170,7 @@ describe('Shadows', () => {
   it('it should render responsive values', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Box boxShadow={['shadowCard', 'shadowFocus']}>shadow responsive</Box>
         </Theme.Provider>
       )
@@ -183,7 +183,7 @@ describe('ZIndex', () => {
   it('it should render single values', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Box zIndex="zIndex10">z-index single</Box>
         </Theme.Provider>
       )
@@ -194,7 +194,7 @@ describe('ZIndex', () => {
   it('it should render responsive values', () => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Box zIndex={['zIndex10', 'zIndex20']}>z-index responsive</Box>
         </Theme.Provider>
       )

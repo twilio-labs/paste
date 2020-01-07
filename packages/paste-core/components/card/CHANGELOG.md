@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.2.0...@twilio-paste/card@1.3.0) (2019-12-20)
+
+
+### Features
+
+* **card:** updated card design and documentation ([#230](https://github.com/twilio-labs/paste/issues/230)) ([e0e2ca7](https://github.com/twilio-labs/paste/commit/e0e2ca79569f2b2aca1b6ba1b39fc48358381291))
+
+
+
+
+
+# [1.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.1.2...@twilio-paste/card@1.2.0) (2019-12-19)
+
+
+### Features
+
+* **card:** use style-props package and use new safelySpreadProps method ([132173f](https://github.com/twilio-labs/paste/commit/132173fe6fae8673d5b36938d0f8f27e78bc029f))
+
+
+
+
+
 ## [1.1.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.1.1...@twilio-paste/card@1.1.2) (2019-12-05)
 
 **Note:** Version bump only for package @twilio-paste/card

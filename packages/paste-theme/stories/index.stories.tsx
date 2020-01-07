@@ -28,7 +28,7 @@ storiesOf('Overview|Theme', module)
     },
   })
   .add('Provider', () => (
-    <Theme.Provider>
+    <Theme.Provider theme="console">
       <p>Using the Theme Provider to wrap your app</p>
     </Theme.Provider>
   ))

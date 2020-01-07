@@ -6,10 +6,10 @@ imports:
   - ../aliases/color-palette.yml
 props:
   color-border:
-    value: "{!palette-gray-50}"
+    value: "{!palette-gray-40}"
     comment: Default border color
   color-border-light:
-    value: "{!palette-gray-40}"
+    value: "{!palette-gray-20}"
     comment: Light border color
   color-border-dark:
     value: "{!palette-gray-60}"
@@ -40,7 +40,7 @@ props:
     value: "{!palette-blue-40}"
     comment: Light primary border color
   color-border-primary-lighter:
-    value: "{!palette-blue-30}"
+    value: "{!palette-blue-20}"
     comment: Lighter primary border color
 
   # status borders
@@ -77,5 +77,5 @@ props:
     value: "{!palette-red-40}"
     comment: Destructive focus border color
   color-border-destructive-lighter:
-    value: "{!palette-red-30}"
+    value: "{!palette-red-20}"
     comment: Destructive focus border color

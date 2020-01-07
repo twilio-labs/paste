@@ -43,9 +43,8 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
           Paste
         </Heading>
         <P variant="lead">
-          Paste is an internal design system for designing and building consistent experiences at Twilio. It is made up
-          of tokens and components, along with in-depth documentation to assist designers and developers faced with
-          solving our customers’ problems. It is open source and contributions are welcome.
+          Paste is a design system used to build accessible, consistent, and high quality customer experiences at
+          Twilio. Paste is open source and contributions are welcome.
         </P>
         <Box marginTop="space80" marginBottom="space80">
           <Box display="inline-block" marginRight="space40">
@@ -89,6 +88,9 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
             Roadmap
           </Button>
         </Box>
+      </LandingContainer>
+      <StyledHr />
+      <LandingContainer marginTop="space200" marginBottom="space200" maxWidth="size100">
         <Callout>
           <CalloutTitle as="h4">Looking for Flex / Console / SendGrid design systems?</CalloutTitle>
           <CalloutText as="div" marginTop="space40">
@@ -107,9 +109,6 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
             </UL>
           </CalloutText>
         </Callout>
-      </LandingContainer>
-      <StyledHr />
-      <LandingContainer marginTop="space200" marginBottom="space200" maxWidth="size100">
         <Grid columnWidth={220} gap={30}>
           <Box>
             <IconCircle

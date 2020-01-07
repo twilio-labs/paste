@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.5.2...@twilio-paste/website@1.6.0) (2019-12-20)
+
+
+### Features
+
+* **card:** updated card design and documentation ([#230](https://github.com/twilio-labs/paste/issues/230)) ([e0e2ca7](https://github.com/twilio-labs/paste/commit/e0e2ca79569f2b2aca1b6ba1b39fc48358381291))
+* **website:** add the paste theme to the theme switcher ([4d4919f](https://github.com/twilio-labs/paste/commit/4d4919f595b19b13cad2792a2eae9656155f6611))
+
+
+
+
+
+## [1.5.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.5.1...@twilio-paste/website@1.5.2) (2019-12-19)
+
+
+### Bug Fixes
+
+* **website:** mobile experience of website ([#226](https://github.com/twilio-labs/paste/issues/226)) ([203159e](https://github.com/twilio-labs/paste/commit/203159e33c859c5eb45638707c392c7e3831b0b9))
+* add height to styled code to prevent overflow ([#231](https://github.com/twilio-labs/paste/issues/231)) ([f270945](https://github.com/twilio-labs/paste/commit/f27094574ec09776ed896584ef6fb24d1c8233d5))
+* **website:** swap types package for style-props and minor copy updates ([bacac70](https://github.com/twilio-labs/paste/commit/bacac705f7588be15acc63707e8a7a53c6cd42d5))
+
+
+
+
+
 ## [1.5.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.5.0...@twilio-paste/website@1.5.1) (2019-12-05)
 
 

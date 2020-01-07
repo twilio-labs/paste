@@ -7,10 +7,10 @@ imports:
 props:
   # base background
   color-background:
-    value: "{!palette-gray-20}"
+    value: "{!palette-gray-10}"
     comment: Default background color for any container
   color-background-inverse:
-    value: "{!palette-gray-80}"
+    value: "{!palette-gray-90}"
     comment: Inverse background color for any container
 
   # brand backgrounds
@@ -48,7 +48,7 @@ props:
 
   # row backgrounds
   color-background-row-striped:
-    value: "{!palette-gray-20}"
+    value: "{!palette-gray-10}"
     comment: Background color for alternative striped rows
 
   # primary background
@@ -65,7 +65,7 @@ props:
     value: "{!palette-blue-40}"
     comment: Light background for primary actions or highlights
   color-background-primary-lighter:
-    value: "{!palette-blue-30}"
+    value: "{!palette-blue-20}"
     comment: Lighter background for primary actions or highlights
   color-background-primary-lightest:
     value: "{!palette-blue-10}"
@@ -85,7 +85,7 @@ props:
     value: "{!palette-red-40}"
     comment: Light background for destructive actions or highlights
   color-background-destructive-lighter:
-    value: "{!palette-red-30}"
+    value: "{!palette-red-20}"
     comment: Lighter background for destructive actions or highlights
   color-background-destructive-lightest:
     value: "{!palette-red-10}"

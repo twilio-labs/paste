@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-tokens@2.0.5...@twilio-paste/theme-tokens@3.0.0) (2019-12-20)
+
+
+### Features
+
+* **theme-tokens:** create the console and paste theme mapping ([3ee6b5d](https://github.com/twilio-labs/paste/commit/3ee6b5d753be7286719b3ec94d8e9b68b510b1a1))
+
+
+### BREAKING CHANGES
+
+* **theme-tokens:** switched the default theme to the paste theme and created the console theme
+
+
+
+
+
+## [2.0.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-tokens@2.0.4...@twilio-paste/theme-tokens@2.0.5) (2019-12-19)
+
+**Note:** Version bump only for package @twilio-paste/theme-tokens
+
+
+
+
+
 ## [2.0.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-tokens@2.0.3...@twilio-paste/theme-tokens@2.0.4) (2019-12-05)
 
 **Note:** Version bump only for package @twilio-paste/theme-tokens

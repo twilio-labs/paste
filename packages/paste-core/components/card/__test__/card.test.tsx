@@ -1,13 +1,15 @@
 import * as React from 'react';
+import {render} from 'react-dom';
 import {Theme} from '@twilio-paste/theme';
 import renderer from 'react-test-renderer';
-import {Card, CardFooter} from '../src';
+import {axe} from 'jest-axe';
+import {Card} from '../src';
 
 describe('Card', () => {
   it('it should render default values', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Card />
         </Theme.Provider>
       )
@@ -15,44 +17,49 @@ describe('Card', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should error with bad propTypes', (): void => {
-    expect(() => {
-      renderer.create(
-        <Theme.Provider>
-          <Card error="blowitup" />
+  it('it should filter out style props that are not allowed', (): void => {
+    const tree = renderer
+      .create(
+        <Theme.Provider theme="console">
+          <Card margin="space10" backgroundColor="colorBackgroundSuccess" />
         </Theme.Provider>
-      );
-    }).toThrow();
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
   it('it should render default values unless overridden by the component', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Card paddingBottom="space200" />
         </Theme.Provider>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
   it('it should render children', (): void => {
     const tree = renderer
       .create(
-        <Theme.Provider>
+        <Theme.Provider theme="console">
           <Card>I AM A JEDI!!!!</Card>
         </Theme.Provider>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
-  it('it should render CardFooter', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider>
-          <CardFooter>Just | footer | things</CardFooter>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+
+  it('should have no accessibility violations', async () => {
+    const container = document.createElement('div');
+    document.body.append(container);
+    render(
+      <Theme.Provider theme="console">
+        <Card>card content</Card>
+      </Theme.Provider>,
+      container
+    );
+    const results = await axe(document.body);
+    expect(results).toHaveNoViolations();
   });
 });

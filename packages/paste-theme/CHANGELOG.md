@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@2.0.5...@twilio-paste/theme@3.0.0) (2019-12-20)
+
+
+### Features
+
+* **theme:** add the console theme and update default theme ([3951f82](https://github.com/twilio-labs/paste/commit/3951f823454be266dd2b6d4cb805c437df33d86b))
+
+
+### BREAKING CHANGES
+
+* **theme:** Theme provider default theme is now DEFAULT, not CONSOLE. If you are not providing a theme prop but want the console theme you must now explicitly set the theme to console
+
+
+
+
+
+## [2.0.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@2.0.4...@twilio-paste/theme@2.0.5) (2019-12-19)
+
+**Note:** Version bump only for package @twilio-paste/theme
+
+
+
+
+
 ## [2.0.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@2.0.3...@twilio-paste/theme@2.0.4) (2019-12-05)
 
 **Note:** Version bump only for package @twilio-paste/theme

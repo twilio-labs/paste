@@ -3,9 +3,9 @@ import {storiesOf} from '@storybook/react';
 import {withKnobs} from '@storybook/addon-knobs';
 import {Paragraph} from '../src';
 
-storiesOf('Components|Typography', module)
+storiesOf('Components|Paragraph', module)
   .addDecorator(withKnobs)
-  .add('Paragraph', () => {
+  .add('Default', () => {
     return (
       <>
         <Paragraph>I am paragraph text.</Paragraph>
