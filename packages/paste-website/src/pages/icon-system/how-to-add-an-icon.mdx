@@ -28,7 +28,6 @@ export const pageQuery = graphql`
 <contentwrapper>
 <TableOfContents headings={props.data.mdx.headings} />
 <content>
-
 <h1>{props.pageContext.frontmatter.title}</h1>
 Written for Sketch 59.1
 
@@ -36,95 +35,119 @@ Written for Sketch 59.1
 
 ## Finding an icon
 
-1. Make sure the icon you need doesn’t already live in the [Paste repo](https://twilio-labs.github.io/paste/?path=/story/overview-icons--list) 
-and that you can’t use one of the existing ones.
-2. Find a new icon by searching through the [Streamline app](https://app.streamlineicons.com/streamline-regular), 
-then message #help-design-system for the Sketch file.
+1. Make sure the icon you need doesn’t already live in the [Paste repo](https://twilio-labs.github.io/paste/?path=/story/overview-icons--list)
+   and that you can’t use one of the existing ones.
+2. Find a new icon by searching through the [Streamline app](https://app.streamlineicons.com/streamline-regular),
+   then message #help-design-system for the Sketch file.
 3. Create a branch in Abstract.
-    1. If you’re planning on adding the icon to Paste, first [create a Github issue](https://github.com/twilio-labs/paste/issues). 
-  Explain what you’re using it for, and list other potential use cases outside of your own. 
-  Add a link or screenshot of the proposed icon. If the team agrees, create a branch in 
-  the ["Paste icons" Abstract project](https://share.goabstract.com/0bdb9ae0-d1da-4021-80d3-338683d27b42).
-    2. If the icon won’t be added to Paste, create a branch in your own Abstract project 
-  and skip to [Using a Streamline icon](/icon-system/how-to-add-an-icon#using-a-streamline-icon).
-
+   1. If you’re planning on adding the icon to Paste, first [create a Github issue](https://github.com/twilio-labs/paste/issues).
+      Explain what you’re using it for, and list other potential use cases outside of your own.
+      Add a link or screenshot of the proposed icon. If the team agrees, create a branch in
+      the ["Paste icons" Abstract project](https://share.goabstract.com/0bdb9ae0-d1da-4021-80d3-338683d27b42).
+   2. If the icon won’t be added to Paste, create a branch in your own Abstract project
+      and skip to [Using a Streamline icon](/icon-system/how-to-add-an-icon#using-a-streamline-icon).
 
 ## Setting up an icon in Paste Icons
 
 1. Open "paste icons.sketch".
 2. Go to the page "Symbols".
 3. Duplicate the empty template artboards ("[16/icon name](https://share.goabstract.com/26080d38-a95a-46b1-a0ad-aa4ddba4abb3)",
-"[20/icon name](https://share.goabstract.com/96294d4e-50cc-4c7e-9cb9-b82a045fe970)", and "[24/icon name](https://share.goabstract.com/f51d0d18-67ce-4c02-8c44-5f8d390863d7)"). 
-Make sure the artboards are aligned evenly on the canvas with the existing icon artboards.
+   "[20/icon name](https://share.goabstract.com/96294d4e-50cc-4c7e-9cb9-b82a045fe970)", and "[24/icon name](https://share.goabstract.com/f51d0d18-67ce-4c02-8c44-5f8d390863d7)").
+   Make sure the artboards are aligned evenly on the canvas with the existing icon artboards.
 4. Turn the new artboards into symbols.
 5. In the artboard names, replace "icon name" with the name of your icon.
-
 
 ## Using a Streamline icon
 
 1. Copy and paste the Streamline icon onto the 24px artboard.
 2. Select all the layers and change the border width to 2.
-![Example of border width set to 2](../../assets/images/icon-guide/using-streamline-icons-1.png)
-3. Select the layer group. Lock the width-height aspect ratio. If the icon appears 
-larger than the bounds of the artboard, shrink the icon down to just fill the 
-artboard. 20–22 px usually works.
-![Example of locked width and height values](../../assets/images/icon-guide/using-streamline-icons-2.png)
+   ![Example of border width set to 2](../../assets/images/icon-guide/using-streamline-icons-1.png)
+3. Select the layer group. Lock the width-height aspect ratio. If the icon appears
+   larger than the bounds of the artboard, shrink the icon down to just fill the
+   artboard. 20–22 px usually works.
+   ![Example of locked width and height values](../../assets/images/icon-guide/using-streamline-icons-2.png)
 4. Duplicate the layer group. Rename the original group to "source" and hide it.
 5. Ungroup the new layer group. You’ll be working with these layers.
-![Sample layer groups](../../assets/images/icon-guide/using-streamline-icons-3.png)
-
+   ![Sample layer groups](../../assets/images/icon-guide/using-streamline-icons-3.png)
 
 ## Formatting an icon
 
 1. Convert your icons to outlines so that the width of the lines stay consistent.
-    1. Select all the layers and press "SHIFT + COMMAND + O", or use Sketch's menu, "Layer > Convert to Outlines".
-    2. Make sure each layer now has a fill and not a stroke.
-2. Create a union with all the pieces of your icon. This will merge individual pieces 
-together to create one shape. You can find the Union tool in Sketch's toolbar at the 
-top or go to "Layer > Combine > Union".
-3. Apply the layer style "icon/color-text-icon" from one of the Paste themes to the 
-combined shape. In the layer list, you should only have this shape and the hidden 
-"source" group.
+   1. Select all the layers and press "SHIFT + COMMAND + O", or use Sketch's menu, "Layer > Convert to Outlines".
+   2. Make sure each layer now has a fill and not a stroke.
+2. Create a union with all the pieces of your icon. This will merge individual pieces
+   together to create one shape. You can find the Union tool in Sketch's toolbar at the
+   top or go to "Layer > Combine > Union".
+3. Apply the layer style "icon/color-text-icon" from one of the Paste themes to the
+   combined shape. In the layer list, you should only have this shape and the hidden
+   "source" group.
 4. Rename the combined shape to "[icon name]".
-5. Make sure the icon is centered on the artboard both vertically and horizontally. 
-If you’re working with an asymmetric shape, you might need to adjust it manually to make 
-sure it’s [optically centered](https://blog.marvelapp.com/optical-adjustment-logic-vs-designers/). 
-For example, you might need to move a "play" icon a bit 
-right-of-center to account for the low visual weight on its right side.
+5. Make sure the icon is centered on the artboard both vertically and horizontally.
+   If you’re working with an asymmetric shape, you might need to adjust it manually to make
+   sure it’s [optically centered](https://blog.marvelapp.com/optical-adjustment-logic-vs-designers/).
+   For example, you might need to move a "play" icon a bit
+   right-of-center to account for the low visual weight on its right side.
 6. Make sure there are no transforms on the shape. If there are, go to "Layer > Combine > Flatten".
-![Number of transforms preview](../../assets/images/icon-guide/formatting-an-icon-1.png)
+   ![Number of transforms preview](../../assets/images/icon-guide/formatting-an-icon-1.png)
 7. This is what your layer and sidebar should look like:
-![Example of what Sketch should look like](../../assets/images/icon-guide/formatting-an-icon-2.png)
-8. If you’re working on a Paste icon, place the "24/[icon name]" symbol on the 
-"20/[icon name]" and "16/[icon name]" artboards. Resize them to 20px × 20px and 
-16px × 16px respectively. Fix the size of the layer horizontally and vertically.
-![Example of how to size icons](../../assets/images/icon-guide/formatting-an-icon-3.png)
+   ![Example of what Sketch should look like](../../assets/images/icon-guide/formatting-an-icon-2.png)
+8. If you’re working on a Paste icon, place the "24/[icon name]" symbol on the
+   "20/[icon name]" and "16/[icon name]" artboards. Resize them to 20px × 20px and
+   16px × 16px respectively. Fix the size of the layer horizontally and vertically.
+   ![Example of how to size icons](../../assets/images/icon-guide/formatting-an-icon-3.png)
 9. Rename the layer to "icon".
 
-
-## Exporting and adding the icon
+## Exporting the icon
 
 1. Make sure you have the [SVGO compressor Sketch plugin](https://www.sketch.com/extensions/plugins/svgo-compressor/) installed.
-2. Export the 24px icon artboard (not the combined shape) as an SVG. The template artboard 
-is already set up to do this.
-3. Make sure the SVG code is clean.
-    1. You shouldn’t see `id`. If you do, make sure the SVGO compressor plugin is properly installed.
-    2. You shouldn’t see `transform`. If you do, flatten your shape.
-    3. You should see `width=”24" height="24"`. If you don’t, check that the artboard you’re 
-    exporting is 24px × 24px and you’re exporting the artboard, not the layer.
+2. Export the 24px icon artboard (not the combined shape) as an SVG. The template artboard
+   is already set up to do this.
+3. Make sure the SVG code is clean:
+   1. You shouldn’t see `id`. If you do, make sure the SVGO compressor plugin is properly installed.
+   2. You shouldn’t see `transform`. If you do, flatten your shape.
+   3. You should see `width=”24" height="24"`. If you don’t, check that the artboard you’re
+      exporting is 24px × 24px and you’re exporting the artboard, not the layer.
 4. Commit your changes in Abstract and request a review from the Paste design team.
-5. Add the SVG to your code.
-    1. If the icon will be added to Paste, attach the SVG file to the original Github issue. 
-    The Paste team will add it to the repo and let you know when it’s done.
-    2. If it won’t be added to Paste, use the [svg-to-react](https://github.com/twilio-labs/svg-to-react) 
-    utility to create an accessible and extendable React component.
+
+## Adding the icon to the Paste repository
+
+Once the icon is designed and exported, we need to get it in the hands of our developers.
+There are two ways for icons to be added into the `@twilio-paste/icons` code package:
+
+1. You can [file an issue on Github](https://github.com/twilio-labs/paste/issues) providing all the
+   information you have about the icon. Ideally, this issue would attach the SVG icon generated in
+   the above steps. This method is hands-off, but comes at the cost of needing to wait between 2 to 6 weeks
+   for us to plan and execute on the work.
+2. Alternatively, you can open a Pull Request (PR) on our repository with the required changes.
+   This self-service approach would greatly speed up the process of getting your icon into the Paste package
+   because it bypasses our team's sprint practices.
+
+### Self-service instructions
+
+1. Fork the Paste repository because PRs can only be open against forks and not branches for security reasons.
+2. Clone your newly forked Paste repository:
+```
+git clone <url>
+```
+3. Navigate inside the newly cloned repository with `cd paste`
+4. Move any number of `svg` icon files into the `packages/paste-icons/svg/` folder.
+5. From the root Paste folder, run this automatic conversion command:
+```
+yarn workspace @twilio-paste/icons convert-new
+```
+6. Verify the `packages/twilio-icons/src` folder to see if your new icons were added correctly.
+7. At this point, run the following command to update our documentation with the new icons:
+```
+yarn workspace @twilio-paste/icons list-icons
+```
+8. Commit your changes and submit a new PR on Github!
 
 
 ## Troubleshooting
 
-If you run into any issues with creating your icon, double check you've followed 
-all the steps. In the past, we've seen icons that had small artifacts or 
-missing pieces because of the order of layers within a combined shape 
+If you run into any issues with creating your icon, double check you've followed
+all the steps. In the past, we've seen icons that had small artifacts or
+missing pieces because of the order of layers within a combined shape
 or union. Try moving layers around to get the shape you need.
 
 Get in touch with the Paste team through Slack at #help-design-system.
