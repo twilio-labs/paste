@@ -11,6 +11,7 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {Callout, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
+import Changelog from '@twilio-paste/text/CHANGELOG.md';
 
 export const pageQuery = graphql`
   {
@@ -290,7 +291,7 @@ The Flex component should be used when a flexible layout is needed with a page l
   />
   <Dont
     title="Don't"
-    body="Use Flex to without any child elements, because this is only a container element."
+    body="Use Flex without any child elements, because this is only a container element."
     preview={false}
   />
 </DoDont>
@@ -327,7 +328,7 @@ import {Flex} from '@twilio-paste/flex';
 
 <Flex>
   Foo
-</Flex>;
+</Flex>
 ```
 
 #### Props
@@ -337,11 +338,15 @@ import {Flex} from '@twilio-paste/flex';
 | display?       | `string, ResponsiveValue<'flex', 'inline-flex'>`    | Display property              | 'flex'  |
 | basis?         | `string, number, ResponsiveValue<string, number>`   | Flex basis property           |         |
 | grow?          | `boolean, number, ResponsiveValue<boolean, number>` | Flex grow property            |         |
-| hAlignContent? | `string, number, ResponsiveValue<string, number>`   | Horizontal alignment property |         |
 | shrink?        | `string, number, ResponsiveValue<string, number>`   | Flex shrink property          |         |
+| hAlignContent? | `string, number, ResponsiveValue<string, number>`   | Horizontal alignment property |         |
 | vAlignContent? | `string, number, ResponsiveValue<string, number>`   | Vertical alignment property   |         |
 | vertical?      | `boolean, number, ResponsiveValue<boolean, number>` | Flex direction property       |         |
 | wrap?          | `boolean, number, ResponsiveValue<boolean, number>` | Flex wrap property            |         |
+
+<Box marginTop="space90">
+  <Changelog />
+</Box>
 
 </content>
 
