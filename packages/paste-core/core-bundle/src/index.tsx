@@ -13,4 +13,3 @@ export * from '@twilio-paste/screen-reader-only';
 export * from '@twilio-paste/spinner';
 export * from '@twilio-paste/text';
 export * from '@twilio-paste/truncate';
-export * from '@twilio-paste/typography';

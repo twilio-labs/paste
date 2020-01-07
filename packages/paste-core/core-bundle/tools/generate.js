@@ -3,7 +3,7 @@ const {sortBy} = require('lodash');
 const {getRepoPackages} = require('../../../../tools/utils/getRepoPackages');
 const {writeToFile} = require('../../../../tools/utils/writeToFile');
 
-const BLACKLIST = ['@twilio-paste/core'];
+const BLACKLIST = ['@twilio-paste/core', '@twilio-paste/typography'];
 
 const CORE_BUNDLE_PATH = join(__dirname, '../');
 const CORE_BUNDLE_INDEX_PATH = join(CORE_BUNDLE_PATH, 'src/index.tsx');
