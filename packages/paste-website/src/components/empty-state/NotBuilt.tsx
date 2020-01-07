@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
-import {Heading, Paragraph} from '@twilio-paste/typography';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
 import {Breadcrumb, BreadcrumbItem} from '../breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
 import {getHumanizedNameFromPackageName} from '../../utils/RouteUtils';
