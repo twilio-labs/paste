@@ -88,55 +88,6 @@ Make the default theme the Paste theme based on new unified design language
 
 * **icons:** removed all the inherited icons since we're moving to a new system
 
-* chore(icons): update icon list for storybook
-
-* fix(spinner): use new icon
-
-* fix(storybook): use new icon for story
-
-* fix(story): button icons should be 24px
-
-* fix: adjust icon size tokens
-
-* feat: add iconSizes as separate key in theme-tokens
-
-* feat(icons): icons package to use tokens and update icons
-
-* fix(spinner): update to use tokens and new icons
-
-* fix(button): use correct spinner size
-
-* fix(icons): major icons package fixes
-
-- huge overhaul to build process
-- now uses rollup
-- builds into cjs and esm directories
-- made the package publishable to npm
-- moved svg folder out of src, now src only holds react stuff
-- updated scripts to use new paths and cleaned up the code
-- programmatically generates rollup config from the icon-list command
-
-* chore: add new icons dist folders to gitignore
-
-* fix: spinner and button icon usage
-
-* feat(icons): add rollup icon list cache file
-
-* fix(core-bundle): sort packages for consistent builds
-
-* chore: use `esm` instead of `es` in rollup for correctness
-
-* chore: yarn.lock
-
-* fix(spinner): lint error
-
-* chore(icons): move rollup icon list
-
-* chore(spinner): use types package in story
-
-* fix(spinner): swap out destructured props for explicit props
-
-
 
 
 
