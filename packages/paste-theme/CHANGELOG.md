@@ -80,55 +80,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * **icons:** removed all the inherited icons since we're moving to a new system
 
-* chore(icons): update icon list for storybook
-
-* fix(spinner): use new icon
-
-* fix(storybook): use new icon for story
-
-* fix(story): button icons should be 24px
-
-* fix: adjust icon size tokens
-
-* feat: add iconSizes as separate key in theme-tokens
-
-* feat(icons): icons package to use tokens and update icons
-
-* fix(spinner): update to use tokens and new icons
-
-* fix(button): use correct spinner size
-
-* fix(icons): major icons package fixes
-
-- huge overhaul to build process
-- now uses rollup
-- builds into cjs and esm directories
-- made the package publishable to npm
-- moved svg folder out of src, now src only holds react stuff
-- updated scripts to use new paths and cleaned up the code
-- programmatically generates rollup config from the icon-list command
-
-* chore: add new icons dist folders to gitignore
-
-* fix: spinner and button icon usage
-
-* feat(icons): add rollup icon list cache file
-
-* fix(core-bundle): sort packages for consistent builds
-
-* chore: use `esm` instead of `es` in rollup for correctness
-
-* chore: yarn.lock
-
-* fix(spinner): lint error
-
-* chore(icons): move rollup icon list
-
-* chore(spinner): use types package in story
-
-* fix(spinner): swap out destructured props for explicit props
-
-
 
 
 
@@ -153,32 +104,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### BREAKING CHANGES
 
 * **box:** many Box API changes
-
-* fix(theme-tokens): add sizes key for styled-system responsiveness
-
-* fix(absolute): update to newer Box
-
-* fix(types): allow for responsive values via array
-
-* fix(box): update story and light tweaks to OverflowProps
-
-* chore: update yarn.lock file
-
-* fix(types): many more types fixes
-
-refactor: moved ValueOf into types package
-
-* fix(box): eslint error in story
-
-* fix(box): using the correct BorderProps definition
-
-fix: we shouldn't allow users to pass the `border` shorthand, it circumvents tokens
-
-* fix: lint errors
-
-* fix(website): update box docs
-
-* fix(storybook): use theme breakpoints
 
 
 
