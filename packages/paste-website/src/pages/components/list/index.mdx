@@ -8,6 +8,7 @@ import {graphql} from 'gatsby';
 import Img from 'gatsby-image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Heading} from '@twilio-paste/heading';
 import {ListItem, OrderedList, UnorderedList} from '@twilio-paste/list';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
@@ -83,7 +84,22 @@ List is part of the [Typography package](/components/typography), which includes
 
 - List text should meet AA requirements (4.5:1) for color contrast from itself and the background color
 - `ListItem`s should always have an `OrderedList` or `UnorderedList` parent component
-- Nested `ListItem`s should be wrapped in their own, new `OrderedList` or `UnorderedList` parent component
+- Nested `ListItem`s should be wrapped in their own, new `OrderedList` or `UnorderedList` parent component, e.g.
+
+```jsx
+<OrderedList>
+  <ListItem>
+    Text of the parent list item
+
+    <OrderedList>
+      <ListItem>
+        Nested list item
+      </ListItem>
+    </OrderedList>
+
+  </ListItem>
+</OrderedList>
+```
 
 ## Examples
 
@@ -178,8 +194,49 @@ List items can be nested within other list items. To do so create a new list as 
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Use nested lists to provide additional clarity or instruction on specific topics." center />
-  <Dont title="Don't" body="Don’t nest lists if the nested content is unrelated to the higher level topic." />
+  <Do title="Do" body="Use nested lists to provide additional clarity or instruction on specific topics.">
+    <Box padding="space60">
+      <Heading as="h2" variant="heading30">Animals</Heading>
+      <UnorderedList>
+        <ListItem>
+          Mammals
+          <UnorderedList>
+            <ListItem>Cat</ListItem>
+            <ListItem>Dog</ListItem>
+          </UnorderedList>
+        </ListItem>
+        <ListItem>
+          Birds
+          <UnorderedList>
+            <ListItem>Chicken</ListItem>
+            <ListItem>Turkey</ListItem>
+          </UnorderedList>
+        </ListItem>
+      </UnorderedList>
+    </Box>
+  </Do>
+  <Dont title="Don't" body="Don’t nest lists if the nested content is unrelated to the higher level topic.">
+    <Box padding="space60">
+      <Heading as="h2" variant="heading30">Animals</Heading>
+      <UnorderedList>
+        <ListItem>
+          Mammals
+          <Heading as="h3" variant="heading40">Groceries</Heading>
+          <UnorderedList>
+            <ListItem>Milk</ListItem>
+            <ListItem>Butter</ListItem>
+          </UnorderedList>
+        </ListItem>
+        <ListItem>
+          Birds
+          <UnorderedList>
+            <ListItem>Chicken</ListItem>
+            <ListItem>Turkey</ListItem>
+          </UnorderedList>
+        </ListItem>
+      </UnorderedList>
+    </Box>
+  </Dont>
 </DoDont>
 
 ## Anatomy
