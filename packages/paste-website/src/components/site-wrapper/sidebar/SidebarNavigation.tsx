@@ -159,7 +159,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
               <SiteNavAnchor to={SidebarCategoryRoutes.COMPONENTS}>Overview</SiteNavAnchor>
             </SiteNavItem>
             {data.allPasteComponent.edges
-              .filter(({node}) => node.status !== PackageStatus.BACKLOG)
+              .filter(({node}) => node.status !== PackageStatus.BACKLOG && node.name !== '@twilio-paste/typography')
               .map(({node}) => {
                 return (
                   <SiteNavItem key={node.name}>
