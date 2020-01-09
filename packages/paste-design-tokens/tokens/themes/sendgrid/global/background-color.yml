@@ -20,6 +20,9 @@ props:
     comment: Background color of the main page body
 
   # status
+  color-background-neutral-lightest:
+    value: "{!palette-blue-10}"
+    comment: Lightest neutral background color
   color-background-success:
     value: "{!palette-green-60}"
     comment: Success background color
