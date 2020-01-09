@@ -1,50 +1,45 @@
-import styled from '@emotion/styled';
-import {space, Theme} from 'styled-system';
-import {themeGet} from '@styled-system/theme-get';
-import {SpaceProps} from '@twilio-paste/style-props';
+import * as React from 'react';
+import {Box} from '@twilio-paste/box';
+import {Space} from '@twilio-paste/style-props';
 
-export interface MediaObjectProps extends Theme {
-  isCentered?: boolean;
+export interface MediaObjectProps {
+  verticalAlign?: 'center' | 'top';
 }
 
-const MediaObject = styled.div<MediaObjectProps>`
-  align-items: ${(props: MediaObjectProps) => (props.isCentered ? 'center' : 'flex-start')};
-  display: flex;
-`;
-
-export interface MediaFigureProps extends Theme {
-  align?: 'start' | 'end';
-  spacing?: 'space20' | 'space30';
-}
-
-const getMargin = (props: MediaFigureProps): string => {
-  const direction = props.align === 'end' ? 'left' : 'right';
-  const spacing = themeGet(`space.${props.spacing}`)(props);
-  return `margin-${direction}: ${spacing}`;
+const MediaObject: React.FC<MediaObjectProps> = ({children, verticalAlign = 'top'}) => {
+  return (
+    <Box display="flex" alignItems={verticalAlign === 'top' ? 'flex-start' : 'center'}>
+      {children}
+    </Box>
+  );
 };
+MediaObject.displayName = 'MediaObject';
 
-const MediaFigure = styled.div<MediaFigureProps>`
-  flex-shrink: 0;
-  ${getMargin};
-`;
-
+export interface MediaFigureProps {
+  align?: 'start' | 'end';
+  spacing?: Space;
+}
+const MediaFigure: React.FC<MediaFigureProps> = ({children, align, spacing}) => {
+  return (
+    <Box
+      display="flex"
+      flexShrink={0}
+      marginLeft={align === 'end' ? spacing : undefined}
+      marginRight={align === 'start' ? spacing : undefined}
+    >
+      {children}
+    </Box>
+  );
+};
+MediaFigure.displayName = 'MediaFigure';
 MediaFigure.defaultProps = {
   align: 'start',
-  spacing: 'space20',
+  spacing: 'space0',
 };
 
-export interface MediaBodyProps extends Theme, SpaceProps {}
-
-const MediaBody = styled.div<MediaBodyProps>`
-  flex: 1;
-  min-width: ${themeGet('minWidths.size0')};
-  ${space};
-`;
-
-const Media = {
-  Object: MediaObject,
-  Figure: MediaFigure,
-  Body: MediaBody,
+const MediaBody: React.FC<{}> = ({children}) => {
+  return <Box flex={1}>{children}</Box>;
 };
+MediaBody.displayName = 'MediaBody';
 
-export {Media};
+export {MediaObject, MediaFigure, MediaBody};
