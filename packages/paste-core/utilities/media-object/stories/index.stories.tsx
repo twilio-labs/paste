@@ -1,38 +1,41 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
-import {withKnobs, boolean, select} from '@storybook/addon-knobs';
+import {withKnobs, select} from '@storybook/addon-knobs';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
-import {Media} from '../src';
+import {DefaultTheme, ThemeShape} from '@twilio-paste/theme-tokens';
+import {MediaObject, MediaFigure, MediaBody} from '../src';
 
 storiesOf('Utilities|Media Object', module)
   .addDecorator(withKnobs)
   .add('Default', () => {
-    const spaceValue = select('spacing', ['space20', 'space30'], 'space20');
+    const spaceValue = select('spacing', Object.keys(DefaultTheme.space), 'space20') as keyof ThemeShape['space'];
+    const verticalAlignValue = select('verticalAlign', ['center', 'top'], 'top');
     return (
-      <Media.Object isCentered={boolean('isCentered', false)}>
-        <Media.Figure spacing={spaceValue}>
+      <MediaObject verticalAlign={verticalAlignValue}>
+        <MediaFigure spacing={spaceValue}>
           <Box backgroundColor="colorBackgroundSuccess" height="size10" minWidth="size10" />
-        </Media.Figure>
-        <Media.Body>
+        </MediaFigure>
+        <MediaBody>
           <Text as="p">Some media Object body text</Text>
-        </Media.Body>
-      </Media.Object>
+        </MediaBody>
+      </MediaObject>
     );
   })
   .add('Double Figure', () => {
-    const spaceValue = select('spacing', ['space20', 'space30'], 'space20');
+    const spaceValue = select('spacing', Object.keys(DefaultTheme.space), 'space20') as keyof ThemeShape['space'];
+    const verticalAlignValue = select('verticalAlign', ['center', 'top'], 'top');
     return (
-      <Media.Object isCentered={boolean('isCentered', false)}>
-        <Media.Figure spacing={spaceValue}>
+      <MediaObject verticalAlign={verticalAlignValue}>
+        <MediaFigure spacing={spaceValue}>
           <Box backgroundColor="colorBackgroundSuccess" height="size10" minWidth="size10" />
-        </Media.Figure>
-        <Media.Body>
+        </MediaFigure>
+        <MediaBody>
           <Text as="p">Some media Object body text</Text>
-        </Media.Body>
-        <Media.Figure align="end" spacing={spaceValue}>
+        </MediaBody>
+        <MediaFigure align="end" spacing={spaceValue}>
           <Box backgroundColor="colorBackgroundSuccess" height="size10" minWidth="size10" />
-        </Media.Figure>
-      </Media.Object>
+        </MediaFigure>
+      </MediaObject>
     );
   });
