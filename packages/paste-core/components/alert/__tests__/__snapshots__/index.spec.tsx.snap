@@ -1,0 +1,1113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert Variant error Should render an error alert 1`] = `
+.emotion-3 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.emotion-2 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.emotion-5 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-5 *,
+.emotion-5 *::after,
+.emotion-5 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-right: 0.75rem;
+}
+
+.emotion-4 {
+  box-sizing: border-box;
+  min-width: 0;
+  background-color: #ffe9e7;
+  border-color: #de5858;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.5rem;
+}
+
+.emotion-0 {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #921200;
+}
+
+<div
+  className="emotion-5"
+>
+  <div
+    className="emotion-4"
+    role="alert"
+  >
+    <div
+      className="emotion-3"
+      display="flex"
+    >
+      <div
+        className="emotion-1"
+        display="flex"
+      >
+        <span
+          className="emotion-0"
+          size="sizeIcon30"
+        >
+          <svg
+            aria-hidden={false}
+            aria-labelledby="15"
+            height="100%"
+            role="img"
+            viewBox="0 0 24 24"
+            width="100%"
+          >
+            <title
+              id="15"
+            >
+              error: 
+            </title>
+            <path
+              d="M19.778 4.222c4.296 4.296 4.296 11.26 0 15.556-4.296 4.296-11.26 4.296-15.556 0-4.296-4.296-4.296-11.26 0-15.556 4.296-4.296 11.26-4.296 15.556 0zM5.636 5.636a9.001 9.001 0 00-.668 11.982l12.65-12.65a9.001 9.001 0 00-11.982.668zm13.397.747l-12.65 12.65a9.001 9.001 0 0012.65-12.65z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        className="emotion-2"
+      >
+        This is an error alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert Variant error Should render an error alert with dismiss button 1`] = `
+.emotion-7 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.emotion-2 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.emotion-9 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-9 *,
+.emotion-9 *::after,
+.emotion-9 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-right: 0.75rem;
+}
+
+.emotion-3 {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #666a6d;
+}
+
+.emotion-6 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-left: 1.5rem;
+}
+
+.emotion-5 {
+  position: relative;
+  font-size: 100%;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  color: #005ea6;
+  width: auto;
+}
+
+.emotion-5::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-5:focus,
+.emotion-5:active {
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+}
+
+.emotion-5:hover,
+.emotion-5:focus,
+.emotion-5:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-5:hover,
+.emotion-5:focus,
+.emotion-5:active {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-5:hover {
+  color: #003e82;
+}
+
+.emotion-5:active {
+  color: #032c5e;
+}
+
+.emotion-4 {
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-column-gap: 0.25rem;
+  column-gap: 0.25rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  -webkit-text-decoration: inherit;
+  text-decoration: inherit;
+  opacity: 100%;
+}
+
+.emotion-8 {
+  box-sizing: border-box;
+  min-width: 0;
+  background-color: #ffe9e7;
+  border-color: #de5858;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.5rem;
+}
+
+.emotion-0 {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #921200;
+}
+
+<div
+  className="emotion-9"
+>
+  <div
+    className="emotion-8"
+    role="alert"
+  >
+    <div
+      className="emotion-7"
+      display="flex"
+    >
+      <div
+        className="emotion-1"
+        display="flex"
+      >
+        <span
+          className="emotion-0"
+          size="sizeIcon30"
+        >
+          <svg
+            aria-hidden={false}
+            aria-labelledby="16"
+            height="100%"
+            role="img"
+            viewBox="0 0 24 24"
+            width="100%"
+          >
+            <title
+              id="16"
+            >
+              error: 
+            </title>
+            <path
+              d="M19.778 4.222c4.296 4.296 4.296 11.26 0 15.556-4.296 4.296-11.26 4.296-15.556 0-4.296-4.296-4.296-11.26 0-15.556 4.296-4.296 11.26-4.296 15.556 0zM5.636 5.636a9.001 9.001 0 00-.668 11.982l12.65-12.65a9.001 9.001 0 00-11.982.668zm13.397.747l-12.65 12.65a9.001 9.001 0 0012.65-12.65z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        className="emotion-2"
+      >
+        This is an error alert
+      </div>
+      <div
+        className="emotion-6"
+        display="flex"
+      >
+        <button
+          aria-busy="false"
+          className="emotion-5"
+          disabled={false}
+          onClick={[MockFunction]}
+          size="reset"
+          type="button"
+        >
+          <span
+            className="emotion-4"
+          >
+            <span
+              className="emotion-3"
+              size="sizeIcon30"
+            >
+              <svg
+                aria-hidden={false}
+                aria-labelledby="17"
+                height="100%"
+                role="img"
+                viewBox="0 0 24 24"
+                width="100%"
+              >
+                <title
+                  id="17"
+                >
+                  dismiss this alert
+                </title>
+                <path
+                  d="M.67.847L.753.753A1 1 0 012.073.67l.094.083 9.835 9.835L21.836.753a1 1 0 011.32-.083l.094.083a1 1 0 01.084 1.32l-.084.094-9.834 9.835 9.834 9.834a1 1 0 01.084 1.32l-.084.094a1 1 0 01-1.32.084l-.094-.084-9.834-9.834-9.835 9.834a1 1 0 01-1.32.084l-.094-.084a1 1 0 01-.083-1.32l.083-.094 9.835-9.834L.753 2.167A1 1 0 01.67.847L.753.753.67.847z"
+                  fill="currentColor"
+                  fillRule="evenodd"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert Variant neutral Should render a neutral alert 1`] = `
+.emotion-3 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.emotion-2 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.emotion-5 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-5 *,
+.emotion-5 *::after,
+.emotion-5 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-4 {
+  box-sizing: border-box;
+  min-width: 0;
+  background-color: #f5f8ff;
+  border-color: #c8cccf;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.5rem;
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-right: 0.75rem;
+}
+
+.emotion-0 {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #666a6d;
+}
+
+<div
+  className="emotion-5"
+>
+  <div
+    className="emotion-4"
+    role="status"
+  >
+    <div
+      className="emotion-3"
+      display="flex"
+    >
+      <div
+        className="emotion-1"
+        display="flex"
+      >
+        <span
+          className="emotion-0"
+          size="sizeIcon30"
+        >
+          <svg
+            aria-hidden={false}
+            aria-labelledby="9"
+            height="100%"
+            role="img"
+            viewBox="0 0 24 24"
+            width="100%"
+          >
+            <title
+              id="9"
+            >
+              information: 
+            </title>
+            <path
+              d="M12.002.48c6.362 0 11.521 5.159 11.521 11.522s-5.159 11.521-11.521 11.521C5.638 23.523.48 18.365.48 12.002.48 5.638 5.638.48 12.002.48zm0 2a9.521 9.521 0 00-9.522 9.522 9.521 9.521 0 009.522 9.521c5.258 0 9.521-4.263 9.521-9.521 0-5.259-4.263-9.522-9.521-9.522zm.301 7.609a1 1 0 011 1v5.608h1.866a1 1 0 01.993.884l.007.116a1 1 0 01-1 1H9.43a1 1 0 110-2h1.873v-4.608h-.913a1 1 0 010-2zm-.475-4.305a1.478 1.478 0 110 2.956 1.478 1.478 0 010-2.956z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        className="emotion-2"
+      >
+        This is an alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert Variant neutral Should render a neutral alert with dismiss button 1`] = `
+.emotion-7 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.emotion-2 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.emotion-9 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-9 *,
+.emotion-9 *::after,
+.emotion-9 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-8 {
+  box-sizing: border-box;
+  min-width: 0;
+  background-color: #f5f8ff;
+  border-color: #c8cccf;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.5rem;
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-right: 0.75rem;
+}
+
+.emotion-0 {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #666a6d;
+}
+
+.emotion-6 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-left: 1.5rem;
+}
+
+.emotion-5 {
+  position: relative;
+  font-size: 100%;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  color: #005ea6;
+  width: auto;
+}
+
+.emotion-5::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-5:focus,
+.emotion-5:active {
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+}
+
+.emotion-5:hover,
+.emotion-5:focus,
+.emotion-5:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-5:hover,
+.emotion-5:focus,
+.emotion-5:active {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-5:hover {
+  color: #003e82;
+}
+
+.emotion-5:active {
+  color: #032c5e;
+}
+
+.emotion-4 {
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-column-gap: 0.25rem;
+  column-gap: 0.25rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  -webkit-text-decoration: inherit;
+  text-decoration: inherit;
+  opacity: 100%;
+}
+
+<div
+  className="emotion-9"
+>
+  <div
+    className="emotion-8"
+    role="status"
+  >
+    <div
+      className="emotion-7"
+      display="flex"
+    >
+      <div
+        className="emotion-1"
+        display="flex"
+      >
+        <span
+          className="emotion-0"
+          size="sizeIcon30"
+        >
+          <svg
+            aria-hidden={false}
+            aria-labelledby="10"
+            height="100%"
+            role="img"
+            viewBox="0 0 24 24"
+            width="100%"
+          >
+            <title
+              id="10"
+            >
+              information: 
+            </title>
+            <path
+              d="M12.002.48c6.362 0 11.521 5.159 11.521 11.522s-5.159 11.521-11.521 11.521C5.638 23.523.48 18.365.48 12.002.48 5.638 5.638.48 12.002.48zm0 2a9.521 9.521 0 00-9.522 9.522 9.521 9.521 0 009.522 9.521c5.258 0 9.521-4.263 9.521-9.521 0-5.259-4.263-9.522-9.521-9.522zm.301 7.609a1 1 0 011 1v5.608h1.866a1 1 0 01.993.884l.007.116a1 1 0 01-1 1H9.43a1 1 0 110-2h1.873v-4.608h-.913a1 1 0 010-2zm-.475-4.305a1.478 1.478 0 110 2.956 1.478 1.478 0 010-2.956z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        className="emotion-2"
+      >
+        This is an alert
+      </div>
+      <div
+        className="emotion-6"
+        display="flex"
+      >
+        <button
+          aria-busy="false"
+          className="emotion-5"
+          disabled={false}
+          onClick={[MockFunction]}
+          size="reset"
+          type="button"
+        >
+          <span
+            className="emotion-4"
+          >
+            <span
+              className="emotion-0"
+              size="sizeIcon30"
+            >
+              <svg
+                aria-hidden={false}
+                aria-labelledby="11"
+                height="100%"
+                role="img"
+                viewBox="0 0 24 24"
+                width="100%"
+              >
+                <title
+                  id="11"
+                >
+                  dismiss this alert
+                </title>
+                <path
+                  d="M.67.847L.753.753A1 1 0 012.073.67l.094.083 9.835 9.835L21.836.753a1 1 0 011.32-.083l.094.083a1 1 0 01.084 1.32l-.084.094-9.834 9.835 9.834 9.834a1 1 0 01.084 1.32l-.084.094a1 1 0 01-1.32.084l-.094-.084-9.834-9.834-9.835 9.834a1 1 0 01-1.32.084l-.094-.084a1 1 0 01-.083-1.32l.083-.094 9.835-9.834L.753 2.167A1 1 0 01.67.847L.753.753.67.847z"
+                  fill="currentColor"
+                  fillRule="evenodd"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert Variant warning Should render an warning alert 1`] = `
+.emotion-3 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.emotion-2 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.emotion-5 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-5 *,
+.emotion-5 *::after,
+.emotion-5 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-right: 0.75rem;
+}
+
+.emotion-4 {
+  box-sizing: border-box;
+  min-width: 0;
+  background-color: #ffecd8;
+  border-color: #f28510;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.5rem;
+}
+
+.emotion-0 {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #a83e00;
+}
+
+<div
+  className="emotion-5"
+>
+  <div
+    className="emotion-4"
+    role="alert"
+  >
+    <div
+      className="emotion-3"
+      display="flex"
+    >
+      <div
+        className="emotion-1"
+        display="flex"
+      >
+        <span
+          className="emotion-0"
+          size="sizeIcon30"
+        >
+          <svg
+            aria-hidden={false}
+            aria-labelledby="21"
+            height="100%"
+            role="img"
+            viewBox="0 0 24 24"
+            width="100%"
+          >
+            <title
+              id="21"
+            >
+              warning: 
+            </title>
+            <path
+              d="M12.897 1.033L23.42 22.076a1 1 0 01-.894 1.447H1.48a1 1 0 01-.894-1.447L11.109 1.033a1 1 0 011.788 0zm-.894 2.683L3.099 21.523h17.808L12.003 3.716zm0 13.486a1.478 1.478 0 110 2.957 1.478 1.478 0 010-2.957zm0-8.401c.552 0 1 .336 1 .751v5.498c0 .415-.448.75-1 .75s-1-.335-1-.75V9.552c0-.415.448-.751 1-.751z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        className="emotion-2"
+      >
+        This is an warning alert
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert Variant warning Should render an warning alert with dismiss button 1`] = `
+.emotion-7 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.emotion-2 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.emotion-9 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-9 *,
+.emotion-9 *::after,
+.emotion-9 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-right: 0.75rem;
+}
+
+.emotion-3 {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #666a6d;
+}
+
+.emotion-6 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-left: 1.5rem;
+}
+
+.emotion-5 {
+  position: relative;
+  font-size: 100%;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  color: #005ea6;
+  width: auto;
+}
+
+.emotion-5::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-5:focus,
+.emotion-5:active {
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+}
+
+.emotion-5:hover,
+.emotion-5:focus,
+.emotion-5:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-5:hover,
+.emotion-5:focus,
+.emotion-5:active {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-5:hover {
+  color: #003e82;
+}
+
+.emotion-5:active {
+  color: #032c5e;
+}
+
+.emotion-4 {
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-column-gap: 0.25rem;
+  column-gap: 0.25rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  -webkit-text-decoration: inherit;
+  text-decoration: inherit;
+  opacity: 100%;
+}
+
+.emotion-8 {
+  box-sizing: border-box;
+  min-width: 0;
+  background-color: #ffecd8;
+  border-color: #f28510;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.5rem;
+}
+
+.emotion-0 {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #a83e00;
+}
+
+<div
+  className="emotion-9"
+>
+  <div
+    className="emotion-8"
+    role="alert"
+  >
+    <div
+      className="emotion-7"
+      display="flex"
+    >
+      <div
+        className="emotion-1"
+        display="flex"
+      >
+        <span
+          className="emotion-0"
+          size="sizeIcon30"
+        >
+          <svg
+            aria-hidden={false}
+            aria-labelledby="22"
+            height="100%"
+            role="img"
+            viewBox="0 0 24 24"
+            width="100%"
+          >
+            <title
+              id="22"
+            >
+              warning: 
+            </title>
+            <path
+              d="M12.897 1.033L23.42 22.076a1 1 0 01-.894 1.447H1.48a1 1 0 01-.894-1.447L11.109 1.033a1 1 0 011.788 0zm-.894 2.683L3.099 21.523h17.808L12.003 3.716zm0 13.486a1.478 1.478 0 110 2.957 1.478 1.478 0 010-2.957zm0-8.401c.552 0 1 .336 1 .751v5.498c0 .415-.448.75-1 .75s-1-.335-1-.75V9.552c0-.415.448-.751 1-.751z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        className="emotion-2"
+      >
+        This is an warning alert
+      </div>
+      <div
+        className="emotion-6"
+        display="flex"
+      >
+        <button
+          aria-busy="false"
+          className="emotion-5"
+          disabled={false}
+          onClick={[MockFunction]}
+          size="reset"
+          type="button"
+        >
+          <span
+            className="emotion-4"
+          >
+            <span
+              className="emotion-3"
+              size="sizeIcon30"
+            >
+              <svg
+                aria-hidden={false}
+                aria-labelledby="23"
+                height="100%"
+                role="img"
+                viewBox="0 0 24 24"
+                width="100%"
+              >
+                <title
+                  id="23"
+                >
+                  dismiss this alert
+                </title>
+                <path
+                  d="M.67.847L.753.753A1 1 0 012.073.67l.094.083 9.835 9.835L21.836.753a1 1 0 011.32-.083l.094.083a1 1 0 01.084 1.32l-.084.094-9.834 9.835 9.834 9.834a1 1 0 01.084 1.32l-.084.094a1 1 0 01-1.32.084l-.094-.084-9.834-9.834-9.835 9.834a1 1 0 01-1.32.084l-.094-.084a1 1 0 01-.083-1.32l.083-.094 9.835-9.834L.753 2.167A1 1 0 01.67.847L.753.753.67.847z"
+                  fill="currentColor"
+                  fillRule="evenodd"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

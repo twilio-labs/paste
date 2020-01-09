@@ -1,0 +1,27 @@
+{
+  "extends": "../../../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "references": [
+    {
+      "path": "../../utilities/box"
+    },
+    {
+      "path": "../button"
+    },
+    {
+      "path": "../../../paste-icons"
+    },
+    {
+      "path": "../../utilities/media-object"
+    },
+    {
+      "path": "../../../paste-types"
+    }
+  ]
+}
