@@ -4,11 +4,12 @@ import styled from '@emotion/styled';
 import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {OrderedList, UnorderedList, ListItem} from '@twilio-paste/list';
 import {Codeblock, CodeblockProps} from '../codeblock';
 import {Table, Tbody, Tr, Th, Td} from '../table';
 import {AnchoredHeading} from '../Heading';
 import {StyledHr} from '../StyledHr';
-import {UL, OL, LI, InlineCode, Pre} from '../Typography';
+import {InlineCode, Pre} from '../Typography';
 // Shortcode imports
 import {ComponentHeader} from '../shortcodes/component-header';
 import {LivePreview} from '../shortcodes/live-preview';
@@ -55,9 +56,9 @@ export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMD
         h5: (props: Heading): React.ReactElement => <AnchoredHeading {...props} as="h5" variant="heading50" />,
         h6: (props: Heading): React.ReactElement => <AnchoredHeading {...props} as="h6" variant="heading60" />,
         p: (props: React.ComponentProps<typeof Paragraph>): React.ReactElement => <Paragraph {...props} />,
-        ul: (props: React.ComponentProps<typeof UL>): React.ReactElement => <UL {...props} />,
-        ol: (props: React.ComponentProps<typeof OL>): React.ReactElement => <OL {...props} />,
-        li: (props: React.ComponentProps<typeof LI>): React.ReactElement => <LI {...props} />,
+        ul: (props: React.ComponentProps<typeof UnorderedList>): React.ReactElement => <UnorderedList {...props} />,
+        ol: (props: React.ComponentProps<typeof OrderedList>): React.ReactElement => <OrderedList {...props} />,
+        li: (props: React.ComponentProps<typeof ListItem>): React.ReactElement => <ListItem {...props} />,
         blockquote: (props: React.ComponentProps<'blockquote'>): React.ReactElement => <blockquote {...props} />,
         table: (props: React.ComponentProps<'table'>): React.ReactElement => <Table {...props} />,
         thead: (props: React.ComponentProps<'thead'>): React.ReactElement => <thead {...props} />,

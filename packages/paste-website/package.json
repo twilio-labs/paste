@@ -28,6 +28,7 @@
     "@twilio-paste/box": "^2.1.1",
     "@twilio-paste/button": "^1.1.4",
     "@twilio-paste/heading": "^1.0.7",
+    "@twilio-paste/list": "^0.1.1",
     "@twilio-paste/paragraph": "^1.0.7",
     "@twilio-paste/screen-reader-only": "^1.0.0",
     "@twilio-paste/style-props": "^0.1.1",
