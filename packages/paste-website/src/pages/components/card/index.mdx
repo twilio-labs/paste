@@ -88,23 +88,23 @@ export const pageQuery = graphql`
 
 ### About Cards
 
-Cards are specifically-styled containers that group relatable content and actions. Card is an extremely 
-flexible container that does not require specific components inside of it. You can compose a Card to support your use case, 
+Cards are specifically-styled containers that group relatable content and actions. Card is an extremely
+flexible container that does not require specific components inside of it. You can compose a Card to support your use case,
 but elements such as [Heading](/components/heading), [Paragraph](/components/paragraph), and [Button](/components/button) or [Anchor](/components/anchor) are commonly used.
-See [When to use a Card](#when-to-use-a-card) and [Examples](#examples) for common Card patterns and dos/donts. 
+See [When to use a Card](#when-to-use-a-card) and [Examples](#examples) for common Card patterns and dos/donts.
 
-A Card does not handle any interactive events such as hover, click, or focus, though children 
+A Card does not handle any interactive events such as hover, click, or focus, though children
 composed inside of it may commonly have event handlers.
 
-Acknowledging the flexibility of Card component, there are several [non-negotiable properties](#anatomy) 
+Acknowledging the flexibility of Card component, there are several [non-negotiable properties](#anatomy)
 of a Card that differentiate it from a more basic page-layout element, such as [Box](/utilities/box) including background color, border width, border radius, and border color.
 
 ### Card vs. Box
 
-At its core, Card is a [Box](/utilities/box) with specific styling attributes and more explicit use cases that you can find in [Examples](#examples). 
-If you find yourself limited by the default styling and constraints of a Card, you may consider using a Box instead, 
-but first consider bringing the problem you are trying to solve 
-to Design System Office Hours to see if another component or pattern could fit your needs. 
+At its core, Card is a [Box](/utilities/box) with specific styling attributes and more explicit use cases that you can find in [Examples](#examples).
+If you find yourself limited by the default styling and constraints of a Card, you may consider using a Box instead,
+but first consider bringing the problem you are trying to solve
+to Design System Office Hours to see if another component or pattern could fit your needs.
 
 
 ### Examples
@@ -114,22 +114,22 @@ to Design System Office Hours to see if another component or pattern could fit y
 An example of a Card with default padding.
 
 
-<LivePreview scope={{Card, Text, CardFooter, Heading}} language="jsx">
-  {`    <Card>
-      <Heading as="h2">This is a card</Heading>
-      <Text as="p">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-        labore et dolore magna aliqua.
-      </Text>    
-    </Card>`}
+<LivePreview scope={{Card, Paragraph, CardFooter, Heading}} language="jsx">
+  {`<Card>
+  <Heading as="h2">This is a card</Heading>
+  <Paragraph>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua.
+  </Paragraph>
+</Card>`}
 </LivePreview>
 
 #### Card with Title, Body and Button
 
-One of the most common use cases for a Card is to relate a title ([Heading](/components/heading)), supporting body copy ([Paragraph](/components/paragraph)), 
-and primary action ([Button](/components/button)) together. Relating these three elements together with a Card makes it easy for a user to 
-digest and provides a clear call to action. Padding surrounding the inner content of a Card can be 
-adjusted to suit the needs of your implementation. 
+One of the most common use cases for a Card is to relate a title ([Heading](/components/heading)), supporting body copy ([Paragraph](/components/paragraph)),
+and primary action ([Button](/components/button)) together. Relating these three elements together with a Card makes it easy for a user to
+digest and provides a clear call to action. Padding surrounding the inner content of a Card can be
+adjusted to suit the needs of your implementation.
 
 
 <LivePreview scope={{Card, Paragraph, CardFooter, Heading, Button}} language="jsx">
@@ -145,13 +145,13 @@ adjusted to suit the needs of your implementation.
 
 #### Card with Centered Content
 
-Your implementation use case may call for a Card with centered content. You can accommodate this by 
-using the alignment props available on some components, or by creating a custom layout inside your 
-Card using Box or Flex. 
+Your implementation use case may call for a Card with centered content. You can accommodate this by
+using the alignment props available on some components, or by creating a custom layout inside your
+Card using Box or Flex.
 
-<LivePreview scope={{Card, Paragraph, Heading, Button, PlusIcon}} language="jsx">
+<LivePreview scope={{Card, Paragraph, Heading, Button, PlusIcon, Text}} language="jsx">
   {`<Card padding="space200">
-  <div style={{textAlign: 'center'}}>
+  <Text as="div" textAlign="center">
     <PlusIcon size='sizeIcon40' decorative title="There just wasn't a details icon to use"/>
     <Heading as="h2">Let's verify your integration</Heading>
     <Paragraph>
@@ -159,10 +159,10 @@ Card using Box or Flex.
       magna aliqua.
     </Paragraph>
     <Button variant="submit"> Test my integration </Button>
-  </div>
+  </Text>
 </Card>;`}
 </LivePreview>
-{/* 
+{/*
 We didn't have an icon or grid/layout components so we'll save this example for later.
 #### Card with Custom Layout
 
@@ -172,17 +172,17 @@ We didn't have an icon or grid/layout components so we'll save this example for 
   <Paragraph>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dui tellus, tristique in tincidunt cursus, efficitur
     at felis. Phasellus imperdiet, lorem et commodo egestas, arcu.
-  </Paragraph>  
+  </Paragraph>
 </Card>`}
 </LivePreview> */}
 
 ## Composing a Card
 ### When to use a Card
-Cards are a great tool for relating a concise amount of related information together in one object, much like a business card or baseball card in real life. 
+Cards are a great tool for relating a concise amount of related information together in one object, much like a business card or baseball card in real life.
 
-For example, you might use a single Card as a summary for a feature whose call to action encourages a user to dive deeper. Alternatively, multiple Cards on a single page with hierarchy of equal weights could be used to highlight multiple choices or paths a user can take. 
+For example, you might use a single Card as a summary for a feature whose call to action encourages a user to dive deeper. Alternatively, multiple Cards on a single page with hierarchy of equal weights could be used to highlight multiple choices or paths a user can take.
 
-Ultimately, Card is a very flexible component that can fit a variety of needs. If you feel that you have a unique use case or are limited by the Card implementation, please visit Design System Office Hours to see how we can help address your needs. 
+Ultimately, Card is a very flexible component that can fit a variety of needs. If you feel that you have a unique use case or are limited by the Card implementation, please visit Design System Office Hours to see how we can help address your needs.
 
 <DoDont>
   <Do
@@ -225,7 +225,7 @@ Ultimately, Card is a very flexible component that can fit a variety of needs. I
     body="Use a consistent location on the bottom of the Card for primary actions or next steps."
     preview={false}
   />
-  
+
 </DoDont>
 
 ## Anatomy
