@@ -1,0 +1,69 @@
+---
+title: Paste Libraries
+description: Standalone tools and plugins built and supported by the Paste team.
+---
+
+import {graphql} from 'gatsby';
+import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {Grid} from '../../components/grid';
+import { Link } from "gatsby"
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: { slug: { eq: "/paste-libraries/" } }) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings} />
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<p>{props.pageContext.frontmatter.description}</p>
+
+---
+
+## Motivation
+
+Paste is built by just a few people, but the reach of our libraries are great.  One of the team's 
+charters is creating a culture of prototypical design and development. While we work on building 
+out the design system, certain challenges we face are best solved by standalone tooling, 
+complimentary to and re-useable outside the framework of a design system.
+
+All of the libraries here are first-party; we actively support them and hope they provide you with as much
+value as they provide us.  
+
+
+## Libraries
+
+
+### [SVG-to-React](https://github.com/twilio-labs/svg-to-react)
+
+SVG-to-React allows users to generate fully-formed and accessible React components from an SVG input.
+The ouput will work similarly to the icons provided in Paste.  This library was created to allow for 
+self-service when suggesting new Paste icons or when individual product needs differ from Paste.
+You can rest easy knowing you're building out icons or larger SVG illustrations the right way when
+using this library.  It is powered by the superb [SVGR](https://github.com/gregberge/svgr) library.
+
+
+### [Sketch Twilio Ipsum](https://github.com/twilio-labs/sketch-twilio-ipsum/releases)
+
+A [Sketch](https://www.sketch.com/) plugin to help populate mockups with "real" data. 
+We believe there’s power in working with realistic and meaningful data as early as possible 
+in the design process because:
+- Content can inform design decisions and help you convey your purpose
+- Real data can reveal edge cases in your work that would otherwise be caught during development
+- It’s fun!
+
+
+</content>
+
+</contentwrapper>
