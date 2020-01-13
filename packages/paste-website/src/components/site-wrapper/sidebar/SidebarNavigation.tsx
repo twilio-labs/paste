@@ -219,7 +219,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <SiteNavAnchor to="/migrate">Migration Guide</SiteNavAnchor>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavAnchor to="/paste-libraries">Paste Libraries</SiteNavAnchor>
+          <SiteNavAnchor to="/libraries">Libraries</SiteNavAnchor>
         </SiteNavItem>
         <SiteNavItem>
           <SiteNavAnchor to="/roadmap">Roadmap</SiteNavAnchor>
