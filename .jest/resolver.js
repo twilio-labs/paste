@@ -16,14 +16,14 @@ const cachedPackages = require(PACKAGES_CACHE_PATH);
  * Our cache doesn't include the entry points in the location, so
  * we loop over the packages, get the entry point from the 'main' field,
  * and update the location property.
- * 
+ *
  * Shape:
  * {
  *   '@twilio-paste/button': {
  *     name: '@twilio-paste/button',
        version: '0.1.2',
        private: false,
-       location: '/Users/username/paste/packages/paste-core/components/button/dist/index.js' 
+       location: '/Users/username/paste/packages/paste-core/components/button/dist/index.js'
      }
  * }
  */
@@ -55,6 +55,9 @@ const keyedPackages = cachedPackages.reduce((acc, currentPackage) => {
  */
 function customResolver(package, details) {
   if (package.includes('@twilio-paste/')) {
+    if (package.includes('@twilio-paste/icons')) {
+      return `${keyedPackages['@twilio-paste/icons'].location}/${package.replace('@twilio-paste/icons/esm', 'cjs')}.js`;
+    }
     return keyedPackages[package].location;
   }
 
