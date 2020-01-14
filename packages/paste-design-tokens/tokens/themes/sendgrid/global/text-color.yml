@@ -53,16 +53,22 @@ props:
   color-text-error:
     value: "{!palette-red-60}"
     comment: Error text for inputs and error misc
+  color-text-error-dark:
+    value: "{!palette-red-70}"
+    comment: Dark error text for inputs and error misc
   color-text-success:
     value: "{!palette-green-60}"
     comment: Text color for success text.
   color-text-warning:
     value: "{!palette-orange-60}"
     comment: Color for warning text.
+  color-text-warning-dark:
+    value: "{!palette-orange-70}"
+    comment: Color for dark warning text.
 
   #icon
   color-text-icon:
-    value: "{!palette-gray-100}"
+    value: "{!palette-gray-70}"
     comment: Default icon color.
 
   #forms

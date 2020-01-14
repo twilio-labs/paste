@@ -2,7 +2,7 @@
   "name": "@twilio-paste/media-object",
   "version": "1.0.6",
   "category": "layout",
-  "status": "alpha",
+  "status": "beta",
   "description": "",
   "author": "Twilio Inc.",
   "license": "MIT",
@@ -27,14 +27,13 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@emotion/styled": "^10.0.10",
-    "@styled-system/theme-get": "^5.1.2",
+    "@twilio-paste/box": "^2.1.1",
     "@twilio-paste/style-props": "^0.1.1",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "styled-system": "^5.1.2"
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
+    "@twilio-paste/box": "^2.1.1",
     "@twilio-paste/style-props": "^0.1.1",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",

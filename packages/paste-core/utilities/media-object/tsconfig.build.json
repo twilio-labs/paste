@@ -9,6 +9,9 @@
   ],
   "references": [
     {
+      "path": "../box"
+    },
+    {
       "path": "../../../paste-style-props"
     }
   ]

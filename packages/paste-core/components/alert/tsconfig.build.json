@@ -12,7 +12,16 @@
       "path": "../../utilities/box"
     },
     {
-      "path": "../../../paste-style-props"
+      "path": "../button"
+    },
+    {
+      "path": "../../../paste-icons"
+    },
+    {
+      "path": "../../utilities/media-object"
+    },
+    {
+      "path": "../../../paste-types"
     }
   ]
 }
