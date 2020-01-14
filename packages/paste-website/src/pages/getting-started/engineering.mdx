@@ -5,6 +5,7 @@ description: This document will highlight our approach for unified design librar
 
 import {graphql} from 'gatsby';
 import QuickstartVideo from "../../assets/quickstart_alpha.mp4"
+import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 
 export const pageQuery = graphql`
   {
@@ -39,6 +40,19 @@ yarn add react react-dom @emotion/core @emotion/styled styled-system @styled-sys
 yarn add @twilio-paste/types @twilio-paste/style-props @twilio-paste/design-tokens @twilio-paste/theme-tokens @twilio-paste/theme @twilio-paste/icons @twilio-paste/core
 ```
 
+## Setup
+
+<Callout variant="warning">
+  <CalloutTitle as="h4">Fonts in Paste</CalloutTitle>
+  <CalloutText>
+    Due to font-family licensing, we have no ability to redistribute certain themed fonts. Paste makes the
+    assumption that the Whitney fonts are loaded if you are using the Console theme, and Colfax for Sendgrid.
+  </CalloutText>
+  <CalloutText>
+    The Whitney font is loaded by the Typography.com service and is only allowed on *.twilio.com domains as well 
+    as localhost. Make sure to serve your app from the correct hostname if you're having issues with font loading
+  </CalloutText>
+</Callout>
 
 ## 8 minute video walkthrough
 
