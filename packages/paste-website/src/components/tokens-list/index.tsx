@@ -10,6 +10,7 @@ import {Label} from '../label';
 import {InlineCode} from '../Typography';
 import {AnchoredHeading} from '../Heading';
 import {useActiveSiteTheme} from '../../context/ActiveSiteThemeContext';
+import {Callout, CalloutTitle, CalloutText} from '../callout';
 
 const sentenceCase = (catName: string): string => {
   return catName
@@ -30,6 +31,7 @@ interface Token {
 
 interface TokenCategory {
   categoryName: string;
+  info?: React.ReactNode;
   tokens: Token[];
 }
 
@@ -47,6 +49,32 @@ interface TokensListProps {
 }
 
 const getTokensByTheme = (theme: ThemeVariants, props: TokensListProps): TokenCategory[] => {
+  const font = props.consoleTokens[0].node.tokens.find(ele => ele.categoryName === 'fonts');
+  if (font) {
+    font.info = (
+      <Callout variant="secondary">
+        <CalloutTitle as="h4">Heads up about fonts in Paste!</CalloutTitle>
+        <CalloutText>
+          Due to font-family licensing, we have no ability to redistribute certain themed fonts. Paste makes the
+          assumption that the Whitney fonts are loaded if you are using the Console theme, and Colfax for Sendgrid.
+        </CalloutText>
+      </Callout>
+    );
+  }
+
+  const fontSize = props.consoleTokens[0].node.tokens.find(ele => ele.categoryName === 'font-sizes');
+  if (fontSize) {
+    fontSize.info = (
+      <Callout variant="secondary">
+        <CalloutTitle as="h4">Heads up about font sizes in Paste!</CalloutTitle>
+        <CalloutText>
+          Fonts are styled using REM (Relative EM{"'"}s). They are relative to the root {'<html>'} element font size. We
+          expect a font size of 16px html.
+        </CalloutText>
+      </Callout>
+    );
+  }
+
   let tokens = [] as TokenCategory[];
   if (theme === ThemeVariants.CONSOLE) {
     if (props.consoleTokens != null) {
@@ -126,6 +154,7 @@ export const TokensList: React.FC<TokensListProps> = props => {
               <AnchoredHeading as="h2" variant="heading20">
                 {sentenceCase(cat.categoryName)}
               </AnchoredHeading>
+              {cat.info}
               <Theme.Provider theme={theme}>
                 <Box marginBottom="space160">
                   <Table>
