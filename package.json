@@ -50,6 +50,7 @@
     "@styled-system/theme-get": "^5.1.2",
     "emotion": "^10.0.17",
     "gh-pages": "^2.1.1",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-uid": "^2.2.0",
