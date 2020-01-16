@@ -27,13 +27,17 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
+    "@emotion/styled": "^10.0.14",
     "@twilio-paste/box": "^2.1.1",
     "@twilio-paste/button": "^1.1.4",
     "@twilio-paste/icons": "^1.2.1",
     "@twilio-paste/media-object": "^1.0.6",
     "@twilio-paste/types": "^2.2.1",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-uid": "^2.2.0",
+    "styled-system": "^5.1.2"
   },
   "devDependencies": {
     "@twilio-paste/box": "^2.1.1",
