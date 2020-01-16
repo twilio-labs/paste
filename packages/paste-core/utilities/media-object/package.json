@@ -27,10 +27,12 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
+    "@emotion/styled": "^10.0.14",
     "@twilio-paste/box": "^2.1.1",
     "@twilio-paste/style-props": "^0.1.1",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "styled-system": "^5.1.2"
   },
   "devDependencies": {
     "@twilio-paste/box": "^2.1.1",
