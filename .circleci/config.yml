@@ -17,12 +17,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "yarn.lock" }}
             - v1-dependencies-
       - run: yarn
       - run: yarn bootstrap
       - save_cache:
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
       - run:
@@ -45,7 +45,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "yarn.lock" }}
             - v1-dependencies-
       - attach_workspace:
           at: ~/
@@ -59,7 +59,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "yarn.lock" }}
             - v1-dependencies-
       - attach_workspace:
           at: ~/
@@ -73,7 +73,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "yarn.lock" }}
             - v1-dependencies-
       - attach_workspace:
           at: ~/
