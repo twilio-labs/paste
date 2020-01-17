@@ -1,7 +1,7 @@
 {
   "name": "paste",
   "private": true,
-  "version": "20.1.17",
+  "version": "2020.01.17",
   "main": "index.js",
   "author": "Twilio Inc.",
   "license": "MIT",
