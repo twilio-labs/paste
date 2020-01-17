@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/media-object@1.0.6...@twilio-paste/media-object@1.1.0) (2020-01-17)
+
+
+### Bug Fixes
+
+* **media-object:** amend missing deps for successful build ([b420ba0](https://github.com/twilio-labs/paste/commit/b420ba0e3763e990779ba98a3e5d7fd9e760f2f1))
+
+
+### Features
+
+* **media-object:** update implementation of media-object to use box ([1c999cc](https://github.com/twilio-labs/paste/commit/1c999cc1cd2cfccfb88f2f38de8aa880a951ccd2))
+
+
+
+
+
 ## [1.0.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/media-object@1.0.5...@twilio-paste/media-object@1.0.6) (2019-12-20)
 
 **Note:** Version bump only for package @twilio-paste/media-object
