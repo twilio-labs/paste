@@ -14,7 +14,7 @@ const pasteGlobalStyles = (props: GlobalStyleProps): SerializedStyles => css`
     font-size: 100%;
   }
   body {
-    margin: ${themeGet('space.space0')(props)};
+    margin: 0;
     font-size: ${themeGet('fontSizes.fontSize30')(props)};
   }
 `;
