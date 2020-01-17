@@ -35,6 +35,7 @@
     "@twilio-paste/button": "^1.1.8",
     "@twilio-paste/card": "^1.3.2",
     "@twilio-paste/flex": "^0.1.3",
+    "@twilio-paste/grid": "^0.0.2",
     "@twilio-paste/heading": "^1.0.9",
     "@twilio-paste/list": "^0.1.3",
     "@twilio-paste/media-object": "^1.1.1",
