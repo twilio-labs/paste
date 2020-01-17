@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.6.0...@twilio-paste/website@1.7.0) (2020-01-17)
+
+
+### Features
+
+* **website:** add alert documentation ([ca70ded](https://github.com/twilio-labs/paste/commit/ca70ded3a6f2491e09cec864b58b96c312b38e0e))
+
+
+
+
+
 # [1.6.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.5.2...@twilio-paste/website@1.6.0) (2019-12-20)
 
 

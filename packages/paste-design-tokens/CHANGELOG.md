@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@4.0.0...@twilio-paste/design-tokens@4.1.0) (2020-01-17)
+
+
+### Features
+
+* **design-token:** add new status tokens ([462f471](https://github.com/twilio-labs/paste/commit/462f4713ab092268bd40b9bfd0d987043a7d7805))
+
+
+
+
+
 # [4.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@3.0.5...@twilio-paste/design-tokens@4.0.0) (2019-12-20)
 
 
