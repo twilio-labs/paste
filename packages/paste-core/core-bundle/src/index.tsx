@@ -6,6 +6,7 @@ export * from '@twilio-paste/box';
 export * from '@twilio-paste/button';
 export * from '@twilio-paste/card';
 export * from '@twilio-paste/flex';
+export * from '@twilio-paste/grid';
 export * from '@twilio-paste/heading';
 export * from '@twilio-paste/list';
 export * from '@twilio-paste/media-object';
