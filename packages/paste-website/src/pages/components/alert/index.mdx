@@ -74,13 +74,13 @@ Use an alert to notify a user about high-priority or time-sensitive changes in t
 
 Use an alert for one of these types of information:
 
-- Neutral or general information. Use this in most cases where you are notifying a user of a change.
-- Warning. Use this for critical information that will help a user avoid an issue.
-- Error. Use this for critical information that's preventing a user from continuing a flow and if there's action required on their end to resolve the issue.
+- **Neutral or general information.** Use this in most cases where you are notifying a user of a change.
+- **Warning.** Use this for critical information that will help a user avoid an issue.
+- **Error.** Use this for critical information that's preventing a user from continuing a flow and if there's action required on their end to resolve the issue.
 
 ### Alerts vs. Feedback indicators and dialogs
 
-To communicate feedback on a user action, use a toast or in-page validation (e.g., full-page confirmation, inline error) instead.
+To communicate feedback on a user action, use a toast or in-page validation (*e.g.*, full-page confirmation, inline error) instead.
 
 To interrupt a user flow or provide the user with more than one action, use an alert dialog.
 
@@ -127,7 +127,7 @@ Our alerts have icons that both announce the type of alert it is to screen reade
 
 Use a neutral alert to notify a user of a change that's relevant for them to achieve their current goal. Don't use an alert to communicate general promotional information.
 
-In most cases, a neutral alert should be dismissible (i.e., have a close button) and should be assigned `role="status"`
+In most cases, a neutral alert should be dismissible (*i.e.*, have a close button) and should be assigned `role="status"`
 
 <Callout>
   <CalloutTitle>Research insight</CalloutTitle>
@@ -183,13 +183,13 @@ There's a good chance you need to use an error alert if both these conditions ar
 
 Add a close button to the alert if it doesn't communicate a persistent status of the system or the account. If you make an alert dismissible, provide another way for the user to retrieve the alert information.
 
-Don't add a close button to the alert if all these conditions are met:
+Don't add a close button to the alert if all these conditions are true:
 
-- The alert communicates a persistent status of the system or the account
-- The information is relevant to anything the user would be trying to do wherever the alert is present.
-- The information isn't otherwise accessible to the user.
+- The alert communicates a persistent status of the system or the account.
+- The information is relevant to the user's goals on the page(s) the alert is on.
+- The user wouldn't be able to access the information in the alert if it were closed.
 
-Keep in mind that the longer an alert is present, the more it starts looking like part of the page and loses its interruptive intent. This may make users start to ignore important alert information.
+Keep in mind that the longer an alert is present, the more it starts looking like part of the page and loses its interruptive intent. This might make users start to ignore important alert information.
 
 <LivePreview scope={{Alert, Text, Anchor}} language="jsx">
   {`<Alert onDismiss={() => alert('dismissed')} variant="neutral">
@@ -201,19 +201,19 @@ Keep in mind that the longer an alert is present, the more it starts looking lik
 
 ## Composition Notes
 
-Keep alert text brief by placing only the highest priority information in an alert. Too much text in an alert can overwhelm a user. A good rule of thumb is keeping the alert text to a single line in a desktop-sized container, or limiting it to 90 characters.
+Keep alert text brief by placing only the highest priority information in an alert. Too much text in an alert can overwhelm a user. A good rule of thumb is to keep alert text to a single line in a desktop-sized container, or limiting it to 90 characters.
 
 <Callout>
   <CalloutTitle>Research insight</CalloutTitle>
   <CalloutText>
-    From <Anchor href="https://practicaltypography.com/responsive-web-design.html">Butterick's Practical Typography</Anchor>: "Regardless of screen width, the optimal line length is still 45-90 characters. As you test your layout, make sure that text elements stay within this range."
+    From <Anchor href="https://practicaltypography.com/responsive-web-design.html">Butterick's Practical Typography</Anchor>: "Regardless of screen width, the optimal line length is still 45–90 characters. As you test your layout, make sure that text elements stay within this range."
   </CalloutText>
 </Callout>
 
 Compose an alert with:
 
 - **A title (optional).** Bold this text at the beginning of the alert. This should be the most scannable text in the alert.
-- **Body text.** Use the default text style. Provide specificity on the issue and a resolution if applicable via an [anchor](/components/anchor). Be cautious about using a button in an alert since it may compete with other buttons on the screen and should generally be used only to trigger an action. If you must use a button, use a [small button](/components/button/#small-button).
+- **Body text.** Use the default text style. Provide specificity on the issue and a resolution if applicable via an [anchor](/components/anchor). Be cautious about using a button in an alert since it may compete with other buttons on the screen and should be used only to trigger an action. If you must use a button, use a [small button](/components/button/#small-button).
 
 ### When to Use an Alert
 
@@ -264,12 +264,12 @@ In general, the persistence and behavior on scroll of an alert should match the 
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Use anchors to link to more information that may be helpful to users to resolve or get more clarity around an alert message." >
+  <Do title="Do" body="Use anchors to link to more information that may be helpful for users to resolve or clarify an alert message." >
     <Alert variant="neutral">
       <Text as="span">A call to action <Anchor href="#">Click here</Anchor></Text>
     </Alert>
   </Do>
-  <Dont title="Don't" body="Avoid using buttons in alerts unless it's used to trigger an action.">
+  <Dont title="Don't" body="Avoid using buttons in alerts unless it triggers an action.">
     <Alert variant="neutral">
       <Text as="span">
         A call to action <Button size="small" variant="primary">Click here</Button>
@@ -292,7 +292,7 @@ In general, the persistence and behavior on scroll of an alert should match the 
 | border-radius    | border-radius-0                                                                                                                                                                                       | No          |
 | border-width     | Bottom border: border-width-20                                                                                                                                                                        | No          |
 | icon color       | <ul><li>Error: color-text-error-dark</li><li>Neutral: color-text-icon</li><li>Warning: color-text-warning-dark</li><li>Close: color-text-icon</li></ul>                                               | No          |
-| Icon size        | <ul><li>Alert icon: size-icon-30</li><li>Close icon: size-icon-30</li></ul>                                                                                                                           | No          |
+| icon size        | <ul><li>Alert icon: size-icon-30</li><li>Close icon: size-icon-30</li></ul>                                                                                                                           | No          |
 | spacing          | <ul><li>Top padding: space-50</li><li>Bottom padding: space-40</li><li>left/right padding: space-70</li><li>Between icon and body: space-40</li><li>Between body and close button: space-40</li></ul> | No          |
 
 ---
