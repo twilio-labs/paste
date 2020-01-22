@@ -224,9 +224,6 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
         <SiteNavItem>
           <SiteNavAnchor to="/roadmap">Roadmap</SiteNavAnchor>
         </SiteNavItem>
-        <SiteNavItem>
-          <SiteNavAnchor to="/changelog">Changelog</SiteNavAnchor>
-        </SiteNavItem>
       </SiteNavList>
     </SiteNav>
   );
