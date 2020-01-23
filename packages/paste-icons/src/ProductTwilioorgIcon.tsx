@@ -20,7 +20,7 @@ const ProductTwilioorgIcon: React.FC<ProductTwilioorgIconProps> = ({as, size, ic
       <UID>
         {uid => (
           <svg role="img" aria-hidden={decorative} aria-labelledby={uid} width="100%" height="100%" viewBox="0 0 24 24">
-            <title id={uid}>{title}</title>
+            {title ? <title id={uid}>{title}</title> : null}
             <path
               fill="currentColor"
               fillRule="evenodd"

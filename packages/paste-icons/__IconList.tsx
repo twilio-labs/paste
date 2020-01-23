@@ -24,14 +24,14 @@ interface IconProps {
 const IconList: React.FC<IconProps> = props => (
   <Grid>
     <StoryIcon><CloseIcon {...props} /><Text as="p" textColor="currentColor">CloseIcon</Text></StoryIcon>
-    <StoryIcon><CopyIcon {...props} /><Text as="p" textColor="currentColor">CopyIcon</Text></StoryIcon>
-    <StoryIcon><ErrorIcon {...props} /><Text as="p" textColor="currentColor">ErrorIcon</Text></StoryIcon>
-    <StoryIcon><InformationIcon {...props} /><Text as="p" textColor="currentColor">InformationIcon</Text></StoryIcon>
-    <StoryIcon><LoadingIcon {...props} /><Text as="p" textColor="currentColor">LoadingIcon</Text></StoryIcon>
-    <StoryIcon><MoreIcon {...props} /><Text as="p" textColor="currentColor">MoreIcon</Text></StoryIcon>
-    <StoryIcon><PlusIcon {...props} /><Text as="p" textColor="currentColor">PlusIcon</Text></StoryIcon>
-    <StoryIcon><ProductTwilioorgIcon {...props} /><Text as="p" textColor="currentColor">ProductTwilioorgIcon</Text></StoryIcon>
-    <StoryIcon><WarningIcon {...props} /><Text as="p" textColor="currentColor">WarningIcon</Text></StoryIcon>
+<StoryIcon><CopyIcon {...props} /><Text as="p" textColor="currentColor">CopyIcon</Text></StoryIcon>
+<StoryIcon><ErrorIcon {...props} /><Text as="p" textColor="currentColor">ErrorIcon</Text></StoryIcon>
+<StoryIcon><InformationIcon {...props} /><Text as="p" textColor="currentColor">InformationIcon</Text></StoryIcon>
+<StoryIcon><LoadingIcon {...props} /><Text as="p" textColor="currentColor">LoadingIcon</Text></StoryIcon>
+<StoryIcon><MoreIcon {...props} /><Text as="p" textColor="currentColor">MoreIcon</Text></StoryIcon>
+<StoryIcon><PlusIcon {...props} /><Text as="p" textColor="currentColor">PlusIcon</Text></StoryIcon>
+<StoryIcon><ProductTwilioorgIcon {...props} /><Text as="p" textColor="currentColor">ProductTwilioorgIcon</Text></StoryIcon>
+<StoryIcon><WarningIcon {...props} /><Text as="p" textColor="currentColor">WarningIcon</Text></StoryIcon>
   </Grid>
 );
 
