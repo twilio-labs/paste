@@ -22,11 +22,11 @@ export type IconSize = ResponsiveValue<IconSizeOptions>;
 export type Size = Width | Height;
 
 // CSS native
-export type DisplayOptions = ResponsiveValue<CSS.DisplayProperty>;
-export type VerticalAlignOptions = ResponsiveValue<CSS.VerticalAlignProperty<TLengthStyledSystem>>;
-export type OverflowOptions = ResponsiveValue<CSS.OverflowProperty>;
-export type OverflowXOptions = ResponsiveValue<CSS.OverflowXProperty>;
-export type OverflowYOptions = ResponsiveValue<CSS.OverflowYProperty>;
+export type DisplayOptions = CSS.DisplayProperty;
+export type VerticalAlignOptions = CSS.VerticalAlignProperty<TLengthStyledSystem>;
+export type OverflowOptions = CSS.OverflowProperty;
+export type OverflowXOptions = CSS.OverflowXProperty;
+export type OverflowYOptions = CSS.OverflowYProperty;
 
 export type Display = ResponsiveValue<DisplayOptions>;
 export type VerticalAlign = ResponsiveValue<VerticalAlignOptions>;
