@@ -11,7 +11,8 @@ import {ResponsiveValue, TLengthStyledSystem} from 'styled-system';
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)
  */
-export type AlignItems = ResponsiveValue<CSS.Globals | CSS.SelfPosition | 'baseline' | 'normal' | 'stretch'>;
+export type AlignItemsOptions = CSS.Globals | CSS.SelfPosition | 'baseline' | 'normal' | 'stretch';
+export type AlignItems = ResponsiveValue<AlignItemsOptions>;
 
 /**
  * The CSS align-content property sets how the browser distributes space between and around content items
@@ -19,9 +20,8 @@ export type AlignItems = ResponsiveValue<CSS.Globals | CSS.SelfPosition | 'basel
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content)
  */
-export type AlignContent = ResponsiveValue<
-  CSS.Globals | CSS.ContentDistribution | CSS.ContentPosition | 'baseline' | 'normal'
->;
+export type AlignContentOptions = CSS.Globals | CSS.ContentDistribution | CSS.ContentPosition | 'baseline' | 'normal';
+export type AlignContent = ResponsiveValue<AlignContentOptions>;
 
 /**
  * The CSS justify-items property defines the default justify-self for all items of the box, giving them all
@@ -29,9 +29,16 @@ export type AlignContent = ResponsiveValue<
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-items)
  */
-export type JustifyItems = ResponsiveValue<
-  CSS.Globals | CSS.SelfPosition | 'baseline' | 'left' | 'legacy' | 'normal' | 'right' | 'stretch'
->;
+export type JustifyItemsOptions =
+  | CSS.Globals
+  | CSS.SelfPosition
+  | 'baseline'
+  | 'left'
+  | 'legacy'
+  | 'normal'
+  | 'right'
+  | 'stretch';
+export type JustifyItems = ResponsiveValue<JustifyItemsOptions>;
 
 /**
  * The CSS justify-content property defines how the browser distributes space between and around content items
@@ -39,9 +46,14 @@ export type JustifyItems = ResponsiveValue<
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)
  */
-export type JustifyContent = ResponsiveValue<
-  CSS.Globals | CSS.ContentDistribution | CSS.ContentPosition | 'left' | 'normal' | 'right'
->;
+export type JustifyContentOptions =
+  | CSS.Globals
+  | CSS.ContentDistribution
+  | CSS.ContentPosition
+  | 'left'
+  | 'normal'
+  | 'right';
+export type JustifyContent = ResponsiveValue<JustifyContentOptions>;
 
 /**
  * The flex-wrap CSS property sets whether flex items are forced onto one line or can wrap onto multiple lines.
@@ -49,13 +61,15 @@ export type JustifyContent = ResponsiveValue<
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap)
  */
-export type FlexWrap = ResponsiveValue<CSS.FlexWrapProperty>;
+export type FlexWrapOptions = CSS.FlexWrapProperty;
+export type FlexWrap = ResponsiveValue<FlexWrapOptions>;
 
 // TODO: The FlexBasisValue currently really only exists for documentation
 //       purposes, because flex-basis also accepts `Nem` and `Npx` strings.
 //       Not sure there’s a way to still have the union values show up as
 //       auto-completion results.
-export type FlexBasis = ResponsiveValue<CSS.FlexBasisProperty<TLengthStyledSystem>>;
+export type FlexBasisOptions = CSS.FlexBasisProperty<TLengthStyledSystem>;
+export type FlexBasis = ResponsiveValue<FlexBasisOptions>;
 
 /**
  * The flex-direction CSS property specifies how flex items are placed in the flex container defining the main
@@ -63,7 +77,8 @@ export type FlexBasis = ResponsiveValue<CSS.FlexBasisProperty<TLengthStyledSyste
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)
  */
-export type FlexDirection = ResponsiveValue<CSS.FlexDirectionProperty>;
+export type FlexDirectionOptions = CSS.FlexDirectionProperty;
+export type FlexDirection = ResponsiveValue<FlexDirectionOptions>;
 
 /**
  * The flex CSS property specifies how a flex item will grow or shrink so as to fit the space available in
@@ -71,7 +86,8 @@ export type FlexDirection = ResponsiveValue<CSS.FlexDirectionProperty>;
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)
  */
-export type Flex = ResponsiveValue<CSS.FlexProperty<TLengthStyledSystem>>;
+export type FlexOptions = CSS.FlexProperty<TLengthStyledSystem>;
+export type Flex = ResponsiveValue<FlexOptions>;
 
 /**
  * The CSS justify-self property set the way a box is justified inside its alignment container along
@@ -79,6 +95,16 @@ export type Flex = ResponsiveValue<CSS.FlexProperty<TLengthStyledSystem>>;
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self)
  */
+export type JustifySelfOptions =
+  | CSS.Globals
+  | CSS.SelfPosition
+  | 'auto'
+  | 'baseline'
+  | 'left'
+  | 'normal'
+  | 'right'
+  | 'stretch'
+  | string;
 export type JustifySelf =
   | ResponsiveValue<CSS.Globals | CSS.SelfPosition | 'auto' | 'baseline' | 'left' | 'normal' | 'right' | 'stretch'>
   | ResponsiveValue<string>;
@@ -91,6 +117,7 @@ export type JustifySelf =
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self)
  */
+export type AlignSelfOptions = CSS.Globals | CSS.SelfPosition | 'auto' | 'baseline' | 'normal' | 'stretch' | string;
 export type AlignSelf =
   | ResponsiveValue<CSS.Globals | CSS.SelfPosition | 'auto' | 'baseline' | 'normal' | 'stretch'>
   | ResponsiveValue<string>;
@@ -101,7 +128,8 @@ export type AlignSelf =
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/order)
  */
-export type Order = ResponsiveValue<CSS.GlobalsNumber>;
+export type OrderOptions = CSS.GlobalsNumber;
+export type Order = ResponsiveValue<OrderOptions>;
 
 /**
  * The flex-grow CSS property sets the flex grow factor of a flex item main size. It specifies how much of the
@@ -109,7 +137,8 @@ export type Order = ResponsiveValue<CSS.GlobalsNumber>;
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow)
  */
-export type FlexGrow = ResponsiveValue<CSS.GlobalsNumber>;
+export type FlexGrowOptions = CSS.GlobalsNumber;
+export type FlexGrow = ResponsiveValue<FlexGrowOptions>;
 
 /**
  * The flex-shrink CSS property sets the flex shrink factor of a flex item. If the size of all flex items is larger
@@ -117,7 +146,8 @@ export type FlexGrow = ResponsiveValue<CSS.GlobalsNumber>;
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink)
  */
-export type FlexShrink = ResponsiveValue<CSS.GlobalsNumber>;
+export type FlexShrinkOptions = CSS.GlobalsNumber;
+export type FlexShrink = ResponsiveValue<FlexShrinkOptions>;
 
 export interface FlexboxProps {
   alignItems?: AlignItems;
