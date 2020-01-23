@@ -10,17 +10,11 @@ export interface ProductTwilioorgIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ProductTwilioorgIcon: React.FC<ProductTwilioorgIconProps> = ({
-  as,
-  size,
-  iconColor,
-  title,
-  decorative,
-}) => {
+const ProductTwilioorgIcon: React.FC<ProductTwilioorgIconProps> = ({as, size, iconColor, title, decorative}) => {
   if (!decorative && title == null) {
     throw new Error('[ProductTwilioorgIcon]: Missing a title for non-decorative icon.');
   }
-  
+
   return (
     <IconWrapper as={as} size={size} iconColor={iconColor}>
       <UID>

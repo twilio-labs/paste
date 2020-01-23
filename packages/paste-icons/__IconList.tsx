@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import {Text } from '@twilio-paste/text';
+import {Text} from '@twilio-paste/text';
 import {IconSize, TextColor} from '@twilio-paste/types';
 import {Grid, StoryIcon} from './__StoryStyles';
 
