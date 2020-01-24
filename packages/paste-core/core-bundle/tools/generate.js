@@ -58,8 +58,9 @@ function getAllCorePackages(packageList) {
   // eslint-disable-next-line global-require, import/no-dynamic-require
   const packageJson = require(CORE_BUNDLE_PACKAGE_PATH);
   const newPackageJson = {...packageJson, dependencies: generateDependenciesFromPackageList(sortedPackageList)};
-  writeToFile(CORE_BUNDLE_PACKAGE_PATH, newPackageJson, {
-    formatJson: true,
+  // formatted with a new ending line for prettier
+  const newPackageJsonString = `${JSON.stringify(newPackageJson, null, 2)}\n`;
+  writeToFile(CORE_BUNDLE_PACKAGE_PATH, newPackageJsonString, {
     successMessage: `[@twilio-paste/core] Successfully updated dependencies.`,
   });
 })();
