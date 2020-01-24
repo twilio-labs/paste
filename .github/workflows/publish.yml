@@ -1,0 +1,40 @@
+name: Package Publish
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: "https://registry.npmjs.org"
+          scope: twilio-paste
+      - name: "Checkout master"
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_USER_NAME: ${{ secrets.GH_USER_NAME }}
+          GH_EMAIL: ${{ secrets.GH_EMAIL }}
+        run: git remote rm origin && git remote add origin "https://$GH_USER_NAME:$GH_TOKEN@github.com/twilio-labs/paste.git" && git fetch && git config user.email $GH_EMAIL && git config user.name $GH_USER_NAME"
+      - name: Install dependencies
+        run: yarn install
+      - name: Bootstrap repository
+        run: yarn bootstrap
+      - name: Build packages
+        run: yarn build
+      - name: "Publish packages"
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn release:stable:ci
+      - name: Deploy storybook
+        run: yarn release:storybook
