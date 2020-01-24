@@ -48,8 +48,8 @@ function getAllCorePackages(packageList) {
   // Sort the list so we don't get inconsistent ordering each rebuild
   const sortedPackageList = sortBy(filteredPackageList, ['name']);
 
-  // Write into core's index file ending with a new line
-  const indexOutput = `${generateIndexFromPackageList(sortedPackageList)}\n`;
+  // Write into core's index file
+  const indexOutput = generateIndexFromPackageList(sortedPackageList);
   writeToFile(CORE_BUNDLE_INDEX_PATH, indexOutput, {
     successMessage: `[@twilio-paste/core] Exports have been successfully updated within: ${CORE_BUNDLE_INDEX_PATH}`,
   });
