@@ -20,11 +20,10 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           scope: twilio-paste
       - name: "Checkout master"
+        run: git config --global user.email "${GH_EMAIL}" && git config --global user.name "${GH_USER_NAME}"
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GH_USER_NAME: ${{ secrets.GH_USER_NAME }}
           GH_EMAIL: ${{ secrets.GH_EMAIL }}
-        run: git remote rm origin && git remote add origin "https://$GH_USER_NAME:$GH_TOKEN@github.com/twilio-labs/paste.git" && git fetch && git config user.email $GH_EMAIL && git config user.name $GH_USER_NAME
       - name: Install dependencies
         run: yarn install
       - name: Bootstrap repository
