@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - chore/setup-action-permissions
 
 jobs:
   deploy:
