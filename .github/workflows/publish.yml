@@ -19,8 +19,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
           registry-url: "https://registry.npmjs.org"
           scope: twilio-paste
-      - name: "Setup git user"
-        run: git config user.email staggart@twilio.com && git config user.name SiTaggart
+      - name: "Checkout master"
+        run: git config --global user.email "${GH_EMAIL}" && git config --global user.name "${GH_USER_NAME}"
+        env:
+          GH_USER_NAME: ${{ secrets.GH_USER_NAME }}
+          GH_EMAIL: ${{ secrets.GH_EMAIL }}
       - name: Install dependencies
         run: yarn install
       - name: Bootstrap repository
