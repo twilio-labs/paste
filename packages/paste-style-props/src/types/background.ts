@@ -4,13 +4,19 @@ import {ThemeShape} from '@twilio-paste/theme-tokens';
 import {ResponsiveValue, TLengthStyledSystem} from 'styled-system';
 
 // Tokens
-export type BackgroundColor = ResponsiveValue<keyof ThemeShape['backgroundColors']>;
+export type BackgroundColorOptions = keyof ThemeShape['backgroundColors'];
+export type BackgroundColor = ResponsiveValue<BackgroundColorOptions>;
 
 // CSS native
-export type BackgroundImage = ResponsiveValue<CSS.BackgroundImageProperty>;
-export type BackgroundSize = ResponsiveValue<CSS.BackgroundSizeProperty<TLengthStyledSystem>>;
-export type BackgroundPosition = ResponsiveValue<CSS.BackgroundPositionProperty<TLengthStyledSystem>>;
-export type BackgroundRepeat = ResponsiveValue<CSS.BackgroundRepeatProperty>;
+export type BackgroundImageOptions = CSS.BackgroundImageProperty;
+export type BackgroundSizeOptions = CSS.BackgroundSizeProperty<TLengthStyledSystem>;
+export type BackgroundPositionOptions = CSS.BackgroundPositionProperty<TLengthStyledSystem>;
+export type BackgroundRepeatOptions = CSS.BackgroundRepeatProperty;
+
+export type BackgroundImage = ResponsiveValue<BackgroundImageOptions>;
+export type BackgroundSize = ResponsiveValue<BackgroundSizeOptions>;
+export type BackgroundPosition = ResponsiveValue<BackgroundPositionOptions>;
+export type BackgroundRepeat = ResponsiveValue<BackgroundRepeatOptions>;
 
 /* Styled-system grouping
  * ---

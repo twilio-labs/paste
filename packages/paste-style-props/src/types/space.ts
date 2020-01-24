@@ -3,7 +3,8 @@ import {ThemeShape} from '@twilio-paste/theme-tokens';
 import {ResponsiveValue} from 'styled-system';
 
 // Tokens
-export type Space = ResponsiveValue<keyof ThemeShape['space']>;
+export type SpaceOptions = keyof ThemeShape['space'];
+export type Space = ResponsiveValue<SpaceOptions>;
 export type Padding = Space;
 export type Margin = Space | 'auto';
 
