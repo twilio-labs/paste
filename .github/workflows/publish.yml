@@ -32,6 +32,19 @@ jobs:
         run: yarn build
       - name: Build package props
         run: yarn build:props
+      - name: Run type checker
+        run: yarn type-check
+      - name: Run eslint
+        run: yarn lint
+      - name: Run tests
+        run: yarn test
+      - name: Run prettier
+        run: yarn prettier
+      - name: Run applitools eyes-storybook
+        run: yarn test:vrt
+        env:
+          APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
+          GITHUB_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
       - name: Publish packages
         run: yarn release:stable:ci
         env:
