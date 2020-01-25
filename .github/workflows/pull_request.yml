@@ -20,7 +20,7 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: node-modules
-          path: /node_modules
+          path: node_modules/
       - uses: actions/upload-artifact@v1
         with:
           name: built-packages
