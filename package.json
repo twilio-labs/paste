@@ -29,6 +29,7 @@
     "pre-push": "concurrently \"yarn:lint\" \"yarn:test\" \"yarn:prettier\" \"yarn:type-check\"",
     "release": "yarn lerna publish -m 'chore(release): publish' --conventional-commits --canary --preid beta",
     "release:stable": "yarn lerna publish -m 'chore(release): publish' --conventional-commits",
+    "release:stable:ci": "yarn lerna publish -y --loglevel verbose -m 'chore(release): publish' --conventional-commits",
     "release:storybook": "yarn build:storybook && gh-pages -d docs",
     "version": "node ./tools/build/version.js",
     "clean": "node ./tools/build/clean-repo.js && lerna clean --yes && lerna run clean && yarn bootstrap",

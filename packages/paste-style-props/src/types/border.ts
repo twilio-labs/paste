@@ -4,9 +4,13 @@ import {ThemeShape} from '@twilio-paste/theme-tokens';
 import {ResponsiveValue} from 'styled-system';
 
 // Tokens
-export type BorderRadius = ResponsiveValue<keyof ThemeShape['radii']>;
-export type BorderWidth = ResponsiveValue<keyof ThemeShape['borderWidths']>;
-export type BorderColor = ResponsiveValue<keyof ThemeShape['borderColors']>;
+export type BorderRadiusOptions = keyof ThemeShape['radii'];
+export type BorderWidthOptions = keyof ThemeShape['borderWidths'];
+export type BorderColorOptions = keyof ThemeShape['borderColors'];
+
+export type BorderRadius = ResponsiveValue<BorderRadiusOptions>;
+export type BorderWidth = ResponsiveValue<BorderWidthOptions>;
+export type BorderColor = ResponsiveValue<BorderColorOptions>;
 
 export interface BorderRadiusProps {
   borderRadius?: BorderRadius;
@@ -33,11 +37,17 @@ export interface BorderColorProps {
 }
 
 // CSS native
-export type BorderStyle = ResponsiveValue<CSS.BorderStyleProperty>;
-export type BorderTopStyle = ResponsiveValue<CSS.BorderTopStyleProperty>;
-export type BorderRightStyle = ResponsiveValue<CSS.BorderRightStyleProperty>;
-export type BorderBottomStyle = ResponsiveValue<CSS.BorderBottomStyleProperty>;
-export type BorderLeftStyle = ResponsiveValue<CSS.BorderLeftStyleProperty>;
+export type BorderStyleOptions = CSS.BorderStyleProperty;
+export type BorderTopStyleOptions = CSS.BorderTopStyleProperty;
+export type BorderRightStyleOptions = CSS.BorderRightStyleProperty;
+export type BorderBottomStyleOptions = CSS.BorderBottomStyleProperty;
+export type BorderLeftStyleOptions = CSS.BorderLeftStyleProperty;
+
+export type BorderStyle = ResponsiveValue<BorderStyleOptions>;
+export type BorderTopStyle = ResponsiveValue<BorderTopStyleOptions>;
+export type BorderRightStyle = ResponsiveValue<BorderRightStyleOptions>;
+export type BorderBottomStyle = ResponsiveValue<BorderBottomStyleOptions>;
+export type BorderLeftStyle = ResponsiveValue<BorderLeftStyleOptions>;
 
 export interface BorderStyleProps {
   borderStyle?: BorderStyle;
