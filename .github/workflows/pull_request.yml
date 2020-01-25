@@ -39,3 +39,4 @@ jobs:
         run: yarn test:vrt
         env:
           APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
+          GITHUB_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
