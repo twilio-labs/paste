@@ -29,7 +29,7 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: packages/
-          key: packages-$GITHUB_SHA
+          key: packages-${{github.sha}}
 
   type-check:
     needs: setup
@@ -56,7 +56,7 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: packages/
-          key: packages-$GITHUB_SHA
+          key: packages-${{github.sha}}
       - name: Run type checker
         run: yarn type-check
 
@@ -85,7 +85,7 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: packages/
-          key: packages-$GITHUB_SHA
+          key: packages-${{github.sha}}
       - name: Run eslint
         run: yarn lint
 
@@ -114,9 +114,9 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: packages/
-          key: packages-$GITHUB_SHA
+          key: packages-${{github.sha}}
       - name: Run tests
-        run: yarn tests
+        run: yarn test
 
   prettier:
     needs: setup
@@ -143,7 +143,7 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: packages/
-          key: packages-$GITHUB_SHA
+          key: packages-${{github.sha}}
       - name: Run prettier
         run: yarn prettier
 
@@ -172,6 +172,6 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: packages/
-          key: packages-$GITHUB_SHA
+          key: packages-${{github.sha}}
       - name: Run applitools eyes-storybook
         run: yarn test:vrt
