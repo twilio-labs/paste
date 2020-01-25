@@ -1,9 +1,9 @@
-name: Pull Request
+name: PR Checks
 
 on: pull_request
 
 jobs:
-  build-and-test:
+  pr-checks:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -34,5 +34,8 @@ jobs:
         run: yarn test
       - name: Run prettier
         run: yarn prettier
+        # applitools must come last
       - name: Run applitools eyes-storybook
         run: yarn test:vrt
+        env:
+          APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
