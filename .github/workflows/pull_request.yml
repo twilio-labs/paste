@@ -29,7 +29,7 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: packages/
-          key: packages-${{ GITHUB_SHA }}
+          key: packages-$GITHUB_SHA
 
   type-check:
     needs: setup
@@ -56,6 +56,6 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: packages/
-          key: packages-${{ GITHUB_SHA }}
+          key: packages-$GITHUB_SHA
       - name: Run type checker
         run: yarn type-check
