@@ -19,8 +19,12 @@ jobs:
         run: yarn build
       - uses: actions/upload-artifact@v1
         with:
-          name: built-repo
-          path: /
+          name: node-modules
+          path: /node_modules
+      - uses: actions/upload-artifact@v1
+        with:
+          name: built-packages
+          path: packages/
 
   type-check:
     needs: setup
@@ -29,9 +33,13 @@ jobs:
       matrix:
         node-version: [10.16.x]
     steps:
+      - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
       - uses: actions/download-artifact@v1
         with:
-          name: built-repo
+          name: node-modules
+      - uses: actions/download-artifact@v1
+        with:
+          name: built-packages
       - name: Run type checker
         run: yarn type-check
