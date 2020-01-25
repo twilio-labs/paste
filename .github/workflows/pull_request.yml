@@ -20,6 +20,7 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: built-repo
+          path: /
 
   type-check:
     needs: setup
