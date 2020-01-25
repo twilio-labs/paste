@@ -11,20 +11,25 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
       - name: Install dependencies
         run: yarn install
       - name: Bootstrap repository
         run: yarn bootstrap
       - name: Build packages
         run: yarn build
-      - uses: actions/upload-artifact@v1
+      - uses: actions/cache@v1
         with:
-          name: node-modules
-          path: node_modules/
-      - uses: actions/upload-artifact@v1
-        with:
-          name: built-packages
           path: packages/
+          key: packages-${{ GITHUB_SHA }}
 
   type-check:
     needs: setup
@@ -35,11 +40,22 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - uses: actions/download-artifact@v1
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v1
         with:
-          name: node-modules
-      - uses: actions/download-artifact@v1
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install dependencies
+        run: yarn install
+      - name: Bootstrap repository
+        run: yarn bootstrap
+      - uses: actions/cache@v1
         with:
-          name: built-packages
+          path: packages/
+          key: packages-${{ GITHUB_SHA }}
       - name: Run type checker
         run: yarn type-check
