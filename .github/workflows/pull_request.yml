@@ -1,0 +1,36 @@
+name: Pull Request
+
+on: pull_request
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.16.x]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - name: Install dependencies
+        run: yarn install
+      - name: Bootstrap repository
+        run: yarn bootstrap
+      - name: Build packages
+        run: yarn build
+      - uses: actions/upload-artifact@v1
+        with:
+          name: built-repo
+
+  type-check:
+    needs: setup
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.16.x]
+    steps:
+      - uses: actions/setup-node@v1
+      - uses: actions/download-artifact@v1
+        with:
+          name: built-repo
+      - name: Run type checker
+        run: yarn type-check
