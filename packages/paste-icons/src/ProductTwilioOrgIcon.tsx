@@ -5,14 +5,14 @@ import * as React from 'react';
 import {UID} from 'react-uid';
 import {IconWrapper, IconWrapperProps} from './helpers/IconWrapper';
 
-export interface ProductTwilioorgIconProps extends IconWrapperProps {
+export interface ProductTwilioOrgIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const ProductTwilioorgIcon: React.FC<ProductTwilioorgIconProps> = ({as, size, iconColor, title, decorative}) => {
+const ProductTwilioOrgIcon: React.FC<ProductTwilioOrgIconProps> = ({as, size, iconColor, title, decorative}) => {
   if (!decorative && title == null) {
-    throw new Error('[ProductTwilioorgIcon]: Missing a title for non-decorative icon.');
+    throw new Error('[ProductTwilioOrgIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
@@ -33,5 +33,5 @@ const ProductTwilioorgIcon: React.FC<ProductTwilioorgIconProps> = ({as, size, ic
   );
 };
 
-ProductTwilioorgIcon.displayName = 'ProductTwilioorgIcon';
-export {ProductTwilioorgIcon};
+ProductTwilioOrgIcon.displayName = 'ProductTwilioOrgIcon';
+export {ProductTwilioOrgIcon};
