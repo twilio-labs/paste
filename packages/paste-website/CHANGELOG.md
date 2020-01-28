@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.8.1...@twilio-paste/website@1.8.2) (2020-01-27)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [1.8.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.8.0...@twilio-paste/website@1.8.1) (2020-01-25)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+# [1.8.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.7.0...@twilio-paste/website@1.8.0) (2020-01-24)
+
+
+### Bug Fixes
+
+* "SHIFT" to "OPTION" in "Formatting an icon" ([#274](https://github.com/twilio-labs/paste/issues/274)) ([99eb188](https://github.com/twilio-labs/paste/commit/99eb18869947ddbdaa148824661949c2f0b6a626))
+
+
+### Features
+
+* text formatting and copy updates to alert docs ([#266](https://github.com/twilio-labs/paste/issues/266)) ([6221c89](https://github.com/twilio-labs/paste/commit/6221c89f52e32fca292df52c615e8c3bc8858e79))
+
+
+
+
+
 # [1.7.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.6.0...@twilio-paste/website@1.7.0) (2020-01-17)
 
 

@@ -4,5 +4,6 @@ lib/
 dist/
 public/
 __IconList.tsx
+rollup.icon-list.js
 *.d.ts
 .yarn/
