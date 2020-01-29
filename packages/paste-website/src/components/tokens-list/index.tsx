@@ -52,7 +52,7 @@ const getTokensByTheme = (theme: ThemeVariants, props: TokensListProps): TokenCa
   const font = props.consoleTokens[0].node.tokens.find(ele => ele.categoryName === 'fonts');
   if (font) {
     font.info = (
-      <Callout variant="secondary">
+      <Callout>
         <CalloutTitle as="h4">Heads up about fonts in Paste!</CalloutTitle>
         <CalloutText as="p">
           Paste leaves it up to you to load the fonts needed for the theme you&apos;ve selected. Console uses Whitney
@@ -65,7 +65,7 @@ const getTokensByTheme = (theme: ThemeVariants, props: TokensListProps): TokenCa
   const fontSize = props.consoleTokens[0].node.tokens.find(ele => ele.categoryName === 'font-sizes');
   if (fontSize) {
     fontSize.info = (
-      <Callout variant="secondary">
+      <Callout>
         <CalloutTitle as="h4">Heads up about font sizes in Paste!</CalloutTitle>
         <CalloutText as="p">
           Font-sizes in our Paste tokens use rem values. Unlike em values which are relative to their parent element,
