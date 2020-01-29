@@ -3,6 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.0.2...@twilio-paste/core@2.0.3) (2020-01-27)
+
+**Note:** Version bump only for package @twilio-paste/core
+
+
+
+
+
+## [2.0.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.0.1...@twilio-paste/core@2.0.2) (2020-01-25)
+
+**Note:** Version bump only for package @twilio-paste/core
+
+
+
+
+
+## [2.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.0.0...@twilio-paste/core@2.0.1) (2020-01-24)
+
+**Note:** Version bump only for package @twilio-paste/core
+
+
+
+
+
+# [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@1.3.0...@twilio-paste/core@2.0.0) (2020-01-17)
+
+
+### Bug Fixes
+
+* **core:** remove typography component ([#252](https://github.com/twilio-labs/paste/issues/252)) ([ad4d512](https://github.com/twilio-labs/paste/commit/ad4d512dcd5488fd7e48e4e264900fdfe2ad17c0))
+
+
+### Features
+
+* **core:** add the alert component ([3be9ea7](https://github.com/twilio-labs/paste/commit/3be9ea7c998aa8fa2780678dbf494dc8bbea1f60))
+
+
+### BREAKING CHANGES
+
+* **core:** Typography component will no longer be a part of the core package
+
+
+
+
+
 # [1.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@1.2.0...@twilio-paste/core@1.3.0) (2019-12-20)
 
 

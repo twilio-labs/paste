@@ -9,7 +9,9 @@ import {CopyIcon} from './src/CopyIcon';
 import {ErrorIcon} from './src/ErrorIcon';
 import {InformationIcon} from './src/InformationIcon';
 import {LoadingIcon} from './src/LoadingIcon';
+import {MoreIcon} from './src/MoreIcon';
 import {PlusIcon} from './src/PlusIcon';
+import {ProductTwilioOrgIcon} from './src/ProductTwilioOrgIcon';
 import {WarningIcon} from './src/WarningIcon';
 
 interface IconProps {
@@ -26,7 +28,9 @@ const IconList: React.FC<IconProps> = props => (
 <StoryIcon><ErrorIcon {...props} /><Text as="p" textColor="currentColor">ErrorIcon</Text></StoryIcon>
 <StoryIcon><InformationIcon {...props} /><Text as="p" textColor="currentColor">InformationIcon</Text></StoryIcon>
 <StoryIcon><LoadingIcon {...props} /><Text as="p" textColor="currentColor">LoadingIcon</Text></StoryIcon>
+<StoryIcon><MoreIcon {...props} /><Text as="p" textColor="currentColor">MoreIcon</Text></StoryIcon>
 <StoryIcon><PlusIcon {...props} /><Text as="p" textColor="currentColor">PlusIcon</Text></StoryIcon>
+<StoryIcon><ProductTwilioOrgIcon {...props} /><Text as="p" textColor="currentColor">ProductTwilioOrgIcon</Text></StoryIcon>
 <StoryIcon><WarningIcon {...props} /><Text as="p" textColor="currentColor">WarningIcon</Text></StoryIcon>
   </Grid>
 );

@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.1.7...@twilio-paste/button@1.1.8) (2020-01-27)
+
+**Note:** Version bump only for package @twilio-paste/button
+
+
+
+
+
+## [1.1.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.1.6...@twilio-paste/button@1.1.7) (2020-01-25)
+
+**Note:** Version bump only for package @twilio-paste/button
+
+
+
+
+
+## [1.1.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.1.5...@twilio-paste/button@1.1.6) (2020-01-24)
+
+
+### Bug Fixes
+
+* **storybook:** fix vrt on loading button ([#275](https://github.com/twilio-labs/paste/issues/275)) ([a560e89](https://github.com/twilio-labs/paste/commit/a560e89a960b5a0c4d03b95d6473fd55dbd732ee))
+
+
+
+
+
+## [1.1.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.1.4...@twilio-paste/button@1.1.5) (2020-01-17)
+
+**Note:** Version bump only for package @twilio-paste/button
+
+
+
+
+
 ## [1.1.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.1.3...@twilio-paste/button@1.1.4) (2019-12-20)
 
 **Note:** Version bump only for package @twilio-paste/button
