@@ -13,14 +13,14 @@ jobs:
         node-version: [10.16.x]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: "https://registry.npmjs.org"
           scope: twilio-paste
       - name: Checkout full history set email and user
-        run: git fetch --prune --unshallow && git config user.email staggart@twilio.com && git config user.name SiTaggart
+        run: git remote rm origin && git remote add origin "https://$GH_USER_NAME:$GH_TOKEN@github.com/twilio-labs/paste.git" && git fetch && git config user.email paste@twilio.com && git config user.name PasteBot && git checkout "${GITHUB_REF:11}"
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GH_USER_NAME: ${{ secrets.GH_USER_NAME }}
