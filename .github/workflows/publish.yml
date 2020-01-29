@@ -13,28 +13,27 @@ jobs:
         node-version: [10.16.x]
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: "https://registry.npmjs.org"
           scope: twilio-paste
-      - name: "Checkout master"
-        run: git remote rm origin && git remote add origin "https://$GH_USER_NAME:$GH_TOKEN@github.com/twilio-labs/paste.git" && git fetch && git config user.email staggart@twilio.com && git config user.name SiTaggart && git checkout "${GITHUB_REF:11}"
+      - name: Checkout full history set email and user
+        run: git fetch --prune --unshallow && git config user.email paste@twilio.com && git config user.name PasteBot
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GH_USER_NAME: ${{ secrets.GH_USER_NAME }}
-          GH_EMAIL: ${{ secrets.GH_EMAIL }}
       - name: Install dependencies
         run: yarn install
       - name: Bootstrap repository
         run: yarn bootstrap
       - name: Build packages
         run: yarn build
-      - name: "Publish packages"
+      - name: Publish packages
         run: yarn release:stable:ci
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Deploy storybook
         run: yarn release:storybook
