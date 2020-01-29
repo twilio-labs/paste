@@ -34,6 +34,6 @@ jobs:
         run: yarn release:stable:ci
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
       - name: Deploy storybook
         run: yarn release:storybook
