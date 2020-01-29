@@ -20,7 +20,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           scope: twilio-paste
       - name: Checkout full history set email and user
-        run: git fetch --prune --unshallow && git config user.email paste@twilio.com && git config user.name PasteBot
+        run: git fetch --prune --unshallow && git config user.email staggart@twilio.com && git config user.name SiTaggart
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GH_USER_NAME: ${{ secrets.GH_USER_NAME }}
