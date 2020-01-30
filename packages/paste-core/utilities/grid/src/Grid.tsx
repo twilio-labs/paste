@@ -36,6 +36,8 @@ const getGridStyles = (theme: ThemeShape, gutter?: Space): MarginProps => {
 };
 
 const Grid: React.FC<GridProps> = ({children, gutter, marginTop, marginBottom, vertical, ...props}) => {
+  const theme = useTheme();
+
   const GridColumns = React.useMemo(
     () =>
       React.Children.map(children, child =>
@@ -46,7 +48,7 @@ const Grid: React.FC<GridProps> = ({children, gutter, marginTop, marginBottom, v
     [children]
   );
 
-  const GridStyles = React.useMemo(() => getGridStyles(useTheme(), gutter), [gutter]);
+  const GridStyles = React.useMemo(() => getGridStyles(theme, gutter), [gutter]);
 
   return (
     <Flex
