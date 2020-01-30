@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.0.3...@twilio-paste/core@2.1.0) (2020-01-30)
+
+
+### Features
+
+* **core:** add grid package ([facd57c](https://github.com/twilio-labs/paste/commit/facd57c927b3364edd73f5fdfd52b353583975bb))
+
+
+
+
+
 ## [2.0.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.0.2...@twilio-paste/core@2.0.3) (2020-01-27)
 
 **Note:** Version bump only for package @twilio-paste/core

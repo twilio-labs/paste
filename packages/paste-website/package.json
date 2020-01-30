@@ -1,7 +1,7 @@
 {
   "name": "@twilio-paste/website",
   "description": "",
-  "version": "1.8.4",
+  "version": "1.8.5",
   "author": "Twilio Inc.",
   "private": true,
   "license": "MIT",
@@ -28,7 +28,7 @@
     "@twilio-paste/aspect-ratio": "^1.0.8",
     "@twilio-paste/box": "^2.1.3",
     "@twilio-paste/button": "^1.1.8",
-    "@twilio-paste/flex": "^0.1.3",
+    "@twilio-paste/flex": "^0.2.0",
     "@twilio-paste/heading": "^1.0.9",
     "@twilio-paste/icons": "^1.4.1",
     "@twilio-paste/list": "^0.1.3",
