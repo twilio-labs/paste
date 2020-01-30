@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.1.0...@twilio-paste/grid@0.1.1) (2020-01-30)
+
+
+### Bug Fixes
+
+* **grid:** set useTheme as const to fix hook error ([#284](https://github.com/twilio-labs/paste/issues/284)) ([851a188](https://github.com/twilio-labs/paste/commit/851a188c7bc9a50e50b63500ec3ff5782755339a))
+
+
+
+
+
 # [0.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.0.2...@twilio-paste/grid@0.1.0) (2020-01-30)
 
 
