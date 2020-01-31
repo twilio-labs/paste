@@ -1,0 +1,27 @@
+{
+  "extends": "../../../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "references": [
+    {
+      "path": "../box"
+    },
+    {
+      "path": "../flex"
+    },
+    {
+      "path": "../../../paste-style-props"
+    },
+    {
+      "path": "../../../paste-theme"
+    },
+    {
+      "path": "../../../paste-theme-tokens"
+    }
+  ]
+}

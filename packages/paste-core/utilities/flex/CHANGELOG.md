@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.1.3...@twilio-paste/flex@0.2.0) (2020-01-30)
+
+
+### Features
+
+* **flex:** update with new props and safelyspread ([25ab7bd](https://github.com/twilio-labs/paste/commit/25ab7bdbeca92fe6a07779c476976f51a26700f2))
+
+
+
+
+
 ## [0.1.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.1.2...@twilio-paste/flex@0.1.3) (2020-01-24)
 
 **Note:** Version bump only for package @twilio-paste/flex

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {ResponsiveValue} from 'styled-system';
-import {Box} from '@twilio-paste/box';
-import {FlexboxProps} from '@twilio-paste/style-props';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import {FlexboxProps, LayoutProps, MarginProps, PaddingProps} from '@twilio-paste/style-props';
 
 type DisplayOptions = 'flex' | 'inline-flex';
 export type Display = ResponsiveValue<DisplayOptions>;
@@ -21,7 +21,7 @@ export type Basis = ResponsiveValue<BasisOptions>;
 type WrapOptions = boolean;
 export type Wrap = ResponsiveValue<WrapOptions>;
 
-export interface FlexProps {
+export interface FlexProps extends LayoutProps, MarginProps, PaddingProps {
   display?: Display;
   vertical?: Vertical;
   vAlignContent?: VerticalAlign;
@@ -187,11 +187,51 @@ const getFlexStyles = (props: FlexProps): FlexboxProps => {
   return styles;
 };
 
-const Flex: React.FC<FlexProps> = props => {
-  const FlexStyles = React.useMemo(() => getFlexStyles(props), [props]);
+const Flex: React.FC<FlexProps> = ({
+  basis,
+  children,
+  display,
+  hAlignContent,
+  grow,
+  marginTop,
+  marginRight,
+  marginBottom,
+  marginLeft,
+  paddingTop,
+  paddingRight,
+  paddingBottom,
+  paddingLeft,
+  maxWidth,
+  minWidth,
+  shrink,
+  vertical,
+  vAlignContent,
+  width,
+  wrap,
+  ...props
+}) => {
+  const FlexStyles = React.useMemo(
+    () => getFlexStyles({basis, hAlignContent, grow, shrink, vertical, vAlignContent, wrap}),
+    [basis, hAlignContent, grow, shrink, vertical, vAlignContent, wrap]
+  );
   return (
-    <Box {...FlexStyles} display={props.display}>
-      {props.children}
+    <Box
+      {...FlexStyles}
+      {...safelySpreadBoxProps(props)}
+      display={display}
+      marginTop={marginTop}
+      marginRight={marginRight}
+      marginBottom={marginBottom}
+      marginLeft={marginLeft}
+      paddingTop={paddingTop}
+      paddingRight={paddingRight}
+      paddingBottom={paddingBottom}
+      paddingLeft={paddingLeft}
+      maxWidth={maxWidth}
+      minWidth={minWidth}
+      width={width}
+    >
+      {children}
     </Box>
   );
 };
