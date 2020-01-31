@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import {compose, layout, space, flexbox} from 'styled-system';
 import {ColumnProps, ColumnStyleProps} from './types';
-import {getFlexDirection, getColumnOffset, getColumnSpan} from './helpers';
+import {getStackedColumns, getColumnOffset, getColumnSpan} from './helpers';
 
 const getColumnStyles = (props: ColumnProps): ColumnStyleProps => {
   const columnStyles: ColumnStyleProps = {
@@ -26,7 +26,7 @@ const getColumnStyles = (props: ColumnProps): ColumnStyleProps => {
   }
 
   if (props.vertical && !props.offset) {
-    columnStyles.minWidth = getFlexDirection(props.vertical);
+    columnStyles.minWidth = getStackedColumns(props.vertical);
     columnStyles.marginLeft = 'space0';
   }
 

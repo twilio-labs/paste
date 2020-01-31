@@ -11,7 +11,7 @@ import {
   ColumnWidthSpan,
 } from './types';
 
-export const getNegativeMargin = (theme: ThemeShape, gutter?: Space): Margin => {
+export const getOuterGutterPull = (theme: ThemeShape, gutter?: Space): Margin => {
   if (Array.isArray(gutter)) {
     return (gutter as SpaceOptions[]).map((value: SpaceOptions) => {
       return `-${theme.space[value]}` as SpaceOptions;
@@ -25,7 +25,7 @@ export const getNegativeMargin = (theme: ThemeShape, gutter?: Space): Margin => 
   return 'auto';
 };
 
-export const getFlexDirection = (vertical: Vertical): ColumnMinWidth => {
+export const getStackedColumns = (vertical: Vertical): ColumnMinWidth => {
   if (Array.isArray(vertical)) {
     return (vertical as Vertical[]).map((value: Vertical) => {
       if (typeof value === 'boolean') {

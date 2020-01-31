@@ -6,12 +6,12 @@ import {MarginProps, Space} from '@twilio-paste/style-props';
 import {safelySpreadBoxProps} from '@twilio-paste/box';
 import {Flex} from '@twilio-paste/flex';
 import {GridProps} from './types';
-import {getNegativeMargin} from './helpers';
+import {getOuterGutterPull} from './helpers';
 
 const getGridStyles = (theme: ThemeShape, gutter?: Space): MarginProps => {
   const marginStyles: MarginProps = {
-    marginLeft: getNegativeMargin(theme, gutter),
-    marginRight: getNegativeMargin(theme, gutter),
+    marginLeft: getOuterGutterPull(theme, gutter),
+    marginRight: getOuterGutterPull(theme, gutter),
   };
 
   return marginStyles;
