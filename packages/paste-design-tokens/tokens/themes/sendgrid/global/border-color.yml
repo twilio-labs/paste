@@ -38,10 +38,10 @@ props:
     value: "{!palette-blue-50}"
     comment: Primary border color
   color-border-primary-light:
-    value: "{!palette-blue-40}"
+    value: "{!palette-blue-30}"
     comment: Light primary border color
   color-border-primary-lighter:
-    value: "{!palette-blue-30}"
+    value: "{!palette-blue-20}"
     comment: Lighter primary border color
 
   # status borders
@@ -84,8 +84,8 @@ props:
     value: "{!palette-red-50}"
     comment: Destructive border color
   color-border-destructive-light:
-    value: "{!palette-red-40}"
+    value: "{!palette-red-30}"
     comment: Destructive focus border color
   color-border-destructive-lighter:
-    value: "{!palette-red-30}"
+    value: "{!palette-red-20}"
     comment: Destructive focus border color
