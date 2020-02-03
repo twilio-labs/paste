@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@4.1.0...@twilio-paste/design-tokens@4.1.1) (2020-02-03)
+
+
+### Bug Fixes
+
+* **tokens:** update tokens for sg disabled buttons ([#286](https://github.com/twilio-labs/paste/issues/286)) ([27074eb](https://github.com/twilio-labs/paste/commit/27074eb97e9ec32d5b2a8ec07b48da1fe79f6323))
+
+
+
+
+
 # [4.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@4.0.0...@twilio-paste/design-tokens@4.1.0) (2020-01-17)
 
 

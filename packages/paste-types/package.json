@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/types",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Shared typescript typings for Paste",
   "author": "Twilio Inc.",
   "license": "MIT",
@@ -28,11 +28,11 @@
     "@types/styled-system": "^5.1.3"
   },
   "peerDependencies": {
-    "@twilio-paste/theme-tokens": "^3.0.1",
+    "@twilio-paste/theme-tokens": "^3.0.2",
     "styled-system": "^5.1.2"
   },
   "devDependencies": {
-    "@twilio-paste/theme-tokens": "^3.0.1",
+    "@twilio-paste/theme-tokens": "^3.0.2",
     "csstype": "^2.6.6",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",
