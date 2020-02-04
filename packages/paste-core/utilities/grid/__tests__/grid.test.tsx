@@ -3,7 +3,6 @@ import renderer from 'react-test-renderer';
 import {DefaultTheme} from '@twilio-paste/theme-tokens';
 import {Theme} from '@twilio-paste/theme';
 import {Space} from '@twilio-paste/style-props';
-import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '../src';
 import {getOuterGutterPull, getStackedColumns, getColumnOffset, getColumnSpan} from '../src/helpers';
 
@@ -95,35 +94,13 @@ describe('Grid Unit Tests', () => {
 });
 
 describe('Grid Gutter Prop', () => {
-  it('it should not set a gutter property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <Grid>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-          </Grid>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
   it('it should set a gutter property', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
           <Grid gutter="space20">
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
+            <Column />
+            <Column />
           </Grid>
         </Theme.Provider>
       )
@@ -136,12 +113,8 @@ describe('Grid Gutter Prop', () => {
       .create(
         <Theme.Provider theme="console">
           <Grid gutter={['space10', 'space20', 'space30']}>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
+            <Column />
+            <Column />
           </Grid>
         </Theme.Provider>
       )
@@ -151,35 +124,13 @@ describe('Grid Gutter Prop', () => {
 });
 
 describe('Grid Vertical Prop', () => {
-  it('it should not set a vertical property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <Grid>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-          </Grid>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
   it('it should set a vertical property', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
           <Grid vertical>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
+            <Column />
+            <Column />
           </Grid>
         </Theme.Provider>
       )
@@ -192,12 +143,8 @@ describe('Grid Vertical Prop', () => {
       .create(
         <Theme.Provider theme="console">
           <Grid vertical={[true, true, false]}>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
+            <Column />
+            <Column />
           </Grid>
         </Theme.Provider>
       )
@@ -207,35 +154,13 @@ describe('Grid Vertical Prop', () => {
 });
 
 describe('Column Offset Prop', () => {
-  it('it should not set a offset property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <Grid>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-          </Grid>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
   it('it should set a offset property', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
           <Grid>
-            <Column span={2} offset={8}>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
+            <Column span={2} offset={8} />
+            <Column />
           </Grid>
         </Theme.Provider>
       )
@@ -248,12 +173,8 @@ describe('Column Offset Prop', () => {
       .create(
         <Theme.Provider theme="console">
           <Grid>
-            <Column span={[2, 4, 2]} offset={[8, 6, 8]}>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
+            <Column span={[2, 4, 2]} offset={[8, 6, 8]} />
+            <Column />
           </Grid>
         </Theme.Provider>
       )
@@ -263,35 +184,13 @@ describe('Column Offset Prop', () => {
 });
 
 describe('Column Span Prop', () => {
-  it('it should not set a span property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <Grid>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-          </Grid>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
   it('it should set a span property', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
           <Grid>
-            <Column span={8}>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column span={4}>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
+            <Column span={8} />
+            <Column span={4} />
           </Grid>
         </Theme.Provider>
       )
@@ -304,12 +203,8 @@ describe('Column Span Prop', () => {
       .create(
         <Theme.Provider theme="console">
           <Grid>
-            <Column span={[8, 4, 2]}>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column span={[4, 8, 10]}>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
+            <Column span={[8, 4, 2]} />
+            <Column span={[4, 8, 10]} />
           </Grid>
         </Theme.Provider>
       )
@@ -324,42 +219,18 @@ describe('12 Column Options', () => {
       .create(
         <Theme.Provider theme="console">
           <Grid>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
+            <Column />
+            <Column />
+            <Column />
+            <Column />
+            <Column />
+            <Column />
+            <Column />
+            <Column />
+            <Column />
+            <Column />
+            <Column />
+            <Column />
           </Grid>
         </Theme.Provider>
       )
@@ -372,9 +243,7 @@ describe('12 Column Options', () => {
       .create(
         <Theme.Provider theme="console">
           <Grid>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
+            <Column />
           </Grid>
         </Theme.Provider>
       )
@@ -387,12 +256,8 @@ describe('12 Column Options', () => {
       .create(
         <Theme.Provider theme="console">
           <Grid>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
+            <Column />
+            <Column />
           </Grid>
         </Theme.Provider>
       )
@@ -405,15 +270,9 @@ describe('12 Column Options', () => {
       .create(
         <Theme.Provider theme="console">
           <Grid>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
+            <Column />
+            <Column />
+            <Column />
           </Grid>
         </Theme.Provider>
       )
@@ -426,18 +285,10 @@ describe('12 Column Options', () => {
       .create(
         <Theme.Provider theme="console">
           <Grid>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
+            <Column />
+            <Column />
+            <Column />
+            <Column />
           </Grid>
         </Theme.Provider>
       )
@@ -450,24 +301,12 @@ describe('12 Column Options', () => {
       .create(
         <Theme.Provider theme="console">
           <Grid>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
+            <Column />
+            <Column />
+            <Column />
+            <Column />
+            <Column />
+            <Column />
           </Grid>
         </Theme.Provider>
       )
@@ -480,15 +319,9 @@ describe('12 Column Options', () => {
       .create(
         <Theme.Provider theme="console">
           <Grid>
-            <Column span={5}>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column span={5}>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column span={2}>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
+            <Column span={5} />
+            <Column span={5} />
+            <Column span={2} />
           </Grid>
         </Theme.Provider>
       )
@@ -501,12 +334,8 @@ describe('12 Column Options', () => {
       .create(
         <Theme.Provider theme="console">
           <Grid>
-            <Column span={6}>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column span={6}>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
+            <Column span={6} />
+            <Column span={6} />
           </Grid>
         </Theme.Provider>
       )
@@ -519,12 +348,8 @@ describe('12 Column Options', () => {
       .create(
         <Theme.Provider theme="console">
           <Grid>
-            <Column span={8}>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column span={4}>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
+            <Column span={8} />
+            <Column span={4} />
           </Grid>
         </Theme.Provider>
       )
@@ -537,12 +362,8 @@ describe('12 Column Options', () => {
       .create(
         <Theme.Provider theme="console">
           <Grid>
-            <Column span={9}>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column span={3}>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
+            <Column span={9} />
+            <Column span={3} />
           </Grid>
         </Theme.Provider>
       )
@@ -555,12 +376,8 @@ describe('12 Column Options', () => {
       .create(
         <Theme.Provider theme="console">
           <Grid>
-            <Column span={10}>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column span={10}>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
+            <Column span={10} />
+            <Column span={2} />
           </Grid>
         </Theme.Provider>
       )
@@ -573,12 +390,36 @@ describe('12 Column Options', () => {
       .create(
         <Theme.Provider theme="console">
           <Grid>
-            <Column span={1}>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
-            <Column span={1}>
-              <Box backgroundColor="colorBackgroundPrimaryLight" width="100%" />
-            </Column>
+            <Column span={11} />
+            <Column span={1} />
+          </Grid>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('it should render a 11 span, 2 span column grid', (): void => {
+    const tree = renderer
+      .create(
+        <Theme.Provider theme="console">
+          <Grid>
+            <Column span={11} />
+            <Column span={2} />
+          </Grid>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('it should render a 5 span, 3 span column grid', (): void => {
+    const tree = renderer
+      .create(
+        <Theme.Provider theme="console">
+          <Grid>
+            <Column span={5} />
+            <Column span={3} />
           </Grid>
         </Theme.Provider>
       )
