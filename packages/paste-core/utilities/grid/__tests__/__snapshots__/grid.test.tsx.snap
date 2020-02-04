@@ -1,307 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`12 Column Options it should render a 1 column grid 1`] = `
-.emotion-3 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  color: #282a2b;
-  font-weight: 400;
-}
-
-.emotion-3 *,
-.emotion-3 *::after,
-.emotion-3 *::before {
-  box-sizing: border-box;
-}
-
-.emotion-2 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.emotion-0 {
-  width: 100%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-<div
-  className="emotion-3"
->
-  <div
-    className="emotion-2"
-    display="flex"
-  >
-    <div
-      className="emotion-0 emotion-1"
-      display="flex"
-      width="100%"
-    />
-  </div>
-</div>
-`;
-
-exports[`12 Column Options it should render a 2 column grid 1`] = `
-.emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  color: #282a2b;
-  font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
-}
-
-.emotion-4 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.emotion-0 {
-  width: 50%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-<div
-  className="emotion-5"
->
-  <div
-    className="emotion-4"
-    display="flex"
-  >
-    <div
-      className="emotion-0 emotion-1"
-      display="flex"
-      width="50%"
-    />
-    <div
-      className="emotion-0 emotion-1"
-      display="flex"
-      width="50%"
-    />
-  </div>
-</div>
-`;
-
-exports[`12 Column Options it should render a 3 column grid 1`] = `
-.emotion-7 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  color: #282a2b;
-  font-weight: 400;
-}
-
-.emotion-7 *,
-.emotion-7 *::after,
-.emotion-7 *::before {
-  box-sizing: border-box;
-}
-
-.emotion-6 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.emotion-0 {
-  width: 33.33333333333333%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-<div
-  className="emotion-7"
->
-  <div
-    className="emotion-6"
-    display="flex"
-  >
-    <div
-      className="emotion-0 emotion-1"
-      display="flex"
-      width="33.33333333333333%"
-    />
-    <div
-      className="emotion-0 emotion-1"
-      display="flex"
-      width="33.33333333333333%"
-    />
-    <div
-      className="emotion-0 emotion-1"
-      display="flex"
-      width="33.33333333333333%"
-    />
-  </div>
-</div>
-`;
-
-exports[`12 Column Options it should render a 4 column grid 1`] = `
-.emotion-9 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  color: #282a2b;
-  font-weight: 400;
-}
-
-.emotion-9 *,
-.emotion-9 *::after,
-.emotion-9 *::before {
-  box-sizing: border-box;
-}
-
-.emotion-8 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.emotion-0 {
-  width: 25%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-<div
-  className="emotion-9"
->
-  <div
-    className="emotion-8"
-    display="flex"
-  >
-    <div
-      className="emotion-0 emotion-1"
-      display="flex"
-      width="25%"
-    />
-    <div
-      className="emotion-0 emotion-1"
-      display="flex"
-      width="25%"
-    />
-    <div
-      className="emotion-0 emotion-1"
-      display="flex"
-      width="25%"
-    />
-    <div
-      className="emotion-0 emotion-1"
-      display="flex"
-      width="25%"
-    />
-  </div>
-</div>
-`;
-
 exports[`12 Column Options it should render a 5 span, 3 span column grid 1`] = `
 .emotion-5 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -482,99 +180,6 @@ exports[`12 Column Options it should render a 5 span, 5 span, 2 span column grid
     />
     <div
       className="emotion-4 emotion-1"
-      display="flex"
-      width="16.666666666666664%"
-    />
-  </div>
-</div>
-`;
-
-exports[`12 Column Options it should render a 6 column grid 1`] = `
-.emotion-13 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  color: #282a2b;
-  font-weight: 400;
-}
-
-.emotion-13 *,
-.emotion-13 *::after,
-.emotion-13 *::before {
-  box-sizing: border-box;
-}
-
-.emotion-12 {
-  box-sizing: border-box;
-  min-width: 0;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.emotion-0 {
-  width: 16.666666666666664%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-<div
-  className="emotion-13"
->
-  <div
-    className="emotion-12"
-    display="flex"
-  >
-    <div
-      className="emotion-0 emotion-1"
-      display="flex"
-      width="16.666666666666664%"
-    />
-    <div
-      className="emotion-0 emotion-1"
-      display="flex"
-      width="16.666666666666664%"
-    />
-    <div
-      className="emotion-0 emotion-1"
-      display="flex"
-      width="16.666666666666664%"
-    />
-    <div
-      className="emotion-0 emotion-1"
-      display="flex"
-      width="16.666666666666664%"
-    />
-    <div
-      className="emotion-0 emotion-1"
-      display="flex"
-      width="16.666666666666664%"
-    />
-    <div
-      className="emotion-0 emotion-1"
       display="flex"
       width="16.666666666666664%"
     />
@@ -1110,7 +715,402 @@ exports[`12 Column Options it should render a 11 span, 2 span column grid 1`] = 
 </div>
 `;
 
-exports[`12 Column Options it should render a 12 column grid 1`] = `
+exports[`12 Column Options it should render a grid with 1 column 1`] = `
+.emotion-3 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-3 *,
+.emotion-3 *::after,
+.emotion-3 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-2 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.emotion-0 {
+  width: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+  -webkit-flex-basis: auto;
+  -ms-flex-preferred-size: auto;
+  flex-basis: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<div
+  className="emotion-3"
+>
+  <div
+    className="emotion-2"
+    display="flex"
+  >
+    <div
+      className="emotion-0 emotion-1"
+      display="flex"
+      width="100%"
+    />
+  </div>
+</div>
+`;
+
+exports[`12 Column Options it should render a grid with 2 columns 1`] = `
+.emotion-5 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-5 *,
+.emotion-5 *::after,
+.emotion-5 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-4 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.emotion-0 {
+  width: 50%;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+  -webkit-flex-basis: auto;
+  -ms-flex-preferred-size: auto;
+  flex-basis: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<div
+  className="emotion-5"
+>
+  <div
+    className="emotion-4"
+    display="flex"
+  >
+    <div
+      className="emotion-0 emotion-1"
+      display="flex"
+      width="50%"
+    />
+    <div
+      className="emotion-0 emotion-1"
+      display="flex"
+      width="50%"
+    />
+  </div>
+</div>
+`;
+
+exports[`12 Column Options it should render a grid with 3 columns 1`] = `
+.emotion-7 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-7 *,
+.emotion-7 *::after,
+.emotion-7 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-6 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.emotion-0 {
+  width: 33.33333333333333%;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+  -webkit-flex-basis: auto;
+  -ms-flex-preferred-size: auto;
+  flex-basis: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<div
+  className="emotion-7"
+>
+  <div
+    className="emotion-6"
+    display="flex"
+  >
+    <div
+      className="emotion-0 emotion-1"
+      display="flex"
+      width="33.33333333333333%"
+    />
+    <div
+      className="emotion-0 emotion-1"
+      display="flex"
+      width="33.33333333333333%"
+    />
+    <div
+      className="emotion-0 emotion-1"
+      display="flex"
+      width="33.33333333333333%"
+    />
+  </div>
+</div>
+`;
+
+exports[`12 Column Options it should render a grid with 4 columns 1`] = `
+.emotion-9 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-9 *,
+.emotion-9 *::after,
+.emotion-9 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-8 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.emotion-0 {
+  width: 25%;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+  -webkit-flex-basis: auto;
+  -ms-flex-preferred-size: auto;
+  flex-basis: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<div
+  className="emotion-9"
+>
+  <div
+    className="emotion-8"
+    display="flex"
+  >
+    <div
+      className="emotion-0 emotion-1"
+      display="flex"
+      width="25%"
+    />
+    <div
+      className="emotion-0 emotion-1"
+      display="flex"
+      width="25%"
+    />
+    <div
+      className="emotion-0 emotion-1"
+      display="flex"
+      width="25%"
+    />
+    <div
+      className="emotion-0 emotion-1"
+      display="flex"
+      width="25%"
+    />
+  </div>
+</div>
+`;
+
+exports[`12 Column Options it should render a grid with 6 columns 1`] = `
+.emotion-13 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-13 *,
+.emotion-13 *::after,
+.emotion-13 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-12 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.emotion-0 {
+  width: 16.666666666666664%;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+  -webkit-flex-basis: auto;
+  -ms-flex-preferred-size: auto;
+  flex-basis: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<div
+  className="emotion-13"
+>
+  <div
+    className="emotion-12"
+    display="flex"
+  >
+    <div
+      className="emotion-0 emotion-1"
+      display="flex"
+      width="16.666666666666664%"
+    />
+    <div
+      className="emotion-0 emotion-1"
+      display="flex"
+      width="16.666666666666664%"
+    />
+    <div
+      className="emotion-0 emotion-1"
+      display="flex"
+      width="16.666666666666664%"
+    />
+    <div
+      className="emotion-0 emotion-1"
+      display="flex"
+      width="16.666666666666664%"
+    />
+    <div
+      className="emotion-0 emotion-1"
+      display="flex"
+      width="16.666666666666664%"
+    />
+    <div
+      className="emotion-0 emotion-1"
+      display="flex"
+      width="16.666666666666664%"
+    />
+  </div>
+</div>
+`;
+
+exports[`12 Column Options it should render a grid with 12 columns 1`] = `
 .emotion-25 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
@@ -1233,7 +1233,7 @@ exports[`12 Column Options it should render a 12 column grid 1`] = `
 </div>
 `;
 
-exports[`Column Offset Prop it should set a offset property 1`] = `
+exports[`Column Offset Prop it should render two columns, one with a offset 1`] = `
 .emotion-5 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
@@ -1315,7 +1315,7 @@ exports[`Column Offset Prop it should set a offset property 1`] = `
 </div>
 `;
 
-exports[`Column Offset Prop it should set a responsive offset property 1`] = `
+exports[`Column Offset Prop it should render two columns, one with a responsive offset 1`] = `
 .emotion-5 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
@@ -1417,7 +1417,7 @@ exports[`Column Offset Prop it should set a responsive offset property 1`] = `
 </div>
 `;
 
-exports[`Column Span Prop it should set a responsive span property 1`] = `
+exports[`Column Span Prop it should render two columns with different responsive column spans 1`] = `
 .emotion-5 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
@@ -1544,7 +1544,7 @@ exports[`Column Span Prop it should set a responsive span property 1`] = `
 </div>
 `;
 
-exports[`Column Span Prop it should set a span property 1`] = `
+exports[`Column Span Prop it should render two columns, one spaning 8 columns, the other spanning 4 columns 1`] = `
 .emotion-5 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
@@ -1635,7 +1635,7 @@ exports[`Column Span Prop it should set a span property 1`] = `
 </div>
 `;
 
-exports[`Grid Gutter Prop it should set a gutter property 1`] = `
+exports[`Grid Gutter Prop it should render two columns with gutters 1`] = `
 .emotion-5 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
@@ -1710,7 +1710,7 @@ exports[`Grid Gutter Prop it should set a gutter property 1`] = `
 </div>
 `;
 
-exports[`Grid Gutter Prop it should set a responsive gutter property 1`] = `
+exports[`Grid Gutter Prop it should render two columns with responsive gutters 1`] = `
 .emotion-5 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
@@ -1813,7 +1813,7 @@ exports[`Grid Gutter Prop it should set a responsive gutter property 1`] = `
 </div>
 `;
 
-exports[`Grid Vertical Prop it should set a responsive vertical property 1`] = `
+exports[`Grid Vertical Prop it should render two columns stacked only on mobile and tablet 1`] = `
 .emotion-5 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
@@ -1919,7 +1919,7 @@ exports[`Grid Vertical Prop it should set a responsive vertical property 1`] = `
 </div>
 `;
 
-exports[`Grid Vertical Prop it should set a vertical property 1`] = `
+exports[`Grid Vertical Prop it should render two stacked columns 1`] = `
 .emotion-5 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;

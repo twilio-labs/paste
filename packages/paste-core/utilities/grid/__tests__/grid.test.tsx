@@ -7,47 +7,56 @@ import {Grid, Column} from '../src';
 import {getOuterGutterPull, getStackedColumns, getColumnOffset, getColumnSpan} from '../src/helpers';
 
 describe('Grid Unit Tests', () => {
-  it('it should return: -0.25rem', (): void => {
-    const mockGutter: Space = 'space20';
-    expect(getOuterGutterPull(DefaultTheme, mockGutter)).toStrictEqual('-0.25rem');
+  const mockTheme = {
+    space: {
+      space10: '2px',
+      space20: '4px',
+      space30: '6px',
+      space40: '8px',
+    },
+  };
+  const mockGutter = 'space20';
+  const mockGutters = ['space10', 'space30', 'space20'];
+
+  it('it should return a single negative margin', (): void => {
+    expect(getOuterGutterPull(mockTheme, mockGutter)).toStrictEqual('-4px');
   });
 
-  it('it should return: -0.25rem, -0.5rem, -0.75rem', (): void => {
-    const mockGutter: Space = ['space20', 'space30', 'space40'];
-    expect(getOuterGutterPull(DefaultTheme, mockGutter)).toStrictEqual(['-0.25rem', '-0.5rem', '-0.75rem']);
+  it('should return a responsive set of negative margin values', (): void => {
+    expect(getOuterGutterPull(mockTheme, mockGutters)).toStrictEqual(['-2px', '-6px', '-4px']);
   });
 
-  it('it should return vertical: 0', (): void => {
+  it('it should return a vertical value of 0', (): void => {
     const mockVertical = false;
     expect(getStackedColumns(mockVertical)).toStrictEqual('0');
   });
 
-  it('it should return vertical: 100%', (): void => {
+  it('it should return a vertical value of 100%', (): void => {
     const mockVertical = true;
     expect(getStackedColumns(mockVertical)).toStrictEqual('100%');
   });
 
-  it('it should return vertical: 100%, 0, 100%', (): void => {
+  it('it should return responsive vertical values of 100%, 0, 100%', (): void => {
     const mockVertical = [true, false, true];
     expect(getStackedColumns(mockVertical)).toStrictEqual(['100%', '0', '100%']);
   });
 
-  it('it should return vertical: null, null, null', (): void => {
+  it('it should return responsive vertical values of null, null, null', (): void => {
     const mockVertical = ['test', 'test', 'test'];
     expect(getStackedColumns(mockVertical)).toStrictEqual([null, null, null]);
   });
 
-  it('it should return offset: 16.666666666666664%', (): void => {
+  it('it should return an offset value of 16.666666666666664%', (): void => {
     const mockOffset = 2;
     expect(getColumnOffset(mockOffset)).toStrictEqual('16.666666666666664%');
   });
 
-  it('it should return offset: 16.666666666666664%, 25%, 50%', (): void => {
+  it('it should return responsive offsets values of 16.666666666666664%, 25%, 50%', (): void => {
     const mockOffset = [2, 3, 6];
     expect(getColumnOffset(mockOffset)).toStrictEqual(['16.666666666666664%', '25%', '50%']);
   });
 
-  it('it should return span: 50%', (): void => {
+  it('it should return a span value of 50%', (): void => {
     const mockSpan = {
       count: 12,
       span: 6,
@@ -55,7 +64,7 @@ describe('Grid Unit Tests', () => {
     expect(getColumnSpan(mockSpan)).toStrictEqual('50%');
   });
 
-  it('it should return span: 25%', (): void => {
+  it('it should return a span value of 25%', (): void => {
     const mockSpan = {
       count: 12,
       span: 3,
@@ -63,28 +72,28 @@ describe('Grid Unit Tests', () => {
     expect(getColumnSpan(mockSpan)).toStrictEqual('25%');
   });
 
-  it('it should return span: 33.33333333333333%', (): void => {
+  it('it should return a span value of 33.33333333333333%', (): void => {
     const mockSpan = {
       count: 3,
     };
     expect(getColumnSpan(mockSpan)).toStrictEqual('33.33333333333333%');
   });
 
-  it('it should return span: 8.333333333333332%', (): void => {
+  it('it should return a span value of 8.333333333333332%', (): void => {
     const mockSpan = {
       count: 12,
     };
     expect(getColumnSpan(mockSpan)).toStrictEqual('8.333333333333332%');
   });
 
-  it('it should return span: 8.333333333333332% (null span)', (): void => {
+  it('it should return the default span value of 8.333333333333332%', (): void => {
     const mockSpan = {
       span: null,
     };
     expect(getColumnSpan(mockSpan)).toStrictEqual('8.333333333333332%');
   });
 
-  it('it should return span: 25%, 50%, 25%', (): void => {
+  it('it should return responsive span values of 25%, 50%, 25%', (): void => {
     const mockSpan = {
       count: 12,
       span: [3, 6, 3],
@@ -94,7 +103,7 @@ describe('Grid Unit Tests', () => {
 });
 
 describe('Grid Gutter Prop', () => {
-  it('it should set a gutter property', (): void => {
+  it('it should render two columns with gutters', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -108,7 +117,7 @@ describe('Grid Gutter Prop', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should set a responsive gutter property', (): void => {
+  it('it should render two columns with responsive gutters', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -124,7 +133,7 @@ describe('Grid Gutter Prop', () => {
 });
 
 describe('Grid Vertical Prop', () => {
-  it('it should set a vertical property', (): void => {
+  it('it should render two stacked columns', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -138,7 +147,7 @@ describe('Grid Vertical Prop', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should set a responsive vertical property', (): void => {
+  it('it should render two columns stacked only on mobile and tablet', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -154,7 +163,7 @@ describe('Grid Vertical Prop', () => {
 });
 
 describe('Column Offset Prop', () => {
-  it('it should set a offset property', (): void => {
+  it('it should render two columns, one with a offset', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -168,7 +177,7 @@ describe('Column Offset Prop', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should set a responsive offset property', (): void => {
+  it('it should render two columns, one with a responsive offset', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -184,7 +193,7 @@ describe('Column Offset Prop', () => {
 });
 
 describe('Column Span Prop', () => {
-  it('it should set a span property', (): void => {
+  it('it should render two columns, one spaning 8 columns, the other spanning 4 columns', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -198,7 +207,7 @@ describe('Column Span Prop', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should set a responsive span property', (): void => {
+  it('it should render two columns with different responsive column spans', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -214,7 +223,7 @@ describe('Column Span Prop', () => {
 });
 
 describe('12 Column Options', () => {
-  it('it should render a 12 column grid', (): void => {
+  it('it should render a grid with 12 columns', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -238,7 +247,7 @@ describe('12 Column Options', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render a 1 column grid', (): void => {
+  it('it should render a grid with 1 column', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -251,7 +260,7 @@ describe('12 Column Options', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render a 2 column grid', (): void => {
+  it('it should render a grid with 2 columns', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -265,7 +274,7 @@ describe('12 Column Options', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render a 3 column grid', (): void => {
+  it('it should render a grid with 3 columns', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -280,7 +289,7 @@ describe('12 Column Options', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render a 4 column grid', (): void => {
+  it('it should render a grid with 4 columns', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -296,7 +305,7 @@ describe('12 Column Options', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render a 6 column grid', (): void => {
+  it('it should render a grid with 6 columns', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
