@@ -53,7 +53,7 @@ const SiteFooter: React.FC<{}> = () => {
       </Box>
       <Text as="p" marginTop="space120" textAlign="center">
         <StyledFooterLogo color={TWILIO_BLUE} display="block" size={30} />
-        Copyright &copy; 2019 Twilio, Inc.
+        Copyright &copy; {new Date().getFullYear()} Twilio, Inc.
       </Text>
     </StyledFooter>
   );
