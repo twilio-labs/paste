@@ -2,34 +2,16 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {useTheme} from '@twilio-paste/theme';
 import {ThemeShape} from '@twilio-paste/theme-tokens';
-import {Margin, MarginProps, Space, SpaceOptions, SpaceProps} from '@twilio-paste/style-props';
+import {MarginProps, Space} from '@twilio-paste/style-props';
 import {safelySpreadBoxProps} from '@twilio-paste/box';
-import {Flex, Vertical} from '@twilio-paste/flex';
-
-export interface GridProps extends SpaceProps {
-  children: NonNullable<React.ReactNode>;
-  gutter?: Space;
-  vertical?: Vertical;
-}
-
-const getNegativeMargin = (theme: ThemeShape, gutter?: Space): Margin => {
-  if (Array.isArray(gutter)) {
-    return (gutter as SpaceOptions[]).map((value: SpaceOptions) => {
-      return `-${theme.space[value]}` as SpaceOptions;
-    });
-  }
-
-  if (gutter) {
-    return `-${theme.space[gutter as SpaceOptions]}` as SpaceOptions;
-  }
-
-  return 'auto';
-};
+import {Flex} from '@twilio-paste/flex';
+import {GridProps} from './types';
+import {getOuterGutterPull} from './helpers';
 
 const getGridStyles = (theme: ThemeShape, gutter?: Space): MarginProps => {
   const marginStyles: MarginProps = {
-    marginLeft: getNegativeMargin(theme, gutter),
-    marginRight: getNegativeMargin(theme, gutter),
+    marginLeft: getOuterGutterPull(theme, gutter),
+    marginRight: getOuterGutterPull(theme, gutter),
   };
 
   return marginStyles;

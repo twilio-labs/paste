@@ -1,79 +1,13 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import {compose, layout, space, flexbox, ResponsiveValue} from 'styled-system';
-import {FlexboxProps, LayoutProps, PaddingProps, Space} from '@twilio-paste/style-props';
-import {FlexProps, Vertical} from '@twilio-paste/flex';
+import {compose, layout, space, flexbox} from 'styled-system';
+import {ColumnProps, ColumnStyleProps} from './types';
+import {getStackedColumns, getColumnOffset, getColumnSpan} from './helpers';
 
-type ColumnMinWidth = ResponsiveValue<'100%' | '0'>;
-type ColumnWidthSpan = ResponsiveValue<string>;
-type ColumnOffsetOptions = number;
-export type ColumnOffset = ResponsiveValue<ColumnOffsetOptions>;
-type ColumnSpanOptions = number;
-export type ColumnSpan = ResponsiveValue<ColumnSpanOptions>;
-
-interface ColumnStyles extends Omit<LayoutProps, 'minWidth' | 'width'>, FlexboxProps, PaddingProps {
-  marginLeft?: ResponsiveValue<string>;
-  minWidth?: ColumnMinWidth;
-  width?: ColumnWidthSpan;
-}
-
-export interface ColumnProps extends Omit<FlexProps, 'display' | 'width' | 'minWidth' | 'marginLeft'>, ColumnStyles {
-  count?: number;
-  gutter?: Space;
-  offset?: ColumnOffset;
-  span?: ColumnSpan;
-  vertical?: Vertical;
-}
-
-const getVertical = (vertical: Vertical): ColumnMinWidth => {
-  if (Array.isArray(vertical)) {
-    return (vertical as Vertical[]).map((value: Vertical) => {
-      if (typeof value === 'boolean') {
-        return value === true ? '100%' : '0';
-      }
-      return null;
-    });
-  }
-
-  if (vertical) {
-    return '100%';
-  }
-
-  return '0';
-};
-
-const getSpan = ({count, span}: ColumnProps): ColumnWidthSpan => {
-  if (Array.isArray(span) && count) {
-    return (span as ColumnSpanOptions[]).map((value: ColumnSpanOptions) => {
-      return `${(value / 12) * 100}%`;
-    });
-  }
-
-  if (typeof span === 'number' && count && count <= 12) {
-    return `${(span / 12) * 100}%`;
-  }
-
-  if (count !== undefined) {
-    return `${(1 / count) * 100}%`;
-  }
-
-  return `${(1 / 12) * 100}%`;
-};
-
-const getOffset = (offset: ColumnOffset): ResponsiveValue<string> => {
-  if (Array.isArray(offset)) {
-    return (offset as ColumnOffsetOptions[]).map((value: ColumnOffsetOptions) => {
-      return `${(value / 12) * 100}%`;
-    });
-  }
-
-  return `${((offset as ColumnOffsetOptions) / 12) * 100}%`;
-};
-
-const getColumnStyles = (props: ColumnProps): ColumnStyles => {
-  const columnStyles: ColumnStyles = {
-    width: getSpan(props),
+const getColumnStyles = (props: ColumnProps): ColumnStyleProps => {
+  const columnStyles: ColumnStyleProps = {
+    width: getColumnSpan(props),
   };
 
   if (props.gutter) {
@@ -88,11 +22,11 @@ const getColumnStyles = (props: ColumnProps): ColumnStyles => {
   }
 
   if (props.offset) {
-    columnStyles.marginLeft = getOffset(props.offset);
+    columnStyles.marginLeft = getColumnOffset(props.offset);
   }
 
   if (props.vertical && !props.offset) {
-    columnStyles.minWidth = getVertical(props.vertical);
+    columnStyles.minWidth = getStackedColumns(props.vertical);
     columnStyles.marginLeft = 'space0';
   }
 
