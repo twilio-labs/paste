@@ -27,6 +27,16 @@ interface SiteWrapperPageQuery {
       }
     ];
   };
+  allPastePrimitive: {
+    edges: [
+      {
+        node: {
+          name: string;
+          status: string;
+        };
+      }
+    ];
+  };
   allPasteUtility: {
     edges: [
       {
@@ -63,6 +73,14 @@ const pageQuery = graphql`
         }
       }
     }
+    allPastePrimitive(sort: {order: ASC, fields: name}) {
+      edges {
+        node {
+          name
+          status
+        }
+      }
+    }
     allPasteUtility(sort: {order: ASC, fields: name}) {
       edges {
         node {
@@ -79,6 +97,9 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
 
   const [componentsOpen, setComponentsOpen] = React.useState(
     getCurrentPathname().startsWith(SidebarCategoryRoutes.COMPONENTS)
+  );
+  const [primitivesOpen, setPrimitivesOpen] = React.useState(
+    getCurrentPathname().startsWith(SidebarCategoryRoutes.PRIMITIVES)
   );
   const [utilitiesOpen, setUtilitiesOpen] = React.useState(
     getCurrentPathname().startsWith(SidebarCategoryRoutes.UTILITIES)
@@ -164,6 +185,32 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
                 return (
                   <SiteNavItem key={node.name}>
                     <SiteNavAnchor to={`${SidebarCategoryRoutes.COMPONENTS}/${getNameFromPackageName(node.name)}`}>
+                      {getHumanizedNameFromPackageName(node.name)}
+                    </SiteNavAnchor>
+                  </SiteNavItem>
+                );
+              })}
+          </SiteNavNestList>
+        </SiteNavItem>
+        <SiteNavItem>
+          <SiteNavButton
+            onClick={() => setPrimitivesOpen(!primitivesOpen)}
+            isOpen={primitivesOpen}
+            aria-expanded={primitivesOpen}
+          >
+            Primitives
+            <SiteNavAnchorArrow isOpen={primitivesOpen} />
+          </SiteNavButton>
+          <SiteNavNestList isOpen={primitivesOpen}>
+            <SiteNavItem>
+              <SiteNavAnchor to={SidebarCategoryRoutes.PRIMITIVES}>Overview</SiteNavAnchor>
+            </SiteNavItem>
+            {data.allPastePrimitive.edges
+              .filter(({node}) => node.status !== PackageStatus.BACKLOG)
+              .map(({node}) => {
+                return (
+                  <SiteNavItem key={node.name}>
+                    <SiteNavAnchor to={`${SidebarCategoryRoutes.PRIMITIVES}/${getNameFromPackageName(node.name)}`}>
                       {getHumanizedNameFromPackageName(node.name)}
                     </SiteNavAnchor>
                   </SiteNavItem>
