@@ -9,7 +9,7 @@
   ],
   "references": [
     {
-      "path": "../../utilities/box"
+      "path": "../../primitives/box"
     },
     {
       "path": "../../../paste-style-props"
