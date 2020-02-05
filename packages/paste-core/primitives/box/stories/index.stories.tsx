@@ -21,7 +21,7 @@ const zIndexOptions = Object.keys(DefaultTheme.zIndices);
 
 const demoString = `I'm some text in a box`;
 
-storiesOf('Utilities|Box', module)
+storiesOf('Primitives|Box', module)
   .addDecorator(withKnobs)
   .add('Default', () => {
     const backgroudColorValue = select(
