@@ -30,7 +30,7 @@ const lineHeightOptions = Object.keys(DefaultTheme.lineHeights);
 const spaceOptions = [''].concat(Object.keys(DefaultTheme.space));
 const textColorOptions = Object.keys(DefaultTheme.textColors);
 
-storiesOf('Utilities|Text', module)
+storiesOf('Primitives|Text', module)
   .addDecorator(withKnobs)
   .add('Default', () => {
     const asValue = text('as', 'p') as keyof JSX.IntrinsicElements;
