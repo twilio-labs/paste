@@ -9,7 +9,7 @@
   ],
   "references": [
     {
-      "path": "../../primitives/box"
+      "path": "../box"
     },
     {
       "path": "../flex"
