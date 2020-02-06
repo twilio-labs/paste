@@ -15,7 +15,7 @@ import {InlineCode} from '../../../components/Typography';
 
 export const pageQuery = graphql`
   {
-    allPastePrimitive(filter: {name: {eq: "@twilio-paste/text"}}) {
+    allPasteUtility(filter: {name: {eq: "@twilio-paste/text"}}) {
       edges {
         node {
           name
@@ -36,10 +36,10 @@ export const pageQuery = graphql`
 
 <ComponentHeader
   name="Text"
-  categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
-  githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/primitives/text"
-  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/primitives-text--default"
-  data={props.data.allPastePrimitive.edges}
+  categoryRoute={SidebarCategoryRoutes.UTILITIES}
+  githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/utilities/text"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/utilities-text--default"
+  data={props.data.allPasteUtility.edges}
 />
 
 ---

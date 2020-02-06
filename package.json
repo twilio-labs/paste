@@ -39,7 +39,7 @@
     "test:packages": "node --experimental-worker ./node_modules/.bin/jest ./packages/",
     "test:tools": "node --experimental-worker ./node_modules/.bin/jest ./tools/ -c ./tools/jest.config.js",
     "test:coverage": "yarn pre-test && node --experimental-worker ./node_modules/.bin/jest --coverage",
-    "test:vrt": "DEBUG=eyes* eyes-storybook",
+    "test:vrt": "eyes-storybook",
     "prettier": "prettier --list-different '{.storybook,packages}/**/*.{ts,tsx}'",
     "prettier-clean": "prettier --write '{.storybook,packages}/**/*.{ts,tsx}'",
     "lint": "yarn pre-test && eslint --ext .tsx,.ts ./packages/**",
