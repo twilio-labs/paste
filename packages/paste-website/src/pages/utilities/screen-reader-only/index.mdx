@@ -1,0 +1,200 @@
+---
+title: Screen Reader Only - Utilities
+description: The Screen reader only component should be used to visually hide content that may provide extra context to assistive technology users.
+---
+
+import {graphql} from 'gatsby';
+import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+import {Text} from '@twilio-paste/text';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Heading} from '@twilio-paste/heading';
+import {Card} from '@twilio-paste/card';
+import {Button} from '@twilio-paste/button';
+import Changelog from '@twilio-paste/screen-reader-only/CHANGELOG.md';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {Table, Thead, Tbody, Tr, Td, Th} from '../../../components/table';
+import {InlineCode} from '../../../components/Typography';
+
+export const pageQuery = graphql`
+  {
+    allPasteUtility(filter: {name: {eq: "@twilio-paste/screen-reader-only"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/screen-reader-only/"}}) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name="Screen Reader Only"
+  categoryRoute={SidebarCategoryRoutes.UTILITIES}
+  githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/utilities/screen-reader-only"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/utilities-screen-reader-only--default"
+  data={props.data.allPasteUtility.edges}
+/>
+
+---
+
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings} />
+
+<content>
+
+## Guidelines
+
+### About Screen Reader Only
+
+<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+
+When wrapped with the Screen Reader Only component, content is visually hidden but still available to assistive technology.
+
+This can be useful when context or relationships between UI controls are _visually_ clear, but in isolation to an assistive technology user, they may not be. By being able to visually hide some content, you are able to provide additional clarifying context that may only be clear to a sighted user.
+
+
+## Examples
+
+### Providing headings to sectioning content
+
+All sectioning elements, such as Cards, should contain a heading to provide a clear document outline and form of navigation to assistive technology users. By using the Screen Reader Only component you can provide a visually hidden heading as a means to give additional context and heirarchy.
+
+<LivePreview scope={{Card, ScreenReaderOnly, Heading, Paragraph}} language="jsx">
+  {`<Card>
+  <ScreenReaderOnly as="div">
+    <Heading as="h2" variant="heading20">Some content</Heading>
+  </ScreenReaderOnly>
+  <Paragraph>
+    TODO: Find good example
+  </Paragraph>
+</Card>`}
+</LivePreview>
+
+### Repeatative buttons and hidden headers
+
+Each column in a table is required to have a column header. Sometimes those column headers can be visually hidden from sighted users if desired. To do so use the Screen Reader Only component to hide the cell content for that column header.
+
+Another common usecase is for providing context to repetative actions. Visually the "Buy" button is associated with the phone number via the row highlighting, but to a screen reader user the "Buy" action might be unclear. To provide additional clarification we can add _what_ you would be buying as visually hidden text to the button.
+
+<LivePreview scope={{Table, Thead, Tbody, Tr, Td, Th, Button, Text, ScreenReaderOnly}} language="jsx">
+  {`<Table>
+  <Thead>
+    <Tr>
+      <Th>Number</Th>
+      <Th>Type</Th>
+      <Th>Monthly Fee</Th>
+      <Th>
+        <ScreenReaderOnly>Actions</ScreenReaderOnly>
+      </Th>
+    </Tr>
+  </Thead>
+  <Tbody>
+    <Tr>
+      <Th>
+        <strong>+1 (903) 603-9469</strong>
+        <Text as="div" textColor="colorTextWeak" fontWeight="normal">
+          Mabank, TX
+        </Text>
+      </Th>
+      <Td>local</Td>
+      <Td>$1.00</Td>
+      <Td>
+        <Button variant="secondary" size="small">
+          Buy <ScreenReaderOnly>+1 (903) 603-9469</ScreenReaderOnly>
+        </Button>
+      </Td>
+    </Tr>
+    <Tr>
+      <Th>
+        <strong>+1 (470) 309-0026</strong>
+        <Text as="div" textColor="colorTextWeak" fontWeight="normal">
+          Adairsville, GA
+        </Text>
+      </Th>
+      <Td>local</Td>
+      <Td>$1.00</Td>
+      <Td>
+        <Button variant="secondary" size="small">
+          Buy <ScreenReaderOnly>+1 (470) 309-0026</ScreenReaderOnly>
+        </Button>
+      </Td>
+    </Tr>
+    <Tr>
+      <Th>
+        <strong>+1 (484) 662-4088</strong>
+        <Text as="div" textColor="colorTextWeak" fontWeight="normal">
+          Hamburg, PA
+        </Text>
+      </Th>
+      <Td>local</Td>
+      <Td>$1.00</Td>
+      <Td>
+        <Button variant="secondary" size="small">
+          Buy <ScreenReaderOnly>+1 (484) 662-4088</ScreenReaderOnly>
+        </Button>
+      </Td>
+    </Tr>
+  </Tbody>
+</Table>`}
+</LivePreview>
+
+## When to use Screen Reader Only
+
+Use the Screen Reader Only component when you are required to provide additional or contextual information to a screen reader user which a sighted user maybe able to infer and when you cannot do so via semantic HTML.
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use to provide additional text content to users of assistive technology"
+    preview={false}
+  />
+  <Dont title="Don't" body="Don't use to hide interactive content" preview={false} />
+</DoDont>
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/screen-reader-only
+```
+
+#### Usage
+
+```jsx
+import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+
+<Button variant="secondary" size="small">
+  Buy <ScreenReaderOnly>+1 (484) 662-4088</ScreenReaderOnly>
+</Button>
+```
+
+All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
+
+| Prop            | Type                                                                          | Description               | Default |
+| --------------- | ----------------------------------------------------------------------------- | ------------------------- | ------- |
+| as?             | `keyof JSX.IntrinsicElements`                                                 | A custom HTML tag         | `span`   |
+
+<Box marginTop="space90">
+  <Changelog />
+</Box>
+
+</content>
+
+</contentwrapper>
