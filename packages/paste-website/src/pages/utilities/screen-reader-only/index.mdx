@@ -1,15 +1,17 @@
 ---
 title: Screen Reader Only - Utilities
-description: The Screen reader only component should be used to visually hide content that may provide extra context to assistive technology users.
+description: The Screen Reader Only component should be used to visually hide content that may provide extra context to assistive technology users.
 ---
 
 import {graphql} from 'gatsby';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {Text} from '@twilio-paste/text';
+import {Flex} from '@twilio-paste/flex';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Heading} from '@twilio-paste/heading';
 import {Card} from '@twilio-paste/card';
 import {Button} from '@twilio-paste/button';
+import {Anchor} from '@twilio-paste/anchor';
 import Changelog from '@twilio-paste/screen-reader-only/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
@@ -69,24 +71,34 @@ This can be useful when context or relationships between UI controls are _visual
 
 ### Providing headings to sectioning content
 
-All sectioning elements, such as Cards, should contain a heading to provide a clear document outline and form of navigation to assistive technology users. By using the Screen Reader Only component you can provide a visually hidden heading as a means to give additional context and heirarchy.
+All sectioning elements, such as Cards, should contain a heading to provide a clear document outline and form of navigation to assistive technology users. By using the Screen Reader Only component you can provide a visually hidden heading to give additional context and heirarchy.
 
-<LivePreview scope={{Card, ScreenReaderOnly, Heading, Paragraph}} language="jsx">
+<LivePreview scope={{Card, ScreenReaderOnly, Heading, Paragraph, Button, Anchor, Flex}} language="jsx">
   {`<Card>
   <ScreenReaderOnly as="div">
-    <Heading as="h2" variant="heading20">Some content</Heading>
+    <Heading as="h2" variant="heading20">Flex</Heading>
   </ScreenReaderOnly>
   <Paragraph>
-    TODO: Find good example
+    Deploy an omnichannel contact center within minutes and customize every element of the experience, including the agent desktop, channels, interaction routing, and reporting using common web frameworks like React.js and REST APIs.
   </Paragraph>
+  <Flex vAlignContent="center">
+    <Flex marginRight="space40">
+      <Button variant="primary">
+        Launch Flex
+      </Button>
+    </Flex>
+    <Anchor href="#">
+      View all projects
+    </Anchor>
+  </Flex>
 </Card>`}
 </LivePreview>
 
-### Repeatative buttons and hidden headers
+### Repetitive buttons and hidden headers
 
 Each column in a table is required to have a column header. Sometimes those column headers can be visually hidden from sighted users if desired. To do so use the Screen Reader Only component to hide the cell content for that column header.
 
-Another common usecase is for providing context to repetative actions. Visually the "Buy" button is associated with the phone number via the row highlighting, but to a screen reader user the "Buy" action might be unclear. To provide additional clarification we can add _what_ you would be buying as visually hidden text to the button.
+Another common use case is for providing context to repetitive actions. Visually the "Buy" button is associated with the phone number via the row highlighting, but to a screen reader user the "Buy" action might be unclear. To provide additional clarification we can add _what_ you would be buying as visually hidden text to the button.
 
 <LivePreview scope={{Table, Thead, Tbody, Tr, Td, Th, Button, Text, ScreenReaderOnly}} language="jsx">
   {`<Table>
