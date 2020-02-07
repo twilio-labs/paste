@@ -62,16 +62,13 @@ export const pageQuery = graphql`
 
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
-When wrapped with the Screen Reader Only component, content is visually hidden but still available to assistive technology.
-
-This can be useful when information or relationships between UI controls are only communicated _visually_. By being able to visually hide some content you are able to provide clarifying information to non-sighted users and maintain the visual design.
-
+When wrapped with the Screen Reader Only component, content is visually hidden but still available to assistive technology. This can be useful when information or relationships between UI controls are only communicated _visually_. By being able to visually hide some content you are able to provide clarifying information to non-sighted users without adding redundancy to the visual design.
 
 ## Examples
 
-### Providing headings to sectioning content
+### Providing visually hidden headings to sectioned content
 
-All sectioning elements, such as Cards, should contain a heading to provide a clear document outline and form of navigation to assistive technology users. However, there may be times a heading is not required (or even redundant) in a particular UI for sighted users. By using the Screen Reader Only component you can provide a visually hidden heading to give additional context and heirarchy.
+All sectioning elements, such as Cards, should contain a heading to provide a clear document outline and form of navigation to assistive technology users. However, there may be times a heading is not required (or even redundant) in a particular UI for sighted users. By using the Screen Reader Only component you can provide a visually hidden heading to give additional context and heirarchy. In the example below, we've added "Flex" as a heading that is accessible to assistive technology, but hidden visually.
 
 <LivePreview scope={{Card, ScreenReaderOnly, Heading, Paragraph, Button, Anchor, Flex}} language="jsx">
   {`<Card>
@@ -94,7 +91,7 @@ All sectioning elements, such as Cards, should contain a heading to provide a cl
 </Card>`}
 </LivePreview>
 
-### Repetitive buttons and hidden headers
+### Providing clear actions while still reducing visual repetition
 
 Each column in a table is required to have a column header. Sometimes those column headers can be visually hidden from sighted users if desired. To do so use the Screen Reader Only component to hide the cell content for that column header.
 
