@@ -2,7 +2,7 @@
   "name": "@twilio-paste/card",
   "version": "1.3.3",
   "category": "data display",
-  "status": "beta",
+  "status": "production",
   "description": "The Paste cards are specifically-styled containers that group relatable content and actions.",
   "author": "Twilio Inc.",
   "license": "MIT",
