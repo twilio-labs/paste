@@ -44,6 +44,19 @@ describe('Ordered List', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should allow marginTop and marginBottom styling props', () => {
+    const tree = renderer
+      .create(
+        <Theme.Provider theme="console">
+          <OrderedList marginTop="space40" marginBottom="space40">
+            Children
+          </OrderedList>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it('should allow aria attributes', () => {
     const wrapper: ReactWrapper = mount(<OrderedList aria-expanded="true">Children</OrderedList>);
     expect(wrapper.exists('ol[aria-expanded="true"]')).toEqual(true);
