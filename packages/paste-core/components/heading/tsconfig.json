@@ -1,9 +1,4 @@
 {
   "extends": "../../../../tsconfig.json",
-  "include": ["src/**/*"],
-  "references": [{
-    "path": "../../primitives/text"
-  }, {
-    "path": "../../../paste-theme-tokens"
-  }]
+  "include": ["src/**/*"]
 }
