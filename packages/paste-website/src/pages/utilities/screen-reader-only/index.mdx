@@ -1,6 +1,6 @@
 ---
 title: Screen Reader Only - Utilities
-description: The Screen Reader Only component should be used to visually hide content that may provide extra context to assistive technology users.
+description: The Screen Reader Only component should be used to visually hide content that is necessary to provide appropriate context to users who experience a page using assistive technology.
 ---
 
 import {graphql} from 'gatsby';
@@ -64,14 +64,14 @@ export const pageQuery = graphql`
 
 When wrapped with the Screen Reader Only component, content is visually hidden but still available to assistive technology.
 
-This can be useful when context or relationships between UI controls are _visually_ clear, but in isolation to an assistive technology user, they may not be. By being able to visually hide some content, you are able to provide additional clarifying context that may only be clear to a sighted user.
+This can be useful when information or relationships between UI controls are only communicated _visually_. By being able to visually hide some content you are able to provide clarifying information to non-sighted users and maintain the visual design.
 
 
 ## Examples
 
 ### Providing headings to sectioning content
 
-All sectioning elements, such as Cards, should contain a heading to provide a clear document outline and form of navigation to assistive technology users. By using the Screen Reader Only component you can provide a visually hidden heading to give additional context and heirarchy.
+All sectioning elements, such as Cards, should contain a heading to provide a clear document outline and form of navigation to assistive technology users. However, there may be times a heading is not required (or even redundant) in a particular UI for sighted users. By using the Screen Reader Only component you can provide a visually hidden heading to give additional context and heirarchy.
 
 <LivePreview scope={{Card, ScreenReaderOnly, Heading, Paragraph, Button, Anchor, Flex}} language="jsx">
   {`<Card>
@@ -98,7 +98,7 @@ All sectioning elements, such as Cards, should contain a heading to provide a cl
 
 Each column in a table is required to have a column header. Sometimes those column headers can be visually hidden from sighted users if desired. To do so use the Screen Reader Only component to hide the cell content for that column header.
 
-Another common use case is for providing context to repetitive actions. Visually the "Buy" button is associated with the phone number via the row highlighting, but to a screen reader user the "Buy" action might be unclear. To provide additional clarification we can add _what_ you would be buying as visually hidden text to the button.
+Another common use case is for providing correct context to repetitive actions. In the example below, the "Buy" button is clearly visually associated with the phone number via row highlighting. However, to a screen reader user, this association may not be as clear. To provide additional clarification we can add _what_ you would be buying (Buy ) as visually hidden text to the button. This way, we can keep the same level of context for all users.
 
 <LivePreview scope={{Table, Thead, Tbody, Tr, Td, Th, Button, Text, ScreenReaderOnly}} language="jsx">
   {`<Table>
