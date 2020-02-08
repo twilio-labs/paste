@@ -38,7 +38,7 @@ export const getColumnGutters = (theme: ThemeShape, gutter?: Space): Padding => 
     return `${theme.space[gutter as SpaceOptions]}` as SpaceOptions;
   }
 
-  return 'space0';
+  return `${theme.space[0]}` as SpaceOptions;
 };
 
 // Gets the vertical prop and returns 100% or 0 to be used as Column minWidths
