@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/screen-reader-only@1.0.0...@twilio-paste/screen-reader-only@1.1.0) (2020-02-08)
+
+
+### Features
+
+* **website:** create the screen-reader-only documentation page ([#291](https://github.com/twilio-labs/paste/issues/291)) ([a8bc513](https://github.com/twilio-labs/paste/commit/a8bc513e731c416b0b00041913e7e07d98eabf8e))
+
+
+
+
+
 # [1.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/screen-reader-only@0.3.0...@twilio-paste/screen-reader-only@1.0.0) (2019-11-11)
 
 
