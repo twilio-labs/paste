@@ -9,7 +9,7 @@ interface Props {
   sourceUrl: string;
 }
 
-const Citation: React.FC<Props> = ({ name, source, sourceUrl }) => {
+const Citation: React.FC<Props> = ({name, source, sourceUrl}) => {
   return (
     <Text as="footer" fontWeight="fontWeightSemibold" marginTop="space40">
       &mdash; {name}
