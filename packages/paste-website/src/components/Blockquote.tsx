@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Anchor } from '@twilio-paste/anchor';
-import { Box } from '@twilio-paste/box';
-import { Text } from '@twilio-paste/text';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
 
 interface Props {
   name: string;
@@ -21,7 +21,7 @@ const Citation: React.FC<Props> = ({name, source, sourceUrl}) => {
   );
 };
 
-export const Blockquote: React.FC<Props> = ({ children, name, source, sourceUrl }) => {
+export const Blockquote: React.FC<Props> = ({children, name, source, sourceUrl}) => {
   return (
     <Box
       borderLeftWidth="borderWidth20"
