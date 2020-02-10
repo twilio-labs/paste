@@ -15,6 +15,7 @@ import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {Blockquote} from '../../../components/Blockquote';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -129,14 +130,10 @@ Use a neutral alert to notify a user of a change that's relevant for them to ach
 
 In most cases, a neutral alert should be dismissible (*i.e.*, have a close button) and should be assigned `role="status"`
 
-<Callout>
-  <CalloutTitle>Research insight</CalloutTitle>
-  <CalloutText>
-    From <Anchor href="https://www.nngroup.com/articles/indicators-validations-notifications/">Nielsen Norman Group</Anchor>:
-    "A notification sent irrespective of the current user goal would likely be ignored, and may even annoy users because it will disrupt
-    their current task and be irrelevant to their current needs."
-  </CalloutText>
-</Callout>
+<Blockquote name="Nielsen Norman Group" source="Indicators, Validations, and Notifications" sourceUrl="https://www.nngroup.com/articles/indicators-validations-notifications/">
+  A notification sent irrespective of the current user goal would likely be ignored, and may even annoy users because it will disrupt
+  their current task and be irrelevant to their current needs.
+</Blockquote>
 
 <LivePreview scope={{Alert, Text, Anchor}} language="jsx">
   {`<Alert variant="neutral">
@@ -210,12 +207,9 @@ Keep in mind that the longer an alert is present, the more it starts looking lik
 
 Keep alert text brief by placing only the highest priority information in an alert. Too much text in an alert can overwhelm a user. A good rule of thumb is to keep alert text to a single line in a desktop-sized container, or limiting it to 90 characters.
 
-<Callout>
-  <CalloutTitle>Research insight</CalloutTitle>
-  <CalloutText>
-    From <Anchor href="https://practicaltypography.com/responsive-web-design.html">Butterick's Practical Typography</Anchor>: "Regardless of screen width, the optimal line length is still 45–90 characters. As you test your layout, make sure that text elements stay within this range."
-  </CalloutText>
-</Callout>
+<Blockquote name="Matthew Butterick" source="Butterick's Practical Typography" sourceUrl="https://practicaltypography.com/responsive-web-design.html">
+  Regardless of screen width, the optimal line length is still 45–90 characters. As you test your layout, make sure that text elements stay within this range.
+</Blockquote>
 
 Compose an alert with:
 
