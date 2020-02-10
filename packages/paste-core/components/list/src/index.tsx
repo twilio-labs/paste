@@ -1,10 +1,13 @@
 import * as React from 'react';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
+import {Space} from '@twilio-paste/style-props';
 
 interface BaseListProps extends React.OlHTMLAttributes<''> {
   className?: never;
   style?: never;
   as: 'ol' | 'ul';
+  marginTop?: Space;
+  marginBottom?: Space;
 }
 
 const List: React.FC<BaseListProps> = ({as, children, ...props}) => {
@@ -12,7 +15,6 @@ const List: React.FC<BaseListProps> = ({as, children, ...props}) => {
     <Text
       {...props}
       as={as}
-      marginBottom="space70"
       marginLeft="space70"
       fontSize="fontSize30"
       lineHeight="lineHeight30"
@@ -26,22 +28,28 @@ const List: React.FC<BaseListProps> = ({as, children, ...props}) => {
 List.displayName = 'List';
 
 export type OrderedListProps = Omit<BaseListProps, 'as'>;
-const OrderedList: React.FC<OrderedListProps> = ({children, ...props}) => {
+const OrderedList: React.FC<OrderedListProps> = ({children, marginTop, marginBottom, ...props}) => {
   return (
-    <List {...safelySpreadTextProps(props)} as="ol">
+    <List {...safelySpreadTextProps(props)} as="ol" marginTop={marginTop} marginBottom={marginBottom}>
       {children}
     </List>
   );
 };
+OrderedList.defaultProps = {
+  marginBottom: 'space70',
+};
 OrderedList.displayName = 'OrderedList';
 
 export type UnorderedListProps = Omit<BaseListProps, 'as'>;
-const UnorderedList: React.FC<UnorderedListProps> = ({children, ...props}) => {
+const UnorderedList: React.FC<UnorderedListProps> = ({children, marginTop, marginBottom, ...props}) => {
   return (
-    <List {...safelySpreadTextProps(props)} as="ul">
+    <List {...safelySpreadTextProps(props)} as="ul" marginTop={marginTop} marginBottom={marginBottom}>
       {children}
     </List>
   );
+};
+UnorderedList.defaultProps = {
+  marginBottom: 'space70',
 };
 UnorderedList.displayName = 'UnorderedList';
 
@@ -55,6 +63,7 @@ const ListItem: React.FC<ListItemProps> = props => {
     <Text
       {...safelySpreadTextProps(props)}
       as="li"
+      marginTop="space30"
       marginBottom="space30"
       fontSize="fontSize30"
       lineHeight="lineHeight30"

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.9.0...@twilio-paste/website@1.9.1) (2020-02-10)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+# [1.9.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.8.9...@twilio-paste/website@1.9.0) (2020-02-08)
+
+
+### Features
+
+* **website:** create the screen-reader-only documentation page ([#291](https://github.com/twilio-labs/paste/issues/291)) ([a8bc513](https://github.com/twilio-labs/paste/commit/a8bc513e731c416b0b00041913e7e07d98eabf8e))
+
+
+
+
+
 ## [1.8.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.8.8...@twilio-paste/website@1.8.9) (2020-02-07)
 
 **Note:** Version bump only for package @twilio-paste/website

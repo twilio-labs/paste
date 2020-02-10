@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/list@0.1.4...@twilio-paste/list@0.1.5) (2020-02-10)
+
+
+### Bug Fixes
+
+* **list:** allow marginTop and marginBottom props ([#297](https://github.com/twilio-labs/paste/issues/297)) ([24ceb8d](https://github.com/twilio-labs/paste/commit/24ceb8d0b671aeb4df446a6bd5cf17695fa07dc9))
+
+
+
+
+
 ## [0.1.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/list@0.1.3...@twilio-paste/list@0.1.4) (2020-02-03)
 
 **Note:** Version bump only for package @twilio-paste/list
