@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.9.1...@twilio-paste/website@1.10.0) (2020-02-10)
+
+
+### Features
+
+* **website:** create website blockquote ([#299](https://github.com/twilio-labs/paste/issues/299)) ([ebee486](https://github.com/twilio-labs/paste/commit/ebee4868ae9aa597175fcde3870062f21ff608db))
+
+
+
+
+
 ## [1.9.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.9.0...@twilio-paste/website@1.9.1) (2020-02-10)
 
 **Note:** Version bump only for package @twilio-paste/website
