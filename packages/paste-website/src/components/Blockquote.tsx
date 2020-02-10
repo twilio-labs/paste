@@ -19,7 +19,7 @@ const Citation: React.FC<Props> = ({ name, source, sourceUrl }) => {
       )}
     </Text>
   );
-}
+};
 
 export const Blockquote: React.FC<Props> = ({ children, name, source, sourceUrl }) => {
   return (
@@ -36,9 +36,7 @@ export const Blockquote: React.FC<Props> = ({ children, name, source, sourceUrl 
       <Text as="p" fontSize="fontSize40" lineHeight="lineHeight50">
         {children}
       </Text>
-      {name && (
-        <Citation name={name} source={source} sourceUrl={sourceUrl}></Citation>
-      )}
+      {name && <Citation name={name} source={source} sourceUrl={sourceUrl}></Citation>}
     </Box>
   );
 };
