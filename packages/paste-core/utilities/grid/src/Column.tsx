@@ -1,18 +1,20 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+import {useTheme} from '@twilio-paste/theme';
+import {ThemeShape} from '@twilio-paste/theme-tokens';
 import {compose, layout, space, flexbox} from 'styled-system';
 import {ColumnProps, ColumnStyleProps} from './types';
-import {getStackedColumns, getColumnOffset, getColumnSpan} from './helpers';
+import {getStackedColumns, getColumnGutters, getColumnOffset, getColumnSpan} from './helpers';
 
-const getColumnStyles = (props: ColumnProps): ColumnStyleProps => {
+const getColumnStyles = (theme: ThemeShape, props: ColumnProps): ColumnStyleProps => {
   const columnStyles: ColumnStyleProps = {
     width: getColumnSpan(props),
   };
 
   if (props.gutter) {
-    columnStyles.paddingLeft = props.gutter;
-    columnStyles.paddingRight = props.gutter;
+    columnStyles.paddingLeft = getColumnGutters(theme, props.gutter);
+    columnStyles.paddingRight = getColumnGutters(theme, props.gutter);
   }
 
   if (!props.offset) {
@@ -42,7 +44,9 @@ const StyledColumn = styled.div(
 ) as React.FC<ColumnProps>;
 
 const Column: React.FC<ColumnProps> = ({children, count, gutter, offset, span, vertical}) => {
-  const ColumnStyles = React.useMemo(() => getColumnStyles({count, gutter, offset, span, vertical}), [
+  const theme = useTheme();
+
+  const ColumnStyles = React.useMemo(() => getColumnStyles(theme, {count, gutter, offset, span, vertical}), [
     count,
     gutter,
     offset,

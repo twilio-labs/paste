@@ -4,7 +4,7 @@ import {DefaultTheme} from '@twilio-paste/theme-tokens';
 import {Theme} from '@twilio-paste/theme';
 import {Space} from '@twilio-paste/style-props';
 import {Grid, Column} from '../src';
-import {getOuterGutterPull, getStackedColumns, getColumnOffset, getColumnSpan} from '../src/helpers';
+import {getOuterGutterPull, getStackedColumns, getColumnGutters, getColumnOffset, getColumnSpan} from '../src/helpers';
 
 describe('Grid Unit Tests', () => {
   const mockTheme = {
@@ -22,8 +22,16 @@ describe('Grid Unit Tests', () => {
     expect(getOuterGutterPull(mockTheme, mockGutter)).toStrictEqual('-4px');
   });
 
-  it('should return a responsive set of negative margin values', (): void => {
+  it('it should return a responsive set of negative margin values', (): void => {
     expect(getOuterGutterPull(mockTheme, mockGutters)).toStrictEqual(['-2px', '-6px', '-4px']);
+  });
+
+  it('it should return a single padding', (): void => {
+    expect(getColumnGutters(mockTheme, mockGutter)).toStrictEqual('4px');
+  });
+
+  it('it should return a responsive set of padding values', (): void => {
+    expect(getColumnGutters(mockTheme, mockGutters)).toStrictEqual(['2px', '6px', '4px']);
   });
 
   it('it should return a vertical value of 0', (): void => {
