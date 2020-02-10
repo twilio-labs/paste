@@ -9,7 +9,7 @@ interface Props {
   sourceUrl: string;
 }
 
-const Citation: React.FC<Props> = ({name, source, sourceUrl}) => {
+const Citation: React.FC<Props> = ({ name, source, sourceUrl }) => {
   return (
     <Text as="footer" fontWeight="fontWeightSemibold" marginTop="space40">
       &mdash; {name}
@@ -36,7 +36,7 @@ export const Blockquote: React.FC<Props> = ({ children, name, source, sourceUrl 
       <Text as="p" fontSize="fontSize40" lineHeight="lineHeight50">
         {children}
       </Text>
-      {name && <Citation name={name} source={source} sourceUrl={sourceUrl}></Citation>}
+      {name && <Citation name={name} source={source} sourceUrl={sourceUrl} />}
     </Box>
   );
 };
