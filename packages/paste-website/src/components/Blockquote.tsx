@@ -4,9 +4,9 @@ import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 
 interface Props {
-  name: string;
-  source: string;
-  sourceUrl: string;
+  name?: string;
+  source?: string;
+  sourceUrl?: string;
 }
 
 const Citation: React.FC<Props> = ({name, source, sourceUrl}) => {
