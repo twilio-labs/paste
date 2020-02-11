@@ -36,38 +36,10 @@ exports[`12 Column Options it should render a 5 span, 3 span column grid 1`] = `
 
 .emotion-2 {
   width: 25%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .emotion-0 {
   width: 41.66666666666667%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <div
@@ -79,12 +51,10 @@ exports[`12 Column Options it should render a 5 span, 3 span column grid 1`] = `
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="41.66666666666667%"
     />
     <div
       className="emotion-2 emotion-1"
-      display="flex"
       width="25%"
     />
   </div>
@@ -127,38 +97,10 @@ exports[`12 Column Options it should render a 5 span, 5 span, 2 span column grid
 
 .emotion-4 {
   width: 16.666666666666664%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .emotion-0 {
   width: 41.66666666666667%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <div
@@ -170,17 +112,14 @@ exports[`12 Column Options it should render a 5 span, 5 span, 2 span column grid
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="41.66666666666667%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="41.66666666666667%"
     />
     <div
       className="emotion-4 emotion-1"
-      display="flex"
       width="16.666666666666664%"
     />
   </div>
@@ -223,20 +162,6 @@ exports[`12 Column Options it should render a 6 span, 6 span column grid 1`] = `
 
 .emotion-0 {
   width: 50%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <div
@@ -248,12 +173,10 @@ exports[`12 Column Options it should render a 6 span, 6 span column grid 1`] = `
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="50%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="50%"
     />
   </div>
@@ -296,38 +219,10 @@ exports[`12 Column Options it should render a 8 span, 4 span column grid 1`] = `
 
 .emotion-0 {
   width: 66.66666666666666%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .emotion-2 {
   width: 33.33333333333333%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <div
@@ -339,12 +234,10 @@ exports[`12 Column Options it should render a 8 span, 4 span column grid 1`] = `
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="66.66666666666666%"
     />
     <div
       className="emotion-2 emotion-1"
-      display="flex"
       width="33.33333333333333%"
     />
   </div>
@@ -387,38 +280,10 @@ exports[`12 Column Options it should render a 9 span, 3 span column grid 1`] = `
 
 .emotion-2 {
   width: 25%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .emotion-0 {
   width: 75%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <div
@@ -430,12 +295,10 @@ exports[`12 Column Options it should render a 9 span, 3 span column grid 1`] = `
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="75%"
     />
     <div
       className="emotion-2 emotion-1"
-      display="flex"
       width="25%"
     />
   </div>
@@ -478,38 +341,10 @@ exports[`12 Column Options it should render a 10 span, 2 span column grid 1`] = 
 
 .emotion-2 {
   width: 16.666666666666664%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .emotion-0 {
   width: 83.33333333333334%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <div
@@ -521,12 +356,10 @@ exports[`12 Column Options it should render a 10 span, 2 span column grid 1`] = 
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="83.33333333333334%"
     />
     <div
       className="emotion-2 emotion-1"
-      display="flex"
       width="16.666666666666664%"
     />
   </div>
@@ -569,38 +402,10 @@ exports[`12 Column Options it should render a 11 span, 1 span column grid 1`] = 
 
 .emotion-2 {
   width: 8.333333333333332%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .emotion-0 {
   width: 91.66666666666666%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <div
@@ -612,12 +417,10 @@ exports[`12 Column Options it should render a 11 span, 1 span column grid 1`] = 
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="91.66666666666666%"
     />
     <div
       className="emotion-2 emotion-1"
-      display="flex"
       width="8.333333333333332%"
     />
   </div>
@@ -660,38 +463,10 @@ exports[`12 Column Options it should render a 11 span, 2 span column grid 1`] = 
 
 .emotion-2 {
   width: 16.666666666666664%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .emotion-0 {
   width: 91.66666666666666%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <div
@@ -703,12 +478,10 @@ exports[`12 Column Options it should render a 11 span, 2 span column grid 1`] = 
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="91.66666666666666%"
     />
     <div
       className="emotion-2 emotion-1"
-      display="flex"
       width="16.666666666666664%"
     />
   </div>
@@ -751,20 +524,6 @@ exports[`12 Column Options it should render a grid with 1 column 1`] = `
 
 .emotion-0 {
   width: 100%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <div
@@ -776,7 +535,6 @@ exports[`12 Column Options it should render a grid with 1 column 1`] = `
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="100%"
     />
   </div>
@@ -819,20 +577,6 @@ exports[`12 Column Options it should render a grid with 2 columns 1`] = `
 
 .emotion-0 {
   width: 50%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <div
@@ -844,12 +588,10 @@ exports[`12 Column Options it should render a grid with 2 columns 1`] = `
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="50%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="50%"
     />
   </div>
@@ -892,20 +634,6 @@ exports[`12 Column Options it should render a grid with 3 columns 1`] = `
 
 .emotion-0 {
   width: 33.33333333333333%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <div
@@ -917,17 +645,14 @@ exports[`12 Column Options it should render a grid with 3 columns 1`] = `
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="33.33333333333333%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="33.33333333333333%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="33.33333333333333%"
     />
   </div>
@@ -970,20 +695,6 @@ exports[`12 Column Options it should render a grid with 4 columns 1`] = `
 
 .emotion-0 {
   width: 25%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <div
@@ -995,22 +706,18 @@ exports[`12 Column Options it should render a grid with 4 columns 1`] = `
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="25%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="25%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="25%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="25%"
     />
   </div>
@@ -1053,20 +760,6 @@ exports[`12 Column Options it should render a grid with 6 columns 1`] = `
 
 .emotion-0 {
   width: 16.666666666666664%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <div
@@ -1078,32 +771,26 @@ exports[`12 Column Options it should render a grid with 6 columns 1`] = `
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="16.666666666666664%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="16.666666666666664%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="16.666666666666664%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="16.666666666666664%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="16.666666666666664%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="16.666666666666664%"
     />
   </div>
@@ -1146,20 +833,6 @@ exports[`12 Column Options it should render a grid with 12 columns 1`] = `
 
 .emotion-0 {
   width: 8.333333333333332%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <div
@@ -1171,62 +844,50 @@ exports[`12 Column Options it should render a grid with 12 columns 1`] = `
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="8.333333333333332%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="8.333333333333332%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="8.333333333333332%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="8.333333333333332%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="8.333333333333332%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="8.333333333333332%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="8.333333333333332%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="8.333333333333332%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="8.333333333333332%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="8.333333333333332%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="8.333333333333332%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="8.333333333333332%"
     />
   </div>
@@ -1270,28 +931,10 @@ exports[`Column Offset Prop it should render two columns, one with a offset 1`] 
 .emotion-0 {
   width: 16.666666666666664%;
   margin-left: 66.66666666666666%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .emotion-2 {
   width: 50%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <div
@@ -1303,12 +946,10 @@ exports[`Column Offset Prop it should render two columns, one with a offset 1`] 
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="16.666666666666664%"
     />
     <div
       className="emotion-2 emotion-1"
-      display="flex"
       width="50%"
     />
   </div>
@@ -1351,29 +992,11 @@ exports[`Column Offset Prop it should render two columns, one with a responsive 
 
 .emotion-2 {
   width: 50%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .emotion-0 {
   width: 16.666666666666664%;
   margin-left: 66.66666666666666%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 @media screen and (min-width:25rem) {
@@ -1399,7 +1022,6 @@ exports[`Column Offset Prop it should render two columns, one with a responsive 
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width={
         Array [
           "16.666666666666664%",
@@ -1410,7 +1032,6 @@ exports[`Column Offset Prop it should render two columns, one with a responsive 
     />
     <div
       className="emotion-2 emotion-1"
-      display="flex"
       width="50%"
     />
   </div>
@@ -1453,20 +1074,6 @@ exports[`Column Span Prop it should render two columns with different responsive
 
 .emotion-0 {
   width: 66.66666666666666%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 @media screen and (min-width:25rem) {
@@ -1483,20 +1090,6 @@ exports[`Column Span Prop it should render two columns with different responsive
 
 .emotion-2 {
   width: 33.33333333333333%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 @media screen and (min-width:25rem) {
@@ -1520,7 +1113,6 @@ exports[`Column Span Prop it should render two columns with different responsive
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width={
         Array [
           "66.66666666666666%",
@@ -1531,7 +1123,6 @@ exports[`Column Span Prop it should render two columns with different responsive
     />
     <div
       className="emotion-2 emotion-1"
-      display="flex"
       width={
         Array [
           "33.33333333333333%",
@@ -1580,38 +1171,10 @@ exports[`Column Span Prop it should render two columns, one spaning 8 columns, t
 
 .emotion-0 {
   width: 66.66666666666666%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .emotion-2 {
   width: 33.33333333333333%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <div
@@ -1623,12 +1186,10 @@ exports[`Column Span Prop it should render two columns, one spaning 8 columns, t
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="66.66666666666666%"
     />
     <div
       className="emotion-2 emotion-1"
-      display="flex"
       width="33.33333333333333%"
     />
   </div>
@@ -1673,20 +1234,6 @@ exports[`Grid Gutter Prop it should render two columns with gutters 1`] = `
   width: 50%;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <div
@@ -1698,12 +1245,10 @@ exports[`Grid Gutter Prop it should render two columns with gutters 1`] = `
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="50%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="50%"
     />
   </div>
@@ -1762,20 +1307,6 @@ exports[`Grid Gutter Prop it should render two columns with responsive gutters 1
   width: 50%;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 @media screen and (min-width:25rem) {
@@ -1801,12 +1332,10 @@ exports[`Grid Gutter Prop it should render two columns with responsive gutters 1
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="50%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="50%"
     />
   </div>
@@ -1868,22 +1397,8 @@ exports[`Grid Vertical Prop it should render two columns stacked only on mobile 
 
 .emotion-0 {
   width: 50%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
   min-width: 100%;
   margin-left: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 @media screen and (min-width:25rem) {
@@ -1907,12 +1422,10 @@ exports[`Grid Vertical Prop it should render two columns stacked only on mobile 
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="50%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="50%"
     />
   </div>
@@ -1958,22 +1471,8 @@ exports[`Grid Vertical Prop it should render two stacked columns 1`] = `
 
 .emotion-0 {
   width: 50%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
-  flex-shrink: 1;
-  -webkit-flex-basis: auto;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
   min-width: 100%;
   margin-left: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <div
@@ -1985,12 +1484,10 @@ exports[`Grid Vertical Prop it should render two stacked columns 1`] = `
   >
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="50%"
     />
     <div
       className="emotion-0 emotion-1"
-      display="flex"
       width="50%"
     />
   </div>

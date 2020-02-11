@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import {useTheme} from '@twilio-paste/theme';
 import {ThemeShape} from '@twilio-paste/theme-tokens';
-import {compose, layout, space, flexbox} from 'styled-system';
+import {compose, layout, space} from 'styled-system';
 import {ColumnProps, ColumnStyleProps} from './types';
 import {getStackedColumns, getColumnGutters, getColumnOffset, getColumnSpan} from './helpers';
 
@@ -15,12 +15,6 @@ const getColumnStyles = (theme: ThemeShape, props: ColumnProps): ColumnStyleProp
   if (props.gutter) {
     columnStyles.paddingLeft = getColumnGutters(theme, props.gutter);
     columnStyles.paddingRight = getColumnGutters(theme, props.gutter);
-  }
-
-  if (!props.offset) {
-    columnStyles.flexGrow = 1;
-    columnStyles.flexShrink = 1;
-    columnStyles.flexBasis = 'auto';
   }
 
   if (props.offset) {
@@ -38,8 +32,7 @@ const getColumnStyles = (theme: ThemeShape, props: ColumnProps): ColumnStyleProp
 const StyledColumn = styled.div(
   compose(
     space,
-    layout,
-    flexbox
+    layout
   )
 ) as React.FC<ColumnProps>;
 
@@ -53,11 +46,7 @@ const Column: React.FC<ColumnProps> = ({children, count, gutter, offset, span, v
     span,
     vertical,
   ]);
-  return (
-    <StyledColumn {...ColumnStyles} display="flex">
-      {children}
-    </StyledColumn>
-  );
+  return <StyledColumn {...ColumnStyles}>{children}</StyledColumn>;
 };
 
 Column.propTypes = {

@@ -1,8 +1,6 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
-import {DefaultTheme} from '@twilio-paste/theme-tokens';
 import {Theme} from '@twilio-paste/theme';
-import {Space} from '@twilio-paste/style-props';
 import {Grid, Column} from '../src';
 import {getOuterGutterPull, getStackedColumns, getColumnGutters, getColumnOffset, getColumnSpan} from '../src/helpers';
 
