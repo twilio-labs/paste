@@ -10,7 +10,7 @@ import {
   FlexboxProps,
 } from '@twilio-paste/style-props';
 
-interface Box
+export interface BoxProps
   extends React.HTMLAttributes<any>,
     LayoutProps,
     SpaceProps,
@@ -52,7 +52,7 @@ const Box = styled.div(
     boxShadow,
     position
   )
-) as React.FC<Box>;
+) as React.FC<BoxProps>;
 
 Box.displayName = 'Box';
 export {Box};
