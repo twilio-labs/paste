@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/grid",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "category": "layout",
   "status": "beta",
   "description": "A flex based horizontal grid system used to build layouts.",
@@ -18,18 +18,19 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn clean && yarn compile",
+    "build": "yarn clean && yarn compile && yarn props-gen",
     "build:dev": "yarn clean && yarn compile:dev",
     "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
     "compile": "rollup -c --environment NODE_ENV:production",
     "compile:dev": "rollup -c --environment NODE_ENV:development",
     "prepublishOnly": "yarn build",
+    "props-gen": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@twilio-paste/box": "^2.1.5",
-    "@twilio-paste/flex": "^0.2.2",
-    "@twilio-paste/style-props": "^0.1.4",
+    "@twilio-paste/box": "^2.1.6",
+    "@twilio-paste/flex": "^0.2.3",
+    "@twilio-paste/style-props": "^0.1.5",
     "@twilio-paste/theme": "^3.0.2",
     "@twilio-paste/theme-tokens": "^3.0.2",
     "prop-types": "^15.7.2",
@@ -38,9 +39,9 @@
     "styled-system": "^5.1.2"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^2.1.5",
-    "@twilio-paste/flex": "^0.2.2",
-    "@twilio-paste/style-props": "^0.1.4",
+    "@twilio-paste/box": "^2.1.6",
+    "@twilio-paste/flex": "^0.2.3",
+    "@twilio-paste/style-props": "^0.1.5",
     "@twilio-paste/theme": "^3.0.2",
     "@twilio-paste/theme-tokens": "^3.0.2",
     "rollup": "^1.16.2",
@@ -49,6 +50,7 @@
     "rollup-plugin-node-resolve": "^5.1.0",
     "rollup-plugin-terser": "^5.0.0",
     "rollup-plugin-typescript2": "^0.21.2",
+    "typedoc": "^0.16.9",
     "typescript": "^3.5.2"
   }
 }

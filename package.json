@@ -42,6 +42,7 @@
     "test:vrt": "eyes-storybook",
     "prettier": "prettier --list-different '{.storybook,packages}/**/*.{ts,tsx}'",
     "prettier-clean": "prettier --write '{.storybook,packages}/**/*.{ts,tsx}'",
+    "props-gen": "lerna run props-gen",
     "lint": "yarn pre-test && eslint --ext .tsx,.ts ./packages/**",
     "type-check": "lerna run type-check"
   },
@@ -124,6 +125,7 @@
     "require-context.macro": "^1.0.4",
     "shelljs": "^0.8.3",
     "storybook-readme": "^5.0.5",
+    "typedoc": "^0.16.9",
     "typescript": "^3.5.2",
     "webpack": "^4.35.3"
   },

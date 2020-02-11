@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Heading} from '@twilio-paste/heading';
+import {Heading, HeadingProps} from '@twilio-paste/heading';
 import styled from '@emotion/styled';
 import {themeGet} from '@styled-system/theme-get';
 import {slugify} from '../utils/RouteUtils';
@@ -14,7 +14,7 @@ const StyledAnchorHyperlink = styled.a`
   }
 `;
 
-const AnchoredHeading: React.FC<Heading> = props => {
+const AnchoredHeading: React.FC<HeadingProps> = props => {
   // Only generate slugs for headings where children is 'string'
   if (typeof props.children === 'string') {
     const id = slugify(props.children);

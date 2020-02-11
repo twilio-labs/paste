@@ -5,7 +5,7 @@ import {Text} from '@twilio-paste/text';
 export type asTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'label' | 'span';
 export type HeadingVariants = 'heading10' | 'heading20' | 'heading30' | 'heading40' | 'heading50' | 'heading60';
 
-interface Heading {
+export interface HeadingProps {
   as: asTags;
   id?: string;
   className?: never;
@@ -64,7 +64,7 @@ function getHeadingProps(headingVariant?: HeadingVariants): {} {
   }
 }
 
-const Heading: React.FC<Heading> = ({as, children, id, variant}) => {
+const Heading: React.FC<HeadingProps> = ({as, children, id, variant}) => {
   return (
     <Text {...getHeadingProps(variant)} as={as} display="block" id={id} textColor="colorText">
       {children}

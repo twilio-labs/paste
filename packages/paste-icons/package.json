@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/icons",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Twilio's icon library, ready for use and with accessibility considerations",
   "author": "Twilio Inc.",
   "license": "MIT",
@@ -15,17 +15,18 @@
   "scripts": {
     "list-icons": "node ./tools/cli.js list-icons",
     "convert-new": "node ./tools/cli.js convert-new",
-    "build": "yarn clean && yarn compile",
+    "build": "yarn clean && yarn compile && yarn props-gen",
     "build:dev": "yarn build",
     "clean": "rm -rf ./esm && rm -rf ./cjs && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
     "compile": "rollup -c --environment NODE_ENV:production",
     "compile:dev": "rollup -c --environment NODE_ENV:development",
     "prepublishOnly": "yarn build",
+    "props-gen": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
     "@emotion/styled": "^10.0.14",
-    "@twilio-paste/style-props": "^0.1.4",
+    "@twilio-paste/style-props": "^0.1.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-uid": "^2.2.0",
@@ -38,7 +39,7 @@
     "@svgr/plugin-jsx": "^4.1.0",
     "@svgr/plugin-svgo": "^4.0.3",
     "@twilio-labs/svg-to-react": "^2.0.0",
-    "@twilio-paste/style-props": "^0.1.4",
+    "@twilio-paste/style-props": "^0.1.5",
     "commander": "^2.20.0",
     "lodash.difference": "^4.5.0",
     "lodash.kebabcase": "^4.1.1",
@@ -49,6 +50,7 @@
     "rollup-plugin-node-resolve": "^5.1.0",
     "rollup-plugin-terser": "^5.0.0",
     "rollup-plugin-typescript2": "^0.21.2",
+    "typedoc": "^0.16.9",
     "typescript": "^3.5.2"
   }
 }

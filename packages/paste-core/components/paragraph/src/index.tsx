@@ -1,12 +1,12 @@
 import * as React from 'react';
 import {Text} from '@twilio-paste/text';
 
-interface Paragraph {
+export interface ParagraphProps {
   id?: never;
   className?: never;
 }
 
-const Paragraph: React.FC<Paragraph> = props => {
+const Paragraph: React.FC<ParagraphProps> = props => {
   return (
     <Text
       as="p"

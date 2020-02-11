@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.1.7...@twilio-paste/grid@0.1.8) (2020-02-11)
+
+**Note:** Version bump only for package @twilio-paste/grid
+
+
+
+
+
+## [0.1.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.1.6...@twilio-paste/grid@0.1.7) (2020-02-11)
+
+
+### Bug Fixes
+
+* **grid:** remove column flex styles ([#303](https://github.com/twilio-labs/paste/issues/303)) ([266b31d](https://github.com/twilio-labs/paste/commit/266b31d42c2229f4c985bbe671a29826567d82e4))
+
+
+
+
+
 ## [0.1.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.1.5...@twilio-paste/grid@0.1.6) (2020-02-11)
 
 **Note:** Version bump only for package @twilio-paste/grid
