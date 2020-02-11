@@ -3,6 +3,10 @@ import {storiesOf} from '@storybook/react';
 import {withKnobs, select} from '@storybook/addon-knobs';
 import {DefaultTheme, ThemeShape} from '@twilio-paste/theme-tokens';
 import {Box} from '@twilio-paste/box';
+import {Card} from '@twilio-paste/card';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Text} from '@twilio-paste/text';
 import {Grid, Column} from '../src';
 
 const spaceOptions = Object.keys(DefaultTheme.space);
@@ -535,6 +539,54 @@ storiesOf('Utilities|Grid', module)
           <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             3
           </Box>
+        </Column>
+      </Grid>
+    );
+  })
+  .add('Grid - 3 Column Card Layout', () => {
+    return (
+      <Grid gutter="space70" vertical={[true, false, false]}>
+        <Column>
+          <Card padding="space70">
+            <Heading as="h2">Card Heading</Heading>
+            <Text as="p">Body</Text>
+          </Card>
+        </Column>
+        <Column>
+          <Card padding="space70">
+            <Heading as="h2">Card Heading</Heading>
+            <Text as="p">Body</Text>
+          </Card>
+        </Column>
+        <Column>
+          <Card padding="space70">
+            <Heading as="h2">Card Heading</Heading>
+            <Text as="p">Body</Text>
+          </Card>
+        </Column>
+      </Grid>
+    );
+  })
+  .add('Grid - 2 Column Content with Card', () => {
+    return (
+      <Grid gutter="space70" vertical={[true, false, false]}>
+        <Column span={8}>
+          <Heading as="h2">Content Heading</Heading>
+          <Paragraph>
+            Kale chips distillery authentic, portland etsy cloud bread vinyl gentrify drinking vinegar viral meh hot
+            chicken bitters fashion axe palo santo. Chillwave fixie sustainable <i>helvetica</i> etsy.
+          </Paragraph>
+          <Paragraph>
+            Prism whatever ethical, gochujang <strong>edison bulb</strong> put a bird on it kitsch. Pop-up 90&apos;s la
+            croix tumeric, palo santo chia try-hard direct trade tote bag roof party scenester kitsch stumptown
+            intelligentsia. Literally heirloom blue bottle etsy.
+          </Paragraph>
+        </Column>
+        <Column span={4}>
+          <Card padding="space70">
+            <Heading as="h2">Card Heading</Heading>
+            <Text as="p">Body</Text>
+          </Card>
         </Column>
       </Grid>
     );
