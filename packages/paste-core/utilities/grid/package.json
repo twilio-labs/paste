@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/grid",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "category": "layout",
   "status": "beta",
   "description": "A flex based horizontal grid system used to build layouts.",

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "2.1.9",
+  "version": "2.1.10",
   "status": "beta",
   "description": "Contains all the core packages from the Paste internal design system.",
   "author": "Twilio Inc.",
@@ -35,7 +35,7 @@
     "@twilio-paste/button": "^1.1.11",
     "@twilio-paste/card": "^1.3.5",
     "@twilio-paste/flex": "^0.2.2",
-    "@twilio-paste/grid": "^0.1.6",
+    "@twilio-paste/grid": "^0.1.7",
     "@twilio-paste/heading": "^1.0.11",
     "@twilio-paste/list": "^0.1.6",
     "@twilio-paste/media-object": "^1.1.3",
