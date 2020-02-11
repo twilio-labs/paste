@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import {Absolute} from '@twilio-paste/absolute';
 
-interface AspectRatioProps {
+export interface AspectRatioProps {
   ratio: string;
   children: NonNullable<React.ReactNode>;
 }
