@@ -5,7 +5,7 @@ import {StyledAnchor} from './styles';
 export type AnchorTargets = '_self' | '_blank' | '_parent' | '_top';
 export type AnchorTabIndexes = 0 | -1;
 
-interface Anchor {
+export interface AnchorProps {
   className?: never;
   children: NonNullable<React.ReactNode>;
   href: string;
@@ -24,7 +24,7 @@ const EXTERNAL_REL_DEFAULT = 'noreferrer noopener';
 
 const isExternalUrl = (url: string): boolean => EXTERNAL_URL_REGEX.test(url);
 
-const Anchor: React.FC<Anchor> = props => (
+const Anchor: React.FC<AnchorProps> = props => (
   <StyledAnchor
     href={props.href}
     rel={isExternalUrl(props.href) && !props.rel ? EXTERNAL_REL_DEFAULT : props.rel}
