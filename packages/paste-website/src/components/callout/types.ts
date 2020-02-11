@@ -1,13 +1,13 @@
-import {Text} from '@twilio-paste/text';
-import {Heading} from '@twilio-paste/heading';
-import {Box} from '@twilio-paste/box';
+import {TextProps} from '@twilio-paste/text';
+import {HeadingProps} from '@twilio-paste/heading';
+import {BoxProps} from '@twilio-paste/box';
 
 export type CalloutVariants = 'primary' | 'secondary' | 'warning';
 
-export type CalloutTitleProps = Pick<Heading, 'as'>;
+export type CalloutTitleProps = Pick<HeadingProps, 'as'>;
 
-export type CalloutTextProps = Pick<Text, 'marginTop' | 'marginBottom' | 'as'>;
+export type CalloutTextProps = Pick<TextProps, 'marginTop' | 'marginBottom' | 'as'>;
 
-export interface CalloutProps extends Box {
+export interface CalloutProps extends BoxProps {
   variant?: CalloutVariants;
 }
