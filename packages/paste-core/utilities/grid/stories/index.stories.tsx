@@ -14,62 +14,62 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid gutter={gutterValue}>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             1
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             2
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             3
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             4
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             5
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             6
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             7
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             8
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             9
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             10
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             11
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             12
           </Box>
         </Column>
@@ -80,7 +80,7 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid gutter="space20">
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             1
           </Box>
         </Column>
@@ -91,12 +91,12 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid gutter="space20">
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             1
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             2
           </Box>
         </Column>
@@ -107,17 +107,17 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid gutter="space20">
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             1
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             2
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             3
           </Box>
         </Column>
@@ -128,22 +128,22 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid gutter="space20">
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             1
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             2
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             3
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             4
           </Box>
         </Column>
@@ -154,32 +154,32 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid gutter="space20">
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             1
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             2
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             3
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             4
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             5
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             6
           </Box>
         </Column>
@@ -190,17 +190,17 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid gutter="space20">
         <Column span={5}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             5
           </Box>
         </Column>
         <Column span={5}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             5
           </Box>
         </Column>
         <Column span={2}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             2
           </Box>
         </Column>
@@ -211,12 +211,12 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid gutter="space20">
         <Column span={6}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             6
           </Box>
         </Column>
         <Column span={6}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             6
           </Box>
         </Column>
@@ -227,12 +227,12 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid gutter="space20">
         <Column span={8}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             8
           </Box>
         </Column>
         <Column span={4}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             4
           </Box>
         </Column>
@@ -243,12 +243,12 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid gutter="space20">
         <Column span={9}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             9
           </Box>
         </Column>
         <Column span={3}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             3
           </Box>
         </Column>
@@ -259,12 +259,12 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid gutter="space20">
         <Column span={10}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             10
           </Box>
         </Column>
         <Column span={2}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             2
           </Box>
         </Column>
@@ -275,12 +275,12 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid gutter="space20">
         <Column span={11}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             11
           </Box>
         </Column>
         <Column span={1}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             1
           </Box>
         </Column>
@@ -291,57 +291,57 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid gutter="space20">
         <Column span={2}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             2
           </Box>
         </Column>
         <Column span={1}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             1
           </Box>
         </Column>
         <Column span={1}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             1
           </Box>
         </Column>
         <Column span={1}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             1
           </Box>
         </Column>
         <Column span={1}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             1
           </Box>
         </Column>
         <Column span={1}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             1
           </Box>
         </Column>
         <Column span={1}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             1
           </Box>
         </Column>
         <Column span={1}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             1
           </Box>
         </Column>
         <Column span={1}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             1
           </Box>
         </Column>
         <Column span={1}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             1
           </Box>
         </Column>
         <Column span={1}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             1
           </Box>
         </Column>
@@ -352,27 +352,27 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid gutter="space20">
         <Column span={8}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             8
           </Box>
         </Column>
         <Column span={1}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             1
           </Box>
         </Column>
         <Column span={1}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             1
           </Box>
         </Column>
         <Column span={1}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             1
           </Box>
         </Column>
         <Column span={1}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             1
           </Box>
         </Column>
@@ -383,7 +383,7 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid>
         <Column span={[12, 6, 8]} offset={[0, 3, 2]}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             8
           </Box>
         </Column>
@@ -394,12 +394,12 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid gutter="space20">
         <Column span={[12, 6, 6]} offset={[0, 2, 2]}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             6
           </Box>
         </Column>
         <Column span={4}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             4
           </Box>
         </Column>
@@ -410,12 +410,12 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid>
         <Column span={4}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             4
           </Box>
         </Column>
         <Column span={4} offset={4}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             4
           </Box>
         </Column>
@@ -426,12 +426,12 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid>
         <Column span={2} offset={2}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             2
           </Box>
         </Column>
         <Column span={2} offset={6}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             2
           </Box>
         </Column>
@@ -442,12 +442,12 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid gutter="space20">
         <Column span={3}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             3
           </Box>
         </Column>
         <Column span={9}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             9
           </Box>
         </Column>
@@ -458,17 +458,17 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid gutter="space60">
         <Column span={3}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             3
           </Box>
         </Column>
         <Column span={9}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             9
           </Box>
         </Column>
         <Column span={3}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             3
           </Box>
         </Column>
@@ -479,12 +479,12 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid gutter={['space20', 'space60', 'space90']}>
         <Column span={[2, 6, 8]}>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             Responsive Column Size
           </Box>
         </Column>
         <Column span={[10, 6, 4]}>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             Responsive Column Size
           </Box>
         </Column>
@@ -495,12 +495,12 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid gutter="space20" vertical={[true, false, false]}>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             Responsive Column Size
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             Responsive Column Size
           </Box>
         </Column>
@@ -511,20 +511,20 @@ storiesOf('Utilities|Grid', module)
     return (
       <Grid gutter="space40">
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             1
           </Box>
         </Column>
         <Column>
-          <Box height="size40" width="100%">
+          <Box height="size40">
             <Grid gutter="space20">
               <Column>
-                <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+                <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
                   Nested Column 1
                 </Box>
               </Column>
               <Column>
-                <Box backgroundColor="colorBackgroundPrimaryLight" height="size40" width="100%">
+                <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
                   Nested Column 2
                 </Box>
               </Column>
@@ -532,7 +532,7 @@ storiesOf('Utilities|Grid', module)
           </Box>
         </Column>
         <Column>
-          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40" width="100%">
+          <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             3
           </Box>
         </Column>
