@@ -4,7 +4,7 @@ import {ThemeShape} from '@twilio-paste/theme-tokens';
 import {ResponsiveValue, TLengthStyledSystem} from 'styled-system';
 
 // Tokens
-export type WidthOptions = keyof ThemeShape['widths'];
+export type WidthOptions = keyof ThemeShape['widths'] | '100%';
 export type MinWidthOptions = keyof ThemeShape['minWidths'];
 export type MaxWidthOptions = keyof ThemeShape['maxWidths'];
 export type HeightOptions = keyof ThemeShape['heights'];
