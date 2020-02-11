@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import {compose, space, display, verticalAlign, overflow, typography, system} from 'styled-system';
 import {SpaceProps, Display, VerticalAlign, OverflowProps, TypographyProps} from '@twilio-paste/style-props';
 
-interface Text extends React.HTMLAttributes<any>, SpaceProps, OverflowProps, TypographyProps {
+export interface TextProps extends React.HTMLAttributes<any>, SpaceProps, OverflowProps, TypographyProps {
   as: keyof JSX.IntrinsicElements;
   display?: Display;
   verticalAlign?: VerticalAlign;
@@ -35,7 +35,7 @@ const Text = styled.span(
   // correctly to utilise the as prop. The new HTML element attributes
   // always clash with the span html attributes. To override this,
   // we retype as a basic functional component which is easy to extend
-) as React.FC<Text>;
+) as React.FC<TextProps>;
 
 Text.defaultProps = {
   fontSize: 'fontSize30',
