@@ -142,7 +142,7 @@ List items can be nested within other list items. To do so create a new list as 
   <OrderedList>
     <ListItem>
       Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-      <UnorderedList>
+      <UnorderedList marginBottom="space0">
         <ListItem>
           Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
         </ListItem>
@@ -158,7 +158,7 @@ List items can be nested within other list items. To do so create a new list as 
   <UnorderedList>
     <ListItem>
       Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-      <OrderedList>
+      <OrderedList marginBottom="space0">
         <ListItem>
           Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
         </ListItem>
@@ -200,14 +200,14 @@ List items can be nested within other list items. To do so create a new list as 
       <UnorderedList>
         <ListItem>
           Mammals
-          <UnorderedList>
+          <UnorderedList marginBottom="space0">
             <ListItem>Cat</ListItem>
             <ListItem>Dog</ListItem>
           </UnorderedList>
         </ListItem>
         <ListItem>
           Birds
-          <UnorderedList>
+          <UnorderedList marginBottom="space0">
             <ListItem>Chicken</ListItem>
             <ListItem>Turkey</ListItem>
           </UnorderedList>
@@ -222,14 +222,14 @@ List items can be nested within other list items. To do so create a new list as 
         <ListItem>
           Mammals
           <Heading as="h3" variant="heading40">Groceries</Heading>
-          <UnorderedList>
+          <UnorderedList marginBottom="space0">
             <ListItem>Milk</ListItem>
             <ListItem>Butter</ListItem>
           </UnorderedList>
         </ListItem>
         <ListItem>
           Birds
-          <UnorderedList>
+          <UnorderedList marginBottom="space0">
             <ListItem>Chicken</ListItem>
             <ListItem>Turkey</ListItem>
           </UnorderedList>
@@ -246,7 +246,8 @@ List items can be nested within other list items. To do so create a new list as 
 | font-size     | font-size-30       | No          |
 | line-height   | line-height-30     | No          |
 | font-weight   | font-weight-normal | No          |
-| margin-bottom | space-60           | No          |
+| margin-top    | null               | Yes         |
+| margin-bottom | space-70           | Yes         |
 | color         | color-text         | No          |
 
 ---
@@ -281,9 +282,11 @@ import {OrderedList, UnorderedList, ListItem} from '@twilio-paste/list';
 
 #### Props
 
-| Prop      | Type                     | Description | Default |
-| --------- | ------------------------ | ----------- | ------- |
-| children? | `ReactNode`              |             | null    |
+| Prop          | Type                                         | Description | Default   |
+| ---------     | -------------------------------------------- | ----------- | --------- |
+| children?     | `ReactNode`                                  |             | null      |
+| marginTop?    | `ResponsiveValue<keyof ThemeShape['space']>` |             | null      |
+| marginBottom? | `ResponsiveValue<keyof ThemeShape['space']>` |             | 'space70' |
 
 <Box marginTop="space90">
   <Changelog />
