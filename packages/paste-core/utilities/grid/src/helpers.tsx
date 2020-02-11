@@ -1,6 +1,6 @@
 import {ThemeShape} from '@twilio-paste/theme-tokens';
 import {ResponsiveValue} from 'styled-system';
-import {Margin, Space, SpaceOptions} from '@twilio-paste/style-props';
+import {Margin, Padding, Space, SpaceOptions} from '@twilio-paste/style-props';
 import {Vertical} from '@twilio-paste/flex';
 import {
   ColumnOffset,
@@ -11,7 +11,7 @@ import {
   ColumnWidthSpan,
 } from './types';
 
-// Gets the gutter and returns the value to be used a negative margin to Grid
+// Gets the gutter and returns the value to be used as negative margin to Grid
 export const getOuterGutterPull = (theme: ThemeShape, gutter?: Space): Margin => {
   if (Array.isArray(gutter)) {
     return (gutter as SpaceOptions[]).map((value: SpaceOptions) => {
@@ -24,6 +24,21 @@ export const getOuterGutterPull = (theme: ThemeShape, gutter?: Space): Margin =>
   }
 
   return 'auto';
+};
+
+// Gets the gutter and returns the value to be used as padding for Columns
+export const getColumnGutters = (theme: ThemeShape, gutter?: Space): Padding => {
+  if (Array.isArray(gutter)) {
+    return (gutter as SpaceOptions[]).map((value: SpaceOptions) => {
+      return `${theme.space[value]}` as SpaceOptions;
+    });
+  }
+
+  if (gutter) {
+    return `${theme.space[gutter as SpaceOptions]}` as SpaceOptions;
+  }
+
+  return `${theme.space[0]}` as SpaceOptions;
 };
 
 // Gets the vertical prop and returns 100% or 0 to be used as Column minWidths

@@ -1,35 +1,24 @@
 ---
-title: Components overview
-description: The components listed here are on our roadmap.  Only a few of them are available today.
+title: Primitives overview
+description: Our primitives are rad
 ---
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
-import {Heading} from '@twilio-paste/heading';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
-import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 
-<Breadcrumb>
-  <BreadcrumbItem to="/">Home</BreadcrumbItem>
-</Breadcrumb>
-<Heading as="h1" variant="heading10">
-  Components
-</Heading>
-
-The components listed here are on our roadmap. Only a few of them are available today.
-
-If you’re planning on using an alpha or beta component, please check in with the Paste team through the <strong>#help-design-system</strong> channel on Slack.
+# Primitives Overview
 
 <Callout>
-  <CalloutTitle as="h4">Don't see a component, primitive, or utility you need listed here?</CalloutTitle>
+  <CalloutTitle as="h4">Don't see a primitive, utility, or component you need listed here?</CalloutTitle>
   <UnorderedList>
     <ListItem>
       First off, we recommend{' '}
       <Anchor href="https://github.com/twilio-labs/paste/issues">creating an issue on GitHub</Anchor> with your
-      component, primitive, or proposal.
+      component, primitive, or utility proposal.
     </ListItem>
     <ListItem>
       While not all requests are accepted for the design system, we may be able to suggest suitable alternatives - for
@@ -45,17 +34,17 @@ If you’re planning on using an alpha or beta component, please check in with t
   </UnorderedList>
 </Callout>
 <ComponentOverviewTable
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  componentsList={props.data.allPasteComponent.edges}
+  categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
+  componentsList={props.data.allPastePrimitive.edges}
 />
 
 export const pageQuery = graphql`
   {
-    allPasteComponent {
+    allPastePrimitive {
       edges {
         node {
-          name
           version
+          name
           status
         }
       }

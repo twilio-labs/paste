@@ -1,9 +1,9 @@
 {
   "name": "@twilio-paste/screen-reader-only",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "category": "typography",
-  "status": "alpha",
-  "description": "",
+  "status": "beta",
+  "description": "Utility for visually hiding content to provide an accessible experience for users of assistive technology.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

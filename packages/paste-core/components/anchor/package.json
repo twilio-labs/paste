@@ -1,8 +1,8 @@
 {
   "name": "@twilio-paste/anchor",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "category": "interaction",
-  "status": "beta",
+  "status": "production",
   "description": "Twilio's Anchor component",
   "author": "Twilio Inc.",
   "license": "MIT",

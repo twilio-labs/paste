@@ -65,4 +65,36 @@ storiesOf('Components|List', module)
         </UnorderedList>
       </>
     );
+  })
+  .add('Nested Unordered List', () => {
+    return (
+      <>
+        <UnorderedList>
+          <ListItem data-test="test-hook-nested" title="nested list title">
+            Kale chips distillery authentic, portland etsy cloud bread vinyl gentrify drinking vinegar viral meh hot
+            chicken bitters fashion axe palo santo. Chillwave fixie sustainable <i>helvetica</i> etsy.
+            <UnorderedList marginBottom="space0">
+              <ListItem>
+                Kale chips distillery authentic, portland etsy cloud bread vinyl gentrify drinking vinegar viral meh hot
+                chicken bitters fashion axe palo santo. Chillwave fixie sustainable <i>helvetica</i> etsy.
+              </ListItem>
+              <ListItem>
+                Prism whatever ethical, gochujang <strong>edison bulb</strong> put a bird on it kitsch. Pop-up 90&apos;s
+                la croix tumeric, palo santo chia try-hard direct trade tote bag roof party scenester kitsch stumptown
+                intelligentsia. Literally heirloom blue bottle etsy.
+              </ListItem>
+            </UnorderedList>
+          </ListItem>
+          <ListItem>
+            Prism whatever ethical, gochujang <strong>edison bulb</strong> put a bird on it kitsch. Pop-up 90&apos;s la
+            croix tumeric, palo santo chia try-hard direct trade tote bag roof party scenester kitsch stumptown
+            intelligentsia. Literally heirloom blue bottle etsy.
+          </ListItem>
+          <ListItem>
+            Kale chips distillery authentic, portland etsy cloud bread vinyl gentrify drinking vinegar viral meh hot
+            chicken bitters fashion axe palo santo. Chillwave fixie sustainable <i>helvetica</i> etsy.
+          </ListItem>
+        </UnorderedList>
+      </>
+    );
   });

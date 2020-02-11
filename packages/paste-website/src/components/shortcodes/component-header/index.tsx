@@ -12,6 +12,8 @@ const getCategoryNameFromRoute = (categoryRoute: string): string => {
   switch (categoryRoute) {
     case SidebarCategoryRoutes.COMPONENTS:
       return 'Components';
+    case SidebarCategoryRoutes.PRIMITIVES:
+      return 'Primitives';
     case SidebarCategoryRoutes.UTILITIES:
       return 'Utilities';
     case SidebarCategoryRoutes.TOKENS:
