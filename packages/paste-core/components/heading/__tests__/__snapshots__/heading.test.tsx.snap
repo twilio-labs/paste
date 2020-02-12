@@ -281,3 +281,138 @@ exports[`Heading it should render an italic H2 at fontSize50 1`] = `
   </h2>
 </div>
 `;
+
+exports[`Heading it should render with no margin 1`] = `
+.emotion-6 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-6 *,
+.emotion-6 *::after,
+.emotion-6 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.5rem;
+  display: block;
+  color: #282a2b;
+}
+
+.emotion-1 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 2rem;
+  display: block;
+  color: #282a2b;
+}
+
+.emotion-2 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.75rem;
+  display: block;
+  color: #282a2b;
+}
+
+.emotion-3 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.75rem;
+  display: block;
+  color: #282a2b;
+}
+
+.emotion-4 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  display: block;
+  color: #282a2b;
+}
+
+.emotion-5 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  display: block;
+  color: #282a2b;
+}
+
+<div
+  className="emotion-6"
+>
+  <h2
+    className="emotion-0"
+    display="block"
+    fontSize="fontSize90"
+    fontWeight="fontWeightSemibold"
+  >
+    no margin heading
+  </h2>
+  <h2
+    className="emotion-1"
+    display="block"
+    fontSize="fontSize70"
+    fontWeight="fontWeightSemibold"
+  >
+    no margin heading
+  </h2>
+  <h2
+    className="emotion-2"
+    display="block"
+    fontSize="fontSize60"
+    fontWeight="fontWeightSemibold"
+  >
+    no margin heading
+  </h2>
+  <h2
+    className="emotion-3"
+    display="block"
+    fontSize="fontSize40"
+    fontWeight="fontWeightSemibold"
+  >
+    no margin heading
+  </h2>
+  <h2
+    className="emotion-4"
+    display="block"
+    fontSize="fontSize30"
+    fontWeight="fontWeightSemibold"
+  >
+    no margin heading
+  </h2>
+  <h2
+    className="emotion-5"
+    display="block"
+    fontSize="fontSize20"
+    fontWeight="fontWeightSemibold"
+  >
+    no margin heading
+  </h2>
+</div>
+`;
