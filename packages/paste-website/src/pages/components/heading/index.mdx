@@ -6,6 +6,7 @@ description: Headings are words or phrases that are intended to introduce sectio
 
 import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
+import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
@@ -102,7 +103,7 @@ It is important to not skip one or more heading levels as it is common for scree
 </div>`}
 </LivePreview>
 
-#### Heading as `h2` with `heading10` variant
+### Heading as h2 with heading10 variant
 
 <LivePreview scope={{Heading}} language="jsx">
   {`<Heading as="h2" variant="heading10">
@@ -110,7 +111,7 @@ It is important to not skip one or more heading levels as it is common for scree
 </Heading>`}
 </LivePreview>
 
-#### Heading as `h2` with `heading20` variant
+### Heading as h2 with heading20 variant
 
 <LivePreview scope={{Heading}} language="jsx">
   {`<Heading as="h2" variant="heading20">
@@ -118,7 +119,7 @@ It is important to not skip one or more heading levels as it is common for scree
 </Heading>`}
 </LivePreview>
 
-#### Heading as `h2` with `heading30` variant
+### Heading as h2 with heading30 variant
 
 <LivePreview scope={{Heading}} language="jsx">
   {`<Heading as="h2" variant="heading30">
@@ -126,7 +127,7 @@ It is important to not skip one or more heading levels as it is common for scree
 </Heading>`}
 </LivePreview>
 
-#### Heading as `h2` with `heading40` variant
+### Heading as h2 with heading40 variant
 
 <LivePreview scope={{Heading}} language="jsx">
   {`<Heading as="h2" variant="heading40">
@@ -134,7 +135,7 @@ It is important to not skip one or more heading levels as it is common for scree
 </Heading>`}
 </LivePreview>
 
-#### Heading as `h2` with `heading50` variant
+### Heading as h2 with heading50 variant
 
 <LivePreview scope={{Heading}} language="jsx">
   {`<Heading as="h2" variant="heading50">
@@ -142,12 +143,22 @@ It is important to not skip one or more heading levels as it is common for scree
 </Heading>`}
 </LivePreview>
 
-#### Heading as `h2` with `heading60` variant
+### Heading as h2 with heading60 variant
 
 <LivePreview scope={{Heading}} language="jsx">
   {`<Heading as="h2" variant="heading60">
   Heading Six
 </Heading>`}
+</LivePreview>
+
+### Heading with no bottom margin
+
+<LivePreview scope={{Heading, Card}} language="jsx">
+  {`<Card>
+  <Heading as="h2" marginBottom="space0" variant="heading10">
+    Heading with no margin
+  </Heading>
+</Card>`}
 </LivePreview>
 
 ## Composition Notes
@@ -199,6 +210,7 @@ import {Heading} from '@twilio-paste/heading';
 | Prop           | Type                  | Description                                                                        | Default          |
 | -------------- | --------------------- | ---------------------------------------------------------------------------------- | ---------------- |
 | as             | asTags                | 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'                         | null             |
+| marginBottom   | oneOf(['space0'])     | Currently we only allow `space0` to remove bottom margin                           | null             |
 | variant?       | headingVariants       | 'heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60'       | 'heading20'      |
 
 <Box marginTop="space90">
