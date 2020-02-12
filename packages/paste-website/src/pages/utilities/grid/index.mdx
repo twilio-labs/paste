@@ -1,0 +1,520 @@
+---
+title: Grid - Utilities
+description: The grid component controls the visual layout and spacing between elements on a page or in containers.
+---
+
+import {graphql} from 'gatsby';
+import {Box} from '@twilio-paste/box';
+import {Grid, Column} from '@twilio-paste/grid';
+import {Card} from '@twilio-paste/card';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Text} from '@twilio-paste/text';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {SiteLink} from '../../../components/SiteLink';
+import Changelog from '@twilio-paste/grid/CHANGELOG.md';
+import {TwilioIcon} from '../../../components/icons/TwilioIcon';
+import {TWILIO_RED} from '../../../constants';
+
+export const pageQuery = graphql`
+  {
+    allPasteUtility(filter: {name: {eq: "@twilio-paste/grid"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/grid/"}}) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name="Grid"
+  categoryRoute={SidebarCategoryRoutes.UTILITIES}
+  githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/utilities/grid"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/utilities-grid--grid-12-column-and-gutter-support"
+  abstractUrl="https://share.goabstract.com/3e7528f5-7981-421c-9308-e06d2f341c70?"
+  data={props.data.allPasteUtility.edges}
+/>
+
+---
+
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings} />
+
+<content>
+
+## Guidelines
+
+<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+
+### About Grid
+
+Grid creates organized and consistent product layouts, by providing a standard for positioning elements. Grid speeds up the designer-to-developer workflow by improving the consistency of design implementations.
+
+Use a Grid to layout and align content by applying standard spacing between elements on a page or within a component.
+
+The standard desktop grid has 24-pixel gutters and can support up to 12 columns. The outside gutters are removed from the overall width of the grid.
+
+Grid is built using the [Flex component](/utilities/flex) and can be made responsive.
+
+## Examples
+
+#### Equal column widths
+
+Use Column to lay out equal-sized content, such as a feed of cards.
+
+<LivePreview scope={{Grid, Column, Card, Heading, Paragraph}} language="jsx">
+  {`<Grid gutter="space30">
+  <Column>
+    <Card padding="space70">
+      <Heading as="h4" variant="heading40">Card Heading</Heading>
+      <Paragraph>Chillwave fixie sustainable helvetica etsy.</Paragraph>
+    </Card>
+  </Column>
+  <Column>
+    <Card padding="space70">
+      <Heading as="h4" variant="heading40">Card Heading</Heading>
+      <Paragraph>Chillwave fixie sustainable helvetica etsy.</Paragraph>
+    </Card>
+  </Column>
+  <Column>
+    <Card padding="space70">
+      <Heading as="h4" variant="heading40">Card Heading</Heading>
+      <Paragraph>Chillwave fixie sustainable helvetica etsy.</Paragraph>
+    </Card>
+  </Column>
+</Grid>`}
+</LivePreview>
+
+#### Unequal column widths, using column span
+
+Use `span` to allow content to span multiple columns, such as a layout with a sidebar that takes up 1/4 of the screen and a content area that takes up 3/4 of the screen.
+
+<LivePreview scope={{Grid, Column, Card, Heading, Paragraph}} language="jsx">
+  {`<Grid gutter="space30">
+  <Column span={8}>
+    <Heading as="h4" variant="heading40">Content Heading</Heading>
+    <Paragraph>
+      Kale chips distillery authentic, portland etsy cloud bread vinyl gentrify drinking vinegar viral meh hot
+      chicken bitters fashion axe palo santo. Chillwave fixie sustainable <i>helvetica</i> etsy.
+    </Paragraph>
+  </Column>
+  <Column span={4}>
+    <Card padding="space70">
+      <Heading as="h4" variant="heading40">Card Heading</Heading>
+      <Paragraph>Chillwave fixie sustainable helvetica etsy.</Paragraph>
+    </Card>
+  </Column>
+</Grid>`}
+</LivePreview>
+
+<Callout variant="warning">
+  <CalloutTitle as="h4" variant="heading40">An Important Note About Span and Offset</CalloutTitle>
+  <CalloutText>When using the <strong>span</strong> or <strong>offset</strong> props, base your layout off a 12-column grid. For example, if you want to have two columns with one spanning 8 columns, one column would span 8 and the other would need to span 4.</CalloutText>
+</Callout>
+
+#### Offset column
+
+Use `offset` to push a column to the right by a certain number of columns. For example, a layout with centered columns.
+
+<LivePreview scope={{Grid, Column, Card, Heading, Paragraph}} language="jsx">
+  {`<Grid gutter="space30">
+  <Column span={8} offset={2}>
+    <Card padding="space70">
+      <Heading as="h4" variant="heading40">Card Heading</Heading>
+      <Paragraph>Chillwave fixie sustainable helvetica etsy.</Paragraph>
+    </Card>
+  </Column>
+</Grid>`}
+</LivePreview>
+
+#### Stacked columns in a responsive view
+
+Use `vertical` to stack columns vertically instead of horizontally. Use this when your layout needs to respond to a smaller view.
+
+<LivePreview scope={{Grid, Column, Box, Card, Heading, Paragraph}} language="jsx">
+  {`<Grid gutter="space30" vertical>
+  <Column>
+    <Box marginTop="space30">
+      <Card padding="space70">
+        <Heading as="h4" variant="heading40">Card Heading</Heading>
+        <Paragraph>Chillwave fixie sustainable helvetica etsy.</Paragraph>
+      </Card>
+    </Box>
+  </Column>
+  <Column>
+    <Box marginTop="space30">
+      <Card padding="space70">
+        <Heading as="h4" variant="heading40">Card Heading</Heading>
+        <Paragraph>Chillwave fixie sustainable helvetica etsy.</Paragraph>
+      </Card>
+    </Box>
+  </Column>
+  <Column>
+    <Box marginTop="space30">
+      <Card padding="space70">
+        <Heading as="h4" variant="heading40">Card Heading</Heading>
+        <Paragraph>Chillwave fixie sustainable helvetica etsy.</Paragraph>
+      </Card>
+    </Box>
+  </Column>
+</Grid>`}
+</LivePreview>
+
+#### Nested Grids
+
+A Grid can be nested inside another Grid. For example, you can split a column into multiple smaller columns in order to stack the outer Grid in a responsive view but not the inner Grid.
+
+<LivePreview scope={{Grid, Column, Box, Card, Heading, Paragraph}} language="jsx">
+  {`<Grid vertical>
+  <Column>
+    <Grid gutter="space30">
+      <Column>
+        <Card padding="space70">
+          <Heading as="h4" variant="heading40" variant="heading40">Card Heading</Heading>
+          <Paragraph>Chillwave fixie sustainable helvetica etsy.</Paragraph>
+        </Card>
+      </Column>
+      <Column>
+        <Card padding="space70">
+          <Heading as="h4" variant="heading40" variant="heading40">Card Heading</Heading>
+          <Paragraph>Chillwave fixie sustainable helvetica etsy.</Paragraph>
+        </Card>
+      </Column>
+    </Grid>
+  </Column>
+  <Column>
+    <Box marginTop="space60" marginBottom="space60">
+      <Card padding="space70">
+        <Heading as="h4" variant="heading40" variant="heading40">Card Heading</Heading>
+        <Paragraph>Chillwave fixie sustainable helvetica etsy.</Paragraph>
+      </Card>
+    </Box>
+  </Column>
+  <Column>
+    <Grid gutter="space30">
+      <Column>
+        <Card padding="space70">
+          <Heading as="h4" variant="heading40" variant="heading40">Card Heading</Heading>
+          <Paragraph>Chillwave fixie sustainable helvetica etsy.</Paragraph>
+        </Card>
+      </Column>
+      <Column>
+        <Card padding="space70">
+          <Heading as="h4" variant="heading40" variant="heading40">Card Heading</Heading>
+          <Paragraph>Chillwave fixie sustainable helvetica etsy.</Paragraph>
+        </Card>
+      </Column>
+    </Grid>
+  </Column>
+</Grid>`}
+</LivePreview>
+
+### Composition Notes
+
+Grid can be used to compose various types of layouts ranging from whole application pages and views down to individual component layouts.
+
+<Callout variant="secondary">
+  <CalloutText>For spacing content in a layout wider than 1440 pixels, we recommend using a 24-pixel gutter. Use $space-40 to get a 24-pixel gutter.</CalloutText>
+</Callout>
+
+<Callout variant="secondary">
+  <CalloutText>For spacing content in a layout narrower than 1440 pixels, we recommend using a 16-pixel gutter. Use $space-30 to get a 16-pixel gutter.</CalloutText>
+</Callout>
+
+#### Basic page layout
+
+Let's look at a common use case where we need to layout a page with a sidebar and a grid within the page content area.
+
+<LivePreview scope={{Grid, Column, Box, Card, Heading, Paragraph, Text}} language="jsx">
+  {`<Card padding="space70">
+  <Grid gutter="space30">
+    <Column span={3}>
+      <Box backgroundColor="colorBackgroundPrimaryDarker" padding="space70" borderRadius="borderRadius20">
+        <Text as="h4" textColor="colorTextInverse">Sidebar Header</Text>
+        <Text textColor="colorTextInverse">Chillwave fixie sustainable helvetica etsy. Prism whatever ethical.</Text>
+      </Box>
+    </Column>
+    <Column span={9}>
+      <Box marginBottom="space50">
+        <Card>
+          <Paragraph>Chillwave fixie sustainable helvetica etsy.</Paragraph>
+        </Card>
+      </Box>
+      <Grid gutter="space30">
+        <Column>
+          <Card>
+            <Paragraph>Chillwave fixie sustainable helvetica etsy.</Paragraph>
+          </Card>
+        </Column>
+        <Column>
+          <Card>
+            <Paragraph>Chillwave fixie sustainable helvetica etsy.</Paragraph>
+          </Card>
+        </Column>
+      </Grid>
+    </Column>
+  </Grid>
+</Card>`}
+</LivePreview>
+
+#### Responsive page layout
+
+Grid can also be used for responsive layouts.
+
+ - You can determine what size columns should be based on the breakpoints set on a theme. [See the Storybook example](https://twilio-labs.github.io/paste/?path=/story/utilities-grid--grid-2-column-responsive)
+ - Grid columns can also stack based on theme breakpoints. [See the Storybook example](https://twilio-labs.github.io/paste/?path=/story/utilities-grid--grid-2-column-responsive-stack)
+
+#### Component layout
+
+Grids can also be used for layouts within other components. For example, we can set up our card content to include 2 columns.
+
+<LivePreview scope={{Grid, Column, Card, Heading, Paragraph, TwilioIcon, TWILIO_RED}} language="jsx">
+  {`<Card padding="space70">
+  <Grid gutter="space30">
+    <Column span={2}>
+      <TwilioIcon color={TWILIO_RED} display="block" size={108} />
+    </Column>
+    <Column span={10}>
+      <Heading as="h4" variant="heading40">Card Heading</Heading>
+      <Paragraph>Chillwave fixie sustainable helvetica etsy.</Paragraph>
+    </Column>
+  </Grid>
+</Card>`}
+</LivePreview>
+
+### When to use Grid
+
+Use Grid whenever you need to layout or align content on a page or within a component. Grid should also be used for responsive page layouts.
+
+<DoDont>
+  <Do title="Do" body="Base the Column span and offset on a 12-columns.">
+    <Box padding="space60">
+      <Grid gutter="space30">
+        <Column span={4}>
+          <Card>
+            <Paragraph>4 Column Card</Paragraph>
+          </Card>
+        </Column>
+        <Column span={8}>
+          <Card>
+            <Paragraph>8 Column Card</Paragraph>
+          </Card>
+        </Column>
+      </Grid>
+    </Box>
+  </Do>
+  <Dont title="Don't" body="Don’t use more than 12 columns within Grid.">
+    <Box padding="space60">
+      <Grid gutter="space30">
+        <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+        <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+        <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+        <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+        <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+        <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+        <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+        <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+        <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+        <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+        <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+        <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+        <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+      </Grid>
+    </Box>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use Grid to align content to the right or left side of a page layout.">
+    <Box padding="space60">
+      <Grid>
+        <Column span={4} offset={8}>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+      </Grid>
+    </Box>
+  </Do>
+  <Dont title="Don't" body="Don’t use Grid with only one column of content. This causes unnecessary elements. Box is what you’re looking for here.">
+    <Box padding="space60">
+      <Grid gutter="space30">
+        <Column>
+          <Paragraph>Unnecessary HTML elements. Use <SiteLink to="/primitives/box">Box</SiteLink> instead.</Paragraph>
+        </Column>
+      </Grid>
+    </Box>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use Grid to lay out UI elements into consistent columns.">
+    <Box padding="space60">
+      <Grid gutter="space30">
+        <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+        <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+      </Grid>
+      <Box marginTop="space50">
+        <Grid gutter="space30">
+          <Column>
+            <Card>
+              <Paragraph>Card content</Paragraph>
+            </Card>
+          </Column>
+          <Column>
+            <Card>
+              <Paragraph>Card content</Paragraph>
+            </Card>
+          </Column>
+        </Grid>
+      </Box>
+    </Box>
+  </Do>
+  <Dont title="Don't" body="Don’t let columns grow too small. Gutters should never be wider than columns.">
+    <Box padding="space60">
+      <Grid gutter="space120">
+        <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+        <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+        <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+      </Grid>
+    </Box>
+  </Dont>
+</DoDont>
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/grid
+```
+
+#### Usage
+
+```jsx
+import {Grid, Column} from '@twilio-paste/grid';
+
+<Grid>
+  <Column>
+    Foo
+  </Column>
+</Grid>
+```
+
+#### Props
+
+| Prop      | Type                                         | Description                                                                                                                         | Default |
+| ----------| ---------------------------------------------| ----------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| gutter?   | `ResponsiveValue<keyof ThemeShape['space']>` | Sets the spacing on both sides of a Column. Use a spacing token that represents half of the total space you need between 2 Columns. |         |
+| vertical? | `boolean, ResponsiveValue<boolean>`          | Stacks the Columns                                                                                                                  |         |
+| span?     | `number, ResponsiveValue<number>`            | Sets the width of Columns (how many columns a column can span)                                                                      |         |
+| offset?   | `number, ResponsiveValue<number>`            | Sets the left margin of a Column (how many columns a column is offset)                                                              |         |
+
+<Box marginTop="space90">
+  <Changelog />
+</Box>
+
+## Sketch
+
+Add Grid symbols from the “Paste components” project to your own artboards to help you align content.
+
+Additionally, each Paste container component (*e.g.*, Card, Modal) symbol in Sketch has an invisible grid symbol named “📐 Grid” that you can replace with visible grid symbols.
+
+We use grid symbols instead of Sketch Layout Settings for two reasons:
+
+1. Resizing a symbol better represents the behavior of a fluid grid in a responsive layout. You might be designing for multiple screen widths in a single Sketch file. Sketch Layout Settings, however, restricts you to a single setting of grid width, column width, gutter width, and number of columns for each file.
+2. Symbols allow you to place a grid within a component or container on an artboard, whereas Sketch Layout Settings can be applied to a whole artboard only.
+
+</content>
+
+</contentwrapper>
