@@ -2,13 +2,25 @@ import * as React from 'react';
 import {Box, BoxProps} from '@twilio-paste/box';
 import {Space} from '@twilio-paste/style-props';
 
-export interface MediaObjectProps extends Pick<BoxProps, 'as'> {
+export interface MediaObjectProps extends Pick<BoxProps, 'as' | 'marginTop' | 'marginBottom'> {
   verticalAlign?: 'center' | 'top';
 }
 
-const MediaObject: React.FC<MediaObjectProps> = ({as = 'span', children, verticalAlign = 'top'}) => {
+const MediaObject: React.FC<MediaObjectProps> = ({
+  as = 'span',
+  children,
+  marginBottom,
+  marginTop,
+  verticalAlign = 'top',
+}) => {
   return (
-    <Box as={as} display="flex" alignItems={verticalAlign === 'top' ? 'flex-start' : 'center'}>
+    <Box
+      as={as}
+      display="flex"
+      alignItems={verticalAlign === 'top' ? 'flex-start' : 'center'}
+      marginBottom={marginBottom}
+      marginTop={marginTop}
+    >
       {children}
     </Box>
   );
