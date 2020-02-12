@@ -22,6 +22,7 @@ type WrapOptions = boolean;
 export type Wrap = ResponsiveValue<WrapOptions>;
 
 export interface FlexProps extends LayoutProps, MarginProps, PaddingProps {
+  as?: keyof JSX.IntrinsicElements;
   display?: Display;
   vertical?: Vertical;
   vAlignContent?: VerticalAlign;
@@ -188,6 +189,7 @@ const getFlexStyles = (props: FlexProps): FlexboxProps => {
 };
 
 const Flex: React.FC<FlexProps> = ({
+  as,
   basis,
   children,
   display,
@@ -218,6 +220,7 @@ const Flex: React.FC<FlexProps> = ({
     <Box
       {...FlexStyles}
       {...safelySpreadBoxProps(props)}
+      as={as}
       display={display}
       marginTop={marginTop}
       marginRight={marginRight}
@@ -237,6 +240,7 @@ const Flex: React.FC<FlexProps> = ({
 };
 
 Flex.propTypes = {
+  as: PropTypes.string as any,
   display: PropTypes.oneOfType([
     PropTypes.oneOf(['flex', 'inline-flex']),
     PropTypes.arrayOf(PropTypes.oneOf(['flex', 'inline-flex'])),

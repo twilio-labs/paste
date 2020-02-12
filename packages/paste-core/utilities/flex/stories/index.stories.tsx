@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
-import {withKnobs, select, boolean, number} from '@storybook/addon-knobs';
+import {withKnobs, select, boolean, number, text} from '@storybook/addon-knobs';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -13,12 +13,14 @@ const flexHorizontalAlignOptions = ['left', 'center', 'right', 'around', 'betwee
 storiesOf('Utilities|Flex', module)
   .addDecorator(withKnobs)
   .add('Flex Alignment Options', () => {
+    const asValue = text('as', 'div') as keyof JSX.IntrinsicElements;
     const flexDisplayValue = select('display', flexDisplayOptions, 'flex') as Display;
     const flexVerticalAlignValue = select('vAlignContent', flexVerticalAlignOptions, 'top') as VerticalAlign;
     const flexHorizontalAlignValue = select('hAlignContent', flexHorizontalAlignOptions, 'left') as HorizontalAlign;
     return (
       <Box padding="space30" borderStyle="solid">
         <Flex
+          as={asValue}
           display={flexDisplayValue}
           vertical={boolean('vertical', false)}
           hAlignContent={flexHorizontalAlignValue}
