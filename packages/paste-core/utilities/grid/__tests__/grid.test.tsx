@@ -1,5 +1,6 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
+import {ReactWrapper, mount} from 'enzyme';
 import {Theme} from '@twilio-paste/theme';
 import {Grid, Column} from '../src';
 import {getOuterGutterPull, getStackedColumns, getColumnGutters, getColumnOffset, getColumnSpan} from '../src/helpers';
@@ -105,6 +106,60 @@ describe('Grid Unit Tests', () => {
       span: [3, 6, 3],
     };
     expect(getColumnSpan(mockSpan)).toStrictEqual(['25%', '50%', '25%']);
+  });
+});
+
+describe('Grid render', () => {
+  it('it should render', (): void => {
+    const tree = renderer
+      .create(
+        <Theme.Provider theme="console">
+          <Grid>child</Grid>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('it should render as any HTML element', (): void => {
+    const wrapper: ReactWrapper = mount(<Grid as="section">child</Grid>);
+    expect(wrapper.exists('section')).toEqual(true);
+
+    const tree = renderer
+      .create(
+        <Theme.Provider theme="console">
+          <Grid as="section">child</Grid>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+});
+
+describe('Column render', () => {
+  it('it should render', (): void => {
+    const tree = renderer
+      .create(
+        <Theme.Provider theme="console">
+          <Column>child</Column>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('it should render as any HTML element', (): void => {
+    const wrapper: ReactWrapper = mount(<Column as="article">child</Column>);
+    expect(wrapper.exists('article')).toEqual(true);
+
+    const tree = renderer
+      .create(
+        <Theme.Provider theme="console">
+          <Column as="article">child</Column>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });
 

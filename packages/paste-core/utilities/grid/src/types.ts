@@ -3,6 +3,7 @@ import {LayoutProps, PaddingProps, Space, SpaceProps} from '@twilio-paste/style-
 import {Vertical} from '@twilio-paste/flex';
 
 export interface GridProps extends SpaceProps {
+  as?: keyof JSX.IntrinsicElements;
   children: NonNullable<React.ReactNode>;
   gutter?: Space;
   vertical?: Vertical;
@@ -22,6 +23,7 @@ export interface ColumnStyleProps extends Omit<LayoutProps, 'minWidth' | 'width'
 }
 
 export interface ColumnProps extends ColumnStyleProps {
+  as?: keyof JSX.IntrinsicElements;
   count?: number;
   gutter?: Space;
   offset?: ColumnOffset;

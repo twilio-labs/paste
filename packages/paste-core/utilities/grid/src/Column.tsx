@@ -36,7 +36,7 @@ const StyledColumn = styled.div(
   )
 ) as React.FC<ColumnProps>;
 
-const Column: React.FC<ColumnProps> = ({children, count, gutter, offset, span, vertical}) => {
+const Column: React.FC<ColumnProps> = ({as, children, count, gutter, offset, span, vertical}) => {
   const theme = useTheme();
 
   const ColumnStyles = React.useMemo(() => getColumnStyles(theme, {count, gutter, offset, span, vertical}), [
@@ -46,10 +46,15 @@ const Column: React.FC<ColumnProps> = ({children, count, gutter, offset, span, v
     span,
     vertical,
   ]);
-  return <StyledColumn {...ColumnStyles}>{children}</StyledColumn>;
+  return (
+    <StyledColumn {...ColumnStyles} as={as}>
+      {children}
+    </StyledColumn>
+  );
 };
 
 Column.propTypes = {
+  as: PropTypes.string as any,
   offset: PropTypes.oneOfType([
     PropTypes.oneOfType([PropTypes.number]),
     PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])),
