@@ -40,6 +40,28 @@ describe('MediaObject', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('should render bottom margin', (): void => {
+    const tree = renderer
+      .create(
+        <Theme.Provider theme="console">
+          <MediaObject marginBottom="space40">background single</MediaObject>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should render top margin', (): void => {
+    const tree = renderer
+      .create(
+        <Theme.Provider theme="console">
+          <MediaObject marginTop="space40">background single</MediaObject>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
 
 describe('MediaFigure', () => {
