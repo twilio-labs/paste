@@ -1,5 +1,6 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
+import {ReactWrapper, mount} from 'enzyme';
 import {Theme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {
@@ -202,6 +203,20 @@ describe('Flex Display', () => {
           <Flex>
             <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
           </Flex>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('it should render as any HTML element', (): void => {
+    const wrapper: ReactWrapper = mount(<Flex as="article">child</Flex>);
+    expect(wrapper.exists('article')).toEqual(true);
+
+    const tree = renderer
+      .create(
+        <Theme.Provider theme="console">
+          <Flex as="article">child</Flex>
         </Theme.Provider>
       )
       .toJSON();
