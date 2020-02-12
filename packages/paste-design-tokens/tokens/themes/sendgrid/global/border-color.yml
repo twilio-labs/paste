@@ -18,7 +18,7 @@ props:
 
   # input borders
   color-border-input:
-    value: "{!palette-gray-60}"
+    value: "{!palette-gray-70}"
     comment: Input border color
   color-border-input-hover:
     value: "{!palette-blue-60}"
