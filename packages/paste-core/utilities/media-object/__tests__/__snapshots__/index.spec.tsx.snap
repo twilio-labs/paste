@@ -1,0 +1,349 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MediaBody should render 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+<div
+  className="emotion-1"
+>
+  <span
+    className="emotion-0"
+  >
+    default
+  </span>
+</div>
+`;
+
+exports[`MediaBody should render as any HTML element 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+<div
+  className="emotion-1"
+>
+  <article
+    className="emotion-0"
+  >
+    default
+  </article>
+</div>
+`;
+
+exports[`MediaFigure should render 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-right: 0;
+}
+
+<div
+  className="emotion-1"
+>
+  <span
+    className="emotion-0"
+    display="flex"
+  >
+    default
+  </span>
+</div>
+`;
+
+exports[`MediaFigure should render as any HTML element 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-right: 0;
+}
+
+<div
+  className="emotion-1"
+>
+  <a
+    className="emotion-0"
+    display="flex"
+  >
+    default
+  </a>
+</div>
+`;
+
+exports[`MediaFigure should render with spacing on the left for end alignment 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-left: 0.75rem;
+}
+
+<div
+  className="emotion-1"
+>
+  <span
+    className="emotion-0"
+    display="flex"
+  >
+    center align
+  </span>
+</div>
+`;
+
+exports[`MediaFigure should render with spacing on the right for default alignment 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-right: 0.75rem;
+}
+
+<div
+  className="emotion-1"
+>
+  <span
+    className="emotion-0"
+    display="flex"
+  >
+    center align
+  </span>
+</div>
+`;
+
+exports[`MediaObject should render 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+<div
+  className="emotion-1"
+>
+  <span
+    className="emotion-0"
+    display="flex"
+  >
+    default
+  </span>
+</div>
+`;
+
+exports[`MediaObject should render as another HTML element 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+<div
+  className="emotion-1"
+>
+  <section
+    className="emotion-0"
+    display="flex"
+  >
+    background single
+  </section>
+</div>
+`;
+
+exports[`MediaObject should render with center aligned children 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+<div
+  className="emotion-1"
+>
+  <span
+    className="emotion-0"
+    display="flex"
+  >
+    center align
+  </span>
+</div>
+`;
