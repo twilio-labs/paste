@@ -76,11 +76,11 @@ exports[`Alert Variant error Should render an error alert 1`] = `
     className="emotion-4"
     role="alert"
   >
-    <div
+    <span
       className="emotion-3"
       display="flex"
     >
-      <div
+      <span
         className="emotion-1"
         display="flex"
       >
@@ -108,13 +108,13 @@ exports[`Alert Variant error Should render an error alert 1`] = `
             />
           </svg>
         </span>
-      </div>
-      <div
+      </span>
+      <span
         className="emotion-2"
       >
         This is an error alert
-      </div>
-    </div>
+      </span>
+    </span>
   </div>
 </div>
 `;
@@ -288,11 +288,11 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
     className="emotion-8"
     role="alert"
   >
-    <div
+    <span
       className="emotion-7"
       display="flex"
     >
-      <div
+      <span
         className="emotion-1"
         display="flex"
       >
@@ -320,13 +320,13 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
             />
           </svg>
         </span>
-      </div>
-      <div
+      </span>
+      <span
         className="emotion-2"
       >
         This is an error alert
-      </div>
-      <div
+      </span>
+      <span
         className="emotion-6"
         display="flex"
       >
@@ -367,8 +367,8 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
             </span>
           </span>
         </button>
-      </div>
-    </div>
+      </span>
+    </span>
   </div>
 </div>
 `;
@@ -449,11 +449,11 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
     className="emotion-4"
     role="status"
   >
-    <div
+    <span
       className="emotion-3"
       display="flex"
     >
-      <div
+      <span
         className="emotion-1"
         display="flex"
       >
@@ -481,13 +481,13 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
             />
           </svg>
         </span>
-      </div>
-      <div
+      </span>
+      <span
         className="emotion-2"
       >
         This is an alert
-      </div>
-    </div>
+      </span>
+    </span>
   </div>
 </div>
 `;
@@ -654,11 +654,11 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
     className="emotion-8"
     role="status"
   >
-    <div
+    <span
       className="emotion-7"
       display="flex"
     >
-      <div
+      <span
         className="emotion-1"
         display="flex"
       >
@@ -686,13 +686,13 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
             />
           </svg>
         </span>
-      </div>
-      <div
+      </span>
+      <span
         className="emotion-2"
       >
         This is an alert
-      </div>
-      <div
+      </span>
+      <span
         className="emotion-6"
         display="flex"
       >
@@ -733,8 +733,8 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
             </span>
           </span>
         </button>
-      </div>
-    </div>
+      </span>
+    </span>
   </div>
 </div>
 `;
@@ -815,11 +815,11 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
     className="emotion-4"
     role="alert"
   >
-    <div
+    <span
       className="emotion-3"
       display="flex"
     >
-      <div
+      <span
         className="emotion-1"
         display="flex"
       >
@@ -847,13 +847,13 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
             />
           </svg>
         </span>
-      </div>
-      <div
+      </span>
+      <span
         className="emotion-2"
       >
         This is an warning alert
-      </div>
-    </div>
+      </span>
+    </span>
   </div>
 </div>
 `;
@@ -1027,11 +1027,11 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
     className="emotion-8"
     role="alert"
   >
-    <div
+    <span
       className="emotion-7"
       display="flex"
     >
-      <div
+      <span
         className="emotion-1"
         display="flex"
       >
@@ -1059,13 +1059,13 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
             />
           </svg>
         </span>
-      </div>
-      <div
+      </span>
+      <span
         className="emotion-2"
       >
         This is an warning alert
-      </div>
-      <div
+      </span>
+      <span
         className="emotion-6"
         display="flex"
       >
@@ -1106,8 +1106,8 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
             </span>
           </span>
         </button>
-      </div>
-    </div>
+      </span>
+    </span>
   </div>
 </div>
 `;
