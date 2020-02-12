@@ -45,7 +45,6 @@
     "lodash.difference": "^4.5.0",
     "lodash.kebabcase": "^4.1.1",
     "lodash.startcase": " ^4.4.0",
-    "rimraf": "^3.0.2",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.0.1",
