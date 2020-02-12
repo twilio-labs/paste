@@ -9,42 +9,43 @@ export interface HeadingProps {
   as: asTags;
   id?: string;
   className?: never;
+  marginBottom?: 'space0';
   variant?: HeadingVariants;
 }
 
-function getHeadingProps(headingVariant?: HeadingVariants): {} {
+function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: 'space0'): {} {
   switch (headingVariant) {
     case 'heading10':
       return {
-        marginBottom: 'space70',
+        marginBottom: marginBottom || 'space70',
         fontSize: 'fontSize90',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight90',
       };
     case 'heading30':
       return {
-        marginBottom: 'space50',
+        marginBottom: marginBottom || 'space50',
         fontSize: 'fontSize60',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight60',
       };
     case 'heading40':
       return {
-        marginBottom: 'space40',
+        marginBottom: marginBottom || 'space40',
         fontSize: 'fontSize40',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight40',
       };
     case 'heading50':
       return {
-        marginBottom: 'space30',
+        marginBottom: marginBottom || 'space30',
         fontSize: 'fontSize30',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight30',
       };
     case 'heading60':
       return {
-        marginBottom: 'space30',
+        marginBottom: marginBottom || 'space30',
         fontSize: 'fontSize20',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight20',
@@ -56,7 +57,7 @@ function getHeadingProps(headingVariant?: HeadingVariants): {} {
     case 'heading20':
     default:
       return {
-        marginBottom: 'space60',
+        marginBottom: marginBottom || 'space60',
         fontSize: 'fontSize70',
         fontWeight: 'fontWeightSemibold',
         lineHeight: 'lineHeight70',
@@ -64,9 +65,9 @@ function getHeadingProps(headingVariant?: HeadingVariants): {} {
   }
 }
 
-const Heading: React.FC<HeadingProps> = ({as, children, id, variant}) => {
+const Heading: React.FC<HeadingProps> = ({as, children, id, marginBottom, variant}) => {
   return (
-    <Text {...getHeadingProps(variant)} as={as} display="block" id={id} textColor="colorText">
+    <Text {...getHeadingProps(variant, marginBottom)} as={as} display="block" id={id} textColor="colorText">
       {children}
     </Text>
   );
@@ -74,6 +75,7 @@ const Heading: React.FC<HeadingProps> = ({as, children, id, variant}) => {
 
 Heading.propTypes = {
   as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'] as asTags[]).isRequired,
+  marginBottom: PropTypes.oneOf(['space0']),
   variant: PropTypes.oneOf(['heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60']),
 };
 

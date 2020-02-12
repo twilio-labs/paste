@@ -97,6 +97,34 @@ describe('Heading', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('it should render with no margin', (): void => {
+    const tree = renderer
+      .create(
+        <Theme.Provider theme="console">
+          <Heading as="h2" marginBottom="space0" variant="heading10">
+            no margin heading
+          </Heading>
+          <Heading as="h2" marginBottom="space0" variant="heading20">
+            no margin heading
+          </Heading>
+          <Heading as="h2" marginBottom="space0" variant="heading30">
+            no margin heading
+          </Heading>
+          <Heading as="h2" marginBottom="space0" variant="heading40">
+            no margin heading
+          </Heading>
+          <Heading as="h2" marginBottom="space0" variant="heading50">
+            no margin heading
+          </Heading>
+          <Heading as="h2" marginBottom="space0" variant="heading60">
+            no margin heading
+          </Heading>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it('should have no accessibility violations', async () => {
     const container = document.createElement('div');
     document.body.append(container);
