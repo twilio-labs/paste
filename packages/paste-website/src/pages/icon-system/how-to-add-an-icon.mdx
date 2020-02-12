@@ -127,11 +127,10 @@ There are two ways for icons to be added into the `@twilio-paste/icons` code pac
 1. Fork the Paste repository because PRs can only be open against forks and not branches for security reasons.
 2. Clone your newly forked Paste repository: `git clone <url>`
 3. Navigate inside the newly cloned repository with `cd paste`
-4. For each new icon you would like to create, add an `svg` icon file into the `packages/paste-icons/svg/` folder.
-5. From the root Paste folder, run the following command in your terminal: `yarn workspace @twilio-paste/icons convert-new`
-6. Verify your new icons were added correctly by checking the `packages/twilio-icons/src` folder to see the newly  created source files.
-7. At this point, run the following command to update our documentation with the new icons: `yarn workspace @twilio-paste/icons list-icons`
-8. Commit your changes and submit a new PR on Github!
+4. Add all the new `svg` icon files into the `packages/paste-icons/svg/` folder.
+5. From the root Paste folder, run the following command in your terminal: `yarn workspace @twilio-paste/icons convert`
+6. Verify your new icons were added correctly by checking the `packages/twilio-icons/src` folder to see the newly created source files.
+7. Commit your changes and submit a new PR on Github!
 
 
 ## Troubleshooting
