@@ -17,7 +17,7 @@ const getGridStyles = (theme: ThemeShape, gutter?: Space): MarginProps => {
   return marginStyles;
 };
 
-const Grid: React.FC<GridProps> = ({children, gutter, marginTop, marginBottom, vertical, ...props}) => {
+const Grid: React.FC<GridProps> = ({as, children, gutter, marginTop, marginBottom, vertical, ...props}) => {
   const theme = useTheme();
 
   const GridColumns = React.useMemo(
@@ -36,6 +36,7 @@ const Grid: React.FC<GridProps> = ({children, gutter, marginTop, marginBottom, v
     <Flex
       {...GridStyles}
       {...safelySpreadBoxProps(props)}
+      as={as}
       marginTop={marginTop}
       marginBottom={marginBottom}
       vertical={vertical}
@@ -46,6 +47,7 @@ const Grid: React.FC<GridProps> = ({children, gutter, marginTop, marginBottom, v
 };
 
 Grid.propTypes = {
+  as: PropTypes.string as any,
   children: PropTypes.node.isRequired,
   vertical: PropTypes.oneOfType([
     PropTypes.oneOfType([PropTypes.bool]),

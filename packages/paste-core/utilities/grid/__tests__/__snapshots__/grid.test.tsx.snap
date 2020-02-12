@@ -1196,6 +1196,68 @@ exports[`Column Span Prop it should render two columns, one spaning 8 columns, t
 </div>
 `;
 
+exports[`Column render it should render 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  width: 8.333333333333332%;
+}
+
+<div
+  className="emotion-2"
+>
+  <div
+    className="emotion-0 emotion-1"
+    width="8.333333333333332%"
+  >
+    child
+  </div>
+</div>
+`;
+
+exports[`Column render it should render as any HTML element 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  width: 8.333333333333332%;
+}
+
+<div
+  className="emotion-2"
+>
+  <article
+    className="emotion-0 emotion-1"
+    width="8.333333333333332%"
+  >
+    child
+  </article>
+</div>
+`;
+
 exports[`Grid Gutter Prop it should render two columns with gutters 1`] = `
 .emotion-5 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -1491,5 +1553,97 @@ exports[`Grid Vertical Prop it should render two stacked columns 1`] = `
       width="50%"
     />
   </div>
+</div>
+`;
+
+exports[`Grid render it should render 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+<div
+  className="emotion-1"
+>
+  <div
+    className="emotion-0"
+    display="flex"
+  >
+    child
+  </div>
+</div>
+`;
+
+exports[`Grid render it should render as any HTML element 1`] = `
+.emotion-1 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-1 *,
+.emotion-1 *::after,
+.emotion-1 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+<div
+  className="emotion-1"
+>
+  <section
+    className="emotion-0"
+    display="flex"
+  >
+    child
+  </section>
 </div>
 `;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
-import {withKnobs, select} from '@storybook/addon-knobs';
+import {withKnobs, select, text} from '@storybook/addon-knobs';
 import {DefaultTheme, ThemeShape} from '@twilio-paste/theme-tokens';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
@@ -14,65 +14,66 @@ const spaceOptions = Object.keys(DefaultTheme.space);
 storiesOf('Utilities|Grid', module)
   .addDecorator(withKnobs)
   .add('Grid - 12 Column and Gutter Support', () => {
+    const asValue = text('as', 'div') as keyof JSX.IntrinsicElements;
     const gutterValue = select('gutter', spaceOptions, 'space0') as keyof ThemeShape['space'];
     return (
-      <Grid gutter={gutterValue}>
-        <Column>
+      <Grid as={asValue} gutter={gutterValue}>
+        <Column as={asValue}>
           <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             1
           </Box>
         </Column>
-        <Column>
+        <Column as={asValue}>
           <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             2
           </Box>
         </Column>
-        <Column>
+        <Column as={asValue}>
           <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             3
           </Box>
         </Column>
-        <Column>
+        <Column as={asValue}>
           <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             4
           </Box>
         </Column>
-        <Column>
+        <Column as={asValue}>
           <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             5
           </Box>
         </Column>
-        <Column>
+        <Column as={asValue}>
           <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             6
           </Box>
         </Column>
-        <Column>
+        <Column as={asValue}>
           <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             7
           </Box>
         </Column>
-        <Column>
+        <Column as={asValue}>
           <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             8
           </Box>
         </Column>
-        <Column>
+        <Column as={asValue}>
           <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             9
           </Box>
         </Column>
-        <Column>
+        <Column as={asValue}>
           <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             10
           </Box>
         </Column>
-        <Column>
+        <Column as={asValue}>
           <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
             11
           </Box>
         </Column>
-        <Column>
+        <Column as={asValue}>
           <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
             12
           </Box>
