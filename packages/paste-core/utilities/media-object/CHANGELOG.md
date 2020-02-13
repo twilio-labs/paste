@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/media-object@1.1.6...@twilio-paste/media-object@1.2.0) (2020-02-13)
+
+
+### Features
+
+* **media-object:** add support for setting margin top and bottom ([7adc1ed](https://github.com/twilio-labs/paste/commit/7adc1ed071e8299eb396afbfa2b85b8c35af988d))
+* **media-object:** add support for the as prop ([3167ba1](https://github.com/twilio-labs/paste/commit/3167ba1377e9f4b0fdc22f4df3488f81e75a74e8))
+
+
+
+
+
 ## [1.1.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/media-object@1.1.5...@twilio-paste/media-object@1.1.6) (2020-02-13)
 
 **Note:** Version bump only for package @twilio-paste/media-object
