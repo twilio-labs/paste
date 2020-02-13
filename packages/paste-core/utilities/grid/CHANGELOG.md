@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.1.10...@twilio-paste/grid@0.2.0) (2020-02-13)
+
+
+### Features
+
+* **grid:** support the as prop ([fdd5b43](https://github.com/twilio-labs/paste/commit/fdd5b43112c0b15cd557fd0817d61aa9545820f9))
+
+
+
+
+
 ## [0.1.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.1.9...@twilio-paste/grid@0.1.10) (2020-02-13)
 
 **Note:** Version bump only for package @twilio-paste/grid
