@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@1.0.14...@twilio-paste/heading@1.1.0) (2020-02-13)
+
+
+### Features
+
+* **heading:** allow removing bottom margin ([899e065](https://github.com/twilio-labs/paste/commit/899e0657873cc00a13951dc080d0218bfe32b959))
+
+
+
+
+
 ## [1.0.14](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@1.0.13...@twilio-paste/heading@1.0.14) (2020-02-13)
 
 **Note:** Version bump only for package @twilio-paste/heading
