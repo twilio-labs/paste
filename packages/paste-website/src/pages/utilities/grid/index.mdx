@@ -68,7 +68,7 @@ Use a Grid to layout and align content by applying standard spacing between elem
 
 The standard desktop grid has 24-pixel gutters and can support up to 12 columns. The outside gutters are removed from the overall width of the grid.
 
-Grid is built using the [Flex component](/utilities/flex) and can be made responsive.
+Grid is built using the [Flex component](/utilities/flex) and is responsive. Grid column widths grow and shrink based on the parent element width.
 
 ## Examples
 
@@ -101,7 +101,9 @@ Use Column to lay out equal-sized content, such as a feed of cards.
 
 #### Unequal column widths, using column span
 
-Use `span` to allow content to span multiple columns, such as a layout with a sidebar that takes up 1/4 of the screen and a content area that takes up 3/4 of the screen.
+Use the `span` prop to allow content to span multiple columns. Span calculates the width of a column based off a 12 column grid. The value of span becomes the
+numerator while 12 is the denominator, which gives us a percentage width value for each column. The default span is 1 column width. In our example we're
+setting one column to equal 8 of the 12 columns, and the other to be 4 of the 12 columns.
 
 <LivePreview scope={{Grid, Column, Card, Heading, Paragraph}} language="jsx">
   {`<Grid gutter="space30">
@@ -122,8 +124,8 @@ Use `span` to allow content to span multiple columns, such as a layout with a si
 </LivePreview>
 
 <Callout variant="warning">
-  <CalloutTitle as="h4" variant="heading40">An Important Note About Span and Offset</CalloutTitle>
-  <CalloutText>When using the <strong>span</strong> or <strong>offset</strong> props, base your layout off a 12-column grid. For example, if you want to have two columns with one spanning 8 columns, one column would span 8 and the other would need to span 4.</CalloutText>
+  <CalloutTitle as="h4" variant="heading40">An Important Note About Span and Offset Props</CalloutTitle>
+  <CalloutText>When using <strong>span</strong> or <strong>offset</strong>, base your layout off a 12-column grid. For example, if you want to have two columns with one spanning 8 columns, one column would span 8 and the other would need to span 4.</CalloutText>
 </Callout>
 
 #### Offset column
@@ -141,9 +143,12 @@ Use `offset` to push a column to the right by a certain number of columns. For e
 </Grid>`}
 </LivePreview>
 
-#### Stacked columns in a responsive view
+#### Stacked columns in a vertical layout
 
-Use `vertical` to stack columns vertically instead of horizontally. Use this when your layout needs to respond to a smaller view.
+Use the `vertical` prop to stack columns vertically instead of horizontally. The `vertical` prop can work along with theme breakpoints,
+so your grid can be vertical on different viewports. For example to have your grid vertical on mobile and not tablet or desktop viewports,
+use `vertical={[true, false, false]}`. For a visual example, [see the Storybook example](https://twilio-labs.github.io/paste/?path=/story/utilities-grid--grid-2-column-responsive-stack)
+and resize the browser.
 
 <LivePreview scope={{Grid, Column, Box, Card, Heading, Paragraph}} language="jsx">
   {`<Grid gutter="space30" vertical>
@@ -222,6 +227,13 @@ A Grid can be nested inside another Grid. For example, you can split a column in
   </Column>
 </Grid>`}
 </LivePreview>
+
+#### Responsive columns
+
+Grid column span and offset props can be changed based on the theme breakpoints. Both span and offsets can accept responsive values, for example `span={[6, 8, 2] }`.
+This would set a columns span to be 6 columns wide on mobile, 8 columns wide on tablet, and 2 columns wide on desktop. The offset prop works in a similar fashion.
+For a visual example, [see the Storybook example](https://twilio-labs.github.io/paste/?path=/story/utilities-grid--grid-2-column-responsive) and resize the browser.
+
 
 ### Composition Notes
 
