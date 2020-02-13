@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@4.1.1...@twilio-paste/design-tokens@4.1.2) (2020-02-13)
+
+
+### Bug Fixes
+
+* **design-tokens:** change sg gray-70 and color-border-inpt ([#311](https://github.com/twilio-labs/paste/issues/311)) ([642cfcc](https://github.com/twilio-labs/paste/commit/642cfcc78ef021f4c100a1c4eaecf786a2ad3655))
+
+
+
+
+
 ## [4.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@4.1.0...@twilio-paste/design-tokens@4.1.1) (2020-02-03)
 
 

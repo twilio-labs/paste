@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/button",
-  "version": "1.1.13",
+  "version": "1.1.14",
   "category": "interaction",
   "status": "production",
   "description": "Twilio's Button component",
@@ -31,15 +31,15 @@
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.10",
     "@styled-system/theme-get": "^5.1.2",
-    "@twilio-paste/absolute": "^2.0.12",
-    "@twilio-paste/spinner": "^1.1.10",
+    "@twilio-paste/absolute": "^2.0.13",
+    "@twilio-paste/spinner": "^1.1.11",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-system": "^5.1.2"
   },
   "devDependencies": {
-    "@twilio-paste/absolute": "^2.0.12",
-    "@twilio-paste/spinner": "^1.1.10",
+    "@twilio-paste/absolute": "^2.0.13",
+    "@twilio-paste/spinner": "^1.1.11",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.0.1",
