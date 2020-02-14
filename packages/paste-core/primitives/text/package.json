@@ -30,6 +30,7 @@
   "peerDependencies": {
     "@emotion/styled": "^10.0.10",
     "@twilio-paste/style-props": "^0.1.7",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-system": "^5.1.2"
