@@ -23,8 +23,8 @@ function clearBuiltFiles() {
 async function convertAllAction() {
   clearBuiltFiles();
   await convertNewAction();
-  // filesystem operations take time, giving a delay to the next step so it doesn't fail
-  setTimeout(listIconsAction, 2000);
+  // FIXME: avoid needing a setTimeout here if possible
+  setTimeout(listIconsAction, 3000);
 }
 
 module.exports = {
