@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/input@1.0.0...@twilio-paste/input@1.0.1) (2020-02-14)
+
+
+### Bug Fixes
+
+* **input:** add missing peer deps ([502e03d](https://github.com/twilio-labs/paste/commit/502e03dca237f5f2250c3167425a8f87de2a3fde))
+
+
+
+
+
 # [1.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/input@0.2.0...@twilio-paste/input@1.0.0) (2019-11-11)
 
 

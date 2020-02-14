@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/media-object@1.2.0...@twilio-paste/media-object@1.2.1) (2020-02-14)
+
+
+### Bug Fixes
+
+* **media-object:** add missing peer deps ([34ba7a4](https://github.com/twilio-labs/paste/commit/34ba7a4b7a082d64c15fbcd0b7245c0c8c7b1b36))
+
+
+
+
+
 # [1.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/media-object@1.1.6...@twilio-paste/media-object@1.2.0) (2020-02-13)
 
 

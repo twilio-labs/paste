@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/screen-reader-only@1.1.1...@twilio-paste/screen-reader-only@1.1.2) (2020-02-14)
+
+
+### Bug Fixes
+
+* **screen-reader-only:** add missing peer deps ([1259bad](https://github.com/twilio-labs/paste/commit/1259bad12a029f2e3498da568073cb6448b14eea))
+
+
+
+
+
 ## [1.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/screen-reader-only@1.1.0...@twilio-paste/screen-reader-only@1.1.1) (2020-02-11)
 
 **Note:** Version bump only for package @twilio-paste/screen-reader-only

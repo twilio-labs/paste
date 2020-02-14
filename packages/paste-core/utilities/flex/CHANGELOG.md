@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.3.0...@twilio-paste/flex@0.3.1) (2020-02-14)
+
+
+### Bug Fixes
+
+* **flex:** add missing peer deps ([52b916f](https://github.com/twilio-labs/paste/commit/52b916f7750a9351981c4136d59e847cb98d5c0f))
+
+
+
+
+
 # [0.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.2.5...@twilio-paste/flex@0.3.0) (2020-02-13)
 
 

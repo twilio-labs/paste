@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/truncate@1.0.1...@twilio-paste/truncate@1.0.2) (2020-02-14)
+
+
+### Bug Fixes
+
+* **truncate:** add missing peer deps ([9b62eda](https://github.com/twilio-labs/paste/commit/9b62edac27fef7f1caeddb1286a484f27f9dbfef))
+
+
+
+
+
 ## [1.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/truncate@1.0.0...@twilio-paste/truncate@1.0.1) (2020-02-11)
 
 **Note:** Version bump only for package @twilio-paste/truncate

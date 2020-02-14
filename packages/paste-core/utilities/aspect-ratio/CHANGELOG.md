@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.14](https://github.com/twilio-labs/paste/compare/@twilio-paste/aspect-ratio@1.0.13...@twilio-paste/aspect-ratio@1.0.14) (2020-02-14)
+
+
+### Bug Fixes
+
+* **aspect-ratio:** add missing peer deps ([5e1000d](https://github.com/twilio-labs/paste/commit/5e1000db3505b82d80ba4b5e197c78abb63769ec))
+
+
+
+
+
 ## [1.0.13](https://github.com/twilio-labs/paste/compare/@twilio-paste/aspect-ratio@1.0.12...@twilio-paste/aspect-ratio@1.0.13) (2020-02-13)
 
 **Note:** Version bump only for package @twilio-paste/aspect-ratio

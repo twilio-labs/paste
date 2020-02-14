@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.12](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@1.1.11...@twilio-paste/spinner@1.1.12) (2020-02-14)
+
+
+### Bug Fixes
+
+* **spinner:** add missing peer deps ([f4d3d83](https://github.com/twilio-labs/paste/commit/f4d3d8316fe2f91b179c0f468e7fc36e7739d5de))
+
+
+
+
+
 ## [1.1.11](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@1.1.10...@twilio-paste/spinner@1.1.11) (2020-02-13)
 
 **Note:** Version bump only for package @twilio-paste/spinner

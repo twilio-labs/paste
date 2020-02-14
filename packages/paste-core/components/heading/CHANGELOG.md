@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@1.1.0...@twilio-paste/heading@1.1.1) (2020-02-14)
+
+
+### Bug Fixes
+
+* **heading:** add missing peer deps ([a26c926](https://github.com/twilio-labs/paste/commit/a26c9260931393f42936da90e90644a281945ca6))
+
+
+
+
+
 # [1.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@1.0.14...@twilio-paste/heading@1.1.0) (2020-02-13)
 
 

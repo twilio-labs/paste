@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.15](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.1.14...@twilio-paste/button@1.1.15) (2020-02-14)
+
+
+### Bug Fixes
+
+* **button:** add missing peer deps ([38416d8](https://github.com/twilio-labs/paste/commit/38416d89c69a0238ba8cdd3a31705bcf57be7bdf))
+
+
+
+
+
 ## [1.1.14](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.1.13...@twilio-paste/button@1.1.14) (2020-02-13)
 
 **Note:** Version bump only for package @twilio-paste/button

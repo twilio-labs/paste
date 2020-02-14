@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.2.0...@twilio-paste/grid@0.2.1) (2020-02-14)
+
+
+### Bug Fixes
+
+* **grid:** add missing peer deps ([3225b28](https://github.com/twilio-labs/paste/commit/3225b28db50e539ab4b8dd5e915d3f08e00868c5))
+
+
+
+
+
 # [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.1.10...@twilio-paste/grid@0.2.0) (2020-02-13)
 
 

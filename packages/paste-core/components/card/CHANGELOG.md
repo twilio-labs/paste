@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.3.8...@twilio-paste/card@1.3.9) (2020-02-14)
+
+
+### Bug Fixes
+
+* **card:** add missing peer deps ([2529927](https://github.com/twilio-labs/paste/commit/2529927de49bc2550c14e99a5b1fa80960a98703))
+
+
+
+
+
 ## [1.3.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.3.7...@twilio-paste/card@1.3.8) (2020-02-13)
 
 **Note:** Version bump only for package @twilio-paste/card

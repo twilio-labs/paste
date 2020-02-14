@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/flex",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "category": "layout",
   "status": "beta",
   "description": "A primitive component that can be used to build flexbox based elements and layouts.",
@@ -29,7 +29,7 @@
   },
   "peerDependencies": {
     "@emotion/styled": "^10.0.10",
-    "@twilio-paste/box": "^2.1.8",
+    "@twilio-paste/box": "^2.1.9",
     "@twilio-paste/style-props": "^0.1.7",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -37,7 +37,7 @@
     "styled-system": "^5.1.2"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^2.1.8",
+    "@twilio-paste/box": "^2.1.9",
     "@twilio-paste/style-props": "^0.1.7",
     "csstype": "^2.6.6",
     "rollup": "^1.16.2",

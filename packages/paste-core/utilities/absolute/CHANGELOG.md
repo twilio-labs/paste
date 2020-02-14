@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.14](https://github.com/twilio-labs/paste/compare/@twilio-paste/absolute@2.0.13...@twilio-paste/absolute@2.0.14) (2020-02-14)
+
+
+### Bug Fixes
+
+* **absolute:** add missing peer deps ([8226881](https://github.com/twilio-labs/paste/commit/82268817b83079d52b0e0e843b2bab9c91cf523c))
+
+
+
+
+
 ## [2.0.13](https://github.com/twilio-labs/paste/compare/@twilio-paste/absolute@2.0.12...@twilio-paste/absolute@2.0.13) (2020-02-13)
 
 **Note:** Version bump only for package @twilio-paste/absolute
