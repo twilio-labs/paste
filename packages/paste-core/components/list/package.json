@@ -28,9 +28,12 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
+    "@emotion/styled": "^10.0.10",
     "@twilio-paste/text": "^1.1.8",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "styled-system": "^5.1.2"
   },
   "devDependencies": {
     "@twilio-paste/text": "^1.1.8",
