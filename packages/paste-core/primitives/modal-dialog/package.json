@@ -1,7 +1,47 @@
 {
-  "name": "@twilio-paste/primitive-modal-dialog",
+  "name": "@twilio-paste/modal-dialog-primitive",
   "version": "0.0.2",
   "category": "overlay",
-  "status": "backlog",
-  "private": true
+  "status": "beta",
+  "description": "An unstyled and accessible basis upon which to build Modal Dialogs.",
+  "author": "Twilio Inc.",
+  "license": "MIT",
+  "main:dev": "src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn clean && yarn compile && yarn props-gen",
+    "build:dev": "yarn clean && yarn compile:dev",
+    "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
+    "compile": "rollup -c --environment NODE_ENV:production",
+    "compile:dev": "rollup -cw --environment NODE_ENV:development",
+    "prepublishOnly": "yarn build",
+    "props-gen": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@reach/dialog": "0.8.2"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "rollup": "^1.16.2",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.0.1",
+    "rollup-plugin-node-resolve": "^5.1.0",
+    "rollup-plugin-terser": "^5.0.0",
+    "rollup-plugin-typescript2": "^0.21.2",
+    "typedoc": "^0.16.9",
+    "typescript": "^3.5.2"
+  }
 }
