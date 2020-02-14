@@ -1,9 +1,10 @@
 import * as React from 'react';
-import {Text} from '@twilio-paste/text';
-import {Heading} from '@twilio-paste/heading';
-import {BorderColor} from '@twilio-paste/style-props';
 import {Box} from '@twilio-paste/box';
-import {CalloutProps, CalloutTitleProps, CalloutTextProps, CalloutVariants} from './types';
+import {Text} from '@twilio-paste/text';
+import {Heading, HeadingProps} from '@twilio-paste/heading';
+import {BorderColor} from '@twilio-paste/style-props';
+
+type CalloutVariants = 'primary' | 'secondary' | 'warning';
 
 const borderColorPartial = (variant?: CalloutVariants): BorderColor => {
   if (variant === 'secondary') {
@@ -15,28 +16,37 @@ const borderColorPartial = (variant?: CalloutVariants): BorderColor => {
   return 'colorBorderPrimaryLight';
 };
 
+interface CalloutTitleProps {
+  as: Pick<HeadingProps, 'as'>;
+}
+
 const CalloutTitle: React.FC<CalloutTitleProps> = ({as = 'h3', children}) => (
   <Heading as={as} variant="heading50">
     {children}
   </Heading>
 );
 
-const CalloutText: React.FC<CalloutTextProps> = ({as = 'p', children, marginTop, marginBottom}) => (
-  <Text as={as} marginTop={marginTop} marginBottom={marginBottom}>
+const CalloutText: React.FC = ({children}) => (
+  <Text as="p" marginTop="space30">
     {children}
   </Text>
 );
 
-const Callout: React.FC<CalloutProps> = props => {
+interface CalloutProps {
+  variant?: CalloutVariants;
+}
+
+const Callout: React.FC<CalloutProps> = ({variant, children}) => {
   return (
     <Box
       css={{
+        // FIXME: not a token
         borderLeftWidth: '8px',
       }}
       position="relative"
       borderWidth="borderWidth20"
       borderStyle="solid"
-      borderColor={borderColorPartial(props.variant)}
+      borderColor={borderColorPartial(variant)}
       marginTop="space60"
       marginBottom="space60"
       paddingTop="space40"
@@ -44,7 +54,7 @@ const Callout: React.FC<CalloutProps> = props => {
       paddingBottom="space40"
       paddingLeft="space60"
     >
-      {props.children}
+      {children}
     </Box>
   );
 };
