@@ -33,6 +33,7 @@
     "@styled-system/theme-get": "^5.1.2",
     "@twilio-paste/absolute": "^2.0.13",
     "@twilio-paste/spinner": "^1.1.11",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-system": "^5.1.2"
