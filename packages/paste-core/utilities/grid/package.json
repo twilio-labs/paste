@@ -28,6 +28,7 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
+    "@emotion/styled": "^10.0.10",
     "@twilio-paste/box": "^2.1.8",
     "@twilio-paste/flex": "^0.3.0",
     "@twilio-paste/style-props": "^0.1.7",
