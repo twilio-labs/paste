@@ -95,7 +95,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
       <LandingContainer marginTop="space200" marginBottom="space200" maxWidth="size100">
         <Callout>
           <CalloutTitle as="h4">Looking for Flex / Console / SendGrid design systems?</CalloutTitle>
-          <CalloutText as="div" marginTop="space40">
+          <CalloutText as="div">
             <UnorderedList>
               <ListItem>
                 <Anchor href="https://code.hq.twilio.com/pages/react/react-components/">
