@@ -32,6 +32,7 @@
     "@emotion/styled": "^10.0.10",
     "@twilio-paste/icons": "^1.4.5",
     "@twilio-paste/style-props": "^0.1.7",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-uid": "^2.2.0",
