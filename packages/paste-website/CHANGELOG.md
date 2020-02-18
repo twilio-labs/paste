@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.13](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.10.12...@twilio-paste/website@1.10.13) (2020-02-18)
+
+
+### Bug Fixes
+
+* **website:** adjust CalloutText spacing ([d4079f7](https://github.com/twilio-labs/paste/commit/d4079f7966b8fbd1c2d69ad176fef772cb427e93))
+* **website:** tidying CalloutText usage ([348f00d](https://github.com/twilio-labs/paste/commit/348f00dd434e2f35ce94e5fe5dc977c2f67da6a8))
+
+
+
+
+
 ## [1.10.12](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.10.11...@twilio-paste/website@1.10.12) (2020-02-14)
 
 **Note:** Version bump only for package @twilio-paste/website
