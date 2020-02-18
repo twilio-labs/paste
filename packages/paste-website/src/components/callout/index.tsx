@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
-import {Heading, HeadingProps} from '@twilio-paste/heading';
+import {Heading, asTags as HeadingAsTags} from '@twilio-paste/heading';
 import {BorderColor} from '@twilio-paste/style-props';
 
 type CalloutVariants = 'primary' | 'secondary' | 'warning';
@@ -17,7 +17,7 @@ const borderColorPartial = (variant?: CalloutVariants): BorderColor => {
 };
 
 interface CalloutTitleProps {
-  as: Pick<HeadingProps, 'as'>;
+  as: HeadingAsTags;
 }
 
 const CalloutTitle: React.FC<CalloutTitleProps> = ({as = 'h3', children}) => (
