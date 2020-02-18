@@ -102,10 +102,10 @@ Use Column, which is a child component of Grid, to lay out equal-sized content, 
 
 ### Unequal column widths, using column `span`
 
-Use the `span` prop to allow content to span multiple columns. `Span` defines how many columns you want the width of your content to take up. The value of `span` becomes the
+Use the `span` prop to allow content to span multiple columns. `Span` defines how many columns you want the width of your content to take up out of a 12-column grid. The value of `span` becomes the
 numerator while 12 is the denominator, which gives us a percentage width value for each column. The default `span` is 1 column width.
 
-In our example we're setting one column to equal 8 of the 12 columns, and the other to be 4 of the 12 columns.
+In our example we're setting one column to equal 8 of the 12 columns (`span={8}`), and the other to be 4 of the 12 columns (`span={4}`).
 
 <LivePreview scope={{Grid, Column, Card, Heading, Paragraph, Button}} language="jsx">
   {`<Grid gutter="space30">
