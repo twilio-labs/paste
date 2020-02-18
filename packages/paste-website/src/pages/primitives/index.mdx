@@ -5,6 +5,10 @@ description: Our primitives are rad
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
+import {Card} from '@twilio-paste/card';
+import {Heading} from '@twilio-paste/heading';
+import {Grid, Column} from '@twilio-paste/grid';
+import {Text} from '@twilio-paste/text';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
 import {SidebarCategoryRoutes} from '../../constants';
@@ -12,6 +16,28 @@ import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 
 # Primitives Overview
 
+<Grid>
+  <Column span={8}>
+    <Card>
+      <Heading as="h4" variant="heading40">
+        Primitive Status Details
+      </Heading>
+      <Text as="p" marginBottom="space20">
+        <strong>Alpha</strong>: Component is a candidate for testing in products with guidance from the design systems
+        team. If you're planning on using one of these components, check in with the Paste team first through{' '}
+        <strong>#help-design-system</strong> in Slack.
+      </Text>
+      <Text as="p" marginBottom="space20">
+        <strong>Beta</strong>: Component is a candidate for prototypes and beta products. If you're planning on using
+        one of these components, check in with the Paste team first through <strong>#help-design-system</strong> in
+        Slack.
+      </Text>
+      <Text as="p" marginBottom="space20">
+        <strong>Production</strong>: We shipped a component! Everyone should use it.
+      </Text>
+    </Card>
+  </Column>
+</Grid>
 <Callout>
   <CalloutTitle as="h4">Don't see a primitive, utility, or component you need listed here?</CalloutTitle>
   <UnorderedList>
