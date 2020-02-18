@@ -65,7 +65,6 @@ export const pageQuery = graphql`
 ### About Grid
 
 Grid creates organized and consistent product layouts, by providing a standard for positioning elements. Grid speeds up the designer-to-developer workflow by improving the consistency of design implementations.
-
 Use a Grid to layout and align content by applying standard spacing between elements on a page or within a component.
 
 The standard desktop grid has 24-pixel gutters and can support up to 12 columns. The outside gutters are removed from the overall width of the grid.
@@ -76,7 +75,7 @@ Grid is built using the [Flex component](/utilities/flex) and is responsive. Gri
 
 ### Equal column widths
 
-Use Column to lay out equal-sized content, such as a feed of cards.
+Use Column, which is a child component of Grid, to lay out equal-sized content, such as a feed of cards.
 
 <LivePreview scope={{Grid, Column, Card, Heading, Paragraph}} language="jsx">
   {`<Grid gutter="space30">
@@ -101,11 +100,12 @@ Use Column to lay out equal-sized content, such as a feed of cards.
 </Grid>`}
 </LivePreview>
 
-### Unequal column widths, using column span
+### Unequal column widths, using column `span`
 
-Use the `span` prop to allow content to span multiple columns. Span calculates the width of a column based off a 12 column grid. The value of span becomes the
-numerator while 12 is the denominator, which gives us a percentage width value for each column. The default span is 1 column width. In our example we're
-setting one column to equal 8 of the 12 columns, and the other to be 4 of the 12 columns.
+Use the `span` prop to allow content to span multiple columns. `Span` defines how many columns you want the width of your content to take up. The value of `span` becomes the
+numerator while 12 is the denominator, which gives us a percentage width value for each column. The default `span` is 1 column width.
+
+In our example we're setting one column to equal 8 of the 12 columns, and the other to be 4 of the 12 columns.
 
 <LivePreview scope={{Grid, Column, Card, Heading, Paragraph, Button}} language="jsx">
   {`<Grid gutter="space30">
@@ -242,8 +242,8 @@ A Grid can be nested inside another Grid. For example, you can split a column in
 
 ### Responsive columns
 
-Grid column span and offset props can be changed based on the theme breakpoints. Both span and offsets can accept responsive values, for example `span={[6, 8, 2] }`.
-This would set a columns span to be 6 columns wide on mobile, 8 columns wide on tablet, and 2 columns wide on desktop. The offset prop works in a similar fashion.
+Grid column `span` and `offset` props can be changed based on the theme breakpoints. Both `span` and `offset` can accept responsive values, for example `span={[6, 8, 2] }`.
+This would set a columns `span` to be 6 columns wide on mobile, 8 columns wide on tablet, and 2 columns wide on desktop. The `offset` prop works in a similar fashion.
 For a visual example, [see the Storybook example](https://twilio-labs.github.io/paste/?path=/story/utilities-grid--grid-2-column-responsive) and resize the browser.
 
 
@@ -343,7 +343,7 @@ Use Grid whenever you need to layout or align content on a page or within a comp
 Since the grid is sized to the full width of its parent container, you may not want to use it for fixed width columns in a variable width container.
 
 <DoDont>
-  <Do title="Do" body="Base the Column span and offset on a 12-columns.">
+  <Do title="Do" body="Base the Column span and offset on a 12-column layout.">
     <Box padding="space60">
       <Grid gutter="space30">
         <Column span={4}>
@@ -444,11 +444,13 @@ Since the grid is sized to the full width of its parent container, you may not w
       </Grid>
     </Box>
   </Do>
-  <Dont title="Don't" body="Don’t use Grid with only one column of content. This causes unnecessary elements. Box is what you’re looking for here.">
+  <Dont title="Don't" body="Don’t use Grid with only one column of full-width content. This causes unnecessary elements. Box is what you’re looking for here.">
     <Box padding="space60">
       <Grid gutter="space30">
         <Column>
-          <Paragraph>Unnecessary HTML elements. Use <SiteLink to="/primitives/box">Box</SiteLink> instead.</Paragraph>
+          <Card>
+            <Paragraph>Unnecessary HTML elements. Use <SiteLink to="/primitives/box">Box</SiteLink> instead.</Paragraph>
+          </Card>
         </Column>
       </Grid>
     </Box>
@@ -549,14 +551,14 @@ import {Grid, Column} from '@twilio-paste/grid';
 
 ### Sketch
 
-Add Grid symbols from the “Paste components” project to your own artboards to help you align content.
+Add [Grid symbols from the “Paste components” project](https://share.goabstract.com/3e7528f5-7981-421c-9308-e06d2f341c70) to your own artboards to help you align content.
 
-Additionally, each Paste container component (*e.g.*, Card, Modal) symbol in Sketch has an invisible grid symbol named “📐 Grid” that you can replace with visible grid symbols.
+Additionally, each Paste container component (*e.g.*, Card, Modal) symbol in Sketch has an invisible grid symbol named “📐 Grid” that you can override with visible grid symbols.
 
 We use grid symbols instead of Sketch Layout Settings for two reasons:
 
 1. Resizing a symbol better represents the behavior of a fluid grid in a responsive layout. You might be designing for multiple screen widths in a single Sketch file. Sketch Layout Settings, however, restricts you to a single setting of grid width, column width, gutter width, and number of columns for each file.
-2. Symbols allow you to place a grid within a component or container on an artboard, whereas Sketch Layout Settings can be applied to a whole artboard only.
+2. Symbols allow you to place a grid within a component or container on an artboard, whereas Sketch Layout Settings can be applied only to a whole artboard.
 
 <Box marginTop="space90">
   <Changelog />
