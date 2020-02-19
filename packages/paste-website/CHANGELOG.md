@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.14](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.10.13...@twilio-paste/website@1.10.14) (2020-02-19)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
 ## [1.10.13](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.10.12...@twilio-paste/website@1.10.13) (2020-02-18)
 
 
