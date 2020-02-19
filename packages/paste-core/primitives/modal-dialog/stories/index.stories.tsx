@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
-import {withKnobs} from '@storybook/addon-knobs';
+import {withKnobs, boolean} from '@storybook/addon-knobs';
 import styled from '@emotion/styled';
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
@@ -24,6 +24,7 @@ const StyledModalDialogContent = styled(ModalDialogContent)({
   maxHeight: 'calc(100% - 60px)',
   background: '#f4f5f6',
   borderRadius: '5px',
+  padding: '20px',
 });
 
 interface BasicModalDialogProps {
@@ -31,15 +32,27 @@ interface BasicModalDialogProps {
   handleClose: () => void;
 }
 
-const BasicModalDialog: React.FC<BasicModalDialogProps> = ({isOpen, handleClose}) => (
-  <StyledModalDialogOverlay isOpen={isOpen} onDismiss={handleClose}>
-    <StyledModalDialogContent>
-      <Text as="p" color="colorText">
-        Roll your own dialog!
-      </Text>
-    </StyledModalDialogContent>
-  </StyledModalDialogOverlay>
-);
+const BasicModalDialog: React.FC<BasicModalDialogProps> = ({isOpen, handleClose}) => {
+  const inputRef = React.useRef();
+
+  return (
+    <StyledModalDialogOverlay
+      isOpen={isOpen}
+      onDismiss={handleClose}
+      allowPinchZoom={boolean('allowPinchZoom', true)}
+      initialFocusRef={inputRef}
+    >
+      <StyledModalDialogContent>
+        <input type="text" value="first" />
+        <br />
+        <input ref={inputRef} type="text" value="second (initial focused)" />
+        <Text as="p" color="colorText">
+          Roll your own dialog!
+        </Text>
+      </StyledModalDialogContent>
+    </StyledModalDialogOverlay>
+  );
+};
 
 const ModalActivator: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
