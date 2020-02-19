@@ -4,6 +4,7 @@ import {Text} from '@twilio-paste/text';
 import {IconSize, TextColor} from '@twilio-paste/types';
 import {Grid, StoryIcon} from './__StoryStyles';
 
+import {CheckmarkCircleIcon} from './src/CheckmarkCircleIcon';
 import {CloseIcon} from './src/CloseIcon';
 import {CopyIcon} from './src/CopyIcon';
 import {ErrorIcon} from './src/ErrorIcon';
@@ -23,7 +24,8 @@ interface IconProps {
 
 const IconList: React.FC<IconProps> = props => (
   <Grid>
-    <StoryIcon><CloseIcon {...props} /><Text as="p" textColor="currentColor">CloseIcon</Text></StoryIcon>
+    <StoryIcon><CheckmarkCircleIcon {...props} /><Text as="p" textColor="currentColor">CheckmarkCircleIcon</Text></StoryIcon>
+<StoryIcon><CloseIcon {...props} /><Text as="p" textColor="currentColor">CloseIcon</Text></StoryIcon>
 <StoryIcon><CopyIcon {...props} /><Text as="p" textColor="currentColor">CopyIcon</Text></StoryIcon>
 <StoryIcon><ErrorIcon {...props} /><Text as="p" textColor="currentColor">ErrorIcon</Text></StoryIcon>
 <StoryIcon><InformationIcon {...props} /><Text as="p" textColor="currentColor">InformationIcon</Text></StoryIcon>
