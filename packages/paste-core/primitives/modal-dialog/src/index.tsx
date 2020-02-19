@@ -14,6 +14,9 @@
  * - We can control which APIs we expose. For example, we may chose to enable or
  *   disable usage of certain undocumented APIs.
  */
-import {DialogContent as ModalDialogContent, DialogOverlay as ModalDialogOverlay} from '@reach/dialog';
+import {
+  DialogContent as ModalDialogPrimitiveContent,
+  DialogOverlay as ModalDialogPrimitiveOverlay,
+} from '@reach/dialog';
 
-export {ModalDialogContent, ModalDialogOverlay};
+export {ModalDialogPrimitiveContent, ModalDialogPrimitiveOverlay};

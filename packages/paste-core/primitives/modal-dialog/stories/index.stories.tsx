@@ -4,9 +4,9 @@ import {withKnobs, boolean} from '@storybook/addon-knobs';
 import styled from '@emotion/styled';
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
-import {ModalDialogOverlay, ModalDialogContent} from '../src';
+import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '../src';
 
-const StyledModalDialogOverlay = styled(ModalDialogOverlay)({
+const StyledModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)({
   position: 'fixed',
   top: 0,
   right: 0,
@@ -18,7 +18,7 @@ const StyledModalDialogOverlay = styled(ModalDialogOverlay)({
   background: 'rgba(0, 0, 0, 0.7)',
 });
 
-const StyledModalDialogContent = styled(ModalDialogContent)({
+const StyledModalDialogContent = styled(ModalDialogPrimitiveContent)({
   width: '100%',
   maxWidth: '560px',
   maxHeight: 'calc(100% - 60px)',
