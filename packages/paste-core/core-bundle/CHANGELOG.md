@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.1.20...@twilio-paste/core@2.2.0) (2020-02-19)
+
+
+### Features
+
+* **core:** add modal-dialog-primitive ([24dd707](https://github.com/twilio-labs/paste/commit/24dd707b136697c7d5faa36517a221fb8d4f6f65))
+
+
+
+
+
 ## [2.1.20](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.1.19...@twilio-paste/core@2.1.20) (2020-02-19)
 
 **Note:** Version bump only for package @twilio-paste/core
