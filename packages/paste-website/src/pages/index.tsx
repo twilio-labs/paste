@@ -18,6 +18,7 @@ import {Terminal} from '../components/icons/Terminal';
 import {WindowLayout} from '../components/icons/WindowLayout';
 import {Callout, CalloutTitle} from '../components/callout';
 import {SiteLink} from '../components/SiteLink';
+import {BrowserSupport} from '../components/BrowserSupport';
 import {SiteMetaDefaults} from '../constants';
 
 const LandingContainer = styled(Box)`
@@ -46,7 +47,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
         </Heading>
         <P variant="lead">
           Paste is a design system used to build accessible, consistent, and high quality customer experiences at
-          Twilio. Paste is open source and contributions are welcome.
+          Twilio. Paste is open source and contributions are welcome. <BrowserSupport />
         </P>
         <Box marginTop="space80" marginBottom="space80">
           <Box display="inline-block" marginRight="space40">

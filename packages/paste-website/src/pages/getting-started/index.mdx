@@ -5,8 +5,8 @@ description: This document will get you started with Paste, what's in it, and wh
 
 import {graphql} from 'gatsby';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
-import {Grid} from '../../components/grid';
-import { Link } from "gatsby"
+import {Paragraph} from '@twilio-paste/paragraph';
+import {BrowserSupport} from '../../components/BrowserSupport';
 
 export const pageQuery = graphql`
   {
@@ -66,7 +66,7 @@ Paste is currently in its early stages. It will include:
 4. Version controlled design libraries for Sketch.
 5. Community &amp; education initiatives to help UX Engineers &amp; Designers learn more about Design System, and from each other.
 
-### Tokens &amp; Themes
+### Tokens & Themes
 
 <Callout variant="warning">
   <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>
@@ -79,6 +79,12 @@ Paste is currently in its early stages. It will include:
 ### Design Libraries
 
 - Check out our [guidelines for Product Designers](/getting-started/design). We'll be adding more content based on feedback and feature requests in a future release.
+
+### Browser Support
+
+<Paragraph>
+  <BrowserSupport />
+</Paragraph>
 
 ## Coming Soon
 

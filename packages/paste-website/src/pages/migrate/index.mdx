@@ -7,8 +7,7 @@ description: Paste is a large, multi-year project. This document covers how and 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
-import {Grid} from '../../components/grid';
-import { Link } from "gatsby"
+import {SiteLink} from '../../components/SiteLink';
 
 export const pageQuery = graphql`
   {
@@ -66,6 +65,11 @@ Thank you for being such a great supporter of Paste! We would love to accept con
 4. Our team is very small, and needs deep, focused time to do the above work. Due to this, we cannot reliably respond to Pull Requests in a reasonable amount of time and want to avoid developer / designer frustrations while contributing.
 
 In a future release, we will pilot a contribution model for Sketch and React. This will pave the way towards a contribution model in the future. Till then, we encourage you to join the conversation at #help-design-system, at our weekly office hours, or our monthly meetup. We'd love to gather your feedback.
+
+<Callout>
+  <CalloutTitle as="h4">Getting started</CalloutTitle>
+  <CalloutText>For more detailed information about getting started with Paste, go check out our <SiteLink to="/getting-started/">getting started guidelines</SiteLink>.</CalloutText>
+</Callout>
 
 ## Migration Guide for Twilio Console
 
