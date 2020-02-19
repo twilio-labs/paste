@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@1.4.6...@twilio-paste/icons@1.5.0) (2020-02-19)
+
+
+### Features
+
+* **icons:** add checkmark circle icon ([#317](https://github.com/twilio-labs/paste/issues/317)) ([af76993](https://github.com/twilio-labs/paste/commit/af76993403ad2f12e949f73953892db320fbd218))
+
+
+
+
+
 ## [1.4.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@1.4.5...@twilio-paste/icons@1.4.6) (2020-02-18)
 
 **Note:** Version bump only for package @twilio-paste/icons
