@@ -3,7 +3,7 @@
   "version": "0.2.1",
   "category": "layout",
   "status": "beta",
-  "description": "A flex based horizontal grid system used to build layouts.",
+  "description": "A flex-based horizontal grid system used to build layouts.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
