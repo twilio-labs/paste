@@ -129,8 +129,8 @@ In our example we're setting one column to equal 8 of the 12 columns (`span={8}`
 </Grid>`}
 </LivePreview>
 
-<Callout variant="warning">
-  <CalloutTitle as="h4" variant="heading40">An Important Note About Span and Offset Props</CalloutTitle>
+<Callout>
+  <CalloutTitle as="h4" variant="heading40">An important note about span and offset props</CalloutTitle>
   <CalloutText>When using <strong>span</strong> or <strong>offset</strong>, base your layout off a 12-column grid. For example, if you want to have two columns with one spanning twice as much as the other, then one column would span=8 and the other would span=4.</CalloutText>
 </Callout>
 
@@ -251,11 +251,9 @@ For a visual example, [see the Storybook example](https://twilio-labs.github.io/
 
 Grid can be used to compose various types of layouts ranging from whole application pages and views down to individual component layouts.
 
-<Callout variant="secondary">
+<Callout>
+  <CalloutTitle as="h4" variant="heading40">Gutter sizing</CalloutTitle>
   <CalloutText>For spacing content in a layout wider than 1440 pixels, we recommend using a 24-pixel gutter. Use $space-40 to get a 24-pixel gutter.</CalloutText>
-</Callout>
-
-<Callout variant="secondary">
   <CalloutText>For spacing content in a layout narrower than 1440 pixels, we recommend using a 16-pixel gutter. Use $space-30 to get a 16-pixel gutter.</CalloutText>
 </Callout>
 
@@ -326,7 +324,7 @@ Grids can also be used for layouts within other components. For example, we can 
   {`<Card padding="space70">
   <Grid gutter="space30">
     <Column span={2}>
-      <TwilioIcon color={TWILIO_RED} display="block" size={108} />
+      <TwilioIcon color={TWILIO_RED} display="block" size={65} />
     </Column>
     <Column span={10}>
       <Heading as="h4" variant="heading40">What's new at Twilio</Heading>
