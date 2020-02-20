@@ -9,12 +9,12 @@ export const StatusLegend: React.FC<{}> = () => (
       Component Status Details
     </Heading>
     <Text as="p" marginBottom="space20">
-      <strong>Alpha</strong>: Component is a candidate for testing in products with guidance from the design systems
-      team. If {"you 're"} planning on using one of these components, check in with the Paste team first through{' '}
-      <strong>#help-design-system</strong> in Slack.
+      <strong>Alpha</strong>: Component is safe to use in customer-facing products only with guidance from the design
+      systems team.
     </Text>
     <Text as="p" marginBottom="space20">
-      <strong>Beta</strong>: Component is a candidate for prototypes and beta products.
+      <strong>Beta</strong>: Component is safe to use in customer-facing products, but there may be (non-breaking)
+      updates based on UX review and usability testing.
     </Text>
     <Text as="p" marginBottom="space20">
       <strong>Production</strong>: The component is stable.
