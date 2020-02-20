@@ -5,12 +5,18 @@ description: The components listed here are on our roadmap.  Only a few of them 
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
+import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
+import {Grid, Column} from '@twilio-paste/grid';
+import {Text} from '@twilio-paste/text';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
 import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {StatusLegend} from '../../components/StatusLegend';
+
+<content>
 
 <Breadcrumb>
   <BreadcrumbItem to="/">Home</BreadcrumbItem>
@@ -21,7 +27,15 @@ import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 
 The components listed here are on our roadmap. Only a few of them are available today.
 
-If you’re planning on using an alpha or beta component, please check in with the Paste team through the <strong>#help-design-system</strong> channel on Slack.
+</content>
+
+***
+
+<contentwrapper>
+
+<content>
+
+<StatusLegend />
 
 <Callout>
   <CalloutTitle as="h4">Don't see a component, primitive, or utility you need listed here?</CalloutTitle>
@@ -48,6 +62,10 @@ If you’re planning on using an alpha or beta component, please check in with t
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   componentsList={props.data.allPasteComponent.edges}
 />
+
+</content>
+
+</contentwrapper>
 
 export const pageQuery = graphql`
   {

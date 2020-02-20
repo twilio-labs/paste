@@ -6,8 +6,12 @@ description: Here's a glimpse of what is coming up in future releases of Paste. 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Card} from '@twilio-paste/card';
+import {Grid, Column} from '@twilio-paste/grid';
+import {Heading} from '@twilio-paste/heading';
+import {Text} from '@twilio-paste/text';
 import {AnchoredHeading} from '../../components/Heading';
-import {Callout, CalloutText} from '../../components/callout';
+import {StatusLegend} from '../../components/StatusLegend';
 
 export const pageQuery = graphql`
   {
@@ -29,6 +33,10 @@ export const pageQuery = graphql`
 <h1>{props.pageContext.frontmatter.title}</h1>
 
 <p>{props.pageContext.frontmatter.description}</p>
+
+<Box marginTop="space100" marginBottom="space100">
+  <StatusLegend />
+</Box>
 
 <Box>
 

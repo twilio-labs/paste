@@ -5,13 +5,34 @@ description: Our primitives are rad
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
+import {Card} from '@twilio-paste/card';
+import {Heading} from '@twilio-paste/heading';
+import {Text} from '@twilio-paste/text';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
 import {SidebarCategoryRoutes} from '../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {StatusLegend} from '../../components/StatusLegend';
 
-# Primitives Overview
+<content>
 
+<Breadcrumb>
+  <BreadcrumbItem to="/">Home</BreadcrumbItem>
+</Breadcrumb>
+<Heading as="h1" variant="heading10">
+  Primitives
+</Heading>
+
+</content>
+
+***
+
+<contentwrapper>
+
+<content>
+
+<StatusLegend />
 <Callout>
   <CalloutTitle as="h4">Don't see a primitive, utility, or component you need listed here?</CalloutTitle>
   <UnorderedList>
@@ -37,6 +58,10 @@ import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
   categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
   componentsList={props.data.allPastePrimitive.edges}
 />
+
+</content>
+
+</contentwrapper>
 
 export const pageQuery = graphql`
   {
