@@ -4,7 +4,7 @@ description: This document will highlight our approach for unified design librar
 ---
 
 import {graphql} from 'gatsby';
-import QuickstartVideo from "../../assets/quickstart_alpha.mp4"
+import {Anchor} from '@twilio-paste/anchor';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 
 export const pageQuery = graphql`
@@ -18,6 +18,16 @@ export const pageQuery = graphql`
   }
 `;
 
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<p>{props.pageContext.frontmatter.description}</p>
+
+</content>
+
+***
+
 <contentwrapper>
 
 <TableOfContents headings={props.data.mdx.headings} />
@@ -26,7 +36,11 @@ export const pageQuery = graphql`
 
 ## Installation
 
-Currently, every package is standalone in the paste project.  While this means you only get what you need, it makes it a little more tedious to get started.  We hope to address this in the near future, but for now you can run:
+The best way to use Paste is by using the core package. Paste Core provides all of the current Paste components which are ready for use.
+
+Paste Core requires external dependencies, and other Paste system packages in order to function properly.
+
+Install the following dependencies using yarn:
 
 #### External dependencies
 
@@ -37,32 +51,18 @@ yarn add react react-dom @emotion/core @emotion/styled styled-system @styled-sys
 #### System packages
 
 ```shell
-yarn add @twilio-paste/types @twilio-paste/style-props @twilio-paste/design-tokens @twilio-paste/theme-tokens @twilio-paste/theme @twilio-paste/icons @twilio-paste/core
+yarn add @twilio-paste/types @twilio-paste/style-props @twilio-paste/design-tokens @twilio-paste/theme-tokens @twilio-paste/theme
 ```
 
-## Setup
+#### Core package
 
-<Callout variant="warning">
-  <CalloutTitle as="h4">Fonts in Paste</CalloutTitle>
-  <CalloutText>
-           Paste leaves it up to you to load the fonts needed for the theme you&apos;ve selected. Console uses Whitney
-          ScreenSmart and SendGrid uses Colfax
-  </CalloutText>
-  <CalloutText>
-    The Whitney font is loaded by the Typography.com service and is only allowed on *.twilio.com domains as well 
-    as localhost. Make sure to serve your app from the correct hostname if you're having issues with font loading
-  </CalloutText>
-</Callout>
-
-## 8 minute video walkthrough
-
-Be gentle :P  - this was recorded in one take on zoom.
-
-<video controls width="640px" height="480px">
-    <source src={QuickstartVideo} type="video/mp4" />
-</video>
+```shell
+yarn add @twilio-paste/core
+```
 
 ## Usage
+
+Once Paste Core and the dependencies are installed, you can import the [Paste Theme](/tokens/theme-package/):
 
 ```jsx
 import {Theme} from '@twilio-paste/theme';
@@ -73,17 +73,67 @@ import {Theme} from '@twilio-paste/theme';
 </Theme.Provider>
 ```
 
-Now you can use our themed and tokenized components anywhere in your app:
+Now you can use the Paste themed and tokenized components anywhere in your app:
 
 ```jsx
-import {Box} from '@twilio-paste/box';
+import {Box} from '@twilio-paste/core';
 
 <Box margin="space20" backgroundColor="colorBackground">
     Hello Paste!
 </Box>
 ```
 
-Our tokens are readily available on our components and typescript typings are provided.
+<Callout>
+  <CalloutText>
+    The Paste tokens are readily available on our components and typescript typings are provided.
+  </CalloutText>
+</Callout>
+
+### Using Icons
+
+The Paste Icons package provides icon components. They can be used to enhance the appearance of a web interface and break
+up the monotony of text. Icons have to be imported individually.
+
+Install Paste Icons using yarn:
+
+```shell
+yarn @twilio-paste/icons
+```
+
+Then you can use an icon inside your app:
+
+```jsx
+import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
+
+<Button variant="secondary" size="small" onClick={() => {}}>
+  <PlusIcon decorative={true} />
+  Add to cart
+</Button>
+```
+
+For more information about our icon system, checkout our [usage guide here](/icon-system/).
+
+<Callout>
+  <CalloutText>
+    You can view and play with icons on <Anchor href="https://twilio-labs.github.io/paste/?path=/story/overview-icons--list">our storybook icon list</Anchor>.
+    Our icon set is still limited, and more will be added over time. Please{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/issues">file an icon request</Anchor> or
+    follow the guide on <Anchor href="/icon-system/how-to-add-an-icon">how to add an icon</Anchor>.
+  </CalloutText>
+</Callout>
+
+### Global Styles
+
+Many apps/websites utilize global stylesheets. Even though Paste styles are scoped at the component level, global styles can creep
+in and cause some havoc. Make sure to thoroughly test Paste components to verify everything looks as they should.
+
+### Fonts
+
+Paste leaves it up to you to load the fonts needed for the theme you've selected. Console uses Whitney ScreenSmart
+and SendGrid uses Colfax.
+
+The Whitney font is loaded by the Typography.com service and is only allowed on *.twilio.com domains as well as localhost.
+Make sure to serve your app from the correct hostname if you're having issues with font loading.
 
 ## Sandbox
 
