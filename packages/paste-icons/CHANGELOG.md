@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@1.5.0...@twilio-paste/icons@1.6.0) (2020-02-20)
+
+
+### Features
+
+* **icons:** add ChevronDown icon ([ebb8360](https://github.com/twilio-labs/paste/commit/ebb83606c82427be2336a77ad560f4f4cf8ab999))
+* **icons:** add ChevronUp icon ([5070b68](https://github.com/twilio-labs/paste/commit/5070b68bc9de04c7de2495dee872df2531011530))
+* **icons:** add LinkExternal icon ([fa14ca3](https://github.com/twilio-labs/paste/commit/fa14ca30477b1ec3b195362eb27766164c423899))
+
+
+
+
+
 # [1.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@1.4.6...@twilio-paste/icons@1.5.0) (2020-02-19)
 
 
