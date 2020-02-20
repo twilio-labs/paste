@@ -5,7 +5,16 @@ description: This document will highlight our approach for unified design librar
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
+import {Paragraph} from '@twilio-paste/paragraph';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {version as typesVersion} from '@twilio-paste/types/package.json';
+import {version as stylePropsVersion} from '@twilio-paste/style-props/package.json';
+import {version as designTokensVersion} from '@twilio-paste/design-tokens/package.json';
+import {version as themeTokensVersion} from '@twilio-paste/theme-tokens/package.json';
+import {version as themeVersion} from '@twilio-paste/theme/package.json';
+import {version as coreVersion} from '@twilio-paste/core/package.json';
+import {version as iconsVersion} from '@twilio-paste/icons/package.json';
+import Package from '../../../../../package.json';
 
 export const pageQuery = graphql`
   {
@@ -22,7 +31,7 @@ export const pageQuery = graphql`
 
 <h1>{props.pageContext.frontmatter.title}</h1>
 
-<p>{props.pageContext.frontmatter.description}</p>
+<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
 </content>
 
@@ -44,17 +53,102 @@ Install the following dependencies using yarn:
 
 #### External dependencies
 
+<table>
+  <thead>
+    <tr>
+      <th>Package</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>react</td>
+      <td>{Package.dependencies['react']}</td>
+    </tr>
+    <tr>
+      <td>react-dom</td>
+      <td>{Package.dependencies['react-dom']}</td>
+    </tr>
+    <tr>
+      <td>react-uid</td>
+      <td>{Package.dependencies['react-uid']}</td>
+    </tr>
+    <tr>
+      <td>@emotion/core</td>
+      <td>{Package.dependencies['@emotion/core']}</td>
+    </tr>
+    <tr>
+      <td>@emotion/styled</td>
+      <td>{Package.dependencies['@emotion/styled']}</td>
+    </tr>
+    <tr>
+      <td>styled-system</td>
+      <td>{Package.dependencies['styled-system']}</td>
+    </tr>
+    <tr>
+      <td>@styled-system/theme-get</td>
+      <td>{Package.dependencies['@styled-system/theme-get']}</td>
+    </tr>
+  </tbody>
+</table>
+
 ```shell
 yarn add react react-dom @emotion/core @emotion/styled styled-system @styled-system/theme-get react-uid
 ```
 
 #### System packages
 
+<table>
+  <thead>
+    <tr>
+      <th>Package</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>@twilio-paste/types</td>
+      <td>{typesVersion}</td>
+    </tr>
+    <tr>
+      <td>@twilio-paste/style-props</td>
+      <td>{stylePropsVersion}</td>
+    </tr>
+    <tr>
+      <td>@twilio-paste/design-tokens</td>
+      <td>{designTokensVersion}</td>
+    </tr>
+    <tr>
+      <td>@twilio-paste/theme-tokens</td>
+      <td>{themeTokensVersion}</td>
+    </tr>
+    <tr>
+      <td>@twilio-paste/theme</td>
+      <td>{themeVersion}</td>
+    </tr>
+  </tbody>
+</table>
+
 ```shell
 yarn add @twilio-paste/types @twilio-paste/style-props @twilio-paste/design-tokens @twilio-paste/theme-tokens @twilio-paste/theme
 ```
 
 #### Core package
+
+<table>
+  <thead>
+    <tr>
+      <th>Package</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>@twilio-paste/core</td>
+      <td>{coreVersion}</td>
+    </tr>
+  </tbody>
+</table>
 
 ```shell
 yarn add @twilio-paste/core
@@ -95,6 +189,21 @@ The Paste Icons package provides icon components. They can be used to enhance th
 up the monotony of text. Icons have to be imported individually.
 
 Install Paste Icons using yarn:
+
+<table>
+  <thead>
+    <tr>
+      <th>Package</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>@twilio-paste/icons</td>
+      <td>{iconsVersion}</td>
+    </tr>
+  </tbody>
+</table>
 
 ```shell
 yarn @twilio-paste/icons
