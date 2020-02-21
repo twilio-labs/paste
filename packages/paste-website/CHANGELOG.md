@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.12.1...@twilio-paste/website@1.12.2) (2020-02-21)
+
+
+### Bug Fixes
+
+* **website:** filter more headings from ToC ([#326](https://github.com/twilio-labs/paste/issues/326)) ([a371588](https://github.com/twilio-labs/paste/commit/a371588f9905bd8613f4a223811c433c55bef925))
+* **website:** icons self-service path ([#324](https://github.com/twilio-labs/paste/issues/324)) ([48fccf8](https://github.com/twilio-labs/paste/commit/48fccf87953919926e9c673348312bdb517516c7))
+
+
+
+
+
 ## [1.12.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.12.0...@twilio-paste/website@1.12.1) (2020-02-21)
 
 **Note:** Version bump only for package @twilio-paste/website
