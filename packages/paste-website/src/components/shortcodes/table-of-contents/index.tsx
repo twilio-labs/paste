@@ -5,18 +5,19 @@ import {TableOfContentsProps} from './types';
 import {StyledScrollSpy, StyledListItem} from './styles';
 import {slugify} from '../../../utils/RouteUtils';
 
+// Table of contents should only include h2, h3, h4 headings
+const shouldIncludeInToC = ({depth}: {depth: number}): boolean => depth > 1 && depth < 5;
+
 const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
   if (headings == null) {
     return null;
   }
 
-  // Get Array of heading anchors. Excluding h1 elements.
-  const headingsList = headings
-    .filter(heading => heading.depth !== 1)
-    .map(({value}) => {
-      const headingAnchor = slugify(value);
-      return headingAnchor;
-    });
+  // Get Array of heading anchors.
+  const headingsList = headings.filter(shouldIncludeInToC).map(({value}) => {
+    const headingAnchor = slugify(value);
+    return headingAnchor;
+  });
 
   // TODO: Add changelog to headingsList Array becuase changelogs aren't imported.
   // headingsList.push('changelog');
@@ -25,19 +26,17 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
     <Box as="nav" aria-label="document outline" order={2} marginTop="space40" marginLeft="space140" minWidth="size20">
       <StyledScrollSpy items={headingsList} currentClassName="is-current" rootEl="#site-main">
         {// Get heading anchors and convert to #anchor format. Excluding h1 elements.
-        headings
-          .filter(heading => heading.depth !== 1)
-          .map(({value, depth}) => {
-            const headingLink = `#${slugify(value)}`;
+        headings.filter(shouldIncludeInToC).map(({value, depth}) => {
+          const headingLink = `#${slugify(value)}`;
 
-            const depthLevel = depth.toString();
+          const depthLevel = depth.toString();
 
-            return (
-              <StyledListItem key={value} depth={depthLevel}>
-                <Anchor href={headingLink}>{value}</Anchor>
-              </StyledListItem>
-            );
-          })}
+          return (
+            <StyledListItem key={value} depth={depthLevel}>
+              <Anchor href={headingLink}>{value}</Anchor>
+            </StyledListItem>
+          );
+        })}
       </StyledScrollSpy>
     </Box>
   );
