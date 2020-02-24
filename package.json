@@ -40,6 +40,7 @@
     "test:tools": "node --experimental-worker ./node_modules/.bin/jest ./tools/ -c ./tools/jest.config.js",
     "test:coverage": "yarn pre-test && node --experimental-worker ./node_modules/.bin/jest --coverage",
     "test:vrt": "eyes-storybook",
+    "package-size-action-build": "yarn bootstrap && yarn build",
     "prettier": "prettier --list-different '{.storybook,packages}/**/*.{ts,tsx}'",
     "prettier-clean": "prettier --write '{.storybook,packages}/**/*.{ts,tsx}'",
     "props-gen": "lerna run props-gen",

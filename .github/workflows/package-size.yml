@@ -1,0 +1,17 @@
+name: Package Size
+
+on: pull_request
+
+jobs:
+  package-size:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.16.x]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - uses: preactjs/compressed-size-action@v1
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          build-script: "package-size-action-build"
