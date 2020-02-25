@@ -11,6 +11,7 @@ import {Box} from '@twilio-paste/box';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {Callout, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {ModalActivator} from './ModalDemo.tsx';
 
 export const pageQuery = graphql`
   {
@@ -86,14 +87,18 @@ yarn add @twilio-paste/modal-dialog-primitive
 
 #### Usage Example
 
-You can see this exact code [running in our storybook page](https://twilio-labs.github.io/paste/?path=/story/primitives-modaldialog--custom-overlay-and-content).
+<Box
+  paddingBottom="space80"
+>
+  <ModalActivator />
+</Box>
 
 ```
 import * as React from 'react';
 import styled from '@emotion/styled';
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
-import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '../src';
+import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
 
 const StyledModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)({
   position: 'fixed',
@@ -125,7 +130,7 @@ const BasicModalDialog: React.FC<BasicModalDialogProps> = ({isOpen, handleClose}
   const inputRef = React.useRef();
 
   return (
-    <StyledModalDialogOverlay
+    <StyledModalDialogOverlay 
       isOpen={isOpen}
       onDismiss={handleClose}
       allowPinchZoom={true}
@@ -143,7 +148,7 @@ const BasicModalDialog: React.FC<BasicModalDialogProps> = ({isOpen, handleClose}
   );
 };
 
-const ModalActivator: React.FC = () => {
+export const ModalActivator: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const handleOpen = (): void => setIsOpen(true);
   const handleClose = (): void => setIsOpen(false);
@@ -151,7 +156,7 @@ const ModalActivator: React.FC = () => {
   return (
     <div>
       <Button variant="primary" onClick={handleOpen}>
-        Open Modal
+        Open Sample Modal
       </Button>
       <BasicModalDialog isOpen={isOpen} handleClose={handleClose} />
     </div>
