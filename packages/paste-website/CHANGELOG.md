@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.12.3...@twilio-paste/website@1.13.0) (2020-02-25)
+
+
+### Features
+
+* **website:** new modal dialog primitive docs ([#327](https://github.com/twilio-labs/paste/issues/327)) ([9ec8308](https://github.com/twilio-labs/paste/commit/9ec8308664ffdd753e537d0a92a634973e9debe8))
+
+
+
+
+
 ## [1.12.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.12.2...@twilio-paste/website@1.12.3) (2020-02-21)
 
 **Note:** Version bump only for package @twilio-paste/website
