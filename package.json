@@ -80,6 +80,7 @@
     "@storybook/addon-knobs": "^5.2.3",
     "@storybook/addon-links": "^5.2.3",
     "@storybook/addon-storyshots": "^5.2.3",
+    "@storybook/addon-viewport": "^5.3.13",
     "@storybook/addons": "^5.2.3",
     "@storybook/react": "^5.2.3",
     "@types/enzyme": "^3.10.1",
