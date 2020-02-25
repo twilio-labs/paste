@@ -1,15 +1,7 @@
-import {
-  addDecorator,
-  addParameters,
-  configure
-} from '@storybook/react';
+import {addDecorator, addParameters, configure} from '@storybook/react';
 import requireContext from 'require-context.macro';
-import {
-  addReadme
-} from 'storybook-readme';
-import {
-  withA11y
-} from '@storybook/addon-a11y';
+import {addReadme} from 'storybook-readme';
+import {withA11y} from '@storybook/addon-a11y';
 import withThemeSwitcher from './addons/theme-switcher-addon';
 
 const customViewports = {
@@ -47,7 +39,7 @@ addParameters({
   sidebarAnimations: true,
   enableShortcuts: true,
   viewport: {
-    viewports: customViewports
+    viewports: customViewports,
   },
 });
 addDecorator(withThemeSwitcher);
