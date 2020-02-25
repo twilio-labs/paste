@@ -3,26 +3,36 @@ import requireContext from 'require-context.macro';
 import {addReadme} from 'storybook-readme';
 import {withA11y} from '@storybook/addon-a11y';
 import withThemeSwitcher from './addons/theme-switcher-addon';
+import {DefaultTheme} from '@twilio-paste/theme-tokens';
+
+const mobileArray = DefaultTheme.breakpoints[0].split(/([0-9]+)/);
+const mobileSize = mobileArray[1];
+
+const tabletArray = DefaultTheme.breakpoints[1].split(/([0-9]+)/);
+const tabletSize = tabletArray[1];
+
+const desktopArray = DefaultTheme.breakpoints[2].split(/([0-9]+)/);
+const desktopSize = desktopArray[1];
 
 const customViewports = {
   Mobile: {
     name: 'Mobile',
     styles: {
-      width: '24rem',
+      width: mobileSize - 1 + 'rem',
       height: '768px',
     },
   },
   Tablet: {
     name: 'Tablet',
     styles: {
-      width: '63rem',
+      width: tabletSize - 1 + 'rem',
       height: '768px',
     },
   },
   Desktop: {
     name: 'Desktop',
     styles: {
-      width: '76rem',
+      width: desktopSize - 1 + 'rem',
       height: '768px',
     },
   },
