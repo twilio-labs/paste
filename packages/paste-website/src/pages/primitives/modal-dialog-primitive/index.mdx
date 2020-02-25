@@ -11,7 +11,7 @@ import {Box} from '@twilio-paste/box';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {Callout, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {ModalActivator} from './ModalDemo.tsx';
+import ModalDemo from './ModalDemo.tsx';
 
 export const pageQuery = graphql`
   {
@@ -90,7 +90,7 @@ yarn add @twilio-paste/modal-dialog-primitive
 <Box
   paddingBottom="space80"
 >
-  <ModalActivator />
+  <ModalDemo />
 </Box>
 
 ```

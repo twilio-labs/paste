@@ -47,7 +47,7 @@ const BasicModalDialog: React.FC<BasicModalDialogProps> = ({isOpen, handleClose}
   );
 };
 
-export const ModalActivator: React.FC = () => {
+const ModalActivator: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const handleOpen = (): void => setIsOpen(true);
   const handleClose = (): void => setIsOpen(false);
@@ -61,3 +61,5 @@ export const ModalActivator: React.FC = () => {
     </div>
   );
 };
+
+export default ModalActivator;
