@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.16](https://github.com/twilio-labs/paste/compare/@twilio-paste/alert@0.1.15...@twilio-paste/alert@0.1.16) (2020-02-26)
+
+
+### Bug Fixes
+
+* package dependencies and deprecation warnings ([#334](https://github.com/twilio-labs/paste/issues/334)) ([0e88338](https://github.com/twilio-labs/paste/commit/0e88338511e6835a79eb0a9cea8d5b3a1cdf0a88))
+
+
+
+
+
 ## [0.1.15](https://github.com/twilio-labs/paste/compare/@twilio-paste/alert@0.1.14...@twilio-paste/alert@0.1.15) (2020-02-21)
 
 **Note:** Version bump only for package @twilio-paste/alert

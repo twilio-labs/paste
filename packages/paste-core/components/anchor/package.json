@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/anchor",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "category": "interaction",
   "status": "production",
   "description": "Twilio's Anchor component",
@@ -37,10 +37,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
-    "rollup": "^1.16.2",
-    "rollup-plugin-babel": "^4.3.3",
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
+    "rollup": "^1.16.2",
+    "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-terser": "^5.0.0",
     "rollup-plugin-typescript2": "^0.21.2",
     "typedoc": "^0.16.9",
