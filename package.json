@@ -129,7 +129,7 @@
     "shelljs": "^0.8.3",
     "storybook-readme": "^5.0.5",
     "typedoc": "^0.16.9",
-    "typescript": "^3.5.2",
+    "typescript": "3.7.5",
     "webpack": "^4.35.3"
   },
   "husky": {

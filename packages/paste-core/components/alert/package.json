@@ -74,6 +74,6 @@
     "rollup-plugin-typescript2": "^0.21.2",
     "styled-system": "^5.1.2",
     "typedoc": "^0.16.9",
-    "typescript": "^3.5.2"
+    "typescript": "3.7.5"
   }
 }
