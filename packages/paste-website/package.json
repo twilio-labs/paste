@@ -28,6 +28,7 @@
     "@twilio-paste/aspect-ratio": "^1.0.14",
     "@twilio-paste/box": "^2.1.9",
     "@twilio-paste/button": "^1.1.19",
+    "@twilio-paste/design-tokens": "^4.1.2",
     "@twilio-paste/flex": "^0.3.1",
     "@twilio-paste/grid": "^0.2.2",
     "@twilio-paste/heading": "^1.1.2",
@@ -37,6 +38,7 @@
     "@twilio-paste/modal-dialog-primitive": "0.1.0",
     "@twilio-paste/paragraph": "^1.0.15",
     "@twilio-paste/screen-reader-only": "^1.1.2",
+    "@twilio-paste/spinner": "^1.1.16",
     "@twilio-paste/style-props": "^0.1.7",
     "@twilio-paste/text": "^1.1.9",
     "@twilio-paste/theme": "^3.0.3",
@@ -70,6 +72,7 @@
     "styled-system": "^5.1.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.4",
     "@emotion/babel-preset-css-prop": "^10.0.14",
     "@types/color": "^3.0.0",
     "@types/jest": "^24.0.18",
@@ -79,7 +82,8 @@
     "@types/react-scrollspy": "^3.3.1",
     "@types/react-test-renderer": "^16.9.0",
     "babel-preset-gatsby": "^0.2.8",
+    "graphql": "^14.6.0",
     "prettier": "^1.18.2",
-    "typescript": "^3.5.2"
+    "typescript": "3.7.5"
   }
 }

@@ -9,16 +9,31 @@
   ],
   "references": [
     {
+      "path": "../../utilities/absolute"
+    },
+    {
       "path": "../../primitives/box"
     },
     {
       "path": "../button"
     },
     {
+      "path": "../../../paste-design-tokens"
+    },
+    {
       "path": "../../../paste-icons"
     },
     {
       "path": "../../utilities/media-object"
+    },
+    {
+      "path": "../spinner"
+    },
+    {
+      "path": "../../../paste-style-props"
+    },
+    {
+      "path": "../../../paste-theme-tokens"
     },
     {
       "path": "../../../paste-types"

@@ -28,8 +28,10 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
+    "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.10",
     "@twilio-paste/box": "^2.1.9",
+    "@twilio-paste/design-tokens": "^4.1.2",
     "@twilio-paste/flex": "^0.3.1",
     "@twilio-paste/style-props": "^0.1.7",
     "@twilio-paste/theme": "^3.0.3",
@@ -40,18 +42,28 @@
     "styled-system": "^5.1.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@emotion/core": "^10.0.10",
+    "@emotion/styled": "^10.0.10",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@styled-system/theme-get": "^5.1.2",
     "@twilio-paste/box": "^2.1.9",
+    "@twilio-paste/design-tokens": "^4.1.2",
     "@twilio-paste/flex": "^0.3.1",
     "@twilio-paste/style-props": "^0.1.7",
     "@twilio-paste/theme": "^3.0.3",
     "@twilio-paste/theme-tokens": "^3.0.3",
+    "@twilio-paste/types": "^2.2.4",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-commonjs": "^10.0.1",
-    "rollup-plugin-node-resolve": "^5.1.0",
     "rollup-plugin-terser": "^5.0.0",
     "rollup-plugin-typescript2": "^0.21.2",
+    "styled-system": "^5.1.2",
     "typedoc": "^0.16.9",
-    "typescript": "^3.5.2"
+    "typescript": "3.7.5"
   }
 }

@@ -1,7 +1,7 @@
-const {join} = require('path');
 const {runCmdJson} = require('./runCmd');
 
-const CLI_PATH = join(__dirname, '../../node_modules/lerna/cli.js');
+const LERNA_INDEX_PATH = require.resolve('lerna');
+const LERNA_CLI_PATH = LERNA_INDEX_PATH.replace('index.js', 'cli.js');
 
 let repoPackages = null;
 
@@ -20,7 +20,7 @@ async function getRepoPackages() {
     return repoPackages;
   }
 
-  repoPackages = await runCmdJson(CLI_PATH, ['la', '--json']);
+  repoPackages = await runCmdJson(LERNA_CLI_PATH, ['la', '--json']);
   return repoPackages;
 }
 

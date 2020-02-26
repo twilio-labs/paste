@@ -4,10 +4,27 @@
     "outDir": "./dist",
     "rootDir": "./src"
   },
-  "include": ["src/**/*"],
+  "include": [
+    "src/**/*"
+  ],
   "references": [
     {
-      "path": "../../../paste-theme-tokens"
+      "path": "../../paste-icons"
+    },
+    {
+      "path": "../../paste-design-tokens"
+    },
+    {
+      "path": "../../paste-style-props"
+    },
+    {
+      "path": "../../paste-theme"
+    },
+    {
+      "path": "../../paste-theme-tokens"
+    },
+    {
+      "path": "../../paste-types"
     }
   ]
 }
