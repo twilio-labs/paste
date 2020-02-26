@@ -15,10 +15,10 @@
       "path": "../../../paste-style-props"
     },
     {
-      "path": "../../../paste-theme-tokens"
+      "path": "../../primitives/text"
     },
     {
-      "path": "../../primitives/text"
+      "path": "../../../paste-theme-tokens"
     }
   ]
 }
