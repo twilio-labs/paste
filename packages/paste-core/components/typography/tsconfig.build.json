@@ -9,10 +9,16 @@
   ],
   "references": [
     {
-      "path": "../heading"
+      "path": "../../../paste-design-tokens"
     },
     {
-      "path": "../paragraph"
+      "path": "../../../paste-style-props"
+    },
+    {
+      "path": "../../../paste-theme-tokens"
+    },
+    {
+      "path": "../../primitives/text"
     }
   ]
 }

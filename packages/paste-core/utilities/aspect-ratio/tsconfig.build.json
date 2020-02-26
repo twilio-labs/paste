@@ -10,6 +10,18 @@
   "references": [
     {
       "path": "../absolute"
+    },
+    {
+      "path": "../../primitives/box"
+    },
+    {
+      "path": "../../../paste-design-tokens"
+    },
+    {
+      "path": "../../../paste-style-props"
+    },
+    {
+      "path": "../../../paste-theme-tokens"
     }
   ]
 }

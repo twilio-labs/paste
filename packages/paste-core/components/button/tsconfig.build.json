@@ -12,7 +12,22 @@
       "path": "../../utilities/absolute"
     },
     {
+      "path": "../../primitives/box"
+    },
+    {
+      "path": "../../../paste-design-tokens"
+    },
+    {
+      "path": "../../../paste-icons"
+    },
+    {
       "path": "../spinner"
+    },
+    {
+      "path": "../../../paste-style-props"
+    },
+    {
+      "path": "../../../paste-theme-tokens"
     }
   ]
 }

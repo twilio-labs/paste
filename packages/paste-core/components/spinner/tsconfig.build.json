@@ -9,10 +9,16 @@
   ],
   "references": [
     {
+      "path": "../../../paste-design-tokens"
+    },
+    {
       "path": "../../../paste-icons"
     },
     {
       "path": "../../../paste-style-props"
+    },
+    {
+      "path": "../../../paste-theme-tokens"
     }
   ]
 }
