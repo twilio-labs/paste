@@ -2,21 +2,14 @@
 # yarn lockfile v1
 
 
-"@applitools/dom-snapshot@3.2.3":
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/@applitools/dom-snapshot/-/dom-snapshot-3.2.3.tgz#8e9b56284154bd10bfdef62b11885ab6790acf9c"
-  integrity sha512-bF0nea8bBebJCobO5BVTMTEHR59rnF1FqzmGBlcNp91737pOxzxLG96l0ZfATjHCBEqybADmCdZlFgZJ2q/fTA==
-  dependencies:
-    "@applitools/functional-commons" "^1.5.4"
-
-"@applitools/dom-snapshot@3.3.3":
+"@applitools/dom-snapshot@3.3.3", "@applitools/dom-snapshot@^3.2.2":
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/@applitools/dom-snapshot/-/dom-snapshot-3.3.3.tgz#ee2d3269e169ed4ebf598fcdef9502021982210f"
   integrity sha512-qGiYHPbMO6rp7zZKZ5idLLpesPBy9ZzYNOEzX3d6PE7grq2OV8D6V67miqG4GiQY1o5owSuG+ieIuWkGiQJSoA==
   dependencies:
     "@applitools/functional-commons" "^1.5.4"
 
-"@applitools/eyes-common@3.18.5":
+"@applitools/eyes-common@3.18.5", "@applitools/eyes-common@^3.17.2":
   version "3.18.5"
   resolved "https://registry.yarnpkg.com/@applitools/eyes-common/-/eyes-common-3.18.5.tgz#b8ed277ed962867346c6962fc2a21d5ee00fef63"
   integrity sha512-S3fXqNAhoKZ1hXYBSinnhLGLFUaBW84e6mPM3SnqjBDeIgA93v0SsolTHzoES8ZKbYkRiMdrhtIrPq5L2Kh9ig==
@@ -40,17 +33,29 @@
     es6-promise-pool "2.5.0"
     tunnel "0.0.6"
 
-"@applitools/eyes-storybook@^3.1.0":
-  version "3.2.10"
-  resolved "https://registry.yarnpkg.com/@applitools/eyes-storybook/-/eyes-storybook-3.2.10.tgz#7c50fd3b8d7a5f81f8d6c9db341e8b4aa52f27ad"
-  integrity sha512-c9GJCx0See3CIBi6ZEmeZDK+4UtffoIJxpJRXu2bqQvCt6+CeXuYmCDCwP6QFwc7vf1dqkutB5HidTNblnJlDQ==
+"@applitools/eyes-sdk-core@^5.23.3":
+  version "5.25.0"
+  resolved "https://registry.yarnpkg.com/@applitools/eyes-sdk-core/-/eyes-sdk-core-5.25.0.tgz#540ff6a7a409f7191a02101ef342de718bbf76c6"
+  integrity sha512-JAHSGJ3nL/Po4sljvBfTLYY8cp02X7+t6lM+pY4EozfToi08vKyny8Ra453YmX3ozPGfdyngERBN3dw8SttSVQ==
   dependencies:
-    "@applitools/dom-snapshot" "3.2.3"
-    "@applitools/eyes-common" "3.18.5"
-    "@applitools/eyes-sdk-core" "7.0.0"
-    "@applitools/functional-commons" "1.5.4"
-    "@applitools/monitoring-commons" "1.0.19"
-    "@applitools/visual-grid-client" "13.5.19"
+    "@applitools/eyes-common" "^3.17.2"
+    "@applitools/isomorphic-fetch" "^3.0.0"
+    "@applitools/sdk-fake-eyes-server" "^1.0.3"
+    axios "^0.19.0"
+    chalk "^3.0.0"
+    es6-promise-pool "^2.5.0"
+    tunnel "0.0.6"
+
+"@applitools/eyes-storybook@3.2.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@applitools/eyes-storybook/-/eyes-storybook-3.2.2.tgz#bd259cdcd59484d46cd1b67f676cb5bc1c07c041"
+  integrity sha512-j5HU1J2QNhbnmqSfStz1rctlFbXmOLUlsdjDBARkAvbMO0MhAlb2NSvg1/wtFiBqYPTjhvay4Ny9eSWPYhdfLw==
+  dependencies:
+    "@applitools/dom-snapshot" "^3.2.2"
+    "@applitools/eyes-sdk-core" "^5.23.3"
+    "@applitools/functional-commons" "^1.5.4"
+    "@applitools/monitoring-commons" "^1.0.15"
+    "@applitools/visual-grid-client" "^13.5.6"
     boxen "^4.2.0"
     chalk "^2.4.2"
     detect-port "^1.3.0"
@@ -82,7 +87,7 @@
     lodash.merge "^4.6.2"
     node-fetch "^2.6.0"
 
-"@applitools/isomorphic-fetch@3.0.0":
+"@applitools/isomorphic-fetch@3.0.0", "@applitools/isomorphic-fetch@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@applitools/isomorphic-fetch/-/isomorphic-fetch-3.0.0.tgz#3a3a838954b8b8bb89f1078e4f82b8c6bccaa884"
   integrity sha512-7rutaN/2M5wYjOIOTKS/Zuc1Na90fJNEAqvo/jCxt7nSD1kYscHV3aCk9t7RD59gmzLMvUTIxFbjl4RUMV8qfg==
@@ -122,14 +127,25 @@
     ws "^7.0.0"
     xml-name-validator "^3.0.0"
 
-"@applitools/monitoring-commons@1.0.19", "@applitools/monitoring-commons@^1.0.15":
+"@applitools/monitoring-commons@^1.0.15":
   version "1.0.19"
   resolved "https://registry.yarnpkg.com/@applitools/monitoring-commons/-/monitoring-commons-1.0.19.tgz#9b6b1062b26b54e4d333bd2854ddb22e698c8f5a"
   integrity sha512-rzEOvGoiEF4KnK0PJ9I0btdwnaNlIPLYhjF1vTEG15PoucbbKpix9fYusxWlDG7kMiZya8ZycVPc0woVlNaHRQ==
   dependencies:
     debug "^4.1.0"
 
-"@applitools/visual-grid-client@13.5.19":
+"@applitools/sdk-fake-eyes-server@^1.0.3":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@applitools/sdk-fake-eyes-server/-/sdk-fake-eyes-server-1.0.5.tgz#acc24bfb1eeae4b620a989fc20e747a4694e9b5b"
+  integrity sha512-J+fSRWsNF4l2SPLXXcGCLwQ6zTP5c/faqAVnOfhKjt4A1etXlRvk3kV/mkgZKqGqKjyQDXAPvAoxsb2FyRsQxQ==
+  dependencies:
+    express "^4.17.1"
+    filenamify "^4.1.0"
+    node-fetch "^2.6.0"
+    ua-parser-js "^0.7.21"
+    uuid "^3.3.3"
+
+"@applitools/visual-grid-client@^13.5.6":
   version "13.5.19"
   resolved "https://registry.yarnpkg.com/@applitools/visual-grid-client/-/visual-grid-client-13.5.19.tgz#731cb49d2917ac69d3138d82cc499236d8edb201"
   integrity sha512-9xrSAgwBkyKfdkScva9cnAj0Q3g/kVI2zSGp3W0iNLKXD8GftE8dHg1SyXOiXOYFiEabKwNNzqAoONFhm7xEoQ==
@@ -9274,7 +9290,7 @@ es6-iterator@^2.0.1, es6-iterator@^2.0.3, es6-iterator@~2.0.3:
     es5-ext "^0.10.35"
     es6-symbol "^3.1.1"
 
-es6-promise-pool@2.5.0:
+es6-promise-pool@2.5.0, es6-promise-pool@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/es6-promise-pool/-/es6-promise-pool-2.5.0.tgz#147c612b36b47f105027f9d2bf54a598a99d9ccb"
   integrity sha1-FHxhKza0fxBQJ/nSv1SlmKmdnMs=
@@ -10330,6 +10346,15 @@ filenamify@^2.0.0:
   dependencies:
     filename-reserved-regex "^2.0.0"
     strip-outer "^1.0.0"
+    trim-repeated "^1.0.0"
+
+filenamify@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/filenamify/-/filenamify-4.1.0.tgz#54d110810ae74eebfe115c1b995bd07e03cf2184"
+  integrity sha512-KQV/uJDI9VQgN7sHH1Zbk6+42cD6mnQ2HONzkXUfPJ+K2FC8GZ1dpewbbHw0Sz8Tf5k3EVdHVayM4DoAwWlmtg==
+  dependencies:
+    filename-reserved-regex "^2.0.0"
+    strip-outer "^1.0.1"
     trim-repeated "^1.0.0"
 
 filesize@3.5.11:
@@ -21470,7 +21495,7 @@ strip-json-comments@^3.0.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-3.0.1.tgz#85713975a91fb87bf1b305cca77395e40d2a64a7"
   integrity sha512-VTyMAUfdm047mwKl+u79WIdrZxtFtn+nBxHeb844XBQ9uMNTuTHdx2hc5RiAJYqwTj3wc/xe5HLSdJSkJ+WfZw==
 
-strip-outer@^1.0.0:
+strip-outer@^1.0.0, strip-outer@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/strip-outer/-/strip-outer-1.0.1.tgz#b2fd2abf6604b9d1e6013057195df836b8a9d631"
   integrity sha512-k55yxKHwaXnpYGsOzg4Vl8+tDrWylxDEpknGjhTiZB8dFRU5rTo9CAzeycivxV3s+zlTKwrs6WxMxR95n26kwg==
@@ -22319,7 +22344,7 @@ ua-parser-js@0.7.17:
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.17.tgz#e9ec5f9498b9ec910e7ae3ac626a805c4d09ecac"
   integrity sha512-uRdSdu1oA1rncCQL7sCj8vSyZkgtL7faaw9Tc9rZ3mGgraQ7+Pdx7w5mnOSF3gw9ZNG6oc+KXfkon3bKuROm0g==
 
-ua-parser-js@^0.7.18:
+ua-parser-js@^0.7.18, ua-parser-js@^0.7.21:
   version "0.7.21"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.21.tgz#853cf9ce93f642f67174273cc34565ae6f308777"
   integrity sha512-+O8/qh/Qj8CgC6eYBVBykMrNtp5Gebn4dlGD/kKXVkJNDwyrAwSIqwz8CDf+tsAIWVycKcku6gIXJ0qwx/ZXaQ==
