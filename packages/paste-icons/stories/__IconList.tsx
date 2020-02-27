@@ -1,23 +1,22 @@
-
 import * as React from 'react';
 import {Text} from '@twilio-paste/text';
 import {IconSize, TextColor} from '@twilio-paste/style-props';
 import {Grid, StoryIcon} from './__StoryStyles';
 
-import {CheckmarkCircleIcon} from './src/CheckmarkCircleIcon';
-import {ChevronDownIcon} from './src/ChevronDownIcon';
-import {ChevronUpIcon} from './src/ChevronUpIcon';
-import {CloseIcon} from './src/CloseIcon';
-import {CopyIcon} from './src/CopyIcon';
-import {ErrorIcon} from './src/ErrorIcon';
-import {InformationIcon} from './src/InformationIcon';
-import {LinkExternalIcon} from './src/LinkExternalIcon';
-import {LoadingIcon} from './src/LoadingIcon';
-import {MoreIcon} from './src/MoreIcon';
-import {PlusIcon} from './src/PlusIcon';
-import {ProductTwilioOrgIcon} from './src/ProductTwilioOrgIcon';
-import {UploadToCloudIcon} from './src/UploadToCloudIcon';
-import {WarningIcon} from './src/WarningIcon';
+import {CheckmarkCircleIcon} from '../src/CheckmarkCircleIcon';
+import {ChevronDownIcon} from '../src/ChevronDownIcon';
+import {ChevronUpIcon} from '../src/ChevronUpIcon';
+import {CloseIcon} from '../src/CloseIcon';
+import {CopyIcon} from '../src/CopyIcon';
+import {ErrorIcon} from '../src/ErrorIcon';
+import {InformationIcon} from '../src/InformationIcon';
+import {LinkExternalIcon} from '../src/LinkExternalIcon';
+import {LoadingIcon} from '../src/LoadingIcon';
+import {MoreIcon} from '../src/MoreIcon';
+import {PlusIcon} from '../src/PlusIcon';
+import {ProductTwilioOrgIcon} from '../src/ProductTwilioOrgIcon';
+import {UploadToCloudIcon} from '../src/UploadToCloudIcon';
+import {WarningIcon} from '../src/WarningIcon';
 
 interface IconProps {
   title?: string;

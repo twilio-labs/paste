@@ -12,7 +12,7 @@ const SizeOptions = Object.keys(DefaultTheme.iconSizes);
 storiesOf('Overview|Icons', module)
   .addDecorator(withKnobs)
   .add('List', () => {
-    const sizeValue = select('size', SizeOptions, 'sizeIcon20') as IconSize;
+    const sizeValue = select('size', SizeOptions, 'sizeIcon30') as IconSize;
     const iconColorValue = select('iconColor', IconColorOptions, 'currentColor') as TextColor;
 
     return (
