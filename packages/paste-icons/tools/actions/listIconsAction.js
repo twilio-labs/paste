@@ -15,7 +15,7 @@ async function listIconsAction() {
   }
 
   // Write the icons list displayed on Storybook
-  writeToFile(path.join(__dirname, './../../__IconList.tsx'), storybookListTemplate(destinationFiles), 'utf8', {
+  writeToFile(path.join(__dirname, './../../stories/__IconList.tsx'), storybookListTemplate(destinationFiles), 'utf8', {
     errorMessage: `Couldn't update '__IconList' storybook file!`,
   });
 
