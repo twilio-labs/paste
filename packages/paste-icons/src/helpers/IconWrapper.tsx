@@ -19,7 +19,7 @@ export interface IconWrapperProps {
 
 const IconWrapper = styled.span<IconWrapperProps>(
   {
-    display: 'inline-block',
+    display: 'inline-flex',
   },
   compose(
     iconColor,
