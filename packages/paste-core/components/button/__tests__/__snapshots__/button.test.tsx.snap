@@ -39,7 +39,7 @@ exports[`Button States Has a disabled state 1`] = `
   padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.875rem;
-  line-height: 1.25rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -47,16 +47,14 @@ exports[`Button States Has a disabled state 1`] = `
   display: inline-block;
   outline: none;
   background: none;
-  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
-  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   cursor: not-allowed;
-  border-width: 2px;
-  border-style: solid;
   color: #ffffff;
-  border-color: #b3d3e9;
   background-color: #b3d3e9;
+  box-shadow: inset 0 0 0 0.125rem #b3d3e9;
   width: auto;
 }
 
@@ -73,6 +71,7 @@ exports[`Button States Has a disabled state 1`] = `
 .emotion-2:hover,
 .emotion-2:active {
   background-color: #b3d3e9;
+  box-shadow: inset 0 0 0 0.125rem #b3d3e9;
 }
 
 .emotion-6 {
@@ -80,7 +79,7 @@ exports[`Button States Has a disabled state 1`] = `
   padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.875rem;
-  line-height: 1.25rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -88,16 +87,14 @@ exports[`Button States Has a disabled state 1`] = `
   display: inline-block;
   outline: none;
   background: none;
-  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
-  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   cursor: not-allowed;
-  border-width: 2px;
-  border-style: solid;
   background-color: #ffffff;
   color: #b3d3e9;
-  border-color: #b3d3e9;
+  box-shadow: inset 0 0 0 0.125rem #b3d3e9;
   width: auto;
 }
 
@@ -110,7 +107,7 @@ exports[`Button States Has a disabled state 1`] = `
   padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.875rem;
-  line-height: 1.25rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -118,17 +115,16 @@ exports[`Button States Has a disabled state 1`] = `
   display: inline-block;
   outline: none;
   background: none;
-  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
-  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   cursor: not-allowed;
-  border-width: 2px;
-  border-style: solid;
   background-color: #e22525;
   color: #ffffff;
-  border-color: #ecb6b6;
+  box-shadow: inset 0 0 0 0.125rem #e22525;
   background-color: #ecb6b6;
+  box-shadow: inset 0 0 0 0.125rem #ecb6b6;
   width: auto;
 }
 
@@ -153,8 +149,8 @@ exports[`Button States Has a disabled state 1`] = `
   display: inline-block;
   outline: none;
   background: none;
-  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
-  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   cursor: not-allowed;
@@ -178,8 +174,8 @@ exports[`Button States Has a disabled state 1`] = `
   display: inline-block;
   outline: none;
   background: none;
-  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
-  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   cursor: not-allowed;
@@ -203,8 +199,8 @@ exports[`Button States Has a disabled state 1`] = `
   display: inline-block;
   outline: none;
   background: none;
-  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
-  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   cursor: not-allowed;
@@ -333,7 +329,7 @@ exports[`Button States Has a loading state 1`] = `
   padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.875rem;
-  line-height: 1.25rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -341,13 +337,11 @@ exports[`Button States Has a loading state 1`] = `
   display: inline-block;
   outline: none;
   background: none;
-  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
-  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   cursor: wait;
-  border-width: 2px;
-  border-style: solid;
   color: #ffffff;
   width: auto;
 }
@@ -366,8 +360,8 @@ exports[`Button States Has a loading state 1`] = `
 .emotion-6:hover,
 .emotion-6:active,
 .emotion-6:focus {
-  border-color: #032c5e;
   background-color: #032c5e;
+  box-shadow: inset 0 0 0 0.125rem #032c5e;
 }
 
 .emotion-0 {
@@ -445,7 +439,7 @@ exports[`Button States Has a loading state 1`] = `
   padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.875rem;
-  line-height: 1.25rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -453,17 +447,15 @@ exports[`Button States Has a loading state 1`] = `
   display: inline-block;
   outline: none;
   background: none;
-  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
-  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   cursor: wait;
-  border-width: 2px;
-  border-style: solid;
   background-color: #ffffff;
   color: #032c5e;
-  border-color: #dceaf4;
   background-color: #dceaf4;
+  box-shadow: inset 0 0 0 0.125rem #dceaf4;
   width: auto;
 }
 
@@ -476,7 +468,7 @@ exports[`Button States Has a loading state 1`] = `
   padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.875rem;
-  line-height: 1.25rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -484,17 +476,16 @@ exports[`Button States Has a loading state 1`] = `
   display: inline-block;
   outline: none;
   background: none;
-  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
-  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   cursor: wait;
-  border-width: 2px;
-  border-style: solid;
   background-color: #e22525;
   color: #ffffff;
-  border-color: #600101;
+  box-shadow: inset 0 0 0 0.125rem #e22525;
   background-color: #600101;
+  box-shadow: inset 0 0 0 0.125rem #600101;
   width: auto;
 }
 
@@ -519,8 +510,8 @@ exports[`Button States Has a loading state 1`] = `
   display: inline-block;
   outline: none;
   background: none;
-  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
-  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   cursor: wait;
@@ -544,8 +535,8 @@ exports[`Button States Has a loading state 1`] = `
   display: inline-block;
   outline: none;
   background: none;
-  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
-  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   cursor: wait;
@@ -569,8 +560,8 @@ exports[`Button States Has a loading state 1`] = `
   display: inline-block;
   outline: none;
   background: none;
-  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
-  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   cursor: wait;
@@ -902,7 +893,7 @@ exports[`Button Variants Has a destructive variant 1`] = `
   padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.875rem;
-  line-height: 1.25rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -910,18 +901,16 @@ exports[`Button Variants Has a destructive variant 1`] = `
   display: inline-block;
   outline: none;
   background: none;
-  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
-  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
-  border-width: 2px;
-  border-style: solid;
   background-color: #e22525;
   color: #ffffff;
-  border-color: #e22525;
+  box-shadow: inset 0 0 0 0.125rem #e22525;
   width: auto;
 }
 
@@ -948,18 +937,18 @@ exports[`Button Variants Has a destructive variant 1`] = `
 }
 
 .emotion-2:hover {
-  border-color: #600101;
   background-color: #600101;
+  box-shadow: inset 0 0 0 0.125rem #600101;
 }
 
 .emotion-2:focus {
-  border-color: #600101;
   background-color: #e22525;
+  box-shadow: inset 0 0 0 0.125rem #600101,0 0 0 4px rgba(2,122,197,0.8);
 }
 
 .emotion-2:active {
-  border-color: #600101;
   background-color: #921200;
+  box-shadow: inset 0 0 0 0.125rem #600101,0 0 0 4px rgba(2,122,197,0.8);
 }
 
 <div
@@ -1027,8 +1016,8 @@ exports[`Button Variants Has a destructive_link variant 1`] = `
   display: inline-block;
   outline: none;
   background: none;
-  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
-  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   -webkit-text-decoration: none;
@@ -1135,8 +1124,8 @@ exports[`Button Variants Has a link variant 1`] = `
   display: inline-block;
   outline: none;
   background: none;
-  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
-  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   -webkit-text-decoration: none;
@@ -1218,7 +1207,7 @@ exports[`Button Variants Has a primary variant 1`] = `
   padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.875rem;
-  line-height: 1.25rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -1226,18 +1215,16 @@ exports[`Button Variants Has a primary variant 1`] = `
   display: inline-block;
   outline: none;
   background: none;
-  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
-  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
-  border-width: 2px;
-  border-style: solid;
   color: #ffffff;
-  border-color: #027ac5;
   background-color: #027ac5;
+  box-shadow: inset 0 0 0 0.125rem #027ac5;
   width: auto;
 }
 
@@ -1264,18 +1251,18 @@ exports[`Button Variants Has a primary variant 1`] = `
 }
 
 .emotion-2:hover {
-  border-color: #032c5e;
   background-color: #032c5e;
+  box-shadow: inset 0 0 0 0.125rem #032c5e;
 }
 
 .emotion-2:focus {
-  border-color: #032c5e;
   background-color: #027ac5;
+  box-shadow: inset 0 0 0 0.125rem #032c5e,0 0 0 4px rgba(2,122,197,0.8);
 }
 
 .emotion-2:active {
-  border-color: #032c5e;
   background-color: #003e82;
+  box-shadow: inset 0 0 0 0.125rem #032c5e,0 0 0 4px rgba(2,122,197,0.8);
 }
 
 .emotion-0 {
@@ -1362,8 +1349,8 @@ exports[`Button Variants Has a reset variant 1`] = `
   display: inline-block;
   outline: none;
   background: none;
-  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
-  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   -webkit-text-decoration: none;
@@ -1447,7 +1434,7 @@ exports[`Button Variants Has a secondary variant 1`] = `
   padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.875rem;
-  line-height: 1.25rem;
+  line-height: 1.5rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -1455,19 +1442,17 @@ exports[`Button Variants Has a secondary variant 1`] = `
   display: inline-block;
   outline: none;
   background: none;
-  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
-  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
-  border-width: 2px;
-  border-style: solid;
   background-color: #ffffff;
   color: #005ea6;
-  border-color: #027ac5;
   background-color: #ffffff;
+  box-shadow: inset 0 0 0 0.125rem #027ac5;
   width: auto;
 }
 
@@ -1489,20 +1474,20 @@ exports[`Button Variants Has a secondary variant 1`] = `
 
 .emotion-2:hover {
   color: #032c5e;
-  border-color: #032c5e;
   background-color: #f5f8ff;
+  box-shadow: inset 0 0 0 0.125rem #032c5e;
 }
 
 .emotion-2:focus {
   color: #032c5e;
-  border-color: #032c5e;
   background-color: #f5f8ff;
+  box-shadow: inset 0 0 0 0.125rem #032c5e,0 0 0 4px rgba(2,122,197,0.8);
 }
 
 .emotion-2:active {
   color: #032c5e;
-  border-color: #032c5e;
   background-color: #dceaf4;
+  box-shadow: inset 0 0 0 0.125rem #032c5e,0 0 0 4px rgba(2,122,197,0.8);
 }
 
 <div
