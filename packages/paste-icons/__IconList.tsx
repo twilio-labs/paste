@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import {Text} from '@twilio-paste/text';
-import {IconSize, TextColor} from '@twilio-paste/types';
+import {IconSize, TextColor} from '@twilio-paste/style-props';
 import {Grid, StoryIcon} from './__StoryStyles';
 
 import {CheckmarkCircleIcon} from './src/CheckmarkCircleIcon';
