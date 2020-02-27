@@ -23,14 +23,14 @@ const sizeSmall = (props: ButtonWrapperProps): SerializedStyles => css`
   padding: ${themeGet('space.space10')(props)} ${themeGet('space.space30')(props)};
   border-radius: ${themeGet('radii.borderRadius10')(props)};
   font-size: ${themeGet('fontSizes.fontSize30')(props)};
-  line-height: ${themeGet('lineHeights.lineHeight20')(props)};
+  line-height: ${themeGet('lineHeights.lineHeight30')(props)};
 `;
 const sizeDefault = (props: ButtonWrapperProps): SerializedStyles => css`
   padding: ${themeGet('space.space30')(props)} ${themeGet('space.space50')(props)};
   border-radius: ${themeGet('radii.borderRadius20')(props)};
   font-size: ${themeGet('fontSizes.fontSize30')(props)};
 
-  line-height: ${themeGet('lineHeights.lineHeight20')(props)};
+  line-height: ${themeGet('lineHeights.lineHeight30')(props)};
 `;
 
 /*
@@ -43,7 +43,7 @@ const baseButtonWrapper = (props: ButtonWrapperProps): SerializedStyles => css`
   display: inline-block;
   outline: none;
   background: none;
-  transition: background-color 100ms ease-in, border-color 100ms ease-in;
+  transition: background-color 100ms ease-in, box-shadow 100ms ease-in;
   font-family: ${themeGet('fonts.fontFamilyText')(props)};
   font-weight: ${themeGet('fontWeights.fontWeightSemibold')(props)};
 
@@ -95,8 +95,6 @@ const baseDisabled = (props: ButtonWrapperProps): SerializedStyles =>
  */
 // Primary
 const variantPrimaryBase = (props: ButtonWrapperProps): SerializedStyles => css`
-  border-width: ${themeGet('borderWidths.borderWidth20')(props)};
-  border-style: solid;
   color: ${themeGet('textColors.colorTextInverse')(props)};
 
   /*
@@ -115,20 +113,26 @@ const variantPrimaryEnabled = (props: ButtonWrapperProps): SerializedStyles =>
     baseEnabled(props),
     variantPrimaryBase(props),
     css`
-      border-color: ${themeGet('borderColors.colorBorderPrimary')(props)};
       background-color: ${themeGet('backgroundColors.colorBackgroundPrimary')(props)};
+      box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
+        ${themeGet('backgroundColors.colorBackgroundPrimary')(props)};
 
       &:hover {
-        border-color: ${themeGet('borderColors.colorBorderPrimaryDarker')(props)};
         background-color: ${themeGet('backgroundColors.colorBackgroundPrimaryDarker')(props)};
+        box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
+          ${themeGet('backgroundColors.colorBackgroundPrimaryDarker')(props)};
       }
       &:focus {
-        border-color: ${themeGet('borderColors.colorBorderPrimaryDarker')(props)};
         background-color: ${themeGet('backgroundColors.colorBackgroundPrimary')(props)};
+        box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
+            ${themeGet('backgroundColors.colorBackgroundPrimaryDarker')(props)},
+          ${themeGet('shadows.shadowFocus')(props)};
       }
       &:active {
-        border-color: ${themeGet('borderColors.colorBorderPrimaryDarker')(props)};
         background-color: ${themeGet('backgroundColors.colorBackgroundPrimaryDark')(props)};
+        box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
+            ${themeGet('backgroundColors.colorBackgroundPrimaryDarker')(props)},
+          ${themeGet('shadows.shadowFocus')(props)};
       }
     `,
   ]);
@@ -141,8 +145,9 @@ const variantPrimaryLoading = (props: ButtonWrapperProps): SerializedStyles =>
       &:hover,
       &:active,
       &:focus {
-        border-color: ${themeGet('borderColors.colorBorderPrimaryDarker')(props)};
         background-color: ${themeGet('backgroundColors.colorBackgroundPrimaryDarker')(props)};
+        box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
+          ${themeGet('backgroundColors.colorBackgroundPrimaryDarker')(props)};
       }
     `,
   ]);
@@ -151,20 +156,21 @@ const variantPrimaryDisabled = (props: ButtonWrapperProps): SerializedStyles =>
     baseDisabled(props),
     variantPrimaryBase(props),
     css`
-      border-color: ${themeGet('borderColors.colorBorderPrimaryLight')(props)};
       background-color: ${themeGet('backgroundColors.colorBackgroundPrimaryLight')(props)};
+      box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
+        ${themeGet('backgroundColors.colorBackgroundPrimaryLight')(props)};
 
       &:hover,
       &:active {
         background-color: ${themeGet('backgroundColors.colorBackgroundPrimaryLight')(props)};
+        box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
+          ${themeGet('backgroundColors.colorBackgroundPrimaryLight')(props)};
       }
     `,
   ]);
 
 // Secondary
 const variantSecondaryBase = (props: ButtonWrapperProps): SerializedStyles => css`
-  border-width: ${themeGet('borderWidths.borderWidth20')(props)};
-  border-style: solid;
   background-color: ${themeGet('backgroundColors.colorBackgroundBody')(props)};
 `;
 const variantSecondaryEnabled = (props: ButtonWrapperProps): SerializedStyles =>
@@ -173,25 +179,30 @@ const variantSecondaryEnabled = (props: ButtonWrapperProps): SerializedStyles =>
     variantSecondaryBase(props),
     css`
       color: ${themeGet('textColors.colorTextLink')(props)};
-      border-color: ${themeGet('borderColors.colorBorderPrimary')(props)};
       background-color: ${themeGet('backgroundColors.colorBackgroundBody')(props)};
+      box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)} ${themeGet('borderColors.colorBorderPrimary')(props)};
 
       &:hover {
         color: ${themeGet('textColors.colorTextLinkDarker')(props)};
-        border-color: ${themeGet('borderColors.colorBorderPrimaryDarker')(props)};
         background-color: ${themeGet('backgroundColors.colorBackgroundPrimaryLightest')(props)};
+        box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
+          ${themeGet('borderColors.colorBorderPrimaryDarker')(props)};
       }
 
       &:focus {
         color: ${themeGet('textColors.colorTextLinkDarker')(props)};
-        border-color: ${themeGet('borderColors.colorBorderPrimaryDarker')(props)};
         background-color: ${themeGet('backgroundColors.colorBackgroundPrimaryLightest')(props)};
+        box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
+            ${themeGet('borderColors.colorBorderPrimaryDarker')(props)},
+          ${themeGet('shadows.shadowFocus')(props)};
       }
 
       &:active {
         color: ${themeGet('textColors.colorTextLinkDarker')(props)};
-        border-color: ${themeGet('borderColors.colorBorderPrimaryDarker')(props)};
         background-color: ${themeGet('backgroundColors.colorBackgroundPrimaryLighter')(props)};
+        box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
+            ${themeGet('borderColors.colorBorderPrimaryDarker')(props)},
+          ${themeGet('shadows.shadowFocus')(props)};
       }
     `,
   ]);
@@ -201,8 +212,9 @@ const variantSecondaryLoading = (props: ButtonWrapperProps): SerializedStyles =>
     variantSecondaryBase(props),
     css`
       color: ${themeGet('textColors.colorTextLinkDarker')(props)};
-      border-color: ${themeGet('borderColors.colorBorderPrimaryLighter')(props)};
       background-color: ${themeGet('backgroundColors.colorBackgroundPrimaryLighter')(props)};
+      box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
+        ${themeGet('borderColors.colorBorderPrimaryLighter')(props)};
     `,
   ]);
 const variantSecondaryDisabled = (props: ButtonWrapperProps): SerializedStyles =>
@@ -211,16 +223,17 @@ const variantSecondaryDisabled = (props: ButtonWrapperProps): SerializedStyles =
     variantSecondaryBase(props),
     css`
       color: ${themeGet('textColors.colorTextLinkLight')(props)};
-      border-color: ${themeGet('borderColors.colorBorderPrimaryLight')(props)};
+      box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
+        ${themeGet('borderColors.colorBorderPrimaryLight')(props)};
     `,
   ]);
 
 // Destructive
 const variantDestructiveBase = (props: ButtonWrapperProps): SerializedStyles => css`
-  border-width: ${themeGet('borderWidths.borderWidth20')(props)};
-  border-style: solid;
   background-color: ${themeGet('backgroundColors.colorBackgroundDestructive')(props)};
   color: ${themeGet('textColors.colorTextInverse')(props)};
+  box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
+    ${themeGet('backgroundColors.colorBackgroundDestructive')(props)};
 
   /*
     defensively resetting from over zealous legacy global
@@ -238,21 +251,24 @@ const variantDestructiveEnabled = (props: ButtonWrapperProps): SerializedStyles 
     baseEnabled(props),
     variantDestructiveBase(props),
     css`
-      border-color: ${themeGet('borderColors.colorBorderDestructive')(props)};
-
       &:hover {
-        border-color: ${themeGet('borderColors.colorBorderDestructiveDarker')(props)};
         background-color: ${themeGet('backgroundColors.colorBackgroundDestructiveDarker')(props)};
+        box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
+          ${themeGet('backgroundColors.colorBackgroundDestructiveDarker')(props)};
       }
 
       &:focus {
-        border-color: ${themeGet('borderColors.colorBorderDestructiveDarker')(props)};
         background-color: ${themeGet('backgroundColors.colorBackgroundDestructive')(props)};
+        box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
+            ${themeGet('backgroundColors.colorBackgroundDestructiveDarker')(props)},
+          ${themeGet('shadows.shadowFocus')(props)};
       }
 
       &:active {
-        border-color: ${themeGet('borderColors.colorBorderDestructiveDarker')(props)};
         background-color: ${themeGet('backgroundColors.colorBackgroundDestructiveDark')(props)};
+        box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
+            ${themeGet('backgroundColors.colorBackgroundDestructiveDarker')(props)},
+          ${themeGet('shadows.shadowFocus')(props)};
       }
     `,
   ]);
@@ -261,8 +277,9 @@ const variantDestructiveLoading = (props: ButtonWrapperProps): SerializedStyles 
     baseLoading(props),
     variantDestructiveBase(props),
     css`
-      border-color: ${themeGet('borderColors.colorBorderDestructiveDarker')(props)};
       background-color: ${themeGet('backgroundColors.colorBackgroundDestructiveDarker')(props)};
+      box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
+        ${themeGet('backgroundColors.colorBackgroundDestructiveDarker')(props)};
     `,
   ]);
 const variantDestructiveDisabled = (props: ButtonWrapperProps): SerializedStyles =>
@@ -270,8 +287,9 @@ const variantDestructiveDisabled = (props: ButtonWrapperProps): SerializedStyles
     baseDisabled(props),
     variantDestructiveBase(props),
     css`
-      border-color: ${themeGet('borderColors.colorBorderDestructiveLight')(props)};
       background-color: ${themeGet('backgroundColors.colorBackgroundDestructiveLight')(props)};
+      box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
+        ${themeGet('backgroundColors.colorBackgroundDestructiveLight')(props)};
     `,
   ]);
 
