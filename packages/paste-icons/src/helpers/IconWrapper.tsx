@@ -28,7 +28,7 @@ const IconWrapper = styled.span<IconWrapperProps>(
 );
 
 IconWrapper.defaultProps = {
-  size: 'sizeIcon20',
+  size: 'sizeIcon30',
   iconColor: 'currentColor',
 };
 
