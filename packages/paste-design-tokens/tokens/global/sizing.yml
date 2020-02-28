@@ -3,6 +3,7 @@ global:
   category: sizing
 imports:
   - ../aliases/sizing.yml
+  - ../aliases/line-height.yml
 props:
   size-0:
     value: "{!size-0}"
@@ -46,14 +47,35 @@ props:
 
   # icons
   size-icon-10:
-    value: "{!size-square-30}"
-    comment: Icon sizing token
+    value: "{!line-height-10}"
+    comment: "Maps to line-height tokens 1:1"
   size-icon-20:
-    value: "{!size-square-40}"
-    comment: Icon sizing token
+    value: "{!line-height-20}"
+    comment: "Maps to line-height tokens 1:1"
   size-icon-30:
-    value: "{!size-square-50}"
-    comment: Icon sizing token
+    value: "{!line-height-30}"
+    comment: "Maps to line-height tokens 1:1"
   size-icon-40:
-    value: "{!size-square-70}"
-    comment: Icon sizing token
+    value: "{!line-height-40}"
+    comment: "Maps to line-height tokens 1:1"
+  size-icon-50:
+    value: "{!line-height-50}"
+    comment: "Maps to line-height tokens 1:1"
+  size-icon-60:
+    value: "{!line-height-60}"
+    comment: "Maps to line-height tokens 1:1"
+  size-icon-70:
+    value: "{!line-height-70}"
+    comment: "Maps to line-height tokens 1:1"
+  size-icon-80:
+    value: "{!line-height-80}"
+    comment: "Maps to line-height tokens 1:1"
+  size-icon-90:
+    value: "{!line-height-90}"
+    comment: "Maps to line-height tokens 1:1"
+  size-icon-100:
+    value: "{!line-height-100}"
+    comment: "Maps to line-height tokens 1:1"
+  size-icon-110:
+    value: "{!line-height-110}"
+    comment: "Maps to line-height tokens 1:1"
