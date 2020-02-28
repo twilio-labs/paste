@@ -1,37 +1,39 @@
 global:
   category: line-height
   type: number
+imports:
+  - ../aliases/line-height.yml
 props:
   line-height-10:
-    value: "1rem" ##10px * 1.55 = 16px / 16 = 1
-    comment: "Constant line-height token for font size 10"
+    value: "{!line-height-10}"
+    comment: "10px * 1.55 = 16px / 16 = 1"
   line-height-20:
-    value: "1.25rem" ##12px * 1.55 = 20px / 16 = 1.25
-    comment: "Constant line-height token for font size 20"
+    value: "{!line-height-20}"
+    comment: "12px * 1.55 = 20px / 16 = 1.25"
   line-height-30:
-    value: "1.5rem" ##14px * 1.55 = 24px / 16 = 1.5
-    comment: "Constant line-height token for font size 30"
+    value: "{!line-height-30}"
+    comment: "14px * 1.55 = 24px / 16 = 1.5"
   line-height-40:
-    value: "1.75rem" ##16px * 1.55 = 28px / 16 = 1.75
-    comment: "Constant line-height token for font size 40"
+    value: "{!line-height-40}"
+    comment: "16px * 1.55 = 28px / 16 = 1.75"
   line-height-50:
-    value: "1.75rem" ##18px * 1.55 = 28px / 16 = 1.75
-    comment: "Constant line-height token for font size 50"
+    value: "{!line-height-50}"
+    comment: "18px * 1.55 = 28px / 16 = 1.75"
   line-height-60:
-    value: "1.75rem" ##20px * 1.25 = 28px / 16 = 1.75
-    comment: "Constant line-height token for font size 60"
+    value: "{!line-height-60}"
+    comment: "20px * 1.25 = 28px / 16 = 1.75"
   line-height-70:
-    value: "2rem" ##24px * 1.25 = 32px / 16 = 2
-    comment: "Constant line-height token for font size 70"
+    value: "{!line-height-70}"
+    comment: "24px * 1.25 = 32px / 16 = 2"
   line-height-80:
-    value: "2.25rem" ##28px * 1.25 = 36px / 16 = 2.25
-    comment: "Constant line-height token for font size 80"
+    value: "{!line-height-80}"
+    comment: "28px * 1.25 = 36px / 16 = 2.25"
   line-height-90:
-    value: "2.5rem" ##32px * 1.25 = 40px / 16 = 2.5
-    comment: "Constant line-height token for font size 90"
+    value: "{!line-height-90}"
+    comment: "32px * 1.25 = 40px / 16 = 2.5"
   line-height-100:
-    value: "3.25rem" ##40px * 1.25 = 52px / 16 = 3.25
-    comment: "Constant line-height token for font size 100"
+    value: "{!line-height-100}"
+    comment: "40px * 1.25 = 52px / 16 = 3.25"
   line-height-110:
-    value: "3.75rem" ##48px * 1.25 = 60px / 16 = 3.75
-    comment: "Constant line-height token for font size 110"
+    value: "{!line-height-110}"
+    comment: "48px * 1.25 = 60px / 16 = 3.75"
