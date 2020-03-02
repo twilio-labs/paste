@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@1.7.2...@twilio-paste/icons@2.0.0) (2020-03-02)
+
+
+### Bug Fixes
+
+* **icons:** change IconWrapper to inline-flex ([e02f3d5](https://github.com/twilio-labs/paste/commit/e02f3d53dd082fb3354abb957d93f5c861f83343))
+* **icons:** rename SVG file to remove 'Icon' suffix ([f0437d9](https://github.com/twilio-labs/paste/commit/f0437d90983b474a231f4d9ec7e83fdd7d9d5233))
+* **icons:** update default icon size ([7e3d2e0](https://github.com/twilio-labs/paste/commit/7e3d2e01188746f80fd94e0cce2430ab6852689e))
+* **icons:** update several icons ([94f5c70](https://github.com/twilio-labs/paste/commit/94f5c703d9d8ed110d7f5e5c7288ce5698f82822))
+* **storybook:** incorrect import package (types -> style-props) ([b199a10](https://github.com/twilio-labs/paste/commit/b199a1030749238f6965227524cd7178a3302d31))
+
+
+### BREAKING CHANGES
+
+* **icons:** Renamed some SVG files to remove icon suffix
+
+
+
+
+
 ## [1.7.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@1.7.1...@twilio-paste/icons@1.7.2) (2020-02-28)
 
 **Note:** Version bump only for package @twilio-paste/icons
