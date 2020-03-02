@@ -6,34 +6,34 @@ imports:
 props:
   line-height-10:
     value: "{!line-height-10}"
-    comment: "10px * 1.55 = 16px / 16 = 1"
+    comment: "fontSize10's lineHeight mapping. fontSize10 * 1.55 = 16px / 16 = 1rem"
   line-height-20:
     value: "{!line-height-20}"
-    comment: "12px * 1.55 = 20px / 16 = 1.25"
+    comment: "fontSize20's lineHeight mapping. fontSize20 * 1.55 = 20px / 16 = 1.25rem"
   line-height-30:
     value: "{!line-height-30}"
-    comment: "14px * 1.55 = 24px / 16 = 1.5"
+    comment: "fontSize30's lineHeight mapping. fontSize30 * 1.55 = 24px / 16 = 1.5rem"
   line-height-40:
     value: "{!line-height-40}"
-    comment: "16px * 1.55 = 28px / 16 = 1.75"
+    comment: "fontSize40's lineHeight mapping. fontSize40 * 1.55 = 28px / 16 = 1.75rem"
   line-height-50:
     value: "{!line-height-50}"
-    comment: "18px * 1.55 = 28px / 16 = 1.75"
+    comment: "fontSize50's lineHeight mapping. fontSize50 * 1.55 = 28px / 16 = 1.75rem"
   line-height-60:
     value: "{!line-height-60}"
-    comment: "20px * 1.25 = 28px / 16 = 1.75"
+    comment: "fontSize60's lineHeight mapping. fontSize60 * 1.25 = 28px / 16 = 1.75rem"
   line-height-70:
     value: "{!line-height-70}"
-    comment: "24px * 1.25 = 32px / 16 = 2"
+    comment: "fontSize70's lineHeight mapping. fontSize70 * 1.25 = 32px / 16 = 2rem"
   line-height-80:
     value: "{!line-height-80}"
-    comment: "28px * 1.25 = 36px / 16 = 2.25"
+    comment: "fontSize80's lineHeight mapping. fontSize80 * 1.25 = 36px / 16 = 2.25rem"
   line-height-90:
     value: "{!line-height-90}"
-    comment: "32px * 1.25 = 40px / 16 = 2.5"
+    comment: "fontSize90's lineHeight mapping. fontSize90 * 1.25 = 40px / 16 = 2.5rem"
   line-height-100:
     value: "{!line-height-100}"
-    comment: "40px * 1.25 = 52px / 16 = 3.25"
+    comment: "fontSize100's lineHeight mapping. fontSize100 * 1.25 = 52px / 16 = 3.25rem"
   line-height-110:
     value: "{!line-height-110}"
-    comment: "48px * 1.25 = 60px / 16 = 3.75"
+    comment: "fontSize110's lineHeight mapping. fontSize110 * 1.25 = 60px / 16 = 3.75rem"
