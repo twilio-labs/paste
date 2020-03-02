@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@2.0.0...@twilio-paste/icons@2.0.1) (2020-03-02)
+
+**Note:** Version bump only for package @twilio-paste/icons
+
+
+
+
+
 # [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@1.7.2...@twilio-paste/icons@2.0.0) (2020-03-02)
 
 

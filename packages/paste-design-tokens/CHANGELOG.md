@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@4.1.4...@twilio-paste/design-tokens@4.2.0) (2020-03-02)
+
+
+### Features
+
+* **design-tokens:** consistent iconsize to line-height tokens ([#339](https://github.com/twilio-labs/paste/issues/339)) ([00cb441](https://github.com/twilio-labs/paste/commit/00cb4417551a046518bfc7a049201e49ddac1641))
+
+
+
+
+
 ## [4.1.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@4.1.3...@twilio-paste/design-tokens@4.1.4) (2020-02-28)
 
 **Note:** Version bump only for package @twilio-paste/design-tokens
