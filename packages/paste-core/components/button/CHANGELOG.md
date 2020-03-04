@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.24](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.1.23...@twilio-paste/button@1.1.24) (2020-03-04)
+
+
+### Bug Fixes
+
+* **button:** change borders to box-shadow ([689061d](https://github.com/twilio-labs/paste/commit/689061d4c4c9a5f033d74c4af7e0ca1f211b12d1))
+
+
+
+
+
 ## [1.1.23](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.1.22...@twilio-paste/button@1.1.23) (2020-03-02)
 
 **Note:** Version bump only for package @twilio-paste/button
