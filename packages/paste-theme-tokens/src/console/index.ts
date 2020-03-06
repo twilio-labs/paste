@@ -19,12 +19,18 @@ const breakpoints = [sizings.size40, sizings.size100, sizings.size120];
 
 export const ConsoleTheme = {
   shadows: boxShadows,
-  backgroundColors,
-  borderColors,
   borderWidths,
   radii,
   breakpoints,
-  colors,
+  colors: {
+    ...backgroundColors,
+    ...borderColors,
+    ...textColors,
+    ...colors,
+  },
+  textColors,
+  borderColors,
+  backgroundColors,
   fonts,
   fontSizes,
   fontWeights,
@@ -50,6 +56,5 @@ export const ConsoleTheme = {
     sizeIcon110: sizings.sizeIcon110,
   },
   space: spacings,
-  textColors,
   zIndices,
 };
