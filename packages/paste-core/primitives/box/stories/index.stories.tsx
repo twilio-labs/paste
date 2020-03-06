@@ -138,4 +138,21 @@ storiesOf('Primitives|Box', module)
         </Text>
       </Box>
     );
+  })
+  .add('Pseudo-classes with props', () => {
+    return (
+      <Box
+        backgroundColor="colorBackgroundPrimaryLight"
+        height="size20"
+        position="relative"
+        _hover={{padding: 'space20', backgroundColor: 'colorBackgroundPrimaryLighter'}}
+        _first={{margin: 'space10'}}
+        _before={{content: `"Before text"`, position: 'absolute', bottom: 0, left: 0}}
+        _after={{content: `"After text"`, position: 'absolute', bottom: 0, right: 0}}
+      >
+        <Text as="p" textColor="colorText">
+          Hover this box
+        </Text>
+      </Box>
+    );
   });
