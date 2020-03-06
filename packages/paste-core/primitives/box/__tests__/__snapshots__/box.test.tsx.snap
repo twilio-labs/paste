@@ -473,6 +473,152 @@ exports[`Spaces (B)it should render responsive values 1`] = `
 </div>
 `;
 
+exports[`ZIndex Pseudo-class props it should generate pseudo-class CSS 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.emotion-0:hover {
+  padding: 0.125rem;
+}
+
+.emotion-0:active,
+.emotion-0[data-active=true] {
+  padding: 0.125rem;
+}
+
+.emotion-0:focus {
+  padding: 0.125rem;
+}
+
+.emotion-0:visited {
+  padding: 0.125rem;
+}
+
+.emotion-0:nth-of-type(even) {
+  padding: 0.125rem;
+}
+
+.emotion-0:nth-of-type(odd) {
+  padding: 0.125rem;
+}
+
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
+  padding: 0.125rem;
+}
+
+.emotion-0[aria-checked=true] {
+  padding: 0.125rem;
+}
+
+.emotion-0[aria-checked=mixed] {
+  padding: 0.125rem;
+}
+
+.emotion-0[aria-selected=true] {
+  padding: 0.125rem;
+}
+
+.emotion-0[aria-invalid=true] {
+  padding: 0.125rem;
+}
+
+.emotion-0[aria-pressed=true] {
+  padding: 0.125rem;
+}
+
+.emotion-0[aria-readonly=true],
+.emotion-0[readonly] {
+  padding: 0.125rem;
+}
+
+.emotion-0:first-of-type {
+  padding: 0.125rem;
+}
+
+.emotion-0:last-of-type {
+  padding: 0.125rem;
+}
+
+.emotion-0[aria-expanded=true] {
+  padding: 0.125rem;
+}
+
+.emotion-0[aria-grabbed=true] {
+  padding: 0.125rem;
+}
+
+.emotion-0:not(:first-of-type) {
+  padding: 0.125rem;
+}
+
+.emotion-0:not(:last-of-type) {
+  padding: 0.125rem;
+}
+
+[role=group]:hover .emotion-0 {
+  padding: 0.125rem;
+}
+
+.emotion-0:before {
+  padding: 0.125rem;
+}
+
+.emotion-0:after {
+  padding: 0.125rem;
+}
+
+.emotion-0:focus-within {
+  padding: 0.125rem;
+}
+
+.emotion-0::-webkit-input-placeholder {
+  padding: 0.125rem;
+}
+
+.emotion-0::-moz-placeholder {
+  padding: 0.125rem;
+}
+
+.emotion-0:-ms-input-placeholder {
+  padding: 0.125rem;
+}
+
+.emotion-0::placeholder {
+  padding: 0.125rem;
+}
+
+<div
+  className="emotion-2"
+>
+  <div
+    className="emotion-0 emotion-1"
+  >
+    PseudoBox
+  </div>
+</div>
+`;
+
 exports[`ZIndex it should render responsive values 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
