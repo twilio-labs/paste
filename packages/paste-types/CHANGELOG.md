@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/types@2.2.7...@twilio-paste/types@2.2.8) (2020-03-06)
+
+
+### Bug Fixes
+
+* add missing transitive peerDep on '@styled-system/css' ([fdbb813](https://github.com/twilio-labs/paste/commit/fdbb81370cda71037348742a680299ce481eabfd))
+
+
+
+
+
 ## [2.2.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/types@2.2.6...@twilio-paste/types@2.2.7) (2020-03-02)
 
 **Note:** Version bump only for package @twilio-paste/types

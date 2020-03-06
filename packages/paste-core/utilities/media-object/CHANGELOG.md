@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/media-object@1.2.4...@twilio-paste/media-object@1.2.5) (2020-03-06)
+
+
+### Bug Fixes
+
+* add missing transitive peerDep on '@styled-system/css' ([fdbb813](https://github.com/twilio-labs/paste/commit/fdbb81370cda71037348742a680299ce481eabfd))
+
+
+
+
+
 ## [1.2.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/media-object@1.2.3...@twilio-paste/media-object@1.2.4) (2020-03-02)
 
 **Note:** Version bump only for package @twilio-paste/media-object

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.25](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.1.24...@twilio-paste/button@1.1.25) (2020-03-06)
+
+
+### Bug Fixes
+
+* add missing transitive peerDep on '@styled-system/css' ([fdbb813](https://github.com/twilio-labs/paste/commit/fdbb81370cda71037348742a680299ce481eabfd))
+
+
+
+
+
 ## [1.1.24](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.1.23...@twilio-paste/button@1.1.24) (2020-03-04)
 
 

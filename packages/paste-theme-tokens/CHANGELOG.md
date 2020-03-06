@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-tokens@3.1.0...@twilio-paste/theme-tokens@3.1.1) (2020-03-06)
+
+
+### Bug Fixes
+
+* **theme-tokens:** add background, text, border colors to `colors` key ([3868a1c](https://github.com/twilio-labs/paste/commit/3868a1c422c13d4ea8bbf0a701b4e47d356f5ebf))
+
+
+
+
+
 # [3.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-tokens@3.0.5...@twilio-paste/theme-tokens@3.1.0) (2020-03-02)
 
 

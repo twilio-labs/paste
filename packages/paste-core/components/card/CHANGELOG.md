@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.13](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.3.12...@twilio-paste/card@1.3.13) (2020-03-06)
+
+
+### Bug Fixes
+
+* add missing transitive peerDep on '@styled-system/css' ([fdbb813](https://github.com/twilio-labs/paste/commit/fdbb81370cda71037348742a680299ce481eabfd))
+
+
+
+
+
 ## [1.3.12](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.3.11...@twilio-paste/card@1.3.12) (2020-03-02)
 
 **Note:** Version bump only for package @twilio-paste/card
