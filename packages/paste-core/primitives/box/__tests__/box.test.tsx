@@ -201,4 +201,44 @@ describe('ZIndex', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  describe('Pseudo-class props', () => {
+    it('it should generate pseudo-class CSS', (): void => {
+      const tree = renderer
+        .create(
+          <Theme.Provider theme="console">
+            <Box
+              _hover={{padding: 'space10'}}
+              _active={{padding: 'space10'}}
+              _focus={{padding: 'space10'}}
+              _visited={{padding: 'space10'}}
+              _even={{padding: 'space10'}}
+              _odd={{padding: 'space10'}}
+              _disabled={{padding: 'space10'}}
+              _checked={{padding: 'space10'}}
+              _mixed={{padding: 'space10'}}
+              _selected={{padding: 'space10'}}
+              _invalid={{padding: 'space10'}}
+              _pressed={{padding: 'space10'}}
+              _readOnly={{padding: 'space10'}}
+              _first={{padding: 'space10'}}
+              _last={{padding: 'space10'}}
+              _expanded={{padding: 'space10'}}
+              _grabbed={{padding: 'space10'}}
+              _notFirst={{padding: 'space10'}}
+              _notLast={{padding: 'space10'}}
+              _groupHover={{padding: 'space10'}}
+              _before={{padding: 'space10'}}
+              _after={{padding: 'space10'}}
+              _focusWithin={{padding: 'space10'}}
+              _placeholder={{padding: 'space10'}}
+            >
+              PseudoBox
+            </Box>
+          </Theme.Provider>
+        )
+        .toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+  });
 });
