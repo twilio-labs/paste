@@ -29,6 +29,7 @@
   },
   "peerDependencies": {
     "@emotion/styled": "^10.0.10",
+    "@styled-system/css": "^5.1.5",
     "@twilio-paste/absolute": "^2.0.17",
     "@twilio-paste/box": "^2.1.12",
     "@twilio-paste/design-tokens": "^4.2.0",

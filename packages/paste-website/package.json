@@ -21,6 +21,7 @@
     "@mdx-js/mdx": "^1.0.23",
     "@mdx-js/react": "^1.0.23",
     "@mdx-js/tag": "^0.20.3",
+    "@styled-system/css": "^5.1.5",
     "@styled-system/theme-get": "^5.1.2",
     "@twilio-paste/absolute": "^2.0.17",
     "@twilio-paste/alert": "^0.1.20",

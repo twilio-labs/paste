@@ -92,6 +92,7 @@
     "@types/react-test-renderer": "^16.8.2",
     "@types/storybook__addon-info": "^5.2.1",
     "@types/styled-system": "^5.1.2",
+    "@types/styled-system__css": "^5.0.5",
     "@types/webpack": "^4.4.34",
     "@types/webpack-env": "^1.13.9",
     "@typescript-eslint/eslint-plugin": "^1.11.0",
