@@ -30,6 +30,7 @@
   "peerDependencies": {
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.14",
+    "@styled-system/css": "^5.1.5",
     "@styled-system/theme-get": "^5.1.2",
     "@twilio-paste/absolute": "^2.0.17",
     "@twilio-paste/box": "^2.1.12",

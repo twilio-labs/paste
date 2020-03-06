@@ -49,6 +49,7 @@
   "peerDependencies": {
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.10",
+    "@styled-system/css": "^5.1.5",
     "@styled-system/theme-get": "^5.1.2",
     "@twilio-paste/design-tokens": "^4.2.0",
     "@twilio-paste/icons": "^2.0.1",
