@@ -1,18 +1,21 @@
 import styled from '@emotion/styled';
 import {compose, space, display, verticalAlign, overflow, typography, system} from 'styled-system';
+import {CursorProperty} from 'csstype';
 import {SpaceProps, Display, VerticalAlign, OverflowProps, TypographyProps} from '@twilio-paste/style-props';
 
 export interface TextProps extends React.HTMLAttributes<any>, SpaceProps, OverflowProps, TypographyProps {
   as: keyof JSX.IntrinsicElements;
   display?: Display;
   verticalAlign?: VerticalAlign;
+  cursor?: CursorProperty;
 }
 
-const textColor = system({
+const extraConfig = system({
   textColor: {
     property: 'color',
     scale: 'textColors',
   },
+  cursor: true,
 });
 const textDecoration = system({textDecoration: true});
 
@@ -28,7 +31,7 @@ const Text = styled.span(
     overflow,
     textDecoration,
     typography,
-    textColor
+    extraConfig
   )
   // we do this because the default typings of emotion styled
   // means Text gets typed as a span, and can't be extended
