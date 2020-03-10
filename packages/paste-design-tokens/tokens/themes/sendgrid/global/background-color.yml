@@ -41,6 +41,9 @@ props:
   color-background-error-lightest:
     value: "{!palette-red-10}"
     comment: Lightest error background color
+  color-background-required:
+    value: "{!palette-red-40}"
+    comment: Required background color
 
   # row backgrounds
   color-background-row-striped:
