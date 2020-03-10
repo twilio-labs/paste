@@ -7,5 +7,15 @@
   "include": [
     "src/**/*"
   ],
-  "references": []
+  "references": [
+    {
+      "path": "../../../paste-design-tokens"
+    },
+    {
+      "path": "../../../paste-theme-tokens"
+    },
+    {
+      "path": "../../../paste-style-props"
+    }
+  ]
 }

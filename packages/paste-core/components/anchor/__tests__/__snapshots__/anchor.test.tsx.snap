@@ -141,7 +141,7 @@ exports[`Anchor it should render an external anchor with overwritten target and 
     className="emotion-0 emotion-1"
     href="https://twilio.com"
     rel="noopener"
-    target="_blank"
+    target="_self"
   >
     This is an anchor that links to Twilio.com with the target and rel overwritten
   </a>

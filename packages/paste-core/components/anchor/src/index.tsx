@@ -1,21 +1,21 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {StyledAnchor} from './styles';
+import {compose, layout, space} from 'styled-system';
+import styled from '@emotion/styled';
+import css from '@styled-system/css';
+import {LayoutProps, SpaceProps} from '@twilio-paste/style-props';
 
 export type AnchorTargets = '_self' | '_blank' | '_parent' | '_top';
 export type AnchorTabIndexes = 0 | -1;
 
-export interface AnchorProps {
-  className?: never;
+export interface AnchorProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>, LayoutProps, SpaceProps {
   children: NonNullable<React.ReactNode>;
   href: string;
-  id?: never;
-  onBlur?(event: React.FocusEvent<HTMLElement>): void;
-  onClick?(event: React.MouseEvent<HTMLElement>): void;
-  onFocus?(event: React.FocusEvent<HTMLElement>): void;
   rel?: string;
   tabIndex?: AnchorTabIndexes;
   target?: AnchorTargets;
+  id?: never;
+  className?: never;
 }
 
 const EXTERNAL_URL_REGEX = /^(https?:)[^\s]*$/;
@@ -24,15 +24,35 @@ const EXTERNAL_REL_DEFAULT = 'noreferrer noopener';
 
 const isExternalUrl = (url: string): boolean => EXTERNAL_URL_REGEX.test(url);
 
+// eslint-disable-next-line emotion/syntax-preference
+const StyledAnchor = styled.a(
+  css({
+    color: 'colorTextLink',
+    textDecoration: 'underline',
+    outline: 'none',
+
+    '&:hover': {
+      color: 'colorTextLinkDarker',
+      textDecoration: 'none',
+    },
+
+    '&:focus, &:active': {
+      boxShadow: 'shadowFocus',
+      color: 'colorTextLinkDarker',
+      textDecoration: 'none',
+    },
+  }),
+  compose(
+    space,
+    layout
+  )
+);
+
 const Anchor: React.FC<AnchorProps> = props => (
   <StyledAnchor
-    href={props.href}
-    rel={isExternalUrl(props.href) && !props.rel ? EXTERNAL_REL_DEFAULT : props.rel}
-    onBlur={props.onBlur}
-    onClick={props.onClick}
-    onFocus={props.onFocus}
-    tabIndex={props.tabIndex}
-    target={props.target || isExternalUrl(props.href) ? EXTERNAL_TARGET_DEFAULT : undefined}
+    rel={isExternalUrl(props.href) ? EXTERNAL_REL_DEFAULT : undefined}
+    target={isExternalUrl(props.href) ? EXTERNAL_TARGET_DEFAULT : undefined}
+    {...props}
   >
     {props.children}
   </StyledAnchor>
