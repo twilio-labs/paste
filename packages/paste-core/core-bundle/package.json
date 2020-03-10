@@ -35,6 +35,7 @@
     "@twilio-paste/button": "^1.1.25",
     "@twilio-paste/card": "^1.3.13",
     "@twilio-paste/flex": "^0.3.5",
+    "@twilio-paste/form": "^0.0.2",
     "@twilio-paste/grid": "^0.2.6",
     "@twilio-paste/heading": "^1.1.7",
     "@twilio-paste/list": "^0.1.15",
