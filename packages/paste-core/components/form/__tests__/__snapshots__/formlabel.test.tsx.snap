@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormLabel render it should render 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0.125rem;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  color: #282a2b;
+  cursor: pointer;
+}
+
+<div
+  className="emotion-2"
+>
+  <label
+    className="emotion-1"
+    display="flex"
+    htmlFor="input"
+  >
+    <span
+      className="emotion-0"
+      cursor="pointer"
+      fontSize="fontSize30"
+      fontWeight="fontWeightSemibold"
+    >
+      child
+    </span>
+  </label>
+</div>
+`;
+
+exports[`FormLabel render it should render with required 1`] = `
+.emotion-4 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-4 *,
+.emotion-4 *::after,
+.emotion-4 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-3 {
+  box-sizing: border-box;
+  min-width: 0;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0.125rem;
+}
+
+.emotion-2 {
+  margin: 0;
+  padding: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  color: #282a2b;
+  cursor: pointer;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5rem;
+  font-size: 0.875rem;
+  color: #282a2b;
+  display: block;
+  width: 4px;
+  height: 4px;
+  margin-right: 0.25rem;
+  background-color: #de5858;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+<div
+  className="emotion-4"
+>
+  <label
+    className="emotion-3"
+    display="flex"
+    htmlFor="input"
+  >
+    <span
+      className="emotion-0 emotion-1"
+      fontSize="fontSize30"
+    />
+    <span
+      className="emotion-2"
+      cursor="pointer"
+      fontSize="fontSize30"
+      fontWeight="fontWeightSemibold"
+    >
+      child
+    </span>
+  </label>
+</div>
+`;
