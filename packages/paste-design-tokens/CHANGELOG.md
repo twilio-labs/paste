@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@4.2.0...@twilio-paste/design-tokens@4.3.0) (2020-03-11)
+
+
+### Features
+
+* **design-tokens:** add boxShadow tokens for input borders ([20022ec](https://github.com/twilio-labs/paste/commit/20022ecc1f4987ae59bd365eca4c1797089cfa7a))
+
+
+
+
+
 # [4.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@4.1.4...@twilio-paste/design-tokens@4.2.0) (2020-03-02)
 
 

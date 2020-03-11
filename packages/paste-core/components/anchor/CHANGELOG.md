@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@1.0.7...@twilio-paste/anchor@1.1.0) (2020-03-11)
+
+
+### Features
+
+* **anchor:** add style props for layout and space ([7d46ed5](https://github.com/twilio-labs/paste/commit/7d46ed521e68bdd22ec780af363bf4976fb87b17))
+
+
+
+
+
 ## [1.0.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@1.0.6...@twilio-paste/anchor@1.0.7) (2020-02-26)
 
 

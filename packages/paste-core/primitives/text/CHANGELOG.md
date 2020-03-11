@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/text@1.1.13...@twilio-paste/text@1.2.0) (2020-03-11)
+
+
+### Features
+
+* **text:** add cursor style prop ([3cfd1c2](https://github.com/twilio-labs/paste/commit/3cfd1c22c8e4db6069770683dff21abedc4f0adb))
+
+
+
+
+
 ## [1.1.13](https://github.com/twilio-labs/paste/compare/@twilio-paste/text@1.1.12...@twilio-paste/text@1.1.13) (2020-03-06)
 
 **Note:** Version bump only for package @twilio-paste/text
