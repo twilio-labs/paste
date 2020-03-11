@@ -12,10 +12,10 @@
       "path": "../../../paste-design-tokens"
     },
     {
-      "path": "../../../paste-theme-tokens"
+      "path": "../../../paste-style-props"
     },
     {
-      "path": "../../../paste-style-props"
+      "path": "../../../paste-theme-tokens"
     }
   ]
 }
