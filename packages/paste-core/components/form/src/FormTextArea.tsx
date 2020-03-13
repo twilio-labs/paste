@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import * as PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import css from '@styled-system/css';
 import {FieldWrapper} from './shared/FieldWrapper';
@@ -32,6 +32,7 @@ const TextAreaElement = styled.textarea(
     outline: 'none',
     display: 'block',
     width: '100%',
+    maxHeight: 'size30',
     fontSize: 'fontSize30',
     lineHeight: 'lineHeight30',
     fontWeight: 'fontWeightNormal',
@@ -55,13 +56,24 @@ const TextAreaElement = styled.textarea(
 );
 /* eslint-enable */
 
-// const FormTextArea = React.forwardRef<TextAreaElement>(({id, name, placholder, disabled, readOnly, required, hasError, insertBefore, insertAfter, wrap, spellcheck, rows, cols, minLength, maxLength, ...props}, ref) => {
 const FormTextArea = React.forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
-  ({children, readOnly, disabled, hasError, insertBefore, insertAfter, ...props}, ref) => {
+  ({id, name, placeholder, children, readOnly, disabled, hasError, insertBefore, insertAfter, ...props}, ref) => {
     return (
       <FieldWrapper readOnly={readOnly} disabled={disabled} hasError={hasError}>
         <Prefix>{insertBefore}</Prefix>
-        <TextAreaElement {...props} ref={ref} disabled={disabled} readOnly={readOnly}>
+        <TextAreaElement
+          aria-invalid={hasError}
+          aria-readonly={readOnly}
+          {...props}
+          ref={ref}
+          id={id}
+          name={name}
+          rows={3}
+          placeholder={placeholder}
+          disabled={disabled}
+          readOnly={readOnly}
+          spellCheck
+        >
           {children}
         </TextAreaElement>
         <Suffix>{insertAfter}</Suffix>
@@ -71,5 +83,18 @@ const FormTextArea = React.forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
 );
 
 FormTextArea.displayName = 'FormTextArea';
+
+FormTextArea.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  placeholder: PropTypes.string,
+  disabled: PropTypes.bool,
+  readOnly: PropTypes.bool,
+  required: PropTypes.bool,
+  hasError: PropTypes.bool,
+  onChange: PropTypes.func.isRequired,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+};
 
 export {FormTextArea};

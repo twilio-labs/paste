@@ -5,7 +5,7 @@ import {action} from '@storybook/addon-actions';
 import {withKnobs, boolean, text, select} from '@storybook/addon-knobs';
 import {Anchor} from '@twilio-paste/anchor';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {FormInput, FormLabel, FormHelperText, FormHelperTextVariants, FormInputTypes, FormTextArea} from '../src';
+import {FormInput, FormLabel, FormHelperText, FormHelperTextVariants, FormInputTypes} from '../src';
 
 const inputTypeOptions = ['text', 'email', 'hidden', 'number', 'password', 'search', 'tel'];
 const helperVariantOptions = ['default', 'error'];
@@ -53,7 +53,7 @@ storiesOf('Components|Form', module)
     const [value, setValue] = React.useState('Input');
     return (
       <>
-        <FormLabel htmlFor={uid}>Label Text</FormLabel>
+        <FormLabel htmlFor={uid}>Label</FormLabel>
         <FormInput
           id={uid}
           type="text"
@@ -187,29 +187,6 @@ storiesOf('Components|Form', module)
             </Anchor>
           }
         />
-        <FormHelperText>Info that helps a user with this field.</FormHelperText>
-      </>
-    );
-  })
-  .add('Textarea', () => {
-    const uid = useUID();
-    const [value, setValue] = React.useState('Input');
-    return (
-      <>
-        <FormLabel htmlFor={uid}>Label Text</FormLabel>
-        <FormTextArea rows={10}>Textarea content</FormTextArea>
-        {/* <FormInput
-          id={uid}
-          type="text"
-          placeholder="Placeholder"
-          value={value}
-          onChange={event => {
-            setValue(event.target.value);
-            action('handleChange');
-          }}
-          onFocus={action('handleFocus')}
-          onBlur={action('handleBlur')}
-        /> */}
         <FormHelperText>Info that helps a user with this field.</FormHelperText>
       </>
     );

@@ -6,7 +6,7 @@ const Suffix: React.FC = ({children}) => {
   return (
     <Box
       display="flex"
-      alignItems="center"
+      alignItems="flex-start"
       backgroundColor="colorBackground"
       padding="space30"
       borderLeftWidth="borderWidth10"

@@ -95,6 +95,7 @@ const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
           placeholder={placeholder}
           disabled={disabled}
           readOnly={readOnly}
+          required={required}
         />
         <Suffix>{insertAfter}</Suffix>
       </FieldWrapper>
