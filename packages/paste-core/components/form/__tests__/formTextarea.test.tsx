@@ -4,16 +4,16 @@ import renderer from 'react-test-renderer';
 import {shallow, ReactWrapper, mount} from 'enzyme';
 import {axe} from 'jest-axe';
 import {Theme} from '@twilio-paste/theme';
-import {FormHelperText, FormInput, FormLabel, FormInputTypes} from '../src';
+import {FormHelperText, FormLabel, FormTextArea} from '../src';
 
 const NOOP = (): void => {};
 
-describe('FormInput render', () => {
+describe('FormTextArea render', () => {
   it('it should render', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
-          <FormInput id="input" type="text" value="test" onChange={NOOP} />
+          <FormTextArea id="textarea" onChange={NOOP} />
         </Theme.Provider>
       )
       .toJSON();
@@ -24,7 +24,7 @@ describe('FormInput render', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
-          <FormInput id="input" type="text" value="test" onChange={NOOP} readOnly />
+          <FormTextArea id="textarea" onChange={NOOP} readOnly />
         </Theme.Provider>
       )
       .toJSON();
@@ -35,7 +35,7 @@ describe('FormInput render', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
-          <FormInput id="input" type="text" value="test" onChange={NOOP} disabled />
+          <FormTextArea id="textarea" onChange={NOOP} disabled />
         </Theme.Provider>
       )
       .toJSON();
@@ -46,7 +46,7 @@ describe('FormInput render', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
-          <FormInput id="input" type="text" value="test" onChange={NOOP} hasError />
+          <FormTextArea id="textarea" onChange={NOOP} hasError />
         </Theme.Provider>
       )
       .toJSON();
@@ -57,7 +57,7 @@ describe('FormInput render', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
-          <FormInput id="input" type="text" value="test" onChange={NOOP} insertBefore={<div>prefix</div>} />
+          <FormTextArea id="textarea" onChange={NOOP} insertBefore={<div>prefix</div>} />
         </Theme.Provider>
       )
       .toJSON();
@@ -68,7 +68,7 @@ describe('FormInput render', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
-          <FormInput id="input" type="text" value="test" onChange={NOOP} insertAfter={<div>suffix</div>} />
+          <FormTextArea id="textarea" onChange={NOOP} insertAfter={<div>suffix</div>} />
         </Theme.Provider>
       )
       .toJSON();
@@ -80,8 +80,8 @@ describe('FormInput render', () => {
     document.body.append(container);
     render(
       <Theme.Provider theme="console">
-        <FormLabel htmlFor="input_1">Label Text</FormLabel>
-        <FormInput id="input_1" type="text" value="test" onChange={NOOP} />
+        <FormLabel htmlFor="textarea_1">Label Text</FormLabel>
+        <FormTextArea id="textarea_1" onChange={NOOP} />
       </Theme.Provider>,
       container
     );
@@ -94,10 +94,10 @@ describe('FormInput render', () => {
     document.body.append(container);
     render(
       <Theme.Provider theme="console">
-        <FormLabel htmlFor="input_2" disabled>
+        <FormLabel htmlFor="textarea_2" disabled>
           Label Text
         </FormLabel>
-        <FormInput id="input_2" type="text" value="test" onChange={NOOP} disabled />
+        <FormTextArea id="textarea_2" onChange={NOOP} disabled />
       </Theme.Provider>,
       container
     );
@@ -110,8 +110,8 @@ describe('FormInput render', () => {
     document.body.append(container);
     render(
       <Theme.Provider theme="console">
-        <FormLabel htmlFor="input_3">Label Text</FormLabel>
-        <FormInput id="input_3" type="text" value="test" onChange={NOOP} hasError />
+        <FormLabel htmlFor="textarea_3">Label Text</FormLabel>
+        <FormTextArea id="textarea_3" onChange={NOOP} hasError />
         <FormHelperText variant="error">Error info. Explains why the input has an error.</FormHelperText>
       </Theme.Provider>,
       container
@@ -121,184 +121,120 @@ describe('FormInput render', () => {
   });
 });
 
-describe('FormInput readyOnly prop', () => {
+describe('FormTextArea readyOnly prop', () => {
   const initialProps = {
-    id: 'input',
-    type: 'text' as FormInputTypes,
-    value: 'value',
+    id: 'textarea',
     onChange: NOOP,
     readOnly: true,
   };
 
-  const container = shallow(<FormInput {...initialProps} />);
+  const container = shallow(<FormTextArea {...initialProps} />);
 
   it('should have a readOnly prop', () => {
     expect(container.find('FieldWrapper').prop('readOnly')).toEqual(true);
   });
 
   it('should have a aria-readonly prop', () => {
-    expect(container.find('InputElement').prop('aria-readonly')).toEqual(true);
+    expect(container.find('TextAreaElement').prop('aria-readonly')).toEqual(true);
   });
 
   it('should have a readonly prop on InputElement', () => {
-    expect(container.find('InputElement').prop('aria-readonly')).toEqual(true);
+    expect(container.find('TextAreaElement').prop('aria-readonly')).toEqual(true);
   });
 });
 
-describe('FormInput disabled prop', () => {
+describe('FormTextArea disabled prop', () => {
   const initialProps = {
-    id: 'input',
-    type: 'text' as FormInputTypes,
-    value: 'value',
+    id: 'textarea',
     onChange: NOOP,
     disabled: true,
   };
 
-  const container = shallow(<FormInput {...initialProps} />);
+  const container = shallow(<FormTextArea {...initialProps} />);
 
   it('should have a disabled prop', () => {
     expect(container.find('FieldWrapper').prop('disabled')).toEqual(true);
   });
 
   it('should have a disabled prop on InputElement', () => {
-    expect(container.find('InputElement').prop('disabled')).toEqual(true);
+    expect(container.find('TextAreaElement').prop('disabled')).toEqual(true);
   });
 });
 
-describe('FormInput hasError prop', () => {
+describe('FormTextArea hasError prop', () => {
   const initialProps = {
-    id: 'input',
-    type: 'text' as FormInputTypes,
-    value: 'value',
+    id: 'textarea',
     onChange: NOOP,
     hasError: true,
   };
 
-  const container = shallow(<FormInput {...initialProps} />);
+  const container = shallow(<FormTextArea {...initialProps} />);
 
   it('should have a hasError prop', () => {
     expect(container.find('FieldWrapper').prop('hasError')).toEqual(true);
   });
 
   it('should have a aria-invalid prop', () => {
-    expect(container.find('InputElement').prop('aria-invalid')).toEqual(true);
+    expect(container.find('TextAreaElement').prop('aria-invalid')).toEqual(true);
   });
 });
 
-describe('FormInput id prop', () => {
+describe('FormTextArea id prop', () => {
   const initialProps = {
-    id: 'input',
-    type: 'text' as FormInputTypes,
-    value: 'value',
+    id: 'textarea',
     onChange: NOOP,
   };
 
-  const container = shallow(<FormInput {...initialProps} />);
+  const container = shallow(<FormTextArea {...initialProps} />);
 
   it('should have an id prop', () => {
-    expect(container.find('InputElement').prop('id')).toEqual('input');
+    expect(container.find('TextAreaElement').prop('id')).toEqual('textarea');
   });
 });
 
-describe('FormInput text type prop', () => {
+describe('FormTextArea name prop', () => {
   const initialProps = {
-    id: 'input',
-    type: 'text' as FormInputTypes,
-    value: 'value',
-    onChange: NOOP,
-  };
-
-  const container = shallow(<FormInput {...initialProps} />);
-
-  it('should have an type prop', () => {
-    expect(container.find('InputElement').prop('type')).toEqual('text');
-  });
-});
-
-describe('FormInput number type prop', () => {
-  const initialProps = {
-    id: 'input',
-    type: 'number' as FormInputTypes,
-    value: '1',
-    onChange: NOOP,
-  };
-
-  const container = shallow(<FormInput {...initialProps} />);
-
-  it('should have an type prop', () => {
-    expect(container.find('InputElement').prop('type')).toEqual('text');
-  });
-});
-
-describe('FormInput value prop', () => {
-  const initialProps = {
-    id: 'input',
-    type: 'text' as FormInputTypes,
-    value: 'value',
-    onChange: NOOP,
-  };
-
-  const container = shallow(<FormInput {...initialProps} />);
-
-  it('should have an value prop', () => {
-    expect(container.find('InputElement').prop('value')).toEqual('value');
-  });
-});
-
-describe('FormInput name prop', () => {
-  const initialProps = {
-    id: 'input',
-    type: 'text' as FormInputTypes,
-    value: 'value',
-    onChange: NOOP,
+    id: 'textarea',
     name: 'name',
+    onChange: NOOP,
   };
 
-  const container = shallow(<FormInput {...initialProps} />);
+  const container = shallow(<FormTextArea {...initialProps} />);
 
   it('should have an name prop', () => {
-    expect(container.find('InputElement').prop('name')).toEqual('name');
+    expect(container.find('TextAreaElement').prop('name')).toEqual('name');
   });
 });
 
-describe('FormInput placeholder prop', () => {
+describe('FormTextArea placeholder prop', () => {
   const initialProps = {
-    id: 'input',
-    type: 'text' as FormInputTypes,
-    value: 'value',
-    onChange: NOOP,
+    id: 'textarea',
     placeholder: 'placeholder',
+    onChange: NOOP,
   };
 
-  const container = shallow(<FormInput {...initialProps} />);
+  const container = shallow(<FormTextArea {...initialProps} />);
 
   it('should have an placeholder prop', () => {
-    expect(container.find('InputElement').prop('placeholder')).toEqual('placeholder');
+    expect(container.find('TextAreaElement').prop('placeholder')).toEqual('placeholder');
   });
 });
 
-describe('FormInput event handlers', () => {
+describe('FormTextArea event handlers', () => {
   it('Should call the appropriate event handlers', () => {
     const onChangeMock: jest.Mock = jest.fn();
     const onFocusMock: jest.Mock = jest.fn();
     const onBlurMock: jest.Mock = jest.fn();
 
     const wrapper: ReactWrapper = mount(
-      <FormInput
-        id="input"
-        type="text"
-        value="test"
-        onChange={onChangeMock}
-        onFocus={onFocusMock}
-        onBlur={onBlurMock}
-      />
+      <FormTextArea id="textarea" onChange={onChangeMock} onFocus={onFocusMock} onBlur={onBlurMock} />
     );
 
-    wrapper.find('input').simulate('change');
+    wrapper.find('textarea').simulate('change');
     expect(onChangeMock).toHaveBeenCalledTimes(1);
-    wrapper.find('input').simulate('focus');
+    wrapper.find('textarea').simulate('focus');
     expect(onFocusMock).toHaveBeenCalledTimes(1);
-    wrapper.find('input').simulate('blur');
+    wrapper.find('textarea').simulate('blur');
     expect(onBlurMock).toHaveBeenCalledTimes(1);
   });
 });
