@@ -115,6 +115,8 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
     getCurrentPathname().startsWith(SidebarCategoryRoutes.ICON_SYSTEM)
   );
 
+  const [contentOpen, setContentOpen] = React.useState(getCurrentPathname().startsWith(SidebarCategoryRoutes.CONTENT));
+
   const [gettingStartedOpen, setgettingStartedOpen] = React.useState(
     getCurrentPathname().startsWith(SidebarCategoryRoutes.GETTING_STARTED)
   );
@@ -273,6 +275,33 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
               <SiteNavAnchor to={`${SidebarCategoryRoutes.ICON_SYSTEM}/how-to-add-an-icon`}>
                 How to add an icon
               </SiteNavAnchor>
+            </SiteNavItem>
+          </SiteNavNestList>
+        </SiteNavItem>
+        <SiteNavItem>
+          <SiteNavButton onClick={() => setContentOpen(!contentOpen)} isOpen={contentOpen} aria-expanded={contentOpen}>
+            Content
+            <SiteNavAnchorArrow isOpen={contentOpen} />
+          </SiteNavButton>
+          <SiteNavNestList isOpen={contentOpen}>
+            <SiteNavItem>
+              <SiteNavItem>
+                <SiteNavAnchor to={SidebarCategoryRoutes.CONTENT}>Guideline Usage</SiteNavAnchor>
+              </SiteNavItem>
+              <SiteNavAnchor to={`${SidebarCategoryRoutes.CONTENT}/voice-and-tone`}>Voice and tone</SiteNavAnchor>
+            </SiteNavItem>
+            <SiteNavItem>
+              <SiteNavAnchor to={`${SidebarCategoryRoutes.CONTENT}/product-style-guide`}>
+                Product style guide
+              </SiteNavAnchor>
+            </SiteNavItem>
+            <SiteNavItem>
+              <SiteNavAnchor to={`${SidebarCategoryRoutes.CONTENT}/writing-for-components`}>
+                Writing for components
+              </SiteNavAnchor>
+            </SiteNavItem>
+            <SiteNavItem>
+              <SiteNavAnchor to={`${SidebarCategoryRoutes.CONTENT}/get-support`}>Get support</SiteNavAnchor>
             </SiteNavItem>
           </SiteNavNestList>
         </SiteNavItem>

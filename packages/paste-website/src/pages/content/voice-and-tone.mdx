@@ -1,0 +1,188 @@
+---
+title: Voice and tone
+description: How to use the Twilio Voice and tonal qualities to communicate effectively in our products.
+---
+
+import {graphql} from 'gatsby';
+import {Link} from 'gatsby';
+import {Blockquote} from '../../components/Blockquote';
+import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {DoDont, Do, Dont} from '../../components/DoDont';
+import Changelog from '@twilio-paste/icons/CHANGELOG.md';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/content/voice-and-tone/"}}) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<p>{props.pageContext.frontmatter.description}</p>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings}/>
+
+<content>
+
+## What are voice and tone?
+**Voice is the foundation of every written or spoken communication.** 
+Voice makes us – Twilio – identifiable, consistent, and familiar. 
+
+**Tone is the how you modify what you say to convey emotion or intent.** 
+Tone enables you to choose words, structures, punctuation, or syntax appropriate to the scenario. 
+
+<Callout>
+  <CalloutTitle as="h4">Voice or tone?</CalloutTitle>
+  <CalloutText>Think of your best friend. You can recognize their voice - that doesn't change. But how they speak in a job interview is different from how they chat with you at the weekend. They sound the same – *that’s voice* – but they change *how* they express themselves – *that’s tone*.
+  </CalloutText>
+</Callout>
+
+### Twilio Voice and tone
+**The Twilio Voice is always human, accurate, and authentic.** 
+That’s how we sound. These characteristics don’t change. 
+
+**Our tone has four qualities: positive, conversational, encouraging, and knowledgeable.** 
+The exact mix changes to meet the user’s needs and situation.
+
+## The Twilio Voice
+All Twilio content uses the Twilio Voice, which has three core characteristics:
+- Human
+- Accurate
+- Authentic
+
+#### Human = write with the user in mind
+Users succeed when they achieve their goal efficiently and have a positive experience. 
+Create content that appeals to both their head and heart – content that you'd want to read.
+
+**How?**
+- Reduce cognitive load by using common words in simple, short structures. 
+- Be empathetic and consider the user's situation and emotional state.
+- Offer appropriate reactions, just as you would face-to-face. 
+
+
+#### Accurate = write with precision
+Users need our content to be accurate. 
+They rely on the words we use to help them achieve their goal. 
+A user should never be surprised by what content means.
+
+**How?**
+- Use consistent language for features and products.  
+- Give the user all the information they need to make a decision. 
+- Remember, you are not the user. 
+
+#### Authentic = write transparently
+
+Users need our content to be truthful and evidence-based. 
+They rely on our products to do what they say. 
+Being evasive or exaggerating isn’t useful and impacts the user’s trust in our products.
+
+**How?**
+- Be clear about what is and isn’t possible, particularly with beta or pilot features. 
+- Never suggest or claim that the product does something it can’t deliver. 
+- Test the product rigorously so you can be confident and precise about its functions.
+
+## Tone
+
+Tone is used to modify how we communicate, according to the scenario and the user’s situation. 
+Think of tone as a stabilizer tool. 
+
+We want our users to feel
+
+- Confident
+- At ease
+- Empowered
+- Reassured
+
+To do that, we use a combination of tonal qualities
+
+- Positive
+- Conversational
+- Encouraging
+- Knowledgeable
+
+### Tonal qualities
+#### Positive 
+You're efficient but warm. When the user wins, you recognize their success genuinely. 
+
+**Sounds** 
+Engaging, upbeat, and forward-looking 
+
+**Doesn't sound**
+Annoying, hyperbolic, or misleading 
+
+| Do front-load the content with the reason (why) then the action (how) | Don't add empty phrases or punctuation to try and sound positive|
+|:--|:--|
+| *To get started, add a user* |	*First up, add a user, then we can get going!* |
+
+#### Conversational 
+You’re speaking to the user in person. You're on friendly, but professional terms.
+
+| Sounds | Doesn't sound |
+|:--|:--|
+| Friendly, approachable, and straightforward | Colloquial, idiomatic, or over-familiar |
+
+| Do use common contractions (you’ll, we’re, let’s) | Don't use slang or idioms – these can exclude users and obscure meaning |
+|:--|:--|
+| *Let's get started* |	*Let’s get this show on the road* |
+
+Avoid sounding robotic or sacrificing meaning to save space. Shorter is not always better.
+
+| Do choose the words that most accurately and clearly communicate what the user needs to do | Don't prioritize space or design over comprehension or natural, conversational language |
+|:--|:--|
+| *Create Agent profile* |	*Create* |
+
+#### Encouraging
+Show empathy, advise, and guide. Show the user how to succeed to give them confidence.
+
+| Sounds | Doesn't sound |
+|:--|:--|
+| Helpful, reassuring, and supportive | Patronizing, impatient, or impatient |
+
+| Do say *please* if the user is making additional effort. Provide context and useful information | Don't precede an instruction with *just* or frame it as being easy or simple |
+|:--|:--|
+| *To apply changes, please reload the page* |	*To apply changes, just reload the page* |
+| *Change an Agent's skill level in Agent Profile* | *Change an Agent's skill level easily in Agent Profile* |
+
+
+#### Knowledgeable
+Empower the user with information. Show them the edges of the flow and signpost what’s next to enable discovery.
+ Avoid surprising them with another step.
+
+| Sounds | Doesn't sound
+|:--|:--|
+| Informative, guiding, and clear | Dictatorial, superior, or know-it-all |
+
+| Do say *please* if the user is making additional effort. Provide context and useful information | Don't make the user guess what an interaction will do |
+|:--|:--|
+| *To see available options, select a category* |	*Select category* |
+
+## Finding the right tone 
+
+Identify the user, their place in the experience, what they need, and their emotional state. Put yourself in their shoes. 
+
+| Interaction | Context | User need | Approach |
+|:--|:--|:--|:--|
+| Neutral | A repeated interaction (Login screen, confirmation message) | Familiarity and recognition. Efficiency, nothing unusual, and no friction | Conversational and positive. Be efficient, approachable, and unobtrusive |
+| Positive | A high point (Completion of a complex flow, first-time success with a process) | Confirmation of success. A positive affirmation and clear next step | Positive and encouraging. Be congratulatory and forward-looking |
+| Negative | An error or problem (Access denied, system failure) | Resolution and reassurance. A clear solution and reassurance | Knowledgeable and encouraging. Be clear, informative, and calm |
+
+Tone balances the interaction, leaving the user in a net-positive place emotionally. 
+
+
+Every interaction deserves consideration. If you can write in the Twilio Voice and use appropriate tonal qualities, your content has a strong, user-focused foundation. 
+
+</content>
+</contentwrapper>

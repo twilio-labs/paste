@@ -1,0 +1,83 @@
+---
+title: Guideline Usage
+description: An overview to help you navigate product content guidance and a look at what's coming soon.
+---
+
+import {graphql} from 'gatsby';
+import {Link} from 'gatsby';
+import {Blockquote} from '../../components/Blockquote';
+import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {DoDont, Do, Dont} from '../../components/DoDont';
+import Changelog from '@twilio-paste/icons/CHANGELOG.md';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/content/"}}) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<p>{props.pageContext.frontmatter.description}</p>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings}/>
+
+<content>
+
+<Callout variant="warning">
+  <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>
+  <CalloutText>These guidelines are still in development and are not yet complete.
+  
+  If you can't see what you need here, you've found an edge-case or exception, or you have other comments, reach out on Slack.</CalloutText>
+</Callout> 
+
+**Use the guidance in the way that makes  most sense to you.** 
+These content pages should help you to feel more confident in writing concise, clear, and consistent product content.
+
+You might read *Voice and tone* once for foundational understanding, while you might bookmark *Product style guide* for ease of reference.
+
+Look out for training sessions coming soon to help you make the most of these pages.  
+
+## Sections at a glance – find what you need
+### Voice and tone
+- Understand voice and tone and their role in communicating. 
+- Identify and use the Twilio Voice consistently.
+- Use tone to shape the user experience.
+- Find the appropriate tone and approach.
+
+### Product style guide
+- The core principles of our content and "how we should write."
+- Punctuation guidance and exceptions.  
+- Formatting and grammar tips, including capitals, lists, bold/italics, numbers, acronyms, and abbreviations.
+- Commonly confused or misspelled words and phrases.
+
+### Components (coming in Q2)
+- Applying guidance to specific components. Covering buttons, headings, modals, navigation etc.
+
+### Get support
+- Check and edit content yourself with prompts and guidance.
+- Submit a request for content support from a UX Writer. 
+
+## Feedback
+
+These guidelines rely on your feedback to evolve and grow. Please reach on Slack or via email with 
+- Usability feedback – the more specific, the better.
+- Edge cases or exceptions – send over screen shots and queries.
+- Additional examples – have a great example of before/after?
+- Questions and queries – if something isn't clear, let me know. 
+
+</content>
+</contentwrapper>

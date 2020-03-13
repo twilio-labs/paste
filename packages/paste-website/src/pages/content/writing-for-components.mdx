@@ -1,0 +1,143 @@
+---
+title: Writing for components 
+description: Patterns and templates for components and common messages.
+---
+
+import {graphql} from 'gatsby';
+import {Link} from 'gatsby';
+import {Blockquote} from '../../components/Blockquote';
+import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {DoDont, Do, Dont} from '../../components/DoDont';
+import Changelog from '@twilio-paste/icons/CHANGELOG.md';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/content/writing-for-components/"}}) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings}/>
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+<p>{props.pageContext.frontmatter.description}</p>
+
+
+## Templates and patterns
+
+### Error messages
+
+### Success messages
+
+### Form fields 
+
+<Callout variant="warning">
+  <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>
+  <CalloutText>The content guidance here is still indevelopment and not complete. Reach out with comments or concerns at #help-design-system or directly to @ctecks</CalloutText>
+</Callout>
+
+These guidelines are intended to help you craft content that it is concise, clear, and consistent. They are not intended to restrict you or be an obstacle. They're also not absolute rules.
+
+Use the guidance here in the way that makes  most sense to you. You might read some sections once for foundational understanding, while you might bookmark others for ease of reference.
+
+These guidelines will grow and iterate over time. If you have suggestions for how to improve the usability of the guidelines or a request to include something new, please reach out via Slack @ctecks or email carolinemtecks@gmail.com
+
+## Sections at a glance – find your way around
+### Voice and tone
+- What are voice and tone? – definition of these elements and their role in communicating. 
+- The Twilio Voice – explanation of the Twilio Voice and how to use it.
+- Tone – explanation of the tonal qualities in our content, how to use them, and why.
+- Finding the right tone – getting the approach right for a given scenario.
+
+### Product style guide
+- Core principles – the at-a-glance answer to "how do I write this."
+- Punctuation – if it's not a letter or number, its use is  covered in this section.
+- Grammar and formatting – answers "how do we write X", covering capitals, lists, adding emphasis, numbers, acronyms, and abbreviations.
+- Wordlist – commonly confused or misspelled words and phrases.
+- Coming soon: Components – how to write for specific components (buttons, headers, etc.)
+
+### Checklist and support
+- What makes good content? – does your content do these things? Then it's probably "good content."
+- Checking your work – prompts to help you check your work and give feedback to others. 
+- Content support request – submit your content for a review, revision, or 1-to-1 working session
+
+## Dos and don'ts
+
+### Examples
+
+These guidelines use real-world and made-up examples to show how to use specific style elements. 
+
+- The example may be in italics, *like this*
+
+- Examples and explanations may be preceded by *use, avoid*, or *never*
+
+**Use = do** 
+Apply the element like this. 
+
+**Avoid = try not to**
+Aim not to use the element in this way. \
+A guideline that may contain exceptions or alternative approaches. 
+
+**Never = don't** 
+Against all best practice advice and grammatical rules. \
+An incorrect use that impairs comprehension.
+
+- For lists of examples to illustrate a style element with multiple applications, look out for do/don't call-outs
+
+| Do | Don't |
+|:--|:--|
+| Use apostrophes to indicate possession  | Use apostrophes to make plurals. 
+|  *The number's prefix.* | *Your invoice's are ready*  |
+  
+  <DoDont>
+  <Do title="Do" body="Use apostrophes to indicate possession." center>
+    <Button variant="primary">
+      <PlusIcon decorative={true} title="The number's prefix." />
+      Add to cart
+    </Button>
+  </Do>
+  <Dont title="Don't" body="Use apostrophes to make plurals." center>
+    <div onClick={() => {alert(`This is grammatically incorrect and can confuse users.`)}}>
+      <PlusIcon decorative={false} title="Your invoice's are ready." />
+    </div>
+  </Dont>
+</DoDont>
+
+Each piece of content needs individual attention. There will be use cases in which we need to adapt or update the guidance to make an exception – that's both ok and expected. If you come across one, reach out and we'll work it into the guidelines.
+
+<Blockquote name="Nielsen Norman Group" source="Indicators, Validations, and Notifications" sourceUrl="https://www.nngroup.com/articles/indicators-validations-notifications/">
+  A notification sent irrespective of the current user goal would likely be ignored, and may even annoy users because it will disrupt
+  their current task and be irrelevant to their current needs.
+</Blockquote>
+
+<Callout>
+  <CalloutText>
+    Call-out boxes will contain additional information. This could be a link out to a tool or helpful resource. 
+    For example Content Design London's global, collaborative <a href="https://readabilityguidelines.co.uk/">Readability Guidelines Project</a>.
+  </CalloutText>
+</Callout>
+
+<DoDont>
+  <Do title="Do" body="Wrap icons in an interactive component." center>
+    <Button variant="primary">
+      <PlusIcon decorative={true} />
+      Add to cart
+    </Button>
+  </Do>
+  <Dont title="Avoid" body="Avoid making icons interactive without an interactive metaphor." center>
+    <div onClick={() => {alert(`This isn't a great user experience.`)}}>
+      <PlusIcon decorative={false} title="Add to cart" />
+    </div>
+  </Dont>
+</DoDont>
+
+</content>
+</contentwrapper>

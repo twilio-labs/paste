@@ -1,0 +1,204 @@
+---
+title: Product style guide
+description: Core principles, punctuation, grammar and formatting in Product content.
+---
+
+import {graphql} from 'gatsby';
+import {Link} from 'gatsby';
+import {Blockquote} from '../../components/Blockquote';
+import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {DoDont, Do, Dont} from '../../components/DoDont';
+import Changelog from '@twilio-paste/icons/CHANGELOG.md';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/content/product-style-guide/"}}) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<p>{props.pageContext.frontmatter.description}</p>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings}/>
+
+<content>
+
+## Content principles
+
+- **Identify your user and speak directly to them**
+  - Consider who you're writing for and their technical level – use words they're familiar with. 
+  - Address the user as you, refer to Twilio as we.
+
+- **Write for the reading level of a 10-13 year old** 
+  - Use simple, short sentences and common words. 
+  - Explain technical terms and write acronyms in full the first time a user sees them. 
+  - Test the reading age of your content here [link to readability tester]**
+
+- **Be inclusive of people and devices**
+  - Avoid *click, tap, touch* instructions as not every device supports touch. 
+  - Instead, use *select* to instruct a user to interact.
+  - Avoid relying on drectional or color-based cues. *To the right, the blue button* – are problematic for responsive products or users who see colors differently. 
+  - Instead, write *the main menu* or *the dropdown menu*. Name the component or area you’re referencing.
+
+- **Write as if the user is in a rush** 
+  - Avoid repetition and padding. 
+  - Phrases we use when writing formally or presenting – *please note, so, in fact, in other words* – should be cut.
+  - Chunk content and use headings to help the user scan for what they need.
+
+- **Be direct and straightforward** 
+  - Lead with the reason (why), by front-loading messages with words that address the user’s needs.
+  - Leave the user with a clear instruction of how to address that need. 
+  - Avoid relying on company/industry jargon, idioms, or cultural references to communicate what you mean. 
+  - Use the words that are most familiar to the user.
+
+- **It’s ok to bend grammatical rules to sound natural** 
+  - End sentences with prepositions – *of, with, for* – if it sounds less awkward.
+  - And you can start sentences with *But* or *And*. 
+  - Use contractions with pronouns – *it’s, there’s, you’ll, we’ll, you’re* – to sound conversational. 
+
+<Callout>
+  <CalloutTitle>Exception: avoid contractions in error messages</CalloutTitle>
+  <CalloutText>
+    Avoid contractions in negative scenarios – when a user is stressed, their comprehension suffers. 
+    Often users will read *can’t* as *can*, missing the -’t at the end. 
+    Write out error messages or destructive action warnings in full.
+  </CalloutText>
+</Callout>
+
+## Punctuation
+
+#### Ampersands &
+**Avoid using ampersands.** In exceptional circumstances, if space is unavoidably restricted or it's part of a product/brand name, use "&"
+
+**Do use "and" instead of "&"**
+- *Voice and messaging*
+- *Create and submit a Regulatory Bundle.*
+- *Messages sent from AT&T to Twilio numbers are not impacted.*
+
+**Don't use "&" just to make content shorter**
+- *Storage & taxes are charged at the end of each month.*
+- *Enables cross-channel messaging with SMS & WhatsApp.*
+
+
+  <Callout>
+    <CalloutTitle>Why?</CalloutTitle>
+    <CalloutText> Using "and" rather than the ampersand symbol (&) supports localization and users with lower literacy or cognitive impairments. 
+    Some screen readers can’t interpret the code behind an ampersand, which obscures the meaning for the user. 
+    </CalloutText>
+  </Callout>
+
+#### Apostrophes '
+**Do use apostrophes to indicate possession or to indicate missing letters.**
+- The APIs of Twilio > Twilio's APIs
+  - *The phone number's prefix.*
+  - *Choose from one of SendGrid's responsive email designs* 
+- You are > you're
+
+**Don't use apostrophes to make a plural.** 
+- *Upgrade to buy phone number's.*
+- *Install plugin's*
+- *SID's* 
+
+#### Commas ,
+**Do use the serial or 'Oxford' comma in a list of 3 or more items.**
+- *You can customize the agent desktop, channels, interaction routing, and reporting.* 
+
+#### Exclamation marks !
+**Do use a single exclamation mark to support a celebratory phrase.**
+- *Congratulations! You sent your first email!*
+
+**Don't use multiple exclamation marks in line**
+- *Congratulations!!!*
+
+**Don't use exclamation marks to draw attention.** Design should draw the eye, not punctuation.
+- *Error! File not found.*
+
+#### Hyphens and dashes - —
+**Do use hyphens (-) to create compound words.** Hyphens never have a space either side. 
+- *Add-on feature*
+
+**Do use en-dashes indicate a range of values** (time, dates, numerical amounts). En-dashes never have a space either side. 
+- *0-50 agents*
+- If your system does not support en-dashes, use a hyphen to indicate range.
+
+**Em-dashes (—) create an emphatic pause in a phrase.** Em-dashes should have a space either side. 
+- Example to come 
+
+#### Parentheses (brackets)
+
+#### Periods
+
+#### Quotation marks
+
+#### Semicolons
+**Avoid using semicolons.** In formal writing, semicolons are useful. In product content, they're messy and confusing.
+- Use commas to separate items in a list. 
+- List complex items that already contain a comma with bullet points.
+  - Montgomery, Alabama
+  - Juneau, Alaska
+  - Phoenix, Arizona
+- Use sentences to separate thoughts or independent clauses. Sentences can be short. 
+
+## Grammar and formatting
+
+#### Abbreviations
+#### Acronyms
+#### American English
+#### Bold and italics
+#### Capitalization
+#### Code snippets
+#### Dates 
+#### I/You/We/Us
+#### Lists
+**Bulleted lists** 
+- Use bulleted lists for items linked by a topic. 
+- Make the list topic clear in the sentence or heading that precedes it.
+
+**Numbered lists**
+- Use numbered lists for items to be done or understood in a sequence.
+
+**Do**
+- Start each list item with the same part of speech – usually a noun or verb – to make the list ‘parallel’.
+- Use a full point if your list item is a sentence.
+- Be consistent if using a full point at the end of a list item. Do it for every item, or none.
+
+**Don’t** 
+- Punctuate the end of an item in a vertical list with a comma.
+- Introduce a list with ellipses “...”
+
+**Sentence lists**
+- Use a sentence list if you’re explaining a short process, noting up to four options, or highlighting up to four key points. You just read a sentence list.
+- Sentence lists should be used for no more than four items. Over four? List with bullet points.
+- Use the Oxford comma before the last item in a sentence list.
+
+#### Numbers
+#### Sentence case
+**Do use sentence case everywhere** unless specifically guided otherwise.
+- This is sentence case. (Use this.) 
+- This is Title Case. (Rarely use this, and only if directed.)
+- THIS IS ALL CAPS. (Don’t use this.)
+
+Sentence case makes content feel more human and approachable. It’s also generally easier to read.
+
+#### Time
+
+
+## Common errors
+
+
+</content>
+</contentwrapper>
