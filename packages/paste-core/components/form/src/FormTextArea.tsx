@@ -1,0 +1,75 @@
+import * as React from 'react';
+// import * as PropTypes from 'prop-types';
+import styled from '@emotion/styled';
+import css from '@styled-system/css';
+import {FieldWrapper} from './shared/FieldWrapper';
+import {Prefix} from './shared/Prefix';
+import {Suffix} from './shared/Suffix';
+
+export interface FormTextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  id: string;
+  name?: string;
+  placeholder?: string;
+  disabled?: boolean;
+  readOnly?: boolean;
+  required?: boolean;
+  hasError?: boolean;
+  insertBefore?: React.ReactNode;
+  insertAfter?: React.ReactNode;
+  className?: never;
+  style?: never;
+  size?: never;
+  height?: never;
+  width?: never;
+}
+
+/* eslint-disable emotion/syntax-preference */
+const TextAreaElement = styled.textarea(
+  css({
+    appearance: 'none',
+    border: 'none',
+    background: 'transparent',
+    outline: 'none',
+    display: 'block',
+    width: '100%',
+    fontSize: 'fontSize30',
+    lineHeight: 'lineHeight30',
+    fontWeight: 'fontWeightNormal',
+    color: 'colorText',
+    paddingTop: 'space30',
+    paddingRight: 'space40',
+    paddingBottom: 'space30',
+    paddingLeft: 'space40',
+    borderRadius: 'borderRadius20',
+
+    '&::placeholder': {
+      color: 'colorTextWeak',
+      fontStyle: 'italic',
+    },
+
+    '&:disabled': {
+      cursor: 'not-allowed',
+      color: 'colorTextWeak',
+    },
+  })
+);
+/* eslint-enable */
+
+// const FormTextArea = React.forwardRef<TextAreaElement>(({id, name, placholder, disabled, readOnly, required, hasError, insertBefore, insertAfter, wrap, spellcheck, rows, cols, minLength, maxLength, ...props}, ref) => {
+const FormTextArea = React.forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
+  ({children, readOnly, disabled, hasError, insertBefore, insertAfter, ...props}, ref) => {
+    return (
+      <FieldWrapper readOnly={readOnly} disabled={disabled} hasError={hasError}>
+        <Prefix>{insertBefore}</Prefix>
+        <TextAreaElement {...props} ref={ref} disabled={disabled} readOnly={readOnly}>
+          {children}
+        </TextAreaElement>
+        <Suffix>{insertAfter}</Suffix>
+      </FieldWrapper>
+    );
+  }
+);
+
+FormTextArea.displayName = 'FormTextArea';
+
+export {FormTextArea};
