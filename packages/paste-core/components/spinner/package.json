@@ -28,8 +28,8 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@emotion/core": "^10.0.10",
-    "@emotion/styled": "^10.0.10",
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
     "@twilio-paste/design-tokens": "^4.3.0",
     "@twilio-paste/icons": "^2.0.3",
     "@twilio-paste/style-props": "^0.1.12",
@@ -42,8 +42,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
-    "@emotion/core": "^10.0.10",
-    "@emotion/styled": "^10.0.10",
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "@twilio-paste/design-tokens": "^4.3.0",

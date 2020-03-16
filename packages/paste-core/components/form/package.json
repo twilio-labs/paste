@@ -28,8 +28,8 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@emotion/core": "^10.0.10",
-    "@emotion/styled": "^10.0.10",
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
     "@styled-system/css": "^5.1.5",
     "@twilio-paste/box": "^2.2.1",
     "@twilio-paste/design-tokens": "^4.3.0",
