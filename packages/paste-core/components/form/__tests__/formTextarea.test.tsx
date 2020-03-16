@@ -20,61 +20,6 @@ describe('FormTextArea render', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render with readOnly', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <FormTextArea id="textarea" onChange={NOOP} readOnly />
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('it should render with disabled', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <FormTextArea id="textarea" onChange={NOOP} disabled />
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('it should render with hasError', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <FormTextArea id="textarea" onChange={NOOP} hasError />
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('it should render with prefix', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <FormTextArea id="textarea" onChange={NOOP} insertBefore={<div>prefix</div>} />
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('it should render with suffix', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <FormTextArea id="textarea" onChange={NOOP} insertAfter={<div>suffix</div>} />
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
   it('it has no accessibility violations', async () => {
     const container = document.createElement('div');
     document.body.append(container);
