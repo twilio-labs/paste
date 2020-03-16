@@ -277,6 +277,40 @@ describe('FormInput placeholder prop', () => {
   });
 });
 
+describe('FormInput insertBefore prop', () => {
+  const initialProps = {
+    id: 'input',
+    type: 'text' as FormInputTypes,
+    value: 'value',
+    onChange: NOOP,
+    placeholder: 'placeholder',
+    insertBefore: '<div>$10.99</div>',
+  };
+
+  const container = shallow(<FormInput {...initialProps} />);
+
+  it('should have a Prefix', () => {
+    expect(container.find('Prefix').length).toEqual(1);
+  });
+});
+
+describe('FormInput insertAfter prop', () => {
+  const initialProps = {
+    id: 'input',
+    type: 'text' as FormInputTypes,
+    value: 'value',
+    onChange: NOOP,
+    placeholder: 'placeholder',
+    insertAfter: '<div>$10.99</div>',
+  };
+
+  const container = shallow(<FormInput {...initialProps} />);
+
+  it('should have a Suffix', () => {
+    expect(container.find('Suffix').length).toEqual(1);
+  });
+});
+
 describe('FormInput event handlers', () => {
   it('Should call the appropriate event handlers', () => {
     const onChangeMock: jest.Mock = jest.fn();

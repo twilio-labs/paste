@@ -220,6 +220,34 @@ describe('FormTextArea placeholder prop', () => {
   });
 });
 
+describe('FormTextArea insertBefore prop', () => {
+  const initialProps = {
+    id: 'textarea',
+    insertBefore: '<div>$10.99</div>',
+    onChange: NOOP,
+  };
+
+  const container = shallow(<FormTextArea {...initialProps} />);
+
+  it('should have an placeholder prop', () => {
+    expect(container.find('Prefix').length).toEqual(1);
+  });
+});
+
+describe('FormTextArea insertAfter prop', () => {
+  const initialProps = {
+    id: 'textarea',
+    insertAfter: '<div>$10.99</div>',
+    onChange: NOOP,
+  };
+
+  const container = shallow(<FormTextArea {...initialProps} />);
+
+  it('should have an placeholder prop', () => {
+    expect(container.find('Suffix').length).toEqual(1);
+  });
+});
+
 describe('FormTextArea event handlers', () => {
   it('Should call the appropriate event handlers', () => {
     const onChangeMock: jest.Mock = jest.fn();
