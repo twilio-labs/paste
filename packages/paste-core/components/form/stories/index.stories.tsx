@@ -5,7 +5,7 @@ import {action} from '@storybook/addon-actions';
 import {withKnobs, boolean, text, select} from '@storybook/addon-knobs';
 import {Anchor} from '@twilio-paste/anchor';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {FormInput, FormLabel, FormHelperText, FormHelperTextVariants, FormInputTypes} from '../src';
+import {FormInput, FormLabel, FormHelperText, FormHelperTextVariants, FormInputTypes, FormTextArea} from '../src';
 
 const inputTypeOptions = ['text', 'email', 'hidden', 'number', 'password', 'search', 'tel'];
 const helperVariantOptions = ['default', 'error'];
@@ -188,6 +188,35 @@ storiesOf('Components|Form', module)
           }
         />
         <FormHelperText>Info that helps a user with this field.</FormHelperText>
+      </>
+    );
+  })
+  .add('Textarea Options', () => {
+    const hasError = boolean('hasError', false);
+    const isDisabled = boolean('disabled', false);
+    const isReadOnly = boolean('readOnly', false);
+    const isRequired = boolean('required', false);
+    const helperVariantValue = select('helper variant', helperVariantOptions, 'default') as FormHelperTextVariants;
+    return (
+      <>
+        <FormLabel htmlFor={text('htmlFor', 'textarea_field')} disabled={isDisabled} required={isRequired}>
+          Label
+        </FormLabel>
+        <FormTextArea
+          disabled={isDisabled}
+          hasError={hasError}
+          id={text('id', 'textarea_field')}
+          name={text('name', '')}
+          placeholder={text('placeholder', 'Placeholder')}
+          readOnly={isReadOnly}
+          required={isRequired}
+          onChange={action('handleChange')}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+        />
+        <FormHelperText variant={helperVariantValue}>
+          {text('helper text', 'Info that helps a user with this field.')}
+        </FormHelperText>
       </>
     );
   });
