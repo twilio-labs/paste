@@ -229,7 +229,7 @@ describe('FormTextArea insertBefore prop', () => {
 
   const container = shallow(<FormTextArea {...initialProps} />);
 
-  it('should have an placeholder prop', () => {
+  it('should have a Prefix', () => {
     expect(container.find('Prefix').length).toEqual(1);
   });
 });
@@ -243,7 +243,7 @@ describe('FormTextArea insertAfter prop', () => {
 
   const container = shallow(<FormTextArea {...initialProps} />);
 
-  it('should have an placeholder prop', () => {
+  it('should have a Suffix', () => {
     expect(container.find('Suffix').length).toEqual(1);
   });
 });
