@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import {BoxShadow} from '@twilio-paste/style-props';
 
@@ -38,5 +39,13 @@ const FieldWrapper: React.FC<FieldWrapperProps> = ({disabled, hasError, readOnly
 };
 
 FieldWrapper.displayName = 'FieldWrapper';
+
+if (process.env.NODE_ENV === 'development') {
+  FieldWrapper.propTypes = {
+    disabled: PropTypes.bool,
+    hasError: PropTypes.bool,
+    readOnly: PropTypes.bool,
+  };
+}
 
 export {FieldWrapper};

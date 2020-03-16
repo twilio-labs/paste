@@ -84,17 +84,19 @@ const FormTextArea = React.forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
 
 FormTextArea.displayName = 'FormTextArea';
 
-FormTextArea.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string,
-  placeholder: PropTypes.string,
-  disabled: PropTypes.bool,
-  readOnly: PropTypes.bool,
-  required: PropTypes.bool,
-  hasError: PropTypes.bool,
-  onChange: PropTypes.func.isRequired,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-};
+if (process.env.NODE_ENV === 'development') {
+  FormTextArea.propTypes = {
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    placeholder: PropTypes.string,
+    disabled: PropTypes.bool,
+    readOnly: PropTypes.bool,
+    required: PropTypes.bool,
+    hasError: PropTypes.bool,
+    onChange: PropTypes.func.isRequired,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
+  };
+}
 
 export {FormTextArea};
