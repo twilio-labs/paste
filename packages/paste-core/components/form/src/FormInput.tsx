@@ -82,7 +82,7 @@ const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
 
     return (
       <FieldWrapper readOnly={readOnly} disabled={disabled} hasError={hasError}>
-        <Prefix>{insertBefore}</Prefix>
+        {insertBefore && <Prefix>{insertBefore}</Prefix>}
         <InputElement
           aria-invalid={hasError}
           aria-readonly={readOnly}
@@ -97,7 +97,7 @@ const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
           readOnly={readOnly}
           required={required}
         />
-        <Suffix>{insertAfter}</Suffix>
+        {insertAfter && <Suffix>{insertAfter}</Suffix>}
       </FieldWrapper>
     );
   }

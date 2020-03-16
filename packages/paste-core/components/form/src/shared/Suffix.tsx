@@ -20,6 +20,6 @@ const Suffix: React.FC = ({children}) => {
   );
 };
 
-Suffix.displayName = 'Prefix';
+Suffix.displayName = 'Suffix';
 
 export {Suffix};

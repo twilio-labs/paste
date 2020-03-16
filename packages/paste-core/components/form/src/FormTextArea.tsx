@@ -60,7 +60,7 @@ const FormTextArea = React.forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
   ({id, name, placeholder, children, readOnly, disabled, hasError, insertBefore, insertAfter, ...props}, ref) => {
     return (
       <FieldWrapper readOnly={readOnly} disabled={disabled} hasError={hasError}>
-        <Prefix>{insertBefore}</Prefix>
+        {insertBefore && <Prefix>{insertBefore}</Prefix>}
         <TextAreaElement
           aria-invalid={hasError}
           aria-readonly={readOnly}
@@ -76,7 +76,7 @@ const FormTextArea = React.forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
         >
           {children}
         </TextAreaElement>
-        <Suffix>{insertAfter}</Suffix>
+        {insertAfter && <Suffix>{insertAfter}</Suffix>}
       </FieldWrapper>
     );
   }
