@@ -39,35 +39,44 @@ export const pageQuery = graphql`
 
 ## Content principles
 
-- **Identify your user and speak directly to them**
-  - Consider who you're writing for and their technical level – use words they're familiar with. 
-  - Address the user as you, refer to Twilio as we.
+#### Identify your user and speak directly to them
+- Consider who you're writing for and their technical level – use words they're familiar with. 
+- Address the user as you, refer to Twilio as we.
 
-- **Write for the reading level of a 10-13 year old** 
-  - Use simple, short sentences and common words. 
-  - Explain technical terms and write acronyms in full the first time a user sees them.  
+#### Write for the reading level of a 10-13 year old
+- Use simple, short sentences and common words. 
+- Explain technical terms and write acronyms in full the first time a user sees them.  
 
-- **Be inclusive of people and devices**
-  - Avoid *click, tap, touch* instructions as not every device supports touch. 
-  - Instead, use *select* to instruct a user to interact.
-  - Avoid relying on drectional or color-based cues. *To the right, the blue button* – are problematic for responsive products or users who see colors differently. 
-  - Instead, write *the main menu* or *the dropdown menu*. Name the component or area you’re referencing.
+<Callout>
+  <CalloutTitle>Using readability tools</CalloutTitle>
+  <CalloutText>
+    Sites offering <a href="https://readabilityformulas.com/free-readability-formula-tests.php">free readability tools like this one</a> can be useful for assessing the "reading age" of long content (more than 150 words). 
+    However, they're not great at testing short UI content that might only contain two or three words. 
+    Use them with caution. Look for a simpler word whenever you can to improve the readability of your content.   
+  </CalloutText>
+</Callout>
 
-- **Write as if the user is in a rush** 
-  - Avoid repetition and padding. 
-  - Phrases we use when writing formally or presenting – *please note, so, in fact, in other words* – should be cut.
-  - Chunk content and use headings to help the user scan for what they need.
+#### Be inclusive of people and devices
+- Avoid *click, tap, touch* instructions as not every device supports touch. 
+- Instead, use *select* to instruct a user to interact.
+- Avoid relying on drectional or color-based cues. *To the right, the blue button* – are problematic for responsive products or users who see colors differently. 
+- Instead, write *the main menu* or *the dropdown menu*. Name the component or area you’re referencing.
 
-- **Be direct and straightforward** 
-  - Lead with the reason (why), by front-loading messages with words that address the user’s needs.
-  - Leave the user with a clear instruction of how to address that need. 
-  - Avoid relying on company/industry jargon, idioms, or cultural references to communicate what you mean. 
-  - Use the words that are most familiar to the user.
+#### Write as if the user is in a rush
+- Avoid repetition and padding. 
+- Phrases we use when writing formally or presenting – *please note, so, in fact, in other words* – should be cut.
+- Chunk content and use headings to help the user scan for what they need.
 
-- **It’s ok to bend grammatical rules to sound natural** 
-  - End sentences with prepositions – *of, with, for* – if it sounds less awkward.
-  - And you can start sentences with *But* or *And*. 
-  - Use contractions with pronouns – *it’s, there’s, you’ll, we’ll, you’re* – to sound conversational. 
+#### Be direct and straightforward
+- Lead with the reason (why), by front-loading messages with words that address the user’s needs.
+- Leave the user with a clear instruction of how to address that need. 
+- Avoid relying on company/industry jargon, idioms, or cultural references to communicate what you mean. 
+- Use the words that are most familiar to the user.
+
+#### It’s ok to bend grammatical rules to sound natural
+- End sentences with prepositions – *of, with, for* – if it sounds less awkward.
+- And you can start sentences with *But* or *And*. 
+- Use contractions with pronouns – *it’s, there’s, you’ll, we’ll, you’re* – to sound conversational. 
 
 <Callout>
   <CalloutTitle>Exception: avoid contractions in error messages</CalloutTitle>
@@ -83,15 +92,12 @@ export const pageQuery = graphql`
 #### Ampersands &
 **Avoid using ampersands.** In exceptional circumstances, if space is unavoidably restricted or it's part of a product/brand name, use "&"
 
-**Do use "and" instead of an ampersand (&).**
+**Do** use "and" instead of an ampersand (&).
 - *Voice and messaging*
 - *Create and submit a Regulatory Bundle.*
 - *Messages sent from AT&T to Twilio numbers are not impacted.*
 
-**Don't use "&" just to make content shorter.**
-- *Storage & taxes are charged at the end of each month.*
-- *Enables cross-channel messaging with SMS & WhatsApp.*
-
+**Don't** use "&" just to make content shorter. IF space is an issue, address the content and design together.
 
   <Callout>
     <CalloutTitle>Why?</CalloutTitle>
@@ -101,78 +107,73 @@ export const pageQuery = graphql`
   </Callout>
 
 #### Apostrophes '
-**Do use apostrophes to indicate possession or to indicate missing letters.**
+**Do** use an apostrophe to indicate possession or belonging. 
 - The APIs of Twilio > Twilio's APIs
   - *The phone number's prefix.*
   - *Choose from one of SendGrid's responsive email designs.* 
-- You are > you're
 
-**Don't use apostrophes to make a plural.** 
-- *Upgrade to buy phone number's*
-- *Install plugin's*
-- *SID's* 
+**Do** use an apostrophe to indicate missing letters.
+- You are > you're
+  - *You're not logged in.*
+
+**Don't** use apostrophes to make a plural. We should never see *Upgrade to buy phone number's*, *Install plugin's*, or *SID's*. 
 
 #### Commas ,
-**Do use the serial or 'Oxford' comma in a list of 3 or more items.**
+**Do** use the serial or 'Oxford' comma in a list of 3 or more items.
 - *You can customize the agent desktop, channels, interaction routing, and reporting.* 
 
 #### Exclamation marks !
-**Do use a single exclamation mark to support a celebratory phrase.**
+**Do** use a single exclamation mark to support a celebration. But never more than one at a time (!!) 
 - *Congratulations, you sent your first email!*
 
-**Don't use multiple exclamation marks in line** 
-- *Congratulations!!! You sent your first email!!*
-
-**Don't use exclamation marks to draw attention.** Design should draw the eye, not punctuation.
-- *Error! File not found.*
+**Don't** use exclamation marks to draw attention to or emphasise an error message or alert. 
+Exclamation marks can increase anxiety or sound like shouting. Unless it's a clear moment of success, don't use them.
 
 #### Hyphens and dashes - —
-**Do use hyphens (-) to create compound words.** 
+**Do** use hyphens (-) to create compound words.
 - Hyphens never have a space either side. 
   - *Add-on feature*
 
-**Do use en-dashes indicate a range of values** (time, dates, numerical amounts). 
+**Do** use en-dashes indicate a range of values (time, dates, numerical amounts.)
 - En-dashes never have a space either side. 
   - *0-50 agents*
   - Tip: If your system does not support en-dashes, use a hyphen to indicate range.
 
-**Em-dashes (—) create an emphatic pause in a phrase.** Em-dashes should have a space either side. 
-- Example to come 
+**Avoid** using em-dashes (—) to create an emphatic pause. 
+- Tip: It's ok to write a very short sentence to emphasise its meaning. 
+We might use em-dashes with friends and colleagues in email and chat to signify an added thought, but the user needs clarity over what's important. 
+Give the thought a sentence or restructure your syntax.
 
 #### Parentheses ( )
-**Do use parentheses to provide an example or explanation**
+**Do** use parentheses to provide an example or explanation.
 - *Password must contain a special character (&, @, %, $, ^)*
 
-**Do use parentheses to note an acronym the first time a user encounters it.**
+**Do** use parentheses to note an acronym the first time a user encounters it.
 - *Transport Layer Security (TLS) is a mechanism for securing your SIP connections.*
   - In this example, the user is familiar with the term "SIP" but not "TLS."
 
 #### Periods .
-**Do end every sentence with a period**
+**Do** end every full sentence with a period
 - *Enable Flex Dialpad in Console.*
 - *Sign up for a free account.*
 
-**Don't use periods at the end of phrases**
-- *Apply changes.*
-- *Log in*
+**Don't** use periods at the end of fragments or incomplete sentences.
 
 #### Quotation marks " "
-**Do use quotation marks to pick out words from a component or a file name.**
+**Do** use quotation marks to pick out words from a component or a file name.
 - *Select "Apply changes"*
 - *We recommend using dedicated accounts for your development environments, like "Flex Production" and "Flex Development."*
 
-**Do put punctuation inside quotation marks, if necessary.**
+**Do** put punctuation inside quotation marks, if necessary.
 - *To create a new project, select "Create My Flex Project."*
 
-**Don't use quotation marks to refer to products or features*.** 
+**Don't** use quotation marks to refer to products or features.
 Products and features are proper nouns and should be capitalized to differentiate them.
-  - *Launch "Flex"*
-  - *Create an IVR in "Studio."*
 
 #### Semicolons ;
-**Avoid using semicolons.** In formal writing, semicolons are useful. In product content, they're messy and confusing.
+**Avoid using semicolons.** In formal writing, semicolons are useful. In product content, they can be messy and confusing.
 - If you feel your sentence needs a semicolon, simplify it. Create two sentences.
-** Do use punctuation and conjunctions (*and*, *but*, *so*) to separate thoughts.** 
+**Do** use punctuation and conjunctions (*and*, *but*, *so*) to separate thoughts.
 - List complex items that already contain a comma using bullet points. For example, state capitals
   - *Montgomery, Alabama*
   - *Juneau, Alaska*
@@ -184,60 +185,57 @@ Products and features are proper nouns and should be capitalized to differentiat
 Coming in the next release
 
 #### Acronyms
-**Write the phrase in full, followed by the acronym in parentheses the first time a user encounters it.**
+**Do** write the phrase in full, followed by the acronym in parentheses the first time a user encounters it.
 - *Transport Layer Security (TLS) is a mechanism for securing your SIP connections.*
   - In this example, the user is familiar with the term "SIP" but not "TLS."
 
 #### American English
-**Use American English spellings throughout products.**
-- **Do write** *behavior, dialed, color, artifact, center, license* (for both verb and noun), *-ize* endings, *program* (for all meanings)
+**Do** use American English spellings throughout products.
+- *Behavior, dialed, color, artifact, center, license* (for both verb and noun), *-ize* endings, *program* (for all meanings)
 
 #### Bold and italics
 Coming in the next release
 
 #### Capitalization
-**Do capitalize proper nouns – products, people, places.**
+**Do** capitalize proper nouns – products, people, places.
 - If a brand or product name uses a mix of upper and lower case (TwiML, eBay) use the name's convention.
 - Products include features, programs, or systems that Twilio has given a specific name to.
 - People are named individuals or identifiable roles.
   - *Kris Brunner, Chief Engineer*
   - *Contact your System Administrator*
 
-**Don't capitalize general terms (email, contact center, platform)** 
-- Tip: If it's something Twilio has created, it takes a capital 
+**Don't** capitalize general terms (*email, contact center, platform*) 
+- Tip: If it's something Twilio has created or owns, it takes a capital. 
 
 #### Code snippets
-Comning in the next release 
+Coming in the next release 
 
 #### Dates 
 Coming in the next release
 
 #### I/You/We/Us
-**Do refer to the user as "you" and to Twilio as "we".** 
+**Do** refer to the user as "you" and to Twilio as "we".
 - Tip: If the user has agency or ownership, use ‘I’ or ‘my’. 
-  - *“If you still can’t connect, contact our support team.”*
-  - *“I understand.”* (This usage is almost exclusively for consent.)
-  - *“To access billing information, select My Account.”*
+  - *If you still can’t connect, contact our support team.*
+  - *I understand.* (This usage is almost exclusively for consent.)
+  - *To access billing information, select My Account.*
 
-#### Lists
-**Bulleted lists** 
-- Use bulleted lists for items linked by a topic. 
-- Make the list topic clear in the sentence or heading that precedes it.
+#### Lists (all)
+**Do** start each list item with the same part of speech – usually a noun or verb – to make the list "parallel."
+- Puncutate the end of each iteam with a full point if it is a complete sentence.
+- Be consistent within the list. If one item takes a full point, all items should. 
 
-**Numbered lists**
-- Use numbered lists for items to be done or understood in a sequence.
+**Don't** punctuate the end of an item in a vertical list with a comma or elipses "..."
 
-**Do**
-- Start each list item with the same part of speech – usually a noun or verb – to make the list ‘parallel’.
-- Use a full point if your list item is a sentence.
-- Be consistent if using a full point at the end of a list item. Do it for every item, or none.
+#### Lists (bullet points)
+- **Do** use bulleted lists for items linked by a topic. Make the list topic clear in the sentence or heading that precedes it.
 
-**Don’t** 
-- Punctuate the end of an item in a vertical list with a comma.
-- Introduce a list with ellipses “...”
+#### Lists (numbered)
+- **Do** use numbered lists for items to be done or understood in a sequence.
+- **Avoid** listing more than 7 items.
 
-**Sentence lists**
-- Use a sentence list if you’re explaining a short process, noting up to four options, or highlighting up to four key points. You just read a sentence list.
+#### Lists (sentence)
+**Do** use a sentence list if you’re explaining a short process, noting up to four options, or highlighting up to four key points. You just read a sentence list.
 - Sentence lists should be used for no more than four items. Over four? List with bullet points.
 - Use the Oxford comma before the last item in a sentence list.
 
@@ -245,7 +243,7 @@ Coming in the next release
 Coming in the next release 
 
 #### Sentence case
-**Do use sentence case everywhere** unless specifically guided otherwise. Sentence case makes content feel more human and it's generally easier to scan.
+**Do** use sentence case everywhere** unless specifically guided otherwise. Sentence case makes content feel more human and it's generally easier to scan.
 - This is sentence case. (Use this.) 
 - This is Title Case. (Rarely use this, and only if directed.)
 - THIS IS ALL CAPS. (Don’t use this.)
@@ -259,44 +257,44 @@ Coming in the next release
 
 ## Common errors
 
-**e.g./i.e.**
+#### e.g./i.e.
 - *e.g.* = for example
   - *Create a memorable name for your Flex Project, e.g. "Flex Training 2020."* 
 - *i.e.* = that is
-  - Tip: i.e. usually precedes a simpler way of saying something. Say it simply the first time. Avoid i.e. if you can.
+  - Tip: *i.e.* usually precedes a simpler way of saying something. Say it simply the first time. Avoid i.e. if you can.
 
-**Every day/everyday**
+#### Every day/everyday
 - *Every day* = each day
   - *Twilio supports thousands of customers every day.*
 - *Everyday* = ordinary/usual
   - *Twilio supports everyday customer needs, like call routing.*
 
-**It's/its**
+#### It's/its
 - *It's* = contraction of "it"+"is"
   - *It's now possible to view real-time queue stats.*
   - Tip: Can you say *it is* instead of the word you want? Does the sentence make sense? You want *it's*.
 - *Its* = possessive pronoun (belonging to it)
   - *The company and its customers.*
-
-**Log in/login**
+-
+#### Log in/login
 - *Log in* = verb
   - *To access your account, please log in.*
 - *Login* = noun
   - *Enter your login details.*
 
-**Set up/setup**
+#### Set up/setup
 - *Set up* = verb
   - *Set up your profile.*
 - *Setup* = noun/adjective
   - *System setup information can be found in the user guide.*
 
-**Sign up/sign-up**
+#### Sign up/sign-up
 - *Sign up* = verb
   - *Sign up for a free account.*
 - Sign-up = noun/adjective
   - *Visit the sign-up page for more information.*
 
-**Their/there/they're**
+#### Their/there/they're
 - *Their* = plural possessive pronoun (belonging to them)
   - *The main priority for agents is reducing their wrap-up time.* 
 - *There* = adverb meaning existing in/at that place
@@ -304,7 +302,7 @@ Coming in the next release
 - *They're* = contraction of "they"+"are"
   - *Users are important. They're our top priority.*
 
-**Who/that**
+#### Who/that
 - *Who* = referring to people
   - *Team leads who manage multiple business areas can use queues to assign tasks.*
 - *That* = referring to things
