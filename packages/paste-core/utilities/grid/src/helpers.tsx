@@ -1,7 +1,6 @@
 import {ThemeShape} from '@twilio-paste/theme-tokens';
 import {ResponsiveValue} from 'styled-system';
 import {Margin, Padding, Space, SpaceOptions} from '@twilio-paste/style-props';
-import {Vertical} from '@twilio-paste/flex';
 import {
   ColumnOffset,
   ColumnOffsetOptions,
@@ -10,6 +9,8 @@ import {
   ColumnMinWidth,
   ColumnWidthSpan,
 } from './types';
+
+type Vertical = ResponsiveValue<boolean>;
 
 // Gets the gutter and returns the value to be used as negative margin to Grid
 export const getOuterGutterPull = (theme: ThemeShape, gutter?: Space): Margin => {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {useTheme} from '@twilio-paste/theme';
 import {ThemeShape} from '@twilio-paste/theme-tokens';
-import {MarginProps, Space} from '@twilio-paste/style-props';
+import {MarginProps, Space, ResponsiveProp} from '@twilio-paste/style-props';
 import {safelySpreadBoxProps} from '@twilio-paste/box';
 import {Flex} from '@twilio-paste/flex';
 import {GridProps} from './types';
@@ -45,20 +45,18 @@ const Grid: React.FC<GridProps> = ({as, children, gutter, marginTop, marginBotto
     </Flex>
   );
 };
-
-Grid.propTypes = {
-  as: PropTypes.string as any,
-  children: PropTypes.node.isRequired,
-  vertical: PropTypes.oneOfType([
-    PropTypes.oneOfType([PropTypes.bool]),
-    PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.bool])),
-  ] as any),
-};
+Grid.displayName = 'Grid';
 
 Grid.defaultProps = {
   vertical: false,
 };
 
-Grid.displayName = 'Grid';
+if (process.env.NODE_ENV === 'development') {
+  Grid.propTypes = {
+    as: PropTypes.string as any,
+    children: PropTypes.node.isRequired,
+    vertical: ResponsiveProp(PropTypes.bool),
+  };
+}
 
 export {Grid};
