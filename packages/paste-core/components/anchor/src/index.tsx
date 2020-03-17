@@ -57,12 +57,15 @@ const Anchor: React.FC<AnchorProps> = props => (
     {props.children}
   </StyledAnchor>
 );
-
-Anchor.propTypes = {
-  children: PropTypes.node.isRequired,
-  tabIndex: PropTypes.oneOf([0, -1]),
-  target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-};
-
 Anchor.displayName = 'Anchor';
+
+if (process.env.NODE_ENV === 'development') {
+  Anchor.propTypes = {
+    children: PropTypes.node.isRequired,
+    href: PropTypes.string.isRequired,
+    rel: PropTypes.string,
+    tabIndex: PropTypes.oneOf([0, -1]),
+    target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+  };
+}
 export {Anchor};
