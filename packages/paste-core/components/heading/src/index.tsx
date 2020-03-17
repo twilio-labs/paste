@@ -72,16 +72,18 @@ const Heading: React.FC<HeadingProps> = ({as, children, id, marginBottom, varian
     </Text>
   );
 };
-
-Heading.propTypes = {
-  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'] as asTags[]).isRequired,
-  marginBottom: PropTypes.oneOf(['space0']),
-  variant: PropTypes.oneOf(['heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60']),
-};
+Heading.displayName = 'Heading';
 
 Heading.defaultProps = {
   variant: 'heading20',
 };
 
-Heading.displayName = 'Heading';
+if (process.env.NODE_ENV === 'development') {
+  Heading.propTypes = {
+    as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'] as asTags[]).isRequired,
+    marginBottom: PropTypes.oneOf(['space0']),
+    variant: PropTypes.oneOf(['heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60']),
+  };
+}
+
 export {Heading};
