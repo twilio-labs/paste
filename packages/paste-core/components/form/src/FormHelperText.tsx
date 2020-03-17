@@ -11,7 +11,7 @@ export const FormHelperTextVariants = {
 
 export type FormHelperTextVariants = ValueOf<typeof FormHelperTextVariants>;
 
-export interface FormHelperTextProps extends React.HTMLAttributes<''> {
+export interface FormHelperTextProps extends React.HTMLAttributes<HTMLDivElement> {
   marginTop?: 'space0';
   className?: never;
   style?: never;
@@ -47,8 +47,10 @@ const FormHelperText: React.FC<FormHelperTextProps> = ({marginTop, children, var
 
 FormHelperText.displayName = 'FormHelperText';
 
-FormHelperText.propTypes = {
-  marginTop: PropTypes.oneOf(['space0']),
-};
+if (process.env.NODE_ENV === 'development') {
+  FormHelperText.propTypes = {
+    marginTop: PropTypes.oneOf(['space0']),
+  };
+}
 
 export {FormHelperText};

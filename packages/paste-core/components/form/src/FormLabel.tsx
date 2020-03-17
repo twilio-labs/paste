@@ -6,7 +6,7 @@ import {safelySpreadBoxProps} from '@twilio-paste/box';
 import {Flex} from '@twilio-paste/flex';
 import {Text} from '@twilio-paste/text';
 
-export interface FormLabelProps extends React.LabelHTMLAttributes<''> {
+export interface FormLabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
   htmlFor: string;
   disabled?: boolean;
   required?: boolean;
@@ -48,11 +48,13 @@ const FormLabel: React.FC<FormLabelProps> = ({marginBottom, required, disabled, 
 
 FormLabel.displayName = 'FormLabel';
 
-FormLabel.propTypes = {
-  htmlFor: PropTypes.string.isRequired,
-  disabled: PropTypes.bool,
-  required: PropTypes.bool,
-  marginBottom: PropTypes.oneOf(['space0']),
-};
+if (process.env.NODE_ENV === 'development') {
+  FormLabel.propTypes = {
+    htmlFor: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
+    required: PropTypes.bool,
+    marginBottom: PropTypes.oneOf(['space0']),
+  };
+}
 
 export {FormLabel};

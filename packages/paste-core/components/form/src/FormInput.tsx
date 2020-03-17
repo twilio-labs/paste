@@ -176,20 +176,22 @@ const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
 
 FormInput.displayName = 'FormInput';
 
-FormInput.propTypes = {
-  id: PropTypes.string.isRequired,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel']).isRequired as any,
-  name: PropTypes.string,
-  value: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
-  disabled: PropTypes.bool,
-  readOnly: PropTypes.bool,
-  required: PropTypes.bool,
-  hasError: PropTypes.bool,
-  onChange: PropTypes.func.isRequired,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-};
+if (process.env.NODE_ENV === 'development') {
+  FormInput.propTypes = {
+    id: PropTypes.string.isRequired,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel']).isRequired as any,
+    name: PropTypes.string,
+    value: PropTypes.string.isRequired,
+    placeholder: PropTypes.string,
+    disabled: PropTypes.bool,
+    readOnly: PropTypes.bool,
+    required: PropTypes.bool,
+    hasError: PropTypes.bool,
+    onChange: PropTypes.func.isRequired,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
+  };
+}
 
 export {FormInput};
