@@ -4,7 +4,6 @@ import {ReactWrapper, mount} from 'enzyme';
 import {Theme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {
-  Flex,
   getGrow,
   getShrink,
   getBasis,
@@ -13,7 +12,8 @@ import {
   getWrap,
   vAlignToProps,
   hAlignToProps,
-} from '../src';
+} from '../src/helpers';
+import {Flex} from '../src';
 
 describe('Flex Unit Tests', () => {
   it('it should return grow: 1', (): void => {
