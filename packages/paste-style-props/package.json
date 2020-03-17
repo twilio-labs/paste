@@ -31,6 +31,7 @@
   "peerDependencies": {
     "@twilio-paste/design-tokens": "^4.3.0",
     "@twilio-paste/theme-tokens": "^3.1.2",
+    "prop-types": "^15.7.2",
     "styled-system": "^5.1.2"
   },
   "devDependencies": {
