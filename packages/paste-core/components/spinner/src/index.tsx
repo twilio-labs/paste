@@ -1,8 +1,9 @@
 import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import {keyframes, css} from '@emotion/core';
 import styled from '@emotion/styled';
 import {LoadingIcon, LoadingIconProps} from '@twilio-paste/icons/esm/LoadingIcon';
-import {IconSize} from '@twilio-paste/style-props';
+import {IconSize, isIconSizeTokenProp} from '@twilio-paste/style-props';
 import {size as sizeFn} from 'styled-system';
 
 const rotate = keyframes`
@@ -56,6 +57,14 @@ const Spinner: React.FC<SpinnerProps> = ({as, size, iconColor, decorative, title
 Spinner.defaultProps = {
   size: 'sizeIcon20',
 };
+
+if (process.env.NODE_ENV === 'development') {
+  Spinner.propTypes = {
+    title: PropTypes.string.isRequired,
+    delay: PropTypes.number,
+    size: isIconSizeTokenProp,
+  };
+}
 
 Spinner.displayName = 'Spinner';
 export {Spinner};
