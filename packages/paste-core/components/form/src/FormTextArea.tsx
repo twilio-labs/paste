@@ -6,12 +6,8 @@ import {FieldWrapper} from './shared/FieldWrapper';
 import {Prefix} from './shared/Prefix';
 import {Suffix} from './shared/Suffix';
 
-export type FormInputTypes = 'text' | 'email' | 'hidden' | 'number' | 'password' | 'search' | 'tel';
-
-export interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface FormTextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   id: string;
-  type: FormInputTypes;
-  value: string;
   name?: string;
   placeholder?: string;
   disabled?: boolean;
@@ -27,22 +23,16 @@ export interface FormInputProps extends React.InputHTMLAttributes<HTMLInputEleme
   width?: never;
 }
 
-interface TypeProps {
-  type: FormInputTypes;
-  inputmode?: string | undefined;
-  pattern?: string | undefined;
-}
-
 /* eslint-disable emotion/syntax-preference */
-const InputElement = styled.input(
+const TextAreaElement = styled.textarea(
   css({
     appearance: 'none',
     border: 'none',
     background: 'transparent',
     outline: 'none',
-    resize: 'none',
     display: 'block',
     width: '100%',
+    maxHeight: 'size30',
     fontSize: 'fontSize30',
     lineHeight: 'lineHeight30',
     fontWeight: 'fontWeightNormal',
@@ -52,6 +42,7 @@ const InputElement = styled.input(
     paddingBottom: 'space30',
     paddingLeft: 'space40',
     borderRadius: 'borderRadius20',
+    resize: 'vertical',
 
     '&::placeholder': {
       color: 'colorTextWeak',
@@ -66,52 +57,38 @@ const InputElement = styled.input(
 );
 /* eslint-enable */
 
-const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
-  (
-    {id, type, name, value, placeholder, disabled, readOnly, required, hasError, insertBefore, insertAfter, ...props},
-    ref
-  ) => {
-    const typeProps: TypeProps = {type};
-
-    // https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/
-    if (type === 'number') {
-      typeProps.type = 'text';
-      typeProps.inputmode = 'numeric';
-      typeProps.pattern = '[0-9]*';
-    }
-
+const FormTextArea = React.forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
+  ({id, name, placeholder, children, readOnly, disabled, hasError, insertBefore, insertAfter, ...props}, ref) => {
     return (
       <FieldWrapper readOnly={readOnly} disabled={disabled} hasError={hasError}>
         {insertBefore && <Prefix>{insertBefore}</Prefix>}
-        <InputElement
+        <TextAreaElement
           aria-invalid={hasError}
           aria-readonly={readOnly}
           {...props}
-          {...typeProps}
           ref={ref}
           id={id}
           name={name}
-          value={value}
+          rows={3}
           placeholder={placeholder}
           disabled={disabled}
           readOnly={readOnly}
-          required={required}
-        />
+          spellCheck
+        >
+          {children}
+        </TextAreaElement>
         {insertAfter && <Suffix>{insertAfter}</Suffix>}
       </FieldWrapper>
     );
   }
 );
 
-FormInput.displayName = 'FormInput';
+FormTextArea.displayName = 'FormTextArea';
 
 if (process.env.NODE_ENV === 'development') {
-  FormInput.propTypes = {
+  FormTextArea.propTypes = {
     id: PropTypes.string.isRequired,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel']).isRequired as any,
     name: PropTypes.string,
-    value: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
     disabled: PropTypes.bool,
     readOnly: PropTypes.bool,
@@ -123,4 +100,4 @@ if (process.env.NODE_ENV === 'development') {
   };
 }
 
-export {FormInput};
+export {FormTextArea};

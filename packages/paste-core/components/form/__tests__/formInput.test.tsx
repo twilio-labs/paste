@@ -133,7 +133,7 @@ describe('FormInput readyOnly prop', () => {
   const container = shallow(<FormInput {...initialProps} />);
 
   it('should have a readOnly prop', () => {
-    expect(container.find('InputWrapper').prop('readOnly')).toEqual(true);
+    expect(container.find('FieldWrapper').prop('readOnly')).toEqual(true);
   });
 
   it('should have a aria-readonly prop', () => {
@@ -157,7 +157,7 @@ describe('FormInput disabled prop', () => {
   const container = shallow(<FormInput {...initialProps} />);
 
   it('should have a disabled prop', () => {
-    expect(container.find('InputWrapper').prop('disabled')).toEqual(true);
+    expect(container.find('FieldWrapper').prop('disabled')).toEqual(true);
   });
 
   it('should have a disabled prop on InputElement', () => {
@@ -177,7 +177,7 @@ describe('FormInput hasError prop', () => {
   const container = shallow(<FormInput {...initialProps} />);
 
   it('should have a hasError prop', () => {
-    expect(container.find('InputWrapper').prop('hasError')).toEqual(true);
+    expect(container.find('FieldWrapper').prop('hasError')).toEqual(true);
   });
 
   it('should have a aria-invalid prop', () => {
@@ -274,6 +274,40 @@ describe('FormInput placeholder prop', () => {
 
   it('should have an placeholder prop', () => {
     expect(container.find('InputElement').prop('placeholder')).toEqual('placeholder');
+  });
+});
+
+describe('FormInput insertBefore prop', () => {
+  const initialProps = {
+    id: 'input',
+    type: 'text' as FormInputTypes,
+    value: 'value',
+    onChange: NOOP,
+    placeholder: 'placeholder',
+    insertBefore: '<div>$10.99</div>',
+  };
+
+  const container = shallow(<FormInput {...initialProps} />);
+
+  it('should have a Prefix', () => {
+    expect(container.find('Prefix').length).toEqual(1);
+  });
+});
+
+describe('FormInput insertAfter prop', () => {
+  const initialProps = {
+    id: 'input',
+    type: 'text' as FormInputTypes,
+    value: 'value',
+    onChange: NOOP,
+    placeholder: 'placeholder',
+    insertAfter: '<div>$10.99</div>',
+  };
+
+  const container = shallow(<FormInput {...initialProps} />);
+
+  it('should have a Suffix', () => {
+    expect(container.find('Suffix').length).toEqual(1);
   });
 });
 
