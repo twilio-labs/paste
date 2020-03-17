@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {PaddingProps} from '@twilio-paste/style-props';
+import {PaddingProps, isSpaceTokenProp} from '@twilio-paste/style-props';
 
-export interface CardProps extends React.HTMLAttributes<''>, PaddingProps {}
+export interface CardProps extends React.HTMLAttributes<HTMLElement>, PaddingProps {}
 
 const Card: React.FunctionComponent<CardProps> = ({
   children,
@@ -32,5 +32,17 @@ const Card: React.FunctionComponent<CardProps> = ({
     </Box>
   );
 };
+
+if (process.env.NODE_ENV === 'development') {
+  Card.propTypes = {
+    padding: isSpaceTokenProp,
+    paddingTop: isSpaceTokenProp,
+    paddingRight: isSpaceTokenProp,
+    paddingBottom: isSpaceTokenProp,
+    paddingLeft: isSpaceTokenProp,
+  };
+}
+
+Card.displayName = 'Card';
 
 export {Card};
