@@ -36,7 +36,7 @@ export const fontSizePartial = ({depth}: TableOfContentsListItemProps): string =
   return themeGet('fontSizes.fontSize30');
 };
 
-export const StyledListItem: React.FC<TableOfContentsListItemProps> = styled.li`
+export const StyledListItem = styled.li<TableOfContentsListItemProps>`
   display: block;
   margin-top: ${marginTopPartial};
   margin-left: ${marginLeftPartial};
