@@ -17,7 +17,7 @@ interface SiteNavNestListProps {
   isOpen?: boolean;
 }
 
-export const SiteNavNestList: React.FC<SiteNavNestListProps> = styled(SiteNavList)`
+export const SiteNavNestList = styled('ul')<SiteNavNestListProps>`
   display: ${props => (props.isOpen ? 'block' : 'none')};
   text-transform: capitalize;
   background-color: ${themeGet('colors.colorGray30')};
@@ -57,7 +57,7 @@ interface SiteNavButtonProps {
   'aria-expanded': boolean;
 }
 
-export const SiteNavButton: React.FC<SiteNavButtonProps> = styled.button`
+export const SiteNavButton = styled.button<SiteNavButtonProps>`
   position: relative;
   display: block;
   width: 100%;
@@ -89,7 +89,7 @@ interface SiteNavAnchorArrowProps {
   isOpen?: boolean;
 }
 
-export const SiteNavAnchorArrow: React.FC<SiteNavAnchorArrowProps> = styled.div`
+export const SiteNavAnchorArrow = styled.div<SiteNavAnchorArrowProps>`
   position: absolute;
   right: ${themeGet('space.space40')};
   top: 50%;
