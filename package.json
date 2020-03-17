@@ -26,6 +26,7 @@
     "build:icons": "yarn workspace @twilio-paste/icons build",
     "build:storybook": "build-storybook -c .storybook -o ./docs",
     "build:website": "yarn workspace @twilio-paste/website build",
+    "build:props": "lerna run build:props --ignore @twilio-paste/website --concurrency 2",
     "pre-push": "concurrently \"yarn:lint\" \"yarn:test\" \"yarn:prettier\" \"yarn:type-check\"",
     "release": "yarn lerna publish -m 'chore(release): publish' --conventional-commits --canary --preid beta",
     "release:stable": "yarn lerna publish -m 'chore(release): publish' --conventional-commits",
@@ -43,7 +44,6 @@
     "package-size-action-build": "yarn bootstrap && yarn build",
     "prettier": "prettier --list-different '{.storybook,packages}/**/*.{ts,tsx}'",
     "prettier-clean": "prettier --write '{.storybook,packages}/**/*.{ts,tsx}'",
-    "props-gen": "lerna run props-gen",
     "lint": "yarn pre-test && eslint --ext .tsx,.ts ./packages/**",
     "type-check": "lerna run type-check"
   },
