@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import {Absolute} from '@twilio-paste/absolute';
 
@@ -51,8 +52,13 @@ const AspectRatio: React.FC<AspectRatioProps> = props => {
   );
 };
 
-AspectRatio.defaultProps = {
-  ratio: '4:3',
-};
+AspectRatio.displayName = 'AspectRatio';
+
+if (process.env.NODE_ENV === 'development') {
+  AspectRatio.propTypes = {
+    children: PropTypes.node.isRequired,
+    ratio: PropTypes.string.isRequired,
+  };
+}
 
 export {AspectRatio};
