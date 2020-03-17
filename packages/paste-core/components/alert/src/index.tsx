@@ -84,11 +84,14 @@ const Alert: React.FC<AlertProps> = ({children, onDismiss, variant, role, ...pro
     </Box>
   );
 };
-Alert.propTypes = {
-  children: PropTypes.node.isRequired,
-  onDismiss: PropTypes.func,
-  role: PropTypes.string,
-  variant: PropTypes.oneOf(Object.keys(AlertVariants).map(variant => AlertVariants[variant])).isRequired,
-};
 Alert.displayName = 'Alert';
+
+if (process.env.NODE_ENV === 'development') {
+  Alert.propTypes = {
+    children: PropTypes.node.isRequired,
+    onDismiss: PropTypes.func,
+    role: PropTypes.string,
+    variant: PropTypes.oneOf(Object.keys(AlertVariants).map(variant => AlertVariants[variant])).isRequired,
+  };
+}
 export {Alert};
