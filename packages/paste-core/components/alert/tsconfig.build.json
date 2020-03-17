@@ -9,7 +9,7 @@
   ],
   "references": [
     {
-      "path": "../../utilities/absolute"
+      "path": "../../layout/absolute"
     },
     {
       "path": "../../primitives/box"
@@ -24,7 +24,7 @@
       "path": "../../../paste-icons"
     },
     {
-      "path": "../../utilities/media-object"
+      "path": "../../layout/media-object"
     },
     {
       "path": "../spinner"
