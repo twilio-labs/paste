@@ -34,6 +34,7 @@ import {
   WillChangeProperty,
 } from 'csstype';
 import {PseudoPropStyles} from './PseudoPropStyles';
+import {BoxPropTypes} from './BoxPropTypes';
 
 interface BaseBoxProps
   extends React.HTMLAttributes<any>,
@@ -164,6 +165,11 @@ export const Box = styled.div(
   ),
   getPseudoStyles
 ) as React.FC<BoxProps>;
+
 Box.displayName = 'Box';
+
+if (process.env.NODE_ENV === 'development') {
+  Box.propTypes = BoxPropTypes;
+}
 
 export * from './SafelySpreadProps';
