@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.11](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.13.10...@twilio-paste/website@1.13.11) (2020-03-17)
+
+
+### Bug Fixes
+
+* **website:** fix regression in sidebar nav ([#349](https://github.com/twilio-labs/paste/issues/349)) ([02c8161](https://github.com/twilio-labs/paste/commit/02c81611917bc41eb63e97b960c7d60f7aacfbac))
+
+
+
+
+
 ## [1.13.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.13.9...@twilio-paste/website@1.13.10) (2020-03-17)
 
 
