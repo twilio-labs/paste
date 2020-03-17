@@ -1,3 +1,4 @@
+import * as PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import {top, right, bottom, left, zIndex, styleFn} from 'styled-system';
 import {Box, BoxProps} from '@twilio-paste/box';
@@ -106,5 +107,33 @@ const Absolute = styled(Box)<AbsoluteProps>(preset, zIndex, top, right, bottom, 
 Absolute.defaultProps = {
   preset: 'fill',
 };
+
+if (process.env.NODE_ENV === 'development') {
+  Absolute.propTypes = {
+    preset: PropTypes.oneOf([
+      'fill',
+      'top',
+      'top_left',
+      'top_right',
+      'top_fill',
+      'bottom',
+      'bottom_left',
+      'bottom_right',
+      'bottom_fill',
+      'left',
+      'left_top',
+      'left_bottom',
+      'left_fill',
+      'right',
+      'right_top',
+      'right_bottom',
+      'right_fill',
+    ]),
+    top: PropTypes.number,
+    right: PropTypes.number,
+    bottom: PropTypes.number,
+    left: PropTypes.number,
+  };
+}
 
 export {Absolute};
