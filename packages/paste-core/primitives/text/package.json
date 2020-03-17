@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/text",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "category": "typography",
   "status": "beta",
   "description": "A primitive component that can be used to create all text styles in Paste",
@@ -30,7 +30,7 @@
   "peerDependencies": {
     "@emotion/styled": "^10.0.10",
     "@twilio-paste/design-tokens": "^4.3.0",
-    "@twilio-paste/style-props": "^0.2.0",
+    "@twilio-paste/style-props": "^0.2.1",
     "@twilio-paste/theme-tokens": "^3.1.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -42,7 +42,7 @@
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "@twilio-paste/design-tokens": "^4.3.0",
-    "@twilio-paste/style-props": "^0.2.0",
+    "@twilio-paste/style-props": "^0.2.1",
     "@twilio-paste/theme-tokens": "^3.1.2",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",
