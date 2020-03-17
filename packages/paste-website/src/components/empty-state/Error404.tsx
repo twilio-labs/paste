@@ -7,14 +7,14 @@ import {SidebarCategoryRoutes, PackageStatus} from '../../constants';
 interface Error404Props {
   pathname: string;
   componentList: {name: string; status: string}[];
-  utilitityList: {name: string; status: string}[];
+  layoutList: {name: string; status: string}[];
 }
 
-const Error404 = ({pathname, componentList, utilitityList}: Error404Props): React.ReactNode => {
+const Error404 = ({pathname, componentList, layoutList}: Error404Props): React.ReactNode => {
   const pathParts = pathname.split('/');
   const pageName = pathParts[pathParts.length - 1];
   const packageName = `@twilio-paste/${pageName}`;
-  const packageObj = [...componentList, ...utilitityList].find(({name}) => name === packageName);
+  const packageObj = [...componentList, ...layoutList].find(({name}) => name === packageName);
 
   if (packageObj != null) {
     const isInDevelopment = packageObj.status !== PackageStatus.BACKLOG;
@@ -26,15 +26,15 @@ const Error404 = ({pathname, componentList, utilitityList}: Error404Props): Reac
       return <NotBuilt type="component" name={pageName} />;
     }
 
-    if (pathname.includes(SidebarCategoryRoutes.UTILITIES)) {
+    if (pathname.includes(SidebarCategoryRoutes.LAYOUT)) {
       if (isInDevelopment) {
-        return <InDevelopment type="utility" name={pageName} />;
+        return <InDevelopment type="layout" name={pageName} />;
       }
-      return <NotBuilt type="utility" name={pageName} />;
+      return <NotBuilt type="layout" name={pageName} />;
     }
   }
 
-  /* 
+  /*
   // TODO populate graphql first
   if (pathname.includes(SidebarCategoryRoutes.PRIMITIVES) && primitiveList.includes(packageName)) {
       <NotBuilt type="primitive" name={name} />;

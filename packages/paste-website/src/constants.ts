@@ -8,7 +8,7 @@ export const PASTE_THEME_WARNING_BANNER_OFFSET = '46px';
 export const SidebarCategoryRoutes = {
   COMPONENTS: '/components',
   PRIMITIVES: '/primitives',
-  UTILITIES: '/utilities',
+  LAYOUT: '/layout',
   ICON_SYSTEM: '/icon-system',
   GETTING_STARTED: '/getting-started',
   TOKENS: '/tokens',

@@ -63,7 +63,7 @@ Each Design Primitive is an [Emotion Styled Component](https://emotion.sh/docs/s
 
 ### Box Primitive
 
-The Box Primitive component is designed to be a block level utility. Think of it as a `div`, except with super powers. By exposing the `as` prop, Box can become any _valid_ HTML element (obviously the sensible choices would be box or block style things). It exposes important styling properties like background color, padding, margin, border styles, etc., to allow you to create custom block level containers. The values the styling properties take are the names of the design tokens exposed on the theme object.
+The Box Primitive component is designed to be a block level primitive. Think of it as a `div`, except with super powers. By exposing the `as` prop, Box can become any _valid_ HTML element (obviously the sensible choices would be box or block style things). It exposes important styling properties like background color, padding, margin, border styles, etc., to allow you to create custom block level containers. The values the styling properties take are the names of the design tokens exposed on the theme object.
 
 <Callout>
   <CalloutTitle as="h4">RIP Hex Values!</CalloutTitle>
@@ -101,7 +101,7 @@ Parent box on the hill side
 
 ### Text
 
-The Text component is designed to be a general purpose text utility. Similar to Box, it too exposes the `as` prop to allow transformation into any valid HTML element and comes with a number of text styling properties. These properties include font-size, text color, weight and line height, allowing you to create text styles that should match the design system.
+The Text component is designed to be a general purpose text primitive. Similar to Box, it too exposes the `as` prop to allow transformation into any valid HTML element and comes with a number of text styling properties. These properties include font-size, text color, weight and line height, allowing you to create text styles that should match the design system.
 
 <LivePreview scope={{Box, Text}} language="jsx">
   {`<Box padding="space20">

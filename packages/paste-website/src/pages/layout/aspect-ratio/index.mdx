@@ -1,7 +1,7 @@
 ---
-title: Aspect Ratio - Utilities
+title: Aspect Ratio - Layout
 package: '@twilio-paste/aspect-ratio'
-description: The Aspect Ratio utility is used to embed images, video, media, components, or other HTML elements. It prevents skewing, cropping, etc.
+description: The Aspect Ratio layout component is used to embed images, video, media, components, or other HTML elements. It prevents skewing, cropping, etc.
 ---
 
 import {graphql} from 'gatsby';
@@ -16,7 +16,7 @@ import {SidebarCategoryRoutes} from '../../../constants';
 
 export const pageQuery = graphql`
   {
-    allPasteUtility(filter: {name: {eq: "@twilio-paste/aspect-ratio"}}) {
+    allPasteLayout(filter: {name: {eq: "@twilio-paste/aspect-ratio"}}) {
       edges {
         node {
           name
@@ -44,10 +44,10 @@ export const pageQuery = graphql`
 
 <ComponentHeader
   name="Aspect Ratio"
-  categoryRoute={SidebarCategoryRoutes.UTILITIES}
-  githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/utilities/aspect-ratio"
-  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/utilities-aspect-ratio--default"
-  data={props.data.allPasteUtility.edges}
+  categoryRoute={SidebarCategoryRoutes.LAYOUT}
+  githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/layout/aspect-ratio"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/layout-aspect-ratio--default"
+  data={props.data.allPasteLayout.edges}
 />
 
 ***
@@ -71,7 +71,7 @@ when you resize the screen.
 
 Aspect Ratio must contain exactly one child element. The child element should be sized
 fully to the Aspect Ratio bounding box so that it resizes correctly. One way of achieving
-this is through the [Absolute](/utilities/absolute) component.
+this is through the [Absolute](/layout/absolute) component.
 
 Be considerate of smaller devices when using this component. If necessary, you can
 modify the aspect ratio property at certain media query breakpoints.
