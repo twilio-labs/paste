@@ -18,13 +18,13 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn clean && yarn compile && yarn props-gen",
+    "build": "yarn clean && yarn compile",
     "build:dev": "yarn clean && yarn compile:dev",
+    "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
     "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
     "compile": "rollup -c --environment NODE_ENV:production",
     "compile:dev": "rollup -cw --environment NODE_ENV:development",
     "prepublishOnly": "yarn build",
-    "props-gen": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
