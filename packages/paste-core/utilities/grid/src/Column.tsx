@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import {useTheme} from '@twilio-paste/theme';
+import {ResponsiveProp} from '@twilio-paste/style-props';
 import {ThemeShape} from '@twilio-paste/theme-tokens';
 import {compose, layout, space} from 'styled-system';
 import {ColumnProps, ColumnStyleProps} from './types';
@@ -52,19 +53,14 @@ const Column: React.FC<ColumnProps> = ({as, children, count, gutter, offset, spa
     </StyledColumn>
   );
 };
-
-Column.propTypes = {
-  as: PropTypes.string as any,
-  offset: PropTypes.oneOfType([
-    PropTypes.oneOfType([PropTypes.number]),
-    PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])),
-  ] as any),
-  span: PropTypes.oneOfType([
-    PropTypes.oneOfType([PropTypes.number]),
-    PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])),
-  ] as any),
-};
-
 Column.displayName = 'Column';
+
+if (process.env.NODE_ENV === 'development') {
+  Column.propTypes = {
+    as: PropTypes.string as any,
+    offset: ResponsiveProp(PropTypes.number),
+    span: ResponsiveProp(PropTypes.number),
+  };
+}
 
 export {Column};

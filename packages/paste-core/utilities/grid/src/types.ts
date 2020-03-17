@@ -1,12 +1,11 @@
 import {ResponsiveValue} from 'styled-system';
 import {LayoutProps, PaddingProps, Space, SpaceProps} from '@twilio-paste/style-props';
-import {Vertical} from '@twilio-paste/flex';
 
 export interface GridProps extends SpaceProps {
   as?: keyof JSX.IntrinsicElements;
   children: NonNullable<React.ReactNode>;
   gutter?: Space;
-  vertical?: Vertical;
+  vertical?: ResponsiveValue<boolean>;
 }
 
 export type ColumnMinWidth = ResponsiveValue<'100%' | '0'>;
@@ -28,5 +27,5 @@ export interface ColumnProps extends ColumnStyleProps {
   gutter?: Space;
   offset?: ColumnOffset;
   span?: ColumnSpan;
-  vertical?: Vertical;
+  vertical?: ResponsiveValue<boolean>;
 }
