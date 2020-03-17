@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import {Spinner} from '@twilio-paste/spinner';
 import {ButtonWrapper, ButtonChildren, SpinnerWrapper} from './styles';
 import {ButtonProps, ButtonStates} from './types';
@@ -113,6 +114,34 @@ Button.defaultProps = {
   loading: false,
   fullWidth: false,
 };
+
+if (process.env.NODE_ENV === 'development') {
+  Button.propTypes = {
+    type: PropTypes.oneOf(['submit', 'button', 'reset']),
+    href: PropTypes.string,
+    autoFocus: PropTypes.bool,
+    as: PropTypes.string,
+    tabIndex: PropTypes.oneOf([0, -1]),
+    variant: PropTypes.oneOf(['primary', 'secondary', 'destructive', 'destructive_link', 'link', 'reset']) as any,
+    size: PropTypes.oneOf(['small', 'default', 'icon', 'reset']),
+    fullWidth: PropTypes.bool,
+    /* eslint-disable react/no-unused-prop-types */
+    disabled: PropTypes.bool,
+    loading: PropTypes.bool,
+    /* eslint-enable */
+    'aria-expanded': PropTypes.oneOf(['true', 'false']),
+    'aria-haspopup': PropTypes.oneOf(['true', 'dialog', 'menu']),
+    'aria-controls': PropTypes.string,
+    'data-test': PropTypes.string,
+    onClick: PropTypes.func,
+    onMouseDown: PropTypes.func,
+    onMouseUp: PropTypes.func,
+    onMouseEnter: PropTypes.func,
+    onMouseLeave: PropTypes.func,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
+  };
+}
 
 Button.displayName = 'Button';
 
