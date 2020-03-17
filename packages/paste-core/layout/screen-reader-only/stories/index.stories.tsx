@@ -4,7 +4,7 @@ import {withKnobs} from '@storybook/addon-knobs';
 import {Text} from '@twilio-paste/text';
 import {ScreenReaderOnly} from '../src';
 
-storiesOf('Utilities|Screen reader only', module)
+storiesOf('Layout|Screen reader only', module)
   .addDecorator(withKnobs)
   .add('Default', () => {
     return (
