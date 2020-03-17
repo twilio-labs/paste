@@ -4,9 +4,9 @@ import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Truncate} from '../src';
 
-storiesOf('Utilities|Truncate', module).add('Default', () => {
+storiesOf('Layout|Truncate', module).add('Default', () => {
   return (
-    <Box maxWidth="150px">
+    <Box maxWidth="size20">
       <Text as="p">
         <Truncate>Some very long text to truncate</Truncate>
       </Text>
