@@ -42,6 +42,7 @@ const TextAreaElement = styled.textarea(
     paddingBottom: 'space30',
     paddingLeft: 'space40',
     borderRadius: 'borderRadius20',
+    resize: 'vertical',
 
     '&::placeholder': {
       color: 'colorTextWeak',
