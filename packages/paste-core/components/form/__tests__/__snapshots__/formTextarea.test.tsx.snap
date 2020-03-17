@@ -58,6 +58,7 @@ exports[`FormTextArea render it should render 1`] = `
   padding-bottom: 0.5rem;
   padding-left: 0.75rem;
   border-radius: 4px;
+  resize: vertical;
 }
 
 .emotion-0::-webkit-input-placeholder {

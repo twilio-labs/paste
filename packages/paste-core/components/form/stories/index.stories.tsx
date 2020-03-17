@@ -219,4 +219,114 @@ storiesOf('Components|Form', module)
         </FormHelperText>
       </>
     );
+  })
+  .add('Textarea', () => {
+    const uid = useUID();
+    return (
+      <>
+        <FormLabel htmlFor={uid}>Label</FormLabel>
+        <FormTextArea
+          id={uid}
+          placeholder="Placeholder"
+          onChange={action('handleFocus')}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+        />
+        <FormHelperText>Info that helps a user with this field.</FormHelperText>
+      </>
+    );
+  })
+  .add('Textarea - Required', () => {
+    const uid = useUID();
+    return (
+      <>
+        <FormLabel htmlFor={uid} required>
+          Label
+        </FormLabel>
+        <FormTextArea
+          id={uid}
+          placeholder="Placeholder"
+          required
+          onChange={action('handleFocus')}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+        />
+        <FormHelperText>Info that helps a user with this field.</FormHelperText>
+      </>
+    );
+  })
+  .add('Textarea - Error', () => {
+    const uid = useUID();
+    return (
+      <>
+        <FormLabel htmlFor={uid}>Label</FormLabel>
+        <FormTextArea
+          id={uid}
+          placeholder="Placeholder"
+          hasError
+          onChange={action('handleFocus')}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+        />
+        <FormHelperText variant="error">Error info. Explains why the input has an error.</FormHelperText>
+      </>
+    );
+  })
+  .add('Textarea - Disabled', () => {
+    const uid = useUID();
+    return (
+      <>
+        <FormLabel htmlFor={uid} disabled>
+          Label
+        </FormLabel>
+        <FormTextArea
+          id={uid}
+          placeholder="Placeholder"
+          disabled
+          onChange={action('handleFocus')}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+        />
+        <FormHelperText>Info that helps a user with this field.</FormHelperText>
+      </>
+    );
+  })
+  .add('Textarea - ReadOnly', () => {
+    const uid = useUID();
+    return (
+      <>
+        <FormLabel htmlFor={uid}>Label</FormLabel>
+        <FormTextArea
+          id={uid}
+          placeholder="Placeholder"
+          readOnly
+          onChange={action('handleFocus')}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+        />
+        <FormHelperText>Info that helps a user with this field.</FormHelperText>
+      </>
+    );
+  })
+  .add('Textarea - insert before and after', () => {
+    const uid = useUID();
+    return (
+      <>
+        <FormLabel htmlFor={uid}>Label</FormLabel>
+        <FormTextArea
+          id={uid}
+          placeholder="Placeholder"
+          onChange={action('handleFocus')}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          insertBefore={<div>$10.99</div>}
+          insertAfter={
+            <Anchor href="#" display="flex">
+              <InformationIcon decorative={false} title="Get more info" />
+            </Anchor>
+          }
+        />
+        <FormHelperText>Info that helps a user with this field.</FormHelperText>
+      </>
+    );
   });
