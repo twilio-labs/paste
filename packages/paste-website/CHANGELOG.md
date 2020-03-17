@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.13.9...@twilio-paste/website@1.13.10) (2020-03-17)
+
+
+### Bug Fixes
+
+* **website:** amend how we type some styled components ([6f324fa](https://github.com/twilio-labs/paste/commit/6f324fa97b4dd66391ad9febeb1ca2ebf8676430))
+
+
+
+
+
 ## [1.13.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.13.8...@twilio-paste/website@1.13.9) (2020-03-11)
 
 **Note:** Version bump only for package @twilio-paste/website
