@@ -1,0 +1,24 @@
+{
+  "extends": "../../../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "references": [
+    {
+      "path": "../../primitives/box"
+    },
+    {
+      "path": "../../../paste-design-tokens"
+    },
+    {
+      "path": "../../../paste-style-props"
+    },
+    {
+      "path": "../../../paste-theme-tokens"
+    }
+  ]
+}
