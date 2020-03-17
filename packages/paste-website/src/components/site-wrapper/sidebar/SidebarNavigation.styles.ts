@@ -17,7 +17,7 @@ interface SiteNavNestListProps {
   isOpen?: boolean;
 }
 
-export const SiteNavNestList = styled('ul')<SiteNavNestListProps>`
+export const SiteNavNestList = styled(SiteNavList)<SiteNavNestListProps>`
   display: ${props => (props.isOpen ? 'block' : 'none')};
   text-transform: capitalize;
   background-color: ${themeGet('colors.colorGray30')};
