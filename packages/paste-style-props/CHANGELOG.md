@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@0.1.12...@twilio-paste/style-props@0.2.0) (2020-03-17)
+
+
+### Features
+
+* **style-props:** add proptype functions for token props ([5736655](https://github.com/twilio-labs/paste/commit/5736655fffdce9e89090010f6d88ec1aa551c700))
+
+
+
+
+
 ## [0.1.12](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@0.1.11...@twilio-paste/style-props@0.1.12) (2020-03-11)
 
 **Note:** Version bump only for package @twilio-paste/style-props
