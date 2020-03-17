@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@0.1.2...@twilio-paste/form@0.2.0) (2020-03-17)
+
+
+### Features
+
+* **form:** textarea component ([#345](https://github.com/twilio-labs/paste/issues/345)) ([2ffafa5](https://github.com/twilio-labs/paste/commit/2ffafa502ca04aa6577ffbee3279c37f18a9c86d))
+
+
+
+
+
 ## [0.1.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@0.1.1...@twilio-paste/form@0.1.2) (2020-03-17)
 
 **Note:** Version bump only for package @twilio-paste/form
