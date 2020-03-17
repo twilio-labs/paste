@@ -6,7 +6,7 @@ import {Box} from '@twilio-paste/box';
 import {DefaultTheme, ThemeShape} from '@twilio-paste/theme-tokens';
 import {MediaObject, MediaFigure, MediaBody} from '../src';
 
-storiesOf('Utilities|Media Object', module)
+storiesOf('Layout|Media Object', module)
   .addDecorator(withKnobs)
   .add('Default', () => {
     const spaceValue = select('spacing', Object.keys(DefaultTheme.space), 'space20') as keyof ThemeShape['space'];
