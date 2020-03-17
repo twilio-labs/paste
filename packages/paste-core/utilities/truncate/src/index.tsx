@@ -7,5 +7,6 @@ const Truncate = styled.span`
   text-overflow: ellipsis;
   white-space: nowrap;
 `;
+Truncate.displayName = 'Truncate';
 
 export {Truncate};
