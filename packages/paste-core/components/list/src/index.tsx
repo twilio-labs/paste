@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
-import {Space} from '@twilio-paste/style-props';
+import {Space, isSpaceTokenProp} from '@twilio-paste/style-props';
 
-interface BaseListProps extends React.OlHTMLAttributes<''> {
+interface BaseListProps extends React.OlHTMLAttributes<HTMLElement> {
   className?: never;
   style?: never;
   as: 'ol' | 'ul';
@@ -25,8 +25,12 @@ const List: React.FC<BaseListProps> = ({as, children, ...props}) => {
     </Text>
   );
 };
+
 List.displayName = 'List';
 
+/*
+ * Ordered List
+ */
 export type OrderedListProps = Omit<BaseListProps, 'as'>;
 const OrderedList: React.FC<OrderedListProps> = ({children, marginTop, marginBottom, ...props}) => {
   return (
@@ -35,11 +39,23 @@ const OrderedList: React.FC<OrderedListProps> = ({children, marginTop, marginBot
     </List>
   );
 };
+
 OrderedList.defaultProps = {
   marginBottom: 'space70',
 };
+
+if (process.env.NODE_ENV === 'development') {
+  OrderedList.propTypes = {
+    marginTop: isSpaceTokenProp,
+    marginBottom: isSpaceTokenProp,
+  };
+}
+
 OrderedList.displayName = 'OrderedList';
 
+/*
+ * Unordered List
+ */
 export type UnorderedListProps = Omit<BaseListProps, 'as'>;
 const UnorderedList: React.FC<UnorderedListProps> = ({children, marginTop, marginBottom, ...props}) => {
   return (
@@ -48,12 +64,24 @@ const UnorderedList: React.FC<UnorderedListProps> = ({children, marginTop, margi
     </List>
   );
 };
+
 UnorderedList.defaultProps = {
   marginBottom: 'space70',
 };
+
+if (process.env.NODE_ENV === 'development') {
+  UnorderedList.propTypes = {
+    marginTop: isSpaceTokenProp,
+    marginBottom: isSpaceTokenProp,
+  };
+}
+
 UnorderedList.displayName = 'UnorderedList';
 
-export interface ListItemProps extends React.LiHTMLAttributes<''> {
+/*
+ * List Item
+ */
+export interface ListItemProps extends React.LiHTMLAttributes<HTMLLIElement> {
   className?: never;
   style?: never;
 }
@@ -74,6 +102,7 @@ const ListItem: React.FC<ListItemProps> = props => {
     </Text>
   );
 };
+
 ListItem.displayName = 'ListItem';
 
 export {OrderedList, UnorderedList, ListItem};
