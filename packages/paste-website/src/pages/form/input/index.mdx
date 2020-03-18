@@ -9,6 +9,7 @@ import {Box} from '@twilio-paste/box';
 import {FormLabel, FormInput, FormHelperText} from '@twilio-paste/form';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/form/CHANGELOG.md';
 
@@ -238,182 +239,210 @@ Error text should:
 Use an input when users are expected to enter less than a single line of text, or text that’s shorter than a sentence.
 
 <DoDont>
-  <Do title="Do" body="Use an input to encourage short text entry." center>
-    <Codeblock>
-      {`<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
-</Paragraph>`}
-    </Codeblock>
-  </Do>
+  <Do title="Do" body="Use an input to encourage short text entry."  preview={false}/>
   <Dont
     title="Don't"
     body="Don’t use an input when text entry is expected to be longer than the width of the input since users may need to review the text before submission. Use a textarea instead."
-  >
-    <Codeblock>
-      {`<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-</Paragraph>`}
-    </Codeblock>
-  </Dont>
+    preview={false}
+  />
 </DoDont>
 <DoDont>
   <Do
     title="Do"
     body="If you limit the length of text entry, show a character counter and explain to users in help text why their entry is restricted."
-    center
-  >
-    <Codeblock>
-      {`<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
-</Paragraph>`}
-    </Codeblock>
-  </Do>
+    preview={false}
+  />
   <Dont
     title="Don't"
     body="Don’t have a character limit if you can’t explain to the user why their text entry is restricted."
-  >
-    <Codeblock>
-      {`<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-</Paragraph>`}
-    </Codeblock>
-  </Dont>
+    preview={false}
+  />
 </DoDont>
 <DoDont>
-  <Do title="Do" body="Use help text to help users prevent errors and fill out a form field correctly." center>
-    <Codeblock>
-      {`<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
-</Paragraph>`}
-    </Codeblock>
-  </Do>
-  <Dont title="Don't" body="Don’t use placeholder text for validation instructions.">
-    <Codeblock>
-      {`<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-</Paragraph>`}
-    </Codeblock>
-  </Dont>
+  <Do title="Do" body="Use help text to help users prevent errors and fill out a form field correctly."  preview={false}/>
+  <Dont title="Don't" body="Don’t use placeholder text for validation instructions."  preview={false}/>
 </DoDont>
 <DoDont>
   <Do
     title="Do"
     body="Use the correct input type to help users format their text correctly and bring up dynamic keypads."
-    center
-  >
-    <Codeblock>
-      {`<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
-</Paragraph>`}
-    </Codeblock>
-  </Do>
+    preview={false}
+  />
   <Dont
     title="Don't"
     body="Don’t use the default input type if there’s a more specific one that can help users enter valid text more efficiently."
-  >
-    <Codeblock>
-      {`<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-</Paragraph>`}
-    </Codeblock>
-  </Dont>
+    preview={false}
+  />
 </DoDont>
 <DoDont>
   <Do
     title="Do"
     body="Keep help text and error text concise and simple. If you need to use more than 2 sentences to explain a field, link out to supporting docs or trigger a popover instead."
-    center
-  >
-    <Codeblock>
-      {`<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
-</Paragraph>`}
-    </Codeblock>
-  </Do>
-  <Dont title="Don't" body="Don’t use more than 2 sentences in help text or error text.">
-    <Codeblock>
-      {`<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-</Paragraph>`}
-    </Codeblock>
-  </Dont>
+    preview={false}
+  />
+  <Dont title="Don't" body="Don’t use more than 2 sentences in help text or error text." preview={false}/>
 </DoDont>
 <DoDont>
-  <Do title="Do" body="Include a visible label on every form field." center>
-    <Codeblock>
-      {`<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
-</Paragraph>`}
-    </Codeblock>
-  </Do>
-  <Dont title="Don't" body="Don’t use prefix/suffix text as a replacement for a label.">
-    <Codeblock>
-      {`<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-</Paragraph>`}
-    </Codeblock>
-  </Dont>
+  <Do title="Do" body="Include a visible label on every form field."  preview={false} />
+  <Dont title="Don't" body="Don’t use prefix/suffix text as a replacement for a label." preview={false} />
 </DoDont>
 <DoDont>
   <Do
     title="Do"
     body="Use a disabled form field to show users that they can’t interact with the field, but that it could potentially be enabled through another UI element."
-    center
-  >
-    <Codeblock>
-      {`<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
-</Paragraph>`}
-    </Codeblock>
-  </Do>
+    preview={false}
+  />
   <Dont
     title="Don't"
     body="Don’t use a disabled form field to show information that can’t be edited. Instead, use a read-only form field or consider another way of showing static information."
-  >
-    <Codeblock>
-      {`<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-</Paragraph>`}
-    </Codeblock>
-  </Dont>
+    preview={false}
+  />
 </DoDont>
 
 ## Anatomy
 
-| Property                 | Default token                                                                                                                                                                                                                                                                                                             | Modifiable?                      |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
-| Label text               | $font-size-30<br/>Default: $color-text, $font-weight-semibold<br/>Disabled: $color-text-weak, \$font-weight-semibold                                                                                                                                                                                                      | No                               |
-| Required field indicator | 4px size (0.25rem)<br/>Background: \$color-background-required                                                                                                                                                                                                                                                            | No                               |
-| Box Shadowd              | Default: \$shadow-border-input<br/>Hover: shadow-border-inputHover<br/>Disabled: shadow-border-input-disabled<br/>Error: shadow-border-input-disabled<br/>Error hover: shadow-border-input-error-hover                                                                                                                    | No                               |
-| Background               | Default: $color-background-body<br/>Disabled, Readonly: $color-background                                                                                                                                                                                                                                                 | No                               |
-| Prefix/suffix            | Background: $color-background<br/>Border: $color-border-light                                                                                                                                                                                                                                                             | No                               |
-| Prefix/suffix text       | Default: $color-text<br/>Disabled: $color-text-weak                                                                                                                                                                                                                                                                       | No, but it can take any children |
-| Value text               | $font-size-30<br/>Default, Readonly: $color-text<br/>Disabled: \$color-text-weak                                                                                                                                                                                                                                          | No                               |
-| Placeholder text         | \$color-text-weak, italic                                                                                                                                                                                                                                                                                                 | No                               |
-| Help text                | $color-text-weak, $font-size-30                                                                                                                                                                                                                                                                                           | No                               |
-| Inline error             | Text: $color-text-error, $font-size-30<br/>Icon: IconError, $color-text-error, $icon-size-30                                                                                                                                                                                                                              | No                               |
-| Spacing                  | Label:<br/>Bottom: $space-10<br/>Between label and required indicator: $space-20<br/>Input:<br/>Left padding: $space-40<br/>Top, right, bottom padding: $space-30<br/>Prefix/suffix padding: $space-30<br/>Help text:<br/>Top: $space-20<br/>Inline error<br/>Spacing between icon and text: $space-20<br/>Top: $space-20 | No                               |
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Default token</th>
+      <th>Modifiable?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Label text</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>$font-size-30</ListItem>
+          <ListItem>Default: $color-text, $font-weight-semibold</ListItem>
+          <ListItem>Disabled: $color-text-weak, $font-weight-semibold</ListItem>
+        </UnorderedList>
+      </td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Required field indicator</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>4px size (0.25rem)</ListItem>
+          <ListItem>Background: $color-background-required</ListItem>
+        </UnorderedList>
+      </td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Box Shadow</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>Default: $shadow-border-input</ListItem>
+          <ListItem>Hover: shadow-border-inputHover</ListItem>
+          <ListItem>Disabled: shadow-border-input-disabled</ListItem>
+          <ListItem>Error: shadow-border-input-disabled</ListItem>
+          <ListItem>Error hover: shadow-border-input-error-hover</ListItem>
+        </UnorderedList>
+      </td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Background</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>Default: $color-background-body</ListItem>
+          <ListItem>Disabled, Readonly: $color-background</ListItem>
+        </UnorderedList>
+      </td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Prefix/suffix</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>Background: $color-background</ListItem>
+          <ListItem>Border: $color-border-light</ListItem>
+        </UnorderedList>
+      </td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Prefix/suffix text</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>Default: $color-text</ListItem>
+          <ListItem>Disabled: $color-text-weak</ListItem>
+        </UnorderedList>
+      </td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Value text</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>$font-size-30</ListItem>
+          <ListItem>Default, Readonly: $color-text</ListItem>
+          <ListItem>Disabled: $color-text-weak</ListItem>
+        </UnorderedList>
+      </td>
+      <td>No, but it can take any children</td>
+    </tr>
+    <tr>
+      <td>Placeholder text </td>
+      <td>
+        $color-text-weak, italic
+      </td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Help text</td>
+      <td>
+        $color-text-weak, $font-size-30
+      </td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Inline error</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>Text: $color-text-error, $font-size-30</ListItem>
+          <ListItem>Icon: IconError, $color-text-error, $icon-size-30</ListItem>
+        </UnorderedList>
+      </td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Spacing</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>Label:
+            <UnorderedList marginBottom="space0">
+              <ListItem>Bottom: $space-10</ListItem>
+              <ListItem>Between label and required indicator: $space-20</ListItem>
+            </UnorderedList>
+          </ListItem>
+          <ListItem>Input:
+            <UnorderedList marginBottom="space0">
+              <ListItem>Left padding: $space-40</ListItem>
+              <ListItem>Top, right, bottom padding: $space-30</ListItem>
+            </UnorderedList>
+          </ListItem>
+          <ListItem>Prefix/suffix padding: $space-30</ListItem>
+          <ListItem>Help text:
+            <UnorderedList marginBottom="space0">
+              <ListItem>Top: $space-20</ListItem>
+            </UnorderedList>
+          </ListItem>
+          <ListItem>Inline error:
+            <UnorderedList marginBottom="space0">
+              <ListItem>Spacing between icon and text: $space-20</ListItem>
+              <ListItem>Top: $space-20</ListItem>
+            </UnorderedList>
+          </ListItem>
+        </UnorderedList>
+      </td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
