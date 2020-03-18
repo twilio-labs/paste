@@ -29,7 +29,12 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({category
     .filter(({node}) => node.status === PackageStatus.BACKLOG)
     .sort(sortNodeByName);
   const sortedComponentsList = componentsList
-    .filter(({node}) => node.status !== PackageStatus.BACKLOG && node.name !== '@twilio-paste/typography')
+    .filter(
+      ({node}) =>
+        node.status !== PackageStatus.BACKLOG &&
+        node.name !== '@twilio-paste/typography' &&
+        node.name !== '@twilio-paste/form'
+    )
     .sort(sortNodeByName);
 
   return (

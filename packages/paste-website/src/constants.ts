@@ -12,6 +12,7 @@ export const SidebarCategoryRoutes = {
   ICON_SYSTEM: '/icon-system',
   GETTING_STARTED: '/getting-started',
   TOKENS: '/tokens',
+  FORM: '/form',
 };
 
 export const PackageStatus = {

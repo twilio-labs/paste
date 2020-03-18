@@ -18,6 +18,8 @@ const getCategoryNameFromRoute = (categoryRoute: string): string => {
       return 'Layout';
     case SidebarCategoryRoutes.TOKENS:
       return 'Tokens';
+    case SidebarCategoryRoutes.FORM:
+      return 'Form';
     default:
       return 'Layout';
   }

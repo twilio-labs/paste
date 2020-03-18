@@ -1,0 +1,450 @@
+---
+title: Input - Form
+package: '@twilio-paste/form'
+description: An input allows users to enter text on a single line.
+---
+
+import {graphql} from 'gatsby';
+import {Box} from '@twilio-paste/box';
+import {FormLabel, FormInput, FormHelperText} from '@twilio-paste/form';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {SidebarCategoryRoutes} from '../../../constants';
+import Changelog from '@twilio-paste/form/CHANGELOG.md';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/form"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/form/input/"}}) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name="Input"
+  categoryRoute={SidebarCategoryRoutes.FORM}
+  githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/components/form"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-form--input-options"
+  abstractUrl="https://share.goabstract.com/85c81258-90b9-49c8-b34b-9418da5f2f00"
+  data={props.data.allPasteComponent.edges}
+/>
+
+---
+
+<contentwrapper>
+<TableOfContents headings={props.data.mdx.headings} />
+<content>
+
+## Guidelines
+
+An input allows users to enter text on a single line.
+
+### About Input
+
+Use an input when you want to allow a user to enter a single line of text. By default, text inputs allow users to enter any type of text (letters, numbers, and symbols).
+You can set the input to more [specific types]() if needed.
+
+### Accessibility
+
+Paragraph text should be legible, and easy to read. It should also provide a clear amount of space beneath a block of text to visually separate itself from adjacent content.
+
+<UnorderedList>
+  <ListItem>Include a visible label on all form fields.</ListItem>
+  <ListItem>
+    Don’t use placeholder text as a replacement for labels. It can be used to provide an example to users, but will
+    disappear from the field when a user enters text. It’s also not broadly supported by assistive technologies and
+    won’t display in older browsers.
+  </ListItem>
+  <ListItem>
+    Use one of 3 ways to label a form field:
+    <UnorderedList marginBottom="space0">
+      <ListItem>Visible label with FormLabel (preferred)</ListItem>
+      <ListItem>Visible label that’s associated to the input with `aria-labelledby`</ListItem>
+      <ListItem>Label directly using `aria-label`</ListItem>
+    </UnorderedList>
+  </ListItem>
+  <ListItem>
+    Provide clear identification of required fields in the label or at the start of a form. If you use the [required
+    field indicator](), include the [required field key]() at the start of the form.
+    <UnorderedList marginBottom="space0">
+      <ListItem>Use the `required` attribute to programatically indicate they are required to browsers.</ListItem>
+      <ListItem>
+        The aria-required attribute informs assistive technologies about required controls so that they are
+        appropriately announced to users. This is only required on form fields that don’t support the required attribute
+        from the HTML spec.
+      </ListItem>
+    </UnorderedList>
+  </ListItem>
+  <ListItem>
+    Include inline error text with the error icon on any field that errors to make it visually clear that the field
+    changed.
+  </ListItem>
+</UnorderedList>
+
+## Examples
+
+### Input
+
+The input component should include the base input, along with supporting elements to compose an input field that gives users the context they need to successfully fill it out.
+
+- **Label** — A label should be included for every form field and provide a short title for its associated input.
+- **Required field indicator** — In a form where there are fewer or as many required fields as optional, use a required indicator to show users which fields are required to be filled out.
+- **Optional field indicator** — In a form where there are more required fields than optional fields, use an optional indicator to show users which fields they don’t have to fill out. In general, ask for information only when needed. Consider removing them otherwise.
+- **Help text** — Text that’s placed below the field to help users prevent an error and describe what makes the form field successful.
+
+### Input with add-ons (prefix/suffix text or icons)
+
+- **Prefix/suffix text** — Text that can be used as a prefix and/or suffix to the value that is entered. Use prefix/suffix to help users format text.
+- **Icon** — Icons can be placed in the same area as the prefix and suffix text. Icons should trigger an action (_e.g._, clearing a field) or in rare cases, provide further context to what value should be entered to make a field’s purpose more immediately visible (_e.g._, a search icon).
+
+### Input types
+
+How an input functions varies depending on the value of its type attribute. If a type attribute is not specified, the default type is text. The following type options are available:
+
+#### text
+
+- A single-line text input
+- Line-breaks are automatically removed from the input value
+- Applies type=”text” by default
+
+#### email
+
+- An input for editing an email address
+- Looks like a text input, but has validation parameters and relevant keyboard in supporting browsers and devices with dynamic keyboards
+
+#### hidden
+
+- An input that is not displayed but whose value is submitted to the server
+
+#### number
+
+- An input for entering a number
+- Displays a stepper (small up/down arrows) and adds default validation when supported
+- Displays a numeric keypad in some devices with dynamic keypads
+
+#### password
+
+- An input whose value is obscured
+- Alerts user if the site is not secure
+
+#### readonly
+
+- An input that can’t be edited but can receive focus
+- Allows users to highlight the text in the field.
+
+#### search
+
+- An input for entering search strings
+- Line-breaks are automatically removed from the input value
+- May include a delete icon in supporting browsers that can be used to clear the field
+- Displays a search icon instead of enter key on some devices with dynamic keypads
+
+#### tel
+
+- An input for entering a telephone number
+- Displays a telephone keypad in some devices with dynamic keypads
+
+## States
+
+### Input with inline error
+
+Change a form field to its error state and add an inline error if the value entered doesn’t pass validation requirements.
+
+An inline error is placed below the field to inform a user of any errors in their value. If help text exists, the error text should replace and repeat the help text.
+
+### Disabled input
+
+Use a disabled form field to show users that they can’t interact with the field.
+
+If you want to show information that can’t be edited, use a read-only form field or consider another way of showing static information.
+
+### Read-only input
+
+Use a read-only form field when a field’s value can’t be changed, but users should be able to read or apply focus on the field. For example, use a read-only form field if a user needs to copy the value.
+
+## Composition notes
+
+An input field must have at least a label and an input.
+
+### Positioning form fields
+
+Stack form fields vertically with `$space-80` spacing between each field.
+
+Avoid placing multiple form fields on the same horizontal row to help make it easier to scan a page vertically. Use the Grid component if you need to place form fields horizontally.
+
+### Labels and help text
+
+Labels should clearly describe the value being requested. They should be concise and descriptive, not instructional. To do this:
+
+- Use help text to provide instruction if needed. For example, don’t use “Enter the registration code on the back of your SIM card below” as label text. Instead, use “SIM registration code” as a label and “Find the registration code on the back of your SIM card” as help text.
+- Avoid articles ("a", "the") and punctuation. For example, use “SIM registration code” rather than “The SIM registration code”.
+
+To support internationalization, avoid starting a sentence with the label and using the field to finish it since sentence structures vary across languages. For example, use “Call log expiration date" or "How long should logs be stored?". Don’t use "Remove logs after:".
+
+Give users enough information in help text to prevent input and formatting errors. Keep it concise and scoped to information that will help with validation. For example, use help text if a password field has specific requirements that a user should know prior to filling it out.
+
+### Required or optional field indicator
+
+Ask for information only when needed. Consider removing the field otherwise.
+
+In a form where there are fewer optional fields than required, use an optional indicator to show users which fields they don’t have to fill out. Otherwise, use required indicators to show users which fields they must fill out.
+
+### Required field key
+
+Use the [required field key]() component if you use the `required` prop in your form fields. This component should appear at the top of your form to explain what the required indicator means on each form field. By default, use the words ‘Indicates a required field’ in the key.
+
+### Validation
+
+Validate form fields on form submission.
+
+Validating a form field when the user leaves the current field (on blur) can be helpful to check for syntax errors. However, this can be frustrating to users who tab through controls to navigate a page, and to screen reader users, who might not be able to detect that an error occurred on blur.
+
+Don’t prevent form submission by disabling the submit button. An error message can give more information than a disabled button can to help users figure out which fields are invalid.
+
+### Errors
+
+Use inline error text to explain how to fix an error.
+
+Ideally, help text should have enough information to help users prevent errors. If help text exists and you need to show an error, the error text should replace and repeat the help text until the error has been resolved.
+
+Error text should:
+
+- Be actionable. Explain how to fix an error and if reasonable, why it happened so that it might also be prevented in the future.
+- Be concise and simple, maybe even more than normal. Avoid jargon. Try to keep error text to 2 sentences or fewer.
+- Use the passive voice for input errors to avoid placing blame on the user. For example, “A friendly name is required.”
+- Use the active voice for system errors. For example, “Our systems are currently down. Please contact our support team.”
+
+### Optional compositional elements
+
+- **Prefix/suffix** — Use a prefix or suffix to help users format their input and to provide more context about the value a user is entering. For example, you could prefix or suffix a field with a currency symbol, or use suffix to append a character counter. Make sure to consider internationalization when using prefixes or suffixes since formatting may differ across languages. For example, currency symbols are placed on the left in American English, while they’re placed on the right in French. Don’t use prefix/suffix text as a replacement for a label.
+- **Icon** — Use an icon if you need to give the user additional controls for the field. For example, use an icon to clear a field on click, removing the need for users to manually delete their entered value. Place icon buttons that trigger an action on the right side of the field. If you need 2 actions on a field (e.g., popover trigger and clear field), place the icon button that affects the field value on the right, and the other icon on the left.
+- **Placeholder** — Use a placeholder when you want to give an example of the type of data a user should enter, mainly to help with recall. For example, when asking for links to social media profiles, you could give examples of a few social media sites. Placeholders should be used in addition to the label and not as a replacement since they’ll disappear when a user begins entering their own value. If you need to show supporting instructions, use help text instead.
+
+## When to use an input
+
+Use an input when users are expected to enter less than a single line of text, or text that’s shorter than a sentence.
+
+<DoDont>
+  <Do title="Do" body="Use an input to encourage short text entry." center>
+    <Codeblock>
+      {`<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
+</Paragraph>`}
+    </Codeblock>
+  </Do>
+  <Dont
+    title="Don't"
+    body="Don’t use an input when text entry is expected to be longer than the width of the input since users may need to review the text before submission. Use a textarea instead."
+  >
+    <Codeblock>
+      {`<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+</Paragraph>`}
+    </Codeblock>
+  </Dont>
+</DoDont>
+<DoDont>
+  <Do
+    title="Do"
+    body="If you limit the length of text entry, show a character counter and explain to users in help text why their entry is restricted."
+    center
+  >
+    <Codeblock>
+      {`<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
+</Paragraph>`}
+    </Codeblock>
+  </Do>
+  <Dont
+    title="Don't"
+    body="Don’t have a character limit if you can’t explain to the user why their text entry is restricted."
+  >
+    <Codeblock>
+      {`<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+</Paragraph>`}
+    </Codeblock>
+  </Dont>
+</DoDont>
+<DoDont>
+  <Do title="Do" body="Use help text to help users prevent errors and fill out a form field correctly." center>
+    <Codeblock>
+      {`<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
+</Paragraph>`}
+    </Codeblock>
+  </Do>
+  <Dont title="Don't" body="Don’t use placeholder text for validation instructions.">
+    <Codeblock>
+      {`<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+</Paragraph>`}
+    </Codeblock>
+  </Dont>
+</DoDont>
+<DoDont>
+  <Do
+    title="Do"
+    body="Use the correct input type to help users format their text correctly and bring up dynamic keypads."
+    center
+  >
+    <Codeblock>
+      {`<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
+</Paragraph>`}
+    </Codeblock>
+  </Do>
+  <Dont
+    title="Don't"
+    body="Don’t use the default input type if there’s a more specific one that can help users enter valid text more efficiently."
+  >
+    <Codeblock>
+      {`<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+</Paragraph>`}
+    </Codeblock>
+  </Dont>
+</DoDont>
+<DoDont>
+  <Do
+    title="Do"
+    body="Keep help text and error text concise and simple. If you need to use more than 2 sentences to explain a field, link out to supporting docs or trigger a popover instead."
+    center
+  >
+    <Codeblock>
+      {`<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
+</Paragraph>`}
+    </Codeblock>
+  </Do>
+  <Dont title="Don't" body="Don’t use more than 2 sentences in help text or error text.">
+    <Codeblock>
+      {`<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+</Paragraph>`}
+    </Codeblock>
+  </Dont>
+</DoDont>
+<DoDont>
+  <Do title="Do" body="Include a visible label on every form field." center>
+    <Codeblock>
+      {`<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
+</Paragraph>`}
+    </Codeblock>
+  </Do>
+  <Dont title="Don't" body="Don’t use prefix/suffix text as a replacement for a label.">
+    <Codeblock>
+      {`<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+</Paragraph>`}
+    </Codeblock>
+  </Dont>
+</DoDont>
+<DoDont>
+  <Do
+    title="Do"
+    body="Use a disabled form field to show users that they can’t interact with the field, but that it could potentially be enabled through another UI element."
+    center
+  >
+    <Codeblock>
+      {`<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
+</Paragraph>`}
+    </Codeblock>
+  </Do>
+  <Dont
+    title="Don't"
+    body="Don’t use a disabled form field to show information that can’t be edited. Instead, use a read-only form field or consider another way of showing static information."
+  >
+    <Codeblock>
+      {`<Paragraph>
+  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+</Paragraph>`}
+    </Codeblock>
+  </Dont>
+</DoDont>
+
+## Anatomy
+
+| Property                 | Default token                                                                                                                                                                                                                                                                                                             | Modifiable?                      |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| Label text               | $font-size-30<br/>Default: $color-text, $font-weight-semibold<br/>Disabled: $color-text-weak, \$font-weight-semibold                                                                                                                                                                                                      | No                               |
+| Required field indicator | 4px size (0.25rem)<br/>Background: \$color-background-required                                                                                                                                                                                                                                                            | No                               |
+| Box Shadowd              | Default: \$shadow-border-input<br/>Hover: shadow-border-inputHover<br/>Disabled: shadow-border-input-disabled<br/>Error: shadow-border-input-disabled<br/>Error hover: shadow-border-input-error-hover                                                                                                                    | No                               |
+| Background               | Default: $color-background-body<br/>Disabled, Readonly: $color-background                                                                                                                                                                                                                                                 | No                               |
+| Prefix/suffix            | Background: $color-background<br/>Border: $color-border-light                                                                                                                                                                                                                                                             | No                               |
+| Prefix/suffix text       | Default: $color-text<br/>Disabled: $color-text-weak                                                                                                                                                                                                                                                                       | No, but it can take any children |
+| Value text               | $font-size-30<br/>Default, Readonly: $color-text<br/>Disabled: \$color-text-weak                                                                                                                                                                                                                                          | No                               |
+| Placeholder text         | \$color-text-weak, italic                                                                                                                                                                                                                                                                                                 | No                               |
+| Help text                | $color-text-weak, $font-size-30                                                                                                                                                                                                                                                                                           | No                               |
+| Inline error             | Text: $color-text-error, $font-size-30<br/>Icon: IconError, $color-text-error, $icon-size-30                                                                                                                                                                                                                              | No                               |
+| Spacing                  | Label:<br/>Bottom: $space-10<br/>Between label and required indicator: $space-20<br/>Input:<br/>Left padding: $space-40<br/>Top, right, bottom padding: $space-30<br/>Prefix/suffix padding: $space-30<br/>Help text:<br/>Top: $space-20<br/>Inline error<br/>Spacing between icon and text: $space-20<br/>Top: $space-20 | No                               |
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/form
+```
+
+#### Usage
+
+```jsx
+import {FormInput, FormLabel, FormHelperText} from '@twilio-paste/form';
+```
+
+#### Props
+
+| Prop          | Type                                         | Description | Default   |
+| ---------     | -------------------------------------------- | ----------- | --------- |
+| children?     | `ReactNode`                                  |             | null      |
+| marginTop?    | `ResponsiveValue<keyof ThemeShape['space']>` |             | null      |
+| marginBottom? | `ResponsiveValue<keyof ThemeShape['space']>` |             | 'space70' |
+
+<Box marginTop="space90">
+  <Changelog />
+</Box>
+
+</content>
+
+</contentwrapper>

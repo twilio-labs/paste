@@ -98,16 +98,23 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
   const [componentsOpen, setComponentsOpen] = React.useState(
     getCurrentPathname().startsWith(SidebarCategoryRoutes.COMPONENTS)
   );
+
   const [primitivesOpen, setPrimitivesOpen] = React.useState(
     getCurrentPathname().startsWith(SidebarCategoryRoutes.PRIMITIVES)
   );
+
   const [layoutOpen, setLayoutOpen] = React.useState(getCurrentPathname().startsWith(SidebarCategoryRoutes.LAYOUT));
+
+  const [formOpen, setFormOpen] = React.useState(getCurrentPathname().startsWith(SidebarCategoryRoutes.FORM));
+
   const [iconSystemOpen, setIconSystemOpen] = React.useState(
     getCurrentPathname().startsWith(SidebarCategoryRoutes.ICON_SYSTEM)
   );
+
   const [gettingStartedOpen, setgettingStartedOpen] = React.useState(
     getCurrentPathname().startsWith(SidebarCategoryRoutes.GETTING_STARTED)
   );
+
   const [tokensOpen, setTokensOpen] = React.useState(getCurrentPathname().startsWith(SidebarCategoryRoutes.TOKENS));
 
   return (
@@ -178,7 +185,12 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
               <SiteNavAnchor to={SidebarCategoryRoutes.COMPONENTS}>Overview</SiteNavAnchor>
             </SiteNavItem>
             {data.allPasteComponent.edges
-              .filter(({node}) => node.status !== PackageStatus.BACKLOG && node.name !== '@twilio-paste/typography')
+              .filter(
+                ({node}) =>
+                  node.status !== PackageStatus.BACKLOG &&
+                  node.name !== '@twilio-paste/typography' &&
+                  node.name !== '@twilio-paste/form'
+              )
               .map(({node}) => {
                 return (
                   <SiteNavItem key={node.name}>
@@ -234,6 +246,17 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
                   </SiteNavItem>
                 );
               })}
+          </SiteNavNestList>
+        </SiteNavItem>
+        <SiteNavItem>
+          <SiteNavButton onClick={() => setFormOpen(!formOpen)} isOpen={formOpen} aria-expanded={formOpen}>
+            Form
+            <SiteNavAnchorArrow isOpen={formOpen} />
+          </SiteNavButton>
+          <SiteNavNestList isOpen={formOpen}>
+            <SiteNavItem>
+              <SiteNavAnchor to="/form/input/">Input</SiteNavAnchor>
+            </SiteNavItem>
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
