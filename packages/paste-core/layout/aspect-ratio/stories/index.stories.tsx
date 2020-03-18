@@ -5,7 +5,7 @@ import {Box} from '@twilio-paste/box';
 import {Absolute} from '@twilio-paste/absolute';
 import {AspectRatio} from '../src';
 
-storiesOf('Utilities|Aspect Ratio', module)
+storiesOf('Layout|Aspect Ratio', module)
   .addDecorator(withKnobs)
   .add('Default', () => {
     return (
