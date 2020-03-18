@@ -42,7 +42,7 @@ module.exports = {
       options: {
         name: 'pages',
         path: `${__dirname}/src/pages`,
-        ignore: ['**/components/**/*', '**/primitives/**/*', '**/utilities/**/*'],
+        ignore: ['**/components/**/*', '**/primitives/**/*', '**/layout/**/*'],
       },
     },
     {
@@ -62,8 +62,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'utilities',
-        path: `${__dirname}/src/pages/utilities`,
+        name: 'layout',
+        path: `${__dirname}/src/pages/layout`,
       },
     },
     {
@@ -120,8 +120,8 @@ module.exports = {
             return 'PastePrimitive';
           }
 
-          if (node.relativePath.startsWith('paste-core/utilities') && node.relativePath.endsWith('package.json')) {
-            return 'PasteUtility';
+          if (node.relativePath.startsWith('paste-core/layout') && node.relativePath.endsWith('package.json')) {
+            return 'PasteLayout';
           }
 
           if (node.relativePath.startsWith('paste-theme') && node.relativePath.endsWith('package.json')) {
