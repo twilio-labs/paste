@@ -1,6 +1,6 @@
 ---
-title: Utilities overview
-description: Our utilities are rad
+title: Layout overview
+description: Our layout components are rad
 ---
 
 import {graphql} from 'gatsby';
@@ -21,7 +21,7 @@ import {StatusLegend} from '../../components/StatusLegend';
   <BreadcrumbItem to="/">Home</BreadcrumbItem>
 </Breadcrumb>
 <Heading as="h1" variant="heading10">
-  Utilities
+  Layout
 </Heading>
 
 </content>
@@ -34,7 +34,7 @@ import {StatusLegend} from '../../components/StatusLegend';
 
 <StatusLegend />
 <Callout>
-  <CalloutTitle as="h4">Don't see a utility, component, or primitive you need listed here?</CalloutTitle>
+  <CalloutTitle as="h4">Don't see a layout, component, or primitive you need listed here?</CalloutTitle>
   <UnorderedList>
     <ListItem>
       First off, we recommend{' '}
@@ -55,8 +55,8 @@ import {StatusLegend} from '../../components/StatusLegend';
   </UnorderedList>
 </Callout>
 <ComponentOverviewTable
-  categoryRoute={SidebarCategoryRoutes.UTILITIES}
-  componentsList={props.data.allPasteUtility.edges}
+  categoryRoute={SidebarCategoryRoutes.LAYOUT}
+  componentsList={props.data.allPasteLayout.edges}
 />
 
 </content>
@@ -65,7 +65,7 @@ import {StatusLegend} from '../../components/StatusLegend';
 
 export const pageQuery = graphql`
   {
-    allPasteUtility {
+    allPasteLayout {
       edges {
         node {
           version

@@ -8,7 +8,7 @@ import {SidebarCategoryRoutes} from '../../constants';
 import {getHumanizedNameFromPackageName} from '../../utils/RouteUtils';
 
 interface InDevelopmentProps {
-  type?: 'component' | 'primitive' | 'utility';
+  type?: 'component' | 'primitive' | 'layout';
   name: string;
 }
 
@@ -17,8 +17,8 @@ const InDevelopment: React.FC<InDevelopmentProps> = ({type, name}) => {
     <>
       <Breadcrumb>
         <BreadcrumbItem to="/">Home</BreadcrumbItem>
-        <BreadcrumbItem to={type === 'utility' ? SidebarCategoryRoutes.UTILITIES : SidebarCategoryRoutes.COMPONENTS}>
-          {type === 'utility' ? 'Utilities' : 'Components'}
+        <BreadcrumbItem to={type === 'layout' ? SidebarCategoryRoutes.LAYOUT : SidebarCategoryRoutes.COMPONENTS}>
+          {type === 'layout' ? 'Layout' : 'Components'}
         </BreadcrumbItem>
       </Breadcrumb>
       <Heading as="h1" variant="heading10">

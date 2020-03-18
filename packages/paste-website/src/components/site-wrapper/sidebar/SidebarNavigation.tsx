@@ -37,7 +37,7 @@ interface SiteWrapperPageQuery {
       }
     ];
   };
-  allPasteUtility: {
+  allPasteLayout: {
     edges: [
       {
         node: {
@@ -81,7 +81,7 @@ const pageQuery = graphql`
         }
       }
     }
-    allPasteUtility(sort: {order: ASC, fields: name}) {
+    allPasteLayout(sort: {order: ASC, fields: name}) {
       edges {
         node {
           name
@@ -101,9 +101,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
   const [primitivesOpen, setPrimitivesOpen] = React.useState(
     getCurrentPathname().startsWith(SidebarCategoryRoutes.PRIMITIVES)
   );
-  const [utilitiesOpen, setUtilitiesOpen] = React.useState(
-    getCurrentPathname().startsWith(SidebarCategoryRoutes.UTILITIES)
-  );
+  const [layoutOpen, setLayoutOpen] = React.useState(getCurrentPathname().startsWith(SidebarCategoryRoutes.LAYOUT));
   const [iconSystemOpen, setIconSystemOpen] = React.useState(
     getCurrentPathname().startsWith(SidebarCategoryRoutes.ICON_SYSTEM)
   );
@@ -219,22 +217,18 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavButton
-            onClick={() => setUtilitiesOpen(!utilitiesOpen)}
-            isOpen={utilitiesOpen}
-            aria-expanded={utilitiesOpen}
-          >
-            Utilities
-            <SiteNavAnchorArrow isOpen={utilitiesOpen} />
+          <SiteNavButton onClick={() => setLayoutOpen(!layoutOpen)} isOpen={layoutOpen} aria-expanded={layoutOpen}>
+            Layout
+            <SiteNavAnchorArrow isOpen={layoutOpen} />
           </SiteNavButton>
-          <SiteNavNestList isOpen={utilitiesOpen}>
-            <SiteNavAnchor to={SidebarCategoryRoutes.UTILITIES}>Overview</SiteNavAnchor>
-            {data.allPasteUtility.edges
+          <SiteNavNestList isOpen={layoutOpen}>
+            <SiteNavAnchor to={SidebarCategoryRoutes.LAYOUT}>Overview</SiteNavAnchor>
+            {data.allPasteLayout.edges
               .filter(({node}) => node.status !== PackageStatus.BACKLOG)
               .map(({node}) => {
                 return (
                   <SiteNavItem key={node.name}>
-                    <SiteNavAnchor to={`${SidebarCategoryRoutes.UTILITIES}/${getNameFromPackageName(node.name)}`}>
+                    <SiteNavAnchor to={`${SidebarCategoryRoutes.LAYOUT}/${getNameFromPackageName(node.name)}`}>
                       {getHumanizedNameFromPackageName(node.name)}
                     </SiteNavAnchor>
                   </SiteNavItem>

@@ -14,12 +14,12 @@ const getCategoryNameFromRoute = (categoryRoute: string): string => {
       return 'Components';
     case SidebarCategoryRoutes.PRIMITIVES:
       return 'Primitives';
-    case SidebarCategoryRoutes.UTILITIES:
-      return 'Utilities';
+    case SidebarCategoryRoutes.LAYOUT:
+      return 'Layout';
     case SidebarCategoryRoutes.TOKENS:
       return 'Tokens';
     default:
-      return 'Utilities';
+      return 'Layout';
   }
 };
 
