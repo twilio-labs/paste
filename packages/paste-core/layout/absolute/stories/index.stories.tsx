@@ -24,7 +24,7 @@ const PresetValues = [
   'right_fill',
 ];
 
-storiesOf('Utilities|Absolute', module)
+storiesOf('Layout|Absolute', module)
   .addDecorator(withKnobs)
   .add('Default', () => {
     // Get knob values
