@@ -9,7 +9,7 @@
   ],
   "references": [
     {
-      "path": "../../utilities/absolute"
+      "path": "../../layout/absolute"
     },
     {
       "path": "../../primitives/box"
