@@ -11,7 +11,7 @@ import {Grid, Column} from '../src';
 
 const spaceOptions = Object.keys(DefaultTheme.space);
 
-storiesOf('Utilities|Grid', module)
+storiesOf('Layout|Grid', module)
   .addDecorator(withKnobs)
   .add('Grid - 12 Column and Gutter Support', () => {
     const asValue = text('as', 'div') as keyof JSX.IntrinsicElements;
