@@ -11,8 +11,6 @@ import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
 import {AnchoredHeading} from '../../components/Heading';
-import {StatusLegend} from '../../components/StatusLegend';
-
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/roadmap/"}}) {
@@ -34,57 +32,33 @@ export const pageQuery = graphql`
 
 <p>{props.pageContext.frontmatter.description}</p>
 
-<Box marginTop="space100" marginBottom="space100">
-  <StatusLegend />
-</Box>
-
 <Box>
 
-## Release 2020.02.25
+  ## Upcoming Release
 
-Release date: February 25, 2020
+  Paste's upcoming release will be on **April 7, 2020**. This is what we've planned:
 
-**Design releases**
+  - Form components are the bread and butter for most Twilio experiences. With this release we'll ship seven components (Text Input, Textarea, Select, Checkbox, Checkbox Group, Radio, and Radio Group) for Sketch and React. 📝 
 
-- Design more form field components (Select, Checkbox and Checkbox group, and Radio and Radio Group). 📝
-- Design a Form composition component. 📝
-- Design a Toast component. 🍞
+  - We'll ship a Content guide for Twilio UX, which should help you to feel more confident in writing concise, clear, and consistent product content. 🖊 
 
-**Engineering releases**
+  - Modals, an important container element to focus user attention, will be shipped for Sketch and React. 🔳
 
-- Publish the Modal Primitive component
-- Publish a Grid layout component
+  ---
 
-**Other**
+  ## Future Releases
 
-- Add an icon list to the [icon system guidelines](/icon-system) with more design guidelines. Right now, you can access our <Anchor href="https://twilio-labs.github.io/paste/?path=/story/overview-icons--list"> full icon list on Storybook</Anchor>.
+  Future releases of Paste are scheduled for every six weeks, with the next release on **May 19, 2020**. Our guidance on what's planned will update as we get closer to the date. For now, here's what we're hoping to do:
 
----
+  - Ship a Form composition component. 📝
+  - Ship a Toast component. 🍞
+  - Add an icon list to the [icon system guidelines](/icon-system) with more design guidelines. 👩🏽‍🎤
 
-## Release 2020.04.07
+  ---
 
-Release date: April 7, 2020
+  ## Backlog
 
-**Design releases**
-
-- Design Overlay components (Modal, Alert dialog, and Overlay). 🕴
-- Design a Tab component.
-- Design a Table component.
-- Define our icon-naming schema.
-
-**Engineering releases**
-
-TBD
-
-**Other**
-
-TBD
-
----
-
-## Backlog
-
-To browse through all the components in our backlog, you can check out our [Component overview page](/components).
+  To browse through all the components in our backlog, you can check out our [Component overview page](/components).
 
 </Box>
 
