@@ -11,7 +11,7 @@ const flexDisplayOptions = ['flex', 'inline-flex'];
 const flexVerticalAlignOptions = ['top', 'center', 'bottom', 'stretch'];
 const flexHorizontalAlignOptions = ['left', 'center', 'right', 'around', 'between'];
 
-storiesOf('Utilities|Flex', module)
+storiesOf('Layout|Flex', module)
   .addDecorator(withKnobs)
   .add('Flex Alignment Options', () => {
     const asValue = text('as', 'div') as keyof JSX.IntrinsicElements;
