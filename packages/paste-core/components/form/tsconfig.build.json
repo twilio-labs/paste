@@ -15,7 +15,7 @@
       "path": "../../../paste-design-tokens"
     },
     {
-      "path": "../../utilities/flex"
+      "path": "../../layout/flex"
     },
     {
       "path": "../../../paste-style-props"
