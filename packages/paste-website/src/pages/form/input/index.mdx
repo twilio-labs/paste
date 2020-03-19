@@ -5,8 +5,10 @@ description: An input allows users to enter text on a single line.
 ---
 
 import {graphql} from 'gatsby';
-import {Box} from '@twilio-paste/box';
 import {FormLabel, FormInput, FormHelperText} from '@twilio-paste/form';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
@@ -106,10 +108,43 @@ The input component should include the base input, along with supporting element
 - **Optional field indicator** — In a form where there are more required fields than optional fields, use an optional indicator to show users which fields they don’t have to fill out. In general, ask for information only when needed. Consider removing them otherwise.
 - **Help text** — Text that’s placed below the field to help users prevent an error and describe what makes the form field successful.
 
+<LivePreview scope={{FormInput, FormLabel, FormHelperText}} language="jsx">
+  {`<>
+  <FormLabel htmlFor="email_address" required>Email Address</FormLabel>
+  <FormInput id="email_address" type="email" placeholder="example@twilio.com" required />
+  <FormHelperText>Please enter a valid email</FormHelperText>
+</>`}
+</LivePreview>
+
 ### Input with add-ons (prefix/suffix text or icons)
 
 - **Prefix/suffix text** — Text that can be used as a prefix and/or suffix to the value that is entered. Use prefix/suffix to help users format text.
 - **Icon** — Icons can be placed in the same area as the prefix and suffix text. Icons should trigger an action (_e.g._, clearing a field) or in rare cases, provide further context to what value should be entered to make a field’s purpose more immediately visible (_e.g._, a search icon).
+
+<LivePreview scope={{FormInput, FormLabel, FormHelperText}} language="jsx">
+  {`<>
+  <FormLabel htmlFor="payment_amount" required>Payment Amount</FormLabel>
+  <FormInput id="payment_amount" type="text" placeholder="124.45" insertBefore={<div>$</div>} required />
+  <FormHelperText>Enter a dollar amount is USD format</FormHelperText>
+</>`}
+</LivePreview>
+
+<LivePreview scope={{FormInput, FormLabel, FormHelperText, Anchor, InformationIcon}} language="jsx">
+  {`<>
+  <FormLabel htmlFor="message_title" required>Message Title</FormLabel>
+  <FormInput
+    id="display_name"
+    type="text"
+    placeholder="Ahoy, World"
+    insertAfter={
+      <Anchor href="#" display="flex">
+        <InformationIcon decorative={false} title="Get more info" />
+      </Anchor>
+    }
+  />
+  <FormHelperText>Please enter a short title for your message</FormHelperText>
+</>`}
+</LivePreview>
 
 ### Input types
 
@@ -166,15 +201,39 @@ Change a form field to its error state and add an inline error if the value ente
 
 An inline error is placed below the field to inform a user of any errors in their value. If help text exists, the error text should replace and repeat the help text.
 
+<LivePreview scope={{FormInput, FormLabel, FormHelperText}} language="jsx">
+  {`<>
+  <FormLabel htmlFor="email_error">Email Address</FormLabel>
+  <FormInput id="email_error" type="email" placeholder="example@twilio.com" hasError />
+  <FormHelperText variant="error">Please enter a valid email</FormHelperText>
+</>`}
+</LivePreview>
+
 ### Disabled input
 
 Use a disabled form field to show users that they can’t interact with the field.
 
 If you want to show information that can’t be edited, use a read-only form field or consider another way of showing static information.
 
+<LivePreview scope={{FormInput, FormLabel, FormHelperText}} language="jsx">
+  {`<>
+  <FormLabel htmlFor="email_disabled" disabled>Email Address</FormLabel>
+  <FormInput id="email_disabled" type="email" placeholder="example@twilio.com" disabled />
+  <FormHelperText>Please enter a valid email</FormHelperText>
+</>`}
+</LivePreview>
+
 ### Read-only input
 
 Use a read-only form field when a field’s value can’t be changed, but users should be able to read or apply focus on the field. For example, use a read-only form field if a user needs to copy the value.
+
+<LivePreview scope={{FormInput, FormLabel, FormHelperText}} language="jsx">
+  {`<>
+  <FormLabel htmlFor="email_disabled">Email Address</FormLabel>
+  <FormInput id="email_disabled" type="email" placeholder="example@twilio.com" value="example@twilio.com" readOnly />
+  <FormHelperText>Please enter a valid email</FormHelperText>
+</>`}
+</LivePreview>
 
 ## Composition notes
 
@@ -183,6 +242,19 @@ An input field must have at least a label and an input.
 ### Positioning form fields
 
 Stack form fields vertically with `$space-80` spacing between each field.
+
+<LivePreview scope={{FormInput, FormLabel, FormHelperText, Box}} language="jsx">
+  {`<>
+  <Box marginBottom="space80">
+    <FormLabel htmlFor="first_name">First Name</FormLabel>
+    <FormInput id="first_name" type="text" placeholder="John" />
+  </Box>
+  <Box>
+    <FormLabel htmlFor="last_name">Last Name</FormLabel>
+    <FormInput id="last_name" type="text" placeholder="Smith" />
+  </Box>
+</>`}
+</LivePreview>
 
 Avoid placing multiple form fields on the same horizontal row to help make it easier to scan a page vertically. Use the Grid component if you need to place form fields horizontally.
 

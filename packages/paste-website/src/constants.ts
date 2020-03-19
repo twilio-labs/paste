@@ -12,7 +12,7 @@ export const SidebarCategoryRoutes = {
   ICON_SYSTEM: '/icon-system',
   GETTING_STARTED: '/getting-started',
   TOKENS: '/tokens',
-  FORM: '/form',
+  FORM: '/form/input',
 };
 
 export const PackageStatus = {
