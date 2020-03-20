@@ -18,7 +18,7 @@
       "path": "../../primitives/text"
     },
     {
-      "path": "../../../paste-theme-tokens"
+      "path": "../../../paste-theme"
     }
   ]
 }
