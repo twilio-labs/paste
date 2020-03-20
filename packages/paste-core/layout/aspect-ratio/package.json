@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/aspect-ratio",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "category": "layout",
   "status": "alpha",
   "description": "",
@@ -30,7 +30,7 @@
   "peerDependencies": {
     "@emotion/styled": "^10.0.10",
     "@styled-system/css": "^5.1.5",
-    "@twilio-paste/absolute": "^2.0.21",
+    "@twilio-paste/absolute": "^2.0.22",
     "@twilio-paste/box": "^2.2.3",
     "@twilio-paste/design-tokens": "^4.3.0",
     "@twilio-paste/style-props": "^0.2.1",
@@ -46,7 +46,7 @@
     "@emotion/styled": "^10.0.10",
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
-    "@twilio-paste/absolute": "^2.0.21",
+    "@twilio-paste/absolute": "^2.0.22",
     "@twilio-paste/box": "^2.2.3",
     "@twilio-paste/design-tokens": "^4.3.0",
     "@twilio-paste/style-props": "^0.2.1",
