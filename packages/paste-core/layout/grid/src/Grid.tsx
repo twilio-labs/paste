@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {useTheme} from '@twilio-paste/theme';
-import {ThemeShape} from '@twilio-paste/theme-tokens';
+import {useTheme, ThemeShape} from '@twilio-paste/theme';
 import {MarginProps, Space, ResponsiveProp} from '@twilio-paste/style-props';
 import {safelySpreadBoxProps} from '@twilio-paste/box';
 import {Flex} from '@twilio-paste/flex';

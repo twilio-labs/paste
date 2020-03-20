@@ -1,4 +1,4 @@
-import {ThemeShape} from '@twilio-paste/theme-tokens';
+import {ThemeShape} from '@twilio-paste/theme';
 import {ResponsiveValue} from 'styled-system';
 import {Margin, Padding, Space, SpaceOptions} from '@twilio-paste/style-props';
 import {

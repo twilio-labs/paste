@@ -1,9 +1,8 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import {useTheme} from '@twilio-paste/theme';
+import {useTheme, ThemeShape} from '@twilio-paste/theme';
 import {ResponsiveProp} from '@twilio-paste/style-props';
-import {ThemeShape} from '@twilio-paste/theme-tokens';
 import {compose, layout, space} from 'styled-system';
 import {ColumnProps, ColumnStyleProps} from './types';
 import {getStackedColumns, getColumnGutters, getColumnOffset, getColumnSpan} from './helpers';
