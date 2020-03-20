@@ -30,6 +30,8 @@ jobs:
         run: yarn bootstrap
       - name: Build packages
         run: yarn build
+      - name: Build package props
+        run: yarn build:props
       - name: Publish packages
         run: yarn release:stable:ci
         env:
