@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {ThemeContext} from '@emotion/core';
-import {ThemeShape} from '@twilio-paste/theme-tokens';
+import {ThemeShape} from './types';
 
 export interface ThemeConsumerProps {
   children: ({theme}: {theme: ThemeShape}) => React.ReactNode;
