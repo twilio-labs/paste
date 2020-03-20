@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {withKnobs, select, text} from '@storybook/addon-knobs';
-import {DefaultTheme, ThemeShape} from '@twilio-paste/theme-tokens';
+import {DefaultTheme, ThemeShape} from '@twilio-paste/theme';
 import {Text} from '@twilio-paste/text';
 import {Box} from '../src';
 
