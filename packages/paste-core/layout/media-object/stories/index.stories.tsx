@@ -3,7 +3,7 @@ import {storiesOf} from '@storybook/react';
 import {withKnobs, select, text} from '@storybook/addon-knobs';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
-import {DefaultTheme, ThemeShape} from '@twilio-paste/theme-tokens';
+import {DefaultTheme, ThemeShape} from '@twilio-paste/theme';
 import {MediaObject, MediaFigure, MediaBody} from '../src';
 
 storiesOf('Layout|Media Object', module)
