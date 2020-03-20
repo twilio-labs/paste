@@ -9,4 +9,6 @@ const Theme = {
   Consumer: ThemeConsumer,
 };
 
+export {ThemeShape, SendGridThemeShape, ConsoleThemeShape} from './types';
+export {DefaultTheme, ConsoleTheme, SendGridTheme} from './themes';
 export {Theme, withTheme, useTheme, ThemeVariants};
