@@ -1,6 +1,6 @@
 // https://styled-system.com/api/#background
 import * as CSS from 'csstype';
-import {ThemeShape} from '@twilio-paste/theme-tokens';
+import {ThemeShape} from '@twilio-paste/theme';
 import {ResponsiveValue, TLengthStyledSystem} from 'styled-system';
 
 // Tokens

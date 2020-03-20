@@ -1,4 +1,4 @@
-import {DefaultTheme} from '@twilio-paste/theme-tokens';
+import {DefaultTheme} from '@twilio-paste/theme';
 import {propValidator} from '../proptypes/utils/propValidator';
 
 const SpaceOptions = Object.keys(DefaultTheme.space);
