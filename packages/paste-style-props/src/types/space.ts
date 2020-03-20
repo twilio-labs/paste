@@ -1,5 +1,5 @@
 // https://styled-system.com/api/#space
-import {ThemeShape} from '@twilio-paste/theme-tokens';
+import {ThemeShape} from '@twilio-paste/theme';
 import {ResponsiveValue} from 'styled-system';
 
 // Tokens

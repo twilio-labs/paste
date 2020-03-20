@@ -1,6 +1,6 @@
 // https://styled-system.com/api/#border
 import * as CSS from 'csstype';
-import {ThemeShape} from '@twilio-paste/theme-tokens';
+import {ThemeShape} from '@twilio-paste/theme';
 import {ResponsiveValue} from 'styled-system';
 
 // Tokens
