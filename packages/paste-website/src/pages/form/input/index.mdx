@@ -62,10 +62,8 @@ You can set the input to more [specific types](/form/input/#input-types) if need
 
 ### Accessibility
 
-Paragraph text should be legible, and easy to read. It should also provide a clear amount of space beneath a block of text to visually separate itself from adjacent content.
-
 <UnorderedList>
-  <ListItem>Include a visible label on all form fields.</ListItem>
+  <ListItem>Include a visible label on <strong>all</strong> form fields.</ListItem>
   <ListItem>
     Don’t use placeholder text as a replacement for labels. It can be used to provide an example to users, but will
     disappear from the field when a user enters text. It’s also not broadly supported by assistive technologies and
@@ -532,6 +530,10 @@ yarn add @twilio-paste/form
 
 ```jsx
 import {FormInput, FormLabel, FormHelperText} from '@twilio-paste/form';
+
+<FormLabel htmlFor="foo" required>foo</FormLabel>
+<FormInput id="foo" type="text" placeholder="foo" required />
+<FormHelperText>Please enter some text</FormHelperText>
 ```
 
 #### FormInput Props
