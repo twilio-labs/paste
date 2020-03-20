@@ -4,7 +4,7 @@ import {Heading} from '@twilio-paste/heading';
 import {withKnobs, select} from '@storybook/addon-knobs';
 import {Text} from '@twilio-paste/text';
 import {Padding} from '@twilio-paste/style-props';
-import {DefaultTheme} from '@twilio-paste/theme-tokens';
+import {DefaultTheme} from '@twilio-paste/theme';
 
 import {Card} from '../src';
 
