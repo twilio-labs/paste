@@ -58,6 +58,16 @@ function customResolver(package, details) {
     if (package.includes('@twilio-paste/icons')) {
       return `${keyedPackages['@twilio-paste/icons'].location}/${package.replace('@twilio-paste/icons/esm', 'cjs')}.js`;
     }
+    if (package.includes('@twilio-paste/design-tokens/dist')) {
+      // When not getting the main js file from design-tokens, for example:
+      // import { foo } from '@twilio-paste/design-tokens/dist/themes/sendgrid/tokens.es6';
+      // create a file path to the specific theme and swap to the common js version for jest
+      return `${keyedPackages['@twilio-paste/design-tokens'].location.replace(
+        '/dist/tokens.common.js',
+        package.replace('@twilio-paste/design-tokens', '').replace('es6', 'common')
+      )}.js`;
+    }
+
     return keyedPackages[package].location;
   }
 
