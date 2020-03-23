@@ -24,6 +24,7 @@ interface SiteWrapperPageQuery {
         node: {
           name: string;
           status: string;
+          version: string;
         };
       }
     ];
@@ -34,6 +35,7 @@ interface SiteWrapperPageQuery {
         node: {
           name: string;
           status: string;
+          version: string;
         };
       }
     ];
@@ -44,6 +46,7 @@ interface SiteWrapperPageQuery {
         node: {
           name: string;
           status: string;
+          version: string;
         };
       }
     ];
