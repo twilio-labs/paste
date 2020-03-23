@@ -11,6 +11,7 @@ import {
 } from './SidebarNavigation.styles';
 import {PackageStatus, SidebarCategoryRoutes} from '../../../constants';
 import {getCurrentPathname, getNameFromPackageName, getHumanizedNameFromPackageName} from '../../../utils/RouteUtils';
+import {filteredComponents} from '../../../utils/componentFilters';
 
 interface SidebarNavigationProps {
   children?: React.ReactNode;
@@ -184,22 +185,15 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
             <SiteNavItem>
               <SiteNavAnchor to={SidebarCategoryRoutes.COMPONENTS}>Overview</SiteNavAnchor>
             </SiteNavItem>
-            {data.allPasteComponent.edges
-              .filter(
-                ({node}) =>
-                  node.status !== PackageStatus.BACKLOG &&
-                  node.name !== '@twilio-paste/typography' &&
-                  node.name !== '@twilio-paste/form'
-              )
-              .map(({node}) => {
-                return (
-                  <SiteNavItem key={node.name}>
-                    <SiteNavAnchor to={`${SidebarCategoryRoutes.COMPONENTS}/${getNameFromPackageName(node.name)}`}>
-                      {getHumanizedNameFromPackageName(node.name)}
-                    </SiteNavAnchor>
-                  </SiteNavItem>
-                );
-              })}
+            {data.allPasteComponent.edges.filter(filteredComponents).map(({node}) => {
+              return (
+                <SiteNavItem key={node.name}>
+                  <SiteNavAnchor to={`${SidebarCategoryRoutes.COMPONENTS}/${getNameFromPackageName(node.name)}`}>
+                    {getHumanizedNameFromPackageName(node.name)}
+                  </SiteNavAnchor>
+                </SiteNavItem>
+              );
+            })}
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>

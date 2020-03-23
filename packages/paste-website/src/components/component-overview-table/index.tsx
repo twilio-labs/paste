@@ -3,21 +3,14 @@ import {SiteLink} from '../SiteLink';
 import {Table, Thead, Tbody, Tr, Th, Td} from '../table';
 import {SidebarCategoryRoutes, PackageStatus} from '../../constants';
 import {getPackagePath, getHumanizedNameFromPackageName} from '../../utils/RouteUtils';
+import {ComponentNode} from '../../utils/types';
+import {filteredComponents, sortNodeByName} from '../../utils/componentFilters';
 
-interface ComponentNode {
-  node: {
-    name: string;
-    version: string;
-    status: string;
-  };
-}
 interface ComponentOverviewTableProps {
   children?: React.ReactElement;
   categoryRoute?: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
   componentsList?: [ComponentNode];
 }
-
-const sortNodeByName = (a: ComponentNode, b: ComponentNode): number => (a.node.name > b.node.name ? 1 : -1);
 
 const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({categoryRoute, componentsList}) => {
   if (componentsList == null || categoryRoute == null) {
@@ -28,14 +21,7 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({category
   const sortedBacklogList = componentsList
     .filter(({node}) => node.status === PackageStatus.BACKLOG)
     .sort(sortNodeByName);
-  const sortedComponentsList = componentsList
-    .filter(
-      ({node}) =>
-        node.status !== PackageStatus.BACKLOG &&
-        node.name !== '@twilio-paste/typography' &&
-        node.name !== '@twilio-paste/form'
-    )
-    .sort(sortNodeByName);
+  const sortedComponentsList = componentsList.filter(filteredComponents).sort(sortNodeByName);
 
   return (
     <Table>
