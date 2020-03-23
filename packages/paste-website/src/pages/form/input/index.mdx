@@ -8,6 +8,7 @@ import {graphql} from 'gatsby';
 import {FormLabel, FormInput, FormHelperText} from '@twilio-paste/form';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
@@ -58,7 +59,7 @@ An input allows users to enter text on a single line.
 ### About Input
 
 Use an input when you want to allow a user to enter a single line of text. By default, text inputs allow users to enter any type of text (letters, numbers, and symbols).
-You can set the input to more [specific types](/form/input/#input-types) if needed.
+You can set the input to more [specific types](#input-types) if needed.
 
 ### Accessibility
 
@@ -72,16 +73,16 @@ You can set the input to more [specific types](/form/input/#input-types) if need
   <ListItem>
     Use one of 3 ways to label a form field:
     <UnorderedList marginBottom="space0">
-      <ListItem>Visible label with FormLabel (preferred)</ListItem>
-      <ListItem>Visible label that's associated to the input with `aria-labelledby`</ListItem>
-      <ListItem>Label directly using `aria-label`</ListItem>
+      <ListItem>Visible label with <Anchor href="#formlabel-props">FormLabel</Anchor> (preferred)</ListItem>
+      <ListItem>Visible label that's associated to the input with <inlineCode>aria-labelledby</inlineCode></ListItem>
+      <ListItem>Label directly using <inlineCode>aria-label</inlineCode></ListItem>
     </UnorderedList>
   </ListItem>
   <ListItem>
     Provide clear identification of required fields in the label or at the start of a form. If you use the required
     field indicator, include the required field key at the start of the form.
     <UnorderedList marginBottom="space0">
-      <ListItem>Use the `required` attribute to programatically indicate they are required to browsers.</ListItem>
+      <ListItem>Use the <inlineCode>required</inlineCode> prop to programatically indicate they are required to browsers.</ListItem>
       <ListItem>
         The aria-required attribute informs assistive technologies about required controls so that they are
         appropriately announced to users. This is only required on form fields that don't support the required attribute
@@ -126,7 +127,7 @@ The input component should include the base input, along with supporting element
 </>`}
 </LivePreview>
 
-<LivePreview scope={{FormInput, FormLabel, FormHelperText, Anchor, InformationIcon}} language="jsx">
+<LivePreview scope={{FormInput, FormLabel, FormHelperText, InformationIcon, Button}} language="jsx">
   {`<>
   <FormLabel htmlFor="message_title" required>Message Title</FormLabel>
   <FormInput
@@ -135,9 +136,9 @@ The input component should include the base input, along with supporting element
     type="text"
     placeholder="Ahoy, World"
     insertAfter={
-      <Anchor href="#" display="flex">
+      <Button variant="link">
         <InformationIcon decorative={false} title="Get more info" />
-      </Anchor>
+      </Button>
     }
     onChange=""
   />
@@ -151,46 +152,35 @@ How an input functions varies depending on the value of its type attribute. If a
 
 #### text
 
-- A single-line text input
-- Line-breaks are automatically removed from the input value
-- Applies type="text" by default
+A single-line text input.
 
 #### email
 
-- An input for editing an email address
-- Looks like a text input, but has validation parameters and relevant keyboard in supporting browsers and devices with dynamic keyboards
+An input for editing an email address. This looks like a text-type input but has validation parameters and relevant keyboard in browsers and devices with dynamic keyboards.
 
 #### hidden
 
-- An input that is not displayed but whose value is submitted to the server
+An input that is not displayed but whose value is submitted to the server.
 
 #### number
 
-- An input for entering a number
-- Displays a stepper (small up/down arrows) and adds default validation when supported
-- Displays a numeric keypad in some devices with dynamic keypads
+An input for entering a number. It displays a numeric keypad in some devices with dynamic keypads.
 
 #### password
 
-- An input whose value is obscured
-- Alerts user if the site is not secure
+An input whose value is obscured. This input alerts a user if the site isn't secure.
 
 #### readonly
 
-- An input that can't be edited but can receive focus
-- Allows users to highlight the text in the field.
+An input that can't be edited but can receive focus. Allows users to highlight the text in the field.
 
 #### search
 
-- An input for entering search strings
-- Line-breaks are automatically removed from the input value
-- May include a delete icon in supporting browsers that can be used to clear the field
-- Displays a search icon instead of enter key on some devices with dynamic keypads
+An input for entering search strings. It may include an icon in supporting browsers that can be used to clear the field. It displays a search key instead of enter key on some devices with dynamic keypads.
 
 #### tel
 
-- An input for entering a telephone number
-- Displays a telephone keypad in some devices with dynamic keypads
+- An input for entering a telephone number. It displays a telephone keypad in some devices with dynamic keypads.
 
 ## States
 
@@ -212,7 +202,7 @@ An inline error is placed below the field to inform a user of any errors in thei
 
 Use a disabled form field to show users that they can't interact with the field.
 
-If you want to show information that can't be edited, use a read-only form field or consider another way of showing static information.
+If you want to show information that can't be edited, use a [read-only](#read-only-input) form field or consider another way of showing static information.
 
 <LivePreview scope={{FormInput, FormLabel, FormHelperText}} language="jsx">
   {`<>
