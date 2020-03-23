@@ -9,6 +9,7 @@ import {Blockquote} from '../../components/Blockquote';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 import {DoDont, Do, Dont} from '../../components/DoDont';
 import Changelog from '@twilio-paste/icons/CHANGELOG.md';
+import {Anchor} from '@twilio-paste/anchor';
 
 export const pageQuery = graphql`
   {
@@ -50,7 +51,7 @@ export const pageQuery = graphql`
 <Callout>
   <CalloutTitle>Using readability tools</CalloutTitle>
   <CalloutText>
-    Sites offering <a href="https://readabilityformulas.com/free-readability-formula-tests.php">free readability tools like this one</a> can be useful for assessing the "reading age" of long content (more than 150 words). 
+    Sites offering <Anchor href="https://readabilityformulas.com/free-readability-formula-tests.php">free readability tools like this one</Anchor> can be useful for assessing the "reading age" of long content (more than 150 words). 
     However, they're not great at testing short UI content that might only contain two or three words. 
     Use them with caution. Look for a simpler word whenever you can to improve the readability of your content.   
   </CalloutText>
@@ -90,7 +91,7 @@ export const pageQuery = graphql`
 ## Punctuation
 
 #### Ampersands &
-**Avoid using ampersands.** In exceptional circumstances, if space is unavoidably restricted or it's part of a product/brand name, use "&"
+**Avoid using ampersands.** In exceptional circumstances, if space is unavoidably restricted or it's part of a product/brand name, use "&".
 
 **Do** use "and" instead of an ampersand (&).
 - *Voice and messaging*
