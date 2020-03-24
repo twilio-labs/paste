@@ -11,6 +11,7 @@ import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -65,6 +66,7 @@ You can set the input to more [specific types](#input-types) if needed.
 
 <UnorderedList>
   <ListItem>Include a visible label on <strong>all</strong> form fields.</ListItem>
+  <ListItem>Each lable must use the <inlineCode>htmlFor</inlineCode> prop that equals the <inlineCode>id</inlineCode> of the associated input.</ListItem>
   <ListItem>
     Don't use placeholder text as a replacement for labels. It can be used to provide an example to users, but will
     disappear from the field when a user enters text. It's also not broadly supported by assistive technologies and
@@ -83,17 +85,13 @@ You can set the input to more [specific types](#input-types) if needed.
     field indicator, include the required field key at the start of the form.
     <UnorderedList marginBottom="space0">
       <ListItem>Use the <inlineCode>required</inlineCode> prop to programatically indicate they are required to browsers.</ListItem>
-      <ListItem>
-        The aria-required attribute informs assistive technologies about required controls so that they are
-        appropriately announced to users. This is only required on form fields that don't support the required attribute
-        from the HTML spec.
-      </ListItem>
     </UnorderedList>
   </ListItem>
   <ListItem>
     Include inline error text with the error icon on any field that errors to make it visually clear that the field
     changed.
   </ListItem>
+  <ListItem>If the input has assicated help text or error text, include the <inlineCode>aria-describedby</inlineCode> prop on the input. This should match the <inlineCode>id</inlineCode> of the helper or error text.</ListItem>
 </UnorderedList>
 
 ## Examples
@@ -106,11 +104,21 @@ The input component should include the base input, along with supporting element
 - **Required field indicator** — In a form where there are fewer or as many required fields as optional, use a required indicator to show users which fields are required to be filled out.
 - **Help text** — Text that's placed below the field to help users prevent an error and describe what makes the form field successful.
 
+<Callout>
+  <CalloutTitle as="h4">Hot accessibility tip</CalloutTitle>
+  <CalloutText>
+    Make sure to connect the <inlineCode>FormLabel</inlineCode> to the <inlineCode>FormInput</inlineCode>. This is done with the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the input. Those two need to match.
+  </CalloutText>
+  <CalloutText>
+    If the input has any associated helper text, the input should also use the <inlineCode>aria-describedby</inlineCode> prop that equals the <inlineCode>id</inlineCode> of the help text. This ensures screen readers know the helper text ties directly to the input.
+  </CalloutText>
+</Callout>
+
 <LivePreview scope={{FormInput, FormLabel, FormHelperText}} language="jsx">
   {`<>
   <FormLabel htmlFor="email_address" required>Email Address</FormLabel>
-  <FormInput id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
-  <FormHelperText>Please enter a valid email</FormHelperText>
+  <FormInput aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
+  <FormHelperText id="email_help_text">Please enter a valid email</FormHelperText>
 </>`}
 </LivePreview>
 
@@ -122,8 +130,8 @@ The input component should include the base input, along with supporting element
 <LivePreview scope={{FormInput, FormLabel, FormHelperText}} language="jsx">
   {`<>
   <FormLabel htmlFor="payment_amount" required>Payment Amount</FormLabel>
-  <FormInput id="payment_amount" name="payment_amount" type="text" placeholder="124.45" insertBefore={<div>$</div>} onChange="" required />
-  <FormHelperText>Enter a dollar amount is USD format</FormHelperText>
+  <FormInput aria-describedby="payment_amount_help_text" id="payment_amount" name="payment_amount" type="text" placeholder="124.45" insertBefore={<div>$</div>} onChange="" required />
+  <FormHelperText id="payment_amount_help_text">Enter a dollar amount is USD format</FormHelperText>
 </>`}
 </LivePreview>
 
@@ -131,6 +139,7 @@ The input component should include the base input, along with supporting element
   {`<>
   <FormLabel htmlFor="message_title" required>Message Title</FormLabel>
   <FormInput
+    aria-describedby="display_name_help_text"
     id="display_name"
     name="display_name"
     type="text"
@@ -142,7 +151,7 @@ The input component should include the base input, along with supporting element
     }
     onChange=""
   />
-  <FormHelperText>Please enter a short title for your message</FormHelperText>
+  <FormHelperText id="display_name_help_text">Please enter a short title for your message</FormHelperText>
 </>`}
 </LivePreview>
 
@@ -193,8 +202,8 @@ An inline error is placed below the field to inform a user of any errors in thei
 <LivePreview scope={{FormInput, FormLabel, FormHelperText}} language="jsx">
   {`<>
   <FormLabel htmlFor="email_error">Email Address</FormLabel>
-  <FormInput id="email_error" name="email_error" type="email" placeholder="example@twilio.com" onChange="" hasError />
-  <FormHelperText variant="error">Please enter a valid email</FormHelperText>
+  <FormInput aria-describedby="email_error_help_text" id="email_error" name="email_error" type="email" placeholder="example@twilio.com" onChange="" hasError />
+  <FormHelperText id="email_error_help_text" variant="error">Please enter a valid email</FormHelperText>
 </>`}
 </LivePreview>
 
@@ -207,8 +216,8 @@ If you want to show information that can't be edited, use a [read-only](#read-on
 <LivePreview scope={{FormInput, FormLabel, FormHelperText}} language="jsx">
   {`<>
   <FormLabel htmlFor="email_disabled" disabled>Email Address</FormLabel>
-  <FormInput id="email_disabled" name="email_disabled" type="email" placeholder="example@twilio.com" onChange="" disabled />
-  <FormHelperText>Please enter a valid email</FormHelperText>
+  <FormInput aria-describedby="email_disabled_help_text" id="email_disabled" name="email_disabled" type="email" placeholder="example@twilio.com" onChange="" disabled />
+  <FormHelperText id="email_disabled_help_text">Please enter a valid email</FormHelperText>
 </>`}
 </LivePreview>
 
@@ -219,8 +228,8 @@ Use a read-only form field when a field's value can't be changed, but users shou
 <LivePreview scope={{FormInput, FormLabel, FormHelperText}} language="jsx">
   {`<>
   <FormLabel htmlFor="email_readonly">Email Address</FormLabel>
-  <FormInput id="email_readonly" name="email_readonly" type="email" placeholder="example@twilio.com" value="example@twilio.com" onChange="" readOnly />
-  <FormHelperText>Please enter a valid email</FormHelperText>
+  <FormInput aria-describedby="email_readonly_help_text" id="email_readonly" name="email_readonly" type="email" placeholder="example@twilio.com" value="example@twilio.com" onChange="" readOnly />
+  <FormHelperText id="email_readonly_help_text">Please enter a valid email</FormHelperText>
 </>`}
 </LivePreview>
 
@@ -332,8 +341,8 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <FormLabel htmlFor="limited_do">Job Title (60 characters)</FormLabel>
-      <FormInput id="limited_do" name="limited_do" type="text" onChange=""/>
-      <FormHelperText>Limit to 60 characters</FormHelperText>
+      <FormInput aria-describedby="limited_do_help_text" id="limited_do" name="limited_do" type="text" onChange=""/>
+      <FormHelperText id="limited_do_help_text">Limit to 60 characters</FormHelperText>
     </Box>
   </Do>
   <Dont
@@ -351,8 +360,8 @@ Use an input when users are expected to enter less than a single line of text, o
   <Do title="Do" body="Use help text to help users prevent errors and fill out a form field correctly." center>
     <Box width="100%" padding="space60">
       <FormLabel htmlFor="email_do">Email Address</FormLabel>
-      <FormInput id="email_do" name="email_do" type="email" placeholder="example@twilio.com" onChange=""/>
-      <FormHelperText>Please enter a valid email</FormHelperText>
+      <FormInput aria-describedby="email_do_help_text" id="email_do" name="email_do" type="email" placeholder="example@twilio.com" onChange=""/>
+      <FormHelperText id="email_do_help_text">Please enter a valid email</FormHelperText>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use placeholder text for validation instructions." center>
@@ -392,15 +401,15 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <FormLabel htmlFor="help_do">Phone Number</FormLabel>
-      <FormInput id="help_do" name="help_do" type="tel" onChange=""/>
-      <FormHelperText>Use the following format: (###) ###-####</FormHelperText>
+      <FormInput aria-describedby="help_do_help_text" id="help_do" name="help_do" type="tel" onChange=""/>
+      <FormHelperText id="help_do_help_text">Use the following format: (###) ###-####</FormHelperText>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use more than 2 sentences in help text or error text." center>
     <Box width="100%" padding="space60">
       <FormLabel htmlFor="help_dont">Email Address</FormLabel>
-      <FormInput id="help_dont" name="help_dont" type="email" onChange=""/>
-      <FormHelperText>Go to your settings. Then click on email addresses. After doing that, copy and paste your email address in this field.</FormHelperText>
+      <FormInput aria-describedby="help_dont_help_text" id="help_dont" name="help_dont" type="email" onChange=""/>
+      <FormHelperText id="help_dont_help_text">Go to your settings. Then click on email addresses. After doing that, copy and paste your email address in this field.</FormHelperText>
     </Box>
   </Dont>
 </DoDont>
@@ -603,8 +612,8 @@ yarn add @twilio-paste/form
 import {FormInput, FormLabel, FormHelperText} from '@twilio-paste/form';
 
 <FormLabel htmlFor="foo" required>foo</FormLabel>
-<FormInput id="foo" name="foo" type="text" placeholder="foo" onChange={FOO} required />
-<FormHelperText>Please enter some text</FormHelperText>
+<FormInput aria-describedby="foo_text" id="foo" name="foo" type="text" placeholder="foo" onChange={FOO} required />
+<FormHelperText id="foo_text">Please enter some text</FormHelperText>
 ```
 
 #### FormInput Props
