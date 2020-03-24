@@ -4,12 +4,6 @@
     "outDir": "./dist",
     "rootDir": "./src"
   },
-  "include": [
-    "src/**/*"
-  ],
-  "references": [
-    {
-      "path": "../../../paste-theme-tokens"
-    }
-  ]
+  "include": ["src/**/*"],
+  "references": []
 }
