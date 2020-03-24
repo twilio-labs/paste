@@ -59,7 +59,7 @@ exports[`FormHelperText render it should render 1`] = `
 `;
 
 exports[`FormHelperText render it should render with an error icon 1`] = `
-.emotion-3 {
+.emotion-4 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
@@ -67,13 +67,13 @@ exports[`FormHelperText render it should render with an error icon 1`] = `
   font-weight: 400;
 }
 
-.emotion-3 *,
-.emotion-3 *::after,
-.emotion-3 *::before {
+.emotion-4 *,
+.emotion-4 *::after,
+.emotion-4 *::before {
   box-sizing: border-box;
 }
 
-.emotion-2 {
+.emotion-3 {
   box-sizing: border-box;
   min-width: 0;
   -webkit-box-pack: start;
@@ -101,7 +101,7 @@ exports[`FormHelperText render it should render with an error icon 1`] = `
   color: #e22525;
 }
 
-.emotion-1 {
+.emotion-2 {
   margin: 0;
   padding: 0;
   font-size: 0.875rem;
@@ -111,14 +111,14 @@ exports[`FormHelperText render it should render with an error icon 1`] = `
 }
 
 <div
-  className="emotion-3"
+  className="emotion-4"
 >
   <div
-    className="emotion-2"
+    className="emotion-3"
     display="flex"
   >
     <span
-      className="emotion-0"
+      className="emotion-0 emotion-1"
       size="sizeIcon30"
     >
       <svg
@@ -137,7 +137,7 @@ exports[`FormHelperText render it should render with an error icon 1`] = `
       </svg>
     </span>
     <div
-      className="emotion-1"
+      className="emotion-2"
       fontSize="fontSize30"
     >
       child
