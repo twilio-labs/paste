@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@0.2.2...@twilio-paste/form@0.2.3) (2020-03-24)
+
+
+### Bug Fixes
+
+* **form:** switch from theme-tokens to theme package dep ([9d26cda](https://github.com/twilio-labs/paste/commit/9d26cda2d99df8adf1e0099f6525fcf1a9f24498))
+
+
+
+
+
 ## [0.2.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@0.2.1...@twilio-paste/form@0.2.2) (2020-03-20)
 
 **Note:** Version bump only for package @twilio-paste/form

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.23](https://github.com/twilio-labs/paste/compare/@twilio-paste/absolute@2.0.22...@twilio-paste/absolute@2.0.23) (2020-03-24)
+
+
+### Bug Fixes
+
+* **absolute:** switch from theme-tokens to theme package dep ([22ee6b4](https://github.com/twilio-labs/paste/commit/22ee6b4d557eccba8adb914f9911ad7489163153))
+
+
+
+
+
 ## [2.0.22](https://github.com/twilio-labs/paste/compare/@twilio-paste/absolute@2.0.21...@twilio-paste/absolute@2.0.22) (2020-03-20)
 
 **Note:** Version bump only for package @twilio-paste/absolute

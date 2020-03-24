@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.11](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.2.10...@twilio-paste/grid@0.2.11) (2020-03-24)
+
+
+### Bug Fixes
+
+* **grid:** switch from theme-tokens to theme package dep ([19a397d](https://github.com/twilio-labs/paste/commit/19a397d3cc2f2e254c6abd688ef8fbaaefb6ce10))
+
+
+
+
+
 ## [0.2.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.2.9...@twilio-paste/grid@0.2.10) (2020-03-20)
 
 **Note:** Version bump only for package @twilio-paste/grid

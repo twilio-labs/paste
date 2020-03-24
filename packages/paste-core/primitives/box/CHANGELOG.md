@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.2.3...@twilio-paste/box@2.2.4) (2020-03-24)
+
+
+### Bug Fixes
+
+* **box:** switch from theme-tokens to theme package dep ([071e77a](https://github.com/twilio-labs/paste/commit/071e77affd04ee1b26a4dd26e4fc6179dd71ff93))
+
+
+
+
+
 ## [2.2.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.2.2...@twilio-paste/box@2.2.3) (2020-03-17)
 
 **Note:** Version bump only for package @twilio-paste/box

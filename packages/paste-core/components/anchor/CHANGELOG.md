@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@1.1.3...@twilio-paste/anchor@1.1.4) (2020-03-24)
+
+
+### Bug Fixes
+
+* **anchor:** switch from theme-tokens to theme package dep ([b5451f4](https://github.com/twilio-labs/paste/commit/b5451f462c32954e9ae83b05f71ccfaabc403a1d))
+
+
+
+
+
 ## [1.1.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@1.1.2...@twilio-paste/anchor@1.1.3) (2020-03-17)
 
 **Note:** Version bump only for package @twilio-paste/anchor

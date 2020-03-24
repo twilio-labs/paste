@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.11](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@1.1.10...@twilio-paste/heading@1.1.11) (2020-03-24)
+
+
+### Bug Fixes
+
+* **heading:** switch from theme-tokens to theme package dep ([f12debc](https://github.com/twilio-labs/paste/commit/f12debc80131320877ef21e316e2c6bd278533b5))
+
+
+
+
+
 ## [1.1.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@1.1.9...@twilio-paste/heading@1.1.10) (2020-03-17)
 
 **Note:** Version bump only for package @twilio-paste/heading

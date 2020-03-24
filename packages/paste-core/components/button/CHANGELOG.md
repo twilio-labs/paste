@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.30](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.1.29...@twilio-paste/button@1.1.30) (2020-03-24)
+
+
+### Bug Fixes
+
+* **button:** switch from theme-tokens to theme package dep ([d9441c2](https://github.com/twilio-labs/paste/commit/d9441c23e251f5be29217c8bb9a2d1644f3eec26))
+
+
+
+
+
 ## [1.1.29](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.1.28...@twilio-paste/button@1.1.29) (2020-03-20)
 
 **Note:** Version bump only for package @twilio-paste/button

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@0.2.1...@twilio-paste/style-props@0.2.2) (2020-03-24)
+
+
+### Bug Fixes
+
+* **style-props:** switch from theme-tokens to theme package dep ([6849d32](https://github.com/twilio-labs/paste/commit/6849d32dc2f25dd3e55b592e7578e9108ab91024))
+
+
+
+
+
 ## [0.2.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@0.2.0...@twilio-paste/style-props@0.2.1) (2020-03-17)
 
 **Note:** Version bump only for package @twilio-paste/style-props

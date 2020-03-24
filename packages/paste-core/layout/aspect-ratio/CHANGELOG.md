@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.23](https://github.com/twilio-labs/paste/compare/@twilio-paste/aspect-ratio@1.0.22...@twilio-paste/aspect-ratio@1.0.23) (2020-03-24)
+
+
+### Bug Fixes
+
+* **aspect-ratio:** switch from theme-tokens to theme package dep ([17876fd](https://github.com/twilio-labs/paste/commit/17876fd11443bff39bf966ed9a750cdfd2414e4f))
+
+
+
+
+
 ## [1.0.22](https://github.com/twilio-labs/paste/compare/@twilio-paste/aspect-ratio@1.0.21...@twilio-paste/aspect-ratio@1.0.22) (2020-03-20)
 
 **Note:** Version bump only for package @twilio-paste/aspect-ratio

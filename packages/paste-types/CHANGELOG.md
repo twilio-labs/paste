@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/types@2.2.9...@twilio-paste/types@3.0.0) (2020-03-24)
+
+
+### Features
+
+* **types:** remove theme type exports ([5ddfb7f](https://github.com/twilio-labs/paste/commit/5ddfb7f4b30b264cf0a9e4a8f6a25c80b551e991))
+
+
+### BREAKING CHANGES
+
+* **types:** theme type exports have moved to the theme package
+
+
+
+
+
 ## [2.2.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/types@2.2.8...@twilio-paste/types@2.2.9) (2020-03-11)
 
 **Note:** Version bump only for package @twilio-paste/types

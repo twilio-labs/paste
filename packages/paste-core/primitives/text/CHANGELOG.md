@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/text@1.2.2...@twilio-paste/text@1.2.3) (2020-03-24)
+
+
+### Bug Fixes
+
+* **text:** switch from theme-tokens to theme package dep ([304ab00](https://github.com/twilio-labs/paste/commit/304ab00084c24ca99018a9080b0e3da9f90472b1))
+
+
+
+
+
 ## [1.2.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/text@1.2.1...@twilio-paste/text@1.2.2) (2020-03-17)
 
 **Note:** Version bump only for package @twilio-paste/text

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.25](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@1.1.24...@twilio-paste/spinner@1.1.25) (2020-03-24)
+
+
+### Bug Fixes
+
+* **spinner:** switch from theme-tokens to theme package dep ([0415762](https://github.com/twilio-labs/paste/commit/0415762c6773eff2a8c02f23f6c2603f5ab22cc3))
+
+
+
+
+
 ## [1.1.24](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@1.1.23...@twilio-paste/spinner@1.1.24) (2020-03-17)
 
 **Note:** Version bump only for package @twilio-paste/spinner

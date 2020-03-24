@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.26](https://github.com/twilio-labs/paste/compare/@twilio-paste/typography@1.0.25...@twilio-paste/typography@1.0.26) (2020-03-24)
+
+
+### Bug Fixes
+
+* **typography:** switch from theme-tokens to theme package dep ([6543f5b](https://github.com/twilio-labs/paste/commit/6543f5b855f8d73f783aa3be2ad1fa70623745c1))
+
+
+
+
+
 ## [1.0.25](https://github.com/twilio-labs/paste/compare/@twilio-paste/typography@1.0.24...@twilio-paste/typography@1.0.25) (2020-03-17)
 
 **Note:** Version bump only for package @twilio-paste/typography

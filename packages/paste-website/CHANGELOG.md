@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.16](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.13.15...@twilio-paste/website@1.13.16) (2020-03-24)
+
+
+### Bug Fixes
+
+* **website:** switch from theme-tokens to theme package dep ([f87cfd0](https://github.com/twilio-labs/paste/commit/f87cfd0e720e1e91a5790ec95c1211ff8efd269b))
+
+
+
+
+
 ## [1.13.15](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.13.14...@twilio-paste/website@1.13.15) (2020-03-20)
 
 **Note:** Version bump only for package @twilio-paste/website
