@@ -18,7 +18,8 @@ module.exports = {
   transformIgnorePatterns: ['node_modules/'],
   resolver: '<rootDir>/.jest/resolver.js',
   transform: {
-    '^.+\\.tsx?$': '<rootDir>/.jest/transform.js',
+    '^.+\\.tsx?$': '<rootDir>/.jest/transform-typescript.js',
+    '^.+\\.js?$': '<rootDir>/.jest/transform-esm.js',
   },
   setupFilesAfterEnv: ['<rootDir>/.jest/setupFilesAfterEnv.js'],
 };

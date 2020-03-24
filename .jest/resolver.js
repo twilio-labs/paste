@@ -30,7 +30,7 @@ const cachedPackages = require(PACKAGES_CACHE_PATH);
 const keyedPackages = cachedPackages.reduce((acc, currentPackage) => {
   const packageJson = require(`${currentPackage.location}/package.json`);
 
-  // If there's no main entrypoint, don't update  the location path.
+  // If there's no main entrypoint, don't update the location path.
   // Note: the icons package doesn't have a main entrypoint
   if (packageJson.main == null) {
     acc[currentPackage.name] = currentPackage;
@@ -44,6 +44,13 @@ const keyedPackages = cachedPackages.reduce((acc, currentPackage) => {
   return acc;
 }, {});
 
+// Given "@twilio-paste/design-tokens/dist/themes/index.js"
+// Returns ["@twilio-paste", "design-tokens", "dist/themes.index.js"]
+const getPackageParts = package => {
+  const [packageScope, packageName, ...packagePath] = package.split('/');
+  return [packageScope, packageName, packagePath.join('/')];
+};
+
 /**
  * We're creating our own module resolver for jest because it is having a
  * very hard time finding our monorepo packages.  When we import a `@paste`
@@ -55,17 +62,21 @@ const keyedPackages = cachedPackages.reduce((acc, currentPackage) => {
  */
 function customResolver(package, details) {
   if (package.includes('@twilio-paste/')) {
-    if (package.includes('@twilio-paste/icons')) {
-      return `${keyedPackages['@twilio-paste/icons'].location}/${package.replace('@twilio-paste/icons/esm', 'cjs')}.js`;
-    }
-    if (package.includes('@twilio-paste/design-tokens/dist')) {
-      // When not getting the main js file from design-tokens, for example:
-      // import { foo } from '@twilio-paste/design-tokens/dist/themes/sendgrid/tokens.es6';
-      // create a file path to the specific theme and swap to the common js version for jest
-      return `${keyedPackages['@twilio-paste/design-tokens'].location.replace(
-        '/dist/tokens.common.js',
-        package.replace('@twilio-paste/design-tokens', '').replace('es6', 'common')
-      )}.js`;
+    const [packageScope, packageName, packagePath] = getPackageParts(package);
+
+    // If we're digging into a Paste package (example: @twilio-paste/design-tokens/dist/themes/sendgrid/tokens.es6)
+    // Retrieve the correct path
+    if (packagePath.length > 0) {
+      // Get the cached location of this package's "main" entrypoint (from packageJson)
+      const keyedLocation = keyedPackages[`${packageScope}/${packageName}`].location;
+
+      // Get the package's root dir
+      const baseKeyedLocation = keyedLocation.substring(0, keyedLocation.indexOf(packageName) + packageName.length);
+
+      // Do we need to add the extension
+      const extension = packagePath.includes('.js') ? '' : '.js';
+
+      return `${baseKeyedLocation}/${packagePath}${extension}`;
     }
 
     return keyedPackages[package].location;
