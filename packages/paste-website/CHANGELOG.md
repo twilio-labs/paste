@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.13.16...@twilio-paste/website@1.14.0) (2020-03-25)
+
+
+### Features
+
+* **website:** add input docs ([#354](https://github.com/twilio-labs/paste/issues/354)) ([cb757bf](https://github.com/twilio-labs/paste/commit/cb757bf9fc0ce1ab0ca030ac84f8206e889cff65))
+
+
+
+
+
 ## [1.13.16](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.13.15...@twilio-paste/website@1.13.16) (2020-03-24)
 
 
