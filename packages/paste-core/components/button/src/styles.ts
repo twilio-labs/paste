@@ -13,7 +13,7 @@ const sizeReset = css`
   padding: 0;
 `;
 const sizeIcon = (props: ButtonWrapperProps): SerializedStyles => css`
-  padding: ${themeGet('space.space30')(props)};
+  padding: ${themeGet('space.space40')(props)};
   border-radius: ${themeGet('radii.borderRadius20')(props)};
   font-size: 100%;
   /* To fix abnormal button padding-bottom */
