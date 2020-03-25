@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@0.2.3...@twilio-paste/form@1.0.0) (2020-03-25)
+
+
+### Bug Fixes
+
+* **form:** change FormHelperText to FormHelpText ([7d8954d](https://github.com/twilio-labs/paste/commit/7d8954d73b9bdba45f9af5f3331763d7240c7ee9))
+
+
+### BREAKING CHANGES
+
+* **form:** The FormHelperText component has been renamed to FormHelpText to align with the Sketch symbol library
+
+
+
+
+
 ## [0.2.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@0.2.2...@twilio-paste/form@0.2.3) (2020-03-24)
 
 
