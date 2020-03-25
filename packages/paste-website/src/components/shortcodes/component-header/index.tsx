@@ -101,7 +101,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
   return (
     <>
       <ComponentHeaderBasic categoryRoute={categoryRoute} name={name} />
-      <P variant="lead">{description}</P>
+      {categoryRoute.includes('/form/') ? null : <P variant="lead">{description}</P>}
       <Box as="dl" marginBottom="space100">
         {status && (
           <Box marginBottom="space20">
