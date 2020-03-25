@@ -11,6 +11,7 @@ import {
 } from './SidebarNavigation.styles';
 import {PackageStatus, SidebarCategoryRoutes} from '../../../constants';
 import {getCurrentPathname, getNameFromPackageName, getHumanizedNameFromPackageName} from '../../../utils/RouteUtils';
+import {filteredComponents} from '../../../utils/componentFilters';
 
 interface SidebarNavigationProps {
   children?: React.ReactNode;
@@ -23,6 +24,7 @@ interface SiteWrapperPageQuery {
         node: {
           name: string;
           status: string;
+          version: string;
         };
       }
     ];
@@ -33,6 +35,7 @@ interface SiteWrapperPageQuery {
         node: {
           name: string;
           status: string;
+          version: string;
         };
       }
     ];
@@ -43,6 +46,7 @@ interface SiteWrapperPageQuery {
         node: {
           name: string;
           status: string;
+          version: string;
         };
       }
     ];
@@ -98,16 +102,23 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
   const [componentsOpen, setComponentsOpen] = React.useState(
     getCurrentPathname().startsWith(SidebarCategoryRoutes.COMPONENTS)
   );
+
   const [primitivesOpen, setPrimitivesOpen] = React.useState(
     getCurrentPathname().startsWith(SidebarCategoryRoutes.PRIMITIVES)
   );
+
   const [layoutOpen, setLayoutOpen] = React.useState(getCurrentPathname().startsWith(SidebarCategoryRoutes.LAYOUT));
+
+  const [formOpen, setFormOpen] = React.useState(getCurrentPathname().startsWith(SidebarCategoryRoutes.FORM));
+
   const [iconSystemOpen, setIconSystemOpen] = React.useState(
     getCurrentPathname().startsWith(SidebarCategoryRoutes.ICON_SYSTEM)
   );
+
   const [gettingStartedOpen, setgettingStartedOpen] = React.useState(
     getCurrentPathname().startsWith(SidebarCategoryRoutes.GETTING_STARTED)
   );
+
   const [tokensOpen, setTokensOpen] = React.useState(getCurrentPathname().startsWith(SidebarCategoryRoutes.TOKENS));
 
   return (
@@ -177,17 +188,15 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
             <SiteNavItem>
               <SiteNavAnchor to={SidebarCategoryRoutes.COMPONENTS}>Overview</SiteNavAnchor>
             </SiteNavItem>
-            {data.allPasteComponent.edges
-              .filter(({node}) => node.status !== PackageStatus.BACKLOG && node.name !== '@twilio-paste/typography')
-              .map(({node}) => {
-                return (
-                  <SiteNavItem key={node.name}>
-                    <SiteNavAnchor to={`${SidebarCategoryRoutes.COMPONENTS}/${getNameFromPackageName(node.name)}`}>
-                      {getHumanizedNameFromPackageName(node.name)}
-                    </SiteNavAnchor>
-                  </SiteNavItem>
-                );
-              })}
+            {data.allPasteComponent.edges.filter(filteredComponents).map(({node}) => {
+              return (
+                <SiteNavItem key={node.name}>
+                  <SiteNavAnchor to={`${SidebarCategoryRoutes.COMPONENTS}/${getNameFromPackageName(node.name)}`}>
+                    {getHumanizedNameFromPackageName(node.name)}
+                  </SiteNavAnchor>
+                </SiteNavItem>
+              );
+            })}
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
@@ -234,6 +243,17 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
                   </SiteNavItem>
                 );
               })}
+          </SiteNavNestList>
+        </SiteNavItem>
+        <SiteNavItem>
+          <SiteNavButton onClick={() => setFormOpen(!formOpen)} isOpen={formOpen} aria-expanded={formOpen}>
+            Form
+            <SiteNavAnchorArrow isOpen={formOpen} />
+          </SiteNavButton>
+          <SiteNavNestList isOpen={formOpen}>
+            <SiteNavItem>
+              <SiteNavAnchor to="/form/input/">Input</SiteNavAnchor>
+            </SiteNavItem>
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
