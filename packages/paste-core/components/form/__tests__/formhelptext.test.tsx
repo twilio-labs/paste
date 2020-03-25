@@ -2,14 +2,14 @@ import * as React from 'react';
 import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
 import {Theme} from '@twilio-paste/theme';
-import {FormHelperText} from '../src';
+import {FormHelpText} from '../src';
 
-describe('FormHelperText render', () => {
+describe('FormHelpText render', () => {
   it('it should render', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
-          <FormHelperText>child</FormHelperText>
+          <FormHelpText>child</FormHelpText>
         </Theme.Provider>
       )
       .toJSON();
@@ -20,7 +20,7 @@ describe('FormHelperText render', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
-          <FormHelperText variant="error">child</FormHelperText>
+          <FormHelpText variant="error">child</FormHelpText>
         </Theme.Provider>
       )
       .toJSON();
@@ -28,12 +28,12 @@ describe('FormHelperText render', () => {
   });
 });
 
-describe('FormHelperText variant prop', () => {
+describe('FormHelpText variant prop', () => {
   const initialProps = {
     variant: 'error',
   };
 
-  const container = shallow(<FormHelperText {...initialProps} />);
+  const container = shallow(<FormHelpText {...initialProps} />);
 
   it('should have an error icon', () => {
     expect(container.find('ErrorIcon').length).toEqual(1);
@@ -44,12 +44,12 @@ describe('FormHelperText variant prop', () => {
   });
 });
 
-describe('FormHelperText marginTop prop', () => {
+describe('FormHelpText marginTop prop', () => {
   const initialProps = {
     marginTop: 'space0',
   };
 
-  const container = shallow(<FormHelperText {...initialProps} />);
+  const container = shallow(<FormHelpText {...initialProps} />);
 
   it('should have marginTop: space0', () => {
     expect(container.find('Flex').prop('marginTop')).toEqual('space0');

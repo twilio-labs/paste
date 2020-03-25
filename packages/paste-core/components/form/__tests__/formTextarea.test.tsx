@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import {shallow, ReactWrapper, mount} from 'enzyme';
 import {axe} from 'jest-axe';
 import {Theme} from '@twilio-paste/theme';
-import {FormHelperText, FormLabel, FormTextArea} from '../src';
+import {FormHelpText, FormLabel, FormTextArea} from '../src';
 
 const NOOP = (): void => {};
 
@@ -57,7 +57,7 @@ describe('FormTextArea render', () => {
       <Theme.Provider theme="console">
         <FormLabel htmlFor="textarea_3">Label Text</FormLabel>
         <FormTextArea id="textarea_3" onChange={NOOP} hasError />
-        <FormHelperText variant="error">Error info. Explains why the input has an error.</FormHelperText>
+        <FormHelpText variant="error">Error info. Explains why the input has an error.</FormHelpText>
       </Theme.Provider>,
       container
     );
