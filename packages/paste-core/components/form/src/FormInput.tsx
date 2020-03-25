@@ -5,8 +5,7 @@ import css from '@styled-system/css';
 import {FieldWrapper} from './shared/FieldWrapper';
 import {Prefix} from './shared/Prefix';
 import {Suffix} from './shared/Suffix';
-
-export type FormInputTypes = 'text' | 'email' | 'hidden' | 'number' | 'password' | 'search' | 'tel';
+import {FormInputTypes} from './shared/types';
 
 export interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string;
@@ -81,7 +80,7 @@ const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
     }
 
     return (
-      <FieldWrapper readOnly={readOnly} disabled={disabled} hasError={hasError}>
+      <FieldWrapper {...typeProps} readOnly={readOnly} disabled={disabled} hasError={hasError}>
         {insertBefore && <Prefix>{insertBefore}</Prefix>}
         <InputElement
           aria-invalid={hasError}

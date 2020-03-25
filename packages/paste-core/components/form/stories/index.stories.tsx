@@ -164,6 +164,25 @@ storiesOf('Components|Form', module)
       </>
     );
   })
+  .add('Input - Hidden', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Input - Hidden');
+    return (
+      <>
+        <FormInput
+          id={uid}
+          type="hidden"
+          value={value}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+        />
+      </>
+    );
+  })
   .add('Input - insert before and after', () => {
     const uid = useUID();
     const [value, setValue] = React.useState('Input - ReadOnly');
