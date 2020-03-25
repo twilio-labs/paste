@@ -5,23 +5,23 @@ import {Flex} from '@twilio-paste/flex';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 
-export const FormHelperTextVariants = {
+export const FormHelpTextVariants = {
   ERROR: 'error',
 } as const;
 
-export type FormHelperTextVariants = ValueOf<typeof FormHelperTextVariants>;
+export type FormHelpTextVariants = ValueOf<typeof FormHelpTextVariants>;
 
 export interface FormHelperTextProps extends React.HTMLAttributes<HTMLDivElement> {
   marginTop?: 'space0';
   className?: never;
   style?: never;
-  variant?: FormHelperTextVariants;
+  variant?: FormHelpTextVariants;
 }
 
-const FormHelperText: React.FC<FormHelperTextProps> = ({marginTop, children, variant, ...props}) => {
+const FormHelpText: React.FC<FormHelperTextProps> = ({marginTop, children, variant, ...props}) => {
   let icon = null;
   switch (variant) {
-    case FormHelperTextVariants.ERROR:
+    case FormHelpTextVariants.ERROR:
       icon = <ErrorIcon iconColor="colorTextError" decorative />;
       break;
     default:
@@ -45,12 +45,12 @@ const FormHelperText: React.FC<FormHelperTextProps> = ({marginTop, children, var
   );
 };
 
-FormHelperText.displayName = 'FormHelperText';
+FormHelpText.displayName = 'FormHelpText';
 
 if (process.env.NODE_ENV === 'development') {
-  FormHelperText.propTypes = {
+  FormHelpText.propTypes = {
     marginTop: PropTypes.oneOf(['space0']),
   };
 }
 
-export {FormHelperText};
+export {FormHelpText};

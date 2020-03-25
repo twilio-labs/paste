@@ -1,4 +1,4 @@
 export * from './FormLabel';
 export * from './FormInput';
-export * from './FormHelperText';
+export * from './FormHelpText';
 export * from './FormTextArea';

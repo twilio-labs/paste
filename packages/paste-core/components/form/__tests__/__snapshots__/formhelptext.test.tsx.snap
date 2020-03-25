@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FormHelperText render it should render 1`] = `
+exports[`FormHelpText render it should render 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
@@ -58,7 +58,7 @@ exports[`FormHelperText render it should render 1`] = `
 </div>
 `;
 
-exports[`FormHelperText render it should render with an error icon 1`] = `
+exports[`FormHelpText render it should render with an error icon 1`] = `
 .emotion-4 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
