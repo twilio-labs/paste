@@ -385,7 +385,6 @@ exports[`Button States Has a loading state 1`] = `
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   left: 0;
   right: 0;
   top: 0;
