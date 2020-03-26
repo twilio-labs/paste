@@ -17,7 +17,6 @@ exports[`FormTextArea render it should render 1`] = `
 
 .emotion-2 {
   box-sizing: border-box;
-  min-width: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
