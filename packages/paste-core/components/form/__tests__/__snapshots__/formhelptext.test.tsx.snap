@@ -17,7 +17,6 @@ exports[`FormHelpText render it should render 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -31,6 +30,7 @@ exports[`FormHelpText render it should render 1`] = `
   display: -ms-flexbox;
   display: flex;
   margin-top: 0.25rem;
+  min-width: 0;
 }
 
 .emotion-0 {
@@ -75,7 +75,6 @@ exports[`FormHelpText render it should render with an error icon 1`] = `
 
 .emotion-3 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -89,6 +88,7 @@ exports[`FormHelpText render it should render with an error icon 1`] = `
   display: -ms-flexbox;
   display: flex;
   margin-top: 0.25rem;
+  min-width: 0;
 }
 
 .emotion-0 {

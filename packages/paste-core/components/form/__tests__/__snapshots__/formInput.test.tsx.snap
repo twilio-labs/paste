@@ -17,7 +17,6 @@ exports[`FormInput render it should render 1`] = `
 
 .emotion-2 {
   box-sizing: border-box;
-  min-width: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -168,7 +167,6 @@ exports[`FormInput render it should render with disabled 1`] = `
 
 .emotion-2 {
   box-sizing: border-box;
-  min-width: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -274,7 +272,6 @@ exports[`FormInput render it should render with hasError 1`] = `
 
 .emotion-2 {
   box-sizing: border-box;
-  min-width: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -334,7 +331,6 @@ exports[`FormInput render it should render with prefix 1`] = `
 
 .emotion-3 {
   box-sizing: border-box;
-  min-width: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -404,7 +400,6 @@ exports[`FormInput render it should render with prefix 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -513,7 +508,6 @@ exports[`FormInput render it should render with readOnly 1`] = `
 
 .emotion-2 {
   box-sizing: border-box;
-  min-width: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -574,7 +568,6 @@ exports[`FormInput render it should render with suffix 1`] = `
 
 .emotion-3 {
   box-sizing: border-box;
-  min-width: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -644,7 +637,6 @@ exports[`FormInput render it should render with suffix 1`] = `
 
 .emotion-2 {
   box-sizing: border-box;
-  min-width: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

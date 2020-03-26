@@ -17,7 +17,6 @@ exports[`FormLabel render it should render 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -31,6 +30,7 @@ exports[`FormLabel render it should render 1`] = `
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 0.125rem;
+  min-width: 0;
 }
 
 .emotion-0 {
@@ -80,7 +80,6 @@ exports[`FormLabel render it should render with required 1`] = `
 
 .emotion-3 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -94,6 +93,7 @@ exports[`FormLabel render it should render with required 1`] = `
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 0.125rem;
+  min-width: 0;
 }
 
 .emotion-2 {
