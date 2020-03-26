@@ -17,7 +17,6 @@ exports[`Flex Display it should render as any HTML element 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -30,6 +29,7 @@ exports[`Flex Display it should render as any HTML element 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-width: 0;
 }
 
 <div
@@ -61,7 +61,6 @@ exports[`Flex Display it should set a display: flex property 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -74,11 +73,11 @@ exports[`Flex Display it should set a display: flex property 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-width: 0;
 }
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   padding: 0.5rem;
   background-color: #233659;
   width: 100%;
@@ -117,7 +116,6 @@ exports[`Flex Options it should set a flex-basis property 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   padding: 0.5rem;
   background-color: #233659;
   width: 100%;
@@ -126,7 +124,6 @@ exports[`Flex Options it should set a flex-basis property 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -149,6 +146,7 @@ exports[`Flex Options it should set a flex-basis property 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-width: 0;
 }
 
 <div
@@ -183,7 +181,6 @@ exports[`Flex Options it should set a flex-grow property 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   padding: 0.5rem;
   background-color: #233659;
   width: 100%;
@@ -192,7 +189,6 @@ exports[`Flex Options it should set a flex-grow property 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -215,6 +211,7 @@ exports[`Flex Options it should set a flex-grow property 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-width: 0;
 }
 
 <div
@@ -249,7 +246,6 @@ exports[`Flex Options it should set a flex-shrink property 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   padding: 0.5rem;
   background-color: #233659;
   width: 100%;
@@ -258,7 +254,6 @@ exports[`Flex Options it should set a flex-shrink property 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -281,6 +276,7 @@ exports[`Flex Options it should set a flex-shrink property 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-width: 0;
 }
 
 <div
@@ -315,7 +311,6 @@ exports[`Flex Options it should set a responsive flex-basis property 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   padding: 0.5rem;
   background-color: #233659;
   width: 100%;
@@ -324,7 +319,6 @@ exports[`Flex Options it should set a responsive flex-basis property 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -347,6 +341,7 @@ exports[`Flex Options it should set a responsive flex-basis property 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-width: 0;
 }
 
 @media screen and (min-width:25rem) {
@@ -397,7 +392,6 @@ exports[`Flex Options it should set a responsive flex-grow property 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   padding: 0.5rem;
   background-color: #233659;
   width: 100%;
@@ -406,7 +400,6 @@ exports[`Flex Options it should set a responsive flex-grow property 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -429,6 +422,7 @@ exports[`Flex Options it should set a responsive flex-grow property 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-width: 0;
 }
 
 @media screen and (min-width:25rem) {
@@ -481,7 +475,6 @@ exports[`Flex Options it should set a responsive flex-shrink property 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   padding: 0.5rem;
   background-color: #233659;
   width: 100%;
@@ -490,7 +483,6 @@ exports[`Flex Options it should set a responsive flex-shrink property 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -513,6 +505,7 @@ exports[`Flex Options it should set a responsive flex-shrink property 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-width: 0;
 }
 
 @media screen and (min-width:25rem) {
@@ -563,7 +556,6 @@ exports[`Flex Row it should not set a flex-direction property 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -576,11 +568,11 @@ exports[`Flex Row it should not set a flex-direction property 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-width: 0;
 }
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   background-color: #233659;
   min-width: 12rem;
   min-height: 5.5rem;
@@ -588,7 +580,6 @@ exports[`Flex Row it should not set a flex-direction property 1`] = `
 
 .emotion-2 {
   box-sizing: border-box;
-  min-width: 0;
   background-color: #f22f46;
   min-width: 12rem;
   min-height: 5.5rem;
@@ -638,7 +629,6 @@ exports[`Flex Row it should set a responsive flex-direction property 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -651,11 +641,11 @@ exports[`Flex Row it should set a responsive flex-direction property 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-width: 0;
 }
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   background-color: #233659;
   min-width: 12rem;
   min-height: 5.5rem;
@@ -663,7 +653,6 @@ exports[`Flex Row it should set a responsive flex-direction property 1`] = `
 
 .emotion-2 {
   box-sizing: border-box;
-  min-width: 0;
   background-color: #f22f46;
   min-width: 12rem;
   min-height: 5.5rem;
@@ -671,7 +660,6 @@ exports[`Flex Row it should set a responsive flex-direction property 1`] = `
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -687,6 +675,7 @@ exports[`Flex Row it should set a responsive flex-direction property 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-width: 0;
 }
 
 @media screen and (min-width:25rem) {
@@ -749,7 +738,6 @@ exports[`Flex Wrap it should not set a flex-wrap property 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -762,11 +750,11 @@ exports[`Flex Wrap it should not set a flex-wrap property 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-width: 0;
 }
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   background-color: #233659;
   min-width: 12rem;
   min-height: 5.5rem;
@@ -774,7 +762,6 @@ exports[`Flex Wrap it should not set a flex-wrap property 1`] = `
 
 .emotion-2 {
   box-sizing: border-box;
-  min-width: 0;
   background-color: #f22f46;
   min-width: 12rem;
   min-height: 5.5rem;
@@ -824,7 +811,6 @@ exports[`Flex Wrap it should set a responsive flex-wrap property 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -837,11 +823,11 @@ exports[`Flex Wrap it should set a responsive flex-wrap property 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-width: 0;
 }
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   background-color: #233659;
   min-width: 12rem;
   min-height: 5.5rem;
@@ -849,7 +835,6 @@ exports[`Flex Wrap it should set a responsive flex-wrap property 1`] = `
 
 .emotion-2 {
   box-sizing: border-box;
-  min-width: 0;
   background-color: #f22f46;
   min-width: 12rem;
   min-height: 5.5rem;
@@ -857,7 +842,6 @@ exports[`Flex Wrap it should set a responsive flex-wrap property 1`] = `
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -873,6 +857,7 @@ exports[`Flex Wrap it should set a responsive flex-wrap property 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-width: 0;
 }
 
 @media screen and (min-width:25rem) {
@@ -935,7 +920,6 @@ exports[`Horizontal Alignment it should set a justify-content: flex-start proper
 
 .emotion-1 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -948,11 +932,11 @@ exports[`Horizontal Alignment it should set a justify-content: flex-start proper
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-width: 0;
 }
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   background-color: #233659;
   min-width: 12rem;
   min-height: 5.5rem;
@@ -960,7 +944,6 @@ exports[`Horizontal Alignment it should set a justify-content: flex-start proper
 
 .emotion-2 {
   box-sizing: border-box;
-  min-width: 0;
   background-color: #f22f46;
   min-width: 12rem;
   min-height: 5.5rem;
@@ -1010,7 +993,6 @@ exports[`Horizontal Alignment it should set a responsive justify-content propert
 
 .emotion-1 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -1023,11 +1005,11 @@ exports[`Horizontal Alignment it should set a responsive justify-content propert
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-width: 0;
 }
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   background-color: #233659;
   min-width: 12rem;
   min-height: 5.5rem;
@@ -1035,7 +1017,6 @@ exports[`Horizontal Alignment it should set a responsive justify-content propert
 
 .emotion-2 {
   box-sizing: border-box;
-  min-width: 0;
   background-color: #f22f46;
   min-width: 12rem;
   min-height: 5.5rem;
@@ -1043,7 +1024,6 @@ exports[`Horizontal Alignment it should set a responsive justify-content propert
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -1056,6 +1036,7 @@ exports[`Horizontal Alignment it should set a responsive justify-content propert
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-width: 0;
 }
 
 @media screen and (min-width:25rem) {
@@ -1120,7 +1101,6 @@ exports[`Vertical Alignment it should set a align-items: flex-start property 1`]
 
 .emotion-1 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -1133,11 +1113,11 @@ exports[`Vertical Alignment it should set a align-items: flex-start property 1`]
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-width: 0;
 }
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   background-color: #233659;
   min-width: 12rem;
   min-height: 5.5rem;
@@ -1145,7 +1125,6 @@ exports[`Vertical Alignment it should set a align-items: flex-start property 1`]
 
 .emotion-2 {
   box-sizing: border-box;
-  min-width: 0;
   background-color: #f22f46;
   min-width: 12rem;
   min-height: 5.5rem;
@@ -1195,7 +1174,6 @@ exports[`Vertical Alignment it should set a responvise align-items property 1`] 
 
 .emotion-1 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -1208,11 +1186,11 @@ exports[`Vertical Alignment it should set a responvise align-items property 1`] 
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-width: 0;
 }
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   background-color: #233659;
   min-width: 12rem;
   min-height: 5.5rem;
@@ -1220,7 +1198,6 @@ exports[`Vertical Alignment it should set a responvise align-items property 1`] 
 
 .emotion-2 {
   box-sizing: border-box;
-  min-width: 0;
   background-color: #f22f46;
   min-width: 12rem;
   min-height: 5.5rem;
@@ -1228,7 +1205,6 @@ exports[`Vertical Alignment it should set a responvise align-items property 1`] 
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -1241,6 +1217,7 @@ exports[`Vertical Alignment it should set a responvise align-items property 1`] 
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-width: 0;
 }
 
 @media screen and (min-width:25rem) {
