@@ -151,7 +151,6 @@ const getPseudoStyles = (props: BoxProps): {} => {
 export const Box = styled.div(
   {
     boxSizing: 'border-box',
-    minWidth: 0,
   },
   compose(
     space,
