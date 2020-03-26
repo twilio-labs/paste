@@ -17,7 +17,6 @@ exports[`Backgrounds it should render responsive values 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   background-color: #b3d3e9;
 }
 
@@ -55,7 +54,6 @@ exports[`Backgrounds it should render single values 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   background-color: #027ac5;
 }
 
@@ -87,7 +85,6 @@ exports[`Borders it should render responsive values 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   border-style: dashed;
   border-color: #003e82;
   border-width: 1px;
@@ -137,7 +134,6 @@ exports[`Borders it should render single values 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   border-style: solid;
   border-color: #003e82;
   border-width: 1px;
@@ -172,7 +168,6 @@ exports[`Shadows it should render responsive values 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   box-shadow: 0 2px 4px 0 rgba(40,42,43,0.3);
 }
 
@@ -210,7 +205,6 @@ exports[`Shadows it should render single values 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   box-shadow: 0 2px 4px 0 rgba(40,42,43,0.3);
 }
 
@@ -242,7 +236,6 @@ exports[`Sizes it should render responsive values 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   width: 5.5rem;
   min-width: 0;
   max-width: 12rem;
@@ -302,7 +295,6 @@ exports[`Sizes it should render single values 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   width: 5.5rem;
   min-width: 0;
   max-width: 12rem;
@@ -341,7 +333,6 @@ exports[`Spaces (A) it should render responsive values 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   margin: 0.25rem;
 }
 
@@ -379,7 +370,6 @@ exports[`Spaces (A) it should render single values 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   margin: 0.25rem;
 }
 
@@ -411,7 +401,6 @@ exports[`Spaces (B) it should render single values 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   margin-top: 0.25rem;
   margin-right: 0.25rem;
   margin-bottom: 0.5rem;
@@ -446,7 +435,6 @@ exports[`Spaces (B)it should render responsive values 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   margin-top: 0.25rem;
   margin-right: 0.25rem;
   margin-bottom: 0.5rem;
@@ -490,7 +478,6 @@ exports[`ZIndex Pseudo-class props it should generate pseudo-class CSS 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
 }
 
 .emotion-0:hover {
@@ -636,7 +623,6 @@ exports[`ZIndex it should render responsive values 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   z-index: 10;
 }
 
@@ -674,7 +660,6 @@ exports[`ZIndex it should render single values 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   z-index: 10;
 }
 
