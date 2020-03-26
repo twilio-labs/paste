@@ -17,7 +17,6 @@ exports[`Card it should filter out style props that are not allowed 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   border-width: 2px;
   border-color: #e4e7e9;
   border-style: solid;
@@ -52,7 +51,6 @@ exports[`Card it should render children 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   border-width: 2px;
   border-color: #e4e7e9;
   border-style: solid;
@@ -89,7 +87,6 @@ exports[`Card it should render default values 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   border-width: 2px;
   border-color: #e4e7e9;
   border-style: solid;
@@ -124,7 +121,6 @@ exports[`Card it should render default values unless overridden by the component
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   border-width: 2px;
   border-color: #e4e7e9;
   border-style: solid;
