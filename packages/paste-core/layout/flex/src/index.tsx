@@ -44,7 +44,7 @@ const Flex: React.FC<FlexProps> = ({
   paddingBottom,
   paddingLeft,
   maxWidth,
-  minWidth,
+  minWidth = 'size0',
   shrink,
   vertical,
   vAlignContent,

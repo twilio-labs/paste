@@ -4,6 +4,7 @@ import {withKnobs, select, boolean, number, text} from '@storybook/addon-knobs';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {Truncate} from '@twilio-paste/truncate';
 import {Flex} from '../src';
 import {Display, VerticalAlign, HorizontalAlign} from '../src/types';
 
@@ -343,6 +344,21 @@ storiesOf('Layout|Flex', module)
           </Flex>
           <Flex>
             <Box backgroundColor="colorBackgroundPrimary" minWidth="size20" minHeight="size10" />
+          </Flex>
+        </Flex>
+      </Box>
+    );
+  })
+  .add('Contained width', () => {
+    return (
+      <Box padding="space30" borderStyle="solid" size="size70">
+        <Paragraph>Text should not cause the flex boxes to break out of their containers when too long.</Paragraph>
+        <Flex>
+          <Flex>
+            <Truncate>http://www.extremelylongurlthatmightbreakthelayout.com</Truncate>
+          </Flex>
+          <Flex>
+            <Truncate>http://www.extremelylongurlthatmightbreakthelayout.com</Truncate>
           </Flex>
         </Flex>
       </Box>
