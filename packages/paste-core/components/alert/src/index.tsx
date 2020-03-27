@@ -70,9 +70,11 @@ const Alert: React.FC<AlertProps> = ({children, onDismiss, variant, role, ...pro
       paddingBottom="space30"
       role={role != null ? role : AlertRoles[variant.toUpperCase()]}
     >
-      <MediaObject>
-        <MediaFigure spacing="space40">{renderAlertIcon(variant)}</MediaFigure>
-        <MediaBody>{children}</MediaBody>
+      <MediaObject as="div">
+        <MediaFigure as="div" spacing="space40">
+          {renderAlertIcon(variant)}
+        </MediaFigure>
+        <MediaBody as="div">{children}</MediaBody>
         {onDismiss && typeof onDismiss === 'function' && (
           <MediaFigure align="end" spacing="space70">
             <Button onClick={onDismiss} variant="link" size="reset">
