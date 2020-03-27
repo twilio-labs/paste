@@ -1,0 +1,51 @@
+---
+title: Writing for components
+description: Guidance, patterns, and frameworks for components and common messages.
+---
+
+import {graphql} from 'gatsby';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/content/writing-for-components/"}}) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<p>{props.pageContext.frontmatter.description}</p>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings}/>
+
+<content>
+
+## Coming in Q2
+- Component-specific guidance for
+  - Alerts
+  - Anchors
+  - Buttons
+  - Headings (cards, modals, pages)
+  - Forms
+
+- Frameworks to help you write frequently used messages consistently
+  - Error messages
+  - Confirmation messages
+  - Success messages!
+
+Suggest an addition &mdash; reach out on Slack
+
+</content>
+</contentwrapper>

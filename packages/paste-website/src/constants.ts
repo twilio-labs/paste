@@ -10,6 +10,7 @@ export const SidebarCategoryRoutes = {
   PRIMITIVES: '/primitives',
   LAYOUT: '/layout',
   ICON_SYSTEM: '/icon-system',
+  CONTENT: '/content',
   GETTING_STARTED: '/getting-started',
   TOKENS: '/tokens',
   FORM: '/form/input',
