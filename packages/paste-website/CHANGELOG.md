@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.14.1...@twilio-paste/website@1.15.0) (2020-03-27)
+
+
+### Features
+
+* **website:** creating content guidelines section ([#344](https://github.com/twilio-labs/paste/issues/344)) ([6c2e98c](https://github.com/twilio-labs/paste/commit/6c2e98cf51011e9b116e6e90cfde13ace4efda62))
+
+
+
+
+
 ## [1.14.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.14.0...@twilio-paste/website@1.14.1) (2020-03-25)
 
 
