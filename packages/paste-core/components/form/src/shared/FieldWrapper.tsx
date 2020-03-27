@@ -13,8 +13,12 @@ interface FieldWrapperProps {
 
 const FieldWrapper: React.FC<FieldWrapperProps> = ({disabled, hasError, readOnly, children, type}) => {
   let boxShadow = 'shadowBorderInput';
+  let boxShadowHover = 'shadowBorderInputHover' as BoxShadow;
   if (disabled) {
     boxShadow = 'shadowBorderInputDisabled';
+    boxShadowHover = 'shadowBorderInputDisabled';
+  } else if (readOnly) {
+    boxShadowHover = 'shadowBorderInput';
   } else if (hasError) {
     boxShadow = 'shadowBorderInputError';
   } else if (type === 'hidden') {
@@ -31,7 +35,7 @@ const FieldWrapper: React.FC<FieldWrapperProps> = ({disabled, hasError, readOnly
       transition="box-shadow 100ms ease-in"
       cursor={disabled ? 'not-allowed' : 'text'}
       _hover={{
-        boxShadow: hasError ? 'shadowBorderInputErrorHover' : 'shadowBorderInputHover',
+        boxShadow: hasError ? 'shadowBorderInputErrorHover' : boxShadowHover,
       }}
       _focusWithin={{
         boxShadow: 'shadowFocus',

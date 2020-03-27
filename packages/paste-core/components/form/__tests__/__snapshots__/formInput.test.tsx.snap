@@ -183,7 +183,7 @@ exports[`FormInput render it should render with disabled 1`] = `
 }
 
 .emotion-2:hover {
-  box-shadow: 0 0 0 1px #030b5d;
+  box-shadow: 0 0 0 1px #e4e7e9;
 }
 
 .emotion-2:focus-within {
@@ -528,7 +528,7 @@ exports[`FormInput render it should render with readOnly 1`] = `
 }
 
 .emotion-2:hover {
-  box-shadow: 0 0 0 1px #030b5d;
+  box-shadow: 0 0 0 1px #606b85;
 }
 
 .emotion-2:focus-within {
