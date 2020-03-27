@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.0.0...@twilio-paste/form@1.0.1) (2020-03-27)
+
+
+### Bug Fixes
+
+* **form:** remove input type hidden box shadow ([#359](https://github.com/twilio-labs/paste/issues/359)) ([25301f4](https://github.com/twilio-labs/paste/commit/25301f4654c289f795f1acc6babe91972e017585))
+
+
+
+
+
 # [1.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@0.2.3...@twilio-paste/form@1.0.0) (2020-03-25)
 
 
