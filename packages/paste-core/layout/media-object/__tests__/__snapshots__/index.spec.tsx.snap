@@ -17,10 +17,10 @@ exports[`MediaBody should render 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  min-width: 0;
 }
 
 <div
@@ -51,10 +51,10 @@ exports[`MediaBody should render as any HTML element 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  min-width: 0;
 }
 
 <div
@@ -85,7 +85,6 @@ exports[`MediaFigure should render 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -125,7 +124,6 @@ exports[`MediaFigure should render as any HTML element 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -165,7 +163,6 @@ exports[`MediaFigure should render with spacing on the left for end alignment 1`
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -205,7 +202,6 @@ exports[`MediaFigure should render with spacing on the right for default alignme
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -245,7 +241,6 @@ exports[`MediaObject should render 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -285,7 +280,6 @@ exports[`MediaObject should render as another HTML element 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -325,7 +319,6 @@ exports[`MediaObject should render bottom margin 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -366,7 +359,6 @@ exports[`MediaObject should render top margin 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -407,7 +399,6 @@ exports[`MediaObject should render with center aligned children 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
