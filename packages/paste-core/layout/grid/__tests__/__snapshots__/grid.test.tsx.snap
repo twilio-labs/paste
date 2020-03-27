@@ -17,7 +17,6 @@ exports[`12 Column Options it should render a 5 span, 3 span column grid 1`] = `
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -32,6 +31,7 @@ exports[`12 Column Options it should render a 5 span, 3 span column grid 1`] = `
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 .emotion-2 {
@@ -78,7 +78,6 @@ exports[`12 Column Options it should render a 5 span, 5 span, 2 span column grid
 
 .emotion-6 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -93,6 +92,7 @@ exports[`12 Column Options it should render a 5 span, 5 span, 2 span column grid
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 .emotion-4 {
@@ -143,7 +143,6 @@ exports[`12 Column Options it should render a 6 span, 6 span column grid 1`] = `
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -158,6 +157,7 @@ exports[`12 Column Options it should render a 6 span, 6 span column grid 1`] = `
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 .emotion-0 {
@@ -200,7 +200,6 @@ exports[`12 Column Options it should render a 8 span, 4 span column grid 1`] = `
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -215,6 +214,7 @@ exports[`12 Column Options it should render a 8 span, 4 span column grid 1`] = `
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 .emotion-0 {
@@ -261,7 +261,6 @@ exports[`12 Column Options it should render a 9 span, 3 span column grid 1`] = `
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -276,6 +275,7 @@ exports[`12 Column Options it should render a 9 span, 3 span column grid 1`] = `
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 .emotion-2 {
@@ -322,7 +322,6 @@ exports[`12 Column Options it should render a 10 span, 2 span column grid 1`] = 
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -337,6 +336,7 @@ exports[`12 Column Options it should render a 10 span, 2 span column grid 1`] = 
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 .emotion-2 {
@@ -383,7 +383,6 @@ exports[`12 Column Options it should render a 11 span, 1 span column grid 1`] = 
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -398,6 +397,7 @@ exports[`12 Column Options it should render a 11 span, 1 span column grid 1`] = 
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 .emotion-2 {
@@ -444,7 +444,6 @@ exports[`12 Column Options it should render a 11 span, 2 span column grid 1`] = 
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -459,6 +458,7 @@ exports[`12 Column Options it should render a 11 span, 2 span column grid 1`] = 
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 .emotion-2 {
@@ -505,7 +505,6 @@ exports[`12 Column Options it should render a grid with 1 column 1`] = `
 
 .emotion-2 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -520,6 +519,7 @@ exports[`12 Column Options it should render a grid with 1 column 1`] = `
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 .emotion-0 {
@@ -558,7 +558,6 @@ exports[`12 Column Options it should render a grid with 2 columns 1`] = `
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -573,6 +572,7 @@ exports[`12 Column Options it should render a grid with 2 columns 1`] = `
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 .emotion-0 {
@@ -615,7 +615,6 @@ exports[`12 Column Options it should render a grid with 3 columns 1`] = `
 
 .emotion-6 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -630,6 +629,7 @@ exports[`12 Column Options it should render a grid with 3 columns 1`] = `
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 .emotion-0 {
@@ -676,7 +676,6 @@ exports[`12 Column Options it should render a grid with 4 columns 1`] = `
 
 .emotion-8 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -691,6 +690,7 @@ exports[`12 Column Options it should render a grid with 4 columns 1`] = `
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 .emotion-0 {
@@ -741,7 +741,6 @@ exports[`12 Column Options it should render a grid with 6 columns 1`] = `
 
 .emotion-12 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -756,6 +755,7 @@ exports[`12 Column Options it should render a grid with 6 columns 1`] = `
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 .emotion-0 {
@@ -814,7 +814,6 @@ exports[`12 Column Options it should render a grid with 12 columns 1`] = `
 
 .emotion-24 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -829,6 +828,7 @@ exports[`12 Column Options it should render a grid with 12 columns 1`] = `
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 .emotion-0 {
@@ -911,7 +911,6 @@ exports[`Column Offset Prop it should render two columns, one with a offset 1`] 
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -926,6 +925,7 @@ exports[`Column Offset Prop it should render two columns, one with a offset 1`] 
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 .emotion-0 {
@@ -973,7 +973,6 @@ exports[`Column Offset Prop it should render two columns, one with a responsive 
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -988,6 +987,7 @@ exports[`Column Offset Prop it should render two columns, one with a responsive 
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 .emotion-2 {
@@ -1055,7 +1055,6 @@ exports[`Column Span Prop it should render two columns with different responsive
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -1070,6 +1069,7 @@ exports[`Column Span Prop it should render two columns with different responsive
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 .emotion-0 {
@@ -1152,7 +1152,6 @@ exports[`Column Span Prop it should render two columns, one spaning 8 columns, t
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -1167,6 +1166,7 @@ exports[`Column Span Prop it should render two columns, one spaning 8 columns, t
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 .emotion-0 {
@@ -1275,7 +1275,6 @@ exports[`Grid Gutter Prop it should render two columns with gutters 1`] = `
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -1290,6 +1289,7 @@ exports[`Grid Gutter Prop it should render two columns with gutters 1`] = `
   display: flex;
   margin-right: -0.25rem;
   margin-left: -0.25rem;
+  min-width: 0;
 }
 
 .emotion-0 {
@@ -1334,7 +1334,6 @@ exports[`Grid Gutter Prop it should render two columns with responsive gutters 1
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -1349,6 +1348,7 @@ exports[`Grid Gutter Prop it should render two columns with responsive gutters 1
   display: flex;
   margin-right: -0.125rem;
   margin-left: -0.125rem;
+  min-width: 0;
 }
 
 @media screen and (min-width:25rem) {
@@ -1421,7 +1421,6 @@ exports[`Grid Vertical Prop it should render two columns stacked only on mobile 
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -1439,6 +1438,7 @@ exports[`Grid Vertical Prop it should render two columns stacked only on mobile 
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 @media screen and (min-width:25rem) {
@@ -1511,7 +1511,6 @@ exports[`Grid Vertical Prop it should render two stacked columns 1`] = `
 
 .emotion-4 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -1529,6 +1528,7 @@ exports[`Grid Vertical Prop it should render two stacked columns 1`] = `
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 .emotion-0 {
@@ -1573,7 +1573,6 @@ exports[`Grid render it should render 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -1588,6 +1587,7 @@ exports[`Grid render it should render 1`] = `
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 <div
@@ -1619,7 +1619,6 @@ exports[`Grid render it should render as any HTML element 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  min-width: 0;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -1634,6 +1633,7 @@ exports[`Grid render it should render as any HTML element 1`] = `
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  min-width: 0;
 }
 
 <div
