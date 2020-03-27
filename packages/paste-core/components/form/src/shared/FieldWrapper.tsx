@@ -2,19 +2,23 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import {BoxShadow} from '@twilio-paste/style-props';
+import {FormInputTypes} from './types';
 
 interface FieldWrapperProps {
   disabled?: boolean;
   hasError?: boolean;
   readOnly?: boolean;
+  type?: FormInputTypes;
 }
 
-const FieldWrapper: React.FC<FieldWrapperProps> = ({disabled, hasError, readOnly, children}) => {
+const FieldWrapper: React.FC<FieldWrapperProps> = ({disabled, hasError, readOnly, children, type}) => {
   let boxShadow = 'shadowBorderInput';
   if (disabled) {
     boxShadow = 'shadowBorderInputDisabled';
   } else if (hasError) {
     boxShadow = 'shadowBorderInputError';
+  } else if (type === 'hidden') {
+    boxShadow = 'none';
   }
 
   return (

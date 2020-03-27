@@ -5,7 +5,8 @@ import {action} from '@storybook/addon-actions';
 import {withKnobs, boolean, text, select} from '@storybook/addon-knobs';
 import {Anchor} from '@twilio-paste/anchor';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {FormInput, FormLabel, FormHelpText, FormHelpTextVariants, FormInputTypes, FormTextArea} from '../src';
+import {FormInput, FormLabel, FormHelpText, FormHelpTextVariants, FormTextArea} from '../src';
+import {FormInputTypes} from '../src/shared/types';
 
 const inputTypeOptions = ['text', 'email', 'hidden', 'number', 'password', 'search', 'tel'];
 const helpVariantOptions = ['default', 'error'];
@@ -161,6 +162,25 @@ storiesOf('Components|Form', module)
           onBlur={action('handleBlur')}
         />
         <FormHelpText>Info that helps a user with this field.</FormHelpText>
+      </>
+    );
+  })
+  .add('Input - Hidden', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Input - Hidden');
+    return (
+      <>
+        <FormInput
+          id={uid}
+          type="hidden"
+          value={value}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+        />
       </>
     );
   })

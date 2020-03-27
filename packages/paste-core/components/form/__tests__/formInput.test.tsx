@@ -4,7 +4,8 @@ import renderer from 'react-test-renderer';
 import {shallow, ReactWrapper, mount} from 'enzyme';
 import {axe} from 'jest-axe';
 import {Theme} from '@twilio-paste/theme';
-import {FormHelpText, FormInput, FormLabel, FormInputTypes} from '../src';
+import {FormHelpText, FormInput, FormLabel} from '../src';
+import {FormInputTypes} from '../src/shared/types';
 
 const NOOP = (): void => {};
 
