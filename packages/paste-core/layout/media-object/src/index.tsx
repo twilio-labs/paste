@@ -69,7 +69,7 @@ export type MediaBodyProps = Pick<BoxProps, 'as'>;
 
 const MediaBody: React.FC<MediaBodyProps> = ({as = 'span', children}) => {
   return (
-    <Box as={as} flex={1}>
+    <Box as={as} flex={1} minWidth="size0">
       {children}
     </Box>
   );
