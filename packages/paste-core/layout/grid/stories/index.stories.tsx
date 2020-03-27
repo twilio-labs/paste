@@ -7,6 +7,7 @@ import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Text} from '@twilio-paste/text';
+import {Truncate} from '@twilio-paste/truncate';
 import {Grid, Column} from '../src';
 
 const spaceOptions = Object.keys(DefaultTheme.space);
@@ -590,5 +591,30 @@ storiesOf('Layout|Grid', module)
           </Card>
         </Column>
       </Grid>
+    );
+  })
+  .add('Grid - Containing long content', () => {
+    return (
+      <Box width="size50">
+        <Text as="p" marginBottom="space100">
+          Proving that long content shouldn&rsquo;t break out from it&rsquo;s flex container width
+        </Text>
+        <Grid gutter="space70">
+          <Column span={8}>
+            <Truncate>http://www.extremelylongurlthatmightbreakthelayout.com</Truncate>
+          </Column>
+          <Column span={4}>
+            <Truncate>http://www.extremelylongurlthatmightbreakthelayout.com</Truncate>
+          </Column>
+        </Grid>
+        <Grid gutter="space70">
+          <Column>
+            <Truncate>http://www.extremelylongurlthatmightbreakthelayout.com</Truncate>
+          </Column>
+          <Column>
+            <Truncate>http://www.extremelylongurlthatmightbreakthelayout.com</Truncate>
+          </Column>
+        </Grid>
+      </Box>
     );
   });
