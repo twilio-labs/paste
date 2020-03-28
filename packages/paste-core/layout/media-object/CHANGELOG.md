@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.11](https://github.com/twilio-labs/paste/compare/@twilio-paste/media-object@1.2.10...@twilio-paste/media-object@1.2.11) (2020-03-28)
+
+
+### Bug Fixes
+
+* **media-object:** add min-width to body ([5281863](https://github.com/twilio-labs/paste/commit/5281863ac0cf2ee94fb5cabc1b2ca4719adac8f9))
+
+
+
+
+
 ## [1.2.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/media-object@1.2.9...@twilio-paste/media-object@1.2.10) (2020-03-24)
 
 

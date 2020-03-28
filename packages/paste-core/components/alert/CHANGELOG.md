@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.27](https://github.com/twilio-labs/paste/compare/@twilio-paste/alert@0.1.26...@twilio-paste/alert@0.1.27) (2020-03-28)
+
+
+### Bug Fixes
+
+* **alert:** set default elements to divs and update stories and snapshots ([63035fe](https://github.com/twilio-labs/paste/commit/63035fee1d5045fa96fccde9f98f7a5f7bc0ad11))
+
+
+
+
+
 ## [0.1.26](https://github.com/twilio-labs/paste/compare/@twilio-paste/alert@0.1.25...@twilio-paste/alert@0.1.26) (2020-03-24)
 
 

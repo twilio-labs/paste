@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.11](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.3.10...@twilio-paste/flex@0.3.11) (2020-03-28)
+
+
+### Bug Fixes
+
+* **flex:** add min-width:0 explicitly ([c4f436d](https://github.com/twilio-labs/paste/commit/c4f436d9ff71ade75709bef0941b8c1c880a2e8d))
+
+
+
+
+
 ## [0.3.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.3.9...@twilio-paste/flex@0.3.10) (2020-03-24)
 
 

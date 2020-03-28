@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.2.4...@twilio-paste/box@2.2.5) (2020-03-28)
+
+
+### Bug Fixes
+
+* **box:** remove min-width:0 as a default ([7b8e55b](https://github.com/twilio-labs/paste/commit/7b8e55b5a47eb7a5cb052acac8450a980cb92a55))
+
+
+
+
+
 ## [2.2.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.2.3...@twilio-paste/box@2.2.4) (2020-03-24)
 
 

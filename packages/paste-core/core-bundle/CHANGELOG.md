@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.3.8...@twilio-paste/core@2.3.9) (2020-03-28)
+
+**Note:** Version bump only for package @twilio-paste/core
+
+
+
+
+
 ## [2.3.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.3.7...@twilio-paste/core@2.3.8) (2020-03-27)
 
 **Note:** Version bump only for package @twilio-paste/core
