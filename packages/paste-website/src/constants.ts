@@ -13,7 +13,7 @@ export const SidebarCategoryRoutes = {
   CONTENT: '/content',
   GETTING_STARTED: '/getting-started',
   TOKENS: '/tokens',
-  FORM: '/form/input',
+  FORM: '/form',
 };
 
 export const PackageStatus = {

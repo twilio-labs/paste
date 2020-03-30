@@ -2,15 +2,25 @@
   "name": "paste",
   "scope": "twilio-dsys",
   "version": 2,
-  "builds": [
+  "builds": [{
+    "src": "now-build.sh",
+    "use": "@now/static-build",
+    "config": {
+      "distDir": "packages/paste-website/public"
+    }
+  }],
+  "routes": [{
+      "handle": "filesystem"
+    },
     {
-      "src": "now-build.sh",
-      "use": "@now/static-build",
-      "config": {"distDir": "packages/paste-website/public"}
+      "src": "/.*",
+      "status": 404,
+      "dest": "404/index.html"
     }
   ],
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/.*", "status": 404, "dest": "404/index.html" }
-  ]
+  "redirects": [{
+    "source": "/form",
+    "destination": "/form/input/",
+    "statusCode": 301
+  }]
 }

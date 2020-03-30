@@ -256,6 +256,9 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
             <SiteNavItem>
               <SiteNavAnchor to="/form/input/">Input</SiteNavAnchor>
             </SiteNavItem>
+            <SiteNavItem>
+              <SiteNavAnchor to="/form/textarea/">Textarea</SiteNavAnchor>
+            </SiteNavItem>
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
