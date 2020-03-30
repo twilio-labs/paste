@@ -42,6 +42,7 @@ const InputElement = styled.input(
     resize: 'none',
     display: 'block',
     width: '100%',
+    fontFamily: 'inherit',
     fontSize: 'fontSize30',
     lineHeight: 'lineHeight30',
     fontWeight: 'fontWeightNormal',
@@ -51,6 +52,7 @@ const InputElement = styled.input(
     paddingBottom: 'space30',
     paddingLeft: 'space40',
     borderRadius: 'borderRadius20',
+    boxShadow: 'none',
 
     '&::placeholder': {
       color: 'colorTextWeak',

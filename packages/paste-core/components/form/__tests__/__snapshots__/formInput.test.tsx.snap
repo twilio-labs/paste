@@ -48,6 +48,7 @@ exports[`FormInput render it should render 1`] = `
   resize: none;
   display: block;
   width: 100%;
+  font-family: inherit;
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
@@ -57,6 +58,7 @@ exports[`FormInput render it should render 1`] = `
   padding-bottom: 0.5rem;
   padding-left: 0.75rem;
   border-radius: 4px;
+  box-shadow: none;
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -129,6 +131,7 @@ exports[`FormInput render it should render with disabled 1`] = `
   resize: none;
   display: block;
   width: 100%;
+  font-family: inherit;
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
@@ -138,6 +141,7 @@ exports[`FormInput render it should render with disabled 1`] = `
   padding-bottom: 0.5rem;
   padding-left: 0.75rem;
   border-radius: 4px;
+  box-shadow: none;
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -234,6 +238,7 @@ exports[`FormInput render it should render with hasError 1`] = `
   resize: none;
   display: block;
   width: 100%;
+  font-family: inherit;
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
@@ -243,6 +248,7 @@ exports[`FormInput render it should render with hasError 1`] = `
   padding-bottom: 0.5rem;
   padding-left: 0.75rem;
   border-radius: 4px;
+  box-shadow: none;
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -362,6 +368,7 @@ exports[`FormInput render it should render with prefix 1`] = `
   resize: none;
   display: block;
   width: 100%;
+  font-family: inherit;
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
@@ -371,6 +378,7 @@ exports[`FormInput render it should render with prefix 1`] = `
   padding-bottom: 0.5rem;
   padding-left: 0.75rem;
   border-radius: 4px;
+  box-shadow: none;
 }
 
 .emotion-1::-webkit-input-placeholder {
@@ -470,6 +478,7 @@ exports[`FormInput render it should render with readOnly 1`] = `
   resize: none;
   display: block;
   width: 100%;
+  font-family: inherit;
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
@@ -479,6 +488,7 @@ exports[`FormInput render it should render with readOnly 1`] = `
   padding-bottom: 0.5rem;
   padding-left: 0.75rem;
   border-radius: 4px;
+  box-shadow: none;
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -599,6 +609,7 @@ exports[`FormInput render it should render with suffix 1`] = `
   resize: none;
   display: block;
   width: 100%;
+  font-family: inherit;
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
@@ -608,6 +619,7 @@ exports[`FormInput render it should render with suffix 1`] = `
   padding-bottom: 0.5rem;
   padding-left: 0.75rem;
   border-radius: 4px;
+  box-shadow: none;
 }
 
 .emotion-0::-webkit-input-placeholder {
