@@ -16,10 +16,11 @@
       "src": "/.*",
       "status": 404,
       "dest": "404/index.html"
+    },
+    {
+      "src": "/form",
+      "status": 301,
+      "dest": "form/input/"
     }
-  ],
-  "rewrites": [{
-    "source": "/form",
-    "destination": "/form/input/"
-  }]
+  ]
 }
