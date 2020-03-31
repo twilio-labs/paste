@@ -33,6 +33,7 @@ const TextAreaElement = styled.textarea(
     display: 'block',
     width: '100%',
     maxHeight: 'size30',
+    fontFamily: 'inherit',
     fontSize: 'fontSize30',
     lineHeight: 'lineHeight30',
     fontWeight: 'fontWeightNormal',
@@ -43,6 +44,7 @@ const TextAreaElement = styled.textarea(
     paddingLeft: 'space40',
     borderRadius: 'borderRadius20',
     resize: 'vertical',
+    boxShadow: 'none',
 
     '&::placeholder': {
       color: 'colorTextWeak',

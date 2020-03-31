@@ -211,6 +211,29 @@ storiesOf('Components|Form', module)
       </>
     );
   })
+  .add('Input - Number Error', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Input - Number Error');
+    return (
+      <>
+        <FormLabel htmlFor={uid}>Label</FormLabel>
+        <FormInput
+          id={uid}
+          type="number"
+          placeholder="Placeholder"
+          hasError
+          value={value}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+        />
+        <FormHelpText variant="error">Not a number error. Should have no box-shadow.</FormHelpText>
+      </>
+    );
+  })
   .add('Textarea Options', () => {
     const hasError = boolean('hasError', false);
     const isDisabled = boolean('disabled', false);
