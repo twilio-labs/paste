@@ -10,19 +10,19 @@
     }
   }],
   "routes": [{
+      "src": "/form",
+      "status": 301,
+      "headers": {
+        "Location": "form/input/"
+      }
+    },
+    {
       "handle": "filesystem"
     },
     {
       "src": "/.*",
       "status": 404,
       "dest": "404/index.html"
-    },
-    {
-      "src": "/form",
-      "status": 301,
-      "headers": {
-        "Location": "form/input/"
-      }
     }
   ]
 }
