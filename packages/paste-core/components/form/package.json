@@ -58,5 +58,8 @@
     "rollup-plugin-typescript2": "^0.21.2",
     "typedoc": "^0.16.9",
     "typescript": "3.7.5"
+  },
+  "dependencies": {
+    "react-autosize-textarea": "^7.0.0"
   }
 }
