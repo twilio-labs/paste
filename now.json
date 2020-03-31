@@ -18,9 +18,8 @@
       "dest": "404/index.html"
     }
   ],
-  "redirects": [{
+  "rewrites": [{
     "source": "/form",
     "destination": "/form/input/",
-    "statusCode": 301
   }]
 }
