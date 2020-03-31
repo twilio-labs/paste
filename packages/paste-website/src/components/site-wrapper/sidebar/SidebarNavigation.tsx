@@ -249,15 +249,15 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
         </SiteNavItem>
         <SiteNavItem>
           <SiteNavButton onClick={() => setFormOpen(!formOpen)} isOpen={formOpen} aria-expanded={formOpen}>
-            Form
+            Form Elements
             <SiteNavAnchorArrow isOpen={formOpen} />
           </SiteNavButton>
           <SiteNavNestList isOpen={formOpen}>
             <SiteNavItem>
-              <SiteNavAnchor to="/form/input/">Input</SiteNavAnchor>
+              <SiteNavAnchor to="/form-elements/input/">Input</SiteNavAnchor>
             </SiteNavItem>
             <SiteNavItem>
-              <SiteNavAnchor to="/form/textarea/">Textarea</SiteNavAnchor>
+              <SiteNavAnchor to="/form-elements/textarea/">Textarea</SiteNavAnchor>
             </SiteNavItem>
           </SiteNavNestList>
         </SiteNavItem>

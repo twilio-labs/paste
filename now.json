@@ -10,10 +10,17 @@
     }
   }],
   "routes": [{
-      "src": "/form",
+      "src": "/form-elements",
       "status": 301,
       "headers": {
-        "Location": "form/input/"
+        "Location": "form-elements/input/"
+      }
+    },
+    {
+      "src": "/form/input",
+      "status": 301,
+      "headers": {
+        "Location": "form-elements/input/"
       }
     },
     {
