@@ -20,6 +20,6 @@
   ],
   "rewrites": [{
     "source": "/form",
-    "destination": "/form/input/",
+    "destination": "/form/input/"
   }]
 }
