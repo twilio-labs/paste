@@ -20,7 +20,9 @@
     {
       "src": "/form",
       "status": 301,
-      "dest": "form/input/"
+      "headers": {
+        "Location": "form/input/"
+      }
     }
   ]
 }
