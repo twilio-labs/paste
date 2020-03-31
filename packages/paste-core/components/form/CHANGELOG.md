@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.0.3...@twilio-paste/form@1.0.4) (2020-03-31)
+
+
+### Bug Fixes
+
+* **form:** remove box-shadow, inherit font family ([#362](https://github.com/twilio-labs/paste/issues/362)) ([5cac3c4](https://github.com/twilio-labs/paste/commit/5cac3c4b463199c02b8ea3b188b10b48e95c3201))
+
+
+
+
+
 ## [1.0.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.0.2...@twilio-paste/form@1.0.3) (2020-03-30)
 
 
