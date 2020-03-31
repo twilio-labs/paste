@@ -5,7 +5,7 @@ description: A textarea allows users to enter text on multiple lines.
 ---
 
 import {graphql} from 'gatsby';
-import {FormLabel, FormInput, FormHelpText, FormTextArea} from '@twilio-paste/form';
+import {FormLabel, FormHelpText, FormTextArea} from '@twilio-paste/form';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -61,7 +61,7 @@ A textarea allows users to enter text on multiple lines.
 
 ### About Textarea
 
-Use a textarea when you want to allow a user to enter text on multiple lines. A textarea allows for any text to be entered and can’t be restricted as [inputs](/form/input/) can.
+Use a textarea when you want to allow a user to enter text on multiple lines. A textarea allows for any text to be entered and can't be restricted as [inputs](/form/input/) can.
 
 ### Accessibility
 
@@ -103,7 +103,7 @@ The textarea should include the base textarea, along with supporting elements to
 
 - **Label** — A label should be included for every form field and provide a short title for its associated textarea.
 - **Required field indicator** — In a form where there are fewer or as many required fields as optional, use a required indicator to show users which fields are required to be filled out.
-- **Help text** — Text that’s placed below the field to help users prevent an error and describe what makes the form field successful
+- **Help text** — Text that's placed below the field to help users prevent an error and describe what makes the form field successful
 
 <Callout>
   <CalloutTitle as="h4">Hot accessibility tip</CalloutTitle>
@@ -176,7 +176,7 @@ Use a disabled form field to show users that they can't interact with the field.
 <LivePreview scope={{FormLabel, FormTextArea}} language="jsx">
   {`<>
   <FormLabel htmlFor="text_disabled" disabled>Description (disabled)</FormLabel>
-  <FormTextArea aria-describedby="text_disabled_help_text" id="text_disabled" name="text_disabled" placeholder="Enter a description..." disabled />
+  <FormTextArea id="text_disabled" name="text_disabled" placeholder="Enter a description..." disabled />
 </>`}
 </LivePreview>
 
@@ -187,18 +187,18 @@ Use a read-only form field when a field's value can't be changed, but users shou
 <LivePreview scope={{FormLabel, FormTextArea}} language="jsx">
   {`<>
   <FormLabel htmlFor="text_readonly">Description (read-only)</FormLabel>
-  <FormTextArea aria-describedby="text_readonly_help_text" id="text_readonly" name="text_readonly" readOnly>Paste is a design system used to build accessible, consistent, and high quality customer experiences at Twilio. Paste is open source and contributions are welcome.</FormTextArea>
+  <FormTextArea id="text_readonly" name="text_readonly" readOnly>Paste is a design system used to build accessible, consistent, and high quality customer experiences at Twilio. Paste is open source and contributions are welcome.</FormTextArea>
 </>`}
 </LivePreview>
 
 ## Composition notes
 
-An input field must have at least a label and an input.
+A textarea field must have at least a label and a textarea.
 
-<LivePreview scope={{FormInput, FormLabel}} language="jsx">
+<LivePreview scope={{FormLabel, FormTextArea}} language="jsx">
   {`<>
-  <FormLabel htmlFor="name">Name</FormLabel>
-  <FormInput id="name" name="name" type="text" onChange=""/>
+  <FormLabel htmlFor="details">Details</FormLabel>
+  <FormTextArea id="details" name="details" />
 </>`}
 </LivePreview>
 
@@ -206,15 +206,15 @@ An input field must have at least a label and an input.
 
 Stack form fields vertically with `$space-80` spacing between each field.
 
-<LivePreview scope={{FormInput, FormLabel, FormHelpText, Box}} language="jsx">
+<LivePreview scope={{FormLabel, FormHelpText, FormTextArea, Box}} language="jsx">
   {`<>
   <Box marginBottom="space80">
-    <FormLabel htmlFor="first_name">First Name</FormLabel>
-    <FormInput id="first_name" name="first_name" type="text" placeholder="John" onChange="" />
+    <FormLabel htmlFor="header">Header</FormLabel>
+    <FormTextArea id="header" name="header" placeholder="Enter header content..." />
   </Box>
   <Box>
-    <FormLabel htmlFor="last_name">Last Name</FormLabel>
-    <FormInput id="last_name" name="last_name" type="text" placeholder="Smith" onChange="" />
+    <FormLabel htmlFor="footer">Footer</FormLabel>
+    <FormTextArea id="footer" name="footer" placeholder="Enter footer content..." />
   </Box>
 </>`}
 </LivePreview>
@@ -230,7 +230,7 @@ Labels should clearly describe the value being requested. They should be concise
 
 To support internationalization, avoid starting a sentence with the label and using the field to finish it since sentence structures vary across languages. For example, use "Call log expiration date" or "How long should logs be stored?". Don't use "Remove logs after:".
 
-Give users enough information in help text to prevent input and formatting errors. Keep it concise and scoped to information that will help with validation. For example, use help text if a password field has specific requirements that a user should know prior to filling it out.
+Give users enough information in help text to prevent textarea and formatting errors. Keep it concise and scoped to information that will help with validation. For example, use help text if a password field has specific requirements that a user should know prior to filling it out.
 
 ### Required field indicator
 
@@ -256,34 +256,34 @@ Error text should:
 
 - Be actionable. Explain how to fix an error and if reasonable, why it happened so that it might also be prevented in the future.
 - Be concise and simple, maybe even more than normal. Avoid jargon. Try to keep error text to 2 sentences or fewer.
-- Use the passive voice for input errors to avoid placing blame on the user. For example, "A friendly name is required."
+- Use the passive voice for textarea errors to avoid placing blame on the user. For example, "A friendly name is required."
 - Use the active voice for system errors. For example, "Our systems are currently down. Please contact our support team."
 
 ### Optional compositional elements
 
-- **Prefix/suffix** — Use a prefix or suffix to help users format their input and to provide more context about the value a user is entering. For example, you could prefix or suffix a field with a currency symbol, or use suffix to append a character counter. Make sure to consider internationalization when using prefixes or suffixes since formatting may differ across languages. For example, currency symbols are placed on the left in American English, while they're placed on the right in French. Don't use prefix/suffix text as a replacement for a label.
+- **Prefix/suffix** — Use a prefix or suffix to help users format their textarea and to provide more context about the value a user is entering. For example, you could prefix or suffix a field with a currency symbol, or use suffix to append a character counter. Make sure to consider internationalization when using prefixes or suffixes since formatting may differ across languages. For example, currency symbols are placed on the left in American English, while they're placed on the right in French. Don't use prefix/suffix text as a replacement for a label.
 - **Icon** — Use an icon if you need to give the user additional controls for the field. For example, use an icon to clear a field on click, removing the need for users to manually delete their entered value. Place icon buttons that trigger an action on the right side of the field. If you need 2 actions on a field (e.g., popover trigger and clear field), place the icon button that affects the field value on the right, and the other icon on the left.
 - **Placeholder** — Use a placeholder when you want to give an example of the type of data a user should enter, mainly to help with recall. For example, when asking for links to social media profiles, you could give examples of a few social media sites. Placeholders should be used in addition to the label and not as a replacement since they'll disappear when a user begins entering their own value. If you need to show supporting instructions, use help text instead.
 
-## When to use an input
+## When to use an textarea
 
-Use an input when users are expected to enter less than a single line of text, or text that's shorter than a sentence.
+Use a textarea when users are expected to enter text that exceeds a single line, usually longer than a sentence.
 
 <DoDont>
-  <Do title="Do" body="Use an input to encourage short text entry." center>
+  <Do title="Do" body="Use a textarea to encourage longer text entry." center>
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="short_do">Name</FormLabel>
-      <FormInput id="short_do" name="short_do" type="text" onChange=""/>
+      <FormLabel htmlFor="long_do">Tell us your life story</FormLabel>
+      <FormTextArea id="long_do" name="long_do"/>
     </Box>
   </Do>
   <Dont
     title="Don't"
-    body="Don't use an input when text entry is expected to be longer than the width of the input since users may need to review the text before submission. Use a textarea instead."
+    body="Don't use a textarea when text entry is expected to be short since it could confuse users. Use an [input]() instead."
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="short_dont">Tell us your life story</FormLabel>
-      <FormInput id="short_dont" name="short_dont" type="text" onChange=""/>
+      <FormLabel htmlFor="long_dont">First Name</FormLabel>
+      <FormTextArea id="long_dont" name="long_dont"/>
     </Box>
   </Dont>
 </DoDont>
@@ -294,9 +294,9 @@ Use an input when users are expected to enter less than a single line of text, o
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="limited_do">Job Title (60 characters)</FormLabel>
-      <FormInput aria-describedby="limited_do_help_text" id="limited_do" name="limited_do" type="text" onChange=""/>
-      <FormHelpText id="limited_do_help_text">Limit to 60 characters</FormHelpText>
+      <FormLabel htmlFor="limited_do">Job Description (120 characters)</FormLabel>
+      <FormTextArea aria-describedby="limited_do_help_text" id="limited_do" name="limited_do"/>
+      <FormHelpText id="limited_do_help_text">Limit to 120 characters</FormHelpText>
     </Box>
   </Do>
   <Dont
@@ -305,45 +305,23 @@ Use an input when users are expected to enter less than a single line of text, o
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="limited_dont">Abbreviated Country</FormLabel>
-      <FormInput id="limited_dont" name="limited_dont" type="text" onChange=""/>
+      <FormLabel htmlFor="limited_dont">State Moto</FormLabel>
+      <FormTextArea id="limited_dont" name="limited_dont"/>
     </Box>
   </Dont>
 </DoDont>
 <DoDont>
   <Do title="Do" body="Use help text to help users prevent errors and fill out a form field correctly." center>
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="email_do">Email Address</FormLabel>
-      <FormInput aria-describedby="email_do_help_text" id="email_do" name="email_do" type="email" placeholder="example@twilio.com" onChange=""/>
-      <FormHelpText id="email_do_help_text">Please enter a valid email</FormHelpText>
+      <FormLabel htmlFor="help_do">Enter the correct phrase</FormLabel>
+      <FormTextArea aria-describedby="help_do_help_text" id="help_do" name="help_do"/>
+      <FormHelpText id="help_do_help_text">Please enter: Paste is open source and contributions are welcome.</FormHelpText>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use placeholder text for validation instructions." center>
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="email_dont">Email Address</FormLabel>
-      <FormInput id="email_dont" name="email_dont" type="email" placeholder="Please enter a valid email" onChange=""/>
-    </Box>
-  </Dont>
-</DoDont>
-<DoDont>
-  <Do
-    title="Do"
-    body="Use the correct input type to help users format their text correctly and bring up dynamic keypads."
-    center
-  >
-    <Box width="100%" padding="space60">
-      <FormLabel htmlFor="tel_do">Phone Number</FormLabel>
-      <FormInput id="tel_do" name="tel_do" type="tel" onChange=""/>
-    </Box>
-  </Do>
-  <Dont
-    title="Don't"
-    body="Don't use the default input type if there's a more specific one that can help users enter valid text more efficiently."
-    center
-  >
-    <Box width="100%" padding="space60">
-      <FormLabel htmlFor="tel_dont">Phone Number</FormLabel>
-      <FormInput id="tel_dont" name="tel_dont" type="text" onChange=""/>
+      <FormLabel htmlFor="help_dont">Enter the correct phrase</FormLabel>
+      <FormTextArea id="help_dont" name="help_dont" placeholder="Please enter: Paste is open source and contributions are welcome."/>
     </Box>
   </Dont>
 </DoDont>
@@ -354,29 +332,37 @@ Use an input when users are expected to enter less than a single line of text, o
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="help_do">Phone Number</FormLabel>
-      <FormInput aria-describedby="help_do_help_text" id="help_do" name="help_do" type="tel" onChange=""/>
-      <FormHelpText id="help_do_help_text">Use the following format: (###) ###-####</FormHelpText>
+      <FormLabel htmlFor="error_do" required>Header</FormLabel>
+      <FormTextArea id="error_do" name="error_do" required hasError />
+      <FormHelpText variant="error">This is a required field. Please enter some text.</FormHelpText>
     </Box>
   </Do>
-  <Dont title="Don't" body="Don't use more than 2 sentences in help text or error text." center>
+  <Dont
+    title="Don't"
+    body="Don't use more than 2 sentences in help text or error text."
+    center
+  >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="help_dont">Email Address</FormLabel>
-      <FormInput aria-describedby="help_dont_help_text" id="help_dont" name="help_dont" type="email" onChange=""/>
-      <FormHelpText id="help_dont_help_text">Go to your settings. Then click on email addresses. After doing that, copy and paste your email address in this field.</FormHelpText>
+      <FormLabel htmlFor="error_dont" required>Phone Number</FormLabel>
+      <FormTextArea id="error_dont" name="error_dont" required hasError/>
+      <FormHelpText variant="error">This field is needed to submit your document. If you don't enter any text, your submission will fail. Please enter some text into the field. This will make the field valid.</FormHelpText>
     </Box>
   </Dont>
 </DoDont>
 <DoDont>
-  <Do title="Do" body="Include a visible label on every form field." center>
+  <Do
+    title="Do"
+    body="Include a visible label on every form field."
+    center
+  >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="label_do">Name</FormLabel>
-      <FormInput id="label_do" name="label_do" type="text" onChange=""/>
+      <FormLabel htmlFor="label_do">Footer Text</FormLabel>
+      <FormTextArea id="label_do" name="label_do"/>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use prefix/suffix text as a replacement for a label." center>
     <Box width="100%" padding="space60">
-      <FormInput id="label_dont" name="label_dont" type="text" onChange="" insertBefore="Name"/>
+      <FormTextArea id="label_dont" name="label_dont" insertBefore={<div>Footer Text</div>} />
     </Box>
   </Dont>
 </DoDont>
@@ -387,8 +373,8 @@ Use an input when users are expected to enter less than a single line of text, o
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="disabled_do">Name</FormLabel>
-      <FormInput id="disabled_do" name="disabled_do" type="text" onChange="" disabled/>
+      <FormLabel htmlFor="disabled_do">Legal Use Only</FormLabel>
+      <FormTextArea id="disabled_do" name="disabled_do" disabled/>
     </Box>
   </Do>
   <Dont
@@ -397,8 +383,8 @@ Use an input when users are expected to enter less than a single line of text, o
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="disabled_dont">Company</FormLabel>
-      <FormInput id="disabled_dont" name="disabled_dont" type="text" value="Twilio" onChange="" disabled/>
+      <FormLabel htmlFor="disabled_dont">Company Information</FormLabel>
+      <FormTextArea id="disabled_dont" name="disabled_dont" disabled>Twilio powers the future of business communications.</FormTextArea>
     </Box>
   </Dont>
 </DoDont>
@@ -479,7 +465,7 @@ Use an input when users are expected to enter less than a single line of text, o
       <td>No</td>
     </tr>
     <tr>
-      <td>Value text</td>
+      <td>Valut text</td>
       <td>
         <UnorderedList marginBottom="space0">
           <ListItem>$font-size-30</ListItem>
@@ -490,7 +476,7 @@ Use an input when users are expected to enter less than a single line of text, o
       <td>No, but it can take any children</td>
     </tr>
     <tr>
-      <td>Placeholder text </td>
+      <td>Placeholder text</td>
       <td>
         $color-text-weak, italic
       </td>
@@ -523,7 +509,7 @@ Use an input when users are expected to enter less than a single line of text, o
               <ListItem>Between label and required indicator: $space-20</ListItem>
             </UnorderedList>
           </ListItem>
-          <ListItem>Input:
+          <ListItem>Textarea:
             <UnorderedList marginBottom="space0">
               <ListItem>Left padding: $space-40</ListItem>
               <ListItem>Top, right, bottom padding: $space-30</ListItem>
@@ -563,39 +549,37 @@ yarn add @twilio-paste/form
 #### Usage
 
 ```jsx
-import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
+import {FormTextArea, FormLabel, FormHelpText} from '@twilio-paste/form';
 
 <FormLabel htmlFor="foo" required>foo</FormLabel>
-<FormInput aria-describedby="foo_text" id="foo" name="foo" type="text" placeholder="foo" onChange={FOO} required />
+<FormTextArea aria-describedby="foo_text" id="foo" name="foo" placeholder="foo" required />
 <FormHelpText id="foo_text">Please enter some text</FormHelpText>
 ```
 
 #### FormTextArea Props
 
-| Prop          | Type                                                             | Description                                                                  | Default    |
-| ---------     | ---------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------  |
-| id            | string                                                           | Sets the id of the input. Should match the htmlFor of `FormLabel`. Required. | null       |
-| type          | 'text', 'email', 'hidden', 'number', 'password', 'search', 'tel' | Sets the type of the input. Required.                                        | null       |
-| name          | string                                                           | Sets the name of the input. Required.                                        | null       |
-| value         | string                                                           | Sets the value of the input. Required.                                       | null       |
-| placeholder?  | string                                                           | Sets the placeholder of the input.                                           | null       |
-| disabled?     | boolean                                                          | Disables the input.                                                          | false      |
-| readOnly?     | boolean                                                          | Sets the input to readonly.                                                  | false      |
-| required?     | boolean                                                          | Sets the input as required.                                                  | false      |
-| hasError?     | boolean                                                          | Sets the input to an error state.                                            | false      |
-| onChange?     | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                              | null       |
-| onFocus       | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                              | null       |
-| onBlur?       | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                              | null       |
+| Prop          | Type                                                             | Description                                                                     | Default    |
+| ---------     | ---------------------------------------------------------------- | ------------------------------------------------------------------------------- | ---------  |
+| id            | string                                                           | Sets the id of the textarea. Should match the htmlFor of `FormLabel`. Required. | null       |
+| name          | string                                                           | Sets the name of the textarea. Required.                                        | null       |
+| placeholder?  | string                                                           | Sets the placeholder of the textarea.                                           | null       |
+| disabled?     | boolean                                                          | Disables the textarea.                                                          | false      |
+| readOnly?     | boolean                                                          | Sets the textarea to readonly.                                                  | false      |
+| required?     | boolean                                                          | Sets the textarea as required.                                                  | false      |
+| hasError?     | boolean                                                          | Sets the textarea to an error state.                                            | false      |
+| onChange?     | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                 | null       |
+| onFocus?      | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                 | null       |
+| onBlur?       | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                 | null       |
 
 #### FormLabel Props
 
-| Prop          | Type                    | Description                                                              | Default    |
-| ---------     | ----------------------- | ------------------------------------------------------------------------ | ---------  |
-| children?     | `ReactNode`             |                                                                          | null       |
-| htmlFor       | string                  | Sets the for of the label. Should match the id of `FormInput`. Required. | null       |
-| disabled?     | boolean                 | Disables the input.                                                      | false      |
-| required?     | boolean                 | Sets the input as required.                                              | false      |
-| marginBottom? | 'space0', 'space10'     |                                                                          | 'space10'  |
+| Prop          | Type                    | Description                                                                 | Default    |
+| ---------     | ----------------------- | --------------------------------------------------------------------------- | ---------  |
+| children?     | `ReactNode`             |                                                                             | null       |
+| htmlFor       | string                  | Sets the for of the label. Should match the id of `FormTextArea`. Required. | null       |
+| disabled?     | boolean                 | Shows the textarea is disabled.                                             | false      |
+| required?     | boolean                 | Shows the textarea is required.                                             | false      |
+| marginBottom? | 'space0', 'space10'     |                                                                             | 'space10'  |
 
 #### FormHelpText Props
 
