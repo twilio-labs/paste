@@ -6,6 +6,7 @@ import TextareaAutosize from 'react-autosize-textarea';
 import {FieldWrapper} from './shared/FieldWrapper';
 import {Prefix} from './shared/Prefix';
 import {Suffix} from './shared/Suffix';
+import {safelySpreadFormControlProps} from './shared/Utils';
 
 export interface FormTextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   id: string;
@@ -68,7 +69,7 @@ const FormTextArea = React.forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
         <TextAreaElement
           aria-invalid={hasError}
           aria-readonly={readOnly}
-          {...props}
+          {...safelySpreadFormControlProps(props)}
           async
           ref={ref}
           id={id}

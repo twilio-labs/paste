@@ -337,3 +337,21 @@ describe('FormInput event handlers', () => {
     expect(onBlurMock).toHaveBeenCalledTimes(1);
   });
 });
+
+describe('FormInput block props', () => {
+  const initialProps = {
+    id: 'input',
+    type: 'text' as FormInputTypes,
+    value: 'value',
+    onChange: NOOP,
+    className: 'foo',
+    width: '300px',
+  };
+
+  const container = shallow(<FormInput {...initialProps} />);
+
+  it('should not pass width and classname props', () => {
+    expect(container.find('InputElement').prop('width')).toEqual(undefined);
+    expect(container.find('InputElement').prop('className')).toEqual(undefined);
+  });
+});
