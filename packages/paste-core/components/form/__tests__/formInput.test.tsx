@@ -344,8 +344,8 @@ describe('FormInput block props', () => {
     type: 'text' as FormInputTypes,
     value: 'value',
     onChange: NOOP,
-    style: {background: 'red'},
-    height: '200px',
+    className: 'foo',
+    width: '300px',
   };
 
   const container = shallow(<FormInput {...initialProps} />);
