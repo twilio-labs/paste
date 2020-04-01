@@ -211,3 +211,20 @@ describe('FormTextArea event handlers', () => {
     expect(onBlurMock).toHaveBeenCalledTimes(1);
   });
 });
+
+describe('FormTextArea block props', () => {
+  const initialProps = {
+    id: 'textarea',
+    placeholder: 'placeholder',
+    onChange: NOOP,
+    style: {background: 'red'},
+    height: '200px',
+  };
+
+  const container = shallow(<FormTextArea {...initialProps} />);
+
+  it('should not pass height or style props', () => {
+    expect(container.find('TextAreaElement').prop('height')).toEqual(undefined);
+    expect(container.find('TextAreaElement').prop('style')).toEqual(undefined);
+  });
+});
