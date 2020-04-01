@@ -234,6 +234,27 @@ storiesOf('Components|Form', module)
       </>
     );
   })
+  .add('Input - Placeholder', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState();
+    return (
+      <>
+        <FormLabel htmlFor={uid}>Label</FormLabel>
+        <FormInput
+          id={uid}
+          type="text"
+          placeholder="Placeholder"
+          value={value}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+        />
+      </>
+    );
+  })
   .add('Textarea Options', () => {
     const hasError = boolean('hasError', false);
     const isDisabled = boolean('disabled', false);
@@ -256,7 +277,9 @@ storiesOf('Components|Form', module)
           onChange={action('handleChange')}
           onFocus={action('handleFocus')}
           onBlur={action('handleBlur')}
-        />
+        >
+          Value of textarea
+        </FormTextArea>
         <FormHelpText variant={helpVariantValue}>
           {text('help text', 'Info that helps a user with this field.')}
         </FormHelpText>
