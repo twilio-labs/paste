@@ -97,6 +97,7 @@ exports[`FormTextArea render it should render 1`] = `
     width="100%"
   >
     <textarea
+      async={true}
       className="emotion-0 emotion-1"
       id="textarea"
       onChange={[Function]}

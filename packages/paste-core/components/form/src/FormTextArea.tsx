@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import css from '@styled-system/css';
+import TextareaAutosize from 'react-autosize-textarea';
 import {FieldWrapper} from './shared/FieldWrapper';
 import {Prefix} from './shared/Prefix';
 import {Suffix} from './shared/Suffix';
@@ -24,7 +25,7 @@ export interface FormTextAreaProps extends React.TextareaHTMLAttributes<HTMLText
 }
 
 /* eslint-disable emotion/syntax-preference */
-const TextAreaElement = styled.textarea(
+const TextAreaElement = styled(TextareaAutosize)(() =>
   css({
     appearance: 'none',
     border: 'none',
@@ -68,6 +69,7 @@ const FormTextArea = React.forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
           aria-invalid={hasError}
           aria-readonly={readOnly}
           {...props}
+          async
           ref={ref}
           id={id}
           name={name}
