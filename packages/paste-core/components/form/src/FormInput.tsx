@@ -6,7 +6,7 @@ import {FieldWrapper} from './shared/FieldWrapper';
 import {Prefix} from './shared/Prefix';
 import {Suffix} from './shared/Suffix';
 import {FormInputTypes} from './shared/types';
-import {safelyFormControlSpreadProps} from './shared/Utils';
+import {safelySpreadFormControlProps} from './shared/Utils';
 
 export interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string;
@@ -88,7 +88,7 @@ const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
         <InputElement
           aria-invalid={hasError}
           aria-readonly={readOnly}
-          {...safelyFormControlSpreadProps(props)}
+          {...safelySpreadFormControlProps(props)}
           {...typeProps}
           ref={ref}
           id={id}
