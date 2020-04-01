@@ -278,7 +278,7 @@ Use a textarea when users are expected to enter text that exceeds a single line,
   </Do>
   <Dont
     title="Don't"
-    body="Don't use a textarea when text entry is expected to be short since it could confuse users. Use an [input]() instead."
+    body="Don't use a textarea when text entry is expected to be short since it could confuse users. Use an input instead."
     center
   >
     <Box width="100%" padding="space60">
@@ -558,6 +558,8 @@ import {FormTextArea, FormLabel, FormHelpText} from '@twilio-paste/form';
 
 #### FormTextArea Props
 
+All the valid HTML attributes for `textarea` are supported including the following props:
+
 | Prop          | Type                                                             | Description                                                                     | Default    |
 | ---------     | ---------------------------------------------------------------- | ------------------------------------------------------------------------------- | ---------  |
 | id            | string                                                           | Sets the id of the textarea. Should match the htmlFor of `FormLabel`. Required. | null       |
@@ -573,6 +575,8 @@ import {FormTextArea, FormLabel, FormHelpText} from '@twilio-paste/form';
 
 #### FormLabel Props
 
+All the valid HTML attributes for `label` are supported including the following props:
+
 | Prop          | Type                    | Description                                                                 | Default    |
 | ---------     | ----------------------- | --------------------------------------------------------------------------- | ---------  |
 | children?     | `ReactNode`             |                                                                             | null       |
@@ -582,6 +586,8 @@ import {FormTextArea, FormLabel, FormHelpText} from '@twilio-paste/form';
 | marginBottom? | 'space0', 'space10'     |                                                                             | 'space10'  |
 
 #### FormHelpText Props
+
+All the valid HTML attributes (role, aria-*, type, and so on) including the following props:
 
 | Prop          | Type                | Description                            | Default    |
 | ---------     | --------------------| -------------------------------------- | ---------  |
