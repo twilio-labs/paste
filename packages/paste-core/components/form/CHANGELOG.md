@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.0.4...@twilio-paste/form@1.1.0) (2020-04-01)
+
+
+### Features
+
+* **form:** add autoresizing to the textarea component ([#365](https://github.com/twilio-labs/paste/issues/365)) ([9cc5b7b](https://github.com/twilio-labs/paste/commit/9cc5b7b02bc74f9f71473b6ddf366c0946f10fe2))
+
+
+
+
+
 ## [1.0.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.0.3...@twilio-paste/form@1.0.4) (2020-03-31)
 
 
