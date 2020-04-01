@@ -60,6 +60,6 @@
     "typescript": "3.7.5"
   },
   "dependencies": {
-    "react-autosize-textarea": "^7.0.0"
+    "react-autosize-textarea": "7.0.0"
   }
 }
