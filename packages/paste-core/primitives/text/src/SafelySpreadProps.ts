@@ -5,7 +5,7 @@ export const TEXT_PROPS_TO_BLOCK = [
   ...TYPOGRAPHY_PROPS,
   ...OVERFLOW_PROPS,
   'display',
-  'textColor',
+  'color',
   'verticalAlign',
   'className',
   'style',

@@ -520,13 +520,13 @@ describe('textAlign', () => {
   });
 });
 
-describe('textColor', () => {
-  it('should set a textColor property', (): void => {
+describe('color', () => {
+  it('should set a color property', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
-          <Text as="span" textColor="colorText">
-            textColor single
+          <Text as="span" color="colorText">
+            color single
           </Text>
         </Theme.Provider>
       )
@@ -534,12 +534,12 @@ describe('textColor', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should set a responsive textColor property', (): void => {
+  it('should set a responsive color property', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
-          <Text as="span" textColor={['colorTextError', 'colorTextSuccess']}>
-            textColor responsive
+          <Text as="span" color={['colorTextError', 'colorTextSuccess']}>
+            color responsive
           </Text>
         </Theme.Provider>
       )
@@ -568,6 +568,45 @@ describe('textDecoration', () => {
         <Theme.Provider theme="console">
           <Text as="span" textDecoration={['underline', 'normal']}>
             textDecoration responsive
+          </Text>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+});
+
+describe('Pseudo-class props', () => {
+  it('it should generate pseudo-class CSS', (): void => {
+    const tree = renderer
+      .create(
+        <Theme.Provider theme="console">
+          <Text
+            as="span"
+            _hover={{color: 'colorTextLink'}}
+            _active={{color: 'colorTextLinkDark'}}
+            _focus={{color: 'colorTextLinkDarker'}}
+            _visited={{color: 'colorTextLinkDestructive'}}
+            _even={{padding: 'space40'}}
+            _odd={{margin: 'space30'}}
+            _disabled={{paddingTop: 'space40'}}
+            _checked={{paddingRight: 'space40'}}
+            _mixed={{paddingBottom: 'space40'}}
+            _selected={{paddingLeft: 'space40'}}
+            _invalid={{marginTop: 'space40'}}
+            _pressed={{marginRight: 'space40'}}
+            _readOnly={{marginBottom: 'space40'}}
+            _first={{marginLeft: 'space40'}}
+            _last={{color: 'colorTextLinkLight'}}
+            _expanded={{color: 'colorTextPlaceholder'}}
+            _grabbed={{color: 'colorTextSuccess'}}
+            _notFirst={{color: 'colorTextWarning'}}
+            _notLast={{color: 'colorTextWarningDark'}}
+            _before={{content: `"Before text"`, position: 'absolute', bottom: 0, left: 0}}
+            _after={{content: `"After text"`, position: 'absolute', bottom: 0, left: 0}}
+            _focusWithin={{color: 'colorTextWeak'}}
+          >
+            PseudoBox
           </Text>
         </Theme.Provider>
       )

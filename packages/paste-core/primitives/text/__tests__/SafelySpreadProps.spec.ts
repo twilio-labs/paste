@@ -2,7 +2,7 @@ import {safelySpreadTextProps} from '../src/SafelySpreadProps';
 
 const badProps = {
   foo: 'bar',
-  textColor: 'textColorSuccess',
+  color: 'textColorSuccess',
 };
 
 const goodProps = {
