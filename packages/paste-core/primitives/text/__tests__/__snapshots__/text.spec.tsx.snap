@@ -1,5 +1,145 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Pseudo-class props it should generate pseudo-class CSS 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+}
+
+.emotion-0:hover {
+  color: #005ea6;
+}
+
+.emotion-0:active,
+.emotion-0[data-active=true] {
+  color: #003e82;
+}
+
+.emotion-0:focus {
+  color: #032c5e;
+}
+
+.emotion-0:visited {
+  color: #e22525;
+}
+
+.emotion-0:nth-of-type(even) {
+  padding: 0.75rem;
+}
+
+.emotion-0:nth-of-type(odd) {
+  margin: 0.5rem;
+}
+
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
+  padding-top: 0.75rem;
+}
+
+.emotion-0:checked,
+.emotion-0[aria-checked=true] {
+  padding-right: 0.75rem;
+}
+
+.emotion-0:indeterminate,
+.emotion-0[aria-checked=mixed] {
+  padding-bottom: 0.75rem;
+}
+
+.emotion-0[aria-selected=true] {
+  padding-left: 0.75rem;
+}
+
+.emotion-0:invalid,
+.emotion-0[aria-invalid=true] {
+  margin-top: 0.75rem;
+}
+
+.emotion-0[aria-pressed=true] {
+  margin-right: 0.75rem;
+}
+
+.emotion-0[aria-readonly=true],
+.emotion-0[readonly] {
+  margin-bottom: 0.75rem;
+}
+
+.emotion-0:first-of-type {
+  margin-left: 0.75rem;
+}
+
+.emotion-0:last-of-type {
+  color: #b3d3e9;
+}
+
+.emotion-0[aria-expanded=true] {
+  color: #666a6d;
+}
+
+.emotion-0[aria-grabbed=true] {
+  color: #00994a;
+}
+
+.emotion-0:not(:first-of-type) {
+  color: #e46216;
+}
+
+.emotion-0:not(:last-of-type) {
+  color: #a83e00;
+}
+
+.emotion-0:before {
+  content: "Before text";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.emotion-0:after {
+  content: "After text";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.emotion-0:focus-within {
+  color: #666a6d;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    color="colorText"
+    fontSize="fontSize30"
+  >
+    PseudoBox
+  </span>
+</div>
+`;
+
 exports[`as it should render as a provided HTML element 1`] = `
 .emotion-2 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -28,10 +168,94 @@ exports[`as it should render as a provided HTML element 1`] = `
 >
   <label
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     background single
   </label>
+</div>
+`;
+
+exports[`color should set a color property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  color: #282a2b;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    color="colorText"
+    fontSize="fontSize30"
+  >
+    color single
+  </span>
+</div>
+`;
+
+exports[`color should set a responsive color property 1`] = `
+.emotion-2 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #282a2b;
+  font-weight: 400;
+}
+
+.emotion-2 *,
+.emotion-2 *::after,
+.emotion-2 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  color: #e22525;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    color: #00994a;
+  }
+}
+
+<div
+  className="emotion-2"
+>
+  <span
+    className="emotion-0 emotion-1"
+    color={
+      Array [
+        "colorTextError",
+        "colorTextSuccess",
+      ]
+    }
+    fontSize="fontSize30"
+  >
+    color responsive
+  </span>
 </div>
 `;
 
@@ -64,6 +288,7 @@ exports[`display should set a display property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     display="inline-block"
     fontSize="fontSize30"
   >
@@ -107,6 +332,7 @@ exports[`display should set a responsive display property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     display={
       Array [
         "inline-block",
@@ -149,6 +375,7 @@ exports[`fontFamily should set a font family property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontFamily="fontFamilyCode"
     fontSize="fontSize30"
   >
@@ -192,6 +419,7 @@ exports[`fontFamily should set a responsive font family property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontFamily={
       Array [
         "fontFamilyText",
@@ -233,6 +461,7 @@ exports[`fontSize should set a font size property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize10"
   >
     font size single
@@ -274,6 +503,7 @@ exports[`fontSize should set a responsive font size property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize={
       Array [
         "fontSize20",
@@ -315,6 +545,7 @@ exports[`fontStyle should set a font style property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
     fontStyle="italic"
   >
@@ -358,6 +589,7 @@ exports[`fontStyle should set a responsive font style property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
     fontStyle={
       Array [
@@ -400,6 +632,7 @@ exports[`fontWeight should set a font weight property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
     fontWeight="fontWeightBold"
   >
@@ -443,6 +676,7 @@ exports[`fontWeight should set a responsive font weight property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
     fontWeight={
       Array [
@@ -488,6 +722,7 @@ exports[`letterSpacing should set a letter spacing property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
     letterSpacing="1px"
   >
@@ -537,6 +772,7 @@ exports[`letterSpacing should set a responsive letter spacing property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
     letterSpacing={
       Array [
@@ -578,6 +814,7 @@ exports[`lineHeight should set a line height property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     line height single
@@ -619,6 +856,7 @@ exports[`lineHeight should set a responsive line height property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     line height responsive
@@ -655,6 +893,7 @@ exports[`margin should set a margin property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     margin single
@@ -697,6 +936,7 @@ exports[`margin should set a responsive margin property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     margin responsive
@@ -733,6 +973,7 @@ exports[`marginBottom should set a marginBottom property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     marginBottom single
@@ -775,6 +1016,7 @@ exports[`marginBottom should set a responsive marginBottom property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     marginBottom responsive
@@ -811,6 +1053,7 @@ exports[`marginLeft should set a marginLeft property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     marginLeft single
@@ -853,6 +1096,7 @@ exports[`marginLeft should set a responsive marginLeft property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     marginLeft responsive
@@ -889,6 +1133,7 @@ exports[`marginRight should set a marginRight property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     marginRight single
@@ -931,6 +1176,7 @@ exports[`marginRight should set a responsive marginRight property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     marginRight responsive
@@ -967,6 +1213,7 @@ exports[`marginTop should set a marginTop property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     marginTop single
@@ -1009,6 +1256,7 @@ exports[`marginTop should set a responsive marginTop property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     marginTop responsive
@@ -1045,6 +1293,7 @@ exports[`padding should set a padding property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     padding single
@@ -1087,6 +1336,7 @@ exports[`padding should set a responsive padding property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     padding responsive
@@ -1123,6 +1373,7 @@ exports[`paddingBottom should set a paddingBottom property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     paddingBottom single
@@ -1165,6 +1416,7 @@ exports[`paddingBottom should set a responsive paddingBottom property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     paddingBottom responsive
@@ -1201,6 +1453,7 @@ exports[`paddingLeft should set a paddingLeft property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     paddingLeft single
@@ -1243,6 +1496,7 @@ exports[`paddingLeft should set a responsive paddingLeft property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     paddingLeft responsive
@@ -1279,6 +1533,7 @@ exports[`paddingRight should set a paddingRight property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     paddingRight single
@@ -1321,6 +1576,7 @@ exports[`paddingRight should set a responsive paddingRight property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     paddingRight responsive
@@ -1357,6 +1613,7 @@ exports[`paddingTop should set a paddingTop property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     paddingTop single
@@ -1399,6 +1656,7 @@ exports[`paddingTop should set a responsive paddingTop property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     paddingTop responsive
@@ -1441,6 +1699,7 @@ exports[`textAlign should set a responsive textAlign property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     textAlign responsive
@@ -1477,85 +1736,10 @@ exports[`textAlign should set a textAlign property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
   >
     textAlign single
-  </span>
-</div>
-`;
-
-exports[`textColor should set a responsive textColor property 1`] = `
-.emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  color: #282a2b;
-  font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
-}
-
-.emotion-0 {
-  margin: 0;
-  padding: 0;
-  color: #e22525;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-}
-
-@media screen and (min-width:25rem) {
-  .emotion-0 {
-    color: #00994a;
-  }
-}
-
-<div
-  className="emotion-2"
->
-  <span
-    className="emotion-0 emotion-1"
-    fontSize="fontSize30"
-  >
-    textColor responsive
-  </span>
-</div>
-`;
-
-exports[`textColor should set a textColor property 1`] = `
-.emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  color: #282a2b;
-  font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
-}
-
-.emotion-0 {
-  margin: 0;
-  padding: 0;
-  color: #282a2b;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-}
-
-<div
-  className="emotion-2"
->
-  <span
-    className="emotion-0 emotion-1"
-    fontSize="fontSize30"
-  >
-    textColor single
   </span>
 </div>
 `;
@@ -1597,6 +1781,7 @@ exports[`textDecoration should set a responsive textDecoration property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
     textDecoration={
       Array [
@@ -1640,6 +1825,7 @@ exports[`textDecoration should set a textDecoration property 1`] = `
 >
   <span
     className="emotion-0 emotion-1"
+    color="colorText"
     fontSize="fontSize30"
     textDecoration="underline"
   >

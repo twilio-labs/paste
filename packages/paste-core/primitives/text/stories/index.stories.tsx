@@ -43,7 +43,7 @@ storiesOf('Primitives|Text', module)
     const letterSpacingValue = text('letterSpacing', '') as LetterSpacing;
     const lineHeightValue = select('lineHeight', lineHeightOptions, 'lineHeight30') as LineHeight;
     const textAlignValue = text('textAlign', '') as TextAlign;
-    const textColorValue = select('textColor', textColorOptions, 'colorText') as TextColor;
+    const textColorValue = select('color', textColorOptions, 'colorText') as TextColor;
     const textDecorationValue = text('textDecoration', '') as TextDecoration;
 
     const overflowValue = text('overflow', '') as Overflow;
@@ -86,7 +86,7 @@ storiesOf('Primitives|Text', module)
         paddingRight={paddingRightValue}
         paddingTop={paddingTopValue}
         textAlign={textAlignValue}
-        textColor={textColorValue}
+        color={textColorValue}
         textDecoration={textDecorationValue}
         textOverflow={textOverflowValue}
         whiteSpace={whitespaceValue}
@@ -102,9 +102,22 @@ storiesOf('Primitives|Text', module)
         fontSize={['fontSize40', 'fontSize50', 'fontSize60', 'fontSize70']}
         padding={['space0', 'space10', 'space130', 'space70']}
         textAlign={['center', 'right', 'left']}
-        textColor={['colorTextBrandHighlight', 'colorTextLink', 'colorTextSuccess', 'colorText']}
+        color={['colorTextBrandHighlight', 'colorTextLink', 'colorTextSuccess', 'colorText']}
       >
         Some text with responsive styling.
+      </Text>
+    );
+  })
+  .add('Pseudo-classes with hover pseudo props', () => {
+    return (
+      <Text
+        as="p"
+        color="colorText"
+        _hover={{color: 'colorTextWarningDark'}}
+        _before={{content: `"Before text"`, position: 'absolute', bottom: 0, left: 0, color: 'colorTextErrorDark'}}
+        _after={{content: `"After text"`, position: 'absolute', bottom: 0, right: 0, color: 'colorTextLinkDarker'}}
+      >
+        Hover this text
       </Text>
     );
   });
