@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.1.1...@twilio-paste/form@1.1.2) (2020-04-01)
+
+
+### Bug Fixes
+
+* **form:** enable safely spreading props to form controls ([#367](https://github.com/twilio-labs/paste/issues/367)) ([6a12a9d](https://github.com/twilio-labs/paste/commit/6a12a9d533bd198abb63433b759cedba04e3049a))
+
+
+
+
+
 ## [1.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.1.0...@twilio-paste/form@1.1.1) (2020-04-01)
 
 **Note:** Version bump only for package @twilio-paste/form
