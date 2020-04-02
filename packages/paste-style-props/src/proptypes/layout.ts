@@ -2,8 +2,7 @@ import {DefaultTheme} from '@twilio-paste/theme';
 import {propValidator} from './utils/propValidator';
 
 // Tokens
-const Widths = [DefaultTheme.widths, '100%'];
-const WidthOptions = Object.keys(Widths);
+const WidthOptions = ['100%', ...Object.keys(DefaultTheme.widths)];
 const MinWidthOptions = Object.keys(DefaultTheme.minWidths);
 const MaxWidthOptions = Object.keys(DefaultTheme.maxWidths);
 const HeightOptions = Object.keys(DefaultTheme.heights);
