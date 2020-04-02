@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@0.2.2...@twilio-paste/style-props@0.2.3) (2020-04-02)
+
+
+### Bug Fixes
+
+* **style-props:** correct width options in the style props proptypes ([#369](https://github.com/twilio-labs/paste/issues/369)) ([1d23cb5](https://github.com/twilio-labs/paste/commit/1d23cb59c1c5dcd3f6925721f64ba2200f81078a))
+
+
+
+
+
 ## [0.2.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@0.2.1...@twilio-paste/style-props@0.2.2) (2020-03-24)
 
 
