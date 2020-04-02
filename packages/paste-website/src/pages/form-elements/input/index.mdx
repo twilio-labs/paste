@@ -1,5 +1,5 @@
 ---
-title: Input - Form
+title: Input - Form Elements
 package: '@twilio-paste/form'
 description: An input allows users to enter text on a single line.
 ---
@@ -29,7 +29,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/form/input/"}}) {
+    mdx(fields: {slug: {eq: "/form-elements/input/"}}) {
       headings {
         depth
         value
@@ -616,6 +616,8 @@ import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
 
 #### FormInput Props
 
+All the valid HTML attributes for `input` are supported including the following props:
+
 | Prop          | Type                                                             | Description                                                                  | Default    |
 | ---------     | ---------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------  |
 | id            | string                                                           | Sets the id of the input. Should match the htmlFor of `FormLabel`. Required. | null       |
@@ -633,15 +635,19 @@ import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
 
 #### FormLabel Props
 
+All the valid HTML attributes for `label` are supported including the following props:
+
 | Prop          | Type                    | Description                                                              | Default    |
 | ---------     | ----------------------- | ------------------------------------------------------------------------ | ---------  |
 | children?     | `ReactNode`             |                                                                          | null       |
 | htmlFor       | string                  | Sets the for of the label. Should match the id of `FormInput`. Required. | null       |
-| disabled?     | boolean                 | Disables the input.                                                      | false      |
-| required?     | boolean                 | Sets the input as required.                                              | false      |
+| disabled?     | boolean                 | Shows the input is disabled.                                             | false      |
+| required?     | boolean                 | Shows the input is required.                                             | false      |
 | marginBottom? | 'space0', 'space10'     |                                                                          | 'space10'  |
 
 #### FormHelpText Props
+
+All the valid HTML attributes (role, aria-*, type, and so on) including the following props:
 
 | Prop          | Type                | Description                            | Default    |
 | ---------     | --------------------| -------------------------------------- | ---------  |
