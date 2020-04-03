@@ -6,7 +6,7 @@ export const TYPOGRAPHY_PROPS = [
   'letterSpacing',
   'lineHeight',
   'textAlign',
-  'textColor',
+  'color',
   'textDecoration',
   'textOverflow',
   'whiteSpace',

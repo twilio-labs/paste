@@ -33,7 +33,7 @@ export type WhiteSpace = ResponsiveValue<WhiteSpaceOptions>;
 
 /* Styled-system grouping
  * ---
- * We add `textColor` here, not in the `color` interface grouping like styled-system does
+ * We add `color` here, not in the `color` interface grouping like styled-system does
  * We also add `whiteSpace` and `textOverflow` to allow for ellipsis text.
  */
 export interface TypographyProps {
@@ -44,8 +44,8 @@ export interface TypographyProps {
   letterSpacing?: LetterSpacing;
   textAlign?: TextAlign;
   fontStyle?: FontStyle;
+  color?: TextColor;
   // Our custom addition
-  textColor?: TextColor;
   textDecoration?: TextDecoration;
   textOverflow?: TextOverflow;
   whiteSpace?: WhiteSpace;
