@@ -51,7 +51,7 @@ describe('FormLabel disabled prop', () => {
   const container = shallow(<FormLabel {...initialProps} />);
 
   it('should have colorTextWeak', () => {
-    expect(container.find('Text').prop('textColor')).toEqual('colorTextWeak');
+    expect(container.find('Text').prop('color')).toEqual('colorTextWeak');
   });
 });
 

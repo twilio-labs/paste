@@ -40,7 +40,7 @@ describe('FormHelpText variant prop', () => {
   });
 
   it('should have colorTextError', () => {
-    expect(container.find('Text').prop('textColor')).toEqual('colorTextError');
+    expect(container.find('Text').prop('color')).toEqual('colorTextError');
   });
 });
 
