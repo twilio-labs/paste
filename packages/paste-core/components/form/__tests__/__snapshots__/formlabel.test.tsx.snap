@@ -53,6 +53,7 @@ exports[`FormLabel render it should render 1`] = `
   >
     <span
       className="emotion-0"
+      color="colorText"
       cursor="pointer"
       fontSize="fontSize30"
       fontWeight="fontWeightSemibold"
@@ -131,10 +132,12 @@ exports[`FormLabel render it should render with required 1`] = `
   >
     <span
       className="emotion-0 emotion-1"
+      color="colorText"
       fontSize="fontSize30"
     />
     <span
       className="emotion-2"
+      color="colorText"
       cursor="pointer"
       fontSize="fontSize30"
       fontWeight="fontWeightSemibold"

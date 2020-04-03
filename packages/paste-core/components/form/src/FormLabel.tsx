@@ -37,7 +37,7 @@ const FormLabel: React.FC<FormLabelProps> = ({marginBottom, required, disabled, 
         fontSize="fontSize30"
         fontWeight="fontWeightSemibold"
         lineHeight="lineHeight30"
-        textColor={disabled ? 'colorTextWeak' : 'colorText'}
+        color={disabled ? 'colorTextWeak' : 'colorText'}
         cursor="pointer"
       >
         {children}

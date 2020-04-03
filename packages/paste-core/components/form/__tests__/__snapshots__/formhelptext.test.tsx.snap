@@ -50,6 +50,7 @@ exports[`FormHelpText render it should render 1`] = `
   >
     <div
       className="emotion-0"
+      color="colorTextWeak"
       fontSize="fontSize30"
     >
       child
@@ -138,6 +139,7 @@ exports[`FormHelpText render it should render with an error icon 1`] = `
     </span>
     <div
       className="emotion-2"
+      color="colorTextError"
       fontSize="fontSize30"
     >
       child
