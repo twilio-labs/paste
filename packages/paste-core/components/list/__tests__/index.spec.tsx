@@ -104,7 +104,7 @@ describe('Unordered List', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
-          <UnorderedList textColor="textColorSuccess">Children</UnorderedList>
+          <UnorderedList color="textColorSuccess">Children</UnorderedList>
         </Theme.Provider>
       )
       .toJSON();
