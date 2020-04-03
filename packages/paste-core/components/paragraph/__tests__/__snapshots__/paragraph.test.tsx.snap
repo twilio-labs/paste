@@ -30,6 +30,7 @@ exports[`Paragraph it should render a single paragraph 1`] = `
 >
   <p
     className="emotion-0"
+    color="colorText"
     fontSize="fontSize30"
     fontWeight="fontWeightNormal"
   >
@@ -68,6 +69,7 @@ exports[`Paragraph it should render a single paragraph with bold text 1`] = `
 >
   <p
     className="emotion-0"
+    color="colorText"
     fontSize="fontSize30"
     fontWeight="fontWeightNormal"
   >
@@ -108,6 +110,7 @@ exports[`Paragraph it should render a single paragraph with italic text 1`] = `
 >
   <p
     className="emotion-0"
+    color="colorText"
     fontSize="fontSize30"
     fontWeight="fontWeightNormal"
   >
