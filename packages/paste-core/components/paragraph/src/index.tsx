@@ -14,7 +14,7 @@ const Paragraph: React.FC<ParagraphProps> = props => {
       fontSize="fontSize30"
       lineHeight="lineHeight30"
       fontWeight="fontWeightNormal"
-      textColor="colorText"
+      color="colorText"
     >
       {props.children}
     </Text>
