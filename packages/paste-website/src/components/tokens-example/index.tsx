@@ -43,18 +43,18 @@ export const TextBox: React.FC<TextBoxProp> = ({fontFamily, fontSize, fontWeight
   );
 };
 
-type TextColorBoxProp = Pick<TextProps, 'textColor'>;
+type TextColorBoxProp = Pick<TextProps, 'color'>;
 interface TextColorBoxProps extends TextColorBoxProp {
-  color: string;
+  boxColor: string;
 }
-export const TextColorBox: React.FC<TextColorBoxProps> = ({color, textColor}) => {
+export const TextColorBox: React.FC<TextColorBoxProps> = ({boxColor, color}) => {
   const theme = useTheme();
-  const colorFn = Color(color);
+  const colorFn = Color(boxColor);
   const isInverse = colorFn.isLight();
   const backgroundColorValue = isInverse
     ? theme.backgroundColors.colorBackgroundInverse
     : theme.backgroundColors.colorBackgroundBody;
-  const colorCombos = ColorCombos([color, backgroundColorValue]);
+  const colorCombos = ColorCombos([boxColor, backgroundColorValue]);
   const {accessibility} = colorCombos[1].combinations[0];
 
   const getContrastRating = (acc: ColorCombinationAccessibility): string => {
@@ -73,10 +73,10 @@ export const TextColorBox: React.FC<TextColorBoxProps> = ({color, textColor}) =>
         justifyContent: 'space-between',
       }}
     >
-      <Text as="span" fontSize="fontSize70" lineHeight="lineHeight70" textColor={textColor}>
+      <Text as="span" fontSize="fontSize70" lineHeight="lineHeight70" color={color}>
         <ScreenReaderOnly>Example text: </ScreenReaderOnly>Ag
       </Text>
-      <Text as="span" fontSize="fontSize50" lineHeight="lineHeight50" textColor={textColor}>
+      <Text as="span" fontSize="fontSize50" lineHeight="lineHeight50" color={color}>
         <ScreenReaderOnly>Accessibility rating: </ScreenReaderOnly>
         {getContrastRating(accessibility)}
       </Text>
@@ -143,7 +143,7 @@ export const TokenExample: React.FC<TokenExampleProps> = ({token}) => {
     case 'spacing':
       return <SpacingBox padding={tokenName as keyof ThemeShape['space']} />;
     case 'text-color':
-      return <TextColorBox color={token.value} textColor={tokenName as keyof ThemeShape['textColors']} />;
+      return <TextColorBox boxColor={token.value} color={tokenName as keyof ThemeShape['textColors']} />;
     default:
       return <Box>{token.value}</Box>;
   }

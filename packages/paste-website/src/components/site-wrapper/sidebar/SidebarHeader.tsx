@@ -47,7 +47,7 @@ const SidebarHeader: React.FC<SidebarHeaderProps> = props => {
       <Text as="h2" fontSize="fontSize60" lineHeight="lineHeight60" marginTop="space40" marginBottom="space20">
         <StyledLink to="/">{props.siteTitle}</StyledLink>
       </Text>
-      <StyledH3 as="h3" fontSize="fontSize20" lineHeight="lineHeight20" textColor="colorTextPlaceholder">
+      <StyledH3 as="h3" fontSize="fontSize20" lineHeight="lineHeight20" color="colorTextPlaceholder">
         <StyledSpan>{props.siteSubTitle}</StyledSpan>
       </StyledH3>
     </StyledHeader>
