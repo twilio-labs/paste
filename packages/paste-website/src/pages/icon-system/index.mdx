@@ -40,14 +40,14 @@ export const pageQuery = graphql`
   <CalloutText>
     You can view and play with icons on <Anchor href="https://twilio-labs.github.io/paste/?path=/story/overview-icons--list">our storybook icon list</Anchor>.
     Our icon set is still limited, and more will be added over time. Please{' '}
-    <Anchor href="https://github.com/twilio-labs/paste/issues">file an icon request</Anchor> or 
+    <Anchor href="https://github.com/twilio-labs/paste/issues">file an icon request</Anchor> or
     follow the guide on <Anchor href="/icon-system/how-to-add-an-icon">how to add an icon</Anchor>.
   </CalloutText>
 </Callout>
 
 
 Icons are small graphical representation of a program or a function. They can be used to enhance the
-appearance of a web interface and break up the monotony of text. 
+appearance of a web interface and break up the monotony of text.
 
 Use an icon only when it provides additional clarity or is necessary to draw attention to a UI element.
 If an icon is used to indicate hierarchy of a UI element, all elements at the same hierarchy should also be paired with an icon.
@@ -57,8 +57,8 @@ If an icon is used to indicate hierarchy of a UI element, all elements at the sa
 
 ### Specify if an icon is decorative
 
-Icons can either be **decorative** or **informative**. *"Decorative icons don’t add information to the content 
-of a page. The information provided by the image might already be given using adjacent text, or the image 
+Icons can either be **decorative** or **informative**. *"Decorative icons don’t add information to the content
+of a page. The information provided by the image might already be given using adjacent text, or the image
 might be included to make the website more visually attractive."* (<Anchor href="https://www.w3.org/WAI/tutorials/images/decorative/">w3.org</Anchor>)
 
 Our icons require the developer define whether an icon is decorative by [providing the required property](/icon-system#making-an-icon-decorative-or-informative).
@@ -102,7 +102,7 @@ Remember that different cultures may interpret the same image in different ways 
 
 ### Icons shouldn't be interactive
 
-Icons should not have interactions such as click or hover behavior. Instead they should be wrapped with an 
+Icons should not have interactions such as click or hover behavior. Instead they should be wrapped with an
 interactive element such as [Button](/components/button) and [Anchor](/components/anchor).
 
 <DoDont>
@@ -133,9 +133,9 @@ We can change the icon color directly using [text color tokens](/tokens/#text-co
 Alternatively, icons can inherit the current text color.
 
 <LivePreview scope={{Box, Text, LoadingIcon}} language="jsx">
-  {`<Text as="p" textColor="colorTextInverse">
+  {`<Text as="p" color="colorTextInverse">
   <Box as="span" display="flex" alignItems="center" backgroundColor="colorBackgroundInverse" padding="space30" borderRadius="borderRadius20">
-    <LoadingIcon decorative={true}  /> 
+    <LoadingIcon decorative={true}  />
     <Box marginLeft="space20">Now loading</Box>
   </Box>
 </Text>`}
@@ -158,8 +158,8 @@ Icons accept one of our `sizeIcon` [tokens](/tokens/#sizings).
 
 #### Making an icon decorative or informative
 
-If an icon is decorative, no title is necessary.  However, if an icon isn't decorative, 
-you must provide a title property. 
+If an icon is decorative, no title is necessary.  However, if an icon isn't decorative,
+you must provide a title property.
 
 <LivePreview scope={{Text, PlusIcon}} language="jsx">
   {`<Text as="p">
@@ -178,8 +178,8 @@ yarn add @twilio-paste/icons
 
 ### Usage
 
-Icons have to be imported individually. This import style was decided for [important 
-performance benefits](/icon-system/#why-react-components). As our icon set grows to contain over 100 icons, we don't 
+Icons have to be imported individually. This import style was decided for [important
+performance benefits](/icon-system/#why-react-components). As our icon set grows to contain over 100 icons, we don't
 want projects that use only a few icons to pay the price of a large bundle.
 
 ```jsx

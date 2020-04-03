@@ -71,7 +71,7 @@ const PackageValue: React.FC<{}> = ({children}) => {
 
 const PackageLabel: React.FC<{}> = ({children}) => {
   return (
-    <Text as="dt" display="inline-block" textColor="colorTextWeak" css={{width: '80px'}}>
+    <Text as="dt" display="inline-block" color="colorTextWeak" css={{width: '80px'}}>
       {children}
     </Text>
   );

@@ -7,7 +7,7 @@ import {SiteLink} from '../SiteLink';
 
 const CrumbSlash: React.FC<{}> = () => (
   <Box display="inline" paddingLeft="space20" paddingRight="space20">
-    <Text as="span" textColor="colorTextWeak">
+    <Text as="span" color="colorTextWeak">
       /
     </Text>
   </Box>
