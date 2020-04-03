@@ -31,6 +31,7 @@ exports[`ListItem should filter out styling props 1`] = `
 >
   <li
     className="emotion-0"
+    color="colorText"
     fontSize="fontSize30"
     fontWeight="fontWeightNormal"
   >
@@ -70,6 +71,7 @@ exports[`ListItem should render a plain list item 1`] = `
 >
   <li
     className="emotion-0"
+    color="colorText"
     fontSize="fontSize30"
     fontWeight="fontWeightNormal"
   >
@@ -110,6 +112,7 @@ exports[`Ordered List should allow marginTop and marginBottom styling props 1`] 
 >
   <ol
     className="emotion-0"
+    color="colorText"
     fontSize="fontSize30"
     fontWeight="fontWeightNormal"
   >
@@ -149,6 +152,7 @@ exports[`Ordered List should filter out styling props 1`] = `
 >
   <ol
     className="emotion-0"
+    color="colorText"
     fontSize="fontSize30"
     fontWeight="fontWeightNormal"
   >
@@ -188,6 +192,7 @@ exports[`Ordered List should render a plain ordered list wrapper 1`] = `
 >
   <ol
     className="emotion-0"
+    color="colorText"
     fontSize="fontSize30"
     fontWeight="fontWeightNormal"
   >
@@ -227,6 +232,7 @@ exports[`Unordered List should filter out styling props 1`] = `
 >
   <ul
     className="emotion-0"
+    color="colorText"
     fontSize="fontSize30"
     fontWeight="fontWeightNormal"
   >
@@ -266,6 +272,7 @@ exports[`Unordered List should render a plain unordered list wrapper 1`] = `
 >
   <ul
     className="emotion-0"
+    color="colorText"
     fontSize="fontSize30"
     fontWeight="fontWeightNormal"
   >
