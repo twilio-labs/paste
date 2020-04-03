@@ -31,6 +31,7 @@ exports[`Heading it should render an H1 at fontSize90 1`] = `
 >
   <h1
     className="emotion-0"
+    color="colorText"
     display="block"
     fontSize="fontSize90"
     fontWeight="fontWeightSemibold"
@@ -71,6 +72,7 @@ exports[`Heading it should render an H2 at fontSize70 1`] = `
 >
   <h2
     className="emotion-0"
+    color="colorText"
     display="block"
     fontSize="fontSize70"
     fontWeight="fontWeightSemibold"
@@ -111,6 +113,7 @@ exports[`Heading it should render an H3 at fontSize60 1`] = `
 >
   <h3
     className="emotion-0"
+    color="colorText"
     display="block"
     fontSize="fontSize60"
     fontWeight="fontWeightSemibold"
@@ -151,6 +154,7 @@ exports[`Heading it should render an H4 at fontSize40 1`] = `
 >
   <h4
     className="emotion-0"
+    color="colorText"
     display="block"
     fontSize="fontSize40"
     fontWeight="fontWeightSemibold"
@@ -191,6 +195,7 @@ exports[`Heading it should render an H5 at fontSize30 1`] = `
 >
   <h5
     className="emotion-0"
+    color="colorText"
     display="block"
     fontSize="fontSize30"
     fontWeight="fontWeightSemibold"
@@ -231,6 +236,7 @@ exports[`Heading it should render an H6 at fontSize20 1`] = `
 >
   <h6
     className="emotion-0"
+    color="colorText"
     display="block"
     fontSize="fontSize20"
     fontWeight="fontWeightSemibold"
@@ -271,6 +277,7 @@ exports[`Heading it should render an italic H2 at fontSize50 1`] = `
 >
   <h2
     className="emotion-0"
+    color="colorText"
     display="block"
     fontSize="fontSize70"
     fontWeight="fontWeightSemibold"
@@ -368,6 +375,7 @@ exports[`Heading it should render with no margin 1`] = `
 >
   <h2
     className="emotion-0"
+    color="colorText"
     display="block"
     fontSize="fontSize90"
     fontWeight="fontWeightSemibold"
@@ -376,6 +384,7 @@ exports[`Heading it should render with no margin 1`] = `
   </h2>
   <h2
     className="emotion-1"
+    color="colorText"
     display="block"
     fontSize="fontSize70"
     fontWeight="fontWeightSemibold"
@@ -384,6 +393,7 @@ exports[`Heading it should render with no margin 1`] = `
   </h2>
   <h2
     className="emotion-2"
+    color="colorText"
     display="block"
     fontSize="fontSize60"
     fontWeight="fontWeightSemibold"
@@ -392,6 +402,7 @@ exports[`Heading it should render with no margin 1`] = `
   </h2>
   <h2
     className="emotion-3"
+    color="colorText"
     display="block"
     fontSize="fontSize40"
     fontWeight="fontWeightSemibold"
@@ -400,6 +411,7 @@ exports[`Heading it should render with no margin 1`] = `
   </h2>
   <h2
     className="emotion-4"
+    color="colorText"
     display="block"
     fontSize="fontSize30"
     fontWeight="fontWeightSemibold"
@@ -408,6 +420,7 @@ exports[`Heading it should render with no margin 1`] = `
   </h2>
   <h2
     className="emotion-5"
+    color="colorText"
     display="block"
     fontSize="fontSize20"
     fontWeight="fontWeightSemibold"
