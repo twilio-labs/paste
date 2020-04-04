@@ -145,6 +145,18 @@ aliases:
   palette-gray-90: "#1d2944"
   palette-gray-100: "#08152c"
 
+  ## Grays transparent based on darkest gray
+  palette-gray-100-transparent-10: "rgba(8, 21, 44, 0.1)"
+  palette-gray-100-transparent-20: "rgba(8, 21, 44, 0.2)"
+  palette-gray-100-transparent-30: "rgba(8, 21, 44, 0.3)"
+  palette-gray-100-transparent-40: "rgba(8, 21, 44, 0.4)"
+  palette-gray-100-transparent-50: "rgba(8, 21, 44, 0.5)"
+  palette-gray-100-transparent-60: "rgba(8, 21, 44, 0.6)"
+  palette-gray-100-transparent-70: "rgba(8, 21, 44, 0.7)"
+  palette-gray-100-transparent-80: "rgba(8, 21, 44, 0.8)"
+  palette-gray-100-transparent-90: "rgba(8, 21, 44, 0.9)"
+  palette-gray-100-transparent-100: "rgba(8, 21, 44, 1)"
+
   ## Gray-Blues
   palette-gray-blue-10: "#f5f8fd"
   palette-gray-blue-20: "#ebf2ff"

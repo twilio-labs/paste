@@ -27,7 +27,7 @@ theo.registerFormat('common.d.ts', dTSTokenFormat);
 theo.registerFormat('es6.d.ts', dTSTokenFormat);
 theo.registerFormat('sketchpalette', sketchpaletteTokenFormat);
 theo.registerFormat('gatsby.json', gatsbyJsonTokenFormat);
-theo.registerTransform('web', ['color/rgb', 'color/hex']);
+theo.registerTransform('web', ['color/rgb']);
 
 gulp.task('clean', () => del([paths.dist]));
 
