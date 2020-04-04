@@ -1146,6 +1146,14 @@
     pirates "^4.0.0"
     source-map-support "^0.5.16"
 
+"@babel/runtime-corejs3@^7.7.4":
+  version "7.9.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.9.2.tgz#26fe4aa77e9f1ecef9b776559bbb8e84d34284b7"
+  integrity sha512-HHxmgxbIzOfFlZ+tdeRKtaxWOMUoCG5Mu3wKeUmOxjYrwb3AAHgnmtCUbPPK11/raIWLIBK250t8E2BPO0p7jA==
+  dependencies:
+    core-js-pure "^3.0.0"
+    regenerator-runtime "^0.13.4"
+
 "@babel/runtime-corejs3@^7.8.3":
   version "7.8.7"
   resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.8.7.tgz#8209d9dff2f33aa2616cb319c83fe159ffb07b8c"
@@ -1165,6 +1173,13 @@
   version "7.8.7"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.7.tgz#8fefce9802db54881ba59f90bb28719b4996324d"
   integrity sha512-+AATMUFppJDw6aiR5NVPHqIQBlV/Pj8wY/EZH+lmvRdUo9xBaz/rF3alAwFJQavvKfeOlPE7oaaDHVbcySbCsg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.9.2":
+  version "7.9.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.2.tgz#d90df0583a3a252f09aaa619665367bae518db06"
+  integrity sha512-NE2DtOdufG7R5vnfQUTehdTfNycfUANEtCa9PssN9O/xmTzP4E08UI797ixaei6hBEVL9BI/PsdJS5x7mWoB9Q==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -3762,6 +3777,26 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
+"@testing-library/dom@^7.1.0":
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.2.1.tgz#bb3b31d669bbe0c4939dadd95d69caa3c1d0b372"
+  integrity sha512-xIGoHlQ2ZiEL1dJIFKNmLDypzYF+4OJTTASRctl/aoIDaS5y/pRVHRigoqvPUV11mdJoR71IIgi/6UviMgyz4g==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+    "@types/testing-library__dom" "^7.0.0"
+    aria-query "^4.0.2"
+    dom-accessibility-api "^0.4.2"
+    pretty-format "^25.1.0"
+
+"@testing-library/react@^10.0.2":
+  version "10.0.2"
+  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-10.0.2.tgz#8eca7aa52d810cf7150048a2829fdc487162006d"
+  integrity sha512-YT6Mw0oJz7R6vlEkmo1FlUD+K15FeXApOB5Ffm9zooFVnrwkt00w18dUJFMOh1yRp9wTdVRonbor7o4PIpFCmA==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+    "@testing-library/dom" "^7.1.0"
+    "@types/testing-library__react" "^10.0.0"
+
 "@twilio-labs/svg-to-react@^2.0.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@twilio-labs/svg-to-react/-/svg-to-react-2.1.0.tgz#64a14bb59b2b3f823d0a645ad2012d50f78f7bd4"
@@ -3776,6 +3811,13 @@
     "@svgr/plugin-svgo" "^5.1.0"
     prettier "^1.19.1"
     tslib "^1.10.0"
+
+"@twilio-paste/style-props@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/style-props/-/style-props-0.2.3.tgz#a97b87a48c86bccceb532a7e068e050407b92967"
+  integrity sha512-Kpy9Q9Xlas4u0nzjpwrzkGjzWbZh9zBURl/tzvMWifkVMFkjXdFE+YyIn5Dd4dqwkHAPmy/UsT6XkoTLFaCksQ==
+  dependencies:
+    "@types/styled-system" "^5.1.3"
 
 "@types/anymatch@*":
   version "1.3.1"
@@ -4113,6 +4155,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-dom@*":
+  version "16.9.6"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.9.6.tgz#9e7f83d90566521cc2083be2277c6712dcaf754c"
+  integrity sha512-S6ihtlPMDotrlCJE9ST1fRmYrQNNwfgL61UB4I1W7M6kPulUKx9fXAleW5zpdIjUQ4fTaaog8uERezjsGUj9HQ==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-dom@^16.8.4":
   version "16.9.5"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.9.5.tgz#5de610b04a35d07ffd8f44edad93a71032d9aaa7"
@@ -4223,6 +4272,22 @@
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.5.tgz#9adbc12950582aa65ead76bffdf39fe0c27a3c02"
   integrity sha512-/gG2M/Imw7cQFp8PGvz/SwocNrmKFjFsm5Pb8HdbHkZ1K8pmuPzOX4VeVoiEecFCVf4CsN1r3/BRvx+6sNqwtQ==
+
+"@types/testing-library__dom@*", "@types/testing-library__dom@^7.0.0":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@types/testing-library__dom/-/testing-library__dom-7.0.1.tgz#426bef0aa306a603fe071859d4b485941b28aca6"
+  integrity sha512-WokGRksRJb3Dla6h02/0/NNHTkjsj4S8aJZiwMj/5/UL8VZ1iCe3H8SHzfpmBeH8Vp4SPRT8iC2o9kYULFhDIw==
+  dependencies:
+    pretty-format "^25.1.0"
+
+"@types/testing-library__react@^10.0.0":
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/@types/testing-library__react/-/testing-library__react-10.0.1.tgz#92bb4a02394bf44428e35f1da2970ed77f803593"
+  integrity sha512-RbDwmActAckbujLZeVO/daSfdL1pnjVqas25UueOkAY5r7vriavWf0Zqg7ghXMHa8ycD/kLkv8QOj31LmSYwww==
+  dependencies:
+    "@types/react-dom" "*"
+    "@types/testing-library__dom" "*"
+    pretty-format "^25.1.0"
 
 "@types/theo@^8.1.3":
   version "8.1.3"
@@ -5174,6 +5239,14 @@ aria-query@^3.0.0:
   dependencies:
     ast-types-flow "0.0.7"
     commander "^2.11.0"
+
+aria-query@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/aria-query/-/aria-query-4.0.2.tgz#250687b4ccde1ab86d127da0432ae3552fc7b145"
+  integrity sha512-S1G1V790fTaigUSM/Gd0NngzEfiMy9uTUfMyHhKhVyy4cH5O/eTuR01ydhGL0z4Za1PXFTRGH3qL8VhUQuEO5w==
+  dependencies:
+    "@babel/runtime" "^7.7.4"
+    "@babel/runtime-corejs3" "^7.7.4"
 
 arr-diff@^4.0.0:
   version "4.0.0"
@@ -8825,6 +8898,11 @@ doctrine@^3.0.0:
   integrity sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==
   dependencies:
     esutils "^2.0.2"
+
+dom-accessibility-api@^0.4.2:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/dom-accessibility-api/-/dom-accessibility-api-0.4.3.tgz#93ca9002eb222fd5a343b6e5e6b9cf5929411c4c"
+  integrity sha512-JZ8iPuEHDQzq6q0k7PKMGbrIdsgBB7TRrtVOUm4nSMCExlg5qQG4KXWTH2k90yggjM4tTumRGwTKJSldMzKyLA==
 
 dom-converter@^0.2:
   version "0.2.0"
