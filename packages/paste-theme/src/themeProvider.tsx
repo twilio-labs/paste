@@ -6,10 +6,10 @@ import {ThemeProvider as StyledThemeProvider} from 'emotion-theming';
 import {DefaultTheme, SendGridTheme, ConsoleTheme} from './themes';
 import {ThemeVariants} from './constants';
 
-interface GlobalStyleProps {
+interface EmotionStyledProps {
   theme: {};
 }
-const pasteGlobalStyles = (props: GlobalStyleProps): SerializedStyles => css`
+const pasteGlobalStyles = (props: EmotionStyledProps): SerializedStyles => css`
   html {
     font-size: 100%;
   }
@@ -19,18 +19,22 @@ const pasteGlobalStyles = (props: GlobalStyleProps): SerializedStyles => css`
   }
 `;
 
-export const StyledBase = styled.div`
-  font-family: ${themeGet('fonts.fontFamilyText')};
-  font-size: ${themeGet('fontSizes.fontSize30')};
-  line-height: ${themeGet('lineHeights.lineHeight30')};
-  color: ${themeGet('textColors.colorText')};
-  font-weight: ${themeGet('fontWeights.fontWeightNormal')};
+export const pasteBaseStyles = (props: EmotionStyledProps): SerializedStyles => css`
+  font-family: ${themeGet('fonts.fontFamilyText')(props)};
+  font-size: ${themeGet('fontSizes.fontSize30')(props)};
+  line-height: ${themeGet('lineHeights.lineHeight30')(props)};
+  color: ${themeGet('textColors.colorText')(props)};
+  font-weight: ${themeGet('fontWeights.fontWeightNormal')(props)};
 
   *,
   *::after,
   *::before {
     box-sizing: border-box;
   }
+`;
+
+export const StyledBase = styled.div`
+  ${pasteBaseStyles}
 `;
 
 export interface ThemeProviderProps {
