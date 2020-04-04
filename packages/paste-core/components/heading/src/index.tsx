@@ -1,14 +1,14 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {Text} from '@twilio-paste/text';
+import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 
 export type asTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'label' | 'span' | 'header';
 export type HeadingVariants = 'heading10' | 'heading20' | 'heading30' | 'heading40' | 'heading50' | 'heading60';
 
-export interface HeadingProps {
+export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   as: asTags;
-  id?: string;
   className?: never;
+  id?: string;
   marginBottom?: 'space0';
   variant?: HeadingVariants;
 }
@@ -65,9 +65,16 @@ function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: 'space
   }
 }
 
-const Heading: React.FC<HeadingProps> = ({as, children, id, marginBottom, variant}) => {
+const Heading: React.FC<HeadingProps> = ({as, children, id, marginBottom, variant, ...props}) => {
   return (
-    <Text {...getHeadingProps(variant, marginBottom)} as={as} display="block" id={id} color="colorText">
+    <Text
+      {...safelySpreadTextProps(props)}
+      {...getHeadingProps(variant, marginBottom)}
+      as={as}
+      display="block"
+      id={id}
+      color="colorText"
+    >
       {children}
     </Text>
   );
