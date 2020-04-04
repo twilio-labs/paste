@@ -96,3 +96,8 @@ props:
   color-background-destructive-lightest:
     value: "{!palette-red-10}"
     comment: Lightest background for destructive actions or highlights
+
+  # overlay backgrounds
+  color-background-overlay:
+    value: "{!palette-gray-100-transparent-50}"
+    comment: Default background for overlays

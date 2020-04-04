@@ -2,7 +2,7 @@ import theo from 'theo';
 import path from 'path';
 
 beforeAll(() => {
-  theo.registerTransform('web', ['color/rgb', 'color/hex']);
+  theo.registerTransform('web', ['color/rgb']);
 });
 
 describe('Design Tokens', () => {
