@@ -5,7 +5,7 @@ exports[`Card it should filter out style props that are not allowed 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -18,11 +18,11 @@ exports[`Card it should filter out style props that are not allowed 1`] = `
 .emotion-0 {
   box-sizing: border-box;
   border-width: 2px;
-  border-color: #e4e7e9;
+  border-color: rgb(228,231,233);
   border-style: solid;
   border-radius: 4px;
   padding: 1.25rem;
-  background-color: #ffffff;
+  background-color: rgb(255,255,255);
 }
 
 <div
@@ -39,7 +39,7 @@ exports[`Card it should render children 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -52,11 +52,11 @@ exports[`Card it should render children 1`] = `
 .emotion-0 {
   box-sizing: border-box;
   border-width: 2px;
-  border-color: #e4e7e9;
+  border-color: rgb(228,231,233);
   border-style: solid;
   border-radius: 4px;
   padding: 1.25rem;
-  background-color: #ffffff;
+  background-color: rgb(255,255,255);
 }
 
 <div
@@ -75,7 +75,7 @@ exports[`Card it should render default values 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -88,11 +88,11 @@ exports[`Card it should render default values 1`] = `
 .emotion-0 {
   box-sizing: border-box;
   border-width: 2px;
-  border-color: #e4e7e9;
+  border-color: rgb(228,231,233);
   border-style: solid;
   border-radius: 4px;
   padding: 1.25rem;
-  background-color: #ffffff;
+  background-color: rgb(255,255,255);
 }
 
 <div
@@ -109,7 +109,7 @@ exports[`Card it should render default values unless overridden by the component
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -122,12 +122,12 @@ exports[`Card it should render default values unless overridden by the component
 .emotion-0 {
   box-sizing: border-box;
   border-width: 2px;
-  border-color: #e4e7e9;
+  border-color: rgb(228,231,233);
   border-style: solid;
   border-radius: 4px;
   padding: 1.25rem;
   padding-bottom: 4.75rem;
-  background-color: #ffffff;
+  background-color: rgb(255,255,255);
 }
 
 <div

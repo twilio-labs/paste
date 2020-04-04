@@ -5,7 +5,7 @@ exports[`Heading it should render an H1 at fontSize90 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -23,7 +23,7 @@ exports[`Heading it should render an H1 at fontSize90 1`] = `
   font-weight: 500;
   line-height: 2.5rem;
   display: block;
-  color: #282a2b;
+  color: rgb(40,42,43);
 }
 
 <div
@@ -46,7 +46,7 @@ exports[`Heading it should render an H2 at fontSize70 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -64,7 +64,7 @@ exports[`Heading it should render an H2 at fontSize70 1`] = `
   font-weight: 500;
   line-height: 2rem;
   display: block;
-  color: #282a2b;
+  color: rgb(40,42,43);
 }
 
 <div
@@ -87,7 +87,7 @@ exports[`Heading it should render an H3 at fontSize60 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -105,7 +105,7 @@ exports[`Heading it should render an H3 at fontSize60 1`] = `
   font-weight: 500;
   line-height: 1.75rem;
   display: block;
-  color: #282a2b;
+  color: rgb(40,42,43);
 }
 
 <div
@@ -128,7 +128,7 @@ exports[`Heading it should render an H4 at fontSize40 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -146,7 +146,7 @@ exports[`Heading it should render an H4 at fontSize40 1`] = `
   font-weight: 500;
   line-height: 1.75rem;
   display: block;
-  color: #282a2b;
+  color: rgb(40,42,43);
 }
 
 <div
@@ -169,7 +169,7 @@ exports[`Heading it should render an H5 at fontSize30 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -187,7 +187,7 @@ exports[`Heading it should render an H5 at fontSize30 1`] = `
   font-weight: 500;
   line-height: 1.5rem;
   display: block;
-  color: #282a2b;
+  color: rgb(40,42,43);
 }
 
 <div
@@ -210,7 +210,7 @@ exports[`Heading it should render an H6 at fontSize20 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -228,7 +228,7 @@ exports[`Heading it should render an H6 at fontSize20 1`] = `
   font-weight: 500;
   line-height: 1.25rem;
   display: block;
-  color: #282a2b;
+  color: rgb(40,42,43);
 }
 
 <div
@@ -251,7 +251,7 @@ exports[`Heading it should render an italic H2 at fontSize50 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -269,7 +269,7 @@ exports[`Heading it should render an italic H2 at fontSize50 1`] = `
   font-weight: 500;
   line-height: 2rem;
   display: block;
-  color: #282a2b;
+  color: rgb(40,42,43);
 }
 
 <div
@@ -294,7 +294,7 @@ exports[`Heading it should render with no margin 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -312,7 +312,7 @@ exports[`Heading it should render with no margin 1`] = `
   font-weight: 500;
   line-height: 2.5rem;
   display: block;
-  color: #282a2b;
+  color: rgb(40,42,43);
 }
 
 .emotion-1 {
@@ -323,7 +323,7 @@ exports[`Heading it should render with no margin 1`] = `
   font-weight: 500;
   line-height: 2rem;
   display: block;
-  color: #282a2b;
+  color: rgb(40,42,43);
 }
 
 .emotion-2 {
@@ -334,7 +334,7 @@ exports[`Heading it should render with no margin 1`] = `
   font-weight: 500;
   line-height: 1.75rem;
   display: block;
-  color: #282a2b;
+  color: rgb(40,42,43);
 }
 
 .emotion-3 {
@@ -345,7 +345,7 @@ exports[`Heading it should render with no margin 1`] = `
   font-weight: 500;
   line-height: 1.75rem;
   display: block;
-  color: #282a2b;
+  color: rgb(40,42,43);
 }
 
 .emotion-4 {
@@ -356,7 +356,7 @@ exports[`Heading it should render with no margin 1`] = `
   font-weight: 500;
   line-height: 1.5rem;
   display: block;
-  color: #282a2b;
+  color: rgb(40,42,43);
 }
 
 .emotion-5 {
@@ -367,7 +367,7 @@ exports[`Heading it should render with no margin 1`] = `
   font-weight: 500;
   line-height: 1.25rem;
   display: block;
-  color: #282a2b;
+  color: rgb(40,42,43);
 }
 
 <div

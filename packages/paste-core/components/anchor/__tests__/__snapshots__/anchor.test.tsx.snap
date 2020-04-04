@@ -5,7 +5,7 @@ exports[`Anchor it should render an anchor 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -16,14 +16,14 @@ exports[`Anchor it should render an anchor 1`] = `
 }
 
 .emotion-0 {
-  color: #005ea6;
+  color: rgb(0,94,166);
   -webkit-text-decoration: underline;
   text-decoration: underline;
   outline: none;
 }
 
 .emotion-0:hover {
-  color: #032c5e;
+  color: rgb(3,44,94);
   -webkit-text-decoration: none;
   text-decoration: none;
 }
@@ -31,7 +31,7 @@ exports[`Anchor it should render an anchor 1`] = `
 .emotion-0:focus,
 .emotion-0:active {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
-  color: #032c5e;
+  color: rgb(3,44,94);
   -webkit-text-decoration: none;
   text-decoration: none;
 }
@@ -53,7 +53,7 @@ exports[`Anchor it should render an external anchor 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -64,14 +64,14 @@ exports[`Anchor it should render an external anchor 1`] = `
 }
 
 .emotion-0 {
-  color: #005ea6;
+  color: rgb(0,94,166);
   -webkit-text-decoration: underline;
   text-decoration: underline;
   outline: none;
 }
 
 .emotion-0:hover {
-  color: #032c5e;
+  color: rgb(3,44,94);
   -webkit-text-decoration: none;
   text-decoration: none;
 }
@@ -79,7 +79,7 @@ exports[`Anchor it should render an external anchor 1`] = `
 .emotion-0:focus,
 .emotion-0:active {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
-  color: #032c5e;
+  color: rgb(3,44,94);
   -webkit-text-decoration: none;
   text-decoration: none;
 }
@@ -103,7 +103,7 @@ exports[`Anchor it should render an external anchor with overwritten target and 
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -114,14 +114,14 @@ exports[`Anchor it should render an external anchor with overwritten target and 
 }
 
 .emotion-0 {
-  color: #005ea6;
+  color: rgb(0,94,166);
   -webkit-text-decoration: underline;
   text-decoration: underline;
   outline: none;
 }
 
 .emotion-0:hover {
-  color: #032c5e;
+  color: rgb(3,44,94);
   -webkit-text-decoration: none;
   text-decoration: none;
 }
@@ -129,7 +129,7 @@ exports[`Anchor it should render an external anchor with overwritten target and 
 .emotion-0:focus,
 .emotion-0:active {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
-  color: #032c5e;
+  color: rgb(3,44,94);
   -webkit-text-decoration: none;
   text-decoration: none;
 }

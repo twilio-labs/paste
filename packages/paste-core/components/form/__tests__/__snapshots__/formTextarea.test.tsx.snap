@@ -5,7 +5,7 @@ exports[`FormTextArea render it should render 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -22,7 +22,7 @@ exports[`FormTextArea render it should render 1`] = `
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  background-color: #ffffff;
+  background-color: rgb(255,255,255);
   box-shadow: 0 0 0 1px #606b85;
   border-radius: 4px;
   -webkit-transition: box-shadow 100ms ease-in;
@@ -52,7 +52,7 @@ exports[`FormTextArea render it should render 1`] = `
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
-  color: #282a2b;
+  color: rgb(40,42,43);
   padding-top: 0.5rem;
   padding-right: 0.75rem;
   padding-bottom: 0.5rem;
@@ -63,28 +63,28 @@ exports[`FormTextArea render it should render 1`] = `
 }
 
 .emotion-0::-webkit-input-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0::-moz-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0:-ms-input-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0::placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  color: #666a6d;
+  color: rgb(102,106,109);
 }
 
 <div

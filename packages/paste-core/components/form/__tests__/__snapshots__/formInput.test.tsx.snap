@@ -5,7 +5,7 @@ exports[`FormInput render it should render 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -22,7 +22,7 @@ exports[`FormInput render it should render 1`] = `
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  background-color: #ffffff;
+  background-color: rgb(255,255,255);
   box-shadow: 0 0 0 1px #606b85;
   border-radius: 4px;
   -webkit-transition: box-shadow 100ms ease-in;
@@ -52,7 +52,7 @@ exports[`FormInput render it should render 1`] = `
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
-  color: #282a2b;
+  color: rgb(40,42,43);
   padding-top: 0.5rem;
   padding-right: 0.75rem;
   padding-bottom: 0.5rem;
@@ -62,28 +62,28 @@ exports[`FormInput render it should render 1`] = `
 }
 
 .emotion-0::-webkit-input-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0::-moz-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0:-ms-input-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0::placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  color: #666a6d;
+  color: rgb(102,106,109);
 }
 
 <div
@@ -111,7 +111,7 @@ exports[`FormInput render it should render with disabled 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -135,7 +135,7 @@ exports[`FormInput render it should render with disabled 1`] = `
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
-  color: #282a2b;
+  color: rgb(40,42,43);
   padding-top: 0.5rem;
   padding-right: 0.75rem;
   padding-bottom: 0.5rem;
@@ -145,28 +145,28 @@ exports[`FormInput render it should render with disabled 1`] = `
 }
 
 .emotion-0::-webkit-input-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0::-moz-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0:-ms-input-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0::placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  color: #666a6d;
+  color: rgb(102,106,109);
 }
 
 .emotion-2 {
@@ -176,7 +176,7 @@ exports[`FormInput render it should render with disabled 1`] = `
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  background-color: #f8f8f9;
+  background-color: rgb(248,248,249);
   box-shadow: 0 0 0 1px #e4e7e9;
   border-radius: 4px;
   -webkit-transition: box-shadow 100ms ease-in;
@@ -218,7 +218,7 @@ exports[`FormInput render it should render with hasError 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -242,7 +242,7 @@ exports[`FormInput render it should render with hasError 1`] = `
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
-  color: #282a2b;
+  color: rgb(40,42,43);
   padding-top: 0.5rem;
   padding-right: 0.75rem;
   padding-bottom: 0.5rem;
@@ -252,28 +252,28 @@ exports[`FormInput render it should render with hasError 1`] = `
 }
 
 .emotion-0::-webkit-input-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0::-moz-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0:-ms-input-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0::placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  color: #666a6d;
+  color: rgb(102,106,109);
 }
 
 .emotion-2 {
@@ -283,7 +283,7 @@ exports[`FormInput render it should render with hasError 1`] = `
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  background-color: #ffffff;
+  background-color: rgb(255,255,255);
   box-shadow: 0 0 0 1px #d61f1f;
   border-radius: 4px;
   -webkit-transition: box-shadow 100ms ease-in;
@@ -325,7 +325,7 @@ exports[`FormInput render it should render with prefix 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -342,7 +342,7 @@ exports[`FormInput render it should render with prefix 1`] = `
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  background-color: #ffffff;
+  background-color: rgb(255,255,255);
   box-shadow: 0 0 0 1px #606b85;
   border-radius: 4px;
   -webkit-transition: box-shadow 100ms ease-in;
@@ -372,7 +372,7 @@ exports[`FormInput render it should render with prefix 1`] = `
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
-  color: #282a2b;
+  color: rgb(40,42,43);
   padding-top: 0.5rem;
   padding-right: 0.75rem;
   padding-bottom: 0.5rem;
@@ -382,28 +382,28 @@ exports[`FormInput render it should render with prefix 1`] = `
 }
 
 .emotion-1::-webkit-input-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-1::-moz-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-1:-ms-input-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-1::placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-1:disabled {
   cursor: not-allowed;
-  color: #666a6d;
+  color: rgb(102,106,109);
 }
 
 .emotion-0 {
@@ -416,10 +416,10 @@ exports[`FormInput render it should render with prefix 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
-  background-color: #f8f8f9;
+  background-color: rgb(248,248,249);
   padding: 0.5rem;
   border-right-width: 1px;
-  border-right-color: #e4e7e9;
+  border-right-color: rgb(228,231,233);
   border-right-style: solid;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -458,7 +458,7 @@ exports[`FormInput render it should render with readOnly 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -482,7 +482,7 @@ exports[`FormInput render it should render with readOnly 1`] = `
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
-  color: #282a2b;
+  color: rgb(40,42,43);
   padding-top: 0.5rem;
   padding-right: 0.75rem;
   padding-bottom: 0.5rem;
@@ -492,28 +492,28 @@ exports[`FormInput render it should render with readOnly 1`] = `
 }
 
 .emotion-0::-webkit-input-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0::-moz-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0:-ms-input-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0::placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  color: #666a6d;
+  color: rgb(102,106,109);
 }
 
 .emotion-2 {
@@ -523,7 +523,7 @@ exports[`FormInput render it should render with readOnly 1`] = `
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  background-color: #f8f8f9;
+  background-color: rgb(248,248,249);
   box-shadow: 0 0 0 1px #606b85;
   border-radius: 4px;
   -webkit-transition: box-shadow 100ms ease-in;
@@ -566,7 +566,7 @@ exports[`FormInput render it should render with suffix 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -583,7 +583,7 @@ exports[`FormInput render it should render with suffix 1`] = `
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  background-color: #ffffff;
+  background-color: rgb(255,255,255);
   box-shadow: 0 0 0 1px #606b85;
   border-radius: 4px;
   -webkit-transition: box-shadow 100ms ease-in;
@@ -613,7 +613,7 @@ exports[`FormInput render it should render with suffix 1`] = `
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
-  color: #282a2b;
+  color: rgb(40,42,43);
   padding-top: 0.5rem;
   padding-right: 0.75rem;
   padding-bottom: 0.5rem;
@@ -623,28 +623,28 @@ exports[`FormInput render it should render with suffix 1`] = `
 }
 
 .emotion-0::-webkit-input-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0::-moz-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0:-ms-input-placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0::placeholder {
-  color: #666a6d;
+  color: rgb(102,106,109);
   font-style: italic;
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  color: #666a6d;
+  color: rgb(102,106,109);
 }
 
 .emotion-2 {
@@ -657,10 +657,10 @@ exports[`FormInput render it should render with suffix 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
-  background-color: #f8f8f9;
+  background-color: rgb(248,248,249);
   padding: 0.5rem;
   border-left-width: 1px;
-  border-left-color: #e4e7e9;
+  border-left-color: rgb(228,231,233);
   border-left-style: solid;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
