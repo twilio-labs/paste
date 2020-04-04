@@ -22,6 +22,6 @@ describe('withTheme', () => {
         <MockComponentWithTheme />
       </Theme.Provider>
     );
-    expect(wrapper.find('p').text()).toBe('#282a2b');
+    expect(wrapper.find('p').text()).toBe('rgb(40, 42, 43)');
   });
 });
