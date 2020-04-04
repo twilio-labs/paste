@@ -5,7 +5,7 @@ exports[`ListItem should filter out styling props 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -23,7 +23,7 @@ exports[`ListItem should filter out styling props 1`] = `
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
-  color: #282a2b;
+  color: rgb(40,42,43);
 }
 
 <div
@@ -45,7 +45,7 @@ exports[`ListItem should render a plain list item 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -63,7 +63,7 @@ exports[`ListItem should render a plain list item 1`] = `
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
-  color: #282a2b;
+  color: rgb(40,42,43);
 }
 
 <div
@@ -85,7 +85,7 @@ exports[`Ordered List should allow marginTop and marginBottom styling props 1`] 
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -104,7 +104,7 @@ exports[`Ordered List should allow marginTop and marginBottom styling props 1`] 
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
-  color: #282a2b;
+  color: rgb(40,42,43);
 }
 
 <div
@@ -126,7 +126,7 @@ exports[`Ordered List should filter out styling props 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -144,7 +144,7 @@ exports[`Ordered List should filter out styling props 1`] = `
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
-  color: #282a2b;
+  color: rgb(40,42,43);
 }
 
 <div
@@ -166,7 +166,7 @@ exports[`Ordered List should render a plain ordered list wrapper 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -184,7 +184,7 @@ exports[`Ordered List should render a plain ordered list wrapper 1`] = `
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
-  color: #282a2b;
+  color: rgb(40,42,43);
 }
 
 <div
@@ -206,7 +206,7 @@ exports[`Unordered List should filter out styling props 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -224,7 +224,7 @@ exports[`Unordered List should filter out styling props 1`] = `
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
-  color: #282a2b;
+  color: rgb(40,42,43);
 }
 
 <div
@@ -246,7 +246,7 @@ exports[`Unordered List should render a plain unordered list wrapper 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -264,7 +264,7 @@ exports[`Unordered List should render a plain unordered list wrapper 1`] = `
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
-  color: #282a2b;
+  color: rgb(40,42,43);
 }
 
 <div

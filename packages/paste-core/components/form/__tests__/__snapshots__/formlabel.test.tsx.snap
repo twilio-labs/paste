@@ -5,7 +5,7 @@ exports[`FormLabel render it should render 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -39,7 +39,7 @@ exports[`FormLabel render it should render 1`] = `
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   cursor: pointer;
 }
 
@@ -69,7 +69,7 @@ exports[`FormLabel render it should render with required 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   font-weight: 400;
 }
 
@@ -103,7 +103,7 @@ exports[`FormLabel render it should render with required 1`] = `
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.5rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   cursor: pointer;
 }
 
@@ -112,12 +112,12 @@ exports[`FormLabel render it should render with required 1`] = `
   padding: 0;
   line-height: 1.5rem;
   font-size: 0.875rem;
-  color: #282a2b;
+  color: rgb(40,42,43);
   display: block;
   width: 4px;
   height: 4px;
   margin-right: 0.25rem;
-  background-color: #de5858;
+  background-color: rgb(222,88,88);
   border-radius: 50%;
   cursor: pointer;
 }

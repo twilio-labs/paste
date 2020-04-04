@@ -410,7 +410,7 @@ exports[`Design Tokens matches the Sendgrid theme 1`] = `
   \\"color-background\\": \\"rgb(243, 244, 246)\\",
   \\"color-background-brand-highlight\\": \\"rgb(242, 47, 70)\\",
   \\"color-background-inverse\\": \\"rgb(8, 21, 44)\\",
-  \\"color-background-overlay\\": \\"rgba(40, 42, 43, 0.5)\\",
+  \\"color-background-overlay\\": \\"rgba(8, 21, 44, 0.5)\\",
   \\"color-border-destructive-lighter\\": \\"rgb(255, 185, 179)\\",
   \\"color-border-primary-lighter\\": \\"rgb(219, 230, 255)\\",
   \\"color-border-input-hover\\": \\"rgb(0, 58, 219)\\",
