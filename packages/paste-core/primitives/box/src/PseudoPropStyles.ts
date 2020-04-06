@@ -11,10 +11,10 @@ export const PseudoPropStyles: {[key: string]: string} = {
   _odd: '&:nth-of-type(odd)',
   _disabled:
     '&:disabled, &:disabled:focus, &:disabled:hover, &[aria-disabled=true], &[aria-disabled=true]:focus, &[aria-disabled=true]:hover',
-  _checked: '&[aria-checked=true]',
-  _mixed: '&[aria-checked=mixed]',
+  _checked: '&:checked, &[aria-checked=true]',
+  _mixed: '&:indeterminate, &[aria-checked=mixed]',
   _selected: '&[aria-selected=true]',
-  _invalid: '&[aria-invalid=true]',
+  _invalid: '&:invalid, &[aria-invalid=true]',
   _pressed: '&[aria-pressed=true]',
   _readOnly: '&[aria-readonly=true], &[readonly]',
   _first: '&:first-of-type',

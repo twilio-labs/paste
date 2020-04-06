@@ -514,10 +514,12 @@ exports[`ZIndex Pseudo-class props it should generate pseudo-class CSS 1`] = `
   padding: 0.125rem;
 }
 
+.emotion-0:checked,
 .emotion-0[aria-checked=true] {
   padding: 0.125rem;
 }
 
+.emotion-0:indeterminate,
 .emotion-0[aria-checked=mixed] {
   padding: 0.125rem;
 }
@@ -526,6 +528,7 @@ exports[`ZIndex Pseudo-class props it should generate pseudo-class CSS 1`] = `
   padding: 0.125rem;
 }
 
+.emotion-0:invalid,
 .emotion-0[aria-invalid=true] {
   padding: 0.125rem;
 }
