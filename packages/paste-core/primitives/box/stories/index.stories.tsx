@@ -120,7 +120,7 @@ storiesOf('Primitives|Box', module)
         zIndex={zIndexValue}
         overflow={overflowValue}
       >
-        <Text as="p" textColor="colorText">
+        <Text as="p" color="colorText">
           {demoString}
         </Text>
       </Box>
@@ -133,7 +133,7 @@ storiesOf('Primitives|Box', module)
         padding={['space20', 'space70']}
         height={['size10', 'size20']}
       >
-        <Text as="p" textColor="colorText">
+        <Text as="p" color="colorText">
           DO NOTE: width is not currently responsive due to a bug in Styled System v4. To be fixed in an upgrade.
         </Text>
       </Box>
@@ -150,7 +150,7 @@ storiesOf('Primitives|Box', module)
         _before={{content: `"Before text"`, position: 'absolute', bottom: 0, left: 0}}
         _after={{content: `"After text"`, position: 'absolute', bottom: 0, right: 0}}
       >
-        <Text as="p" textColor="colorText">
+        <Text as="p" color="colorText">
           Hover this box
         </Text>
       </Box>
