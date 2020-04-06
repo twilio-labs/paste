@@ -10,13 +10,27 @@ interface CodeblockProps {
   scope: {};
   language?: Language;
   disabled?: boolean;
+  noInline?: boolean;
 }
 
 // FIXME use tokens for theme and LiveEditor
-const LivePreview: React.FC<CodeblockProps> = ({children, language = 'jsx', scope, disabled = false}) => {
+const LivePreview: React.FC<CodeblockProps> = ({
+  children,
+  language = 'jsx',
+  scope,
+  disabled = false,
+  noInline = false,
+}) => {
   return (
     <Box marginBottom="space110">
-      <LiveProvider code={children} scope={scope} language={language} theme={CodeblockTheme} disabled={disabled}>
+      <LiveProvider
+        code={children}
+        scope={scope}
+        language={language}
+        theme={CodeblockTheme}
+        disabled={disabled}
+        noInline={noInline}
+      >
         <Box
           paddingLeft="space50"
           paddingRight="space50"
