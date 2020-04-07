@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@3.1.0...@twilio-paste/theme@3.1.1) (2020-04-07)
+
+
+### Bug Fixes
+
+* **theme:** export theme base styles to be reusable ([28f04af](https://github.com/twilio-labs/paste/commit/28f04af18bdf4ab00d48cd522968dc27edfc22ad))
+
+
+
+
+
 # [3.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@3.0.8...@twilio-paste/theme@3.1.0) (2020-03-24)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@1.1.13...@twilio-paste/heading@1.2.0) (2020-04-07)
+
+
+### Features
+
+* **heading:** allow for adding html attributes ([b290a82](https://github.com/twilio-labs/paste/commit/b290a82088f39d00063137fba31075bc11e0afc2))
+
+
+
+
+
 ## [1.1.13](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@1.1.12...@twilio-paste/heading@1.1.13) (2020-04-07)
 
 

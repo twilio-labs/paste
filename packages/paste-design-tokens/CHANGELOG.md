@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@4.3.0...@twilio-paste/design-tokens@4.4.0) (2020-04-07)
+
+
+### Features
+
+* **design-tokens:** add overlay background token, switch to rgb colors ([d9f783b](https://github.com/twilio-labs/paste/commit/d9f783b5d46767ab2d433f5619b71fe98c0092fa))
+
+
+
+
+
 # [4.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@4.2.0...@twilio-paste/design-tokens@4.3.0) (2020-03-11)
 
 
