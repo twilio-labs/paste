@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.2.6...@twilio-paste/box@2.2.7) (2020-04-07)
+
+
+### Bug Fixes
+
+* **box:** add missing invalid, indeterminate, checked pseudo selectors ([a2d1f28](https://github.com/twilio-labs/paste/commit/a2d1f2887ae66a687195c914256949a3180a17d9))
+
+
+
+
+
 ## [2.2.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.2.5...@twilio-paste/box@2.2.6) (2020-04-02)
 
 **Note:** Version bump only for package @twilio-paste/box

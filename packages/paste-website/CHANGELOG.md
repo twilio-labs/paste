@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.15.9...@twilio-paste/website@1.15.10) (2020-04-07)
+
+
+### Bug Fixes
+
+* **website:** change textColor references to color ([eca7434](https://github.com/twilio-labs/paste/commit/eca7434b2c3621f4565e0423d06283433f235a3d))
+
+
+
+
+
 ## [1.15.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.15.8...@twilio-paste/website@1.15.9) (2020-04-02)
 
 **Note:** Version bump only for package @twilio-paste/website

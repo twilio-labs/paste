@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.21](https://github.com/twilio-labs/paste/compare/@twilio-paste/list@0.1.20...@twilio-paste/list@0.1.21) (2020-04-07)
+
+
+### Bug Fixes
+
+* **list:** use color prop, update tests and snapshots ([48bbeaf](https://github.com/twilio-labs/paste/commit/48bbeaf42cb81921b67f2747596c587731779e83))
+
+
+
+
+
 ## [0.1.20](https://github.com/twilio-labs/paste/compare/@twilio-paste/list@0.1.19...@twilio-paste/list@0.1.20) (2020-04-02)
 
 **Note:** Version bump only for package @twilio-paste/list

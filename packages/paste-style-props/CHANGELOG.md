@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@0.2.3...@twilio-paste/style-props@1.0.0) (2020-04-07)
+
+
+### Bug Fixes
+
+* **style-props:** change textColor to color ([2af1ee7](https://github.com/twilio-labs/paste/commit/2af1ee79ebde015ee1fc916b8ff42966932b4679))
+
+
+### BREAKING CHANGES
+
+* **style-props:** `textColor` has been changed to `color` in the typogrophy props.
+
+
+
+
+
 ## [0.2.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@0.2.2...@twilio-paste/style-props@0.2.3) (2020-04-02)
 
 

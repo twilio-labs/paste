@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.13](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@1.1.12...@twilio-paste/heading@1.1.13) (2020-04-07)
+
+
+### Bug Fixes
+
+* **heading:** use color prop, update snapshots ([2027f75](https://github.com/twilio-labs/paste/commit/2027f756e534842b13ba067eac680f70bb709d34))
+
+
+
+
+
 ## [1.1.12](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@1.1.11...@twilio-paste/heading@1.1.12) (2020-04-02)
 
 **Note:** Version bump only for package @twilio-paste/heading

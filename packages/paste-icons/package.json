@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/icons",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Twilio's icon library, ready for use and with accessibility considerations",
   "author": "Twilio Inc.",
   "license": "MIT",
@@ -28,7 +28,7 @@
   "peerDependencies": {
     "@emotion/styled": "^10.0.10",
     "@twilio-paste/design-tokens": "^4.3.0",
-    "@twilio-paste/style-props": "^0.2.3",
+    "@twilio-paste/style-props": "^1.0.0",
     "@twilio-paste/theme": "^3.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -46,7 +46,7 @@
     "@svgr/plugin-svgo": "^4.0.3",
     "@twilio-labs/svg-to-react": "^2.0.0",
     "@twilio-paste/design-tokens": "^4.3.0",
-    "@twilio-paste/style-props": "^0.2.3",
+    "@twilio-paste/style-props": "^1.0.0",
     "@twilio-paste/theme": "^3.1.0",
     "commander": "^2.20.0",
     "lodash.difference": "^4.5.0",
