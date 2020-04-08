@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@1.2.0...@twilio-paste/heading@1.2.1) (2020-04-08)
+
+
+### Bug Fixes
+
+* **heading:** package dependencies updated to be correct ([6c20d9d](https://github.com/twilio-labs/paste/commit/6c20d9d69969f11db38500f4b82a583b6e5d7bd4))
+
+
+
+
+
 # [1.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@1.1.13...@twilio-paste/heading@1.2.0) (2020-04-07)
 
 

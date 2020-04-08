@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.29](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@1.1.28...@twilio-paste/spinner@1.1.29) (2020-04-08)
+
+
+### Bug Fixes
+
+* **spinner:** package dependencies updated to be correct ([05b7f6a](https://github.com/twilio-labs/paste/commit/05b7f6a9a2a086e3c0a70038fb7fab7770355de0))
+
+
+
+
+
 ## [1.1.28](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@1.1.27...@twilio-paste/spinner@1.1.28) (2020-04-07)
 
 **Note:** Version bump only for package @twilio-paste/spinner

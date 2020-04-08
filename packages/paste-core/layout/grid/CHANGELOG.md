@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.16](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.2.15...@twilio-paste/grid@0.2.16) (2020-04-08)
+
+
+### Bug Fixes
+
+* **grid:** package dependencies updated to be correct ([9999554](https://github.com/twilio-labs/paste/commit/9999554069e1b9e2beb0d58509427001a60a9262))
+
+
+
+
+
 ## [0.2.15](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.2.14...@twilio-paste/grid@0.2.15) (2020-04-07)
 
 **Note:** Version bump only for package @twilio-paste/grid

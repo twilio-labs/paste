@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.15](https://github.com/twilio-labs/paste/compare/@twilio-paste/media-object@1.2.14...@twilio-paste/media-object@1.2.15) (2020-04-08)
+
+
+### Bug Fixes
+
+* **media-object:** package dependencies updated to be correct ([02b4640](https://github.com/twilio-labs/paste/commit/02b4640897f78aed7d898247a16d5e7133c15b49))
+
+
+
+
+
 ## [1.2.14](https://github.com/twilio-labs/paste/compare/@twilio-paste/media-object@1.2.13...@twilio-paste/media-object@1.2.14) (2020-04-07)
 
 **Note:** Version bump only for package @twilio-paste/media-object

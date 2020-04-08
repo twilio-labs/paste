@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.18](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.3.17...@twilio-paste/core@2.3.18) (2020-04-08)
+
+
+### Bug Fixes
+
+* **core:** include the modal package ([2885a73](https://github.com/twilio-labs/paste/commit/2885a73f9ff3b4df138b24cf79f36b404153fc56))
+
+
+
+
+
 ## [2.3.17](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.3.16...@twilio-paste/core@2.3.17) (2020-04-07)
 
 **Note:** Version bump only for package @twilio-paste/core

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.2.8...@twilio-paste/box@2.2.9) (2020-04-08)
+
+
+### Bug Fixes
+
+* **box:** package dependencies updated to be correct ([87f302a](https://github.com/twilio-labs/paste/commit/87f302ad26d33361e4daf54b4d6f0c1480b23138))
+
+
+
+
+
 ## [2.2.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.2.7...@twilio-paste/box@2.2.8) (2020-04-07)
 
 **Note:** Version bump only for package @twilio-paste/box
