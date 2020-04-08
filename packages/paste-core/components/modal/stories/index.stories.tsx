@@ -200,6 +200,135 @@ storiesOf('Components|Modal', module)
       </div>
     );
   })
+  .add('Overflowing body content', () => {
+    const [isOpen, setIsOpen] = React.useState(true);
+    const handleOpen = (): void => setIsOpen(true);
+    const handleClose = (): void => setIsOpen(false);
+    const modalHeadingID = useUID();
+
+    return (
+      <div>
+        <Button variant="primary" onClick={handleOpen}>
+          Open
+        </Button>
+        <Modal ariaLabelledby={modalHeadingID} isOpen={isOpen} onDismiss={handleClose} size="default">
+          <ModalHeader>
+            <ModalHeading as="h3" id={modalHeadingID}>
+              Edit Account Details
+            </ModalHeading>
+          </ModalHeader>
+          <ModalBody>
+            <Heading as="h2" variant="heading40">
+              Modal heading
+            </Heading>
+            <Paragraph>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis
+              in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis
+              interdum.
+            </Paragraph>
+            <Paragraph>
+              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec
+              ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit. Etiam
+              porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+              venenatis vestibulum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem
+              malesuada magna mollis euismod.
+            </Paragraph>
+            <Paragraph>
+              Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+            </Paragraph>
+            <Paragraph>
+              Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+              condimentum nibh, ut fermentum massa justo sit amet risus. Nullam id dolor id nibh ultricies vehicula ut
+              id elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius
+              blandit sit amet non magna.
+            </Paragraph>
+            <Paragraph>
+              Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
+              risus. Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor. Aenean
+              lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+              vestibulum.
+            </Paragraph>
+            <Paragraph>
+              Maecenas faucibus mollis interdum. Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas
+              eget quam. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam quis risus eget urna
+              mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac
+              consectetur ac, vestibulum at eros.
+            </Paragraph>
+            <Paragraph>
+              Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor
+              fringilla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed
+              posuere consectetur est at lobortis. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+            </Paragraph>
+            <Paragraph>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis
+              in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis
+              interdum.
+            </Paragraph>
+            <Paragraph>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis
+              in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis
+              interdum.
+            </Paragraph>
+            <Paragraph>
+              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec
+              ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit. Etiam
+              porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+              venenatis vestibulum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem
+              malesuada magna mollis euismod.
+            </Paragraph>
+            <Paragraph>
+              Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+            </Paragraph>
+            <Paragraph>
+              Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+              condimentum nibh, ut fermentum massa justo sit amet risus. Nullam id dolor id nibh ultricies vehicula ut
+              id elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius
+              blandit sit amet non magna.
+            </Paragraph>
+            <Paragraph>
+              Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
+              risus. Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor. Aenean
+              lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+              vestibulum.
+            </Paragraph>
+            <Paragraph>
+              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec
+              ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit. Etiam
+              porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+              venenatis vestibulum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem
+              malesuada magna mollis euismod.
+            </Paragraph>
+            <Paragraph>
+              Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+            </Paragraph>
+            <Paragraph>
+              Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+              condimentum nibh, ut fermentum massa justo sit amet risus. Nullam id dolor id nibh ultricies vehicula ut
+              id elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius
+              blandit sit amet non magna.
+            </Paragraph>
+            <Paragraph>
+              Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
+              risus. Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor. Aenean
+              lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+              vestibulum.
+            </Paragraph>
+          </ModalBody>
+          <ModalFooter>
+            <ModalFooterActions>
+              <Button variant="secondary" onClick={handleClose}>
+                Cancel
+              </Button>
+              <Button variant="primary">Submit</Button>
+            </ModalFooterActions>
+          </ModalFooter>
+        </Modal>
+      </div>
+    );
+  })
   .add('Header content', () => {
     const [isOpen, setIsOpen] = React.useState(true);
     const handleOpen = (): void => setIsOpen(true);
