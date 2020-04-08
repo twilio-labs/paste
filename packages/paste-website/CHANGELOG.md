@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.13](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.15.12...@twilio-paste/website@1.15.13) (2020-04-08)
+
+
+### Bug Fixes
+
+* **website:** minor text changes for textarea doc ([#374](https://github.com/twilio-labs/paste/issues/374)) ([54fc6f0](https://github.com/twilio-labs/paste/commit/54fc6f038dba48a5ca747545db310721ac3d7719))
+
+
+
+
+
 ## [1.15.12](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.15.11...@twilio-paste/website@1.15.12) (2020-04-08)
 
 **Note:** Version bump only for package @twilio-paste/website
