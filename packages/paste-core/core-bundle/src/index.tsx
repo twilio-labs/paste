@@ -11,6 +11,7 @@ export * from '@twilio-paste/grid';
 export * from '@twilio-paste/heading';
 export * from '@twilio-paste/list';
 export * from '@twilio-paste/media-object';
+export * from '@twilio-paste/modal';
 export * from '@twilio-paste/modal-dialog-primitive';
 export * from '@twilio-paste/paragraph';
 export * from '@twilio-paste/screen-reader-only';
