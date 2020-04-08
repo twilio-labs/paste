@@ -18,7 +18,13 @@
       "path": "../../layout/flex"
     },
     {
+      "path": "../../../paste-icons"
+    },
+    {
       "path": "../../../paste-style-props"
+    },
+    {
+      "path": "../../primitives/text"
     },
     {
       "path": "../../../paste-theme"
