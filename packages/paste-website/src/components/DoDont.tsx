@@ -57,6 +57,7 @@ const Item: React.FC<DoProps> = ({center = false, ...props}) => {
         borderLeftWidth="borderWidth10"
         borderColor="colorBorderLight"
         display={props.children == null ? 'none' : 'block'}
+        overflowY="auto"
       >
         <AspectRatio ratio="4:3">{preview}</AspectRatio>
       </Box>
