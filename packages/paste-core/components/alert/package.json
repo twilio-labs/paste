@@ -54,6 +54,7 @@
     "@emotion/styled": "^10.0.14",
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
+    "@styled-system/css": "^5.1.5",
     "@styled-system/theme-get": "^5.1.2",
     "@twilio-paste/absolute": "^2.0.27",
     "@twilio-paste/box": "^2.2.8",
