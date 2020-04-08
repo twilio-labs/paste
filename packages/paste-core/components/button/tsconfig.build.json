@@ -28,6 +28,9 @@
     },
     {
       "path": "../../../paste-theme"
+    },
+    {
+      "path": "../../../paste-types"
     }
   ]
 }
