@@ -24,6 +24,9 @@
       "path": "../../layout/flex"
     },
     {
+      "path": "../heading"
+    },
+    {
       "path": "../../../paste-icons"
     },
     {
@@ -34,6 +37,9 @@
     },
     {
       "path": "../../../paste-style-props"
+    },
+    {
+      "path": "../../primitives/text"
     },
     {
       "path": "../../../paste-theme"
