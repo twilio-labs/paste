@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.17](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.15.16...@twilio-paste/website@1.15.17) (2020-04-09)
+
+
+### Bug Fixes
+
+* **website:** include more details around loading the Whitney font ([#382](https://github.com/twilio-labs/paste/issues/382)) ([41d5005](https://github.com/twilio-labs/paste/commit/41d5005f4c9874c11f72cb4d9be29ccf812dbf16))
+
+
+
+
+
 ## [1.15.16](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.15.15...@twilio-paste/website@1.15.16) (2020-04-09)
 
 **Note:** Version bump only for package @twilio-paste/website
