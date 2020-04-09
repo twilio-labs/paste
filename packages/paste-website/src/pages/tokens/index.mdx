@@ -7,11 +7,16 @@ import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
+import {Blockquote} from '../../components/Blockquote';
 import {TokensList} from '../../components/tokens-list';
 
 # Design Tokens
 
-Paste is using tokens as part of the design system. Tokens allow us to have a consistent yet agnostic naming convention completely devoid from the actual face value. Replacing the need to set hardcoded values (like hex codes, font sizes, or border thickness) affords us the opportunity to develop a scalable and consistent visual language that can be used across different platforms and Business Units (BUs). This allows design and engineering to work synchronously and efficiently.
+<Blockquote name="Salesforce UX" source="Lightning Design System" sourceUrl="https://www.lightningdesignsystem.com/design-tokens/">
+  Design tokens are the visual design atoms of the design system — specifically, they are named entities that store visual design attributes.
+</Blockquote>
+
+Tokens are named for their use case, rather than their value. For example `$color-background-error` is named to indicate the appropriate background color for an error, as opposed to `$color-background-red` which is less specific and could be used in a number of ways depending on cultural context and design language. This makes their intended use clear and intentional, and allows us to develop a scalable and consistent visual language.
 
 In Paste, **1 rem unit = 16 pixels**.
 
