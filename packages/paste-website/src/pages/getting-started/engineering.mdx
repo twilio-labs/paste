@@ -234,10 +234,20 @@ in and cause some havoc. Make sure to thoroughly test Paste components to verify
 ### Fonts
 
 Paste leaves it up to you to load the fonts needed for the theme you've selected. Console uses Whitney ScreenSmart
-and SendGrid uses Colfax.
+and SendGrid uses Colfax. More often than not you are working within existing SendGrid and Twilio Console applications
+and these fonts are automatically loaded for you.
+
+#### Special note on Whitney
 
 The Whitney font is loaded by the Typography.com service and is only allowed on *.twilio.com domains as well as localhost.
 Make sure to serve your app from the correct hostname if you're having issues with font loading.
+
+If you are not working in an existing Twilio Console experience, you can include the following link element in your sites `head`
+to load these fonts if you are serving your application from *.twilio.com domains.
+
+```
+<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6230892/752864/css/fonts.css">
+```
 
 ## Sandbox
 
