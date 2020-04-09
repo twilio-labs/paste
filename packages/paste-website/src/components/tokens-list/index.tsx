@@ -11,6 +11,7 @@ import {InlineCode} from '../Typography';
 import {AnchoredHeading} from '../Heading';
 import {useActiveSiteTheme} from '../../context/ActiveSiteThemeContext';
 import {Callout, CalloutTitle, CalloutText} from '../callout';
+import {SiteLink} from '../SiteLink';
 
 const sentenceCase = (catName: string): string => {
   return catName
@@ -56,7 +57,9 @@ const getTokensByTheme = (theme: ThemeVariants, props: TokensListProps): TokenCa
         <CalloutTitle as="h4">Heads up about fonts in Paste!</CalloutTitle>
         <CalloutText>
           Paste leaves it up to you to load the fonts needed for the theme you&apos;ve selected. Console uses Whitney
-          ScreenSmart and SendGrid uses Colfax
+          ScreenSmart and SendGrid uses Colfax. Checkout the{' '}
+          <SiteLink to="/getting-started/engineering/#fonts">font section</SiteLink> in the getting started guide for
+          more details.
         </CalloutText>
       </Callout>
     );
