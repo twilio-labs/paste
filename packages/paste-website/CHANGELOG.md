@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.15.18...@twilio-paste/website@1.16.0) (2020-04-10)
+
+
+### Features
+
+* remove "close icon" sizing note ([#377](https://github.com/twilio-labs/paste/issues/377)) ([01ddbc6](https://github.com/twilio-labs/paste/commit/01ddbc6382f9b55b639161b4d295241ed22f8fe7))
+
+
+
+
+
 ## [1.15.18](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.15.17...@twilio-paste/website@1.15.18) (2020-04-09)
 
 **Note:** Version bump only for package @twilio-paste/website
