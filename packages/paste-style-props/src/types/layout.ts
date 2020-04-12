@@ -4,10 +4,10 @@ import {ThemeShape} from '@twilio-paste/theme';
 import {ResponsiveValue, TLengthStyledSystem} from 'styled-system';
 
 // Tokens
-export type WidthOptions = keyof ThemeShape['widths'] | '100%';
+export type WidthOptions = keyof ThemeShape['widths'] | '100%' | 'auto';
 export type MinWidthOptions = keyof ThemeShape['minWidths'];
 export type MaxWidthOptions = keyof ThemeShape['maxWidths'];
-export type HeightOptions = keyof ThemeShape['heights'];
+export type HeightOptions = keyof ThemeShape['heights'] | '100%' | 'auto';
 export type MinHeightOptions = keyof ThemeShape['minHeights'];
 export type MaxHeightOptions = keyof ThemeShape['maxHeights'];
 export type IconSizeOptions = keyof ThemeShape['iconSizes'];
