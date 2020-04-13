@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.16.2...@twilio-paste/website@1.16.3) (2020-04-13)
+
+
+### Bug Fixes
+
+* **docs:** Change instances of "helper" to "help" on form components ([#384](https://github.com/twilio-labs/paste/issues/384)) ([e9b7e43](https://github.com/twilio-labs/paste/commit/e9b7e43b7bacc75220faf99ad110fa21b2e0a76c))
+
+
+
+
+
 ## [1.16.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.16.1...@twilio-paste/website@1.16.2) (2020-04-13)
 
 **Note:** Version bump only for package @twilio-paste/website
