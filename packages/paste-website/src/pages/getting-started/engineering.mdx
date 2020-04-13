@@ -69,6 +69,10 @@ Install the following dependencies using yarn:
       <td>{Package.dependencies['react-dom']}</td>
     </tr>
     <tr>
+      <td>prop-types</td>
+      <td>{Package.dependencies['prop-types']}</td>
+    </tr>
+    <tr>
       <td>react-uid</td>
       <td>{Package.dependencies['react-uid']}</td>
     </tr>
@@ -88,11 +92,15 @@ Install the following dependencies using yarn:
       <td>@styled-system/theme-get</td>
       <td>{Package.dependencies['@styled-system/theme-get']}</td>
     </tr>
+    <tr>
+      <td>@styled-system/css</td>
+      <td>{Package.dependencies['@styled-system/css']}</td>
+    </tr>
   </tbody>
 </table>
 
 ```shell
-yarn add react react-dom @emotion/core @emotion/styled styled-system @styled-system/theme-get react-uid
+yarn add react react-dom prop-types react-uid @emotion/core @emotion/styled styled-system @styled-system/theme-get @styled-system/css
 ```
 
 #### System packages
@@ -121,11 +129,15 @@ yarn add react react-dom @emotion/core @emotion/styled styled-system @styled-sys
       <td>@twilio-paste/theme</td>
       <td>{themeVersion}</td>
     </tr>
+    <tr>
+      <td>@twilio-paste/icons</td>
+      <td>{iconsVersion}</td>
+    </tr>
   </tbody>
 </table>
 
 ```shell
-yarn add @twilio-paste/types @twilio-paste/style-props @twilio-paste/design-tokens @twilio-paste/theme
+yarn add @twilio-paste/types @twilio-paste/style-props @twilio-paste/design-tokens @twilio-paste/theme @twilio-paste/icons
 ```
 
 #### Core package
