@@ -145,5 +145,8 @@
   },
   "engines": {
     "node": "10.x"
+  },
+  "resolutions": {
+    "typescript": "3.7.5"
   }
 }
