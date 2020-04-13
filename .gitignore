@@ -78,3 +78,6 @@ packages/**/docs
 package-lock.json
 tools/.cache/packages.json
 docs
+
+# Yarn cache files
+.yarn/cache/
