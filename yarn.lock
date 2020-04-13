@@ -2,24 +2,18 @@
 # yarn lockfile v1
 
 
-"@applitools/dom-snapshot@3.3.3":
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/@applitools/dom-snapshot/-/dom-snapshot-3.3.3.tgz#ee2d3269e169ed4ebf598fcdef9502021982210f"
-  integrity sha512-qGiYHPbMO6rp7zZKZ5idLLpesPBy9ZzYNOEzX3d6PE7grq2OV8D6V67miqG4GiQY1o5owSuG+ieIuWkGiQJSoA==
+"@applitools/dom-snapshot@3.4.2":
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/@applitools/dom-snapshot/-/dom-snapshot-3.4.2.tgz#6e6d1ff50a194de8e0156509c0592cdb66291af7"
+  integrity sha512-j5lxX+H/SNcYZR769baL5fN3TEjDlHiAWY2MohlVwDpafGAHUflVjthzbkdmRTxtvjQZ4ht8jlRkRtm4C9cQdA==
   dependencies:
     "@applitools/functional-commons" "^1.5.4"
+    css-tree "^1.0.0-alpha.39"
 
-"@applitools/dom-snapshot@^3.2.2":
-  version "3.3.5"
-  resolved "https://registry.yarnpkg.com/@applitools/dom-snapshot/-/dom-snapshot-3.3.5.tgz#d16ee69d0e0e70329eaaa063bbee49fc42864f53"
-  integrity sha512-/oDqAImcQUm8NCZI+XWtaKPW6WvTPn6wqTm7MYH+xcdvulDCGTjoxutmgPIrcn4RDH0RY1q40xaKrqqhw7KtqQ==
-  dependencies:
-    "@applitools/functional-commons" "^1.5.4"
-
-"@applitools/eyes-common@3.20.1", "@applitools/eyes-common@^3.17.2":
-  version "3.20.1"
-  resolved "https://registry.yarnpkg.com/@applitools/eyes-common/-/eyes-common-3.20.1.tgz#8c5047fcf0359fada2a73f109f32b68f4bc84aba"
-  integrity sha512-biGqtXa7veCvUfufox2xGLkNRy1mW1mmeB10tsRfcxplPCnRT2iFpi2hynWDsbIUCyGYsx4wJwiALu9sOKfM/w==
+"@applitools/eyes-common@3.20.2":
+  version "3.20.2"
+  resolved "https://registry.yarnpkg.com/@applitools/eyes-common/-/eyes-common-3.20.2.tgz#435c3c05a2509952b242031cc276d5004bd1b9d3"
+  integrity sha512-UwpZB99bXn+cYC4IRcfQzS/SFmbSIJO0Qh5DaLO59NphzIcvLEEWND9o8t2o3dF3l9Qpd0ir3YXLamQDopqA5Q==
   dependencies:
     cosmiconfig "^6.0.0"
     dateformat "^3.0.3"
@@ -28,41 +22,28 @@
     png-async "^0.9.4"
     stack-trace "^0.0.10"
 
-"@applitools/eyes-sdk-core@9.0.2":
-  version "9.0.2"
-  resolved "https://registry.yarnpkg.com/@applitools/eyes-sdk-core/-/eyes-sdk-core-9.0.2.tgz#1890d6d67304dc45e6a5bd0d650eae0ae427eac9"
-  integrity sha512-/J7ZghU7GLF86MXvEowsiTpw+PMf/OQK7k5xp+b5QnJ8NX5GyFsSyTyijqHaRWptvjA8/gZSno6bX5n85moxeQ==
+"@applitools/eyes-sdk-core@9.0.3":
+  version "9.0.3"
+  resolved "https://registry.yarnpkg.com/@applitools/eyes-sdk-core/-/eyes-sdk-core-9.0.3.tgz#bff1857dc369d2185ebd863e96608f838d5c6c25"
+  integrity sha512-urqAGiY8j4N+jHrj0nn+mo/89BW5bYjo5v9BWOpfOgHKgZuKd9GHWkT7OG/TXL8xDdCcFhFmYMwlZ4sxGYG28A==
   dependencies:
-    "@applitools/eyes-common" "3.20.1"
+    "@applitools/eyes-common" "3.20.2"
     "@applitools/isomorphic-fetch" "3.0.0"
     axios "0.19.2"
     chalk "3.0.0"
     es6-promise-pool "2.5.0"
     tunnel "0.0.6"
 
-"@applitools/eyes-sdk-core@^5.23.3":
-  version "5.25.0"
-  resolved "https://registry.yarnpkg.com/@applitools/eyes-sdk-core/-/eyes-sdk-core-5.25.0.tgz#540ff6a7a409f7191a02101ef342de718bbf76c6"
-  integrity sha512-JAHSGJ3nL/Po4sljvBfTLYY8cp02X7+t6lM+pY4EozfToi08vKyny8Ra453YmX3ozPGfdyngERBN3dw8SttSVQ==
+"@applitools/eyes-storybook@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@applitools/eyes-storybook/-/eyes-storybook-3.4.0.tgz#afdc11b4463f35aeb5561823b1f202282af39bc1"
+  integrity sha512-0Q2rSkgMTajj5u5KmXjVmGeHVGODk4MUFBBjFVzU99kE6+8dVWiRk5BslZEyLr6uberMBfOiu9JUJ3Jf1FH17w==
   dependencies:
-    "@applitools/eyes-common" "^3.17.2"
-    "@applitools/isomorphic-fetch" "^3.0.0"
-    "@applitools/sdk-fake-eyes-server" "^1.0.3"
-    axios "^0.19.0"
-    chalk "^3.0.0"
-    es6-promise-pool "^2.5.0"
-    tunnel "0.0.6"
-
-"@applitools/eyes-storybook@3.2.2":
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/@applitools/eyes-storybook/-/eyes-storybook-3.2.2.tgz#bd259cdcd59484d46cd1b67f676cb5bc1c07c041"
-  integrity sha512-j5HU1J2QNhbnmqSfStz1rctlFbXmOLUlsdjDBARkAvbMO0MhAlb2NSvg1/wtFiBqYPTjhvay4Ny9eSWPYhdfLw==
-  dependencies:
-    "@applitools/dom-snapshot" "^3.2.2"
-    "@applitools/eyes-sdk-core" "^5.23.3"
-    "@applitools/functional-commons" "^1.5.4"
-    "@applitools/monitoring-commons" "^1.0.15"
-    "@applitools/visual-grid-client" "^13.5.6"
+    "@applitools/dom-snapshot" "3.4.2"
+    "@applitools/eyes-sdk-core" "9.0.3"
+    "@applitools/functional-commons" "1.5.4"
+    "@applitools/monitoring-commons" "1.0.19"
+    "@applitools/visual-grid-client" "13.6.12"
     boxen "^4.2.0"
     chalk "^2.4.2"
     detect-port "^1.3.0"
@@ -94,7 +75,7 @@
     lodash.merge "^4.6.2"
     node-fetch "^2.6.0"
 
-"@applitools/isomorphic-fetch@3.0.0", "@applitools/isomorphic-fetch@^3.0.0":
+"@applitools/isomorphic-fetch@3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@applitools/isomorphic-fetch/-/isomorphic-fetch-3.0.0.tgz#3a3a838954b8b8bb89f1078e4f82b8c6bccaa884"
   integrity sha512-7rutaN/2M5wYjOIOTKS/Zuc1Na90fJNEAqvo/jCxt7nSD1kYscHV3aCk9t7RD59gmzLMvUTIxFbjl4RUMV8qfg==
@@ -134,32 +115,20 @@
     ws "^7.0.0"
     xml-name-validator "^3.0.0"
 
-"@applitools/monitoring-commons@^1.0.15":
+"@applitools/monitoring-commons@1.0.19", "@applitools/monitoring-commons@^1.0.15":
   version "1.0.19"
   resolved "https://registry.yarnpkg.com/@applitools/monitoring-commons/-/monitoring-commons-1.0.19.tgz#9b6b1062b26b54e4d333bd2854ddb22e698c8f5a"
   integrity sha512-rzEOvGoiEF4KnK0PJ9I0btdwnaNlIPLYhjF1vTEG15PoucbbKpix9fYusxWlDG7kMiZya8ZycVPc0woVlNaHRQ==
   dependencies:
     debug "^4.1.0"
 
-"@applitools/sdk-fake-eyes-server@^1.0.3":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@applitools/sdk-fake-eyes-server/-/sdk-fake-eyes-server-1.1.1.tgz#da3b2b5061d908c21868b0bc6a4ef97b2d74771f"
-  integrity sha512-JCEJFADGcMfUSysy2Wl6eCmspXCQmsHQhVbeRXv6bKVOjxrIHzHrh7z3/x8lu6t+P9+yWb83zSEp8MCkQc44BQ==
+"@applitools/visual-grid-client@13.6.12":
+  version "13.6.12"
+  resolved "https://registry.yarnpkg.com/@applitools/visual-grid-client/-/visual-grid-client-13.6.12.tgz#1cba580b698d82759c636a5ad672d3bf54dbc3f9"
+  integrity sha512-tOBEXi6h9aimhNE3qTU0dbJ0z/cZtm6Zuf9VkVqSZZZ/JpC7ShYqkL9MxBS+G+M6O9QLikGAPG4GTeoV8PI3cw==
   dependencies:
-    express "^4.17.1"
-    filenamify "^4.1.0"
-    node-fetch "^2.6.0"
-    ua-parser-js "^0.7.21"
-    uuid "^3.3.3"
-
-"@applitools/visual-grid-client@^13.5.6":
-  version "13.6.4"
-  resolved "https://registry.yarnpkg.com/@applitools/visual-grid-client/-/visual-grid-client-13.6.4.tgz#58fa8e5d699536a47a1ffe0d81007be8233394a7"
-  integrity sha512-zD5hE549/MEK02Z+VilSdPgkbgPl5LUutttAxpMXsvRYajdQkmOrqA9CcYMKhjzuckfdz48grAWEh0+vd8y+Dw==
-  dependencies:
-    "@applitools/dom-snapshot" "3.3.3"
-    "@applitools/eyes-common" "3.20.1"
-    "@applitools/eyes-sdk-core" "9.0.2"
+    "@applitools/dom-snapshot" "3.4.2"
+    "@applitools/eyes-sdk-core" "9.0.3"
     "@applitools/functional-commons" "1.5.4"
     "@applitools/http-commons" "2.3.12"
     "@applitools/isomorphic-fetch" "3.0.0"
@@ -8186,6 +8155,14 @@ css-tree@1.0.0-alpha.37:
     mdn-data "2.0.4"
     source-map "^0.6.1"
 
+css-tree@^1.0.0-alpha.39:
+  version "1.0.0-alpha.39"
+  resolved "https://registry.yarnpkg.com/css-tree/-/css-tree-1.0.0-alpha.39.tgz#2bff3ffe1bb3f776cf7eefd91ee5cba77a149eeb"
+  integrity sha512-7UvkEYgBAHRG9Nt980lYxjsTrCyHFN53ky3wVsDkiMdVqylqRt+Zc+jm5qw7/qyOvN2dHSYtX0e4MbCCExSvnA==
+  dependencies:
+    mdn-data "2.0.6"
+    source-map "^0.6.1"
+
 css-what@2.1:
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/css-what/-/css-what-2.1.3.tgz#a6d7604573365fe74686c3f311c56513d88285f2"
@@ -9546,7 +9523,7 @@ es6-iterator@^2.0.1, es6-iterator@^2.0.3, es6-iterator@~2.0.3:
     es5-ext "^0.10.35"
     es6-symbol "^3.1.1"
 
-es6-promise-pool@2.5.0, es6-promise-pool@^2.5.0:
+es6-promise-pool@2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/es6-promise-pool/-/es6-promise-pool-2.5.0.tgz#147c612b36b47f105027f9d2bf54a598a99d9ccb"
   integrity sha1-FHxhKza0fxBQJ/nSv1SlmKmdnMs=
@@ -10589,15 +10566,6 @@ filenamify@^2.0.0:
   dependencies:
     filename-reserved-regex "^2.0.0"
     strip-outer "^1.0.0"
-    trim-repeated "^1.0.0"
-
-filenamify@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/filenamify/-/filenamify-4.1.0.tgz#54d110810ae74eebfe115c1b995bd07e03cf2184"
-  integrity sha512-KQV/uJDI9VQgN7sHH1Zbk6+42cD6mnQ2HONzkXUfPJ+K2FC8GZ1dpewbbHw0Sz8Tf5k3EVdHVayM4DoAwWlmtg==
-  dependencies:
-    filename-reserved-regex "^2.0.0"
-    strip-outer "^1.0.1"
     trim-repeated "^1.0.0"
 
 filesize@3.5.11:
@@ -15922,6 +15890,11 @@ mdn-data@2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.4.tgz#699b3c38ac6f1d728091a64650b65d388502fd5b"
   integrity sha512-iV3XNKw06j5Q7mi6h+9vbx23Tv7JkjEVgKHW4pimwyDGWm0OIQntJJ+u1C6mg6mK1EaTv42XQ7w76yuzH7M2cA==
+
+mdn-data@2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.6.tgz#852dc60fcaa5daa2e8cf6c9189c440ed3e042978"
+  integrity sha512-rQvjv71olwNHgiTbfPZFkJtjNMciWgswYeciZhtvWLO8bmX3TnhyA62I6sTWOyZssWHJJjY6/KiWwqQsWWsqOA==
 
 mdurl@^1.0.1:
   version "1.0.1"
@@ -21643,7 +21616,7 @@ strip-json-comments@^3.0.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-3.0.1.tgz#85713975a91fb87bf1b305cca77395e40d2a64a7"
   integrity sha512-VTyMAUfdm047mwKl+u79WIdrZxtFtn+nBxHeb844XBQ9uMNTuTHdx2hc5RiAJYqwTj3wc/xe5HLSdJSkJ+WfZw==
 
-strip-outer@^1.0.0, strip-outer@^1.0.1:
+strip-outer@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/strip-outer/-/strip-outer-1.0.1.tgz#b2fd2abf6604b9d1e6013057195df836b8a9d631"
   integrity sha512-k55yxKHwaXnpYGsOzg4Vl8+tDrWylxDEpknGjhTiZB8dFRU5rTo9CAzeycivxV3s+zlTKwrs6WxMxR95n26kwg==
@@ -22488,7 +22461,7 @@ ua-parser-js@0.7.17:
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.17.tgz#e9ec5f9498b9ec910e7ae3ac626a805c4d09ecac"
   integrity sha512-uRdSdu1oA1rncCQL7sCj8vSyZkgtL7faaw9Tc9rZ3mGgraQ7+Pdx7w5mnOSF3gw9ZNG6oc+KXfkon3bKuROm0g==
 
-ua-parser-js@^0.7.18, ua-parser-js@^0.7.21:
+ua-parser-js@^0.7.18:
   version "0.7.21"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.21.tgz#853cf9ce93f642f67174273cc34565ae6f308777"
   integrity sha512-+O8/qh/Qj8CgC6eYBVBykMrNtp5Gebn4dlGD/kKXVkJNDwyrAwSIqwz8CDf+tsAIWVycKcku6gIXJ0qwx/ZXaQ==
@@ -23064,7 +23037,7 @@ utils-merge@1.0.1:
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
-uuid@3.4.0, uuid@^3.0.0, uuid@^3.0.1, uuid@^3.3.2, uuid@^3.3.3, uuid@^3.4.0:
+uuid@3.4.0, uuid@^3.0.0, uuid@^3.0.1, uuid@^3.3.2, uuid@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
