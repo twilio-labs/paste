@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.16.0...@twilio-paste/website@1.16.1) (2020-04-13)
+
+
+### Bug Fixes
+
+* **website:** add overflow-y to do/dont Box ([#376](https://github.com/twilio-labs/paste/issues/376)) ([4684e42](https://github.com/twilio-labs/paste/commit/4684e429ed6f1fba2ff49fbffa4c4d95b00a31e5))
+
+
+
+
+
 # [1.16.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.15.18...@twilio-paste/website@1.16.0) (2020-04-10)
 
 
