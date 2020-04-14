@@ -9,9 +9,9 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Separator} from '@twilio-paste/separator';
 import {SiteWrapper} from '../components/site-wrapper';
 import {Grid} from '../components/grid';
-import {StyledHr} from '../components/StyledHr';
 import {P} from '../components/Typography';
 import {Brush} from '../components/icons/Brush';
 import {Terminal} from '../components/icons/Terminal';
@@ -91,7 +91,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
           </Button>
         </Box>
       </LandingContainer>
-      <StyledHr />
+      <Separator orientation="horizontal" />
       <LandingContainer marginTop="space200" marginBottom="space200" maxWidth="size100">
         <Callout>
           <CalloutTitle as="h4">Looking for Flex / Console / SendGrid design systems?</CalloutTitle>

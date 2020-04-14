@@ -5,10 +5,10 @@ import {Anchor, AnchorProps} from '@twilio-paste/anchor';
 import {Heading, HeadingProps} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {OrderedList, UnorderedList, ListItem} from '@twilio-paste/list';
+import {Separator, SeparatorProps} from '@twilio-paste/separator';
 import {Codeblock, CodeblockProps} from '../codeblock';
 import {Table, Tbody, Tr, Th, Td} from '../table';
 import {AnchoredHeading} from '../Heading';
-import {StyledHr} from '../StyledHr';
 import {InlineCode, Pre} from '../Typography';
 // Shortcode imports
 import {ComponentHeader} from '../shortcodes/component-header';
@@ -73,7 +73,9 @@ export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMD
         em: (props: React.ComponentProps<'em'>): React.ReactElement => <em {...props} />,
         strong: (props: React.ComponentProps<'strong'>): React.ReactElement => <strong {...props} />,
         del: (props: React.ComponentProps<'del'>): React.ReactElement => <del {...props} />,
-        hr: (props: React.ComponentProps<'hr'>): React.ReactElement => <StyledHr {...props} />,
+        hr: (props: SeparatorProps): React.ReactElement => (
+          <Separator orientation="horizontal" verticalSpacing="space70" {...props} />
+        ),
         a: (props: AnchorProps): React.ReactElement => <Anchor {...props} />, // eslint-disable-line jsx-a11y/anchor-has-content
         img: (props: React.ComponentProps<'img'>): React.ReactElement => <img {...props} />, // eslint-disable-line jsx-a11y/alt-text
         sup: (props: React.ComponentProps<'sup'>): React.ReactElement => <StyledSup {...props} />,
