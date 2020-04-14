@@ -28,6 +28,7 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
+    "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.10",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
