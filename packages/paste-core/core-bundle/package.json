@@ -44,6 +44,7 @@
     "@twilio-paste/modal-dialog-primitive": "^0.1.2",
     "@twilio-paste/paragraph": "^1.0.28",
     "@twilio-paste/screen-reader-only": "^1.1.8",
+    "@twilio-paste/separator": "^0.0.0",
     "@twilio-paste/spinner": "^1.1.29",
     "@twilio-paste/text": "^2.0.2",
     "@twilio-paste/truncate": "^1.0.7"
