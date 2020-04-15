@@ -46,7 +46,7 @@
     "prettier-clean": "prettier --write '{.storybook,packages}/**/*.{ts,tsx}'",
     "lint": "yarn pre-test && eslint --ext .tsx,.ts ./packages/**",
     "type-check": "lerna run type-check",
-    "chroma": "chroma --build-script-name='build:storybook'"
+    "chroma": "chroma"
   },
   "dependencies": {
     "@emotion/core": "^10.0.10",
