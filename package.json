@@ -45,7 +45,8 @@
     "prettier": "prettier --list-different '{.storybook,packages}/**/*.{ts,tsx}'",
     "prettier-clean": "prettier --write '{.storybook,packages}/**/*.{ts,tsx}'",
     "lint": "yarn pre-test && eslint --ext .tsx,.ts ./packages/**",
-    "type-check": "lerna run type-check"
+    "type-check": "lerna run type-check",
+    "chroma": "chroma --build-script-name='build:storybook'"
   },
   "dependencies": {
     "@emotion/core": "^10.0.10",
@@ -131,6 +132,7 @@
     "regenerator-runtime": "^0.13.3",
     "require-context.macro": "^1.0.4",
     "shelljs": "^0.8.3",
+    "storybook-chroma": "^3.5.3",
     "storybook-readme": "^5.0.5",
     "typedoc": "^0.16.9",
     "typescript": "3.7.5",
