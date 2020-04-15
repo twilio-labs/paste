@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.16.4...@twilio-paste/website@1.16.5) (2020-04-15)
+
+
+### Bug Fixes
+
+* **modal docs:** swap alias names in Anatomy with token ([#391](https://github.com/twilio-labs/paste/issues/391)) ([a192585](https://github.com/twilio-labs/paste/commit/a1925850a7e08d4ae6c722a8b1c379b40cc0900c))
+
+
+
+
+
 ## [1.16.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.16.3...@twilio-paste/website@1.16.4) (2020-04-13)
 
 **Note:** Version bump only for package @twilio-paste/website
