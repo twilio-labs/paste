@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.0.1...@twilio-paste/style-props@1.1.0) (2020-04-15)
+
+
+### Features
+
+* **style-props:** add auto to heights and width types ([7e87160](https://github.com/twilio-labs/paste/commit/7e87160f83b439c6fcd026497629fb723017fe74))
+
+
+
+
+
 ## [1.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.0.0...@twilio-paste/style-props@1.0.1) (2020-04-07)
 
 **Note:** Version bump only for package @twilio-paste/style-props

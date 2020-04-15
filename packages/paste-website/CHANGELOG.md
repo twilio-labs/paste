@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.16.5...@twilio-paste/website@1.17.0) (2020-04-15)
+
+
+### Features
+
+* **website:** replace styled hr with separator component ([e735e61](https://github.com/twilio-labs/paste/commit/e735e61a7b2fb83f1e3aa547697f33d6477ed299))
+
+
+
+
+
 ## [1.16.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.16.4...@twilio-paste/website@1.16.5) (2020-04-15)
 
 

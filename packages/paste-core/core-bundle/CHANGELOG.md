@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.3.20...@twilio-paste/core@2.4.0) (2020-04-15)
+
+
+### Features
+
+* **core:** include the separator component into core ([ea43f58](https://github.com/twilio-labs/paste/commit/ea43f58de9aea6a6a222976f2f9a712e23991621))
+
+
+
+
+
 ## [2.3.20](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.3.19...@twilio-paste/core@2.3.20) (2020-04-15)
 
 **Note:** Version bump only for package @twilio-paste/core
