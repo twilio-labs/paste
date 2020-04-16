@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.17.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.17.1...@twilio-paste/website@1.17.2) (2020-04-16)
+
+
+### Bug Fixes
+
+* **docs:** remove todo callout in icons ([#378](https://github.com/twilio-labs/paste/issues/378)) ([12e8655](https://github.com/twilio-labs/paste/commit/12e86553d7f2e29ecebbfe7903113e3e92a01e6b))
+
+
+
+
+
 ## [1.17.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.17.0...@twilio-paste/website@1.17.1) (2020-04-16)
 
 **Note:** Version bump only for package @twilio-paste/website
