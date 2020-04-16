@@ -9,7 +9,7 @@ import Changelog from '@twilio-paste/modal-dialog-primitive/CHANGELOG.md';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutText} from '../../../components/callout';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import ModalDemo from './ModalDemo.tsx';
 
@@ -59,6 +59,13 @@ If you find that our designed Modal component can’t work for your particular u
 we suggest falling back to this component to roll your own solution. We encourage
 using this code as a basis for all modal dialogs in order to avoid code fragmentation
 and accessibility issues in our products.
+
+<Callout>
+  <CalloutTitle as="h4">Looking for Paste's styled Modal?</CalloutTitle>
+  <CalloutText>
+    Only use this primitive if you have a bespoke modal design. For most Twilio interfaces, we recommend using the <Anchor href="/components/modal">Paste Modal component</Anchor>.
+  </CalloutText>
+</Callout>
 
 ## Usage Guide
 
