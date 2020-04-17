@@ -5,5 +5,6 @@ imports:
 aliases:
   shadow-border-input: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-70}"
   shadow-border-input-hover: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-80}"
+  shadow-border-input-error: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-60}"
   shadow-border-input-error-hover: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-70}"
   shadow-border-input-disabled: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-40}"
