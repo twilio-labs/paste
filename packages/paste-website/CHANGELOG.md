@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.17.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.17.3...@twilio-paste/website@1.17.4) (2020-04-17)
+
+
+### Bug Fixes
+
+* remove mention of old Sketch icon templates ([#397](https://github.com/twilio-labs/paste/issues/397)) ([315f2ec](https://github.com/twilio-labs/paste/commit/315f2ec2c73b47ae5883ef18529e0bf0e0469a92))
+
+
+
+
+
 ## [1.17.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.17.2...@twilio-paste/website@1.17.3) (2020-04-17)
 
 **Note:** Version bump only for package @twilio-paste/website
