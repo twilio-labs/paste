@@ -66,7 +66,7 @@ exports[`Alert Variant error Should render an error alert 1`] = `
   display: inline-flex;
   width: 1.5rem;
   height: 1.5rem;
-  color: rgb(146,18,0);
+  color: rgb(226,37,37);
 }
 
 <div
@@ -280,7 +280,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
   display: inline-flex;
   width: 1.5rem;
   height: 1.5rem;
-  color: rgb(146,18,0);
+  color: rgb(226,37,37);
 }
 
 <div
@@ -806,7 +806,7 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
   display: inline-flex;
   width: 1.5rem;
   height: 1.5rem;
-  color: rgb(168,62,0);
+  color: rgb(228,98,22);
 }
 
 <div
@@ -1020,7 +1020,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
   display: inline-flex;
   width: 1.5rem;
   height: 1.5rem;
-  color: rgb(168,62,0);
+  color: rgb(228,98,22);
 }
 
 <div
