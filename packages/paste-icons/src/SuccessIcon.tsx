@@ -5,14 +5,14 @@ import * as React from 'react';
 import {UID} from 'react-uid';
 import {IconWrapper, IconWrapperProps} from './helpers/IconWrapper';
 
-export interface ErrorIconProps extends IconWrapperProps {
+export interface SuccessIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const ErrorIcon: React.FC<ErrorIconProps> = ({as, size, iconColor, title, decorative}) => {
+const SuccessIcon: React.FC<SuccessIconProps> = ({as, size, iconColor, title, decorative}) => {
   if (!decorative && title == null) {
-    throw new Error('[ErrorIcon]: Missing a title for non-decorative icon.');
+    throw new Error('[SuccessIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
@@ -24,7 +24,7 @@ const ErrorIcon: React.FC<ErrorIconProps> = ({as, size, iconColor, title, decora
             <path
               fill="currentColor"
               fillRule="evenodd"
-              d="M13.247 4.517l6.236 6.236a1.764 1.764 0 010 2.494l-6.236 6.236a1.764 1.764 0 01-2.494 0l-6.236-6.236a1.764 1.764 0 010-2.494l6.236-6.236a1.764 1.764 0 012.494 0zM12 14a1 1 0 100 2 1 1 0 000-2zm.01-5h-.02c-.604 0-1.073.592-.978 1.244l.428 2.238c.04.296.278.518.557.518h.006c.279 0 .516-.222.557-.518l.428-2.238c.095-.652-.367-1.237-.978-1.244z"
+              d="M12 4a8 8 0 110 16 8 8 0 010-16zm2.997 5c-.266 0-.521.106-.71.294l-3.286 3.294-1.289-1.298a1.003 1.003 0 00-1.418 1.418l1.998 1.997a1 1 0 001.418 0l3.996-3.994A1.002 1.002 0 0014.996 9z"
             />
           </svg>
         )}
@@ -33,5 +33,5 @@ const ErrorIcon: React.FC<ErrorIconProps> = ({as, size, iconColor, title, decora
   );
 };
 
-ErrorIcon.displayName = 'ErrorIcon';
-export {ErrorIcon};
+SuccessIcon.displayName = 'SuccessIcon';
+export {SuccessIcon};
