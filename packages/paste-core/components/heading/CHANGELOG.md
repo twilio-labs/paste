@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@1.2.2...@twilio-paste/heading@1.3.0) (2020-04-17)
+
+
+### Features
+
+* **components:** promote text components, spinner and primitive to prod ([5605adc](https://github.com/twilio-labs/paste/commit/5605adc99021be20dafd3fedfeb745490a50c7e7))
+
+
+
+
+
 ## [1.2.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@1.2.1...@twilio-paste/heading@1.2.2) (2020-04-15)
 
 **Note:** Version bump only for package @twilio-paste/heading

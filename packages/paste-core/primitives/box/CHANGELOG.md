@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.2.10...@twilio-paste/box@2.3.0) (2020-04-17)
+
+
+### Features
+
+* **components:** promote text components, spinner and primitive to prod ([5605adc](https://github.com/twilio-labs/paste/commit/5605adc99021be20dafd3fedfeb745490a50c7e7))
+
+
+
+
+
 ## [2.2.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.2.9...@twilio-paste/box@2.2.10) (2020-04-15)
 
 **Note:** Version bump only for package @twilio-paste/box

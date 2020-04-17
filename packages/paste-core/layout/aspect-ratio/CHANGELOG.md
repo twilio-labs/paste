@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.30](https://github.com/twilio-labs/paste/compare/@twilio-paste/aspect-ratio@1.0.29...@twilio-paste/aspect-ratio@1.0.30) (2020-04-17)
+
+**Note:** Version bump only for package @twilio-paste/aspect-ratio
+
+
+
+
+
 ## [1.0.29](https://github.com/twilio-labs/paste/compare/@twilio-paste/aspect-ratio@1.0.28...@twilio-paste/aspect-ratio@1.0.29) (2020-04-15)
 
 **Note:** Version bump only for package @twilio-paste/aspect-ratio
