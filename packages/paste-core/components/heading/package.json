@@ -2,7 +2,7 @@
   "name": "@twilio-paste/heading",
   "version": "1.2.2",
   "category": "typography",
-  "status": "beta",
+  "status": "production",
   "description": "Twilio's Heading component",
   "author": "Twilio Inc.",
   "license": "MIT",

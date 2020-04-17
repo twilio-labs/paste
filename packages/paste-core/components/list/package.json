@@ -2,7 +2,7 @@
   "name": "@twilio-paste/list",
   "version": "0.1.24",
   "category": "typography",
-  "status": "beta",
+  "status": "production",
   "description": "The list component is used to render text as a list of items.",
   "author": "Twilio Inc.",
   "license": "MIT",

@@ -2,7 +2,7 @@
   "name": "@twilio-paste/text",
   "version": "2.0.3",
   "category": "typography",
-  "status": "beta",
+  "status": "production",
   "description": "A primitive component that can be used to create all text styles in Paste",
   "author": "Twilio Inc.",
   "license": "MIT",
