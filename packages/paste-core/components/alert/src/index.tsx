@@ -47,9 +47,9 @@ export interface AlertProps {
 const renderAlertIcon = (variant: AlertVariants): React.ReactElement => {
   switch (variant) {
     case AlertVariants.ERROR:
-      return <ErrorIcon iconColor="colorTextErrorDark" decorative={false} title="error: " size="sizeIcon30" />;
+      return <ErrorIcon iconColor="colorTextError" decorative={false} title="error: " size="sizeIcon30" />;
     case AlertVariants.WARNING:
-      return <WarningIcon iconColor="colorTextWarningDark" decorative={false} title="warning: " size="sizeIcon30" />;
+      return <WarningIcon iconColor="colorTextWarning" decorative={false} title="warning: " size="sizeIcon30" />;
     case AlertVariants.NEUTRAL:
     default:
       return <InformationIcon iconColor="colorTextIcon" decorative={false} title="information: " size="sizeIcon30" />;
