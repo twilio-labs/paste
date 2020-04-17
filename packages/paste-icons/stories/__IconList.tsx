@@ -15,6 +15,7 @@ import {LoadingIcon} from '../src/LoadingIcon';
 import {MoreIcon} from '../src/MoreIcon';
 import {PlusIcon} from '../src/PlusIcon';
 import {ProductTwilioOrgIcon} from '../src/ProductTwilioOrgIcon';
+import {SuccessIcon} from '../src/SuccessIcon';
 import {UploadToCloudIcon} from '../src/UploadToCloudIcon';
 import {WarningIcon} from '../src/WarningIcon';
 
@@ -39,6 +40,7 @@ const IconList: React.FC<IconProps> = props => (
 <StoryIcon><MoreIcon {...props} /><Text as="p" textColor="currentColor">MoreIcon</Text></StoryIcon>
 <StoryIcon><PlusIcon {...props} /><Text as="p" textColor="currentColor">PlusIcon</Text></StoryIcon>
 <StoryIcon><ProductTwilioOrgIcon {...props} /><Text as="p" textColor="currentColor">ProductTwilioOrgIcon</Text></StoryIcon>
+<StoryIcon><SuccessIcon {...props} /><Text as="p" textColor="currentColor">SuccessIcon</Text></StoryIcon>
 <StoryIcon><UploadToCloudIcon {...props} /><Text as="p" textColor="currentColor">UploadToCloudIcon</Text></StoryIcon>
 <StoryIcon><WarningIcon {...props} /><Text as="p" textColor="currentColor">WarningIcon</Text></StoryIcon>
   </Grid>
