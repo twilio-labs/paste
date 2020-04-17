@@ -2,7 +2,7 @@
   "name": "@twilio-paste/box",
   "version": "2.2.10",
   "category": "layout",
-  "status": "beta",
+  "status": "production",
   "description": "A primitive component that can be used to create all block level styles in Paste",
   "author": "Twilio Inc.",
   "license": "MIT",
