@@ -51,31 +51,30 @@ Written for Sketch 59.1
 
 1. Open "paste icons.sketch".
 2. Go to the page "Symbols".
-3. Duplicate the empty template artboards ("[16/IconName](https://share.goabstract.com/26080d38-a95a-46b1-a0ad-aa4ddba4abb3)",
-   "[20/IconName](https://share.goabstract.com/96294d4e-50cc-4c7e-9cb9-b82a045fe970)", and "[24/IconName](https://share.goabstract.com/f51d0d18-67ce-4c02-8c44-5f8d390863d7)").
-   Make sure the artboards are aligned evenly on the canvas with the existing icon artboards.
-4. Turn the new artboards into symbols.
-5. In the artboard names, replace "IconName" with the name of your icon.
+3. Duplicate the empty template artboard "[IconName](https://share.goabstract.com/f51d0d18-67ce-4c02-8c44-5f8d390863d7)".
+   Make sure the new artboard is aligned evenly on the canvas with the existing icon artboards.
+4. Turn the new artboard into a symbol.
+5. In the artboard name, replace "IconName" with the name of your icon.
 
 
 <Callout>
    <CalloutTitle>How to name icon artboards in Sketch</CalloutTitle>
    <CalloutText>
       Use PascalCase. For an interface icon, give the icon a name that describes its 
-      purpose rather than its content. For example, "24/LinkExternal" instead of 
-      "24/ArrowUpRight". 
+      purpose rather than its content. For example, "LinkExternal" instead of 
+      "ArrowUpRight". 
    </CalloutText>
    <CalloutText>
       If you're adding an icon used to brand a product, name it 
-      "24/product/[ProductName][SubproductName (optional)]". For example: 
-      "24/product/CodeExchangeCommunity".
+      "product/[ProductName][SubproductName (optional)]". For example: 
+      "product/CodeExchangeCommunity".
    </CalloutText>
 </Callout>
 
 
 ## Using a Streamline icon
 
-1. Copy and paste the Streamline icon onto the 24px artboard.
+1. Copy and paste the Streamline icon onto your icon artboard.
 2. Select all the layers and make sure the border width is 1.
 3. Select the layer group. Lock the width-height aspect ratio. If the icon appears
    larger than the bounds of the artboard, shrink the icon down so that it's visually aligned with our default text size. Use the "icon tester" artboard on the Icon tester page in the Sketch file to help. Resizing the icon to 16–20 px usually works.
@@ -102,16 +101,12 @@ Written for Sketch 59.1
    right-of-center to account for the low visual weight on its right side.
 6. Make sure there are no transforms on the shape. If there are, go to "Layer > Combine > Flatten".
    ![Number of transforms preview](../../assets/images/icon-guide/formatting-an-icon-1.png)
-7. If you’re working on a Paste icon, place the "24/[IconName]" symbol on the
-   "20/[IconName]" and "16/[IconName]" artboards. Resize them to 20px × 20px and
-   16px × 16px respectively. Fix the size of the layer horizontally and vertically.
-   ![Example of how to size icons](../../assets/images/icon-guide/formatting-an-icon-3.png)
-8. Rename the layers to "icon".
+7. Rename the layers to "icon".
 
 ## Exporting the icon
 
 1. Make sure you have the [SVGO compressor Sketch plugin](https://www.sketch.com/extensions/plugins/svgo-compressor/) installed.
-2. Export the 24px icon artboard (not the combined shape) as an SVG. The template artboard
+2. Export the icon artboard (not the combined shape) as an SVG. The template artboard
    is already set up to do this.
 3. Make sure the SVG code is clean:
    1. You shouldn’t see `id`. If you do, make sure the SVGO compressor plugin is properly installed.
