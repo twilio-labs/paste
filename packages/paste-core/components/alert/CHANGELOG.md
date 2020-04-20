@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.34](https://github.com/twilio-labs/paste/compare/@twilio-paste/alert@0.1.33...@twilio-paste/alert@0.1.34) (2020-04-20)
+
+
+### Bug Fixes
+
+* **alert:** lighten the warning and error icons ([23ebc38](https://github.com/twilio-labs/paste/commit/23ebc3827d825c3fd1396605029cb81bad48a365))
+
+
+
+
+
 ## [0.1.33](https://github.com/twilio-labs/paste/compare/@twilio-paste/alert@0.1.32...@twilio-paste/alert@0.1.33) (2020-04-17)
 
 **Note:** Version bump only for package @twilio-paste/alert
