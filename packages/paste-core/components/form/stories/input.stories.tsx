@@ -2,10 +2,19 @@ import * as React from 'react';
 import {useUID} from 'react-uid';
 import {storiesOf} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
-import {withKnobs, boolean, text, select, array, object} from '@storybook/addon-knobs';
+import {withKnobs, boolean, text, select, array, number} from '@storybook/addon-knobs';
 import {Anchor} from '@twilio-paste/anchor';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {FormInput, FormLabel, FormHelpText, FormHelpTextVariants} from '../src';
+import {
+  FormInput,
+  FormLabel,
+  FormHelpText,
+  FormHelpTextVariants,
+  FormTextArea,
+  Select,
+  Option,
+  OptionGroup,
+} from '../src';
 import {FormInputTypes} from '../src/shared/types';
 
 import kebabCase from 'lodash/kebabCase';
@@ -238,7 +247,7 @@ storiesOf('Forms|Input', module)
   })
   .add('Input - Placeholder', () => {
     const uid = useUID();
-    const [value, setValue] = React.useState();
+    const [value, setValue] = React.useState('Input - Placeholder');
     return (
       <>
         <FormLabel htmlFor={uid}>Label</FormLabel>
@@ -401,45 +410,53 @@ storiesOf('Forms|Input', module)
   .add('Select Options', () => {
     const selectGroupId = 'select group';
     const optionGroup = (idx: Number) => `option group ${idx}`;
+    const id = text('id', 'select_input_field', selectGroupId);
+    const htmlFor = text('htmlFor', 'select_input_field', selectGroupId);
     const hasError = boolean('hasError', false, selectGroupId);
     const isDisabled = boolean('disabled', false, selectGroupId);
     const isRequired = boolean('required', false, selectGroupId);
     const isMultiple = boolean('multiple', false, selectGroupId);
-    const helpVariantValue = select('help variant', helpVariantOptions, 'default', selectGroupId) as FormHelpTextVariants;
+    const multiSelectSize = number('multiselect list size', 3, {}, selectGroupId);
+    const helpVariantValue = select(
+      'help variant',
+      helpVariantOptions,
+      'default',
+      selectGroupId
+    ) as FormHelpTextVariants;
+    const helpText = text('help text', 'Info that helps a user with this field.', selectGroupId);
     const [value, setValue] = React.useState('Select Options');
+    const insertBefore = boolean('insertBefore', false, selectGroupId);
+    const insertAfter = boolean('insertAfter', false, selectGroupId);
+
+    const defaultOptions = ['Option 1', 'Option 2', 'Option 3'];
+    const optionValues = array('option values', defaultOptions, ', ', selectGroupId);
 
     const KnobOption = ({idx, initialValue}) => {
-        const optionGroupId = optionGroup(idx);
-        const isDefault = boolean('default', false, optionGroupId);
-        const isDisabled = boolean('disabled', false, optionGroupId);
-        const isSelected = boolean('selected', false, optionGroupId);
-        const value = text('value', initialValue || `option-value-${idx}`, optionGroupId);
-        const label = text('label', `Option ${idx}`, optionGroupId);
+      const optionGroupId = optionGroup(idx);
+      const isDefault = boolean('default', false, optionGroupId);
+      const isDisabled = boolean('disabled', false, optionGroupId);
+      const isSelected = boolean('selected', false, optionGroupId);
+      const value = text('value', initialValue || `option-value-${idx}`, optionGroupId);
+      const label = text('label', `Option ${idx}`, optionGroupId);
 
-        return (
-            <>
-                <Option
-                    value={value}
-                    selected={isSelected || isDefault}
-                    disabled={isDisabled}
-                >
-                    {label}
-                </Option>
-            </>
-        );
+      return (
+        <>
+          <Option value={value} selected={isSelected || isDefault} disabled={isDisabled}>
+            {label}
+          </Option>
+        </>
+      );
     };
-
-    const optionValues = array('option values', ['Option 1', 'Option 2'], ', ', selectGroupId);
 
     return (
       <>
-        <FormLabel htmlFor={text('htmlFor', 'select_input_field', selectGroupId)} disabled={isDisabled} required={isRequired}>
+        <FormLabel htmlFor={htmlFor} disabled={isDisabled} required={isRequired}>
           Label
         </FormLabel>
         <Select
           disabled={isDisabled}
           hasError={hasError}
-          id={text('id', 'select_input_field', selectGroupId)}
+          id={id}
           required={isRequired}
           value={value}
           onChange={event => {
@@ -449,18 +466,27 @@ storiesOf('Forms|Input', module)
           onFocus={action('handleFocus')}
           onBlur={action('handleBlur')}
           multiple={isMultiple}
+          size={isMultiple && multiSelectSize}
+          insertBefore={insertBefore && <div>$10.99</div>}
+          insertAfter={
+            insertAfter && (
+              <Anchor href="#" display="flex">
+                <InformationIcon decorative={false} title="Get more info" />
+              </Anchor>
+            )
+          }
         >
-            {optionValues.map((value, idx) => (<KnobOption idx={idx + 1} initialValue={kebabCase(value)} key={idx} />))}
+          {optionValues.map((value, idx) => (
+            <KnobOption idx={idx + 1} initialValue={kebabCase(value)} key={idx} />
+          ))}
         </Select>
-        <FormHelpText variant={helpVariantValue}>
-          {text('help text', 'Info that helps a user with this field.', selectGroupId)}
-        </FormHelpText>
+        <FormHelpText variant={helpVariantValue}>{helpText}</FormHelpText>
       </>
     );
   })
-  .add('Select - test', () => {
+  .add('Select - Required', () => {
     const uid = useUID();
-    const [value, setValue] = React.useState('Select - test');
+    const [value, setValue] = React.useState('Select - Required');
     return (
       <>
         <FormLabel required htmlFor={uid}>
@@ -469,6 +495,134 @@ storiesOf('Forms|Input', module)
         <Select
           id={uid}
           required
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          value={value}
+        >
+          <Option value="option-1">Option 1</Option>
+          <Option value="option-2">Option 2</Option>
+          <Option value="option-3">Option 3</Option>
+          <Option value="option-4">Option 4</Option>
+        </Select>
+        <FormHelpText>Info that helps a user with this field.</FormHelpText>
+      </>
+    );
+  })
+  .add('Select - Error', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Select - Error');
+    return (
+      <>
+        <FormLabel required htmlFor={uid}>
+          Label
+        </FormLabel>
+        <Select
+          id={uid}
+          hasError
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          value={value}
+        >
+          <Option value="option-1">Option 1</Option>
+          <Option value="option-2">Option 2</Option>
+          <Option value="option-3">Option 3</Option>
+          <Option value="option-4">Option 4</Option>
+        </Select>
+        <FormHelpText variant="error">Info that helps a user with this field.</FormHelpText>
+      </>
+    );
+  })
+  .add('Select - Disabled', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Select - Error');
+    return (
+      <>
+        <FormLabel htmlFor={uid}>Label</FormLabel>
+        <Select
+          id={uid}
+          disabled
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          value={value}
+        >
+          <Option value="option-1">Option 1</Option>
+          <Option value="option-2">Option 2</Option>
+          <Option value="option-3">Option 3</Option>
+          <Option value="option-4">Option 4</Option>
+        </Select>
+        <FormHelpText>Info that helps a user with this field.</FormHelpText>
+      </>
+    );
+  })
+  .add('Select - Multiple', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Select - Error');
+    return (
+      <>
+        <FormLabel htmlFor={uid}>Label</FormLabel>
+        <Select
+          id={uid}
+          multiple
+          size={2}
+          onChange={action('handleChange')}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+        >
+          <Option value="option-1">Option 1</Option>
+          <Option value="option-2">Option 2</Option>
+          <Option value="option-3">Option 3</Option>
+          <Option value="option-4">Option 4</Option>
+        </Select>
+        <FormHelpText>Info that helps a user with this field.</FormHelpText>
+      </>
+    );
+  })
+  .add('Select - Default Value', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('');
+    return (
+      <>
+        <FormLabel htmlFor={uid}>Label</FormLabel>
+        <Select
+          id={uid}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          defaultValue="option-3"
+          value={value}
+        >
+          <Option value="option-1">Option 1</Option>
+          <Option value="option-2">Option 2</Option>
+          <Option value="option-3">Option 3</Option>
+          <Option value="option-4">Option 4</Option>
+        </Select>
+        <FormHelpText>Info that helps a user with this field.</FormHelpText>
+      </>
+    );
+  })
+  .add('Select - Insert before and after', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Select - Error');
+    return (
+      <>
+        <FormLabel htmlFor={uid}>Label</FormLabel>
+        <Select
+          id={uid}
           onChange={event => {
             setValue(event.target.value);
             action('handleChange');
@@ -487,11 +641,66 @@ storiesOf('Forms|Input', module)
           <Option value="option-2">Option 2</Option>
           <Option value="option-3">Option 3</Option>
           <Option value="option-4">Option 4</Option>
-          <Option value="option-5">Option 5</Option>
-          <Option value="option-6">Option 6</Option>
-          <Option value="option-7">Option 7</Option>
-          <Option value="option-8">Option 8</Option>
-          <Option value="option-9">Option 9</Option>
+        </Select>
+        <FormHelpText>Info that helps a user with this field.</FormHelpText>
+      </>
+    );
+  })
+  .add('Select - Option Groups', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Select - Error');
+    return (
+      <>
+        <FormLabel htmlFor={uid}>Label</FormLabel>
+        <Select
+          id={uid}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          value={value}
+        >
+          <OptionGroup label="Group 1">
+            <Option value="option-1">Option 1</Option>
+            <Option value="option-2">Option 2</Option>
+          </OptionGroup>
+          <OptionGroup label="Group 2">
+            <Option value="option-3">Option 3</Option>
+            <Option value="option-4">Option 4</Option>
+          </OptionGroup>
+        </Select>
+        <FormHelpText>Info that helps a user with this field.</FormHelpText>
+      </>
+    );
+  })
+  .add('Select - Option Groups and Multiple', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Select - Error');
+    return (
+      <>
+        <FormLabel htmlFor={uid}>Label</FormLabel>
+        <Select
+          id={uid}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          multiple
+          size={4}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          value={value}
+        >
+          <OptionGroup label="Group 1">
+            <Option value="option-1">Option 1</Option>
+            <Option value="option-2">Option 2</Option>
+          </OptionGroup>
+          <OptionGroup label="Group 2">
+            <Option value="option-3">Option 3</Option>
+            <Option value="option-4">Option 4</Option>
+          </OptionGroup>
         </Select>
         <FormHelpText>Info that helps a user with this field.</FormHelpText>
       </>
