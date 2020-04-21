@@ -23,7 +23,7 @@ exports[`FormInput render it should render 1`] = `
   display: flex;
   width: 100%;
   background-color: rgb(255,255,255);
-  box-shadow: 0 0 0 1px #606b85;
+  box-shadow: 0 0 0 1px #888c8e;
   border-radius: 4px;
   -webkit-transition: box-shadow 100ms ease-in;
   transition: box-shadow 100ms ease-in;
@@ -31,7 +31,7 @@ exports[`FormInput render it should render 1`] = `
 }
 
 .emotion-2:hover {
-  box-shadow: 0 0 0 1px #030b5d;
+  box-shadow: 0 0 0 1px #032c5e;
 }
 
 .emotion-2:focus-within {
@@ -284,7 +284,7 @@ exports[`FormInput render it should render with hasError 1`] = `
   display: flex;
   width: 100%;
   background-color: rgb(255,255,255);
-  box-shadow: 0 0 0 1px #d61f1f;
+  box-shadow: 0 0 0 1px #e22525;
   border-radius: 4px;
   -webkit-transition: box-shadow 100ms ease-in;
   transition: box-shadow 100ms ease-in;
@@ -292,7 +292,7 @@ exports[`FormInput render it should render with hasError 1`] = `
 }
 
 .emotion-2:hover {
-  box-shadow: 0 0 0 1px #750c0c;
+  box-shadow: 0 0 0 1px #921200;
 }
 
 .emotion-2:focus-within {
@@ -343,7 +343,7 @@ exports[`FormInput render it should render with prefix 1`] = `
   display: flex;
   width: 100%;
   background-color: rgb(255,255,255);
-  box-shadow: 0 0 0 1px #606b85;
+  box-shadow: 0 0 0 1px #888c8e;
   border-radius: 4px;
   -webkit-transition: box-shadow 100ms ease-in;
   transition: box-shadow 100ms ease-in;
@@ -351,7 +351,7 @@ exports[`FormInput render it should render with prefix 1`] = `
 }
 
 .emotion-3:hover {
-  box-shadow: 0 0 0 1px #030b5d;
+  box-shadow: 0 0 0 1px #032c5e;
 }
 
 .emotion-3:focus-within {
@@ -524,7 +524,7 @@ exports[`FormInput render it should render with readOnly 1`] = `
   display: flex;
   width: 100%;
   background-color: rgb(248,248,249);
-  box-shadow: 0 0 0 1px #606b85;
+  box-shadow: 0 0 0 1px #888c8e;
   border-radius: 4px;
   -webkit-transition: box-shadow 100ms ease-in;
   transition: box-shadow 100ms ease-in;
@@ -532,7 +532,7 @@ exports[`FormInput render it should render with readOnly 1`] = `
 }
 
 .emotion-2:hover {
-  box-shadow: 0 0 0 1px #606b85;
+  box-shadow: 0 0 0 1px #888c8e;
 }
 
 .emotion-2:focus-within {
@@ -584,7 +584,7 @@ exports[`FormInput render it should render with suffix 1`] = `
   display: flex;
   width: 100%;
   background-color: rgb(255,255,255);
-  box-shadow: 0 0 0 1px #606b85;
+  box-shadow: 0 0 0 1px #888c8e;
   border-radius: 4px;
   -webkit-transition: box-shadow 100ms ease-in;
   transition: box-shadow 100ms ease-in;
@@ -592,7 +592,7 @@ exports[`FormInput render it should render with suffix 1`] = `
 }
 
 .emotion-3:hover {
-  box-shadow: 0 0 0 1px #030b5d;
+  box-shadow: 0 0 0 1px #032c5e;
 }
 
 .emotion-3:focus-within {
