@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@4.4.0...@twilio-paste/design-tokens@4.4.1) (2020-04-22)
+
+
+### Bug Fixes
+
+* **tokens:** Add shadow-border-input-* aliases, tokens to themes  ([#400](https://github.com/twilio-labs/paste/issues/400)) ([a553100](https://github.com/twilio-labs/paste/commit/a5531003b713b56f1fd5078cccdbdc4879943fc5))
+
+
+
+
+
 # [4.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@4.3.0...@twilio-paste/design-tokens@4.4.0) (2020-04-07)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.1.9...@twilio-paste/form@1.1.10) (2020-04-22)
+
+
+### Bug Fixes
+
+* **tokens:** Add shadow-border-input-* aliases, tokens to themes  ([#400](https://github.com/twilio-labs/paste/issues/400)) ([a553100](https://github.com/twilio-labs/paste/commit/a5531003b713b56f1fd5078cccdbdc4879943fc5))
+
+
+
+
+
 ## [1.1.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.1.8...@twilio-paste/form@1.1.9) (2020-04-20)
 
 **Note:** Version bump only for package @twilio-paste/form
