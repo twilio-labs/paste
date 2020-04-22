@@ -45,6 +45,74 @@ props:
     value: "{!size-120}"
     comment: Generic sizing token scale for UI components.
 
+  #square sizes
+  size-square-0:
+    value: "{!size-square-0}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-10:
+    value: "{!size-square-10}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-20:
+    value: "{!size-square-20}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-25:
+    value: "{!size-square-25}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-30:
+    value: "{!size-square-30}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-40:
+    value: "{!size-square-40}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-50:
+    value: "{!size-square-50}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-60:
+    value: "{!size-square-60}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-70:
+    value: "{!size-square-70}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-80:
+    value: "{!size-square-80}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-90:
+    value: "{!size-square-90}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-100:
+    value: "{!size-square-100}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-110:
+    value: "{!size-square-110}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-120:
+    value: "{!size-square-120}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-130:
+    value: "{!size-square-130}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-140:
+    value: "{!size-square-140}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-150:
+    value: "{!size-square-150}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-160:
+    value: "{!size-square-160}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-170:
+    value: "{!size-square-170}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-180:
+    value: "{!size-square-180}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-190:
+    value: "{!size-square-190}"
+    comment: Generic square sizing token scale for UI components.
+  size-square-200:
+    value: "{!size-square-200}"
+    comment: Generic square sizing token scale for UI components.
+
   # icons
   size-icon-10:
     value: "{!line-height-10}"

@@ -7,7 +7,7 @@ imports:
   - ../aliases/color-palette.yml
 props:
   color-border:
-    value: "{!palette-gray-50}"
+    value: "{!palette-gray-40}"
     comment: Default border color
   color-border-light:
     value: "{!palette-gray-40}"
