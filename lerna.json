@@ -5,6 +5,7 @@
   "useWorkspaces": true,
   "command": {
     "publish": {
+      "ignoreChanges": ["**/stories/**", "**/__tests__/**"],
       "npmClient": "npm"
     }
   }

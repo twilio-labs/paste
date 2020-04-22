@@ -14,6 +14,9 @@ props:
   shadow-border-input-hover:
     value: "{!shadow-border-input-hover}"
     comment: Shadow border for inputs hover.
+  shadow-border-input-error:
+    value: "{!shadow-border-input-error}"
+    comment: Shadow border for error inputs.
   shadow-border-input-error-hover:
     value: "{!shadow-border-input-error-hover}"
     comment: Shadow border for error inputs hover.
