@@ -1,15 +1,26 @@
 aliases:
   size-square-0: "0" #0
-  size-square-10: "0.5rem" #8px
-  size-square-20: "0.75rem" #12px
-  size-square-30: "1rem" #16px
-  size-square-40: "1.25rem" #20px
-  size-square-50: "1.5rem" #24px
-  size-square-60: "1.75rem" #28px
-  size-square-70: "2rem" #32px
-  size-square-80: "2.25rem" #36px
-  size-square-90: "2.5rem" #40px
-  size-square-100: "3rem" #48px
+  size-square-10: "0.125rem" #2px
+  size-square-20: "0.25rem" #4px
+  size-square-25: "0.375rem" #6px
+  size-square-30: "0.5rem" #8px
+  size-square-40: "0.75rem" #12px
+  size-square-50: "1rem" #16px
+  size-square-60: "1.25rem" #20px
+  size-square-70: "1.5rem" #24px
+  size-square-80: "1.75rem" #28px
+  size-square-90: "2rem" #32px
+  size-square-100: "2.25rem" #36px
+  size-square-110: "2.5rem" #40px
+  size-square-120: "2.75rem" #44px
+  size-square-130: "3rem" #48px
+  size-square-140: "3.25rem" #52px
+  size-square-150: "3.5rem" #56px
+  size-square-160: "3.75rem" #60px
+  size-square-170: "4rem" #64px
+  size-square-180: "4.25rem" #68px
+  size-square-190: "4.5rem" #72px
+  size-square-200: "4.75rem" #76px
 
   size-0: "0" #0
   size-10: "5.5rem" #88px

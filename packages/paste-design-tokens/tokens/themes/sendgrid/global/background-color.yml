@@ -10,6 +10,15 @@ props:
   color-background:
     value: "{!palette-gray-20}"
     comment: Default background color for any container
+  color-background-dark:
+    value: "{!palette-gray-40}"
+    comment: Dark default background color
+  color-background-darker:
+    value: "{!palette-gray-40}"
+    comment: Darker default background color
+  color-background-darkest:
+    value: "{!palette-gray-70}"
+    comment: Darkest default background color
   color-background-inverse:
     value: "{!palette-gray-100}"
     comment: Inverse background color for any container
