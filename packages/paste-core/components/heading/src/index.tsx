@@ -10,7 +10,7 @@ export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   className?: never;
   id?: string;
   marginBottom?: 'space0';
-  variant?: HeadingVariants;
+  variant: HeadingVariants;
 }
 
 function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: 'space0'): {} {
@@ -81,15 +81,18 @@ const Heading: React.FC<HeadingProps> = ({as, children, id, marginBottom, varian
 };
 Heading.displayName = 'Heading';
 
-Heading.defaultProps = {
-  variant: 'heading20',
-};
-
 if (process.env.NODE_ENV === 'development') {
   Heading.propTypes = {
     as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'] as asTags[]).isRequired,
     marginBottom: PropTypes.oneOf(['space0']),
-    variant: PropTypes.oneOf(['heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60']),
+    variant: PropTypes.oneOf([
+      'heading10',
+      'heading20',
+      'heading30',
+      'heading40',
+      'heading50',
+      'heading60',
+    ] as HeadingVariants[]).isRequired,
   };
 }
 
