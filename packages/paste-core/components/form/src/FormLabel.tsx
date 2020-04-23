@@ -36,6 +36,7 @@ const FormLabel: React.FC<FormLabelProps> = ({as, marginBottom, required, disabl
     <Box
       {...safelySpreadBoxProps(props)}
       as={as}
+      display="block"
       marginBottom={marginBottom || 'space10'}
       paddingLeft="space0"
       paddingRight="space0"

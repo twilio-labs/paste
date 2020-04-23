@@ -37,7 +37,7 @@ const FormHelpText: React.FC<FormHelperTextProps> = ({marginTop, children, varia
         fontSize="fontSize30"
         lineHeight="lineHeight30"
         color={variant === 'error' ? 'colorTextError' : 'colorTextWeak'}
-        marginLeft={icon ? 'space10' : undefined}
+        marginLeft={icon ? 'space20' : undefined}
       >
         {children}
       </Text>

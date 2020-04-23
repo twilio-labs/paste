@@ -108,7 +108,7 @@ exports[`FormHelpText render it should render with an error icon 1`] = `
   font-size: 0.875rem;
   line-height: 1.5rem;
   color: rgb(226,37,37);
-  margin-left: 0.125rem;
+  margin-left: 0.25rem;
 }
 
 <div
