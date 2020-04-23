@@ -116,7 +116,7 @@ An example of a Card with default padding.
 
 <LivePreview scope={{Card, Paragraph, Heading}} language="jsx">
   {`<Card>
-  <Heading as="h2">This is a card</Heading>
+  <Heading as="h2" variant="heading20">This is a card</Heading>
   <Paragraph>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
     labore et dolore magna aliqua.
@@ -134,7 +134,7 @@ adjusted to suit the needs of your implementation.
 
 <LivePreview scope={{Card, Paragraph, Heading, Button}} language="jsx">
   {`<Card padding="space120">
-  <Heading as="h2">This is a card with a primary action</Heading>
+  <Heading as="h2" variant="heading20">This is a card with a primary action</Heading>
   <Paragraph>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dui tellus, tristique in tincidunt cursus, efficitur
     at felis. Phasellus imperdiet, lorem et commodo egestas, arcu.
@@ -153,7 +153,7 @@ Card using Box or Flex.
   {`<Card padding="space200">
   <Text as="div" textAlign="center">
     <PlusIcon size='sizeIcon40' decorative title="There just wasn't a details icon to use"/>
-    <Heading as="h2">Let's verify your integration</Heading>
+    <Heading as="h2" variant="heading20">Let's verify your integration</Heading>
     <Paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
       magna aliqua.
@@ -162,19 +162,6 @@ Card using Box or Flex.
   </Text>
 </Card>;`}
 </LivePreview>
-{/*
-We didn't have an icon or grid/layout components so we'll save this example for later.
-#### Card with Custom Layout
-
-<LivePreview scope={{Card, Paragraph, Heading, Button}} language="jsx">
-  {`<Card>
-  <Heading as="h2">Heading Two</Heading>
-  <Paragraph>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dui tellus, tristique in tincidunt cursus, efficitur
-    at felis. Phasellus imperdiet, lorem et commodo egestas, arcu.
-  </Paragraph>
-</Card>`}
-</LivePreview> */}
 
 ## Composing a Card
 ### When to use a Card
