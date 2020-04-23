@@ -288,9 +288,9 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </SiteNavButton>
           <SiteNavNestList isOpen={contentOpen}>
             <SiteNavItem>
-              <SiteNavItem>
-                <SiteNavAnchor to={SidebarCategoryRoutes.CONTENT}>Guideline Usage</SiteNavAnchor>
-              </SiteNavItem>
+              <SiteNavAnchor to={SidebarCategoryRoutes.CONTENT}>Guideline Usage</SiteNavAnchor>
+            </SiteNavItem>
+            <SiteNavItem>
               <SiteNavAnchor to={`${SidebarCategoryRoutes.CONTENT}/voice-and-tone`}>Voice and tone</SiteNavAnchor>
             </SiteNavItem>
             <SiteNavItem>
