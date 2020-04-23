@@ -17,6 +17,7 @@ exports[`FormLabel render it should render 1`] = `
 
 .emotion-2 {
   box-sizing: border-box;
+  display: block;
   margin-bottom: 0.125rem;
   padding-left: 0;
   padding-right: 0;
@@ -54,6 +55,7 @@ exports[`FormLabel render it should render 1`] = `
 >
   <label
     className="emotion-2"
+    display="block"
     htmlFor="input"
   >
     <span
@@ -91,6 +93,7 @@ exports[`FormLabel render it should render with required 1`] = `
 
 .emotion-5 {
   box-sizing: border-box;
+  display: block;
   margin-bottom: 0.125rem;
   padding-left: 0;
   padding-right: 0;
@@ -157,6 +160,7 @@ exports[`FormLabel render it should render with required 1`] = `
 >
   <label
     className="emotion-5"
+    display="block"
     htmlFor="input"
   >
     <span
