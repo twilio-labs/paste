@@ -254,7 +254,13 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </SiteNavButton>
           <SiteNavNestList isOpen={formOpen}>
             <SiteNavItem>
+              <SiteNavAnchor to="/form-elements/checkbox/">Checkbox</SiteNavAnchor>
+            </SiteNavItem>
+            <SiteNavItem>
               <SiteNavAnchor to="/form-elements/input/">Input</SiteNavAnchor>
+            </SiteNavItem>
+            <SiteNavItem>
+              <SiteNavAnchor to="/form-elements/radio-group/">Radio group</SiteNavAnchor>
             </SiteNavItem>
             <SiteNavItem>
               <SiteNavAnchor to="/form-elements/textarea/">Textarea</SiteNavAnchor>
