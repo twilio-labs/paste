@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.17.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.17.6...@twilio-paste/website@1.17.7) (2020-04-23)
+
+
+### Bug Fixes
+
+* **website:** change codeblock background to white for visibility ([def6be4](https://github.com/twilio-labs/paste/commit/def6be44f5b49246312652dd4fbd22fdae5698ef))
+
+
+
+
+
 ## [1.17.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.17.5...@twilio-paste/website@1.17.6) (2020-04-22)
 
 **Note:** Version bump only for package @twilio-paste/website
