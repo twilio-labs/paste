@@ -36,7 +36,7 @@ import {
 import {PseudoPropStyles} from './PseudoPropStyles';
 import {BoxPropTypes} from './BoxPropTypes';
 
-interface BaseBoxProps
+export interface BaseBoxProps
   extends React.HTMLAttributes<any>,
     LayoutProps,
     SpaceProps,
@@ -142,12 +142,15 @@ const getPseudoStyles = (props: BoxProps): {} => {
 
   const pseudoStyles = {};
   pseudoProps.forEach(pseudoProp => {
-    pseudoStyles[PseudoPropStyles[pseudoProp]] = props[pseudoProp];
+    if (PseudoPropStyles[pseudoProp] != null) {
+      pseudoStyles[PseudoPropStyles[pseudoProp]] = props[pseudoProp];
+    }
   });
 
   return css(pseudoStyles);
 };
 
+/* eslint-disable emotion/syntax-preference */
 export const Box = styled.div(
   {
     boxSizing: 'border-box',
@@ -164,6 +167,7 @@ export const Box = styled.div(
   ),
   getPseudoStyles
 ) as React.FC<BoxProps>;
+/* eslint-enable */
 
 Box.displayName = 'Box';
 
