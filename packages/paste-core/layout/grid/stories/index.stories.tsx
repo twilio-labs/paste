@@ -463,19 +463,19 @@ storiesOf('Layout|Grid', module)
   .add('Grid - 3 Column Wider Center Column', () => {
     return (
       <Grid gutter="space60">
-        <Column span={3}>
+        <Column span={2}>
           <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
-            3
+            2
           </Box>
         </Column>
-        <Column span={9}>
+        <Column span={8}>
           <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
-            9
+            8
           </Box>
         </Column>
-        <Column span={3}>
+        <Column span={2}>
           <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
-            3
+            2
           </Box>
         </Column>
       </Grid>
