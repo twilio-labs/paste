@@ -2,12 +2,15 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import css from '@styled-system/css';
-import {safelySpreadBoxProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Flex} from '@twilio-paste/flex';
 import {Text} from '@twilio-paste/text';
+import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 
 export interface FormLabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
-  htmlFor: string;
+  children: NonNullable<React.ReactNode>;
+  htmlFor: string | undefined;
+  as?: 'label' | 'legend';
   disabled?: boolean;
   required?: boolean;
   marginBottom?: 'space0';
@@ -28,29 +31,46 @@ const StyledRequiredDot = styled(Text)(() =>
   })
 );
 
-const FormLabel: React.FC<FormLabelProps> = ({marginBottom, required, disabled, children, ...props}) => {
+const FormLabel: React.FC<FormLabelProps> = ({as, marginBottom, required, disabled, children, ...props}) => {
   return (
-    <Flex {...safelySpreadBoxProps(props)} as="label" vAlignContent="center" marginBottom={marginBottom || 'space10'}>
-      {required ? <StyledRequiredDot as="span" lineHeight="lineHeight30" /> : null}
-      <Text
-        as="span"
-        fontSize="fontSize30"
-        fontWeight="fontWeightSemibold"
-        lineHeight="lineHeight30"
-        color={disabled ? 'colorTextWeak' : 'colorText'}
-        cursor="pointer"
-      >
-        {children}
-      </Text>
-    </Flex>
+    <Box
+      {...safelySpreadBoxProps(props)}
+      as={as}
+      marginBottom={marginBottom || 'space10'}
+      paddingLeft="space0"
+      paddingRight="space0"
+    >
+      <Flex as="span" vAlignContent="center">
+        {required ? (
+          <StyledRequiredDot as="span" lineHeight="lineHeight30">
+            <ScreenReaderOnly>Required: </ScreenReaderOnly>
+          </StyledRequiredDot>
+        ) : null}
+        <Text
+          as="span"
+          fontSize="fontSize30"
+          fontWeight="fontWeightSemibold"
+          lineHeight="lineHeight30"
+          color={disabled ? 'colorTextWeak' : 'colorText'}
+          cursor={disabled ? 'not-allowed' : 'pointer'}
+        >
+          {children}
+        </Text>
+      </Flex>
+    </Box>
   );
 };
 
 FormLabel.displayName = 'FormLabel';
 
+FormLabel.defaultProps = {
+  as: 'label',
+};
+
 if (process.env.NODE_ENV === 'development') {
   FormLabel.propTypes = {
-    htmlFor: PropTypes.string.isRequired,
+    htmlFor: PropTypes.string,
+    as: PropTypes.oneOf(['label', 'legend']),
     disabled: PropTypes.bool,
     required: PropTypes.bool,
     marginBottom: PropTypes.oneOf(['space0']),

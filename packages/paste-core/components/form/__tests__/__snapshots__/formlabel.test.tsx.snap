@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FormLabel render it should render 1`] = `
-.emotion-2 {
+.emotion-3 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
@@ -9,10 +9,17 @@ exports[`FormLabel render it should render 1`] = `
   font-weight: 400;
 }
 
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
+.emotion-3 *,
+.emotion-3 *::after,
+.emotion-3 *::before {
   box-sizing: border-box;
+}
+
+.emotion-2 {
+  box-sizing: border-box;
+  margin-bottom: 0.125rem;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .emotion-1 {
@@ -29,7 +36,6 @@ exports[`FormLabel render it should render 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 0.125rem;
   min-width: 0;
 }
 
@@ -44,28 +50,32 @@ exports[`FormLabel render it should render 1`] = `
 }
 
 <div
-  className="emotion-2"
+  className="emotion-3"
 >
   <label
-    className="emotion-1"
-    display="flex"
+    className="emotion-2"
     htmlFor="input"
   >
     <span
-      className="emotion-0"
-      color="colorText"
-      cursor="pointer"
-      fontSize="fontSize30"
-      fontWeight="fontWeightSemibold"
+      className="emotion-1"
+      display="flex"
     >
-      child
+      <span
+        className="emotion-0"
+        color="colorText"
+        cursor="pointer"
+        fontSize="fontSize30"
+        fontWeight="fontWeightSemibold"
+      >
+        child
+      </span>
     </span>
   </label>
 </div>
 `;
 
 exports[`FormLabel render it should render with required 1`] = `
-.emotion-4 {
+.emotion-6 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
@@ -73,13 +83,20 @@ exports[`FormLabel render it should render with required 1`] = `
   font-weight: 400;
 }
 
-.emotion-4 *,
-.emotion-4 *::after,
-.emotion-4 *::before {
+.emotion-6 *,
+.emotion-6 *::after,
+.emotion-6 *::before {
   box-sizing: border-box;
 }
 
-.emotion-3 {
+.emotion-5 {
+  box-sizing: border-box;
+  margin-bottom: 0.125rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.emotion-4 {
   box-sizing: border-box;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
@@ -93,11 +110,10 @@ exports[`FormLabel render it should render with required 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 0.125rem;
   min-width: 0;
 }
 
-.emotion-2 {
+.emotion-3 {
   margin: 0;
   padding: 0;
   font-size: 0.875rem;
@@ -107,7 +123,7 @@ exports[`FormLabel render it should render with required 1`] = `
   cursor: pointer;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin: 0;
   padding: 0;
   line-height: 1.5rem;
@@ -122,27 +138,51 @@ exports[`FormLabel render it should render with required 1`] = `
   cursor: pointer;
 }
 
+.emotion-0 {
+  position: absolute;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  text-transform: none;
+  white-space: nowrap;
+}
+
 <div
-  className="emotion-4"
+  className="emotion-6"
 >
   <label
-    className="emotion-3"
-    display="flex"
+    className="emotion-5"
     htmlFor="input"
   >
     <span
-      className="emotion-0 emotion-1"
-      color="colorText"
-      fontSize="fontSize30"
-    />
-    <span
-      className="emotion-2"
-      color="colorText"
-      cursor="pointer"
-      fontSize="fontSize30"
-      fontWeight="fontWeightSemibold"
+      className="emotion-4"
+      display="flex"
     >
-      child
+      <span
+        className="emotion-1 emotion-2"
+        color="colorText"
+        fontSize="fontSize30"
+      >
+        <span
+          className="emotion-0"
+        >
+          Required: 
+        </span>
+      </span>
+      <span
+        className="emotion-3"
+        color="colorText"
+        cursor="pointer"
+        fontSize="fontSize30"
+        fontWeight="fontWeightSemibold"
+      >
+        child
+      </span>
     </span>
   </label>
 </div>

@@ -38,7 +38,7 @@ describe('FormLabel for prop', () => {
   const container = shallow(<FormLabel {...initialProps} />);
 
   it('should have a for prop on label', () => {
-    expect(container.find('Flex').prop('htmlFor')).toEqual('input');
+    expect(container.find('Box').prop('htmlFor')).toEqual('input');
   });
 });
 
