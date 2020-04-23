@@ -36,7 +36,11 @@ const LivePreview: React.FC<CodeblockProps> = ({
           paddingRight="space50"
           paddingTop="space80"
           paddingBottom="space80"
-          backgroundColor="colorBackground"
+          borderColor="colorBorderLight"
+          borderStyle="solid"
+          borderWidth="borderWidth20"
+          borderBottomWidth="borderWidth0"
+          backgroundColor="colorBackgroundBody"
           borderTopLeftRadius="borderRadius20"
           borderTopRightRadius="borderRadius20"
         >
