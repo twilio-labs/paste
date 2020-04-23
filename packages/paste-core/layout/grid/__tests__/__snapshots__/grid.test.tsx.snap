@@ -25,6 +25,9 @@ exports[`12 Column Options it should render a 5 span, 3 span column grid 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -86,6 +89,9 @@ exports[`12 Column Options it should render a 5 span, 5 span, 2 span column grid
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -151,6 +157,9 @@ exports[`12 Column Options it should render a 6 span, 6 span column grid 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -208,6 +217,9 @@ exports[`12 Column Options it should render a 8 span, 4 span column grid 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -269,6 +281,9 @@ exports[`12 Column Options it should render a 9 span, 3 span column grid 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -330,6 +345,9 @@ exports[`12 Column Options it should render a 10 span, 2 span column grid 1`] = 
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -391,6 +409,9 @@ exports[`12 Column Options it should render a 11 span, 1 span column grid 1`] = 
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -452,6 +473,9 @@ exports[`12 Column Options it should render a 11 span, 2 span column grid 1`] = 
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -513,6 +537,9 @@ exports[`12 Column Options it should render a grid with 1 column 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -566,6 +593,9 @@ exports[`12 Column Options it should render a grid with 2 columns 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -623,6 +653,9 @@ exports[`12 Column Options it should render a grid with 3 columns 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -684,6 +717,9 @@ exports[`12 Column Options it should render a grid with 4 columns 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -749,6 +785,9 @@ exports[`12 Column Options it should render a grid with 6 columns 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -822,6 +861,9 @@ exports[`12 Column Options it should render a grid with 12 columns 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -919,6 +961,9 @@ exports[`Column Offset Prop it should render two columns, one with a offset 1`] 
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -981,6 +1026,9 @@ exports[`Column Offset Prop it should render two columns, one with a responsive 
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1063,6 +1111,9 @@ exports[`Column Span Prop it should render two columns with different responsive
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1160,6 +1211,9 @@ exports[`Column Span Prop it should render two columns, one spaning 8 columns, t
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1283,6 +1337,9 @@ exports[`Grid Gutter Prop it should render two columns with gutters 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1342,6 +1399,9 @@ exports[`Grid Gutter Prop it should render two columns with responsive gutters 1
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1432,6 +1492,9 @@ exports[`Grid Vertical Prop it should render two columns stacked only on mobile 
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1522,6 +1585,9 @@ exports[`Grid Vertical Prop it should render two stacked columns 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1581,6 +1647,9 @@ exports[`Grid render it should render 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1627,6 +1696,9 @@ exports[`Grid render it should render as any HTML element 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

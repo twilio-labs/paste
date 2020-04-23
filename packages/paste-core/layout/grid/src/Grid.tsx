@@ -39,6 +39,7 @@ const Grid: React.FC<GridProps> = ({as, children, gutter, marginTop, marginBotto
       marginTop={marginTop}
       marginBottom={marginBottom}
       vertical={vertical}
+      wrap
     >
       {GridColumns}
     </Flex>

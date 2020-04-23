@@ -569,6 +569,40 @@ storiesOf('Layout|Grid', module)
       </Grid>
     );
   })
+  .add('Grid - Wrapped 2 Column Card Layout', () => {
+    return (
+      <Grid gutter="space70" vertical={[true, false, false]}>
+        <Column span={6}>
+          <Card padding="space70">
+            <Heading as="h2">Card Heading</Heading>
+            <Text as="p">Body</Text>
+          </Card>
+        </Column>
+        <Column span={6}>
+          <Card padding="space70">
+            <Heading as="h2">Card Heading</Heading>
+            <Text as="p">Body</Text>
+          </Card>
+        </Column>
+        <Column span={6}>
+          <Box marginTop="space70">
+            <Card padding="space70">
+              <Heading as="h2">Card Heading</Heading>
+              <Text as="p">Body</Text>
+            </Card>
+          </Box>
+        </Column>
+        <Column span={6}>
+          <Box marginTop="space70">
+            <Card padding="space70">
+              <Heading as="h2">Card Heading</Heading>
+              <Text as="p">Body</Text>
+            </Card>
+          </Box>
+        </Column>
+      </Grid>
+    );
+  })
   .add('Grid - 2 Column Content with Card', () => {
     return (
       <Grid gutter="space70" vertical={[true, false, false]}>
