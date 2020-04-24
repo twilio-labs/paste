@@ -2,20 +2,27 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Spinner} from '@twilio-paste/spinner';
 import {ButtonWrapper, ButtonChildren, SpinnerWrapper} from './styles';
-import {ButtonProps, ButtonStates} from './types';
+import {ButtonProps, ButtonStates, ButtonVariants, ButtonSizes, ButtonTabIndexes} from './types';
 
-const handlePropValidation = (props: ButtonProps): void => {
-  const {as: Tag, href, variant, size, tabIndex, fullWidth, children} = props;
+const handlePropValidation = (
+  children: React.ReactNode,
+  variant: ButtonVariants,
+  as?: string,
+  fullWidth?: boolean,
+  href?: string,
+  size?: ButtonSizes,
+  tabIndex?: ButtonTabIndexes
+): void => {
   const hasHref = href != null && href !== '';
   const hasTabIndex = tabIndex != null;
 
-  if (Tag !== 'a' && hasHref) {
+  if (as !== 'a' && hasHref) {
     throw new Error(`[Paste: Button] You cannot pass href into a button without the 'a' tag.  Use 'as="a"'.`);
   }
-  if (Tag === 'a' && !hasHref) {
+  if (as === 'a' && !hasHref) {
     throw new Error(`[Paste: Button] Missing href prop for link button.`);
   }
-  if (Tag === 'a' && variant === 'link') {
+  if (as === 'a' && variant === 'link') {
     throw new Error(`[Paste: Button] This should be a link. Use the [Paste: Anchor] component.`);
   }
   if (variant === 'reset' && size !== 'reset') {
@@ -32,7 +39,7 @@ const handlePropValidation = (props: ButtonProps): void => {
   }
 };
 
-const getButtonState = ({loading, disabled}: ButtonProps): ButtonStates => {
+const getButtonState = (disabled?: boolean, loading?: boolean): ButtonStates => {
   if (disabled) {
     return 'disabled';
   }
@@ -42,23 +49,34 @@ const getButtonState = ({loading, disabled}: ButtonProps): ButtonStates => {
   return 'default';
 };
 
-const Button: React.FC<ButtonProps> = props => {
-  const buttonState = getButtonState(props);
+const Button: React.FC<ButtonProps> = ({
+  as,
+  children,
+  disabled,
+  fullWidth,
+  href,
+  loading,
+  size,
+  tabIndex,
+  variant,
+  ...props
+}) => {
+  const buttonState = getButtonState(disabled, loading);
   const showLoading = buttonState === 'loading';
-  const disabled = buttonState !== 'default';
+  const showDisabled = buttonState !== 'default';
 
   // If size isn't passed, come up with a smart default:
   // - 'reset' for variant 'link'
   // - 'icon' if there's 1 child that's an icon
   // - 'default' otherwise
-  let defaultSize = props.size;
+  let defaultSize = size;
   if (defaultSize == null) {
     defaultSize = 'default';
 
-    if (props.variant === 'link' || props.variant === 'destructive_link') {
+    if (variant === 'link' || variant === 'destructive_link') {
       defaultSize = 'reset';
-    } else if (React.Children.count(props.children) === 1) {
-      React.Children.forEach(props.children, child => {
+    } else if (React.Children.count(children) === 1) {
+      React.Children.forEach(children, child => {
         if (React.isValidElement(child)) {
           // @ts-ignore
           if (typeof child.type.displayName === 'string' && child.type.displayName.includes('Icon')) {
@@ -69,34 +87,24 @@ const Button: React.FC<ButtonProps> = props => {
     }
   }
 
-  handlePropValidation(props);
+  handlePropValidation(children, variant, as, fullWidth, href, size, tabIndex);
 
   return (
     <ButtonWrapper
-      as={props.as}
-      variant={props.variant}
-      size={defaultSize}
-      buttonState={buttonState}
-      disabled={disabled}
-      autoFocus={props.autoFocus}
-      fullWidth={props.fullWidth}
-      href={props.href}
-      tabIndex={props.tabIndex}
-      type={props.type}
-      onClick={props.onClick}
-      onMouseDown={props.onMouseDown}
-      onMouseUp={props.onMouseUp}
-      onMouseEnter={props.onMouseEnter}
-      onMouseLeave={props.onMouseLeave}
-      onFocus={props.onFocus}
-      onBlur={props.onBlur}
-      aria-expanded={props['aria-expanded']}
-      aria-haspopup={props['aria-haspopup']}
-      aria-controls={props['aria-controls']}
       aria-busy={buttonState === 'loading' ? 'true' : 'false'}
-      data-test={props['data-test']}
+      as={as}
+      buttonState={buttonState}
+      disabled={showDisabled}
+      fullWidth={fullWidth}
+      href={href}
+      size={defaultSize}
+      tabIndex={tabIndex}
+      variant={variant}
+      {...props}
+      className={undefined}
+      style={undefined}
     >
-      <ButtonChildren buttonState={buttonState}>{props.children}</ButtonChildren>
+      <ButtonChildren buttonState={buttonState}>{children}</ButtonChildren>
       {showLoading ? (
         <SpinnerWrapper as="span">
           <Spinner decorative={false} title="Loading, please wait." delay={0} />
@@ -108,38 +116,22 @@ const Button: React.FC<ButtonProps> = props => {
 
 Button.defaultProps = {
   as: 'button',
+  fullWidth: false,
+  loading: false,
   type: 'button',
   variant: 'primary',
-  disabled: false,
-  loading: false,
-  fullWidth: false,
 };
 
 if (process.env.NODE_ENV === 'development') {
   Button.propTypes = {
-    type: PropTypes.oneOf(['submit', 'button', 'reset']),
-    href: PropTypes.string,
-    autoFocus: PropTypes.bool,
     as: PropTypes.string,
-    tabIndex: PropTypes.oneOf([0, -1]),
-    variant: PropTypes.oneOf(['primary', 'secondary', 'destructive', 'destructive_link', 'link', 'reset']) as any,
-    size: PropTypes.oneOf(['small', 'default', 'icon', 'reset']),
     fullWidth: PropTypes.bool,
-    /* eslint-disable react/no-unused-prop-types */
-    disabled: PropTypes.bool,
+    href: PropTypes.string,
     loading: PropTypes.bool,
-    /* eslint-enable */
-    'aria-expanded': PropTypes.oneOf(['true', 'false']),
-    'aria-haspopup': PropTypes.oneOf(['true', 'dialog', 'menu']),
-    'aria-controls': PropTypes.string,
-    'data-test': PropTypes.string,
-    onClick: PropTypes.func,
-    onMouseDown: PropTypes.func,
-    onMouseUp: PropTypes.func,
-    onMouseEnter: PropTypes.func,
-    onMouseLeave: PropTypes.func,
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
+    size: PropTypes.oneOf(['small', 'default', 'icon', 'reset']),
+    tabIndex: PropTypes.oneOf([0, -1]),
+    type: PropTypes.oneOf(['submit', 'button', 'reset']),
+    variant: PropTypes.oneOf(['primary', 'secondary', 'destructive', 'destructive_link', 'link', 'reset']) as any,
   };
 }
 
