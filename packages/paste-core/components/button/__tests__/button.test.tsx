@@ -290,7 +290,7 @@ describe('Button Errors', () => {
           Go to Paste
         </Button>
       )
-    ).toThrowError();
+    ).toThrow();
   });
 
   it('Throws an error when an "a" tag is passed but a href is not', () => {
@@ -300,7 +300,7 @@ describe('Button Errors', () => {
           Go to Paste
         </Button>
       )
-    ).toThrowError();
+    ).toThrow();
   });
 
   it('Throws an error when the user should use an Anchor component instead', () => {
@@ -310,7 +310,7 @@ describe('Button Errors', () => {
           Go to Paste
         </Button>
       )
-    ).toThrowError();
+    ).toThrow();
   });
 
   it('Throws an error when size=reset is not applied to variant=reset', () => {
@@ -320,7 +320,7 @@ describe('Button Errors', () => {
           Submit
         </Button>
       )
-    ).toThrowError();
+    ).toThrow();
   });
 
   it('Throws an error when using fullWidth with an icon sizing', () => {
@@ -330,15 +330,15 @@ describe('Button Errors', () => {
           X
         </Button>
       )
-    ).toThrowError();
+    ).toThrow();
   });
 
   it('Throws an error when not passing children', () => {
-    expect(() => shallow(<Button variant="primary" />)).toThrowError();
+    expect(() => shallow(<Button variant="primary" />)).toThrow();
   });
 
   it('Throws an error when passing an invalid tabIndex', () => {
-    expect(() => shallow(<Button variant="primary" tabIndex="-2" />)).toThrowError();
+    expect(() => shallow(<Button variant="primary" tabIndex="-2" />)).toThrow();
   });
 });
 
@@ -377,6 +377,17 @@ describe('Button aria attributes', () => {
       </Button>
     );
     expect(wrapper.exists('button[aria-busy="true"]')).toEqual(true);
+  });
+});
+
+describe('Button data attributes', () => {
+  it('Has an data-foo attribute', () => {
+    const wrapper: ReactWrapper = mount(
+      <Button variant="secondary" data-foo="test">
+        button
+      </Button>
+    );
+    expect(wrapper.exists('button[data-foo="test"]')).toEqual(true);
   });
 });
 

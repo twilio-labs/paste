@@ -26,7 +26,6 @@ storiesOf('Components|Button', module)
         variant={select('variant', ButtonVariantOptions, 'primary') as ButtonVariants}
         size={select('size', ButtonSizeOptions, 'default') as ButtonSizes}
         fullWidth={boolean('fullWidth', false)}
-        autoFocus={boolean('autoFocus', false)}
         disabled={boolean('disabled', false)}
         loading={boolean('loading', false)}
         as={text('as', 'button')}
@@ -47,7 +46,6 @@ storiesOf('Components|Button', module)
         variant={select('variant', ButtonVariantOptions, 'primary') as ButtonVariants}
         size={select('size', ButtonSizeOptions, 'default') as ButtonSizes}
         fullWidth={boolean('fullWidth', false)}
-        autoFocus={boolean('autoFocus', false)}
         disabled={boolean('disabled', false)}
         loading={boolean('loading', false)}
         as={text('as', 'button')}
@@ -68,7 +66,6 @@ storiesOf('Components|Button', module)
       <Button
         variant={select('variant', ButtonVariantOptions, 'primary') as ButtonVariants}
         size={select('size', ButtonSizeOptions, 'icon') as ButtonSizes}
-        autoFocus={boolean('autoFocus', false)}
         disabled={boolean('disabled', false)}
         loading={boolean('loading', false)}
         as={text('as', 'button')}
