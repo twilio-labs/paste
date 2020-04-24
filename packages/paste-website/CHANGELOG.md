@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.17.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.17.8...@twilio-paste/website@1.17.9) (2020-04-24)
+
+
+### Bug Fixes
+
+* **website:** add missing variants and update heading props table ([54c0013](https://github.com/twilio-labs/paste/commit/54c00131ca0bf2742993e47a787ca1ddd85e13fd))
+
+
+
+
+
 ## [1.17.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.17.7...@twilio-paste/website@1.17.8) (2020-04-24)
 
 **Note:** Version bump only for package @twilio-paste/website
