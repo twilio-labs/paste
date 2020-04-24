@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.18.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.17.9...@twilio-paste/website@1.18.0) (2020-04-24)
+
+
+### Features
+
+* **alert docs:** update color tokens in Anatomy ([#402](https://github.com/twilio-labs/paste/issues/402)) ([33d0129](https://github.com/twilio-labs/paste/commit/33d0129bb955ed65c4739e01d04b474b00f061c3))
+
+
+
+
+
 ## [1.17.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.17.8...@twilio-paste/website@1.17.9) (2020-04-24)
 
 
