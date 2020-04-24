@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.20](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.2.19...@twilio-paste/grid@0.2.20) (2020-04-24)
+
+
+### Bug Fixes
+
+* **grid:** add flex wrap style ([#403](https://github.com/twilio-labs/paste/issues/403)) ([fc6b356](https://github.com/twilio-labs/paste/commit/fc6b356aba377db47e0f678e0a95527aa43c0df7))
+
+
+
+
+
 ## [0.2.19](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.2.18...@twilio-paste/grid@0.2.19) (2020-04-22)
 
 **Note:** Version bump only for package @twilio-paste/grid
