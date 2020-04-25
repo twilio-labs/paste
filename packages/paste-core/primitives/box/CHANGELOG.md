@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.3.1...@twilio-paste/box@2.4.0) (2020-04-25)
+
+
+### Features
+
+* **box:** export interface prevent undefined pseudo selectors ([7e6363e](https://github.com/twilio-labs/paste/commit/7e6363ef93d9f58b2461a78fd4120dfd7020dc1a))
+
+
+
+
+
 ## [2.3.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.3.0...@twilio-paste/box@2.3.1) (2020-04-22)
 
 **Note:** Version bump only for package @twilio-paste/box

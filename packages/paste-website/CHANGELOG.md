@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.19.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.18.0...@twilio-paste/website@1.19.0) (2020-04-25)
+
+
+### Bug Fixes
+
+* **website:** correctly nest list item in side nav ([8c9deaf](https://github.com/twilio-labs/paste/commit/8c9deaf605889d0903c91a5a91d5300dda42bbf8))
+
+
+### Features
+
+* **website:** add radio and checkbox docs ([67700cb](https://github.com/twilio-labs/paste/commit/67700cbd4f92478fb452df01a2de6cd9cc2f8ede))
+
+
+
+
+
 # [1.18.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.17.9...@twilio-paste/website@1.18.0) (2020-04-24)
 
 

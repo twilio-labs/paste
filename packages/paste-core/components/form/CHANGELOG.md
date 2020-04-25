@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.1.10...@twilio-paste/form@1.2.0) (2020-04-25)
+
+
+### Features
+
+* **form:** add radio and checkbox components ([1b68f8d](https://github.com/twilio-labs/paste/commit/1b68f8d9f98470cabbf8fc5142cc2255c8be1b4b))
+* **form:** updates to form label ([72c37c2](https://github.com/twilio-labs/paste/commit/72c37c2da8a4fc05a87de1871551ac6004c1b7f9))
+
+
+
+
+
 ## [1.1.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.1.9...@twilio-paste/form@1.1.10) (2020-04-22)
 
 
