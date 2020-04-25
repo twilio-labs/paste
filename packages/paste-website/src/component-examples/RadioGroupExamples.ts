@@ -95,14 +95,14 @@ const NetworkRadioGroup = () => {
         value="existing"
         name="network"
       >
-        Select existing netowrk access profile
+        Select existing network access profile
       </Radio>
       <Radio
         id="new"
         value="new"
         name="network"
       >
-        Create new netowrk access profile
+        Create new network access profile
       </Radio>
     </RadioGroup>
   );
