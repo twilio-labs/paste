@@ -33,7 +33,7 @@ const AdPartners = () => {
         value="facebook"
         helpText={
           <Text as="span" color="currentColor">
-            Questions? <Anchor href="http://paste.twilio.com">Click here to learn mor</Anchor>.
+            Questions? <Anchor href="http://paste.twilio.com">Click here to learn more</Anchor>.
           </Text>
         }
       >
@@ -44,7 +44,7 @@ const AdPartners = () => {
         value="instagram"
         helpText={
           <Text as="span" color="currentColor">
-            Questions? <Anchor href="http://paste.twilio.com">Click here to learn mor</Anchor>.
+            Questions? <Anchor href="http://paste.twilio.com">Click here to learn more</Anchor>.
           </Text>
         }
       >
