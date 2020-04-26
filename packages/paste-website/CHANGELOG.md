@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.19.0...@twilio-paste/website@1.19.1) (2020-04-26)
+
+
+### Bug Fixes
+
+* **website:** typo in live radio and checkbox examples ([#408](https://github.com/twilio-labs/paste/issues/408)) ([bbbc929](https://github.com/twilio-labs/paste/commit/bbbc9293b068723e374676a4a4a76077ff353b70))
+
+
+
+
+
 # [1.19.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.18.0...@twilio-paste/website@1.19.0) (2020-04-25)
 
 
