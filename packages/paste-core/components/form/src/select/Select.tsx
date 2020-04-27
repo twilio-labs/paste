@@ -8,16 +8,6 @@ import {Suffix} from '../shared/Suffix';
 import {FieldWrapper} from '../shared/FieldWrapper';
 import {safelySpreadFormControlProps} from '../shared/Utils';
 
-/*
-    Fix mixed formatting!
-    testing library for tests! don't use enzyme!
-    - confirm safely spread util is working correctly
-    - test onChange/handlers
-    - html attributes are spread correctly (from props)
-    - check out modal for example of unit tests :)
-    - multiple with option groups!
-*/
-
 export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   id: string;
   onChange: (event: React.SyntheticEvent) => void;
