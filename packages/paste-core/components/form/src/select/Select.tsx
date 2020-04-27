@@ -2,7 +2,8 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import css from '@styled-system/css';
-import ChevronDown from '@twilio-paste/icons/svg/ChevronDown.svg'; // could be TS not rec. file type
+import {Box} from '@twilio-paste/box';
+import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {Prefix} from '../shared/Prefix';
 import {Suffix} from '../shared/Suffix';
 import {FieldWrapper} from '../shared/FieldWrapper';
@@ -16,15 +17,30 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
   hasError?: boolean;
 }
 
-const SelectElement = styled.select(({multiple}) =>
+export interface SelectIconWrapperProps {
+    ref?: string;
+}
+
+const SelectIconWrapper = React.forwardRef<HTMLSelectElement, SelectIconWrapperProps>((props, ref) => (
+    <Box
+        paddingTop="space30"
+        paddingRight="space30"
+        position="absolute"
+        display="inline-flex"
+        alignItems="center"
+        pointerEvents="none"
+        right="space30"
+        zIndex={"zIndex10"}
+        ref={ref}
+        {...props}
+    />
+));
+
+const SelectElement = styled.select(() =>
   css({
     appearance: 'none',
     border: 'none',
     background: 'transparent',
-    backgroundImage: multiple ? 'none' : `url(${ChevronDown});`,
-    backgroundColor: 'inherit',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'right',
     outline: 'none',
     resize: 'none',
     display: 'block',
@@ -56,6 +72,12 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         {children}
       </SelectElement>
       {insertAfter && <Suffix>{insertAfter}</Suffix>}
+    <SelectIconWrapper>
+        <ChevronDownIcon
+            decorative
+            aria-hidden="true"
+        />
+    </SelectIconWrapper>
     </FieldWrapper>
   )
 );

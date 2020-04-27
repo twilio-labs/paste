@@ -19,7 +19,7 @@ const OptionElement = styled.option(
 const Option = React.forwardRef<HTMLOptionElement, OptionProps>(({children, ...props}, ref) => {
   return (
     <OptionElement ref={ref} {...safelySpreadFormControlProps(props)}>
-      {cren}
+      {children}
     </OptionElement>
   );
 });

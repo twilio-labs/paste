@@ -8,28 +8,33 @@ import {Select, OptionGroup, Option} from '../../src';
 
 const onChangeMock: jest.Mock = jest.fn();
 
-const MockSelect: React.FC<{children?: React.ReactNode}> = ({children}) => {
-    const selectID = `select-${useUID()}`;
-    return (
-        <Theme.Provider theme="console">
-            <Select
-                id={selectID}
-                onChange={onChangeMock}
-            >
-                {children}
-            </Select>
-        </Theme.Provider>
-    );
-}
+const MockSelect: React.FC<{children?: React.ReactNode, hasError?: boolean}> = ({children, hasError = false }) => {
+  const selectID = `select-${useUID()}`;
+  return (
+    <Theme.Provider theme="console">
+      <Select id={selectID} onChange={onChangeMock} hasError={hasError}>
+        {children}
+      </Select>
+    </Theme.Provider>
+  );
+};
 
 describe('Form | Select', () => {
-    it('shoud have the correct accessibility attributes on the container', () => {});
+  it('shoud have the correct accessibility attributes on the container', () => {
+      const {getByTestId} = testRender(<MockSelect />);
+      console.log(getByTestId('select').getAttribute('aria-invalid'));
+      expect(getByTestId('select').getAttribute('aria-invalid')).toEqual(false);
 
-    it('should be able to take arbitrary html attributes on the container', () => {});
+      const {getByTestId: getByTestIdWithError} = testRender(<MockSelect hasError={true} />);
+      console.log(getByTestIdWithError('select').getAttribute('aria-invalid'));
+      expect(getByTestIdWithError('select').getAttribute('aria-invalid')).toEqual(true);
+  });
 
-    it('should filter blacklisted props via safelySpreadFormControlProps', () => {});
+  it('should be able to take arbitrary html attributes on the container', () => {});
 
-    it('should call onChange when an option is selected', () => {});
+  it('should filter blacklisted props via safelySpreadFormControlProps', () => {});
 
-    it('should have no accessibility violations', () => {});
+  it('should call onChange when an option is selected', () => {});
+
+  it('should have no accessibility violations', () => {});
 });

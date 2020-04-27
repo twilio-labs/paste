@@ -60,12 +60,14 @@ storiesOf('Forms|Select', module)
           Label
         </FormLabel>
         <Select
+          ref={React.createRef()}
           disabled={isDisabled}
           hasError={hasError}
           id={id}
           required={isRequired}
           value={value}
           onChange={event => {
+            console.log(event, 'in onChange')
             setValue(event.target.value);
             action('handleChange');
           }}

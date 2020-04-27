@@ -9,11 +9,11 @@ import {Option} from '../../src';
 // @TODO mocks here
 
 describe('Form | Option', () => {
-    it('shoud have the correct accessibility attributes on the container', () => {});
+  it('shoud have the correct accessibility attributes on the container', () => {});
 
-    it('should be able to take arbitrary html attributes on the container', () => {});
+  it('should be able to take arbitrary html attributes on the container', () => {});
 
-    it('should filter blacklisted props via safelySpreadFormControlProps', () => {});
+  it('should filter blacklisted props via safelySpreadFormControlProps', () => {});
 
-    it('should have no accessibility violations', () => {});
+  it('should have no accessibility violations', () => {});
 });
