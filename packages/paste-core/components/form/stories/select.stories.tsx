@@ -60,6 +60,7 @@ storiesOf('Forms|Select', module)
           Label
         </FormLabel>
         <Select
+          autoFocus={true}
           ref={React.createRef()}
           disabled={isDisabled}
           hasError={hasError}
@@ -67,7 +68,6 @@ storiesOf('Forms|Select', module)
           required={isRequired}
           value={value}
           onChange={event => {
-            console.log(event, 'in onChange')
             setValue(event.target.value);
             action('handleChange');
           }}

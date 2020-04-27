@@ -15,25 +15,26 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
   insertBefore?: React.ReactNode;
   insertAfter?: React.ReactNode;
   hasError?: boolean;
+  value: string | Array<string>;
 }
 
 export interface SelectIconWrapperProps {
-    ref?: string;
+  ref?: string;
 }
 
 const SelectIconWrapper = React.forwardRef<HTMLSelectElement, SelectIconWrapperProps>((props, ref) => (
-    <Box
-        paddingTop="space30"
-        paddingRight="space30"
-        position="absolute"
-        display="inline-flex"
-        alignItems="center"
-        pointerEvents="none"
-        right="space30"
-        zIndex={"zIndex10"}
-        ref={ref}
-        {...props}
-    />
+  <Box
+    paddingTop="space30"
+    paddingRight="space30"
+    position="absolute"
+    display="inline-flex"
+    alignItems="center"
+    pointerEvents="none"
+    right="space30"
+    zIndex={'zIndex10'}
+    ref={ref}
+    {...props}
+  />
 ));
 
 const SelectElement = styled.select(() =>
@@ -65,19 +66,22 @@ const SelectElement = styled.select(() =>
 );
 
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
-  ({disabled, hasError, insertBefore, insertAfter, children, ...props}, ref) => (
+  ({disabled, hasError, insertBefore, insertAfter, children, size, ...props}, ref) => (
     <FieldWrapper disabled={disabled} hasError={hasError}>
       {insertBefore && <Prefix>{insertBefore}</Prefix>}
-      <SelectElement aria-invalid={hasError} ref={ref} {...safelySpreadFormControlProps(props)}>
+      <SelectElement
+        aria-invalid={hasError}
+        ref={ref}
+        size={props.multiple ? size : 0}
+        autoFocus={!!props.autoFocus}
+        {...safelySpreadFormControlProps(props)}
+      >
         {children}
       </SelectElement>
       {insertAfter && <Suffix>{insertAfter}</Suffix>}
-    <SelectIconWrapper>
-        <ChevronDownIcon
-            decorative
-            aria-hidden="true"
-        />
-    </SelectIconWrapper>
+      <SelectIconWrapper>
+        <ChevronDownIcon decorative aria-hidden="true" />
+      </SelectIconWrapper>
     </FieldWrapper>
   )
 );
@@ -87,7 +91,7 @@ Select.displayName = 'Select';
 if (process.env.NODE_ENV === 'development') {
   Select.propTypes = {
     id: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]).isRequired,
     hasError: PropTypes.bool,
     onChange: PropTypes.func.isRequired,
   };
