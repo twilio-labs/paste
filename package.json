@@ -46,7 +46,7 @@
     "prettier-clean": "prettier --write '{.storybook,packages}/**/*.{ts,tsx}'",
     "lint": "yarn pre-test && eslint --ext .tsx,.ts ./packages/**",
     "type-check": "lerna run type-check",
-    "chroma": "chroma"
+    "chromatic": "chromatic"
   },
   "dependencies": {
     "@emotion/core": "^10.0.10",
@@ -103,6 +103,7 @@
     "babel-plugin-macros": "^2.6.1",
     "babel-preset-react-app": "^9.1.1",
     "chalk": "^2.4.2",
+    "chromatic": "^4.0.2",
     "concurrently": "^4.1.1",
     "cross-env": "^5.2.0",
     "directory-named-webpack-plugin": "^4.0.1",
@@ -132,7 +133,6 @@
     "regenerator-runtime": "^0.13.3",
     "require-context.macro": "^1.0.4",
     "shelljs": "^0.8.3",
-    "storybook-chroma": "^3.5.3",
     "storybook-readme": "^5.0.5",
     "typedoc": "^0.16.9",
     "typescript": "3.7.5",
