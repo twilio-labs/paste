@@ -1,11 +1,10 @@
 import * as React from 'react';
-import {useUID} from 'react-uid';
 import {render} from 'react-dom';
-import {render as testRender, fireEvent, cleanup} from '@testing-library/react';
+import {render as testRender, cleanup} from '@testing-library/react';
 import {axe} from 'jest-axe';
-import {Theme} from '@twilio-paste/theme';
 import {OptionGroup, Option} from '../../src';
 
+// @TODO move to util and allow for diff interfaces
 interface AttributesMap {
     // class?: string;
     // 'data-testid'?: string;
@@ -39,7 +38,6 @@ const MockOptionGroup = ({groupSuffix = 'test', ...props}) => {
     );
 }
 
-// @TODO mocks here
 describe('Form | OptionGroup', () => {
   afterEach(cleanup);
 
