@@ -3,38 +3,20 @@ import {render} from 'react-dom';
 import {render as testRender, cleanup} from '@testing-library/react';
 import {axe} from 'jest-axe';
 import {Option} from '../../src';
+import {createAttributeMap} from '../../test-utils';
 
-// @TODO move to util and allow for diff interfaces
-interface AttributesMap {
-    // class?: string;
-    // 'data-testid'?: string;
-    // id?: string;
-    // 'aria-invalid'?: string;
+interface MockOptionProps extends React.OptionHTMLAttributes<HTMLOptionElement> {
+    suffix?: string;
+    value?: string;
 }
 
-export const createAttributeMap = (element: HTMLElement) : AttributesMap => {
-    const attributesMap = {};
-    const attributesNodeList: NamedNodeMap = element.attributes;
-    for (let i = 0; i < attributesNodeList.length; i++) {
-        const {name, value} = attributesNodeList[i];
-        attributesMap[name] = value;
-    }
-
-    return attributesMap;
-}
-
-const MockOption = ({suffix = 'test', ...props}) => {
+const MockOption: React.FC<MockOptionProps> = ({suffix = 'test', ...props}): React.ReactElement => {
     return (
-         <Option
-            data-testid={`option-${suffix}`}
-            value="option-1"
-            {...props}
-        >
-            Option 1
-        </Option>
+      <Option data-testid={`option-${suffix}`} value={'option-1'} {...props}>
+        Option 1
+      </Option>
     );
 }
-
 
 describe('Form | Option', () => {
   afterEach(cleanup);
@@ -54,14 +36,14 @@ describe('Form | Option', () => {
       const {getByTestId} = testRender(<MockOption {...additionalAttributes} />);
       const attributeMap = createAttributeMap(getByTestId('option-test'));
   
-      expect(attributeMap.hasOwnProperty('data-attr')).toBe(true);
-      expect(attributeMap.hasOwnProperty('title')).toBe(true);
-      expect(attributeMap.hasOwnProperty('spellcheck')).toBe(true);
-      expect(attributeMap.hasOwnProperty('hidden')).toBe(true);
-      expect(attributeMap.hasOwnProperty('draggable')).toBe(true);
-      expect(attributeMap.hasOwnProperty('accesskey')).toBe(true);
-      expect(attributeMap.hasOwnProperty('disabled')).toBe(true);
-      expect(attributeMap.hasOwnProperty('label')).toBe(true);
+      expect(attributeMap['data-attr']).toEqual('test-attribute');
+      expect(attributeMap.title).toEqual('test-title');
+      expect(attributeMap.spellcheck).toEqual('true');
+      expect(attributeMap.hidden).toEqual('');
+      expect(attributeMap.draggable).toEqual('true');
+      expect(attributeMap.accesskey).toEqual('t e s t');
+      expect(attributeMap.disabled).toEqual('');
+      expect(attributeMap.label).toEqual('option-1-label');
   });
 
   it('should filter blacklisted props via safelySpreadFormControlProps', () => {

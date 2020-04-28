@@ -15,7 +15,7 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
   insertBefore?: React.ReactNode;
   insertAfter?: React.ReactNode;
   hasError?: boolean;
-  value: string | Array<string>;
+  value: string | string[];
 }
 
 export interface SelectIconWrapperProps {
@@ -37,7 +37,7 @@ const SelectIconWrapper = React.forwardRef<HTMLSelectElement, SelectIconWrapperP
   />
 ));
 
-const SelectElement = styled.select(() =>
+const SelectElement = styled.select(
   css({
     appearance: 'none',
     border: 'none',
@@ -91,7 +91,6 @@ Select.displayName = 'Select';
 if (process.env.NODE_ENV === 'development') {
   Select.propTypes = {
     id: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]).isRequired,
     hasError: PropTypes.bool,
     onChange: PropTypes.func.isRequired,
   };

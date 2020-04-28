@@ -5,26 +5,9 @@ import {render as testRender, fireEvent, cleanup} from '@testing-library/react';
 import {axe} from 'jest-axe';
 import {Theme} from '@twilio-paste/theme';
 import {Select, Option, FormLabel} from '../../src';
+import {createAttributeMap} from '../../test-utils';
 
 const onChangeMock: jest.Mock = jest.fn();
-
-interface AttributesMap {
-    class?: string;
-    'data-testid'?: string;
-    id?: string;
-    'aria-invalid'?: string;
-}
-
-export const createAttributeMap = (element: HTMLElement): AttributesMap => {
-  const attributesMap = {};
-  const attributesNodeList: NamedNodeMap = element.attributes;
-  for (let i = 0; i < attributesNodeList.length; i++) {
-    const {name, value} = attributesNodeList[i];
-    attributesMap[name] = value;
-  }
-
-  return attributesMap;
-};
 
 export interface MockSelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   dataPrefix?: string;
@@ -58,25 +41,24 @@ const MockSelect: React.FC<MockSelectProps> = ({children, hasError = false, data
 };
 
 describe('Form | Select', () => {
-    const blackListedPropsMap = {
-      style: {},
-      className: 'blacklisted',
-      height: '1px',
-      width: '2px',
-      size: 2,
-    };
-    afterEach(cleanup);
+  const blackListedPropsMap = {
+    style: {},
+    className: 'blacklisted',
+    height: '1px',
+    width: '2px',
+    size: 2,
+  };
+  afterEach(cleanup);
 
   it('shoud have the correct accessibility attributes on the container', () => {
     const {getByTestId} = testRender(<MockSelect />);
     expect(getByTestId('select').getAttribute('aria-invalid')).toEqual('false');
 
-    const {getByTestId: getByTestIdWithError} = testRender(<MockSelect dataPrefix="has-error" hasError={true} />);
+    const {getByTestId: getByTestIdWithError} = testRender(<MockSelect dataPrefix="has-error" hasError />);
     expect(getByTestIdWithError('has-error-select').getAttribute('aria-invalid')).toEqual('true');
   });
 
   it('should be able to take arbitrary html attributes on the container', () => {
-    // @TODO update this test, will fail.
     const nativeAttributes = {
       autoComplete: 'on',
       form: 'test-form',
@@ -91,15 +73,14 @@ describe('Form | Select', () => {
     const {getByTestId} = testRender(<MockSelect {...nativeAttributes} />);
     const attributeMap = createAttributeMap(getByTestId('select'));
 
-    expect(attributeMap.hasOwnProperty('autocomplete')).toBe(true);
-    expect(attributeMap.hasOwnProperty('form')).toBe(true);
-    expect(attributeMap.hasOwnProperty('name')).toBe(true);
-    expect(attributeMap.hasOwnProperty('data-attr')).toBe(true);
-    expect(attributeMap.hasOwnProperty('title')).toBe(true);
-    expect(attributeMap.hasOwnProperty('spellcheck')).toBe(true);
-    expect(attributeMap.hasOwnProperty('hidden')).toBe(true);
-    expect(attributeMap.hasOwnProperty('draggable')).toBe(true);
-    expect(attributeMap.hasOwnProperty('accesskey')).toBe(true);
+    expect(attributeMap['data-attr']).toEqual('test-attribute');
+    expect(attributeMap.title).toEqual('test-title');
+    expect(attributeMap.spellcheck).toEqual('true');
+    expect(attributeMap.hidden).toEqual('');
+    expect(attributeMap.draggable).toEqual('true');
+    expect(attributeMap.accesskey).toEqual('t e s t');
+    expect(attributeMap.autocomplete).toEqual('on');
+    expect(attributeMap.form).toEqual('test-form');
   });
 
   it('should filter blacklisted props via safelySpreadFormControlProps', () => {

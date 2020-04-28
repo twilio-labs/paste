@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {useUID} from 'react-uid';
+import kebabCase from 'lodash/kebabCase';
 import {storiesOf} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
 import {withKnobs, boolean, text, select, array, number} from '@storybook/addon-knobs';
@@ -7,7 +8,6 @@ import {Anchor} from '@twilio-paste/anchor';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {FormLabel, FormHelpText, FormHelpTextVariants, Select, Option, OptionGroup} from '../src';
 
-import kebabCase from 'lodash/kebabCase';
 
 const helpVariantOptions = ['default', 'error'];
 
@@ -15,7 +15,7 @@ storiesOf('Forms|Select', module)
   .addDecorator(withKnobs)
   .add('Select Options', () => {
     const selectGroupId = 'select group';
-    const optionGroup = (idx: Number) => `option group ${idx}`;
+    const optionGroup = (idx: number): string => `option group ${idx}`;
     const id = text('id', 'select_input_field', selectGroupId);
     const htmlFor = text('htmlFor', 'select_input_field', selectGroupId);
     const hasError = boolean('hasError', false, selectGroupId);
@@ -37,17 +37,17 @@ storiesOf('Forms|Select', module)
     const defaultOptions = ['Option 1', 'Option 2', 'Option 3'];
     const optionValues = array('option values', defaultOptions, ', ', selectGroupId);
 
-    const KnobOption = ({idx, initialValue}) => {
+    const KnobOption: React.FC<{idx: number; initialValue: string}> = ({idx, initialValue}) => {
       const optionGroupId = optionGroup(idx);
       const isDefault = boolean('default', false, optionGroupId);
-      const isDisabled = boolean('disabled', false, optionGroupId);
+      const disabled = boolean('disabled', false, optionGroupId);
       const isSelected = boolean('selected', false, optionGroupId);
-      const value = text('value', initialValue || `option-value-${idx}`, optionGroupId);
+      const optionValue = text('value', initialValue || `option-value-${idx}`, optionGroupId);
       const label = text('label', `Option ${idx}`, optionGroupId);
 
       return (
         <>
-          <Option value={value} selected={isSelected || isDefault} disabled={isDisabled}>
+          <Option value={optionValue} selected={isSelected || isDefault} disabled={disabled}>
             {label}
           </Option>
         </>
@@ -60,7 +60,6 @@ storiesOf('Forms|Select', module)
           Label
         </FormLabel>
         <Select
-          autoFocus={true}
           ref={React.createRef()}
           disabled={isDisabled}
           hasError={hasError}
@@ -84,8 +83,8 @@ storiesOf('Forms|Select', module)
             )
           }
         >
-          {optionValues.map((value, idx) => (
-            <KnobOption idx={idx + 1} initialValue={kebabCase(value)} key={idx} />
+          {optionValues.map((option, idx) => (
+            <KnobOption idx={idx + 1} initialValue={kebabCase(option)} key={useUID()} />
           ))}
         </Select>
         <FormHelpText variant={helpVariantValue}>{helpText}</FormHelpText>
