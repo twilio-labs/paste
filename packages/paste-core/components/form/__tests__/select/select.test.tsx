@@ -15,16 +15,16 @@ interface AttributesMap {
     'aria-invalid'?: string;
 }
 
-const createAttributeMap = (element: HTMLElement) : AttributesMap => {
-    const attributesMap = {};
-    const attributesNodeList: NamedNodeMap = element.attributes;
-    for (let i = 0; i < attributesNodeList.length; i++) {
-        const {name, value} = attributesNodeList[i];
-        attributesMap[name] = value;
-    }
+export const createAttributeMap = (element: HTMLElement): AttributesMap => {
+  const attributesMap = {};
+  const attributesNodeList: NamedNodeMap = element.attributes;
+  for (let i = 0; i < attributesNodeList.length; i++) {
+    const {name, value} = attributesNodeList[i];
+    attributesMap[name] = value;
+  }
 
-    return attributesMap;
-}
+  return attributesMap;
+};
 
 export interface MockSelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   dataPrefix?: string;
@@ -76,10 +76,17 @@ describe('Form | Select', () => {
   });
 
   it('should be able to take arbitrary html attributes on the container', () => {
+    // @TODO update this test, will fail.
     const nativeAttributes = {
       autoComplete: 'on',
       form: 'test-form',
       name: 'test-select',
+      'data-attr': 'test-attribute',
+      title: 'test-title',
+      spellCheck: true,
+      hidden: true,
+      draggable: true,
+      accessKey: 't e s t',
     };
     const {getByTestId} = testRender(<MockSelect {...nativeAttributes} />);
     const attributeMap = createAttributeMap(getByTestId('select'));
@@ -87,6 +94,12 @@ describe('Form | Select', () => {
     expect(attributeMap.hasOwnProperty('autocomplete')).toBe(true);
     expect(attributeMap.hasOwnProperty('form')).toBe(true);
     expect(attributeMap.hasOwnProperty('name')).toBe(true);
+    expect(attributeMap.hasOwnProperty('data-attr')).toBe(true);
+    expect(attributeMap.hasOwnProperty('title')).toBe(true);
+    expect(attributeMap.hasOwnProperty('spellcheck')).toBe(true);
+    expect(attributeMap.hasOwnProperty('hidden')).toBe(true);
+    expect(attributeMap.hasOwnProperty('draggable')).toBe(true);
+    expect(attributeMap.hasOwnProperty('accesskey')).toBe(true);
   });
 
   it('should filter blacklisted props via safelySpreadFormControlProps', () => {
