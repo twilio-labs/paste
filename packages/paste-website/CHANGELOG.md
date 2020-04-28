@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.20.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.19.2...@twilio-paste/website@1.20.0) (2020-04-28)
+
+
+### Features
+
+* **website:** add reset button example to button doc page ([#407](https://github.com/twilio-labs/paste/issues/407)) ([ba6d00c](https://github.com/twilio-labs/paste/commit/ba6d00c1cd0d44fec81fba94d60016cd12271c17))
+
+
+
+
+
 ## [1.19.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.19.1...@twilio-paste/website@1.19.2) (2020-04-28)
 
 **Note:** Version bump only for package @twilio-paste/website
