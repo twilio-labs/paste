@@ -1,0 +1,30 @@
+name: Chromatic
+
+on: push
+
+jobs:
+  chromatic:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.16.x]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch: 0
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: yarn install
+      - name: Bootstrap repository
+        run: yarn bootstrap
+      - name: Build packages
+        run: yarn build
+      - uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMA_APP_CODE }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          buildScriptName: "build:storybook"
+          autoAcceptChanges: "master"
