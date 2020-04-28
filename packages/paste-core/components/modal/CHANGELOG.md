@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@0.1.9...@twilio-paste/modal@0.1.10) (2020-04-28)
+
+
+### Bug Fixes
+
+* **modal:** reset margin on heading, add zIndex to overlay ([#409](https://github.com/twilio-labs/paste/issues/409)) ([69179c4](https://github.com/twilio-labs/paste/commit/69179c49f08045950f2306e128dcdf1eb824cea1))
+
+
+
+
+
 ## [0.1.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@0.1.8...@twilio-paste/modal@0.1.9) (2020-04-25)
 
 **Note:** Version bump only for package @twilio-paste/modal
