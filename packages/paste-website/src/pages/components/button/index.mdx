@@ -285,6 +285,19 @@ their default size.
 </div>`}
 </LivePreview>
 
+#### Reset button styles
+
+The reset button is basically a primitive button. The button styles are
+reset, so styles won't interfere with any child elements. This allows you to
+create your own buttons using the Paste. This reset variant only resets
+styles. No other button functionality is reset.
+
+<LivePreview scope={{Button}} language="jsx">
+  {`<Button variant="reset" size="reset">
+  Submit
+</Button>`}
+</LivePreview>
+
 ### States
 
 #### Loading
