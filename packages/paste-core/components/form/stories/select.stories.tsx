@@ -175,7 +175,7 @@ storiesOf('Forms|Select', module)
   })
   .add('Select - Multiple', () => {
     const uid = useUID();
-    const [value, setValue] = React.useState('Select - Error');
+    const [value] = React.useState('Select - Error');
     return (
       <>
         <FormLabel htmlFor={uid}>Label</FormLabel>
@@ -186,6 +186,7 @@ storiesOf('Forms|Select', module)
           onChange={action('handleChange')}
           onFocus={action('handleFocus')}
           onBlur={action('handleBlur')}
+          value={value}
         >
           <Option value="option-1">Option 1</Option>
           <Option value="option-2">Option 2</Option>

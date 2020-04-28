@@ -11,7 +11,7 @@ import {safelySpreadFormControlProps} from '../shared/Utils';
 
 export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   id: string;
-  onChange: (event: React.SyntheticEvent) => void;
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   insertBefore?: React.ReactNode;
   insertAfter?: React.ReactNode;
   hasError?: boolean;
