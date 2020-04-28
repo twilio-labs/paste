@@ -19,6 +19,7 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({children, ...props}) => {
       borderBottomWidth="borderWidth10"
       borderBottomColor="colorBorderLight"
       padding="space50"
+      margin="space0"
       flexShrink={0}
     >
       <Flex hAlignContent="between">
