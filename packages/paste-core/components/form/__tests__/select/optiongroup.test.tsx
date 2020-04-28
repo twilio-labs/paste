@@ -6,17 +6,17 @@ import {OptionGroup, Option} from '../../src';
 import {createAttributeMap} from '../../test-utils';
 
 interface MockOptionGroupProps extends React.OptgroupHTMLAttributes<HTMLOptGroupElement> {
-    groupSuffix?: string;
+  groupSuffix?: string;
 }
 
-const MockOptionGroup : React.FC<MockOptionGroupProps> = ({groupSuffix = 'test', ...props}) => {
-    return (
-        <OptionGroup data-testid={`optgroup-1-${groupSuffix}`} {...props} label="first-group">
-            <Option value="option-1">Option 1</Option>
-            <Option value="option-2">Option 2</Option>
-        </OptionGroup>
-    );
-}
+const MockOptionGroup: React.FC<MockOptionGroupProps> = ({groupSuffix = 'test', ...props}) => {
+  return (
+    <OptionGroup data-testid={`optgroup-1-${groupSuffix}`} {...props} label="first-group">
+      <Option value="option-1">Option 1</Option>
+      <Option value="option-2">Option 2</Option>
+    </OptionGroup>
+  );
+};
 
 describe('Form | OptionGroup', () => {
   afterEach(cleanup);

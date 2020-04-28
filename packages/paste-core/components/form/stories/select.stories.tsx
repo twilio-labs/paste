@@ -8,7 +8,6 @@ import {Anchor} from '@twilio-paste/anchor';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {FormLabel, FormHelpText, FormHelpTextVariants, Select, Option, OptionGroup} from '../src';
 
-
 const helpVariantOptions = ['default', 'error'];
 
 storiesOf('Forms|Select', module)
