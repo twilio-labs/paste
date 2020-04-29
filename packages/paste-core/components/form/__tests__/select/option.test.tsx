@@ -19,8 +19,6 @@ const MockOption: React.FC<MockOptionProps> = ({suffix = 'test', ...props}): Rea
 };
 
 describe('Form | Option', () => {
-  afterEach(cleanup);
-
   it('should be able to take arbitrary html attributes on the container', () => {
     const additionalAttributes = {
       disabled: true,
@@ -46,7 +44,7 @@ describe('Form | Option', () => {
     expect(attributeMap.label).toEqual('option-1-label');
   });
 
-  it('should filter blacklisted props via safelySpreadFormControlProps', () => {
+  it('should filter blacklisted props', () => {
     const blackListedPropsMap = {
       style: {},
       className: 'blacklisted',

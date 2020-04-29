@@ -17,13 +17,10 @@ export interface AttributesMap {
 }
 
 export const createAttributeMap = (element: HTMLElement): AttributesMap => {
-  const attributesMap = {};
   const attributesNodeList: NamedNodeMap = element.attributes;
-  // eslint-disable-next-line unicorn/no-for-loop
-  for (let i = 0; i < attributesNodeList.length; i++) {
-    const {name, value} = attributesNodeList[i];
-    attributesMap[name] = value;
-  }
 
-  return attributesMap;
+  return Object.keys(attributesNodeList).reduce((attributesMap, key) => {
+    const {name, value} = attributesNodeList[key];
+    return {...attributesMap, [name]: value};
+  }, {});
 };

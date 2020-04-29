@@ -7,7 +7,7 @@ import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {Prefix} from '../shared/Prefix';
 import {Suffix} from '../shared/Suffix';
 import {FieldWrapper} from '../shared/FieldWrapper';
-import {safelySpreadFormControlProps} from '../shared/Utils';
+import {restrictedProps} from '../shared/restricted-attributes';
 
 export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   id: string;
@@ -18,24 +18,20 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
   value: string | string[];
 }
 
-export interface SelectIconWrapperProps {
-  ref?: string;
-}
-
-const SelectIconWrapper = React.forwardRef<HTMLSelectElement, SelectIconWrapperProps>((props, ref) => (
+const SelectIconWrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
   <Box
-    paddingTop="space30"
-    paddingRight="space30"
-    position="absolute"
-    display="inline-flex"
     alignItems="center"
+    display="inline-flex"
+    position="absolute"
     pointerEvents="none"
-    right="space30"
-    zIndex={'zIndex10'}
-    ref={ref}
-    {...props}
-  />
-));
+    right="space40"
+    top="50%"
+    transform="translateY(-50%)"
+    zIndex="zIndex10"
+  >
+    {children}
+  </Box>
+);
 
 const SelectElement = styled.select(
   css({
@@ -66,22 +62,27 @@ const SelectElement = styled.select(
 );
 
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
-  ({disabled, hasError, insertBefore, insertAfter, children, size, ...props}, ref) => (
+  ({disabled, hasError, insertBefore, insertAfter, children, size, multiple, ...props}, ref) => (
     <FieldWrapper disabled={disabled} hasError={hasError}>
       {insertBefore && <Prefix>{insertBefore}</Prefix>}
-      <SelectElement
-        aria-invalid={hasError}
-        ref={ref}
-        size={props.multiple ? size : 0}
-        autoFocus={!!props.autoFocus}
-        {...safelySpreadFormControlProps(props)}
-      >
-        {children}
-      </SelectElement>
+      <Box display="flex" width="100%" position="relative">
+        <SelectElement
+          aria-invalid={hasError}
+          ref={ref}
+          multiple={multiple}
+          {...props}
+          {...restrictedProps}
+          size={multiple ? size : 0}
+        >
+          {children}
+        </SelectElement>
+        {!multiple && (
+          <SelectIconWrapper>
+            <ChevronDownIcon size="sizeIcon30" decorative aria-hidden="true" />
+          </SelectIconWrapper>
+        )}
+      </Box>
       {insertAfter && <Suffix>{insertAfter}</Suffix>}
-      <SelectIconWrapper>
-        <ChevronDownIcon decorative aria-hidden="true" />
-      </SelectIconWrapper>
     </FieldWrapper>
   )
 );

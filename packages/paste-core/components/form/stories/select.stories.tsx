@@ -29,7 +29,6 @@ storiesOf('Forms|Select', module)
       selectGroupId
     ) as FormHelpTextVariants;
     const helpText = text('help text', 'Info that helps a user with this field.', selectGroupId);
-    const [value, setValue] = React.useState('Select Options');
     const insertBefore = boolean('insertBefore', false, selectGroupId);
     const insertAfter = boolean('insertAfter', false, selectGroupId);
 
@@ -53,6 +52,8 @@ storiesOf('Forms|Select', module)
       );
     };
 
+    const [value, setValue] = React.useState(isMultiple ? [] : 'Select | Options');
+
     return (
       <>
         <FormLabel htmlFor={htmlFor} disabled={isDisabled} required={isRequired}>
@@ -66,7 +67,21 @@ storiesOf('Forms|Select', module)
           required={isRequired}
           value={value}
           onChange={event => {
-            setValue(event.target.value);
+            const {
+              target: {value: targetValue, options},
+            } = event;
+            if (isMultiple) {
+              const update: string[] = Object.keys(options).reduce((optionTargetValues, key) => {
+                const {selected, value: optionValue} = options[key];
+                if (selected) {
+                  return [...optionTargetValues, optionValue];
+                }
+                return optionTargetValues;
+              }, []);
+              setValue(update);
+            } else {
+              setValue(targetValue);
+            }
             action('handleChange');
           }}
           onFocus={action('handleFocus')}
@@ -174,7 +189,8 @@ storiesOf('Forms|Select', module)
   })
   .add('Select - Multiple', () => {
     const uid = useUID();
-    const [value] = React.useState('Select - Error');
+    const [value, setValue] = React.useState([]);
+
     return (
       <>
         <FormLabel htmlFor={uid}>Label</FormLabel>
@@ -182,35 +198,19 @@ storiesOf('Forms|Select', module)
           id={uid}
           multiple
           size={2}
-          onChange={action('handleChange')}
-          onFocus={action('handleFocus')}
-          onBlur={action('handleBlur')}
-          value={value}
-        >
-          <Option value="option-1">Option 1</Option>
-          <Option value="option-2">Option 2</Option>
-          <Option value="option-3">Option 3</Option>
-          <Option value="option-4">Option 4</Option>
-        </Select>
-        <FormHelpText>Info that helps a user with this field.</FormHelpText>
-      </>
-    );
-  })
-  .add('Select - Default Value', () => {
-    const uid = useUID();
-    const [value, setValue] = React.useState('');
-    return (
-      <>
-        <FormLabel htmlFor={uid}>Label</FormLabel>
-        <Select
-          id={uid}
-          onChange={event => {
-            setValue(event.target.value);
+          onChange={({target: options}) => {
+            const update: string[] = Object.keys(options).reduce((optionValues, key) => {
+              const {selected, value: optionValue} = options[key];
+              if (selected) {
+                return [...optionValues, optionValue];
+              }
+              return optionValues;
+            }, []);
+            setValue(update);
             action('handleChange');
           }}
           onFocus={action('handleFocus')}
           onBlur={action('handleBlur')}
-          defaultValue="option-3"
           value={value}
         >
           <Option value="option-1">Option 1</Option>
@@ -284,14 +284,21 @@ storiesOf('Forms|Select', module)
   })
   .add('Select - Option Groups and Multiple', () => {
     const uid = useUID();
-    const [value, setValue] = React.useState('Select - Error');
+    const [value, setValue] = React.useState([]);
     return (
       <>
         <FormLabel htmlFor={uid}>Label</FormLabel>
         <Select
           id={uid}
-          onChange={event => {
-            setValue(event.target.value);
+          onChange={({target: options}) => {
+            const update: string[] = Object.keys(options).reduce((optionValues, key) => {
+              const {selected, value: optionValue} = options[key];
+              if (selected) {
+                return [...optionValues, optionValue];
+              }
+              return optionValues;
+            }, []);
+            setValue(update);
             action('handleChange');
           }}
           multiple

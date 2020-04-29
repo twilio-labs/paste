@@ -2,19 +2,24 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import css from '@styled-system/css';
-import {safelySpreadFormControlProps, PROPS_TO_BLOCK} from '../shared/Utils';
+import {restrictedProps} from '../shared/restricted-attributes';
+
+const optionRestrictedProps = {...restrictedProps, selected: undefined};
 
 export interface OptionProps extends React.OptionHTMLAttributes<HTMLOptionElement> {
   value: string;
   children: React.ReactNode;
 }
 
-const OPTION_PROPS_TO_BLOCK = [...PROPS_TO_BLOCK, 'selected'];
-
 const OptionElement = styled.option(
   css({
     background: 'transparent',
     color: 'colorText',
+    fontFamily: 'fontFamilyText',
+    lineHeight: 'lineHeight50',
+    paddingTop: 'space30',
+    paddingBottom: 'space30',
+    paddingLeft: 'space20',
   })
 );
 
@@ -23,7 +28,7 @@ const Option = React.forwardRef<HTMLOptionElement, OptionProps>(({children, ...p
     console.warn('"selected" is a blocked prop on this component, please use "value" on the select element.');
   }
   return (
-    <OptionElement ref={ref} {...safelySpreadFormControlProps(props, OPTION_PROPS_TO_BLOCK)}>
+    <OptionElement ref={ref} {...props} {...optionRestrictedProps}>
       {children}
     </OptionElement>
   );

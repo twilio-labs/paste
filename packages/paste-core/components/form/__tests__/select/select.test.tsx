@@ -48,7 +48,6 @@ describe('Form | Select', () => {
     width: '2px',
     size: 2,
   };
-  afterEach(cleanup);
 
   it('shoud have the correct accessibility attributes on the container', () => {
     const {getByTestId} = testRender(<MockSelect />);
@@ -83,7 +82,7 @@ describe('Form | Select', () => {
     expect(attributeMap.form).toEqual('test-form');
   });
 
-  it('should filter blacklisted props via safelySpreadFormControlProps', () => {
+  it('should filter blacklisted props', () => {
     const {getByTestId} = testRender(<MockSelect dataPrefix="blacklisted" {...blackListedPropsMap} />);
     const selectAttributesMap = createAttributeMap(getByTestId('blacklisted-select'));
 

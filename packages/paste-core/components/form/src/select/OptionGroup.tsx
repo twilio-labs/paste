@@ -1,16 +1,29 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {safelySpreadFormControlProps} from '../shared/Utils';
+import styled from '@emotion/styled';
+import css from '@styled-system/css';
+import {restrictedProps} from '../shared/restricted-attributes';
 
 export interface OptionGroupProps extends React.OptgroupHTMLAttributes<HTMLOptGroupElement> {
   label: string;
   children: React.ReactNode;
 }
 
+const OptionGroupElement = styled.optgroup(
+  css({
+    background: 'transparent',
+    color: 'colorText',
+    fontFamily: 'fontFamilyText',
+    fontWeight: 'fontWeightMedium',
+    fontStyle: 'normal',
+    margin: 'space20',
+  })
+);
+
 const OptionGroup = React.forwardRef<HTMLOptGroupElement, OptionGroupProps>(({label, children, ...props}, ref) => (
-  <optgroup ref={ref} label={label} {...safelySpreadFormControlProps(props)}>
+  <OptionGroupElement ref={ref} label={label} {...props} {...restrictedProps}>
     {children}
-  </optgroup>
+  </OptionGroupElement>
 ));
 
 OptionGroup.displayName = 'OptionGroup';
