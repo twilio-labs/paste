@@ -1,9 +1,9 @@
-name: Chroma
+name: Chromatic
 
 on: push
 
 jobs:
-  chroma:
+  chromatic:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -24,7 +24,7 @@ jobs:
         run: yarn build
       - uses: chromaui/action@v1
         with:
-          appCode: ${{ secrets.CHROMA_APP_CODE }}
+          projectToken: ${{ secrets.CHROMA_APP_CODE }}
           token: ${{ secrets.GITHUB_TOKEN }}
           buildScriptName: "build:storybook"
           autoAcceptChanges: "master"
