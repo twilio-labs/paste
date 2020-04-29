@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.41](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.1.40...@twilio-paste/button@1.1.41) (2020-04-29)
+
+
+### Bug Fixes
+
+* **button:** allow html button attributes, rework prop destructuring ([6b8be87](https://github.com/twilio-labs/paste/commit/6b8be875c3220237ab2ed4b6878b87ec30f44127))
+
+
+
+
+
 ## [1.1.40](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.1.39...@twilio-paste/button@1.1.40) (2020-04-25)
 
 **Note:** Version bump only for package @twilio-paste/button

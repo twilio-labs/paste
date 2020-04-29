@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.20.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.20.0...@twilio-paste/website@1.20.1) (2020-04-29)
+
+
+### Bug Fixes
+
+* **website:** update button prop table ([7718d43](https://github.com/twilio-labs/paste/commit/7718d435b975b5975fd5e63c353cd1c573a4bde7))
+
+
+
+
+
 # [1.20.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.19.2...@twilio-paste/website@1.20.0) (2020-04-28)
 
 
