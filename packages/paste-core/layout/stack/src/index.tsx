@@ -8,7 +8,7 @@ export type Orientation = 'horizontal' | 'vertical';
 export interface StackProps {
   id?: never;
   className?: never;
-  orientation: Orientation;
+  orientation?: Orientation;
   spacing?: Space;
 }
 
@@ -33,9 +33,13 @@ const Stack: React.FC<StackProps> = ({children, orientation, spacing, ...props})
 
 Stack.displayName = 'Stack';
 
+Stack.defaultProps = {
+  orientation: 'vertical',
+};
+
 if (process.env.NODE_ENV === 'development') {
   Stack.propTypes = {
-    orientation: PropTypes.oneOf(['horizontal', 'vertical'] as Orientation[]).isRequired,
+    orientation: PropTypes.oneOf(['horizontal', 'vertical'] as Orientation[]),
     spacing: isSpaceTokenProp,
   };
 }

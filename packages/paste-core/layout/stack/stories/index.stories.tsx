@@ -36,7 +36,7 @@ storiesOf('Layout|Stack', module)
   })
   .add('Stack - Vertical', () => {
     return (
-      <Stack orientation="vertical" spacing="space40">
+      <Stack spacing="space40">
         <Card>
           <Heading as="h2" variant="heading20">
             First Card
