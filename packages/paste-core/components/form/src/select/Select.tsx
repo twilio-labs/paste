@@ -54,6 +54,7 @@ const SelectElement = styled.select(
     paddingLeft: 'space40',
     borderRadius: 'borderRadius20',
     boxShadow: 'none',
+    cursor: 'pointer',
 
     '&:disabled': {
       cursor: 'not-allowed',
