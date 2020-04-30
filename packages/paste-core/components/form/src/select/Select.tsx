@@ -16,6 +16,7 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
   insertAfter?: React.ReactNode;
   hasError?: boolean;
   value: string | string[];
+  children: NonNullable<React.ReactNode>;
 }
 
 const SelectIconWrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
@@ -70,6 +71,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           aria-invalid={hasError}
           ref={ref}
           multiple={multiple}
+          disabled={disabled}
           {...props}
           {...restrictedProps}
           size={multiple ? size : 0}

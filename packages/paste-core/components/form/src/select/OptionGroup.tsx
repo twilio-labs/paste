@@ -6,7 +6,7 @@ import {restrictedProps} from '../shared/restricted-attributes';
 
 export interface OptionGroupProps extends React.OptgroupHTMLAttributes<HTMLOptGroupElement> {
   label: string;
-  children: React.ReactNode;
+  children: NonNullable<React.ReactNode>;
 }
 
 const OptionGroupElement = styled.optgroup(
