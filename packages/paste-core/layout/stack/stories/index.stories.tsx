@@ -4,6 +4,7 @@ import {withKnobs, select} from '@storybook/addon-knobs';
 import {DefaultTheme, ThemeShape} from '@twilio-paste/theme';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack, Orientation} from '../src';
 
 const orientationOptions = ['horizontal', 'vertical'];
@@ -25,6 +26,7 @@ storiesOf('Layout|Stack', module)
           <Heading as="h2" variant="heading20">
             Second Card
           </Heading>
+          <Paragraph>Card content should go here.</Paragraph>
         </Card>
         <Card>
           <Heading as="h2" variant="heading20">
@@ -46,6 +48,7 @@ storiesOf('Layout|Stack', module)
           <Heading as="h2" variant="heading20">
             Second Card
           </Heading>
+          <Paragraph>Card content should go here.</Paragraph>
         </Card>
         <Card>
           <Heading as="h2" variant="heading20">
@@ -67,6 +70,7 @@ storiesOf('Layout|Stack', module)
           <Heading as="h2" variant="heading20">
             Second Card
           </Heading>
+          <Paragraph>Card content should go here.</Paragraph>
         </Card>
         <Card>
           <Heading as="h2" variant="heading20">

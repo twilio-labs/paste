@@ -6,18 +6,24 @@ import {Space, isSpaceTokenProp} from '@twilio-paste/style-props';
 export type Orientation = 'horizontal' | 'vertical';
 
 export interface StackProps {
-  id?: never;
   className?: never;
+  id?: never;
   orientation?: Orientation;
   spacing?: Space;
 }
 
 const Stack: React.FC<StackProps> = ({children, orientation, spacing, ...props}) => {
   const count = React.useMemo(() => React.Children.count(children), [children]);
+  const validChildren = React.Children.toArray(children).filter(React.isValidElement);
 
   return (
-    <Box {...safelySpreadBoxProps(props)} display={orientation === 'horizontal' ? 'flex' : 'block'} flexWrap="wrap">
-      {React.Children.map(children, (child, index) => {
+    <Box
+      {...safelySpreadBoxProps(props)}
+      alignItems={orientation === 'horizontal' ? 'center' : null}
+      display={orientation === 'horizontal' ? 'flex' : 'block'}
+      flexWrap={orientation === 'horizontal' ? 'wrap' : null}
+    >
+      {validChildren.map((child, index) => {
         return (
           <Box
             marginBottom={orientation === 'vertical' && count !== index + 1 ? spacing : null}
