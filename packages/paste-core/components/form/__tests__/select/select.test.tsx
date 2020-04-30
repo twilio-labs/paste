@@ -82,7 +82,7 @@ describe('Form | Select', () => {
     expect(attributeMap.form).toEqual('test-form');
   });
 
-  it('should filter blacklisted props via safelySpreadFormControlProps', () => {
+  it('should filter blacklisted props', () => {
     const {getByTestId} = testRender(<MockSelect dataPrefix="blacklisted" {...blackListedPropsMap} />);
     const selectAttributesMap = createAttributeMap(getByTestId('blacklisted-select'));
 
