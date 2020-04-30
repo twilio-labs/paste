@@ -166,7 +166,7 @@ storiesOf('Forms|Select', module)
     const [value, setValue] = React.useState('Select - Error');
     return (
       <>
-        <FormLabel htmlFor={uid}>Label</FormLabel>
+        <FormLabel htmlFor={uid} disabled>Label</FormLabel>
         <Select
           id={uid}
           disabled
