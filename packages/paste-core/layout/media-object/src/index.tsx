@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, BoxProps} from '@twilio-paste/box';
-import {Space, isSpaceTokenProp} from '@twilio-paste/style-props';
+import {Space, isMarginTokenProp} from '@twilio-paste/style-props';
 
 export interface MediaObjectProps extends Pick<BoxProps, 'as' | 'marginTop' | 'marginBottom'> {
   verticalAlign?: 'center' | 'top';
@@ -61,7 +61,7 @@ MediaFigure.defaultProps = {
 if (process.env.NODE_ENV === 'development') {
   MediaFigure.propTypes = {
     align: PropTypes.oneOf(['start', 'end']),
-    spacing: isSpaceTokenProp,
+    spacing: isMarginTokenProp,
   };
 }
 
