@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {Space, isSpaceTokenProp} from '@twilio-paste/style-props';
+import {Space, isMarginTokenProp} from '@twilio-paste/style-props';
 
 type Orientation = 'horizontal' | 'vertical';
 export interface SeparatorProps extends React.HTMLAttributes<HTMLHRElement> {
@@ -39,8 +39,8 @@ Separator.displayName = 'Separator';
 if (process.env.NODE_ENV === 'development') {
   Separator.propTypes = {
     orientation: PropTypes.oneOf(['horizontal', 'vertical'] as Orientation[]).isRequired,
-    horizontalSpacing: isSpaceTokenProp,
-    verticalSpacing: isSpaceTokenProp,
+    horizontalSpacing: isMarginTokenProp,
+    verticalSpacing: isMarginTokenProp,
   };
 }
 export {Separator};
