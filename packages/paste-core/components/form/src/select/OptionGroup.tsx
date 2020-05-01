@@ -1,0 +1,38 @@
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
+import styled from '@emotion/styled';
+import css from '@styled-system/css';
+import {restrictedProps} from '../shared/restricted-attributes';
+
+export interface OptionGroupProps extends React.OptgroupHTMLAttributes<HTMLOptGroupElement> {
+  label: string;
+  children: NonNullable<React.ReactNode>;
+}
+
+const OptionGroupElement = styled.optgroup(
+  css({
+    background: 'transparent',
+    color: 'colorText',
+    fontFamily: 'fontFamilyText',
+    fontWeight: 'fontWeightMedium',
+    fontStyle: 'normal',
+    margin: 'space20',
+  })
+);
+
+const OptionGroup = React.forwardRef<HTMLOptGroupElement, OptionGroupProps>(({label, children, ...props}, ref) => (
+  <OptionGroupElement ref={ref} label={label} {...props} {...restrictedProps}>
+    {children}
+  </OptionGroupElement>
+));
+
+OptionGroup.displayName = 'OptionGroup';
+
+if (process.env.NODE_ENV === 'development') {
+  OptionGroup.propTypes = {
+    label: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
+  };
+}
+
+export {OptionGroup};

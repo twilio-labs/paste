@@ -7,3 +7,6 @@ export * from './RadioGroup';
 export * from './Checkbox';
 export * from './CheckboxGroup';
 export * from './CheckboxDisclaimer';
+export * from './select/Select';
+export * from './select/Option';
+export * from './select/OptionGroup';
