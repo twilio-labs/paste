@@ -79,4 +79,26 @@ storiesOf('Layout|Stack', module)
         </Card>
       </Stack>
     );
+  })
+  .add('Stack - Responsive', () => {
+    return (
+      <Stack orientation={['vertical', 'horizontal', 'vertical']} spacing="space40">
+        <Card>
+          <Heading as="h2" variant="heading20">
+            First Card
+          </Heading>
+        </Card>
+        <Card>
+          <Heading as="h2" variant="heading20">
+            Second Card
+          </Heading>
+          <Paragraph>Card content should go here.</Paragraph>
+        </Card>
+        <Card>
+          <Heading as="h2" variant="heading20">
+            Third Card
+          </Heading>
+        </Card>
+      </Stack>
+    );
   });

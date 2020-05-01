@@ -40,6 +40,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-uid": "^2.2.0",
     "styled-system": "^5.1.2"
   },
   "devDependencies": {
@@ -59,6 +60,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-uid": "^2.2.0",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-terser": "^5.0.0",
