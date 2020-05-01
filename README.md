@@ -91,9 +91,9 @@ A real example might be a `Button`. `Button` may only have a peer dependency on 
 
 ### Internal Deps
 
-When a package depends on another internal package in the mono repo, it must also be listed as a linked, relative path dev dependency for compilation. That goes for dependency and peer dependency, they must be duplicated as dev deps.
+When a package has a peer dependency on another internal package in the mono repo, it must also be listed as a dev dependency for compilation.
 
-#### Example 1:
+#### Example:
 
 ```
 {
@@ -107,38 +107,10 @@ When a package depends on another internal package in the mono repo, it must als
     "@twilio-paste/style-props": "^0.0.1"
   },
   "devDependencies": {
-    "@twilio-paste/box": "link:../primitives/box",
-    "@twilio-paste/theme": "link:../../theme",
-    "@twilio-paste/design-tokens": "link:../../design-tokens",
-    "@twilio-paste/style-props": "link:../../style-props"
-  }
-}
-```
-
-#### Example 2:
-
-```
-{
-  "name": "core",
-  "dependencies": {
     "@twilio-paste/box": "^0.0.1",
-    "@twilio-paste/button": "^0.0.1",
-    "@twilio-paste/foo": "^0.0.1",
-  },
-  "peerDependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
     "@twilio-paste/theme": "^0.0.1",
     "@twilio-paste/design-tokens": "^0.0.1",
     "@twilio-paste/style-props": "^0.0.1"
-  },
-  "devDependencies": {
-    "@twilio-paste/box": "link:../primitives/box",
-    "@twilio-paste/button": "link:../components/button",
-    "@twilio-paste/box": "link:../components/foo",
-    "@twilio-paste/theme": "link:../../theme",
-    "@twilio-paste/design-tokens": "link:../../design-tokens",
-    "@twilio-paste/style-props": "link:../../style-props"
   }
 }
 ```
