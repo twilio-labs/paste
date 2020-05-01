@@ -5,7 +5,7 @@ import {DefaultTheme, ThemeShape} from '@twilio-paste/theme';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
-import {Stack, Orientation} from '../src';
+import {Stack, StackOrientation} from '../src';
 
 const orientationOptions = ['horizontal', 'vertical'];
 const spaceOptions = Object.keys(DefaultTheme.space);
@@ -13,7 +13,7 @@ const spaceOptions = Object.keys(DefaultTheme.space);
 storiesOf('Layout|Stack', module)
   .addDecorator(withKnobs)
   .add('Stack', () => {
-    const orientaionValue = select('orientation', orientationOptions, 'vertical') as Orientation;
+    const orientaionValue = select('orientation', orientationOptions, 'vertical') as StackOrientation;
     const spaceValue = select('spacing', spaceOptions, 'space40') as keyof ThemeShape['space'];
     return (
       <Stack orientation={orientaionValue} spacing={spaceValue}>
