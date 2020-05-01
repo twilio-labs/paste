@@ -3,7 +3,7 @@ const {sortBy} = require('lodash');
 const {getRepoPackages} = require('../../../../tools/utils/getRepoPackages');
 const {writeToFile} = require('../../../../tools/utils/writeToFile');
 
-const BLACKLIST = ['@twilio-paste/core', '@twilio-paste/typography'];
+const BLOCKLIST = ['@twilio-paste/core', '@twilio-paste/typography'];
 
 const CORE_BUNDLE_PATH = join(__dirname, '../');
 const CORE_BUNDLE_INDEX_PATH = join(CORE_BUNDLE_PATH, 'src/index.tsx');
@@ -19,7 +19,7 @@ function generateIndexFromPackageList(packageList) {
 }
 
 // Given a list of packages, output the package.json dependencies field
-function generateDependenciesFromPackageList(packageList) {
+function generateVersionedDependencyList(packageList) {
   const dependencies = {};
   packageList.forEach(package => {
     dependencies[package.name] = `^${package.version}`;
@@ -27,14 +27,12 @@ function generateDependenciesFromPackageList(packageList) {
   return dependencies;
 }
 
-// Given a list of packages, output only the packages that belong in 'core'
-function getAllCorePackages(packageList) {
+// Given a list of all repo packages, return only public and not blocked packages.
+function getAllPackages(packageList) {
   return packageList.filter(item => {
-    const isCorePackage = item.location.includes('/paste-core/');
     const isReleased = !item.private;
-    const isNotBlacklisted = !BLACKLIST.includes(item.name);
-
-    return isCorePackage && isReleased && isNotBlacklisted;
+    const isNotBlocked = !BLOCKLIST.includes(item.name);
+    return isReleased && isNotBlocked;
   });
 }
 
@@ -43,13 +41,16 @@ function getAllCorePackages(packageList) {
   // Use lerna to get all packages and their version info
   const packageList = await getRepoPackages();
 
-  // Filter to all production ready core packages
-  const filteredPackageList = getAllCorePackages(packageList);
+  // Filter to all production ready packages
+  const filteredPublicPackages = getAllPackages(packageList);
   // Sort the list so we don't get inconsistent ordering each rebuild
-  const sortedPackageList = sortBy(filteredPackageList, ['name']);
+  const sortedPackageList = sortBy(filteredPublicPackages, ['name']);
+
+  // Filter to all production ready core packages
+  const filteredCorePackageList = sortedPackageList.filter(item => item.location.includes('/paste-core/'));
 
   // Write into core's index file
-  const indexOutput = generateIndexFromPackageList(sortedPackageList);
+  const indexOutput = generateIndexFromPackageList(filteredCorePackageList);
   writeToFile(CORE_BUNDLE_INDEX_PATH, indexOutput, {
     successMessage: `[@twilio-paste/core] Exports have been successfully updated within: ${CORE_BUNDLE_INDEX_PATH}`,
   });
@@ -57,7 +58,10 @@ function getAllCorePackages(packageList) {
   // Update package dependencies
   // eslint-disable-next-line global-require, import/no-dynamic-require
   const packageJson = require(CORE_BUNDLE_PACKAGE_PATH);
-  const newPackageJson = {...packageJson, dependencies: generateDependenciesFromPackageList(sortedPackageList)};
+  const newPackageJson = {
+    ...packageJson,
+    dependencies: generateVersionedDependencyList(filteredCorePackageList),
+  };
   // formatted with a new ending line for prettier
   const newPackageJsonString = `${JSON.stringify(newPackageJson, null, 2)}\n`;
   writeToFile(CORE_BUNDLE_PACKAGE_PATH, newPackageJsonString, {
