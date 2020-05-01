@@ -1,4 +1,3 @@
-const path = require('path');
 const {join} = require('path');
 const {sortBy} = require('lodash');
 const {getRepoPackages} = require('../../../../tools/utils/getRepoPackages');
@@ -24,15 +23,6 @@ function generateVersionedDependencyList(packageList) {
   const dependencies = {};
   packageList.forEach(package => {
     dependencies[package.name] = `^${package.version}`;
-  });
-  return dependencies;
-}
-
-// Given a list of packages, output the package.json dev dependencies field
-function generatelinkedDependencyList(packageList) {
-  const dependencies = {};
-  packageList.forEach(package => {
-    dependencies[package.name] = `link:${path.relative(process.cwd(), package.location)}`;
   });
   return dependencies;
 }
