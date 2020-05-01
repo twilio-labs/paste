@@ -29,6 +29,6 @@
     "react": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/design-tokens": "link:../paste-design-tokens"
+    "@twilio-paste/design-tokens": "^4.5.0"
   }
 }

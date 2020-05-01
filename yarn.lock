@@ -4079,57 +4079,6 @@
     prettier "^1.18.2"
     tslib "^1.10.0"
 
-"@twilio-paste/absolute@link:packages/paste-core/layout/absolute":
-  version "2.0.32"
-
-"@twilio-paste/box@link:packages/paste-core/primitives/box":
-  version "2.4.0"
-
-"@twilio-paste/button@link:packages/paste-core/components/button":
-  version "1.1.41"
-
-"@twilio-paste/design-tokens@link:packages/paste-design-tokens":
-  version "4.5.0"
-
-"@twilio-paste/flex@link:packages/paste-core/layout/flex":
-  version "0.3.19"
-
-"@twilio-paste/heading@link:packages/paste-core/components/heading":
-  version "2.0.1"
-
-"@twilio-paste/icons@link:packages/paste-icons":
-  version "2.1.2"
-
-"@twilio-paste/media-object@link:packages/paste-core/layout/media-object":
-  version "1.2.19"
-
-"@twilio-paste/modal-dialog-primitive@link:packages/paste-core/primitives/modal-dialog":
-  version "0.1.2"
-  dependencies:
-    "@reach/dialog" "0.8.2"
-
-"@twilio-paste/screen-reader-only@link:packages/paste-core/components/screen-reader-only":
-  version "1.1.8"
-
-"@twilio-paste/spinner@link:packages/paste-core/components/spinner":
-  version "1.2.3"
-
-"@twilio-paste/style-props@link:packages/paste-style-props":
-  version "1.1.2"
-  dependencies:
-    "@types/styled-system" "^5.1.3"
-
-"@twilio-paste/text@link:packages/paste-core/primitives/text":
-  version "2.1.2"
-
-"@twilio-paste/theme@link:packages/paste-theme":
-  version "3.1.3"
-  dependencies:
-    emotion-theming "^10.0.10"
-
-"@twilio-paste/types@link:packages/paste-types":
-  version "3.0.3"
-
 "@types/anymatch@*":
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/@types/anymatch/-/anymatch-1.3.1.tgz#336badc1beecb9dacc38bea2cf32adf627a8421a"

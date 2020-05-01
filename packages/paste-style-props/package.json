@@ -35,7 +35,7 @@
     "styled-system": "^5.1.2"
   },
   "devDependencies": {
-    "@twilio-paste/design-tokens": "link:../paste-design-tokens",
-    "@twilio-paste/theme": "link:../paste-theme"
+    "@twilio-paste/design-tokens": "^4.5.0",
+    "@twilio-paste/theme": "^3.1.3"
   }
 }

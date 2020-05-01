@@ -71,7 +71,6 @@ function getAllPackages(packageList) {
   const newPackageJson = {
     ...packageJson,
     dependencies: generateVersionedDependencyList(filteredCorePackageList),
-    devDependencies: generatelinkedDependencyList(sortedPackageList),
   };
   // formatted with a new ending line for prettier
   const newPackageJsonString = `${JSON.stringify(newPackageJson, null, 2)}\n`;
