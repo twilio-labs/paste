@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.2.0...@twilio-paste/form@1.3.0) (2020-05-01)
+
+
+### Features
+
+* **select:** Select, Option, and OptionGroup ([#399](https://github.com/twilio-labs/paste/issues/399)) ([761924e](https://github.com/twilio-labs/paste/commit/761924e00330b232251a775037f1109cec2078ff))
+
+
+
+
+
 # [1.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.1.10...@twilio-paste/form@1.2.0) (2020-04-25)
 
 
