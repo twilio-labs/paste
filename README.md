@@ -53,6 +53,8 @@ The `gh-pages` branch ignores _everything_ other than the built storybook instan
 
 #### Updating
 
+🚨🚨🚨 This is now done in our CI/CD process 🚨🚨🚨
+
 To update this we simply run the `gh-pages` package from yarn by using the `release:storybook` task.
 
 ```bash
@@ -60,6 +62,86 @@ yarn release:storybook
 ```
 
 This task will build the storybook, switch to the `gh-pages` branch, commit the changes from the storybook build and push to GitHub.
+
+## Dependencies
+
+Paste is a monorepo and has some specific requirements in how it handles dependencies.
+
+### Dev Deps
+
+Each package can have dev dep requirements, such as typescript and rollup. As this is a monorepo using yarn workspaces there is no requirement to list these as package dev deps. All dev deps are hoisted to the monorepo root. Declare them at the root package.json file.
+
+### Peer Deps
+
+A special note about peer deps: Peer dependencies should be hoised up the dependency tree. If `package-a` lists `package-b` as a peer dep, and `package-b` lists `package-c` as a peer dep, `package-c` must also be listed as a peer dep for `package-a`. All the way down the tree.
+
+A real example might be a `Button`. `Button` may only have a peer dependency on `Box`, but `Box` has a peer dependency on `Theme`, `Design-Tokens`, and `Style-Props`. These child peer deps need to be hoisted to the `Button` package. As such `Button` deps should look like:
+
+```
+{
+  "name": "button",
+  "peerDependencies": {
+    "@twilio-paste/box": "^0.0.1",
+    "@twilio-paste/theme": "^0.0.1",
+    "@twilio-paste/design-tokens": "^0.0.1",
+    "@twilio-paste/style-props": "^0.0.1"
+  }
+}
+```
+
+### Internal Deps
+
+When a package depends on another internal package in the mono repo, it must also be listed as a linked, relative path dev dependency for compilation. That goes for dependency and peer dependency, they must be duplicated as dev deps.
+
+#### Example 1:
+
+```
+{
+  "name": "button",
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+    "@twilio-paste/box": "^0.0.1",
+    "@twilio-paste/theme": "^0.0.1",
+    "@twilio-paste/design-tokens": "^0.0.1",
+    "@twilio-paste/style-props": "^0.0.1"
+  },
+  "devDependencies": {
+    "@twilio-paste/box": "link:../primitives/box",
+    "@twilio-paste/theme": "link:../../theme",
+    "@twilio-paste/design-tokens": "link:../../design-tokens",
+    "@twilio-paste/style-props": "link:../../style-props"
+  }
+}
+```
+
+#### Example 2:
+
+```
+{
+  "name": "core",
+  "dependencies": {
+    "@twilio-paste/box": "^0.0.1",
+    "@twilio-paste/button": "^0.0.1",
+    "@twilio-paste/foo": "^0.0.1",
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+    "@twilio-paste/theme": "^0.0.1",
+    "@twilio-paste/design-tokens": "^0.0.1",
+    "@twilio-paste/style-props": "^0.0.1"
+  },
+  "devDependencies": {
+    "@twilio-paste/box": "link:../primitives/box",
+    "@twilio-paste/button": "link:../components/button",
+    "@twilio-paste/box": "link:../components/foo",
+    "@twilio-paste/theme": "link:../../theme",
+    "@twilio-paste/design-tokens": "link:../../design-tokens",
+    "@twilio-paste/style-props": "link:../../style-props"
+  }
+}
+```
 
 ## License
 
