@@ -260,6 +260,9 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
               <SiteNavAnchor to="/form-elements/input/">Input</SiteNavAnchor>
             </SiteNavItem>
             <SiteNavItem>
+              <SiteNavAnchor to="/form-elements/select/">Select</SiteNavAnchor>
+            </SiteNavItem>
+            <SiteNavItem>
               <SiteNavAnchor to="/form-elements/radio-group/">Radio group</SiteNavAnchor>
             </SiteNavItem>
             <SiteNavItem>
