@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
-import {Space, isSpaceTokenProp} from '@twilio-paste/style-props';
+import {Space, isMarginTokenProp} from '@twilio-paste/style-props';
 
 interface BaseListProps extends React.OlHTMLAttributes<HTMLElement> {
   className?: never;
@@ -46,8 +46,8 @@ OrderedList.defaultProps = {
 
 if (process.env.NODE_ENV === 'development') {
   OrderedList.propTypes = {
-    marginTop: isSpaceTokenProp,
-    marginBottom: isSpaceTokenProp,
+    marginTop: isMarginTokenProp,
+    marginBottom: isMarginTokenProp,
   };
 }
 
@@ -71,8 +71,8 @@ UnorderedList.defaultProps = {
 
 if (process.env.NODE_ENV === 'development') {
   UnorderedList.propTypes = {
-    marginTop: isSpaceTokenProp,
-    marginBottom: isSpaceTokenProp,
+    marginTop: isMarginTokenProp,
+    marginBottom: isMarginTokenProp,
   };
 }
 
