@@ -73,20 +73,5 @@
     "react-scrollspy": "^3.4.0",
     "react-uid": "^2.2.0",
     "styled-system": "^5.1.2"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@emotion/babel-preset-css-prop": "^10.0.14",
-    "@types/color": "^3.0.0",
-    "@types/jest": "^24.0.18",
-    "@types/lodash": "^4.14.136",
-    "@types/react": "^16.9.11",
-    "@types/react-helmet": "^5.0.14",
-    "@types/react-scrollspy": "^3.3.1",
-    "@types/react-test-renderer": "^16.9.0",
-    "babel-preset-gatsby": "^0.2.8",
-    "graphql": "^14.6.0",
-    "prettier": "^1.18.2",
-    "typescript": "3.7.5"
   }
 }
