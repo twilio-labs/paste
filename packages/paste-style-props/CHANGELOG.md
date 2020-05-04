@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.1.3...@twilio-paste/style-props@1.1.4) (2020-05-04)
+
+
+### Bug Fixes
+
+* **style-props:** allow auto as valid margin prop ([70e25a1](https://github.com/twilio-labs/paste/commit/70e25a18ad9dd47e1e6daba8079450693e180c25))
+
+
+
+
+
 ## [1.1.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.1.2...@twilio-paste/style-props@1.1.3) (2020-05-01)
 
 **Note:** Version bump only for package @twilio-paste/style-props

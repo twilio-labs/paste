@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/text@2.1.3...@twilio-paste/text@2.1.4) (2020-05-04)
+
+
+### Bug Fixes
+
+* **text:** switch to new spacing prop validators ([affc204](https://github.com/twilio-labs/paste/commit/affc204fb144d5e31bff21cb3c2e528ba6426cb9))
+
+
+
+
+
 ## [2.1.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/text@2.1.2...@twilio-paste/text@2.1.3) (2020-05-01)
 
 **Note:** Version bump only for package @twilio-paste/text

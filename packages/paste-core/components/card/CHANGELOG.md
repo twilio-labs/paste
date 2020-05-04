@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.28](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.3.27...@twilio-paste/card@1.3.28) (2020-05-04)
+
+
+### Bug Fixes
+
+* **card:** switch to new spacing prop validators ([9822a99](https://github.com/twilio-labs/paste/commit/9822a9985d51e90fad111b7a57f8dfc7e151df76))
+
+
+
+
+
 ## [1.3.27](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.3.26...@twilio-paste/card@1.3.27) (2020-05-01)
 
 **Note:** Version bump only for package @twilio-paste/card

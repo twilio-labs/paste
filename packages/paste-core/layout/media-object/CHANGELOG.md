@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.21](https://github.com/twilio-labs/paste/compare/@twilio-paste/media-object@1.2.20...@twilio-paste/media-object@1.2.21) (2020-05-04)
+
+
+### Bug Fixes
+
+* **media-object:** switch to new spacing prop validators ([d587c49](https://github.com/twilio-labs/paste/commit/d587c498cb060980f6484f0d89940a956bbdd909))
+
+
+
+
+
 ## [1.2.20](https://github.com/twilio-labs/paste/compare/@twilio-paste/media-object@1.2.19...@twilio-paste/media-object@1.2.20) (2020-05-01)
 
 **Note:** Version bump only for package @twilio-paste/media-object

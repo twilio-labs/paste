@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.4.1...@twilio-paste/box@2.4.2) (2020-05-04)
+
+
+### Bug Fixes
+
+* **box:** switch to new spacing prop validators ([045625e](https://github.com/twilio-labs/paste/commit/045625e664a9558420f5a8832de0d785422c48d2))
+
+
+
+
+
 ## [2.4.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.4.0...@twilio-paste/box@2.4.1) (2020-05-01)
 
 **Note:** Version bump only for package @twilio-paste/box
