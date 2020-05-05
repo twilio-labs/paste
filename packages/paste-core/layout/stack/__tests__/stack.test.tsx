@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import {Card} from '@twilio-paste/card';
 import {Theme} from '@twilio-paste/theme';
 import {getStackDisplay, getStackStyles, getStackChildMargins, Stack} from '../src';
@@ -87,7 +87,15 @@ const MockResponsiveStack: React.FC = () => {
 const MockHeaderStack: React.FC = () => {
   return (
     <Theme.Provider theme="console">
-      <Stack as="header" orientation="vertical" spacing="space60">
+      <Stack
+        as="header"
+        orientation="vertical"
+        spacing="space60"
+        data-testid="header"
+        id="foo"
+        title="foo"
+        className="foo"
+      >
         <Card>Card one</Card>
         <Card>Card two</Card>
       </Stack>
@@ -112,7 +120,22 @@ describe('Stack', () => {
   });
 
   it('should render as a header', () => {
-    const {asFragment} = render(<MockHeaderStack />);
-    expect(asFragment()).toMatchSnapshot();
+    const {getByTestId} = render(<MockHeaderStack />);
+    expect(getByTestId('header')).not.toBeNull();
+  });
+
+  it('should render with an id', () => {
+    const {getByTestId} = render(<MockHeaderStack />);
+    expect(getByTestId('header').getAttribute('id')).toEqual('foo');
+  });
+
+  it('should render with a title', () => {
+    const {getByTestId} = render(<MockHeaderStack />);
+    expect(getByTestId('header').getAttribute('title')).toEqual('foo');
+  });
+
+  it('should render without a className', () => {
+    const {getByTestId} = render(<MockHeaderStack />);
+    expect(getByTestId('header').getAttribute('class')).not.toEqual('foo');
   });
 });
