@@ -15,7 +15,7 @@ export interface StackProps {
 
 interface StackStyleProps extends LayoutProps, FlexboxProps {}
 
-const getDisplay = (orientation: StackOrientation): Display => {
+export const getStackDisplay = (orientation: StackOrientation): Display => {
   if (Array.isArray(orientation)) {
     return (orientation as StackOrientationOptions[]).map((value: StackOrientationOptions) => {
       if (value === 'horizontal') {
@@ -35,7 +35,7 @@ const getDisplay = (orientation: StackOrientation): Display => {
 
 const getStackStyles = (orientation: StackOrientation): StackStyleProps => {
   const styles: StackStyleProps = {
-    display: getDisplay(orientation),
+    display: getStackDisplay(orientation),
     alignItems: 'center',
     flexWrap: 'wrap',
   };
@@ -43,7 +43,7 @@ const getStackStyles = (orientation: StackOrientation): StackStyleProps => {
   return styles;
 };
 
-const getChildMargins = (orientation: StackOrientation, spacing: Space): MarginProps => {
+const getStackChildMargins = (orientation: StackOrientation, spacing: Space): MarginProps => {
   let styles: MarginProps = {};
 
   if (Array.isArray(orientation)) {
@@ -81,12 +81,7 @@ const StyledStack = styled.div(
   )
 ) as React.FC;
 
-const StyledStackChild = styled.div(
-  compose(
-    layout,
-    space
-  )
-) as React.FC;
+const StyledStackChild = styled.div(compose(space)) as React.FC;
 /* eslint-enable */
 
 const Stack: React.FC<StackProps> = ({children, orientation, spacing}) => {
@@ -101,7 +96,7 @@ const Stack: React.FC<StackProps> = ({children, orientation, spacing}) => {
       {validChildren.map((child, index) => {
         return (
           <StyledStackChild
-            {...(count !== index + 1 ? {...getChildMargins(orientation, spacing)} : null)}
+            {...(count !== index + 1 ? {...getStackChildMargins(orientation, spacing)} : null)}
             key={useUID()}
           >
             {child}
