@@ -15,7 +15,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 type StackChildMargins = Pick<MarginProps, 'marginRight' | 'marginBottom'>;
 type DisplayOptions = 'block' | 'flex';
 type DisplayValue = ResponsiveValue<DisplayOptions>;
-export type StackOrientationOptions = 'horizontal' | 'vertical';
+type StackOrientationOptions = 'horizontal' | 'vertical';
 export type StackOrientation = ResponsiveValue<StackOrientationOptions>;
 
 interface StackStyleProps extends Pick<LayoutProps, 'display'>, Pick<FlexboxProps, 'alignItems' | 'flexWrap'> {}
