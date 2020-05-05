@@ -3,19 +3,19 @@ import * as PropTypes from 'prop-types';
 import {useUID} from 'react-uid';
 import {FlexboxProps, LayoutProps, MarginProps, ResponsiveValue} from 'styled-system';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {Display, Space, isSpaceTokenProp, ResponsiveProp} from '@twilio-paste/style-props';
+import {Display, isSpaceTokenProp, ResponsiveProp, Space} from '@twilio-paste/style-props';
 
 export type StackOrientationOptions = 'horizontal' | 'vertical';
 export type StackOrientation = ResponsiveValue<StackOrientationOptions>;
 
 export interface StackProps {
-  orientation?: StackOrientation;
-  spacing?: Space;
+  orientation: StackOrientation;
+  spacing: Space;
 }
 
 interface StackStyleProps extends LayoutProps, FlexboxProps {}
 
-const getDisplay = (orientation: StackProps): Display => {
+const getDisplay = (orientation: StackOrientation): Display => {
   if (Array.isArray(orientation)) {
     return (orientation as StackOrientationOptions[]).map((value: StackOrientationOptions) => {
       if (value === 'horizontal') {
@@ -33,7 +33,7 @@ const getDisplay = (orientation: StackProps): Display => {
   return 'block';
 };
 
-const getStackStyles = (orientation: StackProps): StackStyleProps => {
+const getStackStyles = (orientation: StackOrientation): StackStyleProps => {
   const styles: StackStyleProps = {
     display: getDisplay(orientation),
     alignItems: 'center',
@@ -44,33 +44,21 @@ const getStackStyles = (orientation: StackProps): StackStyleProps => {
 };
 
 const getChildMargins = (orientation: StackOrientation, spacing: Space): MarginProps => {
-  const styles: MarginProps = {};
+  let styles: MarginProps = {};
 
   if (Array.isArray(orientation)) {
-    const horizontalMarginArray: Space = [];
-    const verticalMarginArray: Space = [];
+    const marginRight = [] as any;
+    const marginBottom = [] as any;
 
     orientation.forEach((value, i) => {
-      let marginRightValue;
-      let marginBottomValue;
-
-      if (value === 'horizontal') {
-        marginRightValue = spacing;
-        marginBottomValue = 'space0';
-      }
-      if (value === 'vertical') {
-        marginRightValue = 'space0';
-        marginBottomValue = spacing;
-      }
-
-      // @ts-ignore
-      horizontalMarginArray[i] = marginRightValue;
-      // @ts-ignore
-      verticalMarginArray[i] = marginBottomValue;
+      marginRight[i] = value === 'horizontal' ? spacing : 'space0';
+      marginBottom[i] = value === 'horizontal' ? 'space0' : spacing;
     });
 
-    styles.marginRight = horizontalMarginArray;
-    styles.marginBottom = verticalMarginArray;
+    styles = {
+      marginRight,
+      marginBottom,
+    };
   }
 
   if (orientation === 'horizontal') {
@@ -87,7 +75,6 @@ const getChildMargins = (orientation: StackOrientation, spacing: Space): MarginP
 const Stack: React.FC<StackProps> = ({children, orientation, spacing, ...props}) => {
   const count = React.useMemo(() => React.Children.count(children), [children]);
 
-  // @ts-ignore
   const StackStyles = React.useMemo(() => getStackStyles(orientation), [orientation]);
 
   const validChildren = React.Children.toArray(children).filter(React.isValidElement);
@@ -96,7 +83,6 @@ const Stack: React.FC<StackProps> = ({children, orientation, spacing, ...props})
     <Box {...StackStyles} {...safelySpreadBoxProps(props)}>
       {validChildren.map((child, index) => {
         return (
-          // @ts-ignore
           <Box {...(count !== index + 1 ? {...getChildMargins(orientation, spacing)} : null)} key={useUID()}>
             {child}
           </Box>
@@ -108,13 +94,9 @@ const Stack: React.FC<StackProps> = ({children, orientation, spacing, ...props})
 
 Stack.displayName = 'Stack';
 
-Stack.defaultProps = {
-  orientation: 'vertical',
-};
-
 if (process.env.NODE_ENV === 'development') {
   Stack.propTypes = {
-    orientation: ResponsiveProp(PropTypes.oneOf(['horizontal', 'vertical'])),
+    orientation: ResponsiveProp(PropTypes.oneOf(['horizontal', 'vertical'])).isRequired,
     spacing: isSpaceTokenProp,
   };
 }
