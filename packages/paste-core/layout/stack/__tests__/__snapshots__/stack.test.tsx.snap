@@ -2,7 +2,7 @@
 
 exports[`Stack should render a horizontal stack 1`] = `
 <DocumentFragment>
-  .emotion-8 {
+  .emotion-5 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
@@ -10,9 +10,9 @@ exports[`Stack should render a horizontal stack 1`] = `
   font-weight: 400;
 }
 
-.emotion-8 *,
-.emotion-8 *::after,
-.emotion-8 *::before {
+.emotion-5 *,
+.emotion-5 *::after,
+.emotion-5 *::before {
   box-sizing: border-box;
 }
 
@@ -26,7 +26,12 @@ exports[`Stack should render a horizontal stack 1`] = `
   background-color: rgb(255,255,255);
 }
 
-.emotion-6 {
+.emotion-3 {
+  box-sizing: border-box;
+}
+
+.emotion-4 {
+  box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -41,18 +46,19 @@ exports[`Stack should render a horizontal stack 1`] = `
 }
 
 .emotion-1 {
+  box-sizing: border-box;
   margin-right: 1.25rem;
 }
 
 <div
-    class="emotion-8"
+    class="emotion-5"
   >
     <div
-      class="emotion-6 emotion-7"
+      class="emotion-4"
       display="flex"
     >
       <div
-        class="emotion-1 emotion-2"
+        class="emotion-1"
       >
         <article
           class="emotion-0"
@@ -61,7 +67,7 @@ exports[`Stack should render a horizontal stack 1`] = `
         </article>
       </div>
       <div
-        class="emotion-4 emotion-2"
+        class="emotion-3"
       >
         <article
           class="emotion-0"
@@ -76,7 +82,7 @@ exports[`Stack should render a horizontal stack 1`] = `
 
 exports[`Stack should render a responsive stack 1`] = `
 <DocumentFragment>
-  .emotion-8 {
+  .emotion-5 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
@@ -84,9 +90,9 @@ exports[`Stack should render a responsive stack 1`] = `
   font-weight: 400;
 }
 
-.emotion-8 *,
-.emotion-8 *::after,
-.emotion-8 *::before {
+.emotion-5 *,
+.emotion-5 *::after,
+.emotion-5 *::before {
   box-sizing: border-box;
 }
 
@@ -100,7 +106,12 @@ exports[`Stack should render a responsive stack 1`] = `
   background-color: rgb(255,255,255);
 }
 
-.emotion-6 {
+.emotion-3 {
+  box-sizing: border-box;
+}
+
+.emotion-4 {
+  box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -115,13 +126,13 @@ exports[`Stack should render a responsive stack 1`] = `
 }
 
 @media screen and (min-width:25rem) {
-  .emotion-6 {
+  .emotion-4 {
     display: block;
   }
 }
 
 @media screen and (min-width:64rem) {
-  .emotion-6 {
+  .emotion-4 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -130,6 +141,7 @@ exports[`Stack should render a responsive stack 1`] = `
 }
 
 .emotion-1 {
+  box-sizing: border-box;
   margin-right: 1.25rem;
   margin-bottom: 0;
 }
@@ -149,14 +161,14 @@ exports[`Stack should render a responsive stack 1`] = `
 }
 
 <div
-    class="emotion-8"
+    class="emotion-5"
   >
     <div
-      class="emotion-6 emotion-7"
+      class="emotion-4"
       display="flex,block,flex"
     >
       <div
-        class="emotion-1 emotion-2"
+        class="emotion-1"
       >
         <article
           class="emotion-0"
@@ -165,7 +177,7 @@ exports[`Stack should render a responsive stack 1`] = `
         </article>
       </div>
       <div
-        class="emotion-4 emotion-2"
+        class="emotion-3"
       >
         <article
           class="emotion-0"
@@ -180,7 +192,7 @@ exports[`Stack should render a responsive stack 1`] = `
 
 exports[`Stack should render a vertical stack 1`] = `
 <DocumentFragment>
-  .emotion-8 {
+  .emotion-5 {
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5rem;
@@ -188,13 +200,14 @@ exports[`Stack should render a vertical stack 1`] = `
   font-weight: 400;
 }
 
-.emotion-8 *,
-.emotion-8 *::after,
-.emotion-8 *::before {
+.emotion-5 *,
+.emotion-5 *::after,
+.emotion-5 *::before {
   box-sizing: border-box;
 }
 
-.emotion-6 {
+.emotion-4 {
+  box-sizing: border-box;
   display: block;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -206,6 +219,7 @@ exports[`Stack should render a vertical stack 1`] = `
 }
 
 .emotion-1 {
+  box-sizing: border-box;
   margin-bottom: 1.25rem;
 }
 
@@ -219,15 +233,19 @@ exports[`Stack should render a vertical stack 1`] = `
   background-color: rgb(255,255,255);
 }
 
+.emotion-3 {
+  box-sizing: border-box;
+}
+
 <div
-    class="emotion-8"
+    class="emotion-5"
   >
     <div
-      class="emotion-6 emotion-7"
+      class="emotion-4"
       display="block"
     >
       <div
-        class="emotion-1 emotion-2"
+        class="emotion-1"
       >
         <article
           class="emotion-0"
@@ -236,7 +254,7 @@ exports[`Stack should render a vertical stack 1`] = `
         </article>
       </div>
       <div
-        class="emotion-4 emotion-2"
+        class="emotion-3"
       >
         <article
           class="emotion-0"

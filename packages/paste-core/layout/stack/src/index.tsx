@@ -1,24 +1,32 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 import {useUID} from 'react-uid';
-import {compose, flexbox, FlexboxProps, layout, LayoutProps, MarginProps, ResponsiveValue, space} from 'styled-system';
-import {Display, isSpaceTokenProp, ResponsiveProp, Space} from '@twilio-paste/style-props';
+import {ResponsiveValue} from 'styled-system';
+import {
+  isSpaceTokenProp,
+  ResponsiveProp,
+  LayoutProps,
+  FlexboxProps,
+  MarginProps,
+  SpaceOptions,
+} from '@twilio-paste/style-props';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
+type StackChildMargins = Pick<MarginProps, 'marginRight' | 'marginBottom'>;
+type DisplayOptions = 'block' | 'flex';
+type DisplayValue = ResponsiveValue<DisplayOptions>;
 export type StackOrientationOptions = 'horizontal' | 'vertical';
 export type StackOrientation = ResponsiveValue<StackOrientationOptions>;
 
+interface StackStyleProps extends Pick<LayoutProps, 'display'>, Pick<FlexboxProps, 'alignItems' | 'flexWrap'> {}
 export interface StackProps {
   orientation: StackOrientation;
-  spacing: Space;
+  spacing: SpaceOptions;
 }
 
-interface StackStyleProps extends LayoutProps, FlexboxProps {}
-
-export const getStackDisplay = (orientation: StackOrientation): Display => {
+export const getStackDisplay = (orientation: StackOrientation): DisplayValue => {
   if (Array.isArray(orientation)) {
-    return (orientation as StackOrientationOptions[]).map((value: StackOrientationOptions) => {
+    return orientation.map(value => {
       if (value === 'horizontal') {
         return 'flex';
       }
@@ -44,12 +52,12 @@ const getStackStyles = (orientation: StackOrientation): StackStyleProps => {
   return styles;
 };
 
-const getStackChildMargins = (orientation: StackOrientation, spacing: Space): MarginProps => {
-  let styles: MarginProps = {};
+const getStackChildMargins = (orientation: StackOrientation, spacing: SpaceOptions): StackChildMargins => {
+  let styles = {};
 
   if (Array.isArray(orientation)) {
-    const marginRight = [] as any;
-    const marginBottom = [] as any;
+    const marginRight: SpaceOptions[] = [];
+    const marginBottom: SpaceOptions[] = [];
 
     orientation.forEach((value, i) => {
       marginRight[i] = value === 'horizontal' ? spacing : 'space0';
@@ -63,37 +71,23 @@ const getStackChildMargins = (orientation: StackOrientation, spacing: Space): Ma
   }
 
   if (orientation === 'horizontal') {
-    styles.marginRight = spacing;
+    styles = {marginRight: spacing};
   }
 
   if (orientation === 'vertical') {
-    styles.marginBottom = spacing;
+    styles = {marginBottom: spacing};
   }
 
   return styles;
 };
 
-/* eslint-disable emotion/syntax-preference */
-const StyledStack = styled.div(
-  compose(
-    flexbox,
-    layout,
-    space
-  )
-) as React.FC;
-
-const StyledStackChild = styled.div(compose(space)) as React.FC;
-/* eslint-enable */
-
 const Stack: React.FC<StackProps> = ({children, orientation, spacing, ...props}) => {
   const count = React.useMemo(() => React.Children.count(children), [children]);
-
   const StackStyles = React.useMemo(() => getStackStyles(orientation), [orientation]);
-
   const validChildren = React.Children.toArray(children).filter(React.isValidElement);
 
   return (
-    <Box {...StackStyles} {...safelySpreadBoxProps(props)}>
+    <Box {...safelySpreadBoxProps(props)} {...StackStyles}>
       {validChildren.map((child, index) => {
         return (
           <Box {...(count !== index + 1 ? {...getStackChildMargins(orientation, spacing)} : null)} key={useUID()}>
