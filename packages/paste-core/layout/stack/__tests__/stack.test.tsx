@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render as testRender, screen} from '@testing-library/react';
+import {render} from '@testing-library/react';
 import {Card} from '@twilio-paste/card';
 import {Theme} from '@twilio-paste/theme';
 import {getStackDisplay, getStackStyles, getStackChildMargins, Stack} from '../src';
@@ -97,22 +97,22 @@ const MockHeaderStack: React.FC = () => {
 
 describe('Stack', () => {
   it('should render a vertical stack', () => {
-    const {asFragment} = testRender(<MockVerticalStack />);
+    const {asFragment} = render(<MockVerticalStack />);
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should render a horizontal stack', () => {
-    const {asFragment} = testRender(<MockHorizontalStack />);
+    const {asFragment} = render(<MockHorizontalStack />);
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should render a responsive stack', () => {
-    const {asFragment} = testRender(<MockResponsiveStack />);
+    const {asFragment} = render(<MockResponsiveStack />);
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should render as a header', () => {
-    const {asFragment} = testRender(<MockHeaderStack />);
+    const {asFragment} = render(<MockHeaderStack />);
     expect(asFragment()).toMatchSnapshot();
   });
 });
