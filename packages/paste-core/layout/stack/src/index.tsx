@@ -19,7 +19,7 @@ type StackOrientationOptions = 'horizontal' | 'vertical';
 export type StackOrientation = ResponsiveValue<StackOrientationOptions>;
 
 interface StackStyleProps extends Pick<LayoutProps, 'display'>, Pick<FlexboxProps, 'alignItems' | 'flexWrap'> {}
-export interface StackProps extends BoxProps {
+export interface StackProps extends Pick<BoxProps, 'as'>, React.HTMLAttributes<any> {
   orientation: StackOrientation;
   spacing: SpaceOptions;
 }
