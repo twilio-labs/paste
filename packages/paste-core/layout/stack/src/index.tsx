@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import {useUID} from 'react-uid';
-import {compose, layout, space, FlexboxProps, LayoutProps, MarginProps, ResponsiveValue} from 'styled-system';
+import {compose, flexbox, FlexboxProps, layout, LayoutProps, MarginProps, ResponsiveValue, space} from 'styled-system';
 import {Display, isSpaceTokenProp, ResponsiveProp, Space} from '@twilio-paste/style-props';
 
 export type StackOrientationOptions = 'horizontal' | 'vertical';
@@ -75,15 +75,16 @@ const getChildMargins = (orientation: StackOrientation, spacing: Space): MarginP
 /* eslint-disable emotion/syntax-preference */
 const StyledStack = styled.div(
   compose(
-    space,
-    layout
+    flexbox,
+    layout,
+    space
   )
 ) as React.FC;
 
 const StyledStackChild = styled.div(
   compose(
-    space,
-    layout
+    layout,
+    space
   )
 ) as React.FC;
 /* eslint-enable */
