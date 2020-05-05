@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.4.11...@twilio-paste/core@2.5.0) (2020-05-05)
+
+
+### Features
+
+* **stack:** add stack component package ([#414](https://github.com/twilio-labs/paste/issues/414)) ([0ea3e4f](https://github.com/twilio-labs/paste/commit/0ea3e4f5ecc714396fcbca2434bde9d496d9c4b7))
+
+
+
+
+
 ## [2.4.11](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.4.10...@twilio-paste/core@2.4.11) (2020-05-04)
 
 **Note:** Version bump only for package @twilio-paste/core
