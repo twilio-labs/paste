@@ -42,7 +42,7 @@ export const getStackDisplay = (orientation: StackOrientation): DisplayValue => 
   return 'block';
 };
 
-const getStackStyles = (orientation: StackOrientation): StackStyleProps => {
+export const getStackStyles = (orientation: StackOrientation): StackStyleProps => {
   const styles: StackStyleProps = {
     display: getStackDisplay(orientation),
     alignItems: 'center',
@@ -52,7 +52,7 @@ const getStackStyles = (orientation: StackOrientation): StackStyleProps => {
   return styles;
 };
 
-const getStackChildMargins = (orientation: StackOrientation, spacing: SpaceOptions): StackChildMargins => {
+export const getStackChildMargins = (orientation: StackOrientation, spacing: SpaceOptions): StackChildMargins => {
   let styles = {};
 
   if (Array.isArray(orientation)) {
