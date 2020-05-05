@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import {useUID} from 'react-uid';
 import {compose, flexbox, FlexboxProps, layout, LayoutProps, MarginProps, ResponsiveValue, space} from 'styled-system';
 import {Display, isSpaceTokenProp, ResponsiveProp, Space} from '@twilio-paste/style-props';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
 export type StackOrientationOptions = 'horizontal' | 'vertical';
 export type StackOrientation = ResponsiveValue<StackOrientationOptions>;
@@ -84,7 +85,7 @@ const StyledStack = styled.div(
 const StyledStackChild = styled.div(compose(space)) as React.FC;
 /* eslint-enable */
 
-const Stack: React.FC<StackProps> = ({children, orientation, spacing}) => {
+const Stack: React.FC<StackProps> = ({children, orientation, spacing, ...props}) => {
   const count = React.useMemo(() => React.Children.count(children), [children]);
 
   const StackStyles = React.useMemo(() => getStackStyles(orientation), [orientation]);
@@ -92,18 +93,15 @@ const Stack: React.FC<StackProps> = ({children, orientation, spacing}) => {
   const validChildren = React.Children.toArray(children).filter(React.isValidElement);
 
   return (
-    <StyledStack {...StackStyles}>
+    <Box {...StackStyles} {...safelySpreadBoxProps(props)}>
       {validChildren.map((child, index) => {
         return (
-          <StyledStackChild
-            {...(count !== index + 1 ? {...getStackChildMargins(orientation, spacing)} : null)}
-            key={useUID()}
-          >
+          <Box {...(count !== index + 1 ? {...getStackChildMargins(orientation, spacing)} : null)} key={useUID()}>
             {child}
-          </StyledStackChild>
+          </Box>
         );
       })}
-    </StyledStack>
+    </Box>
   );
 };
 
