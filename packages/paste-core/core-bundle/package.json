@@ -46,6 +46,7 @@
     "@twilio-paste/screen-reader-only": "^1.1.9",
     "@twilio-paste/separator": "^0.1.5",
     "@twilio-paste/spinner": "^1.2.5",
+    "@twilio-paste/stack": "^0.0.0",
     "@twilio-paste/text": "^2.1.4",
     "@twilio-paste/truncate": "^1.0.8"
   },
