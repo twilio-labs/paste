@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render as testRender} from '@testing-library/react';
+import {render as testRender, screen} from '@testing-library/react';
 import {Card} from '@twilio-paste/card';
 import {Theme} from '@twilio-paste/theme';
 import {getStackDisplay, getStackStyles, getStackChildMargins, Stack} from '../src';
@@ -51,7 +51,7 @@ describe('Stack Unit Tests', () => {
   });
 });
 
-const MockStack: React.FC = () => {
+const MockVerticalStack: React.FC = () => {
   return (
     <Theme.Provider theme="console">
       <Stack orientation="vertical" spacing="space60">
@@ -84,9 +84,20 @@ const MockResponsiveStack: React.FC = () => {
   );
 };
 
+const MockHeaderStack: React.FC = () => {
+  return (
+    <Theme.Provider theme="console">
+      <Stack as="header" orientation="vertical" spacing="space60">
+        <Card>Card one</Card>
+        <Card>Card two</Card>
+      </Stack>
+    </Theme.Provider>
+  );
+};
+
 describe('Stack', () => {
   it('should render a vertical stack', () => {
-    const {asFragment} = testRender(<MockStack />);
+    const {asFragment} = testRender(<MockVerticalStack />);
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -97,6 +108,11 @@ describe('Stack', () => {
 
   it('should render a responsive stack', () => {
     const {asFragment} = testRender(<MockResponsiveStack />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('should render as a header', () => {
+    const {asFragment} = testRender(<MockHeaderStack />);
     expect(asFragment()).toMatchSnapshot();
   });
 });

@@ -266,3 +266,80 @@ exports[`Stack should render a vertical stack 1`] = `
   </div>
 </DocumentFragment>
 `;
+
+exports[`Stack should render as a header 1`] = `
+<DocumentFragment>
+  .emotion-5 {
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: rgb(40,42,43);
+  font-weight: 400;
+}
+
+.emotion-5 *,
+.emotion-5 *::after,
+.emotion-5 *::before {
+  box-sizing: border-box;
+}
+
+.emotion-4 {
+  box-sizing: border-box;
+  display: block;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  margin-bottom: 1.25rem;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  border-width: 2px;
+  border-color: rgb(228,231,233);
+  border-style: solid;
+  border-radius: 4px;
+  padding: 1.25rem;
+  background-color: rgb(255,255,255);
+}
+
+.emotion-3 {
+  box-sizing: border-box;
+}
+
+<div
+    class="emotion-5"
+  >
+    <header
+      class="emotion-4"
+      display="block"
+    >
+      <div
+        class="emotion-1"
+      >
+        <article
+          class="emotion-0"
+        >
+          Card one
+        </article>
+      </div>
+      <div
+        class="emotion-3"
+      >
+        <article
+          class="emotion-0"
+        >
+          Card two
+        </article>
+      </div>
+    </header>
+  </div>
+</DocumentFragment>
+`;
