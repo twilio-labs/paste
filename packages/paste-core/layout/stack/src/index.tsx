@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import styled from '@emotion/styled';
 import {useUID} from 'react-uid';
-import {FlexboxProps, LayoutProps, MarginProps, ResponsiveValue} from 'styled-system';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import {compose, layout, space, FlexboxProps, LayoutProps, MarginProps, ResponsiveValue} from 'styled-system';
 import {Display, isSpaceTokenProp, ResponsiveProp, Space} from '@twilio-paste/style-props';
 
 export type StackOrientationOptions = 'horizontal' | 'vertical';
@@ -72,7 +72,23 @@ const getChildMargins = (orientation: StackOrientation, spacing: Space): MarginP
   return styles;
 };
 
-const Stack: React.FC<StackProps> = ({children, orientation, spacing, ...props}) => {
+/* eslint-disable emotion/syntax-preference */
+const StyledStack = styled.div(
+  compose(
+    space,
+    layout
+  )
+) as React.FC;
+
+const StyledStackChild = styled.div(
+  compose(
+    space,
+    layout
+  )
+) as React.FC;
+/* eslint-enable */
+
+const Stack: React.FC<StackProps> = ({children, orientation, spacing}) => {
   const count = React.useMemo(() => React.Children.count(children), [children]);
 
   const StackStyles = React.useMemo(() => getStackStyles(orientation), [orientation]);
@@ -80,15 +96,18 @@ const Stack: React.FC<StackProps> = ({children, orientation, spacing, ...props})
   const validChildren = React.Children.toArray(children).filter(React.isValidElement);
 
   return (
-    <Box {...StackStyles} {...safelySpreadBoxProps(props)}>
+    <StyledStack {...StackStyles}>
       {validChildren.map((child, index) => {
         return (
-          <Box {...(count !== index + 1 ? {...getChildMargins(orientation, spacing)} : null)} key={useUID()}>
+          <StyledStackChild
+            {...(count !== index + 1 ? {...getChildMargins(orientation, spacing)} : null)}
+            key={useUID()}
+          >
             {child}
-          </Box>
+          </StyledStackChild>
         );
       })}
-    </Box>
+    </StyledStack>
   );
 };
 
