@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
+import {render} from '@testing-library/react';
 import {Card} from '@twilio-paste/card';
 import {Theme} from '@twilio-paste/theme';
 import {getStackDisplay, getStackStyles, getStackChildMargins, Stack} from '../src';
@@ -120,8 +120,8 @@ describe('Stack', () => {
   });
 
   it('should render as a header', () => {
-    const {getByTestId} = render(<MockHeaderStack />);
-    expect(getByTestId('header')).not.toBeNull();
+    const {asFragment} = render(<MockHeaderStack />);
+    expect(asFragment().querySelector('header')).not.toBeNull();
   });
 
   it('should render with an id', () => {
