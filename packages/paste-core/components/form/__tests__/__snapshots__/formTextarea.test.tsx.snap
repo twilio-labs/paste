@@ -31,11 +31,16 @@ exports[`FormTextArea render it should render 1`] = `
 }
 
 .emotion-2:hover {
-  box-shadow: 0 0 0 1px #032c5e;
+  box-shadow: 0 0 0 1px #003e82;
 }
 
 .emotion-2:focus-within {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+}
+
+.emotion-2:active,
+.emotion-2[data-active=true] {
+  box-shadow: 0 0 0 1px #032c5e;
 }
 
 .emotion-0 {
