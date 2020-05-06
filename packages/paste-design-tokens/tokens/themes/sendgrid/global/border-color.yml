@@ -7,7 +7,7 @@ imports:
   - ../aliases/color-palette.yml
 props:
   color-border:
-    value: "{!palette-gray-40}"
+    value: "{!palette-gray-70}"
     comment: Default border color
   color-border-light:
     value: "{!palette-gray-40}"
@@ -15,17 +15,6 @@ props:
   color-border-dark:
     value: "{!palette-gray-60}"
     comment: Dark border color
-
-  # input borders
-  color-border-input:
-    value: "{!palette-gray-70}"
-    comment: Input border color
-  color-border-input-hover:
-    value: "{!palette-blue-60}"
-    comment: Input hover border color
-  color-border-input-focus:
-    value: "{!palette-blue-60}"
-    comment: Input focus border color
 
   # primary action borders
   color-border-primary-darker:
@@ -63,6 +52,9 @@ props:
   color-border-warning-lightest:
     value: "{!palette-orange-10}"
     comment: Lightest warning border color
+  color-border-error-dark:
+    value: "{!palette-red-70}"
+    comment: Dark error border color
   color-border-error:
     value: "{!palette-red-60}"
     comment: Error border color

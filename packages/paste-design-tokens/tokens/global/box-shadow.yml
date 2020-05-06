@@ -11,18 +11,21 @@ props:
   shadow-focus:
     value: "{!offset-0} {!offset-0} {!offset-0} {!offset-20}px {!palette-blue-60-transparent-80}"
     comment: Shadow for focus ring on interactive elements
-  shadow-border-input:
-    value: "{!shadow-border-input}"
-    comment: Shadow border for inputs.
-  shadow-border-input-hover:
-    value: "{!shadow-border-input-hover}"
-    comment: Shadow border for inputs hover.
-  shadow-border-input-error:
-    value: "{!shadow-border-input-error}"
-    comment: Shadow border for error inputs.
-  shadow-border-input-error-hover:
-    value: "{!shadow-border-input-error-hover}"
-    comment: Shadow border for error inputs hover.
-  shadow-border-input-disabled:
-    value: "{!shadow-border-input-disabled}"
+  shadow-border-light:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-20}"
     comment: Shadow border for disabled inputs.
+  shadow-border:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-60}"
+    comment: Shadow border for inputs.
+  shadow-border-primary-dark:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-80}"
+    comment: Shadow border for inputs hover.
+  shadow-border-primary-darker:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-90}"
+    comment: Shadow border for inputs active.
+  shadow-border-error:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-60}"
+    comment: Shadow border for error inputs.
+  shadow-border-error-dark:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-80}"
+    comment: Shadow border for error inputs hover.
