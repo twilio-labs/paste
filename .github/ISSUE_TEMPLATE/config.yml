@@ -1,1 +1,9 @@
 blank_issues_enabled: false
+
+contact_links:
+  - name: Feature Request
+    url: https://github.com/twilio-labs/paste/discussions/new
+    about: Request a feature to be added to the Design System
+  - name: Ask a Question
+    url: https://github.com/twilio-labs/paste/discussions/new
+    about: Ask questions and discuss with other community members
