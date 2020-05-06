@@ -11,12 +11,14 @@ export interface SiblingBoxProps extends BoxProps {
   _checkedAndFocusSibling?: BaseBoxProps;
   _checkedAndHoverSibling?: BaseBoxProps;
   _checkedAndInvalidSibling?: BaseBoxProps;
+  _checkedAndInvalidAndHoverSibling?: BaseBoxProps;
   _checkedSibling?: BaseBoxProps;
   _checkedSiblingAndBoxChild?: BaseBoxProps;
   _disabledSibling?: BaseBoxProps;
   _focusSibling?: BaseBoxProps;
   _hoverSibling?: BaseBoxProps;
   _invalidSibling?: BaseBoxProps;
+  _invalidAndHoverSibling?: BaseBoxProps;
   type?: 'checkbox' | 'radio';
 }
 
@@ -30,12 +32,14 @@ const SiblingBox = styled(Box)<SiblingBoxProps>(
     _checkedAndFocusSibling,
     _checkedAndHoverSibling,
     _checkedAndInvalidSibling,
+    _checkedAndInvalidAndHoverSibling,
     _checkedSibling,
     _checkedSiblingAndBoxChild,
     _disabledSibling,
     _focusSibling,
     _hoverSibling,
     _invalidSibling,
+    _invalidAndHoverSibling,
     type = 'checkbox',
   }) => {
     const active = `input[type=${type}]:active + label &`;
@@ -46,11 +50,13 @@ const SiblingBox = styled(Box)<SiblingBoxProps>(
     const checkedAndFocus = `input[type=${type}]:checked:focus + label &, input[type=${type}][aria-checked=mixed]:focus + label &`;
     const checkedAndHover = `input[type=${type}]:checked:hover:not(:disabled) + label &, input[type=${type}][aria-checked=mixed]:hover:not(:disabled) + label &`;
     const checkedAndInvalid = `input[type=${type}][aria-invalid=true]:checked + label &`;
+    const checkedAndInvalidAndHover = `input[type=${type}][aria-invalid=true]:checked:hover:not(:disabled) + label &`;
     const child = `input[type=${type}] + label & > *`;
     const disabled = `input[type=${type}]:disabled + label &`;
     const focus = `input[type=${type}]:focus + label &`;
     const hover = `input[type=${type}]:hover:not(:disabled):not(:checked) + label &`;
     const invalid = `input[type=${type}][aria-invalid=true] + label &`;
+    const invalidAndHover = `input[type=${type}][aria-invalid=true]:hover:not(:disabled) + label &`;
     return css({
       [active]: _activeSibling,
       [checked]: _checkedSibling,
@@ -60,11 +66,13 @@ const SiblingBox = styled(Box)<SiblingBoxProps>(
       [checkedAndFocus]: _checkedAndFocusSibling,
       [checkedAndHover]: _checkedAndHoverSibling,
       [checkedAndInvalid]: _checkedAndInvalidSibling,
+      [checkedAndInvalidAndHover]: _checkedAndInvalidAndHoverSibling,
       [child]: _boxChild,
       [disabled]: _disabledSibling,
       [focus]: _focusSibling,
       [hover]: _hoverSibling,
       [invalid]: _invalidSibling,
+      [invalidAndHover]: _invalidAndHoverSibling,
     });
   }
 );

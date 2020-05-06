@@ -12,16 +12,16 @@ interface FieldWrapperProps {
 }
 
 const FieldWrapper: React.FC<FieldWrapperProps> = ({disabled, hasError, readOnly, children, type}) => {
-  let boxShadow = 'shadowBorderInput' as BoxShadow;
-  let boxShadowHover = 'shadowBorderInputHover' as BoxShadow;
+  let boxShadow = 'shadowBorder' as BoxShadow;
+  let boxShadowHover = 'shadowBorderPrimaryDark' as BoxShadow;
   if (disabled) {
-    boxShadow = 'shadowBorderInputDisabled';
-    boxShadowHover = 'shadowBorderInputDisabled';
+    boxShadow = 'shadowBorderLight';
+    boxShadowHover = 'shadowBorderLight';
   } else if (readOnly) {
-    boxShadowHover = 'shadowBorderInput';
+    boxShadowHover = 'shadowBorder';
   } else if (hasError) {
-    boxShadow = 'shadowBorderInputError';
-    boxShadowHover = 'shadowBorderInputErrorHover';
+    boxShadow = 'shadowBorderError';
+    boxShadowHover = 'shadowBorderErrorDark';
   } else if (type === 'hidden') {
     boxShadow = null;
   }
@@ -40,6 +40,9 @@ const FieldWrapper: React.FC<FieldWrapperProps> = ({disabled, hasError, readOnly
       }}
       _focusWithin={{
         boxShadow: 'shadowFocus',
+      }}
+      _active={{
+        boxShadow: disabled ? 'shadowBorderLight' : 'shadowBorderPrimaryDarker',
       }}
     >
       {children}

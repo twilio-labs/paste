@@ -84,7 +84,7 @@ input[type=checkbox] + label .emotion-0 > * {
 }
 
 input[type=checkbox]:disabled + label .emotion-0 {
-  border-color: rgb(228,231,233);
+  border-color: rgb(136,140,142);
 }
 
 input[type=checkbox]:focus + label .emotion-0 {

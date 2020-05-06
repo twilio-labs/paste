@@ -16,17 +16,17 @@ const BaseRadioCheckboxControl: React.FC<BaseRadioCheckboxControlProps> = ({chil
       as="span"
       display="flex"
       backgroundColor="colorBackgroundBody"
-      borderColor="colorBorderInput"
+      borderColor="colorBorder"
       borderStyle="solid"
       borderWidth="borderWidth10"
       height="sizeSquare50"
       margin="space20"
       width="sizeSquare50"
       _hoverSibling={{
-        borderColor: 'colorBorderPrimary',
+        borderColor: 'colorBorderPrimaryDark',
       }}
       _focusSibling={{
-        borderColor: 'colorBorderPrimaryDarker',
+        borderColor: 'colorBorderPrimaryDark',
         boxShadow: 'shadowFocus',
       }}
       _activeSibling={
@@ -42,30 +42,41 @@ const BaseRadioCheckboxControl: React.FC<BaseRadioCheckboxControlProps> = ({chil
         backgroundColor: 'colorBackgroundPrimary',
       }}
       _disabledSibling={{
-        borderColor: 'colorBorder',
+        borderColor: 'colorBorderLight',
       }}
       _invalidSibling={{
         borderColor: 'colorBorderError',
       }}
+      _invalidAndHoverSibling={{
+        borderColor: 'colorBorderErrorDark',
+      }}
+      _checkedAndHoverSibling={{
+        borderColor: 'colorBorderPrimaryDarker',
+        backgroundColor: 'colorBackgroundPrimaryDark',
+      }}
       _checkedAndFocusSibling={{
-        borderColor: 'colorBorderPrimaryDark',
+        borderColor: 'colorBorderPrimaryDarker',
         backgroundColor: 'colorBackgroundPrimaryDark',
       }}
       _checkedAndActiveSibling={
         !disabled
           ? {
-              borderColor: 'colorBorderPrimary',
-              backgroundColor: 'colorBackgroundPrimary',
+              borderColor: 'colorBorderPrimaryDarker',
+              backgroundColor: 'colorBackgroundPrimaryDarker',
             }
           : undefined
       }
       _checkedAndDisabledSibling={{
-        borderColor: 'colorBorder',
+        borderColor: 'colorBorderLight',
         backgroundColor: 'colorBackgroundDark',
       }}
       _checkedAndInvalidSibling={{
         borderColor: 'colorBorderError',
         backgroundColor: 'colorBackgroundError',
+      }}
+      _checkedAndInvalidAndHoverSibling={{
+        borderColor: 'colorBorderErrorDark',
+        backgroundColor: 'colorBackgroundErrorDark',
       }}
       {...props}
     >

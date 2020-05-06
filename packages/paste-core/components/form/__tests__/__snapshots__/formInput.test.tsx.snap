@@ -31,11 +31,16 @@ exports[`FormInput render it should render 1`] = `
 }
 
 .emotion-2:hover {
-  box-shadow: 0 0 0 1px #032c5e;
+  box-shadow: 0 0 0 1px #003e82;
 }
 
 .emotion-2:focus-within {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+}
+
+.emotion-2:active,
+.emotion-2[data-active=true] {
+  box-shadow: 0 0 0 1px #032c5e;
 }
 
 .emotion-0 {
@@ -192,6 +197,11 @@ exports[`FormInput render it should render with disabled 1`] = `
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
+.emotion-2:active,
+.emotion-2[data-active=true] {
+  box-shadow: 0 0 0 1px #e4e7e9;
+}
+
 <div
   className="emotion-3"
 >
@@ -299,6 +309,11 @@ exports[`FormInput render it should render with hasError 1`] = `
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
+.emotion-2:active,
+.emotion-2[data-active=true] {
+  box-shadow: 0 0 0 1px #032c5e;
+}
+
 <div
   className="emotion-3"
 >
@@ -351,11 +366,16 @@ exports[`FormInput render it should render with prefix 1`] = `
 }
 
 .emotion-3:hover {
-  box-shadow: 0 0 0 1px #032c5e;
+  box-shadow: 0 0 0 1px #003e82;
 }
 
 .emotion-3:focus-within {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+}
+
+.emotion-3:active,
+.emotion-3[data-active=true] {
+  box-shadow: 0 0 0 1px #032c5e;
 }
 
 .emotion-1 {
@@ -539,6 +559,11 @@ exports[`FormInput render it should render with readOnly 1`] = `
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
+.emotion-2:active,
+.emotion-2[data-active=true] {
+  box-shadow: 0 0 0 1px #032c5e;
+}
+
 <div
   className="emotion-3"
 >
@@ -592,11 +617,16 @@ exports[`FormInput render it should render with suffix 1`] = `
 }
 
 .emotion-3:hover {
-  box-shadow: 0 0 0 1px #032c5e;
+  box-shadow: 0 0 0 1px #003e82;
 }
 
 .emotion-3:focus-within {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+}
+
+.emotion-3:active,
+.emotion-3[data-active=true] {
+  box-shadow: 0 0 0 1px #032c5e;
 }
 
 .emotion-0 {
