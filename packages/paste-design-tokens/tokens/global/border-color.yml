@@ -18,17 +18,6 @@ props:
     value: "{!palette-gray-0}"
     comment: Border on inverse backgrounds
 
-  # input borders
-  color-border-input:
-    value: "{!palette-gray-60}"
-    comment: Input border color
-  color-border-input-hover:
-    value: "{!palette-blue-60}"
-    comment: Input hover border color
-  color-border-input-focus:
-    value: "{!palette-blue-60}"
-    comment: Input focus border color
-
   # primary action borders
   color-border-primary-darker:
     value: "{!palette-blue-90}"
@@ -65,6 +54,9 @@ props:
   color-border-warning-lightest:
     value: "{!palette-orange-10}"
     comment: Lightest warning border color
+  color-border-error-dark:
+    value: "{!palette-red-80}"
+    comment: Dark error border color
   color-border-error:
     value: "{!palette-red-60}"
     comment: Error border color

@@ -51,6 +51,9 @@ props:
   color-background-warning-lightest:
     value: "{!palette-orange-10}"
     comment: Lightest warning background color
+  color-background-error-dark:
+    value: "{!palette-red-80}"
+    comment: Dark error background color
   color-background-error:
     value: "{!palette-red-60}"
     comment: Error background color

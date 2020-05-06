@@ -7,8 +7,3 @@ aliases:
   shadow-elevation-10: "{!offset-0} {!offset-10}px {!offset-20}px {!offset-0} {!palette-gray-100-transparent-30}"
   shadow-elevation-20: "{!offset-0} {!offset-40}px {!offset-60}px {!offset-0} {!palette-gray-100-transparent-20}"
   shadow-elevation-30: "{!offset-0} {!offset-50}px {!offset-80}px {!offset-20} {!palette-gray-100-transparent-20}"
-  shadow-border-input: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-60}"
-  shadow-border-input-hover: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-90}"
-  shadow-border-input-error: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-60}"
-  shadow-border-input-error-hover: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-80}"
-  shadow-border-input-disabled: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-20}"
