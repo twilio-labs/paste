@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {render} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import {Card} from '@twilio-paste/card';
 import {Theme} from '@twilio-paste/theme';
-import {getStackDisplay, getStackStyles, getStackChildMargins, Stack} from '../src';
+import {getStackDisplay, getStackStyles, getStackChildMargins, Stack, StackOrientation} from '../src';
 
 describe('Stack Unit Tests', () => {
   const mockHorizontalOrientation = 'horizontal';
   const mockVerticalOrientation = 'vertical';
-  const mockResponsiveOrientation = ['vertical', 'horizontal', 'vertical'];
+  const mockResponsiveOrientation: StackOrientation = ['vertical', 'horizontal', 'vertical'];
   const mockSpace = 'space40';
   const horizontalStyles = {display: 'flex', alignItems: 'center', flexWrap: 'wrap'};
   const verticalStyles = {display: 'block', alignItems: 'center', flexWrap: 'wrap'};
@@ -120,22 +120,22 @@ describe('Stack', () => {
   });
 
   it('should render as a header', () => {
-    const {asFragment} = render(<MockHeaderStack />);
-    expect(asFragment().querySelector('header')).not.toBeNull();
+    render(<MockHeaderStack />);
+    expect(screen.getByTestId('header').tagName).toEqual('HEADER');
   });
 
   it('should render with an id', () => {
-    const {getByTestId} = render(<MockHeaderStack />);
-    expect(getByTestId('header').getAttribute('id')).toEqual('foo');
+    render(<MockHeaderStack />);
+    expect(screen.getByTestId('header').getAttribute('id')).toEqual('foo');
   });
 
   it('should render with a title', () => {
-    const {getByTestId} = render(<MockHeaderStack />);
-    expect(getByTestId('header').getAttribute('title')).toEqual('foo');
+    render(<MockHeaderStack />);
+    expect(screen.getByTestId('header').getAttribute('title')).toEqual('foo');
   });
 
   it('should render without a className', () => {
-    const {getByTestId} = render(<MockHeaderStack />);
-    expect(getByTestId('header').getAttribute('class')).not.toEqual('foo');
+    render(<MockHeaderStack />);
+    expect(screen.getByTestId('header').getAttribute('class')).not.toEqual('foo');
   });
 });
