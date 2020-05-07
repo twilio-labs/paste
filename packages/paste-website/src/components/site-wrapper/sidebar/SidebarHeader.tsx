@@ -1,16 +1,11 @@
 import * as React from 'react';
 import {Text} from '@twilio-paste/text';
+import {Box} from '@twilio-paste/box';
+import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
 import styled from '@emotion/styled';
 import {Link} from 'gatsby';
-import {themeGet} from '@styled-system/theme-get';
-import {TwilioIcon} from '../../icons/TwilioIcon';
+import {PasteIcon} from '../../icons/PasteIcon';
 import {TWILIO_RED} from '../../../constants';
-
-const StyledHeader = styled.header`
-  padding: 0 ${themeGet('space.space40')} ${themeGet('space.space40')};
-  margin-bottom: ${themeGet('space.space40')};
-  border-bottom: ${themeGet('borderWidths.borderWidth20')} solid ${themeGet('colors.colorGray30')};
-`;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -21,20 +16,6 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const StyledH3 = styled(Text)`
-  display: flex;
-`;
-
-const StyledSpan = styled.span`
-  flex: 1;
-
-  &:nth-of-type(2) {
-    flex: 0;
-    justify-self: flex-end;
-    font-weight: ${themeGet('fontWeights.fontWeightNormal')};
-  }
-`;
-
 interface SidebarHeaderProps {
   siteTitle?: string;
   siteSubTitle?: string;
@@ -42,15 +23,29 @@ interface SidebarHeaderProps {
 
 const SidebarHeader: React.FC<SidebarHeaderProps> = props => {
   return (
-    <StyledHeader>
-      <TwilioIcon color={TWILIO_RED} display="block" size={30} />
-      <Text as="h2" fontSize="fontSize60" lineHeight="lineHeight60" marginTop="space40" marginBottom="space20">
-        <StyledLink to="/">{props.siteTitle}</StyledLink>
-      </Text>
-      <StyledH3 as="h3" fontSize="fontSize20" lineHeight="lineHeight20" color="colorTextPlaceholder">
-        <StyledSpan>{props.siteSubTitle}</StyledSpan>
-      </StyledH3>
-    </StyledHeader>
+    <Box
+      borderBottomColor="colorBorderLight"
+      borderBottomStyle="solid"
+      borderBottomWidth="borderWidth20"
+      paddingBottom="space70"
+      paddingLeft="space40"
+      paddingRight="space40"
+      marginBottom="space40"
+    >
+      <MediaObject verticalAlign="center">
+        <MediaFigure spacing="space40">
+          <PasteIcon color={TWILIO_RED} display="block" size={42} />
+        </MediaFigure>
+        <MediaBody>
+          <Text as="h2" fontSize="fontSize60" lineHeight="lineHeight60">
+            <StyledLink to="/">{props.siteTitle}</StyledLink>
+          </Text>
+          <Text as="h3" fontSize="fontSize20" lineHeight="lineHeight20" color="colorTextPlaceholder">
+            {props.siteSubTitle}
+          </Text>
+        </MediaBody>
+      </MediaObject>
+    </Box>
   );
 };
 
