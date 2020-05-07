@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/alert",
-  "version": "0.1.40",
+  "version": "0.1.41",
   "category": "feedback",
   "status": "production",
   "description": "An alert notifies a user to high-priority or time-sensitive information.",
