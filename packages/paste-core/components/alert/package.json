@@ -2,7 +2,7 @@
   "name": "@twilio-paste/alert",
   "version": "0.1.39",
   "category": "feedback",
-  "status": "beta",
+  "status": "production",
   "description": "An alert notifies a user to high-priority or time-sensitive information.",
   "author": "Twilio Inc.",
   "license": "MIT",
