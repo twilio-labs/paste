@@ -172,6 +172,13 @@ The select component should include the base select, along with supporting eleme
 - **Optional field indicator** — In a form where there are more required fields than optional fields, use an optional indicator to show users which fields they don’t have to fill out. In general, ask for information only when needed. Consider removing them otherwise.
 - **Help text** — Text that’s placed below the field to help users prevent an error and describe what makes the form field successful.
 
+<Callout>
+  <CalloutTitle as="h4">Hot accessibility tip</CalloutTitle>
+  <CalloutText>
+    Make sure to connect the <inlineCode>FormLabel</inlineCode> to the <inlineCode>Select</inlineCode>. This is done with the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the select. Those two need to match.
+  </CalloutText>
+</Callout>
+
 <LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
   {`<>
   <FormLabel htmlFor="console_team" required>Console team</FormLabel>
@@ -191,11 +198,10 @@ The select component should include the base select, along with supporting eleme
 
 <LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
   {`<>
-  <FormLabel htmlFor="console_team" required>Console team</FormLabel>
+  <FormLabel htmlFor="console_team">Console team</FormLabel>
   <Select
     id="console_team"
     htmlFor="console_team"
-    required
     insertBefore={<div>$</div>}
   >
     <Option value="messaging-console">Messaging Console</Option>
@@ -206,13 +212,12 @@ The select component should include the base select, along with supporting eleme
 </>`}
 </LivePreview>
 
-<LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
+<LivePreview scope={{Select, Option, FormHelpText, FormLabel, InformationIcon, Button}} language="jsx">
   {`<>
-  <FormLabel htmlFor="console_team" required>Console team</FormLabel>
+  <FormLabel htmlFor="console_team">Console team</FormLabel>
   <Select
     id="console_team"
     htmlFor="console_team"
-    required
     insertAfter={
       <Button variant="link">
         <InformationIcon decorative={false} title="Get more info" />
@@ -237,11 +242,10 @@ If a user is able to choose an invalid option, change a select to its error stat
 
 <LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
   {`<>
-  <FormLabel hasError htmlFor="console_team" required>Console team</FormLabel>
+  <FormLabel htmlFor="console_team">Console team</FormLabel>
   <Select
     id="console_team"
     htmlFor="console_team"
-    required
     hasError
   >
     <Option value="messaging-console">Messaging Console</Option>
@@ -260,11 +264,10 @@ Otherwise, use disabled options sparingly. Most browsers show disabled option te
 
 <LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
   {`<>
-  <FormLabel htmlFor="console_team" required>Console team</FormLabel>
+  <FormLabel htmlFor="console_team">Console team</FormLabel>
   <Select
     id="console_team"
     htmlFor="console_team"
-    required
   >
     <Option disabled value="messaging-console">Messaging Console</Option>
     <Option value="numbers-console">Numbers Console</Option>
@@ -282,12 +285,11 @@ If you want to show information that can’t be edited, use a [read-only Input](
 
 <LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
   {`<>
-  <FormLabel disabled htmlFor="console_team" required>Console team</FormLabel>
+  <FormLabel htmlFor="console_team">Console team</FormLabel>
   <Select
     id="console_team"
     htmlFor="console_team"
     disabled
-    required
   >
     <Option value="messaging-console">Messaging Console</Option>
     <Option value="numbers-console">Numbers Console</Option>
@@ -296,6 +298,27 @@ If you want to show information that can’t be edited, use a [read-only Input](
   <FormHelpText variant="default" id="console_team_help_text">Please choose your team.</FormHelpText>
 </>`}
 </LivePreview>
+
+### Select and default values
+To be consistent with React's documentation on best practices for native select elements, the <inlineCode>selected</inlineCode> attribute is not allowed in the API. 
+You can instead select a <inlineCode>defaultValue</inlineCode> and supply that on render as the <inlineCode>value</inlineCode> property for the select.
+
+<LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
+  {`<>
+  <FormLabel htmlFor="console_team" required>Console team</FormLabel>
+  <Select
+    id="console_team"
+    htmlFor="console_team"
+    value="vnv-console"
+  >
+    <Option value="messaging-console">Messaging Console</Option>
+    <Option value="numbers-console">Numbers Console</Option>
+    <Option value="vnv-console">VNV Console</Option>
+  </Select>
+  <FormHelpText variant="default" id="console_team_help_text">Please choose your team.</FormHelpText>
+</>`}
+</LivePreview>
+
 
 ## Composition Notes
 
@@ -418,7 +441,7 @@ Use a select when:
 <DoDont>
   <Do center title="Do" body="Sort options in a list logically (*e.g.*, alphabetically, ascending, descending).">
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="sort_do">Which language do you use?Console team</FormLabel>
+      <FormLabel htmlFor="sort_do">Which language do you use?</FormLabel>
       <Select id="sort_do" name="sort_do" onChange="">
         <Option value="java">Java</Option>
         <Option value="node-js">NodeJS</Option>
@@ -432,7 +455,7 @@ Use a select when:
     body="Don’t order options in a list randomly or in a “recommended” order that hasn’t been validated with users."
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="sort_do">Which language do you use?Console team</FormLabel>
+      <FormLabel htmlFor="sort_do">Which language do you use?</FormLabel>
       <Select id="sort_do" name="sort_do" onChange="">
         <Option value="node-js">NodeJS</Option>
         <Option value="java">Java</Option>
@@ -449,7 +472,7 @@ Use a select when:
     body="Use a safe and reversible option as the default selected value, or an option that tells users to choose from the list. Prevent users from unintentionally submitting a default value in case they accidentally skip over a field."
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="sort_do">Caller IDConsole team</FormLabel>
+      <FormLabel htmlFor="sort_do">Caller ID</FormLabel>
       <Select id="sort_do" name="sort_do" onChange="">
         <Option value="null">Choose a Caller ID</Option>
         <Option value="+14155552287">+1(415)555-CATS</Option>
@@ -463,7 +486,7 @@ Use a select when:
     body="Don’t restrict users to options that unnecessarily reinforce biases and discrimination, such as gender binaries. Consider whether you need this information at all. If so, pair a select with an input or allow users to opt out."
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="sort_do">GenderConsole team</FormLabel>
+      <FormLabel htmlFor="sort_do">Gender</FormLabel>
       <Select id="sort_do" name="sort_do" onChange="">
         <Option value="male">Male</Option>
         <Option value="female">Female</Option>
