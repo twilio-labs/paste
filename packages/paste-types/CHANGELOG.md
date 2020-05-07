@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/types@3.0.5...@twilio-paste/types@3.0.6) (2020-05-07)
+
+**Note:** Version bump only for package @twilio-paste/types
+
+
+
+
+
 ## [3.0.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/types@3.0.4...@twilio-paste/types@3.0.5) (2020-05-07)
 
 **Note:** Version bump only for package @twilio-paste/types

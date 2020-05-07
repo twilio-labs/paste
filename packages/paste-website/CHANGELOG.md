@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.21.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.20.7...@twilio-paste/website@1.21.0) (2020-05-07)
+
+
+### Features
+
+* **website:** friendly token values ([#427](https://github.com/twilio-labs/paste/issues/427)) ([43104e6](https://github.com/twilio-labs/paste/commit/43104e6f21e928299c83b7f8d1f3175396aea791))
+
+
+
+
+
 ## [1.20.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.20.6...@twilio-paste/website@1.20.7) (2020-05-07)
 
 **Note:** Version bump only for package @twilio-paste/website
