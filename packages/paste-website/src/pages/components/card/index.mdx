@@ -37,7 +37,7 @@ export const pageQuery = graphql`
         }
       }
     }
-     primaryButtonDont: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/dont1-primary-button.png"}) {
+    primaryButtonDont: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/dont1-primary-button.png"}) {
       childImageSharp {
         fluid(maxWidth: 500) {
           ...GatsbyImageSharpFluid
@@ -51,14 +51,17 @@ export const pageQuery = graphql`
         }
       }
     }
-    multiplePrimaryDont: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/dont2-multiple-primary.png"}) {
+    multiplePrimaryDont: file(
+      sourceInstanceName: {eq: "assets"}
+      relativePath: {eq: "images/dont2-multiple-primary.png"}
+    ) {
       childImageSharp {
         fluid(maxWidth: 500) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    mdx(fields: { slug: { eq: "/card/" } }) {
+    mdx(fields: {slug: {eq: "/card/"}}) {
       headings {
         depth
         value
@@ -106,13 +109,11 @@ If you find yourself limited by the default styling and constraints of a Card, y
 but first consider bringing the problem you are trying to solve
 to Design System Office Hours to see if another component or pattern could fit your needs.
 
-
 ### Examples
 
 #### Basic Card
 
 An example of a Card with default padding.
-
 
 <LivePreview scope={{Card, Paragraph, Heading}} language="jsx">
   {`<Card>
@@ -130,7 +131,6 @@ One of the most common use cases for a Card is to relate a title ([Heading](/com
 and primary action ([Button](/components/button)) together. Relating these three elements together with a Card makes it easy for a user to
 digest and provides a clear call to action. Padding surrounding the inner content of a Card can be
 adjusted to suit the needs of your implementation.
-
 
 <LivePreview scope={{Card, Paragraph, Heading, Button}} language="jsx">
   {`<Card padding="space120">
@@ -164,7 +164,9 @@ Card using Box or Flex.
 </LivePreview>
 
 ## Composing a Card
+
 ### When to use a Card
+
 Cards are a great tool for relating a concise amount of related information together in one object, much like a business card or baseball card in real life.
 
 For example, you might use a single Card as a summary for a feature whose call to action encourages a user to dive deeper. Alternatively, multiple Cards on a single page with hierarchy of equal weights could be used to highlight multiple choices or paths a user can take.
@@ -179,31 +181,27 @@ Ultimately, Card is a very flexible component that can fit a variety of needs. I
   >
     <Img fluid={props.data.primaryButtonDo.childImageSharp.fluid} />
   </Do>
-  <Dont title="Don't" body="Don’t put multiple primary actions in a Card" preview={false} >
+  <Dont title="Don't" body="Don’t put multiple primary actions in a Card" preview={false}>
     <Img fluid={props.data.primaryButtonDont.childImageSharp.fluid} />
-  </Dont>
-</DoDont>
-
-<DoDont>
-  <Do title="Do" body="Use a Heading in your Card that appropriately reflects the information architecture of the page." preview={false} >
-    <Img fluid={props.data.headingInCardDo.childImageSharp.fluid} />
-  </Do>
-  <Dont title="Don't" body="Don’t use Cards to highlight multiple primary actions on a single page." preview={false} >
-    <Img fluid={props.data.multiplePrimaryDont.childImageSharp.fluid} />
   </Dont>
 </DoDont>
 
 <DoDont>
   <Do
     title="Do"
-    body="Use a Heading to set a clear expectation on the Card’s purpose."
+    body="Use a Heading in your Card that appropriately reflects the information architecture of the page."
     preview={false}
-  />
-  <Dont
-    title="Don't"
-    body="Don’t place multiple Heading components in a single Card."
-    preview={false}
-  />
+  >
+    <Img fluid={props.data.headingInCardDo.childImageSharp.fluid} />
+  </Do>
+  <Dont title="Don't" body="Don’t use Cards to highlight multiple primary actions on a single page." preview={false}>
+    <Img fluid={props.data.multiplePrimaryDont.childImageSharp.fluid} />
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use a Heading to set a clear expectation on the Card’s purpose." preview={false} />
+  <Dont title="Don't" body="Don’t place multiple Heading components in a single Card." preview={false} />
 </DoDont>
 
 <DoDont>
@@ -225,31 +223,23 @@ Ultimately, Card is a very flexible component that can fit a variety of needs. I
 | border-color     | color-border-light    | No          |
 | padding          | space-60              | Yes         |
 
-
 ---
 
 ## Usage Guide
 
-
 ### Installation
 
 ```bash
-yarn add @twilio-paste/card
-
-or
-
-npm i @twilio-paste/card
+yarn add @twilio-paste/card - or - yarn add @twilio-paste/core
 ```
 
 ### API
 
-| Prop         	| Type             	| Description                              	| Default        	|
-|--------------	|------------------	|------------------------------------------	|----------------	|
-| children?    	| React.ReactNode  	| Child components to render into the card 	| undefined       |
-| padding      	| Spacing          	| Internal spacing of the card             	| space60        	|
-| globalHtmlAttrs | string          	| Any html attrs like aria, data etc.     | undefined       |
-
-
+| Prop            | Type            | Description                              | Default   |
+| --------------- | --------------- | ---------------------------------------- | --------- |
+| children?       | React.ReactNode | Child components to render into the card | undefined |
+| padding         | Spacing         | Internal spacing of the card             | space60   |
+| globalHtmlAttrs | string          | Any html attrs like aria, data etc.      | undefined |
 
 </content>
 

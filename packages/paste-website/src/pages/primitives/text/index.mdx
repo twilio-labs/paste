@@ -205,13 +205,14 @@ using the Twilio design language.
 #### Installation
 
 ```bash
-yarn add @twilio-paste/text
+yarn add @twilio-paste/text - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
 
 ```jsx
 import {Text} from '@twilio-paste/text';
+// or import {Text} from '@twilio-paste/core';
 
 <Text as=”p” fontSize="fontSize70" fontWeight="fontWeightMedium">
   Foo
@@ -250,28 +251,28 @@ All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including 
 | textDecoration? | `ResponsiveValue<CSS.TextDecorationProperty<CSS.TextDecorationLineProperty>>` |                           |         |
 | textOverflow?   | `ResponsiveValue<CSS.TextOverflowProperty>`                                   |                           |         |
 | whitespce?      | `ResponsiveValue<CSS.WhiteSpaceProperty>`                                     |                           |         |
-| _after?         | TextProps                                                                     |                           |         |
-| _before?        | TextProps                                                                     |                           |         |
-| _focus?         | TextProps                                                                     |                           |         |
-| _hover?         | TextProps                                                                     |                           |         |
-| _active?        | TextProps                                                                     |                           |         |
-| _pressed?       | TextProps                                                                     |                           |         |
-| _selected?      | TextProps                                                                     |                           |         |
-| _focusWithin?   | TextProps                                                                     |                           |         |
-| _invalid?       | TextProps                                                                     |                           |         |
-| _disabled?      | TextProps                                                                     |                           |         |
-| _grabbed?       | TextProps                                                                     |                           |         |
-| _expanded?      | TextProps                                                                     |                           |         |
-| _checked?       | TextProps                                                                     |                           |         |
-| _mixed?         | TextProps                                                                     |                           |         |
-| _odd?           | TextProps                                                                     |                           |         |
-| _even?          | TextProps                                                                     |                           |         |
-| _visited?       | TextProps                                                                     |                           |         |
-| _readOnly?      | TextProps                                                                     |                           |         |
-| _first?         | TextProps                                                                     |                           |         |
-| _last?          | TextProps                                                                     |                           |         |
-| _notFirst?      | TextProps                                                                     |                           |         |
-| _notLast?       | TextProps                                                                     |                           |         |
+| \_after?        | TextProps                                                                     |                           |         |
+| \_before?       | TextProps                                                                     |                           |         |
+| \_focus?        | TextProps                                                                     |                           |         |
+| \_hover?        | TextProps                                                                     |                           |         |
+| \_active?       | TextProps                                                                     |                           |         |
+| \_pressed?      | TextProps                                                                     |                           |         |
+| \_selected?     | TextProps                                                                     |                           |         |
+| \_focusWithin?  | TextProps                                                                     |                           |         |
+| \_invalid?      | TextProps                                                                     |                           |         |
+| \_disabled?     | TextProps                                                                     |                           |         |
+| \_grabbed?      | TextProps                                                                     |                           |         |
+| \_expanded?     | TextProps                                                                     |                           |         |
+| \_checked?      | TextProps                                                                     |                           |         |
+| \_mixed?        | TextProps                                                                     |                           |         |
+| \_odd?          | TextProps                                                                     |                           |         |
+| \_even?         | TextProps                                                                     |                           |         |
+| \_visited?      | TextProps                                                                     |                           |         |
+| \_readOnly?     | TextProps                                                                     |                           |         |
+| \_first?        | TextProps                                                                     |                           |         |
+| \_last?         | TextProps                                                                     |                           |         |
+| \_notFirst?     | TextProps                                                                     |                           |         |
+| \_notLast?      | TextProps                                                                     |                           |         |
 
 <Box marginTop="space90">
   <Changelog />

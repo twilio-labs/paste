@@ -475,7 +475,7 @@ right in an English-language flow).
   />
 </DoDont>
 
-***
+---
 
 ## Usage Guide
 
@@ -484,40 +484,41 @@ right in an English-language flow).
 #### Installation
 
 ```bash
-yarn add @twilio-paste/button
+yarn add @twilio-paste/button - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
 
 ```jsx
 import {Button} from '@twilio-paste/button';
+// or import {Button} from '@twilio-paste/core';
 
 <Button variant="secondary" size="small" onClick={() => {}}>
   Submit
-</Button>
+</Button>;
 ```
 
 #### Props
 
 All the valid HTML attributes for `button` are supported including the following props:
 
-| Prop           | Type                                     | Description                                                                                                        | Default   |
-| -------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | --------- |
-| as?            | `string`                                   | The HTML tag to replace the default `<button>` tag.                                                              | 'button'  |
-| disabled?      | `boolean`                                  | Prevent actions from firing on this button                                                                       | false     |
-| fullWidth      | `boolean`                                  | Sets the button width to 100% of the parent container.                                                           | false     |
-| href?          | `string`                                   | A URL to route to. Must use `as="a"` for this prop to work.                                                      | null      |
-| loading?       | `boolean`                                  | Prevent actions and show a loading spinner                                                                       | false     |
-| size?          | `ButtonSizes`                              | 'default', 'small', 'icon', 'reset'                                                                              | 'default' |
-| type?          | `ButtonTypes`                              | 'button', 'submit', 'reset'. If the button is inside a `<form>`: use 'submit'. Otherwise use 'button' (default). | 'button'  |
-| variant?       | `ButtonVariants`                           | 'primary', 'secondary', 'destructive', 'destructive_link', 'link', 'reset'                                       | 'primary' |
-| onClick?       | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                    | null      |
-| onMouseDown?   | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                    | null      |
-| onMouseUp?     | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                    | null      |
-| onMouseEnter?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                    | null      |
-| onMouseLeave?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                    | null      |
-| onFocus?       | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                    | null      |
-| onBlur?        | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                    | null      |
+| Prop          | Type                                     | Description                                                                                                      | Default   |
+| ------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------- |
+| as?           | `string`                                 | The HTML tag to replace the default `<button>` tag.                                                              | 'button'  |
+| disabled?     | `boolean`                                | Prevent actions from firing on this button                                                                       | false     |
+| fullWidth     | `boolean`                                | Sets the button width to 100% of the parent container.                                                           | false     |
+| href?         | `string`                                 | A URL to route to. Must use `as="a"` for this prop to work.                                                      | null      |
+| loading?      | `boolean`                                | Prevent actions and show a loading spinner                                                                       | false     |
+| size?         | `ButtonSizes`                            | 'default', 'small', 'icon', 'reset'                                                                              | 'default' |
+| type?         | `ButtonTypes`                            | 'button', 'submit', 'reset'. If the button is inside a `<form>`: use 'submit'. Otherwise use 'button' (default). | 'button'  |
+| variant?      | `ButtonVariants`                         | 'primary', 'secondary', 'destructive', 'destructive_link', 'link', 'reset'                                       | 'primary' |
+| onClick?      | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                  | null      |
+| onMouseDown?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                  | null      |
+| onMouseUp?    | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                  | null      |
+| onMouseEnter? | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                  | null      |
+| onMouseLeave? | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                  | null      |
+| onFocus?      | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                  | null      |
+| onBlur?       | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                  | null      |
 
 <Box marginTop="space90">
   <Changelog />

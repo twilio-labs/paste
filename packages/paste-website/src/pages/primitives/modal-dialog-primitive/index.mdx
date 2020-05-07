@@ -63,7 +63,8 @@ and accessibility issues in our products.
 <Callout>
   <CalloutTitle as="h4">Looking for Paste's styled Modal?</CalloutTitle>
   <CalloutText>
-    Only use this primitive if you have a bespoke modal design. For most Twilio interfaces, we recommend using the <Anchor href="/components/modal">Paste Modal component</Anchor>.
+    Only use this primitive if you have a bespoke modal design. For most Twilio interfaces, we recommend using the{' '}
+    <Anchor href="/components/modal">Paste Modal component</Anchor>.
   </CalloutText>
 </Callout>
 
@@ -83,20 +84,17 @@ for our consumers’ developer experience. With reasons such as:
 - We can control when to provide an update and which versions we whitelist, to help reduce
   potential bugs our consumers may face.
 
-
 #### Installation
 
 This package is available individually or as part of `@twilio-paste/core`.
 
 ```
-yarn add @twilio-paste/modal-dialog-primitive
+yarn add @twilio-paste/modal-dialog-primitive - or - yarn add @twilio-paste/core
 ```
 
 #### Usage Example
 
-<Box
-  paddingBottom="space80"
->
+<Box paddingBottom="space80">
   <ModalDemo />
 </Box>
 
@@ -106,6 +104,7 @@ import styled from '@emotion/styled';
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
 import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
+// or import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent, Button, Text} from '@twilio-paste/core';
 
 const StyledModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)({
   position: 'fixed',
@@ -137,7 +136,7 @@ const BasicModalDialog: React.FC<BasicModalDialogProps> = ({isOpen, handleClose}
   const inputRef = React.useRef();
 
   return (
-    <StyledModalDialogOverlay 
+    <StyledModalDialogOverlay
       isOpen={isOpen}
       onDismiss={handleClose}
       allowPinchZoom={true}
@@ -175,9 +174,10 @@ export const ModalActivator: React.FC = () => {
 
 <Callout>
   <CalloutText>
-    Much of the following is copied directly from <Anchor href="https://reacttraining.com/reach-ui/dialog/">reach-ui's docs</Anchor>. 
-    Because we may update at a different cadence, we're duplicating the docs here to prevent inconsistent
-    behaviors.</CalloutText>
+    Much of the following is copied directly from{' '}
+    <Anchor href="https://reacttraining.com/reach-ui/dialog/">reach-ui's docs</Anchor>. Because we may update at a
+    different cadence, we're duplicating the docs here to prevent inconsistent behaviors.
+  </CalloutText>
 </Callout>
 
 #### ModalDialogPrimitiveOverlay Props
@@ -285,23 +285,23 @@ function Example(props) {
   const open = () => setShowDialog(true);
   const close = () => setShowDialog(false);
 
-  return (    
-    <div>      
-      <button onClick={open}>Show Dialog</button>      
-      {showDialog && (        
-        <ModalDialogPrimitiveOverlay initialFocusRef={buttonRef} onDismiss={close}>          
-          <ModalDialogPrimitiveContent>            
-            <p>Pass the button ref to DialogOverlay and the button.</p>            
-            <button onClick={close}>Not me</button> 
+  return (
+    <div>
+      <button onClick={open}>Show Dialog</button>
+      {showDialog && (
+        <ModalDialogPrimitiveOverlay initialFocusRef={buttonRef} onDismiss={close}>
+          <ModalDialogPrimitiveContent>
+            <p>Pass the button ref to DialogOverlay and the button.</p>
+            <button onClick={close}>Not me</button>
             <button
-              ref={buttonRef}      
+              ref={buttonRef}
               onClick={close}
-            >              
+            >
               Got me!
             </button>
-          </ModalDialogPrimitiveContent>        
-        </ModalDialogPrimitiveOverlay>      
-      )}    
+          </ModalDialogPrimitiveContent>
+        </ModalDialogPrimitiveOverlay>
+      )}
     </div>
   );
 }
@@ -311,10 +311,9 @@ function Example(props) {
 
 All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
 
-| Prop             | Type            | Default |
-| ---------------- | --------------- | ------- |
-| children         | node            | null    |
-
+| Prop     | Type | Default |
+| -------- | ---- | ------- |
+| children | node | null    |
 
 <Box marginTop="space130">
   <Changelog />

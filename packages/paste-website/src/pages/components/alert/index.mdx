@@ -81,7 +81,7 @@ Use an alert for one of these types of information:
 
 ### Alerts vs. Feedback indicators and dialogs
 
-To communicate feedback on a user action, use a toast or in-page validation (*e.g.*, full-page confirmation, inline error) instead.
+To communicate feedback on a user action, use a toast or in-page validation (_e.g._, full-page confirmation, inline error) instead.
 
 To interrupt a user flow or provide the user with more than one action, use an alert dialog.
 
@@ -128,11 +128,15 @@ Our alerts have icons that both announce the type of alert it is to screen reade
 
 Use a neutral alert to notify a user of a change that's relevant for them to achieve their current goal. Don't use an alert to communicate general promotional information.
 
-In most cases, a neutral alert should be dismissible (*i.e.*, have a close button) and should be assigned `role="status"`
+In most cases, a neutral alert should be dismissible (_i.e._, have a close button) and should be assigned `role="status"`
 
-<Blockquote name="Nielsen Norman Group" source="Indicators, Validations, and Notifications" sourceUrl="https://www.nngroup.com/articles/indicators-validations-notifications/">
-  A notification sent irrespective of the current user goal would likely be ignored, and may even annoy users because it will disrupt
-  their current task and be irrelevant to their current needs.
+<Blockquote
+  name="Nielsen Norman Group"
+  source="Indicators, Validations, and Notifications"
+  sourceUrl="https://www.nngroup.com/articles/indicators-validations-notifications/"
+>
+  A notification sent irrespective of the current user goal would likely be ignored, and may even annoy users because it
+  will disrupt their current task and be irrelevant to their current needs.
 </Blockquote>
 
 <LivePreview scope={{Alert, Text, Anchor}} language="jsx">
@@ -200,8 +204,13 @@ Keep in mind that the longer an alert is present, the more it starts looking lik
 
 Keep alert text brief by placing only the highest priority information in an alert. Too much text in an alert can overwhelm a user. A good rule of thumb is to keep alert text to a single line in a desktop-sized container, or limiting it to 90 characters.
 
-<Blockquote name="Matthew Butterick" source="Butterick's Practical Typography" sourceUrl="https://practicaltypography.com/responsive-web-design.html">
-  Regardless of screen width, the optimal line length is still 45–90 characters. As you test your layout, make sure that text elements stay within this range.
+<Blockquote
+  name="Matthew Butterick"
+  source="Butterick's Practical Typography"
+  sourceUrl="https://practicaltypography.com/responsive-web-design.html"
+>
+  Regardless of screen width, the optimal line length is still 45–90 characters. As you test your layout, make sure that
+  text elements stay within this range.
 </Blockquote>
 
 Compose an alert with:
@@ -215,11 +224,15 @@ Place an alert where it makes the most contextual sense. Don't cover other UI el
 
 In general, the persistence and behavior on scroll of an alert should match the element it's scoped to. For example, if an alert is scoped to a navigation bar that is sticky on scroll and persists across several pages, the alert should similarly be sticky and persist across several pages. However, don't persist the alert across too many pages in a user session since it may lose its interruptive intent.
 
-
 <DoDont>
-  <Do title="Do" body="Use only 1 alert per page. Use 2 alerts only if absolutely necessary and if the alerts are placed in different containers.">
+  <Do
+    title="Do"
+    body="Use only 1 alert per page. Use 2 alerts only if absolutely necessary and if the alerts are placed in different containers."
+  >
     <Alert variant="error">
-      <Text as="span">Your account balance is low and your credit card has expired. As a result we have suspended your account</Text>
+      <Text as="span">
+        Your account balance is low and your credit card has expired. As a result we have suspended your account
+      </Text>
     </Alert>
   </Do>
   <Dont title="Don't" body="Don't use more than 2 alerts per page.">
@@ -236,20 +249,27 @@ In general, the persistence and behavior on scroll of an alert should match the 
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Place global alerts at the top of the page. Place all other alerts at the top of the container it relates to beneath the heading.">
-      <Box padding="space40">
-        <Card>
-          <Heading as="h2" variant="heading20">Section Heading</Heading>
-          <Box marginBottom="space70">
-            <Alert variant="error">There was a problem below</Alert>
-          </Box>
-          <Paragraph>Please fill in the details below...</Paragraph>
-        </Card>
-      </Box>
+  <Do
+    title="Do"
+    body="Place global alerts at the top of the page. Place all other alerts at the top of the container it relates to beneath the heading."
+  >
+    <Box padding="space40">
+      <Card>
+        <Heading as="h2" variant="heading20">
+          Section Heading
+        </Heading>
+        <Box marginBottom="space70">
+          <Alert variant="error">There was a problem below</Alert>
+        </Box>
+        <Paragraph>Please fill in the details below...</Paragraph>
+      </Card>
+    </Box>
   </Do>
   <Dont title="Don't" body="Don't cover other UI elements with an alert.">
     <Box padding="space40" position="relative">
-      <Heading as="h2" variant="heading10">Billing information</Heading>
+      <Heading as="h2" variant="heading10">
+        Billing information
+      </Heading>
       <Box position="absolute" left="space90" top="0">
         <Alert variant="warning">Your credit card is about to expire</Alert>
       </Box>
@@ -258,15 +278,23 @@ In general, the persistence and behavior on scroll of an alert should match the 
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Use anchors to link to more information that may be helpful for users to resolve or clarify an alert message." >
+  <Do
+    title="Do"
+    body="Use anchors to link to more information that may be helpful for users to resolve or clarify an alert message."
+  >
     <Alert variant="neutral">
-      <Text as="span">A call to action <Anchor href="#">Click here</Anchor></Text>
+      <Text as="span">
+        A call to action <Anchor href="#">Click here</Anchor>
+      </Text>
     </Alert>
   </Do>
   <Dont title="Don't" body="Avoid using buttons in alerts unless it triggers an action.">
     <Alert variant="neutral">
       <Text as="span">
-        A call to action <Button size="small" variant="primary">Click here</Button>
+        A call to action{' '}
+        <Button size="small" variant="primary">
+          Click here
+        </Button>
       </Text>
     </Alert>
   </Dont>
@@ -274,7 +302,11 @@ In general, the persistence and behavior on scroll of an alert should match the 
 
 <DoDont>
   <Do title="Do" body="Be cautious about using alerts since they can be stressful for users to see." center />
-  <Dont title="Don't" body="Don't use alerts to communicate every change in a product (e.g., marketing messages, trial status) so that important messaging isn't diluted." center />
+  <Dont
+    title="Don't"
+    body="Don't use alerts to communicate every change in a product (e.g., marketing messages, trial status) so that important messaging isn't diluted."
+    center
+  />
 </DoDont>
 
 ## Anatomy
@@ -285,7 +317,7 @@ In general, the persistence and behavior on scroll of an alert should match the 
 | border-color     | <ul><li>Error: color-border-error-light</li><li>Neutral: color-border-neutral-light</li><li>Warning: color-border-warning-light</li></ul>                                                             | No          |
 | border-radius    | border-radius-0                                                                                                                                                                                       | No          |
 | border-width     | Bottom border: border-width-20                                                                                                                                                                        | No          |
-| icon color       | <ul><li>Error: color-text-error</li><li>Neutral: color-text-icon</li><li>Warning: color-text-warning</li><li>Close: color-text-icon</li></ul>                                               | No          |
+| icon color       | <ul><li>Error: color-text-error</li><li>Neutral: color-text-icon</li><li>Warning: color-text-warning</li><li>Close: color-text-icon</li></ul>                                                         | No          |
 | icon size        | <ul><li>Alert icon: size-icon-30</li><li>Close icon: size-icon-30</li></ul>                                                                                                                           | No          |
 | spacing          | <ul><li>Top padding: space-50</li><li>Bottom padding: space-40</li><li>left/right padding: space-70</li><li>Between icon and body: space-40</li><li>Between body and close button: space-40</li></ul> | No          |
 
@@ -298,17 +330,18 @@ In general, the persistence and behavior on scroll of an alert should match the 
 #### Installation
 
 ```bash
-yarn add @twilio-paste/alert
+yarn add @twilio-paste/alert - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
 
 ```jsx
 import {Alert} from '@twilio-paste/alert';
+// or import {Alert} from '@twilio-paste/core';
 
 <Alert variant="error">
   <Text>There is an error in the system.</Text>
-</Alert>
+</Alert>;
 ```
 
 #### Props

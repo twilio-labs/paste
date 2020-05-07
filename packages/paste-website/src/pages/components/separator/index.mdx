@@ -133,11 +133,7 @@ It **should not** be used as a substitute for styled semantic sectioning HTML. F
 A Separator can also be used as an element inside components. For example, it can be used inside a menu to create separation between a set of menu items, effectly creating groups of menu items.
 
 <DoDont>
-  <Do
-    title="Do"
-    body="Use to create separation between two elements"
-    preview={false}
-  />
+  <Do title="Do" body="Use to create separation between two elements" preview={false} />
   <Dont
     title="Don't"
     body="Don't use as a substitute for styled semantic sectioning HTML, like borders on headers or sidebars"
@@ -154,15 +150,16 @@ A Separator can also be used as an element inside components. For example, it ca
 #### Installation
 
 ```bash
-yarn add @twilio-paste/separator
+yarn add @twilio-paste/separator - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
 
 ```jsx
 import {Separator} from '@twilio-paste/separator';
+// or import {Separator} from '@twilio-paste/core';
 
-<Separator orientation="horizontal" />
+<Separator orientation="horizontal" />;
 ```
 
 All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:

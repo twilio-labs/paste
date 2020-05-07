@@ -81,21 +81,21 @@ It is important to not skip one or more heading levels as it is common for scree
     Heading One
   </Heading>
 
-  <Heading as="h2" variant="heading20">
-    Heading Two
-  </Heading>
+<Heading as="h2" variant="heading20">
+  Heading Two
+</Heading>
 
-  <Heading as="h3" variant="heading30">
-    Heading Three
-  </Heading>
+<Heading as="h3" variant="heading30">
+  Heading Three
+</Heading>
 
-  <Heading as="h4" variant="heading40">
-    Heading Four
-  </Heading>
+<Heading as="h4" variant="heading40">
+  Heading Four
+</Heading>
 
-  <Heading as="h5" variant="heading50">
-    Heading Five
-  </Heading>
+<Heading as="h5" variant="heading50">
+  Heading Five
+</Heading>
 
   <Heading as="h6" variant="heading60">
     Heading Six
@@ -168,22 +168,16 @@ It is important to not skip one or more heading levels as it is common for scree
 Headings should be used for page headings or content subsections. Headings are broken into six levels, where h1 is the highest level and h6 is the lowest. Avoid skipping heading levels. Use the next lowest heading level to maintain a coherent document outline.
 
 <DoDont>
-  <Do
-    title="Do"
-    body="Use headings for page headings to specific sections of content."
-  />
+  <Do title="Do" body="Use headings for page headings to specific sections of content." />
   <Dont title="Don't" body="Don’t use headings for pure stylistic purposes." />
 </DoDont>
 
 <DoDont>
-  <Do
-    title="Do"
-    body="Use headings in order, so your content reads like an outline."
-  />
+  <Do title="Do" body="Use headings in order, so your content reads like an outline." />
   <Dont title="Don't" body="Don’t use headings out of order." />
 </DoDont>
 
-***
+---
 
 ## Usage Guide
 
@@ -192,27 +186,28 @@ Headings should be used for page headings or content subsections. Headings are b
 #### Installation
 
 ```bash
-yarn add @twilio-paste/heading
+yarn add @twilio-paste/heading - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
 
 ```jsx
 import {Heading} from '@twilio-paste/heading';
+// or import {Heading} from '@twilio-paste/core';
 
 <Heading as="h2" variant="heading20">
   Heading Two
-</Heading>
+</Heading>;
 ```
 
 #### Props
 
-| Prop           | Type                  | Description                                                                          | Default          |
-| -------------- | --------------------- | ------------------------------------------------------------------------------------ | ---------------- |
-| as             | `asTags`                | 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'                         | null             |
-| id?            | `string`                |                                                                                    | null             |
-| marginBottom?  | `oneOf(['space0'])`     | Currently we only allow `space0` to remove bottom margin                           | null             |
-| variant        | `headingVariants`       | 'heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60'       | null             |
+| Prop          | Type                | Description                                                                  | Default |
+| ------------- | ------------------- | ---------------------------------------------------------------------------- | ------- |
+| as            | `asTags`            | 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'                   | null    |
+| id?           | `string`            |                                                                              | null    |
+| marginBottom? | `oneOf(['space0'])` | Currently we only allow `space0` to remove bottom margin                     | null    |
+| variant       | `headingVariants`   | 'heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60' | null    |
 
 <Box marginTop="space90">
   <Changelog />

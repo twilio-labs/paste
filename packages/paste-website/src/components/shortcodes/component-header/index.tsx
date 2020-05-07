@@ -5,7 +5,7 @@ import {Text} from '@twilio-paste/text';
 import {Heading} from '@twilio-paste/heading';
 import {Breadcrumb, BreadcrumbItem} from '../../breadcrumb';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {P} from '../../Typography';
+import {P, InlineCode} from '../../Typography';
 import {getHumanizedNameFromPackageName} from '../../../utils/RouteUtils';
 
 const getCategoryNameFromRoute = (categoryRoute: string): string => {
@@ -78,11 +78,7 @@ const PackageLabel: React.FC<{}> = ({children}) => {
 };
 
 const PackageInstallSnippet: React.FC<{}> = ({children}) => {
-  return (
-    <Text as="code" fontSize="fontSize30">
-      {children}
-    </Text>
-  );
+  return <InlineCode>{children}</InlineCode>;
 };
 
 const ComponentHeader: React.FC<ComponentHeaderProps> = ({
@@ -128,7 +124,8 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
         <Box marginBottom="space20">
           <PackageLabel>Install</PackageLabel>
           <PackageValue>
-            <PackageInstallSnippet>yarn add {packageName}</PackageInstallSnippet>
+            <PackageInstallSnippet>yarn add {packageName}</PackageInstallSnippet> &mdash; or &mdash;{' '}
+            <PackageInstallSnippet>yarn add @twilio-paste/core</PackageInstallSnippet>
           </PackageValue>
         </Box>
       </Box>
