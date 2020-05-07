@@ -3,7 +3,7 @@
   "version": "0.1.3",
   "category": "layout",
   "status": "beta",
-  "description": "A horizontal and vertical flow component used to build layouts.",
+  "description": "A horizontal and vertical flow component used to create space between components.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
