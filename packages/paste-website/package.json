@@ -1,7 +1,7 @@
 {
   "name": "@twilio-paste/website",
   "description": "",
-  "version": "1.21.0",
+  "version": "1.22.0",
   "author": "Twilio Inc.",
   "private": true,
   "license": "MIT",

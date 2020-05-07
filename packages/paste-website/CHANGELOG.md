@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.22.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.21.0...@twilio-paste/website@1.22.0) (2020-05-07)
+
+
+### Features
+
+* **website:** changing the website icon to new Paste icon ([#431](https://github.com/twilio-labs/paste/issues/431)) ([7b61fe6](https://github.com/twilio-labs/paste/commit/7b61fe69436218d1affb7f126e7dc2ca1f18da2e))
+
+
+
+
+
 # [1.21.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.20.7...@twilio-paste/website@1.21.0) (2020-05-07)
 
 
