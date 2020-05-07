@@ -6,34 +6,34 @@ imports:
 props:
   line-height-10:
     value: "{!line-height-10}"
-    comment: "fontSize10's lineHeight mapping. fontSize10 * 1.55 = 16px / 16 = 1rem"
+    comment: "Constant line-height token for line-height 10"
   line-height-20:
     value: "{!line-height-20}"
-    comment: "fontSize20's lineHeight mapping. fontSize20 * 1.55 = 20px / 16 = 1.25rem"
+    comment: "Constant line-height token for line-height 20"
   line-height-30:
     value: "{!line-height-30}"
-    comment: "fontSize30's lineHeight mapping. fontSize30 * 1.55 = 24px / 16 = 1.5rem"
+    comment: "Constant line-height token for line-height 30"
   line-height-40:
     value: "{!line-height-40}"
-    comment: "fontSize40's lineHeight mapping. fontSize40 * 1.55 = 28px / 16 = 1.75rem"
+    comment: "Constant line-height token for line-height 40"
   line-height-50:
     value: "{!line-height-50}"
-    comment: "fontSize50's lineHeight mapping. fontSize50 * 1.55 = 28px / 16 = 1.75rem"
+    comment: "Constant line-height token for line-height 50"
   line-height-60:
     value: "{!line-height-60}"
-    comment: "fontSize60's lineHeight mapping. fontSize60 * 1.25 = 28px / 16 = 1.75rem"
+    comment: "Constant line-height token for line-height 60"
   line-height-70:
     value: "{!line-height-70}"
-    comment: "fontSize70's lineHeight mapping. fontSize70 * 1.25 = 32px / 16 = 2rem"
+    comment: "Constant line-height token for line-height 70"
   line-height-80:
     value: "{!line-height-80}"
-    comment: "fontSize80's lineHeight mapping. fontSize80 * 1.25 = 36px / 16 = 2.25rem"
+    comment: "Constant line-height token for line-height 80"
   line-height-90:
     value: "{!line-height-90}"
-    comment: "fontSize90's lineHeight mapping. fontSize90 * 1.25 = 40px / 16 = 2.5rem"
+    comment: "Constant line-height token for line-height 90"
   line-height-100:
     value: "{!line-height-100}"
-    comment: "fontSize100's lineHeight mapping. fontSize100 * 1.25 = 52px / 16 = 3.25rem"
+    comment: "Constant line-height token for line-height 100"
   line-height-110:
     value: "{!line-height-110}"
-    comment: "fontSize110's lineHeight mapping. fontSize110 * 1.25 = 60px / 16 = 3.75rem"
+    comment: "Constant line-height token for line-height 110"

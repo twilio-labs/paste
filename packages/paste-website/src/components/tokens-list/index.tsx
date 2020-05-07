@@ -2,16 +2,16 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Theme, ThemeVariants} from '@twilio-paste/theme';
+import {FormLabel, FormInput} from '@twilio-paste/form';
 import {useUID} from 'react-uid';
 import {Table, Tr, Th, Td, Tbody} from '../table';
-import {TokenExample} from '../tokens-example';
-import {Input} from '../input';
-import {Label} from '../label';
 import {InlineCode} from '../Typography';
 import {AnchoredHeading} from '../Heading';
 import {useActiveSiteTheme} from '../../context/ActiveSiteThemeContext';
 import {Callout, CalloutTitle, CalloutText} from '../callout';
 import {SiteLink} from '../SiteLink';
+import {TokenExample} from './TokensExample';
+import {getTokenValue} from './getTokenValue';
 
 const sentenceCase = (catName: string): string => {
   return catName
@@ -141,14 +141,14 @@ export const TokensList: React.FC<TokensListProps> = props => {
   return (
     <>
       <Box as="form" marginTop="space100" marginBottom="space100" maxWidth="size40">
-        <Label htmlFor={uid}>Filter tokens</Label>
-        <Input
-          aria-label="Filter the token list"
+        <FormLabel htmlFor={uid}>Filter tokens</FormLabel>
+        <FormInput
           autoComplete="off"
           id={uid}
           onInput={handleInput}
           placeholder="filter by name or value"
           type="text"
+          value={filterString}
         />
       </Box>
       {tokens != null &&
@@ -179,7 +179,7 @@ export const TokensList: React.FC<TokensListProps> = props => {
                               </Text>
                               <Text as="p">{token.comment}</Text>
                             </Td>
-                            <Td>{token.type === 'color' ? token.value.toUpperCase() : token.value}</Td>
+                            <Td>{getTokenValue(token)}</Td>
                             <Td
                               css={{
                                 position: 'relative',
