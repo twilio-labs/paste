@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@4.5.1...@twilio-paste/design-tokens@5.0.0) (2020-05-07)
+
+
+### Features
+
+* **design-tokens:** updates to border and shadow-border tokens ([c7f687d](https://github.com/twilio-labs/paste/commit/c7f687d07a2bdfc5466269c05a398c16adf29536))
+
+
+### BREAKING CHANGES
+
+* **design-tokens:** Removed and renamed some border and shadow border tokens
+- removed color-border-input -> use color-border
+- removed color-border-input-hover
+- removed color-border-input-focus
+- renamed shadow-border-input -> shadow-border
+- renamed shadow-border-input-hover -> shadow-border-primary-dark
+- renamed shadow-border-input-disabled -> shadow-border-light
+- renamed shadow-border-input-error -> shadow-border-error
+- renamed shadow-border-input-error-hover -> shadow-border-error-dark
+
+
+
+
+
 ## [4.5.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@4.5.0...@twilio-paste/design-tokens@4.5.1) (2020-05-01)
 
 **Note:** Version bump only for package @twilio-paste/design-tokens
