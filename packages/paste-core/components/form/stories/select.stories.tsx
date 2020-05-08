@@ -37,15 +37,13 @@ storiesOf('Forms|Select', module)
 
     const KnobOption: React.FC<{idx: number; initialValue: string}> = ({idx, initialValue}) => {
       const optionGroupId = optionGroup(idx);
-      const isDefault = boolean('default', false, optionGroupId);
       const disabled = boolean('disabled', false, optionGroupId);
-      const isSelected = boolean('selected', false, optionGroupId);
       const optionValue = text('value', initialValue || `option-value-${idx}`, optionGroupId);
       const label = text('label', `Option ${idx}`, optionGroupId);
 
       return (
         <>
-          <Option value={optionValue} selected={isSelected || isDefault} disabled={disabled}>
+          <Option value={optionValue} disabled={disabled}>
             {label}
           </Option>
         </>
