@@ -93,20 +93,6 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
       </LandingContainer>
       <Separator orientation="horizontal" />
       <LandingContainer marginTop="space200" marginBottom="space200" maxWidth="size100">
-        <Callout>
-          <CalloutTitle as="h4">Looking for Flex / Console / SendGrid design systems?</CalloutTitle>
-          <UnorderedList>
-            <ListItem>
-              <Anchor href="https://code.hq.twilio.com/pages/react/react-components/">Console React Components</Anchor>
-            </ListItem>
-            <ListItem>
-              <Anchor href="https://styleguide.sendgrid.com/">SendGrid Style Guide</Anchor>
-            </ListItem>
-            <ListItem>
-              <Anchor href="https://www.twilio.com/docs/flex/flex-overview-ui-programmability">Flex UI Docs</Anchor>
-            </ListItem>
-          </UnorderedList>
-        </Callout>
         <Grid columnWidth={220} gap={30}>
           <Box>
             <IconCircle
