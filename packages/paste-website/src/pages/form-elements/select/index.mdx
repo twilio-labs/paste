@@ -270,12 +270,12 @@ Use an optgroup to create groupings of options within the select element.
         <Option value="TK1234567890">TK1234567890</Option>
         <Option value="TK2345678901">TK2345678901</Option>
         <Option value="TK3456789012">TK3456789012</Option>
-    <OptionGroup>
+    </OptionGroup>
     <OptionGroup label="BYOC Trunks">
         <Option value="BY1234567890">BY1234567890</Option>
         <Option value="BY2345678901">BY2345678901</Option>
         <Option value="BY3456789012">BY3456789012</Option>
-    <OptionGroup>
+    </OptionGroup>
   </Select>
   <FormHelpText variant="default" id="configure_trunk_help_text">Select a trunk to configure your phone number.</FormHelpText>
 </>`}
@@ -288,13 +288,21 @@ You can use the multiple attribute on the select component to select multiple op
 - **size** - Attribute on select which will determine how many items are rendered.
 - **value** - When multiple attribute is set, this attribute on the select component must be an array.
 
+<Callout>
+  <CalloutTitle as="h4">Hot accessibility tip</CalloutTitle>
+  <CalloutText>
+    Avoid allowing multiple selection on a select component.
+  </CalloutText>
+  <CalloutText>It might not be immediately clear to users that they need to press <inlineCode>Ctrl</inlineCode> or <inlineCode>Cmd</inlineCode> to choose multiple options on desktop, or that they <em>can</em> choose multiple options on mobile.</CalloutText>
+  <CalloutText>Use a <inlineCode>CheckboxGroup</inlineCode> to allow users to make multiple selections instead.</CalloutText>
+</Callout>
+
 <LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
   {`<>
   <FormLabel htmlFor="console_team" required>Console team</FormLabel>
   <Select
     id="console_team"
     htmlFor="console_team"
-    value="vnv-console"
     multiple
     size="2"
   >
