@@ -315,9 +315,6 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavAnchor to="/migrate">Migration Guide</SiteNavAnchor>
-        </SiteNavItem>
-        <SiteNavItem>
           <SiteNavAnchor to="/libraries">Libraries</SiteNavAnchor>
         </SiteNavItem>
         <SiteNavItem>
