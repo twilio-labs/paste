@@ -5,7 +5,7 @@ description: A select allows users to select an option from a list in a form fie
 ---
 
 import {graphql} from 'gatsby';
-import {FormLabel, FormHelpText, Select, Option, OptionGroup} from '@twilio-paste/form';
+import {FormLabel, FormHelpText, FormInput, Select, Option, OptionGroup, CheckboxGroup, Checkbox} from '@twilio-paste/form';
 
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -43,7 +43,7 @@ export const pageQuery = graphql`
   name="Select"
   categoryRoute={SidebarCategoryRoutes.FORM}
   githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/components/form"
-  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-form--select-options"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/forms-select--select"
   abstractUrl="https://share.goabstract.com/6cc5fc40-3408-4cfd-b1d0-103aea01601d"
   data={props.data.allPasteComponent.edges}
 />
@@ -62,11 +62,9 @@ A select allows users to select an option from a list in a form field.
 
 ### About Select
 
-Select allows a user to make a selection from a list of options in a form field.
+Select allows a user to make a selection from a list of options in a form field. By default, it will show the first option in the list. However, you can also set a different pre-selected option from your list to show.
 
-By default, it will show the first option in the list. However, you can also set a different pre-selected option from your list to show.
-
-### What's the difference between select and a combobox?
+### What's the difference between select and combobox?
 
 At its most basic, a select has an options list that’s styled according to the browser default. A combo box has a Twilio-styled options list and can allow for additional functionality like typeahead.
 
@@ -75,7 +73,7 @@ Use a select when:
 <UnorderedList>
   <ListItem>You need a native picker experience, especially on mobile devices.</ListItem>
   <ListItem>
-    Users will be selecting from a list of 4-10 options, or a sorted list of highly familiar options (e.g., alphabetical
+    Users will be selecting from a list of 4-10 options, or a sorted list of highly familiar options (<em>e.g.</em>, alphabetical
     list of states or countries).
   </ListItem>
   <ListItem>You need the component to work out-of-the-box across all operating systems and browsers.</ListItem>
@@ -85,13 +83,13 @@ Use a combobox when:
 
 <UnorderedList>
   <ListItem>You need a Twilio-styled options list.</ListItem>
-  <ListItem>You need to show more than text in an option (e.g., text paired with an icon).</ListItem>
-  <ListItem>You need placeholder text in the field to show an example selection.</ListItem>
+  <ListItem>You need to show more than text in an option (<em>e.g.</em>, text paired with an icon).</ListItem>
+  <ListItem>You need placeholder text in the field to show an example option, rather than a pre-selected option.</ListItem>
   <ListItem>
-    Users would benefit from typeahead functionality (e.g., autocomplete, search). For example, typeahead may be useful
-    when users need to select from a list of more than 10 options. If you have a much longer list, consider lazy loading
-    the list to improve page load performance.
+    Users would benefit from typeahead functionality (<em>e.g.</em>, autocomplete, search). For example, typeahead may be useful
+    when users need to select from a list of more than 10 options.
   </ListItem>
+  <ListItem>You need to lazy load a much longer list of options to improve page load performance.</ListItem>
 </UnorderedList>
 
 ### Accessibility
@@ -101,13 +99,8 @@ Use a combobox when:
     Include a visible label on <strong>all</strong> form fields.
   </ListItem>
   <ListItem>
-    Each lable must use the <inlineCode>htmlFor</inlineCode> prop that equals the <inlineCode>id</inlineCode> of the
+    Each label must use the <inlineCode>htmlFor</inlineCode> prop that equals the <inlineCode>id</inlineCode> of the
     associated input.
-  </ListItem>
-  <ListItem>
-    Don't use placeholder text as a replacement for labels. It can be used to provide an example to users, but will
-    disappear from the field when a user enters text. It's also not broadly supported by assistive technologies and
-    won't display in older browsers.
   </ListItem>
   <ListItem>
     Use one of 3 ways to label a form field:
@@ -146,19 +139,20 @@ Use a combobox when:
 
 ### Base Select
 
-The base select is the input without any supporting elements (e.g., label, help text, etc).
+The base select is the input without any supporting elements (*e.g*., label, help text, etc).
 
 - **Options** — The list of items contained in a select
 - **Selected value** — (Optional) The value that appears in the select on page load. By default, this is the first option in the list.
 
 The select will fill the width of the container it’s placed in.
 
-<LivePreview scope={{Select, Option}} language="jsx">
+<LivePreview scope={{Select, Option, FormLabel}} language="jsx">
   {`<>
-  <Select id="console_team" htmlFor="console_team">
-    <Option value="messaging-console">Messaging Console</Option>
-    <Option value="numbers-console">Numbers Console</Option>
-    <Option value="vnv-console">VNV Console</Option>
+  <FormLabel htmlFor="twilio_product">Select a Product</FormLabel>
+  <Select id="twilio_product" htmlFor="product">
+    <Option value="messaging">SMS</Option>
+    <Option value="numbers">Phone Numbers</Option>
+    <Option value="video">Video</Option>
   </Select>
 </>`}
 </LivePreview>
@@ -169,7 +163,7 @@ The select component should include the base select, along with supporting eleme
 
 - **Label** — A label should be included for every form field and provide a short title for its associated input.
 - **Required field indicator** — In a form where there are fewer or as many required fields as optional, use a required indicator to show users which fields are required to be filled out.
-- **Optional field indicator** — In a form where there are more required fields than optional fields, use an optional indicator to show users which fields they don’t have to fill out. In general, ask for information only when needed. Consider removing them otherwise.
+- **Optional field indicator** — In a form where there are more required fields than optional fields, use an optional indicator to show users which fields they don’t have to fill out. In general, ask for information only when needed. Consider removing the optional fields.
 - **Help text** — Text that’s placed below the field to help users prevent an error and describe what makes the form field successful.
 
 <Callout>
@@ -181,13 +175,13 @@ The select component should include the base select, along with supporting eleme
 
 <LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
   {`<>
-  <FormLabel htmlFor="console_team" required>Console team</FormLabel>
-  <Select id="console_team" htmlFor="console_team" required>
-    <Option value="messaging-console">Messaging Console</Option>
-    <Option value="numbers-console">Numbers Console</Option>
-    <Option value="vnv-console">VNV Console</Option>
+  <FormLabel htmlFor="select_product_demo" required>Select a Product</FormLabel>
+  <Select id="select_product_demo" htmlFor="select_product_demo" required>
+    <Option value="messaging">SMS</Option>
+    <Option value="numbers">Phone Numbers</Option>
+    <Option value="video">Video</Option>
   </Select>
-  <FormHelpText variant="default" id="console_team_help_text">Please choose your team.</FormHelpText>
+  <FormHelpText variant="default" id="select_product">Please choose a Twilio product.</FormHelpText>
 </>`}
 </LivePreview>
 
@@ -198,37 +192,35 @@ The select component should include the base select, along with supporting eleme
 
 <LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
   {`<>
-  <FormLabel htmlFor="console_team">Console team</FormLabel>
+  <FormLabel htmlFor="select_add_ons_prefix_demo">Phone Number</FormLabel>
   <Select
-    id="console_team"
-    htmlFor="console_team"
-    insertBefore={<div>$</div>}
+    id="select_add_ons_prefix_demo"
+    htmlFor="select_add_ons_prefix_demo"
+    insertBefore={<div>+1</div>}
   >
-    <Option value="messaging-console">Messaging Console</Option>
-    <Option value="numbers-console">Numbers Console</Option>
-    <Option value="vnv-console">VNV Console</Option>
+    <Option value="cats">(415) 555-CATS</Option>
+    <Option value="dogs">(415) 555-DOGS</Option>
+    <Option value="mice">(415) 555-MICE</Option>
   </Select>
-  <FormHelpText variant="default" id="console_team_help_text">Please choose your team.</FormHelpText>
 </>`}
 </LivePreview>
 
 <LivePreview scope={{Select, Option, FormHelpText, FormLabel, InformationIcon, Button}} language="jsx">
   {`<>
-  <FormLabel htmlFor="console_team">Console team</FormLabel>
+  <FormLabel htmlFor="select_add_ons_suffix_demo">Phone Number</FormLabel>
   <Select
-    id="console_team"
-    htmlFor="console_team"
+    id="select_add_ons_suffix_demo"
+    htmlFor="select_add_ons_suffix_demo"
     insertAfter={
       <Button variant="link">
         <InformationIcon decorative={false} title="Get more info" />
       </Button>
     }
   >
-    <Option value="messaging-console">Messaging Console</Option>
-    <Option value="numbers-console">Numbers Console</Option>
-    <Option value="vnv-console">VNV Console</Option>
+    <Option value="cats">(415) 555-CATS</Option>
+    <Option value="dogs">(415) 555-DOGS</Option>
+    <Option value="mice">(415) 555-MICE</Option>
   </Select>
-  <FormHelpText variant="default" id="console_team_help_text">Please choose your team.</FormHelpText>
 </>`}
 </LivePreview>
 
@@ -239,17 +231,16 @@ You can instead select a <inlineCode>defaultValue</inlineCode> and supply that o
 
 <LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
   {`<>
-  <FormLabel htmlFor="console_team" required>Console team</FormLabel>
+  <FormLabel htmlFor="default_value_demo" required>Phone Number</FormLabel>
   <Select
-    id="console_team"
-    htmlFor="console_team"
-    value="vnv-console"
+    id="default_value_demo"
+    htmlFor="default_value_demo"
+    defaultValue="dogs"
   >
-    <Option value="messaging-console">Messaging Console</Option>
-    <Option value="numbers-console">Numbers Console</Option>
-    <Option value="vnv-console">VNV Console</Option>
+    <Option value="cats">(415) 555-CATS</Option>
+    <Option value="dogs">(415) 555-DOGS</Option>
+    <Option value="mice">(415) 555-MICE</Option>
   </Select>
-  <FormHelpText variant="default" id="console_team_help_text">Please choose your team.</FormHelpText>
 </>`}
 </LivePreview>
 
@@ -261,23 +252,28 @@ Use an optgroup to create groupings of options within the select element.
 
 <LivePreview scope={{Select, Option, OptionGroup, FormHelpText, FormLabel}} language="jsx">
   {`<>
-  <FormLabel htmlFor="configure_trunk" required>Configure with trunk</FormLabel>
+  <FormLabel htmlFor="option_group_demo" required>Product offering</FormLabel>
   <Select
-    id="configure_trunk"
-    htmlFor="configure_trunk"
+    id="option_group_demo"
+    htmlFor="option_group_demo"
   >
-    <OptionGroup label="SIP Trunks">
-        <Option value="TK1234567890">TK1234567890</Option>
-        <Option value="TK2345678901">TK2345678901</Option>
-        <Option value="TK3456789012">TK3456789012</Option>
+    <OptionGroup label="SMS">
+        <Option value="geomatch">Area-code geomatch</Option>
+        <Option value="channels">Channels</Option>
+        <Option value="short-codes">Short codes</Option>
     </OptionGroup>
-    <OptionGroup label="BYOC Trunks">
-        <Option value="BY1234567890">BY1234567890</Option>
-        <Option value="BY2345678901">BY2345678901</Option>
-        <Option value="BY3456789012">BY3456789012</Option>
+    <OptionGroup label="Voice">
+        <Option value="conference">Conference</Option>
+        <Option value="recording">Recordings</Option>
+        <Option value="tts">Text to Speech</Option>
+    </OptionGroup>
+    <OptionGroup label="Video">
+        <Option value="hipaa">HIPAA eligibility</Option>
+        <Option value="p2p">Peer to peer</Option>
+        <Option value="recordings">Recordings</Option>
     </OptionGroup>
   </Select>
-  <FormHelpText variant="default" id="configure_trunk_help_text">Select a trunk to configure your phone number.</FormHelpText>
+  <FormHelpText variant="default" id="option_group_demo_help_text">Select a product to learn more.</FormHelpText>
 </>`}
 </LivePreview>
 
@@ -291,7 +287,7 @@ You can use the multiple attribute on the select component to select multiple op
 <Callout>
   <CalloutTitle as="h4">Hot accessibility tip</CalloutTitle>
   <CalloutText>
-    Avoid allowing multiple selection on a select component.
+    When possible, avoid allowing multiple selection on a select component.
   </CalloutText>
   <CalloutText>It might not be immediately clear to users that they need to press <inlineCode>Ctrl</inlineCode> or <inlineCode>Cmd</inlineCode> to choose multiple options on desktop, or that they <em>can</em> choose multiple options on mobile.</CalloutText>
   <CalloutText>Use a <inlineCode>CheckboxGroup</inlineCode> to allow users to make multiple selections instead.</CalloutText>
@@ -299,18 +295,18 @@ You can use the multiple attribute on the select component to select multiple op
 
 <LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
   {`<>
-  <FormLabel htmlFor="console_team" required>Console team</FormLabel>
+  <FormLabel htmlFor="mutliple_options_demo" required>Phone number capabilities</FormLabel>
   <Select
-    id="console_team"
-    htmlFor="console_team"
+    id="mutliple_options_demo"
+    htmlFor="mutliple_options_demo"
     multiple
     size="2"
   >
-    <Option value="messaging-console">Messaging Console</Option>
-    <Option value="numbers-console">Numbers Console</Option>
-    <Option value="vnv-console">VNV Console</Option>
+    <Option value="fax">Fax</Option>
+    <Option value="voice">Voice</Option>
+    <Option value="sms">SMS</Option>
   </Select>
-  <FormHelpText variant="default" id="console_team_help_text">Please choose your team.</FormHelpText>
+  <FormHelpText variant="default" id="mutliple_options_demo_help_text">Select your desired number capabilities.</FormHelpText>
 </>`}
 </LivePreview>
 
@@ -324,17 +320,17 @@ If a user is able to choose an invalid option, change a select to its error stat
 
 <LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
   {`<>
-  <FormLabel htmlFor="console_team">Console team</FormLabel>
+  <FormLabel htmlFor="inline_error_demo">Emergency Caller ID</FormLabel>
   <Select
-    id="console_team"
-    htmlFor="console_team"
+    id="inline_error_demo"
+    htmlFor="inline_error_demo"
     hasError
   >
-    <Option value="messaging-console">Messaging Console</Option>
-    <Option value="numbers-console">Numbers Console</Option>
-    <Option value="vnv-console">VNV Console</Option>
+    <Option value="cats">(415) 555-CATS</Option>
+    <Option value="dogs">(415) 555-DOGS</Option>
+    <Option value="mice">(415) 555-MICE</Option>
   </Select>
-  <FormHelpText variant="error" id="console_team_help_text">Please choose your team.</FormHelpText>
+  <FormHelpText variant="error" id="console_team_help_text">The number you have selected is not configured for emergency calling.</FormHelpText>
 </>`}
 </LivePreview>
 
@@ -346,16 +342,16 @@ Otherwise, use disabled options sparingly. Most browsers show disabled option te
 
 <LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
   {`<>
-  <FormLabel htmlFor="console_team">Console team</FormLabel>
+  <FormLabel htmlFor="disabled_options_demo">Phone number capabilities</FormLabel>
   <Select
-    id="console_team"
-    htmlFor="console_team"
+    id="disabled_options_demo"
+    htmlFor="disabled_options_demo"
   >
-    <Option disabled value="messaging-console">Messaging Console</Option>
-    <Option value="numbers-console">Numbers Console</Option>
-    <Option disabled value="vnv-console">VNV Console</Option>
+    <Option disabled value="fax">Fax</Option>
+    <Option disabled value="voice">Voice</Option>
+    <Option value="sms">SMS</Option>
   </Select>
-  <FormHelpText variant="default" id="console_team_help_text">Please choose your team.</FormHelpText>
+  <FormHelpText variant="default" id="disabled_options_demo_help_text">Some options in this select are disabled.</FormHelpText>
 </>`}
 </LivePreview>
 
@@ -367,17 +363,17 @@ If you want to show information that can’t be edited, use a [read-only Input](
 
 <LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
   {`<>
-  <FormLabel htmlFor="console_team">Console team</FormLabel>
+  <FormLabel htmlFor="disabled_select_demo" disabled>Phone number capabilities</FormLabel>
   <Select
-    id="console_team"
-    htmlFor="console_team"
+    id="disabled_select_demo"
+    htmlFor="disabled_select_demo"
     disabled
   >
-    <Option value="messaging-console">Messaging Console</Option>
-    <Option value="numbers-console">Numbers Console</Option>
-    <Option value="vnv-console">VNV Console</Option>
+    <Option value="fax">Fax</Option>
+    <Option value="voice">Voice</Option>
+    <Option value="sms">SMS</Option>
   </Select>
-  <FormHelpText variant="default" id="console_team_help_text">Please choose your team.</FormHelpText>
+  <FormHelpText variant="default" id="console_team_help_text">This select is currently disabled.</FormHelpText>
 </>`}
 </LivePreview>
 
@@ -390,21 +386,19 @@ A select field should be composed with at least a label and a select.
 
 Stack form fields vertically with `$space-80` spacing between each field.
 
-<LivePreview scope={{Select, Option, FormLabel, FormHelpText, Box}} language="jsx">
+<LivePreview scope={{Select, Option, FormInput, FormLabel, FormHelpText, Box}} language="jsx">
   {`<>
   <Box marginBottom="space80">
-    <FormLabel htmlFor="first_name">First Name</FormLabel>
-    <Select id="test-select">
-        <Option>Option 1</Option>
-        <Option>Option 2</Option>
+    <FormLabel htmlFor="voice_callback_method">HTTP Method</FormLabel>
+    <Select required id="voice_callback_method">
+        <Option value="get">GET</Option>
+        <Option value="post">POST</Option>
+        <Option value="put">PUT</Option>
     </Select>
   </Box>
   <Box>
-    <FormLabel htmlFor="last_name">Last Name</FormLabel>
-        <Select id="test-select">
-        <Option>Option 1</Option>
-        <Option>Option 2</Option>
-    </Select>
+    <FormLabel htmlFor="voice_callback">Primary Voice Callback</FormLabel>
+    <FormInput id="voice_callback" name="voice_callback" type="text" placeholder="https://demo.twilio.com/welcome/voice/" onChange="" required/>
   </Box>
 </>`}
 </LivePreview>
@@ -413,11 +407,11 @@ Avoid placing multiple form fields on the same horizontal row to help make it ea
 
 ### Options in a select
 
-Keep option text concise and simple. Option text will truncate when it’s longer than the width of the container
+Keep option text concise and simple. Option text will truncate when it’s longer than the width of the container. If choosing options require more explanation, consider using a checkbox instead and add help text for each option, or give more explanation through help text.
 
 Use a safe and reversible option as the default selected value, or an option that tells users to choose from the list. For example, on page load, a select could show “Choose categories” as the default value if there’s no safe default.
 
-Use 4-10 options in a select, or a sorted list of highly familiar options (_e.g._, alphabetical list of states), since selects don’t allow for searching or filtering through options. Sort options logically (_e.g._, alphabetically, by value) or in an order that’s intuitive to your user.
+Use 4-10 options in a select, or a sorted list of highly familiar options (*e.g.*, alphabetical list of states), since selects don’t allow for searching or filtering through options. Sort options logically (*e.g.*, alphabetically, by value) or in an order that’s intuitive to your user.
 
 ### Labels and help text
 
@@ -439,13 +433,15 @@ To support internationalization, avoid starting a sentence with the label and us
 
 Give users enough information in help text to prevent input and formatting errors. Keep it concise and scoped to information that will help with validation. For example, use help text if a password field has specific requirements that a user should know prior to filling it out.
 
+If you need to use more than 2 sentences to explain a field, link out to supporting docs or trigger a popover instead.
+
 ### Required or optional field identifier
 
 Ask for information only when needed. Consider removing the field otherwise.
 
 In a form where there are fewer optional fields than required, use an optional indicator to show users which fields they don’t have to fill out. Otherwise, use required indicators to show users which fields they must fill out.
 
-If a field is required and there’s no safe default selected value, default to a disabled option that tells users to choose an option (_e.g._, “Choose categories”). However, if the field is optional and there’s no safe default, keep the option enabled so that users can unselect.
+If a field is required and there’s no safe default selected value, default to a disabled option that tells users to choose an option (*e.g.*, “Choose categories”). However, if the field is optional and there’s no safe default, keep the option enabled so that users can unselect.
 
 ### Required field key
 
@@ -487,9 +483,8 @@ Error text should:
 
 ### Optional compositional elements
 
-- **Prefix/suffix** — Use a prefix or suffix to help users format their input and to provide more context about the value a user is entering. For example, you could prefix or suffix a field with a currency symbol, or use suffix to append a character counter. Make sure to consider internationalization when using prefixes or suffixes since formatting may differ across languages. For example, currency symbols are placed on the left in American English, while they're placed on the right in French. Don't use prefix/suffix text as a replacement for a label.
-- **Icon** — Use an icon if you need to give the user additional controls for the field. For example, use an icon to clear a field on click, removing the need for users to manually delete their entered value. Place icon buttons that trigger an action on the right side of the field. If you need 2 actions on a field (e.g., popover trigger and clear field), place the icon button that affects the field value on the right, and the other icon on the left.
-- **Placeholder** — Use a placeholder when you want to give an example of the type of data a user should enter, mainly to help with recall. For example, when asking for links to social media profiles, you could give examples of a few social media sites. Placeholders should be used in addition to the label and not as a replacement since they'll disappear when a user begins entering their own value. If you need to show supporting instructions, use help text instead.
+- **Prefix/suffix** — Use a prefix or suffix to help users format their input and to provide more context about the value a user is entering. For example, you could prefix or suffix a field with a currency symbol. Make sure to consider internationalization when using prefixes or suffixes since formatting may differ across languages. For example, currency symbols are placed on the left in American English, while they're placed on the right in French. Don't use prefix/suffix text as a replacement for a label.
+- **Icon** — Use an icon if you need to give the user additional controls for the field. For example, use an icon to clear a field on click, removing the need for users to manually delete their entered value. Place icon buttons that trigger an action on the right side of the field. If you need 2 actions on a field (*e.g.*, popover trigger and clear field), place the icon button that affects the field value on the right, and the other icon on the left.
 
 ## When to use a Select
 
@@ -501,13 +496,13 @@ Use a select when:
 </UnorderedList>
 
 <DoDont>
-  <Do center title="Do" body="Sort options in a list logically (*e.g.*, alphabetically, ascending, descending).">
+  <Do center title="Do" body="Sort options in a list logically (e.g., alphabetically, ascending, descending).">
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="sort_do">Which language do you use?</FormLabel>
+      <FormLabel htmlFor="sort_do">Ascending numbers</FormLabel>
       <Select id="sort_do" name="sort_do" onChange="">
-        <Option value="java">Java</Option>
-        <Option value="node-js">NodeJS</Option>
-        <Option value="php">PHP</Option>
+        <Option value="1">1</Option>
+        <Option value="100">100</Option>
+        <Option value="100000">100,000</Option>
       </Select>
     </Box>
   </Do>
@@ -517,11 +512,11 @@ Use a select when:
     body="Don’t order options in a list randomly or in a “recommended” order that hasn’t been validated with users."
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="sort_do">Which language do you use?</FormLabel>
-      <Select id="sort_do" name="sort_do" onChange="">
-        <Option value="node-js">NodeJS</Option>
-        <Option value="java">Java</Option>
-        <Option value="php">PHP</Option>
+      <FormLabel htmlFor="sort_dont">Random numbers</FormLabel>
+      <Select id="sort_dont" name="sort_dont" onChange="">
+        <Option value="100000">100,000</Option>
+        <Option value="1">1</Option>
+        <Option value="100">100</Option>
       </Select>
     </Box>
   </Dont>
@@ -534,11 +529,11 @@ Use a select when:
     body="Use a safe and reversible option as the default selected value, or an option that tells users to choose from the list. Prevent users from unintentionally submitting a default value in case they accidentally skip over a field."
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="sort_do">Caller ID</FormLabel>
-      <Select id="sort_do" name="sort_do" onChange="">
+      <FormLabel htmlFor="reversible_do">Caller ID</FormLabel>
+      <Select id="reversible_do" name="reversible_do" onChange="">
         <Option value="null">Choose a Caller ID</Option>
-        <Option value="+14155552287">+1(415)555-CATS</Option>
-        <Option value="+14155553647">+1(415)555-DOGS</Option>
+        <Option value="+14155552287">+1(415) 555-CATS</Option>
+        <Option value="+14155553647">+1(415) 555-DOGS</Option>
       </Select>
     </Box>
   </Do>
@@ -548,8 +543,8 @@ Use a select when:
     body="Don’t restrict users to options that unnecessarily reinforce biases and discrimination, such as gender binaries. Consider whether you need this information at all. If so, pair a select with an input or allow users to opt out."
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="sort_do">Gender</FormLabel>
-      <Select id="sort_do" name="sort_do" onChange="">
+      <FormLabel htmlFor="reversible_dont">Gender</FormLabel>
+      <Select id="reversible_dont" name="reversible_dont" onChange="">
         <Option value="male">Male</Option>
         <Option value="female">Female</Option>
       </Select>
@@ -574,27 +569,82 @@ Use a select when:
   <Do
     center
     title="Do"
-    body="Keep option text concise and simple. If choosing options require more explanation, consider using a checkbox instead and add help text for each option, or give more explanation through help text."
-  />
+    body="Keep option text concise and simple. If choosing options require more explanation, expand in help text or consider using a checkbox instead."
+  >
+      <Box width="100%" padding="space60">
+      <FormLabel htmlFor="option_text_do">HTTP method</FormLabel>
+      <Select id="option_text_do" name="option_text_do" onChange="">
+        <Option value="get">GET</Option>
+        <Option value="post">POST</Option>
+        <Option value="put">PUT</Option>
+      </Select>
+    </Box>
+  </Do>
   <Dont
     center
     title="Don't"
-    body="Avoid long option text that will truncate if it’s longer than the width of the container."
-  />
+    body="Avoid long option text that may truncate if it’s longer than the width of the container."
+  >
+      <Box width="100%" padding="space60">
+      <FormLabel htmlFor="option_text_dont">Voice URL</FormLabel>
+      <Select id="option_text_dont" name="option_text_dont" onChange="">
+        <Option value="demo">{'https://demo.twilio.com/welcome/voice/'}</Option>
+        <Option value="test-one">{'https://test.twilio.com/welcome/voice/long-test/too-long/text-continuing'}</Option>
+        <Option value="test-two">{'https://test.twilio.com/welcome/voice/long-test/too-long/text-continuing/still-continuing'}</Option>
+      </Select>
+      </Box>
+  </Dont>
 </DoDont>
 
 <DoDont>
   <Do
     center
     title="Do"
-    body="Keep help text and error text concise and simple. If you need to use more than 2 sentences to explain a field, link out to supporting docs or trigger a popover instead."
-  />
-  <Dont center title="Don't" body="Don’t use more than 2 sentences in help text or error text." />
+    body="Keep help text and error text concise and simple."
+  >
+    <Box width="100%" padding="space60">
+      <FormLabel htmlFor="help_text_length_do">HTTP method</FormLabel>
+      <Select id="help_text_length_do" name="help_text_length_do" onChange="">
+        <Option value="get">GET</Option>
+        <Option value="post">POST</Option>
+        <Option value="put">PUT</Option>
+      </Select>
+      <FormHelpText variant="default" id="help_text_length_do">HTTP action for voice webhook.</FormHelpText>
+    </Box>
+  </Do>
+  <Dont center title="Don't" body="Don’t use more than 2 sentences in help text or error text.">
+    <Box width="100%" padding="space60">
+      <FormLabel htmlFor="help_text_length_dont">HTTP method</FormLabel>
+      <Select id="help_text_length_dont" name="help_text_length_dont" onChange="">
+        <Option value="get">GET</Option>
+        <Option value="post">POST</Option>
+        <Option value="put">PUT</Option>
+      </Select>
+      <FormHelpText variant="default" id="help_text_length_dont">HTTP action for voice webook. This will be used to manage an incoming call. Please also configure your fallback url and method in case the primary handler fails.</FormHelpText>
+    </Box>
+  </Dont>
 </DoDont>
 
 <DoDont>
-  <Do center title="Do" body="Include a visible label on every form field." />
-  <Dont center title="Don't" body="Don’t use prefix/suffix text as a replacement for a label." />
+  <Do center title="Do" body="Include a visible label on every form field.">
+    <Box width="100%" padding="space60">
+      <FormLabel htmlFor="use_label_do">HTTP method</FormLabel>
+      <Select id="use_label_do" name="use_label_do" onChange="">
+        <Option value="get">GET</Option>
+        <Option value="post">POST</Option>
+        <Option value="put">PUT</Option>
+      </Select>
+    </Box>
+  </Do>
+  <Dont center title="Don't" body="Don’t use prefix/suffix text as a replacement for a label.">
+    <Box width="100%" padding="space60">
+      <Select id="use_label_dont" name="use_label_do" insertBefore={<span>HTTP</span>} onChange="" >
+        <Option value="get">GET</Option>
+        <Option value="post">POST</Option>
+        <Option value="put">PUT</Option>
+      </Select>
+    </Box>
+  </Dont>
 </DoDont>
 
 <DoDont>
@@ -602,21 +652,64 @@ Use a select when:
     center
     title="Do"
     body="Use a disabled form field to show users that they can’t interact with the field, but that it could potentially be enabled through another UI element."
-  />
+  >
+    <Box width="100%" padding="space60">
+      <FormLabel htmlFor="disabled_do">HTTP method</FormLabel>
+      <Select disabled id="disabled_do" name="disabled_do" onChange="">
+        <Option value="get">GET</Option>
+        <Option value="post">POST</Option>
+        <Option value="put">PUT</Option>
+      </Select>
+      <FormHelpText variant="default" id="disabled_do_help_text">Please sign in again to change the HTTP method.</FormHelpText>
+    </Box>
+  </Do>
   <Dont
     center
     title="Don't"
     body="Don’t use a disabled form field to show information that can’t be edited. Instead, use a read-only form field or consider another way of showing static information."
-  />
+  >
+    <Box width="100%" padding="space60">
+      <FormLabel htmlFor="disabled_dont">Company</FormLabel>
+      <Select disabled id="disabled_dont" name="disabled_dont" onChange="">
+        <Option value="get">Twilio</Option>
+      </Select>
+    </Box>
+  </Dont>
 </DoDont>
 
 <DoDont>
-  <Do center title="Do" body="Use a checkbox group to allow users to make multiple selections." />
+  <Do center title="Do" body="Use a checkbox group to allow users to make multiple selections.">
+  <Box width="100%" padding="space60">
+     <CheckboxGroup
+      name="multiple_do"
+      legend="Select the clients you would like to test."
+    >
+      <Checkbox id="apple_mail" value="apple_mail">
+        Apple Mail
+      </Checkbox>
+      <Checkbox id="g_mail" value="g_mail">
+        GMail
+      </Checkbox>
+      <Checkbox id="outlook" value="outlook">
+        Outlook
+      </Checkbox>
+    </CheckboxGroup>
+  </Box>
+  </Do>
   <Dont
     center
     title="Don't"
-    body="Avoid allowing multiple selection on a select component. It might not be immediately clear to users that they need to press `Ctrl` or `Cmd` to choose multiple options on desktop, or that they *can* choose multiple options on mobile."
-  />
+    body="When possible, avoid allowing multiple selection on a select component."
+  >
+    <Box width="100%" padding="space60">
+      <FormLabel htmlFor="multiple_dont">Select the clients you would like to test</FormLabel>
+      <Select multiple size="3" id="multiple_dont" name="multiple_dont" onChange="">
+        <Option value="apple_mail">Apple Mail</Option>
+        <Option value="g_mail">GMail</Option>
+        <Option value="outlook">Outlook</Option>
+      </Select>
+    </Box>
+  </Dont>
 </DoDont>
 
 ## Anatomy
@@ -655,11 +748,11 @@ Use a select when:
       <td>Box Shadow</td>
       <td>
         <UnorderedList marginBottom="space0">
-          <ListItem>Default: $shadow-border-input</ListItem>
-          <ListItem>Hover: shadow-border-inputHover</ListItem>
-          <ListItem>Disabled: shadow-border-input-disabled</ListItem>
-          <ListItem>Error: shadow-border-input-disabled</ListItem>
-          <ListItem>Error hover: shadow-border-input-error-hover</ListItem>
+          <ListItem>Default: $shadow-border</ListItem>
+          <ListItem>Hover: $shadow-border-primary-dark</ListItem>
+          <ListItem>Disabled: $shadow-border-light</ListItem>
+          <ListItem>Error: $shadow-border-error</ListItem>
+          <ListItem>Error hover: $shadow-border-error-dark</ListItem>
         </UnorderedList>
       </td>
       <td>No</td>
@@ -772,11 +865,11 @@ yarn add @twilio-paste/form
 ```jsx
 import {Select, Option, FormLabel, FormHelpText} from '@twilio-paste/form';
 
-<FormLabel htmlFor="foo" required>FooConsole team</FormLabel>
-<Select aria-describedby="foo_text" id="foo" name="foo" type="text" placeholder="foo" onChange={FOO} required>
-<Option value="foo-bar">Foo Bar</Option>
-<Option value="bar-foo">Bar Foo</Option>
-</Select>
+<FormLabel htmlFor="foo" required>Foo</FormLabel>
+  <Select id="foo" name="foo" onChange={FOO} required>
+    <Option value="foo-bar">Foo Bar</Option>
+    <Option value="bar-foo">Bar Foo</Option>
+  </Select>
 <FormHelpText variant="default" id="foo_text">Please select one</FormHelpText>
 ```
 

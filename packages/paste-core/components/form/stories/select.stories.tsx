@@ -12,7 +12,7 @@ const helpVariantOptions = ['default', 'error'];
 
 storiesOf('Forms|Select', module)
   .addDecorator(withKnobs)
-  .add('Select Options', () => {
+  .add('Select', () => {
     const selectGroupId = 'select group';
     const optionGroup = (idx: number): string => `option group ${idx}`;
     const id = text('id', 'select_input_field', selectGroupId);
