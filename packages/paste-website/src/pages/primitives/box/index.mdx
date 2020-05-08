@@ -213,17 +213,19 @@ yarn add @twilio-paste/box - or - yarn add @twilio-paste/core
 ```jsx
 import {Box} from '@twilio-paste/box';
 
-<Box
-  as="article"
-  backgroundColor="colorBackgroundBody"
-  padding="space60"
-  _hover={{
-    backgroundColor: "colorBackgroundPrimary"
-    padding: "space70"
-  }}
->
-  Foo
-</Box>
+const Component = () => (
+  <Box
+    as="article"
+    backgroundColor="colorBackgroundBody"
+    padding="space60"
+    _hover={{
+      backgroundColor: "colorBackgroundPrimary"
+      padding: "space70"
+    }}
+  >
+    Foo
+  </Box>
+);
 ```
 
 #### Props
@@ -236,7 +238,7 @@ All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including 
 | display?                 | `ResponsiveValue<CSS.DisplayProperty>`                  |         |
 | overflow?                | `ResponsiveValue<CSS.OverflowProperty>`                 |         |
 | backgroundColor?         | `ResponsiveValue<keyof ThemeShape['backgroundColors']>` |         |
-| width?                   | `ResponsiveValue<keyof ThemeShape['widths'] \| '100%'>` |         |
+| width?                   | `ResponsiveValue<keyof ThemeShape['widths'] | '100%'>`  |         |
 | minWidth?                | `ResponsiveValue<keyof ThemeShape['minWidths']>`        |         |
 | maxWidth?                | `ResponsiveValue<keyof ThemeShape['maxWidths']>`        |         |
 | height?                  | `ResponsiveValue<keyof ThemeShape['heights']>`          |         |

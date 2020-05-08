@@ -76,10 +76,10 @@ It is important to not skip one or more heading levels as it is common for scree
 ## Examples
 
 <LivePreview scope={{Heading}} language="jsx">
-  {`<div>
-  <Heading as="h1" variant="heading10">
-    Heading One
-  </Heading>
+  {`<>
+<Heading as="h1" variant="heading10">
+  Heading One
+</Heading>
 
 <Heading as="h2" variant="heading20">
   Heading Two
@@ -97,10 +97,10 @@ It is important to not skip one or more heading levels as it is common for scree
   Heading Five
 </Heading>
 
-  <Heading as="h6" variant="heading60">
-    Heading Six
-  </Heading>
-</div>`}
+<Heading as="h6" variant="heading60">
+  Heading Six
+</Heading>
+</>`}
 </LivePreview>
 
 ### Heading as h2 with heading10 variant
@@ -194,9 +194,11 @@ yarn add @twilio-paste/heading - or - yarn add @twilio-paste/core
 ```jsx
 import {Heading} from '@twilio-paste/heading';
 
-<Heading as="h2" variant="heading20">
-  Heading Two
-</Heading>;
+const Component = () => (
+  <Heading as="h2" variant="heading20">
+    Heading Two
+  </Heading>
+);
 ```
 
 #### Props

@@ -269,17 +269,21 @@ yarn add @twilio-paste/list - or - yarn add @twilio-paste/core
 ```jsx
 import {OrderedList, UnorderedList, ListItem} from '@twilio-paste/list';
 
-<UnorderedList>
-  <ListItem>Point one</ListItem>
-  <ListItem>Point two</ListItem>
-  <ListItem>Point three</ListItem>
-</UnorderedList>
+const Component = () => (
+  <UnorderedList>
+    <ListItem>Point one</ListItem>
+    <ListItem>Point two</ListItem>
+    <ListItem>Point three</ListItem>
+  </UnorderedList>
+);
 
-<OrderedList>
-  <ListItem>Point one</ListItem>
-  <ListItem>Point two</ListItem>
-  <ListItem>Point three</ListItem>
-</OrderedList>
+const Component = () => (
+  <OrderedList>
+    <ListItem>Point one</ListItem>
+    <ListItem>Point two</ListItem>
+    <ListItem>Point three</ListItem>
+  </OrderedList>
+);
 ```
 
 #### Props

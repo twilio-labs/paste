@@ -316,11 +316,13 @@ yarn add @twilio-paste/form - or - yarn add @twilio-paste/core
 ```jsx
 import {Checkbox, CheckboxGroup} from '@twilio-paste/form';
 
-<CheckboxGroup name="foo" legend="foo">
-  <Checkbox id="foo" value="foo" name="foo">
-    Foo
-  </Checkbox>
-</CheckboxGroup>;
+const Component = () => (
+  <CheckboxGroup name="foo" legend="foo">
+    <Checkbox id="foo" value="foo" name="foo">
+      Foo
+    </Checkbox>
+  </CheckboxGroup>
+);
 ```
 
 #### Checkbox Props

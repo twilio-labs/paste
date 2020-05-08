@@ -185,9 +185,11 @@ yarn add @twilio-paste/screen-reader-only - or - yarn add @twilio-paste/core
 ```jsx
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 
-<Button variant="secondary" size="small">
-  Buy <ScreenReaderOnly>+1 (484) 662-4088</ScreenReaderOnly>
-</Button>;
+const Component = () => (
+  <Button variant="secondary" size="small">
+    Buy <ScreenReaderOnly>+1 (484) 662-4088</ScreenReaderOnly>
+  </Button>
+);
 ```
 
 All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:

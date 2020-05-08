@@ -199,7 +199,7 @@ Once Paste Core and the dependencies are installed, you can import the [Paste Th
 import {Theme} from '@twilio-paste/theme';
 
 // Wrap your root component with the Theme.Provider like so:
-<Theme.Provider theme="default">// other stuff here</Theme.Provider>;
+const App = () => <Theme.Provider theme="default">// other stuff here</Theme.Provider>;
 ```
 
 Now you can use the Paste themed and tokenized components anywhere in your app:
@@ -207,9 +207,11 @@ Now you can use the Paste themed and tokenized components anywhere in your app:
 ```jsx
 import {Box} from '@twilio-paste/core';
 
-<Box margin="space20" backgroundColor="colorBackground">
-  Hello Paste!
-</Box>;
+const Component = () => (
+  <Box margin="space20" backgroundColor="colorBackground">
+    Hello Paste!
+  </Box>
+);
 ```
 
 <Callout>
@@ -249,10 +251,12 @@ Then you can use an icon inside your app:
 ```jsx
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 
-<Button variant="secondary" size="small" onClick={() => {}}>
-  <PlusIcon decorative={true} />
-  Add to cart
-</Button>;
+const Component = () => (
+  <Button variant="secondary" size="small" onClick={() => {}}>
+    <PlusIcon decorative={true} />
+    Add to cart
+  </Button>
+);
 ```
 
 For more information about our icon system, checkout our [usage guide here](/icon-system/).

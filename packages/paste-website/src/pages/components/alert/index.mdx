@@ -338,9 +338,11 @@ yarn add @twilio-paste/alert - or - yarn add @twilio-paste/core
 ```jsx
 import {Alert} from '@twilio-paste/alert';
 
-<Alert variant="error">
-  <Text>There is an error in the system.</Text>
-</Alert>;
+const Component = () => (
+  <Alert variant="error">
+    <Text>There is an error in the system.</Text>
+  </Alert>
+);
 ```
 
 #### Props

@@ -234,11 +234,13 @@ yarn add @twilio-paste/form - or - yarn add @twilio-paste/core
 ```jsx
 import {Radio, RadioGroup} from '@twilio-paste/form';
 
-<RadioGroup name="foo" value="foo" legend="foo" onChange={NOOP}>
-  <Radio id="foo" value="foo" name="foo">
-    Foo
-  </Radio>
-</RadioGroup>;
+const Component = () => (
+  <RadioGroup name="foo" value="foo" legend="foo" onChange={NOOP}>
+    <Radio id="foo" value="foo" name="foo">
+      Foo
+    </Radio>
+  </RadioGroup>
+);
 ```
 
 #### Radio Props

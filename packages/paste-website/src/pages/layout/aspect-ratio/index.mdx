@@ -171,9 +171,11 @@ yarn add @twilio-paste/aspect-ratio - or - yarn add @twilio-paste/core
 ```js
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 
-<AspectRatio ratio="4:3">
-  <Absolute>Test</Absolute>
-</AspectRatio>;
+const Component = () => (
+  <AspectRatio ratio="4:3">
+    <Absolute>Test</Absolute>
+  </AspectRatio>
+);
 ```
 
 #### Props
