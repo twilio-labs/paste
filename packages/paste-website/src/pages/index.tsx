@@ -5,10 +5,8 @@ import styled from '@emotion/styled';
 import {themeGet} from '@styled-system/theme-get';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
-import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
-import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Separator} from '@twilio-paste/separator';
 import {SiteWrapper} from '../components/site-wrapper';
 import {Grid} from '../components/grid';
@@ -16,7 +14,6 @@ import {P} from '../components/Typography';
 import {Brush} from '../components/icons/Brush';
 import {Terminal} from '../components/icons/Terminal';
 import {WindowLayout} from '../components/icons/WindowLayout';
-import {Callout, CalloutTitle} from '../components/callout';
 import {SiteLink} from '../components/SiteLink';
 import {SiteMetaDefaults} from '../constants';
 
