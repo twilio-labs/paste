@@ -232,6 +232,80 @@ The select component should include the base select, along with supporting eleme
 </>`}
 </LivePreview>
 
+### Select with default values
+
+To be consistent with <Anchor target="_blank" href="https://reactjs.org/docs/uncontrolled-components.html#default-values">React's documentation</Anchor> on best practices for native select elements, the <inlineCode>selected</inlineCode> attribute is not allowed in the API. 
+You can instead select a <inlineCode>defaultValue</inlineCode> and supply that on render as the <inlineCode>value</inlineCode> property for the select.
+
+<LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
+  {`<>
+  <FormLabel htmlFor="console_team" required>Console team</FormLabel>
+  <Select
+    id="console_team"
+    htmlFor="console_team"
+    value="vnv-console"
+  >
+    <Option value="messaging-console">Messaging Console</Option>
+    <Option value="numbers-console">Numbers Console</Option>
+    <Option value="vnv-console">VNV Console</Option>
+  </Select>
+  <FormHelpText variant="default" id="console_team_help_text">Please choose your team.</FormHelpText>
+</>`}
+</LivePreview>
+
+### Select with option groups
+
+Use an optgroup to create groupings of options within the select element.
+
+- **label** - String that will be used as the group label, this is required.
+
+<LivePreview scope={{Select, Option, OptionGroup, FormHelpText, FormLabel}} language="jsx">
+  {`<>
+  <FormLabel htmlFor="configure_trunk" required>Configure with trunk</FormLabel>
+  <Select
+    id="configure_trunk"
+    htmlFor="configure_trunk"
+  >
+    <OptionGroup label="SIP Trunks">
+        <Option value="TK1234567890">TK1234567890</Option>
+        <Option value="TK2345678901">TK2345678901</Option>
+        <Option value="TK3456789012">TK3456789012</Option>
+    <OptionGroup>
+    <OptionGroup label="BYOC Trunks">
+        <Option value="BY1234567890">BY1234567890</Option>
+        <Option value="BY2345678901">BY2345678901</Option>
+        <Option value="BY3456789012">BY3456789012</Option>
+    <OptionGroup>
+  </Select>
+  <FormHelpText variant="default" id="configure_trunk_help_text">Select a trunk to configure your phone number.</FormHelpText>
+</>`}
+</LivePreview>
+
+### Select with multiple values
+
+You can use the multiple attribute on the select component to select multiple options.
+
+- **size** - Attribute on select which will determine how many items are rendered.
+- **value** - When multiple attribute is set, this attribute on the select component must be an array.
+
+<LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
+  {`<>
+  <FormLabel htmlFor="console_team" required>Console team</FormLabel>
+  <Select
+    id="console_team"
+    htmlFor="console_team"
+    value="vnv-console"
+    multiple
+    size="2"
+  >
+    <Option value="messaging-console">Messaging Console</Option>
+    <Option value="numbers-console">Numbers Console</Option>
+    <Option value="vnv-console">VNV Console</Option>
+  </Select>
+  <FormHelpText variant="default" id="console_team_help_text">Please choose your team.</FormHelpText>
+</>`}
+</LivePreview>
+
 ## States
 
 ### Select with inline error
@@ -290,27 +364,6 @@ If you want to show information that can’t be edited, use a [read-only Input](
     id="console_team"
     htmlFor="console_team"
     disabled
-  >
-    <Option value="messaging-console">Messaging Console</Option>
-    <Option value="numbers-console">Numbers Console</Option>
-    <Option value="vnv-console">VNV Console</Option>
-  </Select>
-  <FormHelpText variant="default" id="console_team_help_text">Please choose your team.</FormHelpText>
-</>`}
-</LivePreview>
-
-### Select and default values
-
-To be consistent with <Anchor target="_blank" href="https://reactjs.org/docs/uncontrolled-components.html#default-values">React's documentation</Anchor> on best practices for native select elements, the <inlineCode>selected</inlineCode> attribute is not allowed in the API. 
-You can instead select a <inlineCode>defaultValue</inlineCode> and supply that on render as the <inlineCode>value</inlineCode> property for the select.
-
-<LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
-  {`<>
-  <FormLabel htmlFor="console_team" required>Console team</FormLabel>
-  <Select
-    id="console_team"
-    htmlFor="console_team"
-    value="vnv-console"
   >
     <Option value="messaging-console">Messaging Console</Option>
     <Option value="numbers-console">Numbers Console</Option>
