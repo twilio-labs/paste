@@ -199,7 +199,11 @@ Once Paste Core and the dependencies are installed, you can import the [Paste Th
 import {Theme} from '@twilio-paste/theme';
 
 // Wrap your root component with the Theme.Provider like so:
-const App = () => <Theme.Provider theme="default">// other stuff here</Theme.Provider>;
+const App = () => (
+  <Theme.Provider theme="default">
+    <RestOfYourAppInHere />
+  </Theme.Provider>
+);
 ```
 
 Now you can use the Paste themed and tokenized components anywhere in your app:
