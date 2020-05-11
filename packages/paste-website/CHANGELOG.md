@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.23.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.22.2...@twilio-paste/website@1.23.0) (2020-05-11)
+
+
+### Features
+
+* **website:** add stack doc page ([8dab570](https://github.com/twilio-labs/paste/commit/8dab570468083bf89d9f2f9b17ad60143bd0d520))
+
+
+
+
+
 ## [1.22.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.22.1...@twilio-paste/website@1.22.2) (2020-05-08)
 
 **Note:** Version bump only for package @twilio-paste/website
