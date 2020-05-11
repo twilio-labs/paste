@@ -51,7 +51,9 @@ Paste Core requires external dependencies, and other Paste system packages in or
 
 Install the following dependencies using yarn:
 
-#### External dependencies
+#### Install External dependencies
+
+The list of external third party dependencies are as follows:
 
 <table>
   <thead>
@@ -100,11 +102,15 @@ Install the following dependencies using yarn:
   </tbody>
 </table>
 
+Install them using:
+
 ```shell
 yarn add react react-dom prop-types react-uid @emotion/core @emotion/styled styled-system @styled-system/theme-get @styled-system/css
 ```
 
-#### System packages
+#### Install Paste System packages
+
+Paste also requires these system dependencies:
 
 <table>
   <thead>
@@ -137,11 +143,15 @@ yarn add react react-dom prop-types react-uid @emotion/core @emotion/styled styl
   </tbody>
 </table>
 
+Install them usings:
+
 ```shell
 yarn add @twilio-paste/types @twilio-paste/style-props @twilio-paste/design-tokens @twilio-paste/theme @twilio-paste/icons
 ```
 
-#### Core package
+#### Install the Paste Core package
+
+Finally, install Paste Core.
 
 <table>
   <thead>
@@ -172,7 +182,7 @@ Paste Core includes _all Paste_ components in a single bundle. This is extremely
   </CalloutText>
 </Callout>
 
-Packages included are:
+##### Paste Core includes:
 
 <table>
   <thead>
@@ -193,7 +203,7 @@ Packages included are:
 
 ## Usage
 
-Once Paste Core and the dependencies are installed, you can import the [Paste Theme](/tokens/theme-package/):
+Once Paste Core and its dependencies are installed, you can import the [Paste Theme](/tokens/theme-package/) at the root of your application:
 
 ```jsx
 import {Theme} from '@twilio-paste/theme';
@@ -221,6 +231,14 @@ const Component = () => (
 <Callout>
   <CalloutText>
     The Paste tokens are readily available on our components and typescript typings are provided.
+  </CalloutText>
+</Callout>
+
+<Callout>
+  <CalloutTitle>Jest / Testing</CalloutTitle>
+  <CalloutText>
+    Just like rendering Paste components in a web application, when rendering components for the purposes of testing you
+    are required to wrap them in the theme provider. If you do not, your components may fail to render correctly.
   </CalloutText>
 </Callout>
 
@@ -299,16 +317,6 @@ to load these fonts if you are serving your application from \*.twilio.com domai
 ```
 <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6230892/752864/css/fonts.css">
 ```
-
-## Sandbox
-
-<iframe
-  src="https://codesandbox.io/embed/paste-starter-kit-rj7yy?fontsize=14"
-  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-  title="Paste Starter Kit"
-  allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
-></iframe>
 
 </content>
 
