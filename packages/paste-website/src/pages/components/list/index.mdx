@@ -90,13 +90,9 @@ List is part of the [Typography package](/components/typography), which includes
 <OrderedList>
   <ListItem>
     Text of the parent list item
-
     <OrderedList>
-      <ListItem>
-        Nested list item
-      </ListItem>
+      <ListItem>Nested list item</ListItem>
     </OrderedList>
-
   </ListItem>
 </OrderedList>
 ```
@@ -196,7 +192,9 @@ List items can be nested within other list items. To do so create a new list as 
 <DoDont>
   <Do title="Do" body="Use nested lists to provide additional clarity or instruction on specific topics.">
     <Box padding="space60">
-      <Heading as="h2" variant="heading30">Animals</Heading>
+      <Heading as="h2" variant="heading30">
+        Animals
+      </Heading>
       <UnorderedList>
         <ListItem>
           Mammals
@@ -217,11 +215,15 @@ List items can be nested within other list items. To do so create a new list as 
   </Do>
   <Dont title="Don't" body="Don’t nest lists if the nested content is unrelated to the higher level topic.">
     <Box padding="space60">
-      <Heading as="h2" variant="heading30">Animals</Heading>
+      <Heading as="h2" variant="heading30">
+        Animals
+      </Heading>
       <UnorderedList>
         <ListItem>
           Mammals
-          <Heading as="h3" variant="heading40">Groceries</Heading>
+          <Heading as="h3" variant="heading40">
+            Groceries
+          </Heading>
           <UnorderedList marginBottom="space0">
             <ListItem>Milk</ListItem>
             <ListItem>Butter</ListItem>
@@ -259,7 +261,7 @@ List items can be nested within other list items. To do so create a new list as 
 #### Installation
 
 ```bash
-yarn add @twilio-paste/list
+yarn add @twilio-paste/list - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
@@ -267,23 +269,27 @@ yarn add @twilio-paste/list
 ```jsx
 import {OrderedList, UnorderedList, ListItem} from '@twilio-paste/list';
 
-<UnorderedList>
-  <ListItem>Point one</ListItem>
-  <ListItem>Point two</ListItem>
-  <ListItem>Point three</ListItem>
-</UnorderedList>
+const Component = () => (
+  <UnorderedList>
+    <ListItem>Point one</ListItem>
+    <ListItem>Point two</ListItem>
+    <ListItem>Point three</ListItem>
+  </UnorderedList>
+);
 
-<OrderedList>
-  <ListItem>Point one</ListItem>
-  <ListItem>Point two</ListItem>
-  <ListItem>Point three</ListItem>
-</OrderedList>
+const Component = () => (
+  <OrderedList>
+    <ListItem>Point one</ListItem>
+    <ListItem>Point two</ListItem>
+    <ListItem>Point three</ListItem>
+  </OrderedList>
+);
 ```
 
 #### Props
 
 | Prop          | Type                                         | Description | Default   |
-| ---------     | -------------------------------------------- | ----------- | --------- |
+| ------------- | -------------------------------------------- | ----------- | --------- |
 | children?     | `ReactNode`                                  |             | null      |
 | marginTop?    | `ResponsiveValue<keyof ThemeShape['space']>` |             | null      |
 | marginBottom? | `ResponsiveValue<keyof ThemeShape['space']>` |             | 'space70' |

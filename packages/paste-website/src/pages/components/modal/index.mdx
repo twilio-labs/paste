@@ -14,13 +14,13 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Button} from '@twilio-paste/button';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
-import {FormLabel, FormInput} from '@twilio-paste/form'
+import {FormLabel, FormInput} from '@twilio-paste/form';
 import Changelog from '@twilio-paste/separator/CHANGELOG.md';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
-import {defaultExample, initialFocusExample, wideExample} from '../../../component-examples/ModalExamples'
+import {defaultExample, initialFocusExample, wideExample} from '../../../component-examples/ModalExamples';
 
 export const pageQuery = graphql`
   {
@@ -69,7 +69,7 @@ A Modal is a dialog that appears over the main content and moves the system into
 - When you want to capture information from the user without having them leave the parent page.
 - When you want to show additional information to the user without losing context of the parent page.
 
-If you need to *interrupt* a user's current task in order to make them perform an action, use an [Alert Dialog](/components/alert-dialog) instead. An Alert Dialog ensures the user acknowledges the information in the dialog but is visually similar to a Modal.
+If you need to _interrupt_ a user's current task in order to make them perform an action, use an [Alert Dialog](/components/alert-dialog) instead. An Alert Dialog ensures the user acknowledges the information in the dialog but is visually similar to a Modal.
 
 Users cannot interact with content outside an active modal window until the user explicitly closes it. When the modal opens, focus moves to an element contained in it (by default, the first element that can be focused) in the modal, and the focus should stay in and cycle through the modal's content. Focus shouldn't return to the underlying page until the user closes the modal. This can happen in any of the following ways:
 
@@ -103,7 +103,8 @@ A modal is composed of:
 <Callout>
   <CalloutTitle>Provide an accessible label</CalloutTitle>
   <CalloutText>
-    Be sure to assign the <inlineCode>aria-labelledby</inlineCode> property on the modal container to the id if the modal heading.
+    Be sure to assign the <inlineCode>aria-labelledby</inlineCode> property on the modal container to the id if the
+    modal heading.
   </CalloutText>
 </Callout>
 
@@ -121,7 +122,7 @@ A Modal has a default width of 608 px to allow for an optimal reading length at 
     Button,
     FormLabel,
     FormInput,
-    Paragraph
+    Paragraph,
   }}
   noInline
 >
@@ -149,7 +150,7 @@ At viewports smaller than 816 px, the Modal will shift to the default width (608
     Grid,
     Column,
     FormLabel,
-    FormInput
+    FormInput,
   }}
   noInline
 >
@@ -177,7 +178,7 @@ To set a different initial focus target, set the `initialFocusRef` prop on the `
     Grid,
     Column,
     FormLabel,
-    FormInput
+    FormInput,
   }}
   noInline
 >
@@ -201,7 +202,7 @@ By default the footer actions are aligned to the right of the modal using the Fl
     Button,
   }}
 >
-{`<ModalFooter>
+  {`<ModalFooter>
   <ModalFooterActions>
     <Button variant="secondary">Cancel</Button>
     <Button variant="primary">Save</Button>
@@ -220,7 +221,7 @@ Sometimes you may need to do left alignment of buttons. This is less common. To 
     Button,
   }}
 >
-{`<ModalFooter>
+  {`<ModalFooter>
   <ModalFooterActions justify="start">
     <Button variant="secondary">Cancel</Button>
     <Button variant="primary">Save</Button>
@@ -239,7 +240,7 @@ By using both alignment types, you are able to create directional alignments of 
     Button,
   }}
 >
-{`<ModalFooter>
+  {`<ModalFooter>
   <ModalFooterActions justify="start">
     <Button variant="secondary">Back</Button>
   </ModalFooterActions>
@@ -261,56 +262,76 @@ If you need to show an important warning to prevent or correct critical errors, 
 
 <DoDont>
   <Do title="Do" body="Use a clear and concise heading to describe the purpose of the Modal." preview={false} />
-  <Dont title="Don't" body="Don't go into unnecessary detail in the heading about the purpose of the Modal." preview={false} />
+  <Dont
+    title="Don't"
+    body="Don't go into unnecessary detail in the heading about the purpose of the Modal."
+    preview={false}
+  />
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Keep the main call to action in the footer. If you're asking the user to perform an action, use a primary action (primary button or destructive button). If you need only to give the user a way to close the Modal, use a secondary button or rely on the close 'x' button." preview={false} />
-  <Dont title="Don't" body="Don't put buttons that close the Modal, or confirm and submit content, in the body." preview={false} />
+  <Do
+    title="Do"
+    body="Keep the main call to action in the footer. If you're asking the user to perform an action, use a primary action (primary button or destructive button). If you need only to give the user a way to close the Modal, use a secondary button or rely on the close 'x' button."
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body="Don't put buttons that close the Modal, or confirm and submit content, in the body."
+    preview={false}
+  />
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Use at most one primary and one secondary action in a Modal. Make the secondary action a 'Cancel' button, especially when you want to give users an explicit choice to decline the primary action. This is especially useful when the primary action is a destructive action." preview={false} />
-  <Dont title="Don't" body="Don't put more than one primary action in the footer. Avoid using the secondary button for an action that isn't 'Close' or 'Cancel' since users will be used to pressing a secondary button that escapes the Modal. If you need to provide another action, add a third button to the footer, or consider showing it elsewhere." preview={false} />
+  <Do
+    title="Do"
+    body="Use at most one primary and one secondary action in a Modal. Make the secondary action a 'Cancel' button, especially when you want to give users an explicit choice to decline the primary action. This is especially useful when the primary action is a destructive action."
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body="Don't put more than one primary action in the footer. Avoid using the secondary button for an action that isn't 'Close' or 'Cancel' since users will be used to pressing a secondary button that escapes the Modal. If you need to provide another action, add a third button to the footer, or consider showing it elsewhere."
+    preview={false}
+  />
 </DoDont>
 
 ## Anatomy
 
 ### General
 
-| Property         | Default token                        | Modifiable? |
-| ---------------- | ------------------------------------ | ----------- |
-| background-color | $color-background-body               | No          |
-| border-color     | $color-background-body               | No          |
-| border-radius    | $border-radius-20                    | No          |
-| drop-shadow      | $shadow-card                         | No          |
-| modal-width      | default: $size-60, wide: $size-80    | No          |
-| overlay-color    | $color-background-overlay            | No          |
+| Property         | Default token                   | Modifiable? |
+| ---------------- | ------------------------------- | ----------- |
+| background-color | color-background-body           | No          |
+| border-color     | color-background-body           | No          |
+| border-radius    | border-radius-20                | No          |
+| drop-shadow      | shadow-card                     | No          |
+| modal-width      | default: size-60, wide: size-80 | No          |
+| overlay-color    | color-background-overlay        | No          |
 
 ### ModalHeader
 
-| Property                 | Default token/child | Modifiable?  |
-| ------------------------ | --------------------| ------------ |
-| Heading                  | H3                  | No           |
-| close-icon-color         | $color-text-weak    | No           |
-| close-icon-size          | $size-icon-60       | No           |
-| padding                  | $space-50           | No           |
-| bottom-border-width      | $border-width-10    | No           |
-| bottom-border-color      | $color-border-light | No           |
+| Property            | Default token/child | Modifiable? |
+| ------------------- | ------------------- | ----------- |
+| Heading             | H3                  | No          |
+| close-icon-color    | color-text-weak     | No          |
+| close-icon-size     | size-icon-60        | No          |
+| padding             | space-50            | No          |
+| bottom-border-width | border-width-10     | No          |
+| bottom-border-color | color-border-light  | No          |
 
 ### ModalBody
 
-| Property     | Default token       | Modifiable?  |
-| -------------| --------------------| ------------ |
-| padding      | $space-50           | No           |
+| Property | Default token | Modifiable? |
+| -------- | ------------- | ----------- |
+| padding  | space-50      | No          |
 
 ### ModalFooter
 
-| Property         | Default token        | Modifiable?  |
-| ---------------- | -------------------- | ------------ |
-| padding          | $space-50            | No           |
-| top-border-width | $border-width-10     | No           |
-| top-border-color | $color-border-light  | No           |
+| Property         | Default token      | Modifiable? |
+| ---------------- | ------------------ | ----------- |
+| padding          | space-50           | No          |
+| top-border-width | border-width-10    | No          |
+| top-border-color | color-border-light | No          |
 
 ---
 
@@ -321,7 +342,7 @@ If you need to show an important warning to prevent or correct critical errors, 
 #### Installation
 
 ```bash
-yarn add @twilio-paste/modal
+yarn add @twilio-paste/modal - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
@@ -348,9 +369,7 @@ const ModalTrigger = () => {
             Create new project
           </ModalHeading>
         </ModalHeader>
-        <ModalBody>
-
-        </ModalBody>
+        <ModalBody></ModalBody>
         <ModalFooter>
           <ModalFooterActions>
             <Button variant="secondary" onClick={handleClose}>
@@ -367,47 +386,47 @@ const ModalTrigger = () => {
 
 #### Modal Props
 
-| Prop             | Type                         | Description | Default   |
-| ---------------- | ---------------------------- | ----------- | --------- |
-| children         | `ReactNode`                  |             | null      |
-| isOpen           | `boolean`                    |             | null      |
-| onDismiss        | `Function() => void`         |             | null      |
-| allowPinchZoom?  | `boolean`                    |             | true      |
-| size             | `oneOf(['default', 'wide'])` |             | null      |
-| initialFocusRef? | `RefObject`                  |             | null      |
-| ariaLabelledby   | `string`                     |             | null      |
+| Prop             | Type                         | Description | Default |
+| ---------------- | ---------------------------- | ----------- | ------- |
+| children         | `ReactNode`                  |             | null    |
+| isOpen           | `boolean`                    |             | null    |
+| onDismiss        | `Function() => void`         |             | null    |
+| allowPinchZoom?  | `boolean`                    |             | true    |
+| size             | `oneOf(['default', 'wide'])` |             | null    |
+| initialFocusRef? | `RefObject`                  |             | null    |
+| ariaLabelledby   | `string`                     |             | null    |
 
 #### ModalHeader Props
 
-| Prop             | Type                         | Description | Default   |
-| ---------------- | ---------------------------- | ----------- | --------- |
-| children         | `ReactNode`                  |             | null      |
+| Prop     | Type        | Description | Default |
+| -------- | ----------- | ----------- | ------- |
+| children | `ReactNode` |             | null    |
 
 #### ModalHeading Props
 
-| Prop             | Type                                          | Description | Default   |
-| ---------------- | --------------------------------------------- | ----------- | --------- |
-| children         | `ReactNode`                                   |             | null      |
-| as               | `oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])` |             | null      |
+| Prop     | Type                                          | Description | Default |
+| -------- | --------------------------------------------- | ----------- | ------- |
+| children | `ReactNode`                                   |             | null    |
+| as       | `oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])` |             | null    |
 
 #### ModalBody Props
 
-| Prop             | Type                         | Description | Default   |
-| ---------------- | ---------------------------- | ----------- | --------- |
-| children         | `ReactNode`                  |             | null      |
+| Prop     | Type        | Description | Default |
+| -------- | ----------- | ----------- | ------- |
+| children | `ReactNode` |             | null    |
 
 #### ModalFooter Props
 
-| Prop             | Type                         | Description | Default   |
-| ---------------- | ---------------------------- | ----------- | --------- |
-| children         | `ReactNode`                  |             | null      |
+| Prop     | Type        | Description | Default |
+| -------- | ----------- | ----------- | ------- |
+| children | `ReactNode` |             | null    |
 
 #### ModalFooterActions Props
 
-| Prop             | Type                         | Description | Default   |
-| ---------------- | ---------------------------- | ----------- | --------- |
-| children         | `ReactNode`                  |             | null      |
-| justify?         | `oneOf(['start', 'end'])`    |             | null      |
+| Prop     | Type                      | Description | Default |
+| -------- | ------------------------- | ----------- | ------- |
+| children | `ReactNode`               |             | null    |
+| justify? | `oneOf(['start', 'end'])` |             | null    |
 
 <Box marginTop="space90">
   <Changelog />

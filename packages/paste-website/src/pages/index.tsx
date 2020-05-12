@@ -49,12 +49,12 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
           <Box display="inline-block" marginRight="space40">
             <Button
               as="a"
-              href="/getting-started/"
+              href="/getting-started/engineering"
               size="default"
               variant="primary"
               onClick={event => {
                 event.preventDefault();
-                navigate('/getting-started/');
+                navigate('/getting-started/engineering');
               }}
             >
               Get Started

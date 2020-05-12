@@ -205,7 +205,7 @@ such as accessibility.
 #### Installation
 
 ```bash
-yarn add @twilio-paste/box
+yarn add @twilio-paste/box - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
@@ -213,17 +213,19 @@ yarn add @twilio-paste/box
 ```jsx
 import {Box} from '@twilio-paste/box';
 
-<Box 
-  as="article" 
-  backgroundColor="colorBackgroundBody" 
-  padding="space60" 
-  _hover={{
-    backgroundColor: "colorBackgroundPrimary"
-    padding: "space70"
-  }}
->
-  Foo
-</Box>
+const Component = () => (
+  <Box
+    as="article"
+    backgroundColor="colorBackgroundBody"
+    padding="space60"
+    _hover={{
+      backgroundColor: "colorBackgroundPrimary"
+      padding: "space70"
+    }}
+  >
+    Foo
+  </Box>
+);
 ```
 
 #### Props
@@ -236,7 +238,7 @@ All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including 
 | display?                 | `ResponsiveValue<CSS.DisplayProperty>`                  |         |
 | overflow?                | `ResponsiveValue<CSS.OverflowProperty>`                 |         |
 | backgroundColor?         | `ResponsiveValue<keyof ThemeShape['backgroundColors']>` |         |
-| width?                   | `ResponsiveValue<keyof ThemeShape['widths'] \| '100%'>` |         |
+| width?                   | `ResponsiveValue<keyof ThemeShape['widths'] | '100%'>`  |         |
 | minWidth?                | `ResponsiveValue<keyof ThemeShape['minWidths']>`        |         |
 | maxWidth?                | `ResponsiveValue<keyof ThemeShape['maxWidths']>`        |         |
 | height?                  | `ResponsiveValue<keyof ThemeShape['heights']>`          |         |
@@ -292,32 +294,30 @@ All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including 
 | outline?                 | OutlineProperty                                         |         |
 | float?                   | FloatProperty                                           |         |
 | willChange?              | WillChangeProperty                                      |         |
-| _hover?                  | BoxProps                                                |         |
-| _active?                 | BoxProps                                                |         |
-| _focus?                  | BoxProps                                                |         |
-| _visited?                | BoxProps                                                |         |
-| _even?                   | BoxProps                                                |         |
-| _odd?                    | BoxProps                                                |         |
-| _disabled?               | BoxProps                                                |         |
-| _checked?                | BoxProps                                                |         |
-| _mixed?                  | BoxProps                                                |         |
-| _selected?               | BoxProps                                                |         |
-| _invalid?                | BoxProps                                                |         |
-| _pressed?                | BoxProps                                                |         |
-| _readOnly?               | BoxProps                                                |         |
-| _first?                  | BoxProps                                                |         |
-| _last?                   | BoxProps                                                |         |
-| _expanded?               | BoxProps                                                |         |
-| _grabbed?                | BoxProps                                                |         |
-| _notFirst?               | BoxProps                                                |         |
-| _notLast?                | BoxProps                                                |         |
-| _groupHover?             | BoxProps                                                |         |
-| _before?                 | BoxProps                                                |         |
-| _after?                  | BoxProps                                                |         |
-| _focusWithin?            | BoxProps                                                |         |
-| _placeholder?            | BoxProps                                                |         |
-
-
+| \_hover?                 | BoxProps                                                |         |
+| \_active?                | BoxProps                                                |         |
+| \_focus?                 | BoxProps                                                |         |
+| \_visited?               | BoxProps                                                |         |
+| \_even?                  | BoxProps                                                |         |
+| \_odd?                   | BoxProps                                                |         |
+| \_disabled?              | BoxProps                                                |         |
+| \_checked?               | BoxProps                                                |         |
+| \_mixed?                 | BoxProps                                                |         |
+| \_selected?              | BoxProps                                                |         |
+| \_invalid?               | BoxProps                                                |         |
+| \_pressed?               | BoxProps                                                |         |
+| \_readOnly?              | BoxProps                                                |         |
+| \_first?                 | BoxProps                                                |         |
+| \_last?                  | BoxProps                                                |         |
+| \_expanded?              | BoxProps                                                |         |
+| \_grabbed?               | BoxProps                                                |         |
+| \_notFirst?              | BoxProps                                                |         |
+| \_notLast?               | BoxProps                                                |         |
+| \_groupHover?            | BoxProps                                                |         |
+| \_before?                | BoxProps                                                |         |
+| \_after?                 | BoxProps                                                |         |
+| \_focusWithin?           | BoxProps                                                |         |
+| \_placeholder?           | BoxProps                                                |         |
 
 <Box marginTop="space90">
   <Changelog />

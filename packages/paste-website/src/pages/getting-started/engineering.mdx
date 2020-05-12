@@ -6,18 +6,19 @@ description: This document will highlight our approach for unified design librar
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 import {version as typesVersion} from '@twilio-paste/types/package.json';
 import {version as stylePropsVersion} from '@twilio-paste/style-props/package.json';
 import {version as designTokensVersion} from '@twilio-paste/design-tokens/package.json';
 import {version as themeVersion} from '@twilio-paste/theme/package.json';
-import {version as coreVersion} from '@twilio-paste/core/package.json';
+import {version as coreVersion, dependencies as coreDependencies} from '@twilio-paste/core/package.json';
 import {version as iconsVersion} from '@twilio-paste/icons/package.json';
+import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {InlineCode} from '../../components/Typography';
 import Package from '../../../../../package.json';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: { slug: { eq: "/getting-started/engineering/" } }) {
+    mdx(fields: {slug: {eq: "/getting-started/engineering/"}}) {
       headings {
         depth
         value
@@ -34,7 +35,7 @@ export const pageQuery = graphql`
 
 </content>
 
-***
+---
 
 <contentwrapper>
 
@@ -50,7 +51,9 @@ Paste Core requires external dependencies, and other Paste system packages in or
 
 Install the following dependencies using yarn:
 
-#### External dependencies
+#### Install External dependencies
+
+The list of external third party dependencies are as follows:
 
 <table>
   <thead>
@@ -99,11 +102,15 @@ Install the following dependencies using yarn:
   </tbody>
 </table>
 
+Install them using:
+
 ```shell
 yarn add react react-dom prop-types react-uid @emotion/core @emotion/styled styled-system @styled-system/theme-get @styled-system/css
 ```
 
-#### System packages
+#### Install Paste System packages
+
+Paste also requires these system dependencies:
 
 <table>
   <thead>
@@ -136,11 +143,15 @@ yarn add react react-dom prop-types react-uid @emotion/core @emotion/styled styl
   </tbody>
 </table>
 
+Install them usings:
+
 ```shell
 yarn add @twilio-paste/types @twilio-paste/style-props @twilio-paste/design-tokens @twilio-paste/theme @twilio-paste/icons
 ```
 
-#### Core package
+#### Install the Paste Core package
+
+Finally, install Paste Core.
 
 <table>
   <thead>
@@ -161,17 +172,48 @@ yarn add @twilio-paste/types @twilio-paste/style-props @twilio-paste/design-toke
 yarn add @twilio-paste/core
 ```
 
+Paste Core includes _all Paste_ components in a single bundle. This is extremely useful if you are committed to using all Paste components and want an easy way to keep up to date with library updates.
+
+<Callout variant="warning">
+  <CalloutTitle>🚨 ATTENTION!! 🚨</CalloutTitle>
+  <CalloutText>
+    If you're using Paste core there is no need to include individual component packages that are listed below. You've
+    already got them. Just import the named component from <InlineCode>@twilio-paste/core</InlineCode>.
+  </CalloutText>
+</Callout>
+
+##### Paste Core includes:
+
+<table>
+  <thead>
+    <tr>
+      <th>Package</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    {Object.keys(coreDependencies).map(dep => (
+      <tr>
+        <td>{dep}</td>
+        <td>{coreDependencies[dep]}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
 ## Usage
 
-Once Paste Core and the dependencies are installed, you can import the [Paste Theme](/tokens/theme-package/):
+Once Paste Core and its dependencies are installed, you can import the [Paste Theme](/tokens/theme-package/) at the root of your application:
 
 ```jsx
 import {Theme} from '@twilio-paste/theme';
 
 // Wrap your root component with the Theme.Provider like so:
-<Theme.Provider theme="default">
-    // other stuff here
-</Theme.Provider>
+const App = () => (
+  <Theme.Provider theme="default">
+    <RestOfYourAppInHere />
+  </Theme.Provider>
+);
 ```
 
 Now you can use the Paste themed and tokenized components anywhere in your app:
@@ -179,14 +221,24 @@ Now you can use the Paste themed and tokenized components anywhere in your app:
 ```jsx
 import {Box} from '@twilio-paste/core';
 
-<Box margin="space20" backgroundColor="colorBackground">
+const Component = () => (
+  <Box margin="space20" backgroundColor="colorBackground">
     Hello Paste!
-</Box>
+  </Box>
+);
 ```
 
 <Callout>
   <CalloutText>
     The Paste tokens are readily available on our components and typescript typings are provided.
+  </CalloutText>
+</Callout>
+
+<Callout>
+  <CalloutTitle>Jest / Testing</CalloutTitle>
+  <CalloutText>
+    Just like rendering Paste components in a web application, when rendering components for the purposes of testing you
+    are required to wrap them in the theme provider. If you do not, your components may fail to render correctly.
   </CalloutText>
 </Callout>
 
@@ -221,20 +273,25 @@ Then you can use an icon inside your app:
 ```jsx
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 
-<Button variant="secondary" size="small" onClick={() => {}}>
-  <PlusIcon decorative={true} />
-  Add to cart
-</Button>
+const Component = () => (
+  <Button variant="secondary" size="small" onClick={() => {}}>
+    <PlusIcon decorative={true} />
+    Add to cart
+  </Button>
+);
 ```
 
 For more information about our icon system, checkout our [usage guide here](/icon-system/).
 
 <Callout>
   <CalloutText>
-    You can view and play with icons on <Anchor href="https://twilio-labs.github.io/paste/?path=/story/overview-icons--list">our storybook icon list</Anchor>.
-    Our icon set is still limited, and more will be added over time. Please{' '}
-    <Anchor href="https://github.com/twilio-labs/paste/issues">file an icon request</Anchor> or
-    follow the guide on <Anchor href="/icon-system/how-to-add-an-icon">how to add an icon</Anchor>.
+    You can view and play with icons on{' '}
+    <Anchor href="https://twilio-labs.github.io/paste/?path=/story/overview-icons--list">
+      our storybook icon list
+    </Anchor>
+    . Our icon set is still limited, and more will be added over time. Please <Anchor href="https://github.com/twilio-labs/paste/issues">
+      file an icon request
+    </Anchor> or follow the guide on <Anchor href="/icon-system/how-to-add-an-icon">how to add an icon</Anchor>.
   </CalloutText>
 </Callout>
 
@@ -251,25 +308,15 @@ and these fonts are automatically loaded for you.
 
 #### Special note on Whitney
 
-The Whitney font is loaded by the Typography.com service and is only allowed on *.twilio.com domains as well as localhost.
+The Whitney font is loaded by the Typography.com service and is only allowed on \*.twilio.com domains as well as localhost.
 Make sure to serve your app from the correct hostname if you're having issues with font loading.
 
 If you are not working in an existing Twilio Console experience, you can include the following link element in your sites `head`
-to load these fonts if you are serving your application from *.twilio.com domains.
+to load these fonts if you are serving your application from \*.twilio.com domains.
 
 ```
 <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6230892/752864/css/fonts.css">
 ```
-
-## Sandbox
-
-<iframe
-  src="https://codesandbox.io/embed/paste-starter-kit-rj7yy?fontsize=14"
-  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-  title="Paste Starter Kit"
-  allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
-></iframe>
 
 </content>
 
