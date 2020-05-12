@@ -33,7 +33,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: { slug: { eq: "/aspect-ratio/" } }) {
+    mdx(fields: {slug: {eq: "/aspect-ratio/"}}) {
       headings {
         depth
         value
@@ -50,7 +50,7 @@ export const pageQuery = graphql`
   data={props.data.allPasteLayout.edges}
 />
 
-***
+---
 
 <contentwrapper>
 
@@ -138,15 +138,23 @@ Aspect Ratio will allow the color swatches to resize correctly based on a ratio.
 
 <DoDont>
   <Do title="Do" body="Use for an image or embedded video, and have it resize at a specific ratio." preview={false} />
-  <Dont title="Don't" body="Don’t use with fixed size (width & height) elements, as those will not adhere to the width-to-height ratio." preview={false} />
+  <Dont
+    title="Don't"
+    body="Don’t use with fixed size (width & height) elements, as those will not adhere to the width-to-height ratio."
+    preview={false}
+  />
 </DoDont>
 
 <DoDont>
   <Do title="Do" body="Use to embed a component or other HTML element." preview={false} />
-  <Dont title="Don't" body="Don’t use without any child elements, because this is only a container element." preview={false} />
+  <Dont
+    title="Don't"
+    body="Don’t use without any child elements, because this is only a container element."
+    preview={false}
+  />
 </DoDont>
 
-***
+---
 
 ## Usage Guide
 
@@ -155,7 +163,7 @@ Aspect Ratio will allow the color swatches to resize correctly based on a ratio.
 #### Installation
 
 ```bash
-yarn add @twilio-paste/aspect-ratio
+yarn add @twilio-paste/aspect-ratio - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
@@ -163,16 +171,18 @@ yarn add @twilio-paste/aspect-ratio
 ```js
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 
-<AspectRatio ratio="4:3">
-  <Absolute>Test</Absolute>
-</AspectRatio>
+const Component = () => (
+  <AspectRatio ratio="4:3">
+    <Absolute>Test</Absolute>
+  </AspectRatio>
+);
 ```
 
 #### Props
 
-| Prop           | Type                  | Description                                                                                                              | Default   |
-| -------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------ | --------- |
-| ratio          | string                | Determines the aspect ratio of the element. Use a colon separated number pattern (width:height). Required                | 4:3       |
+| Prop  | Type   | Description                                                                                               | Default |
+| ----- | ------ | --------------------------------------------------------------------------------------------------------- | ------- |
+| ratio | string | Determines the aspect ratio of the element. Use a colon separated number pattern (width:height). Required | 4:3     |
 
 <Box marginTop="space90">
   <Changelog />

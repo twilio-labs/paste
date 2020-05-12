@@ -130,8 +130,14 @@ In our example we're setting one column to equal 8 of the 12 columns (`span={8}`
 </LivePreview>
 
 <Callout>
-  <CalloutTitle as="h4" variant="heading40">An important note about span and offset props</CalloutTitle>
-  <CalloutText>When using <strong>span</strong> or <strong>offset</strong>, base your layout off a 12-column grid. For example, if you want to have two columns with one spanning twice as much as the other, then one column would span=8 and the other would span=4.</CalloutText>
+  <CalloutTitle as="h4" variant="heading40">
+    An important note about span and offset props
+  </CalloutTitle>
+  <CalloutText>
+    When using <strong>span</strong> or <strong>offset</strong>, base your layout off a 12-column grid. For example, if
+    you want to have two columns with one spanning twice as much as the other, then one column would span=8 and the
+    other would span=4.
+  </CalloutText>
 </Callout>
 
 ### Offset column
@@ -246,15 +252,22 @@ Grid column `span` and `offset` props can be changed based on the theme breakpoi
 This would set a columns `span` to be 6 columns wide on mobile, 8 columns wide on tablet, and 2 columns wide on desktop. The `offset` prop works in a similar fashion.
 For a visual example, [see the Storybook example](https://twilio-labs.github.io/paste/?path=/story/layout-grid--grid-2-column-responsive) and resize the browser.
 
-
 ## Composition Notes
 
 Grid can be used to compose various types of layouts ranging from whole application pages and views down to individual component layouts.
 
 <Callout>
-  <CalloutTitle as="h4" variant="heading40">Gutter sizing</CalloutTitle>
-  <CalloutText>For spacing content in a layout wider than 1440 pixels, we recommend using a 24-pixel gutter. Use $space-40 to get a 24-pixel gutter.</CalloutText>
-  <CalloutText>For spacing content in a layout narrower than 1440 pixels, we recommend using a 16-pixel gutter. Use $space-30 to get a 16-pixel gutter.</CalloutText>
+  <CalloutTitle as="h4" variant="heading40">
+    Gutter sizing
+  </CalloutTitle>
+  <CalloutText>
+    For spacing content in a layout wider than 1440 pixels, we recommend using a 24-pixel gutter. Use $space-40 to get a
+    24-pixel gutter.
+  </CalloutText>
+  <CalloutText>
+    For spacing content in a layout narrower than 1440 pixels, we recommend using a 16-pixel gutter. Use $space-30 to
+    get a 16-pixel gutter.
+  </CalloutText>
 </Callout>
 
 ### Basic page layout
@@ -313,8 +326,8 @@ Let's look at a common use case where we need to layout a page with a sidebar an
 
 Grid can also be used for responsive layouts.
 
- - You can determine what size columns should be based on the breakpoints set on a theme. [See the Storybook example](https://twilio-labs.github.io/paste/?path=/story/layout-grid--grid-2-column-responsive)
- - Grid columns can also stack based on theme breakpoints. [See the Storybook example](https://twilio-labs.github.io/paste/?path=/story/layout-grid--grid-2-column-responsive-stack)
+- You can determine what size columns should be based on the breakpoints set on a theme. [See the Storybook example](https://twilio-labs.github.io/paste/?path=/story/layout-grid--grid-2-column-responsive)
+- Grid columns can also stack based on theme breakpoints. [See the Storybook example](https://twilio-labs.github.io/paste/?path=/story/layout-grid--grid-2-column-responsive-stack)
 
 ### Component layout
 
@@ -442,12 +455,17 @@ Since the grid is sized to the full width of its parent container, you may not w
       </Grid>
     </Box>
   </Do>
-  <Dont title="Don't" body="Don’t use Grid with only one full-width column of content. This causes unnecessary elements. Box is what you’re looking for here.">
+  <Dont
+    title="Don't"
+    body="Don’t use Grid with only one full-width column of content. This causes unnecessary elements. Box is what you’re looking for here."
+  >
     <Box padding="space60">
       <Grid gutter="space30">
         <Column>
           <Card>
-            <Paragraph>Unnecessary HTML elements. Use <SiteLink to="/primitives/box">Box</SiteLink> instead.</Paragraph>
+            <Paragraph>
+              Unnecessary HTML elements. Use <SiteLink to="/primitives/box">Box</SiteLink> instead.
+            </Paragraph>
           </Card>
         </Column>
       </Grid>
@@ -518,7 +536,7 @@ Since the grid is sized to the full width of its parent container, you may not w
 #### Installation
 
 ```bash
-yarn add @twilio-paste/grid
+yarn add @twilio-paste/grid - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
@@ -526,32 +544,32 @@ yarn add @twilio-paste/grid
 ```jsx
 import {Grid, Column} from '@twilio-paste/grid';
 
-<Grid>
-  <Column>
-    Foo
-  </Column>
-</Grid>
+const Component = () => (
+  <Grid>
+    <Column>Foo</Column>
+  </Grid>
+);
 ```
 
 #### Grid Props
 
 | Prop      | Type                                         | Description                                                                                                                         | Default |
-| ----------| ---------------------------------------------| ----------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| --------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------- |
 | gutter?   | `ResponsiveValue<keyof ThemeShape['space']>` | Sets the spacing on both sides of a Column. Use a spacing token that represents half of the total space you need between 2 Columns. |         |
 | vertical? | `boolean, ResponsiveValue<boolean>`          | Stacks the Columns                                                                                                                  |         |
 
 #### Column Props
 
-| Prop      | Type                                         | Description                                                                                                                         | Default |
-| ----------| ---------------------------------------------| ----------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| span?     | `number, ResponsiveValue<number>`            | Sets the width of Columns (how many columns a column can span)                                                                      |         |
-| offset?   | `number, ResponsiveValue<number>`            | Sets the left margin of a Column (how many columns a column is offset)                                                              |         |
+| Prop    | Type                              | Description                                                            | Default |
+| ------- | --------------------------------- | ---------------------------------------------------------------------- | ------- |
+| span?   | `number, ResponsiveValue<number>` | Sets the width of Columns (how many columns a column can span)         |         |
+| offset? | `number, ResponsiveValue<number>` | Sets the left margin of a Column (how many columns a column is offset) |         |
 
 ### Sketch
 
 Add [Grid symbols from the “Paste components” project](https://share.goabstract.com/3e7528f5-7981-421c-9308-e06d2f341c70) to your own artboards to help you align content.
 
-Additionally, each Paste container component (*e.g.*, Card, Modal) symbol in Sketch has an invisible grid symbol named “📐 Grid” that you can override with visible grid symbols.
+Additionally, each Paste container component (_e.g._, Card, Modal) symbol in Sketch has an invisible grid symbol named “📐 Grid” that you can override with visible grid symbols.
 
 We use grid symbols instead of Sketch Layout Settings for two reasons:
 

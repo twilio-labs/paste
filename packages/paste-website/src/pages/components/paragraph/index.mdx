@@ -96,7 +96,8 @@ Paragraphs should be used for most text blocks. Paragraphs provide defaults for 
 
 <DoDont>
   <Do title="Do" body="Use paragraphs for text blocks." center>
-    <Codeblock>{`<Paragraph>
+    <Codeblock>
+      {`<Paragraph>
   Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
   Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
   sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
@@ -108,8 +109,12 @@ Paragraphs should be used for most text blocks. Paragraphs provide defaults for 
 </Paragraph>`}
     </Codeblock>
   </Do>
-  <Dont title="Don't" body="Don’t use paragraphs for spacing or when more semantic elements can be used in their place, such as headings, lists, or labels.">
-    <Codeblock>{`<Paragraph>
+  <Dont
+    title="Don't"
+    body="Don’t use paragraphs for spacing or when more semantic elements can be used in their place, such as headings, lists, or labels."
+  >
+    <Codeblock>
+      {`<Paragraph>
   Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
   Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
 </Paragraph>
@@ -151,8 +156,13 @@ Paragraphs should be used for most text blocks. Paragraphs provide defaults for 
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Use paragraphs as sibling elements, with only inline elements such as bold or italic as children." center>
-    <Codeblock>{`<Paragraph>
+  <Do
+    title="Do"
+    body="Use paragraphs as sibling elements, with only inline elements such as bold or italic as children."
+    center
+  >
+    <Codeblock>
+      {`<Paragraph>
   Donec sed odio dui. <a href="#">Aenean lacinia</a> bibendum nulla sed consectetur.
   Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
 </Paragraph>
@@ -162,8 +172,12 @@ Paragraphs should be used for most text blocks. Paragraphs provide defaults for 
 </Paragraph>`}
     </Codeblock>
   </Do>
-  <Dont title="Don't" body="Don’t nest paragraphs within each other either, only inline elements should be nested within a paragraph.">
-    <Codeblock>{`<Paragraph>
+  <Dont
+    title="Don't"
+    body="Don’t nest paragraphs within each other either, only inline elements should be nested within a paragraph."
+  >
+    <Codeblock>
+      {`<Paragraph>
   Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
   Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
   <Paragraph>
@@ -194,7 +208,7 @@ Paragraphs should be used for most text blocks. Paragraphs provide defaults for 
 #### Installation
 
 ```bash
-yarn add @twilio-paste/paragraph
+yarn add @twilio-paste/paragraph - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
@@ -202,16 +216,19 @@ yarn add @twilio-paste/paragraph
 ```jsx
 import {Paragraph} from '@twilio-paste/paragraph';
 
-<Paragraph>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur praesentium voluptate facere suscipit maiores vitae explicabo error ea? Quisquam, nisi excepturi aut esse non iste dolorum dicta. Tempore, doloribus voluptate!
-</Paragraph>;
+const Component = () => (
+  <Paragraph>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur praesentium voluptate facere suscipit maiores
+    vitae explicabo error ea? Quisquam, nisi excepturi aut esse non iste dolorum dicta. Tempore, doloribus voluptate!
+  </Paragraph>
+);
 ```
 
 #### Props
 
-| Prop      | Type                     | Description | Default |
-| --------- | ------------------------ | ----------- | ------- |
-| children? | `ReactNode`              |             | null    |
+| Prop      | Type        | Description | Default |
+| --------- | ----------- | ----------- | ------- |
+| children? | `ReactNode` |             | null    |
 
 <Box marginTop="space90">
   <Changelog />

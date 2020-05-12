@@ -12,7 +12,14 @@ import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SiteLink} from '../../../components/SiteLink';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/form/CHANGELOG.md';
-import {verticalExample, defaultExample, requiredExample, horizontalExample, errorExample, disabledExample} from '../../../component-examples/RadioGroupExamples';
+import {
+  verticalExample,
+  defaultExample,
+  requiredExample,
+  horizontalExample,
+  errorExample,
+  disabledExample,
+} from '../../../component-examples/RadioGroupExamples';
 
 export const pageQuery = graphql`
   {
@@ -67,7 +74,7 @@ Radio groups should:
 - Include at most 6 options (use your discretion here if you need more; if there's a chance in the future that it might be more than 6, use a Select component drop-down) If there is help text that the user needs to know before making selection, use checkbox/radio.
 - List options in a rational order that makes logical sense
 
-####  Best Practices
+#### Best Practices
 
 - See [content guidelines](/content) for copy requirements
 - Avoid nesting radio buttons with other radio buttons
@@ -192,7 +199,8 @@ Use a Radio Group to select a single option from a list of two, but no more than
 ## Content Guidelines
 
 <Callout variant="warning">
-  🚨<strong>STOP!</strong>🚨 Before continuing, make sure to follow these <SiteLink to="/content">content guidelines</SiteLink>.
+  🚨<strong>STOP!</strong>🚨 Before continuing, make sure to follow these{' '}
+  <SiteLink to="/content">content guidelines</SiteLink>.
 </Callout>
 
 ### Validation
@@ -218,7 +226,7 @@ Error text should go below groups.
 #### Installation
 
 ```bash
-yarn add @twilio-paste/form
+yarn add @twilio-paste/form - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
@@ -226,44 +234,46 @@ yarn add @twilio-paste/form
 ```jsx
 import {Radio, RadioGroup} from '@twilio-paste/form';
 
-<RadioGroup name="foo" value="foo" legend="foo" onChange={NOOP}>
-  <Radio id="foo" value="foo" name="foo">
-    Foo
-  </Radio>
-</RadioGroup>
+const Component = () => (
+  <RadioGroup name="foo" value="foo" legend="foo" onChange={NOOP}>
+    <Radio id="foo" value="foo" name="foo">
+      Foo
+    </Radio>
+  </RadioGroup>
+);
 ```
 
 #### Radio Props
 
 All the valid HTML attributes for `input[type=radio]` are supported including the following props:
 
-| Prop      | Type                                       | Description | Default   |
-| --------- | -------------------------------------------| ------------| --------- |
-| children  | `ReactNode`                                |             | null      |
-| id        | `string`                                   |             | null      |
-| value     | `string`                                   |             | null      |
-| hasError? | `boolean`                                  |             | false     |
-| helpText? | `string` or `ReactNode`                    |             | null      |
-| onChange? | `(event: React.MouseEvent<HTMLElement>)`   |             | null      |
-| onFocus?  | `(event: React.MouseEvent<HTMLElement>)`   |             | null      |
-| onBlur?   | `(event: React.MouseEvent<HTMLElement>)`   |             | null      |
+| Prop      | Type                                     | Description | Default |
+| --------- | ---------------------------------------- | ----------- | ------- |
+| children  | `ReactNode`                              |             | null    |
+| id        | `string`                                 |             | null    |
+| value     | `string`                                 |             | null    |
+| hasError? | `boolean`                                |             | false   |
+| helpText? | `string` or `ReactNode`                  |             | null    |
+| onChange? | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
+| onFocus?  | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
+| onBlur?   | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
 
 #### RadioGroup Props
 
-| Prop        | Type                                       | Description | Default   |
-| ----------- | -------------------------------------------| ------------| --------- |
-| children    | `ReactNode`                                |             | null      |
-| legend      | `string` or `ReactNode`                    |             | null      |
-| name        | `string`                                   |             | null      |
-| value       | `string`                                   |             | null      |
-| orientation | `oneOf(['vertical', 'horizontal'])`        |             | vertical  |
-| errorText?  | `string` or `ReactNode`                    |             | null      |
-| helpText?   | `string` or `ReactNode`                    |             | null      |
-| disabled?   | `boolean`                                  |             | false     |
-| required?   | `boolean`                                  |             | false     |
-| onChange    | `(event: React.MouseEvent<HTMLElement>)`   |             | null      |
-| onFocus?    | `(event: React.MouseEvent<HTMLElement>)`   |             | null      |
-| onBlur?     | `(event: React.MouseEvent<HTMLElement>)`   |             | null      |
+| Prop        | Type                                     | Description | Default  |
+| ----------- | ---------------------------------------- | ----------- | -------- |
+| children    | `ReactNode`                              |             | null     |
+| legend      | `string` or `ReactNode`                  |             | null     |
+| name        | `string`                                 |             | null     |
+| value       | `string`                                 |             | null     |
+| orientation | `oneOf(['vertical', 'horizontal'])`      |             | vertical |
+| errorText?  | `string` or `ReactNode`                  |             | null     |
+| helpText?   | `string` or `ReactNode`                  |             | null     |
+| disabled?   | `boolean`                                |             | false    |
+| required?   | `boolean`                                |             | false    |
+| onChange    | `(event: React.MouseEvent<HTMLElement>)` |             | null     |
+| onFocus?    | `(event: React.MouseEvent<HTMLElement>)` |             | null     |
+| onBlur?     | `(event: React.MouseEvent<HTMLElement>)` |             | null     |
 
 <Box marginTop="space90">
   <Changelog />

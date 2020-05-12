@@ -270,29 +270,13 @@ a content area, and a right sidebar. Here's how we’ll compose the flexible lay
 The Flex component should be used when a flexible layout is needed with a page layout or custom component layout.
 
 <DoDont>
-  <Do
-    title="Do"
-    body="Use Flex to layout your page or custom component."
-    preview={false}
-  />
-  <Dont
-    title="Don't"
-    body="Use Flex to set margins or padding within layouts and components."
-    preview={false}
-  />
+  <Do title="Do" body="Use Flex to layout your page or custom component." preview={false} />
+  <Dont title="Don't" body="Use Flex to set margins or padding within layouts and components." preview={false} />
 </DoDont>
 
 <DoDont>
-  <Do
-    title="Do"
-    body="Use Flex to build responsive experiences."
-    preview={false}
-  />
-  <Dont
-    title="Don't"
-    body="Use inline CSS or classNames to add styles that Flex can provide."
-    preview={false}
-  />
+  <Do title="Do" body="Use Flex to build responsive experiences." preview={false} />
+  <Dont title="Don't" body="Use inline CSS or classNames to add styles that Flex can provide." preview={false} />
 </DoDont>
 
 ---
@@ -304,7 +288,7 @@ The Flex component should be used when a flexible layout is needed with a page l
 #### Installation
 
 ```bash
-yarn add @twilio-paste/flex
+yarn add @twilio-paste/flex - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
@@ -312,15 +296,13 @@ yarn add @twilio-paste/flex
 ```jsx
 import {Flex} from '@twilio-paste/flex';
 
-<Flex>
-  Foo
-</Flex>
+const Component = () => <Flex>Foo</Flex>;
 ```
 
 #### Props
 
 | Prop           | Type                                                | Description                   | Default |
-| ---------------| ----------------------------------------------------| ----------------------------- | ------- |
+| -------------- | --------------------------------------------------- | ----------------------------- | ------- |
 | as?            | `keyof JSX.IntrinsicElements`                       | A custom HTML tag             | `div`   |
 | display?       | `string, ResponsiveValue<'flex', 'inline-flex'>`    | Display property              | 'flex'  |
 | basis?         | `string, number, ResponsiveValue<string, number>`   | Flex basis property           |         |

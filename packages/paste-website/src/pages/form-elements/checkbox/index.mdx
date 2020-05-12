@@ -14,7 +14,14 @@ import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/form/CHANGELOG.md';
-import {defaultExample, helpTextExample, indeterminateExample, errorExample, requiredExample, disabledExample} from '../../../component-examples/CheckboxExamples';
+import {
+  defaultExample,
+  helpTextExample,
+  indeterminateExample,
+  errorExample,
+  requiredExample,
+  disabledExample,
+} from '../../../component-examples/CheckboxExamples';
 
 export const pageQuery = graphql`
   {
@@ -67,7 +74,7 @@ Checkbox groups are used when you have multiple binary choices to make but all c
 #### Accessibility Information
 
 - Checkbox groups **must** have a group legend that describes the collection.
-  - The label *should* be visible.
+  - The label _should_ be visible.
   - The label may be visually hidden or provided via `aria-label` on the group component if the entire form is just a single checkbox group with no other form elements. The grouping should be visually implicit, but a description still needs to be provided for assistive technology.
 
 ### About Checkbox
@@ -256,58 +263,40 @@ There is no maximum number of checkboxes you can have in a group, but when it st
 
 <DoDont>
   <Do title="Do" body="Save the choice the user made upon submission of the form." />
-  <Dont
-    title="Don't"
-    body="Don't save or persist a user's choice upon checking a checkbox."
-  />
+  <Dont title="Don't" body="Don't save or persist a user's choice upon checking a checkbox." />
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Keep help text and error text concise and simple. If you need to use more than 2 sentences to explain a field, link out to supporting docs or trigger a popover instead." />
-  <Dont
-    title="Don't"
-    body="Don't use more than 2 sentences in help text or error text."
+  <Do
+    title="Do"
+    body="Keep help text and error text concise and simple. If you need to use more than 2 sentences to explain a field, link out to supporting docs or trigger a popover instead."
   />
+  <Dont title="Don't" body="Don't use more than 2 sentences in help text or error text." />
 </DoDont>
 
 <DoDont>
   <Do title="Do" body="Include a visible label on every checkbox" />
-  <Dont
-    title="Don't"
-    body="Don't leave floating, unlabelled checkboxes."
-  />
+  <Dont title="Don't" body="Don't leave floating, unlabelled checkboxes." />
 </DoDont>
 
 <DoDont>
   <Do title="Do" body="Write label text that clearly describes the value being requested." />
-  <Dont
-    title="Don't"
-    body="Don't use the legend and label text in a way that is intended to be read as a sentence."
-  />
+  <Dont title="Don't" body="Don't use the legend and label text in a way that is intended to be read as a sentence." />
 </DoDont>
 
 <DoDont>
   <Do title="Do" body="Include a visible legend for the entire group of checkboxes." />
-  <Dont
-    title="Don't"
-    body="Don't leave floating, unlabelled checkbox groups."
-  />
+  <Dont title="Don't" body="Don't leave floating, unlabelled checkbox groups." />
 </DoDont>
 
 <DoDont>
   <Do title="Do" body="Write legend text to describe a group and their intended relationship together." />
-  <Dont
-    title="Don't"
-    body="Don't use a legend as a heading or section title."
-  />
+  <Dont title="Don't" body="Don't use a legend as a heading or section title." />
 </DoDont>
 
 <DoDont>
   <Do title="Do" body="Provide actionable error text explaining how to fix the error." />
-  <Dont
-    title="Don't"
-    body="Don't display system messages as error text or only what field errored."
-  />
+  <Dont title="Don't" body="Don't display system messages as error text or only what field errored." />
 </DoDont>
 
 ---
@@ -319,7 +308,7 @@ There is no maximum number of checkboxes you can have in a group, but when it st
 #### Installation
 
 ```bash
-yarn add @twilio-paste/form
+yarn add @twilio-paste/form - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
@@ -327,59 +316,61 @@ yarn add @twilio-paste/form
 ```jsx
 import {Checkbox, CheckboxGroup} from '@twilio-paste/form';
 
-<CheckboxGroup name="foo" legend="foo">
-  <Checkbox id="foo" value="foo" name="foo">
-    Foo
-  </Checkbox>
-</CheckboxGroup>
+const Component = () => (
+  <CheckboxGroup name="foo" legend="foo">
+    <Checkbox id="foo" value="foo" name="foo">
+      Foo
+    </Checkbox>
+  </CheckboxGroup>
+);
 ```
 
 #### Checkbox Props
 
 All the valid HTML attributes for `input[type=checkbox]` are supported including the following props:
 
-| Prop              | Type                                       | Description | Default   |
-| ----------------- | -------------------------------------------| ------------| --------- |
-| children          | `ReactNode`                                |             | null      |
-| id                | `string`                                   |             | null      |
-| checked?          | `boolean`                                  |             | false     |
-| hasError?         | `boolean`                                  |             | false     |
-| helpText?         | `string` or `ReactNode`                    |             | null      |
-| indeterminate?    | `boolean`                                  |             | false     |
-| isSelectAll?      | `boolean`                                  |             | false     |
-| isSelectAllChild? | `boolean`                                  |             | false     |
-| onChange?         | `(event: React.MouseEvent<HTMLElement>)`   |             | null      |
-| onFocus?          | `(event: React.MouseEvent<HTMLElement>)`   |             | null      |
-| onBlur?           | `(event: React.MouseEvent<HTMLElement>)`   |             | null      |
+| Prop              | Type                                     | Description | Default |
+| ----------------- | ---------------------------------------- | ----------- | ------- |
+| children          | `ReactNode`                              |             | null    |
+| id                | `string`                                 |             | null    |
+| checked?          | `boolean`                                |             | false   |
+| hasError?         | `boolean`                                |             | false   |
+| helpText?         | `string` or `ReactNode`                  |             | null    |
+| indeterminate?    | `boolean`                                |             | false   |
+| isSelectAll?      | `boolean`                                |             | false   |
+| isSelectAllChild? | `boolean`                                |             | false   |
+| onChange?         | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
+| onFocus?          | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
+| onBlur?           | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
 
 #### CheckboxGroup Props
 
-| Prop         | Type                                       | Description | Default   |
-| ------------ | -------------------------------------------| ------------| --------- |
-| children     | `ReactNode`                                |             | null      |
-| legend       | `string` or `ReactNode`                    |             | null      |
-| name         | `string`                                   |             | null      |
-| value        | `string`                                   |             | null      |
-| orientation  | `oneOf(['vertical', 'horizontal'])`        |             | vertical  |
-| errorText?   | `string` or `ReactNode`                    |             | null      |
-| helpText?    | `string` or `ReactNode`                    |             | null      |
-| disabled?    | `boolean`                                  |             | false     |
-| required?    | `boolean`                                  |             | false     |
-| isSelectAll? | `boolean`                                  |             | false     |
+| Prop         | Type                                | Description | Default  |
+| ------------ | ----------------------------------- | ----------- | -------- |
+| children     | `ReactNode`                         |             | null     |
+| legend       | `string` or `ReactNode`             |             | null     |
+| name         | `string`                            |             | null     |
+| value        | `string`                            |             | null     |
+| orientation  | `oneOf(['vertical', 'horizontal'])` |             | vertical |
+| errorText?   | `string` or `ReactNode`             |             | null     |
+| helpText?    | `string` or `ReactNode`             |             | null     |
+| disabled?    | `boolean`                           |             | false    |
+| required?    | `boolean`                           |             | false    |
+| isSelectAll? | `boolean`                           |             | false    |
 
 #### CheckboxDisclaimer Props
 
 All the valid HTML attributes for `input[type=checkbox]` are supported including the following props:
 
-| Prop              | Type                                       | Description | Default   |
-| ----------------- | -------------------------------------------| ------------| --------- |
-| children          | `ReactNode`                                |             | null      |
-| id                | `string`                                   |             | null      |
-| checked?          | `boolean`                                  |             | false     |
-| errorText?        | `string` or `ReactNode`                    |             | null      |
-| onChange?         | `(event: React.MouseEvent<HTMLElement>)`   |             | null      |
-| onFocus?          | `(event: React.MouseEvent<HTMLElement>)`   |             | null      |
-| onBlur?           | `(event: React.MouseEvent<HTMLElement>)`   |             | null      |
+| Prop       | Type                                     | Description | Default |
+| ---------- | ---------------------------------------- | ----------- | ------- |
+| children   | `ReactNode`                              |             | null    |
+| id         | `string`                                 |             | null    |
+| checked?   | `boolean`                                |             | false   |
+| errorText? | `string` or `ReactNode`                  |             | null    |
+| onChange?  | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
+| onFocus?   | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
+| onBlur?    | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
 
 <Box marginTop="space90">
   <Changelog />
