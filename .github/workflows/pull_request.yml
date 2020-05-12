@@ -38,18 +38,6 @@ jobs:
         with:
           name: packages
           path: packages/
-      - name: Run eslint
-        run: yarn lint
-      - name: Run tests
-        run: yarn test
-      - name: Run prettier
-        run: yarn prettier
-        # applitools must come last
-      - name: Run applitools eyes-storybook
-        run: yarn test:vrt
-        env:
-          APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
-          GITHUB_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
 
   type-check:
     runs-on: ubuntu-latest
@@ -75,3 +63,106 @@ jobs:
         run: yarn bootstrap
       - name: Run type checker
         run: yarn type-check
+
+  lint:
+    runs-on: ubuntu-latest
+    needs: pr-checks
+    strategy:
+      matrix:
+        node-version: [10.16.x]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - name: Download built packages
+        uses: actions/download-artifact@v1
+        with:
+          name: packages
+      - name: restore lerna
+        uses: actions/cache@master
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      - name: Bootstrap repository
+        run: yarn bootstrap
+      - name: Run eslint
+        run: yarn lint
+
+  tests:
+    runs-on: ubuntu-latest
+    needs: pr-checks
+    strategy:
+      matrix:
+        node-version: [10.16.x]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - name: Download built packages
+        uses: actions/download-artifact@v1
+        with:
+          name: packages
+      - name: restore lerna
+        uses: actions/cache@master
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      - name: Bootstrap repository
+        run: yarn bootstrap
+      - name: Run tests
+        run: yarn test
+
+  prettier:
+    runs-on: ubuntu-latest
+    needs: pr-checks
+    strategy:
+      matrix:
+        node-version: [10.16.x]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - name: Download built packages
+        uses: actions/download-artifact@v1
+        with:
+          name: packages
+      - name: restore lerna
+        uses: actions/cache@master
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      - name: Bootstrap repository
+        run: yarn bootstrap
+      - name: Run prettier
+        run: yarn prettier
+
+  applitools:
+    runs-on: ubuntu-latest
+    needs: pr-checks
+    strategy:
+      matrix:
+        node-version: [10.16.x]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - name: Download built packages
+        uses: actions/download-artifact@v1
+        with:
+          name: packages
+      - name: restore lerna
+        uses: actions/cache@master
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      - name: Bootstrap repository
+        run: yarn bootstrap
+      - name: Run applitools eyes-storybook
+        run: yarn test:vrt
+        env:
+          APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
+          GITHUB_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
