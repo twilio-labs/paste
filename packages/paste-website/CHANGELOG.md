@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.23.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.23.0...@twilio-paste/website@1.23.1) (2020-05-12)
+
+
+### Bug Fixes
+
+* **website:** add clarifying text around installing core ([#433](https://github.com/twilio-labs/paste/issues/433)) ([4f60c0f](https://github.com/twilio-labs/paste/commit/4f60c0f7fbb812063fef6fdb18de8690adac6370))
+
+
+
+
+
 # [1.23.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.22.2...@twilio-paste/website@1.23.0) (2020-05-11)
 
 
