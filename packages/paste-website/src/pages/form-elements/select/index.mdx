@@ -62,7 +62,7 @@ A select allows users to select an option from a list in a form field.
 
 ### About Select
 
-Select allows a user to make a selection from a list of options in a form field. By default, it will show the first option in the list. However, you can also set a different pre-selected option from your list to show.
+Select allows a user to make a selection from a list of options in a form field. By default, it will show the first option in the list. However, you can also <Anchor href="#select-with-default-value">set a different pre-selected option</Anchor> from your list to show.
 
 ### What's the difference between select and combobox?
 
@@ -181,7 +181,7 @@ The select component should include the base select, along with supporting eleme
     <Option value="numbers">Phone Numbers</Option>
     <Option value="video">Video</Option>
   </Select>
-  <FormHelpText variant="default" id="select_product">Please choose a Twilio product.</FormHelpText>
+  <FormHelpText variant="default">Please choose a Twilio product.</FormHelpText>
 </>`}
 </LivePreview>
 
@@ -202,6 +202,7 @@ The select component should include the base select, along with supporting eleme
     <Option value="dogs">(415) 555-DOGS</Option>
     <Option value="mice">(415) 555-MICE</Option>
   </Select>
+  <FormHelpText variant="default">Select with prefix.</FormHelpText>
 </>`}
 </LivePreview>
 
@@ -221,13 +222,14 @@ The select component should include the base select, along with supporting eleme
     <Option value="dogs">(415) 555-DOGS</Option>
     <Option value="mice">(415) 555-MICE</Option>
   </Select>
+  <FormHelpText variant="default">Select with suffix.</FormHelpText>
 </>`}
 </LivePreview>
 
-### Select with default values
+### Select with default value
 
 To be consistent with <Anchor target="_blank" href="https://reactjs.org/docs/uncontrolled-components.html#default-values">React's documentation</Anchor> on best practices for native select elements, the <inlineCode>selected</inlineCode> attribute is not allowed in the API. 
-You can instead select a <inlineCode>defaultValue</inlineCode> and supply that on render as the <inlineCode>value</inlineCode> property for the select.
+You can instead select a <inlineCode>defaultValue</inlineCode> property for the select.
 
 <LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
   {`<>
@@ -246,9 +248,9 @@ You can instead select a <inlineCode>defaultValue</inlineCode> and supply that o
 
 ### Select with option groups
 
-Use an optgroup to create groupings of options within the select element.
+Use an `OptionGroup` to create groupings of options within the select element.
 
-- **label** - String that will be used as the group label, this is required.
+- `label` - String that will be used as the group label, this is required.
 
 <LivePreview scope={{Select, Option, OptionGroup, FormHelpText, FormLabel}} language="jsx">
   {`<>
@@ -273,7 +275,7 @@ Use an optgroup to create groupings of options within the select element.
         <Option value="recordings">Recordings</Option>
     </OptionGroup>
   </Select>
-  <FormHelpText variant="default" id="option_group_demo_help_text">Select a product to learn more.</FormHelpText>
+  <FormHelpText variant="default">Select a product to learn more.</FormHelpText>
 </>`}
 </LivePreview>
 
@@ -306,7 +308,7 @@ You can use the multiple attribute on the select component to select multiple op
     <Option value="voice">Voice</Option>
     <Option value="sms">SMS</Option>
   </Select>
-  <FormHelpText variant="default" id="mutliple_options_demo_help_text">Select your desired number capabilities.</FormHelpText>
+  <FormHelpText variant="default">Select your desired number capabilities.</FormHelpText>
 </>`}
 </LivePreview>
 
@@ -330,7 +332,7 @@ If a user is able to choose an invalid option, change a select to its error stat
     <Option value="dogs">(415) 555-DOGS</Option>
     <Option value="mice">(415) 555-MICE</Option>
   </Select>
-  <FormHelpText variant="error" id="console_team_help_text">The number you have selected is not configured for emergency calling.</FormHelpText>
+  <FormHelpText variant="error">The number you have selected is not configured for emergency calling.</FormHelpText>
 </>`}
 </LivePreview>
 
@@ -342,7 +344,7 @@ Otherwise, use disabled options sparingly. Most browsers show disabled option te
 
 <LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
   {`<>
-  <FormLabel htmlFor="disabled_options_demo">Phone number capabilities</FormLabel>
+  <FormLabel htmlFor="disabled_options_demo">Phone number capability</FormLabel>
   <Select
     id="disabled_options_demo"
     htmlFor="disabled_options_demo"
@@ -351,7 +353,7 @@ Otherwise, use disabled options sparingly. Most browsers show disabled option te
     <Option disabled value="voice">Voice</Option>
     <Option value="sms">SMS</Option>
   </Select>
-  <FormHelpText variant="default" id="disabled_options_demo_help_text">Some options in this select are disabled.</FormHelpText>
+  <FormHelpText variant="default">Some options in this select are disabled.</FormHelpText>
 </>`}
 </LivePreview>
 
@@ -373,7 +375,7 @@ If you want to show information that can’t be edited, use a [read-only Input](
     <Option value="voice">Voice</Option>
     <Option value="sms">SMS</Option>
   </Select>
-  <FormHelpText variant="default" id="console_team_help_text">This select is currently disabled.</FormHelpText>
+  <FormHelpText variant="default">This select is currently disabled.</FormHelpText>
 </>`}
 </LivePreview>
 
@@ -403,13 +405,13 @@ Stack form fields vertically with `$space-80` spacing between each field.
 </>`}
 </LivePreview>
 
-Avoid placing multiple form fields on the same horizontal row to help make it easier to scan a page vertically. Use the Grid component if you need to place form fields horizontally.
+Avoid placing multiple form fields on the same horizontal row to help make it easier to scan a page vertically. Use the <Anchor href="/layout/grid">Grid component</Anchor> if you need to place form fields horizontally.
 
 ### Options in a select
 
-Keep option text concise and simple. Option text will truncate when it’s longer than the width of the container. If choosing options require more explanation, consider using a checkbox instead and add help text for each option, or give more explanation through help text.
+Keep option text concise and simple. Option text will truncate when it’s longer than the width of the container. If choosing options requires more explanation, consider using a <Anchor href="/form-elements/checkbox/">Checkbox</Anchor> instead and add help text for each option, or give more explanation through help text.
 
-Use a safe and reversible option as the default selected value, or an option that tells users to choose from the list. For example, on page load, a select could show “Choose categories” as the default value if there’s no safe default.
+Use a safe and reversible option as the default selected value, or an option that tells users to choose from the list. For example, on page load, a select could show “Choose category" as the default value if there’s no safe default.
 
 Use 4-10 options in a select, or a sorted list of highly familiar options (*e.g.*, alphabetical list of states), since selects don’t allow for searching or filtering through options. Sort options logically (*e.g.*, alphabetically, by value) or in an order that’s intuitive to your user.
 
@@ -443,15 +445,9 @@ In a form where there are fewer optional fields than required, use an optional i
 
 If a field is required and there’s no safe default selected value, default to a disabled option that tells users to choose an option (*e.g.*, “Choose categories”). However, if the field is optional and there’s no safe default, keep the option enabled so that users can unselect.
 
-### Required field key
-
-Use the [required field key]() component if you use the `required` prop in your form fields. This component should appear at the top of your form to explain what the required indicator means on each form field. By default, use the words ‘Indicates a required field’ in the key.
-
 ### Validation
 
 Disable or remove any options in a select that would result in an error if possible. Validate form fields on form submission.
-
-Validating a form field when the user leaves the current field (on blur) can be helpful to check for required field entry. However, this can be frustrating to users who tab through controls to navigate a page, and to screen reader users, who might not be able to detect that an error occurred on blur.
 
 Don’t prevent form submission by disabling the submit button. An error message can give more information than a disabled button can to help users figure out which fields are invalid.
 
@@ -459,7 +455,7 @@ Don’t prevent form submission by disabling the submit button. An error message
 
 Disable or remove any options in a select that would result in an error if possible. If an error occurs, use inline error text to explain how to fix an error.
 
-Ideally, help text should have enough information to help users prevent errors. If help text exists and you need to show an error, the error text should replace and repeat the help text until the error has been resolved.
+Ideally, help text should have enough information to help users prevent errors. If you need to show an error, the error text should replace and repeat the help text until the error has been resolved.
 
 Error text should:
 
@@ -469,7 +465,7 @@ Error text should:
     the future.
   </ListItem>
   <ListItem>
-    Be concise and simple, maybe even more than normal. Avoid jargon. Try to keep error text to 2 sentences or fewer.
+    Be concise and simple. Avoid jargon. Try to keep error text to 2 sentences or fewer.
   </ListItem>
   <ListItem>
     Use the passive voice for input errors to avoid placing blame on the user. For example, “A friendly name is
@@ -609,7 +605,7 @@ Use a select when:
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
       </Select>
-      <FormHelpText variant="default" id="help_text_length_do">HTTP action for voice webhook.</FormHelpText>
+      <FormHelpText variant="default">HTTP action for voice webhook.</FormHelpText>
     </Box>
   </Do>
   <Dont center title="Don't" body="Don’t use more than 2 sentences in help text or error text.">
@@ -620,7 +616,7 @@ Use a select when:
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
       </Select>
-      <FormHelpText variant="default" id="help_text_length_dont">HTTP action for voice webook. This will be used to manage an incoming call. Please also configure your fallback url and method in case the primary handler fails.</FormHelpText>
+      <FormHelpText variant="default">HTTP action for voice webook. This will be used to manage an incoming call. Please also configure your fallback url and method in case the primary handler fails.</FormHelpText>
     </Box>
   </Dont>
 </DoDont>
@@ -660,7 +656,7 @@ Use a select when:
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
       </Select>
-      <FormHelpText variant="default" id="disabled_do_help_text">Please sign in again to change the HTTP method.</FormHelpText>
+      <FormHelpText variant="default">Please sign in again to change the HTTP method.</FormHelpText>
     </Box>
   </Do>
   <Dont
@@ -870,7 +866,7 @@ import {Select, Option, FormLabel, FormHelpText} from '@twilio-paste/form';
     <Option value="foo-bar">Foo Bar</Option>
     <Option value="bar-foo">Bar Foo</Option>
   </Select>
-<FormHelpText variant="default" id="foo_text">Please select one</FormHelpText>
+<FormHelpText variant="default">Please select one</FormHelpText>
 ```
 
 #### Select Props
