@@ -279,39 +279,6 @@ Use an `OptionGroup` to create groupings of options within the select element.
 </>`}
 </LivePreview>
 
-### Select with multiple values
-
-You can use the multiple attribute on the select component to select multiple options.
-
-- **size** - Attribute on select which will determine how many items are rendered.
-- **value** - When multiple attribute is set, this attribute on the select component must be an array.
-
-<Callout>
-  <CalloutTitle as="h4">Hot accessibility tip</CalloutTitle>
-  <CalloutText>
-    When possible, avoid allowing multiple selection on a select component.
-  </CalloutText>
-  <CalloutText>It might not be immediately clear to users that they need to press <inlineCode>Ctrl</inlineCode> or <inlineCode>Cmd</inlineCode> to choose multiple options on desktop, or that they <em>can</em> choose multiple options on mobile.</CalloutText>
-  <CalloutText>Use a <inlineCode>CheckboxGroup</inlineCode> to allow users to make multiple selections instead.</CalloutText>
-</Callout>
-
-<LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
-  {`<>
-  <FormLabel htmlFor="mutliple_options_demo" required>Phone number capabilities</FormLabel>
-  <Select
-    id="mutliple_options_demo"
-    htmlFor="mutliple_options_demo"
-    multiple
-    size="2"
-  >
-    <Option value="fax">Fax</Option>
-    <Option value="voice">Voice</Option>
-    <Option value="sms">SMS</Option>
-  </Select>
-  <FormHelpText variant="default">Select your desired number capabilities.</FormHelpText>
-</>`}
-</LivePreview>
-
 ## States
 
 ### Select with inline error
