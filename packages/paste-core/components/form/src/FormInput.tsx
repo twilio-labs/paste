@@ -119,7 +119,7 @@ if (process.env.NODE_ENV === 'development') {
     readOnly: PropTypes.bool,
     required: PropTypes.bool,
     hasError: PropTypes.bool,
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
   };
