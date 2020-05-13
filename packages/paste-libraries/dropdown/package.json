@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/dropdown-library",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "category": "dropdown",
   "status": "beta",
   "description": "A library to build dropdowns.",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.5.5...@twilio-paste/core@2.6.0) (2020-05-13)
+
+
+### Features
+
+* **core:** add combobox-primitive to core ([6e79ddc](https://github.com/twilio-labs/paste/commit/6e79ddc8fc53a5c20f71b62e08d0c31eea2ecabb))
+
+
+
+
+
 ## [2.5.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.5.4...@twilio-paste/core@2.5.5) (2020-05-11)
 
 **Note:** Version bump only for package @twilio-paste/core

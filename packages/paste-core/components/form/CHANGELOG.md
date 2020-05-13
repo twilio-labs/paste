@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.3.4...@twilio-paste/form@1.4.0) (2020-05-13)
+
+
+### Bug Fixes
+
+* **form:** remove required onChange from input ([49b2c77](https://github.com/twilio-labs/paste/commit/49b2c77455445ffcd2bafea8de6cbf602dd8d228))
+
+
+### Features
+
+* **select:** update knobs for select stories ([#430](https://github.com/twilio-labs/paste/issues/430)) ([dc48f63](https://github.com/twilio-labs/paste/commit/dc48f637df3cbaf7046550081f662348461f19dc))
+
+
+
+
+
 ## [1.3.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.3.3...@twilio-paste/form@1.3.4) (2020-05-07)
 
 **Note:** Version bump only for package @twilio-paste/form
