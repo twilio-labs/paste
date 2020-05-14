@@ -156,6 +156,8 @@ Give the thought a sentence or restructure your syntax.
 
 **Don't** use periods at the end of fragments or incomplete sentences.
 
+**Don't** use periods at the end of an anchor link if it is the last line on an alert or notification
+
 #### Quotation marks " "
 **Do** use quotation marks to pick out words from a component or a file name.
 - *Select "Apply changes"*
@@ -180,7 +182,11 @@ Products and features are proper nouns and should be capitalized to differentiat
 ## Grammar and formatting
 
 #### Abbreviations
-Coming in the next release
+**Do** use common abbreviations if space is limited, such as in form headings.
+- *Ref.* in place of *Reference*
+- *No.* or *#* in place of *number*
+
+*Avoid* using abbreviations in body copy. It might look "neater" but it can increase cognitive load and reduce comprehension.
 
 #### Acronyms
 **Do** write the phrase in full, followed by the acronym in parentheses the first time a user encounters it.
@@ -192,24 +198,48 @@ Coming in the next release
 - *Behavior, dialed, color, artifact, center, license* (for both verb and noun), *-ize* endings, *program* (for all meanings)
 
 #### Bold and italics
-Coming in the next release
+
+##### Bold 
+**Do** use bold type sparingly, to draw attention to the most important word, number, or short phrase in your copy. 
+- Bold type can help a user scan the page more effectively by making landmarks more prominent.
+
+**Do** consider using bold type to refer to UI elements in instructional content. E.g.
+- *Select the location from **Region/State**.*
+- *Select **Continue** to review your order.*
+
+**Don't** use bold multiple times in body copy or for a whole sentence/paragraph. It dilutes its effect.
+- Only **bold the most important information the user needs to retain** and deploy it only if user testing flags a need. 
+- Consider if putting an important sentence on a new line will do a better job of making it stand out than making it bold. 
+
+##### Italics
+**Avoid** using italic type wherever possible. 
+- If you need to draw attention to a word, use bold type.
+- If you need to quote a phrase, use quotation marks "like this." 
 
 #### Capitalization
 **Do** capitalize proper nouns – products, people, places.
-- If a brand or product name uses a mix of upper and lower case (TwiML, eBay) use the name's convention.
 - Products include features, programs, or systems that Twilio has given a specific name to.
+- If a brand or product name uses a mix of upper and lower case (TwiML, eBay) use the name's convention.
 - People are named individuals or identifiable roles.
   - *Kris Brunner, Chief Engineer*
-  - *Contact your System Administrator*
 
-**Don't** capitalize general terms (*email, contact center, platform*)
+**Don't** capitalize general terms (*email, contact center, platform, phone number*)
 - Tip: If it's something Twilio has created or owns, it takes a capital.
 
 #### Code snippets
 Coming in the next release
 
-#### Dates
+#### Currency
 Coming in the next release
+
+#### Dates
+**Do** use American formatting as your default way to represent dates.
+- *MM/DD/YYYY* 
+- *Day, Month DD, YYYY* e.g., Sunday, May 17, 2020
+- A leading zero isn't needed for single digit dates, *3/12/2019* not *03/12/2020*
+
+**Do** abbreviate months to their first 3 letters if space is limited.
+- *Jan, Feb, Mar*
 
 #### I/You/We/Us
 **Do** refer to the user as *you* and to Twilio as *we*.
@@ -218,19 +248,24 @@ Coming in the next release
   - *I understand.* (This usage is almost exclusively for consent.)
   - *To access billing information, select My Account.*
 
+**Do** say *we* instead of *Twilio*
+- It's us talking, so there's no need to refer to us in the third person.
+- If "Twilio" is included in a product or feature name, that's ok as that's using it as a noun.
+
 #### Lists (all)
 **Do** start each list item with the same part of speech – usually a noun or verb – to make the list "parallel."
 - Punctuate the end of each item with a period if it is a complete sentence.
 - Be consistent within the list. If one item takes a full point, all items should.
 
-**Don't** punctuate the end of an item in a vertical list with a comma or elipsis "..."
+**Don't** punctuate the end of an item in a vertical list with a comma or ellipsis "..."
 
 #### Lists (bullet points)
-- **Do** use bulleted lists for items linked by a topic. Make the list topic clear in the sentence or heading that precedes it.
+**Do** use bulleted lists for items linked by a topic. Make the list topic clear in the sentence or heading that precedes it.
 
 #### Lists (numbered)
-- **Do** use numbered lists for items to be done or understood in a sequence.
-- **Avoid** listing more than 7 items.
+**Do** use numbered lists for items to be done or understood in a sequence.
+
+**Avoid** listing more than 7 items.
 
 #### Lists (sentence)
 **Do** use a sentence list if you’re explaining a short process, noting up to four options, or highlighting up to four key points. You just read a sentence list.
@@ -238,10 +273,31 @@ Coming in the next release
 - Use the Oxford comma before the last item in a sentence list.
 
 #### Numbers
-Coming in the next release
+**Do** use precise numbers to express statistics, metrics, or quantities. Avoid rounding up or down when the user is depending on the information to be accurate. 
+
+**Do** use numerals (1, 2, 3, 45, 101) instead of spelling out the number.
+- Percentages *49%*
+- Ratios *3 to 1*
+
+**Do** write expressions and ordinal numbers in words
+- *One to watch, thousands of options*
+- *First, create a profile*
+
+**Do** use both words and numerals to represent large numbers. 
+- *Up to 40k emails*
+- *More than $1.5B*
+
+**Do** use a space between the number and its unit of measurement or its order of magnitude if this is written out in words.
+- *40 GB, 564 customers, 
+- *More than $1.3 billion, 45 million customers*
+
+**Do** use commas in number four or more digits
+- *1,365 messages sent*
+
+**Don't** use commas in error codes, account numbers, or phone numbers.
 
 #### Sentence case
-**Do** use sentence case everywhere unless specifically guided otherwise. Sentence case makes content feel more human and it's generally easier to scan.
+**Do** use sentence case everywhere, even in H1s and navigation. Sentence case makes content feel more human and it's generally easier to scan.
 - This is sentence case. (Use this.)
 - This is Title Case. (Rarely use this, and only if directed.)
 - THIS IS ALL CAPS. (Don’t use this.)
