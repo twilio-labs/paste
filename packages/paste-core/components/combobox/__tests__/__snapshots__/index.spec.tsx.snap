@@ -1,0 +1,305 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Combobox  Render should render 1`] = `
+<DocumentFragment>
+  .emotion-13 {
+  box-sizing: border-box;
+  position: relative;
+}
+
+.emotion-2 {
+  box-sizing: border-box;
+  display: block;
+  margin-bottom: space10;
+  padding-left: space0;
+  padding-right: space0;
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-width: size0;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  font-size: fontSize30;
+  font-weight: fontWeightSemibold;
+  line-height: lineHeight30;
+  color: colorText;
+  cursor: pointer;
+}
+
+.emotion-9 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  background-color: colorBackgroundBody;
+  box-shadow: shadowBorder;
+  border-radius: borderRadius20;
+  -webkit-transition: box-shadow 100ms ease-in;
+  transition: box-shadow 100ms ease-in;
+  cursor: text;
+}
+
+.emotion-9:hover {
+  box-shadow: shadowBorderPrimaryDark;
+}
+
+.emotion-9:focus-within {
+  box-shadow: shadowFocus;
+}
+
+.emotion-9:active,
+.emotion-9[data-active=true] {
+  box-shadow: shadowBorderPrimaryDarker;
+}
+
+.emotion-8 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.emotion-3 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background: transparent;
+  outline: none;
+  resize: none;
+  display: block;
+  width: 100%;
+  font-family: inherit;
+  font-size: fontSize30;
+  line-height: lineHeight30;
+  font-weight: fontWeightNormal;
+  color: colorText;
+  padding-top: space30;
+  padding-right: space40;
+  padding-bottom: space30;
+  padding-left: space40;
+  border-radius: borderRadius20;
+  box-shadow: none;
+  padding-right: space120;
+}
+
+.emotion-3::-webkit-input-placeholder {
+  color: colorTextWeak;
+  font-style: italic;
+}
+
+.emotion-3::-moz-placeholder {
+  color: colorTextWeak;
+  font-style: italic;
+}
+
+.emotion-3:-ms-input-placeholder {
+  color: colorTextWeak;
+  font-style: italic;
+}
+
+.emotion-3::placeholder {
+  color: colorTextWeak;
+  font-style: italic;
+}
+
+.emotion-3:disabled {
+  cursor: not-allowed;
+  color: colorTextWeak;
+}
+
+.emotion-7 {
+  box-sizing: border-box;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: absolute;
+  pointer-events: none;
+  right: space40;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: zIndex10;
+}
+
+.emotion-5 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: sizeIcon30;
+  height: sizeIcon30;
+  color: currentColor;
+}
+
+.emotion-10 {
+  box-sizing: border-box;
+  background-color: colorBackgroundBody;
+  border-bottom-left-radius: borderRadius20;
+  border-bottom-right-radius: borderRadius20;
+  box-shadow: shadowCard;
+  list-style-type: none;
+  margin: space0;
+  overflow: hidden;
+  padding: space0;
+  position: absolute;
+  width: 100%;
+  z-index: zIndex10;
+  margin-top: space20;
+}
+
+.emotion-12 {
+  box-sizing: border-box;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: space20;
+  min-width: size0;
+}
+
+.emotion-11 {
+  margin: 0;
+  padding: 0;
+  font-size: fontSize30;
+  line-height: lineHeight30;
+  color: colorTextWeak;
+}
+
+<div
+    class="emotion-13"
+  >
+    <label
+      class="emotion-2"
+      display="block"
+      for="downshift-0-input"
+      id="downshift-1-label"
+    >
+      <span
+        class="emotion-1"
+        display="flex"
+      >
+        <span
+          class="emotion-0"
+          color="colorText"
+          cursor="pointer"
+          font-size="fontSize30"
+          font-weight="fontWeightSemibold"
+        >
+          Choose a component:
+        </span>
+      </span>
+    </label>
+    <div
+      class="emotion-9"
+      cursor="text"
+      display="flex"
+      width="100%"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="downshift-1-menu"
+        class="emotion-8"
+        display="flex"
+        role="combobox"
+        width="100%"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="downshift-1-menu"
+          aria-describedby="1"
+          aria-labelledby="downshift-1-label"
+          autocomplete="off"
+          class="emotion-3 emotion-4"
+          id="downshift-1-toggle-button"
+          tabindex="0"
+          type="text"
+          value=""
+        />
+        <div
+          class="emotion-7"
+          display="inline-flex"
+          pointer-events="none"
+          transform="translateY(-50%)"
+        >
+          <span
+            class="emotion-5 emotion-6"
+          >
+            <svg
+              aria-hidden="true"
+              aria-labelledby="1"
+              height="100%"
+              role="img"
+              viewBox="0 0 24 24"
+              width="100%"
+            >
+              <path
+                d="M16.128 10.166a.5.5 0 01.798.596l-.054.072-4.5 5a.5.5 0 01-.672.066l-.072-.066-4.5-5a.5.5 0 01.678-.73l.066.062L12 14.752l4.128-4.586z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <ul
+      aria-labelledby="downshift-1-label"
+      class="emotion-10"
+      id="downshift-1-menu"
+      overflow="hidden"
+      role="listbox"
+      width="100%"
+    />
+    <div
+      class="emotion-12"
+      display="flex"
+    >
+      <div
+        class="emotion-11"
+        color="colorTextWeak"
+        font-size="fontSize30"
+        id="1"
+      >
+        This is the help text
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

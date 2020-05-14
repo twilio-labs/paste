@@ -1,0 +1,30 @@
+{
+  "extends": "../../../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "references": [
+    {
+      "path": "../../primitives/box"
+    },
+    {
+      "path": "../button"
+    },
+    {
+      "path": "../../primitives/combobox"
+    },
+    {
+      "path": "../form"
+    },
+    {
+      "path": "../../../paste-icons"
+    },
+    {
+      "path": "../../primitives/text"
+    }
+  ]
+}
