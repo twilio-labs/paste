@@ -1,0 +1,33 @@
+{
+  "name": "@twilio-paste/animation-library",
+  "version": "0.0.0",
+  "category": "interaction",
+  "status": "beta",
+  "description": "Paste's animation library of choice.",
+  "author": "Twilio Inc.",
+  "license": "MIT",
+  "main:dev": "src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn clean && yarn compile",
+    "build:dev": "yarn clean && yarn compile:dev",
+    "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
+    "compile": "rollup -c --environment NODE_ENV:production",
+    "compile:dev": "rollup -c --environment NODE_ENV:development",
+    "prepublishOnly": "yarn build",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react-spring": "9.0.0-rc.3"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
