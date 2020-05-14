@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.24.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.23.3...@twilio-paste/website@1.24.0) (2020-05-14)
+
+
+### Features
+
+* **checkbox docs:** typo in "when to use" heading ([#439](https://github.com/twilio-labs/paste/issues/439)) ([07c0384](https://github.com/twilio-labs/paste/commit/07c0384cde1a7f4801edb6fc70362de72c14872f))
+* **Modal primitive docs:** add link to styled Modal ([#437](https://github.com/twilio-labs/paste/issues/437)) ([1e79fe1](https://github.com/twilio-labs/paste/commit/1e79fe10b8c17af03770b5dd4063887e0ce575ad))
+
+
+
+
+
 ## [1.23.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.23.2...@twilio-paste/website@1.23.3) (2020-05-13)
 
 **Note:** Version bump only for package @twilio-paste/website
