@@ -68,6 +68,8 @@ export interface BaseBoxProps
   outline?: OutlineProperty<string>;
   float?: FloatProperty;
   willChange?: WillChangeProperty;
+  /** Typed as any because Box can literally be any HTML element */
+  ref?: any | null;
 }
 
 interface PseudoStylesProps {
