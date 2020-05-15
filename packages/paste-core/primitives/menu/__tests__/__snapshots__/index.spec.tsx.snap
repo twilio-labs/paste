@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu Primitive Render should render 1`] = `
+<DocumentFragment>
+  <button
+    aria-controls="menu-example"
+    aria-expanded="false"
+    aria-haspopup="menu"
+    type="button"
+  >
+    Code
+  </button>
+  <div
+    aria-label="Code"
+    aria-orientation="vertical"
+    data-dialog="true"
+    hidden=""
+    id="menu-example"
+    role="menu"
+    style="display: none;"
+    tabindex="-1"
+  >
+    <button
+      data-testid="example-menu-item"
+      id="menu-example-1"
+      role="menuitem"
+      tabindex="0"
+    >
+      About Visual Studio Code
+    </button>
+    <button
+      id="menu-example-2"
+      role="menuitem"
+      tabindex="-1"
+    >
+      Check for Updates...
+    </button>
+    <hr
+      aria-orientation="horizontal"
+      data-testid="example-menu-separator"
+      role="separator"
+    />
+    <button
+      aria-controls="sub-menu"
+      aria-expanded="false"
+      aria-haspopup="menu"
+      data-testid="example-submenu-trigger"
+      id="menu-example-3"
+      role="menuitem"
+      tabindex="-1"
+      type="button"
+    >
+      Preferences
+    </button>
+    <div
+      aria-label="Preferences"
+      aria-orientation="vertical"
+      data-dialog="true"
+      data-testid="example-submenu"
+      hidden=""
+      id="sub-menu"
+      role="menu"
+      style="display: none;"
+      tabindex="-1"
+    >
+      <button
+        data-testid="example-submenu-item"
+        id="sub-menu-1"
+        role="menuitem"
+        tabindex="0"
+      >
+        Settings
+      </button>
+      <button
+        aria-disabled="true"
+        data-testid="example-disabled-submenu-item"
+        disabled=""
+        id="sub-menu-2"
+        role="menuitem"
+        style="pointer-events: none;"
+      >
+        Extensions
+      </button>
+      <hr
+        aria-orientation="horizontal"
+        role="separator"
+      />
+      <button
+        id="sub-menu-3"
+        role="menuitem"
+        tabindex="-1"
+      >
+        Keyboard shortcuts
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
