@@ -42,6 +42,8 @@
     "@twilio-paste/heading": "^2.0.5",
     "@twilio-paste/list": "^0.2.6",
     "@twilio-paste/media-object": "^1.2.23",
+    "@twilio-paste/menu": "^0.0.0",
+    "@twilio-paste/menu-primitive": "^0.0.0",
     "@twilio-paste/modal": "^0.1.15",
     "@twilio-paste/modal-dialog-primitive": "^0.1.3",
     "@twilio-paste/paragraph": "^1.1.6",
