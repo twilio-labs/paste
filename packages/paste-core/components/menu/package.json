@@ -1,7 +1,69 @@
 {
   "name": "@twilio-paste/menu",
-  "version": "0.0.2",
+  "version": "0.0.0",
   "category": "interaction",
-  "status": "backlog",
-  "private": true
+  "status": "alpha",
+  "description": "A menu presents a list of menu items that a user can choose to perform an action with.",
+  "author": "Twilio Inc.",
+  "license": "MIT",
+  "main:dev": "src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn clean && yarn compile",
+    "build:dev": "yarn clean && yarn compile:dev",
+    "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
+    "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
+    "compile": "rollup -c --environment NODE_ENV:production",
+    "compile:dev": "rollup -cw --environment NODE_ENV:development",
+    "prepublishOnly": "yarn build",
+    "type-check": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@emotion/core": "^10.0.10",
+    "@emotion/styled": "^10.0.14",
+    "@styled-system/css": "^5.1.5",
+    "@styled-system/theme-get": "^5.1.2",
+    "@twilio-paste/absolute": "^2.0.36",
+    "@twilio-paste/box": "^2.4.4",
+    "@twilio-paste/button": "^1.1.45",
+    "@twilio-paste/design-tokens": "^5.1.0",
+    "@twilio-paste/icons": "^2.1.6",
+    "@twilio-paste/media-object": "^1.2.23",
+    "@twilio-paste/menu-primitive": "^0.0.0",
+    "@twilio-paste/reakit-library":"^0.1.0",
+    "@twilio-paste/spinner": "^1.2.7",
+    "@twilio-paste/style-props": "^1.1.6",
+    "@twilio-paste/text": "^2.1.6",
+    "@twilio-paste/theme": "^3.1.6",
+    "@twilio-paste/types": "^3.0.6",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-uid": "^2.2.0",
+    "styled-system": "^5.1.2"
+  },
+  "devDependencies": {
+    "@twilio-paste/absolute": "^2.0.36",
+    "@twilio-paste/box": "^2.4.4",
+    "@twilio-paste/button": "^1.1.45",
+    "@twilio-paste/design-tokens": "^5.1.0",
+    "@twilio-paste/icons": "^2.1.6",
+    "@twilio-paste/media-object": "^1.2.23",
+    "@twilio-paste/menu-primitive": "^0.0.0",
+    "@twilio-paste/reakit-library":"^0.1.0",
+    "@twilio-paste/spinner": "^1.2.7",
+    "@twilio-paste/style-props": "^1.1.6",
+    "@twilio-paste/text": "^2.1.6",
+    "@twilio-paste/theme": "^3.1.6",
+    "@twilio-paste/types": "^3.0.6"
+  }
 }

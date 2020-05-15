@@ -1,0 +1,345 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu  Render should render 1`] = `
+<DocumentFragment>
+  .emotion-1 {
+  position: relative;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: inset 0 0 0;
+  width: auto;
+}
+
+.emotion-1::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-1:hover,
+.emotion-1:focus,
+.emotion-1:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-1:hover {
+  box-shadow: inset 0 0 0;
+}
+
+.emotion-1:focus {
+  box-shadow: inset 0 0 0  ,;
+}
+
+.emotion-1:active {
+  box-shadow: inset 0 0 0  ,;
+}
+
+.emotion-0 {
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  -webkit-text-decoration: inherit;
+  text-decoration: inherit;
+  opacity: 100%;
+}
+
+<button
+    aria-busy="false"
+    aria-controls="menu-example"
+    aria-expanded="false"
+    aria-haspopup="menu"
+    class="emotion-1"
+    type="button"
+  >
+    <span
+      class="emotion-0"
+    >
+      Code
+    </span>
+  </button>
+  .emotion-6 {
+  position: relative;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  outline: none;
+  background: none;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: inset 0 0 0;
+  width: auto;
+}
+
+.emotion-6::-moz-focus-inner {
+  border: none;
+}
+
+.emotion-6:hover,
+.emotion-6:focus,
+.emotion-6:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-6:hover {
+  box-shadow: inset 0 0 0;
+}
+
+.emotion-6:focus {
+  box-shadow: inset 0 0 0  ,;
+}
+
+.emotion-6:active {
+  box-shadow: inset 0 0 0  ,;
+}
+
+.emotion-5 {
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  -webkit-text-decoration: inherit;
+  text-decoration: inherit;
+  opacity: 100%;
+}
+
+.emotion-14 {
+  box-sizing: border-box;
+  background-color: colorBackgroundBody;
+  border-style: solid;
+  border-width: borderWidth10;
+  border-color: colorBorderLight;
+  border-radius: borderRadius20;
+  box-shadow: shadowCard;
+  max-width: size30;
+  min-width: size30;
+  z-index: zIndex10;
+}
+
+.emotion-14:focus {
+  outline: none;
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  padding: space30;
+  padding-left: space50;
+  padding-right: space50;
+}
+
+.emotion-1:hover {
+  cursor: pointer;
+}
+
+.emotion-1:focus {
+  outline: none;
+  background-color: colorBackgroundPrimaryLightest;
+}
+
+.emotion-1:disabled,
+.emotion-1:disabled:focus,
+.emotion-1:disabled:hover,
+.emotion-1[aria-disabled=true],
+.emotion-1[aria-disabled=true]:focus,
+.emotion-1[aria-disabled=true]:hover {
+  cursor: not-allowed;
+}
+
+.emotion-0 {
+  margin: 0;
+  padding: 0;
+  color: colorTextLink;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  font-size: fontSize30;
+  line-height: lineHeight30;
+}
+
+.emotion-4 {
+  box-sizing: border-box;
+  margin: space0;
+  border-width: borderWidth0;
+  border-color: colorBorderLight;
+  border-style: solid;
+  border-bottom-width: borderWidth20;
+  width: auto;
+}
+
+.emotion-9 {
+  margin: 0;
+  padding: 0;
+  color: colorTextWeaker;
+  font-size: fontSize30;
+  line-height: lineHeight30;
+}
+
+.emotion-2 {
+  margin: 0;
+  padding: 0;
+  color: colorTextLink;
+  font-size: fontSize30;
+  line-height: lineHeight30;
+}
+
+<div
+    aria-label="Code"
+    aria-orientation="vertical"
+    class="emotion-14"
+    data-dialog="true"
+    hidden=""
+    id="menu-example"
+    role="menu"
+    style="display: none;"
+    tabindex="-1"
+  >
+    <div
+      class="emotion-1"
+      data-testid="example-menu-item"
+      id="menu-example-1"
+      role="menuitem"
+      tabindex="0"
+    >
+      <div
+        class="emotion-0"
+        color="colorTextLink"
+        font-size="fontSize30"
+        text-decoration="underline"
+      >
+        About Visual Studio Code
+      </div>
+    </div>
+    <div
+      class="emotion-1"
+      id="menu-example-2"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <div
+        class="emotion-2"
+        color="colorTextLink"
+        font-size="fontSize30"
+      >
+        Check for Updates...
+      </div>
+    </div>
+    <hr
+      aria-orientation="horizontal"
+      class="emotion-4"
+      data-testid="example-menu-separator"
+      role="separator"
+      width="auto"
+    />
+    <button
+      aria-busy="false"
+      aria-controls="sub-menu"
+      aria-expanded="false"
+      aria-haspopup="menu"
+      class="emotion-6"
+      data-testid="example-submenu-trigger"
+      id="menu-example-3"
+      role="menuitem"
+      tabindex="-1"
+      type="button"
+    >
+      <span
+        class="emotion-5"
+      >
+        Preferences
+      </span>
+    </button>
+    <div
+      aria-label="Preferences"
+      aria-orientation="vertical"
+      class="emotion-14"
+      data-dialog="true"
+      data-testid="example-submenu"
+      hidden=""
+      id="sub-menu"
+      role="menu"
+      style="display: none;"
+      tabindex="-1"
+    >
+      <div
+        class="emotion-1"
+        data-testid="example-submenu-item"
+        id="sub-menu-1"
+        role="menuitem"
+        tabindex="0"
+      >
+        <div
+          class="emotion-0"
+          color="colorTextLink"
+          font-size="fontSize30"
+          text-decoration="underline"
+        >
+          Settings
+        </div>
+      </div>
+      <div
+        aria-disabled="true"
+        class="emotion-1"
+        data-testid="example-disabled-submenu-item"
+        id="sub-menu-2"
+        role="menuitem"
+      >
+        <div
+          class="emotion-9"
+          color="colorTextWeaker"
+          font-size="fontSize30"
+        >
+          Extensions
+        </div>
+      </div>
+      <hr
+        aria-orientation="horizontal"
+        class="emotion-4"
+        role="separator"
+        width="auto"
+      />
+      <div
+        class="emotion-1"
+        id="sub-menu-3"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <div
+          class="emotion-2"
+          color="colorTextLink"
+          font-size="fontSize30"
+        >
+          Keyboard shortcuts
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
