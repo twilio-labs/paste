@@ -49,70 +49,62 @@ const getButtonState = (disabled?: boolean, loading?: boolean): ButtonStates => 
   return 'default';
 };
 
-const Button: React.FC<ButtonProps> = ({
-  as,
-  children,
-  disabled,
-  fullWidth,
-  href,
-  loading,
-  size,
-  tabIndex,
-  variant,
-  ...props
-}) => {
-  const buttonState = getButtonState(disabled, loading);
-  const showLoading = buttonState === 'loading';
-  const showDisabled = buttonState !== 'default';
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({as, children, disabled, fullWidth, href, loading, size, tabIndex, variant, ...props}, ref) => {
+    const buttonState = getButtonState(disabled, loading);
+    const showLoading = buttonState === 'loading';
+    const showDisabled = buttonState !== 'default';
 
-  // If size isn't passed, come up with a smart default:
-  // - 'reset' for variant 'link'
-  // - 'icon' if there's 1 child that's an icon
-  // - 'default' otherwise
-  let defaultSize = size;
-  if (defaultSize == null) {
-    defaultSize = 'default';
+    // If size isn't passed, come up with a smart default:
+    // - 'reset' for variant 'link'
+    // - 'icon' if there's 1 child that's an icon
+    // - 'default' otherwise
+    let defaultSize = size;
+    if (defaultSize == null) {
+      defaultSize = 'default';
 
-    if (variant === 'link' || variant === 'destructive_link') {
-      defaultSize = 'reset';
-    } else if (React.Children.count(children) === 1) {
-      React.Children.forEach(children, child => {
-        if (React.isValidElement(child)) {
-          // @ts-ignore
-          if (typeof child.type.displayName === 'string' && child.type.displayName.includes('Icon')) {
-            defaultSize = 'icon';
+      if (variant === 'link' || variant === 'destructive_link') {
+        defaultSize = 'reset';
+      } else if (React.Children.count(children) === 1) {
+        React.Children.forEach(children, child => {
+          if (React.isValidElement(child)) {
+            // @ts-ignore
+            if (typeof child.type.displayName === 'string' && child.type.displayName.includes('Icon')) {
+              defaultSize = 'icon';
+            }
           }
-        }
-      });
+        });
+      }
     }
+
+    handlePropValidation(children, variant, as, fullWidth, href, size, tabIndex);
+
+    return (
+      <ButtonWrapper
+        aria-busy={buttonState === 'loading' ? 'true' : 'false'}
+        as={as}
+        buttonState={buttonState}
+        disabled={showDisabled}
+        fullWidth={fullWidth}
+        href={href}
+        size={defaultSize}
+        tabIndex={tabIndex}
+        variant={variant}
+        {...props}
+        className={undefined}
+        style={undefined}
+        ref={ref}
+      >
+        <ButtonChildren buttonState={buttonState}>{children}</ButtonChildren>
+        {showLoading ? (
+          <SpinnerWrapper as="span">
+            <Spinner decorative={false} title="Loading, please wait." delay={0} />
+          </SpinnerWrapper>
+        ) : null}
+      </ButtonWrapper>
+    );
   }
-
-  handlePropValidation(children, variant, as, fullWidth, href, size, tabIndex);
-
-  return (
-    <ButtonWrapper
-      aria-busy={buttonState === 'loading' ? 'true' : 'false'}
-      as={as}
-      buttonState={buttonState}
-      disabled={showDisabled}
-      fullWidth={fullWidth}
-      href={href}
-      size={defaultSize}
-      tabIndex={tabIndex}
-      variant={variant}
-      {...props}
-      className={undefined}
-      style={undefined}
-    >
-      <ButtonChildren buttonState={buttonState}>{children}</ButtonChildren>
-      {showLoading ? (
-        <SpinnerWrapper as="span">
-          <Spinner decorative={false} title="Loading, please wait." delay={0} />
-        </SpinnerWrapper>
-      ) : null}
-    </ButtonWrapper>
-  );
-};
+);
 
 Button.defaultProps = {
   as: 'button',
