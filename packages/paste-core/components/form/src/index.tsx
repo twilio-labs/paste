@@ -10,3 +10,4 @@ export * from './CheckboxDisclaimer';
 export * from './select/Select';
 export * from './select/Option';
 export * from './select/OptionGroup';
+export * from './shared/FormControlWrapper';
