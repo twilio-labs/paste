@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/animation-library@0.1.0...@twilio-paste/animation-library@0.1.1) (2020-05-19)
+
+
+### Bug Fixes
+
+* **animation-library:** several tweaks, making package public ([0c6c17d](https://github.com/twilio-labs/paste/commit/0c6c17d64b2af86ed199401e338b7d0475c19af1))
+
+
+
+
+
 # 0.1.0 (2020-05-19)
 
 
