@@ -1,3 +1,3 @@
 # Paste Animation
 
-Wrapper around [React-Spring v9](https://github.com/react-spring/react-spring/tree/v9)
+Wrapper around [React-Spring](https://github.com/react-spring/react-spring)
