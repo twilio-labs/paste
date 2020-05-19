@@ -1,3 +1,6 @@
-import Downshift, {useCombobox} from 'downshift';
+import Downshift from 'downshift';
 
-export {Downshift, useCombobox};
+export * from 'downshift';
+
+// eslint-disable-next-line import/no-default-export
+export default Downshift;
