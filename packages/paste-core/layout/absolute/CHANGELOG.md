@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.37](https://github.com/twilio-labs/paste/compare/@twilio-paste/absolute@2.0.36...@twilio-paste/absolute@2.0.37) (2020-05-20)
+
+**Note:** Version bump only for package @twilio-paste/absolute
+
+
+
+
+
 ## [2.0.36](https://github.com/twilio-labs/paste/compare/@twilio-paste/absolute@2.0.35...@twilio-paste/absolute@2.0.36) (2020-05-07)
 
 **Note:** Version bump only for package @twilio-paste/absolute

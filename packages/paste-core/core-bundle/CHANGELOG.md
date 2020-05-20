@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.7.0...@twilio-paste/core@2.8.0) (2020-05-20)
+
+
+### Features
+
+* **core:** add menu and menu primitive ([eef81b2](https://github.com/twilio-labs/paste/commit/eef81b20b9a1adcd6442d18da23ddc69df122388))
+
+
+
+
+
 # [2.7.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.6.0...@twilio-paste/core@2.7.0) (2020-05-20)
 
 

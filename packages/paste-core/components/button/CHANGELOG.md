@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.1.45...@twilio-paste/button@1.2.0) (2020-05-20)
+
+
+### Features
+
+* **button:** expose button ref ([469694a](https://github.com/twilio-labs/paste/commit/469694af3899d05f7d54fd66f13a7d32a23792d2))
+
+
+
+
+
 ## [1.1.45](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.1.44...@twilio-paste/button@1.1.45) (2020-05-07)
 
 **Note:** Version bump only for package @twilio-paste/button

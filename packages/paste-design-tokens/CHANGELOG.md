@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@5.1.0...@twilio-paste/design-tokens@5.2.0) (2020-05-20)
+
+
+### Features
+
+* **design-tokens:** create color-text-weaker token ([3c63e32](https://github.com/twilio-labs/paste/commit/3c63e32a00fac5d3750f8b177759ae1862761802))
+
+
+
+
+
 # [5.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@5.0.0...@twilio-paste/design-tokens@5.1.0) (2020-05-07)
 
 
