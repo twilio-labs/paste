@@ -1,2 +1,21 @@
 // https://reakit.io/docs/disclosure/
-export {useDisclosureState, Disclosure, DisclosureContent} from 'reakit';
+export {
+  useDisclosureState,
+  Disclosure,
+  DisclosureContent,
+  useMenuState,
+  Menu,
+  MenuProps,
+  MenuGroup,
+  MenuGroupProps,
+  MenuItem,
+  MenuItemProps,
+  MenuItemCheckbox,
+  MenuItemCheckboxProps,
+  MenuItemRadio,
+  MenuItemRadioProps,
+  MenuButton,
+  MenuButtonProps,
+  MenuSeparator,
+  MenuSeparatorProps,
+} from 'reakit';
