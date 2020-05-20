@@ -18,6 +18,9 @@
       "path": "../../paste-icons"
     },
     {
+      "path": "../../paste-libraries/reakit"
+    },
+    {
       "path": "../../paste-style-props"
     },
     {
