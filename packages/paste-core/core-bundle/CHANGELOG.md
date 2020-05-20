@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.6.0...@twilio-paste/core@2.7.0) (2020-05-20)
+
+
+### Features
+
+* **core:** add disclosure primitive dep and reakit-library peerDep ([f9cd5e0](https://github.com/twilio-labs/paste/commit/f9cd5e05ea24da304834c6a2922ac5d89a522308))
+
+
+
+
+
 # [2.6.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.5.5...@twilio-paste/core@2.6.0) (2020-05-13)
 
 
