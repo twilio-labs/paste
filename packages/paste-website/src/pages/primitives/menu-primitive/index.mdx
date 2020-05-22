@@ -1,6 +1,7 @@
 ---
 title: Menu - Primitives
 description: An unstyled and accessible basis upon which to build Menus.
+slug: /primitives/menu-primitive/
 ---
 
 import {graphql} from 'gatsby';
@@ -123,7 +124,7 @@ This primitive should be used to compose all custom menus to ensure accessibilit
 
 You can provide custom styling to the primitive menu by utilizing the `as` prop on each component.
 
-The menu primitive does not come with any styling, and thus you could mix the functionality of it with another component by using the _as_ prop. By doing so, you can get styling from another component, and menu functionality from this primitive. 
+The menu primitive does not come with any styling, and thus you could mix the functionality of it with another component by using the _as_ prop. By doing so, you can get styling from another component, and menu functionality from this primitive.
 
 Because these are not styled, rendering any of them _as_ another component you can mix the functionality of two components together. Styling from one, menu functionlity from the primitive component.
 
@@ -160,7 +161,8 @@ This package is a wrapper around the [Reakit Menu](https://reakit.io/docs/menu/)
   <CalloutText>
     Reakit includes a menubar which we are not exposing. The reason being is that a menubar is directly aligned to the
     desktop software menubar you see at the top of your screen. These have limited use cases on the web unless you're
-    building a desktop replacement like Figma or Google Docs. We may reconsider this in the future if we see a good use for this.
+    building a desktop replacement like Figma or Google Docs. We may reconsider this in the future if we see a good use
+    for this.
     <Img fluid={props.data.menuBarExample.childImageSharp.fluid} />
   </CalloutText>
 </Callout>

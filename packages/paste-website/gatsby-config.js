@@ -4,6 +4,10 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+const queries = require('./src/utils/algolia');
+
+require('dotenv').config();
+
 module.exports = {
   siteMetadata: {
     title: 'Paste',
@@ -167,6 +171,16 @@ module.exports = {
         theme_color: `#f22f46`,
         display: `standalone`,
         icon: `static/favicon.png`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.GATSBY_ALGOLIA_ADMIN_KEY,
+        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
+        queries,
+        chunkSize: 10000,
       },
     },
   ],
