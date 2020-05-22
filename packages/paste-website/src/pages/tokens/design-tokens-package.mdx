@@ -2,6 +2,7 @@
 title: Design Tokens Package
 package: '@twilio-paste/design-tokens'
 description: The Paste Design Tokens package allows you to install design tokens in a variety of different formats (Web, Mobile, Sketch, etc.)
+slug: /tokens/design-tokens-package/
 ---
 
 import {graphql} from 'gatsby';
@@ -9,9 +10,7 @@ import {Box} from '@twilio-paste/box';
 import Changelog from '@twilio-paste/design-tokens/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
-import { Link } from "gatsby"
-
-
+import {Link} from 'gatsby';
 
 export const pageQuery = graphql`
   {
@@ -24,7 +23,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: { slug: { eq: "/tokens/design-tokens-package/" } }) {
+    mdx(fields: {slug: {eq: "/tokens/design-tokens-package/"}}) {
       headings {
         depth
         value
@@ -40,7 +39,7 @@ export const pageQuery = graphql`
   data={props.data.allPasteDesignTokensPackage.edges}
 />
 
-***
+---
 
 <contentwrapper>
 
@@ -53,7 +52,12 @@ The Paste design tokens are available as a NPM package which acts as the central
 ## Supported Formats
 
 <Callout>
-  <CalloutText>While the Paste Tokens Package supports the following formats, our roadmap <strong>currently prioritizes React Components and Sketch Libraries</strong> as primary deliverables of the Design System. Reach out to us at <em>#help-design-system</em> if you'd like to use Paste for another format: we'll help you out as much as we can!</CalloutText>
+  <CalloutText>
+    While the Paste Tokens Package supports the following formats, our roadmap{' '}
+    <strong>currently prioritizes React Components and Sketch Libraries</strong> as primary deliverables of the Design
+    System. Reach out to us at <em>#help-design-system</em> if you'd like to use Paste for another format: we'll help
+    you out as much as we can!
+  </CalloutText>
 </Callout>
 
 Paste Design Tokens are supported in the following formats within this package:
@@ -61,7 +65,7 @@ Paste Design Tokens are supported in the following formats within this package:
 - [JSON](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.json)
 - [Less](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.less)
 - SCSS
-  -  [as individual variables](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.default.scss)
+  - [as individual variables](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.default.scss)
   - [as a SCSS map](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.map.scss)
 - [CSS custom properties](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.custom-properties.css)
 - [Android XML](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/tokens.android.xml)
@@ -78,10 +82,10 @@ Paste Design Tokens are supported in the following formats within this package:
 
 Paste supports multiple themes. This is done by exporting the same token formats for each theme. Each file in the root of the design tokens package is exported for each theme with the corresponding values updated for each token. This allows different parts of Twilio to have their own visual styles whilst still maintaining a consistent Twilio feel, coherent component behavior, and preventing Design System bloat. Here's an example of Themes:
 
-| Paste (default) theme           | Console theme                   | SendGrid theme                  |
-|---------------------------------|---------------------------------|---------------------------------|
-| $color-brand-highlight: #F22F46 | $color-brand-highlight: #F22F46 | $color-brand-highlight: #3368FA |
-| $font-weight-semibold: 600      | $font-weight-semibold: 500      | $font-weight-semibold: 600      |
+| Paste (default) theme            | Console theme                    | SendGrid theme                   |
+| -------------------------------- | -------------------------------- | -------------------------------- |
+| \$color-brand-highlight: #F22F46 | \$color-brand-highlight: #F22F46 | \$color-brand-highlight: #3368FA |
+| \$font-weight-semibold: 600      | \$font-weight-semibold: 500      | \$font-weight-semibold: 600      |
 
 See our list of Tokens and their corresponding values in the <Link to="/tokens/">Token List</Link> page.
 
@@ -100,7 +104,7 @@ As you use Paste, you'll likely encounter things that _don't seem right_. Please
 - What information is missing?
 - How approachable is the documentation? Can a new engineer / PM / designer at Twilio get started with it easily?
 
-***
+---
 
 <Box marginTop="space90">
   <Changelog />

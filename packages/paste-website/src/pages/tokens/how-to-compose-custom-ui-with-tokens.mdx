@@ -1,6 +1,7 @@
 ---
 title: How to build custom UI with Paste Tokens and Primitives
 description: You may encounter times where you are required to build an experience that isn't covered by out of the box Paste components. This guide aims to help you create custom experiences while still using the design system.
+slug: /tokens/how-to-compose-custom-ui-with-tokens/
 ---
 
 import {graphql} from 'gatsby';
@@ -10,7 +11,7 @@ import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: { slug: { eq: "/tokens/how-to-compose-custom-ui-with-tokens/" } }) {
+    mdx(fields: {slug: {eq: "/tokens/how-to-compose-custom-ui-with-tokens/"}}) {
       headings {
         depth
         value
@@ -29,7 +30,7 @@ export const pageQuery = graphql`
 
 <p>{props.pageContext.frontmatter.description}</p>
 
-***
+---
 
 ## Why would I need to build Custom Components?
 

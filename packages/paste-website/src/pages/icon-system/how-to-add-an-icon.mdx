@@ -1,6 +1,7 @@
 ---
 title: How to add an icon
 description: Guidelines on how to create and export SVG icons for Paste.
+slug: /icon-system/how-to-add-an-icon/
 ---
 
 import {graphql} from 'gatsby';
@@ -47,6 +48,7 @@ export const pageQuery = graphql`
       and skip to [Using a Streamline icon](/icon-system/how-to-add-an-icon#using-a-streamline-icon).
 
 ## Setting up an icon in Paste Icons
+
 Written for Sketch 59.1
 
 1. Open "paste icons.sketch".
@@ -56,21 +58,17 @@ Written for Sketch 59.1
 4. Turn the new artboard into a symbol.
 5. In the artboard name, replace "IconName" with the name of your icon.
 
-
 <Callout>
-   <CalloutTitle>How to name icon artboards in Sketch</CalloutTitle>
-   <CalloutText>
-      Use PascalCase. For an interface icon, give the icon a name that describes its 
-      purpose rather than its content. For example, "LinkExternal" instead of 
-      "ArrowUpRight". 
-   </CalloutText>
-   <CalloutText>
-      If you're adding an icon used to brand a product, name it 
-      "product/[ProductName][SubproductName (optional)]". For example: 
-      "product/CodeExchangeCommunity".
-   </CalloutText>
+  <CalloutTitle>How to name icon artboards in Sketch</CalloutTitle>
+  <CalloutText>
+    Use PascalCase. For an interface icon, give the icon a name that describes its purpose rather than its content. For
+    example, "LinkExternal" instead of "ArrowUpRight".
+  </CalloutText>
+  <CalloutText>
+    If you're adding an icon used to brand a product, name it "product/[ProductName][SubproductName (optional)]". For
+    example: "product/CodeExchangeCommunity".
+  </CalloutText>
 </Callout>
-
 
 ## Using a Streamline icon
 
@@ -113,7 +111,7 @@ Written for Sketch 59.1
    2. You shouldn’t see `transform`. If you do, flatten your shape.
    3. You should see `width=”24" height="24"`. If you don’t, check that the artboard you’re
       exporting is 24px × 24px and that you’re exporting the artboard, not the layer.
-4. If you're adding an icon used to brand a product, add the word "Product" to the 
+4. If you're adding an icon used to brand a product, add the word "Product" to the
    beginning of the SVG file name. For example: "ProductCodeExchangeCommunity".
 5. Commit your changes in Abstract and request a review from the Paste design team.
 
@@ -140,7 +138,6 @@ There are two ways for icons to be added into the `@twilio-paste/icons` code pac
 6. From the root Paste folder, run the following command in your terminal: `yarn workspace @twilio-paste/icons convert`
 7. Verify your new icons were added correctly by checking the `packages/paste-icons/src` folder to see the newly created source files.
 8. Commit your changes and submit a new PR on Github!
-
 
 ## Troubleshooting
 

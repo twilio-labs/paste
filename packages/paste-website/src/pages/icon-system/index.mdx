@@ -1,6 +1,7 @@
 ---
 title: Icon Usage Guidelines
 description: Overview on how to use icons in the context of Paste projects.
+slug: /icon-system/
 ---
 
 import {graphql} from 'gatsby';
@@ -33,18 +34,19 @@ export const pageQuery = graphql`
 
 <content>
 
-
 <h1>{props.pageContext.frontmatter.title}</h1>
 
 <Callout>
   <CalloutText>
-    You can view and play with icons on <Anchor href="https://twilio-labs.github.io/paste/?path=/story/overview-icons--list">our storybook icon list</Anchor>.
-    Our icon set is still limited, and more will be added over time. Please{' '}
-    <Anchor href="https://github.com/twilio-labs/paste/issues">file an icon request</Anchor> or
-    follow the guide on <Anchor href="/icon-system/how-to-add-an-icon">how to add an icon</Anchor>.
+    You can view and play with icons on{' '}
+    <Anchor href="https://twilio-labs.github.io/paste/?path=/story/overview-icons--list">
+      our storybook icon list
+    </Anchor>
+    . Our icon set is still limited, and more will be added over time. Please{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/issues">file an icon request</Anchor> or follow the guide on{' '}
+    <Anchor href="/icon-system/how-to-add-an-icon">how to add an icon</Anchor>.
   </CalloutText>
 </Callout>
-
 
 Icons are small graphical representation of a program or a function. They can be used to enhance the
 appearance of a web interface and break up the monotony of text.
@@ -52,14 +54,13 @@ appearance of a web interface and break up the monotony of text.
 Use an icon only when it provides additional clarity or is necessary to draw attention to a UI element.
 If an icon is used to indicate hierarchy of a UI element, all elements at the same hierarchy should also be paired with an icon.
 
-
 ## Accessibility
 
 ### Specify if an icon is decorative
 
-Icons can either be **decorative** or **informative**. *"Decorative icons don’t add information to the content
+Icons can either be **decorative** or **informative**. _"Decorative icons don’t add information to the content
 of a page. The information provided by the image might already be given using adjacent text, or the image
-might be included to make the website more visually attractive."* (<Anchor href="https://www.w3.org/WAI/tutorials/images/decorative/">w3.org</Anchor>)
+might be included to make the website more visually attractive."_ (<Anchor href="https://www.w3.org/WAI/tutorials/images/decorative/">w3.org</Anchor>)
 
 Our icons require the developer define whether an icon is decorative by [providing the required property](/icon-system#making-an-icon-decorative-or-informative).
 
@@ -78,7 +79,6 @@ A title is required so assistive technology can infer equal meaning as a sighted
   </Dont>
 </DoDont>
 
-
 ### Pair icons with text
 
 Remember that different cultures may interpret the same image in different ways so despite our best intentions it is helpful to provide adjoining text.
@@ -93,7 +93,6 @@ Remember that different cultures may interpret the same image in different ways 
   </Dont>
 </DoDont>
 
-
 ### Icons shouldn't be interactive
 
 Icons should not have interactions such as click or hover behavior. Instead they should be wrapped with an
@@ -107,12 +106,15 @@ interactive element such as [Button](/components/button) and [Anchor](/component
     </Button>
   </Do>
   <Dont title="Avoid" body="Avoid making icons interactive without an interactive metaphor." center>
-    <div onClick={() => {alert(`This isn't a great user experience.`)}}>
+    <div
+      onClick={() => {
+        alert(`This isn't a great user experience.`);
+      }}
+    >
       <PlusIcon decorative={false} title="Add to cart" />
     </div>
   </Dont>
 </DoDont>
-
 
 ## Examples
 
@@ -135,7 +137,6 @@ Alternatively, icons can inherit the current text color.
 </Text>`}
 </LivePreview>
 
-
 #### Resizing icons
 
 Icons accept one of our `sizeIcon` [tokens](/tokens/#sizings).
@@ -149,10 +150,9 @@ Icons accept one of our `sizeIcon` [tokens](/tokens/#sizings).
 </Text>`}
 </LivePreview>
 
-
 #### Making an icon decorative or informative
 
-If an icon is decorative, no title is necessary.  However, if an icon isn't decorative,
+If an icon is decorative, no title is necessary. However, if an icon isn't decorative,
 you must provide a title property.
 
 <LivePreview scope={{Text, PlusIcon}} language="jsx">
@@ -182,7 +182,7 @@ import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 <Button variant="secondary" size="small" onClick={() => {}}>
   <PlusIcon decorative={true} />
   Add to cart
-</Button>
+</Button>;
 ```
 
 ### Props
@@ -192,12 +192,10 @@ import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 | as?        | string    | The HTML tag to replace the default `<button>` tag.                                                                                                   | `span`         |
 | title?     | string    | The accessibility text that is read when screenreaders get to this component.                                                                         |                |
 | decorative | boolean   | Whether or not the SVG is just visual flair or adds meaning to the page. Specifically for screenreaders to know whether to read out the title or not. |                |
-| size?      | IconSize  | `sizeIcon10` `sizeIcon20` `sizeIcon30` `sizeIcon40`                                                                                                                | `sizeIcon20`   |
+| size?      | IconSize  | `sizeIcon10` `sizeIcon20` `sizeIcon30` `sizeIcon40`                                                                                                   | `sizeIcon20`   |
 | iconColor? | TextColor | Sets the icon color to any of our text color tokens or `currentColor`, which inherits text color from the parent element.                             | `currentColor` |
 
-
 ---
-
 
 ## Icon Format
 
@@ -225,8 +223,6 @@ Curious why we chose to make React component icons? Check our [write-up document
 <Box marginTop="space90">
   <Changelog />
 </Box>
-
-
 
 </content>
 </contentwrapper>

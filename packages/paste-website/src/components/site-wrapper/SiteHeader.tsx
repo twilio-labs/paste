@@ -1,10 +1,12 @@
 import * as React from 'react';
 import {Flex} from '@twilio-paste/flex';
+import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Anchor} from '@twilio-paste/anchor';
 import {useTheme} from '@twilio-paste/theme';
 import {Absolute} from '@twilio-paste/absolute';
 import {ThemeSwitcher} from '../ThemeSwitcher';
+import {Search} from '../search';
 import {ContactUsMenu} from '../ContactUsMenu';
 import GithubIcon from '../icons/GithubIcon';
 import {SIDEBAR_WIDTH, HEADER_HEIGHT} from './constants';
@@ -33,6 +35,9 @@ export const SiteHeader: React.FC<{}> = () => {
       <Flex hAlignContent="between" vAlignContent="center">
         <ThemeSwitcher />
         <Stack orientation="horizontal" spacing="space60">
+          <Box minWidth="size40">
+            <Search />
+          </Box>
           <ContactUsMenu />
           <Stack orientation="horizontal" spacing="space30">
             <span>v{version}</span>

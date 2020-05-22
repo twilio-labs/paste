@@ -2,10 +2,20 @@
 title: Select - Form Elements
 package: '@twilio-paste/form'
 description: A select allows users to select an option from a list in a form field.
+slug: /form-elements/select/
 ---
 
 import {graphql} from 'gatsby';
-import {FormLabel, FormHelpText, FormInput, Select, Option, OptionGroup, CheckboxGroup, Checkbox} from '@twilio-paste/form';
+import {
+  FormLabel,
+  FormHelpText,
+  FormInput,
+  Select,
+  Option,
+  OptionGroup,
+  CheckboxGroup,
+  Checkbox,
+} from '@twilio-paste/form';
 
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -73,8 +83,8 @@ Use a select when:
 <UnorderedList>
   <ListItem>You need a native picker experience, especially on mobile devices.</ListItem>
   <ListItem>
-    Users will be selecting from a list of 4-10 options, or a sorted list of highly familiar options (<em>e.g.</em>, alphabetical
-    list of states or countries).
+    Users will be selecting from a list of 4-10 options, or a sorted list of highly familiar options (<em>e.g.</em>,
+    alphabetical list of states or countries).
   </ListItem>
   <ListItem>You need the component to work out-of-the-box across all operating systems and browsers.</ListItem>
 </UnorderedList>
@@ -83,11 +93,15 @@ Use a combobox when:
 
 <UnorderedList>
   <ListItem>You need a Twilio-styled options list.</ListItem>
-  <ListItem>You need to show more than text in an option (<em>e.g.</em>, text paired with an icon).</ListItem>
-  <ListItem>You need placeholder text in the field to show an example option, rather than a pre-selected option.</ListItem>
   <ListItem>
-    Users would benefit from typeahead functionality (<em>e.g.</em>, autocomplete, search). For example, typeahead may be useful
-    when users need to select from a list of more than 10 options.
+    You need to show more than text in an option (<em>e.g.</em>, text paired with an icon).
+  </ListItem>
+  <ListItem>
+    You need placeholder text in the field to show an example option, rather than a pre-selected option.
+  </ListItem>
+  <ListItem>
+    Users would benefit from typeahead functionality (<em>e.g.</em>, autocomplete, search). For example, typeahead may
+    be useful when users need to select from a list of more than 10 options.
   </ListItem>
   <ListItem>You need to lazy load a much longer list of options to improve page load performance.</ListItem>
 </UnorderedList>
@@ -139,7 +153,7 @@ Use a combobox when:
 
 ### Base Select
 
-The base select is the input without any supporting elements (*e.g*., label, help text, etc).
+The base select is the input without any supporting elements (_e.g_., label, help text, etc).
 
 - **Options** — The list of items contained in a select
 - **Selected value** — (Optional) The value that appears in the select on page load. By default, this is the first option in the list.
@@ -169,7 +183,9 @@ The select component should include the base select, along with supporting eleme
 <Callout>
   <CalloutTitle as="h4">Hot accessibility tip</CalloutTitle>
   <CalloutText>
-    Make sure to connect the <inlineCode>FormLabel</inlineCode> to the <inlineCode>Select</inlineCode>. This is done with the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the select. Those two need to match.
+    Make sure to connect the <inlineCode>FormLabel</inlineCode> to the <inlineCode>Select</inlineCode>. This is done
+    with the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the select.
+    Those two need to match.
   </CalloutText>
 </Callout>
 
@@ -188,7 +204,7 @@ The select component should include the base select, along with supporting eleme
 ### Select with add-ons (prefix/suffix text or icons)
 
 - **Prefix/suffix text** - Text that can be used as a prefix or suffix to the value that is entered. Use prefix/suffix to help users format text.
-- **Icon** - Icons that can be placed in the same area as the prefix and suffix text. Icons should trigger an action (*e.g.*, opening a popover).
+- **Icon** - Icons that can be placed in the same area as the prefix and suffix text. Icons should trigger an action (_e.g._, opening a popover).
 
 <LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
   {`<>
@@ -228,7 +244,7 @@ The select component should include the base select, along with supporting eleme
 
 ### Select with default value
 
-To be consistent with <Anchor target="_blank" href="https://reactjs.org/docs/uncontrolled-components.html#default-values">React's documentation</Anchor> on best practices for native select elements, the <inlineCode>selected</inlineCode> attribute is not allowed in the API. 
+To be consistent with <Anchor target="_blank" href="https://reactjs.org/docs/uncontrolled-components.html#default-values">React's documentation</Anchor> on best practices for native select elements, the <inlineCode>selected</inlineCode> attribute is not allowed in the API.
 You can instead select a <inlineCode>defaultValue</inlineCode> property for the select.
 
 <LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
@@ -346,7 +362,6 @@ If you want to show information that can’t be edited, use a [read-only Input](
 </>`}
 </LivePreview>
 
-
 ## Composition Notes
 
 A select field should be composed with at least a label and a select.
@@ -380,7 +395,7 @@ Keep option text concise and simple. Option text will truncate when it’s longe
 
 Use a safe and reversible option as the default selected value, or an option that tells users to choose from the list. For example, on page load, a select could show “Choose category" as the default value if there’s no safe default.
 
-Use 4-10 options in a select, or a sorted list of highly familiar options (*e.g.*, alphabetical list of states), since selects don’t allow for searching or filtering through options. Sort options logically (*e.g.*, alphabetically, by value) or in an order that’s intuitive to your user.
+Use 4-10 options in a select, or a sorted list of highly familiar options (_e.g._, alphabetical list of states), since selects don’t allow for searching or filtering through options. Sort options logically (_e.g._, alphabetically, by value) or in an order that’s intuitive to your user.
 
 ### Labels and help text
 
@@ -410,7 +425,7 @@ Ask for information only when needed. Consider removing the field otherwise.
 
 In a form where there are fewer optional fields than required, use an optional indicator to show users which fields they don’t have to fill out. Otherwise, use required indicators to show users which fields they must fill out.
 
-If a field is required and there’s no safe default selected value, default to a disabled option that tells users to choose an option (*e.g.*, “Choose categories”). However, if the field is optional and there’s no safe default, keep the option enabled so that users can unselect.
+If a field is required and there’s no safe default selected value, default to a disabled option that tells users to choose an option (_e.g._, “Choose categories”). However, if the field is optional and there’s no safe default, keep the option enabled so that users can unselect.
 
 ### Validation
 
@@ -431,9 +446,7 @@ Error text should:
     Be actionable. Explain how to fix an error and if reasonable, why it happened so that it might also be prevented in
     the future.
   </ListItem>
-  <ListItem>
-    Be concise and simple. Avoid jargon. Try to keep error text to 2 sentences or fewer.
-  </ListItem>
+  <ListItem>Be concise and simple. Avoid jargon. Try to keep error text to 2 sentences or fewer.</ListItem>
   <ListItem>
     Use the passive voice for input errors to avoid placing blame on the user. For example, “A friendly name is
     required.”
@@ -447,7 +460,7 @@ Error text should:
 ### Optional compositional elements
 
 - **Prefix/suffix** — Use a prefix or suffix to help users format their input and to provide more context about the value a user is entering. For example, you could prefix or suffix a field with a currency symbol. Make sure to consider internationalization when using prefixes or suffixes since formatting may differ across languages. For example, currency symbols are placed on the left in American English, while they're placed on the right in French. Don't use prefix/suffix text as a replacement for a label.
-- **Icon** — Use an icon if you need to give the user additional controls for the field. For example, use an icon to clear a field on click, removing the need for users to manually delete their entered value. Place icon buttons that trigger an action on the right side of the field. If you need 2 actions on a field (*e.g.*, popover trigger and clear field), place the icon button that affects the field value on the right, and the other icon on the left.
+- **Icon** — Use an icon if you need to give the user additional controls for the field. For example, use an icon to clear a field on click, removing the need for users to manually delete their entered value. Place icon buttons that trigger an action on the right side of the field. If you need 2 actions on a field (_e.g._, popover trigger and clear field), place the icon button that affects the field value on the right, and the other icon on the left.
 
 ## When to use a Select
 
@@ -534,7 +547,7 @@ Use a select when:
     title="Do"
     body="Keep option text concise and simple. If choosing options require more explanation, expand in help text or consider using a checkbox instead."
   >
-      <Box width="100%" padding="space60">
+    <Box width="100%" padding="space60">
       <FormLabel htmlFor="option_text_do">HTTP method</FormLabel>
       <Select id="option_text_do" name="option_text_do" onChange="">
         <Option value="get">GET</Option>
@@ -548,23 +561,21 @@ Use a select when:
     title="Don't"
     body="Avoid long option text that may truncate if it’s longer than the width of the container."
   >
-      <Box width="100%" padding="space60">
+    <Box width="100%" padding="space60">
       <FormLabel htmlFor="option_text_dont">Voice URL</FormLabel>
       <Select id="option_text_dont" name="option_text_dont" onChange="">
         <Option value="demo">{'https://demo.twilio.com/welcome/voice/'}</Option>
         <Option value="test-one">{'https://test.twilio.com/welcome/voice/long-test/too-long/text-continuing'}</Option>
-        <Option value="test-two">{'https://test.twilio.com/welcome/voice/long-test/too-long/text-continuing/still-continuing'}</Option>
+        <Option value="test-two">
+          {'https://test.twilio.com/welcome/voice/long-test/too-long/text-continuing/still-continuing'}
+        </Option>
       </Select>
-      </Box>
+    </Box>
   </Dont>
 </DoDont>
 
 <DoDont>
-  <Do
-    center
-    title="Do"
-    body="Keep help text and error text concise and simple."
-  >
+  <Do center title="Do" body="Keep help text and error text concise and simple.">
     <Box width="100%" padding="space60">
       <FormLabel htmlFor="help_text_length_do">HTTP method</FormLabel>
       <Select id="help_text_length_do" name="help_text_length_do" onChange="">
@@ -583,7 +594,10 @@ Use a select when:
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
       </Select>
-      <FormHelpText variant="default">HTTP action for voice webook. This will be used to manage an incoming call. Please also configure your fallback url and method in case the primary handler fails.</FormHelpText>
+      <FormHelpText variant="default">
+        HTTP action for voice webook. This will be used to manage an incoming call. Please also configure your fallback
+        url and method in case the primary handler fails.
+      </FormHelpText>
     </Box>
   </Dont>
 </DoDont>
@@ -601,7 +615,7 @@ Use a select when:
   </Do>
   <Dont center title="Don't" body="Don’t use prefix/suffix text as a replacement for a label.">
     <Box width="100%" padding="space60">
-      <Select id="use_label_dont" name="use_label_do" insertBefore={<span>HTTP</span>} onChange="" >
+      <Select id="use_label_dont" name="use_label_do" insertBefore={<span>HTTP</span>} onChange="">
         <Option value="get">GET</Option>
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
@@ -642,28 +656,21 @@ Use a select when:
 
 <DoDont>
   <Do center title="Do" body="Use a checkbox group to allow users to make multiple selections.">
-  <Box width="100%" padding="space60">
-     <CheckboxGroup
-      name="multiple_do"
-      legend="Select the clients you would like to test."
-    >
-      <Checkbox id="apple_mail" value="apple_mail">
-        Apple Mail
-      </Checkbox>
-      <Checkbox id="g_mail" value="g_mail">
-        GMail
-      </Checkbox>
-      <Checkbox id="outlook" value="outlook">
-        Outlook
-      </Checkbox>
-    </CheckboxGroup>
-  </Box>
+    <Box width="100%" padding="space60">
+      <CheckboxGroup name="multiple_do" legend="Select the clients you would like to test.">
+        <Checkbox id="apple_mail" value="apple_mail">
+          Apple Mail
+        </Checkbox>
+        <Checkbox id="g_mail" value="g_mail">
+          GMail
+        </Checkbox>
+        <Checkbox id="outlook" value="outlook">
+          Outlook
+        </Checkbox>
+      </CheckboxGroup>
+    </Box>
   </Do>
-  <Dont
-    center
-    title="Don't"
-    body="When possible, avoid allowing multiple selection on a select component."
-  >
+  <Dont center title="Don't" body="When possible, avoid allowing multiple selection on a select component.">
     <Box width="100%" padding="space60">
       <FormLabel htmlFor="multiple_dont">Select the clients you would like to test</FormLabel>
       <Select multiple size="3" id="multiple_dont" name="multiple_dont" onChange="">
@@ -752,9 +759,7 @@ Use a select when:
     </tr>
     <tr>
       <td>Help text</td>
-      <td>
-        $color-text-weak, $font-size-30
-      </td>
+      <td>$color-text-weak, $font-size-30</td>
       <td>No</td>
     </tr>
     <tr>
@@ -771,25 +776,29 @@ Use a select when:
       <td>Spacing</td>
       <td>
         <UnorderedList marginBottom="space0">
-          <ListItem>Label:
+          <ListItem>
+            Label:
             <UnorderedList marginBottom="space0">
               <ListItem>Bottom: $space-10</ListItem>
               <ListItem>Between label and required indicator: $space-20</ListItem>
             </UnorderedList>
           </ListItem>
-          <ListItem>Input:
+          <ListItem>
+            Input:
             <UnorderedList marginBottom="space0">
               <ListItem>Left padding: $space-40</ListItem>
               <ListItem>Top, right, bottom padding: $space-30</ListItem>
             </UnorderedList>
           </ListItem>
           <ListItem>Prefix/suffix padding: $space-30</ListItem>
-          <ListItem>Help text:
+          <ListItem>
+            Help text:
             <UnorderedList marginBottom="space0">
               <ListItem>Top: $space-20</ListItem>
             </UnorderedList>
           </ListItem>
-          <ListItem>Inline error:
+          <ListItem>
+            Inline error:
             <UnorderedList marginBottom="space0">
               <ListItem>Spacing between icon and text: $space-20</ListItem>
               <ListItem>Top: $space-20</ListItem>
@@ -879,13 +888,13 @@ All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/W
 
 All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label">valid HTML attributes</Anchor> for `label` are supported including the following props:
 
-| Prop          | Type                | Description                                                              | Default   |
-| ------------- | ------------------- | ------------------------------------------------------------------------ | --------- |
-| children?     | `ReactNode`         |                                                                          | null      |
+| Prop          | Type                | Description                                                           | Default   |
+| ------------- | ------------------- | --------------------------------------------------------------------- | --------- |
+| children?     | `ReactNode`         |                                                                       | null      |
 | htmlFor       | string              | Sets the for of the label. Should match the id of `Select`. Required. | null      |
-| disabled?     | boolean             | Shows the input is disabled.                                             | false     |
-| required?     | boolean             | Shows the input is required.                                             | false     |
-| marginBottom? | 'space0', 'space10' |                                                                          | 'space10' |
+| disabled?     | boolean             | Shows the input is disabled.                                          | false     |
+| required?     | boolean             | Shows the input is required.                                          | false     |
+| marginBottom? | 'space0', 'space10' |                                                                       | 'space10' |
 
 #### FormHelpText Props
 
