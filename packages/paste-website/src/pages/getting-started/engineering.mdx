@@ -12,6 +12,9 @@ import {version as designTokensVersion} from '@twilio-paste/design-tokens/packag
 import {version as themeVersion} from '@twilio-paste/theme/package.json';
 import {version as coreVersion, dependencies as coreDependencies} from '@twilio-paste/core/package.json';
 import {version as iconsVersion} from '@twilio-paste/icons/package.json';
+import {version as animationVersion} from '@twilio-paste/animation-library/package.json';
+import {version as dropdownVersion} from '@twilio-paste/dropdown-library/package.json';
+import {version as reakitVersion} from '@twilio-paste/reakit-library/package.json';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 import {InlineCode} from '../../components/Typography';
 import Package from '../../../../../package.json';
@@ -140,13 +143,25 @@ Paste also requires these system dependencies:
       <td>@twilio-paste/icons</td>
       <td>{iconsVersion}</td>
     </tr>
+    <tr>
+      <td>@twilio-paste/animation-library</td>
+      <td>{animationVersion}</td>
+    </tr>
+    <tr>
+      <td>@twilio-paste/dropdown-library</td>
+      <td>{dropdownVersion}</td>
+    </tr>
+    <tr>
+      <td>@twilio-paste/reakit-library</td>
+      <td>{reakitVersion}</td>
+    </tr>
   </tbody>
 </table>
 
 Install them usings:
 
 ```shell
-yarn add @twilio-paste/types @twilio-paste/style-props @twilio-paste/design-tokens @twilio-paste/theme @twilio-paste/icons
+yarn add @twilio-paste/types @twilio-paste/style-props @twilio-paste/design-tokens @twilio-paste/theme @twilio-paste/icons @twilio-paste/animation-library @twilio-paste/dropdown-library @twilio-paste/reakit-library
 ```
 
 #### Install the Paste Core package
