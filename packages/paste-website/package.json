@@ -30,6 +30,7 @@
     "@twilio-paste/box": "^2.4.5",
     "@twilio-paste/button": "^1.2.0",
     "@twilio-paste/design-tokens": "^5.2.0",
+    "@twilio-paste/disclosure-primitive": "0.1.1",
     "@twilio-paste/flex": "^0.3.24",
     "@twilio-paste/form": "^1.4.1",
     "@twilio-paste/grid": "^0.2.26",
