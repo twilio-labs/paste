@@ -168,14 +168,14 @@ This package is a wrapper around the [Reakit Menu](https://reakit.io/docs/menu/)
 #### Installation
 
 ```bash
-yarn add @twilio-paste/menu-primitve - or - yarn add @twilio-paste/menu-primitve
+yarn add @twilio-paste/menu-primitve - or - yarn add @twilio-paste/core
 ```
 
 #### Props
 
 This props list is a scoped version of the properties available from the [Reakit Menu](https://reakit.io/docs/menu/) package. For a full list, visit the [Reakit](https://reakit.io/docs/menu/).
 
-##### useMenuState
+##### useMenuPrimitiveState
 
 | Prop        | Type                                                                                                                                               | Description                                                                                                   | Default |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------- |
@@ -190,36 +190,36 @@ This props list is a scoped version of the properties available from the [Reakit
 | placement   | `auto-start, auto, auto-end, top-start, top, top-end, right-start, right, right-end, bottom-end, bottom, bottom-start, left-end, left, left-start` |                                                                                                               |         |
 | gutter      | `number, undefined`                                                                                                                                | Offset between the reference and the popover on the main axis. Should not be combined with `unstable_offset`. |         |
 
-##### Menu
+##### MenuPrimitive
 
 | Prop               | Type                 | Description                                                    | Default |
 | ------------------ | -------------------- | -------------------------------------------------------------- | ------- |
 | hideOnClickOutside | `boolean, undefined` | When enabled, user can hide the dialog by clicking outside it. |         |
 | disabled           | `boolean, undefined` | Same as the HTML attribute.                                    |         |
 
-##### MenuArrow
+##### MenuPrimitiveArrow
 
 | Prop | Type                        | Description | Default |
 | ---- | --------------------------- | ----------- | ------- |
 | size | `string, number, undefined` |             |         |
 
-##### MenuButton
+##### MenuPrimitiveButton
 
 | Prop     | Type                 | Description                 | Default |
 | -------- | -------------------- | --------------------------- | ------- |
 | disabled | `boolean, undefined` | Same as the HTML attribute. |
 
-##### MenuDisclosure
+##### MenuPrimitiveDisclosure
 
 | Prop     | Type                 | Description                 | Default |
 | -------- | -------------------- | --------------------------- | ------- |
 | disabled | `boolean, undefined` | Same as the HTML attribute. |         |
 
-##### MenuGroup
+##### MenuPrimitiveGroup
 
 No props to show
 
-##### MenuItem
+##### MenuPrimitiveItem
 
 | Prop     | Type                 | Description                 | Default |
 | -------- | -------------------- | --------------------------- | ------- |
@@ -228,7 +228,7 @@ No props to show
 | onClick  | `() => void`         | Same as the HTML attribute. |         |
 | href     | `string, undefined`  | Same as the HTML attribute. |         |
 
-##### MenuItemCheckbox
+##### MenuPrimitiveItemCheckbox
 
 | Prop     | Type                        | Description                                                                                                                                        | Default |
 | -------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
@@ -238,7 +238,7 @@ No props to show
 | id       | `string, undefined`         | Same as the HTML attribute.                                                                                                                        |
 | name     | `string`                    | MenuItemCheckbox's name as in `menu.values`.                                                                                                       |
 
-##### MenuItemRadio
+##### MenuPrimitiveItemRadio
 
 | Prop     | Type                        | Description                                                                                                                                        | Default |
 | -------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
