@@ -4,19 +4,20 @@ import {Text} from '@twilio-paste/text';
 export interface ParagraphProps {
   id?: never;
   className?: never;
+  marginBottom?: 'space0';
 }
 
-const Paragraph: React.FC<ParagraphProps> = props => {
+const Paragraph: React.FC<ParagraphProps> = ({children, marginBottom}) => {
   return (
     <Text
       as="p"
-      marginBottom="space70"
+      marginBottom={marginBottom || 'space70'}
       fontSize="fontSize30"
       lineHeight="lineHeight30"
       fontWeight="fontWeightNormal"
       color="colorText"
     >
-      {props.children}
+      {children}
     </Text>
   );
 };

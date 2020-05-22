@@ -13,7 +13,7 @@ storiesOf('Components|Paragraph', module)
           Kale chips distillery authentic, portland etsy cloud bread vinyl gentrify drinking vinegar viral meh hot
           chicken bitters fashion axe palo santo. Chillwave fixie sustainable <i>helvetica</i> etsy.
         </Paragraph>
-        <Paragraph>
+        <Paragraph marginBottom="space0">
           Prism whatever ethical, gochujang <strong>edison bulb</strong> put a bird on it kitsch. Pop-up 90&apos;s la
           croix tumeric, palo santo chia try-hard direct trade tote bag roof party scenester kitsch stumptown
           intelligentsia. Literally heirloom blue bottle etsy.
