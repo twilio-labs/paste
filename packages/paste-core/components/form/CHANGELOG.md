@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.4.1...@twilio-paste/form@1.5.0) (2020-05-22)
+
+
+### Features
+
+* **form:** export styled InputElement, add FormControlWrapper ([04da812](https://github.com/twilio-labs/paste/commit/04da812cbe1e6e5ccbfa3c4553e5b6928eca6c3e))
+
+
+
+
+
 ## [1.4.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.4.0...@twilio-paste/form@1.4.1) (2020-05-20)
 
 **Note:** Version bump only for package @twilio-paste/form

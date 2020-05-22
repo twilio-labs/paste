@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox-primitive@0.1.0...@twilio-paste/combobox-primitive@0.1.1) (2020-05-22)
+
+
+### Bug Fixes
+
+* **combobox-primitive:** export combobox interface and props ([1fdf8ad](https://github.com/twilio-labs/paste/commit/1fdf8ad4eff28765d66f5f017c736c4ca6520202))
+
+
+
+
+
 # 0.1.0 (2020-05-13)
 
 
