@@ -9,6 +9,7 @@ import {
   ShadowProps,
   PositionProps,
   FlexboxProps,
+  TypographyProps,
 } from '@twilio-paste/style-props';
 import {
   CursorProperty,
@@ -68,6 +69,7 @@ export interface BaseBoxProps
   outline?: OutlineProperty<string>;
   float?: FloatProperty;
   willChange?: WillChangeProperty;
+  textDecoration?: TypographyProps['textDecoration'];
   /** Typed as any because Box can literally be any HTML element */
   ref?: any | null;
 }
@@ -133,6 +135,7 @@ const extraConfig = system({
   outline: true,
   float: true,
   willChange: true,
+  textDecoration: true,
 });
 
 const getPseudoStyles = (props: BoxProps): {} => {
