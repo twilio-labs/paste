@@ -82,7 +82,7 @@ Paragraph text should be legible, and easy to read. It should also provide a cle
   <Paragraph>
     Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. <em>Curabitur blandit tempus</em> porttitor. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nulla vitae elit libero, a pharetra augue.
   </Paragraph>
-  <Paragraph>
+  <Paragraph marginBottom="space0">
     Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. <strong>Curabitur blandit tempus</strong> porttitor. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nulla vitae elit libero, a pharetra augue.
   </Paragraph>
 </article>`}
@@ -166,7 +166,7 @@ Paragraphs should be used for most text blocks. Paragraphs provide defaults for 
   Donec sed odio dui. <a href="#">Aenean lacinia</a> bibendum nulla sed consectetur.
   Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
 </Paragraph>
-<Paragraph>
+<Paragraph marginBottom="space0">
   Donec sed odio dui. <strong>Aenean lacinia bibendum</strong> nulla sed consectetur.
   Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
 </Paragraph>`}
@@ -180,7 +180,7 @@ Paragraphs should be used for most text blocks. Paragraphs provide defaults for 
       {`<Paragraph>
   Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
   Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-  <Paragraph>
+  <Paragraph marginBottom="space0">
     Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
     Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
   </Paragraph>
@@ -226,9 +226,16 @@ const Component = () => (
 
 #### Props
 
-| Prop      | Type        | Description | Default |
-| --------- | ----------- | ----------- | ------- |
-| children? | `ReactNode` |             | null    |
+| Prop         | Type        | Default |
+| ------------ | ----------- | ------- |
+| marginBottom | 'space0'    |         |
+| children?    | `ReactNode` | null    |
+
+##### marginBottom prop
+
+Only allows passing 'space0' to unset the bottom margin. Useful
+when using Paragraph as the last child of a wrapping component, like
+a Card.
 
 <Box marginTop="space90">
   <Changelog />
