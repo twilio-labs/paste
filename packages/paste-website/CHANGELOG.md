@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.25.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.24.5...@twilio-paste/website@1.25.0) (2020-05-26)
+
+
+### Features
+
+* **website:** add disclosure primitive docs ([a6b527b](https://github.com/twilio-labs/paste/commit/a6b527b7c025fd018aea879b8e0b6b92a313c898))
+
+
+
+
+
 ## [1.24.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.24.4...@twilio-paste/website@1.24.5) (2020-05-23)
 
 **Note:** Version bump only for package @twilio-paste/website
