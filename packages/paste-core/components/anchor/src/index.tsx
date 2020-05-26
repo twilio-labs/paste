@@ -21,8 +21,15 @@ export interface AnchorProps extends React.AnchorHTMLAttributes<HTMLAnchorElemen
 const EXTERNAL_URL_REGEX = /^(https?:)[^\s]*$/;
 const EXTERNAL_TARGET_DEFAULT = '_blank';
 const EXTERNAL_REL_DEFAULT = 'noreferrer noopener';
-
 const isExternalUrl = (url: string): boolean => EXTERNAL_URL_REGEX.test(url);
+
+export const secureExternalLink = (href: string): {} | undefined => {
+  if (!isExternalUrl(href)) return undefined;
+  return {
+    rel: EXTERNAL_REL_DEFAULT,
+    target: EXTERNAL_TARGET_DEFAULT,
+  };
+};
 
 // eslint-disable-next-line emotion/syntax-preference
 const StyledAnchor = styled.a(
@@ -49,11 +56,7 @@ const StyledAnchor = styled.a(
 );
 
 const Anchor: React.FC<AnchorProps> = props => (
-  <StyledAnchor
-    rel={isExternalUrl(props.href) ? EXTERNAL_REL_DEFAULT : undefined}
-    target={isExternalUrl(props.href) ? EXTERNAL_TARGET_DEFAULT : undefined}
-    {...props}
-  >
+  <StyledAnchor {...secureExternalLink(props.href)} {...props}>
     {props.children}
   </StyledAnchor>
 );
