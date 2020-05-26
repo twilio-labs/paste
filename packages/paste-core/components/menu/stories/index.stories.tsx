@@ -116,6 +116,34 @@ const Example4: React.FC<{}> = () => {
   );
 };
 
+const WithActionsMenu: React.FC<{}> = () => {
+  const menu = useMenuState();
+  return (
+    <>
+      <MenuButton {...menu} variant="primary">
+        Click actions <ChevronDownIcon decorative />
+      </MenuButton>
+      <Menu {...menu} aria-label="Preferences">
+        <MenuItem {...menu} href="http://www.google.com" onClick={() => menu.hide()}>
+          Has a link
+        </MenuItem>
+        <MenuItem {...menu} href="#" onClick={() => menu.hide()}>
+          Has internal link
+        </MenuItem>
+        <MenuItem
+          {...menu}
+          onClick={() => {
+            alert('you clicked me');
+            menu.hide();
+          }}
+        >
+          Has just an onClick
+        </MenuItem>
+      </Menu>
+    </>
+  );
+};
+
 storiesOf('Components|Menu', module)
   .addDecorator(withKnobs)
   .add('default', () => {
@@ -123,6 +151,9 @@ storiesOf('Components|Menu', module)
   })
   .add('sub menu', () => {
     return <SubMenu />;
+  })
+  .add('actions demo menu', () => {
+    return <WithActionsMenu />;
   })
   .add('menu dropdown', () => {
     const menuMockProps = {
