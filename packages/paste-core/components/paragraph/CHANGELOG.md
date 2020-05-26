@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/paragraph@1.1.7...@twilio-paste/paragraph@1.1.8) (2020-05-26)
+
+
+### Bug Fixes
+
+* **paragraph:** can now unset marginBottom ([2f28a0e](https://github.com/twilio-labs/paste/commit/2f28a0eeea40bd7f1e795e749cf7350dc6012d54))
+
+
+
+
+
 ## [1.1.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/paragraph@1.1.6...@twilio-paste/paragraph@1.1.7) (2020-05-20)
 
 **Note:** Version bump only for package @twilio-paste/paragraph
