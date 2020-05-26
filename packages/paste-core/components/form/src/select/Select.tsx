@@ -25,7 +25,7 @@ const SelectIconWrapper: React.FC<{children: React.ReactNode}> = ({children}) =>
     display="inline-flex"
     position="absolute"
     pointerEvents="none"
-    right="space40"
+    right="space30"
     top="50%"
     transform="translateY(-50%)"
     zIndex="zIndex10"
@@ -49,7 +49,7 @@ const SelectElement = styled.select(
     fontWeight: 'fontWeightNormal',
     color: 'colorText',
     paddingTop: 'space30',
-    paddingRight: 'space40',
+    paddingRight: 'space100',
     paddingBottom: 'space30',
     paddingLeft: 'space40',
     borderRadius: 'borderRadius20',
@@ -76,6 +76,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           {...props}
           {...restrictedProps}
           size={multiple ? size : 0}
+          data-not-selectize="true"
         >
           {children}
         </SelectElement>
