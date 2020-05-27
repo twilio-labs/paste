@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.28.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.27.0...@twilio-paste/website@1.28.0) (2020-05-27)
+
+
+### Features
+
+* **Modal docs:** add guideline about using h4 in Modal Body ([#453](https://github.com/twilio-labs/paste/issues/453)) ([1430824](https://github.com/twilio-labs/paste/commit/1430824b91d9ef6a1ad8eb51041816c5ab04e578))
+
+
+
+
+
+# [1.27.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.26.0...@twilio-paste/website@1.27.0) (2020-05-27)
+
+
+### Features
+
+* **website:** add menu to masthead ([ce4723a](https://github.com/twilio-labs/paste/commit/ce4723ac29391cdbaba8ee6abf75cd4fca5db587))
+
+
+
+
+
+# [1.26.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.25.1...@twilio-paste/website@1.26.0) (2020-05-27)
+
+
+### Features
+
+* **Paragraph docs:** change Anatomy to show margin-bottom is modifiable ([#462](https://github.com/twilio-labs/paste/issues/462)) ([3b54840](https://github.com/twilio-labs/paste/commit/3b548409d5f4aba167b871140b8c040d1d164582))
+
+
+
+
+
 ## [1.25.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.25.0...@twilio-paste/website@1.25.1) (2020-05-26)
 
 **Note:** Version bump only for package @twilio-paste/website

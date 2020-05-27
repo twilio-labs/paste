@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/form",
-  "version": "1.5.0",
+  "version": "1.5.2",
   "category": "user input",
   "status": "beta",
   "description": "All the basic form elements for Twilio Paste",
@@ -32,9 +32,9 @@
     "@emotion/styled": "^10.0.10",
     "@styled-system/css": "^5.1.5",
     "@styled-system/theme-get": "^5.1.2",
-    "@twilio-paste/box": "^2.4.5",
+    "@twilio-paste/box": "^2.4.6",
     "@twilio-paste/design-tokens": "^5.2.0",
-    "@twilio-paste/flex": "^0.3.24",
+    "@twilio-paste/flex": "^0.3.25",
     "@twilio-paste/icons": "^2.1.7",
     "@twilio-paste/screen-reader-only": "^1.1.9",
     "@twilio-paste/style-props": "^1.1.7",
@@ -48,9 +48,9 @@
     "styled-system": "^5.1.2"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^2.4.5",
+    "@twilio-paste/box": "^2.4.6",
     "@twilio-paste/design-tokens": "^5.2.0",
-    "@twilio-paste/flex": "^0.3.24",
+    "@twilio-paste/flex": "^0.3.25",
     "@twilio-paste/icons": "^2.1.7",
     "@twilio-paste/screen-reader-only": "^1.1.9",
     "@twilio-paste/style-props": "^1.1.7",

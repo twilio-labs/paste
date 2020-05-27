@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Box, BoxProps, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
+import {secureExternalLink} from '@twilio-paste/anchor';
 import {Button, ButtonProps} from '@twilio-paste/button';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {Separator, SeparatorProps} from '@twilio-paste/separator';
@@ -19,11 +20,15 @@ import {
 
 export type MenuProps = MenuPrimitiveProps & {'aria-label': string};
 export interface MenuItemProps extends MenuPrimitiveItemProps {
+  href?: string;
   as?: any;
 }
 export type MenuSeparatorProps = MenuPrimitiveSeparatorProps;
 export type MenuButtonProps = MenuPrimitiveButtonProps & ButtonProps;
 export type SubMenuButtonProps = MenuPrimitiveButtonProps;
+interface StyledMenuItemProps extends BoxProps {
+  href?: string;
+}
 
 const StyledMenu = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...props}, ref) => {
   return (
@@ -45,33 +50,39 @@ const StyledMenu = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...props}
   );
 });
 
-const StyledMenuItem = React.forwardRef<HTMLDivElement, BoxProps>(({children, ...props}, ref) => {
-  return (
-    <Box
-      {...safelySpreadBoxProps(props)}
-      padding="space30"
-      paddingLeft="space50"
-      paddingRight="space50"
-      _hover={{
-        cursor: 'pointer',
-      }}
-      _focus={{
-        outline: 'none',
-        backgroundColor: 'colorBackgroundPrimaryLightest',
-      }}
-      _disabled={{cursor: 'not-allowed'}}
-      ref={ref}
-    >
-      <Text
-        as="div"
-        color={props['aria-disabled'] ? 'colorTextWeaker' : 'colorTextLink'}
-        textDecoration={props.tabIndex === 0 ? 'underline' : null}
+const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElement, StyledMenuItemProps>(
+  ({children, ...props}, ref) => {
+    return (
+      <Box
+        {...(props.href && secureExternalLink(props.href))}
+        {...safelySpreadBoxProps(props)}
+        as="a"
+        display="block"
+        padding="space30"
+        paddingLeft="space50"
+        paddingRight="space50"
+        textDecoration="none"
+        _hover={{
+          cursor: 'pointer',
+        }}
+        _focus={{
+          outline: 'none',
+          backgroundColor: 'colorBackgroundPrimaryLightest',
+        }}
+        _disabled={{cursor: 'not-allowed'}}
+        ref={ref}
       >
-        {children}
-      </Text>
-    </Box>
-  );
-});
+        <Text
+          as="div"
+          color={props['aria-disabled'] ? 'colorTextWeaker' : 'colorTextLink'}
+          textDecoration={props.tabIndex === 0 ? 'underline' : null}
+        >
+          {children}
+        </Text>
+      </Box>
+    );
+  }
+);
 
 const StyledMenuSeparator: React.FC<SeparatorProps> = props => {
   return <Separator {...props} orientation="horizontal" />;

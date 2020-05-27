@@ -1,25 +1,14 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
-import {Box} from '@twilio-paste/box';
+import {Flex} from '@twilio-paste/flex';
+import {Stack} from '@twilio-paste/stack';
 import {Anchor} from '@twilio-paste/anchor';
 import {useTheme} from '@twilio-paste/theme';
 import {Absolute} from '@twilio-paste/absolute';
 import {ThemeSwitcher} from '../ThemeSwitcher';
+import {ContactUsMenu} from '../ContactUsMenu';
 import GithubIcon from '../icons/GithubIcon';
 import {SIDEBAR_WIDTH, HEADER_HEIGHT} from './constants';
 import {version} from '../../../../../package.json';
-
-interface FlexProps {
-  justifyContent?: string;
-  alignItems?: string;
-}
-
-// TODO: Replace with Paste Flex component
-export const Flex = styled.div<FlexProps>(({justifyContent, alignItems = 'center'}) => ({
-  display: 'flex',
-  justifyContent,
-  alignItems,
-}));
 
 export const SiteHeader: React.FC<{}> = () => {
   const theme = useTheme();
@@ -41,28 +30,21 @@ export const SiteHeader: React.FC<{}> = () => {
         height: HEADER_HEIGHT,
       }}
     >
-      <Flex justifyContent="space-between">
+      <Flex hAlignContent="between" vAlignContent="center">
         <ThemeSwitcher />
-        <Flex>
-          <Box marginRight="space60">
-            <Anchor href="https://www.github.com/twilio-labs/paste/issues">Ask a question</Anchor>
-          </Box>
-          <Box marginRight="space60">
-            <Anchor href="https://www.github.com/twilio-labs/paste/issues">Report a bug</Anchor>
-          </Box>
-          <Flex>
-            v{version}
-            <Box marginLeft="space30">
-              <Anchor href="https://www.github.com/twilio-labs/paste">
-                <GithubIcon
-                  css={{height: theme.heights.sizeIcon30, width: theme.heights.sizeIcon30}}
-                  title="View this project on github"
-                  color={theme.textColors.colorTextWeak}
-                />
-              </Anchor>
-            </Box>
-          </Flex>
-        </Flex>
+        <Stack orientation="horizontal" spacing="space60">
+          <ContactUsMenu />
+          <Stack orientation="horizontal" spacing="space30">
+            <span>v{version}</span>
+            <Anchor href="https://www.github.com/twilio-labs/paste">
+              <GithubIcon
+                css={{height: theme.heights.sizeIcon30, width: theme.heights.sizeIcon30}}
+                title="View this project on github"
+                color={theme.textColors.colorTextWeak}
+              />
+            </Anchor>
+          </Stack>
+        </Stack>
       </Flex>
     </Absolute>
   );

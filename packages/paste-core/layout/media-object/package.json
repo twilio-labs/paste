@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/media-object",
-  "version": "1.2.24",
+  "version": "1.2.25",
   "category": "layout",
   "status": "beta",
   "description": "",
@@ -32,7 +32,7 @@
     "@emotion/styled": "^10.0.10",
     "@styled-system/css": "^5.1.5",
     "@styled-system/theme-get": "^5.1.2",
-    "@twilio-paste/box": "^2.4.5",
+    "@twilio-paste/box": "^2.4.6",
     "@twilio-paste/design-tokens": "^5.2.0",
     "@twilio-paste/style-props": "^1.1.7",
     "@twilio-paste/theme": "^3.1.7",
@@ -43,7 +43,7 @@
     "styled-system": "^5.1.2"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^2.4.5",
+    "@twilio-paste/box": "^2.4.6",
     "@twilio-paste/design-tokens": "^5.2.0",
     "@twilio-paste/style-props": "^1.1.7",
     "@twilio-paste/theme": "^3.1.7",
