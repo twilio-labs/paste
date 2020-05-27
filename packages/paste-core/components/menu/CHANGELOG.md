@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/menu@0.1.0...@twilio-paste/menu@0.1.1) (2020-05-27)
+
+
+### Bug Fixes
+
+* **menu:** allow actions, links and external links ([4c69457](https://github.com/twilio-labs/paste/commit/4c694577ebfa29ff979669c914d0831c8aa7d396))
+
+
+
+
+
 # [0.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/menu@0.0.2...@twilio-paste/menu@0.1.0) (2020-05-20)
 
 

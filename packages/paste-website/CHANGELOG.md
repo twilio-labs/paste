@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.27.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.26.0...@twilio-paste/website@1.27.0) (2020-05-27)
+
+
+### Features
+
+* **website:** add menu to masthead ([ce4723a](https://github.com/twilio-labs/paste/commit/ce4723ac29391cdbaba8ee6abf75cd4fca5db587))
+
+
+
+
+
 # [1.26.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.25.1...@twilio-paste/website@1.26.0) (2020-05-27)
 
 
