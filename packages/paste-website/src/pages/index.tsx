@@ -11,9 +11,6 @@ import {Separator} from '@twilio-paste/separator';
 import {SiteWrapper} from '../components/site-wrapper';
 import {Grid} from '../components/grid';
 import {P} from '../components/Typography';
-import {Brush} from '../components/icons/Brush';
-import {Terminal} from '../components/icons/Terminal';
-import {WindowLayout} from '../components/icons/WindowLayout';
 import {SiteLink} from '../components/SiteLink';
 import {SiteMetaDefaults} from '../constants';
 
@@ -37,14 +34,16 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
         <link rel="canonical" href="https://paste.twilio.design" />
         <meta name="description" content={SiteMetaDefaults.DESCRIPTION} />
       </Helmet>
-      <LandingContainer maxWidth="size60" marginTop="space200" marginBottom="space200">
+      <LandingContainer marginTop="space200" marginBottom="space200">
         <Heading as="h1" variant="heading10">
           Paste
         </Heading>
-        <P variant="lead">
-          Paste is a design system used to build accessible, consistent, and high quality customer experiences at
-          Twilio. Paste is open source and contributions are welcome.
-        </P>
+        <Box maxWidth="size60">
+          <P variant="lead">
+            Paste is a design system used to build accessible, consistent, and high quality customer experiences at
+            Twilio. Paste is open source and contributions are welcome.
+          </P>
+        </Box>
         <Box marginTop="space80" marginBottom="space80">
           <Box display="inline-block" marginRight="space40">
             <Button
@@ -58,20 +57,6 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               }}
             >
               Get Started
-            </Button>
-          </Box>
-          <Box display="inline-block" marginRight="space40">
-            <Button
-              as="a"
-              href="/components/"
-              size="default"
-              variant="secondary"
-              onClick={event => {
-                event.preventDefault();
-                navigate('/components/');
-              }}
-            >
-              View Components
             </Button>
           </Box>
           <Button
@@ -88,64 +73,27 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
           </Button>
         </Box>
       </LandingContainer>
-      <Separator orientation="horizontal" />
-      <LandingContainer marginTop="space200" marginBottom="space200" maxWidth="size100">
+      <LandingContainer marginTop="space200" marginBottom="space200">
         <Grid columnWidth={220} gap={30}>
           <Box>
-            <IconCircle
-              display="flex"
-              marginBottom="space50"
-              backgroundColor="colorBackground"
-              borderRadius="borderRadiusCircle"
-            >
-              <Brush size={24} />
-            </IconCircle>
             <Heading as="h2" variant="heading20">
-              Themes
+              <SiteLink to="/components">Components</SiteLink>
+            </Heading>
+            <Paragraph>Use Paste components in Sketch or React to compose your user interfaces.</Paragraph>
+          </Box>
+          <Box>
+            <Heading as="h2" variant="heading20">
+              <SiteLink to="/content">Content</SiteLink>
             </Heading>
             <Paragraph>
-              Each component shares a common set of <SiteLink to="/tokens">design tokens</SiteLink> that allow us to
-              easily change their value based on a theme.
+              Read our content guidelines to write authentic ands inclusive content for Twilio's products.
             </Paragraph>
           </Box>
           <Box>
-            <IconCircle
-              display="flex"
-              marginBottom="space50"
-              backgroundColor="colorBackground"
-              borderRadius="borderRadiusCircle"
-            >
-              <WindowLayout size={24} />
-            </IconCircle>
             <Heading as="h2" variant="heading20">
-              Usage Examples
+              <SiteLink to="/layout">Layout</SiteLink>
             </Heading>
-            <Paragraph>
-              Learn how to use Paste components and the underlying tokens through{' '}
-              <SiteLink to="/getting-started">usage examples and guidelines</SiteLink>.
-            </Paragraph>
-          </Box>
-          <Box>
-            <IconCircle
-              display="flex"
-              marginBottom="space50"
-              backgroundColor="colorBackground"
-              borderRadius="borderRadiusCircle"
-            >
-              <Terminal size={24} />
-            </IconCircle>
-            <Heading as="h2" variant="heading20">
-              Code Sandbox
-            </Heading>
-            <Paragraph>
-              We&rsquo;ve loaded a Code Sandbox with the latest components from Paste Core for you to get a feel for
-              working with Paste.
-            </Paragraph>
-            <Paragraph>
-              <Button as="a" href="https://codesandbox.io/s/paste-starter-kit-rj7yy" variant="secondary">
-                Code Sandbox
-              </Button>
-            </Paragraph>
+            <Paragraph>Use layout components to space, align, and position your UI in a variety of ways.</Paragraph>
           </Box>
         </Grid>
       </LandingContainer>
