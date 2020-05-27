@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.28.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.27.0...@twilio-paste/website@1.28.0) (2020-05-27)
+
+
+### Features
+
+* **Modal docs:** add guideline about using h4 in Modal Body ([#453](https://github.com/twilio-labs/paste/issues/453)) ([1430824](https://github.com/twilio-labs/paste/commit/1430824b91d9ef6a1ad8eb51041816c5ab04e578))
+
+
+
+
+
 # [1.27.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.26.0...@twilio-paste/website@1.27.0) (2020-05-27)
 
 
