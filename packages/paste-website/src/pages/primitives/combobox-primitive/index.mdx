@@ -1,0 +1,293 @@
+---
+title: Combobox Primitive
+description: An unstyled and accessible basis upon which to build a combobox.
+slug: /primitives/combobox-primitive/
+---
+
+import {graphql} from 'gatsby';
+import {useUID} from 'react-uid';
+import {useComboboxPrimitive} from '@twilio-paste/combobox-primitive';
+import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
+import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
+import {FormLabel, FormInput} from '@twilio-paste/form';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {autocompleteExample, defaultExample} from '../../../component-examples/ComboboxPrimitiveExamples';
+import Changelog from '@twilio-paste/combobox-primitive/CHANGELOG.md';
+
+export const pageQuery = graphql`
+  {
+    allPastePrimitive(filter: {name: {eq: "@twilio-paste/combobox-primitive"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/combobox-primitive/"}}) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name="Combobox Primitive"
+  categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
+  githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/primitives/combobox"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/primitives-combobox--dropdown-combobox"
+  data={props.data.allPastePrimitive.edges}
+/>
+
+---
+
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings} />
+
+<content>
+
+## Guidelines
+
+### About the Combobox Primitive
+
+This package provides a foundation upon which developers can implement a [WAI-Aria compliant Combobox](https://www.w3.org/TR/wai-aria-practices/examples/combobox/aria1.1pattern/listbox-combo.html).
+It can be used to build functional and accessible Comboboxes with or without autocomplete/typeahead features.
+Our Combobox is built on top of this primitive.
+
+The purpose of providing these unstyled primitives is to cater for instances when the styled Combobox provided
+by Paste, doesn't meet the requirements needed to solve a unique or individual customer problem. At that point
+you are welcome to fallback to this functional primitive to roll your own styled Combobox whilst still providing
+a functional and accessible experience to your customers.
+
+This primitive should be used to compose all custom Comboboxes to ensure accessibility and upgrade paths.
+
+<Callout variant="warning">
+  <CalloutTitle>Warning</CalloutTitle>
+  <CalloutText>
+    We strongly suggest that all components built on top of this primitive get reviewed by the Design Systems team and
+    goes through the UX Review process to ensure an excellent experience for our customers.
+  </CalloutText>
+</Callout>
+
+## Usage Guide
+
+This package is a wrapper around the [`Downshift` package](https://downshift.netlify.com).
+Our wrapper currently only exposes the useCombobox hook, but renamed for Paste. The reason we chose
+to just expose the hook is that we feel it is the most flexible way of consuming downshift and better
+fit our chosen styling model.
+
+If you’re wondering why we wrapped that package into our own, we reasoned that it would be
+best for our consumers' developer experience. For example:
+
+- If we want to migrate the underlying nuts and bolts in the future, Twilio products
+  that depend on this primitive would need to replace all occurrences of `import … from ‘x-package’`
+  to `import … from ‘@some-new/package’`. By wrapping it in `@twilio-paste/x-primitive`, this
+  refactor can be avoided. The only change would be a version bump in the package.json file for the primitive.
+- We can more strictly enforce semver and backwards compatibility than some of our dependencies.
+- We can control when to provide an update and which versions we whitelist, to help reduce potential
+  bugs our consumers may face.
+- We can control which APIs we expose. For example, we may chose to enable or disable usage of
+  certain undocumented APIs.
+
+### Installation
+
+This package is available individually or as part of `@twilio-paste/core`.
+
+```
+yarn add @twilio-paste/combobox-primitive - or - yarn add @twilio-paste/core
+```
+
+### Examples
+
+#### Basic Combobox
+
+A basic Combobox is a direct replacement for the native HTML select element. It should function in roughly
+the same way, the difference being in the ability to style everything about it; the input trigger, option list
+and option content.
+
+Contrary to the Downshift documentation and example, the basic Combobox should have an HTML input element as
+the trigger, and not an HTML button. Use an input element and set the role of Combobox in the `getToggleButtonProps`
+getter or directly on the element itself. You can see this demonstrated below:
+
+<Callout>
+  <CalloutText>
+    Using an input element prevents screen readers like JAWS switching out of focus or forms mode when navigating
+    through a form. This provides a really frustrating experience to users of JAWS. It is also a direct replacement for
+    a form element, so the value should be accessible via the form submit event, which a button element will not
+    provide.
+  </CalloutText>
+</Callout>
+
+<LivePreview scope={{useComboboxPrimitive, Box, FormLabel, FormInput, useUID}} noInline language="jsx">
+  {defaultExample}
+</LivePreview>
+
+#### Autcomplete Combobox Example
+
+This hook can be used to create custom autocomplete Combobox controls. These controls are useful when the
+customer needs to filter a list of available options, or provide a custom free form value to the input.
+
+<LivePreview
+  scope={{useComboboxPrimitive, Box, Button, ChevronDownIcon, FormLabel, FormInput, useUID}}
+  noInline
+  language="jsx"
+>
+  {autocompleteExample}
+</LivePreview>
+
+### useComboboxPrimitive Arguments
+
+##### `items: Item[]`
+
+Array of items to be displayed in the option list.
+
+##### `itemToString?: (item: Item) => string`
+
+If items are stored as an object, used to convert item to a string.
+
+##### `getA11yStatusMessage?: (options: A11yStatusMessageOptions<Item>) => string`
+
+Passed to a `Status` component nested within and allows you to create your own assertive ARIA statuses.
+
+##### `circularNavigation?: boolean`
+
+Should the keyboard navigation in the option list be circular?
+
+##### `highlightedIndex?: number`
+
+To highlight an item in the option list set the highlighted Index to the number that matches
+the index of the target item in the items array.
+
+##### `initialHighlightedIndex?: number`
+
+Set the option to be highlighted when the option list is opened
+
+##### `defaultHighlightedIndex?: number`
+
+This is the value to set the `highlightedIndex` to anytime a Combobox is reset, when the selection is cleared,
+when an item is selected or when the `inputValue` is changed.
+
+##### `isOpen?: boolean`
+
+Whether the menu should be considered open or closed.
+
+##### `initialIsOpen?: boolean`
+
+This is the initial `isOpen` value when initialized.
+
+##### `defaultIsOpen?: boolean`
+
+This is the value to set the `isOpen` to anytime a Combobox is reset, when the the selection is
+cleared, or when an item is selected.
+
+##### `selectedItem?: Item`
+
+Set the selected item by passing the item you wish to select
+
+##### `initialSelectedItem?: Item`
+
+Pass an item or an array of items that should be selected when a Combobox is initialized.
+
+##### `id?: string`
+
+Manually override the id of the Combobox trigger
+
+##### `labelId?: string`
+
+Manually override the id of the Combobox label
+
+##### `menuId?: string`
+
+Manually override the id of the Combobox option list
+
+##### `toggleButtonId?: string`
+
+Manually override the id of the Combobox toggle button if one is used
+
+##### `getItemId?: (index: number) => string`
+
+Used for aria attributes and the id prop of the element you use `getInputProps` with.
+
+##### `stateReducer?: (state: UseSelectState<Item>, actionAndChanges: UseSelectStateChangeOptions<Item>) => UseSelectState<Item>`
+
+Called each time a Combobox sets its internal state. It allows you to modify the state change that will take place which
+can give you control over how the component interacts with user updates. It gives you the current state and the state
+that will be set, and you return the state that you want to set.
+
+##### `onStateChange?: (changes: Partial<UseSelectState<Item>>) => void`
+
+Called anytime the internal state changes. This can be useful if you're using a Combobox as a "controlled" component,
+where you manage some or all of the state and then pass it as props.
+
+##### `environment?: Environment`
+
+A different `window` context from where your JavaScript is running; i.e., an iframe or a shadow-root.
+
+### useComboboxPrimitive Returned
+
+##### `highlightedIndex: number`
+
+The currently highlighted index.
+
+##### `selectedItem: Item`
+
+The value of the currently selected item
+
+##### `isOpen: boolean`
+
+The `isOpen` state
+
+##### `getToggleButtonProps: (options?: UseSelectGetToggleButtonPropsOptions) => any`
+
+Returns the props you should apply to any menu toggle button element you render.
+
+##### `getLabelProps: (options?: UseSelectGetLabelPropsOptions) => any`
+
+Returns the props you should apply to the `label` element that you render.
+
+##### `getMenuProps: (options?: UseSelectGetMenuPropsOptions) => any`
+
+Returns the props you should apply to the `ul` element (or root of your menu) that you render.
+
+##### `getItemProps: (options: UseSelectGetItemPropsOptions<Item>) => any`
+
+Returns the props you should apply to any menu item elements you render.
+
+##### `reset: () => void`
+
+Resets the Combobox state to a default.
+
+##### `OpenMenu: () => void`
+
+Opens the menu.
+
+##### `closeMenu: () => void`
+
+Closes the menu.
+
+##### `toggleMenu: () => void`
+
+Toggle the menu open state.
+
+##### `selectItem: (item: Item) => void`
+
+Selects the given item.
+
+##### `setHighlightedIndex: (index: number) => void`
+
+Call to set a new highlighted index.
+
+<Box marginTop="space130">
+  <Changelog />
+</Box>
+
+</content>
+
+</contentwrapper>
