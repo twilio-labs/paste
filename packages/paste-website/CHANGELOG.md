@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.26.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.25.1...@twilio-paste/website@1.26.0) (2020-05-27)
+
+
+### Features
+
+* **Paragraph docs:** change Anatomy to show margin-bottom is modifiable ([#462](https://github.com/twilio-labs/paste/issues/462)) ([3b54840](https://github.com/twilio-labs/paste/commit/3b548409d5f4aba167b871140b8c040d1d164582))
+
+
+
+
+
 ## [1.25.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.25.0...@twilio-paste/website@1.25.1) (2020-05-26)
 
 **Note:** Version bump only for package @twilio-paste/website
