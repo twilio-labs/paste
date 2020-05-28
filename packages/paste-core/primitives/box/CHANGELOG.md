@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.4.5...@twilio-paste/box@2.4.6) (2020-05-27)
+
+
+### Bug Fixes
+
+* **box:** allow text-decoration style prop ([50aac91](https://github.com/twilio-labs/paste/commit/50aac91fc5c50a12f9a3043fb47ca76530a21e37))
+
+
+
+
+
 ## [2.4.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.4.4...@twilio-paste/box@2.4.5) (2020-05-20)
 
 

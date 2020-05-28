@@ -4,6 +4,7 @@ import kebabCase from 'lodash/kebabCase';
 import {storiesOf} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
 import {withKnobs, boolean, text, select, array, number} from '@storybook/addon-knobs';
+import {Box} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {FormLabel, FormHelpText, FormHelpTextVariants, Select, Option, OptionGroup} from '../src';
@@ -318,5 +319,31 @@ storiesOf('Forms|Select', module)
         </Select>
         <FormHelpText>Info that helps a user with this field.</FormHelpText>
       </>
+    );
+  })
+  .add('Select - overflow long value', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('option-1');
+    return (
+      <Box maxWidth="size40">
+        <FormLabel htmlFor={uid}>Label</FormLabel>
+        <Select
+          id={uid}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          value={value}
+        >
+          <Option value="option-1">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt eveniet exercitationem nisi temporibus
+          </Option>
+          <Option value="option-2">Option 2</Option>
+          <Option value="option-3">Option 3</Option>
+          <Option value="option-4">Option 4</Option>
+        </Select>
+      </Box>
     );
   });

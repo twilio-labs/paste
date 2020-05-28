@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/combobox",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "category": "user input",
   "status": "alpha",
   "description": "",
@@ -32,11 +32,11 @@
     "@emotion/styled": "^10.0.10",
     "@styled-system/css": "^5.1.5",
     "@styled-system/theme-get": "^5.1.2",
-    "@twilio-paste/box": "^2.4.5",
-    "@twilio-paste/button": "^1.2.0",
+    "@twilio-paste/box": "^2.4.6",
+    "@twilio-paste/button": "^1.2.2",
     "@twilio-paste/combobox-primitive": "^0.1.1",
-    "@twilio-paste/form": "^1.5.0",
-    "@twilio-paste/icons": "^2.1.7",
+    "@twilio-paste/form": "^1.5.3",
+    "@twilio-paste/icons": "^2.2.0",
     "@twilio-paste/text": "^2.1.7",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -45,11 +45,11 @@
     "styled-system": "^5.1.2"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^2.4.4",
-    "@twilio-paste/button": "^1.1.45",
+    "@twilio-paste/box": "^2.4.6",
+    "@twilio-paste/button": "^1.2.2",
     "@twilio-paste/combobox-primitive": "^0.1.1",
-    "@twilio-paste/form": "^1.5.0",
-    "@twilio-paste/icons": "^2.1.6",
+    "@twilio-paste/form": "^1.5.3",
+    "@twilio-paste/icons": "^2.2.0",
     "@twilio-paste/text": "^2.1.6"
   }
 }

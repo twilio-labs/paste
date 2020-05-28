@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useUID} from 'react-uid';
 import {render} from 'react-dom';
-import {render as testRender, fireEvent, cleanup} from '@testing-library/react';
+import {render as testRender, fireEvent} from '@testing-library/react';
 import {axe} from 'jest-axe';
 import {Theme} from '@twilio-paste/theme';
 import {Select, Option, FormLabel} from '../../src';
@@ -125,6 +125,11 @@ describe('Form | Select', () => {
     fireEvent.change(getByDisplayValue('Option 1'), {target: {value: 'option-2'}});
 
     expect(onChangeMock).toHaveBeenCalled();
+  });
+
+  it('should set data-not-selectize="true" on the select element for console bootstrap overrides', () => {
+    const {getByTestId} = testRender(<MockSelect />);
+    expect(getByTestId('select').getAttribute('data-not-selectize')).toEqual('true');
   });
 
   it('should have no accessibility violations', async () => {

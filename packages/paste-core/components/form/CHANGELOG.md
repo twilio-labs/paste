@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.5.2...@twilio-paste/form@1.5.3) (2020-05-28)
+
+**Note:** Version bump only for package @twilio-paste/form
+
+
+
+
+
+## [1.5.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.5.1...@twilio-paste/form@1.5.2) (2020-05-27)
+
+**Note:** Version bump only for package @twilio-paste/form
+
+
+
+
+
+## [1.5.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.5.0...@twilio-paste/form@1.5.1) (2020-05-27)
+
+
+### Bug Fixes
+
+* **select:** bug fixes ([#460](https://github.com/twilio-labs/paste/issues/460)) ([c2c3782](https://github.com/twilio-labs/paste/commit/c2c37827c09681b8c3ddf293b7554de701c03207))
+
+
+
+
+
 # [1.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.4.1...@twilio-paste/form@1.5.0) (2020-05-22)
 
 

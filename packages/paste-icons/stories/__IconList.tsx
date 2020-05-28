@@ -8,6 +8,8 @@ import {ChevronDownIcon} from '../src/ChevronDownIcon';
 import {ChevronUpIcon} from '../src/ChevronUpIcon';
 import {CloseIcon} from '../src/CloseIcon';
 import {CopyIcon} from '../src/CopyIcon';
+import {DeleteIcon} from '../src/DeleteIcon';
+import {DownloadIcon} from '../src/DownloadIcon';
 import {ErrorIcon} from '../src/ErrorIcon';
 import {InformationIcon} from '../src/InformationIcon';
 import {LinkExternalIcon} from '../src/LinkExternalIcon';
@@ -33,6 +35,8 @@ const IconList: React.FC<IconProps> = props => (
 <StoryIcon><ChevronUpIcon {...props} /><Text as="p" textColor="currentColor">ChevronUpIcon</Text></StoryIcon>
 <StoryIcon><CloseIcon {...props} /><Text as="p" textColor="currentColor">CloseIcon</Text></StoryIcon>
 <StoryIcon><CopyIcon {...props} /><Text as="p" textColor="currentColor">CopyIcon</Text></StoryIcon>
+<StoryIcon><DeleteIcon {...props} /><Text as="p" textColor="currentColor">DeleteIcon</Text></StoryIcon>
+<StoryIcon><DownloadIcon {...props} /><Text as="p" textColor="currentColor">DownloadIcon</Text></StoryIcon>
 <StoryIcon><ErrorIcon {...props} /><Text as="p" textColor="currentColor">ErrorIcon</Text></StoryIcon>
 <StoryIcon><InformationIcon {...props} /><Text as="p" textColor="currentColor">InformationIcon</Text></StoryIcon>
 <StoryIcon><LinkExternalIcon {...props} /><Text as="p" textColor="currentColor">LinkExternalIcon</Text></StoryIcon>

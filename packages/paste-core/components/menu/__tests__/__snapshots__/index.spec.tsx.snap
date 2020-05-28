@@ -151,9 +151,12 @@ exports[`Menu  Render should render 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
+  display: block;
   padding: space30;
   padding-left: space50;
   padding-right: space50;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-1:hover {
@@ -221,12 +224,14 @@ exports[`Menu  Render should render 1`] = `
     style="display: none;"
     tabindex="-1"
   >
-    <div
+    <a
       class="emotion-1"
       data-testid="example-menu-item"
+      display="block"
       id="menu-example-1"
       role="menuitem"
       tabindex="0"
+      text-decoration="none"
     >
       <div
         class="emotion-0"
@@ -236,12 +241,14 @@ exports[`Menu  Render should render 1`] = `
       >
         About Visual Studio Code
       </div>
-    </div>
-    <div
+    </a>
+    <a
       class="emotion-1"
+      display="block"
       id="menu-example-2"
       role="menuitem"
       tabindex="-1"
+      text-decoration="none"
     >
       <div
         class="emotion-2"
@@ -250,7 +257,7 @@ exports[`Menu  Render should render 1`] = `
       >
         Check for Updates...
       </div>
-    </div>
+    </a>
     <hr
       aria-orientation="horizontal"
       class="emotion-4"
@@ -288,12 +295,14 @@ exports[`Menu  Render should render 1`] = `
       style="display: none;"
       tabindex="-1"
     >
-      <div
+      <a
         class="emotion-1"
         data-testid="example-submenu-item"
+        display="block"
         id="sub-menu-1"
         role="menuitem"
         tabindex="0"
+        text-decoration="none"
       >
         <div
           class="emotion-0"
@@ -303,13 +312,16 @@ exports[`Menu  Render should render 1`] = `
         >
           Settings
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled="true"
         class="emotion-1"
         data-testid="example-disabled-submenu-item"
+        disabled=""
+        display="block"
         id="sub-menu-2"
         role="menuitem"
+        text-decoration="none"
       >
         <div
           class="emotion-9"
@@ -318,18 +330,20 @@ exports[`Menu  Render should render 1`] = `
         >
           Extensions
         </div>
-      </div>
+      </a>
       <hr
         aria-orientation="horizontal"
         class="emotion-4"
         role="separator"
         width="auto"
       />
-      <div
+      <a
         class="emotion-1"
+        display="block"
         id="sub-menu-3"
         role="menuitem"
         tabindex="-1"
+        text-decoration="none"
       >
         <div
           class="emotion-2"
@@ -338,7 +352,7 @@ exports[`Menu  Render should render 1`] = `
         >
           Keyboard shortcuts
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </DocumentFragment>
