@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@2.1.7...@twilio-paste/icons@2.2.0) (2020-05-28)
+
+
+### Features
+
+* add delete and download icons and SVGs ([#465](https://github.com/twilio-labs/paste/issues/465)) ([15a8375](https://github.com/twilio-labs/paste/commit/15a83759fdb8ae1838e3d798d195cc0a824be5ef))
+
+
+
+
+
 ## [2.1.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@2.1.6...@twilio-paste/icons@2.1.7) (2020-05-20)
 
 **Note:** Version bump only for package @twilio-paste/icons
