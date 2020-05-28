@@ -70,6 +70,7 @@
     "gatsby-plugin-sitemap": "^2.2.27",
     "gatsby-plugin-typescript": "^2.1.27",
     "gatsby-remark-images": "^3.1.44",
+    "gatsby-source-airtable": "^2.1.1",
     "gatsby-source-filesystem": "^2.1.48",
     "gatsby-transformer-json": "^2.2.26",
     "gatsby-transformer-remark": "^2.6.53",

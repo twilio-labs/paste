@@ -5,19 +5,27 @@ slug: /roadmap/
 ---
 
 import {graphql} from 'gatsby';
-import {Anchor} from '@twilio-paste/anchor';
-import {Box} from '@twilio-paste/box';
-import {Card} from '@twilio-paste/card';
-import {Grid, Column} from '@twilio-paste/grid';
-import {Heading} from '@twilio-paste/heading';
-import {Text} from '@twilio-paste/text';
-import {AnchoredHeading} from '../../components/Heading';
+import {Roadmap} from '../../components/Roadmap';
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/roadmap/"}}) {
       headings {
         depth
         value
+      }
+    }
+    allAirtable(filter: {}, sort: {fields: [data___Release_, data___Feature]}) {
+      group(field: data___Release_) {
+        release: fieldValue
+        edges {
+          node {
+            data {
+              Release_
+              Feature
+              Public_Description
+            }
+          }
+        }
       }
     }
   }
@@ -33,39 +41,7 @@ export const pageQuery = graphql`
 
 <p>{props.pageContext.frontmatter.description}</p>
 
-<Box>
-
-## Upcoming Release
-
-Paste's upcoming release will be on **May 19, 2020**. This is what we've planned:
-
-- Many more Form components in this release! We’ll ship **Select**, **Checkbox**, **Checkbox Group**, **Radio**, and **Radio Group** for Sketch and React. 📝
-
-- We’ve heard that many of your are baking bread whilst we are cloistered at home. We see you, and will ship a **Toast Component** as tribute. 🍞
-
-- We’ll ship a **Stack** layout component to allow for more flexible layouts of your UIs. 📐
-
-- But wait, there’s more: the hotly anticipated **Divider Component** will be shipped in this release. 📏
-
----
-
-## Future Releases
-
-Future releases of Paste are scheduled for every six weeks, with the next release on **June 20, 2020**. This release is still TBD, and our guidance on what’s planned will update as we get closer to the date. For now, here's what we're hoping to do:
-
-- Add an icon list to the [icon system guidelines](/icon-system) with more design guidelines. 👩🏽‍🎤
-
-- Ship an update to the Paste homepage and navigation.
-
-- Ship a Combobox component 🔽
-
----
-
-## Backlog
-
-To browse through all the components in our backlog, you can check out our [Component overview page](/components).
-
-</Box>
+<Roadmap data={props.data.allAirtable.group} />
 
 </content>
 

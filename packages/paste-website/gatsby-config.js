@@ -183,5 +183,19 @@ module.exports = {
         chunkSize: 10000,
       },
     },
+    {
+      resolve: `gatsby-source-airtable`,
+      options: {
+        apiKey: process.env.AIRTABLE_APIKEY,
+        concurrency: 5,
+        tables: [
+          {
+            baseId: process.env.AIRTABLE_BASEID,
+            tableName: `System`,
+            tableView: `Roadmap`,
+          },
+        ],
+      },
+    },
   ],
 };
