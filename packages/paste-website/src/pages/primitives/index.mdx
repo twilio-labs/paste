@@ -10,6 +10,7 @@ import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {SiteLink} from '../../components/SiteLink.tsx';
 import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
 import {SidebarCategoryRoutes} from '../../constants';
@@ -34,13 +35,22 @@ import {StatusLegend} from '../../components/StatusLegend';
 <content>
 
 <StatusLegend />
+
+<ComponentOverviewTable
+  categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
+  componentsList={props.data.allPastePrimitive.edges}
+/>
+
 <Callout>
   <CalloutTitle as="h4">Don't see a primitive, layout, or component you need listed here?</CalloutTitle>
   <UnorderedList>
     <ListItem>
-      First off, we recommend{' '}
+      First off, we recommend <SiteLink to="/roadmap">checking our roadmap</SiteLink>.
+    </ListItem>
+    <ListItem>
+      Secondly, we recommend{' '}
       <Anchor href="https://github.com/twilio-labs/paste/issues">creating an issue on GitHub</Anchor> with your
-      component, primitive, or layout proposal.
+      component, primitive, or proposal.
     </ListItem>
     <ListItem>
       While not all requests are accepted for the design system, we may be able to suggest suitable alternatives - for
@@ -55,10 +65,6 @@ import {StatusLegend} from '../../components/StatusLegend';
     </ListItem>
   </UnorderedList>
 </Callout>
-<ComponentOverviewTable
-  categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
-  componentsList={props.data.allPastePrimitive.edges}
-/>
 
 </content>
 
