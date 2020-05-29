@@ -12,8 +12,9 @@ import {Grid} from '../components/grid';
 import {P} from '../components/Typography';
 import {SiteLink} from '../components/SiteLink';
 import {SiteMetaDefaults} from '../constants';
-import {OrderedList, UnorderedList, ListItem} from '@twilio-paste/list';
 import {Anchor} from '@twilio-paste/anchor';
+import {Stack} from '@twilio-paste/stack';
+import {Card} from '@twilio-paste/card';
 
 const LandingContainer = styled(Box)`
   margin-right: auto;
@@ -35,7 +36,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
         <link rel="canonical" href="https://paste.twilio.design" />
         <meta name="description" content={SiteMetaDefaults.DESCRIPTION} />
       </Helmet>
-      <LandingContainer marginTop="space140" marginBottom="space200">
+      <LandingContainer marginTop="space140">
         <Heading as="h1" variant="heading10">
           Paste
         </Heading>
@@ -46,44 +47,40 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
           </P>
         </Box>
         <Box marginTop="space80" marginBottom="space80">
-          <UnorderedList>
-            <ListItem>
-              <SiteLink to="/getting-started/engineering">Getting started with Paste's React components</SiteLink>
-            </ListItem>
-            <ListItem>
-              <SiteLink to="/roadmap">View our component roadmap</SiteLink>
-            </ListItem>
-            <ListItem>
-              <Anchor href="https://codesandbox.io/s/paste-starter-kit-rj7yy">
-                Check out our components in a Code Sandbox
-              </Anchor>
-            </ListItem>
-          </UnorderedList>
+          <Heading as="h2" variant="heading20">
+            Get Started
+          </Heading>
+          <Stack orientation="vertical" spacing="space30">
+            <SiteLink to="/getting-started/engineering">Guidelines for front-end engineers</SiteLink>
+            <SiteLink to="/roadmap">View our component roadmap</SiteLink>
+            <Anchor href="https://codesandbox.io/s/paste-starter-kit-rj7yy">
+              Check out our components in a Code Sandbox
+            </Anchor>
+          </Stack>
         </Box>
       </LandingContainer>
-      <Separator orientation="horizontal" verticalSpacing="space50" />
-      <LandingContainer marginTop="space200" marginBottom="space200">
+      <LandingContainer marginTop="space160" marginBottom="space200">
         <Grid columnWidth={220} gap={30}>
-          <Box>
+          <Card padding="space80">
             <Heading as="h2" variant="heading20">
               <SiteLink to="/components">Components</SiteLink>
             </Heading>
             <Paragraph>Use Paste components in Sketch or React to compose your user interfaces.</Paragraph>
-          </Box>
-          <Box>
+          </Card>
+          <Card padding="space80">
             <Heading as="h2" variant="heading20">
               <SiteLink to="/content">Content</SiteLink>
             </Heading>
             <Paragraph>
               Read our content guidelines to write authentic ands inclusive content for Twilio's products.
             </Paragraph>
-          </Box>
-          <Box>
+          </Card>
+          <Card padding="space80">
             <Heading as="h2" variant="heading20">
               <SiteLink to="/layout">Layout</SiteLink>
             </Heading>
             <Paragraph>Use layout components to space, align, and position your UI in a variety of ways.</Paragraph>
-          </Box>
+          </Card>
         </Grid>
       </LandingContainer>
     </SiteWrapper>
