@@ -7,25 +7,18 @@ import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Separator} from '@twilio-paste/separator';
+import {Anchor} from '@twilio-paste/anchor';
+import {Stack} from '@twilio-paste/stack';
+import {Card} from '@twilio-paste/card';
 import {SiteWrapper} from '../components/site-wrapper';
 import {Grid} from '../components/grid';
 import {P} from '../components/Typography';
 import {SiteLink} from '../components/SiteLink';
 import {SiteMetaDefaults} from '../constants';
-import {Anchor} from '@twilio-paste/anchor';
-import {Stack} from '@twilio-paste/stack';
-import {Card} from '@twilio-paste/card';
 
 const LandingContainer = styled(Box)`
   margin-right: auto;
   margin-left: auto;
-`;
-
-const IconCircle = styled(Box)`
-  justify-content: center;
-  align-items: center;
-  width: ${themeGet('space.space160')};
-  height: ${themeGet('space.space160')};
 `;
 
 const IndexPage: React.FC<{}> = (): React.ReactElement => {
@@ -72,7 +65,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               <SiteLink to="/content">Content</SiteLink>
             </Heading>
             <Paragraph>
-              Read our content guidelines to write authentic ands inclusive content for Twilio's products.
+              Read our content guidelines to write authentic ands inclusive content for Twilio&rsquo;s products.
             </Paragraph>
           </Card>
           <Card padding="space80">
