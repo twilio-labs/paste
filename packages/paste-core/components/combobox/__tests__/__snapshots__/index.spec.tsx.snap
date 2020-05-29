@@ -167,7 +167,8 @@ exports[`Combobox  Render should render 1`] = `
   box-shadow: shadowCard;
   list-style-type: none;
   margin: space0;
-  overflow: hidden;
+  max-height: size50;
+  overflow-y: auto;
   padding: space0;
   position: absolute;
   width: 100%;
@@ -283,7 +284,6 @@ exports[`Combobox  Render should render 1`] = `
       aria-labelledby="downshift-1-label"
       class="emotion-10"
       id="downshift-1-menu"
-      overflow="hidden"
       role="listbox"
       width="100%"
     />
