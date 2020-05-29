@@ -35,12 +35,13 @@ const StyledInputAsSelect = styled(InputElement)(
 );
 /* eslint-enable */
 
-export interface ComboboxProps extends Omit<FormInputProps, 'id' | 'type' | 'value'> {
+export interface ComboboxProps extends Omit<FormInputProps, 'id' | 'type'> {
   autocomplete?: boolean;
   helpText?: string | React.ReactNode;
   items: UseComboboxPrimitiveProps<any>['items'];
   labelText: string | NonNullable<React.ReactNode>;
   onInputValueChange?: UseComboboxPrimitiveProps<any>['onInputValueChange'];
+  onSelectedItemChange?: UseComboboxPrimitiveProps<any>['onSelectedItemChange'];
   itemToString?: UseComboboxPrimitiveProps<any>['itemToString'];
   optionTemplate?: (item: string | {}) => React.ReactNode;
 }
@@ -61,6 +62,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       labelText,
       optionTemplate,
       onInputValueChange,
+      onSelectedItemChange,
       required,
       ...props
     },
@@ -78,6 +80,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
     } = useComboboxPrimitive({
       items,
       onInputValueChange,
+      onSelectedItemChange,
       itemToString: itemToString || defaultItemToString,
     });
     const helpTextId = useUID();
@@ -141,6 +144,7 @@ if (process.env.NODE_ENV === 'development') {
     helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     labelText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
     onInputValueChange: PropTypes.func,
+    onSelectedItemChange: PropTypes.func,
     itemToString: PropTypes.func,
     optionTemplate: PropTypes.func,
   };
