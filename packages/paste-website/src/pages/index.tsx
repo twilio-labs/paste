@@ -1,12 +1,9 @@
 import * as React from 'react';
 import {Helmet} from 'react-helmet';
-import {navigate} from 'gatsby';
 import styled from '@emotion/styled';
-import {themeGet} from '@styled-system/theme-get';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
-import {Separator} from '@twilio-paste/separator';
 import {Anchor} from '@twilio-paste/anchor';
 import {Stack} from '@twilio-paste/stack';
 import {Card} from '@twilio-paste/card';
