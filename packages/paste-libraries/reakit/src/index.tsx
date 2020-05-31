@@ -1,8 +1,9 @@
-// https://reakit.io/docs/disclosure/
 export {
+  // https://reakit.io/docs/disclosure/
   useDisclosureState,
   Disclosure,
   DisclosureContent,
+  // https://reakit.io/docs/menu/
   useMenuState,
   Menu,
   MenuProps,
@@ -18,4 +19,9 @@ export {
   MenuButtonProps,
   MenuSeparator,
   MenuSeparatorProps,
+  // https://reakit.io/docs/tab/
+  useTabState,
+  Tab,
+  TabList,
+  TabPanel,
 } from 'reakit';
