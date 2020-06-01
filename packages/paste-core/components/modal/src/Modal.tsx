@@ -2,52 +2,62 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import css from '@styled-system/css';
+import {useTransition, animated} from '@twilio-paste/animation-library';
 import {pasteBaseStyles} from '@twilio-paste/theme';
 import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
 import {ModalContext} from './ModalContext';
 
-const ModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)(
-  css({
-    position: 'fixed',
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-    backgroundColor: 'colorBackgroundOverlay',
-    // Console navigation has a high zIndex value, so we need a
-    // higher one to make sure the overlay is on top of the
-    // navigation. The current zIndex tokens only go up to 90.
-    zIndex: '2000',
-  }),
-  // import Paste Theme Based Styles due to portal positioning.
-  // reach portal is a sibling to the main app, so you are now
-  // no longer a child of the theme provider. We need to re-set
-  // some of the base styles that we rely on inheriting from
-  // such as font-family and line-height so that compositions
-  // of paste components in the modal are styled correctly
-  pasteBaseStyles
+const ModalDialogOverlay = animated(
+  /* eslint-disable emotion/syntax-preference */
+  styled(ModalDialogPrimitiveOverlay)(
+    css({
+      position: 'fixed',
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+      backgroundColor: 'colorBackgroundOverlay',
+      // Console navigation has a high zIndex value, so we need a
+      // higher one to make sure the overlay is on top of the
+      // navigation. The current zIndex tokens only go up to 90.
+      zIndex: '2000',
+    }),
+    // import Paste Theme Based Styles due to portal positioning.
+    // reach portal is a sibling to the main app, so you are now
+    // no longer a child of the theme provider. We need to re-set
+    // some of the base styles that we rely on inheriting from
+    // such as font-family and line-height so that compositions
+    // of paste components in the modal are styled correctly
+    pasteBaseStyles
+  )
+  /* eslint-enable */
 );
 
 type Sizes = 'default' | 'wide';
 
-interface ModalDialogContainerProps {
+interface ModalDialogContentProps {
   size?: Sizes;
 }
-const ModalDialogContainer = styled(ModalDialogPrimitiveContent)<ModalDialogContainerProps>(({size}) =>
-  css({
-    width: '100%',
-    maxWidth: size === 'wide' ? 'size80' : 'size60',
-    maxHeight: '90%',
-    backgroundColor: 'colorBackgroundBody',
-    borderRadius: 'borderRadius20',
-    boxShadow: 'shadowCard',
-    display: 'flex',
-    flexDirection: 'column',
-  })
+const ModalDialogContent = animated(
+  /* eslint-disable emotion/syntax-preference */
+  styled(ModalDialogPrimitiveContent)<ModalDialogContentProps>(({size}) =>
+    css({
+      width: '100%',
+      maxWidth: size === 'wide' ? 'size80' : 'size60',
+      maxHeight: '90%',
+      minHeight: '170px',
+      backgroundColor: 'colorBackgroundBody',
+      borderRadius: 'borderRadius20',
+      boxShadow: 'shadowCard',
+      display: 'flex',
+      flexDirection: 'column',
+    })
+  )
+  /* eslint-enable */
 );
 
 export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -60,6 +70,18 @@ export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   ariaLabelledby: string;
 }
 
+const AnimationStates = {
+  from: {opacity: 0, transform: `scale(0.675)`},
+  enter: {opacity: 1, transform: `scale(1)`},
+  leave: {opacity: 0, transform: `scale(0.675)`},
+  // https://www.react-spring.io/docs/hooks/api
+  config: {
+    mass: 0.5,
+    tension: 370,
+    friction: 26,
+  },
+};
+
 const Modal: React.FC<ModalProps> = ({
   children,
   isOpen,
@@ -70,19 +92,32 @@ const Modal: React.FC<ModalProps> = ({
   size,
   ...props
 }) => {
+  const transitions = useTransition(isOpen, AnimationStates);
+
   return (
-    <ModalDialogOverlay
-      isOpen={isOpen}
-      onDismiss={onDismiss}
-      allowPinchZoom={allowPinchZoom}
-      initialFocusRef={initialFocusRef}
-    >
-      <ModalContext.Provider value={{onDismiss}}>
-        <ModalDialogContainer aria-labelledby={ariaLabelledby} {...props} className={null} style={null} size={size}>
-          {children}
-        </ModalDialogContainer>
-      </ModalContext.Provider>
-    </ModalDialogOverlay>
+    <ModalContext.Provider value={{onDismiss}}>
+      {transitions(
+        (styles, item) =>
+          item && (
+            <ModalDialogOverlay
+              onDismiss={onDismiss}
+              allowPinchZoom={allowPinchZoom}
+              initialFocusRef={initialFocusRef}
+              style={{opacity: styles.opacity}}
+            >
+              <ModalDialogContent
+                aria-labelledby={ariaLabelledby}
+                {...props}
+                className={null}
+                style={styles}
+                size={size}
+              >
+                {children}
+              </ModalDialogContent>
+            </ModalDialogOverlay>
+          )
+      )}
+    </ModalContext.Provider>
   );
 };
 Modal.displayName = 'Modal';
@@ -98,4 +133,5 @@ if (process.env.NODE_ENV === 'development') {
     ariaLabelledby: PropTypes.string.isRequired,
   };
 }
+
 export {Modal};
