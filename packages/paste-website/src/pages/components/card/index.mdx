@@ -6,6 +6,7 @@ slug: /components/card/
 ---
 
 import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Card} from '@twilio-paste/card';
@@ -116,13 +117,13 @@ to Design System Office Hours to see if another component or pattern could fit y
 
 An example of a Card with default padding.
 
-<LivePreview scope={{Card, Paragraph, Heading}} language="jsx">
+<LivePreview scope={{Card, Paragraph, Heading, Anchor}} language="jsx">
   {`<Card>
-  <Heading as="h2" variant="heading20">This is a card</Heading>
+  <Heading as="h2" variant="heading20">Parable of the Talents</Heading>
   <Paragraph>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-    labore et dolore magna aliqua.
+    Choose your leaders with wisdom and forethought. To be led by a coward is to be controlled by all that the coward fears. To be led by a fool is to be led by the opportunists who control the fool. To be led by a thief is to offer up your most precious treasures to be stolen. To be led by a liar is to ask to be lied to. To be led by a tyrant is to sell yourself and those you love into slavery.
   </Paragraph>
+  <Paragraph>— <Anchor href="https://www.goodreads.com/book/show/60932.Parable_of_the_Talents">Octavia Butler</Anchor></Paragraph>
 </Card>`}
 </LivePreview>
 
