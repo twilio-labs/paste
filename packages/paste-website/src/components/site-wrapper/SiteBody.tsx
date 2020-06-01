@@ -51,7 +51,7 @@ const BLMAlert: React.FC = () => {
       justifyContent="center"
     >
       <Text as="span" fontWeight="fontWeightBold" color="colorTextBrandInverse" marginRight="space30">
-        Black lives matter.
+        Black Lives Matter.
       </Text>
       <Text
         as="a"
