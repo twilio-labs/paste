@@ -20,8 +20,8 @@ props:
     value: "{!palette-gray-70}"
     comment: Darkest default background color
   color-background-inverse:
-    value: "{!palette-gray-80}"
-    comment: Inverse background color for any container
+    value: "{!palette-gray-100}"
+    comment: Inverse background color for any container, the darkest gray in the system
 
   # brand backgrounds
   color-background-brand:
