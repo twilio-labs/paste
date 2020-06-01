@@ -2,17 +2,11 @@
 
 exports[`Button States Has a disabled state 1`] = `
 .emotion-24 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-24 *,
-.emotion-24 *::after,
-.emotion-24 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -311,17 +305,11 @@ exports[`Button States Has a loading state 1`] = `
 }
 
 .emotion-48 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-48 *,
-.emotion-48 *::after,
-.emotion-48 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-6 {
@@ -855,17 +843,11 @@ exports[`Button States Has a loading state 1`] = `
 
 exports[`Button Variants Has a destructive variant 1`] = `
 .emotion-4 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-4 *,
-.emotion-4 *::after,
-.emotion-4 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -972,17 +954,11 @@ exports[`Button Variants Has a destructive variant 1`] = `
 
 exports[`Button Variants Has a destructive_link variant 1`] = `
 .emotion-4 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-4 *,
-.emotion-4 *::after,
-.emotion-4 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -1080,17 +1056,11 @@ exports[`Button Variants Has a destructive_link variant 1`] = `
 
 exports[`Button Variants Has a link variant 1`] = `
 .emotion-4 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-4 *,
-.emotion-4 *::after,
-.emotion-4 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -1188,17 +1158,11 @@ exports[`Button Variants Has a link variant 1`] = `
 
 exports[`Button Variants Has a primary variant 1`] = `
 .emotion-4 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-4 *,
-.emotion-4 *::after,
-.emotion-4 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-2 {
@@ -1305,17 +1269,11 @@ exports[`Button Variants Has a primary variant 1`] = `
 
 exports[`Button Variants Has a reset variant 1`] = `
 .emotion-4 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-4 *,
-.emotion-4 *::after,
-.emotion-4 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -1396,17 +1354,11 @@ exports[`Button Variants Has a reset variant 1`] = `
 
 exports[`Button Variants Has a secondary variant 1`] = `
 .emotion-4 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-4 *,
-.emotion-4 *::after,
-.emotion-4 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {

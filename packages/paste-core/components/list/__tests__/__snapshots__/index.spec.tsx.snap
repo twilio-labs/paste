@@ -2,17 +2,11 @@
 
 exports[`ListItem should filter out styling props 1`] = `
 .emotion-1 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-1 *,
-.emotion-1 *::after,
-.emotion-1 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -42,17 +36,11 @@ exports[`ListItem should filter out styling props 1`] = `
 
 exports[`ListItem should render a plain list item 1`] = `
 .emotion-1 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-1 *,
-.emotion-1 *::after,
-.emotion-1 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -82,17 +70,11 @@ exports[`ListItem should render a plain list item 1`] = `
 
 exports[`Ordered List should allow marginTop and marginBottom styling props 1`] = `
 .emotion-1 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-1 *,
-.emotion-1 *::after,
-.emotion-1 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -123,17 +105,11 @@ exports[`Ordered List should allow marginTop and marginBottom styling props 1`] 
 
 exports[`Ordered List should filter out styling props 1`] = `
 .emotion-1 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-1 *,
-.emotion-1 *::after,
-.emotion-1 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -163,17 +139,11 @@ exports[`Ordered List should filter out styling props 1`] = `
 
 exports[`Ordered List should render a plain ordered list wrapper 1`] = `
 .emotion-1 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-1 *,
-.emotion-1 *::after,
-.emotion-1 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -203,17 +173,11 @@ exports[`Ordered List should render a plain ordered list wrapper 1`] = `
 
 exports[`Unordered List should filter out styling props 1`] = `
 .emotion-1 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-1 *,
-.emotion-1 *::after,
-.emotion-1 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -243,17 +207,11 @@ exports[`Unordered List should filter out styling props 1`] = `
 
 exports[`Unordered List should render a plain unordered list wrapper 1`] = `
 .emotion-1 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-1 *,
-.emotion-1 *::after,
-.emotion-1 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
