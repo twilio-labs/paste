@@ -3,19 +3,13 @@ import {storiesOf} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
 import {withKnobs, select, text, boolean} from '@storybook/addon-knobs';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
+import {isRenderingOnServer} from '@twilio-paste/animation-library';
 import {Button} from '../src';
 import {ButtonVariants, ButtonSizes, ButtonTabIndexes} from '../src/types';
 
 const ButtonSizeOptions = ['', 'default', 'small', 'icon', 'reset'];
 const ButtonVariantOptions = ['primary', 'secondary', 'destructive', 'destructive_link', 'link', 'reset'];
 const ButtonTabIndexOptions = [0, -1];
-
-const IS_VRT_ENV = (() => {
-  if (!window || !window.location || !window.location.href) {
-    return true;
-  }
-  return Boolean(new URL(window.location.href).searchParams.get('eyes-storybook'));
-})();
 
 storiesOf('Components|Button', module)
   .addDecorator(withKnobs)
@@ -87,7 +81,7 @@ storiesOf('Components|Button', module)
           <Button variant="primary" size={size}>
             Primary
           </Button>
-          <Button variant="primary" size={size} loading={!IS_VRT_ENV}>
+          <Button variant="primary" size={size} loading={!isRenderingOnServer}>
             Primary
           </Button>
           <Button variant="primary" size={size} disabled>
@@ -99,7 +93,7 @@ storiesOf('Components|Button', module)
           <Button variant="primary" size="small">
             Primary
           </Button>
-          <Button variant="primary" size="small" loading={!IS_VRT_ENV}>
+          <Button variant="primary" size="small" loading={!isRenderingOnServer}>
             Primary
           </Button>
           <Button variant="primary" size="small" disabled>
@@ -111,7 +105,7 @@ storiesOf('Components|Button', module)
           <Button variant="primary" size="icon">
             <PlusIcon decorative={false} title="Add to cart" />
           </Button>
-          <Button variant="primary" size="icon" loading={!IS_VRT_ENV}>
+          <Button variant="primary" size="icon" loading={!isRenderingOnServer}>
             <PlusIcon decorative={false} title="Add to cart" />
           </Button>
           <Button variant="primary" size="icon" disabled>
@@ -123,7 +117,7 @@ storiesOf('Components|Button', module)
           <Button variant="primary" size="reset">
             Primary
           </Button>
-          <Button variant="primary" size="reset" loading={!IS_VRT_ENV}>
+          <Button variant="primary" size="reset" loading={!isRenderingOnServer}>
             Primary
           </Button>
           <Button variant="primary" size="reset" disabled>
@@ -135,7 +129,7 @@ storiesOf('Components|Button', module)
           <Button variant="secondary" size={size}>
             Secondary
           </Button>
-          <Button variant="secondary" size={size} loading={!IS_VRT_ENV}>
+          <Button variant="secondary" size={size} loading={!isRenderingOnServer}>
             Secondary
           </Button>
           <Button variant="secondary" size={size} disabled>
@@ -147,7 +141,7 @@ storiesOf('Components|Button', module)
           <Button variant="secondary" size="small">
             Secondary
           </Button>
-          <Button variant="secondary" size="small" loading={!IS_VRT_ENV}>
+          <Button variant="secondary" size="small" loading={!isRenderingOnServer}>
             Secondary
           </Button>
           <Button variant="secondary" size="small" disabled>
@@ -159,7 +153,7 @@ storiesOf('Components|Button', module)
           <Button variant="secondary" size="icon">
             <PlusIcon decorative={false} title="Add to cart" />
           </Button>
-          <Button variant="secondary" size="icon" loading={!IS_VRT_ENV}>
+          <Button variant="secondary" size="icon" loading={!isRenderingOnServer}>
             <PlusIcon decorative={false} title="Add to cart" />
           </Button>
           <Button variant="secondary" size="icon" disabled>
@@ -171,7 +165,7 @@ storiesOf('Components|Button', module)
           <Button variant="secondary" size="reset">
             Secondary
           </Button>
-          <Button variant="secondary" size="reset" loading={!IS_VRT_ENV}>
+          <Button variant="secondary" size="reset" loading={!isRenderingOnServer}>
             Secondary
           </Button>
           <Button variant="secondary" size="reset" disabled>
@@ -183,7 +177,7 @@ storiesOf('Components|Button', module)
           <Button variant="destructive" size={size}>
             Destructive
           </Button>
-          <Button variant="destructive" size={size} loading={!IS_VRT_ENV}>
+          <Button variant="destructive" size={size} loading={!isRenderingOnServer}>
             Destructive
           </Button>
           <Button variant="destructive" size={size} disabled>
@@ -195,7 +189,7 @@ storiesOf('Components|Button', module)
           <Button variant="destructive" size="small">
             Destructive
           </Button>
-          <Button variant="destructive" size="small" loading={!IS_VRT_ENV}>
+          <Button variant="destructive" size="small" loading={!isRenderingOnServer}>
             Destructive
           </Button>
           <Button variant="destructive" size="small" disabled>
@@ -207,7 +201,7 @@ storiesOf('Components|Button', module)
           <Button variant="destructive" size="icon">
             <PlusIcon decorative={false} title="Add to cart" />
           </Button>
-          <Button variant="destructive" size="icon" loading={!IS_VRT_ENV}>
+          <Button variant="destructive" size="icon" loading={!isRenderingOnServer}>
             <PlusIcon decorative={false} title="Add to cart" />
           </Button>
           <Button variant="destructive" size="icon" disabled>
@@ -219,7 +213,7 @@ storiesOf('Components|Button', module)
           <Button variant="destructive" size="reset">
             Destructive
           </Button>
-          <Button variant="destructive" size="reset" loading={!IS_VRT_ENV}>
+          <Button variant="destructive" size="reset" loading={!isRenderingOnServer}>
             Destructive
           </Button>
           <Button variant="destructive" size="reset" disabled>
@@ -231,7 +225,7 @@ storiesOf('Components|Button', module)
           <Button variant="link" size={size}>
             Link
           </Button>
-          <Button variant="link" size={size} loading={!IS_VRT_ENV}>
+          <Button variant="link" size={size} loading={!isRenderingOnServer}>
             Link
           </Button>
           <Button variant="link" size={size} disabled>
@@ -243,7 +237,7 @@ storiesOf('Components|Button', module)
           <Button variant="link" size="small">
             Link
           </Button>
-          <Button variant="link" size="small" loading={!IS_VRT_ENV}>
+          <Button variant="link" size="small" loading={!isRenderingOnServer}>
             Link
           </Button>
           <Button variant="link" size="small" disabled>
@@ -255,7 +249,7 @@ storiesOf('Components|Button', module)
           <Button variant="link" size="icon">
             <PlusIcon decorative={false} title="Add to cart" />
           </Button>
-          <Button variant="link" size="icon" loading={!IS_VRT_ENV}>
+          <Button variant="link" size="icon" loading={!isRenderingOnServer}>
             <PlusIcon decorative={false} title="Add to cart" />
           </Button>
           <Button variant="link" size="icon" disabled>
@@ -267,7 +261,7 @@ storiesOf('Components|Button', module)
           <Button variant="link" size="reset">
             Link
           </Button>
-          <Button variant="link" size="reset" loading={!IS_VRT_ENV}>
+          <Button variant="link" size="reset" loading={!isRenderingOnServer}>
             Link
           </Button>
           <Button variant="link" size="reset" disabled>
@@ -279,7 +273,7 @@ storiesOf('Components|Button', module)
           <Button variant="destructive_link" size={size}>
             Destructive Link
           </Button>
-          <Button variant="destructive_link" size={size} loading={!IS_VRT_ENV}>
+          <Button variant="destructive_link" size={size} loading={!isRenderingOnServer}>
             Destructive Link
           </Button>
           <Button variant="destructive_link" size={size} disabled>
@@ -291,7 +285,7 @@ storiesOf('Components|Button', module)
           <Button variant="destructive_link" size="small">
             Destructive Link
           </Button>
-          <Button variant="destructive_link" size="small" loading={!IS_VRT_ENV}>
+          <Button variant="destructive_link" size="small" loading={!isRenderingOnServer}>
             Destructive Link
           </Button>
           <Button variant="destructive_link" size="small" disabled>
@@ -303,7 +297,7 @@ storiesOf('Components|Button', module)
           <Button variant="destructive_link" size="icon">
             <PlusIcon decorative={false} title="Add to cart" />
           </Button>
-          <Button variant="destructive_link" size="icon" loading={!IS_VRT_ENV}>
+          <Button variant="destructive_link" size="icon" loading={!isRenderingOnServer}>
             <PlusIcon decorative={false} title="Add to cart" />
           </Button>
           <Button variant="destructive_link" size="icon" disabled>
@@ -315,7 +309,7 @@ storiesOf('Components|Button', module)
           <Button variant="destructive_link" size="reset">
             Destructive Link
           </Button>
-          <Button variant="destructive_link" size="reset" loading={!IS_VRT_ENV}>
+          <Button variant="destructive_link" size="reset" loading={!isRenderingOnServer}>
             Destructive Link
           </Button>
           <Button variant="destructive_link" size="reset" disabled>
@@ -326,7 +320,7 @@ storiesOf('Components|Button', module)
           <Button variant="reset" size="reset">
             Reset
           </Button>
-          <Button variant="reset" size="reset" loading={!IS_VRT_ENV}>
+          <Button variant="reset" size="reset" loading={!isRenderingOnServer}>
             Reset
           </Button>
           <Button variant="reset" size="reset" disabled>
