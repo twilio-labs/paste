@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@0.1.4...@twilio-paste/combobox@0.1.5) (2020-06-01)
+
+
+### Bug Fixes
+
+* **combobox:** expose onSelectedItemChange and UseComboboxProp ([ca07615](https://github.com/twilio-labs/paste/commit/ca07615a6f2968ff59bb26222221f0f725ddb25c))
+
+
+
+
+
 ## [0.1.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@0.1.3...@twilio-paste/combobox@0.1.4) (2020-06-01)
 
 **Note:** Version bump only for package @twilio-paste/combobox

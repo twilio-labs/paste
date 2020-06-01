@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/combobox",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "category": "user input",
   "status": "alpha",
   "description": "",
@@ -34,7 +34,7 @@
     "@styled-system/theme-get": "^5.1.2",
     "@twilio-paste/box": "^2.4.7",
     "@twilio-paste/button": "^1.2.3",
-    "@twilio-paste/combobox-primitive": "^0.1.1",
+    "@twilio-paste/combobox-primitive": "^0.1.2",
     "@twilio-paste/form": "^1.5.4",
     "@twilio-paste/icons": "^2.2.1",
     "@twilio-paste/text": "^2.1.8",
@@ -47,7 +47,7 @@
   "devDependencies": {
     "@twilio-paste/box": "^2.4.7",
     "@twilio-paste/button": "^1.2.3",
-    "@twilio-paste/combobox-primitive": "^0.1.1",
+    "@twilio-paste/combobox-primitive": "^0.1.2",
     "@twilio-paste/form": "^1.5.4",
     "@twilio-paste/icons": "^2.2.1",
     "@twilio-paste/text": "^2.1.8"

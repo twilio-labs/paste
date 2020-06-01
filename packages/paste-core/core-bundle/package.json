@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "2.9.5",
+  "version": "2.9.6",
   "status": "beta",
   "description": "Contains all the core packages from the Paste internal design system.",
   "author": "Twilio Inc.",
@@ -34,8 +34,8 @@
     "@twilio-paste/box": "^2.4.7",
     "@twilio-paste/button": "^1.2.3",
     "@twilio-paste/card": "^1.3.33",
-    "@twilio-paste/combobox": "^0.1.4",
-    "@twilio-paste/combobox-primitive": "^0.1.1",
+    "@twilio-paste/combobox": "^0.1.5",
+    "@twilio-paste/combobox-primitive": "^0.1.2",
     "@twilio-paste/disclosure-primitive": "^0.1.1",
     "@twilio-paste/flex": "^0.3.26",
     "@twilio-paste/form": "^1.5.4",

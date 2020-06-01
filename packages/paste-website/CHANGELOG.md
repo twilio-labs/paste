@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.29.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.28.3...@twilio-paste/website@1.29.0) (2020-06-01)
+
+
+### Features
+
+* **website:** add algolia search ([006731e](https://github.com/twilio-labs/paste/commit/006731e9ac8d2c4d3002c50bddf05606dc0a6adf))
+
+
+
+
+
 ## [1.28.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.28.2...@twilio-paste/website@1.28.3) (2020-06-01)
 
 
