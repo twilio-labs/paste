@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@0.1.18...@twilio-paste/modal@0.2.0) (2020-06-01)
+
+
+### Features
+
+* **modal:** animate modal open & close transitions ([547d4f4](https://github.com/twilio-labs/paste/commit/547d4f45d08097756ac3cd924fb7bba89a941ba7))
+
+
+
+
+
 ## [0.1.18](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@0.1.17...@twilio-paste/modal@0.1.18) (2020-05-28)
 
 **Note:** Version bump only for package @twilio-paste/modal

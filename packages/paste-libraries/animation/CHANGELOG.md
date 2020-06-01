@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/animation-library@0.1.1...@twilio-paste/animation-library@0.2.0) (2020-06-01)
+
+
+### Features
+
+* **animation-library:** use v9 and add useReducedMotion hook ([70af843](https://github.com/twilio-labs/paste/commit/70af843a228b6f358fa40b8fd1ee9f009a084e64))
+
+
+
+
+
 ## [0.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/animation-library@0.1.0...@twilio-paste/animation-library@0.1.1) (2020-05-19)
 
 

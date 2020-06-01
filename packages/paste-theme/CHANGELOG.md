@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@3.1.7...@twilio-paste/theme@3.2.0) (2020-06-01)
+
+
+### Features
+
+* **theme:** disable animations when prefers-reduced-motion, cleanup ([2cbe919](https://github.com/twilio-labs/paste/commit/2cbe91982af27be4b3fccc62e3280b49a0f50539))
+
+
+
+
+
 ## [3.1.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@3.1.6...@twilio-paste/theme@3.1.7) (2020-05-20)
 
 **Note:** Version bump only for package @twilio-paste/theme

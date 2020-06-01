@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.28.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.28.2...@twilio-paste/website@1.28.3) (2020-06-01)
+
+
+### Bug Fixes
+
+* **website:** add animation-library dependency ([e02672c](https://github.com/twilio-labs/paste/commit/e02672caaddd0809d58cc9c48e4cd1762e497e6c))
+
+
+
+
+
 ## [1.28.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.28.1...@twilio-paste/website@1.28.2) (2020-05-29)
 
 **Note:** Version bump only for package @twilio-paste/website

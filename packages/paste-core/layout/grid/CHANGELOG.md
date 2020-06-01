@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.28](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.2.27...@twilio-paste/grid@0.2.28) (2020-06-01)
+
+**Note:** Version bump only for package @twilio-paste/grid
+
+
+
+
+
 ## [0.2.27](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.2.26...@twilio-paste/grid@0.2.27) (2020-05-27)
 
 **Note:** Version bump only for package @twilio-paste/grid
