@@ -60,6 +60,7 @@
     "@emotion/styled": "^10.0.10",
     "@styled-system/css": "^5.1.5",
     "@styled-system/theme-get": "^5.1.2",
+    "@twilio-paste/animation-library": "^0.1.1",
     "@twilio-paste/design-tokens": "^5.2.0",
     "@twilio-paste/dropdown-library": "^0.1.1",
     "@twilio-paste/icons": "^2.2.0",
@@ -74,6 +75,7 @@
     "styled-system": "^5.1.2"
   },
   "devDependencies": {
+    "@twilio-paste/animation-library": "^0.1.1",
     "@twilio-paste/design-tokens": "^5.2.0",
     "@twilio-paste/dropdown-library": "^0.1.1",
     "@twilio-paste/icons": "^2.2.0",
