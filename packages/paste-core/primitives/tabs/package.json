@@ -1,7 +1,38 @@
 {
-  "name": "@twilio-paste/primitive-tabs",
-  "version": "0.0.2",
+  "name": "@twilio-paste/tabs-primitive",
+  "version": "0.0.0",
   "category": "interaction",
-  "status": "backlog",
-  "private": true
+  "status": "beta",
+  "description": "An unstyled and accessible basis upon which to style a tabbing system.",
+  "author": "Twilio Inc.",
+  "license": "MIT",
+  "main:dev": "src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn clean && yarn compile",
+    "build:dev": "yarn clean && yarn compile:dev",
+    "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
+    "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
+    "compile": "rollup -c --environment NODE_ENV:production",
+    "compile:dev": "rollup -cw --environment NODE_ENV:development",
+    "prepublishOnly": "yarn build",
+    "type-check": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@twilio-paste/reakit-library": "^0.2.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@twilio-paste/reakit-library": "^0.2.0"
+  }
 }
