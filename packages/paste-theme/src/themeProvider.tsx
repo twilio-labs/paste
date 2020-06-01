@@ -1,41 +1,66 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import {Global, css, SerializedStyles} from '@emotion/core';
-import {themeGet} from '@styled-system/theme-get';
+import {useReducedMotion, Globals as AnimatedGlobals} from '@twilio-paste/animation-library';
+
+import {Global} from '@emotion/core';
+import {css, SystemStyleObject} from '@styled-system/css';
 import {ThemeProvider as StyledThemeProvider} from 'emotion-theming';
+
 import {DefaultTheme, SendGridTheme, ConsoleTheme} from './themes';
 import {ThemeVariants} from './constants';
 
-interface EmotionStyledProps {
-  theme: {};
+const pasteGlobalStyles = css({
+  html: {
+    fontSize: '100%',
+  },
+  body: {
+    margin: 0,
+    fontSize: 'fontSize30',
+  },
+  '*, *::after, *::before': {
+    boxSizing: 'border-box',
+  },
+  '@media (prefers-reduced-motion: reduce)': {
+    '*': {
+      animationDuration: '0 !important' as SystemStyleObject,
+      animationIterationCount: '1 !important' as SystemStyleObject,
+      transitionDuration: '0 !important' as SystemStyleObject,
+      scrollBehavior: 'auto !important' as SystemStyleObject,
+    },
+  },
+});
+
+export const pasteBaseStyles = css({
+  color: 'colorText',
+  fontSize: 'fontSize30',
+  fontFamily: 'fontFamilyText',
+  lineHeight: 'lineHeight30',
+  fontWeight: 'fontWeightNormal',
+});
+
+export const StyledBase = styled.div(pasteBaseStyles);
+
+function getProviderThemeProps(theme: ThemeVariants, customBreakpoints?: string[]): {} {
+  switch (theme) {
+    case ThemeVariants.SENDGRID:
+      return {
+        ...SendGridTheme,
+        breakpoints: customBreakpoints || SendGridTheme.breakpoints,
+      };
+    case ThemeVariants.CONSOLE:
+      return {
+        ...ConsoleTheme,
+        breakpoints: customBreakpoints || ConsoleTheme.breakpoints,
+      };
+    case ThemeVariants.FLEX:
+    case ThemeVariants.DEFAULT:
+    default:
+      return {
+        ...DefaultTheme,
+        breakpoints: customBreakpoints || DefaultTheme.breakpoints,
+      };
+  }
 }
-const pasteGlobalStyles = (props: EmotionStyledProps): SerializedStyles => css`
-  html {
-    font-size: 100%;
-  }
-  body {
-    margin: 0;
-    font-size: ${themeGet('fontSizes.fontSize30')(props)};
-  }
-`;
-
-export const pasteBaseStyles = (props: EmotionStyledProps): SerializedStyles => css`
-  font-family: ${themeGet('fonts.fontFamilyText')(props)};
-  font-size: ${themeGet('fontSizes.fontSize30')(props)};
-  line-height: ${themeGet('lineHeights.lineHeight30')(props)};
-  color: ${themeGet('textColors.colorText')(props)};
-  font-weight: ${themeGet('fontWeights.fontWeightNormal')(props)};
-
-  *,
-  *::after,
-  *::before {
-    box-sizing: border-box;
-  }
-`;
-
-export const StyledBase = styled.div`
-  ${pasteBaseStyles}
-`;
 
 export interface ThemeProviderProps {
   customBreakpoints?: string[];
@@ -47,34 +72,18 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   theme = ThemeVariants.DEFAULT,
   ...props
 }) => {
-  let breakpoints = {};
-  let themeObject = {};
+  const prefersReducedMotion = useReducedMotion();
+  React.useEffect(() => {
+    AnimatedGlobals.assign({
+      skipAnimation: prefersReducedMotion,
+    });
+  }, [prefersReducedMotion]);
 
-  switch (theme) {
-    case ThemeVariants.SENDGRID:
-      themeObject = SendGridTheme;
-      breakpoints = customBreakpoints || SendGridTheme.breakpoints;
-      break;
-    case ThemeVariants.CONSOLE:
-      themeObject = ConsoleTheme;
-      breakpoints = customBreakpoints || ConsoleTheme.breakpoints;
-      break;
-    case ThemeVariants.FLEX:
-    case ThemeVariants.DEFAULT:
-    default:
-      themeObject = DefaultTheme;
-      breakpoints = customBreakpoints || DefaultTheme.breakpoints;
-      break;
-  }
-
-  const providerThemeProp = {
-    ...themeObject,
-    breakpoints,
-  };
+  const providerThemeProps = getProviderThemeProps(theme, customBreakpoints);
 
   return (
-    <StyledThemeProvider theme={providerThemeProp}>
-      <Global styles={pasteGlobalStyles({theme: providerThemeProp})} />
+    <StyledThemeProvider theme={providerThemeProps}>
+      <Global styles={pasteGlobalStyles({theme: providerThemeProps})} />
       <StyledBase {...props} />
     </StyledThemeProvider>
   );
