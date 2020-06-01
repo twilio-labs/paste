@@ -2,17 +2,11 @@
 
 exports[`Heading it should render an H1 at fontSize90 1`] = `
 .emotion-1 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-1 *,
-.emotion-1 *::after,
-.emotion-1 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -43,17 +37,11 @@ exports[`Heading it should render an H1 at fontSize90 1`] = `
 
 exports[`Heading it should render an H2 at fontSize70 1`] = `
 .emotion-1 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-1 *,
-.emotion-1 *::after,
-.emotion-1 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -84,17 +72,11 @@ exports[`Heading it should render an H2 at fontSize70 1`] = `
 
 exports[`Heading it should render an H3 at fontSize60 1`] = `
 .emotion-1 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-1 *,
-.emotion-1 *::after,
-.emotion-1 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -125,17 +107,11 @@ exports[`Heading it should render an H3 at fontSize60 1`] = `
 
 exports[`Heading it should render an H4 at fontSize40 1`] = `
 .emotion-1 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-1 *,
-.emotion-1 *::after,
-.emotion-1 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -166,17 +142,11 @@ exports[`Heading it should render an H4 at fontSize40 1`] = `
 
 exports[`Heading it should render an H5 at fontSize30 1`] = `
 .emotion-1 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-1 *,
-.emotion-1 *::after,
-.emotion-1 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -207,17 +177,11 @@ exports[`Heading it should render an H5 at fontSize30 1`] = `
 
 exports[`Heading it should render an H6 at fontSize20 1`] = `
 .emotion-1 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-1 *,
-.emotion-1 *::after,
-.emotion-1 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -248,17 +212,11 @@ exports[`Heading it should render an H6 at fontSize20 1`] = `
 
 exports[`Heading it should render an italic H2 at fontSize50 1`] = `
 .emotion-1 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-1 *,
-.emotion-1 *::after,
-.emotion-1 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -291,17 +249,11 @@ exports[`Heading it should render an italic H2 at fontSize50 1`] = `
 
 exports[`Heading it should render with no margin 1`] = `
 .emotion-6 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-6 *,
-.emotion-6 *::after,
-.emotion-6 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {

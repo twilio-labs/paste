@@ -2,17 +2,11 @@
 
 exports[`FormLabel render it should render 1`] = `
 .emotion-3 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-3 *,
-.emotion-3 *::after,
-.emotion-3 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-2 {
@@ -78,17 +72,11 @@ exports[`FormLabel render it should render 1`] = `
 
 exports[`FormLabel render it should render with required 1`] = `
 .emotion-6 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-6 *,
-.emotion-6 *::after,
-.emotion-6 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-5 {

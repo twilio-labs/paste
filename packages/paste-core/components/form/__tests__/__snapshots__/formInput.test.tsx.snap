@@ -2,17 +2,11 @@
 
 exports[`FormInput render it should render 1`] = `
 .emotion-3 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-3 *,
-.emotion-3 *::after,
-.emotion-3 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-2 {
@@ -113,17 +107,11 @@ exports[`FormInput render it should render 1`] = `
 
 exports[`FormInput render it should render with disabled 1`] = `
 .emotion-3 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-3 *,
-.emotion-3 *::after,
-.emotion-3 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -225,17 +213,11 @@ exports[`FormInput render it should render with disabled 1`] = `
 
 exports[`FormInput render it should render with hasError 1`] = `
 .emotion-3 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-3 *,
-.emotion-3 *::after,
-.emotion-3 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -337,17 +319,11 @@ exports[`FormInput render it should render with hasError 1`] = `
 
 exports[`FormInput render it should render with prefix 1`] = `
 .emotion-4 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-4 *,
-.emotion-4 *::after,
-.emotion-4 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-3 {
@@ -475,17 +451,11 @@ exports[`FormInput render it should render with prefix 1`] = `
 
 exports[`FormInput render it should render with readOnly 1`] = `
 .emotion-3 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-3 *,
-.emotion-3 *::after,
-.emotion-3 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -588,17 +558,11 @@ exports[`FormInput render it should render with readOnly 1`] = `
 
 exports[`FormInput render it should render with suffix 1`] = `
 .emotion-4 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-4 *,
-.emotion-4 *::after,
-.emotion-4 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-3 {

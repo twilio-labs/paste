@@ -2,17 +2,11 @@
 
 exports[`Backgrounds it should render responsive values 1`] = `
 .emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -39,17 +33,11 @@ exports[`Backgrounds it should render responsive values 1`] = `
 
 exports[`Backgrounds it should render single values 1`] = `
 .emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -70,17 +58,11 @@ exports[`Backgrounds it should render single values 1`] = `
 
 exports[`Borders it should render responsive values 1`] = `
 .emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -119,17 +101,11 @@ exports[`Borders it should render responsive values 1`] = `
 
 exports[`Borders it should render single values 1`] = `
 .emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -153,17 +129,11 @@ exports[`Borders it should render single values 1`] = `
 
 exports[`Shadows it should render responsive values 1`] = `
 .emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -190,17 +160,11 @@ exports[`Shadows it should render responsive values 1`] = `
 
 exports[`Shadows it should render single values 1`] = `
 .emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -221,17 +185,11 @@ exports[`Shadows it should render single values 1`] = `
 
 exports[`Sizes it should render responsive values 1`] = `
 .emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -280,17 +238,11 @@ exports[`Sizes it should render responsive values 1`] = `
 
 exports[`Sizes it should render single values 1`] = `
 .emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -318,17 +270,11 @@ exports[`Sizes it should render single values 1`] = `
 
 exports[`Spaces (A) it should render responsive values 1`] = `
 .emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -355,17 +301,11 @@ exports[`Spaces (A) it should render responsive values 1`] = `
 
 exports[`Spaces (A) it should render single values 1`] = `
 .emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -386,17 +326,11 @@ exports[`Spaces (A) it should render single values 1`] = `
 
 exports[`Spaces (B) it should render single values 1`] = `
 .emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -420,17 +354,11 @@ exports[`Spaces (B) it should render single values 1`] = `
 
 exports[`Spaces (B)it should render responsive values 1`] = `
 .emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -463,17 +391,11 @@ exports[`Spaces (B)it should render responsive values 1`] = `
 
 exports[`ZIndex Pseudo-class props it should generate pseudo-class CSS 1`] = `
 .emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -611,17 +533,11 @@ exports[`ZIndex Pseudo-class props it should generate pseudo-class CSS 1`] = `
 
 exports[`ZIndex it should render responsive values 1`] = `
 .emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -648,17 +564,11 @@ exports[`ZIndex it should render responsive values 1`] = `
 
 exports[`ZIndex it should render single values 1`] = `
 .emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {

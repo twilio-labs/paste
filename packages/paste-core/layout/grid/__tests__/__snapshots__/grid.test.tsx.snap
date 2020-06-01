@@ -2,17 +2,11 @@
 
 exports[`12 Column Options it should render a 5 span, 3 span column grid 1`] = `
 .emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-4 {
@@ -66,17 +60,11 @@ exports[`12 Column Options it should render a 5 span, 3 span column grid 1`] = `
 
 exports[`12 Column Options it should render a 5 span, 5 span, 2 span column grid 1`] = `
 .emotion-7 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-7 *,
-.emotion-7 *::after,
-.emotion-7 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-6 {
@@ -134,17 +122,11 @@ exports[`12 Column Options it should render a 5 span, 5 span, 2 span column grid
 
 exports[`12 Column Options it should render a 6 span, 6 span column grid 1`] = `
 .emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-4 {
@@ -194,17 +176,11 @@ exports[`12 Column Options it should render a 6 span, 6 span column grid 1`] = `
 
 exports[`12 Column Options it should render a 8 span, 4 span column grid 1`] = `
 .emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-4 {
@@ -258,17 +234,11 @@ exports[`12 Column Options it should render a 8 span, 4 span column grid 1`] = `
 
 exports[`12 Column Options it should render a 9 span, 3 span column grid 1`] = `
 .emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-4 {
@@ -322,17 +292,11 @@ exports[`12 Column Options it should render a 9 span, 3 span column grid 1`] = `
 
 exports[`12 Column Options it should render a 10 span, 2 span column grid 1`] = `
 .emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-4 {
@@ -386,17 +350,11 @@ exports[`12 Column Options it should render a 10 span, 2 span column grid 1`] = 
 
 exports[`12 Column Options it should render a 11 span, 1 span column grid 1`] = `
 .emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-4 {
@@ -450,17 +408,11 @@ exports[`12 Column Options it should render a 11 span, 1 span column grid 1`] = 
 
 exports[`12 Column Options it should render a 11 span, 2 span column grid 1`] = `
 .emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-4 {
@@ -514,17 +466,11 @@ exports[`12 Column Options it should render a 11 span, 2 span column grid 1`] = 
 
 exports[`12 Column Options it should render a grid with 1 column 1`] = `
 .emotion-3 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-3 *,
-.emotion-3 *::after,
-.emotion-3 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-2 {
@@ -570,17 +516,11 @@ exports[`12 Column Options it should render a grid with 1 column 1`] = `
 
 exports[`12 Column Options it should render a grid with 2 columns 1`] = `
 .emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-4 {
@@ -630,17 +570,11 @@ exports[`12 Column Options it should render a grid with 2 columns 1`] = `
 
 exports[`12 Column Options it should render a grid with 3 columns 1`] = `
 .emotion-7 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-7 *,
-.emotion-7 *::after,
-.emotion-7 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-6 {
@@ -694,17 +628,11 @@ exports[`12 Column Options it should render a grid with 3 columns 1`] = `
 
 exports[`12 Column Options it should render a grid with 4 columns 1`] = `
 .emotion-9 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-9 *,
-.emotion-9 *::after,
-.emotion-9 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-8 {
@@ -762,17 +690,11 @@ exports[`12 Column Options it should render a grid with 4 columns 1`] = `
 
 exports[`12 Column Options it should render a grid with 6 columns 1`] = `
 .emotion-13 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-13 *,
-.emotion-13 *::after,
-.emotion-13 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-12 {
@@ -838,17 +760,11 @@ exports[`12 Column Options it should render a grid with 6 columns 1`] = `
 
 exports[`12 Column Options it should render a grid with 12 columns 1`] = `
 .emotion-25 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-25 *,
-.emotion-25 *::after,
-.emotion-25 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-24 {
@@ -938,17 +854,11 @@ exports[`12 Column Options it should render a grid with 12 columns 1`] = `
 
 exports[`Column Offset Prop it should render two columns, one with a offset 1`] = `
 .emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-4 {
@@ -1003,17 +913,11 @@ exports[`Column Offset Prop it should render two columns, one with a offset 1`] 
 
 exports[`Column Offset Prop it should render two columns, one with a responsive offset 1`] = `
 .emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-4 {
@@ -1088,17 +992,11 @@ exports[`Column Offset Prop it should render two columns, one with a responsive 
 
 exports[`Column Span Prop it should render two columns with different responsive column spans 1`] = `
 .emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-4 {
@@ -1188,17 +1086,11 @@ exports[`Column Span Prop it should render two columns with different responsive
 
 exports[`Column Span Prop it should render two columns, one spaning 8 columns, the other spanning 4 columns 1`] = `
 .emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-4 {
@@ -1252,17 +1144,11 @@ exports[`Column Span Prop it should render two columns, one spaning 8 columns, t
 
 exports[`Column render it should render 1`] = `
 .emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -1283,17 +1169,11 @@ exports[`Column render it should render 1`] = `
 
 exports[`Column render it should render as any HTML element 1`] = `
 .emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -1314,17 +1194,11 @@ exports[`Column render it should render as any HTML element 1`] = `
 
 exports[`Grid Gutter Prop it should render two columns with gutters 1`] = `
 .emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-4 {
@@ -1376,17 +1250,11 @@ exports[`Grid Gutter Prop it should render two columns with gutters 1`] = `
 
 exports[`Grid Gutter Prop it should render two columns with responsive gutters 1`] = `
 .emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-4 {
@@ -1466,17 +1334,11 @@ exports[`Grid Gutter Prop it should render two columns with responsive gutters 1
 
 exports[`Grid Vertical Prop it should render two columns stacked only on mobile and tablet 1`] = `
 .emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-4 {
@@ -1559,17 +1421,11 @@ exports[`Grid Vertical Prop it should render two columns stacked only on mobile 
 
 exports[`Grid Vertical Prop it should render two stacked columns 1`] = `
 .emotion-5 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-5 *,
-.emotion-5 *::after,
-.emotion-5 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-4 {
@@ -1624,17 +1480,11 @@ exports[`Grid Vertical Prop it should render two stacked columns 1`] = `
 
 exports[`Grid render it should render 1`] = `
 .emotion-1 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-1 *,
-.emotion-1 *::after,
-.emotion-1 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {
@@ -1673,17 +1523,11 @@ exports[`Grid render it should render 1`] = `
 
 exports[`Grid render it should render as any HTML element 1`] = `
 .emotion-1 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-1 *,
-.emotion-1 *::after,
-.emotion-1 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-0 {

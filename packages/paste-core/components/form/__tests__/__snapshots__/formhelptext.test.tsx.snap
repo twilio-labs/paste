@@ -2,17 +2,11 @@
 
 exports[`FormHelpText render it should render 1`] = `
 .emotion-2 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-2 *,
-.emotion-2 *::after,
-.emotion-2 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-1 {
@@ -61,17 +55,11 @@ exports[`FormHelpText render it should render 1`] = `
 
 exports[`FormHelpText render it should render with an error icon 1`] = `
 .emotion-4 {
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-.emotion-4 *,
-.emotion-4 *::after,
-.emotion-4 *::before {
-  box-sizing: border-box;
 }
 
 .emotion-3 {
