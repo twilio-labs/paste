@@ -4,15 +4,12 @@ const MenuExample = () => {
   return (
     <>
       <MenuButton {...menu} variant="primary">
-        Preferences <ChevronDownIcon decorative />
+        Actions you can take <ChevronDownIcon decorative />
       </MenuButton>
-      <Menu {...menu} aria-label="Preferences">
-        <MenuItem {...menu}>Settings</MenuItem>
-        <MenuItem {...menu} disabled>
-          Extensions
-        </MenuItem>
-        <MenuSeparator {...menu} />
-        <MenuItem {...menu}>Keyboard shortcuts</MenuItem>
+      <Menu {...menu} aria-label="Actions">
+        <MenuItem {...menu}>Call your representatives</MenuItem>
+        <MenuItem {...menu}>Support black-owned businesses</MenuItem>
+        <MenuItem {...menu}>Vote in national, state, and local elections</MenuItem>
       </Menu>
     </>
   );
