@@ -6,31 +6,23 @@ import {uid, useUID} from 'react-uid';
 import {useComboboxPrimitive, UseComboboxPrimitiveProps} from '@twilio-paste/combobox-primitive';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {Box} from '@twilio-paste/box';
-import {FormControlWrapper, FormHelpText, FormLabel, InputElement, FormInputProps} from '@twilio-paste/form';
+import {
+  FormControlWrapper,
+  FormHelpText,
+  FormLabel,
+  InputElement,
+  FormInputProps,
+  SelectIconWrapper,
+} from '@twilio-paste/form';
 import {ComboboxInputWrapper} from './ComboboxInputWrapper';
 import {ComboboxListbox} from './ComboboxListbox';
 import {ComboboxListboxOption} from './ComboboxListboxOption';
-
-const ComboboxIconWrapper: React.FC = ({children}) => (
-  <Box
-    alignItems="center"
-    display="inline-flex"
-    position="absolute"
-    pointerEvents="none"
-    right="space40"
-    top="50%"
-    transform="translateY(-50%)"
-    zIndex="zIndex10"
-  >
-    {children}
-  </Box>
-);
 
 // Fixes chevron overlapping really long text
 /* eslint-disable emotion/syntax-preference */
 const StyledInputAsSelect = styled(InputElement)(
   css({
-    paddingRight: 'space120',
+    paddingRight: 'space100',
   })
 );
 /* eslint-enable */
@@ -38,6 +30,7 @@ const StyledInputAsSelect = styled(InputElement)(
 export interface ComboboxProps extends Omit<FormInputProps, 'id' | 'type'> {
   autocomplete?: boolean;
   helpText?: string | React.ReactNode;
+  initialSelectedItem?: UseComboboxPrimitiveProps<any>['initialSelectedItem'];
   items: UseComboboxPrimitiveProps<any>['items'];
   labelText: string | NonNullable<React.ReactNode>;
   onInputValueChange?: UseComboboxPrimitiveProps<any>['onInputValueChange'];
@@ -55,14 +48,15 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       disabled,
       hasError,
       helpText,
+      initialSelectedItem,
       insertAfter,
       insertBefore,
       items,
       itemToString,
       labelText,
-      optionTemplate,
       onInputValueChange,
       onSelectedItemChange,
+      optionTemplate,
       required,
       ...props
     },
@@ -78,6 +72,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       highlightedIndex,
       isOpen,
     } = useComboboxPrimitive({
+      initialSelectedItem,
       items,
       onInputValueChange,
       onSelectedItemChange,
@@ -106,9 +101,9 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
               ref={ref}
               paddingRight="space90"
             />
-            <ComboboxIconWrapper>
+            <SelectIconWrapper>
               <ChevronDownIcon size="sizeIcon30" decorative aria-hidden="true" />
-            </ComboboxIconWrapper>
+            </SelectIconWrapper>
           </ComboboxInputWrapper>
         </FormControlWrapper>
         <ComboboxListbox {...getMenuProps()}>
@@ -141,6 +136,7 @@ if (process.env.NODE_ENV === 'development') {
   Combobox.propTypes = {
     autocomplete: PropTypes.bool,
     items: PropTypes.arrayOf(PropTypes.any).isRequired,
+    initialSelectedItem: PropTypes.arrayOf(PropTypes.any),
     helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     labelText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
     onInputValueChange: PropTypes.func,

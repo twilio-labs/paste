@@ -205,4 +205,22 @@ storiesOf('Components|Combobox', module)
   })
   .add('Combobox - Custom Input', () => {
     return <CustomInputCombobox />;
+  })
+  .add('Combobox - overflow long value', () => {
+    const [inputItems, setInputItems] = React.useState(items);
+    return (
+      <Box maxWidth="size40">
+        <Combobox
+          items={inputItems}
+          helpText="This is the help text"
+          labelText="Choose a component:"
+          initialSelectedItem={inputItems[5]}
+          onInputValueChange={({inputValue}) => {
+            if (inputValue !== undefined) {
+              setInputItems(items.filter(item => item.toLowerCase().startsWith(inputValue.toLowerCase())));
+            }
+          }}
+        />
+      </Box>
+    );
   });
