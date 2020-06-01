@@ -24,6 +24,7 @@
     "@styled-system/css": "^5.1.5",
     "@styled-system/theme-get": "^5.1.2",
     "@twilio-paste/absolute": "^2.0.38",
+    "@twilio-paste/animation-library": "^0.1.1",
     "@twilio-paste/alert": "^0.1.45",
     "@twilio-paste/anchor": "^1.1.17",
     "@twilio-paste/aspect-ratio": "^1.0.38",
