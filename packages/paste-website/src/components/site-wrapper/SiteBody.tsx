@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import {Anchor} from '@twilio-paste/anchor';
+import {Anchor, secureExternalLink} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
 import {Alert} from '@twilio-paste/alert';
 import {Text} from '@twilio-paste/text';
 import {SIDEBAR_WIDTH} from './constants';
@@ -10,7 +11,7 @@ import {SiteMain, SiteMainInner} from './SiteMain';
 import {SiteFooter} from './SiteFooter';
 import {ScrollAnchorIntoView} from './ScrollAnchorIntoView';
 import {useActiveSiteTheme} from '../../context/ActiveSiteThemeContext';
-import {PASTE_THEME_WARNING_BANNER_OFFSET} from '../../constants';
+import {PASTE_THEME_WARNING_BANNER_OFFSET, PASTE_THEME_WARNING_BANNER_OFFSET_BLM} from '../../constants';
 
 interface StyledSiteBodyProps {
   activeTheme: string;
@@ -19,7 +20,8 @@ interface StyledSiteBodyProps {
 /* Wraps the entire doc site page */
 const StyledSiteBody = styled.div<StyledSiteBodyProps>`
   position: absolute; /* Absolute so we can only scroll the inner area */
-  top: ${props => (props.activeTheme === 'default' ? PASTE_THEME_WARNING_BANNER_OFFSET : '0')};
+  top: ${props =>
+    props.activeTheme === 'default' ? PASTE_THEME_WARNING_BANNER_OFFSET_BLM : PASTE_THEME_WARNING_BANNER_OFFSET};
   right: 0;
   bottom: 0;
   left: 0;
@@ -35,10 +37,41 @@ const StyledSiteBody = styled.div<StyledSiteBodyProps>`
   }
 `;
 
+const BLMAlert: React.FC = () => {
+  const tweetUrl = 'https://twitter.com/twilio/status/1266444750065934337';
+  return (
+    <Box
+      backgroundColor="colorBackgroundInverse"
+      paddingLeft="space70"
+      paddingRight="space70"
+      paddingTop="space40"
+      paddingBottom="space30"
+      role="status"
+      display="flex"
+      justifyContent="center"
+    >
+      <Text as="span" fontWeight="fontWeightBold" color="colorTextBrandInverse" marginRight="space30">
+        Black lives matter.
+      </Text>
+      <Text
+        as="a"
+        href={tweetUrl}
+        {...secureExternalLink(tweetUrl)}
+        color="colorTextBrandInverse"
+        textDecoration="underline"
+        _hover={{textDecoration: 'none'}}
+      >
+        We stand with the Black community
+      </Text>
+    </Box>
+  );
+};
+
 export const SiteBody: React.FC = ({children}) => {
   const {theme: activeTheme} = useActiveSiteTheme();
   return (
     <>
+      <BLMAlert />
       {activeTheme === 'default' && (
         <Alert variant="warning">
           <Text as="p">
