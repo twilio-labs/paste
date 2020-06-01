@@ -101,7 +101,7 @@ exports[`Combobox  Render should render 1`] = `
   padding-left: space40;
   border-radius: borderRadius20;
   box-shadow: none;
-  padding-right: space120;
+  padding-right: space100;
 }
 
 .emotion-3::-webkit-input-placeholder {
@@ -141,7 +141,7 @@ exports[`Combobox  Render should render 1`] = `
   display: inline-flex;
   position: absolute;
   pointer-events: none;
-  right: space40;
+  right: space30;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
