@@ -21,7 +21,7 @@ props:
     comment: Darkest default background color
   color-background-inverse:
     value: "{!palette-gray-100}"
-    comment: Inverse background color for any container
+    comment: Inverse background color for any container, the darkest gray in the system
 
   # page body
   color-background-body:
