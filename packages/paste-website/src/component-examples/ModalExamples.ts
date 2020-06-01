@@ -13,21 +13,30 @@ const ModalTrigger = () => {
   return (
     <div>
       <Button variant="primary" onClick={handleOpen}>
-        New Project
+        Open modal
       </Button>
       <Modal ariaLabelledby={modalHeadingID} isOpen={isOpen} onDismiss={handleClose} size="default">
         <ModalHeader>
           <ModalHeading as="h3" id={modalHeadingID}>
-            Create new project
+            Choose an author
           </ModalHeading>
         </ModalHeader>
         <ModalBody>
 
           <Paragraph>
-            Create a new Project within your Organization. Please contact your account representative to configure invoicing.
+            “If there’s a book that you want to read, but it hasn’t been written yet, then you must write it.”
+             — Toni Morrison
           </Paragraph>
-          <FormLabel htmlFor={projectInputID}>Project Name</FormLabel>
-          <FormInput onChange={(e) => setProjectName(e.currentTarget.value)} id={projectInputID} type="text" value={projectName} />
+
+          <FormLabel htmlFor="author">Choose an author</FormLabel>
+          <Select id="author">
+            <Option value="baldwin">James Baldwin</Option>
+            <Option value="brown">adrienne maree brown</Option>
+            <Option value="butler">Octavia Butler</Option>
+            <Option value="coates">Ta-Nehisi Coates</Option>
+            <Option value="lorde">Audre Lorde</Option>
+            <Option value="water">Alice Waters</Option>
+          </Select>
 
         </ModalBody>
         <ModalFooter>
@@ -35,7 +44,7 @@ const ModalTrigger = () => {
             <Button variant="secondary" onClick={handleClose}>
               Cancel
             </Button>
-            <Button variant="primary">Submit</Button>
+            <Button variant="primary">Done</Button>
           </ModalFooterActions>
         </ModalFooter>
       </Modal>
