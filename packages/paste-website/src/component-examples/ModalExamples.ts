@@ -35,7 +35,7 @@ const ModalTrigger = () => {
             <Option value="butler">Octavia Butler</Option>
             <Option value="coates">Ta-Nehisi Coates</Option>
             <Option value="lorde">Audre Lorde</Option>
-            <Option value="water">Alice Waters</Option>
+            <Option value="waters">Alice Waters</Option>
           </Select>
 
         </ModalBody>
