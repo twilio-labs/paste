@@ -20,6 +20,9 @@ interface BaseTextProps
     PositionProps,
     TypographyProps {
   content?: string;
+  href?: string;
+  rel?: string;
+  target?: string;
   cursor?: CursorProperty;
   display?: Display;
   verticalAlign?: VerticalAlign;

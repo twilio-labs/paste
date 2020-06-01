@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.9.7...@twilio-paste/core@2.10.0) (2020-06-01)
+
+
+### Features
+
+* **core-bundle:** add tabs-primitive ([b3b076b](https://github.com/twilio-labs/paste/commit/b3b076bb8f5f28cbe52995ab5774e08f3ff12ad0))
+
+
+
+
+
+## [2.9.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.9.6...@twilio-paste/core@2.9.7) (2020-06-01)
+
+**Note:** Version bump only for package @twilio-paste/core
+
+
+
+
+
 ## [2.9.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.9.5...@twilio-paste/core@2.9.6) (2020-06-01)
 
 **Note:** Version bump only for package @twilio-paste/core
