@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "category": "interaction",
   "status": "beta",
-  "description": "An unstyled and accessible basis upon which to style a tabbing system.",
+  "description": "An unstyled and accessible basis upon which to style a tabset.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
