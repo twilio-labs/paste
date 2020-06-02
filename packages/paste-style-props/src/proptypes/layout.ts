@@ -2,10 +2,10 @@ import {DefaultTheme} from '@twilio-paste/theme';
 import {propValidator} from './utils/propValidator';
 
 // Tokens
-const WidthOptions = ['100%', 'auto', ...Object.keys(DefaultTheme.widths)];
+const WidthOptions = ['100%', '100vw', 'auto', ...Object.keys(DefaultTheme.widths)];
 const MinWidthOptions = Object.keys(DefaultTheme.minWidths);
 const MaxWidthOptions = Object.keys(DefaultTheme.maxWidths);
-const HeightOptions = ['100%', 'auto', ...Object.keys(DefaultTheme.heights)];
+const HeightOptions = ['100%', '100vh', 'auto', ...Object.keys(DefaultTheme.heights)];
 const MinHeightOptions = Object.keys(DefaultTheme.minHeights);
 const MaxHeightOptions = Object.keys(DefaultTheme.maxHeights);
 const IconSizeOptions = Object.keys(DefaultTheme.iconSizes);
