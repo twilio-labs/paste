@@ -60,7 +60,8 @@ const NoDefaultSelected: React.FC<{}> = () => {
 };
 
 const VerticalTabsExample: React.FC<{}> = () => {
-  const tab = useTabsPrimitiveState({orientation: 'vertical'});
+  const selectedId = useUID();
+  const tab = useTabsPrimitiveState({orientation: 'vertical', selectedId});
   return (
     <>
       <Paragraph>This changes the keys to jump between tabs from left/right arrow to up/down arrow</Paragraph>
@@ -71,7 +72,7 @@ const VerticalTabsExample: React.FC<{}> = () => {
           style={{borderRight: '1px solid black', paddingRight: 10, marginRight: 10}}
         >
           <Stack orientation="vertical" spacing="space20">
-            <TabsPrimitive as={Button} size="small" {...tab}>
+            <TabsPrimitive as={Button} size="small" {...tab} id={selectedId}>
               Tab 1
             </TabsPrimitive>
             <TabsPrimitive as={Button} size="small" {...tab}>
@@ -82,7 +83,9 @@ const VerticalTabsExample: React.FC<{}> = () => {
             </TabsPrimitive>
           </Stack>
         </TabsPrimitiveList>
-        <TabsPrimitivePanel {...tab}>Tab 1</TabsPrimitivePanel>
+        <TabsPrimitivePanel {...tab} id={selectedId}>
+          Tab 1
+        </TabsPrimitivePanel>
         <TabsPrimitivePanel {...tab}>Tab 2</TabsPrimitivePanel>
         <TabsPrimitivePanel {...tab}>Tab 3</TabsPrimitivePanel>
       </div>
