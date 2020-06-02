@@ -1,22 +1,18 @@
 import * as React from 'react';
-import {Flex} from '@twilio-paste/flex';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Anchor} from '@twilio-paste/anchor';
 import {useTheme} from '@twilio-paste/theme';
-import {Absolute} from '@twilio-paste/absolute';
 import {ThemeSwitcher} from '../ThemeSwitcher';
 import {Search} from '../search';
 import {ContactUsMenu} from '../ContactUsMenu';
 import GithubIcon from '../icons/GithubIcon';
-import {SIDEBAR_WIDTH, HEADER_HEIGHT} from './constants';
 import {version} from '../../../../../package.json';
 
 export const SiteHeader: React.FC<{}> = () => {
   const theme = useTheme();
   return (
-    <Absolute
-      preset="top_fill"
+    <Box
       as="aside"
       backgroundColor="colorBackgroundBody"
       borderColor="colorBorderLight"
@@ -26,31 +22,39 @@ export const SiteHeader: React.FC<{}> = () => {
       paddingRight="space80"
       paddingTop="space50"
       paddingBottom="space50"
-      marginBottom="space140"
-      css={{
-        left: SIDEBAR_WIDTH,
-        height: HEADER_HEIGHT,
-      }}
+      position="sticky"
+      top="0"
+      zIndex="zIndex10"
     >
-      <Flex hAlignContent="between" vAlignContent="center">
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems={['flex-start', 'flex-start', 'flex-start', 'center']}
+        flexDirection={['column', 'column', 'column', 'row']}
+      >
         <ThemeSwitcher />
-        <Stack orientation="horizontal" spacing="space60">
-          <Box minWidth="size40">
-            <Search />
-          </Box>
-          <ContactUsMenu />
-          <Stack orientation="horizontal" spacing="space30">
-            <span>v{version}</span>
-            <Anchor href="https://www.github.com/twilio-labs/paste">
-              <GithubIcon
-                css={{height: theme.heights.sizeIcon30, width: theme.heights.sizeIcon30}}
-                title="View this project on github"
-                color={theme.textColors.colorTextWeak}
-              />
-            </Anchor>
+        <Box marginTop={['space40', 'space40', 'space40', 'space0']}>
+          <Stack orientation="horizontal" spacing="space60">
+            <Box
+              minWidth={['size20', 'size20', 'size20', 'size40']}
+              marginBottom={['space40', 'space40', 'space40', 'space0']}
+            >
+              <Search />
+            </Box>
+            <ContactUsMenu />
+            <Stack orientation="horizontal" spacing="space30">
+              <span>v{version}</span>
+              <Anchor href="https://www.github.com/twilio-labs/paste">
+                <GithubIcon
+                  css={{height: theme.heights.sizeIcon30, width: theme.heights.sizeIcon30}}
+                  title="View this project on github"
+                  color={theme.textColors.colorTextWeak}
+                />
+              </Anchor>
+            </Stack>
           </Stack>
-        </Stack>
-      </Flex>
-    </Absolute>
+        </Box>
+      </Box>
+    </Box>
   );
 };

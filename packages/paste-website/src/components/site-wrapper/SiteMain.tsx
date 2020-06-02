@@ -1,11 +1,9 @@
 import styled from '@emotion/styled';
 import {themeGet} from '@styled-system/theme-get';
-import {HEADER_HEIGHT} from './constants';
 
 export const SiteMain = styled.main`
   position: relative;
   overflow: auto;
-  margin-top: ${HEADER_HEIGHT};
   padding-top: ${themeGet('space.space100')};
 `;
 
