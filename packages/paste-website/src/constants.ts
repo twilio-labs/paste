@@ -3,9 +3,6 @@ export const TWILIO_BLUE = '#0D122B';
 
 export const PASTE_PACKAGE_PREFIX = '@twilio-paste/';
 
-export const PASTE_THEME_WARNING_BANNER_OFFSET = '44px';
-export const PASTE_THEME_WARNING_BANNER_OFFSET_BLM = '90px';
-
 export const SidebarCategoryRoutes = {
   COMPONENTS: '/components',
   PRIMITIVES: '/primitives',

@@ -11,7 +11,6 @@ import {SiteMain, SiteMainInner} from './SiteMain';
 import {SiteFooter} from './SiteFooter';
 import {ScrollAnchorIntoView} from './ScrollAnchorIntoView';
 import {useActiveSiteTheme} from '../../context/ActiveSiteThemeContext';
-import {PASTE_THEME_WARNING_BANNER_OFFSET, PASTE_THEME_WARNING_BANNER_OFFSET_BLM} from '../../constants';
 
 interface StyledSiteBodyProps {
   activeTheme: string;
@@ -19,17 +18,8 @@ interface StyledSiteBodyProps {
 
 /* Wraps the entire doc site page */
 const StyledSiteBody = styled.div<StyledSiteBodyProps>`
-  position: absolute; /* Absolute so we can only scroll the inner area */
-  top: ${props =>
-    props.activeTheme === 'default' ? PASTE_THEME_WARNING_BANNER_OFFSET_BLM : PASTE_THEME_WARNING_BANNER_OFFSET};
-  right: 0;
-  bottom: 0;
-  left: 0;
   display: flex;
-  min-height: 100vh;
   min-width: 240px;
-  height: 100vh;
-  overflow: hidden;
 
   @supports (display: grid) {
     display: grid;
@@ -49,6 +39,9 @@ const BLMAlert: React.FC = () => {
       role="status"
       display="flex"
       justifyContent="center"
+      position="sticky"
+      top="0"
+      zIndex="zIndex20"
     >
       <Text as="span" fontWeight="fontWeightBold" color="colorTextBrandInverse" marginRight="space30">
         Black Lives Matter.
@@ -88,12 +81,14 @@ export const SiteBody: React.FC = ({children}) => {
       )}
       <StyledSiteBody activeTheme={activeTheme}>
         <Sidebar />
-        <SiteHeader />
-        <SiteMain id="site-main">
-          <ScrollAnchorIntoView />
-          <SiteMainInner>{children}</SiteMainInner>
-          <SiteFooter />
-        </SiteMain>
+        <Box height="100vh" overflow="auto">
+          <SiteHeader />
+          <SiteMain id="site-main">
+            <ScrollAnchorIntoView />
+            <SiteMainInner>{children}</SiteMainInner>
+            <SiteFooter />
+          </SiteMain>
+        </Box>
       </StyledSiteBody>
     </>
   );
