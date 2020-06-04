@@ -19,7 +19,7 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
   children: NonNullable<React.ReactNode>;
 }
 
-const SelectIconWrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
+export const SelectIconWrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
   <Box
     alignItems="center"
     display="inline-flex"
