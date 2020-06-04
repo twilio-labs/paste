@@ -6,7 +6,7 @@ import {ResponsiveValue} from 'styled-system';
 // Tokens
 export type BorderRadiusOptions = keyof ThemeShape['radii'];
 export type BorderWidthOptions = keyof ThemeShape['borderWidths'];
-export type BorderColorOptions = keyof ThemeShape['borderColors'];
+export type BorderColorOptions = keyof ThemeShape['borderColors'] | 'transparent';
 
 export type BorderRadius = ResponsiveValue<BorderRadiusOptions>;
 export type BorderWidth = ResponsiveValue<BorderWidthOptions>;
