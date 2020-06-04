@@ -39,16 +39,17 @@ const ComboboxPartsMock: React.FC<{}> = () => {
   } = useCombobox({items});
   return (
     <>
-      <FormLabel htmlFor="example-textbox" {...getLabelProps()} id="example-label">
+      <FormLabel htmlFor="example-textbox" {...getLabelProps()} id="example-label" data-testid="label">
         Choose a component:
       </FormLabel>
       <ComboboxInputWrapper {...getComboboxProps({role: 'combobox'})} aria-owns="example-combobox-menu">
         <InputElement
           type="text"
-          {...getInputProps()}
           {...getToggleButtonProps({tabIndex: 0})}
+          {...getInputProps()}
           value={selectedItem || ''}
-          id="example-textbox"
+          // id="example-textbox"
+          data-testid="textbox"
           aria-controls="example-combobox-menu"
           aria-describedby="example-helptext"
           aria-labelledby="example-label"
@@ -98,6 +99,13 @@ describe('Combobox ', () => {
       render(<ComboboxPartsMock />);
       const renderedCombobox = screen.getByRole('listbox');
       expect(renderedCombobox.getAttribute('aria-labelledby')).toEqual('example-label');
+    });
+
+    it('should render a label for that matches the input id', () => {
+      render(<ComboboxPartsMock />);
+      const renderedLabel = screen.getByTestId('label');
+      const renderedTextbox = screen.getByTestId('textbox');
+      expect(renderedLabel.getAttribute('for')).toEqual(renderedTextbox.getAttribute('id'));
     });
   });
 

@@ -32,10 +32,12 @@ export interface ComboboxProps extends Omit<FormInputProps, 'id' | 'type'> {
   helpText?: string | React.ReactNode;
   initialSelectedItem?: UseComboboxPrimitiveProps<any>['initialSelectedItem'];
   items: UseComboboxPrimitiveProps<any>['items'];
-  labelText: string | NonNullable<React.ReactNode>;
-  onInputValueChange?: UseComboboxPrimitiveProps<any>['onInputValueChange'];
-  onSelectedItemChange?: UseComboboxPrimitiveProps<any>['onSelectedItemChange'];
   itemToString?: UseComboboxPrimitiveProps<any>['itemToString'];
+  labelText: string | NonNullable<React.ReactNode>;
+  onHighlightedIndexChange?: UseComboboxPrimitiveProps<any>['onHighlightedIndexChange'];
+  onInputValueChange?: UseComboboxPrimitiveProps<any>['onInputValueChange'];
+  onIsOpenChange?: UseComboboxPrimitiveProps<any>['onIsOpenChange'];
+  onSelectedItemChange?: UseComboboxPrimitiveProps<any>['onSelectedItemChange'];
   optionTemplate?: (item: string | {}) => React.ReactNode;
 }
 
@@ -57,6 +59,8 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       onInputValueChange,
       onSelectedItemChange,
       optionTemplate,
+      onHighlightedIndexChange,
+      onIsOpenChange,
       required,
       ...props
     },
@@ -74,9 +78,11 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
     } = useComboboxPrimitive({
       initialSelectedItem,
       items,
-      onInputValueChange,
-      onSelectedItemChange,
       itemToString: itemToString || defaultItemToString,
+      onHighlightedIndexChange,
+      onInputValueChange,
+      onIsOpenChange,
+      onSelectedItemChange,
     });
     const helpTextId = useUID();
     return (
@@ -92,8 +98,8 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
         >
           <ComboboxInputWrapper {...getComboboxProps({role: 'combobox'})}>
             <StyledInputAsSelect
-              {...getInputProps({disabled})}
               {...getToggleButtonProps({tabIndex: 0})}
+              {...getInputProps({disabled})}
               {...(!autocomplete ? {onChange: event => event.preventDefault()} : undefined)}
               aria-describedby={helpTextId}
               {...props}
@@ -135,13 +141,15 @@ Combobox.displayName = 'Combobox';
 if (process.env.NODE_ENV === 'development') {
   Combobox.propTypes = {
     autocomplete: PropTypes.bool,
-    items: PropTypes.arrayOf(PropTypes.any).isRequired,
-    initialSelectedItem: PropTypes.arrayOf(PropTypes.any),
     helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    labelText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-    onInputValueChange: PropTypes.func,
-    onSelectedItemChange: PropTypes.func,
+    initialSelectedItem: PropTypes.arrayOf(PropTypes.any),
+    items: PropTypes.arrayOf(PropTypes.any).isRequired,
     itemToString: PropTypes.func,
+    labelText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+    onHighlightedIndexChange: PropTypes.func,
+    onInputValueChange: PropTypes.func,
+    onIsOpenChange: PropTypes.func,
+    onSelectedItemChange: PropTypes.func,
     optionTemplate: PropTypes.func,
   };
 }
