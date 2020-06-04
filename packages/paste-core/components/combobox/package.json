@@ -3,7 +3,7 @@
   "version": "0.1.8",
   "category": "user input",
   "status": "alpha",
-  "description": "",
+  "description": "An accessible styled drop-down list box.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
