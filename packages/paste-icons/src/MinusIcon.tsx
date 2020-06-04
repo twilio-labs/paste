@@ -10,13 +10,13 @@ export interface MinusIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const MinusIcon: React.FC<MinusIconProps> = ({as, display, size, color, title, decorative}) => {
+const MinusIcon: React.FC<MinusIconProps> = ({as, display, size, color, title, decorative, ...props}) => {
   if (!decorative && title == null) {
     throw new Error('[MinusIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} size={size} color={color} {...props}>
       <UID>
         {titleId => (
           <svg

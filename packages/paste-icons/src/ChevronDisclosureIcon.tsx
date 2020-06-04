@@ -10,13 +10,21 @@ export interface ChevronDisclosureIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ChevronDisclosureIcon: React.FC<ChevronDisclosureIconProps> = ({as, display, size, color, title, decorative}) => {
+const ChevronDisclosureIcon: React.FC<ChevronDisclosureIconProps> = ({
+  as,
+  display,
+  size,
+  color,
+  title,
+  decorative,
+  ...props
+}) => {
   if (!decorative && title == null) {
     throw new Error('[ChevronDisclosureIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} size={size} color={color} {...props}>
       <UID>
         {titleId => (
           <svg

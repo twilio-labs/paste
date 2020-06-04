@@ -3,6 +3,7 @@ import {storiesOf} from '@storybook/react';
 import {withKnobs} from '@storybook/addon-knobs';
 import {Absolute} from '@twilio-paste/absolute';
 import {Text} from '@twilio-paste/text';
+import {CustomizationProvider} from '@twilio-paste/theme';
 import {Popover, PopoverContainer, PopoverButton} from '../src';
 
 const Example: React.FC<{}> = () => {
@@ -80,4 +81,21 @@ storiesOf('Components|Popover', module)
   })
   .add('Popover Bottom', () => {
     return <BottomExample />;
+  })
+  .add('Customization', () => {
+    return (
+      <CustomizationProvider
+        elements={{
+          POPOVER: {
+            borderRadius: '10px',
+            backgroundColor: 'hotpink',
+          },
+          POPOVER_ARROW: {
+            backgroundColor: 'hotpink',
+          },
+        }}
+      >
+        <Example />
+      </CustomizationProvider>
+    );
   });

@@ -1,15 +1,17 @@
 import * as React from 'react';
-import {Text} from '@twilio-paste/text';
+import {Text, TextProps, safelySpreadTextProps} from '@twilio-paste/text';
 
-export interface ParagraphProps {
+export interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElement>, Pick<TextProps, 'element'> {
   id?: never;
   className?: never;
   marginBottom?: 'space0';
 }
 
-const Paragraph: React.FC<ParagraphProps> = ({children, marginBottom}) => {
+const Paragraph: React.FC<ParagraphProps> = ({children, marginBottom, ...props}) => {
   return (
     <Text
+      element="PARAGRAPH"
+      {...safelySpreadTextProps(props)}
       as="p"
       marginBottom={marginBottom || 'space70'}
       fontSize="fontSize30"

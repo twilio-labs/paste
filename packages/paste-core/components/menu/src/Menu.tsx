@@ -3,10 +3,11 @@ import {BoxElementProps, safelySpreadBoxProps, Box} from '@twilio-paste/box';
 import {MenuPrimitive} from '@twilio-paste/menu-primitive';
 import {MenuProps} from './types';
 
-const StyledMenu = React.forwardRef<HTMLDivElement, BoxElementProps>(({style, ...props}, ref) => {
+const StyledMenu = React.forwardRef<HTMLDivElement, BoxElementProps>(({style, element = 'MENU', ...props}, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
+      element={element}
       backgroundColor="colorBackgroundBody"
       borderStyle="solid"
       borderWidth="borderWidth10"

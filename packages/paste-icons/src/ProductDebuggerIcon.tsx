@@ -10,13 +10,21 @@ export interface ProductDebuggerIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ProductDebuggerIcon: React.FC<ProductDebuggerIconProps> = ({as, display, size, color, title, decorative}) => {
+const ProductDebuggerIcon: React.FC<ProductDebuggerIconProps> = ({
+  as,
+  display,
+  size,
+  color,
+  title,
+  decorative,
+  ...props
+}) => {
   if (!decorative && title == null) {
     throw new Error('[ProductDebuggerIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} size={size} color={color} {...props}>
       <UID>
         {titleId => (
           <svg

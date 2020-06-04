@@ -3,7 +3,7 @@ import {Box} from '@twilio-paste/box';
 import {BoxShadow} from '@twilio-paste/style-props';
 import {FieldWrapperProps, FieldWrapperPropTypes} from '../shared/types';
 
-const DefaultFieldWrapper: React.FC<FieldWrapperProps> = ({disabled, hasError, readOnly, children, type}) => {
+const DefaultFieldWrapper: React.FC<FieldWrapperProps> = ({disabled, element, hasError, readOnly, children, type}) => {
   let boxShadow = 'shadowBorder' as BoxShadow;
   let boxShadowHover = 'shadowBorderPrimaryDark' as BoxShadow;
   if (disabled) {
@@ -20,6 +20,7 @@ const DefaultFieldWrapper: React.FC<FieldWrapperProps> = ({disabled, hasError, r
 
   return (
     <Box
+      element={element}
       display="flex"
       width="100%"
       backgroundColor={readOnly || disabled ? 'colorBackground' : 'colorBackgroundBody'}

@@ -10,13 +10,13 @@ export interface LoadingIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const LoadingIcon: React.FC<LoadingIconProps> = ({as, display, size, color, title, decorative}) => {
+const LoadingIcon: React.FC<LoadingIconProps> = ({as, display, size, color, title, decorative, ...props}) => {
   if (!decorative && title == null) {
     throw new Error('[LoadingIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} size={size} color={color} {...props}>
       <UID>
         {titleId => (
           <svg

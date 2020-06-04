@@ -10,13 +10,13 @@ export interface LogoTwilioIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const LogoTwilioIcon: React.FC<LogoTwilioIconProps> = ({as, display, size, color, title, decorative}) => {
+const LogoTwilioIcon: React.FC<LogoTwilioIconProps> = ({as, display, size, color, title, decorative, ...props}) => {
   if (!decorative && title == null) {
     throw new Error('[LogoTwilioIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} size={size} color={color} {...props}>
       <UID>
         {titleId => (
           <svg

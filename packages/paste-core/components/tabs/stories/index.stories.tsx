@@ -4,6 +4,8 @@ import {withKnobs} from '@storybook/addon-knobs';
 import {useUID} from 'react-uid';
 import {Button} from '@twilio-paste/button';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {Stack} from '@twilio-paste/stack';
+import {CustomizationProvider} from '@twilio-paste/theme';
 import {useTabState, Tabs, TabList, Tab, TabPanels, TabPanel, TabStateReturn} from '../src';
 
 export const HorizontalTabsExample: React.FC = () => {
@@ -120,4 +122,59 @@ storiesOf('Components|Tabs', module)
   })
   .add('State hook', () => {
     return <StateHookExample />;
+  })
+  .add('Customization', () => {
+    return (
+      <CustomizationProvider
+        elements={{
+          TABS_VERTICAL: {
+            borderStyle: 'solid',
+            borderWidth: 'borderWidth20',
+            borderColor: 'colorBorderSuccess',
+          },
+          TAB_LIST_VERTICAL: {
+            backgroundColor: 'green',
+          },
+          TAB_LIST_HORIZONTAL: {
+            backgroundColor: 'purple',
+          },
+          TAB: {
+            backgroundColor: 'colorBackgroundError',
+          },
+          TAB_PANELS: {
+            padding: 'space50',
+          },
+          TAB_PANEL: {
+            backgroundColor: 'colorBackgroundWarning',
+          },
+        }}
+      >
+        <Stack orientation="vertical" spacing="space50">
+          <Tabs baseId="horizontal-tabs-example">
+            <TabList aria-label="My tabs">
+              <Tab>Tab 1</Tab>
+              <Tab disabled>Tab 2</Tab>
+              <Tab>Tab 3</Tab>
+            </TabList>
+            <TabPanels>
+              <TabPanel>Tab 1</TabPanel>
+              <TabPanel>Tab 2</TabPanel>
+              <TabPanel>Tab 3</TabPanel>
+            </TabPanels>
+          </Tabs>
+          <Tabs baseId="vertical-tabs-example" orientation="vertical">
+            <TabList aria-label="My tabs">
+              <Tab>Tab 1</Tab>
+              <Tab disabled>Tab 2</Tab>
+              <Tab>Tab 3</Tab>
+            </TabList>
+            <TabPanels>
+              <TabPanel>Tab 1</TabPanel>
+              <TabPanel>Tab 2</TabPanel>
+              <TabPanel>Tab 3</TabPanel>
+            </TabPanels>
+          </Tabs>
+        </Stack>
+      </CustomizationProvider>
+    );
   });

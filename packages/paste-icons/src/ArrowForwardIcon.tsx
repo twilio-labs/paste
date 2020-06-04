@@ -10,13 +10,13 @@ export interface ArrowForwardIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ArrowForwardIcon: React.FC<ArrowForwardIconProps> = ({as, display, size, color, title, decorative}) => {
+const ArrowForwardIcon: React.FC<ArrowForwardIconProps> = ({as, display, size, color, title, decorative, ...props}) => {
   if (!decorative && title == null) {
     throw new Error('[ArrowForwardIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} size={size} color={color} {...props}>
       <UID>
         {titleId => (
           <svg

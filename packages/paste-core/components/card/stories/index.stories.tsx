@@ -4,7 +4,8 @@ import {Heading} from '@twilio-paste/heading';
 import {withKnobs, select} from '@storybook/addon-knobs';
 import {Text} from '@twilio-paste/text';
 import {Padding} from '@twilio-paste/style-props';
-import {DefaultTheme} from '@twilio-paste/theme';
+import {DefaultTheme, CustomizationProvider} from '@twilio-paste/theme';
+import {Stack} from '@twilio-paste/stack';
 
 import {Card} from '../src';
 
@@ -35,4 +36,28 @@ storiesOf('Components|Card', module)
       <Heading as="h2">With a heading</Heading>
       <Text as="p">Body</Text>
     </Card>
-  ));
+  ))
+  .add('Customization', () => {
+    return (
+      <CustomizationProvider
+        elements={{
+          CARD: {
+            borderRadius: '10px',
+            borderColor: 'colorBorderSuccess',
+          },
+          CUSTOM_CARD: {
+            backgroundColor: 'colorBackgroundError',
+          },
+        }}
+      >
+        <Stack orientation="vertical" spacing="space40">
+          <Card padding="space20">
+            <Heading as="h2">With a heading</Heading>
+          </Card>
+          <Card element="CUSTOM_CARD" padding="space20">
+            <Heading as="h2">Custom</Heading>
+          </Card>
+        </Stack>
+      </CustomizationProvider>
+    );
+  });

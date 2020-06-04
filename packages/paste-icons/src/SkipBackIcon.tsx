@@ -10,13 +10,13 @@ export interface SkipBackIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const SkipBackIcon: React.FC<SkipBackIconProps> = ({as, display, size, color, title, decorative}) => {
+const SkipBackIcon: React.FC<SkipBackIconProps> = ({as, display, size, color, title, decorative, ...props}) => {
   if (!decorative && title == null) {
     throw new Error('[SkipBackIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} size={size} color={color} {...props}>
       <UID>
         {titleId => (
           <svg

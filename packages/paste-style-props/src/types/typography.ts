@@ -4,7 +4,7 @@ import {ThemeShape} from '@twilio-paste/theme';
 import {ResponsiveValue, TLengthStyledSystem} from '@twilio-paste/styling-library';
 
 // Tokens
-export type FontFamilyOptions = keyof ThemeShape['fonts'];
+export type FontFamilyOptions = keyof ThemeShape['fonts'] | 'inherit';
 export type FontSizeOptions = keyof ThemeShape['fontSizes'] | '100%';
 export type FontWeightOptions = keyof ThemeShape['fontWeights'];
 export type LineHeightOptions = keyof ThemeShape['lineHeights'] | 'unset';

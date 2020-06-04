@@ -33,6 +33,7 @@ const Flex: React.FC<FlexProps> = ({
   basis,
   children,
   display,
+  element = 'FLEX',
   hAlignContent,
   grow,
   marginTop,
@@ -62,6 +63,7 @@ const Flex: React.FC<FlexProps> = ({
       {...safelySpreadBoxProps(props)}
       as={as}
       display={display}
+      element={element}
       marginTop={marginTop}
       marginRight={marginRight}
       marginBottom={marginBottom}

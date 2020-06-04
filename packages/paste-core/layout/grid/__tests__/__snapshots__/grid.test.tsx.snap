@@ -41,6 +41,7 @@ exports[`Grid Utils render it should render a Grid 1`] = `
 
 <div
     class="emotion-0"
+    data-paste-element="FLEX"
     display="flex"
   >
     child
@@ -74,6 +75,7 @@ exports[`Grid Utils render it should render a Grid as any HTML element 1`] = `
 
 <section
     class="emotion-0"
+    data-paste-element="FLEX"
     display="flex"
   >
     child
@@ -179,6 +181,7 @@ exports[`Grid Utils render it should render responsive css 1`] = `
 
 <div
     class="emotion-2"
+    data-paste-element="FLEX"
     display="flex"
   >
     <div

@@ -1,14 +1,14 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {styled, css} from '@twilio-paste/styling-library';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps, BoxProps} from '@twilio-paste/box';
 import {Flex} from '@twilio-paste/flex';
 import {Text} from '@twilio-paste/text';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {TextColor} from '@twilio-paste/style-props';
 import {FieldVariants} from './shared/types';
 
-export interface FormLabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
+export interface FormLabelProps extends React.LabelHTMLAttributes<HTMLLabelElement>, Pick<BoxProps, 'element'> {
   as?: 'label' | 'legend';
   children: NonNullable<React.ReactNode>;
   className?: never;
@@ -33,7 +33,16 @@ const StyledRequiredDot = styled(Text)(
   })
 );
 
-const FormLabel: React.FC<FormLabelProps> = ({as, marginBottom, required, disabled, children, variant, ...props}) => {
+const FormLabel: React.FC<FormLabelProps> = ({
+  as,
+  element = 'FORM_LABEL',
+  marginBottom,
+  required,
+  disabled,
+  children,
+  variant,
+  ...props
+}) => {
   let textColor = 'colorText' as TextColor;
   if (disabled && variant === 'inverse') {
     textColor = 'colorTextInverseWeak';
@@ -42,6 +51,7 @@ const FormLabel: React.FC<FormLabelProps> = ({as, marginBottom, required, disabl
   } else if (variant === 'inverse') {
     textColor = 'colorTextInverse';
   }
+
   return (
     <Box
       {...safelySpreadBoxProps(props)}
@@ -50,6 +60,7 @@ const FormLabel: React.FC<FormLabelProps> = ({as, marginBottom, required, disabl
       // on legend in Console.
       borderBottomWidth="borderWidth0"
       display="block"
+      element={element}
       marginBottom={marginBottom || 'space20'}
       paddingLeft="space0"
       paddingRight="space0"
@@ -63,6 +74,7 @@ const FormLabel: React.FC<FormLabelProps> = ({as, marginBottom, required, disabl
         ) : null}
         <Text
           as="span"
+          element={`${element}_TEXT`}
           fontSize="fontSize30"
           fontWeight="fontWeightSemibold"
           lineHeight="lineHeight30"

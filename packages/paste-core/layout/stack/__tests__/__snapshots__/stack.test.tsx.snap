@@ -49,22 +49,27 @@ exports[`Stack should render a horizontal stack 1`] = `
   >
     <div
       class="emotion-4"
+      data-paste-element="BOX"
       display="flex"
     >
       <div
         class="emotion-1"
+        data-paste-element="BOX"
       >
         <article
           class="emotion-0"
+          data-paste-element="CARD"
         >
           Card one
         </article>
       </div>
       <div
         class="emotion-3"
+        data-paste-element="BOX"
       >
         <article
           class="emotion-0"
+          data-paste-element="CARD"
         >
           Card two
         </article>
@@ -153,22 +158,27 @@ exports[`Stack should render a responsive stack 1`] = `
   >
     <div
       class="emotion-4"
+      data-paste-element="BOX"
       display="flex,block,flex"
     >
       <div
         class="emotion-1"
+        data-paste-element="BOX"
       >
         <article
           class="emotion-0"
+          data-paste-element="CARD"
         >
           Card one
         </article>
       </div>
       <div
         class="emotion-3"
+        data-paste-element="BOX"
       >
         <article
           class="emotion-0"
+          data-paste-element="CARD"
         >
           Card two
         </article>
@@ -224,22 +234,27 @@ exports[`Stack should render a vertical stack 1`] = `
   >
     <div
       class="emotion-4"
+      data-paste-element="BOX"
       display="block"
     >
       <div
         class="emotion-1"
+        data-paste-element="BOX"
       >
         <article
           class="emotion-0"
+          data-paste-element="CARD"
         >
           Card one
         </article>
       </div>
       <div
         class="emotion-3"
+        data-paste-element="BOX"
       >
         <article
           class="emotion-0"
+          data-paste-element="CARD"
         >
           Card two
         </article>

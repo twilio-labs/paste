@@ -1,12 +1,14 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {styled, css} from '@twilio-paste/styling-library';
+import {BoxProps, Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import TextareaAutosize from 'react-autosize-textarea';
 import {FormControlWrapper} from './shared/FormControlWrapper';
 import {FieldVariants} from './shared/types';
 import {safelySpreadFormControlProps} from './shared/Utils';
 
-export interface FormTextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface FormTextAreaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+    Pick<BoxProps, 'element'> {
   className?: never;
   disabled?: boolean;
   hasError?: boolean;
@@ -24,53 +26,67 @@ export interface FormTextAreaProps extends React.TextareaHTMLAttributes<HTMLText
   width?: never;
 }
 
-/* eslint-disable emotion/syntax-preference */
-const TextAreaElement = styled(TextareaAutosize)<FormTextAreaProps>(props =>
-  css({
-    appearance: 'none',
-    background: 'transparent',
-    border: 'none',
-    borderRadius: 'borderRadius20',
-    boxShadow: 'none',
-    color: 'inherit',
-    display: 'block',
-    fontFamily: 'inherit',
-    fontSize: 'fontSize30',
-    fontWeight: 'fontWeightNormal',
-    lineHeight: 'lineHeight20',
-    maxHeight: 'size30',
-    outline: 'none',
-    paddingBottom: 'space30',
-    paddingLeft: 'space40',
-    paddingRight: 'space40',
-    paddingTop: 'space30',
-    resize: 'vertical',
-    width: '100%',
-
-    '&::placeholder': {
-      color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
-      fontStyle: 'italic',
-    },
-
-    '&:focus::placeholder': {
-      color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
-    },
-
-    '&:disabled': {
-      color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
-      cursor: 'not-allowed',
-    },
-  })
+export const TextAreaElement = React.forwardRef<HTMLTextAreaElement, FormTextAreaProps & TextareaAutosize.Props>(
+  ({element, ...props}, ref) => {
+    return (
+      <Box
+        {...safelySpreadBoxProps(props)}
+        as={TextareaAutosize}
+        element={element}
+        appearance="none"
+        backgroundColor="transparent"
+        border="none"
+        borderRadius="borderRadius20"
+        boxShadow="none"
+        color="colorText"
+        display="block"
+        fontFamily="inherit"
+        fontSize="fontSize30"
+        fontWeight="fontWeightNormal"
+        lineHeight="lineHeight20"
+        maxHeight="size30"
+        outline="none"
+        paddingBottom="space30"
+        paddingLeft="space40"
+        paddingRight="space40"
+        paddingTop="space30"
+        resize="vertical"
+        width="100%"
+        _placeholder={{
+          color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
+          fontStyle: 'italic',
+        }}
+        _disabled={{
+          color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
+          cursor: 'not-allowed',
+        }}
+        ref={ref}
+      />
+    );
+  }
 );
-/* eslint-enable */
 
 const FormTextArea = React.forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
   (
-    {children, disabled, hasError, id, insertBefore, insertAfter, name, placeholder, readOnly, variant, ...props},
+    {
+      children,
+      disabled,
+      element = 'FORM_TEXTAREA',
+      hasError,
+      id,
+      insertBefore,
+      insertAfter,
+      name,
+      placeholder,
+      readOnly,
+      variant,
+      ...props
+    },
     ref
   ) => {
     return (
       <FormControlWrapper
+        element={`${element}_WRAPPER`}
         disabled={disabled}
         hasError={hasError}
         insertAfter={insertAfter}
@@ -82,6 +98,7 @@ const FormTextArea = React.forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
           aria-invalid={hasError}
           aria-readonly={readOnly}
           {...safelySpreadFormControlProps(props)}
+          element={element}
           async
           disabled={disabled}
           id={id}

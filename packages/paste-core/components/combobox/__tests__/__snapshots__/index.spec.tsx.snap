@@ -83,14 +83,15 @@ exports[`Combobox  Render should render 1`] = `
 }
 
 .emotion-3 {
+  box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: transparent;
+  background-color: transparent;
   border: none;
   border-radius: borderRadius20;
   box-shadow: none;
-  color: inherit;
+  color: colorText;
   display: block;
   font-family: inherit;
   font-size: fontSize30;
@@ -103,7 +104,6 @@ exports[`Combobox  Render should render 1`] = `
   padding-top: space30;
   resize: none;
   width: 100%;
-  padding-right: space100;
 }
 
 .emotion-3::-webkit-input-placeholder {
@@ -126,23 +126,12 @@ exports[`Combobox  Render should render 1`] = `
   font-style: italic;
 }
 
-.emotion-3:focus::-webkit-input-placeholder {
-  color: colorTextWeak;
-}
-
-.emotion-3:focus::-moz-placeholder {
-  color: colorTextWeak;
-}
-
-.emotion-3:focus:-ms-input-placeholder {
-  color: colorTextWeak;
-}
-
-.emotion-3:focus::placeholder {
-  color: colorTextWeak;
-}
-
-.emotion-3:disabled {
+.emotion-3:disabled,
+.emotion-3:disabled:focus,
+.emotion-3:disabled:hover,
+.emotion-3[aria-disabled=true],
+.emotion-3[aria-disabled=true]:focus,
+.emotion-3[aria-disabled=true]:hover {
   color: colorTextWeaker;
   cursor: not-allowed;
 }
@@ -168,10 +157,11 @@ exports[`Combobox  Render should render 1`] = `
 }
 
 .emotion-4 {
+  box-sizing: border-box;
+  color: colorTextIcon;
   display: block;
   width: sizeIcon30;
   height: sizeIcon30;
-  color: colorTextIcon;
 }
 
 .emotion-24 {
@@ -240,21 +230,25 @@ exports[`Combobox  Render should render 1`] = `
 
 <div
     class="emotion-27"
+    data-paste-element="BOX"
   >
     <label
       class="emotion-2"
+      data-paste-element="FORM_LABEL"
       display="block"
       for="downshift-0-input"
       id="downshift-1-label"
     >
       <span
         class="emotion-1"
+        data-paste-element="FLEX"
         display="flex"
       >
         <span
           class="emotion-0"
           color="colorText"
           cursor="pointer"
+          data-paste-element="FORM_LABEL_TEXT"
           font-size="fontSize30"
           font-weight="fontWeightSemibold"
         >
@@ -265,6 +259,7 @@ exports[`Combobox  Render should render 1`] = `
     <div
       class="emotion-7"
       cursor="text"
+      data-paste-element="BOX"
       display="flex"
       width="100%"
     >
@@ -273,6 +268,7 @@ exports[`Combobox  Render should render 1`] = `
         aria-haspopup="listbox"
         aria-owns="downshift-1-menu"
         class="emotion-6"
+        data-paste-element="BOX"
         display="flex"
         role="combobox"
         width="100%"
@@ -284,20 +280,30 @@ exports[`Combobox  Render should render 1`] = `
           aria-labelledby="downshift-1-label"
           autocomplete="off"
           class="emotion-3"
+          color="colorText"
+          data-paste-element="BOX"
+          display="block"
+          font-family="inherit"
+          font-size="fontSize30"
+          font-weight="fontWeightNormal"
           id="downshift-0-input"
           tabindex="0"
           type="text"
           value=""
+          width="100%"
         />
         <div
           class="emotion-5"
+          data-paste-element="BOX"
           display="inline-flex"
           pointer-events="none"
           transform="translateY(-50%)"
         >
           <span
+            aria-hidden="true"
             class="emotion-4"
             color="colorTextIcon"
+            data-paste-element="ICON"
             display="block"
           >
             <svg
@@ -321,6 +327,7 @@ exports[`Combobox  Render should render 1`] = `
     <ul
       aria-labelledby="downshift-1-label"
       class="emotion-24"
+      data-paste-element="BOX"
       id="downshift-1-menu"
       role="listbox"
       width="100%"
@@ -329,12 +336,14 @@ exports[`Combobox  Render should render 1`] = `
         aria-selected="false"
         class="emotion-9"
         cursor="pointer"
+        data-paste-element="BOX"
         id="downshift-1-item-0"
         role="option"
       >
         <span
           class="emotion-8"
           color="colorText"
+          data-paste-element="TEXT"
           font-size="fontSize30"
         >
           Alert
@@ -344,12 +353,14 @@ exports[`Combobox  Render should render 1`] = `
         aria-selected="false"
         class="emotion-9"
         cursor="pointer"
+        data-paste-element="BOX"
         id="downshift-1-item-1"
         role="option"
       >
         <span
           class="emotion-8"
           color="colorText"
+          data-paste-element="TEXT"
           font-size="fontSize30"
         >
           Anchor
@@ -359,12 +370,14 @@ exports[`Combobox  Render should render 1`] = `
         aria-selected="false"
         class="emotion-9"
         cursor="pointer"
+        data-paste-element="BOX"
         id="downshift-1-item-2"
         role="option"
       >
         <span
           class="emotion-8"
           color="colorText"
+          data-paste-element="TEXT"
           font-size="fontSize30"
         >
           Button
@@ -374,12 +387,14 @@ exports[`Combobox  Render should render 1`] = `
         aria-selected="false"
         class="emotion-9"
         cursor="pointer"
+        data-paste-element="BOX"
         id="downshift-1-item-3"
         role="option"
       >
         <span
           class="emotion-8"
           color="colorText"
+          data-paste-element="TEXT"
           font-size="fontSize30"
         >
           Card
@@ -389,12 +404,14 @@ exports[`Combobox  Render should render 1`] = `
         aria-selected="false"
         class="emotion-9"
         cursor="pointer"
+        data-paste-element="BOX"
         id="downshift-1-item-4"
         role="option"
       >
         <span
           class="emotion-8"
           color="colorText"
+          data-paste-element="TEXT"
           font-size="fontSize30"
         >
           Heading
@@ -404,12 +421,14 @@ exports[`Combobox  Render should render 1`] = `
         aria-selected="false"
         class="emotion-9"
         cursor="pointer"
+        data-paste-element="BOX"
         id="downshift-1-item-5"
         role="option"
       >
         <span
           class="emotion-8"
           color="colorText"
+          data-paste-element="TEXT"
           font-size="fontSize30"
         >
           List
@@ -419,12 +438,14 @@ exports[`Combobox  Render should render 1`] = `
         aria-selected="false"
         class="emotion-9"
         cursor="pointer"
+        data-paste-element="BOX"
         id="downshift-1-item-6"
         role="option"
       >
         <span
           class="emotion-8"
           color="colorText"
+          data-paste-element="TEXT"
           font-size="fontSize30"
         >
           Modal
@@ -434,12 +455,14 @@ exports[`Combobox  Render should render 1`] = `
         aria-selected="false"
         class="emotion-9"
         cursor="pointer"
+        data-paste-element="BOX"
         id="downshift-1-item-7"
         role="option"
       >
         <span
           class="emotion-8"
           color="colorText"
+          data-paste-element="TEXT"
           font-size="fontSize30"
         >
           Paragraph
@@ -448,11 +471,13 @@ exports[`Combobox  Render should render 1`] = `
     </ul>
     <div
       class="emotion-26"
+      data-paste-element="FLEX"
       display="flex"
     >
       <div
         class="emotion-25"
         color="colorTextWeak"
+        data-paste-element="TEXT"
         font-size="fontSize30"
         id="1"
       >

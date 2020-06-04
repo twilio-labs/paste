@@ -10,13 +10,21 @@ export interface UploadToCloudIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const UploadToCloudIcon: React.FC<UploadToCloudIconProps> = ({as, display, size, color, title, decorative}) => {
+const UploadToCloudIcon: React.FC<UploadToCloudIconProps> = ({
+  as,
+  display,
+  size,
+  color,
+  title,
+  decorative,
+  ...props
+}) => {
   if (!decorative && title == null) {
     throw new Error('[UploadToCloudIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} size={size} color={color} {...props}>
       <UID>
         {titleId => (
           <svg

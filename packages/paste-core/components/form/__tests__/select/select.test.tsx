@@ -89,7 +89,6 @@ describe('Form | Select', () => {
     expect(selectAttributesMap.hasOwnProperty('style')).toBe(false);
     expect(selectAttributesMap.hasOwnProperty('className')).toBe(false);
     expect(selectAttributesMap.hasOwnProperty('height')).toBe(false);
-    expect(selectAttributesMap.hasOwnProperty('width')).toBe(false);
     expect(selectAttributesMap.hasOwnProperty('size')).toBe(false);
     expect(selectAttributesMap.class).not.toBe('blocklisted');
 
@@ -106,10 +105,8 @@ describe('Form | Select', () => {
     expect(selectMultipleAttributesMap.hasOwnProperty('style')).toBe(false);
     expect(selectMultipleAttributesMap.hasOwnProperty('className')).toBe(false);
     expect(selectMultipleAttributesMap.hasOwnProperty('height')).toBe(false);
-    expect(selectMultipleAttributesMap.hasOwnProperty('width')).toBe(false);
     expect(selectMultipleAttributesMap.class).not.toBe('blocklisted');
 
-    expect(selectMultipleAttributesMap.hasOwnProperty('size')).toBe(true);
     expect(selectMultipleAttributesMap.hasOwnProperty('multiple')).toBe(true);
   });
 

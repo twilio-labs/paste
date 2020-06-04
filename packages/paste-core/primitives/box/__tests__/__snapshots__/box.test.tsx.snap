@@ -25,6 +25,7 @@ exports[`Backgrounds it should render responsive values 1`] = `
 >
   <div
     className="emotion-0"
+    data-paste-element="BOX"
   >
     background responsive
   </div>
@@ -50,6 +51,7 @@ exports[`Backgrounds it should render single values 1`] = `
 >
   <div
     className="emotion-0"
+    data-paste-element="BOX"
   >
     background single
   </div>
@@ -93,6 +95,7 @@ exports[`Borders it should render responsive values 1`] = `
 >
   <div
     className="emotion-0"
+    data-paste-element="BOX"
   >
     border responsive
   </div>
@@ -121,6 +124,7 @@ exports[`Borders it should render single values 1`] = `
 >
   <div
     className="emotion-0"
+    data-paste-element="BOX"
   >
     border single
   </div>
@@ -152,6 +156,7 @@ exports[`Shadows it should render responsive values 1`] = `
 >
   <div
     className="emotion-0"
+    data-paste-element="BOX"
   >
     shadow responsive
   </div>
@@ -177,6 +182,7 @@ exports[`Shadows it should render single values 1`] = `
 >
   <div
     className="emotion-0"
+    data-paste-element="BOX"
   >
     shadow single
   </div>
@@ -218,6 +224,7 @@ exports[`Sizes it should render responsive values 1`] = `
 >
   <div
     className="emotion-0"
+    data-paste-element="BOX"
     height={
       Array [
         "size10",
@@ -260,6 +267,7 @@ exports[`Sizes it should render single values 1`] = `
 >
   <div
     className="emotion-0"
+    data-paste-element="BOX"
     height="size10"
     width="size10"
   >
@@ -293,6 +301,7 @@ exports[`Spaces (A) it should render responsive values 1`] = `
 >
   <div
     className="emotion-0"
+    data-paste-element="BOX"
   >
     space responsive 1
   </div>
@@ -318,6 +327,7 @@ exports[`Spaces (A) it should render single values 1`] = `
 >
   <div
     className="emotion-0"
+    data-paste-element="BOX"
   >
     space single 1
   </div>
@@ -346,6 +356,7 @@ exports[`Spaces (B) it should render single values 1`] = `
 >
   <div
     className="emotion-0"
+    data-paste-element="BOX"
   >
     space single 2
   </div>
@@ -383,6 +394,7 @@ exports[`Spaces (B)it should render responsive values 1`] = `
 >
   <div
     className="emotion-0"
+    data-paste-element="BOX"
   >
     space responsive 2
   </div>
@@ -525,6 +537,7 @@ exports[`ZIndex Pseudo-class props it should generate pseudo-class CSS 1`] = `
 >
   <div
     className="emotion-0"
+    data-paste-element="BOX"
   >
     PseudoBox
   </div>
@@ -556,6 +569,7 @@ exports[`ZIndex it should render responsive values 1`] = `
 >
   <div
     className="emotion-0"
+    data-paste-element="BOX"
   >
     z-index responsive
   </div>
@@ -581,6 +595,7 @@ exports[`ZIndex it should render single values 1`] = `
 >
   <div
     className="emotion-0"
+    data-paste-element="BOX"
   >
     z-index single
   </div>

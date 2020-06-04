@@ -51,17 +51,20 @@ exports[`FormLabel render it should render 1`] = `
 >
   <label
     className="emotion-2"
+    data-paste-element="FORM_LABEL"
     display="block"
     htmlFor="input"
   >
     <span
       className="emotion-1"
+      data-paste-element="FLEX"
       display="flex"
     >
       <span
         className="emotion-0"
         color="colorText"
         cursor="pointer"
+        data-paste-element="FORM_LABEL_TEXT"
         fontSize="fontSize30"
         fontWeight="fontWeightSemibold"
       >
@@ -152,16 +155,19 @@ exports[`FormLabel render it should render with required 1`] = `
 >
   <label
     className="emotion-4"
+    data-paste-element="FORM_LABEL"
     display="block"
     htmlFor="input"
   >
     <span
       className="emotion-3"
+      data-paste-element="FLEX"
       display="flex"
     >
       <span
         className="emotion-1"
         color="colorText"
+        data-paste-element="TEXT"
         fontSize="fontSize30"
       >
         <span
@@ -174,6 +180,7 @@ exports[`FormLabel render it should render with required 1`] = `
         className="emotion-2"
         color="colorText"
         cursor="pointer"
+        data-paste-element="FORM_LABEL_TEXT"
         fontSize="fontSize30"
         fontWeight="fontWeightSemibold"
       >

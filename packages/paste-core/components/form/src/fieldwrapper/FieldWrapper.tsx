@@ -15,6 +15,7 @@ const getFieldWrapperComponent = (variant: FieldVariants): React.FC<FieldWrapper
 const FieldWrapper: React.FC<FieldWrapperProps> = ({
   children,
   disabled,
+  element,
   hasError,
   readOnly,
   type,
@@ -23,7 +24,14 @@ const FieldWrapper: React.FC<FieldWrapperProps> = ({
   const FieldWrapperComponent = getFieldWrapperComponent(variant);
 
   return (
-    <FieldWrapperComponent disabled={disabled} hasError={hasError} readOnly={readOnly} type={type} variant={variant}>
+    <FieldWrapperComponent
+      disabled={disabled}
+      element={element}
+      hasError={hasError}
+      readOnly={readOnly}
+      type={type}
+      variant={variant}
+    >
       {children}
     </FieldWrapperComponent>
   );

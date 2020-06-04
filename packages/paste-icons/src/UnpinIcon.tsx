@@ -10,13 +10,13 @@ export interface UnpinIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const UnpinIcon: React.FC<UnpinIconProps> = ({as, display, size, color, title, decorative}) => {
+const UnpinIcon: React.FC<UnpinIconProps> = ({as, display, size, color, title, decorative, ...props}) => {
   if (!decorative && title == null) {
     throw new Error('[UnpinIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} size={size} color={color} {...props}>
       <UID>
         {titleId => (
           <svg

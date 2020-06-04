@@ -10,6 +10,7 @@ import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {FormLabel, FormInput} from '@twilio-paste/form';
+import {CustomizationProvider} from '@twilio-paste/theme';
 import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading, ModalProps} from '../src';
 
 type ModalTriggerProps = Pick<ModalProps, 'size'>;
@@ -452,5 +453,65 @@ storiesOf('Components|Modal', module)
           </Modal>
         </div>
       </Flex>
+    );
+  })
+  .add('Customization', () => {
+    const [isOpen, setIsOpen] = React.useState(true);
+    const handleOpen = (): void => setIsOpen(true);
+    const handleClose = (): void => setIsOpen(false);
+    const modalHeadingID = useUID();
+
+    return (
+      <CustomizationProvider
+        elements={{
+          MODAL_OVERLAY: {
+            backgroundColor: 'black',
+          },
+          MODAL: {
+            borderRadius: '10px',
+            borderColor: 'colorBorderSuccess',
+          },
+          MODAL_HEADER: {
+            backgroundColor: 'colorBackgroundError',
+          },
+          MODAL_HEADING: {
+            color: 'hotpink',
+          },
+          MODAL_BODY: {
+            backgroundColor: 'colorBackgroundSuccess',
+          },
+          MODAL_FOOTER: {
+            backgroundColor: 'colorBackgroundWarning',
+          },
+          MODAL_FOOTER_ACTIONS: {
+            backgroundColor: 'green',
+          },
+        }}
+      >
+        <Button variant="primary" onClick={handleOpen}>
+          Open
+        </Button>
+        <Modal ariaLabelledby={modalHeadingID} isOpen={isOpen} onDismiss={handleClose} size="default">
+          <ModalHeader>
+            <ModalHeading as="h3" id={modalHeadingID}>
+              Customized
+            </ModalHeading>
+          </ModalHeader>
+          <ModalBody>
+            <Heading as="h2" variant="heading40">
+              Modal heading
+            </Heading>
+            <Paragraph>Custom modal body content.</Paragraph>
+          </ModalBody>
+          <ModalFooter>
+            <ModalFooterActions>
+              <Button variant="secondary" onClick={handleClose}>
+                Cancel
+              </Button>
+              <Button variant="primary">Submit</Button>
+            </ModalFooterActions>
+          </ModalFooter>
+        </Modal>
+      </CustomizationProvider>
     );
   });

@@ -210,8 +210,6 @@ describe('FormInput block props', () => {
     const {getByRole} = render(<FormInput {...initialProps} />);
     const Input = getByRole('textbox');
 
-    expect(Input.getAttribute('width')).toEqual(null);
-
     const classNames = Input.getAttribute('class');
     expect(classNames).toBeDefined();
     expect(classNames.indexOf(initialProps.className)).toBe(-1);
