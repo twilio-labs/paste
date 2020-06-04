@@ -6,6 +6,7 @@ description: Core principles, punctuation, grammar and formatting in Product con
 import {graphql} from 'gatsby';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 import {Anchor} from '@twilio-paste/anchor';
+import {DoDont, Do, Dont} from '../../components/DoDont';
 
 export const pageQuery = graphql`
   {
@@ -150,13 +151,13 @@ Give the thought a sentence or restructure your syntax.
   - In this example, the user is familiar with the term "SIP" but not "TLS."
 
 #### Periods .
-**Do** end every full sentence with a period
+**Do** end every full sentence with a period.
 - *Enable Flex Dialpad in Console.*
 - *Sign up for a free account.*
 
 **Don't** use periods at the end of fragments or incomplete sentences.
 
-**Don't** use periods at the end of an anchor link if it is the last line on an alert or notification
+**Don't** use periods at the end of an anchor link if it is the last line on an alert or notification.
 
 #### Quotation marks " "
 **Do** use quotation marks to pick out words from a component or a file name.
@@ -222,8 +223,7 @@ Products and features are proper nouns and should be capitalized to differentiat
 **Do** capitalize proper nouns – products, people, places.
 - Products include features, programs, or systems that Twilio has given a specific name to.
 - If a brand or product name uses a mix of upper and lower case (TwiML, eBay) use the name's convention.
-- People are named individuals or identifiable roles.
-  - *Kris Brunner, Chief Engineer*
+- People are named individuals or identifiable roles. 
 
 **Don't** capitalize general terms (*email, contact center, platform, phone number*)
 - Tip: If it's something Twilio has created or owns, it takes a capital.
