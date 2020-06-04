@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@0.1.6...@twilio-paste/combobox@0.1.7) (2020-06-04)
+
+
+### Bug Fixes
+
+* **combobox:** sync styles with Select styles ([291b68e](https://github.com/twilio-labs/paste/commit/291b68e662327a404fcf443a776fd8a2a26e8aa5))
+
+
+
+
+
 ## [0.1.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@0.1.5...@twilio-paste/combobox@0.1.6) (2020-06-01)
 
 **Note:** Version bump only for package @twilio-paste/combobox

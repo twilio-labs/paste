@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.5.5...@twilio-paste/form@1.5.6) (2020-06-04)
+
+
+### Bug Fixes
+
+* **form:** export SelectIconWrapper for use in Combobox ([71337b7](https://github.com/twilio-labs/paste/commit/71337b71d1c41c756c8bb0edc9420c13a49f2fbc))
+
+
+
+
+
 ## [1.5.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.5.4...@twilio-paste/form@1.5.5) (2020-06-01)
 
 **Note:** Version bump only for package @twilio-paste/form
