@@ -1,5 +1,6 @@
+import * as React from 'react';
 import styled from '@emotion/styled';
-import {compose, layout, space, background, border, boxShadow, position, flexbox, system} from 'styled-system';
+import {compose, layout, space, background, border, boxShadow, position, flexbox, system, variant} from 'styled-system';
 import css from '@styled-system/css';
 import {
   LayoutProps,
@@ -39,7 +40,7 @@ import {PseudoPropStyles} from './PseudoPropStyles';
 import {BoxPropTypes} from './BoxPropTypes';
 
 export interface BaseBoxProps
-  extends React.HTMLAttributes<any>,
+  extends Omit<React.HTMLAttributes<any>, 'color'>,
     LayoutProps,
     SpaceProps,
     BackgroundProps,
@@ -72,8 +73,12 @@ export interface BaseBoxProps
   float?: FloatProperty;
   willChange?: WillChangeProperty;
   textDecoration?: TypographyProps['textDecoration'];
+  color?: TypographyProps['color'];
   /** Typed as any because Box can literally be any HTML element */
   ref?: any | null;
+  theme?: any;
+  variant?: string;
+  element?: string;
 }
 
 interface PseudoStylesProps {
@@ -113,6 +118,10 @@ const extraConfig = system({
   borderColor: {
     property: 'borderColor',
     scale: 'borderColors',
+  },
+  color: {
+    property: 'color',
+    scale: 'textColors',
   },
   animation: true,
   appearance: true,
@@ -158,8 +167,45 @@ const getPseudoStyles = (props: BoxProps): {} => {
   return css(pseudoStyles);
 };
 
+const getThemeStyles = (props: BoxProps): {} => {
+  if (
+    props != null &&
+    props.theme != null &&
+    props.theme.elements != null &&
+    props.theme.CUSTOMIZATION_OPT_IN_OVERRIDE_DO_NOT_USE
+  ) {
+    const customStyles = Object.keys(props.theme.elements).reduce((styles, key): {} => {
+      if (props['data-paste-element'] === key) {
+        return {...styles, ...props.theme.elements[key]};
+      }
+      return {...styles};
+    }, {});
+    return css(customStyles);
+  }
+  return {};
+};
+
+const getThemeVariants = (props: BoxProps): {} => {
+  if (
+    props != null &&
+    props.theme != null &&
+    props.theme.elements != null &&
+    props.theme.CUSTOMIZATION_OPT_IN_OVERRIDE_DO_NOT_USE
+  ) {
+    const variants = Object.keys(props.theme.elements).reduce((styles, key): {} => {
+      if (props['data-paste-element'] === key) {
+        return {...styles, ...props.theme.elements[key].variants};
+      }
+      return {...styles};
+    }, {});
+    console.log('variants', variants, props['data-paste-element']);
+    return variant({variants});
+  }
+  return {};
+};
+
 /* eslint-disable emotion/syntax-preference */
-export const Box = styled.div(
+export const StyledBox = styled.div(
   {
     boxSizing: 'border-box',
   },
@@ -173,9 +219,19 @@ export const Box = styled.div(
     position,
     extraConfig
   ),
-  getPseudoStyles
+  getPseudoStyles,
+  getThemeStyles,
+  getThemeVariants
 ) as React.FC<BoxProps>;
 /* eslint-enable */
+
+export const Box: React.FC<BoxProps> = ({children, element = 'BOX', ...props}) => {
+  return (
+    <StyledBox data-paste-element={element} {...props}>
+      {children}
+    </StyledBox>
+  );
+};
 
 Box.displayName = 'Box';
 

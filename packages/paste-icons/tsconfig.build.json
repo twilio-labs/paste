@@ -9,6 +9,9 @@
   ],
   "references": [
     {
+      "path": "../paste-core/primitives/box"
+    },
+    {
       "path": "../paste-design-tokens"
     },
     {

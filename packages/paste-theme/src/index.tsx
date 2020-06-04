@@ -7,6 +7,7 @@ const Theme = {
 };
 
 export {pasteBaseStyles};
+export {CustomizationProvider} from './CustomizationProvider';
 export {ThemeShape, SendGridThemeShape, ConsoleThemeShape} from './types';
 export {DefaultTheme, ConsoleTheme, SendGridTheme} from './themes';
 export {withTheme} from './withTheme';

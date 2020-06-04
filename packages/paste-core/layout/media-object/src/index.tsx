@@ -1,9 +1,11 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {Box, BoxProps} from '@twilio-paste/box';
+import {Box, BoxProps, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Space, isMarginTokenProp} from '@twilio-paste/style-props';
 
-export interface MediaObjectProps extends Pick<BoxProps, 'as' | 'marginTop' | 'marginBottom'> {
+export interface MediaObjectProps
+  extends React.HTMLAttributes<any>,
+    Pick<BoxProps, 'as' | 'marginTop' | 'marginBottom' | 'element' | 'variant'> {
   verticalAlign?: 'center' | 'top';
 }
 
@@ -13,9 +15,12 @@ const MediaObject: React.FC<MediaObjectProps> = ({
   marginBottom,
   marginTop,
   verticalAlign = 'top',
+  ...props
 }) => {
   return (
     <Box
+      element="MEDIA_OBJECT"
+      {...safelySpreadBoxProps(props)}
       as={as}
       display="flex"
       alignItems={verticalAlign === 'top' ? 'flex-start' : 'center'}
@@ -34,14 +39,16 @@ if (process.env.NODE_ENV === 'development') {
   };
 }
 
-export interface MediaFigureProps extends Pick<BoxProps, 'as'> {
+export interface MediaFigureProps extends React.HTMLAttributes<any>, Pick<BoxProps, 'as' | 'element' | 'variant'> {
   align?: 'start' | 'end';
   spacing?: Space;
 }
 
-const MediaFigure: React.FC<MediaFigureProps> = ({as = 'span', children, align, spacing}) => {
+const MediaFigure: React.FC<MediaFigureProps> = ({as = 'span', children, align, spacing, ...props}) => {
   return (
     <Box
+      element="MEDIA_FIGURE"
+      {...safelySpreadBoxProps(props)}
       as={as}
       display="flex"
       flexShrink={0}
@@ -65,11 +72,11 @@ if (process.env.NODE_ENV === 'development') {
   };
 }
 
-export type MediaBodyProps = Pick<BoxProps, 'as'>;
+export interface MediaBodyProps extends React.HTMLAttributes<any>, Pick<BoxProps, 'as' | 'element' | 'variant'> {}
 
-const MediaBody: React.FC<MediaBodyProps> = ({as = 'span', children}) => {
+const MediaBody: React.FC<MediaBodyProps> = ({as = 'span', children, ...props}) => {
   return (
-    <Box as={as} flex={1} minWidth="size0">
+    <Box element="MEDIA_BODY" {...safelySpreadBoxProps(props)} as={as} flex={1} minWidth="size0">
       {children}
     </Box>
   );

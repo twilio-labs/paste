@@ -88,7 +88,7 @@ const StyledMenuSeparator: React.FC<SeparatorProps> = props => {
   return <Separator {...props} orientation="horizontal" />;
 };
 
-const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => {
+const Menu = React.forwardRef<Omit<HTMLDivElement, 'color'>, Omit<MenuProps, 'color'>>((props, ref) => {
   return <MenuPrimitive {...props} as={StyledMenu} ref={ref} />;
 });
 Menu.displayName = 'Menu';

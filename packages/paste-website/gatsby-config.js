@@ -46,7 +46,7 @@ module.exports = {
       options: {
         name: 'pages',
         path: `${__dirname}/src/pages`,
-        ignore: ['**/components/**/*', '**/primitives/**/*', '**/layout/**/*'],
+        ignore: ['**/components/**/*', '**/primitives/**/*', '**/layout/**/*', '**/x-ray-spex/**/*'],
       },
     },
     {
@@ -73,7 +73,14 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'websiteCore',
+        name: 'xRaySpex',
+        path: `${__dirname}/src/pages/x-ray-spex`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: ' ',
         path: `${__dirname}/`,
         ignore: ['**/.cache/**', '**/public/**', '**/src/**/*', '**/static/**', '**/types/**'],
       },
@@ -102,6 +109,7 @@ module.exports = {
           default: require.resolve('./src/layouts/DefaultLayout.tsx'),
           packages: require.resolve('./src/layouts/GenericLayout.tsx'),
           websiteCore: require.resolve('./src/layouts/GenericLayout.tsx'),
+          xRaySpex: require.resolve('./src/layouts/XRaySpex.tsx'),
         },
         gatsbyRemarkPlugins: [
           {

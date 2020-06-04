@@ -29,6 +29,10 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({children, pageContext, loc
         <title>{pageTitle}</title>
         <link rel="canonical" href={`https://paste.twilio.design${location.pathname}`} />
         <meta name="description" content={pageDescription} />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+          rel="stylesheet"
+        />
       </Helmet>
       <PasteMDXProvider>{children}</PasteMDXProvider>
     </SiteWrapper>

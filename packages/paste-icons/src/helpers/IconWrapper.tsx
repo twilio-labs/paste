@@ -1,31 +1,25 @@
-import styled from '@emotion/styled';
-import {compose, size, system} from 'styled-system';
+import * as React from 'react';
+import {Box, BoxProps, safelySpreadBoxProps} from '@twilio-paste/box';
 import {IconSize, TextColor} from '@twilio-paste/style-props';
 
-// I can't name this simply `color` because TS + Emotion doesn't like it
-// This sets the CSS `color` by using the `textColors` tokens via the `iconColor` prop
-const iconColor = system({
-  iconColor: {
-    property: 'color',
-    scale: 'textColors',
-  },
-});
-
-export interface IconWrapperProps {
+export interface IconWrapperProps extends Pick<BoxProps, 'element' | 'variant'> {
   as?: keyof JSX.IntrinsicElements;
   size?: IconSize;
   iconColor?: TextColor;
 }
 
-const IconWrapper = styled.span<IconWrapperProps>(
-  {
-    display: 'inline-flex',
-  },
-  compose(
-    iconColor,
-    size
-  )
-);
+const IconWrapper: React.FC<IconWrapperProps> = ({iconColor, size, ...props}) => {
+  return (
+    <Box
+      element="ICON"
+      {...safelySpreadBoxProps(props)}
+      as="span"
+      color={iconColor}
+      display="inline-flex"
+      size={size}
+    />
+  );
+};
 
 IconWrapper.defaultProps = {
   size: 'sizeIcon30',

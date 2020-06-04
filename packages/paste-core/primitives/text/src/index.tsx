@@ -1,5 +1,6 @@
+import * as React from 'react';
 import styled from '@emotion/styled';
-import {compose, space, display, verticalAlign, overflow, typography, system, position} from 'styled-system';
+import {compose, space, display, verticalAlign, overflow, typography, system, position, variant} from 'styled-system';
 import css from '@styled-system/css';
 import {CursorProperty} from 'csstype';
 import {
@@ -27,6 +28,9 @@ interface BaseTextProps
   display?: Display;
   verticalAlign?: VerticalAlign;
   transition?: string;
+  theme?: any;
+  variant?: string;
+  element?: string;
 }
 
 interface PseudoStylesProps {
@@ -83,9 +87,45 @@ const getPseudoStyles = (props: TextProps): {} => {
   return css(pseudoStyles);
 };
 
+const getThemeStyles = (props: TextProps): {} => {
+  if (
+    props != null &&
+    props.theme != null &&
+    props.theme.elements != null &&
+    props.theme.CUSTOMIZATION_OPT_IN_OVERRIDE_DO_NOT_USE
+  ) {
+    const customStyles = Object.keys(props.theme.elements).reduce((styles, key): {} => {
+      if (props['data-paste-element'] === key) {
+        return {...styles, ...props.theme.elements[key]};
+      }
+      return {...styles};
+    }, {});
+    return css(customStyles);
+  }
+  return {};
+};
+
+const getThemeVariants = (props: TextProps): {} => {
+  if (
+    props != null &&
+    props.theme != null &&
+    props.theme.elements != null &&
+    props.theme.CUSTOMIZATION_OPT_IN_OVERRIDE_DO_NOT_USE
+  ) {
+    const variants = Object.keys(props.theme.elements).reduce((styles, key): {} => {
+      if (props['data-paste-element'] === key) {
+        return {...styles, ...props.theme.elements[key].variants};
+      }
+      return {...styles};
+    }, {});
+    return variant({variants});
+  }
+  return {};
+};
+
 /* eslint-disable emotion/syntax-preference */
 // @ts-ignore
-export const Text = styled.span(
+const StyledText = styled.span(
   {
     margin: 0,
     padding: 0,
@@ -100,7 +140,9 @@ export const Text = styled.span(
     typography,
     extraConfig
   ),
-  getPseudoStyles
+  getPseudoStyles,
+  getThemeStyles,
+  getThemeVariants
   // we do this because the default typings of emotion styled
   // means Text gets typed as a span, and can't be extended
   // correctly to utilise the as prop. The new HTML element attributes
@@ -108,6 +150,14 @@ export const Text = styled.span(
   // we retype as a basic functional component which is easy to extend
 ) as React.FC<TextProps>;
 /* eslint-enable */
+
+export const Text: React.FC<TextProps> = ({children, element = 'TEXT', ...props}) => {
+  return (
+    <StyledText data-paste-element={element} {...props}>
+      {children}
+    </StyledText>
+  );
+};
 
 Text.displayName = 'Text';
 

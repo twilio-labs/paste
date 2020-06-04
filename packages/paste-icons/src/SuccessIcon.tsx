@@ -10,13 +10,13 @@ export interface SuccessIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const SuccessIcon: React.FC<SuccessIconProps> = ({as, size, iconColor, title, decorative}) => {
+const SuccessIcon: React.FC<SuccessIconProps> = ({as, size, iconColor, title, decorative, ...props}) => {
   if (!decorative && title == null) {
     throw new Error('[SuccessIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} size={size} iconColor={iconColor}>
+    <IconWrapper as={as} size={size} iconColor={iconColor} {...props}>
       <UID>
         {uid => (
           <svg role="img" aria-hidden={decorative} aria-labelledby={uid} width="100%" height="100%" viewBox="0 0 24 24">

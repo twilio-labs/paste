@@ -32,6 +32,7 @@
     "@twilio-paste/animation-library": "^0.2.0",
     "@twilio-paste/design-tokens": "^5.2.1",
     "@twilio-paste/types": "^3.0.8",
+    "lodash": "^4.17.15",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-system": "^5.1.2"

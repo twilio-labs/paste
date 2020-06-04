@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps, BoxProps} from '@twilio-paste/box';
 import {PaddingProps, isPaddingTokenProp} from '@twilio-paste/style-props';
 
-export interface CardProps extends React.HTMLAttributes<HTMLElement>, PaddingProps {}
+export interface CardProps extends React.HTMLAttributes<HTMLElement>, Pick<BoxProps, 'element'>, PaddingProps {}
 
 const Card: React.FunctionComponent<CardProps> = ({
   children,
@@ -15,6 +15,7 @@ const Card: React.FunctionComponent<CardProps> = ({
 }) => {
   return (
     <Box
+      element="CARD"
       {...safelySpreadBoxProps(props)}
       as="article"
       borderWidth="borderWidth20"
