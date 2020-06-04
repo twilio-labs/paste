@@ -1,0 +1,343 @@
+---
+title: Combobox
+package: '@twilio-paste/combobox'
+description: An accessible styled drop-down list box.
+slug: /components/combobox/
+---
+
+import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Combobox} from '@twilio-paste/combobox';
+import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
+import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
+import {Text} from '@twilio-paste/text';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {SidebarCategoryRoutes} from '../../../constants';
+import Changelog from '@twilio-paste/combobox/CHANGELOG.md';
+import {
+  autoCompleteExample,
+  defaultExample,
+  optionTemplateExample,
+  errorExample,
+  disabledExample,
+  prefixSuffixExample,
+} from '../../../component-examples/ComboboxExamples';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/combobox"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/combobox/"}}) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name={props.pageContext.frontmatter.title}
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/components/combobox"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-combobox--combobox"
+  data={props.data.allPasteComponent.edges}
+/>
+
+---
+
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings} />
+
+<content>
+
+<Callout>
+  <CalloutTitle>Using alpha components in your product</CalloutTitle>
+  <CalloutText>
+    Alpha components are ready for you to use in production. Components such as Combobox are likely to not see any API
+    changes. This is only an alpha due to the lack of documentation and minimal design. Feel free to share your
+    experience using this component at #help-design-system or{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/discussions/new">start a discussion on GitHub</Anchor>.
+  </CalloutText>
+</Callout>
+
+## Guidelines
+
+### About Combobox
+
+Combobox allows a user to make a selection from a styled list box of options. Each option can consist of more than just text,
+_e.g._ text paired with an icon. It can also be set up with autocomplete/typeahead functionality so users can easily find a
+specific option.
+
+## Examples
+
+#### Basic Combobox
+
+<LivePreview scope={{Combobox}} noInline language="jsx">
+  {defaultExample}
+</LivePreview>
+
+#### Autocomplete Combobox
+
+<LivePreview scope={{Combobox}} noInline language="jsx">
+  {autoCompleteExample}
+</LivePreview>
+
+#### Combobox using Option Template
+
+The `optionTemplate` prop allows you to pass `jsx` in order to display more complex items in the list box.
+
+<LivePreview scope={{Combobox, LinkExternalIcon, MediaBody, MediaObject, MediaFigure, Text}} noInline language="jsx">
+  {optionTemplateExample}
+</LivePreview>
+
+#### Combobox with add-ons (prefix/suffix text or icons)
+
+- **Prefix/suffix text** - Text that can be used as a prefix or suffix to the value that is entered. Use prefix/suffix to help users format text.
+- **Icon** - Icons that can be placed in the same area as the prefix and suffix text. Icons should trigger an action (_e.g._, opening a popover).
+
+<LivePreview scope={{Combobox, Anchor, InformationIcon}} noInline language="jsx">
+  {prefixSuffixExample}
+</LivePreview>
+
+## States
+
+#### Disabled Combobox
+
+<LivePreview scope={{Combobox}} noInline language="jsx">
+  {disabledExample}
+</LivePreview>
+
+#### Combobox with inline error
+
+<LivePreview scope={{Combobox}} noInline language="jsx">
+  {errorExample}
+</LivePreview>
+
+## Anatomy
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Default token</th>
+      <th>Modifiable?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Label text</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>$font-size-30</ListItem>
+          <ListItem>Default: $color-text, $font-weight-semibold</ListItem>
+          <ListItem>Disabled: $color-text-weak, $font-weight-semibold</ListItem>
+        </UnorderedList>
+      </td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Required field indicator</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>4px size (0.25rem)</ListItem>
+          <ListItem>Background: $color-background-required</ListItem>
+        </UnorderedList>
+      </td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Box Shadow</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>Default: $shadow-border</ListItem>
+          <ListItem>Hover: $shadow-border-primary-dark</ListItem>
+          <ListItem>Disabled: $shadow-border-light</ListItem>
+          <ListItem>Error: $shadow-border-error</ListItem>
+          <ListItem>Error hover: $shadow-border-error-dark</ListItem>
+        </UnorderedList>
+      </td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Background</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>Default: $color-background-body</ListItem>
+          <ListItem>Disabled: $color-background</ListItem>
+        </UnorderedList>
+      </td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Prefix/suffix</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>Background: $color-background</ListItem>
+          <ListItem>Border: $color-border-light</ListItem>
+        </UnorderedList>
+      </td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Prefix/suffix text</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>Default: $color-text</ListItem>
+          <ListItem>Disabled: $color-text-weak</ListItem>
+        </UnorderedList>
+      </td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Help text</td>
+      <td>$color-text-weak, $font-size-30</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Inline error</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>Text: $color-text-error, $font-size-30</ListItem>
+          <ListItem>Icon: IconError, $color-text-error, $icon-size-30</ListItem>
+        </UnorderedList>
+      </td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Spacing</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>
+            Label:
+            <UnorderedList marginBottom="space0">
+              <ListItem>Bottom: $space-10</ListItem>
+              <ListItem>Between label and required indicator: $space-20</ListItem>
+            </UnorderedList>
+          </ListItem>
+          <ListItem>
+            Input:
+            <UnorderedList marginBottom="space0">
+              <ListItem>Left padding: $space-40</ListItem>
+              <ListItem>Top, right, bottom padding: $space-30</ListItem>
+            </UnorderedList>
+          </ListItem>
+          <ListItem>Prefix/suffix padding: $space-30</ListItem>
+          <ListItem>
+            Help text:
+            <UnorderedList marginBottom="space0">
+              <ListItem>Top: $space-20</ListItem>
+            </UnorderedList>
+          </ListItem>
+          <ListItem>
+            Inline error:
+            <UnorderedList marginBottom="space0">
+              <ListItem>Spacing between icon and text: $space-20</ListItem>
+              <ListItem>Top: $space-20</ListItem>
+            </UnorderedList>
+          </ListItem>
+        </UnorderedList>
+      </td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Chevron</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>Icon: IconChevronDown, $space-20 from left</ListItem>
+        </UnorderedList>
+      </td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/combobox - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {Combobox} from '@twilio-paste/combobox';
+
+const Component = () => <Combobox autocomplete items={foo} labelText="Foo" helpText="Bar" />;
+```
+
+#### Props
+
+All the valid HTML attributes for `input` are supported including the following props:
+
+##### `autocomplete?: boolean`
+
+Allows autocomplete/typehead feature.
+
+##### `helpText?: string | React.ReactNode`
+
+The contents of the help and error text.
+
+##### `initialSelectedItem?: Item`
+
+Sets the initial item selected when a Combobox is initialized.
+
+##### `items: Item[]`
+
+Array of items to be displayed in the option list.
+
+##### `itemToString?: (item: Item) => string`
+
+If items are stored as an object, used to convert item to a string.
+
+##### `labelText: string | NonNullable<React.ReactNode>`
+
+The contents of the label text.
+
+##### `onHighlightedIndexChange?: (changes: Partial<UseComboboxState<Item>>) => void`
+
+This function is called each time the highlighted item was changed. Items are highlighted if they are hovered over
+or with keyboard actions.
+
+##### `onInputValueChange?: (changes: Partial<UseComboboxState<Item>>) => void`
+
+This function is each time the value of the input changes.
+
+##### `onIsOpenChange?: (changes: Partial<UseSelectState<Item>>) => void`
+
+This function is each time the value of the input changes.
+
+##### `onSelectedItemChange?: (changes: Partial<UseSelectState<Item>>) => void`
+
+This function is called each time the selected item changes. Items are selected by click or the enter key while
+highlighted.
+
+##### `optionTemplate?: (item: string | {}) => React.ReactNode`
+
+This function allows you to use your own `jsx` template for the items in the drop-down list.
+
+<Box marginTop="space90">
+  <Changelog />
+</Box>
+
+</content>
+
+</contentwrapper>
