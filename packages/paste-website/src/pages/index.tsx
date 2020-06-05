@@ -62,7 +62,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               <SiteLink to="/content">Content</SiteLink>
             </Heading>
             <Paragraph>
-              Read our content guidelines to write authentic ands inclusive content for Twilio&rsquo;s products.
+              Read our content guidelines to write authentic and inclusive content for Twilio&rsquo;s products.
             </Paragraph>
           </Card>
           <Card padding="space80">
