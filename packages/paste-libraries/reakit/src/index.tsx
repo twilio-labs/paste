@@ -19,6 +19,14 @@ export {
   MenuButtonProps,
   MenuSeparator,
   MenuSeparatorProps,
+  // https://reakit.io/docs/popover/
+  usePopoverState,
+  Popover,
+  PopoverProps,
+  PopoverDisclosure,
+  PopoverDisclosureProps,
+  PopoverArrow,
+  PopoverArrowProps,
   // https://reakit.io/docs/tab/
   useTabState,
   Tab,
