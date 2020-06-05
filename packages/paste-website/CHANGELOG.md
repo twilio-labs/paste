@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.31.0...@twilio-paste/website@1.31.1) (2020-06-05)
+
+
+### Bug Fixes
+
+* **docs:** homepage typo ([#485](https://github.com/twilio-labs/paste/issues/485)) ([2e94bb0](https://github.com/twilio-labs/paste/commit/2e94bb0423c27e2b328aa6831ec580df8d6e332f))
+
+
+
+
+
 # [1.31.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.30.5...@twilio-paste/website@1.31.0) (2020-06-05)
 
 
