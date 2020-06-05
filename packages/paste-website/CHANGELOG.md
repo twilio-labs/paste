@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.31.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.30.5...@twilio-paste/website@1.31.0) (2020-06-05)
+
+
+### Features
+
+* **website:** airtable roadmap ([825ec55](https://github.com/twilio-labs/paste/commit/825ec55a68e16da7a5cbe39c30e862405f15de69))
+
+
+
+
+
 ## [1.30.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.30.4...@twilio-paste/website@1.30.5) (2020-06-04)
 
 **Note:** Version bump only for package @twilio-paste/website
