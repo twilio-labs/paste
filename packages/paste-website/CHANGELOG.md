@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.31.1...@twilio-paste/website@1.31.2) (2020-06-05)
+
+
+### Bug Fixes
+
+* **website:** setup responsive friendly structure ([12d70a4](https://github.com/twilio-labs/paste/commit/12d70a404b1bba0e328905bbf3377565bc0ab957))
+
+
+
+
+
 ## [1.31.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.31.0...@twilio-paste/website@1.31.1) (2020-06-05)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.1.9...@twilio-paste/style-props@1.2.0) (2020-06-05)
+
+
+### Features
+
+* **style-props:** add 100vh and 100vw style prop values ([53b38a8](https://github.com/twilio-labs/paste/commit/53b38a8ddab12723c9e9b48ac68ae0957c7fb600))
+
+
+
+
+
 ## [1.1.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.1.8...@twilio-paste/style-props@1.1.9) (2020-06-01)
 
 **Note:** Version bump only for package @twilio-paste/style-props
