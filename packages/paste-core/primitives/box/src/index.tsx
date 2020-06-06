@@ -33,6 +33,7 @@ import {
   OutlineProperty,
   FloatProperty,
   WillChangeProperty,
+  TextOverflowProperty,
 } from 'csstype';
 import {PseudoPropStyles} from './PseudoPropStyles';
 import {BoxPropTypes} from './BoxPropTypes';
@@ -55,6 +56,7 @@ export interface BaseBoxProps
   transformOrigin?: TransformOriginProperty<string>;
   visibility?: VisibilityProperty;
   whiteSpace?: WhiteSpaceProperty;
+  textOverflow?: TextOverflowProperty;
   userSelect?: UserSelectProperty;
   pointerEvents?: PointerEventsProperty;
   boxSizing?: BoxSizingProperty;
@@ -118,6 +120,7 @@ const extraConfig = system({
   transformOrigin: true,
   visibility: true,
   whiteSpace: true,
+  textOverflow: true,
   userSelect: true,
   pointerEvents: true,
   boxSizing: true,

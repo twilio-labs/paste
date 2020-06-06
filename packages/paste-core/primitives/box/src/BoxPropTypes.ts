@@ -55,6 +55,7 @@ export const BoxPropTypes = {
   overflow: ResponsiveProp(PropTypes.string),
   overflowX: ResponsiveProp(PropTypes.string),
   overflowY: ResponsiveProp(PropTypes.string),
+  textOverflow: ResponsiveProp(PropTypes.string),
   // position
   position: ResponsiveProp(PropTypes.string),
   top: ResponsiveProp(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
