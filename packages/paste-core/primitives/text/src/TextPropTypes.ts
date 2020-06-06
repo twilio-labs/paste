@@ -40,4 +40,5 @@ export const TextPropTypes = {
   textOverflow: ResponsiveProp(PropTypes.string),
   verticalAlign: ResponsiveProp(PropTypes.string),
   whiteSpace: ResponsiveProp(PropTypes.string),
+  transition: ResponsiveProp(PropTypes.string),
 };

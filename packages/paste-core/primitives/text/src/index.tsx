@@ -26,6 +26,7 @@ interface BaseTextProps
   cursor?: CursorProperty;
   display?: Display;
   verticalAlign?: VerticalAlign;
+  transition?: string;
 }
 
 interface PseudoStylesProps {
