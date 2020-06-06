@@ -2,7 +2,9 @@ export {
   // https://reakit.io/docs/disclosure/
   useDisclosureState,
   Disclosure,
+  DisclosureProps,
   DisclosureContent,
+  DisclosureContentProps,
   // https://reakit.io/docs/menu/
   useMenuState,
   Menu,
@@ -29,7 +31,13 @@ export {
   PopoverArrowProps,
   // https://reakit.io/docs/tab/
   useTabState,
+  TabState,
+  TabInitialState,
+  TabStateReturn,
   Tab,
+  TabProps,
   TabList,
+  TabListProps,
   TabPanel,
+  TabPanelProps,
 } from 'reakit';
