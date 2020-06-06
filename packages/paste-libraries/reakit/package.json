@@ -28,7 +28,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "reakit": "^1.0.2"
+    "reakit": "1.0.4"
   },
   "peerDependencies": {
     "react": "^16.8.6",
