@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.31.2...@twilio-paste/website@1.31.3) (2020-06-06)
+
+
+### Bug Fixes
+
+* **website:** disabled algolia indexing temporarily ([#486](https://github.com/twilio-labs/paste/issues/486)) ([f72384d](https://github.com/twilio-labs/paste/commit/f72384dbc11a1e88f942675b0c07eacd9dcd525b))
+
+
+
+
+
 ## [1.31.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.31.1...@twilio-paste/website@1.31.2) (2020-06-05)
 
 
