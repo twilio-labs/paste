@@ -4,101 +4,92 @@ import {Button} from '@twilio-paste/button';
 import {Paragraph} from '@twilio-paste/typography';
 import {Stack} from '@twilio-paste/stack';
 import {useUID} from 'react-uid';
-import {useTabsPrimitiveState, TabsPrimitive, TabsPrimitiveList, TabsPrimitivePanel} from '../src';
+import {useTabPrimitiveState, TabPrimitive, TabPrimitiveList, TabPrimitivePanel, TabPrimitiveStateReturn} from '../src';
 
-const BaseExample: React.FC<{}> = () => {
-  const tabId = useUID();
-  const tab = useTabsPrimitiveState({selectedId: tabId});
+const HorizontalTabsExample: React.FC<{}> = () => {
+  const selectedId = useUID();
+  const tab = useTabPrimitiveState({selectedId});
   return (
     <>
-      <TabsPrimitiveList {...tab} aria-label="My tabs">
+      <TabPrimitiveList {...tab} aria-label="My tabs">
         <Stack orientation="horizontal" spacing="space20">
-          <TabsPrimitive as={Button} size="small" {...tab}>
-            Tab 1
-          </TabsPrimitive>
-          <TabsPrimitive {...tab}>
-            {(props: any) => (
+          <TabPrimitive {...tab} id={selectedId}>
+            {(props: TabPrimitiveStateReturn) => (
+              <Button {...props} variant="primary" size="small">
+                Tab 1
+              </Button>
+            )}
+          </TabPrimitive>
+          <TabPrimitive {...tab}>
+            {(props: TabPrimitiveStateReturn) => (
               <Button {...props} variant="primary" size="small" disabled>
                 Tab 2 (disabled)
               </Button>
             )}
-          </TabsPrimitive>
-          <TabsPrimitive as={Button} size="small" {...tab}>
-            Tab 3
-          </TabsPrimitive>
+          </TabPrimitive>
+          <TabPrimitive {...tab}>
+            {(props: TabPrimitiveStateReturn) => (
+              <Button {...props} variant="primary" size="small">
+                Tab 3
+              </Button>
+            )}
+          </TabPrimitive>
         </Stack>
-      </TabsPrimitiveList>
-      <TabsPrimitivePanel {...tab}>Tab 1</TabsPrimitivePanel>
-      <TabsPrimitivePanel {...tab}>Tab 2</TabsPrimitivePanel>
-      <TabsPrimitivePanel {...tab}>Tab 3</TabsPrimitivePanel>
-    </>
-  );
-};
-
-const NoDefaultSelected: React.FC<{}> = () => {
-  const tab = useTabsPrimitiveState({selectedId: null});
-  return (
-    <>
-      <TabsPrimitiveList {...tab} aria-label="My tabs">
-        <Stack orientation="horizontal" spacing="space20">
-          <TabsPrimitive as={Button} size="small" {...tab}>
-            Tab 1
-          </TabsPrimitive>
-          <TabsPrimitive as={Button} size="small" {...tab}>
-            Tab 2
-          </TabsPrimitive>
-          <TabsPrimitive as={Button} size="small" {...tab}>
-            Tab 3
-          </TabsPrimitive>
-        </Stack>
-      </TabsPrimitiveList>
-      <TabsPrimitivePanel {...tab}>Tab 1</TabsPrimitivePanel>
-      <TabsPrimitivePanel {...tab}>Tab 2</TabsPrimitivePanel>
-      <TabsPrimitivePanel {...tab}>Tab 3</TabsPrimitivePanel>
+      </TabPrimitiveList>
+      <TabPrimitivePanel {...tab}>Tab 1</TabPrimitivePanel>
+      <TabPrimitivePanel {...tab}>Tab 2</TabPrimitivePanel>
+      <TabPrimitivePanel {...tab}>Tab 3</TabPrimitivePanel>
     </>
   );
 };
 
 const VerticalTabsExample: React.FC<{}> = () => {
   const selectedId = useUID();
-  const tab = useTabsPrimitiveState({orientation: 'vertical', selectedId});
+  const tab = useTabPrimitiveState({orientation: 'vertical', selectedId});
   return (
     <>
       <Paragraph>This changes the keys to jump between tabs from left/right arrow to up/down arrow</Paragraph>
       <div style={{display: 'flex'}}>
-        <TabsPrimitiveList
+        <TabPrimitiveList
           {...tab}
           aria-label="My tabs"
           style={{borderRight: '1px solid black', paddingRight: 10, marginRight: 10}}
         >
           <Stack orientation="vertical" spacing="space20">
-            <TabsPrimitive as={Button} size="small" {...tab} id={selectedId}>
-              Tab 1
-            </TabsPrimitive>
-            <TabsPrimitive as={Button} size="small" {...tab}>
-              Tab 2
-            </TabsPrimitive>
-            <TabsPrimitive as={Button} size="small" {...tab}>
-              Tab 3
-            </TabsPrimitive>
+            <TabPrimitive {...tab} id={selectedId}>
+              {(props: TabPrimitiveStateReturn) => (
+                <Button {...props} variant="primary" size="small">
+                  Tab 1
+                </Button>
+              )}
+            </TabPrimitive>
+            <TabPrimitive {...tab}>
+              {(props: TabPrimitiveStateReturn) => (
+                <Button {...props} variant="primary" size="small">
+                  Tab 2
+                </Button>
+              )}
+            </TabPrimitive>
+            <TabPrimitive {...tab}>
+              {(props: TabPrimitiveStateReturn) => (
+                <Button {...props} variant="primary" size="small">
+                  Tab 3
+                </Button>
+              )}
+            </TabPrimitive>
           </Stack>
-        </TabsPrimitiveList>
-        <TabsPrimitivePanel {...tab} id={selectedId}>
-          Tab 1
-        </TabsPrimitivePanel>
-        <TabsPrimitivePanel {...tab}>Tab 2</TabsPrimitivePanel>
-        <TabsPrimitivePanel {...tab}>Tab 3</TabsPrimitivePanel>
+        </TabPrimitiveList>
+        <TabPrimitivePanel {...tab}>Tab 1</TabPrimitivePanel>
+        <TabPrimitivePanel {...tab}>Tab 2</TabPrimitivePanel>
+        <TabPrimitivePanel {...tab}>Tab 3</TabPrimitivePanel>
       </div>
     </>
   );
 };
 
 storiesOf('Primitives|Tabs', module)
-  .add('Simple Tabs', () => {
-    return <BaseExample />;
-  })
-  .add('No Default Tab Selection', () => {
-    return <NoDefaultSelected />;
+  .add('Horizontal Tabs', () => {
+    return <HorizontalTabsExample />;
   })
   .add('Vertical Tabs', () => {
     return <VerticalTabsExample />;
