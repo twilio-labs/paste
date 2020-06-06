@@ -86,8 +86,8 @@ const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
       <FieldWrapper type={type} readOnly={readOnly} disabled={disabled} hasError={hasError}>
         {insertBefore && <Prefix>{insertBefore}</Prefix>}
         <InputElement
-          aria-invalid={hasError}
-          aria-readonly={readOnly}
+          aria-invalid={!!hasError}
+          aria-readonly={!!readOnly}
           {...safelySpreadFormControlProps(props)}
           {...typeProps}
           ref={ref}
