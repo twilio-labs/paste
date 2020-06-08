@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/combobox",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "category": "user input",
   "status": "alpha",
   "description": "An accessible styled drop-down list box.",

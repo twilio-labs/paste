@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@0.1.8...@twilio-paste/combobox@0.2.0) (2020-06-08)
+
+
+### Features
+
+* **combobox:** expose onHighlightedIndexChange, onIsOpenChange props ([5683733](https://github.com/twilio-labs/paste/commit/5683733f07b81a7cd88eab60c00fcc1f6217392a))
+
+
+
+
+
 ## [0.1.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@0.1.7...@twilio-paste/combobox@0.1.8) (2020-06-05)
 
 **Note:** Version bump only for package @twilio-paste/combobox
