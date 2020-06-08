@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.32.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.31.3...@twilio-paste/website@1.32.0) (2020-06-08)
+
+
+### Features
+
+* **tokens docs:** shorten description ([#479](https://github.com/twilio-labs/paste/issues/479)) ([450888c](https://github.com/twilio-labs/paste/commit/450888cab9a6cd38fedc0a695149dcc62b0c0279))
+
+
+
+
+
 ## [1.31.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.31.2...@twilio-paste/website@1.31.3) (2020-06-06)
 
 
