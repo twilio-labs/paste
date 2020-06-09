@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.10.3...@twilio-paste/core@2.11.0) (2020-06-09)
+
+
+### Features
+
+* **core:** add non-modal dialog primitive to core ([8917f44](https://github.com/twilio-labs/paste/commit/8917f444cf96264472112fc516e5ed7f24902c9b))
+
+
+
+
+
 ## [2.10.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.10.2...@twilio-paste/core@2.10.3) (2020-06-08)
 
 **Note:** Version bump only for package @twilio-paste/core

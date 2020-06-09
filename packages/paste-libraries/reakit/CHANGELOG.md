@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/reakit-library@0.3.0...@twilio-paste/reakit-library@0.4.0) (2020-06-09)
+
+
+### Features
+
+* **reakit-library:** export popover ([12f15d5](https://github.com/twilio-labs/paste/commit/12f15d5560a9a742e2bc0a0c8c5612b120663c56))
+
+
+
+
+
 # [0.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/reakit-library@0.2.0...@twilio-paste/reakit-library@0.3.0) (2020-06-01)
 
 
