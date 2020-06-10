@@ -190,7 +190,6 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   .emotion-0 {
   box-sizing: border-box;
   width: 100%;
-  padding-top: space20;
 }
 
 <div
@@ -271,6 +270,11 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   color: colorText;
 }
 
+.emotion-7 {
+  box-sizing: border-box;
+  width: 100%;
+}
+
 .emotion-8 {
   box-sizing: border-box;
   -webkit-box-pack: start;
@@ -318,12 +322,6 @@ exports[`Tabs Render horizontally and vertically 1`] = `
 
 .emotion-1[aria-selected=true] {
   border-right-color: colorBorderPrimary;
-}
-
-.emotion-7 {
-  box-sizing: border-box;
-  width: 100%;
-  padding-left: space30;
 }
 
 <div
