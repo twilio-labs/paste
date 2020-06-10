@@ -1,5 +1,7 @@
-import {
+export {
   usePopoverState as useNonModalDialogPrimitiveState,
+  PopoverState as NonModalDialogPrimitiveState,
+  PopoverInitialState as NonModalDialogPrimitivePopoverInitialState,
   Popover as NonModalDialogPrimitive,
   PopoverProps as NonModalDialogPrimitiveProps,
   PopoverDisclosure as NonModalDialogDisclosurePrimitive,
@@ -7,13 +9,3 @@ import {
   PopoverArrow as NonModalDialogArrowPrimitive,
   PopoverArrowProps as NonModalDialogArrowPrimitiveProps,
 } from '@twilio-paste/reakit-library';
-
-export {
-  useNonModalDialogPrimitiveState,
-  NonModalDialogPrimitive,
-  NonModalDialogPrimitiveProps,
-  NonModalDialogDisclosurePrimitive,
-  NonModalDialogDisclosurePrimitiveProps,
-  NonModalDialogArrowPrimitive,
-  NonModalDialogArrowPrimitiveProps,
-};
