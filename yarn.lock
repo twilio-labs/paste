@@ -4233,6 +4233,155 @@
     prettier "^1.18.2"
     tslib "^1.10.0"
 
+"@twilio-paste/absolute@^2.0.41":
+  version "2.0.41"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/absolute/-/absolute-2.0.41.tgz#a3566593380d201397c4f548097f1fd3f70fc8b5"
+  integrity sha512-MkTFWwJrBRCt2HIoJgQ+l4lEZbOg7VaGlAgsQohX/+WykDfngAwevzQi0p4tOABuhnudOXL4XVsmPK9Hn9bb+w==
+
+"@twilio-paste/alert@^0.1.48":
+  version "0.1.48"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/alert/-/alert-0.1.48.tgz#55ba249fe6bcba90402da1a0f9e9dbe41a66cc8a"
+  integrity sha512-mgjRK4MnxiB0AVQMZgXEoReLvJ9tcSBlD47a4bDEZtMHHtJ5b08f8Fi20QEdEcGi6y3e2KJzklsU0Cis8YYGPQ==
+
+"@twilio-paste/anchor@^1.1.20":
+  version "1.1.20"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/anchor/-/anchor-1.1.20.tgz#0e879cddb55d63be22dd1496f0a8be37bee68b13"
+  integrity sha512-dujPaH36TMYX3J7az52CoRoJa1/Pl+5jUnzPk/9BuvISXSTJYXKUpRCcHPXlhN3McO4dbURfsXOmAUPcNgDhbQ==
+
+"@twilio-paste/aspect-ratio@^1.0.41":
+  version "1.0.41"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/aspect-ratio/-/aspect-ratio-1.0.41.tgz#bb8db0814cd586b625e36fc400eb26a3d0e1b66b"
+  integrity sha512-hAyaOjzU96BQDACdxftc2xP+xYpiMTrzufnhacUkWUNT2TVFAahKopb7AN8t9vLPlLZKP+ta/FAGpM8esrWF3Q==
+
+"@twilio-paste/box@^2.4.9":
+  version "2.4.9"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/box/-/box-2.4.9.tgz#ae948576d9f44f2d09b0ab2a581622e2738a537e"
+  integrity sha512-8yJh5kDRXGyEg3Y7f459HZ0ov/dFopxKtUaobkV19+WB0Sf1TSVfkhRnuXZaiD2cho5prsXVfFdzmZDRxlfHoQ==
+
+"@twilio-paste/button@^1.2.5":
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/button/-/button-1.2.5.tgz#388826980e55a40c3423f2582de0465a87e1d10f"
+  integrity sha512-0ztsEnt7ZupVCfbQ9v7vYgcZtLa0db5vrA3xY0T+7jSMj2a2Z2EmK70mnG0/aZO8HVPpNHUIj5uK27zm0rD0jQ==
+
+"@twilio-paste/card@^1.3.35":
+  version "1.3.35"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/card/-/card-1.3.35.tgz#1098149638d268c788e5bbf35f0d242a4cd750a3"
+  integrity sha512-DdU7MV0d4SpIM0fuleINhzg9Yf0gar51paqTTJnXGZhMlnHnd4m6j4WHo1sQc7ZIQXtG15DZ3u7NCrGByoG+/Q==
+
+"@twilio-paste/combobox-primitive@0.1.2", "@twilio-paste/combobox-primitive@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/combobox-primitive/-/combobox-primitive-0.1.2.tgz#621e9603f706cb4bf27634d76a9fd14c003dbcea"
+  integrity sha512-hFqysoEI5o6f3rKCCnlxKNmFMXt5m32sK/hS8hpTayfIBfcKSl01UtXu1n4Qsi167VU23gjMCgGTZ6fvUPqcHQ==
+
+"@twilio-paste/combobox@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/combobox/-/combobox-0.2.0.tgz#262e05e0f75ea4113fa85daccd3155583656bac4"
+  integrity sha512-Ent6Xre00L84dGY0QjXrSWsNIBcCl4TUdhVaYCk6utsldZ8PWn/qAUx7gB2amMCByNRh+tgCYxHUi/q8RXyb7w==
+
+"@twilio-paste/disclosure-primitive@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/disclosure-primitive/-/disclosure-primitive-0.1.3.tgz#3cc4cfa8dd0faa9a6e63fbf8339d0a6057214346"
+  integrity sha512-hkThZ6ML+pG20CtjgW6pqu5cENiwfX4C3/m2hEp0HMOKw8PcHe9Wkli98vrY8dij3ONm8hnyqVJDS5/IBu7m5A==
+
+"@twilio-paste/flex@^0.3.28":
+  version "0.3.28"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/flex/-/flex-0.3.28.tgz#e7233b62ea88c97944808ea2cae18c0c50f210fc"
+  integrity sha512-d21dQyXoIeB+8tn/Rwtnuov5dhfpxolAdRP6fvhXZVXr4gfOlnJE1oILeoD+GPUUCkUOSFBLGr8fnkBf8aA0wA==
+
+"@twilio-paste/form@^1.5.7":
+  version "1.5.7"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/form/-/form-1.5.7.tgz#8905b09210705566d77c7c24df5dd03128177089"
+  integrity sha512-kAdo7jcmamYXwS/FDsO9eOibQ5//DtckwPwdlM86z0AQwDL8DIH+Pzy16PWU/k8GeWg2/98NjBVffHvs9twsIA==
+  dependencies:
+    react-autosize-textarea "7.0.0"
+
+"@twilio-paste/grid@^0.2.30":
+  version "0.2.30"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/grid/-/grid-0.2.30.tgz#e0566d3d044f0313ce8a95b614ff3638e1214c47"
+  integrity sha512-oa0SOX9gS3FWf6bxRCKho3oneG5ZvFuUnfZ9dKhklpPfInBDmLPUa4D0yZXhUkDxttGfNpI6/CGz5ZUsVn83wQ==
+
+"@twilio-paste/heading@^2.0.9":
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/heading/-/heading-2.0.9.tgz#61f2e41483f19507884e151ad82755d5feea6724"
+  integrity sha512-FM8VUVKGxntIgNtDF1faROZtXnL9dHGhIjaR5/JvWK2aMj284nStIiptd+MRk3muMCUkY4igKoFMnpVVAb1ZRA==
+
+"@twilio-paste/list@^0.2.10":
+  version "0.2.10"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/list/-/list-0.2.10.tgz#c99e66eff290532c884c8514929a48947b70208c"
+  integrity sha512-E28g7Jp3bJkrJ9Tc6ygOLmWC9aNHx2+Z4uOMLr318hQliE10K0JZjeMAeWQKb++kU1ynUmmYkz+Nl/uwtEP/Wg==
+
+"@twilio-paste/media-object@^1.2.28":
+  version "1.2.28"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/media-object/-/media-object-1.2.28.tgz#4c0614775cc836f1cca3f37b4cccbb03066312b8"
+  integrity sha512-kWFenW8ptQT/0qKitSV0MqRual6vIJ5m/+fqGPnRJ552vR4bF5eRrJzRKWpiTxgTbRL9a8Q0XZGHOUVdwlo5kQ==
+
+"@twilio-paste/menu-primitive@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/menu-primitive/-/menu-primitive-0.1.2.tgz#8c65d3835957f671e1acdc90a5262b539fbf24ed"
+  integrity sha512-e4WzPNYYY1FYno2M2H7PXAR3Z1ebxLMo8gE2nqkbehA+7sqc2zNeBzIaTcIoZtq1U8jHOIHWCK7uG43bz7XB7g==
+
+"@twilio-paste/menu@^0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/menu/-/menu-0.1.7.tgz#1ddcb13cd9f3c953f5b0a9a6668e6d8d128cda23"
+  integrity sha512-+eH/E8BS2LkXst4V99aNpMQAr4+Pnt0OpNEzujzLQFDjdl08FSDmDE+kp4chjYFw3heJKLhU5Wc6CEcIrD1O1Q==
+
+"@twilio-paste/modal-dialog-primitive@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/modal-dialog-primitive/-/modal-dialog-primitive-0.1.3.tgz#9867b36cf361c6611a18d089be91e5753c7a2118"
+  integrity sha512-Vt1mRqKswt1e4YSvAYdC5DxPqHWKzWvbylwLorfY79rzWBjOcauoZ+QqlvXIvUBZ+LBozB9qRWvJqBt+jp1Eiw==
+  dependencies:
+    "@reach/dialog" "0.8.2"
+
+"@twilio-paste/modal@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/modal/-/modal-0.2.2.tgz#8b7372e1c313887582bb912b905e51c70b1ce48f"
+  integrity sha512-BR6Ils4AYhtpBpyv8F0VgYUPGiO96kTmBZL538VITBC8Q/r5ZztfJtw8iuIyYGYAGalrOvCYd7SfGKwCM7qQ5w==
+
+"@twilio-paste/non-modal-dialog-primitive@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/non-modal-dialog-primitive/-/non-modal-dialog-primitive-0.1.0.tgz#705053131cacdc71fe7e0d0ae5ad4fdbadf1b1ac"
+  integrity sha512-ntjFEopp9LoJINBsP0tmlWyId/ovH1OSjMOcp0KYB+oDAI5mWJci+j3dt818FsIni9J5JGp3HJQzU/NoB44jhA==
+
+"@twilio-paste/paragraph@^1.1.11":
+  version "1.1.11"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/paragraph/-/paragraph-1.1.11.tgz#a0580a989053d6935782f031480621291324b9de"
+  integrity sha512-21ng4KtsWIEJ+0d4NXfR6szI/52J+mMBTnbCbJOU2mbQ+Tlf6gAIZhZQVCnBdwVgzJFn0kpZQEPIc3fxJ5ABfQ==
+
+"@twilio-paste/screen-reader-only@^1.1.9":
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/screen-reader-only/-/screen-reader-only-1.1.9.tgz#1ce3c3dc0c9ae2f4a859bcd0d18846bfd0ac0294"
+  integrity sha512-32nBBUTTev44fqFVENIpXZOBmVGMCUdJOU16okPPvANMpDAqsxWW+Ukw2yGwmNt4EOwOcwoNqWCXZO55HXxEBA==
+
+"@twilio-paste/separator@^0.1.12":
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/separator/-/separator-0.1.12.tgz#454c2014d46fce326691e2b961b7bdaf03923a7e"
+  integrity sha512-bc4YN0LViGwbDNVOXRUttydWCzLiymD3yXXdea6+HKV4rm2u5Lq9ql4b2EhHDRAqlDIH4mQq/ZXaNWA5sR0mUw==
+
+"@twilio-paste/spinner@^1.2.12":
+  version "1.2.12"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/spinner/-/spinner-1.2.12.tgz#97fbf60e60a4af64a777ab5079ad722b8c7e48db"
+  integrity sha512-GTj3x7gU2eWrrHz6xAcvB1LSqYUxNlFMkXXZHObuLXRa+KUVAyd0keIYXIUk8aXl4fQDHUnAp20sXkSuxa6pjA==
+
+"@twilio-paste/stack@^0.1.9":
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/stack/-/stack-0.1.9.tgz#9b6047142842ff6044077e7fc756bed27f0fc5af"
+  integrity sha512-FBROI3+8wvBeSTFsqD7z+C58dVmD//R+1n3yQhnevgfIJf05Aic6Oh3ePgPRjR8KX6MOq2mfsedoxAWIjwK3+A==
+
+"@twilio-paste/tabs-primitive@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/tabs-primitive/-/tabs-primitive-0.1.1.tgz#bdef3bb4e3640985c1a1030c019646fd3134b741"
+  integrity sha512-8LfdRW9Cc6BZyosvKEQ+asI5+Icc1LL99qF45nUIY9yrk79RULizceZzgPRZFjOPUWj9739/xUEtDtL05u5MvQ==
+
+"@twilio-paste/text@^2.1.10":
+  version "2.1.10"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/text/-/text-2.1.10.tgz#ad75098112f92df000085c189d3481f01cb13605"
+  integrity sha512-pyR7bxMAQy6zjxLmtkzrWk4FNHRNa3+eP+GovsNvH38egVodHlq9OMexCJuGQ5DXXRbwyLGmQ7PbTlxaO1UtjQ==
+
+"@twilio-paste/truncate@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@twilio-paste/truncate/-/truncate-1.0.8.tgz#a1024f3e96d8ed869cae74821564c9d66d7b5883"
+  integrity sha512-5yQgyzXSYqxhPiakieuqrZ9v/yFId0GEwjEXUPSt9xIRYnHCD66IAOhnS8UljywN0UXIELs+CuzS20v8XPdFMA==
+
 "@types/algoliasearch-helper@*":
   version "2.26.1"
   resolved "https://registry.yarnpkg.com/@types/algoliasearch-helper/-/algoliasearch-helper-2.26.1.tgz#60cf377e7cb4bd9a55f7eba35182792763230a24"
@@ -8186,7 +8335,7 @@ commander@2.17.x:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.17.1.tgz#bd77ab7de6de94205ceacc72f1716d29f20a77bf"
   integrity sha512-wPMUt6FnH2yzG95SA6mzjQOEKUU3aLaDEmzs1ti+1E9h+CsrZghRlqEM/EJ4KscsQVG8uNN4uVreUeT8+drlgg==
 
-commander@^2.11.0, commander@^2.18.0, commander@^2.19.0, commander@^2.2.0, commander@^2.20.0, commander@~2.20.3:
+commander@^2.11.0, commander@^2.18.0, commander@^2.19.0, commander@^2.2.0, commander@^2.20.0, commander@^2.20.3, commander@~2.20.3:
   version "2.20.3"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
@@ -8963,6 +9112,11 @@ cssesc@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
   integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
+
+cssfilter@0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/cssfilter/-/cssfilter-0.0.10.tgz#c6d2672632a2e5c83e013e6864a42ce8defd20ae"
+  integrity sha1-xtJnJjKi5cg+AT5oZKQs6N79IK4=
 
 cssnano-preset-default@^4.0.7:
   version "4.0.7"
@@ -13108,9 +13262,11 @@ graphql-import@^0.7.1:
     resolve-from "^4.0.0"
 
 graphql-playground-html@^1.6.19:
-  version "1.6.19"
-  resolved "https://registry.yarnpkg.com/graphql-playground-html/-/graphql-playground-html-1.6.19.tgz#3883ecf5e8c18b3c0f08145b5417b9c01a1f0bef"
-  integrity sha512-cLAqoOlxHbGj/LBpr4l2BE9qXf3g8ShjQqU2daVueITI/3wIkcDQTaQaQp+HWv0uaX0dCsgMCFW/TooLj8yJOg==
+  version "1.6.25"
+  resolved "https://registry.yarnpkg.com/graphql-playground-html/-/graphql-playground-html-1.6.25.tgz#2d8fa250cec4036a4f5b7f8ad069c86d6d64c95f"
+  integrity sha512-wMNvGsQ0OwBVhn72VVi7OdpI85IxiIZT43glRx7gQIwQ6NvhFnzMYBIVmcJAJ4UlXRYiWtrQhuOItDXObiR3kg==
+  dependencies:
+    xss "^1.0.6"
 
 graphql-playground-middleware-express@^1.7.14:
   version "1.7.14"
@@ -25890,6 +26046,14 @@ xregexp@^4.3.0:
   integrity sha512-7jXDIFXh5yJ/orPn4SXjuVrWWoi4Cr8jfV1eHv9CixKSbU+jY4mxfrBwAuDvupPNKpMUY+FeIqsVw/JLT9+B8g==
   dependencies:
     "@babel/runtime-corejs3" "^7.8.3"
+
+xss@^1.0.6:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/xss/-/xss-1.0.7.tgz#a554cbd5e909324bd6893fb47fff441ad54e2a95"
+  integrity sha512-A9v7tblGvxu8TWXQC9rlpW96a+LN1lyw6wyhpTmmGW+FwRMactchBR3ROKSi33UPCUcUHSu8s9YP6F+K3Mw//w==
+  dependencies:
+    commander "^2.20.3"
+    cssfilter "0.0.10"
 
 xstate@^4.9.1:
   version "4.9.1"
