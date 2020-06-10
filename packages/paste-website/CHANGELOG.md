@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.32.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.32.2...@twilio-paste/website@1.32.3) (2020-06-10)
+
+
+### Bug Fixes
+
+* **website:** adding resolution for vulnerable sub-dep ([#493](https://github.com/twilio-labs/paste/issues/493)) ([7d4dee5](https://github.com/twilio-labs/paste/commit/7d4dee510b88e9ad974c56435ea5cca5dcd57fcb))
+* **website:** tabbing overflow bug and adding two landmark roles ([#488](https://github.com/twilio-labs/paste/issues/488)) ([0855492](https://github.com/twilio-labs/paste/commit/08554921f759c7e7a919e91d1de4be3741f0969a))
+
+
+
+
+
 ## [1.32.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.32.1...@twilio-paste/website@1.32.2) (2020-06-09)
 
 **Note:** Version bump only for package @twilio-paste/website
