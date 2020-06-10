@@ -16,7 +16,7 @@ export const HorizontalTabsExample: React.FC = () => {
           <Tab disabled>Tab 2</Tab>
           <Tab id={selectedId}>Tab 3</Tab>
         </TabList>
-        <TabPanels paddingTop="space20">
+        <TabPanels>
           <TabPanel>Tab 1</TabPanel>
           <TabPanel>Tab 2</TabPanel>
           <TabPanel>Tab 3</TabPanel>
@@ -37,7 +37,7 @@ export const VerticalTabsExample: React.FC<{}> = () => {
           <Tab>Tab 2</Tab>
           <Tab>Tab 3</Tab>
         </TabList>
-        <TabPanels paddingLeft="space30">
+        <TabPanels>
           <TabPanel>Tab 1</TabPanel>
           <TabPanel>Tab 2</TabPanel>
           <TabPanel>Tab 3</TabPanel>
