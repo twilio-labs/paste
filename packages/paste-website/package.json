@@ -87,5 +87,8 @@
     "react-scrollspy": "^3.4.0",
     "react-uid": "^2.2.0",
     "styled-system": "^5.1.2"
+  },
+  "resolutions": {
+    "**/websocket-extensions": "^0.1.4"
   }
 }

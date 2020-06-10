@@ -185,6 +185,9 @@
     "typescript": "3.7.5",
     "webpack": "^4.35.3"
   },
+  "resolutions": {
+    "**/websocket-extensions": "^0.1.4"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "precise-commits",
