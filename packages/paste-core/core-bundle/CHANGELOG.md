@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.12.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.11.0...@twilio-paste/core@2.12.0) (2020-06-10)
+
+
+### Features
+
+* **core:** adding Tabs component ([1bd3702](https://github.com/twilio-labs/paste/commit/1bd37021fe06c1990601bd46f6683a781995a9a2))
+
+
+
+
+
 # [2.11.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.10.3...@twilio-paste/core@2.11.0) (2020-06-09)
 
 

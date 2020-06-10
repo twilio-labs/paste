@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.4.9...@twilio-paste/box@2.5.0) (2020-06-10)
+
+
+### Features
+
+* **box:** enable css 'textOverflow' prop, for ellipsis ([af0abd6](https://github.com/twilio-labs/paste/commit/af0abd6428cc0c8f80f829500c59b635a2cac9fa))
+
+
+
+
+
 ## [2.4.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.4.8...@twilio-paste/box@2.4.9) (2020-06-05)
 
 **Note:** Version bump only for package @twilio-paste/box

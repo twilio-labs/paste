@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs-primitive@0.1.1...@twilio-paste/tabs-primitive@0.1.2) (2020-06-10)
+
+
+### Bug Fixes
+
+* **tabs-primitive:** rename export to singular tab to match usage ([f0bd282](https://github.com/twilio-labs/paste/commit/f0bd2824039828cb5260a65ac881304596947f61))
+
+
+
+
+
 ## [0.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs-primitive@0.1.0...@twilio-paste/tabs-primitive@0.1.1) (2020-06-09)
 
 **Note:** Version bump only for package @twilio-paste/tabs-primitive

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/typography",
-  "version": "1.0.44",
+  "version": "1.0.45",
   "category": "typography",
   "status": "alpha",
   "description": "Twilio's Typography component",
@@ -32,8 +32,8 @@
     "@styled-system/css": "^5.1.5",
     "@styled-system/theme-get": "^5.1.2",
     "@twilio-paste/design-tokens": "^5.2.1",
-    "@twilio-paste/style-props": "^1.2.0",
-    "@twilio-paste/text": "^2.1.10",
+    "@twilio-paste/style-props": "^1.2.1",
+    "@twilio-paste/text": "^2.1.11",
     "@twilio-paste/theme": "^3.2.1",
     "@twilio-paste/types": "^3.0.8",
     "prop-types": "^15.7.2",
@@ -43,14 +43,14 @@
   },
   "devDependencies": {
     "@twilio-paste/design-tokens": "^5.2.1",
-    "@twilio-paste/style-props": "^1.2.0",
-    "@twilio-paste/text": "^2.1.10",
+    "@twilio-paste/style-props": "^1.2.1",
+    "@twilio-paste/text": "^2.1.11",
     "@twilio-paste/theme": "^3.2.1",
     "@twilio-paste/types": "^3.0.8"
   },
   "dependencies": {
-    "@twilio-paste/heading": "^2.0.9",
-    "@twilio-paste/list": "^0.2.10",
-    "@twilio-paste/paragraph": "^1.1.11"
+    "@twilio-paste/heading": "^2.0.10",
+    "@twilio-paste/list": "^0.2.11",
+    "@twilio-paste/paragraph": "^1.1.12"
   }
 }

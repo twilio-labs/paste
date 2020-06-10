@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.11](https://github.com/twilio-labs/paste/compare/@twilio-paste/text@2.1.10...@twilio-paste/text@2.1.11) (2020-06-10)
+
+
+### Bug Fixes
+
+* **text:** enable the transition prop ([85a58fe](https://github.com/twilio-labs/paste/commit/85a58fe9bbda233771301d38ee1eaaf70d67e1bd))
+
+
+
+
+
 ## [2.1.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/text@2.1.9...@twilio-paste/text@2.1.10) (2020-06-05)
 
 **Note:** Version bump only for package @twilio-paste/text

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/reakit-library@0.4.0...@twilio-paste/reakit-library@0.4.1) (2020-06-10)
+
+
+### Bug Fixes
+
+* **reakit-library:** export typings for disclosure and tabs ([1b56e55](https://github.com/twilio-labs/paste/commit/1b56e55d03f370303abdc7e516df4b896face7bd))
+* **reakit-library:** pinning reakit version to 1.0.4 ([ea3b8cb](https://github.com/twilio-labs/paste/commit/ea3b8cbc541461f70b635e82177626e13ec59197))
+
+
+
+
+
 # [0.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/reakit-library@0.3.0...@twilio-paste/reakit-library@0.4.0) (2020-06-09)
 
 

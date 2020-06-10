@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.2.0...@twilio-paste/style-props@1.2.1) (2020-06-10)
+
+
+### Bug Fixes
+
+* **style-props:** allow transparent border color ([a225fa2](https://github.com/twilio-labs/paste/commit/a225fa2e20988a5799281b2d1282dcd7d018a5fb))
+
+
+
+
+
 # [1.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.1.9...@twilio-paste/style-props@1.2.0) (2020-06-05)
 
 
