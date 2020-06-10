@@ -21222,14 +21222,14 @@ readdirp@~3.4.0:
   dependencies:
     picomatch "^2.2.1"
 
-reakit-system@^0.12.2:
+reakit-system@0.12.2, reakit-system@^0.12.2:
   version "0.12.2"
   resolved "https://registry.yarnpkg.com/reakit-system/-/reakit-system-0.12.2.tgz#f1a8c3341f75f3e52eb75ef4ff10663c70bbe6de"
   integrity sha512-+/tZ/atDbHhDOapcIxniNZd7z0cze1L9MJBEnvykqM/bdqUE59Eb/OQ6odPZwK35gcN1lNyZtw7DgnFrmsDi4w==
   dependencies:
     reakit-utils "^0.12.1"
 
-reakit-utils@^0.12.1:
+reakit-utils@0.12.1, reakit-utils@^0.12.1:
   version "0.12.1"
   resolved "https://registry.yarnpkg.com/reakit-utils/-/reakit-utils-0.12.1.tgz#716edd0a468ed4472c7b780450125478d6dce898"
   integrity sha512-P66TYzmQFD5CqNWcRvbPb6B5nXRLfiWqwTJhVGDUeOJTSdlnjfsBuOIauojfuS+p4yeyFVsUFsFwuBM6uZ8F3A==

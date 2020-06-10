@@ -1,3 +1,5 @@
+import {PopoverArrow, PopoverArrowProps} from './Popover/PopoverArrow';
+
 export {
   // https://reakit.io/docs/disclosure/
   useDisclosureState,
@@ -23,12 +25,13 @@ export {
   MenuSeparatorProps,
   // https://reakit.io/docs/popover/
   usePopoverState,
+  PopoverState,
+  PopoverStateReturn,
+  PopoverInitialState,
   Popover,
   PopoverProps,
   PopoverDisclosure,
   PopoverDisclosureProps,
-  PopoverArrow,
-  PopoverArrowProps,
   // https://reakit.io/docs/tab/
   useTabState,
   TabState,
@@ -41,3 +44,5 @@ export {
   TabPanel,
   TabPanelProps,
 } from 'reakit';
+
+export {PopoverArrow, PopoverArrowProps};
