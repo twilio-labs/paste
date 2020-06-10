@@ -13,13 +13,29 @@ import {ScrollAnchorIntoView} from './ScrollAnchorIntoView';
 import {useActiveSiteTheme} from '../../context/ActiveSiteThemeContext';
 
 interface StyledSiteBodyProps {
-  activeTheme: string;
+  isPasteTheme: boolean;
 }
+
+const BLMAlertHeight = 44;
+const PasteThemeAlertHeight = 46;
+
+// The body area needs to be set to a specific height otherwise tabbing through the page
+// will cause the browser to automatically scroll it upwards, hiding the header area behind
+// the alerts.
+const getSiteBodyHeight = (isPasteTheme: boolean): string => {
+  let topOffset = BLMAlertHeight;
+  if (isPasteTheme) {
+    topOffset += PasteThemeAlertHeight;
+  }
+
+  return `calc(100vh - ${topOffset}px)`;
+};
 
 /* Wraps the entire doc site page */
 const StyledSiteBody = styled.div<StyledSiteBodyProps>`
   display: flex;
   min-width: 240px;
+  height: ${props => getSiteBodyHeight(props.isPasteTheme)};
 
   @supports (display: grid) {
     display: grid;
@@ -27,7 +43,7 @@ const StyledSiteBody = styled.div<StyledSiteBodyProps>`
   }
 `;
 
-const BLMAlert: React.FC = () => {
+const BlackLivesMatterAlert: React.FC = () => {
   const tweetUrl = 'https://twitter.com/twilio/status/1266444750065934337';
   return (
     <Box
@@ -60,30 +76,39 @@ const BLMAlert: React.FC = () => {
   );
 };
 
+const PasteThemeAlert: React.FC<{isPasteTheme: boolean}> = ({isPasteTheme}) => {
+  if (!isPasteTheme) {
+    return null;
+  }
+
+  return (
+    <Alert variant="warning">
+      <Text as="p">
+        <strong>WARNING:</strong> The Paste theme is an <em>extremely early</em> preview of future work!{' '}
+        <Anchor
+          href="https://docs.google.com/document/d/1H2Rj3NEmVSv0yxMBRjYOjruQllO__uj2-I_ibIoumZs/edit?usp=sharing"
+          target="_blank"
+        >
+          Read the FAQ
+        </Anchor>{' '}
+        for more information.
+      </Text>
+    </Alert>
+  );
+};
+
 export const SiteBody: React.FC = ({children}) => {
   const {theme: activeTheme} = useActiveSiteTheme();
+  const isPasteTheme = activeTheme === 'default';
   return (
     <>
-      <BLMAlert />
-      {activeTheme === 'default' && (
-        <Alert variant="warning">
-          <Text as="p">
-            <strong>WARNING:</strong> The Paste theme is an <em>extremely early</em> preview of future work!{' '}
-            <Anchor
-              href="https://docs.google.com/document/d/1H2Rj3NEmVSv0yxMBRjYOjruQllO__uj2-I_ibIoumZs/edit?usp=sharing"
-              target="_blank"
-            >
-              Read the FAQ
-            </Anchor>{' '}
-            for more information.
-          </Text>
-        </Alert>
-      )}
-      <StyledSiteBody activeTheme={activeTheme}>
+      <BlackLivesMatterAlert />
+      <PasteThemeAlert isPasteTheme={isPasteTheme} />
+      <StyledSiteBody isPasteTheme={isPasteTheme}>
         <Sidebar />
-        <Box height="100vh" overflow="auto">
+        <Box height="100%" overflow="auto">
           <SiteHeader />
-          <SiteMain id="site-main">
+          <SiteMain id="site-main" tabIndex={0} role="main">
             <ScrollAnchorIntoView />
             <SiteMainInner>{children}</SiteMainInner>
             <SiteFooter />

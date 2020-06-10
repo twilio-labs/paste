@@ -124,7 +124,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
   const [tokensOpen, setTokensOpen] = React.useState(getCurrentPathname().startsWith(SidebarCategoryRoutes.TOKENS));
 
   return (
-    <SiteNav>
+    <SiteNav role="navigation" aria-label="Main">
       <SiteNavList>
         <SiteNavItem>
           <SiteNavAnchor to="/">Home</SiteNavAnchor>
