@@ -89,6 +89,7 @@
     "styled-system": "^5.1.2"
   },
   "resolutions": {
-    "**/websocket-extensions": "^0.1.4"
+    "**/websocket-extensions": "^0.1.4",
+    "**/graphql-playground-middleware-express": "^1.7.18"
   }
 }
