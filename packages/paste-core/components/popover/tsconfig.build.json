@@ -1,0 +1,48 @@
+{
+  "extends": "../../../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "references": [
+    {
+      "path": "../../layout/absolute"
+    },
+    {
+      "path": "../../primitives/box"
+    },
+    {
+      "path": "../button"
+    },
+    {
+      "path": "../../../paste-design-tokens"
+    },
+    {
+      "path": "../../../paste-icons"
+    },
+    {
+      "path": "../../primitives/non-modal-dialog"
+    },
+    {
+      "path": "../../../paste-libraries/reakit"
+    },
+    {
+      "path": "../spinner"
+    },
+    {
+      "path": "../../../paste-style-props"
+    },
+    {
+      "path": "../../primitives/text"
+    },
+    {
+      "path": "../../../paste-theme"
+    },
+    {
+      "path": "../../../paste-types"
+    }
+  ]
+}
