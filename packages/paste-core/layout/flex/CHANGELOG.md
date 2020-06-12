@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.30](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.3.29...@twilio-paste/flex@0.3.30) (2020-06-12)
+
+**Note:** Version bump only for package @twilio-paste/flex
+
+
+
+
+
 ## [0.3.29](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.3.28...@twilio-paste/flex@0.3.29) (2020-06-10)
 
 **Note:** Version bump only for package @twilio-paste/flex
