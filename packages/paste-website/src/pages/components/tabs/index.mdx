@@ -1,0 +1,260 @@
+---
+title: Tabs
+package: '@twilio-paste/tabs'
+description: An accessible and styled tabs component.
+slug: /components/tabs/
+---
+
+import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Tabs, Tab, TabList, TabPanels, TabPanel} from '@twilio-paste/tabs';
+import Changelog from '@twilio-paste/tabs/CHANGELOG.md';
+import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
+import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
+import {Text} from '@twilio-paste/text';
+import {useUID} from 'react-uid';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {HorizontalTabsExample, VerticalTabsExample} from '../../../component-examples/TabsExamples';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/tabs"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/tabs/"}}) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name={props.pageContext.frontmatter.title}
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/components/tabs"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-tabs--tabs"
+  data={props.data.allPasteComponent.edges}
+/>
+
+---
+
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings} />
+
+<content>
+
+<Callout>
+  <CalloutTitle>Using alpha components in your product</CalloutTitle>
+  <CalloutText>
+    Alpha components are ready for you to use in production. Components such as Tabs are likely to not see any API
+    changes. This is only an alpha due to the lack of documentation and minimal design. Feel free to share your
+    experience using this component at #help-design-system or{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/discussions/new">start a discussion on GitHub</Anchor>.
+  </CalloutText>
+</Callout>
+
+## Guidelines
+
+### About Tabs
+
+The Tabs component allows a user to flip through multiple views within the same page.
+
+## Examples
+
+### Horizontal Tabs
+
+<LivePreview
+  scope={{
+    Tabs,
+    Tab,
+    TabList,
+    TabPanels,
+    TabPanel,
+    useUID,
+  }}
+  noInline
+>
+  {HorizontalTabsExample}
+</LivePreview>
+
+### Vertical Tabs
+
+<LivePreview
+  scope={{
+    Tabs,
+    Tab,
+    TabList,
+    TabPanels,
+    TabPanel,
+    useUID,
+  }}
+  noInline
+>
+  {VerticalTabsExample}
+</LivePreview>
+
+## Anatomy
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Default token</th>
+      <th>Modifiable?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Tab label text</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>Always: $font-size-40, $font-weight-medium</ListItem>
+          <ListItem>Default: $color-text-weak, on hover: $color-text</ListItem>
+          <ListItem>Selected: $color-text</ListItem>
+          <ListItem>Disabled: $color-text-weaker</ListItem>
+        </UnorderedList>
+      </td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Tab Label box</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>border-bottom (selected tab): $color-border-primary</ListItem>
+          <ListItem>
+            When Horizontal Tabs
+            <UnorderedList marginBottom="space0">
+              <ListItem>padding-top: $space-20</ListItem>
+              <ListItem>padding-right: $space-50</ListItem>
+              <ListItem>padding-bottom: $space-10</ListItem>
+              <ListItem>padding-left: $space-50</ListItem>
+            </UnorderedList>
+          </ListItem>
+          <ListItem>
+            When Vertical Tabs
+            <UnorderedList marginBottom="space0">
+              <ListItem>padding-top: $space-40</ListItem>
+              <ListItem>padding-right: $space-50</ListItem>
+              <ListItem>padding-bottom: $space-40</ListItem>
+              <ListItem>padding-left: $space-50</ListItem>
+            </UnorderedList>
+          </ListItem>
+        </UnorderedList>
+      </td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Tab List Border</td>
+      <td>
+        <UnorderedList marginBottom="space0">
+          <ListItem>Always: $color-border-light</ListItem>
+        </UnorderedList>
+      </td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/tabs - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/tabs';
+
+const HorizontalTabsExample: React.FC = () => {
+  const selectedId = useUID();
+  return (
+    <Tabs selectedId={selectedId} baseId="horizontal-tabs-example">
+      <TabList aria-label="My tabs">
+        <Tab>Tab 1</Tab>
+        <Tab disabled>Tab 2</Tab>
+        <Tab id={selectedId}>Tab 3</Tab>
+      </TabList>
+      <TabPanels paddingTop="space20">
+        <TabPanel>Tab 1</TabPanel>
+        <TabPanel>Tab 2</TabPanel>
+        <TabPanel>Tab 3</TabPanel>
+      </TabPanels>
+    </Tabs>
+  );
+};
+```
+
+#### Tabs Props
+
+##### `orientation?: 'horizontal' | 'vertical' (default) | undefined`
+
+Changes the Tabs' direction to either have the panels below or on the right side.
+
+##### `selectedId?: string | null`
+
+Tells the Tabs which panel to load when it mounts. Important to provide, otherwise the first render may be
+a little delayed.
+
+##### `baseId?: string`
+
+Sets the prefix for the auto-generated ids on each Tab and TabPanel. Useful for consistent renders, like for tests.
+
+#### TabList Props
+
+##### `aria-label: string`
+
+Required label for this Tabs component. Titles the entire Tabbing context for screen readers.
+
+#### Tab Props
+
+##### `id?: string | undefined`
+
+Same as the HTML attribute.
+
+##### `focusable?: boolean | undefined`
+
+When an element is disabled, it may still be focusable.
+It works similarly to readOnly on form elements. In this case, only aria-disabled will be set.
+
+##### `disabled?: boolean | undefined`
+
+Same as the HTML attribute.
+
+#### TabPanels Props
+
+None available.
+
+#### TabPanel Props
+
+##### `id?: string | undefined`
+
+Same as the HTML attribute.
+
+##### `tabId?: string | undefined`
+
+The ID of the Tab component this Panel pairs with.
+
+</content>
+
+</contentwrapper>
