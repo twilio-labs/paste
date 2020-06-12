@@ -61,28 +61,28 @@ exports[`FormInput render it should render 1`] = `
 }
 
 .emotion-0::-webkit-input-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0::-moz-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0:-ms-input-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0::placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
 }
 
 <div
@@ -138,28 +138,28 @@ exports[`FormInput render it should render with disabled 1`] = `
 }
 
 .emotion-0::-webkit-input-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0::-moz-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0:-ms-input-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0::placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
 }
 
 .emotion-2 {
@@ -244,28 +244,28 @@ exports[`FormInput render it should render with hasError 1`] = `
 }
 
 .emotion-0::-webkit-input-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0::-moz-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0:-ms-input-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0::placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
 }
 
 .emotion-2 {
@@ -378,28 +378,28 @@ exports[`FormInput render it should render with prefix 1`] = `
 }
 
 .emotion-1::-webkit-input-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-1::-moz-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-1:-ms-input-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-1::placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-1:disabled {
   cursor: not-allowed;
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
 }
 
 .emotion-0 {
@@ -482,28 +482,28 @@ exports[`FormInput render it should render with readOnly 1`] = `
 }
 
 .emotion-0::-webkit-input-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0::-moz-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0:-ms-input-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0::placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
 }
 
 .emotion-2 {
@@ -617,28 +617,28 @@ exports[`FormInput render it should render with suffix 1`] = `
 }
 
 .emotion-0::-webkit-input-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0::-moz-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0:-ms-input-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0::placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
 }
 
 .emotion-2 {

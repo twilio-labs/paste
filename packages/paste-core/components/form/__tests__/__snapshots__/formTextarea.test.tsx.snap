@@ -62,28 +62,28 @@ exports[`FormTextArea render it should render 1`] = `
 }
 
 .emotion-0::-webkit-input-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0::-moz-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0:-ms-input-placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0::placeholder {
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
   font-style: italic;
 }
 
 .emotion-0:disabled {
   cursor: not-allowed;
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
 }
 
 <div

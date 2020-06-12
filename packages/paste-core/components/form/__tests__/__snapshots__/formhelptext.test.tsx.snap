@@ -32,7 +32,7 @@ exports[`FormHelpText render it should render 1`] = `
   padding: 0;
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: rgb(102,106,109);
+  color: rgb(112,117,120);
 }
 
 <div
