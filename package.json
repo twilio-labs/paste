@@ -155,7 +155,7 @@
     "gulp-theo": "2.0.1",
     "husky": "^3.0.0",
     "immutable": "^4.0.0-rc.12",
-    "jest": "^24.8.0",
+    "jest": "^25.5.4",
     "jest-axe": "3.3.0",
     "jest-emotion": "^10.0.14",
     "lerna": "^3.16.4",
