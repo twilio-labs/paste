@@ -1,4 +1,4 @@
-import {ThemeProvider, pasteBaseStyles} from './themeProvider';
+import {ThemeProvider, pasteBaseStyles, StyledBase} from './themeProvider';
 import {ThemeConsumer} from './themeConsumer';
 
 const Theme = {
@@ -6,7 +6,7 @@ const Theme = {
   Consumer: ThemeConsumer,
 };
 
-export {pasteBaseStyles};
+export {pasteBaseStyles, StyledBase};
 export {ThemeShape, SendGridThemeShape, ConsoleThemeShape} from './types';
 export {DefaultTheme, ConsoleTheme, SendGridTheme} from './themes';
 export {withTheme} from './withTheme';
