@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.12.1...@twilio-paste/core@2.13.0) (2020-06-16)
+
+
+### Features
+
+* **core:** add popover package to core ([c30974d](https://github.com/twilio-labs/paste/commit/c30974d44a05f28a832fc795f600b286a3c133e7))
+
+
+
+
+
 ## [2.12.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.12.0...@twilio-paste/core@2.12.1) (2020-06-12)
 
 **Note:** Version bump only for package @twilio-paste/core

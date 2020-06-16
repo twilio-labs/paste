@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/non-modal-dialog-primitive@0.1.1...@twilio-paste/non-modal-dialog-primitive@0.2.0) (2020-06-16)
+
+
+### Features
+
+* **non-modal-dialog-primitive:** export custom arrow and props ([bd62148](https://github.com/twilio-labs/paste/commit/bd62148c50c9b43a6f803bb65a485d95c08ead33))
+
+
+
+
+
 ## [0.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/non-modal-dialog-primitive@0.1.0...@twilio-paste/non-modal-dialog-primitive@0.1.1) (2020-06-10)
 
 **Note:** Version bump only for package @twilio-paste/non-modal-dialog-primitive

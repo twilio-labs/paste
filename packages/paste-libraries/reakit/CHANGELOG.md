@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/reakit-library@0.4.1...@twilio-paste/reakit-library@0.5.0) (2020-06-16)
+
+
+### Features
+
+* **reakit-library:** use custom arrow and arrow props ([87e0a88](https://github.com/twilio-labs/paste/commit/87e0a886f12d99f2f90a0dd58fa4d6e2f33ab9a9))
+
+
+
+
+
 ## [0.4.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/reakit-library@0.4.0...@twilio-paste/reakit-library@0.4.1) (2020-06-10)
 
 

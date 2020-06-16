@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@3.2.2...@twilio-paste/theme@3.2.3) (2020-06-16)
+
+
+### Bug Fixes
+
+* **theme:** export StyledBase ([fb25eeb](https://github.com/twilio-labs/paste/commit/fb25eeb2228a128aa7cea54a9fcb0ff3bc80604b))
+
+
+
+
+
 ## [3.2.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@3.2.1...@twilio-paste/theme@3.2.2) (2020-06-12)
 
 **Note:** Version bump only for package @twilio-paste/theme
