@@ -3,7 +3,7 @@
   "version": "0.1.6",
   "category": "interaction",
   "status": "alpha",
-  "description": "Twilio's Popover component.",
+  "description": "A Popover is used for displaying additional rich content on top of something.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

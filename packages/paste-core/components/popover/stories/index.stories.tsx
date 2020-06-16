@@ -10,9 +10,7 @@ const Example: React.FC<{}> = () => {
     <PopoverContainer baseId="test-id">
       <PopoverButton variant="primary">Open popover</PopoverButton>
       <Popover aria-label="Popover">
-        <Text as="span" fontSize="fontSize20" lineHeight="lineHeight20">
-          This is the Twilio styled popover that you can use in all your applications.
-        </Text>
+        <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
       </Popover>
     </PopoverContainer>
   );
@@ -23,9 +21,7 @@ const BottomExample: React.FC<{}> = () => {
     <PopoverContainer baseId="test-id" placement="bottom-start">
       <PopoverButton variant="primary">Open popover</PopoverButton>
       <Popover aria-label="Popover">
-        <Text as="span" fontSize="fontSize20" lineHeight="lineHeight20">
-          This is the Twilio styled popover that you can use in all your applications.
-        </Text>
+        <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
       </Popover>
     </PopoverContainer>
   );
@@ -37,9 +33,7 @@ const TopExample: React.FC<{}> = () => {
       <PopoverContainer baseId="test-id" placement="top-start">
         <PopoverButton variant="primary">Open popover</PopoverButton>
         <Popover aria-label="Popover">
-          <Text as="span" fontSize="fontSize20" lineHeight="lineHeight20">
-            This is the Twilio styled popover that you can use in all your applications.
-          </Text>
+          <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
         </Popover>
       </PopoverContainer>
     </Absolute>
@@ -51,9 +45,7 @@ const RightExample: React.FC<{}> = () => {
     <PopoverContainer baseId="test-id" placement="right-start">
       <PopoverButton variant="primary">Open popover</PopoverButton>
       <Popover aria-label="Popover">
-        <Text as="span" fontSize="fontSize20" lineHeight="lineHeight20">
-          This is the Twilio styled popover that you can use in all your applications.
-        </Text>
+        <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
       </Popover>
     </PopoverContainer>
   );
@@ -65,9 +57,7 @@ const LeftExample: React.FC<{}> = () => {
       <PopoverContainer baseId="test-id" placement="left-start">
         <PopoverButton variant="primary">Open popover</PopoverButton>
         <Popover aria-label="Popover">
-          <Text as="span" fontSize="fontSize20" lineHeight="lineHeight20">
-            This is the Twilio styled popover that you can use in all your applications.
-          </Text>
+          <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
         </Popover>
       </PopoverContainer>
     </Absolute>
