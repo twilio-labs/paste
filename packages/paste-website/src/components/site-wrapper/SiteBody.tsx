@@ -106,7 +106,7 @@ export const SiteBody: React.FC = ({children}) => {
       <PasteThemeAlert isPasteTheme={isPasteTheme} />
       <StyledSiteBody isPasteTheme={isPasteTheme}>
         <Sidebar />
-        <Box overflow="auto">
+        <Box height="100vh" overflow="auto">
           <SiteHeader />
           <SiteMain id="site-main" tabIndex={0} role="main">
             <ScrollAnchorIntoView />
