@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/form",
-  "version": "1.5.10",
+  "version": "1.5.11",
   "category": "user input",
   "status": "beta",
   "description": "All the basic form elements for Twilio Paste",
@@ -31,15 +31,15 @@
     "react-autosize-textarea": "7.0.0"
   },
   "peerDependencies": {
-    "@twilio-paste/box": "^2.5.2",
+    "@twilio-paste/box": "^2.5.3",
     "@twilio-paste/design-tokens": "^5.2.2",
-    "@twilio-paste/flex": "^0.3.31",
-    "@twilio-paste/icons": "^2.2.6",
-    "@twilio-paste/screen-reader-only": "^1.1.9",
-    "@twilio-paste/style-props": "^1.2.3",
-    "@twilio-paste/styling-library": "^0.0.0",
-    "@twilio-paste/text": "^2.1.13",
-    "@twilio-paste/theme": "^3.2.3",
+    "@twilio-paste/flex": "^0.3.32",
+    "@twilio-paste/icons": "^2.2.7",
+    "@twilio-paste/screen-reader-only": "^1.1.10",
+    "@twilio-paste/style-props": "^1.2.4",
+    "@twilio-paste/styling-library": "^0.1.0",
+    "@twilio-paste/text": "^2.1.14",
+    "@twilio-paste/theme": "^3.2.4",
     "@twilio-paste/types": "^3.0.9",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -47,15 +47,15 @@
     "react-uid": "^2.2.0"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^2.5.2",
+    "@twilio-paste/box": "^2.5.3",
     "@twilio-paste/design-tokens": "^5.2.2",
-    "@twilio-paste/flex": "^0.3.31",
-    "@twilio-paste/icons": "^2.2.6",
-    "@twilio-paste/screen-reader-only": "^1.1.9",
-    "@twilio-paste/style-props": "^1.2.3",
-    "@twilio-paste/styling-library": "^0.0.0",
-    "@twilio-paste/text": "^2.1.13",
-    "@twilio-paste/theme": "^3.2.3",
+    "@twilio-paste/flex": "^0.3.32",
+    "@twilio-paste/icons": "^2.2.7",
+    "@twilio-paste/screen-reader-only": "^1.1.10",
+    "@twilio-paste/style-props": "^1.2.4",
+    "@twilio-paste/styling-library": "^0.1.0",
+    "@twilio-paste/text": "^2.1.14",
+    "@twilio-paste/theme": "^3.2.4",
     "@twilio-paste/types": "^3.0.9"
   }
 }
