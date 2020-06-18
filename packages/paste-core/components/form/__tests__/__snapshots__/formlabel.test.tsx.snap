@@ -71,7 +71,7 @@ exports[`FormLabel render it should render 1`] = `
 `;
 
 exports[`FormLabel render it should render with required 1`] = `
-.emotion-6 {
+.emotion-5 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -79,7 +79,7 @@ exports[`FormLabel render it should render with required 1`] = `
   font-weight: 400;
 }
 
-.emotion-5 {
+.emotion-4 {
   box-sizing: border-box;
   display: block;
   margin-bottom: 0.125rem;
@@ -87,7 +87,7 @@ exports[`FormLabel render it should render with required 1`] = `
   padding-right: 0;
 }
 
-.emotion-4 {
+.emotion-3 {
   box-sizing: border-box;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
@@ -104,7 +104,7 @@ exports[`FormLabel render it should render with required 1`] = `
   min-width: 0;
 }
 
-.emotion-3 {
+.emotion-2 {
   margin: 0;
   padding: 0;
   font-size: 0.875rem;
@@ -144,19 +144,19 @@ exports[`FormLabel render it should render with required 1`] = `
 }
 
 <div
-  className="emotion-6"
+  className="emotion-5"
 >
   <label
-    className="emotion-5"
+    className="emotion-4"
     display="block"
     htmlFor="input"
   >
     <span
-      className="emotion-4"
+      className="emotion-3"
       display="flex"
     >
       <span
-        className="emotion-1 emotion-2"
+        className="emotion-1"
         color="colorText"
         fontSize="fontSize30"
       >
@@ -167,7 +167,7 @@ exports[`FormLabel render it should render with required 1`] = `
         </span>
       </span>
       <span
-        className="emotion-3"
+        className="emotion-2"
         color="colorText"
         cursor="pointer"
         fontSize="fontSize30"

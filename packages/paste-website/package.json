@@ -16,13 +16,9 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
-    "@emotion/core": "^10.0.10",
-    "@emotion/styled": "^10.0.10",
     "@mdx-js/mdx": "^1.0.23",
     "@mdx-js/react": "^1.0.23",
     "@mdx-js/tag": "^0.20.3",
-    "@styled-system/css": "^5.1.5",
-    "@styled-system/theme-get": "^5.1.2",
     "@twilio-paste/absolute": "^2.0.44",
     "@twilio-paste/alert": "^0.1.51",
     "@twilio-paste/anchor": "^1.1.23",
@@ -52,6 +48,7 @@
     "@twilio-paste/spinner": "^1.2.15",
     "@twilio-paste/stack": "^0.1.12",
     "@twilio-paste/style-props": "^1.2.3",
+    "@twilio-paste/styling-library": "^0.0.0",
     "@twilio-paste/text": "^2.1.13",
     "@twilio-paste/theme": "^3.2.3",
     "@twilio-paste/types": "^3.0.9",
@@ -85,8 +82,7 @@
     "react-instantsearch-dom": "^6.5.0",
     "react-live": "^2.1.2",
     "react-scrollspy": "^3.4.0",
-    "react-uid": "^2.2.0",
-    "styled-system": "^5.1.2"
+    "react-uid": "^2.2.0"
   },
   "resolutions": {
     "**/websocket-extensions": "^0.1.4",

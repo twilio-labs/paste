@@ -1,3 +1,3 @@
-import {withTheme} from 'emotion-theming';
+import {withTheme} from '@twilio-paste/styling-library';
 
 export {withTheme};

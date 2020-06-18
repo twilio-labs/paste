@@ -12,7 +12,7 @@ import {Box} from '@twilio-paste/box';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
-import ModalDemo from './ModalDemo.tsx';
+import {ModalDialogPrimitiveExample} from '../../../component-examples/ModalDialogPrimitiveExample.tsx';
 
 export const pageQuery = graphql`
   {
@@ -96,12 +96,12 @@ yarn add @twilio-paste/modal-dialog-primitive - or - yarn add @twilio-paste/core
 #### Usage Example
 
 <Box paddingBottom="space80">
-  <ModalDemo />
+  <ModalDialogPrimitiveExample />
 </Box>
 
 ```
 import * as React from 'react';
-import styled from '@emotion/styled';
+import {styled} from '@twilio-paste/styling-library';
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
 import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';

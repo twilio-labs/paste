@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import {styled} from '@twilio-paste/styling-library';
 
 const Truncate = styled.span`
   display: inline-block;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import styled from '@emotion/styled';
+import {styled} from '@twilio-paste/styling-library';
 import {SidebarHeader} from './SidebarHeader';
 import {SidebarNavigation} from './SidebarNavigation';
 import {SIDEBAR_WIDTH} from '../constants';

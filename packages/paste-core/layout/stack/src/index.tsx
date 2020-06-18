@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {useUID} from 'react-uid';
-import {ResponsiveValue} from 'styled-system';
+import {ResponsiveValue} from '@twilio-paste/styling-library';
 import {
   isSpaceTokenProp,
   ResponsiveProp,

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import {styled} from '@twilio-paste/styling-library';
 import {Absolute} from '@twilio-paste/absolute';
 
 export interface AspectRatioProps {

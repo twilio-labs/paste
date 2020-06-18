@@ -1,7 +1,6 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
+import {styled, themeGet} from '@twilio-paste/styling-library';
 import {Text} from '@twilio-paste/text';
-import {themeGet} from '@styled-system/theme-get';
 
 export interface PProps {
   variant?: 'default' | 'lead';

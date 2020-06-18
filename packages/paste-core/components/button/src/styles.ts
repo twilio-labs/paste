@@ -1,31 +1,28 @@
-import styled from '@emotion/styled';
-import {css, SerializedStyles} from '@emotion/core';
-import {buttonStyle} from 'styled-system';
-import {themeGet} from '@styled-system/theme-get';
+import {EmotionCSS, styled, SerializedStyles, themeGet, buttonStyle} from '@twilio-paste/styling-library';
 import {Absolute} from '@twilio-paste/absolute';
 import {ButtonWrapperProps, ButtonChildrenProps} from './types';
 
 /*
  * Sizes
  */
-const sizeReset = css`
+const sizeReset = EmotionCSS`
   font-size: 100%;
   padding: 0;
 `;
-const sizeIcon = (props: ButtonWrapperProps): SerializedStyles => css`
+const sizeIcon = (props: ButtonWrapperProps): SerializedStyles => EmotionCSS`
   padding: ${themeGet('space.space30')(props)};
   border-radius: ${themeGet('radii.borderRadius20')(props)};
   font-size: 100%;
   /* To fix abnormal button padding-bottom */
   line-height: unset;
 `;
-const sizeSmall = (props: ButtonWrapperProps): SerializedStyles => css`
+const sizeSmall = (props: ButtonWrapperProps): SerializedStyles => EmotionCSS`
   padding: ${themeGet('space.space10')(props)} ${themeGet('space.space30')(props)};
   border-radius: ${themeGet('radii.borderRadius10')(props)};
   font-size: ${themeGet('fontSizes.fontSize30')(props)};
   line-height: ${themeGet('lineHeights.lineHeight30')(props)};
 `;
-const sizeDefault = (props: ButtonWrapperProps): SerializedStyles => css`
+const sizeDefault = (props: ButtonWrapperProps): SerializedStyles => EmotionCSS`
   padding: ${themeGet('space.space30')(props)} ${themeGet('space.space50')(props)};
   border-radius: ${themeGet('radii.borderRadius20')(props)};
   font-size: ${themeGet('fontSizes.fontSize30')(props)};
@@ -36,7 +33,7 @@ const sizeDefault = (props: ButtonWrapperProps): SerializedStyles => css`
 /*
  * Base
  */
-const baseButtonWrapper = (props: ButtonWrapperProps): SerializedStyles => css`
+const baseButtonWrapper = (props: ButtonWrapperProps): SerializedStyles => EmotionCSS`
   /* Hide default browser styles */
   appearance: none;
   border: none;
@@ -53,9 +50,9 @@ const baseButtonWrapper = (props: ButtonWrapperProps): SerializedStyles => css`
   }
 `;
 const baseEnabled = (props: ButtonWrapperProps): SerializedStyles =>
-  css([
+  EmotionCSS([
     baseButtonWrapper(props),
-    css`
+    EmotionCSS`
       text-decoration: none;
       cursor: pointer;
 
@@ -76,16 +73,16 @@ const baseEnabled = (props: ButtonWrapperProps): SerializedStyles =>
     `,
   ]);
 const baseLoading = (props: ButtonWrapperProps): SerializedStyles =>
-  css([
+  EmotionCSS([
     baseButtonWrapper(props),
-    css`
+    EmotionCSS`
       cursor: wait;
     `,
   ]);
 const baseDisabled = (props: ButtonWrapperProps): SerializedStyles =>
-  css([
+  EmotionCSS([
     baseButtonWrapper(props),
-    css`
+    EmotionCSS`
       cursor: not-allowed;
     `,
   ]);
@@ -94,7 +91,7 @@ const baseDisabled = (props: ButtonWrapperProps): SerializedStyles =>
  * Variants
  */
 // Primary
-const variantPrimaryBase = (props: ButtonWrapperProps): SerializedStyles => css`
+const variantPrimaryBase = (props: ButtonWrapperProps): SerializedStyles => EmotionCSS`
   color: ${themeGet('textColors.colorTextInverse')(props)};
 
   /*
@@ -109,10 +106,10 @@ const variantPrimaryBase = (props: ButtonWrapperProps): SerializedStyles => css`
 `;
 
 const variantPrimaryEnabled = (props: ButtonWrapperProps): SerializedStyles =>
-  css([
+  EmotionCSS([
     baseEnabled(props),
     variantPrimaryBase(props),
-    css`
+    EmotionCSS`
       background-color: ${themeGet('backgroundColors.colorBackgroundPrimary')(props)};
       box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
         ${themeGet('backgroundColors.colorBackgroundPrimary')(props)};
@@ -137,10 +134,10 @@ const variantPrimaryEnabled = (props: ButtonWrapperProps): SerializedStyles =>
     `,
   ]);
 const variantPrimaryLoading = (props: ButtonWrapperProps): SerializedStyles =>
-  css([
+  EmotionCSS([
     baseLoading(props),
     variantPrimaryBase(props),
-    css`
+    EmotionCSS`
       &,
       &:hover,
       &:active,
@@ -152,10 +149,10 @@ const variantPrimaryLoading = (props: ButtonWrapperProps): SerializedStyles =>
     `,
   ]);
 const variantPrimaryDisabled = (props: ButtonWrapperProps): SerializedStyles =>
-  css([
+  EmotionCSS([
     baseDisabled(props),
     variantPrimaryBase(props),
-    css`
+    EmotionCSS`
       background-color: ${themeGet('backgroundColors.colorBackgroundPrimaryLight')(props)};
       box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
         ${themeGet('backgroundColors.colorBackgroundPrimaryLight')(props)};
@@ -170,14 +167,14 @@ const variantPrimaryDisabled = (props: ButtonWrapperProps): SerializedStyles =>
   ]);
 
 // Secondary
-const variantSecondaryBase = (props: ButtonWrapperProps): SerializedStyles => css`
+const variantSecondaryBase = (props: ButtonWrapperProps): SerializedStyles => EmotionCSS`
   background-color: ${themeGet('backgroundColors.colorBackgroundBody')(props)};
 `;
 const variantSecondaryEnabled = (props: ButtonWrapperProps): SerializedStyles =>
-  css([
+  EmotionCSS([
     baseEnabled(props),
     variantSecondaryBase(props),
-    css`
+    EmotionCSS`
       color: ${themeGet('textColors.colorTextLink')(props)};
       background-color: ${themeGet('backgroundColors.colorBackgroundBody')(props)};
       box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)} ${themeGet('borderColors.colorBorderPrimary')(props)};
@@ -207,10 +204,10 @@ const variantSecondaryEnabled = (props: ButtonWrapperProps): SerializedStyles =>
     `,
   ]);
 const variantSecondaryLoading = (props: ButtonWrapperProps): SerializedStyles =>
-  css([
+  EmotionCSS([
     baseLoading(props),
     variantSecondaryBase(props),
-    css`
+    EmotionCSS`
       color: ${themeGet('textColors.colorTextLinkDarker')(props)};
       background-color: ${themeGet('backgroundColors.colorBackgroundPrimaryLighter')(props)};
       box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
@@ -218,10 +215,10 @@ const variantSecondaryLoading = (props: ButtonWrapperProps): SerializedStyles =>
     `,
   ]);
 const variantSecondaryDisabled = (props: ButtonWrapperProps): SerializedStyles =>
-  css([
+  EmotionCSS([
     baseDisabled(props),
     variantSecondaryBase(props),
-    css`
+    EmotionCSS`
       color: ${themeGet('textColors.colorTextLinkLight')(props)};
       box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
         ${themeGet('borderColors.colorBorderPrimaryLight')(props)};
@@ -229,7 +226,7 @@ const variantSecondaryDisabled = (props: ButtonWrapperProps): SerializedStyles =
   ]);
 
 // Destructive
-const variantDestructiveBase = (props: ButtonWrapperProps): SerializedStyles => css`
+const variantDestructiveBase = (props: ButtonWrapperProps): SerializedStyles => EmotionCSS`
   background-color: ${themeGet('backgroundColors.colorBackgroundDestructive')(props)};
   color: ${themeGet('textColors.colorTextInverse')(props)};
   box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
@@ -247,10 +244,10 @@ const variantDestructiveBase = (props: ButtonWrapperProps): SerializedStyles => 
 `;
 
 const variantDestructiveEnabled = (props: ButtonWrapperProps): SerializedStyles =>
-  css([
+  EmotionCSS([
     baseEnabled(props),
     variantDestructiveBase(props),
-    css`
+    EmotionCSS`
       &:hover {
         background-color: ${themeGet('backgroundColors.colorBackgroundDestructiveDarker')(props)};
         box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
@@ -273,20 +270,20 @@ const variantDestructiveEnabled = (props: ButtonWrapperProps): SerializedStyles 
     `,
   ]);
 const variantDestructiveLoading = (props: ButtonWrapperProps): SerializedStyles =>
-  css([
+  EmotionCSS([
     baseLoading(props),
     variantDestructiveBase(props),
-    css`
+    EmotionCSS`
       background-color: ${themeGet('backgroundColors.colorBackgroundDestructiveDarker')(props)};
       box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
         ${themeGet('backgroundColors.colorBackgroundDestructiveDarker')(props)};
     `,
   ]);
 const variantDestructiveDisabled = (props: ButtonWrapperProps): SerializedStyles =>
-  css([
+  EmotionCSS([
     baseDisabled(props),
     variantDestructiveBase(props),
-    css`
+    EmotionCSS`
       background-color: ${themeGet('backgroundColors.colorBackgroundDestructiveLight')(props)};
       box-shadow: inset 0 0 0 ${themeGet('space.space10')(props)}
         ${themeGet('backgroundColors.colorBackgroundDestructiveLight')(props)};
@@ -294,14 +291,14 @@ const variantDestructiveDisabled = (props: ButtonWrapperProps): SerializedStyles
   ]);
 
 // Destructive Link
-const variantDestructiveLinkBase = css`
+const variantDestructiveLinkBase = EmotionCSS`
   background: none;
 `;
 const variantDestructiveLinkEnabled = (props: ButtonWrapperProps): SerializedStyles =>
-  css([
+  EmotionCSS([
     baseEnabled(props),
     variantDestructiveLinkBase,
-    css`
+    EmotionCSS`
       color: ${themeGet('textColors.colorTextLinkDestructive')(props)};
 
       &:hover,
@@ -320,31 +317,31 @@ const variantDestructiveLinkEnabled = (props: ButtonWrapperProps): SerializedSty
     `,
   ]);
 const variantDestructiveLinkLoading = (props: ButtonWrapperProps): SerializedStyles =>
-  css([
+  EmotionCSS([
     baseLoading(props),
     variantDestructiveLinkBase,
-    css`
+    EmotionCSS`
       color: ${themeGet('textColors.colorTextLinkDestructiveDarker')(props)};
     `,
   ]);
 const variantDestructiveLinkDisabled = (props: ButtonWrapperProps): SerializedStyles =>
-  css([
+  EmotionCSS([
     baseDisabled(props),
     variantDestructiveLinkBase,
-    css`
+    EmotionCSS`
       color: ${themeGet('textColors.colorTextLinkDestructiveLight')(props)};
     `,
   ]);
 
 // Link
-const variantLinkBase = css`
+const variantLinkBase = EmotionCSS`
   background: none;
 `;
 const variantLinkEnabled = (props: ButtonWrapperProps): SerializedStyles =>
-  css([
+  EmotionCSS([
     baseEnabled(props),
     variantLinkBase,
-    css`
+    EmotionCSS`
       color: ${themeGet('textColors.colorTextLink')(props)};
 
       &:hover,
@@ -363,18 +360,18 @@ const variantLinkEnabled = (props: ButtonWrapperProps): SerializedStyles =>
     `,
   ]);
 const variantLinkLoading = (props: ButtonWrapperProps): SerializedStyles =>
-  css([
+  EmotionCSS([
     baseLoading(props),
     variantLinkBase,
-    css`
+    EmotionCSS`
       color: ${themeGet('textColors.colorTextLinkDarker')(props)};
     `,
   ]);
 const variantLinkDisabled = (props: ButtonWrapperProps): SerializedStyles =>
-  css([
+  EmotionCSS([
     baseDisabled(props),
     variantLinkBase,
-    css`
+    EmotionCSS`
       color: ${themeGet('textColors.colorTextLinkLight')(props)};
     `,
   ]);
@@ -437,7 +434,7 @@ const buttonStateVariantStyles = ({
   }
 };
 
-const buttonFullWidthStyles = ({fullWidth}: ButtonWrapperProps): SerializedStyles => css`
+const buttonFullWidthStyles = ({fullWidth}: ButtonWrapperProps): SerializedStyles => EmotionCSS`
   width: ${fullWidth ? '100%' : 'auto'};
 `;
 
@@ -452,7 +449,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   ${buttonFullWidthStyles}
 `;
 
-const childrenOpacityStyles = ({buttonState}: ButtonChildrenProps): SerializedStyles => css`
+const childrenOpacityStyles = ({buttonState}: ButtonChildrenProps): SerializedStyles => EmotionCSS`
   opacity: ${buttonState === 'loading' ? '0' : '100%'};
 `;
 

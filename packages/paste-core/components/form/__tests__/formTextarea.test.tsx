@@ -1,33 +1,97 @@
 import * as React from 'react';
 import {render} from 'react-dom';
-import renderer from 'react-test-renderer';
-import {shallow, ReactWrapper, mount} from 'enzyme';
+import {render as testRender, fireEvent} from '@testing-library/react';
 import {axe} from 'jest-axe';
-import {Theme} from '@twilio-paste/theme';
 import {FormHelpText, FormLabel, FormTextArea} from '../src';
 
 const NOOP = (): void => {};
 
+const initialProps = {
+  id: 'textarea',
+  name: 'textarea',
+  onChange: NOOP,
+  placeholder: 'placeholder',
+};
+
 describe('FormTextArea render', () => {
-  it('it should render', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <FormTextArea id="textarea" onChange={NOOP} />
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+  it('should render', () => {
+    const {getByRole} = testRender(<FormTextArea {...initialProps} />);
+    expect(getByRole('textbox')).not.toBeNull();
   });
 
-  it('it has no accessibility violations', async () => {
+  it('should render as readOnly', () => {
+    const {getByRole} = testRender(<FormTextArea {...initialProps} readOnly />);
+    expect(getByRole('textbox').getAttribute('aria-readOnly')).toBeTruthy();
+  });
+
+  it('should render as invalid', () => {
+    const {getByRole} = testRender(<FormTextArea {...initialProps} hasError />);
+    expect(getByRole('textbox').getAttribute('aria-invalid')).toBeTruthy();
+  });
+
+  it('should render as disabled', () => {
+    const {getByRole} = testRender(<FormTextArea {...initialProps} disabled />);
+    expect(getByRole('textbox').getAttribute('disabled')).toEqual('');
+  });
+
+  it('should render an id', () => {
+    const {getByRole} = testRender(<FormTextArea {...initialProps} />);
+    expect(getByRole('textbox').id).toBe('textarea');
+  });
+
+  it('should render a name', () => {
+    const {getByRole} = testRender(<FormTextArea {...initialProps} />);
+    expect(getByRole('textbox').getAttribute('name')).toBe('textarea');
+  });
+
+  it('should render a placeholder', () => {
+    const {getByRole} = testRender(<FormTextArea {...initialProps} />);
+    expect(getByRole('textbox').getAttribute('placeholder')).toBe('placeholder');
+  });
+
+  it('should render a prefix', () => {
+    const {getByText} = testRender(<FormTextArea {...initialProps} insertBefore={<div>$10.99</div>} />);
+    expect(getByText('$10.99')).toBeDefined();
+  });
+
+  it('should render a suffix', () => {
+    const {getByText} = testRender(<FormTextArea {...initialProps} insertAfter={<div>$10.99</div>} />);
+    expect(getByText('$10.99')).toBeDefined();
+  });
+});
+
+describe('FormTextArea event handlers', () => {
+  it('Should call the appropriate event handlers', () => {
+    const onChangeMock: jest.Mock = jest.fn();
+    const onFocusMock: jest.Mock = jest.fn();
+    const onBlurMock: jest.Mock = jest.fn();
+
+    const {getByTestId} = testRender(
+      <FormTextArea
+        data-testid="textarea"
+        id="textarea"
+        onChange={onChangeMock}
+        onFocus={onFocusMock}
+        onBlur={onBlurMock}
+      />
+    );
+
+    fireEvent.focus(getByTestId('textarea'));
+    expect(onFocusMock).toHaveBeenCalledTimes(1);
+    fireEvent.blur(getByTestId('textarea'));
+    expect(onBlurMock).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('Accessibility', () => {
+  it('Should have no accessibility violations', async () => {
     const container = document.createElement('div');
     document.body.append(container);
     render(
-      <Theme.Provider theme="console">
-        <FormLabel htmlFor="textarea_1">Label Text</FormLabel>
-        <FormTextArea id="textarea_1" onChange={NOOP} />
-      </Theme.Provider>,
+      <>
+        <FormLabel htmlFor="foo">Foo</FormLabel>
+        <FormTextArea id="foo" onChange={NOOP} />
+      </>,
       container
     );
     const results = await axe(document.body);
@@ -38,12 +102,12 @@ describe('FormTextArea render', () => {
     const container = document.createElement('div');
     document.body.append(container);
     render(
-      <Theme.Provider theme="console">
-        <FormLabel htmlFor="textarea_2" disabled>
-          Label Text
+      <>
+        <FormLabel htmlFor="foo-disabled" disabled>
+          Foo
         </FormLabel>
-        <FormTextArea id="textarea_2" onChange={NOOP} disabled />
-      </Theme.Provider>,
+        <FormTextArea id="foo-disabled" onChange={NOOP} disabled />
+      </>,
       container
     );
     const results = await axe(document.body);
@@ -54,177 +118,14 @@ describe('FormTextArea render', () => {
     const container = document.createElement('div');
     document.body.append(container);
     render(
-      <Theme.Provider theme="console">
-        <FormLabel htmlFor="textarea_3">Label Text</FormLabel>
-        <FormTextArea id="textarea_3" onChange={NOOP} hasError />
+      <>
+        <FormLabel htmlFor="foo-error">Foo</FormLabel>
+        <FormTextArea id="foo-error" onChange={NOOP} hasError />
         <FormHelpText variant="error">Error info. Explains why the input has an error.</FormHelpText>
-      </Theme.Provider>,
+      </>,
       container
     );
     const results = await axe(document.body);
     expect(results).toHaveNoViolations();
-  });
-});
-
-describe('FormTextArea readyOnly prop', () => {
-  const initialProps = {
-    id: 'textarea',
-    onChange: NOOP,
-    readOnly: true,
-  };
-
-  const container = shallow(<FormTextArea {...initialProps} />);
-
-  it('should have a readOnly prop', () => {
-    expect(container.find('FieldWrapper').prop('readOnly')).toEqual(true);
-  });
-
-  it('should have a aria-readonly prop', () => {
-    expect(container.find('TextAreaElement').prop('aria-readonly')).toEqual(true);
-  });
-
-  it('should have a readonly prop on InputElement', () => {
-    expect(container.find('TextAreaElement').prop('aria-readonly')).toEqual(true);
-  });
-});
-
-describe('FormTextArea disabled prop', () => {
-  const initialProps = {
-    id: 'textarea',
-    onChange: NOOP,
-    disabled: true,
-  };
-
-  const container = shallow(<FormTextArea {...initialProps} />);
-
-  it('should have a disabled prop', () => {
-    expect(container.find('FieldWrapper').prop('disabled')).toEqual(true);
-  });
-
-  it('should have a disabled prop on InputElement', () => {
-    expect(container.find('TextAreaElement').prop('disabled')).toEqual(true);
-  });
-});
-
-describe('FormTextArea hasError prop', () => {
-  const initialProps = {
-    id: 'textarea',
-    onChange: NOOP,
-    hasError: true,
-  };
-
-  const container = shallow(<FormTextArea {...initialProps} />);
-
-  it('should have a hasError prop', () => {
-    expect(container.find('FieldWrapper').prop('hasError')).toEqual(true);
-  });
-
-  it('should have a aria-invalid prop', () => {
-    expect(container.find('TextAreaElement').prop('aria-invalid')).toEqual(true);
-  });
-});
-
-describe('FormTextArea id prop', () => {
-  const initialProps = {
-    id: 'textarea',
-    onChange: NOOP,
-  };
-
-  const container = shallow(<FormTextArea {...initialProps} />);
-
-  it('should have an id prop', () => {
-    expect(container.find('TextAreaElement').prop('id')).toEqual('textarea');
-  });
-});
-
-describe('FormTextArea name prop', () => {
-  const initialProps = {
-    id: 'textarea',
-    name: 'name',
-    onChange: NOOP,
-  };
-
-  const container = shallow(<FormTextArea {...initialProps} />);
-
-  it('should have an name prop', () => {
-    expect(container.find('TextAreaElement').prop('name')).toEqual('name');
-  });
-});
-
-describe('FormTextArea placeholder prop', () => {
-  const initialProps = {
-    id: 'textarea',
-    placeholder: 'placeholder',
-    onChange: NOOP,
-  };
-
-  const container = shallow(<FormTextArea {...initialProps} />);
-
-  it('should have an placeholder prop', () => {
-    expect(container.find('TextAreaElement').prop('placeholder')).toEqual('placeholder');
-  });
-});
-
-describe('FormTextArea insertBefore prop', () => {
-  const initialProps = {
-    id: 'textarea',
-    insertBefore: '<div>$10.99</div>',
-    onChange: NOOP,
-  };
-
-  const container = shallow(<FormTextArea {...initialProps} />);
-
-  it('should have a Prefix', () => {
-    expect(container.find('Prefix').length).toEqual(1);
-  });
-});
-
-describe('FormTextArea insertAfter prop', () => {
-  const initialProps = {
-    id: 'textarea',
-    insertAfter: '<div>$10.99</div>',
-    onChange: NOOP,
-  };
-
-  const container = shallow(<FormTextArea {...initialProps} />);
-
-  it('should have a Suffix', () => {
-    expect(container.find('Suffix').length).toEqual(1);
-  });
-});
-
-describe('FormTextArea event handlers', () => {
-  it('Should call the appropriate event handlers', () => {
-    const onChangeMock: jest.Mock = jest.fn();
-    const onFocusMock: jest.Mock = jest.fn();
-    const onBlurMock: jest.Mock = jest.fn();
-
-    const wrapper: ReactWrapper = mount(
-      <FormTextArea id="textarea" onChange={onChangeMock} onFocus={onFocusMock} onBlur={onBlurMock} />
-    );
-
-    wrapper.find('textarea').simulate('change');
-    expect(onChangeMock).toHaveBeenCalledTimes(1);
-    wrapper.find('textarea').simulate('focus');
-    expect(onFocusMock).toHaveBeenCalledTimes(1);
-    wrapper.find('textarea').simulate('blur');
-    expect(onBlurMock).toHaveBeenCalledTimes(1);
-  });
-});
-
-describe('FormTextArea block props', () => {
-  const initialProps = {
-    id: 'textarea',
-    placeholder: 'placeholder',
-    onChange: NOOP,
-    style: {background: 'red'},
-    height: '200px',
-  };
-
-  const container = shallow(<FormTextArea {...initialProps} />);
-
-  it('should not pass height or style props', () => {
-    expect(container.find('TextAreaElement').prop('height')).toEqual(undefined);
-    expect(container.find('TextAreaElement').prop('style')).toEqual(undefined);
   });
 });

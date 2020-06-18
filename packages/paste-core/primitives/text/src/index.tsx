@@ -1,6 +1,15 @@
-import styled from '@emotion/styled';
-import {compose, space, display, verticalAlign, overflow, typography, system, position} from 'styled-system';
-import css from '@styled-system/css';
+import {
+  styled,
+  css,
+  compose,
+  space,
+  display,
+  verticalAlign,
+  overflow,
+  typography,
+  system,
+  position,
+} from '@twilio-paste/styling-library';
 import {CursorProperty} from 'csstype';
 import {
   SpaceProps,

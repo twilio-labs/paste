@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Helmet} from 'react-helmet';
-import styled from '@emotion/styled';
+import {styled} from '@twilio-paste/styling-library';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';

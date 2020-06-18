@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import styled from '@emotion/styled';
-import css from '@styled-system/css';
+import {styled, css} from '@twilio-paste/styling-library';
 import {Box} from '@twilio-paste/box';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {Prefix} from '../shared/Prefix';

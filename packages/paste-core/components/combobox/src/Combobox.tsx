@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import styled from '@emotion/styled';
-import css from '@styled-system/css';
+import {css, styled} from '@twilio-paste/styling-library';
 import {uid, useUID} from 'react-uid';
 import {useComboboxPrimitive, UseComboboxPrimitiveProps} from '@twilio-paste/combobox-primitive';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';

@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import {styled} from '@twilio-paste/styling-library';
 
 export interface ScreenReaderOnlyProps {
   // as prop isn't typed correctly from styled package https://github.com/emotion-js/emotion/issues/1137

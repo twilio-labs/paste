@@ -22,4 +22,5 @@ module.exports = {
     '^.+\\.js?$': '<rootDir>/.jest/transform-esm.js',
   },
   setupFilesAfterEnv: ['<rootDir>/.jest/setupFilesAfterEnv.js'],
+  snapshotSerializers: ['jest-emotion'],
 };

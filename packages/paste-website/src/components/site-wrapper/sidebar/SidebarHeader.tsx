@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
-import styled from '@emotion/styled';
+import {styled} from '@twilio-paste/styling-library';
 import {Link} from 'gatsby';
 import {PasteIcon} from '../../icons/PasteIcon';
 import {TWILIO_RED} from '../../../constants';

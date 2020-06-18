@@ -1,6 +1,16 @@
-import styled from '@emotion/styled';
-import {compose, layout, space, background, border, boxShadow, position, flexbox, system} from 'styled-system';
-import css from '@styled-system/css';
+import {
+  styled,
+  css,
+  compose,
+  layout,
+  space,
+  background,
+  border,
+  boxShadow,
+  position,
+  flexbox,
+  system,
+} from '@twilio-paste/styling-library';
 import {
   LayoutProps,
   SpaceProps,

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {Heading, HeadingProps} from '@twilio-paste/heading';
-import styled from '@emotion/styled';
-import {themeGet} from '@styled-system/theme-get';
+import {styled, themeGet} from '@twilio-paste/styling-library';
 import {slugify} from '../utils/RouteUtils';
 
 const StyledAnchorHyperlink = styled.a`

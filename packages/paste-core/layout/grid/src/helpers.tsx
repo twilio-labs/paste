@@ -1,5 +1,5 @@
 import {ThemeShape} from '@twilio-paste/theme';
-import {ResponsiveValue} from 'styled-system';
+import {ResponsiveValue} from '@twilio-paste/styling-library';
 import {Margin, Padding, Space, SpaceOptions} from '@twilio-paste/style-props';
 import {
   ColumnOffset,

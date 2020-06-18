@@ -1,7 +1,5 @@
 import * as React from 'react';
-import {render} from 'react-dom';
-import renderer from 'react-test-renderer';
-import {shallow, ReactWrapper, mount} from 'enzyme';
+import {render} from '@testing-library/react';
 import {axe} from 'jest-axe';
 import {Theme} from '@twilio-paste/theme';
 import {FormHelpText, FormInput, FormLabel} from '../src';
@@ -11,270 +9,144 @@ const NOOP = (): void => {};
 
 describe('FormInput render', () => {
   it('it should render', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <FormInput id="input" type="text" value="test" onChange={NOOP} />
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    const {asFragment} = render(
+      <Theme.Provider theme="console">
+        <FormInput id="input" type="text" value="test" onChange={NOOP} />
+      </Theme.Provider>
+    );
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('it should render with readOnly', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <FormInput id="input" type="text" value="test" onChange={NOOP} readOnly />
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    const {asFragment} = render(
+      <Theme.Provider theme="console">
+        <FormInput id="input" type="text" value="test" onChange={NOOP} readOnly />
+      </Theme.Provider>
+    );
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('it should render with disabled', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <FormInput id="input" type="text" value="test" onChange={NOOP} disabled />
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    const {asFragment} = render(
+      <Theme.Provider theme="console">
+        <FormInput id="input" type="text" value="test" onChange={NOOP} disabled />
+      </Theme.Provider>
+    );
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('it should render with hasError', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <FormInput id="input" type="text" value="test" onChange={NOOP} hasError />
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    const {asFragment} = render(
+      <Theme.Provider theme="console">
+        <FormInput id="input" type="text" value="test" onChange={NOOP} hasError />
+      </Theme.Provider>
+    );
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('it should render with prefix', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <FormInput id="input" type="text" value="test" onChange={NOOP} insertBefore={<div>prefix</div>} />
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    const {asFragment} = render(
+      <Theme.Provider theme="console">
+        <FormInput id="input" type="text" value="test" onChange={NOOP} insertBefore={<div>prefix</div>} />
+      </Theme.Provider>
+    );
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('it should render with suffix', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <FormInput id="input" type="text" value="test" onChange={NOOP} insertAfter={<div>suffix</div>} />
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    const {asFragment} = render(
+      <Theme.Provider theme="console">
+        <FormInput id="input" type="text" value="test" onChange={NOOP} insertAfter={<div>suffix</div>} />
+      </Theme.Provider>
+    );
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('it has no accessibility violations', async () => {
-    const container = document.createElement('div');
-    document.body.append(container);
-    render(
+    const {container} = render(
       <Theme.Provider theme="console">
         <FormLabel htmlFor="input_1">Label Text</FormLabel>
         <FormInput id="input_1" type="text" value="test" onChange={NOOP} />
-      </Theme.Provider>,
-      container
+      </Theme.Provider>
     );
-    const results = await axe(document.body);
+    const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
 
   it('disabled has no accessibility violations', async () => {
-    const container = document.createElement('div');
-    document.body.append(container);
-    render(
+    const {container} = render(
       <Theme.Provider theme="console">
         <FormLabel htmlFor="input_2" disabled>
           Label Text
         </FormLabel>
         <FormInput id="input_2" type="text" value="test" onChange={NOOP} disabled />
-      </Theme.Provider>,
-      container
+      </Theme.Provider>
     );
-    const results = await axe(document.body);
+    const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
 
   it('hasError has no accessibility violations', async () => {
-    const container = document.createElement('div');
-    document.body.append(container);
-    render(
+    const {container} = render(
       <Theme.Provider theme="console">
         <FormLabel htmlFor="input_3">Label Text</FormLabel>
         <FormInput id="input_3" type="text" value="test" onChange={NOOP} hasError />
         <FormHelpText variant="error">Error info. Explains why the input has an error.</FormHelpText>
-      </Theme.Provider>,
-      container
+      </Theme.Provider>
     );
-    const results = await axe(document.body);
+    const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
 });
 
-describe('FormInput readyOnly prop', () => {
+describe('FormInput inner input props', () => {
   const initialProps = {
     id: 'input',
-    type: 'text' as FormInputTypes,
-    value: 'value',
-    onChange: NOOP,
-    readOnly: true,
-  };
-
-  const container = shallow(<FormInput {...initialProps} />);
-
-  it('should have a readOnly prop', () => {
-    expect(container.find('FieldWrapper').prop('readOnly')).toEqual(true);
-  });
-
-  it('should have a aria-readonly prop', () => {
-    expect(container.find('InputElement').prop('aria-readonly')).toEqual(true);
-  });
-
-  it('should have a readonly prop on InputElement', () => {
-    expect(container.find('InputElement').prop('aria-readonly')).toEqual(true);
-  });
-});
-
-describe('FormInput disabled prop', () => {
-  const initialProps = {
-    id: 'input',
-    type: 'text' as FormInputTypes,
+    name: 'cool',
+    type: 'password' as FormInputTypes,
     value: 'value',
     onChange: NOOP,
     disabled: true,
-  };
-
-  const container = shallow(<FormInput {...initialProps} />);
-
-  it('should have a disabled prop', () => {
-    expect(container.find('FieldWrapper').prop('disabled')).toEqual(true);
-  });
-
-  it('should have a disabled prop on InputElement', () => {
-    expect(container.find('InputElement').prop('disabled')).toEqual(true);
-  });
-});
-
-describe('FormInput hasError prop', () => {
-  const initialProps = {
-    id: 'input',
-    type: 'text' as FormInputTypes,
-    value: 'value',
-    onChange: NOOP,
+    readOnly: true,
     hasError: true,
+    placeholder: 'Enter your name',
   };
 
-  const container = shallow(<FormInput {...initialProps} />);
+  const {getByPlaceholderText} = render(<FormInput {...initialProps} />);
+  const InnerInput = getByPlaceholderText(initialProps.placeholder);
+  expect(InnerInput).toBeDefined();
 
-  it('should have a hasError prop', () => {
-    expect(container.find('FieldWrapper').prop('hasError')).toEqual(true);
+  it('should set disabled correctly', () => {
+    expect(InnerInput.getAttribute('disabled')).toEqual('');
   });
 
-  it('should have a aria-invalid prop', () => {
-    expect(container.find('InputElement').prop('aria-invalid')).toEqual(true);
+  it('should set readOnly correctly', () => {
+    expect(InnerInput.getAttribute('aria-readonly')).toEqual('true');
+    expect(InnerInput.getAttribute('readOnly')).toEqual('');
   });
-});
 
-describe('FormInput id prop', () => {
-  const initialProps = {
-    id: 'input',
-    type: 'text' as FormInputTypes,
-    value: 'value',
-    onChange: NOOP,
-  };
-
-  const container = shallow(<FormInput {...initialProps} />);
-
-  it('should have an id prop', () => {
-    expect(container.find('InputElement').prop('id')).toEqual('input');
+  it('should set hasError correctly', () => {
+    expect(InnerInput.getAttribute('aria-invalid')).toEqual('true');
   });
-});
 
-describe('FormInput text type prop', () => {
-  const initialProps = {
-    id: 'input',
-    type: 'text' as FormInputTypes,
-    value: 'value',
-    onChange: NOOP,
-  };
-
-  const container = shallow(<FormInput {...initialProps} />);
-
-  it('should have an type prop', () => {
-    expect(container.find('InputElement').prop('type')).toEqual('text');
+  it('should set id correctly', () => {
+    expect(InnerInput.getAttribute('id')).toEqual(initialProps.id);
   });
-});
 
-describe('FormInput number type prop', () => {
-  const initialProps = {
-    id: 'input',
-    type: 'number' as FormInputTypes,
-    value: '1',
-    onChange: NOOP,
-  };
-
-  const container = shallow(<FormInput {...initialProps} />);
-
-  it('should have an type prop', () => {
-    expect(container.find('InputElement').prop('type')).toEqual('text');
+  it('should set type correctly', () => {
+    expect(InnerInput.getAttribute('type')).toEqual(initialProps.type);
   });
-});
 
-describe('FormInput value prop', () => {
-  const initialProps = {
-    id: 'input',
-    type: 'text' as FormInputTypes,
-    value: 'value',
-    onChange: NOOP,
-  };
-
-  const container = shallow(<FormInput {...initialProps} />);
-
-  it('should have an value prop', () => {
-    expect(container.find('InputElement').prop('value')).toEqual('value');
+  it('should set value correctly', () => {
+    expect(InnerInput.getAttribute('value')).toEqual(initialProps.value);
   });
-});
 
-describe('FormInput name prop', () => {
-  const initialProps = {
-    id: 'input',
-    type: 'text' as FormInputTypes,
-    value: 'value',
-    onChange: NOOP,
-    name: 'name',
-  };
-
-  const container = shallow(<FormInput {...initialProps} />);
-
-  it('should have an name prop', () => {
-    expect(container.find('InputElement').prop('name')).toEqual('name');
+  it('should set name correctly', () => {
+    expect(InnerInput.getAttribute('name')).toEqual(initialProps.name);
   });
-});
 
-describe('FormInput placeholder prop', () => {
-  const initialProps = {
-    id: 'input',
-    type: 'text' as FormInputTypes,
-    value: 'value',
-    onChange: NOOP,
-    placeholder: 'placeholder',
-  };
-
-  const container = shallow(<FormInput {...initialProps} />);
-
-  it('should have an placeholder prop', () => {
-    expect(container.find('InputElement').prop('placeholder')).toEqual('placeholder');
+  it('should set placeholder correctly', () => {
+    expect(InnerInput.getAttribute('placeholder')).toEqual(initialProps.placeholder);
   });
 });
 
@@ -285,30 +157,16 @@ describe('FormInput insertBefore prop', () => {
     value: 'value',
     onChange: NOOP,
     placeholder: 'placeholder',
-    insertBefore: '<div>$10.99</div>',
   };
 
-  const container = shallow(<FormInput {...initialProps} />);
-
-  it('should have a Prefix', () => {
-    expect(container.find('Prefix').length).toEqual(1);
+  it('should render a prefix', () => {
+    const {getByText} = render(<FormInput {...initialProps} insertBefore={<div>$10.99</div>} />);
+    expect(getByText('$10.99')).toBeDefined();
   });
-});
 
-describe('FormInput insertAfter prop', () => {
-  const initialProps = {
-    id: 'input',
-    type: 'text' as FormInputTypes,
-    value: 'value',
-    onChange: NOOP,
-    placeholder: 'placeholder',
-    insertAfter: '<div>$10.99</div>',
-  };
-
-  const container = shallow(<FormInput {...initialProps} />);
-
-  it('should have a Suffix', () => {
-    expect(container.find('Suffix').length).toEqual(1);
+  it('should render a suffix', () => {
+    const {getByText} = render(<FormInput {...initialProps} insertAfter={<div>$11.99</div>} />);
+    expect(getByText('$11.99')).toBeDefined();
   });
 });
 
@@ -318,7 +176,7 @@ describe('FormInput event handlers', () => {
     const onFocusMock: jest.Mock = jest.fn();
     const onBlurMock: jest.Mock = jest.fn();
 
-    const wrapper: ReactWrapper = mount(
+    const {getByRole} = render(
       <FormInput
         id="input"
         type="text"
@@ -328,12 +186,11 @@ describe('FormInput event handlers', () => {
         onBlur={onBlurMock}
       />
     );
+    const Input = getByRole('textbox');
 
-    wrapper.find('input').simulate('change');
-    expect(onChangeMock).toHaveBeenCalledTimes(1);
-    wrapper.find('input').simulate('focus');
+    Input.focus();
     expect(onFocusMock).toHaveBeenCalledTimes(1);
-    wrapper.find('input').simulate('blur');
+    Input.blur();
     expect(onBlurMock).toHaveBeenCalledTimes(1);
   });
 });
@@ -348,10 +205,15 @@ describe('FormInput block props', () => {
     width: '300px',
   };
 
-  const container = shallow(<FormInput {...initialProps} />);
-
   it('should not pass width and classname props', () => {
-    expect(container.find('InputElement').prop('width')).toEqual(undefined);
-    expect(container.find('InputElement').prop('className')).toEqual(undefined);
+    // @ts-ignore this is on purpose
+    const {getByRole} = render(<FormInput {...initialProps} />);
+    const Input = getByRole('textbox');
+
+    expect(Input.getAttribute('width')).toEqual(null);
+
+    const classNames = Input.getAttribute('class');
+    expect(classNames).toBeDefined();
+    expect(classNames.indexOf(initialProps.className)).toBe(-1);
   });
 });

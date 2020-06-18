@@ -1,4 +1,4 @@
-import {ResponsiveValue} from 'styled-system';
+import {ResponsiveValue} from '@twilio-paste/styling-library';
 import {LayoutProps, PaddingProps, Space, SpaceProps} from '@twilio-paste/style-props';
 
 export interface GridProps extends SpaceProps {

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button States Has a disabled state 1`] = `
-.emotion-24 {
+.emotion-12 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -28,7 +28,7 @@ exports[`Button States Has a disabled state 1`] = `
   opacity: 100%;
 }
 
-.emotion-2 {
+.emotion-1 {
   position: relative;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -52,23 +52,23 @@ exports[`Button States Has a disabled state 1`] = `
   width: auto;
 }
 
-.emotion-2::-moz-focus-inner {
+.emotion-1::-moz-focus-inner {
   border: none;
 }
 
-.emotion-2:hover,
-.emotion-2:focus,
-.emotion-2:active {
+.emotion-1:hover,
+.emotion-1:focus,
+.emotion-1:active {
   color: rgb(255,255,255);
 }
 
-.emotion-2:hover,
-.emotion-2:active {
+.emotion-1:hover,
+.emotion-1:active {
   background-color: rgb(179,211,233);
   box-shadow: inset 0 0 0 0.125rem rgb(179,211,233);
 }
 
-.emotion-6 {
+.emotion-3 {
   position: relative;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -92,11 +92,11 @@ exports[`Button States Has a disabled state 1`] = `
   width: auto;
 }
 
-.emotion-6::-moz-focus-inner {
+.emotion-3::-moz-focus-inner {
   border: none;
 }
 
-.emotion-10 {
+.emotion-5 {
   position: relative;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -122,17 +122,17 @@ exports[`Button States Has a disabled state 1`] = `
   width: auto;
 }
 
-.emotion-10::-moz-focus-inner {
+.emotion-5::-moz-focus-inner {
   border: none;
 }
 
-.emotion-10:hover,
-.emotion-10:focus,
-.emotion-10:active {
+.emotion-5:hover,
+.emotion-5:focus,
+.emotion-5:active {
   color: rgb(255,255,255);
 }
 
-.emotion-14 {
+.emotion-7 {
   position: relative;
   font-size: 100%;
   padding: 0;
@@ -153,11 +153,11 @@ exports[`Button States Has a disabled state 1`] = `
   width: auto;
 }
 
-.emotion-14::-moz-focus-inner {
+.emotion-7::-moz-focus-inner {
   border: none;
 }
 
-.emotion-18 {
+.emotion-9 {
   position: relative;
   font-size: 100%;
   padding: 0;
@@ -178,11 +178,11 @@ exports[`Button States Has a disabled state 1`] = `
   width: auto;
 }
 
-.emotion-18::-moz-focus-inner {
+.emotion-9::-moz-focus-inner {
   border: none;
 }
 
-.emotion-22 {
+.emotion-11 {
   position: relative;
   font-size: 100%;
   padding: 0;
@@ -201,87 +201,87 @@ exports[`Button States Has a disabled state 1`] = `
   width: auto;
 }
 
-.emotion-22::-moz-focus-inner {
+.emotion-11::-moz-focus-inner {
   border: none;
 }
 
 <div
-  className="emotion-24"
+  className="emotion-12"
 >
   <button
     aria-busy="false"
-    className="emotion-2 emotion-3"
+    className="emotion-1"
     disabled={true}
     size="default"
     type="button"
   >
     <span
-      className="emotion-0 emotion-1"
+      className="emotion-0"
     >
       Submit
     </span>
   </button>
   <button
     aria-busy="false"
-    className="emotion-6 emotion-3"
+    className="emotion-3"
     disabled={true}
     size="default"
     type="button"
   >
     <span
-      className="emotion-0 emotion-1"
+      className="emotion-0"
     >
       Submit
     </span>
   </button>
   <button
     aria-busy="false"
-    className="emotion-10 emotion-3"
+    className="emotion-5"
     disabled={true}
     size="default"
     type="button"
   >
     <span
-      className="emotion-0 emotion-1"
+      className="emotion-0"
     >
       Submit
     </span>
   </button>
   <button
     aria-busy="false"
-    className="emotion-14 emotion-3"
+    className="emotion-7"
     disabled={true}
     size="reset"
     type="button"
   >
     <span
-      className="emotion-0 emotion-1"
+      className="emotion-0"
     >
       Submit
     </span>
   </button>
   <button
     aria-busy="false"
-    className="emotion-18 emotion-3"
+    className="emotion-9"
     disabled={true}
     size="reset"
     type="button"
   >
     <span
-      className="emotion-0 emotion-1"
+      className="emotion-0"
     >
       Submit
     </span>
   </button>
   <button
     aria-busy="false"
-    className="emotion-22 emotion-3"
+    className="emotion-11"
     disabled={true}
     size="reset"
     type="button"
   >
     <span
-      className="emotion-0 emotion-1"
+      className="emotion-0"
     >
       Submit
     </span>
@@ -304,7 +304,7 @@ exports[`Button States Has a loading state 1`] = `
   }
 }
 
-.emotion-48 {
+.emotion-30 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -312,7 +312,7 @@ exports[`Button States Has a loading state 1`] = `
   font-weight: 400;
 }
 
-.emotion-6 {
+.emotion-4 {
   position: relative;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -334,20 +334,20 @@ exports[`Button States Has a loading state 1`] = `
   width: auto;
 }
 
-.emotion-6::-moz-focus-inner {
+.emotion-4::-moz-focus-inner {
   border: none;
 }
 
-.emotion-6:hover,
-.emotion-6:focus,
-.emotion-6:active {
+.emotion-4:hover,
+.emotion-4:focus,
+.emotion-4:active {
   color: rgb(255,255,255);
 }
 
-.emotion-6,
-.emotion-6:hover,
-.emotion-6:active,
-.emotion-6:focus {
+.emotion-4,
+.emotion-4:hover,
+.emotion-4:active,
+.emotion-4:focus {
   background-color: rgb(3,44,94);
   box-shadow: inset 0 0 0 0.125rem rgb(3,44,94);
 }
@@ -371,7 +371,7 @@ exports[`Button States Has a loading state 1`] = `
   opacity: 0;
 }
 
-.emotion-4 {
+.emotion-3 {
   box-sizing: border-box;
   left: 0;
   right: 0;
@@ -393,7 +393,7 @@ exports[`Button States Has a loading state 1`] = `
   line-height: 14px;
 }
 
-.emotion-3 {
+.emotion-2 {
   width: 1.25rem;
   height: 1.25rem;
   display: inline-block;
@@ -405,13 +405,13 @@ exports[`Button States Has a loading state 1`] = `
 }
 
 @media screen and (prefers-reduced-motion:reduce) {
-  .emotion-3 {
+  .emotion-2 {
     -webkit-animation: none;
     animation: none;
   }
 }
 
-.emotion-2 {
+.emotion-1 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -421,7 +421,7 @@ exports[`Button States Has a loading state 1`] = `
   color: currentColor;
 }
 
-.emotion-14 {
+.emotion-9 {
   position: relative;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -446,11 +446,11 @@ exports[`Button States Has a loading state 1`] = `
   width: auto;
 }
 
-.emotion-14::-moz-focus-inner {
+.emotion-9::-moz-focus-inner {
   border: none;
 }
 
-.emotion-22 {
+.emotion-14 {
   position: relative;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -476,17 +476,17 @@ exports[`Button States Has a loading state 1`] = `
   width: auto;
 }
 
-.emotion-22::-moz-focus-inner {
+.emotion-14::-moz-focus-inner {
   border: none;
 }
 
-.emotion-22:hover,
-.emotion-22:focus,
-.emotion-22:active {
+.emotion-14:hover,
+.emotion-14:focus,
+.emotion-14:active {
   color: rgb(255,255,255);
 }
 
-.emotion-30 {
+.emotion-19 {
   position: relative;
   font-size: 100%;
   padding: 0;
@@ -507,11 +507,11 @@ exports[`Button States Has a loading state 1`] = `
   width: auto;
 }
 
-.emotion-30::-moz-focus-inner {
+.emotion-19::-moz-focus-inner {
   border: none;
 }
 
-.emotion-38 {
+.emotion-24 {
   position: relative;
   font-size: 100%;
   padding: 0;
@@ -532,11 +532,11 @@ exports[`Button States Has a loading state 1`] = `
   width: auto;
 }
 
-.emotion-38::-moz-focus-inner {
+.emotion-24::-moz-focus-inner {
   border: none;
 }
 
-.emotion-46 {
+.emotion-29 {
   position: relative;
   font-size: 100%;
   padding: 0;
@@ -555,34 +555,34 @@ exports[`Button States Has a loading state 1`] = `
   width: auto;
 }
 
-.emotion-46::-moz-focus-inner {
+.emotion-29::-moz-focus-inner {
   border: none;
 }
 
 <div
-  className="emotion-48"
+  className="emotion-30"
 >
   <button
     aria-busy="true"
-    className="emotion-6 emotion-7"
+    className="emotion-4"
     disabled={true}
     size="default"
     type="button"
   >
     <span
-      className="emotion-0 emotion-1"
+      className="emotion-0"
     >
       Submit
     </span>
     <span
-      className="emotion-4 emotion-5"
+      className="emotion-3"
     >
       <div
-        className="emotion-3"
+        className="emotion-2"
         size="sizeIcon20"
       >
         <span
-          className="emotion-2"
+          className="emotion-1"
           size="sizeIcon20"
         >
           <svg
@@ -610,25 +610,25 @@ exports[`Button States Has a loading state 1`] = `
   </button>
   <button
     aria-busy="true"
-    className="emotion-14 emotion-7"
+    className="emotion-9"
     disabled={true}
     size="default"
     type="button"
   >
     <span
-      className="emotion-0 emotion-1"
+      className="emotion-0"
     >
       Submit
     </span>
     <span
-      className="emotion-4 emotion-5"
+      className="emotion-3"
     >
       <div
-        className="emotion-3"
+        className="emotion-2"
         size="sizeIcon20"
       >
         <span
-          className="emotion-2"
+          className="emotion-1"
           size="sizeIcon20"
         >
           <svg
@@ -656,25 +656,25 @@ exports[`Button States Has a loading state 1`] = `
   </button>
   <button
     aria-busy="true"
-    className="emotion-22 emotion-7"
+    className="emotion-14"
     disabled={true}
     size="default"
     type="button"
   >
     <span
-      className="emotion-0 emotion-1"
+      className="emotion-0"
     >
       Submit
     </span>
     <span
-      className="emotion-4 emotion-5"
+      className="emotion-3"
     >
       <div
-        className="emotion-3"
+        className="emotion-2"
         size="sizeIcon20"
       >
         <span
-          className="emotion-2"
+          className="emotion-1"
           size="sizeIcon20"
         >
           <svg
@@ -702,25 +702,25 @@ exports[`Button States Has a loading state 1`] = `
   </button>
   <button
     aria-busy="true"
-    className="emotion-30 emotion-7"
+    className="emotion-19"
     disabled={true}
     size="reset"
     type="button"
   >
     <span
-      className="emotion-0 emotion-1"
+      className="emotion-0"
     >
       Submit
     </span>
     <span
-      className="emotion-4 emotion-5"
+      className="emotion-3"
     >
       <div
-        className="emotion-3"
+        className="emotion-2"
         size="sizeIcon20"
       >
         <span
-          className="emotion-2"
+          className="emotion-1"
           size="sizeIcon20"
         >
           <svg
@@ -748,25 +748,25 @@ exports[`Button States Has a loading state 1`] = `
   </button>
   <button
     aria-busy="true"
-    className="emotion-38 emotion-7"
+    className="emotion-24"
     disabled={true}
     size="reset"
     type="button"
   >
     <span
-      className="emotion-0 emotion-1"
+      className="emotion-0"
     >
       Submit
     </span>
     <span
-      className="emotion-4 emotion-5"
+      className="emotion-3"
     >
       <div
-        className="emotion-3"
+        className="emotion-2"
         size="sizeIcon20"
       >
         <span
-          className="emotion-2"
+          className="emotion-1"
           size="sizeIcon20"
         >
           <svg
@@ -794,25 +794,25 @@ exports[`Button States Has a loading state 1`] = `
   </button>
   <button
     aria-busy="true"
-    className="emotion-46 emotion-7"
+    className="emotion-29"
     disabled={true}
     size="reset"
     type="button"
   >
     <span
-      className="emotion-0 emotion-1"
+      className="emotion-0"
     >
       Submit
     </span>
     <span
-      className="emotion-4 emotion-5"
+      className="emotion-3"
     >
       <div
-        className="emotion-3"
+        className="emotion-2"
         size="sizeIcon20"
       >
         <span
-          className="emotion-2"
+          className="emotion-1"
           size="sizeIcon20"
         >
           <svg
@@ -842,7 +842,7 @@ exports[`Button States Has a loading state 1`] = `
 `;
 
 exports[`Button Variants Has a destructive variant 1`] = `
-.emotion-4 {
+.emotion-2 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -869,7 +869,7 @@ exports[`Button Variants Has a destructive variant 1`] = `
   opacity: 100%;
 }
 
-.emotion-2 {
+.emotion-1 {
   position: relative;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -895,56 +895,56 @@ exports[`Button Variants Has a destructive variant 1`] = `
   width: auto;
 }
 
-.emotion-2::-moz-focus-inner {
+.emotion-1::-moz-focus-inner {
   border: none;
 }
 
-.emotion-2:focus,
-.emotion-2:active {
+.emotion-1:focus,
+.emotion-1:active {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
-.emotion-2:hover,
-.emotion-2:focus,
-.emotion-2:active {
+.emotion-1:hover,
+.emotion-1:focus,
+.emotion-1:active {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-2:hover,
-.emotion-2:focus,
-.emotion-2:active {
+.emotion-1:hover,
+.emotion-1:focus,
+.emotion-1:active {
   color: rgb(255,255,255);
 }
 
-.emotion-2:hover {
+.emotion-1:hover {
   background-color: rgb(96,1,1);
   box-shadow: inset 0 0 0 0.125rem rgb(96,1,1);
 }
 
-.emotion-2:focus {
+.emotion-1:focus {
   background-color: rgb(226,37,37);
-  box-shadow: inset 0 0 0 0.125rem rgb(96,1,1),0 0 0 4px rgba(2,122,197,0.8);
+  box-shadow: inset 0 0 0 0.125rem rgb(96,1,1), 0 0 0 4px rgba(2,122,197,0.8);
 }
 
-.emotion-2:active {
+.emotion-1:active {
   background-color: rgb(146,18,0);
-  box-shadow: inset 0 0 0 0.125rem rgb(96,1,1),0 0 0 4px rgba(2,122,197,0.8);
+  box-shadow: inset 0 0 0 0.125rem rgb(96,1,1), 0 0 0 4px rgba(2,122,197,0.8);
 }
 
 <div
-  className="emotion-4"
+  className="emotion-2"
 >
   <button
     aria-busy="false"
-    className="emotion-2 emotion-3"
+    className="emotion-1"
     disabled={false}
     onClick={[Function]}
     size="default"
     type="button"
   >
     <span
-      className="emotion-0 emotion-1"
+      className="emotion-0"
     >
       Delete
     </span>
@@ -953,7 +953,7 @@ exports[`Button Variants Has a destructive variant 1`] = `
 `;
 
 exports[`Button Variants Has a destructive_link variant 1`] = `
-.emotion-4 {
+.emotion-2 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -980,7 +980,7 @@ exports[`Button Variants Has a destructive_link variant 1`] = `
   opacity: 100%;
 }
 
-.emotion-2 {
+.emotion-1 {
   position: relative;
   font-size: 100%;
   padding: 0;
@@ -1003,50 +1003,50 @@ exports[`Button Variants Has a destructive_link variant 1`] = `
   width: auto;
 }
 
-.emotion-2::-moz-focus-inner {
+.emotion-1::-moz-focus-inner {
   border: none;
 }
 
-.emotion-2:focus,
-.emotion-2:active {
+.emotion-1:focus,
+.emotion-1:active {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
-.emotion-2:hover,
-.emotion-2:focus,
-.emotion-2:active {
+.emotion-1:hover,
+.emotion-1:focus,
+.emotion-1:active {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-2:hover,
-.emotion-2:focus,
-.emotion-2:active {
+.emotion-1:hover,
+.emotion-1:focus,
+.emotion-1:active {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.emotion-2:hover {
+.emotion-1:hover {
   color: rgb(178,6,0);
 }
 
-.emotion-2:active {
+.emotion-1:active {
   color: rgb(146,18,0);
 }
 
 <div
-  className="emotion-4"
+  className="emotion-2"
 >
   <button
     aria-busy="false"
-    className="emotion-2 emotion-3"
+    className="emotion-1"
     disabled={false}
     onClick={[Function]}
     size="reset"
     type="button"
   >
     <span
-      className="emotion-0 emotion-1"
+      className="emotion-0"
     >
       Undo
     </span>
@@ -1055,7 +1055,7 @@ exports[`Button Variants Has a destructive_link variant 1`] = `
 `;
 
 exports[`Button Variants Has a link variant 1`] = `
-.emotion-4 {
+.emotion-2 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -1082,7 +1082,7 @@ exports[`Button Variants Has a link variant 1`] = `
   opacity: 100%;
 }
 
-.emotion-2 {
+.emotion-1 {
   position: relative;
   font-size: 100%;
   padding: 0;
@@ -1105,50 +1105,50 @@ exports[`Button Variants Has a link variant 1`] = `
   width: auto;
 }
 
-.emotion-2::-moz-focus-inner {
+.emotion-1::-moz-focus-inner {
   border: none;
 }
 
-.emotion-2:focus,
-.emotion-2:active {
+.emotion-1:focus,
+.emotion-1:active {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
-.emotion-2:hover,
-.emotion-2:focus,
-.emotion-2:active {
+.emotion-1:hover,
+.emotion-1:focus,
+.emotion-1:active {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-2:hover,
-.emotion-2:focus,
-.emotion-2:active {
+.emotion-1:hover,
+.emotion-1:focus,
+.emotion-1:active {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.emotion-2:hover {
+.emotion-1:hover {
   color: rgb(0,62,130);
 }
 
-.emotion-2:active {
+.emotion-1:active {
   color: rgb(3,44,94);
 }
 
 <div
-  className="emotion-4"
+  className="emotion-2"
 >
   <button
     aria-busy="false"
-    className="emotion-2 emotion-3"
+    className="emotion-1"
     disabled={false}
     onClick={[Function]}
     size="reset"
     type="button"
   >
     <span
-      className="emotion-0 emotion-1"
+      className="emotion-0"
     >
       Go to Paste
     </span>
@@ -1157,7 +1157,7 @@ exports[`Button Variants Has a link variant 1`] = `
 `;
 
 exports[`Button Variants Has a primary variant 1`] = `
-.emotion-4 {
+.emotion-2 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -1165,7 +1165,7 @@ exports[`Button Variants Has a primary variant 1`] = `
   font-weight: 400;
 }
 
-.emotion-2 {
+.emotion-1 {
   position: relative;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -1191,41 +1191,41 @@ exports[`Button Variants Has a primary variant 1`] = `
   width: auto;
 }
 
-.emotion-2::-moz-focus-inner {
+.emotion-1::-moz-focus-inner {
   border: none;
 }
 
-.emotion-2:focus,
-.emotion-2:active {
+.emotion-1:focus,
+.emotion-1:active {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
-.emotion-2:hover,
-.emotion-2:focus,
-.emotion-2:active {
+.emotion-1:hover,
+.emotion-1:focus,
+.emotion-1:active {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-2:hover,
-.emotion-2:focus,
-.emotion-2:active {
+.emotion-1:hover,
+.emotion-1:focus,
+.emotion-1:active {
   color: rgb(255,255,255);
 }
 
-.emotion-2:hover {
+.emotion-1:hover {
   background-color: rgb(3,44,94);
   box-shadow: inset 0 0 0 0.125rem rgb(3,44,94);
 }
 
-.emotion-2:focus {
+.emotion-1:focus {
   background-color: rgb(2,122,197);
-  box-shadow: inset 0 0 0 0.125rem rgb(3,44,94),0 0 0 4px rgba(2,122,197,0.8);
+  box-shadow: inset 0 0 0 0.125rem rgb(3,44,94), 0 0 0 4px rgba(2,122,197,0.8);
 }
 
-.emotion-2:active {
+.emotion-1:active {
   background-color: rgb(0,62,130);
-  box-shadow: inset 0 0 0 0.125rem rgb(3,44,94),0 0 0 4px rgba(2,122,197,0.8);
+  box-shadow: inset 0 0 0 0.125rem rgb(3,44,94), 0 0 0 4px rgba(2,122,197,0.8);
 }
 
 .emotion-0 {
@@ -1248,18 +1248,18 @@ exports[`Button Variants Has a primary variant 1`] = `
 }
 
 <div
-  className="emotion-4"
+  className="emotion-2"
 >
   <button
     aria-busy="false"
-    className="emotion-2 emotion-3"
+    className="emotion-1"
     disabled={false}
     onClick={[Function]}
     size="default"
     type="submit"
   >
     <span
-      className="emotion-0 emotion-1"
+      className="emotion-0"
     >
       Submit
     </span>
@@ -1268,7 +1268,7 @@ exports[`Button Variants Has a primary variant 1`] = `
 `;
 
 exports[`Button Variants Has a reset variant 1`] = `
-.emotion-4 {
+.emotion-2 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -1295,7 +1295,7 @@ exports[`Button Variants Has a reset variant 1`] = `
   opacity: 100%;
 }
 
-.emotion-2 {
+.emotion-1 {
   position: relative;
   font-size: 100%;
   padding: 0;
@@ -1316,35 +1316,35 @@ exports[`Button Variants Has a reset variant 1`] = `
   width: auto;
 }
 
-.emotion-2::-moz-focus-inner {
+.emotion-1::-moz-focus-inner {
   border: none;
 }
 
-.emotion-2:focus,
-.emotion-2:active {
+.emotion-1:focus,
+.emotion-1:active {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
-.emotion-2:hover,
-.emotion-2:focus,
-.emotion-2:active {
+.emotion-1:hover,
+.emotion-1:focus,
+.emotion-1:active {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 <div
-  className="emotion-4"
+  className="emotion-2"
 >
   <button
     aria-busy="false"
-    className="emotion-2 emotion-3"
+    className="emotion-1"
     disabled={false}
     onClick={[Function]}
     size="reset"
     type="button"
   >
     <span
-      className="emotion-0 emotion-1"
+      className="emotion-0"
     >
       Hello World!
     </span>
@@ -1353,7 +1353,7 @@ exports[`Button Variants Has a reset variant 1`] = `
 `;
 
 exports[`Button Variants Has a secondary variant 1`] = `
-.emotion-4 {
+.emotion-2 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -1380,7 +1380,7 @@ exports[`Button Variants Has a secondary variant 1`] = `
   opacity: 100%;
 }
 
-.emotion-2 {
+.emotion-1 {
   position: relative;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -1407,53 +1407,53 @@ exports[`Button Variants Has a secondary variant 1`] = `
   width: auto;
 }
 
-.emotion-2::-moz-focus-inner {
+.emotion-1::-moz-focus-inner {
   border: none;
 }
 
-.emotion-2:focus,
-.emotion-2:active {
+.emotion-1:focus,
+.emotion-1:active {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
-.emotion-2:hover,
-.emotion-2:focus,
-.emotion-2:active {
+.emotion-1:hover,
+.emotion-1:focus,
+.emotion-1:active {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-2:hover {
+.emotion-1:hover {
   color: rgb(3,44,94);
   background-color: rgb(245,248,255);
   box-shadow: inset 0 0 0 0.125rem rgb(3,44,94);
 }
 
-.emotion-2:focus {
+.emotion-1:focus {
   color: rgb(3,44,94);
   background-color: rgb(245,248,255);
-  box-shadow: inset 0 0 0 0.125rem rgb(3,44,94),0 0 0 4px rgba(2,122,197,0.8);
+  box-shadow: inset 0 0 0 0.125rem rgb(3,44,94), 0 0 0 4px rgba(2,122,197,0.8);
 }
 
-.emotion-2:active {
+.emotion-1:active {
   color: rgb(3,44,94);
   background-color: rgb(220,234,244);
-  box-shadow: inset 0 0 0 0.125rem rgb(3,44,94),0 0 0 4px rgba(2,122,197,0.8);
+  box-shadow: inset 0 0 0 0.125rem rgb(3,44,94), 0 0 0 4px rgba(2,122,197,0.8);
 }
 
 <div
-  className="emotion-4"
+  className="emotion-2"
 >
   <button
     aria-busy="false"
-    className="emotion-2 emotion-3"
+    className="emotion-1"
     disabled={false}
     onClick={[Function]}
     size="default"
     type="button"
   >
     <span
-      className="emotion-0 emotion-1"
+      className="emotion-0"
     >
       Submit
     </span>

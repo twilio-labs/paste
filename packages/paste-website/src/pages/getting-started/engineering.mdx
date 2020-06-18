@@ -14,6 +14,7 @@ import {version as themeVersion} from '@twilio-paste/theme/package.json';
 import {version as coreVersion, dependencies as coreDependencies} from '@twilio-paste/core/package.json';
 import {version as iconsVersion} from '@twilio-paste/icons/package.json';
 import {version as animationVersion} from '@twilio-paste/animation-library/package.json';
+import {version as stylingLibraryPropsVersion} from '@twilio-paste/styling-library/package.json';
 import {version as dropdownVersion} from '@twilio-paste/dropdown-library/package.json';
 import {version as reakitVersion} from '@twilio-paste/reakit-library/package.json';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
@@ -83,33 +84,13 @@ The list of external third party dependencies are as follows:
       <td>react-uid</td>
       <td>{Package.dependencies['react-uid']}</td>
     </tr>
-    <tr>
-      <td>@emotion/core</td>
-      <td>{Package.dependencies['@emotion/core']}</td>
-    </tr>
-    <tr>
-      <td>@emotion/styled</td>
-      <td>{Package.dependencies['@emotion/styled']}</td>
-    </tr>
-    <tr>
-      <td>styled-system</td>
-      <td>{Package.dependencies['styled-system']}</td>
-    </tr>
-    <tr>
-      <td>@styled-system/theme-get</td>
-      <td>{Package.dependencies['@styled-system/theme-get']}</td>
-    </tr>
-    <tr>
-      <td>@styled-system/css</td>
-      <td>{Package.dependencies['@styled-system/css']}</td>
-    </tr>
   </tbody>
 </table>
 
 Install them using:
 
 ```shell
-yarn add react react-dom prop-types react-uid @emotion/core @emotion/styled styled-system @styled-system/theme-get @styled-system/css
+yarn add react react-dom prop-types react-uid
 ```
 
 #### Install Paste System packages
@@ -143,6 +124,10 @@ Paste also requires these system dependencies:
     <tr>
       <td>@twilio-paste/icons</td>
       <td>{iconsVersion}</td>
+    </tr>
+    <tr>
+      <td>@twilio-paste/styling-library</td>
+      <td>{stylingLibraryPropsVersion}</td>
     </tr>
     <tr>
       <td>@twilio-paste/animation-library</td>

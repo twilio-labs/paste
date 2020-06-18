@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
+import {styled} from '@twilio-paste/styling-library';
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
 import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
@@ -47,11 +47,10 @@ const BasicModalDialog: React.FC<BasicModalDialogProps> = ({isOpen, handleClose}
   );
 };
 
-const ModalActivator: React.FC = () => {
+export const ModalDialogPrimitiveExample: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const handleOpen = (): void => setIsOpen(true);
   const handleClose = (): void => setIsOpen(false);
-
   return (
     <div>
       <Button variant="primary" onClick={handleOpen}>
@@ -61,5 +60,3 @@ const ModalActivator: React.FC = () => {
     </div>
   );
 };
-
-export default ModalActivator;

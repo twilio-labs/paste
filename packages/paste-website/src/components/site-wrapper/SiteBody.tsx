@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
+import {styled} from '@twilio-paste/styling-library';
 import {Anchor, secureExternalLink} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Alert} from '@twilio-paste/alert';

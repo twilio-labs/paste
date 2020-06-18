@@ -24,6 +24,9 @@
       "path": "../../../paste-icons"
     },
     {
+      "path": "../../../paste-libraries/styling"
+    },
+    {
       "path": "../../primitives/text"
     }
   ]

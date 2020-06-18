@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SiblingBox render it should render 1`] = `
-.emotion-2 {
+.emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -94,11 +94,11 @@ input[type=checkbox][aria-invalid=true] + label .emotion-0 {
 }
 
 <div
-  className="emotion-2"
+  className="emotion-1"
 >
   <div
     aria-hidden="true"
-    className="emotion-0 emotion-1"
+    className="emotion-0"
     display="inline-flex"
     width="sizeSquare50"
   >

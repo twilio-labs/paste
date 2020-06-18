@@ -1,6 +1,6 @@
 // https://styled-system.com/api/#shadow
 import {ThemeShape} from '@twilio-paste/theme';
-import {ResponsiveValue} from 'styled-system';
+import {ResponsiveValue} from '@twilio-paste/styling-library';
 
 // Tokens
 export type BoxShadowOptions = keyof ThemeShape['shadows'];

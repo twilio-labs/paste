@@ -1,6 +1,5 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
-import {themeGet} from '@styled-system/theme-get';
+import {styled, themeGet} from '@twilio-paste/styling-library';
 import {useUID} from 'react-uid';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {ThemeVariants} from '@twilio-paste/theme';
