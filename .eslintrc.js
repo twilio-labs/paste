@@ -34,19 +34,22 @@ module.exports = {
     // No jsx extension: https://github.com/facebook/create-react-app/issues/87#issuecomment-234627904
     'react/jsx-filename-extension': 'off',
     // Doesnt really work in our use-cases: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-default-props.md
-    "react/require-default-props": 'off',
+    'react/require-default-props': 'off',
     // Use function hoisting to improve code readability
-    'no-use-before-define': ['error', {
-      functions: false,
-      classes: true,
-      variables: true
-    }],
+    'no-use-before-define': [
+      'error',
+      {
+        functions: false,
+        classes: true,
+        variables: true,
+      },
+    ],
     // Makes no sense to allow type inferrence for expression parameters, but require typing the response
     '@typescript-eslint/explicit-function-return-type': [
       'error',
       {
         allowExpressions: true,
-        allowTypedFunctionExpressions: true
+        allowTypedFunctionExpressions: true,
       },
     ],
     '@typescript-eslint/no-use-before-define': [
@@ -55,7 +58,7 @@ module.exports = {
         functions: false,
         classes: true,
         variables: true,
-        typedefs: true
+        typedefs: true,
       },
     ],
     // Common abbreviations are known and readable
@@ -66,9 +69,6 @@ module.exports = {
     // This rule tells people to do something (import foo = require('foo')) which doesn't work
     // with babel compiled typescript.
     '@typescript-eslint/no-var-requires': 'off',
-    // Enforce template strings for styles over objects for consistent codebase
-    // We can switch this to object at anytime, but lowering to warn as we have a mixed condebase right now.
-    'emotion/syntax-preference': [1, 'string'],
     // PropTypes are useless with typescript
     'react/prop-types': 'off',
     // Avoid having to redefine story deps for this monorepo
@@ -98,7 +98,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       [path.resolve('./.eslint/resolver')]: {
-        someConfig: ''
+        someConfig: '',
       },
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts'],
