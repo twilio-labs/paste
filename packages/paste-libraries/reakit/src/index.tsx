@@ -1,4 +1,5 @@
 import {PopoverArrow, PopoverArrowProps} from './Popover/PopoverArrow';
+import {TooltipArrow, TooltipArrowProps} from './Tooltip/TooltipArrow';
 
 export {
   // https://reakit.io/docs/disclosure/
@@ -43,6 +44,16 @@ export {
   TabListProps,
   TabPanel,
   TabPanelProps,
+  // https://reakit.io/docs/tooltip/
+  useTooltipState,
+  TooltipState,
+  TooltipInitialState,
+  TooltipStateReturn,
+  Tooltip,
+  TooltipProps,
+  TooltipReference,
+  TooltipReferenceProps,
 } from 'reakit';
 
 export {PopoverArrow, PopoverArrowProps};
+export {TooltipArrow, TooltipArrowProps};
