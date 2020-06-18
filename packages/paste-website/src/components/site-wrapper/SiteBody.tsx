@@ -108,7 +108,7 @@ export const SiteBody: React.FC = ({children}) => {
         <Sidebar />
         <Box height="100vh" overflow="auto">
           <SiteHeader />
-          <SiteMain id="site-main" tabIndex={0} role="main">
+          <SiteMain id="site-main" tabIndex={-1} role="main">
             <ScrollAnchorIntoView />
             <SiteMainInner>{children}</SiteMainInner>
             <SiteFooter />
