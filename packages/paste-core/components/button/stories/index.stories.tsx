@@ -74,17 +74,16 @@ storiesOf('Components|Button', module)
     );
   })
   .add('All buttons', () => {
-    const size = select('size', ButtonSizeOptions, '') as ButtonSizes;
     return (
       <React.Fragment>
         <section>
-          <Button variant="primary" size={size}>
+          <Button variant="primary" size="default">
             Primary
           </Button>
-          <Button variant="primary" size={size} loading={!isRenderingOnServer}>
+          <Button variant="primary" size="default" loading={!isRenderingOnServer}>
             Primary
           </Button>
-          <Button variant="primary" size={size} disabled>
+          <Button variant="primary" size="default" disabled>
             Primary
           </Button>
         </section>
@@ -126,13 +125,13 @@ storiesOf('Components|Button', module)
         </section>
         <br />
         <section>
-          <Button variant="secondary" size={size}>
+          <Button variant="secondary" size="default">
             Secondary
           </Button>
-          <Button variant="secondary" size={size} loading={!isRenderingOnServer}>
+          <Button variant="secondary" size="default" loading={!isRenderingOnServer}>
             Secondary
           </Button>
-          <Button variant="secondary" size={size} disabled>
+          <Button variant="secondary" size="default" disabled>
             Secondary
           </Button>
         </section>
@@ -174,13 +173,13 @@ storiesOf('Components|Button', module)
         </section>
         <br />
         <section>
-          <Button variant="destructive" size={size}>
+          <Button variant="destructive" size="default">
             Destructive
           </Button>
-          <Button variant="destructive" size={size} loading={!isRenderingOnServer}>
+          <Button variant="destructive" size="default" loading={!isRenderingOnServer}>
             Destructive
           </Button>
-          <Button variant="destructive" size={size} disabled>
+          <Button variant="destructive" size="default" disabled>
             Destructive
           </Button>
         </section>
@@ -222,13 +221,13 @@ storiesOf('Components|Button', module)
         </section>
         <br />
         <section>
-          <Button variant="link" size={size}>
+          <Button variant="link" size="default">
             Link
           </Button>
-          <Button variant="link" size={size} loading={!isRenderingOnServer}>
+          <Button variant="link" size="default" loading={!isRenderingOnServer}>
             Link
           </Button>
-          <Button variant="link" size={size} disabled>
+          <Button variant="link" size="default" disabled>
             Link
           </Button>
         </section>
@@ -270,13 +269,13 @@ storiesOf('Components|Button', module)
         </section>
         <br />
         <section>
-          <Button variant="destructive_link" size={size}>
+          <Button variant="destructive_link" size="default">
             Destructive Link
           </Button>
-          <Button variant="destructive_link" size={size} loading={!isRenderingOnServer}>
+          <Button variant="destructive_link" size="default" loading={!isRenderingOnServer}>
             Destructive Link
           </Button>
-          <Button variant="destructive_link" size={size} disabled>
+          <Button variant="destructive_link" size="default" disabled>
             Destructive Link
           </Button>
         </section>

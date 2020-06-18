@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import {styled} from '@twilio-paste/styling-library';
 
 const StoryIcon = styled('div')`
   border: 1px solid #ccc;

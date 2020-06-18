@@ -1,6 +1,5 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
-import {themeGet} from '@styled-system/theme-get';
+import {styled, themeGet} from '@twilio-paste/styling-library';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Absolute} from '@twilio-paste/absolute';
 import {Box} from '@twilio-paste/box';

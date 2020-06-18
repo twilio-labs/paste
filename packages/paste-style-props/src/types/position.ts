@@ -1,7 +1,7 @@
 // https://styled-system.com/api/#position
 import * as CSS from 'csstype';
 import {ThemeShape} from '@twilio-paste/theme';
-import {ResponsiveValue, TLengthStyledSystem} from 'styled-system';
+import {ResponsiveValue, TLengthStyledSystem} from '@twilio-paste/styling-library';
 
 // Tokens
 export type ZIndexOptions = keyof ThemeShape['zIndices'];

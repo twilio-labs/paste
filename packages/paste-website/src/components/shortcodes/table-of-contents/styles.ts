@@ -1,6 +1,5 @@
 import Scrollspy from 'react-scrollspy';
-import styled from '@emotion/styled';
-import {themeGet} from '@styled-system/theme-get';
+import {styled, themeGet} from '@twilio-paste/styling-library';
 import {TableOfContentsListItemProps} from './types';
 
 export const StyledScrollSpy = styled(Scrollspy)`

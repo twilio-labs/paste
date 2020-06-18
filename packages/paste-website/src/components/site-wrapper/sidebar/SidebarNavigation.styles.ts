@@ -1,6 +1,5 @@
 import {Link} from 'gatsby';
-import styled from '@emotion/styled';
-import {themeGet} from '@styled-system/theme-get';
+import {styled, themeGet} from '@twilio-paste/styling-library';
 
 export const SiteNav = styled.nav`
   margin-top: ${themeGet('space.space70')};

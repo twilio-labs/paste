@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {css, Global} from '@emotion/core';
+import {css, StylingGlobals} from '@twilio-paste/styling-library';
 import {SiteBody} from './SiteBody';
 import {ActiveSiteThemeProvider} from '../../context/ActiveSiteThemeContext';
 import {SiteThemeProvider} from './SiteThemeProvider';
@@ -104,7 +104,7 @@ const SiteWrapper: React.FC = ({children}) => {
   return (
     <ActiveSiteThemeProvider>
       <SiteThemeProvider>
-        <Global styles={globalStyles} />
+        <StylingGlobals styles={globalStyles} />
         <SiteBody>{children}</SiteBody>
       </SiteThemeProvider>
     </ActiveSiteThemeProvider>

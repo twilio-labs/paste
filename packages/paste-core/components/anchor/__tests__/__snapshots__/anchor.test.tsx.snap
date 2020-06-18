@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Anchor it should render an anchor 1`] = `
-.emotion-2 {
+.emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -31,10 +31,10 @@ exports[`Anchor it should render an anchor 1`] = `
 }
 
 <div
-  className="emotion-2"
+  className="emotion-1"
 >
   <a
-    className="emotion-0 emotion-1"
+    className="emotion-0"
     href="/"
   >
     This is an anchor
@@ -43,7 +43,7 @@ exports[`Anchor it should render an anchor 1`] = `
 `;
 
 exports[`Anchor it should render an external anchor 1`] = `
-.emotion-2 {
+.emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -73,10 +73,10 @@ exports[`Anchor it should render an external anchor 1`] = `
 }
 
 <div
-  className="emotion-2"
+  className="emotion-1"
 >
   <a
-    className="emotion-0 emotion-1"
+    className="emotion-0"
     href="https://twilio.com"
     rel="noreferrer noopener"
     target="_blank"
@@ -87,7 +87,7 @@ exports[`Anchor it should render an external anchor 1`] = `
 `;
 
 exports[`Anchor it should render an external anchor with overwritten target and rel 1`] = `
-.emotion-2 {
+.emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -117,10 +117,10 @@ exports[`Anchor it should render an external anchor with overwritten target and 
 }
 
 <div
-  className="emotion-2"
+  className="emotion-1"
 >
   <a
-    className="emotion-0 emotion-1"
+    className="emotion-0"
     href="https://twilio.com"
     rel="noopener"
     target="_self"

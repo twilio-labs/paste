@@ -4,6 +4,12 @@
     "outDir": "./dist",
     "rootDir": "./src"
   },
-  "include": ["src/**/*"],
-  "references": []
+  "include": [
+    "src/**/*"
+  ],
+  "references": [
+    {
+      "path": "../../../paste-libraries/styling"
+    }
+  ]
 }

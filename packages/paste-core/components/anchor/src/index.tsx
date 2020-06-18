@@ -1,8 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {compose, layout, space} from 'styled-system';
-import styled from '@emotion/styled';
-import css from '@styled-system/css';
+import {styled, css, compose, layout, space} from '@twilio-paste/styling-library';
 import {LayoutProps, SpaceProps} from '@twilio-paste/style-props';
 
 export type AnchorTargets = '_self' | '_blank' | '_parent' | '_top';

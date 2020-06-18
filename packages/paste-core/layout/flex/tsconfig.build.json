@@ -18,6 +18,9 @@
       "path": "../../../paste-style-props"
     },
     {
+      "path": "../../../paste-libraries/styling"
+    },
+    {
       "path": "../../../paste-theme"
     },
     {

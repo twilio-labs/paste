@@ -12,6 +12,9 @@
       "path": "../paste-design-tokens"
     },
     {
+      "path": "../paste-libraries/styling"
+    },
+    {
       "path": "../paste-theme"
     }
   ]

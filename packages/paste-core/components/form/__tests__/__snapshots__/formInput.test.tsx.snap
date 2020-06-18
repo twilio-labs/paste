@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FormInput render it should render 1`] = `
-.emotion-3 {
+<DocumentFragment>
+  .emotion-2 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -9,7 +10,7 @@ exports[`FormInput render it should render 1`] = `
   font-weight: 400;
 }
 
-.emotion-2 {
+.emotion-1 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -24,16 +25,16 @@ exports[`FormInput render it should render 1`] = `
   cursor: text;
 }
 
-.emotion-2:hover {
+.emotion-1:hover {
   box-shadow: 0 0 0 1px #003e82;
 }
 
-.emotion-2:focus-within {
+.emotion-1:focus-within {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
-.emotion-2:active,
-.emotion-2[data-active=true] {
+.emotion-1:active,
+.emotion-1[data-active=true] {
   box-shadow: 0 0 0 1px #032c5e;
 }
 
@@ -86,27 +87,28 @@ exports[`FormInput render it should render 1`] = `
 }
 
 <div
-  className="emotion-3"
->
-  <div
-    className="emotion-2"
-    cursor="text"
-    display="flex"
-    width="100%"
+    class="emotion-2"
   >
-    <input
-      className="emotion-0 emotion-1"
-      id="input"
-      onChange={[Function]}
-      type="text"
-      value="test"
-    />
+    <div
+      class="emotion-1"
+      cursor="text"
+      display="flex"
+      width="100%"
+    >
+      <input
+        class="emotion-0"
+        id="input"
+        type="text"
+        value="test"
+      />
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`FormInput render it should render with disabled 1`] = `
-.emotion-3 {
+<DocumentFragment>
+  .emotion-2 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -162,7 +164,7 @@ exports[`FormInput render it should render with disabled 1`] = `
   color: rgb(112,117,120);
 }
 
-.emotion-2 {
+.emotion-1 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -177,42 +179,43 @@ exports[`FormInput render it should render with disabled 1`] = `
   cursor: not-allowed;
 }
 
-.emotion-2:hover {
+.emotion-1:hover {
   box-shadow: 0 0 0 1px #e4e7e9;
 }
 
-.emotion-2:focus-within {
+.emotion-1:focus-within {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
-.emotion-2:active,
-.emotion-2[data-active=true] {
+.emotion-1:active,
+.emotion-1[data-active=true] {
   box-shadow: 0 0 0 1px #e4e7e9;
 }
 
 <div
-  className="emotion-3"
->
-  <div
-    className="emotion-2"
-    cursor="not-allowed"
-    display="flex"
-    width="100%"
+    class="emotion-2"
   >
-    <input
-      className="emotion-0 emotion-1"
-      disabled={true}
-      id="input"
-      onChange={[Function]}
-      type="text"
-      value="test"
-    />
+    <div
+      class="emotion-1"
+      cursor="not-allowed"
+      display="flex"
+      width="100%"
+    >
+      <input
+        class="emotion-0"
+        disabled=""
+        id="input"
+        type="text"
+        value="test"
+      />
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`FormInput render it should render with hasError 1`] = `
-.emotion-3 {
+<DocumentFragment>
+  .emotion-2 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -268,7 +271,7 @@ exports[`FormInput render it should render with hasError 1`] = `
   color: rgb(112,117,120);
 }
 
-.emotion-2 {
+.emotion-1 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -283,42 +286,43 @@ exports[`FormInput render it should render with hasError 1`] = `
   cursor: text;
 }
 
-.emotion-2:hover {
+.emotion-1:hover {
   box-shadow: 0 0 0 1px #921200;
 }
 
-.emotion-2:focus-within {
+.emotion-1:focus-within {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
-.emotion-2:active,
-.emotion-2[data-active=true] {
+.emotion-1:active,
+.emotion-1[data-active=true] {
   box-shadow: 0 0 0 1px #032c5e;
 }
 
 <div
-  className="emotion-3"
->
-  <div
-    className="emotion-2"
-    cursor="text"
-    display="flex"
-    width="100%"
+    class="emotion-2"
   >
-    <input
-      aria-invalid={true}
-      className="emotion-0 emotion-1"
-      id="input"
-      onChange={[Function]}
-      type="text"
-      value="test"
-    />
+    <div
+      class="emotion-1"
+      cursor="text"
+      display="flex"
+      width="100%"
+    >
+      <input
+        aria-invalid="true"
+        class="emotion-0"
+        id="input"
+        type="text"
+        value="test"
+      />
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`FormInput render it should render with prefix 1`] = `
-.emotion-4 {
+<DocumentFragment>
+  .emotion-3 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -326,7 +330,7 @@ exports[`FormInput render it should render with prefix 1`] = `
   font-weight: 400;
 }
 
-.emotion-3 {
+.emotion-2 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -341,16 +345,16 @@ exports[`FormInput render it should render with prefix 1`] = `
   cursor: text;
 }
 
-.emotion-3:hover {
+.emotion-2:hover {
   box-shadow: 0 0 0 1px #003e82;
 }
 
-.emotion-3:focus-within {
+.emotion-2:focus-within {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
-.emotion-3:active,
-.emotion-3[data-active=true] {
+.emotion-2:active,
+.emotion-2[data-active=true] {
   box-shadow: 0 0 0 1px #032c5e;
 }
 
@@ -422,35 +426,36 @@ exports[`FormInput render it should render with prefix 1`] = `
 }
 
 <div
-  className="emotion-4"
->
-  <div
-    className="emotion-3"
-    cursor="text"
-    display="flex"
-    width="100%"
+    class="emotion-3"
   >
     <div
-      className="emotion-0"
+      class="emotion-2"
+      cursor="text"
       display="flex"
+      width="100%"
     >
-      <div>
-        prefix
+      <div
+        class="emotion-0"
+        display="flex"
+      >
+        <div>
+          prefix
+        </div>
       </div>
+      <input
+        class="emotion-1"
+        id="input"
+        type="text"
+        value="test"
+      />
     </div>
-    <input
-      className="emotion-1 emotion-2"
-      id="input"
-      onChange={[Function]}
-      type="text"
-      value="test"
-    />
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`FormInput render it should render with readOnly 1`] = `
-.emotion-3 {
+<DocumentFragment>
+  .emotion-2 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -506,7 +511,7 @@ exports[`FormInput render it should render with readOnly 1`] = `
   color: rgb(112,117,120);
 }
 
-.emotion-2 {
+.emotion-1 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -521,43 +526,44 @@ exports[`FormInput render it should render with readOnly 1`] = `
   cursor: text;
 }
 
-.emotion-2:hover {
+.emotion-1:hover {
   box-shadow: 0 0 0 1px #888c8e;
 }
 
-.emotion-2:focus-within {
+.emotion-1:focus-within {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
-.emotion-2:active,
-.emotion-2[data-active=true] {
+.emotion-1:active,
+.emotion-1[data-active=true] {
   box-shadow: 0 0 0 1px #032c5e;
 }
 
 <div
-  className="emotion-3"
->
-  <div
-    className="emotion-2"
-    cursor="text"
-    display="flex"
-    width="100%"
+    class="emotion-2"
   >
-    <input
-      aria-readonly={true}
-      className="emotion-0 emotion-1"
-      id="input"
-      onChange={[Function]}
-      readOnly={true}
-      type="text"
-      value="test"
-    />
+    <div
+      class="emotion-1"
+      cursor="text"
+      display="flex"
+      width="100%"
+    >
+      <input
+        aria-readonly="true"
+        class="emotion-0"
+        id="input"
+        readonly=""
+        type="text"
+        value="test"
+      />
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`FormInput render it should render with suffix 1`] = `
-.emotion-4 {
+<DocumentFragment>
+  .emotion-3 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -565,7 +571,7 @@ exports[`FormInput render it should render with suffix 1`] = `
   font-weight: 400;
 }
 
-.emotion-3 {
+.emotion-2 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -580,16 +586,16 @@ exports[`FormInput render it should render with suffix 1`] = `
   cursor: text;
 }
 
-.emotion-3:hover {
+.emotion-2:hover {
   box-shadow: 0 0 0 1px #003e82;
 }
 
-.emotion-3:focus-within {
+.emotion-2:focus-within {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
-.emotion-3:active,
-.emotion-3[data-active=true] {
+.emotion-2:active,
+.emotion-2[data-active=true] {
   box-shadow: 0 0 0 1px #032c5e;
 }
 
@@ -641,7 +647,7 @@ exports[`FormInput render it should render with suffix 1`] = `
   color: rgb(112,117,120);
 }
 
-.emotion-2 {
+.emotion-1 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -661,29 +667,29 @@ exports[`FormInput render it should render with suffix 1`] = `
 }
 
 <div
-  className="emotion-4"
->
-  <div
-    className="emotion-3"
-    cursor="text"
-    display="flex"
-    width="100%"
+    class="emotion-3"
   >
-    <input
-      className="emotion-0 emotion-1"
-      id="input"
-      onChange={[Function]}
-      type="text"
-      value="test"
-    />
     <div
-      className="emotion-2"
+      class="emotion-2"
+      cursor="text"
       display="flex"
+      width="100%"
     >
-      <div>
-        suffix
+      <input
+        class="emotion-0"
+        id="input"
+        type="text"
+        value="test"
+      />
+      <div
+        class="emotion-1"
+        display="flex"
+      >
+        <div>
+          suffix
+        </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;

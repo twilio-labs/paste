@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Alert Variant error Should render an error alert 1`] = `
-.emotion-4 {
+.emotion-3 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -13,7 +13,7 @@ exports[`Alert Variant error Should render an error alert 1`] = `
   align-items: flex-start;
 }
 
-.emotion-6 {
+.emotion-5 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -21,7 +21,7 @@ exports[`Alert Variant error Should render an error alert 1`] = `
   font-weight: 400;
 }
 
-.emotion-2 {
+.emotion-1 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -33,7 +33,7 @@ exports[`Alert Variant error Should render an error alert 1`] = `
   margin-right: 0.75rem;
 }
 
-.emotion-3 {
+.emotion-2 {
   box-sizing: border-box;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -41,7 +41,7 @@ exports[`Alert Variant error Should render an error alert 1`] = `
   min-width: 0;
 }
 
-.emotion-5 {
+.emotion-4 {
   box-sizing: border-box;
   background-color: rgb(255,233,231);
   border-color: rgb(222,88,88);
@@ -64,22 +64,22 @@ exports[`Alert Variant error Should render an error alert 1`] = `
 }
 
 <div
-  className="emotion-6"
+  className="emotion-5"
 >
   <div
-    className="emotion-5"
+    className="emotion-4"
     role="alert"
   >
     <div
-      className="emotion-4"
+      className="emotion-3"
       display="flex"
     >
       <div
-        className="emotion-2"
+        className="emotion-1"
         display="flex"
       >
         <span
-          className="emotion-0 emotion-1"
+          className="emotion-0"
           size="sizeIcon30"
         >
           <svg
@@ -104,7 +104,7 @@ exports[`Alert Variant error Should render an error alert 1`] = `
         </span>
       </div>
       <div
-        className="emotion-3"
+        className="emotion-2"
       >
         This is an error alert
       </div>
@@ -114,7 +114,7 @@ exports[`Alert Variant error Should render an error alert 1`] = `
 `;
 
 exports[`Alert Variant error Should render an error alert with dismiss button 1`] = `
-.emotion-9 {
+.emotion-7 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -126,7 +126,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
   align-items: flex-start;
 }
 
-.emotion-11 {
+.emotion-9 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -134,7 +134,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
   font-weight: 400;
 }
 
-.emotion-2 {
+.emotion-1 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -146,7 +146,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
   margin-right: 0.75rem;
 }
 
-.emotion-4 {
+.emotion-3 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -156,7 +156,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
   color: rgb(112,117,120);
 }
 
-.emotion-3 {
+.emotion-2 {
   box-sizing: border-box;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -164,7 +164,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
   min-width: 0;
 }
 
-.emotion-8 {
+.emotion-6 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -176,7 +176,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
   margin-left: 1.5rem;
 }
 
-.emotion-7 {
+.emotion-5 {
   position: relative;
   font-size: 100%;
   padding: 0;
@@ -199,38 +199,38 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
   width: auto;
 }
 
-.emotion-7::-moz-focus-inner {
+.emotion-5::-moz-focus-inner {
   border: none;
 }
 
-.emotion-7:focus,
-.emotion-7:active {
+.emotion-5:focus,
+.emotion-5:active {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
-.emotion-7:hover,
-.emotion-7:focus,
-.emotion-7:active {
+.emotion-5:hover,
+.emotion-5:focus,
+.emotion-5:active {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-7:hover,
-.emotion-7:focus,
-.emotion-7:active {
+.emotion-5:hover,
+.emotion-5:focus,
+.emotion-5:active {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.emotion-7:hover {
+.emotion-5:hover {
   color: rgb(0,62,130);
 }
 
-.emotion-7:active {
+.emotion-5:active {
   color: rgb(3,44,94);
 }
 
-.emotion-6 {
+.emotion-4 {
   display: grid;
   grid-auto-flow: column;
   -webkit-column-gap: 0.25rem;
@@ -249,7 +249,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
   opacity: 100%;
 }
 
-.emotion-10 {
+.emotion-8 {
   box-sizing: border-box;
   background-color: rgb(255,233,231);
   border-color: rgb(222,88,88);
@@ -272,22 +272,22 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
 }
 
 <div
-  className="emotion-11"
+  className="emotion-9"
 >
   <div
-    className="emotion-10"
+    className="emotion-8"
     role="alert"
   >
     <div
-      className="emotion-9"
+      className="emotion-7"
       display="flex"
     >
       <div
-        className="emotion-2"
+        className="emotion-1"
         display="flex"
       >
         <span
-          className="emotion-0 emotion-1"
+          className="emotion-0"
           size="sizeIcon30"
         >
           <svg
@@ -312,27 +312,27 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
         </span>
       </div>
       <div
-        className="emotion-3"
+        className="emotion-2"
       >
         This is an error alert
       </div>
       <span
-        className="emotion-8"
+        className="emotion-6"
         display="flex"
       >
         <button
           aria-busy="false"
-          className="emotion-7"
+          className="emotion-5"
           disabled={false}
           onClick={[MockFunction]}
           size="reset"
           type="button"
         >
           <span
-            className="emotion-6"
+            className="emotion-4"
           >
             <span
-              className="emotion-4 emotion-1"
+              className="emotion-3"
               size="sizeIcon30"
             >
               <svg
@@ -364,7 +364,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
 `;
 
 exports[`Alert Variant neutral Should render a neutral alert 1`] = `
-.emotion-4 {
+.emotion-3 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -376,7 +376,7 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
   align-items: flex-start;
 }
 
-.emotion-6 {
+.emotion-5 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -384,7 +384,7 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
   font-weight: 400;
 }
 
-.emotion-5 {
+.emotion-4 {
   box-sizing: border-box;
   background-color: rgb(245,248,255);
   border-color: rgb(200,204,207);
@@ -396,7 +396,7 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
   padding-bottom: 0.5rem;
 }
 
-.emotion-2 {
+.emotion-1 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -418,7 +418,7 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
   color: rgb(112,117,120);
 }
 
-.emotion-3 {
+.emotion-2 {
   box-sizing: border-box;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -427,22 +427,22 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
 }
 
 <div
-  className="emotion-6"
+  className="emotion-5"
 >
   <div
-    className="emotion-5"
+    className="emotion-4"
     role="status"
   >
     <div
-      className="emotion-4"
+      className="emotion-3"
       display="flex"
     >
       <div
-        className="emotion-2"
+        className="emotion-1"
         display="flex"
       >
         <span
-          className="emotion-0 emotion-1"
+          className="emotion-0"
           size="sizeIcon30"
         >
           <svg
@@ -467,7 +467,7 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
         </span>
       </div>
       <div
-        className="emotion-3"
+        className="emotion-2"
       >
         This is an alert
       </div>
@@ -477,7 +477,7 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
 `;
 
 exports[`Alert Variant neutral Should render a neutral alert with dismiss button 1`] = `
-.emotion-9 {
+.emotion-7 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -489,7 +489,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
   align-items: flex-start;
 }
 
-.emotion-11 {
+.emotion-9 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -497,7 +497,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
   font-weight: 400;
 }
 
-.emotion-10 {
+.emotion-8 {
   box-sizing: border-box;
   background-color: rgb(245,248,255);
   border-color: rgb(200,204,207);
@@ -509,7 +509,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
   padding-bottom: 0.5rem;
 }
 
-.emotion-2 {
+.emotion-1 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -531,7 +531,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
   color: rgb(112,117,120);
 }
 
-.emotion-3 {
+.emotion-2 {
   box-sizing: border-box;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -539,7 +539,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
   min-width: 0;
 }
 
-.emotion-8 {
+.emotion-6 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -551,7 +551,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
   margin-left: 1.5rem;
 }
 
-.emotion-7 {
+.emotion-5 {
   position: relative;
   font-size: 100%;
   padding: 0;
@@ -574,38 +574,38 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
   width: auto;
 }
 
-.emotion-7::-moz-focus-inner {
+.emotion-5::-moz-focus-inner {
   border: none;
 }
 
-.emotion-7:focus,
-.emotion-7:active {
+.emotion-5:focus,
+.emotion-5:active {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
-.emotion-7:hover,
-.emotion-7:focus,
-.emotion-7:active {
+.emotion-5:hover,
+.emotion-5:focus,
+.emotion-5:active {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-7:hover,
-.emotion-7:focus,
-.emotion-7:active {
+.emotion-5:hover,
+.emotion-5:focus,
+.emotion-5:active {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.emotion-7:hover {
+.emotion-5:hover {
   color: rgb(0,62,130);
 }
 
-.emotion-7:active {
+.emotion-5:active {
   color: rgb(3,44,94);
 }
 
-.emotion-6 {
+.emotion-4 {
   display: grid;
   grid-auto-flow: column;
   -webkit-column-gap: 0.25rem;
@@ -625,22 +625,22 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
 }
 
 <div
-  className="emotion-11"
+  className="emotion-9"
 >
   <div
-    className="emotion-10"
+    className="emotion-8"
     role="status"
   >
     <div
-      className="emotion-9"
+      className="emotion-7"
       display="flex"
     >
       <div
-        className="emotion-2"
+        className="emotion-1"
         display="flex"
       >
         <span
-          className="emotion-0 emotion-1"
+          className="emotion-0"
           size="sizeIcon30"
         >
           <svg
@@ -665,27 +665,27 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
         </span>
       </div>
       <div
-        className="emotion-3"
+        className="emotion-2"
       >
         This is an alert
       </div>
       <span
-        className="emotion-8"
+        className="emotion-6"
         display="flex"
       >
         <button
           aria-busy="false"
-          className="emotion-7"
+          className="emotion-5"
           disabled={false}
           onClick={[MockFunction]}
           size="reset"
           type="button"
         >
           <span
-            className="emotion-6"
+            className="emotion-4"
           >
             <span
-              className="emotion-0 emotion-1"
+              className="emotion-0"
               size="sizeIcon30"
             >
               <svg
@@ -717,7 +717,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
 `;
 
 exports[`Alert Variant warning Should render an warning alert 1`] = `
-.emotion-4 {
+.emotion-3 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -729,7 +729,7 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
   align-items: flex-start;
 }
 
-.emotion-6 {
+.emotion-5 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -737,7 +737,7 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
   font-weight: 400;
 }
 
-.emotion-2 {
+.emotion-1 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -749,7 +749,7 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
   margin-right: 0.75rem;
 }
 
-.emotion-3 {
+.emotion-2 {
   box-sizing: border-box;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -757,7 +757,7 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
   min-width: 0;
 }
 
-.emotion-5 {
+.emotion-4 {
   box-sizing: border-box;
   background-color: rgb(255,236,216);
   border-color: rgb(242,133,16);
@@ -780,22 +780,22 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
 }
 
 <div
-  className="emotion-6"
+  className="emotion-5"
 >
   <div
-    className="emotion-5"
+    className="emotion-4"
     role="alert"
   >
     <div
-      className="emotion-4"
+      className="emotion-3"
       display="flex"
     >
       <div
-        className="emotion-2"
+        className="emotion-1"
         display="flex"
       >
         <span
-          className="emotion-0 emotion-1"
+          className="emotion-0"
           size="sizeIcon30"
         >
           <svg
@@ -820,7 +820,7 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
         </span>
       </div>
       <div
-        className="emotion-3"
+        className="emotion-2"
       >
         This is an warning alert
       </div>
@@ -830,7 +830,7 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
 `;
 
 exports[`Alert Variant warning Should render an warning alert with dismiss button 1`] = `
-.emotion-9 {
+.emotion-7 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -842,7 +842,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
   align-items: flex-start;
 }
 
-.emotion-11 {
+.emotion-9 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -850,7 +850,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
   font-weight: 400;
 }
 
-.emotion-2 {
+.emotion-1 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -862,7 +862,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
   margin-right: 0.75rem;
 }
 
-.emotion-4 {
+.emotion-3 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -872,7 +872,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
   color: rgb(112,117,120);
 }
 
-.emotion-3 {
+.emotion-2 {
   box-sizing: border-box;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -880,7 +880,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
   min-width: 0;
 }
 
-.emotion-8 {
+.emotion-6 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -892,7 +892,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
   margin-left: 1.5rem;
 }
 
-.emotion-7 {
+.emotion-5 {
   position: relative;
   font-size: 100%;
   padding: 0;
@@ -915,38 +915,38 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
   width: auto;
 }
 
-.emotion-7::-moz-focus-inner {
+.emotion-5::-moz-focus-inner {
   border: none;
 }
 
-.emotion-7:focus,
-.emotion-7:active {
+.emotion-5:focus,
+.emotion-5:active {
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
-.emotion-7:hover,
-.emotion-7:focus,
-.emotion-7:active {
+.emotion-5:hover,
+.emotion-5:focus,
+.emotion-5:active {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-7:hover,
-.emotion-7:focus,
-.emotion-7:active {
+.emotion-5:hover,
+.emotion-5:focus,
+.emotion-5:active {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.emotion-7:hover {
+.emotion-5:hover {
   color: rgb(0,62,130);
 }
 
-.emotion-7:active {
+.emotion-5:active {
   color: rgb(3,44,94);
 }
 
-.emotion-6 {
+.emotion-4 {
   display: grid;
   grid-auto-flow: column;
   -webkit-column-gap: 0.25rem;
@@ -965,7 +965,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
   opacity: 100%;
 }
 
-.emotion-10 {
+.emotion-8 {
   box-sizing: border-box;
   background-color: rgb(255,236,216);
   border-color: rgb(242,133,16);
@@ -988,22 +988,22 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
 }
 
 <div
-  className="emotion-11"
+  className="emotion-9"
 >
   <div
-    className="emotion-10"
+    className="emotion-8"
     role="alert"
   >
     <div
-      className="emotion-9"
+      className="emotion-7"
       display="flex"
     >
       <div
-        className="emotion-2"
+        className="emotion-1"
         display="flex"
       >
         <span
-          className="emotion-0 emotion-1"
+          className="emotion-0"
           size="sizeIcon30"
         >
           <svg
@@ -1028,27 +1028,27 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
         </span>
       </div>
       <div
-        className="emotion-3"
+        className="emotion-2"
       >
         This is an warning alert
       </div>
       <span
-        className="emotion-8"
+        className="emotion-6"
         display="flex"
       >
         <button
           aria-busy="false"
-          className="emotion-7"
+          className="emotion-5"
           disabled={false}
           onClick={[MockFunction]}
           size="reset"
           type="button"
         >
           <span
-            className="emotion-6"
+            className="emotion-4"
           >
             <span
-              className="emotion-4 emotion-1"
+              className="emotion-3"
               size="sizeIcon30"
             >
               <svg

@@ -1,6 +1,6 @@
 /* This file contains the code for the addon's decorator that wraps each story */
 import * as React from 'react';
-import {css, Global} from '@emotion/core';
+import {css, StylingGlobals} from '@twilio-paste/styling-library';
 import {Theme, ThemeVariants} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import addonsAPI, {makeDecorator} from '@storybook/addons';
@@ -53,7 +53,7 @@ class ThemeWrapper extends React.Component {
   render() {
     return (
       <Theme.Provider theme={this.state.theme}>
-        <Global styles={globalStyles} />
+        <StylingGlobals styles={globalStyles} />
         <Box padding="space40">{this.props.children}</Box>
       </Theme.Provider>
     );

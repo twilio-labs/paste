@@ -1,6 +1,5 @@
 import * as PropTypes from 'prop-types';
-import styled from '@emotion/styled';
-import {top, right, bottom, left, zIndex, styleFn} from 'styled-system';
+import {styled, top, right, bottom, left, zIndex, styleFn} from '@twilio-paste/styling-library';
 import {Box, BoxProps} from '@twilio-paste/box';
 
 const LEFT_OPTIONS = [

@@ -1,6 +1,5 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
-import {themeGet} from '@styled-system/theme-get';
+import {styled, themeGet} from '@twilio-paste/styling-library';
 import {Link} from 'gatsby';
 
 // Link styles copied from @twilio-paste/anchor

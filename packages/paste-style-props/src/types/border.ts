@@ -1,7 +1,7 @@
 // https://styled-system.com/api/#border
 import * as CSS from 'csstype';
 import {ThemeShape} from '@twilio-paste/theme';
-import {ResponsiveValue} from 'styled-system';
+import {ResponsiveValue} from '@twilio-paste/styling-library';
 
 // Tokens
 export type BorderRadiusOptions = keyof ThemeShape['radii'];

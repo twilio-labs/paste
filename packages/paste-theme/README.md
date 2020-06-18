@@ -1,37 +1,36 @@
 <!-- STORY -->
 
-# Theme Provider
+# ThemeProvider
 
-Paste Components require you to wrap your application in the Paste Theme provider to apply the theme tokens to the components you use, and provide a way to access Paste Design Tokens in your custom components.
-
-The Paste Theme Provider is a wrapper around the [Emotion Theme Provider](https://emotion.sh/docs/emotion-theming) and comes with a default theme.
-
-You should place the `Theme.Provider` around the root of your React application.
+The Paste `ThemeProvider` leverages React's [Context](https://reactjs.org/docs/context.html) to provide the theme object to any descendant components in the tree. For that reason, we recommend wrapping your application at the root level with the Paste `ThemeProvider`. This allows all sub-components to retrieve the correct token value for the supplied theme.
 
 ```js
 import {Theme} from '@twilio-paste/theme';
 
-<Theme.Provider theme="console">...</Theme.Provider>;
+<Theme.Provider theme="console">
+  <App />
+</Theme.Provider>
 ```
 
 ## Using tokens in custom components
 
 Sometimes you will need to create something custom that is not available in Paste but you need that component to still look like it's from Paste. The use of Paste Tokens in your styles is the way that you can access global design properties used in all Paste Components.
 
-### Emotion Styled Component
+### Styled Component
 
-By using the `Theme.Provider`, when you create a custom component using Emotion CSS, the theme object is available on `props` via context. You can access those via the [Styled-System `themeGet` utility](https://styled-system.com/api#themeget) or props object directly.
+By using the `Theme.Provider`, when you create a custom component using Styling-Library, the theme object is available on `props` via context. You can access those via the [`css` utility](https://github.com/styled-system/styled-system/blob/master/packages/css/README.md) or props object directly.
 
 This is the preferred method.
 
 ```js
-import styled from '@emotion/styled';
-import {themeGet} from '@styled-system/theme-get';
+import {styled, css} from '@twilio-paste/styling-library';
 
-const custom = styled.div`
-  background-color: ${themeGet('backgrounds.primary')};
-  padding: ${props => props.theme.spacing.spacing20};
-`;
+const custom = styled.div(
+  css({
+    backgroundColor: 'colorBackgroundPrimary',
+    padding: 'spacing20',
+  })
+);
 ```
 
 ### Paste ThemeConsumer
@@ -45,7 +44,7 @@ import {Theme} from '@twilio-paste/theme';
   {({theme}) => {
     return <p>What is the default text color {theme.textColors.colorText}</p>;
   }}
-</Theme.Consumer>;
+</Theme.Consumer>
 ```
 
 ### Paste useTheme Hook
@@ -62,14 +61,16 @@ const HookExampleComponent = (): React.ReactElement => {
 };
 ```
 
-### Higher Order Component
+### Higher Order Component (HoC)
 
-Paste also provides a HOC Component, which is a wrapper around the Emotion [HOC Component](https://emotion.sh/docs/emotion-theming#withthemecomponent-reactcomponenttype-reactcomponenttype) to be able to access the theme object.
+Paste also provides a HoC to be able to access the theme object.
 
 ```js
 import React from 'react';
 import {withTheme} from '@twilio-paste/theme';
 
 const ExampleComponent = ({theme}) => <p>What is the default text color {theme.textColors.colorText}</p>;
+
+// Provides this component with the theme object as a prop
 const ExampleComponentwithTheme = withTheme(ExampleComponent);
 ```

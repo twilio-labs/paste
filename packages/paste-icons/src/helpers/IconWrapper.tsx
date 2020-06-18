@@ -1,5 +1,4 @@
-import styled from '@emotion/styled';
-import {compose, size, system} from 'styled-system';
+import {styled, compose, size, system} from '@twilio-paste/styling-library';
 import {IconSize, TextColor} from '@twilio-paste/style-props';
 
 // I can't name this simply `color` because TS + Emotion doesn't like it

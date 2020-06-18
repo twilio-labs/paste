@@ -1,11 +1,12 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
 import {useReducedMotion, Globals as AnimatedGlobals} from '@twilio-paste/animation-library';
-
-import {Global} from '@emotion/core';
-import {css, SystemStyleObject} from '@styled-system/css';
-import {ThemeProvider as StyledThemeProvider} from 'emotion-theming';
-
+import {
+  styled,
+  StylingGlobals,
+  css,
+  SystemStyleObject,
+  ThemeProvider as StyledThemeProvider,
+} from '@twilio-paste/styling-library';
 import {DefaultTheme, SendGridTheme, ConsoleTheme} from './themes';
 import {ThemeVariants} from './constants';
 
@@ -83,7 +84,7 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
 
   return (
     <StyledThemeProvider theme={providerThemeProps}>
-      <Global styles={pasteGlobalStyles({theme: providerThemeProps})} />
+      <StylingGlobals styles={pasteGlobalStyles({theme: providerThemeProps})} />
       <StyledBase {...props} />
     </StyledThemeProvider>
   );

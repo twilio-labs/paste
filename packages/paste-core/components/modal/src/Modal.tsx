@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import styled from '@emotion/styled';
-import css from '@styled-system/css';
+import {styled, css} from '@twilio-paste/styling-library';
 import {useTransition, animated} from '@twilio-paste/animation-library';
 import {pasteBaseStyles} from '@twilio-paste/theme';
 import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';

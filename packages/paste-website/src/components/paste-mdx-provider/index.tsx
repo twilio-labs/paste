@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {MDXProvider} from '@mdx-js/react';
-import styled from '@emotion/styled';
+import {styled} from '@twilio-paste/styling-library';
 import {Anchor, AnchorProps} from '@twilio-paste/anchor';
 import {Heading, HeadingProps} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';

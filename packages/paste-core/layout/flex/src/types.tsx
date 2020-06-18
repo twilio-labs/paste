@@ -1,4 +1,4 @@
-import {ResponsiveValue} from 'styled-system';
+import {ResponsiveValue} from '@twilio-paste/styling-library';
 import {LayoutProps, MarginProps, PaddingProps} from '@twilio-paste/style-props';
 
 export type DisplayOptions = 'flex' | 'inline-flex';
