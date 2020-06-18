@@ -7,8 +7,3 @@ expect.extend(toHaveNoViolations);
 
 expect.addSnapshotSerializer(createSerializer(emotion));
 Enzyme.configure({adapter: new Adapter()});
-
-// Shim for useReducedMotion hooks
-global.window.matchMedia = jest.fn(() => {
-  return {matches: false, addListener: jest.fn(), removeListener: jest.fn()};
-});
