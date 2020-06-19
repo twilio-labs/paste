@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.33.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.33.4...@twilio-paste/website@1.33.5) (2020-06-19)
+
+
+### Bug Fixes
+
+* **website:** fix website scrolling ([#509](https://github.com/twilio-labs/paste/issues/509)) ([f5792cb](https://github.com/twilio-labs/paste/commit/f5792cb6e21134e3e9fe16c9568732dad1c98206))
+
+
+
+
+
 ## [1.33.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.33.3...@twilio-paste/website@1.33.4) (2020-06-18)
 
 **Note:** Version bump only for package @twilio-paste/website
