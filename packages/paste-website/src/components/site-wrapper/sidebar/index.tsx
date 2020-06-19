@@ -6,7 +6,7 @@ import {SidebarNavigation} from './SidebarNavigation';
 import {SIDEBAR_WIDTH} from '../constants';
 
 const StyledSidebar = styled(Box)`
-  height: 100%;
+  height: 100vh;
   width: ${SIDEBAR_WIDTH};
   overflow: auto;
   -webkit-overflow-scrolling: touch;
