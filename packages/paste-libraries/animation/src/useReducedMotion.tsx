@@ -10,12 +10,11 @@ const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
 // Wrapping the second return in an else fixes how terser compiles the code.
 /* eslint-disable no-else-return */
 export const isRenderingOnServer = (() => {
-  if (typeof window == 'undefined' || !window.location || !window.location.href) {
+  if (typeof window == 'undefined' || !window.location || !window.location.href || !window.matchMedia) {
     return true;
-  } else {
-    // Disable animations during VRT
-    return Boolean(new URL(window.location.href).searchParams.get('eyes-storybook'));
   }
+  // Disable animations during VRT
+  return Boolean(new URL(window.location.href).searchParams.get('eyes-storybook'));
 })();
 
 const getMediaQueryList = (): {matches: boolean; addListener: Function; removeListener: Function} => {
@@ -25,9 +24,8 @@ const getMediaQueryList = (): {matches: boolean; addListener: Function; removeLi
       addListener: () => {},
       removeListener: () => {},
     };
-  } else {
-    return window.matchMedia(REDUCED_MOTION_QUERY);
   }
+  return window.matchMedia(REDUCED_MOTION_QUERY);
 };
 /* eslint-enable no-else-return */
 
