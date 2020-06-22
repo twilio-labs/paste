@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/theme",
-  "version": "3.2.4",
+  "version": "3.2.5",
   "description": "Paste Design System Theme Package which provides support for APIs to theme UIs and components.",
   "author": "Twilio Inc.",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@twilio-paste/animation-library": "^0.2.0",
+    "@twilio-paste/animation-library": "^0.2.1",
     "@twilio-paste/design-tokens": "^5.2.2",
     "@twilio-paste/styling-library": "^0.1.0",
     "@twilio-paste/types": "^3.0.9",
@@ -30,7 +30,7 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/animation-library": "^0.2.0",
+    "@twilio-paste/animation-library": "^0.2.1",
     "@twilio-paste/design-tokens": "^5.2.2",
     "@twilio-paste/styling-library": "^0.1.0",
     "@twilio-paste/types": "^3.0.9"
