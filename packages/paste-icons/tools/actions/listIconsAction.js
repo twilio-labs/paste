@@ -1,6 +1,6 @@
 const path = require('path');
 const {readdirAsync, removeTsxExtension, maybeHandleError} = require('../utils');
-const {REACT_PATH, BLACKLIST_FILES} = require('../constants');
+const {REACT_PATH, BLOCKLIST_FILES} = require('../constants');
 const {storybookListTemplate} = require('../templates/storybookListTemplate');
 const {rollupListTemplate} = require('../templates/rollupListTemplate');
 const {writeToFile} = require('../../../../tools/utils/writeToFile');
@@ -9,7 +9,7 @@ async function listIconsAction() {
   let destinationFiles;
   try {
     destinationFiles = await readdirAsync(REACT_PATH);
-    destinationFiles = destinationFiles.filter(fileName => !BLACKLIST_FILES.includes(fileName)).map(removeTsxExtension);
+    destinationFiles = destinationFiles.filter(fileName => !BLOCKLIST_FILES.includes(fileName)).map(removeTsxExtension);
   } catch (error) {
     maybeHandleError('Error occured while generating icon list!', error);
   }

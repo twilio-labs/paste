@@ -153,7 +153,7 @@ This package is a wrapper around the [Reakit Menu](https://reakit.io/docs/menu/)
 
 - If we want to migrate the underlying nuts and bolts in the future, Twilio products that depend on this primitive would need to replace all occurrences of `import … from ‘x-package’` to `import … from ‘@some-new/package’`. By wrapping it in `@twilio-paste/x-primitive`, this refactor can be avoided. The only change would be a version bump in the ‘package.json` file for the primitive.
 - We can more strictly enforce semver and backwards compatibility than some of our dependencies.
-- We can control when to provide an update and which versions we whitelist, to help reduce potential bugs our consumers may face.
+- We can control when to provide an update and which versions we allow, to help reduce potential bugs our consumers may face.
 - We can control which APIs we expose. For example, we may chose to enable or disable usage of certain undocumented APIs.
 
 <Callout>
