@@ -419,4 +419,38 @@ storiesOf('Components|Modal', module)
         </Modal>
       </div>
     );
+  })
+  .add('console patch prop', () => {
+    const [isOpen, setIsOpen] = React.useState(true);
+    const handleOpen = (): void => setIsOpen(true);
+    const handleClose = (): void => setIsOpen(false);
+    const modalHeadingID = useUID();
+    return (
+      <Flex>
+        <div id="sidebar-wrapper">Sidebar</div>
+        <div id="content">
+          <Button variant="primary" onClick={handleOpen}>
+            Open Modal
+          </Button>
+          <Modal ariaLabelledby={modalHeadingID} isOpen={isOpen} onDismiss={handleClose} size="default" __console_patch>
+            <ModalHeader>
+              <ModalHeading as="h3" id={modalHeadingID}>
+                Modal Heading
+              </ModalHeading>
+            </ModalHeader>
+            <ModalBody>Look at the background, behind the dark overlay.</ModalBody>
+            <ModalFooter>
+              <ModalFooterActions>
+                <Button variant="secondary" onClick={handleClose}>
+                  Cancel
+                </Button>
+                <Button variant="primary" onClick={handleClose}>
+                  Submit
+                </Button>
+              </ModalFooterActions>
+            </ModalFooter>
+          </Modal>
+        </div>
+      </Flex>
+    );
   });
