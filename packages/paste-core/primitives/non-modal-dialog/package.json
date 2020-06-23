@@ -3,7 +3,7 @@
   "version": "0.2.1",
   "category": "interaction",
   "status": "beta",
-  "description": "An unstyled and accessible basis upon which to build a non-modal dialog.",
+  "description": "An unstyled and accessible base upon which to build a non-modal dialog.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
