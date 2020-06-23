@@ -9,7 +9,7 @@
  *   The only change would be a version bump in the package.json file.
  * - We can more strictly enforce semver and backwards compatibility than some of
  *   our dependencies.
- * - We can control when to provide an update and which versions we whitelist, to
+ * - We can control when to provide an update and which versions we allow, to
  *   help reduce potential bugs our consumers may face.
  * - We can control which APIs we expose. For example, we may chose to enable or
  *   disable usage of certain undocumented APIs.

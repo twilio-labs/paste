@@ -41,9 +41,9 @@ const MockSelect: React.FC<MockSelectProps> = ({children, hasError = false, data
 };
 
 describe('Form | Select', () => {
-  const blackListedPropsMap = {
+  const blockListedPropsMap = {
     style: {},
-    className: 'blacklisted',
+    className: 'blocklisted',
     height: '1px',
     width: '2px',
     size: 2,
@@ -82,32 +82,32 @@ describe('Form | Select', () => {
     expect(attributeMap.form).toEqual('test-form');
   });
 
-  it('should filter blacklisted props', () => {
-    const {getByTestId} = testRender(<MockSelect dataPrefix="blacklisted" {...blackListedPropsMap} />);
-    const selectAttributesMap = createAttributeMap(getByTestId('blacklisted-select'));
+  it('should filter blocklisted props', () => {
+    const {getByTestId} = testRender(<MockSelect dataPrefix="blocklisted" {...blockListedPropsMap} />);
+    const selectAttributesMap = createAttributeMap(getByTestId('blocklisted-select'));
 
     expect(selectAttributesMap.hasOwnProperty('style')).toBe(false);
     expect(selectAttributesMap.hasOwnProperty('className')).toBe(false);
     expect(selectAttributesMap.hasOwnProperty('height')).toBe(false);
     expect(selectAttributesMap.hasOwnProperty('width')).toBe(false);
     expect(selectAttributesMap.hasOwnProperty('size')).toBe(false);
-    expect(selectAttributesMap.class).not.toBe('blacklisted');
+    expect(selectAttributesMap.class).not.toBe('blocklisted');
 
     const multipleRenderProps = {
-      ...blackListedPropsMap,
+      ...blockListedPropsMap,
       multiple: true,
     };
     const {getByTestId: getByTestIdWithMultiple} = testRender(
-      <MockSelect dataPrefix="blacklisted-multiple" {...multipleRenderProps} />
+      <MockSelect dataPrefix="blocklisted-multiple" {...multipleRenderProps} />
     );
 
-    const selectMultipleAttributesMap = createAttributeMap(getByTestIdWithMultiple('blacklisted-multiple-select'));
+    const selectMultipleAttributesMap = createAttributeMap(getByTestIdWithMultiple('blocklisted-multiple-select'));
 
     expect(selectMultipleAttributesMap.hasOwnProperty('style')).toBe(false);
     expect(selectMultipleAttributesMap.hasOwnProperty('className')).toBe(false);
     expect(selectMultipleAttributesMap.hasOwnProperty('height')).toBe(false);
     expect(selectMultipleAttributesMap.hasOwnProperty('width')).toBe(false);
-    expect(selectMultipleAttributesMap.class).not.toBe('blacklisted');
+    expect(selectMultipleAttributesMap.class).not.toBe('blocklisted');
 
     expect(selectMultipleAttributesMap.hasOwnProperty('size')).toBe(true);
     expect(selectMultipleAttributesMap.hasOwnProperty('multiple')).toBe(true);

@@ -41,15 +41,15 @@ describe('Form | OptionGroup', () => {
     expect(attributeMap.disabled).toEqual('');
   });
 
-  it('should filter blacklisted props', () => {
-    const blackListedPropsMap = {
+  it('should filter blocklisted props', () => {
+    const blockListedPropsMap = {
       style: {},
-      className: 'blacklisted',
+      className: 'blocklisted',
       height: '1px',
       width: '2px',
       size: 2,
     };
-    const {getByTestId} = testRender(<MockOptionGroup {...blackListedPropsMap} />);
+    const {getByTestId} = testRender(<MockOptionGroup {...blockListedPropsMap} />);
     const attributeMap = createAttributeMap(getByTestId('optgroup-1-test'));
 
     expect(attributeMap.hasOwnProperty('style')).toBe(false);
@@ -57,7 +57,7 @@ describe('Form | OptionGroup', () => {
     expect(attributeMap.hasOwnProperty('height')).toBe(false);
     expect(attributeMap.hasOwnProperty('width')).toBe(false);
     expect(attributeMap.hasOwnProperty('size')).toBe(false);
-    expect(attributeMap.class).not.toBe('blacklisted');
+    expect(attributeMap.class).not.toBe('blocklisted');
   });
 
   it('should have no accessibility violations', async () => {

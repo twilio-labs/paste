@@ -9,7 +9,7 @@ const {
   getOutputComponentName,
   maybeHandleError,
 } = require('../utils');
-const {SVG_PATH, REACT_PATH, BLACKLIST_FILES} = require('../constants');
+const {SVG_PATH, REACT_PATH, BLOCKLIST_FILES} = require('../constants');
 const {reactIconTemplate} = require('../templates/reactIconTemplate');
 const {writeToFile} = require('../../../../tools/utils/writeToFile');
 
@@ -41,7 +41,7 @@ async function convertNewAction() {
   // Normalize file names so we can run a diff
   const normalizedSourceFiles = sourceFiles
     // If it isn't in the source files list, it won't generate
-    .filter(fileName => !BLACKLIST_FILES.includes(fileName))
+    .filter(fileName => !BLOCKLIST_FILES.includes(fileName))
     .map(normalizeFileName);
   const normalizedDestinationFiles = destinationFiles.map(normalizeFileName);
 
