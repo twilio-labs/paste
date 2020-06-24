@@ -13,3 +13,9 @@ props:
   border-width-20:
     value: "{!border-width-20}"
     comment: Large border width
+  border-width-30:
+    value: "{!border-width-30}"
+    comment: Small border width
+  border-width-40:
+    value: "{!border-width-40}"
+    comment: Large border width
