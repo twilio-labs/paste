@@ -5,6 +5,7 @@ import {useTransition, animated} from '@twilio-paste/animation-library';
 import {pasteBaseStyles} from '@twilio-paste/theme';
 import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
 import {ModalContext} from './ModalContext';
+import {addConsoleHeightPatch, removeConsoleHeightPatch} from './utils/consoleUtils';
 
 const ModalDialogOverlay = animated(
   /* eslint-disable emotion/syntax-preference */
@@ -67,6 +68,8 @@ export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   size: Sizes;
   initialFocusRef?: React.RefObject<any>;
   ariaLabelledby: string;
+  // Adds an 80px margin to the root elements on the Console application
+  __console_patch?: boolean;
 }
 
 const AnimationStates = {
@@ -89,9 +92,23 @@ const Modal: React.FC<ModalProps> = ({
   initialFocusRef,
   ariaLabelledby,
   size,
+  // eslint-disable-next-line @typescript-eslint/camelcase
+  __console_patch = false,
   ...props
 }) => {
   const transitions = useTransition(isOpen, AnimationStates);
+
+  React.useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/camelcase
+    if (__console_patch) {
+      if (isOpen) {
+        addConsoleHeightPatch();
+      } else {
+        removeConsoleHeightPatch();
+      }
+    }
+    // eslint-disable-next-line @typescript-eslint/camelcase
+  }, [isOpen, __console_patch]);
 
   return (
     <ModalContext.Provider value={{onDismiss}}>
