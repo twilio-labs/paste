@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {styled, themeGet} from '@twilio-paste/styling-library';
+import {styled, css} from '@twilio-paste/styling-library';
 import {useUID} from 'react-uid';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {ThemeVariants} from '@twilio-paste/theme';
@@ -10,30 +10,33 @@ interface ThemeSwitcherProps {
   children?: React.ReactElement;
 }
 
-const StyledThemeSwitcherLabel = styled.label<{}>(props => ({
-  cursor: 'pointer',
-  display: 'inline-block',
-  fontSize: themeGet('fontSizes.fontSize30')(props),
-  lineHeight: themeGet('lineHeights.lineHeight30')(props),
-  padding: `${themeGet('space.space20')(props)} ${themeGet('space.space40')(props)}`,
-  '&:hover': {
-    textDecoration: 'underline',
-  },
-}));
+const StyledThemeSwitcherLabel = styled.label<{checked: boolean}>(props =>
+  css({
+    cursor: 'pointer',
+    display: 'inline-block',
+    fontSize: '.fontSize30',
+    lineHeight: 'lineHeight30',
+    paddingTop: 'space20',
+    paddingBottom: 'space20',
+    paddingRight: 'space40',
+    paddingLeft: 'space40',
+    backgroundColor: props.checked ? 'colorBackgroundPrimary' : 'transparent',
+    borderRadius: props.checked ? 'borderRadius10' : '0',
+    color: props.checked ? 'colorTextInverse' : 'inherit',
+    '&:hover': {
+      textDecoration: 'underline',
+    },
+    '&:focus-within': {
+      boxShadow: 'shadowFocus',
+      textDecoration: 'underline',
+    },
+  })
+);
 
-const StyledThemeSwitcherRadio = styled.input<{}>(props => ({
+const StyledThemeSwitcherRadio = styled.input({
   opacity: 0,
   position: 'absolute',
-  [`&:focus + ${StyledThemeSwitcherLabel}`]: {
-    boxShadow: themeGet('shadows.shadowFocus')(props),
-    textDecoration: 'underline',
-  },
-  [`&:checked + ${StyledThemeSwitcherLabel}`]: {
-    backgroundColor: themeGet('backgroundColors.colorBackgroundPrimary')(props),
-    borderRadius: themeGet('radii.borderRadius10')(props),
-    color: themeGet('textColors.colorTextInverse')(props),
-  },
-}));
+});
 
 export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
   const {theme, updateActiveSiteTheme} = useActiveSiteTheme();
@@ -57,33 +60,42 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
     >
       <Box as="fieldset" borderWidth="borderWidth0" padding="space0" margin="space0">
         <ScreenReaderOnly as="legend">Change the site theme</ScreenReaderOnly>
-        <StyledThemeSwitcherRadio
-          checked={theme === ThemeVariants.CONSOLE}
-          id={consoleID}
-          name="sitetheme"
-          onChange={handleChange}
-          type="radio"
-          value={ThemeVariants.CONSOLE}
-        />
-        <StyledThemeSwitcherLabel htmlFor={consoleID}>Console</StyledThemeSwitcherLabel>
-        <StyledThemeSwitcherRadio
-          checked={theme === ThemeVariants.SENDGRID}
-          id={sendGridID}
-          name="sitetheme"
-          onChange={handleChange}
-          type="radio"
-          value={ThemeVariants.SENDGRID}
-        />
-        <StyledThemeSwitcherLabel htmlFor={sendGridID}>SendGrid</StyledThemeSwitcherLabel>
-        <StyledThemeSwitcherRadio
-          checked={theme === ThemeVariants.DEFAULT}
-          id={pasteID}
-          name="sitetheme"
-          onChange={handleChange}
-          type="radio"
-          value={ThemeVariants.DEFAULT}
-        />
-        <StyledThemeSwitcherLabel htmlFor={pasteID}>Paste</StyledThemeSwitcherLabel>
+
+        <StyledThemeSwitcherLabel htmlFor={consoleID} checked={theme === ThemeVariants.CONSOLE}>
+          Console
+          <StyledThemeSwitcherRadio
+            checked={theme === ThemeVariants.CONSOLE}
+            id={consoleID}
+            name="sitetheme"
+            onChange={handleChange}
+            type="radio"
+            value={ThemeVariants.CONSOLE}
+          />
+        </StyledThemeSwitcherLabel>
+
+        <StyledThemeSwitcherLabel htmlFor={sendGridID} checked={theme === ThemeVariants.SENDGRID}>
+          SendGrid
+          <StyledThemeSwitcherRadio
+            checked={theme === ThemeVariants.SENDGRID}
+            id={sendGridID}
+            name="sitetheme"
+            onChange={handleChange}
+            type="radio"
+            value={ThemeVariants.SENDGRID}
+          />
+        </StyledThemeSwitcherLabel>
+
+        <StyledThemeSwitcherLabel htmlFor={pasteID} checked={theme === ThemeVariants.DEFAULT}>
+          Paste
+          <StyledThemeSwitcherRadio
+            checked={theme === ThemeVariants.DEFAULT}
+            id={pasteID}
+            name="sitetheme"
+            onChange={handleChange}
+            type="radio"
+            value={ThemeVariants.DEFAULT}
+          />
+        </StyledThemeSwitcherLabel>
       </Box>
     </Box>
   );
