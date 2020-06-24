@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "2.13.3",
+  "version": "2.13.4",
   "status": "beta",
   "description": "Contains all the core packages from the Paste internal design system.",
   "author": "Twilio Inc.",
@@ -45,7 +45,7 @@
     "@twilio-paste/media-object": "^1.2.33",
     "@twilio-paste/menu": "^0.1.13",
     "@twilio-paste/menu-primitive": "^0.1.4",
-    "@twilio-paste/modal": "^0.2.8",
+    "@twilio-paste/modal": "^0.2.9",
     "@twilio-paste/modal-dialog-primitive": "^0.1.4",
     "@twilio-paste/non-modal-dialog-primitive": "^0.2.0",
     "@twilio-paste/paragraph": "^1.1.16",
