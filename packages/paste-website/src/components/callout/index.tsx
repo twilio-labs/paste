@@ -39,12 +39,9 @@ interface CalloutProps {
 const Callout: React.FC<CalloutProps> = ({variant, children}) => {
   return (
     <Box
-      css={{
-        // FIXME: not a token
-        borderLeftWidth: '8px',
-      }}
       position="relative"
       borderWidth="borderWidth20"
+      borderLeftWidth="borderWidth40"
       borderStyle="solid"
       borderColor={borderColorPartial(variant)}
       marginTop="space60"
