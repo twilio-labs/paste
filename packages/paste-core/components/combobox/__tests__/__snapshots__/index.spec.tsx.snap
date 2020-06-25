@@ -13,6 +13,7 @@ exports[`Combobox  Render should render 1`] = `
   margin-bottom: space10;
   padding-left: space0;
   padding-right: space0;
+  text-transform: none;
 }
 
 .emotion-1 {
