@@ -10,7 +10,7 @@ import {
   system,
   position,
 } from '@twilio-paste/styling-library';
-import {CursorProperty} from 'csstype';
+import {CursorProperty, TextTransformProperty, TransitionProperty} from 'csstype';
 import {
   SpaceProps,
   Display,
@@ -35,7 +35,9 @@ interface BaseTextProps
   cursor?: CursorProperty;
   display?: Display;
   verticalAlign?: VerticalAlign;
-  transition?: string;
+  transition?: TransitionProperty;
+  // Do not document, we prefer if folks do not use this property for i18n.
+  textTransform?: TextTransformProperty;
 }
 
 interface PseudoStylesProps {
@@ -73,6 +75,8 @@ const extraConfig = system({
     scale: 'textColors',
   },
   cursor: true,
+  transition: true,
+  textTransform: true,
 });
 
 const textDecoration = system({textDecoration: true});
