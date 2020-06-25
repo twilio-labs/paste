@@ -5,14 +5,14 @@ import * as React from 'react';
 import {UID} from 'react-uid';
 import {IconWrapper, IconWrapperProps} from './helpers/IconWrapper';
 
-export interface LinkExternalIconProps extends IconWrapperProps {
+export interface ArrowBackIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const LinkExternalIcon: React.FC<LinkExternalIconProps> = ({as, size, iconColor, title, decorative}) => {
+const ArrowBackIcon: React.FC<ArrowBackIconProps> = ({as, size, iconColor, title, decorative}) => {
   if (!decorative && title == null) {
-    throw new Error('[LinkExternalIcon]: Missing a title for non-decorative icon.');
+    throw new Error('[ArrowBackIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
@@ -24,7 +24,7 @@ const LinkExternalIcon: React.FC<LinkExternalIconProps> = ({as, size, iconColor,
             <path
               fill="currentColor"
               fillRule="evenodd"
-              d="M14.646 9.354h.026a.449.449 0 01.474.476v5.024a.5.5 0 01-.991.09l-.009-.09V10.99l-6.524 6.524a.45.45 0 01-.689-.574l.052-.063 6.524-6.524H9.646a.5.5 0 01-.491-.41l-.009-.09a.5.5 0 01.41-.492l.09-.008h5z"
+              d="M9.75 15.947l-.07-.058-3.535-3.536a.502.502 0 01-.067-.082l-.043-.083-.03-.1L6 12.043v-.088l.01-.067.01-.038.034-.081.047-.074.044-.05L9.68 8.111a.5.5 0 01.765.638l-.058.069L7.706 11.5H16.5a.5.5 0 01.09.992l-.09.008H7.706l2.681 2.682a.5.5 0 01.058.638l-.058.069a.5.5 0 01-.638.058z"
             />
           </svg>
         )}
@@ -33,5 +33,5 @@ const LinkExternalIcon: React.FC<LinkExternalIconProps> = ({as, size, iconColor,
   );
 };
 
-LinkExternalIcon.displayName = 'LinkExternalIcon';
-export {LinkExternalIcon};
+ArrowBackIcon.displayName = 'ArrowBackIcon';
+export {ArrowBackIcon};

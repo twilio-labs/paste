@@ -5,14 +5,14 @@ import * as React from 'react';
 import {UID} from 'react-uid';
 import {IconWrapper, IconWrapperProps} from './helpers/IconWrapper';
 
-export interface LinkExternalIconProps extends IconWrapperProps {
+export interface ChevronRightIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const LinkExternalIcon: React.FC<LinkExternalIconProps> = ({as, size, iconColor, title, decorative}) => {
+const ChevronRightIcon: React.FC<ChevronRightIconProps> = ({as, size, iconColor, title, decorative}) => {
   if (!decorative && title == null) {
-    throw new Error('[LinkExternalIcon]: Missing a title for non-decorative icon.');
+    throw new Error('[ChevronRightIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
@@ -24,7 +24,7 @@ const LinkExternalIcon: React.FC<LinkExternalIconProps> = ({as, size, iconColor,
             <path
               fill="currentColor"
               fillRule="evenodd"
-              d="M14.646 9.354h.026a.449.449 0 01.474.476v5.024a.5.5 0 01-.991.09l-.009-.09V10.99l-6.524 6.524a.45.45 0 01-.689-.574l.052-.063 6.524-6.524H9.646a.5.5 0 01-.491-.41l-.009-.09a.5.5 0 01.41-.492l.09-.008h5z"
+              d="M8.166 8.872a.5.5 0 01.596-.798l.072.054 5 4.5a.5.5 0 01.066.672l-.066.072-5 4.5a.5.5 0 01-.73-.678l.062-.066L12.752 13 8.166 8.872z"
             />
           </svg>
         )}
@@ -33,5 +33,5 @@ const LinkExternalIcon: React.FC<LinkExternalIconProps> = ({as, size, iconColor,
   );
 };
 
-LinkExternalIcon.displayName = 'LinkExternalIcon';
-export {LinkExternalIcon};
+ChevronRightIcon.displayName = 'ChevronRightIcon';
+export {ChevronRightIcon};

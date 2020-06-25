@@ -5,14 +5,14 @@ import * as React from 'react';
 import {UID} from 'react-uid';
 import {IconWrapper, IconWrapperProps} from './helpers/IconWrapper';
 
-export interface LinkExternalIconProps extends IconWrapperProps {
+export interface AttachIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const LinkExternalIcon: React.FC<LinkExternalIconProps> = ({as, size, iconColor, title, decorative}) => {
+const AttachIcon: React.FC<AttachIconProps> = ({as, size, iconColor, title, decorative}) => {
   if (!decorative && title == null) {
-    throw new Error('[LinkExternalIcon]: Missing a title for non-decorative icon.');
+    throw new Error('[AttachIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
@@ -24,7 +24,7 @@ const LinkExternalIcon: React.FC<LinkExternalIconProps> = ({as, size, iconColor,
             <path
               fill="currentColor"
               fillRule="evenodd"
-              d="M14.646 9.354h.026a.449.449 0 01.474.476v5.024a.5.5 0 01-.991.09l-.009-.09V10.99l-6.524 6.524a.45.45 0 01-.689-.574l.052-.063 6.524-6.524H9.646a.5.5 0 01-.491-.41l-.009-.09a.5.5 0 01.41-.492l.09-.008h5z"
+              d="M11.503 6.385a2.9 2.9 0 014.242 3.955l-.135.14-4.814 4.817A1.7 1.7 0 018.29 13.01l.108-.123 4.808-4.81a.5.5 0 01.765.638l-.057.069-4.803 4.804a.7.7 0 00.899 1.065l.085-.07 4.814-4.816a1.9 1.9 0 00-2.577-2.79l-.116.11-4.808 4.807a3.1 3.1 0 004.241 4.519l.143-.135 5.854-5.855a.5.5 0 01.765.638l-.057.07-5.855 5.854a4.1 4.1 0 01-5.953-5.634l.155-.164 4.802-4.802z"
             />
           </svg>
         )}
@@ -33,5 +33,5 @@ const LinkExternalIcon: React.FC<LinkExternalIconProps> = ({as, size, iconColor,
   );
 };
 
-LinkExternalIcon.displayName = 'LinkExternalIcon';
-export {LinkExternalIcon};
+AttachIcon.displayName = 'AttachIcon';
+export {AttachIcon};
