@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@5.2.2...@twilio-paste/design-tokens@5.3.0) (2020-06-25)
+
+
+### Features
+
+* **design-tokens:** adding 2 new border-width tokens ([69ae496](https://github.com/twilio-labs/paste/commit/69ae496699d53b3837bf11542b7104846c82e86e))
+
+
+
+
+
 ## [5.2.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@5.2.1...@twilio-paste/design-tokens@5.2.2) (2020-06-12)
 
 **Note:** Version bump only for package @twilio-paste/design-tokens

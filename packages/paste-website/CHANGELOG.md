@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.34.0...@twilio-paste/website@1.34.1) (2020-06-25)
+
+
+### Bug Fixes
+
+* **website:** fixing callout's borderLeftWidth ([e34bd53](https://github.com/twilio-labs/paste/commit/e34bd53ee4cfcd1f71430724980133c86ae1424a))
+* **website:** themeSwitcher styles regression ([ae98289](https://github.com/twilio-labs/paste/commit/ae98289a348b7931614f827940cb25eac7c1a470))
+
+
+
+
+
 # [1.34.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.33.8...@twilio-paste/website@1.34.0) (2020-06-25)
 
 
