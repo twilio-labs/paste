@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/popover@0.1.6...@twilio-paste/popover@0.1.7) (2020-06-25)
+
+
+### Bug Fixes
+
+* **popover:** adjust close icon size, remove small text from stories ([b580ff1](https://github.com/twilio-labs/paste/commit/b580ff152553a2804ad2877cd90d5e9e76a2ef6d))
+
+
+
+
+
 ## [0.1.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/popover@0.1.5...@twilio-paste/popover@0.1.6) (2020-06-25)
 
 **Note:** Version bump only for package @twilio-paste/popover
