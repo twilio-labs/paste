@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@2.2.10...@twilio-paste/icons@2.3.0) (2020-06-25)
+
+
+### Features
+
+* **icons:** add arrows, chevrons, attach; update linkexternal ([#531](https://github.com/twilio-labs/paste/issues/531)) ([2e5ecd3](https://github.com/twilio-labs/paste/commit/2e5ecd324be97fdf7732cb85ced38f03810d75e9))
+
+
+
+
+
 ## [2.2.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@2.2.9...@twilio-paste/icons@2.2.10) (2020-06-25)
 
 **Note:** Version bump only for package @twilio-paste/icons
