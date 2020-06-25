@@ -41,4 +41,5 @@ export const TextPropTypes = {
   verticalAlign: ResponsiveProp(PropTypes.string),
   whiteSpace: ResponsiveProp(PropTypes.string),
   transition: ResponsiveProp(PropTypes.string),
+  textTransform: ResponsiveProp(PropTypes.string),
 };
