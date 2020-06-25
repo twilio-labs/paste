@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.34.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.33.8...@twilio-paste/website@1.34.0) (2020-06-25)
+
+
+### Features
+
+* **website:** add tooltip-primitive doc page ([40970cd](https://github.com/twilio-labs/paste/commit/40970cd00ae906a8fcafbaa96128bcea7a4670e6))
+
+
+
+
+
 ## [1.33.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.33.7...@twilio-paste/website@1.33.8) (2020-06-24)
 
 

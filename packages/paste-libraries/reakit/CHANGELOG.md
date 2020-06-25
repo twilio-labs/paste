@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/reakit-library@0.5.0...@twilio-paste/reakit-library@0.6.0) (2020-06-25)
+
+
+### Features
+
+* **reakit-library:** export tooltip components and props ([ea4e09d](https://github.com/twilio-labs/paste/commit/ea4e09db7db69dc77a0e4f2f7408b92f002e9dd8))
+
+
+
+
+
 # [0.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/reakit-library@0.4.1...@twilio-paste/reakit-library@0.5.0) (2020-06-16)
 
 

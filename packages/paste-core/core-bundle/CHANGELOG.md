@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.13.4...@twilio-paste/core@2.14.0) (2020-06-25)
+
+
+### Features
+
+* **core:** add tooltip-primitive package to core ([84d61dc](https://github.com/twilio-labs/paste/commit/84d61dc8619e121c4af86c4f80fc85fde6fba859))
+
+
+
+
+
 ## [2.13.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.13.3...@twilio-paste/core@2.13.4) (2020-06-24)
 
 **Note:** Version bump only for package @twilio-paste/core
