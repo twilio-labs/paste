@@ -61,6 +61,8 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   color: colorTextWeak;
   font-size: fontSize40;
   font-weight: fontWeightMedium;
+  -webkit-transition: color 100ms ease;
+  transition: color 100ms ease;
   line-height: lineHeight30;
 }
 
@@ -98,6 +100,8 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   color: colorTextWeaker;
   font-size: fontSize40;
   font-weight: fontWeightMedium;
+  -webkit-transition: color 100ms ease;
+  transition: color 100ms ease;
   line-height: lineHeight30;
 }
 
@@ -107,6 +111,8 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   color: colorText;
   font-size: fontSize40;
   font-weight: fontWeightMedium;
+  -webkit-transition: color 100ms ease;
+  transition: color 100ms ease;
   line-height: lineHeight30;
 }
 
@@ -250,6 +256,8 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   color: colorTextWeak;
   font-size: fontSize40;
   font-weight: fontWeightMedium;
+  -webkit-transition: color 100ms ease;
+  transition: color 100ms ease;
   line-height: lineHeight30;
 }
 
@@ -263,6 +271,8 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   color: colorText;
   font-size: fontSize40;
   font-weight: fontWeightMedium;
+  -webkit-transition: color 100ms ease;
+  transition: color 100ms ease;
   line-height: lineHeight30;
 }
 
