@@ -13,7 +13,8 @@
   ],
   "scripts": {
     "build": "yarn clean && gulp",
-    "build:dev": "yarn clean && gulp dev",
+    "build:dev": "yarn build",
+    "build:watch": "yarn clean && gulp dev",
     "clean": "rm -rf ./dist",
     "prepublishOnly": "yarn build",
     "type-check": "tsc --noEmit",
