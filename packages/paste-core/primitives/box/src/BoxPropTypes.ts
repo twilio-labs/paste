@@ -42,6 +42,7 @@ export const BoxPropTypes = {
   float: ResponsiveProp(PropTypes.string),
   willChange: ResponsiveProp(PropTypes.string),
   textDecoration: ResponsiveProp(PropTypes.string),
+  textTransform: ResponsiveProp(PropTypes.string),
   // layout
   width: isWidthTokenProp,
   minWidth: isMinWidthTokenProp,
