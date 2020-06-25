@@ -44,6 +44,7 @@ import {
   FloatProperty,
   WillChangeProperty,
   TextOverflowProperty,
+  TextTransformProperty,
 } from 'csstype';
 import {PseudoPropStyles} from './PseudoPropStyles';
 import {BoxPropTypes} from './BoxPropTypes';
@@ -82,6 +83,8 @@ export interface BaseBoxProps
   float?: FloatProperty;
   willChange?: WillChangeProperty;
   textDecoration?: TypographyProps['textDecoration'];
+  // Do not document, we prefer if folks do not use this property for i18n.
+  textTransform?: TextTransformProperty;
   /** Typed as any because Box can literally be any HTML element */
   ref?: any | null;
 }
@@ -149,6 +152,7 @@ const extraConfig = system({
   float: true,
   willChange: true,
   textDecoration: true,
+  textTransform: true,
 });
 
 const getPseudoStyles = (props: BoxProps): {} => {
