@@ -18,7 +18,7 @@ export interface FormLabelProps extends React.LabelHTMLAttributes<HTMLLabelEleme
 }
 
 // eslint-disable-next-line emotion/syntax-preference
-const StyledRequiredDot = styled(Text)(() =>
+const StyledRequiredDot = styled(Text)(
   css({
     display: 'block',
     width: '4px',
@@ -39,6 +39,7 @@ const FormLabel: React.FC<FormLabelProps> = ({as, marginBottom, required, disabl
       marginBottom={marginBottom || 'space10'}
       paddingLeft="space0"
       paddingRight="space0"
+      textTransform="none"
     >
       <Flex as="span" vAlignContent="center">
         {required ? (

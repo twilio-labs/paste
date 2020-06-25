@@ -15,6 +15,7 @@ exports[`FormLabel render it should render 1`] = `
   margin-bottom: 0.125rem;
   padding-left: 0;
   padding-right: 0;
+  text-transform: none;
 }
 
 .emotion-1 {
@@ -85,6 +86,7 @@ exports[`FormLabel render it should render with required 1`] = `
   margin-bottom: 0.125rem;
   padding-left: 0;
   padding-right: 0;
+  text-transform: none;
 }
 
 .emotion-3 {
