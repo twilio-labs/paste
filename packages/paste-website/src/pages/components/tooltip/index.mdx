@@ -1,0 +1,228 @@
+---
+title: Tooltip
+package: '@twilio-paste/tooltip'
+description: An accessible and styled tooltip component.
+slug: /components/tooltip/
+---
+
+import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
+import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import {Text} from '@twilio-paste/text';
+import Changelog from '@twilio-paste/tooltip/CHANGELOG.md';
+import {Tooltip} from '@twilio-paste/tooltip';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {SidebarCategoryRoutes} from '../../../constants';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/tooltip"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/tooltip/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name={props.pageContext.frontmatter.title}
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/tooltip"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-tooltip--default"
+  data={props.data.allPasteComponent.edges}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+<Callout>
+  <CalloutTitle>Using alpha components in your product</CalloutTitle>
+  <CalloutText>
+    Alpha components are ready for you to use in production. Components such as Tooltip are likely to not see any API
+    changes. This is only an alpha due to the lack of documentation and a matching Sketch symbol. Feel free to share
+    your experience using this component by{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/discussions/new">starting a discussion on GitHub</Anchor>. We are
+    also looking for a contributor to symbolize this component in Sketch. Interested? Reach out!
+  </CalloutText>
+</Callout>
+
+## Guidelines
+
+### About Tooltip
+
+The Tooltip component is a popup that displays text related to an element when the element is focused via
+the keyboard or on mouse hover. Tooltip follows the
+[WAI-ARIA Tooltip Pattern](https://www.w3.org/TR/wai-aria-practices/#tooltip).
+
+## Examples
+
+### Basic Tooltip
+
+<LivePreview
+  scope={{
+    Tooltip,
+    Button,
+  }}
+>
+  {`<Tooltip text="Black Lives Matter. We stand with the Black community.">
+  <Button variant="primary">✊ Action</Button>
+</Tooltip>`}
+</LivePreview>
+
+### Controlling placement
+
+The placement of the tooltip is configurable via the `placement` prop. The available placement options are
+available in the [props description here](#tooltip-props). No matter the placement, the tooltip will always adjust
+to remain in the screen so you don't have to worry about it going off the page, or being covered by another element.
+
+<LivePreview
+  scope={{
+    Tooltip,
+    Button,
+  }}
+>
+  {`<Tooltip text="Welcome to Paste!" placement="right-start">
+  <Button variant="primary">Open Tooltip</Button>
+</Tooltip>`}
+</LivePreview>
+
+### Focusable element
+
+A tooltip can be placed on any **focusable** element, such as a anchor, button or a React component with a `ref`.
+
+<LivePreview
+  scope={{
+    Tooltip,
+    Anchor,
+    Box,
+    InformationIcon,
+    Text,
+  }}
+>
+  {`<Box display="flex" alignItems="center">
+  <Text as="span">Tooltip should appear from the icon.</Text>
+  <Tooltip text="Welcome to Paste!">
+    <Anchor href="https://paste.twilio.design">
+      <InformationIcon decorative={false} title="Open Tooltip" display="block" />
+    </Anchor>
+  </Tooltip>
+</Box>`}
+</LivePreview>
+
+<Callout>
+  <CalloutTitle>Icons and tooltips</CalloutTitle>
+  <CalloutText>
+    If your tooltip wraps an element that includes only an icon, make sure you set the `decorative` prop to false, and
+    give the icon a title. The title of the icon should describe what the icon is representing, and the tooltip
+    describes what that means. This ensures the icon and tooltip ara accessible to screen readers.
+  </CalloutText>
+</Callout>
+
+## Anatomy
+
+### Tooltip
+
+| Property         | Default token         | Modifiable? |
+| ---------------- | --------------------- | ----------- |
+| background-color | color-background-body | No          |
+| border-width     | border-width-10       | No          |
+| border-color     | color-border-light    | No          |
+| border-radius    | border-radius-20      | No          |
+| box-shadow       | shadow-card           | No          |
+| max-width        | size-30               | No          |
+| min-width        | size-30               | No          |
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/tooltip - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {Tooltip} from '@twilio-paste/tooltip';
+
+const PopoverExample: React.FC = () => {
+  return (
+    <Tooltip baseId="tooltip-example" text="Tooltip text...">
+      <Button variant="primary">Open Tooltip</Button>
+    </Tooltip>
+  );
+};
+```
+
+#### Tooltip Props
+
+##### `baseId?: string`
+
+Sets the ID that will serve as a base for all the items IDs.
+
+##### `children: ReactElement`
+
+The tooltip reference, meaning the element where the tooltip originates. Must be a focusable element.
+
+##### `gutter?: string`
+
+Sets the offset between the reference and the tooltip on the main axis.
+
+##### `placement?: "auto-start" | "auto" | "auto-end" | "top-start...`
+
+Sets the placement of tooltip in relation to the child element. Available options include:
+
+- auto-start
+- auto-end
+- auto
+- top-start
+- top-end
+- top
+- bottom-start
+- bottom-end
+- bottom
+- right-start
+- right-end
+- right
+- left-start
+- left-end
+- left
+
+##### `text: string`
+
+The text content of the Tooltip.
+
+<Box marginTop="space130">
+  <Changelog />
+</Box>
+
+</content>
+
+</contentwrapper>
