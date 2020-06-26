@@ -8,6 +8,9 @@ export {
   DisclosureProps,
   DisclosureContent,
   DisclosureContentProps,
+  DisclosureState,
+  DisclosureInitialState,
+  DisclosureStateReturn,
   // https://reakit.io/docs/menu/
   useMenuState,
   Menu,
