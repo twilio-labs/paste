@@ -36,6 +36,7 @@
     "@twilio-paste/card": "^1.3.41",
     "@twilio-paste/combobox": "^0.2.8",
     "@twilio-paste/combobox-primitive": "^0.1.3",
+    "@twilio-paste/disclosure": "^0.0.0",
     "@twilio-paste/disclosure-primitive": "^0.1.7",
     "@twilio-paste/flex": "^0.3.34",
     "@twilio-paste/form": "^1.5.15",

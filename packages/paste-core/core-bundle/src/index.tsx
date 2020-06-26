@@ -7,6 +7,7 @@ export * from '@twilio-paste/button';
 export * from '@twilio-paste/card';
 export * from '@twilio-paste/combobox';
 export * from '@twilio-paste/combobox-primitive';
+export * from '@twilio-paste/disclosure';
 export * from '@twilio-paste/disclosure-primitive';
 export * from '@twilio-paste/flex';
 export * from '@twilio-paste/form';
