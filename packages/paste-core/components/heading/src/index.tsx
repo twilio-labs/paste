@@ -1,17 +1,7 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
-
-export type asTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'label' | 'span' | 'header';
-export type HeadingVariants = 'heading10' | 'heading20' | 'heading30' | 'heading40' | 'heading50' | 'heading60';
-
-export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  as: asTags;
-  className?: never;
-  id?: string;
-  marginBottom?: 'space0';
-  variant: HeadingVariants;
-}
+import {HeadingVariants, HeadingProps, asTags} from './types';
+import {HeadingPropTypes} from './PropTypes';
 
 function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: 'space0'): {} {
   switch (headingVariant) {
@@ -82,18 +72,7 @@ const Heading: React.FC<HeadingProps> = ({as, children, id, marginBottom, varian
 Heading.displayName = 'Heading';
 
 if (process.env.NODE_ENV === 'development') {
-  Heading.propTypes = {
-    as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'] as asTags[]).isRequired,
-    marginBottom: PropTypes.oneOf(['space0']),
-    variant: PropTypes.oneOf([
-      'heading10',
-      'heading20',
-      'heading30',
-      'heading40',
-      'heading50',
-      'heading60',
-    ] as HeadingVariants[]).isRequired,
-  };
+  Heading.propTypes = HeadingPropTypes;
 }
 
-export {Heading};
+export {Heading, HeadingProps, HeadingPropTypes, HeadingVariants, asTags};
