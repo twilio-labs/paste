@@ -1,0 +1,422 @@
+---
+title: Disclosure
+package: '@twilio-paste/disclosure'
+description: The Disclosure is used to create accessible, hierarchical, and collapsible structure to your pages.
+slug: /components/popover/
+---
+
+import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
+import {Stack} from '@twilio-paste/stack';
+import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
+import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
+import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
+import Changelog from '@twilio-paste/disclosure/CHANGELOG.md';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {SidebarCategoryRoutes} from '../../../constants';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/disclosure"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/disclosure/"}}) {
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name={props.pageContext.frontmatter.title}
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/components/disclosure"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-disclosure--default"
+  data={props.data.allPasteComponent.edges}
+/>
+
+---
+
+<contentwrapper>
+
+<TableOfContents headings={props.data.mdx.headings} />
+
+<content>
+
+<Callout>
+  <CalloutTitle>Using alpha components in your product</CalloutTitle>
+  <CalloutText>
+    Alpha components are ready for you to use in production. Components such as Disclosure are likely to not see any API
+    changes. This is only an alpha due to the lack of documentation and a matching Sketch symbol. Feel free to share
+    your experience using this component by{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/discussions/new">starting a discussion on GitHub</Anchor>. We are
+    also looking for a contributor to symbolize this component in Sketch. Interested? Reach out!
+  </CalloutText>
+</Callout>
+
+## Guidelines
+
+### About Disclosure
+
+<p>{props.pageContext.frontmatter.description} It uses the [Paste Heading](/components/heading) component to create consistency across pages and content hierarchy.</p>
+
+### Accessibility
+
+You **must not** nest focusable or actionable elements inside the `DisclosureHeading`. Nested actionable elements are difficult to discover for users of assistive technology as their existence is often not announced.
+
+## Examples
+
+### Default Disclosure
+
+The default variant of a Disclosure is a composition of the [Paste Heading](/components/heading) and a chevron button icon as the "trigger" for the disclosure. This trigger controls the appearance of content that is below it.
+
+The `DisclosureHeading` takes the same props as the [Heading](/components/heading) component so you can control the semantic heading level and it's visual appearance through variants.
+
+<LivePreview
+  scope={{
+    Disclosure,
+    DisclosureHeading,
+    DisclosureContent,
+    Stack,
+  }}
+>
+  {`<Stack orientation="vertical" spacing="space70">
+  <Disclosure>
+    <DisclosureHeading as="h2" variant="heading30">
+      Between the World and Me by Ta-Nehisi Coates
+    </DisclosureHeading>
+    <DisclosureContent>
+      But race is the child of racism, not the father. And the process of naming “the people” has never been a matter of genealogy and physiognomy so much as one of hierarchy. Difference in hue and hair is old. But the belief in the preeminence of hue and hair, the notion that these factors can correctly organize a society and that they signify deeper attributes, which are indelible—this is the new idea at the heart of these new people who have been brought up hopelessly, tragically, deceitfully, to believe that they are white.
+    </DisclosureContent>
+  </Disclosure>
+  <Disclosure>
+    <DisclosureHeading as="h2" variant="heading10">
+      Disclosure Heading
+    </DisclosureHeading>
+    <DisclosureContent>
+      Content
+    </DisclosureContent>
+  </Disclosure>
+  <Disclosure>
+    <DisclosureHeading as="h2" variant="heading20">
+      Disclosure Heading
+    </DisclosureHeading>
+    <DisclosureContent>
+      Content
+    </DisclosureContent>
+  </Disclosure>
+  <Disclosure>
+    <DisclosureHeading as="h2" variant="heading30">
+      Disclosure Heading
+    </DisclosureHeading>
+    <DisclosureContent>
+      Content
+    </DisclosureContent>
+  </Disclosure>
+  <Disclosure>
+    <DisclosureHeading as="h2" variant="heading40">
+      Disclosure Heading
+    </DisclosureHeading>
+    <DisclosureContent>
+      Content
+    </DisclosureContent>
+  </Disclosure>
+  <Disclosure>
+    <DisclosureHeading as="h2" variant="heading50">
+      Disclosure Heading
+    </DisclosureHeading>
+    <DisclosureContent>
+      Content
+    </DisclosureContent>
+  </Disclosure>
+  <Disclosure>
+    <DisclosureHeading as="h2" variant="heading60">
+      Disclosure Heading
+    </DisclosureHeading>
+    <DisclosureContent>
+      Content
+    </DisclosureContent>
+  </Disclosure>
+</Stack>`}
+</LivePreview>
+
+### Contained Disclosure
+
+The `contained` variant of the Disclosure takes the default composition and wraps it in the [Paste Card](/components/card) component. In this instance we do not expose the props used by Card, but all previously mentioned Disclosure props behave in the same way as the default variant.
+
+<LivePreview
+  scope={{
+    Disclosure,
+    DisclosureHeading,
+    DisclosureContent,
+    Stack,
+  }}
+>
+  {`<Stack orientation="vertical" spacing="space70">
+  <Disclosure variant="contained">
+    <DisclosureHeading as="h2" variant="heading10">
+      Disclosure Heading
+    </DisclosureHeading>
+    <DisclosureContent>
+      Content
+    </DisclosureContent>
+  </Disclosure>
+  <Disclosure variant="contained">
+    <DisclosureHeading as="h2" variant="heading20">
+      Disclosure Heading
+    </DisclosureHeading>
+    <DisclosureContent>
+      Content
+    </DisclosureContent>
+  </Disclosure>
+  <Disclosure variant="contained">
+    <DisclosureHeading as="h2" variant="heading30">
+      Disclosure Heading
+    </DisclosureHeading>
+    <DisclosureContent>
+      Content
+    </DisclosureContent>
+  </Disclosure>
+  <Disclosure variant="contained">
+    <DisclosureHeading as="h2" variant="heading40">
+      Disclosure Heading
+    </DisclosureHeading>
+    <DisclosureContent>
+      Content
+    </DisclosureContent>
+  </Disclosure>
+  <Disclosure variant="contained">
+    <DisclosureHeading as="h2" variant="heading50">
+      Disclosure Heading
+    </DisclosureHeading>
+    <DisclosureContent>
+      Content
+    </DisclosureContent>
+  </Disclosure>
+  <Disclosure variant="contained">
+    <DisclosureHeading as="h2" variant="heading60">
+      Disclosure Heading
+    </DisclosureHeading>
+    <DisclosureContent>
+      Content
+    </DisclosureContent>
+  </Disclosure>
+</Stack>`}
+</LivePreview>
+
+### Controlling initial state
+
+You can control the intial state of the disclosure to be expanded or collapsed by setting the `visible` prop.
+
+<LivePreview
+  scope={{
+    Disclosure,
+    DisclosureHeading,
+    DisclosureContent,
+  }}
+>
+  {`<Disclosure visible>
+  <DisclosureHeading as="h2" variant="heading30">
+    Disclosure Heading
+  </DisclosureHeading>
+  <DisclosureContent>
+    Content
+  </DisclosureContent>
+</Disclosure>`}
+</LivePreview>
+
+## States
+
+### Disabled
+
+Each Disclosure can be disabled by setting the `disabled` prop on the `DisclosureHeading`
+
+<LivePreview
+  scope={{
+    Disclosure,
+    DisclosureHeading,
+    DisclosureContent,
+  }}
+>
+  {`<Disclosure visible>
+  <DisclosureHeading as="h2" disabled variant="heading30">
+    Disclosure Heading
+  </DisclosureHeading>
+  <DisclosureContent>
+    Content
+  </DisclosureContent>
+</Disclosure>`}
+</LivePreview>
+
+## Composition notes
+
+Both `DisclosureHeading` and `DisclosureContent` accept any child component, leaving flexibility to create a large number of custom compositions for your product needs.
+
+The only thing you **must not** do is place a focusable element inside the `DisclosureHeading`, see [accessibility notes](/components/disclosure#accessibility).
+
+<LivePreview
+  scope={{
+    Disclosure,
+    DisclosureHeading,
+    DisclosureContent,
+    Text,
+  }}
+>
+  {`<Disclosure>
+  <DisclosureHeading as="h2" variant="heading30">
+    Disclosure Heading <Text color="colorTextWeak" fontSize="fontSize50" as="span">(3 new items)</Text>
+  </DisclosureHeading>
+  <DisclosureContent>
+    Content
+  </DisclosureContent>
+</Disclosure>`}
+</LivePreview>
+
+<LivePreview
+  scope={{
+    Disclosure,
+    DisclosureHeading,
+    DisclosureContent,
+    ErrorIcon,
+    MediaObject,
+    MediaFigure,
+    MediaBody,
+    Text,
+  }}
+>
+  {`<Disclosure variant="contained" visible>
+  <DisclosureHeading as="h2" variant="heading30">
+    <MediaObject verticalAlign="center">
+      <MediaBody>
+        Disclosure Heading <Text color="colorTextWeak" fontSize="fontSize50" as="span">- deployment issue</Text>
+      </MediaBody>
+      <MediaFigure>
+        <ErrorIcon iconColor="colorTextError" decorative={false} title="Error" />
+      </MediaFigure>
+    </MediaObject>
+  </DisclosureHeading>
+  <DisclosureContent>
+    Content
+  </DisclosureContent>
+</Disclosure>`}
+</LivePreview>
+
+## Anatomy
+
+### Disclosure
+
+#### Contained
+
+Contained Disclosure variants share the Paste [Card anatomy](/components/card/#anatomy).
+
+### DisclosureHeading
+
+Same Anatomy as [Heading](/components/heading), plus:
+
+| Property       | Default token    | Modifiable? |
+| -------------- | ---------------- | ----------- |
+| border-radius  | border-radius-20 | No          |
+| padding-bottom | space-50         | No          |
+| padding-left   | space-40         | No          |
+| padding-right  | space-40         | No          |
+| padding-top    | space-50         | No          |
+
+#### Focus
+
+| Property   | Default token | Modifiable? |
+| ---------- | ------------- | ----------- |
+| box-shadow | shadow-focus  | No          |
+
+### DisclosureContent
+
+| Property         | Default token      | Modifiable? |
+| ---------------- | ------------------ | ----------- |
+| border-top-width | border-width-20    | No          |
+| border-top-color | color-border-light | No          |
+| padding          | space-50           | No          |
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/disclosure - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
+
+const PopoverExample: React.FC = () => {
+  return (
+    <Disclosure>
+      <DisclosureHeading as="h2" variant="heading20">
+        Disclosure Heading
+      </DisclosureHeading>
+      <DisclosureContent>Disclosure content</DisclosureContent>
+    </Disclosure>
+  );
+};
+```
+
+#### Props
+
+#### Disclosure Props
+
+All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
+
+##### `baseId` prop
+
+ID that will serve as a base for all the items IDs.
+
+##### `visible` prop
+
+Whether it's visible or not.
+
+##### `variant` prop
+
+Changes the styling on the component based on the variant selected.
+
+#### DisclosureHeading Props
+
+All the regular HTML attributes (`role`, `aria-*`, `type`, and so on).
+
+All [Heading](/components/heading) props.
+
+Also including the following custom props:
+
+##### `disabled` prop
+
+Same as the HTML attribute.
+
+##### `focusable` prop
+
+When an element is `disabled`, it may still be `focusable`. It works similarly to `readOnly` on form elements. In this case, only `aria-disabled` will be set.
+
+#### DisclosureContent Props
+
+All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
+
+<Box marginTop="space90">
+  <Changelog />
+</Box>
+
+</content>
+
+</contentwrapper>
