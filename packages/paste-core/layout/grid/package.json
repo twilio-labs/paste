@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/grid",
-  "version": "0.2.36",
+  "version": "0.2.37",
   "category": "layout",
   "status": "beta",
   "description": "A flex-based horizontal grid system used to build layouts.",
@@ -28,9 +28,9 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@twilio-paste/box": "^2.5.5",
+    "@twilio-paste/box": "^2.6.0",
     "@twilio-paste/design-tokens": "^5.3.0",
-    "@twilio-paste/flex": "^0.3.34",
+    "@twilio-paste/flex": "^0.3.35",
     "@twilio-paste/style-props": "^1.2.6",
     "@twilio-paste/styling-library": "^0.1.0",
     "@twilio-paste/theme": "^3.2.6",
@@ -40,9 +40,9 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^2.5.5",
+    "@twilio-paste/box": "^2.6.0",
     "@twilio-paste/design-tokens": "^5.3.0",
-    "@twilio-paste/flex": "^0.3.34",
+    "@twilio-paste/flex": "^0.3.35",
     "@twilio-paste/style-props": "^1.2.6",
     "@twilio-paste/styling-library": "^0.1.0",
     "@twilio-paste/theme": "^3.2.6",

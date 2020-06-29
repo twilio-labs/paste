@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.5.5...@twilio-paste/box@2.6.0) (2020-06-29)
+
+
+### Features
+
+* **box:** accept textTransform css prop ([5cb9c8f](https://github.com/twilio-labs/paste/commit/5cb9c8f8db3ec9f5b4ec6b9406db2173caa9ba0f))
+
+
+
+
+
 ## [2.5.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.5.4...@twilio-paste/box@2.5.5) (2020-06-25)
 
 **Note:** Version bump only for package @twilio-paste/box

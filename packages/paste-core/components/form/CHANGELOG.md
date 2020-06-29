@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.16](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.5.15...@twilio-paste/form@1.5.16) (2020-06-29)
+
+
+### Bug Fixes
+
+* **form:** guard against textTransform in labels ([bda5b5c](https://github.com/twilio-labs/paste/commit/bda5b5c4895e3b4dc3e6443c901a771fb4691b05))
+
+
+
+
+
 ## [1.5.15](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.5.14...@twilio-paste/form@1.5.15) (2020-06-25)
 
 **Note:** Version bump only for package @twilio-paste/form
