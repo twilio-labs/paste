@@ -17,13 +17,14 @@ import {version as animationVersion} from '@twilio-paste/animation-library/packa
 import {version as stylingLibraryPropsVersion} from '@twilio-paste/styling-library/package.json';
 import {version as dropdownVersion} from '@twilio-paste/dropdown-library/package.json';
 import {version as reakitVersion} from '@twilio-paste/reakit-library/package.json';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
-import {InlineCode} from '../../components/Typography';
-import Package from '../../../../../package.json';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {InlineCode} from '../../../components/Typography';
+import Package from '../../../../../../package.json';
 
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/getting-started/engineering/"}}) {
+      fileAbsolutePath
       headings {
         depth
         value

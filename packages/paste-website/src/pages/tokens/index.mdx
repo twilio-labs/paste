@@ -49,6 +49,9 @@ In Paste, **1 rem unit = 16 pixels**.
 
 export const pageQuery = graphql`
   {
+    mdx(fields: {slug: {eq: "/tokens/"}}) {
+      fileAbsolutePath
+    }
     allPasteTokenDefault {
       edges {
         node {

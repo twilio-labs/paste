@@ -46,6 +46,7 @@ export const pageQuery = graphql`
       }
     }
     mdx(fields: {slug: {eq: "/menu-primitive/"}}) {
+      fileAbsolutePath
       headings {
         depth
         value

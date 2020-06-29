@@ -33,6 +33,7 @@ export const pageQuery = graphql`
       }
     }
     mdx(fields: {slug: {eq: "/tabs/"}}) {
+      fileAbsolutePath
       headings {
         depth
         value

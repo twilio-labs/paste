@@ -36,6 +36,7 @@ export const pageQuery = graphql`
       }
     }
     mdx(fields: {slug: {eq: "/modal/"}}) {
+      fileAbsolutePath
       headings {
         depth
         value

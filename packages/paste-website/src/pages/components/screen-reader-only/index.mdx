@@ -33,6 +33,7 @@ export const pageQuery = graphql`
       }
     }
     mdx(fields: {slug: {eq: "/screen-reader-only/"}}) {
+      fileAbsolutePath
       headings {
         depth
         value

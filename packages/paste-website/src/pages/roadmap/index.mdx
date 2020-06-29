@@ -9,6 +9,7 @@ import {Roadmap} from '../../components/Roadmap';
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/roadmap/"}}) {
+      fileAbsolutePath
       headings {
         depth
         value

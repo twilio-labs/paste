@@ -1,5 +1,5 @@
 ---
-title: 404
+title: Error
 description: Error page
 slug: /404/
 ---
@@ -33,6 +33,9 @@ export const pageQuery = graphql`
         name
         status
       }
+    }
+    mdx(fields: {slug: {eq: "/404/"}}) {
+      fileAbsolutePath
     }
   }
 `;

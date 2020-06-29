@@ -8,9 +8,9 @@ slug: /tokens/theme-package/
 import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import Changelog from '@twilio-paste/theme/CHANGELOG.md';
-import {ThemeObjectDisplay} from '../../components/ThemeObjectDisplay.tsx';
-import {SidebarCategoryRoutes} from '../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {ThemeObjectDisplay} from '../../../components/ThemeObjectDisplay.tsx';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 
 export const pageQuery = graphql`
   {
@@ -24,6 +24,7 @@ export const pageQuery = graphql`
       }
     }
     mdx(fields: {slug: {eq: "/tokens/theme-package/"}}) {
+      fileAbsolutePath
       headings {
         depth
         value
@@ -77,7 +78,7 @@ import {Theme} from '@twilio-paste/theme';
 
 <Theme.Provider theme="console">
   <App />
-</Theme.Provider>
+</Theme.Provider>;
 ```
 
 ### Props
@@ -131,7 +132,7 @@ import {Theme} from '@twilio-paste/theme';
   {({theme}) => {
     return <p>What is the default text color {theme.textColors.colorText}</p>;
   }}
-</Theme.Consumer>
+</Theme.Consumer>;
 ```
 
 #### Paste useTheme Hook

@@ -64,6 +64,7 @@ export const pageQuery = graphql`
       }
     }
     mdx(fields: {slug: {eq: "/card/"}}) {
+      fileAbsolutePath
       headings {
         depth
         value

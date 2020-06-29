@@ -5,13 +5,14 @@ slug: /content/product-style-guide/
 ---
 
 import {graphql} from 'gatsby';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Anchor} from '@twilio-paste/anchor';
-import {DoDont, Do, Dont} from '../../components/DoDont';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
 
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/content/product-style-guide/"}}) {
+      fileAbsolutePath
       headings {
         depth
         value

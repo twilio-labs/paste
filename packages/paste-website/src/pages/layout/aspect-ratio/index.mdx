@@ -35,6 +35,7 @@ export const pageQuery = graphql`
       }
     }
     mdx(fields: {slug: {eq: "/aspect-ratio/"}}) {
+      fileAbsolutePath
       headings {
         depth
         value

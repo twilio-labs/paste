@@ -29,6 +29,7 @@ export const pageQuery = graphql`
       }
     }
     mdx(fields: {slug: {eq: "/combobox-primitive/"}}) {
+      fileAbsolutePath
       headings {
         depth
         value

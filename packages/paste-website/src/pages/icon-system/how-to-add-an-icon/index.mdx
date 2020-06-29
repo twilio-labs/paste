@@ -12,12 +12,13 @@ import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {LoadingIcon} from '@twilio-paste/icons/esm/LoadingIcon';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
-import {Grid} from '../../components/grid';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Grid} from '../../../components/grid';
 
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/icon-system/how-to-add-an-icon/"}}) {
+      fileAbsolutePath
       headings {
         depth
         value

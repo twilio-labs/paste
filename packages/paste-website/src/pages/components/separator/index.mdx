@@ -26,6 +26,7 @@ export const pageQuery = graphql`
       }
     }
     mdx(fields: {slug: {eq: "/separator/"}}) {
+      fileAbsolutePath
       headings {
         depth
         value

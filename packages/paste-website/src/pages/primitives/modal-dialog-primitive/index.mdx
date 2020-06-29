@@ -27,6 +27,7 @@ export const pageQuery = graphql`
       }
     }
     mdx(fields: {slug: {eq: "/modal-dialog-primitive/"}}) {
+      fileAbsolutePath
       headings {
         depth
         value
