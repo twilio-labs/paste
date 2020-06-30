@@ -1,10 +1,8 @@
 import * as React from 'react';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
-import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
-import {Menu, MenuButton, MenuItem, useMenuState} from '@twilio-paste/menu';
 import {Breadcrumb, BreadcrumbItem} from '../../breadcrumb';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {P, InlineCode} from '../../Typography';
@@ -36,11 +34,9 @@ const ComponentHeaderBasic: React.FC<{
       <BreadcrumbItem to="/">Home</BreadcrumbItem>
       <BreadcrumbItem to={categoryRoute}>{getCategoryNameFromRoute(categoryRoute)}</BreadcrumbItem>
     </Breadcrumb>
-    <Box display="flex" alignItems="center" marginBottom="space70">
-      <Heading as="h1" variant="heading10" marginBottom="space0">
-        {getHumanizedNameFromPackageName(name)}
-      </Heading>
-    </Box>
+    <Heading as="h1" variant="heading10" marginBottom="space0">
+      {getHumanizedNameFromPackageName(name)}
+    </Heading>
   </>
 );
 
