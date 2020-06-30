@@ -1,6 +1,8 @@
 import * as React from 'react';
+import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
+import {Stack} from '@twilio-paste/stack';
 import {Menu, MenuButton, MenuItem, useMenuState} from '@twilio-paste/menu';
 
 interface QuestionMenuProps {
@@ -28,20 +30,20 @@ const QuestionMenu: React.FC<QuestionMenuProps> = ({data}) => {
 
   return (
     <Box marginBottom="space90">
-      <MenuButton {...menu} variant="secondary">
-        Ask a question <ChevronDownIcon decorative />
-      </MenuButton>
-      <Menu {...menu} aria-label="Feedback">
-        <MenuItem {...menu} href={gitHubURL} onClick={handleClick}>
-          Edit this page on GitHub
-        </MenuItem>
-        <MenuItem {...menu} href="https://github.com/twilio-labs/paste/discussions/new" onClick={handleClick}>
-          Have a question? Submit a Github Discussion
-        </MenuItem>
-        <MenuItem {...menu} href={gitHubIssueUrl} onClick={handleClick}>
-          Find a bug? Submit a Github Issue
-        </MenuItem>
-      </Menu>
+      <Stack orientation="vertical" spacing="space90">
+        <MenuButton {...menu} variant="secondary">
+          Ask a question <ChevronDownIcon decorative />
+        </MenuButton>
+        <Menu {...menu} aria-label="Feedback">
+          <MenuItem {...menu} href="https://github.com/twilio-labs/paste/discussions/new" onClick={handleClick}>
+            Have a question? Submit a Github Discussion
+          </MenuItem>
+          <MenuItem {...menu} href={gitHubIssueUrl} onClick={handleClick}>
+            Find a bug? Submit a Github Issue
+          </MenuItem>
+        </Menu>
+        <Anchor href={gitHubURL}>Edit this page on GitHub</Anchor>
+      </Stack>
     </Box>
   );
 };
