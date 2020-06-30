@@ -24,6 +24,11 @@ export const pageQuery = graphql`
       }
     }
     mdx(fields: {slug: {eq: "/tokens/design-tokens-package/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -37,6 +42,7 @@ export const pageQuery = graphql`
   categoryRoute={SidebarCategoryRoutes.TOKENS}
   githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/components/button"
   data={props.data.allPasteDesignTokensPackage.edges}
+  mdxData={props.data.mdx}
 />
 
 ---

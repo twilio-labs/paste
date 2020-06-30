@@ -24,6 +24,11 @@ export const pageQuery = graphql`
       }
     }
     mdx(fields: {slug: {eq: "/tokens/theme-package/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -38,6 +43,7 @@ export const pageQuery = graphql`
   githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/components/button"
   storybookUrl="https://twilio-labs.github.io/paste/?path=/story/overview-theme--provider"
   data={props.data.allPasteThemePackage.edges}
+  mdxData={props.data.mdx}
 />
 
 ---
