@@ -2,6 +2,7 @@ export * from '@twilio-paste/absolute';
 export * from '@twilio-paste/alert';
 export * from '@twilio-paste/anchor';
 export * from '@twilio-paste/aspect-ratio';
+export * from '@twilio-paste/avatar';
 export * from '@twilio-paste/box';
 export * from '@twilio-paste/button';
 export * from '@twilio-paste/card';
