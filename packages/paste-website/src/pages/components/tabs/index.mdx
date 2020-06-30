@@ -34,6 +34,10 @@ export const pageQuery = graphql`
     }
     mdx(fields: {slug: {eq: "/tabs/"}}) {
       fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -48,6 +52,7 @@ export const pageQuery = graphql`
   githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/components/tabs"
   storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-tabs--tabs"
   data={props.data.allPasteComponent.edges}
+  mdxData={props.data.mdx}
 />
 
 ---

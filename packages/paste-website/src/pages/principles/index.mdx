@@ -12,7 +12,6 @@ import {Link} from 'gatsby';
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/principles/"}}) {
-      fileAbsolutePath
       headings {
         depth
         value

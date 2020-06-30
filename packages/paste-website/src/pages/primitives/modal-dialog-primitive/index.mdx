@@ -28,6 +28,10 @@ export const pageQuery = graphql`
     }
     mdx(fields: {slug: {eq: "/modal-dialog-primitive/"}}) {
       fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -42,6 +46,7 @@ export const pageQuery = graphql`
   githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/primitives/modal-dialog"
   storybookUrl="https://twilio-labs.github.io/paste/?path=/story/primitives-modaldialog--custom-overlay-and-content"
   data={props.data.allPastePrimitive.edges}
+  mdxData={props.data.mdx}
 />
 
 ---

@@ -36,6 +36,10 @@ export const pageQuery = graphql`
     }
     mdx(fields: {slug: {eq: "/alert/"}}) {
       fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -51,6 +55,7 @@ export const pageQuery = graphql`
   storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-alert"
   abstractUrl="https://share.goabstract.com/85c81258-90b9-49c8-b34b-9418da5f2f00"
   data={props.data.allPasteComponent.edges}
+  mdxData={props.data.mdx}
 />
 
 ---

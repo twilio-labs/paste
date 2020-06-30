@@ -29,6 +29,10 @@ export const pageQuery = graphql`
     }
     mdx(fields: {slug: {eq: "/popover/"}}) {
       fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -43,6 +47,7 @@ export const pageQuery = graphql`
   githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/components/popover"
   storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-popover--default"
   data={props.data.allPasteComponent.edges}
+  mdxData={props.data.mdx}
 />
 
 ---

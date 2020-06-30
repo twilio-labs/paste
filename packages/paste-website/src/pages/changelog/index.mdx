@@ -4,7 +4,6 @@ description: Changelog
 slug: /changelog/
 ---
 
-import {graphql} from 'gatsby';
 import Changelog from '../../../CHANGELOG.md';
 
 <content>
@@ -12,13 +11,3 @@ import Changelog from '../../../CHANGELOG.md';
 <Changelog />
 
 </content>
-
-export const pageQuery = graphql`
-  {
-    mdx(fields: {slug: {eq: "/changelog/"}}) {
-      fileAbsolutePath
-    }
-  }
-`;
-
-;

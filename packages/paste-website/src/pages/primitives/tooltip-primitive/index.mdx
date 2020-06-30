@@ -34,6 +34,10 @@ export const pageQuery = graphql`
     }
     mdx(fields: {slug: {eq: "/tooltip-primitive/"}}) {
       fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -48,6 +52,7 @@ export const pageQuery = graphql`
   githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/primitives/tooltip"
   storybookUrl="https://twilio-labs.github.io/paste/?path=/story/primitives-tooltip--simple-tooltip"
   data={props.data.allPastePrimitive.edges}
+  mdxData={props.data.mdx}
 />
 
 ---

@@ -12,7 +12,6 @@ import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/tokens/how-to-compose-custom-ui-with-tokens/"}}) {
-      fileAbsolutePath
       headings {
         depth
         value

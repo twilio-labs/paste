@@ -12,7 +12,6 @@ import {DoDont, Do, Dont} from '../../../components/DoDont';
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/content/product-style-guide/"}}) {
-      fileAbsolutePath
       headings {
         depth
         value

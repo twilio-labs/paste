@@ -37,6 +37,10 @@ export const pageQuery = graphql`
     }
     mdx(fields: {slug: {eq: "/modal/"}}) {
       fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -52,6 +56,7 @@ export const pageQuery = graphql`
   storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-modal--default"
   abstractUrl="https://share.goabstract.com/57f1068b-7265-4102-84fa-0b2bf70214e2"
   data={props.data.allPasteComponent.edges}
+  mdxData={props.data.mdx}
 />
 
 ---

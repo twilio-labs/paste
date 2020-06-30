@@ -42,6 +42,10 @@ export const pageQuery = graphql`
     }
     mdx(fields: {slug: {eq: "/form-elements/select/"}}) {
       fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -57,6 +61,7 @@ export const pageQuery = graphql`
   storybookUrl="https://twilio-labs.github.io/paste/?path=/story/forms-select--select"
   abstractUrl="https://share.goabstract.com/6cc5fc40-3408-4cfd-b1d0-103aea01601d"
   data={props.data.allPasteComponent.edges}
+  mdxData={props.data.mdx}
 />
 
 ---

@@ -11,7 +11,6 @@ import {Anchor} from '@twilio-paste/anchor';
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/content/"}}) {
-      fileAbsolutePath
       headings {
         depth
         value

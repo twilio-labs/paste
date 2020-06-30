@@ -28,6 +28,10 @@ export const pageQuery = graphql`
     }
     mdx(fields: {slug: {eq: "/button/"}}) {
       fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -43,6 +47,7 @@ export const pageQuery = graphql`
   storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-button--text-only"
   abstractUrl="https://share.goabstract.com/58f1e53e-9f3e-4a04-b84e-44918d1ccdaf"
   data={props.data.allPasteComponent.edges}
+  mdxData={props.data.mdx}
 />
 
 ---

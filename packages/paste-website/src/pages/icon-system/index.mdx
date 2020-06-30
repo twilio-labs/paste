@@ -20,7 +20,6 @@ import Changelog from '@twilio-paste/icons/CHANGELOG.md';
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/icon-system/"}}) {
-      fileAbsolutePath
       headings {
         depth
         value

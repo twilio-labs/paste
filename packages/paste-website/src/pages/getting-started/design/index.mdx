@@ -13,7 +13,6 @@ import {Link} from 'gatsby';
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/getting-started/design/"}}) {
-      fileAbsolutePath
       headings {
         depth
         value

@@ -30,6 +30,10 @@ export const pageQuery = graphql`
     }
     mdx(fields: {slug: {eq: "/stack/"}}) {
       fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -44,6 +48,7 @@ export const pageQuery = graphql`
   githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/layout/stack"
   storybookUrl="https://twilio-labs.github.io/paste/?path=/story/layout-stack--stack"
   data={props.data.allPasteLayout.edges}
+  mdxData={props.data.mdx}
 />
 
 ---

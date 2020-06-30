@@ -24,7 +24,6 @@ import Package from '../../../../../../package.json';
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/getting-started/engineering/"}}) {
-      fileAbsolutePath
       headings {
         depth
         value

@@ -9,7 +9,6 @@ import {graphql} from 'gatsby';
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/libraries/"}}) {
-      fileAbsolutePath
       headings {
         depth
         value

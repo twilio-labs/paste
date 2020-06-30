@@ -9,7 +9,6 @@ import {graphql} from 'gatsby';
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/content/writing-for-components/"}}) {
-      fileAbsolutePath
       headings {
         depth
         value

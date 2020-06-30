@@ -35,6 +35,10 @@ export const pageQuery = graphql`
     }
     mdx(fields: {slug: {eq: "/grid/"}}) {
       fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -50,6 +54,7 @@ export const pageQuery = graphql`
   storybookUrl="https://twilio-labs.github.io/paste/?path=/story/layout-grid--grid-12-column-and-gutter-support"
   abstractUrl="https://share.goabstract.com/3e7528f5-7981-421c-9308-e06d2f341c70?"
   data={props.data.allPasteLayout.edges}
+  mdxData={props.data.mdx}
 />
 
 ---
