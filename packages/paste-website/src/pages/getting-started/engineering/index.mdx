@@ -6,6 +6,7 @@ slug: /getting-started/engineering/
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {version as typesVersion} from '@twilio-paste/types/package.json';
 import {version as stylePropsVersion} from '@twilio-paste/style-props/package.json';
@@ -24,6 +25,11 @@ import Package from '../../../../../../package.json';
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/getting-started/engineering/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -44,7 +50,13 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
+<Box order={2} marginTop="space40" marginLeft="space140" minWidth="size20">
+
+<QuestionMenu data={props.data.mdx} />
+
 <TableOfContents headings={props.data.mdx.headings} />
+
+</Box>
 
 <content>
 

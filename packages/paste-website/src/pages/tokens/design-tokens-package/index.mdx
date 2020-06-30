@@ -42,14 +42,19 @@ export const pageQuery = graphql`
   categoryRoute={SidebarCategoryRoutes.TOKENS}
   githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/components/button"
   data={props.data.allPasteDesignTokensPackage.edges}
-  mdxData={props.data.mdx}
 />
 
 ---
 
 <contentwrapper>
 
+<Box order={2} marginTop="space40" marginLeft="space140" minWidth="size20">
+
+<QuestionMenu data={props.data.mdx} />
+
 <TableOfContents headings={props.data.mdx.headings} />
+
+</Box>
 
 <content>
 

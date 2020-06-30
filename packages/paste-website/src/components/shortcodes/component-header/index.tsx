@@ -63,13 +63,6 @@ interface ComponentHeaderProps {
       };
     }
   ];
-  mdxData: {
-    fileAbsolutePath: string;
-    frontmatter: {
-      slug: string;
-      title: string;
-    };
-  };
 }
 
 const PackageValue: React.FC<{}> = ({children}) => {
@@ -99,24 +92,11 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
   storybookUrl,
   abstractUrl,
   data,
-  mdxData,
 }) => {
   if (data == null || data[0] == null || data[0].node == null) {
     return <ComponentHeaderBasic categoryRoute={categoryRoute} name={name} />;
   }
   const {description, status, name: packageName, version} = data[0].node;
-
-  const menu = useMenuState();
-  const handleClick = (): void => menu.hide();
-
-  const gitHubPagesPath = 'https://github.com/twilio-labs/paste/blob/master/packages/paste-website/src/pages';
-  const absolutePath = mdxData.fileAbsolutePath;
-  const filename = absolutePath.substring(absolutePath.lastIndexOf('/') + 1);
-  const gitHubURL = `${gitHubPagesPath + mdxData.frontmatter.slug}/${filename}`;
-  const gitHubIssueUrl = `https://github.com/twilio-labs/paste/issues/new?assignees=&labels=Type%3A+Bug&template=bug_report.md&title=${mdxData.frontmatter.title.replace(
-    /\s+/g,
-    '%20'
-  )}`;
 
   return (
     <>
@@ -145,28 +125,12 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
             {abstractUrl != null ? <Anchor href={abstractUrl}>Abstract</Anchor> : null}
           </PackageValue>
         </Box>
-        <Box marginBottom="space60">
+        <Box marginBottom="space20">
           <PackageLabel>Install</PackageLabel>
           <PackageValue>
             <PackageInstallSnippet>yarn add {packageName}</PackageInstallSnippet> &mdash; or &mdash;{' '}
             <PackageInstallSnippet>yarn add @twilio-paste/core</PackageInstallSnippet>
           </PackageValue>
-        </Box>
-        <Box marginBottom="space20">
-          <MenuButton {...menu} variant="link">
-            Feedback <ChevronDownIcon decorative />
-          </MenuButton>
-          <Menu {...menu} aria-label="Feedback">
-            <MenuItem {...menu} href={gitHubURL} onClick={handleClick}>
-              Edit this page on GitHub
-            </MenuItem>
-            <MenuItem {...menu} href="https://github.com/twilio-labs/paste/discussions/new" onClick={handleClick}>
-              Have a question? Submit a Github Discussion
-            </MenuItem>
-            <MenuItem {...menu} href={gitHubIssueUrl} onClick={handleClick}>
-              Find a bug? Submit a Github Issue
-            </MenuItem>
-          </Menu>
         </Box>
       </Box>
     </>

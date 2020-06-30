@@ -5,6 +5,7 @@ slug: /components/screen-reader-only/
 ---
 
 import {graphql} from 'gatsby';
+import {Box} from '@twilio-paste/box';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {Text} from '@twilio-paste/text';
 import {Flex} from '@twilio-paste/flex';
@@ -52,14 +53,19 @@ export const pageQuery = graphql`
   githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/components/screen-reader-only"
   storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-screen-reader-only--default"
   data={props.data.allPasteComponent.edges}
-  mdxData={props.data.mdx}
 />
 
 ---
 
 <contentwrapper>
 
+<Box order={2} marginTop="space40" marginLeft="space140" minWidth="size20">
+
+<QuestionMenu data={props.data.mdx} />
+
 <TableOfContents headings={props.data.mdx.headings} />
+
+</Box>
 
 <content>
 

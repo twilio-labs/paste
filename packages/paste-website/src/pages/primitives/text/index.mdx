@@ -46,14 +46,19 @@ export const pageQuery = graphql`
   githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/primitives/text"
   storybookUrl="https://twilio-labs.github.io/paste/?path=/story/primitives-text--default"
   data={props.data.allPastePrimitive.edges}
-  mdxData={props.data.mdx}
 />
 
 ---
 
 <contentwrapper>
 
+<Box order={2} marginTop="space40" marginLeft="space140" minWidth="size20">
+
+<QuestionMenu data={props.data.mdx} />
+
 <TableOfContents headings={props.data.mdx.headings} />
+
+</Box>
 
 <content>
 

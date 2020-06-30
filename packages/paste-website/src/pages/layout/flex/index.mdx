@@ -46,14 +46,19 @@ export const pageQuery = graphql`
   githubUrl="https://github.com/twilio-labs/paste/tree/master/packages/paste-core/layout/flex"
   storybookUrl="https://twilio-labs.github.io/paste/?path=/story/layout-flex--flex-alignment-options"
   data={props.data.allPasteLayout.edges}
-  mdxData={props.data.mdx}
 />
 
 ---
 
 <contentwrapper>
 
+<Box order={2} marginTop="space40" marginLeft="space140" minWidth="size20">
+
+<QuestionMenu data={props.data.mdx} />
+
 <TableOfContents headings={props.data.mdx.headings} />
+
+</Box>
 
 <content>
 
