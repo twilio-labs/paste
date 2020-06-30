@@ -5,11 +5,11 @@ import {ResponsiveValue, TLengthStyledSystem} from '@twilio-paste/styling-librar
 
 // Tokens
 export type WidthOptions = keyof ThemeShape['widths'] | '100%' | '100vw' | 'auto';
-export type MinWidthOptions = keyof ThemeShape['minWidths'];
-export type MaxWidthOptions = keyof ThemeShape['maxWidths'];
+export type MinWidthOptions = keyof ThemeShape['minWidths'] | '100%' | '100vw' | 'auto';
+export type MaxWidthOptions = keyof ThemeShape['maxWidths'] | '100%' | '100vw' | 'auto';
 export type HeightOptions = keyof ThemeShape['heights'] | '100%' | '100vh' | 'auto';
-export type MinHeightOptions = keyof ThemeShape['minHeights'];
-export type MaxHeightOptions = keyof ThemeShape['maxHeights'];
+export type MinHeightOptions = keyof ThemeShape['minHeights'] | '100%' | '100vh' | 'auto';
+export type MaxHeightOptions = keyof ThemeShape['maxHeights'] | '100%' | '100vh' | 'auto';
 export type IconSizeOptions = keyof ThemeShape['iconSizes'];
 
 export type Width = ResponsiveValue<WidthOptions>;

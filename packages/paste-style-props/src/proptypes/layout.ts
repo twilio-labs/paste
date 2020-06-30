@@ -3,11 +3,11 @@ import {propValidator} from './utils/propValidator';
 
 // Tokens
 const WidthOptions = ['100%', '100vw', 'auto', ...Object.keys(DefaultTheme.widths)];
-const MinWidthOptions = Object.keys(DefaultTheme.minWidths);
-const MaxWidthOptions = Object.keys(DefaultTheme.maxWidths);
+const MinWidthOptions = ['100%', '100vw', 'auto', ...Object.keys(DefaultTheme.minWidths)];
+const MaxWidthOptions = ['100%', '100vw', 'auto', ...Object.keys(DefaultTheme.maxWidths)];
 const HeightOptions = ['100%', '100vh', 'auto', ...Object.keys(DefaultTheme.heights)];
-const MinHeightOptions = Object.keys(DefaultTheme.minHeights);
-const MaxHeightOptions = Object.keys(DefaultTheme.maxHeights);
+const MinHeightOptions = ['100%', '100vh', 'auto', ...Object.keys(DefaultTheme.minHeights)];
+const MaxHeightOptions = ['100%', '100vh', 'auto', ...Object.keys(DefaultTheme.maxHeights)];
 const IconSizeOptions = Object.keys(DefaultTheme.iconSizes);
 
 export const isWidthTokenProp = propValidator(WidthOptions);
