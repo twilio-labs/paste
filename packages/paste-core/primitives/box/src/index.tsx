@@ -87,6 +87,9 @@ export interface BaseBoxProps
   textTransform?: TextTransformProperty;
   /** Typed as any because Box can literally be any HTML element */
   ref?: any | null;
+  // image props
+  alt?: string;
+  src?: string;
 }
 
 interface PseudoStylesProps {
