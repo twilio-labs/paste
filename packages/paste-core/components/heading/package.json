@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/heading",
-  "version": "2.0.16",
+  "version": "2.0.17",
   "category": "typography",
   "status": "production",
   "description": "Twilio's Heading component",

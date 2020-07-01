@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/reakit-library@0.6.0...@twilio-paste/reakit-library@0.6.1) (2020-07-01)
+
+
+### Bug Fixes
+
+* **reakit-library:** export some additional types for disclosure ([244510a](https://github.com/twilio-labs/paste/commit/244510a167eea30534e22046bbe67988347d8982))
+
+
+
+
+
 # [0.6.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/reakit-library@0.5.0...@twilio-paste/reakit-library@0.6.0) (2020-06-25)
 
 

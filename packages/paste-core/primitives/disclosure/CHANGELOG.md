@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/disclosure-primitive@0.1.7...@twilio-paste/disclosure-primitive@0.2.0) (2020-07-01)
+
+
+### Features
+
+* **disclosure-primitive:** export state props ([3299ad6](https://github.com/twilio-labs/paste/commit/3299ad6c8c91b52858bf4087bc69f63337e3bd30))
+
+
+
+
+
 ## [0.1.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/disclosure-primitive@0.1.6...@twilio-paste/disclosure-primitive@0.1.7) (2020-06-25)
 
 **Note:** Version bump only for package @twilio-paste/disclosure-primitive
