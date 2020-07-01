@@ -583,6 +583,7 @@ exports[`Button States Has a loading state 1`] = `
       >
         <span
           className="emotion-1"
+          display="inline-flex"
           size="sizeIcon20"
         >
           <svg
@@ -629,6 +630,7 @@ exports[`Button States Has a loading state 1`] = `
       >
         <span
           className="emotion-1"
+          display="inline-flex"
           size="sizeIcon20"
         >
           <svg
@@ -675,6 +677,7 @@ exports[`Button States Has a loading state 1`] = `
       >
         <span
           className="emotion-1"
+          display="inline-flex"
           size="sizeIcon20"
         >
           <svg
@@ -721,6 +724,7 @@ exports[`Button States Has a loading state 1`] = `
       >
         <span
           className="emotion-1"
+          display="inline-flex"
           size="sizeIcon20"
         >
           <svg
@@ -767,6 +771,7 @@ exports[`Button States Has a loading state 1`] = `
       >
         <span
           className="emotion-1"
+          display="inline-flex"
           size="sizeIcon20"
         >
           <svg
@@ -813,6 +818,7 @@ exports[`Button States Has a loading state 1`] = `
       >
         <span
           className="emotion-1"
+          display="inline-flex"
           size="sizeIcon20"
         >
           <svg
