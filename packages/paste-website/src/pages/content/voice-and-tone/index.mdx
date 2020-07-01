@@ -5,11 +5,16 @@ slug: /content/voice-and-tone/
 ---
 
 import {graphql} from 'gatsby';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/content/voice-and-tone/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -30,7 +35,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<TableOfContents headings={props.data.mdx.headings} />
+<PageAside data={props.data.mdx} />
 
 <content>
 

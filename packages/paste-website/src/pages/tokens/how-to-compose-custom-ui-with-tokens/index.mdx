@@ -7,11 +7,16 @@ slug: /tokens/how-to-compose-custom-ui-with-tokens/
 import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/tokens/how-to-compose-custom-ui-with-tokens/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -22,7 +27,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<TableOfContents headings={props.data.mdx.headings} />
+<PageAside data={props.data.mdx} />
 
 <content>
 

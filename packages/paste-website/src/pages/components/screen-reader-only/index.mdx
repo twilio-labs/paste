@@ -5,6 +5,7 @@ slug: /components/screen-reader-only/
 ---
 
 import {graphql} from 'gatsby';
+import {Box} from '@twilio-paste/box';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {Text} from '@twilio-paste/text';
 import {Flex} from '@twilio-paste/flex';
@@ -33,6 +34,11 @@ export const pageQuery = graphql`
       }
     }
     mdx(fields: {slug: {eq: "/screen-reader-only/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -53,7 +59,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<TableOfContents headings={props.data.mdx.headings} />
+<PageAside data={props.data.mdx} />
 
 <content>
 

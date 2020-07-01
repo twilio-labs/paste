@@ -6,6 +6,7 @@ slug: /getting-started/engineering/
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {version as typesVersion} from '@twilio-paste/types/package.json';
 import {version as stylePropsVersion} from '@twilio-paste/style-props/package.json';
@@ -17,13 +18,18 @@ import {version as animationVersion} from '@twilio-paste/animation-library/packa
 import {version as stylingLibraryPropsVersion} from '@twilio-paste/styling-library/package.json';
 import {version as dropdownVersion} from '@twilio-paste/dropdown-library/package.json';
 import {version as reakitVersion} from '@twilio-paste/reakit-library/package.json';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
-import {InlineCode} from '../../components/Typography';
-import Package from '../../../../../package.json';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {InlineCode} from '../../../components/Typography';
+import Package from '../../../../../../package.json';
 
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/getting-started/engineering/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -44,7 +50,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<TableOfContents headings={props.data.mdx.headings} />
+<PageAside data={props.data.mdx} />
 
 <content>
 

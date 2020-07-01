@@ -6,6 +6,7 @@ slug: /components/spinner/
 ---
 
 import {graphql} from 'gatsby';
+import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Spinner} from '@twilio-paste/spinner';
 import Changelog from '@twilio-paste/spinner/CHANGELOG.md';
@@ -26,6 +27,11 @@ export const pageQuery = graphql`
       }
     }
     mdx(fields: {slug: {eq: "/spinner/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -46,7 +52,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<TableOfContents headings={props.data.mdx.headings} />
+<PageAside data={props.data.mdx} />
 
 <content>
 

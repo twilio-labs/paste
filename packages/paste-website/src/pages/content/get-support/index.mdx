@@ -5,12 +5,17 @@ slug: /content/get-support/
 ---
 
 import {graphql} from 'gatsby';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 import {Anchor} from '@twilio-paste/anchor';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/content/get-support/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -31,7 +36,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<TableOfContents headings={props.data.mdx.headings} />
+<PageAside data={props.data.mdx} />
 
 <content>
 

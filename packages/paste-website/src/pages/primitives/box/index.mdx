@@ -24,6 +24,11 @@ export const pageQuery = graphql`
       }
     }
     mdx(fields: {slug: {eq: "/box/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -44,7 +49,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<TableOfContents headings={props.data.mdx.headings} />
+<PageAside data={props.data.mdx} />
 
 <content>
 

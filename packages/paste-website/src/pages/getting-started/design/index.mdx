@@ -6,13 +6,18 @@ slug: /getting-started/design/
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
-import {Grid} from '../../components/grid';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Grid} from '../../../components/grid';
 import {Link} from 'gatsby';
 
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/getting-started/design/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -33,7 +38,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<TableOfContents headings={props.data.mdx.headings} />
+<PageAside data={props.data.mdx} />
 
 <content>
 

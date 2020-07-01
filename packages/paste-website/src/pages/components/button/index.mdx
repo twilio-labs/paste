@@ -27,6 +27,11 @@ export const pageQuery = graphql`
       }
     }
     mdx(fields: {slug: {eq: "/button/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -48,7 +53,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<TableOfContents headings={props.data.mdx.headings} />
+<PageAside data={props.data.mdx} />
 
 <content>
 
@@ -146,15 +151,11 @@ screen readers and dictation software. Here are some quick tips:
 </Box>
 
 <Box display="inline-block" marginRight="space30">
-  <Button variant="link">
-    Action
-  </Button>
+  <Button variant="link">Action</Button>
 </Box>
 
 <Box display="inline-block" marginRight="space30">
-  <Button variant="destructive_link">
-    Action
-  </Button>
+  <Button variant="destructive_link">Action</Button>
 </Box>
 
 <Button variant="reset" size="reset">
