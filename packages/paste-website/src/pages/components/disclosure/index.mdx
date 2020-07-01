@@ -2,7 +2,7 @@
 title: Disclosure
 package: '@twilio-paste/disclosure'
 description: The Disclosure is used to create accessible, hierarchical, and collapsible structure to your pages.
-slug: /components/popover/
+slug: /components/disclosure/
 ---
 
 import {graphql} from 'gatsby';
@@ -30,6 +30,11 @@ export const pageQuery = graphql`
       }
     }
     mdx(fields: {slug: {eq: "/disclosure/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
       headings {
         depth
         value
@@ -50,7 +55,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<TableOfContents headings={props.data.mdx.headings} />
+<PageAside data={props.data.mdx} />
 
 <content>
 
