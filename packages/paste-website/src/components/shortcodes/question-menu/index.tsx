@@ -5,7 +5,7 @@ import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {Stack} from '@twilio-paste/stack';
 import {Menu, MenuButton, MenuItem, useMenuState} from '@twilio-paste/menu';
 
-interface QuestionMenuProps {
+export interface QuestionMenuProps {
   data: {
     fileAbsolutePath: string;
     frontmatter: {
@@ -36,10 +36,10 @@ const QuestionMenu: React.FC<QuestionMenuProps> = ({data}) => {
         </MenuButton>
         <Menu {...menu} aria-label="Feedback">
           <MenuItem {...menu} href="https://github.com/twilio-labs/paste/discussions/new" onClick={handleClick}>
-            Have a question? Submit a Github Discussion
+            Have a question? Start a discussion
           </MenuItem>
           <MenuItem {...menu} href={gitHubIssueUrl} onClick={handleClick}>
-            Find a bug? Submit a Github Issue
+            Find a bug? Submit an issue
           </MenuItem>
         </Menu>
         <Anchor href={gitHubURL}>Edit this page on GitHub</Anchor>

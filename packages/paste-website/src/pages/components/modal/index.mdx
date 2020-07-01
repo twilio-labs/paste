@@ -62,13 +62,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<Box order={2} marginLeft="space140" minWidth="size20">
-
-<QuestionMenu data={props.data.mdx} />
-
-<TableOfContents headings={props.data.mdx.headings} />
-
-</Box>
+<PageAside data={props.data.mdx} headings={props.data.mdx.headings} />
 
 <content>
 

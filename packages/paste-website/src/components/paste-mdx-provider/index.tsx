@@ -15,6 +15,7 @@ import {ComponentHeader} from '../shortcodes/component-header';
 import {LivePreview} from '../shortcodes/live-preview';
 import {TableOfContents} from '../shortcodes/table-of-contents';
 import {QuestionMenu} from '../shortcodes/question-menu';
+import {PageAside} from '../shortcodes/PageAside';
 
 interface PasteMDXProviderProps {
   children?: React.ReactElement;
@@ -37,7 +38,7 @@ const StyledSup = styled.sup`
   top: -0.4rem;
 `;
 
-const shortcodes = {ComponentHeader, LivePreview, TableOfContents, QuestionMenu};
+const shortcodes = {ComponentHeader, LivePreview, PageAside, QuestionMenu, TableOfContents};
 
 /* eslint-disable no-shadow */
 /*
