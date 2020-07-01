@@ -41,4 +41,4 @@ jobs:
           projectToken: ${{ secrets.CHROMA_APP_CODE }}
           token: ${{ secrets.GITHUB_TOKEN }}
           buildScriptName: "build:storybook"
-          autoAcceptChanges: "master"
+          autoAcceptChanges: "main"

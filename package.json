@@ -180,7 +180,7 @@
     "hooks": {
       "pre-commit": "precise-commits",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "if git-branch-is master; then yarn pre-push; fi"
+      "pre-push": "if git-branch-is main; then yarn pre-push; fi"
     }
   },
   "engines": {
