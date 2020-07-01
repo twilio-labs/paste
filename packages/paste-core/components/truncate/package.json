@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/truncate",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "category": "typography",
   "status": "alpha",
   "description": "",
@@ -28,12 +28,12 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@twilio-paste/styling-library": "^0.1.0",
+    "@twilio-paste/styling-library": "^0.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/styling-library": "^0.1.0"
+    "@twilio-paste/styling-library": "^0.1.1"
   }
 }
