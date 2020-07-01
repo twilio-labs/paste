@@ -12,6 +12,12 @@ export interface QuestionMenuProps {
       slug: string;
       title: string;
     };
+    headings?: [
+      {
+        value: string;
+        depth: number;
+      }
+    ];
   };
 }
 

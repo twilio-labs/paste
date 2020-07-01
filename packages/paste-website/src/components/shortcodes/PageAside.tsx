@@ -6,11 +6,11 @@ import {QuestionMenu, QuestionMenuProps} from './question-menu';
 
 interface PageAsideProps extends TableOfContentsProps, QuestionMenuProps {}
 
-const PageAside: React.FC<PageAsideProps> = ({data, headings}) => {
+const PageAside: React.FC<PageAsideProps> = ({data}) => {
   return (
     <Box order={2} marginLeft="space140" minWidth="size20">
       <QuestionMenu data={data} />
-      <TableOfContents headings={headings} />
+      <TableOfContents headings={data.headings} />
     </Box>
   );
 };
