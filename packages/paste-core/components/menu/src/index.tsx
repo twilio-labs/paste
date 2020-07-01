@@ -41,8 +41,8 @@ const StyledMenu = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...props}
       borderRadius="borderRadius20"
       boxShadow="shadowCard"
       maxWidth="size30"
-      minWidth="size30"
-      zIndex="zIndex10"
+      minWidth="size10"
+      zIndex="zIndex20"
       _focus={{outline: 'none'}}
       style={style}
       ref={ref}
@@ -74,7 +74,7 @@ const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElement, Styl
       >
         <Text
           as="div"
-          color={props['aria-disabled'] ? 'colorTextWeaker' : 'colorTextLink'}
+          color={props['aria-disabled'] ? 'colorTextWeaker' : 'colorText'}
           textDecoration={props.tabIndex === 0 ? 'underline' : null}
         >
           {children}
