@@ -53,11 +53,11 @@ const StyledAnchor = styled.a(
   )
 );
 
-const Anchor: React.FC<AnchorProps> = props => (
-  <StyledAnchor {...secureExternalLink(props.href)} {...props}>
+const Anchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, ref) => (
+  <StyledAnchor {...secureExternalLink(props.href)} {...props} ref={ref}>
     {props.children}
   </StyledAnchor>
-);
+));
 Anchor.displayName = 'Anchor';
 
 if (process.env.NODE_ENV === 'development') {
