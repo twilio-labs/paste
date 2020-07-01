@@ -141,8 +141,8 @@ exports[`Menu  Render should render 1`] = `
   border-radius: borderRadius20;
   box-shadow: shadowCard;
   max-width: size30;
-  min-width: size30;
-  z-index: zIndex10;
+  min-width: size10;
+  z-index: zIndex20;
 }
 
 .emotion-14:focus {
@@ -180,7 +180,7 @@ exports[`Menu  Render should render 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: colorTextLink;
+  color: colorText;
   -webkit-text-decoration: underline;
   text-decoration: underline;
   font-size: fontSize30;
@@ -208,7 +208,7 @@ exports[`Menu  Render should render 1`] = `
 .emotion-2 {
   margin: 0;
   padding: 0;
-  color: colorTextLink;
+  color: colorText;
   font-size: fontSize30;
   line-height: lineHeight30;
 }
@@ -235,7 +235,7 @@ exports[`Menu  Render should render 1`] = `
     >
       <div
         class="emotion-0"
-        color="colorTextLink"
+        color="colorText"
         font-size="fontSize30"
         text-decoration="underline"
       >
@@ -252,7 +252,7 @@ exports[`Menu  Render should render 1`] = `
     >
       <div
         class="emotion-2"
-        color="colorTextLink"
+        color="colorText"
         font-size="fontSize30"
       >
         Check for Updates...
@@ -306,7 +306,7 @@ exports[`Menu  Render should render 1`] = `
       >
         <div
           class="emotion-0"
-          color="colorTextLink"
+          color="colorText"
           font-size="fontSize30"
           text-decoration="underline"
         >
@@ -347,7 +347,7 @@ exports[`Menu  Render should render 1`] = `
       >
         <div
           class="emotion-2"
-          color="colorTextLink"
+          color="colorText"
           font-size="fontSize30"
         >
           Keyboard shortcuts
