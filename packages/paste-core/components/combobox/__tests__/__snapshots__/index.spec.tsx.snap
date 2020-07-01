@@ -262,6 +262,7 @@ exports[`Combobox  Render should render 1`] = `
         >
           <span
             class="emotion-4"
+            display="inline-flex"
           >
             <svg
               aria-hidden="true"
