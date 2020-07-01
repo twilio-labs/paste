@@ -108,6 +108,7 @@ exports[`FormHelpText render it should render with an error icon 1`] = `
   >
     <span
       className="emotion-0"
+      display="inline-flex"
       size="sizeIcon30"
     >
       <svg
