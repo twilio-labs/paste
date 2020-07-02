@@ -10,13 +10,13 @@ export interface LinkExternalIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const LinkExternalIcon: React.FC<LinkExternalIconProps> = ({as, size, iconColor, title, decorative}) => {
+const LinkExternalIcon: React.FC<LinkExternalIconProps> = ({as, display, size, iconColor, title, decorative}) => {
   if (!decorative && title == null) {
     throw new Error('[LinkExternalIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} size={size} iconColor={iconColor}>
+    <IconWrapper as={as} display={display} size={size} iconColor={iconColor}>
       <UID>
         {uid => (
           <svg role="img" aria-hidden={decorative} aria-labelledby={uid} width="100%" height="100%" viewBox="0 0 24 24">

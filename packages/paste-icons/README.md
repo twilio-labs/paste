@@ -14,14 +14,15 @@ import AssetsIcon from '@twilio-paste/icons/react/AssetsIcon';
 // import AssetsSvg from '@twilio-paste/icons/svg/assets.svg';
 // Note: make sure you have the webpack loader for loading svgs.
 
-<AssetsIcon title={string} decorative={boolean} size={number} color={token} />;
+<AssetsIcon title={string} decorative={boolean} display={display} size={number} color={token} />;
 ```
 
 ### Standard Props
 
 | Prop       | Type      | Description                                                                                                                                           | Default                                                                  |
 | ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| decorative | boolean   | Whether or not the SVG is just visual flair or adds meaning to the page. Specifically for screenreaders to know whether to read out the title or not. | true                                                                     |
+| decorative | boolean   | Whether or not the SVG is just visual flair or adds meaning to the page. Specifically for screenreaders to know whether to read out the title or not. | true
+| display?                 | `ResponsiveValue<CSS.DisplayProperty>`                  |         | inline-flex
 | title?     | string    | The accesibility text that is read when screenreaders get to this component                                                                           | Component name                                                           |
 | size?      | IconSize  | The width and height value (all icons are square) in pixels                                                                                           | sizeIcon20                                                               |
 | iconColor? | TextColor | The color of your icon                                                                                                                                | currentColor - whatever is the font-color inherited from up the DOM tree |
