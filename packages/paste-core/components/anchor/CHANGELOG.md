@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.28](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@1.1.27...@twilio-paste/anchor@1.1.28) (2020-07-02)
+
+
+### Bug Fixes
+
+* **anchor:** rework anchor to forward ref ([77d6466](https://github.com/twilio-labs/paste/commit/77d6466935700ecfbe6c6a3610db90fceace1eed))
+
+
+
+
+
 ## [1.1.27](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@1.1.26...@twilio-paste/anchor@1.1.27) (2020-07-01)
 
 **Note:** Version bump only for package @twilio-paste/anchor
