@@ -44,7 +44,7 @@ Icon fonts were a novel and useful solution for a bygone era of front-end develo
 
 ### How can I animate these icons?
 
-Wrap these icons with a component that animates its children or pass in a className prop. See the [Spinner component](https://github.com/twilio-labs/paste/blob/master/packages/paste-core/components/spinner/src/index.tsx) for an example.
+Wrap these icons with a component that animates its children or pass in a className prop. See the [Spinner component](https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/spinner/src/index.tsx) for an example.
 
 ### Can I modify the template that generates these icon components?
 

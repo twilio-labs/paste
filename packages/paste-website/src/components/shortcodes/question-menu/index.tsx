@@ -25,7 +25,7 @@ const QuestionMenu: React.FC<QuestionMenuProps> = ({data}) => {
   const menu = useMenuState();
   const handleClick = (): void => menu.hide();
 
-  const gitHubPagesPath = 'https://github.com/twilio-labs/paste/blob/master/packages/paste-website/src/pages';
+  const gitHubPagesPath = 'https://github.com/twilio-labs/paste/blob/main/packages/paste-website/src/pages';
   const absolutePath = data.fileAbsolutePath;
   const filename = absolutePath.substring(absolutePath.lastIndexOf('/') + 1);
   const gitHubURL = `${gitHubPagesPath + data.frontmatter.slug}/${filename}`;
