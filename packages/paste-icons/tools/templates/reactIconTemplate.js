@@ -12,13 +12,13 @@ export interface ${componentName}Props extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ${componentName}: React.FC<${componentName}Props> = ({as, size, iconColor, title, decorative}) => {
+const ${componentName}: React.FC<${componentName}Props> = ({as, display, size, iconColor, title, decorative}) => {
   if (!decorative && title == null) {
     throw new Error('[${componentName}]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} size={size} iconColor={iconColor}>
+    <IconWrapper as={as} display={display} size={size} iconColor={iconColor}>
       <UID>
         {uid => (
           ${svg}
@@ -27,7 +27,7 @@ const ${componentName}: React.FC<${componentName}Props> = ({as, size, iconColor,
     </IconWrapper>
   );
 }
-  
+
 
 ${componentName}.displayName = '${componentName}';
 export {${componentName}};
