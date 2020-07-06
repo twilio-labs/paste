@@ -77,6 +77,12 @@ The Tooltip component is a popup that displays text related to an element when t
 the keyboard or on mouse hover. Tooltip follows the
 [WAI-ARIA Tooltip Pattern](https://www.w3.org/TR/wai-aria-practices/#tooltip).
 
+#### Accessibility
+
+A tooltip **must only** be placed on a **natively focusable** HTML element. Good candidates include a [Paste Button](/components/button) or a [Paste Anchor](/components/anchor) if the tip also links to a help article.
+
+**Do not** place tooltips on non-focusable elements, like an icon.
+
 ## Examples
 
 ### Basic Tooltip
@@ -111,7 +117,9 @@ to remain in the screen so you don't have to worry about it going off the page, 
 
 ### Focusable element
 
-A tooltip can be placed on any **focusable** element, such as a anchor, button or a React component with a `ref`.
+A tooltip **must** be placed on a **focusable** element, such as an anchor or button.
+
+**Do not** place tooltips on non-focusable elements, like an icon. Wrap them in a focusable element and place the tooltip on that.
 
 <LivePreview
   scope={{
