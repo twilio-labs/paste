@@ -35,6 +35,9 @@ const FormLabel: React.FC<FormLabelProps> = ({as, marginBottom, required, disabl
     <Box
       {...safelySpreadBoxProps(props)}
       as={as}
+      // Setting a bottom border here to prevent Bootstrap's bottom border
+      // on legend in Console.
+      borderBottomWidth="borderWidth0"
       display="block"
       marginBottom={marginBottom || 'space10'}
       paddingLeft="space0"
