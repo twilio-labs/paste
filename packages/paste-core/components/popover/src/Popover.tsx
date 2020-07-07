@@ -38,9 +38,9 @@ const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(({children, ...pr
   const popover = React.useContext(PopoverContext);
   return (
     <NonModalDialogPrimitive {...(popover as any)} {...props} as={StyledPopover} ref={ref}>
-      <PopoverArrow {...(popover as any)} />
       {/* import Paste Theme Based Styles due to portal positioning. */}
       <StyledBase>
+        <PopoverArrow {...(popover as any)} />
         <Box padding="space50" paddingLeft="space70" paddingRight="space70">
           {children}
           <Absolute preset="top_right" top={8} right={8}>
