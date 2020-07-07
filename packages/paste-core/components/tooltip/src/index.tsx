@@ -49,9 +49,9 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(({baseId, childre
         </TooltipPrimitiveReference>
       )}
       <TooltipPrimitive {...tooltip} {...props} as={StyledTooltip}>
-        <TooltipArrow {...tooltip} />
         {/* import Paste Theme Based Styles due to portal positioning. */}
         <StyledBase>
+          <TooltipArrow {...tooltip} />
           <Text as="span">{text}</Text>
         </StyledBase>
       </TooltipPrimitive>
