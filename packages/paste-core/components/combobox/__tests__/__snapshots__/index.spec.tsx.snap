@@ -9,6 +9,7 @@ exports[`Combobox  Render should render 1`] = `
 
 .emotion-2 {
   box-sizing: border-box;
+  border-bottom-width: borderWidth0;
   display: block;
   margin-bottom: space10;
   padding-left: space0;
