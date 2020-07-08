@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.13](https://github.com/twilio-labs/paste/compare/@twilio-paste/popover@0.1.12...@twilio-paste/popover@0.1.13) (2020-07-08)
+
+
+### Bug Fixes
+
+* **popover:** move arrow to StyedBase to prevent line-height override ([b549721](https://github.com/twilio-labs/paste/commit/b549721b12673fa2a68b8eced86bda99063d2f40))
+
+
+
+
+
 ## [0.1.12](https://github.com/twilio-labs/paste/compare/@twilio-paste/popover@0.1.11...@twilio-paste/popover@0.1.12) (2020-07-02)
 
 **Note:** Version bump only for package @twilio-paste/popover

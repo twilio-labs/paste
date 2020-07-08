@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/tooltip",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "category": "interaction",
   "status": "alpha",
   "description": "The Tooltip is a popup that displays clarifying text related to an element that has been focused or hovered on.",
