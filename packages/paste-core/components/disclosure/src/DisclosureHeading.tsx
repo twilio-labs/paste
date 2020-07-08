@@ -86,7 +86,7 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
             as="span"
             display="flex"
             transform={props['aria-expanded'] ? 'rotate(0deg)' : 'rotate(-90deg)'}
-            transition="all 200ms linear"
+            transition="transform 100ms ease-out"
           >
             <ChevronDownIcon decorative size={getIconSize(variant)} />
           </Box>
