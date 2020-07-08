@@ -40,53 +40,58 @@ const StyledSup = styled.sup`
 
 const shortcodes = {ComponentHeader, LivePreview, PageAside, QuestionMenu, TableOfContents};
 
+const MDXPoviderComponents = {
+  ...shortcodes,
+  h1: (props: HeadingProps): React.ReactElement => <Heading {...props} as="h1" variant="heading10" />,
+  h2: (props: HeadingProps): React.ReactElement => <AnchoredHeading {...props} as="h2" variant="heading20" />,
+  h3: (props: HeadingProps): React.ReactElement => <AnchoredHeading {...props} as="h3" variant="heading30" />,
+  h4: (props: HeadingProps): React.ReactElement => <AnchoredHeading {...props} as="h4" variant="heading40" />,
+  h5: (props: HeadingProps): React.ReactElement => <AnchoredHeading {...props} as="h5" variant="heading50" />,
+  h6: (props: HeadingProps): React.ReactElement => <AnchoredHeading {...props} as="h6" variant="heading60" />,
+  p: (props: React.ComponentProps<typeof Paragraph>): React.ReactElement => <Paragraph {...props} />,
+  ul: (props: React.ComponentProps<typeof UnorderedList>): React.ReactElement => <UnorderedList {...props} />,
+  ol: (props: React.ComponentProps<typeof OrderedList>): React.ReactElement => <OrderedList {...props} />,
+  li: (props: React.ComponentProps<typeof ListItem>): React.ReactElement => <ListItem {...props} />,
+  blockquote: (props: React.ComponentProps<'blockquote'>): React.ReactElement => <blockquote {...props} />,
+  table: (props: React.ComponentProps<'table'>): React.ReactElement => <Table {...props} />,
+  thead: (props: React.ComponentProps<'thead'>): React.ReactElement => <thead {...props} />,
+  tbody: (props: React.ComponentProps<'tbody'>): React.ReactElement => <Tbody {...props} />,
+  tfoot: (props: React.ComponentProps<'tfoot'>): React.ReactElement => <tfoot {...props} />,
+  tr: (props: React.ComponentProps<'tr'>): React.ReactElement => <Tr {...props} />,
+  th: (props: React.ComponentProps<'th'>): React.ReactElement => <Th {...props} />,
+  td: (props: React.ComponentProps<'td'>): React.ReactElement => <Td {...props} />,
+  pre: (props: React.ComponentProps<'pre'>): React.ReactElement => <Pre {...props} />,
+  code: (props: CodeblockProps): React.ReactElement => <Codeblock {...props} />,
+  inlineCode: (props: React.ComponentProps<typeof InlineCode>): React.ReactElement => <InlineCode {...props} />,
+  em: (props: React.ComponentProps<'em'>): React.ReactElement => <em {...props} />,
+  strong: (props: React.ComponentProps<'strong'>): React.ReactElement => <strong {...props} />,
+  del: (props: React.ComponentProps<'del'>): React.ReactElement => <del {...props} />,
+  hr: (props: SeparatorProps): React.ReactElement => (
+    <Separator orientation="horizontal" verticalSpacing="space70" {...props} />
+  ),
+  a: (props: AnchorProps): React.ReactElement => <Anchor {...props} />, // eslint-disable-line jsx-a11y/anchor-has-content
+  img: (props: React.ComponentProps<'img'>): React.ReactElement => <img {...props} />, // eslint-disable-line jsx-a11y/alt-text
+  sup: (props: React.ComponentProps<'sup'>): React.ReactElement => <StyledSup {...props} />,
+  content: (props: React.ComponentProps<'div'>): React.ReactElement => <StyledContent {...props} />,
+  contentwrapper: (props: React.ComponentProps<'div'>): React.ReactElement => <StyledContentWrapper {...props} />,
+};
+
 /* eslint-disable no-shadow */
 /*
   "error  'props' is already declared in the upper scope": these errors I don't
   think are actually real. Because top level props is actually a different set of
   props than that are passed to the components. I think eslint is confused.
 */
-export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = (props: PasteMDXProviderProps): React.ReactElement => {
-  return (
-    <MDXProvider
-      components={{
-        ...shortcodes,
-        h1: (props: HeadingProps): React.ReactElement => <Heading {...props} as="h1" variant="heading10" />,
-        h2: (props: HeadingProps): React.ReactElement => <AnchoredHeading {...props} as="h2" variant="heading20" />,
-        h3: (props: HeadingProps): React.ReactElement => <AnchoredHeading {...props} as="h3" variant="heading30" />,
-        h4: (props: HeadingProps): React.ReactElement => <AnchoredHeading {...props} as="h4" variant="heading40" />,
-        h5: (props: HeadingProps): React.ReactElement => <AnchoredHeading {...props} as="h5" variant="heading50" />,
-        h6: (props: HeadingProps): React.ReactElement => <AnchoredHeading {...props} as="h6" variant="heading60" />,
-        p: (props: React.ComponentProps<typeof Paragraph>): React.ReactElement => <Paragraph {...props} />,
-        ul: (props: React.ComponentProps<typeof UnorderedList>): React.ReactElement => <UnorderedList {...props} />,
-        ol: (props: React.ComponentProps<typeof OrderedList>): React.ReactElement => <OrderedList {...props} />,
-        li: (props: React.ComponentProps<typeof ListItem>): React.ReactElement => <ListItem {...props} />,
-        blockquote: (props: React.ComponentProps<'blockquote'>): React.ReactElement => <blockquote {...props} />,
-        table: (props: React.ComponentProps<'table'>): React.ReactElement => <Table {...props} />,
-        thead: (props: React.ComponentProps<'thead'>): React.ReactElement => <thead {...props} />,
-        tbody: (props: React.ComponentProps<'tbody'>): React.ReactElement => <Tbody {...props} />,
-        tfoot: (props: React.ComponentProps<'tfoot'>): React.ReactElement => <tfoot {...props} />,
-        tr: (props: React.ComponentProps<'tr'>): React.ReactElement => <Tr {...props} />,
-        th: (props: React.ComponentProps<'th'>): React.ReactElement => <Th {...props} />,
-        td: (props: React.ComponentProps<'td'>): React.ReactElement => <Td {...props} />,
-        pre: (props: React.ComponentProps<'pre'>): React.ReactElement => <Pre {...props} />,
-        code: (props: CodeblockProps): React.ReactElement => <Codeblock {...props} />,
-        inlineCode: (props: React.ComponentProps<typeof InlineCode>): React.ReactElement => <InlineCode {...props} />,
-        em: (props: React.ComponentProps<'em'>): React.ReactElement => <em {...props} />,
-        strong: (props: React.ComponentProps<'strong'>): React.ReactElement => <strong {...props} />,
-        del: (props: React.ComponentProps<'del'>): React.ReactElement => <del {...props} />,
-        hr: (props: SeparatorProps): React.ReactElement => (
-          <Separator orientation="horizontal" verticalSpacing="space70" {...props} />
-        ),
-        a: (props: AnchorProps): React.ReactElement => <Anchor {...props} />, // eslint-disable-line jsx-a11y/anchor-has-content
-        img: (props: React.ComponentProps<'img'>): React.ReactElement => <img {...props} />, // eslint-disable-line jsx-a11y/alt-text
-        sup: (props: React.ComponentProps<'sup'>): React.ReactElement => <StyledSup {...props} />,
-        content: (props: React.ComponentProps<'div'>): React.ReactElement => <StyledContent {...props} />,
-        contentwrapper: (props: React.ComponentProps<'div'>): React.ReactElement => <StyledContentWrapper {...props} />,
-      }}
-    >
-      {props.children}
-    </MDXProvider>
-  );
+interface PasteMDXProviderProps {
+  componentOverrides?: {[key: string]: (props: {}) => React.ReactNode};
+}
+export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = ({
+  componentOverrides,
+  children,
+}): React.ReactElement => {
+  const components =
+    componentOverrides != null ? {...MDXPoviderComponents, ...componentOverrides} : MDXPoviderComponents;
+
+  return <MDXProvider components={components}>{children}</MDXProvider>;
 };
 /* eslint-enable no-shadow */

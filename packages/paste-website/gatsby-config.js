@@ -100,7 +100,7 @@ module.exports = {
         extensions: [`.mdx`, `.md`],
         defaultLayouts: {
           default: require.resolve('./src/layouts/DefaultLayout.tsx'),
-          packages: require.resolve('./src/layouts/GenericLayout.tsx'),
+          packages: require.resolve('./src/layouts/ChangelogLayout.tsx'),
           websiteCore: require.resolve('./src/layouts/GenericLayout.tsx'),
         },
         gatsbyRemarkPlugins: [
