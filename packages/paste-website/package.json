@@ -24,6 +24,7 @@
     "@twilio-paste/anchor": "^1.1.30",
     "@twilio-paste/animation-library": "^0.2.1",
     "@twilio-paste/aspect-ratio": "^1.0.51",
+    "@twilio-paste/avatar": "^0.0.0",
     "@twilio-paste/box": "^2.6.3",
     "@twilio-paste/button": "^1.2.19",
     "@twilio-paste/combobox": "^0.2.15",
