@@ -43,7 +43,7 @@ Before contributing, please make sure that you read our [Contributing Guidelines
 
 ## Hosting Storybook
 
-We use GitHub pages to host the Storybook instance. We use the `gh-pages` branch and the ![`gh-pages` package](https://www.npmjs.com/package/gh-pages) to manage this.
+We use GitHub pages to host the Storybook instance. We use the `gh-pages` branch and the [`gh-pages` package](https://www.npmjs.com/package/gh-pages) to manage this.
 
 ### `gh-pages` branch
 
