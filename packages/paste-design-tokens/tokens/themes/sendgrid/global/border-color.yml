@@ -6,15 +6,18 @@ imports:
   - ../aliases/color.yml
   - ../aliases/color-palette.yml
 props:
+  color-border-dark:
+    value: "{!palette-gray-60}"
+    comment: Dark border color
   color-border:
     value: "{!palette-gray-70}"
     comment: Default border color
   color-border-light:
-    value: "{!palette-gray-40}"
+    value: "{!palette-gray-50}"
     comment: Light border color
-  color-border-dark:
-    value: "{!palette-gray-60}"
-    comment: Dark border color
+  color-border-lighter:
+    value: "{!palette-gray-40}"
+    comment: Lighter border color
 
   # primary action borders
   color-border-primary-darker:
