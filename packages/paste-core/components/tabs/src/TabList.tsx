@@ -12,13 +12,23 @@ interface TabListProps {
 }
 
 const HorizontalTabList: React.FC = ({children}) => (
-  <Box display="flex" borderBottomWidth="borderWidth20" borderBottomColor="colorBorderLight" borderBottomStyle="solid">
+  <Box
+    display="flex"
+    borderBottomWidth="borderWidth20"
+    borderBottomColor="colorBorderLighter"
+    borderBottomStyle="solid"
+  >
     {children}
   </Box>
 );
 
 const VerticalTabList: React.FC = ({children}) => (
-  <Box borderRightWidth="borderWidth20" borderRightColor="colorBorderLight" borderRightStyle="solid" maxWidth="size30">
+  <Box
+    borderRightWidth="borderWidth20"
+    borderRightColor="colorBorderLighter"
+    borderRightStyle="solid"
+    maxWidth="size30"
+  >
     {children}
   </Box>
 );

@@ -27,7 +27,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   display: -ms-flexbox;
   display: flex;
   border-bottom-width: borderWidth20;
-  border-bottom-color: colorBorderLight;
+  border-bottom-color: colorBorderLighter;
   border-bottom-style: solid;
 }
 
@@ -305,7 +305,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
 .emotion-6 {
   box-sizing: border-box;
   border-right-width: borderWidth20;
-  border-right-color: colorBorderLight;
+  border-right-color: colorBorderLighter;
   border-right-style: solid;
   max-width: size30;
 }
