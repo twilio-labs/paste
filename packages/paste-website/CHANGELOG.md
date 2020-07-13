@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.36.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.35.8...@twilio-paste/website@1.36.0) (2020-07-13)
+
+
+### Features
+
+* **website:** add ChangelogRevealer shortcode ([f556c41](https://github.com/twilio-labs/paste/commit/f556c419c46a8250f8d48c54ea7f4f45ac877b99))
+
+
+
+
+
 ## [1.35.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.35.7...@twilio-paste/website@1.35.8) (2020-07-11)
 
 **Note:** Version bump only for package @twilio-paste/website

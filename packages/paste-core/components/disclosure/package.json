@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/disclosure",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "category": "interaction",
   "status": "alpha",
   "description": "The Disclosure is used to create accessible, hierarchical, and collapsible structure to your pages.",
