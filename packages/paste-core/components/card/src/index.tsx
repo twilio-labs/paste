@@ -18,7 +18,7 @@ const Card: React.FunctionComponent<CardProps> = ({
       {...safelySpreadBoxProps(props)}
       as="article"
       borderWidth="borderWidth20"
-      borderColor="colorBorderLight"
+      borderColor="colorBorderLighter"
       borderStyle="solid"
       borderRadius="borderRadius20"
       padding={padding}
