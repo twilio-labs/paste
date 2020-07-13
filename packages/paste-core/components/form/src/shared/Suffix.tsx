@@ -10,7 +10,7 @@ const Suffix: React.FC = ({children}) => {
       backgroundColor="colorBackground"
       padding="space30"
       borderLeftWidth="borderWidth10"
-      borderLeftColor="colorBorderLight"
+      borderLeftColor="colorBorderLighter"
       borderLeftStyle="solid"
       borderTopRightRadius="borderRadius20"
       borderBottomRightRadius="borderRadius20"

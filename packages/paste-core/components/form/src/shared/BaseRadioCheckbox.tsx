@@ -42,7 +42,7 @@ const BaseRadioCheckboxControl: React.FC<BaseRadioCheckboxControlProps> = ({chil
         backgroundColor: 'colorBackgroundPrimary',
       }}
       _disabledSibling={{
-        borderColor: 'colorBorderLight',
+        borderColor: 'colorBorderLighter',
       }}
       _invalidSibling={{
         borderColor: 'colorBorderError',
@@ -67,7 +67,7 @@ const BaseRadioCheckboxControl: React.FC<BaseRadioCheckboxControlProps> = ({chil
           : undefined
       }
       _checkedAndDisabledSibling={{
-        borderColor: 'colorBorderLight',
+        borderColor: 'colorBorderLighter',
         backgroundColor: 'colorBackgroundDark',
       }}
       _checkedAndInvalidSibling={{
