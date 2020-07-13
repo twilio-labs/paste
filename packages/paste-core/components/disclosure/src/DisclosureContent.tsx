@@ -10,7 +10,7 @@ const getVariantStyles = (variant: Variants): {} => {
       return {
         borderTopStyle: 'solid',
         borderTopWidth: 'borderWidth20',
-        borderTopColor: 'colorBorderLight',
+        borderTopColor: 'colorBorderLighter',
         padding: 'space50',
       };
     default:
