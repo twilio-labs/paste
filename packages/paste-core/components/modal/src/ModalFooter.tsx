@@ -12,7 +12,7 @@ const ModalFooter: React.FC<ModalFooterProps> = ({children, ...props}) => {
       as="footer"
       borderTopStyle="solid"
       borderTopWidth="borderWidth10"
-      borderTopColor="colorBorderLight"
+      borderTopColor="colorBorderLighter"
       padding="space50"
       display="flex"
       flexShrink={0}
