@@ -4,7 +4,7 @@ exports[`Separator it should set horizontal margins 1`] = `
 .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
+  font-family: Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.5rem;
   font-weight: 400;
 }
@@ -37,7 +37,7 @@ exports[`Separator it should set responsive horizontal margins 1`] = `
 .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
+  font-family: Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.5rem;
   font-weight: 400;
 }
@@ -84,7 +84,7 @@ exports[`Separator it should set responsive vertical margins 1`] = `
 .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
+  font-family: Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.5rem;
   font-weight: 400;
 }
@@ -131,7 +131,7 @@ exports[`Separator it should set vertical margins 1`] = `
 .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
-  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
+  font-family: Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   line-height: 1.5rem;
   font-weight: 400;
 }
