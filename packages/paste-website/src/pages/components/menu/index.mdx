@@ -287,6 +287,8 @@ const PreferencesMenu = () => {
 
 ##### useMenuState
 
+Pass these as part of an object to the `useMenuState` hook.
+
 | Prop        | Type                                                                                                                                               | Description                                                                                                   | Default |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------- |
 | baseId      | `string`                                                                                                                                           | ID that will serve as a base for all the items IDs.                                                           |         |
@@ -295,10 +297,37 @@ const PreferencesMenu = () => {
 | currentId   | `string, null, undefined`                                                                                                                          | The current focused item `id`.                                                                                |         |
 | loop        | `boolean, horizontal, vertical`                                                                                                                    |                                                                                                               |         |
 | wrap        | `boolean, horizontal, vertical`                                                                                                                    |                                                                                                               |         |
-| visible     | `boolean`                                                                                                                                          | Whether it's visible or not.                                                                                  |
+| visible     | `boolean`                                                                                                                                          | Whether it's visible or not.                                                                                  |         |
 | animated    | `number, boolean`                                                                                                                                  |                                                                                                               |         |
 | placement   | `auto-start, auto, auto-end, top-start, top, top-end, right-start, right, right-end, bottom-end, bottom, bottom-start, left-end, left, left-start` |                                                                                                               |         |
 | gutter      | `number, undefined`                                                                                                                                | Offset between the reference and the popover on the main axis. Should not be combined with `unstable_offset`. |         |
+
+##### useMenuState returned props
+
+These props are returned by the state hook. You can spread them into this component (`{...state}`) or pass them separately. You can also provide these props from your own state logic.
+
+| Prop          | Type                                                                                          | Description                                                                                                                                  | Default |
+| ------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| baseId        | `string`                                                                                      | ID that will serve as a base for all the items IDs.                                                                                          |         |
+| baseId        | string                                                                                        | ID that will serve as a base for all the items IDs.                                                                                          |         |
+| visible       | boolean                                                                                       | Whether it's visible or not.                                                                                                                 |         |
+| animated      | number &#124; boolean                                                                         |                                                                                                                                              |         |
+| modal         | boolean                                                                                       | Toggles Dialog's `modal` state.                                                                                                              |         |
+| animating     | boolean                                                                                       | Whether it's animating or not.                                                                                                               |         |
+| stopAnimation | () =&#62; void                                                                                | Stops animation. It's called automatically if there's a CSS transition.                                                                      |         |
+| hide          | () =&#62; void                                                                                | Changes the `visible` state to `false`                                                                                                       |         |
+| placement     | &#34;auto-start&#34; &#124; &#34;auto&#34; &#124; &#34;auto-end&#34; &#124; &#34;top-start... | Actual `placement`.                                                                                                                          |         |
+| orientation   | &#34;horizontal&#34; &#124; &#34;vertical&#34; &#124; undefined                               | Defines the orientation of the composite widget.                                                                                             |         |
+| currentId     | string &#124; null &#124; undefined                                                           | The current focused item `id`.                                                                                                               |         |
+| wrap          | boolean &#124; &#34;horizontal&#34; &#124; &#34;vertical&#34;                                 | If enabled, moving to the next item from the last one in a row or column will focus the first item in the next row or column and vice-versa. |         |
+| groups        | Group[]                                                                                       | Lists all the composite groups with their `id` and DOM `ref`.                                                                                |         |
+| items         | Item[]                                                                                        | Lists all the composite items with their `id`, DOM `ref`, `disabled` state and `groupId` if any.                                             |         |
+| setCurrentId  | (value: SetStateAction&#60;string &#124; null &#124; undefine...                              | Sets `currentId`.                                                                                                                            |         |
+| first         | () =&#62; void                                                                                | Moves focus to the first item.                                                                                                               |         |
+| last          | () =&#62; void                                                                                | Moves focus to the last item.                                                                                                                |         |
+| move          | (id: string &#124; null) =&#62; void                                                          | Moves focus to a given item ID.                                                                                                              |         |
+| next          | (unstable_allTheWay?: boolean &#124; undefined) =&#62; void                                   | Moves focus to the next item.                                                                                                                |         |
+| previous      | (unstable_allTheWay?: boolean &#124; undefined) =&#62; void                                   | Moves focus to the previous item.                                                                                                            |         |
 
 ##### Menu
 
