@@ -137,7 +137,7 @@ exports[`Menu  Render should render 1`] = `
   background-color: colorBackgroundBody;
   border-style: solid;
   border-width: borderWidth10;
-  border-color: colorBorderLight;
+  border-color: colorBorderLighter;
   border-radius: borderRadius20;
   box-shadow: shadowCard;
   max-width: size30;
@@ -191,7 +191,7 @@ exports[`Menu  Render should render 1`] = `
   box-sizing: border-box;
   margin: space0;
   border-width: borderWidth0;
-  border-color: colorBorderLight;
+  border-color: colorBorderLighter;
   border-style: solid;
   border-bottom-width: borderWidth20;
   width: auto;
