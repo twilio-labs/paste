@@ -17,7 +17,7 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({children, ...props}) => {
       as="header"
       borderBottomStyle="solid"
       borderBottomWidth="borderWidth10"
-      borderBottomColor="colorBorderLight"
+      borderBottomColor="colorBorderLighter"
       padding="space50"
       margin="space0"
       flexShrink={0}
