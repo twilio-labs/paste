@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@5.3.2...@twilio-paste/design-tokens@5.4.0) (2020-07-14)
+
+
+### Features
+
+* **design-tokens:** add color-border-light and color-border-lighter ([83d0b04](https://github.com/twilio-labs/paste/commit/83d0b045bed4cc904fbc5ab4f69ff7ed62909071))
+
+
+
+
+
 ## [5.3.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@5.3.1...@twilio-paste/design-tokens@5.3.2) (2020-07-14)
 
 **Note:** Version bump only for package @twilio-paste/design-tokens
