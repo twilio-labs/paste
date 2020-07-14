@@ -28,7 +28,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@reach/dialog": "0.8.2"
+    "@reach/dialog": "0.10.4"
   },
   "peerDependencies": {
     "react": "^16.8.6",
