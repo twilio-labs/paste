@@ -12,7 +12,7 @@ storiesOf('Layout|Aspect Ratio', module)
       <Box
         padding="space30"
         maxWidth="size40"
-        borderColor="colorBorderLight"
+        borderColor="colorBorderLighter"
         borderStyle="solid"
         borderWidth="borderWidth10"
       >
