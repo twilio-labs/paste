@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/list",
-  "version": "0.2.18",
+  "version": "0.2.19",
   "category": "typography",
   "status": "production",
   "description": "The list component is used to render text as a list of items.",
@@ -28,22 +28,22 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@twilio-paste/design-tokens": "^5.3.1",
-    "@twilio-paste/style-props": "^1.2.7",
+    "@twilio-paste/design-tokens": "^5.3.2",
+    "@twilio-paste/style-props": "^1.2.8",
     "@twilio-paste/styling-library": "^0.1.1",
-    "@twilio-paste/text": "^2.2.1",
-    "@twilio-paste/theme": "^3.2.7",
-    "@twilio-paste/types": "^3.0.11",
+    "@twilio-paste/text": "^2.2.2",
+    "@twilio-paste/theme": "^3.2.8",
+    "@twilio-paste/types": "^3.0.12",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/design-tokens": "^5.3.1",
-    "@twilio-paste/style-props": "^1.2.7",
+    "@twilio-paste/design-tokens": "^5.3.2",
+    "@twilio-paste/style-props": "^1.2.8",
     "@twilio-paste/styling-library": "^0.1.1",
-    "@twilio-paste/text": "^2.2.1",
-    "@twilio-paste/theme": "^3.2.7",
-    "@twilio-paste/types": "^3.0.11"
+    "@twilio-paste/text": "^2.2.2",
+    "@twilio-paste/theme": "^3.2.8",
+    "@twilio-paste/types": "^3.0.12"
   }
 }

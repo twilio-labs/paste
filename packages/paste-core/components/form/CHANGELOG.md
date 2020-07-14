@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.21](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.5.20...@twilio-paste/form@1.5.21) (2020-07-14)
+
+**Note:** Version bump only for package @twilio-paste/form
+
+
+
+
+
 ## [1.5.20](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@1.5.19...@twilio-paste/form@1.5.20) (2020-07-08)
 
 
