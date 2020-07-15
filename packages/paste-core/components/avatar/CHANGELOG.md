@@ -2,3 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/avatar@0.0.2...@twilio-paste/avatar@0.1.0) (2020-07-15)
+
+
+### Features
+
+* **avatar:** alpha component build ([b2f6570](https://github.com/twilio-labs/paste/commit/b2f6570057f4f177f4a82a5d42bfaae84ca5c300))

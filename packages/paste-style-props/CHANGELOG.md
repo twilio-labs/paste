@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.2.9...@twilio-paste/style-props@1.2.10) (2020-07-15)
+
+
+### Bug Fixes
+
+* **style-props:** allow width/height values for max/min widths/height ([06a2419](https://github.com/twilio-labs/paste/commit/06a241965d2edc44c272a2a856c1682803a3a4a8))
+
+
+
+
+
 ## [1.2.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.2.8...@twilio-paste/style-props@1.2.9) (2020-07-14)
 
 **Note:** Version bump only for package @twilio-paste/style-props

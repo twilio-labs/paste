@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.16.5...@twilio-paste/core@2.16.6) (2020-07-15)
+
+
+### Bug Fixes
+
+* **core:** add avatar to core ([8636d8f](https://github.com/twilio-labs/paste/commit/8636d8fe0aae8f3612dcd6d0c71004a33cf18604))
+
+
+
+
+
 ## [2.16.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.16.4...@twilio-paste/core@2.16.5) (2020-07-14)
 
 **Note:** Version bump only for package @twilio-paste/core

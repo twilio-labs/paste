@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.19](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@0.2.18...@twilio-paste/modal@0.2.19) (2020-07-15)
+
+**Note:** Version bump only for package @twilio-paste/modal
+
+
+
+
+
 ## [0.2.18](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@0.2.17...@twilio-paste/modal@0.2.18) (2020-07-14)
 
 **Note:** Version bump only for package @twilio-paste/modal
