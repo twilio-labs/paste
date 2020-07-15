@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "2.16.6",
+  "version": "2.16.7",
   "status": "beta",
   "description": "Contains all the core packages from the Paste internal design system.",
   "author": "Twilio Inc.",
@@ -51,7 +51,7 @@
     "@twilio-paste/modal-dialog-primitive": "^0.1.5",
     "@twilio-paste/non-modal-dialog-primitive": "^0.2.4",
     "@twilio-paste/paragraph": "^1.1.22",
-    "@twilio-paste/popover": "^0.1.16",
+    "@twilio-paste/popover": "^0.1.17",
     "@twilio-paste/screen-reader-only": "^1.1.11",
     "@twilio-paste/separator": "^0.1.23",
     "@twilio-paste/spinner": "^1.2.26",
