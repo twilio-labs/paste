@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "reakit": "1.0.4",
-    "reakit-system": "0.12.2",
+    "reakit-system": "0.13.0",
     "reakit-utils": "0.12.1"
   },
   "peerDependencies": {
