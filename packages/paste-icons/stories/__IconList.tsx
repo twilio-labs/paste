@@ -22,10 +22,16 @@ import {InformationIcon} from '../src/InformationIcon';
 import {LinkExternalIcon} from '../src/LinkExternalIcon';
 import {LoadingIcon} from '../src/LoadingIcon';
 import {MoreIcon} from '../src/MoreIcon';
+import {PauseIcon} from '../src/PauseIcon';
+import {PlayIcon} from '../src/PlayIcon';
 import {PlusIcon} from '../src/PlusIcon';
 import {ProductTwilioOrgIcon} from '../src/ProductTwilioOrgIcon';
+import {SkipBackIcon} from '../src/SkipBackIcon';
+import {SkipForwardIcon} from '../src/SkipForwardIcon';
 import {SuccessIcon} from '../src/SuccessIcon';
 import {UploadToCloudIcon} from '../src/UploadToCloudIcon';
+import {VolumeOffIcon} from '../src/VolumeOffIcon';
+import {VolumeOnIcon} from '../src/VolumeOnIcon';
 import {WarningIcon} from '../src/WarningIcon';
 
 interface IconProps {
@@ -56,10 +62,16 @@ const IconList: React.FC<IconProps> = props => (
 <StoryIcon><LinkExternalIcon {...props} /><Text as="p" textColor="currentColor">LinkExternalIcon</Text></StoryIcon>
 <StoryIcon><LoadingIcon {...props} /><Text as="p" textColor="currentColor">LoadingIcon</Text></StoryIcon>
 <StoryIcon><MoreIcon {...props} /><Text as="p" textColor="currentColor">MoreIcon</Text></StoryIcon>
+<StoryIcon><PauseIcon {...props} /><Text as="p" textColor="currentColor">PauseIcon</Text></StoryIcon>
+<StoryIcon><PlayIcon {...props} /><Text as="p" textColor="currentColor">PlayIcon</Text></StoryIcon>
 <StoryIcon><PlusIcon {...props} /><Text as="p" textColor="currentColor">PlusIcon</Text></StoryIcon>
 <StoryIcon><ProductTwilioOrgIcon {...props} /><Text as="p" textColor="currentColor">ProductTwilioOrgIcon</Text></StoryIcon>
+<StoryIcon><SkipBackIcon {...props} /><Text as="p" textColor="currentColor">SkipBackIcon</Text></StoryIcon>
+<StoryIcon><SkipForwardIcon {...props} /><Text as="p" textColor="currentColor">SkipForwardIcon</Text></StoryIcon>
 <StoryIcon><SuccessIcon {...props} /><Text as="p" textColor="currentColor">SuccessIcon</Text></StoryIcon>
 <StoryIcon><UploadToCloudIcon {...props} /><Text as="p" textColor="currentColor">UploadToCloudIcon</Text></StoryIcon>
+<StoryIcon><VolumeOffIcon {...props} /><Text as="p" textColor="currentColor">VolumeOffIcon</Text></StoryIcon>
+<StoryIcon><VolumeOnIcon {...props} /><Text as="p" textColor="currentColor">VolumeOnIcon</Text></StoryIcon>
 <StoryIcon><WarningIcon {...props} /><Text as="p" textColor="currentColor">WarningIcon</Text></StoryIcon>
   </Grid>
 );
