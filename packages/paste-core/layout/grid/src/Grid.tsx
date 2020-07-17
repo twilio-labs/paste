@@ -1,24 +1,21 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {useTheme, ThemeShape} from '@twilio-paste/theme';
 import {MarginProps, Space, ResponsiveProp} from '@twilio-paste/style-props';
 import {safelySpreadBoxProps} from '@twilio-paste/box';
 import {Flex} from '@twilio-paste/flex';
 import {GridProps} from './types';
-import {getOuterGutterPull} from './helpers';
+import {getOuterGutterPull} from './utils';
 
-const getGridStyles = (theme: ThemeShape, gutter?: Space): MarginProps => {
+const getGridStyles = (gutter?: Space): MarginProps => {
   const marginStyles: MarginProps = {
-    marginLeft: getOuterGutterPull(theme, gutter),
-    marginRight: getOuterGutterPull(theme, gutter),
+    marginLeft: getOuterGutterPull(gutter),
+    marginRight: getOuterGutterPull(gutter),
   };
 
   return marginStyles;
 };
 
 const Grid: React.FC<GridProps> = ({as, children, gutter, marginTop, marginBottom, vertical, ...props}) => {
-  const theme = useTheme();
-
   const GridColumns = React.useMemo(
     () =>
       React.Children.map(children, child =>
@@ -29,7 +26,7 @@ const Grid: React.FC<GridProps> = ({as, children, gutter, marginTop, marginBotto
     [children]
   );
 
-  const GridStyles = React.useMemo(() => getGridStyles(theme, gutter), [gutter]);
+  const GridStyles = React.useMemo(() => getGridStyles(gutter), [gutter]);
 
   return (
     <Flex
