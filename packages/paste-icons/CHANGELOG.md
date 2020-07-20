@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@2.4.3...@twilio-paste/icons@2.5.0) (2020-07-20)
+
+
+### Features
+
+* **icons:** add player icons ([#589](https://github.com/twilio-labs/paste/issues/589)) ([4fb1a4b](https://github.com/twilio-labs/paste/commit/4fb1a4b9a523a24edc0f497c0c634440fa0096a8))
+
+
+
+
+
 ## [2.4.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@2.4.2...@twilio-paste/icons@2.4.3) (2020-07-15)
 
 **Note:** Version bump only for package @twilio-paste/icons
