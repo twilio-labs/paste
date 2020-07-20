@@ -1,10 +1,11 @@
 name: Chromatic
 
-on: pull_request
+on: push
 
 jobs:
   chromatic:
     runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'chore(release): publish')"
     strategy:
       matrix:
         node-version: [10.16.x]

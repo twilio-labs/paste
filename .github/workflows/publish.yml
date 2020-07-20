@@ -6,14 +6,59 @@ on:
       - main
 
 jobs:
-  deploy:
+  main_build_test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [10.16.x]
-
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@@v2
+      - uses: actions/setup-node@v1
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: restore lerna
+        uses: actions/cache@master
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      - name: Install dependencies
+        run: yarn install
+      - name: Bootstrap repository
+        run: yarn bootstrap
+      - name: Build packages
+        run: yarn build
+      - name: Build package props
+        run: yarn build:props
+      - name: Run type checker
+        run: yarn type-check
+      - name: Run eslint
+        run: yarn lint
+      - name: Run tests
+        run: yarn test
+      - name: Run prettier
+        run: yarn prettier
+      - name: Run applitools eyes-storybook
+        run: yarn test:vrt
+        env:
+          APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
+          GITHUB_HEAD_SHA: ${{ github.sha }}
+  deploy:
+    runs-on: ubuntu-latest
+    if: "contains(github.event.head_commit.message, 'chore(release): publish')"
+    strategy:
+      matrix:
+        node-version: [10.16.x]
+    steps:
+      - uses: actions/checkout@@v2
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
