@@ -3,7 +3,16 @@ import {storiesOf} from '@storybook/react';
 import {withKnobs, text, select} from '@storybook/addon-knobs';
 import {HeadingProps} from '@twilio-paste/heading';
 import {Stack} from '@twilio-paste/stack';
-import {Disclosure, DisclosureHeading, DisclosureContent, Variants, DisclosureHeadingProps} from '../src';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {
+  Disclosure,
+  DisclosureHeading,
+  DisclosureContent,
+  Variants,
+  DisclosureHeadingProps,
+  useDisclosureState,
+  DisclosureStateReturn,
+} from '../src';
 
 const headingVariantOptions = ['heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60'];
 
@@ -27,6 +36,40 @@ export const ExampleDisclosures: React.FC<{
         <DisclosureContent>Disclosure content</DisclosureContent>
       </Disclosure>
     </Stack>
+  );
+};
+
+const useDelayedDisclosureState = ({delay, ...initialState}): DisclosureStateReturn => {
+  const disclosure = useDisclosureState(initialState);
+  const [transitioning, setTransitioning] = React.useState(false);
+  return {
+    ...disclosure,
+    transitioning,
+    toggle: () => {
+      setTransitioning(true);
+      setTimeout(() => {
+        disclosure.toggle();
+        setTransitioning(false);
+      }, delay);
+    },
+  };
+};
+
+const StateHookExample: React.FC = () => {
+  const {transitioning, ...disclosure} = useDelayedDisclosureState({
+    delay: 500,
+  });
+  const clickableHeading = disclosure.visible ? 'Hide with delay' : 'Show with delay';
+  return (
+    <>
+      <Paragraph>This Disclosure should be visible on load, and take 1 second to open and close.</Paragraph>
+      <Disclosure variant="contained" state={disclosure}>
+        <DisclosureHeading as="h2" variant="heading20">
+          {transitioning ? 'Please wait...' : clickableHeading}
+        </DisclosureHeading>
+        <DisclosureContent>Disclosure content</DisclosureContent>
+      </Disclosure>
+    </>
   );
 };
 
@@ -90,4 +133,7 @@ storiesOf('Components|Disclosure', module)
   })
   .add('Contained disabled', () => {
     return <ExampleDisclosures disabled headingVariant="heading10" variant="contained" />;
+  })
+  .add('State hook', () => {
+    return <StateHookExample />;
   });

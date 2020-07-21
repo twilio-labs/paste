@@ -16,12 +16,18 @@ export interface DisclosureContextProps {
 
 export const DisclosureContext = React.createContext<DisclosureContextProps>({} as any);
 
+export interface DisclosureStateReturn extends DisclosurePrimitveStateReturn {
+  [key: string]: any;
+}
+
 export interface DisclosureProps extends DisclosurePrimitiveInitialState {
   children: NonNullable<React.ReactNode>;
+  state?: DisclosureStateReturn;
   variant?: Variants;
 }
-const Disclosure: React.FC<DisclosureProps> = ({children, variant = 'default', ...props}) => {
-  const disclosure = useDisclosurePrimitiveState({...props});
+
+const Disclosure: React.FC<DisclosureProps> = ({children, variant = 'default', state, ...props}) => {
+  const disclosure = state || useDisclosurePrimitiveState({...props});
   const disclosureContext = {
     disclosure,
     variant,
@@ -34,6 +40,7 @@ const Disclosure: React.FC<DisclosureProps> = ({children, variant = 'default', .
       </DisclosureContext.Provider>
     );
   }
+
   return <DisclosureContext.Provider value={disclosureContext}>{children}</DisclosureContext.Provider>;
 };
 Disclosure.displayName = 'Disclosure';
@@ -45,3 +52,5 @@ if (process.env.NODE_ENV === 'development') {
   };
 }
 export {Disclosure};
+
+export {useDisclosurePrimitiveState as useDisclosureState};
