@@ -1,7 +1,15 @@
 import * as React from 'react';
 import {axe} from 'jest-axe';
 import {render, screen, fireEvent} from '@testing-library/react';
-import {Disclosure, DisclosureContent, DisclosureHeading, DisclosureHeadingProps, DisclosureProps} from '../src';
+import {
+  Disclosure,
+  DisclosureContent,
+  DisclosureHeading,
+  DisclosureHeadingProps,
+  DisclosureProps,
+  DisclosureStateReturn,
+  useDisclosureState,
+} from '../src';
 
 export const MockDisclosure: React.FC<{
   visible?: DisclosureProps['visible'];
@@ -15,6 +23,32 @@ export const MockDisclosure: React.FC<{
       </DisclosureHeading>
       <DisclosureContent data-testid="disclosure">Disclosure content</DisclosureContent>
     </Disclosure>
+  );
+};
+
+const useVisibleDisclosureState = (): DisclosureStateReturn => {
+  const disclosure = useDisclosureState();
+  const [visible, setVisible] = React.useState(true);
+  return {
+    ...disclosure,
+    visible,
+    toggle: () => {
+      setVisible(false);
+    },
+  };
+};
+
+const StateHookMock: React.FC = () => {
+  const disclosure = useVisibleDisclosureState();
+  return (
+    <>
+      <Disclosure variant="contained" state={disclosure}>
+        <DisclosureHeading as="h2" variant="heading20">
+          Clickable heading
+        </DisclosureHeading>
+        <DisclosureContent>Disclosure content</DisclosureContent>
+      </Disclosure>
+    </>
   );
 };
 
@@ -49,6 +83,13 @@ describe('Disclosure', () => {
     const renderedDisclosureButton = screen.getByRole('button');
     expect(renderedDisclosureButton.getAttribute('aria-disabled')).toEqual('true');
     expect(renderedDisclosureButton.getAttribute('tabindex')).toEqual('0');
+  });
+  it('should render a disclosure open and update attributes when clicked using a state hook', () => {
+    render(<StateHookMock />);
+    const renderedDisclosureButton = screen.getByRole('button');
+    expect(renderedDisclosureButton.getAttribute('aria-expanded')).toEqual('true');
+    fireEvent.click(renderedDisclosureButton);
+    expect(renderedDisclosureButton.getAttribute('aria-expanded')).toEqual('false');
   });
   describe('accessibility', () => {
     it('should have no accessibility violations', async () => {
