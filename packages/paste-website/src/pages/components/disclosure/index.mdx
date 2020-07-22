@@ -12,10 +12,11 @@ import {Text} from '@twilio-paste/text';
 import {Stack} from '@twilio-paste/stack';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
-import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
+import {Disclosure, DisclosureHeading, DisclosureContent, useDisclosureState} from '@twilio-paste/disclosure';
 import Changelog from '@twilio-paste/disclosure/CHANGELOG.md';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
+import {StateHookExample} from '../../../component-examples/DisclosureExamples';
 
 export const pageQuery = graphql`
   {
@@ -239,6 +240,37 @@ You can control the initial state of the disclosure to be expanded or collapsed 
     Content
   </DisclosureContent>
 </Disclosure>`}
+</LivePreview>
+
+### Using state hooks
+
+<Callout variant="warning">
+  <CalloutTitle>🚨 ATTENTION!! 🚨</CalloutTitle>
+  <CalloutText>
+    If you decided to use state hooks, the Paste team is <strong>NOT</strong> responsible for debugging any issues in
+    your application.
+  </CalloutText>
+</Callout>
+
+The `state` prop allows you to hook into, and keep in sync the state of the Disclosure and the state of your application.
+
+This will allow you to set initial state and merge the returned state from the hook with the application state,
+and keep it in sync with user interactions.
+
+You could use this if you need to wait for a response from an API before opening the Disclosure content. In the
+example below, we're simulating the response time by adding a delay.
+
+<LivePreview
+  scope={{
+    useDisclosureState,
+    Disclosure,
+    DisclosureHeading,
+    DisclosureContent,
+  }}
+  noInline
+  language="jsx"
+>
+  {StateHookExample}
 </LivePreview>
 
 ## States
