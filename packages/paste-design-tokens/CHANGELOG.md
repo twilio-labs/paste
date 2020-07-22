@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@5.4.0...@twilio-paste/design-tokens@5.5.0) (2020-07-22)
+
+
+### Features
+
+* **design-tokens:** add negative space tokens ([3bc718f](https://github.com/twilio-labs/paste/commit/3bc718fc9bcb4d8be952c70f71ceb21b0b307be2))
+
+
+
+
+
 # [5.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@5.3.2...@twilio-paste/design-tokens@5.4.0) (2020-07-14)
 
 

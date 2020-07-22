@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.42](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.2.41...@twilio-paste/grid@0.2.42) (2020-07-22)
+
+
+### Bug Fixes
+
+* **grid:** refactor functions to use negative spacing tokens ([ed9a797](https://github.com/twilio-labs/paste/commit/ed9a7976c10485f6c4ea683b0b5a3f3bd9cb7be7))
+
+
+
+
+
 ## [0.2.41](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.2.40...@twilio-paste/grid@0.2.41) (2020-07-15)
 
 **Note:** Version bump only for package @twilio-paste/grid
