@@ -158,6 +158,7 @@ const extraConfig = system({
   willChange: true,
   clip: true,
   backgroundAttachment: true,
+  textAlign: true,
   textTransform: true,
   textDecoration: true,
   textOverflow: true,
