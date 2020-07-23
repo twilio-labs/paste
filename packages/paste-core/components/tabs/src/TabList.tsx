@@ -3,20 +3,23 @@ import * as PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import {TabPrimitiveList} from '@twilio-paste/tabs-primitive';
 import {TabsContext} from './TabsContext';
+import {Variants} from './types';
 
 interface TabListProps {
   'aria-label': string;
   disabled?: boolean | undefined;
   focusable?: boolean | undefined;
   children: React.ReactNode;
+  variant?: Variants;
 }
 
 const HorizontalTabList: React.FC = ({children}) => (
   <Box
     display="flex"
-    borderBottomWidth="borderWidth20"
-    borderBottomColor="colorBorderLighter"
+    borderBottomWidth="borderWidth10"
+    borderBottomColor="colorBorderLight"
     borderBottomStyle="solid"
+    marginBottom="space60"
   >
     {children}
   </Box>
@@ -24,16 +27,18 @@ const HorizontalTabList: React.FC = ({children}) => (
 
 const VerticalTabList: React.FC = ({children}) => (
   <Box
-    borderRightWidth="borderWidth20"
-    borderRightColor="colorBorderLighter"
-    borderRightStyle="solid"
-    maxWidth="size30"
+    borderLeftWidth="borderWidth10"
+    borderLeftColor="colorBorderLight"
+    borderLeftStyle="solid"
+    marginRight="space110"
+    minWidth="size20"
+    maxWidth="size40"
   >
     {children}
   </Box>
 );
 
-const TabList = React.forwardRef<HTMLDivElement, TabListProps>(({children, ...props}, ref) => {
+const TabList = React.forwardRef<HTMLDivElement, TabListProps>(({children, variant, ...props}, ref) => {
   const tab = React.useContext(TabsContext);
   const TabListWrapper = tab.orientation === 'vertical' ? VerticalTabList : HorizontalTabList;
   return (

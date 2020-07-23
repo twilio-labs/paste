@@ -26,22 +26,24 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  border-bottom-width: borderWidth20;
-  border-bottom-color: colorBorderLighter;
+  border-bottom-width: borderWidth10;
+  border-bottom-color: colorBorderLight;
   border-bottom-style: solid;
+  margin-bottom: space60;
 }
 
 .emotion-1 {
   box-sizing: border-box;
   display: inline-block;
-  bottom: -2px;
-  padding-bottom: space10;
-  padding-top: space20;
-  padding-left: space50;
-  padding-right: space50;
+  padding-bottom: space30;
+  padding-top: space30;
+  padding-left: space20;
+  padding-right: space20;
   border-bottom-width: borderWidth20;
   border-bottom-style: solid;
   border-bottom-color: transparent;
+  min-width: sizeSquare130;
+  margin-right: space70;
   position: relative;
   cursor: pointer;
   -webkit-transition: border-color 100ms ease;
@@ -51,16 +53,38 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   white-space: nowrap;
 }
 
+.emotion-1:last-of-type {
+  margin-right: space0;
+}
+
 .emotion-1[aria-selected=true] {
   border-bottom-color: colorBorderPrimary;
+}
+
+.emotion-1:hover {
+  border-bottom-color: colorBorderPrimaryDarker;
+}
+
+.emotion-1:disabled,
+.emotion-1:disabled:focus,
+.emotion-1:disabled:hover,
+.emotion-1[aria-disabled=true],
+.emotion-1[aria-disabled=true]:focus,
+.emotion-1[aria-disabled=true]:hover {
+  border-bottom-color: transparent;
+}
+
+.emotion-1:focus {
+  box-shadow: shadowFocus;
+  outline: none;
 }
 
 .emotion-0 {
   margin: 0;
   padding: 0;
   color: colorTextWeak;
-  font-size: fontSize40;
-  font-weight: fontWeightMedium;
+  font-size: fontSize30;
+  font-weight: fontWeightSemibold;
   -webkit-transition: color 100ms ease;
   transition: color 100ms ease;
   line-height: lineHeight30;
@@ -70,17 +94,22 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   color: colorText;
 }
 
+.emotion-0:focus {
+  color: colorTextLink;
+}
+
 .emotion-3 {
   box-sizing: border-box;
   display: inline-block;
-  bottom: -2px;
-  padding-bottom: space10;
-  padding-top: space20;
-  padding-left: space50;
-  padding-right: space50;
+  padding-bottom: space30;
+  padding-top: space30;
+  padding-left: space20;
+  padding-right: space20;
   border-bottom-width: borderWidth20;
   border-bottom-style: solid;
   border-bottom-color: transparent;
+  min-width: sizeSquare130;
+  margin-right: space70;
   position: relative;
   cursor: not-allowed;
   -webkit-transition: border-color 100ms ease;
@@ -90,27 +119,53 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   white-space: nowrap;
 }
 
+.emotion-3:last-of-type {
+  margin-right: space0;
+}
+
 .emotion-3[aria-selected=true] {
   border-bottom-color: colorBorderPrimary;
+}
+
+.emotion-3:hover {
+  border-bottom-color: colorBorderPrimaryDarker;
+}
+
+.emotion-3:disabled,
+.emotion-3:disabled:focus,
+.emotion-3:disabled:hover,
+.emotion-3[aria-disabled=true],
+.emotion-3[aria-disabled=true]:focus,
+.emotion-3[aria-disabled=true]:hover {
+  border-bottom-color: transparent;
+}
+
+.emotion-3:focus {
+  box-shadow: shadowFocus;
+  outline: none;
 }
 
 .emotion-2 {
   margin: 0;
   padding: 0;
   color: colorTextWeaker;
-  font-size: fontSize40;
-  font-weight: fontWeightMedium;
+  font-size: fontSize30;
+  font-weight: fontWeightSemibold;
   -webkit-transition: color 100ms ease;
   transition: color 100ms ease;
   line-height: lineHeight30;
 }
 
+.emotion-2:focus {
+  color: colorTextLink;
+}
+
 .emotion-4 {
   margin: 0;
   padding: 0;
-  color: colorText;
-  font-size: fontSize40;
-  font-weight: fontWeightMedium;
+  color: colorTextLink;
+  font-size: fontSize30;
+  font-weight: fontWeightSemibold;
   -webkit-transition: color 100ms ease;
   transition: color 100ms ease;
   line-height: lineHeight30;
@@ -118,6 +173,10 @@ exports[`Tabs Render horizontally and vertically 1`] = `
 
 .emotion-4:hover {
   color: colorText;
+}
+
+.emotion-4:focus {
+  color: colorTextLink;
 }
 
 <div
@@ -144,8 +203,8 @@ exports[`Tabs Render horizontally and vertically 1`] = `
         <span
           class="emotion-0"
           color="colorTextWeak"
-          font-size="fontSize40"
-          font-weight="fontWeightMedium"
+          font-size="fontSize30"
+          font-weight="fontWeightSemibold"
         >
           Tab 1
         </span>
@@ -165,8 +224,8 @@ exports[`Tabs Render horizontally and vertically 1`] = `
         <span
           class="emotion-2"
           color="colorTextWeaker"
-          font-size="fontSize40"
-          font-weight="fontWeightMedium"
+          font-size="fontSize30"
+          font-weight="fontWeightSemibold"
         >
           Tab 2
         </span>
@@ -184,9 +243,9 @@ exports[`Tabs Render horizontally and vertically 1`] = `
       >
         <span
           class="emotion-4"
-          color="colorText"
-          font-size="fontSize40"
-          font-weight="fontWeightMedium"
+          color="colorTextLink"
+          font-size="fontSize30"
+          font-weight="fontWeightSemibold"
         >
           Tab 3
         </span>
@@ -254,8 +313,8 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   margin: 0;
   padding: 0;
   color: colorTextWeak;
-  font-size: fontSize40;
-  font-weight: fontWeightMedium;
+  font-size: fontSize30;
+  font-weight: fontWeightSemibold;
   -webkit-transition: color 100ms ease;
   transition: color 100ms ease;
   line-height: lineHeight30;
@@ -265,12 +324,16 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   color: colorText;
 }
 
+.emotion-2:focus {
+  color: colorTextLink;
+}
+
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: colorText;
-  font-size: fontSize40;
-  font-weight: fontWeightMedium;
+  color: colorTextLink;
+  font-size: fontSize30;
+  font-weight: fontWeightSemibold;
   -webkit-transition: color 100ms ease;
   transition: color 100ms ease;
   line-height: lineHeight30;
@@ -278,6 +341,10 @@ exports[`Tabs Render horizontally and vertically 1`] = `
 
 .emotion-0:hover {
   color: colorText;
+}
+
+.emotion-0:focus {
+  color: colorTextLink;
 }
 
 .emotion-7 {
@@ -304,34 +371,55 @@ exports[`Tabs Render horizontally and vertically 1`] = `
 
 .emotion-6 {
   box-sizing: border-box;
-  border-right-width: borderWidth20;
-  border-right-color: colorBorderLighter;
-  border-right-style: solid;
-  max-width: size30;
+  border-left-width: borderWidth10;
+  border-left-color: colorBorderLight;
+  border-left-style: solid;
+  margin-right: space110;
+  min-width: size20;
+  max-width: size40;
 }
 
 .emotion-1 {
   box-sizing: border-box;
   display: block;
-  right: -2px;
-  padding-bottom: space40;
-  padding-top: space40;
+  padding-bottom: space20;
+  padding-top: space20;
   padding-left: space50;
   padding-right: space50;
-  border-right-width: borderWidth20;
-  border-right-style: solid;
-  border-right-color: transparent;
+  border-left-width: borderWidth20;
+  border-left-style: solid;
+  border-left-color: transparent;
+  margin-bottom: space40;
   position: relative;
   cursor: pointer;
   -webkit-transition: border-color 100ms ease;
   transition: border-color 100ms ease;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+}
+
+.emotion-1:last-of-type {
+  margin-bottom: space0;
 }
 
 .emotion-1[aria-selected=true] {
-  border-right-color: colorBorderPrimary;
+  border-left-color: colorBorderPrimary;
+}
+
+.emotion-1:hover {
+  border-left-color: colorBorderPrimaryDarker;
+}
+
+.emotion-1:disabled,
+.emotion-1:disabled:focus,
+.emotion-1:disabled:hover,
+.emotion-1[aria-disabled=true],
+.emotion-1[aria-disabled=true]:focus,
+.emotion-1[aria-disabled=true]:hover {
+  border-left-color: transparent;
+}
+
+.emotion-1:focus {
+  box-shadow: shadowFocus;
+  outline: none;
 }
 
 <div
@@ -354,15 +442,14 @@ exports[`Tabs Render horizontally and vertically 1`] = `
           cursor="pointer"
           display="block"
           id="2"
-          overflow="hidden"
           role="tab"
           tabindex="0"
         >
           <span
             class="emotion-0"
-            color="colorText"
-            font-size="fontSize40"
-            font-weight="fontWeightMedium"
+            color="colorTextLink"
+            font-size="fontSize30"
+            font-weight="fontWeightSemibold"
           >
             Tab 1 is a long tab name because the server sent a long tab name
           </span>
@@ -374,15 +461,14 @@ exports[`Tabs Render horizontally and vertically 1`] = `
           cursor="pointer"
           display="block"
           id="vertical-tabs-example-2"
-          overflow="hidden"
           role="tab"
           tabindex="-1"
         >
           <span
             class="emotion-2"
             color="colorTextWeak"
-            font-size="fontSize40"
-            font-weight="fontWeightMedium"
+            font-size="fontSize30"
+            font-weight="fontWeightSemibold"
           >
             Tab 2
           </span>
@@ -394,15 +480,14 @@ exports[`Tabs Render horizontally and vertically 1`] = `
           cursor="pointer"
           display="block"
           id="vertical-tabs-example-3"
-          overflow="hidden"
           role="tab"
           tabindex="-1"
         >
           <span
             class="emotion-2"
             color="colorTextWeak"
-            font-size="fontSize40"
-            font-weight="fontWeightMedium"
+            font-size="fontSize30"
+            font-weight="fontWeightSemibold"
           >
             Tab 3
           </span>

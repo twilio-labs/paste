@@ -26,6 +26,28 @@ export const HorizontalTabsExample: React.FC = () => {
   );
 };
 
+export const FittedTabsExample: React.FC = () => {
+  const selectedId = useUID();
+  return (
+    <>
+      <Paragraph>
+        These tabs will take up the full width of the available space, and have full keyboard support. Try tabbing and
+        using arrow keys.
+      </Paragraph>
+      <Tabs selectedId={selectedId} baseId="fitted-tabs-example" variant="fitted">
+        <TabList aria-label="My tabs">
+          <Tab>Tab 1 is a long tab name because the server sent a long tab name</Tab>
+          <Tab id={selectedId}>Tab 2</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>Tab 1</TabPanel>
+          <TabPanel>Tab 2</TabPanel>
+        </TabPanels>
+      </Tabs>
+    </>
+  );
+};
+
 export const VerticalTabsExample: React.FC<{}> = () => {
   const selectedId = useUID();
   return (
@@ -54,4 +76,7 @@ storiesOf('Components|Tabs', module)
   })
   .add('Vertical Tabs', () => {
     return <VerticalTabsExample />;
+  })
+  .add('Fitted Tabs', () => {
+    return <FittedTabsExample />;
   });
