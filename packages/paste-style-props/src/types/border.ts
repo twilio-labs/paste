@@ -59,9 +59,9 @@ export interface BorderStyleProps {
 
 // Styled-system grouping
 export interface BorderProps extends BorderWidthProps, BorderStyleProps, BorderColorProps, BorderRadiusProps {
-  border?: never;
-  borderTop?: never;
-  borderRight?: never;
-  borderBottom?: never;
-  borderLeft?: never;
+  border?: 'none';
+  borderTop?: 'none';
+  borderRight?: 'none';
+  borderBottom?: 'none';
+  borderLeft?: 'none';
 }

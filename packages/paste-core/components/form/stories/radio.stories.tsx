@@ -94,6 +94,44 @@ storiesOf('Forms|Radio', module)
       </Radio>
     );
   })
+  .add('Radios - Controlled', () => {
+    const [value, setValue] = React.useState('1');
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => setValue(event.target.value);
+    return (
+      <>
+        <Radio
+          id={useUID()}
+          value="1"
+          onChange={handleChange}
+          checked={value === '1'}
+          name="foo"
+          helpText="This is some help text."
+        >
+          First
+        </Radio>
+        <Radio
+          id={useUID()}
+          value="2"
+          onChange={handleChange}
+          checked={value === '2'}
+          name="foo"
+          helpText="This is some help text."
+        >
+          Second
+        </Radio>
+        <Radio
+          id={useUID()}
+          value="3"
+          onChange={handleChange}
+          checked={value === '3'}
+          name="foo"
+          helpText="This is some help text."
+        >
+          Third
+        </Radio>
+      </>
+    );
+  })
   .add('Radio Group', () => {
     const [value, setValue] = React.useState('2');
     return (
@@ -187,6 +225,31 @@ storiesOf('Forms|Radio', module)
           Second
         </Radio>
         <Radio id={useUID()} value="3" name="foo" helpText="This is some help text.">
+          Third
+        </Radio>
+      </RadioGroup>
+    );
+  })
+
+  .add('Radio Group - Override Disable', () => {
+    const [value, setValue] = React.useState('1');
+    return (
+      <RadioGroup
+        name="bar"
+        value={value}
+        legend="This is the legend text"
+        disabled
+        onChange={newValue => {
+          setValue(newValue);
+        }}
+      >
+        <Radio id={useUID()} value="1" name="foo" helpText="This is some help text.">
+          First
+        </Radio>
+        <Radio id={useUID()} value="2" name="foo" helpText="This is some help text.">
+          Second
+        </Radio>
+        <Radio id={useUID()} value="3" name="foo" helpText="This is some help text." disabled={false}>
           Third
         </Radio>
       </RadioGroup>
