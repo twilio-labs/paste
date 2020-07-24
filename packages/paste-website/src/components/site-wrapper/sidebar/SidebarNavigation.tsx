@@ -140,8 +140,8 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </SiteNavButton>
           <SiteNavNestList isOpen={gettingStartedOpen}>
             <SiteNavItem>
-              <SiteNavAnchor to="/getting-started/paste-intro">An Introduction</SiteNavAnchor>
               <SiteNavAnchor to="/getting-started/engineering">Engineering Guidelines</SiteNavAnchor>
+              <SiteNavAnchor to="/getting-started/about-paste">About Paste</SiteNavAnchor>
             </SiteNavItem>
           </SiteNavNestList>
         </SiteNavItem>

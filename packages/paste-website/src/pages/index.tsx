@@ -33,7 +33,8 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
         <Box maxWidth="size60">
           <P variant="lead">
             Paste is a design system used to build accessible, consistent, and high quality customer experiences at
-            Twilio. Paste is open source and contributions are welcome.
+            Twilio. Paste is open source and contributions are welcome.{' '}
+            <SiteLink to="/getting-started/about-paste/">Read more about the Paste platform here.</SiteLink>
           </P>
         </Box>
         <Box marginTop="space80" marginBottom="space80">
