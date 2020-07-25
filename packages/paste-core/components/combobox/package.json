@@ -47,6 +47,10 @@
     "@twilio-paste/form": "^1.6.0",
     "@twilio-paste/icons": "^2.6.1",
     "@twilio-paste/styling-library": "^0.1.1",
-    "@twilio-paste/text": "^2.2.6"
+    "@twilio-paste/text": "^2.2.6",
+    "@types/lodash.groupby": "^4.6.6"
+  },
+  "dependencies": {
+    "lodash.groupby": "^4.6.0"
   }
 }
