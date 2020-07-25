@@ -7,6 +7,22 @@ import {useCombobox, Combobox, ComboboxInputWrapper, ComboboxListbox, ComboboxLi
 
 const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
 
+const groupedItems = [
+  {group: 'Components', label: 'Alert'},
+  {group: 'Components', label: 'Anchor'},
+  {group: 'Components', label: 'Button'},
+  {group: 'Components', label: 'Card'},
+  {group: 'Components', label: 'Heading'},
+  {group: 'Components', label: 'List'},
+  {group: 'Components', label: 'Modal'},
+  {group: 'Components', label: 'Paragraph'},
+  {group: 'Primitives', label: 'Box'},
+  {group: 'Primitives', label: 'Text'},
+  {group: 'Primitives', label: 'Non-modal dialog'},
+  {group: 'Layout', label: 'Grid'},
+  {label: 'Design Tokens'},
+];
+
 const ComboboxMock: React.FC<{}> = () => {
   const [inputItems, setInputItems] = React.useState(items);
   return (
@@ -72,6 +88,20 @@ const ComboboxPartsMock: React.FC<{}> = () => {
   );
 };
 
+const GroupedMockCombobox: React.FC = () => {
+  return (
+    <Combobox
+      initialIsOpen
+      groupItemsBy="group"
+      items={groupedItems}
+      labelText="Choose a component:"
+      helpText="This is group"
+      optionTemplate={(item: any) => <div>{item.label}</div>}
+      itemToString={item => (item ? item.label : null)}
+    />
+  );
+};
+
 describe('Combobox ', () => {
   describe('Render', () => {
     it('should render', () => {
@@ -106,6 +136,30 @@ describe('Combobox ', () => {
       const renderedLabel = screen.getByTestId('label');
       const renderedTextbox = screen.getByTestId('textbox');
       expect(renderedLabel.getAttribute('for')).toEqual(renderedTextbox.getAttribute('id'));
+    });
+  });
+
+  describe('Groups', () => {
+    it('should render a group of options', () => {
+      render(<GroupedMockCombobox />);
+      const renderedGroups = screen.getAllByRole('group');
+      // check groups, group label and number of options per group
+      expect(renderedGroups[0].getAttribute('aria-label')).toEqual('Components');
+      expect(renderedGroups[0].querySelectorAll('[role="option"]').length).toEqual(8);
+      expect(renderedGroups[1].getAttribute('aria-label')).toEqual('Primitives');
+      expect(renderedGroups[1].querySelectorAll('[role="option"]').length).toEqual(3);
+      expect(renderedGroups[2].getAttribute('aria-label')).toEqual('Layout');
+      expect(renderedGroups[2].querySelectorAll('[role="option"]').length).toEqual(1);
+    });
+
+    it('should render any items not identified as part of the group as ungrouped options', () => {
+      render(<GroupedMockCombobox />);
+      const renderedListbox = screen.getByRole('listbox');
+      const renderedGroups = screen.getAllByRole('group');
+      // check we have 3 groups
+      expect(renderedGroups.length).toEqual(3);
+      // check any options that are not nested in groups
+      expect(renderedListbox.querySelectorAll('[role="listbox"] > [role="option"]').length).toEqual(1);
     });
   });
 
