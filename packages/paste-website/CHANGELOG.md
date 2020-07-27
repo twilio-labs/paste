@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.37.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.36.10...@twilio-paste/website@1.37.0) (2020-07-27)
+
+
+### Features
+
+* **web:** add design guidelines back to nav ([#606](https://github.com/twilio-labs/paste/issues/606)) ([078974a](https://github.com/twilio-labs/paste/commit/078974aefd741272085d4736da4003ab16a6b99a))
+
+
+
+
+
 ## [1.36.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.36.9...@twilio-paste/website@1.36.10) (2020-07-24)
 
 **Note:** Version bump only for package @twilio-paste/website
