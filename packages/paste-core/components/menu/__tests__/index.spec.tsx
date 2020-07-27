@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {axe} from 'jest-axe';
 import {render, screen} from '@testing-library/react';
-import {useMenuState, Menu, MenuItem, MenuButton, MenuButtonProps, MenuSeparator} from '../src';
+import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import {useMenuState, Menu, MenuItem, MenuButton, MenuButtonProps, MenuGroup, MenuSeparator} from '../src';
 
 const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuButtonProps>((props, ref) => {
   const menu = useMenuState({baseId: 'sub-menu'});
@@ -24,7 +25,8 @@ const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuButtonProps>((pr
   );
 });
 
-const MenuMock: React.FC<{}> = () => {
+const GROUP_LABEL_TEXT = 'Search Options';
+const MenuMock: React.FC<{groupRef?: React.Ref<HTMLDivElement>}> = ({groupRef}) => {
   const menu = useMenuState({baseId: 'menu-example'});
   return (
     <>
@@ -38,6 +40,13 @@ const MenuMock: React.FC<{}> = () => {
         <MenuItem {...menu}>Check for Updates...</MenuItem>
         <MenuSeparator {...menu} data-testid="example-menu-separator" />
         <MenuItem {...menu} as={PreferencesMenu} />
+        <MenuSeparator {...menu} data-testid="example-menu-separator-2" />
+        <MenuGroup icon={<InformationIcon decorative />} label={GROUP_LABEL_TEXT} ref={groupRef}>
+          <MenuItem {...menu}>Search with Google</MenuItem>
+          <MenuItem {...menu} disabled>
+            Search with Bing
+          </MenuItem>
+        </MenuGroup>
       </Menu>
     </>
   );
@@ -75,6 +84,18 @@ describe('Menu ', () => {
       const renderedMenuItem = screen.getByTestId('example-menu-separator');
       expect(renderedMenuItem.getAttribute('aria-orientation')).toEqual('horizontal');
       expect(renderedMenuItem.tagName).toEqual('HR');
+    });
+
+    it('should render a menu group', () => {
+      const groupRef = React.createRef<HTMLDivElement>();
+      const {getByText} = render(<MenuMock groupRef={groupRef} />);
+
+      expect(groupRef.current).not.toBeNull();
+      // @ts-ignore we're checking it above
+      expect(groupRef.current.getAttribute('aria-label')).toEqual(GROUP_LABEL_TEXT);
+
+      const renderedGroupLabel = getByText(GROUP_LABEL_TEXT);
+      expect(renderedGroupLabel.getAttribute('role')).toEqual('presentation');
     });
 
     it('should render a sub menu trigger', () => {

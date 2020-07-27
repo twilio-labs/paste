@@ -20,6 +20,35 @@ render(
 )
 `.trim();
 
+export const groupingExample = `
+const MenuGroupExample = () => {
+  const menu = useMenuState();
+  return (
+    <>
+      <MenuButton {...menu} variant="primary">
+        Cool places <ChevronDownIcon decorative />
+      </MenuButton>
+      <Menu {...menu} aria-label="Actions">
+        <MenuGroup label="Social media" icon={<AttachIcon decorative />}>
+          <MenuItem {...menu}>Twitter</MenuItem>  
+          <MenuItem {...menu}>Myspace</MenuItem>  
+          <MenuItem {...menu}>Dribbble</MenuItem>  
+        </MenuGroup>
+        <MenuSeparator />
+        <MenuGroup label="Search engines">
+          <MenuItem {...menu}>Ecosia</MenuItem>  
+          <MenuItem {...menu}>DuckDuckGo</MenuItem>  
+        </MenuGroup>
+      </Menu>
+    </>
+  );
+};
+
+render(
+  <MenuGroupExample />
+)
+`.trim();
+
 export const subMenuExample = `
 const PreferencesMenu = React.forwardRef((props, ref) => {
   const menu = useMenuState();
