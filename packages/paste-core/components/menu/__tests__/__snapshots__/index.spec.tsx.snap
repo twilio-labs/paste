@@ -137,12 +137,14 @@ exports[`Menu  Render should render 1`] = `
   background-color: colorBackgroundBody;
   border-style: solid;
   border-width: borderWidth10;
-  border-color: colorBorderLighter;
+  border-color: colorBorderLight;
   border-radius: borderRadius20;
   box-shadow: shadowCard;
   max-width: size30;
-  min-width: size10;
+  min-width: size20;
   z-index: zIndex20;
+  padding-top: space40;
+  padding-bottom: space40;
 }
 
 .emotion-14:focus {
@@ -152,15 +154,17 @@ exports[`Menu  Render should render 1`] = `
 .emotion-1 {
   box-sizing: border-box;
   display: block;
-  padding: space30;
-  padding-left: space50;
-  padding-right: space50;
+  padding-top: space20;
+  padding-bottom: space20;
+  padding-left: space70;
+  padding-right: space70;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .emotion-1:hover {
   cursor: pointer;
+  background-color: colorBackgroundPrimaryLightest;
 }
 
 .emotion-1:focus {
@@ -190,6 +194,8 @@ exports[`Menu  Render should render 1`] = `
 .emotion-4 {
   box-sizing: border-box;
   margin: space0;
+  margin-bottom: space30;
+  margin-top: space30;
   border-width: borderWidth0;
   border-color: colorBorderLighter;
   border-style: solid;
@@ -203,6 +209,88 @@ exports[`Menu  Render should render 1`] = `
   color: colorTextWeaker;
   font-size: fontSize30;
   line-height: lineHeight30;
+}
+
+.emotion-24 {
+  box-sizing: border-box;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-19 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-left: space50;
+  padding-right: space70;
+  padding-top: space20;
+  padding-bottom: space20;
+  cursor: default;
+}
+
+.emotion-17 {
+  box-sizing: border-box;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: sizeIcon30;
+  height: sizeIcon30;
+}
+
+.emotion-16 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: sizeIcon30;
+  height: sizeIcon30;
+  color: colorTextIcon;
+}
+
+.emotion-18 {
+  margin: 0;
+  padding: 0;
+  color: colorText;
+  font-weight: fontWeightBold;
+  padding-left: space20;
+  font-size: fontSize30;
+  line-height: lineHeight30;
+}
+
+.emotion-21 {
+  box-sizing: border-box;
+  display: block;
+  padding-top: space20;
+  padding-bottom: space20;
+  padding-left: space90;
+  padding-right: space70;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-21:hover {
+  cursor: pointer;
+  background-color: colorBackgroundPrimaryLightest;
+}
+
+.emotion-21:focus {
+  outline: none;
+  background-color: colorBackgroundPrimaryLightest;
+}
+
+.emotion-21:disabled,
+.emotion-21:disabled:focus,
+.emotion-21:disabled:hover,
+.emotion-21[aria-disabled=true],
+.emotion-21[aria-disabled=true]:focus,
+.emotion-21[aria-disabled=true]:hover {
+  cursor: not-allowed;
 }
 
 .emotion-2 {
@@ -351,6 +439,91 @@ exports[`Menu  Render should render 1`] = `
           font-size="fontSize30"
         >
           Keyboard shortcuts
+        </div>
+      </a>
+    </div>
+    <hr
+      aria-orientation="horizontal"
+      class="emotion-4"
+      data-testid="example-menu-separator-2"
+      role="separator"
+      width="auto"
+    />
+    <div
+      aria-label="Search Options"
+      class="emotion-24"
+      role="presentation"
+      text-decoration="none"
+    >
+      <div
+        class="emotion-19"
+        cursor="default"
+        display="flex"
+      >
+        <div
+          class="emotion-17"
+        >
+          <span
+            class="emotion-16"
+            display="inline-flex"
+          >
+            <svg
+              aria-hidden="true"
+              aria-labelledby="1"
+              height="100%"
+              role="img"
+              viewBox="0 0 24 24"
+              width="100%"
+            >
+              <path
+                d="M12 4a8 8 0 110 16 8 8 0 010-16zm0 7c-.26.01-.528.08-.707.24-.178.158-.292.355-.292.575v3.37c0 .21.11.428.292.577.173.14.457.247.707.237.26-.008.528-.078.707-.237.178-.16.292-.355.292-.577v-3.37a.766.766 0 00-.292-.575A1.14 1.14 0 0012 11zm0-3l-.266.036c-.17.047-.318.131-.441.253l-.156.198A.958.958 0 0011 8.98v.04a.728.728 0 00.086.378c.04.121.108.227.206.315.09.094.197.163.321.202.12.06.248.09.386.084l.266-.035c.17-.047.318-.131.441-.253l.156-.198A.958.958 0 0013 9.02v-.04a.728.728 0 00-.086-.378.721.721 0 00-.206-.315.757.757 0 00-.321-.202.767.767 0 00-.386-.084z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="emotion-18"
+          color="colorText"
+          font-size="fontSize30"
+          font-weight="fontWeightBold"
+          role="presentation"
+        >
+          Search Options
+        </div>
+      </div>
+      <a
+        class="emotion-21"
+        display="block"
+        id="menu-example-4"
+        role="menuitem"
+        tabindex="-1"
+        text-decoration="none"
+      >
+        <div
+          class="emotion-2"
+          color="colorText"
+          font-size="fontSize30"
+        >
+          Search with Google
+        </div>
+      </a>
+      <a
+        aria-disabled="true"
+        class="emotion-21"
+        disabled=""
+        display="block"
+        id="menu-example-5"
+        role="menuitem"
+        text-decoration="none"
+      >
+        <div
+          class="emotion-9"
+          color="colorTextWeaker"
+          font-size="fontSize30"
+        >
+          Search with Bing
         </div>
       </a>
     </div>

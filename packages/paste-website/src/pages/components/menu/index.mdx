@@ -5,12 +5,13 @@ slug: /components/menu/
 ---
 
 import {graphql} from 'gatsby';
-import {Menu, MenuButton, SubMenuButton, MenuItem, MenuSeparator, useMenuState} from '@twilio-paste/menu';
+import {Menu, MenuButton, SubMenuButton, MenuItem, MenuGroup, MenuSeparator, useMenuState} from '@twilio-paste/menu';
 import Changelog from '@twilio-paste/menu/CHANGELOG.md';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
+import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
@@ -20,6 +21,7 @@ import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {InlineCode} from '../../../components/Typography';
 import {
   defaultExample,
+  groupingExample,
   subMenuExample,
   iconButtonExample,
   actionsExample,
@@ -112,6 +114,31 @@ Each menu item can only perform a single action.
   noInline
 >
   {defaultExample}
+</LivePreview>
+
+### Menu with groups
+
+Use MenuGroups to create hierarchy or logical groupings within longer menus.
+MenuGroups have a visible group label that should describe the grouping clearly.
+They can be given a prefix icon; please only use icons in a [decorative manner](https://paste.twilio.design/icon-system#specify-if-an-icon-is-decorative)
+and make the label descriptive standalone.
+
+Add separators between MenuGroups and other menu items.
+
+<LivePreview
+  scope={{
+    useMenuState,
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuGroup,
+    MenuSeparator,
+    ChevronDownIcon,
+    AttachIcon,
+  }}
+  noInline
+>
+  {groupingExample}
 </LivePreview>
 
 ### Menu with sub items
@@ -217,33 +244,53 @@ See the [button](/components/button) component.
 | ---------------- | --------------------- | ----------- |
 | background-color | color-background-body | No          |
 | border-width     | border-width-10       | No          |
-| border-color     | color-border-lighter  | No          |
+| border-color     | color-border-light    | No          |
 | border-radius    | border-radius-20      | No          |
 | box-shadow       | shadow-card           | No          |
 | max-width        | size-30               | No          |
-| min-width        | size-30               | No          |
+| min-width        | size-20               | No          |
+| padding-top      | space-40              | No          |
+| padding-bottom   | space-40              | No          |
+| z-index          | z-index-20            | No          |
 
 ### SubMenuButton and MenuItem
 
 #### Default
 
-| Property      | Default token   | Modifiable? |
-| ------------- | --------------- | ----------- |
-| color         | color-text-link | No          |
-| padding       | space-30        | No          |
-| padding-left  | space-50        | No          |
-| padding-right | space-50        | No          |
+| Property       | Default token                                        | Modifiable? |
+| -------------- | ---------------------------------------------------- | ----------- |
+| color          | color-text-link                                      | No          |
+| padding-top    | space-20                                             | No          |
+| padding-bottom | space-20                                             | No          |
+| padding-left   | space-90 (in-group) or space-70 (regular)            | No          |
+| padding-right  | space-70                                             | No          |
+| color          | color-text-weaker (disabled) or color-text (regular) | No          |
 
 #### Hover & focused
 
 | Property         | Default token                     | Modifiable? |
 | ---------------- | --------------------------------- | ----------- |
 | background-color | color-background-primary-lightest | No          |
-| text-decoration  | underline                         | No          |
+
+### MenuGroup
+
+| Property       | Default token                             | Modifiable? |
+| -------------- | ----------------------------------------- | ----------- |
+| padding-top    | space-20                                  | No          |
+| padding-bottom | space-20                                  | No          |
+| padding-left   | space-50 (has icon) or space-70 (regular) | No          |
+| padding-right  | space-70                                  | No          |
+| color          | color-text                                | No          |
+| font-weight    | font-weight-bold                          | No          |
 
 ### MenuSeparator
 
 See the [separator](/components/separator) component.
+
+| Property       | Default token | Modifiable? |
+| -------------- | ------------- | ----------- |
+| padding-top    | space-30      | No          |
+| padding-bottom | space-30      | No          |
 
 ---
 
@@ -356,7 +403,10 @@ These props are returned by the state hook. You can spread them into this compon
 
 ##### MenuGroup
 
-No props to show
+| Prop  | Type              | Description                                     | Default |
+| ----- | ----------------- | ----------------------------------------------- | ------- |
+| label | `string`          | Names the grouping                              |         |
+| icon  | `React.ReactNode` | One of our icon components. Must be decorative. |         |
 
 ##### MenuItem
 

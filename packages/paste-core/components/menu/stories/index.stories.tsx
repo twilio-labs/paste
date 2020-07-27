@@ -4,10 +4,11 @@ import {withKnobs} from '@storybook/addon-knobs';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
+import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
-import {Menu, MenuButton, SubMenuButton, MenuItem, MenuSeparator, useMenuState} from '../src';
+import {Menu, MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, useMenuState} from '../src';
 
 const PlainMenu: React.FC<{}> = () => {
   const menu = useMenuState();
@@ -144,6 +145,32 @@ const WithActionsMenu: React.FC<{}> = () => {
   );
 };
 
+const MenuGroups: React.FC = () => {
+  const menu = useMenuState();
+  return (
+    <>
+      <MenuButton {...menu} variant="primary">
+        Preferences <ChevronDownIcon decorative />
+      </MenuButton>
+      <Menu {...menu} aria-label="Preferences">
+        <MenuGroup label="Main Settings">
+          <MenuItem {...menu}>Settings</MenuItem>
+          <MenuItem {...menu}>Extensions</MenuItem>
+        </MenuGroup>
+        <MenuSeparator {...menu} />
+        <MenuGroup icon={<AttachIcon decorative />} label="Search Options">
+          <MenuItem {...menu}>Search with Google</MenuItem>
+          <MenuItem {...menu} disabled>
+            Search with Bing
+          </MenuItem>
+        </MenuGroup>
+        <MenuSeparator {...menu} />
+        <MenuItem {...menu}>Keyboard shortcuts</MenuItem>
+      </Menu>
+    </>
+  );
+};
+
 storiesOf('Components|Menu', module)
   .addDecorator(withKnobs)
   .add('default', () => {
@@ -154,6 +181,9 @@ storiesOf('Components|Menu', module)
   })
   .add('actions demo menu', () => {
     return <WithActionsMenu />;
+  })
+  .add('menu groups', () => {
+    return <MenuGroups />;
   })
   .add('menu dropdown', () => {
     const menuMockProps = {
@@ -217,6 +247,14 @@ storiesOf('Components|Menu', module)
             </MediaFigure>
           </MediaObject>
         </MenuItem>
+        <MenuSeparator />
+        <MenuGroup icon={<InformationIcon decorative />} label="Search Options">
+          <MenuItem {...menuItemMockProps}>Search with Google</MenuItem>
+          <MenuItem {...menuItemMockProps} disabled>
+            Search with Bing
+          </MenuItem>
+        </MenuGroup>
+        <MenuSeparator />
         <MenuItem {...menuItemMockProps}>
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space20">

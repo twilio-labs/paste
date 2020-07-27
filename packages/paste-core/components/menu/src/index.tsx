@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {ValueOf} from '@twilio-paste/types';
 import {Box, BoxProps, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {secureExternalLink} from '@twilio-paste/anchor';
@@ -18,17 +19,28 @@ import {
   MenuPrimitiveSeparatorProps,
 } from '@twilio-paste/menu-primitive';
 
+export const MenuItemVariants = {
+  DEFAULT: 'default',
+  GROUP_ITEM: 'group_item',
+} as const;
+type MenuItemVariants = ValueOf<typeof MenuItemVariants>;
+
 export type MenuProps = MenuPrimitiveProps & {'aria-label': string};
 export interface MenuItemProps extends MenuPrimitiveItemProps {
   href?: string;
+  variant?: MenuItemVariants;
   as?: any;
+}
+export interface MenuGroupProps {
+  label: string;
+  icon?: React.ReactNode;
+  children: React.ReactNode;
 }
 export type MenuSeparatorProps = MenuPrimitiveSeparatorProps;
 export type MenuButtonProps = MenuPrimitiveButtonProps & ButtonProps;
 export type SubMenuButtonProps = MenuPrimitiveButtonProps;
-interface StyledMenuItemProps extends BoxProps {
-  href?: string;
-}
+
+const MenuGroupContext = React.createContext<MenuItemVariants>(MenuItemVariants.DEFAULT);
 
 const StyledMenu = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...props}, ref) => {
   return (
@@ -37,12 +49,14 @@ const StyledMenu = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...props}
       backgroundColor="colorBackgroundBody"
       borderStyle="solid"
       borderWidth="borderWidth10"
-      borderColor="colorBorderLighter"
+      borderColor="colorBorderLight"
       borderRadius="borderRadius20"
       boxShadow="shadowCard"
       maxWidth="size30"
-      minWidth="size10"
+      minWidth="size20"
       zIndex="zIndex20"
+      paddingTop="space40"
+      paddingBottom="space40"
       _focus={{outline: 'none'}}
       style={style}
       ref={ref}
@@ -50,55 +64,94 @@ const StyledMenu = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...props}
   );
 });
 
-const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElement, StyledMenuItemProps>(
-  ({children, ...props}, ref) => {
-    return (
-      <Box
-        {...(props.href && secureExternalLink(props.href))}
-        {...safelySpreadBoxProps(props)}
-        as="a"
-        display="block"
-        padding="space30"
-        paddingLeft="space50"
-        paddingRight="space50"
-        textDecoration="none"
-        _hover={{
-          cursor: 'pointer',
-        }}
-        _focus={{
-          outline: 'none',
-          backgroundColor: 'colorBackgroundPrimaryLightest',
-        }}
-        _disabled={{cursor: 'not-allowed'}}
-        ref={ref}
-      >
-        <Text
-          as="div"
-          color={props['aria-disabled'] ? 'colorTextWeaker' : 'colorText'}
-          textDecoration={props.tabIndex === 0 ? 'underline' : null}
-        >
-          {children}
-        </Text>
-      </Box>
-    );
-  }
-);
-
-const StyledMenuSeparator: React.FC<SeparatorProps> = props => {
-  return <Separator {...props} orientation="horizontal" />;
-};
-
 const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => {
   return <MenuPrimitive {...props} as={StyledMenu} ref={ref} />;
 });
 Menu.displayName = 'Menu';
 export {Menu};
 
-const MenuItem = React.forwardRef<HTMLDivElement, MenuItemProps>(({as = StyledMenuItem, ...props}, ref) => {
-  return <MenuPrimitiveItem {...props} as={as} ref={ref} />;
+const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElement, MenuItemProps>((props, ref) => {
+  return (
+    <Box
+      {...(props.href && secureExternalLink(props.href))}
+      {...safelySpreadBoxProps(props)}
+      as="a"
+      display="block"
+      paddingTop="space20"
+      paddingBottom="space20"
+      paddingLeft={props.variant === MenuItemVariants.GROUP_ITEM ? 'space90' : 'space70'}
+      paddingRight="space70"
+      textDecoration="none"
+      _hover={{
+        cursor: 'pointer',
+        backgroundColor: 'colorBackgroundPrimaryLightest',
+      }}
+      _focus={{
+        outline: 'none',
+        backgroundColor: 'colorBackgroundPrimaryLightest',
+      }}
+      _disabled={{cursor: 'not-allowed'}}
+      ref={ref}
+    >
+      <Text
+        as="div"
+        color={props['aria-disabled'] ? 'colorTextWeaker' : 'colorText'}
+        textDecoration={props.tabIndex === 0 ? 'underline' : null}
+      >
+        {props.children}
+      </Text>
+    </Box>
+  );
 });
+
+const MenuItem = React.forwardRef<HTMLDivElement, MenuItemProps>(
+  ({as = StyledMenuItem, variant: _variant, ...props}, ref) => {
+    const variant = _variant || React.useContext(MenuGroupContext);
+    return <MenuPrimitiveItem {...props} variant={variant} as={as} ref={ref} />;
+  }
+);
 MenuItem.displayName = 'MenuItem';
 export {MenuItem};
+
+const MenuGroup = React.forwardRef<HTMLDivElement, MenuGroupProps>(({label, icon, children, ...props}, ref) => {
+  return (
+    <MenuGroupContext.Provider value={MenuItemVariants.GROUP_ITEM}>
+      <Box {...safelySpreadBoxProps(props)} role="presentation" aria-label={label} textDecoration="none" ref={ref}>
+        <Box
+          display="flex"
+          alignItems="center"
+          paddingLeft={icon != null ? 'space50' : 'space70'}
+          paddingRight="space70"
+          paddingTop="space20"
+          paddingBottom="space20"
+          cursor="default"
+        >
+          {React.isValidElement(icon) ? (
+            <Box flexShrink={0} size="sizeIcon30">
+              {React.cloneElement(icon, {iconColor: 'colorTextIcon'})}
+            </Box>
+          ) : null}
+          <Text
+            as="div"
+            color="colorText"
+            role="presentation"
+            fontWeight="fontWeightBold"
+            paddingLeft={icon != null ? 'space20' : undefined}
+          >
+            {label}
+          </Text>
+        </Box>
+        {children}
+      </Box>
+    </MenuGroupContext.Provider>
+  );
+});
+MenuGroup.displayName = 'MenuGroup';
+export {MenuGroup};
+
+const StyledMenuSeparator: React.FC<SeparatorProps> = props => {
+  return <Separator {...props} orientation="horizontal" verticalSpacing="space30" />;
+};
 
 const MenuSeparator: React.FC<MenuSeparatorProps> = props => {
   // as prop from reakit for some reason only accepts a string of `hr` but accepts components. any prevent type errors
