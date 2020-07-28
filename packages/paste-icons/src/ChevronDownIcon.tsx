@@ -18,13 +18,20 @@ const ChevronDownIcon: React.FC<ChevronDownIconProps> = ({as, display, size, ico
   return (
     <IconWrapper as={as} display={display} size={size} iconColor={iconColor}>
       <UID>
-        {uid => (
-          <svg role="img" aria-hidden={decorative} aria-labelledby={uid} width="100%" height="100%" viewBox="0 0 24 24">
-            {title ? <title id={uid}>{title}</title> : null}
+        {titleId => (
+          <svg
+            role="img"
+            aria-hidden={decorative}
+            width="100%"
+            height="100%"
+            viewBox="0 0 24 24"
+            aria-labelledby={titleId}
+          >
+            {title ? <title id={titleId}>{title}</title> : null}
             <path
               fill="currentColor"
               fillRule="evenodd"
-              d="M16.128 10.166a.5.5 0 01.798.596l-.054.072-4.5 5a.5.5 0 01-.672.066l-.072-.066-4.5-5a.5.5 0 01.678-.73l.066.062L12 14.752l4.128-4.586z"
+              d="M8.293 10.293a1 1 0 011.32-.083l.094.083L12 12.585l2.293-2.292a1 1 0 011.32-.083l.094.083a1 1 0 01.083 1.32l-.083.094-3 3a1 1 0 01-1.32.083l-.094-.083-3-3a1 1 0 010-1.414z"
             />
           </svg>
         )}
