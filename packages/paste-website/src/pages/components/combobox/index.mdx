@@ -24,6 +24,8 @@ import {
   errorExample,
   disabledExample,
   prefixSuffixExample,
+  controlledComboboxExample,
+  groupedComboboxExample,
 } from '../../../component-examples/ComboboxExamples';
 
 export const pageQuery = graphql`
@@ -82,6 +84,8 @@ export const pageQuery = graphql`
 
 ### About Combobox
 
+The Combobox is an opinionated implementation and wrapper around the **very excellent [Downshift component](https://downshift.netlify.app/downshift)**.
+
 Combobox allows a user to make a selection from a styled list box of options. Each option can consist of more than just text,
 _e.g._ text paired with an icon. It can also be set up with autocomplete/typeahead functionality so users can easily find a
 specific option.
@@ -115,6 +119,30 @@ The `optionTemplate` prop allows you to pass `jsx` in order to display more comp
 
 <LivePreview scope={{Combobox, Anchor, InformationIcon}} noInline language="jsx">
   {prefixSuffixExample}
+</LivePreview>
+
+#### Combobox with option groups
+
+The list of options shown to the user, known as the `Listbox`, can be grouped to create labelled sections. Structure your data into an array of objects and use a key on each object as the grouping identifier. Then tell the Combobox what you would like to group the items by, by setting `groupItemsBy` to match the intended group identifier.
+
+In the example below we have a list of components and we are grouping them based on their type.
+
+<LivePreview scope={{Combobox}} noInline language="jsx">
+  {groupedComboboxExample}
+</LivePreview>
+
+#### Controlled Combobox
+
+The Combobox can be used as a [controlled component](https://reactjs.org/docs/forms.html#controlled-components) when you would like full control over your state. Use the properties `selectedItem`, `inputValue`, `onInputValueChange` and `onSelectedItemChange` to control the value of the Combobox via your own application state.
+
+In the example below the value of the Combobox is stored in a piece of our application state. We update that value based on user input into the Combobox, resetting the value of the Combobox. Upon the user selecting a defined option, we hook into `onSelectedItemChange` to set our selectedItem state value based on user selection.
+
+<LivePreview
+  scope={{Combobox, Box, LinkExternalIcon, MediaBody, MediaObject, MediaFigure, Text}}
+  noInline
+  language="jsx"
+>
+  {controlledComboboxExample}
 </LivePreview>
 
 ## States
@@ -297,13 +325,25 @@ All the valid HTML attributes for `input` are supported including the following 
 
 Allows autocomplete/typehead feature.
 
+##### `groupItemsBy?: string`
+
+The name of the key in your item objects that you would like Combobox to group the items by.
+
 ##### `helpText?: string | React.ReactNode`
 
 The contents of the help and error text.
 
+##### `initialIsOpen?: boolean`
+
+Sets whether the Combobox is open on initial render.
+
 ##### `initialSelectedItem?: Item`
 
 Sets the initial item selected when a Combobox is initialized.
+
+##### `inputValue?: string`
+
+Sets the value of the input inside the Combobox.
 
 ##### `items: Item[]`
 
@@ -338,6 +378,10 @@ highlighted.
 ##### `optionTemplate?: (item: string | {}) => React.ReactNode`
 
 This function allows you to use your own `jsx` template for the items in the drop-down list.
+
+##### `selectedItem?: any`
+
+Used to set the Selected Item of the Combobox.
 
 <ChangelogRevealer>
   <Changelog />
