@@ -157,7 +157,7 @@ const ItemsExample = () => {
         <MenuItem  {...menu}>
         <MediaObject verticalAlign="center">
           <MediaFigure spacing="space20">
-            <InformationIcon decorative={false} title="information" />
+            <AttachIcon decorative={false} title="information" />
           </MediaFigure>
           <MediaBody>With left icon</MediaBody>
         </MediaObject>
@@ -166,25 +166,25 @@ const ItemsExample = () => {
         <MediaObject verticalAlign="center">
           <MediaBody>With right icon</MediaBody>
           <MediaFigure spacing="space20" align="end">
-            <InformationIcon decorative={false} title="information" />
+            <AttachIcon decorative={false} title="information" />
           </MediaFigure>
         </MediaObject>
       </MenuItem>
       <MenuItem  {...menu}>
         <MediaObject verticalAlign="center">
           <MediaFigure spacing="space20">
-            <InformationIcon decorative={false} title="information" />
+            <AttachIcon decorative={false} title="information" />
           </MediaFigure>
           <MediaBody>With two icons</MediaBody>
           <MediaFigure spacing="space20" align="end">
-            <InformationIcon decorative={false} title="information" />
+            <AttachIcon decorative={false} title="information" />
           </MediaFigure>
         </MediaObject>
       </MenuItem>
       <MenuItem  {...menu}>
         <MediaObject verticalAlign="center">
           <MediaFigure spacing="space20">
-            <InformationIcon decorative={false} title="information" />
+            <AttachIcon decorative={false} title="information" />
           </MediaFigure>
           <MediaBody>Keyboard shortcut?</MediaBody>
           <MediaFigure spacing="space20" align="end">

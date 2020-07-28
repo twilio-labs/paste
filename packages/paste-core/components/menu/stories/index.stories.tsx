@@ -5,7 +5,6 @@ import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
 import {Menu, MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, useMenuState} from '../src';
@@ -70,13 +69,13 @@ const Example3: React.FC<{}> = () => {
   return (
     <>
       <MenuButton {...menu} variant="secondary" size="icon">
-        <InformationIcon decorative={false} title="show information" />
+        <AttachIcon decorative={false} title="show information" />
       </MenuButton>
       <Menu {...menu} aria-label="Preferences">
         <MenuItem {...menu}>
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space20">
-              <InformationIcon decorative={false} title="information" />
+              <AttachIcon decorative={false} title="information" />
             </MediaFigure>
             <MediaBody>Settings</MediaBody>
           </MediaObject>
@@ -102,7 +101,7 @@ const Example4: React.FC<{}> = () => {
         <MenuItem {...menu}>
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space20">
-              <InformationIcon decorative={false} title="information" />
+              <AttachIcon decorative={false} title="information" />
             </MediaFigure>
             <MediaBody>Settings</MediaBody>
           </MediaObject>
@@ -223,7 +222,7 @@ storiesOf('Components|Menu', module)
         <MenuItem {...menuItemMockProps}>
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space20">
-              <InformationIcon decorative={false} title="information" />
+              <AttachIcon decorative={false} title="information" />
             </MediaFigure>
             <MediaBody>Got an icon</MediaBody>
           </MediaObject>
@@ -232,23 +231,23 @@ storiesOf('Components|Menu', module)
           <MediaObject verticalAlign="center">
             <MediaBody>Got a right icon</MediaBody>
             <MediaFigure spacing="space20" align="end">
-              <InformationIcon decorative={false} title="information" />
+              <AttachIcon decorative={false} title="information" />
             </MediaFigure>
           </MediaObject>
         </MenuItem>
         <MenuItem {...menuItemMockProps}>
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space20">
-              <InformationIcon decorative={false} title="information" />
+              <AttachIcon decorative={false} title="information" />
             </MediaFigure>
             <MediaBody>Got two icons</MediaBody>
             <MediaFigure spacing="space20" align="end">
-              <InformationIcon decorative={false} title="information" />
+              <AttachIcon decorative={false} title="information" />
             </MediaFigure>
           </MediaObject>
         </MenuItem>
         <MenuSeparator />
-        <MenuGroup icon={<InformationIcon decorative />} label="Search Options">
+        <MenuGroup icon={<AttachIcon decorative />} label="Search Options">
           <MenuItem {...menuItemMockProps}>Search with Google</MenuItem>
           <MenuItem {...menuItemMockProps} disabled>
             Search with Bing
@@ -258,7 +257,7 @@ storiesOf('Components|Menu', module)
         <MenuItem {...menuItemMockProps}>
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space20">
-              <InformationIcon decorative={false} title="information" />
+              <AttachIcon decorative={false} title="information" />
             </MediaFigure>
             <MediaBody>keyboard shortcut?</MediaBody>
             <MediaFigure spacing="space20" align="end">
@@ -272,7 +271,7 @@ storiesOf('Components|Menu', module)
           <MediaObject verticalAlign="center">
             <MediaBody>Got a right icon</MediaBody>
             <MediaFigure spacing="space20" align="end">
-              <InformationIcon decorative={false} title="information" />
+              <AttachIcon decorative={false} title="information" />
             </MediaFigure>
           </MediaObject>
         </MenuItem>
