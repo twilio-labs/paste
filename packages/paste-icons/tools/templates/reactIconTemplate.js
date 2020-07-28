@@ -20,7 +20,7 @@ const ${componentName}: React.FC<${componentName}Props> = ({as, display, size, i
   return (
     <IconWrapper as={as} display={display} size={size} iconColor={iconColor}>
       <UID>
-        {uid => (
+        {titleId => (
           ${svg}
         )}
       </UID>
