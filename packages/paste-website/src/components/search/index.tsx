@@ -19,15 +19,15 @@ const SearchCombobox: React.FC<SearchComboboxProps> = ({refine, hits, currentRef
       labelText={<ScreenReaderOnly>Search</ScreenReaderOnly>}
       placeholder="Jump to..."
       items={hits}
-      itemToString={i => (i ? i.name : i)}
-      value={currentRefinement}
+      itemToString={i => (i && typeof i !== 'string' ? i.name : i)}
+      inputValue={currentRefinement}
       onInputValueChange={({inputValue}) => {
         if (inputValue !== undefined) {
           refine(inputValue);
         }
       }}
       onSelectedItemChange={(changes: Partial<UseComboboxState<any>>) => {
-        if (changes !== undefined) {
+        if (changes != null && changes.selectedItem != null) {
           navigate(changes.selectedItem.slug);
         }
       }}
