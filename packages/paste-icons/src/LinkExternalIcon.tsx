@@ -18,13 +18,20 @@ const LinkExternalIcon: React.FC<LinkExternalIconProps> = ({as, display, size, i
   return (
     <IconWrapper as={as} display={display} size={size} iconColor={iconColor}>
       <UID>
-        {uid => (
-          <svg role="img" aria-hidden={decorative} aria-labelledby={uid} width="100%" height="100%" viewBox="0 0 24 24">
-            {title ? <title id={uid}>{title}</title> : null}
+        {titleId => (
+          <svg
+            role="img"
+            aria-hidden={decorative}
+            width="100%"
+            height="100%"
+            viewBox="0 0 24 24"
+            aria-labelledby={titleId}
+          >
+            {title ? <title id={titleId}>{title}</title> : null}
             <path
               fill="currentColor"
               fillRule="evenodd"
-              d="M14.646 9.354h.026a.449.449 0 01.474.476v5.024a.5.5 0 01-.991.09l-.009-.09V10.99l-6.524 6.524a.45.45 0 01-.689-.574l.052-.063 6.524-6.524H9.646a.5.5 0 01-.491-.41l-.009-.09a.5.5 0 01.41-.492l.09-.008h5z"
+              d="M10.5 7a.5.5 0 110 1H8v8h8v-2.5a.5.5 0 01.41-.492L16.5 13a.5.5 0 01.492.41l.008.09v3a.5.5 0 01-.41.492L16.5 17h-9a.5.5 0 01-.492-.41L7 16.5v-9a.5.5 0 01.41-.492L7.5 7h3zm6 0a.5.5 0 01.5.5v3a.5.5 0 11-1 0V8.785l-3.607 3.608a.556.556 0 01-.709.064l-.077-.064a.556.556 0 01-.064-.709l.064-.077L15.213 8H13.5a.5.5 0 110-1h3z"
             />
           </svg>
         )}

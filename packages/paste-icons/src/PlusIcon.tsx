@@ -18,13 +18,20 @@ const PlusIcon: React.FC<PlusIconProps> = ({as, display, size, iconColor, title,
   return (
     <IconWrapper as={as} display={display} size={size} iconColor={iconColor}>
       <UID>
-        {uid => (
-          <svg role="img" aria-hidden={decorative} aria-labelledby={uid} width="100%" height="100%" viewBox="0 0 24 24">
-            {title ? <title id={uid}>{title}</title> : null}
+        {titleId => (
+          <svg
+            role="img"
+            aria-hidden={decorative}
+            width="100%"
+            height="100%"
+            viewBox="0 0 24 24"
+            aria-labelledby={titleId}
+          >
+            {title ? <title id={titleId}>{title}</title> : null}
             <path
               fill="currentColor"
               fillRule="evenodd"
-              d="M12 4c.245 0 .45.174.492.402l.008.089V11.5h7.01c.27 0 .49.224.49.5 0 .245-.174.45-.402.492l-.089.008H12.5v7.01c0 .27-.224.49-.5.49a.498.498 0 01-.492-.402l-.008-.089V12.5H4.49A.495.495 0 014 12c0-.245.174-.45.402-.492l.089-.008H11.5V4.49c0-.27.224-.49.5-.49z"
+              d="M17.043 11.043h-4.086V6.957a.958.958 0 00-1.914 0v4.086H6.957a.958.958 0 000 1.914h4.086v4.086a.958.958 0 001.914 0v-4.086h4.086a.958.958 0 000-1.914z"
             />
           </svg>
         )}

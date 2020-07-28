@@ -1,0 +1,44 @@
+/**
+ * This file was automatically generated with @twilio-labs/svg-to-react
+ */
+import * as React from 'react';
+import {UID} from 'react-uid';
+import {IconWrapper, IconWrapperProps} from './helpers/IconWrapper';
+
+export interface PinIconProps extends IconWrapperProps {
+  title?: string;
+  decorative: boolean;
+}
+
+const PinIcon: React.FC<PinIconProps> = ({as, display, size, iconColor, title, decorative}) => {
+  if (!decorative && title == null) {
+    throw new Error('[PinIcon]: Missing a title for non-decorative icon.');
+  }
+
+  return (
+    <IconWrapper as={as} display={display} size={size} iconColor={iconColor}>
+      <UID>
+        {titleId => (
+          <svg
+            role="img"
+            aria-hidden={decorative}
+            width="100%"
+            height="100%"
+            viewBox="0 0 24 24"
+            aria-labelledby={titleId}
+          >
+            {title ? <title id={titleId}>{title}</title> : null}
+            <path
+              fill="currentColor"
+              fillRule="evenodd"
+              d="M13.793 6.007a1.2 1.2 0 01.98.344l2.876 2.877a1.2 1.2 0 01-.205 1.86l-2.95 1.877.02.121c.105.828-.041 1.67-.423 2.418l-.11.202a1.2 1.2 0 01-1.883.24L10.4 14.25l-3.613 3.615a.461.461 0 01-.706-.589l.053-.064 3.614-3.615-1.694-1.693a1.2 1.2 0 01-.353-.864l.01-.138a1.2 1.2 0 01.585-.884 4.164 4.164 0 012.617-.531l.12.018 1.878-2.95a1.2 1.2 0 01.747-.525zm.163.918h-.062l-.06.013a.277.277 0 00-.144.113l-2.045 3.215a.461.461 0 01-.497.2 3.24 3.24 0 00-2.386.349.277.277 0 00-.055.435l4.044 4.044a.277.277 0 00.434-.054c.419-.72.544-1.576.349-2.387a.462.462 0 01.2-.497l3.215-2.046a.277.277 0 00.047-.43L14.12 7.005a.277.277 0 00-.226-.08z"
+            />
+          </svg>
+        )}
+      </UID>
+    </IconWrapper>
+  );
+};
+
+PinIcon.displayName = 'PinIcon';
+export {PinIcon};
