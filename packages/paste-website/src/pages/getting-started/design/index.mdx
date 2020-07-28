@@ -42,136 +42,51 @@ export const pageQuery = graphql`
 
 <content>
 
-## Getting Started with Paste
+## Quickstart
 
-### Access for Font Files, Sketch Licenses, Abstract
+- Need to access for Font Files? [Instructions for Download](https://wiki.hq.twilio.com/x/sTQdCw) (Confluence)
 
-[Instructions for Download](https://wiki.hq.twilio.com/x/sTQdCw) (Confluence)
+- Paste uses Abstract as a version control system to serve design assets such as symbols and icons. If you’re unfamiliar with Abstract, version control, or git workflows, read through <a href="https://www.goabstract.com/how-it-works/">how it works</a>. After installing Abstract, sync the [Paste Components](https://share.goabstract.com/786b3d8f-b87a-4140-af7d-eb4cdd40e8ed?) project.
 
-### Basic Terminology
+- Use the [Font tester Sketch file](https://share.goabstract.com/c33c9dd8-5b0a-48a3-ab56-83a6fdffa869?sha=9a058708bfc5c9f741f3e62195e18e2cdc6ba329) to see if your fonts load correctly.
 
-If you’re unfamiliar with Abstract, version control, or git workflows, read through <a href="https://www.goabstract.com/how-it-works/">how it works</a>. Since Abstract uses version control terms, brushing up on these would be a good first step.
+## Getting help from the DSYS Team
 
-_Some terms you'll encounter:_
+### When should you talk to the Design Systems team?
 
-- _Abstract_: A version control app for Sketch, which means we can share a single source of truth for our Sketch files and not run into unmanageable edit conflicts.
+We recommend reaching out early, and often! The DSYS team provides many ways to connect with the team that are timezone friendly, and offer a safe, inclusive space to incubate your ideas as they becomes great Twilio experiences. Here are some _checkpoints_ that are great times to reach out to our team:
 
-- _Master_: The single source of truth of files in a project
+- **After your first week at Twilio!** Come say hi and introduce yourselves! We'd love to hear your journey, and share how our team works.
+- **Quarterly**, when you're invited to our roadmap planning sessions: share what's coming up from a UI perspective, and any components or compositions that you believe will be essential to build a great customer experience.
+- **At the start of a project** - reach out to us with a heads up on the project, any deadlines for delivery, and any components or compositions that you're confident will be necessary.
+- **At the start of medium or high fidelity design.** This is a great time to share your specific needs with the DSYS team. You may also begin to receive feedback on accessibility or pattern usage at this stage.
+- **Before user testing or UX reviews.** Before you share your ideas with customers or get a sign off on the final design, drop by for a deep dive on copy, component and composition usage, accessibility, and other design considerations.
+- **Before launch.** We'll use this time to do a final polish on the work, and disucss what changes we may need to make after your product's released.
 
-- _Branch_: A copy of the Master files that lets you make any changes without affecting the rest of the team’s work. Only the creator of the branch can make changes in it. If you want to work off someone's branch, you can create a child branch off their branch.
+### Support questions, feature requests, and bug reports
 
-- _Commit_: The way you save your work so it’s publicly viewable to the rest of the team. Committing is like saving a snapshot of your work, so you can revert your work back to previous commits when you need to. It does not affect the Master. Always Be Committing!
+- We recommend searching this doc site before reaching out to the team for help. It may be the quickest way to get you going.
+- Still need help? [Start a discussion](https://github.com/twilio-labs/paste/discussions/new) on GitHub. Paste is free and open-source, so all you need is a free GitHub account to post questions.
+- Spotted a bug or error? [File an issue](https://github.com/twilio-labs/paste/issues/new?assignees=&labels=Type%3A+Bug&template=bug_report.md&title=)
 
-- _Merge_: The way you combine your branch with the Master files
+### Design Systems Meetings
 
-- _Merge conflict_: This happens when there’s a conflicting version of an artboard with the Master and a branch. Abstract will walk you through which artboards are conflicting so you can choose what you want to appear in Master. To avoid these conflicts, we recommend:
+- We host **weekly office hours** on Thursdays alternating North America and Europe friendly time zones. Drop us a line on Slack at #help-design-system for an invite to the calendar.
+- We also host a **weekly design critique**, that's specifically a space for product designers to get feedback on their work.
+- We also host a **monthly design system guild meeting**, a monthly meetup for developers, designers, and product managers interested in building better experiences for customers.
 
-  - Planning out and splitting up the work between your collaborators before making the changes. Merge conflicts can prevent you from overriding work unintentionally, but can’t tell you which change is the “right” one.
-  - Splitting up your Sketch files into more granular pieces (_e.g._, split a Sketch library and product feature work into separate files).
+### What kind of support can you expect from the Design Systems team?
 
-- _Paste_: _This_ design system
+We're excited to partner with you on building better products. Towards this, you can expect the following levels of support from the team:
 
-- _Console / Flex / SendGrid components_: The Sketch libraries for the Twilio Console / Flex / SendGrid (some of this may not be available yet).
+- Get feedback on usage of Paste components and compositions in your mocks and/or UIs.
+- Get information about building more accessibile UIs, and any common pitfalls that designers typically encounter.
+- Get support on hierarchy, weight, and spacing in your UIs.
+- Get answers to clarifying questions about Design Systems concepts.
+- Verify if your designs are aligned with the [Paste content guidelines](https://paste.twilio.design/content)
+- Verify if your design is following the design system and accessibility conventions and standards expected for Twilio UX reviews.
 
-### Joining or Creating a New Project in Abstract
-
-1. After installing Abstract, sync the [Paste Components](https://share.goabstract.com/786b3d8f-b87a-4140-af7d-eb4cdd40e8ed?) project. You may also want to sync all the other projects to be able to easily review and study your peer designers’ work. **You can star projects to pin them to the top of your projects list.**
-
-2. To find the right project for the product you’ll be working on, search through existing ones. To create a project, click _New Project_ in Abstract and give your project a name. If it already exists, feel free to skip to "Do a quick font check!"
-
-<Callout>
-  <CalloutText>Guidance on how to name your projects will be provided in a future release.</CalloutText>
-</Callout>
-
-3. After creating your project, click into it and create a Sketch file.
-
-4. **Now it's time to import a Sketch Library!** To use console symbols in your project, you’ll have to link the _Console components_ Sketch libraries. To do that in your project, click on _Add File_, then _Link Sketch Library..._
-
-5. Select all the Paste components files, then click _Link Library_
-
-<Callout>
-  <CalloutTitle as="h4">Do a quick font check!</CalloutTitle>
-  <CalloutText>
-    Now is a good time to test your fonts to ensure that the components look right! In Abstract, go to the DesignOps
-    project and open{' '}
-    <Anchor href="https://share.goabstract.com/c33c9dd8-5b0a-48a3-ab56-83a6fdffa869?sha=9a058708bfc5c9f741f3e62195e18e2cdc6ba329">
-      Font tester.sketch
-    </Anchor>{' '}
-    in untracked mode. Use the Font Tester artboard to make sure your font files have been installed correctly.
-  </CalloutText>
-</Callout>
-
-You’re all set to work with Abstract and the Paste Sketch Libraries!
-
-### Your First Commit in Abstract
-
-A commit is the way you save your work so it’s publicly viewable to the rest of the team. Any changes you make before you commit are saved locally to your computer and only viewable by you.
-
-Committing is like saving a snapshot of your work. You can always revert your work back to previous commits when you need to, so get comfortable deleting explorations of work! If you commit before and after you delete a bunch of explorations, you’ll be able to find those explorations in the future. More importantly, your files will be easier to grok for anyone who’s looking for the latest version of the work.
-
-How often you might commit depends on the scope of your project. If the scope is to do an icon color change or a typo fix, you might commit for that change only and close out the branch and project. If the scope is much larger (like creating a new component or laying out a sign-up flow), then commits might bundle more changes together. In general, **Always Be Committing!**
-
-1. To start work in any project, you’ll create a branch. A branch is a copy of the Master file that lets you make any changes without affecting the rest of the team’s work.
-
-   To create a branch, click _Master_ in the left sidebar and then click _New Branch…_ in the upper right.
-
-When you’re working in the Console components library, the branch naming convention is:
-
-```
-[JIRA ticket] [description]
-
-For example:
-
-[PROJ-1234] Added a new button
-```
-
-2. Once you’ve created your branch, go to the Overview tab and add a link to your documentation in the Summary section and a description for context.
-
-3. To start working in Sketch, return to Files and double-click on a Sketch file.
-
-4. Once you’ve made changes, you’ll commit your work. It does not affect the Master branch.
-
-   **Changes in Abstract are tracked per artboard.** If you don’t want to lose track of an Abstract comment thread on an artboard, make sure you don’t delete it (even if you rename another artboard with the same name), or don’t copy-and-paste it and start working off the duplicate.
-
-   To commit, click _Commit Changes_ on the Abstract plugin in Sketch. When working on design system projects, please follow our commit message conventions below.
-
-### Commit Message Conventions
-
-Commit messages are important. You may be tempted to write "updates" as your commit’s description while you're working hard, but will that be useful in six months when you’re trying to find a specific exploration? We recommend using the `conventional commit` format for messages, which attaches a strict style to commits, and makes them readable: not just for you, but also for your peers!
-
-<Callout variant="warning">
-  <CalloutTitle as="h4">Commit Message Conventions are Mandatory for Design System Contributions</CalloutTitle>
-  <CalloutText>
-    While we can only strongly recommend what you do in your own Abstract projects, following this convention is
-    mandatory for Design System projects. We'll have to ask you to redo your branch, so please follow this format!{' '}
-  </CalloutText>
-</Callout>
-
-| Commit type                                                  | Commit message syntax | Example                                   |
-| ------------------------------------------------------------ | --------------------- | ----------------------------------------- |
-| Add / Edit / Delete Feature                                  | feat: [description]   | feat: Added a new button                  |
-| Minor change / typo fix, library cleanup                     | chore: [description]  | chore: wierd was spelled weirdly          |
-| Fixed a broken style or buggy component (no customer change) | fix: [description]    | fix: Applied correct layer style for grey |
-
-### Creating your own libraries
-
-As your projects become more and more complex (or you start working on multiple projects), it may be useful for you to create your own local symbol library for compositions that are specific to your product. We recommend reaching out to the Design System team for guidance.
-
-## Coming Soon
-
-- Plugin recommendations
-- How to use collections and request reviews
-- Working with Abstract and other tools (Invision, Zeplin, etc.)
-- How to request Guest access to Abstract for your Engineer or PM
-
-## Give us Feedback on this Page
-
-As you use Paste, you’ll likely encounter things that _don’t seem right_. Please reach out with your feedback! Here are some prompts to consider:
-
-- Is this page easy for me to consume?
-- Is the information supporting it sufficient / well-described?
-- What information is missing?
-- How approachable is the documentation? Can a new engineer / PM / designer at Twilio get started with it easily?
+It's important to note that the Design Systems team does not directly talk to customers, and is not a replacement for research and customer understanding. While we're happy to provide feedback on the product decisions made, we recommend testing with customers or customer proxies to better understand if we're solving for their needs.
 
 </content>
 
