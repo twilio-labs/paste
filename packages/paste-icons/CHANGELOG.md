@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@2.5.1...@twilio-paste/icons@2.6.0) (2020-07-28)
+
+
+### Features
+
+* **icons:** add some icons and update old icons for UDL ([c9d5010](https://github.com/twilio-labs/paste/commit/c9d5010e445ad9bc4f142ba541a9b540698adc02))
+
+
+
+
+
 ## [2.5.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@2.5.0...@twilio-paste/icons@2.5.1) (2020-07-22)
 
 **Note:** Version bump only for package @twilio-paste/icons
