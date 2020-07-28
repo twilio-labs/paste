@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/menu@0.1.26...@twilio-paste/menu@0.2.0) (2020-07-28)
+
+
+### Features
+
+* **menu:** add MenuGroup ([299ba82](https://github.com/twilio-labs/paste/commit/299ba82366c06a9655b4a9b39b4f56688d6d5004))
+
+
+
+
+
 ## [0.1.26](https://github.com/twilio-labs/paste/compare/@twilio-paste/menu@0.1.25...@twilio-paste/menu@0.1.26) (2020-07-22)
 
 **Note:** Version bump only for package @twilio-paste/menu
