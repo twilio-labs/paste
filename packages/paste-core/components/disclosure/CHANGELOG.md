@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/disclosure@0.1.10...@twilio-paste/disclosure@0.2.0) (2020-07-28)
+
+
+### Features
+
+* **disclosure:** add state prop ([9ce28b4](https://github.com/twilio-labs/paste/commit/9ce28b43b2d9e58544b84900f175c63246deb87e))
+
+
+
+
+
 ## [0.1.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/disclosure@0.1.9...@twilio-paste/disclosure@0.1.10) (2020-07-28)
 
 **Note:** Version bump only for package @twilio-paste/disclosure
