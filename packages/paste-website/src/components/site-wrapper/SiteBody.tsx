@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {styled} from '@twilio-paste/styling-library';
-import {Anchor, secureExternalLink} from '@twilio-paste/anchor';
+import {secureExternalLink} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Alert} from '@twilio-paste/alert';
 import {Text} from '@twilio-paste/text';
