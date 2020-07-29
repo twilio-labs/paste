@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.2.11...@twilio-paste/style-props@1.3.0) (2020-07-29)
+
+
+### Features
+
+* **radio:** allow disabling individual radios ([#599](https://github.com/twilio-labs/paste/issues/599)) ([4c5b21b](https://github.com/twilio-labs/paste/commit/4c5b21b332eb74d7de181d64ea6a92b2c94d5235))
+
+
+
+
+
 ## [1.2.11](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.2.10...@twilio-paste/style-props@1.2.11) (2020-07-22)
 
 **Note:** Version bump only for package @twilio-paste/style-props
