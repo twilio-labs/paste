@@ -46,7 +46,6 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
   };
 
   const consoleID = useUID();
-  const sendGridID = useUID();
   const pasteID = useUID();
 
   return (
@@ -62,7 +61,7 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
         <ScreenReaderOnly as="legend">Change the site theme</ScreenReaderOnly>
 
         <StyledThemeSwitcherLabel htmlFor={consoleID} checked={theme === ThemeVariants.CONSOLE}>
-          Console
+          Current
           <StyledThemeSwitcherRadio
             checked={theme === ThemeVariants.CONSOLE}
             id={consoleID}
@@ -73,20 +72,8 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
           />
         </StyledThemeSwitcherLabel>
 
-        <StyledThemeSwitcherLabel htmlFor={sendGridID} checked={theme === ThemeVariants.SENDGRID}>
-          SendGrid
-          <StyledThemeSwitcherRadio
-            checked={theme === ThemeVariants.SENDGRID}
-            id={sendGridID}
-            name="sitetheme"
-            onChange={handleChange}
-            type="radio"
-            value={ThemeVariants.SENDGRID}
-          />
-        </StyledThemeSwitcherLabel>
-
         <StyledThemeSwitcherLabel htmlFor={pasteID} checked={theme === ThemeVariants.DEFAULT}>
-          Paste
+          Preview
           <StyledThemeSwitcherRadio
             checked={theme === ThemeVariants.DEFAULT}
             id={pasteID}
