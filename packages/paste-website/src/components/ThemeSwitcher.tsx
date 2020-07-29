@@ -46,7 +46,6 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
   };
 
   const consoleID = useUID();
-  const sendGridID = useUID();
   const pasteID = useUID();
 
   return (
