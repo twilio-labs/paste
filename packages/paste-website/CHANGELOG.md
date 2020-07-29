@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.39.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.39.1...@twilio-paste/website@1.39.2) (2020-07-29)
+
+
+### Bug Fixes
+
+* **website:** fix the global search from erroring on escape ([f3a0dca](https://github.com/twilio-labs/paste/commit/f3a0dca3b7750228ef2ef332be14a78d087b9d37))
+
+
+
+
+
 ## [1.39.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.39.0...@twilio-paste/website@1.39.1) (2020-07-29)
 
 **Note:** Version bump only for package @twilio-paste/website

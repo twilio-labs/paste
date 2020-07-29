@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@0.2.20...@twilio-paste/combobox@0.3.0) (2020-07-29)
+
+
+### Features
+
+* **combobox:** add option groups and controlled input ([6e3b21e](https://github.com/twilio-labs/paste/commit/6e3b21e3142a76344ccd2e264ce80ba7427fdb59))
+
+
+
+
+
 ## [0.2.20](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@0.2.19...@twilio-paste/combobox@0.2.20) (2020-07-29)
 
 **Note:** Version bump only for package @twilio-paste/combobox
