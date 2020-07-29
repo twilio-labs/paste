@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.39.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.38.3...@twilio-paste/website@1.39.0) (2020-07-29)
+
+
+### Features
+
+* **website:** updated theme switcher and alert text ([#613](https://github.com/twilio-labs/paste/issues/613)) ([d0a29d0](https://github.com/twilio-labs/paste/commit/d0a29d02ebea83e750169bd1071aa721d3fb00d3))
+
+
+
+
+
 ## [1.38.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.38.2...@twilio-paste/website@1.38.3) (2020-07-28)
 
 **Note:** Version bump only for package @twilio-paste/website
