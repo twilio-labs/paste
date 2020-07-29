@@ -23,6 +23,28 @@ render(
 )
 `.trim();
 
+export const FittedTabsExample = `
+const FittedTabsExample = () => {
+  const selectedId = useUID();
+  return (
+    <Tabs selectedId={selectedId} baseId="fitted-tabs-example" variant="fitted">
+      <TabList aria-label="My tabs">
+        <Tab>Tab 1 is a long tab name because the server sent a long tab name</Tab>
+        <Tab id={selectedId}>Tab 2</Tab>
+      </TabList>
+      <TabPanels>
+        <TabPanel>Tab 1</TabPanel>
+        <TabPanel>Tab 2</TabPanel>
+      </TabPanels>
+    </Tabs>
+  );
+};
+
+render(
+  <FittedTabsExample />
+)
+`.trim();
+
 export const VerticalTabsExample = `
 const VerticalTabsExample = () => {
   const selectedId = useUID();

@@ -18,7 +18,7 @@ import {useUID} from 'react-uid';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {HorizontalTabsExample, VerticalTabsExample} from '../../../component-examples/TabsExamples';
+import {HorizontalTabsExample, FittedTabsExample} from '../../../component-examples/TabsExamples';
 
 export const pageQuery = graphql`
   {
@@ -96,7 +96,9 @@ The Tabs component allows a user to flip through multiple views within the same 
   {HorizontalTabsExample}
 </LivePreview>
 
-### Vertical Tabs
+### Fitted Tabs
+
+Fitted tabs allow the tabs to expand and fit the width of a containing element.
 
 <LivePreview
   scope={{
@@ -109,7 +111,7 @@ The Tabs component allows a user to flip through multiple views within the same 
   }}
   noInline
 >
-  {VerticalTabsExample}
+  {FittedTabsExample}
 </LivePreview>
 
 ## Anatomy
@@ -127,9 +129,9 @@ The Tabs component allows a user to flip through multiple views within the same 
       <td>Tab label text</td>
       <td>
         <UnorderedList marginBottom="space0">
-          <ListItem>Always: $font-size-40, $font-weight-medium</ListItem>
+          <ListItem>Always: $font-size-30, $font-weight-semibold</ListItem>
           <ListItem>Default: $color-text-weak, on hover: $color-text</ListItem>
-          <ListItem>Selected: $color-text</ListItem>
+          <ListItem>Selected: $color-text-link</ListItem>
           <ListItem>Disabled: $color-text-weaker</ListItem>
         </UnorderedList>
       </td>
@@ -140,22 +142,15 @@ The Tabs component allows a user to flip through multiple views within the same 
       <td>
         <UnorderedList marginBottom="space0">
           <ListItem>border-bottom (selected tab): $color-border-primary</ListItem>
+          <ListItem>border-bottom (on hover): $color-border-primary-darker</ListItem>
           <ListItem>
-            When Horizontal Tabs
+            Horizontal Tabs
             <UnorderedList marginBottom="space0">
-              <ListItem>padding-top: $space-20</ListItem>
-              <ListItem>padding-right: $space-50</ListItem>
-              <ListItem>padding-bottom: $space-10</ListItem>
-              <ListItem>padding-left: $space-50</ListItem>
-            </UnorderedList>
-          </ListItem>
-          <ListItem>
-            When Vertical Tabs
-            <UnorderedList marginBottom="space0">
-              <ListItem>padding-top: $space-40</ListItem>
-              <ListItem>padding-right: $space-50</ListItem>
-              <ListItem>padding-bottom: $space-40</ListItem>
-              <ListItem>padding-left: $space-50</ListItem>
+              <ListItem>padding-top: $space-30</ListItem>
+              <ListItem>padding-right: $space-20</ListItem>
+              <ListItem>padding-bottom: $space-30</ListItem>
+              <ListItem>padding-left: $space-20</ListItem>
+              <ListItem>margin-right: $space-70 (except for last tab)</ListItem>
             </UnorderedList>
           </ListItem>
         </UnorderedList>
@@ -166,7 +161,7 @@ The Tabs component allows a user to flip through multiple views within the same 
       <td>Tab List Border</td>
       <td>
         <UnorderedList marginBottom="space0">
-          <ListItem>Always: $color-border-lighter</ListItem>
+          <ListItem>Always: $color-border-light</ListItem>
         </UnorderedList>
       </td>
       <td>No</td>
@@ -212,9 +207,9 @@ const HorizontalTabsExample: React.FC = () => {
 
 #### Tabs Props
 
-##### `orientation?: 'horizontal' | 'vertical' (default) | undefined`
+##### `variant?: 'fitted' | undefined (default)`
 
-Changes the Tabs' direction to either have the panels below or on the right side.
+Changes the Tabs' to either fit the width of the containing element or not.
 
 ##### `selectedId?: string | null`
 
