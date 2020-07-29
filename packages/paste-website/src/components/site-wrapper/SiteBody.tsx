@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {styled} from '@twilio-paste/styling-library';
-import {Anchor, secureExternalLink} from '@twilio-paste/anchor';
+import {secureExternalLink} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Alert} from '@twilio-paste/alert';
 import {Text} from '@twilio-paste/text';
@@ -84,14 +84,8 @@ const PasteThemeAlert: React.FC<{isPasteTheme: boolean}> = ({isPasteTheme}) => {
   return (
     <Alert variant="warning">
       <Text as="p">
-        <strong>WARNING:</strong> The Paste theme is an <em>extremely early</em> preview of future work!{' '}
-        <Anchor
-          href="https://docs.google.com/document/d/1H2Rj3NEmVSv0yxMBRjYOjruQllO__uj2-I_ibIoumZs/edit?usp=sharing"
-          target="_blank"
-        >
-          Read the FAQ
-        </Anchor>{' '}
-        for more information.
+        <strong>Heads up!</strong> This is an <em>early</em> preview of the Unified Design Language. We only recommend
+        using it for early adopters and testing.
       </Text>
     </Alert>
   );
