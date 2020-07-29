@@ -133,7 +133,7 @@ describe('Radio Group', () => {
         <Radio {...defaultProps}>foo</Radio>
       </RadioGroup>
     );
-    expect(getByRole('radio').name).toBe('bar');
+    expect(getByRole('radio').name).toBe(defaultProps.name);
   });
 
   it('renders a helpText message when helpText prop is present', () => {
