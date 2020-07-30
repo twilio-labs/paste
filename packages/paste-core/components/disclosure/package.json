@@ -41,7 +41,8 @@
     "@twilio-paste/types": "^3.0.14",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-uid": "^2.2.0"
   },
   "devDependencies": {
     "@twilio-paste/box": "^2.7.0",
