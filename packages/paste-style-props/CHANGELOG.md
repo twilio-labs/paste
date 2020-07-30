@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.3.0...@twilio-paste/style-props@1.4.0) (2020-07-30)
+
+
+### Bug Fixes
+
+* **style-props:** added missing props ([b793004](https://github.com/twilio-labs/paste/commit/b793004b1c5dcff387712f1fcff685230f3fee06))
+
+
+### Features
+
+* **style-props:** add X & Y for space props ([db30813](https://github.com/twilio-labs/paste/commit/db308135aa2ee80a5d3759bba263cabaa703a82f))
+
+
+
+
+
 # [1.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.2.11...@twilio-paste/style-props@1.3.0) (2020-07-29)
 
 

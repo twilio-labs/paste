@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.7.0...@twilio-paste/box@2.8.0) (2020-07-30)
+
+
+### Bug Fixes
+
+* **box:** add link attribute typings and backgroundAttachment ([bc33774](https://github.com/twilio-labs/paste/commit/bc33774ab49156083dcdad1ea021fbb73468fac2))
+
+
+### Features
+
+* **box:** accept typography style props and space X/Y props ([882dd4d](https://github.com/twilio-labs/paste/commit/882dd4d6516e6732e8155096c666912a4c1a49cc))
+
+
+
+
+
 # [2.7.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.6.5...@twilio-paste/box@2.7.0) (2020-07-29)
 
 
