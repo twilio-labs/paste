@@ -5,6 +5,7 @@ import {
   layout,
   space,
   background,
+  typography,
   border,
   boxShadow,
   position,
@@ -28,7 +29,6 @@ import {
   TransformProperty,
   TransformOriginProperty,
   VisibilityProperty,
-  WhiteSpaceProperty,
   UserSelectProperty,
   PointerEventsProperty,
   BoxSizingProperty,
@@ -39,55 +39,77 @@ import {
   ListStyleImageProperty,
   ObjectFitProperty,
   ObjectPositionProperty,
-  BackgroundAttachmentProperty,
   OutlineProperty,
   FloatProperty,
   WillChangeProperty,
-  TextOverflowProperty,
-  TextTransformProperty,
   ClipProperty,
 } from 'csstype';
 import {PseudoPropStyles} from './PseudoPropStyles';
 import {BoxPropTypes} from './BoxPropTypes';
 
-export interface BaseBoxProps
-  extends React.HTMLAttributes<any>,
-    LayoutProps,
+export interface BoxStyleProps
+  extends LayoutProps,
     SpaceProps,
     BackgroundProps,
     BorderProps,
     ShadowProps,
     PositionProps,
+    TypographyProps,
     FlexboxProps {
-  as?: keyof JSX.IntrinsicElements;
   content?: string;
   cursor?: CursorProperty;
   appearance?: AppearanceProperty;
-  animation?: AnimationProperty;
+  transition?: TransitionProperty;
   transform?: TransformProperty;
+  animation?: AnimationProperty;
   transformOrigin?: TransformOriginProperty<string>;
   visibility?: VisibilityProperty;
-  whiteSpace?: WhiteSpaceProperty;
-  textOverflow?: TextOverflowProperty;
   userSelect?: UserSelectProperty;
   pointerEvents?: PointerEventsProperty;
   boxSizing?: BoxSizingProperty;
   resize?: ResizeProperty;
-  transition?: TransitionProperty;
   listStyleType?: ListStyleTypeProperty;
   listStylePosition?: ListStylePositionProperty;
   listStyleImage?: ListStyleImageProperty;
   objectFit?: ObjectFitProperty;
   objectPosition?: ObjectPositionProperty<string>;
-  backgroundAttachment?: BackgroundAttachmentProperty;
   outline?: OutlineProperty<string>;
   float?: FloatProperty;
   willChange?: WillChangeProperty;
-  textDecoration?: TypographyProps['textDecoration'];
   clip?: ClipProperty;
+}
+
+interface PseudoStylesProps {
+  _after?: BoxStyleProps;
+  _before?: BoxStyleProps;
+  _focus?: BoxStyleProps;
+  _hover?: BoxStyleProps;
+  _active?: BoxStyleProps;
+  _pressed?: BoxStyleProps;
+  _selected?: BoxStyleProps;
+  _focusWithin?: BoxStyleProps;
+  _invalid?: BoxStyleProps;
+  _disabled?: BoxStyleProps;
+  _grabbed?: BoxStyleProps;
+  _expanded?: BoxStyleProps;
+  _checked?: BoxStyleProps;
+  _mixed?: BoxStyleProps;
+  _odd?: BoxStyleProps;
+  _even?: BoxStyleProps;
+  _visited?: BoxStyleProps;
+  _readOnly?: BoxStyleProps;
+  _first?: BoxStyleProps;
+  _last?: BoxStyleProps;
+  _groupHover?: BoxStyleProps;
+  _notFirst?: BoxStyleProps;
+  _notLast?: BoxStyleProps;
+  _placeholder?: BoxStyleProps;
+}
+
+// Omits potential clashes from our style props with HTMLAttributes (i.e.: color)
+export interface BoxElementProps extends Omit<React.HTMLAttributes<HTMLElement>, keyof BoxStyleProps> {
+  as?: keyof JSX.IntrinsicElements;
   type?: string;
-  // Do not document, we prefer if folks do not use this property for i18n.
-  textTransform?: TextTransformProperty;
   /** Typed as any because Box can literally be any HTML element */
   ref?: any | null;
   // image props
@@ -95,36 +117,13 @@ export interface BaseBoxProps
   src?: string;
 }
 
-interface PseudoStylesProps {
-  _after?: BaseBoxProps;
-  _before?: BaseBoxProps;
-  _focus?: BaseBoxProps;
-  _hover?: BaseBoxProps;
-  _active?: BaseBoxProps;
-  _pressed?: BaseBoxProps;
-  _selected?: BaseBoxProps;
-  _focusWithin?: BaseBoxProps;
-  _invalid?: BaseBoxProps;
-  _disabled?: BaseBoxProps;
-  _grabbed?: BaseBoxProps;
-  _expanded?: BaseBoxProps;
-  _checked?: BaseBoxProps;
-  _mixed?: BaseBoxProps;
-  _odd?: BaseBoxProps;
-  _even?: BaseBoxProps;
-  _visited?: BaseBoxProps;
-  _readOnly?: BaseBoxProps;
-  _first?: BaseBoxProps;
-  _last?: BaseBoxProps;
-  _groupHover?: BaseBoxProps;
-  _notFirst?: BaseBoxProps;
-  _notLast?: BaseBoxProps;
-  _placeholder?: BaseBoxProps;
-}
-
-export interface BoxProps extends BaseBoxProps, PseudoStylesProps {}
+export interface BoxProps extends BoxElementProps, BoxStyleProps, PseudoStylesProps {}
 
 const extraConfig = system({
+  color: {
+    property: 'color',
+    scale: 'textColors',
+  },
   backgroundColor: {
     property: 'backgroundColor',
     scale: 'backgroundColors',
@@ -133,33 +132,31 @@ const extraConfig = system({
     property: 'borderColor',
     scale: 'borderColors',
   },
-  animation: true,
+  content: true,
+  cursor: true,
   appearance: true,
+  transition: true,
   transform: true,
+  animation: true,
   transformOrigin: true,
   visibility: true,
-  whiteSpace: true,
-  textOverflow: true,
   userSelect: true,
   pointerEvents: true,
   boxSizing: true,
-  cursor: true,
   resize: true,
-  transition: true,
   listStyleType: true,
   listStylePosition: true,
   listStyleImage: true,
   objectFit: true,
   objectPosition: true,
-  backgroundAttachment: {
-    property: 'backgroundAttachment',
-  },
   outline: true,
   float: true,
   willChange: true,
-  textDecoration: true,
-  textTransform: true,
   clip: true,
+  textTransform: true,
+  textDecoration: true,
+  textOverflow: true,
+  whiteSpace: true,
 });
 
 const getPseudoStyles = (props: BoxProps): {} => {
@@ -180,6 +177,7 @@ const getPseudoStyles = (props: BoxProps): {} => {
 };
 
 /* eslint-disable emotion/syntax-preference */
+// @ts-ignore
 export const Box = styled.div(
   {
     boxSizing: 'border-box',
@@ -192,9 +190,15 @@ export const Box = styled.div(
     border,
     boxShadow,
     position,
+    typography,
     extraConfig
   ),
   getPseudoStyles
+  // we do this because the default typings of emotion styled
+  // means Text gets typed as a span, and can't be extended
+  // correctly to utilise the as prop. The new HTML element attributes
+  // always clash with the span html attributes. To override this,
+  // we retype as a basic functional component which is easy to extend
 ) as React.FC<BoxProps>;
 /* eslint-enable */
 
