@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text } from '@twilio-paste/text';
+import {Text} from '@twilio-paste/text';
 
 export interface ParagraphProps {
   id?: never;
@@ -7,7 +7,7 @@ export interface ParagraphProps {
   marginBottom?: 'space0';
 }
 
-const Paragraph: React.FC<ParagraphProps> = ({ children, marginBottom }) => {
+const Paragraph: React.FC<ParagraphProps> = ({children, marginBottom}) => {
   return (
     <Text
       as="p"
@@ -23,4 +23,4 @@ const Paragraph: React.FC<ParagraphProps> = ({ children, marginBottom }) => {
 };
 
 Paragraph.displayName = 'Paragraph';
-export { Paragraph };
+export {Paragraph};

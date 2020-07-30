@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Text, safelySpreadTextProps } from '@twilio-paste/text';
-import { Space, isMarginTokenProp } from '@twilio-paste/style-props';
+import {Text, safelySpreadTextProps} from '@twilio-paste/text';
+import {Space, isMarginTokenProp} from '@twilio-paste/style-props';
 
 interface BaseListProps extends React.OlHTMLAttributes<HTMLElement> {
   className?: never;
@@ -10,7 +10,7 @@ interface BaseListProps extends React.OlHTMLAttributes<HTMLElement> {
   marginBottom?: Space;
 }
 
-const List: React.FC<BaseListProps> = ({ as, children, ...props }) => {
+const List: React.FC<BaseListProps> = ({as, children, ...props}) => {
   return (
     <Text
       {...props}
@@ -32,7 +32,7 @@ List.displayName = 'List';
  * Ordered List
  */
 export type OrderedListProps = Omit<BaseListProps, 'as'>;
-const OrderedList: React.FC<OrderedListProps> = ({ children, marginTop, marginBottom, ...props }) => {
+const OrderedList: React.FC<OrderedListProps> = ({children, marginTop, marginBottom, ...props}) => {
   return (
     <List {...safelySpreadTextProps(props)} as="ol" marginTop={marginTop} marginBottom={marginBottom}>
       {children}
@@ -57,7 +57,7 @@ OrderedList.displayName = 'OrderedList';
  * Unordered List
  */
 export type UnorderedListProps = Omit<BaseListProps, 'as'>;
-const UnorderedList: React.FC<UnorderedListProps> = ({ children, marginTop, marginBottom, ...props }) => {
+const UnorderedList: React.FC<UnorderedListProps> = ({children, marginTop, marginBottom, ...props}) => {
   return (
     <List {...safelySpreadTextProps(props)} as="ul" marginTop={marginTop} marginBottom={marginBottom}>
       {children}
@@ -105,4 +105,4 @@ const ListItem: React.FC<ListItemProps> = props => {
 
 ListItem.displayName = 'ListItem';
 
-export { OrderedList, UnorderedList, ListItem };
+export {OrderedList, UnorderedList, ListItem};
