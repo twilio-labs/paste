@@ -5,4 +5,5 @@ export const BACKGROUND_PROPS = [
   'backgroundSize',
   'backgroundPosition',
   'backgroundRepeat',
+  'backgroundAttachment',
 ];

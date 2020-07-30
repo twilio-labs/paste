@@ -19,4 +19,5 @@ export {
   isLineHeightTokenProp,
   isTextColorTokenProp,
 } from './typography';
+export {StyleResetProp} from './helpers';
 export {ResponsiveProp} from './utils/responsivePropValidator';

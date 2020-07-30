@@ -20,16 +20,18 @@ export type TextColor = ResponsiveValue<TextColorOptions>;
 export type LetterSpacingOptions = CSS.LetterSpacingProperty<TLengthStyledSystem>;
 export type TextAlignOptions = CSS.TextAlignProperty;
 export type FontStyleOptions = CSS.FontStyleProperty;
+export type WhiteSpaceOptions = CSS.WhiteSpaceProperty;
 export type TextDecorationOptions = CSS.TextDecorationProperty<CSS.TextDecorationLineProperty>;
 export type TextOverflowOptions = CSS.TextOverflowProperty;
-export type WhiteSpaceOptions = CSS.WhiteSpaceProperty;
+export type TextTransformOptions = CSS.TextTransformProperty;
 
 export type LetterSpacing = ResponsiveValue<LetterSpacingOptions>;
 export type TextAlign = ResponsiveValue<TextAlignOptions>;
 export type FontStyle = ResponsiveValue<FontStyleOptions>;
+export type WhiteSpace = ResponsiveValue<WhiteSpaceOptions>;
 export type TextDecoration = ResponsiveValue<TextDecorationOptions>;
 export type TextOverflow = ResponsiveValue<TextOverflowOptions>;
-export type WhiteSpace = ResponsiveValue<WhiteSpaceOptions>;
+export type TextTransform = ResponsiveValue<TextTransformOptions>;
 
 /* Styled-system grouping
  * ---
@@ -48,5 +50,6 @@ export interface TypographyProps {
   // Our custom addition
   textDecoration?: TextDecoration;
   textOverflow?: TextOverflow;
+  textTransform?: TextTransform;
   whiteSpace?: WhiteSpace;
 }
