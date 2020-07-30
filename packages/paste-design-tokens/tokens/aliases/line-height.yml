@@ -3,7 +3,7 @@ aliases:
   line-height-10: "1rem" # 10px * 1.55 = 16px / 16 = 1
   line-height-20: "1.25rem" # 12px * 1.55 = 20px / 16 = 1.25
   line-height-30: "1.25rem" # Updated to 20px as a test
-  line-height-40: "1.75rem" # 16px * 1.55 = 28px / 16 = 1.75
+  line-height-40: "1.5rem" # Updated to 24px as a test
   line-height-50: "1.75rem" # 18px * 1.55 = 28px / 16 = 1.75
   line-height-60: "1.75rem" # 20px * 1.25 = 28px / 16 = 1.75
   line-height-70: "2rem" # 24px * 1.25 = 32px / 16 = 2
