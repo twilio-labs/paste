@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.39.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.39.2...@twilio-paste/website@1.39.3) (2020-07-30)
+
+
+### Bug Fixes
+
+* **web:** eslint errors resolved ([d14305c](https://github.com/twilio-labs/paste/commit/d14305c784dfea182d271f7547741e8d5da1eb75))
+
+
+
+
+
 ## [1.39.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.39.1...@twilio-paste/website@1.39.2) (2020-07-29)
 
 
