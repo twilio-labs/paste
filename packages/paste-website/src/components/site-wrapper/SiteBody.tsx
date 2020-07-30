@@ -70,7 +70,7 @@ const PsaAlert: React.FC = () => {
         textDecoration="underline"
         _hover={{textDecoration: 'none'}}
       >
-        We'll keep the good trouble going.
+        We&rsquo;ll keep the good trouble going.
       </Text>
     </Box>
   );
