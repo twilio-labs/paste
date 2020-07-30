@@ -15,6 +15,8 @@ export interface MarginProps {
   marginRight?: Margin;
   marginBottom?: Margin;
   marginLeft?: Margin;
+  marginX?: Margin;
+  marginY?: Margin;
 }
 
 export interface PaddingProps {
@@ -23,6 +25,8 @@ export interface PaddingProps {
   paddingRight?: Padding;
   paddingBottom?: Padding;
   paddingLeft?: Padding;
+  paddingX?: Padding;
+  paddingY?: Padding;
 }
 
 export interface SpaceProps extends MarginProps, PaddingProps {}
