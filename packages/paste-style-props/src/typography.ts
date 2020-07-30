@@ -9,5 +9,6 @@ export const TYPOGRAPHY_PROPS = [
   'color',
   'textDecoration',
   'textOverflow',
+  'textTransform',
   'whiteSpace',
 ];

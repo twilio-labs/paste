@@ -2,6 +2,7 @@
 import * as CSS from 'csstype';
 import {ThemeShape} from '@twilio-paste/theme';
 import {ResponsiveValue} from '@twilio-paste/styling-library';
+import {StyleReset} from './helpers';
 
 // Tokens
 export type BorderRadiusOptions = keyof ThemeShape['radii'];
@@ -59,9 +60,9 @@ export interface BorderStyleProps {
 
 // Styled-system grouping
 export interface BorderProps extends BorderWidthProps, BorderStyleProps, BorderColorProps, BorderRadiusProps {
-  border?: 'none';
-  borderTop?: 'none';
-  borderRight?: 'none';
-  borderBottom?: 'none';
-  borderLeft?: 'none';
+  border?: StyleReset;
+  borderTop?: StyleReset;
+  borderRight?: StyleReset;
+  borderBottom?: StyleReset;
+  borderLeft?: StyleReset;
 }
