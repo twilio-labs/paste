@@ -44,7 +44,7 @@ const StyledSiteBody = styled.div<StyledSiteBodyProps>`
 `;
 
 const PsaAlert: React.FC = () => {
-  const externalUrl = 'https://www.nytimes.com/2020/07/30/opinion/john-lewis-civil-rights-america.html';
+  const externalUrl = 'https://en.wikipedia.org/wiki/John_Lewis_(civil_rights_leader)';
   return (
     <Box
       backgroundColor="colorBackgroundInverse"
@@ -60,7 +60,11 @@ const PsaAlert: React.FC = () => {
       zIndex="zIndex20"
     >
       <Text as="span" fontWeight="fontWeightBold" color="colorTextBrandInverse" marginRight="space30">
-        ✊🏾 Rest in power, John Lewis.
+        {/* eslint-disable-next-line jsx-a11y/accessible-emoji */}
+        <Text as="span" role="img" aria-label="Raised fist">
+          ✊🏾
+        </Text>{' '}
+        Rest in power, John Lewis.
       </Text>
       <Text
         as="a"
