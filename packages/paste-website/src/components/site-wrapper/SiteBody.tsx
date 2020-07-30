@@ -47,7 +47,7 @@ const PsaAlert: React.FC = () => {
   const externalUrl = 'https://en.wikipedia.org/wiki/John_Lewis_(civil_rights_leader)';
   return (
     <Box
-      backgroundColor="colorBackgroundInverse"
+      backgroundColor="colorBackgroundBodyInverse"
       paddingLeft="space70"
       paddingRight="space70"
       paddingTop="space40"

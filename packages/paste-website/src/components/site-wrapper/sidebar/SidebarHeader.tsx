@@ -40,7 +40,7 @@ const SidebarHeader: React.FC<SidebarHeaderProps> = props => {
           <Text as="h2" fontSize="fontSize60" lineHeight="lineHeight60">
             <StyledLink to="/">{props.siteTitle}</StyledLink>
           </Text>
-          <Text as="h3" fontSize="fontSize20" lineHeight="lineHeight20" color="colorTextPlaceholder">
+          <Text as="h3" fontSize="fontSize20" lineHeight="lineHeight20" color="colorTextWeak">
             {props.siteSubTitle}
           </Text>
         </MediaBody>
