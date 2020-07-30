@@ -88,7 +88,7 @@ exports[`Pseudo-class props it should generate pseudo-class CSS 1`] = `
 }
 
 .emotion-0[aria-expanded=true] {
-  color: rgb(112,117,120);
+  color: rgb(200,204,207);
 }
 
 .emotion-0[aria-grabbed=true] {
