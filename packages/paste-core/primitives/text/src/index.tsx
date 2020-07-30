@@ -22,16 +22,8 @@ import {
 import {PseudoPropStyles} from './PseudoPropStyles';
 import {TextPropTypes} from './TextPropTypes';
 
-interface BaseTextProps
-  extends Omit<React.HTMLAttributes<any>, 'color'>,
-    SpaceProps,
-    OverflowProps,
-    PositionProps,
-    TypographyProps {
+interface TextStyleProps extends SpaceProps, OverflowProps, PositionProps, TypographyProps {
   content?: string;
-  href?: string;
-  rel?: string;
-  target?: string;
   cursor?: CursorProperty;
   display?: Display;
   verticalAlign?: VerticalAlign;
@@ -41,33 +33,38 @@ interface BaseTextProps
 }
 
 interface PseudoStylesProps {
-  _after?: BaseTextProps;
-  _before?: BaseTextProps;
-  _focus?: BaseTextProps;
-  _hover?: BaseTextProps;
-  _active?: BaseTextProps;
-  _pressed?: BaseTextProps;
-  _selected?: BaseTextProps;
-  _focusWithin?: BaseTextProps;
-  _invalid?: BaseTextProps;
-  _disabled?: BaseTextProps;
-  _grabbed?: BaseTextProps;
-  _expanded?: BaseTextProps;
-  _checked?: BaseTextProps;
-  _mixed?: BaseTextProps;
-  _odd?: BaseTextProps;
-  _even?: BaseTextProps;
-  _visited?: BaseTextProps;
-  _readOnly?: BaseTextProps;
-  _first?: BaseTextProps;
-  _last?: BaseTextProps;
-  _notFirst?: BaseTextProps;
-  _notLast?: BaseTextProps;
+  _after?: TextStyleProps;
+  _before?: TextStyleProps;
+  _focus?: TextStyleProps;
+  _hover?: TextStyleProps;
+  _active?: TextStyleProps;
+  _pressed?: TextStyleProps;
+  _selected?: TextStyleProps;
+  _focusWithin?: TextStyleProps;
+  _invalid?: TextStyleProps;
+  _disabled?: TextStyleProps;
+  _grabbed?: TextStyleProps;
+  _expanded?: TextStyleProps;
+  _checked?: TextStyleProps;
+  _mixed?: TextStyleProps;
+  _odd?: TextStyleProps;
+  _even?: TextStyleProps;
+  _visited?: TextStyleProps;
+  _readOnly?: TextStyleProps;
+  _first?: TextStyleProps;
+  _last?: TextStyleProps;
+  _notFirst?: TextStyleProps;
+  _notLast?: TextStyleProps;
 }
 
-export interface TextProps extends BaseTextProps, PseudoStylesProps {
+export interface TextElementProps extends Omit<React.HTMLAttributes<any>, 'color'> {
   as: keyof JSX.IntrinsicElements;
+  href?: string;
+  rel?: string;
+  target?: string;
 }
+
+export interface TextProps extends TextElementProps, TextStyleProps, PseudoStylesProps {}
 
 const extraConfig = system({
   color: {
