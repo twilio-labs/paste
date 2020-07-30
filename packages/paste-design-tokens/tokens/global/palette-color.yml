@@ -39,7 +39,7 @@ props:
     value: "{!palette-gray-100}"
     comment: "Gray Color 10"
   color-brand:
-    value: "{!midnight}"
+    value: "{!palette-blue-80}"
     comment: "Default branding color"
   color-brand-highlight:
     value: "{!amaranth}"

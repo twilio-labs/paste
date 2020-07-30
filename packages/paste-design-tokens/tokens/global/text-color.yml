@@ -10,17 +10,20 @@ props:
     value: "{!palette-gray-100}"
     comment: Body text color
   color-text-weak:
-    value: "{!palette-gray-70}"
+    value: "{!palette-gray-60}"
     comment: Weak body text for visual hierarchy.
   color-text-weaker:
-    value: "{!palette-gray-50}"
+    value: "{!palette-gray-40}"
     comment: Weaker body text for visual hierarchy. Inaccessible unless used on disabled controls.
   color-text-inverse:
     value: "{!palette-gray-0}"
-    comment: Inverse text color for dark backgrounds. Must pass AA color contrast with color-background-inverse.
+    comment: Inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
   color-text-inverse-weak:
     value: "{!palette-gray-50}"
-    comment: Weak inverse text color for dark backgrounds. Must pass AA color contrast with color-background-inverse.
+    comment: Weak inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
+  color-text-inverse-weaker:
+    value: "{!palette-gray-60}"
+    comment: Weaker inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
   color-text-brand-inverse:
     value: "{!white}"
     comment: Text color used on any brand color
@@ -30,7 +33,7 @@ props:
 
   # links
   color-text-link:
-    value: "{!palette-blue-70}"
+    value: "{!palette-blue-60}"
     comment: Link text
   color-text-link-light:
     value: "{!palette-blue-40}"
@@ -55,6 +58,9 @@ props:
     comment: Darker shade of destructive link text to be used in interactions
 
   #status
+  color-text-error-light:
+    value: "{!palette-red-40}"
+    comment: Light error text for inputs and error misc
   color-text-error:
     value: "{!palette-red-60}"
     comment: Error text for inputs and error misc
@@ -70,16 +76,14 @@ props:
   color-text-warning-dark:
     value: "{!palette-orange-70}"
     comment: Color for dark warning text.
+  color-text-new:
+    value: "{!palette-purple-60}"
+    comment: Color for text indicating a new status.
 
   #icon
   color-text-icon:
-    value: "{!palette-gray-70}"
+    value: "{!palette-gray-60}"
     comment: Default icon color.
-
-  #forms
-  color-text-label:
-    value: "{!palette-gray-100}"
-    comment: Text color for field labels.
-  color-text-placeholder:
-    value: "{!palette-gray-70}"
-    comment: Input placeholder text.
+  color-text-icon-inverse:
+    value: "{!palette-gray-50}"
+    comment: Default icon color for inverse backgrounds.

@@ -25,6 +25,18 @@ aliases:
   palette-blue-60-transparent-90: "rgba(2, 122, 197, 0.9)"
   palette-blue-60-transparent-100: "rgba(2, 122, 197, 1)"
 
+  ## Blues transparent based on darkest blue
+  palette-blue-100-transparent-10: "rgba(0, 9, 43, 0.1)"
+  palette-blue-100-transparent-20: "rgba(0, 9, 43, 0.2)"
+  palette-blue-100-transparent-30: "rgba(0, 9, 43, 0.3)"
+  palette-blue-100-transparent-40: "rgba(0, 9, 43, 0.4)"
+  palette-blue-100-transparent-50: "rgba(0, 9, 43, 0.5)"
+  palette-blue-100-transparent-60: "rgba(0, 9, 43, 0.6)"
+  palette-blue-100-transparent-70: "rgba(0, 9, 43, 0.7)"
+  palette-blue-100-transparent-80: "rgba(0, 9, 43, 0.8)"
+  palette-blue-100-transparent-90: "rgba(0, 9, 43, 0.9)"
+  palette-blue-100-transparent-100: "rgba(0, 9, 43, 1)"
+
   ## Grays
   palette-gray-0: "#ffffff"
   palette-gray-10: "#f9fafb"
@@ -37,6 +49,18 @@ aliases:
   palette-gray-80: "#4f5355"
   palette-gray-90: "#424547"
   palette-gray-100: "#282a2b"
+
+  ## Grays transparent based on lightest gray
+  palette-gray-0-transparent-10: "rgba(255, 255, 255, 0.1)"
+  palette-gray-0-transparent-20: "rgba(255, 255, 255, 0.2)"
+  palette-gray-0-transparent-30: "rgba(255, 255, 255, 0.3)"
+  palette-gray-0-transparent-40: "rgba(255, 255, 255, 0.4)"
+  palette-gray-0-transparent-50: "rgba(255, 255, 255, 0.5)"
+  palette-gray-0-transparent-60: "rgba(255, 255, 255, 0.6)"
+  palette-gray-0-transparent-70: "rgba(255, 255, 255, 0.7)"
+  palette-gray-0-transparent-80: "rgba(255, 255, 255, 0.8)"
+  palette-gray-0-transparent-90: "rgba(255, 255, 255, 0.9)"
+  palette-gray-0-transparent-100: "rgba(255, 255, 255, 1)"
 
   ## Grays transparent based on darkest gray
   palette-gray-100-transparent-10: "rgba(40, 42, 43, 0.1)"
@@ -85,3 +109,15 @@ aliases:
   palette-red-80: "#921200"
   palette-red-90: "#600101"
   palette-red-100: "#471d00"
+
+  ## Purple
+  palette-purple-10: "#f5f0fc"
+  palette-purple-20: "#e7dcfa"
+  palette-purple-30: "#c8aff0"
+  palette-purple-40: "#a67fe3"
+  palette-purple-50: "#8c5bd8"
+  palette-purple-60: "#6d2ed1"
+  palette-purple-70: "#5817bd"
+  palette-purple-80: "#380e78"
+  palette-purple-90: "#22094a"
+  palette-purple-100: "#160433"

@@ -36,6 +36,18 @@ aliases:
   palette-gray-90: "#1f304c"
   palette-gray-100: "#121c2d"
 
+  ## Grays transparent based on lightest gray
+  palette-gray-0-transparent-10: "rgba(255, 255, 255, 0.1)"
+  palette-gray-0-transparent-20: "rgba(255, 255, 255, 0.2)"
+  palette-gray-0-transparent-30: "rgba(255, 255, 255, 0.3)"
+  palette-gray-0-transparent-40: "rgba(255, 255, 255, 0.4)"
+  palette-gray-0-transparent-50: "rgba(255, 255, 255, 0.5)"
+  palette-gray-0-transparent-60: "rgba(255, 255, 255, 0.6)"
+  palette-gray-0-transparent-70: "rgba(255, 255, 255, 0.7)"
+  palette-gray-0-transparent-80: "rgba(255, 255, 255, 0.8)"
+  palette-gray-0-transparent-90: "rgba(255, 255, 255, 0.9)"
+  palette-gray-0-transparent-100: "rgba(255, 255, 255, 1)"
+
   ## Grays transparent based on darkest gray
   palette-gray-100-transparent-10: "rgba(18, 28, 45, 0.1)"
   palette-gray-100-transparent-20: "rgba(18, 28, 45, 0.2)"
@@ -47,6 +59,18 @@ aliases:
   palette-gray-100-transparent-80: "rgba(18, 28, 45, 0.8)"
   palette-gray-100-transparent-90: "rgba(18, 28, 45, 0.9)"
   palette-gray-100-transparent-100: "rgba(18, 28, 45, 1)"
+
+  ## Blues transparent based on darkest blue
+  palette-blue-100-transparent-10: "rgba(6, 3, 58, 0.1)"
+  palette-blue-100-transparent-20: "rgba(6, 3, 58, 0.2)"
+  palette-blue-100-transparent-30: "rgba(6, 3, 58, 0.3)"
+  palette-blue-100-transparent-40: "rgba(6, 3, 58, 0.4)"
+  palette-blue-100-transparent-50: "rgba(6, 3, 58, 0.5)"
+  palette-blue-100-transparent-60: "rgba(6, 3, 58, 0.6)"
+  palette-blue-100-transparent-70: "rgba(6, 3, 58, 0.7)"
+  palette-blue-100-transparent-80: "rgba(6, 3, 58, 0.8)"
+  palette-blue-100-transparent-90: "rgba(6, 3, 58, 0.9)"
+  palette-blue-100-transparent-100: "rgba(6, 3, 58, 1)"
 
   ## Greens
   palette-green-10: "#edfdf3"

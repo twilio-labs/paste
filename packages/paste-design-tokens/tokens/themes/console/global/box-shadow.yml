@@ -5,27 +5,54 @@ imports:
   - ../../../global/box-shadow.yml
   - ../aliases/box-shadow.yml
 props:
+  shadow-high:
+    value: "{!shadow-elevation-30}"
+    comment: High elevation default shadow.
+  shadow:
+    value: "{!shadow-elevation-20}"
+    comment: Default shadow.
+  shadow-low:
+    value: "{!shadow-elevation-10}"
+    comment: Low elevation default shadow.
   shadow-card:
     value: "{!shadow-elevation-10}"
     comment: Shadow for cards.
   shadow-focus:
     value: "{!offset-0} {!offset-0} {!offset-0} {!offset-20}px {!palette-blue-60-transparent-80}"
-    comment: Shadow for focus ring on interactive elements
+    comment: Shadow for focus ring on interactive elements.
+  shadow-focus-inverse:
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-20}px {!palette-gray-0-transparent-40}"
+    comment: Shadow for focus ring on interactive elements on inverse backgrounds.
+  shadow-border-lighter:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-20}"
+    comment: Lighter shadow border for disabled inputs.
   shadow-border-light:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-40}"
-    comment: Shadow border for disabled inputs.
+    comment: Light shadow border for disabled inputs.
   shadow-border:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-60}"
     comment: Shadow border for inputs.
   shadow-border-primary-dark:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-80}"
-    comment: Shadow border for inputs hover.
+    comment: Dark shadow border for inputs hover.
   shadow-border-primary-darker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-90}"
-    comment: Shadow border for inputs active.
+    comment: Darker shadow border for inputs active.
   shadow-border-error:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-60}"
     comment: Shadow border for error inputs.
   shadow-border-error-dark:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-80}"
     comment: Shadow border for error inputs hover.
+  shadow-border-inverse-darker:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-20}"
+    comment: Darker shadow border on interactive elements on inverse backgrounds.
+  shadow-border-inverse:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-50}"
+    comment: Shadow border on interactive elements on inverse backgrounds.
+  shadow-border-inverse-light:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-90}"
+    comment: Light shadow border on interactive elements on inverse backgrounds.
+  shadow-border-inverse-lightest:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0}"
+    comment: Lightest shadow border on interactive elements on inverse backgrounds.
