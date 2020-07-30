@@ -1,23 +1,23 @@
 import * as PropTypes from 'prop-types';
 import {styled, css} from '@twilio-paste/styling-library';
-import {Box, BoxProps, BaseBoxProps} from '@twilio-paste/box';
+import {Box, BoxProps, BoxStyleProps} from '@twilio-paste/box';
 
 export interface SiblingBoxProps extends BoxProps {
-  _activeSibling?: BaseBoxProps;
-  _boxChild?: BaseBoxProps;
-  _checkedAndActiveSibling?: BaseBoxProps;
-  _checkedAndDisabledSibling?: BaseBoxProps;
-  _checkedAndFocusSibling?: BaseBoxProps;
-  _checkedAndHoverSibling?: BaseBoxProps;
-  _checkedAndInvalidSibling?: BaseBoxProps;
-  _checkedAndInvalidAndHoverSibling?: BaseBoxProps;
-  _checkedSibling?: BaseBoxProps;
-  _checkedSiblingAndBoxChild?: BaseBoxProps;
-  _disabledSibling?: BaseBoxProps;
-  _focusSibling?: BaseBoxProps;
-  _hoverSibling?: BaseBoxProps;
-  _invalidSibling?: BaseBoxProps;
-  _invalidAndHoverSibling?: BaseBoxProps;
+  _activeSibling?: BoxStyleProps;
+  _boxChild?: BoxStyleProps;
+  _checkedAndActiveSibling?: BoxStyleProps;
+  _checkedAndDisabledSibling?: BoxStyleProps;
+  _checkedAndFocusSibling?: BoxStyleProps;
+  _checkedAndHoverSibling?: BoxStyleProps;
+  _checkedAndInvalidSibling?: BoxStyleProps;
+  _checkedAndInvalidAndHoverSibling?: BoxStyleProps;
+  _checkedSibling?: BoxStyleProps;
+  _checkedSiblingAndBoxChild?: BoxStyleProps;
+  _disabledSibling?: BoxStyleProps;
+  _focusSibling?: BoxStyleProps;
+  _hoverSibling?: BoxStyleProps;
+  _invalidSibling?: BoxStyleProps;
+  _invalidAndHoverSibling?: BoxStyleProps;
   type?: 'checkbox' | 'radio';
 }
 
