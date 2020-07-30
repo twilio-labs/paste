@@ -7,7 +7,6 @@ import {ThemeSwitcher} from '../ThemeSwitcher';
 import {Search} from '../search';
 import {ContactUsMenu} from '../ContactUsMenu';
 import GithubIcon from '../icons/GithubIcon';
-import {version} from '../../../../../package.json';
 
 export const SiteHeader: React.FC<{}> = () => {
   const theme = useTheme();
@@ -42,16 +41,13 @@ export const SiteHeader: React.FC<{}> = () => {
               <Search />
             </Box>
             <ContactUsMenu />
-            <Stack orientation="horizontal" spacing="space30">
-              <span>v{version}</span>
-              <Anchor href="https://www.github.com/twilio-labs/paste">
-                <GithubIcon
-                  css={{height: theme.heights.sizeIcon30, width: theme.heights.sizeIcon30}}
-                  title="View this project on github"
-                  color={theme.textColors.colorTextWeak}
-                />
-              </Anchor>
-            </Stack>
+            <Anchor href="https://www.github.com/twilio-labs/paste">
+              <GithubIcon
+                css={{height: theme.heights.sizeIcon30, width: theme.heights.sizeIcon30}}
+                title="View this project on github"
+                color={theme.textColors.colorTextWeak}
+              />
+            </Anchor>
           </Stack>
         </Box>
       </Box>
