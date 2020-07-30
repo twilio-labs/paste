@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {ValueOf} from '@twilio-paste/types';
-import {Box, BoxProps, safelySpreadBoxProps} from '@twilio-paste/box';
+import {Box, BoxElementProps, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {secureExternalLink} from '@twilio-paste/anchor';
 import {Button, ButtonProps} from '@twilio-paste/button';
@@ -42,7 +42,7 @@ export type SubMenuButtonProps = MenuPrimitiveButtonProps;
 
 const MenuGroupContext = React.createContext<MenuItemVariants>(MenuItemVariants.DEFAULT);
 
-const StyledMenu = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...props}, ref) => {
+const StyledMenu = React.forwardRef<HTMLDivElement, BoxElementProps>(({style, ...props}, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
@@ -72,6 +72,7 @@ export {Menu};
 
 const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElement, MenuItemProps>((props, ref) => {
   return (
+    // @ts-ignore It's fine
     <Box
       {...(props.href && secureExternalLink(props.href))}
       {...safelySpreadBoxProps(props)}
