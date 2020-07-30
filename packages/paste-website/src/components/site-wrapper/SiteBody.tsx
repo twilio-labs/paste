@@ -60,7 +60,7 @@ const PsaAlert: React.FC = () => {
       zIndex="zIndex20"
     >
       <Text as="span" fontWeight="fontWeightBold" color="colorTextBrandInverse" marginRight="space30">
-        Rest in power, John Lewis.
+        ✊🏾 Rest in power, John Lewis.
       </Text>
       <Text
         as="a"
