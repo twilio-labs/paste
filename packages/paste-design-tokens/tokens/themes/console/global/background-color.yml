@@ -20,8 +20,11 @@ props:
     value: "{!palette-gray-70}"
     comment: Darkest default background color
   color-background-inverse:
-    value: "{!palette-gray-100}"
-    comment: Inverse background color for any container, the darkest gray in the system
+    value: "{!palette-gray-0-transparent-10}"
+    comment: Inverse background color for any container. Must be used on color-background-body-inverse.
+  color-background-inverse-light:
+    value: "{!palette-gray-0-transparent-20}"
+    comment: Light inverse background color for any container. Must be used on color-background-body-inverse.
 
   # brand backgrounds
   color-background-brand:
@@ -31,10 +34,26 @@ props:
     value: "{!amaranth}"
     comment: Highlight brand background, accessible with black text
 
+  # user background
+  color-background-user:
+    value: "{!palette-purple-30}"
+    comment: User avatar background color
+
+  # account backgrounds
+  color-background-subaccount:
+    value: "{!palette-yellow-20}"
+    comment: Subaccount background color
+  color-background-trial:
+    value: "{!palette-green-20}"
+    comment: Trial account background color
+
   # page body
   color-background-body:
     value: "{!palette-gray-0}"
     comment: Background color of the main page body
+  color-background-body-inverse:
+    value: "{!palette-gray-100}"
+    comment: Inverse background color of the main page body
 
   # status
   color-background-neutral-lightest:
@@ -71,6 +90,9 @@ props:
     comment: Background color for alternative striped rows
 
   # primary background
+  color-background-primary-darkest:
+    value: "{!palette-blue-100}"
+    comment: Darkest background for primary actions or highlights
   color-background-primary-darker:
     value: "{!palette-blue-90}"
     comment: Darker background for primary actions or highlights
