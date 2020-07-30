@@ -115,6 +115,10 @@ export interface BoxElementProps extends Omit<React.HTMLAttributes<HTMLElement>,
   // image props
   alt?: string;
   src?: string;
+  // link props
+  href?: string;
+  rel?: string;
+  target?: string;
 }
 
 export interface BoxProps extends BoxElementProps, BoxStyleProps, PseudoStylesProps {}
@@ -153,6 +157,7 @@ const extraConfig = system({
   float: true,
   willChange: true,
   clip: true,
+  backgroundAttachment: true,
   textTransform: true,
   textDecoration: true,
   textOverflow: true,
