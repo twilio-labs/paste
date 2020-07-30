@@ -16,14 +16,14 @@ interface StyledSiteBodyProps {
   isPasteTheme: boolean;
 }
 
-const BLMAlertHeight = 44;
+const PSAAlertHeight = 44;
 const PasteThemeAlertHeight = 46;
 
 // The body area needs to be set to a specific height otherwise tabbing through the page
 // will cause the browser to automatically scroll it upwards, hiding the header area behind
 // the alerts.
 const getSiteBodyHeight = (isPasteTheme: boolean): string => {
-  let topOffset = BLMAlertHeight;
+  let topOffset = PSAAlertHeight;
   if (isPasteTheme) {
     topOffset += PasteThemeAlertHeight;
   }
@@ -43,8 +43,8 @@ const StyledSiteBody = styled.div<StyledSiteBodyProps>`
   }
 `;
 
-const BlackLivesMatterAlert: React.FC = () => {
-  const tweetUrl = 'https://twitter.com/twilio/status/1266444750065934337';
+const PsaAlert: React.FC = () => {
+  const externalUrl = 'https://www.nytimes.com/2020/07/30/opinion/john-lewis-civil-rights-america.html';
   return (
     <Box
       backgroundColor="colorBackgroundInverse"
@@ -60,17 +60,17 @@ const BlackLivesMatterAlert: React.FC = () => {
       zIndex="zIndex20"
     >
       <Text as="span" fontWeight="fontWeightBold" color="colorTextBrandInverse" marginRight="space30">
-        Black Lives Matter.
+        Rest in power, John Lewis.
       </Text>
       <Text
         as="a"
-        href={tweetUrl}
-        {...secureExternalLink(tweetUrl)}
+        href={externalUrl}
+        {...secureExternalLink(externalUrl)}
         color="colorTextBrandInverse"
         textDecoration="underline"
         _hover={{textDecoration: 'none'}}
       >
-        We stand with the Black community
+        We'll keep the good trouble going.
       </Text>
     </Box>
   );
@@ -96,7 +96,7 @@ export const SiteBody: React.FC = ({children}) => {
   const isPasteTheme = activeTheme === 'default';
   return (
     <>
-      <BlackLivesMatterAlert />
+      <PsaAlert />
       <PasteThemeAlert isPasteTheme={isPasteTheme} />
       <StyledSiteBody isPasteTheme={isPasteTheme}>
         <Sidebar />
