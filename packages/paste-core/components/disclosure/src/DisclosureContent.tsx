@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {DisclosurePrimitiveContent, DisclosurePrimitiveContentProps} from '@twilio-paste/disclosure-primitive';
-import {Box} from '@twilio-paste/box';
+import {Box, BoxStyleProps} from '@twilio-paste/box';
 import {DisclosureContext, Variants} from './Disclosure';
 
 const getVariantStyles = (variant: Variants): {} => {
@@ -18,7 +18,7 @@ const getVariantStyles = (variant: Variants): {} => {
   }
 };
 
-export interface DisclosureContentProps extends DisclosurePrimitiveContentProps {
+export interface DisclosureContentProps extends Omit<DisclosurePrimitiveContentProps, keyof BoxStyleProps> {
   children: NonNullable<React.ReactNode>;
 }
 const DisclosureContent: React.FC<DisclosureContentProps> = ({children, ...props}) => {

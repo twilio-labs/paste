@@ -1,11 +1,12 @@
 import * as React from 'react';
 import {Heading, HeadingProps, HeadingPropTypes} from '@twilio-paste/heading';
-import {Box} from '@twilio-paste/box';
+import {Box, BoxStyleProps} from '@twilio-paste/box';
 import {ChevronDownIcon, ChevronDownIconProps} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {DisclosurePrimitive, DisclosurePrimitiveProps} from '@twilio-paste/disclosure-primitive';
 import {DisclosureContext, Variants} from './Disclosure';
 
-export interface DisclosureHeadingProps extends Omit<DisclosurePrimitiveProps, 'baseId' | 'toggle'> {
+export interface DisclosureHeadingProps
+  extends Omit<DisclosurePrimitiveProps, 'baseId' | 'toggle' | keyof BoxStyleProps> {
   children: NonNullable<React.ReactNode>;
   as: HeadingProps['as'];
   marginBottom?: HeadingProps['marginBottom'];
