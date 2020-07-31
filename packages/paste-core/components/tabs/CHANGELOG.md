@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.1.15...@twilio-paste/tabs@0.2.0) (2020-07-31)
+
+
+### Features
+
+* **tabs:** fitted tabs and update styles ([cc6c12a](https://github.com/twilio-labs/paste/commit/cc6c12ae75edfb512b829da3ae8b8f5f58a12bc8))
+
+
+
+
+
 ## [0.1.15](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.1.14...@twilio-paste/tabs@0.1.15) (2020-07-30)
 
 **Note:** Version bump only for package @twilio-paste/tabs

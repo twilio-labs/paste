@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/avatar",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "category": "graphic",
   "status": "alpha",
   "description": "The Avatar is a pictorial representation of a user or object. It can display the initials of that entity or an image.",
@@ -28,7 +28,7 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@twilio-paste/box": "^2.8.0",
+    "@twilio-paste/box": "^2.8.1",
     "@twilio-paste/design-tokens": "^5.5.0",
     "@twilio-paste/style-props": "^1.4.0",
     "@twilio-paste/styling-library": "^0.1.1",
@@ -40,7 +40,7 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^2.8.0",
+    "@twilio-paste/box": "^2.8.1",
     "@twilio-paste/design-tokens": "^5.5.0",
     "@twilio-paste/style-props": "^1.4.0",
     "@twilio-paste/styling-library": "^0.1.0",
