@@ -12,10 +12,10 @@ export const ContactUsMenu: React.FC<{}> = () => {
         Contact us <ChevronDownIcon decorative />
       </MenuButton>
       <Menu {...menu} aria-label="Contact us">
-        <MenuItem {...menu} href="https://github.com/twilio-labs/paste/discussions/new" onClick={handleClick}>
+        <MenuItem {...menu} href="https://github.com/twilio-labs/paste/discussions" onClick={handleClick}>
           Ask a question
         </MenuItem>
-        <MenuItem {...menu} href="https://github.com/twilio-labs/paste/discussions/new" onClick={handleClick}>
+        <MenuItem {...menu} href="https://github.com/twilio-labs/paste/discussions" onClick={handleClick}>
           Request a feature
         </MenuItem>
         <MenuItem
