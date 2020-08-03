@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.40.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.40.1...@twilio-paste/website@1.40.2) (2020-08-03)
+
+
+### Bug Fixes
+
+* **web:** fix 404 links to github when logging in ([124e77b](https://github.com/twilio-labs/paste/commit/124e77b3740d8edbb0cc42d48ab01be3362ea4a5))
+
+
+
+
+
 ## [1.40.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.40.0...@twilio-paste/website@1.40.1) (2020-07-31)
 
 **Note:** Version bump only for package @twilio-paste/website
