@@ -42,19 +42,6 @@ describe('FormLabel for prop', () => {
   });
 });
 
-describe('FormLabel disabled prop', () => {
-  const initialProps = {
-    disabled: true,
-    htmlFor: 'input',
-  };
-
-  const container = shallow(<FormLabel {...initialProps} />);
-
-  it('should have colorTextWeak', () => {
-    expect(container.find('Text').prop('color')).toEqual('colorTextWeak');
-  });
-});
-
 describe('FormLabel required prop', () => {
   const initialProps = {
     htmlFor: 'input',

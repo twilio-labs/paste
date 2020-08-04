@@ -23,16 +23,16 @@ exports[`FormHelpText render it should render 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
   min-width: 0;
 }
 
 .emotion-0 {
   margin: 0;
   padding: 0;
+  color: rgb(112,117,120);
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: rgb(112,117,120);
 }
 
 <div
@@ -76,23 +76,23 @@ exports[`FormHelpText render it should render with an error icon 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
   min-width: 0;
 }
 
 .emotion-0 {
   display: block;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
   color: rgb(226,37,37);
 }
 
 .emotion-1 {
   margin: 0;
   padding: 0;
+  color: rgb(226,37,37);
   font-size: 0.875rem;
   line-height: 1.5rem;
-  color: rgb(226,37,37);
   margin-left: 0.25rem;
 }
 
@@ -107,7 +107,7 @@ exports[`FormHelpText render it should render with an error icon 1`] = `
       className="emotion-0"
       color="colorTextError"
       display="block"
-      size="sizeIcon30"
+      size="sizeIcon20"
     >
       <svg
         aria-hidden={true}

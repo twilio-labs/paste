@@ -13,7 +13,7 @@ exports[`FormLabel render it should render 1`] = `
   box-sizing: border-box;
   border-bottom-width: 0;
   display: block;
-  margin-bottom: 0.125rem;
+  margin-bottom: 0.25rem;
   padding-left: 0;
   padding-right: 0;
   text-transform: none;
@@ -85,7 +85,7 @@ exports[`FormLabel render it should render with required 1`] = `
   box-sizing: border-box;
   border-bottom-width: 0;
   display: block;
-  margin-bottom: 0.125rem;
+  margin-bottom: 0.25rem;
   padding-left: 0;
   padding-right: 0;
   text-transform: none;
@@ -124,13 +124,13 @@ exports[`FormLabel render it should render with required 1`] = `
   line-height: 1.5rem;
   font-size: 0.875rem;
   color: rgb(40,42,43);
-  display: block;
-  width: 4px;
-  height: 4px;
-  margin-right: 0.25rem;
   background-color: rgb(222,88,88);
   border-radius: 50%;
   cursor: pointer;
+  display: block;
+  height: 4px;
+  margin-right: 0.25rem;
+  width: 4px;
 }
 
 .emotion-0 {

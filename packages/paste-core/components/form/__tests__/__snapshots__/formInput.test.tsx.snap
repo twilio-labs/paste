@@ -42,23 +42,23 @@ exports[`FormInput render it should render 1`] = `
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
   background: transparent;
-  outline: none;
-  resize: none;
-  display: block;
-  width: 100%;
-  font-family: inherit;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  font-weight: 400;
-  color: rgb(40,42,43);
-  padding-top: 0.5rem;
-  padding-right: 0.75rem;
-  padding-bottom: 0.5rem;
-  padding-left: 0.75rem;
+  border: none;
   border-radius: 4px;
   box-shadow: none;
+  color: rgb(40,42,43);
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  outline: none;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  resize: none;
+  width: 100%;
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -82,8 +82,8 @@ exports[`FormInput render it should render 1`] = `
 }
 
 .emotion-0:disabled {
+  color: rgb(200,204,207);
   cursor: not-allowed;
-  color: rgb(112,117,120);
 }
 
 <div
@@ -120,23 +120,23 @@ exports[`FormInput render it should render with disabled 1`] = `
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
   background: transparent;
-  outline: none;
-  resize: none;
-  display: block;
-  width: 100%;
-  font-family: inherit;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  font-weight: 400;
-  color: rgb(40,42,43);
-  padding-top: 0.5rem;
-  padding-right: 0.75rem;
-  padding-bottom: 0.5rem;
-  padding-left: 0.75rem;
+  border: none;
   border-radius: 4px;
   box-shadow: none;
+  color: rgb(40,42,43);
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  outline: none;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  resize: none;
+  width: 100%;
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -160,8 +160,8 @@ exports[`FormInput render it should render with disabled 1`] = `
 }
 
 .emotion-0:disabled {
+  color: rgb(200,204,207);
   cursor: not-allowed;
-  color: rgb(112,117,120);
 }
 
 .emotion-1 {
@@ -227,23 +227,23 @@ exports[`FormInput render it should render with hasError 1`] = `
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
   background: transparent;
-  outline: none;
-  resize: none;
-  display: block;
-  width: 100%;
-  font-family: inherit;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  font-weight: 400;
-  color: rgb(40,42,43);
-  padding-top: 0.5rem;
-  padding-right: 0.75rem;
-  padding-bottom: 0.5rem;
-  padding-left: 0.75rem;
+  border: none;
   border-radius: 4px;
   box-shadow: none;
+  color: rgb(40,42,43);
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  outline: none;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  resize: none;
+  width: 100%;
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -267,8 +267,8 @@ exports[`FormInput render it should render with hasError 1`] = `
 }
 
 .emotion-0:disabled {
+  color: rgb(200,204,207);
   cursor: not-allowed;
-  color: rgb(112,117,120);
 }
 
 .emotion-1 {
@@ -362,23 +362,23 @@ exports[`FormInput render it should render with prefix 1`] = `
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
   background: transparent;
-  outline: none;
-  resize: none;
-  display: block;
-  width: 100%;
-  font-family: inherit;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  font-weight: 400;
-  color: rgb(40,42,43);
-  padding-top: 0.5rem;
-  padding-right: 0.75rem;
-  padding-bottom: 0.5rem;
-  padding-left: 0.75rem;
+  border: none;
   border-radius: 4px;
   box-shadow: none;
+  color: rgb(40,42,43);
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  outline: none;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  resize: none;
+  width: 100%;
 }
 
 .emotion-1::-webkit-input-placeholder {
@@ -402,27 +402,28 @@ exports[`FormInput render it should render with prefix 1`] = `
 }
 
 .emotion-1:disabled {
+  color: rgb(200,204,207);
   cursor: not-allowed;
-  color: rgb(112,117,120);
 }
 
 .emotion-0 {
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
   background-color: rgb(248,248,249);
-  padding: 0.5rem;
-  border-right-width: 1px;
+  border-bottom-left-radius: 4px;
   border-right-color: rgb(228,231,233);
   border-right-style: solid;
+  border-right-width: 1px;
   border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 1.25rem;
+  padding: 0.5rem;
 }
 
 <div
@@ -467,23 +468,23 @@ exports[`FormInput render it should render with readOnly 1`] = `
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
   background: transparent;
-  outline: none;
-  resize: none;
-  display: block;
-  width: 100%;
-  font-family: inherit;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  font-weight: 400;
-  color: rgb(40,42,43);
-  padding-top: 0.5rem;
-  padding-right: 0.75rem;
-  padding-bottom: 0.5rem;
-  padding-left: 0.75rem;
+  border: none;
   border-radius: 4px;
   box-shadow: none;
+  color: rgb(40,42,43);
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  outline: none;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  resize: none;
+  width: 100%;
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -507,8 +508,8 @@ exports[`FormInput render it should render with readOnly 1`] = `
 }
 
 .emotion-0:disabled {
+  color: rgb(200,204,207);
   cursor: not-allowed;
-  color: rgb(112,117,120);
 }
 
 .emotion-1 {
@@ -603,23 +604,23 @@ exports[`FormInput render it should render with suffix 1`] = `
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
   background: transparent;
-  outline: none;
-  resize: none;
-  display: block;
-  width: 100%;
-  font-family: inherit;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  font-weight: 400;
-  color: rgb(40,42,43);
-  padding-top: 0.5rem;
-  padding-right: 0.75rem;
-  padding-bottom: 0.5rem;
-  padding-left: 0.75rem;
+  border: none;
   border-radius: 4px;
   box-shadow: none;
+  color: rgb(40,42,43);
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  outline: none;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  resize: none;
+  width: 100%;
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -643,27 +644,28 @@ exports[`FormInput render it should render with suffix 1`] = `
 }
 
 .emotion-0:disabled {
+  color: rgb(200,204,207);
   cursor: not-allowed;
-  color: rgb(112,117,120);
 }
 
 .emotion-1 {
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
   background-color: rgb(248,248,249);
-  padding: 0.5rem;
-  border-left-width: 1px;
+  border-bottom-right-radius: 4px;
   border-left-color: rgb(228,231,233);
   border-left-style: solid;
+  border-left-width: 1px;
   border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 1.25rem;
+  padding: 0.5rem;
 }
 
 <div
