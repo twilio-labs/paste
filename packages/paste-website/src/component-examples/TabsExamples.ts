@@ -69,3 +69,44 @@ render(
   <VerticalTabsExample />
 )
 `.trim();
+
+export const StateHookTabsExample = `
+const useButtonClickTabState = () => {
+  const tab = useTabState();
+  return {
+    ...tab,
+    baseId: 'state-hook-tab-example',
+  };
+};
+
+const StateHookExample = () => {
+  const {...tab} = useButtonClickTabState();
+  return (
+    <Tabs state={tab}>
+      <TabList aria-label="My tabs">
+        <Tab>Tab 1</Tab>
+        <Tab>Tab 2</Tab>
+      </TabList>
+      <TabPanels>
+        <TabPanel>
+          <Paragraph>Tab 1</Paragraph>
+          <Button variant="primary" onClick={() => tab.select('state-hook-tab-example-2')}>
+            Go to tab 2
+          </Button>
+        </TabPanel>
+        <TabPanel>
+          <Paragraph>Tab 2</Paragraph>
+          <Button variant="primary" onClick={() => tab.select('state-hook-tab-example-1')}>
+            Go back to tab 1
+          </Button>
+        </TabPanel>
+      </TabPanels>
+    </Tabs>
+  );
+};
+
+
+render(
+  <StateHookExample />
+)
+`.trim();

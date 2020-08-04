@@ -8,7 +8,9 @@ slug: /components/tabs/
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
-import {Tabs, Tab, TabList, TabPanels, TabPanel} from '@twilio-paste/tabs';
+import {Button} from '@twilio-paste/button';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {useTabState, Tabs, Tab, TabList, TabPanels, TabPanel} from '@twilio-paste/tabs';
 import Changelog from '@twilio-paste/tabs/CHANGELOG.md';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
@@ -18,7 +20,7 @@ import {useUID} from 'react-uid';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {HorizontalTabsExample, FittedTabsExample} from '../../../component-examples/TabsExamples';
+import {HorizontalTabsExample, FittedTabsExample, StateHookTabsExample} from '../../../component-examples/TabsExamples';
 
 export const pageQuery = graphql`
   {
@@ -112,6 +114,41 @@ Fitted tabs allow the tabs to expand and fit the width of a containing element.
   noInline
 >
   {FittedTabsExample}
+</LivePreview>
+
+### Using state hooks
+
+<Callout variant="warning">
+  <CalloutTitle>🚨 ATTENTION!! 🚨</CalloutTitle>
+  <CalloutText>
+    If you decided to use state hooks, the Paste team is <strong>NOT</strong> responsible for debugging any issues in
+    your application.
+  </CalloutText>
+</Callout>
+
+The `state` prop allows you to hook into, and keep in sync the state of the Tabs and the state of your application.
+
+This will allow you to set initial state and merge the returned state from the hook with the application state,
+and keep it in sync with user interactions.
+
+You could use this if you want to add functionality to a button within the tab content. In the example below we're
+using the `select` function from the tab state to advance to the next tab, and go back to the previous tab.
+
+<LivePreview
+  scope={{
+    useTabState,
+    Tabs,
+    Tab,
+    TabList,
+    TabPanels,
+    TabPanel,
+    Button,
+    Paragraph,
+  }}
+  noInline
+  language="jsx"
+>
+  {StateHookTabsExample}
 </LivePreview>
 
 ## Anatomy
