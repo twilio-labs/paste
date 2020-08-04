@@ -233,7 +233,12 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
               paddingRight="space90"
             />
             <SelectIconWrapper>
-              <ChevronDownIcon size="sizeIcon30" decorative aria-hidden="true" />
+              <ChevronDownIcon
+                aria-hidden="true"
+                decorative
+                color={disabled ? 'colorTextWeaker' : 'colorTextIcon'}
+                size="sizeIcon30"
+              />
             </SelectIconWrapper>
           </ComboboxInputWrapper>
         </FormControlWrapper>

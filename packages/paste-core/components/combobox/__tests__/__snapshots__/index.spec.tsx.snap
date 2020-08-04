@@ -11,7 +11,7 @@ exports[`Combobox  Render should render 1`] = `
   box-sizing: border-box;
   border-bottom-width: borderWidth0;
   display: block;
-  margin-bottom: space10;
+  margin-bottom: space20;
   padding-left: space0;
   padding-right: space0;
   text-transform: none;
@@ -86,23 +86,23 @@ exports[`Combobox  Render should render 1`] = `
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
   background: transparent;
-  outline: none;
-  resize: none;
-  display: block;
-  width: 100%;
-  font-family: inherit;
-  font-size: fontSize30;
-  line-height: lineHeight30;
-  font-weight: fontWeightNormal;
-  color: colorText;
-  padding-top: space30;
-  padding-right: space40;
-  padding-bottom: space30;
-  padding-left: space40;
+  border: none;
   border-radius: borderRadius20;
   box-shadow: none;
+  color: colorText;
+  display: block;
+  font-family: inherit;
+  font-size: fontSize30;
+  font-weight: fontWeightNormal;
+  line-height: lineHeight20;
+  outline: none;
+  padding-bottom: space30;
+  padding-left: space40;
+  padding-right: space40;
+  padding-top: space30;
+  resize: none;
+  width: 100%;
   padding-right: space100;
 }
 
@@ -127,8 +127,8 @@ exports[`Combobox  Render should render 1`] = `
 }
 
 .emotion-3:disabled {
+  color: colorTextWeaker;
   cursor: not-allowed;
-  color: colorTextWeak;
 }
 
 .emotion-5 {
@@ -155,7 +155,7 @@ exports[`Combobox  Render should render 1`] = `
   display: block;
   width: sizeIcon30;
   height: sizeIcon30;
-  color: currentColor;
+  color: colorTextIcon;
 }
 
 .emotion-8 {
@@ -189,16 +189,16 @@ exports[`Combobox  Render should render 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-top: space20;
+  margin-top: space30;
   min-width: size0;
 }
 
 .emotion-9 {
   margin: 0;
   padding: 0;
+  color: colorTextWeak;
   font-size: fontSize30;
   line-height: lineHeight30;
-  color: colorTextWeak;
 }
 
 <div
@@ -260,7 +260,7 @@ exports[`Combobox  Render should render 1`] = `
         >
           <span
             class="emotion-4"
-            color="currentColor"
+            color="colorTextIcon"
             display="block"
           >
             <svg
