@@ -12,6 +12,7 @@ interface FormControlWrapperProps {
   hasError?: boolean;
   insertAfter?: React.ReactNode;
   insertBefore?: React.ReactNode;
+  readOnly?: boolean;
   type?: FormInputTypes;
 }
 
@@ -21,10 +22,11 @@ const FormControlWrapper: React.FC<FormControlWrapperProps> = ({
   hasError,
   insertAfter,
   insertBefore,
+  readOnly,
   type,
   ...props
 }) => (
-  <FieldWrapper disabled={disabled} hasError={hasError} type={type} {...props} {...restrictedProps}>
+  <FieldWrapper disabled={disabled} hasError={hasError} readOnly={readOnly} type={type} {...props} {...restrictedProps}>
     {insertBefore && <Prefix>{insertBefore}</Prefix>}
     {children}
     {insertAfter && <Suffix>{insertAfter}</Suffix>}
@@ -40,6 +42,7 @@ if (process.env.NODE_ENV === 'development') {
     hasError: PropTypes.bool,
     insertAfter: PropTypes.node,
     insertBefore: PropTypes.node,
+    readOnly: PropTypes.bool,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel']) as any,
   };

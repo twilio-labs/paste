@@ -2,25 +2,23 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {styled, css} from '@twilio-paste/styling-library';
 import TextareaAutosize from 'react-autosize-textarea';
-import {FieldWrapper} from './shared/FieldWrapper';
-import {Prefix} from './shared/Prefix';
-import {Suffix} from './shared/Suffix';
+import {FormControlWrapper} from './shared/FormControlWrapper';
 import {safelySpreadFormControlProps} from './shared/Utils';
 
 export interface FormTextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  className?: never;
+  disabled?: boolean;
+  hasError?: boolean;
+  height?: never;
   id: string;
+  insertAfter?: React.ReactNode;
+  insertBefore?: React.ReactNode;
   name?: string;
   placeholder?: string;
-  disabled?: boolean;
   readOnly?: boolean;
   required?: boolean;
-  hasError?: boolean;
-  insertBefore?: React.ReactNode;
-  insertAfter?: React.ReactNode;
-  className?: never;
-  style?: never;
   size?: never;
-  height?: never;
+  style?: never;
   width?: never;
 }
 
@@ -28,24 +26,24 @@ export interface FormTextAreaProps extends React.TextareaHTMLAttributes<HTMLText
 const TextAreaElement = styled(TextareaAutosize)(() =>
   css({
     appearance: 'none',
-    border: 'none',
     background: 'transparent',
-    outline: 'none',
+    border: 'none',
+    borderRadius: 'borderRadius20',
+    boxShadow: 'none',
+    color: 'colorText',
     display: 'block',
-    width: '100%',
-    maxHeight: 'size30',
     fontFamily: 'inherit',
     fontSize: 'fontSize30',
-    lineHeight: 'lineHeight30',
     fontWeight: 'fontWeightNormal',
-    color: 'colorText',
-    paddingTop: 'space30',
-    paddingRight: 'space40',
+    lineHeight: 'lineHeight20',
+    maxHeight: 'size30',
+    outline: 'none',
     paddingBottom: 'space30',
     paddingLeft: 'space40',
-    borderRadius: 'borderRadius20',
+    paddingRight: 'space40',
+    paddingTop: 'space30',
     resize: 'vertical',
-    boxShadow: 'none',
+    width: '100%',
 
     '&::placeholder': {
       color: 'colorTextWeak',
@@ -53,8 +51,8 @@ const TextAreaElement = styled(TextareaAutosize)(() =>
     },
 
     '&:disabled': {
+      color: 'colorTextWeaker',
       cursor: 'not-allowed',
-      color: 'colorTextWeak',
     },
   })
 );
@@ -63,8 +61,13 @@ const TextAreaElement = styled(TextareaAutosize)(() =>
 const FormTextArea = React.forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
   ({id, name, placeholder, children, readOnly, disabled, hasError, insertBefore, insertAfter, ...props}, ref) => {
     return (
-      <FieldWrapper readOnly={readOnly} disabled={disabled} hasError={hasError}>
-        {insertBefore && <Prefix>{insertBefore}</Prefix>}
+      <FormControlWrapper
+        readOnly={readOnly}
+        disabled={disabled}
+        hasError={hasError}
+        insertAfter={insertAfter}
+        insertBefore={insertBefore}
+      >
         <TextAreaElement
           aria-invalid={hasError}
           aria-readonly={readOnly}
@@ -81,8 +84,7 @@ const FormTextArea = React.forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
         >
           {children}
         </TextAreaElement>
-        {insertAfter && <Suffix>{insertAfter}</Suffix>}
-      </FieldWrapper>
+      </FormControlWrapper>
     );
   }
 );

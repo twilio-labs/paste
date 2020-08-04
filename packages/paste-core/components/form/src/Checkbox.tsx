@@ -94,7 +94,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
               _before={
                 !indeterminate
                   ? {
-                      borderColor: disabled && checked ? 'colorBorderDark' : 'colorBorderInverse',
+                      borderColor: disabled && checked ? 'colorBorderDark' : 'colorBorderInverseLightest',
                       borderRadius: 'borderRadius10',
                       borderStyle: 'solid',
                       borderWidth: 'borderWidth10',
@@ -108,7 +108,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
                   : undefined
               }
               _after={{
-                borderColor: disabled && checked ? 'colorBorderDark' : 'colorBorderInverse',
+                borderColor: disabled && checked ? 'colorBorderDark' : 'colorBorderInverseLightest',
                 borderRadius: 'borderRadius10',
                 borderStyle: 'solid',
                 borderWidth: 'borderWidth10',

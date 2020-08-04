@@ -91,7 +91,7 @@ storiesOf('Forms|Select', module)
           insertAfter={
             insertAfter && (
               <Anchor href="#" display="flex">
-                <InformationIcon decorative={false} title="Get more info" />
+                <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
               </Anchor>
             )
           }
@@ -240,7 +240,7 @@ storiesOf('Forms|Select', module)
           insertBefore={<div>$10.99</div>}
           insertAfter={
             <Anchor href="#" display="flex">
-              <InformationIcon decorative={false} title="Get more info" />
+              <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
             </Anchor>
           }
           value={value}

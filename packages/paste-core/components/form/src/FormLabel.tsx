@@ -7,26 +7,26 @@ import {Text} from '@twilio-paste/text';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 
 export interface FormLabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
-  children: NonNullable<React.ReactNode>;
-  htmlFor: string | undefined;
   as?: 'label' | 'legend';
-  disabled?: boolean;
-  required?: boolean;
-  marginBottom?: 'space0';
+  children: NonNullable<React.ReactNode>;
   className?: never;
+  disabled?: boolean;
+  htmlFor: string | undefined;
+  marginBottom?: 'space0';
+  required?: boolean;
   style?: never;
 }
 
 // eslint-disable-next-line emotion/syntax-preference
 const StyledRequiredDot = styled(Text)(
   css({
-    display: 'block',
-    width: '4px',
-    height: '4px',
-    marginRight: 'space20',
     backgroundColor: 'colorBackgroundRequired',
     borderRadius: '50%',
     cursor: 'pointer',
+    display: 'block',
+    height: '4px',
+    marginRight: 'space20',
+    width: '4px',
   })
 );
 
@@ -39,7 +39,7 @@ const FormLabel: React.FC<FormLabelProps> = ({as, marginBottom, required, disabl
       // on legend in Console.
       borderBottomWidth="borderWidth0"
       display="block"
-      marginBottom={marginBottom || 'space10'}
+      marginBottom={marginBottom || 'space20'}
       paddingLeft="space0"
       paddingRight="space0"
       textTransform="none"
@@ -55,7 +55,7 @@ const FormLabel: React.FC<FormLabelProps> = ({as, marginBottom, required, disabl
           fontSize="fontSize30"
           fontWeight="fontWeightSemibold"
           lineHeight="lineHeight30"
-          color={disabled ? 'colorTextWeak' : 'colorText'}
+          color={disabled ? 'colorTextWeaker' : 'colorText'}
           cursor={disabled ? 'not-allowed' : 'pointer'}
         >
           {children}

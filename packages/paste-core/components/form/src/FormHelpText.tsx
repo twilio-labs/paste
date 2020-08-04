@@ -12,8 +12,8 @@ export const FormHelpTextVariants = {
 export type FormHelpTextVariants = ValueOf<typeof FormHelpTextVariants>;
 
 export interface FormHelperTextProps extends React.HTMLAttributes<HTMLDivElement> {
-  marginTop?: 'space0';
   className?: never;
+  marginTop?: 'space0';
   style?: never;
   variant?: FormHelpTextVariants;
 }
@@ -22,21 +22,21 @@ const FormHelpText: React.FC<FormHelperTextProps> = ({marginTop, children, varia
   let icon = null;
   switch (variant) {
     case FormHelpTextVariants.ERROR:
-      icon = <ErrorIcon color="colorTextError" decorative />;
+      icon = <ErrorIcon color="colorTextError" decorative size="sizeIcon20" />;
       break;
     default:
       break;
   }
 
   return (
-    <Flex vAlignContent="center" marginTop={marginTop || 'space20'}>
+    <Flex vAlignContent="center" marginTop={marginTop || 'space30'}>
       {icon}
       <Text
         {...safelySpreadTextProps(props)}
         as="div"
+        color={variant === 'error' ? 'colorTextError' : 'colorTextWeak'}
         fontSize="fontSize30"
         lineHeight="lineHeight30"
-        color={variant === 'error' ? 'colorTextError' : 'colorTextWeak'}
         marginLeft={icon ? 'space20' : undefined}
       >
         {children}

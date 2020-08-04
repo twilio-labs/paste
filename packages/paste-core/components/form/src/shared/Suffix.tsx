@@ -5,15 +5,16 @@ const Suffix: React.FC = ({children}) => {
   if (children == null) return null;
   return (
     <Box
-      display="flex"
       alignItems="flex-start"
       backgroundColor="colorBackground"
-      padding="space30"
-      borderLeftWidth="borderWidth10"
+      borderBottomRightRadius="borderRadius20"
       borderLeftColor="colorBorderLighter"
       borderLeftStyle="solid"
+      borderLeftWidth="borderWidth10"
       borderTopRightRadius="borderRadius20"
-      borderBottomRightRadius="borderRadius20"
+      display="flex"
+      lineHeight="lineHeight20"
+      padding="space30"
     >
       {children}
     </Box>

@@ -203,7 +203,7 @@ storiesOf('Forms|Input', module)
           insertBefore={<div>$10.99</div>}
           insertAfter={
             <Anchor href="#" display="flex">
-              <InformationIcon decorative={false} title="Get more info" />
+              <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
             </Anchor>
           }
         />
