@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/tooltip@0.1.11...@twilio-paste/tooltip@0.2.0) (2020-08-04)
+
+
+### Bug Fixes
+
+* **tooltip:** reduce the arrow size ([a53745c](https://github.com/twilio-labs/paste/commit/a53745c1ea042a41d3762a81ddde3d0fe7921189))
+
+
+### Features
+
+* **tooltip:** make updates to the design for unified design language ([61ecaf0](https://github.com/twilio-labs/paste/commit/61ecaf0f9172c86fa024c930bf401b1e0f2ee73a))
+
+
+
+
+
 ## [0.1.11](https://github.com/twilio-labs/paste/compare/@twilio-paste/tooltip@0.1.10...@twilio-paste/tooltip@0.1.11) (2020-08-04)
 
 **Note:** Version bump only for package @twilio-paste/tooltip

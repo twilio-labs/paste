@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.28](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.2.27...@twilio-paste/button@1.2.28) (2020-08-04)
+
+**Note:** Version bump only for package @twilio-paste/button
+
+
+
+
+
 ## [1.2.27](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@1.2.26...@twilio-paste/button@1.2.27) (2020-08-04)
 
 **Note:** Version bump only for package @twilio-paste/button

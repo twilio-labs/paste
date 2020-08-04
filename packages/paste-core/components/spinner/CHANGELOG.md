@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.33](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@1.2.32...@twilio-paste/spinner@1.2.33) (2020-08-04)
+
+**Note:** Version bump only for package @twilio-paste/spinner
+
+
+
+
+
 ## [1.2.32](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@1.2.31...@twilio-paste/spinner@1.2.32) (2020-08-04)
 
 **Note:** Version bump only for package @twilio-paste/spinner
