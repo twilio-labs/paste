@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.40.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.40.4...@twilio-paste/website@1.40.5) (2020-08-04)
+
+
+### Bug Fixes
+
+* **website:** fix icons yarn install command ([#630](https://github.com/twilio-labs/paste/issues/630)) ([01152e2](https://github.com/twilio-labs/paste/commit/01152e2b9607f9e6988e807c7a8540f40428514c))
+
+
+
+
+
 ## [1.40.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.40.3...@twilio-paste/website@1.40.4) (2020-08-04)
 
 **Note:** Version bump only for package @twilio-paste/website
