@@ -23,7 +23,7 @@ const PrefixSuffixCombobox = () => {
       insertBefore={<div>+1</div>}
       insertAfter={
         <Anchor href="#" display="flex">
-          <InformationIcon decorative={false} title="Get more info" />
+          <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
         </Anchor>
       }
     />
