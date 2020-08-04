@@ -16,16 +16,16 @@ const StyledTooltip = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...pro
   return (
     <Box
       {...safelySpreadBoxProps(props)}
-      backgroundColor="colorBackgroundBody"
-      borderColor="colorBorderLighter"
+      backgroundColor="colorBackgroundBodyInverse"
+      borderColor="colorBorderDark"
       borderRadius="borderRadius20"
       borderStyle="solid"
       borderWidth="borderWidth10"
-      boxShadow="shadowCard"
+      boxShadow="shadow"
       maxWidth="size30"
-      padding="space40"
-      paddingBottom="space30"
-      paddingTop="space30"
+      padding="space30"
+      paddingBottom="space20"
+      paddingTop="space20"
       zIndex="zIndex90"
       _focus={{outline: 'none'}}
       style={style}
@@ -52,7 +52,9 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(({baseId, childre
         {/* import Paste Theme Based Styles due to portal positioning. */}
         <StyledBase>
           <TooltipArrow {...tooltip} />
-          <Text as="span">{text}</Text>
+          <Text as="span" color="colorTextInverse">
+            {text}
+          </Text>
         </StyledBase>
       </TooltipPrimitive>
     </>
