@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.28](https://github.com/twilio-labs/paste/compare/@twilio-paste/separator@0.1.27...@twilio-paste/separator@0.1.28) (2020-08-04)
+
+**Note:** Version bump only for package @twilio-paste/separator
+
+
+
+
+
 ## [0.1.27](https://github.com/twilio-labs/paste/compare/@twilio-paste/separator@0.1.26...@twilio-paste/separator@0.1.27) (2020-07-31)
 
 **Note:** Version bump only for package @twilio-paste/separator

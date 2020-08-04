@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.40.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.40.2...@twilio-paste/website@1.40.3) (2020-08-04)
+
+
+### Bug Fixes
+
+* **website:** change tokens that were removed or changed ([5c1635e](https://github.com/twilio-labs/paste/commit/5c1635e34a7dd918a177b4a65e97b76274289cef))
+
+
+
+
+
 ## [1.40.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@1.40.1...@twilio-paste/website@1.40.2) (2020-08-03)
 
 

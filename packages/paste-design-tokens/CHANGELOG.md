@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@5.5.0...@twilio-paste/design-tokens@6.0.0) (2020-08-04)
+
+
+### Bug Fixes
+
+* **design-tokens:** updates to default and console aliases and tokens ([a3d02e2](https://github.com/twilio-labs/paste/commit/a3d02e2acfa4ea9e8a9ffd1f83d21f7c22cd4b92))
+
+
+### BREAKING CHANGES
+
+* **design-tokens:** `color-background-inverse` has been changed to a transparent color. Use `color-background-body-inverse` instead.
+`color-text-label` has been removed.
+`color-text-placeholder` has been removed.
+
+
+
+
+
 # [5.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@5.4.0...@twilio-paste/design-tokens@5.5.0) (2020-07-22)
 
 
