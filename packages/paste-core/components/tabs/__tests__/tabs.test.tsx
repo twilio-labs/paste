@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {axe} from 'jest-axe';
 import {render, screen} from '@testing-library/react';
-import {HorizontalTabsExample, VerticalTabsExample} from '../stories/index.stories';
+import {HorizontalTabsExample, VerticalTabsExample, StateHookExample} from '../stories/index.stories';
 import {Tabs, Tab, TabList, TabPanels, TabPanel} from '../src';
 
 describe('Tabs', () => {
@@ -76,6 +76,23 @@ describe('Tabs', () => {
       activePanel = screen.queryByRole('tabpanel');
       expect(activePanel.getAttribute('aria-labelledby')).toBe(tabTwoId);
       expect(activePanel.getAttribute('id')).toBe(panelTwoId);
+      expect(activePanel.getAttribute('tabindex')).toBe('0');
+    });
+
+    it('should render tabs using the state prop and go to the next tab on button click', () => {
+      render(<StateHookExample />);
+
+      const [ButtonOne] = screen.queryAllByRole('button');
+
+      let activePanel = screen.queryByRole('tabpanel');
+      expect(activePanel.getAttribute('aria-labelledby')).toBe('state-hook-tab-example-1');
+      expect(activePanel.getAttribute('id')).toBe('state-hook-tab-example-3');
+      expect(activePanel.getAttribute('tabindex')).toBe('0');
+
+      ButtonOne.click();
+      activePanel = screen.queryByRole('tabpanel');
+      expect(activePanel.getAttribute('aria-labelledby')).toBe('state-hook-tab-example-2');
+      expect(activePanel.getAttribute('id')).toBe('state-hook-tab-example-4');
       expect(activePanel.getAttribute('tabindex')).toBe('0');
     });
   });
