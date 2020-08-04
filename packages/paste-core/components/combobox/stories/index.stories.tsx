@@ -120,14 +120,14 @@ storiesOf('Components|Combobox', module)
             <MediaObject verticalAlign="center">
               {item.iconLeft ? (
                 <MediaFigure spacing="space20">
-                  <InformationIcon decorative={false} title="information" />
+                  <InformationIcon decorative={false} size="sizeIcon20" title="information" />
                 </MediaFigure>
               ) : null}
 
               <MediaBody>{item.label}</MediaBody>
               {item.iconRight ? (
                 <MediaFigure spacing="space20">
-                  <InformationIcon decorative={false} title="information" />
+                  <InformationIcon decorative={false} size="sizeIcon20" title="information" />
                 </MediaFigure>
               ) : null}
             </MediaObject>
@@ -184,7 +184,7 @@ storiesOf('Components|Combobox', module)
           insertBefore={<div>$10.99</div>}
           insertAfter={
             <Anchor href="#" display="flex">
-              <InformationIcon decorative={false} title="Get more info" />
+              <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
             </Anchor>
           }
           labelText="Choose a component:"
