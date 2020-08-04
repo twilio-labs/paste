@@ -14,26 +14,26 @@ storiesOf('Components|Tooltip', module)
   .addDecorator(withKnobs)
   .add('Default', () => {
     return (
-      <Tooltip text={text('text', 'Welcome to Paste!')}>
+      <Tooltip visible text={text('text', 'Welcome to Paste!')}>
         <Button variant="primary">Open tooltip</Button>
       </Tooltip>
     );
   })
   .add('Tooltip Placements', () => {
     return (
-      <Box marginTop="space120" paddingTop="space120" paddingLeft="space60">
+      <Box margin="space190" padding="space190">
         <Stack orientation="horizontal" spacing="space40">
-          <Tooltip text="Welcome to Paste!" placement="top">
+          <Tooltip visible text="Welcome!" placement="left">
+            <Button variant="primary">Open tooltip to the left</Button>
+          </Tooltip>
+          <Tooltip visible text="Welcome to Paste!" placement="top">
             <Button variant="primary">Open tooltip to the top</Button>
           </Tooltip>
-          <Tooltip text="Welcome to Paste!" placement="bottom">
+          <Tooltip visible text="Welcome to Paste!" placement="bottom">
             <Button variant="primary">Open tooltip to the bottom</Button>
           </Tooltip>
-          <Tooltip text="Welcome to Paste!" placement="right">
+          <Tooltip visible text="Welcome to Paste!" placement="right">
             <Button variant="primary">Open tooltip to the right</Button>
-          </Tooltip>
-          <Tooltip text="Welcome to Paste!" placement="left">
-            <Button variant="primary">Open tooltip to the left</Button>
           </Tooltip>
         </Stack>
       </Box>
@@ -69,7 +69,7 @@ storiesOf('Components|Tooltip', module)
     return (
       <>
         <Absolute preset="bottom_left">
-          <Tooltip text="Tooltip adjusted to the top because bottom would be off screen" placement="bottom">
+          <Tooltip visible text="Tooltip adjusted to the top because bottom would be off screen" placement="bottom">
             <Button variant="primary">Open tooltip</Button>
           </Tooltip>
         </Absolute>
