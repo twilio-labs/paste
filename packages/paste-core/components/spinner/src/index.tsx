@@ -36,7 +36,7 @@ export interface SpinnerProps extends LoadingIconProps {
   delay?: number;
 }
 
-const Spinner: React.FC<SpinnerProps> = ({as, size, iconColor, decorative, title, delay = 250}) => {
+const Spinner: React.FC<SpinnerProps> = ({as, size, color, decorative, title, delay = 250}) => {
   const [show, setShow] = React.useState(delay === 0);
 
   React.useEffect(() => {
@@ -47,7 +47,7 @@ const Spinner: React.FC<SpinnerProps> = ({as, size, iconColor, decorative, title
 
   return (
     <SpinningWrapper size={size} show={show}>
-      <LoadingIcon as={as} size={size} iconColor={iconColor} decorative={decorative} title={title} />
+      <LoadingIcon as={as} size={size} color={color} decorative={decorative} title={title} />
     </SpinningWrapper>
   );
 };

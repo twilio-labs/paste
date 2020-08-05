@@ -81,10 +81,7 @@ exports[`FormHelpText render it should render with an error icon 1`] = `
 }
 
 .emotion-0 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: block;
   width: 1.5rem;
   height: 1.5rem;
   color: rgb(226,37,37);
@@ -108,7 +105,8 @@ exports[`FormHelpText render it should render with an error icon 1`] = `
   >
     <span
       className="emotion-0"
-      display="inline-flex"
+      color="colorTextError"
+      display="block"
       size="sizeIcon30"
     >
       <svg

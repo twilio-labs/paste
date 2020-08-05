@@ -22,7 +22,7 @@ const FormHelpText: React.FC<FormHelperTextProps> = ({marginTop, children, varia
   let icon = null;
   switch (variant) {
     case FormHelpTextVariants.ERROR:
-      icon = <ErrorIcon iconColor="colorTextError" decorative />;
+      icon = <ErrorIcon color="colorTextError" decorative />;
       break;
     default:
       break;

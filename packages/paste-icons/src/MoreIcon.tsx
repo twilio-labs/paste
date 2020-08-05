@@ -10,13 +10,13 @@ export interface MoreIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const MoreIcon: React.FC<MoreIconProps> = ({as, display, size, iconColor, title, decorative}) => {
+const MoreIcon: React.FC<MoreIconProps> = ({as, display, size, color, title, decorative}) => {
   if (!decorative && title == null) {
     throw new Error('[MoreIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} iconColor={iconColor}>
+    <IconWrapper as={as} display={display} size={size} color={color}>
       <UID>
         {titleId => (
           <svg

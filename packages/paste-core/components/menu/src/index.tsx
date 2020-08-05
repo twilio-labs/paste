@@ -129,7 +129,7 @@ const MenuGroup = React.forwardRef<HTMLDivElement, MenuGroupProps>(({label, icon
         >
           {React.isValidElement(icon) ? (
             <Box flexShrink={0} size="sizeIcon30">
-              {React.cloneElement(icon, {iconColor: 'colorTextIcon'})}
+              {React.cloneElement(icon, {color: 'colorTextIcon'})}
             </Box>
           ) : null}
           <Text

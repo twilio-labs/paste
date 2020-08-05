@@ -10,13 +10,13 @@ export interface ProductAuthyIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ProductAuthyIcon: React.FC<ProductAuthyIconProps> = ({as, display, size, iconColor, title, decorative}) => {
+const ProductAuthyIcon: React.FC<ProductAuthyIconProps> = ({as, display, size, color, title, decorative}) => {
   if (!decorative && title == null) {
     throw new Error('[ProductAuthyIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} iconColor={iconColor}>
+    <IconWrapper as={as} display={display} size={size} color={color}>
       <UID>
         {titleId => (
           <svg

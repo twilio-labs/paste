@@ -10,20 +10,13 @@ export interface ProductTaskRouterIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ProductTaskRouterIcon: React.FC<ProductTaskRouterIconProps> = ({
-  as,
-  display,
-  size,
-  iconColor,
-  title,
-  decorative,
-}) => {
+const ProductTaskRouterIcon: React.FC<ProductTaskRouterIconProps> = ({as, display, size, color, title, decorative}) => {
   if (!decorative && title == null) {
     throw new Error('[ProductTaskRouterIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} iconColor={iconColor}>
+    <IconWrapper as={as} display={display} size={size} color={color}>
       <UID>
         {titleId => (
           <svg

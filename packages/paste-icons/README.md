@@ -19,13 +19,13 @@ import AssetsIcon from '@twilio-paste/icons/react/AssetsIcon';
 
 ### Standard Props
 
-| Prop       | Type      | Description                                                                                                                                           | Default                                                                  |
-| ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| decorative | boolean   | Whether or not the SVG is just visual flair or adds meaning to the page. Specifically for screenreaders to know whether to read out the title or not. | true
-| display?                 | `ResponsiveValue<CSS.DisplayProperty>`                  |         | inline-flex
-| title?     | string    | The accesibility text that is read when screenreaders get to this component                                                                           | Component name                                                           |
-| size?      | IconSize  | The width and height value (all icons are square) in pixels                                                                                           | sizeIcon20                                                               |
-| iconColor? | TextColor | The color of your icon                                                                                                                                | currentColor - whatever is the font-color inherited from up the DOM tree |
+| Prop       | Type                                   | Description                                                                                                                                           | Default                                                                  |
+| ---------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| decorative | boolean                                | Whether or not the SVG is just visual flair or adds meaning to the page. Specifically for screenreaders to know whether to read out the title or not. | true                                                                     |
+| display?   | `ResponsiveValue<CSS.DisplayProperty>` |                                                                                                                                                       | block                                                              |
+| title?     | string                                 | The accesibility text that is read when screenreaders get to this component                                                                           | Component name                                                           |
+| size?      | IconSize                               | The width and height value (all icons are square) in pixels                                                                                           | sizeIcon20                                                               |
+| color?     | TextColor                              | The color of your icon                                                                                                                                | currentColor - whatever is the font-color inherited from up the DOM tree |
 
 Keep in mind these props are the **Base Guarantee** for icon components. Some icons may have additional functionality as needed (a way to style two color options for example).
 
