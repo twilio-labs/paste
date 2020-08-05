@@ -12,6 +12,9 @@ import {Combobox} from '@twilio-paste/combobox';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
+import {ProductStudioIcon} from '@twilio-paste/icons/esm/ProductStudioIcon';
+import {ProductAutopilotIcon} from '@twilio-paste/icons/esm/ProductAutopilotIcon';
+import {ProductInsightsIcon} from '@twilio-paste/icons/esm/ProductInsightsIcon';
 import {Text} from '@twilio-paste/text';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
@@ -26,6 +29,7 @@ import {
   prefixSuffixExample,
   controlledComboboxExample,
   groupedComboboxExample,
+  groupedLabelComboboxExample,
 } from '../../../component-examples/ComboboxExamples';
 
 export const pageQuery = graphql`
@@ -129,6 +133,20 @@ In the example below we have a list of components and we are grouping them based
 
 <LivePreview scope={{Combobox}} noInline language="jsx">
   {groupedComboboxExample}
+</LivePreview>
+
+#### Combobox with custom group label
+
+You can control the contents of the group label is a similar way to options, by providing a custom template. The `groupLabelTemplate` prop takes a method with `groupName` argument, that you can use to return valid JSX from. It will render the contents of that JSX as a child of the group label.
+
+In the example below we are checking the `groupName` and rendering an icon next to it based on the name.
+
+<LivePreview
+  scope={{Combobox, ProductInsightsIcon, ProductAutopilotIcon, ProductStudioIcon, MediaObject, MediaFigure, MediaBody}}
+  noInline
+  language="jsx"
+>
+  {groupedLabelComboboxExample}
 </LivePreview>
 
 #### Controlled Combobox
@@ -328,6 +346,10 @@ Allows autocomplete/typehead feature.
 ##### `groupItemsBy?: string`
 
 The name of the key in your item objects that you would like Combobox to group the items by.
+
+##### `groupLabelTemplate?: (groupName: string) => React.ReactNode`
+
+This function allows you to use your own `jsx` template for the group label in the drop-down list.
 
 ##### `helpText?: string | React.ReactNode`
 
