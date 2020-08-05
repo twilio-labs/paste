@@ -10,13 +10,13 @@ export interface ArrowBackIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ArrowBackIcon: React.FC<ArrowBackIconProps> = ({as, display, size, iconColor, title, decorative}) => {
+const ArrowBackIcon: React.FC<ArrowBackIconProps> = ({as, display, size, color, title, decorative}) => {
   if (!decorative && title == null) {
     throw new Error('[ArrowBackIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} iconColor={iconColor}>
+    <IconWrapper as={as} display={display} size={size} color={color}>
       <UID>
         {titleId => (
           <svg

@@ -25,7 +25,7 @@ interface IconProps {
   title?: string;
   decorative: boolean;
   size?: IconSize;
-  iconColor?: TextColor;
+  color?: TextColor;
 }
 
 const IconList: React.FC<IconProps> = props => (

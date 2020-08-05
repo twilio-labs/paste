@@ -10,13 +10,13 @@ export interface ProductAddOnsIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ProductAddOnsIcon: React.FC<ProductAddOnsIconProps> = ({as, display, size, iconColor, title, decorative}) => {
+const ProductAddOnsIcon: React.FC<ProductAddOnsIconProps> = ({as, display, size, color, title, decorative}) => {
   if (!decorative && title == null) {
     throw new Error('[ProductAddOnsIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} iconColor={iconColor}>
+    <IconWrapper as={as} display={display} size={size} color={color}>
       <UID>
         {titleId => (
           <svg

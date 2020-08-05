@@ -10,13 +10,13 @@ export interface ProductVerifyIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ProductVerifyIcon: React.FC<ProductVerifyIconProps> = ({as, display, size, iconColor, title, decorative}) => {
+const ProductVerifyIcon: React.FC<ProductVerifyIconProps> = ({as, display, size, color, title, decorative}) => {
   if (!decorative && title == null) {
     throw new Error('[ProductVerifyIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} iconColor={iconColor}>
+    <IconWrapper as={as} display={display} size={size} color={color}>
       <UID>
         {titleId => (
           <svg

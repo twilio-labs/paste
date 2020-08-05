@@ -14,7 +14,7 @@ const ProductInternetOfThingsIcon: React.FC<ProductInternetOfThingsIconProps> = 
   as,
   display,
   size,
-  iconColor,
+  color,
   title,
   decorative,
 }) => {
@@ -23,7 +23,7 @@ const ProductInternetOfThingsIcon: React.FC<ProductInternetOfThingsIconProps> = 
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} iconColor={iconColor}>
+    <IconWrapper as={as} display={display} size={size} color={color}>
       <UID>
         {titleId => (
           <svg

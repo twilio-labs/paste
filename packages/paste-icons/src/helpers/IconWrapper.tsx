@@ -2,32 +2,33 @@ import {styled, compose, display, size, system} from '@twilio-paste/styling-libr
 import {Display, IconSize, TextColor} from '@twilio-paste/style-props';
 
 // I can't name this simply `color` because TS + Emotion doesn't like it
-// This sets the CSS `color` by using the `textColors` tokens via the `iconColor` prop
-const iconColor = system({
-  iconColor: {
+// This sets the CSS `color` by using the `textColors` tokens via the `color` prop
+const color = system({
+  color: {
     property: 'color',
     scale: 'textColors',
   },
 });
 
-export interface IconWrapperProps {
+export interface IconWrapperProps extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'color'> {
   as?: keyof JSX.IntrinsicElements;
   display?: Display;
   size?: IconSize;
-  iconColor?: TextColor;
+  color?: TextColor;
 }
 
+// @ts-ignore color is fine
 const IconWrapper = styled.span<IconWrapperProps>(
   compose(
     display,
-    iconColor,
+    color,
     size
   )
-);
+) as React.FC<IconWrapperProps>;
 
 IconWrapper.defaultProps = {
-  display: 'inline-flex',
-  iconColor: 'currentColor',
+  display: 'block',
+  color: 'currentColor',
   size: 'sizeIcon30',
 };
 

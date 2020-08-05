@@ -10,20 +10,13 @@ export interface ProductAutopilotIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ProductAutopilotIcon: React.FC<ProductAutopilotIconProps> = ({
-  as,
-  display,
-  size,
-  iconColor,
-  title,
-  decorative,
-}) => {
+const ProductAutopilotIcon: React.FC<ProductAutopilotIconProps> = ({as, display, size, color, title, decorative}) => {
   if (!decorative && title == null) {
     throw new Error('[ProductAutopilotIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} iconColor={iconColor}>
+    <IconWrapper as={as} display={display} size={size} color={color}>
       <UID>
         {titleId => (
           <svg

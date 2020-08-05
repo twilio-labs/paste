@@ -10,13 +10,13 @@ export interface InformationIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const InformationIcon: React.FC<InformationIconProps> = ({as, display, size, iconColor, title, decorative}) => {
+const InformationIcon: React.FC<InformationIconProps> = ({as, display, size, color, title, decorative}) => {
   if (!decorative && title == null) {
     throw new Error('[InformationIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} iconColor={iconColor}>
+    <IconWrapper as={as} display={display} size={size} color={color}>
       <UID>
         {titleId => (
           <svg
