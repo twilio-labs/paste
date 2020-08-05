@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@0.2.27...@twilio-paste/modal@1.0.0) (2020-08-05)
+
+
+### Bug Fixes
+
+* **icons:** use display=block by default and rename 'iconColor' prop to 'color' ([#637](https://github.com/twilio-labs/paste/issues/637)) ([82beef4](https://github.com/twilio-labs/paste/commit/82beef487c514b2eab5c40b1ef1409842dd4ca82))
+
+
+### BREAKING CHANGES
+
+* **icons:** This change renames a key prop and changes the display mode from inline-flex to block
+
+* fix: use new icon prop (iconColor -> color)
+
+* test: update snapshots
+
+* chore(icons): update readme to mention correct display value
+
+Co-authored-by: Rich Bachman <rb@richbachman.com>
+
+* chore(website): update icon doc prop table
+
+Co-authored-by: Rich Bachman <rb@richbachman.com>
+
+Co-authored-by: Rich Bachman <rb@richbachman.com>
+
+
+
+
+
 ## [0.2.27](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@0.2.26...@twilio-paste/modal@0.2.27) (2020-08-04)
 
 **Note:** Version bump only for package @twilio-paste/modal
