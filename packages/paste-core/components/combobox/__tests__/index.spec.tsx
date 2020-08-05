@@ -4,6 +4,7 @@ import {uid} from 'react-uid';
 import {render, screen} from '@testing-library/react';
 import {FormLabel, FormHelpText, InputElement} from '@twilio-paste/form';
 import {useCombobox, Combobox, ComboboxInputWrapper, ComboboxListbox, ComboboxListboxOption} from '../src';
+import {ComboboxProps} from '../src/types';
 
 const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
 
@@ -29,6 +30,7 @@ const ComboboxMock: React.FC<{}> = () => {
     <>
       <Combobox
         items={inputItems}
+        initialIsOpen
         helpText="This is the help text"
         labelText="Choose a component:"
         onInputValueChange={({inputValue}) => {
@@ -88,7 +90,9 @@ const ComboboxPartsMock: React.FC<{}> = () => {
   );
 };
 
-const GroupedMockCombobox: React.FC = () => {
+const GroupedMockCombobox: React.FC<{groupLabelTemplate?: ComboboxProps['groupLabelTemplate']}> = ({
+  groupLabelTemplate,
+}) => {
   return (
     <Combobox
       initialIsOpen
@@ -96,6 +100,7 @@ const GroupedMockCombobox: React.FC = () => {
       items={groupedItems}
       labelText="Choose a component:"
       helpText="This is group"
+      groupLabelTemplate={groupLabelTemplate}
       optionTemplate={(item: any) => <div>{item.label}</div>}
       itemToString={item => (item ? item.label : null)}
     />
@@ -160,6 +165,20 @@ describe('Combobox ', () => {
       expect(renderedGroups.length).toEqual(3);
       // check any options that are not nested in groups
       expect(renderedListbox.querySelectorAll('[role="listbox"] > [role="option"]').length).toEqual(1);
+    });
+
+    it('should render a custom group label', () => {
+      render(<GroupedMockCombobox groupLabelTemplate={groupName => <span>hi {groupName}</span>} />);
+      const renderedGroups = screen.getAllByRole('group');
+      expect(renderedGroups[0].querySelector('[role="group"] > div[role="presentation"]').textContent).toEqual(
+        'hi Components'
+      );
+      expect(renderedGroups[1].querySelector('[role="group"] > div[role="presentation"]').textContent).toEqual(
+        'hi Primitives'
+      );
+      expect(renderedGroups[2].querySelector('[role="group"] > div[role="presentation"]').textContent).toEqual(
+        'hi Layout'
+      );
     });
   });
 

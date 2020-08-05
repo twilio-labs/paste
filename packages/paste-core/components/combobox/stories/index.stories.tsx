@@ -8,6 +8,7 @@ import {Box} from '@twilio-paste/box';
 import {FormLabel} from '@twilio-paste/form';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import {useCombobox, Combobox, ComboboxInputWrapper, ComboboxListbox, ComboboxListboxOption} from '../src';
 
 const items = [
@@ -120,14 +121,14 @@ storiesOf('Components|Combobox', module)
             <MediaObject verticalAlign="center">
               {item.iconLeft ? (
                 <MediaFigure spacing="space20">
-                  <InformationIcon decorative={false} size="sizeIcon20" title="information" />
+                  <AttachIcon decorative={false} size="sizeIcon20" title="product" />
                 </MediaFigure>
               ) : null}
 
               <MediaBody>{item.label}</MediaBody>
               {item.iconRight ? (
                 <MediaFigure spacing="space20">
-                  <InformationIcon decorative={false} size="sizeIcon20" title="information" />
+                  <AttachIcon decorative={false} size="sizeIcon20" title="product 2" />
                 </MediaFigure>
               ) : null}
             </MediaObject>
@@ -279,6 +280,17 @@ storiesOf('Components|Combobox', module)
       </>
     );
   })
+  .add('Combobox - Open', () => {
+    return (
+      <Combobox
+        items={objectItems}
+        labelText="Choose a country:"
+        initialIsOpen
+        optionTemplate={(item: any) => <div>{item.label}</div>}
+        itemToString={item => (item ? item.label : null)}
+      />
+    );
+  })
   .add('Combobox - Option groups', () => {
     return (
       <Combobox
@@ -287,6 +299,32 @@ storiesOf('Components|Combobox', module)
         labelText="Choose a component:"
         helpText="This is group"
         optionTemplate={(item: any) => <div>{item.label}</div>}
+        itemToString={item => (item ? item.label : null)}
+      />
+    );
+  })
+  .add('Combobox - Option groups open', () => {
+    return (
+      <Combobox
+        groupItemsBy="group"
+        items={groupedItems}
+        labelText="Choose a component:"
+        helpText="This is group"
+        initialIsOpen
+        optionTemplate={(item: any) => <div>{item.label}</div>}
+        groupLabelTemplate={(groupName: string) => {
+          if (groupName === 'Components') {
+            return (
+              <MediaObject verticalAlign="center">
+                <MediaFigure spacing="space20">
+                  <AttachIcon color="colorTextIcon" decorative={false} title="icon" />
+                </MediaFigure>
+                <MediaBody>{groupName}</MediaBody>
+              </MediaObject>
+            );
+          }
+          return groupName;
+        }}
         itemToString={item => (item ? item.label : null)}
       />
     );

@@ -6,3 +6,4 @@ export * from './Combobox';
 export * from './ComboboxInputWrapper';
 export * from './ComboboxListbox';
 export * from './ComboboxListboxOption';
+export * from './ComboboxListboxGroup';

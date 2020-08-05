@@ -2,25 +2,15 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {css, styled} from '@twilio-paste/styling-library';
 import {useUID, useUIDSeed} from 'react-uid';
-import {
-  useComboboxPrimitive,
-  UseComboboxPrimitiveProps,
-  UseComboboxPrimitiveState,
-} from '@twilio-paste/combobox-primitive';
+import {useComboboxPrimitive} from '@twilio-paste/combobox-primitive';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {Box} from '@twilio-paste/box';
-import {
-  FormControlWrapper,
-  FormHelpText,
-  FormLabel,
-  InputElement,
-  FormInputProps,
-  SelectIconWrapper,
-} from '@twilio-paste/form';
+import {FormControlWrapper, FormHelpText, FormLabel, InputElement, SelectIconWrapper} from '@twilio-paste/form';
 import {ComboboxInputWrapper} from './ComboboxInputWrapper';
 import {ComboboxListbox} from './ComboboxListbox';
 import {ComboboxListboxGroup} from './ComboboxListboxGroup';
 import {ComboboxListboxOption} from './ComboboxListboxOption';
+import {RenderGroupItemsProps, RenderItemProps, RenderItemsProps, RenderListBoxProps, ComboboxProps} from './types';
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
 const groupBy = require('lodash.groupby');
@@ -33,47 +23,6 @@ const StyledInputAsSelect = styled(InputElement)(
   })
 );
 /* eslint-enable */
-
-type Item = string | {[key: string]: any};
-
-export interface ComboboxProps extends Omit<FormInputProps, 'id' | 'type' | 'value'> {
-  autocomplete?: boolean;
-  helpText?: string | React.ReactNode;
-  initialIsOpen?: UseComboboxPrimitiveProps<Item>['initialIsOpen'];
-  initialSelectedItem?: UseComboboxPrimitiveProps<Item>['initialSelectedItem'];
-  items: UseComboboxPrimitiveProps<Item>['items'];
-  itemToString?: UseComboboxPrimitiveProps<Item>['itemToString'];
-  labelText: string | NonNullable<React.ReactNode>;
-  onHighlightedIndexChange?: UseComboboxPrimitiveProps<Item>['onHighlightedIndexChange'];
-  onInputValueChange?: UseComboboxPrimitiveProps<Item>['onInputValueChange'];
-  onIsOpenChange?: UseComboboxPrimitiveProps<Item>['onIsOpenChange'];
-  onSelectedItemChange?: UseComboboxPrimitiveProps<Item>['onSelectedItemChange'];
-  optionTemplate?: (item: string | {}) => React.ReactNode;
-  selectedItem?: UseComboboxPrimitiveProps<Item>['selectedItem'];
-  inputValue?: UseComboboxPrimitiveProps<Item>['inputValue'];
-  groupItemsBy?: string;
-}
-
-interface RenderItemProps {
-  item: Item;
-  index: number;
-  getItemProps: any;
-  highlightedIndex: UseComboboxPrimitiveState<Item>['highlightedIndex'];
-  optionTemplate: ComboboxProps['optionTemplate'];
-  inGroup?: boolean;
-  optionUID: (id: any) => string;
-}
-
-interface RenderItemsProps extends Omit<RenderItemProps, 'item' | 'index'> {
-  items: Item[];
-}
-
-interface RenderGroupItemsProps extends RenderItemsProps {
-  groupItemsBy: ComboboxProps['groupItemsBy'];
-  groupUID: (id: any) => string;
-}
-
-type RenderListBoxProps = RenderGroupItemsProps;
 
 const renderItem = ({
   item,
@@ -112,6 +61,7 @@ const renderGroupedItems = ({
   getItemProps,
   highlightedIndex,
   optionTemplate,
+  groupLabelTemplate,
   groupItemsBy,
   optionUID,
   groupUID,
@@ -126,7 +76,7 @@ const renderGroupedItems = ({
         });
       }
       return (
-        <ComboboxListboxGroup groupName={group} key={groupUID(group)}>
+        <ComboboxListboxGroup groupName={group} groupLabelTemplate={groupLabelTemplate} key={groupUID(group)}>
           {groupedItems[group].map((item: {}) => {
             return renderItem({
               item,
@@ -150,12 +100,22 @@ const renderListBox = ({
   getItemProps,
   highlightedIndex,
   optionTemplate,
+  groupLabelTemplate,
   groupItemsBy,
   optionUID,
   groupUID,
 }: RenderListBoxProps): React.ReactNode[] | null =>
   groupItemsBy
-    ? renderGroupedItems({items, getItemProps, highlightedIndex, optionTemplate, groupItemsBy, optionUID, groupUID})
+    ? renderGroupedItems({
+        items,
+        getItemProps,
+        highlightedIndex,
+        optionTemplate,
+        groupItemsBy,
+        groupLabelTemplate,
+        optionUID,
+        groupUID,
+      })
     : renderItems({items, getItemProps, highlightedIndex, optionTemplate, optionUID});
 
 const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
@@ -181,6 +141,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       required,
       selectedItem,
       groupItemsBy,
+      groupLabelTemplate,
       ...props
     },
     ref
@@ -242,10 +203,20 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
             </SelectIconWrapper>
           </ComboboxInputWrapper>
         </FormControlWrapper>
-        <ComboboxListbox {...getMenuProps()}>
-          {isOpen &&
-            renderListBox({items, getItemProps, highlightedIndex, optionTemplate, groupItemsBy, optionUID, groupUID})}
-        </ComboboxListbox>
+        {isOpen && (
+          <ComboboxListbox {...getMenuProps()}>
+            {renderListBox({
+              items,
+              getItemProps,
+              highlightedIndex,
+              optionTemplate,
+              groupItemsBy,
+              groupLabelTemplate,
+              optionUID,
+              groupUID,
+            })}
+          </ComboboxListbox>
+        )}
         {helpText && (
           <FormHelpText id={helpTextId} variant={hasError ? 'error' : undefined}>
             {helpText}

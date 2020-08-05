@@ -2,25 +2,19 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
+import {ComboboxProps} from './types';
 
-export interface ComboboxListboxGroupProps {
+export interface ComboboxListboxGroupProps extends Pick<ComboboxProps, 'groupLabelTemplate'> {
   children: NonNullable<React.ReactNode>;
   groupName: string;
 }
 
-const ComboboxListboxGroup: React.FC<ComboboxListboxGroupProps> = ({children, groupName}) => {
+const ComboboxListboxGroup: React.FC<ComboboxListboxGroupProps> = ({children, groupName, groupLabelTemplate}) => {
   return (
-    <Box as="div" role="group" aria-label={groupName} paddingTop="space20">
-      <Box
-        as="div"
-        role="presentation"
-        padding="space30"
-        paddingBottom="space20"
-        paddingLeft="space50"
-        paddingRight="space50"
-      >
-        <Text as="span" fontWeight="fontWeightSemibold">
-          {groupName}
+    <Box as="div" role="group" aria-label={groupName}>
+      <Box as="div" role="presentation" paddingY="space30" paddingX="space70">
+        <Text as="span" fontWeight="fontWeightBold">
+          {groupLabelTemplate ? groupLabelTemplate(groupName) : groupName}
         </Text>
       </Box>
       {children}

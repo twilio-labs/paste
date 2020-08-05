@@ -2,7 +2,7 @@
 
 exports[`Combobox  Render should render 1`] = `
 <DocumentFragment>
-  .emotion-11 {
+  .emotion-27 {
   box-sizing: border-box;
   position: relative;
 }
@@ -158,24 +158,45 @@ exports[`Combobox  Render should render 1`] = `
   color: colorTextIcon;
 }
 
-.emotion-8 {
+.emotion-24 {
   box-sizing: border-box;
   background-color: colorBackgroundBody;
-  border-bottom-left-radius: borderRadius20;
-  border-bottom-right-radius: borderRadius20;
-  box-shadow: shadowCard;
+  border-radius: borderRadius20;
+  border-color: colorBorderLight;
+  border-width: borderWidth10;
+  border-style: solid;
+  box-shadow: shadow;
   list-style-type: none;
   margin: space0;
   max-height: size50;
   overflow-y: auto;
   padding: space0;
+  padding-top: space30;
+  padding-bottom: space30;
   position: absolute;
   width: 100%;
   z-index: zIndex10;
   margin-top: space20;
 }
 
-.emotion-10 {
+.emotion-9 {
+  box-sizing: border-box;
+  background-color: colorBackgroundBody;
+  padding: space30;
+  cursor: pointer;
+  padding-left: space70;
+  padding-right: space70;
+}
+
+.emotion-8 {
+  margin: 0;
+  padding: 0;
+  color: colorText;
+  font-size: fontSize30;
+  line-height: lineHeight30;
+}
+
+.emotion-26 {
   box-sizing: border-box;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
@@ -193,7 +214,7 @@ exports[`Combobox  Render should render 1`] = `
   min-width: size0;
 }
 
-.emotion-9 {
+.emotion-25 {
   margin: 0;
   padding: 0;
   color: colorTextWeak;
@@ -202,7 +223,7 @@ exports[`Combobox  Render should render 1`] = `
 }
 
 <div
-    class="emotion-11"
+    class="emotion-27"
   >
     <label
       class="emotion-2"
@@ -232,7 +253,7 @@ exports[`Combobox  Render should render 1`] = `
       width="100%"
     >
       <div
-        aria-expanded="false"
+        aria-expanded="true"
         aria-haspopup="listbox"
         aria-owns="downshift-1-menu"
         class="emotion-6"
@@ -283,17 +304,138 @@ exports[`Combobox  Render should render 1`] = `
     </div>
     <ul
       aria-labelledby="downshift-1-label"
-      class="emotion-8"
+      class="emotion-24"
       id="downshift-1-menu"
       role="listbox"
       width="100%"
-    />
+    >
+      <li
+        aria-selected="false"
+        class="emotion-9"
+        cursor="pointer"
+        id="downshift-1-item-0"
+        role="option"
+      >
+        <span
+          class="emotion-8"
+          color="colorText"
+          font-size="fontSize30"
+        >
+          Alert
+        </span>
+      </li>
+      <li
+        aria-selected="false"
+        class="emotion-9"
+        cursor="pointer"
+        id="downshift-1-item-1"
+        role="option"
+      >
+        <span
+          class="emotion-8"
+          color="colorText"
+          font-size="fontSize30"
+        >
+          Anchor
+        </span>
+      </li>
+      <li
+        aria-selected="false"
+        class="emotion-9"
+        cursor="pointer"
+        id="downshift-1-item-2"
+        role="option"
+      >
+        <span
+          class="emotion-8"
+          color="colorText"
+          font-size="fontSize30"
+        >
+          Button
+        </span>
+      </li>
+      <li
+        aria-selected="false"
+        class="emotion-9"
+        cursor="pointer"
+        id="downshift-1-item-3"
+        role="option"
+      >
+        <span
+          class="emotion-8"
+          color="colorText"
+          font-size="fontSize30"
+        >
+          Card
+        </span>
+      </li>
+      <li
+        aria-selected="false"
+        class="emotion-9"
+        cursor="pointer"
+        id="downshift-1-item-4"
+        role="option"
+      >
+        <span
+          class="emotion-8"
+          color="colorText"
+          font-size="fontSize30"
+        >
+          Heading
+        </span>
+      </li>
+      <li
+        aria-selected="false"
+        class="emotion-9"
+        cursor="pointer"
+        id="downshift-1-item-5"
+        role="option"
+      >
+        <span
+          class="emotion-8"
+          color="colorText"
+          font-size="fontSize30"
+        >
+          List
+        </span>
+      </li>
+      <li
+        aria-selected="false"
+        class="emotion-9"
+        cursor="pointer"
+        id="downshift-1-item-6"
+        role="option"
+      >
+        <span
+          class="emotion-8"
+          color="colorText"
+          font-size="fontSize30"
+        >
+          Modal
+        </span>
+      </li>
+      <li
+        aria-selected="false"
+        class="emotion-9"
+        cursor="pointer"
+        id="downshift-1-item-7"
+        role="option"
+      >
+        <span
+          class="emotion-8"
+          color="colorText"
+          font-size="fontSize30"
+        >
+          Paragraph
+        </span>
+      </li>
+    </ul>
     <div
-      class="emotion-10"
+      class="emotion-26"
       display="flex"
     >
       <div
-        class="emotion-9"
+        class="emotion-25"
         color="colorTextWeak"
         font-size="fontSize30"
         id="1"

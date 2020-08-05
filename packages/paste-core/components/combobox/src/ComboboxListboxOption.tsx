@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {Space} from '@twilio-paste/style-props';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps, BoxStyleProps} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 
 export interface ComboboxListboxOptionProps {
@@ -10,14 +9,14 @@ export interface ComboboxListboxOptionProps {
   variant: 'default' | 'groupOption';
 }
 
-const VariantStyles = {
+const VariantStyles: {[key in ComboboxListboxOptionProps['variant']]: BoxStyleProps} = {
   groupOption: {
-    paddingLeft: 'space70' as Space,
-    paddingRight: 'space70' as Space,
+    paddingLeft: 'space90',
+    paddingRight: 'space90',
   },
   default: {
-    paddingLeft: 'space50' as Space,
-    paddingRight: 'space50' as Space,
+    paddingLeft: 'space70',
+    paddingRight: 'space70',
   },
 };
 
@@ -27,13 +26,17 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
       <Box
         {...safelySpreadBoxProps(props)}
         as="li"
+        backgroundColor={highlighted ? 'colorBackgroundPrimaryLightest' : 'colorBackgroundBody'}
         padding="space30"
-        backgroundColor={highlighted ? 'colorBackgroundPrimaryLightest' : null}
         cursor="pointer"
         ref={ref}
         {...VariantStyles[variant]}
       >
-        <Text as="span" textDecoration={highlighted ? 'underline' : null}>
+        <Text
+          as="span"
+          color={highlighted ? 'colorTextLink' : 'colorText'}
+          textDecoration={highlighted ? 'underline' : null}
+        >
           {children}
         </Text>
       </Box>
