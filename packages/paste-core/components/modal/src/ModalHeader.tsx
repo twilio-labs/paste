@@ -27,7 +27,7 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({children, ...props}) => {
           {children}
         </Flex>
         <Button variant="reset" size="reset" onClick={() => onDismiss()}>
-          <CloseIcon decorative={false} iconColor="colorTextWeak" size="sizeIcon60" title="Close modal" />
+          <CloseIcon decorative={false} color="colorTextWeak" size="sizeIcon60" title="Close modal" />
         </Button>
       </Flex>
     </Box>

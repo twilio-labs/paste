@@ -128,7 +128,7 @@ interactive element such as [Button](/components/button) and [Anchor](/component
 We can change the icon color directly using [text color tokens](/tokens/#text-colors).
 
 <LivePreview scope={{LoadingIcon}} language="jsx">
-  {`<LoadingIcon decorative={true} iconColor="colorTextError" />`}
+  {`<LoadingIcon decorative={true} color="colorTextError" />`}
 </LivePreview>
 
 Alternatively, icons can inherit the current text color.
@@ -199,7 +199,7 @@ import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 | display?   | `ResponsiveValue<CSS.DisplayProperty>` |                                                                                                                                                       | `inline-flex`  |
 | decorative | boolean                                | Whether or not the SVG is just visual flair or adds meaning to the page. Specifically for screenreaders to know whether to read out the title or not. |                |
 | size?      | IconSize                               | `sizeIcon10` `sizeIcon20` `sizeIcon30` `sizeIcon40`                                                                                                   | `sizeIcon20`   |
-| iconColor? | TextColor                              | Sets the icon color to any of our text color tokens or `currentColor`, which inherits text color from the parent element.                             | `currentColor` |
+| color?     | TextColor                              | Sets the icon color to any of our text color tokens or `currentColor`, which inherits text color from the parent element.                             | `currentColor` |
 
 ---
 
@@ -223,8 +223,6 @@ component. Our icon components have accessibility baked in. They also use our to
 sizing and coloring. With icon components, you can import only the icons your project needs.
 
 Curious why we chose to make React component icons? Check our [write-up document](https://github.com/twilio-labs/svg-to-react/blob/master/RATIONALE.md).
-
----
 
 <ChangelogRevealer>
   <Changelog />

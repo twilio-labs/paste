@@ -47,12 +47,12 @@ export interface AlertProps {
 const renderAlertIcon = (variant: AlertVariants): React.ReactElement => {
   switch (variant) {
     case AlertVariants.ERROR:
-      return <ErrorIcon iconColor="colorTextError" decorative={false} title="error: " size="sizeIcon30" />;
+      return <ErrorIcon color="colorTextError" decorative={false} title="error: " size="sizeIcon30" />;
     case AlertVariants.WARNING:
-      return <WarningIcon iconColor="colorTextWarning" decorative={false} title="warning: " size="sizeIcon30" />;
+      return <WarningIcon color="colorTextWarning" decorative={false} title="warning: " size="sizeIcon30" />;
     case AlertVariants.NEUTRAL:
     default:
-      return <InformationIcon iconColor="colorTextIcon" decorative={false} title="information: " size="sizeIcon30" />;
+      return <InformationIcon color="colorTextIcon" decorative={false} title="information: " size="sizeIcon30" />;
   }
 };
 
@@ -78,7 +78,7 @@ const Alert: React.FC<AlertProps> = ({children, onDismiss, variant, role, ...pro
         {onDismiss && typeof onDismiss === 'function' && (
           <MediaFigure align="end" spacing="space70">
             <Button onClick={onDismiss} variant="link" size="reset">
-              <CloseIcon iconColor="colorTextIcon" decorative={false} title="dismiss this alert" size="sizeIcon30" />
+              <CloseIcon color="colorTextIcon" decorative={false} title="dismiss this alert" size="sizeIcon30" />
             </Button>
           </MediaFigure>
         )}
