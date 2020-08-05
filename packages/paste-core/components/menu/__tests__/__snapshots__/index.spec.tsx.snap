@@ -244,10 +244,7 @@ exports[`Menu  Render should render 1`] = `
 }
 
 .emotion-16 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: block;
   width: sizeIcon30;
   height: sizeIcon30;
   color: colorTextIcon;
@@ -465,7 +462,8 @@ exports[`Menu  Render should render 1`] = `
         >
           <span
             class="emotion-16"
-            display="inline-flex"
+            color="colorTextIcon"
+            display="block"
           >
             <svg
               aria-hidden="true"

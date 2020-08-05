@@ -152,10 +152,7 @@ exports[`Combobox  Render should render 1`] = `
 }
 
 .emotion-4 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: block;
   width: sizeIcon30;
   height: sizeIcon30;
   color: currentColor;
@@ -263,7 +260,8 @@ exports[`Combobox  Render should render 1`] = `
         >
           <span
             class="emotion-4"
-            display="inline-flex"
+            color="currentColor"
+            display="block"
           >
             <svg
               aria-hidden="true"
