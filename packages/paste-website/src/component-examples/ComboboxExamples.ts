@@ -206,6 +206,83 @@ render(
 )
 `.trim();
 
+export const groupedLabelComboboxExample = `
+const groupedItems = [
+  {type: 'Components', label: 'Alert'},
+  {type: 'Components', label: 'Anchor'},
+  {type: 'Components', label: 'Button'},
+  {type: 'Components', label: 'Card'},
+  {type: 'Components', label: 'Heading'},
+  {type: 'Components', label: 'List'},
+  {type: 'Components', label: 'Modal'},
+  {type: 'Components', label: 'Paragraph'},
+  {type: 'Primitives', label: 'Box'},
+  {type: 'Primitives', label: 'Text'},
+  {type: 'Primitives', label: 'Non-modal dialog'},
+  {type: 'Layout', label: 'Grid'},
+  {label: 'Design Tokens'},
+];
+
+const GroupedCombobox = () => {
+  const [inputItems, setInputItems] = React.useState(groupedItems);
+  return (
+    <Combobox
+      autocomplete
+      groupItemsBy="type"
+      items={inputItems}
+      labelText="Choose a component:"
+      helpText="This is the help text"
+      optionTemplate={(item) => <div>{item.label}</div>}
+      groupLabelTemplate={(groupName) => {
+        if(groupName === 'Components') {
+          return (
+            <MediaObject verticalAlign="center">
+              <MediaFigure spacing="space20">
+                <ProductStudioIcon color="colorTextIcon" decorative />
+              </MediaFigure>
+              <MediaBody>{groupName}</MediaBody>
+            </MediaObject>
+          );
+        }
+        if(groupName === 'Primitives') {
+          return (
+            <MediaObject verticalAlign="center">
+              <MediaFigure spacing="space20">
+                <ProductAutopilotIcon color="colorTextIcon" decorative />
+              </MediaFigure>
+              <MediaBody>{groupName}</MediaBody>
+            </MediaObject>
+          );
+        }
+        if(groupName === 'Layout') {
+          return (
+            <MediaObject verticalAlign="center">
+              <MediaFigure spacing="space20">
+                <ProductInsightsIcon color="colorTextIcon" decorative />
+              </MediaFigure>
+              <MediaBody>{groupName}</MediaBody>
+            </MediaObject>
+          );
+        }
+        return {groupName}
+      }}
+      onInputValueChange={({inputValue}) => {
+        if (inputValue !== undefined) {
+          setInputItems(
+            _.filter(groupedItems, (item) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
+          );
+        }
+      }}
+      itemToString={item => (item ? item.label : null)}
+    />
+  );
+};
+
+render(
+  <GroupedCombobox />
+)
+`.trim();
+
 export const errorExample = `
 const products = ['SMS', 'Phone Numbers', 'Video'];
 
