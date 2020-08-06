@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.27](https://github.com/twilio-labs/paste/compare/@twilio-paste/stack@0.1.26...@twilio-paste/stack@0.1.27) (2020-08-06)
+
+
+### Bug Fixes
+
+* **stack:** now works with text strings as children ([d994cad](https://github.com/twilio-labs/paste/commit/d994cad4225141e22337f46ea02e75fbf8cb79a6))
+
+
+
+
+
 ## [0.1.26](https://github.com/twilio-labs/paste/compare/@twilio-paste/stack@0.1.25...@twilio-paste/stack@0.1.26) (2020-08-04)
 
 **Note:** Version bump only for package @twilio-paste/stack

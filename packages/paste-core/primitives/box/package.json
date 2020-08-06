@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/box",
-  "version": "2.8.3",
+  "version": "2.9.0",
   "category": "layout",
   "status": "production",
   "description": "A primitive component that can be used to create all block level styles in Paste",
@@ -29,7 +29,7 @@
   },
   "peerDependencies": {
     "@twilio-paste/design-tokens": "^6.0.1",
-    "@twilio-paste/style-props": "^1.4.2",
+    "@twilio-paste/style-props": "^1.4.3",
     "@twilio-paste/styling-library": "^0.1.1",
     "@twilio-paste/theme": "^3.2.12",
     "@twilio-paste/types": "^3.0.16",
@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@twilio-paste/design-tokens": "^6.0.1",
-    "@twilio-paste/style-props": "^1.4.2",
+    "@twilio-paste/style-props": "^1.4.3",
     "@twilio-paste/styling-library": "^0.1.1",
     "@twilio-paste/theme": "^3.2.12",
     "@twilio-paste/types": "^3.0.16"

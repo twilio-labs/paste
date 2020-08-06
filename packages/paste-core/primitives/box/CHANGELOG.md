@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.8.3...@twilio-paste/box@2.9.0) (2020-08-06)
+
+
+### Features
+
+* **box:** added two style props and refactored typings ([06541c8](https://github.com/twilio-labs/paste/commit/06541c8f1e764661a664e8b6147d0530eafa6bce))
+
+
+
+
+
 ## [2.8.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.8.2...@twilio-paste/box@2.8.3) (2020-08-04)
 
 **Note:** Version bump only for package @twilio-paste/box
