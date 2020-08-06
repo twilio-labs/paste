@@ -96,7 +96,7 @@ exports[`Menu  Render should render 1`] = `
       Code
     </span>
   </button>
-  .emotion-6 {
+  .emotion-4 {
   box-sizing: border-box;
   width: auto;
   -webkit-appearance: none;
@@ -127,7 +127,7 @@ exports[`Menu  Render should render 1`] = `
   line-height: lineHeight20;
 }
 
-.emotion-6:hover {
+.emotion-4:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
   color: colorTextInverse;
@@ -135,7 +135,7 @@ exports[`Menu  Render should render 1`] = `
   border-color: colorBorderPrimaryDarker;
 }
 
-.emotion-6:focus {
+.emotion-4:focus {
   -webkit-text-decoration: none;
   text-decoration: none;
   box-shadow: shadowFocus;
@@ -143,8 +143,8 @@ exports[`Menu  Render should render 1`] = `
   border-color: colorBorderPrimaryDarker;
 }
 
-.emotion-6:active,
-.emotion-6[data-active=true] {
+.emotion-4:active,
+.emotion-4[data-active=true] {
   -webkit-text-decoration: none;
   text-decoration: none;
   box-shadow: shadowFocus;
@@ -153,7 +153,7 @@ exports[`Menu  Render should render 1`] = `
   border-color: colorBorderPrimaryDarker;
 }
 
-.emotion-5 {
+.emotion-3 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -164,30 +164,182 @@ exports[`Menu  Render should render 1`] = `
   opacity: 1;
 }
 
-.emotion-14 {
+.emotion-9 {
   box-sizing: border-box;
   background-color: colorBackgroundBody;
   border-style: solid;
   border-width: borderWidth10;
   border-color: colorBorderLight;
   border-radius: borderRadius20;
-  box-shadow: shadowCard;
+  box-shadow: shadow;
   max-width: size30;
   min-width: size20;
   z-index: zIndex20;
-  padding-top: space40;
-  padding-bottom: space40;
+  padding-top: space30;
+  padding-bottom: space30;
 }
 
-.emotion-14:focus {
+.emotion-9:focus {
   outline: none;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  color: colorText;
+  display: block;
+  padding-top: space30;
+  padding-bottom: space30;
+  padding-left: space70;
+  padding-right: space70;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-0:hover {
+  cursor: pointer;
+}
+
+.emotion-0:focus {
+  color: colorTextLink;
+  outline: none;
+}
+
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
+  cursor: not-allowed;
+}
+
+.emotion-2 {
+  box-sizing: border-box;
+  margin: space0;
+  margin-bottom: space40;
+  margin-top: space40;
+  border-width: borderWidth0;
+  border-color: colorBorderLighter;
+  border-style: solid;
+  border-bottom-width: borderWidth20;
+  width: auto;
+}
+
+.emotion-6 {
+  box-sizing: border-box;
+  color: colorTextWeaker;
+  display: block;
+  padding-top: space30;
+  padding-bottom: space30;
+  padding-left: space70;
+  padding-right: space70;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-6:hover {
+  cursor: pointer;
+}
+
+.emotion-6:focus {
+  color: colorTextLink;
+  outline: none;
+}
+
+.emotion-6:disabled,
+.emotion-6:disabled:focus,
+.emotion-6:disabled:hover,
+.emotion-6[aria-disabled=true],
+.emotion-6[aria-disabled=true]:focus,
+.emotion-6[aria-disabled=true]:hover {
+  cursor: not-allowed;
+}
+
+.emotion-17 {
+  box-sizing: border-box;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-14 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-left: space70;
+  padding-right: space70;
+  padding-top: space30;
+  padding-bottom: space30;
+  cursor: default;
+}
+
+.emotion-12 {
+  box-sizing: border-box;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: sizeIcon30;
+  height: sizeIcon30;
+}
+
+.emotion-11 {
+  display: block;
+  width: sizeIcon30;
+  height: sizeIcon30;
+  color: colorTextIcon;
+}
+
+.emotion-13 {
+  margin: 0;
+  padding: 0;
+  color: colorText;
+  font-weight: fontWeightBold;
+  padding-left: space20;
+  font-size: fontSize30;
+  line-height: lineHeight30;
+}
+
+.emotion-16 {
+  box-sizing: border-box;
+  color: colorTextWeaker;
+  display: block;
+  padding-top: space30;
+  padding-bottom: space30;
+  padding-left: space90;
+  padding-right: space90;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-16:hover {
+  cursor: pointer;
+}
+
+.emotion-16:focus {
+  color: colorTextLink;
+  outline: none;
+}
+
+.emotion-16:disabled,
+.emotion-16:disabled:focus,
+.emotion-16:disabled:hover,
+.emotion-16[aria-disabled=true],
+.emotion-16[aria-disabled=true]:focus,
+.emotion-16[aria-disabled=true]:hover {
+  cursor: not-allowed;
 }
 
 .emotion-1 {
   box-sizing: border-box;
+  color: colorText;
   display: block;
-  padding-top: space20;
-  padding-bottom: space20;
+  padding-top: space30;
+  padding-bottom: space30;
   padding-left: space70;
   padding-right: space70;
   -webkit-text-decoration: none;
@@ -196,12 +348,11 @@ exports[`Menu  Render should render 1`] = `
 
 .emotion-1:hover {
   cursor: pointer;
-  background-color: colorBackgroundPrimaryLightest;
 }
 
 .emotion-1:focus {
+  color: colorTextLink;
   outline: none;
-  background-color: colorBackgroundPrimaryLightest;
 }
 
 .emotion-1:disabled,
@@ -213,127 +364,40 @@ exports[`Menu  Render should render 1`] = `
   cursor: not-allowed;
 }
 
-.emotion-0 {
-  margin: 0;
-  padding: 0;
+.emotion-15 {
+  box-sizing: border-box;
   color: colorText;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  font-size: fontSize30;
-  line-height: lineHeight30;
-}
-
-.emotion-4 {
-  box-sizing: border-box;
-  margin: space0;
-  margin-bottom: space30;
-  margin-top: space30;
-  border-width: borderWidth0;
-  border-color: colorBorderLighter;
-  border-style: solid;
-  border-bottom-width: borderWidth20;
-  width: auto;
-}
-
-.emotion-9 {
-  margin: 0;
-  padding: 0;
-  color: colorTextWeaker;
-  font-size: fontSize30;
-  line-height: lineHeight30;
-}
-
-.emotion-24 {
-  box-sizing: border-box;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-19 {
-  box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding-left: space50;
-  padding-right: space70;
-  padding-top: space20;
-  padding-bottom: space20;
-  cursor: default;
-}
-
-.emotion-17 {
-  box-sizing: border-box;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  width: sizeIcon30;
-  height: sizeIcon30;
-}
-
-.emotion-16 {
   display: block;
-  width: sizeIcon30;
-  height: sizeIcon30;
-  color: colorTextIcon;
-}
-
-.emotion-18 {
-  margin: 0;
-  padding: 0;
-  color: colorText;
-  font-weight: fontWeightBold;
-  padding-left: space20;
-  font-size: fontSize30;
-  line-height: lineHeight30;
-}
-
-.emotion-21 {
-  box-sizing: border-box;
-  display: block;
-  padding-top: space20;
-  padding-bottom: space20;
+  padding-top: space30;
+  padding-bottom: space30;
   padding-left: space90;
-  padding-right: space70;
+  padding-right: space90;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-21:hover {
+.emotion-15:hover {
   cursor: pointer;
-  background-color: colorBackgroundPrimaryLightest;
 }
 
-.emotion-21:focus {
+.emotion-15:focus {
+  color: colorTextLink;
   outline: none;
-  background-color: colorBackgroundPrimaryLightest;
 }
 
-.emotion-21:disabled,
-.emotion-21:disabled:focus,
-.emotion-21:disabled:hover,
-.emotion-21[aria-disabled=true],
-.emotion-21[aria-disabled=true]:focus,
-.emotion-21[aria-disabled=true]:hover {
+.emotion-15:disabled,
+.emotion-15:disabled:focus,
+.emotion-15:disabled:hover,
+.emotion-15[aria-disabled=true],
+.emotion-15[aria-disabled=true]:focus,
+.emotion-15[aria-disabled=true]:hover {
   cursor: not-allowed;
-}
-
-.emotion-2 {
-  margin: 0;
-  padding: 0;
-  color: colorText;
-  font-size: fontSize30;
-  line-height: lineHeight30;
 }
 
 <div
     aria-label="Code"
     aria-orientation="vertical"
-    class="emotion-14"
+    class="emotion-9"
     data-dialog="true"
     hidden=""
     id="menu-example"
@@ -342,42 +406,31 @@ exports[`Menu  Render should render 1`] = `
     tabindex="-1"
   >
     <a
-      class="emotion-1"
+      class="emotion-0"
+      color="colorText"
       data-testid="example-menu-item"
       display="block"
       id="menu-example-1"
       role="menuitem"
       tabindex="0"
-      text-decoration="none"
+      text-decoration="underline"
     >
-      <div
-        class="emotion-0"
-        color="colorText"
-        font-size="fontSize30"
-        text-decoration="underline"
-      >
-        About Visual Studio Code
-      </div>
+      About Visual Studio Code
     </a>
     <a
       class="emotion-1"
+      color="colorText"
       display="block"
       id="menu-example-2"
       role="menuitem"
       tabindex="-1"
       text-decoration="none"
     >
-      <div
-        class="emotion-2"
-        color="colorText"
-        font-size="fontSize30"
-      >
-        Check for Updates...
-      </div>
+      Check for Updates...
     </a>
     <hr
       aria-orientation="horizontal"
-      class="emotion-4"
+      class="emotion-2"
       data-testid="example-menu-separator"
       role="separator"
       width="auto"
@@ -387,7 +440,7 @@ exports[`Menu  Render should render 1`] = `
       aria-controls="sub-menu"
       aria-expanded="false"
       aria-haspopup="menu"
-      class="emotion-6"
+      class="emotion-4"
       color="colorTextInverse"
       cursor="pointer"
       data-testid="example-submenu-trigger"
@@ -404,7 +457,7 @@ exports[`Menu  Render should render 1`] = `
     >
       <span
         aria-hidden="false"
-        class="emotion-5"
+        class="emotion-3"
         display="flex"
         opacity="1"
         text-decoration="inherit"
@@ -415,7 +468,7 @@ exports[`Menu  Render should render 1`] = `
     <div
       aria-label="Preferences"
       aria-orientation="vertical"
-      class="emotion-14"
+      class="emotion-9"
       data-dialog="true"
       data-testid="example-submenu"
       hidden=""
@@ -425,26 +478,21 @@ exports[`Menu  Render should render 1`] = `
       tabindex="-1"
     >
       <a
-        class="emotion-1"
+        class="emotion-0"
+        color="colorText"
         data-testid="example-submenu-item"
         display="block"
         id="sub-menu-1"
         role="menuitem"
         tabindex="0"
-        text-decoration="none"
+        text-decoration="underline"
       >
-        <div
-          class="emotion-0"
-          color="colorText"
-          font-size="fontSize30"
-          text-decoration="underline"
-        >
-          Settings
-        </div>
+        Settings
       </a>
       <a
         aria-disabled="true"
-        class="emotion-1"
+        class="emotion-6"
+        color="colorTextWeaker"
         data-testid="example-disabled-submenu-item"
         disabled=""
         display="block"
@@ -452,60 +500,49 @@ exports[`Menu  Render should render 1`] = `
         role="menuitem"
         text-decoration="none"
       >
-        <div
-          class="emotion-9"
-          color="colorTextWeaker"
-          font-size="fontSize30"
-        >
-          Extensions
-        </div>
+        Extensions
       </a>
       <hr
         aria-orientation="horizontal"
-        class="emotion-4"
+        class="emotion-2"
         role="separator"
         width="auto"
       />
       <a
         class="emotion-1"
+        color="colorText"
         display="block"
         id="sub-menu-3"
         role="menuitem"
         tabindex="-1"
         text-decoration="none"
       >
-        <div
-          class="emotion-2"
-          color="colorText"
-          font-size="fontSize30"
-        >
-          Keyboard shortcuts
-        </div>
+        Keyboard shortcuts
       </a>
     </div>
     <hr
       aria-orientation="horizontal"
-      class="emotion-4"
+      class="emotion-2"
       data-testid="example-menu-separator-2"
       role="separator"
       width="auto"
     />
     <div
       aria-label="Search Options"
-      class="emotion-24"
+      class="emotion-17"
       role="presentation"
       text-decoration="none"
     >
       <div
-        class="emotion-19"
+        class="emotion-14"
         cursor="default"
         display="flex"
       >
         <div
-          class="emotion-17"
+          class="emotion-12"
         >
           <span
-            class="emotion-16"
+            class="emotion-11"
             color="colorTextIcon"
             display="block"
           >
@@ -525,48 +562,38 @@ exports[`Menu  Render should render 1`] = `
             </svg>
           </span>
         </div>
-        <div
-          class="emotion-18"
+        <span
+          class="emotion-13"
           color="colorText"
           font-size="fontSize30"
           font-weight="fontWeightBold"
           role="presentation"
         >
           Search Options
-        </div>
+        </span>
       </div>
       <a
-        class="emotion-21"
+        class="emotion-15"
+        color="colorText"
         display="block"
         id="menu-example-4"
         role="menuitem"
         tabindex="-1"
         text-decoration="none"
       >
-        <div
-          class="emotion-2"
-          color="colorText"
-          font-size="fontSize30"
-        >
-          Search with Google
-        </div>
+        Search with Google
       </a>
       <a
         aria-disabled="true"
-        class="emotion-21"
+        class="emotion-16"
+        color="colorTextWeaker"
         disabled=""
         display="block"
         id="menu-example-5"
         role="menuitem"
         text-decoration="none"
       >
-        <div
-          class="emotion-9"
-          color="colorTextWeaker"
-          font-size="fontSize30"
-        >
-          Search with Bing
-        </div>
+        Search with Bing
       </a>
     </div>
   </div>
