@@ -121,7 +121,7 @@ const NonHookComboboxPrimitive: React.FC<{}> = () => {
             {...getRootProps({}, {suppressRefError: true})}
           >
             <FormInput type="text" {...getInputProps()} />
-            <Button {...getToggleButtonProps()} aria-label={'toggle menu'}>
+            <Button {...getToggleButtonProps()} variant="primary" aria-label={'toggle menu'}>
               <ChevronDownIcon size="sizeIcon30" decorative={false} title="toggle menu" />
             </Button>
           </Box>
