@@ -22,7 +22,7 @@ storiesOf('Components|Button', module)
         fullWidth={boolean('fullWidth', false)}
         disabled={boolean('disabled', false)}
         loading={boolean('loading', false)}
-        as={text('as', 'button')}
+        as={text('as', 'button') as keyof JSX.IntrinsicElements}
         href={text('href', '')}
         tabIndex={tabIndexOptions}
         onClick={action('handleClick')}
@@ -43,7 +43,7 @@ storiesOf('Components|Button', module)
         disabled={boolean('disabled', false)}
         loading={boolean('loading', false)}
         as={text('as', 'button')}
-        href={text('href', '')}
+        href={text('href', '') as keyof JSX.IntrinsicElements}
         tabIndex={tabIndexOptions}
         onClick={action('handleClick')}
         onFocus={action('handleFocus')}
@@ -62,7 +62,7 @@ storiesOf('Components|Button', module)
         size={select('size', ButtonSizeOptions, 'icon') as ButtonSizes}
         disabled={boolean('disabled', false)}
         loading={boolean('loading', false)}
-        as={text('as', 'button')}
+        as={text('as', 'button') as keyof JSX.IntrinsicElements}
         href={text('href', '')}
         tabIndex={tabIndexOptions}
         onClick={action('handleClick')}

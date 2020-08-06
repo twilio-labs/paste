@@ -9,9 +9,6 @@
   ],
   "references": [
     {
-      "path": "../../layout/absolute"
-    },
-    {
       "path": "../../primitives/box"
     },
     {
@@ -22,6 +19,9 @@
     },
     {
       "path": "../spinner"
+    },
+    {
+      "path": "../../layout/stack"
     },
     {
       "path": "../../../paste-style-props"
