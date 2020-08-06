@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {styled, css} from '@twilio-paste/styling-library';
 import {FormControlWrapper} from './shared/FormControlWrapper';
-import {FormInputTypes} from './shared/types';
+import {FormInputTypes, FieldVariants} from './shared/types';
 import {safelySpreadFormControlProps} from './shared/Utils';
 
 export interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -21,6 +21,7 @@ export interface FormInputProps extends React.InputHTMLAttributes<HTMLInputEleme
   style?: never;
   type: FormInputTypes;
   value: string;
+  variant?: FieldVariants;
   width?: never;
 }
 
@@ -31,14 +32,14 @@ interface TypeProps {
 }
 
 /* eslint-disable emotion/syntax-preference */
-export const InputElement = styled.input(
+export const InputElement = styled.input<FormInputProps>(props =>
   css({
     appearance: 'none',
     background: 'transparent',
     border: 'none',
     borderRadius: 'borderRadius20',
     boxShadow: 'none',
-    color: 'colorText',
+    color: 'inherit',
     display: 'block',
     fontFamily: 'inherit',
     fontSize: 'fontSize30',
@@ -53,12 +54,16 @@ export const InputElement = styled.input(
     width: '100%',
 
     '&::placeholder': {
-      color: 'colorTextWeak',
+      color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
       fontStyle: 'italic',
     },
 
+    '&:focus::placeholder': {
+      color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
+    },
+
     '&:disabled': {
-      color: 'colorTextWeaker',
+      color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
       cursor: 'not-allowed',
     },
   })
@@ -67,7 +72,21 @@ export const InputElement = styled.input(
 
 const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
   (
-    {id, type, name, value, placeholder, disabled, readOnly, required, hasError, insertBefore, insertAfter, ...props},
+    {
+      disabled,
+      hasError,
+      id,
+      insertAfter,
+      insertBefore,
+      name,
+      placeholder,
+      readOnly,
+      required,
+      type,
+      value,
+      variant,
+      ...props
+    },
     ref
   ) => {
     const typeProps: TypeProps = {type};
@@ -87,6 +106,7 @@ const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
         insertBefore={insertBefore}
         readOnly={readOnly}
         type={type}
+        variant={variant}
       >
         <InputElement
           aria-invalid={hasError}
@@ -101,6 +121,7 @@ const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
           ref={ref}
           required={required}
           value={value}
+          variant={variant}
         />
       </FormControlWrapper>
     );
@@ -111,19 +132,19 @@ FormInput.displayName = 'FormInput';
 
 if (process.env.NODE_ENV === 'development') {
   FormInput.propTypes = {
-    id: PropTypes.string.isRequired,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel']).isRequired as any,
-    name: PropTypes.string,
-    value: PropTypes.string.isRequired,
-    placeholder: PropTypes.string,
     disabled: PropTypes.bool,
-    readOnly: PropTypes.bool,
-    required: PropTypes.bool,
     hasError: PropTypes.bool,
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
+    placeholder: PropTypes.string,
+    readOnly: PropTypes.bool,
+    required: PropTypes.bool,
+    type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel']).isRequired as any,
+    value: PropTypes.string.isRequired,
   };
 }
 

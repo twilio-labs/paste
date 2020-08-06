@@ -13,7 +13,7 @@ export interface OptionProps extends React.OptionHTMLAttributes<HTMLOptionElemen
 const OptionElement = styled.option(
   css({
     background: 'transparent',
-    color: 'colorText',
+    color: 'inherit',
     fontFamily: 'fontFamilyText',
     lineHeight: 'lineHeight50',
     paddingTop: 'space30',

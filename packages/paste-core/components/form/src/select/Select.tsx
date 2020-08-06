@@ -2,9 +2,11 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {styled, css} from '@twilio-paste/styling-library';
 import {Box} from '@twilio-paste/box';
+import {TextColor} from '@twilio-paste/style-props';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {FormControlWrapper} from '../shared/FormControlWrapper';
 import {restrictedProps} from '../shared/restricted-attributes';
+import {FieldVariants} from '../shared/types';
 
 export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   children: NonNullable<React.ReactNode>;
@@ -14,6 +16,7 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
   insertBefore?: React.ReactNode;
   onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   value: string | string[];
+  variant?: FieldVariants;
 }
 
 export const SelectIconWrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
@@ -31,14 +34,14 @@ export const SelectIconWrapper: React.FC<{children: React.ReactNode}> = ({childr
   </Box>
 );
 
-const SelectElement = styled.select(
+const SelectElement = styled.select<SelectProps>(props =>
   css({
     appearance: 'none',
     background: 'transparent',
     border: 'none',
     borderRadius: 'borderRadius20',
     boxShadow: 'none',
-    color: 'colorText',
+    color: 'inherit',
     cursor: 'pointer',
     display: 'block',
     fontFamily: 'inherit',
@@ -54,41 +57,52 @@ const SelectElement = styled.select(
     width: '100%',
 
     '&:disabled': {
-      color: 'colorTextWeaker',
+      color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
       cursor: 'not-allowed',
     },
   })
 );
 
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
-  ({disabled, hasError, insertBefore, insertAfter, children, size, multiple, ...props}, ref) => (
-    <FormControlWrapper disabled={disabled} hasError={hasError} insertAfter={insertAfter} insertBefore={insertBefore}>
-      <Box display="flex" width="100%" position="relative">
-        <SelectElement
-          aria-invalid={hasError}
-          ref={ref}
-          multiple={multiple}
-          disabled={disabled}
-          {...props}
-          {...restrictedProps}
-          size={multiple ? size : 0}
-          data-not-selectize="true"
-        >
-          {children}
-        </SelectElement>
-        {!multiple && (
-          <SelectIconWrapper>
-            <ChevronDownIcon
-              color={disabled ? 'colorTextWeaker' : 'colorTextIcon'}
-              size="sizeIcon30"
-              decorative
-              aria-hidden="true"
-            />
-          </SelectIconWrapper>
-        )}
-      </Box>
-    </FormControlWrapper>
-  )
+  ({disabled, hasError, insertBefore, insertAfter, children, size, multiple, variant, ...props}, ref) => {
+    let iconColor = 'colorTextIcon' as TextColor;
+    if (disabled) {
+      iconColor = 'colorTextWeaker';
+    } else if (variant === 'inverse') {
+      iconColor = 'colorTextInverseWeak';
+    }
+
+    return (
+      <FormControlWrapper
+        disabled={disabled}
+        hasError={hasError}
+        insertAfter={insertAfter}
+        insertBefore={insertBefore}
+        variant={variant}
+      >
+        <Box display="flex" width="100%" position="relative">
+          <SelectElement
+            aria-invalid={hasError}
+            data-not-selectize="true"
+            disabled={disabled}
+            ref={ref}
+            {...props}
+            {...restrictedProps}
+            multiple={multiple}
+            size={multiple ? size : 0}
+            variant={variant}
+          >
+            {children}
+          </SelectElement>
+          {!multiple && (
+            <SelectIconWrapper>
+              <ChevronDownIcon aria-hidden="true" decorative color={iconColor} size="sizeIcon30" />
+            </SelectIconWrapper>
+          )}
+        </Box>
+      </FormControlWrapper>
+    );
+  }
 );
 
 Select.displayName = 'Select';

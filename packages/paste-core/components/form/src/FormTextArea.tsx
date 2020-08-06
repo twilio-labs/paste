@@ -3,6 +3,7 @@ import * as PropTypes from 'prop-types';
 import {styled, css} from '@twilio-paste/styling-library';
 import TextareaAutosize from 'react-autosize-textarea';
 import {FormControlWrapper} from './shared/FormControlWrapper';
+import {FieldVariants} from './shared/types';
 import {safelySpreadFormControlProps} from './shared/Utils';
 
 export interface FormTextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -19,18 +20,19 @@ export interface FormTextAreaProps extends React.TextareaHTMLAttributes<HTMLText
   required?: boolean;
   size?: never;
   style?: never;
+  variant?: FieldVariants;
   width?: never;
 }
 
 /* eslint-disable emotion/syntax-preference */
-const TextAreaElement = styled(TextareaAutosize)(() =>
+const TextAreaElement = styled(TextareaAutosize)<FormTextAreaProps>(props =>
   css({
     appearance: 'none',
     background: 'transparent',
     border: 'none',
     borderRadius: 'borderRadius20',
     boxShadow: 'none',
-    color: 'colorText',
+    color: 'inherit',
     display: 'block',
     fontFamily: 'inherit',
     fontSize: 'fontSize30',
@@ -46,12 +48,16 @@ const TextAreaElement = styled(TextareaAutosize)(() =>
     width: '100%',
 
     '&::placeholder': {
-      color: 'colorTextWeak',
+      color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
       fontStyle: 'italic',
     },
 
+    '&:focus::placeholder': {
+      color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
+    },
+
     '&:disabled': {
-      color: 'colorTextWeaker',
+      color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
       cursor: 'not-allowed',
     },
   })
@@ -59,28 +65,33 @@ const TextAreaElement = styled(TextareaAutosize)(() =>
 /* eslint-enable */
 
 const FormTextArea = React.forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
-  ({id, name, placeholder, children, readOnly, disabled, hasError, insertBefore, insertAfter, ...props}, ref) => {
+  (
+    {children, disabled, hasError, id, insertBefore, insertAfter, name, placeholder, readOnly, variant, ...props},
+    ref
+  ) => {
     return (
       <FormControlWrapper
-        readOnly={readOnly}
         disabled={disabled}
         hasError={hasError}
         insertAfter={insertAfter}
         insertBefore={insertBefore}
+        readOnly={readOnly}
+        variant={variant}
       >
         <TextAreaElement
           aria-invalid={hasError}
           aria-readonly={readOnly}
           {...safelySpreadFormControlProps(props)}
           async
-          ref={ref}
+          disabled={disabled}
           id={id}
           name={name}
-          rows={3}
           placeholder={placeholder}
-          disabled={disabled}
           readOnly={readOnly}
+          ref={ref}
+          rows={3}
           spellCheck
+          variant={variant}
         >
           {children}
         </TextAreaElement>
@@ -93,16 +104,16 @@ FormTextArea.displayName = 'FormTextArea';
 
 if (process.env.NODE_ENV === 'development') {
   FormTextArea.propTypes = {
+    disabled: PropTypes.bool,
+    hasError: PropTypes.bool,
     id: PropTypes.string.isRequired,
     name: PropTypes.string,
-    placeholder: PropTypes.string,
-    disabled: PropTypes.bool,
-    readOnly: PropTypes.bool,
-    required: PropTypes.bool,
-    hasError: PropTypes.bool,
+    onBlur: PropTypes.func,
     onChange: PropTypes.func.isRequired,
     onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
+    placeholder: PropTypes.string,
+    readOnly: PropTypes.bool,
+    required: PropTypes.bool,
   };
 }
 

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {FieldWrapper} from './FieldWrapper';
+import {FieldWrapper} from '../fieldwrapper/FieldWrapper';
 import {Prefix} from './Prefix';
 import {Suffix} from './Suffix';
-import {FormInputTypes} from './types';
+import {FormInputTypes, FieldVariants} from './types';
 import {restrictedProps} from './restricted-attributes';
 
 interface FormControlWrapperProps {
@@ -14,6 +14,7 @@ interface FormControlWrapperProps {
   insertBefore?: React.ReactNode;
   readOnly?: boolean;
   type?: FormInputTypes;
+  variant?: FieldVariants;
 }
 
 const FormControlWrapper: React.FC<FormControlWrapperProps> = ({
@@ -24,12 +25,29 @@ const FormControlWrapper: React.FC<FormControlWrapperProps> = ({
   insertBefore,
   readOnly,
   type,
+  variant,
   ...props
 }) => (
-  <FieldWrapper disabled={disabled} hasError={hasError} readOnly={readOnly} type={type} {...props} {...restrictedProps}>
-    {insertBefore && <Prefix>{insertBefore}</Prefix>}
+  <FieldWrapper
+    disabled={disabled}
+    hasError={hasError}
+    readOnly={readOnly}
+    type={type}
+    variant={variant}
+    {...props}
+    {...restrictedProps}
+  >
+    {insertBefore && (
+      <Prefix disabled={disabled} variant={variant}>
+        {insertBefore}
+      </Prefix>
+    )}
     {children}
-    {insertAfter && <Suffix>{insertAfter}</Suffix>}
+    {insertAfter && (
+      <Suffix disabled={disabled} variant={variant}>
+        {insertAfter}
+      </Suffix>
+    )}
   </FieldWrapper>
 );
 
@@ -45,6 +63,8 @@ if (process.env.NODE_ENV === 'development') {
     readOnly: PropTypes.bool,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel']) as any,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    variant: PropTypes.oneOf(['default', 'inverse']) as any,
   };
 }
 
