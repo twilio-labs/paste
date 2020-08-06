@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/form",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "category": "user input",
   "status": "beta",
   "description": "All the basic form elements for Twilio Paste",
