@@ -6,7 +6,7 @@ import {StyleReset} from './helpers';
 
 // Tokens
 export type BackgroundColorOptions = keyof ThemeShape['backgroundColors'];
-export type BackgroundColor = ResponsiveValue<BackgroundColorOptions>;
+export type BackgroundColor = ResponsiveValue<BackgroundColorOptions | 'none'>;
 
 // CSS native
 export type BackgroundImageOptions = CSS.BackgroundImageProperty;
