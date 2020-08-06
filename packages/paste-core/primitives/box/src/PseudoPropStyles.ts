@@ -2,7 +2,7 @@
  * The selectors are based on [WAI-ARIA state properties](https://www.w3.org/WAI/PF/aria-1.1/states_and_properties) and common CSS Selectors
  * Based on the excellent work done in https://github.com/chakra-ui/chakra-ui
  */
-export const PseudoPropStyles: {[key: string]: string} = {
+export const PseudoPropStyles = {
   _hover: '&:hover',
   _active: '&:active, &[data-active=true]',
   _focus: '&:focus',
@@ -28,4 +28,5 @@ export const PseudoPropStyles: {[key: string]: string} = {
   _after: '&:after',
   _focusWithin: '&:focus-within',
   _placeholder: '&::placeholder',
+  __moz_focus_inner: '&::-moz-focus-inner',
 };

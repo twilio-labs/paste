@@ -44,6 +44,7 @@ export const BoxPropTypes = {
   outline: ResponsiveProp(PropTypes.string),
   float: ResponsiveProp(PropTypes.string),
   willChange: ResponsiveProp(PropTypes.string),
+  opacity: ResponsiveProp(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
   // typography
   fontFamily: isFontFamilyTokenProp,
   fontSize: isFontSizeTokenProp,
