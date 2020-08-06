@@ -43,11 +43,12 @@ import {
   FloatProperty,
   WillChangeProperty,
   ClipProperty,
+  OpacityProperty,
 } from 'csstype';
 import {PseudoPropStyles} from './PseudoPropStyles';
 import {BoxPropTypes} from './BoxPropTypes';
 
-export interface BoxStyleProps
+interface BoxBaseStyleProps
   extends LayoutProps,
     SpaceProps,
     BackgroundProps,
@@ -77,37 +78,17 @@ export interface BoxStyleProps
   float?: FloatProperty;
   willChange?: WillChangeProperty;
   clip?: ClipProperty;
+  opacity?: OpacityProperty;
 }
 
-interface PseudoStylesProps {
-  _after?: BoxStyleProps;
-  _before?: BoxStyleProps;
-  _focus?: BoxStyleProps;
-  _hover?: BoxStyleProps;
-  _active?: BoxStyleProps;
-  _pressed?: BoxStyleProps;
-  _selected?: BoxStyleProps;
-  _focusWithin?: BoxStyleProps;
-  _invalid?: BoxStyleProps;
-  _disabled?: BoxStyleProps;
-  _grabbed?: BoxStyleProps;
-  _expanded?: BoxStyleProps;
-  _checked?: BoxStyleProps;
-  _mixed?: BoxStyleProps;
-  _odd?: BoxStyleProps;
-  _even?: BoxStyleProps;
-  _visited?: BoxStyleProps;
-  _readOnly?: BoxStyleProps;
-  _first?: BoxStyleProps;
-  _last?: BoxStyleProps;
-  _groupHover?: BoxStyleProps;
-  _notFirst?: BoxStyleProps;
-  _notLast?: BoxStyleProps;
-  _placeholder?: BoxStyleProps;
-}
+export type BoxPseudoStyleProps = {
+  [key in keyof typeof PseudoPropStyles]?: BoxBaseStyleProps;
+};
+
+export interface BoxStyleProps extends BoxBaseStyleProps, BoxPseudoStyleProps {}
 
 // Omits potential clashes from our style props with HTMLAttributes (i.e.: color)
-export interface BoxElementProps extends Omit<React.HTMLAttributes<HTMLElement>, keyof BoxStyleProps> {
+export interface BoxElementProps extends Omit<React.HTMLAttributes<HTMLElement>, keyof BoxBaseStyleProps> {
   as?: keyof JSX.IntrinsicElements;
   type?: string;
   /** Typed as any because Box can literally be any HTML element */
@@ -121,7 +102,7 @@ export interface BoxElementProps extends Omit<React.HTMLAttributes<HTMLElement>,
   target?: string;
 }
 
-export interface BoxProps extends BoxElementProps, BoxStyleProps, PseudoStylesProps {}
+export interface BoxProps extends BoxElementProps, BoxStyleProps {}
 
 const extraConfig = system({
   color: {
@@ -163,6 +144,7 @@ const extraConfig = system({
   textDecoration: true,
   textOverflow: true,
   whiteSpace: true,
+  opacity: true,
 });
 
 const getPseudoStyles = (props: BoxProps): {} => {
@@ -182,7 +164,6 @@ const getPseudoStyles = (props: BoxProps): {} => {
   return css(pseudoStyles);
 };
 
-/* eslint-disable emotion/syntax-preference */
 // @ts-ignore
 export const Box = styled.div(
   {
@@ -206,7 +187,6 @@ export const Box = styled.div(
   // always clash with the span html attributes. To override this,
   // we retype as a basic functional component which is easy to extend
 ) as React.FC<BoxProps>;
-/* eslint-enable */
 
 Box.displayName = 'Box';
 
