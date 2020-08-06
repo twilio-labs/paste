@@ -27,12 +27,15 @@
     "prepublishOnly": "yarn build",
     "type-check": "tsc --noEmit"
   },
+  "dependencies": {
+    "lodash.merge": "^4.6.2"
+  },
   "peerDependencies": {
-    "@twilio-paste/absolute": "^2.0.58",
     "@twilio-paste/box": "^2.8.3",
     "@twilio-paste/design-tokens": "^6.0.1",
     "@twilio-paste/icons": "^3.0.0",
     "@twilio-paste/spinner": "^2.0.0",
+    "@twilio-paste/stack": "^0.1.26",
     "@twilio-paste/style-props": "^1.4.2",
     "@twilio-paste/styling-library": "^0.1.1",
     "@twilio-paste/theme": "^3.2.12",
@@ -48,6 +51,7 @@
     "@twilio-paste/design-tokens": "^6.0.1",
     "@twilio-paste/icons": "^3.0.0",
     "@twilio-paste/spinner": "^2.0.0",
+    "@twilio-paste/stack": "^0.1.26",
     "@twilio-paste/style-props": "^1.4.2",
     "@twilio-paste/styling-library": "^0.1.1",
     "@twilio-paste/theme": "^3.2.12",
