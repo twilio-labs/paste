@@ -3,61 +3,71 @@
 exports[`Menu  Render should render 1`] = `
 <DocumentFragment>
   .emotion-1 {
-  position: relative;
+  box-sizing: border-box;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+  background: none;
+  border-width: borderWidth20;
+  border-style: solid;
+  border-color: colorBorderPrimary;
   display: inline-block;
   outline: none;
-  background: none;
-  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
-  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: fontFamilyText;
+  font-weight: fontWeightSemibold;
   -webkit-text-decoration: none;
   text-decoration: none;
+  position: relative;
   cursor: pointer;
-  box-shadow: inset 0 0 0;
-  width: auto;
-}
-
-.emotion-1::-moz-focus-inner {
-  border: none;
-}
-
-.emotion-1:hover,
-.emotion-1:focus,
-.emotion-1:active {
-  -webkit-text-decoration: none;
-  text-decoration: none;
+  color: colorTextInverse;
+  background-color: colorBackgroundPrimary;
+  padding-top: space30;
+  padding-bottom: space30;
+  padding-left: space40;
+  padding-right: space40;
+  border-radius: borderRadius20;
+  font-size: fontSize30;
+  line-height: lineHeight20;
 }
 
 .emotion-1:hover {
-  box-shadow: inset 0 0 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: colorTextInverse;
+  background-color: colorBackgroundPrimaryDarker;
+  border-color: colorBorderPrimaryDarker;
 }
 
 .emotion-1:focus {
-  box-shadow: inset 0 0 0  ,;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: shadowFocus;
+  color: colorTextInverse;
+  border-color: colorBorderPrimaryDarker;
 }
 
-.emotion-1:active {
-  box-shadow: inset 0 0 0  ,;
+.emotion-1:active,
+.emotion-1[data-active=true] {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: shadowFocus;
+  color: colorTextInverse;
+  background-color: colorBackgroundPrimaryDark;
+  border-color: colorBorderPrimaryDarker;
 }
 
 .emotion-0 {
-  display: grid;
-  grid-auto-flow: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  vertical-align: middle;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-text-decoration: inherit;
   text-decoration: inherit;
-  opacity: 100%;
+  opacity: 1;
 }
 
 <button
@@ -66,70 +76,92 @@ exports[`Menu  Render should render 1`] = `
     aria-expanded="false"
     aria-haspopup="menu"
     class="emotion-1"
+    color="colorTextInverse"
+    cursor="pointer"
+    display="inline-block"
+    font-family="fontFamilyText"
+    font-size="fontSize30"
+    font-weight="fontWeightSemibold"
+    text-decoration="none"
     type="button"
+    width="auto"
   >
     <span
+      aria-hidden="false"
       class="emotion-0"
+      display="flex"
+      opacity="1"
+      text-decoration="inherit"
     >
       Code
     </span>
   </button>
   .emotion-6 {
-  position: relative;
+  box-sizing: border-box;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+  background: none;
+  border-width: borderWidth20;
+  border-style: solid;
+  border-color: colorBorderPrimary;
   display: inline-block;
   outline: none;
-  background: none;
-  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
-  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  font-family: fontFamilyText;
+  font-weight: fontWeightSemibold;
   -webkit-text-decoration: none;
   text-decoration: none;
+  position: relative;
   cursor: pointer;
-  box-shadow: inset 0 0 0;
-  width: auto;
-}
-
-.emotion-6::-moz-focus-inner {
-  border: none;
-}
-
-.emotion-6:hover,
-.emotion-6:focus,
-.emotion-6:active {
-  -webkit-text-decoration: none;
-  text-decoration: none;
+  color: colorTextInverse;
+  background-color: colorBackgroundPrimary;
+  padding-top: space30;
+  padding-bottom: space30;
+  padding-left: space40;
+  padding-right: space40;
+  border-radius: borderRadius20;
+  font-size: fontSize30;
+  line-height: lineHeight20;
 }
 
 .emotion-6:hover {
-  box-shadow: inset 0 0 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: colorTextInverse;
+  background-color: colorBackgroundPrimaryDarker;
+  border-color: colorBorderPrimaryDarker;
 }
 
 .emotion-6:focus {
-  box-shadow: inset 0 0 0  ,;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: shadowFocus;
+  color: colorTextInverse;
+  border-color: colorBorderPrimaryDarker;
 }
 
-.emotion-6:active {
-  box-shadow: inset 0 0 0  ,;
+.emotion-6:active,
+.emotion-6[data-active=true] {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: shadowFocus;
+  color: colorTextInverse;
+  background-color: colorBackgroundPrimaryDark;
+  border-color: colorBorderPrimaryDarker;
 }
 
 .emotion-5 {
-  display: grid;
-  grid-auto-flow: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  vertical-align: middle;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-text-decoration: inherit;
   text-decoration: inherit;
-  opacity: 100%;
+  opacity: 1;
 }
 
 .emotion-14 {
@@ -356,14 +388,26 @@ exports[`Menu  Render should render 1`] = `
       aria-expanded="false"
       aria-haspopup="menu"
       class="emotion-6"
+      color="colorTextInverse"
+      cursor="pointer"
       data-testid="example-submenu-trigger"
+      display="inline-block"
+      font-family="fontFamilyText"
+      font-size="fontSize30"
+      font-weight="fontWeightSemibold"
       id="menu-example-3"
       role="menuitem"
       tabindex="-1"
+      text-decoration="none"
       type="button"
+      width="auto"
     >
       <span
+        aria-hidden="false"
         class="emotion-5"
+        display="flex"
+        opacity="1"
+        text-decoration="inherit"
       >
         Preferences
       </span>
