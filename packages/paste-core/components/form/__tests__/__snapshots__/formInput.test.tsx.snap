@@ -46,7 +46,7 @@ exports[`FormInput render it should render 1`] = `
   border: none;
   border-radius: 4px;
   box-shadow: none;
-  color: rgb(40,42,43);
+  color: inherit;
   display: block;
   font-family: inherit;
   font-size: 0.875rem;
@@ -79,6 +79,22 @@ exports[`FormInput render it should render 1`] = `
 .emotion-0::placeholder {
   color: rgb(112,117,120);
   font-style: italic;
+}
+
+.emotion-0:focus::-webkit-input-placeholder {
+  color: rgb(112,117,120);
+}
+
+.emotion-0:focus::-moz-placeholder {
+  color: rgb(112,117,120);
+}
+
+.emotion-0:focus:-ms-input-placeholder {
+  color: rgb(112,117,120);
+}
+
+.emotion-0:focus::placeholder {
+  color: rgb(112,117,120);
 }
 
 .emotion-0:disabled {
@@ -124,7 +140,7 @@ exports[`FormInput render it should render with disabled 1`] = `
   border: none;
   border-radius: 4px;
   box-shadow: none;
-  color: rgb(40,42,43);
+  color: inherit;
   display: block;
   font-family: inherit;
   font-size: 0.875rem;
@@ -157,6 +173,22 @@ exports[`FormInput render it should render with disabled 1`] = `
 .emotion-0::placeholder {
   color: rgb(112,117,120);
   font-style: italic;
+}
+
+.emotion-0:focus::-webkit-input-placeholder {
+  color: rgb(112,117,120);
+}
+
+.emotion-0:focus::-moz-placeholder {
+  color: rgb(112,117,120);
+}
+
+.emotion-0:focus:-ms-input-placeholder {
+  color: rgb(112,117,120);
+}
+
+.emotion-0:focus::placeholder {
+  color: rgb(112,117,120);
 }
 
 .emotion-0:disabled {
@@ -231,7 +263,7 @@ exports[`FormInput render it should render with hasError 1`] = `
   border: none;
   border-radius: 4px;
   box-shadow: none;
-  color: rgb(40,42,43);
+  color: inherit;
   display: block;
   font-family: inherit;
   font-size: 0.875rem;
@@ -264,6 +296,22 @@ exports[`FormInput render it should render with hasError 1`] = `
 .emotion-0::placeholder {
   color: rgb(112,117,120);
   font-style: italic;
+}
+
+.emotion-0:focus::-webkit-input-placeholder {
+  color: rgb(112,117,120);
+}
+
+.emotion-0:focus::-moz-placeholder {
+  color: rgb(112,117,120);
+}
+
+.emotion-0:focus:-ms-input-placeholder {
+  color: rgb(112,117,120);
+}
+
+.emotion-0:focus::placeholder {
+  color: rgb(112,117,120);
 }
 
 .emotion-0:disabled {
@@ -366,7 +414,7 @@ exports[`FormInput render it should render with prefix 1`] = `
   border: none;
   border-radius: 4px;
   box-shadow: none;
-  color: rgb(40,42,43);
+  color: inherit;
   display: block;
   font-family: inherit;
   font-size: 0.875rem;
@@ -399,6 +447,22 @@ exports[`FormInput render it should render with prefix 1`] = `
 .emotion-1::placeholder {
   color: rgb(112,117,120);
   font-style: italic;
+}
+
+.emotion-1:focus::-webkit-input-placeholder {
+  color: rgb(112,117,120);
+}
+
+.emotion-1:focus::-moz-placeholder {
+  color: rgb(112,117,120);
+}
+
+.emotion-1:focus:-ms-input-placeholder {
+  color: rgb(112,117,120);
+}
+
+.emotion-1:focus::placeholder {
+  color: rgb(112,117,120);
 }
 
 .emotion-1:disabled {
@@ -472,7 +536,7 @@ exports[`FormInput render it should render with readOnly 1`] = `
   border: none;
   border-radius: 4px;
   box-shadow: none;
-  color: rgb(40,42,43);
+  color: inherit;
   display: block;
   font-family: inherit;
   font-size: 0.875rem;
@@ -505,6 +569,22 @@ exports[`FormInput render it should render with readOnly 1`] = `
 .emotion-0::placeholder {
   color: rgb(112,117,120);
   font-style: italic;
+}
+
+.emotion-0:focus::-webkit-input-placeholder {
+  color: rgb(112,117,120);
+}
+
+.emotion-0:focus::-moz-placeholder {
+  color: rgb(112,117,120);
+}
+
+.emotion-0:focus:-ms-input-placeholder {
+  color: rgb(112,117,120);
+}
+
+.emotion-0:focus::placeholder {
+  color: rgb(112,117,120);
 }
 
 .emotion-0:disabled {
@@ -608,7 +688,7 @@ exports[`FormInput render it should render with suffix 1`] = `
   border: none;
   border-radius: 4px;
   box-shadow: none;
-  color: rgb(40,42,43);
+  color: inherit;
   display: block;
   font-family: inherit;
   font-size: 0.875rem;
@@ -641,6 +721,22 @@ exports[`FormInput render it should render with suffix 1`] = `
 .emotion-0::placeholder {
   color: rgb(112,117,120);
   font-style: italic;
+}
+
+.emotion-0:focus::-webkit-input-placeholder {
+  color: rgb(112,117,120);
+}
+
+.emotion-0:focus::-moz-placeholder {
+  color: rgb(112,117,120);
+}
+
+.emotion-0:focus:-ms-input-placeholder {
+  color: rgb(112,117,120);
+}
+
+.emotion-0:focus::placeholder {
+  color: rgb(112,117,120);
 }
 
 .emotion-0:disabled {

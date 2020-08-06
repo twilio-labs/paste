@@ -4,6 +4,8 @@ import {storiesOf} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
 import {withKnobs, boolean, text, select} from '@storybook/addon-knobs';
 import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {FormInput, FormLabel, FormHelpText, FormHelpTextVariants} from '../src';
 import {FormInputTypes} from '../src/shared/types';
@@ -71,6 +73,31 @@ storiesOf('Forms|Input', module)
       </>
     );
   })
+  .add('Input - Inverse', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Input');
+    return (
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+        <FormLabel htmlFor={uid} variant="inverse">
+          Label
+        </FormLabel>
+        <FormInput
+          id={uid}
+          type="text"
+          placeholder="Placeholder"
+          value={value}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          variant="inverse"
+        />
+        <FormHelpText variant="inverse">Info that helps a user with this field.</FormHelpText>
+      </Box>
+    );
+  })
   .add('Input - Required', () => {
     const uid = useUID();
     const [value, setValue] = React.useState('Input - Required');
@@ -96,6 +123,32 @@ storiesOf('Forms|Input', module)
       </>
     );
   })
+  .add('Input - Required inverse', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Input - Required');
+    return (
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+        <FormLabel htmlFor={uid} variant="inverse" required>
+          Label
+        </FormLabel>
+        <FormInput
+          id={uid}
+          type="text"
+          placeholder="Placeholder"
+          required
+          value={value}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          variant="inverse"
+        />
+        <FormHelpText variant="inverse">Info that helps a user with this field.</FormHelpText>
+      </Box>
+    );
+  })
   .add('Input - Error', () => {
     const uid = useUID();
     const [value, setValue] = React.useState('Input - Error');
@@ -117,6 +170,32 @@ storiesOf('Forms|Input', module)
         />
         <FormHelpText variant="error">Error info. Explains why the input has an error.</FormHelpText>
       </>
+    );
+  })
+  .add('Input - Error inverse', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Input');
+    return (
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+        <FormLabel htmlFor={uid} variant="inverse">
+          Label
+        </FormLabel>
+        <FormInput
+          id={uid}
+          type="text"
+          placeholder="Placeholder"
+          hasError
+          value={value}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          variant="inverse"
+        />
+        <FormHelpText variant="error_inverse">Info that helps a user with this field.</FormHelpText>
+      </Box>
     );
   })
   .add('Input - Disabled', () => {
@@ -143,6 +222,32 @@ storiesOf('Forms|Input', module)
       </>
     );
   })
+  .add('Input - Disabled inverse', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Input');
+    return (
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+        <FormLabel htmlFor={uid} variant="inverse" disabled>
+          Label
+        </FormLabel>
+        <FormInput
+          id={uid}
+          type="text"
+          placeholder="Placeholder"
+          disabled
+          value={value}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          variant="inverse"
+        />
+        <FormHelpText variant="inverse">Info that helps a user with this field.</FormHelpText>
+      </Box>
+    );
+  })
   .add('Input - ReadOnly', () => {
     const uid = useUID();
     const [value, setValue] = React.useState('Input - ReadOnly');
@@ -165,6 +270,32 @@ storiesOf('Forms|Input', module)
       </>
     );
   })
+  .add('Input - ReadOnly inverse', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Input');
+    return (
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+        <FormLabel htmlFor={uid} variant="inverse">
+          Label
+        </FormLabel>
+        <FormInput
+          id={uid}
+          type="text"
+          placeholder="Placeholder"
+          readOnly
+          value={value}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          variant="inverse"
+        />
+        <FormHelpText variant="inverse">Info that helps a user with this field.</FormHelpText>
+      </Box>
+    );
+  })
   .add('Input - Hidden', () => {
     const uid = useUID();
     const [value, setValue] = React.useState('Input - Hidden');
@@ -180,6 +311,26 @@ storiesOf('Forms|Input', module)
           }}
           onFocus={action('handleFocus')}
           onBlur={action('handleBlur')}
+        />
+      </>
+    );
+  })
+  .add('Input - Hidden inverse', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Input - Hidden');
+    return (
+      <>
+        <FormInput
+          id={uid}
+          type="hidden"
+          value={value}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          variant="inverse"
         />
       </>
     );
@@ -209,6 +360,107 @@ storiesOf('Forms|Input', module)
         />
         <FormHelpText>Info that helps a user with this field.</FormHelpText>
       </>
+    );
+  })
+  .add('Input - Disabled insert before and after', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Input - ReadOnly');
+    return (
+      <>
+        <FormLabel htmlFor={uid} disabled>
+          Label
+        </FormLabel>
+        <FormInput
+          id={uid}
+          type="text"
+          value={value}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          insertBefore={<div>$10.99</div>}
+          insertAfter={
+            <Anchor href="#" display="flex">
+              <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
+            </Anchor>
+          }
+          disabled
+        />
+        <FormHelpText>Info that helps a user with this field.</FormHelpText>
+      </>
+    );
+  })
+  .add('Input - insert before and after inverse', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Input');
+    return (
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+        <FormLabel htmlFor={uid} variant="inverse">
+          Label
+        </FormLabel>
+        <FormInput
+          id={uid}
+          type="text"
+          placeholder="Placeholder"
+          value={value}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          variant="inverse"
+          insertBefore={
+            <Text as="span" color="colorTextInverse" lineHeight="lineHeight20">
+              $10.99
+            </Text>
+          }
+          insertAfter={
+            <Anchor href="#" display="flex">
+              <InformationIcon color="colorTextInverse" decorative={false} size="sizeIcon20" title="Get more info" />
+            </Anchor>
+          }
+        />
+        <FormHelpText variant="inverse">Info that helps a user with this field.</FormHelpText>
+      </Box>
+    );
+  })
+  .add('Input - Disabled insert before and after inverse', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Input');
+    return (
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+        <FormLabel htmlFor={uid} variant="inverse" disabled>
+          Label
+        </FormLabel>
+        <FormInput
+          id={uid}
+          type="text"
+          placeholder="Placeholder"
+          value={value}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          variant="inverse"
+          insertBefore={
+            <Text as="span" color="colorTextInverse" lineHeight="lineHeight20">
+              $10.99
+            </Text>
+          }
+          insertAfter={
+            <Anchor href="#" display="flex">
+              <InformationIcon color="colorTextInverse" decorative={false} size="sizeIcon20" title="Get more info" />
+            </Anchor>
+          }
+          disabled
+        />
+        <FormHelpText variant="inverse">Info that helps a user with this field.</FormHelpText>
+      </Box>
     );
   })
   .add('Input - Number Error', () => {
@@ -253,5 +505,29 @@ storiesOf('Forms|Input', module)
           onBlur={action('handleBlur')}
         />
       </>
+    );
+  })
+  .add('Input - Placeholder inverse', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState();
+    return (
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+        <FormLabel htmlFor={uid} variant="inverse">
+          Label
+        </FormLabel>
+        <FormInput
+          id={uid}
+          type="text"
+          placeholder="Placeholder"
+          value={value}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          variant="inverse"
+        />
+      </Box>
     );
   });

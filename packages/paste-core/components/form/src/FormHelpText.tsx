@@ -3,10 +3,14 @@ import * as PropTypes from 'prop-types';
 import {ValueOf} from '@twilio-paste/types';
 import {Flex} from '@twilio-paste/flex';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
+import {TextColor} from '@twilio-paste/style-props';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 
 export const FormHelpTextVariants = {
+  DEFAULT: 'default',
   ERROR: 'error',
+  ERROR_INVERSE: 'error_inverse',
+  INVERSE: 'inverse',
 } as const;
 
 export type FormHelpTextVariants = ValueOf<typeof FormHelpTextVariants>;
@@ -24,8 +28,20 @@ const FormHelpText: React.FC<FormHelperTextProps> = ({marginTop, children, varia
     case FormHelpTextVariants.ERROR:
       icon = <ErrorIcon color="colorTextError" decorative size="sizeIcon20" />;
       break;
+    case FormHelpTextVariants.ERROR_INVERSE:
+      icon = <ErrorIcon color="colorTextErrorLight" decorative size="sizeIcon20" />;
+      break;
     default:
       break;
+  }
+
+  let textColor = 'colorTextWeak' as TextColor;
+  if (variant === 'error') {
+    textColor = 'colorTextError';
+  } else if (variant === 'error_inverse') {
+    textColor = 'colorTextErrorLight';
+  } else if (variant === 'inverse') {
+    textColor = 'colorTextInverseWeak';
   }
 
   return (
@@ -34,7 +50,7 @@ const FormHelpText: React.FC<FormHelperTextProps> = ({marginTop, children, varia
       <Text
         {...safelySpreadTextProps(props)}
         as="div"
-        color={variant === 'error' ? 'colorTextError' : 'colorTextWeak'}
+        color={textColor}
         fontSize="fontSize30"
         lineHeight="lineHeight30"
         marginLeft={icon ? 'space20' : undefined}

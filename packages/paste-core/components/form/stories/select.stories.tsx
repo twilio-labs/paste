@@ -5,6 +5,7 @@ import {storiesOf} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
 import {withKnobs, boolean, text, select, array, number} from '@storybook/addon-knobs';
 import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
 import {Anchor} from '@twilio-paste/anchor';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {FormLabel, FormHelpText, FormHelpTextVariants, Select, Option, OptionGroup} from '../src';
@@ -132,6 +133,35 @@ storiesOf('Forms|Select', module)
       </>
     );
   })
+  .add('Select - Required inverse', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Select - Required');
+    return (
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+        <FormLabel required htmlFor={uid} variant="inverse">
+          Label
+        </FormLabel>
+        <Select
+          id={uid}
+          required
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          value={value}
+          variant="inverse"
+        >
+          <Option value="option-1">Option 1</Option>
+          <Option value="option-2">Option 2</Option>
+          <Option value="option-3">Option 3</Option>
+          <Option value="option-4">Option 4</Option>
+        </Select>
+        <FormHelpText variant="inverse">Info that helps a user with this field.</FormHelpText>
+      </Box>
+    );
+  })
   .add('Select - Error', () => {
     const uid = useUID();
     const [value, setValue] = React.useState('Select - Error');
@@ -160,9 +190,39 @@ storiesOf('Forms|Select', module)
       </>
     );
   })
-  .add('Select - Disabled', () => {
+  .add('Select - Error inverse', () => {
     const uid = useUID();
     const [value, setValue] = React.useState('Select - Error');
+    return (
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+        <FormLabel required htmlFor={uid} variant="inverse">
+          Label
+        </FormLabel>
+        <Select
+          id={uid}
+          required
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          value={value}
+          variant="inverse"
+          hasError
+        >
+          <Option value="option-1">Option 1</Option>
+          <Option value="option-2">Option 2</Option>
+          <Option value="option-3">Option 3</Option>
+          <Option value="option-4">Option 4</Option>
+        </Select>
+        <FormHelpText variant="error_inverse">Info that helps a user with this field.</FormHelpText>
+      </Box>
+    );
+  })
+  .add('Select - Disabled', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Select - Disabled');
     return (
       <>
         <FormLabel htmlFor={uid} disabled>
@@ -186,6 +246,35 @@ storiesOf('Forms|Select', module)
         </Select>
         <FormHelpText>Info that helps a user with this field.</FormHelpText>
       </>
+    );
+  })
+  .add('Select - Disabled inverse', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Select - Disabled');
+    return (
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+        <FormLabel disabled htmlFor={uid} variant="inverse">
+          Label
+        </FormLabel>
+        <Select
+          id={uid}
+          disabled
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          value={value}
+          variant="inverse"
+        >
+          <Option value="option-1">Option 1</Option>
+          <Option value="option-2">Option 2</Option>
+          <Option value="option-3">Option 3</Option>
+          <Option value="option-4">Option 4</Option>
+        </Select>
+        <FormHelpText variant="inverse">Info that helps a user with this field.</FormHelpText>
+      </Box>
     );
   })
   .add('Select - Multiple', () => {
@@ -225,7 +314,7 @@ storiesOf('Forms|Select', module)
   })
   .add('Select - Insert before and after', () => {
     const uid = useUID();
-    const [value, setValue] = React.useState('Select - Error');
+    const [value, setValue] = React.useState('Select');
     return (
       <>
         <FormLabel htmlFor={uid}>Label</FormLabel>
@@ -252,6 +341,117 @@ storiesOf('Forms|Select', module)
         </Select>
         <FormHelpText>Info that helps a user with this field.</FormHelpText>
       </>
+    );
+  })
+  .add('Select - Disabled insert before and after', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Select');
+    return (
+      <>
+        <FormLabel disabled htmlFor={uid}>
+          Label
+        </FormLabel>
+        <Select
+          id={uid}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          insertBefore={<div>$10.99</div>}
+          insertAfter={
+            <Anchor href="#" display="flex">
+              <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
+            </Anchor>
+          }
+          value={value}
+          disabled
+        >
+          <Option value="option-1">Option 1</Option>
+          <Option value="option-2">Option 2</Option>
+          <Option value="option-3">Option 3</Option>
+          <Option value="option-4">Option 4</Option>
+        </Select>
+        <FormHelpText>Info that helps a user with this field.</FormHelpText>
+      </>
+    );
+  })
+  .add('Select - Insert before and after inverse', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Select');
+    return (
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+        <FormLabel htmlFor={uid} variant="inverse">
+          Label
+        </FormLabel>
+        <Select
+          id={uid}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          insertBefore={
+            <Text as="span" color="colorTextInverse" lineHeight="lineHeight20">
+              $10.99
+            </Text>
+          }
+          insertAfter={
+            <Anchor href="#" display="flex">
+              <InformationIcon color="colorTextInverse" decorative={false} size="sizeIcon20" title="Get more info" />
+            </Anchor>
+          }
+          value={value}
+          variant="inverse"
+        >
+          <Option value="option-1">Option 1</Option>
+          <Option value="option-2">Option 2</Option>
+          <Option value="option-3">Option 3</Option>
+          <Option value="option-4">Option 4</Option>
+        </Select>
+        <FormHelpText variant="inverse">Info that helps a user with this field.</FormHelpText>
+      </Box>
+    );
+  })
+  .add('Select - Disabed insert before and after inverse', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Select');
+    return (
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+        <FormLabel disabled htmlFor={uid} variant="inverse">
+          Label
+        </FormLabel>
+        <Select
+          id={uid}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          insertBefore={
+            <Text as="span" color="colorTextInverse" lineHeight="lineHeight20">
+              $10.99
+            </Text>
+          }
+          insertAfter={
+            <Anchor href="#" display="flex">
+              <InformationIcon color="colorTextInverse" decorative={false} size="sizeIcon20" title="Get more info" />
+            </Anchor>
+          }
+          value={value}
+          variant="inverse"
+          disabled
+        >
+          <Option value="option-1">Option 1</Option>
+          <Option value="option-2">Option 2</Option>
+          <Option value="option-3">Option 3</Option>
+          <Option value="option-4">Option 4</Option>
+        </Select>
+        <FormHelpText variant="inverse">Info that helps a user with this field.</FormHelpText>
+      </Box>
     );
   })
   .add('Select - Option Groups', () => {
@@ -281,6 +481,38 @@ storiesOf('Forms|Select', module)
         </Select>
         <FormHelpText>Info that helps a user with this field.</FormHelpText>
       </>
+    );
+  })
+  .add('Select - Option Groups inverse', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Select - Error');
+    return (
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+        <FormLabel htmlFor={uid} variant="inverse">
+          Label
+        </FormLabel>
+        <Select
+          id={uid}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          value={value}
+          variant="inverse"
+        >
+          <OptionGroup label="Group 1">
+            <Option value="option-1">Option 1</Option>
+            <Option value="option-2">Option 2</Option>
+          </OptionGroup>
+          <OptionGroup label="Group 2">
+            <Option value="option-3">Option 3</Option>
+            <Option value="option-4">Option 4</Option>
+          </OptionGroup>
+        </Select>
+        <FormHelpText variant="inverse">Info that helps a user with this field.</FormHelpText>
+      </Box>
     );
   })
   .add('Select - Option Groups and Multiple', () => {
@@ -319,6 +551,47 @@ storiesOf('Forms|Select', module)
         </Select>
         <FormHelpText>Info that helps a user with this field.</FormHelpText>
       </>
+    );
+  })
+  .add('Select - Option Groups and Multiple inverse', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState([]);
+    return (
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+        <FormLabel htmlFor={uid} variant="inverse">
+          Label
+        </FormLabel>
+        <Select
+          id={uid}
+          onChange={({target: options}) => {
+            const update: string[] = Object.keys(options).reduce((optionValues, key) => {
+              const {selected, value: optionValue} = options[key];
+              if (selected) {
+                return [...optionValues, optionValue];
+              }
+              return optionValues;
+            }, []);
+            setValue(update);
+            action('handleChange');
+          }}
+          multiple
+          size={4}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          value={value}
+          variant="inverse"
+        >
+          <OptionGroup label="Group 1">
+            <Option value="option-1">Option 1</Option>
+            <Option value="option-2">Option 2</Option>
+          </OptionGroup>
+          <OptionGroup label="Group 2">
+            <Option value="option-3">Option 3</Option>
+            <Option value="option-4">Option 4</Option>
+          </OptionGroup>
+        </Select>
+        <FormHelpText variant="inverse">Info that helps a user with this field.</FormHelpText>
+      </Box>
     );
   })
   .add('Select - overflow long value', () => {

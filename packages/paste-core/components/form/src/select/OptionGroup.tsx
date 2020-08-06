@@ -11,7 +11,7 @@ export interface OptionGroupProps extends React.OptgroupHTMLAttributes<HTMLOptGr
 const OptionGroupElement = styled.optgroup(
   css({
     background: 'transparent',
-    color: 'colorText',
+    color: 'inherit',
     fontFamily: 'fontFamilyText',
     fontWeight: 'fontWeightMedium',
     fontStyle: 'normal',

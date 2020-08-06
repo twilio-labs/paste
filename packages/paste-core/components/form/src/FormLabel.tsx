@@ -5,6 +5,8 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Flex} from '@twilio-paste/flex';
 import {Text} from '@twilio-paste/text';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+import {TextColor} from '@twilio-paste/style-props';
+import {FieldVariants} from './shared/types';
 
 export interface FormLabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
   as?: 'label' | 'legend';
@@ -15,6 +17,7 @@ export interface FormLabelProps extends React.LabelHTMLAttributes<HTMLLabelEleme
   marginBottom?: 'space0';
   required?: boolean;
   style?: never;
+  variant?: FieldVariants;
 }
 
 // eslint-disable-next-line emotion/syntax-preference
@@ -30,7 +33,15 @@ const StyledRequiredDot = styled(Text)(
   })
 );
 
-const FormLabel: React.FC<FormLabelProps> = ({as, marginBottom, required, disabled, children, ...props}) => {
+const FormLabel: React.FC<FormLabelProps> = ({as, marginBottom, required, disabled, children, variant, ...props}) => {
+  let textColor = 'colorText' as TextColor;
+  if (disabled && variant === 'inverse') {
+    textColor = 'colorTextInverseWeak';
+  } else if (disabled) {
+    textColor = 'colorTextWeak';
+  } else if (variant === 'inverse') {
+    textColor = 'colorTextInverse';
+  }
   return (
     <Box
       {...safelySpreadBoxProps(props)}
@@ -55,7 +66,7 @@ const FormLabel: React.FC<FormLabelProps> = ({as, marginBottom, required, disabl
           fontSize="fontSize30"
           fontWeight="fontWeightSemibold"
           lineHeight="lineHeight30"
-          color={disabled ? 'colorTextWeaker' : 'colorText'}
+          color={textColor}
           cursor={disabled ? 'not-allowed' : 'pointer'}
         >
           {children}
@@ -73,11 +84,13 @@ FormLabel.defaultProps = {
 
 if (process.env.NODE_ENV === 'development') {
   FormLabel.propTypes = {
-    htmlFor: PropTypes.string,
     as: PropTypes.oneOf(['label', 'legend']),
     disabled: PropTypes.bool,
-    required: PropTypes.bool,
+    htmlFor: PropTypes.string,
     marginBottom: PropTypes.oneOf(['space0']),
+    required: PropTypes.bool,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    variant: PropTypes.oneOf(['default', 'inverse']) as any,
   };
 }
 
