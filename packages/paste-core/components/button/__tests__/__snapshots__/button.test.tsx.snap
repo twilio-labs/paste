@@ -10,199 +10,301 @@ exports[`Button States Has a disabled state 1`] = `
 }
 
 .emotion-0 {
-  display: grid;
-  grid-auto-flow: column;
-  -webkit-column-gap: 0.25rem;
-  column-gap: 0.25rem;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  vertical-align: middle;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-text-decoration: inherit;
   text-decoration: inherit;
-  opacity: 100%;
+  opacity: 1;
 }
 
 .emotion-1 {
-  position: relative;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+  box-sizing: border-box;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+  background: none;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(179,211,233);
   display: inline-block;
   outline: none;
-  background: none;
-  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
-  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
   cursor: not-allowed;
   color: rgb(255,255,255);
   background-color: rgb(179,211,233);
-  box-shadow: inset 0 0 0 0.125rem rgb(179,211,233);
-  width: auto;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
-.emotion-1::-moz-focus-inner {
-  border: none;
+.emotion-1:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
-.emotion-1:hover,
-.emotion-1:focus,
-.emotion-1:active {
-  color: rgb(255,255,255);
+.emotion-1:focus {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
-.emotion-1:hover,
-.emotion-1:active {
-  background-color: rgb(179,211,233);
-  box-shadow: inset 0 0 0 0.125rem rgb(179,211,233);
+.emotion-1:active,
+.emotion-1[data-active=true] {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-3 {
-  position: relative;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+  box-sizing: border-box;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+  background: none;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(179,211,233);
   display: inline-block;
   outline: none;
-  background: none;
-  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
-  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
   cursor: not-allowed;
-  background-color: rgb(255,255,255);
   color: rgb(179,211,233);
-  box-shadow: inset 0 0 0 0.125rem rgb(179,211,233);
-  width: auto;
+  background-color: rgb(255,255,255);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
-.emotion-3::-moz-focus-inner {
-  border: none;
+.emotion-3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: rgb(179,211,233);
+  background-color: rgb(255,255,255);
+  border-color: rgb(179,211,233);
+}
+
+.emotion-3:focus {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+  color: rgb(179,211,233);
+  background-color: rgb(255,255,255);
+  border-color: rgb(179,211,233);
+}
+
+.emotion-3:active,
+.emotion-3[data-active=true] {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: rgb(179,211,233);
+  background-color: rgb(255,255,255);
+  border-color: rgb(179,211,233);
 }
 
 .emotion-5 {
-  position: relative;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+  box-sizing: border-box;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+  background: none;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(236,182,182);
   display: inline-block;
   outline: none;
-  background: none;
-  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
-  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
   cursor: not-allowed;
-  background-color: rgb(226,37,37);
   color: rgb(255,255,255);
-  box-shadow: inset 0 0 0 0.125rem rgb(226,37,37);
   background-color: rgb(236,182,182);
-  box-shadow: inset 0 0 0 0.125rem rgb(236,182,182);
-  width: auto;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
-.emotion-5::-moz-focus-inner {
-  border: none;
+.emotion-5:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
-.emotion-5:hover,
-.emotion-5:focus,
-.emotion-5:active {
-  color: rgb(255,255,255);
+.emotion-5:focus {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+}
+
+.emotion-5:active,
+.emotion-5[data-active=true] {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-7 {
-  position: relative;
-  font-size: 100%;
-  padding: 0;
+  box-sizing: border-box;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+  background: none;
+  border-width: 0;
+  border-style: solid;
+  border-color: transparent;
   display: inline-block;
   outline: none;
-  background: none;
-  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
-  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
   cursor: not-allowed;
-  background: none;
   color: rgb(236,182,182);
-  width: auto;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
 }
 
-.emotion-7::-moz-focus-inner {
-  border: none;
+.emotion-7:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: rgb(236,182,182);
+}
+
+.emotion-7:focus {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+  color: rgb(236,182,182);
+}
+
+.emotion-7:active,
+.emotion-7[data-active=true] {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: rgb(236,182,182);
 }
 
 .emotion-9 {
-  position: relative;
-  font-size: 100%;
-  padding: 0;
+  box-sizing: border-box;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+  background: none;
+  border-width: 0;
+  border-style: solid;
+  border-color: transparent;
   display: inline-block;
   outline: none;
-  background: none;
-  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
-  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
   cursor: not-allowed;
-  background: none;
   color: rgb(179,211,233);
-  width: auto;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
 }
 
-.emotion-9::-moz-focus-inner {
-  border: none;
+.emotion-9:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-9:focus {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+}
+
+.emotion-9:active,
+.emotion-9[data-active=true] {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-11 {
-  position: relative;
-  font-size: 100%;
-  padding: 0;
+  box-sizing: border-box;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+  background: none;
+  border-width: 0;
+  border-style: solid;
+  border-color: transparent;
   display: inline-block;
   outline: none;
-  background: none;
-  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
-  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
   cursor: not-allowed;
-  width: auto;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
 }
 
-.emotion-11::-moz-focus-inner {
-  border: none;
+.emotion-11:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-11:focus {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+}
+
+.emotion-11:active,
+.emotion-11[data-active=true] {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 <div
@@ -211,12 +313,23 @@ exports[`Button States Has a disabled state 1`] = `
   <button
     aria-busy="false"
     className="emotion-1"
+    color="colorTextInverse"
+    cursor="not-allowed"
     disabled={true}
-    size="default"
+    display="inline-block"
+    fontFamily="fontFamilyText"
+    fontSize="fontSize30"
+    fontWeight="fontWeightSemibold"
+    textDecoration="none"
     type="button"
+    width="auto"
   >
     <span
+      aria-hidden="false"
       className="emotion-0"
+      display="flex"
+      opacity="1"
+      textDecoration="inherit"
     >
       Submit
     </span>
@@ -224,12 +337,23 @@ exports[`Button States Has a disabled state 1`] = `
   <button
     aria-busy="false"
     className="emotion-3"
+    color="colorTextLinkLight"
+    cursor="not-allowed"
     disabled={true}
-    size="default"
+    display="inline-block"
+    fontFamily="fontFamilyText"
+    fontSize="fontSize30"
+    fontWeight="fontWeightSemibold"
+    textDecoration="none"
     type="button"
+    width="auto"
   >
     <span
+      aria-hidden="false"
       className="emotion-0"
+      display="flex"
+      opacity="1"
+      textDecoration="inherit"
     >
       Submit
     </span>
@@ -237,12 +361,23 @@ exports[`Button States Has a disabled state 1`] = `
   <button
     aria-busy="false"
     className="emotion-5"
+    color="colorTextInverse"
+    cursor="not-allowed"
     disabled={true}
-    size="default"
+    display="inline-block"
+    fontFamily="fontFamilyText"
+    fontSize="fontSize30"
+    fontWeight="fontWeightSemibold"
+    textDecoration="none"
     type="button"
+    width="auto"
   >
     <span
+      aria-hidden="false"
       className="emotion-0"
+      display="flex"
+      opacity="1"
+      textDecoration="inherit"
     >
       Submit
     </span>
@@ -250,12 +385,22 @@ exports[`Button States Has a disabled state 1`] = `
   <button
     aria-busy="false"
     className="emotion-7"
+    color="colorTextLinkDestructiveLight"
+    cursor="not-allowed"
     disabled={true}
-    size="reset"
+    display="inline-block"
+    fontFamily="fontFamilyText"
+    fontWeight="fontWeightSemibold"
+    textDecoration="none"
     type="button"
+    width="auto"
   >
     <span
+      aria-hidden="false"
       className="emotion-0"
+      display="flex"
+      opacity="1"
+      textDecoration="inherit"
     >
       Submit
     </span>
@@ -263,12 +408,22 @@ exports[`Button States Has a disabled state 1`] = `
   <button
     aria-busy="false"
     className="emotion-9"
+    color="colorTextLinkLight"
+    cursor="not-allowed"
     disabled={true}
-    size="reset"
+    display="inline-block"
+    fontFamily="fontFamilyText"
+    fontWeight="fontWeightSemibold"
+    textDecoration="none"
     type="button"
+    width="auto"
   >
     <span
+      aria-hidden="false"
       className="emotion-0"
+      display="flex"
+      opacity="1"
+      textDecoration="inherit"
     >
       Submit
     </span>
@@ -276,12 +431,21 @@ exports[`Button States Has a disabled state 1`] = `
   <button
     aria-busy="false"
     className="emotion-11"
+    cursor="not-allowed"
     disabled={true}
-    size="reset"
+    display="inline-block"
+    fontFamily="fontFamilyText"
+    fontWeight="fontWeightSemibold"
+    textDecoration="none"
     type="button"
+    width="auto"
   >
     <span
+      aria-hidden="false"
       className="emotion-0"
+      display="flex"
+      opacity="1"
+      textDecoration="inherit"
     >
       Submit
     </span>
@@ -313,59 +477,59 @@ exports[`Button States Has a loading state 1`] = `
 }
 
 .emotion-4 {
-  position: relative;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+  box-sizing: border-box;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+  background: none;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(3,44,94);
   display: inline-block;
   outline: none;
-  background: none;
-  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
-  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
   cursor: wait;
   color: rgb(255,255,255);
-  width: auto;
-}
-
-.emotion-4::-moz-focus-inner {
-  border: none;
-}
-
-.emotion-4:hover,
-.emotion-4:focus,
-.emotion-4:active {
-  color: rgb(255,255,255);
-}
-
-.emotion-4,
-.emotion-4:hover,
-.emotion-4:active,
-.emotion-4:focus {
   background-color: rgb(3,44,94);
-  box-shadow: inset 0 0 0 0.125rem rgb(3,44,94);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.emotion-4:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-4:focus {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+}
+
+.emotion-4:active,
+.emotion-4[data-active=true] {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-0 {
-  display: grid;
-  grid-auto-flow: column;
-  -webkit-column-gap: 0.25rem;
-  column-gap: 0.25rem;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  vertical-align: middle;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-text-decoration: inherit;
   text-decoration: inherit;
   opacity: 0;
@@ -373,11 +537,11 @@ exports[`Button States Has a loading state 1`] = `
 
 .emotion-3 {
   box-sizing: border-box;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
   position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -390,7 +554,7 @@ exports[`Button States Has a loading state 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  line-height: 14px;
+  line-height: 1.5rem;
 }
 
 .emotion-2 {
@@ -419,141 +583,242 @@ exports[`Button States Has a loading state 1`] = `
 }
 
 .emotion-9 {
-  position: relative;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+  box-sizing: border-box;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+  background: none;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(220,234,244);
   display: inline-block;
   outline: none;
-  background: none;
-  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
-  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
   cursor: wait;
-  background-color: rgb(255,255,255);
   color: rgb(3,44,94);
   background-color: rgb(220,234,244);
-  box-shadow: inset 0 0 0 0.125rem rgb(220,234,244);
-  width: auto;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
-.emotion-9::-moz-focus-inner {
-  border: none;
+.emotion-9:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: rgb(3,44,94);
+  background-color: rgb(220,234,244);
+  border-color: rgb(220,234,244);
+}
+
+.emotion-9:focus {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+  color: rgb(3,44,94);
+  background-color: rgb(220,234,244);
+  border-color: rgb(220,234,244);
+}
+
+.emotion-9:active,
+.emotion-9[data-active=true] {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: rgb(3,44,94);
+  background-color: rgb(220,234,244);
+  border-color: rgb(220,234,244);
 }
 
 .emotion-14 {
-  position: relative;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+  box-sizing: border-box;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+  background: none;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(96,1,1);
   display: inline-block;
   outline: none;
-  background: none;
-  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
-  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
   cursor: wait;
-  background-color: rgb(226,37,37);
   color: rgb(255,255,255);
-  box-shadow: inset 0 0 0 0.125rem rgb(226,37,37);
   background-color: rgb(96,1,1);
-  box-shadow: inset 0 0 0 0.125rem rgb(96,1,1);
-  width: auto;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
-.emotion-14::-moz-focus-inner {
-  border: none;
+.emotion-14:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
-.emotion-14:hover,
-.emotion-14:focus,
-.emotion-14:active {
-  color: rgb(255,255,255);
+.emotion-14:focus {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+}
+
+.emotion-14:active,
+.emotion-14[data-active=true] {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-19 {
-  position: relative;
-  font-size: 100%;
-  padding: 0;
+  box-sizing: border-box;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+  background: none;
+  border-width: 0;
+  border-style: solid;
+  border-color: transparent;
   display: inline-block;
   outline: none;
-  background: none;
-  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
-  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
   cursor: wait;
-  background: none;
   color: rgb(146,18,0);
-  width: auto;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
 }
 
-.emotion-19::-moz-focus-inner {
-  border: none;
+.emotion-19:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: rgb(146,18,0);
+}
+
+.emotion-19:focus {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+  color: rgb(146,18,0);
+}
+
+.emotion-19:active,
+.emotion-19[data-active=true] {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: rgb(146,18,0);
 }
 
 .emotion-24 {
-  position: relative;
-  font-size: 100%;
-  padding: 0;
+  box-sizing: border-box;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+  background: none;
+  border-width: 0;
+  border-style: solid;
+  border-color: transparent;
   display: inline-block;
   outline: none;
-  background: none;
-  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
-  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
   cursor: wait;
-  background: none;
   color: rgb(3,44,94);
-  width: auto;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
 }
 
-.emotion-24::-moz-focus-inner {
-  border: none;
+.emotion-24:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-24:focus {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+}
+
+.emotion-24:active,
+.emotion-24[data-active=true] {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-29 {
-  position: relative;
-  font-size: 100%;
-  padding: 0;
+  box-sizing: border-box;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+  background: none;
+  border-width: 0;
+  border-style: solid;
+  border-color: transparent;
   display: inline-block;
   outline: none;
-  background: none;
-  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
-  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
   cursor: wait;
-  width: auto;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
 }
 
-.emotion-29::-moz-focus-inner {
-  border: none;
+.emotion-29:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-29:focus {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+}
+
+.emotion-29:active,
+.emotion-29[data-active=true] {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 <div
@@ -562,17 +827,29 @@ exports[`Button States Has a loading state 1`] = `
   <button
     aria-busy="true"
     className="emotion-4"
+    color="colorTextInverse"
+    cursor="wait"
     disabled={true}
-    size="default"
+    display="inline-block"
+    fontFamily="fontFamilyText"
+    fontSize="fontSize30"
+    fontWeight="fontWeightSemibold"
+    textDecoration="none"
     type="button"
+    width="auto"
   >
     <span
+      aria-hidden="true"
       className="emotion-0"
+      display="flex"
+      opacity="0"
+      textDecoration="inherit"
     >
       Submit
     </span>
     <span
       className="emotion-3"
+      display="flex"
     >
       <div
         className="emotion-2"
@@ -610,17 +887,29 @@ exports[`Button States Has a loading state 1`] = `
   <button
     aria-busy="true"
     className="emotion-9"
+    color="colorTextLinkDarker"
+    cursor="wait"
     disabled={true}
-    size="default"
+    display="inline-block"
+    fontFamily="fontFamilyText"
+    fontSize="fontSize30"
+    fontWeight="fontWeightSemibold"
+    textDecoration="none"
     type="button"
+    width="auto"
   >
     <span
+      aria-hidden="true"
       className="emotion-0"
+      display="flex"
+      opacity="0"
+      textDecoration="inherit"
     >
       Submit
     </span>
     <span
       className="emotion-3"
+      display="flex"
     >
       <div
         className="emotion-2"
@@ -658,17 +947,29 @@ exports[`Button States Has a loading state 1`] = `
   <button
     aria-busy="true"
     className="emotion-14"
+    color="colorTextInverse"
+    cursor="wait"
     disabled={true}
-    size="default"
+    display="inline-block"
+    fontFamily="fontFamilyText"
+    fontSize="fontSize30"
+    fontWeight="fontWeightSemibold"
+    textDecoration="none"
     type="button"
+    width="auto"
   >
     <span
+      aria-hidden="true"
       className="emotion-0"
+      display="flex"
+      opacity="0"
+      textDecoration="inherit"
     >
       Submit
     </span>
     <span
       className="emotion-3"
+      display="flex"
     >
       <div
         className="emotion-2"
@@ -706,17 +1007,28 @@ exports[`Button States Has a loading state 1`] = `
   <button
     aria-busy="true"
     className="emotion-19"
+    color="colorTextLinkDestructiveDarker"
+    cursor="wait"
     disabled={true}
-    size="reset"
+    display="inline-block"
+    fontFamily="fontFamilyText"
+    fontWeight="fontWeightSemibold"
+    textDecoration="none"
     type="button"
+    width="auto"
   >
     <span
+      aria-hidden="true"
       className="emotion-0"
+      display="flex"
+      opacity="0"
+      textDecoration="inherit"
     >
       Submit
     </span>
     <span
       className="emotion-3"
+      display="flex"
     >
       <div
         className="emotion-2"
@@ -754,17 +1066,28 @@ exports[`Button States Has a loading state 1`] = `
   <button
     aria-busy="true"
     className="emotion-24"
+    color="colorTextLinkDarker"
+    cursor="wait"
     disabled={true}
-    size="reset"
+    display="inline-block"
+    fontFamily="fontFamilyText"
+    fontWeight="fontWeightSemibold"
+    textDecoration="none"
     type="button"
+    width="auto"
   >
     <span
+      aria-hidden="true"
       className="emotion-0"
+      display="flex"
+      opacity="0"
+      textDecoration="inherit"
     >
       Submit
     </span>
     <span
       className="emotion-3"
+      display="flex"
     >
       <div
         className="emotion-2"
@@ -802,17 +1125,27 @@ exports[`Button States Has a loading state 1`] = `
   <button
     aria-busy="true"
     className="emotion-29"
+    cursor="wait"
     disabled={true}
-    size="reset"
+    display="inline-block"
+    fontFamily="fontFamilyText"
+    fontWeight="fontWeightSemibold"
+    textDecoration="none"
     type="button"
+    width="auto"
   >
     <span
+      aria-hidden="true"
       className="emotion-0"
+      display="flex"
+      opacity="0"
+      textDecoration="inherit"
     >
       Submit
     </span>
     <span
       className="emotion-3"
+      display="flex"
     >
       <div
         className="emotion-2"
@@ -860,85 +1193,71 @@ exports[`Button Variants Has a destructive variant 1`] = `
 }
 
 .emotion-0 {
-  display: grid;
-  grid-auto-flow: column;
-  -webkit-column-gap: 0.25rem;
-  column-gap: 0.25rem;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  vertical-align: middle;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-text-decoration: inherit;
   text-decoration: inherit;
-  opacity: 100%;
+  opacity: 1;
 }
 
 .emotion-1 {
-  position: relative;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+  box-sizing: border-box;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+  background: none;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(226,37,37);
   display: inline-block;
   outline: none;
-  background: none;
-  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
-  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   -webkit-text-decoration: none;
   text-decoration: none;
+  position: relative;
   cursor: pointer;
+  color: rgb(255,255,255);
   background-color: rgb(226,37,37);
-  color: rgb(255,255,255);
-  box-shadow: inset 0 0 0 0.125rem rgb(226,37,37);
-  width: auto;
-}
-
-.emotion-1::-moz-focus-inner {
-  border: none;
-}
-
-.emotion-1:focus,
-.emotion-1:active {
-  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
-}
-
-.emotion-1:hover,
-.emotion-1:focus,
-.emotion-1:active {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-1:hover,
-.emotion-1:focus,
-.emotion-1:active {
-  color: rgb(255,255,255);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .emotion-1:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: rgb(255,255,255);
   background-color: rgb(96,1,1);
-  box-shadow: inset 0 0 0 0.125rem rgb(96,1,1);
+  border-color: rgb(96,1,1);
 }
 
 .emotion-1:focus {
-  background-color: rgb(226,37,37);
-  box-shadow: inset 0 0 0 0.125rem rgb(96,1,1), 0 0 0 4px rgba(2,122,197,0.8);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+  color: rgb(255,255,255);
+  border-color: rgb(96,1,1);
 }
 
-.emotion-1:active {
-  background-color: rgb(146,18,0);
-  box-shadow: inset 0 0 0 0.125rem rgb(96,1,1), 0 0 0 4px rgba(2,122,197,0.8);
+.emotion-1:active,
+.emotion-1[data-active=true] {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+  color: rgb(255,255,255);
+  background-color: rgb(96,1,1);
+  border-color: rgb(96,1,1);
 }
 
 <div
@@ -947,13 +1266,24 @@ exports[`Button Variants Has a destructive variant 1`] = `
   <button
     aria-busy="false"
     className="emotion-1"
+    color="colorTextInverse"
+    cursor="pointer"
     disabled={false}
+    display="inline-block"
+    fontFamily="fontFamilyText"
+    fontSize="fontSize30"
+    fontWeight="fontWeightSemibold"
     onClick={[Function]}
-    size="default"
+    textDecoration="none"
     type="button"
+    width="auto"
   >
     <span
+      aria-hidden="false"
       className="emotion-0"
+      display="flex"
+      opacity="1"
+      textDecoration="inherit"
     >
       Delete
     </span>
@@ -971,75 +1301,61 @@ exports[`Button Variants Has a destructive_link variant 1`] = `
 }
 
 .emotion-0 {
-  display: grid;
-  grid-auto-flow: column;
-  -webkit-column-gap: 0.25rem;
-  column-gap: 0.25rem;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  vertical-align: middle;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-text-decoration: inherit;
   text-decoration: inherit;
-  opacity: 100%;
+  opacity: 1;
 }
 
 .emotion-1 {
-  position: relative;
-  font-size: 100%;
-  padding: 0;
+  box-sizing: border-box;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+  background: none;
+  border-width: 0;
+  border-style: solid;
+  border-color: transparent;
   display: inline-block;
   outline: none;
-  background: none;
-  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
-  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   -webkit-text-decoration: none;
   text-decoration: none;
+  position: relative;
   cursor: pointer;
-  background: none;
   color: rgb(226,37,37);
-  width: auto;
-}
-
-.emotion-1::-moz-focus-inner {
-  border: none;
-}
-
-.emotion-1:focus,
-.emotion-1:active {
-  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
-}
-
-.emotion-1:hover,
-.emotion-1:focus,
-.emotion-1:active {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-1:hover,
-.emotion-1:focus,
-.emotion-1:active {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
 }
 
 .emotion-1:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
   color: rgb(178,6,0);
 }
 
-.emotion-1:active {
+.emotion-1:focus {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+  color: rgb(178,6,0);
+}
+
+.emotion-1:active,
+.emotion-1[data-active=true] {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
   color: rgb(146,18,0);
 }
 
@@ -1049,13 +1365,23 @@ exports[`Button Variants Has a destructive_link variant 1`] = `
   <button
     aria-busy="false"
     className="emotion-1"
+    color="colorTextLinkDestructive"
+    cursor="pointer"
     disabled={false}
+    display="inline-block"
+    fontFamily="fontFamilyText"
+    fontWeight="fontWeightSemibold"
     onClick={[Function]}
-    size="reset"
+    textDecoration="none"
     type="button"
+    width="auto"
   >
     <span
+      aria-hidden="false"
       className="emotion-0"
+      display="flex"
+      opacity="1"
+      textDecoration="inherit"
     >
       Undo
     </span>
@@ -1073,75 +1399,61 @@ exports[`Button Variants Has a link variant 1`] = `
 }
 
 .emotion-0 {
-  display: grid;
-  grid-auto-flow: column;
-  -webkit-column-gap: 0.25rem;
-  column-gap: 0.25rem;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  vertical-align: middle;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-text-decoration: inherit;
   text-decoration: inherit;
-  opacity: 100%;
+  opacity: 1;
 }
 
 .emotion-1 {
-  position: relative;
-  font-size: 100%;
-  padding: 0;
+  box-sizing: border-box;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+  background: none;
+  border-width: 0;
+  border-style: solid;
+  border-color: transparent;
   display: inline-block;
   outline: none;
-  background: none;
-  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
-  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   -webkit-text-decoration: none;
   text-decoration: none;
+  position: relative;
   cursor: pointer;
-  background: none;
   color: rgb(0,94,166);
-  width: auto;
-}
-
-.emotion-1::-moz-focus-inner {
-  border: none;
-}
-
-.emotion-1:focus,
-.emotion-1:active {
-  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
-}
-
-.emotion-1:hover,
-.emotion-1:focus,
-.emotion-1:active {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-1:hover,
-.emotion-1:focus,
-.emotion-1:active {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
 }
 
 .emotion-1:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
   color: rgb(0,62,130);
 }
 
-.emotion-1:active {
+.emotion-1:focus {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+  color: rgb(0,62,130);
+}
+
+.emotion-1:active,
+.emotion-1[data-active=true] {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
   color: rgb(3,44,94);
 }
 
@@ -1151,13 +1463,23 @@ exports[`Button Variants Has a link variant 1`] = `
   <button
     aria-busy="false"
     className="emotion-1"
+    color="colorTextLink"
+    cursor="pointer"
     disabled={false}
+    display="inline-block"
+    fontFamily="fontFamilyText"
+    fontWeight="fontWeightSemibold"
     onClick={[Function]}
-    size="reset"
+    textDecoration="none"
     type="button"
+    width="auto"
   >
     <span
+      aria-hidden="false"
       className="emotion-0"
+      display="flex"
+      opacity="1"
+      textDecoration="inherit"
     >
       Go to Paste
     </span>
@@ -1175,85 +1497,71 @@ exports[`Button Variants Has a primary variant 1`] = `
 }
 
 .emotion-1 {
-  position: relative;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+  box-sizing: border-box;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+  background: none;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(2,122,197);
   display: inline-block;
   outline: none;
-  background: none;
-  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
-  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   -webkit-text-decoration: none;
   text-decoration: none;
+  position: relative;
   cursor: pointer;
   color: rgb(255,255,255);
   background-color: rgb(2,122,197);
-  box-shadow: inset 0 0 0 0.125rem rgb(2,122,197);
-  width: auto;
-}
-
-.emotion-1::-moz-focus-inner {
-  border: none;
-}
-
-.emotion-1:focus,
-.emotion-1:active {
-  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
-}
-
-.emotion-1:hover,
-.emotion-1:focus,
-.emotion-1:active {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-1:hover,
-.emotion-1:focus,
-.emotion-1:active {
-  color: rgb(255,255,255);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .emotion-1:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: rgb(255,255,255);
   background-color: rgb(3,44,94);
-  box-shadow: inset 0 0 0 0.125rem rgb(3,44,94);
+  border-color: rgb(3,44,94);
 }
 
 .emotion-1:focus {
-  background-color: rgb(2,122,197);
-  box-shadow: inset 0 0 0 0.125rem rgb(3,44,94), 0 0 0 4px rgba(2,122,197,0.8);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+  color: rgb(255,255,255);
+  border-color: rgb(3,44,94);
 }
 
-.emotion-1:active {
+.emotion-1:active,
+.emotion-1[data-active=true] {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+  color: rgb(255,255,255);
   background-color: rgb(0,62,130);
-  box-shadow: inset 0 0 0 0.125rem rgb(3,44,94), 0 0 0 4px rgba(2,122,197,0.8);
+  border-color: rgb(3,44,94);
 }
 
 .emotion-0 {
-  display: grid;
-  grid-auto-flow: column;
-  -webkit-column-gap: 0.25rem;
-  column-gap: 0.25rem;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  vertical-align: middle;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-text-decoration: inherit;
   text-decoration: inherit;
-  opacity: 100%;
+  opacity: 1;
 }
 
 <div
@@ -1262,13 +1570,24 @@ exports[`Button Variants Has a primary variant 1`] = `
   <button
     aria-busy="false"
     className="emotion-1"
+    color="colorTextInverse"
+    cursor="pointer"
     disabled={false}
+    display="inline-block"
+    fontFamily="fontFamilyText"
+    fontSize="fontSize30"
+    fontWeight="fontWeightSemibold"
     onClick={[Function]}
-    size="default"
+    textDecoration="none"
     type="submit"
+    width="auto"
   >
     <span
+      aria-hidden="false"
       className="emotion-0"
+      display="flex"
+      opacity="1"
+      textDecoration="inherit"
     >
       Submit
     </span>
@@ -1286,59 +1605,58 @@ exports[`Button Variants Has a reset variant 1`] = `
 }
 
 .emotion-0 {
-  display: grid;
-  grid-auto-flow: column;
-  -webkit-column-gap: 0.25rem;
-  column-gap: 0.25rem;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  vertical-align: middle;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-text-decoration: inherit;
   text-decoration: inherit;
-  opacity: 100%;
+  opacity: 1;
 }
 
 .emotion-1 {
-  position: relative;
-  font-size: 100%;
-  padding: 0;
+  box-sizing: border-box;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+  background: none;
+  border-width: 0;
+  border-style: solid;
+  border-color: transparent;
   display: inline-block;
   outline: none;
-  background: none;
-  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
-  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   -webkit-text-decoration: none;
   text-decoration: none;
+  position: relative;
   cursor: pointer;
-  width: auto;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
 }
 
-.emotion-1::-moz-focus-inner {
-  border: none;
+.emotion-1:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
-.emotion-1:focus,
-.emotion-1:active {
+.emotion-1:focus {
+  -webkit-text-decoration: none;
+  text-decoration: none;
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
-.emotion-1:hover,
-.emotion-1:focus,
-.emotion-1:active {
+.emotion-1:active,
+.emotion-1[data-active=true] {
   -webkit-text-decoration: none;
   text-decoration: none;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
 }
 
 <div
@@ -1347,13 +1665,22 @@ exports[`Button Variants Has a reset variant 1`] = `
   <button
     aria-busy="false"
     className="emotion-1"
+    cursor="pointer"
     disabled={false}
+    display="inline-block"
+    fontFamily="fontFamilyText"
+    fontWeight="fontWeightSemibold"
     onClick={[Function]}
-    size="reset"
+    textDecoration="none"
     type="button"
+    width="auto"
   >
     <span
+      aria-hidden="false"
       className="emotion-0"
+      display="flex"
+      opacity="1"
+      textDecoration="inherit"
     >
       Hello World!
     </span>
@@ -1371,83 +1698,72 @@ exports[`Button Variants Has a secondary variant 1`] = `
 }
 
 .emotion-0 {
-  display: grid;
-  grid-auto-flow: column;
-  -webkit-column-gap: 0.25rem;
-  column-gap: 0.25rem;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  vertical-align: middle;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-text-decoration: inherit;
   text-decoration: inherit;
-  opacity: 100%;
+  opacity: 1;
 }
 
 .emotion-1 {
-  position: relative;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+  box-sizing: border-box;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
+  background: none;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(2,122,197);
   display: inline-block;
   outline: none;
-  background: none;
-  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
-  transition: background-color 100ms ease-in,box-shadow 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  transition: background-color 100ms ease-in,border-color 100ms ease-in;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   -webkit-text-decoration: none;
   text-decoration: none;
+  position: relative;
   cursor: pointer;
-  background-color: rgb(255,255,255);
   color: rgb(0,94,166);
   background-color: rgb(255,255,255);
-  box-shadow: inset 0 0 0 0.125rem rgb(2,122,197);
-  width: auto;
-}
-
-.emotion-1::-moz-focus-inner {
-  border: none;
-}
-
-.emotion-1:focus,
-.emotion-1:active {
-  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
-}
-
-.emotion-1:hover,
-.emotion-1:focus,
-.emotion-1:active {
-  -webkit-text-decoration: none;
-  text-decoration: none;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .emotion-1:hover {
-  color: rgb(3,44,94);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: rgb(0,94,166);
   background-color: rgb(245,248,255);
-  box-shadow: inset 0 0 0 0.125rem rgb(3,44,94);
+  border-color: rgb(3,44,94);
 }
 
 .emotion-1:focus {
-  color: rgb(3,44,94);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+  color: rgb(0,94,166);
   background-color: rgb(245,248,255);
-  box-shadow: inset 0 0 0 0.125rem rgb(3,44,94), 0 0 0 4px rgba(2,122,197,0.8);
+  border-color: rgb(3,44,94);
 }
 
-.emotion-1:active {
-  color: rgb(3,44,94);
-  background-color: rgb(220,234,244);
-  box-shadow: inset 0 0 0 0.125rem rgb(3,44,94), 0 0 0 4px rgba(2,122,197,0.8);
+.emotion-1:active,
+.emotion-1[data-active=true] {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+  color: rgb(0,94,166);
+  background-color: rgb(245,248,255);
+  border-color: rgb(3,44,94);
 }
 
 <div
@@ -1456,13 +1772,24 @@ exports[`Button Variants Has a secondary variant 1`] = `
   <button
     aria-busy="false"
     className="emotion-1"
+    color="colorTextLink"
+    cursor="pointer"
     disabled={false}
+    display="inline-block"
+    fontFamily="fontFamilyText"
+    fontSize="fontSize30"
+    fontWeight="fontWeightSemibold"
     onClick={[Function]}
-    size="default"
+    textDecoration="none"
     type="button"
+    width="auto"
   >
     <span
+      aria-hidden="false"
       className="emotion-0"
+      display="flex"
+      opacity="1"
+      textDecoration="inherit"
     >
       Submit
     </span>
