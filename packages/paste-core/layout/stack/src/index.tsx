@@ -10,7 +10,7 @@ import {
   MarginProps,
   SpaceOptions,
 } from '@twilio-paste/style-props';
-import {Box, BoxProps, safelySpreadBoxProps} from '@twilio-paste/box';
+import {Box, BoxElementProps, safelySpreadBoxProps} from '@twilio-paste/box';
 
 type StackChildMargins = Pick<MarginProps, 'marginRight' | 'marginBottom'>;
 type DisplayOptions = 'block' | 'flex';
@@ -19,7 +19,7 @@ type StackOrientationOptions = 'horizontal' | 'vertical';
 export type StackOrientation = ResponsiveValue<StackOrientationOptions>;
 
 interface StackStyleProps extends Pick<LayoutProps, 'display'>, Pick<FlexboxProps, 'alignItems' | 'flexWrap'> {}
-export interface StackProps extends Pick<BoxProps, 'as'>, React.HTMLAttributes<any> {
+export interface StackProps extends BoxElementProps {
   orientation: StackOrientation;
   spacing: SpaceOptions;
 }
@@ -82,15 +82,21 @@ export const getStackChildMargins = (orientation: StackOrientation, spacing: Spa
 };
 
 const Stack: React.FC<StackProps> = ({children, orientation, spacing, ...props}) => {
-  const count = React.useMemo(() => React.Children.count(children), [children]);
-  const StackStyles = React.useMemo(() => getStackStyles(orientation), [orientation]);
-  const validChildren = React.Children.toArray(children).filter(React.isValidElement);
+  const [childrenCount, validChildren] = React.useMemo(
+    () => [
+      React.Children.count(children),
+      React.Children.toArray(children).filter(child => React.isValidElement(child) || typeof child === 'string'),
+    ],
+    [children]
+  );
+  const stackStyles = React.useMemo(() => getStackStyles(orientation), [orientation]);
+  const childMargins = React.useMemo(() => getStackChildMargins(orientation, spacing), [orientation, spacing]);
 
   return (
-    <Box {...safelySpreadBoxProps(props)} {...StackStyles}>
+    <Box {...safelySpreadBoxProps(props)} {...stackStyles}>
       {validChildren.map((child, index) => {
         return (
-          <Box {...(count !== index + 1 ? {...getStackChildMargins(orientation, spacing)} : null)} key={useUID()}>
+          <Box {...(childrenCount !== index + 1 ? childMargins : null)} key={useUID()}>
             {child}
           </Box>
         );
