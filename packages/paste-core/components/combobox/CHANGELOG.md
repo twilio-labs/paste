@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.1.0...@twilio-paste/combobox@1.2.0) (2020-08-07)
+
+
+### Features
+
+* **combobox:** unified design language update ([d2e1fc1](https://github.com/twilio-labs/paste/commit/d2e1fc114bd125c0a868b23e064d1afc0ca11635))
+
+
+
+
+
 # [1.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.0.1...@twilio-paste/combobox@1.1.0) (2020-08-06)
 
 
