@@ -90,7 +90,7 @@ exports[`Combobox  Render should render 1`] = `
   border: none;
   border-radius: borderRadius20;
   box-shadow: none;
-  color: colorText;
+  color: inherit;
   display: block;
   font-family: inherit;
   font-size: fontSize30;
@@ -124,6 +124,22 @@ exports[`Combobox  Render should render 1`] = `
 .emotion-3::placeholder {
   color: colorTextWeak;
   font-style: italic;
+}
+
+.emotion-3:focus::-webkit-input-placeholder {
+  color: colorTextWeak;
+}
+
+.emotion-3:focus::-moz-placeholder {
+  color: colorTextWeak;
+}
+
+.emotion-3:focus:-ms-input-placeholder {
+  color: colorTextWeak;
+}
+
+.emotion-3:focus::placeholder {
+  color: colorTextWeak;
 }
 
 .emotion-3:disabled {
