@@ -857,20 +857,21 @@ import {Select, Option, FormLabel, FormHelpText} from '@twilio-paste/form';
 
 All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select">valid HTML attributes</Anchor> for `select` are supported including the following props:
 
-| Prop          | Type                                            | Description                                                                          | Default |
-| ------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------ | ------- |
-| id            | string                                          | Sets the id of the input. Should match the htmlFor of `FormLabel`. Required.         | null    |
-| name          | string                                          | Sets the name of the select. Required.                                               | null    |
-| value         | string, string[]                                | Sets the value of the select. Expects an array when `multiple` is present. Required. | null    |
-| children      | `NonNullable>React.ReactNode>`                  | Must be `Option` or `OptionGroup`. Required.                                         | null    |
-| disabled?     | boolean                                         | Disables the input.                                                                  | false   |
-| insertBefore? | `React.ReactNode`                               | Add Prefix to the select input.                                                      | null    |
-| insertAfter?  | `React.ReactNode`                               | Add Suffix to the select input.                                                      | null    |
-| required?     | boolean                                         | Sets the input as required.                                                          | false   |
-| hasError?     | boolean                                         | Sets the input to an error state.                                                    | false   |
-| onChange      | `(event: React.ChangeEvent<HTMLSelectElement>)` | Required.                                                                            | null    |
-| onFocus?      | `(event: React.MouseEvent<HTMLElement>)`        |                                                                                      | null    |
-| onBlur?       | `(event: React.MouseEvent<HTMLElement>)`        |                                                                                      | null    |
+| Prop          | Type                                            | Description                                                                          | Default   |
+| ------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------ | --------- |
+| id            | string                                          | Sets the id of the input. Should match the htmlFor of `FormLabel`. Required.         | null      |
+| name          | string                                          | Sets the name of the select. Required.                                               | null      |
+| value         | string, string[]                                | Sets the value of the select. Expects an array when `multiple` is present. Required. | null      |
+| children      | `NonNullable>React.ReactNode>`                  | Must be `Option` or `OptionGroup`. Required.                                         | null      |
+| disabled?     | boolean                                         | Disables the input.                                                                  | false     |
+| insertBefore? | `React.ReactNode`                               | Add Prefix to the select input.                                                      | null      |
+| insertAfter?  | `React.ReactNode`                               | Add Suffix to the select input.                                                      | null      |
+| required?     | boolean                                         | Sets the input as required.                                                          | false     |
+| hasError?     | boolean                                         | Sets the input to an error state.                                                    | false     |
+| onChange      | `(event: React.ChangeEvent<HTMLSelectElement>)` | Required.                                                                            | null      |
+| onFocus?      | `(event: React.MouseEvent<HTMLElement>)`        |                                                                                      | null      |
+| onBlur?       | `(event: React.MouseEvent<HTMLElement>)`        |                                                                                      | null      |
+| variant?      | 'default', 'inverse'                            |                                                                                      | 'default' |
 
 #### Option Props
 
@@ -896,23 +897,24 @@ All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/W
 
 All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label">valid HTML attributes</Anchor> for `label` are supported including the following props:
 
-| Prop          | Type                | Description                                                           | Default   |
-| ------------- | ------------------- | --------------------------------------------------------------------- | --------- |
-| children?     | `ReactNode`         |                                                                       | null      |
-| htmlFor       | string              | Sets the for of the label. Should match the id of `Select`. Required. | null      |
-| disabled?     | boolean             | Shows the input is disabled.                                          | false     |
-| required?     | boolean             | Shows the input is required.                                          | false     |
-| marginBottom? | 'space0', 'space10' |                                                                       | 'space10' |
+| Prop          | Type                 | Description                                                           | Default   |
+| ------------- | -------------------- | --------------------------------------------------------------------- | --------- |
+| children?     | `ReactNode`          |                                                                       | null      |
+| htmlFor       | string               | Sets the for of the label. Should match the id of `Select`. Required. | null      |
+| disabled?     | boolean              | Shows the input is disabled.                                          | false     |
+| required?     | boolean              | Shows the input is required.                                          | false     |
+| marginBottom? | 'space0', 'space10'  |                                                                       | 'space10' |
+| variant ?     | 'default', 'inverse' |                                                                       | 'default' |
 
 #### FormHelpText Props
 
 All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes">valid HTML attributes</Anchor> (role, aria-\*, type, and so on) including the following props:
 
-| Prop       | Type                | Description                          | Default   |
-| ---------- | ------------------- | ------------------------------------ | --------- |
-| children?  | `ReactNode`         |                                      | null      |
-| marginTop? | 'space0', 'space20' |                                      | 'space20' |
-| variant?   | 'error'             | Sets the help text to an error state | 'space20' |
+| Prop       | Type                                           | Description        | Default   |
+| ---------- | ---------------------------------------------- | ------------------ | --------- |
+| children?  | `ReactNode`                                    |                    | null      |
+| marginTop? | 'space0', 'space20'                            |                    | 'space20' |
+| variant?   | 'default', 'error', 'error_inverse', 'inverse' | Changes the state. | 'default' |
 
 <ChangelogRevealer>
   <Changelog />
