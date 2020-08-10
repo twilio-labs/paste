@@ -324,3 +324,35 @@ render(
   <DisabledCombobox />
 )
 `.trim();
+
+export const inverseExample = `
+const products = ['SMS', 'Phone Numbers', 'Video'];
+
+const InverseCombobox = () => {
+  return (
+    <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+      <Combobox items={products} labelText="Select a Product" helpText="This is the help text" variant="inverse" />
+    </Box>
+  );
+};
+
+render(
+  <InverseCombobox />
+)
+`.trim();
+
+export const inverseErrorExample = `
+const products = ['SMS', 'Phone Numbers', 'Video'];
+
+const InverseErrorCombobox = () => {
+  return (
+    <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+      <Combobox items={products} labelText="Select a Product" helpText="This is the error message" hasError variant="inverse" />
+    </Box>
+  );
+};
+
+render(
+  <InverseErrorCombobox />
+)
+`.trim();
