@@ -5,6 +5,7 @@ import {storiesOf} from '@storybook/react';
 import {withKnobs} from '@storybook/addon-knobs';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
 import {FormLabel} from '@twilio-paste/form';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
@@ -112,7 +113,33 @@ storiesOf('Components|Combobox', module)
   .addDecorator(withKnobs)
   .add('Combobox', () => {
     return (
-      <>
+      <Combobox
+        items={iconItems}
+        labelText="Choose a component:"
+        helpText="This is the help text"
+        optionTemplate={(item: any) => (
+          <MediaObject verticalAlign="center">
+            {item.iconLeft ? (
+              <MediaFigure spacing="space20">
+                <InformationIcon decorative={false} size="sizeIcon20" title="information" />
+              </MediaFigure>
+            ) : null}
+
+            <MediaBody>{item.label}</MediaBody>
+            {item.iconRight ? (
+              <MediaFigure spacing="space20">
+                <InformationIcon decorative={false} size="sizeIcon20" title="information" />
+              </MediaFigure>
+            ) : null}
+          </MediaObject>
+        )}
+        itemToString={item => (item ? String(item.label) : null)}
+      />
+    );
+  })
+  .add('Combobox - Inverse', () => {
+    return (
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
         <Combobox
           items={iconItems}
           labelText="Choose a component:"
@@ -134,90 +161,173 @@ storiesOf('Components|Combobox', module)
             </MediaObject>
           )}
           itemToString={item => (item ? String(item.label) : null)}
+          variant="inverse"
         />
-      </>
+      </Box>
     );
   })
   .add('Combobox - Autocomplete', () => {
     const [inputItems, setInputItems] = React.useState(items);
     return (
-      <>
-        <Combobox
-          autocomplete
-          items={inputItems}
-          helpText="This is the help text"
-          labelText="Choose a component:"
-          onInputValueChange={({inputValue}) => {
-            if (inputValue !== undefined) {
-              setInputItems(items.filter(item => item.toLowerCase().startsWith(inputValue.toLowerCase())));
-            }
-          }}
-        />
-      </>
+      <Combobox
+        autocomplete
+        items={inputItems}
+        helpText="This is the help text"
+        labelText="Choose a component:"
+        onInputValueChange={({inputValue}) => {
+          if (inputValue !== undefined) {
+            setInputItems(items.filter(item => item.toLowerCase().startsWith(inputValue.toLowerCase())));
+          }
+        }}
+      />
     );
   })
   .add('Combobox - Required', () => {
+    return <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" required />;
+  })
+  .add('Combobox - Required inverse', () => {
     return (
-      <>
-        <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" required />
-      </>
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+        <Combobox
+          items={items}
+          labelText="Choose a component:"
+          helpText="This is the help text"
+          required
+          variant="inverse"
+        />
+      </Box>
     );
   })
   .add('Combobox - Error', () => {
+    return <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" hasError />;
+  })
+  .add('Combobox - Error inverse', () => {
     return (
-      <>
-        <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" hasError />
-      </>
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+        <Combobox
+          items={items}
+          labelText="Choose a component:"
+          helpText="This is the help text"
+          hasError
+          variant="inverse"
+        />
+      </Box>
     );
   })
   .add('Combobox - Disabled', () => {
+    return <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" disabled />;
+  })
+  .add('Combobox - Disabled inverse', () => {
     return (
-      <>
-        <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" disabled />
-      </>
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+        <Combobox
+          items={items}
+          labelText="Choose a component:"
+          helpText="This is the help text"
+          disabled
+          variant="inverse"
+        />
+      </Box>
     );
   })
   .add('Combobox - Insert before and after', () => {
     return (
-      <>
+      <Combobox
+        items={items}
+        insertBefore={<div>$10.99</div>}
+        insertAfter={
+          <Anchor href="#" display="flex">
+            <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
+          </Anchor>
+        }
+        labelText="Choose a component:"
+        helpText="This is the help text"
+      />
+    );
+  })
+  .add('Combobox - Disabled insert before and after', () => {
+    return (
+      <Combobox
+        items={items}
+        insertBefore={<div>$10.99</div>}
+        insertAfter={
+          <Anchor href="#" display="flex">
+            <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
+          </Anchor>
+        }
+        labelText="Choose a component:"
+        helpText="This is the help text"
+        disabled
+      />
+    );
+  })
+  .add('Combobox - Insert before and after inverse', () => {
+    return (
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
         <Combobox
           items={items}
-          insertBefore={<div>$10.99</div>}
+          insertBefore={
+            <Text as="span" color="colorTextInverse" lineHeight="lineHeight20">
+              $10.99
+            </Text>
+          }
           insertAfter={
             <Anchor href="#" display="flex">
-              <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
+              <InformationIcon color="colorTextInverse" decorative={false} size="sizeIcon20" title="Get more info" />
             </Anchor>
           }
           labelText="Choose a component:"
           helpText="This is the help text"
+          variant="inverse"
         />
-      </>
+      </Box>
+    );
+  })
+  .add('Combobox - Disabled insert before and after inverse', () => {
+    return (
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+        <Combobox
+          items={items}
+          insertBefore={
+            <Text as="span" color="colorTextInverse" lineHeight="lineHeight20">
+              $10.99
+            </Text>
+          }
+          insertAfter={
+            <Anchor href="#" display="flex">
+              <InformationIcon color="colorTextInverse" decorative={false} size="sizeIcon20" title="Get more info" />
+            </Anchor>
+          }
+          labelText="Choose a component:"
+          helpText="This is the help text"
+          variant="inverse"
+          disabled
+        />
+      </Box>
     );
   })
   .add('Combobox - Object', () => {
     const [inputItems, setInputItems] = React.useState(objectItems);
     return (
-      <>
-        <Combobox
-          autocomplete
-          items={inputItems}
-          labelText="Choose a country:"
-          helpText="This is the help text"
-          optionTemplate={(item: any) => (
-            <div>
-              {item.code} | {item.label} | {item.phone}
-            </div>
-          )}
-          onInputValueChange={({inputValue}) => {
-            if (inputValue !== undefined) {
-              setInputItems(
-                _.filter(objectItems, (item: any) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
-              );
-            }
-          }}
-          itemToString={item => (item ? item.label : null)}
-        />
-      </>
+      <Combobox
+        autocomplete
+        items={inputItems}
+        labelText="Choose a country:"
+        helpText="This is the help text"
+        optionTemplate={(item: any) => (
+          <div>
+            {item.code} | {item.label} | {item.phone}
+          </div>
+        )}
+        onInputValueChange={({inputValue}) => {
+          if (inputValue !== undefined) {
+            setInputItems(
+              _.filter(objectItems, (item: any) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
+            );
+          }
+        }}
+        itemToString={item => (item ? item.label : null)}
+      />
     );
   })
   .add('Combobox - Custom Input', () => {
