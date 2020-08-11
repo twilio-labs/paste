@@ -4,7 +4,7 @@ exports[`Avatar image should render responsive css with an image 1`] = `
 <DocumentFragment>
   .emotion-1 {
   box-sizing: border-box;
-  background-color: colorBackgroundPrimaryLight;
+  background-color: colorBackgroundUser;
   border-radius: borderRadiusCircle;
   overflow: hidden;
   width: sizeIcon30;
@@ -64,7 +64,7 @@ exports[`Avatar intials should render responsive css 1`] = `
 <DocumentFragment>
   .emotion-1 {
   box-sizing: border-box;
-  background-color: colorBackgroundPrimaryLight;
+  background-color: colorBackgroundUser;
   border-radius: borderRadiusCircle;
   overflow: hidden;
   width: sizeIcon10;
@@ -90,7 +90,7 @@ exports[`Avatar intials should render responsive css 1`] = `
   padding: 0;
   display: block;
   font-size: fontSize10;
-  font-weight: fontWeightSemibold;
+  font-weight: fontWeightBold;
   line-height: lineHeight10;
   text-align: center;
   -webkit-text-decoration: none;
@@ -121,7 +121,7 @@ exports[`Avatar intials should render responsive css 1`] = `
       color="colorText"
       display="block"
       font-size="fontSize10,fontSize10,fontSize60"
-      font-weight="fontWeightSemibold"
+      font-weight="fontWeightBold"
       text-decoration="none"
       title="Simon Taggart"
     >
