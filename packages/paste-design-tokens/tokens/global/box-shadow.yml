@@ -53,8 +53,8 @@ props:
   shadow-border-destructive:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-60}"
     comment: Light shadow border for destructive interactions.
-  shadow-border-destructive-dark:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-80}"
+  shadow-border-destructive-darker:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-90}"
     comment: Dark shadow border for destructive interactions
   shadow-border-error:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-60}"

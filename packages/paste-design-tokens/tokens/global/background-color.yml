@@ -102,7 +102,7 @@ props:
     value: "{!palette-blue-60}"
     comment: Background for primary actions or highlights
   color-background-primary-light:
-    value: "{!palette-blue-40}"
+    value: "{!palette-blue-30}"
     comment: Light background for primary actions or highlights
   color-background-primary-lighter:
     value: "{!palette-blue-20}"
@@ -122,7 +122,7 @@ props:
     value: "{!palette-red-60}"
     comment: Background for destructive actions or highlights
   color-background-destructive-light:
-    value: "{!palette-red-40}"
+    value: "{!palette-red-30}"
     comment: Light background for destructive actions or highlights
   color-background-destructive-lighter:
     value: "{!palette-red-20}"

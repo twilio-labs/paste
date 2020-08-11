@@ -13,29 +13,28 @@ const merge = require('lodash.merge');
 const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default, {
   color: 'colorTextLink',
   backgroundColor: 'colorBackgroundBody',
-  borderColor: 'colorBorderPrimary',
+  boxShadow: 'shadowBorderPrimary',
   _hover: {
-    color: 'colorTextLink',
+    color: 'colorTextLinkDarker',
     backgroundColor: 'colorBackgroundPrimaryLightest',
-    borderColor: 'colorBorderPrimaryDarker',
+    boxShadow: 'shadowBorderPrimaryDarker',
   },
   _focus: {
-    color: 'colorTextLink',
+    color: 'colorTextLinkDarker',
     backgroundColor: 'colorBackgroundPrimaryLightest',
-    borderColor: 'colorBorderPrimaryDarker',
     boxShadow: 'shadowFocus',
   },
   _active: {
-    color: 'colorTextLink',
-    backgroundColor: 'colorBackgroundPrimaryLightest',
-    borderColor: 'colorBorderPrimaryDarker',
+    color: 'colorTextLinkDarker',
+    backgroundColor: 'colorBackgroundPrimaryLighter',
+    boxShadow: 'shadowBorderPrimaryDarker',
   },
 });
 
 const baseLoadingStyles: BoxStyleProps = {
   color: 'colorTextLinkDarker',
   backgroundColor: 'colorBackgroundPrimaryLighter',
-  borderColor: 'colorBorderPrimaryLighter',
+  boxShadow: 'shadowBorderPrimaryLighter',
 };
 
 const loadingStyles: BoxStyleProps = merge({}, BaseStyles.loading, {
@@ -48,7 +47,7 @@ const loadingStyles: BoxStyleProps = merge({}, BaseStyles.loading, {
 const baseDisabledStyles: BoxStyleProps = {
   color: 'colorTextLinkLight',
   backgroundColor: 'colorBackgroundBody',
-  borderColor: 'colorBorderPrimaryLight',
+  boxShadow: 'shadowBorderPrimaryLight',
 };
 
 const disabledStyles: BoxStyleProps = merge({}, BaseStyles.disabled, {

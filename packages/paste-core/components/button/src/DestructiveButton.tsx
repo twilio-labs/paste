@@ -13,34 +13,34 @@ const merge = require('lodash.merge');
 const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default, {
   color: 'colorTextInverse',
   backgroundColor: 'colorBackgroundDestructive',
-  borderColor: 'colorBorderDestructive',
+  boxShadow: 'shadowBorderDestructive',
   _hover: {
     color: 'colorTextInverse',
     backgroundColor: 'colorBackgroundDestructiveDarker',
-    borderColor: 'colorBorderDestructiveDarker',
+    boxShadow: 'shadowBorderDestructiveDarker',
   },
   _focus: {
     color: 'colorTextInverse',
-    borderColor: 'colorBorderDestructiveDarker',
+    backgroundColor: 'colorBackgroundDestructiveDarker',
     boxShadow: 'shadowFocus',
   },
   _active: {
     color: 'colorTextInverse',
-    backgroundColor: 'colorBackgroundDestructiveDarker',
-    borderColor: 'colorBorderDestructiveDarker',
+    backgroundColor: 'colorBackgroundDestructiveDark',
+    boxShadow: 'shadowBorderDestructiveDarker',
   },
 });
 
 const loadingStyles: BoxStyleProps = merge({}, BaseStyles.loading, {
   color: 'colorTextInverse',
   backgroundColor: 'colorBackgroundDestructiveDarker',
-  borderColor: 'colorBorderDestructiveDarker',
+  boxShadow: 'shadowBorderDestructiveDarker',
 });
 
 const disabledStyles: BoxStyleProps = merge({}, BaseStyles.disabled, {
   color: 'colorTextInverse',
   backgroundColor: 'colorBackgroundDestructiveLight',
-  borderColor: 'colorBorderDestructiveLight',
+  boxShadow: 'shadowBorderDestructiveLight',
 });
 
 const ButtonStyleMapping = {

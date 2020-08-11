@@ -7,12 +7,10 @@ const merge = require('lodash.merge');
 const ResetStyles: BoxStyleProps = {
   appearance: 'none',
   background: 'none',
-  borderWidth: 'borderWidth20',
-  borderStyle: 'solid',
-  borderColor: 'transparent',
   display: 'inline-block',
+  border: 'none',
   outline: 'none',
-  transition: 'background-color 100ms ease-in, border-color 100ms ease-in',
+  transition: 'background-color 100ms ease-in, box-shadow 100ms ease-in, color 100ms ease-in',
   fontFamily: 'fontFamilyText',
   fontWeight: 'fontWeightSemibold',
   textDecoration: 'none',
@@ -29,9 +27,7 @@ const ResetStyles: BoxStyleProps = {
 export const BaseStyles: {[key in ButtonStates]: BoxStyleProps} = {
   default: merge({}, ResetStyles, {
     cursor: 'pointer',
-    _active: {
-      boxShadow: 'shadowFocus',
-    },
+    _active: {boxShadow: 'none'},
   }),
   disabled: merge({}, ResetStyles, {
     cursor: 'not-allowed',
@@ -52,8 +48,8 @@ export const SizeStyles: {[key in ButtonSizes]: BoxStyleProps} = {
     lineHeight: 'lineHeight20',
   },
   small: {
-    paddingTop: 'space10',
-    paddingBottom: 'space10',
+    paddingTop: 'space20',
+    paddingBottom: 'space20',
     paddingLeft: 'space30',
     paddingRight: 'space30',
     borderRadius: 'borderRadius10',
