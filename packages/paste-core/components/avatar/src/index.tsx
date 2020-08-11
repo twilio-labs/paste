@@ -19,7 +19,7 @@ const Avatar: React.FC<AvatarProps> = ({name, children, size = 'sizeIcon70', src
     <Box
       {...safelySpreadBoxProps(props)}
       as="div"
-      backgroundColor="colorBackgroundPrimaryLight"
+      backgroundColor="colorBackgroundUser"
       borderRadius="borderRadiusCircle"
       overflow="hidden"
       size={size}
@@ -31,7 +31,7 @@ const Avatar: React.FC<AvatarProps> = ({name, children, size = 'sizeIcon70', src
           as="abbr"
           display="block"
           fontSize={computedTokenNames.fontSize}
-          fontWeight="fontWeightSemibold"
+          fontWeight="fontWeightBold"
           lineHeight={computedTokenNames.lineHeight}
           textAlign="center"
           textDecoration="none"
