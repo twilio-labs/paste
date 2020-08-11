@@ -19,7 +19,7 @@ props:
     value: "{!palette-gray-0}"
     comment: Inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
   color-text-inverse-weak:
-    value: "{!palette-gray-50}"
+    value: "{!palette-gray-40}"
     comment: Weak inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
   color-text-inverse-weaker:
     value: "{!palette-gray-60}"
@@ -59,7 +59,7 @@ props:
 
   #status
   color-text-error-light:
-    value: "{!palette-red-40}"
+    value: "{!palette-red-50}"
     comment: Light error text for inputs and error misc
   color-text-error:
     value: "{!palette-red-60}"
