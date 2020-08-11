@@ -56,6 +56,9 @@ props:
   shadow-border-destructive-darker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-90}"
     comment: Dark shadow border for destructive interactions
+  shadow-border-error-light:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-50}"
+    comment: Shadow border for inverse error inputs.
   shadow-border-error:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-60}"
     comment: Shadow border for error inputs.
