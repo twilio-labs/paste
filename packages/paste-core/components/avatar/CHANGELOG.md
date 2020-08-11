@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/avatar@0.1.7...@twilio-paste/avatar@0.2.0) (2020-08-11)
+
+
+### Features
+
+* **avatar:** change background and font weight for initials ([bf97215](https://github.com/twilio-labs/paste/commit/bf97215ee0dbef97b6acc0238e66b1233c2e6a7d))
+
+
+
+
+
 ## [0.1.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/avatar@0.1.6...@twilio-paste/avatar@0.1.7) (2020-08-06)
 
 **Note:** Version bump only for package @twilio-paste/avatar

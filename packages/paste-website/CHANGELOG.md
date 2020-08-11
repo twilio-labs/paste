@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.0.5...@twilio-paste/website@2.1.0) (2020-08-11)
+
+
+### Features
+
+* **avatar:** change background and font weight for initials ([bf97215](https://github.com/twilio-labs/paste/commit/bf97215ee0dbef97b6acc0238e66b1233c2e6a7d))
+
+
+
+
+
 ## [2.0.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.0.4...@twilio-paste/website@2.0.5) (2020-08-11)
 
 **Note:** Version bump only for package @twilio-paste/website
