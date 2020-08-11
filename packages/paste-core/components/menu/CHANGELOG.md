@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/menu@1.0.1...@twilio-paste/menu@1.1.0) (2020-08-11)
+
+
+### Features
+
+* **menu:** update styles for unified design language ([4429499](https://github.com/twilio-labs/paste/commit/4429499bc8ee1d158c9bf8f320f61b6c7cca58f9))
+
+
+
+
+
 ## [1.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/menu@1.0.0...@twilio-paste/menu@1.0.1) (2020-08-06)
 
 **Note:** Version bump only for package @twilio-paste/menu
