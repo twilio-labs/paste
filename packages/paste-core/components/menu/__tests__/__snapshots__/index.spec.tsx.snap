@@ -9,13 +9,11 @@ exports[`Menu  Render should render 1`] = `
   -moz-appearance: none;
   appearance: none;
   background: none;
-  border-width: borderWidth20;
-  border-style: solid;
-  border-color: colorBorderPrimary;
   display: inline-block;
+  border: none;
   outline: none;
-  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
-  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in,color 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in,color 100ms ease-in;
   font-family: fontFamilyText;
   font-weight: fontWeightSemibold;
   -webkit-text-decoration: none;
@@ -24,6 +22,7 @@ exports[`Menu  Render should render 1`] = `
   cursor: pointer;
   color: colorTextInverse;
   background-color: colorBackgroundPrimary;
+  box-shadow: shadowBorderPrimary;
   padding-top: space30;
   padding-bottom: space30;
   padding-left: space40;
@@ -38,7 +37,7 @@ exports[`Menu  Render should render 1`] = `
   text-decoration: none;
   color: colorTextInverse;
   background-color: colorBackgroundPrimaryDarker;
-  border-color: colorBorderPrimaryDarker;
+  box-shadow: shadowBorderPrimaryDarker;
 }
 
 .emotion-1:focus {
@@ -46,17 +45,16 @@ exports[`Menu  Render should render 1`] = `
   text-decoration: none;
   box-shadow: shadowFocus;
   color: colorTextInverse;
-  border-color: colorBorderPrimaryDarker;
+  background-color: colorBackgroundPrimaryDarker;
 }
 
 .emotion-1:active,
 .emotion-1[data-active=true] {
   -webkit-text-decoration: none;
   text-decoration: none;
-  box-shadow: shadowFocus;
+  box-shadow: shadowBorderPrimaryDarker;
   color: colorTextInverse;
   background-color: colorBackgroundPrimaryDark;
-  border-color: colorBorderPrimaryDarker;
 }
 
 .emotion-0 {
@@ -103,13 +101,11 @@ exports[`Menu  Render should render 1`] = `
   -moz-appearance: none;
   appearance: none;
   background: none;
-  border-width: borderWidth20;
-  border-style: solid;
-  border-color: colorBorderPrimary;
   display: inline-block;
+  border: none;
   outline: none;
-  -webkit-transition: background-color 100ms ease-in,border-color 100ms ease-in;
-  transition: background-color 100ms ease-in,border-color 100ms ease-in;
+  -webkit-transition: background-color 100ms ease-in,box-shadow 100ms ease-in,color 100ms ease-in;
+  transition: background-color 100ms ease-in,box-shadow 100ms ease-in,color 100ms ease-in;
   font-family: fontFamilyText;
   font-weight: fontWeightSemibold;
   -webkit-text-decoration: none;
@@ -118,6 +114,7 @@ exports[`Menu  Render should render 1`] = `
   cursor: pointer;
   color: colorTextInverse;
   background-color: colorBackgroundPrimary;
+  box-shadow: shadowBorderPrimary;
   padding-top: space30;
   padding-bottom: space30;
   padding-left: space40;
@@ -132,7 +129,7 @@ exports[`Menu  Render should render 1`] = `
   text-decoration: none;
   color: colorTextInverse;
   background-color: colorBackgroundPrimaryDarker;
-  border-color: colorBorderPrimaryDarker;
+  box-shadow: shadowBorderPrimaryDarker;
 }
 
 .emotion-4:focus {
@@ -140,17 +137,16 @@ exports[`Menu  Render should render 1`] = `
   text-decoration: none;
   box-shadow: shadowFocus;
   color: colorTextInverse;
-  border-color: colorBorderPrimaryDarker;
+  background-color: colorBackgroundPrimaryDarker;
 }
 
 .emotion-4:active,
 .emotion-4[data-active=true] {
   -webkit-text-decoration: none;
   text-decoration: none;
-  box-shadow: shadowFocus;
+  box-shadow: shadowBorderPrimaryDarker;
   color: colorTextInverse;
   background-color: colorBackgroundPrimaryDark;
-  border-color: colorBorderPrimaryDarker;
 }
 
 .emotion-3 {
