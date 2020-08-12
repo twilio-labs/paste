@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.1.1...@twilio-paste/website@2.2.0) (2020-08-12)
+
+
+### Features
+
+* **button:** add inverse variant ([4a6f241](https://github.com/twilio-labs/paste/commit/4a6f24139fa43edfd048894c887adea8e821d401))
+
+
+
+
+
 ## [2.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.1.0...@twilio-paste/website@2.1.1) (2020-08-12)
 
 **Note:** Version bump only for package @twilio-paste/website
