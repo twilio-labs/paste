@@ -17,7 +17,7 @@ const List: React.FC<BaseListProps> = ({as, children, ...props}) => {
       as={as}
       marginLeft="space70"
       fontSize="fontSize30"
-      lineHeight="lineHeight30"
+      lineHeight="lineHeight40"
       fontWeight="fontWeightNormal"
       color="colorText"
     >
@@ -94,7 +94,7 @@ const ListItem: React.FC<ListItemProps> = props => {
       marginTop="space30"
       marginBottom="space30"
       fontSize="fontSize30"
-      lineHeight="lineHeight30"
+      lineHeight="lineHeight40"
       fontWeight="fontWeightNormal"
       color="colorText"
     >
