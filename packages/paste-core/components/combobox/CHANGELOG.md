@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.2.2...@twilio-paste/combobox@1.3.0) (2020-08-12)
+
+
+### Features
+
+* **combobox:** add inverse variant ([603bcce](https://github.com/twilio-labs/paste/commit/603bccea4d6e31b365d5a2c07ab51196048bf757))
+
+
+
+
+
 ## [1.2.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.2.1...@twilio-paste/combobox@1.2.2) (2020-08-12)
 
 **Note:** Version bump only for package @twilio-paste/combobox

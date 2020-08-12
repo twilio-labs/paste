@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.39](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@1.1.38...@twilio-paste/anchor@1.1.39) (2020-08-12)
+
+**Note:** Version bump only for package @twilio-paste/anchor
+
+
+
+
+
 ## [1.1.38](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@1.1.37...@twilio-paste/anchor@1.1.38) (2020-08-12)
 
 **Note:** Version bump only for package @twilio-paste/anchor
