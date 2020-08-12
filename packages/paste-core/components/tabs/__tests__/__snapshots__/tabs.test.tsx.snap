@@ -20,7 +20,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   >
     These tabs have full keyboard support. Try tabbing and using arrow keys.
   </p>
-  .emotion-6 {
+  .emotion-3 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -32,24 +32,79 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   margin-bottom: space60;
 }
 
-.emotion-1 {
+.emotion-0 {
   box-sizing: border-box;
+  border-bottom-color: transparent;
+  border-bottom-style: solid;
+  border-bottom-width: borderWidth20;
+  color: currentColor;
   display: inline-block;
-  padding-bottom: space30;
-  padding-top: space30;
+  margin-right: space70;
+  min-width: sizeSquare130;
+  padding-bottom: space40;
   padding-left: space20;
   padding-right: space20;
-  border-bottom-width: borderWidth20;
-  border-bottom-style: solid;
-  border-bottom-color: transparent;
-  min-width: sizeSquare130;
-  margin-right: space70;
-  position: relative;
+  padding-top: space40;
   cursor: pointer;
-  -webkit-transition: border-color 100ms ease;
-  transition: border-color 100ms ease;
-  text-overflow: ellipsis;
+  font-size: fontSize30;
+  font-weight: fontWeightSemibold;
   overflow: hidden;
+  position: relative;
+  text-overflow: ellipsis;
+  -webkit-transition: border-color 100ms ease,color 100ms ease;
+  transition: border-color 100ms ease,color 100ms ease;
+  white-space: nowrap;
+}
+
+.emotion-0:last-of-type {
+  margin-right: space0;
+}
+
+.emotion-0[aria-selected=true] {
+  border-bottom-color: colorBorderPrimary;
+  color: colorTextLink;
+}
+
+.emotion-0:hover {
+  border-bottom-color: colorBorderPrimaryDarker;
+  color: colorTextLinkDarker;
+}
+
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
+  border-bottom-color: transparent;
+  color: colorTextWeaker;
+}
+
+.emotion-0:focus {
+  color: colorTextLink;
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  border-bottom-color: transparent;
+  border-bottom-style: solid;
+  border-bottom-width: borderWidth20;
+  color: currentColor;
+  display: inline-block;
+  margin-right: space70;
+  min-width: sizeSquare130;
+  padding-bottom: space40;
+  padding-left: space20;
+  padding-right: space20;
+  padding-top: space40;
+  cursor: not-allowed;
+  font-size: fontSize30;
+  font-weight: fontWeightSemibold;
+  overflow: hidden;
+  position: relative;
+  text-overflow: ellipsis;
+  -webkit-transition: border-color 100ms ease,color 100ms ease;
+  transition: border-color 100ms ease,color 100ms ease;
   white-space: nowrap;
 }
 
@@ -59,10 +114,12 @@ exports[`Tabs Render horizontally and vertically 1`] = `
 
 .emotion-1[aria-selected=true] {
   border-bottom-color: colorBorderPrimary;
+  color: colorTextLink;
 }
 
 .emotion-1:hover {
   border-bottom-color: colorBorderPrimaryDarker;
+  color: colorTextLinkDarker;
 }
 
 .emotion-1:disabled,
@@ -72,110 +129,10 @@ exports[`Tabs Render horizontally and vertically 1`] = `
 .emotion-1[aria-disabled=true]:focus,
 .emotion-1[aria-disabled=true]:hover {
   border-bottom-color: transparent;
+  color: colorTextWeaker;
 }
 
 .emotion-1:focus {
-  box-shadow: shadowFocus;
-  outline: none;
-}
-
-.emotion-0 {
-  margin: 0;
-  padding: 0;
-  color: colorTextWeak;
-  font-size: fontSize30;
-  font-weight: fontWeightSemibold;
-  -webkit-transition: color 100ms ease;
-  transition: color 100ms ease;
-  line-height: lineHeight30;
-}
-
-.emotion-0:hover {
-  color: colorText;
-}
-
-.emotion-0:focus {
-  color: colorTextLink;
-}
-
-.emotion-3 {
-  box-sizing: border-box;
-  display: inline-block;
-  padding-bottom: space30;
-  padding-top: space30;
-  padding-left: space20;
-  padding-right: space20;
-  border-bottom-width: borderWidth20;
-  border-bottom-style: solid;
-  border-bottom-color: transparent;
-  min-width: sizeSquare130;
-  margin-right: space70;
-  position: relative;
-  cursor: not-allowed;
-  -webkit-transition: border-color 100ms ease;
-  transition: border-color 100ms ease;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.emotion-3:last-of-type {
-  margin-right: space0;
-}
-
-.emotion-3[aria-selected=true] {
-  border-bottom-color: colorBorderPrimary;
-}
-
-.emotion-3:hover {
-  border-bottom-color: colorBorderPrimaryDarker;
-}
-
-.emotion-3:disabled,
-.emotion-3:disabled:focus,
-.emotion-3:disabled:hover,
-.emotion-3[aria-disabled=true],
-.emotion-3[aria-disabled=true]:focus,
-.emotion-3[aria-disabled=true]:hover {
-  border-bottom-color: transparent;
-}
-
-.emotion-3:focus {
-  box-shadow: shadowFocus;
-  outline: none;
-}
-
-.emotion-2 {
-  margin: 0;
-  padding: 0;
-  color: colorTextWeaker;
-  font-size: fontSize30;
-  font-weight: fontWeightSemibold;
-  -webkit-transition: color 100ms ease;
-  transition: color 100ms ease;
-  line-height: lineHeight30;
-}
-
-.emotion-2:focus {
-  color: colorTextLink;
-}
-
-.emotion-4 {
-  margin: 0;
-  padding: 0;
-  color: colorTextLink;
-  font-size: fontSize30;
-  font-weight: fontWeightSemibold;
-  -webkit-transition: color 100ms ease;
-  transition: color 100ms ease;
-  line-height: lineHeight30;
-}
-
-.emotion-4:hover {
-  color: colorText;
-}
-
-.emotion-4:focus {
   color: colorTextLink;
 }
 
@@ -186,70 +143,58 @@ exports[`Tabs Render horizontally and vertically 1`] = `
     role="tablist"
   >
     <div
-      class="emotion-6"
+      class="emotion-3"
       display="flex"
     >
-      <div
+      <span
         aria-controls="horizontal-tabs-example-4"
         aria-selected="false"
-        class="emotion-1"
+        class="emotion-0"
+        color="currentColor"
         cursor="pointer"
         display="inline-block"
+        font-size="fontSize30"
+        font-weight="fontWeightSemibold"
         id="horizontal-tabs-example-1"
         overflow="hidden"
         role="tab"
         tabindex="-1"
       >
-        <span
-          class="emotion-0"
-          color="colorTextWeak"
-          font-size="fontSize30"
-          font-weight="fontWeightSemibold"
-        >
-          Tab 1
-        </span>
-      </div>
-      <div
+        Tab 1
+      </span>
+      <span
         aria-controls="horizontal-tabs-example-5"
         aria-disabled="true"
         aria-selected="false"
-        class="emotion-3"
+        class="emotion-1"
+        color="currentColor"
         cursor="not-allowed"
         display="inline-block"
+        font-size="fontSize30"
+        font-weight="fontWeightSemibold"
         id="horizontal-tabs-example-2"
         overflow="hidden"
         role="tab"
         tabindex="-1"
       >
-        <span
-          class="emotion-2"
-          color="colorTextWeaker"
-          font-size="fontSize30"
-          font-weight="fontWeightSemibold"
-        >
-          Tab 2
-        </span>
-      </div>
-      <div
+        Tab 2
+      </span>
+      <span
         aria-controls="horizontal-tabs-example-6"
         aria-selected="true"
-        class="emotion-1"
+        class="emotion-0"
+        color="currentColor"
         cursor="pointer"
         display="inline-block"
+        font-size="fontSize30"
+        font-weight="fontWeightSemibold"
         id="1"
         overflow="hidden"
         role="tab"
         tabindex="0"
       >
-        <span
-          class="emotion-4"
-          color="colorTextLink"
-          font-size="fontSize30"
-          font-weight="fontWeightSemibold"
-        >
-          Tab 3
-        </span>
-      </div>
+        Tab 3
+      </span>
     </div>
   </div>
   .emotion-0 {
@@ -309,50 +254,12 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   >
     This changes the keys to jump between tabs from left/right arrow to up/down arrow
   </p>
-  .emotion-2 {
-  margin: 0;
-  padding: 0;
-  color: colorTextWeak;
-  font-size: fontSize30;
-  font-weight: fontWeightSemibold;
-  -webkit-transition: color 100ms ease;
-  transition: color 100ms ease;
-  line-height: lineHeight30;
-}
-
-.emotion-2:hover {
-  color: colorText;
-}
-
-.emotion-2:focus {
-  color: colorTextLink;
-}
-
-.emotion-0 {
-  margin: 0;
-  padding: 0;
-  color: colorTextLink;
-  font-size: fontSize30;
-  font-weight: fontWeightSemibold;
-  -webkit-transition: color 100ms ease;
-  transition: color 100ms ease;
-  line-height: lineHeight30;
-}
-
-.emotion-0:hover {
-  color: colorText;
-}
-
-.emotion-0:focus {
-  color: colorTextLink;
-}
-
-.emotion-7 {
+  .emotion-4 {
   box-sizing: border-box;
   width: 100%;
 }
 
-.emotion-8 {
+.emotion-5 {
   box-sizing: border-box;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
@@ -369,7 +276,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   min-width: size0;
 }
 
-.emotion-6 {
+.emotion-3 {
   box-sizing: border-box;
   border-left-width: borderWidth10;
   border-left-color: colorBorderLight;
@@ -379,51 +286,56 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   max-width: size40;
 }
 
-.emotion-1 {
+.emotion-0 {
   box-sizing: border-box;
+  border-left-color: transparent;
+  border-left-style: solid;
+  border-left-width: borderWidth20;
+  color: currentColor;
   display: block;
-  padding-bottom: space20;
-  padding-top: space20;
+  margin-bottom: space40;
+  padding-bottom: space30;
   padding-left: space50;
   padding-right: space50;
-  border-left-width: borderWidth20;
-  border-left-style: solid;
-  border-left-color: transparent;
-  margin-bottom: space40;
-  position: relative;
+  padding-top: space30;
   cursor: pointer;
-  -webkit-transition: border-color 100ms ease;
-  transition: border-color 100ms ease;
+  font-size: fontSize30;
+  font-weight: fontWeightSemibold;
+  position: relative;
+  -webkit-transition: border-color 100ms ease,color 100ms ease;
+  transition: border-color 100ms ease,color 100ms ease;
 }
 
-.emotion-1:last-of-type {
+.emotion-0:last-of-type {
   margin-bottom: space0;
 }
 
-.emotion-1[aria-selected=true] {
+.emotion-0[aria-selected=true] {
   border-left-color: colorBorderPrimary;
+  color: colorTextLink;
 }
 
-.emotion-1:hover {
+.emotion-0:hover {
   border-left-color: colorBorderPrimaryDarker;
+  color: colorTextLinkDarker;
 }
 
-.emotion-1:disabled,
-.emotion-1:disabled:focus,
-.emotion-1:disabled:hover,
-.emotion-1[aria-disabled=true],
-.emotion-1[aria-disabled=true]:focus,
-.emotion-1[aria-disabled=true]:hover {
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
   border-left-color: transparent;
+  color: colorTextWeaker;
 }
 
-.emotion-1:focus {
-  box-shadow: shadowFocus;
-  outline: none;
+.emotion-0:focus {
+  color: colorTextLink;
 }
 
 <div
-    class="emotion-8"
+    class="emotion-5"
     display="flex"
   >
     <div
@@ -433,69 +345,57 @@ exports[`Tabs Render horizontally and vertically 1`] = `
       role="tablist"
     >
       <div
-        class="emotion-6"
+        class="emotion-3"
       >
-        <div
+        <span
           aria-controls="vertical-tabs-example-4"
           aria-selected="true"
-          class="emotion-1"
+          class="emotion-0"
+          color="currentColor"
           cursor="pointer"
           display="block"
+          font-size="fontSize30"
+          font-weight="fontWeightSemibold"
           id="2"
           role="tab"
           tabindex="0"
         >
-          <span
-            class="emotion-0"
-            color="colorTextLink"
-            font-size="fontSize30"
-            font-weight="fontWeightSemibold"
-          >
-            Tab 1 is a long tab name because the server sent a long tab name
-          </span>
-        </div>
-        <div
+          Tab 1 is a long tab name because the server sent a long tab name
+        </span>
+        <span
           aria-controls="vertical-tabs-example-5"
           aria-selected="false"
-          class="emotion-1"
+          class="emotion-0"
+          color="currentColor"
           cursor="pointer"
           display="block"
+          font-size="fontSize30"
+          font-weight="fontWeightSemibold"
           id="vertical-tabs-example-2"
           role="tab"
           tabindex="-1"
         >
-          <span
-            class="emotion-2"
-            color="colorTextWeak"
-            font-size="fontSize30"
-            font-weight="fontWeightSemibold"
-          >
-            Tab 2
-          </span>
-        </div>
-        <div
+          Tab 2
+        </span>
+        <span
           aria-controls="vertical-tabs-example-6"
           aria-selected="false"
-          class="emotion-1"
+          class="emotion-0"
+          color="currentColor"
           cursor="pointer"
           display="block"
+          font-size="fontSize30"
+          font-weight="fontWeightSemibold"
           id="vertical-tabs-example-3"
           role="tab"
           tabindex="-1"
         >
-          <span
-            class="emotion-2"
-            color="colorTextWeak"
-            font-size="fontSize30"
-            font-weight="fontWeightSemibold"
-          >
-            Tab 3
-          </span>
-        </div>
+          Tab 3
+        </span>
       </div>
     </div>
     <div
-      class="emotion-7"
+      class="emotion-4"
       width="100%"
     >
       <div
