@@ -24,14 +24,14 @@ const PlusIcon: React.FC<PlusIconProps> = ({as, display, size, color, title, dec
             aria-hidden={decorative}
             width="100%"
             height="100%"
-            viewBox="0 0 24 24"
+            viewBox="0 0 20 20"
             aria-labelledby={titleId}
           >
             {title ? <title id={titleId}>{title}</title> : null}
             <path
               fill="currentColor"
               fillRule="evenodd"
-              d="M17.043 11.043h-4.086V6.957a.958.958 0 00-1.914 0v4.086H6.957a.958.958 0 000 1.914h4.086v4.086a.958.958 0 001.914 0v-4.086h4.086a.958.958 0 000-1.914z"
+              d="M15.043 9.043h-4.086V4.957a.958.958 0 00-1.914 0v4.086H4.957a.958.958 0 000 1.914h4.086v4.086a.958.958 0 001.914 0v-4.086h4.086a.958.958 0 000-1.914z"
             />
           </svg>
         )}

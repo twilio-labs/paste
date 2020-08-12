@@ -24,14 +24,14 @@ const ChevronUpIcon: React.FC<ChevronUpIconProps> = ({as, display, size, color, 
             aria-hidden={decorative}
             width="100%"
             height="100%"
-            viewBox="0 0 24 24"
+            viewBox="0 0 20 20"
             aria-labelledby={titleId}
           >
             {title ? <title id={titleId}>{title}</title> : null}
             <path
               fill="currentColor"
               fillRule="evenodd"
-              d="M11.293 9.293a1 1 0 011.32-.083l.094.083 3 3a1 1 0 01-1.32 1.497l-.094-.083L12 11.415l-2.293 2.292a1 1 0 01-1.32.083l-.094-.083a1 1 0 01-.083-1.32l.083-.094 3-3z"
+              d="M9.293 7.293a1 1 0 011.32-.083l.094.083 3 3a1 1 0 01-1.32 1.497l-.094-.083L10 9.415l-2.293 2.292a1 1 0 01-1.32.083l-.094-.083a1 1 0 01-.083-1.32l.083-.094 3-3z"
             />
           </svg>
         )}

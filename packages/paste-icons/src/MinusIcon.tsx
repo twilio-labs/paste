@@ -24,14 +24,14 @@ const MinusIcon: React.FC<MinusIconProps> = ({as, display, size, color, title, d
             aria-hidden={decorative}
             width="100%"
             height="100%"
-            viewBox="0 0 24 24"
+            viewBox="0 0 20 20"
             aria-labelledby={titleId}
           >
             {title ? <title id={titleId}>{title}</title> : null}
             <path
               fill="currentColor"
               fillRule="evenodd"
-              d="M17 11a1 1 0 01.117 1.993L17 13H7a1 1 0 01-.117-1.993L7 11h10z"
+              d="M14.167 9.5c.46 0 .833.448.833 1 0 .513-.322.936-.736.993l-.097.007H5.833c-.46 0-.833-.448-.833-1 0-.513.322-.936.736-.993l.097-.007h8.334z"
             />
           </svg>
         )}
