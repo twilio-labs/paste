@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.1.1...@twilio-paste/button@2.1.2) (2020-08-12)
+
+
+### Bug Fixes
+
+* **button:** reset variant should inherit type styles ([efdd3d6](https://github.com/twilio-labs/paste/commit/efdd3d63e41cc6ff468371680fbb361b12be08c7))
+
+
+
+
+
 ## [2.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.1.0...@twilio-paste/button@2.1.1) (2020-08-12)
 
 **Note:** Version bump only for package @twilio-paste/button

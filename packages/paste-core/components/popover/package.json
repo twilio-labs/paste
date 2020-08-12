@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/popover",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "category": "interaction",
   "status": "alpha",
   "description": "A Popover is used for displaying additional rich content on top of something.",
@@ -30,7 +30,7 @@
   "peerDependencies": {
     "@twilio-paste/absolute": "^2.0.61",
     "@twilio-paste/box": "^2.9.2",
-    "@twilio-paste/button": "^2.1.1",
+    "@twilio-paste/button": "^2.1.2",
     "@twilio-paste/design-tokens": "^6.1.1",
     "@twilio-paste/icons": "^3.0.3",
     "@twilio-paste/non-modal-dialog-primitive": "^0.2.4",
@@ -49,7 +49,7 @@
   "devDependencies": {
     "@twilio-paste/absolute": "^2.0.61",
     "@twilio-paste/box": "^2.9.2",
-    "@twilio-paste/button": "^2.1.1",
+    "@twilio-paste/button": "^2.1.2",
     "@twilio-paste/design-tokens": "^6.1.1",
     "@twilio-paste/icons": "^3.0.3",
     "@twilio-paste/non-modal-dialog-primitive": "^0.2.4",
