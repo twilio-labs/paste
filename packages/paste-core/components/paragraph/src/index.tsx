@@ -13,7 +13,7 @@ const Paragraph: React.FC<ParagraphProps> = ({children, marginBottom}) => {
       as="p"
       marginBottom={marginBottom || 'space70'}
       fontSize="fontSize30"
-      lineHeight="lineHeight30"
+      lineHeight="lineHeight40"
       fontWeight="fontWeightNormal"
       color="colorText"
     >
