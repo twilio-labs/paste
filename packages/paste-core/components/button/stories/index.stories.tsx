@@ -3,6 +3,7 @@ import {storiesOf} from '@storybook/react';
 import {withKnobs} from '@storybook/addon-knobs';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {Box} from '@twilio-paste/box';
+import {Heading} from '@twilio-paste/heading';
 import {Stack} from '@twilio-paste/stack';
 import {isRenderingOnServer} from '@twilio-paste/animation-library';
 import {Button} from '../src';
@@ -23,6 +24,18 @@ const AllSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
           <Button variant={variant as ButtonVariants} size={size as ButtonSizes}>
             {children}
           </Button>
+          {size !== 'icon' && size !== 'reset' && (
+            <Button variant={variant as ButtonVariants} size={size as ButtonSizes}>
+              <PlusIcon title="Add item to cart" decorative={false} />
+              {children}
+            </Button>
+          )}
+          {size !== 'icon' && size !== 'reset' && (
+            <Button variant={variant as ButtonVariants} size={size as ButtonSizes}>
+              {children}
+              <PlusIcon title="Add item to cart" decorative={false} />
+            </Button>
+          )}
           <Button variant={variant as ButtonVariants} size={size as ButtonSizes} loading={!isRenderingOnServer}>
             {children}
           </Button>
@@ -49,4 +62,23 @@ storiesOf('Components|Button', module)
   .add('Destructive Button', () => <AllSizeOptions variant="destructive" />)
   .add('Destructive Link Button', () => <AllSizeOptions variant="destructive_link" />)
   .add('Link Button', () => <AllSizeOptions variant="link" />)
-  .add('Reset', () => <AllSizeOptions variant="reset" />);
+  .add('Reset', () => (
+    <>
+      <AllSizeOptions variant="reset" />
+      <Heading variant="heading10" as="h1">
+        <Button variant="reset" size="reset">
+          Example using reset button in composition
+        </Button>
+      </Heading>
+      <Heading variant="heading20" as="h1">
+        <Button variant="reset" size="reset">
+          Example using reset button in composition
+        </Button>
+      </Heading>
+      <Heading variant="heading20" as="h1">
+        <Button variant="reset" size="reset" disabled>
+          Example using reset button in composition
+        </Button>
+      </Heading>
+    </>
+  ));
