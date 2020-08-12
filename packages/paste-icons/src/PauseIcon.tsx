@@ -24,14 +24,14 @@ const PauseIcon: React.FC<PauseIconProps> = ({as, display, size, color, title, d
             aria-hidden={decorative}
             width="100%"
             height="100%"
-            viewBox="0 0 24 24"
+            viewBox="0 0 20 20"
             aria-labelledby={titleId}
           >
             {title ? <title id={titleId}>{title}</title> : null}
             <path
               fill="currentColor"
               fillRule="evenodd"
-              d="M10.5 6c.552 0 1 .488 1 1.09v9.82c0 .602-.448 1.09-1 1.09H9c-.552 0-1-.488-1-1.09V7.09C8 6.489 8.448 6 9 6h1.5zM15 6c.552 0 1 .488 1 1.09v9.82c0 .602-.448 1.09-1 1.09h-1.5c-.552 0-1-.488-1-1.09V7.09c0-.602.448-1.09 1-1.09H15zm-4.5 1.09H9v9.82h1.5V7.09zm4.5 0h-1.5v9.82H15V7.09z"
+              d="M8.5 4c.552 0 1 .488 1 1.09v9.82c0 .602-.448 1.09-1 1.09H7c-.552 0-1-.488-1-1.09V5.09C6 4.489 6.448 4 7 4h1.5zM13 4c.552 0 1 .488 1 1.09v9.82c0 .602-.448 1.09-1 1.09h-1.5c-.552 0-1-.488-1-1.09V5.09c0-.602.448-1.09 1-1.09H13zM8.5 5.09H7v9.82h1.5V5.09zm4.5 0h-1.5v9.82H13V5.09z"
             />
           </svg>
         )}

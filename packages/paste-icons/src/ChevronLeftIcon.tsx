@@ -24,14 +24,14 @@ const ChevronLeftIcon: React.FC<ChevronLeftIconProps> = ({as, display, size, col
             aria-hidden={decorative}
             width="100%"
             height="100%"
-            viewBox="0 0 24 24"
+            viewBox="0 0 20 20"
             aria-labelledby={titleId}
           >
             {title ? <title id={titleId}>{title}</title> : null}
             <path
               fill="currentColor"
               fillRule="evenodd"
-              d="M12.293 8.293a1 1 0 011.497 1.32l-.083.094L11.415 12l2.292 2.293a1 1 0 01.083 1.32l-.083.094a1 1 0 01-1.32.083l-.094-.083-3-3a1 1 0 01-.083-1.32l.083-.094 3-3z"
+              d="M10.293 6.293a1 1 0 011.497 1.32l-.083.094L9.415 10l2.292 2.293a1 1 0 01.083 1.32l-.083.094a1 1 0 01-1.32.083l-.094-.083-3-3a1 1 0 01-.083-1.32l.083-.094 3-3z"
             />
           </svg>
         )}

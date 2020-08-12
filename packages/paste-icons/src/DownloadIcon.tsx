@@ -24,14 +24,14 @@ const DownloadIcon: React.FC<DownloadIconProps> = ({as, display, size, color, ti
             aria-hidden={decorative}
             width="100%"
             height="100%"
-            viewBox="0 0 24 24"
+            viewBox="0 0 20 20"
             aria-labelledby={titleId}
           >
             {title ? <title id={titleId}>{title}</title> : null}
             <path
               fill="currentColor"
               fillRule="evenodd"
-              d="M18.5 18a.5.5 0 01.09.992L18.5 19h-13a.5.5 0 01-.09-.992L5.5 18h13zM12 5a.5.5 0 01.492.41l.008.09v8.842l2.296-2.296a.5.5 0 01.638-.057l.07.057a.5.5 0 01.057.638l-.057.07-3.125 3.125a.5.5 0 01-.638.057l-.07-.057-3.125-3.125a.5.5 0 01.638-.765l.07.057 2.246 2.246V5.5A.5.5 0 0112 5z"
+              d="M16.5 16a.5.5 0 01.09.992L16.5 17h-13a.5.5 0 01-.09-.992L3.5 16h13zM10 3a.5.5 0 01.492.41l.008.09v8.842l2.296-2.296a.5.5 0 01.638-.057l.07.057a.5.5 0 01.057.638l-.057.07-3.125 3.125a.5.5 0 01-.638.057l-.07-.057-3.125-3.125a.5.5 0 01.638-.765l.07.057L9.5 12.292V3.5A.5.5 0 0110 3z"
             />
           </svg>
         )}
