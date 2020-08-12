@@ -193,6 +193,19 @@ possible, reversible action without much cost.
 </Button>`}
 </LivePreview>
 
+#### Inverse button
+
+The inverse button is best used over very strong colored backgrounds. In a lighter theme, this would mean over a dark background.
+Do reach for the other variants first and only use the inverse as a backup option.
+
+<LivePreview scope={{Box, Button}} language="jsx">
+  {`<Box backgroundColor="colorBackgroundBodyInverse">
+  <Button variant="inverse">
+    View Profile
+  </Button>
+</Box>`}
+</LivePreview>
+
 #### Destructive button
 
 A destructive button indicates a destructive action, such as “Delete” or
@@ -518,7 +531,7 @@ All the valid HTML attributes for `button` are supported including the following
 | loading?      | `boolean`                                | Prevent actions and show a loading spinner                                                                       | false     |
 | size?         | `ButtonSizes`                            | 'default', 'small', 'icon', 'reset'                                                                              | 'default' |
 | type?         | `ButtonTypes`                            | 'button', 'submit', 'reset'. If the button is inside a `<form>`: use 'submit'. Otherwise use 'button' (default). | 'button'  |
-| variant?      | `ButtonVariants`                         | 'primary', 'secondary', 'destructive', 'destructive_link', 'link', 'reset'                                       | 'primary' |
+| variant?      | `ButtonVariants`                         | 'primary', 'secondary', 'inverse', 'destructive', 'destructive_link', 'link', 'reset'                            | 'primary' |
 | onClick?      | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                  | null      |
 | onMouseDown?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                  | null      |
 | onMouseUp?    | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                  | null      |

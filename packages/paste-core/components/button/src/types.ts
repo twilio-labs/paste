@@ -2,7 +2,14 @@ import * as PropTypes from 'prop-types';
 
 type ButtonTypes = 'submit' | 'button' | 'reset';
 export type ButtonSizes = 'small' | 'default' | 'icon' | 'reset';
-export type ButtonVariants = 'primary' | 'secondary' | 'destructive' | 'destructive_link' | 'link' | 'reset';
+export type ButtonVariants =
+  | 'primary'
+  | 'secondary'
+  | 'destructive'
+  | 'destructive_link'
+  | 'link'
+  | 'inverse'
+  | 'reset';
 export type ButtonStates = 'disabled' | 'loading' | 'default';
 export type ButtonTabIndexes = 0 | -1;
 

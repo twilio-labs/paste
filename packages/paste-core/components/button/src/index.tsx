@@ -16,6 +16,7 @@ import {SecondaryButton} from './SecondaryButton';
 import {DestructiveButton} from './DestructiveButton';
 import {LinkButton} from './LinkButton';
 import {DestructiveLinkButton} from './DestructiveLinkButton';
+import {InverseButton} from './InverseButton';
 import {ResetButton} from './ResetButton';
 
 // If size isn't passed, come up with a smart default:
@@ -133,6 +134,8 @@ const getButtonComponent = (variant: ButtonVariants): React.FunctionComponent<Di
       return DestructiveLinkButton;
     case 'reset':
       return ResetButton;
+    case 'inverse':
+      return InverseButton;
     case 'primary':
     default:
       return PrimaryButton;
