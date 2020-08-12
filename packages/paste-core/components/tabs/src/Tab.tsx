@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
 import {TabPrimitive} from '@twilio-paste/tabs-primitive';
 import {TabsContext} from './TabsContext';
 import {Orientation, Variants} from './types';
@@ -15,26 +14,30 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): {} => {
   switch (orientation) {
     case 'vertical':
       return {
+        borderLeftColor: 'transparent',
+        borderLeftStyle: 'solid',
+        borderLeftWidth: 'borderWidth20',
+        color: 'colorTextWeak',
         display: 'block',
-        paddingBottom: 'space20',
-        paddingTop: 'space20',
+        marginBottom: 'space40',
+        paddingBottom: 'space30',
         paddingLeft: 'space50',
         paddingRight: 'space50',
-        borderLeftWidth: 'borderWidth20',
-        borderLeftStyle: 'solid',
-        borderLeftColor: 'transparent',
-        marginBottom: 'space40',
+        paddingTop: 'space30',
         _last: {
           marginBottom: 'space0',
         },
         _selected: {
           borderLeftColor: 'colorBorderPrimary',
+          color: 'colorTextLink',
         },
         _hover: {
           borderLeftColor: 'colorBorderPrimaryDarker',
+          color: 'colorTextLinkDarker',
         },
         _disabled: {
           borderLeftColor: 'transparent',
+          color: 'colorTextWeaker',
         },
         _focus: {
           boxShadow: 'shadowFocus',
@@ -44,31 +47,35 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): {} => {
     case 'horizontal':
     default:
       return {
-        display: 'inline-block',
-        paddingBottom: 'space30',
-        paddingTop: 'space30',
-        paddingLeft: 'space20',
-        paddingRight: 'space20',
-        borderBottomWidth: 'borderWidth20',
-        borderBottomStyle: 'solid',
         borderBottomColor: 'transparent',
-        minWidth: 'sizeSquare130',
-        marginRight: variant === 'fitted' ? 'space0' : 'space70',
+        borderBottomStyle: 'solid',
+        borderBottomWidth: 'borderWidth20',
+        color: 'colorTextWeak',
+        display: 'inline-block',
+        flexBasis: variant === 'fitted' ? '50%' : undefined,
         flexGrow: variant === 'fitted' ? 1 : undefined,
         flexShrink: variant === 'fitted' ? 1 : undefined,
-        flexBasis: variant === 'fitted' ? '50%' : undefined,
+        marginRight: variant === 'fitted' ? 'space0' : 'space70',
+        minWidth: 'sizeSquare130',
+        paddingBottom: 'space40',
+        paddingLeft: 'space20',
+        paddingRight: 'space20',
+        paddingTop: 'space40',
         textAlign: variant === 'fitted' ? 'center' : undefined,
         _last: {
           marginRight: 'space0',
         },
         _selected: {
           borderBottomColor: 'colorBorderPrimary',
+          color: 'colorTextLink',
         },
         _hover: {
           borderBottomColor: 'colorBorderPrimaryDarker',
+          color: 'colorTextLinkDarker',
         },
         _disabled: {
           borderBottomColor: 'transparent',
+          color: 'colorTextWeaker',
         },
         _focus: {
           boxShadow: 'shadowFocus',
@@ -76,26 +83,6 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): {} => {
         },
       };
   }
-};
-
-const getTabTextStyles = (props: TabProps): {} => {
-  if (props['aria-disabled']) {
-    return {color: 'colorTextWeaker'};
-  }
-  if (props['aria-selected']) {
-    return {
-      color: 'colorTextLink',
-      _hover: {
-        color: 'colorText',
-      },
-    };
-  }
-  return {
-    color: 'colorTextWeak',
-    _hover: {
-      color: 'colorText',
-    },
-  };
 };
 
 export interface TabProps {
@@ -111,30 +98,25 @@ const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, ...tabProps},
   return (
     <TabPrimitive {...(tab as any)} {...tabProps} ref={ref}>
       {(props: TabProps) => {
-        const textStyles = getTabTextStyles(props);
         return (
           <Box
             {...safelySpreadBoxProps(props)}
             {...boxStyles}
-            position="relative"
+            as="span"
+            color="currentColor"
             cursor={props['aria-disabled'] ? 'not-allowed' : 'pointer'}
-            transition="border-color 100ms ease"
-            textOverflow={tab.orientation !== 'vertical' ? 'ellipsis' : undefined}
+            fontSize="fontSize30"
+            fontWeight="fontWeightSemibold"
             overflow={tab.orientation !== 'vertical' ? 'hidden' : undefined}
+            position="relative"
+            textOverflow={tab.orientation !== 'vertical' ? 'ellipsis' : undefined}
+            transition="border-color 100ms ease, color 100ms ease"
             whiteSpace={tab.orientation !== 'vertical' ? 'nowrap' : undefined}
+            _focus={{
+              color: 'colorTextLink',
+            }}
           >
-            <Text
-              as="span"
-              {...textStyles}
-              fontSize="fontSize30"
-              fontWeight="fontWeightSemibold"
-              transition="color 100ms ease"
-              _focus={{
-                color: 'colorTextLink',
-              }}
-            >
-              {children}
-            </Text>
+            {children}
           </Box>
         );
       }}
