@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.4.3...@twilio-paste/style-props@1.5.0) (2020-08-12)
+
+
+### Features
+
+* **style-props:** allow 'none' for boxShadow ([fbde571](https://github.com/twilio-labs/paste/commit/fbde5713408e5a7ade4a80243d37a58e364b7227))
+
+
+
+
+
 ## [1.4.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.4.2...@twilio-paste/style-props@1.4.3) (2020-08-06)
 
 

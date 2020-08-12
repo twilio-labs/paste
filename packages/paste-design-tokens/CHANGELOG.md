@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@6.0.1...@twilio-paste/design-tokens@6.1.0) (2020-08-12)
+
+
+### Features
+
+* **design-tokens:** add missing udl boxShadow tokens ([2b6f6a1](https://github.com/twilio-labs/paste/commit/2b6f6a1fa8e19b08a24832f0d501a8cc377dffbd))
+
+
+
+
+
 ## [6.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@6.0.0...@twilio-paste/design-tokens@6.0.1) (2020-08-04)
 
 

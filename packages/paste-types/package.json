@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/types",
-  "version": "3.0.16",
+  "version": "3.0.17",
   "description": "Shared typescript typings for Paste",
   "author": "Twilio Inc.",
   "license": "MIT",
@@ -25,10 +25,10 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@twilio-paste/design-tokens": "^6.0.1",
+    "@twilio-paste/design-tokens": "^6.1.0",
     "react": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/design-tokens": "^6.0.1"
+    "@twilio-paste/design-tokens": "^6.1.0"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/grid",
-  "version": "0.2.48",
+  "version": "0.2.49",
   "category": "layout",
   "status": "beta",
   "description": "A flex-based horizontal grid system used to build layouts.",
@@ -28,24 +28,24 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@twilio-paste/box": "^2.9.0",
-    "@twilio-paste/design-tokens": "^6.0.1",
-    "@twilio-paste/flex": "^0.3.46",
-    "@twilio-paste/style-props": "^1.4.3",
+    "@twilio-paste/box": "^2.9.1",
+    "@twilio-paste/design-tokens": "^6.1.0",
+    "@twilio-paste/flex": "^0.3.47",
+    "@twilio-paste/style-props": "^1.5.0",
     "@twilio-paste/styling-library": "^0.1.1",
-    "@twilio-paste/theme": "^3.2.12",
-    "@twilio-paste/types": "^3.0.16",
+    "@twilio-paste/theme": "^3.2.13",
+    "@twilio-paste/types": "^3.0.17",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^2.9.0",
-    "@twilio-paste/design-tokens": "^6.0.1",
-    "@twilio-paste/flex": "^0.3.46",
-    "@twilio-paste/style-props": "^1.4.3",
+    "@twilio-paste/box": "^2.9.1",
+    "@twilio-paste/design-tokens": "^6.1.0",
+    "@twilio-paste/flex": "^0.3.47",
+    "@twilio-paste/style-props": "^1.5.0",
     "@twilio-paste/styling-library": "^0.1.1",
-    "@twilio-paste/theme": "^3.2.12",
-    "@twilio-paste/types": "^3.0.16"
+    "@twilio-paste/theme": "^3.2.13",
+    "@twilio-paste/types": "^3.0.17"
   }
 }
