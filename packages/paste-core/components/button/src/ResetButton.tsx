@@ -6,11 +6,15 @@ import {DirectButtonProps, DirectButtonPropTypes} from './types';
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
 const merge = require('lodash.merge');
 
-const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default);
+const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default, {
+  fontSize: 'inherit',
+  fontWeight: 'inherit',
+  color: 'inherit',
+});
 
-const loadingStyles: BoxStyleProps = merge({}, BaseStyles.loading);
+const loadingStyles: BoxStyleProps = merge({}, BaseStyles.loading, {fontSize: 'inherit', fontWeight: 'inherit'});
 
-const disabledStyles: BoxStyleProps = merge({}, BaseStyles.disabled);
+const disabledStyles: BoxStyleProps = merge({}, BaseStyles.disabled, {fontSize: 'inherit', fontWeight: 'inherit'});
 
 const ButtonStyleMapping = {
   default: defaultStyles,
