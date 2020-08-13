@@ -67,7 +67,7 @@ const Alert: React.FC<AlertProps> = ({children, onDismiss, variant, role, ...pro
       paddingLeft="space70"
       paddingRight="space70"
       paddingTop="space40"
-      paddingBottom="space30"
+      paddingBottom="space40"
       role={role != null ? role : AlertRoles[variant.toUpperCase()]}
     >
       <MediaObject as="div">
