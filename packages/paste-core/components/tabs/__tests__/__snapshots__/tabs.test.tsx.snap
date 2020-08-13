@@ -7,7 +7,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   padding: 0;
   margin-bottom: space70;
   font-size: fontSize30;
-  line-height: lineHeight30;
+  line-height: lineHeight40;
   font-weight: fontWeightNormal;
   color: colorText;
 }
@@ -296,7 +296,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   padding: 0;
   margin-bottom: space70;
   font-size: fontSize30;
-  line-height: lineHeight30;
+  line-height: lineHeight40;
   font-weight: fontWeightNormal;
   color: colorText;
 }

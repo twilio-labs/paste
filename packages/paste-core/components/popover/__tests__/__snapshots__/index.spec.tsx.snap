@@ -6,7 +6,7 @@ exports[`Popover Render should render 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 

@@ -5,7 +5,7 @@ exports[`Backgrounds it should render responsive values 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -36,7 +36,7 @@ exports[`Backgrounds it should render single values 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -61,7 +61,7 @@ exports[`Borders it should render responsive values 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -104,7 +104,7 @@ exports[`Borders it should render single values 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -132,7 +132,7 @@ exports[`Shadows it should render responsive values 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -163,7 +163,7 @@ exports[`Shadows it should render single values 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -188,7 +188,7 @@ exports[`Sizes it should render responsive values 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -241,7 +241,7 @@ exports[`Sizes it should render single values 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -273,7 +273,7 @@ exports[`Spaces (A) it should render responsive values 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -304,7 +304,7 @@ exports[`Spaces (A) it should render single values 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -329,7 +329,7 @@ exports[`Spaces (B) it should render single values 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -357,7 +357,7 @@ exports[`Spaces (B)it should render responsive values 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -394,7 +394,7 @@ exports[`ZIndex Pseudo-class props it should generate pseudo-class CSS 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -536,7 +536,7 @@ exports[`ZIndex it should render responsive values 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -567,7 +567,7 @@ exports[`ZIndex it should render single values 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 

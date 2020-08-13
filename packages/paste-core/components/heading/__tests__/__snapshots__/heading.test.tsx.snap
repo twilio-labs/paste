@@ -5,7 +5,7 @@ exports[`Heading it should render an H1 at fontSize90 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -15,7 +15,7 @@ exports[`Heading it should render an H1 at fontSize90 1`] = `
   margin-bottom: 1.5rem;
   font-size: 2rem;
   font-weight: 500;
-  line-height: 2.5rem;
+  line-height: 2.75rem;
   display: block;
   color: rgb(40,42,43);
 }
@@ -40,7 +40,7 @@ exports[`Heading it should render an H2 at fontSize70 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -75,7 +75,7 @@ exports[`Heading it should render an H3 at fontSize60 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -110,7 +110,7 @@ exports[`Heading it should render an H4 at fontSize40 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -120,7 +120,7 @@ exports[`Heading it should render an H4 at fontSize40 1`] = `
   margin-bottom: 0.75rem;
   font-size: 1rem;
   font-weight: 500;
-  line-height: 1.75rem;
+  line-height: 1.5rem;
   display: block;
   color: rgb(40,42,43);
 }
@@ -145,7 +145,7 @@ exports[`Heading it should render an H5 at fontSize30 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -155,7 +155,7 @@ exports[`Heading it should render an H5 at fontSize30 1`] = `
   margin-bottom: 0.5rem;
   font-size: 0.875rem;
   font-weight: 500;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   display: block;
   color: rgb(40,42,43);
 }
@@ -180,7 +180,7 @@ exports[`Heading it should render an H6 at fontSize20 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -215,7 +215,7 @@ exports[`Heading it should render an italic H2 at fontSize50 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -252,7 +252,7 @@ exports[`Heading it should render with no margin 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -262,7 +262,7 @@ exports[`Heading it should render with no margin 1`] = `
   margin-bottom: 0;
   font-size: 2rem;
   font-weight: 500;
-  line-height: 2.5rem;
+  line-height: 2.75rem;
   display: block;
   color: rgb(40,42,43);
 }
@@ -295,7 +295,7 @@ exports[`Heading it should render with no margin 1`] = `
   margin-bottom: 0;
   font-size: 1rem;
   font-weight: 500;
-  line-height: 1.75rem;
+  line-height: 1.5rem;
   display: block;
   color: rgb(40,42,43);
 }
@@ -306,7 +306,7 @@ exports[`Heading it should render with no margin 1`] = `
   margin-bottom: 0;
   font-size: 0.875rem;
   font-weight: 500;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   display: block;
   color: rgb(40,42,43);
 }
