@@ -43,7 +43,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     const helpTextId = useUID();
 
     let checkboxBackground: BackgroundColorOptions | null = null;
-    if (isSelectAll) checkboxBackground = 'colorBackground';
+    if (isSelectAll && !disabled) checkboxBackground = 'colorBackground';
     if ((isSelectAll && checked) || (isSelectAll && indeterminate))
       checkboxBackground = 'colorBackgroundPrimaryLightest';
 
@@ -108,7 +108,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
                   : undefined
               }
               _after={{
-                borderColor: disabled && checked ? 'colorBorderDark' : 'colorBorderInverseLightest',
+                borderColor: disabled && (checked || indeterminate) ? 'colorBorderDark' : 'colorBorderInverseLightest',
                 borderRadius: 'borderRadius10',
                 borderStyle: 'solid',
                 borderWidth: 'borderWidth10',
