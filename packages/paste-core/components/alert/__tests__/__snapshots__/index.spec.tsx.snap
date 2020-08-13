@@ -17,7 +17,7 @@ exports[`Alert Variant error Should render an error alert 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -50,13 +50,13 @@ exports[`Alert Variant error Should render an error alert 1`] = `
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-top: 0.75rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.75rem;
 }
 
 .emotion-0 {
   display: block;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
   color: rgb(226,37,37);
 }
 
@@ -86,7 +86,7 @@ exports[`Alert Variant error Should render an error alert 1`] = `
             aria-labelledby="15"
             height="100%"
             role="img"
-            viewBox="0 0 24 24"
+            viewBox="0 0 20 20"
             width="100%"
           >
             <title
@@ -95,7 +95,7 @@ exports[`Alert Variant error Should render an error alert 1`] = `
               error: 
             </title>
             <path
-              d="M13.247 4.517l6.236 6.236a1.764 1.764 0 010 2.494l-6.236 6.236a1.764 1.764 0 01-2.494 0l-6.236-6.236a1.764 1.764 0 010-2.494l6.236-6.236a1.764 1.764 0 012.494 0zM12 14a1 1 0 100 2 1 1 0 000-2zm.01-5h-.02c-.604 0-1.073.592-.978 1.244l.428 2.238c.04.296.278.518.557.518h.006c.279 0 .516-.222.557-.518l.428-2.238c.095-.652-.367-1.237-.978-1.244z"
+              d="M11.247 2.517l6.236 6.236a1.764 1.764 0 010 2.494l-6.236 6.236a1.764 1.764 0 01-2.494 0l-6.236-6.236a1.764 1.764 0 010-2.494l6.236-6.236a1.764 1.764 0 012.494 0zM10 12a1 1 0 100 2 1 1 0 000-2zm.01-5h-.02c-.604 0-1.073.592-.978 1.244l.428 2.238c.04.296.278.518.557.518h.006c.279 0 .516-.222.557-.518l.428-2.238c.095-.652-.367-1.237-.978-1.244z"
               fill="currentColor"
               fillRule="evenodd"
             />
@@ -140,7 +140,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -158,8 +158,8 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
 
 .emotion-3 {
   display: block;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
   color: rgb(112,117,120);
 }
 
@@ -239,13 +239,13 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-top: 0.75rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.75rem;
 }
 
 .emotion-0 {
   display: block;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
   color: rgb(226,37,37);
 }
 
@@ -275,7 +275,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
             aria-labelledby="16"
             height="100%"
             role="img"
-            viewBox="0 0 24 24"
+            viewBox="0 0 20 20"
             width="100%"
           >
             <title
@@ -284,7 +284,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
               error: 
             </title>
             <path
-              d="M13.247 4.517l6.236 6.236a1.764 1.764 0 010 2.494l-6.236 6.236a1.764 1.764 0 01-2.494 0l-6.236-6.236a1.764 1.764 0 010-2.494l6.236-6.236a1.764 1.764 0 012.494 0zM12 14a1 1 0 100 2 1 1 0 000-2zm.01-5h-.02c-.604 0-1.073.592-.978 1.244l.428 2.238c.04.296.278.518.557.518h.006c.279 0 .516-.222.557-.518l.428-2.238c.095-.652-.367-1.237-.978-1.244z"
+              d="M11.247 2.517l6.236 6.236a1.764 1.764 0 010 2.494l-6.236 6.236a1.764 1.764 0 01-2.494 0l-6.236-6.236a1.764 1.764 0 010-2.494l6.236-6.236a1.764 1.764 0 012.494 0zM10 12a1 1 0 100 2 1 1 0 000-2zm.01-5h-.02c-.604 0-1.073.592-.978 1.244l.428 2.238c.04.296.278.518.557.518h.006c.279 0 .516-.222.557-.518l.428-2.238c.095-.652-.367-1.237-.978-1.244z"
               fill="currentColor"
               fillRule="evenodd"
             />
@@ -332,7 +332,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
                 aria-labelledby="17"
                 height="100%"
                 role="img"
-                viewBox="0 0 24 24"
+                viewBox="0 0 20 20"
                 width="100%"
               >
                 <title
@@ -341,7 +341,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
                   dismiss this alert
                 </title>
                 <path
-                  d="M17.858 6.142a.475.475 0 01.055.606l-.05.061-5.191 5.19 5.191 5.192a.469.469 0 01-.005.667.475.475 0 01-.606.055l-.061-.05L12 12.671l-5.191 5.192a.469.469 0 01-.667-.005.475.475 0 01-.055-.606l.05-.061 5.191-5.192-5.191-5.19a.469.469 0 01.005-.667.475.475 0 01.606-.055l.061.05L12 11.327l5.191-5.19a.469.469 0 01.667.005z"
+                  d="M15.858 4.142a.475.475 0 01.055.606l-.05.061-5.191 5.19 5.191 5.192a.469.469 0 01-.005.667.475.475 0 01-.606.055l-.061-.05L10 10.671l-5.191 5.192a.469.469 0 01-.667-.005.475.475 0 01-.055-.606l.05-.061 5.191-5.192-5.191-5.19a.469.469 0 01.005-.667.475.475 0 01.606-.055l.061.05L10 9.327l5.191-5.19a.469.469 0 01.667.005z"
                   fill="currentColor"
                   fillRule="evenodd"
                 />
@@ -372,7 +372,7 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -385,7 +385,7 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-top: 0.75rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.75rem;
 }
 
 .emotion-1 {
@@ -402,8 +402,8 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
 
 .emotion-0 {
   display: block;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
   color: rgb(112,117,120);
 }
 
@@ -441,7 +441,7 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
             aria-labelledby="9"
             height="100%"
             role="img"
-            viewBox="0 0 24 24"
+            viewBox="0 0 20 20"
             width="100%"
           >
             <title
@@ -450,7 +450,7 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
               information: 
             </title>
             <path
-              d="M12 4a8 8 0 110 16 8 8 0 010-16zm0 7c-.26.01-.528.08-.707.24-.178.158-.292.355-.292.575v3.37c0 .21.11.428.292.577.173.14.457.247.707.237.26-.008.528-.078.707-.237.178-.16.292-.355.292-.577v-3.37a.766.766 0 00-.292-.575A1.14 1.14 0 0012 11zm0-3l-.266.036c-.17.047-.318.131-.441.253l-.156.198A.958.958 0 0011 8.98v.04a.728.728 0 00.086.378c.04.121.108.227.206.315.09.094.197.163.321.202.12.06.248.09.386.084l.266-.035c.17-.047.318-.131.441-.253l.156-.198A.958.958 0 0013 9.02v-.04a.728.728 0 00-.086-.378.721.721 0 00-.206-.315.757.757 0 00-.321-.202.767.767 0 00-.386-.084z"
+              d="M10 2a8 8 0 110 16 8 8 0 010-16zm0 7c-.26.01-.528.08-.707.24-.178.158-.292.355-.292.575v3.37c0 .21.11.428.292.577.173.14.457.247.707.237.26-.008.528-.078.707-.237.178-.16.292-.355.292-.577v-3.37a.766.766 0 00-.292-.575A1.14 1.14 0 0010 9zm0-3l-.266.036c-.17.047-.318.131-.441.253l-.156.198A.958.958 0 009 6.98v.04a.728.728 0 00.086.378c.04.121.108.227.206.315.09.094.197.163.321.202.12.06.248.09.386.084l.266-.035c.17-.047.318-.131.441-.253l.156-.198A.958.958 0 0011 7.02v-.04a.728.728 0 00-.086-.378.721.721 0 00-.206-.315.757.757 0 00-.321-.202.767.767 0 00-.386-.084z"
               fill="currentColor"
               fillRule="evenodd"
             />
@@ -495,7 +495,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -508,7 +508,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-top: 0.75rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.75rem;
 }
 
 .emotion-1 {
@@ -525,8 +525,8 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
 
 .emotion-0 {
   display: block;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
   color: rgb(112,117,120);
 }
 
@@ -623,7 +623,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
             aria-labelledby="10"
             height="100%"
             role="img"
-            viewBox="0 0 24 24"
+            viewBox="0 0 20 20"
             width="100%"
           >
             <title
@@ -632,7 +632,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
               information: 
             </title>
             <path
-              d="M12 4a8 8 0 110 16 8 8 0 010-16zm0 7c-.26.01-.528.08-.707.24-.178.158-.292.355-.292.575v3.37c0 .21.11.428.292.577.173.14.457.247.707.237.26-.008.528-.078.707-.237.178-.16.292-.355.292-.577v-3.37a.766.766 0 00-.292-.575A1.14 1.14 0 0012 11zm0-3l-.266.036c-.17.047-.318.131-.441.253l-.156.198A.958.958 0 0011 8.98v.04a.728.728 0 00.086.378c.04.121.108.227.206.315.09.094.197.163.321.202.12.06.248.09.386.084l.266-.035c.17-.047.318-.131.441-.253l.156-.198A.958.958 0 0013 9.02v-.04a.728.728 0 00-.086-.378.721.721 0 00-.206-.315.757.757 0 00-.321-.202.767.767 0 00-.386-.084z"
+              d="M10 2a8 8 0 110 16 8 8 0 010-16zm0 7c-.26.01-.528.08-.707.24-.178.158-.292.355-.292.575v3.37c0 .21.11.428.292.577.173.14.457.247.707.237.26-.008.528-.078.707-.237.178-.16.292-.355.292-.577v-3.37a.766.766 0 00-.292-.575A1.14 1.14 0 0010 9zm0-3l-.266.036c-.17.047-.318.131-.441.253l-.156.198A.958.958 0 009 6.98v.04a.728.728 0 00.086.378c.04.121.108.227.206.315.09.094.197.163.321.202.12.06.248.09.386.084l.266-.035c.17-.047.318-.131.441-.253l.156-.198A.958.958 0 0011 7.02v-.04a.728.728 0 00-.086-.378.721.721 0 00-.206-.315.757.757 0 00-.321-.202.767.767 0 00-.386-.084z"
               fill="currentColor"
               fillRule="evenodd"
             />
@@ -680,7 +680,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
                 aria-labelledby="11"
                 height="100%"
                 role="img"
-                viewBox="0 0 24 24"
+                viewBox="0 0 20 20"
                 width="100%"
               >
                 <title
@@ -689,7 +689,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
                   dismiss this alert
                 </title>
                 <path
-                  d="M17.858 6.142a.475.475 0 01.055.606l-.05.061-5.191 5.19 5.191 5.192a.469.469 0 01-.005.667.475.475 0 01-.606.055l-.061-.05L12 12.671l-5.191 5.192a.469.469 0 01-.667-.005.475.475 0 01-.055-.606l.05-.061 5.191-5.192-5.191-5.19a.469.469 0 01.005-.667.475.475 0 01.606-.055l.061.05L12 11.327l5.191-5.19a.469.469 0 01.667.005z"
+                  d="M15.858 4.142a.475.475 0 01.055.606l-.05.061-5.191 5.19 5.191 5.192a.469.469 0 01-.005.667.475.475 0 01-.606.055l-.061-.05L10 10.671l-5.191 5.192a.469.469 0 01-.667-.005.475.475 0 01-.055-.606l.05-.061 5.191-5.192-5.191-5.19a.469.469 0 01.005-.667.475.475 0 01.606-.055l.061.05L10 9.327l5.191-5.19a.469.469 0 01.667.005z"
                   fill="currentColor"
                   fillRule="evenodd"
                 />
@@ -720,7 +720,7 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -753,13 +753,13 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-top: 0.75rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.75rem;
 }
 
 .emotion-0 {
   display: block;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
   color: rgb(228,98,22);
 }
 
@@ -789,7 +789,7 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
             aria-labelledby="21"
             height="100%"
             role="img"
-            viewBox="0 0 24 24"
+            viewBox="0 0 20 20"
             width="100%"
           >
             <title
@@ -798,7 +798,7 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
               warning: 
             </title>
             <path
-              d="M10.684 5.744c.582-.992 2.05-.992 2.632 0l6.482 11.048c.577.984-.152 2.208-1.316 2.208H5.518c-1.164 0-1.893-1.224-1.316-2.208zM12 15a1 1 0 100 2 1 1 0 000-2zm.01-5h-.02l-.112.007c-.549.067-.955.626-.866 1.237l.428 2.238.02.095c.074.247.29.423.543.423l.091-.008a.59.59 0 00.466-.51l.428-2.238.011-.121c.025-.602-.416-1.116-.989-1.123z"
+              d="M8.684 3.744c.582-.992 2.05-.992 2.632 0l6.482 11.048c.577.984-.152 2.208-1.316 2.208H3.518c-1.164 0-1.893-1.224-1.316-2.208zM10 13a1 1 0 100 2 1 1 0 000-2zm.01-5h-.02l-.112.007c-.549.067-.955.626-.866 1.237l.428 2.238.02.095c.074.247.29.423.543.423l.091-.008a.59.59 0 00.466-.51l.428-2.238.011-.121c.025-.602-.416-1.116-.989-1.123z"
               fill="currentColor"
               fillRule="evenodd"
             />
@@ -843,7 +843,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -861,8 +861,8 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
 
 .emotion-3 {
   display: block;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
   color: rgb(112,117,120);
 }
 
@@ -942,13 +942,13 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-top: 0.75rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.75rem;
 }
 
 .emotion-0 {
   display: block;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
   color: rgb(228,98,22);
 }
 
@@ -978,7 +978,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
             aria-labelledby="22"
             height="100%"
             role="img"
-            viewBox="0 0 24 24"
+            viewBox="0 0 20 20"
             width="100%"
           >
             <title
@@ -987,7 +987,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
               warning: 
             </title>
             <path
-              d="M10.684 5.744c.582-.992 2.05-.992 2.632 0l6.482 11.048c.577.984-.152 2.208-1.316 2.208H5.518c-1.164 0-1.893-1.224-1.316-2.208zM12 15a1 1 0 100 2 1 1 0 000-2zm.01-5h-.02l-.112.007c-.549.067-.955.626-.866 1.237l.428 2.238.02.095c.074.247.29.423.543.423l.091-.008a.59.59 0 00.466-.51l.428-2.238.011-.121c.025-.602-.416-1.116-.989-1.123z"
+              d="M8.684 3.744c.582-.992 2.05-.992 2.632 0l6.482 11.048c.577.984-.152 2.208-1.316 2.208H3.518c-1.164 0-1.893-1.224-1.316-2.208zM10 13a1 1 0 100 2 1 1 0 000-2zm.01-5h-.02l-.112.007c-.549.067-.955.626-.866 1.237l.428 2.238.02.095c.074.247.29.423.543.423l.091-.008a.59.59 0 00.466-.51l.428-2.238.011-.121c.025-.602-.416-1.116-.989-1.123z"
               fill="currentColor"
               fillRule="evenodd"
             />
@@ -1035,7 +1035,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
                 aria-labelledby="23"
                 height="100%"
                 role="img"
-                viewBox="0 0 24 24"
+                viewBox="0 0 20 20"
                 width="100%"
               >
                 <title
@@ -1044,7 +1044,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
                   dismiss this alert
                 </title>
                 <path
-                  d="M17.858 6.142a.475.475 0 01.055.606l-.05.061-5.191 5.19 5.191 5.192a.469.469 0 01-.005.667.475.475 0 01-.606.055l-.061-.05L12 12.671l-5.191 5.192a.469.469 0 01-.667-.005.475.475 0 01-.055-.606l.05-.061 5.191-5.192-5.191-5.19a.469.469 0 01.005-.667.475.475 0 01.606-.055l.061.05L12 11.327l5.191-5.19a.469.469 0 01.667.005z"
+                  d="M15.858 4.142a.475.475 0 01.055.606l-.05.061-5.191 5.19 5.191 5.192a.469.469 0 01-.005.667.475.475 0 01-.606.055l-.061-.05L10 10.671l-5.191 5.192a.469.469 0 01-.667-.005.475.475 0 01-.055-.606l.05-.061 5.191-5.192-5.191-5.19a.469.469 0 01.005-.667.475.475 0 01.606-.055l.061.05L10 9.327l5.191-5.19a.469.469 0 01.667.005z"
                   fill="currentColor"
                   fillRule="evenodd"
                 />

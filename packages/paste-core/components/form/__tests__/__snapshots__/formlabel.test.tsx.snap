@@ -5,7 +5,7 @@ exports[`FormLabel render it should render 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -41,7 +41,7 @@ exports[`FormLabel render it should render 1`] = `
   padding: 0;
   font-size: 0.875rem;
   font-weight: 500;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   color: rgb(40,42,43);
   cursor: pointer;
 }
@@ -77,7 +77,7 @@ exports[`FormLabel render it should render with required 1`] = `
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-weight: 400;
 }
 
@@ -113,7 +113,7 @@ exports[`FormLabel render it should render with required 1`] = `
   padding: 0;
   font-size: 0.875rem;
   font-weight: 500;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   color: rgb(40,42,43);
   cursor: pointer;
 }
@@ -121,7 +121,7 @@ exports[`FormLabel render it should render with required 1`] = `
 .emotion-1 {
   margin: 0;
   padding: 0;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   font-size: 0.875rem;
   color: rgb(40,42,43);
   background-color: rgb(222,88,88);
