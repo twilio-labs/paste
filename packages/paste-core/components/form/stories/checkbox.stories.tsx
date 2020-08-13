@@ -2,6 +2,7 @@ import * as React from 'react';
 import {useUID} from 'react-uid';
 import {storiesOf} from '@storybook/react';
 import {Anchor} from '@twilio-paste/anchor';
+import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {Checkbox, CheckboxGroup, CheckboxDisclaimer} from '../src';
 
@@ -301,6 +302,71 @@ storiesOf('Forms|Checkbox', module)
           Drinks
         </Checkbox>
       </CheckboxGroup>
+    );
+  })
+  .add('Checkbox - Indeterminate group disabled', () => {
+    const [checkedItems, setCheckedItems] = React.useState([true, false]);
+    const [checkedItems2, setCheckedItems2] = React.useState([false, false]);
+
+    const allChecked = checkedItems.every(Boolean);
+    const allChecked2 = checkedItems2.every(Boolean);
+    const indeterminate = checkedItems.some(Boolean) && !allChecked;
+    const indeterminate2 = checkedItems2.some(Boolean) && !allChecked2;
+
+    const checkboxRef: React.RefObject<HTMLInputElement> = React.createRef();
+
+    return (
+      <Stack orientation="horizontal" spacing="space70">
+        <CheckboxGroup isSelectAll disabled name="bar" legend="Select your favourite">
+          <Checkbox
+            id={useUID()}
+            checked={allChecked}
+            indeterminate={indeterminate}
+            ref={checkboxRef}
+            onChange={e => setCheckedItems([e.target.checked, e.target.checked])}
+          >
+            Select all
+          </Checkbox>
+          <Checkbox
+            id={useUID()}
+            checked={checkedItems[0]}
+            onChange={e => setCheckedItems([e.target.checked, checkedItems[1]])}
+          >
+            Snacks
+          </Checkbox>
+          <Checkbox
+            id={useUID()}
+            checked={checkedItems[1]}
+            onChange={e => setCheckedItems([checkedItems[0], e.target.checked])}
+          >
+            Drinks
+          </Checkbox>
+        </CheckboxGroup>
+        <CheckboxGroup isSelectAll disabled name="bar" legend="Select your favourite">
+          <Checkbox
+            id={useUID()}
+            checked={allChecked2}
+            indeterminate={indeterminate2}
+            onChange={e => setCheckedItems2([e.target.checked, e.target.checked])}
+          >
+            Select all
+          </Checkbox>
+          <Checkbox
+            id={useUID()}
+            checked={checkedItems2[0]}
+            onChange={e => setCheckedItems2([e.target.checked, checkedItems2[1]])}
+          >
+            Snacks
+          </Checkbox>
+          <Checkbox
+            id={useUID()}
+            checked={checkedItems2[1]}
+            onChange={e => setCheckedItems2([checkedItems2[0], e.target.checked])}
+          >
+            Drinks
+          </Checkbox>
+        </CheckboxGroup>
+      </Stack>
     );
   })
   .add('Checkbox - Indeterminate horizontal group', () => {

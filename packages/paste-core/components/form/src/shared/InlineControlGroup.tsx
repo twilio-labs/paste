@@ -32,12 +32,12 @@ const InlineControlGroup: React.FC<InlineControlGroupProps> = ({
         {legend}
       </FormLabel>
       {helpText && <FormHelpText marginTop="space0">{helpText}</FormHelpText>}
-      <Box marginLeft="space20" marginRight="space20" marginTop="space30">
+      <Box marginLeft="space20" marginRight="space20" marginTop="space40">
         {React.Children.map(children, child => {
           return (
             <Box
               display={orientation === 'horizontal' ? 'inline-block' : 'block'}
-              marginBottom="space30"
+              marginBottom="space40"
               marginRight={orientation === 'horizontal' ? 'space70' : null}
             >
               {child}

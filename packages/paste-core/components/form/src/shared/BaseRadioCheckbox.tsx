@@ -20,7 +20,8 @@ const BaseRadioCheckboxControl: React.FC<BaseRadioCheckboxControlProps> = ({chil
       borderStyle="solid"
       borderWidth="borderWidth10"
       height="sizeSquare50"
-      margin="space20"
+      marginX="space20"
+      marginY="space10"
       width="sizeSquare50"
       _hoverSibling={{
         borderColor: 'colorBorderPrimaryDark',
