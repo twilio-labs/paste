@@ -4,12 +4,14 @@ import _ from 'lodash';
 import {storiesOf} from '@storybook/react';
 import {withKnobs} from '@storybook/addon-knobs';
 import {Anchor} from '@twilio-paste/anchor';
+import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {FormLabel} from '@twilio-paste/form';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
+import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {useCombobox, Combobox, ComboboxInputWrapper, ComboboxListbox, ComboboxListboxOption} from '../src';
 
 const items = [
@@ -24,6 +26,11 @@ const items = [
   'Paragraph',
 ];
 
+interface IconItems {
+  label: string;
+  iconRight?: boolean;
+  iconLeft?: undefined;
+}
 const iconItems = [
   {label: 'Alert', iconRight: true},
   {label: 'Anchor'},
@@ -35,6 +42,11 @@ const iconItems = [
   {label: 'Paragraph', iconRight: true},
 ];
 
+interface ObjectItem {
+  code: string;
+  label: string;
+  phone: string;
+}
 const objectItems = [
   {code: 'AD', label: 'Andorra', phone: '376'},
   {code: 'AE', label: 'United Arab Emirates', phone: '971'},
@@ -50,6 +62,10 @@ const objectItems = [
   {code: 'AT', label: 'Austria', phone: '43'},
 ];
 
+interface GroupedItem {
+  group?: string;
+  label: string;
+}
 const groupedItems = [
   {group: 'Components', label: 'Alert'},
   {group: 'Components', label: 'Anchor'},
@@ -66,49 +82,6 @@ const groupedItems = [
   {label: 'Design Tokens'},
 ];
 
-const CustomInputCombobox: React.FC<{}> = () => {
-  const {
-    getComboboxProps,
-    getInputProps,
-    getItemProps,
-    getLabelProps,
-    getMenuProps,
-    getToggleButtonProps,
-    highlightedIndex,
-    isOpen,
-    selectedItem,
-  } = useCombobox({items});
-  const fieldID = useUID();
-  return (
-    <Box position="relative">
-      <FormLabel htmlFor={fieldID} {...getLabelProps()}>
-        Choose a component:
-      </FormLabel>
-      <ComboboxInputWrapper {...getComboboxProps({role: 'combobox'})}>
-        <input
-          id={fieldID}
-          type="text"
-          {...getInputProps()}
-          {...getToggleButtonProps({tabIndex: 0})}
-          value={selectedItem || ''}
-        />
-      </ComboboxInputWrapper>
-      <ComboboxListbox {...getMenuProps()}>
-        {isOpen &&
-          items.map((item, index) => (
-            <ComboboxListboxOption
-              {...getItemProps({item, index})}
-              highlighted={highlightedIndex === index}
-              key={uid(item)}
-            >
-              {item}
-            </ComboboxListboxOption>
-          ))}
-      </ComboboxListbox>
-    </Box>
-  );
-};
-
 storiesOf('Components|Combobox', module)
   .addDecorator(withKnobs)
   .add('Combobox', () => {
@@ -117,7 +90,7 @@ storiesOf('Components|Combobox', module)
         items={iconItems}
         labelText="Choose a component:"
         helpText="This is the help text"
-        optionTemplate={(item: any) => (
+        optionTemplate={(item: IconItems) => (
           <MediaObject verticalAlign="center">
             {item.iconLeft ? (
               <MediaFigure spacing="space20">
@@ -133,7 +106,7 @@ storiesOf('Components|Combobox', module)
             ) : null}
           </MediaObject>
         )}
-        itemToString={item => (item ? String(item.label) : null)}
+        itemToString={(item: IconItems) => (item ? String(item.label) : null)}
       />
     );
   })
@@ -144,7 +117,7 @@ storiesOf('Components|Combobox', module)
           items={iconItems}
           labelText="Choose a component:"
           helpText="This is the help text"
-          optionTemplate={(item: any) => (
+          optionTemplate={(item: IconItems) => (
             <MediaObject verticalAlign="center">
               {item.iconLeft ? (
                 <MediaFigure spacing="space20">
@@ -160,7 +133,7 @@ storiesOf('Components|Combobox', module)
               ) : null}
             </MediaObject>
           )}
-          itemToString={item => (item ? String(item.label) : null)}
+          itemToString={(item: IconItems) => (item ? String(item.label) : null)}
           variant="inverse"
         />
       </Box>
@@ -314,7 +287,7 @@ storiesOf('Components|Combobox', module)
         items={inputItems}
         labelText="Choose a country:"
         helpText="This is the help text"
-        optionTemplate={(item: any) => (
+        optionTemplate={(item: ObjectItem) => (
           <div>
             {item.code} | {item.label} | {item.phone}
           </div>
@@ -322,16 +295,13 @@ storiesOf('Components|Combobox', module)
         onInputValueChange={({inputValue}) => {
           if (inputValue !== undefined) {
             setInputItems(
-              _.filter(objectItems, (item: any) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
+              _.filter(objectItems, (item: ObjectItem) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
             );
           }
         }}
-        itemToString={item => (item ? item.label : null)}
+        itemToString={(item: ObjectItem) => (item ? item.label : null)}
       />
     );
-  })
-  .add('Combobox - Custom Input', () => {
-    return <CustomInputCombobox />;
   })
   .add('Combobox - overflow long value', () => {
     const [inputItems, setInputItems] = React.useState(items);
@@ -353,7 +323,7 @@ storiesOf('Components|Combobox', module)
   })
   .add('Combobox - Controlled', () => {
     const [value, setValue] = React.useState('');
-    const [selectedItem, setSelectedItem] = React.useState();
+    const [selectedItem, setSelectedItem] = React.useState({});
     const [inputItems, setInputItems] = React.useState(objectItems);
     return (
       <>
@@ -362,7 +332,7 @@ storiesOf('Components|Combobox', module)
           items={inputItems}
           labelText="Choose a country:"
           helpText="This is the help text"
-          optionTemplate={(item: any) => (
+          optionTemplate={(item: ObjectItem) => (
             <div>
               {item.code} | {item.label} | {item.phone}
             </div>
@@ -370,17 +340,72 @@ storiesOf('Components|Combobox', module)
           onInputValueChange={({inputValue}) => {
             if (inputValue !== undefined) {
               setInputItems(
-                _.filter(objectItems, (item: any) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
+                _.filter(objectItems, (item: ObjectItem) =>
+                  item.label.toLowerCase().startsWith(inputValue.toLowerCase())
+                )
               );
               setValue(inputValue);
             }
           }}
-          itemToString={item => (item ? item.label : null)}
+          itemToString={(item: ObjectItem) => (item ? item.label : null)}
           selectedItem={selectedItem}
           onSelectedItemChange={changes => {
             setSelectedItem(changes.selectedItem);
           }}
           inputValue={value}
+        />
+        <Box paddingTop="space70">
+          Input value state: {JSON.stringify(value)}
+          <br />
+          Selected item state: {JSON.stringify(selectedItem)}
+        </Box>
+      </>
+    );
+  })
+  .add('Combobox - Controlled using state', () => {
+    const [value, setValue] = React.useState('');
+    const [selectedItem, setSelectedItem] = React.useState({});
+    const [inputItems, setInputItems] = React.useState(objectItems);
+    const {reset, ...state} = useCombobox({
+      items: inputItems,
+      itemToString: item => (item ? item.label : null),
+      onSelectedItemChange: changes => {
+        setSelectedItem(changes.selectedItem);
+      },
+      onInputValueChange: ({inputValue}) => {
+        if (inputValue !== undefined) {
+          setInputItems(
+            _.filter(objectItems, (item: ObjectItem) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
+          );
+          setValue(inputValue);
+        }
+      },
+      inputValue: value,
+    });
+    return (
+      <>
+        <Combobox
+          state={state}
+          items={inputItems}
+          autocomplete
+          labelText="Choose a country:"
+          helpText="This is the help text"
+          optionTemplate={(item: ObjectItem) => (
+            <div>
+              {item.code} | {item.label} | {item.phone}
+            </div>
+          )}
+          insertAfter={
+            <Button
+              variant="link"
+              size="reset"
+              onClick={() => {
+                reset();
+              }}
+            >
+              <CloseIcon decorative={false} title="Clear" />
+            </Button>
+          }
         />
         <Box paddingTop="space70">
           Input value state: {JSON.stringify(value)}
@@ -396,8 +421,8 @@ storiesOf('Components|Combobox', module)
         items={objectItems}
         labelText="Choose a country:"
         initialIsOpen
-        optionTemplate={(item: any) => <div>{item.label}</div>}
-        itemToString={item => (item ? item.label : null)}
+        optionTemplate={(item: ObjectItem) => <div>{item.label}</div>}
+        itemToString={(item: ObjectItem) => (item ? item.label : null)}
       />
     );
   })
@@ -408,8 +433,8 @@ storiesOf('Components|Combobox', module)
         items={groupedItems}
         labelText="Choose a component:"
         helpText="This is group"
-        optionTemplate={(item: any) => <div>{item.label}</div>}
-        itemToString={item => (item ? item.label : null)}
+        optionTemplate={(item: GroupedItem) => <div>{item.label}</div>}
+        itemToString={(item: GroupedItem) => (item ? item.label : null)}
       />
     );
   })
@@ -421,7 +446,7 @@ storiesOf('Components|Combobox', module)
         labelText="Choose a component:"
         helpText="This is group"
         initialIsOpen
-        optionTemplate={(item: any) => <div>{item.label}</div>}
+        optionTemplate={(item: GroupedItem) => <div>{item.label}</div>}
         groupLabelTemplate={(groupName: string) => {
           if (groupName === 'Components') {
             return (
@@ -435,7 +460,7 @@ storiesOf('Components|Combobox', module)
           }
           return groupName;
         }}
-        itemToString={item => (item ? item.label : null)}
+        itemToString={(item: GroupedItem) => (item ? item.label : null)}
       />
     );
   })
@@ -448,15 +473,17 @@ storiesOf('Components|Combobox', module)
         items={inputItems}
         labelText="Choose a component:"
         helpText="This is the help text"
-        optionTemplate={(item: any) => <div>{item.label}</div>}
+        optionTemplate={(item: GroupedItem) => <div>{item.label}</div>}
         onInputValueChange={({inputValue}) => {
           if (inputValue !== undefined) {
             setInputItems(
-              _.filter(groupedItems, (item: any) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
+              _.filter(groupedItems, (item: GroupedItem) =>
+                item.label.toLowerCase().startsWith(inputValue.toLowerCase())
+              )
             );
           }
         }}
-        itemToString={item => (item ? item.label : null)}
+        itemToString={(item: GroupedItem) => (item ? item.label : null)}
       />
     );
   });

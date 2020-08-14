@@ -1,12 +1,31 @@
 import * as React from 'react';
+import _ from 'lodash';
 import {axe} from 'jest-axe';
 import {uid} from 'react-uid';
-import {render, screen} from '@testing-library/react';
+import {render, screen, fireEvent} from '@testing-library/react';
 import {FormLabel, FormHelpText, InputElement} from '@twilio-paste/form';
+import {Button} from '@twilio-paste/button';
+import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
+import {Box} from '@twilio-paste/box';
 import {useCombobox, Combobox, ComboboxInputWrapper, ComboboxListbox, ComboboxListboxOption} from '../src';
 import {ComboboxProps} from '../src/types';
 
 const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
+
+const objectItems = [
+  {code: 'AD', label: 'Andorra', phone: '376'},
+  {code: 'AE', label: 'United Arab Emirates', phone: '971'},
+  {code: 'AF', label: 'Afghanistan', phone: '93'},
+  {code: 'AG', label: 'Antigua and Barbuda', phone: '1-268'},
+  {code: 'AI', label: 'Anguilla', phone: '1-264'},
+  {code: 'AL', label: 'Albania', phone: '355'},
+  {code: 'AM', label: 'Armenia', phone: '374'},
+  {code: 'AO', label: 'Angola', phone: '244'},
+  {code: 'AQ', label: 'Antarctica', phone: '672'},
+  {code: 'AR', label: 'Argentina', phone: '54'},
+  {code: 'AS', label: 'American Samoa', phone: '1-684'},
+  {code: 'AT', label: 'Austria', phone: '43'},
+];
 
 const groupedItems = [
   {group: 'Components', label: 'Alert'},
@@ -107,6 +126,60 @@ const GroupedMockCombobox: React.FC<{groupLabelTemplate?: ComboboxProps['groupLa
   );
 };
 
+const ControlledCombobox: React.FC = () => {
+  const [value, setValue] = React.useState('');
+  const [selectedItem, setSelectedItem] = React.useState({});
+  const [inputItems, setInputItems] = React.useState(objectItems);
+  const {reset, ...state} = useCombobox({
+    items: inputItems,
+    itemToString: item => (item ? item.label : null),
+    onSelectedItemChange: changes => {
+      setSelectedItem(changes.selectedItem);
+    },
+    onInputValueChange: ({inputValue}) => {
+      if (inputValue !== undefined) {
+        setInputItems(
+          _.filter(objectItems, (item: any) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
+        );
+        setValue(inputValue);
+      }
+    },
+    inputValue: value,
+  });
+  return (
+    <>
+      <Combobox
+        state={state}
+        items={inputItems}
+        autocomplete
+        labelText="Choose a country:"
+        helpText="This is the help text"
+        optionTemplate={(item: any) => (
+          <div>
+            {item.code} | {item.label} | {item.phone}
+          </div>
+        )}
+        insertAfter={
+          <Button
+            variant="link"
+            size="reset"
+            onClick={() => {
+              reset();
+            }}
+          >
+            <CloseIcon decorative={false} title="Clear" />
+          </Button>
+        }
+      />
+      <Box paddingTop="space70">
+        Input value state: <span data-testid="input-value-span">{JSON.stringify(value)}</span>
+        <br />
+        Selected item state: <span data-testid="selected-item-span">{JSON.stringify(selectedItem)}</span>
+      </Box>
+    </>
+  );
+};
+
 describe('Combobox ', () => {
   describe('Render', () => {
     it('should render', () => {
@@ -179,6 +252,28 @@ describe('Combobox ', () => {
       expect(renderedGroups[2].querySelector('[role="group"] > div[role="presentation"]').textContent).toEqual(
         'hi Layout'
       );
+    });
+  });
+
+  describe('Controlled Combobox', () => {
+    it('should be able to clear a Combobox', () => {
+      render(<ControlledCombobox />);
+      // open the combobox
+      fireEvent.click(screen.getByRole('textbox'));
+      // select the first item
+      fireEvent.click(screen.getAllByRole('option')[0]);
+      // @ts-ignore Property 'value' does not exist on type 'HTMLElement' (I get it, but this is right)
+      expect(screen.getByRole('textbox').value).toEqual('Andorra');
+      expect(screen.getByTestId('input-value-span').textContent).toEqual('"Andorra"');
+      expect(screen.getByTestId('selected-item-span').textContent).toEqual(
+        '{"code":"AD","label":"Andorra","phone":"376"}'
+      );
+      // click the clear button
+      fireEvent.click(screen.getByText('Clear'));
+      // @ts-ignore Property 'value' does not exist on type 'HTMLElement' (I get it, but this is right)
+      expect(screen.getByRole('textbox').value).toEqual('');
+      expect(screen.getByTestId('input-value-span').textContent).toEqual('""');
+      expect(screen.getByTestId('selected-item-span').textContent).toEqual('null');
     });
   });
 
