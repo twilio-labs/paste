@@ -165,6 +165,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       groupItemsBy,
       groupLabelTemplate,
       variant = 'default',
+      state,
       ...props
     },
     ref
@@ -178,18 +179,36 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       getToggleButtonProps,
       highlightedIndex,
       isOpen,
-    } = useComboboxPrimitive({
-      initialSelectedItem,
-      items,
-      onHighlightedIndexChange,
-      onInputValueChange,
-      onIsOpenChange,
-      onSelectedItemChange,
-      ...(itemToString && {itemToString}),
-      ...(initialIsOpen && {initialIsOpen}),
-      ...(inputValue && {inputValue}),
-      ...(selectedItem && {selectedItem}),
-    });
+    } =
+      state ||
+      useComboboxPrimitive({
+        initialSelectedItem,
+        items,
+        onHighlightedIndexChange,
+        onInputValueChange,
+        onIsOpenChange,
+        onSelectedItemChange,
+        ...(itemToString && {itemToString}),
+        ...(initialIsOpen && {initialIsOpen}),
+        ...(inputValue && {inputValue}),
+        ...(selectedItem && {selectedItem}),
+      });
+
+    if (
+      getComboboxProps === undefined ||
+      getInputProps === undefined ||
+      getItemProps === undefined ||
+      getLabelProps === undefined ||
+      getMenuProps === undefined ||
+      getToggleButtonProps === undefined ||
+      highlightedIndex === undefined ||
+      isOpen === undefined
+    ) {
+      throw new Error(
+        '[Combobox]: One of getComboboxProps, getInputProps, getItemProps, getLabelProps, getMenuProps, getToggleButtonProps, highlightedIndex or isOpen is missing from the state object. Please make sure this is provided.'
+      );
+    }
+
     const helpTextId = useUID();
     const groupUID = useUIDSeed();
     const optionUID = useUIDSeed();

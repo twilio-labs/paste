@@ -1,4 +1,8 @@
-import {UseComboboxPrimitiveProps, UseComboboxPrimitiveState} from '@twilio-paste/combobox-primitive';
+import {
+  UseComboboxPrimitiveProps,
+  UseComboboxPrimitiveState,
+  UseComboboxPrimitiveReturnValue,
+} from '@twilio-paste/combobox-primitive';
 import {FieldVariants, FormInputProps} from '@twilio-paste/form';
 
 type Item = string | {[key: string]: any};
@@ -21,6 +25,7 @@ export interface ComboboxProps extends Omit<FormInputProps, 'id' | 'type' | 'val
   inputValue?: UseComboboxPrimitiveProps<Item>['inputValue'];
   groupItemsBy?: string;
   variant?: FieldVariants;
+  state?: Partial<UseComboboxPrimitiveReturnValue<Item>>;
 }
 
 export interface RenderItemProps extends Pick<ComboboxProps, 'optionTemplate'> {
