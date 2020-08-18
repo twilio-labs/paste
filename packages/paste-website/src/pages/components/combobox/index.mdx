@@ -8,13 +8,15 @@ slug: /components/combobox/
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
-import {Combobox} from '@twilio-paste/combobox';
+import {Combobox, useCombobox} from '@twilio-paste/combobox';
+import {Button} from '@twilio-paste/button';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
 import {ProductStudioIcon} from '@twilio-paste/icons/esm/ProductStudioIcon';
 import {ProductAutopilotIcon} from '@twilio-paste/icons/esm/ProductAutopilotIcon';
 import {ProductInsightsIcon} from '@twilio-paste/icons/esm/ProductInsightsIcon';
+import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {Text} from '@twilio-paste/text';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
@@ -30,6 +32,7 @@ import {
   controlledComboboxExample,
   groupedComboboxExample,
   groupedLabelComboboxExample,
+  stateHookCombobox,
 } from '../../../component-examples/ComboboxExamples';
 
 export const pageQuery = graphql`
@@ -161,6 +164,32 @@ In the example below the value of the Combobox is stored in a piece of our appli
   language="jsx"
 >
   {controlledComboboxExample}
+</LivePreview>
+
+#### useCombobox state hook.
+
+<Callout variant="warning">
+  <CalloutTitle>🚨Power user move!🚨</CalloutTitle>
+  <CalloutText>
+    Only use this property if you are a power user. It's very easy to break your implementation and unfortunately the
+    Paste team will not be able to debug this for you. Proceed with extreme caution.
+  </CalloutText>
+</Callout>
+
+In addition to being a controlled component, the Combobox comes with the option of "hooking" into the internal state by using the state hook originally provided by [Downshift](https://github.com/downshift-js/downshift/tree/master/src/hooks/useCombobox).
+
+Rather than the state be internal to the component, you can use the `useCombobox` hook and pass the returned state to `Combobox` as the `state` prop.
+
+This allows you to destructure certain returned props from the state hook, including action methods like `reset`.
+
+An example usecase of this might be programmatically providing the user a way to clear or reset the Combobox of it's previous selections. In the example below we are providing a clear button as an input suffix. When pressed, it uses the `reset` action method from the hook to clear the input and select item values.
+
+It should be noted that when doing so, the `state` prop takes precident over the [other properties](#state-props) that affect the state or initial state of the `Combobox`. They will be ignored in favour of them being provided as arguments to the `useCombobox` hook.
+
+For full details on how to use the state hook, and what props to provide it, follow the [Combobox Primitive documentation](/primitives/combobox-primitive#usecomboboxprimitive-arguments). It's the same hook, just renamed.
+
+<LivePreview scope={{Combobox, Box, Button, CloseIcon, useCombobox}} noInline language="jsx">
+  {stateHookCombobox}
 </LivePreview>
 
 ## States
@@ -335,7 +364,7 @@ import {Combobox} from '@twilio-paste/combobox';
 const Component = () => <Combobox autocomplete items={foo} labelText="Foo" helpText="Bar" />;
 ```
 
-#### Props
+#### Component Props
 
 All the valid HTML attributes for `input` are supported including the following props:
 
@@ -354,6 +383,22 @@ This function allows you to use your own `jsx` template for the group label in t
 ##### `helpText?: string | React.ReactNode`
 
 The contents of the help and error text.
+
+##### `labelText: string | NonNullable<React.ReactNode>`
+
+The contents of the label text.
+
+##### `optionTemplate?: (item: string | {}) => React.ReactNode`
+
+This function allows you to use your own `jsx` template for the items in the drop-down list.
+
+##### `variant?: string`
+
+The variant of the Combobox. Available variants are `default` or `inverse`.
+
+#### State Props
+
+These props are used when want to create a Controlled Combobox. They control the state of the Combobox.
 
 ##### `initialIsOpen?: boolean`
 
@@ -375,10 +420,6 @@ Array of items to be displayed in the option list.
 
 If items are stored as an object, used to convert item to a string.
 
-##### `labelText: string | NonNullable<React.ReactNode>`
-
-The contents of the label text.
-
 ##### `onHighlightedIndexChange?: (changes: Partial<UseComboboxState<Item>>) => void`
 
 This function is called each time the highlighted item was changed. Items are highlighted if they are hovered over
@@ -397,17 +438,17 @@ This function is each time the value of the input changes.
 This function is called each time the selected item changes. Items are selected by click or the enter key while
 highlighted.
 
-##### `optionTemplate?: (item: string | {}) => React.ReactNode`
-
-This function allows you to use your own `jsx` template for the items in the drop-down list.
-
 ##### `selectedItem?: any`
 
 Used to set the Selected Item of the Combobox.
 
-##### `variant?: string`
+##### `state?: Partial<UseComboboxPrimitiveReturnValue<Item>>`
 
-The variant of the Combobox. Available variants are `default` or `inverse`.
+Used as a replacement the state props when coupled with using the `useCombobox` hook. When using this prop, all other state props are **ignored**. They must be passed to `useCombobox` as arguments instead.
+
+#### useCombobox Arguments
+
+Please see the [Combobox Primitive](/primitives/combobox-primitive#usecomboboxprimitive-arguments).
 
 <ChangelogRevealer>
   <Changelog />
