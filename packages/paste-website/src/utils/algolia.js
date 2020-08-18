@@ -12,47 +12,26 @@ const pageQuery = `{
           description
           slug
         }
-        excerpt(pruneLength: 180)
-        rawBody
+        excerpt(pruneLength: 5000)
       }
     }
   }
 }`;
 
-const handleRawBody = node => {
-  const {rawBody, ...rest} = node;
-  const sections = rawBody.split('\n\n');
-  const records = sections.map(section => ({
-    ...rest,
-    content: section,
-  }));
-  return records;
-};
-
-const unnestFrontmatter = node => {
-  const {frontmatter, ...rest} = node;
-
-  return {
+const flatten = arr =>
+  arr.map(({node: {frontmatter, ...rest}}) => ({
     ...frontmatter,
     ...rest,
-  };
-};
+  }));
 
 const settings = {
   attributesToSnippet: [`excerpt:20`],
-  attributeForDistinct: 'slug',
-  distinct: true,
 };
 
 const queries = [
   {
     query: pageQuery,
-    transformer: ({data}) =>
-      data.pages.edges
-        .map(edge => edge.node)
-        .map(unnestFrontmatter)
-        .map(handleRawBody)
-        .reduce((acc, cur) => [...acc, ...cur], []),
+    transformer: ({data}) => flatten(data.pages.edges),
     indexName: process.env.ALGOLIA_INDEX_NAME,
     settings,
   },
