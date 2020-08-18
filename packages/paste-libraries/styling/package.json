@@ -32,6 +32,8 @@
     "@emotion/styled": "10.0.27",
     "@styled-system/css": "5.1.5",
     "@styled-system/theme-get": "5.1.2",
+    "@types/styled-system": "^5.1.9",
+    "@types/styled-system__css": "^5.0.5",
     "emotion": "10.0.27",
     "emotion-theming": "^10.0.27",
     "styled-system": "5.1.5"
@@ -39,9 +41,5 @@
   "peerDependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
-  },
-  "devDependencies": {
-    "@types/styled-system": "^5.1.9",
-    "@types/styled-system__css": "^5.0.5"
   }
 }
