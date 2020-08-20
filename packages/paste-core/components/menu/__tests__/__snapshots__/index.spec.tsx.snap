@@ -215,9 +215,9 @@ exports[`Menu  Render should render 1`] = `
   margin-bottom: space40;
   margin-top: space40;
   border-width: borderWidth0;
-  border-color: colorBorderLighter;
+  border-color: colorBorderLight;
   border-style: solid;
-  border-bottom-width: borderWidth20;
+  border-bottom-width: borderWidth10;
   width: auto;
 }
 

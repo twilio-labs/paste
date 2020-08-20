@@ -15,9 +15,9 @@ exports[`Separator it should set horizontal margins 1`] = `
   margin-left: 1rem;
   margin-right: 1rem;
   border-width: 0;
-  border-color: rgb(225,227,234);
+  border-color: rgb(202,205,216);
   border-style: solid;
-  border-bottom-width: 2px;
+  border-bottom-width: 1px;
   width: auto;
 }
 
@@ -48,9 +48,9 @@ exports[`Separator it should set responsive horizontal margins 1`] = `
   margin-left: 0.25rem;
   margin-right: 0.25rem;
   border-width: 0;
-  border-color: rgb(225,227,234);
+  border-color: rgb(202,205,216);
   border-style: solid;
-  border-bottom-width: 2px;
+  border-bottom-width: 1px;
   width: auto;
 }
 
@@ -95,9 +95,9 @@ exports[`Separator it should set responsive vertical margins 1`] = `
   margin-bottom: 0.25rem;
   margin-top: 0.25rem;
   border-width: 0;
-  border-color: rgb(225,227,234);
+  border-color: rgb(202,205,216);
   border-style: solid;
-  border-left-width: 2px;
+  border-left-width: 1px;
   height: auto;
 }
 
@@ -142,9 +142,9 @@ exports[`Separator it should set vertical margins 1`] = `
   margin-bottom: 2.25rem;
   margin-top: 2.25rem;
   border-width: 0;
-  border-color: rgb(225,227,234);
+  border-color: rgb(202,205,216);
   border-style: solid;
-  border-left-width: 2px;
+  border-left-width: 1px;
   height: auto;
 }
 
