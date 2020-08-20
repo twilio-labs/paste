@@ -18,7 +18,6 @@ import Img from 'gatsby-image';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 
 export const pageQuery = graphql`
   {
@@ -128,7 +127,7 @@ An example of a Card with default padding.
   <Paragraph>
     Choose your leaders with wisdom and forethought. To be led by a coward is to be controlled by all that the coward fears. To be led by a fool is to be led by the opportunists who control the fool. To be led by a thief is to offer up your most precious treasures to be stolen. To be led by a liar is to ask to be lied to. To be led by a tyrant is to sell yourself and those you love into slavery.
   </Paragraph>
-  <Paragraph>— <Anchor href="https://www.goodreads.com/book/show/60932.Parable_of_the_Talents">Octavia Butler</Anchor></Paragraph>
+  <Paragraph marginBottom="space0">— <Anchor href="https://www.goodreads.com/book/show/60932.Parable_of_the_Talents">Octavia Butler</Anchor></Paragraph>
 </Card>`}
 </LivePreview>
 
@@ -156,11 +155,12 @@ Your implementation use case may call for a Card with centered content. You can 
 using the alignment props available on some components, or by creating a custom layout inside your
 Card using Box or Flex.
 
-<LivePreview scope={{Card, Paragraph, Heading, Button, PlusIcon, Text}} language="jsx">
+<LivePreview scope={{Card, Paragraph, Heading, Button, Text}} language="jsx">
   {`<Card padding="space200">
   <Text as="div" textAlign="center">
-    <PlusIcon size='sizeIcon40' decorative title="There just wasn't a details icon to use"/>
-    <Heading as="h2" variant="heading20">Let's verify your integration</Heading>
+    <Heading as="h2" variant="heading20">
+      Let's verify your integration
+    </Heading>
     <Paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
       magna aliqua.
