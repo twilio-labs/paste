@@ -24,10 +24,10 @@ const Separator: React.FC<SeparatorProps> = ({orientation, horizontalSpacing, ve
       marginTop={verticalSpacing}
       as="hr"
       borderWidth="borderWidth0"
-      borderColor="colorBorderLighter"
+      borderColor="colorBorderLight"
       borderStyle="solid"
-      borderBottomWidth={orientation === 'horizontal' ? 'borderWidth20' : null}
-      borderLeftWidth={orientation === 'vertical' ? 'borderWidth20' : null}
+      borderBottomWidth={orientation === 'horizontal' ? 'borderWidth10' : null}
+      borderLeftWidth={orientation === 'vertical' ? 'borderWidth10' : null}
       width={orientation === 'horizontal' ? 'auto' : null}
       height={orientation === 'vertical' ? 'auto' : null}
     />
