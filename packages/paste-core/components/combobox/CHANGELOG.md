@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.3.2...@twilio-paste/combobox@1.3.3) (2020-08-21)
+
+
+### Bug Fixes
+
+* **combobox:** provide a way to use the state hook ([8c4cb81](https://github.com/twilio-labs/paste/commit/8c4cb813dde677bec0f544470d2c35f53a87d22f))
+
+
+
+
+
 ## [1.3.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.3.1...@twilio-paste/combobox@1.3.2) (2020-08-19)
 
 **Note:** Version bump only for package @twilio-paste/combobox

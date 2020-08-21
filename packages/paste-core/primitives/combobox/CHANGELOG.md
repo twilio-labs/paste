@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox-primitive@0.1.4...@twilio-paste/combobox-primitive@0.1.5) (2020-08-21)
+
+
+### Bug Fixes
+
+* **combobox-primitive:** export returned state types ([13c2c9d](https://github.com/twilio-labs/paste/commit/13c2c9d93a586a7e4677b2f08a926bc9dbd6dec9))
+
+
+
+
+
 ## [0.1.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox-primitive@0.1.3...@twilio-paste/combobox-primitive@0.1.4) (2020-07-01)
 
 **Note:** Version bump only for package @twilio-paste/combobox-primitive
