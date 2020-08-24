@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.31](https://github.com/twilio-labs/paste/compare/@twilio-paste/list@0.2.30...@twilio-paste/list@0.2.31) (2020-08-24)
+
+
+### Bug Fixes
+
+* **list:** bump line-height due to default line-height change ([4006207](https://github.com/twilio-labs/paste/commit/4006207838b2cd1b18da6ecdc029d4ea8047ae79))
+
+
+
+
+
 ## [0.2.30](https://github.com/twilio-labs/paste/compare/@twilio-paste/list@0.2.29...@twilio-paste/list@0.2.30) (2020-08-19)
 
 **Note:** Version bump only for package @twilio-paste/list

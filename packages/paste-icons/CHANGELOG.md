@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.0.4...@twilio-paste/icons@3.1.0) (2020-08-24)
+
+
+### Features
+
+* **icons:** resized icons to 20px line heights ([8ce184c](https://github.com/twilio-labs/paste/commit/8ce184cfb7a0fd4488efbbbe2ea414bf0ef1c676))
+
+
+
+
+
 ## [3.0.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.0.3...@twilio-paste/icons@3.0.4) (2020-08-19)
 
 **Note:** Version bump only for package @twilio-paste/icons

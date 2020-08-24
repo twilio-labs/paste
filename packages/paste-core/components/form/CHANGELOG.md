@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@2.2.1...@twilio-paste/form@2.2.2) (2020-08-24)
+
+
+### Bug Fixes
+
+* **checkbox:** spacing adjustments and disabled indetermiate color ([f9a5bce](https://github.com/twilio-labs/paste/commit/f9a5bce0ad0cf1d53ce671e625e76b57c6c64c44))
+
+
+
+
+
 ## [2.2.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@2.2.0...@twilio-paste/form@2.2.1) (2020-08-19)
 
 **Note:** Version bump only for package @twilio-paste/form

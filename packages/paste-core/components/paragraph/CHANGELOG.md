@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.32](https://github.com/twilio-labs/paste/compare/@twilio-paste/paragraph@1.1.31...@twilio-paste/paragraph@1.1.32) (2020-08-24)
+
+
+### Bug Fixes
+
+* **paragraph:** bump line-height due to default line-height change ([5de2b70](https://github.com/twilio-labs/paste/commit/5de2b70af3aa49964b09a9fe3b52e23e977f486d))
+
+
+
+
+
 ## [1.1.31](https://github.com/twilio-labs/paste/compare/@twilio-paste/paragraph@1.1.30...@twilio-paste/paragraph@1.1.31) (2020-08-19)
 
 **Note:** Version bump only for package @twilio-paste/paragraph

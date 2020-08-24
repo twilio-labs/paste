@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/alert@1.0.6...@twilio-paste/alert@1.0.7) (2020-08-24)
+
+
+### Bug Fixes
+
+* **alert:** increase bottom padding to accomodate reduced line-height ([38e2591](https://github.com/twilio-labs/paste/commit/38e2591d1cea6c38dc59bdc5bd58c39f5f553141))
+
+
+
+
+
 ## [1.0.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/alert@1.0.5...@twilio-paste/alert@1.0.6) (2020-08-19)
 
 **Note:** Version bump only for package @twilio-paste/alert
