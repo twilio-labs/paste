@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/separator",
-  "version": "0.1.34",
+  "version": "0.2.0",
   "category": "layout",
   "status": "beta",
   "description": "The Separator component can be used to create visual and semantic separation between UI elements or sections.",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/separator@0.1.34...@twilio-paste/separator@0.2.0) (2020-08-24)
+
+
+### Features
+
+* **separator:** change color to border-light and width to width-10 ([98da412](https://github.com/twilio-labs/paste/commit/98da4124085dec84986267f94f4da8d6f14e54ac))
+
+
+
+
+
 ## [0.1.34](https://github.com/twilio-labs/paste/compare/@twilio-paste/separator@0.1.33...@twilio-paste/separator@0.1.34) (2020-08-24)
 
 **Note:** Version bump only for package @twilio-paste/separator
