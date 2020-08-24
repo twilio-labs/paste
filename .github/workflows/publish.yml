@@ -11,7 +11,7 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'chore(release): publish')"
     strategy:
       matrix:
-        node-version: [10.16.x]
+        node-version: [12.18.x]
 
     steps:
       - uses: actions/checkout@v1
