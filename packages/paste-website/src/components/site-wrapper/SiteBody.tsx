@@ -57,7 +57,7 @@ const PsaAlert: React.FC = () => {
       justifyContent="center"
       position="sticky"
       top="0"
-      zIndex="zIndex20"
+      zIndex="zIndex90"
     >
       <Text as="span" fontWeight="fontWeightBold" color="colorTextBrandInverse" marginRight="space30">
         {/* eslint-disable-next-line jsx-a11y/accessible-emoji */}
