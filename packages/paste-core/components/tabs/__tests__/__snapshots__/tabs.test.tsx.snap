@@ -37,7 +37,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   border-bottom-color: transparent;
   border-bottom-style: solid;
   border-bottom-width: borderWidth20;
-  color: currentColor;
+  color: colorTextWeak;
   display: inline-block;
   margin-right: space70;
   min-width: sizeSquare130;
@@ -81,7 +81,10 @@ exports[`Tabs Render horizontally and vertically 1`] = `
 }
 
 .emotion-0:focus {
-  color: colorTextLink;
+  border-bottom-color: colorBorderPrimaryDarker;
+  box-shadow: shadowFocus;
+  color: colorTextLinkDarker;
+  outline: none;
 }
 
 .emotion-1 {
@@ -89,7 +92,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   border-bottom-color: transparent;
   border-bottom-style: solid;
   border-bottom-width: borderWidth20;
-  color: currentColor;
+  color: colorTextWeak;
   display: inline-block;
   margin-right: space70;
   min-width: sizeSquare130;
@@ -133,7 +136,10 @@ exports[`Tabs Render horizontally and vertically 1`] = `
 }
 
 .emotion-1:focus {
-  color: colorTextLink;
+  border-bottom-color: colorBorderPrimaryDarker;
+  box-shadow: shadowFocus;
+  color: colorTextLinkDarker;
+  outline: none;
 }
 
 <div
@@ -150,7 +156,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
         aria-controls="horizontal-tabs-example-4"
         aria-selected="false"
         class="emotion-0"
-        color="currentColor"
+        color="colorTextWeak"
         cursor="pointer"
         display="inline-block"
         font-size="fontSize30"
@@ -167,7 +173,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
         aria-disabled="true"
         aria-selected="false"
         class="emotion-1"
-        color="currentColor"
+        color="colorTextWeak"
         cursor="not-allowed"
         display="inline-block"
         font-size="fontSize30"
@@ -183,7 +189,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
         aria-controls="horizontal-tabs-example-6"
         aria-selected="true"
         class="emotion-0"
-        color="currentColor"
+        color="colorTextWeak"
         cursor="pointer"
         display="inline-block"
         font-size="fontSize30"
@@ -291,7 +297,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   border-left-color: transparent;
   border-left-style: solid;
   border-left-width: borderWidth20;
-  color: currentColor;
+  color: colorTextWeak;
   display: block;
   margin-bottom: space40;
   padding-bottom: space30;
@@ -331,7 +337,10 @@ exports[`Tabs Render horizontally and vertically 1`] = `
 }
 
 .emotion-0:focus {
-  color: colorTextLink;
+  border-left-color: colorBorderPrimaryDarker;
+  box-shadow: shadowFocus;
+  color: colorTextLinkDarker;
+  outline: none;
 }
 
 <div
@@ -351,7 +360,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
           aria-controls="vertical-tabs-example-4"
           aria-selected="true"
           class="emotion-0"
-          color="currentColor"
+          color="colorTextWeak"
           cursor="pointer"
           display="block"
           font-size="fontSize30"
@@ -366,7 +375,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
           aria-controls="vertical-tabs-example-5"
           aria-selected="false"
           class="emotion-0"
-          color="currentColor"
+          color="colorTextWeak"
           cursor="pointer"
           display="block"
           font-size="fontSize30"
@@ -381,7 +390,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
           aria-controls="vertical-tabs-example-6"
           aria-selected="false"
           class="emotion-0"
-          color="currentColor"
+          color="colorTextWeak"
           cursor="pointer"
           display="block"
           font-size="fontSize30"

@@ -40,7 +40,9 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): {} => {
           color: 'colorTextWeaker',
         },
         _focus: {
+          borderLeftColor: 'colorBorderPrimaryDarker',
           boxShadow: 'shadowFocus',
+          color: 'colorTextLinkDarker',
           outline: 'none',
         },
       };
@@ -78,7 +80,9 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): {} => {
           color: 'colorTextWeaker',
         },
         _focus: {
+          borderBottomColor: 'colorBorderPrimaryDarker',
           boxShadow: 'shadowFocus',
+          color: 'colorTextLinkDarker',
           outline: 'none',
         },
       };
@@ -103,7 +107,6 @@ const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, ...tabProps},
             {...safelySpreadBoxProps(props)}
             {...boxStyles}
             as="span"
-            color="currentColor"
             cursor={props['aria-disabled'] ? 'not-allowed' : 'pointer'}
             fontSize="fontSize30"
             fontWeight="fontWeightSemibold"
@@ -112,9 +115,6 @@ const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, ...tabProps},
             textOverflow={tab.orientation !== 'vertical' ? 'ellipsis' : undefined}
             transition="border-color 100ms ease, color 100ms ease"
             whiteSpace={tab.orientation !== 'vertical' ? 'nowrap' : undefined}
-            _focus={{
-              color: 'colorTextLink',
-            }}
           >
             {children}
           </Box>
