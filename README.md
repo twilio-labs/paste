@@ -1,55 +1,49 @@
-# Paste - Twilio Design System
+<h1 align="center">Paste</h1>
+<p align="center">Paste is a design system used to build accessible, consistent, and high quality customer experiences at Twilio. Paste is open source and contributions are welcome.</p>
+<p align="center">
+<a href="https://github.com/twilio-labs/.github/blob/master/CODE_OF_CONDUCT.md"><img alt="Code of Conduct" src="https://img.shields.io/badge/%F0%9F%92%96-Code%20of%20Conduct-blueviolet.svg?style=flat-square"></a> 
+<a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome" /></a>
+</p>
+<hr>
 
-Paste is a design system used to build accessible, consistent, and high quality customer experiences at Twilio. Paste is open source and contributions are welcome.
+## Usage
 
-## Getting started
+For usage guidelines, please see our [documentation website](https://paste.twilio.design).
+
+## Developping on Paste
+
+### Getting started
+
+Clone the repo then run the following commands from within the repo's folder:
 
 ```
-yarn
-yarn bootstrap
-yarn build
-yarn start:all
+yarn clean # bootstraps the repo and downloads packages
+yarn build # builds all of Paste
 ```
 
-Build things 🎉
+Then you can run a local storybook instance with:
 
-## Contributing
+```
+yarn start:storybook
+```
+
+For more commands, please reference the [package.json file](https://github.com/twilio-labs/paste/blob/main/package.json).
+
+### Contributing
 
 Before contributing, please make sure that you read our [Contributing Guidelines](https://github.com/twilio-labs/paste/blob/main/CONTRIBUTING.md) and agree with our [Code of Conduct.](https://github.com/twilio-labs/.github/blob/main/CODE_OF_CONDUCT.md)
 
-## Command List
+### Maintainers
 
-| Command                | Description                                                                                                              |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| yarn bootstrap         | Symlinks all the local packages together so you can import package names and work with them locally.                     |
-| yarn start             | Builds and starts storybook and the design tokens in dev mode                                                            |
-| yarn start:all         | Builds and starts storybook,the design tokens and the website in dev mode                                                |
-| yarn start:storybook   | Builds and starts storybook, the dev playground                                                                          |
-| yarn start:tokens      | Builds and starts design tokens in dev mode. Loads a browsersync server and live reloads token changed in the token page |
-| yarn clean             | Cleans the directories of node modules and built files                                                                   |
-| yarn prettier          | Checks for un-prettier'd files in the repo. For pre-push hook and CI.                                                    |
-| yarn prettier-clean    | Automatically fixes all prettier issues in the repo.                                                                     |
-| yarn test              | Runs all the Jest tests, including snapshot testing.                                                                     |
-| yarn test:coverage     | Similar to `yarn test`, but with coverage reporting as specified in the root `package.json`                              |
-| yarn lint              | Lints the codebase and spits out any errors.                                                                             |
-| yarn type-check        | Runs TS type-checker against the codebase and spits out any errors. Useful since we use babel at runtime with storybook. |
-| yarn build:storybook   | Builds Storybook into static assets and places them in the /docs folder. For Github Pages hosting.                       |
-| yarn build:tokens      | Builds the design tokens package under paste-tokens/                                                                     |
-| yarn build:dev         | Builds the compiled JS into `/dist` in dev mode                                                                          |
-| yarn build             | Builds the compiled JS into `/dist`                                                                                      |
-| yarn pre-push          | A series of commands that are run as a pre-commit hook.                                                                  |
-| yarn release           | Releases the main library to NPM via lerna                                                                               |
-| yarn release:storybook | Releases the latest storybook to github pages                                                                            |
+This project is maintained by the [design systems team](https://github.com/orgs/twilio-labs/teams/design-systems).
 
-## Hosting Storybook
+### Hosted Storybook
+
+[Storybook](https://twilio-labs.github.io/paste)
 
 We use GitHub pages to host the Storybook instance. We use the `gh-pages` branch and the [`gh-pages` package](https://www.npmjs.com/package/gh-pages) to manage this.
 
-### `gh-pages` branch
-
 The `gh-pages` branch ignores _everything_ other than the built storybook instance in the root of the directory. The package handles everything.
-
-### https://twilio-labs.github.io/paste
 
 #### Updating
 
@@ -73,7 +67,7 @@ Each package can have dev dep requirements, such as typescript and rollup. As th
 
 ### Peer Deps
 
-A special note about peer deps: Peer dependencies should be hoised up the dependency tree. If `package-a` lists `package-b` as a peer dep, and `package-b` lists `package-c` as a peer dep, `package-c` must also be listed as a peer dep for `package-a`. All the way down the tree.
+A special note about peer deps: Peer dependencies should be hoisted up the dependency tree. If `package-a` lists `package-b` as a peer dep, and `package-b` lists `package-c` as a peer dep, `package-c` must also be listed as a peer dep for `package-a`. All the way down the tree.
 
 A real example might be a `Button`. `Button` may only have a peer dependency on `Box`, but `Box` has a peer dependency on `Theme`, `Design-Tokens`, and `Style-Props`. These child peer deps need to be hoisted to the `Button` package. As such `Button` deps should look like:
 
