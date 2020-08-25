@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.3.6...@twilio-paste/tabs@0.3.7) (2020-08-25)
+
+
+### Bug Fixes
+
+* **tabs:** remove unnecessary currentColor ([5013de6](https://github.com/twilio-labs/paste/commit/5013de676f6049c617073f8f16d677af50973f32))
+
+
+
+
+
 ## [0.3.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.3.5...@twilio-paste/tabs@0.3.6) (2020-08-25)
 
 **Note:** Version bump only for package @twilio-paste/tabs
