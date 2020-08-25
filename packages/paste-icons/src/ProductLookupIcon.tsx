@@ -10,13 +10,21 @@ export interface ProductLookupIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ProductLookupIcon: React.FC<ProductLookupIconProps> = ({as, display, size, color, title, decorative}) => {
+const ProductLookupIcon: React.FC<ProductLookupIconProps> = ({
+  as,
+  display,
+  size,
+  color,
+  title,
+  decorative,
+  ...props
+}) => {
   if (!decorative && title == null) {
     throw new Error('[ProductLookupIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} size={size} color={color} {...props}>
       <UID>
         {titleId => (
           <svg

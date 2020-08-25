@@ -10,13 +10,13 @@ export interface ProductVoiceIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ProductVoiceIcon: React.FC<ProductVoiceIconProps> = ({as, display, size, color, title, decorative}) => {
+const ProductVoiceIcon: React.FC<ProductVoiceIconProps> = ({as, display, size, color, title, decorative, ...props}) => {
   if (!decorative && title == null) {
     throw new Error('[ProductVoiceIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} size={size} color={color} {...props}>
       <UID>
         {titleId => (
           <svg

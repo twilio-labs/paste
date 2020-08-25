@@ -40,11 +40,13 @@ exports[`FormHelpText render it should render 1`] = `
 >
   <div
     className="emotion-1"
+    data-paste-element="FLEX"
     display="flex"
   >
     <div
       className="emotion-0"
       color="colorTextWeak"
+      data-paste-element="TEXT"
       fontSize="fontSize30"
     >
       child
@@ -81,10 +83,11 @@ exports[`FormHelpText render it should render with an error icon 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
+  color: rgb(226,37,37);
   display: block;
   width: 1.25rem;
   height: 1.25rem;
-  color: rgb(226,37,37);
 }
 
 .emotion-1 {
@@ -101,11 +104,13 @@ exports[`FormHelpText render it should render with an error icon 1`] = `
 >
   <div
     className="emotion-2"
+    data-paste-element="FLEX"
     display="flex"
   >
     <span
       className="emotion-0"
       color="colorTextError"
+      data-paste-element="ICON"
       display="block"
       size="sizeIcon20"
     >
@@ -127,6 +132,7 @@ exports[`FormHelpText render it should render with an error icon 1`] = `
     <div
       className="emotion-1"
       color="colorTextError"
+      data-paste-element="TEXT"
       fontSize="fontSize30"
     >
       child

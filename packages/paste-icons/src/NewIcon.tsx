@@ -10,13 +10,13 @@ export interface NewIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const NewIcon: React.FC<NewIconProps> = ({as, display, size, color, title, decorative}) => {
+const NewIcon: React.FC<NewIconProps> = ({as, display, size, color, title, decorative, ...props}) => {
   if (!decorative && title == null) {
     throw new Error('[NewIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} size={size} color={color} {...props}>
       <UID>
         {titleId => (
           <svg

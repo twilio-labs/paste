@@ -14,7 +14,7 @@ export interface PopoverProps {
   children: React.ReactNode;
 }
 
-const StyledPopover = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...props}, ref) => {
+const StyledPopover = React.forwardRef<HTMLDivElement, BoxProps>(({style, element = 'POPOVER', ...props}, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
@@ -24,6 +24,7 @@ const StyledPopover = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...pro
       borderColor="colorBorderLighter"
       borderRadius="borderRadius20"
       boxShadow="shadowCard"
+      element={element}
       maxWidth="size30"
       zIndex="zIndex80"
       _focus={{outline: 'none'}}
@@ -40,7 +41,7 @@ const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(({children, ...pr
       {/* import Paste Theme Based Styles due to portal positioning. */}
       <StyledBase>
         <PopoverArrow {...(popover as any)} />
-        <Box padding="space50" paddingLeft="space70" paddingRight="space70">
+        <Box padding="space50" paddingLeft="space70" paddingRight="space90">
           {children}
           <Absolute preset="top_right" top={8} right={8}>
             <Button

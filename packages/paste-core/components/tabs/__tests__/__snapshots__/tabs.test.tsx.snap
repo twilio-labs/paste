@@ -15,6 +15,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
 <p
     class="emotion-0"
     color="colorText"
+    data-paste-element="PARAGRAPH"
     font-size="fontSize30"
     font-weight="fontWeightNormal"
   >
@@ -187,6 +188,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   >
     <div
       class="emotion-6"
+      data-paste-element="TAB_LIST_HORIZONTAL"
       display="flex"
     >
       <div
@@ -194,6 +196,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
         aria-selected="false"
         class="emotion-1"
         cursor="pointer"
+        data-paste-element="TAB"
         display="inline-block"
         id="horizontal-tabs-example-1"
         overflow="hidden"
@@ -203,6 +206,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
         <span
           class="emotion-0"
           color="colorTextWeak"
+          data-paste-element="TEXT"
           font-size="fontSize30"
           font-weight="fontWeightSemibold"
         >
@@ -215,6 +219,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
         aria-selected="false"
         class="emotion-3"
         cursor="not-allowed"
+        data-paste-element="TAB"
         display="inline-block"
         id="horizontal-tabs-example-2"
         overflow="hidden"
@@ -224,6 +229,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
         <span
           class="emotion-2"
           color="colorTextWeaker"
+          data-paste-element="TEXT"
           font-size="fontSize30"
           font-weight="fontWeightSemibold"
         >
@@ -235,6 +241,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
         aria-selected="true"
         class="emotion-1"
         cursor="pointer"
+        data-paste-element="TAB"
         display="inline-block"
         id="1"
         overflow="hidden"
@@ -244,6 +251,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
         <span
           class="emotion-4"
           color="colorTextLink"
+          data-paste-element="TEXT"
           font-size="fontSize30"
           font-weight="fontWeightSemibold"
         >
@@ -252,13 +260,18 @@ exports[`Tabs Render horizontally and vertically 1`] = `
       </div>
     </div>
   </div>
-  .emotion-0 {
+  .emotion-3 {
   box-sizing: border-box;
   width: 100%;
 }
 
+.emotion-0 {
+  box-sizing: border-box;
+}
+
 <div
-    class="emotion-0"
+    class="emotion-3"
+    data-paste-element="TAB_PANELS"
     width="100%"
   >
     <div
@@ -269,7 +282,12 @@ exports[`Tabs Render horizontally and vertically 1`] = `
       style="display: none;"
       tabindex="0"
     >
-      Tab 1
+      <div
+        class="emotion-0"
+        data-paste-element="TAB_PANEL"
+      >
+        Tab 1
+      </div>
     </div>
     <div
       aria-labelledby="horizontal-tabs-example-2"
@@ -279,7 +297,12 @@ exports[`Tabs Render horizontally and vertically 1`] = `
       style="display: none;"
       tabindex="0"
     >
-      Tab 2
+      <div
+        class="emotion-0"
+        data-paste-element="TAB_PANEL"
+      >
+        Tab 2
+      </div>
     </div>
     <div
       aria-labelledby="1"
@@ -288,7 +311,12 @@ exports[`Tabs Render horizontally and vertically 1`] = `
       style=""
       tabindex="0"
     >
-      Tab 3
+      <div
+        class="emotion-0"
+        data-paste-element="TAB_PANEL"
+      >
+        Tab 3
+      </div>
     </div>
   </div>
   .emotion-0 {
@@ -304,6 +332,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
 <p
     class="emotion-0"
     color="colorText"
+    data-paste-element="PARAGRAPH"
     font-size="fontSize30"
     font-weight="fontWeightNormal"
   >
@@ -347,12 +376,16 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   color: colorTextLink;
 }
 
-.emotion-7 {
+.emotion-10 {
   box-sizing: border-box;
   width: 100%;
 }
 
-.emotion-8 {
+.emotion-7 {
+  box-sizing: border-box;
+}
+
+.emotion-11 {
   box-sizing: border-box;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
@@ -423,7 +456,8 @@ exports[`Tabs Render horizontally and vertically 1`] = `
 }
 
 <div
-    class="emotion-8"
+    class="emotion-11"
+    data-paste-element="TABS_VERTICAL"
     display="flex"
   >
     <div
@@ -434,12 +468,14 @@ exports[`Tabs Render horizontally and vertically 1`] = `
     >
       <div
         class="emotion-6"
+        data-paste-element="TAB_LIST_VERTICAL"
       >
         <div
           aria-controls="vertical-tabs-example-4"
           aria-selected="true"
           class="emotion-1"
           cursor="pointer"
+          data-paste-element="TAB"
           display="block"
           id="2"
           role="tab"
@@ -448,6 +484,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
           <span
             class="emotion-0"
             color="colorTextLink"
+            data-paste-element="TEXT"
             font-size="fontSize30"
             font-weight="fontWeightSemibold"
           >
@@ -459,6 +496,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
           aria-selected="false"
           class="emotion-1"
           cursor="pointer"
+          data-paste-element="TAB"
           display="block"
           id="vertical-tabs-example-2"
           role="tab"
@@ -467,6 +505,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
           <span
             class="emotion-2"
             color="colorTextWeak"
+            data-paste-element="TEXT"
             font-size="fontSize30"
             font-weight="fontWeightSemibold"
           >
@@ -478,6 +517,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
           aria-selected="false"
           class="emotion-1"
           cursor="pointer"
+          data-paste-element="TAB"
           display="block"
           id="vertical-tabs-example-3"
           role="tab"
@@ -486,6 +526,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
           <span
             class="emotion-2"
             color="colorTextWeak"
+            data-paste-element="TEXT"
             font-size="fontSize30"
             font-weight="fontWeightSemibold"
           >
@@ -495,7 +536,8 @@ exports[`Tabs Render horizontally and vertically 1`] = `
       </div>
     </div>
     <div
-      class="emotion-7"
+      class="emotion-10"
+      data-paste-element="TAB_PANELS"
       width="100%"
     >
       <div
@@ -505,7 +547,12 @@ exports[`Tabs Render horizontally and vertically 1`] = `
         style=""
         tabindex="0"
       >
-        Tab 1
+        <div
+          class="emotion-7"
+          data-paste-element="TAB_PANEL"
+        >
+          Tab 1
+        </div>
       </div>
       <div
         aria-labelledby="vertical-tabs-example-2"
@@ -515,7 +562,12 @@ exports[`Tabs Render horizontally and vertically 1`] = `
         style="display: none;"
         tabindex="0"
       >
-        Tab 2
+        <div
+          class="emotion-7"
+          data-paste-element="TAB_PANEL"
+        >
+          Tab 2
+        </div>
       </div>
       <div
         aria-labelledby="vertical-tabs-example-3"
@@ -525,7 +577,12 @@ exports[`Tabs Render horizontally and vertically 1`] = `
         style="display: none;"
         tabindex="0"
       >
-        Tab 3
+        <div
+          class="emotion-7"
+          data-paste-element="TAB_PANEL"
+        >
+          Tab 3
+        </div>
       </div>
     </div>
   </div>

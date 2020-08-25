@@ -39,14 +39,15 @@ exports[`FormInput render it should render 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: transparent;
+  background-color: transparent;
   border: none;
   border-radius: 4px;
   box-shadow: none;
-  color: inherit;
+  color: rgb(40,42,43);
   display: block;
   font-family: inherit;
   font-size: 0.875rem;
@@ -81,23 +82,12 @@ exports[`FormInput render it should render 1`] = `
   font-style: italic;
 }
 
-.emotion-0:focus::-webkit-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus::-moz-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus:-ms-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus::placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:disabled {
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
   color: rgb(200,204,207);
   cursor: not-allowed;
 }
@@ -108,14 +98,22 @@ exports[`FormInput render it should render 1`] = `
     <div
       class="emotion-1"
       cursor="text"
+      data-paste-element="FORM_INPUT_WRAPPER"
       display="flex"
       width="100%"
     >
       <input
         class="emotion-0"
+        color="colorText"
+        data-paste-element="FORM_INPUT"
+        display="block"
+        font-family="inherit"
+        font-size="fontSize30"
+        font-weight="fontWeightNormal"
         id="input"
         type="text"
         value="test"
+        width="100%"
       />
     </div>
   </div>
@@ -133,14 +131,15 @@ exports[`FormInput render it should render with disabled 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: transparent;
+  background-color: transparent;
   border: none;
   border-radius: 4px;
   box-shadow: none;
-  color: inherit;
+  color: rgb(40,42,43);
   display: block;
   font-family: inherit;
   font-size: 0.875rem;
@@ -175,23 +174,12 @@ exports[`FormInput render it should render with disabled 1`] = `
   font-style: italic;
 }
 
-.emotion-0:focus::-webkit-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus::-moz-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus:-ms-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus::placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:disabled {
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
   color: rgb(200,204,207);
   cursor: not-allowed;
 }
@@ -230,15 +218,23 @@ exports[`FormInput render it should render with disabled 1`] = `
     <div
       class="emotion-1"
       cursor="not-allowed"
+      data-paste-element="FORM_INPUT_WRAPPER"
       display="flex"
       width="100%"
     >
       <input
         class="emotion-0"
+        color="colorText"
+        data-paste-element="FORM_INPUT"
         disabled=""
+        display="block"
+        font-family="inherit"
+        font-size="fontSize30"
+        font-weight="fontWeightNormal"
         id="input"
         type="text"
         value="test"
+        width="100%"
       />
     </div>
   </div>
@@ -256,14 +252,15 @@ exports[`FormInput render it should render with hasError 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: transparent;
+  background-color: transparent;
   border: none;
   border-radius: 4px;
   box-shadow: none;
-  color: inherit;
+  color: rgb(40,42,43);
   display: block;
   font-family: inherit;
   font-size: 0.875rem;
@@ -298,23 +295,12 @@ exports[`FormInput render it should render with hasError 1`] = `
   font-style: italic;
 }
 
-.emotion-0:focus::-webkit-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus::-moz-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus:-ms-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus::placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:disabled {
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
   color: rgb(200,204,207);
   cursor: not-allowed;
 }
@@ -353,15 +339,23 @@ exports[`FormInput render it should render with hasError 1`] = `
     <div
       class="emotion-1"
       cursor="text"
+      data-paste-element="FORM_INPUT_WRAPPER"
       display="flex"
       width="100%"
     >
       <input
         aria-invalid="true"
         class="emotion-0"
+        color="colorText"
+        data-paste-element="FORM_INPUT"
+        display="block"
+        font-family="inherit"
+        font-size="fontSize30"
+        font-weight="fontWeightNormal"
         id="input"
         type="text"
         value="test"
+        width="100%"
       />
     </div>
   </div>
@@ -407,14 +401,15 @@ exports[`FormInput render it should render with prefix 1`] = `
 }
 
 .emotion-1 {
+  box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: transparent;
+  background-color: transparent;
   border: none;
   border-radius: 4px;
   box-shadow: none;
-  color: inherit;
+  color: rgb(40,42,43);
   display: block;
   font-family: inherit;
   font-size: 0.875rem;
@@ -449,23 +444,12 @@ exports[`FormInput render it should render with prefix 1`] = `
   font-style: italic;
 }
 
-.emotion-1:focus::-webkit-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-1:focus::-moz-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-1:focus:-ms-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-1:focus::placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-1:disabled {
+.emotion-1:disabled,
+.emotion-1:disabled:focus,
+.emotion-1:disabled:hover,
+.emotion-1[aria-disabled=true],
+.emotion-1[aria-disabled=true]:focus,
+.emotion-1[aria-disabled=true]:hover {
   color: rgb(200,204,207);
   cursor: not-allowed;
 }
@@ -496,11 +480,13 @@ exports[`FormInput render it should render with prefix 1`] = `
     <div
       class="emotion-2"
       cursor="text"
+      data-paste-element="FORM_INPUT_WRAPPER"
       display="flex"
       width="100%"
     >
       <div
         class="emotion-0"
+        data-paste-element="BOX"
         display="flex"
       >
         <div>
@@ -509,9 +495,16 @@ exports[`FormInput render it should render with prefix 1`] = `
       </div>
       <input
         class="emotion-1"
+        color="colorText"
+        data-paste-element="FORM_INPUT"
+        display="block"
+        font-family="inherit"
+        font-size="fontSize30"
+        font-weight="fontWeightNormal"
         id="input"
         type="text"
         value="test"
+        width="100%"
       />
     </div>
   </div>
@@ -529,14 +522,15 @@ exports[`FormInput render it should render with readOnly 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: transparent;
+  background-color: transparent;
   border: none;
   border-radius: 4px;
   box-shadow: none;
-  color: inherit;
+  color: rgb(40,42,43);
   display: block;
   font-family: inherit;
   font-size: 0.875rem;
@@ -571,23 +565,12 @@ exports[`FormInput render it should render with readOnly 1`] = `
   font-style: italic;
 }
 
-.emotion-0:focus::-webkit-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus::-moz-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus:-ms-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus::placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:disabled {
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
   color: rgb(200,204,207);
   cursor: not-allowed;
 }
@@ -626,16 +609,24 @@ exports[`FormInput render it should render with readOnly 1`] = `
     <div
       class="emotion-1"
       cursor="text"
+      data-paste-element="FORM_INPUT_WRAPPER"
       display="flex"
       width="100%"
     >
       <input
         aria-readonly="true"
         class="emotion-0"
+        color="colorText"
+        data-paste-element="FORM_INPUT"
+        display="block"
+        font-family="inherit"
+        font-size="fontSize30"
+        font-weight="fontWeightNormal"
         id="input"
         readonly=""
         type="text"
         value="test"
+        width="100%"
       />
     </div>
   </div>
@@ -681,14 +672,15 @@ exports[`FormInput render it should render with suffix 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: transparent;
+  background-color: transparent;
   border: none;
   border-radius: 4px;
   box-shadow: none;
-  color: inherit;
+  color: rgb(40,42,43);
   display: block;
   font-family: inherit;
   font-size: 0.875rem;
@@ -723,23 +715,12 @@ exports[`FormInput render it should render with suffix 1`] = `
   font-style: italic;
 }
 
-.emotion-0:focus::-webkit-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus::-moz-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus:-ms-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus::placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:disabled {
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
   color: rgb(200,204,207);
   cursor: not-allowed;
 }
@@ -770,17 +751,26 @@ exports[`FormInput render it should render with suffix 1`] = `
     <div
       class="emotion-2"
       cursor="text"
+      data-paste-element="FORM_INPUT_WRAPPER"
       display="flex"
       width="100%"
     >
       <input
         class="emotion-0"
+        color="colorText"
+        data-paste-element="FORM_INPUT"
+        display="block"
+        font-family="inherit"
+        font-size="fontSize30"
+        font-weight="fontWeightNormal"
         id="input"
         type="text"
         value="test"
+        width="100%"
       />
       <div
         class="emotion-1"
+        data-paste-element="BOX"
         display="flex"
       >
         <div>

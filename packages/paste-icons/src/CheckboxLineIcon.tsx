@@ -10,13 +10,13 @@ export interface CheckboxLineIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const CheckboxLineIcon: React.FC<CheckboxLineIconProps> = ({as, display, size, color, title, decorative}) => {
+const CheckboxLineIcon: React.FC<CheckboxLineIconProps> = ({as, display, size, color, title, decorative, ...props}) => {
   if (!decorative && title == null) {
     throw new Error('[CheckboxLineIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} size={size} color={color} {...props}>
       <UID>
         {titleId => (
           <svg

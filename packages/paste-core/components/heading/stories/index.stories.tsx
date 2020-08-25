@@ -2,6 +2,8 @@ import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {withKnobs, text, select} from '@storybook/addon-knobs';
 import {Card} from '@twilio-paste/card';
+import {CustomizationProvider} from '@twilio-paste/theme';
+import {Stack} from '@twilio-paste/stack';
 import {asTags, Heading, HeadingVariants} from '../src';
 
 const headingVariantOptions = ['heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60'];
@@ -112,5 +114,28 @@ storiesOf('Components|Heading', module)
           I am a Very Large Heading
         </Heading>
       </Card>
+    );
+  })
+  .add('Customization', () => {
+    return (
+      <CustomizationProvider
+        elements={{
+          HEADING: {
+            textDecoration: 'underline',
+          },
+          CUSTOM_HEADING: {
+            backgroundColor: 'colorBackgroundError',
+          },
+        }}
+      >
+        <Stack orientation="vertical" spacing="space40">
+          <Heading as="h2" variant="heading20">
+            With a heading
+          </Heading>
+          <Heading as="h2" variant="heading20" element="CUSTOM_HEADING">
+            Custom
+          </Heading>
+        </Stack>
+      </CustomizationProvider>
     );
   });

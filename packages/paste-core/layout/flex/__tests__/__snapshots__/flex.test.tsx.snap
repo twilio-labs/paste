@@ -31,6 +31,7 @@ exports[`Flex Display it should render as any HTML element 1`] = `
 >
   <article
     className="emotion-0"
+    data-paste-element="FLEX"
     display="flex"
   >
     child
@@ -77,10 +78,12 @@ exports[`Flex Display it should set a display: flex property 1`] = `
 >
   <div
     className="emotion-1"
+    data-paste-element="FLEX"
     display="flex"
   >
     <div
       className="emotion-0"
+      data-paste-element="BOX"
       width="100%"
     />
   </div>
@@ -136,10 +139,12 @@ exports[`Flex Options it should set a flex-basis property 1`] = `
 >
   <div
     className="emotion-1"
+    data-paste-element="FLEX"
     display="flex"
   >
     <div
       className="emotion-0"
+      data-paste-element="BOX"
       width="100%"
     />
   </div>
@@ -195,10 +200,12 @@ exports[`Flex Options it should set a flex-grow property 1`] = `
 >
   <div
     className="emotion-1"
+    data-paste-element="FLEX"
     display="flex"
   >
     <div
       className="emotion-0"
+      data-paste-element="BOX"
       width="100%"
     />
   </div>
@@ -254,10 +261,12 @@ exports[`Flex Options it should set a flex-shrink property 1`] = `
 >
   <div
     className="emotion-1"
+    data-paste-element="FLEX"
     display="flex"
   >
     <div
       className="emotion-0"
+      data-paste-element="BOX"
       width="100%"
     />
   </div>
@@ -329,10 +338,12 @@ exports[`Flex Options it should set a responsive flex-basis property 1`] = `
 >
   <div
     className="emotion-1"
+    data-paste-element="FLEX"
     display="flex"
   >
     <div
       className="emotion-0"
+      data-paste-element="BOX"
       width="100%"
     />
   </div>
@@ -406,10 +417,12 @@ exports[`Flex Options it should set a responsive flex-grow property 1`] = `
 >
   <div
     className="emotion-1"
+    data-paste-element="FLEX"
     display="flex"
   >
     <div
       className="emotion-0"
+      data-paste-element="BOX"
       width="100%"
     />
   </div>
@@ -481,10 +494,12 @@ exports[`Flex Options it should set a responsive flex-shrink property 1`] = `
 >
   <div
     className="emotion-1"
+    data-paste-element="FLEX"
     display="flex"
   >
     <div
       className="emotion-0"
+      data-paste-element="BOX"
       width="100%"
     />
   </div>
@@ -536,22 +551,27 @@ exports[`Flex Row it should not set a flex-direction property 1`] = `
 >
   <div
     className="emotion-1"
+    data-paste-element="FLEX"
     display="flex"
   >
     <div
       className="emotion-1"
+      data-paste-element="FLEX"
       display="flex"
     >
       <div
         className="emotion-0"
+        data-paste-element="BOX"
       />
     </div>
     <div
       className="emotion-1"
+      data-paste-element="FLEX"
       display="flex"
     >
       <div
         className="emotion-2"
+        data-paste-element="BOX"
       />
     </div>
   </div>
@@ -639,22 +659,27 @@ exports[`Flex Row it should set a responsive flex-direction property 1`] = `
 >
   <div
     className="emotion-4"
+    data-paste-element="FLEX"
     display="flex"
   >
     <div
       className="emotion-1"
+      data-paste-element="FLEX"
       display="flex"
     >
       <div
         className="emotion-0"
+        data-paste-element="BOX"
       />
     </div>
     <div
       className="emotion-1"
+      data-paste-element="FLEX"
       display="flex"
     >
       <div
         className="emotion-2"
+        data-paste-element="BOX"
       />
     </div>
   </div>
@@ -706,22 +731,27 @@ exports[`Flex Wrap it should not set a flex-wrap property 1`] = `
 >
   <div
     className="emotion-1"
+    data-paste-element="FLEX"
     display="flex"
   >
     <div
       className="emotion-1"
+      data-paste-element="FLEX"
       display="flex"
     >
       <div
         className="emotion-0"
+        data-paste-element="BOX"
       />
     </div>
     <div
       className="emotion-1"
+      data-paste-element="FLEX"
       display="flex"
     >
       <div
         className="emotion-2"
+        data-paste-element="BOX"
       />
     </div>
   </div>
@@ -809,22 +839,27 @@ exports[`Flex Wrap it should set a responsive flex-wrap property 1`] = `
 >
   <div
     className="emotion-4"
+    data-paste-element="FLEX"
     display="flex"
   >
     <div
       className="emotion-1"
+      data-paste-element="FLEX"
       display="flex"
     >
       <div
         className="emotion-0"
+        data-paste-element="BOX"
       />
     </div>
     <div
       className="emotion-1"
+      data-paste-element="FLEX"
       display="flex"
     >
       <div
         className="emotion-2"
+        data-paste-element="BOX"
       />
     </div>
   </div>
@@ -876,22 +911,27 @@ exports[`Horizontal Alignment it should set a justify-content: flex-start proper
 >
   <div
     className="emotion-1"
+    data-paste-element="FLEX"
     display="flex"
   >
     <div
       className="emotion-1"
+      data-paste-element="FLEX"
       display="flex"
     >
       <div
         className="emotion-0"
+        data-paste-element="BOX"
       />
     </div>
     <div
       className="emotion-1"
+      data-paste-element="FLEX"
       display="flex"
     >
       <div
         className="emotion-2"
+        data-paste-element="BOX"
       />
     </div>
   </div>
@@ -978,22 +1018,27 @@ exports[`Horizontal Alignment it should set a responsive justify-content propert
 >
   <div
     className="emotion-4"
+    data-paste-element="FLEX"
     display="flex"
   >
     <div
       className="emotion-1"
+      data-paste-element="FLEX"
       display="flex"
     >
       <div
         className="emotion-0"
+        data-paste-element="BOX"
       />
     </div>
     <div
       className="emotion-1"
+      data-paste-element="FLEX"
       display="flex"
     >
       <div
         className="emotion-2"
+        data-paste-element="BOX"
       />
     </div>
   </div>
@@ -1045,22 +1090,27 @@ exports[`Vertical Alignment it should set a align-items: flex-start property 1`]
 >
   <div
     className="emotion-1"
+    data-paste-element="FLEX"
     display="flex"
   >
     <div
       className="emotion-1"
+      data-paste-element="FLEX"
       display="flex"
     >
       <div
         className="emotion-0"
+        data-paste-element="BOX"
       />
     </div>
     <div
       className="emotion-1"
+      data-paste-element="FLEX"
       display="flex"
     >
       <div
         className="emotion-2"
+        data-paste-element="BOX"
       />
     </div>
   </div>
@@ -1147,22 +1197,27 @@ exports[`Vertical Alignment it should set a responvise align-items property 1`] 
 >
   <div
     className="emotion-4"
+    data-paste-element="FLEX"
     display="flex"
   >
     <div
       className="emotion-1"
+      data-paste-element="FLEX"
       display="flex"
     >
       <div
         className="emotion-0"
+        data-paste-element="BOX"
       />
     </div>
     <div
       className="emotion-1"
+      data-paste-element="FLEX"
       display="flex"
     >
       <div
         className="emotion-2"
+        data-paste-element="BOX"
       />
     </div>
   </div>

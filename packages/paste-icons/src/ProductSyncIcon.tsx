@@ -10,13 +10,13 @@ export interface ProductSyncIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ProductSyncIcon: React.FC<ProductSyncIconProps> = ({as, display, size, color, title, decorative}) => {
+const ProductSyncIcon: React.FC<ProductSyncIconProps> = ({as, display, size, color, title, decorative, ...props}) => {
   if (!decorative && title == null) {
     throw new Error('[ProductSyncIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} size={size} color={color} {...props}>
       <UID>
         {titleId => (
           <svg

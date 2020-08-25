@@ -1,18 +1,23 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {Box} from '@twilio-paste/box';
+import {Box, BoxProps} from '@twilio-paste/box';
 
 type Justify = 'start' | 'end';
-export interface ModalFooterActionsProps {
+export interface ModalFooterActionsProps extends Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
   justify?: Justify;
 }
-const ModalFooterActions: React.FC<ModalFooterActionsProps> = ({children, justify}) => {
+const ModalFooterActions: React.FC<ModalFooterActionsProps> = ({
+  children,
+  element = 'MODAL_FOOTER_ACTIONS',
+  justify,
+}) => {
   const count = React.Children.count(children);
   return (
     <Box
       display="flex"
       justifyContent={justify === 'start' ? 'flex-start' : 'flex-end'}
+      element={element}
       flexShrink={justify === 'start' ? null : 0}
       flexWrap="wrap"
       flexGrow={1}

@@ -17,6 +17,20 @@ Build things 🎉
 
 Before contributing, please make sure that you read our [Contributing Guidelines](https://github.com/twilio-labs/paste/blob/main/CONTRIBUTING.md) and agree with our [Code of Conduct.](https://github.com/twilio-labs/.github/blob/main/CODE_OF_CONDUCT.md)
 
+## Linking Local Paste to an Application
+Sometimes you need to make changes and test them locally. Figuring out all the requirements to do this can often be challenging. To solve for this, we've set-up a small guide and some scripts to make it easier for you.
+
+### How to link Paste:
+- go to your application and follow the instructions to install paste: https://paste.twilio.design/getting-started/engineering
+- go to the paste application and run:
+- `yarn link-local`
+- copy the output from your terminal and paste it into the application you want to link with paste
+
+### How to unlink Paste
+- go the paste application and run:
+- `yarn unlink-local`
+- copy the output from your terminal and paste it into the application you want to unlink from paste
+
 ## Command List
 
 | Command                | Description                                                                                                              |
@@ -40,6 +54,8 @@ Before contributing, please make sure that you read our [Contributing Guidelines
 | yarn pre-push          | A series of commands that are run as a pre-commit hook.                                                                  |
 | yarn release           | Releases the main library to NPM via lerna                                                                               |
 | yarn release:storybook | Releases the latest storybook to github pages                                                                            |
+| yarn link-local        | Links local build                                                                                                        |
+| yarn unlink-local      | Un-links local build                                                                                                     |
 
 ## Hosting Storybook
 

@@ -10,13 +10,21 @@ export interface ProductMessagingIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ProductMessagingIcon: React.FC<ProductMessagingIconProps> = ({as, display, size, color, title, decorative}) => {
+const ProductMessagingIcon: React.FC<ProductMessagingIconProps> = ({
+  as,
+  display,
+  size,
+  color,
+  title,
+  decorative,
+  ...props
+}) => {
   if (!decorative && title == null) {
     throw new Error('[ProductMessagingIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} size={size} color={color} {...props}>
       <UID>
         {titleId => (
           <svg

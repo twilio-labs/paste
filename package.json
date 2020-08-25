@@ -46,7 +46,9 @@
     "prettier-clean": "prettier --write '{.storybook,packages}/**/*.{ts,tsx}'",
     "lint": "yarn pre-test && eslint --ext .tsx,.ts ./packages/**",
     "type-check": "lerna run type-check",
-    "chromatic": "chromatic"
+    "chromatic": "chromatic",
+    "link-local": "yarn && yarn bootstrap && yarn build && bash tools/utils/link-local-packages.sh",
+    "unlink-local": "bash tools/utils/unlink-local-packages.sh"
   },
   "dependencies": {
     "gh-pages": "^2.1.1",

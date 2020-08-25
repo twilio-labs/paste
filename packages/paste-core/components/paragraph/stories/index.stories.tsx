@@ -1,6 +1,8 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {withKnobs} from '@storybook/addon-knobs';
+import {CustomizationProvider} from '@twilio-paste/theme';
+import {Stack} from '@twilio-paste/stack';
 import {Paragraph} from '../src';
 
 storiesOf('Components|Paragraph', module)
@@ -19,5 +21,24 @@ storiesOf('Components|Paragraph', module)
           intelligentsia. Literally heirloom blue bottle etsy.
         </Paragraph>
       </>
+    );
+  })
+  .add('Customization', () => {
+    return (
+      <CustomizationProvider
+        elements={{
+          PARAGRAPH: {
+            textDecoration: 'underline',
+          },
+          CUSTOM_PARA: {
+            backgroundColor: 'colorBackgroundError',
+          },
+        }}
+      >
+        <Stack orientation="vertical" spacing="space40">
+          <Paragraph>I am paragraph text.</Paragraph>
+          <Paragraph element="CUSTOM_PARA">I am paragraph text.</Paragraph>
+        </Stack>
+      </CustomizationProvider>
     );
   });

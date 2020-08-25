@@ -58,12 +58,14 @@ function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: 'space
 const Heading: React.FC<HeadingProps> = ({as, children, id, marginBottom, variant, ...props}) => {
   return (
     <Text
+      element="HEADING"
       {...safelySpreadTextProps(props)}
       {...getHeadingProps(variant, marginBottom)}
       as={as}
       display="block"
       id={id}
       color="colorText"
+      variant={variant}
     >
       {children}
     </Text>

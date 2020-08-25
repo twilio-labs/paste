@@ -1,4 +1,5 @@
 import * as PropTypes from 'prop-types';
+import {BoxProps} from '@twilio-paste/box';
 
 type ButtonTypes = 'submit' | 'button' | 'reset';
 export type ButtonSizes = 'small' | 'default' | 'icon' | 'reset';
@@ -29,7 +30,7 @@ export const DirectButtonPropTypes = {
   buttonState: PropTypes.oneOf(['disabled', 'loading', 'default']).isRequired as any,
 };
 
-export interface DirectButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface DirectButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, Pick<BoxProps, 'element'> {
   size: ButtonSizes;
   children: React.ReactNode;
   as?: keyof JSX.IntrinsicElements;
@@ -40,6 +41,7 @@ export interface DirectButtonProps extends React.ButtonHTMLAttributes<HTMLButton
   disabled?: boolean;
   type?: ButtonTypes;
   buttonState: ButtonStates;
+  variant: ButtonVariants;
 }
 
 export const ButtonPropTypes = {
@@ -55,7 +57,7 @@ export const ButtonPropTypes = {
     .isRequired as any,
 };
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, Pick<BoxProps, 'element'> {
   variant: ButtonVariants;
   size?: ButtonSizes;
   as?: keyof JSX.IntrinsicElements;

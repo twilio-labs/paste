@@ -1,11 +1,11 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {styled, css} from '@twilio-paste/styling-library';
+import {safelySpreadBoxProps, Box, BoxProps} from '@twilio-paste/box';
 import {FormControlWrapper} from './shared/FormControlWrapper';
 import {FormInputTypes, FieldVariants} from './shared/types';
 import {safelySpreadFormControlProps} from './shared/Utils';
 
-export interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement>, Pick<BoxProps, 'element'> {
   className?: never;
   disabled?: boolean;
   hasError?: boolean;
@@ -31,44 +31,42 @@ interface TypeProps {
   pattern?: string | undefined;
 }
 
-/* eslint-disable emotion/syntax-preference */
-export const InputElement = styled.input<FormInputProps>(props =>
-  css({
-    appearance: 'none',
-    background: 'transparent',
-    border: 'none',
-    borderRadius: 'borderRadius20',
-    boxShadow: 'none',
-    color: 'inherit',
-    display: 'block',
-    fontFamily: 'inherit',
-    fontSize: 'fontSize30',
-    fontWeight: 'fontWeightNormal',
-    lineHeight: 'lineHeight20',
-    outline: 'none',
-    paddingBottom: 'space30',
-    paddingLeft: 'space40',
-    paddingRight: 'space40',
-    paddingTop: 'space30',
-    resize: 'none',
-    width: '100%',
-
-    '&::placeholder': {
-      color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
-      fontStyle: 'italic',
-    },
-
-    '&:focus::placeholder': {
-      color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
-    },
-
-    '&:disabled': {
-      color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
-      cursor: 'not-allowed',
-    },
-  })
-);
-/* eslint-enable */
+export const InputElement = React.forwardRef<HTMLInputElement, FormInputProps>(({element, ...props}, ref) => {
+  return (
+    <Box
+      {...safelySpreadBoxProps(props)}
+      appearance="none"
+      backgroundColor="transparent"
+      border="none"
+      borderRadius="borderRadius20"
+      boxShadow="none"
+      color="colorText"
+      display="block"
+      fontFamily="inherit"
+      fontSize="fontSize30"
+      fontWeight="fontWeightNormal"
+      lineHeight="lineHeight20"
+      outline="none"
+      paddingBottom="space30"
+      paddingLeft="space40"
+      paddingRight="space40"
+      paddingTop="space30"
+      resize="none"
+      width="100%"
+      as="input"
+      element={element}
+      _placeholder={{
+        color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
+        fontStyle: 'italic',
+      }}
+      _disabled={{
+        color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
+        cursor: 'not-allowed',
+      }}
+      ref={ref}
+    />
+  );
+});
 
 const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
   (
@@ -85,6 +83,7 @@ const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
       type,
       value,
       variant,
+      element = 'FORM_INPUT',
       ...props
     },
     ref
@@ -100,6 +99,7 @@ const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
 
     return (
       <FormControlWrapper
+        element={`${element}_WRAPPER`}
         disabled={disabled}
         hasError={hasError}
         insertAfter={insertAfter}
@@ -113,6 +113,7 @@ const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
           aria-readonly={readOnly}
           {...safelySpreadFormControlProps(props)}
           {...typeProps}
+          element={element}
           disabled={disabled}
           id={id}
           name={name}

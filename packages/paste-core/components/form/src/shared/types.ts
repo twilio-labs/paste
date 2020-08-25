@@ -1,9 +1,10 @@
 import * as PropTypes from 'prop-types';
+import {BoxProps} from '@twilio-paste/box';
 
 export type FormInputTypes = 'text' | 'email' | 'hidden' | 'number' | 'password' | 'search' | 'tel';
 export type FieldVariants = 'default' | 'inverse';
 
-export interface FieldWrapperProps {
+export interface FieldWrapperProps extends Pick<BoxProps, 'element'> {
   disabled?: boolean;
   hasError?: boolean;
   readOnly?: boolean;

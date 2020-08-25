@@ -76,6 +76,7 @@ exports[`Menu  Render should render 1`] = `
     class="emotion-1"
     color="colorTextInverse"
     cursor="pointer"
+    data-paste-element="BUTTON"
     display="inline-block"
     font-family="fontFamilyText"
     font-size="fontSize30"
@@ -87,6 +88,7 @@ exports[`Menu  Render should render 1`] = `
     <span
       aria-hidden="false"
       class="emotion-0"
+      data-paste-element="BOX"
       display="flex"
       opacity="1"
       text-decoration="inherit"
@@ -284,10 +286,11 @@ exports[`Menu  Render should render 1`] = `
 }
 
 .emotion-11 {
+  box-sizing: border-box;
+  color: colorTextIcon;
   display: block;
   width: sizeIcon30;
   height: sizeIcon30;
-  color: colorTextIcon;
 }
 
 .emotion-13 {
@@ -395,6 +398,7 @@ exports[`Menu  Render should render 1`] = `
     aria-orientation="vertical"
     class="emotion-9"
     data-dialog="true"
+    data-paste-element="MENU"
     hidden=""
     id="menu-example"
     role="menu"
@@ -404,6 +408,7 @@ exports[`Menu  Render should render 1`] = `
     <a
       class="emotion-0"
       color="colorText"
+      data-paste-element="MENU_ITEM"
       data-testid="example-menu-item"
       display="block"
       id="menu-example-1"
@@ -416,6 +421,7 @@ exports[`Menu  Render should render 1`] = `
     <a
       class="emotion-1"
       color="colorText"
+      data-paste-element="MENU_ITEM"
       display="block"
       id="menu-example-2"
       role="menuitem"
@@ -427,6 +433,7 @@ exports[`Menu  Render should render 1`] = `
     <hr
       aria-orientation="horizontal"
       class="emotion-2"
+      data-paste-element="BOX"
       data-testid="example-menu-separator"
       role="separator"
       width="auto"
@@ -439,6 +446,7 @@ exports[`Menu  Render should render 1`] = `
       class="emotion-4"
       color="colorTextInverse"
       cursor="pointer"
+      data-paste-element="BUTTON"
       data-testid="example-submenu-trigger"
       display="inline-block"
       font-family="fontFamilyText"
@@ -454,6 +462,7 @@ exports[`Menu  Render should render 1`] = `
       <span
         aria-hidden="false"
         class="emotion-3"
+        data-paste-element="BOX"
         display="flex"
         opacity="1"
         text-decoration="inherit"
@@ -466,6 +475,7 @@ exports[`Menu  Render should render 1`] = `
       aria-orientation="vertical"
       class="emotion-9"
       data-dialog="true"
+      data-paste-element="MENU"
       data-testid="example-submenu"
       hidden=""
       id="sub-menu"
@@ -476,6 +486,7 @@ exports[`Menu  Render should render 1`] = `
       <a
         class="emotion-0"
         color="colorText"
+        data-paste-element="MENU_ITEM"
         data-testid="example-submenu-item"
         display="block"
         id="sub-menu-1"
@@ -489,6 +500,7 @@ exports[`Menu  Render should render 1`] = `
         aria-disabled="true"
         class="emotion-6"
         color="colorTextWeaker"
+        data-paste-element="MENU_ITEM"
         data-testid="example-disabled-submenu-item"
         disabled=""
         display="block"
@@ -501,12 +513,14 @@ exports[`Menu  Render should render 1`] = `
       <hr
         aria-orientation="horizontal"
         class="emotion-2"
+        data-paste-element="BOX"
         role="separator"
         width="auto"
       />
       <a
         class="emotion-1"
         color="colorText"
+        data-paste-element="MENU_ITEM"
         display="block"
         id="sub-menu-3"
         role="menuitem"
@@ -519,6 +533,7 @@ exports[`Menu  Render should render 1`] = `
     <hr
       aria-orientation="horizontal"
       class="emotion-2"
+      data-paste-element="BOX"
       data-testid="example-menu-separator-2"
       role="separator"
       width="auto"
@@ -526,20 +541,24 @@ exports[`Menu  Render should render 1`] = `
     <div
       aria-label="Search Options"
       class="emotion-17"
+      data-paste-element="MENU_GROUP"
       role="presentation"
       text-decoration="none"
     >
       <div
         class="emotion-14"
         cursor="default"
+        data-paste-element="BOX"
         display="flex"
       >
         <div
           class="emotion-12"
+          data-paste-element="BOX"
         >
           <span
             class="emotion-11"
             color="colorTextIcon"
+            data-paste-element="ICON"
             display="block"
           >
             <svg
@@ -561,6 +580,7 @@ exports[`Menu  Render should render 1`] = `
         <span
           class="emotion-13"
           color="colorText"
+          data-paste-element="MENU_GROUP_LABEL"
           font-size="fontSize30"
           font-weight="fontWeightBold"
           role="presentation"
@@ -571,6 +591,7 @@ exports[`Menu  Render should render 1`] = `
       <a
         class="emotion-15"
         color="colorText"
+        data-paste-element="MENU_ITEM"
         display="block"
         id="menu-example-4"
         role="menuitem"
@@ -583,6 +604,7 @@ exports[`Menu  Render should render 1`] = `
         aria-disabled="true"
         class="emotion-16"
         color="colorTextWeaker"
+        data-paste-element="MENU_ITEM"
         disabled=""
         display="block"
         id="menu-example-5"

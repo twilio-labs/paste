@@ -2,8 +2,10 @@ import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {withKnobs, boolean, select} from '@storybook/addon-knobs';
 import {action} from '@storybook/addon-actions';
+import {CustomizationProvider} from '@twilio-paste/theme';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
+import {Stack} from '@twilio-paste/stack';
 import {Truncate} from '@twilio-paste/truncate';
 import {Alert, AlertVariants} from '../src';
 
@@ -124,5 +126,40 @@ storiesOf('Components|Alert', module)
           </Alert>
         </Box>
       </>
+    );
+  })
+  .add('Customization', () => {
+    return (
+      <CustomizationProvider
+        elements={{
+          ALERT: {
+            borderRadius: '10px',
+          },
+          ALERT_FIGURE: {
+            borderRadius: '10px',
+          },
+          ALERT_ICON: {
+            backgroundColor: 'lightgrey',
+          },
+          ALERT_BODY: {
+            padding: '10px',
+          },
+          ALERT_DISMISS: {
+            backgroundColor: 'hotpink',
+          },
+        }}
+      >
+        <Stack orientation="vertical" spacing="space40">
+          <Alert variant="warning">
+            <Text as="div">I am an alert</Text>
+          </Alert>
+          <Alert variant="neutral">
+            <Text as="div">I am an alert</Text>
+          </Alert>
+          <Alert variant="error" onDismiss={action('dismiss')}>
+            <Text as="div">I am an alert</Text>
+          </Alert>
+        </Stack>
+      </CustomizationProvider>
     );
   });

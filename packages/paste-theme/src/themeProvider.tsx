@@ -10,7 +10,7 @@ import {
 import {DefaultTheme, SendGridTheme, ConsoleTheme} from './themes';
 import {ThemeVariants} from './constants';
 
-const pasteGlobalStyles = css({
+export const pasteGlobalStyles = css({
   html: {
     fontSize: '100%',
   },

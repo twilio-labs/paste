@@ -6,9 +6,9 @@ export interface ModalHeadingProps extends Omit<HeadingProps, 'marginBottom' | '
   children: NonNullable<React.ReactNode>;
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
-const ModalHeading: React.FC<ModalHeadingProps> = ({children, as = 'h2', ...props}) => {
+const ModalHeading: React.FC<ModalHeadingProps> = ({children, element = 'MODAL_HEADING', as = 'h2', ...props}) => {
   return (
-    <Heading {...props} as={as} marginBottom="space0" variant="heading30">
+    <Heading {...props} as={as} element={element} marginBottom="space0" variant="heading30">
       {children}
     </Heading>
   );

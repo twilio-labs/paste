@@ -8,6 +8,7 @@ import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import {ProductVoiceIcon} from '@twilio-paste/icons/esm/ProductVoiceIcon';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
+import {CustomizationProvider} from '@twilio-paste/theme';
 import {Menu, MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, useMenuState} from '../src';
 
 const PlainMenu: React.FC<{}> = () => {
@@ -292,5 +293,25 @@ storiesOf('Components|Menu', module)
           <Example4 />
         </Stack>
       </>
+    );
+  })
+  .add('customization', () => {
+    return (
+      <CustomizationProvider
+        elements={{
+          MENU: {
+            borderRadius: '10px',
+            overflow: 'hidden',
+          },
+          MENU_ITEM: {
+            backgroundColor: 'green',
+          },
+          SUB_MENU_BUTTON: {
+            backgroundColor: 'colorBackgroundError',
+          },
+        }}
+      >
+        <SubMenu />
+      </CustomizationProvider>
     );
   });

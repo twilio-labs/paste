@@ -1,8 +1,10 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {withKnobs, select, text} from '@storybook/addon-knobs';
-import {DefaultTheme, ThemeShape} from '@twilio-paste/theme';
+import {DefaultTheme, ThemeShape, CustomizationProvider} from '@twilio-paste/theme';
 import {Text} from '@twilio-paste/text';
+import {Button} from '@twilio-paste/button';
+import {Card} from '@twilio-paste/card';
 import {Box} from '../src';
 
 const backgroundColorOptions = Object.keys(DefaultTheme.backgroundColors);
@@ -154,5 +156,17 @@ storiesOf('Primitives|Box', module)
           Hover this box
         </Text>
       </Box>
+    );
+  })
+  .add('Custom box', () => {
+    return (
+      <CustomizationProvider elements={{RED_BG: {backgroundColor: '#ff0000'}}}>
+        <Box element="RED_BG">
+          <Button variant="destructive">Hi</Button>
+        </Box>
+        <Card element="RED_BG">
+          <Button variant="destructive">Hi</Button>
+        </Card>
+      </CustomizationProvider>
     );
   });

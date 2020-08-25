@@ -3,7 +3,7 @@ import {Box} from '@twilio-paste/box';
 import {BoxShadow} from '@twilio-paste/style-props';
 import {FieldWrapperProps, FieldWrapperPropTypes} from '../shared/types';
 
-const InverseFieldWrapper: React.FC<FieldWrapperProps> = ({disabled, hasError, readOnly, children, type}) => {
+const InverseFieldWrapper: React.FC<FieldWrapperProps> = ({disabled, element, hasError, readOnly, children, type}) => {
   let boxShadow = 'shadowBorderInverse' as BoxShadow;
   let boxShadowHover = 'shadowBorderInverseLightest' as BoxShadow;
   if (disabled) {
@@ -20,6 +20,7 @@ const InverseFieldWrapper: React.FC<FieldWrapperProps> = ({disabled, hasError, r
   return (
     <Box
       display="flex"
+      element={element}
       width="100%"
       backgroundColor={readOnly || disabled ? 'colorBackgroundInverseLight' : 'colorBackgroundInverse'}
       boxShadow={boxShadow}

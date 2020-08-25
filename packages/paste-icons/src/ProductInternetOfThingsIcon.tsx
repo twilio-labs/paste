@@ -17,13 +17,14 @@ const ProductInternetOfThingsIcon: React.FC<ProductInternetOfThingsIconProps> = 
   color,
   title,
   decorative,
+  ...props
 }) => {
   if (!decorative && title == null) {
     throw new Error('[ProductInternetOfThingsIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} size={size} color={color} {...props}>
       <UID>
         {titleId => (
           <svg

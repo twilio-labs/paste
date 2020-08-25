@@ -1,0 +1,471 @@
+---
+title: Customization strategies for Paste
+description: While Paste provides a UX-backed opinion for all Twilio customer interfaces, there may be situations where end-customers may need to customize their UI for their users. Currently, Paste does not support the ability to customize components by adding CSS via `className`. This guide outlines the different proposed approaches that customers may take while customizing design system components
+---
+
+import {Helmet} from 'react-helmet';
+import {Card} from '@twilio-paste/card';
+import {Alert} from '@twilio-paste/alert';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Stack} from '@twilio-paste/stack';
+import {Box} from '@twilio-paste/box';
+import {CustomizationProvider} from '@twilio-paste/theme';
+import {Blockquote} from '../../components/Blockquote';
+import {ChatLog, ChatList, ChatListItem, ChatBubble} from '../../components/ChatLogExample';
+
+<contentwrapper>
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<p>{props.pageContext.frontmatter.description}</p>
+
+---
+
+## By default: just use Paste
+
+For all internal Twilio products, Paste can be used to build accessible, consistent, and high quality customer experiences that require zero customization. You can still [roll your own custom components](https://paste.twilio.design/tokens/how-to-compose-custom-ui-with-tokens) with the Paste [primitive](https://paste.twilio.design/primitives) and [token](https://paste.twilio.design/tokens) system for product-specific components or one-off implementations. We recommend using this approach when:
+
+- You are building default experiences that have not been customized.
+- Customers do not need to customize the UI
+
+Users are limited to style props and variants we ship for each component.
+
+<LivePreview
+  scope={{Alert, Box, Card, Heading, Paragraph, Stack, ChatLog, ChatList, ChatListItem, ChatBubble}}
+  language="jsx"
+>
+  {`<Stack orientation="vertical" spacing="space50">
+  <Card>
+    <Box marginBottom="space50">
+      <Alert variant="error">There is an error</Alert>
+    </Box>
+    <Box marginBottom="space50">
+      <Alert variant="neutral">This is some information</Alert>
+    </Box>
+    <Heading as="h2" variant="heading20">Base card</Heading>
+    <Paragraph>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam quis risus eget urna mollis ornare vel eu leo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.</Paragraph>
+  </Card>
+  <Card>
+    <Heading as="h2" variant="heading30">Mini chat log example</Heading>
+    <ChatLog>
+      <ChatList>
+        <ChatListItem>
+          <ChatBubble name="Simon Taggart" timeStamp="03:20 PM">Hello there, how might I help you today?</ChatBubble>
+        </ChatListItem>
+        <ChatListItem variant="inbound">
+          <ChatBubble name="Customer" timeStamp="03:21 PM" variant="inbound">Hey, my widget seems broken. I'm looking for some helping in fixing it, can you help?</ChatBubble>
+        </ChatListItem>
+        <ChatListItem>
+          <ChatBubble name="Simon Taggart" timeStamp="03:20 PM">Absolutely! Let me just as you some questions. What is the serial number of your widget?</ChatBubble>
+        </ChatListItem>
+      </ChatList>
+    </ChatLog>
+  </Card>
+</Stack>`}
+</LivePreview>
+
+## Customization options unlocked by CustomizationProvider
+
+To enable Customization for end customers while still maintaining an option for out of the box Paste, we need to provide a path that is clearly separated from the core system. By doing this, customization is additive and not directly at the component level. This enables easier component upgrades and a clear separation of concerns.
+
+In this situation we might distribute a `CustomizationProvider`, strictly for use in interfaces where customers may need customizations. This could come with a Flex theme or with the upcoming Unified Design Language for Twilio.
+
+To enable customization, wrap your application, plugin or custom component in the `CustomizationProvider`.
+
+In the example below, the `CustomizationProvider` is using the Paste default theme, which is a preview of the upcoming Unified Design Language for Twilio. Things like font and colors have changed from the first example.
+
+<LivePreview
+  scope={{
+    Alert,
+    Box,
+    Card,
+    Heading,
+    Paragraph,
+    Stack,
+    ChatLog,
+    ChatList,
+    ChatListItem,
+    ChatBubble,
+    CustomizationProvider,
+  }}
+  language="jsx"
+>
+  {`<CustomizationProvider>
+  <Stack orientation="vertical" spacing="space50">
+    <Card>
+      <Box marginBottom="space50">
+        <Alert variant="error">There is an error</Alert>
+      </Box>
+      <Box marginBottom="space50">
+        <Alert variant="neutral">This is some information</Alert>
+      </Box>
+      <Heading as="h2" variant="heading20">Base card</Heading>
+      <Paragraph>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam quis risus eget urna mollis ornare vel eu leo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.</Paragraph>
+    </Card>
+    <Card>
+      <Heading as="h2" variant="heading30">Mini chat log example</Heading>
+      <ChatLog>
+        <ChatList>
+          <ChatListItem>
+            <ChatBubble name="Simon Taggart" timeStamp="03:20 PM">Hello there, how might I help you today?</ChatBubble>
+          </ChatListItem>
+          <ChatListItem variant="inbound">
+            <ChatBubble name="Customer" timeStamp="03:21 PM" variant="inbound">Hey, my widget seems broken. I'm looking for some helping in fixing it, can you help?</ChatBubble>
+          </ChatListItem>
+          <ChatListItem>
+            <ChatBubble name="Simon Taggart" timeStamp="03:20 PM">Absolutely! Let me just as you some questions. What is the serial number of your widget?</ChatBubble>
+          </ChatListItem>
+        </ChatList>
+      </ChatLog>
+    </Card>
+  </Stack>
+</CustomizationProvider>`}
+</LivePreview>
+
+## Customization strategy 1 - Customization via a global theme
+
+The `CustomizationProvider` allows you to override or add to the default theme. There is a defined [Theme shape](https://paste.twilio.design/tokens/theme-package) that tie groups of key value pairs to specific styling properties. `borderColors`, `backgroundColors`, `TextColors` etc. Each Key value pair, is a named Design Token and corresponding value [provided by Paste](https://paste.twilio.design/tokens).
+
+You can probably add new tokens to the theme, and as long as they are in one of the pre-existing styling prop categories they _should_ work, though this isn't really tested here. We recommend using this approach when:
+
+- As a Twilio customer, I would like to take my brand signals or style guide (colors, typeface, font-size, line-height) and apply it across the product globally
+- I do not need the design opinions of Paste components to be changed (e.g. changing the border-radius of a text input, or rounding a specific button)
+
+<LivePreview
+  scope={{
+    Alert,
+    Box,
+    Card,
+    Heading,
+    Paragraph,
+    Stack,
+    ChatLog,
+    ChatList,
+    ChatListItem,
+    ChatBubble,
+    CustomizationProvider,
+  }}
+  language="jsx"
+>
+  {`<CustomizationProvider
+    theme={{
+      fonts:{
+        fontFamilyText: '"Poppins", sans-serif'
+      },
+      backgroundColors: {
+        colorBackgroundPrimary: '#078080',
+        colorBackgroundErrorLightest: '#FBE2DF',
+        colorBackgroundNeutralLightest: '#DCEFEF',
+      },
+      borderColors: {
+        colorBorderErrorLight: '#F9A094',
+        colorBorderNeutralLight: '#70C2C2',
+      },
+      textColors: {
+        colorTextError: '#f45d48',
+      }
+    }}
+  >
+  <Stack orientation="vertical" spacing="space50">
+    <Card>
+      <Box marginBottom="space50">
+        <Alert variant="error">There is an error</Alert>
+      </Box>
+      <Box marginBottom="space50">
+        <Alert variant="neutral">This is some information</Alert>
+      </Box>
+      <Heading as="h2" variant="heading20">Base card</Heading>
+      <Paragraph>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam quis risus eget urna mollis ornare vel eu leo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.</Paragraph>
+    </Card>
+    <Card>
+      <Heading as="h2" variant="heading30">Mini chat log example</Heading>
+      <ChatLog>
+        <ChatList>
+          <ChatListItem>
+            <ChatBubble name="Simon Taggart" timeStamp="03:20 PM">Hello there, how might I help you today?</ChatBubble>
+          </ChatListItem>
+          <ChatListItem variant="inbound">
+            <ChatBubble name="Customer" timeStamp="03:21 PM" variant="inbound">Hey, my widget seems broken. I'm looking for some helping in fixing it, can you help?</ChatBubble>
+          </ChatListItem>
+          <ChatListItem>
+            <ChatBubble name="Simon Taggart" timeStamp="03:20 PM">Absolutely! Let me just as you some questions. What is the serial number of your widget?</ChatBubble>
+          </ChatListItem>
+        </ChatList>
+      </ChatLog>
+    </Card>
+  </Stack>
+</CustomizationProvider>`}
+</LivePreview>
+
+## Customization strategy 2 - Style specific components globally
+
+This strategy goes a level deeper than a global theme. It can be applied in addition to stratetgy 1, allowing for a custom theme, and a customized component.
+
+Overriding the theme can only get you so far. There are design details encapsulated in the component that are not exposed at the theme level, such as what radius, or background color token is being used within the component. You may not wish to change `borderRadius20` globally, just to have a 5px radius on cards. By using this approach you can break those design opinions only at the component level.
+
+We recommend using this approach when:
+
+- As a Twilio customer, I would like to globally customise all cards using either token values from a default or custom theme, or arbitrary values.
+
+In the example below, we have changed all cards to have a different, border, shadow and hover treatment.
+
+<LivePreview
+  scope={{
+    Alert,
+    Box,
+    Card,
+    Heading,
+    Paragraph,
+    Stack,
+    ChatLog,
+    ChatList,
+    ChatListItem,
+    ChatBubble,
+    CustomizationProvider,
+  }}
+  language="jsx"
+>
+  {`<CustomizationProvider
+    elements={{
+      CARD: {
+        borderColor: '#D1DAEA',
+        borderRadius: 'borderRadius20',
+        borderWidth: 'borderWidth10',
+        boxShadow: 'rgba(209, 218, 234, 0.6) 0 2px 16px 0',
+        transition: 'all 400ms',
+        [':hover']: {
+          cursor: 'pointer',
+          backgroundColor: '#FAFCFF',
+          borderColor: '#004EE1',
+          boxShadow: 'rgba(209, 218, 234, 0.6) 0 14px 16px 0',
+        }
+      }
+    }}
+  >
+  <Stack orientation="vertical" spacing="space50">
+    <Card>
+      <Box marginBottom="space50">
+        <Alert variant="error">There is an error</Alert>
+      </Box>
+      <Box marginBottom="space50">
+        <Alert variant="neutral">This is some information</Alert>
+      </Box>
+      <Heading as="h2" variant="heading20">Base card</Heading>
+      <Paragraph>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam quis risus eget urna mollis ornare vel eu leo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.</Paragraph>
+    </Card>
+    <Card>
+      <Heading as="h2" variant="heading30">Mini chat log example</Heading>
+      <ChatLog>
+        <ChatList>
+          <ChatListItem>
+            <ChatBubble name="Simon Taggart" timeStamp="03:20 PM">Hello there, how might I help you today?</ChatBubble>
+          </ChatListItem>
+          <ChatListItem variant="inbound">
+            <ChatBubble name="Customer" timeStamp="03:21 PM" variant="inbound">Hey, my widget seems broken. I'm looking for some helping in fixing it, can you help?</ChatBubble>
+          </ChatListItem>
+          <ChatListItem>
+            <ChatBubble name="Simon Taggart" timeStamp="03:20 PM">Absolutely! Let me just as you some questions. What is the serial number of your widget?</ChatBubble>
+          </ChatListItem>
+        </ChatList>
+      </ChatLog>
+    </Card>
+  </Stack>
+</CustomizationProvider>`}
+</LivePreview>
+
+## Customization strategy 3 - Custom component variants
+
+This customization strategy is similar to the option 2. Here, you can target component variants globally. Again, this strategy can be used in addition to the previous approaches, helping customers build a more comprehensive and robust UI system.
+
+In the example below, we have targeted the error variant of the Alert component, and the inbound variant of the custom chat log component.
+
+<LivePreview
+  scope={{
+    Alert,
+    Box,
+    Card,
+    Heading,
+    Paragraph,
+    Stack,
+    ChatLog,
+    ChatList,
+    ChatListItem,
+    ChatBubble,
+    CustomizationProvider,
+  }}
+  language="jsx"
+>
+  {`<CustomizationProvider
+    elements={{
+      ALERT: {
+        variants: {
+          error: {
+            backgroundColor: '#EA0051',
+            borderColor: '#670024',
+            color: 'colorTextInverse'
+          }
+        }
+      },
+      ALERT_BODY: {
+        variants: {
+          error: {
+            fontWeight: 'fontWeightSemibold',
+          }
+        }
+      },
+      ALERT_ICON: {
+        variants: {
+          error: {
+            color: 'colorTextInverse'
+          }
+        }
+      },
+      CHAT_BUBBLE: {
+        variants: {
+          inbound: {
+            backgroundColor: '#004EE1',
+            padding: 'space50',
+            paddingLeft: 'space70',
+            paddingRight: 'space70',
+          }
+        }
+      }
+    }}
+  >
+  <Stack orientation="vertical" spacing="space50">
+    <Card>
+      <Box marginBottom="space50">
+        <Alert variant="error">There is an error</Alert>
+      </Box>
+      <Box marginBottom="space50">
+        <Alert variant="neutral">This is some information</Alert>
+      </Box>
+      <Heading as="h2" variant="heading20">Base card</Heading>
+      <Paragraph>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam quis risus eget urna mollis ornare vel eu leo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.</Paragraph>
+    </Card>
+    <Card>
+      <Heading as="h2" variant="heading30">Mini chat log example</Heading>
+      <ChatLog>
+        <ChatList>
+          <ChatListItem>
+            <ChatBubble name="Simon Taggart" timeStamp="03:20 PM">Hello there, how might I help you today?</ChatBubble>
+          </ChatListItem>
+          <ChatListItem variant="inbound">
+            <ChatBubble name="Customer" timeStamp="03:21 PM" variant="inbound">Hey, my widget seems broken. I'm looking for some helping in fixing it, can you help?</ChatBubble>
+          </ChatListItem>
+          <ChatListItem>
+            <ChatBubble name="Simon Taggart" timeStamp="03:20 PM">Absolutely! Let me just as you some questions. What is the serial number of your widget?</ChatBubble>
+          </ChatListItem>
+        </ChatList>
+      </ChatLog>
+    </Card>
+  </Stack>
+</CustomizationProvider>`}
+</LivePreview>
+
+## Customization strategy 4 - Customize specific instances of a component
+
+The final layer of customization targets single instances, entirely custom components, and includes variants and tokens. We recommend using this approach when:
+
+- As a Twilio customer, I would like a specific button (End Call) to be styled with my brand purple while keeping all other buttons unchanged.
+- I would like to style specific chat bubble with a yellow background for chat bot responses.
+
+<LivePreview
+  scope={{
+    Alert,
+    Box,
+    Card,
+    Heading,
+    Paragraph,
+    Stack,
+    ChatLog,
+    ChatList,
+    ChatListItem,
+    ChatBubble,
+    CustomizationProvider,
+  }}
+  language="jsx"
+>
+  {`<CustomizationProvider
+  theme={{
+      fonts:{
+        fontFamilyText: '"Poppins", sans-serif'
+      },
+      backgroundColors: {
+        colorBackgroundPrimary: '#078080',
+        colorBackgroundErrorLightest: '#FBE2DF',
+        colorBackgroundNeutralLightest: '#DCEFEF',
+      },
+      borderColors: {
+        colorBorderErrorLight: '#F9A094',
+        colorBorderNeutralLight: '#70C2C2',
+      },
+      textColors: {
+        colorTextError: '#f45d48',
+      }
+    }}
+    elements={{
+      COVID_ALERT: {
+        borderRadius: 'borderRadius20',
+        borderWidth: '3px',
+        borderStyle: 'solid',
+        borderColor: '#6916E4',
+        backgroundColor: '#EBE4FF',
+        color: '#7514E7'
+      },
+      COVID_ALERT_ICON: {
+        color: '#7514E7'
+      },
+      CUSTOM_BOT_BUBBLE: {
+        backgroundColor: '#FFF9E2',
+        borderColor: '#E2D2B0',
+        borderStyle: 'solid',
+        borderWidth: 'borderWidth10',
+      }
+    }}
+  >
+  <Stack orientation="vertical" spacing="space50">
+    <Card>
+      <Box marginBottom="space50">
+        <Alert variant="error">There is an error</Alert>
+      </Box>
+      <Box marginBottom="space50">
+        <Alert variant="neutral">This is some information</Alert>
+      </Box>
+      <Box marginBottom="space50">
+        <Alert variant="warning" element="COVID_ALERT">
+          <strong>COVID-19 response</strong>: During this unprecidented time we are experiencing higher than usual call volumes. We'll endevour to answer your call as soon as we can.
+        </Alert>
+      </Box>
+      <Heading as="h2" variant="heading20">Base card</Heading>
+      <Paragraph>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam quis risus eget urna mollis ornare vel eu leo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.</Paragraph>
+    </Card>
+    <Card>
+      <Heading as="h2" variant="heading30">Mini chat log example</Heading>
+      <ChatLog>
+        <ChatList>
+          <ChatListItem>
+            <ChatBubble name="Simon Taggart" timeStamp="03:20 PM">Hello there, how might I help you today?</ChatBubble>
+          </ChatListItem>
+          <ChatListItem variant="inbound">
+            <ChatBubble name="Customer" timeStamp="03:21 PM" variant="inbound">Hey, my widget seems broken. I'm looking for some helping in fixing it, can you help?</ChatBubble>
+          </ChatListItem>
+          <ChatListItem>
+            <ChatBubble name="Bot" timeStamp="03:21 PM" element="CUSTOM_BOT_BUBBLE">Hi, I'm Flexi the bot, can I help?</ChatBubble>
+          </ChatListItem>
+          <ChatListItem>
+            <ChatBubble name="Simon Taggart" timeStamp="03:20 PM">Absolutely! Let me just as you some questions. What is the serial number of your widget?</ChatBubble>
+          </ChatListItem>
+        </ChatList>
+      </ChatLog>
+    </Card>
+  </Stack>
+</CustomizationProvider>`}
+</LivePreview>
+
+</content>
+
+</contentwrapper>

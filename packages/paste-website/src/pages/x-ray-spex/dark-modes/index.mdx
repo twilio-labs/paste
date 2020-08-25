@@ -1,0 +1,296 @@
+---
+title: Dark and Light modes for Paste via Themes
+description: Paste Themes can be pretty versatile. In addition to allowing global themes for customers, they can serve UI needs such as a light and dark mode too. We've created a quick demo to show how Paste might be used to create a dark mode for our UIs. As "dark mode" is just a theme object switch, the dark mode can be activated via a user control, or can respect a time or OS settings. The example shown highlights an encapsulated light and dark mode on the same page, and outlines the few changes needed to achieve this.
+---
+
+import {Helmet} from 'react-helmet';
+import {Card} from '@twilio-paste/card';
+import {Alert} from '@twilio-paste/alert';
+import {Anchor} from '@twilio-paste/anchor';
+import {Button} from '@twilio-paste/button';
+import {Heading} from '@twilio-paste/heading';
+import {Separator} from '@twilio-paste/separator';
+import {FormLabel, FormInput, Select, Option, FormHelpText} from '@twilio-paste/form';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Stack} from '@twilio-paste/stack';
+import {Box} from '@twilio-paste/box';
+import {CustomizationProvider} from '@twilio-paste/theme';
+import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/tabs';
+import {Blockquote} from '../../../components/Blockquote';
+import {ChatLog, ChatList, ChatListItem, ChatBubble} from '../../../components/ChatLogExample';
+
+<contentwrapper>
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<p>{props.pageContext.frontmatter.description}</p>
+
+---
+
+## Light Mode / theme
+
+The default theme for paste is already a light theme, so it's easy to see how light themes are achieved.
+
+<LivePreview
+  scope={{
+    Alert,
+    Anchor,
+    UnorderedList,
+    Button,
+    ListItem,
+    Box,
+    Card,
+    Heading,
+    Paragraph,
+    Separator,
+    Stack,
+    ChatLog,
+    ChatList,
+    ChatListItem,
+    ChatBubble,
+    CustomizationProvider,
+    FormLabel,
+    FormInput,
+    Select,
+    Option,
+    FormHelpText,
+    Tabs,
+    TabList,
+    Tab,
+    TabPanels,
+    TabPanel,
+  }}
+  language="jsx"
+>
+  {`<CustomizationProvider>
+  <Box backgroundColor="colorBackgroundBody" padding="space70">
+    <Stack orientation="vertical" spacing="space50">
+      <Card>
+        <Box marginBottom="space50">
+          <Alert variant="error">There is an error</Alert>
+        </Box>
+        <Box marginBottom="space50">
+          <Alert variant="neutral">This is some information</Alert>
+        </Box>
+        <Heading as="h2" variant="heading20">Base card</Heading>
+        <Paragraph>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. <Anchor href="#">Nullam quis risus eget urna</Anchor> mollis ornare vel eu leo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.</Paragraph>
+        <UnorderedList>
+          <ListItem>A list item</ListItem>
+        </UnorderedList>
+        <Stack orientation="horizontal" spacing="space40">
+          <Button variant="primary">Primary</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="destructive">Destructive</Button>
+        </Stack>
+        <Separator orientation="horizontal" verticalSpacing="space120" />
+        <Stack orientation="vertical" spacing="space50">
+          <Box>
+            <FormLabel htmlFor="input-text">Text Input</FormLabel>
+            <FormInput id="input-text" placeholder="Placeholder..." type="text" />
+            <FormHelpText>Some help</FormHelpText>
+          </Box>
+          <Box>
+            <FormLabel htmlFor="input-text-error" hasError>Text Input</FormLabel>
+            <FormInput id="input-text-error" hasError type="text" />
+            <FormHelpText variant="error">Some help</FormHelpText>
+          </Box>
+          <Box>
+            <FormLabel htmlFor="input-select">Text Input</FormLabel>
+            <Select id="input-select">
+              <Option>option 1</Option>
+            </Select>
+            <FormHelpText>Some help</FormHelpText>
+          </Box>
+        </Stack>
+        <Separator orientation="horizontal" verticalSpacing="space120" />
+        <Tabs selectedId="select-tab-id" baseId="horizontal-tabs-example">
+          <TabList aria-label="My tabs">
+            <Tab id="select-tab-id">Tab 1</Tab>
+            <Tab>Tab 2</Tab>
+            <Tab>Tab 3</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel>Tab 1</TabPanel>
+            <TabPanel>Tab 2</TabPanel>
+            <TabPanel>Tab 3</TabPanel>
+          </TabPanels>
+        </Tabs>
+      </Card>
+      <Card>
+        <Heading as="h2" variant="heading30">Mini chat log example</Heading>
+        <ChatLog>
+          <ChatList>
+            <ChatListItem>
+              <ChatBubble name="Simon Taggart" timeStamp="03:20 PM">Hello there, how might I help you today?</ChatBubble>
+            </ChatListItem>
+            <ChatListItem variant="inbound">
+              <ChatBubble name="Customer" timeStamp="03:21 PM" variant="inbound">Hey, my widget seems broken. I'm looking for some helping in fixing it, can you help?</ChatBubble>
+            </ChatListItem>
+            <ChatListItem>
+              <ChatBubble name="Simon Taggart" timeStamp="03:20 PM">Absolutely! Let me just as you some questions. What is the serial number of your widget?</ChatBubble>
+            </ChatListItem>
+          </ChatList>
+        </ChatLog>
+      </Card>
+    </Stack>
+  </Box>
+</CustomizationProvider>`}
+</LivePreview>
+
+## Dark mode / theme
+
+In the example below we have changed just 15 design tokens to create this dark theme/mode. It's far from polished, it was created in under an hour, but it serves as a quick demostration of how it's possible even with this proof of concept.
+
+<LivePreview
+  scope={{
+    Alert,
+    Anchor,
+    UnorderedList,
+    Button,
+    ListItem,
+    Box,
+    Card,
+    Heading,
+    Paragraph,
+    Separator,
+    Stack,
+    ChatLog,
+    ChatList,
+    ChatListItem,
+    ChatBubble,
+    CustomizationProvider,
+    FormLabel,
+    FormInput,
+    Select,
+    Option,
+    FormHelpText,
+    Tabs,
+    TabList,
+    Tab,
+    TabPanels,
+    TabPanel,
+  }}
+  language="jsx"
+>
+  {`<CustomizationProvider
+    theme={{
+      colors: {
+        colorBackground: '#394762',
+        colorBackgroundBody: '#121c2d',
+        colorBackgroundErrorLightest: '#d61f1f',
+        colorBackgroundNeutralLightest: '#4b5671',
+        colorBorderErrorLight: '#f58a8a',
+        colorBorderLight: '#4b5671',
+        colorBorderNeutralLight: '#aeb2c1',
+        colorText: '#f4f4f6',
+        colorTextIcon: '#f4f4f6',
+        colorTextError: '#f6b1b1',
+        colorTextLabel: '#f4f4f6',
+        colorTextLink: '#66b3ff',
+        colorTextPlaceholder: '#e1e3ea',
+        colorTextWeak: '#e1e3ea',
+        colorTextWeaker: '#cacdd8',
+      },
+      textColors: {
+        colorText: '#f4f4f6',
+        colorTextIcon: '#f4f4f6',
+        colorTextError: '#f6b1b1',
+        colorTextLabel: '#f4f4f6',
+        colorTextLink: '#66b3ff',
+        colorTextPlaceholder: '#e1e3ea',
+        colorTextWeak: '#e1e3ea',
+        colorTextWeaker: '#cacdd8',
+      },
+      borderColors: {
+        colorBorderErrorLight: '#f58a8a',
+        colorBorderLight: '#4b5671',
+        colorBorderNeutralLight: '#aeb2c1',
+      },
+      backgroundColors: {
+        colorBackground: '#394762',
+        colorBackgroundBody: '#121c2d',
+        colorBackgroundErrorLightest: '#d61f1f',
+        colorBackgroundNeutralLightest: '#4b5671',
+      },
+    }}
+  >
+  <Box backgroundColor="colorBackgroundBody" padding="space70">
+    <Stack orientation="vertical" spacing="space50">
+      <Card>
+        <Box marginBottom="space50">
+          <Alert variant="error">There is an error</Alert>
+        </Box>
+        <Box marginBottom="space50">
+          <Alert variant="neutral">This is some information</Alert>
+        </Box>
+        <Heading as="h2" variant="heading20">Base card</Heading>
+        <Paragraph>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. <Anchor href="#">Nullam quis risus eget urna</Anchor> mollis ornare vel eu leo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.</Paragraph>
+        <UnorderedList>
+          <ListItem>A list item</ListItem>
+        </UnorderedList>
+        <Stack orientation="horizontal" spacing="space40">
+          <Button variant="primary">Primary</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="destructive">Destructive</Button>
+        </Stack>
+        <Separator orientation="horizontal" verticalSpacing="space120" />
+        <Stack orientation="vertical" spacing="space50">
+          <Box>
+            <FormLabel htmlFor="input-text">Text Input</FormLabel>
+            <FormInput id="input-text" placeholder="Placeholder..." type="text" />
+            <FormHelpText>Some help</FormHelpText>
+          </Box>
+          <Box>
+            <FormLabel htmlFor="input-text-error" hasError>Text Input</FormLabel>
+            <FormInput id="input-text-error" hasError type="text" />
+            <FormHelpText variant="error">Some help</FormHelpText>
+          </Box>
+          <Box>
+            <FormLabel htmlFor="input-select">Text Input</FormLabel>
+            <Select id="input-select">
+              <Option>option 1</Option>
+            </Select>
+            <FormHelpText>Some help</FormHelpText>
+          </Box>
+        </Stack>
+        <Separator orientation="horizontal" verticalSpacing="space120" />
+        <Tabs selectedId="select-tab-id" baseId="horizontal-tabs-example">
+          <TabList aria-label="My tabs">
+            <Tab id="select-tab-id">Tab 1</Tab>
+            <Tab>Tab 2</Tab>
+            <Tab>Tab 3</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel>Tab 1</TabPanel>
+            <TabPanel>Tab 2</TabPanel>
+            <TabPanel>Tab 3</TabPanel>
+          </TabPanels>
+        </Tabs>
+      </Card>
+      <Card>
+        <Heading as="h2" variant="heading30">Mini chat log example</Heading>
+        <ChatLog>
+          <ChatList>
+            <ChatListItem>
+              <ChatBubble name="Simon Taggart" timeStamp="03:20 PM">Hello there, how might I help you today?</ChatBubble>
+            </ChatListItem>
+            <ChatListItem variant="inbound">
+              <ChatBubble name="Customer" timeStamp="03:21 PM" variant="inbound">Hey, my widget seems broken. I'm looking for some helping in fixing it, can you help?</ChatBubble>
+            </ChatListItem>
+            <ChatListItem>
+              <ChatBubble name="Simon Taggart" timeStamp="03:20 PM">Absolutely! Let me just as you some questions. What is the serial number of your widget?</ChatBubble>
+            </ChatListItem>
+          </ChatList>
+        </ChatLog>
+      </Card>
+    </Stack>
+  </Box>
+</CustomizationProvider>`}
+</LivePreview>
+
+</content>
+
+</contentwrapper>

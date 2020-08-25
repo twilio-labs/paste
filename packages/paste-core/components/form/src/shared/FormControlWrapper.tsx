@@ -1,12 +1,13 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import {BoxProps} from '@twilio-paste/box';
 import {FieldWrapper} from '../fieldwrapper/FieldWrapper';
 import {Prefix} from './Prefix';
 import {Suffix} from './Suffix';
 import {FormInputTypes, FieldVariants} from './types';
 import {restrictedProps} from './restricted-attributes';
 
-interface FormControlWrapperProps {
+interface FormControlWrapperProps extends Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
   disabled?: boolean;
   hasError?: boolean;

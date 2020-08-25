@@ -1,66 +1,67 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {styled, css} from '@twilio-paste/styling-library';
 import {useTransition, animated} from '@twilio-paste/animation-library';
-import {pasteBaseStyles} from '@twilio-paste/theme';
+import {StyledBase} from '@twilio-paste/theme';
 import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
+import {Box, BoxProps} from '@twilio-paste/box';
 import {ModalContext} from './ModalContext';
 import {addConsoleHeightPatch, removeConsoleHeightPatch} from './utils/consoleUtils';
 
-const ModalDialogOverlay = animated(
-  /* eslint-disable emotion/syntax-preference */
-  styled(ModalDialogPrimitiveOverlay)(
-    css({
-      position: 'fixed',
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      width: '100%',
-      backgroundColor: 'colorBackgroundOverlay',
+type PasteModalOverlay = Pick<BoxProps, 'element'>;
+export const PasteModalOverlay: React.FC<PasteModalOverlay> = ({element = 'MODAL_OVERLAY', ...props}) => {
+  return (
+    <Box
+      as={ModalDialogPrimitiveOverlay}
+      element={element}
+      position="fixed"
+      top={0}
+      right={0}
+      bottom={0}
+      left={0}
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      width="100%"
+      backgroundColor="colorBackgroundOverlay"
       // Console navigation has a high zIndex value, so we need a
       // higher one to make sure the overlay is on top of the
       // navigation. The current zIndex tokens only go up to 90.
-      zIndex: '2000',
-    }),
-    // import Paste Theme Based Styles due to portal positioning.
-    // reach portal is a sibling to the main app, so you are now
-    // no longer a child of the theme provider. We need to re-set
-    // some of the base styles that we rely on inheriting from
-    // such as font-family and line-height so that compositions
-    // of paste components in the modal are styled correctly
-    pasteBaseStyles
-  )
-  /* eslint-enable */
-);
+      // @ts-ignore
+      zIndex="2000"
+      {...props}
+    />
+  );
+};
+
+const ModalDialogOverlay = animated<any>(PasteModalOverlay);
 
 type Sizes = 'default' | 'wide';
 
-interface ModalDialogContentProps {
+interface ModalDialogContentProps extends Pick<BoxProps, 'element'> {
   size?: Sizes;
 }
-const ModalDialogContent = animated(
-  /* eslint-disable emotion/syntax-preference */
-  styled(ModalDialogPrimitiveContent)<ModalDialogContentProps>(({size}) =>
-    css({
-      width: '100%',
-      maxWidth: size === 'wide' ? 'size80' : 'size60',
-      maxHeight: '90%',
-      minHeight: '170px',
-      backgroundColor: 'colorBackgroundBody',
-      borderRadius: 'borderRadius20',
-      boxShadow: 'shadowCard',
-      display: 'flex',
-      flexDirection: 'column',
-    })
-  )
-  /* eslint-enable */
-);
+export const PasteModalDialogContent: React.FC<ModalDialogContentProps> = ({size, ...props}) => {
+  return (
+    <Box
+      as={ModalDialogPrimitiveContent}
+      width="100%"
+      maxWidth={size === 'wide' ? 'size80' : 'size60'}
+      // @ts-ignore
+      maxHeight="90%"
+      // @ts-ignore
+      minHeight="170px"
+      backgroundColor="colorBackgroundBody"
+      borderRadius="borderRadius20"
+      boxShadow="shadowCard"
+      display="flex"
+      flexDirection="column"
+      {...props}
+    />
+  );
+};
+const ModalDialogContent = animated<any>(PasteModalDialogContent);
 
-export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ModalProps extends React.HTMLAttributes<HTMLDivElement>, Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
   isOpen: boolean;
   onDismiss: () => void;
@@ -86,6 +87,7 @@ const AnimationStates = {
 
 const Modal: React.FC<ModalProps> = ({
   children,
+  element = 'MODAL',
   isOpen,
   onDismiss,
   allowPinchZoom = true,
@@ -116,19 +118,14 @@ const Modal: React.FC<ModalProps> = ({
         (styles, item) =>
           item && (
             <ModalDialogOverlay
+              element={`${element}_OVERLAY`}
               onDismiss={onDismiss}
               allowPinchZoom={allowPinchZoom}
               initialFocusRef={initialFocusRef}
               style={{opacity: styles.opacity}}
             >
-              <ModalDialogContent
-                aria-labelledby={ariaLabelledby}
-                {...props}
-                className={null}
-                style={styles}
-                size={size}
-              >
-                {children}
+              <ModalDialogContent aria-labelledby={ariaLabelledby} element={element} {...props} size={size}>
+                <StyledBase>{children}</StyledBase>
               </ModalDialogContent>
             </ModalDialogOverlay>
           )

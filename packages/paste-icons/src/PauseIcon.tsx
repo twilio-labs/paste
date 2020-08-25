@@ -10,13 +10,13 @@ export interface PauseIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const PauseIcon: React.FC<PauseIconProps> = ({as, display, size, color, title, decorative}) => {
+const PauseIcon: React.FC<PauseIconProps> = ({as, display, size, color, title, decorative, ...props}) => {
   if (!decorative && title == null) {
     throw new Error('[PauseIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} size={size} color={color} {...props}>
       <UID>
         {titleId => (
           <svg

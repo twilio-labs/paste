@@ -24,6 +24,7 @@ exports[`Card it should filter out style props that are not allowed 1`] = `
 >
   <article
     className="emotion-0"
+    data-paste-element="CARD"
   />
 </div>
 `;
@@ -52,6 +53,7 @@ exports[`Card it should render children 1`] = `
 >
   <article
     className="emotion-0"
+    data-paste-element="CARD"
   >
     I AM A JEDI!!!!
   </article>
@@ -82,6 +84,7 @@ exports[`Card it should render default values 1`] = `
 >
   <article
     className="emotion-0"
+    data-paste-element="CARD"
   />
 </div>
 `;
@@ -111,6 +114,7 @@ exports[`Card it should render default values unless overridden by the component
 >
   <article
     className="emotion-0"
+    data-paste-element="CARD"
   />
 </div>
 `;

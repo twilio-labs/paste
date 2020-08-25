@@ -143,7 +143,7 @@ const getButtonComponent = (variant: ButtonVariants): React.FunctionComponent<Di
 };
 
 // memo
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({element = 'BUTTON', ...props}, ref) => {
   const {size, variant, children, disabled, loading, ...rest} = props;
 
   handlePropValidation(props);
@@ -159,12 +159,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => 
   return (
     <ButtonComponent
       {...rest}
+      element={element}
       buttonState={buttonState}
       disabled={showDisabled}
       size={smartDefaultSize as ButtonSizes}
       aria-busy={buttonState === 'loading' ? 'true' : 'false'}
       className={undefined}
       style={undefined}
+      variant={variant}
       ref={ref}
     >
       <ButtonContents buttonState={buttonState} showLoading={showLoading}>

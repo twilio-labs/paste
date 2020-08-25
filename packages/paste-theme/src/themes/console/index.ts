@@ -57,4 +57,5 @@ export const ConsoleTheme = {
   },
   space: spacings,
   zIndices,
+  CUSTOMIZATION_OPT_IN_OVERRIDE_DO_NOT_USE: false,
 };

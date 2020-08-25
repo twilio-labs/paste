@@ -10,13 +10,13 @@ export interface ProductFaxIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ProductFaxIcon: React.FC<ProductFaxIconProps> = ({as, display, size, color, title, decorative}) => {
+const ProductFaxIcon: React.FC<ProductFaxIconProps> = ({as, display, size, color, title, decorative, ...props}) => {
   if (!decorative && title == null) {
     throw new Error('[ProductFaxIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} size={size} color={color} {...props}>
       <UID>
         {titleId => (
           <svg

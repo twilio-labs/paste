@@ -30,7 +30,6 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({children, pageContext, loc
         <link rel="canonical" href={`https://paste.twilio.design${location.pathname}`} />
         <meta name="description" content={pageDescription} />
       </Helmet>
-
       <PasteMDXProvider>{children}</PasteMDXProvider>
     </SiteWrapper>
   );
