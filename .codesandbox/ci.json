@@ -1,0 +1,8 @@
+{
+  "buildCommand": "build",
+  "packages": ["/packages/paste-core/**/*", "/packages/paste-design-tokens", "/packages/paste-icons", "/packages/paste-libraries/**/*", "/packages/paste-style-props", "/packages/paste-theme", "/packages/paste-types"],
+  "sandboxes": ["/examples/create-react-app"]
+}
+
+
+
