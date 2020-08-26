@@ -409,15 +409,19 @@ const ComboboxUsingStatehook = () => {
           </div>
         )}
         insertAfter={
-          <Button
-            variant="link"
-            size="reset"
-            onClick={() => {
-              reset();
-            }}
-          >
-            <CloseIcon decorative={false} title="Clear" />
-          </Button>
+          value !== '' ? (
+            <Button
+              variant="link"
+              size="reset"
+              onClick={() => {
+                reset();
+              }}
+            >
+              <CloseIcon decorative={false} title="Clear" />
+            </Button>
+          ) : (
+            <SearchIcon decorative={false} title="search" />
+          )
         }
       />
       <Box paddingTop="space70">
