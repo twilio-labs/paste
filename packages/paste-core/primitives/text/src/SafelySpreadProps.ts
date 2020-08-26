@@ -1,9 +1,12 @@
-import {SPACE_PROPS, TYPOGRAPHY_PROPS, OVERFLOW_PROPS} from '@twilio-paste/style-props';
+import {SHADOW_PROPS, SPACE_PROPS, TYPOGRAPHY_PROPS, OVERFLOW_PROPS} from '@twilio-paste/style-props';
+import {PseudoPropStyles} from './PseudoPropStyles';
 
 export const TEXT_PROPS_TO_BLOCK = [
+  ...SHADOW_PROPS,
   ...SPACE_PROPS,
   ...TYPOGRAPHY_PROPS,
   ...OVERFLOW_PROPS,
+  ...Object.keys(PseudoPropStyles),
   'display',
   'color',
   'verticalAlign',

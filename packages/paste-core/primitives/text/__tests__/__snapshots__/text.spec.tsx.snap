@@ -12,9 +12,9 @@ exports[`Pseudo-class props it should generate pseudo-class CSS 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 .emotion-0:hover {
@@ -146,9 +146,9 @@ exports[`as it should render as a provided HTML element 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 <div
@@ -248,9 +248,9 @@ exports[`display should set a display property 1`] = `
   margin: 0;
   padding: 0;
   display: inline-block;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 <div
@@ -280,9 +280,9 @@ exports[`display should set a responsive display property 1`] = `
   margin: 0;
   padding: 0;
   display: inline-block;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 @media screen and (min-width:25rem) {
@@ -323,9 +323,9 @@ exports[`fontFamily should set a font family property 1`] = `
   margin: 0;
   padding: 0;
   font-family: 'Fira Mono','Courier New',Courier,monospace;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 <div
@@ -355,9 +355,9 @@ exports[`fontFamily should set a responsive font family property 1`] = `
   margin: 0;
   padding: 0;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 @media screen and (min-width:25rem) {
@@ -398,8 +398,8 @@ exports[`fontSize should set a font size property 1`] = `
   margin: 0;
   padding: 0;
   font-size: 0.625rem;
-  line-height: 1.25rem;
   color: rgb(40,42,43);
+  line-height: 1.25rem;
 }
 
 <div
@@ -428,8 +428,8 @@ exports[`fontSize should set a responsive font size property 1`] = `
   margin: 0;
   padding: 0;
   font-size: 0.75rem;
-  line-height: 1.25rem;
   color: rgb(40,42,43);
+  line-height: 1.25rem;
 }
 
 @media screen and (min-width:25rem) {
@@ -469,9 +469,9 @@ exports[`fontStyle should set a font style property 1`] = `
   margin: 0;
   padding: 0;
   font-style: italic;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 <div
@@ -501,9 +501,9 @@ exports[`fontStyle should set a responsive font style property 1`] = `
   margin: 0;
   padding: 0;
   font-style: italic;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 @media screen and (min-width:25rem) {
@@ -544,9 +544,9 @@ exports[`fontWeight should set a font weight property 1`] = `
   margin: 0;
   padding: 0;
   font-weight: 700;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 <div
@@ -576,9 +576,9 @@ exports[`fontWeight should set a responsive font weight property 1`] = `
   margin: 0;
   padding: 0;
   font-weight: 300;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 @media screen and (min-width:25rem) {
@@ -622,9 +622,9 @@ exports[`letterSpacing should set a letter spacing property 1`] = `
   -moz-letter-spacing: 1px;
   -ms-letter-spacing: 1px;
   letter-spacing: 1px;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 <div
@@ -657,9 +657,9 @@ exports[`letterSpacing should set a responsive letter spacing property 1`] = `
   -moz-letter-spacing: -2px;
   -ms-letter-spacing: -2px;
   letter-spacing: -2px;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 @media screen and (min-width:25rem) {
@@ -703,8 +703,8 @@ exports[`lineHeight should set a line height property 1`] = `
   margin: 0;
   padding: 0;
   line-height: 1rem;
-  font-size: 0.875rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
 }
 
 <div
@@ -733,8 +733,8 @@ exports[`lineHeight should set a responsive line height property 1`] = `
   margin: 0;
   padding: 0;
   line-height: 1.25rem;
-  font-size: 0.875rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
 }
 
 @media screen and (min-width:25rem) {
@@ -769,9 +769,9 @@ exports[`margin should set a margin property 1`] = `
   margin: 0;
   padding: 0;
   margin: 0.125rem;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 <div
@@ -800,9 +800,9 @@ exports[`margin should set a responsive margin property 1`] = `
   margin: 0;
   padding: 0;
   margin: 0.25rem;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 @media screen and (min-width:25rem) {
@@ -837,9 +837,9 @@ exports[`marginBottom should set a marginBottom property 1`] = `
   margin: 0;
   padding: 0;
   margin-bottom: 0.125rem;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 <div
@@ -868,9 +868,9 @@ exports[`marginBottom should set a responsive marginBottom property 1`] = `
   margin: 0;
   padding: 0;
   margin-bottom: 0.25rem;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 @media screen and (min-width:25rem) {
@@ -905,9 +905,9 @@ exports[`marginLeft should set a marginLeft property 1`] = `
   margin: 0;
   padding: 0;
   margin-left: 0.125rem;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 <div
@@ -936,9 +936,9 @@ exports[`marginLeft should set a responsive marginLeft property 1`] = `
   margin: 0;
   padding: 0;
   margin-left: 0.25rem;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 @media screen and (min-width:25rem) {
@@ -973,9 +973,9 @@ exports[`marginRight should set a marginRight property 1`] = `
   margin: 0;
   padding: 0;
   margin-right: 0.125rem;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 <div
@@ -1004,9 +1004,9 @@ exports[`marginRight should set a responsive marginRight property 1`] = `
   margin: 0;
   padding: 0;
   margin-right: 0.25rem;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 @media screen and (min-width:25rem) {
@@ -1041,9 +1041,9 @@ exports[`marginTop should set a marginTop property 1`] = `
   margin: 0;
   padding: 0;
   margin-top: 0.125rem;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 <div
@@ -1072,9 +1072,9 @@ exports[`marginTop should set a responsive marginTop property 1`] = `
   margin: 0;
   padding: 0;
   margin-top: 0.25rem;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 @media screen and (min-width:25rem) {
@@ -1109,9 +1109,9 @@ exports[`padding should set a padding property 1`] = `
   margin: 0;
   padding: 0;
   padding: 0.125rem;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 <div
@@ -1140,9 +1140,9 @@ exports[`padding should set a responsive padding property 1`] = `
   margin: 0;
   padding: 0;
   padding: 0.25rem;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 @media screen and (min-width:25rem) {
@@ -1177,9 +1177,9 @@ exports[`paddingBottom should set a paddingBottom property 1`] = `
   margin: 0;
   padding: 0;
   padding-bottom: 0.125rem;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 <div
@@ -1208,9 +1208,9 @@ exports[`paddingBottom should set a responsive paddingBottom property 1`] = `
   margin: 0;
   padding: 0;
   padding-bottom: 0.25rem;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 @media screen and (min-width:25rem) {
@@ -1245,9 +1245,9 @@ exports[`paddingLeft should set a paddingLeft property 1`] = `
   margin: 0;
   padding: 0;
   padding-left: 0.125rem;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 <div
@@ -1276,9 +1276,9 @@ exports[`paddingLeft should set a responsive paddingLeft property 1`] = `
   margin: 0;
   padding: 0;
   padding-left: 0.25rem;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 @media screen and (min-width:25rem) {
@@ -1313,9 +1313,9 @@ exports[`paddingRight should set a paddingRight property 1`] = `
   margin: 0;
   padding: 0;
   padding-right: 0.125rem;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 <div
@@ -1344,9 +1344,9 @@ exports[`paddingRight should set a responsive paddingRight property 1`] = `
   margin: 0;
   padding: 0;
   padding-right: 0.25rem;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 @media screen and (min-width:25rem) {
@@ -1381,9 +1381,9 @@ exports[`paddingTop should set a paddingTop property 1`] = `
   margin: 0;
   padding: 0;
   padding-top: 0.125rem;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 <div
@@ -1412,9 +1412,9 @@ exports[`paddingTop should set a responsive paddingTop property 1`] = `
   margin: 0;
   padding: 0;
   padding-top: 0.25rem;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 @media screen and (min-width:25rem) {
@@ -1449,9 +1449,9 @@ exports[`textAlign should set a responsive textAlign property 1`] = `
   margin: 0;
   padding: 0;
   text-align: center;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 @media screen and (min-width:25rem) {
@@ -1486,9 +1486,9 @@ exports[`textAlign should set a textAlign property 1`] = `
   margin: 0;
   padding: 0;
   text-align: right;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 <div
@@ -1518,9 +1518,9 @@ exports[`textDecoration should set a responsive textDecoration property 1`] = `
   padding: 0;
   -webkit-text-decoration: underline;
   text-decoration: underline;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 @media screen and (min-width:25rem) {
@@ -1563,9 +1563,9 @@ exports[`textDecoration should set a textDecoration property 1`] = `
   padding: 0;
   -webkit-text-decoration: underline;
   text-decoration: underline;
+  color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: rgb(40,42,43);
 }
 
 <div
