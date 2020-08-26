@@ -1,35 +1,38 @@
 import {
-  styled,
-  css,
+  boxShadow,
   compose,
-  space,
+  css,
   display,
-  verticalAlign,
   overflow,
-  typography,
-  system,
   position,
+  space,
+  styled,
+  system,
+  typography,
+  verticalAlign,
 } from '@twilio-paste/styling-library';
-import {CursorProperty, TextTransformProperty, TransitionProperty} from 'csstype';
+import {CursorProperty, OutlineProperty, TextTransformProperty, TransitionProperty} from 'csstype';
 import {
-  SpaceProps,
   Display,
-  VerticalAlign,
   OverflowProps,
   PositionProps,
+  ShadowProps,
+  SpaceProps,
   TypographyProps,
+  VerticalAlign,
 } from '@twilio-paste/style-props';
 import {PseudoPropStyles} from './PseudoPropStyles';
 import {TextPropTypes} from './TextPropTypes';
 
-interface TextStyleProps extends SpaceProps, OverflowProps, PositionProps, TypographyProps {
+interface TextStyleProps extends OverflowProps, PositionProps, ShadowProps, SpaceProps, TypographyProps {
   content?: string;
   cursor?: CursorProperty;
   display?: Display;
-  verticalAlign?: VerticalAlign;
-  transition?: TransitionProperty;
+  outline?: OutlineProperty<string>;
   // Do not document, we prefer if folks do not use this property for i18n.
   textTransform?: TextTransformProperty;
+  transition?: TransitionProperty;
+  verticalAlign?: VerticalAlign;
 }
 
 interface PseudoStylesProps {
@@ -60,6 +63,8 @@ interface PseudoStylesProps {
 export interface TextElementProps extends Omit<React.HTMLAttributes<any>, 'color'> {
   as: keyof JSX.IntrinsicElements;
   href?: string;
+  /** Typed as any because Text can literally be any HTML element */
+  ref?: any | null;
   rel?: string;
   target?: string;
 }
@@ -72,6 +77,7 @@ const extraConfig = system({
     scale: 'textColors',
   },
   cursor: true,
+  outline: true,
   transition: true,
   textTransform: true,
 });
@@ -101,13 +107,14 @@ export const Text = styled.span(
     padding: 0,
   },
   compose(
-    space,
+    boxShadow,
     display,
-    verticalAlign,
     overflow,
     position,
+    space,
     textDecoration,
     typography,
+    verticalAlign,
     extraConfig
   ),
   getPseudoStyles
@@ -122,9 +129,9 @@ export const Text = styled.span(
 Text.displayName = 'Text';
 
 Text.defaultProps = {
+  color: 'colorText',
   fontSize: 'fontSize30',
   lineHeight: 'lineHeight30',
-  color: 'colorText',
 };
 
 if (process.env.NODE_ENV === 'development') {
