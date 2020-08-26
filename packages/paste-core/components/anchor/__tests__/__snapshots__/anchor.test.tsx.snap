@@ -1,131 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Anchor it should render an anchor 1`] = `
-.emotion-1 {
-  color: rgb(40,42,43);
-  font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.25rem;
-  font-weight: 400;
-}
-
-.emotion-0 {
-  color: rgb(0,94,166);
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0;
+  padding: 0;
+  color: colorTextLink;
   -webkit-text-decoration: underline;
   text-decoration: underline;
   outline: none;
+  font-size: fontSize30;
+  line-height: lineHeight30;
+}
+
+.emotion-0:active,
+.emotion-0[data-active=true] {
+  box-shadow: shadowFocus;
+  color: colorTextLinkDarker;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0:focus {
+  box-shadow: shadowFocus;
+  color: colorTextLinkDarker;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-0:hover {
-  color: rgb(3,44,94);
+  color: colorTextLinkDarker;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-0:focus,
-.emotion-0:active {
-  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
-  color: rgb(3,44,94);
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-<div
-  className="emotion-1"
->
-  <a
-    className="emotion-0"
+<a
+    class="emotion-0"
+    color="colorTextLink"
+    font-size="fontSize30"
     href="/"
+    text-decoration="underline"
   >
     This is an anchor
   </a>
-</div>
-`;
-
-exports[`Anchor it should render an external anchor 1`] = `
-.emotion-1 {
-  color: rgb(40,42,43);
-  font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.25rem;
-  font-weight: 400;
-}
-
-.emotion-0 {
-  color: rgb(0,94,166);
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  outline: none;
-}
-
-.emotion-0:hover {
-  color: rgb(3,44,94);
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-0:focus,
-.emotion-0:active {
-  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
-  color: rgb(3,44,94);
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-<div
-  className="emotion-1"
->
-  <a
-    className="emotion-0"
-    href="https://twilio.com"
-    rel="noreferrer noopener"
-    target="_blank"
-  >
-    This is an anchor that links to Twilio.com with an external target and rel
-  </a>
-</div>
-`;
-
-exports[`Anchor it should render an external anchor with overwritten target and rel 1`] = `
-.emotion-1 {
-  color: rgb(40,42,43);
-  font-size: 0.875rem;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
-  line-height: 1.25rem;
-  font-weight: 400;
-}
-
-.emotion-0 {
-  color: rgb(0,94,166);
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  outline: none;
-}
-
-.emotion-0:hover {
-  color: rgb(3,44,94);
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-0:focus,
-.emotion-0:active {
-  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
-  color: rgb(3,44,94);
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-<div
-  className="emotion-1"
->
-  <a
-    className="emotion-0"
-    href="https://twilio.com"
-    rel="noopener"
-    target="_self"
-  >
-    This is an anchor that links to Twilio.com with the target and rel overwritten
-  </a>
-</div>
+</DocumentFragment>
 `;
