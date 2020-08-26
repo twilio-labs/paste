@@ -23,7 +23,7 @@ export const SiteHeader: React.FC<{}> = () => {
       paddingBottom="space50"
       position="sticky"
       top="0"
-      zIndex="zIndex10"
+      zIndex="zIndex90"
     >
       <Box
         display="flex"
