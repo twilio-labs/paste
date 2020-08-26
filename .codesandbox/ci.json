@@ -1,4 +1,5 @@
 {
   "buildCommand": "build",
+  "packages": ["packages/!(paste-website)"],
   "sandboxes": ["/examples/create-react-app"]
 }

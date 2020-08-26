@@ -1,47 +1,47 @@
-name: Chromatic
+# name: Chromatic
 
-on: push
+# on: push
 
-jobs:
-  chromatic:
-    runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'chore(release): publish')"
-    strategy:
-      matrix:
-        node-version: [12.18.x]
+# jobs:
+#   chromatic:
+#     runs-on: ubuntu-latest
+#     if: "!contains(github.event.head_commit.message, 'chore(release): publish')"
+#     strategy:
+#       matrix:
+#         node-version: [12.18.x]
 
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Get yarn cache
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - uses: actions/cache@v1
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: restore lerna
-        uses: actions/cache@master
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-      - name: Install dependencies
-        run: yarn install
-      - name: Bootstrap repository
-        run: yarn bootstrap
-      - name: Build packages
-        run: yarn build
-      - uses: chromaui/action@v1
-        with:
-          projectToken: ${{ secrets.CHROMA_APP_CODE }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-          buildScriptName: "build:storybook"
-          autoAcceptChanges: "main"
+#     steps:
+#       - uses: actions/checkout@v2
+#         with:
+#           fetch-depth: 0
+#       - uses: actions/setup-node@v1
+#         with:
+#           node-version: ${{ matrix.node-version }}
+#       - name: Get yarn cache
+#         id: yarn-cache
+#         run: echo "::set-output name=dir::$(yarn cache dir)"
+#       - uses: actions/cache@v1
+#         with:
+#           path: ${{ steps.yarn-cache.outputs.dir }}
+#           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+#           restore-keys: |
+#             ${{ runner.os }}-yarn-
+#       - name: restore lerna
+#         uses: actions/cache@master
+#         with:
+#           path: |
+#             node_modules
+#             */*/node_modules
+#           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+#       - name: Install dependencies
+#         run: yarn install
+#       - name: Bootstrap repository
+#         run: yarn bootstrap
+#       - name: Build packages
+#         run: yarn build
+#       - uses: chromaui/action@v1
+#         with:
+#           projectToken: ${{ secrets.CHROMA_APP_CODE }}
+#           token: ${{ secrets.GITHUB_TOKEN }}
+#           buildScriptName: "build:storybook"
+#           autoAcceptChanges: "main"

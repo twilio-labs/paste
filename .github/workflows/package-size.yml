@@ -1,19 +1,19 @@
-name: Package Size
+# name: Package Size
 
-on: pull_request
+# on: pull_request
 
-jobs:
-  package-size:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.18.x]
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2-beta
-        with:
-          node-version: ${{ matrix.node-version }}
-      - uses: preactjs/compressed-size-action@v2
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          build-script: "package-size-action-build"
+# jobs:
+#   package-size:
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         node-version: [12.18.x]
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: actions/setup-node@v2-beta
+#         with:
+#           node-version: ${{ matrix.node-version }}
+#       - uses: preactjs/compressed-size-action@v2
+#         with:
+#           repo-token: "${{ secrets.GITHUB_TOKEN }}"
+#           build-script: "package-size-action-build"
