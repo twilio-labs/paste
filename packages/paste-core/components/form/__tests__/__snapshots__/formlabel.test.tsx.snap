@@ -122,8 +122,8 @@ exports[`FormLabel render it should render with required 1`] = `
   margin: 0;
   padding: 0;
   line-height: 1.25rem;
-  font-size: 0.875rem;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
   background-color: rgb(222,88,88);
   border-radius: 50%;
   cursor: pointer;
