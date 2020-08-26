@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.15](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.2.14...@twilio-paste/website@2.2.15) (2020-08-26)
+
+
+### Bug Fixes
+
+* **website:** fix topbar zIndex ([#686](https://github.com/twilio-labs/paste/issues/686)) ([985b4fb](https://github.com/twilio-labs/paste/commit/985b4fb97fe86bfb1a1b573a2f9269e7edf34c94))
+
+
+
+
+
 ## [2.2.14](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.2.13...@twilio-paste/website@2.2.14) (2020-08-26)
 
 **Note:** Version bump only for package @twilio-paste/website
