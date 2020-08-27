@@ -54,7 +54,7 @@ props:
     value: "{!palette-red-70}"
     comment: Dark shade of destructive link text to be used in interactions
   color-text-link-destructive-darker:
-    value: "{!palette-red-80}"
+    value: "{!palette-red-90}"
     comment: Darker shade of destructive link text to be used in interactions
 
   #status
