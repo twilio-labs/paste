@@ -236,6 +236,17 @@ describe('Button data attributes', () => {
   });
 });
 
+describe('Button render as', () => {
+  it('Renders a button as a link', () => {
+    const wrapper: ReactWrapper = mount(
+      <Button as="a" variant="secondary" href="/tests">
+        button
+      </Button>
+    );
+    expect(wrapper.exists('a')).toEqual(true);
+  });
+});
+
 describe('button event handlers', () => {
   it('Should call the appropriate event handlers', () => {
     const onClickMock: jest.Mock = jest.fn();

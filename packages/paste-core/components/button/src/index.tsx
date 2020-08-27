@@ -65,11 +65,6 @@ const handlePropValidation = ({as, href, tabIndex, variant, size, fullWidth, chi
   if (as === 'a' && variant === 'link') {
     throw new Error(`[Paste: Button] This should be a link. Use the [Paste: Anchor] component.`);
   }
-  if (variant !== 'link' && variant !== 'destructive_link' && hasHref) {
-    throw new Error(
-      `[Paste: Button] You cannot pass href into a button without the 'a' tag.  Use 'variant="link"' or 'variant="destructive_link"'.`
-    );
-  }
   if (variant === 'reset' && size !== 'reset') {
     throw new Error('[Paste: Button] The "RESET" variant can only be used with the "RESET" size.');
   }
