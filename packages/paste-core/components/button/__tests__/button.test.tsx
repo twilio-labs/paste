@@ -54,6 +54,21 @@ describe('Button axe checker', () => {
     expect(results).toHaveNoViolations();
   });
 
+  it('Destructive_secondary has no accessibility violations', async () => {
+    const container = document.createElement('div');
+    document.body.append(container);
+    render(
+      <Theme.Provider theme="console">
+        <Button variant="destructive_secondary" onClick={NOOP}>
+          Delete
+        </Button>
+      </Theme.Provider>,
+      container
+    );
+    const results = await axe(document.body);
+    expect(results).toHaveNoViolations();
+  });
+
   it('Destructive_link has no accessibility violations', async () => {
     const container = document.createElement('div');
     document.body.append(container);

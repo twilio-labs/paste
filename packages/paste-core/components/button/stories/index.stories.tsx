@@ -60,6 +60,7 @@ storiesOf('Components|Button', module)
   .add('Secondary Button', () => <AllSizeOptions variant="secondary" />)
   .add('Inverse Button', () => <AllSizeOptions variant="inverse" />)
   .add('Destructive Button', () => <AllSizeOptions variant="destructive" />)
+  .add('Destructive Secondary Button', () => <AllSizeOptions variant="destructive_secondary" />)
   .add('Destructive Link Button', () => <AllSizeOptions variant="destructive_link" />)
   .add('Link Button', () => <AllSizeOptions variant="link" />)
   .add('Reset', () => (

@@ -7,6 +7,7 @@ export type ButtonVariants =
   | 'secondary'
   | 'destructive'
   | 'destructive_link'
+  | 'destructive_secondary'
   | 'link'
   | 'inverse'
   | 'reset';
@@ -51,8 +52,15 @@ export const ButtonPropTypes = {
   type: PropTypes.oneOf(['submit', 'button', 'reset']) as any,
   disabled: PropTypes.bool,
   loading: PropTypes.bool,
-  variant: PropTypes.oneOf(['primary', 'secondary', 'destructive', 'destructive_link', 'link', 'reset'])
-    .isRequired as any,
+  variant: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'destructive',
+    'destructive_link',
+    'destructive_secondary',
+    'link',
+    'reset',
+  ]).isRequired as any,
 };
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
