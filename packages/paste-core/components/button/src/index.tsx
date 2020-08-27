@@ -14,8 +14,9 @@ import {
 import {PrimaryButton} from './PrimaryButton';
 import {SecondaryButton} from './SecondaryButton';
 import {DestructiveButton} from './DestructiveButton';
-import {LinkButton} from './LinkButton';
 import {DestructiveLinkButton} from './DestructiveLinkButton';
+import {DestructiveSecondaryButton} from './DestructiveSecondaryButton';
+import {LinkButton} from './LinkButton';
 import {InverseButton} from './InverseButton';
 import {ResetButton} from './ResetButton';
 
@@ -123,6 +124,8 @@ const getButtonComponent = (variant: ButtonVariants): React.FunctionComponent<Di
       return SecondaryButton;
     case 'destructive':
       return DestructiveButton;
+    case 'destructive_secondary':
+      return DestructiveSecondaryButton;
     case 'link':
       return LinkButton;
     case 'destructive_link':
