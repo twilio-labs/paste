@@ -133,6 +133,10 @@ screen readers and dictation software. Here are some quick tips:
 </Box>
 
 <Box display="inline-block" marginRight="space30">
+  <Button variant="destructive_secondary">Action</Button>
+</Box>
+
+<Box display="inline-block" marginRight="space30">
   <Button variant="primary" size="small">
     Action
   </Button>
@@ -146,6 +150,12 @@ screen readers and dictation software. Here are some quick tips:
 
 <Box display="inline-block" marginRight="space30">
   <Button variant="destructive" size="small">
+    Action
+  </Button>
+</Box>
+
+<Box display="inline-block" marginRight="space30">
+  <Button variant="destructive_secondary" size="small">
     Action
   </Button>
 </Box>
@@ -193,11 +203,22 @@ possible, reversible action without much cost.
 </Button>`}
 </LivePreview>
 
-#### Destructive button
+#### Destructive secondary button
 
-A destructive button indicates a destructive action, such as “Delete” or
+A destructive secondary button indicates a destructive action, such as “Delete” or
 “Remove”, that might be difficult to reverse. If possible, give users
 the ability to undo the action, or at least, confirm the action.
+
+<LivePreview scope={{Button}} language="jsx">
+  {`<Button variant="destructive_secondary">
+  Delete
+</Button>`}
+</LivePreview>
+
+#### Destructive button
+
+Use a destructive primary button for the most prominent action a customer would make on a
+screen if that action is destructive and could be difficult to reverse.
 
 <LivePreview scope={{Button}} language="jsx">
   {`<Button variant="destructive">
@@ -231,6 +252,11 @@ only convey a single action.
   </Box>
   <Box display="inline-block" marginRight="space30">
     <Button variant="destructive" size="icon">
+      <PlusIcon decorative={false} title="Add to cart" />
+    </Button>
+  </Box>
+  <Box display="inline-block" marginRight="space30">
+    <Button variant="destructive_secondary" size="icon">
       <PlusIcon decorative={false} title="Add to cart" />
     </Button>
   </Box>
@@ -288,6 +314,11 @@ their default size.
       Delete
     </Button>
   </Box>
+  <Box display="inline-block" marginRight="space30">
+    <Button variant="destructive_secondary" size="small">
+      Delete
+    </Button>
+  </Box>
 </div>`}
 </LivePreview>
 
@@ -333,6 +364,11 @@ from completing. Use it when you can’t move the user to the next state.
     </Button>
   </Box>
   <Box display="inline-block" marginRight="space30">
+    <Button variant="destructive_secondary" loading>
+      Submit
+    </Button>
+  </Box>
+  <Box display="inline-block" marginRight="space30">
     <Button variant="primary" size="small" loading>
       Submit
     </Button>
@@ -344,6 +380,11 @@ from completing. Use it when you can’t move the user to the next state.
   </Box>
   <Box display="inline-block" marginRight="space30">
     <Button variant="destructive" size="small" loading>
+      Submit
+    </Button>
+  </Box>
+  <Box display="inline-block" marginRight="space30">
+    <Button variant="destructive_secondary" size="small" loading>
       Submit
     </Button>
   </Box>
@@ -394,6 +435,12 @@ provide helpful error text after it's pressed.
 </Box>
 
 <Box display="inline-block" marginRight="space30">
+  <Button variant="destructive_secondary" disabled>
+    Action
+  </Button>
+</Box>
+
+<Box display="inline-block" marginRight="space30">
   <Button variant="primary" size="small" disabled>
     Action
   </Button>
@@ -407,6 +454,12 @@ provide helpful error text after it's pressed.
 
 <Box display="inline-block" marginRight="space30">
   <Button variant="destructive" size="small" disabled>
+    Action
+  </Button>
+</Box>
+
+<Box display="inline-block" marginRight="space30">
+  <Button variant="destructive_secondary" size="small" disabled>
     Action
   </Button>
 </Box>
@@ -518,7 +571,7 @@ All the valid HTML attributes for `button` are supported including the following
 | loading?      | `boolean`                                | Prevent actions and show a loading spinner                                                                       | false     |
 | size?         | `ButtonSizes`                            | 'default', 'small', 'icon', 'reset'                                                                              | 'default' |
 | type?         | `ButtonTypes`                            | 'button', 'submit', 'reset'. If the button is inside a `<form>`: use 'submit'. Otherwise use 'button' (default). | 'button'  |
-| variant?      | `ButtonVariants`                         | 'primary', 'secondary', 'inverse', 'destructive', 'destructive_link', 'link', 'reset'                            | 'primary' |
+| variant?      | `ButtonVariants`                         | 'primary', 'secondary', 'inverse', 'destructive', 'destructive_secondary', 'destructive_link', 'link', 'reset'   | 'primary' |
 | onClick?      | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                  | null      |
 | onMouseDown?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                  | null      |
 | onMouseUp?    | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                  | null      |
