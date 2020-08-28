@@ -66,7 +66,7 @@ input[type=checkbox][aria-checked=mixed]:focus + label .emotion-0 {
 
 input[type=checkbox]:checked:hover:not(:disabled) + label .emotion-0,
 input[type=checkbox][aria-checked=mixed]:hover:not(:disabled) + label .emotion-0 {
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 input[type=checkbox][aria-invalid=true]:checked + label .emotion-0 {
