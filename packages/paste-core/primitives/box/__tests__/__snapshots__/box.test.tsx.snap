@@ -78,7 +78,7 @@ exports[`Borders it should render responsive values 1`] = `
     border-style: dotted;
     border-color: rgb(179,211,233);
     border-width: 2px;
-    border-radius: 3px;
+    border-radius: 2px;
   }
 }
 
