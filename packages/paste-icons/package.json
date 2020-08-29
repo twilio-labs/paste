@@ -10,7 +10,8 @@
   },
   "files": [
     "cjs",
-    "esm"
+    "esm",
+    "json"
   ],
   "scripts": {
     "convert": "node ./tools/cli.js convert",
