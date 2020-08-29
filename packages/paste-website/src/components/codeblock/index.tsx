@@ -9,6 +9,7 @@ const StyledCode = styled.code<{}>(props => ({
   fontSize: themeGet('fontSizes.fontSize30')(props),
   overflowX: 'auto',
   padding: `${themeGet('space.space40')(props)} ${themeGet('space.space60')(props)}`,
+  whiteSpace: 'pre',
 }));
 
 export type Language =

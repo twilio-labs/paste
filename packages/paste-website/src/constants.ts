@@ -11,7 +11,7 @@ export const SidebarCategoryRoutes = {
   COMPONENTS: '/components',
   PRIMITIVES: '/primitives',
   LAYOUT: '/layout',
-  ICON_SYSTEM: '/icon-system',
+  ICON_SYSTEM: '/icons',
   CONTENT: '/content',
   GETTING_STARTED: '/getting-started',
   TOKENS: '/tokens',
