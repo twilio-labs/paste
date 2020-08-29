@@ -1,7 +1,7 @@
 ---
 title: Icon Usage Guidelines
 description: Overview on how to use icons in the context of Paste projects.
-slug: /icon-system/
+slug: /icons/usage-guidelines/
 ---
 
 import {graphql} from 'gatsby';
@@ -13,13 +13,13 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Button} from '@twilio-paste/button';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {LoadingIcon} from '@twilio-paste/icons/esm/LoadingIcon';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
-import {DoDont, Do, Dont} from '../../components/DoDont';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
 import Changelog from '@twilio-paste/icons/CHANGELOG.md';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/icon-system/"}}) {
+    mdx(fields: {slug: {eq: "/icons/usage-guidelines/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -196,7 +196,7 @@ import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 | ---------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
 | as?        | string                                 | The HTML tag to replace the default `<button>` tag.                                                                                                   | `span`         |
 | title?     | string                                 | The accessibility text that is read when screenreaders get to this component.                                                                         |                |
-| display?   | `ResponsiveValue<CSS.DisplayProperty>` |                                                                                                                                                       | `block`  |
+| display?   | `ResponsiveValue<CSS.DisplayProperty>` |                                                                                                                                                       | `block`        |
 | decorative | boolean                                | Whether or not the SVG is just visual flair or adds meaning to the page. Specifically for screenreaders to know whether to read out the title or not. |                |
 | size?      | IconSize                               | `sizeIcon10` `sizeIcon20` `sizeIcon30` `sizeIcon40`                                                                                                   | `sizeIcon20`   |
 | color?     | TextColor                              | Sets the icon color to any of our text color tokens or `currentColor`, which inherits text color from the parent element.                             | `currentColor` |

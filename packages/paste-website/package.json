@@ -88,7 +88,8 @@
     "react-instantsearch-dom": "^6.5.0",
     "react-live": "^2.1.2",
     "react-scrollspy": "^3.4.0",
-    "react-uid": "^2.2.0"
+    "react-uid": "^2.2.0",
+    "use-clipboard-copy": "^0.1.2"
   },
   "resolutions": {
     "**/websocket-extensions": "^0.1.4",

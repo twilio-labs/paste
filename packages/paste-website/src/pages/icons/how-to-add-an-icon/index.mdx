@@ -1,7 +1,7 @@
 ---
 title: How to add an icon
 description: Guidelines on how to create and export SVG icons for Paste.
-slug: /icon-system/how-to-add-an-icon/
+slug: /icons/how-to-add-an-icon/
 ---
 
 import {graphql} from 'gatsby';
@@ -17,7 +17,7 @@ import {Grid} from '../../../components/grid';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/icon-system/how-to-add-an-icon/"}}) {
+    mdx(fields: {slug: {eq: "/icons/how-to-add-an-icon/"}}) {
       fileAbsolutePath
       frontmatter {
         slug

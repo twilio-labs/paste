@@ -272,12 +272,17 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
             isOpen={iconSystemOpen}
             aria-expanded={iconSystemOpen}
           >
-            Icon System
+            Icons
             <SiteNavAnchorArrow isOpen={iconSystemOpen} />
           </SiteNavButton>
           <SiteNavNestList isOpen={iconSystemOpen}>
             <SiteNavItem>
-              <SiteNavAnchor to={SidebarCategoryRoutes.ICON_SYSTEM}>Usage Guidelines</SiteNavAnchor>
+              <SiteNavAnchor to={`${SidebarCategoryRoutes.ICON_SYSTEM}`}>Icons List</SiteNavAnchor>
+            </SiteNavItem>
+            <SiteNavItem>
+              <SiteNavAnchor to={`${SidebarCategoryRoutes.ICON_SYSTEM}/usage-guidelines`}>
+                Usage Guidelines
+              </SiteNavAnchor>
             </SiteNavItem>
             <SiteNavItem>
               <SiteNavAnchor to={`${SidebarCategoryRoutes.ICON_SYSTEM}/how-to-add-an-icon`}>
