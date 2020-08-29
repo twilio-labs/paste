@@ -7,8 +7,11 @@ import {ThemeSwitcher} from '../ThemeSwitcher';
 // import {Search} from '../search';
 import {ContactUsMenu} from '../ContactUsMenu';
 import GithubIcon from '../icons/GithubIcon';
+import {getMainContentComputedOffset} from '../../utils/stickyUtils';
+import {SiteBodyContext} from './SiteBodyContext';
 
-export const SiteHeader: React.FC<{}> = () => {
+export const SiteHeader: React.FC = () => {
+  const {isPasteTheme} = React.useContext(SiteBodyContext);
   const theme = useTheme();
   return (
     <Box
@@ -22,24 +25,14 @@ export const SiteHeader: React.FC<{}> = () => {
       paddingTop="space50"
       paddingBottom="space50"
       position="sticky"
-      top="0"
+      top={`${getMainContentComputedOffset(isPasteTheme)}px`}
       zIndex="zIndex80"
     >
-      <Box
-        display="flex"
-        justifyContent="space-between"
-        alignItems={['flex-start', 'flex-start', 'flex-start', 'center']}
-        flexDirection={['column', 'column', 'column', 'row']}
-      >
+      <Box display="flex" justifyContent="space-between" alignItems="center" flexDirection="row">
         <ThemeSwitcher />
-        <Box marginTop={['space40', 'space40', 'space40', 'space0']}>
+        <Box marginTop="space0">
           <Stack orientation="horizontal" spacing="space60">
-            <Box
-              minWidth={['size20', 'size20', 'size20', 'size40']}
-              marginBottom={['space40', 'space40', 'space40', 'space0']}
-            >
-              {/* <Search /> */}
-            </Box>
+            <Box minWidth={['size30', 'size30', 'size30', 'size40']}>{/* <Search /> */}</Box>
             <ContactUsMenu />
             <Anchor href="https://www.github.com/twilio-labs/paste">
               <GithubIcon

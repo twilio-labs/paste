@@ -1,11 +1,6 @@
-import {styled, themeGet} from '@twilio-paste/styling-library';
+import * as React from 'react';
+import {Box, BoxElementProps} from '@twilio-paste/box';
 
-export const SiteMain = styled.main`
-  position: relative;
-  overflow: auto;
-  padding-top: ${themeGet('space.space100')};
-`;
+export const SiteMain: React.FC<BoxElementProps> = props => <Box as="main" flex="1" paddingTop="space100" {...props} />;
 
-export const SiteMainInner = styled.div`
-  padding: 0 ${themeGet('space.space200')};
-`;
+export const SiteMainInner: React.FC<BoxElementProps> = props => <Box paddingX="space200" {...props} />;

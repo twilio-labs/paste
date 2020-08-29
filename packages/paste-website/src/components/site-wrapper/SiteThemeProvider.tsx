@@ -5,13 +5,7 @@ import {useActiveSiteTheme} from '../../context/ActiveSiteThemeContext';
 const SiteThemeProvider: React.FC = ({children}) => {
   const {theme} = useActiveSiteTheme();
   return (
-    <Theme.Provider
-      theme={theme}
-      css={{
-        height: '100vh',
-        overflow: 'hidden',
-      }}
-    >
+    <Theme.Provider theme={theme} css={{minWidth: '1024px'}}>
       {children}
     </Theme.Provider>
   );
