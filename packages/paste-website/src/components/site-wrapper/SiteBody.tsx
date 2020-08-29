@@ -4,7 +4,8 @@ import {secureExternalLink} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Alert} from '@twilio-paste/alert';
 import {Text} from '@twilio-paste/text';
-import {SIDEBAR_WIDTH} from './constants';
+import {SIDEBAR_WIDTH} from '../../constants';
+import {SiteBodyContext} from './SiteBodyContext';
 import {Sidebar} from './sidebar';
 import {SiteHeader} from './SiteHeader';
 import {SiteMain, SiteMainInner} from './SiteMain';
@@ -12,30 +13,10 @@ import {SiteFooter} from './SiteFooter';
 import {ScrollAnchorIntoView} from './ScrollAnchorIntoView';
 import {useActiveSiteTheme} from '../../context/ActiveSiteThemeContext';
 
-interface StyledSiteBodyProps {
-  isPasteTheme: boolean;
-}
-
-const PSAAlertHeight = 44;
-const PasteThemeAlertHeight = 46;
-
-// The body area needs to be set to a specific height otherwise tabbing through the page
-// will cause the browser to automatically scroll it upwards, hiding the header area behind
-// the alerts.
-const getSiteBodyHeight = (isPasteTheme: boolean): string => {
-  let topOffset = PSAAlertHeight;
-  if (isPasteTheme) {
-    topOffset += PasteThemeAlertHeight;
-  }
-
-  return `calc(100vh - ${topOffset}px)`;
-};
-
 /* Wraps the entire doc site page */
-const StyledSiteBody = styled.div<StyledSiteBodyProps>`
+const StyledSiteBody = styled.div`
   display: flex;
   min-width: 240px;
-  height: ${props => getSiteBodyHeight(props.isPasteTheme)};
 
   @supports (display: grid) {
     display: grid;
@@ -55,7 +36,6 @@ const PsaAlert: React.FC = () => {
       role="status"
       display="flex"
       justifyContent="center"
-      position="sticky"
       top="0"
       zIndex="zIndex90"
     >
@@ -80,7 +60,8 @@ const PsaAlert: React.FC = () => {
   );
 };
 
-const PasteThemeAlert: React.FC<{isPasteTheme: boolean}> = ({isPasteTheme}) => {
+const PasteThemeAlert: React.FC = () => {
+  const {isPasteTheme} = React.useContext(SiteBodyContext);
   if (!isPasteTheme) {
     return null;
   }
@@ -99,20 +80,22 @@ export const SiteBody: React.FC = ({children}) => {
   const {theme: activeTheme} = useActiveSiteTheme();
   const isPasteTheme = activeTheme === 'default';
   return (
-    <>
-      <PsaAlert />
-      <PasteThemeAlert isPasteTheme={isPasteTheme} />
-      <StyledSiteBody isPasteTheme={isPasteTheme}>
+    <SiteBodyContext.Provider value={{isPasteTheme}}>
+      <Box position="sticky" top="0" zIndex="zIndex20">
+        <PsaAlert />
+        <PasteThemeAlert />
+      </Box>
+      <StyledSiteBody>
         <Sidebar />
-        <Box height="100vh" overflow="auto">
+        <Box minWidth="size0">
           <SiteHeader />
-          <SiteMain id="site-main" tabIndex={-1} role="main">
+          <SiteMain id="site-main" role="main">
             <ScrollAnchorIntoView />
             <SiteMainInner>{children}</SiteMainInner>
             <SiteFooter />
           </SiteMain>
         </Box>
       </StyledSiteBody>
-    </>
+    </SiteBodyContext.Provider>
   );
 };
