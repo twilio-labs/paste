@@ -4,7 +4,7 @@ import {Stack} from '@twilio-paste/stack';
 import {Anchor} from '@twilio-paste/anchor';
 import {useTheme} from '@twilio-paste/theme';
 import {ThemeSwitcher} from '../ThemeSwitcher';
-import {Search} from '../search';
+// import {Search} from '../search';
 import {ContactUsMenu} from '../ContactUsMenu';
 import GithubIcon from '../icons/GithubIcon';
 
@@ -38,7 +38,7 @@ export const SiteHeader: React.FC<{}> = () => {
               minWidth={['size20', 'size20', 'size20', 'size40']}
               marginBottom={['space40', 'space40', 'space40', 'space0']}
             >
-              <Search />
+              {/* <Search /> */}
             </Box>
             <ContactUsMenu />
             <Anchor href="https://www.github.com/twilio-labs/paste">
