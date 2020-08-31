@@ -8,6 +8,7 @@ const merge = require('lodash.merge');
 
 const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default, {
   color: 'colorTextLinkDestructive',
+  transition: 'none',
   _hover: {color: 'colorTextLinkDestructiveDark', textDecoration: 'underline'},
   _active: {color: 'colorTextLinkDestructiveDarker', textDecoration: 'underline'},
   _focus: {color: 'colorTextLinkDestructiveDark', textDecoration: 'underline'},
