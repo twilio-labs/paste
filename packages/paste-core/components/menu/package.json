@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/menu",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "category": "interaction",
   "status": "alpha",
   "description": "A menu presents a list of menu items that a user can choose to perform an action with.",
@@ -29,7 +29,7 @@
   },
   "peerDependencies": {
     "@twilio-paste/absolute": "^2.0.65",
-    "@twilio-paste/anchor": "^1.1.43",
+    "@twilio-paste/anchor": "^1.1.44",
     "@twilio-paste/box": "^2.9.6",
     "@twilio-paste/button": "^2.2.0",
     "@twilio-paste/design-tokens": "^6.2.2",
@@ -41,7 +41,7 @@
     "@twilio-paste/spinner": "^2.0.7",
     "@twilio-paste/style-props": "^1.5.5",
     "@twilio-paste/styling-library": "^0.1.2",
-    "@twilio-paste/text": "^2.2.16",
+    "@twilio-paste/text": "^2.2.17",
     "@twilio-paste/theme": "^3.2.18",
     "@twilio-paste/types": "^3.0.21",
     "prop-types": "^15.7.2",
@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@twilio-paste/absolute": "^2.0.65",
-    "@twilio-paste/anchor": "^1.1.43",
+    "@twilio-paste/anchor": "^1.1.44",
     "@twilio-paste/box": "^2.9.6",
     "@twilio-paste/button": "^2.2.0",
     "@twilio-paste/design-tokens": "^6.2.2",
@@ -63,7 +63,7 @@
     "@twilio-paste/spinner": "^2.0.7",
     "@twilio-paste/style-props": "^1.5.5",
     "@twilio-paste/styling-library": "^0.1.2",
-    "@twilio-paste/text": "^2.2.16",
+    "@twilio-paste/text": "^2.2.17",
     "@twilio-paste/theme": "^3.2.18",
     "@twilio-paste/types": "^3.0.21"
   }
