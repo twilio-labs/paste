@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.1.6...@twilio-paste/button@2.2.0) (2020-08-31)
+
+
+### Features
+
+* **button:** add desctructive_secondary variant ([52dbfec](https://github.com/twilio-labs/paste/commit/52dbfec786f63d11090c8082cee1132951ad18ce))
+
+
+
+
+
 ## [2.1.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.1.5...@twilio-paste/button@2.1.6) (2020-08-31)
 
 **Note:** Version bump only for package @twilio-paste/button
