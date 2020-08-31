@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/aspect-ratio",
-  "version": "1.0.63",
+  "version": "1.0.64",
   "category": "layout",
   "status": "alpha",
   "description": "",
@@ -28,24 +28,24 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@twilio-paste/absolute": "^2.0.63",
-    "@twilio-paste/box": "^2.9.4",
-    "@twilio-paste/design-tokens": "^6.2.0",
-    "@twilio-paste/style-props": "^1.5.3",
+    "@twilio-paste/absolute": "^2.0.64",
+    "@twilio-paste/box": "^2.9.5",
+    "@twilio-paste/design-tokens": "^6.2.1",
+    "@twilio-paste/style-props": "^1.5.4",
     "@twilio-paste/styling-library": "^0.1.2",
-    "@twilio-paste/theme": "^3.2.16",
-    "@twilio-paste/types": "^3.0.19",
+    "@twilio-paste/theme": "^3.2.17",
+    "@twilio-paste/types": "^3.0.20",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/absolute": "^2.0.63",
-    "@twilio-paste/box": "^2.9.4",
-    "@twilio-paste/design-tokens": "^6.2.0",
-    "@twilio-paste/style-props": "^1.5.3",
+    "@twilio-paste/absolute": "^2.0.64",
+    "@twilio-paste/box": "^2.9.5",
+    "@twilio-paste/design-tokens": "^6.2.1",
+    "@twilio-paste/style-props": "^1.5.4",
     "@twilio-paste/styling-library": "^0.1.2",
-    "@twilio-paste/theme": "^3.2.16",
-    "@twilio-paste/types": "^3.0.19"
+    "@twilio-paste/theme": "^3.2.17",
+    "@twilio-paste/types": "^3.0.20"
   }
 }
