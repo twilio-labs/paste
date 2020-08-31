@@ -48,7 +48,11 @@ const AllSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
   });
 
   return (
-    <Box backgroundColor={variant === 'inverse' ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody'}>
+    <Box
+      backgroundColor={
+        variant === 'inverse' || variant === 'inverse_link' ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody'
+      }
+    >
       {allButtons}
     </Box>
   );
@@ -63,6 +67,7 @@ storiesOf('Components|Button', module)
   .add('Destructive Secondary Button', () => <AllSizeOptions variant="destructive_secondary" />)
   .add('Destructive Link Button', () => <AllSizeOptions variant="destructive_link" />)
   .add('Link Button', () => <AllSizeOptions variant="link" />)
+  .add('Inverse Link Button', () => <AllSizeOptions variant="inverse_link" />)
   .add('Reset', () => (
     <>
       <AllSizeOptions variant="reset" />

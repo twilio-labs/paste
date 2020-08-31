@@ -7,19 +7,19 @@ import {DirectButtonProps, DirectButtonPropTypes} from './types';
 const merge = require('lodash.merge');
 
 const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default, {
-  color: 'colorTextLink',
+  color: 'colorTextInverse',
   transition: 'none',
-  _hover: {color: 'colorTextLinkDark', textDecoration: 'underline'},
-  _focus: {color: 'colorTextLinkDark', textDecoration: 'underline'},
-  _active: {color: 'colorTextLinkDarker', textDecoration: 'underline'},
+  _hover: {color: 'colorTextInverseWeaker', textDecoration: 'underline'},
+  _focus: {color: 'colorTextInverseWeaker', boxShadow: 'shadowFocusInverse', textDecoration: 'underline'},
+  _active: {textDecoration: 'underline'},
 });
 
 const loadingStyles: BoxStyleProps = merge({}, BaseStyles.loading, {
-  color: 'colorTextLinkDarker',
+  color: 'colorTextInverse',
 });
 
 const disabledStyles: BoxStyleProps = merge({}, BaseStyles.disabled, {
-  color: 'colorTextLinkLight',
+  color: 'colorTextInverseWeaker',
 });
 
 const ButtonStyleMapping = {
@@ -28,7 +28,7 @@ const ButtonStyleMapping = {
   disabled: disabledStyles,
 };
 
-const LinkButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
+const InverseLinkButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
   ({size, buttonState, fullWidth, ...props}, ref) => {
     // Must spread size styles after button styles
     return (
@@ -42,12 +42,12 @@ const LinkButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
     );
   }
 );
-LinkButton.defaultProps = {
+InverseLinkButton.defaultProps = {
   as: 'a',
 };
 if (process.env.NODE_ENV === 'development') {
-  LinkButton.propTypes = DirectButtonPropTypes;
+  InverseLinkButton.propTypes = DirectButtonPropTypes;
 }
-LinkButton.displayName = 'LinkButton';
+InverseLinkButton.displayName = 'InverseLinkButton';
 
-export {LinkButton};
+export {InverseLinkButton};

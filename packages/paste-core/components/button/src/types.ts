@@ -9,6 +9,7 @@ export type ButtonVariants =
   | 'destructive_link'
   | 'destructive_secondary'
   | 'link'
+  | 'inverse_link'
   | 'inverse'
   | 'reset';
 export type ButtonStates = 'disabled' | 'loading' | 'default';
@@ -59,6 +60,8 @@ export const ButtonPropTypes = {
     'destructive_link',
     'destructive_secondary',
     'link',
+    'inverse_link',
+    'inverse',
     'reset',
   ]).isRequired as any,
 };
