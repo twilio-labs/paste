@@ -6,33 +6,32 @@ import * as React from 'react';
 import {createComponent} from 'reakit-system/createComponent';
 import {createHook} from 'reakit-system/createHook';
 import {useForkRef} from 'reakit-utils/useForkRef';
-import {BoxOptions, BoxHTMLProps, useBox, usePopoverState, PopoverStateReturn} from 'reakit';
+import {BoxOptions, BoxHTMLProps, useBox, PopoverStateReturn} from 'reakit';
+import {POPOVER_ARROW_KEYS} from './__keys';
 
 export type PopoverArrowOptions = BoxOptions &
   Pick<Partial<PopoverStateReturn>, 'unstable_arrowRef' | 'unstable_arrowStyles'> &
   Pick<PopoverStateReturn, 'placement'> & {
     /** Arrow's size */
     size?: number | string;
+    fill?: string;
+    stroke?: string;
   };
 
-export type PopoverArrowHTMLProps = BoxHTMLProps & {
-  fill?: string;
-  stroke?: string;
-};
+export type PopoverArrowHTMLProps = BoxHTMLProps;
 
 export type PopoverArrowProps = PopoverArrowOptions & PopoverArrowHTMLProps;
 
 export const usePopoverArrow = createHook<PopoverArrowOptions, PopoverArrowHTMLProps>({
   name: 'PopoverArrow',
   compose: useBox,
-  useState: usePopoverState,
-  keys: ['size'],
+  keys: POPOVER_ARROW_KEYS,
 
-  useOptions({size = 30, ...options}) {
+  useOptions({size = 30, fill, stroke, ...options}) {
     return {size, ...options};
   },
 
-  useProps(options, {ref: htmlRef, style: htmlStyle, fill, stroke, ...htmlProps}) {
+  useProps(options, {ref: htmlRef, style: htmlStyle, ...htmlProps}) {
     const [placement] = options.placement.split('-');
     const transformMap: Record<string, string> = {
       top: 'rotateZ(180deg)',
@@ -40,7 +39,7 @@ export const usePopoverArrow = createHook<PopoverArrowOptions, PopoverArrowHTMLP
       bottom: 'rotateZ(360deg)',
       left: 'rotateZ(90deg)',
     };
-    const {unstable_arrowStyles: arrowStyles} = options;
+    const {unstable_arrowStyles: arrowStyles, fill, stroke} = options;
     const transform = transformMap[placement];
 
     const children = React.useMemo(
