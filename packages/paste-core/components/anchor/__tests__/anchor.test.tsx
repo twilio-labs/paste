@@ -4,11 +4,6 @@ import {axe} from 'jest-axe';
 import {Anchor} from '../src';
 
 describe('Anchor', () => {
-  it('it should render an anchor', () => {
-    const {asFragment} = render(<Anchor href="/">This is an anchor</Anchor>);
-    expect(asFragment()).toMatchSnapshot();
-  });
-
   it('it should render an external anchor', () => {
     render(
       <Anchor href="https://twilio.com">
