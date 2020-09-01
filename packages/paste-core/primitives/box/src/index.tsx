@@ -144,6 +144,7 @@ const extraConfig = system({
   textDecoration: true,
   textOverflow: true,
   whiteSpace: true,
+  wordBreak: true,
   opacity: true,
 });
 
