@@ -80,6 +80,7 @@ const extraConfig = system({
   outline: true,
   transition: true,
   textTransform: true,
+  wordBreak: true,
 });
 
 const textDecoration = system({textDecoration: true});
