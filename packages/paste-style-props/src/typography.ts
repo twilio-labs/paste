@@ -11,4 +11,5 @@ export const TYPOGRAPHY_PROPS = [
   'textOverflow',
   'textTransform',
   'whiteSpace',
+  'wordBreak',
 ];
