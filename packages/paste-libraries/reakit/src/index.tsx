@@ -2,6 +2,17 @@ import {PopoverArrow, PopoverArrowProps} from './Popover/PopoverArrow';
 import {TooltipArrow, TooltipArrowProps} from './Tooltip/TooltipArrow';
 
 export {
+  // https://reakit.io/docs/composite/
+  useCompositeState,
+  Composite,
+  CompositeGroup,
+  CompositeItem,
+  CompositeState,
+  CompositeStateReturn,
+  CompositeInitialState,
+  CompositeProps,
+  CompositeItemProps,
+  CompositeGroupProps,
   // https://reakit.io/docs/disclosure/
   useDisclosureState,
   Disclosure,
