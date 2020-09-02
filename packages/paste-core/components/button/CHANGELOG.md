@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.2.0...@twilio-paste/button@2.3.0) (2020-09-02)
+
+
+### Features
+
+* **button:** add inverse_link button variant ([f3250a1](https://github.com/twilio-labs/paste/commit/f3250a1ee1063848879d947c445d6c9df5d7052b))
+
+
+
+
+
 # [2.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.1.6...@twilio-paste/button@2.2.0) (2020-08-31)
 
 
