@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/anchor",
-  "version": "1.1.44",
+  "version": "1.2.0",
   "category": "interaction",
   "status": "production",
   "description": "Twilio's Anchor component",

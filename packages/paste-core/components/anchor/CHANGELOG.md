@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@1.1.44...@twilio-paste/anchor@1.2.0) (2020-09-02)
+
+
+### Features
+
+* **anchor:** add inverse variant ([e7f8072](https://github.com/twilio-labs/paste/commit/e7f807201850962cb405e67611bc58a8b496daa3))
+
+
+
+
+
 ## [1.1.44](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@1.1.43...@twilio-paste/anchor@1.1.44) (2020-08-31)
 
 **Note:** Version bump only for package @twilio-paste/anchor
