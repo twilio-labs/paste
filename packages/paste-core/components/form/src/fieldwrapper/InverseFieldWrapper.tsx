@@ -43,7 +43,7 @@ const InverseFieldWrapper: React.FC<FieldWrapperProps> = ({disabled, hasError, r
   );
 };
 
-InverseFieldWrapper.displayName = 'FieldWrapper';
+InverseFieldWrapper.displayName = 'InverseFieldWrapper';
 
 if (process.env.NODE_ENV === 'development') {
   InverseFieldWrapper.propTypes = FieldWrapperPropTypes;

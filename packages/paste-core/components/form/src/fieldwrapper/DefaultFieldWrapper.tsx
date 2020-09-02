@@ -42,7 +42,7 @@ const DefaultFieldWrapper: React.FC<FieldWrapperProps> = ({disabled, hasError, r
   );
 };
 
-DefaultFieldWrapper.displayName = 'FieldWrapper';
+DefaultFieldWrapper.displayName = 'DefaultFieldWrapper';
 
 if (process.env.NODE_ENV === 'development') {
   DefaultFieldWrapper.propTypes = FieldWrapperPropTypes;
