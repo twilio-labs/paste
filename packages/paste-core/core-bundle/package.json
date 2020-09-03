@@ -55,7 +55,7 @@
     "@twilio-paste/separator": "^0.1.20",
     "@twilio-paste/spinner": "^1.2.21",
     "@twilio-paste/stack": "^0.1.17",
-    "@twilio-paste/tabs": "^0.1.9",
+    "@twilio-paste/tabs": "^0.3.3",
     "@twilio-paste/tabs-primitive": "^0.1.6",
     "@twilio-paste/text": "^2.2.1",
     "@twilio-paste/tooltip-primitive": "^0.1.2",
