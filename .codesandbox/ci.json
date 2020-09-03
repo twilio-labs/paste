@@ -1,6 +1,20 @@
 {
   "buildCommand": "build",
-  "packages": ["/packages/paste-core/**/*", "/packages/paste-design-tokens", "/packages/paste-icons", "/packages/paste-libraries/**/*", "/packages/paste-style-props", "/packages/paste-theme", "/packages/paste-types"],
+  "packages": [
+    "/packages/paste-core/components/*",
+    "/packages/paste-core/layout/*",
+    "/packages/paste-core/primitives/*",
+    "/packages/paste-core/core-bundle",
+    "/packages/paste-design-tokens",
+    "/packages/paste-icons",
+    "/packages/paste-libraries/animation",
+    "/packages/paste-libraries/dropdown",
+    "/packages/paste-libraries/reakit",
+    "/packages/paste-libraries/styling",
+    "/packages/paste-style-props",
+    "/packages/paste-theme",
+    "/packages/paste-types"
+  ],
   "sandboxes": ["/examples/create-react-app"]
 }
 
