@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.2.28...@twilio-paste/website@2.3.0) (2020-09-03)
+
+
+### Bug Fixes
+
+* **website:** sticky header and sidebar issues ([2d47833](https://github.com/twilio-labs/paste/commit/2d478330399af42dc65888dee3377cc8a586d615))
+
+
+### Features
+
+* **website:** icon list page ([0c24c3c](https://github.com/twilio-labs/paste/commit/0c24c3cf63324e71998bfe1a023c4861f9ccd305))
+
+
+
+
+
 ## [2.2.28](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.2.27...@twilio-paste/website@2.2.28) (2020-09-02)
 
 **Note:** Version bump only for package @twilio-paste/website

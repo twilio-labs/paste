@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.5.5...@twilio-paste/style-props@1.6.0) (2020-09-03)
+
+
+### Features
+
+* **style-props:** add support for word-break prop ([364aeb8](https://github.com/twilio-labs/paste/commit/364aeb81a46a222d143f3d873318f09270694b95))
+
+
+
+
+
 ## [1.5.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.5.4...@twilio-paste/style-props@1.5.5) (2020-08-31)
 
 **Note:** Version bump only for package @twilio-paste/style-props

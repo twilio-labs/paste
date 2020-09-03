@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.70](https://github.com/twilio-labs/paste/compare/@twilio-paste/typography@1.0.69...@twilio-paste/typography@1.0.70) (2020-09-03)
+
+**Note:** Version bump only for package @twilio-paste/typography
+
+
+
+
+
 ## [1.0.69](https://github.com/twilio-labs/paste/compare/@twilio-paste/typography@1.0.68...@twilio-paste/typography@1.0.69) (2020-08-31)
 
 **Note:** Version bump only for package @twilio-paste/typography

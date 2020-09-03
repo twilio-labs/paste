@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/reakit-library@0.6.2...@twilio-paste/reakit-library@0.7.0) (2020-09-03)
+
+
+### Features
+
+* **reakit-library:** add composite to exports ([4de8e1d](https://github.com/twilio-labs/paste/commit/4de8e1d781c9bdbe8a8fe2020f63212360f48005))
+
+
+
+
+
 ## [0.6.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/reakit-library@0.6.1...@twilio-paste/reakit-library@0.6.2) (2020-07-01)
 
 **Note:** Version bump only for package @twilio-paste/reakit-library

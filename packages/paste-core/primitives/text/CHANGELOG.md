@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/text@2.2.17...@twilio-paste/text@2.3.0) (2020-09-03)
+
+
+### Features
+
+* **text:** add support for word-break prop ([abba70d](https://github.com/twilio-labs/paste/commit/abba70d5073b2101e75a8951471c3f45a952d260))
+
+
+
+
+
 ## [2.2.17](https://github.com/twilio-labs/paste/compare/@twilio-paste/text@2.2.16...@twilio-paste/text@2.2.17) (2020-08-31)
 
 **Note:** Version bump only for package @twilio-paste/text

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.9.6...@twilio-paste/box@2.10.0) (2020-09-03)
+
+
+### Features
+
+* **box:** add support for word-break prop ([136893e](https://github.com/twilio-labs/paste/commit/136893ef0a79c2f2228ed323b22b0f2d2980e149))
+
+
+
+
+
 ## [2.9.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.9.5...@twilio-paste/box@2.9.6) (2020-08-31)
 
 **Note:** Version bump only for package @twilio-paste/box
