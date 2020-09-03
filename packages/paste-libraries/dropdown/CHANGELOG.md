@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/dropdown-library@0.1.2...@twilio-paste/dropdown-library@1.0.0) (2020-09-03)
+
+
+### chore
+
+* **dropdown-library:** upgrade downshift to v6 ([#716](https://github.com/twilio-labs/paste/issues/716)) ([ee7d839](https://github.com/twilio-labs/paste/commit/ee7d839746160f1612931a3d35f22dab357b58b2))
+
+
+### BREAKING CHANGES
+
+* **dropdown-library:** The upgrade to downshift has introduced some breaking changes to the typings of certain properties
+but none to the API itself.
+
+Please follow the release notes from downshift for more information: https://github.com/downshift-js/downshift/releases/tag/v6.0.0
+
+
+
+
+
 ## [0.1.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/dropdown-library@0.1.1...@twilio-paste/dropdown-library@0.1.2) (2020-07-01)
 
 **Note:** Version bump only for package @twilio-paste/dropdown-library
