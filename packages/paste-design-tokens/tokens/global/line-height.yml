@@ -4,6 +4,9 @@ global:
 imports:
   - ../aliases/line-height.yml
 props:
+  line-height-0:
+    value: "{!line-height-0}"
+    comment: "Constant line-height token for line-height 0"
   line-height-10:
     value: "{!line-height-10}"
     comment: "Constant line-height token for line-height 10"
