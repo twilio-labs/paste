@@ -43,7 +43,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
           </Column>
           <Column span={[12, 12, 6, 5, 4]}>
             <Card padding={['space60', 'space60', 'space60', 'space90']}>
-              <Heading as="h2" variant="heading20">
+              <Heading as="h2" variant="heading30">
                 <Stack as="span" orientation="horizontal" spacing="space20">
                   <NewIcon color="colorTextNew" decorative size="sizeIcon60" />
                   What&rsquo;s new in Paste?
