@@ -3,6 +3,8 @@ import {storiesOf} from '@storybook/react';
 import {IconSizeOptions, TextColorOptions} from '@twilio-paste/style-props';
 import {DefaultTheme} from '@twilio-paste/theme';
 import {Stack} from '@twilio-paste/stack';
+import {Text} from '@twilio-paste/text';
+import {Flex} from '@twilio-paste/flex';
 import {withKnobs, select, text, boolean} from '@storybook/addon-knobs';
 import {CopyIcon} from '../src/CopyIcon';
 
@@ -30,6 +32,27 @@ storiesOf('Components|Icon', module)
         {SizeOptions.map((size: IconSizeOptions) => (
           <CopyIcon size={size} decorative />
         ))}
+      </Stack>
+    );
+  })
+  .add('alignment', () => {
+    return (
+      <Stack orientation="vertical" spacing="space40">
+        <Text as="div" fontSize="fontSize30">
+          <Flex vAlignContent="center">
+            <CopyIcon decorative /> Some text to align to
+          </Flex>
+        </Text>
+        <Text as="div" fontSize="fontSize80" lineHeight="lineHeight80">
+          <Flex vAlignContent="center">
+            <CopyIcon decorative /> Some text to align to
+          </Flex>
+        </Text>
+        <Text as="div" fontSize="fontSize110" lineHeight="lineHeight110">
+          <Flex vAlignContent="center">
+            <CopyIcon decorative /> Some text to align to
+          </Flex>
+        </Text>
       </Stack>
     );
   });
