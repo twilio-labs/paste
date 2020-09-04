@@ -28,6 +28,7 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
+    "@twilio-paste/box": "^2.10.0",
     "@twilio-paste/design-tokens": "^6.2.2",
     "@twilio-paste/icons": "^3.2.0",
     "@twilio-paste/style-props": "^1.6.0",
@@ -40,6 +41,7 @@
     "react-uid": "^2.2.0"
   },
   "devDependencies": {
+    "@twilio-paste/box": "^2.10.0",
     "@twilio-paste/design-tokens": "^6.2.2",
     "@twilio-paste/icons": "^3.2.0",
     "@twilio-paste/style-props": "^1.6.0",
