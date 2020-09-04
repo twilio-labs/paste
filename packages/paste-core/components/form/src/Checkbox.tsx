@@ -4,6 +4,8 @@ import {useUID} from 'react-uid';
 import {styled} from '@twilio-paste/styling-library';
 import {Box} from '@twilio-paste/box';
 import {BackgroundColorOptions, SpaceOptions} from '@twilio-paste/style-props';
+import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
+import {MinusIcon} from '@twilio-paste/icons/esm/MinusIcon';
 import {
   BaseRadioCheckboxControl,
   BaseRadioCheckboxLabel,
@@ -26,6 +28,19 @@ const HiddenCheckbox = styled.input({
 });
 /* eslint-enable */
 
+const CheckboxIcon: React.FC<{
+  indeterminate: boolean | undefined;
+  disabled: boolean | undefined;
+  checked: boolean | undefined;
+}> = ({disabled, checked, indeterminate}) => {
+  const color = disabled && (checked || indeterminate) ? 'colorTextInverse' : 'colorTextInverse';
+
+  if (indeterminate) {
+    return <MinusIcon decorative color={color} />;
+  }
+  return <CheckboxCheckIcon hidden={!checked} decorative color={color} />;
+};
+
 export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   children: NonNullable<React.ReactNode>;
   hasError?: boolean;
@@ -35,6 +50,7 @@ export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElemen
   isSelectAll?: boolean;
   isSelectAllChild?: boolean;
 }
+
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (
     {id, checked, children, helpText, disabled, hasError, indeterminate, isSelectAllChild, isSelectAll, ...props},
@@ -42,13 +58,21 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   ) => {
     const helpTextId = useUID();
 
+    let paddingLeft: SpaceOptions | null = null;
     let checkboxBackground: BackgroundColorOptions | null = null;
-    if (isSelectAll && !disabled) checkboxBackground = 'colorBackground';
-    if ((isSelectAll && checked) || (isSelectAll && indeterminate))
-      checkboxBackground = 'colorBackgroundPrimaryLightest';
 
-    let paddingLeft: SpaceOptions | null = isSelectAll ? 'space20' : null;
-    if (isSelectAllChild) paddingLeft = 'space30';
+    if (isSelectAll) {
+      paddingLeft = 'space20';
+
+      if (checked || indeterminate) {
+        checkboxBackground = 'colorBackgroundPrimaryLightest';
+      } else if (!disabled) {
+        checkboxBackground = 'colorBackground';
+      }
+    }
+    if (isSelectAllChild) {
+      paddingLeft = 'space30';
+    }
 
     return (
       <Box
@@ -78,48 +102,9 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             alignItems="center"
             borderRadius="borderRadius10"
             disabled={disabled}
-            display="flex"
             position="relative"
-            type="checkbox"
           >
-            <Box
-              alignItems="center"
-              as="span"
-              display="flex"
-              height={!indeterminate ? 'sizeSquare25' : undefined}
-              position="absolute"
-              top={!indeterminate ? '3px' : undefined}
-              transform={!indeterminate ? 'rotate(-45deg)' : undefined}
-              width="sizeSquare30"
-              _before={
-                !indeterminate
-                  ? {
-                      borderColor: disabled && checked ? 'colorBorderDark' : 'colorBorderInverseLightest',
-                      borderRadius: 'borderRadius10',
-                      borderStyle: 'solid',
-                      borderWidth: 'borderWidth10',
-                      bottom: '0',
-                      content: '""',
-                      display: 'block',
-                      height: 'sizeSquare25',
-                      position: 'absolute',
-                      width: 'size0',
-                    }
-                  : undefined
-              }
-              _after={{
-                borderColor: disabled && (checked || indeterminate) ? 'colorBorderDark' : 'colorBorderInverseLightest',
-                borderRadius: 'borderRadius10',
-                borderStyle: 'solid',
-                borderWidth: 'borderWidth10',
-                bottom: '0',
-                content: '""',
-                display: 'block',
-                height: 'size0',
-                position: !indeterminate ? 'absolute' : undefined,
-                width: 'sizeSquare30',
-              }}
-            />
+            <CheckboxIcon checked={checked} disabled={disabled} indeterminate={indeterminate} />
           </BaseRadioCheckboxControl>
           <BaseRadioCheckboxLabelText fontWeight={isSelectAll ? null : 'fontWeightNormal'}>
             {children}
