@@ -168,10 +168,12 @@ exports[`Combobox  Render should render 1`] = `
 }
 
 .emotion-4 {
+  box-sizing: border-box;
+  line-height: lineHeight0;
   display: block;
+  color: colorTextIcon;
   width: sizeIcon30;
   height: sizeIcon30;
-  color: colorTextIcon;
 }
 
 .emotion-24 {
