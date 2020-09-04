@@ -27,6 +27,7 @@
     "convert-new": "node ./tools/cli.js convert-new"
   },
   "peerDependencies": {
+    "@twilio-paste/box": "^2.10.0",
     "@twilio-paste/design-tokens": "^6.2.2",
     "@twilio-paste/style-props": "^1.6.0",
     "@twilio-paste/styling-library": "^0.1.2",
@@ -38,6 +39,7 @@
     "react-uid": "^2.2.0"
   },
   "devDependencies": {
+    "@twilio-paste/box": "^2.10.0",
     "@twilio-paste/design-tokens": "^6.2.2",
     "@twilio-paste/style-props": "^1.6.0",
     "@twilio-paste/styling-library": "^0.1.2",
