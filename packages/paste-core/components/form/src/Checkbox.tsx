@@ -33,12 +33,12 @@ const CheckboxIcon: React.FC<{
   disabled: boolean | undefined;
   checked: boolean | undefined;
 }> = ({disabled, checked, indeterminate}) => {
-  const color = disabled && (checked || indeterminate) ? 'colorTextInverse' : 'colorTextInverse';
+  const color = disabled && (checked || indeterminate) ? 'colorTextInverseWeaker' : 'colorTextInverse';
 
   if (indeterminate) {
-    return <MinusIcon decorative color={color} />;
+    return <MinusIcon decorative color={color} size="sizeIcon10" />;
   }
-  return <CheckboxCheckIcon hidden={!checked} decorative color={color} />;
+  return <CheckboxCheckIcon hidden={!checked} decorative color={color} size="sizeIcon10" />;
 };
 
 export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {

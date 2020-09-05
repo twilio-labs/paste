@@ -99,7 +99,7 @@ export interface BaseRadioCheckboxLabelProps extends FormLabelProps {
 const BaseRadioCheckboxLabel: React.FC<BaseRadioCheckboxLabelProps> = ({children, ...props}) => {
   return (
     <FormLabel {...props} marginBottom="space0">
-      <Box as="span" display="flex" alignItems="center">
+      <Box as="span" display="flex">
         {children}
       </Box>
     </FormLabel>
