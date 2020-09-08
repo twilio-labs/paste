@@ -6,9 +6,9 @@ import {ResponsiveValue, TLengthStyledSystem} from '@twilio-paste/styling-librar
 // Tokens
 export type FontFamilyOptions = keyof ThemeShape['fonts'];
 export type FontSizeOptions = keyof ThemeShape['fontSizes'] | '100%' | 'inherit';
-export type FontWeightOptions = keyof ThemeShape['fontWeights'];
+export type FontWeightOptions = keyof ThemeShape['fontWeights'] | 'inherit';
 export type LineHeightOptions = keyof ThemeShape['lineHeights'] | 'unset';
-export type TextColorOptions = keyof ThemeShape['textColors'] | 'currentColor';
+export type TextColorOptions = keyof ThemeShape['textColors'] | 'currentColor' | 'inherit';
 
 export type FontFamily = ResponsiveValue<FontFamilyOptions>;
 export type FontSize = ResponsiveValue<FontSizeOptions>;
