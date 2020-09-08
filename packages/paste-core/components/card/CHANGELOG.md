@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.61](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.3.60...@twilio-paste/card@1.3.61) (2020-09-08)
+
+**Note:** Version bump only for package @twilio-paste/card
+
+
+
+
+
 ## [1.3.60](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.3.59...@twilio-paste/card@1.3.60) (2020-09-03)
 
 **Note:** Version bump only for package @twilio-paste/card

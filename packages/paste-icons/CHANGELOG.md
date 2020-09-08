@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.2.0...@twilio-paste/icons@3.2.1) (2020-09-08)
+
+
+### Bug Fixes
+
+* **icons:** reset line height on the icon wrapper ([5b5fe8e](https://github.com/twilio-labs/paste/commit/5b5fe8e3a2cb148cc8a7e7affeb734558d9a1bba))
+
+
+
+
+
 # [3.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.1.2...@twilio-paste/icons@3.2.0) (2020-09-03)
 
 

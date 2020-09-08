@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@6.2.2...@twilio-paste/design-tokens@6.3.0) (2020-09-08)
+
+
+### Features
+
+* **design-tokens:** add line-height-0 ([693165f](https://github.com/twilio-labs/paste/commit/693165f246a3f4400febf299e446c920c2553f95))
+
+
+
+
+
 ## [6.2.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@6.2.1...@twilio-paste/design-tokens@6.2.2) (2020-08-31)
 
 **Note:** Version bump only for package @twilio-paste/design-tokens
