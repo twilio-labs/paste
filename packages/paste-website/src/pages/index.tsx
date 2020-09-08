@@ -72,7 +72,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
           <Column span={[12, 12, 4]}>
             <Box marginBottom="space40">
               <Card padding="space80">
-                <Heading as="h2" variant="heading30">
+                <Heading as="h2" variant="heading20">
                   <SiteLink to="/components">Components</SiteLink>
                 </Heading>
                 <Paragraph>Use Paste components in Sketch or React to compose your user interfaces.</Paragraph>
