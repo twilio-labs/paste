@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/style-props",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "Shared utilities for style properties used in Paste",
   "author": "Twilio Inc.",
   "license": "MIT",

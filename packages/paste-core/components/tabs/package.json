@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/tabs",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "category": "interaction",
   "status": "alpha",
   "description": "Twilio's Tabs component.",
@@ -28,11 +28,11 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@twilio-paste/box": "^2.10.1",
+    "@twilio-paste/box": "^2.10.2",
     "@twilio-paste/design-tokens": "^6.3.0",
-    "@twilio-paste/flex": "^0.3.54",
+    "@twilio-paste/flex": "^0.3.55",
     "@twilio-paste/reakit-library": "^0.7.0",
-    "@twilio-paste/style-props": "^1.6.1",
+    "@twilio-paste/style-props": "^1.6.2",
     "@twilio-paste/styling-library": "^0.1.2",
     "@twilio-paste/tabs-primitive": "^0.1.7",
     "@twilio-paste/theme": "^3.2.19",
@@ -42,11 +42,11 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^2.10.1",
+    "@twilio-paste/box": "^2.10.2",
     "@twilio-paste/design-tokens": "^6.3.0",
-    "@twilio-paste/flex": "^0.3.54",
+    "@twilio-paste/flex": "^0.3.55",
     "@twilio-paste/reakit-library": "^0.7.0",
-    "@twilio-paste/style-props": "^1.6.1",
+    "@twilio-paste/style-props": "^1.6.2",
     "@twilio-paste/styling-library": "^0.1.2",
     "@twilio-paste/tabs-primitive": "^0.1.7",
     "@twilio-paste/theme": "^3.2.19",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.6.1...@twilio-paste/style-props@1.6.2) (2020-09-08)
+
+
+### Bug Fixes
+
+* **style-props:** add inherit to fontWeight to color ([925a71e](https://github.com/twilio-labs/paste/commit/925a71eb3ec2fb9ac328f543758058d197d81598))
+
+
+
+
+
 ## [1.6.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.6.0...@twilio-paste/style-props@1.6.1) (2020-09-08)
 
 **Note:** Version bump only for package @twilio-paste/style-props
