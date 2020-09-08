@@ -51,6 +51,10 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               </Heading>
               <UnorderedList marginBottom="space0">
                 <ListItem>
+                  Usage guidelines and brand approved illustrations are now documented in our{' '}
+                  <SiteLink to="/illustrations">illustrations section</SiteLink> page
+                </ListItem>
+                <ListItem>
                   Find icons easier than ever with our new <SiteLink to="/icons">icon list</SiteLink> page
                 </ListItem>
                 <ListItem>
