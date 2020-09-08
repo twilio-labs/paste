@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@2.2.8...@twilio-paste/form@2.2.9) (2020-09-08)
+
+
+### Bug Fixes
+
+* **checkbox:** replace check and dash with icons ([#733](https://github.com/twilio-labs/paste/issues/733)) ([93db25d](https://github.com/twilio-labs/paste/commit/93db25da6913bcaadf860c0c88f8e5878047f29f))
+
+
+
+
+
 ## [2.2.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@2.2.7...@twilio-paste/form@2.2.8) (2020-09-08)
 
 **Note:** Version bump only for package @twilio-paste/form
