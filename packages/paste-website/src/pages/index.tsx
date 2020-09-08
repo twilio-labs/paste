@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Helmet } from 'react-helmet';
-import { Box, Heading, Paragraph, Anchor, Stack, Card, Grid, Column, UnorderedList, ListItem } from '@twilio-paste/core';
-import { NewIcon } from '@twilio-paste/icons/esm/NewIcon';
-import { SiteWrapper } from '../components/site-wrapper';
-import { P } from '../components/Typography';
-import { SiteLink } from '../components/SiteLink';
-import { SiteMetaDefaults } from '../constants';
+import {Helmet} from 'react-helmet';
+import {Box, Heading, Paragraph, Anchor, Stack, Card, Grid, Column, UnorderedList, ListItem} from '@twilio-paste/core';
+import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
+import {SiteWrapper} from '../components/site-wrapper';
+import {P} from '../components/Typography';
+import {SiteLink} from '../components/SiteLink';
+import {SiteMetaDefaults} from '../constants';
 
 const IndexPage: React.FC<{}> = (): React.ReactElement => {
   return (
@@ -51,7 +51,8 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               </Heading>
               <UnorderedList marginBottom="space0">
                 <ListItem>
-                  Usage guidelines and brand approved illustrations are now documented in our <SiteLink to="/illustrations">illustrations section</SiteLink> page
+                  Usage guidelines and brand approved illustrations are now documented in our{' '}
+                  <SiteLink to="/illustrations">illustrations section</SiteLink> page
                 </ListItem>
                 <ListItem>
                   Find icons easier than ever with our new <SiteLink to="/icons">icon list</SiteLink> page
