@@ -50,20 +50,20 @@ export const pageQuery = graphql`
    1. If you’re planning on adding the icon to Paste, first [create a Github issue](https://github.com/twilio-labs/paste/issues).
       Explain what you’re using it for, and list other potential use cases outside of your own.
       Add a link or screenshot of the proposed icon. If the team agrees, create a branch in
-      the ["Paste icons" Abstract project](https://share.goabstract.com/0bdb9ae0-d1da-4021-80d3-338683d27b42).
+      the ["Paste components" Abstract project](https://share.goabstract.com/7cab6888-78ef-44c7-bd8e-63214dcf6f3d).
    2. If the icon won’t be added to Paste, create a branch in your own Abstract project
       and skip to [Using a Streamline icon](/icon-system/how-to-add-an-icon#using-a-streamline-icon).
 
 ## Setting up an icon in Paste Icons
 
-Written for Sketch 59.1
+Written for Sketch 67.2
 
-1. Open "paste icons.sketch".
+1. Open "icons.sketch".
 2. Go to the page "Symbols".
-3. Duplicate the empty template artboard "[IconName](https://share.goabstract.com/f51d0d18-67ce-4c02-8c44-5f8d390863d7)".
-   Make sure the new artboard is aligned evenly on the canvas with the existing icon artboards.
-4. Turn the new artboard into a symbol.
-5. In the artboard name, replace "IconName" with the name of your icon.
+3. Duplicate the empty template artboard "[IconName](https://share.goabstract.com/0ddd7349-bbbb-4a1f-85b1-be88622ef1ec?mode=design)".
+4. Group the new artboard in the section that fits its use case (e.g. a "filter" icon would belong in the "actions" section). Make sure the new artboard is aligned evenly on the canvas with the existing icon artboards.
+5. Turn the new artboard into a symbol.
+6. In the artboard name, replace "IconName" with the name of your icon. Follow the naming pattern of the existing icon artboards in that section (e.g. "action/Filter").
 
 <Callout>
   <CalloutTitle>How to name icon artboards in Sketch</CalloutTitle>
@@ -82,7 +82,7 @@ Written for Sketch 59.1
 1. Copy and paste the Streamline icon onto your icon artboard.
 2. Select all the layers and make sure the border width is 1.
 3. Select the layer group. Lock the width-height aspect ratio. If the icon appears
-   larger than the bounds of the artboard, shrink the icon down so that it's visually aligned with our default text size. Use the "icon tester" artboard on the Icon tester page in the Sketch file to help. Resizing the icon to 16–20 px usually works.
+   larger than the bounds of the artboard, shrink the icon down so that it's visually aligned with our default text size. Use the "icon tester" artboard on the Icon tester page in the Sketch file to help. Resizing the icon to 16–18 px usually works.
 4. Duplicate the layer group. Rename the original group to "source" and hide it.
 5. Ungroup the new layer group. You’ll be working with these layers.
    ![Sample layer groups](../../assets/images/icon-guide/using-streamline-icons-3.png)
@@ -116,10 +116,10 @@ Written for Sketch 59.1
 3. Make sure the SVG code is clean:
    1. You shouldn’t see `id`. If you do, make sure the SVGO compressor plugin is properly installed.
    2. You shouldn’t see `transform`. If you do, flatten your shape.
-   3. You should see `width=”24" height="24"`. If you don’t, check that the artboard you’re
-      exporting is 24px × 24px and that you’re exporting the artboard, not the layer.
+   3. You should see `width=”20" height="20"`. If you don’t, check that the artboard you’re
+      exporting is 20px × 20px and that you’re exporting the artboard, not the layer.
 4. If you're adding an icon used to brand a product, add the word "Product" to the
-   beginning of the SVG file name. For example: "ProductCodeExchangeCommunity".
+   beginning of the SVG file name. For example: "ProductCodeExchangeCommunity". Please ensure any icons used for branding purposes either came from or were approved by our Brand team.
 5. Commit your changes in Abstract and request a review from the Paste design team.
 
 ## Adding the icon to the Paste repository
