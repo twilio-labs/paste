@@ -10,7 +10,7 @@
 
 For usage guidelines, please see our [documentation website](https://paste.twilio.design).
 
-## Developping on Paste
+## Developing on Paste
 
 ### Getting started
 
