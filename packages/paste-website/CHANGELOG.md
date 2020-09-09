@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.3.7...@twilio-paste/website@2.3.8) (2020-09-09)
+
+
+### Bug Fixes
+
+* **website:** update components card to use heading20 variant ([#735](https://github.com/twilio-labs/paste/issues/735)) ([c445ca6](https://github.com/twilio-labs/paste/commit/c445ca69d5008bda003ea3a08664c735409edfb4))
+
+
+
+
+
 ## [2.3.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.3.6...@twilio-paste/website@2.3.7) (2020-09-08)
 
 **Note:** Version bump only for package @twilio-paste/website
