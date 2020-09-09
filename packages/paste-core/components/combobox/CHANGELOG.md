@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.16](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.3.15...@twilio-paste/combobox@1.3.16) (2020-09-09)
+
+
+### Bug Fixes
+
+* **combobox:** handling refs in downshift v6 is different ([526cfc9](https://github.com/twilio-labs/paste/commit/526cfc9b44204c018e2485c77057b4a29da579c7))
+
+
+
+
+
 ## [1.3.15](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.3.14...@twilio-paste/combobox@1.3.15) (2020-09-08)
 
 **Note:** Version bump only for package @twilio-paste/combobox
