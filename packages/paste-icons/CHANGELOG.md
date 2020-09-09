@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.2.3...@twilio-paste/icons@3.3.0) (2020-09-09)
+
+
+### Features
+
+* **icons:** add connecteddecices icon and update close ([ba592e9](https://github.com/twilio-labs/paste/commit/ba592e9162a991f80dea00adebfd8978ee8ec3e3))
+
+
+
+
+
 ## [3.2.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.2.2...@twilio-paste/icons@3.2.3) (2020-09-09)
 
 **Note:** Version bump only for package @twilio-paste/icons
