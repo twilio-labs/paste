@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.4.2...@twilio-paste/website@2.5.0) (2020-09-09)
+
+
+### Features
+
+* **website:** setup Algolia DocSearch ([#703](https://github.com/twilio-labs/paste/issues/703)) ([49ef97a](https://github.com/twilio-labs/paste/commit/49ef97a1c4304a44ce3268dae13f0c08cf2d6f2a))
+
+
+
+
+
 ## [2.4.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.4.1...@twilio-paste/website@2.4.2) (2020-09-09)
 
 **Note:** Version bump only for package @twilio-paste/website
