@@ -24,7 +24,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
 
   return (
     <Box as="nav" aria-label="document outline">
-      <StyledScrollSpy items={headingsList} currentClassName="is-current" rootEl="#site-main">
+      <StyledScrollSpy items={headingsList} currentClassName="is-current" rootEl="main">
         {// Get heading anchors and convert to #anchor format. Excluding h1 elements.
         headings.filter(shouldIncludeInToC).map(({value, depth}) => {
           const headingLink = `#${slugify(value)}`;
