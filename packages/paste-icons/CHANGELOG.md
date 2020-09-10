@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.3.0...@twilio-paste/icons@3.4.0) (2020-09-10)
+
+
+### Features
+
+* **icons:** add asset and api icons ([#744](https://github.com/twilio-labs/paste/issues/744)) ([bba48d0](https://github.com/twilio-labs/paste/commit/bba48d01e25babf8f137a7ad708b97ce046ebea7))
+
+
+
+
+
 # [3.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.2.3...@twilio-paste/icons@3.3.0) (2020-09-09)
 
 
