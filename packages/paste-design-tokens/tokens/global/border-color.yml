@@ -51,6 +51,9 @@ props:
   color-border-neutral-light:
     value: "{!palette-gray-50}"
     comment: Light neutral border color
+  color-border-neutral:
+    value: "{!palette-blue-60}"
+    comment: Neutral border color
   color-border-success:
     value: "{!palette-green-60}"
     comment: Success border color
