@@ -77,7 +77,7 @@
     "gatsby-transformer-json": "^2.2.26",
     "gatsby-transformer-remark": "^2.6.53",
     "gatsby-transformer-sharp": "^2.3.14",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "node-sass": "^4.14.1",
     "pretty-format": "^24.9.0",
     "prism-react-renderer": "^0.1.7",
