@@ -30,7 +30,7 @@ exports[`Alert Variant error Should render an error alert 1`] = `
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  margin-right: 0.75rem;
+  margin-right: 0.5rem;
 }
 
 .emotion-2 {
@@ -47,10 +47,10 @@ exports[`Alert Variant error Should render an error alert 1`] = `
   border-color: rgb(222,88,88);
   border-bottom-width: 2px;
   border-bottom-style: solid;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .emotion-0 {
@@ -81,7 +81,7 @@ exports[`Alert Variant error Should render an error alert 1`] = `
           className="emotion-0"
           color="colorTextError"
           display="block"
-          size="sizeIcon30"
+          size="sizeIcon20"
         >
           <svg
             aria-hidden={false}
@@ -155,16 +155,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  margin-right: 0.75rem;
-}
-
-.emotion-3 {
-  box-sizing: border-box;
-  line-height: 0;
-  display: block;
-  color: rgb(112,117,120);
-  width: 1.25rem;
-  height: 1.25rem;
+  margin-right: 0.5rem;
 }
 
 .emotion-2 {
@@ -184,7 +175,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  margin-left: 1.5rem;
+  margin-left: 1.25rem;
 }
 
 .emotion-5 {
@@ -234,16 +225,25 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
   color: rgb(3,44,94);
 }
 
+.emotion-3 {
+  box-sizing: border-box;
+  line-height: 0;
+  display: block;
+  color: rgb(112,117,120);
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
 .emotion-8 {
   box-sizing: border-box;
   background-color: rgb(255,233,231);
   border-color: rgb(222,88,88);
   border-bottom-width: 2px;
   border-bottom-style: solid;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .emotion-0 {
@@ -274,7 +274,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
           className="emotion-0"
           color="colorTextError"
           display="block"
-          size="sizeIcon30"
+          size="sizeIcon20"
         >
           <svg
             aria-hidden={false}
@@ -331,7 +331,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
               className="emotion-3"
               color="colorTextIcon"
               display="block"
-              size="sizeIcon30"
+              size="sizeIcon20"
             >
               <svg
                 aria-hidden={false}
@@ -385,13 +385,13 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
 .emotion-4 {
   box-sizing: border-box;
   background-color: rgb(245,248,255);
-  border-color: rgb(200,204,207);
+  border-color: rgb(2,122,197);
   border-bottom-width: 2px;
   border-bottom-style: solid;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .emotion-1 {
@@ -403,14 +403,14 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  margin-right: 0.75rem;
+  margin-right: 0.5rem;
 }
 
 .emotion-0 {
   box-sizing: border-box;
   line-height: 0;
   display: block;
-  color: rgb(112,117,120);
+  color: rgb(0,62,130);
   width: 1.25rem;
   height: 1.25rem;
 }
@@ -440,9 +440,9 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
       >
         <span
           className="emotion-0"
-          color="colorTextIcon"
+          color="colorTextNeutral"
           display="block"
-          size="sizeIcon30"
+          size="sizeIcon20"
         >
           <svg
             aria-hidden={false}
@@ -510,13 +510,13 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
 .emotion-8 {
   box-sizing: border-box;
   background-color: rgb(245,248,255);
-  border-color: rgb(200,204,207);
+  border-color: rgb(2,122,197);
   border-bottom-width: 2px;
   border-bottom-style: solid;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .emotion-1 {
@@ -528,14 +528,14 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  margin-right: 0.75rem;
+  margin-right: 0.5rem;
 }
 
 .emotion-0 {
   box-sizing: border-box;
   line-height: 0;
   display: block;
-  color: rgb(112,117,120);
+  color: rgb(0,62,130);
   width: 1.25rem;
   height: 1.25rem;
 }
@@ -557,7 +557,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  margin-left: 1.5rem;
+  margin-left: 1.25rem;
 }
 
 .emotion-5 {
@@ -607,6 +607,15 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
   color: rgb(3,44,94);
 }
 
+.emotion-3 {
+  box-sizing: border-box;
+  line-height: 0;
+  display: block;
+  color: rgb(112,117,120);
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
 <div
   className="emotion-9"
 >
@@ -624,9 +633,9 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
       >
         <span
           className="emotion-0"
-          color="colorTextIcon"
+          color="colorTextNeutral"
           display="block"
-          size="sizeIcon30"
+          size="sizeIcon20"
         >
           <svg
             aria-hidden={false}
@@ -680,10 +689,10 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
             textDecoration="inherit"
           >
             <span
-              className="emotion-0"
+              className="emotion-3"
               color="colorTextIcon"
               display="block"
-              size="sizeIcon30"
+              size="sizeIcon20"
             >
               <svg
                 aria-hidden={false}
@@ -743,7 +752,7 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  margin-right: 0.75rem;
+  margin-right: 0.5rem;
 }
 
 .emotion-2 {
@@ -760,10 +769,10 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
   border-color: rgb(242,133,16);
   border-bottom-width: 2px;
   border-bottom-style: solid;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .emotion-0 {
@@ -794,7 +803,7 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
           className="emotion-0"
           color="colorTextWarning"
           display="block"
-          size="sizeIcon30"
+          size="sizeIcon20"
         >
           <svg
             aria-hidden={false}
@@ -868,16 +877,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  margin-right: 0.75rem;
-}
-
-.emotion-3 {
-  box-sizing: border-box;
-  line-height: 0;
-  display: block;
-  color: rgb(112,117,120);
-  width: 1.25rem;
-  height: 1.25rem;
+  margin-right: 0.5rem;
 }
 
 .emotion-2 {
@@ -897,7 +897,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  margin-left: 1.5rem;
+  margin-left: 1.25rem;
 }
 
 .emotion-5 {
@@ -947,16 +947,25 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
   color: rgb(3,44,94);
 }
 
+.emotion-3 {
+  box-sizing: border-box;
+  line-height: 0;
+  display: block;
+  color: rgb(112,117,120);
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
 .emotion-8 {
   box-sizing: border-box;
   background-color: rgb(255,236,216);
   border-color: rgb(242,133,16);
   border-bottom-width: 2px;
   border-bottom-style: solid;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .emotion-0 {
@@ -987,7 +996,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
           className="emotion-0"
           color="colorTextWarning"
           display="block"
-          size="sizeIcon30"
+          size="sizeIcon20"
         >
           <svg
             aria-hidden={false}
@@ -1044,7 +1053,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
               className="emotion-3"
               color="colorTextIcon"
               display="block"
-              size="sizeIcon30"
+              size="sizeIcon20"
             >
               <svg
                 aria-hidden={false}
