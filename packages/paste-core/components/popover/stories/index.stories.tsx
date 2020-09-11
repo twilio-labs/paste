@@ -7,7 +7,7 @@ import {Popover, PopoverContainer, PopoverButton} from '../src';
 
 const Example: React.FC<{}> = () => {
   return (
-    <PopoverContainer baseId="test-id">
+    <PopoverContainer baseId="test-id" visible>
       <PopoverButton variant="primary">Open popover</PopoverButton>
       <Popover aria-label="Popover">
         <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
