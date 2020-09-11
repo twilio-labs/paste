@@ -9,6 +9,7 @@ import {
   useTooltipPrimitiveState,
   TooltipPrimitive,
   TooltipPrimitiveReference,
+  TooltipPrimitiveStateReturn,
 } from '@twilio-paste/tooltip-primitive';
 import {TooltipArrow} from './TooltipArrow';
 
@@ -34,13 +35,17 @@ const StyledTooltip = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...pro
   );
 });
 
+export interface TooltipStateReturn extends TooltipPrimitiveStateReturn {
+  [key: string]: any;
+}
 export interface TooltipProps extends TooltipPrimitiveInitialState {
   children: NonNullable<React.ReactElement>;
+  state?: TooltipStateReturn;
   text: string;
 }
 
-const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(({baseId, children, text, ...props}, ref) => {
-  const tooltip = useTooltipPrimitiveState({baseId: `paste-tooltip-${useUID()}`, ...props});
+const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(({baseId, children, state, text, ...props}, ref) => {
+  const tooltip = state || useTooltipPrimitiveState({baseId: `paste-tooltip-${useUID()}`, ...props});
   return (
     <>
       {React.Children.only(
@@ -70,3 +75,5 @@ if (process.env.NODE_ENV === 'development') {
 
 Tooltip.displayName = 'Tooltip';
 export {Tooltip};
+
+export {useTooltipPrimitiveState as useTooltipState};
