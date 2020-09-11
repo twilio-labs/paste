@@ -9,12 +9,14 @@ import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
+import {Stack} from '@twilio-paste/stack';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Text} from '@twilio-paste/text';
 import Changelog from '@twilio-paste/tooltip/CHANGELOG.md';
-import {Tooltip} from '@twilio-paste/tooltip';
+import {useTooltipState, Tooltip} from '@twilio-paste/tooltip';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
+import {StateHookTabsExample} from '../../../component-examples/TooltipExamples';
 
 export const pageQuery = graphql`
   {
@@ -148,6 +150,49 @@ A tooltip **must** be placed on a **focusable** element, such as an anchor or bu
     describes what that means. This ensures the icon and tooltip ara accessible to screen readers.
   </CalloutText>
 </Callout>
+
+### Using state hooks
+
+<Callout variant="warning">
+  <CalloutTitle>🚨Power user move!🚨</CalloutTitle>
+  <CalloutText>
+    Only use this property if you are a power user. It's very easy to break your implementation and unfortunately the
+    Paste team will not be able to debug this for you. Proceed with extreme caution.
+  </CalloutText>
+</Callout>
+
+The tooltip comes with the option of "hooking" into the internal state by using the state hook originally provided by
+[Reakit](https://reakit.io/docs/tooltip/#usetooltipstate).
+
+Rather than the state be internal to the component, you can use the `useTooltipState` hook and pass the returned state
+to `Tooltip` as the `state` prop.
+
+This allows you to use certain returned props from the state hook, including functions like `hide` and `show`.
+
+An example usecase of this might be programmatically providing the user a tooltip when a certain user action is taken.
+In the example below we are showing a tooltip when another button is pressed. When pressed the button uses the `show`
+function from the hook. Another button using the `hide` function from the hook is also provided to hide the tooltip
+when pressed.
+
+It should be noted that when doing so, the state prop takes precident over the other properties that affect
+the state or initial state of the Tooltip. They will be ignored in favour of them being provided as arguments
+to the useTooltipState hook.
+
+For full details on how to use the state hook, and what props to provide it, follow the
+[Tooltip Primitive documentation](/primitives/tooltip-primitive). It's the same hook, just renamed.
+
+<LivePreview
+  scope={{
+    useTooltipState,
+    Tooltip,
+    Stack,
+    Button,
+  }}
+  noInline
+  language="jsx"
+>
+  {StateHookTabsExample}
+</LivePreview>
 
 ## Anatomy
 
