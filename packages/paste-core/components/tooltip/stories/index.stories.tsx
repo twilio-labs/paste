@@ -8,7 +8,31 @@ import {Button} from '@twilio-paste/button';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
-import {Tooltip} from '../src';
+import {Theme} from '@twilio-paste/theme';
+import {useTooltipState, Tooltip} from '../src';
+
+export const StateHookExample: React.FC = () => {
+  const tooltip = useTooltipState();
+  return (
+    <Theme.Provider theme="console">
+      <Stack orientation="horizontal" spacing="space60">
+        <Tooltip
+          data-testid="state-hook-tooltip"
+          state={tooltip}
+          text="This should be visible by pressing another button"
+        >
+          <Button variant="primary">Open tooltip</Button>
+        </Tooltip>
+        <Button variant="primary" onClick={() => tooltip.show()} data-testid="show-button">
+          Open tooltip on click
+        </Button>
+        <Button variant="primary" onClick={() => tooltip.hide()} data-testid="hide-button">
+          Close tooltip on click
+        </Button>
+      </Stack>
+    </Theme.Provider>
+  );
+};
 
 storiesOf('Components|Tooltip', module)
   .addDecorator(withKnobs)
@@ -113,4 +137,7 @@ storiesOf('Components|Tooltip', module)
         </Tooltip>
       </>
     );
+  })
+  .add('State hook Tooltip', () => {
+    return <StateHookExample />;
   });
