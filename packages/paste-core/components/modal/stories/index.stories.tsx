@@ -8,6 +8,8 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Flex} from '@twilio-paste/flex';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
+import {Popover, PopoverContainer, PopoverButton} from '@twilio-paste/popover';
+import {Tooltip} from '@twilio-paste/tooltip';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {FormLabel, FormInput} from '@twilio-paste/form';
 import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading, ModalProps} from '../src';
@@ -51,13 +53,13 @@ const ModalTrigger: React.FC<ModalTriggerProps> = ({size}) => {
 
 storiesOf('Components|Modal', module)
   .addDecorator(withKnobs)
-  .add('default', () => {
+  .add('Default', () => {
     return <ModalTrigger size="default" />;
   })
-  .add('wide', () => {
+  .add('Wide', () => {
     return <ModalTrigger size="wide" />;
   })
-  .add('footer actions', () => {
+  .add('Footer actions', () => {
     const [isOpen, setIsOpen] = React.useState(true);
     const handleOpen = (): void => setIsOpen(true);
     const handleClose = (): void => setIsOpen(false);
@@ -92,7 +94,7 @@ storiesOf('Components|Modal', module)
       </div>
     );
   })
-  .add('left aligned footer actions', () => {
+  .add('Left aligned footer actions', () => {
     const [isOpen, setIsOpen] = React.useState(true);
     const handleOpen = (): void => setIsOpen(true);
     const handleClose = (): void => setIsOpen(false);
@@ -127,7 +129,7 @@ storiesOf('Components|Modal', module)
       </div>
     );
   })
-  .add('directional footer actions', () => {
+  .add('Directional footer actions', () => {
     const [isOpen, setIsOpen] = React.useState(true);
     const handleOpen = (): void => setIsOpen(true);
     const handleClose = (): void => setIsOpen(false);
@@ -370,7 +372,7 @@ storiesOf('Components|Modal', module)
       </div>
     );
   })
-  .add('custom initial focus element', () => {
+  .add('Custom initial focus element', () => {
     const [isOpen, setIsOpen] = React.useState(true);
     const [name, setName] = React.useState('');
     const handleOpen = (): void => setIsOpen(true);
@@ -420,7 +422,7 @@ storiesOf('Components|Modal', module)
       </div>
     );
   })
-  .add('console patch prop', () => {
+  .add('Console patch prop', () => {
     const [isOpen, setIsOpen] = React.useState(true);
     const handleOpen = (): void => setIsOpen(true);
     const handleClose = (): void => setIsOpen(false);
@@ -453,4 +455,96 @@ storiesOf('Components|Modal', module)
         </div>
       </Flex>
     );
-  });
+  })
+  .add(
+    'Tooltip in modal',
+    () => {
+      const [isOpen, setIsOpen] = React.useState(true);
+      const handleOpen = (): void => setIsOpen(true);
+      const handleClose = (): void => setIsOpen(false);
+      const modalHeadingID = useUID();
+      return (
+        <div>
+          <Button variant="primary" onClick={handleOpen}>
+            Open Modal
+          </Button>
+          <Modal ariaLabelledby={modalHeadingID} isOpen={isOpen} onDismiss={handleClose} size="default">
+            <ModalHeader>
+              <ModalHeading as="h3" id={modalHeadingID}>
+                Modal Heading
+              </ModalHeading>
+            </ModalHeader>
+            <ModalBody>
+              <Paragraph>Look at the modal work with a tooltip.</Paragraph>
+              <Tooltip text="Welcome to Paste!" visible>
+                <Button variant="primary">Open tooltip</Button>
+              </Tooltip>
+            </ModalBody>
+            <ModalFooter>
+              <ModalFooterActions>
+                <Button variant="secondary" onClick={handleClose}>
+                  Cancel
+                </Button>
+                <Button variant="primary" onClick={handleClose}>
+                  Submit
+                </Button>
+              </ModalFooterActions>
+            </ModalFooter>
+          </Modal>
+        </div>
+      );
+    },
+    {eyes: {waitBeforeScreenshot: 150}}
+  )
+  .add(
+    'Popover in modal',
+    () => {
+      const [isOpen, setIsOpen] = React.useState(true);
+      const handleOpen = (): void => setIsOpen(true);
+      const handleClose = (): void => setIsOpen(false);
+      const nameInputRef: React.RefObject<HTMLInputElement> = React.createRef();
+      const modalHeadingID = useUID();
+      return (
+        <div>
+          <Button variant="primary" onClick={handleOpen}>
+            Open Modal
+          </Button>
+          <Modal
+            ariaLabelledby={modalHeadingID}
+            isOpen={isOpen}
+            onDismiss={handleClose}
+            size="default"
+            initialFocusRef={nameInputRef}
+          >
+            <ModalHeader>
+              <ModalHeading as="h3" id={modalHeadingID}>
+                Modal Heading
+              </ModalHeading>
+            </ModalHeader>
+            <ModalBody>
+              <Paragraph>Look at the modal work with a popover.</Paragraph>
+              <PopoverContainer visible>
+                <PopoverButton variant="primary" ref={nameInputRef}>
+                  Open popover
+                </PopoverButton>
+                <Popover aria-label="Popover">
+                  <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
+                </Popover>
+              </PopoverContainer>
+            </ModalBody>
+            <ModalFooter>
+              <ModalFooterActions>
+                <Button variant="secondary" onClick={handleClose}>
+                  Cancel
+                </Button>
+                <Button variant="primary" onClick={handleClose}>
+                  Submit
+                </Button>
+              </ModalFooterActions>
+            </ModalFooter>
+          </Modal>
+        </div>
+      );
+    },
+    {eyes: {waitBeforeScreenshot: 150}}
+  );
