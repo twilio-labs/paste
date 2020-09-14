@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/tooltip@0.2.15...@twilio-paste/tooltip@0.3.0) (2020-09-14)
+
+
+### Features
+
+* **tooltip:** add state hook prop ([539db2c](https://github.com/twilio-labs/paste/commit/539db2ccfa5346f2f10760387d2dd99c48034e95))
+
+
+
+
+
 ## [0.2.15](https://github.com/twilio-labs/paste/compare/@twilio-paste/tooltip@0.2.14...@twilio-paste/tooltip@0.2.15) (2020-09-10)
 
 **Note:** Version bump only for package @twilio-paste/tooltip
