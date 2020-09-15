@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/spinner",
-  "version": "2.0.15",
+  "version": "2.0.16",
   "category": "feedback",
   "status": "production",
   "description": "Twilio's Spinner component",
@@ -28,25 +28,25 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@twilio-paste/box": "^2.10.3",
-    "@twilio-paste/design-tokens": "^6.3.1",
-    "@twilio-paste/icons": "^3.5.1",
-    "@twilio-paste/style-props": "^1.6.3",
+    "@twilio-paste/box": "^2.10.4",
+    "@twilio-paste/design-tokens": "^6.3.2",
+    "@twilio-paste/icons": "^3.5.2",
+    "@twilio-paste/style-props": "^1.6.4",
     "@twilio-paste/styling-library": "^0.1.2",
-    "@twilio-paste/theme": "^3.2.20",
-    "@twilio-paste/types": "^3.0.23",
+    "@twilio-paste/theme": "^3.2.21",
+    "@twilio-paste/types": "^3.0.24",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-uid": "^2.2.0"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^2.10.3",
-    "@twilio-paste/design-tokens": "^6.3.1",
-    "@twilio-paste/icons": "^3.5.1",
-    "@twilio-paste/style-props": "^1.6.3",
+    "@twilio-paste/box": "^2.10.4",
+    "@twilio-paste/design-tokens": "^6.3.2",
+    "@twilio-paste/icons": "^3.5.2",
+    "@twilio-paste/style-props": "^1.6.4",
     "@twilio-paste/styling-library": "^0.1.2",
-    "@twilio-paste/theme": "^3.2.20",
-    "@twilio-paste/types": "^3.0.23"
+    "@twilio-paste/theme": "^3.2.21",
+    "@twilio-paste/types": "^3.0.24"
   }
 }
