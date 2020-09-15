@@ -30,6 +30,7 @@ export * from '@twilio-paste/stack';
 export * from '@twilio-paste/tabs';
 export * from '@twilio-paste/tabs-primitive';
 export * from '@twilio-paste/text';
+export * from '@twilio-paste/toast';
 export * from '@twilio-paste/tooltip';
 export * from '@twilio-paste/tooltip-primitive';
 export * from '@twilio-paste/truncate';
