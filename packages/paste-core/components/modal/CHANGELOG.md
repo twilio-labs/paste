@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.21](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@1.0.20...@twilio-paste/modal@1.0.21) (2020-09-15)
+
+
+### Bug Fixes
+
+* **modal:** adjust zIndex for popovers and tooltips ([7b62d58](https://github.com/twilio-labs/paste/commit/7b62d58cf67a59d7a2a2901fb333a3d9af2587d5))
+
+
+
+
+
 ## [1.0.20](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@1.0.19...@twilio-paste/modal@1.0.20) (2020-09-14)
 
 **Note:** Version bump only for package @twilio-paste/modal
