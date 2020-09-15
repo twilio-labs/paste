@@ -57,6 +57,9 @@ props:
   color-border-success:
     value: "{!palette-green-60}"
     comment: Success border color
+  color-border-success-light:
+    value: "{!palette-green-50}"
+    comment: Light success border color
   color-border-success-lightest:
     value: "{!palette-green-10}"
     comment: Lightest success border color
