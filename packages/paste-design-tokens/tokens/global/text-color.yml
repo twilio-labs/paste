@@ -79,6 +79,9 @@ props:
   color-text-new:
     value: "{!palette-purple-60}"
     comment: Color for text indicating a new status.
+  color-text-neutral:
+    value: "{!palette-blue-80}"
+    comment: Color for text indicating a neutral status.
 
   #icon
   color-text-icon:

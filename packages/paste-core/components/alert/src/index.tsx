@@ -21,12 +21,12 @@ export const AlertVariants = {
 } as const;
 export const AlertBackgroundColors = {
   ERROR: 'colorBackgroundErrorLightest',
-  NEUTRAL: 'colorBackgroundNeutralLightest',
+  NEUTRAL: 'colorBackgroundPrimaryLightest',
   WARNING: 'colorBackgroundWarningLightest',
 } as const;
 export const AlertBorderColors = {
   ERROR: 'colorBorderErrorLight',
-  NEUTRAL: 'colorBorderNeutralLight',
+  NEUTRAL: 'colorBorderNeutral',
   WARNING: 'colorBorderWarningLight',
 } as const;
 
@@ -47,12 +47,12 @@ export interface AlertProps {
 const renderAlertIcon = (variant: AlertVariants): React.ReactElement => {
   switch (variant) {
     case AlertVariants.ERROR:
-      return <ErrorIcon color="colorTextError" decorative={false} title="error: " size="sizeIcon30" />;
+      return <ErrorIcon color="colorTextError" decorative={false} title="error: " size="sizeIcon20" />;
     case AlertVariants.WARNING:
-      return <WarningIcon color="colorTextWarning" decorative={false} title="warning: " size="sizeIcon30" />;
+      return <WarningIcon color="colorTextWarning" decorative={false} title="warning: " size="sizeIcon20" />;
     case AlertVariants.NEUTRAL:
     default:
-      return <InformationIcon color="colorTextIcon" decorative={false} title="information: " size="sizeIcon30" />;
+      return <InformationIcon color="colorTextNeutral" decorative={false} title="information: " size="sizeIcon20" />;
   }
 };
 
@@ -64,21 +64,21 @@ const Alert: React.FC<AlertProps> = ({children, onDismiss, variant, role, ...pro
       borderColor={AlertBorderColors[variant.toUpperCase()]}
       borderBottomWidth="borderWidth20"
       borderBottomStyle="solid"
-      paddingLeft="space70"
-      paddingRight="space70"
-      paddingTop="space40"
-      paddingBottom="space40"
+      paddingLeft="space60"
+      paddingRight="space60"
+      paddingTop="space50"
+      paddingBottom="space50"
       role={role != null ? role : AlertRoles[variant.toUpperCase()]}
     >
       <MediaObject as="div">
-        <MediaFigure as="div" spacing="space40">
+        <MediaFigure as="div" spacing="space30">
           {renderAlertIcon(variant)}
         </MediaFigure>
         <MediaBody as="div">{children}</MediaBody>
         {onDismiss && typeof onDismiss === 'function' && (
-          <MediaFigure align="end" spacing="space70">
+          <MediaFigure align="end" spacing="space60">
             <Button onClick={onDismiss} variant="link" size="reset">
-              <CloseIcon color="colorTextIcon" decorative={false} title="dismiss this alert" size="sizeIcon30" />
+              <CloseIcon color="colorTextIcon" decorative={false} title="dismiss this alert" size="sizeIcon20" />
             </Button>
           </MediaFigure>
         )}

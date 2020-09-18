@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.5.1...@twilio-paste/icons@3.5.2) (2020-09-15)
+
+**Note:** Version bump only for package @twilio-paste/icons
+
+
+
+
+
+## [3.5.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.5.0...@twilio-paste/icons@3.5.1) (2020-09-15)
+
+**Note:** Version bump only for package @twilio-paste/icons
+
+
+
+
+
+# [3.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.4.0...@twilio-paste/icons@3.5.0) (2020-09-14)
+
+
+### Features
+
+* **icons:** add product admin, expand, shrink icons ([#752](https://github.com/twilio-labs/paste/issues/752)) ([ee9e32f](https://github.com/twilio-labs/paste/commit/ee9e32f88d28580c7386c5a38e90f283b95ddde4))
+
+
+
+
+
+# [3.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.3.0...@twilio-paste/icons@3.4.0) (2020-09-10)
+
+
+### Features
+
+* **icons:** add asset and api icons ([#744](https://github.com/twilio-labs/paste/issues/744)) ([bba48d0](https://github.com/twilio-labs/paste/commit/bba48d01e25babf8f137a7ad708b97ce046ebea7))
+
+
+
+
+
+# [3.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.2.3...@twilio-paste/icons@3.3.0) (2020-09-09)
+
+
+### Features
+
+* **icons:** add connecteddecices icon and update close ([ba592e9](https://github.com/twilio-labs/paste/commit/ba592e9162a991f80dea00adebfd8978ee8ec3e3))
+
+
+
+
+
+## [3.2.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.2.2...@twilio-paste/icons@3.2.3) (2020-09-09)
+
+**Note:** Version bump only for package @twilio-paste/icons
+
+
+
+
+
 ## [3.2.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.2.1...@twilio-paste/icons@3.2.2) (2020-09-08)
 
 **Note:** Version bump only for package @twilio-paste/icons

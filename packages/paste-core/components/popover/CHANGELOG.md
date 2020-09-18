@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.21](https://github.com/twilio-labs/paste/compare/@twilio-paste/popover@1.0.20...@twilio-paste/popover@1.0.21) (2020-09-15)
+
+**Note:** Version bump only for package @twilio-paste/popover
+
+
+
+
+
+## [1.0.20](https://github.com/twilio-labs/paste/compare/@twilio-paste/popover@1.0.19...@twilio-paste/popover@1.0.20) (2020-09-15)
+
+**Note:** Version bump only for package @twilio-paste/popover
+
+
+
+
+
+## [1.0.19](https://github.com/twilio-labs/paste/compare/@twilio-paste/popover@1.0.18...@twilio-paste/popover@1.0.19) (2020-09-14)
+
+**Note:** Version bump only for package @twilio-paste/popover
+
+
+
+
+
+## [1.0.18](https://github.com/twilio-labs/paste/compare/@twilio-paste/popover@1.0.17...@twilio-paste/popover@1.0.18) (2020-09-10)
+
+**Note:** Version bump only for package @twilio-paste/popover
+
+
+
+
+
+## [1.0.17](https://github.com/twilio-labs/paste/compare/@twilio-paste/popover@1.0.16...@twilio-paste/popover@1.0.17) (2020-09-09)
+
+**Note:** Version bump only for package @twilio-paste/popover
+
+
+
+
+
+## [1.0.16](https://github.com/twilio-labs/paste/compare/@twilio-paste/popover@1.0.15...@twilio-paste/popover@1.0.16) (2020-09-09)
+
+**Note:** Version bump only for package @twilio-paste/popover
+
+
+
+
+
 ## [1.0.15](https://github.com/twilio-labs/paste/compare/@twilio-paste/popover@1.0.14...@twilio-paste/popover@1.0.15) (2020-09-08)
 
 **Note:** Version bump only for package @twilio-paste/popover

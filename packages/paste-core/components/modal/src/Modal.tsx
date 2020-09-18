@@ -21,10 +21,7 @@ const ModalDialogOverlay = animated(
       alignItems: 'center',
       width: '100%',
       backgroundColor: 'colorBackgroundOverlay',
-      // Console navigation has a high zIndex value, so we need a
-      // higher one to make sure the overlay is on top of the
-      // navigation. The current zIndex tokens only go up to 90.
-      zIndex: '2000',
+      zIndex: 'zIndex80',
     }),
     // import Paste Theme Based Styles due to portal positioning.
     // reach portal is a sibling to the main app, so you are now

@@ -235,12 +235,11 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
           <ComboboxInputWrapper {...getComboboxProps({role: 'combobox'})}>
             <StyledInputAsSelect
               {...getToggleButtonProps({tabIndex: 0})}
-              {...getInputProps({disabled})}
+              {...getInputProps({disabled, ref})}
               {...(!autocomplete ? {onChange: event => event.preventDefault()} : undefined)}
               aria-describedby={helpTextId}
               {...props}
               type="text"
-              ref={ref}
               paddingRight="space90"
             />
             <SelectIconWrapper>
@@ -248,20 +247,18 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
             </SelectIconWrapper>
           </ComboboxInputWrapper>
         </FormControlWrapper>
-        {isOpen && (
-          <ComboboxListbox {...getMenuProps()}>
-            {renderListBox({
-              items,
-              getItemProps,
-              highlightedIndex,
-              optionTemplate,
-              groupItemsBy,
-              groupLabelTemplate,
-              optionUID,
-              groupUID,
-            })}
-          </ComboboxListbox>
-        )}
+        <ComboboxListbox hidden={!isOpen} {...getMenuProps()}>
+          {renderListBox({
+            items,
+            getItemProps,
+            highlightedIndex,
+            optionTemplate,
+            groupItemsBy,
+            groupLabelTemplate,
+            optionUID,
+            groupUID,
+          })}
+        </ComboboxListbox>
         {helpText && (
           <FormHelpText id={helpTextId} variant={getHelpTextVariant(variant, hasError)}>
             {helpText}

@@ -542,12 +542,12 @@ exports[`ZIndex it should render responsive values 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  z-index: 10;
+  z-index: 2010;
 }
 
 @media screen and (min-width:25rem) {
   .emotion-0 {
-    z-index: 20;
+    z-index: 2020;
   }
 }
 
@@ -573,7 +573,7 @@ exports[`ZIndex it should render single values 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  z-index: 10;
+  z-index: 2010;
 }
 
 <div

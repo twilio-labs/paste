@@ -1,7 +1,20 @@
 import * as React from 'react';
 import {Helmet} from 'react-helmet';
-import {Box, Heading, Paragraph, Anchor, Stack, Card, Grid, Column, UnorderedList, ListItem} from '@twilio-paste/core';
+import {
+  Box,
+  Heading,
+  Paragraph,
+  Anchor,
+  Stack,
+  Card,
+  Grid,
+  Column,
+  UnorderedList,
+  ListItem,
+  Separator,
+} from '@twilio-paste/core';
 import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
+import IllustrationBuildingBlocks from '../assets/illustrations/IllustrationBuildingBlocks.svg';
 import {SiteWrapper} from '../components/site-wrapper';
 import {P} from '../components/Typography';
 import {SiteLink} from '../components/SiteLink';
@@ -16,8 +29,8 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
         <meta name="description" content={SiteMetaDefaults.DESCRIPTION} />
       </Helmet>
       <Box maxWidth="size120">
-        <Grid gutter="space80" marginTop="space140">
-          <Column span={[12, 12, 6, 7, 8]}>
+        <Grid gutter="space40" marginTop="space140">
+          <Column span={[12, 12, 8]}>
             <Heading as="h1" variant="heading10">
               Paste
             </Heading>
@@ -25,46 +38,58 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               <P variant="lead">
                 Paste is a design system used to build accessible, consistent, and high quality customer experiences at
                 Twilio. Paste is open source and contributions are welcome.{' '}
-                <SiteLink to="/getting-started/about-paste/">Read more about the Paste platform here.</SiteLink>
+                <SiteLink to="/getting-started/about-paste/">Read more about the Paste platform.</SiteLink>
               </P>
             </Box>
-            <Box marginTop="space80" marginBottom="space80">
+            <Box marginTop="space80" marginBottom="space120">
               <Heading as="h2" variant="heading20">
                 Get Started
               </Heading>
               <Stack orientation="vertical" spacing="space30">
                 <SiteLink to="/getting-started/engineering">Guidelines for front-end engineers</SiteLink>
-                <SiteLink to="/roadmap">View our component roadmap</SiteLink>
                 <Anchor href="https://codesandbox.io/s/paste-starter-kit-rj7yy">
                   Check out our components in a Code Sandbox
                 </Anchor>
               </Stack>
             </Box>
           </Column>
-          <Column span={[12, 12, 6, 5, 4]}>
-            <Card padding={['space60', 'space60', 'space60', 'space90']}>
-              <Heading as="h2" variant="heading30">
-                <Stack as="span" orientation="horizontal" spacing="space20">
-                  <NewIcon color="colorTextNew" decorative size="sizeIcon60" />
-                  What&rsquo;s new in Paste?
-                </Stack>
-              </Heading>
-              <UnorderedList marginBottom="space0">
-                <ListItem>
-                  Usage guidelines and brand approved illustrations are now documented in our{' '}
-                  <SiteLink to="/illustrations">illustrations section</SiteLink> page
-                </ListItem>
-                <ListItem>
-                  Find icons easier than ever with our new <SiteLink to="/icons">icon list</SiteLink> page
-                </ListItem>
-                <ListItem>
-                  By popular demand, we&rsquo;ve released a{' '}
-                  <SiteLink to="/components/button#destructive-secondary-button">
-                    secondary variant for destructive buttons
-                  </SiteLink>
-                </ListItem>
-              </UnorderedList>
-            </Card>
+          <Column span={[12, 12, 4]}>
+            <IllustrationBuildingBlocks aria-hidden="true" role="img" />
+          </Column>
+          <Column span={12}>
+            <Separator orientation="horizontal" verticalSpacing="space20" />
+            <Box paddingX="space120" paddingTop="space130">
+              <Grid>
+                <Column span={[12, 12, 3]}>
+                  <Heading as="h2" variant="heading30">
+                    <Stack as="span" orientation="horizontal" spacing="space20">
+                      <NewIcon color="colorTextNew" decorative size="sizeIcon60" />
+                      What&rsquo;s new in Paste?
+                    </Stack>
+                  </Heading>
+                  <Paragraph>
+                    To see what&rsquo;s coming soon <SiteLink to="/roadmap">view our roadmap</SiteLink>.
+                  </Paragraph>
+                </Column>
+                <Column span={[12, 12, 9]}>
+                  <UnorderedList marginBottom="space0">
+                    <ListItem>
+                      Usage guidelines and brand approved illustrations are now documented in our{' '}
+                      <SiteLink to="/illustrations">illustrations section</SiteLink> page
+                    </ListItem>
+                    <ListItem>
+                      Find icons easier than ever with our new <SiteLink to="/icons">icon list</SiteLink> page
+                    </ListItem>
+                    <ListItem>
+                      By popular demand, we&rsquo;ve released a{' '}
+                      <SiteLink to="/components/button#destructive-secondary-button">
+                        secondary variant for destructive buttons
+                      </SiteLink>
+                    </ListItem>
+                  </UnorderedList>
+                </Column>
+              </Grid>
+            </Box>
           </Column>
         </Grid>
 
@@ -72,7 +97,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
           <Column span={[12, 12, 4]}>
             <Box marginBottom="space40">
               <Card padding="space80">
-                <Heading as="h2" variant="heading30">
+                <Heading as="h2" variant="heading20">
                   <SiteLink to="/components">Components</SiteLink>
                 </Heading>
                 <Paragraph>Use Paste components in Sketch or React to compose your user interfaces.</Paragraph>

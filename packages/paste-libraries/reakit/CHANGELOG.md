@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/reakit-library@0.7.0...@twilio-paste/reakit-library@0.7.1) (2020-09-15)
+
+
+### Bug Fixes
+
+* **reakit-library:** fix fill and stroke for tooltip and popover arrow ([80bee28](https://github.com/twilio-labs/paste/commit/80bee280a0eb137677963f97191ac683ed073648))
+
+
+
+
+
 # [0.7.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/reakit-library@0.6.2...@twilio-paste/reakit-library@0.7.0) (2020-09-03)
 
 
