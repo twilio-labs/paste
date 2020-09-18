@@ -70,7 +70,7 @@ your design work.
 
 ### Abstract
 
-All product designers across Twilio use Abstract to host and version control
+All product designers across Twilio use <Anchor href="https://www.abstract.com/">Abstract</Anchor> to host and version control
 their design files. We also use Abstract to link Paste Sketch libraries and
 manage library updates (more on that later). Connect with your design manager
 to get added to the Twilio team in Abstract.
@@ -102,7 +102,7 @@ on your work laptop to get you up and running.
 If you are using the Default theme in Paste, you will need
 to <Anchor href="https://github.com/rsms/inter/releases/download/v3.15/Inter-3.15.zip">download Inter.</Anchor>
 It’s a free font. After you download the files, follow the instructions in the
-“install-mac.txt” file in your download. We recommend following the steps using Font Book.
+`install-mac.txt` file in your download. We recommend following the steps using Font Book.
 
 #### Fira Mono
 
@@ -148,21 +148,21 @@ Sketch symbols, text styles, and layer styles.
   </Text>
 </Flex>
 
-The 'Paste design tokens' project houses the text and layer styles
+The `Paste design tokens` project houses the text and layer styles
 for each theme in Paste. These libraries represent
 the <Anchor href="/tokens">tokens</Anchor> available for use in the system. For
-example, in the 'default theme' file, you can find layer styles
+example, in the `default theme` file, you can find layer styles
 for every background color token that is available for the Default theme.
 
 #### Linking the library
 
 There are two libraries available in this project: `console theme` (this is the current
-theme you see in Console) and `default theme` (this is the new unified theme, formerly known as UDL.
+theme you see in Console) and `default theme` (this is the new unified theme, formerly known as the "Unified Design Language" or "UDL").
 
 Link whichever library matches the theme you are using in your project. For example, if you are designing using the
-Default theme, link the default theme library to your project.
+Default theme, link the `default theme` library to your project.
 
-[image]
+![Modal in Abstract where you can select libraries from the Paste design tokens project to link to your project](../../../assets/images/design-guidelines/link-theme-library-modal.png)
 
 <Callout variant="warning">
   <CalloutTitle>
@@ -179,7 +179,9 @@ Default theme, link the default theme library to your project.
 Once you have this library linked, you will see text styles (which include text colors, font families, and font sizes) and layer
 styles (which include background colors, border widths and colors, shadows, etc.) for that theme.
 
-[images]
+![Menu in Sketch when you can navigate through text styles for the Default theme](../../../assets/images/design-guidelines/text-styles.png)
+
+![Menu in Sketch where you can navigate through layer styles for the Default theme](../../../assets/images/design-guidelines/layer-styles.png)
 
 These text and layer styles will be most helpful when creating custom compositions in your designs (in other words, when you are
 composing UI that can’t be represented by existing components). This can be anything from setting a piece of text next to an icon to
@@ -210,18 +212,18 @@ project in Abstract. There are many libraries available in this project: one lib
 You can link all libraries within `Paste components` if you’d like, or you can link them as you need them. For example, if you are
 working on a flow that uses anchor, button, and card from Paste, at a minimum, you should link those libraries to your project.
 
-[image]
+![Modal in Abstract where you can select libraries from the Paste compenents project to link to your project](../../../assets/images/design-guidelines/link-component-library-modal.png)
 
 #### Using the libraries
 
 Once you have them linked, you will be able to insert symbols from those libraries into your Sketch files in that Abstract project.
 Use the symbols that match the theme you are using in your project.
 
-[image]
+![Menu in Sketch where you can navigate through symbols from the Anchor Sketch library](../../../assets/images/design-guidelines/paste-components-symbol.png)
 
 <Callout variant="warning">
   <CalloutTitle>
-    A note on the SendGrid components
+    A note on SendGrid components
   </CalloutTitle>
   <CalloutText>
     You will see that some symbols are provided in the SendGrid theme, but they are not actively maintained due to low usage. If you plan
@@ -238,12 +240,12 @@ exceptions: `typography`, `forms`, and `grid and spacing`.
 
 The `typography` library houses symbols to represent multiple components.
 
-The `heading` symbols represent our <Anchor href="/components/heading">Heading</Anchor> component and include H1 through H6. You can find the
+The `heading` symbols represent our <Anchor href="/components/heading">Heading</Anchor> component and include symbols for H1 through H6. You can find the
 heading symbols in `typography > [your theme] > heading`.
 
 The `paragraph` symbol represents our <Anchor href="/components/paragraph">Paragraph</Anchor> component. You can find the paragraph symbol
-in `typography > [your theme] > text`. You’ll see that there is another symbol there called `default text`. Use the paragraph symbol for any prose,
-such as a page description, and use the default text symbol for any small piece of UI text, such as data within a table. The line heights of each
+in `typography > [your theme] > text`. You’ll see that there is another symbol there called `default text`. Use the `paragraph` symbol for any prose,
+such as a page description, and use the `default text` symbol for any small piece of UI text, such as data within a table. The line heights of each
 are optimized for those different use cases.
 
 The `list` symbols represent our <Anchor href="/components/list">List</Anchor> component and should be used for ordered and unordered lists.
@@ -254,7 +256,7 @@ and margin can be overridden in code, but instead of creating separate symbols f
 included in the `typography` library. You can use these type styles instead of the symbols when you need to center- or right-align your text, or
 when you need to remove the default bottom margin. You will also find type styles for strong and emphasized paragraph text.
 
-[image]
+![Menu in Sketch where you can navigate through text styles from the Typography Sketch library](../../../assets/images/design-guidelines/theme-typography-styles.png)
 
 ##### Forms
 
@@ -359,11 +361,11 @@ off of master or off of another active branch in your project.
 
 2. Open your Sketch file(s) within that project. You will have the “Library Updates Available” badge in the header if there are library updates relevant to the symbols or styles used in your project.
 
-  [image]
+  ![Badge in Sketch that appears when you have library updates available](../../../assets/images/design-guidelines/library-updates-badge.png)
 
 3. The badge will open a dialog that outlines all of the library updates that are available.
 
-  [image]
+  ![Modal in Sketch that allows you to select which library updates you want to accept into your file](../../../assets/images/design-guidelines/library-updates-confirmation-modal.png)
 
   <strong>You do NOT have to accept all library updates at once.</strong> In fact, we strongly encourage that you accept one update or group of related updates at a time, so that if something breaks in your design, it is easy to
 isolate which library update caused the issue.
@@ -383,7 +385,7 @@ isolate which library update caused the issue.
     - <strong>A symbol does not appear to be functioning as expected.</strong> For example, the background color of a primary button is gray instead of blue. In this case, check to see if you are using the same version of Sketch (or higher)
     that is being used in the library from which you are applying updates. You can check the Sketch version of any file in Abstract by navigating to the Master branch and selecting a file.
 
-      [image]
+      ![Screen in Abstract that shows you the Sketch version of a given file](../../../assets/images/design-guidelines/sketch-file-version.png)
 
       If you are using an old version of Sketch, please try updating to the same version that is being used in the Paste libraries, and try again.
 
