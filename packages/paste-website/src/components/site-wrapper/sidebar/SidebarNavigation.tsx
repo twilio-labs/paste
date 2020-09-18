@@ -141,8 +141,15 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <SiteNavNestList isOpen={gettingStartedOpen}>
             <SiteNavItem>
               <SiteNavAnchor to="/getting-started/engineering">Engineering Guidelines</SiteNavAnchor>
+            </SiteNavItem>
+            <SiteNavItem>
               <SiteNavAnchor to="/getting-started/working-guide">How to work with us</SiteNavAnchor>
+            </SiteNavItem>
+            <SiteNavItem>
               <SiteNavAnchor to="/getting-started/about-paste">About Paste</SiteNavAnchor>
+            </SiteNavItem>
+            <SiteNavItem>
+              <SiteNavAnchor to="/getting-started/faqs">FAQs</SiteNavAnchor>
             </SiteNavItem>
           </SiteNavNestList>
         </SiteNavItem>
@@ -229,7 +236,9 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
             <SiteNavAnchorArrow isOpen={layoutOpen} />
           </SiteNavButton>
           <SiteNavNestList isOpen={layoutOpen}>
-            <SiteNavAnchor to={SidebarCategoryRoutes.LAYOUT}>Overview</SiteNavAnchor>
+            <SiteNavItem>
+              <SiteNavAnchor to={SidebarCategoryRoutes.LAYOUT}>Overview</SiteNavAnchor>
+            </SiteNavItem>
             {data.allPasteLayout.edges
               .filter(({node}) => node.status !== PackageStatus.BACKLOG)
               .map(({node}) => {
@@ -292,9 +301,9 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
-          <SiteNavItem>
-            <SiteNavAnchor to="/illustrations">Illustrations</SiteNavAnchor>
-          </SiteNavItem>
+          <SiteNavAnchor to="/illustrations">Illustrations</SiteNavAnchor>
+        </SiteNavItem>
+        <SiteNavItem>
           <SiteNavButton onClick={() => setContentOpen(!contentOpen)} isOpen={contentOpen} aria-expanded={contentOpen}>
             Content
             <SiteNavAnchorArrow isOpen={contentOpen} />
