@@ -143,6 +143,9 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
               <SiteNavAnchor to="/getting-started/engineering">Engineering Guidelines</SiteNavAnchor>
             </SiteNavItem>
             <SiteNavItem>
+              <SiteNavAnchor to="/getting-started/design">Design Guidelines</SiteNavAnchor>
+            </SiteNavItem>
+            <SiteNavItem>
               <SiteNavAnchor to="/getting-started/working-guide">How to work with us</SiteNavAnchor>
             </SiteNavItem>
             <SiteNavItem>

@@ -48,6 +48,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               </Heading>
               <Stack orientation="vertical" spacing="space30">
                 <SiteLink to="/getting-started/engineering">Guidelines for front-end engineers</SiteLink>
+                <SiteLink to="/getting-started/design">Guidelines for product designers</SiteLink>
                 <Anchor
                   href="https://codesandbox.io/s/paste-starter-kit-rj7yy"
                   onClick={() =>
