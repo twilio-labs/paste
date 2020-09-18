@@ -22,13 +22,15 @@ export type PopoverArrowHTMLProps = BoxHTMLProps;
 
 export type PopoverArrowProps = PopoverArrowOptions & PopoverArrowHTMLProps;
 
+const PASTE_POPOVER_ARROW_KEYS = [...POPOVER_ARROW_KEYS, 'fill', 'stroke'];
+
 export const usePopoverArrow = createHook<PopoverArrowOptions, PopoverArrowHTMLProps>({
   name: 'PopoverArrow',
   compose: useBox,
-  keys: POPOVER_ARROW_KEYS,
+  keys: PASTE_POPOVER_ARROW_KEYS,
 
   useOptions({size = 30, fill, stroke, ...options}) {
-    return {size, ...options};
+    return {size, fill, stroke, ...options};
   },
 
   useProps(options, {ref: htmlRef, style: htmlStyle, ...htmlProps}) {

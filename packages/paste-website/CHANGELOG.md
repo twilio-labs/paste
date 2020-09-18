@@ -3,6 +3,89 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.5.6...@twilio-paste/website@2.5.7) (2020-09-15)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.5.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.5.5...@twilio-paste/website@2.5.6) (2020-09-15)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.5.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.5.4...@twilio-paste/website@2.5.5) (2020-09-15)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.5.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.5.3...@twilio-paste/website@2.5.4) (2020-09-14)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.5.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.5.2...@twilio-paste/website@2.5.3) (2020-09-14)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.5.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.5.1...@twilio-paste/website@2.5.2) (2020-09-14)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.5.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.5.0...@twilio-paste/website@2.5.1) (2020-09-10)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+# [2.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.4.2...@twilio-paste/website@2.5.0) (2020-09-09)
+
+
+### Features
+
+* **website:** setup Algolia DocSearch ([#703](https://github.com/twilio-labs/paste/issues/703)) ([49ef97a](https://github.com/twilio-labs/paste/commit/49ef97a1c4304a44ce3268dae13f0c08cf2d6f2a))
+
+
+
+
+
+## [2.4.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.4.1...@twilio-paste/website@2.4.2) (2020-09-09)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.4.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.4.0...@twilio-paste/website@2.4.1) (2020-09-09)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
 # [2.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.3.8...@twilio-paste/website@2.4.0) (2020-09-09)
 
 
