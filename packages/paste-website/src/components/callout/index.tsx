@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
+import {Stack} from '@twilio-paste/stack';
 import {Heading, asTags as HeadingAsTags} from '@twilio-paste/heading';
 import {BorderColor} from '@twilio-paste/style-props';
 
@@ -26,11 +27,7 @@ const CalloutTitle: React.FC<CalloutTitleProps> = ({as = 'h3', children}) => (
   </Heading>
 );
 
-const CalloutText: React.FC = ({children}) => (
-  <Text as="p" marginTop="space30">
-    {children}
-  </Text>
-);
+const CalloutText: React.FC = ({children}) => <Text as="p">{children}</Text>;
 
 interface CalloutProps {
   variant?: CalloutVariants;
@@ -51,7 +48,9 @@ const Callout: React.FC<CalloutProps> = ({variant, children}) => {
       paddingBottom="space40"
       paddingLeft="space60"
     >
-      {children}
+      <Stack orientation="vertical" spacing="space30">
+        {children}
+      </Stack>
     </Box>
   );
 };
