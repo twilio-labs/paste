@@ -5,7 +5,7 @@ import {propValidator} from './utils/propValidator';
 const FontFamilyOptions = Object.keys(DefaultTheme.fonts);
 const FontSizeOptions = ['100%', 'inherit', ...Object.keys(DefaultTheme.fontSizes)];
 const FontWeightOptions = ['inherit', ...Object.keys(DefaultTheme.fontWeights)];
-const LineHeightOptions = ['unset', ...Object.keys(DefaultTheme.lineHeights)];
+const LineHeightOptions = ['unset', 'inherit', ...Object.keys(DefaultTheme.lineHeights)];
 const TextColorOptions = ['currentColor', 'inherit', ...Object.keys(DefaultTheme.textColors)];
 
 export const isFontFamilyTokenProp = propValidator(FontFamilyOptions);
