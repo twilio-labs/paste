@@ -108,8 +108,10 @@ If an external URL is used for the href, the target and rel will automatically b
 
 This is done for security purposes. Even though the target and rel are set by default for external anchors, they can be overridden using the target and rel props.
 
+You can show the link external icon by setting the `showExternal` prop.
+
 <LivePreview scope={{Anchor}} language="jsx">
-  {`<Anchor href="https://www.nlg-npap.org/donate/">
+  {`<Anchor href="https://www.nlg-npap.org/donate/" showExternal>
   Donate to the National Police Accountability Project
 </Anchor>`}
 </LivePreview>
@@ -149,16 +151,17 @@ const Component = () => <Anchor href="https://paste.twilio.design">Go to Paste</
 
 #### Props
 
-| Prop      | Type                                     | Description                                                                                             | Default   |
-| --------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------- |
-| href?     | string                                   | A URL to route to. Required.                                                                            | null      |
-| rel?      | string                                   | Sets the anchor rel attribute. If external href, defaults to 'noreferrer noopener'. Can be overwritten. | false     |
-| tabindex? | AnchorTabIndexes                         | '0', '-1'                                                                                               | null      |
-| target?   | AnchorTargets                            | '\_self', '\_blank', '\_parent', '\_top'. If external href, defaults to '\_blank'. Can be overwritten.  | null      |
-| variant?  | AnchorVariants                           | 'default', 'inverse'                                                                                    | 'default' |
-| onClick?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                         | null      |
-| onFocus?  | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                         | null      |
-| onBlur?   | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                         | null      |
+| Prop          | Type                                     | Description                                                                                             | Default   |
+| ------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------- |
+| href?         | string                                   | A URL to route to. Required.                                                                            | null      |
+| rel?          | string                                   | Sets the anchor rel attribute. If external href, defaults to 'noreferrer noopener'. Can be overwritten. | false     |
+| showExternal? | boolean                                  | Shows the link external icon.                                                                           | false     |
+| tabindex?     | AnchorTabIndexes                         | '0', '-1'                                                                                               | null      |
+| target?       | AnchorTargets                            | '\_self', '\_blank', '\_parent', '\_top'. If external href, defaults to '\_blank'. Can be overwritten.  | null      |
+| variant?      | AnchorVariants                           | 'default', 'inverse'                                                                                    | 'default' |
+| onClick?      | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                         | null      |
+| onFocus?      | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                         | null      |
+| onBlur?       | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                         | null      |
 
 <ChangelogRevealer>
   <Changelog />
