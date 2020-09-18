@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.5.7...@twilio-paste/website@2.6.0) (2020-09-18)
+
+
+### Features
+
+* **docs:** remove "here" from homepage CTA ([#745](https://github.com/twilio-labs/paste/issues/745)) ([04279bb](https://github.com/twilio-labs/paste/commit/04279bbb07415191962d8d2fdcb13816603fb214))
+
+
+
+
+
 ## [2.5.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.5.6...@twilio-paste/website@2.5.7) (2020-09-15)
 
 **Note:** Version bump only for package @twilio-paste/website
