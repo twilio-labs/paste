@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.6.0...@twilio-paste/website@2.6.1) (2020-09-18)
+
+
+### Bug Fixes
+
+* **website:** update instructions on creating icon SVGs ([#738](https://github.com/twilio-labs/paste/issues/738)) ([d850677](https://github.com/twilio-labs/paste/commit/d850677d2fdf67d80edd9da20709657492727546))
+
+
+
+
+
 # [2.6.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.5.7...@twilio-paste/website@2.6.0) (2020-09-18)
 
 
