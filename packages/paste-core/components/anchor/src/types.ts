@@ -9,6 +9,7 @@ export interface AnchorProps extends React.AnchorHTMLAttributes<HTMLAnchorElemen
   href: string;
   ref?: any;
   rel?: string;
+  showExternal?: boolean;
   tabIndex?: AnchorTabIndexes;
   target?: AnchorTargets;
   variant?: AnchorVariants;
@@ -18,6 +19,7 @@ export const AnchorPropTypes = {
   children: PropTypes.node.isRequired,
   href: PropTypes.string.isRequired,
   rel: PropTypes.string,
+  showExternal: PropTypes.bool,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   tabIndex: PropTypes.oneOf([0, -1]) as any,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

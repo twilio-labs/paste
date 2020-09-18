@@ -6,6 +6,9 @@ const DefaultAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, r
   <Text
     as="a"
     color="colorTextLink"
+    fontSize="inherit"
+    fontWeight="inherit"
+    lineHeight="inherit"
     outline="none"
     ref={ref}
     textDecoration="underline"
