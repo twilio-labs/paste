@@ -3,6 +3,7 @@ import {storiesOf} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
 import {withKnobs, select, text} from '@storybook/addon-knobs';
 import {Box} from '@twilio-paste/box';
+import {Heading} from '@twilio-paste/heading';
 import {Anchor} from '../src';
 import {AnchorTargets, AnchorTabIndexes} from '../src/types';
 
@@ -46,5 +47,19 @@ storiesOf('Components|Anchor', module)
           {text('children', 'I am an inverse text link')}
         </Anchor>
       </Box>
+    );
+  })
+  .add('showExternal prop', () => {
+    return (
+      <>
+        <Anchor href="https://paste.twilio.design" showExternal>
+          I&rsquo;m an external link
+        </Anchor>
+        <Heading as="h2" variant="heading10">
+          <Anchor href="https://paste.twilio.design" showExternal>
+            I&rsquo;m an external link inside a heading
+          </Anchor>
+        </Heading>
+      </>
     );
   });
