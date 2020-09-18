@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Anchor} from '@twilio-paste/anchor';
+import {Anchor, isExternalUrl} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 
@@ -15,7 +15,15 @@ const Citation: React.FC<Props> = ({name, source, sourceUrl}) => {
       &mdash; {name}
       {source && ', '}
       {source && (
-        <cite>{sourceUrl ? <Anchor href={sourceUrl}>{source}</Anchor> : <Text as="span">{source}</Text>}</cite>
+        <cite>
+          {sourceUrl ? (
+            <Anchor href={sourceUrl} showExternal={isExternalUrl(sourceUrl)}>
+              {source}
+            </Anchor>
+          ) : (
+            <Text as="span">{source}</Text>
+          )}
+        </cite>
       )}
     </Text>
   );
