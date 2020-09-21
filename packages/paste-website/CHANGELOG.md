@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.6.1...@twilio-paste/website@2.6.2) (2020-09-21)
+
+
+### Bug Fixes
+
+* **text:** typo in propos ([d33d8db](https://github.com/twilio-labs/paste/commit/d33d8dbec50210b0480ee0b1ca45dc0dcf029b6a))
+
+
+
+
+
 ## [2.6.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.6.0...@twilio-paste/website@2.6.1) (2020-09-18)
 
 
