@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "2.16.56",
+  "version": "2.16.57",
   "status": "beta",
   "description": "Contains all the core packages from the Paste internal design system.",
   "author": "Twilio Inc.",
@@ -61,7 +61,7 @@
     "@twilio-paste/text": "^2.3.5",
     "@twilio-paste/tooltip": "^0.3.4",
     "@twilio-paste/tooltip-primitive": "^0.1.4",
-    "@twilio-paste/truncate": "^1.0.11"
+    "@twilio-paste/truncate": "^1.0.12"
   },
   "peerDependencies": {
     "@twilio-paste/animation-library": "^0.2.1",

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/truncate",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "category": "typography",
   "status": "alpha",
   "description": "The Truncate component can be used to shorten a string of text that overflows a defined area.",
