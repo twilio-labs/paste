@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@1.2.5...@twilio-paste/anchor@1.3.0) (2020-09-21)
+
+
+### Features
+
+* **anchor:** ability to show external link icon ([3ed03c1](https://github.com/twilio-labs/paste/commit/3ed03c17e94982507ae86feca07d9c297c874d63))
+
+
+
+
+
 ## [1.2.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@1.2.4...@twilio-paste/anchor@1.2.5) (2020-09-15)
 
 **Note:** Version bump only for package @twilio-paste/anchor

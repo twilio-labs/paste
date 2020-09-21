@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.6.4...@twilio-paste/style-props@1.7.0) (2020-09-21)
+
+
+### Features
+
+* **style-props:** allow line height in herit ([38fae8f](https://github.com/twilio-labs/paste/commit/38fae8ffed9864169b40f26b675c950674658e1a))
+
+
+
+
+
 ## [1.6.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.6.3...@twilio-paste/style-props@1.6.4) (2020-09-15)
 
 **Note:** Version bump only for package @twilio-paste/style-props
