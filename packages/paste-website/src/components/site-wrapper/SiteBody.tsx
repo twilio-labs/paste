@@ -25,7 +25,7 @@ const StyledSiteBody = styled.div`
 `;
 
 const PsaAlert: React.FC = () => {
-  const externalUrl = 'https://en.wikipedia.org/wiki/John_Lewis_(civil_rights_leader)';
+  const externalUrl = 'https://en.wikipedia.org/wiki/Ruth_Bader_Ginsburg';
   return (
     <Box
       backgroundColor="colorBackgroundBodyInverse"
@@ -40,11 +40,7 @@ const PsaAlert: React.FC = () => {
       zIndex="zIndex90"
     >
       <Text as="span" fontWeight="fontWeightBold" color="colorTextBrandInverse" marginRight="space30">
-        {/* eslint-disable-next-line jsx-a11y/accessible-emoji */}
-        <Text as="span" role="img" aria-label="Raised fist">
-          ✊🏾
-        </Text>{' '}
-        Rest in power, John Lewis.
+        Thank you, RBG.
       </Text>
       <Text
         as="a"
@@ -54,7 +50,7 @@ const PsaAlert: React.FC = () => {
         textDecoration="underline"
         _hover={{textDecoration: 'none'}}
       >
-        We&rsquo;ll keep the good trouble going.
+        May her memory be a blessing and a revolution.
       </Text>
     </Box>
   );
