@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {styled, css} from '@twilio-paste/styling-library';
 import {useUID} from 'react-uid';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
@@ -69,6 +70,13 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
             onChange={handleChange}
             type="radio"
             value={ThemeVariants.CONSOLE}
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Theme Switcher',
+                action: 'Click',
+                label: 'Current',
+              })
+            }
           />
         </StyledThemeSwitcherLabel>
 
@@ -81,6 +89,13 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
             onChange={handleChange}
             type="radio"
             value={ThemeVariants.DEFAULT}
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Theme Switcher',
+                action: 'Click',
+                label: 'Default',
+              })
+            }
           />
         </StyledThemeSwitcherLabel>
       </Box>

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.25](https://github.com/twilio-labs/paste/compare/@twilio-paste/menu@1.1.24...@twilio-paste/menu@1.1.25) (2020-09-23)
+
+**Note:** Version bump only for package @twilio-paste/menu
+
+
+
+
+
+## [1.1.24](https://github.com/twilio-labs/paste/compare/@twilio-paste/menu@1.1.23...@twilio-paste/menu@1.1.24) (2020-09-22)
+
+**Note:** Version bump only for package @twilio-paste/menu
+
+
+
+
+
+## [1.1.23](https://github.com/twilio-labs/paste/compare/@twilio-paste/menu@1.1.22...@twilio-paste/menu@1.1.23) (2020-09-21)
+
+**Note:** Version bump only for package @twilio-paste/menu
+
+
+
+
+
 ## [1.1.22](https://github.com/twilio-labs/paste/compare/@twilio-paste/menu@1.1.21...@twilio-paste/menu@1.1.22) (2020-09-15)
 
 **Note:** Version bump only for package @twilio-paste/menu

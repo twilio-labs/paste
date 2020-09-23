@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Helmet} from 'react-helmet';
+import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {
   Box,
   Heading,
@@ -38,7 +39,7 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               <P variant="lead">
                 Paste is a design system used to build accessible, consistent, and high quality customer experiences at
                 Twilio. Paste is open source and contributions are welcome.{' '}
-                <SiteLink to="/getting-started/about-paste/">Read more about the Paste platform here.</SiteLink>
+                <SiteLink to="/getting-started/about-paste/">Read more about the Paste platform.</SiteLink>
               </P>
             </Box>
             <Box marginTop="space80" marginBottom="space120">
@@ -47,7 +48,16 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
               </Heading>
               <Stack orientation="vertical" spacing="space30">
                 <SiteLink to="/getting-started/engineering">Guidelines for front-end engineers</SiteLink>
-                <Anchor href="https://codesandbox.io/s/paste-starter-kit-rj7yy">
+                <Anchor
+                  href="https://codesandbox.io/s/paste-starter-kit-rj7yy"
+                  onClick={() =>
+                    trackCustomEvent({
+                      category: 'Home',
+                      action: 'Click',
+                      label: 'Check out our components in a Code Sandbox',
+                    })
+                  }
+                >
                   Check out our components in a Code Sandbox
                 </Anchor>
               </Stack>

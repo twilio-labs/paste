@@ -47,6 +47,9 @@ export {
   PopoverProps,
   PopoverDisclosure,
   PopoverDisclosureProps,
+  // https://reakit.io/docs/portal/
+  Portal,
+  PortalProps,
   // https://reakit.io/docs/tab/
   useTabState,
   TabState,

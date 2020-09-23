@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Anchor} from '@twilio-paste/anchor';
@@ -56,7 +57,16 @@ export const SiteHeader: React.FC = () => {
               />
             </Box>
             <ContactUsMenu />
-            <Anchor href="https://www.github.com/twilio-labs/paste">
+            <Anchor
+              href="https://www.github.com/twilio-labs/paste"
+              onClick={() =>
+                trackCustomEvent({
+                  category: 'Header',
+                  action: 'Click',
+                  label: 'Github Icon',
+                })
+              }
+            >
               <GithubIcon
                 css={{height: theme.heights.sizeIcon30, width: theme.heights.sizeIcon30}}
                 title="View this project on github"

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {MDXProvider} from '@mdx-js/react';
 import {styled} from '@twilio-paste/styling-library';
-import {Anchor, AnchorProps} from '@twilio-paste/anchor';
+import {Anchor, AnchorProps, isExternalUrl} from '@twilio-paste/anchor';
 import {Heading, HeadingProps} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {OrderedList, UnorderedList, ListItem} from '@twilio-paste/list';
@@ -39,6 +39,10 @@ const StyledSup = styled.sup`
   top: -0.4rem;
 `;
 
+const MdxLink: React.FC<AnchorProps> = props => {
+  return <Anchor {...props} showExternal={isExternalUrl(props.href)} />;
+};
+
 const shortcodes = {ComponentHeader, LivePreview, PageAside, QuestionMenu, TableOfContents, ChangelogRevealer};
 
 const MDXPoviderComponents = {
@@ -68,9 +72,9 @@ const MDXPoviderComponents = {
   strong: (props: React.ComponentProps<'strong'>): React.ReactElement => <strong {...props} />,
   del: (props: React.ComponentProps<'del'>): React.ReactElement => <del {...props} />,
   hr: (props: SeparatorProps): React.ReactElement => (
-    <Separator orientation="horizontal" verticalSpacing="space70" {...props} />
+    <Separator {...props} orientation="horizontal" verticalSpacing="space70" />
   ),
-  a: (props: AnchorProps): React.ReactElement => <Anchor {...props} />, // eslint-disable-line jsx-a11y/anchor-has-content
+  a: (props: AnchorProps): React.ReactElement => <MdxLink {...props} />, // eslint-disable-line jsx-a11y/anchor-has-content
   img: (props: React.ComponentProps<'img'>): React.ReactElement => <img {...props} />, // eslint-disable-line jsx-a11y/alt-text
   sup: (props: React.ComponentProps<'sup'>): React.ReactElement => <StyledSup {...props} />,
   content: (props: React.ComponentProps<'div'>): React.ReactElement => <StyledContent {...props} />,

@@ -26,6 +26,16 @@ describe('Anchor', () => {
     expect(renderedAnchor.getAttribute('rel')).toEqual('noopener');
   });
 
+  it('it should render the external link icon when showExternal is set', (): void => {
+    render(
+      <Anchor href="https://twilio.com" showExternal>
+        External link with icon
+      </Anchor>
+    );
+    const renderedAnchor = screen.getByRole('link');
+    expect(renderedAnchor.querySelectorAll('svg').length).toBeGreaterThan(0);
+  });
+
   describe('Accessibility', () => {
     it('Should have no accessibility violations', async () => {
       const {container} = render(

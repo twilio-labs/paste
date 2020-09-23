@@ -3,6 +3,109 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.7.6...@twilio-paste/website@2.7.7) (2020-09-23)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.7.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.7.5...@twilio-paste/website@2.7.6) (2020-09-23)
+
+
+### Bug Fixes
+
+* **website:** adjust callout to use stack ([#778](https://github.com/twilio-labs/paste/issues/778)) ([32b81d5](https://github.com/twilio-labs/paste/commit/32b81d58573516747f3c94b30ad41c554cbe96ca))
+
+
+
+
+
+## [2.7.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.7.4...@twilio-paste/website@2.7.5) (2020-09-23)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.7.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.7.3...@twilio-paste/website@2.7.4) (2020-09-23)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.7.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.7.2...@twilio-paste/website@2.7.3) (2020-09-23)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.7.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.7.1...@twilio-paste/website@2.7.2) (2020-09-22)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.7.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.7.0...@twilio-paste/website@2.7.1) (2020-09-21)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+# [2.7.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.6.2...@twilio-paste/website@2.7.0) (2020-09-21)
+
+
+### Features
+
+* **website:** automatically show external link icon in mdx ([9c9a73d](https://github.com/twilio-labs/paste/commit/9c9a73de9f58f86cba010f319ff602b454f91d4d))
+
+
+
+
+
+## [2.6.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.6.1...@twilio-paste/website@2.6.2) (2020-09-21)
+
+
+### Bug Fixes
+
+* **text:** typo in propos ([d33d8db](https://github.com/twilio-labs/paste/commit/d33d8dbec50210b0480ee0b1ca45dc0dcf029b6a))
+
+
+
+
+
+## [2.6.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.6.0...@twilio-paste/website@2.6.1) (2020-09-18)
+
+
+### Bug Fixes
+
+* **website:** update instructions on creating icon SVGs ([#738](https://github.com/twilio-labs/paste/issues/738)) ([d850677](https://github.com/twilio-labs/paste/commit/d850677d2fdf67d80edd9da20709657492727546))
+
+
+
+
+
+# [2.6.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.5.7...@twilio-paste/website@2.6.0) (2020-09-18)
+
+
+### Features
+
+* **docs:** remove "here" from homepage CTA ([#745](https://github.com/twilio-labs/paste/issues/745)) ([04279bb](https://github.com/twilio-labs/paste/commit/04279bbb07415191962d8d2fdcb13816603fb214))
+
+
+
+
+
 ## [2.5.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.5.6...@twilio-paste/website@2.5.7) (2020-09-15)
 
 **Note:** Version bump only for package @twilio-paste/website
