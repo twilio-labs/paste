@@ -53,7 +53,7 @@ export const pageQuery = graphql`
     </DisclosureHeading>
     <DisclosureContent>
       <Paragraph>
-        We support the latest and latest minus one versions of all modern browsers on the market today. Most notible
+        We support the latest and latest minus one versions of all modern browsers on the market today. Most notable
         mentions include:
       </Paragraph>
       <UnorderedList>
@@ -80,7 +80,7 @@ export const pageQuery = graphql`
         <ListItem>
           Global classnames, especially overrides, impact the confidence teams can have on the state of their styling.
           There is no guarantee you won't affect someone else or they won't affect you, impacting the success of
-          independent teams and confidence in your deploys. This particularly applies to a number of Twilio products
+          independent teams and confidence in your deployments. This particularly applies to a number of Twilio products
           that are multi-tenant UI, where multiple independent teams are providing UI to a single page
         </ListItem>
         <ListItem>Uncontrolled customization causes design fragmentation</ListItem>
@@ -105,12 +105,12 @@ export const pageQuery = graphql`
     </DisclosureHeading>
     <DisclosureContent>
       <Paragraph>
-        ID references in a webpage must be unique for them to work correctly, especially when supporting assistive
+        ID references in a web page must be unique for them to work correctly, especially when supporting assistive
         technologies such as screen readers. In a multi tenant, single page application you do not always have control
         of what is loaded into a webpage at any one time. As a result static ids can clash and cause duplicates.
       </Paragraph>
       <Paragraph>
-        To guarantee that every id in a webpage is unique, regardless of what was loaded on the page and in what order,
+        To guarantee that every id in a web page is unique, regardless of what was loaded on the page and in what order,
         we use react-uid to generate ids for us.
       </Paragraph>
     </DisclosureContent>
@@ -120,7 +120,7 @@ export const pageQuery = graphql`
       OK, so you don't support classNames or static IDs, how do I create DOM references for my tests?
     </DisclosureHeading>
     <DisclosureContent>
-      <Paragraph>We recommend using data attributes for your test indentifiers.</Paragraph>
+      <Paragraph>We recommend using data attributes for your test identifiers.</Paragraph>
       <Paragraph>
         These are your own implementation details and have no requirements to be unique.{' '}
         <InlineCode>data-testid</InlineCode> is a common identifier and supported by the very popular testing library{' '}
@@ -165,14 +165,14 @@ export const pageQuery = graphql`
         For the default theme Paste uses Inter. This is available as a{' '}
         <Anchor href="https://fonts.google.com/specimen/Inter">Google web font</Anchor> can be loaded in a number of
         ways into your application. Please choose the one that best suits your preferred choice of asset delivery, or
-        follow how{' '}
+        follow{' '}
         <Anchor href="https://github.com/twilio-labs/paste/blob/main/packages/paste-website/src/assets/css/fonts.css#L105">
           how we load the font
         </Anchor>{' '}
         on this website.
       </Paragraph>
       <Paragraph>
-        For the Console theme, due to licensing restictions only web properties under certain domains are allowed to
+        For the Console theme, due to licensing restrictions only web properties under certain domains are allowed to
         load Whitney. As a result, Paste leaves loading Whitney up to the Console product itself. If you are building
         for a Twilio Console product, the font should be loaded for you automatically inside of Console.
       </Paragraph>
