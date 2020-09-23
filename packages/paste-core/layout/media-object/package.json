@@ -3,7 +3,7 @@
   "version": "1.2.59",
   "category": "layout",
   "status": "production",
-  "description": "The Media Object is the layout utility that you may never have heard of but after this you'll never unsee it.",
+  "description": "Media Object is a layout utility that allows an image or figure to be positioned horizontally next to some form of content.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
