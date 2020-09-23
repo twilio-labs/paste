@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.7.5...@twilio-paste/website@2.7.6) (2020-09-23)
+
+
+### Bug Fixes
+
+* **website:** adjust callout to use stack ([#778](https://github.com/twilio-labs/paste/issues/778)) ([32b81d5](https://github.com/twilio-labs/paste/commit/32b81d58573516747f3c94b30ad41c554cbe96ca))
+
+
+
+
+
 ## [2.7.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.7.4...@twilio-paste/website@2.7.5) (2020-09-23)
 
 **Note:** Version bump only for package @twilio-paste/website
