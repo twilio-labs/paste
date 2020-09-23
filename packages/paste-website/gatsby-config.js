@@ -15,6 +15,12 @@ const gatsbyConfig = {
     siteUrl: 'https://paste.twilio.design',
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-145457417-1',
+      },
+    },
     `gatsby-plugin-typescript`,
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
@@ -153,12 +159,6 @@ const gatsbyConfig = {
 
           return 'DefaultJson';
         },
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-145457417-1',
       },
     },
     'gatsby-plugin-sitemap',
