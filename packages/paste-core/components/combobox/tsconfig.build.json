@@ -18,16 +18,49 @@
       "path": "../../primitives/combobox"
     },
     {
-      "path": "../form"
+      "path": "../../../paste-design-tokens"
+    },
+    {
+      "path": "../../layout/flex"
+    },
+    {
+      "path": "../help-text"
+    },
+    {
+      "path": "../label"
     },
     {
       "path": "../../../paste-icons"
+    },
+    {
+      "path": "../input"
+    },
+    {
+      "path": "../input-box"
+    },
+    {
+      "path": "../screen-reader-only"
+    },
+    {
+      "path": "../spinner"
+    },
+    {
+      "path": "../../layout/stack"
+    },
+    {
+      "path": "../../../paste-style-props"
     },
     {
       "path": "../../../paste-libraries/styling"
     },
     {
       "path": "../../primitives/text"
+    },
+    {
+      "path": "../../../paste-theme"
+    },
+    {
+      "path": "../../../paste-types"
     }
   ]
 }
