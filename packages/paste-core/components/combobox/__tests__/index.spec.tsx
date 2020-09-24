@@ -3,7 +3,9 @@ import _ from 'lodash';
 import {axe} from 'jest-axe';
 import {uid} from 'react-uid';
 import {render, screen, fireEvent} from '@testing-library/react';
-import {FormLabel, FormHelpText, InputElement} from '@twilio-paste/form';
+import {Label} from '@twilio-paste/label';
+import {HelpText} from '@twilio-paste/help-text';
+import {InputElement} from '@twilio-paste/input';
 import {Button} from '@twilio-paste/button';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {Box} from '@twilio-paste/box';
@@ -76,9 +78,9 @@ const ComboboxPartsMock: React.FC<{}> = () => {
   } = useCombobox({items});
   return (
     <>
-      <FormLabel htmlFor="example-textbox" {...getLabelProps()} id="example-label" data-testid="label">
+      <Label htmlFor="example-textbox" {...getLabelProps()} id="example-label" data-testid="label">
         Choose a component:
-      </FormLabel>
+      </Label>
       <ComboboxInputWrapper {...getComboboxProps({role: 'combobox'})} aria-owns="example-combobox-menu">
         <InputElement
           type="text"
@@ -104,7 +106,7 @@ const ComboboxPartsMock: React.FC<{}> = () => {
             </ComboboxListboxOption>
           ))}
       </ComboboxListbox>
-      <FormHelpText id="example-helptext">This is the help text</FormHelpText>
+      <HelpText id="example-helptext">This is the help text</HelpText>
     </>
   );
 };
