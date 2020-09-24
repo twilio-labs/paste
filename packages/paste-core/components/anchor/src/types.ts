@@ -1,10 +1,11 @@
 import * as PropTypes from 'prop-types';
+import {LayoutProps, SpaceProps} from '@twilio-paste/style-props';
 
 export type AnchorTabIndexes = 0 | -1;
 export type AnchorTargets = '_self' | '_blank' | '_parent' | '_top';
 export type AnchorVariants = 'default' | 'inverse';
 
-export interface AnchorProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface AnchorProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>, LayoutProps, SpaceProps {
   children: NonNullable<React.ReactNode>;
   href: string;
   ref?: any;

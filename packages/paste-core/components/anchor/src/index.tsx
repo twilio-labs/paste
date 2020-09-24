@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {safelySpreadTextProps} from '@twilio-paste/text';
-import {Box} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
 import {DefaultAnchor} from './DefaultAnchor';
 import {InverseAnchor} from './InverseAnchor';
@@ -25,7 +24,37 @@ export const secureExternalLink = (href: string): {} | undefined => {
 };
 
 const Anchor = React.forwardRef<HTMLAnchorElement, AnchorProps>(
-  ({variant = 'default', showExternal, ...props}, ref) => {
+  (
+    {
+      display,
+      height,
+      margin,
+      marginBottom,
+      marginLeft,
+      marginRight,
+      marginTop,
+      marginX = null,
+      marginY = null,
+      maxHeight,
+      maxWidth,
+      minHeight,
+      minWidth,
+      padding,
+      paddingBottom,
+      paddingLeft,
+      paddingRight,
+      paddingTop,
+      paddingX = null,
+      paddingY = null,
+      showExternal,
+      size,
+      variant = 'default',
+      verticalAlign,
+      width,
+      ...props
+    },
+    ref
+  ) => {
     const AnchorComponent = AnchorVariants[variant];
 
     return (
@@ -34,7 +63,30 @@ const Anchor = React.forwardRef<HTMLAnchorElement, AnchorProps>(
         ref={ref}
         variant={variant}
         {...secureExternalLink(props.href)}
-        {...safelySpreadTextProps(props)}
+        {...safelySpreadBoxProps(props)}
+        display={display}
+        height={height}
+        margin={margin}
+        marginBottom={marginBottom}
+        marginLeft={marginLeft}
+        marginRight={marginRight}
+        marginTop={marginTop}
+        marginX={marginX}
+        marginY={marginY}
+        maxHeight={maxHeight}
+        maxWidth={maxWidth}
+        minHeight={minHeight}
+        minWidth={minWidth}
+        padding={padding}
+        paddingBottom={paddingBottom}
+        paddingLeft={paddingLeft}
+        paddingRight={paddingRight}
+        paddingTop={paddingTop}
+        paddingX={paddingX}
+        paddingY={paddingY}
+        size={size}
+        verticalAlign={verticalAlign}
+        width={width}
       >
         {showExternal ? (
           <Box as="span" display="inline-flex" alignItems="center">

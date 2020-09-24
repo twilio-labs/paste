@@ -1,15 +1,20 @@
 import * as React from 'react';
-import {Text, safelySpreadTextProps} from '@twilio-paste/text';
+import {Box} from '@twilio-paste/box';
 import {AnchorProps, AnchorPropTypes} from './types';
 
 const InverseAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, ref) => (
-  <Text
+  <Box
+    {...props}
     as="a"
     color="colorTextInverse"
+    fontSize="inherit"
+    fontWeight="inherit"
+    lineHeight="inherit"
     outline="none"
     ref={ref}
     textDecoration="underline"
     _active={{
+      color: 'colorTextInverseWeaker',
       textDecoration: 'none',
     }}
     _focus={{
@@ -21,10 +26,9 @@ const InverseAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, r
       color: 'colorTextInverseWeaker',
       textDecoration: 'none',
     }}
-    {...safelySpreadTextProps(props)}
   >
     {props.children}
-  </Text>
+  </Box>
 ));
 
 InverseAnchor.displayName = 'InverseAnchor';
