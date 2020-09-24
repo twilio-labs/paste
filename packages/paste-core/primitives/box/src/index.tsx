@@ -100,6 +100,10 @@ export interface BoxElementProps extends Omit<React.HTMLAttributes<HTMLElement>,
   href?: string;
   rel?: string;
   target?: string;
+  //  select props
+  multiple?: boolean;
+  // optgroup props
+  label?: string;
 }
 
 export interface BoxProps extends BoxElementProps, BoxStyleProps {}
