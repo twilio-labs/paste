@@ -4,12 +4,42 @@ import {ThemeShape} from '@twilio-paste/theme';
 import {ResponsiveValue, TLengthStyledSystem} from '@twilio-paste/styling-library';
 
 // Tokens
-export type WidthOptions = keyof ThemeShape['widths'] | '100%' | '100vw' | 'auto';
-export type MinWidthOptions = keyof ThemeShape['minWidths'] | '100%' | '100vw' | 'auto';
-export type MaxWidthOptions = keyof ThemeShape['maxWidths'] | '100%' | '100vw' | 'auto';
-export type HeightOptions = keyof ThemeShape['heights'] | '100%' | '100vh' | 'auto';
-export type MinHeightOptions = keyof ThemeShape['minHeights'] | '100%' | '100vh' | 'auto';
-export type MaxHeightOptions = keyof ThemeShape['maxHeights'] | '100%' | '100vh' | 'auto';
+export type WidthOptions =
+  | keyof ThemeShape['widths']
+  | '100%'
+  | '100vw'
+  | 'auto'
+  | CSS.WidthProperty<TLengthStyledSystem>;
+export type MinWidthOptions =
+  | keyof ThemeShape['minWidths']
+  | '100%'
+  | '100vw'
+  | 'auto'
+  | CSS.WidthProperty<TLengthStyledSystem>;
+export type MaxWidthOptions =
+  | keyof ThemeShape['maxWidths']
+  | '100%'
+  | '100vw'
+  | 'auto'
+  | CSS.WidthProperty<TLengthStyledSystem>;
+export type HeightOptions =
+  | keyof ThemeShape['heights']
+  | '100%'
+  | '100vh'
+  | 'auto'
+  | CSS.HeightProperty<TLengthStyledSystem>;
+export type MinHeightOptions =
+  | keyof ThemeShape['minHeights']
+  | '100%'
+  | '100vh'
+  | 'auto'
+  | CSS.HeightProperty<TLengthStyledSystem>;
+export type MaxHeightOptions =
+  | keyof ThemeShape['maxHeights']
+  | '100%'
+  | '100vh'
+  | 'auto'
+  | CSS.HeightProperty<TLengthStyledSystem>;
 export type IconSizeOptions = keyof ThemeShape['iconSizes'];
 
 export type Width = ResponsiveValue<WidthOptions>;
