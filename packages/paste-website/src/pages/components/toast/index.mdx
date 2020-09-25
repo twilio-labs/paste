@@ -154,6 +154,8 @@ Here are ways that you can compose neutral, warning, error, success, and dismiss
 
 For a basic method of hiding and showing, you can use the `hidden` HTML attribute. Passing a `true` or `false` value to that attribute will show or hide the Toast respectively.
 
+When showing multiple toasts, place the most recent toast at the bottom of the stack.
+
 Add an automatic time-out if all these conditions are true:
 
 - The user wouldn't need to remember or copy the information in order to continue with their current flow, or any future flow.
@@ -227,7 +229,7 @@ Be cautious when using a warning toast because they can be stressful for a user 
 <LivePreview scope={{Toast, Text, Anchor}} language="jsx">
   {`<Toast onDismiss={() => alert('dismissed')} variant="warning">
   <Text as="span">
-    The phone number has been deleted. Please verify there are no functions tied to that number <Anchor href="#">here</Anchor>.
+    The phone number has been deleted. Functions still using this phone number may fail. Verify there are no functions tied to that number <Anchor href="#">here</Anchor>.
   </Text>
 </Toast>`}
 </LivePreview>
