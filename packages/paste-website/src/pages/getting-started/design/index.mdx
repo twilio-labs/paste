@@ -90,28 +90,28 @@ to get a Sketch license.
 
 ### Font files
 
-#### Inter
-
-If you are using the Default theme in Paste, you will need
-to [download and install Inter](https://github.com/rsms/inter/releases/download/v3.15/Inter-3.15.zip).
-It’s a free font. After you download the files, follow the instructions in the
-`install-mac.txt` file in your download. We recommend following the steps using Font Book.
-
 #### Fira Mono
 
-If you are using any theme in Paste, you will need
+If you are using <strong>any theme</strong> in Paste, you will need
 to [download and install Fira Mono](https://fonts.google.com/specimen/Fira+Mono?query=fira+mono),
 our monospace typeface for code. It’s a free Google font.
 
 #### SF Pro
 
-If you are using any theme in Paste, you will need to [download and install SF Pro](https://developer.apple.com/fonts/), the
+If you are using <strong>any theme</strong> in Paste, you will need to [download and install SF Pro](https://developer.apple.com/fonts/), the
 system font for Apple platforms. We represent native web element styles (like option lists in [Select](/form-elements/select/)) in
 our design assets as macOS styles.
 
+#### Inter
+
+If you are using the <strong>Default theme</strong> in Paste, you will need
+to [download and install Inter](https://github.com/rsms/inter/releases/download/v3.15/Inter-3.15.zip).
+It’s a free font. After you download the files, follow the instructions in the
+`install-mac.txt` file in your download. We recommend following the steps using Font Book.
+
 #### Whitney
 
-If you are using the Console theme in Paste, you will need to download Whitney.
+If you are using the <strong>Console theme</strong> in Paste, you will need to download Whitney.
 Reach out to us in `#help-design-system` if you need access to the Whitney font
 files for your work.
 
@@ -131,29 +131,27 @@ Sketch symbols, text styles, and layer styles.
 
 ### Paste components
 
-<Box
-  as="span"
-  display="inline-block"
-  width="auto"
-  marginBottom="space50"
-  paddingTop="space20"
-  paddingBottom="space20"
-  paddingLeft="space30"
-  paddingRight="space30"
-  borderStyle="solid"
-  borderWidth="borderWidth20"
-  borderColor="colorBorderLighter"
-  borderRadius="borderRadius20"
->
-  <Stack as="span" orientation="horizontal" spacing="space20">
-    <Tooltip text="There is ongoing maintenance and net new work in this project. Libraries in this project are at parity with code.">
-      <Anchor>
+<Anchor>
+  <Tooltip text="There is ongoing maintenance and net new work in this project. Libraries in this project are at parity with code.">
+    <Box
+      as="span"
+      display="inline-block"
+      width="auto"
+      marginBottom="space50"
+      paddingTop="space20"
+      paddingBottom="space20"
+      paddingLeft="space20"
+      paddingRight="space30"
+      borderRadius="borderRadius20"
+      backgroundColor="colorBackgroundSuccessLightest"
+    >
+      <Stack as="span" orientation="horizontal" spacing="space20">
         <SuccessIcon decorative={false} title="Success icon" color="colorTextSuccess" />
-      </Anchor>
-    </Tooltip>
-    <Text as="p">Libraries in this project are actively maintained</Text>
-  </Stack>
-</Box>
+        <Text as="p">Actively maintained</Text>
+      </Stack>
+    </Box>
+  </Tooltip>
+</Anchor>
 
 The `Paste components` project contains libraries that represent components that are available in Paste. For example,
 within the `Paste components` project, we have a Sketch library called `button`, which has all variants and states of
@@ -256,29 +254,27 @@ This library contains symbols for some common grid layouts, as well as the verti
 
 ### Paste design tokens
 
-<Box
-  as="span"
-  display="inline-block"
-  width="auto"
-  marginBottom="space50"
-  paddingTop="space20"
-  paddingBottom="space20"
-  paddingLeft="space30"
-  paddingRight="space30"
-  borderStyle="solid"
-  borderWidth="borderWidth20"
-  borderColor="colorBorderLighter"
-  borderRadius="borderRadius20"
->
-  <Stack as="span" orientation="horizontal" spacing="space20">
-    <Tooltip text="There is ongoing maintenance and net new work in this project. Libraries in this project are at parity with code.">
-      <Anchor>
+<Anchor>
+  <Tooltip text="There is ongoing maintenance and net new work in this project. Libraries in this project are at parity with code.">
+    <Box
+      as="span"
+      display="inline-block"
+      width="auto"
+      marginBottom="space50"
+      paddingTop="space20"
+      paddingBottom="space20"
+      paddingLeft="space20"
+      paddingRight="space30"
+      borderRadius="borderRadius20"
+      backgroundColor="colorBackgroundSuccessLightest"
+    >
+      <Stack as="span" orientation="horizontal" spacing="space20">
         <SuccessIcon decorative={false} title="Success icon" color="colorTextSuccess" />
-      </Anchor>
-    </Tooltip>
-    <Text as="p">Libraries in this project are actively maintained</Text>
-  </Stack>
-</Box>
+        <Text as="p">Actively maintained</Text>
+      </Stack>
+    </Box>
+  </Tooltip>
+</Anchor>
 
 The `Paste design tokens` project houses the text and layer styles for each theme in Paste. These libraries represent
 the [tokens](/tokens) available for use in the system. For example, in the `default theme` file,
@@ -329,29 +325,27 @@ using these text and layer styles to create custom compositions in Sketch.
   </DisclosureHeading>
   <DisclosureContent>
 
-<Box
-  as="span"
-  display="inline-block"
-  width="auto"
-  marginBottom="space50"
-  paddingTop="space20"
-  paddingBottom="space20"
-  paddingLeft="space30"
-  paddingRight="space30"
-  borderStyle="solid"
-  borderWidth="borderWidth20"
-  borderColor="colorBorderLighter"
-  borderRadius="borderRadius20"
->
-  <Stack as="span" orientation="horizontal" spacing="space20">
-    <Tooltip text="There is no ongoing work in this project outside of critical bug fixes that are completely blocking work. Libraries in this project are not at parity with what is in code.">
-      <Anchor>
+<Anchor>
+  <Tooltip text="There is no ongoing work in this project outside of critical bug fixes that are completely blocking work. Libraries in this project are not at parity with what is in code.">
+    <Box
+      as="span"
+      display="inline-block"
+      width="auto"
+      marginBottom="space50"
+      paddingTop="space20"
+      paddingBottom="space20"
+      paddingLeft="space20"
+      paddingRight="space30"
+      borderRadius="borderRadius20"
+      backgroundColor="colorBackgroundWarningLightest"
+    >
+      <Stack as="span" orientation="horizontal" spacing="space20">
         <WarningIcon decorative={false} title="WArning icon" color="colorTextWarning" />
-      </Anchor>
-    </Tooltip>
-    <Text as="p">Libraries in this project are sunset or deprecated</Text>
-  </Stack>
-</Box>
+        <Text as="p">Sunset</Text>
+      </Stack>
+    </Box>
+  </Tooltip>
+</Anchor>
 
 For those of you working on Console UI, you are likely familiar with the old Console React components. The legacy components in this system and the design libraries associated with them (which are
 housed in the `Console components` project in Abstract) are now Sunset or Deprecated.
@@ -367,30 +361,29 @@ how it impacts your work.
     SendGrid-Symbol-Library
   </DisclosureHeading>
   <DisclosureContent>
-
-<Box
-  as="span"
-  display="inline-block"
-  width="auto"
-  marginBottom="space50"
-  paddingTop="space20"
-  paddingBottom="space20"
-  paddingLeft="space30"
-  paddingRight="space30"
-  borderStyle="solid"
-  borderWidth="borderWidth20"
-  borderColor="colorBorderLighter"
-  borderRadius="borderRadius20"
->
-  <Stack as="span" orientation="horizontal" spacing="space20">
-    <Tooltip text="There is no ongoing work in this project outside of critical bug fixes that are completely blocking work. Libraries in this project are not at parity with what is in code.">
-      <Anchor>
-        <WarningIcon decorative={false} title="Warning icon" color="colorTextWarning" />
-      </Anchor>
-    </Tooltip>
-    <Text as="p">This library is sunset</Text>
-  </Stack>
-</Box>
+    <Anchor>
+      <Tooltip text="There is no ongoing work in this project outside of critical bug fixes that are completely blocking work. Libraries in this project are not at parity with what is in code.">
+      <Box
+        as="span"
+        display="inline-block"
+        width="auto"
+        marginBottom="space50"
+        paddingTop="space20"
+        paddingBottom="space20"
+        paddingLeft="space20"
+        paddingRight="space30"
+        borderRadius="borderRadius20"
+        backgroundColor="colorBackgroundWarningLightest"
+      >
+      <Stack as="span" orientation="horizontal" spacing="space20">
+        <WarningIcon decorative={false} title="WArning icon" color="colorTextWarning"/>
+        <Text as="p">
+          Sunset
+        </Text>
+      </Stack>
+      </Box>
+      </Tooltip>
+    </Anchor>
 
 For those of you doing design work in the SendGrid app, you are likely using the `SendGrid-Symbol-Library` library. There is no ongoing work in this project.
 
@@ -402,30 +395,29 @@ For those of you doing design work in the SendGrid app, you are likely using the
     Paste icons
   </DisclosureHeading>
   <DisclosureContent>
-
-<Box
-  as="span"
-  display="inline-block"
-  width="auto"
-  marginBottom="space50"
-  paddingTop="space20"
-  paddingBottom="space20"
-  paddingLeft="space30"
-  paddingRight="space30"
-  borderStyle="solid"
-  borderWidth="borderWidth20"
-  borderColor="colorBorderLighter"
-  borderRadius="borderRadius20"
->
-  <Stack as="span" orientation="horizontal" spacing="space20">
+  <Anchor>
     <Tooltip text="There is no ongoing work in this project, and it must not be used. Libraries in this project are not at parity with what is in code.">
-      <Anchor>
-        <ErrorIcon decorative={false} title="Error icon" color="colorTextError" />
-      </Anchor>
+    <Box
+      as="span"
+      display="inline-block"
+      width="auto"
+      marginBottom="space50"
+      paddingTop="space20"
+      paddingBottom="space20"
+      paddingLeft="space20"
+      paddingRight="space30"
+      borderRadius="borderRadius20"
+      backgroundColor="colorBackgroundWarningLightest"
+    >
+    <Stack as="span" orientation="horizontal" spacing="space20">
+      <ErrorIcon decorative={false} title="Error icon" color="colorTextError"/>
+      <Text as="p">
+        Deprecated
+      </Text>
+    </Stack>
+    </Box>
     </Tooltip>
-    <Text as="p">This project is deprecated</Text>
-  </Stack>
-</Box>
+  </Anchor>
 
 This project previously housed all icons available in Paste. For simplicity, we have pulled our icons into the `Paste components` project. If you are still using the `Paste icons` project in
 your work, please transition to using the [`icons`](https://app.abstract.com/projects/3daed58b-10b9-4ade-9373-a837591fe3c8/branches/master/files/84f1514e-bf2c-4784-99d7-def6e0b6f33d) library
