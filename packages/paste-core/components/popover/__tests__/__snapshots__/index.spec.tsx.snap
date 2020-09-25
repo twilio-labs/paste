@@ -74,6 +74,10 @@ exports[`Popover Render should render 1`] = `
   -webkit-text-decoration: inherit;
   text-decoration: inherit;
   opacity: 1;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 <div
