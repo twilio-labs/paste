@@ -90,6 +90,7 @@ const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, s
         textDecoration="inherit"
         opacity={buttonState === 'loading' ? '0' : '1'}
         aria-hidden={buttonState === 'loading' ? 'true' : 'false'}
+        justifyContent="center"
       >
         {React.Children.count(children) > 1 ? (
           <Stack as="span" orientation="horizontal" spacing="space20">

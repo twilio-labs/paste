@@ -19,31 +19,62 @@ const AllSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
     const children = size === 'icon' ? <PlusIcon title="Add item to cart" decorative={false} /> : variant;
 
     allButtons.push(
-      <Box key={`variant-${variant}-${size}`} marginBottom="space40" padding="space30">
-        <Stack orientation="horizontal" spacing="space40">
-          <Button variant={variant as ButtonVariants} size={size as ButtonSizes}>
-            {children}
-          </Button>
-          {size !== 'icon' && size !== 'reset' && (
-            <Button variant={variant as ButtonVariants} size={size as ButtonSizes}>
-              <PlusIcon title="Add item to cart" decorative={false} />
-              {children}
-            </Button>
-          )}
-          {size !== 'icon' && size !== 'reset' && (
+      <>
+        <Box key={`variant-${variant}-${size}`} padding="space30">
+          <Stack orientation="horizontal" spacing="space40">
             <Button variant={variant as ButtonVariants} size={size as ButtonSizes}>
               {children}
-              <PlusIcon title="Add item to cart" decorative={false} />
             </Button>
-          )}
-          <Button variant={variant as ButtonVariants} size={size as ButtonSizes} loading={!isRenderingOnServer}>
-            {children}
-          </Button>
-          <Button variant={variant as ButtonVariants} size={size as ButtonSizes} disabled>
-            {children}
-          </Button>
-        </Stack>
-      </Box>
+            {size !== 'icon' && size !== 'reset' && (
+              <Button variant={variant as ButtonVariants} size={size as ButtonSizes}>
+                <PlusIcon title="Add item to cart" decorative={false} />
+                {children}
+              </Button>
+            )}
+            {size !== 'icon' && size !== 'reset' && (
+              <Button variant={variant as ButtonVariants} size={size as ButtonSizes}>
+                {children}
+                <PlusIcon title="Add item to cart" decorative={false} />
+              </Button>
+            )}
+
+            <Button variant={variant as ButtonVariants} size={size as ButtonSizes} loading={!isRenderingOnServer}>
+              {children}
+            </Button>
+            <Button variant={variant as ButtonVariants} size={size as ButtonSizes} disabled>
+              {children}
+            </Button>
+          </Stack>
+        </Box>
+        {size !== 'icon' && size !== 'reset' && (
+          <Box key={`variant-${variant}-${size}`} marginBottom="space40" padding="space30">
+            <Stack orientation="vertical" spacing="space40">
+              <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth>
+                {children}
+              </Button>
+              <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth>
+                <PlusIcon title="Add item to cart" decorative={false} />
+                {children}
+              </Button>
+              <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth>
+                {children}
+                <PlusIcon title="Add item to cart" decorative={false} />
+              </Button>
+              <Button
+                variant={variant as ButtonVariants}
+                size={size as ButtonSizes}
+                fullWidth
+                loading={!isRenderingOnServer}
+              >
+                {children}
+              </Button>
+              <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth disabled>
+                {children}
+              </Button>
+            </Stack>
+          </Box>
+        )}
+      </>
     );
   });
 
@@ -71,6 +102,11 @@ storiesOf('Components|Button', module)
   .add('Reset', () => (
     <>
       <AllSizeOptions variant="reset" />
+      <Box padding="space30">
+        <Button variant="reset" size="reset" fullWidth>
+          reset
+        </Button>
+      </Box>
       <Heading variant="heading10" as="h1">
         <Button variant="reset" size="reset">
           Example using reset button in composition
