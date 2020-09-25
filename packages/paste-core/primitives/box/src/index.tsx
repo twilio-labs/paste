@@ -44,6 +44,9 @@ import {
   WillChangeProperty,
   ClipProperty,
   OpacityProperty,
+  BorderCollapseProperty,
+  BorderSpacingProperty,
+  TableLayoutProperty,
 } from 'csstype';
 import {PseudoPropStyles} from './PseudoPropStyles';
 import {BoxPropTypes} from './BoxPropTypes';
@@ -79,6 +82,9 @@ interface BoxBaseStyleProps
   willChange?: WillChangeProperty;
   clip?: ClipProperty;
   opacity?: OpacityProperty;
+  borderCollapse?: BorderCollapseProperty;
+  borderSpacing?: BorderSpacingProperty<string>;
+  tableLayout?: TableLayoutProperty;
 }
 
 export type BoxPseudoStyleProps = {
@@ -149,7 +155,11 @@ const extraConfig = system({
   textOverflow: true,
   whiteSpace: true,
   wordBreak: true,
+  wordWrap: true,
   opacity: true,
+  borderCollapse: true,
+  borderSpacing: true,
+  tableLayout: true,
 });
 
 const getPseudoStyles = (props: BoxProps): {} => {
