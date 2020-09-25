@@ -1,9 +1,10 @@
 import * as React from 'react';
-import {Text, safelySpreadTextProps} from '@twilio-paste/text';
+import {Box} from '@twilio-paste/box';
 import {AnchorProps, AnchorPropTypes} from './types';
 
 const DefaultAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, ref) => (
-  <Text
+  <Box
+    {...props}
     as="a"
     color="colorTextLink"
     fontSize="inherit"
@@ -25,10 +26,9 @@ const DefaultAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, r
       color: 'colorTextLinkDarker',
       textDecoration: 'none',
     }}
-    {...safelySpreadTextProps(props)}
   >
     {props.children}
-  </Text>
+  </Box>
 ));
 
 DefaultAnchor.displayName = 'DefaultAnchor';
