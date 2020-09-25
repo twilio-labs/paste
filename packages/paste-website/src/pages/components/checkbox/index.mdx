@@ -1,12 +1,12 @@
 ---
-title: Checkbox - Form Elements
-package: '@twilio-paste/form'
+title: Checkbox - Components
+package: '@twilio-paste/checkbox'
 description: The Checkbox and Checkbox Group are used to enable binary choices. These can either be used for an individual choice or to form a collection of choices.
-slug: /form-elements/checkbox/
+slug: /components/checkbox/
 ---
 
 import {graphql} from 'gatsby';
-import {Checkbox, CheckboxGroup, CheckboxDisclaimer} from '@twilio-paste/form';
+import {Checkbox, CheckboxGroup, CheckboxDisclaimer} from '@twilio-paste/checkbox';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -14,7 +14,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
-import Changelog from '@twilio-paste/form/CHANGELOG.md';
+import Changelog from '@twilio-paste/checkbox/CHANGELOG.md';
 import {
   defaultExample,
   helpTextExample,
@@ -26,7 +26,7 @@ import {
 
 export const pageQuery = graphql`
   {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/form"}}) {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/checkbox"}}) {
       edges {
         node {
           name
@@ -36,7 +36,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/form-elements/checkbox/"}}) {
+    mdx(fields: {slug: {eq: "/checkbox/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -52,9 +52,9 @@ export const pageQuery = graphql`
 
 <ComponentHeader
   name="Checkbox"
-  categoryRoute={SidebarCategoryRoutes.FORM}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/form"
-  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/forms-checkbox--checkbox"
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/checkbox"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-checkbox--checkbox"
   abstractUrl="https://share.goabstract.com/6cc5fc40-3408-4cfd-b1d0-103aea01601d"
   data={props.data.allPasteComponent.edges}
 />
@@ -314,13 +314,13 @@ There is no maximum number of checkboxes you can have in a group, but when it st
 #### Installation
 
 ```bash
-yarn add @twilio-paste/form - or - yarn add @twilio-paste/core
+yarn add @twilio-paste/checkbox - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
 
 ```jsx
-import {Checkbox, CheckboxGroup} from '@twilio-paste/form';
+import {Checkbox, CheckboxGroup} from '@twilio-paste/checkbox';
 
 const Component = () => (
   <CheckboxGroup name="foo" legend="foo">

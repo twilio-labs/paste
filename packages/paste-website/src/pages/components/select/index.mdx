@@ -1,21 +1,16 @@
 ---
-title: Select - Form Elements
-package: '@twilio-paste/form'
+title: Select - Components
+package: '@twilio-paste/select'
 description: A select allows users to select an option from a list in a form field.
-slug: /form-elements/select/
+slug: /components/select/
 ---
 
 import {graphql} from 'gatsby';
-import {
-  FormLabel,
-  FormHelpText,
-  FormInput,
-  Select,
-  Option,
-  OptionGroup,
-  CheckboxGroup,
-  Checkbox,
-} from '@twilio-paste/form';
+import {Label} from '@twilio-paste/label';
+import {HelpText} from '@twilio-paste/help-text';
+import {Input} from '@twilio-paste/input';
+import {Select, Option, OptionGroup} from '@twilio-paste/select';
+import {CheckboxGroup, Checkbox} from '@twilio-paste/checkbox';
 
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -26,11 +21,11 @@ import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
-import Changelog from '@twilio-paste/form/CHANGELOG.md';
+import Changelog from '@twilio-paste/select/CHANGELOG.md';
 
 export const pageQuery = graphql`
   {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/form"}}) {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/select"}}) {
       edges {
         node {
           name
@@ -40,7 +35,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/form-elements/select/"}}) {
+    mdx(fields: {slug: {eq: "/select/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -56,9 +51,9 @@ export const pageQuery = graphql`
 
 <ComponentHeader
   name="Select"
-  categoryRoute={SidebarCategoryRoutes.FORM}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/form"
-  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/forms-select--select"
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/select"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-select--select"
   abstractUrl="https://share.goabstract.com/6cc5fc40-3408-4cfd-b1d0-103aea01601d"
   data={props.data.allPasteComponent.edges}
 />
@@ -125,7 +120,7 @@ Use a combobox when:
     Use one of 3 ways to label a form field:
     <UnorderedList marginBottom="space0">
       <ListItem>
-        Visible label with <Anchor href="#formlabel-props">FormLabel</Anchor> (preferred)
+        Visible label with <Anchor href="#formlabel-props">Label</Anchor> (preferred)
       </ListItem>
       <ListItem>
         Visible label that's associated to the input with <inlineCode>aria-labelledby</inlineCode>
@@ -165,9 +160,9 @@ The base select is the input without any supporting elements (_e.g_., label, hel
 
 The select will fill the width of the container it’s placed in.
 
-<LivePreview scope={{Select, Option, FormLabel}} language="jsx">
+<LivePreview scope={{Select, Option, Label}} language="jsx">
   {`<>
-  <FormLabel htmlFor="author">Select an author</FormLabel>
+  <Label htmlFor="author">Select an author</Label>
   <Select id="author">
     <Option value="baldwin">James Baldwin</Option>
     <Option value="brown">adrienne maree brown</Option>
@@ -191,21 +186,21 @@ The select component should include the base select, along with supporting eleme
 <Callout>
   <CalloutTitle as="h4">Hot accessibility tip</CalloutTitle>
   <CalloutText>
-    Make sure to connect the <inlineCode>FormLabel</inlineCode> to the <inlineCode>Select</inlineCode>. This is done
-    with the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the select.
+    Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>Select</inlineCode>. This is done with
+    the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the select.
     Those two need to match.
   </CalloutText>
 </Callout>
 
-<LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
+<LivePreview scope={{Select, Option, HelpText, Label}} language="jsx">
   {`<>
-  <FormLabel htmlFor="select_product_demo" required>Select a Product</FormLabel>
+  <Label htmlFor="select_product_demo" required>Select a Product</Label>
   <Select id="select_product_demo" htmlFor="select_product_demo" required>
     <Option value="messaging">SMS</Option>
     <Option value="numbers">Phone Numbers</Option>
     <Option value="video">Video</Option>
   </Select>
-  <FormHelpText variant="default">Please choose a Twilio product.</FormHelpText>
+  <HelpText variant="default">Please choose a Twilio product.</HelpText>
 </>`}
 </LivePreview>
 
@@ -214,9 +209,9 @@ The select component should include the base select, along with supporting eleme
 - **Prefix/suffix text** - Text that can be used as a prefix or suffix to the value that is entered. Use prefix/suffix to help users format text.
 - **Icon** - Icons that can be placed in the same area as the prefix and suffix text. Icons should trigger an action (_e.g._, opening a popover).
 
-<LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
+<LivePreview scope={{Select, Option, HelpText, Label}} language="jsx">
   {`<>
-  <FormLabel htmlFor="select_add_ons_prefix_demo">Phone Number</FormLabel>
+  <Label htmlFor="select_add_ons_prefix_demo">Phone Number</Label>
   <Select
     id="select_add_ons_prefix_demo"
     htmlFor="select_add_ons_prefix_demo"
@@ -226,13 +221,13 @@ The select component should include the base select, along with supporting eleme
     <Option value="dogs">(415) 555-DOGS</Option>
     <Option value="mice">(415) 555-MICE</Option>
   </Select>
-  <FormHelpText variant="default">Select with prefix.</FormHelpText>
+  <HelpText variant="default">Select with prefix.</HelpText>
 </>`}
 </LivePreview>
 
-<LivePreview scope={{Select, Option, FormHelpText, FormLabel, InformationIcon, Button}} language="jsx">
+<LivePreview scope={{Select, Option, HelpText, Label, InformationIcon, Button}} language="jsx">
   {`<>
-  <FormLabel htmlFor="select_add_ons_suffix_demo">Phone Number</FormLabel>
+  <Label htmlFor="select_add_ons_suffix_demo">Phone Number</Label>
   <Select
     id="select_add_ons_suffix_demo"
     htmlFor="select_add_ons_suffix_demo"
@@ -246,7 +241,7 @@ The select component should include the base select, along with supporting eleme
     <Option value="dogs">(415) 555-DOGS</Option>
     <Option value="mice">(415) 555-MICE</Option>
   </Select>
-  <FormHelpText variant="default">Select with suffix.</FormHelpText>
+  <HelpText variant="default">Select with suffix.</HelpText>
 </>`}
 </LivePreview>
 
@@ -255,9 +250,9 @@ The select component should include the base select, along with supporting eleme
 To be consistent with <Anchor target="_blank" href="https://reactjs.org/docs/uncontrolled-components.html#default-values">React's documentation</Anchor> on best practices for native select elements, the <inlineCode>selected</inlineCode> attribute is not allowed in the API.
 You can instead select a <inlineCode>defaultValue</inlineCode> property for the select.
 
-<LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
+<LivePreview scope={{Select, Option, HelpText, Label}} language="jsx">
   {`<>
-  <FormLabel htmlFor="default_value_demo" required>Phone Number</FormLabel>
+  <Label htmlFor="default_value_demo" required>Phone Number</Label>
   <Select
     id="default_value_demo"
     htmlFor="default_value_demo"
@@ -276,9 +271,9 @@ Use an `OptionGroup` to create groupings of options within the select element.
 
 - `label` - String that will be used as the group label, this is required.
 
-<LivePreview scope={{Select, Option, OptionGroup, FormHelpText, FormLabel}} language="jsx">
+<LivePreview scope={{Select, Option, OptionGroup, HelpText, Label}} language="jsx">
   {`<>
-  <FormLabel htmlFor="option_group_demo" required>Product offering</FormLabel>
+  <Label htmlFor="option_group_demo" required>Product offering</Label>
   <Select
     id="option_group_demo"
     htmlFor="option_group_demo"
@@ -299,7 +294,7 @@ Use an `OptionGroup` to create groupings of options within the select element.
         <Option value="recordings">Recordings</Option>
     </OptionGroup>
   </Select>
-  <FormHelpText variant="default">Select a product to learn more.</FormHelpText>
+  <HelpText variant="default">Select a product to learn more.</HelpText>
 </>`}
 </LivePreview>
 
@@ -311,9 +306,9 @@ Avoid errors on selects by removing or disabling invalid options from the list o
 
 If a user is able to choose an invalid option, change a select to its error state and add an inline error. An inline error is placed below the field to inform a user of any errors in their value. If help text exists, the error text should replace and repeat the help text.
 
-<LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
+<LivePreview scope={{Select, Option, HelpText, Label}} language="jsx">
   {`<>
-  <FormLabel htmlFor="inline_error_demo">Emergency Caller ID</FormLabel>
+  <Label htmlFor="inline_error_demo">Emergency Caller ID</Label>
   <Select
     id="inline_error_demo"
     htmlFor="inline_error_demo"
@@ -323,7 +318,7 @@ If a user is able to choose an invalid option, change a select to its error stat
     <Option value="dogs">(415) 555-DOGS</Option>
     <Option value="mice">(415) 555-MICE</Option>
   </Select>
-  <FormHelpText variant="error">The number you have selected is not configured for emergency calling.</FormHelpText>
+  <HelpText variant="error">The number you have selected is not configured for emergency calling.</HelpText>
 </>`}
 </LivePreview>
 
@@ -333,9 +328,9 @@ Use a disabled option as the default selected value if you have no valid option 
 
 Otherwise, use disabled options sparingly. Most browsers show disabled option text with low contrast, so consider other ways you could communicate that an option is unavailable, if you need to at all.
 
-<LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
+<LivePreview scope={{Select, Option, HelpText, Label}} language="jsx">
   {`<>
-  <FormLabel htmlFor="disabled_options_demo">Phone number capability</FormLabel>
+  <Label htmlFor="disabled_options_demo">Phone number capability</Label>
   <Select
     id="disabled_options_demo"
     htmlFor="disabled_options_demo"
@@ -344,7 +339,7 @@ Otherwise, use disabled options sparingly. Most browsers show disabled option te
     <Option disabled value="voice">Voice</Option>
     <Option value="sms">SMS</Option>
   </Select>
-  <FormHelpText variant="default">Some options in this select are disabled.</FormHelpText>
+  <HelpText variant="default">Some options in this select are disabled.</HelpText>
 </>`}
 </LivePreview>
 
@@ -354,9 +349,9 @@ Use a disabled form field to show users that they can’t interact with the fiel
 
 If you want to show information that can’t be edited, use a [read-only Input]() or consider another way of showing static information.
 
-<LivePreview scope={{Select, Option, FormHelpText, FormLabel}} language="jsx">
+<LivePreview scope={{Select, Option, HelpText, Label}} language="jsx">
   {`<>
-  <FormLabel htmlFor="disabled_select_demo" disabled>Phone number capabilities</FormLabel>
+  <Label htmlFor="disabled_select_demo" disabled>Phone number capabilities</Label>
   <Select
     id="disabled_select_demo"
     htmlFor="disabled_select_demo"
@@ -366,7 +361,7 @@ If you want to show information that can’t be edited, use a [read-only Input](
     <Option value="voice">Voice</Option>
     <Option value="sms">SMS</Option>
   </Select>
-  <FormHelpText variant="default">This select is currently disabled.</FormHelpText>
+  <HelpText variant="default">This select is currently disabled.</HelpText>
 </>`}
 </LivePreview>
 
@@ -378,10 +373,10 @@ A select field should be composed with at least a label and a select.
 
 Stack form fields vertically with `$space-80` spacing between each field.
 
-<LivePreview scope={{Select, Option, FormInput, FormLabel, FormHelpText, Box}} language="jsx">
+<LivePreview scope={{Select, Option, Input, Label, HelpText, Box}} language="jsx">
   {`<>
   <Box marginBottom="space80">
-    <FormLabel htmlFor="voice_callback_method">HTTP Method</FormLabel>
+    <Label htmlFor="voice_callback_method">HTTP Method</Label>
     <Select required id="voice_callback_method">
         <Option value="get">GET</Option>
         <Option value="post">POST</Option>
@@ -389,8 +384,8 @@ Stack form fields vertically with `$space-80` spacing between each field.
     </Select>
   </Box>
   <Box>
-    <FormLabel htmlFor="voice_callback">Primary Voice Callback</FormLabel>
-    <FormInput id="voice_callback" name="voice_callback" type="text" placeholder="https://demo.twilio.com/welcome/voice/" onChange="" required/>
+    <Label htmlFor="voice_callback">Primary Voice Callback</Label>
+    <Input id="voice_callback" name="voice_callback" type="text" placeholder="https://demo.twilio.com/welcome/voice/" onChange="" required/>
   </Box>
 </>`}
 </LivePreview>
@@ -399,7 +394,7 @@ Avoid placing multiple form fields on the same horizontal row to help make it ea
 
 ### Options in a select
 
-Keep option text concise and simple. Option text will truncate when it’s longer than the width of the container. If choosing options requires more explanation, consider using a <Anchor href="/form-elements/checkbox/">Checkbox</Anchor> instead and add help text for each option, or give more explanation through help text.
+Keep option text concise and simple. Option text will truncate when it’s longer than the width of the container. If choosing options requires more explanation, consider using a <Anchor href="/components/checkbox/">Checkbox</Anchor> instead and add help text for each option, or give more explanation through help text.
 
 Use a safe and reversible option as the default selected value, or an option that tells users to choose from the list. For example, on page load, a select could show “Choose category" as the default value if there’s no safe default.
 
@@ -482,7 +477,7 @@ Use a select when:
 <DoDont>
   <Do center title="Do" body="Sort options in a list logically (e.g., alphabetically, ascending, descending).">
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="sort_do">Ascending numbers</FormLabel>
+      <Label htmlFor="sort_do">Ascending numbers</Label>
       <Select id="sort_do" name="sort_do" onChange="">
         <Option value="1">1</Option>
         <Option value="100">100</Option>
@@ -496,7 +491,7 @@ Use a select when:
     body="Don’t order options in a list randomly or in a “recommended” order that hasn’t been validated with users."
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="sort_dont">Random numbers</FormLabel>
+      <Label htmlFor="sort_dont">Random numbers</Label>
       <Select id="sort_dont" name="sort_dont" onChange="">
         <Option value="100000">100,000</Option>
         <Option value="1">1</Option>
@@ -513,7 +508,7 @@ Use a select when:
     body="Use a safe and reversible option as the default selected value, or an option that tells users to choose from the list. Prevent users from unintentionally submitting a default value in case they accidentally skip over a field."
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="reversible_do">Caller ID</FormLabel>
+      <Label htmlFor="reversible_do">Caller ID</Label>
       <Select id="reversible_do" name="reversible_do" onChange="">
         <Option value="null">Choose a Caller ID</Option>
         <Option value="+14155552287">+1(415) 555-CATS</Option>
@@ -527,7 +522,7 @@ Use a select when:
     body="Don’t restrict users to options that unnecessarily reinforce biases and discrimination, such as gender binaries. Consider whether you need this information at all. If so, pair a select with an input or allow users to opt out."
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="reversible_dont">Gender</FormLabel>
+      <Label htmlFor="reversible_dont">Gender</Label>
       <Select id="reversible_dont" name="reversible_dont" onChange="">
         <Option value="male">Male</Option>
         <Option value="female">Female</Option>
@@ -556,7 +551,7 @@ Use a select when:
     body="Keep option text concise and simple. If choosing options require more explanation, expand in help text or consider using a checkbox instead."
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="option_text_do">HTTP method</FormLabel>
+      <Label htmlFor="option_text_do">HTTP method</Label>
       <Select id="option_text_do" name="option_text_do" onChange="">
         <Option value="get">GET</Option>
         <Option value="post">POST</Option>
@@ -570,7 +565,7 @@ Use a select when:
     body="Avoid long option text that may truncate if it’s longer than the width of the container."
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="option_text_dont">Voice URL</FormLabel>
+      <Label htmlFor="option_text_dont">Voice URL</Label>
       <Select id="option_text_dont" name="option_text_dont" onChange="">
         <Option value="demo">{'https://demo.twilio.com/welcome/voice/'}</Option>
         <Option value="test-one">{'https://test.twilio.com/welcome/voice/long-test/too-long/text-continuing'}</Option>
@@ -585,27 +580,27 @@ Use a select when:
 <DoDont>
   <Do center title="Do" body="Keep help text and error text concise and simple.">
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="help_text_length_do">HTTP method</FormLabel>
+      <Label htmlFor="help_text_length_do">HTTP method</Label>
       <Select id="help_text_length_do" name="help_text_length_do" onChange="">
         <Option value="get">GET</Option>
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
       </Select>
-      <FormHelpText variant="default">HTTP action for voice webhook.</FormHelpText>
+      <HelpText variant="default">HTTP action for voice webhook.</HelpText>
     </Box>
   </Do>
   <Dont center title="Don't" body="Don’t use more than 2 sentences in help text or error text.">
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="help_text_length_dont">HTTP method</FormLabel>
+      <Label htmlFor="help_text_length_dont">HTTP method</Label>
       <Select id="help_text_length_dont" name="help_text_length_dont" onChange="">
         <Option value="get">GET</Option>
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
       </Select>
-      <FormHelpText variant="default">
+      <HelpText variant="default">
         HTTP action for voice webook. This will be used to manage an incoming call. Please also configure your fallback
         url and method in case the primary handler fails.
-      </FormHelpText>
+      </HelpText>
     </Box>
   </Dont>
 </DoDont>
@@ -613,7 +608,7 @@ Use a select when:
 <DoDont>
   <Do center title="Do" body="Include a visible label on every form field.">
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="use_label_do">HTTP method</FormLabel>
+      <Label htmlFor="use_label_do">HTTP method</Label>
       <Select id="use_label_do" name="use_label_do" onChange="">
         <Option value="get">GET</Option>
         <Option value="post">POST</Option>
@@ -639,13 +634,13 @@ Use a select when:
     body="Use a disabled form field to show users that they can’t interact with the field, but that it could potentially be enabled through another UI element."
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="disabled_do">HTTP method</FormLabel>
+      <Label htmlFor="disabled_do">HTTP method</Label>
       <Select disabled id="disabled_do" name="disabled_do" onChange="">
         <Option value="get">GET</Option>
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
       </Select>
-      <FormHelpText variant="default">Please sign in again to change the HTTP method.</FormHelpText>
+      <HelpText variant="default">Please sign in again to change the HTTP method.</HelpText>
     </Box>
   </Do>
   <Dont
@@ -654,7 +649,7 @@ Use a select when:
     body="Don’t use a disabled form field to show information that can’t be edited. Instead, use a read-only form field or consider another way of showing static information."
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="disabled_dont">Company</FormLabel>
+      <Label htmlFor="disabled_dont">Company</Label>
       <Select disabled id="disabled_dont" name="disabled_dont" onChange="">
         <Option value="get">Twilio</Option>
       </Select>
@@ -680,7 +675,7 @@ Use a select when:
   </Do>
   <Dont center title="Don't" body="When possible, avoid allowing multiple selection on a select component.">
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="multiple_dont">Select the clients you would like to test</FormLabel>
+      <Label htmlFor="multiple_dont">Select the clients you would like to test</Label>
       <Select multiple size="3" id="multiple_dont" name="multiple_dont" onChange="">
         <Option value="apple_mail">Apple Mail</Option>
         <Option value="g_mail">GMail</Option>
@@ -837,20 +832,20 @@ Use a select when:
 #### Installation
 
 ```bash
-yarn add @twilio-paste/form
+yarn add @twilio-paste/select
 ```
 
 #### Usage
 
 ```jsx
-import {Select, Option, FormLabel, FormHelpText} from '@twilio-paste/form';
+import {Select, Option, Label, HelpText} from '@twilio-paste/core';
 
-<FormLabel htmlFor="foo" required>Foo</FormLabel>
-  <Select id="foo" name="foo" onChange={FOO} required>
-    <Option value="foo-bar">Foo Bar</Option>
-    <Option value="bar-foo">Bar Foo</Option>
-  </Select>
-<FormHelpText variant="default">Please select one</FormHelpText>
+<Label htmlFor="foo" required>Foo</Label>
+<Select id="foo" name="foo" onChange={FOO} required>
+  <Option value="foo-bar">Foo Bar</Option>
+  <Option value="bar-foo">Bar Foo</Option>
+</Select>
+<HelpText variant="default">Please select one</HelpText>
 ```
 
 #### Select Props
@@ -859,7 +854,7 @@ All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/W
 
 | Prop          | Type                                            | Description                                                                          | Default   |
 | ------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------ | --------- |
-| id            | string                                          | Sets the id of the input. Should match the htmlFor of `FormLabel`. Required.         | null      |
+| id            | string                                          | Sets the id of the input. Should match the htmlFor of `Label`. Required.             | null      |
 | name          | string                                          | Sets the name of the select. Required.                                               | null      |
 | value         | string, string[]                                | Sets the value of the select. Expects an array when `multiple` is present. Required. | null      |
 | children      | `NonNullable>React.ReactNode>`                  | Must be `Option` or `OptionGroup`. Required.                                         | null      |
@@ -879,7 +874,7 @@ All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/W
 
 | Prop      | Type             | Description                                                                          | Default |
 | --------- | ---------------- | ------------------------------------------------------------------------------------ | ------- |
-| id        | string           | Sets the id of the input. Should match the htmlFor of `FormLabel`. Required.         | null    |
+| id        | string           | Sets the id of the input. Should match the htmlFor of `Label`. Required.             | null    |
 | name      | string           | Sets the name of the select. Required.                                               | null    |
 | value     | string, string[] | Sets the value of the select. Expects an array when `multiple` is present. Required. | null    |
 | disabled? | boolean          | Disables the input.                                                                  | false   |
@@ -893,7 +888,7 @@ All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/W
 | label    | string                         | Sets the label of the optgroup. Required. | null    |
 | children | `<NonNullable>React.ReactNode` | Must be `Option`. Required.               | null    |
 
-#### FormLabel Props
+#### Label Props
 
 All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label">valid HTML attributes</Anchor> for `label` are supported including the following props:
 
@@ -906,7 +901,7 @@ All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/W
 | marginBottom? | 'space0', 'space10'  |                                                                       | 'space10' |
 | variant ?     | 'default', 'inverse' |                                                                       | 'default' |
 
-#### FormHelpText Props
+#### HelpText Props
 
 All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes">valid HTML attributes</Anchor> (role, aria-\*, type, and so on) including the following props:
 

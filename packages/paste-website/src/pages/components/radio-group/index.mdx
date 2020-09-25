@@ -1,18 +1,18 @@
 ---
-title: Radio Group - Form Elements
-package: '@twilio-paste/form'
+title: Radio Group - Components
+package: '@twilio-paste/radio-group'
 description: A radio group is used for selecting a single choice from a list of at least two options. The user can only select one radio option at a time.
-slug: /form-elements/radio-group/
+slug: /components/radio-group/
 ---
 
 import {graphql} from 'gatsby';
-import {Radio, RadioGroup} from '@twilio-paste/form';
+import {Radio, RadioGroup} from '@twilio-paste/radio-group';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SiteLink} from '../../../components/SiteLink';
 import {SidebarCategoryRoutes} from '../../../constants';
-import Changelog from '@twilio-paste/form/CHANGELOG.md';
+import Changelog from '@twilio-paste/radio-group/CHANGELOG.md';
 import {
   verticalExample,
   defaultExample,
@@ -24,7 +24,7 @@ import {
 
 export const pageQuery = graphql`
   {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/form"}}) {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/radio-group"}}) {
       edges {
         node {
           name
@@ -34,7 +34,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/form-elements/radio-group/"}}) {
+    mdx(fields: {slug: {eq: "/radio-group/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -50,9 +50,9 @@ export const pageQuery = graphql`
 
 <ComponentHeader
   name="Radio Group"
-  categoryRoute={SidebarCategoryRoutes.FORM}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/form"
-  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/forms-radio--radio"
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/radio-group"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-radio--radio"
   abstractUrl="https://share.goabstract.com/6cc5fc40-3408-4cfd-b1d0-103aea01601d"
   data={props.data.allPasteComponent.edges}
 />
@@ -232,13 +232,13 @@ Error text should go below groups.
 #### Installation
 
 ```bash
-yarn add @twilio-paste/form - or - yarn add @twilio-paste/core
+yarn add @twilio-paste/radio-group - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
 
 ```jsx
-import {Radio, RadioGroup} from '@twilio-paste/form';
+import {Radio, RadioGroup} from '@twilio-paste/radio-group';
 
 const Component = () => (
   <RadioGroup name="foo" value="foo" legend="foo" onChange={NOOP}>

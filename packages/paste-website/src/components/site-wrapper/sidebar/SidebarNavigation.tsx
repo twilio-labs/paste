@@ -109,8 +109,6 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
 
   const [layoutOpen, setLayoutOpen] = React.useState(getCurrentPathname().startsWith(SidebarCategoryRoutes.LAYOUT));
 
-  const [formOpen, setFormOpen] = React.useState(getCurrentPathname().startsWith(SidebarCategoryRoutes.FORM));
-
   const [iconSystemOpen, setIconSystemOpen] = React.useState(
     getCurrentPathname().startsWith(SidebarCategoryRoutes.ICON_SYSTEM)
   );
@@ -253,29 +251,6 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
                   </SiteNavItem>
                 );
               })}
-          </SiteNavNestList>
-        </SiteNavItem>
-        <SiteNavItem>
-          <SiteNavButton onClick={() => setFormOpen(!formOpen)} isOpen={formOpen} aria-expanded={formOpen}>
-            Form Elements
-            <SiteNavAnchorArrow isOpen={formOpen} />
-          </SiteNavButton>
-          <SiteNavNestList isOpen={formOpen}>
-            <SiteNavItem>
-              <SiteNavAnchor to="/form-elements/checkbox/">Checkbox</SiteNavAnchor>
-            </SiteNavItem>
-            <SiteNavItem>
-              <SiteNavAnchor to="/form-elements/input/">Input</SiteNavAnchor>
-            </SiteNavItem>
-            <SiteNavItem>
-              <SiteNavAnchor to="/form-elements/select/">Select</SiteNavAnchor>
-            </SiteNavItem>
-            <SiteNavItem>
-              <SiteNavAnchor to="/form-elements/radio-group/">Radio group</SiteNavAnchor>
-            </SiteNavItem>
-            <SiteNavItem>
-              <SiteNavAnchor to="/form-elements/textarea/">Textarea</SiteNavAnchor>
-            </SiteNavItem>
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
