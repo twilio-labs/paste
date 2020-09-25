@@ -84,17 +84,15 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
                 <Column span={[12, 12, 9]}>
                   <UnorderedList marginBottom="space0">
                     <ListItem>
+                      The <SiteLink to="/components/toast">Toast component</SiteLink> makes its debut.
+                    </ListItem>
+                    <ListItem>
+                      A 2010 classic, <SiteLink to="/layout/media-object">the Media Object</SiteLink> gets some well
+                      deserved attention.
+                    </ListItem>
+                    <ListItem>
                       Usage guidelines and brand approved illustrations are now documented in our{' '}
                       <SiteLink to="/illustrations">illustrations section</SiteLink> page
-                    </ListItem>
-                    <ListItem>
-                      Find icons easier than ever with our new <SiteLink to="/icons">icon list</SiteLink> page
-                    </ListItem>
-                    <ListItem>
-                      By popular demand, we&rsquo;ve released a{' '}
-                      <SiteLink to="/components/button#destructive-secondary-button">
-                        secondary variant for destructive buttons
-                      </SiteLink>
                     </ListItem>
                   </UnorderedList>
                 </Column>
