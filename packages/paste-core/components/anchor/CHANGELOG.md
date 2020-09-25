@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@1.3.1...@twilio-paste/anchor@1.3.2) (2020-09-25)
+
+
+### Bug Fixes
+
+* **anchor:** allow layout and space props ([#792](https://github.com/twilio-labs/paste/issues/792)) ([b7f61ea](https://github.com/twilio-labs/paste/commit/b7f61ea64875b711d7035bef045b0a161f489605))
+
+
+
+
+
 ## [1.3.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/anchor@1.3.0...@twilio-paste/anchor@1.3.1) (2020-09-22)
 
 **Note:** Version bump only for package @twilio-paste/anchor
