@@ -1,12 +1,14 @@
 ---
-title: Input - Form Elements
-package: '@twilio-paste/form'
+title: Input - Components
+package: '@twilio-paste/input'
 description: An input allows users to enter text on a single line.
-slug: /form-elements/input/
+slug: /components/input/
 ---
 
 import {graphql} from 'gatsby';
-import {FormLabel, FormInput, FormHelpText} from '@twilio-paste/form';
+import {Label} from '@twilio-paste/label';
+import {Input} from '@twilio-paste/input';
+import {HelpText} from '@twilio-paste/help-text';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -16,11 +18,11 @@ import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
-import Changelog from '@twilio-paste/form/CHANGELOG.md';
+import Changelog from '@twilio-paste/input/CHANGELOG.md';
 
 export const pageQuery = graphql`
   {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/form"}}) {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/input"}}) {
       edges {
         node {
           name
@@ -30,7 +32,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/form-elements/input/"}}) {
+    mdx(fields: {slug: {eq: "/input/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -46,9 +48,9 @@ export const pageQuery = graphql`
 
 <ComponentHeader
   name="Input"
-  categoryRoute={SidebarCategoryRoutes.FORM}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/form"
-  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-form--input-options"
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/input"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-input--input-options"
   abstractUrl="https://share.goabstract.com/6cc5fc40-3408-4cfd-b1d0-103aea01601d"
   data={props.data.allPasteComponent.edges}
 />
@@ -89,7 +91,7 @@ You can set the input to more [specific types](#input-types) if needed.
     Use one of 3 ways to label a form field:
     <UnorderedList marginBottom="space0">
       <ListItem>
-        Visible label with <Anchor href="#formlabel-props">FormLabel</Anchor> (preferred)
+        Visible label with <Anchor href="#label-props">Label</Anchor> (preferred)
       </ListItem>
       <ListItem>
         Visible label that's associated to the input with <inlineCode>aria-labelledby</inlineCode>
@@ -131,9 +133,9 @@ The input component should include the base input, along with supporting element
 <Callout>
   <CalloutTitle as="h4">Hot accessibility tip</CalloutTitle>
   <CalloutText>
-    Make sure to connect the <inlineCode>FormLabel</inlineCode> to the <inlineCode>FormInput</inlineCode>. This is done
-    with the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the input.
-    Those two need to match.
+    Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>Input</inlineCode>. This is done with the{' '}
+    <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the input. Those two
+    need to match.
   </CalloutText>
   <CalloutText>
     If the input has any associated help text, the input should also use the <inlineCode>aria-describedby</inlineCode>{' '}
@@ -142,11 +144,11 @@ The input component should include the base input, along with supporting element
   </CalloutText>
 </Callout>
 
-<LivePreview scope={{FormInput, FormLabel, FormHelpText}} language="jsx">
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
-  <FormLabel htmlFor="email_address" required>Email Address</FormLabel>
-  <FormInput aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
-  <FormHelpText id="email_help_text">Please enter a valid email</FormHelpText>
+  <Label htmlFor="email_address" required>Email Address</Label>
+  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
+  <HelpText id="email_help_text">Please enter a valid email</HelpText>
 </>`}
 </LivePreview>
 
@@ -155,18 +157,18 @@ The input component should include the base input, along with supporting element
 - **Prefix/suffix text** — Text that can be used as a prefix and/or suffix to the value that is entered. Use prefix/suffix to help users format text.
 - **Icon** — Icons can be placed in the same area as the prefix and suffix text. Icons should trigger an action (_e.g._, clearing a field) or in rare cases, provide further context to what value should be entered to make a field's purpose more immediately visible (_e.g._, a search icon).
 
-<LivePreview scope={{FormInput, FormLabel, FormHelpText}} language="jsx">
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
-  <FormLabel htmlFor="payment_amount" required>Payment Amount</FormLabel>
-  <FormInput aria-describedby="payment_amount_help_text" id="payment_amount" name="payment_amount" type="text" placeholder="124.45" insertBefore={<div>$</div>} onChange="" required />
-  <FormHelpText id="payment_amount_help_text">Enter a dollar amount is USD format</FormHelpText>
+  <Label htmlFor="payment_amount" required>Payment Amount</Label>
+  <Input aria-describedby="payment_amount_help_text" id="payment_amount" name="payment_amount" type="text" placeholder="124.45" insertBefore={<div>$</div>} onChange="" required />
+  <HelpText id="payment_amount_help_text">Enter a dollar amount is USD format</HelpText>
 </>`}
 </LivePreview>
 
-<LivePreview scope={{FormInput, FormLabel, FormHelpText, InformationIcon, Button}} language="jsx">
+<LivePreview scope={{Input, Label, HelpText, InformationIcon, Button}} language="jsx">
   {`<>
-  <FormLabel htmlFor="message_title" required>Message Title</FormLabel>
-  <FormInput
+  <Label htmlFor="message_title" required>Message Title</Label>
+  <Input
     aria-describedby="display_name_help_text"
     id="display_name"
     name="display_name"
@@ -179,7 +181,7 @@ The input component should include the base input, along with supporting element
     }
     onChange=""
   />
-  <FormHelpText id="display_name_help_text">Please enter a short title for your message</FormHelpText>
+  <HelpText id="display_name_help_text">Please enter a short title for your message</HelpText>
 </>`}
 </LivePreview>
 
@@ -227,11 +229,11 @@ Change a form field to its error state and add an inline error if the value ente
 
 An inline error is placed below the field to inform a user of any errors in their value. If help text exists, the error text should replace and repeat the help text.
 
-<LivePreview scope={{FormInput, FormLabel, FormHelpText}} language="jsx">
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
-  <FormLabel htmlFor="email_error">Email Address</FormLabel>
-  <FormInput aria-describedby="email_error_help_text" id="email_error" name="email_error" type="email" placeholder="example@twilio.com" onChange="" hasError />
-  <FormHelpText id="email_error_help_text" variant="error">Please enter a valid email</FormHelpText>
+  <Label htmlFor="email_error">Email Address</Label>
+  <Input aria-describedby="email_error_help_text" id="email_error" name="email_error" type="email" placeholder="example@twilio.com" onChange="" hasError />
+  <HelpText id="email_error_help_text" variant="error">Please enter a valid email</HelpText>
 </>`}
 </LivePreview>
 
@@ -241,11 +243,11 @@ Use a disabled form field to show users that they can't interact with the field.
 
 If you want to show information that can't be edited, use a [read-only](#read-only-input) form field or consider another way of showing static information.
 
-<LivePreview scope={{FormInput, FormLabel, FormHelpText}} language="jsx">
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
-  <FormLabel htmlFor="email_disabled" disabled>Email Address</FormLabel>
-  <FormInput aria-describedby="email_disabled_help_text" id="email_disabled" name="email_disabled" type="email" placeholder="example@twilio.com" onChange="" disabled />
-  <FormHelpText id="email_disabled_help_text">Please enter a valid email</FormHelpText>
+  <Label htmlFor="email_disabled" disabled>Email Address</Label>
+  <Input aria-describedby="email_disabled_help_text" id="email_disabled" name="email_disabled" type="email" placeholder="example@twilio.com" onChange="" disabled />
+  <HelpText id="email_disabled_help_text">Please enter a valid email</HelpText>
 </>`}
 </LivePreview>
 
@@ -253,11 +255,11 @@ If you want to show information that can't be edited, use a [read-only](#read-on
 
 Use a read-only form field when a field's value can't be changed, but users should be able to read or apply focus on the field. For example, use a read-only form field if a user needs to copy the value.
 
-<LivePreview scope={{FormInput, FormLabel, FormHelpText}} language="jsx">
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
-  <FormLabel htmlFor="email_readonly">Email Address</FormLabel>
-  <FormInput aria-describedby="email_readonly_help_text" id="email_readonly" name="email_readonly" type="email" placeholder="example@twilio.com" value="example@twilio.com" onChange="" readOnly />
-  <FormHelpText id="email_readonly_help_text">Please enter a valid email</FormHelpText>
+  <Label htmlFor="email_readonly">Email Address</Label>
+  <Input aria-describedby="email_readonly_help_text" id="email_readonly" name="email_readonly" type="email" placeholder="example@twilio.com" value="example@twilio.com" onChange="" readOnly />
+  <HelpText id="email_readonly_help_text">Please enter a valid email</HelpText>
 </>`}
 </LivePreview>
 
@@ -265,10 +267,10 @@ Use a read-only form field when a field's value can't be changed, but users shou
 
 An input field must have at least a label and an input.
 
-<LivePreview scope={{FormInput, FormLabel}} language="jsx">
+<LivePreview scope={{Input, Label}} language="jsx">
   {`<>
-  <FormLabel htmlFor="name">Name</FormLabel>
-  <FormInput id="name" name="name" type="text" onChange=""/>
+  <Label htmlFor="name">Name</Label>
+  <Input id="name" name="name" type="text" onChange=""/>
 </>`}
 </LivePreview>
 
@@ -276,15 +278,15 @@ An input field must have at least a label and an input.
 
 Stack form fields vertically with `$space-80` spacing between each field.
 
-<LivePreview scope={{FormInput, FormLabel, FormHelpText, Box}} language="jsx">
+<LivePreview scope={{Input, Label, HelpText, Box}} language="jsx">
   {`<>
   <Box marginBottom="space80">
-    <FormLabel htmlFor="first_name">First Name</FormLabel>
-    <FormInput id="first_name" name="first_name" type="text" placeholder="John" onChange="" />
+    <Label htmlFor="first_name">First Name</Label>
+    <Input id="first_name" name="first_name" type="text" placeholder="John" onChange="" />
   </Box>
   <Box>
-    <FormLabel htmlFor="last_name">Last Name</FormLabel>
-    <FormInput id="last_name" name="last_name" type="text" placeholder="Smith" onChange="" />
+    <Label htmlFor="last_name">Last Name</Label>
+    <Input id="last_name" name="last_name" type="text" placeholder="Smith" onChange="" />
   </Box>
 </>`}
 </LivePreview>
@@ -342,8 +344,8 @@ Use an input when users are expected to enter less than a single line of text, o
 <DoDont>
   <Do title="Do" body="Use an input to encourage short text entry." center>
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="short_do">Name</FormLabel>
-      <FormInput id="short_do" name="short_do" type="text" onChange=""/>
+      <Label htmlFor="short_do">Name</Label>
+      <Input id="short_do" name="short_do" type="text" onChange=""/>
     </Box>
   </Do>
   <Dont
@@ -352,8 +354,8 @@ Use an input when users are expected to enter less than a single line of text, o
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="short_dont">Tell us your life story</FormLabel>
-      <FormInput id="short_dont" name="short_dont" type="text" onChange=""/>
+      <Label htmlFor="short_dont">Tell us your life story</Label>
+      <Input id="short_dont" name="short_dont" type="text" onChange=""/>
     </Box>
   </Dont>
 </DoDont>
@@ -364,9 +366,9 @@ Use an input when users are expected to enter less than a single line of text, o
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="limited_do">Job Title (60 characters)</FormLabel>
-      <FormInput aria-describedby="limited_do_help_text" id="limited_do" name="limited_do" type="text" onChange=""/>
-      <FormHelpText id="limited_do_help_text">Limit to 60 characters</FormHelpText>
+      <Label htmlFor="limited_do">Job Title (60 characters)</Label>
+      <Input aria-describedby="limited_do_help_text" id="limited_do" name="limited_do" type="text" onChange=""/>
+      <HelpText id="limited_do_help_text">Limit to 60 characters</HelpText>
     </Box>
   </Do>
   <Dont
@@ -375,23 +377,23 @@ Use an input when users are expected to enter less than a single line of text, o
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="limited_dont">Abbreviated Country</FormLabel>
-      <FormInput id="limited_dont" name="limited_dont" type="text" onChange=""/>
+      <Label htmlFor="limited_dont">Abbreviated Country</Label>
+      <Input id="limited_dont" name="limited_dont" type="text" onChange=""/>
     </Box>
   </Dont>
 </DoDont>
 <DoDont>
   <Do title="Do" body="Use help text to help users prevent errors and fill out a form field correctly." center>
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="email_do">Email Address</FormLabel>
-      <FormInput aria-describedby="email_do_help_text" id="email_do" name="email_do" type="email" placeholder="example@twilio.com" onChange=""/>
-      <FormHelpText id="email_do_help_text">Please enter a valid email</FormHelpText>
+      <Label htmlFor="email_do">Email Address</Label>
+      <Input aria-describedby="email_do_help_text" id="email_do" name="email_do" type="email" placeholder="example@twilio.com" onChange=""/>
+      <HelpText id="email_do_help_text">Please enter a valid email</HelpText>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use placeholder text for validation instructions." center>
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="email_dont">Email Address</FormLabel>
-      <FormInput id="email_dont" name="email_dont" type="email" placeholder="Please enter a valid email" onChange=""/>
+      <Label htmlFor="email_dont">Email Address</Label>
+      <Input id="email_dont" name="email_dont" type="email" placeholder="Please enter a valid email" onChange=""/>
     </Box>
   </Dont>
 </DoDont>
@@ -402,8 +404,8 @@ Use an input when users are expected to enter less than a single line of text, o
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="tel_do">Phone Number</FormLabel>
-      <FormInput id="tel_do" name="tel_do" type="tel" onChange=""/>
+      <Label htmlFor="tel_do">Phone Number</Label>
+      <Input id="tel_do" name="tel_do" type="tel" onChange=""/>
     </Box>
   </Do>
   <Dont
@@ -412,8 +414,8 @@ Use an input when users are expected to enter less than a single line of text, o
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="tel_dont">Phone Number</FormLabel>
-      <FormInput id="tel_dont" name="tel_dont" type="text" onChange=""/>
+      <Label htmlFor="tel_dont">Phone Number</Label>
+      <Input id="tel_dont" name="tel_dont" type="text" onChange=""/>
     </Box>
   </Dont>
 </DoDont>
@@ -424,29 +426,29 @@ Use an input when users are expected to enter less than a single line of text, o
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="help_do">Phone Number</FormLabel>
-      <FormInput aria-describedby="help_do_help_text" id="help_do" name="help_do" type="tel" onChange=""/>
-      <FormHelpText id="help_do_help_text">Use the following format: (###) ###-####</FormHelpText>
+      <Label htmlFor="help_do">Phone Number</Label>
+      <Input aria-describedby="help_do_help_text" id="help_do" name="help_do" type="tel" onChange=""/>
+      <HelpText id="help_do_help_text">Use the following format: (###) ###-####</HelpText>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use more than 2 sentences in help text or error text." center>
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="help_dont">Email Address</FormLabel>
-      <FormInput aria-describedby="help_dont_help_text" id="help_dont" name="help_dont" type="email" onChange=""/>
-      <FormHelpText id="help_dont_help_text">Go to your settings. Then click on email addresses. After doing that, copy and paste your email address in this field.</FormHelpText>
+      <Label htmlFor="help_dont">Email Address</Label>
+      <Input aria-describedby="help_dont_help_text" id="help_dont" name="help_dont" type="email" onChange=""/>
+      <HelpText id="help_dont_help_text">Go to your settings. Then click on email addresses. After doing that, copy and paste your email address in this field.</HelpText>
     </Box>
   </Dont>
 </DoDont>
 <DoDont>
   <Do title="Do" body="Include a visible label on every form field." center>
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="label_do">Name</FormLabel>
-      <FormInput id="label_do" name="label_do" type="text" onChange=""/>
+      <Label htmlFor="label_do">Name</Label>
+      <Input id="label_do" name="label_do" type="text" onChange=""/>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use prefix/suffix text as a replacement for a label." center>
     <Box width="100%" padding="space60">
-      <FormInput id="label_dont" name="label_dont" type="text" onChange="" insertBefore="Name"/>
+      <Input id="label_dont" name="label_dont" type="text" onChange="" insertBefore="Name"/>
     </Box>
   </Dont>
 </DoDont>
@@ -457,8 +459,8 @@ Use an input when users are expected to enter less than a single line of text, o
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="disabled_do">Name</FormLabel>
-      <FormInput id="disabled_do" name="disabled_do" type="text" onChange="" disabled/>
+      <Label htmlFor="disabled_do">Name</Label>
+      <Input id="disabled_do" name="disabled_do" type="text" onChange="" disabled/>
     </Box>
   </Do>
   <Dont
@@ -467,8 +469,8 @@ Use an input when users are expected to enter less than a single line of text, o
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="disabled_dont">Company</FormLabel>
-      <FormInput id="disabled_dont" name="disabled_dont" type="text" value="Twilio" onChange="" disabled/>
+      <Label htmlFor="disabled_dont">Company</Label>
+      <Input id="disabled_dont" name="disabled_dont" type="text" value="Twilio" onChange="" disabled/>
     </Box>
   </Dont>
 </DoDont>
@@ -627,59 +629,59 @@ Use an input when users are expected to enter less than a single line of text, o
 #### Installation
 
 ```bash
-yarn add @twilio-paste/form - or - yarn add @twilio-paste/core
+yarn add @twilio-paste/input - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
 
 ```jsx
-import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
+import {Input, Label, HelpText} from '@twilio-paste/core';
 
 const Component = () => (
   <>
-    <FormLabel htmlFor="foo" required>
+    <Label htmlFor="foo" required>
       foo
-    </FormLabel>
-    <FormInput aria-describedby="foo_text" id="foo" name="foo" type="text" placeholder="foo" onChange={FOO} required />
-    <FormHelpText id="foo_text">Please enter some text</FormHelpText>
+    </Label>
+    <Input aria-describedby="foo_text" id="foo" name="foo" type="text" placeholder="foo" onChange={FOO} required />
+    <HelpText id="foo_text">Please enter some text</HelpText>
   </>
 );
 ```
 
-#### FormInput Props
+#### Input Props
 
 All the valid HTML attributes for `input` are supported including the following props:
 
-| Prop         | Type                                                             | Description                                                                  | Default   |
-| ------------ | ---------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------- |
-| id           | string                                                           | Sets the id of the input. Should match the htmlFor of `FormLabel`. Required. | null      |
-| type         | 'text', 'email', 'hidden', 'number', 'password', 'search', 'tel' | Sets the type of the input. Required.                                        | null      |
-| name         | string                                                           | Sets the name of the input. Required.                                        | null      |
-| value        | string                                                           | Sets the value of the input. Required.                                       | null      |
-| placeholder? | string                                                           | Sets the placeholder of the input.                                           | null      |
-| disabled?    | boolean                                                          | Disables the input.                                                          | false     |
-| readOnly?    | boolean                                                          | Sets the input to readonly.                                                  | false     |
-| required?    | boolean                                                          | Sets the input as required.                                                  | false     |
-| hasError?    | boolean                                                          | Sets the input to an error state.                                            | false     |
-| onChange?    | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                              | null      |
-| onFocus      | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                              | null      |
-| onBlur?      | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                              | null      |
-| variant?     | 'default', 'inverse'                                             |                                                                              | 'default' |
+| Prop         | Type                                                             | Description                                                              | Default   |
+| ------------ | ---------------------------------------------------------------- | ------------------------------------------------------------------------ | --------- |
+| id           | string                                                           | Sets the id of the input. Should match the htmlFor of `Label`. Required. | null      |
+| type         | 'text', 'email', 'hidden', 'number', 'password', 'search', 'tel' | Sets the type of the input. Required.                                    | null      |
+| name         | string                                                           | Sets the name of the input. Required.                                    | null      |
+| value        | string                                                           | Sets the value of the input. Required.                                   | null      |
+| placeholder? | string                                                           | Sets the placeholder of the input.                                       | null      |
+| disabled?    | boolean                                                          | Disables the input.                                                      | false     |
+| readOnly?    | boolean                                                          | Sets the input to readonly.                                              | false     |
+| required?    | boolean                                                          | Sets the input as required.                                              | false     |
+| hasError?    | boolean                                                          | Sets the input to an error state.                                        | false     |
+| onChange?    | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                          | null      |
+| onFocus      | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                          | null      |
+| onBlur?      | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                          | null      |
+| variant?     | 'default', 'inverse'                                             |                                                                          | 'default' |
 
-#### FormLabel Props
+#### Label Props
 
 All the valid HTML attributes for `label` are supported including the following props:
 
-| Prop          | Type                 | Description                                                              | Default   |
-| ------------- | -------------------- | ------------------------------------------------------------------------ | --------- |
-| children?     | `ReactNode`          |                                                                          | null      |
-| htmlFor       | string               | Sets the for of the label. Should match the id of `FormInput`. Required. | null      |
-| disabled?     | boolean              | Shows the input is disabled.                                             | false     |
-| required?     | boolean              | Shows the input is required.                                             | false     |
-| marginBottom? | 'space0', 'space10'  |                                                                          | 'space10' |
-| variant ?     | 'default', 'inverse' |                                                                          | 'default' |
+| Prop          | Type                 | Description                                                          | Default   |
+| ------------- | -------------------- | -------------------------------------------------------------------- | --------- |
+| children?     | `ReactNode`          |                                                                      | null      |
+| htmlFor       | string               | Sets the for of the label. Should match the id of `Input`. Required. | null      |
+| disabled?     | boolean              | Shows the input is disabled.                                         | false     |
+| required?     | boolean              | Shows the input is required.                                         | false     |
+| marginBottom? | 'space0', 'space10'  |                                                                      | 'space10' |
+| variant ?     | 'default', 'inverse' |                                                                      | 'default' |
 
-#### FormHelpText Props
+#### HelpText Props
 
 All the valid HTML attributes (role, aria-\*, type, and so on) including the following props:
 

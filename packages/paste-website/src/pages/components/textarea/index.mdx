@@ -1,12 +1,14 @@
 ---
-title: Textarea - Form Elements
-package: '@twilio-paste/form'
+title: Textarea - Components
+package: '@twilio-paste/textarea'
 description: A textarea allows users to enter text on multiple lines.
-slug: /form-elements/textarea/
+slug: /components/textarea/
 ---
 
 import {graphql} from 'gatsby';
-import {FormLabel, FormHelpText, FormTextArea} from '@twilio-paste/form';
+import {Label} from '@twilio-paste/label';
+import {TextArea} from '@twilio-paste/textarea';
+import {HelpText} from '@twilio-paste/help-text';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -16,11 +18,11 @@ import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
-import Changelog from '@twilio-paste/form/CHANGELOG.md';
+import Changelog from '@twilio-paste/textarea/CHANGELOG.md';
 
 export const pageQuery = graphql`
   {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/form"}}) {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/textarea"}}) {
       edges {
         node {
           name
@@ -30,7 +32,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/form-elements/textarea/"}}) {
+    mdx(fields: {slug: {eq: "/textarea/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -46,9 +48,9 @@ export const pageQuery = graphql`
 
 <ComponentHeader
   name="Textarea"
-  categoryRoute={SidebarCategoryRoutes.FORM}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/form"
-  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-form--textarea-options"
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/textarea"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-textarea--textarea-options"
   abstractUrl="https://share.goabstract.com/6cc5fc40-3408-4cfd-b1d0-103aea01601d"
   data={props.data.allPasteComponent.edges}
 />
@@ -88,7 +90,7 @@ Use a textarea when you want to allow a user to enter text on multiple lines. A 
     Use one of 3 ways to label a form field:
     <UnorderedList marginBottom="space0">
       <ListItem>
-        Visible label with <Anchor href="#formlabel-props">FormLabel</Anchor> (preferred)
+        Visible label with <Anchor href="#formlabel-props">Label</Anchor> (preferred)
       </ListItem>
       <ListItem>
         Visible label that's associated to the textarea with <inlineCode>aria-labelledby</inlineCode>
@@ -130,9 +132,9 @@ The textarea should include the base textarea, along with supporting elements to
 <Callout>
   <CalloutTitle as="h4">Hot accessibility tip</CalloutTitle>
   <CalloutText>
-    Make sure to connect the <inlineCode>FormLabel</inlineCode> to the <inlineCode>FormTextArea</inlineCode>. This is
-    done with the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the
-    textarea. Those two need to match.
+    Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>TextArea</inlineCode>. This is done with
+    the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the textarea.
+    Those two need to match.
   </CalloutText>
   <CalloutText>
     If the textarea has any associated help text, the textarea should also use the{' '}
@@ -141,11 +143,11 @@ The textarea should include the base textarea, along with supporting elements to
   </CalloutText>
 </Callout>
 
-<LivePreview scope={{FormLabel, FormHelpText, FormTextArea}} language="jsx">
+<LivePreview scope={{Label, HelpText, TextArea}} language="jsx">
   {`<>
-  <FormLabel htmlFor="message" required>Message (at least 120 characters)</FormLabel>
-  <FormTextArea aria-describedby="message_help_text" id="message" name="message" placeholder="Enter message" required />
-  <FormHelpText id="message_help_text">Please enter at least 120 characters</FormHelpText>
+  <Label htmlFor="message" required>Message (at least 120 characters)</Label>
+  <TextArea onChange={()=>{}} onChange={()=>{}} aria-describedby="message_help_text" id="message" name="message" placeholder="Enter message" required />
+  <HelpText id="message_help_text">Please enter at least 120 characters</HelpText>
 </>`}
 </LivePreview>
 
@@ -154,17 +156,18 @@ The textarea should include the base textarea, along with supporting elements to
 - **Prefix/suffix text** — Text that can be used as a prefix and/or suffix to the value that is entered. Use prefix/suffix to help users format text.
 - **Icon** — Icons can be placed in the same area as the prefix and suffix text. Icons should trigger an action (_e.g._, clearing a field).
 
-<LivePreview scope={{FormLabel, FormHelpText, FormTextArea}} language="jsx">
+<LivePreview scope={{Label, HelpText, TextArea}} language="jsx">
   {`<>
-  <FormLabel htmlFor="short_bio" required>Short Biography</FormLabel>
-  <FormTextArea id="short_bio" name="short_bio" insertBefore={<div>Bio</div>} required />
+  <Label htmlFor="short_bio" required>Short Biography</Label>
+  <TextArea onChange={()=>{}} id="short_bio" name="short_bio" insertBefore={<div>Bio</div>} required />
 </>`}
 </LivePreview>
 
-<LivePreview scope={{FormLabel, FormHelpText, FormTextArea, InformationIcon, Button}} language="jsx">
+<LivePreview scope={{Label, HelpText, TextArea, InformationIcon, Button}} language="jsx">
   {`<>
-  <FormLabel htmlFor="body" required>Body Copy</FormLabel>
-  <FormTextArea
+  <Label htmlFor="body" required>Body Copy</Label>
+  <TextArea
+    onChange={()=>{}}
     aria-describedby="body_help_text"
     id="body"
     name="body"
@@ -175,7 +178,7 @@ The textarea should include the base textarea, along with supporting elements to
       </Button>
     }
   />
-  <FormHelpText id="body_help_text">Please enter text for the copy area</FormHelpText>
+  <HelpText id="body_help_text">Please enter text for the copy area</HelpText>
 </>`}
 </LivePreview>
 
@@ -187,11 +190,11 @@ Change a form field to its error state and add an inline error if the value ente
 
 An inline error is placed below the field to inform a user of any errors in their value. If help text exists, the error text should replace and repeat the help text.
 
-<LivePreview scope={{FormLabel, FormHelpText, FormTextArea}} language="jsx">
+<LivePreview scope={{Label, HelpText, TextArea}} language="jsx">
   {`<>
-  <FormLabel htmlFor="text_error">Description</FormLabel>
-  <FormTextArea aria-describedby="text_error_help_text" id="text_error" name="text_error" hasError />
-  <FormHelpText id="text_error_help_text" variant="error">Please enter a description</FormHelpText>
+  <Label htmlFor="text_error">Description</Label>
+  <TextArea onChange={()=>{}} aria-describedby="text_error_help_text" id="text_error" name="text_error" hasError />
+  <HelpText id="text_error_help_text" variant="error">Please enter a description</HelpText>
 </>`}
 </LivePreview>
 
@@ -199,10 +202,10 @@ An inline error is placed below the field to inform a user of any errors in thei
 
 Use a disabled form field to show users that they can't interact with the field.
 
-<LivePreview scope={{FormLabel, FormTextArea}} language="jsx">
+<LivePreview scope={{Label, TextArea}} language="jsx">
   {`<>
-  <FormLabel htmlFor="text_disabled" disabled>Description (disabled)</FormLabel>
-  <FormTextArea id="text_disabled" name="text_disabled" placeholder="Enter a description..." disabled />
+  <Label htmlFor="text_disabled" disabled>Description (disabled)</Label>
+  <TextArea onChange={()=>{}} id="text_disabled" name="text_disabled" placeholder="Enter a description..." disabled />
 </>`}
 </LivePreview>
 
@@ -210,10 +213,10 @@ Use a disabled form field to show users that they can't interact with the field.
 
 Use a read-only form field when a field's value can't be changed, but users should be able to read or apply focus on the field. For example, use a read-only form field if a user needs to copy the value.
 
-<LivePreview scope={{FormLabel, FormTextArea}} language="jsx">
+<LivePreview scope={{Label, TextArea}} language="jsx">
   {`<>
-  <FormLabel htmlFor="text_readonly">Description (read-only)</FormLabel>
-  <FormTextArea id="text_readonly" name="text_readonly" readOnly>Paste is a design system used to build accessible, consistent, and high quality customer experiences at Twilio. Paste is open source and contributions are welcome.</FormTextArea>
+  <Label htmlFor="text_readonly">Description (read-only)</Label>
+  <TextArea onChange={()=>{}} id="text_readonly" name="text_readonly" readOnly value="Paste is a design system used to build accessible, consistent, and high quality customer experiences at Twilio. Paste is open source and contributions are welcome." />
 </>`}
 </LivePreview>
 
@@ -221,10 +224,10 @@ Use a read-only form field when a field's value can't be changed, but users shou
 
 A textarea field must have at least a label and a textarea.
 
-<LivePreview scope={{FormLabel, FormTextArea}} language="jsx">
+<LivePreview scope={{Label, TextArea}} language="jsx">
   {`<>
-  <FormLabel htmlFor="details">Details</FormLabel>
-  <FormTextArea id="details" name="details" />
+  <Label htmlFor="details">Details</Label>
+  <TextArea onChange={()=>{}} id="details" name="details" />
 </>`}
 </LivePreview>
 
@@ -232,15 +235,15 @@ A textarea field must have at least a label and a textarea.
 
 Stack form fields vertically with `$space-80` spacing between each field.
 
-<LivePreview scope={{FormLabel, FormHelpText, FormTextArea, Box}} language="jsx">
+<LivePreview scope={{Label, HelpText, TextArea, Box}} language="jsx">
   {`<>
   <Box marginBottom="space80">
-    <FormLabel htmlFor="header">Header</FormLabel>
-    <FormTextArea id="header" name="header" placeholder="Enter header content..." />
+    <Label htmlFor="header">Header</Label>
+    <TextArea onChange={()=>{}} id="header" name="header" placeholder="Enter header content..." />
   </Box>
   <Box>
-    <FormLabel htmlFor="footer">Footer</FormLabel>
-    <FormTextArea id="footer" name="footer" placeholder="Enter footer content..." />
+    <Label htmlFor="footer">Footer</Label>
+    <TextArea onChange={()=>{}} id="footer" name="footer" placeholder="Enter footer content..." />
   </Box>
 </>`}
 </LivePreview>
@@ -298,8 +301,8 @@ Use a textarea when users are expected to enter text that exceeds a single line,
 <DoDont>
   <Do title="Do" body="Use a textarea to encourage longer text entry." center>
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="long_do">Tell us your life story</FormLabel>
-      <FormTextArea id="long_do" name="long_do"/>
+      <Label htmlFor="long_do">Tell us your life story</Label>
+      <TextArea onChange={()=>{}} id="long_do" name="long_do"/>
     </Box>
   </Do>
   <Dont
@@ -308,8 +311,8 @@ Use a textarea when users are expected to enter text that exceeds a single line,
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="long_dont">First Name</FormLabel>
-      <FormTextArea id="long_dont" name="long_dont"/>
+      <Label htmlFor="long_dont">First Name</Label>
+      <TextArea onChange={()=>{}} id="long_dont" name="long_dont"/>
     </Box>
   </Dont>
 </DoDont>
@@ -320,9 +323,9 @@ Use a textarea when users are expected to enter text that exceeds a single line,
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="limited_do">Job Description (120 characters)</FormLabel>
-      <FormTextArea aria-describedby="limited_do_help_text" id="limited_do" name="limited_do"/>
-      <FormHelpText id="limited_do_help_text">Limit to 120 characters</FormHelpText>
+      <Label htmlFor="limited_do">Job Description (120 characters)</Label>
+      <TextArea onChange={()=>{}} aria-describedby="limited_do_help_text" id="limited_do" name="limited_do"/>
+      <HelpText id="limited_do_help_text">Limit to 120 characters</HelpText>
     </Box>
   </Do>
   <Dont
@@ -331,23 +334,23 @@ Use a textarea when users are expected to enter text that exceeds a single line,
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="limited_dont">State Moto</FormLabel>
-      <FormTextArea id="limited_dont" name="limited_dont"/>
+      <Label htmlFor="limited_dont">State Moto</Label>
+      <TextArea onChange={()=>{}} id="limited_dont" name="limited_dont"/>
     </Box>
   </Dont>
 </DoDont>
 <DoDont>
   <Do title="Do" body="Use help text to help users prevent errors and fill out a form field correctly." center>
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="help_do">Enter the correct phrase</FormLabel>
-      <FormTextArea aria-describedby="help_do_help_text" id="help_do" name="help_do"/>
-      <FormHelpText id="help_do_help_text">Please enter: Paste is open source and contributions are welcome.</FormHelpText>
+      <Label htmlFor="help_do">Enter the correct phrase</Label>
+      <TextArea onChange={()=>{}} aria-describedby="help_do_help_text" id="help_do" name="help_do"/>
+      <HelpText id="help_do_help_text">Please enter: Paste is open source and contributions are welcome.</HelpText>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use placeholder text for validation instructions." center>
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="help_dont">Enter the correct phrase</FormLabel>
-      <FormTextArea id="help_dont" name="help_dont" placeholder="Please enter: Paste is open source and contributions are welcome."/>
+      <Label htmlFor="help_dont">Enter the correct phrase</Label>
+      <TextArea onChange={()=>{}} id="help_dont" name="help_dont" placeholder="Please enter: Paste is open source and contributions are welcome."/>
     </Box>
   </Dont>
 </DoDont>
@@ -358,9 +361,9 @@ Use a textarea when users are expected to enter text that exceeds a single line,
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="error_do" required>Header</FormLabel>
-      <FormTextArea id="error_do" name="error_do" required hasError />
-      <FormHelpText variant="error">This is a required field. Please enter some text.</FormHelpText>
+      <Label htmlFor="error_do" required>Header</Label>
+      <TextArea onChange={()=>{}} id="error_do" name="error_do" required hasError />
+      <HelpText variant="error">This is a required field. Please enter some text.</HelpText>
     </Box>
   </Do>
   <Dont
@@ -369,9 +372,9 @@ Use a textarea when users are expected to enter text that exceeds a single line,
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="error_dont" required>Phone Number</FormLabel>
-      <FormTextArea id="error_dont" name="error_dont" required hasError/>
-      <FormHelpText variant="error">This field is needed to submit your document. If you don't enter any text, your submission will fail. Please enter some text into the field. This will make the field valid.</FormHelpText>
+      <Label htmlFor="error_dont" required>Phone Number</Label>
+      <TextArea onChange={()=>{}} id="error_dont" name="error_dont" required hasError/>
+      <HelpText variant="error">This field is needed to submit your document. If you don't enter any text, your submission will fail. Please enter some text into the field. This will make the field valid.</HelpText>
     </Box>
   </Dont>
 </DoDont>
@@ -382,13 +385,13 @@ Use a textarea when users are expected to enter text that exceeds a single line,
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="label_do">Footer Text</FormLabel>
-      <FormTextArea id="label_do" name="label_do"/>
+      <Label htmlFor="label_do">Footer Text</Label>
+      <TextArea onChange={()=>{}} id="label_do" name="label_do"/>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use prefix/suffix text as a replacement for a label." center>
     <Box width="100%" padding="space60">
-      <FormTextArea id="label_dont" name="label_dont" insertBefore={<div>Footer Text</div>} />
+      <TextArea onChange={()=>{}} id="label_dont" name="label_dont" insertBefore={<div>Footer Text</div>} />
     </Box>
   </Dont>
 </DoDont>
@@ -399,8 +402,8 @@ Use a textarea when users are expected to enter text that exceeds a single line,
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="disabled_do">Legal Use Only</FormLabel>
-      <FormTextArea id="disabled_do" name="disabled_do" disabled/>
+      <Label htmlFor="disabled_do">Legal Use Only</Label>
+      <TextArea onChange={()=>{}} id="disabled_do" name="disabled_do" disabled/>
     </Box>
   </Do>
   <Dont
@@ -409,8 +412,8 @@ Use a textarea when users are expected to enter text that exceeds a single line,
     center
   >
     <Box width="100%" padding="space60">
-      <FormLabel htmlFor="disabled_dont">Company Information</FormLabel>
-      <FormTextArea id="disabled_dont" name="disabled_dont" disabled>Twilio powers the future of business communications.</FormTextArea>
+      <Label htmlFor="disabled_dont">Company Information</Label>
+      <TextArea onChange={()=>{}} id="disabled_dont" name="disabled_dont" disabled value="Twilio powers the future of business communications." />
     </Box>
   </Dont>
 </DoDont>
@@ -569,57 +572,57 @@ Use a textarea when users are expected to enter text that exceeds a single line,
 #### Installation
 
 ```bash
-yarn add @twilio-paste/form - or - yarn add @twilio-paste/core
+yarn add @twilio-paste/textarea - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
 
 ```jsx
-import {FormTextArea, FormLabel, FormHelpText} from '@twilio-paste/form';
+import {TextArea, Label, HelpText} from '@twilio-paste/core';
 
 const Component = () => (
   <>
-    <FormLabel htmlFor="foo" required>
+    <Label htmlFor="foo" required>
       foo
-    </FormLabel>
-    <FormTextArea aria-describedby="foo_text" id="foo" name="foo" placeholder="foo" required />
-    <FormHelpText id="foo_text">Please enter some text</FormHelpText>
+    </Label>
+    <TextArea onChange={() => {}} aria-describedby="foo_text" id="foo" name="foo" placeholder="foo" required />
+    <HelpText id="foo_text">Please enter some text</HelpText>
   </>
 );
 ```
 
-#### FormTextArea Props
+#### TextArea Props
 
 All the valid HTML attributes for `textarea` are supported including the following props:
 
-| Prop         | Type                                     | Description                                                                     | Default   |
-| ------------ | ---------------------------------------- | ------------------------------------------------------------------------------- | --------- |
-| id           | string                                   | Sets the id of the textarea. Should match the htmlFor of `FormLabel`. Required. | null      |
-| name         | string                                   | Sets the name of the textarea. Required.                                        | null      |
-| placeholder? | string                                   | Sets the placeholder of the textarea.                                           | null      |
-| disabled?    | boolean                                  | Disables the textarea.                                                          | false     |
-| readOnly?    | boolean                                  | Sets the textarea to readonly.                                                  | false     |
-| required?    | boolean                                  | Sets the textarea as required.                                                  | false     |
-| hasError?    | boolean                                  | Sets the textarea to an error state.                                            | false     |
-| onChange?    | `(event: React.MouseEvent<HTMLElement>)` |                                                                                 | null      |
-| onFocus?     | `(event: React.MouseEvent<HTMLElement>)` |                                                                                 | null      |
-| onBlur?      | `(event: React.MouseEvent<HTMLElement>)` |                                                                                 | null      |
-| variant?     | 'default', 'inverse'                     |                                                                                 | 'default' |
+| Prop         | Type                                     | Description                                                                 | Default   |
+| ------------ | ---------------------------------------- | --------------------------------------------------------------------------- | --------- |
+| id           | string                                   | Sets the id of the textarea. Should match the htmlFor of `Label`. Required. | null      |
+| name         | string                                   | Sets the name of the textarea. Required.                                    | null      |
+| placeholder? | string                                   | Sets the placeholder of the textarea.                                       | null      |
+| disabled?    | boolean                                  | Disables the textarea.                                                      | false     |
+| readOnly?    | boolean                                  | Sets the textarea to readonly.                                              | false     |
+| required?    | boolean                                  | Sets the textarea as required.                                              | false     |
+| hasError?    | boolean                                  | Sets the textarea to an error state.                                        | false     |
+| onChange     | `(event: React.MouseEvent<HTMLElement>)` |                                                                             | null      |
+| onFocus?     | `(event: React.MouseEvent<HTMLElement>)` |                                                                             | null      |
+| onBlur?      | `(event: React.MouseEvent<HTMLElement>)` |                                                                             | null      |
+| variant?     | 'default', 'inverse'                     |                                                                             | 'default' |
 
-#### FormLabel Props
+#### Label Props
 
 All the valid HTML attributes for `label` are supported including the following props:
 
-| Prop          | Type                 | Description                                                                 | Default   |
-| ------------- | -------------------- | --------------------------------------------------------------------------- | --------- |
-| children?     | `ReactNode`          |                                                                             | null      |
-| htmlFor       | string               | Sets the for of the label. Should match the id of `FormTextArea`. Required. | null      |
-| disabled?     | boolean              | Shows the textarea is disabled.                                             | false     |
-| required?     | boolean              | Shows the textarea is required.                                             | false     |
-| marginBottom? | 'space0', 'space10'  |                                                                             | 'space10' |
-| variant ?     | 'default', 'inverse' |                                                                             | 'default' |
+| Prop          | Type                 | Description                                                             | Default   |
+| ------------- | -------------------- | ----------------------------------------------------------------------- | --------- |
+| children?     | `ReactNode`          |                                                                         | null      |
+| htmlFor       | string               | Sets the for of the label. Should match the id of `TextArea`. Required. | null      |
+| disabled?     | boolean              | Shows the textarea is disabled.                                         | false     |
+| required?     | boolean              | Shows the textarea is required.                                         | false     |
+| marginBottom? | 'space0', 'space10'  |                                                                         | 'space10' |
+| variant ?     | 'default', 'inverse' |                                                                         | 'default' |
 
-#### FormHelpText Props
+#### HelpText Props
 
 All the valid HTML attributes (role, aria-\*, type, and so on) including the following props:
 
