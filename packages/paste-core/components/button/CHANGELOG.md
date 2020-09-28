@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.12](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.3.11...@twilio-paste/button@2.3.12) (2020-09-28)
+
+
+### Bug Fixes
+
+* **button:** center content within buttons ([68d96a7](https://github.com/twilio-labs/paste/commit/68d96a710b0d09b02dcf4e85ae615080769fa218))
+
+
+
+
+
 ## [2.3.11](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.3.10...@twilio-paste/button@2.3.11) (2020-09-22)
 
 **Note:** Version bump only for package @twilio-paste/button
