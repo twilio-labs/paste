@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.9.1...@twilio-paste/website@2.10.0) (2020-09-28)
+
+
+### Features
+
+* **website:** add design guidelines ([#779](https://github.com/twilio-labs/paste/issues/779)) ([31d9439](https://github.com/twilio-labs/paste/commit/31d9439c1a18d3c6be3db2fd5d04d1578a1b1890))
+
+
+
+
+
 ## [2.9.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.9.0...@twilio-paste/website@2.9.1) (2020-09-28)
 
 **Note:** Version bump only for package @twilio-paste/website
