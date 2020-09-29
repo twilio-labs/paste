@@ -1,0 +1,48 @@
+---
+title: Notification patterns
+description: Notification patterns
+slug: /patterns/notifications/
+---
+
+import {graphql} from 'gatsby';
+import {Paragraph} from '@twilio-paste/paragraph';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/patterns/notifications/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+## Overview and key concepts
+
+Paste is a design system used to build accessible, cohesive, and high-quality customer experiences at Twilio. Paste supports Product Designers and Engineers with tooling and assets that help them build customer UIs in Sketch and React.
+
+</content>
+
+</contentwrapper>

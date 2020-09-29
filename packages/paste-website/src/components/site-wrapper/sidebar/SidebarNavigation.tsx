@@ -133,6 +133,10 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
     visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.TOKENS),
   });
 
+  const patternsDisclosure = useDisclosurePrimitiveState({
+    visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.PATTERNS),
+  });
+
   return (
     <Box as="nav" marginTop="space70" overflow="auto" role="navigation" aria-label="Main">
       <Box as="ul" padding="space0" margin="space0" listStyleType="none">
@@ -207,6 +211,20 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
               <SidebarNestedItem>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.TOKENS}/theme-package`}>
                   Theme package
+                </SidebarAnchor>
+              </SidebarNestedItem>
+            </SidebarNestedList>
+          </DisclosurePrimitiveContent>
+        </SidebarItem>
+        <SidebarItem>
+          <DisclosurePrimitive as={SidebarDisclosureButton} {...patternsDisclosure}>
+            Patterns
+          </DisclosurePrimitive>
+          <DisclosurePrimitiveContent {...patternsDisclosure}>
+            <SidebarNestedList>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/notifications`}>
+                  Notifications
                 </SidebarAnchor>
               </SidebarNestedItem>
             </SidebarNestedList>
