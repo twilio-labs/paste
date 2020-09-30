@@ -1,16 +1,17 @@
 ---
-title: Feedback and notification patterns
-description: Use these patterns to notify users of information.
-slug: /patterns/notifications/
+title: Delete patterns
+description: Use these patterns to delete stuff.
+slug: /patterns/delete/
 ---
 
 import {graphql} from 'gatsby';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Card} from '@twilio-paste/card';
-import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
+import {FormInput, FormLabel, FormHelpText, Select, Option} from '@twilio-paste/form';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
@@ -21,10 +22,14 @@ import {Text} from '@twilio-paste/text';
 import {Toast} from '@twilio-paste/toast';
 import {ErrorIcon} from "@twilio-paste/icons/esm/ErrorIcon";
 import {SuccessIcon} from "@twilio-paste/icons/esm/SuccessIcon";
+import {Codeblock} from '../../../components/codeblock';
+import {useUID} from 'react-uid';
+import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
+import {defaultExample, initialFocusExample, wideExample} from '../../../component-examples/ModalExamples';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/patterns/notifications/"}}) {
+    mdx(fields: {slug: {eq: "/patterns/delete/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -64,7 +69,7 @@ export const pageQuery = graphql`
   <Box marginBottom="space30">
     <Text as="dt" display="inline-block" color="colorTextWeak" lineHeight="lineHeight30">
       <Box width="size10">
-        Research
+        Status
       </Box>
     </Text>
     <Text as="dd" display="inline-block">
@@ -140,9 +145,13 @@ export const pageQuery = graphql`
 
 <content>
 
-## About feedback and notification patterns
+## About delete patterns
 
-When you pair thoughtful content writing with the appropriate UI element to notify customers of relevant information, you can establish trust during their journey with Twilio at just the right time.
+(Delete patterns are...)
+
+### Accessibility
+
+TBD
 
 ## Ingredients
 
@@ -151,18 +160,10 @@ When you pair thoughtful content writing with the appropriate UI element to noti
     <Stack orientation="vertical" spacing="space50">
       <Card>
         <Heading as="H3" variant="heading30">
-          Alert
+          Button
         </Heading>
-        <Anchor href="../components/alert">
-          Go to the Alert component
-        </Anchor>
-      </Card>
-      <Card>
-        <Heading as="H3" variant="heading30">
-          Toast
-        </Heading>
-        <Anchor href="../components/toast">
-          Go to the Toast component
+        <Anchor href="../components/button">
+          Go to the Button component
         </Anchor>
       </Card>
       <Card>
@@ -179,7 +180,7 @@ When you pair thoughtful content writing with the appropriate UI element to noti
     <Stack orientation="vertical" spacing="space50">
       <Card>
         <Heading as="H3" variant="heading30">
-          Form with inline error
+          Form input
         </Heading>
         <Anchor href="../form-elements/input/#input-with-inline-error">
           Go to the Input component
@@ -187,63 +188,73 @@ When you pair thoughtful content writing with the appropriate UI element to noti
       </Card>
       <Card>
         <Heading as="H3" variant="heading30">
-          Custom composition
+          Toast
         </Heading>
-          Create a custom composition with Card, Box, and Text for in-page confirmations.
+        <Anchor href="../components/toast">
+          Go to the Toast component
+        </Anchor>
       </Card>
     </Stack>
   </Column>
 </Grid>
 
+(Codeblock to import)
 
+## General usage
 
+- Do one of the things below.
+- Always use a destructive button.
+- Confirm with a toast.
 
-## General Usage
+## Severity levels
 
-x
+### High severity
 
-### Accessibility
+A high severity destructive action is super important. Make people type something in a modal so they don't accidentally do something very bad.
 
-x
+![Sample layer groups](../../../assets/images/icon-guide/using-streamline-icons-3.png)
 
-## Levels
+<LivePreview
+  scope={{
+    Modal,
+    ModalBody,
+    ModalFooter,
+    ModalFooterActions,
+    ModalHeader,
+    ModalHeading,
+    useUID,
+    Button,
+    FormLabel,
+    Select,
+    Option,
+    Paragraph,
+  }}
+  noInline
+>
+  {defaultExample}
+</LivePreview>
 
-In general:
+### Medium severity
 
-- To communicate information from the system that isn't triggered by a user action, use an alert or other in-page messaging, like a card composition.
-- To communicate feedback on a user action, use a toast or in-page validation (e.g., full-page confirmation, inline error). You can also pair a toast with in-page validation. For example, when a user submits a long form, you can show an error toast that lets users know they need to fix some form fields, while also showing inline errors on each incorrect field.
-- For high-emotion or high-stress parts of the customer journey, use a component that appropriately matches the customer's level of emotion. For example, to confirm that a customer has successfully upgraded their account, you may want to use a full-page confirmation rather than a toast to communicate feedback on their action.
+(How to determine if something's medium severity)
 
-Use a **[Toast](../components/toast)** when...
+EXAMPLE: Modal with destructive action confirmation
 
-- You need to communicate a direct response to a user action. Example: "asset.jpg" successfully added.
-- You're providing only one link or button to help a user continue a flow.
+### Low severity
 
-Use an **[Alert](../components/alert)** when...
+(How to determine if something's low severity)
 
-- You need to notify a user about a high-priority or time-sensitive change that isn't triggered by a user action.
-- You're providing only one link or button to help a user resolve an issue.
+EXAMPLE: No confirmation, just a destructive button
 
-Use **in-page messaging**, e.g., inline errors, in-page call-outs when...
+## Resources
 
-- You need to communicate a direct and contextual response to a user action.
-- You need to provide links or buttons next to an in-page element.
-- You need to communicate dynamically changing content, like a progress bar. Use a non-modal dialog instead.
-- You need to communicate general promotional information to a user that is unrelated to completing their current action.
+### CodeSandbox
 
-Use an **Alert dialog or [Modal](../components/modal)** when...
-- You need to interrupt a user flow.
-- You need to provide multiple links or buttons to help a user continue a flow.
+TBD
 
-## Example
+### Sketch
 
-### Code
-
-x
-
-### Design
-
-x
+TBD
 
 </content>
 

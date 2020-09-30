@@ -223,6 +223,11 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <DisclosurePrimitiveContent {...patternsDisclosure}>
             <SidebarNestedList>
               <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/delete`}>
+                  Delete
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/notifications`}>
                   Notifications
                 </SidebarAnchor>
