@@ -1,11 +1,24 @@
 ---
 title: Notification patterns
-description: Notification patterns
+description: Use these notification patterns to communicate information to users.
 slug: /patterns/notifications/
 ---
 
 import {graphql} from 'gatsby';
+import {Alert} from '@twilio-paste/alert';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Card} from '@twilio-paste/card';
+import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
+import {Grid, Column} from '@twilio-paste/grid';
+import {Heading} from '@twilio-paste/heading';
+import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/tabs';
+import {Text} from '@twilio-paste/text';
+import {Toast} from '@twilio-paste/toast';
+import {ErrorIcon} from "@twilio-paste/icons/esm/ErrorIcon";
+import {SuccessIcon} from "@twilio-paste/icons/esm/SuccessIcon";
 
 export const pageQuery = graphql`
   {
@@ -29,6 +42,84 @@ export const pageQuery = graphql`
 
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
+<Box marginBottom="space80">
+  <Alert variant="warning">
+    <Text as="span">
+      <strong>Please do not share.</strong> This is a proof of concept meant for feedback only.
+    </Text>
+  </Alert>
+</Box>
+
+<Box as="dl">
+  <Box marginBottom="space30">
+    <Text as="dt" display="inline-block" color="colorTextWeak" lineHeight="lineHeight30">
+      <Box width="size10">
+        Research
+      </Box>
+    </Text>
+    <Text as="dd" display="inline-block">
+      <MediaObject>
+        <MediaFigure spacing="space20">
+          <ErrorIcon color="colorTextError" decorative={true} />
+        </MediaFigure>
+        <MediaBody>
+          <Text as="p">
+            Not available
+          </Text>
+        </MediaBody>
+      </MediaObject>
+    </Text>
+  </Box>
+  <Box marginBottom="space30">
+    <Text as="dt" display="inline-block" color="colorTextWeak">
+      <Box width="size10">
+        Console
+      </Box>
+    </Text>
+    <Text as="dd" display="inline-block">
+      <MediaObject>
+        <MediaFigure spacing="space20">
+          <SuccessIcon color="colorTextSuccess" decorative={true} />
+        </MediaFigure>
+        <MediaBody>
+          <Text as="p">
+            Patterns available
+          </Text>
+        </MediaBody>
+      </MediaObject>
+    </Text>
+  </Box>
+  <Box marginBottom="space30">
+    <Text as="dt" display="inline-block" color="colorTextWeak">
+      <Box width="size10">
+        Flex
+      </Box>
+    </Text>
+    <Text as="dd" display="inline-block">
+      Some patterns available
+    </Text>
+  </Box>
+  <Box marginBottom="space30">
+    <Text as="dt" display="inline-block" color="colorTextWeak">
+      <Box width="size10">
+        SendGrid
+      </Box>
+    </Text>
+    <Text as="dd" display="inline-block">
+      <MediaObject>
+        <MediaFigure spacing="space20">
+          <ErrorIcon color="colorTextError" decorative={true} />
+        </MediaFigure>
+        <MediaBody>
+          <Text as="p">
+            Pattern not available
+          </Text>
+        </MediaBody>
+      </MediaObject>
+    </Text>
+  </Box>
+</Box>
+
 </content>
 
 ---
@@ -39,9 +130,91 @@ export const pageQuery = graphql`
 
 <content>
 
-## Overview and key concepts
+## Ingredients
 
-Paste is a design system used to build accessible, cohesive, and high-quality customer experiences at Twilio. Paste supports Product Designers and Engineers with tooling and assets that help them build customer UIs in Sketch and React.
+<Grid marginBottom="space80">
+  <Column>
+    <Card>
+      <Heading as="H3" variant="heading30">
+        Alert
+      </Heading>
+      <Anchor href="../components/alert">
+        Go to the Anchor component
+      </Anchor>
+    </Card>
+    <Card>
+      <Heading as="H3" variant="heading30">
+        Toast
+      </Heading>
+      <Anchor href="../components/toast">
+        Go to the Toast component
+      </Anchor>
+    </Card>
+  </Column>
+  <Column>
+    <Card>
+      <Heading as="H3" variant="heading30">
+        Form with inline error
+      </Heading>
+      <Anchor href="../form-elements/input/#input-with-inline-error">
+        Go to the Input component
+      </Anchor>
+    </Card>
+    <Card>
+      <Heading as="H3" variant="heading30">
+        Custom composition
+      </Heading>
+        Create a custom composition with Card, Box, and Text.
+    </Card>
+  </Column>
+</Grid>
+
+## Example
+
+x
+
+### Code
+
+x
+
+### Design
+
+x
+
+## Accessibility
+
+x
+
+## Usage
+
+When you pair thoughtful content writing with the appropriate UI element to notify customers of relevant information, you can establish trust during their journey with Twilio at just the right time.
+
+In general:
+
+- To communicate information from the system that isn't triggered by a user action, use an alert or other in-page messaging, like a card composition.
+- To communicate feedback on a user action, use a toast or in-page validation (e.g., full-page confirmation, inline error). You can also pair a toast with in-page validation. For example, when a user submits a long form, you can show an error toast that lets users know they need to fix some form fields, while also showing inline errors on each incorrect field.
+
+Use Toasts when...
+
+- You need to communicate a direct response to a user action. Example: "asset.jpg" successfully added.
+- You're providing only one link or button to help a user continue a flow.
+
+Use Alerts when...
+
+- You need to notify a user about a high-priority or time-sensitive change that isn't triggered by a user action.
+- You're providing only one link or button to help a user resolve an issue.
+
+Use in-page messaging, e.g., inline errors, in-page call-outs when...
+
+- You need to communicate a direct and contextual response to a user action.
+- You need to provide links or buttons next to an in-page element.
+- You need to communicate dynamically changing content, like a progress bar. Use a non-modal dialog instead.
+- You need to communicate general promotional information to a user that is unrelated to completing their current action.
+
+Use an alert dialog or modal when...
+- You need to interrupt a user flow.
+- You need to provide multiple links or buttons to help a user continue a flow.
+
 
 </content>
 
