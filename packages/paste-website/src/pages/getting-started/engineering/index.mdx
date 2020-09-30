@@ -8,6 +8,7 @@ import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {version as typesVersion} from '@twilio-paste/types/package.json';
 import {version as stylePropsVersion} from '@twilio-paste/style-props/package.json';
 import {version as designTokensVersion} from '@twilio-paste/design-tokens/package.json';
@@ -66,32 +67,34 @@ Install the following dependencies using yarn:
 
 The list of external third party dependencies are as follows:
 
-<table>
-  <thead>
-    <tr>
-      <th>Package</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>react</td>
-      <td>{Package.dependencies['react']}</td>
-    </tr>
-    <tr>
-      <td>react-dom</td>
-      <td>{Package.dependencies['react-dom']}</td>
-    </tr>
-    <tr>
-      <td>prop-types</td>
-      <td>{Package.dependencies['prop-types']}</td>
-    </tr>
-    <tr>
-      <td>react-uid</td>
-      <td>{Package.dependencies['react-uid']}</td>
-    </tr>
-  </tbody>
-</table>
+<Box marginBottom="space60">
+  <Table tableLayout="fixed">
+    <THead>
+      <Tr>
+        <Th>Package</Th>
+        <Th>Version</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>react</Td>
+        <Td>{Package.dependencies['react']}</Td>
+      </Tr>
+      <Tr>
+        <Td>react-dom</Td>
+        <Td>{Package.dependencies['react-dom']}</Td>
+      </Tr>
+      <Tr>
+        <Td>prop-types</Td>
+        <Td>{Package.dependencies['prop-types']}</Td>
+      </Tr>
+      <Tr>
+        <Td>react-uid</Td>
+        <Td>{Package.dependencies['react-uid']}</Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
 
 Install them using:
 
@@ -103,52 +106,54 @@ yarn add react react-dom prop-types react-uid
 
 Paste also requires these system dependencies:
 
-<table>
-  <thead>
-    <tr>
-      <th>Package</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>@twilio-paste/types</td>
-      <td>{typesVersion}</td>
-    </tr>
-    <tr>
-      <td>@twilio-paste/style-props</td>
-      <td>{stylePropsVersion}</td>
-    </tr>
-    <tr>
-      <td>@twilio-paste/design-tokens</td>
-      <td>{designTokensVersion}</td>
-    </tr>
-    <tr>
-      <td>@twilio-paste/theme</td>
-      <td>{themeVersion}</td>
-    </tr>
-    <tr>
-      <td>@twilio-paste/icons</td>
-      <td>{iconsVersion}</td>
-    </tr>
-    <tr>
-      <td>@twilio-paste/styling-library</td>
-      <td>{stylingLibraryPropsVersion}</td>
-    </tr>
-    <tr>
-      <td>@twilio-paste/animation-library</td>
-      <td>{animationVersion}</td>
-    </tr>
-    <tr>
-      <td>@twilio-paste/dropdown-library</td>
-      <td>{dropdownVersion}</td>
-    </tr>
-    <tr>
-      <td>@twilio-paste/reakit-library</td>
-      <td>{reakitVersion}</td>
-    </tr>
-  </tbody>
-</table>
+<Box marginBottom="space60">
+  <Table tableLayout="fixed">
+    <THead>
+      <Tr>
+        <Th>Package</Th>
+        <Th>Version</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>@twilio-paste/types</Td>
+        <Td>{typesVersion}</Td>
+      </Tr>
+      <Tr>
+        <Td>@twilio-paste/style-props</Td>
+        <Td>{stylePropsVersion}</Td>
+      </Tr>
+      <Tr>
+        <Td>@twilio-paste/design-tokens</Td>
+        <Td>{designTokensVersion}</Td>
+      </Tr>
+      <Tr>
+        <Td>@twilio-paste/theme</Td>
+        <Td>{themeVersion}</Td>
+      </Tr>
+      <Tr>
+        <Td>@twilio-paste/icons</Td>
+        <Td>{iconsVersion}</Td>
+      </Tr>
+      <Tr>
+        <Td>@twilio-paste/styling-library</Td>
+        <Td>{stylingLibraryPropsVersion}</Td>
+      </Tr>
+      <Tr>
+        <Td>@twilio-paste/animation-library</Td>
+        <Td>{animationVersion}</Td>
+      </Tr>
+      <Tr>
+        <Td>@twilio-paste/dropdown-library</Td>
+        <Td>{dropdownVersion}</Td>
+      </Tr>
+      <Tr>
+        <Td>@twilio-paste/reakit-library</Td>
+        <Td>{reakitVersion}</Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
 
 Install them using:
 
@@ -160,20 +165,22 @@ yarn add @twilio-paste/types @twilio-paste/style-props @twilio-paste/design-toke
 
 Finally, install Paste Core.
 
-<table>
-  <thead>
-    <tr>
-      <th>Package</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>@twilio-paste/core</td>
-      <td>{coreVersion}</td>
-    </tr>
-  </tbody>
-</table>
+<Box marginBottom="space60">
+  <Table tableLayout="fixed">
+    <THead>
+      <Tr>
+        <Th>Package</Th>
+        <Th>Version</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>@twilio-paste/core</Td>
+        <Td>{coreVersion}</Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
 
 ```shell
 yarn add @twilio-paste/core
@@ -191,22 +198,24 @@ Paste Core includes _all Paste_ components in a single bundle. This is extremely
 
 ##### Paste Core includes:
 
-<table>
-  <thead>
-    <tr>
-      <th>Package</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    {Object.keys(coreDependencies).map(dep => (
-      <tr>
-        <td>{dep}</td>
-        <td>{coreDependencies[dep]}</td>
-      </tr>
-    ))}
-  </tbody>
-</table>
+<Box marginBottom="space60">
+  <Table tableLayout="fixed">
+    <THead>
+      <Tr>
+        <Th>Package</Th>
+        <Th>Version</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      {Object.keys(coreDependencies).map(dep => (
+        <Tr>
+          <Td>{dep}</Td>
+          <Td>{coreDependencies[dep]}</Td>
+        </Tr>
+      ))}
+    </TBody>
+  </Table>
+</Box>
 
 ## Usage
 
@@ -253,20 +262,22 @@ up the monotony of text. Icons have to be imported individually.
 
 Install Paste Icons using yarn:
 
-<table>
-  <thead>
-    <tr>
-      <th>Package</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>@twilio-paste/icons</td>
-      <td>{iconsVersion}</td>
-    </tr>
-  </tbody>
-</table>
+<Box marginBottom="space60">
+  <Table tableLayout="fixed">
+    <THead>
+      <Tr>
+        <Th>Package</Th>
+        <Th>Version</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>@twilio-paste/icons</Td>
+        <Td>{iconsVersion}</Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
 
 ```shell
 yarn add @twilio-paste/icons

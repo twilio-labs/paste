@@ -1,0 +1,504 @@
+---
+title: Table
+package: '@twilio-paste/table'
+description: The Table is used to represent static tabular data.
+slug: /components/table/
+---
+
+import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Table, THead, TBody, TFoot, Tr, Th, Td} from '@twilio-paste/table';
+import Changelog from '@twilio-paste/table/CHANGELOG.md';
+import {Text} from '@twilio-paste/text';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {SidebarCategoryRoutes} from '../../../constants';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/table"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/table/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name={props.pageContext.frontmatter.title}
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/table"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-table--basic-table"
+  data={props.data.allPasteComponent.edges}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+<Callout>
+  <CalloutTitle>Using alpha components in your product</CalloutTitle>
+  <CalloutText>
+    Alpha components are ready for you to use in production. Components such as Table are likely to not see any API
+    changes. This is only an alpha due to the lack of documentation and a matching Sketch symbol. Feel free to share
+    your experience using this component by{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/discussions/new">starting a discussion on GitHub</Anchor>. We are
+    also looking for a contributor to symbolize this component in Sketch. Interested? Reach out!
+  </CalloutText>
+</Callout>
+
+## Guidelines
+
+### About Table
+
+A Table is used to represent tabular data, or information presented in a 2-dimensional table composed of rows and columns of cells containing data.
+Tables fill 100% width of the space of their containing element.
+
+You can create tables using a combination of:
+
+- **Table:** The table wrapper.
+- **THead:** The header of your table.
+- **TBody:** The main body of your table.
+- **TFoot:** The footer of your table.
+- **Tr:** A row of cells in your table.
+- **Th:** A header cell which can be used as a column title.
+- **Td:** A cell of table content.
+
+### Accessibility
+
+Tables are used to organize data with a logical relationship in grids. Accessible tables need HTML markup that indicates
+header cells and data cells and defines their relationship. Assistive technologies use this information to provide context to users.
+
+In order to be fully accessible:
+
+- Tables **must** have a `THead`, containing a Table Header `Th` for each column.
+- Tables **must** have a `TBody` wrapping the table body of rows.
+
+## Examples
+
+### Default Table
+
+The Default Table uses an automatic table layout algorithm dictated by the browser. The width of the table cells are adjusted to fit the content.
+
+<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Text}} language="jsx">
+  {`<Table>
+  <THead>
+    <Tr>
+      <Th>Date</Th>
+      <Th>SID</Th>
+      <Th>From</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>
+        <Text as="p">16:24:28 PDT</Text>
+        <Text as="p">2020-09-17</Text>
+      </Td>
+      <Td>
+        <Text as="span" fontFamily="fontFamilyCode">
+          SM0yc4mxi6cn4z13bte7qmflc2drc85mlp
+        </Text>
+      </Td>
+      <Td>(602) 609-6747</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <Text as="p">16:24:28 PDT</Text>
+        <Text as="p">2020-09-17</Text>
+      </Td>
+      <Td>
+        <Text as="span" fontFamily="fontFamilyCode">
+          SMl29llgoihx286uhxfb0yc5n0sg391x5n
+        </Text>
+      </Td>
+      <Td>(602) 609-6747</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <Text as="p">16:24:28 PDT</Text>
+        <Text as="p">2020-09-17</Text>
+      </Td>
+      <Td>
+        <Text as="span" fontFamily="fontFamilyCode">
+          SMxarke3v30fv17hauqn86a7nhgm3b5d87
+        </Text>
+      </Td>
+      <Td>(602) 609-6747</Td>
+    </Tr>
+  </TBody>
+</Table>`}
+</LivePreview>
+
+### Fixed table-layout Table
+
+The fixed Table layout sets equal column widths for the table.
+
+<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td}} language="jsx">
+  {`<Table tableLayout="fixed">
+  <THead>
+    <Tr>
+      <Th>Agents</Th>
+      <Th>Skills</Th>
+      <Th textAlign="right">Tasks</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>Adam Brown</Td>
+      <Td>English, French, Sales, Spanish</Td>
+      <Td textAlign="right">35</Td>
+    </Tr>
+    <Tr>
+      <Td>Adriana Lovelock</Td>
+      <Td>English, French, Sales, Spanish</Td>
+      <Td textAlign="right">28</Td>
+    </Tr>
+    <Tr>
+      <Td>Amanda Cutlack</Td>
+      <Td>English, French, Sales, Spanish</Td>
+      <Td textAlign="right">7</Td>
+    </Tr>
+  </TBody>
+  <TFoot>
+    <Tr>
+      <Td></Td>
+      <Td></Td>
+      <Td textAlign="right">70</Td>
+    </Tr>
+  </TFoot>
+</Table>`}
+</LivePreview>
+
+### Column Widths
+
+`THead` cells (`Th`) can be given a width in order to fill a section of the Table row (`Tr`). Widths can be set with Paste Size Tokens or a number value, e.g. 120px.
+
+<LivePreview scope={{Table, THead, TBody, Tr, Th, Td}} language="jsx">
+  {`<Table>
+  <THead>
+    <Tr>
+      <Th width="size20">First Name</Th>
+      <Th>Last Name</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>Tamir</Td>
+      <Td>Rice</Td>
+    </Tr>
+    <Tr>
+      <Td>Philando</Td>
+      <Td>Castile</Td>
+    </Tr>
+    <Tr>
+      <Td>Trayvon</Td>
+      <Td>Martin</Td>
+    </Tr>
+    <Tr>
+      <Td>Breonna</Td>
+      <Td>Taylor</Td>
+    </Tr>
+    <Tr>
+      <Td>Shantel</Td>
+      <Td>Davis</Td>
+    </Tr>
+    <Tr>
+      <Td>Walter</Td>
+      <Td>Scott</Td>
+    </Tr>
+  </TBody>
+</Table>`}
+</LivePreview>
+
+### Column Text Alignment
+
+Table cells (`Td` or `Th`) can be set with either left, center, or right text alignment. By default they are left-aligned.
+
+<LivePreview scope={{Table, THead, TBody, Tr, Th, Td}} language="jsx">
+  {`<Table>
+  <THead>
+    <Tr>
+      <Th>First Name</Th>
+      <Th textAlign="right">Last Name</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>Tamir</Td>
+      <Td textAlign="right">Rice</Td>
+    </Tr>
+    <Tr>
+      <Td>Philando</Td>
+      <Td textAlign="right">Castile</Td>
+    </Tr>
+    <Tr>
+      <Td>Trayvon</Td>
+      <Td textAlign="right">Martin</Td>
+    </Tr>
+    <Tr>
+      <Td>Breonna</Td>
+      <Td textAlign="right">Taylor</Td>
+    </Tr>
+    <Tr>
+      <Td>Shantel</Td>
+      <Td textAlign="right">Davis</Td>
+    </Tr>
+    <Tr>
+      <Td>Walter</Td>
+      <Td textAlign="right">Scott</Td>
+    </Tr>
+  </TBody>
+</Table>`}
+</LivePreview>
+
+### Row Vertical Alignment
+
+Table rows (`Tr`) can be set with either top, middle, or bottom vertical alignment. By default they are middle-aligned.
+
+<LivePreview scope={{Table, THead, TBody, Tr, Th, Td}} language="jsx">
+  {`<Table>
+  <THead>
+    <Tr>
+      <Th width="size20">Author</Th>
+      <Th>Quote</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr verticalAlign="top">
+      <Td>Chinua Achebe</Td>
+      <Td>The impatient idealist says: ‘Give me a place to stand and I shall move the earth.’ But such a place does not exist. We all have to stand on the earth itself and go with her at her pace.</Td>
+    </Tr>
+    <Tr verticalAlign="middle">
+      <Td>James Baldwin</Td>
+      <Td>Anyone who has ever struggled with poverty knows how extremely expensive it is to be poor.</Td>
+    </Tr>
+    <Tr verticalAlign="middle">
+      <Td>Dorothy West</Td>
+      <Td>To know how much there is to know is the beginning of learning to live.</Td>
+    </Tr>
+    <Tr verticalAlign="bottom">
+      <Td>W.E.B. Du Bois</Td>
+      <Td>Herein lies the tragedy of the age: not that men are poor—all men know something of poverty; not that men are wicked—who is good? Not that men are ignorant—what is truth? Nay, but that men know so little of men.</Td>
+    </Tr>
+  </TBody>
+</Table>`}
+</LivePreview>
+
+## Anatomy
+
+### Table
+
+| Property | Default token | Modifiable? |
+| -------- | ------------- | ----------- |
+| color    | color-text    | No          |
+| width    | 100%          | No          |
+
+### TBody
+
+| Property         | Default token         | Modifiable? |
+| ---------------- | --------------------- | ----------- |
+| background-color | color-background-body | No          |
+| border-width     | border-width-10       | No          |
+| border-color     | color-border-lighter  | No          |
+
+### TFoot
+
+| Property     | Default token        | Modifiable? |
+| ------------ | -------------------- | ----------- |
+| border-width | border-width-10      | No          |
+| border-color | color-border-lighter | No          |
+
+### Tr
+
+| Property             | Default token                           | Modifiable? |
+| -------------------- | --------------------------------------- | ----------- |
+| background-color     | Even rows: color-background-row-striped | No          |
+| border-bottom-width  | border-width-10                         | No          |
+| border-bottom- color | color-border-lighter                    | No          |
+
+### Th
+
+<Box marginBottom="space60">
+  <Table tableLayout="fixed">
+    <THead>
+      <Tr>
+        <Th>Property</Th>
+        <Th>Default token</Th>
+        <Th>Modifiable?</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>font-size</Td>
+        <Td>font-size-30</Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>line-height</Td>
+        <Td>line-height-30</Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>font-weight</Td>
+        <Td>font-weight-bold</Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>padding</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>space-40</ListItem>
+            <ListItem>First cell in row: padding-left: space-50</ListItem>
+            <ListItem>Last cell in row: padding-right: space-50</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
+
+### Td
+
+<Box marginBottom="space60">
+  <Table tableLayout="fixed">
+    <THead>
+      <Tr>
+        <Th>Property</Th>
+        <Th>Default token</Th>
+        <Th>Modifiable?</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>font-size</Td>
+        <Td>font-size-30</Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>line-height</Td>
+        <Td>line-height-30</Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>font-weight</Td>
+        <Td>font-weight-bold</Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>padding</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>space-40</ListItem>
+            <ListItem>First cell in row: padding-left: space-50</ListItem>
+            <ListItem>Last cell in row: padding-right: space-50</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/table - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {Table} from ‘@twliio-paste/table’;
+
+const TableExample: React.FC = () => {
+  return (
+    <Table tableLayout="fixed">
+      <THead>
+        <Tr verticalAlign="middle">
+          <Th width="size40" textAlign="left">Column 1</Th>
+          <Th>Column 2</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        <Tr>
+          <Td>Content</Td>
+          <Td>Content</Td>
+        </Tr>
+      </TBody>
+      <TFoot>
+        <Tr>
+          <Td>Content</Td>
+          <Td>Content</Td>
+        </Tr>
+      </TFoot>
+    </Table>
+  );
+};
+```
+
+#### Props
+
+#### Table
+
+##### `tableLayout?: “auto” | “fixed”`
+
+Sets the `table-layout` style of the Table. Defaults to `auto`.
+
+#### Tr Props
+
+##### `verticalAlign?: “top” | “middle” | “bottom”`
+
+Sets the vertical alignment of the content within the Table row. Defaults to `middle`.
+
+#### Th Props
+
+##### `textAlign?: “left” | “center” | “right”`
+
+Sets the text alignment of the content within the Table cell. Defaults to `left`.
+
+##### `width?: WidthOptions`
+
+Sets the width of a Table cell.
+
+#### Td Props
+
+##### `textAlign?: “left” | “center” | “right”`
+
+Sets the text alignment of the content within the Table cell. Defaults to `left`.
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

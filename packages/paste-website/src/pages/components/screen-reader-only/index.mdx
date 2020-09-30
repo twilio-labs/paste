@@ -14,11 +14,11 @@ import {Heading} from '@twilio-paste/heading';
 import {Card} from '@twilio-paste/card';
 import {Button} from '@twilio-paste/button';
 import {Anchor} from '@twilio-paste/anchor';
+import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
 import Changelog from '@twilio-paste/screen-reader-only/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {Table, Thead, Tbody, Tr, Td, Th} from '../../../components/table';
 import {InlineCode} from '../../../components/Typography';
 
 export const pageQuery = graphql`
@@ -104,9 +104,9 @@ Each column in a table is required to have a column header. Sometimes those colu
 
 Another common use case is for providing correct context to repetitive actions. In the example below, the "Buy" button is clearly visually associated with the phone number via row highlighting. However, to a screen reader user, this association may not be as clear. To provide additional clarification we can add _what_ you would be buying (Buy ) as visually hidden text to the button. This way, we can keep the same level of context for all users.
 
-<LivePreview scope={{Table, Thead, Tbody, Tr, Td, Th, Button, Text, ScreenReaderOnly}} language="jsx">
+<LivePreview scope={{Table, THead, TBody, Tr, Td, Th, Button, Text, ScreenReaderOnly}} language="jsx">
   {`<Table>
-  <Thead>
+  <THead>
     <Tr>
       <Th>Number</Th>
       <Th>Type</Th>
@@ -115,8 +115,8 @@ Another common use case is for providing correct context to repetitive actions. 
         <ScreenReaderOnly>Actions</ScreenReaderOnly>
       </Th>
     </Tr>
-  </Thead>
-  <Tbody>
+  </THead>
+  <TBody>
     <Tr>
       <Th>
         <strong>+1 (903) 603-9469</strong>
@@ -162,7 +162,7 @@ Another common use case is for providing correct context to repetitive actions. 
         </Button>
       </Td>
     </Tr>
-  </Tbody>
+  </TBody>
 </Table>`}
 </LivePreview>
 
