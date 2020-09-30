@@ -73,16 +73,7 @@ export const pageQuery = graphql`
       </Box>
     </Text>
     <Text as="dd" display="inline-block">
-      <MediaObject>
-        <MediaFigure spacing="space20">
-          <ErrorIcon color="colorTextError" decorative={true} />
-        </MediaFigure>
-        <MediaBody>
-          <Text as="p">
-            Not available
-          </Text>
-        </MediaBody>
-      </MediaObject>
+      alpha
     </Text>
   </Box>
   <Box marginBottom="space30">
@@ -145,14 +136,6 @@ export const pageQuery = graphql`
 
 <content>
 
-## About delete patterns
-
-(Delete patterns are...)
-
-### Accessibility
-
-TBD
-
 ## Ingredients
 
 <Grid gutter="space30" marginBottom="space80">
@@ -198,13 +181,17 @@ TBD
   </Column>
 </Grid>
 
-(Codeblock to import)
+(Codeblock for component import)
 
 ## General usage
 
 - Do one of the things below.
 - Always use a destructive button.
 - Confirm with a toast.
+
+### Accessibility
+
+x
 
 ## Severity levels
 
@@ -246,7 +233,7 @@ EXAMPLE: Modal with destructive action confirmation
 
 EXAMPLE: No confirmation, just a destructive button
 
-## Resources
+## Starter kits
 
 ### CodeSandbox
 
