@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
+import {FormLabel, FormInput} from '@twilio-paste/form';
+import {Table, Tr, Th, Td, THead, TBody} from '@twilio-paste/table';
 import {Text} from '@twilio-paste/text';
 import {Theme, ThemeVariants} from '@twilio-paste/theme';
-import {FormLabel, FormInput} from '@twilio-paste/form';
 import {useUID} from 'react-uid';
-import {Table, Tr, Th, Td, Tbody} from '../table';
 import {InlineCode} from '../Typography';
 import {AnchoredHeading} from '../Heading';
 import {useActiveSiteTheme} from '../../context/ActiveSiteThemeContext';
@@ -162,14 +162,14 @@ export const TokensList: React.FC<TokensListProps> = props => {
               <Theme.Provider theme={theme}>
                 <Box marginBottom="space160">
                   <Table>
-                    <thead>
+                    <THead>
                       <Tr>
                         <Th>Token</Th>
-                        <Th style={{width: '250px'}}>Value</Th>
-                        <Th style={{width: '250px'}}>Example</Th>
+                        <Th width="250px">Value</Th>
+                        <Th width="250px">Example</Th>
                       </Tr>
-                    </thead>
-                    <Tbody>
+                    </THead>
+                    <TBody>
                       {cat.tokens.map((token: Token) => {
                         return (
                           <Tr key={`token${token.name}`}>
@@ -180,17 +180,13 @@ export const TokensList: React.FC<TokensListProps> = props => {
                               <Text as="p">{token.comment}</Text>
                             </Td>
                             <Td>{getTokenValue(token)}</Td>
-                            <Td
-                              css={{
-                                position: 'relative',
-                              }}
-                            >
+                            <Td>
                               <TokenExample token={token} />
                             </Td>
                           </Tr>
                         );
                       })}
-                    </Tbody>
+                    </TBody>
                   </Table>
                 </Box>
               </Theme.Provider>

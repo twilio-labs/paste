@@ -10,6 +10,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {useTabState, Tabs, Tab, TabList, TabPanels, TabPanel} from '@twilio-paste/tabs';
 import Changelog from '@twilio-paste/tabs/CHANGELOG.md';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
@@ -153,67 +154,69 @@ using the `select` function from the tab state to advance to the next tab, and g
 
 ## Anatomy
 
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Default token</th>
-      <th>Modifiable?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Tab label text</td>
-      <td>
-        <UnorderedList marginBottom="space0">
-          <ListItem>Always: $font-size-30, $font-weight-semibold, $line-height-20</ListItem>
-          <ListItem>Default: $color-text-weak, on hover: $color-text</ListItem>
-          <ListItem>Selected: $color-text-link</ListItem>
-          <ListItem>Disabled: $color-text-weaker</ListItem>
-        </UnorderedList>
-      </td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Tab Label box</td>
-      <td>
-        <UnorderedList marginBottom="space0">
-          <ListItem>border-bottom (selected tab): $color-border-primary</ListItem>
-          <ListItem>border-bottom (on hover): $color-border-primary-darker</ListItem>
-          <ListItem>
-            Horizontal Tabs
-            <UnorderedList marginBottom="space0">
-              <ListItem>padding-top: $space-40</ListItem>
-              <ListItem>padding-right: $space-20</ListItem>
-              <ListItem>padding-bottom: $space-40</ListItem>
-              <ListItem>padding-left: $space-20</ListItem>
-              <ListItem>margin-right: $space-70 (except for last tab)</ListItem>
-            </UnorderedList>
-          </ListItem>
-          <ListItem>
-            Fitted Tabs
-            <UnorderedList marginBottom="space0">
-              <ListItem>padding-top: $space-40</ListItem>
-              <ListItem>padding-right: $space-20</ListItem>
-              <ListItem>padding-bottom: $space-40</ListItem>
-              <ListItem>padding-left: $space-20</ListItem>
-            </UnorderedList>
-          </ListItem>
-        </UnorderedList>
-      </td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Tab List Border</td>
-      <td>
-        <UnorderedList marginBottom="space0">
-          <ListItem>Always: $color-border-light</ListItem>
-        </UnorderedList>
-      </td>
-      <td>No</td>
-    </tr>
-  </tbody>
-</table>
+<Box marginBottom="space60">
+  <Table tableLayout="fixed">
+    <THead>
+      <Tr>
+        <Th>Property</Th>
+        <Th>Default token</Th>
+        <Th>Modifiable?</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>Tab label text</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>Always: $font-size-30, $font-weight-semibold, $line-height-20</ListItem>
+            <ListItem>Default: $color-text-weak, on hover: $color-text</ListItem>
+            <ListItem>Selected: $color-text-link</ListItem>
+            <ListItem>Disabled: $color-text-weaker</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Tab Label box</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>border-bottom (selected tab): $color-border-primary</ListItem>
+            <ListItem>border-bottom (on hover): $color-border-primary-darker</ListItem>
+            <ListItem>
+              Horizontal Tabs
+              <UnorderedList marginBottom="space0">
+                <ListItem>padding-top: $space-40</ListItem>
+                <ListItem>padding-right: $space-20</ListItem>
+                <ListItem>padding-bottom: $space-40</ListItem>
+                <ListItem>padding-left: $space-20</ListItem>
+                <ListItem>margin-right: $space-70 (except for last tab)</ListItem>
+              </UnorderedList>
+            </ListItem>
+            <ListItem>
+              Fitted Tabs
+              <UnorderedList marginBottom="space0">
+                <ListItem>padding-top: $space-40</ListItem>
+                <ListItem>padding-right: $space-20</ListItem>
+                <ListItem>padding-bottom: $space-40</ListItem>
+                <ListItem>padding-left: $space-20</ListItem>
+              </UnorderedList>
+            </ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Tab List Border</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>Always: $color-border-light</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
 
 ---
 

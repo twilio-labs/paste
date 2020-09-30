@@ -10,6 +10,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Combobox, useCombobox} from '@twilio-paste/combobox';
 import {Button} from '@twilio-paste/button';
+import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
@@ -209,141 +210,143 @@ For full details on how to use the state hook, and what props to provide it, fol
 
 ## Anatomy
 
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Default token</th>
-      <th>Modifiable?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Label text</td>
-      <td>
-        <UnorderedList marginBottom="space0">
-          <ListItem>$font-size-30</ListItem>
-          <ListItem>Default: $color-text, $font-weight-semibold</ListItem>
-          <ListItem>Disabled: $color-text-weaker, $font-weight-semibold</ListItem>
-        </UnorderedList>
-      </td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Required field indicator</td>
-      <td>
-        <UnorderedList marginBottom="space0">
-          <ListItem>4px size (0.25rem)</ListItem>
-          <ListItem>Background: $color-background-required</ListItem>
-        </UnorderedList>
-      </td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Box Shadow</td>
-      <td>
-        <UnorderedList marginBottom="space0">
-          <ListItem>Default: $shadow-border</ListItem>
-          <ListItem>Hover: $shadow-border-primary-dark</ListItem>
-          <ListItem>Disabled: $shadow-border-light</ListItem>
-          <ListItem>Error: $shadow-border-error</ListItem>
-          <ListItem>Error hover: $shadow-border-error-dark</ListItem>
-        </UnorderedList>
-      </td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Background</td>
-      <td>
-        <UnorderedList marginBottom="space0">
-          <ListItem>Default: $color-background-body</ListItem>
-          <ListItem>Disabled: $color-background</ListItem>
-        </UnorderedList>
-      </td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Prefix/suffix</td>
-      <td>
-        <UnorderedList marginBottom="space0">
-          <ListItem>Background: $color-background</ListItem>
-          <ListItem>Border: $color-border-lighter</ListItem>
-        </UnorderedList>
-      </td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Prefix/suffix text</td>
-      <td>
-        <UnorderedList marginBottom="space0">
-          <ListItem>Default: $color-text</ListItem>
-          <ListItem>Disabled: $color-text-weak</ListItem>
-        </UnorderedList>
-      </td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Help text</td>
-      <td>$color-text-weak, $font-size-30</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Inline error</td>
-      <td>
-        <UnorderedList marginBottom="space0">
-          <ListItem>Text: $color-text-error, $font-size-30</ListItem>
-          <ListItem>Icon: IconError, $color-text-error, $icon-size-20</ListItem>
-        </UnorderedList>
-      </td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Spacing</td>
-      <td>
-        <UnorderedList marginBottom="space0">
-          <ListItem>
-            Label:
-            <UnorderedList marginBottom="space0">
-              <ListItem>Bottom: $space-10</ListItem>
-              <ListItem>Between label and required indicator: $space-20</ListItem>
-            </UnorderedList>
-          </ListItem>
-          <ListItem>
-            Input:
-            <UnorderedList marginBottom="space0">
-              <ListItem>Left padding: $space-40</ListItem>
-              <ListItem>Top, right, bottom padding: $space-30</ListItem>
-            </UnorderedList>
-          </ListItem>
-          <ListItem>Prefix/suffix padding: $space-30</ListItem>
-          <ListItem>
-            Help text:
-            <UnorderedList marginBottom="space0">
-              <ListItem>Top: $space-20</ListItem>
-            </UnorderedList>
-          </ListItem>
-          <ListItem>
-            Inline error:
-            <UnorderedList marginBottom="space0">
-              <ListItem>Spacing between icon and text: $space-20</ListItem>
-              <ListItem>Top: $space-20</ListItem>
-            </UnorderedList>
-          </ListItem>
-        </UnorderedList>
-      </td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Chevron</td>
-      <td>
-        <UnorderedList marginBottom="space0">
-          <ListItem>Icon: IconChevronDown, $space-20 from left</ListItem>
-        </UnorderedList>
-      </td>
-      <td>No</td>
-    </tr>
-  </tbody>
-</table>
+<Box marginBottom="space60">
+  <Table tableLayout="fixed">
+    <THead>
+      <Tr>
+        <Th>Property</Th>
+        <Th>Default token</Th>
+        <Th>Modifiable?</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>Label text</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>$font-size-30</ListItem>
+            <ListItem>Default: $color-text, $font-weight-semibold</ListItem>
+            <ListItem>Disabled: $color-text-weaker, $font-weight-semibold</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Required field indicator</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>4px size (0.25rem)</ListItem>
+            <ListItem>Background: $color-background-required</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Box Shadow</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>Default: $shadow-border</ListItem>
+            <ListItem>Hover: $shadow-border-primary-dark</ListItem>
+            <ListItem>Disabled: $shadow-border-light</ListItem>
+            <ListItem>Error: $shadow-border-error</ListItem>
+            <ListItem>Error hover: $shadow-border-error-dark</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Background</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>Default: $color-background-body</ListItem>
+            <ListItem>Disabled: $color-background</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Prefix/suffix</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>Background: $color-background</ListItem>
+            <ListItem>Border: $color-border-lighter</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Prefix/suffix text</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>Default: $color-text</ListItem>
+            <ListItem>Disabled: $color-text-weak</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Help text</Td>
+        <Td>$color-text-weak, $font-size-30</Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Inline error</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>Text: $color-text-error, $font-size-30</ListItem>
+            <ListItem>Icon: IconError, $color-text-error, $icon-size-20</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Spacing</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>
+              Label:
+              <UnorderedList marginBottom="space0">
+                <ListItem>Bottom: $space-10</ListItem>
+                <ListItem>Between label and required indicator: $space-20</ListItem>
+              </UnorderedList>
+            </ListItem>
+            <ListItem>
+              Input:
+              <UnorderedList marginBottom="space0">
+                <ListItem>Left padding: $space-40</ListItem>
+                <ListItem>Top, right, bottom padding: $space-30</ListItem>
+              </UnorderedList>
+            </ListItem>
+            <ListItem>Prefix/suffix padding: $space-30</ListItem>
+            <ListItem>
+              Help text:
+              <UnorderedList marginBottom="space0">
+                <ListItem>Top: $space-20</ListItem>
+              </UnorderedList>
+            </ListItem>
+            <ListItem>
+              Inline error:
+              <UnorderedList marginBottom="space0">
+                <ListItem>Spacing between icon and text: $space-20</ListItem>
+                <ListItem>Top: $space-20</ListItem>
+              </UnorderedList>
+            </ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Chevron</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>Icon: IconChevronDown, $space-20 from left</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
 
 ---
 

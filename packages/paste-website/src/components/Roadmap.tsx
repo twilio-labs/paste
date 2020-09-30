@@ -8,7 +8,7 @@ import {
   DisclosurePrimitive,
   DisclosurePrimitiveContent,
 } from '@twilio-paste/disclosure-primitive';
-import {Table, Thead, Tbody, Tr, Td, Th} from './table';
+import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
 
 export const Toggle: React.FC<{}> = ({children, ...props}) => {
   return (
@@ -56,24 +56,26 @@ const Roadmap: React.FC<RoadmapProps> = ({data}) => {
               Release - {release.release}
             </DisclosurePrimitive>
             <DisclosurePrimitiveContent {...disclosure}>
-              <Table>
-                <Thead>
-                  <Tr>
-                    <Th style={{width: '250px'}}>Component</Th>
-                    <Th>Description</Th>
-                  </Tr>
-                </Thead>
-                <Tbody>
-                  {release.edges.map(component => {
-                    return (
-                      <Tr>
-                        <Td>{component.node.data.Feature}</Td>
-                        <Td>{component.node.data.Public_Description}</Td>
-                      </Tr>
-                    );
-                  })}
-                </Tbody>
-              </Table>
+              <Box marginBottom="space60">
+                <Table>
+                  <THead>
+                    <Tr>
+                      <Th width="250px">Component</Th>
+                      <Th>Description</Th>
+                    </Tr>
+                  </THead>
+                  <TBody>
+                    {release.edges.map(component => {
+                      return (
+                        <Tr>
+                          <Td>{component.node.data.Feature}</Td>
+                          <Td>{component.node.data.Public_Description}</Td>
+                        </Tr>
+                      );
+                    })}
+                  </TBody>
+                </Table>
+              </Box>
             </DisclosurePrimitiveContent>
           </Box>
         );

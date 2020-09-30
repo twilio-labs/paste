@@ -2,12 +2,13 @@ import * as React from 'react';
 import {MDXProvider} from '@mdx-js/react';
 import {styled} from '@twilio-paste/styling-library';
 import {Anchor, AnchorProps, isExternalUrl} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
 import {Heading, HeadingProps} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {OrderedList, UnorderedList, ListItem} from '@twilio-paste/list';
 import {Separator, SeparatorProps} from '@twilio-paste/separator';
+import {Table, THead, TBody, TFoot, Tr, Th, Td} from '@twilio-paste/table';
 import {Codeblock, CodeblockProps} from '../codeblock';
-import {Table, Tbody, Tr, Th, Td} from '../table';
 import {AnchoredHeading} from '../Heading';
 import {InlineCode, Pre} from '../Typography';
 // Shortcode imports
@@ -58,13 +59,17 @@ const MDXPoviderComponents = {
   ol: (props: React.ComponentProps<typeof OrderedList>): React.ReactElement => <OrderedList {...props} />,
   li: (props: React.ComponentProps<typeof ListItem>): React.ReactElement => <ListItem {...props} />,
   blockquote: (props: React.ComponentProps<'blockquote'>): React.ReactElement => <blockquote {...props} />,
-  table: (props: React.ComponentProps<'table'>): React.ReactElement => <Table {...props} />,
-  thead: (props: React.ComponentProps<'thead'>): React.ReactElement => <thead {...props} />,
-  tbody: (props: React.ComponentProps<'tbody'>): React.ReactElement => <Tbody {...props} />,
-  tfoot: (props: React.ComponentProps<'tfoot'>): React.ReactElement => <tfoot {...props} />,
-  tr: (props: React.ComponentProps<'tr'>): React.ReactElement => <Tr {...props} />,
-  th: (props: React.ComponentProps<'th'>): React.ReactElement => <Th {...props} />,
-  td: (props: React.ComponentProps<'td'>): React.ReactElement => <Td {...props} />,
+  table: (props: React.ComponentProps<typeof Table>): React.ReactElement => (
+    <Box marginBottom="space60">
+      <Table tableLayout="fixed" {...props} />
+    </Box>
+  ),
+  thead: (props: React.ComponentProps<typeof THead>): React.ReactElement => <THead {...props} />,
+  tbody: (props: React.ComponentProps<typeof TBody>): React.ReactElement => <TBody {...props} />,
+  tfoot: (props: React.ComponentProps<typeof TFoot>): React.ReactElement => <TFoot {...props} />,
+  tr: (props: React.ComponentProps<typeof Tr>): React.ReactElement => <Tr {...props} />,
+  th: (props: React.ComponentProps<typeof Th>): React.ReactElement => <Th {...props} />,
+  td: (props: React.ComponentProps<typeof Td>): React.ReactElement => <Td {...props} />,
   pre: (props: React.ComponentProps<'pre'>): React.ReactElement => <Pre {...props} />,
   code: (props: CodeblockProps): React.ReactElement => <Codeblock {...props} />,
   inlineCode: (props: React.ComponentProps<typeof InlineCode>): React.ReactElement => <InlineCode {...props} />,
