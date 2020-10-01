@@ -9,22 +9,19 @@ const StyledLink = styled(Link)`
   outline: none;
 
   &:hover {
-    color: ${themeGet('textColors.colorTextLinkHover')};
-    text-decoration: none;
-  }
-
-  &:focus,
-  &:active {
-    box-shadow: ${themeGet('shadows.shadowFocus')};
+    color: ${themeGet('textColors.colorTextLinkDarker')};
     text-decoration: none;
   }
 
   &:focus {
-    color: ${themeGet('textColors.colorTextLinkFocus')};
+    box-shadow: ${themeGet('shadows.shadowFocus')};
+    color: ${themeGet('textColors.colorTextLinkDarker')};
+    text-decoration: none;
   }
 
   &:active {
-    color: ${themeGet('textColors.colorTextLinkActive')};
+    color: ${themeGet('textColors.colorTextLinkDarker')};
+    text-decoration: none;
   }
 `;
 

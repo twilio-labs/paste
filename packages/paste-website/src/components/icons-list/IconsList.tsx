@@ -12,10 +12,9 @@ import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Anchor} from '@twilio-paste/anchor';
 import {IconObject, IconComponent, IconsListProps, GroupedList} from './types';
 import {IconCard} from './IconCard';
-import {getStickyColumnComputedOffset} from '../../utils/stickyUtils';
-import {SiteBodyContext} from '../site-wrapper/SiteBodyContext';
 import {SiteLink} from '../SiteLink';
 import {IconListItem} from './IconListItem';
+import {STICKY_COLUMN_OFFSET} from '../../constants';
 
 const iconsJson = require('@twilio-paste/icons/json/icons.json');
 
@@ -62,7 +61,6 @@ const IconColumn = styled(Box)({
 });
 
 const IconsList: React.FC<IconsListProps> = () => {
-  const {isPasteTheme} = React.useContext(SiteBodyContext);
   const filterID = useUID();
   const iconKeySeed = useUIDSeed();
   const groupedIconList = getGroupedList(iconsJson);
@@ -191,7 +189,7 @@ const IconsList: React.FC<IconsListProps> = () => {
             </Card>
           )}
         </Column>
-        <IconColumn paddingX="space60" position="sticky" top={getStickyColumnComputedOffset(isPasteTheme)}>
+        <IconColumn paddingX="space60" position="sticky" top={STICKY_COLUMN_OFFSET}>
           <IconCard selectedIcon={selectedIcon} />
         </IconColumn>
       </Grid>
