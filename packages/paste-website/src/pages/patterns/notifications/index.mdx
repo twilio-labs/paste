@@ -1,10 +1,11 @@
 ---
 title: Notification and feedback patterns
-description: When you pair thoughtful content writing with the appropriate UI element to notify customers of relevant information, you can establish trust during their journey with Twilio at just the right time.
+description: Pairing thoughtful content writing with the appropriate UI elements can help you establish trust with customers by notifying them of relevant information at just the right time.
 slug: /patterns/notifications/
 ---
 
 import {graphql} from 'gatsby';
+import {useUID} from 'react-uid';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -38,6 +39,35 @@ export const pageQuery = graphql`
   }
 `;
 
+export const PatternsTabs = () => {
+  const selectedId = useUID();
+  return (
+    <Tabs selectedId={selectedId} baseId="patterns-tabs">
+      <TabList aria-label="My tabs">
+        <Tab id={selectedId}>Console</Tab>
+        <Tab>Flex</Tab>
+        <Tab disabled>SendGrid (not available)</Tab>
+      </TabList>
+      <TabPanels>
+        <TabPanel>
+          <Heading as="h3" variant="heading30">
+            Levels
+          </Heading>
+          <Paragraph>
+            Use a {' '}
+            <Anchor href="../components/toast">
+              Toast
+            </Anchor>
+             {' '}when...
+          </Paragraph>
+        </TabPanel>
+        <TabPanel>Flex</TabPanel>
+        <TabPanel>Not available</TabPanel>
+      </TabPanels>
+    </Tabs>
+  );
+};
+
 <content>
 
 <h1>{props.pageContext.frontmatter.title}</h1>
@@ -48,7 +78,7 @@ export const pageQuery = graphql`
   <Stack orientation="vertical" spacing="space30">
   <Alert variant="warning">
     <Text as="span">
-      <strong>Please do not share!!</strong> This is a proof of concept meant for feedback only.
+      <strong>Please do not share!!</strong> This is a very rough draft proof of concept meant for feedback only.
     </Text>
   </Alert>
     <Callout variant="warning">
@@ -137,68 +167,77 @@ export const pageQuery = graphql`
   <Column>
     <Stack orientation="vertical" spacing="space50">
       <Card>
-        <Heading as="H3" variant="heading30">
-          Alert
+        <Heading as="h3" variant="heading40">
+          <Anchor href="../components/alert">
+            Alert
+          </Anchor>
         </Heading>
-        <Anchor href="../components/alert">
-          Go to the Alert component
-        </Anchor>
       </Card>
       <Card>
-        <Heading as="H3" variant="heading30">
-          Toast
+        <Heading as="h3" variant="heading40">
+          <Anchor href="../components/toast">
+            Toast
+          </Anchor>
         </Heading>
-        <Anchor href="../components/toast">
-          Go to the Toast component
-        </Anchor>
-      </Card>
-      <Card>
-        <Heading as="H3" variant="heading30">
-          Modal
-        </Heading>
-        <Anchor href="../components/modal">
-          Go to the Modal component
-        </Anchor>
       </Card>
     </Stack>
   </Column>
   <Column>
     <Stack orientation="vertical" spacing="space50">
       <Card>
-        <Heading as="H3" variant="heading30">
-          Form with inline error
+        <Heading as="h3" variant="heading40">
+          <Anchor href="../form-elements/input/#input-with-inline-error">
+            Form with inline error
+          </Anchor>
         </Heading>
-        <Anchor href="../form-elements/input/#input-with-inline-error">
-          Go to the Input component
-        </Anchor>
       </Card>
       <Card>
-        <Heading as="H3" variant="heading30">
-          Custom composition
+        <Heading as="h3" variant="heading40">
+          <Anchor href="../components/modal">
+            Modal
+          </Anchor>
         </Heading>
-          Create a custom composition with Card, Box, and Text for in-page confirmations.
       </Card>
     </Stack>
   </Column>
+  <Column>
+    <Card>
+      <Heading as="h3" variant="heading40">
+        Custom composition
+      </Heading>
+        Create a custom composition with Card, Heading, and Paragraph for in-page confirmations.
+    </Card>
+  </Column>
 </Grid>
+
+```jsx
+// import all ingredients for Notification and feedback patterns
+
+import {Alert} from '@twilio-paste/alert';
+import {Card} from '@twilio-paste/card';
+import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Toast} from '@twilio-paste/toast';
+import {useUID} from 'react-uid';
+import {Button} from '@twilio-paste/button';
+import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
+```
 
 ## General usage
 
-x
+To communicate information from the system that isn't triggered by a user action, use an alert or other in-page messaging, like a card composition.
+
+To communicate feedback on a user action, use a toast or in-page validation (e.g., full-page confirmation, inline error). You can also pair a toast with in-page validation. For example, when a user submits a long form, you can show an error toast that lets users know they need to fix some form fields, while also showing inline errors on each incorrect field.
+
+For high-emotion or high-stress parts of the customer journey, use a component that appropriately matches the customer's level of emotion. For example, to confirm that a customer has successfully upgraded their account, you may want to use a full-page confirmation rather than a toast to communicate feedback on their action.
 
 ### Accessibility
 
 x
 
-## Levels
+## Product-specific guidelines
 
-In general:
-
-- To communicate information from the system that isn't triggered by a user action, use an alert or other in-page messaging, like a card composition.
-- To communicate feedback on a user action, use a toast or in-page validation (e.g., full-page confirmation, inline error). You can also pair a toast with in-page validation. For example, when a user submits a long form, you can show an error toast that lets users know they need to fix some form fields, while also showing inline errors on each incorrect field.
-- For high-emotion or high-stress parts of the customer journey, use a component that appropriately matches the customer's level of emotion. For example, to confirm that a customer has successfully upgraded their account, you may want to use a full-page confirmation rather than a toast to communicate feedback on their action.
-
-Use a **[Toast](../components/toast)** when...
+<PatternsTabs />
 
 - You need to communicate a direct response to a user action. Example: "asset.jpg" successfully added.
 - You're providing only one link or button to help a user continue a flow.
@@ -223,11 +262,11 @@ Use an **Alert dialog or [Modal](../components/modal)** when...
 
 ### CodeSandbox
 
-x
+Coming soon
 
 ### Sketch
 
-x
+Coming soon
 
 </content>
 

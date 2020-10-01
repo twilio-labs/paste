@@ -140,48 +140,50 @@ export const pageQuery = graphql`
 
 <Grid gutter="space30" marginBottom="space80">
   <Column>
-    <Stack orientation="vertical" spacing="space50">
-      <Card>
-        <Heading as="H3" variant="heading30">
-          Button
-        </Heading>
+    <Card>
+      <Heading as="h3" variant="heading40">
         <Anchor href="../components/button">
-          Go to the Button component
+          Button
         </Anchor>
-      </Card>
-      <Card>
-        <Heading as="H3" variant="heading30">
-          Modal
-        </Heading>
-        <Anchor href="../components/modal">
-          Go to the Modal component
-        </Anchor>
-      </Card>
-    </Stack>
+      </Heading>
+    </Card>
   </Column>
   <Column>
-    <Stack orientation="vertical" spacing="space50">
-      <Card>
-        <Heading as="H3" variant="heading30">
+    <Card>
+      <Heading as="h3" variant="heading40">
+        <Anchor href="../components/modal">
+          Modal
+        </Anchor>
+      </Heading>
+    </Card>
+  </Column>
+  <Column>
+    <Card>
+      <Heading as="h3" variant="heading40">
+        <Anchor href="../form-elements/input">
           Form input
-        </Heading>
-        <Anchor href="../form-elements/input/#input-with-inline-error">
-          Go to the Input component
         </Anchor>
-      </Card>
-      <Card>
-        <Heading as="H3" variant="heading30">
-          Toast
-        </Heading>
+      </Heading>
+    </Card>
+  </Column>
+  <Column>
+    <Card>
+      <Heading as="h4">
         <Anchor href="../components/toast">
-          Go to the Toast component
+          Toast
         </Anchor>
-      </Card>
-    </Stack>
+      </Heading>
+    </Card>
   </Column>
 </Grid>
 
-(Codeblock for component import)
+```jsx
+import {Button} from '@twilio-paste/button';
+import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
+import {Toast} from '@twilio-paste/toast';
+import {useUID} from 'react-uid';
+import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
+```
 
 ## General usage
 
