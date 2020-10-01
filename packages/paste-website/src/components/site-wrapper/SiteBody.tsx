@@ -1,17 +1,13 @@
 import * as React from 'react';
-import {styled} from '@twilio-paste/styling-library';
+import {styled, themeGet} from '@twilio-paste/styling-library';
 import {secureExternalLink} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
-import {Alert} from '@twilio-paste/alert';
 import {Text} from '@twilio-paste/text';
-import {SIDEBAR_WIDTH} from '../../constants';
-import {SiteBodyContext} from './SiteBodyContext';
 import {Sidebar} from './sidebar';
 import {SiteHeader} from './SiteHeader';
 import {SiteMain, SiteMainInner} from './SiteMain';
 import {SiteFooter} from './SiteFooter';
 import {ScrollAnchorIntoView} from './ScrollAnchorIntoView';
-import {useActiveSiteTheme} from '../../context/ActiveSiteThemeContext';
 
 /* Wraps the entire doc site page */
 const StyledSiteBody = styled.div`
@@ -20,7 +16,7 @@ const StyledSiteBody = styled.div`
 
   @supports (display: grid) {
     display: grid;
-    grid-template-columns: ${SIDEBAR_WIDTH} 1fr;
+    grid-template-columns: ${themeGet('sizes.sizeSidebar')} 1fr;
   }
 `;
 
@@ -56,35 +52,16 @@ const PsaAlert: React.FC = () => {
   );
 };
 
-const PasteThemeAlert: React.FC = () => {
-  const {isPasteTheme} = React.useContext(SiteBodyContext);
-  if (!isPasteTheme) {
-    return null;
-  }
-
-  return (
-    <Alert variant="warning">
-      <Text as="p">
-        <strong>Heads up!</strong> This is an <em>early</em> preview of the Unified Design Language. We only recommend
-        using it for early adopters and testing.
-      </Text>
-    </Alert>
-  );
-};
-
 export const SiteBody: React.FC = ({children}) => {
-  const {theme: activeTheme} = useActiveSiteTheme();
-  const isPasteTheme = activeTheme === 'default';
   return (
-    <SiteBodyContext.Provider value={{isPasteTheme}}>
+    <>
       <Box position="sticky" top="0" zIndex="zIndex20">
         <PsaAlert />
-        <PasteThemeAlert />
       </Box>
+      <SiteHeader />
       <StyledSiteBody>
         <Sidebar />
         <Box minWidth="size0">
-          <SiteHeader />
           <SiteMain role="main">
             <ScrollAnchorIntoView />
             <SiteMainInner>{children}</SiteMainInner>
@@ -92,6 +69,6 @@ export const SiteBody: React.FC = ({children}) => {
           </SiteMain>
         </Box>
       </StyledSiteBody>
-    </SiteBodyContext.Provider>
+    </>
   );
 };

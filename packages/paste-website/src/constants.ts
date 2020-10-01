@@ -1,9 +1,11 @@
 export const TWILIO_RED = '#F22F46';
 export const TWILIO_BLUE = '#0D122B';
 export const PSA_ALERT_HEIGHT = 40;
-export const PASTE_THEME_ALERT_HEIGHT = 46;
-export const SITE_MASTHEAD_HEIGHT = 73;
-export const SIDEBAR_WIDTH = '240px';
+export const PASTE_THEME_ALERT_HEIGHT = 54;
+export const SITE_MASTHEAD_HEIGHT = 76;
+
+export const STICKY_COLUMN_OFFSET = 20 + PSA_ALERT_HEIGHT + SITE_MASTHEAD_HEIGHT;
+export const STICKY_SIDEBAR_OFFSET = PSA_ALERT_HEIGHT + SITE_MASTHEAD_HEIGHT;
 
 export const PASTE_PACKAGE_PREFIX = '@twilio-paste/';
 

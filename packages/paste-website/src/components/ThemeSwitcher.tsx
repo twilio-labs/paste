@@ -15,20 +15,21 @@ const StyledThemeSwitcherLabel = styled.label<{checked: boolean}>(props =>
   css({
     cursor: 'pointer',
     display: 'inline-block',
-    fontSize: '.fontSize30',
+    fontSize: 'fontSize30',
+    fontWeight: props.checked ? 'fontWeightBold' : 'fontWeightNormal',
     lineHeight: 'lineHeight30',
     paddingTop: 'space20',
     paddingBottom: 'space20',
     paddingRight: 'space40',
     paddingLeft: 'space40',
-    backgroundColor: props.checked ? 'colorBackgroundPrimary' : 'transparent',
+    backgroundColor: props.checked ? 'colorBackgroundInverseLight' : 'transparent',
     borderRadius: props.checked ? 'borderRadius10' : '0',
-    color: props.checked ? 'colorTextInverse' : 'inherit',
+    color: 'colorTextInverse',
     '&:hover': {
       textDecoration: 'underline',
     },
     '&:focus-within': {
-      boxShadow: 'shadowFocus',
+      boxShadow: 'shadowFocusInverse',
       textDecoration: 'underline',
     },
   })
@@ -52,7 +53,8 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
   return (
     <Box
       as="form"
-      borderColor="colorBorderLight"
+      backgroundColor="colorBackgroundInverse"
+      borderColor="colorBorderInverse"
       borderRadius="borderRadius20"
       borderStyle="solid"
       borderWidth="borderWidth10"
