@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.10.0...@twilio-paste/website@2.10.1) (2020-10-01)
+
+
+### Bug Fixes
+
+* **website:** dead link on icons page ([#817](https://github.com/twilio-labs/paste/issues/817)) ([e0948df](https://github.com/twilio-labs/paste/commit/e0948df1da49121e8866d707c43680cfa9d9345c)), closes [#816](https://github.com/twilio-labs/paste/issues/816)
+
+
+
+
+
 # [2.10.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.9.1...@twilio-paste/website@2.10.0) (2020-09-28)
 
 
