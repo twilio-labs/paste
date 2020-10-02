@@ -147,3 +147,8 @@ props:
   size-icon-110:
     value: "{!line-height-110}"
     comment: "Maps to line-height tokens 1:1"
+
+  # sidebar
+  size-sidebar:
+    value: "{!size-sidebar}"
+    comment: "Sizing token for sidebar width."
