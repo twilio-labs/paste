@@ -1,0 +1,153 @@
+---
+title: Object details
+description: Object details
+slug: /patterns/object-details/
+---
+
+import {graphql} from 'gatsby';
+import {Alert} from '@twilio-paste/alert';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Card} from '@twilio-paste/card';
+import {Flex} from '@twilio-paste/flex';
+import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
+import {Grid, Column} from '@twilio-paste/grid';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Stack} from '@twilio-paste/stack';
+import {Text} from '@twilio-paste/text';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/patterns/object-details/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+
+<Box marginBottom="space80">
+  <Alert variant="warning">
+    <Text as="span">
+      <strong>Please do not share!!</strong> This is a very rough draft proof of concept meant for feedback only.
+    </Text>
+  </Alert>
+</Box>
+
+<Box as="dl">
+  <Box display="flex">
+    <Text as="dt" color="colorTextWeak" lineHeight="lineHeight30">
+      <Box width="size10">
+        Status
+      </Box>
+    </Text>
+    <Text as="dd">
+      alpha
+    </Text>
+  </Box>
+</Box>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+## Ingredients
+
+<Grid gutter="space30" marginBottom="space80">
+  <Column>
+    <Stack orientation="vertical" spacing="space50">
+      <Card>
+        <Heading as="h3" variant="heading40">
+          <Anchor href="../components/alert">
+            Alert
+          </Anchor>
+        </Heading>
+      </Card>
+      <Card>
+        <Heading as="h3" variant="heading40">
+          <Anchor href="../components/toast">
+            Toast
+          </Anchor>
+        </Heading>
+      </Card>
+    </Stack>
+  </Column>
+  <Column>
+    <Stack orientation="vertical" spacing="space50">
+      <Card>
+        <Heading as="h3" variant="heading40">
+          <Anchor href="../form-elements/input/#input-with-inline-error">
+            Form with inline error
+          </Anchor>
+        </Heading>
+      </Card>
+      <Card>
+        <Heading as="h3" variant="heading40">
+          <Anchor href="../components/modal">
+            Modal
+          </Anchor>
+        </Heading>
+      </Card>
+    </Stack>
+  </Column>
+  <Column>
+    <Card>
+      <Heading as="h3" variant="heading40">
+        Custom composition
+      </Heading>
+        Create a custom composition with Card, Heading, and Paragraph for in-page confirmations.
+    </Card>
+  </Column>
+</Grid>
+
+### Installation
+
+```jsx
+// import all ingredients for Notification and feedback patterns
+
+import {Alert} from '@twilio-paste/alert';
+import {Card} from '@twilio-paste/card';
+import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Toast} from '@twilio-paste/toast';
+import {useUID} from 'react-uid';
+import {Button} from '@twilio-paste/button';
+import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
+```
+
+## General usage
+
+TBD
+
+### Accessibility
+
+TBD
+
+## Starter kits
+
+- CodeSandbox (Coming soon)
+- Sketch (Coming soon)
+
+</content>
+
+</contentwrapper>

@@ -1,0 +1,93 @@
+---
+title: Patterns overview
+description: Common, repeatable, and extensible Twilio UX compositions that you can use to solve product and UI problems.
+slug: /patterns/
+---
+
+import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+import {Card} from '@twilio-paste/card';
+import {Heading} from '@twilio-paste/heading';
+import {Text} from '@twilio-paste/text';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {SiteLink} from '../../components/SiteLink.tsx';
+import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
+import {SidebarCategoryRoutes} from '../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/patterns/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+<Breadcrumb>
+  <BreadcrumbItem to="/">Home</BreadcrumbItem>
+</Breadcrumb>
+<Heading as="h1" variant="heading10">
+  Patterns
+</Heading>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<content>
+
+<Card>
+  <Heading as="h4" variant="heading40">
+    Pattern Status Details
+  </Heading>
+  <Text as="p" marginBottom="space20">
+    <strong>Alpha</strong>: Pattern is currently incubating with a contributing team and should not be used in other customer-facing products without guidance from the design systems team.
+  </Text>
+  <Text as="p" marginBottom="space20">
+    <strong>Beta</strong>: Pattern can be used in customer-facing products, but should be usability tested in new scenarios to identify any further risks, especially in critical customer journeys.
+  </Text>
+  <Text as="p" marginBottom="space20">
+    <strong>Production</strong>: The pattern is stable.
+  </Text>
+</Card>
+
+| Pattern name               | Status |
+|----------------------------|--------|
+| [Create]()                     | alpha  |
+| [Delete](patterns/delete)                     | alpha  |
+| [Notifications and feedback](patterns/notifications/) | alpha  |
+| [Object details]()             | alpha  |
+
+<Callout>
+  <CalloutTitle as="h4">Don't see a pattern you need listed here?</CalloutTitle>
+  <UnorderedList>
+    <ListItem>
+      First off, we recommend <SiteLink to="/roadmap">checking our roadmap</SiteLink>.
+    </ListItem>
+    <ListItem>
+      Secondly, we recommend{' '}
+      <Anchor href="https://github.com/twilio-labs/paste/issues">creating an issue on GitHub</Anchor> with your
+      component, primitive, or proposal.
+    </ListItem>
+    <ListItem>
+      While not all requests are accepted for the design system, we may be able to suggest suitable alternatives. For
+      this, drop us a note on #help-design-system or join our weekly office hours.
+    </ListItem>
+  </UnorderedList>
+</Callout>
+
+</content>
+
+</contentwrapper>
