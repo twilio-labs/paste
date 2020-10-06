@@ -228,6 +228,16 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
                 </SidebarAnchor>
               </SidebarNestedItem>
               <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/contribute`}>
+                  How to contribute
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/create`}>
+                  Create
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/delete`}>
                   Delete
                 </SidebarAnchor>
@@ -240,6 +250,26 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
               <SidebarNestedItem>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/object-details`}>
                   Object details
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/empty-state`}>
+                  Empty state
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/filter`}>
+                  Filter
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/status`}>
+                  Status indicators
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/stat-cards`}>
+                  Stat cards
                 </SidebarAnchor>
               </SidebarNestedItem>
             </SidebarNestedList>
