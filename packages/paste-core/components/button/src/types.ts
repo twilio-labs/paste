@@ -18,6 +18,7 @@ export type ButtonTabIndexes = 0 | -1;
 export interface ButtonContentsProps {
   buttonState: ButtonStates;
   showLoading: boolean;
+  variant?: ButtonVariants;
 }
 
 export const DirectButtonPropTypes = {
@@ -29,6 +30,17 @@ export const DirectButtonPropTypes = {
   type: PropTypes.oneOf(['submit', 'button', 'reset']) as any,
   disabled: PropTypes.bool,
   buttonState: PropTypes.oneOf(['disabled', 'loading', 'default']).isRequired as any,
+  variant: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'destructive',
+    'destructive_link',
+    'destructive_secondary',
+    'link',
+    'inverse_link',
+    'inverse',
+    'reset',
+  ]) as any,
 };
 
 export interface DirectButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
