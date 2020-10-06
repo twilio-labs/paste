@@ -1,11 +1,10 @@
 ---
 title: Notifications and feedback patterns
-description: Pairing thoughtful content writing with the appropriate UI elements can help you establish trust with customers by notifying them of relevant information at just the right time.
+description: Use these notification and feedback patterns to communicate timely information to users.
 slug: /patterns/notifications/
 ---
 
 import {graphql} from 'gatsby';
-import {useUID} from 'react-uid';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -15,7 +14,6 @@ import {Flex} from '@twilio-paste/flex';
 import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
-import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
 import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/tabs';
@@ -54,65 +52,15 @@ export const pageQuery = graphql`
   </Alert>
 </Box>
 
-<Box as="dl">
-  <Stack orientation="vertical" spacing="space30">
-    <Box display="flex">
-      <Text as="dt" color="colorTextWeak" lineHeight="lineHeight30">
-        <Box width="size10">
-          Status
-        </Box>
-      </Text>
-      <Text as="dd">
-        alpha
-      </Text>
+<Box as="dl" display="flex">
+  <Text as="dt" color="colorTextWeak" lineHeight="lineHeight30">
+    <Box width="size10">
+      Status
     </Box>
-    <Box display="flex">
-      <Text as="dt"color="colorTextWeak">
-        <Box width="size10">
-          Console
-        </Box>
-      </Text>
-      <Text as="dd">
-        <Flex display="inline-flex" as="span" vAlignContent="center">
-          <SuccessIcon color="colorTextSuccess" decorative={true} size="sizeIcon30" />
-          <Text
-            as="span"
-            marginLeft="space20"
-          >
-            Patterns available
-          </Text>
-        </Flex>
-      </Text>
-    </Box>
-    <Box display="flex">
-      <Text as="dt" color="colorTextWeak">
-        <Box width="size10">
-          Flex
-        </Box>
-      </Text>
-      <Text as="dd">
-        Some patterns available
-      </Text>
-    </Box>
-    <Box display="flex">
-      <Text as="dt" color="colorTextWeak">
-        <Box width="size10">
-          SendGrid
-        </Box>
-      </Text>
-      <Text as="dd">
-        <Flex display="inline-flex" as="span" vAlignContent="center">
-          <ErrorIcon color="colorTextError" decorative={true} />
-          <Text
-            as="span"
-            marginLeft="space20"
-          >
-            Pattern not available
-          </Text>
-        </Flex>
-      </Text>
-    </Box>
-  </Stack>
+  </Text>
+  <Text as="dd">
+    alpha
+  </Text>
 </Box>
 
 </content>
@@ -201,38 +149,8 @@ For high-emotion or high-stress parts of the customer journey, use a component t
 
 TBD
 
-## Product-specific guidelines
-
-export const PatternsTabs = () => {
-  const selectedId = useUID();
-  return (
-    <Tabs selectedId={selectedId} baseId="patterns-tabs">
-      <TabList aria-label="My tabs">
-        <Tab id={selectedId}>Console</Tab>
-        <Tab>Flex</Tab>
-        <Tab disabled>SendGrid (not available)</Tab>
-      </TabList>
-      <TabPanels>
-        <TabPanel>
-          <Heading as="h3" variant="heading30">
-            Levels
-          </Heading>
-          <Paragraph>
-            Use a {' '}
-            <Anchor href="../components/toast">
-              Toast
-            </Anchor>
-             {' '}when...
-          </Paragraph>
-        </TabPanel>
-        <TabPanel>Flex</TabPanel>
-        <TabPanel>Not available</TabPanel>
-      </TabPanels>
-    </Tabs>
-  );
-};
-
-<PatternsTabs />
+### Levels
+Use a Toast when...
 
 - You need to communicate a direct response to a user action. Example: "asset.jpg" successfully added.
 - You're providing only one link or button to help a user continue a flow.
