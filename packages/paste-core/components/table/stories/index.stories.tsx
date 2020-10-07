@@ -164,9 +164,7 @@ storiesOf('Components|Table', module)
             <Td>Empty</Td>
             <Td>Cell</Td>
             <Td>Content</Td>
-            <Td textAlign="right" width="size40">
-              1
-            </Td>
+            <Td textAlign="right">1</Td>
           </Tr>
           <Tr>
             <Td>2</Td>
