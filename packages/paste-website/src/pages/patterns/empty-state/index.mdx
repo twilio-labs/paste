@@ -1,35 +1,24 @@
 ---
-title: Delete patterns
-description: Use these patterns to delete stuff.
-slug: /patterns/delete/
+title: Empty state patterns
+description: Use these patterns to when there is no data to display to the user.
+slug: /patterns/empty-state/
 ---
 
 import {graphql} from 'gatsby';
-import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Card} from '@twilio-paste/card';
-import {FormInput, FormLabel, FormHelpText, Select, Option} from '@twilio-paste/form';
+import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
-import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {Paragraph} from '@twilio-paste/paragraph';
-import {Stack} from '@twilio-paste/stack';
-import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/tabs';
 import {Text} from '@twilio-paste/text';
-import {Toast} from '@twilio-paste/toast';
-import {ErrorIcon} from "@twilio-paste/icons/esm/ErrorIcon";
-import {SuccessIcon} from "@twilio-paste/icons/esm/SuccessIcon";
-import {Codeblock} from '../../../components/codeblock';
 import {useUID} from 'react-uid';
-import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
-import {defaultExample, initialFocusExample, wideExample} from '../../../component-examples/ModalExamples';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/patterns/delete/"}}) {
+    mdx(fields: {slug: {eq: "/patterns/empty-state/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -49,82 +38,23 @@ export const pageQuery = graphql`
 
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
-<Box marginBottom="space80">
-  <Stack orientation="vertical" spacing="space30">
-  <Alert variant="warning">
-    <Text as="span">
-      <strong>Please do not share!!</strong> This is a proof of concept meant for feedback only.
-    </Text>
-  </Alert>
-    <Callout variant="warning">
-      <CalloutTitle>How to use this proof of concept</CalloutTitle>
-      <CalloutText>
-        x
-      </CalloutText>
-    </Callout>
-  </Stack>
+<Box as="dl" display="flex">
+  <Text as="dt" color="colorTextWeak" lineHeight="lineHeight30">
+    <Box width="size10">
+      Status
+    </Box>
+  </Text>
+  <Text as="dd">
+    alpha
+  </Text>
 </Box>
 
-<Box as="dl">
-  <Box marginBottom="space30">
-    <Text as="dt" display="inline-block" color="colorTextWeak" lineHeight="lineHeight30">
-      <Box width="size10">
-        Status
-      </Box>
-    </Text>
-    <Text as="dd" display="inline-block">
-      alpha
-    </Text>
-  </Box>
-  <Box marginBottom="space30">
-    <Text as="dt" display="inline-block" color="colorTextWeak">
-      <Box width="size10">
-        Console
-      </Box>
-    </Text>
-    <Text as="dd" display="inline-block">
-      <MediaObject>
-        <MediaFigure spacing="space20">
-          <SuccessIcon color="colorTextSuccess" decorative={true} />
-        </MediaFigure>
-        <MediaBody>
-          <Text as="p">
-            Patterns available
-          </Text>
-        </MediaBody>
-      </MediaObject>
-    </Text>
-  </Box>
-  <Box marginBottom="space30">
-    <Text as="dt" display="inline-block" color="colorTextWeak">
-      <Box width="size10">
-        Flex
-      </Box>
-    </Text>
-    <Text as="dd" display="inline-block">
-      Some patterns available
-    </Text>
-  </Box>
-  <Box marginBottom="space30">
-    <Text as="dt" display="inline-block" color="colorTextWeak">
-      <Box width="size10">
-        SendGrid
-      </Box>
-    </Text>
-    <Text as="dd" display="inline-block">
-      <MediaObject>
-        <MediaFigure spacing="space20">
-          <ErrorIcon color="colorTextError" decorative={true} />
-        </MediaFigure>
-        <MediaBody>
-          <Text as="p">
-            Pattern not available
-          </Text>
-        </MediaBody>
-      </MediaObject>
-    </Text>
-  </Box>
-</Box>
+<Callout variant="warning">
+  <CalloutTitle>This is a proof of concept, and we need your feedback!</CalloutTitle>
+  <CalloutText>
+    We've created a few alpha patterns as a proof of concept to collect feedback. If you have thoughts on this particular pattern, or on the documentation of patterns as a whole, please <Anchor href="https://forms.gle/BzeekGGXd2uL6U7Z9">let us know</Anchor>! We need your feedback to make our patterns better.
+  </CalloutText>
+</Callout>
 
 </content>
 
@@ -141,7 +71,7 @@ export const pageQuery = graphql`
 <Grid gutter="space30" marginBottom="space80">
   <Column>
     <Card>
-      <Heading as="h3" variant="heading40">
+      <Heading as="h3" variant="heading40" marginBottom="space0">
         <Anchor href="../components/button">
           Button
         </Anchor>
@@ -150,8 +80,8 @@ export const pageQuery = graphql`
   </Column>
   <Column>
     <Card>
-      <Heading as="h3" variant="heading40">
-        <Anchor href="../components/modal">
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="../components/Modal">
           Modal
         </Anchor>
       </Heading>
@@ -159,16 +89,16 @@ export const pageQuery = graphql`
   </Column>
   <Column>
     <Card>
-      <Heading as="h3" variant="heading40">
-        <Anchor href="../form-elements/input">
-          Form input
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="../components/input">
+          Input
         </Anchor>
       </Heading>
     </Card>
   </Column>
   <Column>
     <Card>
-      <Heading as="h3" variant="heading40">
+      <Heading as="h3" variant="heading40" marginBottom="space0">
         <Anchor href="../components/toast">
           Toast
         </Anchor>
@@ -179,61 +109,74 @@ export const pageQuery = graphql`
 
 ```jsx
 import {Button} from '@twilio-paste/button';
+import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
 import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
 import {Toast} from '@twilio-paste/toast';
-import {useUID} from 'react-uid';
-import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
 ```
 
-## General usage
+## Usage
 
-- Do one of the things below.
-- Always use a destructive button.
-- Confirm with a toast.
+### General
 
-### Accessibility
+The delete pattern should be utilized when a user is destroying an object. It is critical to communicate delete actions to our users in a consistent way, considering deletions come with significant consequences and often cannot be undone.
 
-x
+The delete action should:
+- Be triggered by a destructive Button.
+- Generally be placed at the bottom of an [Object Details](/patterns/object-details) page.
+- Not usually be the primary action on the page. There are many variants of differing visual prominence to choose from to achieve the correct hierarchy for the delete action trigger.
+- Follow certain guidelines based on the [severity](#variations) of the deletion.
 
-## Severity levels
+## Variations
 
-### High severity
+### Low-severity
 
-A high severity destructive action is super important. Make people type something in a modal so they don't accidentally do something very bad.
+A deletion is considered low-severity when it is trivial to undo the deletion or recreate the deleted data.
 
-![Sample layer groups](../../../assets/images/icon-guide/using-streamline-icons-3.png)
+Low-severity deletions can be triggered by a single click and do not require further warning or confirmation.
 
-<LivePreview
-  scope={{
-    Modal,
-    ModalBody,
-    ModalFooter,
-    ModalFooterActions,
-    ModalHeader,
-    ModalHeading,
-    useUID,
-    Button,
-    FormLabel,
-    Select,
-    Option,
-    Paragraph,
-  }}
-  noInline
->
-  {defaultExample}
-</LivePreview>
+### Medium-severity
 
-### Medium severity
+A deletion is considered medium-severity when the action cannot be undone, and the data cannot be recreated easily. This pattern is also useful for bulk deletions of low- or medium-severity.
 
-(How to determine if something's medium severity)
+For medium-severity deletions, show a confirmation modal that explains what is being deleted and the consequences of the deletion.
 
-EXAMPLE: Modal with destructive action confirmation
+![Sample layer groups](../../../assets/images/patterns/delete-medium-severity.png)
 
-### Low severity
+<Box marginBottom="space80">
+  <Disclosure>
+    <DisclosureHeading as="h5" variant="heading50">
+      Show live example
+    </DisclosureHeading>
+    <DisclosureContent>
+      Coming soon!
+    </DisclosureContent>
+  </Disclosure>
+</Box>
 
-(How to determine if something's low severity)
+### High-severity
 
-EXAMPLE: No confirmation, just a destructive button
+A deletion is considered high-severity when the action cannot be undone, and it would be very time-consuming, or perhaps impossible, to recreate the deleted data. An action that deletes a large amount of data or has significant downstream impact would also be considered a high-severity deletion.
+
+For high-severity deletions, show a confirmation modal that explains the what is being deleted and the consequences of the deletion, and have the user manually confirm the deletion by typing the name of the object they are deleting.
+
+![Sample layer groups](../../../assets/images/patterns/delete-high-severity.png)
+
+<Box marginBottom="space80">
+  <Disclosure>
+    <DisclosureHeading as="h5" variant="heading50">
+      Show live example
+    </DisclosureHeading>
+    <DisclosureContent>
+      Coming soon!
+    </DisclosureContent>
+  </Disclosure>
+</Box>
+
+## Post-deletion
+
+After the user has deleted the object, navigate them to the index page, where they can see a list of all remaining objects, and show a success [Toast](../components/toast) informing them that the object has successfully been deleted. If it is possible to undo the deletion, give the user the option to do so, and tell them how long they have to undo the deletion if it is time-bound.
+
+If the delete action fails, display an error [Toast](../components/toast) that explains what went wrong and how to try again.
 
 ## Starter kits
 

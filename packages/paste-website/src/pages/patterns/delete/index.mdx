@@ -1,7 +1,7 @@
 ---
-title: Create patterns
+title: Delete patterns
 description: Use these patterns to allow a user to destroy an object.
-slug: /patterns/create/
+slug: /patterns/delete/
 ---
 
 import {graphql} from 'gatsby';
@@ -18,7 +18,7 @@ import {useUID} from 'react-uid';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/patterns/create/"}}) {
+    mdx(fields: {slug: {eq: "/patterns/delete/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
