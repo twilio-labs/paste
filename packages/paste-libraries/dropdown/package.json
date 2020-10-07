@@ -28,7 +28,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "downshift": "6.0.5"
+    "downshift": "6.0.6"
   },
   "peerDependencies": {
     "react": "^16.8.6",

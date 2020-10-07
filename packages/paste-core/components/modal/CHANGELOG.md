@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.28](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@1.0.27...@twilio-paste/modal@1.0.28) (2020-10-07)
+
+
+### Bug Fixes
+
+* **modal:** fix console-patch jank by removing animation on modal close ([#820](https://github.com/twilio-labs/paste/issues/820)) ([dc2c436](https://github.com/twilio-labs/paste/commit/dc2c436488c44ff2a69399ecc6b8746e7db851ae))
+
+
+
+
+
 ## [1.0.27](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@1.0.26...@twilio-paste/modal@1.0.27) (2020-10-07)
 
 **Note:** Version bump only for package @twilio-paste/modal

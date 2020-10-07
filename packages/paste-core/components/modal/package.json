@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/modal",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "category": "overlay",
   "status": "beta",
   "description": "A modal displays content over the main page and blocks any interaction with the page.",
