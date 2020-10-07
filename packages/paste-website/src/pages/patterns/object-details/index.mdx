@@ -1,6 +1,6 @@
 ---
 title: Object details
-description: Object details
+description: Use the object details pattern to show a read-only page or panel of information.
 slug: /patterns/object-details/
 ---
 
@@ -10,6 +10,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Card} from '@twilio-paste/card';
+import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {Flex} from '@twilio-paste/flex';
 import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
 import {Grid, Column} from '@twilio-paste/grid';
@@ -40,13 +41,14 @@ export const pageQuery = graphql`
 
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
-<Box marginBottom="space80">
-  <Alert variant="warning">
-    <Text as="span">
-      <strong>Please do not share!!</strong> This is a very rough draft proof of concept meant for feedback only.
-    </Text>
-  </Alert>
-</Box>
+<Callout variant="warning">
+  <CalloutTitle>
+    This is a proof of concept, and we need your feedback!
+  </CalloutTitle>
+  <CalloutText>
+    etc
+  </CalloutText>
+</Callout>
 
 <Box as="dl" display="flex">
   <Text as="dt" color="colorTextWeak" lineHeight="lineHeight30">
@@ -75,16 +77,23 @@ export const pageQuery = graphql`
   <Column>
     <Stack orientation="vertical" spacing="space50">
       <Card>
-        <Heading as="h3" variant="heading40">
-          <Anchor href="../components/alert">
-            Alert
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="../components/heading">
+            Heading
           </Anchor>
         </Heading>
       </Card>
       <Card>
-        <Heading as="h3" variant="heading40">
-          <Anchor href="../components/toast">
-            Toast
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="../components/tabs">
+            Tabs
+          </Anchor>
+        </Heading>
+      </Card>
+      <Card>
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="../primitives/text">
+            Text
           </Anchor>
         </Heading>
       </Card>
@@ -93,16 +102,23 @@ export const pageQuery = graphql`
   <Column>
     <Stack orientation="vertical" spacing="space50">
       <Card>
-        <Heading as="h3" variant="heading40">
-          <Anchor href="../form-elements/input/#input-with-inline-error">
-            Form with inline error
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="../primitives/box">
+            Box
           </Anchor>
         </Heading>
       </Card>
       <Card>
-        <Heading as="h3" variant="heading40">
-          <Anchor href="../components/modal">
-            Modal
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="../layout/stack">
+            Stack
+          </Anchor>
+        </Heading>
+      </Card>
+      <Card>
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="../layout/grid">
+            Grid
           </Anchor>
         </Heading>
       </Card>
@@ -111,9 +127,13 @@ export const pageQuery = graphql`
   <Column>
     <Card>
       <Heading as="h3" variant="heading40">
-        Custom composition
+        Description list
+        <br />
+        (coming soon)
       </Heading>
-        Create a custom composition with Card, Heading, and Paragraph for in-page confirmations.
+      <Paragraph marginBottom="space0">
+        Learn more about description lists and how to compose them below.
+      </Paragraph>
     </Card>
   </Column>
 </Grid>
@@ -121,25 +141,122 @@ export const pageQuery = graphql`
 ### Installation
 
 ```jsx
-// import all ingredients for Notification and feedback patterns
+// import all ingredients for Object details patterns
 
-import {Alert} from '@twilio-paste/alert';
-import {Card} from '@twilio-paste/card';
-import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Toast} from '@twilio-paste/toast';
-import {useUID} from 'react-uid';
-import {Button} from '@twilio-paste/button';
-import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
+import {Heading} from '@twilio-paste/heading';
+import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/tabs';
+import {Text} from '@twilio-paste/text';
+import {Box} from '@twilio-paste/box';
+import {Stack} from '@twilio-paste/stack';
+import {Grid, Column} from '@twilio-paste/grid';
 ```
+
+## Usage
 
 ## General usage
 
-TBD
+An object details page or panel gives a customer a read-only view of their information, such as a message log or sent email.
+
+Object details should:
+
+- Be clearly separated into content sections with headings, and if necessary, tabs to allow a customer to easily scan for relevant information.
+- Prioritize the order of content based on what customers find most important from customer research.
+
 
 ### Accessibility
 
-TBD
+A well-structured [document hierarchy](https://www.w3.org/WAI/tutorials/page-structure/) helps provide efficient in-page navigation for keyboard users, assistive technologies, and mobile web users.
+
+Proper hierarchy allows users to skip directly to content that is most relevant to them. This is especially important on an object details page where there may be many  different types of information and customers are more likely to skim through. 
+
+To structure a page:
+
+- Use headings to organize the page.
+- Use headings in sequential order. For example, don’t place an H4 directly after an H2.
+- Use description lists to define relationships between a property and its label.
+- Use tables to organize data that are meant to be compared.
+
+## Variations
+
+### Standard details
+
+The most common way to structure an object details page is to first show an overview of properties in a description list, followed by more detailed content sections. Properties should be left-aligned, and property labels and values should be horizontally placed.
+
+<Callout>
+  <CalloutTitle>
+    Composing a Description List
+  </CalloutTitle>
+  <CalloutText>
+    <Paragraph>
+      A list of properties should be structured into a description list using the{' '}
+      <Anchor href="../primitives/box">
+        Box
+      </Anchor>
+      {' '} and{' '}
+      <Anchor href="../primitives/text">
+        Text
+      </Anchor>
+      {' '}primitives (e.g.,{' '}
+      <Text
+        as="span"
+        fontFamily="fontFamilyCode"
+      >
+        Box as="dl"
+      </Text>
+      ,{' '}
+      <Text
+        as="span"
+        fontFamily="fontFamilyCode"
+      >
+        Text as="dd"
+      </Text>
+      ) to help define the relationship between a property and its label, and spaced with the{' '}
+      <Anchor href="../layout/stack">
+        Stack
+      </Anchor>
+      {' '}component.
+    </Paragraph>
+    <Paragraph>
+      In the future, this composition will be replaced with a Description List component.{' '
+      }
+      <Anchor href="https://css-tricks.com/utilizing-the-underused-but-semantically-awesome-definition-list/" showExternal>
+        Read more about description lists
+      </Anchor>
+    </Paragraph>
+  </CalloutText>
+</Callout>
+
+<Box marginBottom="space80">
+  <Disclosure>
+    <DisclosureHeading as="h4" variant="heading50">
+      Show live example
+    </DisclosureHeading>
+    <DisclosureContent>
+      TBD
+    </DisclosureContent>
+  </Disclosure>
+</Box>
+
+If there are more than 6 properties, divide the properties into 2 columns.
+
+While this might be the most common structure for object details, use customer research to inform how to order the content sections on a details page. Show customers the most relevant information first. 
+
+For example, when viewing the details of a sent email campaign, a customer may want to quickly see how well their campaign has been performing over time. In this case, placing a group of stats cards and a chart first may be most appropriate.
+
+### Tabbed details
+
+When you find that customers want to see multiple, top-level content sections, separate them with [Tabs](../components/tabs).
+
+<Box marginBottom="space80">
+  <Disclosure>
+    <DisclosureHeading as="h4" variant="heading50">
+      Show live example
+    </DisclosureHeading>
+    <DisclosureContent>
+      TBD
+    </DisclosureContent>
+  </Disclosure>
+</Box>
 
 ## Starter kits
 

@@ -10,6 +10,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Card} from '@twilio-paste/card';
+import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {Flex} from '@twilio-paste/flex';
 import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
 import {Grid, Column} from '@twilio-paste/grid';
@@ -44,13 +45,14 @@ export const pageQuery = graphql`
 
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
-<Box marginBottom="space80">
-  <Alert variant="warning">
-    <Text as="span">
-      <strong>Please do not share!!</strong> This is a very rough draft proof of concept meant for feedback only.
-    </Text>
-  </Alert>
-</Box>
+<Callout variant="warning">
+  <CalloutTitle>
+    This is a proof of concept, and we need your feedback!
+  </CalloutTitle>
+  <CalloutText>
+    etc
+  </CalloutText>
+</Callout>
 
 <Box as="dl" display="flex">
   <Text as="dt" color="colorTextWeak" lineHeight="lineHeight30">
@@ -75,18 +77,20 @@ export const pageQuery = graphql`
 
 ## Ingredients
 
+Each notification or feedback pattern uses one or more of these components.
+
 <Grid gutter="space30" marginBottom="space80">
   <Column>
     <Stack orientation="vertical" spacing="space50">
       <Card>
-        <Heading as="h3" variant="heading40">
+        <Heading as="h3" variant="heading40" marginBottom="space0">
           <Anchor href="../components/alert">
             Alert
           </Anchor>
         </Heading>
       </Card>
       <Card>
-        <Heading as="h3" variant="heading40">
+        <Heading as="h3" variant="heading40" marginBottom="space0">
           <Anchor href="../components/toast">
             Toast
           </Anchor>
@@ -97,14 +101,14 @@ export const pageQuery = graphql`
   <Column>
     <Stack orientation="vertical" spacing="space50">
       <Card>
-        <Heading as="h3" variant="heading40">
+        <Heading as="h3" variant="heading40" marginBottom="space0">
           <Anchor href="../form-elements/input/#input-with-inline-error">
-            Form with inline error
+            Inline error on form fields
           </Anchor>
         </Heading>
       </Card>
       <Card>
-        <Heading as="h3" variant="heading40">
+        <Heading as="h3" variant="heading40" marginBottom="space0">
           <Anchor href="../components/modal">
             Modal
           </Anchor>
@@ -115,9 +119,23 @@ export const pageQuery = graphql`
   <Column>
     <Card>
       <Heading as="h3" variant="heading40">
-        Custom composition
+        Component composition
       </Heading>
-        Create a custom composition with Card, Heading, and Paragraph for in-page confirmations.
+      <Paragraph marginBottom="space0">
+        Create a composition with{' '}
+        <Anchor href="../components/card">
+          Card
+        </Anchor>
+        ,{' '} 
+        <Anchor href="../components/heading">
+          Heading
+        </Anchor>
+        , and{' '}
+        <Anchor href="../components/paragraph">
+          Paragraph
+        </Anchor> 
+        {' '}for in-page messaging.
+      </Paragraph>
     </Card>
   </Column>
 </Grid>
@@ -128,48 +146,167 @@ export const pageQuery = graphql`
 // import all ingredients for Notification and feedback patterns
 
 import {Alert} from '@twilio-paste/alert';
-import {Card} from '@twilio-paste/card';
-import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
-import {Paragraph} from '@twilio-paste/paragraph';
 import {Toast} from '@twilio-paste/toast';
+import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
 import {useUID} from 'react-uid';
 import {Button} from '@twilio-paste/button';
 import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
+import {Card} from '@twilio-paste/card';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
 ```
 
-## General usage
+## Usage
 
-To communicate information from the system that isn't triggered by a user action, use an alert or other in-page messaging, like a card composition.
+### General usage
 
-To communicate feedback on a user action, use a toast or in-page validation (e.g., full-page confirmation, inline error). You can also pair a toast with in-page validation. For example, when a user submits a long form, you can show an error toast that lets users know they need to fix some form fields, while also showing inline errors on each incorrect field.
+Pairing thoughtful content writing with the appropriate UI elements can help you establish trust with customers by notifying them of relevant information at just the right time. Use these patterns only when the user **needs** to be notified.
 
-For high-emotion or high-stress parts of the customer journey, use a component that appropriately matches the customer's level of emotion. For example, to confirm that a customer has successfully upgraded their account, you may want to use a full-page confirmation rather than a toast to communicate feedback on their action.
+In general, notifications should close when a user leaves the page. A notification should follow a user through the product only in the most critical cases, like an alert informing a customer that their paid account won’t renew soon because of expired billing information. 
+
+Too many notifications that appear for too long may lead to alert fatigue, causing users to ignore important information.
+
+There are 3 levels of notifications and feedback:
+
+- **System-level notifications:** Information that’s not triggered by a user action and is related to system issues.
+- **Feedback indicators:** Acknowledgment of a user action, like submitting a form or pressing a “Copy code” button.
+- **Notification centers and reminders:** Currently, these are highly specific to products’ business needs and should be treated as a product feature, rather than a pattern. While the implementation of a notification center might use Paste components, guidelines specific to a notification center won’t be covered in this page.
+
+Notifications and feedback can come in 4 variants:
+
+- **Success:** Confirms a successful or completed action.
+- **Error:** Communicates critical information that's actively preventing a user from continuing a flow.
+- **Warning:** Communicates critical information that will help a user avoid a potential issue, but won’t prevent them from continuing their immediate goal.
+- **Neutral:** Informs a user of general changes, or processes that have been triggered by a user action but will take time to finish.
+
+<Callout>
+  <CalloutTitle>
+    Notifications in high-emotion or high-stress situations
+  </CalloutTitle>
+  <CalloutText>
+    For high-emotion or high-stress parts of the customer journey, use a component that appropriately matches the customer's level of emotion. For example, to confirm that a customer has successfully upgraded their account, you may want to use a full-page confirmation that celebrates the moment, instead of a simple toast.
+  </CalloutText>
+</Callout>
 
 ### Accessibility
 
-TBD
+Give users enough time to read a notification message, make a decision, and act on their decision. Users’ reading speeds, vision levels, literacy levels, dexterity, and familiarity with Twilio products can all affect how much time they’ll need to interact with a notification.
 
-### Levels
-Use a Toast when...
+Visit the [Alert](../components/alert), [Modal](../components/modal), [Form element](../form-elements/input), and [Toast](../components/toast) pages for more specific guidelines on how to implement each component accessibly.
 
-- You need to communicate a direct response to a user action. Example: "asset.jpg" successfully added.
+## Notification and feedback levels
+
+### System-level notifications
+
+To communicate information from the system that isn't triggered by a user action, use an **[alert](../components/alert)**, especially for high-priority or time-sensitive changes to the system.
+
+<Box marginBottom="space80">
+  <Disclosure>
+    <DisclosureHeading as="h4" variant="heading50">
+      Show live example
+    </DisclosureHeading>
+    <DisclosureContent>
+      TBD
+    </DisclosureContent>
+  </Disclosure>
+</Box>
+
+### Feedback indicators
+
+To communicate feedback on a user action, use a **[toast](../components/toast)**, **[modal](../components/modal)**, **inline messaging**, and/or **in-page messaging** (e.g., full-page confirmation).
+
+While you’ll only need one type of feedback indicator in most cases, pairing 2 feedback indicators can help give users more clarity in completing a complex flow. For example, when a user submits a long form with errors, you can show an error toast that lets users know they need to fix a form, while also showing inline errors on each incorrect field.
+
+#### Standard feedback indicator (Toast)
+
+Use a Toast when
+
+- You’re communicating a direct response to a user action. Example: "asset.jpg" successfully added.
 - You're providing only one link or button to help a user continue a flow.
+- There’s no other way for a user to immediately know that their action was acknowledged. For example, a Toast may not be needed when a modal closes after a user presses “Save” in it. The modal dismissal may sufficiently communicate that the information in the modal was saved, without needing further messaging.
 
-Use an **[Alert](../components/alert)** when...
+![Toast confirming a password reset email has been sent](../../../assets/images/patterns/notifications-toast@3x.png)
 
-- You need to notify a user about a high-priority or time-sensitive change that isn't triggered by a user action.
-- You're providing only one link or button to help a user resolve an issue.
+<Callout>
+  <CalloutTitle>
+    Toasts in Flex and SendGrid?
+  </CalloutTitle>
+  <CalloutText>
+    <Paragraph>
+      Flex currently uses global- and specific-level banners to acknowledge user actions, while SendGrid uses only global-level banners. Banners are used in the same way Toasts are.
+    </Paragraph>
+    <Paragraph>
+      Global banners global exist at the top of the page. There’s a limit of 3 per page, and the oldest one is removed when a new one displays. Specific banners exist at the top of the section the action was taken. New banners replace existing ones (i.e., no stacking).
+    </Paragraph>
+  </CalloutText>
+</Callout>
 
-Use **in-page messaging**, e.g., inline errors, in-page call-outs when...
+<Box marginBottom="space80">
+  <Disclosure>
+    <DisclosureHeading as="h5" variant="heading50">
+      Show live example
+    </DisclosureHeading>
+    <DisclosureContent>
+      TBD
+    </DisclosureContent>
+  </Disclosure>
+</Box>
 
-- You need to communicate a direct and contextual response to a user action.
-- You need to provide links or buttons next to an in-page element.
-- You need to communicate dynamically changing content, like a progress bar. Use a non-modal dialog instead.
-- You need to communicate general promotional information to a user that is unrelated to completing their current action.
+#### Interruptive feedback indicator (Modal)
 
-Use an **Alert dialog or [Modal](../components/modal)** when...
-- You need to interrupt a user flow.
-- You need to provide multiple links or buttons to help a user continue a flow.
+Use a Modal when
+
+- You’re interrupting a user flow.
+- You’re focusing a user’s attention and confirming a definitive action at the end of a Modal flow.
+- You’re providing multiple links or buttons to help a user continue a flow.
+
+<Box marginBottom="space80">
+  <Disclosure>
+    <DisclosureHeading as="h5" variant="heading50">
+      Show live example
+    </DisclosureHeading>
+    <DisclosureContent>
+      TBD
+    </DisclosureContent>
+  </Disclosure>
+</Box>
+
+#### Contextual feedback indicator (Inline messaging)
+
+Use contextual, inline messaging (e.g., inline errors on form fields) when
+
+- You’re communicating a direct response to a user action.
+- You’re providing links or buttons that are contextual to a UI element and help a user continue a flow.
+- You’re communicating dynamically changing content, like a progress bar.
+
+<Box marginBottom="space80">
+  <Disclosure>
+    <DisclosureHeading as="h5" variant="heading50">
+      Show live example
+    </DisclosureHeading>
+    <DisclosureContent>
+      TBD
+    </DisclosureContent>
+  </Disclosure>
+</Box>
+
+#### High-emotion feedback indicator (In-page messaging)
+
+Use in-page messaging (e.g., full-page confirmation composition) when
+
+- You’re communicating a direct response to a *high-emotion* user action or flow.
+- You’re providing information that a user might want to copy, screenshot, or save, like a confirmation number or invoice details.
+
+<Box marginBottom="space80">
+  <Disclosure>
+    <DisclosureHeading as="h5" variant="heading50">
+      Show live example
+    </DisclosureHeading>
+    <DisclosureContent>
+      TBD
+    </DisclosureContent>
+  </Disclosure>
+</Box>
 
 ## Starter kits
 
