@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.16](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.3.15...@twilio-paste/button@2.3.16) (2020-10-07)
+
+
+### Bug Fixes
+
+* **button:** remove center justify content rule if reset ([246c82b](https://github.com/twilio-labs/paste/commit/246c82bb489b4223f9ecbab07a1d14c6325415e4))
+
+
+
+
+
 ## [2.3.15](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.3.14...@twilio-paste/button@2.3.15) (2020-10-07)
 
 **Note:** Version bump only for package @twilio-paste/button
