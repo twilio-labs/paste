@@ -27,9 +27,6 @@
       "path": "../help-text"
     },
     {
-      "path": "../label"
-    },
-    {
       "path": "../../../paste-icons"
     },
     {
@@ -37,6 +34,9 @@
     },
     {
       "path": "../input-box"
+    },
+    {
+      "path": "../label"
     },
     {
       "path": "../screen-reader-only"
