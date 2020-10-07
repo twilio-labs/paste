@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.10.6...@twilio-paste/website@2.11.0) (2020-10-07)
+
+
+### Features
+
+* **website:** add alpha Table doc page ([5153936](https://github.com/twilio-labs/paste/commit/515393621faedd5b80de5ae1df8e5370c8776104))
+
+
+
+
+
 ## [2.10.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.10.5...@twilio-paste/website@2.10.6) (2020-10-07)
 
 **Note:** Version bump only for package @twilio-paste/website
