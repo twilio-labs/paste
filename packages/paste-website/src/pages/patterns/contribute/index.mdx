@@ -1,6 +1,6 @@
 ---
-title: Delete patterns
-description: Use these patterns to delete stuff.
+title: Contributing a pattern
+description: How to contribute a pattern to Paste.
 slug: /patterns/delete/
 ---
 
@@ -29,7 +29,7 @@ import {defaultExample, initialFocusExample, wideExample} from '../../../compone
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/patterns/delete/"}}) {
+    mdx(fields: {slug: {eq: "/patterns/contribute/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -49,82 +49,12 @@ export const pageQuery = graphql`
 
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
-<Box marginBottom="space80">
-  <Stack orientation="vertical" spacing="space30">
-  <Alert variant="warning">
-    <Text as="span">
-      <strong>Please do not share!!</strong> This is a proof of concept meant for feedback only.
-    </Text>
-  </Alert>
-    <Callout variant="warning">
-      <CalloutTitle>How to use this proof of concept</CalloutTitle>
-      <CalloutText>
-        x
-      </CalloutText>
-    </Callout>
-  </Stack>
-</Box>
-
-<Box as="dl">
-  <Box marginBottom="space30">
-    <Text as="dt" display="inline-block" color="colorTextWeak" lineHeight="lineHeight30">
-      <Box width="size10">
-        Status
-      </Box>
-    </Text>
-    <Text as="dd" display="inline-block">
-      alpha
-    </Text>
-  </Box>
-  <Box marginBottom="space30">
-    <Text as="dt" display="inline-block" color="colorTextWeak">
-      <Box width="size10">
-        Console
-      </Box>
-    </Text>
-    <Text as="dd" display="inline-block">
-      <MediaObject>
-        <MediaFigure spacing="space20">
-          <SuccessIcon color="colorTextSuccess" decorative={true} />
-        </MediaFigure>
-        <MediaBody>
-          <Text as="p">
-            Patterns available
-          </Text>
-        </MediaBody>
-      </MediaObject>
-    </Text>
-  </Box>
-  <Box marginBottom="space30">
-    <Text as="dt" display="inline-block" color="colorTextWeak">
-      <Box width="size10">
-        Flex
-      </Box>
-    </Text>
-    <Text as="dd" display="inline-block">
-      Some patterns available
-    </Text>
-  </Box>
-  <Box marginBottom="space30">
-    <Text as="dt" display="inline-block" color="colorTextWeak">
-      <Box width="size10">
-        SendGrid
-      </Box>
-    </Text>
-    <Text as="dd" display="inline-block">
-      <MediaObject>
-        <MediaFigure spacing="space20">
-          <ErrorIcon color="colorTextError" decorative={true} />
-        </MediaFigure>
-        <MediaBody>
-          <Text as="p">
-            Pattern not available
-          </Text>
-        </MediaBody>
-      </MediaObject>
-    </Text>
-  </Box>
-</Box>
+<Callout variant="warning">
+  <CalloutTitle>We are piloting this contribution model, and we need your help!</CalloutTitle>
+  <CalloutText>
+    We are looking for designers to pilot this contribution model, so please reach out if you are interested. And if you have feedback or suggestions around our pattern contribution model, please <Anchor href="https://forms.gle/BzeekGGXd2uL6U7Z9">let us know</Anchor>!
+  </CalloutText>
+</Callout>
 
 </content>
 
@@ -136,114 +66,37 @@ export const pageQuery = graphql`
 
 <content>
 
-## Ingredients
+## Contribution at a glance
 
-<Grid gutter="space30" marginBottom="space80">
-  <Column>
-    <Card>
-      <Heading as="h3" variant="heading40">
-        <Anchor href="../components/button">
-          Button
-        </Anchor>
-      </Heading>
-    </Card>
-  </Column>
-  <Column>
-    <Card>
-      <Heading as="h3" variant="heading40">
-        <Anchor href="../components/modal">
-          Modal
-        </Anchor>
-      </Heading>
-    </Card>
-  </Column>
-  <Column>
-    <Card>
-      <Heading as="h3" variant="heading40">
-        <Anchor href="../form-elements/input">
-          Form input
-        </Anchor>
-      </Heading>
-    </Card>
-  </Column>
-  <Column>
-    <Card>
-      <Heading as="h3" variant="heading40">
-        <Anchor href="../components/toast">
-          Toast
-        </Anchor>
-      </Heading>
-    </Card>
-  </Column>
-</Grid>
+Anyone at Twilio can propose and incubate a new pattern or update an existing pattern, though BU product designers are particularly well-equipped to do so given their proximity to the customer problem that a given pattern is meant to solve.
 
-```jsx
-import {Button} from '@twilio-paste/button';
-import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
-import {Toast} from '@twilio-paste/toast';
-import {useUID} from 'react-uid';
-import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
-```
+Design Systems will partner with contributors to ensure the systemizability and accessibility of a pattern, as well as on the documentation and creation of design assets (Sketch / Abstract templates, etc).
 
-## General usage
+## Creating a new pattern
 
-- Do one of the things below.
-- Always use a destructive button.
-- Confirm with a toast.
+### Kicking it off
 
-### Accessibility
+1. When you have decided to contribute a pattern, reach out in `#help-design-system` and let us know! We’ll work together to plan out the work, and we may be able to point you to any existing work on the pattern.
+2. Reach out to your peers to collect any existing examples of the interaction or flow you are hoping to patternize.
+3. Draft a design spec (here’s a template for ya) to outline usage guidelines for the new pattern. This spec will eventually become the documentation for this pattern on the Paste docs site.
+4. Create a shareable design asset or code sandbox for the new pattern for the purpose of collecting feedback.
+5. Work with the Design Systems team to do an audit of the spec and design to ensure it is systemizable and accessible.
+6. After the audit, the pattern will be added to the Paste docs site and will be marked as a “[alpha](/patterns#available-patterns)”.
 
-x
+### Testing and collecting feedback
+1. The alpha pattern will be shared with the Design Systems committee for review.
+   - The committee members will do a Risk Assessment Survey to determine the level of user research the pattern requires.
+   - Committee members will share the pattern in their crits to collect a broad set of feedback.
+2. Iterate on the pattern design and spec based on internal and user feedback, and continue reviews with the Design Systems team and Design Systems committee until the pattern gets a 3+ from the full committee (on the fist to five scale).
 
-## Severity levels
+### Finalizing a pattern
+1. Finalize the designs and the design spec.
+2. Partner with the Design Systems team to create any necessary assets and to finalize the docs page for the pattern.
+3. The pattern will now move from the "[alpha](/patterns#available-patterns)" stage to the "[beta](/patterns#available-patterns)" stage and can be used by other Twilio teams. Patterns deemed low-risk by the committee may move directly from “[alpha](/patterns#available-patterns)” to “[production](/patterns#available-patterns)”.
 
-### High severity
+## Updating an existing pattern
 
-A high severity destructive action is super important. Make people type something in a modal so they don't accidentally do something very bad.
-
-![Sample layer groups](../../../assets/images/icon-guide/using-streamline-icons-3.png)
-
-<LivePreview
-  scope={{
-    Modal,
-    ModalBody,
-    ModalFooter,
-    ModalFooterActions,
-    ModalHeader,
-    ModalHeading,
-    useUID,
-    Button,
-    FormLabel,
-    Select,
-    Option,
-    Paragraph,
-  }}
-  noInline
->
-  {defaultExample}
-</LivePreview>
-
-### Medium severity
-
-(How to determine if something's medium severity)
-
-EXAMPLE: Modal with destructive action confirmation
-
-### Low severity
-
-(How to determine if something's low severity)
-
-EXAMPLE: No confirmation, just a destructive button
-
-## Starter kits
-
-### CodeSandbox
-
-Coming soon
-
-### Sketch
-
-Coming soon
+When you want to make an update to an existing pattern (be it a beta pattern, or a production pattern), you will follow many of the same steps as you would when contributing a new pattern, depending on the degree of the change. Reach out to us in #help-design-system if you’d like to update an existing pattern, and we can get the conversation started.
 
 </content>
 

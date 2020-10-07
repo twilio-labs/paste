@@ -11,7 +11,6 @@ import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {SiteLink} from '../../components/SiteLink.tsx';
-import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 
@@ -33,9 +32,6 @@ export const pageQuery = graphql`
 
 <content>
 
-<Breadcrumb>
-  <BreadcrumbItem to="/">Home</BreadcrumbItem>
-</Breadcrumb>
 <Heading as="h1" variant="heading10">
   Patterns
 </Heading>
@@ -72,32 +68,45 @@ There are two primary goals of patterns:
 
 We rely on contributions to build out and refine our pattern library. Please give feedback on existing patterns (you can find links to provide feedback on individual pattern pages), and learn more about [how to contribute a new pattern](/patterns/contribute).
 
+## Available patterns
 
 <Card>
   <Heading as="h4" variant="heading40">
-    Pattern Status Details
+    Pattern status details
   </Heading>
-  <Text as="p" marginBottom="space20">
-    <strong>Alpha</strong>: Pattern is currently incubating with a contributing team and should not be used in other customer-facing products without guidance from the design systems team.
+  <Heading as="h5" variant="heading50">
+    Alpha
+  </Heading>
+  <Text as="p" marginBottom="space50">
+    Pattern is currently incubating with a contributing team and should not be used in other customer-facing products without guidance from the Design Systems team.
   </Text>
-  <Text as="p" marginBottom="space20">
-    <strong>Beta</strong>: Pattern can be used in customer-facing products, but should be usability tested in new scenarios to identify any further risks, especially in critical customer journeys.
+  <Heading as="h5" variant="heading50">
+    Beta
+  </Heading>
+  <Text as="p" marginBottom="space30">
+    Pattern can be used in customer-facing products but should be usability tested in new scenarios to identify any further risks, especially in critical customer journeys.
   </Text>
-  <Text as="p" marginBottom="space20">
-    <strong>Production</strong>: The pattern is stable.
+  <Text as="p" marginBottom="space50" fontStyle="italic">
+    Please reach out to us in #help-design-system if you plan on user testing a beta pattern so we can include any research insights in the patterns guidelines.
+  </Text>
+  <Heading as="h5" variant="heading50">
+    Production
+  </Heading>
+  <Text as="p">
+    Pattern is stable.
   </Text>
 </Card>
 
-| Pattern name               | Status |
-|----------------------------|--------|
-| [Create](patterns/create)                     | alpha  |
-| [Delete](patterns/delete)                     | alpha  |
-| [Notifications and feedback](patterns/notifications/) | alpha  |
-| [Object details](patterns/object-details)             | alpha  |
-| [Empty state](patterns/empty-state)             | coming soon |
-| [Filter](patterns/filter)             | coming soon |
-| [Status indicator](patterns/status)             | coming soon |
-| [Stat cards](patterns/stat-cards)             | coming soon |
+| Pattern name                                          | Status      |
+|-------------------------------------------------------|-------------|
+| [Create](patterns/create)                             | alpha       |
+| [Delete](patterns/delete)                             | alpha       |
+| [Notifications and feedback](patterns/notifications/) | alpha       |
+| [Object details](patterns/object-details)             | alpha       |
+| [Empty state](patterns/empty-state)                   | coming soon |
+| [Filter](patterns/filter)                             | coming soon |
+| [Status indicator](patterns/status)                   | coming soon |
+| [Stat cards](patterns/stat-cards)                     | coming soon |
 
 Don't see what you're looking for? Please [let us know](https://forms.gle/BzeekGGXd2uL6U7Z9), and consider [contributing a pattern](patterns/contribute)!
 

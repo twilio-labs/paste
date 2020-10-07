@@ -49,82 +49,12 @@ export const pageQuery = graphql`
 
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
-<Box marginBottom="space80">
-  <Stack orientation="vertical" spacing="space30">
-  <Alert variant="warning">
-    <Text as="span">
-      <strong>Please do not share!!</strong> This is a proof of concept meant for feedback only.
-    </Text>
-  </Alert>
-    <Callout variant="warning">
-      <CalloutTitle>How to use this proof of concept</CalloutTitle>
-      <CalloutText>
-        x
-      </CalloutText>
-    </Callout>
-  </Stack>
-</Box>
-
-<Box as="dl">
-  <Box marginBottom="space30">
-    <Text as="dt" display="inline-block" color="colorTextWeak" lineHeight="lineHeight30">
-      <Box width="size10">
-        Status
-      </Box>
-    </Text>
-    <Text as="dd" display="inline-block">
-      alpha
-    </Text>
-  </Box>
-  <Box marginBottom="space30">
-    <Text as="dt" display="inline-block" color="colorTextWeak">
-      <Box width="size10">
-        Console
-      </Box>
-    </Text>
-    <Text as="dd" display="inline-block">
-      <MediaObject>
-        <MediaFigure spacing="space20">
-          <SuccessIcon color="colorTextSuccess" decorative={true} />
-        </MediaFigure>
-        <MediaBody>
-          <Text as="p">
-            Patterns available
-          </Text>
-        </MediaBody>
-      </MediaObject>
-    </Text>
-  </Box>
-  <Box marginBottom="space30">
-    <Text as="dt" display="inline-block" color="colorTextWeak">
-      <Box width="size10">
-        Flex
-      </Box>
-    </Text>
-    <Text as="dd" display="inline-block">
-      Some patterns available
-    </Text>
-  </Box>
-  <Box marginBottom="space30">
-    <Text as="dt" display="inline-block" color="colorTextWeak">
-      <Box width="size10">
-        SendGrid
-      </Box>
-    </Text>
-    <Text as="dd" display="inline-block">
-      <MediaObject>
-        <MediaFigure spacing="space20">
-          <ErrorIcon color="colorTextError" decorative={true} />
-        </MediaFigure>
-        <MediaBody>
-          <Text as="p">
-            Pattern not available
-          </Text>
-        </MediaBody>
-      </MediaObject>
-    </Text>
-  </Box>
-</Box>
+<Callout variant="warning">
+  <CalloutTitle>This is a proof of concept, and we need your feedback!</CalloutTitle>
+  <CalloutText>
+    We've created a few alpha patterns as a proof of concept to collect feedback. If you have thoughts on this particular pattern, or on the documentation of patterns as a whole, please <Anchor href="https://forms.gle/BzeekGGXd2uL6U7Z9">let us know</Anchor>! We need your feedback to make our patterns better.
+  </CalloutText>
+</Callout>
 
 </content>
 
