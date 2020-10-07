@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/sibling-box",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "category": "user input",
   "status": "production",
   "description": "A primitive used to extend box and create components that style siblings",
@@ -28,9 +28,9 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@twilio-paste/box": "^2.11.0",
+    "@twilio-paste/box": "^2.11.1",
     "@twilio-paste/design-tokens": "^6.3.3",
-    "@twilio-paste/style-props": "^1.8.0",
+    "@twilio-paste/style-props": "^1.8.1",
     "@twilio-paste/styling-library": "^0.1.2",
     "@twilio-paste/theme": "^3.2.22",
     "@twilio-paste/types": "^3.0.25",
@@ -40,9 +40,9 @@
     "react-uid": "^2.2.0"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^2.11.0",
+    "@twilio-paste/box": "^2.11.1",
     "@twilio-paste/design-tokens": "^6.3.2",
-    "@twilio-paste/style-props": "^1.8.0",
+    "@twilio-paste/style-props": "^1.8.1",
     "@twilio-paste/styling-library": "^0.1.2",
     "@twilio-paste/theme": "^3.2.21",
     "@twilio-paste/types": "^3.0.24"
