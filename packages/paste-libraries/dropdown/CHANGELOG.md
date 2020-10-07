@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/dropdown-library@1.0.0...@twilio-paste/dropdown-library@1.0.1) (2020-10-07)
+
+
+### Bug Fixes
+
+* **dropdown-library:** bump downshift to latest ([32e1d27](https://github.com/twilio-labs/paste/commit/32e1d27c1e45cd1becea1c3075de5353e43bc123))
+
+
+
+
+
 # [1.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/dropdown-library@0.1.2...@twilio-paste/dropdown-library@1.0.0) (2020-09-03)
 
 
