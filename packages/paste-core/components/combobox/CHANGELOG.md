@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.3.24...@twilio-paste/combobox@1.4.0) (2020-10-07)
+
+
+### Features
+
+* **comboxbox:** update to use form components ([a7c53cf](https://github.com/twilio-labs/paste/commit/a7c53cfd8d1191ec44fa55c3d7d0c77d0e3267e9))
+
+
+
+
+
 ## [1.3.24](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.3.23...@twilio-paste/combobox@1.3.24) (2020-09-28)
 
 **Note:** Version bump only for package @twilio-paste/combobox

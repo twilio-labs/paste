@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.10.6...@twilio-paste/box@2.11.0) (2020-10-07)
+
+
+### Features
+
+* **box:** allow some select related props in the interface ([60876f8](https://github.com/twilio-labs/paste/commit/60876f8ba398a6bc682344b4880b76bd1b6f2814))
+
+
+
+
+
 ## [2.10.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.10.5...@twilio-paste/box@2.10.6) (2020-09-22)
 
 **Note:** Version bump only for package @twilio-paste/box

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@2.2.18...@twilio-paste/form@2.3.0) (2020-10-07)
+
+
+### Features
+
+* **form:** unbundle the form package into individual components ([7288e8c](https://github.com/twilio-labs/paste/commit/7288e8c22b1522e94bca68431af5d1dfba71d595))
+
+
+
+
+
 ## [2.2.18](https://github.com/twilio-labs/paste/compare/@twilio-paste/form@2.2.17...@twilio-paste/form@2.2.18) (2020-09-22)
 
 **Note:** Version bump only for package @twilio-paste/form
