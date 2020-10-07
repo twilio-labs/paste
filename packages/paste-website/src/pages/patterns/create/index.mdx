@@ -1,7 +1,7 @@
 ---
-title: Delete patterns
-description: Use these patterns to delete stuff.
-slug: /patterns/delete/
+title: Create patterns
+description: Use these patterns to allow a user to generate a new object.
+slug: /patterns/create/
 ---
 
 import {graphql} from 'gatsby';
@@ -11,6 +11,7 @@ import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Card} from '@twilio-paste/card';
+import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {FormInput, FormLabel, FormHelpText, Select, Option} from '@twilio-paste/form';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
@@ -29,7 +30,7 @@ import {defaultExample, initialFocusExample, wideExample} from '../../../compone
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/patterns/delete/"}}) {
+    mdx(fields: {slug: {eq: "/patterns/create/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -48,6 +49,17 @@ export const pageQuery = graphql`
 <h1>{props.pageContext.frontmatter.title}</h1>
 
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+
+<Box as="dl" display="flex">
+  <Text as="dt" color="colorTextWeak" lineHeight="lineHeight30">
+    <Box width="size10">
+      Status
+    </Box>
+  </Text>
+  <Text as="dd">
+    alpha
+  </Text>
+</Box>
 
 <Callout variant="warning">
   <CalloutTitle>This is a proof of concept, and we need your feedback!</CalloutTitle>
@@ -71,7 +83,7 @@ export const pageQuery = graphql`
 <Grid gutter="space30" marginBottom="space80">
   <Column>
     <Card>
-      <Heading as="h3" variant="heading40">
+      <Heading as="h3" variant="heading40" marginBottom="space0">
         <Anchor href="../components/button">
           Button
         </Anchor>
@@ -80,25 +92,25 @@ export const pageQuery = graphql`
   </Column>
   <Column>
     <Card>
-      <Heading as="h3" variant="heading40">
-        <Anchor href="../components/modal">
-          Modal
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="../components/Anchor">
+          Anchor
         </Anchor>
       </Heading>
     </Card>
   </Column>
   <Column>
     <Card>
-      <Heading as="h3" variant="heading40">
-        <Anchor href="../form-elements/input">
-          Form input
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="../components/menu">
+          Menu
         </Anchor>
       </Heading>
     </Card>
   </Column>
   <Column>
     <Card>
-      <Heading as="h3" variant="heading40">
+      <Heading as="h3" variant="heading40" marginBottom="space0">
         <Anchor href="../components/toast">
           Toast
         </Anchor>
@@ -109,61 +121,109 @@ export const pageQuery = graphql`
 
 ```jsx
 import {Button} from '@twilio-paste/button';
-import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
+import {Anchor} from '@twilio-paste/anchor';
+import {Menu} from '@twilio-paste/menu';
 import {Toast} from '@twilio-paste/toast';
-import {useUID} from 'react-uid';
-import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
 ```
 
-## General usage
+## Usage
 
-- Do one of the things below.
-- Always use a destructive button.
-- Confirm with a toast.
+### General
+
+The create pattern should be used when a user is creating a new instance of something, such as a service or a contact list. The create action is often the most important action on the page, so it’s important to drive consistency around how we present this action to our users.
+
+The create action should:
+- Be initiated by either a Button or an Anchor (also known as a “link”).
+- Use plain, direct language, so that the user knows what is going to happen when they click it. For example, “create new service” instead of just “create”.
+- Be placed near where the object will appear once it has been created, such as at the top of a table if there are pre-existing instances, or in the center of an [empty state](/patterns/empty-state), if the user has not created any instances of this object yet.
 
 ### Accessibility
 
-x
+Whenever possible, use an anchor if the create action will take the user to a new page, and in all other cases, use a button. [Learn more](/components/button/#button-vs-anchor-link) about why this is important for the user experience.
 
-## Severity levels
+## Variations
 
-### High severity
+### Standard
 
-A high severity destructive action is super important. Make people type something in a modal so they don't accidentally do something very bad.
+This is a standard create pattern. The create action is the primary action on the page, and clicking it will trigger an in-page interaction, such as opening a modal where the user will enter details about the new object.
 
-![Sample layer groups](../../../assets/images/icon-guide/using-streamline-icons-3.png)
+The create action is placed at the top right of the area where the object will appear once it has been created. In this example, the entire page is dedicated to displaying the user’s services, so the “create new service” action is placed at the top of the page next to the header.
 
-<LivePreview
-  scope={{
-    Modal,
-    ModalBody,
-    ModalFooter,
-    ModalFooterActions,
-    ModalHeader,
-    ModalHeading,
-    useUID,
-    Button,
-    FormLabel,
-    Select,
-    Option,
-    Paragraph,
-  }}
-  noInline
->
-  {defaultExample}
-</LivePreview>
+![Sample layer groups](../../../assets/images/patterns/create-standard.png)
 
-### Medium severity
+<Box marginBottom="space80">
+  <Disclosure>
+    <DisclosureHeading as="h5" variant="heading50">
+      Show live example
+    </DisclosureHeading>
+    <DisclosureContent>
+      Coming soon!
+    </DisclosureContent>
+  </Disclosure>
+</Box>
 
-(How to determine if something's medium severity)
+### Multi-option
 
-EXAMPLE: Modal with destructive action confirmation
+In some cases, there will be multiple types of an object the user can create. In this case, the create action should trigger a menu which lists the different options. Whenever possible, use a single button with a menu rather than including multiple buttons or anchors.
 
-### Low severity
+Sometimes, the decision the user needs to make at this stage will be too complex to capture in a menu. In that case, open a modal or take the user to a new page instead.
 
-(How to determine if something's low severity)
+![Sample layer groups](../../../assets/images/patterns/create-multi-option.png)
 
-EXAMPLE: No confirmation, just a destructive button
+<Box marginBottom="space80">
+  <Disclosure>
+    <DisclosureHeading as="h5" variant="heading50">
+      Show live example
+    </DisclosureHeading>
+    <DisclosureContent>
+      Coming soon!
+    </DisclosureContent>
+  </Disclosure>
+</Box>
+
+### Anchor
+
+If clicking the create action will take the user to a new page, use an anchor, but maintain the same placement on the page so that the user can find the action easily. An “add” icon should be used with the anchor to draw the eye and add further clarity.
+
+![Sample layer groups](../../../assets/images/patterns/create-anchor.png)
+
+<Box marginBottom="space80">
+  <Disclosure>
+    <DisclosureHeading as="h5" variant="heading50">
+      Show live example
+    </DisclosureHeading>
+    <DisclosureContent>
+      Coming soon!
+    </DisclosureContent>
+  </Disclosure>
+</Box>
+
+### Sub-section
+
+When a single page includes multiple, separate create actions that are separated by something like tabs, the create action must be placed in the correct hierarchy. Instead of placing the action in the page header, the create action should be placed within the sub-section, such as at the top right of a table within a tab.
+
+![Sample layer groups](../../../assets/images/patterns/create-sub-section.png)
+
+<Box marginBottom="space80">
+  <Disclosure>
+    <DisclosureHeading as="h5" variant="heading50">
+      Show live example
+    </DisclosureHeading>
+    <DisclosureContent>
+      Coming soon!
+    </DisclosureContent>
+  </Disclosure>
+</Box>
+
+### Empty state
+
+If the user has not yet created any instances of this object, they should see an empty state with a create action within it. Follow the [empty state](/patterns/empty-state) pattern in this case.
+
+## Post-creation
+
+After the user has created a new object, navigate them either back to the index page, where they can see a list of all objects, or to the individual object detail page (whichever makes most sense for the given user flow), and show a success [Toast](../components/toast) informing them that the object has successfully been created.
+
+If the create action fails, display an error [Toast](../components/toast) that explains what went wrong and how to try again.
 
 ## Starter kits
 
