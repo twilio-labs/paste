@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.18](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.3.17...@twilio-paste/tabs@0.3.18) (2020-10-07)
+
+**Note:** Version bump only for package @twilio-paste/tabs
+
+
+
+
+
+## [0.3.17](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.3.16...@twilio-paste/tabs@0.3.17) (2020-10-07)
+
+**Note:** Version bump only for package @twilio-paste/tabs
+
+
+
+
+
 ## [0.3.16](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.3.15...@twilio-paste/tabs@0.3.16) (2020-09-22)
 
 **Note:** Version bump only for package @twilio-paste/tabs

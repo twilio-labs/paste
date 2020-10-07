@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.18.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.17.0...@twilio-paste/core@2.18.0) (2020-10-07)
+
+
+### Features
+
+* **core:** add table component package to core ([f0ff900](https://github.com/twilio-labs/paste/commit/f0ff900f7720b1222e7fa533bd5043be1424f3ca))
+
+
+
+
+
+# [2.17.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.16.61...@twilio-paste/core@2.17.0) (2020-10-07)
+
+
+### Features
+
+* **core:** include form components individually ([fdce217](https://github.com/twilio-labs/paste/commit/fdce217fbaf51883b58d0cae6da20df0baeda50c))
+
+
+
+
+
 ## [2.16.61](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.16.60...@twilio-paste/core@2.16.61) (2020-09-28)
 
 **Note:** Version bump only for package @twilio-paste/core

@@ -2,7 +2,7 @@ import {DefaultTheme} from '@twilio-paste/theme';
 import {propValidator} from './utils/propValidator';
 
 // Tokens
-const FontFamilyOptions = Object.keys(DefaultTheme.fonts);
+const FontFamilyOptions = ['inherit', ...Object.keys(DefaultTheme.fonts)];
 const FontSizeOptions = ['100%', 'inherit', ...Object.keys(DefaultTheme.fontSizes)];
 const FontWeightOptions = ['inherit', ...Object.keys(DefaultTheme.fontWeights)];
 const LineHeightOptions = ['unset', 'inherit', ...Object.keys(DefaultTheme.lineHeights)];

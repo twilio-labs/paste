@@ -69,17 +69,22 @@ export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   __console_patch?: boolean;
 }
 
-const AnimationStates = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const getAnimationStates = (isConsole: boolean): any => ({
   from: {opacity: 0, transform: `scale(0.675)`},
   enter: {opacity: 1, transform: `scale(1)`},
-  leave: {opacity: 0, transform: `scale(0.675)`},
+  // FIXME: We remove the animation on modal close in console because
+  // react-spring v9 currently doesn't have a hook into animation destroyed
+  // Ideally it should still animate and the hack should be applied after
+  // the animation ends.
+  leave: isConsole ? null : {opacity: 0, transform: `scale(0.675)`},
   // https://www.react-spring.io/docs/hooks/api
   config: {
     mass: 0.5,
     tension: 370,
     friction: 26,
   },
-};
+});
 
 const Modal: React.FC<ModalProps> = ({
   children,
@@ -93,7 +98,7 @@ const Modal: React.FC<ModalProps> = ({
   __console_patch = false,
   ...props
 }) => {
-  const transitions = useTransition(isOpen, AnimationStates);
+  const transitions = useTransition(isOpen, getAnimationStates(__console_patch));
 
   React.useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/camelcase

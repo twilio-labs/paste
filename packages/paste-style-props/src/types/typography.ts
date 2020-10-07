@@ -4,7 +4,7 @@ import {ThemeShape} from '@twilio-paste/theme';
 import {ResponsiveValue, TLengthStyledSystem} from '@twilio-paste/styling-library';
 
 // Tokens
-export type FontFamilyOptions = keyof ThemeShape['fonts'];
+export type FontFamilyOptions = keyof ThemeShape['fonts'] | 'inherit';
 export type FontSizeOptions = keyof ThemeShape['fontSizes'] | '100%' | 'inherit';
 export type FontWeightOptions = keyof ThemeShape['fontWeights'] | 'inherit';
 export type LineHeightOptions = keyof ThemeShape['lineHeights'] | 'unset' | 'inherit';
@@ -22,6 +22,7 @@ export type TextAlignOptions = CSS.TextAlignProperty;
 export type FontStyleOptions = CSS.FontStyleProperty;
 export type WhiteSpaceOptions = CSS.WhiteSpaceProperty;
 export type WordBreakOptions = CSS.WordBreakProperty;
+export type WordWrapOptions = CSS.WordWrapProperty;
 export type TextDecorationOptions = CSS.TextDecorationProperty<CSS.TextDecorationLineProperty>;
 export type TextOverflowOptions = CSS.TextOverflowProperty;
 export type TextTransformOptions = CSS.TextTransformProperty;
@@ -31,6 +32,7 @@ export type TextAlign = ResponsiveValue<TextAlignOptions>;
 export type FontStyle = ResponsiveValue<FontStyleOptions>;
 export type WhiteSpace = ResponsiveValue<WhiteSpaceOptions>;
 export type WordBreak = ResponsiveValue<WordBreakOptions>;
+export type WordWrap = ResponsiveValue<WordWrapOptions>;
 export type TextDecoration = ResponsiveValue<TextDecorationOptions>;
 export type TextOverflow = ResponsiveValue<TextOverflowOptions>;
 export type TextTransform = ResponsiveValue<TextTransformOptions>;
@@ -55,4 +57,5 @@ export interface TypographyProps {
   textTransform?: TextTransform;
   whiteSpace?: WhiteSpace;
   wordBreak?: WordBreak;
+  wordWrap?: WordWrap;
 }

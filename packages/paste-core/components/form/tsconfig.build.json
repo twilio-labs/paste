@@ -9,7 +9,13 @@
   ],
   "references": [
     {
+      "path": "../base-radio-checkbox"
+    },
+    {
       "path": "../../primitives/box"
+    },
+    {
+      "path": "../checkbox"
     },
     {
       "path": "../../../paste-design-tokens"
@@ -18,10 +24,34 @@
       "path": "../../layout/flex"
     },
     {
+      "path": "../help-text"
+    },
+    {
       "path": "../../../paste-icons"
     },
     {
+      "path": "../inline-control-group"
+    },
+    {
+      "path": "../input"
+    },
+    {
+      "path": "../input-box"
+    },
+    {
+      "path": "../label"
+    },
+    {
+      "path": "../radio-group"
+    },
+    {
       "path": "../screen-reader-only"
+    },
+    {
+      "path": "../select"
+    },
+    {
+      "path": "../../primitives/sibling-box"
     },
     {
       "path": "../../../paste-style-props"
@@ -31,6 +61,9 @@
     },
     {
       "path": "../../primitives/text"
+    },
+    {
+      "path": "../textarea"
     },
     {
       "path": "../../../paste-theme"

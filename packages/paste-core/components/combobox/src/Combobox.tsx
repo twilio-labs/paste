@@ -5,15 +5,10 @@ import {useUID, useUIDSeed} from 'react-uid';
 import {useComboboxPrimitive} from '@twilio-paste/combobox-primitive';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {Box} from '@twilio-paste/box';
-import {
-  FormControlWrapper,
-  FormHelpText,
-  FormLabel,
-  InputElement,
-  SelectIconWrapper,
-  FieldVariants,
-  FormHelpTextVariants,
-} from '@twilio-paste/form';
+import {InputBox, InputChevronWrapper} from '@twilio-paste/input-box';
+import {Label} from '@twilio-paste/label';
+import {HelpText, HelpTextVariants} from '@twilio-paste/help-text';
+import {InputElement, InputVariants} from '@twilio-paste/input';
 import {TextColor} from '@twilio-paste/style-props';
 import {ComboboxInputWrapper} from './ComboboxInputWrapper';
 import {ComboboxListbox} from './ComboboxListbox';
@@ -127,7 +122,7 @@ const renderListBox = ({
       })
     : renderItems({items, getItemProps, highlightedIndex, optionTemplate, optionUID});
 
-const getHelpTextVariant = (variant: FieldVariants, hasError: boolean | undefined): FormHelpTextVariants => {
+const getHelpTextVariant = (variant: InputVariants, hasError: boolean | undefined): HelpTextVariants => {
   if (hasError && variant === 'inverse') {
     return 'error_inverse';
   }
@@ -222,10 +217,10 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
 
     return (
       <Box position="relative">
-        <FormLabel disabled={disabled} required={required} variant={variant} {...getLabelProps()}>
+        <Label disabled={disabled} required={required} variant={variant} {...getLabelProps()}>
           {labelText}
-        </FormLabel>
-        <FormControlWrapper
+        </Label>
+        <InputBox
           disabled={disabled}
           hasError={hasError}
           insertBefore={insertBefore}
@@ -242,11 +237,11 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
               type="text"
               paddingRight="space90"
             />
-            <SelectIconWrapper>
+            <InputChevronWrapper>
               <ChevronDownIcon aria-hidden="true" decorative color={iconColor} size="sizeIcon30" />
-            </SelectIconWrapper>
+            </InputChevronWrapper>
           </ComboboxInputWrapper>
-        </FormControlWrapper>
+        </InputBox>
         <ComboboxListbox hidden={!isOpen} {...getMenuProps()}>
           {renderListBox({
             items,
@@ -260,9 +255,9 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
           })}
         </ComboboxListbox>
         {helpText && (
-          <FormHelpText id={helpTextId} variant={getHelpTextVariant(variant, hasError)}>
+          <HelpText id={helpTextId} variant={getHelpTextVariant(variant, hasError)}>
             {helpText}
-          </FormHelpText>
+          </HelpText>
         )}
       </Box>
     );

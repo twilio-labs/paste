@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.16](https://github.com/twilio-labs/paste/compare/@twilio-paste/avatar@0.2.15...@twilio-paste/avatar@0.2.16) (2020-10-07)
+
+**Note:** Version bump only for package @twilio-paste/avatar
+
+
+
+
+
+## [0.2.15](https://github.com/twilio-labs/paste/compare/@twilio-paste/avatar@0.2.14...@twilio-paste/avatar@0.2.15) (2020-10-07)
+
+**Note:** Version bump only for package @twilio-paste/avatar
+
+
+
+
+
 ## [0.2.14](https://github.com/twilio-labs/paste/compare/@twilio-paste/avatar@0.2.13...@twilio-paste/avatar@0.2.14) (2020-09-22)
 
 **Note:** Version bump only for package @twilio-paste/avatar

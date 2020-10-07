@@ -81,6 +81,7 @@ const extraConfig = system({
   transition: true,
   textTransform: true,
   wordBreak: true,
+  wordWrap: true,
 });
 
 const textDecoration = system({textDecoration: true});

@@ -3,11 +3,11 @@ import {
   UseComboboxPrimitiveState,
   UseComboboxPrimitiveReturnValue,
 } from '@twilio-paste/combobox-primitive';
-import {FieldVariants, FormInputProps} from '@twilio-paste/form';
+import {InputVariants, InputProps} from '@twilio-paste/input';
 
 type Item = string | {[key: string]: any};
 
-export interface ComboboxProps extends Omit<FormInputProps, 'id' | 'type' | 'value'> {
+export interface ComboboxProps extends Omit<InputProps, 'id' | 'type' | 'value'> {
   autocomplete?: boolean;
   helpText?: string | React.ReactNode;
   initialIsOpen?: UseComboboxPrimitiveProps<Item>['initialIsOpen'];
@@ -24,7 +24,7 @@ export interface ComboboxProps extends Omit<FormInputProps, 'id' | 'type' | 'val
   selectedItem?: UseComboboxPrimitiveProps<Item>['selectedItem'];
   inputValue?: UseComboboxPrimitiveProps<Item>['inputValue'];
   groupItemsBy?: string;
-  variant?: FieldVariants;
+  variant?: InputVariants;
   state?: Partial<UseComboboxPrimitiveReturnValue<Item>>;
 }
 
