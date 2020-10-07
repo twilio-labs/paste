@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.23](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@3.2.22...@twilio-paste/theme@3.2.23) (2020-10-07)
+
+
+### Bug Fixes
+
+* **theme:** hide reach/dialog css warning ([#821](https://github.com/twilio-labs/paste/issues/821)) ([e110d1e](https://github.com/twilio-labs/paste/commit/e110d1edf9b93258bede7d6d566e9b9826d9c057))
+
+
+
+
+
 ## [3.2.22](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@3.2.21...@twilio-paste/theme@3.2.22) (2020-09-22)
 
 **Note:** Version bump only for package @twilio-paste/theme
