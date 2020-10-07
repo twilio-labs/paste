@@ -183,10 +183,10 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
         onInputValueChange,
         onIsOpenChange,
         onSelectedItemChange,
-        ...(itemToString && {itemToString}),
-        ...(initialIsOpen && {initialIsOpen}),
-        ...(inputValue && {inputValue}),
-        ...(selectedItem && {selectedItem}),
+        ...(itemToString != null && {itemToString}),
+        ...(initialIsOpen != null && {initialIsOpen}),
+        ...(inputValue != null && {inputValue}),
+        ...(selectedItem != null && {selectedItem}),
       });
 
     if (
