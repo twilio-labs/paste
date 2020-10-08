@@ -45,15 +45,6 @@ export const pageQuery = graphql`
 
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
-<Callout variant="warning">
-  <CalloutTitle>
-    This is a proof of concept, and we need your feedback!
-  </CalloutTitle>
-  <CalloutText>
-    etc
-  </CalloutText>
-</Callout>
-
 <Box as="dl" display="flex">
   <Text as="dt" color="colorTextWeak" lineHeight="lineHeight30">
     <Box width="size10">
@@ -64,6 +55,13 @@ export const pageQuery = graphql`
     alpha
   </Text>
 </Box>
+
+<Callout variant="warning">
+  <CalloutTitle>This is a proof of concept, and we need your feedback!</CalloutTitle>
+  <CalloutText>
+    We've created a few alpha patterns as a proof of concept to collect feedback. If you have thoughts on this particular pattern, or on the documentation of patterns as a whole, please <Anchor href="https://forms.gle/BzeekGGXd2uL6U7Z9">let us know</Anchor>! We need your feedback to make our patterns better.
+  </CalloutText>
+</Callout>
 
 </content>
 
@@ -140,20 +138,18 @@ Each notification or feedback pattern uses one or more of these components.
   </Column>
 </Grid>
 
-### Installation
-
 ```jsx
-// import all ingredients for Notification and feedback patterns
+// import all components for Notification and feedback patterns
 
-import {Alert} from '@twilio-paste/alert';
-import {Toast} from '@twilio-paste/toast';
-import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
-import {useUID} from 'react-uid';
-import {Button} from '@twilio-paste/button';
-import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
-import {Card} from '@twilio-paste/card';
-import {Heading} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
+import {
+  Alert,
+  Toast,
+  Input, Label, HelpText,
+  Button, Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading,
+  Card,
+  Heading,
+  Paragraph
+} from '@twilio-paste/core';
 ```
 
 ## Usage
@@ -172,13 +168,6 @@ There are 3 levels of notifications and feedback:
 - **Feedback indicators:** Acknowledgment of a user action, like submitting a form or pressing a “Copy code” button.
 - **Notification centers and reminders:** Currently, these are highly specific to products’ business needs and should be treated as a product feature, rather than a pattern. While the implementation of a notification center might use Paste components, guidelines specific to a notification center won’t be covered in this page.
 
-Notifications and feedback can come in 4 variants:
-
-- **Success:** Confirms a successful or completed action.
-- **Error:** Communicates critical information that's actively preventing a user from continuing a flow.
-- **Warning:** Communicates critical information that will help a user avoid a potential issue, but won’t prevent them from continuing their immediate goal.
-- **Neutral:** Informs a user of general changes, or processes that have been triggered by a user action but will take time to finish.
-
 <Callout>
   <CalloutTitle>
     Notifications in high-emotion or high-stress situations
@@ -187,6 +176,13 @@ Notifications and feedback can come in 4 variants:
     For high-emotion or high-stress parts of the customer journey, use a component that appropriately matches the customer's level of emotion. For example, to confirm that a customer has successfully upgraded their account, you may want to use a full-page confirmation that celebrates the moment, instead of a simple toast.
   </CalloutText>
 </Callout>
+
+Notifications and feedback can come in 4 variants:
+
+- **Success:** Confirms a successful or completed action.
+- **Error:** Communicates critical information that's actively preventing a user from continuing a flow.
+- **Warning:** Communicates critical information that will help a user avoid a potential issue, but won’t prevent them from continuing their immediate goal.
+- **Neutral:** Informs a user of general changes, or processes that have been triggered by a user action but will take time to finish.
 
 ### Accessibility
 
@@ -200,8 +196,10 @@ Visit the [Alert](../components/alert), [Modal](../components/modal), [Form elem
 
 To communicate information from the system that isn't triggered by a user action, use an **[alert](../components/alert)**, especially for high-priority or time-sensitive changes to the system.
 
+![Screen with alert informing users of a server error](../../../assets/images/patterns/notifications-alert@3x.png)
+
 <Box marginBottom="space80">
-  <Disclosure>
+  <Disclosure variant="contained">
     <DisclosureHeading as="h4" variant="heading50">
       Show live example
     </DisclosureHeading>
@@ -225,7 +223,7 @@ Use a Toast when
 - You're providing only one link or button to help a user continue a flow.
 - There’s no other way for a user to immediately know that their action was acknowledged. For example, a Toast may not be needed when a modal closes after a user presses “Save” in it. The modal dismissal may sufficiently communicate that the information in the modal was saved, without needing further messaging.
 
-![Toast confirming a password reset email has been sent](../../../assets/images/patterns/notifications-toast@3x.png)
+![Screen with toast confirming a password reset email has been sent](../../../assets/images/patterns/notifications-toast@3x.png)
 
 <Callout>
   <CalloutTitle>
@@ -233,24 +231,13 @@ Use a Toast when
   </CalloutTitle>
   <CalloutText>
     <Paragraph>
-      Flex currently uses global- and specific-level banners to acknowledge user actions, while SendGrid uses only global-level banners. Banners are used in the same way Toasts are.
+      While the recommendation is to migrate to Paste Toast components when possible to acknowledge user actions, Flex and SendGrid currently use banners for this purpose.
     </Paragraph>
     <Paragraph>
-      Global banners global exist at the top of the page. There’s a limit of 3 per page, and the oldest one is removed when a new one displays. Specific banners exist at the top of the section the action was taken. New banners replace existing ones (i.e., no stacking).
+      These banners generally exist at the top of the page, especially for page-level actions, with a limit of 3 per page. The oldest one is removed when a new one displays. In Flex, banners may be placed at the top of a specific section where the action was taken.
     </Paragraph>
   </CalloutText>
 </Callout>
-
-<Box marginBottom="space80">
-  <Disclosure>
-    <DisclosureHeading as="h5" variant="heading50">
-      Show live example
-    </DisclosureHeading>
-    <DisclosureContent>
-      TBD
-    </DisclosureContent>
-  </Disclosure>
-</Box>
 
 #### Interruptive feedback indicator (Modal)
 
@@ -260,8 +247,10 @@ Use a Modal when
 - You’re focusing a user’s attention and confirming a definitive action at the end of a Modal flow.
 - You’re providing multiple links or buttons to help a user continue a flow.
 
+![Modal congratulating a user at the end of a Modal flow](../../../assets/images/patterns/notifications-modal@3x.png)
+
 <Box marginBottom="space80">
-  <Disclosure>
+  <Disclosure variant="contained">
     <DisclosureHeading as="h5" variant="heading50">
       Show live example
     </DisclosureHeading>
@@ -279,8 +268,10 @@ Use contextual, inline messaging (e.g., inline errors on form fields) when
 - You’re providing links or buttons that are contextual to a UI element and help a user continue a flow.
 - You’re communicating dynamically changing content, like a progress bar.
 
+![Screen with inline error with anchor on a form field](../../../assets/images/patterns/notifications-inline-messaging@3x.png)
+
 <Box marginBottom="space80">
-  <Disclosure>
+  <Disclosure variant="contained">
     <DisclosureHeading as="h5" variant="heading50">
       Show live example
     </DisclosureHeading>
@@ -297,8 +288,10 @@ Use in-page messaging (e.g., full-page confirmation composition) when
 - You’re communicating a direct response to a *high-emotion* user action or flow.
 - You’re providing information that a user might want to copy, screenshot, or save, like a confirmation number or invoice details.
 
+![Full-page congratulations message on setting up a Twilio Messaging Service with SIDs to copy](../../../assets/images/patterns/notifications-inpage-messaging@3x.png)
+
 <Box marginBottom="space80">
-  <Disclosure>
+  <Disclosure variant="contained">
     <DisclosureHeading as="h5" variant="heading50">
       Show live example
     </DisclosureHeading>
@@ -310,8 +303,13 @@ Use in-page messaging (e.g., full-page confirmation composition) when
 
 ## Starter kits
 
-- CodeSandbox (Coming soon)
-- Sketch (Coming soon)
+### CodeSandbox
+
+Coming soon
+
+### Sketch
+
+Coming soon
 
 </content>
 

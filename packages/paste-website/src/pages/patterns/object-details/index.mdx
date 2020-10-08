@@ -41,15 +41,6 @@ export const pageQuery = graphql`
 
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
-<Callout variant="warning">
-  <CalloutTitle>
-    This is a proof of concept, and we need your feedback!
-  </CalloutTitle>
-  <CalloutText>
-    etc
-  </CalloutText>
-</Callout>
-
 <Box as="dl" display="flex">
   <Text as="dt" color="colorTextWeak" lineHeight="lineHeight30">
     <Box width="size10">
@@ -60,6 +51,13 @@ export const pageQuery = graphql`
     alpha
   </Text>
 </Box>
+
+<Callout variant="warning">
+  <CalloutTitle>This is a proof of concept, and we need your feedback!</CalloutTitle>
+  <CalloutText>
+    We've created a few alpha patterns as a proof of concept to collect feedback. If you have thoughts on this particular pattern, or on the documentation of patterns as a whole, please <Anchor href="https://forms.gle/BzeekGGXd2uL6U7Z9">let us know</Anchor>! We need your feedback to make our patterns better.
+  </CalloutText>
+</Callout>
 
 </content>
 
@@ -132,23 +130,27 @@ export const pageQuery = graphql`
         (coming soon)
       </Heading>
       <Paragraph marginBottom="space0">
-        Learn more about description lists and how to compose them below.
+        Learn more{' '}
+        <Anchor href="#standard-details">
+          about description lists and how to compose them
+        </Anchor>
+        {' '}below.
       </Paragraph>
     </Card>
   </Column>
 </Grid>
 
-### Installation
-
 ```jsx
-// import all ingredients for Object details patterns
+// import all components for Object details patterns
 
-import {Heading} from '@twilio-paste/heading';
-import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/tabs';
-import {Text} from '@twilio-paste/text';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Grid, Column} from '@twilio-paste/grid';
+import {
+  Heading, 
+  Tabs, TabList, Tab, TabPanels, TabPanel, 
+  Text, 
+  Box, 
+  Stack, 
+  Grid, Column
+} from '@twilio-paste/core';
 ```
 
 ## Usage
@@ -226,8 +228,10 @@ The most common way to structure an object details page is to first show an over
   </CalloutText>
 </Callout>
 
+![Modal congratulating a user at the end of a Modal flow](../../../assets/images/patterns/notifications-modal@3x.png)
+
 <Box marginBottom="space80">
-  <Disclosure>
+  <Disclosure variant="contained">
     <DisclosureHeading as="h4" variant="heading50">
       Show live example
     </DisclosureHeading>
@@ -243,12 +247,31 @@ While this might be the most common structure for object details, use customer r
 
 For example, when viewing the details of a sent email campaign, a customer may want to quickly see how well their campaign has been performing over time. In this case, placing a group of stats cards and a chart first may be most appropriate.
 
+### Horizontal details
+
+Something something vertical space
+
+![Modal congratulating a user at the end of a Modal flow](../../../assets/images/patterns/notifications-modal@3x.png)
+
+<Box marginBottom="space80">
+  <Disclosure variant="contained">
+    <DisclosureHeading as="h4" variant="heading50">
+      Show live example
+    </DisclosureHeading>
+    <DisclosureContent>
+      TBD
+    </DisclosureContent>
+  </Disclosure>
+</Box>
+
 ### Tabbed details
 
 When you find that customers want to see multiple, top-level content sections, separate them with [Tabs](../components/tabs).
 
+![Modal congratulating a user at the end of a Modal flow](../../../assets/images/patterns/notifications-modal@3x.png)
+
 <Box marginBottom="space80">
-  <Disclosure>
+  <Disclosure variant="contained">
     <DisclosureHeading as="h4" variant="heading50">
       Show live example
     </DisclosureHeading>
@@ -260,8 +283,13 @@ When you find that customers want to see multiple, top-level content sections, s
 
 ## Starter kits
 
-- CodeSandbox (Coming soon)
-- Sketch (Coming soon)
+### CodeSandbox
+
+Coming soon
+
+### Sketch
+
+Coming soon
 
 </content>
 
