@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.32](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@1.0.31...@twilio-paste/modal@1.0.32) (2020-10-09)
+
+
+### Bug Fixes
+
+* **modal:** a possibly better console_patch fix ([#837](https://github.com/twilio-labs/paste/issues/837)) ([2932aad](https://github.com/twilio-labs/paste/commit/2932aada2774fe37e0216bc108765d26ab6a95a6))
+
+
+
+
+
 ## [1.0.31](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@1.0.30...@twilio-paste/modal@1.0.31) (2020-10-09)
 
 **Note:** Version bump only for package @twilio-paste/modal
