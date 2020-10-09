@@ -1,12 +1,13 @@
 ---
-title: Status indicator patterns
-description: Use these patterns to when there is no data to display to the user.
+title: Status indicator
+description: This pattern is coming soon.
 slug: /patterns/status/
 ---
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Breadcrumb, BreadcrumbItem} from '../../../components/breadcrumb';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Card} from '@twilio-paste/card';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
@@ -34,160 +35,14 @@ export const pageQuery = graphql`
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
+<Breadcrumb>
+  <BreadcrumbItem to="/">Home</BreadcrumbItem>
+  <BreadcrumbItem to="/patterns">Patterns</BreadcrumbItem>
+</Breadcrumb>
+<Heading as="h1" variant="heading10">{props.pageContext.frontmatter.title}</Heading>
 
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+This pattern is on our roadmap, but we haven't gotten to it quite yet.
 
-<Box as="dl" display="flex">
-  <Text as="dt" color="colorTextWeak" lineHeight="lineHeight30">
-    <Box width="size10">
-      Status
-    </Box>
-  </Text>
-  <Text as="dd">
-    alpha
-  </Text>
-</Box>
-
-<Callout variant="warning">
-  <CalloutTitle>This is a proof of concept, and we need your feedback!</CalloutTitle>
-  <CalloutText>
-    We've created a few alpha patterns as a proof of concept to collect feedback. If you have thoughts on this particular pattern, or on the documentation of patterns as a whole, please <Anchor href="https://forms.gle/BzeekGGXd2uL6U7Z9">let us know</Anchor>! We need your feedback to make our patterns better.
-  </CalloutText>
-</Callout>
+If you need this for your current or upcoming work, please consider partnering with us to [contribute the pattern](/patterns/contribute).
 
 </content>
-
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
-
-## Ingredients
-
-<Grid gutter="space30" marginBottom="space80">
-  <Column>
-    <Card>
-      <Heading as="h3" variant="heading40" marginBottom="space0">
-        <Anchor href="../components/button">
-          Button
-        </Anchor>
-      </Heading>
-    </Card>
-  </Column>
-  <Column>
-    <Card>
-      <Heading as="h3" variant="heading40" marginBottom="space0">
-        <Anchor href="../components/Modal">
-          Modal
-        </Anchor>
-      </Heading>
-    </Card>
-  </Column>
-  <Column>
-    <Card>
-      <Heading as="h3" variant="heading40" marginBottom="space0">
-        <Anchor href="../components/input">
-          Input
-        </Anchor>
-      </Heading>
-    </Card>
-  </Column>
-  <Column>
-    <Card>
-      <Heading as="h3" variant="heading40" marginBottom="space0">
-        <Anchor href="../components/toast">
-          Toast
-        </Anchor>
-      </Heading>
-    </Card>
-  </Column>
-</Grid>
-
-```jsx
-import {Button} from '@twilio-paste/button';
-import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
-import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
-import {Toast} from '@twilio-paste/toast';
-```
-
-## Usage
-
-### General
-
-The delete pattern should be utilized when a user is destroying an object. It is critical to communicate delete actions to our users in a consistent way, considering deletions come with significant consequences and often cannot be undone.
-
-The delete action should:
-- Be triggered by a destructive Button.
-- Generally be placed at the bottom of an [Object Details](/patterns/object-details) page.
-- Not usually be the primary action on the page. There are many variants of differing visual prominence to choose from to achieve the correct hierarchy for the delete action trigger.
-- Follow certain guidelines based on the [severity](#variations) of the deletion.
-
-## Variations
-
-### Low-severity
-
-A deletion is considered low-severity when it is trivial to undo the deletion or recreate the deleted data.
-
-Low-severity deletions can be triggered by a single click and do not require further warning or confirmation.
-
-### Medium-severity
-
-A deletion is considered medium-severity when the action cannot be undone, and the data cannot be recreated easily. This pattern is also useful for bulk deletions of low- or medium-severity.
-
-For medium-severity deletions, show a confirmation modal that explains what is being deleted and the consequences of the deletion.
-
-![Sample layer groups](../../../assets/images/patterns/delete-medium-severity.png)
-
-<Box marginBottom="space80">
-  <Disclosure>
-    <DisclosureHeading as="h5" variant="heading50">
-      Show live example
-    </DisclosureHeading>
-    <DisclosureContent>
-      Coming soon!
-    </DisclosureContent>
-  </Disclosure>
-</Box>
-
-### High-severity
-
-A deletion is considered high-severity when the action cannot be undone, and it would be very time-consuming, or perhaps impossible, to recreate the deleted data. An action that deletes a large amount of data or has significant downstream impact would also be considered a high-severity deletion.
-
-For high-severity deletions, show a confirmation modal that explains the what is being deleted and the consequences of the deletion, and have the user manually confirm the deletion by typing the name of the object they are deleting.
-
-![Sample layer groups](../../../assets/images/patterns/delete-high-severity.png)
-
-<Box marginBottom="space80">
-  <Disclosure>
-    <DisclosureHeading as="h5" variant="heading50">
-      Show live example
-    </DisclosureHeading>
-    <DisclosureContent>
-      Coming soon!
-    </DisclosureContent>
-  </Disclosure>
-</Box>
-
-## Post-deletion
-
-After the user has deleted the object, navigate them to the index page, where they can see a list of all remaining objects, and show a success [Toast](../components/toast) informing them that the object has successfully been deleted. If it is possible to undo the deletion, give the user the option to do so, and tell them how long they have to undo the deletion if it is time-bound.
-
-If the delete action fails, display an error [Toast](../components/toast) that explains what went wrong and how to try again.
-
-## Starter kits
-
-### CodeSandbox
-
-Coming soon
-
-### Sketch
-
-Coming soon
-
-</content>
-
-</contentwrapper>

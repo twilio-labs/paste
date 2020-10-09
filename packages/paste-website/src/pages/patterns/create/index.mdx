@@ -1,11 +1,12 @@
 ---
-title: Create patterns
+title: Create
 description: Use these patterns to allow a user to generate a new object.
 slug: /patterns/create/
 ---
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
+import {Breadcrumb, BreadcrumbItem} from '../../../components/breadcrumb';
 import {Box} from '@twilio-paste/box';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Card} from '@twilio-paste/card';
@@ -34,8 +35,11 @@ export const pageQuery = graphql`
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
-
+<Breadcrumb>
+  <BreadcrumbItem to="/">Home</BreadcrumbItem>
+  <BreadcrumbItem to="/patterns">Patterns</BreadcrumbItem>
+</Breadcrumb>
+<Heading as="h1" variant="heading10">{props.pageContext.frontmatter.title}</Heading>
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
 <Box as="dl" display="flex">
@@ -108,10 +112,14 @@ export const pageQuery = graphql`
 </Grid>
 
 ```jsx
-import {Button} from '@twilio-paste/button';
-import {Anchor} from '@twilio-paste/anchor';
-import {Menu} from '@twilio-paste/menu';
-import {Toast} from '@twilio-paste/toast';
+// import all ingredients for the create patterns
+
+import {​
+  Button,
+  Anchor,
+  Menu,
+  Toast
+} from '@twilio-paste/core
 ```
 
 ## Usage
@@ -127,7 +135,7 @@ The create action should:
 
 ### Accessibility
 
-Whenever possible, use an anchor if the create action will take the user to a new page, and in all other cases, use a button. [Learn more](/components/button/#button-vs-anchor-link) about why this is important for the user experience.
+Use an anchor if the create action will take the user to a new page, and in all other cases, use a button. There is more information on how this works in practice in the [anchor](#anchor) variant of the create pattern.
 
 ## Variations
 
@@ -140,7 +148,7 @@ The create action is placed at the top right of the area where the object will a
 ![Sample layer groups](../../../assets/images/patterns/create-standard.png)
 
 <Box marginBottom="space80">
-  <Disclosure>
+  <Disclosure variant="contained">
     <DisclosureHeading as="h5" variant="heading50">
       Show live example
     </DisclosureHeading>
@@ -159,7 +167,7 @@ Sometimes, the decision the user needs to make at this stage will be too complex
 ![Sample layer groups](../../../assets/images/patterns/create-multi-option.png)
 
 <Box marginBottom="space80">
-  <Disclosure>
+  <Disclosure variant="contained">
     <DisclosureHeading as="h5" variant="heading50">
       Show live example
     </DisclosureHeading>
@@ -176,7 +184,24 @@ If clicking the create action will take the user to a new page, use an anchor, b
 ![Sample layer groups](../../../assets/images/patterns/create-anchor.png)
 
 <Box marginBottom="space80">
-  <Disclosure>
+  <Disclosure variant="contained">
+    <DisclosureHeading as="h5" variant="heading50">
+      Show live example
+    </DisclosureHeading>
+    <DisclosureContent>
+      Coming soon!
+    </DisclosureContent>
+  </Disclosure>
+</Box>
+
+If you find that, through usability testing, the anchor style does not give the create action enough visual prominence, you can use an anchor styled as a button instead. **Only do this in cases where using the anchor style hinders the usability of the feature**, as styling an anchor as a button comes with [accessibility trade-offs](https://marcysutton.com/links-vs-buttons-in-modern-web-applications).
+
+When using an anchor styled as a button, consider adding an arrow icon to offer some affordance that the button will navigate the user to a new page. Also, ensure to add the `as="a"` prop to the button component so that it is rendered as an anchor semantically, while maintaining button styling.
+
+![Sample layer groups](../../../assets/images/patterns/create-anchor-as-button.png)
+
+<Box marginBottom="space80">
+  <Disclosure variant="contained">
     <DisclosureHeading as="h5" variant="heading50">
       Show live example
     </DisclosureHeading>
@@ -193,7 +218,7 @@ When a single page includes multiple, separate create actions that are separated
 ![Sample layer groups](../../../assets/images/patterns/create-sub-section.png)
 
 <Box marginBottom="space80">
-  <Disclosure>
+  <Disclosure variant="contained">
     <DisclosureHeading as="h5" variant="heading50">
       Show live example
     </DisclosureHeading>
@@ -211,7 +236,9 @@ If the user has not yet created any instances of this object, they should see an
 
 After the user has created a new object, navigate them either back to the index page, where they can see a list of all objects, or to the individual object detail page (whichever makes most sense for the given user flow), and show a success [Toast](../components/toast) informing them that the object has successfully been created.
 
-If the create action fails, display an error [Toast](../components/toast) that explains what went wrong and how to try again.
+If the create action fails, keep the modal open and display an error [Toast](../components/toast) that explains what went wrong and how to try again.
+
+For more information, check out our [notification and feedback patterns](/patterns/notifications).
 
 ## Starter kits
 

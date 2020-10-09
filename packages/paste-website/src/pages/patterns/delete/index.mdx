@@ -1,5 +1,5 @@
 ---
-title: Delete patterns
+title: Delete
 description: Use these patterns to allow a user to destroy an object.
 slug: /patterns/delete/
 ---
@@ -7,6 +7,7 @@ slug: /patterns/delete/
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Breadcrumb, BreadcrumbItem} from '../../../components/breadcrumb';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Card} from '@twilio-paste/card';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
@@ -34,8 +35,11 @@ export const pageQuery = graphql`
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
-
+<Breadcrumb>
+  <BreadcrumbItem to="/">Home</BreadcrumbItem>
+  <BreadcrumbItem to="/patterns">Patterns</BreadcrumbItem>
+</Breadcrumb>
+<Heading as="h1" variant="heading10">{props.pageContext.frontmatter.title}</Heading>
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
 <Box as="dl" display="flex">
@@ -108,10 +112,14 @@ export const pageQuery = graphql`
 </Grid>
 
 ```jsx
-import {Button} from '@twilio-paste/button';
-import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
-import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
-import {Toast} from '@twilio-paste/toast';
+// import all ingredients for the delete patterns
+
+import {​
+  Button,
+  Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading,
+  Input, Label, HelpText,
+  Toast
+} from '@twilio-paste/core
 ```
 
 ## Usage
@@ -143,7 +151,7 @@ For medium-severity deletions, show a confirmation modal that explains what is b
 ![Sample layer groups](../../../assets/images/patterns/delete-medium-severity.png)
 
 <Box marginBottom="space80">
-  <Disclosure>
+  <Disclosure variant="contained">
     <DisclosureHeading as="h5" variant="heading50">
       Show live example
     </DisclosureHeading>
@@ -162,7 +170,7 @@ For high-severity deletions, show a confirmation modal that explains the what is
 ![Sample layer groups](../../../assets/images/patterns/delete-high-severity.png)
 
 <Box marginBottom="space80">
-  <Disclosure>
+  <Disclosure variant="contained">
     <DisclosureHeading as="h5" variant="heading50">
       Show live example
     </DisclosureHeading>
@@ -176,7 +184,9 @@ For high-severity deletions, show a confirmation modal that explains the what is
 
 After the user has deleted the object, navigate them to the index page, where they can see a list of all remaining objects, and show a success [Toast](../components/toast) informing them that the object has successfully been deleted. If it is possible to undo the deletion, give the user the option to do so, and tell them how long they have to undo the deletion if it is time-bound.
 
-If the delete action fails, display an error [Toast](../components/toast) that explains what went wrong and how to try again.
+If the create action fails, keep the modal open and display an error [Toast](../components/toast) that explains what went wrong and how to try again.
+
+For more information, check out our [notification and feedback patterns](/patterns/notifications).
 
 ## Starter kits
 
