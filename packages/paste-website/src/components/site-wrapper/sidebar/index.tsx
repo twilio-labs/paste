@@ -1,38 +1,28 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {styled} from '@twilio-paste/styling-library';
-import {SidebarHeader} from './SidebarHeader';
 import {SidebarNavigation} from './SidebarNavigation';
-import {SIDEBAR_WIDTH} from '../../../constants';
-import {getMainContentComputedOffset} from '../../../utils/stickyUtils';
-import {SiteBodyContext} from '../SiteBodyContext';
+import {ContactUsMenu} from '../../ContactUsMenu';
+import {STICKY_SIDEBAR_OFFSET} from '../../../constants';
 
-interface SideBarProps {
-  isPasteTheme: boolean;
-}
-
-const StyledSidebar = styled(Box)<SideBarProps>(({isPasteTheme}) => ({
-  height: `calc(100vh - ${getMainContentComputedOffset(isPasteTheme)}px)`,
-  width: SIDEBAR_WIDTH,
+const StyledSidebar = styled(Box)(() => ({
+  height: `calc(100vh - ${STICKY_SIDEBAR_OFFSET}px)`,
   WebkitOverflowScrolling: 'touch',
 }));
 
 const Sidebar: React.FC = () => {
-  const {isPasteTheme} = React.useContext(SiteBodyContext);
   return (
     <StyledSidebar
       backgroundColor="colorBackground"
-      isPasteTheme={isPasteTheme}
-      paddingTop="space70"
-      paddingRight="space40"
-      paddingBottom="space70"
-      paddingLeft="space40"
-      overflow="auto"
       position="sticky"
-      top={`${getMainContentComputedOffset(isPasteTheme)}px`}
+      top={`${STICKY_SIDEBAR_OFFSET}px`}
+      width="sizeSidebar"
+      display="flex"
+      flexDirection="column"
+      zIndex="zIndex10"
     >
-      <SidebarHeader siteTitle="Paste" siteSubTitle="Design System" />
       <SidebarNavigation />
+      <ContactUsMenu />
     </StyledSidebar>
   );
 };

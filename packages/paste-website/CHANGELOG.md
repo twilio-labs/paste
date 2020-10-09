@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.12.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.11.0...@twilio-paste/website@2.12.0) (2020-10-07)
+
+
+### Features
+
+* **website:** full width and inverse header ([b7a02d5](https://github.com/twilio-labs/paste/commit/b7a02d57560adac66c0ab80451e8c7b5b48c430e))
+
+
+
+
+
 # [2.11.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.10.6...@twilio-paste/website@2.11.0) (2020-10-07)
 
 

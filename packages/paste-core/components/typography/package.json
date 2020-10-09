@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/typography",
-  "version": "1.0.79",
+  "version": "1.0.80",
   "category": "typography",
   "status": "alpha",
   "description": "Twilio's Typography component",
@@ -27,27 +27,27 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@twilio-paste/heading": "^2.0.44",
-    "@twilio-paste/list": "^0.2.44",
-    "@twilio-paste/paragraph": "^1.1.45"
+    "@twilio-paste/heading": "^2.0.45",
+    "@twilio-paste/list": "^0.2.45",
+    "@twilio-paste/paragraph": "^1.1.46"
   },
   "peerDependencies": {
-    "@twilio-paste/design-tokens": "^6.3.3",
-    "@twilio-paste/style-props": "^1.8.2",
+    "@twilio-paste/design-tokens": "^6.3.4",
+    "@twilio-paste/style-props": "^1.8.3",
     "@twilio-paste/styling-library": "^0.1.2",
-    "@twilio-paste/text": "^2.3.9",
-    "@twilio-paste/theme": "^3.2.23",
-    "@twilio-paste/types": "^3.0.25",
+    "@twilio-paste/text": "^2.3.10",
+    "@twilio-paste/theme": "^3.2.24",
+    "@twilio-paste/types": "^3.0.26",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/design-tokens": "^6.3.3",
-    "@twilio-paste/style-props": "^1.8.2",
+    "@twilio-paste/design-tokens": "^6.3.4",
+    "@twilio-paste/style-props": "^1.8.3",
     "@twilio-paste/styling-library": "^0.1.2",
-    "@twilio-paste/text": "^2.3.9",
-    "@twilio-paste/theme": "^3.2.23",
-    "@twilio-paste/types": "^3.0.25"
+    "@twilio-paste/text": "^2.3.10",
+    "@twilio-paste/theme": "^3.2.24",
+    "@twilio-paste/types": "^3.0.26"
   }
 }

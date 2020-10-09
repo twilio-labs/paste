@@ -1,10 +1,12 @@
 import * as React from 'react';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
+import {Box} from '@twilio-paste/box';
 import {Menu, MenuButton, MenuItem, useMenuState} from '@twilio-paste/menu';
-import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
+import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
+import {ProductSupportIcon} from '@twilio-paste/icons/esm/ProductSupportIcon';
 
 export const ContactUsMenu: React.FC<{}> = () => {
-  const menu = useMenuState();
+  const menu = useMenuState({placement: 'right-end'});
 
   const handleClick = (category: string, label: string): void => {
     menu.hide();
@@ -16,9 +18,17 @@ export const ContactUsMenu: React.FC<{}> = () => {
   };
 
   return (
-    <>
-      <MenuButton {...menu} variant="link">
-        Contact us <ChevronDownIcon decorative />
+    <Box backgroundColor="colorBackground" marginTop="auto" padding="space20" paddingBottom="space70">
+      <MenuButton {...menu} variant="reset" size="reset" fullWidth>
+        <Box as="span" display="flex" alignItems="center" padding="space40" width="100%">
+          <ProductSupportIcon decorative />
+          <Box as="span" marginLeft="space30" textAlign="left">
+            Contact us
+          </Box>
+          <Box as="span" marginLeft="auto">
+            <MoreIcon decorative />
+          </Box>
+        </Box>
       </MenuButton>
       <Menu {...menu} aria-label="Contact us">
         <MenuItem
@@ -43,6 +53,6 @@ export const ContactUsMenu: React.FC<{}> = () => {
           Report a bug
         </MenuItem>
       </Menu>
-    </>
+    </Box>
   );
 };

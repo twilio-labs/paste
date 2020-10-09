@@ -81,7 +81,7 @@ const handlePropValidation = ({as, href, tabIndex, variant, size, fullWidth, chi
   }
 };
 
-const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, showLoading}) => {
+const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, showLoading, variant}) => {
   return (
     <>
       <Box
@@ -90,7 +90,7 @@ const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, s
         textDecoration="inherit"
         opacity={buttonState === 'loading' ? '0' : '1'}
         aria-hidden={buttonState === 'loading' ? 'true' : 'false'}
-        justifyContent="center"
+        justifyContent={variant === 'reset' ? null : 'center'}
       >
         {React.Children.count(children) > 1 ? (
           <Stack as="span" orientation="horizontal" spacing="space20">
@@ -169,7 +169,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => 
       style={undefined}
       ref={ref}
     >
-      <ButtonContents buttonState={buttonState} showLoading={showLoading}>
+      <ButtonContents buttonState={buttonState} showLoading={showLoading} variant={variant}>
         {children}
       </ButtonContents>
     </ButtonComponent>
