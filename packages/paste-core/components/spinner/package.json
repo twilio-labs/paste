@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/spinner",
-  "version": "2.0.22",
+  "version": "2.0.23",
   "category": "feedback",
   "status": "production",
   "description": "Twilio's Spinner component",
@@ -30,7 +30,7 @@
   "peerDependencies": {
     "@twilio-paste/box": "^2.11.3",
     "@twilio-paste/design-tokens": "^6.3.4",
-    "@twilio-paste/icons": "^3.5.8",
+    "@twilio-paste/icons": "^3.6.0",
     "@twilio-paste/style-props": "^1.8.3",
     "@twilio-paste/styling-library": "^0.1.2",
     "@twilio-paste/theme": "^3.2.24",
@@ -43,7 +43,7 @@
   "devDependencies": {
     "@twilio-paste/box": "^2.11.3",
     "@twilio-paste/design-tokens": "^6.3.4",
-    "@twilio-paste/icons": "^3.5.8",
+    "@twilio-paste/icons": "^3.6.0",
     "@twilio-paste/style-props": "^1.8.3",
     "@twilio-paste/styling-library": "^0.1.2",
     "@twilio-paste/theme": "^3.2.24",

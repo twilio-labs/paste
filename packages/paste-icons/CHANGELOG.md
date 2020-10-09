@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.6.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.5.8...@twilio-paste/icons@3.6.0) (2020-10-09)
+
+
+### Features
+
+* **icons:** add TwiML Bins product icon ([#832](https://github.com/twilio-labs/paste/issues/832)) ([3b21309](https://github.com/twilio-labs/paste/commit/3b213099868be0d12435d00931be7523ea9f14ce))
+
+
+
+
+
 ## [3.5.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.5.7...@twilio-paste/icons@3.5.8) (2020-10-07)
 
 **Note:** Version bump only for package @twilio-paste/icons

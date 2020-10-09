@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/tooltip@0.3.9...@twilio-paste/tooltip@0.3.10) (2020-10-09)
+
+**Note:** Version bump only for package @twilio-paste/tooltip
+
+
+
+
+
 ## [0.3.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/tooltip@0.3.8...@twilio-paste/tooltip@0.3.9) (2020-10-07)
 
 **Note:** Version bump only for package @twilio-paste/tooltip
