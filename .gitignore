@@ -78,3 +78,7 @@ packages/**/docs
 package-lock.json
 tools/.cache/packages.json
 docs
+
+# Cypress
+cypress/videos
+cypress/screenshots

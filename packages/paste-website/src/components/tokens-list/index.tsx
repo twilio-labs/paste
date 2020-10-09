@@ -149,6 +149,7 @@ export const TokensList: React.FC<TokensListProps> = props => {
           placeholder="filter by name or value"
           type="text"
           value={filterString}
+          name="tokens-filter"
         />
       </Box>
       {tokens != null &&
