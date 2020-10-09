@@ -136,7 +136,11 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <SidebarAnchor to="/">Home</SidebarAnchor>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...gettingStartedDisclosure}>
+          <DisclosurePrimitive
+            as={SidebarDisclosureButton}
+            {...gettingStartedDisclosure}
+            data-cy="getting-started-button"
+          >
             Getting Started
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...gettingStartedDisclosure}>
@@ -173,7 +177,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <SidebarAnchor to="/principles">Principles</SidebarAnchor>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...tokensDisclosure}>
+          <DisclosurePrimitive as={SidebarDisclosureButton} {...tokensDisclosure} data-cy="design-tokens-button">
             Design Tokens
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...tokensDisclosure}>
@@ -202,7 +206,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...componentsDisclosure}>
+          <DisclosurePrimitive as={SidebarDisclosureButton} {...componentsDisclosure} data-cy="components-button">
             Components
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...componentsDisclosure}>
@@ -228,7 +232,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...primitivesDisclosure}>
+          <DisclosurePrimitive as={SidebarDisclosureButton} {...primitivesDisclosure} data-cy="primitives-button">
             Primitives
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...primitivesDisclosure}>
@@ -256,7 +260,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...layoutDisclosure}>
+          <DisclosurePrimitive as={SidebarDisclosureButton} {...layoutDisclosure} data-cy="layout-button">
             Layout
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...layoutDisclosure}>
@@ -281,7 +285,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...iconDisclosure}>
+          <DisclosurePrimitive as={SidebarDisclosureButton} {...iconDisclosure} data-cy="icons-button">
             Icons
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...iconDisclosure}>
@@ -308,7 +312,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <SidebarAnchor to="/illustrations">Illustrations</SidebarAnchor>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...contentDisclosure}>
+          <DisclosurePrimitive as={SidebarDisclosureButton} {...contentDisclosure} data-cy="content-button">
             Content
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...contentDisclosure}>
