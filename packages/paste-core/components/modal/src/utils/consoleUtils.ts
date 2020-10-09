@@ -37,9 +37,9 @@ export function removeConsoleHeightPatch(): void {
   const SIDEBAR_WRAPPER = document.querySelector('#sidebar-wrapper') as HTMLElement;
 
   if (CONTENT_WRAPPER != null) {
-    CONTENT_WRAPPER.style.marginTop = '';
+    CONTENT_WRAPPER.style.removeProperty('margin-top');
   }
   if (SIDEBAR_WRAPPER != null) {
-    SIDEBAR_WRAPPER.style.marginTop = '';
+    SIDEBAR_WRAPPER.style.removeProperty('margin-top');
   }
 }

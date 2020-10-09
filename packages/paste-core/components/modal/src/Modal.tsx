@@ -94,23 +94,23 @@ const Modal: React.FC<ModalProps> = ({
   initialFocusRef,
   ariaLabelledby,
   size,
-  // eslint-disable-next-line @typescript-eslint/camelcase
+  /* eslint-disable @typescript-eslint/camelcase */
   __console_patch = false,
   ...props
 }) => {
   const transitions = useTransition(isOpen, getAnimationStates(__console_patch));
 
   React.useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/camelcase
-    if (__console_patch) {
-      if (isOpen) {
-        addConsoleHeightPatch();
-      } else {
+    if (__console_patch && isOpen) {
+      addConsoleHeightPatch();
+    }
+    return () => {
+      if (__console_patch) {
         removeConsoleHeightPatch();
       }
-    }
-    // eslint-disable-next-line @typescript-eslint/camelcase
+    };
   }, [isOpen, __console_patch]);
+  /* eslint-enable @typescript-eslint/camelcase */
 
   return (
     <ModalContext.Provider value={{onDismiss}}>
