@@ -8,6 +8,7 @@ import {graphql} from 'gatsby';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Breadcrumb, BreadcrumbItem} from '../../../components/breadcrumb';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Card} from '@twilio-paste/card';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
@@ -37,8 +38,11 @@ export const pageQuery = graphql`
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
-
+<Breadcrumb>
+  <BreadcrumbItem to="/">Home</BreadcrumbItem>
+  <BreadcrumbItem to="/patterns">Patterns</BreadcrumbItem>
+</Breadcrumb>
+<Heading as="h1" variant="heading10">{props.pageContext.frontmatter.title}</Heading>
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
 <Box as="dl" display="flex">
@@ -182,7 +186,7 @@ To structure a page:
 
 ### Standard details
 
-The most common way to structure an object details page is to first show an overview of properties in a description list, followed by more detailed content sections. Properties should be left-aligned, and property labels and values should be horizontally placed.
+The most common way to structure an object details page is to first show an overview of properties in a description list, followed by more detailed content sections. Properties should be left-aligned, and property labels and values should be vertically placed.
 
 <Callout>
   <CalloutTitle>
@@ -228,7 +232,7 @@ The most common way to structure an object details page is to first show an over
   </CalloutText>
 </Callout>
 
-![Modal congratulating a user at the end of a Modal flow](../../../assets/images/patterns/notifications-modal@3x.png)
+![Screen of message details and list of properties](../../../assets/images/patterns/object-details-standard@3x.png)
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">
@@ -247,11 +251,7 @@ While this might be the most common structure for object details, use customer r
 
 For example, when viewing the details of a sent email campaign, a customer may want to quickly see how well their campaign has been performing over time. In this case, placing a group of stats cards and a chart first may be most appropriate.
 
-### Horizontal details
-
-Something something vertical space
-
-![Modal congratulating a user at the end of a Modal flow](../../../assets/images/patterns/notifications-modal@3x.png)
+![Screen of email campaign details showing a chart first](../../../assets/images/patterns/object-details-standard-reordered@3x.png)
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">
@@ -268,7 +268,7 @@ Something something vertical space
 
 When you find that customers want to see multiple, top-level content sections, separate them with [Tabs](../components/tabs).
 
-![Modal congratulating a user at the end of a Modal flow](../../../assets/images/patterns/notifications-modal@3x.png)
+![Screen of call details with tabs and list of properties](../../../assets/images/patterns/object-details-tabbed@3x.png)
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">

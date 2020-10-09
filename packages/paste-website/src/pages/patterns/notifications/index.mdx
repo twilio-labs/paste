@@ -8,6 +8,7 @@ import {graphql} from 'gatsby';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Breadcrumb, BreadcrumbItem} from '../../../components/breadcrumb';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Card} from '@twilio-paste/card';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
@@ -41,8 +42,11 @@ export const pageQuery = graphql`
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
-
+<Breadcrumb>
+  <BreadcrumbItem to="/">Home</BreadcrumbItem>
+  <BreadcrumbItem to="/patterns">Patterns</BreadcrumbItem>
+</Breadcrumb>
+<Heading as="h1" variant="heading10">{props.pageContext.frontmatter.title}</Heading>
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
 <Box as="dl" display="flex">
@@ -164,7 +168,7 @@ Too many notifications that appear for too long may lead to alert fatigue, causi
 
 There are 3 levels of notifications and feedback:
 
-- **System-level notifications:** Information that’s not triggered by a user action and is related to system issues.
+- **System-initiated notifications:** Information that’s not triggered by a user action and is related to system issues.
 - **Feedback indicators:** Acknowledgment of a user action, like submitting a form or pressing a “Copy code” button.
 - **Notification centers and reminders:** Currently, these are highly specific to products’ business needs and should be treated as a product feature, rather than a pattern. While the implementation of a notification center might use Paste components, guidelines specific to a notification center won’t be covered in this page.
 
@@ -192,7 +196,7 @@ Visit the [Alert](../components/alert), [Modal](../components/modal), [Form elem
 
 ## Notification and feedback levels
 
-### System-level notifications
+### System-initiated notifications
 
 To communicate information from the system that isn't triggered by a user action, use an **[alert](../components/alert)**, especially for high-priority or time-sensitive changes to the system.
 
@@ -231,7 +235,7 @@ Use a Toast when
   </CalloutTitle>
   <CalloutText>
     <Paragraph>
-      While the recommendation is to migrate to Paste Toast components when possible to acknowledge user actions, Flex and SendGrid currently use banners for this purpose.
+      While the recommendation is to migrate to Paste Toast components to acknowledge user actions, Flex and SendGrid currently use banners for this purpose.
     </Paragraph>
     <Paragraph>
       These banners generally exist at the top of the page, especially for page-level actions, with a limit of 3 per page. The oldest one is removed when a new one displays. In Flex, banners may be placed at the top of a specific section where the action was taken.
@@ -245,7 +249,7 @@ Use a Modal when
 
 - You’re interrupting a user flow.
 - You’re focusing a user’s attention and confirming a definitive action at the end of a Modal flow.
-- You’re providing multiple links or buttons to help a user continue a flow.
+- You’re providing lengthy text, multiple links, or multiple buttons to help a user continue a flow.
 
 ![Modal congratulating a user at the end of a Modal flow](../../../assets/images/patterns/notifications-modal@3x.png)
 
@@ -310,6 +314,10 @@ Coming soon
 ### Sketch
 
 Coming soon
+
+## Discussions
+
+- [Thoughts on expanded size variants for <Toast /\>](https://github.com/twilio-labs/paste/discussions/834)
 
 </content>
 
