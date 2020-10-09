@@ -63,7 +63,7 @@ export const pageQuery = graphql`
 <Callout variant="warning">
   <CalloutTitle>This is a proof of concept, and we need your feedback!</CalloutTitle>
   <CalloutText>
-    We've created a few alpha patterns as a proof of concept to collect feedback. If you have thoughts on this particular pattern, or on the documentation of patterns as a whole, please <Anchor href="https://forms.gle/BzeekGGXd2uL6U7Z9">let us know</Anchor>! We need your feedback to make our patterns better.
+    We've created a few alpha patterns as a proof of concept to collect feedback. If you have thoughts on this particular pattern, or on the documentation of patterns as a whole, please <Anchor href="https://forms.gle/BzeekGGXd2uL6U7Z9" showExternal>let us know</Anchor>! We need your feedback to make our patterns better.
   </CalloutText>
 </Callout>
 
@@ -86,14 +86,14 @@ Each notification or feedback pattern uses one or more of these components.
     <Stack orientation="vertical" spacing="space50">
       <Card>
         <Heading as="h3" variant="heading40" marginBottom="space0">
-          <Anchor href="../components/alert">
+          <Anchor href="/components/alert">
             Alert
           </Anchor>
         </Heading>
       </Card>
       <Card>
         <Heading as="h3" variant="heading40" marginBottom="space0">
-          <Anchor href="../components/toast">
+          <Anchor href="/components/toast">
             Toast
           </Anchor>
         </Heading>
@@ -104,14 +104,14 @@ Each notification or feedback pattern uses one or more of these components.
     <Stack orientation="vertical" spacing="space50">
       <Card>
         <Heading as="h3" variant="heading40" marginBottom="space0">
-          <Anchor href="../form-elements/input/#input-with-inline-error">
+          <Anchor href="/form-elements/input/#input-with-inline-error">
             Inline error on form fields
           </Anchor>
         </Heading>
       </Card>
       <Card>
         <Heading as="h3" variant="heading40" marginBottom="space0">
-          <Anchor href="../components/modal">
+          <Anchor href="/components/modal">
             Modal
           </Anchor>
         </Heading>
@@ -125,15 +125,15 @@ Each notification or feedback pattern uses one or more of these components.
       </Heading>
       <Paragraph marginBottom="space0">
         Create a composition with{' '}
-        <Anchor href="../components/card">
+        <Anchor href="/components/card">
           Card
         </Anchor>
         ,{' '} 
-        <Anchor href="../components/heading">
+        <Anchor href="/components/heading">
           Heading
         </Anchor>
         , and{' '}
-        <Anchor href="../components/paragraph">
+        <Anchor href="/components/paragraph">
           Paragraph
         </Anchor> 
         {' '}for in-page messaging.
@@ -192,13 +192,13 @@ Notifications and feedback can come in 4 variants:
 
 Give users enough time to read a notification message, make a decision, and act on their decision. Users’ reading speeds, vision levels, literacy levels, dexterity, and familiarity with Twilio products can all affect how much time they’ll need to interact with a notification.
 
-Visit the [Alert](../components/alert), [Modal](../components/modal), [Form element](../form-elements/input), and [Toast](../components/toast) pages for more specific guidelines on how to implement each component accessibly.
+Visit the [Alert](/components/alert), [Modal](/components/modal), [Form element](/form-elements/input), and [Toast](/components/toast) pages for more specific guidelines on how to implement each component accessibly.
 
 ## Notification and feedback levels
 
 ### System-initiated notifications
 
-To communicate information from the system that isn't triggered by a user action, use an **[alert](../components/alert)**, especially for high-priority or time-sensitive changes to the system.
+To communicate information from the system that isn't triggered by a user action, use an **[alert](/components/alert)**, especially for high-priority or time-sensitive changes to the system.
 
 ![Screen with alert informing users of a server error](../../../assets/images/patterns/notifications-alert@3x.png)
 
@@ -215,7 +215,7 @@ To communicate information from the system that isn't triggered by a user action
 
 ### Feedback indicators
 
-To communicate feedback on a user action, use a **[toast](../components/toast)**, **[modal](../components/modal)**, **inline messaging**, and/or **in-page messaging** (e.g., full-page confirmation).
+To communicate feedback on a user action, use a **[toast](/components/toast)**, **[modal](/components/modal)**, **inline messaging**, and/or **in-page messaging** (e.g., full-page confirmation).
 
 While you’ll only need one type of feedback indicator in most cases, pairing 2 feedback indicators can help give users more clarity in completing a complex flow. For example, when a user submits a long form with errors, you can show an error toast that lets users know they need to fix a form, while also showing inline errors on each incorrect field.
 
