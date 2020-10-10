@@ -2,6 +2,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {LiveProvider, LiveEditor, LiveError, LivePreview as ReactLivePreview} from 'react-live';
+import {useTheme} from '@twilio-paste/theme';
 import {CodeblockTheme} from './theme';
 import {Language} from '../../codeblock';
 
@@ -21,6 +22,7 @@ const LivePreview: React.FC<CodeblockProps> = ({
   disabled = false,
   noInline = false,
 }) => {
+  const pasteTheme = useTheme();
   return (
     <Box marginBottom="space110">
       <LiveProvider
@@ -50,8 +52,9 @@ const LivePreview: React.FC<CodeblockProps> = ({
           css={{padding: '2px 10px', backgroundColor: '#011627'}}
           borderBottomLeftRadius="borderRadius20"
           borderBottomRightRadius="borderRadius20"
+          fontSize="fontSize20"
         >
-          <LiveEditor />
+          <LiveEditor style={{fontFamily: pasteTheme.fonts.fontFamilyCode}} />
         </Box>
         <LiveError />
       </LiveProvider>
