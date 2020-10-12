@@ -16,12 +16,14 @@ export const useActiveSiteTheme = (): ActiveSiteThemeContextProps => {
   return context;
 };
 
-const getThemeFromWindow = (): ThemeVariants => {
-  let theme: ThemeVariants;
-  if (typeof window !== 'undefined' && window.localStorage.getItem('paste_theme') !== null) {
-    theme = window.localStorage.getItem('paste_theme') as ThemeVariants;
-  } else {
-    theme = ThemeVariants.CONSOLE as ThemeVariants;
+export const getThemeFromWindow = (): ThemeVariants => {
+  let theme = ThemeVariants.CONSOLE as ThemeVariants;
+  if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined') {
+    if (window.localStorage.getItem('paste_theme') !== null) {
+      theme = window.localStorage.getItem('paste_theme') as ThemeVariants;
+    } else {
+      window.localStorage.setItem('paste_theme', ThemeVariants.CONSOLE);
+    }
   }
   return theme;
 };
@@ -31,7 +33,9 @@ export const ActiveSiteThemeProvider: React.FunctionComponent<{}> = (props: {}):
 
   const handleThemeChange = (newTheme: ThemeVariants): void => {
     setTheme(newTheme);
-    window.localStorage.setItem('paste_theme', newTheme);
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem('paste_theme', newTheme);
+    }
   };
 
   return (

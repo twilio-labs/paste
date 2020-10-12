@@ -5,7 +5,7 @@ import {useUID} from 'react-uid';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {ThemeVariants} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
-import {useActiveSiteTheme} from '../context/ActiveSiteThemeContext';
+import {useActiveSiteTheme, getThemeFromWindow} from '../context/ActiveSiteThemeContext';
 
 interface ThemeSwitcherProps {
   children?: React.ReactElement;
@@ -43,12 +43,21 @@ const StyledThemeSwitcherRadio = styled.input({
 export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
   const {theme, updateActiveSiteTheme} = useActiveSiteTheme();
 
+  const consoleID = useUID();
+  const pasteID = useUID();
+
+  const [hasMounted, setHasMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setHasMounted(true);
+  }, []);
+  if (!hasMounted) {
+    return null;
+  }
+
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = event => {
     updateActiveSiteTheme(event.currentTarget.value as ThemeVariants);
   };
-
-  const consoleID = useUID();
-  const pasteID = useUID();
 
   return (
     <Box
