@@ -16,7 +16,7 @@ export const useActiveSiteTheme = (): ActiveSiteThemeContextProps => {
   return context;
 };
 
-export const getThemeFromWindow = (): ThemeVariants => {
+const getThemeFromWindow = (): ThemeVariants => {
   let theme = ThemeVariants.CONSOLE as ThemeVariants;
   if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined') {
     if (window.localStorage.getItem('paste_theme') !== null) {

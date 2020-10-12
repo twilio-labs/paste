@@ -5,7 +5,7 @@ import {useUID} from 'react-uid';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {ThemeVariants} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
-import {useActiveSiteTheme, getThemeFromWindow} from '../context/ActiveSiteThemeContext';
+import {useActiveSiteTheme} from '../context/ActiveSiteThemeContext';
 
 interface ThemeSwitcherProps {
   children?: React.ReactElement;
