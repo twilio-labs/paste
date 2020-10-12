@@ -14,17 +14,26 @@ const getPresets = isDev => [
   ],
 ];
 
-const BASE_PLUGINS = ['macros', '@babel/proposal-class-properties', '@babel/proposal-object-rest-spread'];
+const BASE_PLUGINS = [
+  '@babel/plugin-transform-runtime',
+  'macros',
+  '@babel/proposal-class-properties',
+  '@babel/proposal-object-rest-spread',
+];
 
-module.exports = {
-  env: {
-    production: {
-      presets: getPresets(false),
-      plugins: BASE_PLUGINS,
+module.exports = function babelConfig(api) {
+  api.cache(true);
+
+  return {
+    env: {
+      production: {
+        presets: getPresets(false),
+        plugins: BASE_PLUGINS,
+      },
+      development: {
+        presets: getPresets(true),
+        plugins: BASE_PLUGINS,
+      },
     },
-    development: {
-      presets: getPresets(true),
-      plugins: BASE_PLUGINS,
-    },
-  },
+  };
 };

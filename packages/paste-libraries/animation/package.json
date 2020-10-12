@@ -18,11 +18,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn clean && yarn compile",
-    "build:dev": "yarn clean && yarn compile:dev",
-    "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
-    "compile": "rollup -c --environment NODE_ENV:production",
-    "compile:dev": "rollup -c --environment NODE_ENV:development",
+    "build": "yarn clean && rollup -c --environment NODE_ENV:production && yarn build:types",
+    "build:dev": "yarn clean && rollup -c --environment NODE_ENV:development && yarn build:types",
+    "build:types": "tsc --emitDeclarationOnly",
+    "clean": "rm -rf ./dist && rm -rf tsconfig.tsbuildinfo && rm -rf .rpt2_cache",
     "prepublishOnly": "yarn build",
     "type-check": "tsc --noEmit"
   },
