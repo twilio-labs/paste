@@ -78,14 +78,14 @@
     "@twilio-paste/tooltip": "^0.3.11",
     "@twilio-paste/tooltip-primitive": "^0.1.6",
     "@twilio-paste/truncate": "^1.0.13",
-    "@twilio-paste/types": "^3.0.27"
+    "@twilio-paste/types": "^3.0.27",
+    "react-uid": "^2.2.0"
   },
   "peerDependencies": {
     "@twilio-paste/icons": "^3.6.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-uid": "^2.2.0"
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "@twilio-paste/icons": "^3.6.1"
