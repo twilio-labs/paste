@@ -99,7 +99,10 @@ async function updatePackageReferences() {
         // eslint-disable-next-line no-console
         console.log(`Contains the following paste peerDependencies: ${pastePeerDependencies}`);
 
-        await updateTsconfigFile(package.location, pastePeerDependencies, packagesList);
+        // NOTE: Core doesn't use the tsconfig.build.json file
+        if (package.name !== '@twilio-paste/core') {
+          await updateTsconfigFile(package.location, pastePeerDependencies, packagesList);
+        }
         await updatePackageDevDependencies(PACKAGE_JSON_PATH, pastePeerDependencies, packageJsonData);
       }
     }

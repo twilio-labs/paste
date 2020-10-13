@@ -5,13 +5,13 @@ const LERNA_CLI_PATH = LERNA_INDEX_PATH.replace('index.js', 'cli.js');
 
 let repoPackages = null;
 
-/* 
+/*
  * Returned Shape
- [{ 
+ [{
     name: '@twilio-paste/icons',
     version: '0.2.0',
     private: false,
-    location: '/.../paste/packages/paste-icons' 
+    location: '/.../paste/packages/paste-icons'
  }, ...]
 */
 async function getRepoPackages() {
