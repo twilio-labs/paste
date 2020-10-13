@@ -1,6 +1,6 @@
 # @twilio-paste/core
 
-One bundle containing every package within paste-core.
+One bundle containing every package within paste except icons.
 
 ## How it works
 
@@ -13,7 +13,9 @@ One bundle containing every package within paste-core.
 
 1- Add them to this package's dependencies.
 2- Add the export lines to the index.tsx file.
+3- Create individual export files in ./dist/ (unbarreled exports, 1 per package)
+4- Create fake packages pointing to the dist file in the root folder of this package (for easier importing)
 
-### When this procedure is triggered
+### When is this procedure is triggered?
 
-This happens automatically during prebuild.
+This happens automatically during prebuild, to guarantee correctness on releases.
