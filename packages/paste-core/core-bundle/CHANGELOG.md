@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@3.0.0...@twilio-paste/core@3.0.1) (2020-10-13)
+
+
+### Bug Fixes
+
+* **core-bundle:** make react-uid a dependency for easier usage ([440237c](https://github.com/twilio-labs/paste/commit/440237c5a31a7acfb51bbffee7274c9ccd386443))
+
+
+
+
+
 # [3.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.18.6...@twilio-paste/core@3.0.0) (2020-10-13)
 
 
