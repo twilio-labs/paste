@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.18.6...@twilio-paste/core@3.0.0) (2020-10-13)
+
+
+### Features
+
+* **core:** provide unbarreled exports ([fca4941](https://github.com/twilio-labs/paste/commit/fca49412c84a32a4605979027902b228741484ce))
+
+
+### BREAKING CHANGES
+
+* **core:** core no longer bundles the '@twilio-paste/form' package.
+
+
+
+
+
 ## [2.18.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.18.5...@twilio-paste/core@2.18.6) (2020-10-09)
 
 **Note:** Version bump only for package @twilio-paste/core
