@@ -85,15 +85,26 @@ const IndexPage: React.FC<{}> = (): React.ReactElement => {
                 <Column span={[12, 12, 9]}>
                   <UnorderedList marginBottom="space0">
                     <ListItem>
+                      The <strong>new design language</strong> is ready for use. Watch our{' '}
+                      <Anchor href="https://www.loom.com/share/f6dcc7314bde4d8da30db270d6792c8c" showExternal>
+                        introduction video
+                      </Anchor>
+                      , and transition guides for{' '}
+                      <Anchor href="https://www.loom.com/share/f52ce8d9fe5147878af449b71163ee96" showExternal>
+                        design
+                      </Anchor>{' '}
+                      and{' '}
+                      <Anchor href="https://www.loom.com/share/968cafc1417d4288906f00636d43bb77" showExternal>
+                        engineering
+                      </Anchor>
+                      .
+                    </ListItem>
+                    <ListItem>
                       The <SiteLink to="/components/toast">Toast component</SiteLink> makes its debut.
                     </ListItem>
                     <ListItem>
                       A 2010 classic, <SiteLink to="/layout/media-object">the Media Object</SiteLink> gets some well
                       deserved attention.
-                    </ListItem>
-                    <ListItem>
-                      Usage guidelines and brand approved illustrations are now documented in our{' '}
-                      <SiteLink to="/illustrations">illustrations section</SiteLink> page
                     </ListItem>
                   </UnorderedList>
                 </Column>

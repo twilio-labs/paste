@@ -11,7 +11,6 @@ import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
 import {ThemeSwitcher} from '../ThemeSwitcher';
 import GithubIcon from '../icons/GithubIcon';
 import {SiteHeaderLogo} from './SiteHeaderLogo';
-import {PSA_ALERT_HEIGHT} from '../../constants';
 
 export const SiteHeader: React.FC = () => {
   const theme = useTheme();
@@ -34,7 +33,7 @@ export const SiteHeader: React.FC = () => {
       alignItems="center"
       backgroundColor="colorBackgroundPrimaryDarkest"
       position="sticky"
-      top={`${PSA_ALERT_HEIGHT}px`}
+      top="0px"
       zIndex="zIndex80"
     >
       <SiteHeaderLogo siteTitle="Paste" siteSubTitle="Design System" />
