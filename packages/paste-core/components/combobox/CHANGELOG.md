@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.4.6...@twilio-paste/combobox@1.4.7) (2020-10-13)
+
+
+### Bug Fixes
+
+* **combobox:** hide chevron if set to autocomplete ([#833](https://github.com/twilio-labs/paste/issues/833)) ([41de665](https://github.com/twilio-labs/paste/commit/41de66566a317e0a282fa4200660ce134739e6b7))
+
+
+
+
+
+## [1.4.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.4.5...@twilio-paste/combobox@1.4.6) (2020-10-13)
+
+**Note:** Version bump only for package @twilio-paste/combobox
+
+
+
+
+
 ## [1.4.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.4.4...@twilio-paste/combobox@1.4.5) (2020-10-09)
 
 **Note:** Version bump only for package @twilio-paste/combobox

@@ -20,10 +20,11 @@ import {RenderGroupItemsProps, RenderItemProps, RenderItemsProps, RenderListBoxP
 const groupBy = require('lodash.groupby');
 
 // Fixes chevron overlapping really long text
+// Extra right padding is removed when autocomplete is true
 /* eslint-disable emotion/syntax-preference */
-const StyledInputAsSelect = styled(InputElement)(
+const StyledInputAsSelect = styled(InputElement)<ComboboxProps>(props =>
   css({
-    paddingRight: 'space100',
+    paddingRight: !props.autocomplete ? 'space100' : null,
   })
 );
 /* eslint-enable */
@@ -232,14 +233,16 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
               {...getToggleButtonProps({tabIndex: 0})}
               {...getInputProps({disabled, ref})}
               {...(!autocomplete ? {onChange: event => event.preventDefault()} : undefined)}
+              autocomplete={autocomplete}
               aria-describedby={helpTextId}
               {...props}
               type="text"
-              paddingRight="space90"
             />
-            <InputChevronWrapper>
-              <ChevronDownIcon aria-hidden="true" decorative color={iconColor} size="sizeIcon30" />
-            </InputChevronWrapper>
+            {!autocomplete && (
+              <InputChevronWrapper>
+                <ChevronDownIcon aria-hidden="true" decorative color={iconColor} size="sizeIcon30" />
+              </InputChevronWrapper>
+            )}
           </ComboboxInputWrapper>
         </InputBox>
         <ComboboxListbox hidden={!isOpen} {...getMenuProps()}>

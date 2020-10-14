@@ -29,6 +29,6 @@ export default {
     babel({
       exclude: 'node_modules/**',
     }),
-    process.env.NODE_ENV === 'production' ? terser() : null,
+    process.env.NODE_ENV === 'production' ? terser({output: {comments: false}}) : null,
   ],
 };

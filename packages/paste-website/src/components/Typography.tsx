@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {styled, themeGet} from '@twilio-paste/styling-library';
 import {Text} from '@twilio-paste/text';
+import {Box} from '@twilio-paste/box';
 
 export interface PProps {
   variant?: 'default' | 'lead';
@@ -20,17 +20,25 @@ export const P: React.FC<PProps> = ({children, variant}) => {
 
 export const Pre: React.FC<{}> = props => {
   return (
-    <Text as="pre" marginBottom="space70" lineHeight="lineHeight20">
+    <Text as="pre" fontSize="fontSize20" marginBottom="space70" lineHeight="lineHeight30">
       {props.children}
     </Text>
   );
 };
 
-export const InlineCode = styled.code<{}>`
-  background-color: ${themeGet('backgroundColors.colorBackground')};
-  border-radius: ${themeGet('radii.borderRadius20')};
-  color: ${themeGet('textColors.colorText')};
-  font-size: ${themeGet('fontSizes.fontSize30')};
-  line-height: ${themeGet('lineHeights.lineHeight20')};
-  padding: ${themeGet('space.space20')} ${themeGet('space.space30')};
-`;
+export const InlineCode: React.FC = props => {
+  return (
+    <Box
+      as="code"
+      backgroundColor="colorBackground"
+      borderRadius="borderRadius20"
+      color="colorText"
+      fontFamily="fontFamilyCode"
+      fontSize="fontSize20"
+      lineHeight="lineHeight20"
+      paddingY="space20"
+      paddingX="space30"
+      {...props}
+    />
+  );
+};

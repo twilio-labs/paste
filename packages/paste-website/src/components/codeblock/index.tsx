@@ -1,12 +1,15 @@
 import * as React from 'react';
 import {styled, themeGet} from '@twilio-paste/styling-library';
 import Highlight, {defaultProps} from 'prism-react-renderer';
-import {CodeblockTheme} from './theme';
+import {CodeblockTheme} from '../shortcodes/live-preview/theme';
 
 const StyledCode = styled.code<{}>(props => ({
   display: 'block',
+  borderRadius: themeGet('radii.borderRadius20')(props),
   height: '100%',
-  fontSize: themeGet('fontSizes.fontSize30')(props),
+  fontFamily: themeGet('fonts.fontFamilyCode')(props),
+  fontSize: 'inherit',
+  lineHeight: themeGet('lineHeights.lineHeight30')(props),
   overflowX: 'auto',
   padding: `${themeGet('space.space40')(props)} ${themeGet('space.space60')(props)}`,
   whiteSpace: 'pre',

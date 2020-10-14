@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs-primitive@0.1.9...@twilio-paste/tabs-primitive@0.1.10) (2020-10-13)
+
+**Note:** Version bump only for package @twilio-paste/tabs-primitive
+
+
+
+
+
 ## [0.1.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs-primitive@0.1.8...@twilio-paste/tabs-primitive@0.1.9) (2020-09-22)
 
 **Note:** Version bump only for package @twilio-paste/tabs-primitive
