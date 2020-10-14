@@ -126,7 +126,18 @@ describe('Checkbox Group', () => {
         <Checkbox {...defaultProps}>foo</Checkbox>
       </CheckboxGroup>
     );
-    expect(getByRole('checkbox').name).toBe('bar');
+    expect(getByRole('checkbox').name).toBe(defaultProps.name);
+  });
+
+  it('should render a disabled checkbox in the checkbox group', () => {
+    const {getByRole} = testRender(
+      <CheckboxGroup {...defaultGroupProps}>
+        <Checkbox {...defaultProps} disabled>
+          foo
+        </Checkbox>
+      </CheckboxGroup>
+    );
+    expect(getByRole('checkbox').disabled).toBeTruthy();
   });
 
   it('renders a helpText message when helpText prop is present', () => {
@@ -178,13 +189,25 @@ describe('Checkbox event handlers', () => {
   });
 
   it('Should check the checkbox', () => {
-    const onChangeMock: jest.Mock = jest.fn();
+    // const onChangeMock: jest.Mock = jest.fn();
+    const MockCheckBox: React.FC<{}> = () => {
+      const [checked, setChecked] = React.useState(false);
+      return (
+        <Checkbox
+          data-testid="checkbox-button"
+          id="foo"
+          name="foo"
+          checked={checked}
+          onChange={event => {
+            setChecked(event.target.checked);
+          }}
+        >
+          foo
+        </Checkbox>
+      );
+    };
 
-    const {getByTestId} = testRender(
-      <Checkbox data-testid="checkbox-button" id="foo" name="foo" onChange={onChangeMock}>
-        foo
-      </Checkbox>
-    );
+    const {getByTestId} = testRender(<MockCheckBox />);
 
     fireEvent.click(getByTestId('checkbox-button'));
     expect(getByTestId('checkbox-button').checked).toBe(true);

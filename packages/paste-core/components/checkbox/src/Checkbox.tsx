@@ -1,8 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {useUID} from '@twilio-paste/uid-library';
-import {styled} from '@twilio-paste/styling-library';
-import {Box} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {BackgroundColorOptions, SpaceOptions} from '@twilio-paste/style-props';
 import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
 import {MinusIcon} from '@twilio-paste/icons/esm/MinusIcon';
@@ -12,34 +11,7 @@ import {
   BaseRadioCheckboxLabelText,
   BaseRadioCheckboxHelpText,
 } from '@twilio-paste/base-radio-checkbox';
-
-/* eslint-disable emotion/syntax-preference */
-const HiddenCheckbox = styled.input({
-  border: '0',
-  clip: 'rect(0 0 0 0)',
-  height: '1px',
-  margin: '-1px',
-  overflow: 'hidden',
-  padding: '0',
-  position: 'absolute',
-  textTransform: 'none',
-  whiteSpace: 'nowrap',
-  width: '1px',
-});
-/* eslint-enable */
-
-const CheckboxIcon: React.FC<{
-  indeterminate: boolean | undefined;
-  disabled: boolean | undefined;
-  checked: boolean | undefined;
-}> = ({disabled, checked, indeterminate}) => {
-  const color = disabled && (checked || indeterminate) ? 'colorTextInverseWeaker' : 'colorTextInverse';
-
-  if (indeterminate) {
-    return <MinusIcon decorative color={color} size="sizeIcon10" />;
-  }
-  return <CheckboxCheckIcon hidden={!checked} decorative color={color} size="sizeIcon10" />;
-};
+import {CheckboxContext} from './CheckboxContext';
 
 export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   children: NonNullable<React.ReactNode>;
@@ -49,14 +21,56 @@ export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElemen
   indeterminate?: boolean;
   isSelectAll?: boolean;
   isSelectAllChild?: boolean;
+  checked?: boolean;
 }
 
+type HiddenCheckboxProps = Pick<
+  CheckboxProps,
+  'checked' | 'disabled' | 'id' | 'indeterminate' | 'name' | 'onChange' | 'value'
+> & {
+  ref?: any | undefined;
+};
+const HiddenCheckbox = React.forwardRef<HTMLInputElement, HiddenCheckboxProps>((props, ref) => (
+  <Box
+    {...props}
+    ref={ref}
+    as="input"
+    type="checkbox"
+    size="size0"
+    border="none"
+    overflow="hidden"
+    padding="space0"
+    margin="space0"
+    whiteSpace="nowrap"
+    textTransform="none"
+    position="absolute"
+    clip="rect(0 0 0 0)"
+  />
+));
+
+const CheckboxIcon: React.FC<{
+  indeterminate: boolean | undefined;
+  disabled: boolean | undefined;
+  checked: boolean | undefined;
+}> = ({checked, disabled, indeterminate}) => {
+  const color = disabled && (checked || indeterminate) ? 'colorTextInverseWeaker' : 'colorTextInverse';
+
+  if (indeterminate) {
+    return <MinusIcon decorative color={color} size="sizeIcon10" />;
+  }
+  return <CheckboxCheckIcon hidden={!checked} decorative color={color} size="sizeIcon10" />;
+};
+
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  (
-    {id, checked, children, helpText, disabled, hasError, indeterminate, isSelectAllChild, isSelectAll, ...props},
-    ref
-  ) => {
+  ({checked, children, helpText, id, indeterminate, isSelectAll, isSelectAllChild, ...props}, ref) => {
     const helpTextId = useUID();
+    const checkboxGroupContext = React.useContext(CheckboxContext);
+
+    // Prioritizing direct props values over whatever CheckboxGroupContext passes down
+    const disabled = props.disabled != null ? props.disabled : checkboxGroupContext.disabled;
+    const name = props.name != null ? props.name : checkboxGroupContext.name;
+    const hasError = props.hasError != null ? props.hasError : checkboxGroupContext.hasError;
+    const handleChange = props.onChange != null ? props.onChange : checkboxGroupContext.onChange;
 
     let paddingLeft: SpaceOptions | null = null;
     let checkboxBackground: BackgroundColorOptions | null = null;
@@ -87,15 +101,16 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         paddingTop={isSelectAll ? 'space20' : null}
       >
         <HiddenCheckbox
-          {...props}
+          {...safelySpreadBoxProps(props)}
+          checked={checked}
+          disabled={disabled}
+          name={name}
+          onChange={handleChange}
           aria-describedby={helpTextId}
           aria-checked={indeterminate ? 'mixed' : checked}
           aria-invalid={hasError}
-          checked={checked}
-          disabled={disabled}
           id={id}
           ref={ref}
-          type="checkbox"
         />
         <BaseRadioCheckboxLabel disabled={disabled} htmlFor={id}>
           <BaseRadioCheckboxControl
@@ -103,6 +118,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             borderRadius="borderRadius10"
             disabled={disabled}
             position="relative"
+            type="checkbox"
           >
             <CheckboxIcon checked={checked} disabled={disabled} indeterminate={indeterminate} />
           </BaseRadioCheckboxControl>
@@ -120,13 +136,15 @@ Checkbox.displayName = 'Checkbox';
 if (process.env.NODE_ENV === 'development') {
   Checkbox.propTypes = {
     children: PropTypes.node.isRequired,
+    disabled: PropTypes.bool,
+    name: PropTypes.string,
+    onChange: PropTypes.func,
     hasError: PropTypes.bool,
     helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     id: PropTypes.string.isRequired,
     indeterminate: PropTypes.bool,
     isSelectAll: PropTypes.bool,
     isSelectAllChild: PropTypes.bool,
-    value: PropTypes.string.isRequired,
   };
 }
 

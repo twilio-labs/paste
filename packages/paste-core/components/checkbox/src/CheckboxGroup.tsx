@@ -1,35 +1,56 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {InlineControlGroup, InlineControlGroupProps} from '@twilio-paste/inline-control-group';
+import {CheckboxContext} from './CheckboxContext';
 
 export interface CheckboxGroupProps extends InlineControlGroupProps {
   isSelectAll?: boolean;
-  name?: string;
+  name: string;
+  onChange?: (checked: boolean) => void;
 }
 
 const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
   children,
-  disabled,
+  disabled = false,
   errorText,
-  isSelectAll,
+  isSelectAll = false,
   name,
+  onChange,
   orientation = 'vertical',
+  value,
   ...props
 }) => {
+  const onChangeHandler = React.useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>): void => {
+      if (onChange != null) {
+        onChange(event.target.checked);
+      }
+    },
+    [onChange]
+  );
+
+  const contextValue = React.useMemo(() => {
+    return {
+      disabled,
+      name,
+      onChange: onChangeHandler,
+      hasError: errorText ? true : undefined,
+    };
+  }, [disabled, name, onChangeHandler]);
+
   return (
-    <InlineControlGroup {...props} errorText={errorText} name={name} disabled={disabled} orientation={orientation}>
-      {React.Children.map(children, (child, index) => {
-        return React.isValidElement(child)
-          ? React.cloneElement(child, {
-              disabled,
-              hasError: errorText ? true : undefined,
-              isSelectAll: isSelectAll && index === 0,
-              isSelectAllChild: isSelectAll && orientation === 'vertical' && index !== 0,
-              name,
-            })
-          : child;
-      })}
-    </InlineControlGroup>
+    <CheckboxContext.Provider value={contextValue}>
+      <InlineControlGroup {...props} disabled={disabled} errorText={errorText} name={name} orientation={orientation}>
+        {React.Children.map(children, (child, index) => {
+          return React.isValidElement(child)
+            ? React.cloneElement(child, {
+                isSelectAll: isSelectAll && index === 0,
+                isSelectAllChild: isSelectAll && orientation === 'vertical' && index !== 0,
+              })
+            : child;
+        })}
+      </InlineControlGroup>
+    </CheckboxContext.Provider>
   );
 };
 
@@ -38,7 +59,13 @@ CheckboxGroup.displayName = 'CheckboxGroup';
 if (process.env.NODE_ENV === 'development') {
   CheckboxGroup.propTypes = {
     isSelectAll: PropTypes.bool,
-    name: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    onChange: PropTypes.func,
+    disabled: PropTypes.bool,
+    errorText: PropTypes.string,
+    helpText: PropTypes.string,
+    orientation: PropTypes.oneOf(['vertical', 'horizontal']),
+    value: PropTypes.string,
   };
 }
 

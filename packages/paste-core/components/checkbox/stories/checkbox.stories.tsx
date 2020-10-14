@@ -9,7 +9,7 @@ import {Checkbox, CheckboxGroup, CheckboxDisclaimer} from '../src';
 storiesOf('Components|Checkbox', module)
   .add('Checkbox', () => {
     return (
-      <Checkbox id={useUID()} value="1" name="foo">
+      <Checkbox id={useUID()} value="label" name="foo">
         Label
       </Checkbox>
     );
@@ -118,6 +118,48 @@ storiesOf('Components|Checkbox', module)
       </Checkbox>
     );
   })
+  .add('Checkbox - Controlled', () => {
+    const [checked1, setChecked1] = React.useState(true);
+    const [checked2, setChecked2] = React.useState(false);
+    const [checked3, setChecked3] = React.useState(true);
+    const handleChange1 = (event: React.ChangeEvent<HTMLInputElement>): void => setChecked1(event.target.checked);
+    const handleChange2 = (event: React.ChangeEvent<HTMLInputElement>): void => setChecked2(event.target.checked);
+    const handleChange3 = (event: React.ChangeEvent<HTMLInputElement>): void => setChecked3(event.target.checked);
+    return (
+      <>
+        <Checkbox
+          checked={checked1 === true}
+          helpText="This is some help text."
+          id={useUID()}
+          name="foo"
+          onChange={handleChange1}
+          value="1"
+        >
+          First
+        </Checkbox>
+        <Checkbox
+          checked={checked2 === true}
+          helpText="This is some help text."
+          id={useUID()}
+          name="foo"
+          onChange={handleChange2}
+          value="2"
+        >
+          Second
+        </Checkbox>
+        <Checkbox
+          checked={checked3 === true}
+          helpText="This is some help text."
+          id={useUID()}
+          name="foo"
+          onChange={handleChange3}
+          value="3"
+        >
+          Third
+        </Checkbox>
+      </>
+    );
+  })
   .add('Checkbox Group', () => {
     const [checked1, setChecked1] = React.useState(true);
     const [checked2, setChecked2] = React.useState(false);
@@ -200,6 +242,21 @@ storiesOf('Components|Checkbox', module)
           Second
         </Checkbox>
         <Checkbox id={useUID()} value="3" helpText="This is some help text.">
+          Third
+        </Checkbox>
+      </CheckboxGroup>
+    );
+  })
+  .add('Checkbox Group - Override Disabled', () => {
+    return (
+      <CheckboxGroup name="bar" legend="This is the legend text" required>
+        <Checkbox id={useUID()} value="1" helpText="This is some help text.">
+          First
+        </Checkbox>
+        <Checkbox id={useUID()} value="2" helpText="This is some help text.">
+          Second
+        </Checkbox>
+        <Checkbox id={useUID()} value="3" helpText="This is some help text." disabled>
           Third
         </Checkbox>
       </CheckboxGroup>
