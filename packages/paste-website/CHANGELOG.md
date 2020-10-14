@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.12.5...@twilio-paste/website@2.12.6) (2020-10-14)
+
+
+### Bug Fixes
+
+* **website:** correctly load or monospace font ([67af512](https://github.com/twilio-labs/paste/commit/67af512ee53f5b62d44486cccbbafc11744446c3))
+
+
+
+
+
 ## [2.12.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.12.4...@twilio-paste/website@2.12.5) (2020-10-13)
 
 **Note:** Version bump only for package @twilio-paste/website
