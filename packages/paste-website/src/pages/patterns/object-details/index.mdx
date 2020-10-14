@@ -57,9 +57,9 @@ export const pageQuery = graphql`
 </Box>
 
 <Callout variant="warning">
-  <CalloutTitle>This is a proof of concept, and we need your feedback!</CalloutTitle>
+  <CalloutTitle>This is an ALPHA pattern, and we need your feedback!</CalloutTitle>
   <CalloutText>
-    We've created a few alpha patterns as a proof of concept to collect feedback. If you have thoughts on this particular pattern, or on the documentation of patterns as a whole, please <Anchor href="https://forms.gle/BzeekGGXd2uL6U7Z9" showExternal>let us know</Anchor>! We need your feedback to make our patterns better.
+    If you have feedback or ideas on this particular pattern, please create a <Anchor href="https://github.com/twilio-labs/paste/discussions">GitHub Discussion</Anchor>. If you have feedback on the documentation of patterns as a whole, please <Anchor href="https://forms.gle/BzeekGGXd2uL6U7Z9">let us know</Anchor>. We need your feedback to make our patterns better!
   </CalloutText>
 </Callout>
 
@@ -148,11 +148,11 @@ export const pageQuery = graphql`
 // import all components for Object details patterns
 
 import {
-  Heading, 
-  Tabs, TabList, Tab, TabPanels, TabPanel, 
-  Text, 
-  Box, 
-  Stack, 
+  Heading,
+  Tabs, TabList, Tab, TabPanels, TabPanel,
+  Text,
+  Box,
+  Stack,
   Grid, Column
 } from '@twilio-paste/core';
 ```
@@ -173,7 +173,7 @@ Object details should:
 
 A well-structured [document hierarchy](https://www.w3.org/WAI/tutorials/page-structure/) helps provide efficient in-page navigation for keyboard users, assistive technologies, and mobile web users.
 
-Proper hierarchy allows users to skip directly to content that is most relevant to them. This is especially important on an object details page where there may be many  different types of information and customers are more likely to skim through. 
+Proper hierarchy allows users to skip directly to content that is most relevant to them. This is especially important on an object details page where there may be many  different types of information and customers are more likely to skim through.
 
 To structure a page:
 
@@ -247,7 +247,7 @@ The most common way to structure an object details page is to first show an over
 
 If there are more than 6 properties, divide the properties into 2 columns.
 
-While this might be the most common structure for object details, use customer research to inform how to order the content sections on a details page. Show customers the most relevant information first. 
+While this might be the most common structure for object details, use customer research to inform how to order the content sections on a details page. Show customers the most relevant information first.
 
 For example, when viewing the details of a sent email campaign, a customer may want to quickly see how well their campaign has been performing over time. In this case, placing a group of stats cards and a chart first may be most appropriate.
 
