@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.12.6...@twilio-paste/website@2.13.0) (2020-10-15)
+
+
+### Features
+
+* **website:** switch the theme switcher to default to default ([#852](https://github.com/twilio-labs/paste/issues/852)) ([68d5063](https://github.com/twilio-labs/paste/commit/68d506395aa545ac6b25adc800111fea304bdcda))
+
+
+
+
+
 ## [2.12.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.12.5...@twilio-paste/website@2.12.6) (2020-10-14)
 
 
