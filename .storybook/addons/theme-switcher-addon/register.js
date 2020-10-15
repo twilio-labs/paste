@@ -10,7 +10,7 @@ function findKeyByValue(value) {
 
 class ThemeSwitcherPanel extends React.Component {
   state = {
-    theme: localStorage.getItem(THEME_STORAGE_KEY) || ThemeVariants.CONSOLE,
+    theme: localStorage.getItem(THEME_STORAGE_KEY) || ThemeVariants.DEFAULT,
   };
 
   onChangeTheme = e => {
