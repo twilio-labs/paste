@@ -31,7 +31,7 @@ const getThemeFromWindow = (): ThemeVariants => {
   if (typeof window !== 'undefined' && window.activeTheme !== '') {
     theme = window.activeTheme as ThemeVariants;
   } else {
-    theme = ThemeVariants.CONSOLE as ThemeVariants;
+    theme = ThemeVariants.DEFAULT as ThemeVariants;
   }
   return theme;
 };

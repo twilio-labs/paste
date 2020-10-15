@@ -63,27 +63,8 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
       <Box as="fieldset" borderWidth="borderWidth0" padding="space0" margin="space0">
         <ScreenReaderOnly as="legend">Change the site theme</ScreenReaderOnly>
 
-        <StyledThemeSwitcherLabel htmlFor={consoleID} checked={theme === ThemeVariants.CONSOLE}>
-          Current
-          <StyledThemeSwitcherRadio
-            checked={theme === ThemeVariants.CONSOLE}
-            id={consoleID}
-            name="sitetheme"
-            onChange={handleChange}
-            type="radio"
-            value={ThemeVariants.CONSOLE}
-            onClick={() =>
-              trackCustomEvent({
-                category: 'Theme Switcher',
-                action: 'Click',
-                label: 'Current',
-              })
-            }
-          />
-        </StyledThemeSwitcherLabel>
-
         <StyledThemeSwitcherLabel htmlFor={pasteID} checked={theme === ThemeVariants.DEFAULT}>
-          Preview
+          Default
           <StyledThemeSwitcherRadio
             checked={theme === ThemeVariants.DEFAULT}
             id={pasteID}
@@ -96,6 +77,25 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
                 category: 'Theme Switcher',
                 action: 'Click',
                 label: 'Default',
+              })
+            }
+          />
+        </StyledThemeSwitcherLabel>
+
+        <StyledThemeSwitcherLabel htmlFor={consoleID} checked={theme === ThemeVariants.CONSOLE}>
+          Legacy
+          <StyledThemeSwitcherRadio
+            checked={theme === ThemeVariants.CONSOLE}
+            id={consoleID}
+            name="sitetheme"
+            onChange={handleChange}
+            type="radio"
+            value={ThemeVariants.CONSOLE}
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Theme Switcher',
+                action: 'Click',
+                label: 'Legacy',
               })
             }
           />
