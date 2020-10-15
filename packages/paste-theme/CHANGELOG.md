@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.26](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@3.2.25...@twilio-paste/theme@3.2.26) (2020-10-15)
+
+**Note:** Version bump only for package @twilio-paste/theme
+
+
+
+
+
 ## [3.2.25](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@3.2.24...@twilio-paste/theme@3.2.25) (2020-10-13)
 
 **Note:** Version bump only for package @twilio-paste/theme

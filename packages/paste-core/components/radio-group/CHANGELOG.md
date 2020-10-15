@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/radio-group@1.1.5...@twilio-paste/radio-group@1.1.6) (2020-10-15)
+
+**Note:** Version bump only for package @twilio-paste/radio-group
+
+
+
+
+
 ## [1.1.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/radio-group@1.1.4...@twilio-paste/radio-group@1.1.5) (2020-10-13)
 
 **Note:** Version bump only for package @twilio-paste/radio-group
