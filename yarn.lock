@@ -3523,7 +3523,7 @@
     react-layout-effect "^1.0.1"
     use-memo-one "^1.1.0"
 
-"@react-spring/shared@9.0.0-rc.3", "@react-spring/shared@^9.0.0-rc.3":
+"@react-spring/shared@9.0.0-rc.3":
   version "9.0.0-rc.3"
   resolved "https://registry.yarnpkg.com/@react-spring/shared/-/shared-9.0.0-rc.3.tgz#3f4c9d90accc20fef51a283a7806d78390b84161"
   integrity sha512-dd50TxwwMWd+dSB0InjndUN9w17cbnMCPy+0sag6zRxxKIo7eOyWSliOtLKxvufgmdC8Prm4M3GT5dmB1yxKEQ==
