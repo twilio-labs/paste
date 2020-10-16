@@ -43,8 +43,12 @@ export const pageQuery = graphql`
 ## Finding an icon
 
 1. Make sure the icon you need doesn’t already exist in [Paste](/icons).
-2. Find a new icon by searching through the [Streamline app](https://app.streamlineicons.com/streamline-regular). Create a [GitHub discussion](https://github.com/twilio-labs/paste/discussions) with a link or screenshot of the icon and a brief explanation (or mockup!) of what you'll need it for. We'll discuss if the icon should be added to Paste.
-3. Create a branch in Abstract.
+2. If the new icon can be used for a similar use case to yours in other products ("UI icon"), find a new icon by searching through the [Streamline app](https://app.streamlineicons.com/streamline-regular). If the icon needs to be reserved for use in your product only ("logo icon"), please [request one from our Brand team](https://www.twilio.com/brand/resources/logos). 
+3. Create a [GitHub discussion](https://github.com/twilio-labs/paste/discussions) with:
+   1. A link or screenshot of the icon
+   2. A brief explanation (or mockup!) of what you'll need it for
+   3. Whether this icon is a logo icon or a UI icon. 
+4. We'll discuss in GitHub if the icon should be added to Paste.
    1. If the icon will be added to Paste, create a branch in
       the ["Paste components" Abstract project](https://share.goabstract.com/7cab6888-78ef-44c7-bd8e-63214dcf6f3d).
    2. If the icon won’t be added to Paste, create a branch in your own Abstract project
@@ -68,7 +72,7 @@ Written for Sketch 67.2
     example, "LinkExternal" instead of "ArrowUpRight".
   </CalloutText>
   <CalloutText>
-    If you're adding an icon used to brand a product, name it "product/[ProductName][SubproductName (optional)]". For
+    If you're adding a logo icon or an icon used to brand a product feature, name it "product/[ProductName][SubproductName (optional)]". For
     example: "product/CodeExchangeCommunity".
   </CalloutText>
 </Callout>
@@ -114,8 +118,8 @@ Written for Sketch 67.2
    2. You shouldn’t see `transform`. If you do, flatten your shape.
    3. You should see `width=”20" height="20"`. If you don’t, check that the artboard you’re
       exporting is 20px × 20px and that you’re exporting the artboard, not the layer.
-4. If you're adding an icon used to brand a product, add the word "Product" to the
-   beginning of the SVG file name. For example: "ProductCodeExchangeCommunity". Please ensure any icons used for branding purposes either came from or were approved by our Brand team.
+4. If you're adding a logo icon, add the word "Product" to the
+   beginning of the SVG file name. For example: "ProductCodeExchangeCommunity".
 5. Commit your changes in Abstract and request a review from the Paste design team.
 
 ## Adding the icon to the Paste repository
