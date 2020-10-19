@@ -5,14 +5,14 @@ import * as React from 'react';
 import {UID} from 'react-uid';
 import {IconWrapper, IconWrapperProps} from './helpers/IconWrapper';
 
-export interface InformationIconProps extends IconWrapperProps {
+export interface EditIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const InformationIcon: React.FC<InformationIconProps> = ({as, display, size, color, title, decorative}) => {
+const EditIcon: React.FC<EditIconProps> = ({as, display, size, color, title, decorative}) => {
   if (!decorative && title == null) {
-    throw new Error('[InformationIcon]: Missing a title for non-decorative icon.');
+    throw new Error('[EditIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
@@ -31,7 +31,7 @@ const InformationIcon: React.FC<InformationIconProps> = ({as, display, size, col
             <path
               fill="currentColor"
               fillRule="evenodd"
-              d="M10 2a8 8 0 110 16 8 8 0 010-16zm0 1.25a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM10 9a1 1 0 011 1v3a1 1 0 01-2 0v-3a1 1 0 011-1zm0-3a1 1 0 110 2 1 1 0 010-2z"
+              d="M12.345 3.646c.973-.972 2.434-.845 3.646.368 1.21 1.21 1.333 2.662.36 3.636L8.39 15.613a.525.525 0 01-.01.011l-.013.01-.28.28a.515.515 0 01-.157.108l-.091.03-4.081.937a.618.618 0 01-.742-.74l.926-4.089a.515.515 0 01.138-.25l6.84-6.84a.525.525 0 01.01-.01l.009-.008zM4.847 12.82l-.682 3.016 3.007-.69-2.325-2.326zm6.446-6.668l-5.829 5.828 2.549 2.549 5.828-5.829-2.548-2.548zm3.97-1.41c-.836-.836-1.65-.907-2.19-.369l-1.051 1.051 2.548 2.548 1.053-1.051c.48-.482.48-1.171-.11-1.903l-.119-.138z"
             />
           </svg>
         )}
@@ -40,5 +40,5 @@ const InformationIcon: React.FC<InformationIconProps> = ({as, display, size, col
   );
 };
 
-InformationIcon.displayName = 'InformationIcon';
-export {InformationIcon};
+EditIcon.displayName = 'EditIcon';
+export {EditIcon};

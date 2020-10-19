@@ -5,14 +5,14 @@ import * as React from 'react';
 import {UID} from 'react-uid';
 import {IconWrapper, IconWrapperProps} from './helpers/IconWrapper';
 
-export interface InformationIconProps extends IconWrapperProps {
+export interface SMSCapableIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const InformationIcon: React.FC<InformationIconProps> = ({as, display, size, color, title, decorative}) => {
+const SMSCapableIcon: React.FC<SMSCapableIconProps> = ({as, display, size, color, title, decorative}) => {
   if (!decorative && title == null) {
-    throw new Error('[InformationIcon]: Missing a title for non-decorative icon.');
+    throw new Error('[SMSCapableIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
@@ -31,7 +31,7 @@ const InformationIcon: React.FC<InformationIconProps> = ({as, display, size, col
             <path
               fill="currentColor"
               fillRule="evenodd"
-              d="M10 2a8 8 0 110 16 8 8 0 010-16zm0 1.25a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM10 9a1 1 0 011 1v3a1 1 0 01-2 0v-3a1 1 0 011-1zm0-3a1 1 0 110 2 1 1 0 010-2z"
+              d="M16.5 3A1.502 1.502 0 0118 4.5v10a1.502 1.502 0 01-1.5 1.5H9.667L5.8 18.9a.5.5 0 01-.8-.4V16H3.5A1.502 1.502 0 012 14.5v-10A1.502 1.502 0 013.5 3zm0 1h-13a.5.5 0 00-.5.5v10a.5.5 0 00.5.5h2a.5.5 0 01.5.5v2l3.2-2.4a.5.5 0 01.3-.1h7a.5.5 0 00.5-.5v-10a.5.5 0 00-.5-.5zm-5 7a.5.5 0 110 1h-6a.5.5 0 110-1h6zm3-3a.5.5 0 110 1h-9a.5.5 0 010-1h9z"
             />
           </svg>
         )}
@@ -40,5 +40,5 @@ const InformationIcon: React.FC<InformationIconProps> = ({as, display, size, col
   );
 };
 
-InformationIcon.displayName = 'InformationIcon';
-export {InformationIcon};
+SMSCapableIcon.displayName = 'SMSCapableIcon';
+export {SMSCapableIcon};
