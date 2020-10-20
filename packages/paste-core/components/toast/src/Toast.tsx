@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Button} from '@twilio-paste/button';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import {NeutralIcon} from '@twilio-paste/icons/esm/NeutralIcon';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
@@ -30,7 +30,7 @@ const renderToastIcon = (variant: ToastVariants): React.ReactElement => {
       return <WarningIcon color="colorTextWarning" decorative={false} title="warning: " size="sizeIcon20" />;
     case ToastVariantObject.NEUTRAL:
     default:
-      return <InformationIcon color="colorTextNeutral" decorative={false} title="information: " size="sizeIcon20" />;
+      return <NeutralIcon color="colorTextNeutral" decorative={false} title="information: " size="sizeIcon20" />;
   }
 };
 
