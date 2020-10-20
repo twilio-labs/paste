@@ -34,27 +34,36 @@ const renderToastIcon = (variant: ToastVariants): React.ReactElement => {
   }
 };
 
-const Toast: React.FC<ToastProps> = ({children, onDismiss, variant = 'neutral', ...props}) => {
-  const ToastComponent = ToastComponentVariants[variant];
+const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
+  ({children, onDismiss, variant = 'neutral', setFocus, ...props}, ref) => {
+    const ToastComponent = ToastComponentVariants[variant];
+    const buttonRef: React.RefObject<HTMLButtonElement> = React.useRef(null);
 
-  return (
-    <ToastComponent role="status" variant={variant} {...props}>
-      <MediaObject as="div">
-        <MediaFigure as="div" spacing="space60">
-          {renderToastIcon(variant)}
-        </MediaFigure>
-        <MediaBody as="div">{children}</MediaBody>
-        {onDismiss && typeof onDismiss === 'function' && (
-          <MediaFigure align="end" spacing="space40">
-            <Button onClick={onDismiss} variant="link" size="reset">
-              <CloseIcon color="colorTextIcon" decorative={false} title="dismiss this toast" size="sizeIcon20" />
-            </Button>
+    React.useEffect(() => {
+      if (setFocus && buttonRef.current) {
+        buttonRef.current.focus({preventScroll: true});
+      }
+    }, [setFocus]);
+
+    return (
+      <ToastComponent role="status" variant={variant} ref={ref} {...props}>
+        <MediaObject as="div">
+          <MediaFigure as="div" spacing="space60">
+            {renderToastIcon(variant)}
           </MediaFigure>
-        )}
-      </MediaObject>
-    </ToastComponent>
-  );
-};
+          <MediaBody as="div">{children}</MediaBody>
+          {onDismiss && typeof onDismiss === 'function' && (
+            <MediaFigure align="end" spacing="space40">
+              <Button onClick={onDismiss} variant="link" ref={buttonRef} size="reset">
+                <CloseIcon color="colorTextIcon" decorative={false} title="dismiss this toast" size="sizeIcon20" />
+              </Button>
+            </MediaFigure>
+          )}
+        </MediaObject>
+      </ToastComponent>
+    );
+  }
+);
 
 Toast.displayName = 'Toast';
 

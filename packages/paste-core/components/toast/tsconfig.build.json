@@ -9,6 +9,9 @@
   ],
   "references": [
     {
+      "path": "../../../paste-libraries/animation"
+    },
+    {
       "path": "../../primitives/box"
     },
     {
