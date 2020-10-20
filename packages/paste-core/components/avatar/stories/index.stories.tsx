@@ -42,23 +42,27 @@ storiesOf('Components|Avatar', module)
       </Stack>
     );
   })
-  .add('Image', () => {
-    return (
-      <Stack orientation="horizontal" spacing="space40">
-        <Avatar size="sizeIcon10" name="avatar example" src={Avatar2} />
-        <Avatar size="sizeIcon20" name="avatar example" src={Avatar3} />
-        <Avatar size="sizeIcon30" name="avatar example" src={Avatar4} />
-        <Avatar size="sizeIcon40" name="avatar example" src={Avatar1} />
-        <Avatar size="sizeIcon50" name="avatar example" src={Avatar2} />
-        <Avatar size="sizeIcon60" name="avatar example" src={Avatar3} />
-        <Avatar size="sizeIcon70" name="avatar example" src={Avatar4} />
-        <Avatar size="sizeIcon80" name="avatar example" src={Avatar1} />
-        <Avatar size="sizeIcon90" name="avatar example" src={Avatar2} />
-        <Avatar size="sizeIcon100" name="avatar example" src={Avatar3} />
-        <Avatar size="sizeIcon110" name="avatar example" src={Avatar4} />
-      </Stack>
-    );
-  })
+  .add(
+    'Image',
+    () => {
+      return (
+        <Stack orientation="horizontal" spacing="space40">
+          <Avatar size="sizeIcon10" name="avatar example" src={Avatar2} />
+          <Avatar size="sizeIcon20" name="avatar example" src={Avatar3} />
+          <Avatar size="sizeIcon30" name="avatar example" src={Avatar4} />
+          <Avatar size="sizeIcon40" name="avatar example" src={Avatar1} />
+          <Avatar size="sizeIcon50" name="avatar example" src={Avatar2} />
+          <Avatar size="sizeIcon60" name="avatar example" src={Avatar3} />
+          <Avatar size="sizeIcon70" name="avatar example" src={Avatar4} />
+          <Avatar size="sizeIcon80" name="avatar example" src={Avatar1} />
+          <Avatar size="sizeIcon90" name="avatar example" src={Avatar2} />
+          <Avatar size="sizeIcon100" name="avatar example" src={Avatar3} />
+          <Avatar size="sizeIcon110" name="avatar example" src={Avatar4} />
+        </Stack>
+      );
+    },
+    {chromatic: {delay: 300}}
+  )
   .add('Responsive Initials', () => {
     return (
       <Stack orientation="horizontal" spacing="space40">

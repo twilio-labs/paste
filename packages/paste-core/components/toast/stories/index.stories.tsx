@@ -165,7 +165,7 @@ storiesOf('Components|Toast', module)
     const variants = Object.values(ToastVariantObject);
     const [toasts, setToasts] = React.useState<ToasterToast[]>([]);
     return (
-      <>
+      <Box height="300px">
         <Button
           variant="primary"
           onClick={() =>
@@ -188,7 +188,7 @@ storiesOf('Components|Toast', module)
             </Toast>
           ))}
         </ToastContainer>
-      </>
+      </Box>
     );
   })
   .add('Toaster', () => {

@@ -36,33 +36,41 @@ export const StateHookExample: React.FC = () => {
 
 storiesOf('Components|Tooltip', module)
   .addDecorator(withKnobs)
-  .add('Default', () => {
-    return (
-      <Tooltip visible text={text('text', 'Welcome to Paste!')}>
-        <Button variant="primary">Open tooltip</Button>
-      </Tooltip>
-    );
-  })
-  .add('Tooltip Placements', () => {
-    return (
-      <Box margin="space190" padding="space190">
-        <Stack orientation="horizontal" spacing="space40">
-          <Tooltip visible text="Welcome!" placement="left">
-            <Button variant="primary">Open tooltip to the left</Button>
-          </Tooltip>
-          <Tooltip visible text="Welcome to Paste!" placement="top">
-            <Button variant="primary">Open tooltip to the top</Button>
-          </Tooltip>
-          <Tooltip visible text="Welcome to Paste!" placement="bottom">
-            <Button variant="primary">Open tooltip to the bottom</Button>
-          </Tooltip>
-          <Tooltip visible text="Welcome to Paste!" placement="right">
-            <Button variant="primary">Open tooltip to the right</Button>
-          </Tooltip>
-        </Stack>
-      </Box>
-    );
-  })
+  .add(
+    'Default',
+    () => {
+      return (
+        <Tooltip visible text={text('text', 'Welcome to Paste!')}>
+          <Button variant="primary">Open tooltip</Button>
+        </Tooltip>
+      );
+    },
+    {chromatic: {delay: 300}}
+  )
+  .add(
+    'Tooltip Placements',
+    () => {
+      return (
+        <Box margin="space190" padding="space190">
+          <Stack orientation="horizontal" spacing="space40">
+            <Tooltip visible text="Welcome!" placement="left">
+              <Button variant="primary">Open tooltip to the left</Button>
+            </Tooltip>
+            <Tooltip visible text="Welcome to Paste!" placement="top">
+              <Button variant="primary">Open tooltip to the top</Button>
+            </Tooltip>
+            <Tooltip visible text="Welcome to Paste!" placement="bottom">
+              <Button variant="primary">Open tooltip to the bottom</Button>
+            </Tooltip>
+            <Tooltip visible text="Welcome to Paste!" placement="right">
+              <Button variant="primary">Open tooltip to the right</Button>
+            </Tooltip>
+          </Stack>
+        </Box>
+      );
+    },
+    {chromatic: {delay: 300}}
+  )
   .add('Automatic edge placement', () => {
     return (
       <>
@@ -89,17 +97,21 @@ storiesOf('Components|Tooltip', module)
       </>
     );
   })
-  .add('Automatic adjusted placement', () => {
-    return (
-      <>
-        <Absolute preset="bottom_left">
-          <Tooltip visible text="Tooltip adjusted to the top because bottom would be off screen" placement="bottom">
-            <Button variant="primary">Open tooltip</Button>
-          </Tooltip>
-        </Absolute>
-      </>
-    );
-  })
+  .add(
+    'Automatic adjusted placement',
+    () => {
+      return (
+        <>
+          <Absolute preset="bottom_left">
+            <Tooltip visible text="Tooltip adjusted to the top because bottom would be off screen" placement="bottom">
+              <Button variant="primary">Open tooltip</Button>
+            </Tooltip>
+          </Absolute>
+        </>
+      );
+    },
+    {chromatic: {delay: 300}}
+  )
   .add('Icon Button Tooltip', () => {
     return (
       <Tooltip text="Welcome to Paste!">
