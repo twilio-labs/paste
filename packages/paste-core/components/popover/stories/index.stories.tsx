@@ -1,18 +1,21 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {withKnobs} from '@storybook/addon-knobs';
+import {Box} from '@twilio-paste/box';
 import {Absolute} from '@twilio-paste/absolute';
 import {Text} from '@twilio-paste/text';
 import {Popover, PopoverContainer, PopoverButton} from '../src';
 
 const Example: React.FC<{}> = () => {
   return (
-    <PopoverContainer baseId="test-id" visible>
-      <PopoverButton variant="primary">Open popover</PopoverButton>
-      <Popover aria-label="Popover">
-        <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
-      </Popover>
-    </PopoverContainer>
+    <Box height="300px">
+      <PopoverContainer baseId="test-id" visible>
+        <PopoverButton variant="primary">Open popover</PopoverButton>
+        <Popover aria-label="Popover">
+          <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
+        </Popover>
+      </PopoverContainer>
+    </Box>
   );
 };
 
@@ -66,9 +69,13 @@ const LeftExample: React.FC<{}> = () => {
 
 storiesOf('Components|Popover', module)
   .addDecorator(withKnobs)
-  .add('Default', () => {
-    return <Example />;
-  })
+  .add(
+    'Default',
+    () => {
+      return <Example />;
+    },
+    {chromatic: {delay: 300}}
+  )
   .add('Popover Top', () => {
     return <TopExample />;
   })
