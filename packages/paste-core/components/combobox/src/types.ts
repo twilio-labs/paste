@@ -34,7 +34,6 @@ export interface RenderItemProps extends Pick<ComboboxProps, 'optionTemplate'> {
   getItemProps: any;
   highlightedIndex: UseComboboxPrimitiveState<Item>['highlightedIndex'];
   inGroup?: boolean;
-  optionUID: (id: any) => string;
 }
 
 export interface RenderItemsProps extends Omit<RenderItemProps, 'item' | 'index'> {
@@ -43,8 +42,6 @@ export interface RenderItemsProps extends Omit<RenderItemProps, 'item' | 'index'
 
 export interface RenderGroupItemsProps
   extends RenderItemsProps,
-    Pick<ComboboxProps, 'groupLabelTemplate' | 'groupItemsBy'> {
-  groupUID: (id: any) => string;
-}
+    Pick<ComboboxProps, 'groupLabelTemplate' | 'groupItemsBy'> {}
 
 export type RenderListBoxProps = RenderGroupItemsProps;

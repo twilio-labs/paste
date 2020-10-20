@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useUIDSeed} from 'react-uid';
+import {useUIDSeed} from '@twilio-paste/uid-library';
 import {storiesOf} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Checkbox, FormLabel, FormInput, Select, Option, Radio, FormTextArea} from '../src';

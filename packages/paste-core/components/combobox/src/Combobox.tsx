@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {css, styled} from '@twilio-paste/styling-library';
-import {useUID, useUIDSeed} from 'react-uid';
+import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
 import {useComboboxPrimitive} from '@twilio-paste/combobox-primitive';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {Box} from '@twilio-paste/box';
@@ -36,13 +36,13 @@ const renderItem = ({
   highlightedIndex,
   optionTemplate,
   inGroup,
-  optionUID,
 }: RenderItemProps): React.ReactNode => {
+  const UIDSeed = useUIDSeed();
   return (
     <ComboboxListboxOption
       {...getItemProps({item, index})}
       highlighted={highlightedIndex === index}
-      key={optionUID(index)}
+      key={UIDSeed(index)}
       variant={inGroup ? 'groupOption' : 'default'}
     >
       {optionTemplate ? optionTemplate(item) : item}
@@ -50,15 +50,9 @@ const renderItem = ({
   );
 };
 
-const renderItems = ({
-  items,
-  getItemProps,
-  highlightedIndex,
-  optionTemplate,
-  optionUID,
-}: RenderItemsProps): React.ReactNode[] =>
+const renderItems = ({items, getItemProps, highlightedIndex, optionTemplate}: RenderItemsProps): React.ReactNode[] =>
   items.map((item, index) => {
-    return renderItem({item, index, getItemProps, highlightedIndex, optionTemplate, optionUID});
+    return renderItem({item, index, getItemProps, highlightedIndex, optionTemplate});
   });
 
 const renderGroupedItems = ({
@@ -68,20 +62,20 @@ const renderGroupedItems = ({
   optionTemplate,
   groupLabelTemplate,
   groupItemsBy,
-  optionUID,
-  groupUID,
 }: RenderGroupItemsProps): React.ReactNode[] | null => {
+  const UIDSeed = useUIDSeed();
+
   if (groupItemsBy != null) {
     const groupedItems = groupBy(items, (item: {}) => item[groupItemsBy]);
     let itemIndex = 0;
     return Object.keys(groupedItems).map(group => {
       if (group === 'undefined') {
         return groupedItems[group].map((item: {}) => {
-          return renderItem({item, index: itemIndex++, getItemProps, highlightedIndex, optionTemplate, optionUID});
+          return renderItem({item, index: itemIndex++, getItemProps, highlightedIndex, optionTemplate});
         });
       }
       return (
-        <ComboboxListboxGroup groupName={group} groupLabelTemplate={groupLabelTemplate} key={groupUID(group)}>
+        <ComboboxListboxGroup groupName={group} groupLabelTemplate={groupLabelTemplate} key={UIDSeed(group)}>
           {groupedItems[group].map((item: {}) => {
             return renderItem({
               item,
@@ -90,7 +84,6 @@ const renderGroupedItems = ({
               highlightedIndex,
               optionTemplate,
               inGroup: true,
-              optionUID,
             });
           })}
         </ComboboxListboxGroup>
@@ -107,8 +100,6 @@ const renderListBox = ({
   optionTemplate,
   groupLabelTemplate,
   groupItemsBy,
-  optionUID,
-  groupUID,
 }: RenderListBoxProps): React.ReactNode[] | null =>
   groupItemsBy
     ? renderGroupedItems({
@@ -118,10 +109,8 @@ const renderListBox = ({
         optionTemplate,
         groupItemsBy,
         groupLabelTemplate,
-        optionUID,
-        groupUID,
       })
-    : renderItems({items, getItemProps, highlightedIndex, optionTemplate, optionUID});
+    : renderItems({items, getItemProps, highlightedIndex, optionTemplate});
 
 const getHelpTextVariant = (variant: InputVariants, hasError: boolean | undefined): HelpTextVariants => {
   if (hasError && variant === 'inverse') {
@@ -206,8 +195,6 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
     }
 
     const helpTextId = useUID();
-    const groupUID = useUIDSeed();
-    const optionUID = useUIDSeed();
 
     let iconColor = 'colorTextIcon' as TextColor;
     if (disabled) {
@@ -253,8 +240,6 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
             optionTemplate,
             groupItemsBy,
             groupLabelTemplate,
-            optionUID,
-            groupUID,
           })}
         </ComboboxListbox>
         {helpText && (
