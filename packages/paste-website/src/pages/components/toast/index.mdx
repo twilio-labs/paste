@@ -9,16 +9,22 @@ import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
+import {Card} from '@twilio-paste/card';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
-import {Toast, ToastContainer} from '@twilio-paste/toast';
+import {Alert} from '@twilio-paste/alert';
+import {Toast, ToastContainer, Toaster, useToaster} from '@twilio-paste/toast';
+import {useUID} from 'react-uid';
+import {Input} from '@twilio-paste/input';
+import {Label} from '@twilio-paste/label';
+import {RadioGroup, Radio} from '@twilio-paste/radio-group';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {InlineCode} from '../../../components/Typography';
-import {showHideExample} from '../../../component-examples/ToastExamples';
+import {ToasterExample} from '../../../component-examples/ToastExamples';
 import Changelog from '@twilio-paste/toast/CHANGELOG.md';
 
 export const pageQuery = graphql`
@@ -83,9 +89,9 @@ In general, use Toasts for response to user action. To decide whether you should
 
 ### Accessibility
 
-If you make a [toast automatically time out](#showing-hiding-and-timing-out-a-toast), consider users that have different reading speeds, vision levels, and literacy levels (more details in the research insight below).
+If you make a [toast automatically time out](#showing-dismissing-and-timing-out-a-toast), consider users that have different reading speeds, vision levels, and literacy levels (more details in the research insight below).
 
-We recommend giving users about 0.5 seconds per word. For short toasts (about 5–10 words), give users about 2–4 seconds to read the toast message. For toasts at our [max suggested length of 140 characters](#composition-notes), that's about 30 seconds for about 55 English words. In this case, consider not making the toast automatically time out since the longer content length could also suggest that there's information worth persisting for the customer.
+We recommend giving users about 500 milliseconds per word. For short toasts (about 5–10 words), give users about 2,000–4,000 milliseconds to read the toast message. For toasts at our [max suggested length of 140 characters](#composition-notes), that's about 30,000 milliseconds for about 55 English words. In this case, consider not making the toast automatically time out since the longer content length could suggest that there's information worth persisting for the customer.
 
 In addition to reading time, consider the time users need to make a decision based on the message. If a toast has any interactive element in it, like a link or button, don't add an automatic time-out to the toast.
 
@@ -144,38 +150,104 @@ Here are ways that you can compose neutral, warning, error, success, and dismiss
   </Stack>
 </Box>
 
-### Showing, hiding, and timing out a toast
+### Showing, dismissing, and timing out a toast
 
-<Callout variant="warning">
-  <CalloutText>
-    We'll be providing a more comprehensive method for displaying Toasts in the near future. Please bear with us.
-  </CalloutText>
-</Callout>
+The Toaster is a convenient way to manage showing and dismissing Toasts. The Toaster comes in two parts:
 
-For a basic method of hiding and showing, you can use the `hidden` HTML attribute. Passing a `true` or `false` value to that attribute will show or hide the Toast respectively.
+- A `useToaster` hook that handles adding, removing, auto dismissing and state.
+- A `<Toaster />` component that handles rendering toasts into the DOM.
 
-When showing multiple toasts, place the most recent toast at the bottom of the stack.
+#### useToaster hook
+
+The easiest way to use the Toaster is to use the `useToaster` hook. It will handle adding and removing a Toast and can be used to set automatic time-outs. The `useToaster` hook will then return the props needed to render the Toasts within the `Toaster` component.
+
+`useToaster` returns 3 things:
+
+- An array of `toasts` to be rendered in the DOM.
+- A `push` method used to add a Toast to the Toaster.
+- A `pop` method used to remove a Toast from the Toaster via its ID.
+
+Below is a form you can use to create toasts dynamically using the Toaster. The form data is used to `push` a new Toast to the Toaster.
+
+<Box marginBottom="space70">
+  <Card>
+    <ToasterExample />
+  </Card>
+</Box>
+
+##### Adding a Toast
+
+You can push a Toast to the Toaster stack based on any action or event. In this example it's based on a button click:
+
+```
+const MyComponent = () => {
+  const toaster = useToaster();
+
+  const handleClick = () => {
+    toaster.push({
+      message: 'Selection was successfully saved to your profile',
+      variant: 'success',
+    })
+  }
+
+  return(
+    <>
+      <Button variant="primary" onClick={handleClick}>
+        Add a toast
+      </Button>
+      <Toaster {...toaster} />
+    </>
+  )
+}
+```
+
+##### Removing a Toast
+
+You can optionally provide an `id` to a toast when you push it to the stack. The ID can then be used to programmatically `pop` the Toast from the stack:
+
+```
+toaster.push({
+  message: 'Selection was successfully saved to your profile',
+  variant: 'success',
+  id: 'custom_id',
+})
+
+toaster.pop('custom_id')
+```
+
+When providing your own custom ID, make sure they are unique.
+
+##### Automatic dismissal
+
+You can optionally provide a time-out to a toast, after which the Toast is automatically dismissed. This can be done by setting a `dismissAfter` value. The value must be a valid time-out, set in milliseconds.
+
+```
+toaster.push({
+  message: 'Selection was successfully saved to your profile',
+  variant: 'success',
+  id: 'custom_id',
+  dismissAfter: 4000
+})
+```
 
 Add an automatic time-out if all these conditions are true:
 
 - The user wouldn't need to remember or copy the information in order to continue with their current flow, or any future flow.
 - The toast doesn't have any interactive content, such as a link or button.
 
-We recommend giving users about 0.5 seconds per word before timing out a toast.
+We recommend giving users about 500 milliseconds per word before timing out a toast.
 
-<LivePreview
-  scope={{
-    Toast,
-    ToastContainer,
-    Text,
-    Button,
-    Stack,
-  }}
-  noInline
-  language="jsx"
->
-  {showHideExample}
-</LivePreview>
+#### Toaster component
+
+The `<Toaster />` component handles rendering the toasts it is passed via props. It handles how the Toast enters and leaves the UI.
+
+If you pass it the returned state of the `useToaster` hook, state, pushing, popping, and handling browser window time-outs is taken care of for you.
+
+```jsx
+const toaster = useToaster();
+
+return <Toaster {...toaster} />;
+```
 
 ### Neutral Toast
 
@@ -253,15 +325,6 @@ Be cautious when using an error alert because they can be stressful for a user t
 Keep toast text brief and scannable by placing only the highest priority information in it. Too much text in a toast can overwhelm a user. Aim for no more than 140 characters in a toast, and keep the text directly related to the user's current action. Success toasts generally run about 50 characters long, while all other alerts might run about 100 characters long. However, don't [sacrifice being direct and straightforward](/content/product-style-guide#be-direct-and-straightforward) for a shorter message.
 
 Be specific in your response to the user's action and if applicable, provide a resolution by navigating a user to another page using an [anchor](/components/anchor/). Be cautious about using a button in a toast since it should be used only to trigger an action. If you must use a button, use a [small secondary button](/components/button#small-button) in a toast.
-
-<Callout>
-  <CalloutTitle>Don't forget the ToastContainer!</CalloutTitle>
-  <CalloutText>
-    In order to control placement for Toasts, Paste provides you with a ToastContainer. The ToastContainer only handles
-    the positioning of Toasts in the top right area of the application. Multiple Toasts can be added to a single
-    ToastContainer. This ensures the correct spacing is added to each Toast.
-  </CalloutText>
-</Callout>
 
 ## When to use a Toast
 
@@ -354,15 +417,30 @@ yarn add @twilio-paste/toast - or - yarn add @twilio-paste/core
 #### Usage
 
 ```jsx
-import {Toast, ToastContainer} from '@twilio-paste/toast';
+import {Toast, Toaster} from '@twilio-paste/toast';
 
-const Component = () => (
-  <ToastContainer>
-    <Toast onDismiss={() => alert('dismissed')} variant="error">
-      <Text>There is an error in the system.</Text>
-    </Toast>
-  </ToastContainer>
-);
+const Component = () => {
+  const toaster = useToaster();
+  return <Toaster {...toaster} />;
+};
+```
+
+##### Toaster component
+
+If you choose to handle state entirely yourself, you can use `<Toaster />` on its own, but you are fully responsible for handling state, time-outs, and the dismiss functionality.
+
+```
+<Toaster
+  toasts={[{
+    id: '',
+    message: '',
+    variant: ''
+    dismissAfter: ''
+  }]}
+  pop={(id) =>{
+    // called when a toast is dismissed
+  }}
+/>
 ```
 
 #### Toast Props
@@ -372,6 +450,40 @@ const Component = () => (
 | children   | `ReactNode`  |                                                             | null    |
 | onDismiss? | `() => void` | Create dismissable toast by providing an onDismiss callback | null    |
 | variant    | `string`     | `error` / `neutral` / `sucess` / `warning`                  | null    |
+
+#### useToaster return state
+
+| Prop   | Type                        | Description                                             | Default |
+| ------ | --------------------------- | ------------------------------------------------------- | ------- |
+| toasts | `UseToasterToast[]`         | Array of Toasts to render inside the toaster. See below | null    |
+| push?  | `(UseToasterToast) => void` | Method used to push a Toast to the Toast stack          | null    |
+| pop?   | `(id) => void`              | Method used to pop a Toast from the Toast stack         | null    |
+
+##### UseToasterToast
+
+| Prop          | Type        | Description                                | Default |
+| ------------- | ----------- | ------------------------------------------ | ------- |
+| id            | `string`    | Unique identifier of the toast             | null    |
+| message       | `ReactNode` | Message displayed in the toast             | null    |
+| dismissAfter? | `number`    | Timeout in milliseconds                    | null    |
+| setFocus?     | `boolean`   | Sets focus inside the Toast on render      | true    |
+| variant       | `string`    | `error` / `neutral` / `sucess` / `warning` | null    |
+
+#### Toaster Props
+
+| Prop   | Type             | Description                                             | Default |
+| ------ | ---------------- | ------------------------------------------------------- | ------- |
+| toasts | `ToasterToast[]` | Array of Toasts to render inside the toaster. See below | null    |
+| pop?   | `(id) => void`   | Method called when a toast is dismissed                 | null    |
+
+##### ToasterToast
+
+| Prop      | Type        | Description                                | Default |
+| --------- | ----------- | ------------------------------------------ | ------- |
+| id        | `string`    | Unique identifier of the toast             | null    |
+| message   | `ReactNode` | Message displayed in the toast             | null    |
+| setFocus? | `boolean`   | Sets focus inside the Toast on render      | null    |
+| variant   | `string`    | `error` / `neutral` / `sucess` / `warning` | null    |
 
 #### ToastContainer Props
 
