@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {withKnobs} from '@storybook/addon-knobs';
-import {useUID} from 'react-uid';
+import {useUID} from '@twilio-paste/uid-library';
 import {Button} from '@twilio-paste/button';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {useTabState, Tabs, TabList, Tab, TabPanels, TabPanel, TabStateReturn} from '../src';

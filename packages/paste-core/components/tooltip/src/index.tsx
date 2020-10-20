@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {useUID} from 'react-uid';
+import {useUID} from '@twilio-paste/uid-library';
 import {Box, BoxProps, safelySpreadBoxProps} from '@twilio-paste/box';
 import {StyledBase} from '@twilio-paste/theme';
 import {Text} from '@twilio-paste/text';

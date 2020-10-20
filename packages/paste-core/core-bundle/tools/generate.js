@@ -53,13 +53,7 @@ const {
   const packageJson = require(CORE_BUNDLE_PACKAGE_PATH);
   const newPackageJson = {
     ...packageJson,
-    /* FIXME: should just be when we wrap react-uid into @twilio-paste/uid
-     *dependencies: generateVersionedDependencyList(sortedPackageList),
-     */
-    dependencies: {
-      ...generateVersionedDependencyList(sortedPackageList),
-      'react-uid': '^2.2.0',
-    },
+    dependencies: generateVersionedDependencyList(sortedPackageList),
   };
   const newPackageJsonString = `${JSON.stringify(newPackageJson, null, 2)}\n`;
   writeToFile(CORE_BUNDLE_PACKAGE_PATH, newPackageJsonString, {

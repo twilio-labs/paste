@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useUID} from 'react-uid';
+import {useUID} from '@twilio-paste/uid-library';
 
 export interface WindowLayoutProps {
   className?: string;

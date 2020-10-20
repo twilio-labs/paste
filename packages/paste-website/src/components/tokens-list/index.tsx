@@ -4,7 +4,7 @@ import {FormLabel, FormInput} from '@twilio-paste/form';
 import {Table, Tr, Th, Td, THead, TBody} from '@twilio-paste/table';
 import {Text} from '@twilio-paste/text';
 import {Theme, ThemeVariants} from '@twilio-paste/theme';
-import {useUID} from 'react-uid';
+import {useUID} from '@twilio-paste/uid-library';
 import {InlineCode} from '../Typography';
 import {AnchoredHeading} from '../Heading';
 import {useActiveSiteTheme} from '../../context/ActiveSiteThemeContext';
