@@ -45,3 +45,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           buildScriptName: "build:storybook"
           autoAcceptChanges: "main"
+          exitOnceUploaded: true

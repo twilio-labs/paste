@@ -2,11 +2,18 @@ import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {withKnobs} from '@storybook/addon-knobs';
 import {action} from '@storybook/addon-actions';
+import {loremIpsum} from 'lorem-ipsum';
 import {Box} from '@twilio-paste/box';
+import {Stack} from '@twilio-paste/stack';
 import {Button} from '@twilio-paste/button';
 import {Text} from '@twilio-paste/text';
 import {Truncate} from '@twilio-paste/truncate';
-import {Toast, ToastContainer} from '../src';
+import {useUID} from 'react-uid';
+import {Input} from '@twilio-paste/input';
+import {Label} from '@twilio-paste/label';
+import {RadioGroup, Radio} from '@twilio-paste/radio-group';
+import {Toast, ToastContainer, Toaster, ToasterToast, ToastVariants, useToaster} from '../src';
+import {ToastVariantObject} from '../src/constants';
 
 storiesOf('Components|Toast', module)
   .addDecorator(withKnobs)
@@ -154,18 +161,109 @@ storiesOf('Components|Toast', module)
       </Box>
     );
   })
-  .add('Toast on Click', () => {
-    const [visible, setVisible] = React.useState(true);
+  .add('Toast container', () => {
+    const variants = Object.values(ToastVariantObject);
+    const [toasts, setToasts] = React.useState<ToasterToast[]>([]);
     return (
       <>
-        <Button variant="primary" onClick={() => setVisible(false)}>
-          Click for Toast
+        <Button
+          variant="primary"
+          onClick={() =>
+            // eslint-disable-next-line no-shadow
+            setToasts(toasts => [
+              ...toasts,
+              {variant: variants[Math.floor(Math.random() * 3 + 0)], message: loremIpsum()},
+            ])
+          }
+        >
+          Add toast
         </Button>
         <ToastContainer>
-          <Toast hidden={visible} variant="success" onDismiss={() => setVisible(true)}>
+          <Toast variant="success" onDismiss={() => {}}>
             <Text as="div">I am a toast</Text>
           </Toast>
+          {toasts.map(toast => (
+            <Toast variant={toast.variant} onDismiss={() => {}}>
+              <Text as="div">{toast.message}</Text>
+            </Toast>
+          ))}
         </ToastContainer>
       </>
+    );
+  })
+  .add('Toaster', () => {
+    const toaster = useToaster();
+    const messageID = useUID();
+    const dismissAfterID = useUID();
+    const [messageText, setMessageText] = React.useState(
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius perferendis veniam, et deleniti sequi est ut aliquam suscipit autem explicabo quod, mollitia pariatur facere aut ab quidem enim molestiae magni.'
+    );
+    const [variant, setVariant] = React.useState<ToastVariants>('success');
+    const [timeout, setTimeout] = React.useState('');
+
+    const handleSubmit = (e: React.FormEvent): void => {
+      e.preventDefault();
+      toaster.push({
+        variant,
+        message: messageText,
+        ...(timeout !== '0' && {dismissAfter: parseInt(timeout, 10)}),
+      });
+    };
+    return (
+      <div>
+        <form onSubmit={handleSubmit}>
+          <Stack orientation="vertical" spacing="space80">
+            <div>
+              <Label htmlFor={messageID} required>
+                Message
+              </Label>
+              <Input
+                id={messageID}
+                value={messageText}
+                type="text"
+                onChange={e => setMessageText(e.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <Label htmlFor={dismissAfterID}>Dismiss after (milliseconds)</Label>
+              <Input
+                id={dismissAfterID}
+                value={timeout}
+                type="number"
+                onChange={e => setTimeout(e.target.value)}
+                placeholder="7000"
+              />
+            </div>
+            <div>
+              <RadioGroup
+                name="variant"
+                legend="Variant"
+                onChange={value => setVariant(value as ToastVariants)}
+                value={variant}
+                orientation="horizontal"
+                required
+              >
+                <Radio id={useUID()} required value="error">
+                  Error
+                </Radio>
+                <Radio id={useUID()} required value="neutral">
+                  Neutral
+                </Radio>
+                <Radio id={useUID()} required value="success">
+                  Success
+                </Radio>
+                <Radio id={useUID()} required value="warning">
+                  Warning
+                </Radio>
+              </RadioGroup>
+            </div>
+            <Button type="submit" variant="secondary">
+              Add toast
+            </Button>
+          </Stack>
+        </form>
+        <Toaster {...toaster} />
+      </div>
     );
   });

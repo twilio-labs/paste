@@ -28,6 +28,7 @@
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
+    "@twilio-paste/animation-library": "^0.2.1",
     "@twilio-paste/box": "^2.11.5",
     "@twilio-paste/button": "^2.3.21",
     "@twilio-paste/design-tokens": "^6.3.4",
@@ -46,6 +47,7 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
+    "@twilio-paste/animation-library": "^0.2.1",
     "@twilio-paste/box": "^2.11.5",
     "@twilio-paste/button": "^2.3.21",
     "@twilio-paste/design-tokens": "^6.3.4",
