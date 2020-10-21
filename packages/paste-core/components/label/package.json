@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/label",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "category": "user input",
   "status": "production",
   "description": "Label used to name Paste form fields",
@@ -37,7 +37,7 @@
     "@twilio-paste/text": "^2.3.12",
     "@twilio-paste/theme": "^3.2.26",
     "@twilio-paste/types": "^3.0.27",
-    "@twilio-paste/uid-library": "^0.0.1",
+    "@twilio-paste/uid-library": "^0.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
@@ -52,6 +52,6 @@
     "@twilio-paste/text": "^2.3.12",
     "@twilio-paste/theme": "^3.2.26",
     "@twilio-paste/types": "^3.0.27",
-    "@twilio-paste/uid-library": "^0.0.1"
+    "@twilio-paste/uid-library": "^0.1.0"
   }
 }

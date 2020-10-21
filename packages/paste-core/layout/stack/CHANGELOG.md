@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.47](https://github.com/twilio-labs/paste/compare/@twilio-paste/stack@0.1.46...@twilio-paste/stack@0.1.47) (2020-10-21)
+
+**Note:** Version bump only for package @twilio-paste/stack
+
+
+
+
+
 ## [0.1.46](https://github.com/twilio-labs/paste/compare/@twilio-paste/stack@0.1.45...@twilio-paste/stack@0.1.46) (2020-10-15)
 
 **Note:** Version bump only for package @twilio-paste/stack
