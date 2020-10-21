@@ -28,7 +28,7 @@ export interface ComboboxProps extends Omit<InputProps, 'id' | 'type' | 'value'>
   state?: Partial<UseComboboxPrimitiveReturnValue<Item>>;
 }
 
-export interface RenderItemProps extends Pick<ComboboxProps, 'optionTemplate'> {
+export interface ItemProps extends Pick<ComboboxProps, 'optionTemplate'> {
   item: Item;
   index: number;
   getItemProps: any;
@@ -36,12 +36,10 @@ export interface RenderItemProps extends Pick<ComboboxProps, 'optionTemplate'> {
   inGroup?: boolean;
 }
 
-export interface RenderItemsProps extends Omit<RenderItemProps, 'item' | 'index'> {
+export interface ItemsProps extends Omit<ItemProps, 'item' | 'index'> {
   items: Item[];
 }
 
-export interface RenderGroupItemsProps
-  extends RenderItemsProps,
-    Pick<ComboboxProps, 'groupLabelTemplate' | 'groupItemsBy'> {}
+export interface GroupItemsProps extends ItemsProps, Pick<ComboboxProps, 'groupLabelTemplate' | 'groupItemsBy'> {}
 
-export type RenderListBoxProps = RenderGroupItemsProps;
+export type ListBoxProps = GroupItemsProps;
