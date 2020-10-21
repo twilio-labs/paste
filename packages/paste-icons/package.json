@@ -14,7 +14,6 @@
     "json"
   ],
   "scripts": {
-    "convert": "node ./tools/cli.js convert",
     "build": "yarn clean && yarn compile",
     "build:dev": "yarn clean && yarn compile:dev",
     "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
@@ -24,7 +23,8 @@
     "prepublishOnly": "yarn build",
     "type-check": "tsc --noEmit",
     "list-icons": "node ./tools/cli.js list-icons",
-    "convert-new": "node ./tools/cli.js convert-new"
+    "convert-new": "node ./tools/cli.js convert-new",
+    "convert": "node ./tools/cli.js convert"
   },
   "peerDependencies": {
     "@twilio-paste/box": "^2.11.5",
