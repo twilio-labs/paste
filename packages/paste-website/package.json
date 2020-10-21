@@ -6,14 +6,14 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "start": "GATSBY_TELEMETRY_DISABLED=1 gatsby develop",
+    "build": "GATSBY_TELEMETRY_DISABLED=1 gatsby build",
+    "serve": "GATSBY_TELEMETRY_DISABLED=1 gatsby serve",
     "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
     "type-check": "tsc --noEmit",
     "type-check:watch": "yarn type-check -- --watch",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "setup-env": "vercel env pull"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.0.23",
@@ -102,6 +102,9 @@
     "react-live": "^2.2.2",
     "react-scrollspy": "^3.4.0",
     "use-clipboard-copy": "^0.1.2"
+  },
+  "devDependencies": {
+    "vercel": "^20.1.2"
   },
   "resolutions": {
     "**/websocket-extensions": "^0.1.4",
