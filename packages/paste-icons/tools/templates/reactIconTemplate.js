@@ -4,7 +4,7 @@ const reactIconTemplate = ({componentName, svg}) => `
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {UID} from 'react-uid';
+import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper, IconWrapperProps} from './helpers/IconWrapper';
 
 export interface ${componentName}Props extends IconWrapperProps {
@@ -13,17 +13,15 @@ export interface ${componentName}Props extends IconWrapperProps {
 }
 
 const ${componentName}: React.FC<${componentName}Props> = ({as, display, size, color, title, decorative}) => {
+  const titleId = \`${componentName}-\${useUID()}\`;
+
   if (!decorative && title == null) {
     throw new Error('[${componentName}]: Missing a title for non-decorative icon.');
   }
 
   return (
     <IconWrapper as={as} display={display} size={size} color={color}>
-      <UID>
-        {titleId => (
-          ${svg}
-        )}
-      </UID>
+      ${svg}
     </IconWrapper>
   );
 }

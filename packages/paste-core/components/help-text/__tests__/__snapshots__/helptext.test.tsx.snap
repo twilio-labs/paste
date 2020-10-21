@@ -113,7 +113,7 @@ exports[`HelpText render it should render with an error icon 1`] = `
     >
       <svg
         aria-hidden={true}
-        aria-labelledby="ErrorIcon-2-1"
+        aria-labelledby="ErrorIcon-1"
         height="100%"
         role="img"
         viewBox="0 0 20 20"
