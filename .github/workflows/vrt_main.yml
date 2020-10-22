@@ -1,6 +1,9 @@
-name: Chromatic
+name: VRT Main
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   chromatic:
@@ -34,15 +37,21 @@ jobs:
             */*/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
       - name: Bootstrap repository
         run: yarn bootstrap
       - name: Build packages
         run: yarn build
-      - uses: chromaui/action@v1
+      - name: Run Chromatic
+        uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMA_APP_CODE }}
           token: ${{ secrets.GITHUB_TOKEN }}
           buildScriptName: "build:storybook"
           autoAcceptChanges: "main"
           exitOnceUploaded: true
+      - name: Run applitools eyes-storybook
+        run: yarn test:vrt
+        env:
+          APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
+          GITHUB_HEAD_SHA: ${{ github.sha }}
