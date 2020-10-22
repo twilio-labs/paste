@@ -23,9 +23,7 @@
     "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
     "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
     "compile": "rollup -c --environment NODE_ENV:production",
-    "compile:dev": "rollup -c --environment NODE_ENV:development",
-    "prepublishOnly": "yarn build",
-    "type-check": "tsc --noEmit"
+    "compile:dev": "rollup -c --environment NODE_ENV:development"
   },
   "dependencies": {
     "downshift": "6.0.6"

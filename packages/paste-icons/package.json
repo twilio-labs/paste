@@ -20,8 +20,6 @@
     "clean": "rm -rf ./esm && rm -rf ./cjs && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
     "compile": "rollup -c --environment NODE_ENV:production",
     "compile:dev": "rollup -c --environment NODE_ENV:development",
-    "prepublishOnly": "yarn build",
-    "type-check": "tsc --noEmit",
     "list-icons": "node ./tools/cli.js list-icons",
     "convert-new": "node ./tools/cli.js convert-new",
     "convert": "node ./tools/cli.js convert"
