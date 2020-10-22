@@ -1,0 +1,36 @@
+{
+  "name": "@twilio-paste/uid-library",
+  "version": "0.1.0",
+  "category": "library",
+  "status": "beta",
+  "description": "A library to generate unique IDs for use in user interfaces such as forms.",
+  "author": "Twilio Inc.",
+  "license": "MIT",
+  "main:dev": "src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn clean && yarn compile",
+    "build:dev": "yarn clean && yarn compile:dev",
+    "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
+    "compile": "rollup -c --environment NODE_ENV:production",
+    "compile:dev": "rollup -c --environment NODE_ENV:development",
+    "prepublishOnly": "yarn build",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react-uid": "2.3.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}

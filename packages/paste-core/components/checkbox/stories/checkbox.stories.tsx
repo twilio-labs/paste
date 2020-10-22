@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useUID} from 'react-uid';
+import {useUID} from '@twilio-paste/uid-library';
 import {storiesOf} from '@storybook/react';
 import {Anchor} from '@twilio-paste/anchor';
 import {Stack} from '@twilio-paste/stack';

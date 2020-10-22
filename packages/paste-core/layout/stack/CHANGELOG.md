@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.48](https://github.com/twilio-labs/paste/compare/@twilio-paste/stack@0.1.47...@twilio-paste/stack@0.1.48) (2020-10-22)
+
+
+### Bug Fixes
+
+* **stack:** allow for dynamic children ([ecd5c4c](https://github.com/twilio-labs/paste/commit/ecd5c4caf68e75136386db74d3f34e9252ed69fe))
+
+
+
+
+
+## [0.1.47](https://github.com/twilio-labs/paste/compare/@twilio-paste/stack@0.1.46...@twilio-paste/stack@0.1.47) (2020-10-21)
+
+**Note:** Version bump only for package @twilio-paste/stack
+
+
+
+
+
+## [0.1.46](https://github.com/twilio-labs/paste/compare/@twilio-paste/stack@0.1.45...@twilio-paste/stack@0.1.46) (2020-10-15)
+
+**Note:** Version bump only for package @twilio-paste/stack
+
+
+
+
+
 ## [0.1.45](https://github.com/twilio-labs/paste/compare/@twilio-paste/stack@0.1.44...@twilio-paste/stack@0.1.45) (2020-10-13)
 
 **Note:** Version bump only for package @twilio-paste/stack

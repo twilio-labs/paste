@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useUID, useUIDSeed} from 'react-uid';
+import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
 import {styled} from '@twilio-paste/styling-library';
 import {Composite, useCompositeState} from '@twilio-paste/reakit-library';
 import {Box} from '@twilio-paste/box';
@@ -63,12 +63,12 @@ const IconColumn = styled(Box)({
 const IconsList: React.FC<IconsListProps> = () => {
   const filterID = useUID();
   const iconKeySeed = useUIDSeed();
-  const groupedIconList = getGroupedList(iconsJson);
   const [filterString, setFilterString] = React.useState('');
-  const [iconsList, setIconsList] = React.useState(groupedIconList);
+  const [iconsList, setIconsList] = React.useState(getGroupedList(iconsJson));
   const [selectedIcon, setSelectedIcon] = React.useState(getFirstIcon(iconsList));
   const uiComposite = useCompositeState();
   const productComposite = useCompositeState();
+
   return (
     <Box maxWidth="size120">
       <Grid gutter="space60">

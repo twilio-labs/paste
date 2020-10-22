@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {css, styled} from '@twilio-paste/styling-library';
-import {useUID, useUIDSeed} from 'react-uid';
+import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
 import {useComboboxPrimitive} from '@twilio-paste/combobox-primitive';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {Box} from '@twilio-paste/box';
@@ -14,7 +14,7 @@ import {ComboboxInputWrapper} from './ComboboxInputWrapper';
 import {ComboboxListbox} from './ComboboxListbox';
 import {ComboboxListboxGroup} from './ComboboxListboxGroup';
 import {ComboboxListboxOption} from './ComboboxListboxOption';
-import {RenderGroupItemsProps, RenderItemProps, RenderItemsProps, RenderListBoxProps, ComboboxProps} from './types';
+import {GroupItemsProps, ItemProps, ItemsProps, ListBoxProps, ComboboxProps} from './types';
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
 const groupBy = require('lodash.groupby');
@@ -29,20 +29,13 @@ const StyledInputAsSelect = styled(InputElement)<ComboboxProps>(props =>
 );
 /* eslint-enable */
 
-const renderItem = ({
-  item,
-  index,
-  getItemProps,
-  highlightedIndex,
-  optionTemplate,
-  inGroup,
-  optionUID,
-}: RenderItemProps): React.ReactNode => {
+const Item: React.FC<ItemProps> = ({item, index, getItemProps, highlightedIndex, optionTemplate, inGroup}) => {
+  const UIDSeed = useUIDSeed();
   return (
     <ComboboxListboxOption
       {...getItemProps({item, index})}
       highlighted={highlightedIndex === index}
-      key={optionUID(index)}
+      key={UIDSeed(item)}
       variant={inGroup ? 'groupOption' : 'default'}
     >
       {optionTemplate ? optionTemplate(item) : item}
@@ -50,78 +43,90 @@ const renderItem = ({
   );
 };
 
-const renderItems = ({
-  items,
-  getItemProps,
-  highlightedIndex,
-  optionTemplate,
-  optionUID,
-}: RenderItemsProps): React.ReactNode[] =>
-  items.map((item, index) => {
-    return renderItem({item, index, getItemProps, highlightedIndex, optionTemplate, optionUID});
-  });
-
-const renderGroupedItems = ({
-  items,
-  getItemProps,
-  highlightedIndex,
-  optionTemplate,
-  groupLabelTemplate,
-  groupItemsBy,
-  optionUID,
-  groupUID,
-}: RenderGroupItemsProps): React.ReactNode[] | null => {
-  if (groupItemsBy != null) {
-    const groupedItems = groupBy(items, (item: {}) => item[groupItemsBy]);
-    let itemIndex = 0;
-    return Object.keys(groupedItems).map(group => {
-      if (group === 'undefined') {
-        return groupedItems[group].map((item: {}) => {
-          return renderItem({item, index: itemIndex++, getItemProps, highlightedIndex, optionTemplate, optionUID});
-        });
-      }
-      return (
-        <ComboboxListboxGroup groupName={group} groupLabelTemplate={groupLabelTemplate} key={groupUID(group)}>
-          {groupedItems[group].map((item: {}) => {
-            return renderItem({
-              item,
-              index: itemIndex++,
-              getItemProps,
-              highlightedIndex,
-              optionTemplate,
-              inGroup: true,
-              optionUID,
-            });
-          })}
-        </ComboboxListboxGroup>
-      );
-    });
-  }
-  return null;
+const Items: React.FC<ItemsProps> = ({items, getItemProps, highlightedIndex, optionTemplate}) => {
+  return (
+    <>
+      {items.map((item, index) => (
+        <Item
+          // eslint-disable-next-line react/no-array-index-key
+          key={index}
+          item={item}
+          index={index}
+          getItemProps={getItemProps}
+          highlightedIndex={highlightedIndex}
+          optionTemplate={optionTemplate}
+        />
+      ))}
+    </>
+  );
 };
 
-const renderListBox = ({
+const GroupedItems: React.FC<GroupItemsProps> = ({
   items,
   getItemProps,
   highlightedIndex,
   optionTemplate,
   groupLabelTemplate,
   groupItemsBy,
-  optionUID,
-  groupUID,
-}: RenderListBoxProps): React.ReactNode[] | null =>
-  groupItemsBy
-    ? renderGroupedItems({
-        items,
-        getItemProps,
-        highlightedIndex,
-        optionTemplate,
-        groupItemsBy,
-        groupLabelTemplate,
-        optionUID,
-        groupUID,
-      })
-    : renderItems({items, getItemProps, highlightedIndex, optionTemplate, optionUID});
+}) => {
+  const UIDSeed = useUIDSeed();
+
+  // Should never happen
+  if (groupItemsBy == null) {
+    return null;
+  }
+
+  const groupedItems = groupBy(items, (item: {}) => item[groupItemsBy]);
+  const groupedItemKeys = Object.keys(groupedItems);
+
+  return (
+    <>
+      {groupedItemKeys.map(groupedItemKey => {
+        // These items are categorized as ungrouped
+        if (groupedItemKey === 'undefined') {
+          return groupedItems[groupedItemKey].map((item: {}, index: number) => (
+            <Item
+              item={item}
+              index={index}
+              key={UIDSeed(`ungrouped-${index}`)}
+              getItemProps={getItemProps}
+              highlightedIndex={highlightedIndex}
+              optionTemplate={optionTemplate}
+            />
+          ));
+        }
+        return (
+          <ComboboxListboxGroup
+            groupName={groupedItemKey}
+            groupLabelTemplate={groupLabelTemplate}
+            key={UIDSeed(groupedItemKey)}
+          >
+            {groupedItems[groupedItemKey].map((item: {}, index: number) => {
+              return (
+                <Item
+                  item={item}
+                  index={index}
+                  key={UIDSeed(`${groupedItemKey}-${index}`)}
+                  getItemProps={getItemProps}
+                  highlightedIndex={highlightedIndex}
+                  optionTemplate={optionTemplate}
+                  inGroup
+                />
+              );
+            })}
+          </ComboboxListboxGroup>
+        );
+      })}
+    </>
+  );
+};
+
+const ListBox: React.FC<ListBoxProps> = ({groupItemsBy, groupLabelTemplate, ...props}) =>
+  groupItemsBy ? (
+    <GroupedItems {...props} groupItemsBy={groupItemsBy} groupLabelTemplate={groupLabelTemplate} />
+  ) : (
+    <Items {...props} />
+  );
 
 const getHelpTextVariant = (variant: InputVariants, hasError: boolean | undefined): HelpTextVariants => {
   if (hasError && variant === 'inverse') {
@@ -166,6 +171,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
     },
     ref
   ) => {
+    const helpTextId = useUID();
     const {
       getComboboxProps,
       getInputProps,
@@ -205,10 +211,6 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       );
     }
 
-    const helpTextId = useUID();
-    const groupUID = useUIDSeed();
-    const optionUID = useUIDSeed();
-
     let iconColor = 'colorTextIcon' as TextColor;
     if (disabled) {
       iconColor = 'colorTextWeaker';
@@ -246,16 +248,14 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
           </ComboboxInputWrapper>
         </InputBox>
         <ComboboxListbox hidden={!isOpen} {...getMenuProps()}>
-          {renderListBox({
-            items,
-            getItemProps,
-            highlightedIndex,
-            optionTemplate,
-            groupItemsBy,
-            groupLabelTemplate,
-            optionUID,
-            groupUID,
-          })}
+          <ListBox
+            items={items}
+            getItemProps={getItemProps}
+            highlightedIndex={highlightedIndex}
+            optionTemplate={optionTemplate}
+            groupItemsBy={groupItemsBy}
+            groupLabelTemplate={groupLabelTemplate}
+          />
         </ComboboxListbox>
         {helpText && (
           <HelpText id={helpTextId} variant={getHelpTextVariant(variant, hasError)}>

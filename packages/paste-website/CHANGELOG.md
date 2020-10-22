@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.13.5...@twilio-paste/website@2.13.6) (2020-10-22)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.13.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.13.4...@twilio-paste/website@2.13.5) (2020-10-22)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.13.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.13.3...@twilio-paste/website@2.13.4) (2020-10-21)
+
+
+### Bug Fixes
+
+* **website:** generate groupedList as initialState to prevent mismatch ([5153320](https://github.com/twilio-labs/paste/commit/5153320723c2e6ee771676567d6007c6a11dd329))
+
+
+
+
+
+## [2.13.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.13.2...@twilio-paste/website@2.13.3) (2020-10-19)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.13.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.13.1...@twilio-paste/website@2.13.2) (2020-10-15)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.13.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.13.0...@twilio-paste/website@2.13.1) (2020-10-15)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
 # [2.13.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.12.6...@twilio-paste/website@2.13.0) (2020-10-15)
 
 

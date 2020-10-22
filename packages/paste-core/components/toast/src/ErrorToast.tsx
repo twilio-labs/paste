@@ -2,10 +2,11 @@ import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {ToastProps, ToastPropTypes} from './types';
 
-const ErrorToast: React.FC<ToastProps> = props => {
+const ErrorToast = React.forwardRef<HTMLDivElement, ToastProps>((props, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
+      ref={ref}
       backgroundColor="colorBackgroundBody"
       borderColor="colorBorderLighter"
       borderRadius="borderRadius20"
@@ -20,7 +21,7 @@ const ErrorToast: React.FC<ToastProps> = props => {
       {props.children}
     </Box>
   );
-};
+});
 
 ErrorToast.displayName = 'ErrorToast';
 

@@ -9,8 +9,6 @@ const getPresets = isDev => [
         chrome: '67',
         safari: '11.1',
       },
-      useBuiltIns: 'usage',
-      corejs: '3.6.4',
     },
   ],
   '@babel/preset-react',
@@ -27,7 +25,12 @@ const getPresets = isDev => [
   ],
 ];
 
-const BASE_PLUGINS = ['macros', '@babel/proposal-class-properties', '@babel/proposal-object-rest-spread'];
+const BASE_PLUGINS = [
+  'macros',
+  '@babel/proposal-class-properties',
+  '@babel/proposal-object-rest-spread',
+  '@babel/plugin-transform-runtime',
+];
 
 module.exports = {
   env: {
