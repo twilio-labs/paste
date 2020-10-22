@@ -37,8 +37,6 @@ jobs:
         run: yarn lint
       - name: Run tests
         run: yarn test
-      - name: Run prettier
-        run: yarn prettier
       - name: Publish packages
         run: yarn release:stable:ci
         env:
