@@ -3,7 +3,7 @@ import {storiesOf} from '@storybook/react';
 import {Button} from '@twilio-paste/button';
 import {Paragraph} from '@twilio-paste/typography';
 import {Stack} from '@twilio-paste/stack';
-import {useUID} from 'react-uid';
+import {useUID} from '@twilio-paste/uid-library';
 import {useTabPrimitiveState, TabPrimitive, TabPrimitiveList, TabPrimitivePanel, TabPrimitiveStateReturn} from '../src';
 
 const HorizontalTabsExample: React.FC<{}> = () => {

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import _ from 'lodash';
 import {axe} from 'jest-axe';
-import {uid} from 'react-uid';
+import {useUIDSeed} from '@twilio-paste/uid-library';
 import {render, screen, fireEvent} from '@testing-library/react';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
@@ -76,6 +76,7 @@ const ComboboxPartsMock: React.FC<{}> = () => {
     isOpen,
     selectedItem,
   } = useCombobox({items});
+  const seed = useUIDSeed();
   return (
     <>
       <Label htmlFor="example-textbox" {...getLabelProps()} id="example-label" data-testid="label">
@@ -100,7 +101,7 @@ const ComboboxPartsMock: React.FC<{}> = () => {
             <ComboboxListboxOption
               {...getItemProps({item, index})}
               highlighted={highlightedIndex === index}
-              key={uid(item)}
+              key={seed(item)}
             >
               {item}
             </ComboboxListboxOption>

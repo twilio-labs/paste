@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {styled, css} from '@twilio-paste/styling-library';
-import {useUID} from 'react-uid';
+import {useUID} from '@twilio-paste/uid-library';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {ThemeVariants} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';

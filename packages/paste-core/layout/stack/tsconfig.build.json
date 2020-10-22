@@ -25,6 +25,9 @@
     },
     {
       "path": "../../../paste-types"
+    },
+    {
+      "path": "../../../paste-libraries/uid"
     }
   ]
 }

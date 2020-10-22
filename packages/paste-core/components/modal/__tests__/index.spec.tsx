@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useUID} from 'react-uid';
+import {useUID} from '@twilio-paste/uid-library';
 import {render} from 'react-dom';
 import {render as testRender, fireEvent, cleanup} from '@testing-library/react';
 import {axe} from 'jest-axe';

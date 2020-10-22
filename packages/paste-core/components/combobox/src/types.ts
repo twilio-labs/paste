@@ -28,23 +28,18 @@ export interface ComboboxProps extends Omit<InputProps, 'id' | 'type' | 'value'>
   state?: Partial<UseComboboxPrimitiveReturnValue<Item>>;
 }
 
-export interface RenderItemProps extends Pick<ComboboxProps, 'optionTemplate'> {
+export interface ItemProps extends Pick<ComboboxProps, 'optionTemplate'> {
   item: Item;
   index: number;
   getItemProps: any;
   highlightedIndex: UseComboboxPrimitiveState<Item>['highlightedIndex'];
   inGroup?: boolean;
-  optionUID: (id: any) => string;
 }
 
-export interface RenderItemsProps extends Omit<RenderItemProps, 'item' | 'index'> {
+export interface ItemsProps extends Omit<ItemProps, 'item' | 'index'> {
   items: Item[];
 }
 
-export interface RenderGroupItemsProps
-  extends RenderItemsProps,
-    Pick<ComboboxProps, 'groupLabelTemplate' | 'groupItemsBy'> {
-  groupUID: (id: any) => string;
-}
+export interface GroupItemsProps extends ItemsProps, Pick<ComboboxProps, 'groupLabelTemplate' | 'groupItemsBy'> {}
 
-export type RenderListBoxProps = RenderGroupItemsProps;
+export type ListBoxProps = GroupItemsProps;

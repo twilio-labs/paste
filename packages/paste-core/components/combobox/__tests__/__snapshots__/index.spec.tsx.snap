@@ -304,7 +304,7 @@ exports[`Combobox  Render should render 1`] = `
           >
             <svg
               aria-hidden="true"
-              aria-labelledby="1"
+              aria-labelledby="ChevronDownIcon-2"
               height="100%"
               role="img"
               viewBox="0 0 20 20"

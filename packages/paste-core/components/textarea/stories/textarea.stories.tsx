@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useUID} from 'react-uid';
+import {useUID} from '@twilio-paste/uid-library';
 import {storiesOf} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
 import {withKnobs, boolean, text, select} from '@storybook/addon-knobs';

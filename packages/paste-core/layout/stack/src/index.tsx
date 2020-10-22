@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {useUID} from 'react-uid';
+import {useUIDSeed} from '@twilio-paste/uid-library';
 import {ResponsiveValue} from '@twilio-paste/styling-library';
 import {
   isSpaceTokenProp,
@@ -91,12 +91,13 @@ const Stack: React.FC<StackProps> = ({children, orientation, spacing, ...props})
   );
   const stackStyles = React.useMemo(() => getStackStyles(orientation), [orientation]);
   const childMargins = React.useMemo(() => getStackChildMargins(orientation, spacing), [orientation, spacing]);
+  const keySeed = useUIDSeed();
 
   return (
     <Box {...safelySpreadBoxProps(props)} {...stackStyles}>
       {validChildren.map((child, index) => {
         return (
-          <Box {...(childrenCount !== index + 1 ? childMargins : null)} key={useUID()}>
+          <Box {...(childrenCount !== index + 1 ? childMargins : null)} key={keySeed(`stack-${index}`)}>
             {child}
           </Box>
         );

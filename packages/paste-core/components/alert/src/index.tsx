@@ -6,7 +6,7 @@ import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {Button} from '@twilio-paste/button';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import {NeutralIcon} from '@twilio-paste/icons/esm/NeutralIcon';
 import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
 
 export const AlertRoles = {
@@ -52,7 +52,7 @@ const renderAlertIcon = (variant: AlertVariants): React.ReactElement => {
       return <WarningIcon color="colorTextWarning" decorative={false} title="warning: " size="sizeIcon20" />;
     case AlertVariants.NEUTRAL:
     default:
-      return <InformationIcon color="colorTextNeutral" decorative={false} title="information: " size="sizeIcon20" />;
+      return <NeutralIcon color="colorTextNeutral" decorative={false} title="information: " size="sizeIcon20" />;
   }
 };
 
