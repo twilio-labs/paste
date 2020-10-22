@@ -39,11 +39,6 @@ jobs:
         run: yarn test
       - name: Run prettier
         run: yarn prettier
-      - name: Run applitools eyes-storybook
-        run: yarn test:vrt
-        env:
-          APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
-          GITHUB_HEAD_SHA: ${{ github.sha }}
       - name: Publish packages
         run: yarn release:stable:ci
         env:
