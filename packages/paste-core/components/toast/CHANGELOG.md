@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/toast@0.1.11...@twilio-paste/toast@0.2.0) (2020-10-22)
+
+
+### Features
+
+* **toast:** add the toaster to handle showing toasts ([bb94744](https://github.com/twilio-labs/paste/commit/bb9474481ef67f72a073b45a970e83b7e93e139e))
+* **toast:** update the icon used in neutral toast ([a923709](https://github.com/twilio-labs/paste/commit/a92370961a89ab09d78128da930dd88ef3519422))
+
+
+
+
+
 ## [0.1.11](https://github.com/twilio-labs/paste/compare/@twilio-paste/toast@0.1.10...@twilio-paste/toast@0.1.11) (2020-10-21)
 
 **Note:** Version bump only for package @twilio-paste/toast

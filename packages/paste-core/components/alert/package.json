@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/alert",
-  "version": "1.0.33",
+  "version": "1.0.34",
   "category": "feedback",
   "status": "production",
   "description": "An alert notifies a user to high-priority or time-sensitive information.",
@@ -30,7 +30,7 @@
   "peerDependencies": {
     "@twilio-paste/absolute": "^2.0.78",
     "@twilio-paste/box": "^2.11.5",
-    "@twilio-paste/button": "^2.3.21",
+    "@twilio-paste/button": "^2.3.22",
     "@twilio-paste/design-tokens": "^6.3.4",
     "@twilio-paste/icons": "^3.7.1",
     "@twilio-paste/media-object": "^1.2.66",
@@ -47,7 +47,7 @@
   "devDependencies": {
     "@twilio-paste/absolute": "^2.0.78",
     "@twilio-paste/box": "^2.11.5",
-    "@twilio-paste/button": "^2.3.21",
+    "@twilio-paste/button": "^2.3.22",
     "@twilio-paste/design-tokens": "^6.3.4",
     "@twilio-paste/icons": "^3.7.1",
     "@twilio-paste/media-object": "^1.2.66",
