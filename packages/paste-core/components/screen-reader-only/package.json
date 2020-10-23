@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/screen-reader-only",
-  "version": "1.1.13",
+  "version": "1.1.14",
   "category": "typography",
   "status": "beta",
   "description": "Utility for visually hiding content to provide an accessible experience for users of assistive technology.",
@@ -23,17 +23,15 @@
     "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
     "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
     "compile": "rollup -c --environment NODE_ENV:production",
-    "compile:dev": "rollup -c --environment NODE_ENV:development",
-    "prepublishOnly": "yarn build",
-    "type-check": "tsc --noEmit"
+    "compile:dev": "rollup -c --environment NODE_ENV:development"
   },
   "peerDependencies": {
-    "@twilio-paste/styling-library": "^0.1.3",
+    "@twilio-paste/styling-library": "^0.1.4",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/styling-library": "^0.1.3"
+    "@twilio-paste/styling-library": "^0.1.4"
   }
 }

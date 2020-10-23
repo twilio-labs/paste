@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/base-radio-checkbox@1.1.8...@twilio-paste/base-radio-checkbox@1.1.9) (2020-10-23)
+
+**Note:** Version bump only for package @twilio-paste/base-radio-checkbox
+
+
+
+
+
 ## [1.1.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/base-radio-checkbox@1.1.7...@twilio-paste/base-radio-checkbox@1.1.8) (2020-10-21)
 
 **Note:** Version bump only for package @twilio-paste/base-radio-checkbox

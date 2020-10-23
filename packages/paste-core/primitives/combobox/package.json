@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/combobox-primitive",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "category": "user input",
   "status": "beta",
   "description": "An unstyled and accessible basis upon which to build a combobox.",
@@ -23,17 +23,15 @@
     "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
     "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
     "compile": "rollup -c --environment NODE_ENV:production",
-    "compile:dev": "rollup -c --environment NODE_ENV:development",
-    "prepublishOnly": "yarn build",
-    "type-check": "tsc --noEmit"
+    "compile:dev": "rollup -c --environment NODE_ENV:development"
   },
   "peerDependencies": {
-    "@twilio-paste/dropdown-library": "^1.0.2",
+    "@twilio-paste/dropdown-library": "^1.0.3",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/dropdown-library": "^1.0.2"
+    "@twilio-paste/dropdown-library": "^1.0.3"
   }
 }
