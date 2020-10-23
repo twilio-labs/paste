@@ -19,6 +19,10 @@ const gatsbyConfig = {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-145457417-1',
+        // Anonymizes data sent to google
+        anonymize: true,
+        // Respects browser do not track (why isn't this default lol)
+        respectDNT: true,
       },
     },
     `gatsby-plugin-typescript`,
