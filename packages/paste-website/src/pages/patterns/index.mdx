@@ -6,6 +6,7 @@ slug: /patterns/
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
@@ -58,9 +59,7 @@ export const pageQuery = graphql`
 
 ## What is a pattern?
 
-A pattern outlines how to bring a collection of components together to create a reusable solution that solves customer problems and brings consistency to our platforms.
-
-A pattern is not intended to be a strict set of rules that we must follow, but instead, it is a set of guidelines around a particular user flow or interaction that designers and engineers can lean on when creating customer experiences.
+A pattern outlines how to bring a collection of components together to create a reusable solution that solves customer problems and brings consistency to our platforms. They a set of guidelines around a particular user flow or interaction that designers and engineers should follow when creating customer experiences.
 
 There are two primary goals of patterns:
 - To drive efficiency across Twilio product teams by ensuring that no one needs to solve the same problem twice.
@@ -72,6 +71,7 @@ We rely on contributions to build out and refine our pattern library. Please giv
 
 ## Available patterns
 
+<Box marginBottom="space60">
 <Card>
   <Heading as="h4" variant="heading40">
     Pattern status details
@@ -98,6 +98,8 @@ We rely on contributions to build out and refine our pattern library. Please giv
     Pattern is stable.
   </Text>
 </Card>
+</Box>
+
 
 | Pattern name                                          | Status      |
 |-------------------------------------------------------|-------------|
