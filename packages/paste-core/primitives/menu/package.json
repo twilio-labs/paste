@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/menu-primitive",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "category": "interaction",
   "status": "beta",
   "description": "An unstyled and accessible basis upon which to build Menus.",
@@ -26,11 +26,11 @@
     "compile:dev": "rollup -c --environment NODE_ENV:development"
   },
   "peerDependencies": {
-    "@twilio-paste/reakit-library": "^0.7.3",
+    "@twilio-paste/reakit-library": "^0.7.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/reakit-library": "^0.7.3"
+    "@twilio-paste/reakit-library": "^0.7.4"
   }
 }
