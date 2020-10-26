@@ -57,7 +57,7 @@ const gatsbyConfig = {
       options: {
         name: 'pages',
         path: `${__dirname}/src/pages`,
-        ignore: ['**/components/**/*', '**/primitives/**/*', '**/layout/**/*'],
+        ignore: ['**/components/**/*', '**/primitives/**/*', '**/layout/**/*', '**/libraries/**/*'],
       },
     },
     {
@@ -79,6 +79,13 @@ const gatsbyConfig = {
       options: {
         name: 'layout',
         path: `${__dirname}/src/pages/layout`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'libraries',
+        path: `${__dirname}/src/pages/libraries`,
       },
     },
     {
@@ -139,6 +146,10 @@ const gatsbyConfig = {
 
           if (node.relativePath.startsWith('paste-core/layout') && node.relativePath.endsWith('package.json')) {
             return 'PasteLayout';
+          }
+
+          if (node.relativePath.startsWith('paste-libraries') && node.relativePath.endsWith('package.json')) {
+            return 'PasteLibraries';
           }
 
           if (node.relativePath.startsWith('paste-theme') && node.relativePath.endsWith('package.json')) {
