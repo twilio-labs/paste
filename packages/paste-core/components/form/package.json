@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/form",
-  "version": "2.3.9",
+  "version": "2.3.10",
   "category": "user input",
   "status": "beta",
   "description": "All the basic form elements for Twilio Paste",
@@ -28,7 +28,7 @@
   "peerDependencies": {
     "@twilio-paste/base-radio-checkbox": "^1.1.9",
     "@twilio-paste/box": "^2.11.6",
-    "@twilio-paste/checkbox": "^1.1.9",
+    "@twilio-paste/checkbox": "^1.1.10",
     "@twilio-paste/design-tokens": "^6.3.5",
     "@twilio-paste/flex": "^0.3.66",
     "@twilio-paste/help-text": "^1.1.9",
@@ -55,7 +55,7 @@
   "devDependencies": {
     "@twilio-paste/base-radio-checkbox": "^1.1.9",
     "@twilio-paste/box": "^2.11.6",
-    "@twilio-paste/checkbox": "^1.1.9",
+    "@twilio-paste/checkbox": "^1.1.10",
     "@twilio-paste/design-tokens": "^6.3.5",
     "@twilio-paste/flex": "^0.3.66",
     "@twilio-paste/help-text": "^1.1.9",

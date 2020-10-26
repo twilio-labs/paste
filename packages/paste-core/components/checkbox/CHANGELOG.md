@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/checkbox@1.1.9...@twilio-paste/checkbox@1.1.10) (2020-10-26)
+
+
+### Bug Fixes
+
+* **checkbox:** use context for CheckboxGroup ([#858](https://github.com/twilio-labs/paste/issues/858)) ([550abb2](https://github.com/twilio-labs/paste/commit/550abb2d2febaf94ec0752f4bbe2cedfc3e17563))
+
+
+
+
+
 ## [1.1.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/checkbox@1.1.8...@twilio-paste/checkbox@1.1.9) (2020-10-23)
 
 **Note:** Version bump only for package @twilio-paste/checkbox
