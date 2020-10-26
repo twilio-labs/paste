@@ -177,6 +177,9 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <SidebarAnchor to="/principles">Principles</SidebarAnchor>
         </SidebarItem>
         <SidebarItem>
+          <SidebarAnchor to="/inclusive-design">Inclusive Design Guide</SidebarAnchor>
+        </SidebarItem>
+        <SidebarItem>
           <DisclosurePrimitive as={SidebarDisclosureButton} {...tokensDisclosure} data-cy="design-tokens-button">
             Design Tokens
           </DisclosurePrimitive>
