@@ -550,19 +550,25 @@ storiesOf('Layout|Grid', module)
       <Grid gutter="space70" vertical={[true, false, false]}>
         <Column>
           <Card padding="space70">
-            <Heading as="h2">Card Heading</Heading>
+            <Heading as="h2" variant="heading20">
+              Card Heading
+            </Heading>
             <Text as="p">Body</Text>
           </Card>
         </Column>
         <Column>
           <Card padding="space70">
-            <Heading as="h2">Card Heading</Heading>
+            <Heading as="h2" variant="heading20">
+              Card Heading
+            </Heading>
             <Text as="p">Body</Text>
           </Card>
         </Column>
         <Column>
           <Card padding="space70">
-            <Heading as="h2">Card Heading</Heading>
+            <Heading as="h2" variant="heading20">
+              Card Heading
+            </Heading>
             <Text as="p">Body</Text>
           </Card>
         </Column>
@@ -574,20 +580,26 @@ storiesOf('Layout|Grid', module)
       <Grid gutter="space70" vertical={[true, false, false]}>
         <Column span={6}>
           <Card padding="space70">
-            <Heading as="h2">Card Heading</Heading>
+            <Heading as="h2" variant="heading20">
+              Card Heading
+            </Heading>
             <Text as="p">Body</Text>
           </Card>
         </Column>
         <Column span={6}>
           <Card padding="space70">
-            <Heading as="h2">Card Heading</Heading>
+            <Heading as="h2" variant="heading20">
+              Card Heading
+            </Heading>
             <Text as="p">Body</Text>
           </Card>
         </Column>
         <Column span={6}>
           <Box marginTop="space70">
             <Card padding="space70">
-              <Heading as="h2">Card Heading</Heading>
+              <Heading as="h2" variant="heading20">
+                Card Heading
+              </Heading>
               <Text as="p">Body</Text>
             </Card>
           </Box>
@@ -595,7 +607,9 @@ storiesOf('Layout|Grid', module)
         <Column span={6}>
           <Box marginTop="space70">
             <Card padding="space70">
-              <Heading as="h2">Card Heading</Heading>
+              <Heading as="h2" variant="heading20">
+                Card Heading
+              </Heading>
               <Text as="p">Body</Text>
             </Card>
           </Box>
@@ -607,7 +621,9 @@ storiesOf('Layout|Grid', module)
     return (
       <Grid gutter="space70" vertical={[true, false, false]}>
         <Column span={8}>
-          <Heading as="h2">Content Heading</Heading>
+          <Heading as="h2" variant="heading20">
+            Content Heading
+          </Heading>
           <Paragraph>
             Kale chips distillery authentic, portland etsy cloud bread vinyl gentrify drinking vinegar viral meh hot
             chicken bitters fashion axe palo santo. Chillwave fixie sustainable <i>helvetica</i> etsy.
@@ -620,11 +636,95 @@ storiesOf('Layout|Grid', module)
         </Column>
         <Column span={4}>
           <Card padding="space70">
-            <Heading as="h2">Card Heading</Heading>
+            <Heading as="h2" variant="heading20">
+              Card Heading
+            </Heading>
             <Text as="p">Body</Text>
           </Card>
         </Column>
       </Grid>
+    );
+  })
+  .add('Grid - Equal height columns', () => {
+    return (
+      <>
+        <Grid gutter="space30" vertical={[true, true, false]} equalColumnHeights>
+          <Column span={4}>
+            <Card padding="space70">
+              <Heading as="h2" variant="heading20">
+                Why use Paste?
+              </Heading>
+              <Paragraph marginBottom="space0">
+                Paste helps you rapidly prototype, and ship great, inclusive customer experiences. It makes it easy to
+                do the right thing, cheaply.
+              </Paragraph>
+            </Card>
+          </Column>
+          <Column span={4}>
+            <Card padding="space70">
+              <Heading as="h2" variant="heading20">
+                Inclusive by default
+              </Heading>
+              <Paragraph marginBottom="space0">
+                Paste meets WCAG 2.1 AA standards in the design and development of our components, making it even easier
+                to build accessibly.
+              </Paragraph>
+              <Paragraph marginBottom="space0">
+                Paste meets WCAG 2.1 AA standards in the design and development of our components, making it even easier
+                to build accessibly.
+              </Paragraph>
+            </Card>
+          </Column>
+          <Column span={4}>
+            <Card padding="space70">
+              <Heading as="h2" variant="heading20">
+                Get up and running
+              </Heading>
+              <Paragraph marginBottom="space0">
+                Whether you’re a designer or developer, setting up Paste is easy and only takes a few minutes!
+              </Paragraph>
+            </Card>
+          </Column>
+        </Grid>
+        <Grid gutter="space30" equalColumnHeights>
+          <Column span={4}>
+            <Card padding="space70">
+              <Heading as="h2" variant="heading20">
+                Why use Paste?
+              </Heading>
+              <Paragraph marginBottom="space0">
+                Paste helps you rapidly prototype, and ship great, inclusive customer experiences. It makes it easy to
+                do the right thing, cheaply.
+              </Paragraph>
+            </Card>
+          </Column>
+          <Column span={4}>
+            <Card padding="space70">
+              <Heading as="h2" variant="heading20">
+                Inclusive by default
+              </Heading>
+              <Paragraph marginBottom="space0">
+                Paste meets WCAG 2.1 AA standards in the design and development of our components, making it even easier
+                to build accessibly.
+              </Paragraph>
+              <Paragraph marginBottom="space0">
+                Paste meets WCAG 2.1 AA standards in the design and development of our components, making it even easier
+                to build accessibly.
+              </Paragraph>
+            </Card>
+          </Column>
+          <Column span={4}>
+            <Card padding="space70">
+              <Heading as="h2" variant="heading20">
+                Get up and running
+              </Heading>
+              <Paragraph marginBottom="space0">
+                Whether you’re a designer or developer, setting up Paste is easy and only takes a few minutes!
+              </Paragraph>
+            </Card>
+          </Column>
+        </Grid>
+      </>
     );
   })
   .add('Grid - Containing long content', () => {

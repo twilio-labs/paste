@@ -1,9 +1,10 @@
 import {ResponsiveValue} from '@twilio-paste/styling-library';
-import {LayoutProps, PaddingProps, Space, SpaceProps} from '@twilio-paste/style-props';
+import {LayoutProps, FlexboxProps, PaddingProps, Space, SpaceProps} from '@twilio-paste/style-props';
 
 export interface GridProps extends SpaceProps {
   as?: keyof JSX.IntrinsicElements;
   children: NonNullable<React.ReactNode>;
+  equalColumnHeights?: boolean;
   gutter?: Space;
   vertical?: ResponsiveValue<boolean>;
 }
@@ -16,6 +17,7 @@ export type ColumnSpanOptions = number;
 export type ColumnSpan = ResponsiveValue<ColumnSpanOptions>;
 
 export interface ColumnStyleProps extends Omit<LayoutProps, 'minWidth' | 'width'>, PaddingProps {
+  alignContent?: FlexboxProps['alignContent'];
   marginLeft?: ResponsiveValue<string>;
   minWidth?: ColumnMinWidth;
   width?: ColumnWidthSpan;
@@ -27,5 +29,6 @@ export interface ColumnProps extends ColumnStyleProps {
   gutter?: Space;
   offset?: ColumnOffset;
   span?: ColumnSpan;
+  stretchColumnContent?: boolean;
   vertical?: ResponsiveValue<boolean>;
 }

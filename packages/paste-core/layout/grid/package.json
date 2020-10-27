@@ -28,7 +28,6 @@
   "peerDependencies": {
     "@twilio-paste/box": "^2.11.9",
     "@twilio-paste/design-tokens": "^6.3.6",
-    "@twilio-paste/flex": "^0.3.69",
     "@twilio-paste/style-props": "^1.8.9",
     "@twilio-paste/styling-library": "^0.1.4",
     "@twilio-paste/theme": "^3.3.2",
@@ -40,7 +39,6 @@
   "devDependencies": {
     "@twilio-paste/box": "^2.11.9",
     "@twilio-paste/design-tokens": "^6.3.6",
-    "@twilio-paste/flex": "^0.3.69",
     "@twilio-paste/style-props": "^1.8.9",
     "@twilio-paste/styling-library": "^0.1.4",
     "@twilio-paste/theme": "^3.3.2",
