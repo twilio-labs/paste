@@ -5,16 +5,16 @@ import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper, IconWrapperProps} from './helpers/IconWrapper';
 
-export interface SearchIconProps extends IconWrapperProps {
+export interface UserIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const SearchIcon: React.FC<SearchIconProps> = ({as, display, size, color, title, decorative}) => {
-  const titleId = `SearchIcon-${useUID()}`;
+const UserIcon: React.FC<UserIconProps> = ({as, display, size, color, title, decorative}) => {
+  const titleId = `UserIcon-${useUID()}`;
 
   if (!decorative && title == null) {
-    throw new Error('[SearchIcon]: Missing a title for non-decorative icon.');
+    throw new Error('[UserIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
@@ -23,13 +23,12 @@ const SearchIcon: React.FC<SearchIconProps> = ({as, display, size, color, title,
         {title ? <title id={titleId}>{title}</title> : null}
         <path
           fill="currentColor"
-          fillRule="evenodd"
-          d="M5.43 5.43a4.882 4.882 0 017.383 6.347l2.973 2.973a.732.732 0 01-1.036 1.036l-2.973-2.973A4.883 4.883 0 015.43 5.43zm1.035 1.035a3.417 3.417 0 104.833 4.833 3.417 3.417 0 00-4.833-4.833z"
+          d="M10.302 10a6.309 6.309 0 016.3 6.301.566.566 0 11-1.131 0 5.17 5.17 0 00-10.339 0 .566.566 0 11-1.132 0 6.309 6.309 0 016.07-6.297l.232-.004zm-.155-8a3.5 3.5 0 110 7 3.5 3.5 0 010-7zm0 1.085a2.415 2.415 0 100 4.831 2.415 2.415 0 000-4.831z"
         />
       </svg>
     </IconWrapper>
   );
 };
 
-SearchIcon.displayName = 'SearchIcon';
-export {SearchIcon};
+UserIcon.displayName = 'UserIcon';
+export {UserIcon};

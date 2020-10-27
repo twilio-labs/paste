@@ -5,16 +5,16 @@ import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper, IconWrapperProps} from './helpers/IconWrapper';
 
-export interface SearchIconProps extends IconWrapperProps {
+export interface FilterIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const SearchIcon: React.FC<SearchIconProps> = ({as, display, size, color, title, decorative}) => {
-  const titleId = `SearchIcon-${useUID()}`;
+const FilterIcon: React.FC<FilterIconProps> = ({as, display, size, color, title, decorative}) => {
+  const titleId = `FilterIcon-${useUID()}`;
 
   if (!decorative && title == null) {
-    throw new Error('[SearchIcon]: Missing a title for non-decorative icon.');
+    throw new Error('[FilterIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
@@ -24,12 +24,12 @@ const SearchIcon: React.FC<SearchIconProps> = ({as, display, size, color, title,
         <path
           fill="currentColor"
           fillRule="evenodd"
-          d="M5.43 5.43a4.882 4.882 0 017.383 6.347l2.973 2.973a.732.732 0 01-1.036 1.036l-2.973-2.973A4.883 4.883 0 015.43 5.43zm1.035 1.035a3.417 3.417 0 104.833 4.833 3.417 3.417 0 00-4.833-4.833z"
+          d="M12 13a1 1 0 010 2H8a1 1 0 010-2h4zm2-4a1 1 0 010 2H6a1 1 0 010-2h8zm2-4a1 1 0 010 2H4a1 1 0 110-2h12z"
         />
       </svg>
     </IconWrapper>
   );
 };
 
-SearchIcon.displayName = 'SearchIcon';
-export {SearchIcon};
+FilterIcon.displayName = 'FilterIcon';
+export {FilterIcon};
