@@ -10,10 +10,11 @@ interface BaseListProps extends React.OlHTMLAttributes<HTMLElement> {
   marginBottom?: Space;
 }
 
-const List: React.FC<BaseListProps> = ({as, children, ...props}) => {
+const List = React.forwardRef<HTMLOListElement | HTMLUListElement, BaseListProps>(({as, children, ...props}, ref) => {
   return (
     <Text
       {...props}
+      ref={ref}
       as={as}
       marginLeft="space70"
       fontSize="fontSize30"
@@ -24,58 +25,57 @@ const List: React.FC<BaseListProps> = ({as, children, ...props}) => {
       {children}
     </Text>
   );
-};
-
+});
 List.displayName = 'List';
 
 /*
  * Ordered List
  */
 export type OrderedListProps = Omit<BaseListProps, 'as'>;
-const OrderedList: React.FC<OrderedListProps> = ({children, marginTop, marginBottom, ...props}) => {
-  return (
-    <List {...safelySpreadTextProps(props)} as="ol" marginTop={marginTop} marginBottom={marginBottom}>
-      {children}
-    </List>
-  );
-};
 
+const OrderedList = React.forwardRef<HTMLOListElement, OrderedListProps>(
+  ({children, marginTop, marginBottom, ...props}, ref) => {
+    return (
+      <List {...safelySpreadTextProps(props)} ref={ref} as="ol" marginTop={marginTop} marginBottom={marginBottom}>
+        {children}
+      </List>
+    );
+  }
+);
 OrderedList.defaultProps = {
   marginBottom: 'space70',
 };
-
 if (process.env.NODE_ENV === 'development') {
   OrderedList.propTypes = {
     marginTop: isMarginTokenProp,
     marginBottom: isMarginTokenProp,
   };
 }
-
 OrderedList.displayName = 'OrderedList';
 
 /*
  * Unordered List
  */
 export type UnorderedListProps = Omit<BaseListProps, 'as'>;
-const UnorderedList: React.FC<UnorderedListProps> = ({children, marginTop, marginBottom, ...props}) => {
-  return (
-    <List {...safelySpreadTextProps(props)} as="ul" marginTop={marginTop} marginBottom={marginBottom}>
-      {children}
-    </List>
-  );
-};
 
+const UnorderedList = React.forwardRef<HTMLUListElement, UnorderedListProps>(
+  ({children, marginTop, marginBottom, ...props}, ref) => {
+    return (
+      <List {...safelySpreadTextProps(props)} ref={ref} as="ul" marginTop={marginTop} marginBottom={marginBottom}>
+        {children}
+      </List>
+    );
+  }
+);
 UnorderedList.defaultProps = {
   marginBottom: 'space70',
 };
-
 if (process.env.NODE_ENV === 'development') {
   UnorderedList.propTypes = {
     marginTop: isMarginTokenProp,
     marginBottom: isMarginTokenProp,
   };
 }
-
 UnorderedList.displayName = 'UnorderedList';
 
 /*
@@ -86,10 +86,11 @@ export interface ListItemProps extends React.LiHTMLAttributes<HTMLLIElement> {
   style?: never;
 }
 
-const ListItem: React.FC<ListItemProps> = props => {
+const ListItem = React.forwardRef<HTMLLIElement, ListItemProps>((props, ref) => {
   return (
     <Text
       {...safelySpreadTextProps(props)}
+      ref={ref}
       as="li"
       marginTop="space30"
       marginBottom="space30"
@@ -101,8 +102,7 @@ const ListItem: React.FC<ListItemProps> = props => {
       {props.children}
     </Text>
   );
-};
-
+});
 ListItem.displayName = 'ListItem';
 
 export {OrderedList, UnorderedList, ListItem};
