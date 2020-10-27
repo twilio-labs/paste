@@ -31,8 +31,10 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        // grab stuff in packages for indexing like changelogs, package.json, design token compiled files
         name: 'packages',
         path: `${__dirname}/../../packages/`,
+        // but ignore all the build artifacts that we don't need so we don't fill graphql with a bunch of random stuff
         ignore: [
           '**/.*',
           '**/.cache/**',
@@ -42,6 +44,12 @@ const gatsbyConfig = {
           '**/__tests__/**',
           '**/paste-website/**/*',
           '**/README.md',
+          '**/*.js',
+          '**/*.ts',
+          '**/*.tsx',
+          '**/*.d.ts.map',
+          '**/*.build.json',
+          '**/tsconfig.json',
         ],
       },
     },
@@ -57,35 +65,6 @@ const gatsbyConfig = {
       options: {
         name: 'pages',
         path: `${__dirname}/src/pages`,
-        ignore: ['**/components/**/*', '**/primitives/**/*', '**/layout/**/*', '**/libraries/**/*'],
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'components',
-        path: `${__dirname}/src/pages/components`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'primitives',
-        path: `${__dirname}/src/pages/primitives`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'layout',
-        path: `${__dirname}/src/pages/layout`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'libraries',
-        path: `${__dirname}/src/pages/libraries`,
       },
     },
     {
