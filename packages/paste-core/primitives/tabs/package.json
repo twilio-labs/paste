@@ -2,7 +2,7 @@
   "name": "@twilio-paste/tabs-primitive",
   "version": "0.1.11",
   "category": "interaction",
-  "status": "beta",
+  "status": "production",
   "description": "An unstyled and accessible basis upon which to style a tabset.",
   "author": "Twilio Inc.",
   "license": "MIT",
