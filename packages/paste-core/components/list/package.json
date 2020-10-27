@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/list",
-  "version": "0.2.48",
+  "version": "0.2.49",
   "category": "typography",
   "status": "production",
   "description": "The list component is used to render text as a list of items.",

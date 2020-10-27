@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/typography",
-  "version": "1.0.83",
+  "version": "1.0.84",
   "category": "typography",
   "status": "alpha",
   "description": "Twilio's Typography component",
@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@twilio-paste/heading": "^2.0.48",
-    "@twilio-paste/list": "^0.2.48",
+    "@twilio-paste/list": "^0.2.49",
     "@twilio-paste/paragraph": "^1.1.49"
   },
   "peerDependencies": {
