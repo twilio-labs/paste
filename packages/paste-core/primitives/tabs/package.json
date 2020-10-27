@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/tabs-primitive",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "category": "interaction",
   "status": "production",
   "description": "An unstyled and accessible basis upon which to style a tabset.",
