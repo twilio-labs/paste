@@ -2,7 +2,6 @@ import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {withKnobs} from '@storybook/addon-knobs';
 import {Box} from '@twilio-paste/box';
-import {Absolute} from '@twilio-paste/absolute';
 import {Text} from '@twilio-paste/text';
 import {Popover, PopoverContainer, PopoverButton} from '../src';
 
@@ -32,14 +31,14 @@ const BottomExample: React.FC<{}> = () => {
 
 const TopExample: React.FC<{}> = () => {
   return (
-    <Absolute preset="bottom" bottom={12}>
+    <Box bottom={12} position="absolute">
       <PopoverContainer baseId="test-id" placement="top-start">
         <PopoverButton variant="primary">Open popover</PopoverButton>
         <Popover aria-label="Popover">
           <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
         </Popover>
       </PopoverContainer>
-    </Absolute>
+    </Box>
   );
 };
 
@@ -56,14 +55,14 @@ const RightExample: React.FC<{}> = () => {
 
 const LeftExample: React.FC<{}> = () => {
   return (
-    <Absolute preset="right" top={12} right={12}>
+    <Box position="absolute" right={12} top={12}>
       <PopoverContainer baseId="test-id" placement="left-start">
         <PopoverButton variant="primary">Open popover</PopoverButton>
         <Popover aria-label="Popover">
           <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
         </Popover>
       </PopoverContainer>
-    </Absolute>
+    </Box>
   );
 };
 

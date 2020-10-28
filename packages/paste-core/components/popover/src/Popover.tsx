@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {Absolute} from '@twilio-paste/absolute';
 import {Box, BoxProps, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
@@ -42,7 +41,7 @@ const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(({children, ...pr
         <PopoverArrow {...(popover as any)} />
         <Box padding="space50" paddingLeft="space70" paddingRight="space70">
           {children}
-          <Absolute preset="top_right" top={8} right={8}>
+          <Box position="absolute" right={8} top={8}>
             <Button
               variant="reset"
               size="reset"
@@ -54,7 +53,7 @@ const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(({children, ...pr
             >
               <CloseIcon decorative={false} color="colorTextWeak" size="sizeIcon30" title="Close popover" />
             </Button>
-          </Absolute>
+          </Box>
         </Box>
       </StyledBase>
     </NonModalDialogPrimitive>
