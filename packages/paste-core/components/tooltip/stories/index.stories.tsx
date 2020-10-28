@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {withKnobs, text} from '@storybook/addon-knobs';
-import {Absolute} from '@twilio-paste/absolute';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -74,26 +73,26 @@ storiesOf('Components|Tooltip', module)
   .add('Automatic edge placement', () => {
     return (
       <>
-        <Absolute preset="top_left">
+        <Box position="absolute" top={0} left={0}>
           <Tooltip text="Welcome to Paste!">
             <Button variant="primary">Open tooltip</Button>
           </Tooltip>
-        </Absolute>
-        <Absolute preset="top_right">
+        </Box>
+        <Box position="absolute" top={0} right={0}>
           <Tooltip text="Welcome to Paste!">
             <Button variant="primary">Open tooltip</Button>
           </Tooltip>
-        </Absolute>
-        <Absolute preset="bottom_left">
+        </Box>
+        <Box position="absolute" bottom={0} left={0}>
           <Tooltip text="Welcome to Paste!">
             <Button variant="primary">Open tooltip</Button>
           </Tooltip>
-        </Absolute>
-        <Absolute preset="bottom_right">
+        </Box>
+        <Box position="absolute" bottom={0} right={0}>
           <Tooltip text="Welcome to Paste!">
             <Button variant="primary">Open tooltip</Button>
           </Tooltip>
-        </Absolute>
+        </Box>
       </>
     );
   })
@@ -102,11 +101,11 @@ storiesOf('Components|Tooltip', module)
     () => {
       return (
         <>
-          <Absolute preset="bottom_left">
+          <Box position="absolute" bottom={0} left={0}>
             <Tooltip visible text="Tooltip adjusted to the top because bottom would be off screen" placement="bottom">
               <Button variant="primary">Open tooltip</Button>
             </Tooltip>
-          </Absolute>
+          </Box>
         </>
       );
     },
