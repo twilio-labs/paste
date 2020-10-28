@@ -125,6 +125,10 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
     visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.CONTENT),
   });
 
+  const librariesDisclosure = useDisclosurePrimitiveState({
+    visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.LIBRARIES),
+  });
+
   const tokensDisclosure = useDisclosurePrimitiveState({
     visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.TOKENS),
   });
@@ -349,7 +353,23 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <SidebarAnchor to="/libraries">Libraries</SidebarAnchor>
+          <DisclosurePrimitive as={SidebarDisclosureButton} {...librariesDisclosure} data-cy="libraries-button">
+            Libraries
+          </DisclosurePrimitive>
+          <DisclosurePrimitiveContent {...librariesDisclosure}>
+            <SidebarNestedList>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={SidebarCategoryRoutes.LIBRARIES}>
+                  Overview
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.LIBRARIES}/uid-library`}>
+                  UID
+                </SidebarAnchor>
+              </SidebarNestedItem>
+            </SidebarNestedList>
+          </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
           <SidebarAnchor to="/roadmap">Roadmap</SidebarAnchor>
