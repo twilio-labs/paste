@@ -23,7 +23,6 @@
     "compile:dev": "babel ./src/*.tsx --out-dir ./dist --extensions '.tsx'"
   },
   "dependencies": {
-    "@twilio-paste/absolute": "^2.0.79",
     "@twilio-paste/alert": "^1.0.37",
     "@twilio-paste/anchor": "^1.3.14",
     "@twilio-paste/animation-library": "^0.2.4",
