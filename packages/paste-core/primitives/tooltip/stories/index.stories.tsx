@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
-import {Absolute} from '@twilio-paste/absolute';
+import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {useTooltipPrimitiveState, TooltipPrimitive, TooltipPrimitiveReference} from '../src';
 
@@ -31,24 +31,24 @@ const RightPlacementExample: React.FC<{}> = () => {
 const LeftPlacementExample: React.FC<{}> = () => {
   const tooltip = useTooltipPrimitiveState({placement: 'left'});
   return (
-    <Absolute preset="right" top={12} right={12}>
+    <Box position="absolute" top={12} right={12}>
       <TooltipPrimitiveReference {...tooltip} as={Button} variant="primary">
         Open Tooltip
       </TooltipPrimitiveReference>
       <TooltipPrimitive {...tooltip}>Welcome to Paste!</TooltipPrimitive>
-    </Absolute>
+    </Box>
   );
 };
 
 const TopPlacementExample: React.FC<{}> = () => {
   const tooltip = useTooltipPrimitiveState({placement: 'top'});
   return (
-    <Absolute preset="bottom" bottom={12}>
+    <Box position="absolute" bottom={12}>
       <TooltipPrimitiveReference {...tooltip} as={Button} variant="primary">
         Open Tooltip
       </TooltipPrimitiveReference>
       <TooltipPrimitive {...tooltip}>Welcome to Paste!</TooltipPrimitive>
-    </Absolute>
+    </Box>
   );
 };
 
