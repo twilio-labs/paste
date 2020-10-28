@@ -1,4 +1,3 @@
-export * from '@twilio-paste/absolute';
 export * from '@twilio-paste/alert';
 export * from '@twilio-paste/anchor';
 export * from '@twilio-paste/aspect-ratio';

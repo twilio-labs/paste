@@ -1,6 +1,5 @@
 # Automatically generated from "yarn generate-packages"
 /dist
-/absolute
 /alert
 /anchor
 /animation-library
