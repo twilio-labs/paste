@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {styled, themeGet} from '@twilio-paste/styling-library';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
-import {Absolute} from '@twilio-paste/absolute';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Heading} from '@twilio-paste/heading';
@@ -25,12 +24,6 @@ const DoDont: React.FC<DoDontProps> = props => {
   );
 };
 
-const Center = styled(Absolute)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 interface DoProps {
   body: string;
   center: boolean;
@@ -43,7 +36,20 @@ const Item: React.FC<DoProps> = ({center = false, ...props}) => {
   let preview = props.children;
 
   if (center) {
-    preview = <Center>{props.children}</Center>;
+    preview = (
+      <Box
+        position="absolute"
+        top={0}
+        right={0}
+        bottom={0}
+        left={0}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        {props.children}
+      </Box>
+    );
   }
 
   return (

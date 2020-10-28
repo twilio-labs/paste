@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as lodash from 'lodash';
 import {ThemeShape, useTheme} from '@twilio-paste/theme';
-import {Absolute, AbsoluteProps} from '@twilio-paste/absolute';
 import {Box, BoxProps} from '@twilio-paste/box';
 import {Text, TextProps} from '@twilio-paste/text';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
@@ -12,9 +11,19 @@ import colorRating from '../../utils/color-rating';
 // Traditional import as the color package isn't exported and typed correctly
 const Color = require('color');
 
-type BackgroundColor = Pick<AbsoluteProps, 'backgroundColor'>;
+type BackgroundColor = Pick<BoxProps, 'backgroundColor'>;
 export const ColorBox: React.FC<BackgroundColor> = ({backgroundColor}) => {
-  return <Absolute backgroundColor={backgroundColor} padding="space50" preset="fill" />;
+  return (
+    <Box
+      backgroundColor={backgroundColor}
+      padding="space50"
+      position="absolute"
+      top={0}
+      right={0}
+      bottom={0}
+      left={0}
+    />
+  );
 };
 
 interface BorderBoxProps extends Pick<BoxProps, 'borderColor' | 'borderWidth'> {
@@ -26,12 +35,16 @@ export const BorderBox: React.FC<BorderBoxProps> = ({tokenName, borderColor, bor
     isInverse = true;
   }
   return (
-    <Absolute
+    <Box
       alignItems="center"
       backgroundColor={isInverse ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody'}
       display="flex"
       padding="space60"
-      preset="fill"
+      position="absolute"
+      top={0}
+      right={0}
+      bottom={0}
+      left={0}
     >
       <Box
         borderStyle="solid"
@@ -40,7 +53,7 @@ export const BorderBox: React.FC<BorderBoxProps> = ({tokenName, borderColor, bor
         padding="space60"
         width="100%"
       />
-    </Absolute>
+    </Box>
   );
 };
 
@@ -88,13 +101,17 @@ export const TextColorBox: React.FC<TextColorBoxProps> = ({boxColor, color}) => 
   };
 
   return (
-    <Absolute
+    <Box
       alignItems="center"
       backgroundColor={isInverse ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody'}
       display="flex"
       justifyContent="space-between"
       padding="space60"
-      preset="fill"
+      position="absolute"
+      top={0}
+      right={0}
+      bottom={0}
+      left={0}
     >
       <Text as="span" fontSize="fontSize70" lineHeight="lineHeight70" color={color}>
         <ScreenReaderOnly>Example text: </ScreenReaderOnly>Ag
@@ -103,7 +120,7 @@ export const TextColorBox: React.FC<TextColorBoxProps> = ({boxColor, color}) => 
         <ScreenReaderOnly>Accessibility rating: </ScreenReaderOnly>
         {getContrastRating(accessibility)}
       </Text>
-    </Absolute>
+    </Box>
   );
 };
 
@@ -129,15 +146,19 @@ export const ShadowBox: React.FC<ShadowBoxProps> = ({tokenName, shadow}) => {
     isInverse = true;
   }
   return (
-    <Absolute
+    <Box
       alignItems="center"
       backgroundColor={isInverse ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody'}
       display="flex"
       padding="space60"
-      preset="fill"
+      position="absolute"
+      top={0}
+      right={0}
+      bottom={0}
+      left={0}
     >
       <Box borderRadius="borderRadius20" boxShadow={shadow as BoxShadowOptions} padding="space60" width="100%" />
-    </Absolute>
+    </Box>
   );
 };
 
