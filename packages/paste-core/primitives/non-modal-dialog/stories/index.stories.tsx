@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {storiesOf} from '@storybook/react';
-import {Absolute} from '@twilio-paste/absolute';
+import {Box} from '@twilio-paste/box';
 import {
   useNonModalDialogPrimitiveState,
   NonModalDialogPrimitive,
@@ -37,26 +37,26 @@ const RightPlacementExample: React.FC<{}> = () => {
 const LeftPlacementExample: React.FC<{}> = () => {
   const nonModalDialog = useNonModalDialogPrimitiveState({placement: 'left'});
   return (
-    <Absolute preset="right" top={12} right={12}>
+    <Box position="absolute" top={12} right={12}>
       <NonModalDialogDisclosurePrimitive {...nonModalDialog}>Open non-modal dialog</NonModalDialogDisclosurePrimitive>
       <NonModalDialogPrimitive {...nonModalDialog} aria-label="Welcome">
         <NonModalDialogArrowPrimitive {...nonModalDialog} />
         Welcome to Paste!
       </NonModalDialogPrimitive>
-    </Absolute>
+    </Box>
   );
 };
 
 const TopPlacementExample: React.FC<{}> = () => {
   const nonModalDialog = useNonModalDialogPrimitiveState({placement: 'top'});
   return (
-    <Absolute preset="bottom" bottom={12}>
+    <Box position="absolute" bottom={12}>
       <NonModalDialogDisclosurePrimitive {...nonModalDialog}>Open non-modal dialog</NonModalDialogDisclosurePrimitive>
       <NonModalDialogPrimitive {...nonModalDialog} aria-label="Welcome">
         <NonModalDialogArrowPrimitive {...nonModalDialog} />
         Welcome to Paste!
       </NonModalDialogPrimitive>
-    </Absolute>
+    </Box>
   );
 };
 
