@@ -8,7 +8,6 @@ slug: /layout/aspect-ratio/
 import {graphql} from 'gatsby';
 import Img from 'gatsby-image';
 import {Anchor} from '@twilio-paste/anchor';
-import {Absolute} from '@twilio-paste/absolute';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
 import Changelog from '@twilio-paste/aspect-ratio/CHANGELOG.md';
@@ -77,7 +76,7 @@ when you resize the screen.
 
 Aspect Ratio must contain exactly one child element. The child element should be sized
 fully to the Aspect Ratio bounding box so that it resizes correctly. One way of achieving
-this is through the [Absolute](/layout/absolute) component.
+this is using an absolutely positioned [Box primitive](/primitives/box).
 
 Be considerate of smaller devices when using this component. If necessary, you can
 modify the aspect ratio property at certain media query breakpoints.
@@ -90,7 +89,7 @@ Use Aspect Ratio to make sure images and videos are scaled correctly on
 displays of various sizes. For example, you can use Aspect Ratio when a
 customer needs to see a preview of an uploaded document.
 
-<LivePreview scope={{Absolute, AspectRatio, Box}} language="jsx">
+<LivePreview scope={{AspectRatio, Box}} language="jsx">
   {`<Box
   padding="space30"
   maxWidth="size60"
@@ -108,7 +107,7 @@ Aspect Ratio can also be used to embed components, or other HTML elements that
 needs to be set to a specific width-to-height ratio. A component or other HTML
 element use case is the need to align an HTML element with an image in two columns.
 
-<LivePreview scope={{Absolute, Anchor, AspectRatio, Box}} language="jsx">
+<LivePreview scope={{Anchor, AspectRatio, Box}} language="jsx">
   {`<Box
   padding="space30"
   maxWidth="size50"
@@ -117,9 +116,9 @@ element use case is the need to align an HTML element with an image in two colum
   borderWidth="borderWidth10"
 >
   <AspectRatio ratio="4:3">
-    <Absolute style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+    <Box position="absolute" top={0} right={0} bottom={0} left={0} display="flex" alignItems="center" justifyContent="center">
       <Anchor href="https://org2.salsalabs.com/o/6857/p/salsa/donation/common/public/?donate_page_KEY=15780">Donate to the NAACP Legal Defense Fund</Anchor>
-    </Absolute>
+    </Box>
   </AspectRatio>
 </Box>`}
 </LivePreview>
@@ -128,7 +127,7 @@ Another use case is for color swatches on a documentation site. These color swat
 could be a specific height/width div that need to resize on specific devices.
 Aspect Ratio will allow the color swatches to resize correctly based on a ratio.
 
-<LivePreview scope={{Absolute, AspectRatio, Box}} language="jsx">
+<LivePreview scope={{AspectRatio, Box}} language="jsx">
   {`<Box
   padding="space30"
   maxWidth="size50"
@@ -137,7 +136,7 @@ Aspect Ratio will allow the color swatches to resize correctly based on a ratio.
   borderWidth="borderWidth10"
 >
   <AspectRatio ratio="4:3">
-    <Absolute backgroundColor="colorBackgroundBrand" />
+    <Box position="absolute" top={0} right={0} bottom={0} left={0} backgroundColor="colorBackgroundBrand" />
   </AspectRatio>
 </Box>`}
 </LivePreview>
@@ -175,11 +174,14 @@ yarn add @twilio-paste/aspect-ratio - or - yarn add @twilio-paste/core
 #### Usage
 
 ```js
-import {AspectRatio} from '@twilio-paste/aspect-ratio';
+import {AspectRatio} from '@twilio-paste/core/aspect-ratio';
+import {Box} from '@twilio-paste/core/box';
 
 const Component = () => (
   <AspectRatio ratio="4:3">
-    <Absolute>Test</Absolute>
+    <Box position="absolute" top={0} right={0} bottom={0} right={0}>
+      Test
+    </Box>
   </AspectRatio>
 );
 ```

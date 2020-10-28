@@ -8,7 +8,6 @@ import {graphql} from 'gatsby';
 import {Link} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
-import {Absolute} from '@twilio-paste/absolute';
 import {Anchor} from '@twilio-paste/anchor';
 import {Button} from '@twilio-paste/button';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
@@ -76,11 +75,15 @@ A title is required so assistive technology can infer equal meaning as a sighted
 <DoDont>
   <Do title="Do" body="Use title text that gives context and meaning to the icon." center>
     <PlusIcon decorative={false} title="Add to cart" />
-    <Absolute preset="bottom_right">(Hover over icon for tooltip)</Absolute>
+    <Box position="absolute" right={0} bottom={0}>
+      (Hover over icon for tooltip)
+    </Box>
   </Do>
   <Dont title="Avoid" body="Avoid title text that only describes the icon image." center>
     <PlusIcon decorative={false} title="Plus" />
-    <Absolute preset="bottom_right">(Hover over icon for tooltip)</Absolute>
+    <Box position="absolute" right={0} bottom={0}>
+      (Hover over icon for tooltip)
+    </Box>
   </Dont>
 </DoDont>
 
