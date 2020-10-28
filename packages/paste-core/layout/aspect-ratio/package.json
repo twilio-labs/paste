@@ -26,7 +26,6 @@
     "compile:dev": "rollup -c --environment NODE_ENV:development"
   },
   "peerDependencies": {
-    "@twilio-paste/absolute": "^2.0.79",
     "@twilio-paste/box": "^2.11.6",
     "@twilio-paste/design-tokens": "^6.3.5",
     "@twilio-paste/style-props": "^1.8.6",
@@ -38,7 +37,6 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/absolute": "^2.0.79",
     "@twilio-paste/box": "^2.11.6",
     "@twilio-paste/design-tokens": "^6.3.5",
     "@twilio-paste/style-props": "^1.8.6",

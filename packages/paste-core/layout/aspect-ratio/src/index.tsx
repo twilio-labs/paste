@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import {Box} from '@twilio-paste/box';
 import {styled} from '@twilio-paste/styling-library';
-import {Absolute} from '@twilio-paste/absolute';
 
 export interface AspectRatioProps {
   ratio: string;
@@ -47,7 +47,9 @@ const AspectRatio: React.FC<AspectRatioProps> = props => {
 
   return (
     <AspectRatioContainer style={{paddingBottom: `${aspectPercent}%`}}>
-      <Absolute>{props.children}</Absolute>
+      <Box position="absolute" top={0} right={0} bottom={0} left={0}>
+        {props.children}
+      </Box>
     </AspectRatioContainer>
   );
 };
