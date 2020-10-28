@@ -2,7 +2,6 @@ import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 import {withKnobs, text} from '@storybook/addon-knobs';
 import {Box} from '@twilio-paste/box';
-import {Absolute} from '@twilio-paste/absolute';
 import {AspectRatio} from '../src';
 
 storiesOf('Layout|Aspect Ratio', module)
@@ -17,7 +16,7 @@ storiesOf('Layout|Aspect Ratio', module)
         borderWidth="borderWidth10"
       >
         <AspectRatio ratio={text('ratio', '4:3')}>
-          <Absolute backgroundColor="colorBackgroundBrand" />
+          <Box position="absolute" top={0} right={0} bottom={0} left={0} backgroundColor="colorBackgroundBrand" />
         </AspectRatio>
       </Box>
     );
