@@ -26,7 +26,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/text/"}}) {
+    mdx(fields: {slug: {eq: "/primitives/text/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -257,7 +257,7 @@ All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including 
 | color?          | `ResponsiveValue<keyof ThemeShape['textColors']>`                             |                           |         |
 | textDecoration? | `ResponsiveValue<CSS.TextDecorationProperty<CSS.TextDecorationLineProperty>>` |                           |         |
 | textOverflow?   | `ResponsiveValue<CSS.TextOverflowProperty>`                                   |                           |         |
-| whitespace?      | `ResponsiveValue<CSS.WhiteSpaceProperty>`                                     |                           |         |
+| whitespace?     | `ResponsiveValue<CSS.WhiteSpaceProperty>`                                     |                           |         |
 | \_after?        | TextProps                                                                     |                           |         |
 | \_before?       | TextProps                                                                     |                           |         |
 | \_focus?        | TextProps                                                                     |                           |         |

@@ -8,7 +8,7 @@ interface SidebarAnchorProps {
   to: string;
 }
 
-const StyledSidbarAnchor = styled(Link)<SidebarAnchorProps>`
+const StyledSidebarAnchor = styled(Link)<SidebarAnchorProps>`
   position: relative;
   display: block;
   width: 100%;
@@ -39,9 +39,9 @@ const StyledSidbarAnchor = styled(Link)<SidebarAnchorProps>`
 `;
 
 const SidebarAnchor: React.FC<SidebarAnchorProps> = ({children, nested, to}) => (
-  <StyledSidbarAnchor nested={nested} to={to}>
+  <StyledSidebarAnchor nested={nested} to={to}>
     {children}
-  </StyledSidbarAnchor>
+  </StyledSidebarAnchor>
 );
 
 export {SidebarAnchor};
