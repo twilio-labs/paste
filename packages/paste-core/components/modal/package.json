@@ -26,7 +26,6 @@
     "compile:dev": "rollup -c --environment NODE_ENV:development"
   },
   "peerDependencies": {
-    "@twilio-paste/absolute": "^2.0.79",
     "@twilio-paste/animation-library": "^0.2.4",
     "@twilio-paste/box": "^2.11.6",
     "@twilio-paste/button": "^2.3.25",
@@ -47,7 +46,6 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/absolute": "^2.0.79",
     "@twilio-paste/animation-library": "^0.2.4",
     "@twilio-paste/box": "^2.11.6",
     "@twilio-paste/button": "^2.3.25",
