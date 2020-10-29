@@ -30,7 +30,7 @@ export interface ComboboxProps extends Omit<InputProps, 'id' | 'type' | 'value'>
 
 export interface ItemProps extends Pick<ComboboxProps, 'optionTemplate'> {
   item: Item;
-  index: number;
+  index: number | string;
   getItemProps: any;
   highlightedIndex: UseComboboxPrimitiveState<Item>['highlightedIndex'];
   inGroup?: boolean;

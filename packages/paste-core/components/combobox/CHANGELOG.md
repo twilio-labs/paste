@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.14](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.4.13...@twilio-paste/combobox@1.4.14) (2020-10-29)
+
+**Note:** Version bump only for package @twilio-paste/combobox
+
+
+
+
+
+## [1.4.13](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.4.12...@twilio-paste/combobox@1.4.13) (2020-10-28)
+
+
+### Bug Fixes
+
+* **combobox:** ensure listbox optionn ids in groups are always unique ([#893](https://github.com/twilio-labs/paste/issues/893)) ([91903a6](https://github.com/twilio-labs/paste/commit/91903a6b7fe2682b6c132722a6e82aa141ec497f))
+
+
+
+
+
 ## [1.4.12](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.4.11...@twilio-paste/combobox@1.4.12) (2020-10-23)
 
 **Note:** Version bump only for package @twilio-paste/combobox

@@ -31,7 +31,7 @@ Keep in mind these props are the **Base Guarantee** for icon components. Some ic
 
 ## Adding new icons
 
-Please [review our documentation](https://paste.twilio.design/icon-system/how-to-add-an-icon/#exporting-and-adding-the-icon) for information on how to add new icons into Paste.
+Please [review our documentation](https://paste.twilio.design/icons/how-to-add-an-icon/) for information on how to add new icons into Paste.
 
 ## FAQ
 
