@@ -1,0 +1,119 @@
+---
+title: Patterns
+description: Common, repeatable, and extensible Twilio UX compositions that you can use to solve product and UI problems.
+slug: /patterns/
+---
+
+import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Card} from '@twilio-paste/card';
+import {Heading} from '@twilio-paste/heading';
+import {Text} from '@twilio-paste/text';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {SiteLink} from '../../components/SiteLink.tsx';
+import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
+import {SidebarCategoryRoutes} from '../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/patterns/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+  <Breadcrumb>
+    <BreadcrumbItem to="/">Home</BreadcrumbItem>
+  </Breadcrumb>
+  <Heading as="h1" variant="heading10">{props.pageContext.frontmatter.title}</Heading>
+
+<Callout variant="warning">
+  <CalloutTitle>
+    Patterns are BRAND NEW! And we need your help.
+  </CalloutTitle>
+  <CalloutText>
+    If you have feedback on our pattern documentation or contribution model,
+    please <Anchor href="https://forms.gle/BzeekGGXd2uL6U7Z9">let us know</Anchor>. This is a work-in-progress, and we need your feedback to keep making patterns better!
+  </CalloutText>
+</Callout>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<content>
+
+## What is a pattern?
+
+Patterns outline how to bring a collection of components together into a reusable solution that solves customer problems and delivers cohesion across our platforms. They are set of guidelines around a particular user flow or interaction that designers and engineers should follow when creating customer experiences.
+
+There are two primary goals of patterns:
+- To drive efficiency across Twilio product teams by ensuring that no one needs to solve the same problem twice.
+- To establish cohesion across the full Twilio platform so that users do not need to re-learn how to perform certain actions as they move from product to product.
+
+## Our approach to patterns
+
+We rely on contributions to build out and refine our pattern library. Please give feedback on existing patterns, and learn more about [how to contribute a new pattern](/patterns/contribute).
+
+## Available patterns
+
+<Box marginBottom="space60">
+<Card>
+  <Heading as="h4" variant="heading40">
+    Pattern status details
+  </Heading>
+  <Heading as="h5" variant="heading50">
+    Alpha
+  </Heading>
+  <Text as="p" marginBottom="space50">
+    Pattern is currently incubating with a contributing team and should not be used in other customer-facing products without guidance from the Design Systems team.
+  </Text>
+  <Heading as="h5" variant="heading50">
+    Beta
+  </Heading>
+  <Text as="p" marginBottom="space30">
+    Pattern can be used in customer-facing products but should be usability tested in new scenarios to identify any further risks, especially in critical customer journeys.
+  </Text>
+  <Text as="p" marginBottom="space50" fontStyle="italic">
+    Please reach out to us in #help-design-system if you plan on user testing a beta pattern so we can include any research insights in the patterns guidelines.
+  </Text>
+  <Heading as="h5" variant="heading50">
+    Production
+  </Heading>
+  <Text as="p">
+    Pattern is stable.
+  </Text>
+</Card>
+</Box>
+
+
+| Pattern name                                           | Status      |
+|--------------------------------------------------------|-------------|
+| [Create](/patterns/create)                             | alpha       |
+| [Delete](/patterns/delete)                             | alpha       |
+| [Notifications and feedback](/patterns/notifications)  | alpha       |
+| [Object details](/patterns/object-details)             | alpha       |
+| [Empty state](/patterns/empty-state)                   | coming soon |
+| [Filter](/patterns/filter)                             | coming soon |
+| [Status indicator](/patterns/status)                   | coming soon |
+| [Stat cards](/patterns/stat-cards)                     | coming soon |
+
+Don't see what you're looking for? Please [let us know](https://forms.gle/BzeekGGXd2uL6U7Z9), and consider [contributing a pattern](patterns/contribute)!
+
+</content>
+
+</contentwrapper>

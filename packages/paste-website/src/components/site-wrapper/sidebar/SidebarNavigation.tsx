@@ -133,6 +133,10 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
     visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.TOKENS),
   });
 
+  const patternsDisclosure = useDisclosurePrimitiveState({
+    visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.PATTERNS),
+  });
+
   return (
     <Box as="nav" marginTop="space70" overflow="auto" role="navigation" aria-label="Main">
       <Box as="ul" padding="space0" margin="space0" listStyleType="none">
@@ -207,6 +211,65 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
               <SidebarNestedItem>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.TOKENS}/theme-package`}>
                   Theme package
+                </SidebarAnchor>
+              </SidebarNestedItem>
+            </SidebarNestedList>
+          </DisclosurePrimitiveContent>
+        </SidebarItem>
+        <SidebarItem>
+          <DisclosurePrimitive as={SidebarDisclosureButton} {...patternsDisclosure}>
+            Patterns
+          </DisclosurePrimitive>
+          <DisclosurePrimitiveContent {...patternsDisclosure}>
+            <SidebarNestedList>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={SidebarCategoryRoutes.PATTERNS}>
+                  Overview
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/contribute`}>
+                  How to contribute
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/create`}>
+                  Create
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/delete`}>
+                  Delete
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/notifications`}>
+                  Notifications and feedback
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/object-details`}>
+                  Object details
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/empty-state`}>
+                  Empty state
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/filter`}>
+                  Filter
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/status`}>
+                  Status indicators
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/stat-cards`}>
+                  Stat cards
                 </SidebarAnchor>
               </SidebarNestedItem>
             </SidebarNestedList>
