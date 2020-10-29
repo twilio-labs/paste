@@ -1,15 +1,11 @@
 import * as React from 'react';
 import _ from 'lodash';
 import {axe} from 'jest-axe';
-import {useUIDSeed} from '@twilio-paste/uid-library';
 import {render, screen, fireEvent} from '@testing-library/react';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
-import {InputElement} from '@twilio-paste/input';
 import {Button} from '@twilio-paste/button';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {Box} from '@twilio-paste/box';
-import {useCombobox, Combobox, ComboboxInputWrapper, ComboboxListbox, ComboboxListboxOption} from '../src';
+import {useCombobox, Combobox} from '../src';
 import {ComboboxProps} from '../src/types';
 
 const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
@@ -64,54 +60,6 @@ const ComboboxMock: React.FC<{}> = () => {
   );
 };
 
-const ComboboxPartsMock: React.FC<{}> = () => {
-  const {
-    getComboboxProps,
-    getInputProps,
-    getItemProps,
-    getLabelProps,
-    getMenuProps,
-    getToggleButtonProps,
-    highlightedIndex,
-    isOpen,
-    selectedItem,
-  } = useCombobox({items});
-  const seed = useUIDSeed();
-  return (
-    <>
-      <Label htmlFor="example-textbox" {...getLabelProps()} id="example-label" data-testid="label">
-        Choose a component:
-      </Label>
-      <ComboboxInputWrapper {...getComboboxProps({role: 'combobox'})} aria-owns="example-combobox-menu">
-        <InputElement
-          type="text"
-          {...getToggleButtonProps({tabIndex: 0})}
-          {...getInputProps()}
-          value={selectedItem || ''}
-          // id="example-textbox"
-          data-testid="textbox"
-          aria-controls="example-combobox-menu"
-          aria-describedby="example-helptext"
-          aria-labelledby="example-label"
-        />
-      </ComboboxInputWrapper>
-      <ComboboxListbox {...getMenuProps()} aria-labelledby="example-label">
-        {isOpen &&
-          items.map((item, index) => (
-            <ComboboxListboxOption
-              {...getItemProps({item, index})}
-              highlighted={highlightedIndex === index}
-              key={seed(item)}
-            >
-              {item}
-            </ComboboxListboxOption>
-          ))}
-      </ComboboxListbox>
-      <HelpText id="example-helptext">This is the help text</HelpText>
-    </>
-  );
-};
-
 const GroupedMockCombobox: React.FC<{groupLabelTemplate?: ComboboxProps['groupLabelTemplate']}> = ({
   groupLabelTemplate,
 }) => {
@@ -124,7 +72,7 @@ const GroupedMockCombobox: React.FC<{groupLabelTemplate?: ComboboxProps['groupLa
       helpText="This is group"
       groupLabelTemplate={groupLabelTemplate}
       optionTemplate={(item: any) => <div>{item.label}</div>}
-      itemToString={item => (item ? item.label : null)}
+      itemToString={item => (item && typeof item !== 'string' ? item.label : null)}
     />
   );
 };
@@ -191,31 +139,39 @@ describe('Combobox ', () => {
     });
 
     it('should render a combobox with aria attributes', () => {
-      render(<ComboboxPartsMock />);
+      render(<ComboboxMock />);
       const renderedCombobox = screen.getByRole('combobox');
       expect(renderedCombobox.getAttribute('aria-haspopup')).toEqual('listbox');
-      expect(renderedCombobox.getAttribute('aria-owns')).toEqual('example-combobox-menu');
-      expect(renderedCombobox.getAttribute('aria-expanded')).toEqual('false');
+      expect(renderedCombobox.getAttribute('aria-owns')).toEqual(screen.getByRole('listbox').id);
+      expect(renderedCombobox.getAttribute('aria-expanded')).toEqual('true');
     });
 
     it('should render a textbox with aria attributes', () => {
-      render(<ComboboxPartsMock />);
+      render(<ComboboxMock />);
       const renderedCombobox = screen.getByRole('textbox');
-      expect(renderedCombobox.getAttribute('aria-controls')).toEqual('example-combobox-menu');
-      expect(renderedCombobox.getAttribute('aria-labelledby')).toEqual('example-label');
-      expect(renderedCombobox.getAttribute('aria-describedby')).toEqual('example-helptext');
+      expect(renderedCombobox.getAttribute('aria-controls')).toEqual(screen.getByRole('listbox').id);
+      expect(renderedCombobox.getAttribute('aria-labelledby')).toEqual(document.querySelector('label').id);
+      expect(renderedCombobox.getAttribute('aria-describedby')).not.toEqual('');
     });
 
     it('should render a list with aria attributes', () => {
-      render(<ComboboxPartsMock />);
+      render(<ComboboxMock />);
       const renderedCombobox = screen.getByRole('listbox');
-      expect(renderedCombobox.getAttribute('aria-labelledby')).toEqual('example-label');
+      expect(renderedCombobox.getAttribute('aria-labelledby')).toEqual(document.querySelector('label').id);
+    });
+
+    it('should render a list with unique option ids', () => {
+      render(<ComboboxMock />);
+      const renderedOptions = screen.getAllByRole('option');
+      const optionIDs = renderedOptions.map(option => option.id);
+      const uniqueIDs = _.uniq(optionIDs);
+      expect(uniqueIDs.length).toEqual(optionIDs.length);
     });
 
     it('should render a label for that matches the input id', () => {
-      render(<ComboboxPartsMock />);
-      const renderedLabel = screen.getByTestId('label');
-      const renderedTextbox = screen.getByTestId('textbox');
+      render(<ComboboxMock />);
+      const renderedLabel = document.querySelector('label');
+      const renderedTextbox = screen.getByRole('textbox');
       expect(renderedLabel.getAttribute('for')).toEqual(renderedTextbox.getAttribute('id'));
     });
   });
@@ -241,6 +197,14 @@ describe('Combobox ', () => {
       expect(renderedGroups.length).toEqual(3);
       // check any options that are not nested in groups
       expect(renderedListbox.querySelectorAll('[role="listbox"] > [role="option"]').length).toEqual(1);
+    });
+
+    it('should render a listbox with groups of options that contains no duplicate ids', () => {
+      render(<GroupedMockCombobox />);
+      const renderedOptions = screen.getAllByRole('option');
+      const optionIDs = renderedOptions.map(option => option.id);
+      const uniqueIDs = _.uniq(optionIDs);
+      expect(uniqueIDs.length).toEqual(optionIDs.length);
     });
 
     it('should render a custom group label', () => {

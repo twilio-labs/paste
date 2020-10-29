@@ -105,7 +105,7 @@ const GroupedItems: React.FC<GroupItemsProps> = ({
               return (
                 <Item
                   item={item}
-                  index={index}
+                  index={UIDSeed(`${groupedItemKey}-${index}`)}
                   key={UIDSeed(`${groupedItemKey}-${index}`)}
                   getItemProps={getItemProps}
                   highlightedIndex={highlightedIndex}
