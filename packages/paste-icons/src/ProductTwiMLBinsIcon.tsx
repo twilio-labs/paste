@@ -5,16 +5,16 @@ import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper, IconWrapperProps} from './helpers/IconWrapper';
 
-export interface ProductTwimlBinsIconProps extends IconWrapperProps {
+export interface ProductTwiMLBinsIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const ProductTwimlBinsIcon: React.FC<ProductTwimlBinsIconProps> = ({as, display, size, color, title, decorative}) => {
-  const titleId = `ProductTwimlBinsIcon-${useUID()}`;
+const ProductTwiMLBinsIcon: React.FC<ProductTwiMLBinsIconProps> = ({as, display, size, color, title, decorative}) => {
+  const titleId = `ProductTwiMLBinsIcon-${useUID()}`;
 
   if (!decorative && title == null) {
-    throw new Error('[ProductTwimlBinsIcon]: Missing a title for non-decorative icon.');
+    throw new Error('[ProductTwiMLBinsIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
@@ -31,5 +31,5 @@ const ProductTwimlBinsIcon: React.FC<ProductTwimlBinsIconProps> = ({as, display,
   );
 };
 
-ProductTwimlBinsIcon.displayName = 'ProductTwimlBinsIcon';
-export {ProductTwimlBinsIcon};
+ProductTwiMLBinsIcon.displayName = 'ProductTwiMLBinsIcon';
+export {ProductTwiMLBinsIcon};
