@@ -11,6 +11,7 @@ export const PASTE_PACKAGE_PREFIX = '@twilio-paste/';
 
 export const SidebarCategoryRoutes = {
   COMPONENTS: '/components',
+  PATTERNS: '/patterns',
   PRIMITIVES: '/primitives',
   LAYOUT: '/layout',
   ICON_SYSTEM: '/icons',

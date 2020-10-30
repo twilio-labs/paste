@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.13.17...@twilio-paste/website@2.14.0) (2020-10-30)
+
+
+### Features
+
+* **website:** Patterns PoC ([#812](https://github.com/twilio-labs/paste/issues/812)) ([a66136e](https://github.com/twilio-labs/paste/commit/a66136efcf9b656e9e205a450f2367f9a79049d7))
+
+
+
+
+
 ## [2.13.17](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.13.16...@twilio-paste/website@2.13.17) (2020-10-29)
 
 **Note:** Version bump only for package @twilio-paste/website

@@ -1,0 +1,154 @@
+---
+title: Contributing a pattern
+description: How to contribute a pattern to Paste.
+slug: /patterns/delete/
+---
+
+import {graphql} from 'gatsby';
+import {Alert} from '@twilio-paste/alert';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Breadcrumb, BreadcrumbItem} from '../../../components/breadcrumb';
+import {Button} from '@twilio-paste/button';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Card} from '@twilio-paste/card';
+import {FormInput, FormLabel, FormHelpText, Select, Option} from '@twilio-paste/form';
+import {Grid, Column} from '@twilio-paste/grid';
+import {Heading} from '@twilio-paste/heading';
+import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Stack} from '@twilio-paste/stack';
+import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/tabs';
+import {Text} from '@twilio-paste/text';
+import {Toast} from '@twilio-paste/toast';
+import {ErrorIcon} from "@twilio-paste/icons/esm/ErrorIcon";
+import {SuccessIcon} from "@twilio-paste/icons/esm/SuccessIcon";
+import {Codeblock} from '../../../components/codeblock';
+import {useUID} from 'react-uid';
+import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
+import {defaultExample, initialFocusExample, wideExample} from '../../../component-examples/ModalExamples';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/patterns/contribute/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+<Breadcrumb>
+  <BreadcrumbItem to="/">Home</BreadcrumbItem>
+  <BreadcrumbItem to="/patterns">Patterns</BreadcrumbItem>
+</Breadcrumb>
+<Heading as="h1" variant="heading10">{props.pageContext.frontmatter.title}</Heading>
+<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+
+<Callout variant="warning">
+  <CalloutTitle>
+    Patterns are BRAND NEW! And we need your help.
+  </CalloutTitle>
+  <CalloutText>
+    If you have feedback on our pattern documentation or contribution model,
+    please <Anchor href="https://forms.gle/BzeekGGXd2uL6U7Z9">let us know</Anchor>. This is a work-in-progress, and we need your feedback to keep making patterns better!
+  </CalloutText>
+</Callout>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+## Contribution at a glance
+
+Anyone at Twilio can propose and incubate a new pattern or update an existing pattern,
+though BU product designers are particularly well-equipped to do so given their proximity
+to the customer problem that a given pattern is meant to solve.
+
+Design Systems will partner with contributors to ensure the systemizability and accessibility
+of a pattern, as well as on the documentation and creation of design assets (Sketch / Figma templates, etc).
+
+## Deciding to contribute
+If you are passionate about bringing consistency to our product suite, contributing
+to the pattern library is a great way to do that, no matter the size of the contribution.
+
+A contribution could be anything from creating a full net-new pattern, to adding a new
+variation of a pattern, to documenting an existing pattern that's already widely used.
+
+While you'll likely need to set aside a little bit of extra time to contribute no matter
+the scope of the work, our hope is that this contribution model is flexible enough to be
+folded into your regular design process without adding much overhead (therefore making the
+decision to contribute an easy one!).
+
+If you see a pattern on our roadmap that you're excited about, or if you create an interaction or
+flow in your design work that you believe could be used elsewhere in the products, that's a great
+opportunity to contribute to the pattern library.
+
+<Callout variant="info">
+  <CalloutTitle>We are piloting this contribution model!</CalloutTitle>
+  <CalloutText>
+    This is a new contribution model, and we are looking for designers to pilot it,
+    so please reach out if you are interested in contributing to the pattern library.
+  </CalloutText>
+</Callout>
+
+## Creating a new pattern
+
+### Kicking it off
+1. When you have decided to contribute a pattern, reach out in `#help-design-system` and
+let us know! We’ll work together to plan out the work, and we may be able to point you to any existing work on that pattern.
+2. Reach out to your peers to collect any existing examples of the interaction or flow.
+3. Draft a design spec ([here’s a template for ya](https://docs.google.com/document/d/1SSIURVMzlGbANyvtYlU61ZdDaSqF2QigFdFZuSnYSkk/edit?usp=sharing))
+to outline usage guidelines for the new pattern. This spec will eventually become the documentation for this pattern on the Paste docs site.
+4. Create a shareable design asset or code sandbox for the new pattern for the purpose of collecting feedback.
+5. Work with the Design Systems team to do an audit of the spec and design to ensure it is systemizable and accessible.
+This can happen async as a Github Discussion or can happen during office hours.
+6. After the audit, the pattern will be added to the Paste docs site and will be marked as an “[alpha](/patterns#available-patterns)”.
+
+### Testing and collecting feedback
+1. Share the alpha pattern in your regular feedback channels, such as your crit pods.
+The alpha pattern will also be shared with the Design Systems committee for review.
+2. The committee members will do a Risk Assessment Survey to determine the level of
+user research the pattern requires.
+   - If this pattern is being contributed as part of a larger product or feature, then
+   this usability testing can be worked into the regular usability testing that would
+   be done as part of the regular design process.
+   - For a pattern that is already widely used, there may not be additional usability
+   testing required.
+3. Iterate on the pattern design and spec based on internal and user feedback.
+
+### Finalizing a pattern
+1. Finalize the designs and the design spec.
+2. Partner with the Design Systems team to create any necessary assets and to finalize the docs page for the pattern.
+3. The pattern will now move from the "[alpha](/patterns#available-patterns)" stage
+to the "[beta](/patterns#available-patterns)" stage and can be used by other Twilio teams.
+Patterns deemed low-risk by the committee may move directly from “[alpha](/patterns#available-patterns)” to
+“[production](/patterns#available-patterns)”.
+4. Announce the new pattern! Send a message in #team-ux, #help-design-system, and
+your own BU's channel. The surface area at Twilio is large, and your new pattern can
+help plenty of folks outside of just the product design team and Design Systems committee.
+
+## Updating an existing pattern
+
+When you want to make an update to an existing pattern (be it a beta pattern, or a production pattern),
+you will follow many of the same steps as you would when contributing a new pattern, depending on the
+degree of the change. Reach out to us in `#help-design-system` if you’d like to update an existing pattern,
+and we can get the conversation started.
+
+</content>
+
+</contentwrapper>
