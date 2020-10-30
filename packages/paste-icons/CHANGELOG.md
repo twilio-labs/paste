@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.8.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.7.3...@twilio-paste/icons@3.8.0) (2020-10-30)
+
+
+### Features
+
+* **icons:** add BuiltIn, Custom, Filter, User, and update Search ([#889](https://github.com/twilio-labs/paste/issues/889)) ([7b4933a](https://github.com/twilio-labs/paste/commit/7b4933a5155847196dc3723bc7ac4e3565206577))
+
+
+
+
+
 ## [3.7.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.7.2...@twilio-paste/icons@3.7.3) (2020-10-29)
 
 **Note:** Version bump only for package @twilio-paste/icons
