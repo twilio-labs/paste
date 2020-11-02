@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@4.0.0...@twilio-paste/core@4.1.0) (2020-11-02)
+
+
+### Features
+
+* **core:** add breadcrumb package to core ([06b35f8](https://github.com/twilio-labs/paste/commit/06b35f8d9d904ef27b3a2dec74522b21d7b86533))
+
+
+
+
+
 # [4.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@3.0.13...@twilio-paste/core@4.0.0) (2020-11-02)
 
 
