@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@3.0.13...@twilio-paste/core@4.0.0) (2020-11-02)
+
+
+### chore
+
+* **core:** remove absolute component ([84c22b4](https://github.com/twilio-labs/paste/commit/84c22b42ccdc5e924101b586592e93e1c8f19fba))
+
+
+### BREAKING CHANGES
+
+* **core:** The Absolute component has been deprecated. For a replacement
+use the Box component with absolute positioning.
+
+
+
+
+
 ## [3.0.13](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@3.0.12...@twilio-paste/core@3.0.13) (2020-10-30)
 
 **Note:** Version bump only for package @twilio-paste/core

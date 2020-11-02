@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/button",
-  "version": "2.3.25",
+  "version": "2.3.26",
   "category": "interaction",
   "status": "production",
   "description": "Twilio's Button component",
