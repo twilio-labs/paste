@@ -26,6 +26,7 @@
     "@twilio-paste/avatar": "^0.2.21",
     "@twilio-paste/base-radio-checkbox": "^1.1.11",
     "@twilio-paste/box": "^2.11.6",
+    "@twilio-paste/breadcrumb": "^0.1.0",
     "@twilio-paste/button": "^2.3.26",
     "@twilio-paste/checkbox": "^1.1.12",
     "@twilio-paste/combobox": "^1.4.16",

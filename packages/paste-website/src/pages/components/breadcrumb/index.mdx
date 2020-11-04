@@ -1,0 +1,237 @@
+---
+title: Breadcrumb
+package: '@twilio-paste/breadcrumb'
+description: Breadcrumbs are used to show navigation hierarchy on a page. They provide a way for users to navigate a nested path of parent pages.
+slug: /components/breadcrumb/
+---
+
+import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Breadcrumb, BreadcrumbItem} from '@twilio-paste/breadcrumb';
+import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
+import {Truncate} from '@twilio-paste/truncate';
+import Changelog from '@twilio-paste/breadcrumb/CHANGELOG.md';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {SidebarCategoryRoutes} from '../../../constants';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/breadcrumb"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/components/breadcrumb/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name={props.pageContext.frontmatter.title}
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/breadcrumb"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-breadcrumb--anchors"
+  data={props.data.allPasteComponent.edges}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+<Callout>
+  <CalloutTitle>Using alpha components in your product</CalloutTitle>
+  <CalloutText>
+    Alpha components are ready for use in production and components like Breadcrumb won't likely see any API changes.
+    The term "Alpha" means there is only basic documentation and no corresponding Sketch symbol at this time. Those will
+    eventually be prioritized, but please share your experience using this Alpha component by{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/discussions/new">starting a discussion on GitHub</Anchor>.
+    If you’re interested in helping to symbolize this component in Sketch, we’d love your help – please reach out!
+  </CalloutText>
+</Callout>
+
+## Guidelines
+
+### About Breadcrumb
+
+Breadcrumb navigation helps the user understand their location in an app or website by providing a trail back to the top level of the website.
+
+Breadcrumbs are listed in order and represent the hierarchy of the page in the product. They will include links to parent pages and can optionally show the current page.
+
+### Accessibility
+
+- The Breadcrumb component includes the accessible `aria-label="breadcrumb"` attribute.
+- An unlinked BreadcrumbItem includes the accessible `aria-current="page"` attribute.
+
+<Callout variant="warning">
+  <CalloutText>
+    The unlinked <inlineCode>BreadcrumbItem</inlineCode> should <strong>only</strong> be used for the page a user is currently on. If it is not
+    the current page, make sure to add the <inlineCode>href</inlineCode> so the <inlineCode>BreadcrumbItem</inlineCode> goes to the appropriate location.
+  </CalloutText>
+</Callout>
+
+## Examples
+
+### Default Breadcrumb
+
+The Breadcrumb component uses [Anchors](/components/anchor) to link back to parent pages by passing an `href` to each `BreadcrumbItem`.
+
+<LivePreview scope={{Breadcrumb, BreadcrumbItem}} language="jsx">
+  {`<Breadcrumb>
+  <BreadcrumbItem href="#">Phone Numbers</BreadcrumbItem>
+  <BreadcrumbItem href="#">Active Numbers</BreadcrumbItem>
+</Breadcrumb>`}
+</LivePreview>
+
+### Breadcrumb with Current Page
+
+To show the current page, use a `BreadcrumbItem` with no `href`. This should **not** be used if there is a visible page title directly below the breadcrumb.
+
+<LivePreview scope={{Breadcrumb, BreadcrumbItem}} language="jsx">
+  {`<Breadcrumb>
+  <BreadcrumbItem href="#">Phone Numbers</BreadcrumbItem>
+  <BreadcrumbItem href="#">Active Numbers</BreadcrumbItem>
+  <BreadcrumbItem>Germany Hotline B</BreadcrumbItem>
+</Breadcrumb>`}
+</LivePreview>
+
+### Breadcrumb with Truncation
+
+Sometimes the text of a breadcrumb can be long. In those situations you can use the Truncate component inside the `BreadcrumbItem` element.
+
+<LivePreview scope={{Breadcrumb, BreadcrumbItem, Box, Truncate}} language="jsx">
+  {`<Breadcrumb>
+  <BreadcrumbItem href="#">Phone Numbers</BreadcrumbItem>
+  <BreadcrumbItem href="#">
+    <Box as="span" display="inline-flex" maxWidth="size10">
+      <Truncate title="Some very long text to truncate">Some very long text to truncate</Truncate>
+    </Box>
+  </BreadcrumbItem>
+  <BreadcrumbItem>Germany Hotline B</BreadcrumbItem>
+</Breadcrumb>`}
+</LivePreview>
+
+## Anatomy
+
+<Box marginBottom="space60">
+  <Table tableLayout="fixed">
+    <THead>
+      <Tr>
+        <Th>Property</Th>
+        <Th>Default token</Th>
+        <Th>Modifiable?</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>color</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>BreadcrumbItem: $color-text or $color-text-link</ListItem>
+            <ListItem>BreadcrumbSeparator: $color-text-weak</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>font-size</Td>
+        <Td>$font-size-20</Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>line-height</Td>
+        <Td>$line-height-20</Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>margin</Td>
+        <Td>$space-0</Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>padding</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>$space-0</ListItem>
+            <ListItem>
+              BreadcrumbSeparator:
+              <UnorderedList marginBottom="space0">
+                <ListItem>padding-left: $space-20</ListItem>
+                <ListItem>padding-right: $space-20</ListItem>
+              </UnorderedList>
+            </ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/breadcrumb - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {Breadcrumb, BreadcrumbItem} from '@twilio-paste/core/breadcrumb';
+
+const BreadcrumbExample: React.FC = () => {
+  return (
+    <Breadcrumb>
+      <BreadcrumbItem href="#">Item One</BreadcrumbItem>
+      <BreadcrumbItem href="#">Item Two</BreadcrumbItem>
+    </Breadcrumb>
+  );
+};
+```
+
+#### Breadcrumb Props
+
+| Prop     | Type        | Description | Default |
+| -------- | ----------- | ----------- | ------- |
+| children | `ReactNode` |             | null    |
+
+#### BreadcrumbItem Props
+
+| Prop     | Type        | Description                                                              | Default |
+| -------- | ----------- | ------------------------------------------------------------------------ | ------- |
+| children | `ReactNode` |                                                                          | null    |
+| href?    | `string`    | The URL the breadcrumb routes to.                                        | null    |
+| last?    | `boolean`   | If true, removes the `BreadcrumbSeparator` after the last breadcrumb item. | null    |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>
