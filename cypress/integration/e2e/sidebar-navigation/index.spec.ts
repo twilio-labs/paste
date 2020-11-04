@@ -3,34 +3,50 @@ describe('Sidebar navigation', () => {
     cy.visit('/');
   });
 
-  it('opens the sidebar disclosures correctly', () => {
-    const gettingStartedButton = '[data-cy=getting-started-button]';
-    const designTokensButton = '[data-cy=design-tokens-button]';
-    const componentsButton = '[data-cy=components-button]';
-    const primitivesButton = '[data-cy=primitives-button]';
-    const layoutButton = '[data-cy=layout-button]';
-    const iconsButton = '[data-cy=icons-button]';
-    const contentButton = '[data-cy=content-button]';
+  it('opens the getting started discosure', () => {
+    cy.get('[data-cy=getting-started-button]')
+      .click()
+      .should('have.attr', 'aria-expanded', 'true');
+  });
 
-    cy.get(gettingStartedButton)
+  it('opens the tokens discosure', () => {
+    cy.get('[data-cy=design-tokens-button]')
       .click()
       .should('have.attr', 'aria-expanded', 'true');
-    cy.get(designTokensButton)
+  });
+
+  it('opens the components discosure', () => {
+    cy.get('[data-cy=components-button]')
       .click()
       .should('have.attr', 'aria-expanded', 'true');
-    cy.get(componentsButton)
+  });
+
+  it('opens the primitives discosure', () => {
+    cy.get('[data-cy=primitives-button]')
       .click()
       .should('have.attr', 'aria-expanded', 'true');
-    cy.get(primitivesButton)
+  });
+
+  it('opens the layout discosure', () => {
+    cy.get('[data-cy=layout-button]')
       .click()
       .should('have.attr', 'aria-expanded', 'true');
-    cy.get(layoutButton)
+  });
+
+  it('opens the icons discosure', () => {
+    cy.get('[data-cy=icons-button]')
       .click()
       .should('have.attr', 'aria-expanded', 'true');
-    cy.get(iconsButton)
+  });
+
+  it('opens the content discosure', () => {
+    cy.get('[data-cy=content-button]')
       .click()
       .should('have.attr', 'aria-expanded', 'true');
-    cy.get(contentButton)
+  });
+
+  it('opens the patterns discosure', () => {
+    cy.get('[data-cy=patterns-button]')
       .click()
       .should('have.attr', 'aria-expanded', 'true');
   });

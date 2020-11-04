@@ -217,7 +217,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...patternsDisclosure}>
+          <DisclosurePrimitive as={SidebarDisclosureButton} {...patternsDisclosure} data-cy="patterns-button">
             Patterns
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...patternsDisclosure}>
