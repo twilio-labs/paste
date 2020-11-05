@@ -1,6 +1,6 @@
 describe('Token list filter', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:9000/tokens');
+    cy.visit('/tokens');
   });
 
   it('searches for a background color', () => {

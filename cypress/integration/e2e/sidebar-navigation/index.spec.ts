@@ -1,6 +1,6 @@
 describe('Sidebar navigation', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:9000/');
+    cy.visit('/');
   });
 
   it('opens the getting started disclosure', () => {
