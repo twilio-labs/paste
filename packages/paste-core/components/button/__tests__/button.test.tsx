@@ -181,6 +181,16 @@ describe('Button Errors', () => {
     ).toThrow();
   });
 
+  it('Throws an error when using fullWidth with an icon_small sizing', () => {
+    expect(() =>
+      shallow(
+        <Button variant="primary" fullWidth size="icon_small">
+          X
+        </Button>
+      )
+    ).toThrow();
+  });
+
   it('Throws an error when not passing children', () => {
     expect(() => shallow(<Button variant="primary" />)).toThrow();
   });

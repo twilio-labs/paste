@@ -60,6 +60,10 @@ export const SizeStyles: {[key in ButtonSizes]: BoxStyleProps} = {
     padding: 'space30',
     borderRadius: 'borderRadius20',
   },
+  icon_small: {
+    padding: 'space20',
+    borderRadius: 'borderRadius20',
+  },
   reset: {
     paddingTop: 'space0',
     paddingRight: 'space0',
