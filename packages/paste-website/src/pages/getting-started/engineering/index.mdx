@@ -1,6 +1,6 @@
 ---
 title: Engineering Guidelines for Paste
-description: Notes on how to install and use Paste
+description: How to get started using Paste; installation and usage instructions
 slug: /getting-started/engineering/
 ---
 
@@ -9,16 +9,9 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
-import {version as typesVersion} from '@twilio-paste/types/package.json';
-import {version as stylePropsVersion} from '@twilio-paste/style-props/package.json';
-import {version as designTokensVersion} from '@twilio-paste/design-tokens/package.json';
-import {version as themeVersion} from '@twilio-paste/theme/package.json';
+import {Disclosure, DisclosureContent, DisclosureHeading} from '@twilio-paste/disclosure';
 import {version as coreVersion, dependencies as coreDependencies} from '@twilio-paste/core/package.json';
 import {version as iconsVersion} from '@twilio-paste/icons/package.json';
-import {version as animationVersion} from '@twilio-paste/animation-library/package.json';
-import {version as stylingLibraryPropsVersion} from '@twilio-paste/styling-library/package.json';
-import {version as dropdownVersion} from '@twilio-paste/dropdown-library/package.json';
-import {version as reakitVersion} from '@twilio-paste/reakit-library/package.json';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {InlineCode} from '../../../components/Typography';
 import Package from '../../../../../../package.json';
@@ -57,17 +50,13 @@ export const pageQuery = graphql`
 
 ## Installation
 
-The best way to use Paste is by using the core package. Paste Core provides all of the current Paste components which are ready for use.
+### Dependencies
 
-Paste Core requires external dependencies, and other Paste system packages in order to function properly.
+Paste is developed with the [React front-end library](https://reactjs.org/). In order
+to use Paste, your project first needs React. Install it by using this terminal
+command from within your project's folder:
 
-Install the following dependencies using yarn:
-
-#### Install External dependencies
-
-The list of external third party dependencies are as follows:
-
-<Box marginBottom="space60">
+<Box marginBottom="space30">
   <Table tableLayout="fixed">
     <THead>
       <Tr>
@@ -92,76 +81,31 @@ The list of external third party dependencies are as follows:
   </Table>
 </Box>
 
-Install them using:
-
 ```shell
+# yarn
 yarn add react react-dom prop-types
+
+# npm
+npm install react react-dom prop-types
 ```
 
-#### Install Paste System packages
+<Box marginBottom="space100" />
 
-Paste also requires these system dependencies:
+### Paste Packages
 
-<Box marginBottom="space60">
-  <Table tableLayout="fixed">
-    <THead>
-      <Tr>
-        <Th>Package</Th>
-        <Th>Version</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>@twilio-paste/types</Td>
-        <Td>{typesVersion}</Td>
-      </Tr>
-      <Tr>
-        <Td>@twilio-paste/style-props</Td>
-        <Td>{stylePropsVersion}</Td>
-      </Tr>
-      <Tr>
-        <Td>@twilio-paste/design-tokens</Td>
-        <Td>{designTokensVersion}</Td>
-      </Tr>
-      <Tr>
-        <Td>@twilio-paste/theme</Td>
-        <Td>{themeVersion}</Td>
-      </Tr>
-      <Tr>
-        <Td>@twilio-paste/icons</Td>
-        <Td>{iconsVersion}</Td>
-      </Tr>
-      <Tr>
-        <Td>@twilio-paste/styling-library</Td>
-        <Td>{stylingLibraryPropsVersion}</Td>
-      </Tr>
-      <Tr>
-        <Td>@twilio-paste/animation-library</Td>
-        <Td>{animationVersion}</Td>
-      </Tr>
-      <Tr>
-        <Td>@twilio-paste/dropdown-library</Td>
-        <Td>{dropdownVersion}</Td>
-      </Tr>
-      <Tr>
-        <Td>@twilio-paste/reakit-library</Td>
-        <Td>{reakitVersion}</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
+<Callout variant="information">
+  <CalloutTitle>Our packages are published on NPM</CalloutTitle>
+  <CalloutText>
+    Check out <Anchor href="https://docs.npmjs.com/about-npm">the NPM docs</Anchor> to learn more about these commands
+    and how these packages are installed.
+  </CalloutText>
+</Callout>
 
-Install them using:
+Paste has two packages to get started: `@twilio-paste/core` and `@twilio-paste/icons`.
+Paste Core includes all the component and libraries, while Paste Icons
+includes all the icon illustrations. [Read about how Paste keeps your bundles small](#how-the-core-package-stays-lean).
 
-```shell
-yarn add @twilio-paste/types @twilio-paste/style-props @twilio-paste/design-tokens @twilio-paste/theme @twilio-paste/icons @twilio-paste/styling-library @twilio-paste/animation-library @twilio-paste/dropdown-library @twilio-paste/reakit-library
-```
-
-#### Install the Paste Core package
-
-Finally, install Paste Core.
-
-<Box marginBottom="space60">
+<Box marginBottom="space30">
   <Table tableLayout="fixed">
     <THead>
       <Tr>
@@ -174,51 +118,31 @@ Finally, install Paste Core.
         <Td>@twilio-paste/core</Td>
         <Td>{coreVersion}</Td>
       </Tr>
+      <Tr>
+        <Td>@twilio-paste/icons</Td>
+        <Td>{iconsVersion}</Td>
+      </Tr>
     </TBody>
   </Table>
 </Box>
 
 ```shell
-yarn add @twilio-paste/core
+# yarn
+yarn add @twilio-paste/core @twilio-paste/icons
+
+# npm
+npm install @twilio-paste/core @twilio-paste/icons
 ```
 
-Paste Core includes _all Paste_ components in a single bundle. This is extremely useful if you are committed to using all Paste components and want an easy way to keep up to date with library updates.
+<Box marginBottom="space100" />
 
-<Callout variant="warning">
-  <CalloutTitle>🚨 ATTENTION!! 🚨</CalloutTitle>
-  <CalloutText>
-    If you're using Paste core there is no need to include individual component packages that are listed below. You've
-    already got them. Just import the named component from <InlineCode>@twilio-paste/core</InlineCode>.
-  </CalloutText>
-</Callout>
+### Setting up the Theme Provider
 
-##### Paste Core includes:
-
-<Box marginBottom="space60">
-  <Table tableLayout="fixed">
-    <THead>
-      <Tr>
-        <Th>Package</Th>
-        <Th>Version</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      {Object.keys(coreDependencies).map(dep => (
-        <Tr>
-          <Td>{dep}</Td>
-          <Td>{coreDependencies[dep]}</Td>
-        </Tr>
-      ))}
-    </TBody>
-  </Table>
-</Box>
-
-## Usage
-
-Once Paste Core and its dependencies are installed, you can import the [Paste Theme](/tokens/theme-package/) at the root of your application:
+Once the Paste dependencies are installed, you must import the [Paste Theme](/tokens/theme-package/) at the root of your application. Failure to
+do so will result in broken styles in our components. This Provider ensures the Paste components display the correct tokens for the selected theme.
 
 ```jsx
-import {Theme} from '@twilio-paste/theme';
+import {Theme} from '@twilio-paste/core/theme';
 
 // Wrap your root component with the Theme.Provider like so:
 const App = () => (
@@ -228,10 +152,17 @@ const App = () => (
 );
 ```
 
-Now you can use the Paste themed and tokenized components anywhere in your app:
+<Box marginBottom="space140" />
+
+## Usage
+
+### Paste Components
+
+You can use the Paste components anywhere that is wrapped by the [Theme Provider](#setting-up-the-theme-provider). The Paste tokens
+are readily available on our components and typescript typings are provided.
 
 ```jsx
-import {Box} from '@twilio-paste/core';
+import {Box} from '@twilio-paste/core/box';
 
 const Component = () => (
   <Box margin="space20" backgroundColor="colorBackground">
@@ -240,25 +171,23 @@ const Component = () => (
 );
 ```
 
-<Callout>
-  <CalloutText>
-    The Paste tokens are readily available on our components and typescript typings are provided.
-  </CalloutText>
-</Callout>
+<Box marginBottom="space100" />
 
 ### Jest / Testing
 
 Just like rendering Paste components in a web application, when rendering components for the purposes of testing you
-are required to wrap them in the theme provider. If you do not, your components may fail to render correctly.
+are required to wrap them in the [Theme Provider](#setting-up-the-theme-provider). If you do not, your components may fail to render correctly.
+
+It can sometimes be helpful to test Paste components without animation. To disable animations on Paste components, pass the `disableAnimations` boolean prop to the &lt;Theme.Provider&gt;.
+
+<Box marginBottom="space100" />
 
 ### Using Icons
 
 The Paste Icons package provides icon components. They can be used to enhance the appearance of a web interface and break
 up the monotony of text. Icons have to be imported individually.
 
-Install Paste Icons using yarn:
-
-<Box marginBottom="space60">
+<Box marginBottom="space30">
   <Table tableLayout="fixed">
     <THead>
       <Tr>
@@ -276,7 +205,11 @@ Install Paste Icons using yarn:
 </Box>
 
 ```shell
+# yarn
 yarn add @twilio-paste/icons
+
+# npm
+npm install @twilio-paste/icons
 ```
 
 Then you can use an icon inside your app:
@@ -306,10 +239,14 @@ For more information about our icon system, checkout our [usage guide here](/ico
   </CalloutText>
 </Callout>
 
+<Box marginBottom="space100" />
+
 ### Global Styles
 
 Many apps/websites utilize global stylesheets. Even though Paste styles are scoped at the component level, global styles can creep
 in and cause some havoc. Make sure to thoroughly test Paste components to verify everything looks as they should.
+
+<Box marginBottom="space100" />
 
 ### Fonts
 
@@ -335,6 +272,96 @@ The default theme (UDL theme) uses [Inter](https://rsms.me/inter/) as its primar
 This is a free font that is [hosted on Google Fonts](https://fonts.google.com/specimen/Inter). Feel free to copy
 [how we load the font](https://github.com/twilio-labs/paste/blob/main/packages/paste-website/src/assets/css/fonts.css#L105)
 into your own app if you are using the default theme.
+
+<Box marginBottom="space140" />
+
+## Additional information
+
+### Core package list
+
+Core gives you the following packages. You can install these packages individually as well.
+
+<Disclosure>
+  <DisclosureHeading as="h4" variant="heading50">
+    Show full package list
+  </DisclosureHeading>
+  <DisclosureContent>
+    <Table tableLayout="fixed">
+      <THead>
+        <Tr>
+          <Th>Package</Th>
+          <Th>Version</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        {Object.keys(coreDependencies).map((dependency, index) => {
+          return (
+            <Tr key={`core-dep-${dependency}-${index}`}>
+              <Td>{dependency}</Td>
+              <Td>{coreDependencies[dependency]}</Td>
+            </Tr>
+          );
+        })}
+      </TBody>
+    </Table>
+  </DisclosureContent>
+</Disclosure>
+
+<Box marginBottom="space100" />
+
+### How the Core package stays lean
+
+Unlike other bundled libraries, using Core and Icons won't load _all of_ Paste into your product's bundle, it will only include the parts you are importing.
+This happens automatically, without any requirement for a tree-shaking config in your builds.
+
+You may have imported from other libraries like this:
+
+```jsx
+import {Box, Anchor, Button, Theme} from '@twilio-paste/core';
+import {DisclosureIcon, DeleteIcon} from '@twilio-paste/icons';
+```
+
+The problem with importing this way is that the [referenced "main" file](https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/button/package.json#L10)
+in these packages has to bundle all the different pieces together. This causes everything to be loaded even if we only need one small feature.
+With over 50 icons in our Icon package and 40 components in Core - with more being added continuously - this can become very heavy very quickly.
+
+In Paste, we use an "unbarreled" import mechanism, so the above would look like this:
+
+```jsx
+import {Box} from '@twilio-paste/core/box';
+import {Anchor} from '@twilio-paste/core/anchor';
+import {Button} from '@tiwlio-paste/core/button';
+import {Theme} from '@twilio-paste/core/theme';
+import {DisclosureIcon} from '@twilio-paste/icons/esm/DisclosureIcon';
+import {DeleteIcon} from '@twilio-paste/icons/esm/DeleteIcon';
+```
+
+While this has more import lines than the previous example, we are specifying the import to a limited package. This keeps your bundles lean by only loading exactly what you need.
+
+Paste Core is able to do this because Paste publishes each library and component as its own package. For example the above can be written as:
+
+```jsx
+import {Box} from '@twilio-paste/box';
+import {Anchor} from '@twilio-paste/anchor';
+import {Button} from '@tiwlio-paste/button';
+import {Theme} from '@twilio-paste/theme';
+// Paste Icons are not individually published
+import {DisclosureIcon} from '@twilio-paste/icons/esm/DisclosureIcon';
+import {DeleteIcon} from '@twilio-paste/icons/esm/DeleteIcon';
+```
+
+The reason we recommend Core over using individual package imports is because it makes maintaining Paste in your project easier. If using the above approach, your `package.json` file will be full of individual package dependencies
+and keeping their versions in sync can be quite time consuming.
+
+However, the individual package import is invaluable for when updating Core also makes changes to a package you aren't ready for. You can then install that pinned package and import from it directly.
+For example let's assume we update our Core package and as a side effect, the Button component gets updated. We aren't ready to update Button, but that shouldn't stop us from updating the rest of Core! We can install `@twilio-paste/button` to the version that works and import it like this:
+
+```jsx
+import {Box} from '@twilio-paste/core/box';
+import {Anchor} from '@twilio-paste/core/anchor';
+import {Button} from '@tiwlio-paste/button'; // This loads the version we installed
+import {Theme} from '@twilio-paste/core/theme';
+```
 
 </content>
 
