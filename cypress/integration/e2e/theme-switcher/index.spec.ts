@@ -1,6 +1,6 @@
 describe('Theme switcher', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:9000/');
+    cy.visit('/');
   });
 
   it('check the console theme radio', () => {

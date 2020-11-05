@@ -3,5 +3,6 @@
   "viewportHeight": 1020,
   "chromeWebSecurity": false,
   "defaultCommandTimeout": 15000,
-  "pageLoadTimeout": 1110000
+  "pageLoadTimeout": 1110000,
+  "baseUrl": "http://localhost:9000"
 }
