@@ -70,7 +70,7 @@ const handlePropValidation = ({as, href, tabIndex, variant, size, fullWidth, chi
   if (variant === 'reset' && size !== 'reset') {
     throw new Error('[Paste: Button] The "RESET" variant can only be used with the "RESET" size.');
   }
-  if (size === 'icon' && fullWidth) {
+  if ((size === 'icon' || size === 'icon_small') && fullWidth) {
     throw new Error('[Paste: Button] Icon buttons should not be fullWidth.');
   }
   if (children == null) {

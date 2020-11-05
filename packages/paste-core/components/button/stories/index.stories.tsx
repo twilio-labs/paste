@@ -9,14 +9,15 @@ import {isRenderingOnServer} from '@twilio-paste/animation-library';
 import {Button} from '../src';
 import {ButtonVariants, ButtonSizes} from '../src/types';
 
-const ButtonSizeOptions = ['default', 'small', 'icon', 'reset'];
+const ButtonSizeOptions = ['default', 'small', 'icon', 'icon_small', 'reset'];
 
 const AllSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
   const allButtons = [];
 
   ButtonSizeOptions.forEach(size => {
     if (variant === 'reset' && size !== 'reset') return;
-    const children = size === 'icon' ? <PlusIcon title="Add item to cart" decorative={false} /> : variant;
+    const children =
+      size === 'icon' || size === 'icon_small' ? <PlusIcon title="Add item to cart" decorative={false} /> : variant;
 
     allButtons.push(
       <>
@@ -25,13 +26,13 @@ const AllSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
             <Button variant={variant as ButtonVariants} size={size as ButtonSizes}>
               {children}
             </Button>
-            {size !== 'icon' && size !== 'reset' && (
+            {size !== 'icon' && size !== 'icon_small' && size !== 'reset' && (
               <Button variant={variant as ButtonVariants} size={size as ButtonSizes}>
                 <PlusIcon title="Add item to cart" decorative={false} />
                 {children}
               </Button>
             )}
-            {size !== 'icon' && size !== 'reset' && (
+            {size !== 'icon' && size !== 'icon_small' && size !== 'reset' && (
               <Button variant={variant as ButtonVariants} size={size as ButtonSizes}>
                 {children}
                 <PlusIcon title="Add item to cart" decorative={false} />
@@ -46,7 +47,7 @@ const AllSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
             </Button>
           </Stack>
         </Box>
-        {size !== 'icon' && size !== 'reset' && (
+        {size !== 'icon' && size !== 'icon_small' && size !== 'reset' && (
           <Box key={`variant-${variant}-${size}`} marginBottom="space40" padding="space30">
             <Stack orientation="vertical" spacing="space40">
               <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth>
