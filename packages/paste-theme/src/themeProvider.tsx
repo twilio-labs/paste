@@ -72,17 +72,19 @@ function getProviderThemeProps(theme: ThemeVariants, customBreakpoints?: string[
 export interface ThemeProviderProps {
   customBreakpoints?: string[];
   theme?: ThemeVariants;
+  disableAnimations?: boolean;
 }
 
 const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   customBreakpoints,
   theme = ThemeVariants.DEFAULT,
+  disableAnimations = false,
   ...props
 }) => {
   const prefersReducedMotion = useReducedMotion();
   React.useEffect(() => {
     AnimatedGlobals.assign({
-      skipAnimation: prefersReducedMotion,
+      skipAnimation: disableAnimations || prefersReducedMotion,
     });
   }, [prefersReducedMotion]);
 
