@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.12](https://github.com/twilio-labs/paste/compare/@twilio-paste/inline-control-group@1.1.11...@twilio-paste/inline-control-group@1.1.12) (2020-11-05)
+
+**Note:** Version bump only for package @twilio-paste/inline-control-group
+
+
+
+
+
 ## [1.1.11](https://github.com/twilio-labs/paste/compare/@twilio-paste/inline-control-group@1.1.10...@twilio-paste/inline-control-group@1.1.11) (2020-10-30)
 
 **Note:** Version bump only for package @twilio-paste/inline-control-group

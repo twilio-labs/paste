@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@3.2.27...@twilio-paste/theme@3.3.0) (2020-11-05)
+
+
+### Features
+
+* **theme:** add prop to manually disable animations ([#902](https://github.com/twilio-labs/paste/issues/902)) ([7d92127](https://github.com/twilio-labs/paste/commit/7d92127f9fe6a60970a60705a0a6b0e2218fb81a))
+
+
+
+
+
 ## [3.2.27](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@3.2.26...@twilio-paste/theme@3.2.27) (2020-10-23)
 
 **Note:** Version bump only for package @twilio-paste/theme

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/style-props",
-  "version": "1.8.6",
+  "version": "1.8.7",
   "description": "Shared utilities for style properties used in Paste",
   "author": "Twilio Inc.",
   "license": "MIT",
@@ -29,12 +29,12 @@
   "peerDependencies": {
     "@twilio-paste/design-tokens": "^6.3.5",
     "@twilio-paste/styling-library": "^0.1.4",
-    "@twilio-paste/theme": "^3.2.27",
+    "@twilio-paste/theme": "^3.3.0",
     "prop-types": "^15.7.2"
   },
   "devDependencies": {
     "@twilio-paste/design-tokens": "^6.3.5",
     "@twilio-paste/styling-library": "^0.1.4",
-    "@twilio-paste/theme": "^3.2.27"
+    "@twilio-paste/theme": "^3.3.0"
   }
 }
