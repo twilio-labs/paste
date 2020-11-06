@@ -151,7 +151,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           >
             Getting Started
           </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...gettingStartedDisclosure}>
+          <DisclosurePrimitiveContent {...gettingStartedDisclosure} data-cy="getting-started-list">
             <SidebarNestedList>
               <SidebarNestedItem>
                 <SidebarAnchor nested to="/getting-started/engineering">
@@ -191,7 +191,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <DisclosurePrimitive as={SidebarDisclosureButton} {...tokensDisclosure} data-cy="design-tokens-button">
             Design Tokens
           </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...tokensDisclosure}>
+          <DisclosurePrimitiveContent {...tokensDisclosure} data-cy="design-tokens-list">
             <SidebarNestedList>
               <SidebarNestedItem>
                 <SidebarAnchor nested to={SidebarCategoryRoutes.TOKENS}>
@@ -220,7 +220,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <DisclosurePrimitive as={SidebarDisclosureButton} {...patternsDisclosure} data-cy="patterns-button">
             Patterns
           </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...patternsDisclosure}>
+          <DisclosurePrimitiveContent {...patternsDisclosure} data-cy="patterns-list">
             <SidebarNestedList>
               <SidebarNestedItem>
                 <SidebarAnchor nested to={SidebarCategoryRoutes.PATTERNS}>
@@ -279,7 +279,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <DisclosurePrimitive as={SidebarDisclosureButton} {...componentsDisclosure} data-cy="components-button">
             Components
           </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...componentsDisclosure}>
+          <DisclosurePrimitiveContent {...componentsDisclosure} data-cy="components-list">
             <SidebarNestedList>
               <SidebarNestedItem>
                 <SidebarAnchor nested to={SidebarCategoryRoutes.COMPONENTS}>
@@ -305,7 +305,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <DisclosurePrimitive as={SidebarDisclosureButton} {...primitivesDisclosure} data-cy="primitives-button">
             Primitives
           </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...primitivesDisclosure}>
+          <DisclosurePrimitiveContent {...primitivesDisclosure} data-cy="primitives-list">
             <SidebarNestedList>
               <SidebarNestedItem>
                 <SidebarAnchor nested to={SidebarCategoryRoutes.PRIMITIVES}>
@@ -333,7 +333,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <DisclosurePrimitive as={SidebarDisclosureButton} {...layoutDisclosure} data-cy="layout-button">
             Layout
           </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...layoutDisclosure}>
+          <DisclosurePrimitiveContent {...layoutDisclosure} data-cy="layout-list">
             <SidebarNestedList>
               <SidebarNestedItem>
                 <SidebarAnchor nested to={SidebarCategoryRoutes.LAYOUT}>
@@ -358,7 +358,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <DisclosurePrimitive as={SidebarDisclosureButton} {...iconDisclosure} data-cy="icons-button">
             Icons
           </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...iconDisclosure}>
+          <DisclosurePrimitiveContent {...iconDisclosure} data-cy="icons-list">
             <SidebarNestedList>
               <SidebarNestedItem>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.ICON_SYSTEM}`}>
@@ -385,7 +385,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <DisclosurePrimitive as={SidebarDisclosureButton} {...contentDisclosure} data-cy="content-button">
             Content
           </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...contentDisclosure}>
+          <DisclosurePrimitiveContent {...contentDisclosure} data-cy="content-list">
             <SidebarNestedList>
               <SidebarNestedItem>
                 <SidebarAnchor nested to={SidebarCategoryRoutes.CONTENT}>
@@ -419,7 +419,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <DisclosurePrimitive as={SidebarDisclosureButton} {...librariesDisclosure} data-cy="libraries-button">
             Libraries
           </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...librariesDisclosure}>
+          <DisclosurePrimitiveContent {...librariesDisclosure} data-cy="libraries-list">
             <SidebarNestedList>
               <SidebarNestedItem>
                 <SidebarAnchor nested to={SidebarCategoryRoutes.LIBRARIES}>
