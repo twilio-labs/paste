@@ -1,11 +1,11 @@
 describe('Sidebar navigation', () => {
   beforeEach(() => {
-    cy.visit('/');
+    cy.visit('/', {timeout: 5000});
   });
 
   it('opens the getting started disclosure', () => {
     cy.get('[data-cy=getting-started-button]').click();
-    cy.get('[data-cy=getting-started-list]').should('not.have.attr', 'hidden');
+    cy.get('[data-cy=getting-started-list]').should('be.visible');
   });
 
   it('opens the tokens disclosure', () => {
