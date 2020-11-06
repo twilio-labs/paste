@@ -32,6 +32,9 @@ props:
   color-background-brand-highlight:
     value: "{!amaranth}"
     comment: Highlight brand background, accessible with black text
+  color-background-brand-highlight-lightest:
+    value: "{!amaranth-transparent-10}"
+    comment: Lightest highlight brand background, accessible with black text
 
   # user background
   color-background-user:
@@ -82,6 +85,9 @@ props:
   color-background-required:
     value: "{!palette-red-50}"
     comment: Required background color
+  color-background-new:
+    value: "{!palette-purple-20}"
+    comment: Background color for indicating a new status.
 
   # row backgrounds
   color-background-row-striped:

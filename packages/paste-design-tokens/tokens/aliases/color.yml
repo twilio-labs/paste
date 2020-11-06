@@ -1,4 +1,5 @@
 aliases:
   amaranth: "#F22F46"
+  amaranth-transparent-10: "rgba(242, 47, 70, 0.1)"
   black: "#000000"
   white: "#FFFFFF"
