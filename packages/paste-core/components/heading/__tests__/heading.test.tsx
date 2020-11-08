@@ -1,12 +1,12 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
 import {render} from 'react-dom';
-import {axe} from 'jest-axe';
 import {Theme} from '@twilio-paste/theme';
+import axe from '../../../../../.jest/axe-helper';
 import {Heading} from '../src';
 
 describe('Heading', () => {
-  it('it should render an H1 at fontSize90', (): void => {
+  it('should render an H1 at fontSize90', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -19,7 +19,7 @@ describe('Heading', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render an H2 at fontSize70', (): void => {
+  it('should render an H2 at fontSize70', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -32,7 +32,7 @@ describe('Heading', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render an H3 at fontSize60', (): void => {
+  it('should render an H3 at fontSize60', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -45,7 +45,7 @@ describe('Heading', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render an H4 at fontSize40', (): void => {
+  it('should render an H4 at fontSize40', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -58,7 +58,7 @@ describe('Heading', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render an H5 at fontSize30', (): void => {
+  it('should render an H5 at fontSize30', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -71,7 +71,7 @@ describe('Heading', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render an H6 at fontSize20', (): void => {
+  it('should render an H6 at fontSize20', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -84,7 +84,7 @@ describe('Heading', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render an italic H2 at fontSize50', (): void => {
+  it('should render an italic H2 at fontSize50', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -97,7 +97,7 @@ describe('Heading', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render with no margin', (): void => {
+  it('should render with no margin', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">

@@ -4,7 +4,7 @@ import {Theme} from '@twilio-paste/theme';
 import {Box} from '../src';
 
 describe('Backgrounds', () => {
-  it('it should render single values', (): void => {
+  it('should render single values', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -15,7 +15,7 @@ describe('Backgrounds', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render responsive values', () => {
+  it('should render responsive values', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -28,7 +28,7 @@ describe('Backgrounds', () => {
 });
 
 describe('Borders', () => {
-  it('it should render single values', (): void => {
+  it('should render single values', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -46,7 +46,7 @@ describe('Borders', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render responsive values', () => {
+  it('should render responsive values', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -66,7 +66,7 @@ describe('Borders', () => {
 });
 
 describe('Sizes', () => {
-  it('it should render single values', (): void => {
+  it('should render single values', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -79,7 +79,7 @@ describe('Sizes', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render responsive values', () => {
+  it('should render responsive values', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -156,7 +156,7 @@ describe('Spaces', () => {
 });
 
 describe('Shadows', () => {
-  it('it should render single values', (): void => {
+  it('should render single values', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -167,7 +167,7 @@ describe('Shadows', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render responsive values', () => {
+  it('should render responsive values', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -180,7 +180,7 @@ describe('Shadows', () => {
 });
 
 describe('ZIndex', () => {
-  it('it should render single values', (): void => {
+  it('should render single values', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -191,7 +191,7 @@ describe('ZIndex', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render responsive values', () => {
+  it('should render responsive values', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -203,7 +203,7 @@ describe('ZIndex', () => {
   });
 
   describe('Pseudo-class props', () => {
-    it('it should generate pseudo-class CSS', (): void => {
+    it('should generate pseudo-class CSS', (): void => {
       const tree = renderer
         .create(
           <Theme.Provider theme="console">

@@ -50,7 +50,7 @@ export const formatGroupTokensWithTemplate = (
   categoryTemplate: (cat: string, props: Token[]) => string
 ): string => {
   return categories
-    .map((cat: string): string | undefined => {
+    .map((cat: string): string | null => {
       const catProps = tokens
         .get('props')
         .sortBy(prop => {
@@ -64,7 +64,7 @@ export const formatGroupTokensWithTemplate = (
       if (typeof cat === 'string') {
         return categoryTemplate(getPluralCatName(cat), catProps);
       }
-      return undefined;
+      return null;
     })
     .join('\n');
 };

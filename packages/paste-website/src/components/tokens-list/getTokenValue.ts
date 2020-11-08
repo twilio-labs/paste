@@ -1,5 +1,5 @@
 const convertToPx = (value: string): string => {
-  return `${parseFloat(value.replace('rem', '')) * 16}px`;
+  return `${Number.parseFloat(value.replace('rem', '')) * 16}px`;
 };
 
 interface TokenValueProps {

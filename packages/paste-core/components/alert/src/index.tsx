@@ -30,9 +30,13 @@ export const AlertBorderColors = {
   WARNING: 'colorBorderWarningLight',
 } as const;
 
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export type AlertVariants = ValueOf<typeof AlertVariants>;
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export type AlertBackgroundColors = ValueOf<typeof AlertBackgroundColors>;
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export type AlertBorderColors = ValueOf<typeof AlertBorderColors>;
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export type AlertRoles = ValueOf<typeof AlertRoles>;
 
 export interface AlertProps {

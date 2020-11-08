@@ -1,3 +1,4 @@
+import {ValueOf} from '@twilio-paste/types';
 import {
   Basis,
   BasisOptions,
@@ -11,7 +12,7 @@ import {
 } from './types';
 
 // Gets grow and returns as an array of grow, the value of grow, 1, or 0
-export const getGrow = ({grow}: FlexProps): {} => {
+export const getGrow = ({grow}: FlexProps): number | number[] => {
   if (Array.isArray(grow)) {
     return (grow as GrowOptions[]).map((value: GrowOptions) => {
       return Number(value);
@@ -30,7 +31,7 @@ export const getGrow = ({grow}: FlexProps): {} => {
 };
 
 // Gets shrink and returns as an array of shrink, the value of shrink, 1, or 0
-export const getShrink = ({shrink, basis}: FlexProps): {} => {
+export const getShrink = ({shrink, basis}: FlexProps): number | number[] => {
   if (Array.isArray(shrink)) {
     return (shrink as ShrinkOptions[]).map((value: ShrinkOptions) => {
       return Number(value);
@@ -53,13 +54,13 @@ export const getShrink = ({shrink, basis}: FlexProps): {} => {
 };
 
 // Function for basis. Adds 'px' if basis is a number.
-export const getSuffix = (item: Basis): {} => {
-  const suffix = typeof item === 'number' || String(parseInt(item as string, 10)) === item ? 'px' : '';
+export const getSuffix = (item: Basis): string => {
+  const suffix = typeof item === 'number' || String(Number.parseInt(item as string, 10)) === item ? 'px' : '';
   return item + suffix;
 };
 
 // Gets basis and returns as an array of basis, the value of basis, or auto
-export const getBasis = ({basis}: FlexProps): {} => {
+export const getBasis = ({basis}: FlexProps): string | string[] => {
   if (Array.isArray(basis)) {
     return (basis as BasisOptions[]).map((value: BasisOptions) => {
       return getSuffix(value);
@@ -74,7 +75,8 @@ export const getBasis = ({basis}: FlexProps): {} => {
 };
 
 // Gets vertical and returns as an array of column/row, column, or row
-export const getVertical = ({vertical}: FlexProps): {} => {
+type GetVerticalReturn = 'column' | 'row';
+export const getVertical = ({vertical}: FlexProps): GetVerticalReturn | GetVerticalReturn[] => {
   if (Array.isArray(vertical)) {
     return (vertical as VerticalOptions[]).map((value: VerticalOptions) => {
       if (typeof value === 'boolean') {
@@ -92,7 +94,8 @@ export const getVertical = ({vertical}: FlexProps): {} => {
 };
 
 // Gets wrap and returns as an array of wrap/nowrap, wrap, or nowrap
-export const getWrap = ({wrap}: FlexProps): {} => {
+type GetWrapReturn = 'wrap' | 'nowrap';
+export const getWrap = ({wrap}: FlexProps): GetWrapReturn | GetWrapReturn[] => {
   if (Array.isArray(wrap)) {
     return (wrap as WrapOptions[]).map((value: WrapOptions) => {
       if (typeof value === 'boolean') {
@@ -115,10 +118,12 @@ const RemapedVerticalAlignments = {
   center: 'center',
   bottom: 'flex-end',
   stretch: 'stretch',
-};
+} as const;
 
 // Gets vAlignContent and returns array of verical key value pairs, a verical key value pair, or flex-start
-export const vAlignToProps = ({vAlignContent}: FlexProps): {} => {
+export const vAlignToProps = ({
+  vAlignContent,
+}: FlexProps): ValueOf<typeof RemapedVerticalAlignments> | ValueOf<typeof RemapedVerticalAlignments>[] => {
   if (Array.isArray(vAlignContent)) {
     return (vAlignContent as VerticalAlignOptions[]).map(value => RemapedVerticalAlignments[value]);
   }
@@ -137,10 +142,12 @@ const RemapedHorizontalAlignments = {
   right: 'flex-end',
   around: 'space-around',
   between: 'space-between',
-};
+} as const;
 
 // Gets hAlignContent and returns array of horizontal key value pairs, a horizontal key value pair, or flex-start
-export const hAlignToProps = ({hAlignContent}: FlexProps): {} => {
+// ideally this would be typed as ValueOf<typeof RemapedHorizontalAlignments> | ValueOf<typeof RemapedHorizontalAlignments>[]
+// but space-between isn't a valid alignItems value and I don't know how to conditionally type things.
+export const hAlignToProps = ({hAlignContent}: FlexProps): any => {
   if (Array.isArray(hAlignContent)) {
     return (hAlignContent as HorizontalAlignOptions[]).map(value => RemapedHorizontalAlignments[value]);
   }

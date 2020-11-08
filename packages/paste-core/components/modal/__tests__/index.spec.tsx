@@ -2,13 +2,13 @@ import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
 import {render} from 'react-dom';
 import {render as testRender, fireEvent, cleanup} from '@testing-library/react';
-import {axe} from 'jest-axe';
 import {Theme} from '@twilio-paste/theme';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
 import {FormLabel, FormInput} from '@twilio-paste/form';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
+import axe from '../../../../../.jest/axe-helper';
 import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '../src';
 
 const handleCloseMock: jest.Mock = jest.fn();
@@ -51,7 +51,7 @@ const MockModal: React.FC<{children?: React.ReactNode}> = ({children}) => {
   );
 };
 
-const MockInitalFocusModal: React.FC<{}> = () => {
+const MockInitalFocusModal: React.FC = () => {
   const [name, setName] = React.useState('');
   const modalHeadingID = `modal-${useUID()}`;
   const nameInputRef: React.RefObject<HTMLInputElement> = React.createRef();

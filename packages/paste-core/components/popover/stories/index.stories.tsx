@@ -5,7 +5,7 @@ import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Popover, PopoverContainer, PopoverButton} from '../src';
 
-const Example: React.FC<{}> = () => {
+const Example: React.FC = () => {
   return (
     <Box height="300px">
       <PopoverContainer baseId="test-id" visible>
@@ -18,7 +18,7 @@ const Example: React.FC<{}> = () => {
   );
 };
 
-const BottomExample: React.FC<{}> = () => {
+const BottomExample: React.FC = () => {
   return (
     <PopoverContainer baseId="test-id" placement="bottom-start">
       <PopoverButton variant="primary">Open popover</PopoverButton>
@@ -29,7 +29,7 @@ const BottomExample: React.FC<{}> = () => {
   );
 };
 
-const TopExample: React.FC<{}> = () => {
+const TopExample: React.FC = () => {
   return (
     <Box bottom={12} position="absolute">
       <PopoverContainer baseId="test-id" placement="top-start">
@@ -42,7 +42,7 @@ const TopExample: React.FC<{}> = () => {
   );
 };
 
-const RightExample: React.FC<{}> = () => {
+const RightExample: React.FC = () => {
   return (
     <PopoverContainer baseId="test-id" placement="right-start">
       <PopoverButton variant="primary">Open popover</PopoverButton>
@@ -53,7 +53,7 @@ const RightExample: React.FC<{}> = () => {
   );
 };
 
-const LeftExample: React.FC<{}> = () => {
+const LeftExample: React.FC = () => {
   return (
     <Box position="absolute" right={12} top={12}>
       <PopoverContainer baseId="test-id" placement="left-start">

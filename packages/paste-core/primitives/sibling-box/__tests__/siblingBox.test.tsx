@@ -4,7 +4,7 @@ import {Theme} from '@twilio-paste/theme';
 import {SiblingBox} from '../src';
 
 describe('SiblingBox render', () => {
-  it('it should render', (): void => {
+  it('should render', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">

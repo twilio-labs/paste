@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Backgrounds it should render responsive values 1`] = `
+exports[`Backgrounds should render responsive values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -31,7 +31,7 @@ exports[`Backgrounds it should render responsive values 1`] = `
 </div>
 `;
 
-exports[`Backgrounds it should render single values 1`] = `
+exports[`Backgrounds should render single values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -56,7 +56,7 @@ exports[`Backgrounds it should render single values 1`] = `
 </div>
 `;
 
-exports[`Borders it should render responsive values 1`] = `
+exports[`Borders should render responsive values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -99,7 +99,7 @@ exports[`Borders it should render responsive values 1`] = `
 </div>
 `;
 
-exports[`Borders it should render single values 1`] = `
+exports[`Borders should render single values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -127,7 +127,7 @@ exports[`Borders it should render single values 1`] = `
 </div>
 `;
 
-exports[`Shadows it should render responsive values 1`] = `
+exports[`Shadows should render responsive values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -158,7 +158,7 @@ exports[`Shadows it should render responsive values 1`] = `
 </div>
 `;
 
-exports[`Shadows it should render single values 1`] = `
+exports[`Shadows should render single values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -183,7 +183,7 @@ exports[`Shadows it should render single values 1`] = `
 </div>
 `;
 
-exports[`Sizes it should render responsive values 1`] = `
+exports[`Sizes should render responsive values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -236,7 +236,7 @@ exports[`Sizes it should render responsive values 1`] = `
 </div>
 `;
 
-exports[`Sizes it should render single values 1`] = `
+exports[`Sizes should render single values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -389,7 +389,7 @@ exports[`Spaces (B)it should render responsive values 1`] = `
 </div>
 `;
 
-exports[`ZIndex Pseudo-class props it should generate pseudo-class CSS 1`] = `
+exports[`ZIndex Pseudo-class props should generate pseudo-class CSS 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -531,7 +531,7 @@ exports[`ZIndex Pseudo-class props it should generate pseudo-class CSS 1`] = `
 </div>
 `;
 
-exports[`ZIndex it should render responsive values 1`] = `
+exports[`ZIndex should render responsive values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -562,7 +562,7 @@ exports[`ZIndex it should render responsive values 1`] = `
 </div>
 `;
 
-exports[`ZIndex it should render single values 1`] = `
+exports[`ZIndex should render single values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;

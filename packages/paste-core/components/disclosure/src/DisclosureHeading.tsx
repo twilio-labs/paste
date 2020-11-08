@@ -38,7 +38,7 @@ const getIconSize = (variant: HeadingProps['variant']): ChevronDownIconProps['si
   }
 };
 
-const getVariantStyles = (variant: Variants): {} => {
+const getVariantStyles = (variant: Variants): BoxStyleProps => {
   switch (variant) {
     case 'contained':
       return {

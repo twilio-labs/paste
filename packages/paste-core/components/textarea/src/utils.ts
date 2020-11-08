@@ -1,6 +1,6 @@
 export const PROPS_TO_BLOCK: string[] = ['className', 'style', 'size', 'height', 'width'];
 
-export const safelySpreadFormControlProps = (props: {}): {} => {
+export const safelySpreadFormControlProps = (props: {[key: string]: any}): {[key: string]: any} => {
   // https://www.measurethat.net/Benchmarks/Show/6642/0/for-in-vs-reduce-vs-pick#latest_results_block
   const newList = Object.keys(props).reduce((newObj, key) => {
     if (!PROPS_TO_BLOCK.includes(key)) {

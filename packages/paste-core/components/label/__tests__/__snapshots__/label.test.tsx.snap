@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Label render it should render 1`] = `
+exports[`Label render should render 1`] = `
 <DocumentFragment>
   .emotion-3 {
   color: rgb(40,42,43);
@@ -74,7 +74,7 @@ exports[`Label render it should render 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Label render it should render with required 1`] = `
+exports[`Label render should render with required 1`] = `
 <DocumentFragment>
   .emotion-5 {
   color: rgb(40,42,43);

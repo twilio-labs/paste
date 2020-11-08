@@ -7,4 +7,5 @@ export const ThemeVariants = {
   FLEX: 'flex',
 } as const;
 
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export type ThemeVariants = ValueOf<typeof ThemeVariants>;

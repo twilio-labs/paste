@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {axe} from 'jest-axe';
 import {render, fireEvent, screen} from '@testing-library/react';
+import axe from '../../../../../.jest/axe-helper';
 import {
   useMenuPrimitiveState,
   MenuPrimitive,
@@ -31,7 +31,7 @@ const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuPrimitiveButtonP
   );
 });
 
-const MenuMock: React.FC<{}> = () => {
+const MenuMock: React.FC = () => {
   const menu = useMenuPrimitiveState({baseId: 'menu-example'});
   return (
     <>
@@ -113,6 +113,7 @@ describe('Menu Primitive', () => {
 
   // an update to reakit broke these document.activeElements
   // annoying, commenting out for review but will investigate
+  // eslint-disable-next-line jest/no-disabled-tests
   describe.skip('interaction', () => {
     it('should control expanded attribute on the button', () => {
       render(<MenuMock />);
@@ -122,6 +123,7 @@ describe('Menu Primitive', () => {
       expect(renderedMenuButton.getAttribute('aria-expanded')).toEqual('true');
       if (document.activeElement != null) {
         fireEvent.keyDown(document.activeElement, {key: 'Escape', code: 'Escape'});
+        // eslint-disable-next-line jest/no-conditional-expect
         expect(renderedMenuButton.getAttribute('aria-expanded')).toEqual('false');
       }
     });
@@ -130,6 +132,7 @@ describe('Menu Primitive', () => {
       render(<MenuMock />);
       fireEvent.click(screen.getByRole('button'));
       if (document.activeElement != null) {
+        // eslint-disable-next-line jest/no-conditional-expect
         expect(screen.getAllByRole('menuitem')[0]).toEqual(document.activeElement);
       }
     });
@@ -139,6 +142,7 @@ describe('Menu Primitive', () => {
       fireEvent.click(screen.getByRole('button'));
       if (document.activeElement != null) {
         fireEvent.keyDown(document.activeElement, {key: 'ArrowDown', code: 'ArrowDown'});
+        // eslint-disable-next-line jest/no-conditional-expect
         expect(screen.getByText('Check for Updates...')).toEqual(document.activeElement);
       }
     });
@@ -149,6 +153,7 @@ describe('Menu Primitive', () => {
       if (document.activeElement != null) {
         fireEvent.keyDown(document.activeElement, {key: 'ArrowDown', code: 'ArrowDown'});
         fireEvent.keyDown(document.activeElement, {key: 'ArrowUp', code: 'ArrowUp'});
+        // eslint-disable-next-line jest/no-conditional-expect
         expect(screen.getByText('About Visual Studio Code')).toEqual(document.activeElement);
       }
     });

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {render} from 'react-dom';
 import renderer from 'react-test-renderer';
-import {render as testRender, cleanup} from '@testing-library/react';
-import {axe} from 'jest-axe';
+import {render as testRender} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
+import axe from '../../../../../.jest/axe-helper';
 import {Separator} from '../src';
 
 describe('Separator', () => {
@@ -19,7 +19,7 @@ describe('Separator', () => {
     const {getByRole} = testRender(<Separator orientation="vertical" />);
     expect(getByRole('separator').getAttribute('aria-orientation')).toBe('vertical');
   });
-  it('it should set horizontal margins', (): void => {
+  it('should set horizontal margins', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider>
@@ -29,7 +29,7 @@ describe('Separator', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
-  it('it should set vertical margins', (): void => {
+  it('should set vertical margins', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider>
@@ -39,7 +39,7 @@ describe('Separator', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
-  it('it should set responsive horizontal margins', (): void => {
+  it('should set responsive horizontal margins', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider>
@@ -49,7 +49,7 @@ describe('Separator', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
-  it('it should set responsive vertical margins', (): void => {
+  it('should set responsive vertical margins', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider>

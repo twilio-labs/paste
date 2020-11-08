@@ -13,6 +13,7 @@ export const HelpTextVariants = {
   INVERSE: 'inverse',
 } as const;
 
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export type HelpTextVariants = ValueOf<typeof HelpTextVariants>;
 
 export interface HelpTextProps extends React.HTMLAttributes<HTMLDivElement> {

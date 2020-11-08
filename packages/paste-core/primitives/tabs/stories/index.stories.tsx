@@ -6,7 +6,7 @@ import {Stack} from '@twilio-paste/stack';
 import {useUID} from '@twilio-paste/uid-library';
 import {useTabPrimitiveState, TabPrimitive, TabPrimitiveList, TabPrimitivePanel, TabPrimitiveStateReturn} from '../src';
 
-const HorizontalTabsExample: React.FC<{}> = () => {
+const HorizontalTabsExample: React.FC = () => {
   const selectedId = useUID();
   const tab = useTabPrimitiveState({selectedId});
   return (
@@ -43,7 +43,7 @@ const HorizontalTabsExample: React.FC<{}> = () => {
   );
 };
 
-const VerticalTabsExample: React.FC<{}> = () => {
+const VerticalTabsExample: React.FC = () => {
   const selectedId = useUID();
   const tab = useTabPrimitiveState({orientation: 'vertical', selectedId});
   return (

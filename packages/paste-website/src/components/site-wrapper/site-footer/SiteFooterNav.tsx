@@ -6,7 +6,7 @@ import {Stack} from '@twilio-paste/stack';
 import {SiteFooterHeader} from './SiteFooterHeader';
 import TwilioLogo from '../../icons/TwilioLogo';
 
-const SiteFooterNav: React.FC<{}> = () => {
+const SiteFooterNav: React.FC = () => {
   const theme = useTheme();
   return (
     <Box position="relative">

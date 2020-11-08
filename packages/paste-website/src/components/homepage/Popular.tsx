@@ -9,7 +9,7 @@ import {useSlantedSkew} from '../SlantedBackgroundGradient';
 import {DoodleLoopSmall} from '../../assets/illustrations/DoodleLoopSmall';
 import {DoodleCurve} from '../../assets/illustrations/DoodleCurve';
 
-const PopularComponentsTopAngle: React.FC<{}> = () => {
+const PopularComponentsTopAngle: React.FC = () => {
   const [skewOffset] = useSlantedSkew();
 
   return (
@@ -28,7 +28,7 @@ const PopularComponentsTopAngle: React.FC<{}> = () => {
   );
 };
 
-const PopularComponentsBottomAngle: React.FC<{}> = () => {
+const PopularComponentsBottomAngle: React.FC = () => {
   const [skewOffset] = useSlantedSkew();
 
   return (
