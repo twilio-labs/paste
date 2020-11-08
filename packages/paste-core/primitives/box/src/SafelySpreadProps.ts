@@ -26,7 +26,7 @@ export const BOX_PROPS_TO_BLOCK = [
   'style',
 ];
 
-export const safelySpreadBoxProps = (props: {}): {} => {
+export const safelySpreadBoxProps = (props: {[key: string]: any}): {[key: string]: any} => {
   // https://www.measurethat.net/Benchmarks/Show/6642/0/for-in-vs-reduce-vs-pick#latest_results_block
   const newList = Object.keys(props).reduce((newObj, key) => {
     if (!BOX_PROPS_TO_BLOCK.includes(key)) {

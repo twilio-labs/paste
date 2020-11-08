@@ -1,4 +1,5 @@
 const path = require('path');
+const cachedPackages = require('./tools/.cache/packages.json');
 
 // Based on https://github.com/iamturns/create-exposed-app/blob/master/.eslintrc.js
 module.exports = {
@@ -36,15 +37,10 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     // Doesnt really work in our use-cases: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-default-props.md
     'react/require-default-props': 'off',
-    // Use function hoisting to improve code readability
-    'no-use-before-define': [
-      'error',
-      {
-        functions: false,
-        classes: true,
-        variables: true,
-      },
-    ],
+    // Clashes with @typescript-eslint/parser
+    'no-use-before-define': 0,
+    'comma-dangle': 'off',
+    '@typescript-eslint/comma-dangle': ['error', 'only-multiline'],
     // Makes no sense to allow type inferrence for expression parameters, but require typing the response
     '@typescript-eslint/explicit-function-return-type': [
       'error',
@@ -62,30 +58,37 @@ module.exports = {
         typedefs: true,
       },
     ],
+    '@typescript-eslint/ban-ts-comment': 'warn',
+    '@typescript-eslint/no-shadow': ['error', {ignoreFunctionTypeParameterNameValueShadow: true}],
     // Common abbreviations are known and readable
     'unicorn/prevent-abbreviations': 'off',
     // We don't really have a style yet.  To be discussed
     // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/filename-case.md
     'unicorn/filename-case': 'off',
+    'unicorn/no-null': 'off',
+    'unicorn/no-reduce': 'off',
+    'unicorn/no-fn-reference-in-iterator': 'off',
+    // weirdly specific
+    'unicorn/import-style': 'off',
     // This rule tells people to do something (import foo = require('foo')) which doesn't work
     // with babel compiled typescript.
     '@typescript-eslint/no-var-requires': 'off',
     // PropTypes are useless with typescript
     'react/prop-types': 'off',
-    // Avoid having to redefine story deps for this monorepo
-    // https://github.com/benmosher/eslint-plugin-import/issues/458#issuecomment-468235671
-    'import/no-extraneous-dependencies': context => [
+    // ignore dev deps by default, point eslint to all package.json files in the monorepo
+    'import/no-extraneous-dependencies': [
       'error',
       {
-        devDependencies: true,
-        packageDir: [context.getFilename(), __dirname],
+        packageDir: [path.join(__dirname, './'), ...cachedPackages.map(package => package.location)],
       },
     ],
-    'react/jsx-curly-brace-presence': 'ignore',
+    'react/jsx-curly-brace-presence': 0,
+    'react/jsx-props-no-spreading': 0,
     'no-useless-constructor': 'off',
     eqeqeq: ['error', 'smart'],
     'no-plusplus': 'off',
     'consistent-return': 'off',
+    'array-callback-return': ['error', {allowImplicit: true}],
     // deprecated rule
     'jsx-a11y/label-has-for': 'off',
     'jsx-a11y/label-has-associated-control': [
@@ -98,7 +101,7 @@ module.exports = {
   },
   settings: {
     'import/resolver': {
-      [path.resolve('./.eslint/resolver')]: {
+      [path.join(__dirname, './.eslint/resolver')]: {
         someConfig: '',
       },
       node: {

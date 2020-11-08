@@ -47,6 +47,7 @@ export const pasteBaseStyles = css({
 
 export const StyledBase = styled.div(pasteBaseStyles);
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 function getProviderThemeProps(theme: ThemeVariants, customBreakpoints?: string[]): {} {
   switch (theme) {
     case ThemeVariants.SENDGRID:

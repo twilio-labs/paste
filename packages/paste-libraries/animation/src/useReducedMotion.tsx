@@ -17,6 +17,7 @@ export const isRenderingOnServer = (() => {
   return Boolean(new URL(window.location.href).searchParams.get('eyes-storybook'));
 })();
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 const getMediaQueryList = (): {matches: boolean; addListener: Function; removeListener: Function} => {
   if (isRenderingOnServer) {
     return {

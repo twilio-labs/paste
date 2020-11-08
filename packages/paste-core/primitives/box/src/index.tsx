@@ -162,6 +162,7 @@ const extraConfig = system({
   tableLayout: true,
 });
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 const getPseudoStyles = (props: BoxProps): {} => {
   const pseudoProps = Object.keys(props).filter(propName => propName.startsWith('_'));
 

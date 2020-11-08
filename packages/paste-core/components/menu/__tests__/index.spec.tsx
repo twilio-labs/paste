@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {axe} from 'jest-axe';
 import {render, screen} from '@testing-library/react';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import axe from '../../../../../.jest/axe-helper';
 import {useMenuState, Menu, MenuItem, MenuButton, MenuButtonProps, MenuGroup, MenuSeparator} from '../src';
 
 const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuButtonProps>((props, ref) => {
@@ -52,7 +52,7 @@ const MenuMock: React.FC<{groupRef?: React.Ref<HTMLDivElement>}> = ({groupRef}) 
   );
 };
 
-describe('Menu ', () => {
+describe('Menu', () => {
   describe('Render', () => {
     it('should render', () => {
       const {asFragment} = render(<MenuMock />);

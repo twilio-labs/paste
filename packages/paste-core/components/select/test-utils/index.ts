@@ -18,7 +18,7 @@ export interface AttributesMap {
   height?: string;
   size?: number;
   className?: string;
-  style?: {};
+  style?: unknown;
   multiple?: boolean;
 }
 

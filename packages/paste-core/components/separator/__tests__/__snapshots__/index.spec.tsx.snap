@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Separator it should set horizontal margins 1`] = `
+exports[`Separator should set horizontal margins 1`] = `
 .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
@@ -33,7 +33,7 @@ exports[`Separator it should set horizontal margins 1`] = `
 </div>
 `;
 
-exports[`Separator it should set responsive horizontal margins 1`] = `
+exports[`Separator should set responsive horizontal margins 1`] = `
 .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
@@ -80,7 +80,7 @@ exports[`Separator it should set responsive horizontal margins 1`] = `
 </div>
 `;
 
-exports[`Separator it should set responsive vertical margins 1`] = `
+exports[`Separator should set responsive vertical margins 1`] = `
 .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
@@ -127,7 +127,7 @@ exports[`Separator it should set responsive vertical margins 1`] = `
 </div>
 `;
 
-exports[`Separator it should set vertical margins 1`] = `
+exports[`Separator should set vertical margins 1`] = `
 .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;

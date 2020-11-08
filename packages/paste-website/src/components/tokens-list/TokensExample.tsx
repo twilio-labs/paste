@@ -76,6 +76,11 @@ export const TextBox: React.FC<TextBoxProp> = ({fontFamily, fontSize, fontWeight
   );
 };
 
+const getContrastRating = (acc: ColorCombinationAccessibility): string => {
+  const rating = colorRating(acc);
+  return rating.small;
+};
+
 type TextColorBoxProp = Pick<TextProps, 'color'>;
 interface TextColorBoxProps extends TextColorBoxProp {
   boxColor: string;
@@ -83,22 +88,12 @@ interface TextColorBoxProps extends TextColorBoxProp {
 export const TextColorBox: React.FC<TextColorBoxProps> = ({boxColor, color}) => {
   const theme = useTheme();
   const colorFn = Color(boxColor);
-  let isInverse;
-  if (color === 'colorTextWeaker') {
-    isInverse = false;
-  } else {
-    isInverse = colorFn.isLight();
-  }
+  const isInverse = color === 'colorTextWeaker' ? false : colorFn.isLight();
   const backgroundColorValue = isInverse
     ? theme.backgroundColors.colorBackgroundBodyInverse
     : theme.backgroundColors.colorBackgroundBody;
   const colorCombos = ColorCombos([boxColor, backgroundColorValue]);
   const {accessibility} = colorCombos[1].combinations[0];
-
-  const getContrastRating = (acc: ColorCombinationAccessibility): string => {
-    const rating = colorRating(acc);
-    return rating.small;
-  };
 
   return (
     <Box

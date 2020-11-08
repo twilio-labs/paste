@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {axe} from 'jest-axe';
 import {render, screen, fireEvent} from '@testing-library/react';
+import axe from '../../../../../.jest/axe-helper';
 import {
   Disclosure,
   DisclosureContent,
@@ -11,7 +11,7 @@ import {
   useDisclosureState,
 } from '../src';
 
-export const MockDisclosure: React.FC<{
+const MockDisclosure: React.FC<{
   visible?: DisclosureProps['visible'];
   disabled?: DisclosureHeadingProps['disabled'];
   focusable?: DisclosureHeadingProps['focusable'];

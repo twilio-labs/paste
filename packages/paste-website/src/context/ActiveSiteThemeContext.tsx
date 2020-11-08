@@ -27,16 +27,14 @@ export const useActiveSiteTheme = (): ActiveSiteThemeContextProps => {
 };
 
 const getThemeFromWindow = (): ThemeVariants => {
-  let theme: ThemeVariants;
-  if (typeof window !== 'undefined' && window.activeTheme !== '') {
-    theme = window.activeTheme as ThemeVariants;
-  } else {
-    theme = ThemeVariants.DEFAULT as ThemeVariants;
-  }
+  const theme: ThemeVariants =
+    typeof window !== 'undefined' && window.activeTheme !== ''
+      ? (window.activeTheme as ThemeVariants)
+      : (ThemeVariants.DEFAULT as ThemeVariants);
   return theme;
 };
 
-export const ActiveSiteThemeProvider: React.FunctionComponent<{}> = (props: {}): React.ReactElement => {
+export const ActiveSiteThemeProvider: React.FC = (props): React.ReactElement => {
   const [theme, setTheme] = React.useState(getThemeFromWindow());
 
   const handleThemeChange = (newTheme: ThemeVariants): void => {

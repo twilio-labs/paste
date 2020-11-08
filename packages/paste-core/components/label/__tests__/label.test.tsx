@@ -4,7 +4,7 @@ import {Theme} from '@twilio-paste/theme';
 import {Label} from '../src';
 
 describe('Label render', () => {
-  it('it should render', (): void => {
+  it('should render', (): void => {
     const {asFragment} = render(
       <Theme.Provider theme="console">
         <Label htmlFor="input">child</Label>
@@ -13,7 +13,7 @@ describe('Label render', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it('it should render with required', (): void => {
+  it('should render with required', (): void => {
     const {asFragment} = render(
       <Theme.Provider theme="console">
         <Label htmlFor="input" required>

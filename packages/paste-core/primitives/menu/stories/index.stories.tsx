@@ -9,7 +9,7 @@ import {
   MenuPrimitiveSeparator,
 } from '../src';
 
-const Example: React.FC<{}> = () => {
+const Example: React.FC = () => {
   const menu = useMenuPrimitiveState();
   return (
     <>
@@ -45,7 +45,7 @@ const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuPrimitiveButtonP
   );
 });
 
-const Example2: React.FC<{}> = () => {
+const Example2: React.FC = () => {
   const menu = useMenuPrimitiveState();
   return (
     <>

@@ -11,11 +11,11 @@ const IconTileWrapper = styled(Box)({
   width: '33.33%',
 });
 
-interface IconListItem extends CompositeStateReturn {
+interface IconListItemProps extends CompositeStateReturn {
   icon: IconObject;
   setSelectedIcon: (icon: IconObject) => void;
 }
-export const IconListItem: React.FC<IconListItem> = ({icon, setSelectedIcon, ...props}) => {
+export const IconListItem: React.FC<IconListItemProps> = ({icon, setSelectedIcon, ...props}) => {
   if (icon.name !== 'index') {
     const {Component} = icon;
     return (

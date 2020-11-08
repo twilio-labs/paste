@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {uid} from 'react-uid';
+import {uid} from '@twilio-paste/uid-library';
 import {ToasterToast, ToasterPush, UseToasterReturnedProps} from './types';
 
 export const useToaster = (): UseToasterReturnedProps => {

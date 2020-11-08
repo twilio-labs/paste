@@ -9,7 +9,7 @@ import {SiteMetaDefaults} from '../constants';
 
 interface DefaultLayoutProps {
   children?: React.ReactElement;
-  data?: {};
+  data?: unknown;
   location: {
     pathname: string;
   };

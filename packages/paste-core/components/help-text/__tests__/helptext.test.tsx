@@ -5,7 +5,7 @@ import {Theme} from '@twilio-paste/theme';
 import {HelpText} from '../src';
 
 describe('HelpText render', () => {
-  it('it should render', (): void => {
+  it('should render', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -16,7 +16,7 @@ describe('HelpText render', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render with an error icon', (): void => {
+  it('should render with an error icon', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">

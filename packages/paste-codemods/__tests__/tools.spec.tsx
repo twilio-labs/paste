@@ -1,8 +1,7 @@
 const {generatePackageExportsMap} = require('../tools/generatePackageExportsMap');
 
 // This is a simplified mock of paste packages
-// eslint-disable-next-line  @typescript-eslint/array-type
-const mockGetPastePackages = (): Array<{}> => [
+const mockGetPastePackages = (): Array<unknown> => [
   {
     name: '@twilio-paste/stack',
     version: '0.1.49',

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {render} from 'react-dom';
 import {render as testRender, fireEvent} from '@testing-library/react';
-import {axe} from 'jest-axe';
+import axe from '../../../../../.jest/axe-helper';
 import {Radio, RadioGroup} from '../src';
 
 const NOOP = (): void => {};
@@ -217,7 +217,7 @@ describe('Radio Group event handlers', () => {
   });
 
   it('Should check the selected radio', () => {
-    const MockRadioGroup: React.FC<{}> = () => {
+    const MockRadioGroup: React.FC = () => {
       const [value, setValue] = React.useState();
       return (
         <RadioGroup
@@ -251,7 +251,7 @@ describe('Radio Group event handlers', () => {
   });
 
   it('Should check the selected value on initial', () => {
-    const MockRadioGroup: React.FC<{}> = () => {
+    const MockRadioGroup: React.FC = () => {
       const [value, setValue] = React.useState('2');
       return (
         <RadioGroup

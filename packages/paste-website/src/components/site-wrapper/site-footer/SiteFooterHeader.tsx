@@ -4,7 +4,7 @@ import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import HeartDoodleIcon from '../../icons/HeartDoodleIcon';
 
-const SiteFooterHeader: React.FC<{}> = () => {
+const SiteFooterHeader: React.FC = () => {
   const theme = useTheme();
   return (
     <Box

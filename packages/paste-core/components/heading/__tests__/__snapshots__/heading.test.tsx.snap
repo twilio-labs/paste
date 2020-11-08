@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Heading it should render an H1 at fontSize90 1`] = `
+exports[`Heading should render an H1 at fontSize90 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -35,7 +35,7 @@ exports[`Heading it should render an H1 at fontSize90 1`] = `
 </div>
 `;
 
-exports[`Heading it should render an H2 at fontSize70 1`] = `
+exports[`Heading should render an H2 at fontSize70 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -70,7 +70,7 @@ exports[`Heading it should render an H2 at fontSize70 1`] = `
 </div>
 `;
 
-exports[`Heading it should render an H3 at fontSize60 1`] = `
+exports[`Heading should render an H3 at fontSize60 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -105,7 +105,7 @@ exports[`Heading it should render an H3 at fontSize60 1`] = `
 </div>
 `;
 
-exports[`Heading it should render an H4 at fontSize40 1`] = `
+exports[`Heading should render an H4 at fontSize40 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -140,7 +140,7 @@ exports[`Heading it should render an H4 at fontSize40 1`] = `
 </div>
 `;
 
-exports[`Heading it should render an H5 at fontSize30 1`] = `
+exports[`Heading should render an H5 at fontSize30 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -175,7 +175,7 @@ exports[`Heading it should render an H5 at fontSize30 1`] = `
 </div>
 `;
 
-exports[`Heading it should render an H6 at fontSize20 1`] = `
+exports[`Heading should render an H6 at fontSize20 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -210,7 +210,7 @@ exports[`Heading it should render an H6 at fontSize20 1`] = `
 </div>
 `;
 
-exports[`Heading it should render an italic H2 at fontSize50 1`] = `
+exports[`Heading should render an italic H2 at fontSize50 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -247,7 +247,7 @@ exports[`Heading it should render an italic H2 at fontSize50 1`] = `
 </div>
 `;
 
-exports[`Heading it should render with no margin 1`] = `
+exports[`Heading should render with no margin 1`] = `
 .emotion-6 {
   color: rgb(40,42,43);
   font-size: 0.875rem;

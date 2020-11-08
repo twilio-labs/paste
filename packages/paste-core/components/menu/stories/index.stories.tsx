@@ -10,7 +10,7 @@ import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
 import {Menu, MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, useMenuState} from '../src';
 
-const PlainMenu: React.FC<{}> = () => {
+const PlainMenu: React.FC = () => {
   const menu = useMenuState();
   return (
     <>
@@ -29,7 +29,7 @@ const PlainMenu: React.FC<{}> = () => {
   );
 };
 
-const PreferencesMenu = React.forwardRef<HTMLButtonElement, {}>((props, ref) => {
+const PreferencesMenu = React.forwardRef<HTMLButtonElement>((props, ref) => {
   const menu = useMenuState();
   return (
     <>
@@ -48,7 +48,7 @@ const PreferencesMenu = React.forwardRef<HTMLButtonElement, {}>((props, ref) => 
   );
 });
 
-const SubMenu: React.FC<{}> = () => {
+const SubMenu: React.FC = () => {
   const menu = useMenuState();
   return (
     <>
@@ -65,7 +65,7 @@ const SubMenu: React.FC<{}> = () => {
   );
 };
 
-const Example3: React.FC<{}> = () => {
+const Example3: React.FC = () => {
   const menu = useMenuState();
   return (
     <>
@@ -91,7 +91,7 @@ const Example3: React.FC<{}> = () => {
   );
 };
 
-const Example4: React.FC<{}> = () => {
+const Example4: React.FC = () => {
   const menu = useMenuState();
   return (
     <>
@@ -117,7 +117,7 @@ const Example4: React.FC<{}> = () => {
   );
 };
 
-const WithActionsMenu: React.FC<{}> = () => {
+const WithActionsMenu: React.FC = () => {
   const menu = useMenuState();
   return (
     <>

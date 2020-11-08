@@ -44,10 +44,10 @@ const getGroupedList = (icons: IconsListProps['icons']): GroupedList =>
   );
 
 const getFirstIcon = (iconsList: GroupedList): IconObject | null => {
-  if (iconsList.ui.length !== 0) {
+  if (iconsList.ui.length > 0) {
     return iconsList.ui[0];
   }
-  if (iconsList.logos.length !== 0) {
+  if (iconsList.logos.length > 0) {
     return iconsList.logos[0];
   }
   return null;

@@ -2,7 +2,11 @@ module.exports = {
   verbose: true,
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
   testEnvironment: 'jsdom',
-  testPathIgnorePatterns: ['<rootDir>/packages/(?:.+?)/dist/', '<rootDir>/packages/(?:.+?)/.cache/'],
+  testPathIgnorePatterns: [
+    '<rootDir>/packages/(?:.+?)/dist/',
+    '<rootDir>/packages/(?:.+?)/.cache/',
+    '<rootDir>/cypress/',
+  ],
   cacheDirectory: '.jest-cache',
   coverageDirectory: '.jest-coverage',
   coveragePathIgnorePatterns: ['<rootDir>/packages/(?:.+?)/dist/'],

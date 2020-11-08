@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {render} from 'react-dom';
 import {render as testRender, fireEvent} from '@testing-library/react';
-import {axe} from 'jest-axe';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
+import axe from '../../../../../.jest/axe-helper';
 import {TextArea} from '../src';
 
 const NOOP = (): void => {};
