@@ -97,22 +97,22 @@ describe('Grid', () => {
     });
 
     describe('render', () => {
-      it('it should render a Grid', () => {
+      it('should render a Grid', () => {
         const {asFragment} = render(<Grid>child</Grid>);
         expect(asFragment()).toMatchSnapshot();
       });
 
-      it('it should render a Grid as any HTML element', () => {
+      it('should render a Grid as any HTML element', () => {
         const {asFragment} = render(<Grid as="section">child</Grid>);
         expect(asFragment()).toMatchSnapshot();
       });
 
-      it('it should render a Column', () => {
+      it('should render a Column', () => {
         const {asFragment} = render(<Column>child</Column>);
         expect(asFragment()).toMatchSnapshot();
       });
 
-      it('it should render responsive css', () => {
+      it('should render responsive css', () => {
         const {asFragment} = render(
           <Grid gutter={['space10', 'space20', 'space30']} vertical={[true, true, false]}>
             <Column span={[2, 4, 2]} offset={[8, 6, 8]} />

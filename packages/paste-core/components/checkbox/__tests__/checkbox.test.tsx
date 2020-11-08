@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {render} from 'react-dom';
 import {render as testRender, fireEvent} from '@testing-library/react';
-import {axe} from 'jest-axe';
+import axe from '../../../../../.jest/axe-helper';
 import {Checkbox, CheckboxGroup} from '../src';
 
 const NOOP = (): void => {};
@@ -190,7 +190,7 @@ describe('Checkbox event handlers', () => {
 
   it('Should check the checkbox', () => {
     // const onChangeMock: jest.Mock = jest.fn();
-    const MockCheckBox: React.FC<{}> = () => {
+    const MockCheckBox: React.FC = () => {
       const [checked, setChecked] = React.useState(false);
       return (
         <Checkbox

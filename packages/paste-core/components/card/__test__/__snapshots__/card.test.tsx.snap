@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card it should filter out style props that are not allowed 1`] = `
+exports[`Card should filter out style props that are not allowed 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -28,7 +28,7 @@ exports[`Card it should filter out style props that are not allowed 1`] = `
 </div>
 `;
 
-exports[`Card it should render children 1`] = `
+exports[`Card should render children 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -58,7 +58,7 @@ exports[`Card it should render children 1`] = `
 </div>
 `;
 
-exports[`Card it should render default values 1`] = `
+exports[`Card should render default values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -86,7 +86,7 @@ exports[`Card it should render default values 1`] = `
 </div>
 `;
 
-exports[`Card it should render default values unless overridden by the component 1`] = `
+exports[`Card should render default values unless overridden by the component 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;

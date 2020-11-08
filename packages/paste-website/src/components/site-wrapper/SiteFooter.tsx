@@ -18,7 +18,7 @@ const StyledFooterLogo = styled(TwilioIcon)`
   margin: 0 auto ${themeGet('space.space40')};
 `;
 
-const SiteFooter: React.FC<{}> = () => {
+const SiteFooter: React.FC = () => {
   return (
     <StyledFooter>
       <Box

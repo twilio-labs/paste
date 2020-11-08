@@ -4,7 +4,7 @@ import {Theme} from '@twilio-paste/theme';
 import {Text} from '../src';
 
 describe('as', () => {
-  it('it should render as a provided HTML element', (): void => {
+  it('should render as a provided HTML element', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -577,7 +577,7 @@ describe('textDecoration', () => {
 });
 
 describe('Pseudo-class props', () => {
-  it('it should generate pseudo-class CSS', (): void => {
+  it('should generate pseudo-class CSS', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">

@@ -1,13 +1,13 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {matchers} from 'jest-emotion';
-import {axe} from 'jest-axe';
+import axe from '../../../../../.jest/axe-helper';
 import {Anchor} from '../src';
 
 expect.extend(matchers);
 
 describe('Anchor', () => {
-  it('it should render an external anchor', () => {
+  it('should render an external anchor', () => {
     render(
       <Anchor href="https://twilio.com">
         This is an anchor that links to Twilio.com with an external target and rel
@@ -18,7 +18,7 @@ describe('Anchor', () => {
     expect(renderedAnchor.getAttribute('rel')).toEqual('noreferrer noopener');
   });
 
-  it('it should render an external anchor with overwritten target and rel', (): void => {
+  it('should render an external anchor with overwritten target and rel', (): void => {
     render(
       <Anchor href="https://twilio.com" target="_self" rel="noopener">
         This is an anchor that links to Twilio.com with the target and rel overwritten
@@ -29,7 +29,7 @@ describe('Anchor', () => {
     expect(renderedAnchor.getAttribute('rel')).toEqual('noopener');
   });
 
-  it('it should render the external link icon when showExternal is set', (): void => {
+  it('should render the external link icon when showExternal is set', (): void => {
     render(
       <Anchor href="https://twilio.com" showExternal>
         External link with icon
@@ -39,7 +39,7 @@ describe('Anchor', () => {
     expect(renderedAnchor.querySelectorAll('svg').length).toBeGreaterThan(0);
   });
 
-  it('it should render layout prop styles', (): void => {
+  it('should render layout prop styles', (): void => {
     render(
       <Anchor
         href="https://twilio.com"
@@ -68,7 +68,7 @@ describe('Anchor', () => {
     expect(renderedAnchor).toHaveStyleRule('vertical-align', 'middle');
   });
 
-  it('it should render size prop styles', (): void => {
+  it('should render size prop styles', (): void => {
     render(
       <Anchor href="https://twilio.com" data-testid="styledAnchor" size="size30">
         Anchor
@@ -78,7 +78,7 @@ describe('Anchor', () => {
     expect(renderedAnchor).toHaveStyleRule('height', 'size30');
   });
 
-  it('it should render margin shorthand prop styles', (): void => {
+  it('should render margin shorthand prop styles', (): void => {
     render(
       <Anchor href="https://twilio.com" data-testid="styledAnchor" margin="space20">
         Anchor
@@ -88,7 +88,7 @@ describe('Anchor', () => {
     expect(renderedAnchor).toHaveStyleRule('margin', 'space20');
   });
 
-  it('it should render margin prop styles', (): void => {
+  it('should render margin prop styles', (): void => {
     render(
       <Anchor
         href="https://twilio.com"
@@ -108,7 +108,7 @@ describe('Anchor', () => {
     expect(renderedAnchor).toHaveStyleRule('margin-left', 'space20');
   });
 
-  it('it should render margin X and Y prop styles', (): void => {
+  it('should render margin X and Y prop styles', (): void => {
     render(
       <Anchor href="https://twilio.com" data-testid="styledAnchor" marginX="space20" marginY="space20">
         Anchor
@@ -121,7 +121,7 @@ describe('Anchor', () => {
     expect(renderedAnchor).toHaveStyleRule('margin-left', 'space20');
   });
 
-  it('it should render padding shorthand prop styles', (): void => {
+  it('should render padding shorthand prop styles', (): void => {
     render(
       <Anchor href="https://twilio.com" data-testid="styledAnchor" padding="space20">
         Anchor
@@ -131,7 +131,7 @@ describe('Anchor', () => {
     expect(renderedAnchor).toHaveStyleRule('padding', 'space20');
   });
 
-  it('it should render padding prop styles', (): void => {
+  it('should render padding prop styles', (): void => {
     render(
       <Anchor
         href="https://twilio.com"
@@ -151,7 +151,7 @@ describe('Anchor', () => {
     expect(renderedAnchor).toHaveStyleRule('padding-left', 'space20');
   });
 
-  it('it should render padding X and Y prop styles', (): void => {
+  it('should render padding X and Y prop styles', (): void => {
     render(
       <Anchor href="https://twilio.com" data-testid="styledAnchor" paddingX="space20" paddingY="space20">
         Anchor

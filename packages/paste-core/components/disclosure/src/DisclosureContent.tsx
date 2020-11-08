@@ -4,7 +4,7 @@ import {DisclosurePrimitiveContent, DisclosurePrimitiveContentProps} from '@twil
 import {Box, BoxStyleProps} from '@twilio-paste/box';
 import {DisclosureContext, Variants} from './Disclosure';
 
-const getVariantStyles = (variant: Variants): {} => {
+const getVariantStyles = (variant: Variants): BoxStyleProps => {
   switch (variant) {
     case 'contained':
       return {

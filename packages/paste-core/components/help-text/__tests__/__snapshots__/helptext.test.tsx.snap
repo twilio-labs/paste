@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HelpText render it should render 1`] = `
+exports[`HelpText render should render 1`] = `
 .emotion-2 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -53,7 +53,7 @@ exports[`HelpText render it should render 1`] = `
 </div>
 `;
 
-exports[`HelpText render it should render with an error icon 1`] = `
+exports[`HelpText render should render with an error icon 1`] = `
 .emotion-3 {
   color: rgb(40,42,43);
   font-size: 0.875rem;

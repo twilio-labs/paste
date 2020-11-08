@@ -93,7 +93,7 @@ const MDXPoviderComponents = {
   props than that are passed to the components. I think eslint is confused.
 */
 interface PasteMDXProviderProps {
-  componentOverrides?: {[key: string]: (props: {}) => React.ReactNode};
+  componentOverrides?: {[key: string]: (props: unknown) => React.ReactNode};
 }
 export const PasteMDXProvider: React.FC<PasteMDXProviderProps> = ({
   componentOverrides,

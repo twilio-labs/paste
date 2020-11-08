@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {render} from 'react-dom';
 import {render as testRender} from '@testing-library/react';
-import {axe} from 'jest-axe';
+import axe from '../../../../../.jest/axe-helper';
 import {CheckboxDisclaimer} from '../src';
 
 const defaultProps = {

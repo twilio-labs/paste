@@ -5,7 +5,7 @@ import {
 } from '@twilio-paste/combobox-primitive';
 import {InputVariants, InputProps} from '@twilio-paste/input';
 
-type Item = string | {[key: string]: any};
+export type Item = string | {[key: string]: any};
 
 export interface ComboboxProps extends Omit<InputProps, 'id' | 'type' | 'value'> {
   autocomplete?: boolean;
@@ -19,7 +19,7 @@ export interface ComboboxProps extends Omit<InputProps, 'id' | 'type' | 'value'>
   onInputValueChange?: UseComboboxPrimitiveProps<Item>['onInputValueChange'];
   onIsOpenChange?: UseComboboxPrimitiveProps<Item>['onIsOpenChange'];
   onSelectedItemChange?: UseComboboxPrimitiveProps<Item>['onSelectedItemChange'];
-  optionTemplate?: (item: string | {}) => React.ReactNode;
+  optionTemplate?: (item: string | Item) => React.ReactNode;
   groupLabelTemplate?: (groupName: string) => React.ReactNode;
   selectedItem?: UseComboboxPrimitiveProps<Item>['selectedItem'];
   inputValue?: UseComboboxPrimitiveProps<Item>['inputValue'];

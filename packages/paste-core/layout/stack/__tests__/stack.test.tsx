@@ -18,35 +18,35 @@ describe('Stack Unit Tests', () => {
     marginRight: ['space0', 'space40', 'space0'],
   };
 
-  it('it should return display: flex', (): void => {
+  it('should return display: flex', (): void => {
     expect(getStackDisplay(mockHorizontalOrientation)).toStrictEqual('flex');
   });
 
-  it('it should return display: block', (): void => {
+  it('should return display: block', (): void => {
     expect(getStackDisplay(mockVerticalOrientation)).toStrictEqual('block');
   });
 
-  it('it should return a reponsive display', (): void => {
+  it('should return a reponsive display', (): void => {
     expect(getStackDisplay(mockResponsiveOrientation)).toStrictEqual(['block', 'flex', 'block']);
   });
 
-  it('it should return horizontal styles', (): void => {
+  it('should return horizontal styles', (): void => {
     expect(getStackStyles(mockHorizontalOrientation)).toStrictEqual(horizontalStyles);
   });
 
-  it('it should return vertical styles', (): void => {
+  it('should return vertical styles', (): void => {
     expect(getStackStyles(mockVerticalOrientation)).toStrictEqual(verticalStyles);
   });
 
-  it('it should return marginRight styles', (): void => {
+  it('should return marginRight styles', (): void => {
     expect(getStackChildMargins(mockHorizontalOrientation, mockSpace)).toStrictEqual(marginRightStyles);
   });
 
-  it('it should return marginBottom styles', (): void => {
+  it('should return marginBottom styles', (): void => {
     expect(getStackChildMargins(mockVerticalOrientation, mockSpace)).toStrictEqual(marginBottomStyles);
   });
 
-  it('it should return responsive margin styles', (): void => {
+  it('should return responsive margin styles', (): void => {
     expect(getStackChildMargins(mockResponsiveOrientation, mockSpace)).toStrictEqual(marginReponsiveStyles);
   });
 });

@@ -2,8 +2,8 @@ import * as React from 'react';
 import {render} from 'react-dom';
 import renderer from 'react-test-renderer';
 import {ReactWrapper, mount} from 'enzyme';
-import {axe} from 'jest-axe';
 import {Theme} from '@twilio-paste/theme';
+import axe from '../../../../../.jest/axe-helper';
 import {OrderedList, UnorderedList, ListItem} from '../src';
 
 describe('Ordered List', () => {

@@ -25,7 +25,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-interface SiteLinkProps {
+export interface SiteLinkProps {
   children: React.ReactNode;
   to: string;
 }

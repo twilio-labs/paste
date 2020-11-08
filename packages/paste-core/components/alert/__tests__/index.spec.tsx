@@ -2,8 +2,8 @@ import * as React from 'react';
 import renderer from 'react-test-renderer';
 import {render} from 'react-dom';
 import {ReactWrapper, mount} from 'enzyme';
-import {axe} from 'jest-axe';
 import {Theme} from '@twilio-paste/theme';
+import axe from '../../../../../.jest/axe-helper';
 import {Alert} from '../src';
 
 const onDismissMock: jest.Mock = jest.fn();

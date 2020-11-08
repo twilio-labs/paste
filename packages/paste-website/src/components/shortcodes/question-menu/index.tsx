@@ -27,7 +27,7 @@ const QuestionMenu: React.FC<QuestionMenuProps> = ({data}) => {
 
   const gitHubPagesPath = 'https://github.com/twilio-labs/paste/blob/main/packages/paste-website/src/pages';
   const absolutePath = data.fileAbsolutePath;
-  const filename = absolutePath.substring(absolutePath.lastIndexOf('/') + 1);
+  const filename = absolutePath.slice(Math.max(0, absolutePath.lastIndexOf('/') + 1));
   const gitHubURL = `${gitHubPagesPath + data.frontmatter.slug}/${filename}`;
   const gitHubIssueUrl = `https://github.com/twilio-labs/paste/issues/new?assignees=&labels=Type%3A+Bug&template=bug_report.md&title=${data.frontmatter.title.replace(
     /\s+/g,

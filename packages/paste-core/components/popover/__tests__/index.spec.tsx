@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {axe} from 'jest-axe';
 import {render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
+import axe from '../../../../../.jest/axe-helper';
 import {Popover, PopoverContainer, PopoverButton} from '../src';
 
-const PopoverMock: React.FC<{}> = () => {
+const PopoverMock: React.FC = () => {
   return (
     <Theme.Provider theme="console">
       <PopoverContainer baseId="popover-example">
@@ -17,7 +17,7 @@ const PopoverMock: React.FC<{}> = () => {
   );
 };
 
-const VisiblePopoverMock: React.FC<{}> = () => {
+const VisiblePopoverMock: React.FC = () => {
   return (
     <Theme.Provider theme="console">
       <PopoverContainer baseId="visible-popover-example" visible>

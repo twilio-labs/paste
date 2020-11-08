@@ -5,7 +5,7 @@ import {Menu, MenuButton, MenuItem, useMenuState} from '@twilio-paste/menu';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
 import {ProductSupportIcon} from '@twilio-paste/icons/esm/ProductSupportIcon';
 
-export const ContactUsMenu: React.FC<{}> = () => {
+export const ContactUsMenu: React.FC = () => {
   const menu = useMenuState({placement: 'right-end'});
 
   const handleClick = (category: string, label: string): void => {

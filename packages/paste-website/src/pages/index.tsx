@@ -21,7 +21,7 @@ import {P} from '../components/Typography';
 import {SiteLink} from '../components/SiteLink';
 import {SiteMetaDefaults} from '../constants';
 
-const IndexPage: React.FC<{}> = (): React.ReactElement => {
+const IndexPage: React.FC = (): React.ReactElement => {
   return (
     <SiteWrapper>
       <Helmet>

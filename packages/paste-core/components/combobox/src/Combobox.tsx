@@ -14,7 +14,7 @@ import {ComboboxInputWrapper} from './ComboboxInputWrapper';
 import {ComboboxListbox} from './ComboboxListbox';
 import {ComboboxListboxGroup} from './ComboboxListboxGroup';
 import {ComboboxListboxOption} from './ComboboxListboxOption';
-import {GroupItemsProps, ItemProps, ItemsProps, ListBoxProps, ComboboxProps} from './types';
+import {GroupItemsProps, Item as ItemType, ItemProps, ItemsProps, ListBoxProps, ComboboxProps} from './types';
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
 const groupBy = require('lodash.groupby');
@@ -76,7 +76,7 @@ const GroupedItems: React.FC<GroupItemsProps> = ({
     return null;
   }
 
-  const groupedItems = groupBy(items, (item: {}) => item[groupItemsBy]);
+  const groupedItems = groupBy(items, (item: ItemType) => item[groupItemsBy]);
   const groupedItemKeys = Object.keys(groupedItems);
 
   return (
@@ -84,7 +84,7 @@ const GroupedItems: React.FC<GroupItemsProps> = ({
       {groupedItemKeys.map(groupedItemKey => {
         // These items are categorized as ungrouped
         if (groupedItemKey === 'undefined') {
-          return groupedItems[groupedItemKey].map((item: {}, index: number) => (
+          return groupedItems[groupedItemKey].map((item: ItemType, index: number) => (
             <Item
               item={item}
               index={index}
@@ -101,7 +101,7 @@ const GroupedItems: React.FC<GroupItemsProps> = ({
             groupLabelTemplate={groupLabelTemplate}
             key={UIDSeed(groupedItemKey)}
           >
-            {groupedItems[groupedItemKey].map((item: {}, index: number) => {
+            {groupedItems[groupedItemKey].map((item: ItemType, index: number) => {
               return (
                 <Item
                   item={item}

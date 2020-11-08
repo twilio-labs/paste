@@ -11,7 +11,7 @@ import {ComboboxPrimitive, useComboboxPrimitive} from '../src';
 const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
 
 /* eslint-disable react/no-array-index-key */
-const ComboxBoxPrimitive: React.FC<{}> = () => {
+const ComboxBoxPrimitive: React.FC = () => {
   const {
     getComboboxProps,
     getInputProps,
@@ -54,7 +54,7 @@ const ComboxBoxPrimitive: React.FC<{}> = () => {
   );
 };
 
-const AutocompleteComboboxPrimitive: React.FC<{}> = () => {
+const AutocompleteComboboxPrimitive: React.FC = () => {
   const [inputItems, setInputItems] = React.useState(items);
   const {
     getComboboxProps,
@@ -99,7 +99,7 @@ const AutocompleteComboboxPrimitive: React.FC<{}> = () => {
   );
 };
 
-const NonHookComboboxPrimitive: React.FC<{}> = () => {
+const NonHookComboboxPrimitive: React.FC = () => {
   return (
     <ComboboxPrimitive>
       {({
