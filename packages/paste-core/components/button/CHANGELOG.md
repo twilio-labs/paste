@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.3.28...@twilio-paste/button@2.4.0) (2020-11-09)
+
+
+### Features
+
+* **button:** add icon_small size ([56ed79d](https://github.com/twilio-labs/paste/commit/56ed79d98a5e9603980ee2a85c29b0c5a9068ef3))
+
+
+
+
+
 ## [2.3.28](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.3.27...@twilio-paste/button@2.3.28) (2020-11-06)
 
 **Note:** Version bump only for package @twilio-paste/button

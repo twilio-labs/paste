@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/combobox",
-  "version": "1.4.18",
+  "version": "1.4.19",
   "category": "user input",
   "status": "alpha",
   "description": "An accessible styled drop-down list box.",
@@ -27,7 +27,7 @@
   },
   "peerDependencies": {
     "@twilio-paste/box": "^2.11.8",
-    "@twilio-paste/button": "^2.3.28",
+    "@twilio-paste/button": "^2.4.0",
     "@twilio-paste/combobox-primitive": "^0.1.9",
     "@twilio-paste/design-tokens": "^6.3.6",
     "@twilio-paste/flex": "^0.3.68",
@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@twilio-paste/box": "^2.11.8",
-    "@twilio-paste/button": "^2.3.28",
+    "@twilio-paste/button": "^2.4.0",
     "@twilio-paste/combobox-primitive": "^0.1.9",
     "@twilio-paste/design-tokens": "^6.3.6",
     "@twilio-paste/flex": "^0.3.68",

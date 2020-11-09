@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/menu",
-  "version": "1.1.43",
+  "version": "1.1.44",
   "category": "interaction",
   "status": "alpha",
   "description": "A menu presents a list of menu items that a user can choose to perform an action with.",
@@ -28,7 +28,7 @@
   "peerDependencies": {
     "@twilio-paste/anchor": "^1.3.16",
     "@twilio-paste/box": "^2.11.8",
-    "@twilio-paste/button": "^2.3.28",
+    "@twilio-paste/button": "^2.4.0",
     "@twilio-paste/design-tokens": "^6.3.6",
     "@twilio-paste/icons": "^3.8.2",
     "@twilio-paste/media-object": "^1.2.69",
@@ -49,7 +49,7 @@
   "devDependencies": {
     "@twilio-paste/anchor": "^1.3.16",
     "@twilio-paste/box": "^2.11.8",
-    "@twilio-paste/button": "^2.3.28",
+    "@twilio-paste/button": "^2.4.0",
     "@twilio-paste/design-tokens": "^6.3.6",
     "@twilio-paste/icons": "^3.8.2",
     "@twilio-paste/media-object": "^1.2.69",
