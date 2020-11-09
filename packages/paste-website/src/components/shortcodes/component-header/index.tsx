@@ -122,7 +122,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
           </PackageValue>
         </Box>
         <Box marginBottom="space20">
-          <PackageLabel>Use from</PackageLabel>
+          <PackageLabel>Import from</PackageLabel>
           <PackageValue>
             <PackageInstallSnippet>
               {packageName.replace('@twilio-paste/', '@twilio-paste/core/')}
