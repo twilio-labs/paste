@@ -1,6 +1,6 @@
 describe('Theme switcher', () => {
   beforeEach(() => {
-    cy.visit('/', {timeout: 10000});
+    cy.visit('/');
   });
 
   it('check the console theme radio', () => {
