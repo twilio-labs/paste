@@ -1,6 +1,6 @@
 describe('Token list filter', () => {
   beforeEach(() => {
-    cy.visit('/tokens', {timeout: 10000});
+    cy.visit('/tokens');
   });
 
   it('searches for a background color', () => {
