@@ -79,6 +79,9 @@ package-lock.json
 tools/.cache/packages.json
 docs
 
+# codemods package
+package/paste-codemods/tools/mappings.json
+
 # Cypress
 cypress/videos
 cypress/screenshots
