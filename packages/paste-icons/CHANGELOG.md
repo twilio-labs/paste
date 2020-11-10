@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.8.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.8.2...@twilio-paste/icons@3.8.3) (2020-11-10)
+
+
+### Bug Fixes
+
+* **icons:** correct case of ProductTwiMLBins.svg ([#919](https://github.com/twilio-labs/paste/issues/919)) ([ec1c168](https://github.com/twilio-labs/paste/commit/ec1c168890d15dc24fdbe4b8f3cee3e7c066958f))
+
+
+
+
+
 ## [3.8.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.8.1...@twilio-paste/icons@3.8.2) (2020-11-06)
 
 **Note:** Version bump only for package @twilio-paste/icons

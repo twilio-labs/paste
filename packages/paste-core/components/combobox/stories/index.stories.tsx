@@ -2,10 +2,13 @@ import * as React from 'react';
 import _ from 'lodash';
 import {storiesOf} from '@storybook/react';
 import {withKnobs} from '@storybook/addon-knobs';
+import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
+import {Label} from '@twilio-paste/label';
 import {Text} from '@twilio-paste/text';
+import {Select, Option} from '@twilio-paste/select';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
@@ -483,5 +486,47 @@ storiesOf('Components|Combobox', module)
         }}
         itemToString={(item: GroupedItem) => (item ? item.label : null)}
       />
+    );
+  })
+  .add('Combobox - Listbox zIndex', () => {
+    const [selectValue, setSelectValue] = React.useState('');
+    const selectID = useUID();
+    return (
+      <>
+        <Box marginBottom="space50">
+          <Combobox
+            items={iconItems}
+            labelText="Choose a component:"
+            helpText="This is the help text"
+            optionTemplate={(item: IconItems) => (
+              <MediaObject verticalAlign="center">
+                {item.iconLeft ? (
+                  <MediaFigure spacing="space20">
+                    <InformationIcon decorative={false} size="sizeIcon20" title="information" />
+                  </MediaFigure>
+                ) : null}
+
+                <MediaBody>{item.label}</MediaBody>
+                {item.iconRight ? (
+                  <MediaFigure spacing="space20">
+                    <InformationIcon decorative={false} size="sizeIcon20" title="information" />
+                  </MediaFigure>
+                ) : null}
+              </MediaObject>
+            )}
+            itemToString={(item: IconItems) => (item ? String(item.label) : null)}
+            initialIsOpen
+          />
+        </Box>
+        <Box marginBottom="space50">
+          <Label htmlFor={selectID}>Text input</Label>
+          <Select id={selectID} onChange={e => setSelectValue(e.currentTarget.value)} value={selectValue}>
+            <Option value="">Select an option</Option>
+            <Option value="1">Option 1</Option>
+            <Option value="2">Option 2</Option>
+            <Option value="3">Option 3</Option>
+          </Select>
+        </Box>
+      </>
     );
   });

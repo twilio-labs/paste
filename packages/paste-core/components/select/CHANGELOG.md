@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.14](https://github.com/twilio-labs/paste/compare/@twilio-paste/select@1.1.13...@twilio-paste/select@1.1.14) (2020-11-10)
+
+**Note:** Version bump only for package @twilio-paste/select
+
+
+
+
+
 ## [1.1.13](https://github.com/twilio-labs/paste/compare/@twilio-paste/select@1.1.12...@twilio-paste/select@1.1.13) (2020-11-06)
 
 **Note:** Version bump only for package @twilio-paste/select

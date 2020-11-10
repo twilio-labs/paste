@@ -193,7 +193,7 @@ exports[`Combobox  Render should render 1`] = `
   padding-bottom: space30;
   position: absolute;
   width: 100%;
-  z-index: zIndex10;
+  z-index: zIndex20;
   margin-top: space20;
 }
 

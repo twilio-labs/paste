@@ -29,7 +29,7 @@ const ComboboxListbox = React.forwardRef<HTMLUListElement, ComboboxListboxProps>
       paddingY="space30"
       position="absolute"
       width="100%"
-      zIndex="zIndex10"
+      zIndex="zIndex20"
       marginTop="space20"
       ref={ref}
     >
