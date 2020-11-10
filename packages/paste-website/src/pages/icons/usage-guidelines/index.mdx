@@ -6,6 +6,7 @@ slug: /icons/usage-guidelines/
 
 import {graphql} from 'gatsby';
 import {Link} from 'gatsby';
+import {SiteLink} from '../../../components/SiteLink';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Anchor} from '@twilio-paste/anchor';
@@ -48,7 +49,7 @@ export const pageQuery = graphql`
     </Anchor>
     . Our icon set is still limited, and more will be added over time. Please <Anchor href="https://github.com/twilio-labs/paste/issues">
       file an icon request
-    </Anchor> or follow the guide on <Anchor href="/icon-system/how-to-add-an-icon">how to add an icon</Anchor>.
+    </Anchor> or follow the guide on <SiteLink to="/icons/how-to-add-an-icon">how to add an icon</SiteLink>.
   </CalloutText>
 </Callout>
 
@@ -66,7 +67,7 @@ Icons can either be **decorative** or **informative**. _"Decorative icons don’
 of a page. The information provided by the image might already be given using adjacent text, or the image
 might be included to make the website more visually attractive."_ (<Anchor href="https://www.w3.org/WAI/tutorials/images/decorative/">w3.org</Anchor>)
 
-Our icons require the developer define whether an icon is decorative by [providing the required property](/icon-system#making-an-icon-decorative-or-informative).
+Our icons require the developer define whether an icon is decorative by [providing the required property](/icons/usage-guidelines#making-an-icon-decorative-or-informative).
 
 ### Give informative icons a title
 
@@ -181,7 +182,7 @@ yarn add @twilio-paste/icons
 ### Usage
 
 Icons have to be imported individually. This import style was decided for [important
-performance benefits](/icon-system/#why-react-components). As our icon set grows to contain over 100 icons, we don't
+performance benefits](/icons/usage-guidelines#why-react-components). As our icon set grows to contain over 100 icons, we don't
 want projects that use only a few icons to pay the price of a large bundle.
 
 ```jsx
