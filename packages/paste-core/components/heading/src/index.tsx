@@ -9,35 +9,35 @@ function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: 'space
       return {
         marginBottom: marginBottom || 'space70',
         fontSize: 'fontSize90',
-        fontWeight: 'fontWeightSemibold',
+        fontWeight: 'fontWeightBold',
         lineHeight: 'lineHeight90',
       };
     case 'heading30':
       return {
         marginBottom: marginBottom || 'space50',
         fontSize: 'fontSize60',
-        fontWeight: 'fontWeightSemibold',
+        fontWeight: 'fontWeightBold',
         lineHeight: 'lineHeight60',
       };
     case 'heading40':
       return {
         marginBottom: marginBottom || 'space40',
         fontSize: 'fontSize40',
-        fontWeight: 'fontWeightSemibold',
+        fontWeight: 'fontWeightBold',
         lineHeight: 'lineHeight40',
       };
     case 'heading50':
       return {
         marginBottom: marginBottom || 'space30',
         fontSize: 'fontSize30',
-        fontWeight: 'fontWeightSemibold',
+        fontWeight: 'fontWeightBold',
         lineHeight: 'lineHeight30',
       };
     case 'heading60':
       return {
         marginBottom: marginBottom || 'space30',
         fontSize: 'fontSize20',
-        fontWeight: 'fontWeightSemibold',
+        fontWeight: 'fontWeightBold',
         lineHeight: 'lineHeight20',
       };
     /**
@@ -49,7 +49,7 @@ function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: 'space
       return {
         marginBottom: marginBottom || 'space60',
         fontSize: 'fontSize70',
-        fontWeight: 'fontWeightSemibold',
+        fontWeight: 'fontWeightBold',
         lineHeight: 'lineHeight70',
       };
   }
