@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/checkbox",
-  "version": "1.1.14",
+  "version": "1.1.15",
   "category": "user input",
   "status": "production",
   "description": "The Checkbox and Checkbox Group are used to enable binary choices",
@@ -26,13 +26,13 @@
     "compile:dev": "rollup -c --environment NODE_ENV:development"
   },
   "peerDependencies": {
-    "@twilio-paste/base-radio-checkbox": "^1.1.13",
+    "@twilio-paste/base-radio-checkbox": "^1.1.14",
     "@twilio-paste/box": "^2.11.8",
     "@twilio-paste/design-tokens": "^6.3.6",
     "@twilio-paste/flex": "^0.3.68",
-    "@twilio-paste/help-text": "^1.1.13",
-    "@twilio-paste/icons": "^3.8.2",
-    "@twilio-paste/inline-control-group": "^1.1.13",
+    "@twilio-paste/help-text": "^1.1.14",
+    "@twilio-paste/icons": "^3.8.3",
+    "@twilio-paste/inline-control-group": "^1.1.14",
     "@twilio-paste/label": "^1.1.9",
     "@twilio-paste/screen-reader-only": "^1.1.14",
     "@twilio-paste/sibling-box": "^1.1.9",
@@ -47,13 +47,13 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/base-radio-checkbox": "^1.1.13",
+    "@twilio-paste/base-radio-checkbox": "^1.1.14",
     "@twilio-paste/box": "^2.11.8",
     "@twilio-paste/design-tokens": "^6.3.6",
     "@twilio-paste/flex": "^0.3.68",
-    "@twilio-paste/help-text": "^1.1.13",
-    "@twilio-paste/icons": "^3.8.2",
-    "@twilio-paste/inline-control-group": "^1.1.13",
+    "@twilio-paste/help-text": "^1.1.14",
+    "@twilio-paste/icons": "^3.8.3",
+    "@twilio-paste/inline-control-group": "^1.1.14",
     "@twilio-paste/label": "^1.1.9",
     "@twilio-paste/screen-reader-only": "^1.1.14",
     "@twilio-paste/sibling-box": "^1.1.9",
