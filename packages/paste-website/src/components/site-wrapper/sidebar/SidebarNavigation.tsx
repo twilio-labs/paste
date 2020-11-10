@@ -431,6 +431,11 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
                   UID
                 </SidebarAnchor>
               </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.LIBRARIES}/codemods`}>
+                  Codemods
+                </SidebarAnchor>
+              </SidebarNestedItem>
             </SidebarNestedList>
           </DisclosurePrimitiveContent>
         </SidebarItem>
