@@ -7,3 +7,4 @@ __IconList.tsx
 rollup.icon-list.js
 *.d.ts
 .yarn/
+__testfixtures__

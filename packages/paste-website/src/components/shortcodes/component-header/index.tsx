@@ -122,10 +122,12 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
           </PackageValue>
         </Box>
         <Box marginBottom="space20">
-          <PackageLabel>Install</PackageLabel>
+          <PackageLabel>Import from</PackageLabel>
           <PackageValue>
-            <PackageInstallSnippet>yarn add {packageName}</PackageInstallSnippet> &mdash; or &mdash;{' '}
-            <PackageInstallSnippet>yarn add @twilio-paste/core</PackageInstallSnippet>
+            <PackageInstallSnippet>
+              {packageName.replace('@twilio-paste/', '@twilio-paste/core/')}
+            </PackageInstallSnippet>{' '}
+            &mdash; or &mdash; <PackageInstallSnippet>{packageName}</PackageInstallSnippet>
           </PackageValue>
         </Box>
       </Box>

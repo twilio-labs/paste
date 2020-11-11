@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@2.0.50...@twilio-paste/heading@2.1.0) (2020-11-11)
+
+
+### Features
+
+* **heading:** update font weightfor new design language ([#924](https://github.com/twilio-labs/paste/issues/924)) ([7436e4b](https://github.com/twilio-labs/paste/commit/7436e4b964d1717f7e93eac3efac7b7ff97f34d9))
+
+
+
+
+
 ## [2.0.50](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@2.0.49...@twilio-paste/heading@2.0.50) (2020-11-06)
 
 **Note:** Version bump only for package @twilio-paste/heading
