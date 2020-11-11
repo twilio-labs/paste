@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/toast@0.2.8...@twilio-paste/toast@0.2.9) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/toast
+
+
+
+
+
 ## [0.2.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/toast@0.2.7...@twilio-paste/toast@0.2.8) (2020-11-10)
 
 **Note:** Version bump only for package @twilio-paste/toast
