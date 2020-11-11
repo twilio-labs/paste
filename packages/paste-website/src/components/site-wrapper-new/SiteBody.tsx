@@ -14,7 +14,11 @@ const StyledSiteBody = styled.div`
 
   @supports (display: grid) {
     display: grid;
-    grid-template-columns: ${themeGet('sizes.sizeSidebar')} 1fr;
+    grid-template-columns: 1fr;
+
+    @media screen and (min-width: 1024px) {
+      grid-template-columns: ${themeGet('sizes.sizeSidebar')} 1fr;
+    }
   }
 `;
 
