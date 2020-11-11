@@ -15,7 +15,7 @@
     "/packages/paste-theme",
     "/packages/paste-types"
   ],
-  "sandboxes": ["/examples/create-react-app"]
+  "sandboxes": ["/packages/paste-cra/"]
 }
 
 
