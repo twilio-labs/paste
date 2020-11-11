@@ -11,25 +11,33 @@ import FooterBuildingBlocks from '../../assets/illustrations/FooterBuildingBlock
 const SiteFooter: React.FC<{}> = () => {
   const theme = useTheme();
   return (
-    <Box backgroundColor="colorBackgroundBody" padding="space70">
+    <Box
+      backgroundColor="colorBackgroundBody"
+      borderRadius="borderRadius20"
+      margin="space70"
+      paddingTop="space200"
+      position="relative"
+      overflow="hidden"
+    >
+      <Box borderRadius="borderRadius20" position="absolute" top={0} right={0} bottom={0} left={0}>
+        <Box
+          backgroundColor="colorBackgroundPrimaryDarker"
+          borderRadius="borderRadius20"
+          height="100%"
+          left={0}
+          position="relative"
+          top={0}
+          transform="skewY(-5deg)"
+          transformOrigin="100% 0"
+          width="100%"
+        />
+      </Box>
       <Box
-        backgroundColor="colorBackgroundPrimaryDarker"
         borderRadius="borderRadius20"
+        marginTop={['space0', 'space90']}
         padding={['space90', 'space180']}
+        paddingTop={['space90', 'space200']}
         position="relative"
-        _before={{
-          backgroundColor: 'colorBackgroundPrimaryDarker',
-          borderRadius: 'borderRadius20',
-          content: `""`,
-          display: 'block',
-          height: '50%',
-          left: '0',
-          position: 'absolute',
-          right: '0',
-          top: '-12%',
-          transform: 'skewY(-1.5deg)',
-          transformOrigin: '100% 0',
-        }}
       >
         <Box
           bottom={-6}
