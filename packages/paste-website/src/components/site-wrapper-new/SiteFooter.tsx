@@ -80,7 +80,7 @@ const SiteFooter: React.FC<{}> = () => {
           >
             <Box marginRight={['space0', 'space130']} marginBottom="space60">
               <Stack as="nav" orientation="vertical" spacing="space60">
-                <Anchor href="/about" variant="inverse">
+                <Anchor href="/about-paste" variant="inverse">
                   About
                 </Anchor>
                 <Anchor href="/roadmap" variant="inverse">
@@ -109,7 +109,7 @@ const SiteFooter: React.FC<{}> = () => {
             </Box>
             <Box marginRight={['space0', 'space130']} marginBottom="space60">
               <Stack as="nav" orientation="vertical" spacing="space60">
-                <Anchor href="#" variant="inverse" showExternal>
+                <Anchor href="https://share.goabstract.com/786b3d8f-b87a-4140-af7d-eb4cdd40e8ed" variant="inverse" showExternal>
                   Abstract
                 </Anchor>
                 <Anchor href="#" variant="inverse" showExternal>
