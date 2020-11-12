@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.30](https://github.com/twilio-labs/paste/compare/@twilio-paste/types@3.0.29...@twilio-paste/types@3.0.30) (2020-11-11)
+
+
+### Bug Fixes
+
+* **types:** set out type dependencies explicitly ([#922](https://github.com/twilio-labs/paste/issues/922)) ([d98075d](https://github.com/twilio-labs/paste/commit/d98075d52653676f9b7f379f68fd930295e8a80d))
+
+
+
+
+
 ## [3.0.29](https://github.com/twilio-labs/paste/compare/@twilio-paste/types@3.0.28...@twilio-paste/types@3.0.29) (2020-11-06)
 
 **Note:** Version bump only for package @twilio-paste/types
