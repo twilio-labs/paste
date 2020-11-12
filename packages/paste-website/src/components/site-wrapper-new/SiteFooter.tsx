@@ -34,7 +34,7 @@ const SiteFooter: React.FC<{}> = () => {
       </Box>
       <Box
         borderRadius="borderRadius20"
-        marginTop={['space0', 'space90']}
+        marginTop={['space0', 'space0', 'space130']}
         padding={['space90', 'space180']}
         paddingTop={['space90', 'space200']}
         position="relative"
@@ -80,7 +80,7 @@ const SiteFooter: React.FC<{}> = () => {
           >
             <Box marginRight={['space0', 'space130']} marginBottom="space60">
               <Stack as="nav" orientation="vertical" spacing="space60">
-                <Anchor href="/about-paste" variant="inverse">
+                <Anchor href="/getting-started/about-paste" variant="inverse">
                   About
                 </Anchor>
                 <Anchor href="/roadmap" variant="inverse">
@@ -102,18 +102,19 @@ const SiteFooter: React.FC<{}> = () => {
                 <Anchor href="https://github.com/twilio-labs/paste/issues/new/choose" variant="inverse" showExternal>
                   Report a bug
                 </Anchor>
-                <Anchor href="/how-we-work" variant="inverse">
+                <Anchor href="/getting-started/working-guide" variant="inverse">
                   How we work
                 </Anchor>
               </Stack>
             </Box>
             <Box marginRight={['space0', 'space130']} marginBottom="space60">
               <Stack as="nav" orientation="vertical" spacing="space60">
-                <Anchor href="https://share.goabstract.com/786b3d8f-b87a-4140-af7d-eb4cdd40e8ed" variant="inverse" showExternal>
+                <Anchor
+                  href="https://share.goabstract.com/786b3d8f-b87a-4140-af7d-eb4cdd40e8ed"
+                  variant="inverse"
+                  showExternal
+                >
                   Abstract
-                </Anchor>
-                <Anchor href="#" variant="inverse" showExternal>
-                  Figma
                 </Anchor>
                 <Anchor href="https://github.com/twilio-labs/paste" variant="inverse" showExternal>
                   Github
@@ -125,11 +126,13 @@ const SiteFooter: React.FC<{}> = () => {
             </Box>
           </Box>
           <Box marginTop="space120" marginLeft={['space0', 'space120']} textAlign={['center', 'left']}>
-            <TwilioLogo
-              css={{height: theme.heights.sizeIcon40, width: theme.widths.size10}}
-              color={theme.textColors.colorTextInverse}
-              title="Twilio"
-            />
+            <Anchor href="https://twilio.com">
+              <TwilioLogo
+                css={{height: theme.heights.sizeIcon40, width: theme.widths.size10}}
+                color={theme.textColors.colorTextInverse}
+                title="Twilio"
+              />
+            </Anchor>
           </Box>
         </Box>
       </Box>
