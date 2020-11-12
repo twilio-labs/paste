@@ -34,7 +34,7 @@ const SiteFooter: React.FC<{}> = () => {
       </Box>
       <Box
         borderRadius="borderRadius20"
-        marginTop={['space0', 'space0', 'space130']}
+        marginTop={['space0', 'space0', 'space60', 'space160']}
         padding={['space90', 'space180']}
         paddingTop={['space90', 'space200']}
         position="relative"
@@ -126,7 +126,7 @@ const SiteFooter: React.FC<{}> = () => {
             </Box>
           </Box>
           <Box marginTop="space120" marginLeft={['space0', 'space120']} textAlign={['center', 'left']}>
-            <Anchor href="https://twilio.com">
+            <Anchor href="https://twilio.com" display="inline-flex">
               <TwilioLogo
                 css={{height: theme.heights.sizeIcon40, width: theme.widths.size10}}
                 color={theme.textColors.colorTextInverse}
