@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {useTheme} from '@twilio-paste/theme';
-import {Anchor} from '@twilio-paste/anchor';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Text} from '@twilio-paste/text';
+import {useTheme} from '@twilio-paste/core/theme';
+import {Anchor} from '@twilio-paste/core/anchor';
+import {Box} from '@twilio-paste/core/box';
+import {Stack} from '@twilio-paste/core/stack';
+import {Text} from '@twilio-paste/core/text';
 import HeartDoodleIcon from '../icons/HeartDoodleIcon';
 import TwilioLogo from '../icons/TwilioLogo';
 import FooterBuildingBlocks from '../../assets/illustrations/FooterBuildingBlocks.svg';
