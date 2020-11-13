@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.14.14](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.14.13...@twilio-paste/website@2.14.14) (2020-11-13)
+
+
+### Bug Fixes
+
+* **website:** typo on non-modal dialog primitive docs ([#932](https://github.com/twilio-labs/paste/issues/932)) ([00042bb](https://github.com/twilio-labs/paste/commit/00042bb484ba1bd01964a608aaaac59f6dfbbba0))
+
+
+
+
+
 ## [2.14.13](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.14.12...@twilio-paste/website@2.14.13) (2020-11-11)
 
 **Note:** Version bump only for package @twilio-paste/website
