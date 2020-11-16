@@ -28,7 +28,6 @@ const InlineControlGroup: React.FC<InlineControlGroupProps> = ({
 }) => {
   const rowSpacing = 'space40';
   const childrenCount = React.Children.count(children);
-
   return (
     <Box {...safelySpreadBoxProps(props)} as="fieldset" margin="space0" padding="space0" borderWidth="borderWidth0">
       <Label as="legend" htmlFor={undefined} required={required} marginBottom="space0" disabled={disabled}>
