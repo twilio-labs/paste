@@ -4,7 +4,7 @@ import {Box} from '@twilio-paste/box';
 import {Sidebar} from './sidebar';
 import {SiteHeader} from './SiteHeader';
 import {SiteMain, SiteMainInner} from './SiteMain';
-import {SiteFooter} from './SiteFooter';
+import {SiteFooter} from './site-footer/SiteFooter';
 import {ScrollAnchorIntoView} from './ScrollAnchorIntoView';
 
 /* Wraps the entire doc site page */
