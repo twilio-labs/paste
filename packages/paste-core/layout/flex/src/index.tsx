@@ -28,56 +28,62 @@ const getFlexStyles = (props: FlexProps): FlexboxProps => {
   return styles;
 };
 
-const Flex: React.FC<FlexProps> = ({
-  as,
-  basis,
-  children,
-  display,
-  hAlignContent,
-  grow,
-  marginTop,
-  marginRight,
-  marginBottom,
-  marginLeft,
-  paddingTop,
-  paddingRight,
-  paddingBottom,
-  paddingLeft,
-  maxWidth,
-  minWidth = 'size0',
-  shrink,
-  vertical,
-  vAlignContent,
-  width,
-  wrap,
-  ...props
-}) => {
-  const FlexStyles = React.useMemo(
-    () => getFlexStyles({basis, hAlignContent, grow, shrink, vertical, vAlignContent, wrap}),
-    [basis, hAlignContent, grow, shrink, vertical, vAlignContent, wrap]
-  );
-  return (
-    <Box
-      {...FlexStyles}
-      {...safelySpreadBoxProps(props)}
-      as={as}
-      display={display}
-      marginTop={marginTop}
-      marginRight={marginRight}
-      marginBottom={marginBottom}
-      marginLeft={marginLeft}
-      paddingTop={paddingTop}
-      paddingRight={paddingRight}
-      paddingBottom={paddingBottom}
-      paddingLeft={paddingLeft}
-      maxWidth={maxWidth}
-      minWidth={minWidth}
-      width={width}
-    >
-      {children}
-    </Box>
-  );
-};
+const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
+  (
+    {
+      as,
+      basis,
+      children,
+      display,
+      hAlignContent,
+      grow,
+      marginTop,
+      marginRight,
+      marginBottom,
+      marginLeft,
+      paddingTop,
+      paddingRight,
+      paddingBottom,
+      paddingLeft,
+      maxWidth,
+      minWidth = 'size0',
+      shrink,
+      vertical,
+      vAlignContent,
+      width,
+      wrap,
+      ...props
+    },
+    ref
+  ) => {
+    const FlexStyles = React.useMemo(
+      () => getFlexStyles({basis, hAlignContent, grow, shrink, vertical, vAlignContent, wrap}),
+      [basis, hAlignContent, grow, shrink, vertical, vAlignContent, wrap]
+    );
+    return (
+      <Box
+        {...FlexStyles}
+        {...safelySpreadBoxProps(props)}
+        ref={ref}
+        as={as}
+        display={display}
+        marginTop={marginTop}
+        marginRight={marginRight}
+        marginBottom={marginBottom}
+        marginLeft={marginLeft}
+        paddingTop={paddingTop}
+        paddingRight={paddingRight}
+        paddingBottom={paddingBottom}
+        paddingLeft={paddingLeft}
+        maxWidth={maxWidth}
+        minWidth={minWidth}
+        width={width}
+      >
+        {children}
+      </Box>
+    );
+  }
+);
 
 Flex.displayName = 'Flex';
 Flex.defaultProps = {
