@@ -40,17 +40,19 @@ const InlineControlGroup: React.FC<InlineControlGroupProps> = ({
           return (
             <Box
               display={orientation === 'horizontal' ? 'inline-block' : 'block'}
-              marginBottom={index == childrenCount - 1 ? 'space0' : rowSpacing}
+              marginBottom={index === childrenCount - 1 ? 'space0' : rowSpacing}
               marginRight={orientation === 'horizontal' ? 'space70' : null}
             >
-              {child}
+              {child}k
             </Box>
           );
         })}
         {errorText && (
-          <HelpText marginTop={rowSpacing} variant="error">
-            {errorText}
-          </HelpText>
+          <Box marginTop={rowSpacing}>
+            <HelpText marginTop="space0" variant="error">
+              {errorText}
+            </HelpText>
+          </Box>
         )}
       </Box>
     </Box>
