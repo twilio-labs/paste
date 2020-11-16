@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/button",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "category": "interaction",
   "status": "production",
   "description": "Twilio's Button component",
@@ -31,8 +31,8 @@
   "peerDependencies": {
     "@twilio-paste/box": "^2.11.9",
     "@twilio-paste/design-tokens": "^6.3.6",
-    "@twilio-paste/icons": "^3.8.4",
-    "@twilio-paste/spinner": "^2.0.34",
+    "@twilio-paste/icons": "^3.9.0",
+    "@twilio-paste/spinner": "^2.0.35",
     "@twilio-paste/stack": "^0.1.52",
     "@twilio-paste/style-props": "^1.8.9",
     "@twilio-paste/styling-library": "^0.1.4",
@@ -46,8 +46,8 @@
   "devDependencies": {
     "@twilio-paste/box": "^2.11.9",
     "@twilio-paste/design-tokens": "^6.3.6",
-    "@twilio-paste/icons": "^3.8.4",
-    "@twilio-paste/spinner": "^2.0.34",
+    "@twilio-paste/icons": "^3.9.0",
+    "@twilio-paste/spinner": "^2.0.35",
     "@twilio-paste/stack": "^0.1.52",
     "@twilio-paste/style-props": "^1.8.9",
     "@twilio-paste/styling-library": "^0.1.4",

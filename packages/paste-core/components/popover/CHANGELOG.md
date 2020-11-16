@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.44](https://github.com/twilio-labs/paste/compare/@twilio-paste/popover@1.0.43...@twilio-paste/popover@1.0.44) (2020-11-16)
+
+**Note:** Version bump only for package @twilio-paste/popover
+
+
+
+
+
 ## [1.0.43](https://github.com/twilio-labs/paste/compare/@twilio-paste/popover@1.0.42...@twilio-paste/popover@1.0.43) (2020-11-11)
 
 **Note:** Version bump only for package @twilio-paste/popover

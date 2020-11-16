@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/anchor",
-  "version": "1.3.18",
+  "version": "1.3.19",
   "category": "interaction",
   "status": "production",
   "description": "Twilio's Anchor component",
@@ -28,7 +28,7 @@
   "peerDependencies": {
     "@twilio-paste/box": "^2.11.9",
     "@twilio-paste/design-tokens": "^6.3.6",
-    "@twilio-paste/icons": "^3.8.4",
+    "@twilio-paste/icons": "^3.9.0",
     "@twilio-paste/style-props": "^1.8.9",
     "@twilio-paste/styling-library": "^0.1.4",
     "@twilio-paste/theme": "^3.3.2",
@@ -41,7 +41,7 @@
   "devDependencies": {
     "@twilio-paste/box": "^2.11.9",
     "@twilio-paste/design-tokens": "^6.3.6",
-    "@twilio-paste/icons": "^3.8.4",
+    "@twilio-paste/icons": "^3.9.0",
     "@twilio-paste/style-props": "^1.8.9",
     "@twilio-paste/styling-library": "^0.1.4",
     "@twilio-paste/theme": "^3.3.2",
