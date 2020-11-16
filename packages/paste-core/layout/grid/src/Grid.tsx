@@ -15,33 +15,36 @@ const getGridStyles = (gutter?: Space): MarginProps => {
   return marginStyles;
 };
 
-const Grid: React.FC<GridProps> = ({as, children, gutter, marginTop, marginBottom, vertical, ...props}) => {
-  const GridColumns = React.useMemo(
-    () =>
-      React.Children.map(children, child =>
-        React.isValidElement(child)
-          ? React.cloneElement(child, {count: React.Children.count(children), gutter, vertical})
-          : child
-      ),
-    [children]
-  );
+const Grid = React.forwardRef<HTMLDivElement, GridProps>(
+  ({as, children, gutter, marginTop, marginBottom, vertical, ...props}, ref) => {
+    const GridColumns = React.useMemo(
+      () =>
+        React.Children.map(children, child =>
+          React.isValidElement(child)
+            ? React.cloneElement(child, {count: React.Children.count(children), gutter, vertical})
+            : child
+        ),
+      [children]
+    );
 
-  const GridStyles = React.useMemo(() => getGridStyles(gutter), [gutter]);
+    const GridStyles = React.useMemo(() => getGridStyles(gutter), [gutter]);
 
-  return (
-    <Flex
-      {...GridStyles}
-      {...safelySpreadBoxProps(props)}
-      as={as}
-      marginTop={marginTop}
-      marginBottom={marginBottom}
-      vertical={vertical}
-      wrap
-    >
-      {GridColumns}
-    </Flex>
-  );
-};
+    return (
+      <Flex
+        {...GridStyles}
+        {...safelySpreadBoxProps(props)}
+        ref={ref}
+        as={as}
+        marginTop={marginTop}
+        marginBottom={marginBottom}
+        vertical={vertical}
+        wrap
+      >
+        {GridColumns}
+      </Flex>
+    );
+  }
+);
 Grid.displayName = 'Grid';
 
 Grid.defaultProps = {
