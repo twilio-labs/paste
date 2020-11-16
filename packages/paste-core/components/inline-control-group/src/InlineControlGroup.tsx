@@ -26,6 +26,9 @@ const InlineControlGroup: React.FC<InlineControlGroupProps> = ({
   value,
   ...props
 }) => {
+  const rowSpacing = 'space40';
+  const childrenCount = React.Children.count(children);
+
   return (
     <Box {...safelySpreadBoxProps(props)} as="fieldset" margin="space0" padding="space0" borderWidth="borderWidth0">
       <Label as="legend" htmlFor={undefined} required={required} marginBottom="space0" disabled={disabled}>
@@ -33,11 +36,11 @@ const InlineControlGroup: React.FC<InlineControlGroupProps> = ({
       </Label>
       {helpText && <HelpText marginTop="space0">{helpText}</HelpText>}
       <Box marginLeft="space20" marginRight="space20" marginTop="space40">
-        {React.Children.map(children, child => {
+        {React.Children.map(children, (child, index) => {
           return (
             <Box
               display={orientation === 'horizontal' ? 'inline-block' : 'block'}
-              marginBottom="space40"
+              marginBottom={index == childrenCount - 1 ? 'space0' : rowSpacing}
               marginRight={orientation === 'horizontal' ? 'space70' : null}
             >
               {child}
@@ -45,7 +48,7 @@ const InlineControlGroup: React.FC<InlineControlGroupProps> = ({
           );
         })}
         {errorText && (
-          <HelpText marginTop="space0" variant="error">
+          <HelpText marginTop={rowSpacing} variant="error">
             {errorText}
           </HelpText>
         )}
