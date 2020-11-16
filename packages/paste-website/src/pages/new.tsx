@@ -4,6 +4,7 @@ import {Box} from '@twilio-paste/core/box';
 import {SiteWrapper} from '../components/site-wrapper-new';
 import {SiteMetaDefaults} from '../constants';
 import {GetStarted} from '../components/homepage/GetStarted';
+import {PopularComponentsAndPatterns} from '../components/popular-components-and-patterns';
 
 const Homepage: React.FC<{}> = (): React.ReactElement => {
   return (
@@ -15,8 +16,9 @@ const Homepage: React.FC<{}> = (): React.ReactElement => {
         {/* needed for proper responsive but only on homepage */}
         <meta name="viewport" content="initial" />
       </Helmet>
-      <Box maxWidth="size120">
+      <Box>
         <GetStarted />
+        <PopularComponentsAndPatterns />
       </Box>
     </SiteWrapper>
   );
