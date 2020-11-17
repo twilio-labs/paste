@@ -3,6 +3,7 @@ import {Box} from '@twilio-paste/core/box';
 import {SiteFooterIllustration} from './SiteFooterIllustration';
 import {SiteFooterNav} from './SiteFooterNav';
 import {SiteFooterTopAngle} from './SiteFooterTopAngle';
+import {SITE_CONTENT_MAX_WIDTH} from '../../../constants';
 
 const SiteFooter: React.FC<{}> = () => {
   return (
@@ -18,6 +19,9 @@ const SiteFooter: React.FC<{}> = () => {
       <Box
         borderRadius="borderRadius20"
         marginTop={['space0', 'space0', 'space60', 'space160']}
+        maxWidth={SITE_CONTENT_MAX_WIDTH}
+        marginLeft="auto"
+        marginRight="auto"
         padding={['space90', 'space180']}
         paddingTop={['space90', 'space200']}
         position="relative"
