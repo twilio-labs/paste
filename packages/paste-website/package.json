@@ -103,7 +103,8 @@
     "react-helmet": "^5.2.1",
     "react-live": "^2.2.2",
     "react-scrollspy": "^3.4.0",
-    "use-clipboard-copy": "^0.1.2"
+    "use-clipboard-copy": "^0.1.2",
+    "use-resize-observer": "^7.0.0"
   },
   "devDependencies": {
     "vercel": "^20.1.2"
