@@ -40,3 +40,5 @@ jobs:
           GATSBY_DOCSEARCH_APIKEY: ${{ secrets.GATSBY_DOCSEARCH_APIKEY }}
       - name: Run cypress
         run: yarn test:website
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
