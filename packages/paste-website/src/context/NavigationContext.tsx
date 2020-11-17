@@ -22,6 +22,7 @@ export interface NavigationQuery {
       {
         node: {
           name: string;
+          version: string;
           status: string;
         };
       }
@@ -32,6 +33,7 @@ export interface NavigationQuery {
       {
         node: {
           name: string;
+          version: string;
           status: string;
         };
       }
@@ -42,6 +44,7 @@ export interface NavigationQuery {
       {
         node: {
           name: string;
+          version: string;
           status: string;
         };
       }

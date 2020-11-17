@@ -101,7 +101,7 @@ const MobileNavigation: React.FC<MobileNavigation> = ({isOpen, handleClose}) => 
                   />
                 </Box>
                 <Box marginY="space120" overflow="auto" height="100%">
-                  <SidebarNavigation marginTop="space0" />
+                  <SidebarNavigation />
                   <Separator orientation="horizontal" verticalSpacing="space30" />
                   <ContactUsMenu placement="top" />
                 </Box>

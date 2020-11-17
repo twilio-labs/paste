@@ -9,7 +9,7 @@ interface SiteHeaderMobileProps {
   onSearchChange: (newSearchValue: string) => void;
 }
 
-const SiteHeaderMobile: React.FC<SiteHeaderMobileProps> = ({searchValue, onSearchChange}) => {
+const SiteHeaderMobile: React.FC<SiteHeaderMobileProps> = (/* {searchValue, onSearchChange} */) => {
   const [sidebarOpen, onSidebarToggle] = React.useState(false);
 
   return (

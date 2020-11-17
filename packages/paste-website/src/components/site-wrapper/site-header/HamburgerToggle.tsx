@@ -7,7 +7,7 @@ interface HamburgerToggleProps {
   onToggle: (newToggled: boolean) => void;
 }
 
-const BasePattie: React.FC<BoxProps> = props => (
+const Pattie: React.FC<BoxProps> = props => (
   <Box
     position="absolute"
     width="12px"
@@ -19,7 +19,7 @@ const BasePattie: React.FC<BoxProps> = props => (
   />
 );
 
-const HamburgerToggle = React.forwardRef<HTMLDivElement, HamburgerToggleProps>(({toggled, onToggle}, ref) => {
+const HamburgerToggle = React.forwardRef<HTMLButtonElement, HamburgerToggleProps>(({toggled, onToggle}, ref) => {
   const backgroundColor = toggled ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody';
   return (
     <Button ref={ref} variant="reset" size="reset" onClick={() => onToggle(!toggled)}>
@@ -31,14 +31,14 @@ const HamburgerToggle = React.forwardRef<HTMLDivElement, HamburgerToggleProps>((
         position="relative"
         transition="all .5s ease-in-out"
       >
-        <BasePattie
+        <Pattie
           backgroundColor={backgroundColor}
           transform={toggled ? 'translateX(6px) translateY(4px) rotate(45deg)' : 'rotate(0deg)'}
           opacity={toggled ? 0 : 1}
           left="12px"
           top="8px"
         />
-        <BasePattie
+        <Pattie
           backgroundColor={backgroundColor}
           transform={
             toggled ? 'translateX(2px) translateY(-4px) rotate(45deg)' : 'translateX(0) translateY(0) rotate(0deg)'
@@ -46,7 +46,7 @@ const HamburgerToggle = React.forwardRef<HTMLDivElement, HamburgerToggleProps>((
           left="12px"
           top="12px"
         />
-        <BasePattie
+        <Pattie
           backgroundColor={backgroundColor}
           transform={
             toggled ? 'translateX(2px) translateY(4px) rotate(-45deg)' : 'translateX(0) translateY(0) rotate(0deg)'
@@ -54,7 +54,7 @@ const HamburgerToggle = React.forwardRef<HTMLDivElement, HamburgerToggleProps>((
           left="12px"
           top="12px"
         />
-        <BasePattie
+        <Pattie
           backgroundColor={backgroundColor}
           transform={
             toggled ? 'translateX(6px) translateY(-4px) rotate(-45deg)' : 'translateX(0) translateY(0) rotate(0deg)'

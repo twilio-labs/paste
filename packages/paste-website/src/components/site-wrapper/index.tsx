@@ -27,6 +27,7 @@ const pageQuery = graphql`
       edges {
         node {
           name
+          version
           status
         }
       }
@@ -35,6 +36,7 @@ const pageQuery = graphql`
       edges {
         node {
           name
+          version
           status
         }
       }
@@ -43,6 +45,7 @@ const pageQuery = graphql`
       edges {
         node {
           name
+          version
           status
         }
       }
