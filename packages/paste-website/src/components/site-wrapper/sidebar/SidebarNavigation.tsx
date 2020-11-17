@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {
   useDisclosurePrimitiveState,
   DisclosurePrimitive,
   DisclosurePrimitiveContent,
 } from '@twilio-paste/disclosure-primitive';
+import {MarginProps} from '@twilio-paste/core/style-props';
 import {SidebarAnchor} from './SidebarAnchor';
 import {SidebarDisclosureButton} from './SidebarDisclosureButton';
 import {SidebarItem} from './SidebarItem';
@@ -14,92 +14,15 @@ import {SidebarNestedList} from './SidebarNestedList';
 import {PackageStatus, SidebarCategoryRoutes} from '../../../constants';
 import {getCurrentPathname, getNameFromPackageName, getHumanizedNameFromPackageName} from '../../../utils/RouteUtils';
 import {filteredComponents} from '../../../utils/componentFilters';
+import {useNavigationContext} from '../../../context/NavigationContext';
 
 interface SidebarNavigationProps {
   children?: React.ReactNode;
+  marginTop?: MarginProps;
 }
 
-interface SiteWrapperPageQuery {
-  allPasteComponent: {
-    edges: [
-      {
-        node: {
-          name: string;
-          status: string;
-          version: string;
-        };
-      }
-    ];
-  };
-  allPastePrimitive: {
-    edges: [
-      {
-        node: {
-          name: string;
-          status: string;
-          version: string;
-        };
-      }
-    ];
-  };
-  allPasteLayout: {
-    edges: [
-      {
-        node: {
-          name: string;
-          status: string;
-          version: string;
-        };
-      }
-    ];
-  };
-}
-
-const pageQuery = graphql`
-  {
-    allSitePage(filter: {path: {ne: "/dev-404-page/"}}) {
-      edges {
-        node {
-          path
-          componentChunkName
-          componentPath
-          id
-          component
-          internalComponentName
-          isCreatedByStatefulCreatePages
-          pluginCreatorId
-        }
-      }
-    }
-    allPasteComponent(sort: {order: ASC, fields: name}) {
-      edges {
-        node {
-          name
-          status
-        }
-      }
-    }
-    allPastePrimitive(sort: {order: ASC, fields: name}) {
-      edges {
-        node {
-          name
-          status
-        }
-      }
-    }
-    allPasteLayout(sort: {order: ASC, fields: name}) {
-      edges {
-        node {
-          name
-          status
-        }
-      }
-    }
-  }
-`;
-
-const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
-  const data: SiteWrapperPageQuery = useStaticQuery(pageQuery);
+const SidebarNavigation: React.FC<SidebarNavigationProps> = ({marginTop = 'space70'}) => {
+  const data = useNavigationContext();
 
   const gettingStartedDisclosure = useDisclosurePrimitiveState({
     visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.GETTING_STARTED),
@@ -138,7 +61,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
   });
 
   return (
-    <Box as="nav" marginTop="space70" overflow="auto" role="navigation" aria-label="Main">
+    <Box as="nav" marginTop={marginTop} overflow="auto" role="navigation" aria-label="Main">
       <Box as="ul" padding="space0" margin="space0" listStyleType="none">
         <SidebarItem>
           <SidebarAnchor to="/">Home</SidebarAnchor>

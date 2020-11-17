@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Helmet} from 'react-helmet';
 import {Box} from '@twilio-paste/core/box';
-import {SiteWrapper} from '../components/site-wrapper-new';
+import {SiteWrapper} from '../components/site-wrapper';
 import {SiteMetaDefaults} from '../constants';
 import {GetStarted} from '../components/homepage/GetStarted';
 import {PopularComponentsAndPatterns} from '../components/popular-components-and-patterns';
@@ -16,7 +16,7 @@ const Homepage: React.FC<{}> = (): React.ReactElement => {
         {/* needed for proper responsive but only on homepage */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Helmet>
-      <Box>
+      <Box marginX="spaceNegative200">
         <GetStarted />
         <PopularComponentsAndPatterns />
       </Box>

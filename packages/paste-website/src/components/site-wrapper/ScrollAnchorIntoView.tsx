@@ -9,7 +9,8 @@ function scrollIntoView(): void {
 
   const element = document.querySelector(`[id='${id.replace(/^#/, '')}']`);
   if (element != null) {
-    element.scrollIntoView();
+    // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
+    element.scrollIntoView({block: 'start', inline: 'nearest', behavior: 'smooth'});
   }
 }
 
