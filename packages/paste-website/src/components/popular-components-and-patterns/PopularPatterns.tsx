@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {useTheme} from '@twilio-paste/theme';
-import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
 import {ComponentCard, ComponentCardHeader, ComponentCardIllustration, ComponentCardFooter} from '../component-card';
+import {SiteLink} from '../SiteLink';
 import PatternsIcon from '../icons/PatternsIcon';
 import HomeCreateIllustration from '../../assets/illustrations/home_create_illustration.svg';
 import HomeDeleteIllustration from '../../assets/illustrations/home_delete_illustration.svg';
@@ -45,7 +45,7 @@ const PopularPatterns: React.FC = () => {
               <HomeCreateIllustration aria-hidden="true" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
-              <Anchor href="/patterns/create">See Create</Anchor>
+              <SiteLink to="/patterns/create">See Create</SiteLink>
             </ComponentCardFooter>
           </ComponentCard>
         </Column>
@@ -56,14 +56,14 @@ const PopularPatterns: React.FC = () => {
               <HomeDeleteIllustration aria-hidden="true" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
-              <Anchor href="/patterns/delete">See Delete</Anchor>
+              <SiteLink to="/patterns/delete">See Delete</SiteLink>
             </ComponentCardFooter>
           </ComponentCard>
         </Column>
       </Grid>
       <Box textAlign="center" marginTop="space20" marginBottom="space60">
         <Text as="span" fontWeight="fontWeightSemibold">
-          Explore <Anchor href="/patterns">all Patterns</Anchor>
+          Explore <SiteLink to="/patterns">all Patterns</SiteLink>
         </Text>
       </Box>
     </Box>
