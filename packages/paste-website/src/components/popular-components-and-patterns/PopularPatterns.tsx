@@ -7,8 +7,8 @@ import {Heading} from '@twilio-paste/core/heading';
 import {Text} from '@twilio-paste/core/text';
 import {ComponentCard, ComponentCardHeader, ComponentCardIllustration, ComponentCardFooter} from '../component-card';
 import PatternsIcon from '../icons/PatternsIcon';
-import HomeCreateIllustration from '../../assets/illustrations/HomeCreateIllustration.svg';
-import HomeDeleteIllustration from '../../assets/illustrations/HomeDeleteIllustration.svg';
+import HomeCreateIllustration from '../../assets/illustrations/home_create_illustration.svg';
+import HomeDeleteIllustration from '../../assets/illustrations/home_delete_illustration.svg';
 
 const PopularPatterns: React.FC = () => {
   const theme = useTheme();
@@ -42,7 +42,7 @@ const PopularPatterns: React.FC = () => {
           <ComponentCard>
             <ComponentCardHeader>Create</ComponentCardHeader>
             <ComponentCardIllustration>
-              <HomeCreateIllustration />
+              <HomeCreateIllustration aria-hidden="true" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
               <Anchor href="/patterns/create">See Create</Anchor>
@@ -53,7 +53,7 @@ const PopularPatterns: React.FC = () => {
           <ComponentCard>
             <ComponentCardHeader>Delete</ComponentCardHeader>
             <ComponentCardIllustration>
-              <HomeDeleteIllustration />
+              <HomeDeleteIllustration aria-hidden="true" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
               <Anchor href="/patterns/delete">See Delete</Anchor>

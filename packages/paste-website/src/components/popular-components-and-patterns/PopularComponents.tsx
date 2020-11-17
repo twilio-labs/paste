@@ -7,8 +7,8 @@ import {Heading} from '@twilio-paste/core/heading';
 import {Text} from '@twilio-paste/core/text';
 import {ComponentCard, ComponentCardHeader, ComponentCardIllustration, ComponentCardFooter} from '../component-card';
 import ComponentsIcon from '../icons/ComponentsIcon';
-import HomeButtonIllustration from '../../assets/illustrations/HomeButtonIllustration.svg';
-import HomeComboboxIllustration from '../../assets/illustrations/HomeComboboxIllustration.svg';
+import HomeButtonIllustration from '../../assets/illustrations/home_button_illustration.svg';
+import HomeComboboxIllustration from '../../assets/illustrations/home_combobox_illustration.svg';
 
 const PopularComponents: React.FC = () => {
   const theme = useTheme();
@@ -42,7 +42,7 @@ const PopularComponents: React.FC = () => {
           <ComponentCard>
             <ComponentCardHeader>Button</ComponentCardHeader>
             <ComponentCardIllustration>
-              <HomeButtonIllustration />
+              <HomeButtonIllustration aria-hidden="true" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
               <Anchor href="/components/button">See Button</Anchor>
@@ -53,7 +53,7 @@ const PopularComponents: React.FC = () => {
           <ComponentCard>
             <ComponentCardHeader>Combobox</ComponentCardHeader>
             <ComponentCardIllustration>
-              <HomeComboboxIllustration />
+              <HomeComboboxIllustration aria-hidden="true" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
               <Anchor href="/components/combobox">See Combobox</Anchor>
