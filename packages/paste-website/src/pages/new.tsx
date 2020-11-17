@@ -13,7 +13,7 @@ const Homepage: React.FC<{}> = (): React.ReactElement => {
         <link rel="canonical" href="https://paste.twilio.design" />
         <meta name="description" content={SiteMetaDefaults.DESCRIPTION} />
         {/* needed for proper responsive but only on homepage */}
-        <meta name="viewport" content="initial" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Helmet>
       <Box maxWidth="size120">
         <GetStarted />
