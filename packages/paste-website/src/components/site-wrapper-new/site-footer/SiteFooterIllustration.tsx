@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useTheme} from '@twilio-paste/core/theme';
 import {Box} from '@twilio-paste/core/box';
-import FooterBuildingBlocks from '../../../assets/illustrations/FooterBuildingBlocks.svg';
+import FooterBuildingBlocks from '../../../assets/illustrations/footer_building_blocks.svg';
 
 const SiteFooterIllustration: React.FC<{}> = () => {
   const theme = useTheme();
