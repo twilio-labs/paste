@@ -43,7 +43,7 @@ const InlineControlGroup: React.FC<InlineControlGroupProps> = ({
               marginBottom={index === childrenCount - 1 ? 'space0' : rowSpacing}
               marginRight={orientation === 'horizontal' ? 'space70' : null}
             >
-              {child}k
+              {child}
             </Box>
           );
         })}
