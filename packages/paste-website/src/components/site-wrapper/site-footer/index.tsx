@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/core/box';
+import {Box} from '@twilio-paste/box';
 import {SiteFooterIllustration} from './SiteFooterIllustration';
 import {SiteFooterNav} from './SiteFooterNav';
 import {SiteFooterTopAngle} from './SiteFooterTopAngle';

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {useTheme} from '@twilio-paste/core/theme';
-import {Anchor} from '@twilio-paste/core/anchor';
-import {Box} from '@twilio-paste/core/box';
-import {Stack} from '@twilio-paste/core/stack';
+import {useTheme} from '@twilio-paste/theme';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Stack} from '@twilio-paste/stack';
 import {SiteFooterHeader} from './SiteFooterHeader';
 import TwilioLogo from '../../icons/TwilioLogo';
 

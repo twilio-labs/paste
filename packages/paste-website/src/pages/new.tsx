@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Helmet} from 'react-helmet';
-import {Box} from '@twilio-paste/core/box';
+import {Box} from '@twilio-paste/box';
 import {SiteWrapper} from '../components/site-wrapper';
 import {SiteMetaDefaults} from '../constants';
 import {GetStarted} from '../components/homepage/GetStarted';

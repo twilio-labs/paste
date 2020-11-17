@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Theme} from '@twilio-paste/core/theme';
+import {Theme} from '@twilio-paste/theme';
 import {useActiveSiteTheme} from '../../context/ActiveSiteThemeContext';
 import {SITE_BREAKPOINTS} from '../../constants';
 

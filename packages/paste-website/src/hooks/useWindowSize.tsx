@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {useTheme} from '@twilio-paste/core/theme';
+import {useTheme} from '@twilio-paste/theme';
 import {findIndex, debounce} from 'lodash';
 
 interface WindowSizeState {

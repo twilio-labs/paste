@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {useTheme} from '@twilio-paste/core/theme';
-import {Box} from '@twilio-paste/core/box';
+import {useTheme} from '@twilio-paste/theme';
+import {Box} from '@twilio-paste/box';
 
 const PopularSectionHeader: React.FC = () => {
   const theme = useTheme();

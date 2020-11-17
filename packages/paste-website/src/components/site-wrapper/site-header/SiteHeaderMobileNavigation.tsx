@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/core/box';
-import {pasteBaseStyles} from '@twilio-paste/core/theme';
-import {Separator} from '@twilio-paste/core/separator';
-import {styled, css} from '@twilio-paste/core/styling-library';
-import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/core/modal-dialog-primitive';
-import {useTransition, animated} from '@twilio-paste/core/animation-library';
+import {Box} from '@twilio-paste/box';
+import {pasteBaseStyles} from '@twilio-paste/theme';
+import {Separator} from '@twilio-paste/separator';
+import {styled, css} from '@twilio-paste/styling-library';
+import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
+import {useTransition, animated} from '@twilio-paste/animation-library';
 import {HamburgerToggle} from './HamburgerToggle';
 import {SidebarNavigation} from '../sidebar/SidebarNavigation';
 import {ContactUsMenu} from '../../ContactUsMenu';

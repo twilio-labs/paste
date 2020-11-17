@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {styled, themeGet} from '@twilio-paste/core/styling-library';
-import {Box} from '@twilio-paste/core/box';
+import {styled, themeGet} from '@twilio-paste/styling-library';
+import {Box} from '@twilio-paste/box';
 import {Sidebar} from './sidebar';
 import {SiteHeader} from './site-header';
 import {SiteFooter} from './site-footer';

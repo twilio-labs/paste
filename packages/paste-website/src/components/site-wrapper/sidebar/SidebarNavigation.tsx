@@ -5,7 +5,7 @@ import {
   DisclosurePrimitive,
   DisclosurePrimitiveContent,
 } from '@twilio-paste/disclosure-primitive';
-import {MarginProps} from '@twilio-paste/core/style-props';
+import {MarginProps} from '@twilio-paste/style-props';
 import {SidebarAnchor} from './SidebarAnchor';
 import {SidebarDisclosureButton} from './SidebarDisclosureButton';
 import {SidebarItem} from './SidebarItem';

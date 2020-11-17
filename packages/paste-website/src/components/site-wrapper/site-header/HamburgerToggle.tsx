@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {Box, BoxProps} from '@twilio-paste/core/box';
-import {Button} from '@twilio-paste/core/button';
+import {Box, BoxProps} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
 
 interface HamburgerToggleProps {
   toggled: boolean;
