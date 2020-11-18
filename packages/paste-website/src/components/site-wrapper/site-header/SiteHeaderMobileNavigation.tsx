@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import {pasteBaseStyles} from '@twilio-paste/theme';
+import {pasteBaseStyles, useTheme} from '@twilio-paste/theme';
 import {Separator} from '@twilio-paste/separator';
 import {styled, css} from '@twilio-paste/styling-library';
 import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
@@ -41,7 +41,7 @@ const StyledModalDialogContent = animated(
       width: '0px',
       height: '0px',
       maxWidth: 'calc(100vw - 20px)',
-      maxHeight: 'calc(100vh - 140px)',
+      maxHeight: 'calc(100vh - 60px)',
       backgroundColor: 'colorBackgroundBody',
       borderRadius: 'borderRadius20',
     })
@@ -55,6 +55,7 @@ interface MobileNavigation {
 
 const MobileNavigation: React.FC<MobileNavigation> = ({isOpen, handleClose}) => {
   const inputRef = React.useRef();
+  const {space} = useTheme();
   const [burgerOpen, setBurgerOpen] = React.useState(false);
 
   // Note: we use this trick to make the hamburger animate to the open state
@@ -100,7 +101,13 @@ const MobileNavigation: React.FC<MobileNavigation> = ({isOpen, handleClose}) => 
                     }}
                   />
                 </Box>
-                <Box paddingY="space120" overflow="scroll" height="100%" css={{overflowScrolling: 'touch'}}>
+                <Box
+                  marginTop="space120"
+                  paddingBottom="space40"
+                  overflow="scroll"
+                  height={`calc(100% - ${space.space120})`}
+                  css={{webkitOverflowScrolling: 'touch'}}
+                >
                   <SidebarNavigation />
                   <Separator orientation="horizontal" verticalSpacing="space30" />
                   <ContactUsMenu placement="top" />
