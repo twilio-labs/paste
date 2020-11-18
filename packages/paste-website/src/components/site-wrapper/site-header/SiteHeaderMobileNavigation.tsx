@@ -41,7 +41,7 @@ const StyledModalDialogContent = animated(
       width: '0px',
       height: '0px',
       maxWidth: 'calc(100vw - 20px)',
-      maxHeight: 'calc(100vh - 20px)',
+      maxHeight: 'calc(100vh - 140px)',
       backgroundColor: 'colorBackgroundBody',
       borderRadius: 'borderRadius20',
     })
@@ -100,7 +100,7 @@ const MobileNavigation: React.FC<MobileNavigation> = ({isOpen, handleClose}) => 
                     }}
                   />
                 </Box>
-                <Box marginY="space120" overflow="auto" height="100%">
+                <Box paddingY="space120" overflow="scroll" height="100%" css={{overflowScrolling: 'touch'}}>
                   <SidebarNavigation />
                   <Separator orientation="horizontal" verticalSpacing="space30" />
                   <ContactUsMenu placement="top" />
