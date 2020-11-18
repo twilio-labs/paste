@@ -7,7 +7,7 @@ const NewComponentBannerBadge: React.FC = ({children}) => {
     <Box
       as="span"
       backgroundColor="colorBackgroundNew"
-      borderRadius="borderRadius30"
+      borderRadius="borderRadius10"
       marginRight="space30"
       paddingX="space30"
     >

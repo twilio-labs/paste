@@ -7,24 +7,30 @@ import {NewComponentBanner} from './NewComponentBanner';
 import {NewComponentBannerBadge} from './NewComponentBannerBadge';
 import {NewComponentBannerLink} from './NewComponentBannerLink';
 import {NewComponentBannerText} from './NewComponentBannerText';
+import {SiteHeroIllustration} from './SiteHeroIllustration';
 import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
 
 const SiteHero: React.FC = () => {
   return (
-    <Box backgroundColor="colorBackgroundPrimaryDarker" paddingX={['space90', 'space180']} paddingY="space200">
+    <Box
+      backgroundColor="colorBackgroundPrimaryDarker"
+      paddingLeft={['space90', 'space180']}
+      paddingRight={['space90', 'space180']}
+      paddingTop="space200"
+    >
       <Box maxWidth={SITE_CONTENT_MAX_WIDTH} marginLeft="auto" marginRight="auto">
-        <NewComponentBanner>
-          <NewComponentBannerBadge>New!</NewComponentBannerBadge>
-          <NewComponentBannerText>We just released a toast component!</NewComponentBannerText>
-          <NewComponentBannerLink to="/components/toast">Check it out</NewComponentBannerLink>
-        </NewComponentBanner>
         <Grid gutter="space40" vertical={[true, false, false]}>
           <Column span={5}>
+            <NewComponentBanner>
+              <NewComponentBannerBadge>New!</NewComponentBannerBadge>
+              <NewComponentBannerText>We just released a toast component!</NewComponentBannerText>
+              <NewComponentBannerLink to="/components/toast">Check it out</NewComponentBannerLink>
+            </NewComponentBanner>
             <Text
               as="h1"
               color="colorTextInverse"
-              fontSize="fontSize100"
-              lineHeight="lineHeight100"
+              fontSize="fontSize110"
+              lineHeight="lineHeight110"
               marginTop="space120"
             >
               Build inclusive, delightful Twilio customer experiences with Paste.
@@ -42,7 +48,9 @@ const SiteHero: React.FC = () => {
               </Anchor>
             </Text>
           </Column>
-          <Column>TODO: Add asset for animation</Column>
+          <Column span={7}>
+            <SiteHeroIllustration />
+          </Column>
         </Grid>
       </Box>
     </Box>
