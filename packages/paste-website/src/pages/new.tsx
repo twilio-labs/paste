@@ -6,9 +6,9 @@ import {SiteMetaDefaults} from '../constants';
 import {GetStarted} from '../components/homepage/GetStarted';
 import {PopularComponentsAndPatterns} from '../components/popular-components-and-patterns';
 
-const Homepage: React.FC<{}> = (): React.ReactElement => {
+const Homepage: React.FC<{location: {pathname: string}}> = ({location}): React.ReactElement => {
   return (
-    <SiteWrapper>
+    <SiteWrapper pathname={location.pathname}>
       <Helmet>
         <title>{SiteMetaDefaults.TITLE}</title>
         <link rel="canonical" href="https://paste.twilio.design" />

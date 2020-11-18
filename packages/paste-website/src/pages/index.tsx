@@ -21,9 +21,9 @@ import {P} from '../components/Typography';
 import {SiteLink} from '../components/SiteLink';
 import {SiteMetaDefaults} from '../constants';
 
-const IndexPage: React.FC<{}> = (): React.ReactElement => {
+const IndexPage: React.FC<{location: {pathname: string}}> = ({location}): React.ReactElement => {
   return (
-    <SiteWrapper>
+    <SiteWrapper pathname={location.pathname}>
       <Helmet>
         <title>{SiteMetaDefaults.TITLE}</title>
         <link rel="canonical" href="https://paste.twilio.design" />

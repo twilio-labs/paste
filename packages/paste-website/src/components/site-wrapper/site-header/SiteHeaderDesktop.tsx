@@ -4,6 +4,8 @@ import {Stack} from '@twilio-paste/stack';
 import {GithubLink} from './GithubLink';
 import {SiteHeaderDesktopSearch} from './SiteHeaderDesktopSearch';
 import {SiteHeaderLogo} from './SiteHeaderLogo';
+import {ThemeSwitcher} from '../../ThemeSwitcher';
+import {useNavigationContext} from '../../../context/NavigationContext';
 
 interface SiteHeaderDesktopProps {
   searchValue: string;
@@ -11,6 +13,8 @@ interface SiteHeaderDesktopProps {
 }
 
 const SiteHeaderDesktop: React.FC<SiteHeaderDesktopProps> = ({searchValue, onSearchChange}) => {
+  const {pathname} = useNavigationContext();
+  const isHomepage = pathname === '/' || pathname === '/new';
   return (
     <Box
       as="aside"
@@ -24,7 +28,9 @@ const SiteHeaderDesktop: React.FC<SiteHeaderDesktopProps> = ({searchValue, onSea
       <SiteHeaderLogo title="Paste" subtitle="Design System" />
       <Box
         display="flex"
-        justifyContent="flex-end"
+        justifyContent={isHomepage ? 'flex-end' : 'space-between'}
+        alignItems="center"
+        flexDirection="row"
         borderLeftColor="colorBorderInverseDarker"
         borderLeftStyle="solid"
         borderLeftWidth="borderWidth10"
@@ -34,10 +40,13 @@ const SiteHeaderDesktop: React.FC<SiteHeaderDesktopProps> = ({searchValue, onSea
         paddingLeft="space70"
         width="100%"
       >
-        <Stack orientation="horizontal" spacing="space60">
-          <SiteHeaderDesktopSearch value={searchValue} onChange={onSearchChange} />
-          <GithubLink />
-        </Stack>
+        {isHomepage ? null : <ThemeSwitcher />}
+        <Box marginTop="space0">
+          <Stack orientation="horizontal" spacing="space60">
+            <SiteHeaderDesktopSearch value={searchValue} onChange={onSearchChange} />
+            <GithubLink />
+          </Stack>
+        </Box>
       </Box>
     </Box>
   );

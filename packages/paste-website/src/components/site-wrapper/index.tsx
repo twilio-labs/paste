@@ -53,13 +53,17 @@ const pageQuery = graphql`
   }
 `;
 
-const SiteWrapper: React.FC = ({children}) => {
+interface SiteWrapperProps {
+  pathname: string;
+}
+
+const SiteWrapper: React.FC<SiteWrapperProps> = ({pathname, children}) => {
   const navigationQueryData: NavigationQuery = useStaticQuery(pageQuery);
 
   return (
     <ActiveSiteThemeProvider>
       <SiteThemeProvider>
-        <NavigationContext.Provider value={{...navigationQueryData}}>
+        <NavigationContext.Provider value={{...navigationQueryData, pathname}}>
           <SiteBody>{children}</SiteBody>
         </NavigationContext.Provider>
       </SiteThemeProvider>

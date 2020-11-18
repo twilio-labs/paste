@@ -24,7 +24,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({children, pageContext, loc
     : SiteMetaDefaults.TITLE;
   const pageDescription = pageContext.frontmatter.description || SiteMetaDefaults.DESCRIPTION;
   return (
-    <SiteWrapper>
+    <SiteWrapper pathname={location.pathname}>
       <Helmet>
         <title>{pageTitle}</title>
         <link rel="canonical" href={`https://paste.twilio.design${location.pathname}`} />
