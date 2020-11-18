@@ -29,10 +29,9 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({children, pageContext, loc
         <title>{pageTitle}</title>
         <link rel="canonical" href={`https://paste.twilio.design${location.pathname}`} />
         <meta name="description" content={pageDescription} />
-        // FIXME: removing the mobile friendly viewport from the homepage until we make other pages responsive
-        <meta name="viewport" content="" />
+        {/* needed for proper responsive but only on homepage */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Helmet>
-
       <PasteMDXProvider>{children}</PasteMDXProvider>
     </SiteWrapper>
   );

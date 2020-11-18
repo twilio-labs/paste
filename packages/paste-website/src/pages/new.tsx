@@ -16,7 +16,7 @@ const Homepage: React.FC<{location: {pathname: string}}> = ({location}): React.R
         {/* needed for proper responsive but only on homepage */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Helmet>
-      <Box marginX="spaceNegative200">
+      <Box>
         <GetStarted />
         <PopularComponentsAndPatterns />
       </Box>

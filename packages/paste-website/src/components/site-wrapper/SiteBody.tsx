@@ -33,7 +33,7 @@ export const SiteBody: React.FC = ({children}) => {
         {breakpointIndex === undefined || breakpointIndex > 1 ? <Sidebar /> : null}
         <Box as="main" role="main" flex="1" paddingTop="space100" minWidth="size0">
           <ScrollAnchorIntoView />
-          <Box paddingX="space200">{children}</Box>
+          <Box paddingX={['space50', 'space70', 'space200']}>{children}</Box>
           <SiteFooter />
         </Box>
       </StyledSiteBody>
