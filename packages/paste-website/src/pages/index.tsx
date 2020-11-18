@@ -28,7 +28,8 @@ const IndexPage: React.FC<{location: {pathname: string}}> = ({location}): React.
         <title>{SiteMetaDefaults.TITLE}</title>
         <link rel="canonical" href="https://paste.twilio.design" />
         <meta name="description" content={SiteMetaDefaults.DESCRIPTION} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        // FIXME: removing the mobile friendly viewport from the homepage until we make other pages responsive
+        <meta name="viewport" content="" />
       </Helmet>
       <Box maxWidth="size120">
         <Grid gutter="space40" marginTop="space140">
