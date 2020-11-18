@@ -59,7 +59,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
   });
 
   return (
-    <Box as="nav" marginTop={['space70', 'space70', 'space0']} overflow="auto" role="navigation" aria-label="Main">
+    <Box as="nav" marginTop="space70" overflow="auto" role="navigation" aria-label="Main">
       <Box as="ul" padding="space0" margin="space0" listStyleType="none">
         <SidebarItem>
           <SidebarAnchor to="/">Home</SidebarAnchor>
