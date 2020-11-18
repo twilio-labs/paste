@@ -29,6 +29,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({children, pageContext, loc
         <title>{pageTitle}</title>
         <link rel="canonical" href={`https://paste.twilio.design${location.pathname}`} />
         <meta name="description" content={pageDescription} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Helmet>
 
       <PasteMDXProvider>{children}</PasteMDXProvider>
