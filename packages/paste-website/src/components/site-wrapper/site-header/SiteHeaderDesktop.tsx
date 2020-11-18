@@ -14,7 +14,7 @@ const SiteHeaderDesktop: React.FC<SiteHeaderDesktopProps> = ({searchValue, onSea
   return (
     <Box
       as="aside"
-      display="flex"
+      display={['none', 'none', 'flex']}
       alignItems="center"
       backgroundColor="colorBackgroundPrimaryDarkest"
       position="sticky"

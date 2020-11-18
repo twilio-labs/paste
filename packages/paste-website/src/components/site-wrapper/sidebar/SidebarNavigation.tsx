@@ -14,7 +14,6 @@ import {PackageStatus, SidebarCategoryRoutes} from '../../../constants';
 import {getCurrentPathname, getNameFromPackageName, getHumanizedNameFromPackageName} from '../../../utils/RouteUtils';
 import {filteredComponents} from '../../../utils/componentFilters';
 import {useNavigationContext} from '../../../context/NavigationContext';
-import {useWindowSize} from '../../../hooks/useWindowSize';
 
 interface SidebarNavigationProps {
   children?: React.ReactNode;
@@ -22,7 +21,6 @@ interface SidebarNavigationProps {
 
 const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
   const data = useNavigationContext();
-  const {breakpointIndex} = useWindowSize();
 
   const gettingStartedDisclosure = useDisclosurePrimitiveState({
     visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.GETTING_STARTED),
@@ -61,13 +59,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
   });
 
   return (
-    <Box
-      as="nav"
-      marginTop={breakpointIndex !== undefined && breakpointIndex <= 1 ? 'space70' : 'space0'}
-      overflow="auto"
-      role="navigation"
-      aria-label="Main"
-    >
+    <Box as="nav" marginTop={['space70', 'space70', 'space0']} overflow="auto" role="navigation" aria-label="Main">
       <Box as="ul" padding="space0" margin="space0" listStyleType="none">
         <SidebarItem>
           <SidebarAnchor to="/">Home</SidebarAnchor>

@@ -25,13 +25,12 @@ const StyledSiteBody = styled.div`
 
 export const SiteBody: React.FC = ({children}) => {
   const {breakpointIndex} = useWindowSize();
-  const isDesktop = breakpointIndex === undefined || breakpointIndex > 1;
 
   return (
     <>
       <SiteHeader />
       <StyledSiteBody>
-        {isDesktop ? <Sidebar /> : null}
+        {breakpointIndex === undefined || breakpointIndex > 1 ? <Sidebar /> : null}
         <Box as="main" role="main" flex="1" paddingTop="space100" minWidth="size0">
           <ScrollAnchorIntoView />
           <Box paddingX="space200">{children}</Box>
