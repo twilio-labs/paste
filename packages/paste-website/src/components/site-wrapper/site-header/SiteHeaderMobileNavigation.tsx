@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {pasteBaseStyles, useTheme} from '@twilio-paste/theme';
+import {Button} from '@twilio-paste/button';
 import {Separator} from '@twilio-paste/separator';
 import {styled, css} from '@twilio-paste/styling-library';
 import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
@@ -93,13 +94,10 @@ const MobileNavigation: React.FC<MobileNavigation> = ({isOpen, handleClose}) => 
               style={{opacity: styles.opacity}}
             >
               <StyledModalDialogContent style={styles} aria-label="Website navigation">
-                <Box position="absolute" top="10px" right="10px">
-                  <HamburgerToggle
-                    toggled={burgerOpen}
-                    onToggle={() => {
-                      handleClose();
-                    }}
-                  />
+                <Box position="absolute" top="14px" right="14px">
+                  <Button variant="reset" size="reset" onClick={handleClose}>
+                    <HamburgerToggle toggled={burgerOpen} />
+                  </Button>
                 </Box>
                 <Box
                   marginTop="space120"

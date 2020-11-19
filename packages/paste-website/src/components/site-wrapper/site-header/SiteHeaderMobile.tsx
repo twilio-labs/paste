@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
 import {HamburgerToggle} from './HamburgerToggle';
 import {SiteHeaderLogo} from './SiteHeaderLogo';
 import {MobileNavigation} from './SiteHeaderMobileNavigation';
@@ -24,11 +25,15 @@ const SiteHeaderMobile: React.FC<SiteHeaderMobileProps> = (/* {searchValue, onSe
       zIndex="zIndex80"
     >
       <Box margin="space60" display="flex">
-        <HamburgerToggle toggled={sidebarOpen} onToggle={onSidebarToggle} />
+        <Button variant="inverse" size="icon_small" onClick={() => onSidebarToggle(!sidebarOpen)}>
+          <HamburgerToggle toggled={sidebarOpen} />
+        </Button>
       </Box>
       <SiteHeaderLogo title="Paste" />
       <Box margin="space60" display="flex">
-        <HamburgerToggle toggled={sidebarOpen} onToggle={onSidebarToggle} />
+        <Button variant="inverse" size="icon_small" onClick={() => onSidebarToggle(!sidebarOpen)}>
+          <HamburgerToggle toggled={sidebarOpen} />
+        </Button>
         <MobileNavigation isOpen={sidebarOpen} handleClose={() => onSidebarToggle(false)} />
       </Box>
     </Box>
