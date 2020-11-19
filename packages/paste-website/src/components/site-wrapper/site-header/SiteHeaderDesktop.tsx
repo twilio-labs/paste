@@ -14,8 +14,7 @@ interface SiteHeaderDesktopProps {
 
 const SiteHeaderDesktop: React.FC<SiteHeaderDesktopProps> = ({searchValue, onSearchChange}) => {
   const {pathname} = useNavigationContext();
-  // TODO: only keep the '/' check when we are done with the /new page
-  const isHomepage = pathname === '/' || pathname === '/new' || pathname === '/new/';
+  const isHomepage = pathname === '/';
   return (
     <Box
       as="aside"

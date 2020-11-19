@@ -4,7 +4,6 @@ import {Grid, Column} from '@twilio-paste/grid';
 import {PopularComponents} from './PopularComponents';
 import {PopularPatterns} from './PopularPatterns';
 import {PopularSectionHeader} from './PopularSectionHeader';
-import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
 
 const PopularComponentsAndPatterns: React.FC = () => {
   return (
