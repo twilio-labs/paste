@@ -1,8 +1,10 @@
 import * as React from 'react';
+import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {GetStarterWhy} from './GetStartedWhy';
 import {GetStartedInclusive} from './GetStartedInclusive';
 import {GetStartedRunning} from './GetStartedRunning';
+import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
 
 export const GetStarted: React.FC = () => {
   return (
