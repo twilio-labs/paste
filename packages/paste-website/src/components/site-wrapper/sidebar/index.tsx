@@ -17,7 +17,7 @@ const Sidebar: React.FC = () => {
       position="sticky"
       top={`${SITE_MASTHEAD_HEIGHT}px`}
       width="sizeSidebar"
-      display="flex"
+      display={['none', 'none', 'flex']}
       flexDirection="column"
       zIndex="zIndex10"
     >

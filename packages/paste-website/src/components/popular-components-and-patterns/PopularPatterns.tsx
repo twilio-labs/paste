@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {useTheme} from '@twilio-paste/core/theme';
-import {Anchor} from '@twilio-paste/core/anchor';
-import {Box} from '@twilio-paste/core/box';
-import {Grid, Column} from '@twilio-paste/core/grid';
-import {Heading} from '@twilio-paste/core/heading';
-import {Text} from '@twilio-paste/core/text';
+import {useTheme} from '@twilio-paste/theme';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Grid, Column} from '@twilio-paste/grid';
+import {Heading} from '@twilio-paste/heading';
+import {Text} from '@twilio-paste/text';
 import {ComponentCard, ComponentCardHeader, ComponentCardIllustration, ComponentCardFooter} from '../component-card';
 import PatternsIcon from '../icons/PatternsIcon';
 import HomeCreateIllustration from '../../assets/illustrations/home_create_illustration.svg';
