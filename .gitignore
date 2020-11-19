@@ -80,7 +80,7 @@ tools/.cache/packages.json
 docs
 
 # codemods package
-package/paste-codemods/tools/mappings.json
+packages/paste-codemods/tools/mappings.json
 
 # Cypress
 cypress/videos
