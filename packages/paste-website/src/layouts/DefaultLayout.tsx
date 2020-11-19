@@ -1,5 +1,8 @@
 import * as React from 'react';
 import {Helmet} from 'react-helmet';
+import {Box} from '@twilio-paste/box';
+import {Alert} from '@twilio-paste/alert';
+import {Anchor} from '@twilio-paste/anchor';
 import {SiteWrapper} from '../components/site-wrapper';
 import {PasteMDXProvider} from '../components/paste-mdx-provider';
 import {SiteMetaDefaults} from '../constants';
@@ -24,14 +27,24 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({children, pageContext, loc
     : SiteMetaDefaults.TITLE;
   const pageDescription = pageContext.frontmatter.description || SiteMetaDefaults.DESCRIPTION;
   return (
-    <SiteWrapper>
+    <SiteWrapper pathname={location.pathname}>
       <Helmet>
         <title>{pageTitle}</title>
         <link rel="canonical" href={`https://paste.twilio.design${location.pathname}`} />
         <meta name="description" content={pageDescription} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Helmet>
-
-      <PasteMDXProvider>{children}</PasteMDXProvider>
+      <Box display={['block', 'block', 'none']} marginBottom="space60">
+        <Alert variant="neutral">
+          The responsive layout of these docs are still in early preview. Please report any bugs on{' '}
+          <Anchor showExternal href="https://github.com/twilio-labs/paste/issues">
+            Github
+          </Anchor>
+        </Alert>
+      </Box>
+      <Box paddingTop={['space40', 'space40', 'space100']} paddingX={['space50', 'space70', 'space200']}>
+        <PasteMDXProvider>{children}</PasteMDXProvider>
+      </Box>
     </SiteWrapper>
   );
 };

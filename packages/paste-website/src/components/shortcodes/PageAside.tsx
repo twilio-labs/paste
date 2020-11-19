@@ -9,7 +9,7 @@ interface PageAsideProps extends TableOfContentsProps, QuestionMenuProps {}
 
 const PageAside: React.FC<PageAsideProps> = ({data}) => {
   return (
-    <Box order={2} marginLeft="space140" minWidth="size20" id="page-aside">
+    <Box order={2} marginLeft="space140" minWidth="size20" id="page-aside" display={['none', 'none', 'block']}>
       <Box position="sticky" top={STICKY_COLUMN_OFFSET}>
         <QuestionMenu data={data} />
         <TableOfContents headings={data.headings} />

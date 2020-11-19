@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/core/box';
-import {Card} from '@twilio-paste/core/card';
-import {Heading} from '@twilio-paste/core/heading';
-import {Text} from '@twilio-paste/core/text';
+import {Box} from '@twilio-paste/box';
+import {Card} from '@twilio-paste/card';
+import {Heading} from '@twilio-paste/heading';
+import {Text} from '@twilio-paste/text';
 
 const ComponentCardHeader: React.FC = ({children}) => {
   return (

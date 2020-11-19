@@ -16,7 +16,7 @@ export const SidebarDisclosureButton = React.forwardRef(({...props}, ref) => {
       fontWeight="fontWeightNormal"
       textAlign="left"
       color="colorText"
-      backgroundColor="colorBackground"
+      backgroundColor="transparent"
       border="none"
       textDecoration="none"
       transition="0.1s background-color ease-in-out"

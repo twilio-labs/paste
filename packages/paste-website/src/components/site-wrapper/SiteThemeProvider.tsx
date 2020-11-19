@@ -6,7 +6,7 @@ import {SITE_BREAKPOINTS} from '../../constants';
 const SiteThemeProvider: React.FC = ({children}) => {
   const {theme} = useActiveSiteTheme();
   return (
-    <Theme.Provider theme={theme} customBreakpoints={SITE_BREAKPOINTS} css={{minWidth: '1024px'}}>
+    <Theme.Provider theme={theme} customBreakpoints={SITE_BREAKPOINTS}>
       {children}
     </Theme.Provider>
   );

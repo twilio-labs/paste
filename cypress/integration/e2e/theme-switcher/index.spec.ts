@@ -1,6 +1,6 @@
 describe('Theme switcher', () => {
   beforeEach(() => {
-    cy.visit('/');
+    cy.visit('/components/alert');
   });
 
   it('check the console theme radio', () => {
