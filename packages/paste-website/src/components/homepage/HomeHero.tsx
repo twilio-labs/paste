@@ -7,10 +7,10 @@ import {NewComponentBanner} from './NewComponentBanner';
 import {NewComponentBannerBadge} from './NewComponentBannerBadge';
 import {NewComponentBannerLink} from './NewComponentBannerLink';
 import {NewComponentBannerText} from './NewComponentBannerText';
-import {SiteHeroIllustration} from './SiteHeroIllustration';
+import {HomeHeroIllustration} from './HomeHeroIllustration';
 import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
 
-const SiteHero: React.FC = () => {
+const HomeHero: React.FC = () => {
   return (
     <Box
       backgroundColor="colorBackgroundPrimaryDarker"
@@ -49,7 +49,7 @@ const SiteHero: React.FC = () => {
             </Text>
           </Column>
           <Column span={7}>
-            <SiteHeroIllustration />
+            <HomeHeroIllustration />
           </Column>
         </Grid>
       </Box>
@@ -57,4 +57,4 @@ const SiteHero: React.FC = () => {
   );
 };
 
-export {SiteHero};
+export {HomeHero};
