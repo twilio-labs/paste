@@ -25,7 +25,6 @@ const Experiment: React.FC = () => {
         <Box boxShadow="shadowHigh" maxWidth="size90" marginLeft="auto" marginRight="auto">
           <AspectRatio ratio="16:9">
             <iframe
-              allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
               frameBorder="0"
               sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
               src="https://codesandbox.io/embed/patterns-create-1jdki?fontsize=14&hidenavigation=1&theme=dark"

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {Helmet} from 'react-helmet';
-import {Box} from '@twilio-paste/box';
 import {SiteWrapper} from '../components/site-wrapper';
 import {SiteMetaDefaults} from '../constants';
 import {GetStarted} from '../components/homepage/GetStarted';
@@ -16,11 +15,9 @@ const Homepage: React.FC<{location: {pathname: string}}> = ({location}): React.R
         <meta name="description" content={SiteMetaDefaults.DESCRIPTION} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Helmet>
-      <Box>
-        <GetStarted />
-        <PopularComponentsAndPatterns />
-        <Experiment />
-      </Box>
+      <GetStarted />
+      <PopularComponentsAndPatterns />
+      <Experiment />
     </SiteWrapper>
   );
 };
