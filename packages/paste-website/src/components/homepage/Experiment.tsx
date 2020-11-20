@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useTheme} from '@twilio-paste/theme';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
@@ -6,8 +7,14 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
 
 const Experiment: React.FC = () => {
+  const theme = useTheme();
   return (
-    <Box backgroundColor="colorBackgroundBrandHighlightLightest" paddingX={['space90', 'space180']} paddingY="space180">
+    <Box
+      // @ts-ignore
+      background={`linear-gradient(-180deg, ${theme.backgroundColors.colorBackgroundBody} 0%, ${theme.backgroundColors.colorBackgroundBrandHighlightLightest} 100%);`}
+      paddingX={['space90', 'space180']}
+      paddingY="space180"
+    >
       <Box maxWidth={SITE_CONTENT_MAX_WIDTH} marginLeft="auto" marginRight="auto">
         <Box textAlign="center">
           <Heading as="h3" variant="heading10">
