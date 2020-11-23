@@ -17,6 +17,7 @@ const HomeHero: React.FC = () => {
       paddingLeft={['space90', 'space180']}
       paddingRight={['space90', 'space180']}
       paddingTop="space200"
+      paddingBottom="space200"
     >
       <Box maxWidth={SITE_CONTENT_MAX_WIDTH} marginLeft="auto" marginRight="auto">
         <Grid gutter="space40" vertical={[true, false, false]}>
