@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/codemods@0.1.3...@twilio-paste/codemods@0.1.4) (2020-11-19)
+
+**Note:** Version bump only for package @twilio-paste/codemods
+
+
+
+
+
+## [0.1.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/codemods@0.1.2...@twilio-paste/codemods@0.1.3) (2020-11-16)
+
+**Note:** Version bump only for package @twilio-paste/codemods
+
+
+
+
+
 ## [0.1.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/codemods@0.1.1...@twilio-paste/codemods@0.1.2) (2020-11-11)
 
 **Note:** Version bump only for package @twilio-paste/codemods

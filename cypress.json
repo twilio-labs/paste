@@ -1,8 +1,6 @@
 {
   "viewportWidth": 1440,
   "viewportHeight": 1020,
-  "chromeWebSecurity": false,
-  "defaultCommandTimeout": 15000,
-  "pageLoadTimeout": 1110000,
-  "baseUrl": "http://localhost:9000"
+  "baseUrl": "http://localhost:9000",
+  "projectId": "pe4h41"
 }

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/select",
-  "version": "1.1.15",
+  "version": "1.1.16",
   "category": "user input",
   "status": "production",
   "description": "Select allows a user to make a selection from a list of options in a form field.",
@@ -28,7 +28,7 @@
   "peerDependencies": {
     "@twilio-paste/box": "^2.11.9",
     "@twilio-paste/design-tokens": "^6.3.6",
-    "@twilio-paste/icons": "^3.8.4",
+    "@twilio-paste/icons": "^3.9.0",
     "@twilio-paste/input-box": "^1.1.10",
     "@twilio-paste/style-props": "^1.8.9",
     "@twilio-paste/styling-library": "^0.1.4",
@@ -42,7 +42,7 @@
   "devDependencies": {
     "@twilio-paste/box": "^2.11.9",
     "@twilio-paste/design-tokens": "^6.3.6",
-    "@twilio-paste/icons": "^3.8.4",
+    "@twilio-paste/icons": "^3.9.0",
     "@twilio-paste/input-box": "^1.1.10",
     "@twilio-paste/style-props": "^1.8.9",
     "@twilio-paste/styling-library": "^0.1.4",

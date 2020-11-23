@@ -1,37 +1,45 @@
 describe('Sidebar navigation', () => {
-  beforeEach(() => {
+  it('opens the sidebar disclosures', () => {
     cy.visit('/');
-  });
 
-  it('opens the sidebar disclosures correctly', () => {
-    const gettingStartedButton = '[data-cy=getting-started-button]';
-    const designTokensButton = '[data-cy=design-tokens-button]';
-    const componentsButton = '[data-cy=components-button]';
-    const primitivesButton = '[data-cy=primitives-button]';
-    const layoutButton = '[data-cy=layout-button]';
-    const iconsButton = '[data-cy=icons-button]';
-    const contentButton = '[data-cy=content-button]';
+    cy.get('[data-cy=getting-started-button]')
+      .click()
+      .should('have.attr', 'aria-expanded', 'true');
+    cy.get('[data-cy=getting-started-list]').should('be.visible');
 
-    cy.get(gettingStartedButton)
+    cy.get('[data-cy=design-tokens-button]')
       .click()
       .should('have.attr', 'aria-expanded', 'true');
-    cy.get(designTokensButton)
+    cy.get('[data-cy=design-tokens-list]').should('be.visible');
+
+    cy.get('[data-cy=components-button]')
       .click()
       .should('have.attr', 'aria-expanded', 'true');
-    cy.get(componentsButton)
+    cy.get('[data-cy=components-list]').should('be.visible');
+
+    cy.get('[data-cy=primitives-button]')
       .click()
       .should('have.attr', 'aria-expanded', 'true');
-    cy.get(primitivesButton)
+    cy.get('[data-cy=primitives-list]').should('be.visible');
+
+    cy.get('[data-cy=layout-button]')
       .click()
       .should('have.attr', 'aria-expanded', 'true');
-    cy.get(layoutButton)
+    cy.get('[data-cy=layout-list]').should('be.visible');
+
+    cy.get('[data-cy=icons-button]')
       .click()
       .should('have.attr', 'aria-expanded', 'true');
-    cy.get(iconsButton)
+    cy.get('[data-cy=icons-list]').should('be.visible');
+
+    cy.get('[data-cy=content-button]')
       .click()
       .should('have.attr', 'aria-expanded', 'true');
-    cy.get(contentButton)
+    cy.get('[data-cy=content-list]').should('be.visible');
+
+    cy.get('[data-cy=patterns-button]')
       .click()
       .should('have.attr', 'aria-expanded', 'true');
+    cy.get('[data-cy=patterns-list]').should('be.visible');
   });
 });
