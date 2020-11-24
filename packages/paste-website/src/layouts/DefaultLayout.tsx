@@ -36,9 +36,9 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({children, pageContext, loc
       </Helmet>
       <Box display={['block', 'block', 'none']} marginBottom="space60">
         <Alert variant="neutral">
-          The responsive layout of these docs are still in early preview. Please report any bugs on{' '}
+          The responsive layout is in early preview. Please{' '}
           <Anchor showExternal href="https://github.com/twilio-labs/paste/issues">
-            Github
+            report any bugs.
           </Anchor>
         </Alert>
       </Box>

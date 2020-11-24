@@ -5,7 +5,6 @@ import {GithubLink} from './GithubLink';
 import {SiteHeaderDesktopSearch} from './SiteHeaderDesktopSearch';
 import {SiteHeaderLogo} from './SiteHeaderLogo';
 import {ThemeSwitcher} from '../../ThemeSwitcher';
-import {useNavigationContext} from '../../../context/NavigationContext';
 
 interface SiteHeaderDesktopProps {
   searchValue: string;
@@ -13,8 +12,6 @@ interface SiteHeaderDesktopProps {
 }
 
 const SiteHeaderDesktop: React.FC<SiteHeaderDesktopProps> = ({searchValue, onSearchChange}) => {
-  const {pathname} = useNavigationContext();
-  const isHomepage = pathname === '/';
   return (
     <Box
       as="aside"
@@ -28,7 +25,7 @@ const SiteHeaderDesktop: React.FC<SiteHeaderDesktopProps> = ({searchValue, onSea
       <SiteHeaderLogo title="Paste" subtitle="Design System" />
       <Box
         display="flex"
-        justifyContent={isHomepage ? 'flex-end' : 'space-between'}
+        justifyContent="space-between"
         alignItems="center"
         flexDirection="row"
         borderLeftColor="colorBorderInverseDarker"
@@ -40,7 +37,7 @@ const SiteHeaderDesktop: React.FC<SiteHeaderDesktopProps> = ({searchValue, onSea
         paddingLeft="space70"
         width="100%"
       >
-        {isHomepage ? null : <ThemeSwitcher />}
+        <ThemeSwitcher />
         <Box marginTop="space0">
           <Stack orientation="horizontal" spacing="space60">
             <SiteHeaderDesktopSearch value={searchValue} onChange={onSearchChange} />

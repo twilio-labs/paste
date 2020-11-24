@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
+import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
 import {HamburgerToggle} from './HamburgerToggle';
 import {SiteHeaderLogo} from './SiteHeaderLogo';
 import {MobileNavigation} from './SiteHeaderMobileNavigation';
@@ -24,15 +25,26 @@ const SiteHeaderMobile: React.FC<SiteHeaderMobileProps> = (/* {searchValue, onSe
       top="0px"
       zIndex="zIndex80"
     >
-      <Box margin="space60" display="flex">
+      <Box margin="space60">
         <Button variant="inverse" size="icon_small" onClick={() => onSidebarToggle(!sidebarOpen)}>
-          <HamburgerToggle toggled={sidebarOpen} />
+          <Box paddingX="space20">
+            <SearchIcon size="sizeIcon50" decorative={false} title="Search all documentation" />
+          </Box>
         </Button>
       </Box>
       <SiteHeaderLogo title="Paste" />
-      <Box margin="space60" display="flex">
-        <Button variant="inverse" size="icon_small" onClick={() => onSidebarToggle(!sidebarOpen)}>
-          <HamburgerToggle toggled={sidebarOpen} />
+      <Box margin="space60">
+        <Button
+          aria-label={sidebarOpen ? 'Close main navigation' : 'Open main navigation'}
+          variant="inverse"
+          size="icon_small"
+          onClick={() => onSidebarToggle(!sidebarOpen)}
+        >
+          <HamburgerToggle
+            aria-hidden
+            toggled={sidebarOpen}
+            color={sidebarOpen ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody'}
+          />
         </Button>
         <MobileNavigation isOpen={sidebarOpen} handleClose={() => onSidebarToggle(false)} />
       </Box>
