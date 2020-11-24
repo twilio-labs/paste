@@ -48,7 +48,6 @@ const StyledModalDialogContent = animated(
       width: '0px',
       height: '0px',
       paddingTop: 'space10',
-      paddingBottom: 'space50',
       backgroundColor: 'colorBackgroundBody',
       borderRadius: 'borderRadius20',
       overflow: 'scroll',
@@ -112,16 +111,18 @@ const MobileNavigation: React.FC<MobileNavigation> = ({isOpen, handleClose}) => 
                   </Button>
                 </Box>
                 <SidebarNavigation />
-                <Separator orientation="horizontal" verticalSpacing="space30" />
-                <ContactUsMenu placement="top" />
-                {!isHomepage ? (
-                  <>
-                    <Separator orientation="horizontal" verticalSpacing="space30" />
-                    <Box paddingX="space90" paddingTop="space30" paddingBottom="space20">
-                      <ThemeSwitcher />
-                    </Box>
-                  </>
-                ) : null}
+                <Box position="sticky" bottom={0} paddingBottom="space40" backgroundColor="colorBackgroundBody">
+                  <Separator orientation="horizontal" verticalSpacing="space30" />
+                  <ContactUsMenu placement="top" />
+                  {!isHomepage ? (
+                    <>
+                      <Separator orientation="horizontal" verticalSpacing="space30" />
+                      <Box paddingX="space90" paddingTop="space30" paddingBottom="space20">
+                        <ThemeSwitcher />
+                      </Box>
+                    </>
+                  ) : null}
+                </Box>
               </StyledModalDialogContent>
             </StyledModalDialogOverlay>
           )

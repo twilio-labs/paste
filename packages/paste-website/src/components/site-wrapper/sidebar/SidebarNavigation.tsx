@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
 import {
   useDisclosurePrimitiveState,
   DisclosurePrimitive,
@@ -59,10 +60,33 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
   });
 
   return (
-    <Box as="nav" marginTop={['space0', 'space0', 'space70']} overflow="auto" role="navigation" aria-label="Main">
+    <Box
+      as="nav"
+      marginTop={['space0', 'space0', 'space70']}
+      marginRight={['space150', 'space150', 'space0']}
+      marginLeft={['space10', 'space10', 'space0']}
+      overflow="auto"
+      role="navigation"
+      aria-label="Main"
+    >
       <Box as="ul" padding="space0" margin="space0" listStyleType="none">
         <SidebarItem>
-          <SidebarAnchor to="/">Home</SidebarAnchor>
+          <SidebarAnchor to="/">
+            <Box display={['flex', 'flex', 'none']} alignItems="center" marginLeft="spaceNegative80">
+              <Box as="span" paddingRight="space30">
+                <img src="/logo.png" alt="Paste Logo" width="28px" height="28px" />
+              </Box>
+              <Text as="span" paddingRight="space20" fontSize={['fontSize50', 'fontSize50', 'fontSize30']}>
+                Paste
+              </Text>
+              <Text as="span" fontSize={['fontSize50', 'fontSize50', 'fontSize30']}>
+                Home
+              </Text>
+            </Box>
+            <Box as="span" display={['none', 'none', 'inline']}>
+              Home
+            </Box>
+          </SidebarAnchor>
         </SidebarItem>
         <SidebarItem>
           <DisclosurePrimitive
