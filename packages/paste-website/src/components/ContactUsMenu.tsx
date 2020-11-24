@@ -40,7 +40,7 @@ export const ContactUsMenu: React.FC<ContactUsMenuProps> = ({placement = 'right-
   };
 
   return (
-    <Box marginTop="auto" padding="space20" paddingBottom="space70">
+    <Box marginTop="auto" padding="space20" paddingBottom={['space0', 'space0', 'space70']}>
       <MenuButton {...menu} variant="reset" size="reset" fullWidth>
         <Box as="span" display="flex" alignItems="center" padding="space40" width="100%">
           <MediaObject verticalAlign="center">

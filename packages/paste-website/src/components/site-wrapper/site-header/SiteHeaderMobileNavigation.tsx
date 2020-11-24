@@ -1,14 +1,16 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import {pasteBaseStyles, useTheme} from '@twilio-paste/theme';
+import {pasteBaseStyles} from '@twilio-paste/theme';
 import {Button} from '@twilio-paste/button';
 import {Separator} from '@twilio-paste/separator';
 import {styled, css} from '@twilio-paste/styling-library';
 import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
 import {useTransition, animated} from '@twilio-paste/animation-library';
 import {HamburgerToggle} from './HamburgerToggle';
+import {ThemeSwitcher} from '../../ThemeSwitcher';
 import {SidebarNavigation} from '../sidebar/SidebarNavigation';
 import {ContactUsMenu} from '../../ContactUsMenu';
+import {useNavigationContext} from '../../../context/NavigationContext';
 
 const StyledModalDialogOverlay = animated(
   styled(ModalDialogPrimitiveOverlay)(
@@ -33,6 +35,10 @@ const StyledModalDialogOverlay = animated(
     pasteBaseStyles
   )
 );
+const ModalDimensions = {
+  MAX_WIDTH: '360px',
+  MAX_HEIGHT: '500px',
+};
 const StyledModalDialogContent = animated(
   styled(ModalDialogPrimitiveContent)(
     css({
@@ -41,12 +47,24 @@ const StyledModalDialogContent = animated(
       right: 10,
       width: '0px',
       height: '0px',
-      maxWidth: 'calc(100vw - 20px)',
-      maxHeight: 'calc(100vh - 60px)',
+      paddingTop: 'space10',
       backgroundColor: 'colorBackgroundBody',
       borderRadius: 'borderRadius20',
+      overflow: 'scroll',
+      overflowScrolling: 'touch',
+      webkitOverflowScrolling: 'touch',
     })
   )
+);
+
+const DropShadowWrapper = styled.div(
+  css({
+    position: 'sticky',
+    bottom: 0,
+    paddingBottom: 'space40',
+    backgroundColor: 'colorBackgroundBody',
+    boxShadow: `0 -18px 20px #fff`,
+  })
 );
 
 interface MobileNavigation {
@@ -56,8 +74,9 @@ interface MobileNavigation {
 
 const MobileNavigation: React.FC<MobileNavigation> = ({isOpen, handleClose}) => {
   const inputRef = React.useRef();
-  const {space} = useTheme();
   const [burgerOpen, setBurgerOpen] = React.useState(false);
+  const {pathname} = useNavigationContext();
+  const isHomepage = pathname === '/';
 
   // Note: we use this trick to make the hamburger animate to the open state
   // immediately upon mount, to give the illusion that the button that was
@@ -65,23 +84,22 @@ const MobileNavigation: React.FC<MobileNavigation> = ({isOpen, handleClose}) => 
   React.useEffect(() => {
     const instantOpenTimer = setTimeout(() => {
       setBurgerOpen(isOpen);
-    }, 1);
+    }, 0);
     return () => clearTimeout(instantOpenTimer);
   }, [isOpen]);
 
   // Our animation configuration
   const transitions = useTransition(isOpen, {
-    from: {width: '0vw', height: '0vh', opacity: 0.3},
-    enter: {width: '100vw', height: '100vh', opacity: 1},
-    leave: {width: '0vw', height: '0vh', opacity: 0},
+    from: {width: '0px', height: '0px', opacity: 0.3},
+    enter: {width: ModalDimensions.MAX_WIDTH, height: ModalDimensions.MAX_HEIGHT, opacity: 1},
+    leave: {width: '0px', height: '0px', opacity: 0.1},
     // https://www.react-spring.io/docs/hooks/api
     config: {
-      mass: 1,
-      tension: 140,
+      mass: 0.5,
+      tension: 150,
       friction: 22,
     },
   });
-
   return (
     <>
       {transitions(
@@ -94,22 +112,27 @@ const MobileNavigation: React.FC<MobileNavigation> = ({isOpen, handleClose}) => 
               style={{opacity: styles.opacity}}
             >
               <StyledModalDialogContent style={styles} aria-label="Website navigation">
-                <Box position="absolute" top="14px" right="14px">
+                <Box position="fixed" top="24px" right="24px" zIndex="zIndex10">
                   <Button variant="reset" size="reset" onClick={handleClose}>
-                    <HamburgerToggle toggled={burgerOpen} />
+                    <HamburgerToggle
+                      toggled={burgerOpen}
+                      color={burgerOpen ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody'}
+                    />
                   </Button>
                 </Box>
-                <Box
-                  marginTop="space120"
-                  paddingBottom="space40"
-                  overflow="scroll"
-                  height={`calc(100% - ${space.space120})`}
-                  css={{webkitOverflowScrolling: 'touch'}}
-                >
-                  <SidebarNavigation />
+                <SidebarNavigation />
+                <DropShadowWrapper>
                   <Separator orientation="horizontal" verticalSpacing="space30" />
                   <ContactUsMenu placement="top" />
-                </Box>
+                  {!isHomepage ? (
+                    <>
+                      <Separator orientation="horizontal" verticalSpacing="space30" />
+                      <Box paddingX="space90" paddingTop="space30" paddingBottom="space20">
+                        <ThemeSwitcher />
+                      </Box>
+                    </>
+                  ) : null}
+                </DropShadowWrapper>
               </StyledModalDialogContent>
             </StyledModalDialogOverlay>
           )

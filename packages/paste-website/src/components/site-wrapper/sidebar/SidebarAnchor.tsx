@@ -14,7 +14,7 @@ const StyledSidebarAnchor = styled(Link)<SidebarAnchorProps>(props =>
     display: 'block',
     width: '100%',
     padding: 'space40',
-    paddingLeft: props.nested ? 'space110' : 'space90',
+    paddingLeft: props.nested ? ['space130', 'space130', 'space110'] : ['space110', 'space110', 'space90'],
     fontWeight: 'fontWeightNormal',
     color: 'colorText',
     textDecoration: 'none',
