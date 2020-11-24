@@ -11,7 +11,13 @@ export const GetStarted: React.FC = () => {
   return (
     <Box paddingX={['space90', 'space180']} position="relative">
       <SlantedBackgroundGradient startColor="colorBackgroundPrimaryDarkest" endColor="colorBackgroundPrimaryDarker">
-        <Box maxWidth={SITE_CONTENT_MAX_WIDTH} marginLeft="auto" marginRight="auto">
+        <Box
+          maxWidth={SITE_CONTENT_MAX_WIDTH}
+          marginLeft="auto"
+          marginRight="auto"
+          position="relative"
+          zIndex="zIndex10"
+        >
           <Grid as="section" gutter="space40" vertical={[true, false, false]}>
             <Column span={4}>
               <GetStarterWhy />

@@ -10,7 +10,14 @@ const SiteFooter: React.FC<{}> = () => {
     <Box margin="space70" marginTop="space200" paddingTop="space200" position="relative">
       <SiteFooterTopAngle />
       <Box borderRadius="borderRadius20" backgroundColor="colorBackgroundPrimaryDarker">
-        <Box maxWidth={SITE_CONTENT_MAX_WIDTH} padding={['space90', 'space180']} marginTop="space10">
+        <Box
+          maxWidth={SITE_CONTENT_MAX_WIDTH}
+          padding={['space90', 'space180']}
+          marginTop="space10"
+          marginLeft="auto"
+          marginRight="auto"
+          position="relative"
+        >
           <SiteFooterIllustration />
           <SiteFooterNav />
         </Box>
