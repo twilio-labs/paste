@@ -34,8 +34,14 @@ const SiteHeaderMobile: React.FC<SiteHeaderMobileProps> = (/* {searchValue, onSe
       </Box>
       <SiteHeaderLogo title="Paste" />
       <Box margin="space60">
-        <Button variant="inverse" size="icon_small" onClick={() => onSidebarToggle(!sidebarOpen)}>
+        <Button
+          aria-label={sidebarOpen ? 'Close main navigation' : 'Open main navigation'}
+          variant="inverse"
+          size="icon_small"
+          onClick={() => onSidebarToggle(!sidebarOpen)}
+        >
           <HamburgerToggle
+            aria-hidden
             toggled={sidebarOpen}
             color={sidebarOpen ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody'}
           />

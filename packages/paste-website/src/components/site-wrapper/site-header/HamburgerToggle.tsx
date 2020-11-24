@@ -20,9 +20,9 @@ const Pattie: React.FC<BoxProps> = props => (
   />
 );
 
-const HamburgerToggle = React.forwardRef<HTMLButtonElement, HamburgerToggleProps>(({toggled, color}, ref) => {
+const HamburgerToggle = React.forwardRef<HTMLButtonElement, HamburgerToggleProps>(({toggled, color, ...props}, ref) => {
   return (
-    <Box ref={ref} width="36px" height="28px" position="relative" transition="all .5s ease-in-out">
+    <Box {...props} ref={ref} width="36px" height="28px" position="relative" transition="all .5s ease-in-out">
       <Pattie
         backgroundColor={color}
         transform={toggled ? 'translateX(6px) translateY(4px) rotate(45deg)' : 'rotate(0deg)'}
