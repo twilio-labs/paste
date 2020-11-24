@@ -4,7 +4,7 @@ import {Grid, Column} from '@twilio-paste/grid';
 import {GetStarterWhy} from './GetStartedWhy';
 import {GetStartedInclusive} from './GetStartedInclusive';
 import {GetStartedRunning} from './GetStartedRunning';
-import {SlantedBackgroundGradient} from './SlantedBackgroundGradient';
+import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
 import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
 
 export const GetStarted: React.FC = () => {

@@ -1,21 +1,23 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
+import {useSlantedSkew} from '../../SlantedBackgroundGradient';
 
 const SiteFooterTopAngle: React.FC<{}> = () => {
+  const [skewOffset] = useSlantedSkew();
+
   return (
-    <Box borderRadius="borderRadius20" position="absolute" top={0} right={0} bottom={0} left={0}>
-      <Box
-        backgroundColor="colorBackgroundPrimaryDarker"
-        borderRadius="borderRadius20"
-        height="100%"
-        left={0}
-        position="relative"
-        top={0}
-        transform="skewY(-5deg)"
-        transformOrigin="100% 0"
-        width="100%"
-      />
-    </Box>
+    <Box
+      backgroundColor="colorBackgroundPrimaryDarker"
+      borderRadius="borderRadius20"
+      height="75%"
+      position="absolute"
+      top={skewOffset}
+      right={0}
+      bottom={0}
+      left={0}
+      transform="skewY(-11deg)"
+      transformOrigin="85% 0"
+    />
   );
 };
 

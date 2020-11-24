@@ -8,7 +8,7 @@ import {NewComponentBannerBadge} from './NewComponentBannerBadge';
 import {NewComponentBannerLink} from './NewComponentBannerLink';
 import {NewComponentBannerText} from './NewComponentBannerText';
 import {HomeHeroIllustration} from './HomeHeroIllustration';
-import {SlantedBackgroundGradient} from './SlantedBackgroundGradient';
+import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
 import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
 
 const HomeHero: React.FC = () => {
