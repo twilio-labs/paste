@@ -57,6 +57,16 @@ const StyledModalDialogContent = animated(
   )
 );
 
+const DropShadowWrapper = styled.div(
+  css({
+    position: 'sticky',
+    bottom: 0,
+    paddingBottom: 'space40',
+    backgroundColor: 'colorBackgroundBody',
+    boxShadow: `0 -18px 20px #fff`,
+  })
+);
+
 interface MobileNavigation {
   isOpen: boolean;
   handleClose: () => void;
@@ -111,7 +121,7 @@ const MobileNavigation: React.FC<MobileNavigation> = ({isOpen, handleClose}) => 
                   </Button>
                 </Box>
                 <SidebarNavigation />
-                <Box position="sticky" bottom={0} paddingBottom="space40" backgroundColor="colorBackgroundBody">
+                <DropShadowWrapper>
                   <Separator orientation="horizontal" verticalSpacing="space30" />
                   <ContactUsMenu placement="top" />
                   {!isHomepage ? (
@@ -122,7 +132,7 @@ const MobileNavigation: React.FC<MobileNavigation> = ({isOpen, handleClose}) => 
                       </Box>
                     </>
                   ) : null}
-                </Box>
+                </DropShadowWrapper>
               </StyledModalDialogContent>
             </StyledModalDialogOverlay>
           )
