@@ -164,6 +164,51 @@ Use `offset` to push a column to the right by a certain number of columns. For e
 </Grid>`}
 </LivePreview>
 
+### Equal column heights
+
+Set `equalColumnHeights` on a grid container and all columns in a single row will share the height of the tallest column.
+
+This can be useful when trying to visually align Cards where their content is variable.
+
+When columns have equal heights, a single child element will stretch to the height of the column. You may still need to control the width of that child though.
+
+<LivePreview scope={{Grid, Column, Card, Button, Heading, Paragraph, Box}} language="jsx">
+  {`<Grid gutter="space30" equalColumnHeights>
+  <Column span={4}>
+    <Card padding="space70">
+      <Heading as="h2" variant="heading20">
+        Why use Paste?
+      </Heading>
+      <Paragraph marginBottom="space0">
+        Paste helps you rapidly prototype, and ship great, inclusive customer experiences. It makes it easy to
+        do the right thing, cheaply.
+      </Paragraph>
+    </Card>
+  </Column>
+  <Column span={4}>
+    <Card padding="space70">
+      <Heading as="h2" variant="heading20">
+        Inclusive by default
+      </Heading>
+      <Paragraph marginBottom="space0">
+        Paste meets WCAG 2.1 AA standards in the design and development of our components, making it even easier
+        to build accessibly.
+      </Paragraph>
+    </Card>
+  </Column>
+  <Column span={4}>
+    <Card padding="space70">
+      <Heading as="h2" variant="heading20">
+        Get up and running
+      </Heading>
+      <Paragraph marginBottom="space0">
+        Whether you’re a designer or developer, setting up Paste is easy and only takes a few minutes!
+      </Paragraph>
+    </Card>
+  </Column>
+</Grid>`}
+</LivePreview>
+
 ### Stacked columns in a vertical layout
 
 Use the `vertical` prop to stack columns vertically instead of horizontally. The `vertical` prop can work along with theme breakpoints,
@@ -559,10 +604,11 @@ const Component = () => (
 
 #### Grid Props
 
-| Prop      | Type                                         | Description                                                                                                                         | Default |
-| --------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| gutter?   | `ResponsiveValue<keyof ThemeShape['space']>` | Sets the spacing on both sides of a Column. Use a spacing token that represents half of the total space you need between 2 Columns. |         |
-| vertical? | `boolean, ResponsiveValue<boolean>`          | Stacks the Columns                                                                                                                  |         |
+| Prop                | Type                                         | Description                                                                                                                         | Default |
+| ------------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| equalColumnHeights? | `boolean`                                    | Sets the height of columns in a row to be equal.                                                                                    |         |
+| gutter?             | `ResponsiveValue<keyof ThemeShape['space']>` | Sets the spacing on both sides of a Column. Use a spacing token that represents half of the total space you need between 2 Columns. |         |
+| vertical?           | `boolean, ResponsiveValue<boolean>`          | Stacks the Columns                                                                                                                  |         |
 
 #### Column Props
 
