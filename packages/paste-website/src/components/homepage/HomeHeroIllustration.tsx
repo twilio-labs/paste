@@ -48,7 +48,7 @@ const HomeHeroIllustration: React.FC = () => {
       import('../../assets/animations/HeroAnimation')
         .then(({HeroAnimation}) => {
           if (containerRef.current != null) {
-            lottie.loadAnimation({
+            const anim = lottie.loadAnimation({
               // @ts-ignore
               container: containerRef.current,
               renderer: 'svg',
@@ -56,6 +56,7 @@ const HomeHeroIllustration: React.FC = () => {
               autoplay: true,
               animationData: HeroAnimation,
             });
+            anim.setSpeed(3.5);
             return true;
           }
           return false;
