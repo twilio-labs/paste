@@ -12,7 +12,11 @@ const SiteFooter: React.FC<{}> = () => {
   return (
     <Box margin="space70" marginTop="space200" paddingTop="space200" position="relative">
       {pathname === '/' ? <SiteFooterTopAngle /> : null}
-      <Box borderRadius="borderRadius20" backgroundColor="colorBackgroundPrimaryDarker">
+      <Box
+        borderRadius="borderRadius20"
+        backgroundColor="colorBackgroundPrimaryDarker"
+        marginTop={['space0', 'space0', 'space100']}
+      >
         <Box
           maxWidth={SITE_CONTENT_MAX_WIDTH}
           padding={['space90', 'space180']}

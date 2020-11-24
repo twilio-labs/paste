@@ -21,7 +21,14 @@ const Experiment: React.FC = () => {
             </Heading>
             <Paragraph>Create and play with our React components in the Paste prototyping sandbox.</Paragraph>
           </Box>
-          <Box boxShadow="shadowHigh" maxWidth="size90" marginLeft="auto" marginRight="auto">
+          <Box
+            boxShadow="shadowHigh"
+            maxWidth="size90"
+            marginLeft="auto"
+            marginRight="auto"
+            position="relative"
+            zIndex="zIndex10"
+          >
             <AspectRatio ratio="16:9">
               <iframe
                 frameBorder="0"
