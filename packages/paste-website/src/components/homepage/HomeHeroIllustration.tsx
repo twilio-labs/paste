@@ -7,25 +7,19 @@ import VisibilitySensor from 'react-visibility-sensor';
 import HomeHeroIllu from '../../assets/illustrations/home_hero.svg';
 
 const IllustrationStates = {
-  DEFAULT: 0,
+  UNINITIALIZED: 0, // This is SSR too
   STATIC: 1,
   DYNAMIC: 2,
 };
 type IllustrationStatesType = ValueOf<typeof IllustrationStates>;
 
 const IllustrationChildren: React.FC<{state: IllustrationStatesType}> = ({state}) => {
-  const prefersReducedMotion = useReducedMotion();
-
-  if (prefersReducedMotion) {
-    return <HomeHeroIllu />;
-  }
-
   switch (state) {
     case IllustrationStates.STATIC:
       return <HomeHeroIllu />;
     // null for dynamic because lottie injects children
     case IllustrationStates.DYNAMIC:
-    case IllustrationStates.DEFAULT:
+    case IllustrationStates.UNINITIALIZED:
     default:
       return null;
   }
@@ -40,11 +34,11 @@ const IllustrationChildren: React.FC<{state: IllustrationStatesType}> = ({state}
 const HomeHeroIllustration: React.FC = () => {
   const prefersReducedMotion = useReducedMotion();
   const containerRef = React.useRef();
-  const [illustrationState, setIllustrationState] = React.useState(IllustrationStates.DEFAULT);
+  const [illustrationState, setIllustrationState] = React.useState(IllustrationStates.UNINITIALIZED);
 
   const handleVisibilityChange = (isVisible: boolean): void => {
-    if (illustrationState === IllustrationStates.DEFAULT && isVisible) {
-      setIllustrationState(IllustrationStates.DYNAMIC);
+    if (illustrationState === IllustrationStates.UNINITIALIZED && isVisible) {
+      setIllustrationState(prefersReducedMotion ? IllustrationStates.STATIC : IllustrationStates.DYNAMIC);
     }
   };
 
