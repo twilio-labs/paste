@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {useTheme} from '@twilio-paste/theme';
-import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
 import {ComponentCard, ComponentCardHeader, ComponentCardIllustration, ComponentCardFooter} from '../component-card';
+import {SiteLink} from '../SiteLink';
 import ComponentsIcon from '../icons/ComponentsIcon';
 import HomeButtonIllustration from '../../assets/illustrations/home_button_illustration.svg';
 import HomeComboboxIllustration from '../../assets/illustrations/home_combobox_illustration.svg';
@@ -45,7 +45,7 @@ const PopularComponents: React.FC = () => {
               <HomeButtonIllustration aria-hidden="true" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
-              <Anchor href="/components/button">See Button</Anchor>
+              <SiteLink to="/components/button">See Button</SiteLink>
             </ComponentCardFooter>
           </ComponentCard>
         </Column>
@@ -56,14 +56,14 @@ const PopularComponents: React.FC = () => {
               <HomeComboboxIllustration aria-hidden="true" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
-              <Anchor href="/components/combobox">See Combobox</Anchor>
+              <SiteLink to="/components/combobox">See Combobox</SiteLink>
             </ComponentCardFooter>
           </ComponentCard>
         </Column>
       </Grid>
       <Box textAlign="center" marginTop="space20" marginBottom="space60">
         <Text as="span" fontWeight="fontWeightSemibold">
-          Explore <Anchor href="/components">all Components</Anchor>
+          Explore <SiteLink to="/components">all Components</SiteLink>
         </Text>
       </Box>
     </Box>

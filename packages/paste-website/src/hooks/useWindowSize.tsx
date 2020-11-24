@@ -41,8 +41,8 @@ function useWindowSize(): WindowSizeState {
           breakpointIndex: getBreakpointIndex(window.innerWidth),
         });
       },
-      100,
-      {leading: false, trailing: true, maxWait: 400}
+      50,
+      {leading: false, trailing: true, maxWait: 150}
     );
 
     // Add event listener
