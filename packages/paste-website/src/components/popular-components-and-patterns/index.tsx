@@ -8,7 +8,7 @@ import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
 
 const PopularComponentsAndPatterns: React.FC = () => {
   return (
-    <Box backgroundColor="colorBackground" padding={['space90', 'space180']}>
+    <Box marginTop="space190" padding={['space90', 'space180']}>
       <Box maxWidth={SITE_CONTENT_MAX_WIDTH} marginLeft="auto" marginRight="auto">
         <PopularSectionHeader />
         <Grid gutter="space60">
