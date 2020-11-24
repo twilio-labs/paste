@@ -63,30 +63,35 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
     <Box
       as="nav"
       marginTop={['space0', 'space0', 'space70']}
-      marginRight={['space150', 'space150', 'space0']}
       marginLeft={['space10', 'space10', 'space0']}
+      paddingBottom={['space50', 'space50', 'space0']}
       overflow="auto"
       role="navigation"
       aria-label="Main"
     >
-      <Box as="ul" padding="space0" margin="space0" listStyleType="none">
-        <SidebarItem>
-          <SidebarAnchor to="/">
-            <Box display={['flex', 'flex', 'none']} alignItems="center" marginLeft="spaceNegative80">
-              <Box as="span" paddingRight="space30">
-                <img src="/logo.png" alt="Paste Logo" width="28px" height="28px" />
-              </Box>
-              <Text as="span" paddingRight="space20" fontSize={['fontSize50', 'fontSize50', 'fontSize30']}>
-                Paste
-              </Text>
-              <Text as="span" fontSize={['fontSize50', 'fontSize50', 'fontSize30']}>
-                Home
-              </Text>
+      <Box
+        display={['block', 'block', 'none']}
+        marginTop="space20"
+        marginLeft="space20"
+        marginRight={['space160', 'space160', 'space0']}
+      >
+        <SidebarAnchor to="/">
+          <Box display={['flex', 'flex', 'none']} alignItems="center" marginLeft="spaceNegative80" height="28px">
+            <Box as="span" paddingRight="space30">
+              <img src="/logo.png" alt="Paste Logo" width="28px" height="28px" />
             </Box>
-            <Box as="span" display={['none', 'none', 'inline']}>
+            <Text as="span" paddingRight="space20" fontSize={['fontSize50', 'fontSize50', 'fontSize30']}>
+              Paste
+            </Text>
+            <Text as="span" fontSize={['fontSize50', 'fontSize50', 'fontSize30']}>
               Home
-            </Box>
-          </SidebarAnchor>
+            </Text>
+          </Box>
+        </SidebarAnchor>
+      </Box>
+      <Box as="ul" padding="space0" margin="space0" listStyleType="none">
+        <SidebarItem display={['none', 'none', 'block']}>
+          <SidebarAnchor to="/">Home</SidebarAnchor>
         </SidebarItem>
         <SidebarItem>
           <DisclosurePrimitive
