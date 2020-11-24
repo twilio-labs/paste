@@ -78,7 +78,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
         <SidebarAnchor to="/">
           <Box display={['flex', 'flex', 'none']} alignItems="center" marginLeft="spaceNegative80" height="28px">
             <Box as="span" paddingRight="space30">
-              <img src="/logo.png" alt="Paste Logo" width="28px" height="28px" />
+              <img src="/logo.png" alt="" width="28px" height="28px" />
             </Box>
             <Text as="span" paddingRight="space20" fontSize={['fontSize50', 'fontSize50', 'fontSize30']}>
               Paste
