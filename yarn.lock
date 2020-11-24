@@ -17895,6 +17895,11 @@ lorem-ipsum@^2.0.3:
   dependencies:
     commander "^2.17.1"
 
+lottie-web@^5.7.4:
+  version "5.7.4"
+  resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.7.4.tgz#3b252148e904a0aa9833879ffb64924c85a0888c"
+  integrity sha512-LxqhXlHnHXOPmu+o2ipFKGv42jZLmn/GiEwXP0YC331fFwa+y96OUV22OF9r4i29uWKDciXiJr8tzy6jL8KygA==
+
 loud-rejection@^1.0.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/loud-rejection/-/loud-rejection-1.6.0.tgz#5b46f80147edee578870f086d04821cf998e551f"
@@ -21907,6 +21912,13 @@ react-uid@2.3.0:
   integrity sha512-tsPZ77GR0pISGYmpCLHAbZTabKXZ7zBniKPVqVMMfnXFyo39zq5g/psIlD5vLTKkjQEhWOO8JhqcHnxkwNu6eA==
   dependencies:
     tslib "^1.10.0"
+
+react-visibility-sensor@5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/react-visibility-sensor/-/react-visibility-sensor-5.1.1.tgz#5238380960d3a0b2be0b7faddff38541e337f5a9"
+  integrity sha512-cTUHqIK+zDYpeK19rzW6zF9YfT4486TIgizZW53wEZ+/GPBbK7cNS0EHyJVyHYacwFEvvHLEKfgJndbemWhB/w==
+  dependencies:
+    prop-types "^15.7.2"
 
 react@^16.8.0, react@^16.8.3, react@^16.8.6:
   version "16.13.1"
