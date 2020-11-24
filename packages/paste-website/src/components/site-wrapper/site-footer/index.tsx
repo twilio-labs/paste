@@ -7,7 +7,7 @@ import {SITE_CONTENT_MAX_WIDTH} from '../../../constants';
 
 const SiteFooter: React.FC<{}> = () => {
   return (
-    <Box margin="space70" paddingTop="space200" position="relative">
+    <Box margin="space70" marginTop="space200" paddingTop="space200" position="relative">
       <SiteFooterTopAngle />
       <Box borderRadius="borderRadius20" backgroundColor="colorBackgroundPrimaryDarker">
         <Box maxWidth={SITE_CONTENT_MAX_WIDTH} padding={['space90', 'space180']} marginTop="space10">

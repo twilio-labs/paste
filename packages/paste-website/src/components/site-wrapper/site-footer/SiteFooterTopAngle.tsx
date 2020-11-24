@@ -15,7 +15,7 @@ const SiteFooterTopAngle: React.FC<{}> = () => {
       right={0}
       bottom={0}
       left={0}
-      transform="skewY(-11deg)"
+      transform="skewY(-9deg)"
       transformOrigin="85% 0"
     />
   );

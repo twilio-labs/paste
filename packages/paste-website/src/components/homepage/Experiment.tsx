@@ -1,19 +1,10 @@
 import * as React from 'react';
-import {styled, themeGet} from '@twilio-paste/styling-library';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
 import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
-
-const StyledBrandGradient = styled(Box)`
-  background: linear-gradient(
-    -180deg,
-    ${themeGet('backgroundColors.colorBackgroundBody')} 0%,
-    ${themeGet('backgroundColors.colorBackgroundBrandHighlightLightest')} 100%
-  );
-`;
 
 const Experiment: React.FC = () => {
   return (
