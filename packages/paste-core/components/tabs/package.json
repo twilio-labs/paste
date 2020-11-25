@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/tabs",
-  "version": "0.3.27",
+  "version": "0.3.28",
   "category": "interaction",
   "status": "alpha",
   "description": "Twilio's Tabs component.",
@@ -28,7 +28,7 @@
   "peerDependencies": {
     "@twilio-paste/box": "^2.11.9",
     "@twilio-paste/design-tokens": "^6.3.6",
-    "@twilio-paste/flex": "^0.3.69",
+    "@twilio-paste/flex": "^0.3.70",
     "@twilio-paste/reakit-library": "^0.7.4",
     "@twilio-paste/style-props": "^1.8.9",
     "@twilio-paste/styling-library": "^0.1.4",
@@ -42,7 +42,7 @@
   "devDependencies": {
     "@twilio-paste/box": "^2.11.9",
     "@twilio-paste/design-tokens": "^6.3.6",
-    "@twilio-paste/flex": "^0.3.69",
+    "@twilio-paste/flex": "^0.3.70",
     "@twilio-paste/reakit-library": "^0.7.4",
     "@twilio-paste/style-props": "^1.8.9",
     "@twilio-paste/styling-library": "^0.1.4",
