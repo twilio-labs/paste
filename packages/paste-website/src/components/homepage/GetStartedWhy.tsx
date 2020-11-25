@@ -1,15 +1,17 @@
 import * as React from 'react';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
-
 import HomeGetStartedIllo2 from '../../assets/illustrations/home_getstarted_2.svg';
 import {GetStartedCard} from './GetStartedCard';
 import {GetStartedCardIllustration} from './GetStartedCardIllustration';
 import {GetStartedCardLink} from './GetStartedCardLink';
 
-export const GetStarterWhy: React.FC = () => {
+interface GetStarterWhyProps {
+  show: boolean;
+}
+export const GetStarterWhy: React.FC<GetStarterWhyProps> = ({show}) => {
   return (
-    <GetStartedCard>
+    <GetStartedCard show={show}>
       <GetStartedCardIllustration>
         <HomeGetStartedIllo2 aria-hidden="true" />
       </GetStartedCardIllustration>

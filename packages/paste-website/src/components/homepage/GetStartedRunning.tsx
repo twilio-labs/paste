@@ -2,17 +2,19 @@ import * as React from 'react';
 import useResizeObserver from 'use-resize-observer';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
-
 import HomeGetStartedIllo3 from '../../assets/illustrations/home_getstarted_3.svg';
 import {GetStartedCard} from './GetStartedCard';
 import {GetStartedCardIllustration} from './GetStartedCardIllustration';
 import {GetStartedCardLinks} from './GetStartedCardLinks';
 import {GetStartedCardLink} from './GetStartedCardLink';
 
-export const GetStartedRunning: React.FC = () => {
+interface GetStartedRunningProps {
+  show: boolean;
+}
+export const GetStartedRunning: React.FC<GetStartedRunningProps> = ({show}) => {
   const {ref, width: linkBoxWidth = 1} = useResizeObserver<HTMLDivElement>();
   return (
-    <GetStartedCard>
+    <GetStartedCard show={show}>
       <GetStartedCardIllustration>
         <HomeGetStartedIllo3 aria-hidden="true" />
       </GetStartedCardIllustration>

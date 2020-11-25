@@ -1,4 +1,5 @@
 import * as React from 'react';
+import VisibilitySensor from 'react-visibility-sensor';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Grid, Column} from '@twilio-paste/grid';
@@ -9,6 +10,14 @@ import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
 import {SITE_CONTENT_MAX_WIDTH, HOMEPAGE_SECTION_OVERFLOW_OFFSET} from '../../constants';
 
 export const GetStarted: React.FC = () => {
+  const [visible, setVisible] = React.useState(false);
+
+  const handleVisibilityChange = (isVisible: boolean): void => {
+    if (!visible) {
+      setVisible(isVisible);
+    }
+  };
+
   return (
     <Box paddingX={['space90', 'space180']} position="relative">
       <SlantedBackgroundGradient
@@ -35,17 +44,19 @@ export const GetStarted: React.FC = () => {
           >
             Learn more and get started
           </Text>
-          <Grid as="section" gutter="space40" vertical={[true, false, false]}>
-            <Column span={4}>
-              <GetStarterWhy />
-            </Column>
-            <Column span={4}>
-              <GetStartedInclusive />
-            </Column>
-            <Column span={4}>
-              <GetStartedRunning />
-            </Column>
-          </Grid>
+          <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={45}>
+            <Grid as="section" gutter="space40" vertical={[true, false, false]}>
+              <Column span={4}>
+                <GetStarterWhy show={visible} />
+              </Column>
+              <Column span={4}>
+                <GetStartedInclusive show={visible} />
+              </Column>
+              <Column span={4}>
+                <GetStartedRunning show={visible} />
+              </Column>
+            </Grid>
+          </VisibilitySensor>
         </Box>
       </SlantedBackgroundGradient>
     </Box>
