@@ -56,7 +56,7 @@ const HomeHeroIllustration: React.FC = () => {
               autoplay: true,
               animationData: HeroAnimation,
             });
-            anim.setSpeed(3.5);
+            anim.setSpeed(2.4);
             return true;
           }
           return false;
@@ -71,13 +71,7 @@ const HomeHeroIllustration: React.FC = () => {
   // Also to prevent height fouc when the animation loads
   return (
     <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={15}>
-      <Box
-        aria-hidden="true"
-        maxWidth="size70"
-        height={['400px', '400px', '480px']}
-        marginLeft="auto"
-        ref={containerRef}
-      >
+      <Box aria-hidden="true" maxWidth="size70" height="400px" marginLeft="auto" ref={containerRef}>
         <IllustrationChildren state={illustrationState} />
       </Box>
     </VisibilitySensor>
