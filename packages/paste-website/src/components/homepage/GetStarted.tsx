@@ -59,14 +59,14 @@ export const GetStarted: React.FC = () => {
 
           <Grid as="section" gutter="space40" vertical={[true, false, false]} equalColumnHeights>
             <Column span={4}>
-              <Box marginBottom={['space70', 'space70', 'space0']}>
+              <Box marginBottom={['space70', 'space0', 'space0']}>
                 <VisibilitySensor onChange={handleWhyVisibilityChange} partialVisibility minTopValue={75}>
                   <GetStarterWhy show={whyVisible} />
                 </VisibilitySensor>
               </Box>
             </Column>
             <Column span={4}>
-              <Box marginBottom={['space70', 'space70', 'space0']}>
+              <Box marginBottom={['space70', 'space0', 'space0']}>
                 <VisibilitySensor onChange={handleInclusiveVisibilityChange} partialVisibility minTopValue={75}>
                   <GetStartedInclusive show={inclusiveVisible} />
                 </VisibilitySensor>

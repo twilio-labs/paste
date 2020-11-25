@@ -9,6 +9,7 @@ interface GetStartedCardProps {
 }
 export const GetStartedCard: React.FC<GetStartedCardProps> = ({show, children}) => {
   const props = useSpring({
+    height: '100%', // FIXME: hackily fixes equal card heights
     width: '100%', // FIXME: hackily fixes stacked Card widths
     opacity: show ? 1 : 0,
     transform: show ? 'translateY(0px)' : 'translateY(25px)',
