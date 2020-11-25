@@ -6,6 +6,8 @@ import {PopularPatterns} from './PopularPatterns';
 import {PopularSectionHeader} from './PopularSectionHeader';
 import {SITE_CONTENT_MAX_WIDTH, HOMEPAGE_SECTION_OVERFLOW_OFFSET} from '../../constants';
 import {useSlantedSkew} from '../SlantedBackgroundGradient';
+import {DoodleLoopSmall} from '../../assets/illustrations/DoodleLoopSmall';
+import {DoodleCurve} from '../../assets/illustrations/DoodleCurve';
 
 const PopularComponentsTopAngle: React.FC<{}> = () => {
   const [skewOffset] = useSlantedSkew();
@@ -50,18 +52,28 @@ const PopularComponentsAndPatterns: React.FC = () => {
     <Box margin="space70" marginTop="space110" padding={['space90', 'space180']} position="relative">
       <PopularComponentsTopAngle />
       <PopularComponentsBottomAngle />
-      <Box position="relative" marginTop="spaceNegative90">
-        <Box maxWidth={SITE_CONTENT_MAX_WIDTH} marginLeft="auto" marginRight="auto">
-          <PopularSectionHeader />
-          <Grid gutter="space60">
-            <Column span={[12, 6]}>
-              <PopularComponents />
-            </Column>
-            <Column span={[12, 6]}>
-              <PopularPatterns />
-            </Column>
-          </Grid>
+      <Box
+        maxWidth={SITE_CONTENT_MAX_WIDTH}
+        position="relative"
+        marginTop="spaceNegative90"
+        marginLeft="auto"
+        marginRight="auto"
+      >
+        <Box position="absolute" top={140} right={-22}>
+          <DoodleCurve />
         </Box>
+        <Box position="absolute" bottom={[25, 5, 5]} left={-40}>
+          <DoodleLoopSmall />
+        </Box>
+        <PopularSectionHeader />
+        <Grid gutter="space60">
+          <Column span={[12, 6]}>
+            <PopularComponents />
+          </Column>
+          <Column span={[12, 6]}>
+            <PopularPatterns />
+          </Column>
+        </Grid>
       </Box>
     </Box>
   );
