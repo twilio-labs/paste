@@ -4,7 +4,7 @@ import {Grid, Column} from '@twilio-paste/grid';
 import {PopularComponents} from './PopularComponents';
 import {PopularPatterns} from './PopularPatterns';
 import {PopularSectionHeader} from './PopularSectionHeader';
-import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
+import {SITE_CONTENT_MAX_WIDTH, HOMEPAGE_SECTION_OVERFLOW_OFFSET} from '../../constants';
 import {useSlantedSkew} from '../SlantedBackgroundGradient';
 
 const PopularComponentsTopAngle: React.FC<{}> = () => {
@@ -16,12 +16,12 @@ const PopularComponentsTopAngle: React.FC<{}> = () => {
       borderRadius="borderRadius20"
       height="75%"
       position="absolute"
-      top={skewOffset}
+      top={skewOffset - HOMEPAGE_SECTION_OVERFLOW_OFFSET}
       right={0}
       bottom={0}
       left={0}
       transform="skewY(-9deg)"
-      transformOrigin="85% 0"
+      transformOrigin="100% 0"
     />
   );
 };
@@ -40,17 +40,17 @@ const PopularComponentsBottomAngle: React.FC<{}> = () => {
       right={0}
       left={0}
       transform="skewY(-9deg)"
-      transformOrigin="85% 0"
+      transformOrigin="100% 0"
     />
   );
 };
 
 const PopularComponentsAndPatterns: React.FC = () => {
   return (
-    <Box margin="space70" marginTop="space200" padding={['space90', 'space180']} position="relative">
+    <Box margin="space70" marginTop="space110" padding={['space90', 'space180']} position="relative">
       <PopularComponentsTopAngle />
       <PopularComponentsBottomAngle />
-      <Box position="relative">
+      <Box position="relative" marginTop="spaceNegative90">
         <Box maxWidth={SITE_CONTENT_MAX_WIDTH} marginLeft="auto" marginRight="auto">
           <PopularSectionHeader />
           <Grid gutter="space60">

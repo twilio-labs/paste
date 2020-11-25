@@ -20,6 +20,7 @@ interface BackgroundGradientProps {
   gradientAngle?: string;
   startColor: BackgroundColorOptions;
   endColor: BackgroundColorOptions;
+  styles: {};
 }
 
 export const SlantedBackgroundGradient: React.FC<BackgroundGradientProps> = ({
@@ -27,6 +28,7 @@ export const SlantedBackgroundGradient: React.FC<BackgroundGradientProps> = ({
   endColor,
   skewAngle = HOMEPAGE_SKEW_ANGLE,
   gradientAngle = '90deg',
+  styles,
   ...props
 }) => {
   const [skewOffset] = useSlantedSkew(skewAngle);
@@ -34,7 +36,7 @@ export const SlantedBackgroundGradient: React.FC<BackgroundGradientProps> = ({
 
   return (
     <div
-      {...props}
+      aria-hidden
       css={{
         '&:before': {
           content: `" "`,
@@ -51,8 +53,10 @@ export const SlantedBackgroundGradient: React.FC<BackgroundGradientProps> = ({
             ${backgroundColors[startColor]} 0%,
             ${backgroundColors[endColor]} 100%
           )`,
+          ...styles,
         },
       }}
+      {...props}
     />
   );
 };

@@ -6,12 +6,16 @@ import {GetStarterWhy} from './GetStartedWhy';
 import {GetStartedInclusive} from './GetStartedInclusive';
 import {GetStartedRunning} from './GetStartedRunning';
 import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
-import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
+import {SITE_CONTENT_MAX_WIDTH, HOMEPAGE_SECTION_OVERFLOW_OFFSET} from '../../constants';
 
 export const GetStarted: React.FC = () => {
   return (
     <Box paddingX={['space90', 'space180']} position="relative">
-      <SlantedBackgroundGradient startColor="colorBackgroundPrimaryDarkest" endColor="colorBackgroundPrimaryDarker">
+      <SlantedBackgroundGradient
+        startColor="colorBackgroundPrimaryDarkest"
+        endColor="colorBackgroundPrimaryDarker"
+        styles={{bottom: `${HOMEPAGE_SECTION_OVERFLOW_OFFSET}px`}}
+      >
         <Box
           maxWidth={SITE_CONTENT_MAX_WIDTH}
           marginLeft="auto"
