@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.2.71...@twilio-paste/grid@0.3.0) (2020-11-25)
+
+
+### Features
+
+* **grid:** equal height columns ([ac8d758](https://github.com/twilio-labs/paste/commit/ac8d75865df3a7aaf43eb2ceb5234d6f8f430869))
+
+
+
+
+
 ## [0.2.71](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.2.70...@twilio-paste/grid@0.2.71) (2020-11-11)
 
 **Note:** Version bump only for package @twilio-paste/grid

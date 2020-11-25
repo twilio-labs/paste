@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Grid Utils render it should render a Column 1`] = `
+exports[`Grid render it should render a Column 1`] = `
 <DocumentFragment>
   .emotion-0 {
   width: 8.333333333333332%;
@@ -15,18 +15,13 @@ exports[`Grid Utils render it should render a Column 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Grid Utils render it should render a Grid 1`] = `
+exports[`Grid render it should render a Grid 1`] = `
 <DocumentFragment>
   .emotion-0 {
   box-sizing: border-box;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -48,18 +43,13 @@ exports[`Grid Utils render it should render a Grid 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Grid Utils render it should render a Grid as any HTML element 1`] = `
+exports[`Grid render it should render a Grid as any HTML element 1`] = `
 <DocumentFragment>
   .emotion-0 {
   box-sizing: border-box;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -81,18 +71,10 @@ exports[`Grid Utils render it should render a Grid as any HTML element 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Grid Utils render it should render responsive css 1`] = `
+exports[`Grid render it should render responsive css 1`] = `
 <DocumentFragment>
   .emotion-2 {
   box-sizing: border-box;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;

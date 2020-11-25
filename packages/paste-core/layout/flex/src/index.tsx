@@ -99,3 +99,5 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 export {Flex};
+
+export * from './types';

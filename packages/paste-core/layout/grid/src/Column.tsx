@@ -1,11 +1,11 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {styled, compose, layout, space} from '@twilio-paste/styling-library';
+import {styled, compose, flexbox, layout, space} from '@twilio-paste/styling-library';
 import {ResponsiveProp} from '@twilio-paste/style-props';
 import {ColumnProps, ColumnStyleProps} from './types';
 import {getStackedColumns, getColumnOffset, getColumnSpan} from './utils';
 
-const getColumnStyles = (props: ColumnProps): ColumnStyleProps => {
+export const getColumnStyles = (props: ColumnProps): ColumnStyleProps => {
   const columnStyles: ColumnStyleProps = {
     width: getColumnSpan(props),
   };
@@ -24,24 +24,27 @@ const getColumnStyles = (props: ColumnProps): ColumnStyleProps => {
     columnStyles.marginLeft = 'space0';
   }
 
+  if (props.stretchColumnContent) {
+    columnStyles.alignContent = 'stretch';
+    columnStyles.display = 'flex';
+  }
+
   return columnStyles;
 };
 
 const StyledColumn = styled.div(
   compose(
     space,
+    flexbox,
     layout
   )
 ) as React.FC<ColumnProps>;
 
-const Column: React.FC<ColumnProps> = ({as, children, count, gutter, offset, span, vertical}) => {
-  const ColumnStyles = React.useMemo(() => getColumnStyles({count, gutter, offset, span, vertical}), [
-    count,
-    gutter,
-    offset,
-    span,
-    vertical,
-  ]);
+const Column: React.FC<ColumnProps> = ({as, children, count, gutter, offset, span, stretchColumnContent, vertical}) => {
+  const ColumnStyles = React.useMemo(
+    () => getColumnStyles({count, gutter, offset, span, stretchColumnContent, vertical}),
+    [count, gutter, offset, span, stretchColumnContent, vertical]
+  );
   return (
     <StyledColumn {...ColumnStyles} as={as}>
       {children}
