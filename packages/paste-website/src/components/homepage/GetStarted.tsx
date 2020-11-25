@@ -10,11 +10,23 @@ import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
 import {SITE_CONTENT_MAX_WIDTH, HOMEPAGE_SECTION_OVERFLOW_OFFSET} from '../../constants';
 
 export const GetStarted: React.FC = () => {
-  const [visible, setVisible] = React.useState(false);
+  const [whyVisible, setWhyVisible] = React.useState(false);
+  const [inclusiveVisible, setInclusiveVisible] = React.useState(false);
+  const [runningVisible, setRunningVisible] = React.useState(false);
 
-  const handleVisibilityChange = (isVisible: boolean): void => {
-    if (!visible) {
-      setVisible(isVisible);
+  const handleWhyVisibilityChange = (isVisible: boolean): void => {
+    if (!whyVisible) {
+      setWhyVisible(isVisible);
+    }
+  };
+  const handleInclusiveVisibilityChange = (isVisible: boolean): void => {
+    if (!inclusiveVisible) {
+      setInclusiveVisible(isVisible);
+    }
+  };
+  const handleRunningVisibilityChange = (isVisible: boolean): void => {
+    if (!runningVisible) {
+      setRunningVisible(isVisible);
     }
   };
 
@@ -44,19 +56,28 @@ export const GetStarted: React.FC = () => {
           >
             Learn more and get started
           </Text>
-          <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={75}>
-            <Grid as="section" gutter="space40" vertical={[true, false, false]}>
-              <Column span={4}>
-                <GetStarterWhy show={visible} />
-              </Column>
-              <Column span={4}>
-                <GetStartedInclusive show={visible} />
-              </Column>
-              <Column span={4}>
-                <GetStartedRunning show={visible} />
-              </Column>
-            </Grid>
-          </VisibilitySensor>
+
+          <Grid as="section" gutter="space40" vertical={[true, false, false]} equalColumnHeights>
+            <Column span={4}>
+              <Box marginBottom={['space70', 'space70', 'space0']}>
+                <VisibilitySensor onChange={handleWhyVisibilityChange} partialVisibility minTopValue={75}>
+                  <GetStarterWhy show={whyVisible} />
+                </VisibilitySensor>
+              </Box>
+            </Column>
+            <Column span={4}>
+              <Box marginBottom={['space70', 'space70', 'space0']}>
+                <VisibilitySensor onChange={handleInclusiveVisibilityChange} partialVisibility minTopValue={75}>
+                  <GetStartedInclusive show={inclusiveVisible} />
+                </VisibilitySensor>
+              </Box>
+            </Column>
+            <Column span={4}>
+              <VisibilitySensor onChange={handleRunningVisibilityChange} partialVisibility minTopValue={75}>
+                <GetStartedRunning show={runningVisible} />
+              </VisibilitySensor>
+            </Column>
+          </Grid>
         </Box>
       </SlantedBackgroundGradient>
     </Box>

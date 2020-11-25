@@ -38,7 +38,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({show, children}) => {
   const props = useSpring({
     opacity: show ? 1 : 0,
     transform: show ? 'translateY(0px)' : 'translateY(25px)',
-    config: {duration: 1000},
+    config: {duration: 1300},
   });
 
   return (

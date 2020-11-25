@@ -47,11 +47,17 @@ const PopularComponentsBottomAngle: React.FC<{}> = () => {
 };
 
 const PopularComponentsAndPatterns: React.FC = () => {
-  const [visible, setVisible] = React.useState(false);
+  const [componentsVisible, setComponentsVisible] = React.useState(false);
+  const [patternsVisible, setPatternsVisible] = React.useState(false);
 
-  const handleVisibilityChange = (isVisible: boolean): void => {
-    if (!visible) {
-      setVisible(isVisible);
+  const handleComponentsVisibilityChange = (isVisible: boolean): void => {
+    if (!componentsVisible) {
+      setComponentsVisible(isVisible);
+    }
+  };
+  const handlePatternsVisibilityChange = (isVisible: boolean): void => {
+    if (!patternsVisible) {
+      setPatternsVisible(isVisible);
     }
   };
 
@@ -62,16 +68,18 @@ const PopularComponentsAndPatterns: React.FC = () => {
       <Box position="relative" marginTop="spaceNegative90">
         <Box maxWidth={SITE_CONTENT_MAX_WIDTH} marginLeft="auto" marginRight="auto">
           <PopularSectionHeader />
-          <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={75}>
-            <Grid gutter="space60">
-              <Column span={[12, 6]}>
-                <PopularComponents show={visible} />
-              </Column>
-              <Column span={[12, 6]}>
-                <PopularPatterns show={visible} />
-              </Column>
-            </Grid>
-          </VisibilitySensor>
+          <Grid gutter="space60">
+            <Column span={[12, 6]}>
+              <VisibilitySensor onChange={handleComponentsVisibilityChange} partialVisibility minTopValue={75}>
+                <PopularComponents show={componentsVisible} />
+              </VisibilitySensor>
+            </Column>
+            <Column span={[12, 6]}>
+              <VisibilitySensor onChange={handlePatternsVisibilityChange} partialVisibility minTopValue={75}>
+                <PopularPatterns show={patternsVisible} />
+              </VisibilitySensor>
+            </Column>
+          </Grid>
         </Box>
       </Box>
     </Box>
