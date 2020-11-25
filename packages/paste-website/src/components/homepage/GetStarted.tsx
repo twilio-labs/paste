@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
 import {Grid, Column} from '@twilio-paste/grid';
 import {GetStarterWhy} from './GetStartedWhy';
 import {GetStartedInclusive} from './GetStartedInclusive';
@@ -17,7 +18,19 @@ export const GetStarted: React.FC = () => {
           marginRight="auto"
           position="relative"
           zIndex="zIndex10"
+          paddingTop="space200"
+          marginTop="spaceNegative160"
         >
+          <Text
+            as="h3"
+            color="colorTextInverse"
+            fontSize="fontSize70"
+            lineHeight="lineHeight70"
+            fontWeight="fontWeightBold"
+            marginBottom="space70"
+          >
+            Learn more and get started
+          </Text>
           <Grid as="section" gutter="space40" vertical={[true, false, false]}>
             <Column span={4}>
               <GetStarterWhy />
