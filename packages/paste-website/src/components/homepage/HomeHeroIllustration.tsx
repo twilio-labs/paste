@@ -71,7 +71,13 @@ const HomeHeroIllustration: React.FC = () => {
   // Also to prevent height fouc when the animation loads
   return (
     <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={15}>
-      <Box aria-hidden="true" maxWidth="size70" height="400px" marginLeft="auto" ref={containerRef}>
+      <Box
+        aria-hidden="true"
+        maxWidth="size70"
+        height={['400px', '400px', '500px']}
+        marginLeft="auto"
+        ref={containerRef}
+      >
         <IllustrationChildren state={illustrationState} />
       </Box>
     </VisibilitySensor>
