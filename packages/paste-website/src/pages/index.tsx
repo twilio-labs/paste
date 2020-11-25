@@ -5,7 +5,7 @@ import {SiteMetaDefaults} from '../constants';
 import {HomeHero} from '../components/homepage/HomeHero';
 import {GetStarted} from '../components/homepage/GetStarted';
 import {Experiment} from '../components/homepage/Experiment';
-import {PopularComponentsAndPatterns} from '../components/popular-components-and-patterns';
+import {PopularComponentsAndPatterns} from '../components/homepage/Popular';
 
 const Homepage: React.FC<{location: {pathname: string}}> = ({location}): React.ReactElement => {
   return (

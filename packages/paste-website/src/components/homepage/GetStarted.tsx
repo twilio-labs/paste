@@ -44,7 +44,7 @@ export const GetStarted: React.FC = () => {
           >
             Learn more and get started
           </Text>
-          <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={45}>
+          <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={75}>
             <Grid as="section" gutter="space40" vertical={[true, false, false]}>
               <Column span={4}>
                 <GetStarterWhy show={visible} />
