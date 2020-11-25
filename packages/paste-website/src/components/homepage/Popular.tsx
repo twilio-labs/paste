@@ -1,5 +1,4 @@
 import * as React from 'react';
-import VisibilitySensor from 'react-visibility-sensor';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {PopularComponents} from './PopularComponents';
@@ -47,20 +46,6 @@ const PopularComponentsBottomAngle: React.FC<{}> = () => {
 };
 
 const PopularComponentsAndPatterns: React.FC = () => {
-  const [componentsVisible, setComponentsVisible] = React.useState(false);
-  const [patternsVisible, setPatternsVisible] = React.useState(false);
-
-  const handleComponentsVisibilityChange = (isVisible: boolean): void => {
-    if (!componentsVisible) {
-      setComponentsVisible(isVisible);
-    }
-  };
-  const handlePatternsVisibilityChange = (isVisible: boolean): void => {
-    if (!patternsVisible) {
-      setPatternsVisible(isVisible);
-    }
-  };
-
   return (
     <Box margin="space70" marginTop="space110" padding={['space90', 'space180']} position="relative">
       <PopularComponentsTopAngle />
@@ -70,14 +55,10 @@ const PopularComponentsAndPatterns: React.FC = () => {
           <PopularSectionHeader />
           <Grid gutter="space60">
             <Column span={[12, 6]}>
-              <VisibilitySensor onChange={handleComponentsVisibilityChange} partialVisibility minTopValue={75}>
-                <PopularComponents show={componentsVisible} />
-              </VisibilitySensor>
+              <PopularComponents />
             </Column>
             <Column span={[12, 6]}>
-              <VisibilitySensor onChange={handlePatternsVisibilityChange} partialVisibility minTopValue={75}>
-                <PopularPatterns show={patternsVisible} />
-              </VisibilitySensor>
+              <PopularPatterns />
             </Column>
           </Grid>
         </Box>

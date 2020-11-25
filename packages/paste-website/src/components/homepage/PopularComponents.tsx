@@ -15,11 +15,9 @@ import ComponentsIcon from '../icons/ComponentsIcon';
 import HomeButtonIllustration from '../../assets/illustrations/home_button_illustration.svg';
 import HomeComboboxIllustration from '../../assets/illustrations/home_combobox_illustration.svg';
 
-interface PopularComponentsProps {
-  show: boolean;
-}
-const PopularComponents: React.FC<PopularComponentsProps> = ({show}) => {
+const PopularComponents: React.FC = () => {
   const theme = useTheme();
+
   return (
     <Box marginBottom={['space130', 'space0']}>
       <Box textAlign="center">
@@ -47,7 +45,7 @@ const PopularComponents: React.FC<PopularComponentsProps> = ({show}) => {
       </Box>
       <Grid gutter="space30">
         <Column span={[12, 6]}>
-          <ComponentCard show={show}>
+          <ComponentCard>
             <ComponentCardHeader>Button</ComponentCardHeader>
             <ComponentCardIllustration>
               <HomeButtonIllustration aria-hidden="true" />
@@ -58,7 +56,7 @@ const PopularComponents: React.FC<PopularComponentsProps> = ({show}) => {
           </ComponentCard>
         </Column>
         <Column span={[12, 6]}>
-          <ComponentCard show={show}>
+          <ComponentCard>
             <ComponentCardHeader>Combobox</ComponentCardHeader>
             <ComponentCardIllustration>
               <HomeComboboxIllustration aria-hidden="true" />

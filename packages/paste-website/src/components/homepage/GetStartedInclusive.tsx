@@ -7,12 +7,9 @@ import {GetStartedCard} from './GetStartedCard';
 import {GetStartedCardIllustration} from './GetStartedCardIllustration';
 import {GetStartedCardLink} from './GetStartedCardLink';
 
-interface GetStartedInclusiveProps {
-  show: boolean;
-}
-export const GetStartedInclusive: React.FC<GetStartedInclusiveProps> = ({show}) => {
+export const GetStartedInclusive: React.FC = () => {
   return (
-    <GetStartedCard show={show}>
+    <GetStartedCard>
       <Box display="flex" height="100%" flexDirection="column" justifyContent="space-between">
         <div>
           <GetStartedCardIllustration>

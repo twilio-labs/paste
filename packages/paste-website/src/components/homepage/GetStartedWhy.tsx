@@ -7,12 +7,9 @@ import {GetStartedCard} from './GetStartedCard';
 import {GetStartedCardIllustration} from './GetStartedCardIllustration';
 import {GetStartedCardLink} from './GetStartedCardLink';
 
-interface GetStarterWhyProps {
-  show: boolean;
-}
-export const GetStarterWhy: React.FC<GetStarterWhyProps> = ({show}) => {
+export const GetStarterWhy: React.FC = () => {
   return (
-    <GetStartedCard show={show}>
+    <GetStartedCard>
       <Box display="flex" height="100%" flexDirection="column" justifyContent="space-between">
         <div>
           <GetStartedCardIllustration>

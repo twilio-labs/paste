@@ -15,11 +15,9 @@ import PatternsIcon from '../icons/PatternsIcon';
 import HomeCreateIllustration from '../../assets/illustrations/home_create_illustration.svg';
 import HomeDeleteIllustration from '../../assets/illustrations/home_delete_illustration.svg';
 
-interface PopularPatternsProps {
-  show: boolean;
-}
-const PopularPatterns: React.FC<PopularPatternsProps> = ({show}) => {
+const PopularPatterns: React.FC = () => {
   const theme = useTheme();
+
   return (
     <Box marginBottom={['space130', 'space0']}>
       <Box textAlign="center">
@@ -47,7 +45,7 @@ const PopularPatterns: React.FC<PopularPatternsProps> = ({show}) => {
       </Box>
       <Grid gutter="space30">
         <Column span={[12, 6]}>
-          <ComponentCard show={show}>
+          <ComponentCard>
             <ComponentCardHeader>Create</ComponentCardHeader>
             <ComponentCardIllustration>
               <HomeCreateIllustration aria-hidden="true" />
@@ -58,7 +56,7 @@ const PopularPatterns: React.FC<PopularPatternsProps> = ({show}) => {
           </ComponentCard>
         </Column>
         <Column span={[12, 6]}>
-          <ComponentCard show={show}>
+          <ComponentCard>
             <ComponentCardHeader>Delete</ComponentCardHeader>
             <ComponentCardIllustration>
               <HomeDeleteIllustration aria-hidden="true" />

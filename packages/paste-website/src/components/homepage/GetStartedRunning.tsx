@@ -9,13 +9,10 @@ import {GetStartedCardIllustration} from './GetStartedCardIllustration';
 import {GetStartedCardLinks} from './GetStartedCardLinks';
 import {GetStartedCardLink} from './GetStartedCardLink';
 
-interface GetStartedRunningProps {
-  show: boolean;
-}
-export const GetStartedRunning: React.FC<GetStartedRunningProps> = ({show}) => {
+export const GetStartedRunning: React.FC = () => {
   const {ref, width: linkBoxWidth = 1} = useResizeObserver<HTMLDivElement>();
   return (
-    <GetStartedCard show={show}>
+    <GetStartedCard>
       <Box display="flex" height="100%" flexDirection="column" justifyContent="space-between">
         <div>
           <GetStartedCardIllustration>
