@@ -19,7 +19,12 @@ const Experiment: React.FC<ExperimentProps> = ({showIframe}) => {
   const theme = useTheme();
 
   return (
-    <Box paddingX={['space90', 'space180']} paddingY="space180" position="relative">
+    <Box
+      display={['none', 'block', 'block']}
+      paddingX={['space90', 'space180']}
+      paddingY="space180"
+      position="relative"
+    >
       <SlantedBackgroundGradient
         gradientAngle="-180deg"
         startColor="colorBackgroundBody"
