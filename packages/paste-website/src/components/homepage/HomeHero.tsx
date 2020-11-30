@@ -30,9 +30,9 @@ const HomeHero: React.FC = () => {
               <Text
                 as="h1"
                 color="colorTextInverse"
-                fontSize="fontSize110"
-                lineHeight="lineHeight110"
-                marginTop="space120"
+                fontSize={['fontSize90', 'fontSize110']}
+                lineHeight={['lineHeight90', 'lineHeight110']}
+                marginTop={['space80', 'space120']}
               >
                 Build inclusive, delightful Twilio customer experiences with Paste.
               </Text>
