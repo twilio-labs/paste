@@ -1,5 +1,4 @@
 import * as React from 'react';
-import VisibilitySensor from 'react-visibility-sensor';
 import {useTheme} from '@twilio-paste/theme';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
@@ -12,15 +11,12 @@ import {DoodleLoopLarge} from '../../assets/illustrations/DoodleLoopLarge';
 import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
 import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
 
-const Experiment: React.FC = () => {
-  const [show, setShow] = React.useState(false);
-  const theme = useTheme();
+interface ExperimentProps {
+  showIframe: boolean;
+}
 
-  function handleVisibilityChange(isVisible: boolean): void {
-    if (!show) {
-      setShow(isVisible);
-    }
-  }
+const Experiment: React.FC<ExperimentProps> = ({showIframe}) => {
+  const theme = useTheme();
 
   return (
     <Box paddingX={['space90', 'space180']} paddingY="space180" position="relative">
@@ -57,18 +53,16 @@ const Experiment: React.FC = () => {
               <DoodleArrow />
             </Box>
             <AspectRatio ratio="16:9">
-              <VisibilitySensor onChange={handleVisibilityChange} partialVisibility>
-                {show ? (
-                  <iframe
-                    frameBorder="0"
-                    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-                    src="https://codesandbox.io/embed/patterns-create-1jdki?fontsize=14&hidenavigation=1&theme=dark"
-                    title="Patterns - Create"
-                  />
-                ) : (
-                  <Box height="300px" width="100%" />
-                )}
-              </VisibilitySensor>
+              {showIframe ? (
+                <iframe
+                  frameBorder="0"
+                  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+                  src="https://codesandbox.io/embed/patterns-create-1jdki?fontsize=14&hidenavigation=1&theme=dark"
+                  title="Patterns - Create"
+                />
+              ) : (
+                <Box height="300px" width="100%" />
+              )}
             </AspectRatio>
           </Box>
         </Box>
