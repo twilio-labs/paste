@@ -1,6 +1,34 @@
 import * as React from 'react';
+import VisibilitySensor from 'react-visibility-sensor';
 import {Card} from '@twilio-paste/card';
+import {useSpring, animated} from '@twilio-paste/animation-library';
+
+const AnimatedCard = animated(Card);
 
 export const GetStartedCard: React.FC = ({children}) => {
-  return <Card padding="space70">{children}</Card>;
+  const [show, setShow] = React.useState(false);
+
+  const handleVisibilityChange = (isVisible: boolean): void => {
+    if (!show) {
+      setShow(isVisible);
+    }
+  };
+
+  const props = useSpring({
+    height: '100%', // FIXME: hackily fixes equal card heights
+    width: '100%', // FIXME: hackily fixes stacked Card widths
+    opacity: show ? 1 : 0,
+    transform: show ? 'translateY(0px)' : 'translateY(25px)',
+    config: {duration: 1000},
+  });
+  // Destructuring this to bypass TS warning that is incorrect
+  const cardProps = {opacity: 0};
+
+  return (
+    <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={75}>
+      <AnimatedCard style={props} {...cardProps} padding="space70">
+        {children}
+      </AnimatedCard>
+    </VisibilitySensor>
+  );
 };

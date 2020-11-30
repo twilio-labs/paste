@@ -4,14 +4,20 @@ import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
-import {ComponentCard, ComponentCardHeader, ComponentCardIllustration, ComponentCardFooter} from '../component-card';
+import {
+  ComponentCard,
+  ComponentCardHeader,
+  ComponentCardIllustration,
+  ComponentCardFooter,
+} from './PopularComponentCard';
 import {SiteLink} from '../SiteLink';
-import ComponentsIcon from '../icons/ComponentsIcon';
-import HomeButtonIllustration from '../../assets/illustrations/home_button_illustration.svg';
-import HomeComboboxIllustration from '../../assets/illustrations/home_combobox_illustration.svg';
+import PatternsIcon from '../icons/PatternsIcon';
+import HomeCreateIllustration from '../../assets/illustrations/home_create_illustration.svg';
+import HomeDeleteIllustration from '../../assets/illustrations/home_delete_illustration.svg';
 
-const PopularComponents: React.FC = () => {
+const PopularPatterns: React.FC = () => {
   const theme = useTheme();
+
   return (
     <Box marginBottom={['space130', 'space0']}>
       <Box textAlign="center">
@@ -27,47 +33,47 @@ const PopularComponents: React.FC = () => {
           marginRight="auto"
           width="sizeSquare150"
         >
-          <ComponentsIcon
+          <PatternsIcon
             css={{height: theme.heights.sizeIcon40, width: theme.widths.sizeIcon40}}
             color={theme.textColors.colorTextBrandHighlight}
             decorative
           />
         </Box>
         <Heading as="h2" variant="heading20">
-          Components
+          Patterns
         </Heading>
       </Box>
       <Grid gutter="space30">
         <Column span={[12, 6]}>
           <ComponentCard>
-            <ComponentCardHeader>Button</ComponentCardHeader>
+            <ComponentCardHeader>Create</ComponentCardHeader>
             <ComponentCardIllustration>
-              <HomeButtonIllustration aria-hidden="true" />
+              <HomeCreateIllustration aria-hidden="true" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
-              <SiteLink to="/components/button">See Button</SiteLink>
+              <SiteLink to="/patterns/create">See Create</SiteLink>
             </ComponentCardFooter>
           </ComponentCard>
         </Column>
         <Column span={[12, 6]}>
           <ComponentCard>
-            <ComponentCardHeader>Combobox</ComponentCardHeader>
+            <ComponentCardHeader>Delete</ComponentCardHeader>
             <ComponentCardIllustration>
-              <HomeComboboxIllustration aria-hidden="true" />
+              <HomeDeleteIllustration aria-hidden="true" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
-              <SiteLink to="/components/combobox">See Combobox</SiteLink>
+              <SiteLink to="/patterns/delete">See Delete</SiteLink>
             </ComponentCardFooter>
           </ComponentCard>
         </Column>
       </Grid>
       <Box textAlign="center" marginTop="space20" marginBottom="space60">
         <Text as="span" fontWeight="fontWeightSemibold">
-          Explore <SiteLink to="/components">all Components</SiteLink>
+          Explore <SiteLink to="/patterns">all Patterns</SiteLink>
         </Text>
       </Box>
     </Box>
   );
 };
 
-export {PopularComponents};
+export {PopularPatterns};

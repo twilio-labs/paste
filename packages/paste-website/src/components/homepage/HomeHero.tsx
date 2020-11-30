@@ -20,9 +20,13 @@ const HomeHero: React.FC = () => {
       paddingBottom="space200"
       position="relative"
     >
-      <SlantedBackgroundGradient startColor="colorBackgroundPrimaryDarker" endColor="colorBackgroundPrimaryDark">
+      <SlantedBackgroundGradient
+        skewAngle={0}
+        startColor="colorBackgroundPrimaryDarker"
+        endColor="colorBackgroundPrimaryDark"
+      >
         <Box maxWidth={SITE_CONTENT_MAX_WIDTH} marginLeft="auto" marginRight="auto" position="relative">
-          <Grid gutter="space40" vertical={[true, false, false]}>
+          <Grid vertical={[true, false, false]}>
             <Column span={5}>
               <NewComponentBanner>
                 <NewComponentBannerBadge>New!</NewComponentBannerBadge>

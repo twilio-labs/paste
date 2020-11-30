@@ -56,7 +56,7 @@ const HomeHeroIllustration: React.FC = () => {
               autoplay: true,
               animationData: HeroAnimation,
             });
-            anim.setSpeed(3.5);
+            anim.setSpeed(2.4);
             return true;
           }
           return false;
@@ -74,7 +74,7 @@ const HomeHeroIllustration: React.FC = () => {
       <Box
         aria-hidden="true"
         maxWidth="size70"
-        height={['400px', '400px', '480px']}
+        height={['400px', '400px', '500px']}
         marginLeft="auto"
         ref={containerRef}
       >
