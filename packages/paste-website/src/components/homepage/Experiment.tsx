@@ -1,4 +1,5 @@
 import * as React from 'react';
+import VisibilitySensor from 'react-visibility-sensor';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
@@ -11,6 +12,14 @@ import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
 import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
 
 const Experiment: React.FC = () => {
+  const [show, setShow] = React.useState(false);
+
+  function handleVisibilityChange(isVisible: boolean): void {
+    if (!show) {
+      setShow(isVisible);
+    }
+  }
+
   return (
     <Box paddingX={['space90', 'space180']} paddingY="space180" position="relative">
       <SlantedBackgroundGradient
@@ -39,12 +48,18 @@ const Experiment: React.FC = () => {
               <DoodleArrow />
             </Box>
             <AspectRatio ratio="16:9">
-              <iframe
-                frameBorder="0"
-                sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-                src="https://codesandbox.io/embed/patterns-create-1jdki?fontsize=14&hidenavigation=1&theme=dark"
-                title="Patterns - Create"
-              />
+              <VisibilitySensor onChange={handleVisibilityChange} partialVisibility>
+                {show ? (
+                  <iframe
+                    frameBorder="0"
+                    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+                    src="https://codesandbox.io/embed/patterns-create-1jdki?fontsize=14&hidenavigation=1&theme=dark"
+                    title="Patterns - Create"
+                  />
+                ) : (
+                  <Box height="300px" width="100%" />
+                )}
+              </VisibilitySensor>
             </AspectRatio>
           </Box>
         </Box>
