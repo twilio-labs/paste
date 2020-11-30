@@ -14,7 +14,7 @@ const SiteFooter: React.FC<{}> = () => {
       <Box
         borderRadius="borderRadius20"
         backgroundColor="colorBackgroundPrimaryDarker"
-        marginTop={['space0', 'space0', 'space0', 'space140']}
+        marginTop={['space0', 'space0', 'space0', 'space0', 'space140']}
       >
         <Box
           maxWidth={SITE_CONTENT_MAX_WIDTH}
