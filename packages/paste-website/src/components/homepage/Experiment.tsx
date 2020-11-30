@@ -27,7 +27,13 @@ const Experiment: React.FC = () => {
         startColor="colorBackgroundBody"
         endColor="colorBackgroundBrandHighlightLightest"
       >
-        <Box maxWidth={SITE_CONTENT_MAX_WIDTH} marginLeft="auto" marginRight="auto">
+        <Box
+          maxWidth={SITE_CONTENT_MAX_WIDTH}
+          marginLeft="auto"
+          marginRight="auto"
+          position="relative"
+          zIndex="zIndex10"
+        >
           <Box textAlign="center">
             <Heading as="h3" variant="heading10">
               Experiment with your ideas
