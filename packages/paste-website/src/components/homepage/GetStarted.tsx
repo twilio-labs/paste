@@ -7,8 +7,13 @@ import {GetStartedInclusive} from './GetStartedInclusive';
 import {GetStartedRunning} from './GetStartedRunning';
 import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
 import {SITE_CONTENT_MAX_WIDTH, HOMEPAGE_SECTION_OVERFLOW_OFFSET} from '../../constants';
+import {useWindowSize} from '../../hooks/useWindowSize';
+
+const DELAY_INTERVAL = 250;
 
 export const GetStarted: React.FC = () => {
+  const {breakpointIndex} = useWindowSize();
+
   return (
     <Box paddingX={['space90', 'space180']} position="relative">
       <SlantedBackgroundGradient
@@ -44,11 +49,15 @@ export const GetStarted: React.FC = () => {
             </Column>
             <Column span={4}>
               <Box marginBottom={['space70', 'space0', 'space0']}>
-                <GetStartedInclusive />
+                <GetStartedInclusive
+                  animationDelay={breakpointIndex === undefined || breakpointIndex > 1 ? DELAY_INTERVAL : 0}
+                />
               </Box>
             </Column>
             <Column span={4}>
-              <GetStartedRunning />
+              <GetStartedRunning
+                animationDelay={breakpointIndex === undefined || breakpointIndex > 1 ? DELAY_INTERVAL * 1.5 : 0}
+              />
             </Column>
           </Grid>
         </Box>

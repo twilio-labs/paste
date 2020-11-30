@@ -15,13 +15,11 @@ export const DoodleArrow: React.FC = () => {
 
   const styles = useSpring({
     x: show ? 0 : -1 * dashArray,
-    config: {
-      duration: 700,
-    },
+    config: {mass: 1, tension: 280, friction: 120},
   });
 
   return (
-    <VisibilitySensor onChange={handleVisibilityChange}>
+    <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={60}>
       <animated.svg
         stroke="#030b5d"
         strokeLinecap="round"

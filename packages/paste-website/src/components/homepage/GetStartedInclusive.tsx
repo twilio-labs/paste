@@ -7,9 +7,13 @@ import {GetStartedCard} from './GetStartedCard';
 import {GetStartedCardIllustration} from './GetStartedCardIllustration';
 import {GetStartedCardLink} from './GetStartedCardLink';
 
-export const GetStartedInclusive: React.FC = () => {
+interface GetStartedInclusiveProps {
+  animationDelay: number;
+}
+
+export const GetStartedInclusive: React.FC<GetStartedInclusiveProps> = ({animationDelay}) => {
   return (
-    <GetStartedCard>
+    <GetStartedCard animationDelay={animationDelay}>
       <Box display="flex" height="100%" flexDirection="column" justifyContent="space-between">
         <div>
           <GetStartedCardIllustration>

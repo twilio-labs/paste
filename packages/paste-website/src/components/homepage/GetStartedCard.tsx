@@ -4,8 +4,10 @@ import {Card} from '@twilio-paste/card';
 import {useSpring, animated} from '@twilio-paste/animation-library';
 
 const AnimatedCard = animated(Card);
-
-export const GetStartedCard: React.FC = ({children}) => {
+interface GetStartedCardProps {
+  animationDelay?: number;
+}
+export const GetStartedCard: React.FC<GetStartedCardProps> = ({animationDelay = 0, children}) => {
   const [show, setShow] = React.useState(false);
 
   const handleVisibilityChange = (isVisible: boolean): void => {
@@ -13,19 +15,20 @@ export const GetStartedCard: React.FC = ({children}) => {
       setShow(isVisible);
     }
   };
-
+  console.log(animationDelay);
   const props = useSpring({
     height: '100%', // FIXME: hackily fixes equal card heights
     width: '100%', // FIXME: hackily fixes stacked Card widths
     opacity: show ? 1 : 0,
     transform: show ? 'translateY(0px)' : 'translateY(25px)',
-    config: {duration: 1000},
+    delay: animationDelay,
+    config: {mass: 1, tension: 280, friction: 120},
   });
   // Destructuring this to bypass TS warning that is incorrect
   const cardProps = {opacity: 0};
 
   return (
-    <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={75}>
+    <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={90}>
       <AnimatedCard style={props} {...cardProps} padding="space70">
         {children}
       </AnimatedCard>

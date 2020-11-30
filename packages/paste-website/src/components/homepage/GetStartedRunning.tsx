@@ -9,10 +9,14 @@ import {GetStartedCardIllustration} from './GetStartedCardIllustration';
 import {GetStartedCardLinks} from './GetStartedCardLinks';
 import {GetStartedCardLink} from './GetStartedCardLink';
 
-export const GetStartedRunning: React.FC = () => {
+interface GetStartedRunningProps {
+  animationDelay: number;
+}
+
+export const GetStartedRunning: React.FC<GetStartedRunningProps> = ({animationDelay}) => {
   const {ref, width: linkBoxWidth = 1} = useResizeObserver<HTMLDivElement>();
   return (
-    <GetStartedCard>
+    <GetStartedCard animationDelay={animationDelay}>
       <Box display="flex" height="100%" flexDirection="column" justifyContent="space-between">
         <div>
           <GetStartedCardIllustration>

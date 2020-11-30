@@ -15,9 +15,7 @@ export const DoodleZigzag: React.FC = () => {
 
   const styles = useSpring({
     x: show ? 0 : -1 * dashArray,
-    config: {
-      duration: 700,
-    },
+    config: {mass: 1, tension: 280, friction: 120},
   });
 
   return (

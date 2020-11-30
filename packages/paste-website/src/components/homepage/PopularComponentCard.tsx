@@ -44,7 +44,7 @@ const ComponentCard: React.FC = ({children}) => {
   const props = useSpring({
     opacity: show ? 1 : 0,
     transform: show ? 'translateY(0px)' : 'translateY(25px)',
-    config: {duration: 1000},
+    config: {mass: 1, tension: 280, friction: 120},
   });
 
   // Destructuring this to bypass TS warning that is incorrect
@@ -52,7 +52,7 @@ const ComponentCard: React.FC = ({children}) => {
 
   return (
     <Box marginBottom="space60">
-      <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={85}>
+      <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={100}>
         <AnimatedCard style={props} {...cardProps} padding="space70">
           <Text as="div" textAlign="center">
             {children}
