@@ -26,7 +26,7 @@ export const DoodleArrow: React.FC = () => {
         strokeLinejoin="round"
         strokeWidth="2.7"
         strokeDashoffset={styles.x}
-        strokeDasharray={dashArray}
+        strokeDasharray={`${dashArray} ${dashArray}`}
         fill="none"
         height="196"
         width="85"

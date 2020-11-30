@@ -26,7 +26,7 @@ export const DoodleZigzag: React.FC = () => {
         strokeLinejoin="round"
         strokeWidth="2"
         strokeDashoffset={styles.x}
-        strokeDasharray={dashArray}
+        strokeDasharray={`${dashArray} ${dashArray}`}
         fill="none"
         height="62"
         width="100"

@@ -36,7 +36,7 @@ export const DoodleCloud: React.FC = () => {
             strokeLinejoin="round"
             strokeWidth="2.8"
             strokeDashoffset={styles.x}
-            strokeDasharray={dashArray}
+            strokeDasharray={`${dashArray} ${dashArray}`}
           />
         </g>
       </svg>

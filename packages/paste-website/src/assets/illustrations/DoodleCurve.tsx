@@ -26,7 +26,7 @@ export const DoodleCurve: React.FC = () => {
         strokeLinejoin="round"
         strokeWidth="2.8"
         strokeDashoffset={styles.x}
-        strokeDasharray={dashArray}
+        strokeDasharray={`${dashArray} ${dashArray}`}
         fill="none"
         height="28"
         width="29"

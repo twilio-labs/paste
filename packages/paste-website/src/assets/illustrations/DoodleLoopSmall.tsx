@@ -26,7 +26,7 @@ export const DoodleLoopSmall: React.FC = () => {
         strokeLinejoin="round"
         strokeWidth="2"
         strokeDashoffset={styles.x}
-        strokeDasharray={dashArray}
+        strokeDasharray={`${dashArray} ${dashArray}`}
         fill="none"
         width="41"
         height="35"
