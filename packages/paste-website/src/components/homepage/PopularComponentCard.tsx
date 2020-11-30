@@ -44,7 +44,7 @@ const ComponentCard: React.FC = ({children}) => {
   const props = useSpring({
     opacity: show ? 1 : 0,
     transform: show ? 'translateY(0px)' : 'translateY(25px)',
-    config: {mass: 1, tension: 280, friction: 120},
+    config: {mass: 1, tension: 280, friction: 80},
   });
 
   // Destructuring this to bypass TS warning that is incorrect

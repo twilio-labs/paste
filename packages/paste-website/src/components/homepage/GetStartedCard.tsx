@@ -15,14 +15,14 @@ export const GetStartedCard: React.FC<GetStartedCardProps> = ({animationDelay = 
       setShow(isVisible);
     }
   };
-  console.log(animationDelay);
+
   const props = useSpring({
     height: '100%', // FIXME: hackily fixes equal card heights
     width: '100%', // FIXME: hackily fixes stacked Card widths
     opacity: show ? 1 : 0,
     transform: show ? 'translateY(0px)' : 'translateY(25px)',
     delay: animationDelay,
-    config: {mass: 1, tension: 280, friction: 120},
+    config: {mass: 1, tension: 280, friction: 40},
   });
   // Destructuring this to bypass TS warning that is incorrect
   const cardProps = {opacity: 0};
