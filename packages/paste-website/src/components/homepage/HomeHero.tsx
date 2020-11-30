@@ -13,13 +13,7 @@ import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
 
 const HomeHero: React.FC = () => {
   return (
-    <Box
-      paddingLeft={['space90', 'space180']}
-      paddingRight={['space90', 'space180']}
-      paddingTop="space200"
-      paddingBottom="space200"
-      position="relative"
-    >
+    <Box paddingX={['space90', 'space180']} paddingY={['space90', 'space200']} position="relative">
       <SlantedBackgroundGradient
         skewAngle={0}
         startColor="colorBackgroundPrimaryDarker"
