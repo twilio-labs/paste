@@ -50,8 +50,8 @@ const ExperimentEmbed: React.FC = () => {
     <iframe
       frameBorder="0"
       sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-      src="https://codesandbox.io/embed/patterns-create-1jdki?fontsize=14&hidenavigation=1&theme=dark"
-      title="Patterns - Create"
+      src="https://codesandbox.io/embed/pizza-toppings-d8u21?fontsize=14&hidenavigation=1&theme=dark"
+      title="Pizza Demo App"
     />
   );
 };

@@ -10,7 +10,7 @@ const NewComponentBanner: React.FC = ({children}) => {
       display="inline-flex"
       paddingBottom="space20"
       paddingLeft="space20"
-      paddingRight="space30"
+      paddingRight="space40"
       paddingTop="space20"
     >
       {children}

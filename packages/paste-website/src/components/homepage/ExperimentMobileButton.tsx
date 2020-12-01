@@ -27,7 +27,7 @@ const ExperimentMobileButton: React.FC = () => {
         bottom={0}
         left={0}
       >
-        <Button as="a" href="https://codesandbox.io/s/patterns-create-1jdki" variant="primary">
+        <Button as="a" href="https://codesandbox.io/s/pizza-toppings-d8u21" variant="primary">
           Experiment with code
         </Button>
       </Box>
