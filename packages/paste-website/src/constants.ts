@@ -4,7 +4,7 @@ export const PSA_ALERT_HEIGHT = 40;
 export const PASTE_THEME_ALERT_HEIGHT = 54;
 export const SITE_MASTHEAD_HEIGHT = 76;
 // Added 1680 and above to account for really large monitors
-export const SITE_BREAKPOINTS = ['768px', '1024px', '1220px', '1680px', '2000px'];
+export const SITE_BREAKPOINTS = ['768px', '1024px', '1220px', '1880px', '2048px'];
 export const SITE_CONTENT_MAX_WIDTH = '1440px';
 
 // Used to 'bleed' sections together. GettingStarted+Popular
