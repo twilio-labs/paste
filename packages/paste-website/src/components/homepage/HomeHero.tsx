@@ -4,6 +4,10 @@ import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Text} from '@twilio-paste/text';
 import {ArrowForwardIcon} from '@twilio-paste/icons/esm/ArrowForwardIcon';
+import {NewComponentBanner} from './NewComponentBanner';
+import {NewComponentBannerBadge} from './NewComponentBannerBadge';
+import {NewComponentBannerLink} from './NewComponentBannerLink';
+import {NewComponentBannerText} from './NewComponentBannerText';
 import {HomeHeroIllustration} from './HomeHeroIllustration';
 import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
 import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
@@ -51,6 +55,11 @@ const HomeHero: React.FC = () => {
         <Box maxWidth={SITE_CONTENT_MAX_WIDTH} marginLeft="auto" marginRight="auto" position="relative">
           <Grid vertical={[true, false, false]}>
             <Column span={5}>
+              <NewComponentBanner>
+                <NewComponentBannerBadge>New!</NewComponentBannerBadge>
+                <NewComponentBannerText>We just released the create pattern!</NewComponentBannerText>
+                <NewComponentBannerLink to="/patterns/create">Check it out</NewComponentBannerLink>
+              </NewComponentBanner>
               <Text
                 as="h1"
                 color="colorTextInverse"
