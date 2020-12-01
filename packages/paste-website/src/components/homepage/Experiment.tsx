@@ -39,7 +39,7 @@ const Experiment: React.FC<ExperimentProps> = ({showIframe}) => {
           zIndex="zIndex10"
         >
           <Box textAlign="center">
-            <Heading as="h3" variant="heading10">
+            <Heading as="h2" variant="heading10">
               Experiment with your ideas
             </Heading>
             <Paragraph>Create and play with our React components in the Paste prototyping sandbox.</Paragraph>
