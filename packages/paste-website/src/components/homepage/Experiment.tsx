@@ -54,13 +54,19 @@ const Experiment: React.FC<ExperimentProps> = ({showIframe}) => {
               <DoodleArrow />
             </Box>
             <AspectRatio ratio="16:9">
-              <iframe
-                frameBorder="0"
-                sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-                src="https://codesandbox.io/embed/patterns-create-1jdki?fontsize=14&hidenavigation=1&theme=dark"
-                title="Patterns - Create"
-              />
-              <ExperimentMobileButton />
+              {showIframe ? (
+                <>
+                  <iframe
+                    frameBorder="0"
+                    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+                    src="https://codesandbox.io/embed/patterns-create-1jdki?fontsize=14&hidenavigation=1&theme=dark"
+                    title="Patterns - Create"
+                  />
+                  <ExperimentMobileButton />
+                </>
+              ) : (
+                <Box height="300px" width="100%" />
+              )}
             </AspectRatio>
           </Box>
         </Box>
