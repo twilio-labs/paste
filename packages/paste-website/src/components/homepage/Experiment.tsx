@@ -9,6 +9,7 @@ import {DoodleZigzag} from '../../assets/illustrations/DoodleZigzag';
 import {DoodleCloud} from '../../assets/illustrations/DoodleCloud';
 import {DoodleLoopLarge} from '../../assets/illustrations/DoodleLoopLarge';
 import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
+import {ExperimentMobileButton} from './ExperimentMobileButton';
 import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
 
 interface ExperimentProps {
@@ -19,12 +20,7 @@ const Experiment: React.FC<ExperimentProps> = ({showIframe}) => {
   const theme = useTheme();
 
   return (
-    <Box
-      display={['none', 'block', 'block']}
-      paddingX={['space90', 'space180']}
-      paddingY="space180"
-      position="relative"
-    >
+    <Box paddingX={['space90', 'space180']} paddingY="space180" position="relative">
       <SlantedBackgroundGradient
         gradientAngle="-180deg"
         startColor="colorBackgroundBody"
@@ -58,16 +54,13 @@ const Experiment: React.FC<ExperimentProps> = ({showIframe}) => {
               <DoodleArrow />
             </Box>
             <AspectRatio ratio="16:9">
-              {showIframe ? (
-                <iframe
-                  frameBorder="0"
-                  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-                  src="https://codesandbox.io/embed/patterns-create-1jdki?fontsize=14&hidenavigation=1&theme=dark"
-                  title="Patterns - Create"
-                />
-              ) : (
-                <Box height="300px" width="100%" />
-              )}
+              <iframe
+                frameBorder="0"
+                sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+                src="https://codesandbox.io/embed/patterns-create-1jdki?fontsize=14&hidenavigation=1&theme=dark"
+                title="Patterns - Create"
+              />
+              <ExperimentMobileButton />
             </AspectRatio>
           </Box>
         </Box>
