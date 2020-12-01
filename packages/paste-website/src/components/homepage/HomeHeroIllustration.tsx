@@ -45,8 +45,9 @@ const HomeHeroIllustration: React.FC = () => {
   React.useEffect(() => {
     if (!prefersReducedMotion && illustrationState === IllustrationStates.DYNAMIC) {
       // Dynamically import the animation so we don't load a huge json blob for everyone
-      import('../../assets/animations/HeroAnimation')
-        .then(({HeroAnimation}) => {
+      // @ts-ignore
+      import('../../assets/animations/homepage-hero-animation.json')
+        .then(animationData => {
           if (containerRef.current != null) {
             const anim = lottie.loadAnimation({
               // @ts-ignore
@@ -54,7 +55,7 @@ const HomeHeroIllustration: React.FC = () => {
               renderer: 'svg',
               loop: false,
               autoplay: true,
-              animationData: HeroAnimation,
+              animationData,
             });
             anim.setSpeed(2.4);
             return true;
