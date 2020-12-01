@@ -22,7 +22,7 @@ interface ExperimentProps {
 const ExperimentEmbed: React.FC = () => {
   const {breakpointIndex} = useWindowSize();
 
-  if (breakpointIndex === undefined || breakpointIndex < 1) {
+  if (breakpointIndex !== undefined && breakpointIndex === 0) {
     return (
       <StaticQuery
         query={graphql`
