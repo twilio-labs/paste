@@ -1,4 +1,6 @@
 import * as React from 'react';
+import {StaticQuery, graphql} from 'gatsby';
+import Img from 'gatsby-image';
 import {useTheme} from '@twilio-paste/theme';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
@@ -11,10 +13,48 @@ import {DoodleLoopLarge} from '../../assets/illustrations/DoodleLoopLarge';
 import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
 import {ExperimentMobileButton} from './ExperimentMobileButton';
 import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
+import {useWindowSize} from '../../hooks/useWindowSize';
 
 interface ExperimentProps {
   showIframe: boolean;
 }
+
+const ExperimentEmbed: React.FC = () => {
+  const {breakpointIndex} = useWindowSize();
+
+  if (breakpointIndex === undefined || breakpointIndex < 1) {
+    return (
+      <StaticQuery
+        query={graphql`
+          query {
+            file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/home/codesandbox-mobile.png"}) {
+              childImageSharp {
+                fluid(maxWidth: 640) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        `}
+        render={data => (
+          <>
+            <Img fluid={data.file.childImageSharp.fluid} />
+            <ExperimentMobileButton />
+          </>
+        )}
+      />
+    );
+  }
+
+  return (
+    <iframe
+      frameBorder="0"
+      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+      src="https://codesandbox.io/embed/patterns-create-1jdki?fontsize=14&hidenavigation=1&theme=dark"
+      title="Patterns - Create"
+    />
+  );
+};
 
 const Experiment: React.FC<ExperimentProps> = ({showIframe}) => {
   const theme = useTheme();
@@ -54,19 +94,7 @@ const Experiment: React.FC<ExperimentProps> = ({showIframe}) => {
               <DoodleArrow />
             </Box>
             <AspectRatio ratio="16:9">
-              {showIframe ? (
-                <>
-                  <iframe
-                    frameBorder="0"
-                    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-                    src="https://codesandbox.io/embed/patterns-create-1jdki?fontsize=14&hidenavigation=1&theme=dark"
-                    title="Patterns - Create"
-                  />
-                  <ExperimentMobileButton />
-                </>
-              ) : (
-                <Box height="300px" width="100%" />
-              )}
+              {showIframe ? <ExperimentEmbed /> : <Box height="300px" width="100%" />}
             </AspectRatio>
           </Box>
         </Box>
