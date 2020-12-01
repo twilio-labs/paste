@@ -1,5 +1,6 @@
 import * as React from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
+import {useTheme} from '@twilio-paste/theme';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
@@ -13,6 +14,7 @@ import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
 
 const Experiment: React.FC = () => {
   const [show, setShow] = React.useState(false);
+  const theme = useTheme();
 
   function handleVisibilityChange(isVisible: boolean): void {
     if (!show) {
@@ -26,8 +28,15 @@ const Experiment: React.FC = () => {
         gradientAngle="-180deg"
         startColor="colorBackgroundBody"
         endColor="colorBackgroundBrandHighlightLightest"
+        styles={{bottom: theme.space.space30}}
       >
-        <Box maxWidth={SITE_CONTENT_MAX_WIDTH} marginLeft="auto" marginRight="auto">
+        <Box
+          maxWidth={SITE_CONTENT_MAX_WIDTH}
+          marginLeft="auto"
+          marginRight="auto"
+          position="relative"
+          zIndex="zIndex10"
+        >
           <Box textAlign="center">
             <Heading as="h3" variant="heading10">
               Experiment with your ideas

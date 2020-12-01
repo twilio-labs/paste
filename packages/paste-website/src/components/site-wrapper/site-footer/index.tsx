@@ -3,13 +3,20 @@ import {Box} from '@twilio-paste/box';
 import {SiteFooterIllustration} from './SiteFooterIllustration';
 import {SiteFooterNav} from './SiteFooterNav';
 import {SiteFooterTopAngle} from './SiteFooterTopAngle';
+import {useNavigationContext} from '../../../context/NavigationContext';
 import {SITE_CONTENT_MAX_WIDTH} from '../../../constants';
 
 const SiteFooter: React.FC<{}> = () => {
+  const {pathname} = useNavigationContext();
   return (
     <Box margin="space70" marginTop="space200" paddingTop="space200" position="relative">
-      <SiteFooterTopAngle />
-      <Box borderRadius="borderRadius20" backgroundColor="colorBackgroundPrimaryDarker">
+      {pathname === '/' && <SiteFooterTopAngle />}
+      <Box
+        borderRadius="borderRadius20"
+        backgroundColor="colorBackgroundPrimaryDarker"
+        marginTop={['space0', 'space0', 'space0', 'space0', 'space200']}
+        paddingTop={['space0', 'space0', 'space0', 'space0', 'space200']}
+      >
         <Box
           maxWidth={SITE_CONTENT_MAX_WIDTH}
           padding={['space90', 'space180']}

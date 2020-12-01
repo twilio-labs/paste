@@ -17,7 +17,7 @@ const SiteFooterNav: React.FC<{}> = () => {
         marginLeft={['space0', 'space120']}
         textAlign={['center', 'left']}
       >
-        <Box marginRight={['space0', 'space130']} marginBottom="space60">
+        <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={['space0', 'space130']}>
           <Stack as="nav" orientation="vertical" spacing="space60">
             <Anchor href="/getting-started/about-paste" variant="inverse">
               About
@@ -33,7 +33,7 @@ const SiteFooterNav: React.FC<{}> = () => {
             </Anchor>
           </Stack>
         </Box>
-        <Box marginRight={['space0', 'space130']} marginBottom="space60">
+        <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={['space0', 'space130']}>
           <Stack as="nav" orientation="vertical" spacing="space60">
             <Anchor href="https://github.com/twilio-labs/paste/discussions" variant="inverse" showExternal>
               Get support
@@ -46,7 +46,7 @@ const SiteFooterNav: React.FC<{}> = () => {
             </Anchor>
           </Stack>
         </Box>
-        <Box marginRight={['space0', 'space130']} marginBottom="space60">
+        <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={['space0', 'space130']}>
           <Stack as="nav" orientation="vertical" spacing="space60">
             <Anchor
               href="https://share.goabstract.com/786b3d8f-b87a-4140-af7d-eb4cdd40e8ed"
