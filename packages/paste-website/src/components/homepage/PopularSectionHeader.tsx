@@ -6,7 +6,7 @@ const PopularSectionHeader: React.FC = () => {
   const theme = useTheme();
   return (
     <Box
-      as="h4"
+      aria-hidden
       color="colorTextWeak"
       fontWeight="fontWeightBold"
       marginBottom="space110"

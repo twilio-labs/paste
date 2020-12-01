@@ -3,6 +3,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Text} from '@twilio-paste/text';
+import {ArrowForwardIcon} from '@twilio-paste/icons/esm/ArrowForwardIcon';
 import {NewComponentBanner} from './NewComponentBanner';
 import {NewComponentBannerBadge} from './NewComponentBannerBadge';
 import {NewComponentBannerLink} from './NewComponentBannerLink';
@@ -11,13 +12,39 @@ import {HomeHeroIllustration} from './HomeHeroIllustration';
 import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
 import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
 
+const SeeRoadmapAnchor: React.FC = () => {
+  const [hovered, setHovered] = React.useState(false);
+
+  const handleMouseEnter = (): void => {
+    setHovered(true);
+  };
+  const handleMouseLeave = (): void => {
+    setHovered(false);
+  };
+
+  return (
+    <Anchor href="/roadmap" variant="inverse" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <Box as="span" display="flex" alignItems="center">
+        See our roadmap
+        <Box
+          as="span"
+          display="flex"
+          transform={hovered ? 'translateX(4px)' : 'translateX(0)'}
+          transition="all 100ms ease"
+        >
+          <ArrowForwardIcon decorative display="inline-block" size="sizeIcon40" />
+        </Box>
+      </Box>
+    </Anchor>
+  );
+};
+
 const HomeHero: React.FC = () => {
   return (
     <Box
-      paddingLeft={['space90', 'space180']}
-      paddingRight={['space90', 'space180']}
-      paddingTop="space200"
-      paddingBottom="space200"
+      paddingX={['space90', 'space180']}
+      paddingTop={['space90', 'space200']}
+      paddingBottom={['space90', 'space160', 'space160']}
       position="relative"
     >
       <SlantedBackgroundGradient
@@ -30,15 +57,15 @@ const HomeHero: React.FC = () => {
             <Column span={5}>
               <NewComponentBanner>
                 <NewComponentBannerBadge>New!</NewComponentBannerBadge>
-                <NewComponentBannerText>We just released a toast component!</NewComponentBannerText>
-                <NewComponentBannerLink to="/components/toast">Check it out</NewComponentBannerLink>
+                <NewComponentBannerText>We just released the create pattern!</NewComponentBannerText>
+                <NewComponentBannerLink to="/patterns/create">Check it out</NewComponentBannerLink>
               </NewComponentBanner>
               <Text
                 as="h1"
                 color="colorTextInverse"
-                fontSize="fontSize110"
-                lineHeight="lineHeight110"
-                marginTop="space120"
+                fontSize={['fontSize90', 'fontSize110']}
+                lineHeight={['lineHeight90', 'lineHeight110']}
+                marginTop={['space80', 'space120']}
               >
                 Build inclusive, delightful Twilio customer experiences with Paste.
               </Text>
@@ -50,9 +77,7 @@ const HomeHero: React.FC = () => {
                 lineHeight="lineHeight40"
                 marginTop="space120"
               >
-                <Anchor href="/roadmap" variant="inverse">
-                  See our roadmap
-                </Anchor>
+                <SeeRoadmapAnchor />
               </Text>
             </Column>
             <Column span={7} height="100%">
