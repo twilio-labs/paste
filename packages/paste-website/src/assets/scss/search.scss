@@ -11,8 +11,8 @@
     &,
     &.algolia-autocomplete-right {
       .ds-dropdown-menu {
-        position: fixed !important;
-        top: 130px !important;
+        position: absolute !important;
+        top: 30px !important;
         left: 20px !important;
         right: 20px !important;
         width: calc(100vw - 40px) !important;

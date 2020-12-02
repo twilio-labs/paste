@@ -22,6 +22,7 @@ const StyledModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)(
     alignItems: 'center',
     backgroundColor: 'colorBackgroundOverlay',
     zIndex: 'zIndex80',
+    overflow: 'scroll',
   }),
   // import Paste Theme Based Styles due to portal positioning.
   // reach portal is a sibling to the main app, so you are now
@@ -34,9 +35,8 @@ const StyledModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)(
 
 const StyledModalDialogContent = styled(ModalDialogPrimitiveContent)(
   css({
-    position: 'fixed',
+    position: 'absolute',
     top: 10,
-    left: 10,
     width: 'calc(100% - 20px)',
     maxWidth: '500px',
     height: '270px',
@@ -44,7 +44,6 @@ const StyledModalDialogContent = styled(ModalDialogPrimitiveContent)(
     paddingX: 'space60',
     backgroundColor: 'colorBackgroundBody',
     borderRadius: 'borderRadius20',
-    overflow: 'visible',
   })
 );
 
@@ -58,7 +57,7 @@ interface MobileSearchProps {
 const CoolLinks = [
   '/principles',
   '/inclusive-design',
-  '/how-to-compose-custom-ui-with-tokens',
+  '/tokens/how-to-compose-custom-ui-with-tokens',
   '/patterns',
   '/content/voice-and-tone',
   '/primitives/box',
@@ -75,25 +74,27 @@ const MobileSearch: React.FC<MobileSearchProps> = ({isOpen, onClose, value, onCh
 
   return (
     <StyledModalDialogOverlay onDismiss={onClose} allowPinchZoom>
-      <StyledModalDialogContent aria-label="Website navigation">
-        <Box position="absolute" top="24px" right="24px" zIndex="zIndex10">
-          <Button variant="reset" size="reset" onClick={onClose}>
-            <CloseIcon decorative={false} color="colorTextWeak" size="sizeIcon60" title="Close Search" />
-          </Button>
-        </Box>
-        <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" position="relative">
-          <Heading as="label" variant="heading30">
-            Search
-          </Heading>
-          <SiteHeaderSearch value={value} onChange={onChange} />
-          <Box maxWidth="240px" marginX="auto" marginTop="space80" marginBottom="space50">
-            <Text as="span">Not sure? Try a randomized search and discover something new!</Text>
+      <Box height="600px" width="100vw" overflow="scroll" display="flex" justifyContent="center">
+        <StyledModalDialogContent aria-label="Website navigation">
+          <Box position="absolute" top="24px" right="24px" zIndex="zIndex10">
+            <Button variant="reset" size="reset" onClick={onClose}>
+              <CloseIcon decorative={false} color="colorTextWeak" size="sizeIcon60" title="Close Search" />
+            </Button>
           </Box>
-          <Button as="a" href={coolLink} variant="primary">
-            Show me something cool
-          </Button>
-        </Box>
-      </StyledModalDialogContent>
+          <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" position="relative">
+            <Heading as="label" variant="heading30">
+              Search
+            </Heading>
+            <SiteHeaderSearch value={value} onChange={onChange} />
+            <Box maxWidth="240px" marginX="auto" marginTop="space80" marginBottom="space50">
+              <Text as="span">Not sure? Try a randomized search and discover something new!</Text>
+            </Box>
+            <Button as="a" href={coolLink} variant="primary">
+              Show me something cool
+            </Button>
+          </Box>
+        </StyledModalDialogContent>
+      </Box>
     </StyledModalDialogOverlay>
   );
 };

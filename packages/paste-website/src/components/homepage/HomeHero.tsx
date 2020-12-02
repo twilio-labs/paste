@@ -57,7 +57,7 @@ const HomeHero: React.FC = () => {
             <Column span={5}>
               <NewComponentBanner>
                 <NewComponentBannerBadge>New!</NewComponentBannerBadge>
-                <NewComponentBannerText>We just released the create pattern!</NewComponentBannerText>
+                <NewComponentBannerText>We released the Create pattern!</NewComponentBannerText>
                 <NewComponentBannerLink to="/patterns/create">Check it out</NewComponentBannerLink>
               </NewComponentBanner>
               <Text
