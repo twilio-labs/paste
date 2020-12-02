@@ -67,13 +67,12 @@ const DropShadowWrapper = styled.div(
   })
 );
 
-interface MobileNavigation {
+interface MobileNavigationProps {
   isOpen: boolean;
-  handleClose: () => void;
+  onClose: () => void;
 }
 
-const MobileNavigation: React.FC<MobileNavigation> = ({isOpen, handleClose}) => {
-  const inputRef = React.useRef();
+const MobileNavigation: React.FC<MobileNavigationProps> = ({isOpen, onClose}) => {
   const [burgerOpen, setBurgerOpen] = React.useState(false);
   const {pathname} = useNavigationContext();
   const isHomepage = pathname === '/';
@@ -100,20 +99,17 @@ const MobileNavigation: React.FC<MobileNavigation> = ({isOpen, handleClose}) => 
       friction: 22,
     },
   });
+
   return (
     <>
       {transitions(
-        (styles, item) =>
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (styles: any, item: any) =>
           item && (
-            <StyledModalDialogOverlay
-              onDismiss={handleClose}
-              allowPinchZoom
-              initialFocusRef={inputRef}
-              style={{opacity: styles.opacity}}
-            >
+            <StyledModalDialogOverlay onDismiss={onClose} allowPinchZoom style={{opacity: styles.opacity}}>
               <StyledModalDialogContent style={styles} aria-label="Website navigation">
                 <Box position="fixed" top="24px" right="24px" zIndex="zIndex10">
-                  <Button variant="reset" size="reset" onClick={handleClose}>
+                  <Button variant="reset" size="reset" onClick={onClose}>
                     <HamburgerToggle
                       toggled={burgerOpen}
                       color={burgerOpen ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody'}
