@@ -20,6 +20,7 @@ export type Wrap = ResponsiveValue<WrapOptions>;
 
 export interface FlexProps extends LayoutProps, MarginProps, PaddingProps {
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
   display?: Display;
   vertical?: Vertical;
   vAlignContent?: VerticalAlign;
