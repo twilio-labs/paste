@@ -38,12 +38,12 @@ const SiteHeaderLogo: React.FC<SiteHeaderLogoProps> = ({title, subtitle}) => {
           <PasteIconInverse color={theme.textColors.colorTextInverse} display="block" size={42} />
         </MediaFigure>
         <MediaBody>
-          <Text as="h2" fontSize="fontSize40" lineHeight="lineHeight40" color="colorTextInverse">
+          <Text as="div" fontSize="fontSize40" lineHeight="lineHeight40" color="colorTextInverse">
             <StyledLink to="/">{title}</StyledLink>
           </Text>
           {subtitle ? (
             <Text
-              as="h3"
+              as="div"
               fontSize="fontSize20"
               fontWeight="fontWeightNormal"
               lineHeight="lineHeight20"

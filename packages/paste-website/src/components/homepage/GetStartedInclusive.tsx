@@ -19,7 +19,7 @@ export const GetStartedInclusive: React.FC<GetStartedInclusiveProps> = ({animati
           <GetStartedCardIllustration>
             <HomeGetStartedIllo1 aria-hidden="true" />
           </GetStartedCardIllustration>
-          <Heading as="h3" variant="heading30">
+          <Heading as="h2" variant="heading30">
             Build inclusively by default
           </Heading>
           <Paragraph>

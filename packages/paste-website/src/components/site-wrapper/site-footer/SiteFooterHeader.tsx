@@ -20,7 +20,7 @@ const SiteFooterHeader: React.FC<{}> = () => {
         decorative
       />
       <Text
-        as="h5"
+        as="h2"
         color="colorTextInverse"
         fontSize={['fontSize60', 'fontSize90']}
         fontWeight="fontWeightBold"
