@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
-import {styled} from '@twilio-paste/styling-library';
 import {Composite, useCompositeState} from '@twilio-paste/reakit-library';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
