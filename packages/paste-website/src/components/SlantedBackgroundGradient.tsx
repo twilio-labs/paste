@@ -42,6 +42,9 @@ export const SlantedBackgroundGradient: React.FC<BackgroundGradientProps> = ({
           content: `" "`,
           zIndex: -1,
           position: 'absolute',
+          // Fixes anti-aliasing
+          // https://stackoverflow.com/questions/6492027/css-transform-jagged-edges-in-chrome/36549674#36549674
+          outline: '1px solid transparent',
           right: 0,
           bottom: 0,
           left: 0,
