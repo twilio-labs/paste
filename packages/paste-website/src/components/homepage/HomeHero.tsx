@@ -23,19 +23,19 @@ const SeeRoadmapAnchor: React.FC = () => {
   };
 
   return (
-    <Anchor href="/roadmap" variant="inverse" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <Box as="span" display="flex" alignItems="center">
+    <Box as="span" display="flex" alignItems="center">
+      <Anchor href="/roadmap" variant="inverse" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         See our roadmap
-        <Box
-          as="span"
-          display="flex"
-          transform={hovered ? 'translateX(4px)' : 'translateX(0)'}
-          transition="all 100ms ease"
-        >
-          <ArrowForwardIcon decorative display="inline-block" size="sizeIcon40" />
-        </Box>
+      </Anchor>
+      <Box
+        as="span"
+        display="flex"
+        transform={hovered ? 'translateY(1px) translateX(4px)' : 'translateY(1px) translateX(0)'}
+        transition="all 100ms ease"
+      >
+        <ArrowForwardIcon decorative display="inline-block" size="sizeIcon40" />
       </Box>
-    </Anchor>
+    </Box>
   );
 };
 
