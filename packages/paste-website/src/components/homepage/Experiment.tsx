@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 import {useTheme} from '@twilio-paste/theme';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
+import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {DoodleArrow} from '../../assets/illustrations/DoodleArrow';
@@ -78,7 +79,10 @@ const Experiment: React.FC<ExperimentProps> = ({showIframe}) => {
             <Heading as="h2" variant="heading10">
               Experiment with your ideas
             </Heading>
-            <Paragraph>Create and play with our React components in the Paste prototyping sandbox.</Paragraph>
+            <Paragraph>
+              Create and play with our React components in the{' '}
+              <Anchor href="https://codesandbox.io/s/paste-starter-kit-rj7yy">Paste prototyping sandbox</Anchor>.
+            </Paragraph>
           </Box>
           <Box boxShadow="shadowHigh" maxWidth="size90" position="relative" marginLeft="auto" marginRight="auto">
             <Box position="absolute" display={['none', 'none', 'block']} top={-105} right={-20}>

@@ -20,7 +20,7 @@ export const GetStartedInclusive: React.FC<GetStartedInclusiveProps> = ({animati
             <HomeGetStartedIllo1 aria-hidden="true" />
           </GetStartedCardIllustration>
           <Heading as="h3" variant="heading30">
-            Inclusive by default
+            Build inclusively by default
           </Heading>
           <Paragraph>
             Paste meets WCAG 2.1 AA standards in the design and development of our components, making it even easier to

@@ -25,9 +25,7 @@ export const GetStartedRunning: React.FC<GetStartedRunningProps> = ({animationDe
           <Heading as="h3" variant="heading30">
             Get up and running
           </Heading>
-          <Paragraph>
-            Whether you&rsquo;re a designer or developer, setting up Paste is easy and only takes a few minutes!
-          </Paragraph>
+          <Paragraph>We have step-by-step guides to get you set up with Paste efficiently.</Paragraph>
         </div>
         <GetStartedCardLinks ref={ref} vertical={linkBoxWidth < 220}>
           <GetStartedCardLink to="/getting-started/engineering">Developer setup</GetStartedCardLink>
