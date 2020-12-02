@@ -9,7 +9,7 @@ import {SITE_CONTENT_MAX_WIDTH} from '../../../constants';
 const SiteFooter: React.FC<{}> = () => {
   const {pathname} = useNavigationContext();
   return (
-    <Box margin="space70" marginTop="space200" paddingTop="space200" position="relative">
+    <Box as="footer" margin="space70" marginTop="space200" paddingTop="space200" position="relative">
       {pathname === '/' && <SiteFooterTopAngle />}
       <Box
         borderRadius="borderRadius20"

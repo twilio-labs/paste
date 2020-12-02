@@ -14,7 +14,7 @@ interface SiteHeaderDesktopProps {
 const SiteHeaderDesktop: React.FC<SiteHeaderDesktopProps> = ({searchValue, onSearchChange}) => {
   return (
     <Box
-      as="aside"
+      as="header"
       display={['none', 'none', 'flex']}
       alignItems="center"
       backgroundColor="colorBackgroundPrimaryDarkest"

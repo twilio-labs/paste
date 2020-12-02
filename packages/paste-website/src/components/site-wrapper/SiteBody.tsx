@@ -31,9 +31,11 @@ export const SiteBody: React.FC = ({children}) => {
       <SiteHeader />
       <StyledSiteBody>
         {breakpointIndex === undefined || breakpointIndex > 1 ? <Sidebar /> : null}
-        <Box as="main" role="main" flex="1" minWidth="size0">
-          <ScrollAnchorIntoView />
-          {children}
+        <Box flex="1" minWidth="size0">
+          <main>
+            <ScrollAnchorIntoView />
+            {children}
+          </main>
           <SiteFooter />
         </Box>
       </StyledSiteBody>
