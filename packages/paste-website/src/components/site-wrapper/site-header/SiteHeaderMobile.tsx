@@ -43,7 +43,7 @@ const SiteHeaderMobile: React.FC<SiteHeaderMobileProps> = ({searchValue, onSearc
       <SiteHeaderLogo title="Paste" />
       <Box margin="space60">
         <Button
-          aria-label={navigationOpen ? 'Close main navigation' : 'Open main navigation'}
+          aria-label="Open main navigation"
           variant="inverse"
           size="icon_small"
           onClick={() => setNavigationOpen(!navigationOpen)}
