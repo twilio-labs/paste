@@ -9,7 +9,7 @@ import TwilioLogo from '../../icons/TwilioLogo';
 const SiteFooterNav: React.FC<{}> = () => {
   const theme = useTheme();
   return (
-    <Box as="footer" position="relative">
+    <Box position="relative">
       <SiteFooterHeader />
       <Box
         as="nav"

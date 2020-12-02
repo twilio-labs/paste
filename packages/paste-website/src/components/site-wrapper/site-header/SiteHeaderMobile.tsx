@@ -16,7 +16,7 @@ const SiteHeaderMobile: React.FC<SiteHeaderMobileProps> = (/* {searchValue, onSe
 
   return (
     <Box
-      as="aside"
+      as="header"
       display={['flex', 'flex', 'none']}
       alignItems="center"
       justifyContent="space-between"

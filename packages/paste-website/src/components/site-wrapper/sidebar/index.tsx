@@ -13,6 +13,7 @@ const StyledSidebar = styled(Box)(() => ({
 const Sidebar: React.FC = () => {
   return (
     <StyledSidebar
+      as="aside"
       backgroundColor="colorBackground"
       position="sticky"
       top={`${SITE_MASTHEAD_HEIGHT}px`}
