@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.15.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.14.19...@twilio-paste/website@2.15.0) (2020-12-02)
+
+
+### Features
+
+* **website:** new homepage and made website responsive ([c8a146d](https://github.com/twilio-labs/paste/commit/c8a146d716f1973e8a23a66898b7f549f9069531))
+
+
+
+
+
 ## [2.14.19](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.14.18...@twilio-paste/website@2.14.19) (2020-11-25)
 
 **Note:** Version bump only for package @twilio-paste/website

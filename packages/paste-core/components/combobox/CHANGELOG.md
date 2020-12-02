@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.25](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.4.24...@twilio-paste/combobox@1.4.25) (2020-12-02)
+
+**Note:** Version bump only for package @twilio-paste/combobox
+
+
+
+
+
 ## [1.4.24](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.4.23...@twilio-paste/combobox@1.4.24) (2020-11-25)
 
 **Note:** Version bump only for package @twilio-paste/combobox

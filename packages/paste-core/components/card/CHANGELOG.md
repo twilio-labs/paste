@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.3.76...@twilio-paste/card@1.4.0) (2020-12-02)
+
+
+### Features
+
+* **card:** wrapping with forwardRefs ([05996a5](https://github.com/twilio-labs/paste/commit/05996a5ab82623f4a69a84225dff57cee955c420))
+
+
+
+
+
 ## [1.3.76](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.3.75...@twilio-paste/card@1.3.76) (2020-11-11)
 
 **Note:** Version bump only for package @twilio-paste/card

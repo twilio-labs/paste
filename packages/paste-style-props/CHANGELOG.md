@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.8.9...@twilio-paste/style-props@1.8.10) (2020-12-02)
+
+
+### Bug Fixes
+
+* **style-props:** allow 'transparent' as backgroundColor value ([2d17f86](https://github.com/twilio-labs/paste/commit/2d17f860ebcd59fa3f9f79c5fc3d228e9a874cc6))
+
+
+
+
+
 ## [1.8.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.8.8...@twilio-paste/style-props@1.8.9) (2020-11-11)
 
 **Note:** Version bump only for package @twilio-paste/style-props

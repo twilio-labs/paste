@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/button",
-  "version": "2.4.3",
+  "version": "2.4.4",
   "category": "interaction",
   "status": "production",
   "description": "Twilio's Button component",
@@ -29,12 +29,12 @@
     "lodash.merge": "^4.6.2"
   },
   "peerDependencies": {
-    "@twilio-paste/box": "^2.11.9",
+    "@twilio-paste/box": "^2.11.10",
     "@twilio-paste/design-tokens": "^6.3.6",
-    "@twilio-paste/icons": "^3.9.0",
-    "@twilio-paste/spinner": "^2.0.35",
-    "@twilio-paste/stack": "^0.1.52",
-    "@twilio-paste/style-props": "^1.8.9",
+    "@twilio-paste/icons": "^3.9.1",
+    "@twilio-paste/spinner": "^2.0.36",
+    "@twilio-paste/stack": "^0.1.53",
+    "@twilio-paste/style-props": "^1.8.10",
     "@twilio-paste/styling-library": "^0.1.4",
     "@twilio-paste/theme": "^3.3.2",
     "@twilio-paste/types": "^3.0.30",
@@ -44,12 +44,12 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^2.11.9",
+    "@twilio-paste/box": "^2.11.10",
     "@twilio-paste/design-tokens": "^6.3.6",
-    "@twilio-paste/icons": "^3.9.0",
-    "@twilio-paste/spinner": "^2.0.35",
-    "@twilio-paste/stack": "^0.1.52",
-    "@twilio-paste/style-props": "^1.8.9",
+    "@twilio-paste/icons": "^3.9.1",
+    "@twilio-paste/spinner": "^2.0.36",
+    "@twilio-paste/stack": "^0.1.53",
+    "@twilio-paste/style-props": "^1.8.10",
     "@twilio-paste/styling-library": "^0.1.4",
     "@twilio-paste/theme": "^3.3.2",
     "@twilio-paste/types": "^3.0.30",
