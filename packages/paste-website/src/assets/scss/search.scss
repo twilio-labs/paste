@@ -1,5 +1,32 @@
 @import '@twilio-paste/design-tokens/dist/tokens.default';
 
+/* !!! N.B. !!!
+ * Changing this breakpoint should also be
+ * reflected in src/constants.ts
+ */
+@media only screen and (max-width: 768px) {
+  .algolia-autocomplete {
+    width: 100% !important;
+
+    &,
+    &.algolia-autocomplete-right {
+      .ds-dropdown-menu {
+        position: fixed !important;
+        top: 130px !important;
+        left: 20px !important;
+        right: 20px !important;
+        width: calc(100vw - 40px) !important;
+        max-width: 550px !important;
+        min-width: 280px !important;
+
+        .algolia-docsearch-suggestion--content {
+          padding-left: 4px;
+        }
+      }
+    }
+  }
+}
+
 .algolia-autocomplete {
   width: 100%;
 

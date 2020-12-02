@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {GithubLink} from './GithubLink';
-import {SiteHeaderDesktopSearch} from './SiteHeaderDesktopSearch';
+import {SiteHeaderSearch} from './SiteHeaderSearch';
 import {SiteHeaderLogo} from './SiteHeaderLogo';
 import {ThemeSwitcher} from '../../ThemeSwitcher';
 
@@ -40,7 +40,7 @@ const SiteHeaderDesktop: React.FC<SiteHeaderDesktopProps> = ({searchValue, onSea
         <ThemeSwitcher />
         <Box marginTop="space0">
           <Stack orientation="horizontal" spacing="space60">
-            <SiteHeaderDesktopSearch value={searchValue} onChange={onSearchChange} />
+            <SiteHeaderSearch value={searchValue} onChange={onSearchChange} />
             <GithubLink />
           </Stack>
         </Box>
