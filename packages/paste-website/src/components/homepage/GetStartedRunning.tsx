@@ -22,7 +22,7 @@ export const GetStartedRunning: React.FC<GetStartedRunningProps> = ({animationDe
           <GetStartedCardIllustration>
             <HomeGetStartedIllo3 aria-hidden="true" />
           </GetStartedCardIllustration>
-          <Heading as="h3" variant="heading30">
+          <Heading as="h2" variant="heading30">
             Get up and running
           </Heading>
           <Paragraph>We have step-by-step guides to get you set up with Paste efficiently.</Paragraph>

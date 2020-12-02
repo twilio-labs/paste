@@ -15,7 +15,7 @@ export const GetStarterWhy: React.FC = () => {
           <GetStartedCardIllustration>
             <HomeGetStartedIllo2 aria-hidden="true" />
           </GetStartedCardIllustration>
-          <Heading as="h3" variant="heading30">
+          <Heading as="h2" variant="heading30">
             Why use Paste?
           </Heading>
           <Paragraph>

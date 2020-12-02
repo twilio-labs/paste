@@ -8,7 +8,7 @@ import {useSpring, animated} from '@twilio-paste/animation-library';
 
 const ComponentCardHeader: React.FC = ({children}) => {
   return (
-    <Heading as="h4" variant="heading40">
+    <Heading as="h3" variant="heading40">
       {children}
     </Heading>
   );

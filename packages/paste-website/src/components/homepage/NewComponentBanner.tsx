@@ -12,6 +12,7 @@ const NewComponentBanner: React.FC = ({children}) => {
       paddingLeft="space20"
       paddingRight="space40"
       paddingTop="space20"
+      role="status"
     >
       {children}
     </Box>

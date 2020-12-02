@@ -9,16 +9,17 @@ import TwilioLogo from '../../icons/TwilioLogo';
 const SiteFooterNav: React.FC<{}> = () => {
   const theme = useTheme();
   return (
-    <Box position="relative">
+    <Box as="footer" position="relative">
       <SiteFooterHeader />
       <Box
+        as="nav"
         display="flex"
         flexDirection={['column', 'row']}
         marginLeft={['space0', 'space120']}
         textAlign={['center', 'left']}
       >
         <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={['space0', 'space130']}>
-          <Stack as="nav" orientation="vertical" spacing="space60">
+          <Stack orientation="vertical" spacing="space60">
             <Anchor href="/getting-started/about-paste" variant="inverse">
               About
             </Anchor>
@@ -34,7 +35,7 @@ const SiteFooterNav: React.FC<{}> = () => {
           </Stack>
         </Box>
         <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={['space0', 'space130']}>
-          <Stack as="nav" orientation="vertical" spacing="space60">
+          <Stack orientation="vertical" spacing="space60">
             <Anchor href="https://github.com/twilio-labs/paste/discussions" variant="inverse" showExternal>
               Get support
             </Anchor>
@@ -47,7 +48,7 @@ const SiteFooterNav: React.FC<{}> = () => {
           </Stack>
         </Box>
         <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={['space0', 'space130']}>
-          <Stack as="nav" orientation="vertical" spacing="space60">
+          <Stack orientation="vertical" spacing="space60">
             <Anchor
               href="https://share.goabstract.com/786b3d8f-b87a-4140-af7d-eb4cdd40e8ed"
               variant="inverse"

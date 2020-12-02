@@ -36,7 +36,6 @@ export const SlantedBackgroundGradient: React.FC<BackgroundGradientProps> = ({
 
   return (
     <div
-      aria-hidden
       css={{
         '&:before': {
           content: `" "`,
