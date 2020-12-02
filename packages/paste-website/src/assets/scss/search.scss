@@ -18,6 +18,8 @@
         width: calc(100vw - 40px) !important;
         max-width: 550px !important;
         min-width: 280px !important;
+        max-height: 300px;
+        overflow: auto;
 
         .algolia-docsearch-suggestion--content {
           padding-left: 4px;
