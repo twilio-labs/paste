@@ -32,51 +32,45 @@ const getFlexDirection = (vertical: GridProps['vertical']): {} => {
   return 'row';
 };
 
-const Grid: React.FC<GridProps> = ({
-  as,
-  children,
-  equalColumnHeights,
-  gutter,
-  marginTop,
-  marginBottom,
-  vertical,
-  ...props
-}) => {
-  const GridColumns = React.useMemo(
-    () =>
-      React.Children.map(children, child =>
-        React.isValidElement(child)
-          ? React.cloneElement(child, {
-              count: React.Children.count(children),
-              gutter,
-              vertical,
-              stretchColumnContent: equalColumnHeights,
-            })
-          : child
-      ),
-    [children]
-  );
+const Grid = React.forwardRef<HTMLDivElement, GridProps>(
+  ({as, children, equalColumnHeights, gutter, marginTop, marginBottom, vertical, ...props}, ref) => {
+    const GridColumns = React.useMemo(
+      () =>
+        React.Children.map(children, child =>
+          React.isValidElement(child)
+            ? React.cloneElement(child, {
+                count: React.Children.count(children),
+                gutter,
+                vertical,
+                stretchColumnContent: equalColumnHeights,
+              })
+            : child
+        ),
+      [children]
+    );
 
-  const gutterStyles = React.useMemo(() => getGutterStyles(gutter), [gutter]);
-  const flexDirection = React.useMemo(() => getFlexDirection(vertical), [vertical]);
+    const gutterStyles = React.useMemo(() => getGutterStyles(gutter), [gutter]);
+    const flexDirection = React.useMemo(() => getFlexDirection(vertical), [vertical]);
 
-  return (
-    <Box
-      {...safelySpreadBoxProps(props)}
-      as={as}
-      alignItems={equalColumnHeights ? 'stretch' : null}
-      flexDirection={flexDirection}
-      flexWrap="wrap"
-      display="flex"
-      marginTop={marginTop}
-      marginBottom={marginBottom}
-      {...gutterStyles}
-      minWidth="size0"
-    >
-      {GridColumns}
-    </Box>
-  );
-};
+    return (
+      <Box
+        {...safelySpreadBoxProps(props)}
+        ref={ref}
+        as={as}
+        alignItems={equalColumnHeights ? 'stretch' : null}
+        flexDirection={flexDirection}
+        flexWrap="wrap"
+        display="flex"
+        marginTop={marginTop}
+        marginBottom={marginBottom}
+        {...gutterStyles}
+        minWidth="size0"
+      >
+        {GridColumns}
+      </Box>
+    );
+  }
+);
 Grid.displayName = 'Grid';
 
 Grid.defaultProps = {
