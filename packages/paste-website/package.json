@@ -75,6 +75,7 @@
     "@twilio-paste/types": "^3.0.30",
     "@twilio-paste/uid-library": "^0.1.1",
     "color": "^3.1.2",
+    "docsearch.js": "2.6.3",
     "dotenv": "^8.2.0",
     "gatsby": "^2.19.19",
     "gatsby-image": "^2.2.41",
@@ -94,6 +95,7 @@
     "gatsby-transformer-remark": "^2.6.53",
     "gatsby-transformer-sharp": "^2.3.14",
     "lodash": "^4.17.19",
+    "lottie-web": "^5.7.4",
     "node-sass": "^4.14.1",
     "pretty-format": "^24.9.0",
     "prism-react-renderer": "^0.1.7",
@@ -103,7 +105,9 @@
     "react-helmet": "^5.2.1",
     "react-live": "^2.2.2",
     "react-scrollspy": "^3.4.0",
-    "use-clipboard-copy": "^0.1.2"
+    "react-visibility-sensor": "5.1.1",
+    "use-clipboard-copy": "^0.1.2",
+    "use-resize-observer": "^7.0.0"
   },
   "devDependencies": {
     "vercel": "^20.1.2"

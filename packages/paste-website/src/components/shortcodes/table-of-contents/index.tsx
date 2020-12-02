@@ -20,8 +20,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
   });
 
   // TODO: Add changelog to headingsList Array becuase changelogs aren't imported.
-  // headingsList.push('changelog');
-
+  // but only for pages with changelogs
   return (
     <Box as="nav" aria-label="document outline">
       <StyledScrollSpy items={headingsList} currentClassName="is-current" rootEl="main">
