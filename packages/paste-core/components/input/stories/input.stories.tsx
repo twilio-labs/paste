@@ -171,6 +171,35 @@ storiesOf('Components|Input', module)
       </>
     );
   })
+  .add('Input - Really Long Error', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Email address');
+    return (
+      <>
+        <Label htmlFor={uid}>Label</Label>
+        <Input
+          id={uid}
+          type="email"
+          placeholder="Placeholder"
+          hasError
+          value={value}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+        />
+        <HelpText variant="error">
+          Please enter a valid email. Please enter a valid email. Please enter a valid email. Please enter a valid
+          email. Please enter a valid email. Please enter a valid email. Please enter a valid email. Please enter a
+          valid email. Please enter a valid email. Please enter a valid email. Please enter a valid email. Please enter
+          a valid email. Please enter a valid email. Please enter a valid email. Please enter a valid email. Please
+          enter a valid email.
+        </HelpText>
+      </>
+    );
+  })
   .add('Input - Error inverse', () => {
     const uid = useUID();
     const [value, setValue] = React.useState('Input');
@@ -194,6 +223,38 @@ storiesOf('Components|Input', module)
           variant="inverse"
         />
         <HelpText variant="error_inverse">Info that helps a user with this field.</HelpText>
+      </Box>
+    );
+  })
+  .add('Input - Really Long Error inverse', () => {
+    const uid = useUID();
+    const [value, setValue] = React.useState('Email address');
+    return (
+      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+        <Label htmlFor={uid} variant="inverse">
+          Label
+        </Label>
+        <Input
+          id={uid}
+          type="email"
+          placeholder="Placeholder"
+          hasError
+          value={value}
+          onChange={event => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+          variant="inverse"
+        />
+        <HelpText variant="error_inverse">
+          Please enter a valid email. Please enter a valid email. Please enter a valid email. Please enter a valid
+          email. Please enter a valid email. Please enter a valid email. Please enter a valid email. Please enter a
+          valid email. Please enter a valid email. Please enter a valid email. Please enter a valid email. Please enter
+          a valid email. Please enter a valid email. Please enter a valid email. Please enter a valid email. Please
+          enter a valid email.
+        </HelpText>
       </Box>
     );
   })
