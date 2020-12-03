@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.16.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.15.0...@twilio-paste/website@2.16.0) (2020-12-03)
+
+
+### Features
+
+* **website:** add SuperFriendly credit for icons on about page ([#992](https://github.com/twilio-labs/paste/issues/992)) ([b99bdb2](https://github.com/twilio-labs/paste/commit/b99bdb2a31ca87f0a1daff9d3d9cdf47bbe7db04))
+
+
+
+
+
 # [2.15.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.14.19...@twilio-paste/website@2.15.0) (2020-12-02)
 
 
