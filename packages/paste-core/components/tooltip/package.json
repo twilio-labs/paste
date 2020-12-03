@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/tooltip",
-  "version": "0.3.23",
+  "version": "0.3.24",
   "category": "interaction",
   "status": "alpha",
   "description": "The Tooltip is a popup that displays clarifying text related to an element that has been focused or hovered on.",
@@ -28,9 +28,9 @@
   "peerDependencies": {
     "@twilio-paste/box": "^2.11.10",
     "@twilio-paste/design-tokens": "^6.3.6",
-    "@twilio-paste/icons": "^3.9.1",
+    "@twilio-paste/icons": "^3.10.0",
     "@twilio-paste/reakit-library": "^0.7.4",
-    "@twilio-paste/spinner": "^2.0.36",
+    "@twilio-paste/spinner": "^2.0.37",
     "@twilio-paste/style-props": "^1.8.10",
     "@twilio-paste/styling-library": "^0.1.4",
     "@twilio-paste/text": "^2.3.17",
@@ -45,9 +45,9 @@
   "devDependencies": {
     "@twilio-paste/box": "^2.11.10",
     "@twilio-paste/design-tokens": "^6.3.6",
-    "@twilio-paste/icons": "^3.9.1",
+    "@twilio-paste/icons": "^3.10.0",
     "@twilio-paste/reakit-library": "^0.7.4",
-    "@twilio-paste/spinner": "^2.0.36",
+    "@twilio-paste/spinner": "^2.0.37",
     "@twilio-paste/style-props": "^1.8.10",
     "@twilio-paste/styling-library": "^0.1.4",
     "@twilio-paste/text": "^2.3.17",
