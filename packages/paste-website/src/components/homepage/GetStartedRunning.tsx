@@ -1,5 +1,6 @@
 import * as React from 'react';
 import useResizeObserver from 'use-resize-observer';
+import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -28,8 +29,30 @@ export const GetStartedRunning: React.FC<GetStartedRunningProps> = ({animationDe
           <Paragraph>We have step-by-step guides to get you set up with Paste efficiently.</Paragraph>
         </div>
         <GetStartedCardLinks ref={ref} vertical={linkBoxWidth < 220}>
-          <GetStartedCardLink to="/getting-started/engineering">Developer setup</GetStartedCardLink>
-          <GetStartedCardLink to="/getting-started/design">Designer setup</GetStartedCardLink>
+          <GetStartedCardLink
+            to="/getting-started/engineering"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Get started',
+                action: 'click-developer-setup',
+                label: 'Developer setup',
+              })
+            }
+          >
+            Developer setup
+          </GetStartedCardLink>
+          <GetStartedCardLink
+            to="/getting-started/design"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Get started',
+                action: 'click-designer-setup',
+                label: 'Designer setup',
+              })
+            }
+          >
+            Designer setup
+          </GetStartedCardLink>
         </GetStartedCardLinks>
       </Box>
     </GetStartedCard>

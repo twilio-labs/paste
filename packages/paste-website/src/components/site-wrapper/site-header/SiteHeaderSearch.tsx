@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import docsearch from 'docsearch.js';
 import {Box} from '@twilio-paste/box';
 import {Input} from '@twilio-paste/input';
@@ -43,6 +44,13 @@ const SiteHeaderSearch: React.FC<SiteHeaderSearchProps> = ({value, onChange}) =>
           <Box cursor="default">
             <SearchIcon decorative />
           </Box>
+        }
+        onClick={() =>
+          trackCustomEvent({
+            category: 'Top Navigation',
+            action: 'click-search',
+            label: 'Search',
+          })
         }
       />
     </Box>

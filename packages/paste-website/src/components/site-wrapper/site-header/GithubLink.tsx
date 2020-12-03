@@ -16,9 +16,9 @@ const GithubLink: React.FC = () => {
       variant="inverse"
       onClick={() =>
         trackCustomEvent({
-          category: 'Header',
-          action: 'Click',
-          label: 'Github Icon',
+          category: 'Top Navigation',
+          action: 'click-github',
+          label: 'Github',
         })
       }
     >

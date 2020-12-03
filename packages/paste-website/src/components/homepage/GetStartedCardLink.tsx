@@ -4,6 +4,7 @@ import {SiteLink, SiteLinkProps} from '../SiteLink';
 
 interface GetStartedCardLinkProps {
   to: SiteLinkProps['to'];
+  onClick?: () => void;
 }
 export const GetStartedCardLink: React.FC<GetStartedCardLinkProps> = ({children, to}) => {
   return (

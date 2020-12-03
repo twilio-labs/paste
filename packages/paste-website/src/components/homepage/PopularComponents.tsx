@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {useTheme} from '@twilio-paste/theme';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {Box} from '@twilio-paste/box';
@@ -70,7 +71,19 @@ const PopularComponents: React.FC = () => {
       </Grid>
       <Box textAlign="center" marginTop="space20" marginBottom="space60">
         <Text as="span" fontWeight="fontWeightSemibold">
-          Explore <SiteLink to="/components">all Components</SiteLink>
+          Explore{' '}
+          <SiteLink
+            to="/components"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Popular',
+                action: 'click-all-components',
+                label: 'Explore all components',
+              })
+            }
+          >
+            all Components
+          </SiteLink>
         </Text>
       </Box>
     </Box>

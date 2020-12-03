@@ -86,8 +86,8 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
             value={ThemeVariants.DEFAULT}
             onClick={() =>
               trackCustomEvent({
-                category: 'Theme Switcher',
-                action: 'Click',
+                category: 'Top Navigation',
+                action: 'click-default',
                 label: 'Default',
               })
             }
@@ -105,8 +105,8 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
             value={ThemeVariants.CONSOLE}
             onClick={() =>
               trackCustomEvent({
-                category: 'Theme Switcher',
-                action: 'Click',
+                category: 'Top Navigation',
+                action: 'click-legacy',
                 label: 'Legacy',
               })
             }

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {
@@ -91,13 +92,31 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
       </Box>
       <Box as="ul" padding="space0" margin="space0" listStyleType="none">
         <SidebarItem display={['none', 'none', 'block']}>
-          <SidebarAnchor to="/">Home</SidebarAnchor>
+          <SidebarAnchor
+            to="/"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-home',
+                label: 'Home',
+              })
+            }
+          >
+            Home
+          </SidebarAnchor>
         </SidebarItem>
         <SidebarItem>
           <DisclosurePrimitive
             as={SidebarDisclosureButton}
             {...gettingStartedDisclosure}
             data-cy="getting-started-button"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-getting-started',
+                label: 'Getting Started',
+              })
+            }
           >
             Getting Started
           </DisclosurePrimitive>
@@ -138,7 +157,18 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <SidebarAnchor to="/inclusive-design">Inclusive Design Guide</SidebarAnchor>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...tokensDisclosure} data-cy="design-tokens-button">
+          <DisclosurePrimitive
+            as={SidebarDisclosureButton}
+            {...tokensDisclosure}
+            data-cy="design-tokens-button"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-design-tokens',
+                label: 'Design Tokens',
+              })
+            }
+          >
             Design Tokens
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...tokensDisclosure} data-cy="design-tokens-list">
@@ -167,7 +197,18 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...patternsDisclosure} data-cy="patterns-button">
+          <DisclosurePrimitive
+            as={SidebarDisclosureButton}
+            {...patternsDisclosure}
+            data-cy="patterns-button"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-patterns',
+                label: 'Patterns',
+              })
+            }
+          >
             Patterns
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...patternsDisclosure} data-cy="patterns-list">
@@ -226,7 +267,18 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...componentsDisclosure} data-cy="components-button">
+          <DisclosurePrimitive
+            as={SidebarDisclosureButton}
+            {...componentsDisclosure}
+            data-cy="components-button"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-components',
+                label: 'Components',
+              })
+            }
+          >
             Components
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...componentsDisclosure} data-cy="components-list">
@@ -252,7 +304,18 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...primitivesDisclosure} data-cy="primitives-button">
+          <DisclosurePrimitive
+            as={SidebarDisclosureButton}
+            {...primitivesDisclosure}
+            data-cy="primitives-button"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-primitives',
+                label: 'Primitives',
+              })
+            }
+          >
             Primitives
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...primitivesDisclosure} data-cy="primitives-list">
@@ -280,7 +343,18 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...layoutDisclosure} data-cy="layout-button">
+          <DisclosurePrimitive
+            as={SidebarDisclosureButton}
+            {...layoutDisclosure}
+            data-cy="layout-button"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-layout',
+                label: 'Layout',
+              })
+            }
+          >
             Layout
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...layoutDisclosure} data-cy="layout-list">
@@ -305,7 +379,18 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...iconDisclosure} data-cy="icons-button">
+          <DisclosurePrimitive
+            as={SidebarDisclosureButton}
+            {...iconDisclosure}
+            data-cy="icons-button"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-icons',
+                label: 'Icons',
+              })
+            }
+          >
             Icons
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...iconDisclosure} data-cy="icons-list">
@@ -329,10 +414,32 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <SidebarAnchor to="/illustrations">Illustrations</SidebarAnchor>
+          <SidebarAnchor
+            to="/illustrations"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-illustrations',
+                label: 'Illustrations',
+              })
+            }
+          >
+            Illustrations
+          </SidebarAnchor>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...contentDisclosure} data-cy="content-button">
+          <DisclosurePrimitive
+            as={SidebarDisclosureButton}
+            {...contentDisclosure}
+            data-cy="content-button"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-content',
+                label: 'Content',
+              })
+            }
+          >
             Content
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...contentDisclosure} data-cy="content-list">
@@ -366,7 +473,18 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...librariesDisclosure} data-cy="libraries-button">
+          <DisclosurePrimitive
+            as={SidebarDisclosureButton}
+            {...librariesDisclosure}
+            data-cy="libraries-button"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-libraries',
+                label: 'Libraries',
+              })
+            }
+          >
             Libraries
           </DisclosurePrimitive>
           <DisclosurePrimitiveContent {...librariesDisclosure} data-cy="libraries-list">
@@ -390,7 +508,18 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <SidebarAnchor to="/roadmap">Roadmap</SidebarAnchor>
+          <SidebarAnchor
+            to="/roadmap"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-roadmap',
+                label: 'Roadmap',
+              })
+            }
+          >
+            Roadmap
+          </SidebarAnchor>
         </SidebarItem>
       </Box>
     </Box>
