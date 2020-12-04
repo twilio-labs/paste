@@ -62,6 +62,12 @@ const CoolLinks = [
   '/content/voice-and-tone',
   '/primitives/box',
   '/components/screen-reader-only',
+  '/components/alert',
+  '/components/button',
+  '/components/toast',
+  '/components/popover',
+  '/illustrations',
+  '/tokens',
 ];
 
 const getRandomCoolLink = (): string => {
