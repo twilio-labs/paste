@@ -60,7 +60,7 @@ const renderAlertIcon = (variant: AlertVariants): React.ReactElement => {
   }
 };
 
-const Alert: React.FC<AlertProps> = ({children, onDismiss, variant, role, ...props}) => {
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(({children, onDismiss, variant, role, ...props}, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
@@ -72,6 +72,7 @@ const Alert: React.FC<AlertProps> = ({children, onDismiss, variant, role, ...pro
       paddingRight="space60"
       paddingTop="space50"
       paddingBottom="space50"
+      ref={ref}
       role={role != null ? role : AlertRoles[variant.toUpperCase()]}
     >
       <MediaObject as="div">
@@ -89,7 +90,7 @@ const Alert: React.FC<AlertProps> = ({children, onDismiss, variant, role, ...pro
       </MediaObject>
     </Box>
   );
-};
+});
 Alert.displayName = 'Alert';
 
 if (process.env.NODE_ENV === 'development') {
