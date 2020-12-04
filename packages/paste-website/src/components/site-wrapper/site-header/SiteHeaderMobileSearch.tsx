@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {Heading} from '@twilio-paste/heading';
-import {pasteBaseStyles} from '@twilio-paste/theme';
-import {Button} from '@twilio-paste/button';
-import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
-import {styled, css} from '@twilio-paste/styling-library';
-import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
-import {SiteHeaderSearch} from './SiteHeaderSearch';
+import { Box } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
+import { Heading } from '@twilio-paste/heading';
+import { pasteBaseStyles } from '@twilio-paste/theme';
+import { Button } from '@twilio-paste/button';
+import { CloseIcon } from '@twilio-paste/icons/esm/CloseIcon';
+import { styled, css } from '@twilio-paste/styling-library';
+import { ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent } from '@twilio-paste/modal-dialog-primitive';
+import { SiteHeaderSearch } from './SiteHeaderSearch';
 
 const StyledModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)(
   css({
@@ -62,13 +62,19 @@ const CoolLinks = [
   '/content/voice-and-tone',
   '/primitives/box',
   '/components/screen-reader-only',
+  '/components/alert',
+  '/components/button',
+  '/components/toast',
+  '/components/popover',
+  '/illustrations',
+  '/tokens',
 ];
 
 const getRandomCoolLink = (): string => {
   return CoolLinks[Math.floor(Math.random() * CoolLinks.length)];
 };
 
-const MobileSearch: React.FC<MobileSearchProps> = ({isOpen, onClose, value, onChange}) => {
+const MobileSearch: React.FC<MobileSearchProps> = ({ isOpen, onClose, value, onChange }) => {
   const [coolLink] = React.useState(getRandomCoolLink());
   if (!isOpen) return null;
 
@@ -98,4 +104,4 @@ const MobileSearch: React.FC<MobileSearchProps> = ({isOpen, onClose, value, onCh
     </StyledModalDialogOverlay>
   );
 };
-export {MobileSearch};
+export { MobileSearch };
