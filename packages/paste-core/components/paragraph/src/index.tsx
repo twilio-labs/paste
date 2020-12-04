@@ -1,13 +1,13 @@
 import * as React from 'react';
 import {Text} from '@twilio-paste/text';
 
-export interface ParagraphProps {
+export interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
   id?: never;
   className?: never;
   marginBottom?: 'space0';
 }
 
-const Paragraph: React.FC<ParagraphProps> = ({children, marginBottom}) => {
+const Paragraph = React.forwardRef<HTMLParagraphElement, ParagraphProps>(({children, marginBottom}, ref) => {
   return (
     <Text
       as="p"
@@ -16,11 +16,12 @@ const Paragraph: React.FC<ParagraphProps> = ({children, marginBottom}) => {
       lineHeight="lineHeight40"
       fontWeight="fontWeightNormal"
       color="colorText"
+      ref={ref}
     >
       {children}
     </Text>
   );
-};
+});
 
 Paragraph.displayName = 'Paragraph';
 export {Paragraph};
