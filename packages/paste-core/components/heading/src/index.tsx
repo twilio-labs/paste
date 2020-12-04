@@ -55,20 +55,23 @@ function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: 'space
   }
 }
 
-const Heading: React.FC<HeadingProps> = ({as, children, id, marginBottom, variant, ...props}) => {
-  return (
-    <Text
-      {...safelySpreadTextProps(props)}
-      {...getHeadingProps(variant, marginBottom)}
-      as={as}
-      display="block"
-      id={id}
-      color="colorText"
-    >
-      {children}
-    </Text>
-  );
-};
+const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
+  ({as, children, id, marginBottom, variant, ...props}, ref) => {
+    return (
+      <Text
+        {...safelySpreadTextProps(props)}
+        {...getHeadingProps(variant, marginBottom)}
+        as={as}
+        display="block"
+        id={id}
+        color="colorText"
+        ref={ref}
+      >
+        {children}
+      </Text>
+    );
+  }
+);
 Heading.displayName = 'Heading';
 
 if (process.env.NODE_ENV === 'development') {
