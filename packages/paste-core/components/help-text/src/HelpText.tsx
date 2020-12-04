@@ -22,7 +22,7 @@ export interface HelpTextProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: HelpTextVariants;
 }
 
-const HelpText: React.FC<HelpTextProps> = ({marginTop, children, variant, ...props}) => {
+const HelpText = React.forwardRef<HTMLDivElement, HelpTextProps>(({marginTop, children, variant, ...props}, ref) => {
   let icon = null;
   switch (variant) {
     case HelpTextVariants.ERROR:
@@ -53,7 +53,7 @@ const HelpText: React.FC<HelpTextProps> = ({marginTop, children, variant, ...pro
   }
 
   return (
-    <Flex vAlignContent="center" marginTop={marginTop || 'space30'}>
+    <Flex vAlignContent="center" marginTop={marginTop || 'space30'} ref={ref}>
       {icon}
       <Text
         {...safelySpreadTextProps(props)}
@@ -67,7 +67,7 @@ const HelpText: React.FC<HelpTextProps> = ({marginTop, children, variant, ...pro
       </Text>
     </Flex>
   );
-};
+});
 
 HelpText.displayName = 'HelpText';
 
