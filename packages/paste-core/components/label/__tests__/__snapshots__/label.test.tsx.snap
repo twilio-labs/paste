@@ -134,17 +134,18 @@ exports[`Label render should render with required 1`] = `
 }
 
 .emotion-0 {
-  position: absolute;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
+  box-sizing: border-box;
+  border: none;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -0.125rem;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
   text-transform: none;
   white-space: nowrap;
+  width: 1px;
 }
 
 <div
@@ -168,6 +169,10 @@ exports[`Label render should render with required 1`] = `
         >
           <span
             class="emotion-0"
+            clip="rect(0 0 0 0)"
+            height="1px"
+            overflow="hidden"
+            width="1px"
           >
             Required: 
           </span>
