@@ -12,27 +12,30 @@ export interface SeparatorProps extends React.HTMLAttributes<HTMLHRElement> {
   verticalSpacing?: Space;
 }
 
-const Separator: React.FC<SeparatorProps> = ({orientation, horizontalSpacing, verticalSpacing, ...props}) => {
-  return (
-    <Box
-      {...safelySpreadBoxProps(props)}
-      aria-orientation={orientation}
-      margin="space0"
-      marginBottom={verticalSpacing}
-      marginLeft={horizontalSpacing}
-      marginRight={horizontalSpacing}
-      marginTop={verticalSpacing}
-      as="hr"
-      borderWidth="borderWidth0"
-      borderColor="colorBorderLight"
-      borderStyle="solid"
-      borderBottomWidth={orientation === 'horizontal' ? 'borderWidth10' : null}
-      borderLeftWidth={orientation === 'vertical' ? 'borderWidth10' : null}
-      width={orientation === 'horizontal' ? 'auto' : null}
-      height={orientation === 'vertical' ? 'auto' : null}
-    />
-  );
-};
+const Separator = React.forwardRef<HTMLHRElement, SeparatorProps>(
+  ({orientation, horizontalSpacing, verticalSpacing, ...props}, ref) => {
+    return (
+      <Box
+        {...safelySpreadBoxProps(props)}
+        aria-orientation={orientation}
+        margin="space0"
+        marginBottom={verticalSpacing}
+        marginLeft={horizontalSpacing}
+        marginRight={horizontalSpacing}
+        marginTop={verticalSpacing}
+        as="hr"
+        borderWidth="borderWidth0"
+        borderColor="colorBorderLight"
+        borderStyle="solid"
+        borderBottomWidth={orientation === 'horizontal' ? 'borderWidth10' : null}
+        borderLeftWidth={orientation === 'vertical' ? 'borderWidth10' : null}
+        width={orientation === 'horizontal' ? 'auto' : null}
+        height={orientation === 'vertical' ? 'auto' : null}
+        ref={ref}
+      />
+    );
+  }
+);
 
 Separator.displayName = 'Separator';
 
