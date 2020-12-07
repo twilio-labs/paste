@@ -28,8 +28,9 @@ const getPresets = isDev => [
 const BASE_PLUGINS = [
   'macros',
   '@babel/proposal-class-properties',
+  '@babel/proposal-private-methods',
   '@babel/proposal-object-rest-spread',
-  '@babel/plugin-transform-runtime',
+  '@babel/transform-runtime',
 ];
 
 module.exports = {
