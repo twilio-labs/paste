@@ -1,12 +1,16 @@
 import * as React from 'react';
-import {storiesOf} from '@storybook/react';
 import {Button} from '@twilio-paste/button';
 import {Paragraph} from '@twilio-paste/typography';
 import {Stack} from '@twilio-paste/stack';
 import {useUID} from '@twilio-paste/uid-library';
 import {useTabPrimitiveState, TabPrimitive, TabPrimitiveList, TabPrimitivePanel, TabPrimitiveStateReturn} from '../src';
 
-const HorizontalTabsExample: React.FC = () => {
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Primitives/Tabs',
+};
+
+export const HorizontalTabs = (): React.ReactNode => {
   const selectedId = useUID();
   const tab = useTabPrimitiveState({selectedId});
   return (
@@ -43,7 +47,7 @@ const HorizontalTabsExample: React.FC = () => {
   );
 };
 
-const VerticalTabsExample: React.FC = () => {
+export const VerticalTabs = (): React.ReactNode => {
   const selectedId = useUID();
   const tab = useTabPrimitiveState({orientation: 'vertical', selectedId});
   return (
@@ -86,11 +90,3 @@ const VerticalTabsExample: React.FC = () => {
     </>
   );
 };
-
-storiesOf('Primitives|Tabs', module)
-  .add('Horizontal Tabs', () => {
-    return <HorizontalTabsExample />;
-  })
-  .add('Vertical Tabs', () => {
-    return <VerticalTabsExample />;
-  });

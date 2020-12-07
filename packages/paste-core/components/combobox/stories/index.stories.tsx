@@ -1,7 +1,5 @@
 import * as React from 'react';
 import _ from 'lodash';
-import {storiesOf} from '@storybook/react';
-import {withKnobs} from '@storybook/addon-knobs';
 import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
 import {Button} from '@twilio-paste/button';
@@ -83,10 +81,45 @@ const groupedItems = [
   {label: 'Design Tokens'},
 ];
 
-storiesOf('Components|Combobox', module)
-  .addDecorator(withKnobs)
-  .add('Combobox', () => {
-    return (
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Components/Combobox',
+};
+
+export const DefaultCombobox = (): React.ReactNode => {
+  return (
+    <Combobox
+      items={iconItems}
+      labelText="Choose a component:"
+      helpText="This is the help text"
+      optionTemplate={(item: IconItems) => (
+        <MediaObject verticalAlign="center">
+          {item.iconLeft ? (
+            <MediaFigure spacing="space20">
+              <InformationIcon decorative={false} size="sizeIcon20" title="information" />
+            </MediaFigure>
+          ) : null}
+
+          <MediaBody>{item.label}</MediaBody>
+          {item.iconRight ? (
+            <MediaFigure spacing="space20">
+              <InformationIcon decorative={false} size="sizeIcon20" title="information" />
+            </MediaFigure>
+          ) : null}
+        </MediaObject>
+      )}
+      itemToString={(item: IconItems) => (item ? String(item.label) : null)}
+    />
+  );
+};
+
+DefaultCombobox.story = {
+  name: 'Combobox',
+};
+
+export const ComboboxInverse = (): React.ReactNode => {
+  return (
+    <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Combobox
         items={iconItems}
         labelText="Choose a component:"
@@ -95,194 +128,282 @@ storiesOf('Components|Combobox', module)
           <MediaObject verticalAlign="center">
             {item.iconLeft ? (
               <MediaFigure spacing="space20">
-                <InformationIcon decorative={false} size="sizeIcon20" title="information" />
+                <AttachIcon decorative={false} size="sizeIcon20" title="product" />
               </MediaFigure>
             ) : null}
 
             <MediaBody>{item.label}</MediaBody>
             {item.iconRight ? (
               <MediaFigure spacing="space20">
-                <InformationIcon decorative={false} size="sizeIcon20" title="information" />
+                <AttachIcon decorative={false} size="sizeIcon20" title="product 2" />
               </MediaFigure>
             ) : null}
           </MediaObject>
         )}
         itemToString={(item: IconItems) => (item ? String(item.label) : null)}
+        variant="inverse"
       />
-    );
-  })
-  .add('Combobox - Inverse', () => {
-    return (
-      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
-        <Combobox
-          items={iconItems}
-          labelText="Choose a component:"
-          helpText="This is the help text"
-          optionTemplate={(item: IconItems) => (
-            <MediaObject verticalAlign="center">
-              {item.iconLeft ? (
-                <MediaFigure spacing="space20">
-                  <AttachIcon decorative={false} size="sizeIcon20" title="product" />
-                </MediaFigure>
-              ) : null}
+    </Box>
+  );
+};
 
-              <MediaBody>{item.label}</MediaBody>
-              {item.iconRight ? (
-                <MediaFigure spacing="space20">
-                  <AttachIcon decorative={false} size="sizeIcon20" title="product 2" />
-                </MediaFigure>
-              ) : null}
-            </MediaObject>
-          )}
-          itemToString={(item: IconItems) => (item ? String(item.label) : null)}
-          variant="inverse"
-        />
-      </Box>
-    );
-  })
-  .add('Combobox - Autocomplete', () => {
-    const [inputItems, setInputItems] = React.useState(items);
-    return (
+ComboboxInverse.story = {
+  name: 'Combobox - Inverse',
+};
+
+export const ComboboxAutocomplete = (): React.ReactNode => {
+  const [inputItems, setInputItems] = React.useState(items);
+  return (
+    <Combobox
+      autocomplete
+      items={inputItems}
+      helpText="This is the help text"
+      labelText="Choose a component:"
+      onInputValueChange={({inputValue}) => {
+        if (inputValue !== undefined) {
+          setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
+        }
+      }}
+    />
+  );
+};
+
+ComboboxAutocomplete.story = {
+  name: 'Combobox - Autocomplete',
+};
+
+export const ComboboxRequired = (): React.ReactNode => {
+  return <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" required />;
+};
+
+ComboboxRequired.story = {
+  name: 'Combobox - Required',
+};
+
+export const ComboboxRequiredInverse = (): React.ReactNode => {
+  return (
+    <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Combobox
-        autocomplete
+        items={items}
+        labelText="Choose a component:"
+        helpText="This is the help text"
+        required
+        variant="inverse"
+      />
+    </Box>
+  );
+};
+
+ComboboxRequiredInverse.story = {
+  name: 'Combobox - Required inverse',
+};
+
+export const ComboboxError = (): React.ReactNode => {
+  return <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" hasError />;
+};
+
+ComboboxError.story = {
+  name: 'Combobox - Error',
+};
+
+export const ComboboxErrorInverse = (): React.ReactNode => {
+  return (
+    <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+      <Combobox
+        items={items}
+        labelText="Choose a component:"
+        helpText="This is the help text"
+        hasError
+        variant="inverse"
+      />
+    </Box>
+  );
+};
+
+ComboboxErrorInverse.story = {
+  name: 'Combobox - Error inverse',
+};
+
+export const ComboboxDisabled = (): React.ReactNode => {
+  return <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" disabled />;
+};
+
+ComboboxDisabled.story = {
+  name: 'Combobox - Disabled',
+};
+
+export const ComboboxDisabledInverse = (): React.ReactNode => {
+  return (
+    <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+      <Combobox
+        items={items}
+        labelText="Choose a component:"
+        helpText="This is the help text"
+        disabled
+        variant="inverse"
+      />
+    </Box>
+  );
+};
+
+ComboboxDisabledInverse.story = {
+  name: 'Combobox - Disabled inverse',
+};
+
+export const ComboboxInsertBeforeAndAfter = (): React.ReactNode => {
+  return (
+    <Combobox
+      items={items}
+      insertBefore={<div>$10.99</div>}
+      insertAfter={
+        <Anchor href="#" display="flex">
+          <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
+        </Anchor>
+      }
+      labelText="Choose a component:"
+      helpText="This is the help text"
+    />
+  );
+};
+
+ComboboxInsertBeforeAndAfter.story = {
+  name: 'Combobox - Insert before and after',
+};
+
+export const ComboboxDisabledInsertBeforeAndAfter = (): React.ReactNode => {
+  return (
+    <Combobox
+      items={items}
+      insertBefore={<div>$10.99</div>}
+      insertAfter={
+        <Anchor href="#" display="flex">
+          <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
+        </Anchor>
+      }
+      labelText="Choose a component:"
+      helpText="This is the help text"
+      disabled
+    />
+  );
+};
+
+ComboboxDisabledInsertBeforeAndAfter.story = {
+  name: 'Combobox - Disabled insert before and after',
+};
+
+export const ComboboxInsertBeforeAndAfterInverse = (): React.ReactNode => {
+  return (
+    <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+      <Combobox
+        items={items}
+        insertBefore={
+          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20">
+            $10.99
+          </Text>
+        }
+        insertAfter={
+          <Anchor href="#" display="flex">
+            <InformationIcon color="colorTextInverse" decorative={false} size="sizeIcon20" title="Get more info" />
+          </Anchor>
+        }
+        labelText="Choose a component:"
+        helpText="This is the help text"
+        variant="inverse"
+      />
+    </Box>
+  );
+};
+
+ComboboxInsertBeforeAndAfterInverse.story = {
+  name: 'Combobox - Insert before and after inverse',
+};
+
+export const ComboboxDisabledInsertBeforeAndAfterInverse = (): React.ReactNode => {
+  return (
+    <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+      <Combobox
+        items={items}
+        insertBefore={
+          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20">
+            $10.99
+          </Text>
+        }
+        insertAfter={
+          <Anchor href="#" display="flex">
+            <InformationIcon color="colorTextInverse" decorative={false} size="sizeIcon20" title="Get more info" />
+          </Anchor>
+        }
+        labelText="Choose a component:"
+        helpText="This is the help text"
+        variant="inverse"
+        disabled
+      />
+    </Box>
+  );
+};
+
+ComboboxDisabledInsertBeforeAndAfterInverse.story = {
+  name: 'Combobox - Disabled insert before and after inverse',
+};
+
+export const ComboboxObject = (): React.ReactNode => {
+  const [inputItems, setInputItems] = React.useState(objectItems);
+  return (
+    <Combobox
+      autocomplete
+      items={inputItems}
+      labelText="Choose a country:"
+      helpText="This is the help text"
+      optionTemplate={(item: ObjectItem) => (
+        <div>
+          {item.code} | {item.label} | {item.phone}
+        </div>
+      )}
+      onInputValueChange={({inputValue}) => {
+        if (inputValue !== undefined) {
+          setInputItems(
+            _.filter(objectItems, (item: ObjectItem) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
+          );
+        }
+      }}
+      itemToString={(item: ObjectItem) => (item ? item.label : null)}
+    />
+  );
+};
+
+ComboboxObject.story = {
+  name: 'Combobox - Object',
+};
+
+export const ComboboxOverflowLongValue = (): React.ReactNode => {
+  const [inputItems, setInputItems] = React.useState(items);
+  return (
+    <Box maxWidth="size40">
+      <Combobox
         items={inputItems}
         helpText="This is the help text"
         labelText="Choose a component:"
+        initialSelectedItem={inputItems[5]}
         onInputValueChange={({inputValue}) => {
           if (inputValue !== undefined) {
             setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
           }
         }}
       />
-    );
-  })
-  .add('Combobox - Required', () => {
-    return <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" required />;
-  })
-  .add('Combobox - Required inverse', () => {
-    return (
-      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
-        <Combobox
-          items={items}
-          labelText="Choose a component:"
-          helpText="This is the help text"
-          required
-          variant="inverse"
-        />
-      </Box>
-    );
-  })
-  .add('Combobox - Error', () => {
-    return <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" hasError />;
-  })
-  .add('Combobox - Error inverse', () => {
-    return (
-      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
-        <Combobox
-          items={items}
-          labelText="Choose a component:"
-          helpText="This is the help text"
-          hasError
-          variant="inverse"
-        />
-      </Box>
-    );
-  })
-  .add('Combobox - Disabled', () => {
-    return <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" disabled />;
-  })
-  .add('Combobox - Disabled inverse', () => {
-    return (
-      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
-        <Combobox
-          items={items}
-          labelText="Choose a component:"
-          helpText="This is the help text"
-          disabled
-          variant="inverse"
-        />
-      </Box>
-    );
-  })
-  .add('Combobox - Insert before and after', () => {
-    return (
-      <Combobox
-        items={items}
-        insertBefore={<div>$10.99</div>}
-        insertAfter={
-          <Anchor href="#" display="flex">
-            <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
-          </Anchor>
-        }
-        labelText="Choose a component:"
-        helpText="This is the help text"
-      />
-    );
-  })
-  .add('Combobox - Disabled insert before and after', () => {
-    return (
-      <Combobox
-        items={items}
-        insertBefore={<div>$10.99</div>}
-        insertAfter={
-          <Anchor href="#" display="flex">
-            <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
-          </Anchor>
-        }
-        labelText="Choose a component:"
-        helpText="This is the help text"
-        disabled
-      />
-    );
-  })
-  .add('Combobox - Insert before and after inverse', () => {
-    return (
-      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
-        <Combobox
-          items={items}
-          insertBefore={
-            <Text as="span" color="colorTextInverse" lineHeight="lineHeight20">
-              $10.99
-            </Text>
-          }
-          insertAfter={
-            <Anchor href="#" display="flex">
-              <InformationIcon color="colorTextInverse" decorative={false} size="sizeIcon20" title="Get more info" />
-            </Anchor>
-          }
-          labelText="Choose a component:"
-          helpText="This is the help text"
-          variant="inverse"
-        />
-      </Box>
-    );
-  })
-  .add('Combobox - Disabled insert before and after inverse', () => {
-    return (
-      <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
-        <Combobox
-          items={items}
-          insertBefore={
-            <Text as="span" color="colorTextInverse" lineHeight="lineHeight20">
-              $10.99
-            </Text>
-          }
-          insertAfter={
-            <Anchor href="#" display="flex">
-              <InformationIcon color="colorTextInverse" decorative={false} size="sizeIcon20" title="Get more info" />
-            </Anchor>
-          }
-          labelText="Choose a component:"
-          helpText="This is the help text"
-          variant="inverse"
-          disabled
-        />
-      </Box>
-    );
-  })
-  .add('Combobox - Object', () => {
-    const [inputItems, setInputItems] = React.useState(objectItems);
-    return (
+    </Box>
+  );
+};
+
+ComboboxOverflowLongValue.story = {
+  name: 'Combobox - overflow long value',
+};
+
+export const ComboboxControlled = (): React.ReactNode => {
+  const [value, setValue] = React.useState('');
+  const [selectedItem, setSelectedItem] = React.useState({});
+  const [inputItems, setInputItems] = React.useState(objectItems);
+  return (
+    <>
       <Combobox
         autocomplete
         items={inputItems}
@@ -298,235 +419,220 @@ storiesOf('Components|Combobox', module)
             setInputItems(
               _.filter(objectItems, (item: ObjectItem) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
             );
+            setValue(inputValue);
           }
         }}
         itemToString={(item: ObjectItem) => (item ? item.label : null)}
+        selectedItem={selectedItem}
+        onSelectedItemChange={(changes) => {
+          setSelectedItem(changes.selectedItem);
+        }}
+        inputValue={value}
       />
-    );
-  })
-  .add('Combobox - overflow long value', () => {
-    const [inputItems, setInputItems] = React.useState(items);
-    return (
-      <Box maxWidth="size40">
-        <Combobox
-          items={inputItems}
-          helpText="This is the help text"
-          labelText="Choose a component:"
-          initialSelectedItem={inputItems[5]}
-          onInputValueChange={({inputValue}) => {
-            if (inputValue !== undefined) {
-              setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
-            }
-          }}
-        />
+      <Box paddingTop="space70">
+        Input value state: {JSON.stringify(value)}
+        <br />
+        Selected item state: {JSON.stringify(selectedItem)}
       </Box>
-    );
-  })
-  .add('Combobox - Controlled', () => {
-    const [value, setValue] = React.useState('');
-    const [selectedItem, setSelectedItem] = React.useState({});
-    const [inputItems, setInputItems] = React.useState(objectItems);
-    return (
-      <>
-        <Combobox
-          autocomplete
-          items={inputItems}
-          labelText="Choose a country:"
-          helpText="This is the help text"
-          optionTemplate={(item: ObjectItem) => (
-            <div>
-              {item.code} | {item.label} | {item.phone}
-            </div>
-          )}
-          onInputValueChange={({inputValue}) => {
-            if (inputValue !== undefined) {
-              setInputItems(
-                _.filter(objectItems, (item: ObjectItem) =>
-                  item.label.toLowerCase().startsWith(inputValue.toLowerCase())
-                )
-              );
-              setValue(inputValue);
-            }
-          }}
-          itemToString={(item: ObjectItem) => (item ? item.label : null)}
-          selectedItem={selectedItem}
-          onSelectedItemChange={(changes) => {
-            setSelectedItem(changes.selectedItem);
-          }}
-          inputValue={value}
-        />
-        <Box paddingTop="space70">
-          Input value state: {JSON.stringify(value)}
-          <br />
-          Selected item state: {JSON.stringify(selectedItem)}
-        </Box>
-      </>
-    );
-  })
-  .add('Combobox - Controlled using state', () => {
-    const [value, setValue] = React.useState('');
-    const [selectedItem, setSelectedItem] = React.useState({});
-    const [inputItems, setInputItems] = React.useState(objectItems);
-    const {reset, ...state} = useCombobox({
-      items: inputItems,
-      itemToString: (item) => (item ? item.label : null),
-      onSelectedItemChange: (changes) => {
-        setSelectedItem(changes.selectedItem);
-      },
-      onInputValueChange: ({inputValue}) => {
+    </>
+  );
+};
+
+ComboboxControlled.story = {
+  name: 'Combobox - Controlled',
+};
+
+export const ComboboxControlledUsingState = (): React.ReactNode => {
+  const [value, setValue] = React.useState('');
+  const [selectedItem, setSelectedItem] = React.useState({});
+  const [inputItems, setInputItems] = React.useState(objectItems);
+  const {reset, ...state} = useCombobox({
+    items: inputItems,
+    itemToString: (item) => (item ? item.label : null),
+    onSelectedItemChange: (changes) => {
+      setSelectedItem(changes.selectedItem);
+    },
+    onInputValueChange: ({inputValue}) => {
+      if (inputValue !== undefined) {
+        setInputItems(
+          _.filter(objectItems, (item: ObjectItem) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
+        );
+        setValue(inputValue);
+      }
+    },
+    inputValue: value,
+  });
+  return (
+    <>
+      <Combobox
+        state={state}
+        items={inputItems}
+        autocomplete
+        labelText="Choose a country:"
+        helpText="This is the help text"
+        optionTemplate={(item: ObjectItem) => (
+          <div>
+            {item.code} | {item.label} | {item.phone}
+          </div>
+        )}
+        insertAfter={
+          <Button
+            variant="link"
+            size="reset"
+            onClick={() => {
+              reset();
+            }}
+          >
+            <CloseIcon decorative={false} title="Clear" />
+          </Button>
+        }
+      />
+      <Box paddingTop="space70">
+        Input value state: {JSON.stringify(value)}
+        <br />
+        Selected item state: {JSON.stringify(selectedItem)}
+      </Box>
+    </>
+  );
+};
+
+ComboboxControlledUsingState.story = {
+  name: 'Combobox - Controlled using state',
+};
+
+export const ComboboxOpen = (): React.ReactNode => {
+  return (
+    <Combobox
+      items={objectItems}
+      labelText="Choose a country:"
+      initialIsOpen
+      optionTemplate={(item: ObjectItem) => <div>{item.label}</div>}
+      itemToString={(item: ObjectItem) => (item ? item.label : null)}
+    />
+  );
+};
+
+ComboboxOpen.story = {
+  name: 'Combobox - Open',
+};
+
+export const ComboboxOptionGroups = (): React.ReactNode => {
+  return (
+    <Combobox
+      groupItemsBy="group"
+      items={groupedItems}
+      labelText="Choose a component:"
+      helpText="This is group"
+      optionTemplate={(item: GroupedItem) => <div>{item.label}</div>}
+      itemToString={(item: GroupedItem) => (item ? item.label : null)}
+    />
+  );
+};
+
+ComboboxOptionGroups.story = {
+  name: 'Combobox - Option groups',
+};
+
+export const ComboboxOptionGroupsOpen = (): React.ReactNode => {
+  return (
+    <Combobox
+      groupItemsBy="group"
+      items={groupedItems}
+      labelText="Choose a component:"
+      helpText="This is group"
+      initialIsOpen
+      optionTemplate={(item: GroupedItem) => <div>{item.label}</div>}
+      groupLabelTemplate={(groupName: string) => {
+        if (groupName === 'Components') {
+          return (
+            <MediaObject verticalAlign="center">
+              <MediaFigure spacing="space20">
+                <AttachIcon color="colorTextIcon" decorative={false} title="icon" />
+              </MediaFigure>
+              <MediaBody>{groupName}</MediaBody>
+            </MediaObject>
+          );
+        }
+        return groupName;
+      }}
+      itemToString={(item: GroupedItem) => (item ? item.label : null)}
+    />
+  );
+};
+
+ComboboxOptionGroupsOpen.story = {
+  name: 'Combobox - Option groups open',
+};
+
+export const ComboboxOptionGroupsTypeahead = (): React.ReactNode => {
+  const [inputItems, setInputItems] = React.useState(groupedItems);
+  return (
+    <Combobox
+      autocomplete
+      groupItemsBy="group"
+      items={inputItems}
+      labelText="Choose a component:"
+      helpText="This is the help text"
+      optionTemplate={(item: GroupedItem) => <div>{item.label}</div>}
+      onInputValueChange={({inputValue}) => {
         if (inputValue !== undefined) {
           setInputItems(
-            _.filter(objectItems, (item: ObjectItem) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
+            _.filter(groupedItems, (item: GroupedItem) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
           );
-          setValue(inputValue);
         }
-      },
-      inputValue: value,
-    });
-    return (
-      <>
-        <Combobox
-          state={state}
-          items={inputItems}
-          autocomplete
-          labelText="Choose a country:"
-          helpText="This is the help text"
-          optionTemplate={(item: ObjectItem) => (
-            <div>
-              {item.code} | {item.label} | {item.phone}
-            </div>
-          )}
-          insertAfter={
-            <Button
-              variant="link"
-              size="reset"
-              onClick={() => {
-                reset();
-              }}
-            >
-              <CloseIcon decorative={false} title="Clear" />
-            </Button>
-          }
-        />
-        <Box paddingTop="space70">
-          Input value state: {JSON.stringify(value)}
-          <br />
-          Selected item state: {JSON.stringify(selectedItem)}
-        </Box>
-      </>
-    );
-  })
-  .add('Combobox - Open', () => {
-    return (
-      <Combobox
-        items={objectItems}
-        labelText="Choose a country:"
-        initialIsOpen
-        optionTemplate={(item: ObjectItem) => <div>{item.label}</div>}
-        itemToString={(item: ObjectItem) => (item ? item.label : null)}
-      />
-    );
-  })
-  .add('Combobox - Option groups', () => {
-    return (
-      <Combobox
-        groupItemsBy="group"
-        items={groupedItems}
-        labelText="Choose a component:"
-        helpText="This is group"
-        optionTemplate={(item: GroupedItem) => <div>{item.label}</div>}
-        itemToString={(item: GroupedItem) => (item ? item.label : null)}
-      />
-    );
-  })
-  .add('Combobox - Option groups open', () => {
-    return (
-      <Combobox
-        groupItemsBy="group"
-        items={groupedItems}
-        labelText="Choose a component:"
-        helpText="This is group"
-        initialIsOpen
-        optionTemplate={(item: GroupedItem) => <div>{item.label}</div>}
-        groupLabelTemplate={(groupName: string) => {
-          if (groupName === 'Components') {
-            return (
-              <MediaObject verticalAlign="center">
-                <MediaFigure spacing="space20">
-                  <AttachIcon color="colorTextIcon" decorative={false} title="icon" />
-                </MediaFigure>
-                <MediaBody>{groupName}</MediaBody>
-              </MediaObject>
-            );
-          }
-          return groupName;
-        }}
-        itemToString={(item: GroupedItem) => (item ? item.label : null)}
-      />
-    );
-  })
-  .add('Combobox - Option groups typeahead', () => {
-    const [inputItems, setInputItems] = React.useState(groupedItems);
-    return (
-      <Combobox
-        autocomplete
-        groupItemsBy="group"
-        items={inputItems}
-        labelText="Choose a component:"
-        helpText="This is the help text"
-        optionTemplate={(item: GroupedItem) => <div>{item.label}</div>}
-        onInputValueChange={({inputValue}) => {
-          if (inputValue !== undefined) {
-            setInputItems(
-              _.filter(groupedItems, (item: GroupedItem) =>
-                item.label.toLowerCase().startsWith(inputValue.toLowerCase())
-              )
-            );
-          }
-        }}
-        itemToString={(item: GroupedItem) => (item ? item.label : null)}
-      />
-    );
-  })
-  .add('Combobox - Listbox zIndex', () => {
-    const [selectValue, setSelectValue] = React.useState('');
-    const selectID = useUID();
-    return (
-      <>
-        <Box marginBottom="space50">
-          <Combobox
-            items={iconItems}
-            labelText="Choose a component:"
-            helpText="This is the help text"
-            optionTemplate={(item: IconItems) => (
-              <MediaObject verticalAlign="center">
-                {item.iconLeft ? (
-                  <MediaFigure spacing="space20">
-                    <InformationIcon decorative={false} size="sizeIcon20" title="information" />
-                  </MediaFigure>
-                ) : null}
+      }}
+      itemToString={(item: GroupedItem) => (item ? item.label : null)}
+    />
+  );
+};
 
-                <MediaBody>{item.label}</MediaBody>
-                {item.iconRight ? (
-                  <MediaFigure spacing="space20">
-                    <InformationIcon decorative={false} size="sizeIcon20" title="information" />
-                  </MediaFigure>
-                ) : null}
-              </MediaObject>
-            )}
-            itemToString={(item: IconItems) => (item ? String(item.label) : null)}
-            initialIsOpen
-          />
-        </Box>
-        <Box marginBottom="space50">
-          <Label htmlFor={selectID}>Text input</Label>
-          <Select id={selectID} onChange={(e) => setSelectValue(e.currentTarget.value)} value={selectValue}>
-            <Option value="">Select an option</Option>
-            <Option value="1">Option 1</Option>
-            <Option value="2">Option 2</Option>
-            <Option value="3">Option 3</Option>
-          </Select>
-        </Box>
-      </>
-    );
-  });
+ComboboxOptionGroupsTypeahead.story = {
+  name: 'Combobox - Option groups typeahead',
+};
+
+export const ComboboxListboxZIndex = (): React.ReactNode => {
+  const [selectValue, setSelectValue] = React.useState('');
+  const selectID = useUID();
+  return (
+    <>
+      <Box marginBottom="space50">
+        <Combobox
+          items={iconItems}
+          labelText="Choose a component:"
+          helpText="This is the help text"
+          optionTemplate={(item: IconItems) => (
+            <MediaObject verticalAlign="center">
+              {item.iconLeft ? (
+                <MediaFigure spacing="space20">
+                  <InformationIcon decorative={false} size="sizeIcon20" title="information" />
+                </MediaFigure>
+              ) : null}
+
+              <MediaBody>{item.label}</MediaBody>
+              {item.iconRight ? (
+                <MediaFigure spacing="space20">
+                  <InformationIcon decorative={false} size="sizeIcon20" title="information" />
+                </MediaFigure>
+              ) : null}
+            </MediaObject>
+          )}
+          itemToString={(item: IconItems) => (item ? String(item.label) : null)}
+          initialIsOpen
+        />
+      </Box>
+      <Box marginBottom="space50">
+        <Label htmlFor={selectID}>Text input</Label>
+        <Select id={selectID} onChange={(e) => setSelectValue(e.currentTarget.value)} value={selectValue}>
+          <Option value="">Select an option</Option>
+          <Option value="1">Option 1</Option>
+          <Option value="2">Option 2</Option>
+          <Option value="3">Option 3</Option>
+        </Select>
+      </Box>
+    </>
+  );
+};
+
+ComboboxListboxZIndex.story = {
+  name: 'Combobox - Listbox zIndex',
+};

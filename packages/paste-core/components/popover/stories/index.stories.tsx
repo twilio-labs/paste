@@ -1,11 +1,14 @@
 import * as React from 'react';
-import {storiesOf} from '@storybook/react';
-import {withKnobs} from '@storybook/addon-knobs';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Popover, PopoverContainer, PopoverButton} from '../src';
 
-const Example: React.FC = () => {
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Components/Popover',
+};
+
+export const Default = (): React.ReactNode => {
   return (
     <Box height="300px">
       <PopoverContainer baseId="test-id" visible>
@@ -18,18 +21,11 @@ const Example: React.FC = () => {
   );
 };
 
-const BottomExample: React.FC = () => {
-  return (
-    <PopoverContainer baseId="test-id" placement="bottom-start">
-      <PopoverButton variant="primary">Open popover</PopoverButton>
-      <Popover aria-label="Popover">
-        <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
-      </Popover>
-    </PopoverContainer>
-  );
+Default.story = {
+  parameters: {chromatic: {delay: 300}},
 };
 
-const TopExample: React.FC = () => {
+export const PopoverTop = (): React.ReactNode => {
   return (
     <Box bottom={12} position="absolute">
       <PopoverContainer baseId="test-id" placement="top-start">
@@ -42,18 +38,7 @@ const TopExample: React.FC = () => {
   );
 };
 
-const RightExample: React.FC = () => {
-  return (
-    <PopoverContainer baseId="test-id" placement="right-start">
-      <PopoverButton variant="primary">Open popover</PopoverButton>
-      <Popover aria-label="Popover">
-        <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
-      </Popover>
-    </PopoverContainer>
-  );
-};
-
-const LeftExample: React.FC = () => {
+export const PopoverLeft = (): React.ReactNode => {
   return (
     <Box position="absolute" right={12} top={12}>
       <PopoverContainer baseId="test-id" placement="left-start">
@@ -66,24 +51,24 @@ const LeftExample: React.FC = () => {
   );
 };
 
-storiesOf('Components|Popover', module)
-  .addDecorator(withKnobs)
-  .add(
-    'Default',
-    () => {
-      return <Example />;
-    },
-    {chromatic: {delay: 300}}
-  )
-  .add('Popover Top', () => {
-    return <TopExample />;
-  })
-  .add('Popover Left', () => {
-    return <LeftExample />;
-  })
-  .add('Popover Right', () => {
-    return <RightExample />;
-  })
-  .add('Popover Bottom', () => {
-    return <BottomExample />;
-  });
+export const PopoverRight = (): React.ReactNode => {
+  return (
+    <PopoverContainer baseId="test-id" placement="right-start">
+      <PopoverButton variant="primary">Open popover</PopoverButton>
+      <Popover aria-label="Popover">
+        <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
+      </Popover>
+    </PopoverContainer>
+  );
+};
+
+export const PopoverBottom = (): React.ReactNode => {
+  return (
+    <PopoverContainer baseId="test-id" placement="bottom-start">
+      <PopoverButton variant="primary">Open popover</PopoverButton>
+      <Popover aria-label="Popover">
+        <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
+      </Popover>
+    </PopoverContainer>
+  );
+};
