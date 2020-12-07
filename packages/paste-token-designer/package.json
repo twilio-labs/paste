@@ -1,0 +1,17 @@
+{
+  "name": "@twilio-paste/token-designer",
+  "version": "0.1.0",
+  "author": "Twilio Inc.",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@twilio-paste/core": "^4.1.13",
+    "@twilio-paste/icons": "^3.10.0",
+    "next": "10.0.3"
+  }
+}
