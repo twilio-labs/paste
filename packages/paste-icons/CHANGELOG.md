@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.10.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.9.1...@twilio-paste/icons@3.10.0) (2020-12-03)
+
+
+### Features
+
+* **icons:** add EIP product icon ([#994](https://github.com/twilio-labs/paste/issues/994)) ([1c42901](https://github.com/twilio-labs/paste/commit/1c429015223cab45da43ebeb1f5e942a65cb7425))
+
+
+
+
+
+## [3.9.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.9.0...@twilio-paste/icons@3.9.1) (2020-12-02)
+
+**Note:** Version bump only for package @twilio-paste/icons
+
+
+
+
+
 # [3.9.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.8.4...@twilio-paste/icons@3.9.0) (2020-11-16)
 
 

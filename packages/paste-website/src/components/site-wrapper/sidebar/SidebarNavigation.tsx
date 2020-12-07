@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
 import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
 import {
   useDisclosurePrimitiveState,
   DisclosurePrimitive,
@@ -14,92 +14,14 @@ import {SidebarNestedList} from './SidebarNestedList';
 import {PackageStatus, SidebarCategoryRoutes} from '../../../constants';
 import {getCurrentPathname, getNameFromPackageName, getHumanizedNameFromPackageName} from '../../../utils/RouteUtils';
 import {filteredComponents} from '../../../utils/componentFilters';
+import {useNavigationContext} from '../../../context/NavigationContext';
 
 interface SidebarNavigationProps {
   children?: React.ReactNode;
 }
 
-interface SiteWrapperPageQuery {
-  allPasteComponent: {
-    edges: [
-      {
-        node: {
-          name: string;
-          status: string;
-          version: string;
-        };
-      }
-    ];
-  };
-  allPastePrimitive: {
-    edges: [
-      {
-        node: {
-          name: string;
-          status: string;
-          version: string;
-        };
-      }
-    ];
-  };
-  allPasteLayout: {
-    edges: [
-      {
-        node: {
-          name: string;
-          status: string;
-          version: string;
-        };
-      }
-    ];
-  };
-}
-
-const pageQuery = graphql`
-  {
-    allSitePage(filter: {path: {ne: "/dev-404-page/"}}) {
-      edges {
-        node {
-          path
-          componentChunkName
-          componentPath
-          id
-          component
-          internalComponentName
-          isCreatedByStatefulCreatePages
-          pluginCreatorId
-        }
-      }
-    }
-    allPasteComponent(sort: {order: ASC, fields: name}) {
-      edges {
-        node {
-          name
-          status
-        }
-      }
-    }
-    allPastePrimitive(sort: {order: ASC, fields: name}) {
-      edges {
-        node {
-          name
-          status
-        }
-      }
-    }
-    allPasteLayout(sort: {order: ASC, fields: name}) {
-      edges {
-        node {
-          name
-          status
-        }
-      }
-    }
-  }
-`;
-
 const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
-  const data: SiteWrapperPageQuery = useStaticQuery(pageQuery);
+  const data = useNavigationContext();
 
   const gettingStartedDisclosure = useDisclosurePrimitiveState({
     visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.GETTING_STARTED),
@@ -138,9 +60,37 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
   });
 
   return (
-    <Box as="nav" marginTop="space70" overflow="auto" role="navigation" aria-label="Main">
+    <Box
+      as="nav"
+      marginTop={['space0', 'space0', 'space70']}
+      marginLeft={['space10', 'space10', 'space0']}
+      paddingBottom={['space50', 'space50', 'space0']}
+      overflow="auto"
+      role="navigation"
+      aria-label="Main"
+    >
+      <Box
+        display={['block', 'block', 'none']}
+        marginTop="space20"
+        marginLeft="space20"
+        marginRight={['space160', 'space160', 'space0']}
+      >
+        <SidebarAnchor to="/">
+          <Box display={['flex', 'flex', 'none']} alignItems="center" marginLeft="spaceNegative80" height="28px">
+            <Box as="span" paddingRight="space30">
+              <img src="/logo.svg" alt="" width="28px" height="28px" />
+            </Box>
+            <Text as="span" paddingRight="space20" fontSize={['fontSize50', 'fontSize50', 'fontSize30']}>
+              Paste
+            </Text>
+            <Text as="span" fontSize={['fontSize50', 'fontSize50', 'fontSize30']}>
+              Home
+            </Text>
+          </Box>
+        </SidebarAnchor>
+      </Box>
       <Box as="ul" padding="space0" margin="space0" listStyleType="none">
-        <SidebarItem>
+        <SidebarItem display={['none', 'none', 'block']}>
           <SidebarAnchor to="/">Home</SidebarAnchor>
         </SidebarItem>
         <SidebarItem>

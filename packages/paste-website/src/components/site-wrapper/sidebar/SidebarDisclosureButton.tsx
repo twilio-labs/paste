@@ -16,7 +16,7 @@ export const SidebarDisclosureButton = React.forwardRef(({...props}, ref) => {
       fontWeight="fontWeightNormal"
       textAlign="left"
       color="colorText"
-      backgroundColor="colorBackground"
+      backgroundColor="transparent"
       border="none"
       textDecoration="none"
       transition="0.1s background-color ease-in-out"
@@ -45,7 +45,11 @@ export const SidebarDisclosureButton = React.forwardRef(({...props}, ref) => {
         transform={props['aria-expanded'] ? 'rotate(0deg)' : 'rotate(-90deg)'}
         transition="transform 100ms ease-out"
       >
-        <ChevronDisclosureExpandedIcon color="colorTextIcon" decorative size="sizeIcon10" />
+        <ChevronDisclosureExpandedIcon
+          color="colorTextIcon"
+          decorative
+          size={['sizeIcon40', 'sizeIcon40', 'sizeIcon10']}
+        />
       </Box>
       <Box flexGrow={1}>{props.children}</Box>
     </Box>

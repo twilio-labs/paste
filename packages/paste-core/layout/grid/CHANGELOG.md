@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.3.0...@twilio-paste/grid@0.4.0) (2020-12-02)
+
+
+### Features
+
+* **grid:** wrapping with forwardRefs ([724697b](https://github.com/twilio-labs/paste/commit/724697bddc6d3ce6b456aca640a9eef808b77d66))
+
+
+
+
+
 # [0.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.2.71...@twilio-paste/grid@0.3.0) (2020-11-25)
 
 

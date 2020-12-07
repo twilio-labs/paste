@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.16.1...@twilio-paste/website@2.16.2) (2020-12-04)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.16.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.16.0...@twilio-paste/website@2.16.1) (2020-12-03)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+# [2.16.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.15.0...@twilio-paste/website@2.16.0) (2020-12-03)
+
+
+### Features
+
+* **website:** add SuperFriendly credit for icons on about page ([#992](https://github.com/twilio-labs/paste/issues/992)) ([b99bdb2](https://github.com/twilio-labs/paste/commit/b99bdb2a31ca87f0a1daff9d3d9cdf47bbe7db04))
+
+
+
+
+
+# [2.15.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.14.19...@twilio-paste/website@2.15.0) (2020-12-02)
+
+
+### Features
+
+* **website:** new homepage and made website responsive ([c8a146d](https://github.com/twilio-labs/paste/commit/c8a146d716f1973e8a23a66898b7f549f9069531))
+
+
+
+
+
 ## [2.14.19](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.14.18...@twilio-paste/website@2.14.19) (2020-11-25)
 
 **Note:** Version bump only for package @twilio-paste/website

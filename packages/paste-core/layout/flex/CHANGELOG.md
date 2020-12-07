@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.3.70...@twilio-paste/flex@0.4.0) (2020-12-02)
+
+
+### Features
+
+* **flex:** wrapping with forwardRefs ([362715f](https://github.com/twilio-labs/paste/commit/362715fc2e7f24932120e73e84493a93846afea1))
+
+
+
+
+
 ## [0.3.70](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.3.69...@twilio-paste/flex@0.3.70) (2020-11-25)
 
 

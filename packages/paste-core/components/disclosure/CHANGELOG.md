@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.45](https://github.com/twilio-labs/paste/compare/@twilio-paste/disclosure@0.2.44...@twilio-paste/disclosure@0.2.45) (2020-12-03)
+
+**Note:** Version bump only for package @twilio-paste/disclosure
+
+
+
+
+
+## [0.2.44](https://github.com/twilio-labs/paste/compare/@twilio-paste/disclosure@0.2.43...@twilio-paste/disclosure@0.2.44) (2020-12-02)
+
+**Note:** Version bump only for package @twilio-paste/disclosure
+
+
+
+
+
 ## [0.2.43](https://github.com/twilio-labs/paste/compare/@twilio-paste/disclosure@0.2.42...@twilio-paste/disclosure@0.2.43) (2020-11-16)
 
 **Note:** Version bump only for package @twilio-paste/disclosure
