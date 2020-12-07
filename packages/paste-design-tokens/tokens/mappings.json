@@ -1,0 +1,388 @@
+{
+  "border-width-0": [
+    "@twilio-paste/button",
+    "@twilio-paste/inline-control-group",
+    "@twilio-paste/label",
+    "@twilio-paste/separator",
+    "@twilio-paste/table"
+  ],
+  "border-width-10": [
+    "@twilio-paste/base-radio-checkbox",
+    "@twilio-paste/combobox",
+    "@twilio-paste/input-box",
+    "@twilio-paste/menu",
+    "@twilio-paste/modal",
+    "@twilio-paste/popover",
+    "@twilio-paste/separator",
+    "@twilio-paste/table",
+    "@twilio-paste/tabs",
+    "@twilio-paste/toast",
+    "@twilio-paste/tooltip"
+  ],
+  "border-width-20": [
+    "@twilio-paste/alert",
+    "@twilio-paste/card",
+    "@twilio-paste/disclosure",
+    "@twilio-paste/tabs"
+  ],
+  "border-width-30": [
+    "@twilio-paste/toast"
+  ],
+  "color-background": [
+    "@twilio-paste/checkbox",
+    "@twilio-paste/combobox",
+    "@twilio-paste/input-box"
+  ],
+  "color-background-body": [
+    "@twilio-paste/base-radio-checkbox",
+    "@twilio-paste/button",
+    "@twilio-paste/card",
+    "@twilio-paste/input-box",
+    "@twilio-paste/menu",
+    "@twilio-paste/popover",
+    "@twilio-paste/radio",
+    "@twilio-paste/table",
+    "@twilio-paste/toast"
+  ],
+  "color-background-darkest": [
+    "@twilio-paste/radio"
+  ],
+  "color-background-body-inverse": [
+    "@twilio-paste/anchor",
+    "@twilio-paste/tooltip"
+  ],
+  "color-background-destructive": [
+    "@twilio-paste/button"
+  ],
+  "color-background-destructive-dark": [
+    "@twilio-paste/button"
+  ],
+  "color-background-destructive-darker": [
+    "@twilio-paste/button"
+  ],
+  "color-background-destructive-light": [
+    "@twilio-paste/button"
+  ],
+  "color-background-destructive-lighter": [
+    "@twilio-paste/button"
+  ],
+  "color-background-destructive-lightest": [
+    "@twilio-paste/button"
+  ],
+  "color-background-error": [
+    "@twilio-paste/base-radio-checkbox"
+  ],
+  "color-background-error-dark": [
+    "@twilio-paste/base-radio-checkbox"
+  ],
+  "color-background-error-lightest": [
+    "@twilio-paste/alert"
+  ],
+  "color-background-inverse": [
+    "@twilio-paste/button",
+    "@twilio-paste/input-box"
+  ],
+  "color-background-inverse-light": [
+    "@twilio-paste/button",
+    "@twilio-paste/input-box"
+  ],
+  "color-background-overlay": [
+    "@twilio-paste/menu"
+  ],
+  "color-background-primary": [
+    "@twilio-paste/base-radio-checkbox",
+    "@twilio-paste/button"
+  ],
+  "color-background-primary-dark": [
+    "@twilio-paste/base-radio-checkbox",
+    "@twilio-paste/button"
+  ],
+  "color-background-primary-darker": [
+    "@twilio-paste/base-radio-checkbox",
+    "@twilio-paste/button"
+  ],
+  "color-background-primary-light": [
+    "@twilio-paste/button"
+  ],
+  "color-background-primary-lighter": [
+    "@twilio-paste/button"
+  ],
+  "color-background-primary-lightest": [
+    "@twilio-paste/alert",
+    "@twilio-paste/button",
+    "@twilio-paste/checkbox",
+    "@twilio-paste/combobox"
+  ],
+  "color-background-required": [
+    "@twilio-paste/label"
+  ],
+  "color-background-row-striped": [
+    "@twilio-paste/table"
+  ],
+  "color-background-user": [
+    "@twilio-paste/avatar"
+  ],
+  "color-background-warning-lightest": [
+    "@twilio-paste/alert"
+  ],
+  "color-border": [
+    "@twilio-paste/base-radio-checkbox"
+  ],
+  "color-border-dark": [
+    "@twilio-paste/tooltip"
+  ],
+  "color-border-error": [
+    "@twilio-paste/base-radio-checkbox"
+  ],
+  "color-border-error-dark": [
+    "@twilio-paste/base-radio-checkbox"
+  ],
+  "color-border-error-light": [
+    "@twilio-paste/alert",
+    "@twilio-paste/toast"
+  ],
+  "color-border-error-lighter": [
+    "@twilio-paste/card"
+  ],
+  "color-border-inverse": [
+    "@twilio-paste/input-box"
+  ],
+  "color-border-inverse-darker": [
+    "@twilio-paste/input-box"
+  ],
+  "color-border-light": [
+    "@twilio-paste/combobox",
+    "@twilio-paste/menu",
+    "@twilio-paste/separator",
+    "@twilio-paste/tabs"
+  ],
+  "color-border-lighter": [
+    "@twilio-paste/base-radio-checkbox",
+    "@twilio-paste/disclosure",
+    "@twilio-paste/input-box",
+    "@twilio-paste/modal",
+    "@twilio-paste/popover",
+    "@twilio-paste/table",
+    "@twilio-paste/toast"
+  ],
+  "color-border-neutral": [
+    "@twilio-paste/alert",
+    "@twilio-paste/toast"
+  ],
+  "color-border-primary": [
+    "@twilio-paste/base-radio-checkbox",
+    "@twilio-paste/tabs"
+  ],
+  "color-border-primary-dark": [
+    "@twilio-paste/base-radio-checkbox"
+  ],
+  "color-border-primary-darker": [
+    "@twilio-paste/base-radio-checkbox",
+    "@twilio-paste/tabs"
+  ],
+  "color-border-success-light": [
+    "@twilio-paste/toast"
+  ],
+  "color-border-warning-light": [
+    "@twilio-paste/alert",
+    "@twilio-paste/toast"
+  ],
+  "font-family-text": [
+    "@twilio-paste/button",
+    "@twilio-paste/select"
+  ],
+  "font-size-10": [
+    "@twilio-paste/avatar"
+  ],
+  "font-size-20": [
+    "@twilio-paste/avatar",
+    "@twilio-paste/breadcrumb",
+    "@twilio-paste/heading"
+  ],
+  "font-size-30": [
+    "@twilio-paste/avatar",
+    "@twilio-paste/button",
+    "@twilio-paste/heading",
+    "@twilio-paste/help-text",
+    "@twilio-paste/input",
+    "@twilio-paste/label",
+    "@twilio-paste/list",
+    "@twilio-paste/paragraph",
+    "@twilio-paste/select",
+    "@twilio-paste/table",
+    "@twilio-paste/tabs",
+    "@twilio-paste/textarea",
+    "@twilio-paste/text"
+  ],
+  "font-size-40": [
+    "@twilio-paste/avatar",
+    "@twilio-paste/heading"
+  ],
+  "font-size-50": [
+    "@twilio-paste/avatar",
+    "@twilio-paste/tooltip"
+  ],
+  "font-size-60": [
+    "@twilio-paste/avatar",
+    "@twilio-paste/heading"
+  ],
+  "font-size-70": [
+    "@twilio-paste/avatar",
+    "@twilio-paste/heading",
+    "@twilio-paste/popover"
+  ],
+  "font-size-80": [
+    "@twilio-paste/avatar"
+  ],
+  "font-size-90": [
+    "@twilio-paste/avatar",
+    "@twilio-paste/heading"
+  ],
+  "font-weight-bold": [
+    "@twilio-paste/avatar",
+    "@twilio-paste/combobox",
+    "@twilio-paste/heading",
+    "@twilio-paste/menu",
+    "@twilio-paste/table"
+  ],
+  "font-weight-medium": [
+    "@twilio-paste/select"
+  ],
+  "font-weight-normal": [
+    "@twilio-paste/base-radio-checkbox",
+    "@twilio-paste/checkbox",
+    "@twilio-paste/input",
+    "@twilio-paste/list",
+    "@twilio-paste/paragraph",
+    "@twilio-paste/select",
+    "@twilio-paste/textarea"
+  ],
+  "font-weight-semibold": [
+    "@twilio-paste/button",
+    "@twilio-paste/label",
+    "@twilio-paste/tabs"
+  ],
+  "line-height-10": [
+    "@twilio-paste/avatar"
+  ],
+  "line-height-20": [
+    "@twilio-paste/avatar",
+    "@twilio-paste/breadcrumb",
+    "@twilio-paste/button",
+    "@twilio-paste/heading",
+    "@twilio-paste/input",
+    "@twilio-paste/input-box",
+    "@twilio-paste/select",
+    "@twilio-paste/textarea"
+  ],
+  "line-height-30": [
+    "@twilio-paste/avatar",
+    "@twilio-paste/button",
+    "@twilio-paste/heading",
+    "@twilio-paste/help-text",
+    "@twilio-paste/label",
+    "@twilio-paste/table",
+    "@twilio-paste/text"
+  ],
+  "line-height-40": [
+    "@twilio-paste/avatar",
+    "@twilio-paste/heading",
+    "@twilio-paste/list",
+    "@twilio-paste/paragraph"
+  ],
+  "line-height-50": [
+    "@twilio-paste/avatar",
+    "@twilio-paste/select"
+  ],
+  "line-height-60": [
+    "@twilio-paste/avatar",
+    "@twilio-paste/heading"
+  ],
+  "line-height-70": [
+    "@twilio-paste/avatar",
+    "@twilio-paste/heading"
+  ],
+  "line-height-80": [
+    "@twilio-paste/avatar"
+  ],
+  "line-height-90": [
+    "@twilio-paste/avatar",
+    "@twilio-paste/heading"
+  ],
+  "shadow": [
+    "@twilio-paste/combobox",
+    "@twilio-paste/menu",
+    "@twilio-paste/tooltip"
+  ],
+  "shadow-border": [
+    "@twilio-paste/input-box"
+  ],
+  "shadow-border-inverse": [
+    "@twilio-paste/button",
+    "@twilio-paste/input-box"
+  ],
+  "shadow-border-inverse-darker": [
+    "@twilio-paste/button",
+    "@twilio-paste/input-box"
+  ],
+  "shadow-border-inverse-lighter": [
+    "@twilio-paste/button"
+  ],
+  "shadow-border-inverse-lightest": [
+    "@twilio-paste/button",
+    "@twilio-paste/input-box"
+  ],
+  "shadow-border-destructive": [
+    "@twilio-paste/button"
+  ],
+  "shadow-border-destructive-darker": [
+    "@twilio-paste/button"
+  ],
+  "shadow-border-destructive-light": [
+    "@twilio-paste/button"
+  ],
+  "shadow-border-error": [
+    "@twilio-paste/input-box"
+  ],
+  "shadow-border-error-dark": [
+    "@twilio-paste/input-box"
+  ],
+  "shadow-border-error-light": [
+    "@twilio-paste/input-box"
+  ],
+  "shadow-border-primary": [
+    "@twilio-paste/button"
+  ],
+  "shadow-border-primary-dark": [
+    "@twilio-paste/input-box"
+  ],
+  "shadow-border-primary-darker": [
+    "@twilio-paste/button",
+    "@twilio-paste/input-box"
+  ],
+  "shadow-border-primary-light": [
+    "@twilio-paste/button",
+    "@twilio-paste/input-box"
+  ],
+  "shadow-border-primary-lighter": [
+    "@twilio-paste/button"
+  ],
+  "shadow-card": [
+    "@twilio-paste/modal",
+    "@twilio-paste/popover"
+  ],
+  "shadow-focus": [
+    "@twilio-paste/anchor",
+    "@twilio-paste/base-radio-checkbox",
+    "@twilio-paste/button",
+    "@twilio-paste/disclosure",
+    "@twilio-paste/tabs"
+  ],
+  "shadow-focus-inverse": [
+    "@twilio-paste/anchor",
+    "@twilio-paste/button"
+  ],
+  "shadow-high": [
+    "@twilio-paste/toast"
+  ]
+}
