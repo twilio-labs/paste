@@ -43,6 +43,7 @@ const gatsbyConfig = {
           '**/__fixtures__/**',
           '**/__tests__/**',
           '**/paste-website/**/*',
+          '**/paste-theme-designer/**/*',
           '**/README.md',
           '**/*.js',
           '**/*.ts',
