@@ -1,10 +1,13 @@
 import * as React from 'react';
-import {storiesOf} from '@storybook/react';
-import {withKnobs} from '@storybook/addon-knobs';
 import {Anchor, Heading, Paragraph, Separator} from '@twilio-paste/core';
 import {useDisclosurePrimitiveState, DisclosurePrimitive, DisclosurePrimitiveContent} from '../src';
 
-const BasicExample: React.FC = () => {
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Primitives/Disclosure',
+};
+
+export const BasicExample: React.FC = () => {
   const disclosure = useDisclosurePrimitiveState();
   return (
     <>
@@ -22,7 +25,7 @@ const BasicExample: React.FC = () => {
   );
 };
 
-const ConditionallyRenderingExample: React.FC = () => {
+export const ConditionalRendering: React.FC = () => {
   const disclosure = useDisclosurePrimitiveState();
   return (
     <>
@@ -47,7 +50,7 @@ const ConditionallyRenderingExample: React.FC = () => {
   );
 };
 
-const MultipleExample: React.FC = () => {
+export const MultipleComponents: React.FC = () => {
   const disclosure1 = useDisclosurePrimitiveState();
   const disclosure2 = useDisclosurePrimitiveState();
 
@@ -81,9 +84,3 @@ const MultipleExample: React.FC = () => {
     </>
   );
 };
-
-storiesOf('Primitives|Disclosure', module)
-  .addDecorator(withKnobs)
-  .add('Basic Example', () => <BasicExample />)
-  .add('Conditional Rendering', () => <ConditionallyRenderingExample />)
-  .add('Multiple Components', () => <MultipleExample />);

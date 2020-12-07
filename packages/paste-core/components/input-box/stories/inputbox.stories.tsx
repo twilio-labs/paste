@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {storiesOf} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {InputBox, InputBoxProps} from '../src';
@@ -34,44 +33,87 @@ const CommonStories: React.FC<Omit<InputBoxProps, 'children'>> = ({variant, ...p
   );
 };
 
-storiesOf('Components|Input box', module)
-  .add('default', () => {
-    return <CommonStories variant="default" />;
-  })
-  .add('readonly', () => {
-    return <CommonStories readOnly variant="default" />;
-  })
-  .add('disabled', () => {
-    return <CommonStories disabled variant="default" />;
-  })
-  .add('error', () => {
-    return <CommonStories hasError variant="default" />;
-  })
-  .add('inverse', () => {
-    return (
-      <Box padding="space40" backgroundColor="colorBackgroundBodyInverse">
-        <CommonStories variant="inverse" />
-      </Box>
-    );
-  })
-  .add('inverse readonly', () => {
-    return (
-      <Box padding="space40" backgroundColor="colorBackgroundBodyInverse">
-        <CommonStories readOnly variant="inverse" />
-      </Box>
-    );
-  })
-  .add('inverse disabled', () => {
-    return (
-      <Box padding="space40" backgroundColor="colorBackgroundBodyInverse">
-        <CommonStories disabled variant="inverse" />
-      </Box>
-    );
-  })
-  .add('inverse error', () => {
-    return (
-      <Box padding="space40" backgroundColor="colorBackgroundBodyInverse">
-        <CommonStories hasError variant="inverse" />
-      </Box>
-    );
-  });
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Components/Input box',
+};
+
+export const Default = (): React.ReactNode => {
+  return <CommonStories variant="default" />;
+};
+
+Default.story = {
+  name: 'default',
+};
+
+export const Readonly = (): React.ReactNode => {
+  return <CommonStories readOnly variant="default" />;
+};
+
+Readonly.story = {
+  name: 'readonly',
+};
+
+export const Disabled = (): React.ReactNode => {
+  return <CommonStories disabled variant="default" />;
+};
+
+Disabled.story = {
+  name: 'disabled',
+};
+
+export const Error = (): React.ReactNode => {
+  return <CommonStories hasError variant="default" />;
+};
+
+Error.story = {
+  name: 'error',
+};
+
+export const Inverse = (): React.ReactNode => {
+  return (
+    <Box padding="space40" backgroundColor="colorBackgroundBodyInverse">
+      <CommonStories variant="inverse" />
+    </Box>
+  );
+};
+
+Inverse.story = {
+  name: 'inverse',
+};
+
+export const InverseReadonly = (): React.ReactNode => {
+  return (
+    <Box padding="space40" backgroundColor="colorBackgroundBodyInverse">
+      <CommonStories readOnly variant="inverse" />
+    </Box>
+  );
+};
+
+InverseReadonly.story = {
+  name: 'inverse readonly',
+};
+
+export const InverseDisabled = (): React.ReactNode => {
+  return (
+    <Box padding="space40" backgroundColor="colorBackgroundBodyInverse">
+      <CommonStories disabled variant="inverse" />
+    </Box>
+  );
+};
+
+InverseDisabled.story = {
+  name: 'inverse disabled',
+};
+
+export const InverseError = (): React.ReactNode => {
+  return (
+    <Box padding="space40" backgroundColor="colorBackgroundBodyInverse">
+      <CommonStories hasError variant="inverse" />
+    </Box>
+  );
+};
+
+InverseError.story = {
+  name: 'inverse error',
+};

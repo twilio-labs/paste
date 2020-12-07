@@ -1,15 +1,16 @@
 import * as React from 'react';
-import {storiesOf} from '@storybook/react';
-import {withKnobs} from '@storybook/addon-knobs';
 import {Text} from '@twilio-paste/text';
 import {ScreenReaderOnly} from '../src';
 
-storiesOf('Components|Screen reader only', module)
-  .addDecorator(withKnobs)
-  .add('Default', () => {
-    return (
-      <Text as="p">
-        Some visible text <ScreenReaderOnly>some not visible text</ScreenReaderOnly>
-      </Text>
-    );
-  });
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Components/Screen reader only',
+};
+
+export const Default = (): React.ReactNode => {
+  return (
+    <Text as="p">
+      Some visible text <ScreenReaderOnly>some not visible text</ScreenReaderOnly>
+    </Text>
+  );
+};
