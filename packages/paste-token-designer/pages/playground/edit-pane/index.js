@@ -1,5 +1,5 @@
 import {Box} from '@twilio-paste/core/box';
-import {Heading} from '@twilio-paste/core/heading';
+import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/core/disclosure';
 import {OrderedList, ListItem} from '@twilio-paste/core/list';
 
 import {getTokenBuckets} from './getTokenBuckets';
@@ -18,18 +18,20 @@ const OptionsList = ({bucket, options, handleChange}) => {
   );
 };
 
-export function Editor({tokens, handleChange}) {
+export function EditPane({tokens, handleChange}) {
   const tokenBuckets = getTokenBuckets(tokens);
   return (
-    <Box padding="space60" width="100%">
+    <Box padding="space60" width="100%" overflow="scroll">
       {tokenBuckets.map(([name, options]) => {
         return (
-          <Box key={name}>
-            <Heading as="h2" variant="heading20">
+          <Disclosure key={name}>
+            <DisclosureHeading as="h2" variant="heading20">
               {name}
-            </Heading>
-            <OptionsList bucket={name} options={options} handleChange={handleChange} />
-          </Box>
+            </DisclosureHeading>
+            <DisclosureContent>
+              <OptionsList bucket={name} options={options} handleChange={handleChange} />
+            </DisclosureContent>
+          </Disclosure>
         );
       })}
     </Box>

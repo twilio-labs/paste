@@ -1,15 +1,7 @@
-import {StylingGlobals, css, ThemeProvider as StyledThemeProvider} from '@twilio-paste/styling-library';
+import {StylingGlobals, css, ThemeProvider as StyledThemeProvider} from '@twilio-paste/core/styling-library';
+import {Box} from '@twilio-paste/core/box';
+import {Content} from './Content';
 import {mapTokensToTheme} from './utils/mapTokensToTheme';
-import {Box, Button, Alert} from '@twilio-paste/core';
-
-const Test = () => {
-  console.log(
-    css({
-      color: 'red',
-    })({})
-  );
-  return <div>Red</div>;
-};
 
 const pasteGlobalStyles = css({
   html: {
@@ -32,16 +24,22 @@ const pasteGlobalStyles = css({
   },
 });
 
-export function Viewer({tokens}) {
+export function PreviewPane({tokens}) {
   const theme = mapTokensToTheme(tokens);
   console.log('new theme', theme);
   return (
     <StyledThemeProvider theme={theme}>
       <StylingGlobals styles={pasteGlobalStyles({theme})} />
-      <Box padding="space60" width="100%" backgroundColor="colorBackground">
-        <Button variant="primary">Primary Button</Button>
-        <Alert variant="error">Do not plunge</Alert>
-        <Test />
+      <Box
+        padding="space60"
+        width="100%"
+        backgroundColor="colorBackground"
+        borderLeftWidth="borderWidth10"
+        borderLeftColor="colorBorderDark"
+        borderLeftStyle="solid"
+        overflow="scroll"
+      >
+        <Content />
       </Box>
     </StyledThemeProvider>
   );

@@ -1,7 +1,7 @@
 import * as Tokens from '@twilio-paste/core/design-tokens';
 import {Box} from '@twilio-paste/core/box';
-import {Editor} from './edit-pane';
-import {Viewer} from './preview-pane';
+import {EditPane} from './edit-pane';
+import {PreviewPane} from './preview-pane';
 
 export default function Playground() {
   const [tokens, updateTokens] = React.useState(Tokens);
@@ -15,9 +15,9 @@ export default function Playground() {
   };
 
   return (
-    <Box display="flex">
-      <Editor tokens={tokens} handleChange={handleChange} />
-      <Viewer tokens={tokens} />
+    <Box display="flex" height="100vh" overflow="hidden">
+      <EditPane tokens={tokens} handleChange={handleChange} />
+      <PreviewPane tokens={tokens} />
     </Box>
   );
 }
