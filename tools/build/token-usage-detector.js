@@ -44,8 +44,82 @@ function convertPathsToPackageNames(fileList) {
     resultMap[tokenName] = convertPathsToPackageNames(fileList);
   }
 
-  writeToFile(CACHE_FILE_PATH, resultMap, {
-    formatJson: true,
-    successMessage: `[Token Usage] Cache was successfully saved to: ${CACHE_FILE_PATH}`,
+  // Get not-in-use tokens
+  const unusedTokenList = [];
+  Object.keys(resultMap).forEach(tokenName => {
+    if (resultMap[tokenName].length === 0) {
+      unusedTokenList.push(tokenName);
+    }
   });
+  // console.log("These tokens aren't used: ", unusedTokenList);
+
+  // Get minimal components using all tokens
+  // Process:
+  /*
+   * First split up the resultMap into two lists, one with 1 value and another for >1 value
+   * loop through the one item list first adding it to the set
+   * loop through the multiple item value second and check if any are on the set
+   * if something is on the set, skip
+   * if none are on the set, add to _BEST GUESS MAP_
+   * shape: {
+   *   pkg: count,
+   *   pkg2: count2,
+   *   ...
+   * }
+   * Lastly use this best guess map to add the top used package to the set
+   * then regen the best guess map
+   * loop until best guess is empty
+   */
+  const minimalUsedPackageSet = new Set();
+
+  const ONE_ITEM_RESULT_MAP = lodash.omitBy(resultMap, value => value.length === 0 || value.length > 1);
+  const MULTI_ITEM_RESULT_MAP = lodash.omitBy(resultMap, value => value.length < 2);
+  // console.log('one', ONE_ITEM_RESULT_MAP);
+  // console.log('multi', MULTI_ITEM_RESULT_MAP);
+
+  Object.values(ONE_ITEM_RESULT_MAP).forEach(packageList => {
+    minimalUsedPackageSet.add(packageList[0]);
+  });
+  // console.log('pkglist at 1', minimalUsedPackageSet);
+
+  const bestGuessMapper = {};
+  Object.values(MULTI_ITEM_RESULT_MAP).forEach(packageList => {
+    let isAnyInSet = false;
+    packageList.forEach(packageName => {
+      if (minimalUsedPackageSet.has(packageName)) {
+        isAnyInSet = true;
+      }
+    });
+    if (!isAnyInSet) {
+      packageList.forEach(packageName => {
+        if (!bestGuessMapper[packageName]) {
+          bestGuessMapper[packageName] = 1;
+        } else {
+          bestGuessMapper[packageName] += 1;
+        }
+      });
+    }
+  });
+
+  // TODO this edge case hasnt happened yet so i stopped coding here
+  // console.log('bestguess', bestGuessMapper);
+  if (Object.keys(bestGuessMapper).length > 0) {
+    console.log(
+      "[ERROR]: BestGuessMapper isn't empty anymore. Finish coding this function to find the real minimum package list!"
+    );
+  }
+  // console.log('minimal set of packages: ', [...usedPackageSet]);
+
+  writeToFile(
+    CACHE_FILE_PATH,
+    {
+      unusedTokenList,
+      minimalUsedPackageSet: [...minimalUsedPackageSet],
+      tokenPackageMap: resultMap,
+    },
+    {
+      formatJson: true,
+      successMessage: `[Token Usage] Cache was successfully saved to: ${CACHE_FILE_PATH}`,
+    }
+  );
 })();
