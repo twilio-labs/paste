@@ -7,15 +7,24 @@ import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/co
 
 import {getTokenBuckets} from './getTokenBuckets';
 
+const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
+
 export const OptionsList = ({bucket, options, handleChange}) => {
   const id = useUID();
+  const sortedNames = Object.keys(options).sort(collator.compare);
+
   return (
     <Stack orientation="vertical" spacing="space60">
-      {Object.keys(options).map(key => {
+      {sortedNames.map(tokenName => {
         return (
-          <Box key={key}>
-            <Label htmlFor={id}>{key}:</Label>
-            <Input id={id} type="text" value={options[key]} onChange={e => handleChange(bucket, key, e.target.value)} />
+          <Box key={tokenName}>
+            <Label htmlFor={id}>{tokenName}:</Label>
+            <Input
+              id={id}
+              type="text"
+              value={options[tokenName]}
+              onChange={e => handleChange(bucket, tokenName, e.target.value)}
+            />
           </Box>
         );
       })}
