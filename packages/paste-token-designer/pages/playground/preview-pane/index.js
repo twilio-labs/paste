@@ -1,5 +1,6 @@
 import {StylingGlobals, css, ThemeProvider as StyledThemeProvider} from '@twilio-paste/core/styling-library';
 import {Box} from '@twilio-paste/core/box';
+import {Tabs, TabList, TabPanel, TabPanels, Tab} from '@twilio-paste/core/tabs';
 import {Content} from './Content';
 import {mapTokensToTheme} from './utils/mapTokensToTheme';
 
@@ -39,7 +40,18 @@ export function PreviewPane({tokens}) {
         borderLeftStyle="solid"
         overflow="scroll"
       >
-        <Content />
+        <Tabs>
+          <TabList>
+            <Tab>Preview</Tab>
+            <Tab>Another Preview</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel>
+              <Content />
+            </TabPanel>
+            <TabPanel>Another preview here</TabPanel>
+          </TabPanels>
+        </Tabs>
       </Box>
     </StyledThemeProvider>
   );

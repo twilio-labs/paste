@@ -1,18 +1,12 @@
-import Head from 'next/head';
 import Link from 'next/link';
+import {Layout} from '../components/layout';
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>Token Designer</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main>
-        <Link href="/playground">
-          <a>Playground</a>
-        </Link>
-      </main>
-    </>
+    <Layout>
+      <Link href="/playground">
+        <a>Playground</a>
+      </Link>
+    </Layout>
   );
 }

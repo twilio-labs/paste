@@ -1,27 +1,30 @@
 import {Box} from '@twilio-paste/core/box';
+import {Input} from '@twilio-paste/core/input';
+import {Label} from '@twilio-paste/core/label';
+import {Stack} from '@twilio-paste/core/stack';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/core/disclosure';
-import {OrderedList, ListItem} from '@twilio-paste/core/list';
 
 import {getTokenBuckets} from './getTokenBuckets';
 
-const OptionsList = ({bucket, options, handleChange}) => {
+export const OptionsList = ({bucket, options, handleChange}) => {
   return (
-    <OrderedList>
+    <Stack orientation="vertical" spacing="space60">
       {Object.keys(options).map(key => {
         return (
-          <ListItem key={key}>
-            {key}: <input type="text" value={options[key]} onChange={e => handleChange(bucket, key, e.target.value)} />
-          </ListItem>
+          <Box key={key}>
+            <Label>{key}:</Label>
+            <Input type="text" value={options[key]} onChange={e => handleChange(bucket, key, e.target.value)} />
+          </Box>
         );
       })}
-    </OrderedList>
+    </Stack>
   );
 };
 
 export function EditPane({tokens, handleChange}) {
   const tokenBuckets = getTokenBuckets(tokens);
   return (
-    <Box padding="space60" width="100%" overflow="scroll">
+    <Box maxWidth="size50" width="100%" overflow="scroll" padding="space60">
       {tokenBuckets.map(([name, options]) => {
         return (
           <Disclosure key={name}>
