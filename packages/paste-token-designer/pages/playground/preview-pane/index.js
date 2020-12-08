@@ -1,7 +1,8 @@
 import {StylingGlobals, css, ThemeProvider as StyledThemeProvider} from '@twilio-paste/core/styling-library';
 import {Box} from '@twilio-paste/core/box';
-import {Tabs, TabList, TabPanel, TabPanels, Tab} from '@twilio-paste/core/tabs';
-import {Content} from './Content';
+// import {Tabs, TabList, TabPanel, TabPanels, Tab} from '@twilio-paste/core/tabs';
+// import {Content} from './Content';
+import {Preview} from '../../../components/preview';
 import {mapTokensToTheme} from './utils/mapTokensToTheme';
 
 const pasteGlobalStyles = css({
@@ -32,7 +33,7 @@ export function PreviewPane({tokens}) {
     <StyledThemeProvider theme={theme}>
       <StylingGlobals styles={pasteGlobalStyles({theme})} />
       <Box
-        padding="space60"
+        // padding="space60"
         width="100%"
         backgroundColor="colorBackground"
         borderLeftWidth="borderWidth10"
@@ -40,7 +41,7 @@ export function PreviewPane({tokens}) {
         borderLeftStyle="solid"
         overflow="scroll"
       >
-        <Tabs>
+        {/* <Tabs>
           <TabList aria-label="Select among different previews">
             <Tab>Preview</Tab>
             <Tab>Another Preview</Tab>
@@ -51,7 +52,8 @@ export function PreviewPane({tokens}) {
             </TabPanel>
             <TabPanel>Another preview here</TabPanel>
           </TabPanels>
-        </Tabs>
+        </Tabs> */}
+        <Preview />
       </Box>
     </StyledThemeProvider>
   );
