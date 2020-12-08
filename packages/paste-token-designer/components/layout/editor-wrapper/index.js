@@ -16,7 +16,7 @@ const EditorWrapper = props => {
       </Head>
       <TopBar />
       <Box display="flex" height="100vh" overflow="hidden">
-        <Box maxWidth="size50" width="100%" overflow="scroll">
+        <Box maxWidth="size40" width="100%" overflow="scroll">
           <TokenSelector />
           <Box padding="space60">{props.children}</Box>
         </Box>
