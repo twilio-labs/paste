@@ -4,7 +4,7 @@ import {TokenContext} from '../../../context/TokenContext';
 // import {Tabs, TabList, TabPanel, TabPanels, Tab} from '@twilio-paste/core/tabs';
 // import {Content} from './Content';
 import {Preview} from '../../../components/preview';
-import {mapTokensToTheme} from './utils/mapTokensToTheme';
+import {mapTokensToTheme} from '../../../utils/mapTokensToTheme';
 
 const pasteGlobalStyles = css({
   html: {
@@ -27,7 +27,7 @@ const pasteGlobalStyles = css({
   },
 });
 
-export function PreviewPane() {
+export default function PreviewPane() {
   const {tokens} = React.useContext(TokenContext);
   const theme = mapTokensToTheme(tokens);
 
