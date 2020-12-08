@@ -1,12 +1,14 @@
 import Link from 'next/link';
-import {Layout} from '../components/layout';
 
 export default function Home() {
   return (
-    <Layout>
+    <div>
+      <Link href="/edit">
+        <a>Edit</a>
+      </Link>{' '}
       <Link href="/playground">
         <a>Playground</a>
       </Link>
-    </Layout>
+    </div>
   );
 }

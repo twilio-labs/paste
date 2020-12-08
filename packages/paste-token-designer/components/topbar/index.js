@@ -16,10 +16,12 @@ const TopBar = () => {
       zIndex="zIndex10"
     >
       <Text as="h1" color="colorTextInverse" fontWeight="fontWeightSemibold" fontSize="fontSize60">
-        Paste Theme Customizer
+        Paste Theme Designer
       </Text>
       <Box marginLeft="auto">
-        <Button variant="inverse">Export</Button>
+        <Button variant="inverse" onClick={() => alert('TODO')}>
+          Export
+        </Button>
       </Box>
     </Box>
   );
