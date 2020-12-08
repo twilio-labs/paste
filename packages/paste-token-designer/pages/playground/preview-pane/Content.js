@@ -129,7 +129,7 @@ const PlainMenu = () => {
   );
 };
 
-export function Content() {
+export default function Content() {
   // Modal properties
   const [isOpen, setIsOpen] = React.useState(false);
   const handleOpen = () => setIsOpen(true);

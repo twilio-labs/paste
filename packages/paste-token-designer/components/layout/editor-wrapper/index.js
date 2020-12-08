@@ -2,7 +2,7 @@ import Head from 'next/head';
 import {Box} from '@twilio-paste/core/box';
 import {TokenSelector} from './TokenSelector';
 import {TopBar} from '../../topbar';
-import {PreviewPane} from '../../../pages/playground/preview-pane';
+import PreviewPane from '../../../pages/playground/preview-pane';
 
 const EditorWrapper = props => {
   return (

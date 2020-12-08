@@ -4,8 +4,8 @@ import {Input} from '@twilio-paste/core/input';
 import {Label} from '@twilio-paste/core/label';
 import {Stack} from '@twilio-paste/core/stack';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/core/disclosure';
-
-import {getTokenBuckets} from './getTokenBuckets';
+import {TokenContext} from '../../../context/TokenContext';
+import {getTokenBuckets} from '../../../utils/getTokenBuckets';
 
 const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
 
@@ -37,7 +37,8 @@ export const OptionsList = ({bucket, options, handleChange}) => {
   );
 };
 
-export function EditPane({tokens, handleChange}) {
+export default function EditPane() {
+  const {tokens, updateTokens} = React.useContext(TokenContext);
   const tokenBuckets = getTokenBuckets(tokens);
   return (
     <Box maxWidth="size50" width="100%" overflow="scroll" padding="space60">
@@ -48,7 +49,7 @@ export function EditPane({tokens, handleChange}) {
               {name}
             </DisclosureHeading>
             <DisclosureContent>
-              <OptionsList bucket={name} options={options} handleChange={handleChange} />
+              <OptionsList bucket={name} options={options} handleChange={updateTokens} />
             </DisclosureContent>
           </Disclosure>
         );

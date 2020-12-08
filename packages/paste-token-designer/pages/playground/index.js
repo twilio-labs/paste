@@ -1,7 +1,7 @@
 import * as Tokens from '@twilio-paste/core/design-tokens';
 import {Box} from '@twilio-paste/core/box';
-import {EditPane} from './edit-pane';
-import {PreviewPane} from './preview-pane';
+import EditPane from './edit-pane';
+import PreviewPane from './preview-pane';
 
 export default function Playground() {
   const [tokens, updateTokens] = React.useState(Tokens);
