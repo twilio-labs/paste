@@ -1,5 +1,5 @@
 import {Box} from '@twilio-paste/core/box';
-import {useUID} from '@twilio-paste/uid-library';
+import {useUIDSeed} from '@twilio-paste/uid-library';
 import {Input} from '@twilio-paste/core/input';
 import {Label} from '@twilio-paste/core/label';
 import {Stack} from '@twilio-paste/core/stack';
@@ -10,7 +10,7 @@ import {getTokenBuckets} from './getTokenBuckets';
 const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
 
 export const OptionsList = ({bucket, options, handleChange}) => {
-  const id = useUID();
+  const seed = useUIDSeed();
   const sortedNames = Object.keys(options).sort(collator.compare);
 
   return (
@@ -18,12 +18,17 @@ export const OptionsList = ({bucket, options, handleChange}) => {
       {sortedNames.map(tokenName => {
         return (
           <Box key={tokenName}>
-            <Label htmlFor={id}>{tokenName}:</Label>
+            <Label htmlFor={seed(tokenName)}>{tokenName}:</Label>
             <Input
-              id={id}
+              id={seed(tokenName)}
               type="text"
               value={options[tokenName]}
-              onChange={e => handleChange(bucket, tokenName, e.target.value)}
+              onChange={event => {
+                const {value} = event.target;
+                // TODO validate
+                if (value === '') return;
+                handleChange(bucket, tokenName, event.target.value);
+              }}
             />
           </Box>
         );
