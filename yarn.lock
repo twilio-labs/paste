@@ -10885,7 +10885,7 @@ commander@^2.11.0, commander@^2.17.1, commander@^2.19.0, commander@^2.2.0, comma
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
 
-commander@^4.0.0, commander@^4.0.1, commander@^4.1.1:
+commander@^4.0.0, commander@^4.0.1, commander@^4.1.0, commander@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-4.1.1.tgz#9fd602bd936294e9e9ef46a3f4d6964044b18068"
   integrity sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==
@@ -26427,6 +26427,13 @@ scss-tokenizer@^0.2.3:
   dependencies:
     js-base64 "^2.1.8"
     source-map "^0.4.2"
+
+search-in-file@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/search-in-file/-/search-in-file-1.2.2.tgz#259f72247cdf66d3ad3d63ac450d0a703cd1cb19"
+  integrity sha512-6mqEn/nAwuewdyTrry487RPB14ciy9JS45bBop4SNgYTPOOgXcW3JRzloeMwJ1GnxZyG4ylbf1Tzmtk3DqKFlA==
+  dependencies:
+    commander "^4.1.0"
 
 section-matter@^1.0.0:
   version "1.0.0"
