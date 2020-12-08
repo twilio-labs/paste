@@ -1,4 +1,5 @@
 import {Box} from '@twilio-paste/core/box';
+import {useUID} from '@twilio-paste/uid-library';
 import {Input} from '@twilio-paste/core/input';
 import {Label} from '@twilio-paste/core/label';
 import {Stack} from '@twilio-paste/core/stack';
@@ -7,13 +8,14 @@ import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/co
 import {getTokenBuckets} from './getTokenBuckets';
 
 export const OptionsList = ({bucket, options, handleChange}) => {
+  const id = useUID();
   return (
     <Stack orientation="vertical" spacing="space60">
       {Object.keys(options).map(key => {
         return (
           <Box key={key}>
-            <Label>{key}:</Label>
-            <Input type="text" value={options[key]} onChange={e => handleChange(bucket, key, e.target.value)} />
+            <Label htmlFor={id}>{key}:</Label>
+            <Input id={id} type="text" value={options[key]} onChange={e => handleChange(bucket, key, e.target.value)} />
           </Box>
         );
       })}

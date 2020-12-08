@@ -41,7 +41,7 @@ export function PreviewPane({tokens}) {
         overflow="scroll"
       >
         <Tabs>
-          <TabList>
+          <TabList aria-label="Select among different previews">
             <Tab>Preview</Tab>
             <Tab>Another Preview</Tab>
           </TabList>
