@@ -1,5 +1,4 @@
 import {Box} from '@twilio-paste/core/box';
-import {Button} from '@twilio-paste/core/button';
 import {Text} from '@twilio-paste/core/text';
 
 const TopBar = () => {
@@ -18,11 +17,6 @@ const TopBar = () => {
       <Text as="h1" color="colorTextInverse" fontWeight="fontWeightSemibold" fontSize="fontSize60">
         Paste Theme Designer
       </Text>
-      <Box marginLeft="auto">
-        <Button variant="inverse" onClick={() => alert('TODO')}>
-          Export
-        </Button>
-      </Box>
     </Box>
   );
 };
