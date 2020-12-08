@@ -1,0 +1,27 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "references": [
+    {
+      "path": "../paste-libraries/animation"
+    },
+    {
+      "path": "../paste-design-tokens"
+    },
+    {
+      "path": "../paste-libraries/styling"
+    },
+    {
+      "path": "../paste-theme"
+    },
+    {
+      "path": "../paste-types"
+    }
+  ]
+}
