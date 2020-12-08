@@ -6,7 +6,7 @@ import {Select, Option} from '@twilio-paste/core/select';
 
 const TokenSelector = () => {
   const router = useRouter();
-  const [value, setValue] = React.useState(router.pathname.replace('/', ''));
+  const [value, setValue] = React.useState(router.pathname.replace(`${Routes.EDIT}/`, ''));
 
   const handleChange = event => {
     setValue(event.target.value);
