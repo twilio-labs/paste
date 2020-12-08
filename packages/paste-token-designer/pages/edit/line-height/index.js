@@ -1,21 +1,13 @@
-import * as Tokens from '@twilio-paste/core/design-tokens';
+import {TokenContext} from '../../../context/TokenContext';
 import {EditorWrapper} from '../../../components/layout/editor-wrapper';
 import {OptionsList} from '../../playground/edit-pane';
 
 export default function LineHeight() {
-  const [tokens, updateTokens] = React.useState(Tokens);
-
-  const handleChange = (bucket, key, value) => {
-    updateTokens({
-      ...tokens,
-      [key]: value, // update the root key
-      [bucket]: {...tokens[bucket], [key]: value}, // update the bucketed key
-    });
-  };
+  const {tokens, updateToken} = React.useContext(TokenContext);
 
   return (
     <EditorWrapper>
-      <OptionsList options={tokens.lineHeights} handleChange={handleChange} />
+      <OptionsList bucket="lineHeights" options={tokens.lineHeights} handleChange={updateToken} />
     </EditorWrapper>
   );
 }

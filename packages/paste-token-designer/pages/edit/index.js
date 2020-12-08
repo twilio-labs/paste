@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import {EditorWrapper} from '../../components/layout/editor-wrapper';
 
 export default function Home() {

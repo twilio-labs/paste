@@ -1,5 +1,6 @@
 import {StylingGlobals, css, ThemeProvider as StyledThemeProvider} from '@twilio-paste/core/styling-library';
 import {Box} from '@twilio-paste/core/box';
+import {TokenContext} from '../../../context/TokenContext';
 // import {Tabs, TabList, TabPanel, TabPanels, Tab} from '@twilio-paste/core/tabs';
 // import {Content} from './Content';
 import {Preview} from '../../../components/preview';
@@ -26,9 +27,10 @@ const pasteGlobalStyles = css({
   },
 });
 
-export function PreviewPane({tokens}) {
+export function PreviewPane() {
+  const {tokens} = React.useContext(TokenContext);
   const theme = mapTokensToTheme(tokens);
-  console.log('new theme', theme);
+
   return (
     <StyledThemeProvider theme={theme}>
       <StylingGlobals styles={pasteGlobalStyles({theme})} />

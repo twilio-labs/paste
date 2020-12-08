@@ -1,13 +1,10 @@
 import Head from 'next/head';
-import * as Tokens from '@twilio-paste/core/design-tokens';
 import {Box} from '@twilio-paste/core/box';
 import {TokenSelector} from './TokenSelector';
 import {TopBar} from '../../topbar';
 import {PreviewPane} from '../../../pages/playground/preview-pane';
 
 const EditorWrapper = props => {
-  const tokens = Tokens;
-
   return (
     <>
       <Head>
@@ -20,7 +17,7 @@ const EditorWrapper = props => {
           <TokenSelector />
           <Box padding="space60">{props.children}</Box>
         </Box>
-        <PreviewPane tokens={tokens} />
+        <PreviewPane />
       </Box>
     </>
   );
