@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import {Theme} from '@twilio-paste/core/theme';
 import * as Tokens from '@twilio-paste/core/design-tokens';
 import {TokenContext} from '../context/TokenContext';
@@ -17,6 +18,10 @@ function MyApp({Component, pageProps}) {
   return (
     <TokenContext.Provider value={{tokens, updateToken}}>
       <Theme.Provider theme="default">
+        <Head>
+          <title>Token Designer</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
         <Component {...pageProps} />
       </Theme.Provider>
     </TokenContext.Provider>
