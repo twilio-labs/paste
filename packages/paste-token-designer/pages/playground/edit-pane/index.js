@@ -36,7 +36,13 @@ export const OptionsList = ({bucket, options, handleChange}) => {
   return (
     <>
       {sortedNames.map(tokenName => (
-        <TokenItem bucket={bucket} tokenName={tokenName} tokenValue={options[tokenName]} onChange={handleChange} />
+        <TokenItem
+          bucket={bucket}
+          key={tokenName}
+          tokenName={tokenName}
+          tokenValue={options[tokenName]}
+          onChange={handleChange}
+        />
       ))}
     </>
   );
