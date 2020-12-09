@@ -2,7 +2,7 @@ import {Box} from '@twilio-paste/core/box';
 import {Button} from '@twilio-paste/core/button';
 import {TokenSelector} from './TokenSelector';
 import {TopBar} from '../../topbar';
-import PreviewPane from '../../../pages/playground/preview-pane';
+import {Preview} from '../../preview';
 import {SITE_MASTHEAD_HEIGHT} from '../../../constants';
 
 const EditorWrapper = props => {
@@ -21,7 +21,7 @@ const EditorWrapper = props => {
             </Button>
           </Box>
         </Box>
-        <PreviewPane />
+        <Preview />
       </Box>
     </>
   );

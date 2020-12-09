@@ -27,7 +27,14 @@ const Preview = () => {
   );
   return (
     <CustomizationProvider theme={customTheme}>
-      <Box height={`calc(100vh - ${SITE_MASTHEAD_HEIGHT}px)`}>
+      <Box
+        width="100%"
+        backgroundColor="colorBackground"
+        borderLeftWidth="borderWidth10"
+        borderLeftColor="colorBorderDark"
+        borderLeftStyle="solid"
+        overflow="scroll"
+      >
         <Grid equalColumnHeights>
           <Column span={8}>
             <Box
