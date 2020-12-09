@@ -5,9 +5,6 @@ export default function Home() {
     <div>
       <Link href="/edit">
         <a>Edit</a>
-      </Link>{' '}
-      <Link href="/playground">
-        <a>Playground</a>
       </Link>
     </div>
   );
