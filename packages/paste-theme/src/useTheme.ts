@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {ThemeContext} from '@twilio-paste/styling-library';
-import {ThemeShape} from './types';
+import {ThemeShape} from './types/themes';
 
 const useTheme = (): ThemeShape => {
   const context = React.useContext(ThemeContext) as ThemeShape;
