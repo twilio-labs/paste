@@ -9,31 +9,36 @@ import {getTokenBuckets} from '../../../utils/getTokenBuckets';
 
 const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
 
-export const OptionsList = ({bucket, options, handleChange}) => {
+const TokenItem = ({bucket, tokenName, tokenValue, onChange}) => {
   const seed = useUIDSeed();
+
+  return (
+    <Box key={tokenName} marginBottom="space60">
+      <Label htmlFor={seed(tokenName)}>{tokenName}:</Label>
+      <Input
+        id={seed(tokenName)}
+        type="text"
+        value={tokenValue}
+        onChange={event => {
+          const {value} = event.target;
+          // TODO validate
+          if (value === '') return;
+          onChange(bucket, tokenName, event.target.value);
+        }}
+      />
+    </Box>
+  );
+};
+
+export const OptionsList = ({bucket, options, handleChange}) => {
   const sortedNames = Object.keys(options).sort(collator.compare);
 
   return (
-    <Stack orientation="vertical" spacing="space60">
-      {sortedNames.map(tokenName => {
-        return (
-          <Box key={tokenName}>
-            <Label htmlFor={seed(tokenName)}>{tokenName}:</Label>
-            <Input
-              id={seed(tokenName)}
-              type="text"
-              value={options[tokenName]}
-              onChange={event => {
-                const {value} = event.target;
-                // TODO validate
-                if (value === '') return;
-                handleChange(bucket, tokenName, event.target.value);
-              }}
-            />
-          </Box>
-        );
-      })}
-    </Stack>
+    <>
+      {sortedNames.map(tokenName => (
+        <TokenItem bucket={bucket} tokenName={tokenName} tokenValue={options[tokenName]} onChange={handleChange} />
+      ))}
+    </>
   );
 };
 

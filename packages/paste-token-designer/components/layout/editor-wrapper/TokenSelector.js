@@ -8,10 +8,10 @@ const TokenSelector = () => {
   const router = useRouter();
   const [value, setValue] = React.useState(router.pathname.replace(`${Routes.EDIT}/`, ''));
 
-  const handleChange = event => {
+  const handleChange = React.useCallback(event => {
     setValue(event.target.value);
-    router.push(Routes.EDIT_BUCKET(event.target.value));
-  };
+    router.push(Routes.EDIT_BUCKET(event.target.value), undefined, {shallow: true});
+  }, []);
 
   return (
     <Box as="nav" backgroundColor="colorBackground" padding="space60">
