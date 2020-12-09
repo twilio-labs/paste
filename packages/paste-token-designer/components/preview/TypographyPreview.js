@@ -26,8 +26,8 @@ const TypographyPreview = () => {
       <Paragraph>
         Impossible is just a big word thrown around by small men who find it easier to live in the world they&rsquo;ve
         been given than to explore the power they have to change it. Impossible is not a fact. It&rsquo;s an opinion.
-        Impossible is not a declaration. It's a dare. Impossible is potential. Impossible is temporary. Impossible is
-        nothing.
+        Impossible is not a declaration. It&apos;s a dare. Impossible is potential. Impossible is temporary. Impossible
+        is nothing.
       </Paragraph>
       <UnorderedList>
         <ListItem>Tamir Rice</ListItem>

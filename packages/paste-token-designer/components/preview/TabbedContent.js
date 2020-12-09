@@ -13,6 +13,7 @@ import {CardPreview} from './CardPreview';
 import {PopoverPreview} from './PopoverPreview';
 import {TablePreview} from './TablePreview';
 import {ToastPreview} from './ToastPreview';
+import {TooltipPreview} from './TooltipPreview';
 import {TypographyPreview} from './TypographyPreview';
 
 const TabbedContent = () => {
@@ -40,6 +41,7 @@ const TabbedContent = () => {
                 <AvatarPreview />
                 <BreadcrumbPreview />
                 <ButtonPreview />
+                <TooltipPreview />
                 <PopoverPreview />
                 <ToastPreview />
               </Stack>

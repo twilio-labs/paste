@@ -4,7 +4,7 @@ import {Stack} from '@twilio-paste/core/stack';
 const ButtonPreview = () => {
   return (
     <Stack orientation="horizontal" spacing="space30">
-      <Button variant="primary">✊ Action</Button>
+      <Button variant="primary">Action</Button>
       <Button variant="secondary">Action</Button>
       <Button variant="destructive">Action</Button>
       <Button variant="destructive_secondary">Action</Button>

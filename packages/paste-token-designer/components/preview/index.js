@@ -2,8 +2,8 @@ import {generateThemeFromTokens} from '@twilio-paste/core/theme';
 import {CustomizationProvider} from '@twilio-paste/core/customization';
 import {Box} from '@twilio-paste/core/box';
 import {Column, Grid} from '@twilio-paste/core/grid';
-import {TabbedContent} from './components/TabbedContent';
-import {FormPreview} from './components/FormPreview';
+import {TabbedContent} from './TabbedContent';
+import {FormPreview} from './FormPreview';
 import {TokenContext} from '../../context/TokenContext';
 import {SITE_MASTHEAD_HEIGHT} from '../../constants';
 
