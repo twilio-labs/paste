@@ -26,43 +26,42 @@ const Preview = () => {
     tokens.zIndices
   );
   return (
-    <Box flexGrow={1}>
+    <Box
+      width="100%"
+      backgroundColor="colorBackground"
+      borderLeftWidth="borderWidth10"
+      borderLeftColor="colorBorderDark"
+      borderLeftStyle="solid"
+      flexGrow={1}
+      overflow="scroll"
+    >
       <CustomizationProvider theme={customTheme}>
-        <Box
-          width="100%"
-          backgroundColor="colorBackground"
-          borderLeftWidth="borderWidth10"
-          borderLeftColor="colorBorderDark"
-          borderLeftStyle="solid"
-          overflow="scroll"
-        >
-          <Grid equalColumnHeights>
-            <Column span={8}>
-              <Box
-                backgroundColor="colorBackgroundBody"
-                height={`calc(100vh - ${SITE_MASTHEAD_HEIGHT}px)`}
-                overflow="scroll"
-                padding="space60"
-                width="100%"
-              >
-                <TabbedContent />
-              </Box>
-            </Column>
-            <Column span={4}>
-              <Box
-                borderLeftColor="colorBorder"
-                borderLeftWidth="borderWidth10"
-                borderLeftStyle="solid"
-                height={`calc(100vh - ${SITE_MASTHEAD_HEIGHT}px)`}
-                overflow="scroll"
-                padding="space60"
-                width="100%"
-              >
-                <FormPreview />
-              </Box>
-            </Column>
-          </Grid>
-        </Box>
+        <Grid equalColumnHeights>
+          <Column span={8}>
+            <Box
+              backgroundColor="colorBackgroundBody"
+              height={`calc(100vh - ${SITE_MASTHEAD_HEIGHT}px)`}
+              overflow="scroll"
+              padding="space60"
+              width="100%"
+            >
+              <TabbedContent />
+            </Box>
+          </Column>
+          <Column span={4}>
+            <Box
+              borderLeftColor="colorBorder"
+              borderLeftWidth="borderWidth10"
+              borderLeftStyle="solid"
+              height={`calc(100vh - ${SITE_MASTHEAD_HEIGHT}px)`}
+              overflow="scroll"
+              padding="space60"
+              width="100%"
+            >
+              <FormPreview />
+            </Box>
+          </Column>
+        </Grid>
       </CustomizationProvider>
     </Box>
   );
