@@ -1,5 +1,6 @@
 import {useUID, useUIDSeed} from '@twilio-paste/core/uid-library';
-import {Theme} from '@twilio-paste/core/theme';
+import {generateThemeFromTokens} from '@twilio-paste/core/theme';
+import {CustomizationProvider} from '@twilio-paste/core/customization';
 import {Alert} from '@twilio-paste/core/alert';
 import {Anchor} from '@twilio-paste/core/anchor';
 import {Avatar} from '@twilio-paste/core/avatar';
@@ -32,10 +33,28 @@ import {PlusIcon} from '@twilio-paste/icons/cjs/PlusIcon';
 import {ProductTwilioOrgIcon} from '@twilio-paste/icons/cjs/ProductTwilioOrgIcon';
 import {ChevronDownIcon} from '@twilio-paste/icons/cjs/ChevronDownIcon';
 import {SITE_MASTHEAD_HEIGHT} from '../../constants';
+import {TokenContext} from '../../context/TokenContext';
 
 const Preview = () => {
+  const {tokens} = React.useContext(TokenContext);
+  const customTheme = generateThemeFromTokens(
+    tokens.backgroundColors,
+    tokens.borderColors,
+    tokens.borderWidths,
+    tokens.radii,
+    tokens.colors,
+    tokens.fonts,
+    tokens.fontSizes,
+    tokens.fontWeights,
+    tokens.lineHeights,
+    tokens.boxShadows,
+    tokens.sizings,
+    tokens.spacings,
+    tokens.textColors,
+    tokens.zIndices
+  );
   return (
-    <Theme.Provider theme="default">
+    <CustomizationProvider theme={customTheme}>
       <Box height={`calc(100vh - ${SITE_MASTHEAD_HEIGHT}px)`}>
         <Grid equalColumnHeights>
           <Column span={8}>
@@ -326,7 +345,7 @@ const Preview = () => {
           </Column>
         </Grid>
       </Box>
-    </Theme.Provider>
+    </CustomizationProvider>
   );
 };
 
