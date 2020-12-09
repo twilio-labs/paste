@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -23,7 +24,18 @@ export const GetStarterWhy: React.FC = () => {
             the right thing, cheaply.
           </Paragraph>
         </div>
-        <GetStartedCardLink to="/getting-started/about-paste">Learn about Paste</GetStartedCardLink>
+        <GetStartedCardLink
+          to="/getting-started/about-paste"
+          onClick={() =>
+            trackCustomEvent({
+              category: 'Get started',
+              action: 'click-learn-about-paste',
+              label: 'Learn about Paste',
+            })
+          }
+        >
+          Learn about Paste
+        </GetStartedCardLink>
       </Box>
     </GetStartedCard>
   );

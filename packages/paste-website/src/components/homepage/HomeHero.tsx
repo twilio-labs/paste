@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
@@ -24,7 +25,19 @@ const SeeRoadmapAnchor: React.FC = () => {
 
   return (
     <Box as="span" display="flex" alignItems="center">
-      <Anchor href="/roadmap" variant="inverse" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <Anchor
+        href="/roadmap"
+        variant="inverse"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={() =>
+          trackCustomEvent({
+            category: 'Hero',
+            action: 'click-see-roadmap',
+            label: 'See our roadmap',
+          })
+        }
+      >
         See our roadmap
       </Anchor>
       <Box
@@ -58,7 +71,18 @@ const HomeHero: React.FC = () => {
               <NewComponentBanner>
                 <NewComponentBannerBadge>New!</NewComponentBannerBadge>
                 <NewComponentBannerText>We released the Create pattern!</NewComponentBannerText>
-                <NewComponentBannerLink to="/patterns/create">Check it out</NewComponentBannerLink>
+                <NewComponentBannerLink
+                  to="/patterns/create"
+                  onClick={() =>
+                    trackCustomEvent({
+                      category: 'Hero',
+                      action: 'click-new-component-banner',
+                      label: 'New component banner',
+                    })
+                  }
+                >
+                  Check it out
+                </NewComponentBannerLink>
               </NewComponentBanner>
               <Text
                 as="h1"

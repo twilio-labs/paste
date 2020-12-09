@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -27,7 +28,18 @@ export const GetStartedInclusive: React.FC<GetStartedInclusiveProps> = ({animati
             build accessibly.
           </Paragraph>
         </div>
-        <GetStartedCardLink to="/inclusive-design">See Inclusive guidelines</GetStartedCardLink>
+        <GetStartedCardLink
+          to="/inclusive-design"
+          onClick={() =>
+            trackCustomEvent({
+              category: 'Get started',
+              action: 'click-see-inclusive-guidelines',
+              label: 'See inclusive guidelines',
+            })
+          }
+        >
+          See Inclusive guidelines
+        </GetStartedCardLink>
       </Box>
     </GetStartedCard>
   );

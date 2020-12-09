@@ -6,6 +6,7 @@ interface SidebarAnchorProps {
   children: React.ReactNode;
   nested?: boolean;
   to: string;
+  onClick?: () => void;
 }
 
 const StyledSidebarAnchor = styled(Link)<SidebarAnchorProps>(props =>
