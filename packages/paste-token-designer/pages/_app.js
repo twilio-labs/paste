@@ -6,12 +6,11 @@ function MyApp({Component, pageProps}) {
   const [tokens, setTokens] = React.useState(Tokens);
 
   const updateToken = React.useCallback((bucket, key, value) => {
-    console.log('Update token: ', bucket, key, value);
-    setTokens({
-      ...tokens,
+    setTokens(currentTokens => ({
+      ...currentTokens,
       [key]: value, // update the root key
-      [bucket]: {...tokens[bucket], [key]: value}, // update the bucketed key
-    });
+      [bucket]: {...currentTokens[bucket], [key]: value}, // update the bucketed key}
+    }));
   }, []);
 
   return (
