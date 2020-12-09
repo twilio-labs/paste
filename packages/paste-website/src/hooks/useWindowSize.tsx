@@ -19,7 +19,7 @@ function useWindowSize(): WindowSizeState {
   const {breakpoints} = useTheme();
 
   // Get breakpoint widths as numbers
-  const breakpointNumbers = breakpoints.map(bp => parseInt(bp.replace(/\D+/g, ''), 10));
+  const breakpointNumbers = breakpoints.map(bp => Number.parseInt(bp.replace(/\D+/g, ''), 10));
 
   useEffect(() => {
     const getBreakpointIndex = (windowWidth: number): number => {

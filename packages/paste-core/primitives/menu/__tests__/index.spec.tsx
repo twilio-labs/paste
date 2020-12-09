@@ -120,37 +120,33 @@ describe('Menu Primitive', () => {
       expect(renderedMenuButton.getAttribute('aria-expanded')).toEqual('false');
       fireEvent.click(renderedMenuButton);
       expect(renderedMenuButton.getAttribute('aria-expanded')).toEqual('true');
-      if (document.activeElement != null) {
-        fireEvent.keyDown(document.activeElement, {key: 'Escape', code: 'Escape'});
-        expect(renderedMenuButton.getAttribute('aria-expanded')).toEqual('false');
-      }
+
+      fireEvent.keyDown(document.activeElement, {key: 'Escape', code: 'Escape'});
+      expect(renderedMenuButton.getAttribute('aria-expanded')).toEqual('false');
     });
 
     it('should focus first menu item in the menu when open', () => {
       render(<MenuMock />);
       fireEvent.click(screen.getByRole('button'));
-      if (document.activeElement != null) {
-        expect(screen.getAllByRole('menuitem')[0]).toEqual(document.activeElement);
-      }
+
+      expect(screen.getAllByRole('menuitem')[0]).toEqual(document.activeElement);
     });
 
     it('should move focus to the second menu item in the menu when down arrow pressed', () => {
       render(<MenuMock />);
       fireEvent.click(screen.getByRole('button'));
-      if (document.activeElement != null) {
-        fireEvent.keyDown(document.activeElement, {key: 'ArrowDown', code: 'ArrowDown'});
-        expect(screen.getByText('Check for Updates...')).toEqual(document.activeElement);
-      }
+
+      fireEvent.keyDown(document.activeElement, {key: 'ArrowDown', code: 'ArrowDown'});
+      expect(screen.getByText('Check for Updates...')).toEqual(document.activeElement);
     });
 
     it('should move focus to the first menu item in the menu when down up pressed', () => {
       render(<MenuMock />);
       fireEvent.click(screen.getByRole('button'));
-      if (document.activeElement != null) {
-        fireEvent.keyDown(document.activeElement, {key: 'ArrowDown', code: 'ArrowDown'});
-        fireEvent.keyDown(document.activeElement, {key: 'ArrowUp', code: 'ArrowUp'});
-        expect(screen.getByText('About Visual Studio Code')).toEqual(document.activeElement);
-      }
+
+      fireEvent.keyDown(document.activeElement, {key: 'ArrowDown', code: 'ArrowDown'});
+      fireEvent.keyDown(document.activeElement, {key: 'ArrowUp', code: 'ArrowUp'});
+      expect(screen.getByText('About Visual Studio Code')).toEqual(document.activeElement);
     });
   });
 

@@ -10,7 +10,7 @@ import {createAttributeMap} from '../test-utils';
 
 const onChangeMock: jest.Mock = jest.fn();
 
-export interface MockSelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+interface MockSelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   dataPrefix?: string;
   children?: React.ReactNode;
   hasError?: boolean;

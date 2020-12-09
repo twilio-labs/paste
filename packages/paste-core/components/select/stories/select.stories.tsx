@@ -15,11 +15,12 @@ const kebabCase = require('lodash/kebabCase');
 
 const helpVariantOptions = ['default', 'error'];
 
+const optionGroup = (idx: number): string => `option group ${idx}`;
+
 storiesOf('Components|Select', module)
   .addDecorator(withKnobs)
   .add('Select', () => {
     const selectGroupId = 'select group';
-    const optionGroup = (idx: number): string => `option group ${idx}`;
     const id = text('id', 'select_input_field', selectGroupId);
     const htmlFor = text('htmlFor', 'select_input_field', selectGroupId);
     const hasError = boolean('hasError', false, selectGroupId);

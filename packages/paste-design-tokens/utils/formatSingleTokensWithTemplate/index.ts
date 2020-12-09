@@ -13,10 +13,10 @@ export const formatSingleTokensWithTemplate = (
       }
     })
     .map((prop): string | undefined => {
-      if (prop !== undefined) {
-        return tokenTemplate(prop.toJS());
+      if (prop === undefined) {
+        return prop;
       }
-      return undefined;
+      return tokenTemplate(prop.toJS());
     })
     .join('\n');
 };

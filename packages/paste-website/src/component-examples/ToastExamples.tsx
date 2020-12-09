@@ -13,14 +13,14 @@ export const ToasterExample: React.FC = () => {
   const dismissAfterID = useUID();
   const [messageText, setMessageText] = React.useState('Nice one, you just pushed a Toast to the Toaster!');
   const [variantStyle, setVariantStyle] = React.useState<ToastVariants>('success');
-  const [timeout, setTimeout] = React.useState('');
+  const [timeout, setToastTimeout] = React.useState('');
 
   const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
     toaster.push({
       variant: variantStyle,
       message: messageText,
-      ...(timeout !== '0' && timeout !== '' && {dismissAfter: parseInt(timeout, 10)}),
+      ...(timeout !== '0' && timeout !== '' && {dismissAfter: Number.parseInt(timeout, 10)}),
     });
   };
   return (
@@ -45,7 +45,9 @@ export const ToasterExample: React.FC = () => {
               id={dismissAfterID}
               value={timeout}
               type="number"
-              onChange={e => setTimeout(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setToastTimeout(e.target.value);
+              }}
               placeholder="7000"
             />
           </div>

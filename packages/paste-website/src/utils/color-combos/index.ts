@@ -77,6 +77,7 @@ const ColorCombos = (
         arr = lodash.uniq(arr);
       }
     } else {
+      /* eslint-disable-next-line no-console */
       console.error('Must provide an array or object');
       return false;
     }

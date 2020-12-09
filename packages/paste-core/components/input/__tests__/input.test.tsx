@@ -115,7 +115,9 @@ describe('Input inner input props', () => {
 
   const {getByPlaceholderText} = render(<Input {...initialProps} />);
   const InnerInput = getByPlaceholderText(initialProps.placeholder);
-  expect(InnerInput).toBeDefined();
+  it('should be defined', () => {
+    expect(InnerInput).toBeDefined();
+  });
 
   it('should set disabled correctly', () => {
     expect(InnerInput.getAttribute('disabled')).toEqual('');

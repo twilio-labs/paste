@@ -27,13 +27,9 @@ export const useActiveSiteTheme = (): ActiveSiteThemeContextProps => {
 };
 
 const getThemeFromWindow = (): ThemeVariants => {
-  let theme: ThemeVariants;
-  if (typeof window !== 'undefined' && window.activeTheme !== '') {
-    theme = window.activeTheme as ThemeVariants;
-  } else {
-    theme = ThemeVariants.DEFAULT as ThemeVariants;
-  }
-  return theme;
+  return typeof window !== 'undefined' && window.activeTheme !== ''
+    ? (window.activeTheme as ThemeVariants)
+    : ThemeVariants.DEFAULT;
 };
 
 export const ActiveSiteThemeProvider: React.FunctionComponent<{}> = (props: {}): React.ReactElement => {

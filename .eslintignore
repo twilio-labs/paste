@@ -7,6 +7,7 @@
 rollup.config.js
 **/tsconfig.build.tsbuildinfo
 **/*.d.ts
-/packages/paste-website/public/
-/packages/paste-token-designer/public/
+/packages/paste-website/public/**
+/packages/paste-token-designer/public/**
+/packages/paste-core/core-bundle/**
 __testfixtures__/

@@ -25,6 +25,7 @@ module.exports = {
     jest: true,
   },
   rules: {
+    'react/jsx-props-no-spreading': 'off',
     // Too restrictive, writing ugly code to defend against a very unlikely scenario: https://eslint.org/docs/rules/no-prototype-builtins
     'no-prototype-builtins': 'off',
     // https://basarat.gitbooks.io/typescript/docs/tips/defaultIsBad.html
@@ -36,13 +37,15 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     // Doesnt really work in our use-cases: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-default-props.md
     'react/require-default-props': 'off',
-    // Use function hoisting to improve code readability
-    'no-use-before-define': [
+    // https://stackoverflow.com/questions/63818415/react-was-used-before-it-was-defined/64024916#64024916
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': [
       'error',
       {
         functions: false,
         classes: true,
         variables: true,
+        typedefs: true,
       },
     ],
     // Makes no sense to allow type inferrence for expression parameters, but require typing the response
@@ -53,15 +56,13 @@ module.exports = {
         allowTypedFunctionExpressions: true,
       },
     ],
-    '@typescript-eslint/no-use-before-define': [
-      'error',
-      {
-        functions: false,
-        classes: true,
-        variables: true,
-        typedefs: true,
-      },
-    ],
+    // Typescript already handles this, and better, since they changed the rule to be v bad
+    // https://github.com/typescript-eslint/typescript-eslint/issues/2585
+    '@typescript-eslint/no-redeclare': 'off',
+    // Strict rule for no reason + TS handles it well
+    'unicorn/no-null': 'off',
+    // We don't have a preference
+    'arrow-body-style': 'off',
     // Common abbreviations are known and readable
     'unicorn/prevent-abbreviations': 'off',
     // We don't really have a style yet.  To be discussed
@@ -72,16 +73,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     // PropTypes are useless with typescript
     'react/prop-types': 'off',
-    // Avoid having to redefine story deps for this monorepo
-    // https://github.com/benmosher/eslint-plugin-import/issues/458#issuecomment-468235671
-    'import/no-extraneous-dependencies': context => [
-      'error',
-      {
-        devDependencies: true,
-        packageDir: [context.getFilename(), __dirname],
-      },
-    ],
-    'react/jsx-curly-brace-presence': 'ignore',
+    'react/jsx-curly-brace-presence': 'off',
     'no-useless-constructor': 'off',
     eqeqeq: ['error', 'smart'],
     'no-plusplus': 'off',
@@ -95,6 +87,31 @@ module.exports = {
         depth: 3,
       },
     ],
+    'unicorn/import-style': 'off',
+    // TODO these should be errors, fix these when we have bandwidth
+    'jest/valid-title': 'warn',
+    'jest/no-disabled-tests': 'warn',
+    'jest/no-conditional-expect': 'warn',
+    '@typescript-eslint/ban-types': 'warn',
+    'unicorn/prefer-ternary': 'warn',
+    'unicorn/no-fn-reference-in-iterator': 'warn',
+    'unicorn/prefer-string-slice': 'warn',
+    'unicorn/explicit-length-check': 'warn',
+    'unicorn/no-reduce': 'warn',
+    '@typescript-eslint/ban-ts-comment': [
+      'warn',
+      {
+        'ts-expect-error': 'allow-with-description',
+        'ts-ignore': 'allow-with-description',
+        'ts-nocheck': 'allow-with-description',
+        'ts-check': 'allow-with-description',
+        minimumDescriptionLength: 3,
+      },
+    ],
+    // Avoid having to redefine story deps for this monorepo
+    // https://github.com/benmosher/eslint-plugin-import/issues/458#issuecomment-468235671
+    // FIXME: broke in eslint 7 update, check link
+    'import/no-extraneous-dependencies': 'warn',
   },
   settings: {
     'import/resolver': {

@@ -54,7 +54,7 @@ export const getShrink = ({shrink, basis}: FlexProps): {} => {
 
 // Function for basis. Adds 'px' if basis is a number.
 export const getSuffix = (item: Basis): {} => {
-  const suffix = typeof item === 'number' || String(parseInt(item as string, 10)) === item ? 'px' : '';
+  const suffix = typeof item === 'number' || String(Number.parseInt(item as string, 10)) === item ? 'px' : '';
   return item + suffix;
 };
 

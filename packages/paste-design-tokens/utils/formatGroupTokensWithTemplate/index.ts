@@ -51,6 +51,10 @@ export const formatGroupTokensWithTemplate = (
 ): string => {
   return categories
     .map((cat: string): string | undefined => {
+      if (cat === undefined) {
+        return cat;
+      }
+
       const catProps = tokens
         .get('props')
         .sortBy(prop => {
@@ -61,10 +65,7 @@ export const formatGroupTokensWithTemplate = (
         .filter(prop => prop !== undefined && cat === prop.get('category'))
         .toJS();
 
-      if (typeof cat === 'string') {
-        return categoryTemplate(getPluralCatName(cat), catProps);
-      }
-      return undefined;
+      return categoryTemplate(getPluralCatName(cat), catProps);
     })
     .join('\n');
 };

@@ -10,13 +10,13 @@ const AnchorVariants = {
   default: DefaultAnchor,
 };
 
-const EXTERNAL_URL_REGEX = /^(https?:)[^\s]*$/;
+const EXTERNAL_URL_REGEX = /^(https?:)\S*$/;
 const EXTERNAL_TARGET_DEFAULT = '_blank';
 const EXTERNAL_REL_DEFAULT = 'noreferrer noopener';
 export const isExternalUrl = (url: string): boolean => EXTERNAL_URL_REGEX.test(url);
 
 export const secureExternalLink = (href: string): {} | undefined => {
-  if (!isExternalUrl(href)) return undefined;
+  if (!isExternalUrl(href)) return;
   return {
     rel: EXTERNAL_REL_DEFAULT,
     target: EXTERNAL_TARGET_DEFAULT,

@@ -11,7 +11,7 @@ import {
   useDisclosureState,
 } from '../src';
 
-export const MockDisclosure: React.FC<{
+const MockDisclosure: React.FC<{
   visible?: DisclosureProps['visible'];
   disabled?: DisclosureHeadingProps['disabled'];
   focusable?: DisclosureHeadingProps['focusable'];

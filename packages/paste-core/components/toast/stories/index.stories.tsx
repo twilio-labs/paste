@@ -164,15 +164,16 @@ storiesOf('Components|Toast', module)
   .add('Toast container', () => {
     const variants = Object.values(ToastVariantObject);
     const [toasts, setToasts] = React.useState<ToasterToast[]>([]);
+    let count = 0;
     return (
       <Box height="300px">
         <Button
           variant="primary"
           onClick={() =>
             // eslint-disable-next-line no-shadow
-            setToasts(toasts => [
-              ...toasts,
-              {variant: variants[Math.floor(Math.random() * 3 + 0)], message: loremIpsum()},
+            setToasts(currentToasts => [
+              ...currentToasts,
+              {id: `${count++}`, variant: variants[Math.floor(Math.random() * 3 + 0)], message: loremIpsum()},
             ])
           }
         >
@@ -199,14 +200,14 @@ storiesOf('Components|Toast', module)
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius perferendis veniam, et deleniti sequi est ut aliquam suscipit autem explicabo quod, mollitia pariatur facere aut ab quidem enim molestiae magni.'
     );
     const [variant, setVariant] = React.useState<ToastVariants>('success');
-    const [timeout, setTimeout] = React.useState('');
+    const [timeout, setToastTimeout] = React.useState('');
 
     const handleSubmit = (e: React.FormEvent): void => {
       e.preventDefault();
       toaster.push({
         variant,
         message: messageText,
-        ...(timeout !== '0' && {dismissAfter: parseInt(timeout, 10)}),
+        ...(timeout !== '0' && {dismissAfter: Number.parseInt(timeout, 10)}),
       });
     };
     return (
@@ -231,7 +232,9 @@ storiesOf('Components|Toast', module)
                 id={dismissAfterID}
                 value={timeout}
                 type="number"
-                onChange={e => setTimeout(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setToastTimeout(e.target.value);
+                }}
                 placeholder="7000"
               />
             </div>
