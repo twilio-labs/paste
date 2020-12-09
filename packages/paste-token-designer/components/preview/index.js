@@ -26,8 +26,16 @@ const Preview = () => {
     tokens.zIndices
   );
   return (
-    <CustomizationProvider theme={customTheme}>
-      <Box height={`calc(100vh - ${SITE_MASTHEAD_HEIGHT}px)`}>
+    <Box
+      width="100%"
+      backgroundColor="colorBackground"
+      borderLeftWidth="borderWidth10"
+      borderLeftColor="colorBorderDark"
+      borderLeftStyle="solid"
+      flexGrow={1}
+      overflow="scroll"
+    >
+      <CustomizationProvider theme={customTheme}>
         <Grid equalColumnHeights>
           <Column span={8}>
             <Box
@@ -54,8 +62,8 @@ const Preview = () => {
             </Box>
           </Column>
         </Grid>
-      </Box>
-    </CustomizationProvider>
+      </CustomizationProvider>
+    </Box>
   );
 };
 
