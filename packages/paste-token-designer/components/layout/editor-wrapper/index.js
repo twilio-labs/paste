@@ -25,7 +25,6 @@ const EditorWrapper = props => {
         tokens.borderColors,
         tokens.borderWidths,
         tokens.radii,
-        tokens.colors,
         tokens.fonts,
         tokens.fontSizes,
         tokens.fontWeights,
