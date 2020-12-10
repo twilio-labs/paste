@@ -12,7 +12,7 @@ export const FontTokenInput = ({bucket, tokenName, tokenValue, onChange}) => {
       <Label htmlFor={seed(tokenName)}>{tokenName}:</Label>
       <Input
         id={seed(tokenName)}
-        type={bucket === 'fontSizes' ? 'number' : 'text'}
+        type="text"
         value={tokenValue}
         onChange={event => {
           const {value} = event.target;

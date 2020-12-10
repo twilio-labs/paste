@@ -9,8 +9,7 @@ export const OptionsList = ({bucket, options, handleChange}) => {
   const sortedNames = React.useMemo(() => Object.keys(options).sort(collator.compare), [options]);
 
   switch (bucket) {
-    case 'backgroundColor':
-    case 'colors':
+    case 'backgroundColors':
     case 'textColors':
     case 'borderColors':
       return (
@@ -55,7 +54,6 @@ export const OptionsList = ({bucket, options, handleChange}) => {
         </>
       );
     case 'radii':
-      console.log(options);
       return (
         <>
           {sortedNames.map(tokenName => {
@@ -103,7 +101,6 @@ export const OptionsList = ({bucket, options, handleChange}) => {
     case 'lineHeights':
     case 'spacings':
     case 'sizings':
-      console.log(options);
       return (
         <>
           {sortedNames.map(tokenName => (
@@ -134,7 +131,6 @@ export const OptionsList = ({bucket, options, handleChange}) => {
         </>
       );
     case 'fontWeights':
-      // Note: sort this programmatically somehow?
       return (
         <>
           <UnitTokenInput
@@ -180,6 +176,6 @@ export const OptionsList = ({bucket, options, handleChange}) => {
         </>
       );
     default:
-      return null;
+      return <div>Invalid theme category</div>;
   }
 };

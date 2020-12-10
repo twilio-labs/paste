@@ -19,7 +19,7 @@ function MyApp({Component, pageProps}) {
       <Theme.Provider theme="default">
         <Head>
           <title>Token Designer</title>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/logo.svg" />
         </Head>
         <Component {...pageProps} />
       </Theme.Provider>
