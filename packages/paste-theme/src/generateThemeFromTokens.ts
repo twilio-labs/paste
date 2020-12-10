@@ -3,7 +3,6 @@ import {
   borderColors as BorderColors,
   borderWidths as BorderWidths,
   radii as Radii,
-  colors as Colors,
   fonts as Fonts,
   fontSizes as FontSizes,
   fontWeights as FontWeights,
@@ -15,14 +14,13 @@ import {
   zIndices as ZIndices,
 } from '@twilio-paste/design-tokens';
 
-import {GenericThemeShape} from './types/genericThemeShape';
+import {GenericThemeShape} from './types/GenericThemeShape';
 
 export const generateThemeFromTokens = (
   backgroundColors: Partial<{[key in keyof typeof BackgroundColors]: any}>,
   borderColors: Partial<{[key in keyof typeof BorderColors]: any}>,
   borderWidths: Partial<{[key in keyof typeof BorderWidths]: any}>,
   radii: Partial<{[key in keyof typeof Radii]: any}>,
-  colors: Partial<{[key in keyof typeof Colors]: any}>,
   fonts: Partial<{[key in keyof typeof Fonts]: any}>,
   fontSizes: Partial<{[key in keyof typeof FontSizes]: any}>,
   fontWeights: Partial<{[key in keyof typeof FontWeights]: any}>,
@@ -42,12 +40,6 @@ export const generateThemeFromTokens = (
     borderWidths,
     radii,
     breakpoints,
-    colors: {
-      ...backgroundColors,
-      ...borderColors,
-      ...textColors,
-      ...colors,
-    },
     textColors,
     borderColors,
     backgroundColors,
