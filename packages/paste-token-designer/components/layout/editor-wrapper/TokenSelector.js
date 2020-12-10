@@ -21,7 +21,6 @@ const TokenSelector = () => {
         <Option value="border-color">Border Color</Option>
         <Option value="border-width">Border Width</Option>
         <Option value="box-shadow">Box Shadow</Option>
-        <Option value="color">Color</Option>
         <Option value="font">Font</Option>
         <Option value="font-size">Font Size</Option>
         <Option value="font-weight">Font Weight</Option>
