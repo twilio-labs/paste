@@ -1,4 +1,5 @@
 import {Box} from '@twilio-paste/core/box';
+import {useTheme} from '@twilio-paste/core/theme';
 import {useUIDSeed} from '@twilio-paste/uid-library';
 import {PopoverContainer, PopoverButton, Popover} from '@twilio-paste/core/popover';
 import {Label} from '@twilio-paste/core/label';
@@ -7,16 +8,18 @@ import {Input} from '@twilio-paste/core/input';
 import {EditIcon} from '@twilio-paste/icons/cjs/EditIcon';
 
 export const ColorTokenInput = ({bucket, tokenName, tokenValue, onChange}) => {
+  const theme = useTheme();
   const seed = useUIDSeed();
 
   const handleChange = color => {
-    console.log(color);
     const {r, g, b, a} = color.rgb;
     const finalValue = a !== 1 ? `rgba(${r}, ${g}, ${b}, ${a})` : `rgb(${r}, ${g}, ${b})`;
 
     onChange(bucket, tokenName, finalValue);
   };
 
+  // For color picker styling see:
+  // https://github.com/casesandberg/react-color/blob/master/src/components/chrome/Chrome.js#L11
   return (
     <Box key={tokenName} marginBottom="space60">
       <Label htmlFor={seed(tokenName)}>{tokenName}</Label>
@@ -36,8 +39,8 @@ export const ColorTokenInput = ({bucket, tokenName, tokenValue, onChange}) => {
         <Popover aria-label={`Change color for token: ${tokenName}.`}>
           <Box marginTop="space40" marginRight="space30">
             <ChromePicker
-              onChange={handleChange}
-              styles={{default: {picker: {'box-shadow': 'none'}}}}
+              onChangeComplete={handleChange}
+              styles={{default: {picker: {boxShadow: 'none'}, saturation: {borderRadius: theme.radii.borderRadius10}}}}
               color={tokenValue}
               defaultView="rgb"
             />
