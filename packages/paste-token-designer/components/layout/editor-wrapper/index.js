@@ -57,7 +57,7 @@ const EditorWrapper = props => {
             <Modal ariaLabelledby={modalHeadingID} isOpen={isOpen} onDismiss={handleClose} size="default">
               <ModalHeader>
                 <ModalHeading as="h3" id={modalHeadingID}>
-                  Copy Theme JSON
+                  Theme JSON
                 </ModalHeading>
               </ModalHeader>
               <ModalBody>
