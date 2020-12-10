@@ -127,6 +127,147 @@ exports[`Borders should render single values 1`] = `
 </div>
 `;
 
+exports[`Color mappings should map pseudo selector color values 1`] = `
+.emotion-1 {
+  color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+}
+
+.emotion-0:hover {
+  background-color: rgb(248,248,249);
+  border-color: rgb(146,18,0);
+  color: rgb(255,255,255);
+}
+
+<div
+  className="emotion-1"
+>
+  <div
+    className="emotion-0"
+  >
+    background responsive
+  </div>
+</div>
+`;
+
+exports[`Color mappings should map responsive color values 1`] = `
+.emotion-1 {
+  color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  background-color: rgb(179,211,233);
+  border-color: rgb(136,140,142);
+  color: rgb(40,42,43);
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    background-color: rgb(2,122,197);
+    border-color: rgb(146,18,0);
+    color: rgb(255,255,255);
+  }
+}
+
+<div
+  className="emotion-1"
+>
+  <div
+    className="emotion-0"
+    color={
+      Array [
+        "colorText",
+        "colorTextBrandInverse",
+      ]
+    }
+  >
+    background responsive
+  </div>
+</div>
+`;
+
+exports[`Color mappings should map responsive pseudo selector color values 1`] = `
+.emotion-1 {
+  color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+}
+
+.emotion-0:hover {
+  background-color: rgb(248,248,249);
+  border-color: rgb(146,18,0);
+  color: rgb(226,37,37);
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0:hover {
+    background-color: rgb(255,255,255);
+    border-color: rgb(146,18,0);
+    color: rgb(200,204,207);
+  }
+}
+
+<div
+  className="emotion-1"
+>
+  <div
+    className="emotion-0"
+  >
+    background responsive
+  </div>
+</div>
+`;
+
+exports[`Color mappings should map single color values 1`] = `
+.emotion-1 {
+  color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  background-color: rgb(2,122,197);
+  border-color: rgb(136,140,142);
+  border-bottom-color: rgb(146,18,0);
+  border-left-color: rgb(146,18,0);
+  border-right-color: rgba(255,255,255,0.5);
+  border-top-color: rgba(255,255,255,0.5);
+  color: rgb(40,42,43);
+}
+
+<div
+  className="emotion-1"
+>
+  <div
+    className="emotion-0"
+    color="colorText"
+  >
+    background single
+  </div>
+</div>
+`;
+
 exports[`Shadows should render responsive values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
