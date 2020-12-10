@@ -16,12 +16,6 @@ Object {
     "1px",
     "1px",
   ],
-  "colors": Object {
-    "colorBackground": "red",
-    "colorBorder": "blue",
-    "colorBrand": "purple",
-    "colorText": "black",
-  },
   "fontSizes": Object {
     "fontSize100": "300px",
   },
