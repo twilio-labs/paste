@@ -4,6 +4,7 @@ import {Input} from '@twilio-paste/core/input';
 import {Label} from '@twilio-paste/core/label';
 import {HelpText} from '@twilio-paste/core/help-text';
 
+// Get a number value from a string like '10.23rem' => '10.23'
 const getTokenNumberValue = value => Number.parseFloat(value.split(/(\d+\.?\d*)/).filter(Boolean)[0]);
 
 function validateInput(input, unit) {

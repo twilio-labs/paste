@@ -31,9 +31,6 @@ export const ColorTokenInput = ({bucket, tokenName, tokenValue, onChange}) => {
     const partTwo = Number.parseInt(valueParts[1], 10);
     const partThree = Number.parseInt(valueParts[2].replace(')', ''), 10);
     const partFour = valueParts[3] ? Number.parseFloat(valueParts[3].replace(')', '')) : null;
-
-    // console.log(partOne, partTwo, partThree, partFour);
-
     if (
       (isRGB || isRGBA) &&
       value.endsWith(')') &&
