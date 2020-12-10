@@ -9,24 +9,22 @@ import {SITE_MASTHEAD_HEIGHT} from '../../constants';
 
 const Preview = () => {
   const {tokens} = React.useContext(TokenContext);
-  const customTheme = React.useMemo(
-    () =>
-      generateThemeFromTokens(
-        tokens.backgroundColors,
-        tokens.borderColors,
-        tokens.borderWidths,
-        tokens.radii,
-        tokens.fonts,
-        tokens.fontSizes,
-        tokens.fontWeights,
-        tokens.lineHeights,
-        tokens.boxShadows,
-        tokens.sizings,
-        tokens.spacings,
-        tokens.textColors,
-        tokens.zIndices
-      ),
-    [tokens]
+
+  const customTheme = generateThemeFromTokens(
+    tokens.backgroundColors,
+    tokens.borderColors,
+    tokens.borderWidths,
+    tokens.radii,
+    tokens.colors,
+    tokens.fonts,
+    tokens.fontSizes,
+    tokens.fontWeights,
+    tokens.lineHeights,
+    tokens.boxShadows,
+    tokens.sizings,
+    tokens.spacings,
+    tokens.textColors,
+    tokens.zIndices
   );
   return (
     <Box

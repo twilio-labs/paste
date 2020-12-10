@@ -14,8 +14,12 @@ function MyApp({Component, pageProps}) {
     }));
   }, []);
 
+  const loadTokens = React.useCallback(newTokens => {
+    setTokens(newTokens);
+  }, []);
+
   return (
-    <TokenContext.Provider value={{tokens, updateToken}}>
+    <TokenContext.Provider value={{tokens, updateToken, loadTokens}}>
       <Theme.Provider theme="default">
         <Head>
           <title>Token Designer</title>
