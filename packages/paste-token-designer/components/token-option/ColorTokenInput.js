@@ -39,7 +39,7 @@ export const ColorTokenInput = ({bucket, tokenName, tokenValue, onChange}) => {
       isInRange(partTwo) &&
       isInRange(partThree)
     ) {
-      if (partFour && isRGBA && partFour <= 1 && partFour >= 0) {
+      if (!partFour || (isRGBA && partFour <= 1 && partFour >= 0)) {
         onChange(bucket, tokenName, value);
       }
     }
