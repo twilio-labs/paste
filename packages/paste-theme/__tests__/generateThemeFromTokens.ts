@@ -8,7 +8,6 @@ describe('generateThemeFromTokens', () => {
         {colorBorder: 'blue'},
         {borderWidth0: '10px'},
         {borderRadius0: '20px'},
-        {colorBrand: 'purple'},
         {fontFamilyCode: 'arial'},
         {fontSize100: '300px'},
         {fontWeightBold: '800'},

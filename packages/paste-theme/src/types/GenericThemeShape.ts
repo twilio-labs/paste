@@ -3,7 +3,6 @@ import {
   borderColors,
   borderWidths,
   radii,
-  colors,
   fonts,
   fontSizes,
   fontWeights,
@@ -35,15 +34,6 @@ export interface GenericThemeShape {
   breakpoints: Partial<{
     [key: string]: any;
   }>;
-  colors: Partial<
-    {
-      [key in
-        | keyof typeof colors
-        | keyof typeof backgroundColors
-        | keyof typeof borderColors
-        | keyof typeof textColors]: any;
-    }
-  >;
   fontSizes: Partial<
     {
       [key in keyof typeof fontSizes]: any;
