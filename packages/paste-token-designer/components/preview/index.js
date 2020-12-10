@@ -15,7 +15,6 @@ const Preview = () => {
     tokens.borderColors,
     tokens.borderWidths,
     tokens.radii,
-    tokens.colors,
     tokens.fonts,
     tokens.fontSizes,
     tokens.fontWeights,
@@ -26,6 +25,7 @@ const Preview = () => {
     tokens.textColors,
     tokens.zIndices
   );
+
   return (
     <Box
       width="100%"
