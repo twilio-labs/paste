@@ -1,6 +1,7 @@
 describe('Sidebar navigation', () => {
   it('opens the sidebar disclosures', () => {
     cy.visit('/');
+    cy.wait(2500);
 
     cy.get('[data-cy=getting-started-button]')
       .click()
