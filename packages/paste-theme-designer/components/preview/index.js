@@ -27,42 +27,37 @@ const Preview = () => {
   );
 
   return (
-    <Box
-      width="100%"
-      backgroundColor="colorBackground"
-      borderLeftWidth="borderWidth10"
-      borderLeftColor="colorBorderDark"
-      borderLeftStyle="solid"
-      flexGrow={1}
-      overflow="scroll"
-    >
+    <Box width="100%" flexGrow={1} overflow="scroll" display="flex">
       <CustomizationProvider theme={customTheme}>
-        <Grid equalColumnHeights>
-          <Column span={8}>
-            <Box
-              backgroundColor="colorBackgroundBody"
-              height={`calc(100vh - ${SITE_MASTHEAD_HEIGHT}px)`}
-              overflow="scroll"
-              padding="space60"
-              width="100%"
-            >
-              <TabbedContent />
-            </Box>
-          </Column>
-          <Column span={4}>
-            <Box
-              borderLeftColor="colorBorder"
-              borderLeftWidth="borderWidth10"
-              borderLeftStyle="solid"
-              height={`calc(100vh - ${SITE_MASTHEAD_HEIGHT}px)`}
-              overflow="scroll"
-              padding="space60"
-              width="100%"
-            >
-              <FormPreview />
-            </Box>
-          </Column>
-        </Grid>
+        <Box backgroundColor="colorBackground">
+          <Grid equalColumnHeights>
+            <Column span={8}>
+              <Box
+                backgroundColor="colorBackgroundBody"
+                height={`calc(100vh - ${SITE_MASTHEAD_HEIGHT}px)`}
+                overflow="scroll"
+                padding="space60"
+                width="100%"
+              >
+                <TabbedContent />
+              </Box>
+            </Column>
+            <Column span={4}>
+              <Box
+                backgroundColor="colorBackgroundBody"
+                borderLeftColor="colorBorder"
+                borderLeftWidth="borderWidth10"
+                borderLeftStyle="solid"
+                height={`calc(100vh - ${SITE_MASTHEAD_HEIGHT}px)`}
+                overflow="scroll"
+                padding="space60"
+                width="100%"
+              >
+                <FormPreview />
+              </Box>
+            </Column>
+          </Grid>
+        </Box>
       </CustomizationProvider>
     </Box>
   );
