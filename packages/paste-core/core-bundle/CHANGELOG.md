@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@4.1.15...@twilio-paste/core@4.2.0) (2020-12-11)
+
+
+### Features
+
+* **core:** add customization package to core ([637aba2](https://github.com/twilio-labs/paste/commit/637aba27e8901fc9db24327d5bcb0cf1bf522bc9))
+
+
+
+
+
 ## [4.1.15](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@4.1.14...@twilio-paste/core@4.1.15) (2020-12-09)
 
 **Note:** Version bump only for package @twilio-paste/core

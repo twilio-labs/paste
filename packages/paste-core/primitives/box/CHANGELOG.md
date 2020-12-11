@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.12](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.11.11...@twilio-paste/box@2.11.12) (2020-12-11)
+
+
+### Bug Fixes
+
+* **box:** accomodate the lack of color key on theme ([8c861a5](https://github.com/twilio-labs/paste/commit/8c861a5b1d32593eeeffcc62c85f65cea57daf5c))
+
+
+
+
+
 ## [2.11.11](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.11.10...@twilio-paste/box@2.11.11) (2020-12-09)
 
 **Note:** Version bump only for package @twilio-paste/box
