@@ -3,12 +3,12 @@ import * as lodash from 'lodash';
 // Traditional import as the color package isn't exported and typed correctly
 const Color = require('color');
 
-interface Color {
+interface ColorObject {
   color: number[];
   model: string;
   valpha: number;
   hex: () => string;
-  contrast: (color: Color) => number;
+  contrast: (color: ColorObject) => number;
 }
 
 export interface ColorCombinationAccessibility {
@@ -46,7 +46,7 @@ const ColorCombos = (
   colors: string[] | {[name: string]: string},
   options: Options = {}
 ): ColorCombosTypes[] | false => {
-  let arr: Color[] = [];
+  let arr: ColorObject[] = [];
   let results: ColorCombosTypes[] = [];
 
   const MINIMUMS: {aa: number; aaLarge: number; aaa: number; aaaLarge: number} = {

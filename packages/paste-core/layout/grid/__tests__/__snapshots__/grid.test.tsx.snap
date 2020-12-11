@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Grid render it should render a Column 1`] = `
+exports[`Grid render should render a Column 1`] = `
 <DocumentFragment>
   .emotion-0 {
   width: 8.333333333333332%;
@@ -15,7 +15,7 @@ exports[`Grid render it should render a Column 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Grid render it should render a Grid 1`] = `
+exports[`Grid render should render a Grid 1`] = `
 <DocumentFragment>
   .emotion-0 {
   box-sizing: border-box;
@@ -43,7 +43,7 @@ exports[`Grid render it should render a Grid 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Grid render it should render a Grid as any HTML element 1`] = `
+exports[`Grid render should render a Grid as any HTML element 1`] = `
 <DocumentFragment>
   .emotion-0 {
   box-sizing: border-box;
@@ -71,7 +71,7 @@ exports[`Grid render it should render a Grid as any HTML element 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Grid render it should render responsive css 1`] = `
+exports[`Grid render should render responsive css 1`] = `
 <DocumentFragment>
   .emotion-2 {
   box-sizing: border-box;

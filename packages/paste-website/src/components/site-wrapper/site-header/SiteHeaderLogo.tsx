@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Link} from 'gatsby';
+import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
@@ -39,7 +40,18 @@ const SiteHeaderLogo: React.FC<SiteHeaderLogoProps> = ({title, subtitle}) => {
         </MediaFigure>
         <MediaBody>
           <Text as="div" fontSize="fontSize40" lineHeight="lineHeight40" color="colorTextInverse">
-            <StyledLink to="/">{title}</StyledLink>
+            <StyledLink
+              to="/"
+              onClick={() =>
+                trackCustomEvent({
+                  category: 'Top Navigation',
+                  action: 'click-paste-logo',
+                  label: 'Paste logo',
+                })
+              }
+            >
+              {title}
+            </StyledLink>
           </Text>
           {subtitle ? (
             <Text

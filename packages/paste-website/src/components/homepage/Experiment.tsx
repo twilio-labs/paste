@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {StaticQuery, graphql} from 'gatsby';
+import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import Img from 'gatsby-image';
 import {useTheme} from '@twilio-paste/theme';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
@@ -81,7 +82,19 @@ const Experiment: React.FC<ExperimentProps> = ({showIframe}) => {
             </Heading>
             <Paragraph>
               Create and play with our React components in the{' '}
-              <Anchor href="https://codesandbox.io/s/paste-starter-kit-rj7yy">Paste prototyping sandbox</Anchor>.
+              <Anchor
+                href="https://codesandbox.io/s/paste-starter-kit-rj7yy"
+                onClick={() =>
+                  trackCustomEvent({
+                    category: 'Experiment Sandbox',
+                    action: 'click-sandbox',
+                    label: 'Open sandbox',
+                  })
+                }
+              >
+                Paste prototyping sandbox
+              </Anchor>
+              .
             </Paragraph>
           </Box>
           <Box boxShadow="shadowHigh" maxWidth="size90" position="relative" marginLeft="auto" marginRight="auto">

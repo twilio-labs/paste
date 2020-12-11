@@ -8,7 +8,7 @@ import {Stack} from '@twilio-paste/stack';
 import {Button} from '@twilio-paste/button';
 import {Text} from '@twilio-paste/text';
 import {Truncate} from '@twilio-paste/truncate';
-import {useUID} from 'react-uid';
+import {useUID} from '@twilio-paste/uid-library';
 import {Input} from '@twilio-paste/input';
 import {Label} from '@twilio-paste/label';
 import {RadioGroup, Radio} from '@twilio-paste/radio-group';
@@ -169,7 +169,7 @@ storiesOf('Components|Toast', module)
         <Button
           variant="primary"
           onClick={() =>
-            // eslint-disable-next-line no-shadow
+            // eslint-disable-next-line @typescript-eslint/no-shadow
             setToasts(toasts => [
               ...toasts,
               {variant: variants[Math.floor(Math.random() * 3 + 0)], message: loremIpsum()},
@@ -199,14 +199,14 @@ storiesOf('Components|Toast', module)
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius perferendis veniam, et deleniti sequi est ut aliquam suscipit autem explicabo quod, mollitia pariatur facere aut ab quidem enim molestiae magni.'
     );
     const [variant, setVariant] = React.useState<ToastVariants>('success');
-    const [timeout, setTimeout] = React.useState('');
+    const [toastTimeout, setToastTimeout] = React.useState('');
 
     const handleSubmit = (e: React.FormEvent): void => {
       e.preventDefault();
       toaster.push({
         variant,
         message: messageText,
-        ...(timeout !== '0' && {dismissAfter: parseInt(timeout, 10)}),
+        ...(toastTimeout !== '0' && {dismissAfter: Number.parseInt(toastTimeout, 10)}),
       });
     };
     return (
@@ -229,9 +229,9 @@ storiesOf('Components|Toast', module)
               <Label htmlFor={dismissAfterID}>Dismiss after (milliseconds)</Label>
               <Input
                 id={dismissAfterID}
-                value={timeout}
+                value={toastTimeout}
                 type="number"
-                onChange={e => setTimeout(e.target.value)}
+                onChange={e => setToastTimeout(e.target.value)}
                 placeholder="7000"
               />
             </div>

@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.22](https://github.com/twilio-labs/paste/compare/@twilio-paste/help-text@1.1.21...@twilio-paste/help-text@1.1.22) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/help-text
+
+
+
+
+
+## [1.1.21](https://github.com/twilio-labs/paste/compare/@twilio-paste/help-text@1.1.20...@twilio-paste/help-text@1.1.21) (2020-12-09)
+
+
+### Bug Fixes
+
+* **help-text:** stop icon from shrinking with long error text ([b18b75d](https://github.com/twilio-labs/paste/commit/b18b75d89af51460f95a4ed0831a9c68b7814376))
+
+
+
+
+
+## [1.1.20](https://github.com/twilio-labs/paste/compare/@twilio-paste/help-text@1.1.19...@twilio-paste/help-text@1.1.20) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/help-text
+
+
+
+
+
 ## [1.1.19](https://github.com/twilio-labs/paste/compare/@twilio-paste/help-text@1.1.18...@twilio-paste/help-text@1.1.19) (2020-12-03)
 
 **Note:** Version bump only for package @twilio-paste/help-text

@@ -127,6 +127,22 @@ const extraConfig = system({
     property: 'borderColor',
     scale: 'borderColors',
   },
+  borderBottomColor: {
+    property: 'borderBottomColor',
+    scale: 'borderColors',
+  },
+  borderLeftColor: {
+    property: 'borderLeftColor',
+    scale: 'borderColors',
+  },
+  borderRightColor: {
+    property: 'borderRightColor',
+    scale: 'borderColors',
+  },
+  borderTopColor: {
+    property: 'borderTopColor',
+    scale: 'borderColors',
+  },
   content: true,
   cursor: true,
   appearance: true,
@@ -162,7 +178,7 @@ const extraConfig = system({
   tableLayout: true,
 });
 
-const getPseudoStyles = (props: BoxProps): {} => {
+const getPseudoStyles = (props: BoxProps): unknown => {
   const pseudoProps = Object.keys(props).filter(propName => propName.startsWith('_'));
 
   if (pseudoProps.length === 0) {

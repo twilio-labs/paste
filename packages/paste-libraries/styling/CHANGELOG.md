@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/styling-library@0.1.4...@twilio-paste/styling-library@0.2.0) (2020-12-11)
+
+
+### Features
+
+* **styling-library:** replace styled-system css function ([9f7f12f](https://github.com/twilio-labs/paste/commit/9f7f12fdce77bae2c9a08760b2e681de1b3c4192))
+
+
+
+
+
 ## [0.1.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/styling-library@0.1.3...@twilio-paste/styling-library@0.1.4) (2020-10-23)
 
 **Note:** Version bump only for package @twilio-paste/styling-library

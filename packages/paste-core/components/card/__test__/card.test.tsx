@@ -2,11 +2,11 @@ import * as React from 'react';
 import {render} from 'react-dom';
 import {Theme} from '@twilio-paste/theme';
 import renderer from 'react-test-renderer';
-import {axe} from 'jest-axe';
+import axe from '../../../../../.jest/axe-helper';
 import {Card} from '../src';
 
 describe('Card', () => {
-  it('it should render default values', (): void => {
+  it('should render default values', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -17,7 +17,7 @@ describe('Card', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should filter out style props that are not allowed', (): void => {
+  it('should filter out style props that are not allowed', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -28,7 +28,7 @@ describe('Card', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render default values unless overridden by the component', (): void => {
+  it('should render default values unless overridden by the component', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -39,7 +39,7 @@ describe('Card', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render children', (): void => {
+  it('should render children', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">

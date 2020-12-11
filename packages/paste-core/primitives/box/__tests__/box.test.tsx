@@ -4,7 +4,7 @@ import {Theme} from '@twilio-paste/theme';
 import {Box} from '../src';
 
 describe('Backgrounds', () => {
-  it('it should render single values', (): void => {
+  it('should render single values', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -15,7 +15,7 @@ describe('Backgrounds', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render responsive values', () => {
+  it('should render responsive values', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -27,8 +27,86 @@ describe('Backgrounds', () => {
   });
 });
 
+describe('Color mappings', () => {
+  it('should map single color values', (): void => {
+    const tree = renderer
+      .create(
+        <Theme.Provider theme="console">
+          <Box
+            backgroundColor="colorBackgroundPrimary"
+            borderColor="colorBorderDark"
+            borderBottomColor="colorBorderErrorDark"
+            borderLeftColor="colorBorderErrorDark"
+            borderRightColor="colorBorderInverse"
+            borderTopColor="colorBorderInverse"
+            color="colorText"
+          >
+            background single
+          </Box>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should map responsive color values', () => {
+    const tree = renderer
+      .create(
+        <Theme.Provider theme="console">
+          <Box
+            backgroundColor={['colorBackgroundPrimaryLight', 'colorBackgroundPrimary']}
+            borderColor={['colorBorderDark', 'colorBorderDestructiveDark']}
+            color={['colorText', 'colorTextBrandInverse']}
+          >
+            background responsive
+          </Box>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should map pseudo selector color values', () => {
+    const tree = renderer
+      .create(
+        <Theme.Provider theme="console">
+          <Box
+            _hover={{
+              backgroundColor: 'colorBackground',
+              borderColor: 'colorBorderDestructiveDark',
+              color: 'colorTextBrandInverse',
+            }}
+          >
+            background responsive
+          </Box>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should map responsive pseudo selector color values', () => {
+    const tree = renderer
+      .create(
+        <Theme.Provider theme="console">
+          <Box
+            _hover={{
+              backgroundColor: ['colorBackground', 'colorBackgroundBody'],
+              borderColor: ['colorBorderDestructiveDark', 'colorBorderErrorDark'],
+              color: ['colorTextError', 'colorTextIconInverse'],
+            }}
+          >
+            background responsive
+          </Box>
+        </Theme.Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+});
+
 describe('Borders', () => {
-  it('it should render single values', (): void => {
+  it('should render single values', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -46,7 +124,7 @@ describe('Borders', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render responsive values', () => {
+  it('should render responsive values', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -66,7 +144,7 @@ describe('Borders', () => {
 });
 
 describe('Sizes', () => {
-  it('it should render single values', (): void => {
+  it('should render single values', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -79,7 +157,7 @@ describe('Sizes', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render responsive values', () => {
+  it('should render responsive values', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -156,7 +234,7 @@ describe('Spaces', () => {
 });
 
 describe('Shadows', () => {
-  it('it should render single values', (): void => {
+  it('should render single values', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -167,7 +245,7 @@ describe('Shadows', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render responsive values', () => {
+  it('should render responsive values', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -180,7 +258,7 @@ describe('Shadows', () => {
 });
 
 describe('ZIndex', () => {
-  it('it should render single values', (): void => {
+  it('should render single values', (): void => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -191,7 +269,7 @@ describe('ZIndex', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('it should render responsive values', () => {
+  it('should render responsive values', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
@@ -203,7 +281,7 @@ describe('ZIndex', () => {
   });
 
   describe('Pseudo-class props', () => {
-    it('it should generate pseudo-class CSS', (): void => {
+    it('should generate pseudo-class CSS', (): void => {
       const tree = renderer
         .create(
           <Theme.Provider theme="console">

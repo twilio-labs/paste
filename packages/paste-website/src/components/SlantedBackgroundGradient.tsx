@@ -20,7 +20,7 @@ interface BackgroundGradientProps {
   gradientAngle?: string;
   startColor: BackgroundColorOptions;
   endColor: BackgroundColorOptions;
-  styles?: {};
+  styles?: React.CSSProperties;
 }
 
 export const SlantedBackgroundGradient: React.FC<BackgroundGradientProps> = ({

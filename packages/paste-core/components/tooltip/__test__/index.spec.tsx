@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {axe} from 'jest-axe';
 import {render, screen} from '@testing-library/react';
 import {Button} from '@twilio-paste/button';
 import {Theme} from '@twilio-paste/theme';
+import axe from '../../../../../.jest/axe-helper';
 import {StateHookExample} from '../stories/index.stories';
 import {Tooltip} from '../src';
 
-const TooltipMock: React.FC<{}> = () => {
+const TooltipMock: React.FC = () => {
   return (
     <Theme.Provider theme="console">
       <Tooltip text="Welcome to Paste!" data-testid="tooltip-example">

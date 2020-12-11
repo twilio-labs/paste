@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
-import {axe} from 'jest-axe';
+import axe from '../../../../../.jest/axe-helper';
 import {Avatar} from '../src';
 import {
   getCorrespondingLineHeightFromSizeToken,

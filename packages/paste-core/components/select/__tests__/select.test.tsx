@@ -1,20 +1,20 @@
 import * as React from 'react';
-import {useUID} from 'react-uid';
 import {render} from 'react-dom';
 import {render as testRender, fireEvent} from '@testing-library/react';
-import {axe} from 'jest-axe';
+import {useUID} from '@twilio-paste/uid-library';
 import {Theme} from '@twilio-paste/theme';
 import {Label} from '@twilio-paste/label';
+import axe from '../../../../../.jest/axe-helper';
 import {Select, Option} from '../src';
 import {createAttributeMap} from '../test-utils';
 
 const onChangeMock: jest.Mock = jest.fn();
 
-export interface MockSelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+interface MockSelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   dataPrefix?: string;
   children?: React.ReactNode;
   hasError?: boolean;
-  style?: object;
+  style?: unknown;
   className?: string;
   height?: string;
   width?: string;

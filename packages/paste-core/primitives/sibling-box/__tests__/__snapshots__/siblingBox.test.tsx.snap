@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SiblingBox render it should render 1`] = `
+exports[`SiblingBox render should render 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;

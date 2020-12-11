@@ -1,15 +1,15 @@
 import * as React from 'react';
 import {render} from '@testing-library/react';
-import {axe} from 'jest-axe';
 import {Theme} from '@twilio-paste/theme';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
+import axe from '../../../../../.jest/axe-helper';
 import {InputTypes, Input} from '../src';
 
 const NOOP = (): void => {};
 
 describe('Input render', () => {
-  it('it should render', (): void => {
+  it('should render', (): void => {
     const {asFragment} = render(
       <Theme.Provider theme="console">
         <Input id="input" type="text" value="test" onChange={NOOP} />
@@ -18,7 +18,7 @@ describe('Input render', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it('it should render with readOnly', (): void => {
+  it('should render with readOnly', (): void => {
     const {asFragment} = render(
       <Theme.Provider theme="console">
         <Input id="input" type="text" value="test" onChange={NOOP} readOnly />
@@ -27,7 +27,7 @@ describe('Input render', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it('it should render with disabled', (): void => {
+  it('should render with disabled', (): void => {
     const {asFragment} = render(
       <Theme.Provider theme="console">
         <Input id="input" type="text" value="test" onChange={NOOP} disabled />
@@ -36,7 +36,7 @@ describe('Input render', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it('it should render with hasError', (): void => {
+  it('should render with hasError', (): void => {
     const {asFragment} = render(
       <Theme.Provider theme="console">
         <Input id="input" type="text" value="test" onChange={NOOP} hasError />
@@ -45,7 +45,7 @@ describe('Input render', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it('it should render with prefix', (): void => {
+  it('should render with prefix', (): void => {
     const {asFragment} = render(
       <Theme.Provider theme="console">
         <Input id="input" type="text" value="test" onChange={NOOP} insertBefore={<div>prefix</div>} />
@@ -54,7 +54,7 @@ describe('Input render', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it('it should render with suffix', (): void => {
+  it('should render with suffix', (): void => {
     const {asFragment} = render(
       <Theme.Provider theme="console">
         <Input id="input" type="text" value="test" onChange={NOOP} insertAfter={<div>suffix</div>} />
@@ -63,7 +63,7 @@ describe('Input render', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it('it has no accessibility violations', async () => {
+  it('has no accessibility violations', async () => {
     const {container} = render(
       <Theme.Provider theme="console">
         <Label htmlFor="input_1">Label Text</Label>
@@ -115,7 +115,10 @@ describe('Input inner input props', () => {
 
   const {getByPlaceholderText} = render(<Input {...initialProps} />);
   const InnerInput = getByPlaceholderText(initialProps.placeholder);
-  expect(InnerInput).toBeDefined();
+
+  it('should render', () => {
+    expect(InnerInput).toBeDefined();
+  });
 
   it('should set disabled correctly', () => {
     expect(InnerInput.getAttribute('disabled')).toEqual('');
@@ -209,6 +212,7 @@ describe('Input block props', () => {
     const classNames = RenderedInput.getAttribute('class');
     expect(classNames).toBeDefined();
     if (classNames != null) {
+      // eslint-disable-next-line jest/no-conditional-expect
       expect(classNames.indexOf(initialProps.className)).toBe(-1);
     }
   });

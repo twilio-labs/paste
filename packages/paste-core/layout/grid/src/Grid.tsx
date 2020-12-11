@@ -15,13 +15,14 @@ const getGutterStyles = (gutter?: Space): MarginProps => {
 };
 
 // Returns an array of column/row, column, or row based on setting grid as vertical
-const getFlexDirection = (vertical: GridProps['vertical']): {} => {
+type GetFlexDirectionReturn = 'column' | 'row';
+const getFlexDirection = (vertical: GridProps['vertical']): GetFlexDirectionReturn[] | GetFlexDirectionReturn => {
   if (Array.isArray(vertical)) {
     return vertical.map(value => {
       if (typeof value === 'boolean') {
         return value === true ? 'column' : 'row';
       }
-      return value;
+      return 'row';
     });
   }
 

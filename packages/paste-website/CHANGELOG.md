@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.17.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.16.5...@twilio-paste/website@2.17.0) (2020-12-11)
+
+
+### Bug Fixes
+
+* **website:** typing issue with window size hook ([f0fb531](https://github.com/twilio-labs/paste/commit/f0fb531cac2f5fcfca18e7e94b4562f05cd67435))
+
+
+### Features
+
+* **theme-designer:** add the theme designer to Paste ([b77440c](https://github.com/twilio-labs/paste/commit/b77440cbb5d681532a5b6833a1f7b160909508e5))
+
+
+
+
+
+## [2.16.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.16.4...@twilio-paste/website@2.16.5) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.16.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.16.3...@twilio-paste/website@2.16.4) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.16.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.16.2...@twilio-paste/website@2.16.3) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
 ## [2.16.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.16.1...@twilio-paste/website@2.16.2) (2020-12-04)
 
 **Note:** Version bump only for package @twilio-paste/website

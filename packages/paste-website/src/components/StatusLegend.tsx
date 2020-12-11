@@ -3,7 +3,7 @@ import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
 
-export const StatusLegend: React.FC<{}> = () => (
+export const StatusLegend: React.FC = () => (
   <Card>
     <Heading as="h4" variant="heading40">
       Component Status Details

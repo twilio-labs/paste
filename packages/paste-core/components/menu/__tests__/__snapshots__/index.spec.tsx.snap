@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Menu  Render should render 1`] = `
+exports[`Menu Render should render 1`] = `
 <DocumentFragment>
   .emotion-1 {
   box-sizing: border-box;

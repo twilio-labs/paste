@@ -8,7 +8,7 @@ import {Language} from '../../codeblock';
 
 interface CodeblockProps {
   children: string;
-  scope: {};
+  scope: {[key: string]: any};
   language?: Language;
   disabled?: boolean;
   noInline?: boolean;

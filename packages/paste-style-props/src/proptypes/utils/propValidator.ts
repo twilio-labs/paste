@@ -1,11 +1,13 @@
-type PropFunctionSignature = (props: {}, propName: string, componentName: string) => Error | null;
+type PropFunctionSignature = (props: {[key: string]: any}, propName: string, componentName: string) => Error | null;
 
 export const propValidator = (optionsList: string[]): PropFunctionSignature => {
-  return (props: {}, propName: string, componentName: string): Error | null => {
+  return (props: {[key: string]: any}, propName: string, componentName: string): Error | null => {
     const suppliedValue = props[propName];
     const propError = new Error(
       `[${componentName}]: invalid prop supplied "${propName}=${suppliedValue}", expected a token value. See https://paste.twilio.design/tokens for available options.`
     );
+
+    // eslint-disable-next-line unicorn/consistent-function-scoping
     const isInvalidToken = (value: string): boolean => !optionsList.includes(value);
 
     if (suppliedValue != null) {

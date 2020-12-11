@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {render} from 'react-dom';
-import {axe} from 'jest-axe';
 import {Theme} from '@twilio-paste/theme';
 import {shallow, ReactWrapper, mount} from 'enzyme';
+import axe from '../../../../../.jest/axe-helper';
 import {Button} from '../src';
 
 const NOOP = (): void => {};

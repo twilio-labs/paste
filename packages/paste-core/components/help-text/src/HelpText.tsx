@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {ValueOf} from '@twilio-paste/types';
+import {Box} from '@twilio-paste/box';
 import {Flex} from '@twilio-paste/flex';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 import {TextColor} from '@twilio-paste/style-props';
@@ -13,6 +14,7 @@ export const HelpTextVariants = {
   INVERSE: 'inverse',
 } as const;
 
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export type HelpTextVariants = ValueOf<typeof HelpTextVariants>;
 
 export interface HelpTextProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -24,10 +26,18 @@ const HelpText: React.FC<HelpTextProps> = ({marginTop, children, variant, ...pro
   let icon = null;
   switch (variant) {
     case HelpTextVariants.ERROR:
-      icon = <ErrorIcon color="colorTextError" decorative size="sizeIcon20" />;
+      icon = (
+        <Box flexShrink={0}>
+          <ErrorIcon color="colorTextError" decorative size="sizeIcon20" />
+        </Box>
+      );
       break;
     case HelpTextVariants.ERROR_INVERSE:
-      icon = <ErrorIcon color="colorTextErrorLight" decorative size="sizeIcon20" />;
+      icon = (
+        <Box flexShrink={0}>
+          <ErrorIcon color="colorTextErrorLight" decorative size="sizeIcon20" />
+        </Box>
+      );
       break;
     default:
       break;

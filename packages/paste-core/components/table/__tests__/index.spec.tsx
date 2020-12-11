@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {axe} from 'jest-axe';
 import {matchers} from 'jest-emotion';
 import {render, screen} from '@testing-library/react';
+import axe from '../../../../../.jest/axe-helper';
 import {Table, THead, TBody, TFoot, Td, Tr, Th} from '../src';
 
 expect.extend(matchers);
 
 describe('Table', () => {
-  it('it should render auto tableLayout style', (): void => {
+  it('should render auto tableLayout style', (): void => {
     render(
       <Table data-testid="mockAutoTable">
         <TBody>
@@ -22,7 +22,7 @@ describe('Table', () => {
     expect(renderedTable).toHaveStyleRule('table-layout', 'auto');
   });
 
-  it('it should render fixed tableLayout style', (): void => {
+  it('should render fixed tableLayout style', (): void => {
     render(
       <Table tableLayout="fixed" data-testid="mockFixedTable">
         <TBody>
@@ -37,7 +37,7 @@ describe('Table', () => {
     expect(renderedTable).toHaveStyleRule('table-layout', 'fixed');
   });
 
-  it('it should render Tr top verticalAlign styles', (): void => {
+  it('should render Tr top verticalAlign styles', (): void => {
     render(
       <Table>
         <TBody>
@@ -51,7 +51,7 @@ describe('Table', () => {
     expect(renderedTr).toHaveStyleRule('vertical-align', 'top');
   });
 
-  it('it should render Tr middle verticalAlign styles', (): void => {
+  it('should render Tr middle verticalAlign styles', (): void => {
     render(
       <Table>
         <TBody>
@@ -65,7 +65,7 @@ describe('Table', () => {
     expect(renderedTr).toHaveStyleRule('vertical-align', 'middle');
   });
 
-  it('it should render Tr bottom verticalAlign styles', (): void => {
+  it('should render Tr bottom verticalAlign styles', (): void => {
     render(
       <Table>
         <TBody>
@@ -79,7 +79,7 @@ describe('Table', () => {
     expect(renderedTr).toHaveStyleRule('vertical-align', 'bottom');
   });
 
-  it('it should render Th width and left textAlign styles', (): void => {
+  it('should render Th width and left textAlign styles', (): void => {
     render(
       <Table>
         <THead>
@@ -96,7 +96,7 @@ describe('Table', () => {
     expect(renderedTh).toHaveStyleRule('text-align', 'left');
   });
 
-  it('it should render Th center textAlign styles', (): void => {
+  it('should render Th center textAlign styles', (): void => {
     render(
       <Table>
         <THead>
@@ -112,7 +112,7 @@ describe('Table', () => {
     expect(renderedTh).toHaveStyleRule('text-align', 'center');
   });
 
-  it('it should render Th right textAlign styles', (): void => {
+  it('should render Th right textAlign styles', (): void => {
     render(
       <Table>
         <THead>
@@ -128,7 +128,7 @@ describe('Table', () => {
     expect(renderedTh).toHaveStyleRule('text-align', 'right');
   });
 
-  it('it should render Td left textAlign styles', (): void => {
+  it('should render Td left textAlign styles', (): void => {
     render(
       <Table>
         <TBody>
@@ -142,7 +142,7 @@ describe('Table', () => {
     expect(renderedTd).toHaveStyleRule('text-align', 'left');
   });
 
-  it('it should render Td center textAlign styles', (): void => {
+  it('should render Td center textAlign styles', (): void => {
     render(
       <Table>
         <TBody>
@@ -158,7 +158,7 @@ describe('Table', () => {
     expect(renderedTd).toHaveStyleRule('text-align', 'center');
   });
 
-  it('it should render Td right textAlign styles', (): void => {
+  it('should render Td right textAlign styles', (): void => {
     render(
       <Table>
         <TBody>

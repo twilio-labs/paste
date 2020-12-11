@@ -94,7 +94,6 @@ const Modal: React.FC<ModalProps> = ({
   initialFocusRef,
   ariaLabelledby,
   size,
-  /* eslint-disable @typescript-eslint/camelcase */
   __console_patch = false,
   ...props
 }) => {
@@ -110,7 +109,6 @@ const Modal: React.FC<ModalProps> = ({
       }
     };
   }, [isOpen, __console_patch]);
-  /* eslint-enable @typescript-eslint/camelcase */
 
   return (
     <ModalContext.Provider value={{onDismiss}}>

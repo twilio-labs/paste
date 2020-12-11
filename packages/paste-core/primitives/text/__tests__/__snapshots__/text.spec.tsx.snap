@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pseudo-class props it should generate pseudo-class CSS 1`] = `
+exports[`Pseudo-class props should generate pseudo-class CSS 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -134,7 +134,7 @@ exports[`Pseudo-class props it should generate pseudo-class CSS 1`] = `
 </div>
 `;
 
-exports[`as it should render as a provided HTML element 1`] = `
+exports[`as should render as a provided HTML element 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {axe} from 'jest-axe';
 import {render, screen} from '@testing-library/react';
+import axe from '../../../../../.jest/axe-helper';
 import {HorizontalTabsExample, VerticalTabsExample, StateHookExample} from '../stories/index.stories';
 import {Tabs, Tab, TabList, TabPanels, TabPanel} from '../src';
 
@@ -21,7 +21,7 @@ describe('Tabs', () => {
         (_, i) => `${i}`
       );
 
-      const ManualIdExample: React.FC<{}> = () => {
+      const ManualIdExample: React.FC = () => {
         return (
           <Tabs orientation="horizontal" selectedId={tabOneId} baseId="">
             <TabList aria-label="My tabs">

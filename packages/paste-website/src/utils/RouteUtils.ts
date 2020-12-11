@@ -34,5 +34,5 @@ export function getPackagePath(categoryRoute: string, packageName: string): stri
 }
 
 export function slugify(text: string): string {
-  return kebabCase(text.toLowerCase().replace(/[+&]/g, '-and-'));
+  return kebabCase(text.toLowerCase().replace(/[&+]/g, '-and-'));
 }

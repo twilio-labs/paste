@@ -4,9 +4,10 @@ import {SiteLink, SiteLinkProps} from '../SiteLink';
 
 export interface NewComponentBannerAnchorProps {
   to: SiteLinkProps['to'];
+  onClick?: () => void;
 }
 
-const NewComponentBannerLink: React.FC<NewComponentBannerAnchorProps> = ({children, to}) => {
+const NewComponentBannerLink: React.FC<NewComponentBannerAnchorProps> = ({children, to, onClick}) => {
   return (
     <Box
       as="span"
@@ -16,7 +17,9 @@ const NewComponentBannerLink: React.FC<NewComponentBannerAnchorProps> = ({childr
       lineHeight={['lineHeight20', 'lineHeight30']}
       marginLeft="space30"
     >
-      <SiteLink to={to}>{children}</SiteLink>
+      <SiteLink to={to} onClick={onClick}>
+        {children}
+      </SiteLink>
     </Box>
   );
 };
