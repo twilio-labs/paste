@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@4.0.0...@twilio-paste/theme@4.0.1) (2020-12-11)
+
+
+### Bug Fixes
+
+* **theme:** add public access for npm publish ([ac823f8](https://github.com/twilio-labs/paste/commit/ac823f88a028fb05f1e92282c4446d59a4db6551))
+
+
+
+
+
 # [4.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@3.3.3...@twilio-paste/theme@4.0.0) (2020-12-11)
 
 
