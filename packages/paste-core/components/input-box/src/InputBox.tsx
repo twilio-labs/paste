@@ -16,30 +16,30 @@ export interface InputBoxProps {
   variant?: Variants;
 }
 
-const InputBox: React.FC<InputBoxProps> = ({
-  children,
-  disabled,
-  hasError,
-  insertAfter,
-  insertBefore,
-  readOnly,
-  type,
-  variant,
-  ...props
-}) => (
-  <FieldWrapper disabled={disabled} hasError={hasError} readOnly={readOnly} type={type} variant={variant} {...props}>
-    {insertBefore && (
-      <Prefix disabled={disabled} variant={variant}>
-        {insertBefore}
-      </Prefix>
-    )}
-    {children}
-    {insertAfter && (
-      <Suffix disabled={disabled} variant={variant}>
-        {insertAfter}
-      </Suffix>
-    )}
-  </FieldWrapper>
+const InputBox = React.forwardRef<HTMLDivElement, InputBoxProps>(
+  ({children, disabled, hasError, insertAfter, insertBefore, readOnly, type, variant, ...props}, ref) => (
+    <FieldWrapper
+      disabled={disabled}
+      hasError={hasError}
+      readOnly={readOnly}
+      type={type}
+      variant={variant}
+      ref={ref}
+      {...props}
+    >
+      {insertBefore && (
+        <Prefix disabled={disabled} variant={variant}>
+          {insertBefore}
+        </Prefix>
+      )}
+      {children}
+      {insertAfter && (
+        <Suffix disabled={disabled} variant={variant}>
+          {insertAfter}
+        </Suffix>
+      )}
+    </FieldWrapper>
+  )
 );
 
 InputBox.displayName = 'InputBox';
