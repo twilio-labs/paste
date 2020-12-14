@@ -15,20 +15,22 @@ export interface TabsProps extends TabPrimitiveInitialState {
 }
 
 // Set orientation to horizontal because undefined enables all arrow key movement
-const Tabs: React.FC<TabsProps> = ({children, orientation = 'horizontal', state, variant, ...initialState}) => {
-  const tab = state || useTabPrimitiveState({orientation, ...initialState});
-  const value = React.useMemo(() => ({...tab, variant}), [...Object.values(tab), variant]);
-  const returnValue = <TabsContext.Provider value={value}>{children}</TabsContext.Provider>;
+const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
+  ({children, orientation = 'horizontal', state, variant, ...initialState}, ref) => {
+    const tab = state || useTabPrimitiveState({orientation, ...initialState});
+    const value = React.useMemo(() => ({...tab, variant}), [...Object.values(tab), variant]);
+    const returnValue = <TabsContext.Provider value={value}>{children}</TabsContext.Provider>;
 
-  if (tab.orientation === 'vertical') {
-    return (
-      <Flex wrap={false} vAlignContent="stretch">
-        {returnValue}
-      </Flex>
-    );
+    if (tab.orientation === 'vertical') {
+      return (
+        <Flex ref={ref} wrap={false} vAlignContent="stretch">
+          {returnValue}
+        </Flex>
+      );
+    }
+    return returnValue;
   }
-  return returnValue;
-};
+);
 
 if (process.env.NODE_ENV === 'development') {
   Tabs.propTypes = {
