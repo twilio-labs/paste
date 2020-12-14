@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-designer@0.2.1...@twilio-paste/theme-designer@0.2.2) (2020-12-14)
+
+
+### Bug Fixes
+
+* **theme-designer:** remove visible from tooltip and popover ([#1035](https://github.com/twilio-labs/paste/issues/1035)) ([60750cc](https://github.com/twilio-labs/paste/commit/60750cc67257060c266f0f3e060200f521a4a95f))
+
+
+
+
+
 ## [0.2.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-designer@0.2.0...@twilio-paste/theme-designer@0.2.1) (2020-12-11)
 
 **Note:** Version bump only for package @twilio-paste/theme-designer
