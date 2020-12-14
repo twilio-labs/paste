@@ -10,7 +10,7 @@ export interface PrefixProps {
   variant?: Variants;
 }
 
-const Prefix: React.FC<PrefixProps> = ({children, disabled, variant}) => {
+const Prefix = React.forwardRef<HTMLDivElement, PrefixProps>(({children, disabled, variant}, ref) => {
   let backgroundColor = 'colorBackground' as BackgroundColor;
   let borderColor = 'colorBorderLighter' as BorderColor;
   if (disabled && variant === 'inverse') {
@@ -34,11 +34,12 @@ const Prefix: React.FC<PrefixProps> = ({children, disabled, variant}) => {
       display="flex"
       lineHeight="lineHeight20"
       padding="space30"
+      ref={ref}
     >
       {children}
     </Box>
   );
-};
+});
 
 Prefix.displayName = 'Prefix';
 

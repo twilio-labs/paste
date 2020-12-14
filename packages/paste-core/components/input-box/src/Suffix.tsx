@@ -10,7 +10,7 @@ export interface SuffixProps {
   variant?: Variants;
 }
 
-const Suffix: React.FC<SuffixProps> = ({children, disabled, variant}) => {
+const Suffix = React.forwardRef<HTMLDivElement, SuffixProps>(({children, disabled, variant}, ref) => {
   let backgroundColor = 'colorBackground' as BackgroundColor;
   let borderColor = 'colorBorderLighter' as BorderColor;
   if (disabled && variant === 'inverse') {
@@ -34,11 +34,12 @@ const Suffix: React.FC<SuffixProps> = ({children, disabled, variant}) => {
       display="flex"
       lineHeight="lineHeight20"
       padding="space30"
+      ref={ref}
     >
       {children}
     </Box>
   );
-};
+});
 
 Suffix.displayName = 'Suffix';
 
