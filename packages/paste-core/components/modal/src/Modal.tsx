@@ -86,56 +86,62 @@ const getAnimationStates = (isConsole: boolean): any => ({
   },
 });
 
-const Modal: React.FC<ModalProps> = ({
-  children,
-  isOpen,
-  onDismiss,
-  allowPinchZoom = true,
-  initialFocusRef,
-  ariaLabelledby,
-  size,
-  __console_patch = false,
-  ...props
-}) => {
-  const transitions = useTransition(isOpen, getAnimationStates(__console_patch));
+const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
+  (
+    {
+      children,
+      isOpen,
+      onDismiss,
+      allowPinchZoom = true,
+      initialFocusRef,
+      ariaLabelledby,
+      size,
+      __console_patch = false,
+      ...props
+    },
+    ref
+  ) => {
+    const transitions = useTransition(isOpen, getAnimationStates(__console_patch));
 
-  React.useEffect(() => {
-    if (__console_patch && isOpen) {
-      addConsoleHeightPatch();
-    }
-    return () => {
-      if (__console_patch) {
-        removeConsoleHeightPatch();
+    React.useEffect(() => {
+      if (__console_patch && isOpen) {
+        addConsoleHeightPatch();
       }
-    };
-  }, [isOpen, __console_patch]);
+      return () => {
+        if (__console_patch) {
+          removeConsoleHeightPatch();
+        }
+      };
+    }, [isOpen, __console_patch]);
 
-  return (
-    <ModalContext.Provider value={{onDismiss}}>
-      {transitions(
-        (styles, item) =>
-          item && (
-            <ModalDialogOverlay
-              onDismiss={onDismiss}
-              allowPinchZoom={allowPinchZoom}
-              initialFocusRef={initialFocusRef}
-              style={{opacity: styles.opacity}}
-            >
-              <ModalDialogContent
-                aria-labelledby={ariaLabelledby}
-                {...props}
-                className={null}
-                style={styles}
-                size={size}
+    return (
+      <ModalContext.Provider value={{onDismiss}}>
+        {transitions(
+          (styles, item) =>
+            item && (
+              <ModalDialogOverlay
+                onDismiss={onDismiss}
+                allowPinchZoom={allowPinchZoom}
+                initialFocusRef={initialFocusRef}
+                style={{opacity: styles.opacity}}
               >
-                {children}
-              </ModalDialogContent>
-            </ModalDialogOverlay>
-          )
-      )}
-    </ModalContext.Provider>
-  );
-};
+                <ModalDialogContent
+                  aria-labelledby={ariaLabelledby}
+                  {...props}
+                  className={null}
+                  ref={ref}
+                  style={styles}
+                  size={size}
+                >
+                  {children}
+                </ModalDialogContent>
+              </ModalDialogOverlay>
+            )
+        )}
+      </ModalContext.Provider>
+    );
+  }
+);
 Modal.displayName = 'Modal';
 
 if (process.env.NODE_ENV === 'development') {
