@@ -5,7 +5,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 export interface ModalFooterProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
 }
-const ModalFooter: React.FC<ModalFooterProps> = ({children, ...props}) => {
+const ModalFooter = React.forwardRef<HTMLDivElement, ModalFooterProps>(({children, ...props}, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
@@ -16,11 +16,12 @@ const ModalFooter: React.FC<ModalFooterProps> = ({children, ...props}) => {
       padding="space50"
       display="flex"
       flexShrink={0}
+      ref={ref}
     >
       {children}
     </Box>
   );
-};
+});
 ModalFooter.displayName = 'ModalFooter';
 
 if (process.env.NODE_ENV === 'development') {

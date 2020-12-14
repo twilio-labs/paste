@@ -6,10 +6,10 @@ import {Flex} from '@twilio-paste/flex';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {useModalContext} from './ModalContext';
 
-export interface ModalHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ModalHeaderProps extends React.HTMLAttributes<HTMLHeadElement> {
   children: NonNullable<React.ReactNode>;
 }
-const ModalHeader: React.FC<ModalHeaderProps> = ({children, ...props}) => {
+const ModalHeader = React.forwardRef<HTMLHeadElement, ModalHeaderProps>(({children, ...props}, ref) => {
   const {onDismiss} = useModalContext();
   return (
     <Box
@@ -21,6 +21,7 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({children, ...props}) => {
       padding="space50"
       margin="space0"
       flexShrink={0}
+      ref={ref}
     >
       <Flex hAlignContent="between">
         <Flex vAlignContent="center" grow={1} marginRight="space70">
@@ -32,7 +33,7 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({children, ...props}) => {
       </Flex>
     </Box>
   );
-};
+});
 ModalHeader.displayName = 'ModalHeader';
 
 if (process.env.NODE_ENV === 'development') {
