@@ -22,7 +22,6 @@ import {
   VerticalAlign,
 } from '@twilio-paste/style-props';
 import {PseudoPropStyles} from './PseudoPropStyles';
-import {TextPropTypes} from './TextPropTypes';
 
 export interface TextStyleProps extends OverflowProps, PositionProps, ShadowProps, SpaceProps, TypographyProps {
   content?: string;
@@ -136,9 +135,5 @@ Text.defaultProps = {
   fontSize: 'fontSize30',
   lineHeight: 'lineHeight30',
 };
-
-if (process.env.NODE_ENV === 'development') {
-  Text.propTypes = TextPropTypes;
-}
 
 export * from './SafelySpreadProps';
