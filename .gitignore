@@ -59,7 +59,7 @@ typings/
 
 # gatsby files
 packages/paste-website/.cache/
-public
+packages/paste-website/public
 
 # next.js build output
 .next
