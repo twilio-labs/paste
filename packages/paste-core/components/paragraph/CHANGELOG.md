@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.57](https://github.com/twilio-labs/paste/compare/@twilio-paste/paragraph@1.1.56...@twilio-paste/paragraph@1.1.57) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/paragraph
+
+
+
+
+
 ## [1.1.56](https://github.com/twilio-labs/paste/compare/@twilio-paste/paragraph@1.1.55...@twilio-paste/paragraph@1.1.56) (2020-12-11)
 
 **Note:** Version bump only for package @twilio-paste/paragraph

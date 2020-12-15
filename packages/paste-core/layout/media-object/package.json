@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/media-object",
-  "version": "1.2.74",
+  "version": "1.2.75",
   "category": "layout",
   "status": "production",
   "description": "Media Object is a layout utility that allows an image or figure to be positioned horizontally next to some form of content.",
@@ -26,7 +26,7 @@
     "compile:dev": "rollup -c --environment NODE_ENV:development"
   },
   "peerDependencies": {
-    "@twilio-paste/box": "^2.11.13",
+    "@twilio-paste/box": "^2.12.0",
     "@twilio-paste/design-tokens": "^6.3.7",
     "@twilio-paste/style-props": "^1.8.13",
     "@twilio-paste/styling-library": "^0.2.0",
@@ -37,7 +37,7 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^2.11.13",
+    "@twilio-paste/box": "^2.12.0",
     "@twilio-paste/design-tokens": "^6.3.7",
     "@twilio-paste/style-props": "^1.8.13",
     "@twilio-paste/styling-library": "^0.2.0",

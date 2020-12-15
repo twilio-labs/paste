@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/heading",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "category": "typography",
   "status": "production",
   "description": "Twilio's Heading component",
@@ -29,7 +29,7 @@
     "@twilio-paste/design-tokens": "^6.3.7",
     "@twilio-paste/style-props": "^1.8.13",
     "@twilio-paste/styling-library": "^0.2.0",
-    "@twilio-paste/text": "^2.3.20",
+    "@twilio-paste/text": "^2.4.0",
     "@twilio-paste/theme": "^4.0.1",
     "@twilio-paste/types": "^3.0.30",
     "prop-types": "^15.7.2",
@@ -40,7 +40,7 @@
     "@twilio-paste/design-tokens": "^6.3.7",
     "@twilio-paste/style-props": "^1.8.13",
     "@twilio-paste/styling-library": "^0.2.0",
-    "@twilio-paste/text": "^2.3.20",
+    "@twilio-paste/text": "^2.4.0",
     "@twilio-paste/theme": "^4.0.1",
     "@twilio-paste/types": "^3.0.30"
   }

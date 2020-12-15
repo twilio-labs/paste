@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/separator",
-  "version": "0.2.23",
+  "version": "0.2.24",
   "category": "layout",
   "status": "beta",
   "description": "The Separator component can be used to create visual and semantic separation between UI elements or sections.",
@@ -26,7 +26,7 @@
     "compile:dev": "rollup -c --environment NODE_ENV:development"
   },
   "peerDependencies": {
-    "@twilio-paste/box": "^2.11.13",
+    "@twilio-paste/box": "^2.12.0",
     "@twilio-paste/design-tokens": "^6.3.7",
     "@twilio-paste/style-props": "^1.8.13",
     "@twilio-paste/styling-library": "^0.2.0",
@@ -37,7 +37,7 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^2.11.13",
+    "@twilio-paste/box": "^2.12.0",
     "@twilio-paste/design-tokens": "^6.3.7",
     "@twilio-paste/style-props": "^1.8.13",
     "@twilio-paste/styling-library": "^0.2.0",

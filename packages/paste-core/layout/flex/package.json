@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/flex",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "category": "layout",
   "status": "beta",
   "description": "A primitive component that can be used to build flexbox based elements and layouts.",
@@ -26,7 +26,7 @@
     "compile:dev": "rollup -c --environment NODE_ENV:development"
   },
   "peerDependencies": {
-    "@twilio-paste/box": "^2.11.13",
+    "@twilio-paste/box": "^2.12.0",
     "@twilio-paste/design-tokens": "^6.3.7",
     "@twilio-paste/style-props": "^1.8.13",
     "@twilio-paste/styling-library": "^0.2.0",
@@ -37,7 +37,7 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^2.11.13",
+    "@twilio-paste/box": "^2.12.0",
     "@twilio-paste/design-tokens": "^6.3.7",
     "@twilio-paste/style-props": "^1.8.13",
     "@twilio-paste/styling-library": "^0.2.0",

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/alert",
-  "version": "1.0.49",
+  "version": "1.0.50",
   "category": "feedback",
   "status": "production",
   "description": "An alert notifies a user to high-priority or time-sensitive information.",
@@ -26,12 +26,12 @@
     "compile:dev": "rollup -c --environment NODE_ENV:development"
   },
   "peerDependencies": {
-    "@twilio-paste/box": "^2.11.13",
-    "@twilio-paste/button": "^2.4.8",
+    "@twilio-paste/box": "^2.12.0",
+    "@twilio-paste/button": "^2.4.9",
     "@twilio-paste/design-tokens": "^6.3.7",
-    "@twilio-paste/icons": "^3.10.3",
-    "@twilio-paste/media-object": "^1.2.74",
-    "@twilio-paste/spinner": "^2.0.40",
+    "@twilio-paste/icons": "^3.10.4",
+    "@twilio-paste/media-object": "^1.2.75",
+    "@twilio-paste/spinner": "^2.0.41",
     "@twilio-paste/style-props": "^1.8.13",
     "@twilio-paste/styling-library": "^0.2.0",
     "@twilio-paste/theme": "^4.0.1",
@@ -42,12 +42,12 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^2.11.13",
-    "@twilio-paste/button": "^2.4.8",
+    "@twilio-paste/box": "^2.12.0",
+    "@twilio-paste/button": "^2.4.9",
     "@twilio-paste/design-tokens": "^6.3.7",
-    "@twilio-paste/icons": "^3.10.3",
-    "@twilio-paste/media-object": "^1.2.74",
-    "@twilio-paste/spinner": "^2.0.40",
+    "@twilio-paste/icons": "^3.10.4",
+    "@twilio-paste/media-object": "^1.2.75",
+    "@twilio-paste/spinner": "^2.0.41",
     "@twilio-paste/style-props": "^1.8.13",
     "@twilio-paste/styling-library": "^0.2.0",
     "@twilio-paste/theme": "^4.0.1",

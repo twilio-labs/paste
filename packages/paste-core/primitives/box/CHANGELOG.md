@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.12.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.11.13...@twilio-paste/box@2.12.0) (2020-12-15)
+
+
+### Features
+
+* **box:** remove propType checking ([e780672](https://github.com/twilio-labs/paste/commit/e7806727947732728dfeb86b1b953c76e2f5c766))
+
+
+
+
+
 ## [2.11.13](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.11.12...@twilio-paste/box@2.11.13) (2020-12-11)
 
 **Note:** Version bump only for package @twilio-paste/box
