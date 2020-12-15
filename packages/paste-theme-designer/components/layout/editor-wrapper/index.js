@@ -20,7 +20,15 @@ const EditorWrapper = props => {
     <>
       <TopBar />
       <Box display="flex" height={`calc(100vh - ${SITE_MASTHEAD_HEIGHT}px)`} overflow="hidden">
-        <Box maxWidth="size40" width="100%" display="flex" flexDirection="column">
+        <Box
+          maxWidth="size40"
+          width="100%"
+          display="flex"
+          flexDirection="column"
+          borderRightColor="colorBorderDark"
+          borderRightWidth="borderWidth10"
+          borderRightStyle="solid"
+        >
           <TokenSelector />
           <Box padding="space60" flexGrow={1} overflow="scroll">
             {props.children}
