@@ -10,6 +10,7 @@ import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
+import {Separator} from '@twilio-paste/separator';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {SiteLink} from '../../components/SiteLink.tsx';
 import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
@@ -69,6 +70,8 @@ There are two primary goals of patterns:
 
 We rely on contributions to build out and refine our pattern library. Please give feedback on existing patterns, and learn more about [how to contribute a new pattern](/patterns/contribute).
 
+<Separator orientation="horizontal" verticalSpacing="space100" />
+
 ## Available patterns
 
 <Box marginBottom="space60">
@@ -100,19 +103,49 @@ We rely on contributions to build out and refine our pattern library. Please giv
 </Card>
 </Box>
 
+| Pattern name                                           | Description | Status |
+|--------------------------------------------------------|-------------|--------|
+| [Create](/patterns/create)                             | How to enable a user to generate a new object. | alpha |
+| [Delete](/patterns/delete)                             | How to enable a user to destroy an object. | alpha |
+| [Notifications and feedback](/patterns/notifications)  | How to communicate timely information to users. | alpha |
+| [Object details](/patterns/object-details)             | How to show a read-only page or panel of information about an object. | alpha |
 
-| Pattern name                                           | Status      |
-|--------------------------------------------------------|-------------|
-| [Create](/patterns/create)                             | alpha       |
-| [Delete](/patterns/delete)                             | alpha       |
-| [Notifications and feedback](/patterns/notifications)  | alpha       |
-| [Object details](/patterns/object-details)             | alpha       |
-| [Empty state](/patterns/empty-state)                   | coming soon |
-| [Filter](/patterns/filter)                             | coming soon |
-| [Status indicator](/patterns/status)                   | coming soon |
-| [Stat cards](/patterns/stat-cards)                     | coming soon |
+<Separator orientation="horizontal" verticalSpacing="space100" />
 
-Don't see what you're looking for? Please [let us know](https://forms.gle/BzeekGGXd2uL6U7Z9), and consider [contributing a pattern](patterns/contribute)!
+## Prioritized backlog of patterns
+
+These patterns have been prioritized based on impact, ease, and product roadmaps.
+
+| Pattern name              | Description |
+|---------------------------|-------------|
+| Display text              | Special text styles for marketing, showing stats, etc. |
+| Filter group              | Controls for filtering lists of objects or data. |
+| Empty states              | How to inform a user that there is no data to display on a page or section. |
+| Copy                      | How to enable a user to copy a snippet of text, such as an API key or code snippet. |
+| Status indicator          | How to display the status of an object or process. |
+| Small detail text         | Special text styles for small pieces of descriptive text, such as captions. |
+| Component comparisons     | Guidance on when to use certain similar components, such as Combobox versus a Select. |
+| Forms                     | Guidance for laying out forms and patterns for common interaction patterns. |
+| Layouts                   | Common page layouts, such as Insights pages, and parts of pages, such as standard page headers. |
+| Search                    | How to enable a user to search a set of data based on an alphanumeric string. |
+| Code                      | How to display code in the UI. |
+| Errors and error states   | How to inform a user when they have encountered different types of errors. |
+| Data grid/table actions   | How to enable a user to perform actions on objects or data in a table layout. |
+| Edit object               | How to make and apply changes to an object. |
+| Loading                   | Loading states to display to users while data is fetched. |
+| Disclose information      | How to give the user additional information, using something like help text or a tooltip. |
+| Display progress          | How to display progress through a multi-step flow. |
+| Country flags             | How and when to use country flags in the UI. |
+| Card actions              | How to enable a user to perform actions on objects in a card layout. |
+| Promotional messaging     | How to promote new features and upsells in the UI. |
+| Data visualization        | Guidance for visualizing data. |
+| Onboarding                | How to take a user through a multi-step setup flow and teach them the benefits of a new product or feature. |
+| Permissions               | How to block access to certain parts of the Twilio UI. |
+| Directional modal         | How to enable a user to move forwards and backwards through a set of modals. |
+| Media player              | How to present media controls, such as pause and play. |
+| Drag and drop             | How to present drag and drop constrols, such as a file upload or a WYSIWYG editor. |
+
+Is there a Pattern on this list that you need for your upcoming work? Consider [contributing the pattern](patterns/contribute) to Paste!
 
 </content>
 
