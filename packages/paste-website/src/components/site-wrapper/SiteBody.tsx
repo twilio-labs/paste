@@ -6,7 +6,7 @@ import {SiteHeader} from './site-header';
 import {SiteFooter} from './site-footer';
 import {useWindowSize} from '../../hooks/useWindowSize';
 import {ScrollAnchorIntoView} from './ScrollAnchorIntoView';
-import {SITE_BREAKPOINTS} from '../../constants';
+import {PASTE_DOCS_CONTENT_AREA, SITE_BREAKPOINTS} from '../../constants';
 
 /* Wraps the entire doc site page */
 const StyledSiteBody = styled.div`
@@ -32,7 +32,7 @@ export const SiteBody: React.FC = ({children}) => {
       <StyledSiteBody>
         {breakpointIndex === undefined || breakpointIndex > 1 ? <Sidebar /> : null}
         <Box flex="1" minWidth="size0">
-          <main id="content">
+          <main id={PASTE_DOCS_CONTENT_AREA}>
             <ScrollAnchorIntoView />
             {children}
           </main>

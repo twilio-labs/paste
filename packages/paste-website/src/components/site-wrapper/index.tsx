@@ -7,6 +7,7 @@ import {ActiveSiteThemeProvider} from '../../context/ActiveSiteThemeContext';
 import {NavigationContext, NavigationQuery} from '../../context/NavigationContext';
 import {SiteThemeProvider} from './SiteThemeProvider';
 import {SkipLinkContainer} from '../SkipLinkContainer';
+import {PASTE_DOCS_CONTENT_AREA, PASTE_DOCS_SEARCH_INPUT} from '../../constants';
 import '../../assets/css/fonts.css';
 import '../../assets/scss/search.scss';
 
@@ -69,8 +70,8 @@ const SiteWrapper: React.FC<SiteWrapperProps> = ({pathname, children}) => {
         <NavigationContext.Provider value={{...navigationQueryData, pathname}}>
           <SkipLinkContainer>
             <Stack orientation="horizontal" spacing="space60">
-              <Anchor href="#content">Skip to content</Anchor>
-              <Anchor href="#search-input">Skip to search</Anchor>
+              <Anchor href={`#${PASTE_DOCS_CONTENT_AREA}`}>Skip to content</Anchor>
+              <Anchor href={`#${PASTE_DOCS_SEARCH_INPUT}`}>Skip to search</Anchor>
             </Stack>
           </SkipLinkContainer>
           <SiteBody>{children}</SiteBody>

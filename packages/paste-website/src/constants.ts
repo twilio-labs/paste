@@ -18,6 +18,11 @@ export const STICKY_SIDEBAR_OFFSET = PSA_ALERT_HEIGHT + SITE_MASTHEAD_HEIGHT;
 
 export const PASTE_PACKAGE_PREFIX = '@twilio-paste/';
 
+// IDs for skip links
+export const PASTE_DOCS_CONTENT_AREA = 'paste-docs-content-area';
+export const PASTE_DOCS_SEARCH_INPUT = 'paste-docs-search-input';
+export const PASTE_DOCS_SEARCH_INPUT_MOBILE = 'paste-docs-search-input-mobile';
+
 export const SidebarCategoryRoutes = {
   COMPONENTS: '/components',
   PATTERNS: '/patterns',
