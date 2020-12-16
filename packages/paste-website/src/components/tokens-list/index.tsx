@@ -174,7 +174,12 @@ export const TokensList: React.FC<TokensListProps> = props => {
                     </THead>
                     <TBody>
                       {cat.tokens
-                        .sort((a, b) => collator.compare(a.name, b.name))
+                        .sort((a, b) => {
+                          if (cat.categoryName === 'font-weights') {
+                            return collator.compare(a.value, b.value);
+                          }
+                          return collator.compare(a.name, b.name);
+                        })
                         .map((token: Token) => {
                           return (
                             <Tr key={`token${token.name}`}>
