@@ -101,6 +101,8 @@ const getTokensByTheme = (theme: ThemeVariants, props: TokensListProps): TokenCa
   return tokens;
 };
 
+const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
+
 export const TokensList: React.FC<TokensListProps> = props => {
   const {theme} = useActiveSiteTheme();
   const [tokens, setTokens] = React.useState<TokenCategory[] | null>(getTokensByTheme(theme, props));
@@ -171,22 +173,24 @@ export const TokensList: React.FC<TokensListProps> = props => {
                       </Tr>
                     </THead>
                     <TBody>
-                      {cat.tokens.map((token: Token) => {
-                        return (
-                          <Tr key={`token${token.name}`}>
-                            <Td>
-                              <Text as="p" marginBottom="space30">
-                                <InlineCode>${token.name}</InlineCode>
-                              </Text>
-                              <Text as="p">{token.comment}</Text>
-                            </Td>
-                            <Td>{getTokenValue(token)}</Td>
-                            <Td>
-                              <TokenExample token={token} />
-                            </Td>
-                          </Tr>
-                        );
-                      })}
+                      {cat.tokens
+                        .sort((a, b) => collator.compare(a.name, b.name))
+                        .map((token: Token) => {
+                          return (
+                            <Tr key={`token${token.name}`}>
+                              <Td>
+                                <Text as="p" marginBottom="space30">
+                                  <InlineCode>${token.name}</InlineCode>
+                                </Text>
+                                <Text as="p">{token.comment}</Text>
+                              </Td>
+                              <Td>{getTokenValue(token)}</Td>
+                              <Td>
+                                <TokenExample token={token} />
+                              </Td>
+                            </Tr>
+                          );
+                        })}
                     </TBody>
                   </Table>
                 </Box>
