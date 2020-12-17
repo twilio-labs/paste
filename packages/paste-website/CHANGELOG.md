@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.18.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.17.4...@twilio-paste/website@2.18.0) (2020-12-17)
+
+
+### Features
+
+* **website:** add content and search skip links ([#1048](https://github.com/twilio-labs/paste/issues/1048)) ([1f52859](https://github.com/twilio-labs/paste/commit/1f528597746bf28dce06e3f1484310b0ad4217bd))
+
+
+
+
+
 ## [2.17.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.17.3...@twilio-paste/website@2.17.4) (2020-12-17)
 
 **Note:** Version bump only for package @twilio-paste/website
