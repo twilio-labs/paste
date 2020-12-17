@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.19.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.18.1...@twilio-paste/website@2.19.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **website:** update font guidelines for default theme ([43f4477](https://github.com/twilio-labs/paste/commit/43f4477205673927cb9866eb004cb077eb78df7b))
+
+
+### Features
+
+* **website:** switch to loading font.css ([67ec025](https://github.com/twilio-labs/paste/commit/67ec025d477c4e17c23869b87ff70f8c708473fb))
+
+
+
+
+
 ## [2.18.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.18.0...@twilio-paste/website@2.18.1) (2020-12-17)
 
 **Note:** Version bump only for package @twilio-paste/website

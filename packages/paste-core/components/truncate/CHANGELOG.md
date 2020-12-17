@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/truncate@2.0.0...@twilio-paste/truncate@2.0.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/truncate
+
+
+
+
+
 # [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/truncate@1.0.15...@twilio-paste/truncate@2.0.0) (2020-12-17)
 
 
