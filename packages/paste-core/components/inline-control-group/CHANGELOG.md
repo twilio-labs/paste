@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/inline-control-group@1.1.24...@twilio-paste/inline-control-group@2.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **inline-control-group:** add forwardRef ([bc07f7c](https://github.com/twilio-labs/paste/commit/bc07f7cafa515ee7d051d60cc3555717d6323395))
+
+
+### BREAKING CHANGES
+
+* **inline-control-group:** component is now using fowardRef
+
+
+
+
+
 ## [1.1.24](https://github.com/twilio-labs/paste/compare/@twilio-paste/inline-control-group@1.1.23...@twilio-paste/inline-control-group@1.1.24) (2020-12-15)
 
 **Note:** Version bump only for package @twilio-paste/inline-control-group

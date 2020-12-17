@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/radio-group@1.1.24...@twilio-paste/radio-group@2.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **radio-group:** add forwardRef ([d467043](https://github.com/twilio-labs/paste/commit/d4670433a42e4fed4bcc7a6e729fd394b5004dfa))
+
+
+### BREAKING CHANGES
+
+* **radio-group:** component is now using fowardRef
+
+
+
+
+
 ## [1.1.24](https://github.com/twilio-labs/paste/compare/@twilio-paste/radio-group@1.1.23...@twilio-paste/radio-group@1.1.24) (2020-12-15)
 
 **Note:** Version bump only for package @twilio-paste/radio-group

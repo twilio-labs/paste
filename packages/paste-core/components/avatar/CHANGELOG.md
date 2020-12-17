@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/avatar@0.2.29...@twilio-paste/avatar@0.3.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **avatar:** add forwardRef ([f6f72f1](https://github.com/twilio-labs/paste/commit/f6f72f1c4915f783ee289fbff8ea24313616db56))
+
+
+### BREAKING CHANGES
+
+* **avatar:** component is now using fowardRef
+
+
+
+
+
 ## [0.2.29](https://github.com/twilio-labs/paste/compare/@twilio-paste/avatar@0.2.28...@twilio-paste/avatar@0.2.29) (2020-12-15)
 
 **Note:** Version bump only for package @twilio-paste/avatar

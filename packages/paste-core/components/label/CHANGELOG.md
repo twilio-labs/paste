@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/label@1.1.16...@twilio-paste/label@2.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **label:** add forwardRef ([d5e2cac](https://github.com/twilio-labs/paste/commit/d5e2cac1aa8b4009cd7d564e8cc78597254f1022))
+
+
+### BREAKING CHANGES
+
+* **label:** component is now using fowardRef
+
+
+
+
+
 ## [1.1.16](https://github.com/twilio-labs/paste/compare/@twilio-paste/label@1.1.15...@twilio-paste/label@1.1.16) (2020-12-15)
 
 **Note:** Version bump only for package @twilio-paste/label

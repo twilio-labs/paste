@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/spinner",
-  "version": "2.0.41",
+  "version": "3.0.0",
   "category": "feedback",
   "status": "production",
   "description": "Twilio's Spinner component",

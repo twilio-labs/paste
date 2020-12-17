@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/help-text@1.1.24...@twilio-paste/help-text@2.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **help-text:** add forwardRef ([a9dfa0e](https://github.com/twilio-labs/paste/commit/a9dfa0ee8adb1cdad6c3c010872e59884d9b30b0))
+
+
+### BREAKING CHANGES
+
+* **help-text:** component is now using fowardRef
+
+
+
+
+
 ## [1.1.24](https://github.com/twilio-labs/paste/compare/@twilio-paste/help-text@1.1.23...@twilio-paste/help-text@1.1.24) (2020-12-15)
 
 **Note:** Version bump only for package @twilio-paste/help-text

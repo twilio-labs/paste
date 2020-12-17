@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@1.0.55...@twilio-paste/modal@2.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **modal:** add forwardRef ([6061bfe](https://github.com/twilio-labs/paste/commit/6061bfe952a0422dcd4a48cb4040d12331851f5c))
+
+
+### BREAKING CHANGES
+
+* **modal:** component is now using fowardRef
+
+
+
+
+
 ## [1.0.55](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@1.0.54...@twilio-paste/modal@1.0.55) (2020-12-15)
 
 **Note:** Version bump only for package @twilio-paste/modal

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/stack",
-  "version": "0.1.57",
+  "version": "0.2.0",
   "category": "layout",
   "status": "beta",
   "description": "A horizontal and vertical flow component used to create space between components.",

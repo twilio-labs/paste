@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/aspect-ratio@1.0.88...@twilio-paste/aspect-ratio@2.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **aspect-ratio:** add forwardRef ([aa46d21](https://github.com/twilio-labs/paste/commit/aa46d216a9198f3ab330440516f62f71f9910a17))
+
+
+### BREAKING CHANGES
+
+* **aspect-ratio:** component is now using fowardRef
+
+
+
+
+
 ## [1.0.88](https://github.com/twilio-labs/paste/compare/@twilio-paste/aspect-ratio@1.0.87...@twilio-paste/aspect-ratio@1.0.88) (2020-12-15)
 
 **Note:** Version bump only for package @twilio-paste/aspect-ratio

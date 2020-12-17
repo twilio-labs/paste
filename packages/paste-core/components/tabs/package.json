@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/tabs",
-  "version": "0.3.33",
+  "version": "0.4.0",
   "category": "interaction",
   "status": "alpha",
   "description": "Twilio's Tabs component.",

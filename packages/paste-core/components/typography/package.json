@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/typography",
-  "version": "1.0.93",
+  "version": "1.0.94",
   "category": "typography",
   "status": "alpha",
   "description": "Twilio's Typography component",
@@ -25,9 +25,9 @@
     "compile:dev": "rollup -c --environment NODE_ENV:development"
   },
   "dependencies": {
-    "@twilio-paste/heading": "^2.1.6",
+    "@twilio-paste/heading": "^3.0.0",
     "@twilio-paste/list": "^0.2.57",
-    "@twilio-paste/paragraph": "^1.1.57"
+    "@twilio-paste/paragraph": "^2.0.0"
   },
   "peerDependencies": {
     "@twilio-paste/design-tokens": "^6.3.7",

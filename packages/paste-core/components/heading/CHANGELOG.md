@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@2.1.6...@twilio-paste/heading@3.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **heading:** add forwardRef ([c88d5a2](https://github.com/twilio-labs/paste/commit/c88d5a21297cef6cb7d2a0602151f7a2e79e5cde))
+
+
+### BREAKING CHANGES
+
+* **heading:** component is now using fowardRef
+
+
+
+
+
 ## [2.1.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@2.1.5...@twilio-paste/heading@2.1.6) (2020-12-15)
 
 **Note:** Version bump only for package @twilio-paste/heading

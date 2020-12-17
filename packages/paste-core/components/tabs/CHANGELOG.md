@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.3.33...@twilio-paste/tabs@0.4.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **tabs:** add forwardRef ([467a726](https://github.com/twilio-labs/paste/commit/467a7265b6e56196011ca7a0aca76b1895ef973b))
+
+
+### BREAKING CHANGES
+
+* **tabs:** component is now using fowardRef
+
+
+
+
+
 ## [0.3.33](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.3.32...@twilio-paste/tabs@0.3.33) (2020-12-15)
 
 **Note:** Version bump only for package @twilio-paste/tabs
