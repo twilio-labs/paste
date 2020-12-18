@@ -9,9 +9,12 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
 import {Text} from '@twilio-paste/text';
 import {Separator} from '@twilio-paste/separator';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/tabs';
+import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {SiteLink} from '../../components/SiteLink.tsx';
 import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
@@ -53,97 +56,231 @@ export const pageQuery = graphql`
 Patterns outline how to bring a collection of components together into a reusable solution that solves customer problems and delivers cohesion across our platforms. They are set of guidelines around a particular user flow or interaction that designers and engineers should follow when creating customer experiences.
 
 There are two primary goals of patterns:
+
 - To drive efficiency across Twilio product teams by ensuring that no one needs to solve the same problem twice.
 - To establish cohesion across the full Twilio platform so that users do not need to re-learn how to perform certain actions as they move from product to product.
 
 <Separator orientation="horizontal" verticalSpacing="space100" />
 
-## Available patterns
-
-<Box marginBottom="space60">
-<Card>
-  <Heading as="h4" variant="heading40">
-    Pattern status details
-  </Heading>
-  <Heading as="h5" variant="heading50">
-    Alpha
-  </Heading>
-  <Text as="p" marginBottom="space50">
-    Pattern is currently incubating with a contributing team and should not be used in other customer-facing products without guidance from the Design Systems team.
-  </Text>
-  <Heading as="h5" variant="heading50">
-    Beta
-  </Heading>
-  <Text as="p" marginBottom="space30">
-    Pattern can be used in customer-facing products but should be usability tested in new scenarios to identify any further risks, especially in critical customer journeys.
-  </Text>
-  <Text as="p" marginBottom="space50" fontStyle="italic">
-    Please reach out to us in #help-design-system if you plan on user testing a beta pattern so we can include any research insights in the patterns guidelines.
-  </Text>
-  <Heading as="h5" variant="heading50">
-    Production
-  </Heading>
-  <Text as="p">
-    Pattern is stable.
-  </Text>
-</Card>
-</Box>
-
-| Pattern name                                           | Description | Status |
-|--------------------------------------------------------|-------------|--------|
-| [Create](/patterns/create)                             | How to enable a user to generate a new object. | alpha |
-| [Delete](/patterns/delete)                             | How to enable a user to destroy an object. | alpha |
-| [Notifications and feedback](/patterns/notifications)  | How to communicate timely information to users. | alpha |
-| [Object details](/patterns/object-details)             | How to show a read-only page or panel of information about an object. | alpha |
-
-<Separator orientation="horizontal" verticalSpacing="space100" />
-
-## Most requested patterns
-
-These patterns have been highly requested by Twilio product designers and engineers
-and have been ranked based on customer impact, ease of work, and how frequently they
-appear on product UI roadmaps.
-
-<Callout variant="info">
-  <CalloutTitle>
-    Are you working on solutions that use these patterns?
-  </CalloutTitle>
-  <CalloutText>
-    This pattern library relies on contributions from folks like you (yes, YOU). If you
-    are using any of these patterns in your work, or if you are extra passionate about
-    a particular pattern, <Anchor href="/patterns/contribute">contribute to the library</Anchor>!
-    It'll be fun. ✨
-  </CalloutText>
-</Callout>
-
-| Pattern name              | Description |
-|---------------------------|-------------|
-| Display text              | Special text styles for marketing, showing stats, etc. |
-| Filter group              | Controls for filtering lists of objects or data. |
-| Empty states              | How to inform a user that there is no data to display on a page or section. |
-| Copy                      | How to enable a user to copy a snippet of text, such as an API key or code snippet. |
-| Status indicator          | How to display the status of an object or process. |
-| Small detail text         | Special text styles for small pieces of descriptive text, such as captions. |
-| Component comparisons     | Guidance on when to use certain similar components, such as Combobox versus Select. |
-| Forms                     | Guidance for laying out forms and patterns for common form interactions. |
-| Layouts                   | Common page layouts, such as Insights pages, and parts of pages, such as standard page headers. |
-| Search                    | How to enable a user to search a set of data based on an alphanumeric string. |
-| Code                      | How to display code in the UI. |
-| Errors and error states   | How to inform a user when they have encountered different types of errors. |
-| Data grid/table actions   | How to enable a user to perform actions on objects or data in a table layout. |
-| Edit object               | How to make and apply changes to an object. |
-| Loading                   | Loading states to display to users while data is fetched. |
-| Disclose information      | How to give the user additional information, using something like help text or a tooltip. |
-| Display progress          | How to display progress through a multi-step flow. |
-| Country flags             | How and when to use country flags in the UI. |
-| Card actions              | How to enable a user to perform actions on objects in a card layout. |
-| Promotional messaging     | How to promote new features and upsells in the UI. |
-| Data visualization        | Guidance for displaying data in the UI. |
-| Onboarding                | How to take a user through a multi-step setup flow and teach them the benefits of a new product or feature. |
-| Permissions               | How to block access to certain parts of the Twilio UI. |
-| Directional modal         | How to enable a user to move forwards and backwards through a set of modals. |
-| Media player              | How to present media controls, such as pause and play. |
-| Drag and drop             | How to present drag and drop controls, such as a file upload or a WYSIWYG editor. |
+<Tabs selectedId="available-patterns" baseId="patterns-tabs">
+  <TabList aria-label="Pattern tabs">
+    <Tab id="available-patterns">Available patterns</Tab>
+    <Tab>Most requested patterns</Tab>
+  </TabList>
+  <TabPanels paddingTop="space20">
+    <TabPanel>
+      <Heading as="h2" variant="heading20">
+        Available patterns
+      </Heading>
+      <Box marginBottom="space60">
+        <Card>
+          <Heading as="h4" variant="heading40">
+            Pattern status details
+          </Heading>
+          <Heading as="h5" variant="heading50">
+            Alpha
+          </Heading>
+          <Text as="p" marginBottom="space50">
+            Pattern is currently incubating with a contributing team and should not be used in other customer-facing
+            products without guidance from the Design Systems team.
+          </Text>
+          <Heading as="h5" variant="heading50">
+            Beta
+          </Heading>
+          <Text as="p" marginBottom="space30">
+            Pattern can be used in customer-facing products but should be usability tested in new scenarios to identify
+            any further risks, especially in critical customer journeys.
+          </Text>
+          <Text as="p" marginBottom="space50" fontStyle="italic">
+            Please reach out to us in #help-design-system if you plan on user testing a beta pattern so we can include
+            any research insights in the patterns guidelines.
+          </Text>
+          <Heading as="h5" variant="heading50">
+            Production
+          </Heading>
+          <Text as="p">Pattern is stable.</Text>
+        </Card>
+      </Box>
+      <Box marginBottom="space60">
+        <Table tableLayout="fixed">
+          <THead>
+            <Tr>
+              <Th>Pattern name</Th>
+              <Th>Description</Th>
+              <Th>Status</Th>
+            </Tr>
+          </THead>
+          <TBody>
+            <Tr>
+              <Td>
+                <Anchor href="/patterns/create">Create</Anchor>
+              </Td>
+              <Td>How to enable a user to generate a new object.</Td>
+              <Td>alpha</Td>
+            </Tr>
+            <Tr>
+              <Td>
+                <Anchor href="/patterns/delete">Delete</Anchor>
+              </Td>
+              <Td>How to enable a user to destroy an object.</Td>
+              <Td>alpha</Td>
+            </Tr>
+            <Tr>
+              <Td>
+                <Anchor href="/patterns/notifications">Notifications and feedback</Anchor>
+              </Td>
+              <Td>How to communicate timely information to users.</Td>
+              <Td>alpha</Td>
+            </Tr>
+            <Tr>
+              <Td>
+                <Anchor href="/patterns/object-details">Object details</Anchor>
+              </Td>
+              <Td>How to show a read-only page or panel of information about an object.</Td>
+              <Td>alpha</Td>
+            </Tr>
+          </TBody>
+        </Table>
+      </Box>
+    </TabPanel>
+    <TabPanel>
+      <Heading as="h2" variant="heading20">
+        Most requested patterns
+      </Heading>
+      <Paragraph>
+        These patterns have been highly requested by Twilio product designers and engineers and have been ranked based
+        on customer impact, ease of work, and how frequently they appear on product UI roadmaps.
+      </Paragraph>
+      <Callout variant="info">
+        <CalloutTitle>Are you working on solutions that use these patterns?</CalloutTitle>
+        <CalloutText>
+          This pattern library relies on contributions from folks like you (yes, YOU). If you are using any of these
+          patterns in your work, or if you are extra passionate about a particular pattern,{' '}
+          <Anchor href="/patterns/contribute">contribute to the library</Anchor>! It'll be fun. ✨
+        </CalloutText>
+      </Callout>
+      <Box marginBottom="space60">
+        <Table tableLayout="fixed">
+          <THead>
+            <Tr>
+              <Th>Pattern name</Th>
+              <Th>Description</Th>
+            </Tr>
+          </THead>
+          <TBody>
+            <Tr>
+              <Td>Display text</Td>
+              <Td>Special text styles for marketing, showing stats, etc.</Td>
+            </Tr>
+            <Tr>
+              <Td>Filter group</Td>
+              <Td>Controls for filtering lists of objects or data.</Td>
+            </Tr>
+            <Tr>
+              <Td>Empty states</Td>
+              <Td>How to inform a user that there is no data to display on a page or section.</Td>
+            </Tr>
+            <Tr>
+              <Td>Copy</Td>
+              <Td>How to enable a user to copy a snippet of text, such as an API key or code snippet.</Td>
+            </Tr>
+            <Tr>
+              <Td>Status indicator</Td>
+              <Td>How to display the status of an object or process.</Td>
+            </Tr>
+            <Tr>
+              <Td>Small detail text</Td>
+              <Td>Special text styles for small pieces of descriptive text, such as captions.</Td>
+            </Tr>
+            <Tr>
+              <Td>Component comparisons</Td>
+              <Td>Guidance on when to use certain similar components, such as Combobox versus Select.</Td>
+            </Tr>
+            <Tr>
+              <Td>Forms</Td>
+              <Td>Guidance for laying out forms and patterns for common form interactions.</Td>
+            </Tr>
+            <Tr>
+              <Td>Layouts</Td>
+              <Td>Common page layouts, such as Insights pages, and parts of pages, such as standard page headers.</Td>
+            </Tr>
+            <Tr>
+              <Td>Search</Td>
+              <Td>How to enable a user to search a set of data based on an alphanumeric string.</Td>
+            </Tr>
+            <Tr>
+              <Td>Code</Td>
+              <Td>How to display code in the UI.</Td>
+            </Tr>
+            <Tr>
+              <Td>Errors and error states</Td>
+              <Td>How to inform a user when they have encountered different types of errors.</Td>
+            </Tr>
+            <Tr>
+              <Td>Data grid/table actions</Td>
+              <Td>How to enable a user to perform actions on objects or data in a table layout.</Td>
+            </Tr>
+            <Tr>
+              <Td>Edit object</Td>
+              <Td>How to make and apply changes to an object.</Td>
+            </Tr>
+            <Tr>
+              <Td>Loading</Td>
+              <Td>Loading states to display to users while data is fetched.</Td>
+            </Tr>
+            <Tr>
+              <Td>Disclose information</Td>
+              <Td>How to give the user additional information, using something like help text or a tooltip.</Td>
+            </Tr>
+            <Tr>
+              <Td>Display progress</Td>
+              <Td>How to display progress through a multi-step flow.</Td>
+            </Tr>
+            <Tr>
+              <Td>Country flags</Td>
+              <Td>How and when to use country flags in the UI.</Td>
+            </Tr>
+            <Tr>
+              <Td>Card actions</Td>
+              <Td>How to enable a user to perform actions on objects in a card layout.</Td>
+            </Tr>
+            <Tr>
+              <Td>Promotional messaging</Td>
+              <Td>How to promote new features and upsells in the UI.</Td>
+            </Tr>
+            <Tr>
+              <Td>Data visualization</Td>
+              <Td>Guidance for displaying data in the UI.</Td>
+            </Tr>
+            <Tr>
+              <Td>Onboarding</Td>
+              <Td>
+                How to take a user through a multi-step setup flow and teach them the benefits of a new product or
+                feature.
+              </Td>
+            </Tr>
+            <Tr>
+              <Td>Permissions</Td>
+              <Td>How to block access to certain parts of the Twilio UI.</Td>
+            </Tr>
+            <Tr>
+              <Td>Directional modal</Td>
+              <Td>How to enable a user to move forwards and backwards through a set of modals.</Td>
+            </Tr>
+            <Tr>
+              <Td>Media player</Td>
+              <Td>How to present media controls, such as pause and play.</Td>
+            </Tr>
+            <Tr>
+              <Td>Drag and drop</Td>
+              <Td>How to present drag and drop controls, such as a file upload or a WYSIWYG editor.</Td>
+            </Tr>
+          </TBody>
+        </Table>
+      </Box>
+    </TabPanel>
+  </TabPanels>
+</Tabs>
 
 </content>
 
