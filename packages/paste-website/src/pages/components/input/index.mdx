@@ -162,7 +162,7 @@ The input component should include the base input, along with supporting element
   {`<>
   <Label htmlFor="payment_amount" required>Payment Amount</Label>
   <Input aria-describedby="payment_amount_help_text" id="payment_amount" name="payment_amount" type="text" placeholder="124.45" insertBefore={<div>$</div>} onChange="" required />
-  <HelpText id="payment_amount_help_text">Enter a dollar amount is USD format</HelpText>
+  <HelpText id="payment_amount_help_text">Enter a dollar amount in USD format.</HelpText>
 </>`}
 </LivePreview>
 
@@ -182,7 +182,7 @@ The input component should include the base input, along with supporting element
     }
     onChange=""
   />
-  <HelpText id="display_name_help_text">Please enter a short title for your message</HelpText>
+  <HelpText id="display_name_help_text">Please enter a short title for your message.</HelpText>
 </>`}
 </LivePreview>
 
@@ -234,7 +234,7 @@ An inline error is placed below the field to inform a user of any errors in thei
   {`<>
   <Label htmlFor="email_error">Email Address</Label>
   <Input aria-describedby="email_error_help_text" id="email_error" name="email_error" type="email" placeholder="example@twilio.com" onChange="" hasError />
-  <HelpText id="email_error_help_text" variant="error">Please enter a valid email</HelpText>
+  <HelpText id="email_error_help_text" variant="error">Please enter a valid email.</HelpText>
 </>`}
 </LivePreview>
 
@@ -248,7 +248,7 @@ If you want to show information that can't be edited, use a [read-only](#read-on
   {`<>
   <Label htmlFor="email_disabled" disabled>Email Address</Label>
   <Input aria-describedby="email_disabled_help_text" id="email_disabled" name="email_disabled" type="email" placeholder="example@twilio.com" onChange="" disabled />
-  <HelpText id="email_disabled_help_text">Please enter a valid email</HelpText>
+  <HelpText id="email_disabled_help_text">Please enter a valid email.</HelpText>
 </>`}
 </LivePreview>
 
@@ -260,7 +260,7 @@ Use a read-only form field when a field's value can't be changed, but users shou
   {`<>
   <Label htmlFor="email_readonly">Email Address</Label>
   <Input aria-describedby="email_readonly_help_text" id="email_readonly" name="email_readonly" type="email" placeholder="example@twilio.com" value="example@twilio.com" onChange="" readOnly />
-  <HelpText id="email_readonly_help_text">Please enter a valid email</HelpText>
+  <HelpText id="email_readonly_help_text">Please enter a valid email.</HelpText>
 </>`}
 </LivePreview>
 
@@ -388,7 +388,7 @@ Use an input when users are expected to enter less than a single line of text, o
     <Box width="100%" padding="space60">
       <Label htmlFor="email_do">Email Address</Label>
       <Input aria-describedby="email_do_help_text" id="email_do" name="email_do" type="email" placeholder="example@twilio.com" onChange=""/>
-      <HelpText id="email_do_help_text">Please enter a valid email</HelpText>
+      <HelpText id="email_do_help_text">Please enter a valid email.</HelpText>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use placeholder text for validation instructions." center>
