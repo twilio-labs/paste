@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-designer@0.2.5...@twilio-paste/theme-designer@0.2.6) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/theme-designer
+
+
+
+
+
+## [0.2.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-designer@0.2.4...@twilio-paste/theme-designer@0.2.5) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/theme-designer
+
+
+
+
+
+## [0.2.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-designer@0.2.3...@twilio-paste/theme-designer@0.2.4) (2020-12-15)
+
+
+### Bug Fixes
+
+* **theme-designer:** edit layout and bg color fix ([8906ccf](https://github.com/twilio-labs/paste/commit/8906ccfe62c06a8dd871a0fdc99ddc3108016aa6))
+
+
+
+
+
+## [0.2.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-designer@0.2.2...@twilio-paste/theme-designer@0.2.3) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/theme-designer
+
+
+
+
+
 ## [0.2.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-designer@0.2.1...@twilio-paste/theme-designer@0.2.2) (2020-12-14)
 
 

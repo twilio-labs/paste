@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/screen-reader-only@2.0.0...@twilio-paste/screen-reader-only@2.0.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/screen-reader-only
+
+
+
+
+
+# [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/screen-reader-only@1.1.15...@twilio-paste/screen-reader-only@2.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **screen-reader-only:** add forwardRef, use box ([8370e8c](https://github.com/twilio-labs/paste/commit/8370e8c816be24f3bd0549cc2426f0c276e130e2))
+
+
+### BREAKING CHANGES
+
+* **screen-reader-only:** component is now using fowardRef
+
+
+
+
+
 ## [1.1.15](https://github.com/twilio-labs/paste/compare/@twilio-paste/screen-reader-only@1.1.14...@twilio-paste/screen-reader-only@1.1.15) (2020-12-11)
 
 **Note:** Version bump only for package @twilio-paste/screen-reader-only

@@ -8,22 +8,24 @@ const FauxInputVariants = {
   inverse: InverseFauxInput,
 };
 
-const FieldWrapper: React.FC<FauxInputProps> = ({
-  children,
-  disabled,
-  hasError,
-  readOnly,
-  type,
-  variant = 'default',
-}) => {
-  const FieldWrapperComponent = FauxInputVariants[variant];
+const FieldWrapper = React.forwardRef<HTMLDivElement, FauxInputProps>(
+  ({children, disabled, hasError, readOnly, type, variant = 'default'}, ref) => {
+    const FieldWrapperComponent = FauxInputVariants[variant];
 
-  return (
-    <FieldWrapperComponent disabled={disabled} hasError={hasError} readOnly={readOnly} type={type} variant={variant}>
-      {children}
-    </FieldWrapperComponent>
-  );
-};
+    return (
+      <FieldWrapperComponent
+        disabled={disabled}
+        hasError={hasError}
+        readOnly={readOnly}
+        type={type}
+        variant={variant}
+        ref={ref}
+      >
+        {children}
+      </FieldWrapperComponent>
+    );
+  }
+);
 
 FieldWrapper.displayName = 'FieldWrapper';
 

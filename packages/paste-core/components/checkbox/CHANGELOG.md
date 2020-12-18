@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/checkbox@2.0.0...@twilio-paste/checkbox@2.0.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/checkbox
+
+
+
+
+
+# [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/checkbox@1.1.25...@twilio-paste/checkbox@2.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **checkbox:** add forwardRef ([9b4c586](https://github.com/twilio-labs/paste/commit/9b4c58658c3bc96f16d2d213e8f00d4b1acd2a55))
+
+
+### BREAKING CHANGES
+
+* **checkbox:** component is now using fowardRef
+
+
+
+
+
+## [1.1.25](https://github.com/twilio-labs/paste/compare/@twilio-paste/checkbox@1.1.24...@twilio-paste/checkbox@1.1.25) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/checkbox
+
+
+
+
+
 ## [1.1.24](https://github.com/twilio-labs/paste/compare/@twilio-paste/checkbox@1.1.23...@twilio-paste/checkbox@1.1.24) (2020-12-11)
 
 **Note:** Version bump only for package @twilio-paste/checkbox

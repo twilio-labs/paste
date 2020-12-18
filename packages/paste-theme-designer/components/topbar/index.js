@@ -1,5 +1,5 @@
 import {Box} from '@twilio-paste/core/box';
-import {Text} from '@twilio-paste/core/text';
+import {SiteHeaderLogo} from './SiteHeaderLogo';
 
 const TopBar = () => {
   return (
@@ -8,15 +8,11 @@ const TopBar = () => {
       alignItems="center"
       display="flex"
       backgroundColor="colorBackgroundPrimaryDarkest"
-      paddingX="space60"
-      paddingY="space80"
       position="sticky"
-      top={0}
-      zIndex="zIndex10"
+      top="0px"
+      zIndex="zIndex80"
     >
-      <Text as="h1" color="colorTextInverse" fontWeight="fontWeightSemibold" fontSize="fontSize60">
-        Paste Theme Designer
-      </Text>
+      <SiteHeaderLogo title="Paste" subtitle="Theme Designer" />
     </Box>
   );
 };

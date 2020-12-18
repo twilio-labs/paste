@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/alert@2.0.0...@twilio-paste/alert@2.0.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/alert
+
+
+
+
+
+# [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/alert@1.0.50...@twilio-paste/alert@2.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **alert:** add forwardRef ([2c11935](https://github.com/twilio-labs/paste/commit/2c11935f6f9c03112864fc65df50fcef3b756b62))
+
+
+### BREAKING CHANGES
+
+* **alert:** component is now using fowardRef
+
+
+
+
+
+## [1.0.50](https://github.com/twilio-labs/paste/compare/@twilio-paste/alert@1.0.49...@twilio-paste/alert@1.0.50) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/alert
+
+
+
+
+
 ## [1.0.49](https://github.com/twilio-labs/paste/compare/@twilio-paste/alert@1.0.48...@twilio-paste/alert@1.0.49) (2020-12-11)
 
 **Note:** Version bump only for package @twilio-paste/alert

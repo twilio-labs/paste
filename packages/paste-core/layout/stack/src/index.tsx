@@ -81,7 +81,7 @@ export const getStackChildMargins = (orientation: StackOrientation, spacing: Spa
   return styles;
 };
 
-const Stack: React.FC<StackProps> = ({children, orientation, spacing, ...props}) => {
+const Stack = React.forwardRef<HTMLDivElement, StackProps>(({children, orientation, spacing, ...props}, ref) => {
   const [childrenCount, validChildren] = React.useMemo(
     () => [
       React.Children.count(children),
@@ -94,7 +94,7 @@ const Stack: React.FC<StackProps> = ({children, orientation, spacing, ...props})
   const keySeed = useUIDSeed();
 
   return (
-    <Box {...safelySpreadBoxProps(props)} {...stackStyles}>
+    <Box {...safelySpreadBoxProps(props)} {...stackStyles} ref={ref}>
       {validChildren.map((child, index) => {
         return (
           <Box {...(childrenCount !== index + 1 ? childMargins : null)} key={keySeed(`stack-${index}`)}>
@@ -104,7 +104,7 @@ const Stack: React.FC<StackProps> = ({children, orientation, spacing, ...props})
       })}
     </Box>
   );
-};
+});
 
 Stack.displayName = 'Stack';
 

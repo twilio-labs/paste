@@ -8,6 +8,7 @@ exports[`Stack should render a horizontal stack 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -82,6 +83,7 @@ exports[`Stack should render a responsive stack 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -186,6 +188,7 @@ exports[`Stack should render a vertical stack 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-4 {

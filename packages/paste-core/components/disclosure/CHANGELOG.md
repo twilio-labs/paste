@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/disclosure@0.3.0...@twilio-paste/disclosure@0.3.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/disclosure
+
+
+
+
+
+# [0.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/disclosure@0.2.49...@twilio-paste/disclosure@0.3.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **disclosure:** add forwardRef ([c8835fb](https://github.com/twilio-labs/paste/commit/c8835fbd334756b064ad9904cd58c737db462afc))
+
+
+### BREAKING CHANGES
+
+* **disclosure:** component is now using fowardRef
+
+
+
+
+
+## [0.2.49](https://github.com/twilio-labs/paste/compare/@twilio-paste/disclosure@0.2.48...@twilio-paste/disclosure@0.2.49) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/disclosure
+
+
+
+
+
 ## [0.2.48](https://github.com/twilio-labs/paste/compare/@twilio-paste/disclosure@0.2.47...@twilio-paste/disclosure@0.2.48) (2020-12-11)
 
 **Note:** Version bump only for package @twilio-paste/disclosure

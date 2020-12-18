@@ -36,44 +36,47 @@ export const RequiredDot: React.FC = props => {
   );
 };
 
-const Label: React.FC<LabelProps> = ({as, marginBottom, required, disabled, children, variant, ...props}) => {
-  let textColor = 'colorText' as TextColor;
-  if (disabled && variant === 'inverse') {
-    textColor = 'colorTextInverseWeak';
-  } else if (disabled) {
-    textColor = 'colorTextWeak';
-  } else if (variant === 'inverse') {
-    textColor = 'colorTextInverse';
+const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
+  ({as, marginBottom, required, disabled, children, variant, ...props}, ref) => {
+    let textColor = 'colorText' as TextColor;
+    if (disabled && variant === 'inverse') {
+      textColor = 'colorTextInverseWeak';
+    } else if (disabled) {
+      textColor = 'colorTextWeak';
+    } else if (variant === 'inverse') {
+      textColor = 'colorTextInverse';
+    }
+    return (
+      <Box
+        {...safelySpreadBoxProps(props)}
+        as={as}
+        // Setting a bottom border here to prevent Bootstrap's bottom border
+        // on legend in Console.
+        borderBottomWidth="borderWidth0"
+        display="block"
+        marginBottom={marginBottom || 'space20'}
+        paddingLeft="space0"
+        paddingRight="space0"
+        textTransform="none"
+        ref={ref}
+      >
+        <Flex as="span" vAlignContent="center">
+          {required ? <RequiredDot /> : null}
+          <Text
+            as="span"
+            fontSize="fontSize30"
+            fontWeight="fontWeightSemibold"
+            lineHeight="lineHeight30"
+            color={textColor}
+            cursor={disabled ? 'not-allowed' : 'pointer'}
+          >
+            {children}
+          </Text>
+        </Flex>
+      </Box>
+    );
   }
-  return (
-    <Box
-      {...safelySpreadBoxProps(props)}
-      as={as}
-      // Setting a bottom border here to prevent Bootstrap's bottom border
-      // on legend in Console.
-      borderBottomWidth="borderWidth0"
-      display="block"
-      marginBottom={marginBottom || 'space20'}
-      paddingLeft="space0"
-      paddingRight="space0"
-      textTransform="none"
-    >
-      <Flex as="span" vAlignContent="center">
-        {required ? <RequiredDot /> : null}
-        <Text
-          as="span"
-          fontSize="fontSize30"
-          fontWeight="fontWeightSemibold"
-          lineHeight="lineHeight30"
-          color={textColor}
-          cursor={disabled ? 'not-allowed' : 'pointer'}
-        >
-          {children}
-        </Text>
-      </Flex>
-    </Box>
-  );
-};
+);
 
 Label.displayName = 'Label';
 

@@ -29,19 +29,22 @@ const StyledInputAsSelect = styled(InputElement)<ComboboxProps>(props =>
 );
 /* eslint-enable */
 
-const Item: React.FC<ItemProps> = ({item, index, getItemProps, highlightedIndex, optionTemplate, inGroup}) => {
-  const UIDSeed = useUIDSeed();
-  return (
-    <ComboboxListboxOption
-      {...getItemProps({item, index})}
-      highlighted={highlightedIndex === index}
-      key={UIDSeed(item)}
-      variant={inGroup ? 'groupOption' : 'default'}
-    >
-      {optionTemplate ? optionTemplate(item) : item}
-    </ComboboxListboxOption>
-  );
-};
+const Item = React.forwardRef<HTMLDivElement, ItemProps>(
+  ({item, index, getItemProps, highlightedIndex, optionTemplate, inGroup}, ref) => {
+    const UIDSeed = useUIDSeed();
+    return (
+      <ComboboxListboxOption
+        {...getItemProps({item, index})}
+        highlighted={highlightedIndex === index}
+        key={UIDSeed(item)}
+        variant={inGroup ? 'groupOption' : 'default'}
+        ref={ref}
+      >
+        {optionTemplate ? optionTemplate(item) : item}
+      </ComboboxListboxOption>
+    );
+  }
+);
 
 const Items: React.FC<ItemsProps> = ({items, getItemProps, highlightedIndex, optionTemplate}) => {
   return (
@@ -61,65 +64,61 @@ const Items: React.FC<ItemsProps> = ({items, getItemProps, highlightedIndex, opt
   );
 };
 
-const GroupedItems: React.FC<GroupItemsProps> = ({
-  items,
-  getItemProps,
-  highlightedIndex,
-  optionTemplate,
-  groupLabelTemplate,
-  groupItemsBy,
-}) => {
-  const UIDSeed = useUIDSeed();
+const GroupedItems = React.forwardRef<HTMLDivElement, GroupItemsProps>(
+  ({items, getItemProps, highlightedIndex, optionTemplate, groupLabelTemplate, groupItemsBy}, ref) => {
+    const UIDSeed = useUIDSeed();
 
-  // Should never happen
-  if (groupItemsBy == null) {
-    return null;
+    // Should never happen
+    if (groupItemsBy == null) {
+      return null;
+    }
+
+    const groupedItems = groupBy(items, (item: ItemType) => item[groupItemsBy]);
+    const groupedItemKeys = Object.keys(groupedItems);
+
+    return (
+      <>
+        {groupedItemKeys.map(groupedItemKey => {
+          // These items are categorized as ungrouped
+          if (groupedItemKey === 'undefined') {
+            return groupedItems[groupedItemKey].map((item: ItemType, index: number) => (
+              <Item
+                item={item}
+                index={index}
+                key={UIDSeed(`ungrouped-${index}`)}
+                getItemProps={getItemProps}
+                highlightedIndex={highlightedIndex}
+                optionTemplate={optionTemplate}
+              />
+            ));
+          }
+          return (
+            <ComboboxListboxGroup
+              groupName={groupedItemKey}
+              groupLabelTemplate={groupLabelTemplate}
+              key={UIDSeed(groupedItemKey)}
+              ref={ref}
+            >
+              {groupedItems[groupedItemKey].map((item: ItemType, index: number) => {
+                return (
+                  <Item
+                    item={item}
+                    index={UIDSeed(`${groupedItemKey}-${index}`)}
+                    key={UIDSeed(`${groupedItemKey}-${index}`)}
+                    getItemProps={getItemProps}
+                    highlightedIndex={highlightedIndex}
+                    optionTemplate={optionTemplate}
+                    inGroup
+                  />
+                );
+              })}
+            </ComboboxListboxGroup>
+          );
+        })}
+      </>
+    );
   }
-
-  const groupedItems = groupBy(items, (item: ItemType) => item[groupItemsBy]);
-  const groupedItemKeys = Object.keys(groupedItems);
-
-  return (
-    <>
-      {groupedItemKeys.map(groupedItemKey => {
-        // These items are categorized as ungrouped
-        if (groupedItemKey === 'undefined') {
-          return groupedItems[groupedItemKey].map((item: ItemType, index: number) => (
-            <Item
-              item={item}
-              index={index}
-              key={UIDSeed(`ungrouped-${index}`)}
-              getItemProps={getItemProps}
-              highlightedIndex={highlightedIndex}
-              optionTemplate={optionTemplate}
-            />
-          ));
-        }
-        return (
-          <ComboboxListboxGroup
-            groupName={groupedItemKey}
-            groupLabelTemplate={groupLabelTemplate}
-            key={UIDSeed(groupedItemKey)}
-          >
-            {groupedItems[groupedItemKey].map((item: ItemType, index: number) => {
-              return (
-                <Item
-                  item={item}
-                  index={UIDSeed(`${groupedItemKey}-${index}`)}
-                  key={UIDSeed(`${groupedItemKey}-${index}`)}
-                  getItemProps={getItemProps}
-                  highlightedIndex={highlightedIndex}
-                  optionTemplate={optionTemplate}
-                  inGroup
-                />
-              );
-            })}
-          </ComboboxListboxGroup>
-        );
-      })}
-    </>
-  );
-};
+);
 
 const ListBox: React.FC<ListBoxProps> = ({groupItemsBy, groupLabelTemplate, ...props}) =>
   groupItemsBy ? (

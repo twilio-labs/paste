@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@3.0.0...@twilio-paste/spinner@3.0.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/spinner
+
+
+
+
+
+# [3.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@2.0.41...@twilio-paste/spinner@3.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **spinner:** add forwardRef ([4045250](https://github.com/twilio-labs/paste/commit/40452503230184816fb1fe0323f37249ae64bc92))
+
+
+### BREAKING CHANGES
+
+* **spinner:** component is now using fowardRef
+
+
+
+
+
+## [2.0.41](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@2.0.40...@twilio-paste/spinner@2.0.41) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/spinner
+
+
+
+
+
 ## [2.0.40](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@2.0.39...@twilio-paste/spinner@2.0.40) (2020-12-11)
 
 **Note:** Version bump only for package @twilio-paste/spinner

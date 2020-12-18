@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/text@2.4.0...@twilio-paste/text@2.4.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/text
+
+
+
+
+
+# [2.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/text@2.3.20...@twilio-paste/text@2.4.0) (2020-12-15)
+
+
+### Features
+
+* **text:** remove propType checking ([cea3898](https://github.com/twilio-labs/paste/commit/cea3898dbef0821759a0d5e2498082db0a35c2d8))
+
+
+
+
+
 ## [2.3.20](https://github.com/twilio-labs/paste/compare/@twilio-paste/text@2.3.19...@twilio-paste/text@2.3.20) (2020-12-11)
 
 **Note:** Version bump only for package @twilio-paste/text

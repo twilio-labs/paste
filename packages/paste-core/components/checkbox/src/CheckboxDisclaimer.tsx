@@ -10,22 +10,24 @@ export interface CheckboxDisclaimerProps
   errorText?: string | React.ReactNode;
 }
 
-const CheckboxDisclaimer: React.FC<CheckboxDisclaimerProps> = ({children, errorText, ...props}) => {
-  return (
-    <>
-      <Box backgroundColor="colorBackground" borderRadius="borderRadius20" padding="space50">
-        <Checkbox {...props} hasError={errorText != null}>
-          {children}
-        </Checkbox>
-      </Box>
-      {errorText && (
-        <Box marginTop="space30" marginLeft="space50">
-          <HelpText variant="error">{errorText}</HelpText>
+const CheckboxDisclaimer = React.forwardRef<HTMLInputElement, CheckboxDisclaimerProps>(
+  ({children, errorText, ...props}, ref) => {
+    return (
+      <>
+        <Box backgroundColor="colorBackground" borderRadius="borderRadius20" padding="space50">
+          <Checkbox {...props} hasError={errorText != null} ref={ref}>
+            {children}
+          </Checkbox>
         </Box>
-      )}
-    </>
-  );
-};
+        {errorText && (
+          <Box marginTop="space30" marginLeft="space50">
+            <HelpText variant="error">{errorText}</HelpText>
+          </Box>
+        )}
+      </>
+    );
+  }
+);
 
 CheckboxDisclaimer.displayName = 'CheckboxDisclaimer';
 
