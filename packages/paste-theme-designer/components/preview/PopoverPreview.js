@@ -3,7 +3,7 @@ import {Text} from '@twilio-paste/core/text';
 
 const PopoverPreview = () => {
   return (
-    <PopoverContainer baseId="popover-example" placement="right-start" visible>
+    <PopoverContainer baseId="popover-example" placement="right-start">
       <PopoverButton variant="primary">Open popover</PopoverButton>
       <Popover aria-label="Popover">
         <Text as="span">Black Lives Matter. We stand with the Black community.</Text>

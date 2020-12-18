@@ -25,9 +25,11 @@ export interface ColumnStyleProps extends Omit<LayoutProps, 'minWidth' | 'width'
 
 export interface ColumnProps extends ColumnStyleProps {
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
   count?: number;
   gutter?: Space;
   offset?: ColumnOffset;
+  ref?: any;
   span?: ColumnSpan;
   stretchColumnContent?: boolean;
   vertical?: ResponsiveValue<boolean>;

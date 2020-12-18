@@ -17,6 +17,7 @@ const TokenSelector = () => {
     <Box as="nav" backgroundColor="colorBackground" padding="space60">
       <Label htmlFor="token-category-selector">Token category:</Label>
       <Select id="token-category-selector" onChange={handleChange} value={value}>
+        <Option value=""> </Option>
         <Option value="background-color">Background Color</Option>
         <Option value="border-color">Border Color</Option>
         <Option value="border-width">Border Width</Option>

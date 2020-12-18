@@ -1,4 +1,5 @@
 import {Button} from '@twilio-paste/core/button';
+import {Paragraph} from '@twilio-paste/core/paragraph';
 import {useUID} from '@twilio-paste/uid-library';
 import {TextArea} from '@twilio-paste/core/textarea';
 import {generateThemeFromTokens} from '@twilio-paste/core/theme';
@@ -34,16 +35,22 @@ const ExportModal = ({isOpen, onDismiss}) => {
     <Modal ariaLabelledby={modalHeadingID} isOpen={isOpen} onDismiss={onDismiss} size="default">
       <ModalHeader>
         <ModalHeading as="h3" id={modalHeadingID}>
-          Copy Theme JSON
+          Export this theme for your app
         </ModalHeading>
       </ModalHeader>
       <ModalBody>
+        <Paragraph>
+          Download this JSON to use in your app, or deploy with one click for your favorite application.
+        </Paragraph>
         <TextArea id={modalTextareaID} onChange={() => {}} readOnly>
           {themeJson}
         </TextArea>
       </ModalBody>
       <ModalFooter>
         <ModalFooterActions>
+          <Button variant="primary" disabled>
+            Deploy
+          </Button>
           <Button as="a" href={themeDownload} variant="primary" download="customTheme.json">
             Download
           </Button>

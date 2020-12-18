@@ -49,7 +49,6 @@ import {
   TableLayoutProperty,
 } from 'csstype';
 import {PseudoPropStyles} from './PseudoPropStyles';
-import {BoxPropTypes} from './BoxPropTypes';
 
 interface BoxBaseStyleProps
   extends LayoutProps,
@@ -220,9 +219,5 @@ export const Box = styled.div(
 ) as React.FC<BoxProps>;
 
 Box.displayName = 'Box';
-
-if (process.env.NODE_ENV === 'development') {
-  Box.propTypes = BoxPropTypes;
-}
 
 export * from './SafelySpreadProps';

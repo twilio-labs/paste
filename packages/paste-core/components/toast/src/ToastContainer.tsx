@@ -3,15 +3,15 @@ import {Stack} from '@twilio-paste/stack';
 import {ToastPortal} from './ToastPortal';
 import {ToastContainerProps, ToastContainerPropTypes} from './types';
 
-const ToastContainer: React.FC<ToastContainerProps> = ({children, ...props}) => {
+const ToastContainer = React.forwardRef<HTMLDivElement, ToastContainerProps>(({children, ...props}, ref) => {
   return (
     <ToastPortal {...props}>
-      <Stack orientation="vertical" spacing="space40">
+      <Stack orientation="vertical" spacing="space40" ref={ref}>
         {children}
       </Stack>
     </ToastPortal>
   );
-};
+});
 
 ToastContainer.displayName = 'ToastContainer';
 

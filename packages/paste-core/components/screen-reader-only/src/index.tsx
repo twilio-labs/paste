@@ -1,22 +1,40 @@
-import {styled} from '@twilio-paste/styling-library';
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
+import {Box, BoxProps} from '@twilio-paste/box';
 
-export interface ScreenReaderOnlyProps {
-  // as prop isn't typed correctly from styled package https://github.com/emotion-js/emotion/issues/1137
-  as?: keyof JSX.IntrinsicElements;
+export interface ScreenReaderOnlyProps extends Pick<BoxProps, 'as'> {
+  children: NonNullable<React.ReactNode>;
 }
 
-const ScreenReaderOnly = styled.span<ScreenReaderOnlyProps>`
-  position: absolute;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  text-transform: none;
-  white-space: nowrap;
-`;
-
+const ScreenReaderOnly = React.forwardRef<HTMLElement, ScreenReaderOnlyProps>(
+  ({as = 'span', children, ...props}, ref) => {
+    return (
+      <Box
+        {...props}
+        as={as}
+        border="none"
+        clip="rect(0 0 0 0)"
+        height="1px"
+        margin="spaceNegative10"
+        overflow="hidden"
+        padding="space0"
+        position="absolute"
+        ref={ref}
+        textTransform="none"
+        whiteSpace="nowrap"
+        width="1px"
+      >
+        {children}
+      </Box>
+    );
+  }
+);
 ScreenReaderOnly.displayName = 'ScreenReaderOnly';
+
+if (process.env.NODE_ENV === 'development') {
+  ScreenReaderOnly.propTypes = {
+    children: PropTypes.node.isRequired,
+  };
+}
+
 export {ScreenReaderOnly};

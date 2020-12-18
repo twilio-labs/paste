@@ -10,39 +10,50 @@ export interface AvatarProps extends React.HTMLAttributes<'div'> {
   size: IconSize;
   src?: string;
 }
-const Avatar: React.FC<AvatarProps> = ({name, children, size = 'sizeIcon70', src, ...props}) => {
-  const computedTokenNames = getComputedTokenNames(size);
-  if (src != null && name === undefined) {
-    console.error('Paste Avatar: You must provide a name if you are displaying an image');
+const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
+  ({name, children, size = 'sizeIcon70', src, ...props}, ref) => {
+    const computedTokenNames = getComputedTokenNames(size);
+    if (src != null && name === undefined) {
+      console.error('Paste Avatar: You must provide a name if you are displaying an image');
+    }
+    return (
+      <Box
+        {...safelySpreadBoxProps(props)}
+        as="div"
+        backgroundColor="colorBackgroundUser"
+        borderRadius="borderRadiusCircle"
+        overflow="hidden"
+        ref={ref}
+        size={size}
+      >
+        {src != null ? (
+          <Box
+            {...safelySpreadBoxProps(props)}
+            as="img"
+            alt={name}
+            maxWidth="100%"
+            src={src}
+            size={size}
+            title={name}
+          />
+        ) : (
+          <Text
+            as="abbr"
+            display="block"
+            fontSize={computedTokenNames.fontSize}
+            fontWeight="fontWeightBold"
+            lineHeight={computedTokenNames.lineHeight}
+            textAlign="center"
+            textDecoration="none"
+            title={name}
+          >
+            {getInitialsFromName(name)}
+          </Text>
+        )}
+      </Box>
+    );
   }
-  return (
-    <Box
-      {...safelySpreadBoxProps(props)}
-      as="div"
-      backgroundColor="colorBackgroundUser"
-      borderRadius="borderRadiusCircle"
-      overflow="hidden"
-      size={size}
-    >
-      {src != null ? (
-        <Box {...safelySpreadBoxProps(props)} as="img" alt={name} maxWidth="100%" src={src} size={size} title={name} />
-      ) : (
-        <Text
-          as="abbr"
-          display="block"
-          fontSize={computedTokenNames.fontSize}
-          fontWeight="fontWeightBold"
-          lineHeight={computedTokenNames.lineHeight}
-          textAlign="center"
-          textDecoration="none"
-          title={name}
-        >
-          {getInitialsFromName(name)}
-        </Text>
-      )}
-    </Box>
-  );
-};
+);
 
 Avatar.displayName = 'Avatar';
 Avatar.propTypes = {

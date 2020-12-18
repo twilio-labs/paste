@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@4.0.1...@twilio-paste/theme@4.1.0) (2020-12-17)
+
+
+### Features
+
+* **theme:** load fonts.css file from theme provider ([acef2a5](https://github.com/twilio-labs/paste/commit/acef2a54ad76639c8063d134c374792bd7cff181))
+
+
+
+
+
+## [4.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@4.0.0...@twilio-paste/theme@4.0.1) (2020-12-11)
+
+
+### Bug Fixes
+
+* **theme:** add public access for npm publish ([ac823f8](https://github.com/twilio-labs/paste/commit/ac823f88a028fb05f1e92282c4446d59a4db6551))
+
+
+
+
+
 # [4.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@3.3.3...@twilio-paste/theme@4.0.0) (2020-12-11)
 
 

@@ -7,14 +7,18 @@ import {HelpText} from '@twilio-paste/core/help-text';
 // Get a number value from a string like '10.23rem' => '10.23'
 const getTokenNumberValue = value => Number.parseFloat(value.split(/(\d+\.?\d*)/).filter(Boolean)[0]);
 
-function validateInput(input, unit) {
-  if (!input.includes(unit)) {
+function validateInput(value, unit) {
+  if (value === '') {
+    return 'Missing value.';
+  }
+  if (!value.includes(unit)) {
     return `Missing unit: ${unit}`;
   }
 
-  const inputWithoutUnit = input.replace(unit, '');
-  const numberifyInput = parseFloat(inputWithoutUnit);
-  if (Number.isNaN(numberifyInput)) {
+  const valueWithoutUnit = value.replace(unit, '');
+  const numberifyInput = getTokenNumberValue(valueWithoutUnit);
+
+  if (numberifyInput === Number.isNaN(numberifyInput)) {
     return 'Invalid input.';
   }
 
@@ -43,26 +47,9 @@ export const UnitTokenInput = ({bucket, tokenName, tokenValue, onChange, unit = 
             setErrorText(error);
           } else {
             setErrorText('');
+            onChange(bucket, tokenName, value);
           }
           setLocalValue(value);
-        }}
-        onBlur={event => {
-          const {value} = event.target;
-          // TODO show empty error
-          if (value === '') return;
-
-          // Only preserve alpha numeric values
-          const sanitizedValue = value.replace(/[^0-9a-z\.]/gi, '');
-          const numberInValue = getTokenNumberValue(sanitizedValue);
-          // TODO show error
-          if (numberInValue === '' || Number.isNaN(numberInValue)) return;
-
-          const finalValue = `${numberInValue}${unit}`;
-          // if no changes, do nothing
-          if (tokenValue == finalValue) return;
-
-          setLocalValue(finalValue);
-          onChange(bucket, tokenName, finalValue);
         }}
       />
       {errorText ? (

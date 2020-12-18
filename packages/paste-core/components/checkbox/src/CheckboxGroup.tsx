@@ -9,50 +9,62 @@ export interface CheckboxGroupProps extends InlineControlGroupProps {
   onChange?: (checked: boolean) => void;
 }
 
-const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
-  children,
-  disabled = false,
-  errorText,
-  isSelectAll = false,
-  name,
-  onChange,
-  orientation = 'vertical',
-  value,
-  ...props
-}) => {
-  const onChangeHandler = React.useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>): void => {
-      if (onChange != null) {
-        onChange(event.target.checked);
-      }
-    },
-    [onChange]
-  );
-
-  const contextValue = React.useMemo(() => {
-    return {
-      disabled,
+const CheckboxGroup = React.forwardRef<HTMLFieldSetElement, CheckboxGroupProps>(
+  (
+    {
+      children,
+      disabled = false,
+      errorText,
+      isSelectAll = false,
       name,
-      onChange: onChangeHandler,
-      hasError: errorText ? true : undefined,
-    };
-  }, [disabled, name, onChangeHandler]);
+      onChange,
+      orientation = 'vertical',
+      value,
+      ...props
+    },
+    ref
+  ) => {
+    const onChangeHandler = React.useCallback(
+      (event: React.ChangeEvent<HTMLInputElement>): void => {
+        if (onChange != null) {
+          onChange(event.target.checked);
+        }
+      },
+      [onChange]
+    );
 
-  return (
-    <CheckboxContext.Provider value={contextValue}>
-      <InlineControlGroup {...props} disabled={disabled} errorText={errorText} name={name} orientation={orientation}>
-        {React.Children.map(children, (child, index) => {
-          return React.isValidElement(child)
-            ? React.cloneElement(child, {
-                isSelectAll: isSelectAll && index === 0,
-                isSelectAllChild: isSelectAll && orientation === 'vertical' && index !== 0,
-              })
-            : child;
-        })}
-      </InlineControlGroup>
-    </CheckboxContext.Provider>
-  );
-};
+    const contextValue = React.useMemo(() => {
+      return {
+        disabled,
+        name,
+        onChange: onChangeHandler,
+        hasError: errorText ? true : undefined,
+      };
+    }, [disabled, name, onChangeHandler]);
+
+    return (
+      <CheckboxContext.Provider value={contextValue}>
+        <InlineControlGroup
+          {...props}
+          disabled={disabled}
+          errorText={errorText}
+          name={name}
+          orientation={orientation}
+          ref={ref}
+        >
+          {React.Children.map(children, (child, index) => {
+            return React.isValidElement(child)
+              ? React.cloneElement(child, {
+                  isSelectAll: isSelectAll && index === 0,
+                  isSelectAllChild: isSelectAll && orientation === 'vertical' && index !== 0,
+                })
+              : child;
+          })}
+        </InlineControlGroup>
+      </CheckboxContext.Provider>
+    );
+  }
+);
 
 CheckboxGroup.displayName = 'CheckboxGroup';
 

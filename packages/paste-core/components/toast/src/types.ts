@@ -26,8 +26,17 @@ export const ToastPropTypes = {
   variant: PropTypes.oneOf(['error', 'neutral', 'success', 'warning']) as any,
 };
 
+export interface ToastPortalProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: NonNullable<React.ReactNode>;
+  ref?: any;
+}
+export const ToastPortalPropTypes = {
+  children: PropTypes.node.isRequired,
+};
+
 export interface ToastContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
+  ref?: any;
 }
 export const ToastContainerPropTypes = {
   children: PropTypes.node.isRequired,

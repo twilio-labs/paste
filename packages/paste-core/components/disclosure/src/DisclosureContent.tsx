@@ -21,14 +21,14 @@ const getVariantStyles = (variant: Variants): BoxStyleProps => {
 export interface DisclosureContentProps extends Omit<DisclosurePrimitiveContentProps, keyof BoxStyleProps> {
   children: NonNullable<React.ReactNode>;
 }
-const DisclosureContent: React.FC<DisclosureContentProps> = ({children, ...props}) => {
+const DisclosureContent = React.forwardRef<HTMLDivElement, DisclosureContentProps>(({children, ...props}, ref) => {
   const {disclosure, variant} = React.useContext(DisclosureContext);
   return (
-    <DisclosurePrimitiveContent {...disclosure} {...props} as={Box} {...getVariantStyles(variant)}>
+    <DisclosurePrimitiveContent {...disclosure} {...props} as={Box} ref={ref} {...getVariantStyles(variant)}>
       {children}
     </DisclosurePrimitiveContent>
   );
-};
+});
 DisclosureContent.displayName = 'DisclosureContent';
 
 if (process.env.NODE_ENV === 'development') {
