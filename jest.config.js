@@ -6,6 +6,7 @@ module.exports = {
     '<rootDir>/packages/(?:.+?)/dist/',
     '<rootDir>/packages/(?:.+?)/.cache/',
     '<rootDir>/cypress/',
+    '<rootDir>/packages/paste-cra-template/',
   ],
   cacheDirectory: '.jest-cache',
   coverageDirectory: '.jest-coverage',
