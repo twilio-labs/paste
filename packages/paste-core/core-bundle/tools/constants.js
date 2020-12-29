@@ -9,6 +9,7 @@ const BLOCKLIST = [
   '@twilio-paste/website',
   '@twilio-paste/form',
   '@twilio-paste/codemods',
+  '@twilio-paste/cra-template',
 ];
 
 const CORE_BUNDLE_PATH = join(__dirname, '../');
