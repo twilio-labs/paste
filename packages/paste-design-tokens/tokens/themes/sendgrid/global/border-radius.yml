@@ -4,3 +4,7 @@ global:
 imports:
   - ../../../global/border-radius.yml
   - ../aliases/border-radius.yml
+props:
+   border-radius-20:
+    value: "{!border-radius-20}"
+    comment: Large border radius

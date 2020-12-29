@@ -4,6 +4,7 @@ global:
 imports:
   - ../../../global/box-shadow.yml
   - ../aliases/box-shadow.yml
+  - ../aliases/color.yml
 props:
   shadow-card:
     value: "{!shadow-elevation-10}"
@@ -24,8 +25,8 @@ props:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-80}"
     comment: Shadow border for inputs active.
   shadow-border-error:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-60}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!sg-danger}"
     comment: Shadow border for error inputs.
   shadow-border-error-dark:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-70}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!sg-danger-darker}"
     comment: Shadow border for error inputs hover.

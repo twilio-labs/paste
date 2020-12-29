@@ -1,2 +1,4 @@
 imports:
   - ../../../aliases/font-weight.yml
+aliases:
+  font-weight-semibold: 500

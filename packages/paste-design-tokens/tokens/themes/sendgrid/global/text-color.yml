@@ -28,10 +28,10 @@ props:
 
   # links
   color-text-link:
-    value: "{!palette-blue-60}"
+    value: "{!curious-blue}"
     comment: Link text
   color-text-link-light:
-    value: "{!palette-blue-40}"
+    value: "{!curious-blue}"
     comment: Light shade of link text to be used in interactions
   color-text-link-dark:
     value: "{!palette-blue-70}"

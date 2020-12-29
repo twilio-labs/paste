@@ -286,7 +286,10 @@ gulp.task('browsersync', () =>
 );
 
 gulp.task('watch', () => {
-  gulp.watch([`${paths.aliases}/**/*.*`, `${paths.globals}/**/*.*`], gulp.series('tokens:all', 'docs'));
+  gulp.watch(
+    [`${paths.aliases}/**/*.*`, `${paths.globals}/**/*.*`, `${paths.tokensDir}/**/*`],
+    gulp.series('tokens:all', 'docs')
+  );
   gulp.watch([`${paths.docs}/**/*.*`]).on('change', browserSync.reload);
 });
 

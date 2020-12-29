@@ -2,4 +2,9 @@ imports:
   - ../../../aliases/color.yml
 aliases:
   curious-blue: "#1A82E2"
+  sg-blue-80: "#489BE8"
   san-juan: "#294661"
+  sg-danger: "#B71C1CCC"
+  sg-danger-darker: "#B71C1C"
+  color-text: "#294661"
+

@@ -1,2 +1,4 @@
 imports:
   - ../../../aliases/border-radius.yml
+aliases:
+  border-radius-20: "2px"
