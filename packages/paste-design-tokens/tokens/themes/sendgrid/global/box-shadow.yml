@@ -18,12 +18,21 @@ props:
   shadow-border:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-70}"
     comment: Shadow border for inputs.
+  shadow-border-primary:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!curious-blue}"
+    comment: "Default shadow border for primary interactions."
   shadow-border-primary-dark:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-70}"
     comment: Shadow border for inputs hover.
   shadow-border-primary-darker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-80}"
     comment: Shadow border for inputs active.
+  shadow-border-destructive:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!sg-danger}"
+    comment: Light shadow border for destructive interactions.
+  shadow-border-destructive-darker:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!sg-danger-darker}"
+    comment: Dark shadow border for destructive interactions
   shadow-border-error:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!sg-danger}"
     comment: Shadow border for error inputs.

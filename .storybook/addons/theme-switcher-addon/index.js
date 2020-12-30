@@ -21,7 +21,7 @@ class ThemeWrapper extends React.Component {
   }
 
   handleChangeTheme = theme => {
-    // Set the theme into localstorage so we persist this between component mounts. This can be done bettter in Sttorybook 6
+    // Set the theme into localstorage so we persist this between component mounts. This can be done better in Storybook 6
     localStorage.setItem(THEME_STORAGE_KEY, theme);
     this.setState({
       theme,
@@ -29,7 +29,6 @@ class ThemeWrapper extends React.Component {
   };
 
   render() {
-    console.log(this.state.theme);
     return (
       <Theme.Provider theme={this.state.theme}>
         <Box padding="space40">{this.props.children}</Box>
