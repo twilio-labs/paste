@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.20.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.19.2...@twilio-paste/website@2.20.0) (2021-01-04)
+
+
+### Features
+
+* **website:** update copy around pattern contribution ([#1056](https://github.com/twilio-labs/paste/issues/1056)) ([83e8a6e](https://github.com/twilio-labs/paste/commit/83e8a6e7ad48e84ab0314c092db9fd3eadc37d3a))
+
+
+
+
+
 ## [2.19.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.19.1...@twilio-paste/website@2.19.2) (2020-12-18)
 
 **Note:** Version bump only for package @twilio-paste/website
