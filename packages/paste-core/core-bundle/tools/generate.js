@@ -10,13 +10,14 @@ const {
   getCoreRelevantPackages,
   createRelativePackageFolders,
   createGitIgnore,
+  createCodeSandboxCIjson,
 } = require('./utils');
 
 // Main
 (async () => {
   // Use lerna to get all packages and their version info
   const packageList = await getRepoPackages();
-  // Filter to all production ready packages
+  // Filter to all public packages
   const filteredPublicPackages = getCoreRelevantPackages(packageList);
   // Sort the list so we don't get inconsistent ordering each rebuild
   const sortedPackageList = sortBy(filteredPublicPackages, ['name']);
@@ -45,6 +46,11 @@ const {
    * Generate a .gitignore file to prevent committing built files
    */
   createGitIgnore(sortedPackageList);
+
+  /**
+   * create the codesandbox config file for PR builds
+   */
+  createCodeSandboxCIjson(sortedPackageList);
 
   /*
    * Update package.json file

@@ -12,6 +12,14 @@ const BLOCKLIST = [
   '@twilio-paste/cra-template',
 ];
 
+const BASE_CODESANDBOX_CI = {
+  buildCommand: 'build',
+  packages: ['/packages/paste-icons', '/packages/paste-core/core-bundle'],
+  sandboxes: ['/packages/paste-nextjs-template'],
+};
+
+const PACKAGES_ROOT_PATH = join(__dirname, '../../../..');
+const CODESANDBOX_CI_JSON_PATH = join(__dirname, '../../../../.codesandbox/ci.json');
 const CORE_BUNDLE_PATH = join(__dirname, '../');
 const CORE_BUNDLE_INDEX_PATH = join(CORE_BUNDLE_PATH, 'src/index.tsx');
 const CORE_BUNDLE_PACKAGE_PATH = join(CORE_BUNDLE_PATH, 'package.json');
@@ -23,6 +31,9 @@ const getUnbarreledFileFullPath = package => join(CORE_BUNDLE_PATH, getUnbarrele
 
 module.exports = {
   BLOCKLIST,
+  BASE_CODESANDBOX_CI,
+  PACKAGES_ROOT_PATH,
+  CODESANDBOX_CI_JSON_PATH,
   CORE_BUNDLE_PATH,
   CORE_BUNDLE_INDEX_PATH,
   CORE_BUNDLE_PACKAGE_PATH,
