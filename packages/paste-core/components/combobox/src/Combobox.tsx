@@ -14,10 +14,8 @@ import {ComboboxInputWrapper} from './ComboboxInputWrapper';
 import {ComboboxListbox} from './ComboboxListbox';
 import {ComboboxListboxGroup} from './ComboboxListboxGroup';
 import {ComboboxListboxOption} from './ComboboxListboxOption';
-import {GroupItemsProps, Item as ItemType, ItemProps, ItemsProps, ListBoxProps, ComboboxProps} from './types';
-
-// This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
-const groupBy = require('lodash.groupby');
+import {GroupItemsProps, ItemProps, ItemsProps, ListBoxProps, ComboboxProps} from './types';
+import {getIndexedItems, getGroupedItems} from './helpers';
 
 // Fixes chevron overlapping really long text
 // Extra right padding is removed when autocomplete is true
@@ -73,10 +71,11 @@ const GroupedItems = React.forwardRef<HTMLDivElement, GroupItemsProps>(
       return null;
     }
 
-    // Creating indexedItems so we can use the original flat array index values.
-    const indexedItems = items.map((item, index) => ({...(typeof item != 'string' && {...item}), index}));
-    const groupedItems = groupBy(indexedItems, (item: ItemType) => item[groupItemsBy]);
+    // Creating indexed Items so we can use original flat array index values for indexing within groups.
+    const indexedItems = getIndexedItems(items);
+    const groupedItems = getGroupedItems(indexedItems, groupItemsBy);
     const groupedItemKeys = Object.keys(groupedItems);
+
     return (
       <>
         {groupedItemKeys.map((groupedItemKey) => {
