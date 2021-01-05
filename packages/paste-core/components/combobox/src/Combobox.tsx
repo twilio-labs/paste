@@ -73,18 +73,19 @@ const GroupedItems = React.forwardRef<HTMLDivElement, GroupItemsProps>(
       return null;
     }
 
-    const groupedItems = groupBy(items, (item: ItemType) => item[groupItemsBy]);
+    // Creating indexedItems so we can use the original flat array index values.
+    const indexedItems = items.map((item, index) => ({...(typeof item != 'string' && {...item}), index}));
+    const groupedItems = groupBy(indexedItems, (item: ItemType) => item[groupItemsBy]);
     const groupedItemKeys = Object.keys(groupedItems);
-
     return (
       <>
         {groupedItemKeys.map((groupedItemKey) => {
           // These items are categorized as ungrouped
           if (groupedItemKey === 'undefined') {
-            return groupedItems[groupedItemKey].map((item: ItemType, index: number) => (
+            return groupedItems[groupedItemKey].map((item: {[key: string]: any}, index: number) => (
               <Item
                 item={item}
-                index={index}
+                index={item.index}
                 key={UIDSeed(`ungrouped-${index}`)}
                 getItemProps={getItemProps}
                 highlightedIndex={highlightedIndex}
@@ -99,11 +100,11 @@ const GroupedItems = React.forwardRef<HTMLDivElement, GroupItemsProps>(
               key={UIDSeed(groupedItemKey)}
               ref={ref}
             >
-              {groupedItems[groupedItemKey].map((item: ItemType, index: number) => {
+              {groupedItems[groupedItemKey].map((item: {[key: string]: any}, index: number) => {
                 return (
                   <Item
                     item={item}
-                    index={UIDSeed(`${groupedItemKey}-${index}`)}
+                    index={item.index}
                     key={UIDSeed(`${groupedItemKey}-${index}`)}
                     getItemProps={getItemProps}
                     highlightedIndex={highlightedIndex}
