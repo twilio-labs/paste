@@ -7,6 +7,7 @@ import {Box} from '@twilio-paste/box';
 import axe from '../../../../../.jest/axe-helper';
 import {useCombobox, Combobox} from '../src';
 import {ComboboxProps} from '../src/types';
+import {getIndexedItems, getGroupedItems} from '../src/helpers';
 
 const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
 
@@ -38,6 +39,12 @@ const groupedItems = [
   {group: 'Primitives', label: 'Text'},
   {group: 'Primitives', label: 'Non-modal dialog'},
   {group: 'Layout', label: 'Grid'},
+  {label: 'Design Tokens'},
+];
+
+const smallGroupedItems = [
+  {group: 'Components', label: 'Alert'},
+  {group: 'Primitives', label: 'Box'},
   {label: 'Design Tokens'},
 ];
 
@@ -132,12 +139,25 @@ const ControlledCombobox: React.FC = () => {
 };
 
 describe('Combobox', () => {
-  describe('Render', () => {
-    it('should render', () => {
-      const {asFragment} = render(<ComboboxMock />);
-      expect(asFragment()).toMatchSnapshot();
+  describe('Unit tests', () => {
+    it('should return an indexed array of items', () => {
+      expect(getIndexedItems(smallGroupedItems)).toStrictEqual([
+        {group: 'Components', index: 0, label: 'Alert'},
+        {group: 'Primitives', index: 1, label: 'Box'},
+        {index: 2, label: 'Design Tokens'},
+      ]);
     });
 
+    it('should return grouped object of items with original array index', () => {
+      expect(getGroupedItems(getIndexedItems(smallGroupedItems), 'group')).toStrictEqual({
+        Components: [{group: 'Components', index: 0, label: 'Alert'}],
+        Primitives: [{group: 'Primitives', index: 1, label: 'Box'}],
+        undefined: [{index: 2, label: 'Design Tokens'}],
+      });
+    });
+  });
+
+  describe('Render', () => {
     it('should render a combobox with aria attributes', () => {
       render(<ComboboxMock />);
       const renderedCombobox = screen.getByRole('combobox');
@@ -219,6 +239,25 @@ describe('Combobox', () => {
       expect(renderedGroups[2].querySelector('[role="group"] > div[role="presentation"]').textContent).toEqual(
         'hi Layout'
       );
+    });
+
+    it('should select item using keyboard', () => {
+      render(<GroupedMockCombobox />);
+      // open the combobox
+      fireEvent.click(screen.getByRole('textbox'));
+      // select the third item using ArrowDown keyDown
+      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'ArrowDown', code: 'ArrowDown'});
+      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'ArrowDown', code: 'ArrowDown'});
+      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'ArrowDown', code: 'ArrowDown'});
+      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'Enter', code: 'Enter'});
+      // @ts-ignore Property 'value' does not exist on type 'HTMLElement' (I get it, but this is right)
+      expect(screen.getByRole('textbox').value).toEqual('Button');
+      // select the first item using ArrowUp keyDown
+      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'ArrowUp', code: 'ArrowUp'});
+      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'ArrowUp', code: 'ArrowUp'});
+      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'Enter', code: 'Enter'});
+      // @ts-ignore Property 'value' does not exist on type 'HTMLElement' (I get it, but this is right)
+      expect(screen.getByRole('textbox').value).toEqual('Alert');
     });
   });
 
