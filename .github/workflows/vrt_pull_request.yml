@@ -37,8 +37,8 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Bootstrap repository
-        run: yarn bootstrap
+      - name: Initialise
+        run: yarn init-repo
       - name: Build packages
         run: yarn build
       - name: Run Chromatic

@@ -4,7 +4,8 @@ import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {Toast} from './Toast';
 import {ToastPortal} from './ToastPortal';
-import {ToasterProps, ToasterPropTypes} from './types';
+import {ToasterPropTypes} from './types';
+import type {ToasterProps} from './types';
 
 export const AnimatedToast = animated(Box);
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import {ValueOf} from '@twilio-paste/types';
+import type {ValueOf} from '@twilio-paste/types';
 import {useReducedMotion} from '@twilio-paste/animation-library';
 import lottie from 'lottie-web';
 import VisibilitySensor from 'react-visibility-sensor';

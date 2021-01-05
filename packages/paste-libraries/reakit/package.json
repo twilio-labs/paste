@@ -7,9 +7,8 @@
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/twilio-paste-reakit-library.cjs.js",
+  "module": "dist/twilio-paste-reakit-library.esm.js",
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
@@ -18,8 +17,6 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn clean && yarn compile",
-    "build:dev": "yarn clean && yarn compile:dev",
     "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
     "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
     "compile": "rollup -c --environment NODE_ENV:production",
@@ -31,6 +28,14 @@
     "reakit-utils": "0.14.3"
   },
   "peerDependencies": {
+    "@babel/runtime": "^7.12.5",
+    "@emotion/core": "10.0.28",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/runtime": "^7.12.5",
+    "@emotion/core": "10.0.28",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }

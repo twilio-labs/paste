@@ -7,9 +7,8 @@
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/twilio-paste-styling-library.cjs.js",
+  "module": "dist/twilio-paste-styling-library.esm.js",
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
@@ -18,25 +17,28 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn clean && yarn compile",
-    "build:dev": "yarn clean && yarn compile:dev",
     "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
     "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
     "compile": "rollup -c --environment NODE_ENV:production",
     "compile:dev": "rollup -c --environment NODE_ENV:development"
   },
   "dependencies": {
+    "@babel/runtime": "^7.12.5",
     "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
     "@styled-system/css": "5.1.5",
     "@styled-system/theme-get": "5.1.2",
     "@types/styled-system": "^5.1.9",
     "@types/styled-system__css": "^5.0.5",
-    "emotion": "10.0.27",
+    "emotion": "^10.0.27",
     "emotion-theming": "^10.0.27",
     "styled-system": "5.1.5"
   },
   "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }

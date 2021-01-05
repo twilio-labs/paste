@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {TableProps, TablePropTypes} from './types';
+import {TablePropTypes} from './types';
+import type {TableProps} from './types';
 
 const Table = React.forwardRef<HTMLTableElement, TableProps>(({tableLayout = 'auto', ...props}, ref) => {
   return (

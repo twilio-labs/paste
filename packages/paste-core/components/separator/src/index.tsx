@@ -1,7 +1,8 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {Space, isMarginTokenProp} from '@twilio-paste/style-props';
+import {isMarginTokenProp} from '@twilio-paste/style-props';
+import type {Space} from '@twilio-paste/style-props';
 
 type Orientation = 'horizontal' | 'vertical';
 export interface SeparatorProps extends React.HTMLAttributes<HTMLHRElement> {

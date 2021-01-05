@@ -5,12 +5,13 @@ import {DefaultTheme, SendGridTheme, ConsoleTheme} from './themes';
 import {pasteGlobalStyles} from './styles/global';
 import {pasteBaseStyles} from './styles/base';
 import {pasteFonts} from './styles/fonts';
+import type {ThemeVariants as Variants} from './constants';
 import {ThemeVariants} from './constants';
 
 export const StyledBase = styled.div(pasteBaseStyles);
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-function getProviderThemeProps(theme: ThemeVariants, customBreakpoints?: string[]): {} {
+function getProviderThemeProps(theme: Variants, customBreakpoints?: string[]): {} {
   switch (theme) {
     case ThemeVariants.SENDGRID:
       return {
@@ -34,7 +35,7 @@ function getProviderThemeProps(theme: ThemeVariants, customBreakpoints?: string[
 
 export interface ThemeProviderProps {
   customBreakpoints?: string[];
-  theme?: ThemeVariants;
+  theme?: Variants;
   disableAnimations?: boolean;
 }
 

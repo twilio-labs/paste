@@ -7,14 +7,16 @@ import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {Box} from '@twilio-paste/box';
 import {InputBox, InputChevronWrapper} from '@twilio-paste/input-box';
 import {Label} from '@twilio-paste/label';
-import {HelpText, HelpTextVariants} from '@twilio-paste/help-text';
-import {InputElement, InputVariants} from '@twilio-paste/input';
+import {HelpText} from '@twilio-paste/help-text';
+import type {HelpTextVariants} from '@twilio-paste/help-text';
+import {InputElement} from '@twilio-paste/input';
+import type {InputVariants} from '@twilio-paste/input';
 import {TextColor} from '@twilio-paste/style-props';
 import {ComboboxInputWrapper} from './ComboboxInputWrapper';
 import {ComboboxListbox} from './ComboboxListbox';
 import {ComboboxListboxGroup} from './ComboboxListboxGroup';
 import {ComboboxListboxOption} from './ComboboxListboxOption';
-import {GroupItemsProps, ItemProps, ItemsProps, ListBoxProps, ComboboxProps} from './types';
+import type {GroupItemsProps, ItemProps, ItemsProps, ListBoxProps, ComboboxProps} from './types';
 import {getIndexedItems, getGroupedItems} from './helpers';
 
 // Fixes chevron overlapping really long text

@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {TooltipPrimitiveArrow, TooltipPrimitiveArrowProps} from '@twilio-paste/tooltip-primitive';
+import {TooltipPrimitiveArrow} from '@twilio-paste/tooltip-primitive';
+import type {TooltipPrimitiveArrowProps} from '@twilio-paste/tooltip-primitive';
 import {useTheme} from '@twilio-paste/theme';
 
 export type TooltipArrowProps = TooltipPrimitiveArrowProps;

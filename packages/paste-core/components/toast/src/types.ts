@@ -1,5 +1,5 @@
 import * as PropTypes from 'prop-types';
-import {ValueOf} from '@twilio-paste/types';
+import type {ValueOf} from '@twilio-paste/types';
 import {ToastVariantObject} from './constants';
 
 export type ToastVariants = ValueOf<typeof ToastVariantObject>;

@@ -27,8 +27,8 @@ jobs:
           GH_USER_NAME: ${{ secrets.GH_USER_NAME }}
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Bootstrap repository
-        run: yarn bootstrap
+      - name: Initialise
+        run: yarn init-repo
       - name: Build packages
         run: yarn build
       - name: Run type checker

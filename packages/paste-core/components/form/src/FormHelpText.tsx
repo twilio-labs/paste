@@ -1,5 +1,6 @@
-import {ValueOf} from '@twilio-paste/types';
-import {HelpText, HelpTextProps, HelpTextVariants} from '@twilio-paste/help-text';
+import type {ValueOf} from '@twilio-paste/types';
+import {HelpText, HelpTextVariants} from '@twilio-paste/help-text';
+import type {HelpTextProps} from '@twilio-paste/help-text';
 
 export const FormHelpTextVariants = HelpTextVariants;
 

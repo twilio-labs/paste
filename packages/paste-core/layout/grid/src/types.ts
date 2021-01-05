@@ -1,5 +1,5 @@
-import {ResponsiveValue} from '@twilio-paste/styling-library';
-import {LayoutProps, FlexboxProps, PaddingProps, Space, SpaceProps} from '@twilio-paste/style-props';
+import type {ResponsiveValue} from '@twilio-paste/styling-library';
+import type {LayoutProps, FlexboxProps, PaddingProps, Space, SpaceProps} from '@twilio-paste/style-props';
 
 export interface GridProps extends SpaceProps {
   as?: keyof JSX.IntrinsicElements;

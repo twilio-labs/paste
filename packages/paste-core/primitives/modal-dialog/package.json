@@ -7,9 +7,8 @@
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/twilio-paste-modal-dialog-primitive.cjs.js",
+  "module": "dist/twilio-paste-modal-dialog-primitive.esm.js",
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
@@ -18,8 +17,6 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn clean && yarn compile",
-    "build:dev": "yarn clean && yarn compile:dev",
     "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
     "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
     "compile": "rollup -c --environment NODE_ENV:production",
@@ -29,6 +26,10 @@
     "@reach/dialog": "0.11.2"
   },
   "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }

@@ -1,4 +1,5 @@
-import {Label, LabelProps} from '@twilio-paste/label';
+import {Label} from '@twilio-paste/label';
+import type {LabelProps} from '@twilio-paste/label';
 
 export type FormLabelProps = LabelProps;
 

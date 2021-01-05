@@ -1,12 +1,14 @@
 export {
   useTabState as useTabPrimitiveState,
+  Tab as TabPrimitive,
+  TabList as TabPrimitiveList,
+  TabPanel as TabPrimitivePanel,
+} from '@twilio-paste/reakit-library';
+export type {
   TabState as TabPrimitiveState,
   TabInitialState as TabPrimitiveInitialState,
   TabStateReturn as TabPrimitiveStateReturn,
-  Tab as TabPrimitive,
   TabProps as TabPrimitiveProps,
-  TabList as TabPrimitiveList,
   TabListProps as TabPrimitiveListProps,
-  TabPanel as TabPrimitivePanel,
   TabPanelProps as TabPrimitivePanelProps,
 } from '@twilio-paste/reakit-library';

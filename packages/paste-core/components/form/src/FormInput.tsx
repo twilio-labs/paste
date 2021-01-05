@@ -1,4 +1,5 @@
-import {Input, InputProps, InputElement} from '@twilio-paste/input';
+import {Input, InputElement} from '@twilio-paste/input';
+import type {InputProps} from '@twilio-paste/input';
 
 export type FormInputProps = InputProps;
 

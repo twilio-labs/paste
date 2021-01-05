@@ -1,6 +1,7 @@
 import * as PropTypes from 'prop-types';
-import {ValueOf} from '@twilio-paste/types';
-import {WidthOptions, isWidthTokenProp} from '@twilio-paste/style-props';
+import type {ValueOf} from '@twilio-paste/types';
+import type {WidthOptions} from '@twilio-paste/style-props';
+import {isWidthTokenProp} from '@twilio-paste/style-props';
 import {TableAlignmentObject, TableLayoutObject, TableVerticalAlignmentObject} from './constants';
 
 export type TableAlignmentOptions = ValueOf<typeof TableAlignmentObject>;

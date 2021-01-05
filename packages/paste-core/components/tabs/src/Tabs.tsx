@@ -1,9 +1,10 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Flex} from '@twilio-paste/flex';
-import {useTabPrimitiveState, TabPrimitiveInitialState, TabPrimitiveStateReturn} from '@twilio-paste/tabs-primitive';
+import {useTabPrimitiveState} from '@twilio-paste/tabs-primitive';
+import type {TabPrimitiveInitialState, TabPrimitiveStateReturn} from '@twilio-paste/tabs-primitive';
 import {TabsContext} from './TabsContext';
-import {Variants} from './types';
+import type {Variants} from './types';
 
 export interface TabStateReturn extends TabPrimitiveStateReturn {
   [key: string]: any;

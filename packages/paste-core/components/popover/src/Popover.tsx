@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {Box, BoxProps, safelySpreadBoxProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxProps} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {StyledBase} from '@twilio-paste/theme';

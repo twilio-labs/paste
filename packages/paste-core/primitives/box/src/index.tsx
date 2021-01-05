@@ -12,7 +12,7 @@ import {
   flexbox,
   system,
 } from '@twilio-paste/styling-library';
-import {
+import type {
   LayoutProps,
   SpaceProps,
   BackgroundProps,
@@ -22,7 +22,7 @@ import {
   FlexboxProps,
   TypographyProps,
 } from '@twilio-paste/style-props';
-import {
+import type {
   CursorProperty,
   AppearanceProperty,
   AnimationProperty,

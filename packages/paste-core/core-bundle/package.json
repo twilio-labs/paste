@@ -7,7 +7,6 @@
   "license": "MIT",
   "main:dev": "src/index.tsx",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
@@ -82,12 +81,24 @@
     "@twilio-paste/uid-library": "^0.1.1"
   },
   "peerDependencies": {
+    "@babel/runtime": "^7.12.5",
+    "@emotion/core": "10.0.28",
     "@twilio-paste/icons": "^3.10.6",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/icons": "^3.10.6"
+    "@babel/runtime": "^7.12.5",
+    "@emotion/core": "10.0.28",
+    "@twilio-paste/icons": "^3.10.6",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "preconstruct": {
+    "entrypoints": [
+      "*"
+    ]
   }
 }

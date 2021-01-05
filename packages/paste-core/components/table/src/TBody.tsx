@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {TBodyProps, TBodyPropTypes} from './types';
+import {TBodyPropTypes} from './types';
+import type {TBodyProps} from './types';
 
 const TBody = React.forwardRef<HTMLTableSectionElement, TBodyProps>((props, ref) => {
   return (

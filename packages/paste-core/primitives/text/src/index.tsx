@@ -11,8 +11,8 @@ import {
   typography,
   verticalAlign,
 } from '@twilio-paste/styling-library';
-import {CursorProperty, OutlineProperty, TextTransformProperty, TransitionProperty} from 'csstype';
-import {
+import type {CursorProperty, OutlineProperty, TextTransformProperty, TransitionProperty} from 'csstype';
+import type {
   Display,
   OverflowProps,
   PositionProps,

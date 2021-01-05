@@ -1,7 +1,9 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {Box, BoxProps} from '@twilio-paste/box';
-import {Space, isMarginTokenProp} from '@twilio-paste/style-props';
+import {Box} from '@twilio-paste/box';
+import type {BoxProps} from '@twilio-paste/box';
+import {isMarginTokenProp} from '@twilio-paste/style-props';
+import type {Space} from '@twilio-paste/style-props';
 
 export interface MediaObjectProps extends Pick<BoxProps, 'as' | 'marginTop' | 'marginBottom'> {
   children: NonNullable<React.ReactNode>;

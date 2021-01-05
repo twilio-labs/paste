@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {styled, compose, flexbox, layout, space} from '@twilio-paste/styling-library';
 import {ResponsiveProp} from '@twilio-paste/style-props';
-import {ColumnProps, ColumnStyleProps} from './types';
+import type {ColumnProps, ColumnStyleProps} from './types';
 import {getStackedColumns, getColumnOffset, getColumnSpan} from './utils';
 
 export const getColumnStyles = (props: ColumnProps): ColumnStyleProps => {

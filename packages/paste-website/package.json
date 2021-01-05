@@ -110,7 +110,7 @@
     "use-resize-observer": "^7.0.0"
   },
   "devDependencies": {
-    "vercel": "^20.1.2"
+    "vercel": "^21.0.1"
   },
   "resolutions": {
     "**/websocket-extensions": "^0.1.4",

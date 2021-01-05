@@ -1,4 +1,4 @@
-import {ThemeShape} from '@twilio-paste/theme';
+import type {ThemeShape} from '@twilio-paste/theme';
 
 const merge = require('lodash.merge');
 

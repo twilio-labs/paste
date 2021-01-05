@@ -5,9 +5,8 @@
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/twilio-paste-types.cjs.js",
+  "module": "dist/twilio-paste-types.esm.js",
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
@@ -16,8 +15,6 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn clean && yarn compile",
-    "build:dev": "yarn clean && yarn compile:dev",
     "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
     "compile": "rollup -c --environment NODE_ENV:production",
     "compile:dev": "rollup -c --environment NODE_ENV:development"
@@ -29,6 +26,9 @@
     "@types/react-dom": "^16.8.4"
   },
   "peerDependencies": {
+    "react": "^16.8.6"
+  },
+  "devDependencies": {
     "react": "^16.8.6"
   }
 }

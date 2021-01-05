@@ -1,4 +1,4 @@
-import {ValueOf} from '@twilio-paste/types';
+import type {ValueOf} from '@twilio-paste/types';
 
 export const ThemeVariants = {
   DEFAULT: 'default',

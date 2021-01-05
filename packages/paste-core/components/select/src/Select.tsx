@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {TextColor} from '@twilio-paste/style-props';
+import type {TextColor} from '@twilio-paste/style-props';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {InputBox, InputChevronWrapper} from '@twilio-paste/input-box';
-import {Variants} from './types';
+import type {Variants} from './types';
 
 export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   children: NonNullable<React.ReactNode>;

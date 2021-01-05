@@ -6,18 +6,14 @@
     "jsx": "react",
     "moduleResolution": "node",
 
-    // These settings are optional
-    "declarationMap": true,
-    "sourceMap": true,
-
     // https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping
     "baseUrl": ".",
 
-    /* 
-    The lib is a special declaration file included by TS. It contains ambient declarations for 
-    common JS constructs that are present in runtimes and the DOM. Based on the target, TS 
-    automatically includes typings for the dom and the ES5 syntax. That’s why we need to 
-    specify ourselves we want typings for es2015 and the dom.  This way we have all the es6 
+    /*
+    The lib is a special declaration file included by TS. It contains ambient declarations for
+    common JS constructs that are present in runtimes and the DOM. Based on the target, TS
+    automatically includes typings for the dom and the ES5 syntax. That’s why we need to
+    specify ourselves we want typings for es2015 and the dom.  This way we have all the es6
     typings while targeting es5.
     */
     "lib": ["es2015", "dom", "scripthost", "es2015.promise"],
@@ -31,6 +27,7 @@
     "newLine": "lf",
     "noErrorTruncation": true,
     "noLib": false,
+    "isolatedModules": true,
     // Process & infer types from .js files.
     "allowJs": false,
     "checkJs": false,

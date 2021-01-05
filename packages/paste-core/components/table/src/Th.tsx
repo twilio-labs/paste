@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {ThProps, ThPropTypes} from './types';
+import {ThPropTypes} from './types';
+import type {ThProps} from './types';
 
 const Th = React.forwardRef<HTMLTableHeaderCellElement, ThProps>(({textAlign = 'left', width, ...props}, ref) => {
   return (

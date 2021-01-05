@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import {TabPrimitiveList} from '@twilio-paste/tabs-primitive';
 import {TabsContext} from './TabsContext';
-import {Variants} from './types';
+import type {Variants} from './types';
 
 interface TabListProps {
   'aria-label': string;

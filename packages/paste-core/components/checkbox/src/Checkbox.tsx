@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {useUID} from '@twilio-paste/uid-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {BackgroundColorOptions, SpaceOptions} from '@twilio-paste/style-props';
+import type {BackgroundColorOptions, SpaceOptions} from '@twilio-paste/style-props';
 import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
 import {MinusIcon} from '@twilio-paste/icons/esm/MinusIcon';
 import {

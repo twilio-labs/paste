@@ -28,10 +28,8 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Bootstrap repository
-        run: yarn bootstrap
-      - name: Build packages
-        run: yarn build
+      - name: Initialise
+        run: yarn init-repo
       - name: Build website
         run: yarn build:website
         env:

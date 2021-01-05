@@ -4,7 +4,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Flex} from '@twilio-paste/flex';
 import {Text} from '@twilio-paste/text';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {TextColor} from '@twilio-paste/style-props';
+import type {TextColor} from '@twilio-paste/style-props';
 
 export type LabelVariants = 'default' | 'inverse';
 export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {

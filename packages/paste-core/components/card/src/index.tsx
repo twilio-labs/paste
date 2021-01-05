@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {PaddingProps, isPaddingTokenProp} from '@twilio-paste/style-props';
+import {isPaddingTokenProp} from '@twilio-paste/style-props';
+import type {PaddingProps} from '@twilio-paste/style-props';
 
 export interface CardProps extends React.HTMLAttributes<HTMLElement>, PaddingProps {}
 

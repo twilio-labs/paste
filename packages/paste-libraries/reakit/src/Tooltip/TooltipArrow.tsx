@@ -1,6 +1,7 @@
 import {createComponent} from 'reakit-system/createComponent';
 import {createHook} from 'reakit-system/createHook';
-import {PopoverArrowOptions, PopoverArrowHTMLProps, usePopoverArrow} from '../Popover/PopoverArrow';
+import {usePopoverArrow} from '../Popover/PopoverArrow';
+import type {PopoverArrowOptions, PopoverArrowHTMLProps} from '../Popover/PopoverArrow';
 import {TOOLTIP_ARROW_KEYS} from './__keys';
 
 export type TooltipArrowOptions = PopoverArrowOptions;

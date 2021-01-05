@@ -31,8 +31,6 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Bootstrap repository
-        run: yarn bootstrap
       - name: Build packages
         run: yarn build
       - name: Run type checker
@@ -65,10 +63,6 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies
         run: yarn install
-      - name: Bootstrap repository
-        run: yarn bootstrap
-      - name: Build packages
-        run: yarn build
       - name: Run eslint
         run: yarn lint
   build_and_tests:
@@ -99,10 +93,6 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies
         run: yarn install
-      - name: Bootstrap repository
-        run: yarn bootstrap
-      - name: Build packages
-        run: yarn build
       - name: Run tests
         run: yarn test
   build_and_prettier:
@@ -133,9 +123,7 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies
         run: yarn install
-      - name: Bootstrap repository
-        run: yarn bootstrap
-      - name: Build packages
-        run: yarn build
+      - name: Initialise
+        run: yarn init-repo
       - name: Run prettier
         run: yarn prettier

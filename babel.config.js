@@ -1,4 +1,4 @@
-const getPresets = isDev => [
+const getPresets = (isDev) => [
   [
     '@babel/preset-env',
     {
@@ -27,12 +27,15 @@ const getPresets = isDev => [
 
 const BASE_PLUGINS = [
   'macros',
+  'emotion',
   '@babel/proposal-class-properties',
   '@babel/proposal-object-rest-spread',
   '@babel/plugin-transform-runtime',
 ];
 
 module.exports = {
+  presets: getPresets(true),
+  plugins: BASE_PLUGINS,
   env: {
     production: {
       presets: getPresets(false),

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {ValueOf} from '@twilio-paste/types';
+import type {ValueOf} from '@twilio-paste/types';
 import {Box} from '@twilio-paste/box';
 import {Flex} from '@twilio-paste/flex';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';

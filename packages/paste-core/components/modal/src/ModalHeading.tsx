@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {Heading, HeadingProps} from '@twilio-paste/heading';
+import {Heading} from '@twilio-paste/heading';
+import type {HeadingProps} from '@twilio-paste/heading';
 
 export interface ModalHeadingProps extends Omit<HeadingProps, 'marginBottom' | 'variant' | 'as'> {
   children: NonNullable<React.ReactNode>;

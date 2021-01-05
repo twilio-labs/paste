@@ -2,7 +2,8 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Text} from '@twilio-paste/text';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {IconSize, isIconSizeTokenProp} from '@twilio-paste/style-props';
+import type {IconSize} from '@twilio-paste/style-props';
+import {isIconSizeTokenProp} from '@twilio-paste/style-props';
 import {getComputedTokenNames, getInitialsFromName} from './utils';
 
 export interface AvatarProps extends React.HTMLAttributes<'div'> {

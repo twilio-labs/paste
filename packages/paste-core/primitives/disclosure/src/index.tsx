@@ -2,8 +2,10 @@
 export {
   useDisclosureState as useDisclosurePrimitiveState,
   Disclosure as DisclosurePrimitive,
-  DisclosureProps as DisclosurePrimitiveProps,
   DisclosureContent as DisclosurePrimitiveContent,
+} from '@twilio-paste/reakit-library';
+export type {
+  DisclosureProps as DisclosurePrimitiveProps,
   DisclosureContentProps as DisclosurePrimitiveContentProps,
   DisclosureState as DisclosurePrimitiveState,
   DisclosureInitialState as DisclosurePrimitiveInitialState,

@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import {FieldWrapper} from './FauxInput';
 import {Prefix} from './Prefix';
 import {Suffix} from './Suffix';
-import {InputTypes, Variants} from './types';
+import type {InputTypes, Variants} from './types';
 
 export interface InputBoxProps {
   children: NonNullable<React.ReactNode>;

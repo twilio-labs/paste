@@ -1,6 +1,7 @@
 import * as PropTypes from 'prop-types';
 import {styled, css} from '@twilio-paste/styling-library';
-import {Box, BoxProps, BoxStyleProps} from '@twilio-paste/box';
+import {Box} from '@twilio-paste/box';
+import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
 
 export interface SiblingBoxProps extends BoxProps {
   _activeSibling?: BoxStyleProps;

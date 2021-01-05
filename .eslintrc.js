@@ -79,7 +79,7 @@ module.exports = {
     'import/no-extraneous-dependencies': [
       'error',
       {
-        packageDir: [path.join(__dirname, './'), ...cachedPackages.map(package => package.location)],
+        packageDir: [path.join(__dirname, './'), ...cachedPackages.map((package) => package.location)],
       },
     ],
     'react/jsx-curly-brace-presence': 0,
@@ -98,6 +98,7 @@ module.exports = {
         depth: 3,
       },
     ],
+    'arrow-body-style': 0,
   },
   settings: {
     'import/resolver': {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {uid} from '@twilio-paste/uid-library';
-import {ToasterToast, ToasterPush, UseToasterReturnedProps} from './types';
+import type {ToasterToast, ToasterPush, UseToasterReturnedProps} from './types';
 
 export const useToaster = (): UseToasterReturnedProps => {
   const [toasts, setToasts] = React.useState<ToasterToast[]>([]);

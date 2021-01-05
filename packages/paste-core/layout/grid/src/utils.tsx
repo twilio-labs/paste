@@ -1,6 +1,6 @@
-import {ResponsiveValue} from '@twilio-paste/styling-library';
-import {Margin, Space, SpaceOptions} from '@twilio-paste/style-props';
-import {
+import type {ResponsiveValue} from '@twilio-paste/styling-library';
+import type {Margin, Space, SpaceOptions} from '@twilio-paste/style-props';
+import type {
   ColumnOffset,
   ColumnOffsetOptions,
   ColumnProps,

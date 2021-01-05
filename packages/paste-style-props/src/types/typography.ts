@@ -1,7 +1,7 @@
 // https://styled-system.com/api/#typography
 import * as CSS from 'csstype';
-import {ThemeShape} from '@twilio-paste/theme';
-import {ResponsiveValue, TLengthStyledSystem} from '@twilio-paste/styling-library';
+import type {ThemeShape} from '@twilio-paste/theme';
+import type {ResponsiveValue, TLengthStyledSystem} from '@twilio-paste/styling-library';
 
 // Tokens
 export type FontFamilyOptions = keyof ThemeShape['fonts'] | 'inherit';

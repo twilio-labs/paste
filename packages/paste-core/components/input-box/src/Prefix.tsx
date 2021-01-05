@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
-import {BackgroundColor, BorderColor} from '@twilio-paste/style-props';
-import {Variants} from './types';
+import type {BackgroundColor, BorderColor} from '@twilio-paste/style-props';
+import type {Variants} from './types';
 
 export interface PrefixProps {
   children: NonNullable<React.ReactNode>;

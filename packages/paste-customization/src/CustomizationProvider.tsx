@@ -1,9 +1,10 @@
 import * as React from 'react';
 import {useReducedMotion, Globals as AnimatedGlobals} from '@twilio-paste/animation-library';
 import {StylingGlobals, ThemeProvider as StyledThemeProvider} from '@twilio-paste/styling-library';
-import {pasteGlobalStyles, StyledBase, DefaultTheme, ThemeProviderProps} from '@twilio-paste/theme';
+import {pasteGlobalStyles, StyledBase, DefaultTheme} from '@twilio-paste/theme';
+import type {ThemeProviderProps} from '@twilio-paste/theme';
 import {createCustomTheme} from './utils';
-import {CustomTheme} from './types';
+import type {CustomTheme} from './types';
 
 export interface CustomizationProviderProps {
   customBreakpoints?: ThemeProviderProps['customBreakpoints'];

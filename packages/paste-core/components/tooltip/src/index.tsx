@@ -1,16 +1,12 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {useUID} from '@twilio-paste/uid-library';
-import {Box, BoxProps, safelySpreadBoxProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxProps} from '@twilio-paste/box';
 import {StyledBase} from '@twilio-paste/theme';
 import {Text} from '@twilio-paste/text';
-import {
-  TooltipPrimitiveInitialState,
-  useTooltipPrimitiveState,
-  TooltipPrimitive,
-  TooltipPrimitiveReference,
-  TooltipPrimitiveStateReturn,
-} from '@twilio-paste/tooltip-primitive';
+import {useTooltipPrimitiveState, TooltipPrimitive, TooltipPrimitiveReference} from '@twilio-paste/tooltip-primitive';
+import type {TooltipPrimitiveInitialState, TooltipPrimitiveStateReturn} from '@twilio-paste/tooltip-primitive';
 import {TooltipArrow} from './TooltipArrow';
 
 const StyledTooltip = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...props}, ref) => {
