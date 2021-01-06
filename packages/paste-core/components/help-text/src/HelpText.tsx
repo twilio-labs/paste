@@ -53,7 +53,7 @@ const HelpText = React.forwardRef<HTMLDivElement, HelpTextProps>(({marginTop, ch
   }
 
   return (
-    <Flex vAlignContent="center" marginTop={marginTop || 'space30'} ref={ref}>
+    <Flex marginTop={marginTop || 'space30'} ref={ref}>
       {icon}
       <Text
         {...safelySpreadTextProps(props)}

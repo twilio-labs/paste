@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/help-text",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "category": "user input",
   "status": "beta",
   "description": "Help text that can be paired with a Paste form component",
