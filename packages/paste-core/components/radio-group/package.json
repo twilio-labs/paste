@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/radio-group",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "category": "user input",
   "status": "production",
   "description": "A radio group is used for selecting a single choice from a list of at least two options",
@@ -26,13 +26,13 @@
     "compile:dev": "rollup -c --environment NODE_ENV:development"
   },
   "peerDependencies": {
-    "@twilio-paste/base-radio-checkbox": "^2.0.1",
+    "@twilio-paste/base-radio-checkbox": "^2.0.2",
     "@twilio-paste/box": "^2.12.1",
     "@twilio-paste/design-tokens": "^6.4.0",
     "@twilio-paste/flex": "^0.4.5",
-    "@twilio-paste/help-text": "^2.0.1",
+    "@twilio-paste/help-text": "^2.0.2",
     "@twilio-paste/icons": "^3.10.5",
-    "@twilio-paste/inline-control-group": "^2.0.1",
+    "@twilio-paste/inline-control-group": "^2.0.2",
     "@twilio-paste/label": "^2.0.1",
     "@twilio-paste/screen-reader-only": "^2.0.1",
     "@twilio-paste/sibling-box": "^1.1.16",
@@ -47,13 +47,13 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/base-radio-checkbox": "^2.0.1",
+    "@twilio-paste/base-radio-checkbox": "^2.0.2",
     "@twilio-paste/box": "^2.12.1",
     "@twilio-paste/design-tokens": "^6.4.0",
     "@twilio-paste/flex": "^0.4.5",
-    "@twilio-paste/help-text": "^2.0.1",
+    "@twilio-paste/help-text": "^2.0.2",
     "@twilio-paste/icons": "^3.10.5",
-    "@twilio-paste/inline-control-group": "^2.0.1",
+    "@twilio-paste/inline-control-group": "^2.0.2",
     "@twilio-paste/label": "^2.0.1",
     "@twilio-paste/screen-reader-only": "^2.0.1",
     "@twilio-paste/sibling-box": "^1.1.16",
