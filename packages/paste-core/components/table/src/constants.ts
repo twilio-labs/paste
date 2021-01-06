@@ -9,6 +9,11 @@ export const TableLayoutObject = {
   FIXED: 'fixed',
 } as const;
 
+export const TableVariantObject = {
+  DEFAULT: 'default',
+  BORDERLESS: 'borderless',
+} as const;
+
 export const TableVerticalAlignmentObject = {
   TOP: 'top',
   MIDDLE: 'middle',

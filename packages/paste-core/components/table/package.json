@@ -2,7 +2,7 @@
   "name": "@twilio-paste/table",
   "version": "0.1.15",
   "category": "data display",
-  "status": "alpha",
+  "status": "beta",
   "description": "The Table is used to represent static tabular data.",
   "author": "Twilio Inc.",
   "license": "MIT",

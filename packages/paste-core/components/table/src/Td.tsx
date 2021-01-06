@@ -18,12 +18,6 @@ const Td = React.forwardRef<HTMLTableCellElement, TdProps>(({textAlign = 'left',
       textAlign={textAlign}
       verticalAlign="inherit"
       wordWrap="break-word"
-      _first={{
-        paddingLeft: 'space50',
-      }}
-      _last={{
-        paddingRight: 'space50',
-      }}
     />
   );
 });
