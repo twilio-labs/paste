@@ -68,7 +68,7 @@ const AutocompleteComboboxPrimitive: React.FC = () => {
   } = useComboboxPrimitive({
     items: inputItems,
     onInputValueChange: ({inputValue}) => {
-      setInputItems(items.filter(item => item.toLowerCase().startsWith(inputValue.toLowerCase())));
+      setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
     },
   });
   const uid = useUID();
@@ -128,7 +128,7 @@ const NonHookComboboxPrimitive: React.FC = () => {
           <ul {...getMenuProps()}>
             {isOpen
               ? items
-                  .filter(item => !inputValue || item.includes(inputValue))
+                  .filter((item) => !inputValue || item.includes(inputValue))
                   .map((item, index) => (
                     <li
                       {...getItemProps({

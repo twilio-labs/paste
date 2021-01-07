@@ -22,7 +22,7 @@ const groupBy = require('lodash.groupby');
 // Fixes chevron overlapping really long text
 // Extra right padding is removed when autocomplete is true
 /* eslint-disable emotion/syntax-preference */
-const StyledInputAsSelect = styled(InputElement)<ComboboxProps>(props =>
+const StyledInputAsSelect = styled(InputElement)<ComboboxProps>((props) =>
   css({
     paddingRight: !props.autocomplete ? 'space100' : null,
   })
@@ -78,7 +78,7 @@ const GroupedItems = React.forwardRef<HTMLDivElement, GroupItemsProps>(
 
     return (
       <>
-        {groupedItemKeys.map(groupedItemKey => {
+        {groupedItemKeys.map((groupedItemKey) => {
           // These items are categorized as ungrouped
           if (groupedItemKey === 'undefined') {
             return groupedItems[groupedItemKey].map((item: ItemType, index: number) => (
@@ -233,7 +233,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
             <StyledInputAsSelect
               {...getToggleButtonProps({tabIndex: 0})}
               {...getInputProps({disabled, ref})}
-              {...(!autocomplete ? {onChange: event => event.preventDefault()} : undefined)}
+              {...(!autocomplete ? {onChange: (event) => event.preventDefault()} : undefined)}
               autocomplete={autocomplete}
               aria-describedby={helpTextId}
               {...props}

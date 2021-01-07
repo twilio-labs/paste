@@ -18,7 +18,7 @@ const getGutterStyles = (gutter?: Space): MarginProps => {
 type GetFlexDirectionReturn = 'column' | 'row';
 const getFlexDirection = (vertical: GridProps['vertical']): GetFlexDirectionReturn[] | GetFlexDirectionReturn => {
   if (Array.isArray(vertical)) {
-    return vertical.map(value => {
+    return vertical.map((value) => {
       if (typeof value === 'boolean') {
         return value === true ? 'column' : 'row';
       }
@@ -37,7 +37,7 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
   ({as, children, equalColumnHeights, gutter, marginTop, marginBottom, vertical, ...props}, ref) => {
     const GridColumns = React.useMemo(
       () =>
-        React.Children.map(children, child =>
+        React.Children.map(children, (child) =>
           React.isValidElement(child)
             ? React.cloneElement(child, {
                 count: React.Children.count(children),

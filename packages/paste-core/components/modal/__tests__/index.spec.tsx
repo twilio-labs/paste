@@ -78,7 +78,7 @@ const MockInitalFocusModal: React.FC = () => {
               id={inputID}
               value={name}
               ref={nameInputRef}
-              onChange={e => setName(e.currentTarget.value)}
+              onChange={(e) => setName(e.currentTarget.value)}
               type="text"
             />
           </Box>

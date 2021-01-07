@@ -32,7 +32,7 @@ const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGr
         </Label>
         {helpText && <HelpText marginTop="space0">{helpText}</HelpText>}
         <Box marginLeft="space20" marginRight="space20" marginTop="space40">
-          {React.Children.map(children, child => {
+          {React.Children.map(children, (child) => {
             return (
               <Box
                 display={orientation === 'horizontal' ? 'inline-block' : 'block'}

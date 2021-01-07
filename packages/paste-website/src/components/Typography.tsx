@@ -18,7 +18,7 @@ export const P: React.FC<PProps> = ({children, variant}) => {
   );
 };
 
-export const Pre: React.FC = props => {
+export const Pre: React.FC = (props) => {
   return (
     <Text as="pre" fontSize="fontSize20" marginBottom="space70" lineHeight="lineHeight30">
       {props.children}
@@ -26,7 +26,7 @@ export const Pre: React.FC = props => {
   );
 };
 
-export const InlineCode: React.FC = props => {
+export const InlineCode: React.FC = (props) => {
   return (
     <Box
       as="code"

@@ -8,7 +8,7 @@ interface GetStartedCardLinksProps {
 }
 export const GetStartedCardLinks = React.forwardRef<HTMLDivElement, GetStartedCardLinksProps>(
   ({children, vertical}, ref) => {
-    const WrappedLinks = React.Children.map(children, child => {
+    const WrappedLinks = React.Children.map(children, (child) => {
       return <Column>{child}</Column>;
     });
     // Grid must have children, but Children.map is typed to possibly return null

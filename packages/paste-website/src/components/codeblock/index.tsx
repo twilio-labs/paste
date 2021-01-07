@@ -3,7 +3,7 @@ import {styled, themeGet} from '@twilio-paste/styling-library';
 import Highlight, {defaultProps} from 'prism-react-renderer';
 import {CodeblockTheme} from '../shortcodes/live-preview/theme';
 
-const StyledCode = styled.code(props => ({
+const StyledCode = styled.code((props) => ({
   display: 'block',
   borderRadius: themeGet('radii.borderRadius20')(props),
   height: '100%',

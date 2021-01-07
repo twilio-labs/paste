@@ -150,7 +150,7 @@ storiesOf('Components|Combobox', module)
         labelText="Choose a component:"
         onInputValueChange={({inputValue}) => {
           if (inputValue !== undefined) {
-            setInputItems(items.filter(item => item.toLowerCase().startsWith(inputValue.toLowerCase())));
+            setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
           }
         }}
       />
@@ -315,7 +315,7 @@ storiesOf('Components|Combobox', module)
           initialSelectedItem={inputItems[5]}
           onInputValueChange={({inputValue}) => {
             if (inputValue !== undefined) {
-              setInputItems(items.filter(item => item.toLowerCase().startsWith(inputValue.toLowerCase())));
+              setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
             }
           }}
         />
@@ -350,7 +350,7 @@ storiesOf('Components|Combobox', module)
           }}
           itemToString={(item: ObjectItem) => (item ? item.label : null)}
           selectedItem={selectedItem}
-          onSelectedItemChange={changes => {
+          onSelectedItemChange={(changes) => {
             setSelectedItem(changes.selectedItem);
           }}
           inputValue={value}
@@ -369,8 +369,8 @@ storiesOf('Components|Combobox', module)
     const [inputItems, setInputItems] = React.useState(objectItems);
     const {reset, ...state} = useCombobox({
       items: inputItems,
-      itemToString: item => (item ? item.label : null),
-      onSelectedItemChange: changes => {
+      itemToString: (item) => (item ? item.label : null),
+      onSelectedItemChange: (changes) => {
         setSelectedItem(changes.selectedItem);
       },
       onInputValueChange: ({inputValue}) => {
@@ -520,7 +520,7 @@ storiesOf('Components|Combobox', module)
         </Box>
         <Box marginBottom="space50">
           <Label htmlFor={selectID}>Text input</Label>
-          <Select id={selectID} onChange={e => setSelectValue(e.currentTarget.value)} value={selectValue}>
+          <Select id={selectID} onChange={(e) => setSelectValue(e.currentTarget.value)} value={selectValue}>
             <Option value="">Select an option</Option>
             <Option value="1">Option 1</Option>
             <Option value="2">Option 2</Option>

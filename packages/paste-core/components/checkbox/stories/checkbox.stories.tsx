@@ -22,7 +22,7 @@ storiesOf('Components|Checkbox', module)
         value="1"
         name="foo"
         checked={checked}
-        onChange={event => {
+        onChange={(event) => {
           setChecked(event.target.checked);
         }}
       >
@@ -46,7 +46,7 @@ storiesOf('Components|Checkbox', module)
         disabled
         checked={checked}
         name="foo"
-        onChange={event => {
+        onChange={(event) => {
           setChecked(event.target.checked);
         }}
       >
@@ -70,7 +70,7 @@ storiesOf('Components|Checkbox', module)
         name="foo"
         hasError
         checked={checked}
-        onChange={event => {
+        onChange={(event) => {
           setChecked(event.target.checked);
         }}
       >
@@ -109,7 +109,7 @@ storiesOf('Components|Checkbox', module)
         value="1"
         name="foo"
         checked={checked}
-        onChange={event => {
+        onChange={(event) => {
           setChecked(event.target.checked);
         }}
         isSelectAll
@@ -180,7 +180,7 @@ storiesOf('Components|Checkbox', module)
             id={useUID()}
             value="1"
             checked={checked1}
-            onChange={event => {
+            onChange={(event) => {
               setChecked1(event.currentTarget.checked);
             }}
             helpText={
@@ -193,7 +193,7 @@ storiesOf('Components|Checkbox', module)
           </Checkbox>
           <Checkbox
             checked={checked2}
-            onChange={event => {
+            onChange={(event) => {
               setChecked2(event.currentTarget.checked);
             }}
             id={useUID()}
@@ -204,7 +204,7 @@ storiesOf('Components|Checkbox', module)
           </Checkbox>
           <Checkbox
             checked={checked3}
-            onChange={event => {
+            onChange={(event) => {
               setChecked3(event.currentTarget.checked);
             }}
             id={useUID()}
@@ -340,21 +340,21 @@ storiesOf('Components|Checkbox', module)
           checked={allChecked}
           indeterminate={indeterminate}
           ref={checkboxRef}
-          onChange={e => setCheckedItems([e.target.checked, e.target.checked])}
+          onChange={(e) => setCheckedItems([e.target.checked, e.target.checked])}
         >
           Select all
         </Checkbox>
         <Checkbox
           id={useUID()}
           checked={checkedItems[0]}
-          onChange={e => setCheckedItems([e.target.checked, checkedItems[1]])}
+          onChange={(e) => setCheckedItems([e.target.checked, checkedItems[1]])}
         >
           Snacks
         </Checkbox>
         <Checkbox
           id={useUID()}
           checked={checkedItems[1]}
-          onChange={e => setCheckedItems([checkedItems[0], e.target.checked])}
+          onChange={(e) => setCheckedItems([checkedItems[0], e.target.checked])}
         >
           Drinks
         </Checkbox>
@@ -380,21 +380,21 @@ storiesOf('Components|Checkbox', module)
             checked={allChecked}
             indeterminate={indeterminate}
             ref={checkboxRef}
-            onChange={e => setCheckedItems([e.target.checked, e.target.checked])}
+            onChange={(e) => setCheckedItems([e.target.checked, e.target.checked])}
           >
             Select all
           </Checkbox>
           <Checkbox
             id={useUID()}
             checked={checkedItems[0]}
-            onChange={e => setCheckedItems([e.target.checked, checkedItems[1]])}
+            onChange={(e) => setCheckedItems([e.target.checked, checkedItems[1]])}
           >
             Snacks
           </Checkbox>
           <Checkbox
             id={useUID()}
             checked={checkedItems[1]}
-            onChange={e => setCheckedItems([checkedItems[0], e.target.checked])}
+            onChange={(e) => setCheckedItems([checkedItems[0], e.target.checked])}
           >
             Drinks
           </Checkbox>
@@ -404,21 +404,21 @@ storiesOf('Components|Checkbox', module)
             id={useUID()}
             checked={allChecked2}
             indeterminate={indeterminate2}
-            onChange={e => setCheckedItems2([e.target.checked, e.target.checked])}
+            onChange={(e) => setCheckedItems2([e.target.checked, e.target.checked])}
           >
             Select all
           </Checkbox>
           <Checkbox
             id={useUID()}
             checked={checkedItems2[0]}
-            onChange={e => setCheckedItems2([e.target.checked, checkedItems2[1]])}
+            onChange={(e) => setCheckedItems2([e.target.checked, checkedItems2[1]])}
           >
             Snacks
           </Checkbox>
           <Checkbox
             id={useUID()}
             checked={checkedItems2[1]}
-            onChange={e => setCheckedItems2([checkedItems2[0], e.target.checked])}
+            onChange={(e) => setCheckedItems2([checkedItems2[0], e.target.checked])}
           >
             Drinks
           </Checkbox>
@@ -441,21 +441,21 @@ storiesOf('Components|Checkbox', module)
           checked={allChecked}
           indeterminate={indeterminate}
           ref={checkboxRef}
-          onChange={e => setCheckedItems([e.target.checked, e.target.checked])}
+          onChange={(e) => setCheckedItems([e.target.checked, e.target.checked])}
         >
           Select all
         </Checkbox>
         <Checkbox
           id={useUID()}
           checked={checkedItems[0]}
-          onChange={e => setCheckedItems([e.target.checked, checkedItems[1]])}
+          onChange={(e) => setCheckedItems([e.target.checked, checkedItems[1]])}
         >
           Snacks
         </Checkbox>
         <Checkbox
           id={useUID()}
           checked={checkedItems[1]}
-          onChange={e => setCheckedItems([checkedItems[0], e.target.checked])}
+          onChange={(e) => setCheckedItems([checkedItems[0], e.target.checked])}
         >
           Drinks
         </Checkbox>

@@ -31,12 +31,12 @@ const convertToSketchPaletteColor = (input: string): {[key: string]: number} => 
 const convertColorArray = (result: ImmutableStyleMap): SketchPaletteColor[] =>
   result
     .get('props')
-    .sortBy(prop => {
+    .sortBy((prop) => {
       if (prop !== undefined) {
         return prop.get('name');
       }
     })
-    .map(prop => {
+    .map((prop) => {
       if (prop === undefined) return Immutable.Map();
       const value = prop.get('value');
       const name = prop.get('name');
