@@ -18,7 +18,7 @@ const categoryTemplate = (categoryName: string, props: Token[]): string => `expo
   categoryName
 )}: {
 ${props
-  .map(prop => {
+  .map((prop) => {
     const value = isNumeric(prop.value) ? prop.value : `"${prop.value}"`;
     return `  ${lodash.camelCase(prop.name)}: ${value};`;
   })

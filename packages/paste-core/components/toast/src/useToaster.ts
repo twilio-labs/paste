@@ -6,8 +6,8 @@ export const useToaster = (): UseToasterReturnedProps => {
   const [toasts, setToasts] = React.useState<ToasterToast[]>([]);
 
   const pop = (id: ToasterToast['id']): void => {
-    setToasts(currentToasts =>
-      currentToasts.filter(toast => {
+    setToasts((currentToasts) =>
+      currentToasts.filter((toast) => {
         // if the target toast has a related timeOut, clear that timeout as it's no longer needed
         if (toast.id === id && toast.timeOutId) {
           window.clearTimeout(toast.timeOutId);
@@ -28,7 +28,7 @@ export const useToaster = (): UseToasterReturnedProps => {
     // We set a new toast to always setFocus. For all the existing toasts in the stack, we need to clear setFocus
     // without creating a new state object. If you create a new state object, you cause react spring to rerun
     // all the animations for the entire stack. So we mutate existing state instead.
-    const existingToasts = toasts.map(toast => {
+    const existingToasts = toasts.map((toast) => {
       const tmpToast = toast;
       tmpToast.setFocus = false;
       return tmpToast;

@@ -39,7 +39,7 @@ storiesOf('Components|Input', module)
           required={isRequired}
           type={inputTypeValue}
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -61,7 +61,7 @@ storiesOf('Components|Input', module)
           type="text"
           placeholder="Placeholder"
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -85,7 +85,7 @@ storiesOf('Components|Input', module)
           type="text"
           placeholder="Placeholder"
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -111,7 +111,7 @@ storiesOf('Components|Input', module)
           placeholder="Placeholder"
           required
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -136,7 +136,7 @@ storiesOf('Components|Input', module)
           placeholder="Placeholder"
           required
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -160,7 +160,7 @@ storiesOf('Components|Input', module)
           placeholder="Placeholder"
           hasError
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -183,7 +183,7 @@ storiesOf('Components|Input', module)
           placeholder="Placeholder"
           hasError
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -214,7 +214,7 @@ storiesOf('Components|Input', module)
           placeholder="Placeholder"
           hasError
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -240,7 +240,7 @@ storiesOf('Components|Input', module)
           placeholder="Placeholder"
           hasError
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -271,7 +271,7 @@ storiesOf('Components|Input', module)
           type="text"
           disabled
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -296,7 +296,7 @@ storiesOf('Components|Input', module)
           placeholder="Placeholder"
           disabled
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -319,7 +319,7 @@ storiesOf('Components|Input', module)
           type="text"
           readOnly
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -344,7 +344,7 @@ storiesOf('Components|Input', module)
           placeholder="Placeholder"
           readOnly
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -365,7 +365,7 @@ storiesOf('Components|Input', module)
           id={uid}
           type="hidden"
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -384,7 +384,7 @@ storiesOf('Components|Input', module)
           id={uid}
           type="hidden"
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -405,7 +405,7 @@ storiesOf('Components|Input', module)
           id={uid}
           type="text"
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -434,7 +434,7 @@ storiesOf('Components|Input', module)
           id={uid}
           type="text"
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -465,7 +465,7 @@ storiesOf('Components|Input', module)
           type="text"
           placeholder="Placeholder"
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -500,7 +500,7 @@ storiesOf('Components|Input', module)
           type="text"
           placeholder="Placeholder"
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -535,7 +535,7 @@ storiesOf('Components|Input', module)
           placeholder="Placeholder"
           hasError
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -557,7 +557,7 @@ storiesOf('Components|Input', module)
           type="text"
           placeholder="Placeholder"
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -580,7 +580,7 @@ storiesOf('Components|Input', module)
           type="text"
           placeholder="Placeholder"
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}

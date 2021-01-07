@@ -41,7 +41,7 @@ const ConditionallyRenderingExample: React.FC = () => {
       <DisclosurePrimitive {...disclosure}>Toggle</DisclosurePrimitive>
       {/* instead of {disclosure.visible && <DisclosureContent {...disclosure}>Content</DisclosureContent>} */}
       <DisclosurePrimitiveContent {...disclosure}>
-        {props => disclosure.visible && <div {...props}>Content</div>}
+        {(props) => disclosure.visible && <div {...props}>Content</div>}
       </DisclosurePrimitiveContent>
     </>
   );
@@ -70,7 +70,7 @@ const MultipleExample: React.FC = () => {
       <Separator orientation="horizontal" />
 
       <DisclosurePrimitive {...disclosure1}>
-        {props => (
+        {(props) => (
           <DisclosurePrimitive {...props} {...disclosure2}>
             Toggle All
           </DisclosurePrimitive>

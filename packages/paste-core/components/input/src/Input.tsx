@@ -34,7 +34,7 @@ interface TypeProps {
 }
 
 /* eslint-disable emotion/syntax-preference */
-export const InputElement = styled.input<InputProps>(props =>
+export const InputElement = styled.input<InputProps>((props) =>
   css({
     appearance: 'none',
     background: 'transparent',

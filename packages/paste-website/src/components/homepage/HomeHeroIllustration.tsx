@@ -47,7 +47,7 @@ const HomeHeroIllustration: React.FC = () => {
       // Dynamically import the animation so we don't load a huge json blob for everyone
       // @ts-ignore
       import('../../assets/animations/homepage-hero-animation.json')
-        .then(animationData => {
+        .then((animationData) => {
           if (containerRef.current != null) {
             const anim = lottie.loadAnimation({
               // @ts-ignore

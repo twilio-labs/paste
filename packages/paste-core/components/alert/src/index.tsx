@@ -98,7 +98,7 @@ if (process.env.NODE_ENV === 'development') {
     children: PropTypes.node.isRequired,
     onDismiss: PropTypes.func,
     role: PropTypes.string,
-    variant: PropTypes.oneOf(Object.keys(AlertVariants).map(variant => AlertVariants[variant])).isRequired,
+    variant: PropTypes.oneOf(Object.keys(AlertVariants).map((variant) => AlertVariants[variant])).isRequired,
   };
 }
 export {Alert};

@@ -198,7 +198,7 @@ describe('Checkbox event handlers', () => {
           id="foo"
           name="foo"
           checked={checked}
-          onChange={event => {
+          onChange={(event) => {
             setChecked(event.target.checked);
           }}
         >

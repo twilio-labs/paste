@@ -53,12 +53,12 @@ export const formatGroupTokensWithTemplate = (
     .map((cat: string): string | null => {
       const catProps = tokens
         .get('props')
-        .sortBy(prop => {
+        .sortBy((prop) => {
           if (prop !== undefined) {
             return prop.get('name');
           }
         })
-        .filter(prop => prop !== undefined && cat === prop.get('category'))
+        .filter((prop) => prop !== undefined && cat === prop.get('category'))
         .toJS();
 
       if (typeof cat === 'string') {

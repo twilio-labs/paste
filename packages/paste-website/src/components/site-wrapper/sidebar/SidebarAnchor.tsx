@@ -9,7 +9,7 @@ interface SidebarAnchorProps {
   onClick?: () => void;
 }
 
-const StyledSidebarAnchor = styled(Link)<SidebarAnchorProps>(props =>
+const StyledSidebarAnchor = styled(Link)<SidebarAnchorProps>((props) =>
   css({
     position: 'relative',
     display: 'block',

@@ -7,7 +7,7 @@ export const formatSingleTokensWithTemplate = (
 ): string => {
   return tokens
     .get('props')
-    .sortBy(prop => {
+    .sortBy((prop) => {
       if (prop !== undefined) {
         return prop.get('name');
       }

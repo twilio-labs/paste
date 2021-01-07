@@ -11,13 +11,13 @@ interface GetFunc {
 export const get: GetFunc = (object, key, fallback) => {
   const keyAsArray = key && typeof key === 'string' ? key.split('.') : [key];
   let values: any = object;
-  keyAsArray.forEach(k => {
+  keyAsArray.forEach((k) => {
     values = values ? values[k] : undefined;
   });
   return values === undefined ? fallback : values;
 };
 
-const defaultBreakpoints = [40, 52, 64].map(n => `${n}em`);
+const defaultBreakpoints = [40, 52, 64].map((n) => `${n}em`);
 
 const defaultTheme = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
@@ -159,7 +159,7 @@ const transforms = [
 export const responsive = (styles: JSON) => (theme: JSON) => {
   const next = {};
   const breakpoints = (get(theme, 'breakpoints', defaultBreakpoints) as unknown) as [];
-  const mediaQueries = [null, ...breakpoints.map(n => `@media screen and (min-width: ${n})`)];
+  const mediaQueries = [null, ...breakpoints.map((n) => `@media screen and (min-width: ${n})`)];
 
   // eslint-disable-next-line guard-for-in,no-restricted-syntax
   for (const key in styles) {

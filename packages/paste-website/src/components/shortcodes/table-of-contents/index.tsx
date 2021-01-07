@@ -24,18 +24,20 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
   return (
     <Box as="nav" aria-label="document outline">
       <StyledScrollSpy items={headingsList} currentClassName="is-current" rootEl="main">
-        {// Get heading anchors and convert to #anchor format. Excluding h1 elements.
-        headings.filter(shouldIncludeInToC).map(({value, depth}) => {
-          const headingLink = `#${slugify(value)}`;
+        {
+          // Get heading anchors and convert to #anchor format. Excluding h1 elements.
+          headings.filter(shouldIncludeInToC).map(({value, depth}) => {
+            const headingLink = `#${slugify(value)}`;
 
-          const depthLevel = depth.toString();
+            const depthLevel = depth.toString();
 
-          return (
-            <StyledListItem key={value} depth={depthLevel}>
-              <Anchor href={headingLink}>{value}</Anchor>
-            </StyledListItem>
-          );
-        })}
+            return (
+              <StyledListItem key={value} depth={depthLevel}>
+                <Anchor href={headingLink}>{value}</Anchor>
+              </StyledListItem>
+            );
+          })
+        }
       </StyledScrollSpy>
     </Box>
   );

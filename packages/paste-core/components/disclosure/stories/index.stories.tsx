@@ -20,7 +20,7 @@ export const ExampleDisclosures: React.FC<{
   disabled?: boolean;
   variant?: Variants;
   headingVariant: DisclosureHeadingProps['variant'];
-}> = props => {
+}> = (props) => {
   return (
     <Stack orientation="vertical" spacing="space70">
       <Disclosure visible variant={props.variant}>

@@ -65,7 +65,7 @@ const Roadmap: React.FC<RoadmapProps> = ({data}) => {
                     </Tr>
                   </THead>
                   <TBody>
-                    {release.edges.map(component => {
+                    {release.edges.map((component) => {
                       return (
                         <Tr>
                           <Td>{component.node.data.Feature}</Td>
