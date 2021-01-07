@@ -170,7 +170,7 @@ storiesOf('Components|Toast', module)
           variant="primary"
           onClick={() =>
             // eslint-disable-next-line @typescript-eslint/no-shadow
-            setToasts(toasts => [
+            setToasts((toasts) => [
               ...toasts,
               {variant: variants[Math.floor(Math.random() * 3 + 0)], message: loremIpsum()},
             ])
@@ -182,7 +182,7 @@ storiesOf('Components|Toast', module)
           <Toast variant="success" onDismiss={() => {}}>
             <Text as="div">I am a toast</Text>
           </Toast>
-          {toasts.map(toast => (
+          {toasts.map((toast) => (
             <Toast variant={toast.variant} onDismiss={() => {}}>
               <Text as="div">{toast.message}</Text>
             </Toast>
@@ -221,7 +221,7 @@ storiesOf('Components|Toast', module)
                 id={messageID}
                 value={messageText}
                 type="text"
-                onChange={e => setMessageText(e.target.value)}
+                onChange={(e) => setMessageText(e.target.value)}
                 required
               />
             </div>
@@ -231,7 +231,7 @@ storiesOf('Components|Toast', module)
                 id={dismissAfterID}
                 value={toastTimeout}
                 type="number"
-                onChange={e => setToastTimeout(e.target.value)}
+                onChange={(e) => setToastTimeout(e.target.value)}
                 placeholder="7000"
               />
             </div>
@@ -239,7 +239,7 @@ storiesOf('Components|Toast', module)
               <RadioGroup
                 name="variant"
                 legend="Variant"
-                onChange={value => setVariant(value as ToastVariants)}
+                onChange={(value) => setVariant(value as ToastVariants)}
                 value={variant}
                 orientation="horizontal"
                 required

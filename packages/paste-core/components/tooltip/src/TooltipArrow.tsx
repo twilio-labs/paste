@@ -4,7 +4,7 @@ import {useTheme} from '@twilio-paste/theme';
 
 export type TooltipArrowProps = TooltipPrimitiveArrowProps;
 
-const TooltipArrow: React.FC<TooltipArrowProps> = props => {
+const TooltipArrow: React.FC<TooltipArrowProps> = (props) => {
   const theme = useTheme();
 
   return (

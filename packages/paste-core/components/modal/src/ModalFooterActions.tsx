@@ -7,7 +7,7 @@ export interface ModalFooterActionsProps {
   children: NonNullable<React.ReactNode>;
   justify?: Justify;
 }
-const ModalFooterActions: React.FC<ModalFooterActionsProps> = ({children, justify}) => {
+const ModalFooterActions = React.forwardRef<HTMLDivElement, ModalFooterActionsProps>(({children, justify}, ref) => {
   const count = React.Children.count(children);
   return (
     <Box
@@ -17,13 +17,14 @@ const ModalFooterActions: React.FC<ModalFooterActionsProps> = ({children, justif
       flexWrap="wrap"
       flexGrow={1}
       alignItems="center"
+      ref={ref}
     >
       {React.Children.map(children, (child, index) => {
         return <Box marginRight={count !== index + 1 ? 'space50' : null}>{child}</Box>;
       })}
     </Box>
   );
-};
+});
 ModalFooterActions.displayName = 'ModalFooterActions';
 
 if (process.env.NODE_ENV === 'development') {

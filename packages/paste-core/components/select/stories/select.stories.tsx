@@ -64,7 +64,7 @@ storiesOf('Components|Select', module)
           id={id}
           required={isRequired}
           value={value}
-          onChange={event => {
+          onChange={(event) => {
             const {
               target: {value: targetValue, options},
             } = event;
@@ -114,7 +114,7 @@ storiesOf('Components|Select', module)
         <Select
           id={uid}
           required
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -142,7 +142,7 @@ storiesOf('Components|Select', module)
         <Select
           id={uid}
           required
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -171,7 +171,7 @@ storiesOf('Components|Select', module)
         <Select
           id={uid}
           hasError
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -199,7 +199,7 @@ storiesOf('Components|Select', module)
         <Select
           id={uid}
           required
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -229,7 +229,7 @@ storiesOf('Components|Select', module)
         <Select
           id={uid}
           disabled
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -257,7 +257,7 @@ storiesOf('Components|Select', module)
         <Select
           id={uid}
           disabled
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -318,7 +318,7 @@ storiesOf('Components|Select', module)
         <Label htmlFor={uid}>Label</Label>
         <Select
           id={uid}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -351,7 +351,7 @@ storiesOf('Components|Select', module)
         </Label>
         <Select
           id={uid}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -385,7 +385,7 @@ storiesOf('Components|Select', module)
         </Label>
         <Select
           id={uid}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -423,7 +423,7 @@ storiesOf('Components|Select', module)
         </Label>
         <Select
           id={uid}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -460,7 +460,7 @@ storiesOf('Components|Select', module)
         <Label htmlFor={uid}>Label</Label>
         <Select
           id={uid}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -491,7 +491,7 @@ storiesOf('Components|Select', module)
         </Label>
         <Select
           id={uid}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}
@@ -600,7 +600,7 @@ storiesOf('Components|Select', module)
         <Label htmlFor={uid}>Label</Label>
         <Select
           id={uid}
-          onChange={event => {
+          onChange={(event) => {
             setValue(event.target.value);
             action('handleChange');
           }}

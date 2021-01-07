@@ -243,26 +243,6 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
                   Object details
                 </SidebarAnchor>
               </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/empty-state`}>
-                  Empty state
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/filter`}>
-                  Filter
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/status`}>
-                  Status indicators
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/stat-cards`}>
-                  Stat cards
-                </SidebarAnchor>
-              </SidebarNestedItem>
             </SidebarNestedList>
           </DisclosurePrimitiveContent>
         </SidebarItem>

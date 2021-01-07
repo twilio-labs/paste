@@ -32,25 +32,21 @@ export const getColumnStyles = (props: ColumnProps): ColumnStyleProps => {
   return columnStyles;
 };
 
-const StyledColumn = styled.div(
-  compose(
-    space,
-    flexbox,
-    layout
-  )
-) as React.FC<ColumnProps>;
+const StyledColumn = styled.div(compose(space, flexbox, layout)) as React.FC<ColumnProps>;
 
-const Column: React.FC<ColumnProps> = ({as, children, count, gutter, offset, span, stretchColumnContent, vertical}) => {
-  const ColumnStyles = React.useMemo(
-    () => getColumnStyles({count, gutter, offset, span, stretchColumnContent, vertical}),
-    [count, gutter, offset, span, stretchColumnContent, vertical]
-  );
-  return (
-    <StyledColumn {...ColumnStyles} as={as}>
-      {children}
-    </StyledColumn>
-  );
-};
+const Column = React.forwardRef<HTMLDivElement, ColumnProps>(
+  ({as, children, count, gutter, offset, span, stretchColumnContent, vertical}, ref) => {
+    const ColumnStyles = React.useMemo(
+      () => getColumnStyles({count, gutter, offset, span, stretchColumnContent, vertical}),
+      [count, gutter, offset, span, stretchColumnContent, vertical]
+    );
+    return (
+      <StyledColumn {...ColumnStyles} as={as} ref={ref}>
+        {children}
+      </StyledColumn>
+    );
+  }
+);
 Column.displayName = 'Column';
 
 if (process.env.NODE_ENV === 'development') {

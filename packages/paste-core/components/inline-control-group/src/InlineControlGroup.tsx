@@ -11,48 +11,48 @@ export interface InlineControlGroupProps extends Omit<React.FieldsetHTMLAttribut
   helpText?: string | React.ReactNode;
   legend: string | NonNullable<React.ReactNode>;
   orientation?: 'vertical' | 'horizontal';
+  ref?: any;
   required?: boolean;
   value?: string;
 }
 
-const InlineControlGroup: React.FC<InlineControlGroupProps> = ({
-  children,
-  disabled,
-  errorText,
-  helpText,
-  legend,
-  orientation,
-  required,
-  value,
-  ...props
-}) => {
-  return (
-    <Box {...safelySpreadBoxProps(props)} as="fieldset" margin="space0" padding="space0" borderWidth="borderWidth0">
-      <Label as="legend" htmlFor={undefined} required={required} marginBottom="space0" disabled={disabled}>
-        {legend}
-      </Label>
-      {helpText && <HelpText marginTop="space0">{helpText}</HelpText>}
-      <Box marginLeft="space20" marginRight="space20" marginTop="space40">
-        {React.Children.map(children, child => {
-          return (
-            <Box
-              display={orientation === 'horizontal' ? 'inline-block' : 'block'}
-              marginBottom="space40"
-              marginRight={orientation === 'horizontal' ? 'space70' : null}
-            >
-              {child}
-            </Box>
-          );
-        })}
-        {errorText && (
-          <HelpText marginTop="space0" variant="error">
-            {errorText}
-          </HelpText>
-        )}
+const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGroupProps>(
+  ({children, disabled, errorText, helpText, legend, orientation, required, value, ...props}, ref) => {
+    return (
+      <Box
+        {...safelySpreadBoxProps(props)}
+        as="fieldset"
+        margin="space0"
+        padding="space0"
+        borderWidth="borderWidth0"
+        ref={ref}
+      >
+        <Label as="legend" htmlFor={undefined} required={required} marginBottom="space0" disabled={disabled}>
+          {legend}
+        </Label>
+        {helpText && <HelpText marginTop="space0">{helpText}</HelpText>}
+        <Box marginLeft="space20" marginRight="space20" marginTop="space40">
+          {React.Children.map(children, (child) => {
+            return (
+              <Box
+                display={orientation === 'horizontal' ? 'inline-block' : 'block'}
+                marginBottom="space40"
+                marginRight={orientation === 'horizontal' ? 'space70' : null}
+              >
+                {child}
+              </Box>
+            );
+          })}
+          {errorText && (
+            <HelpText marginTop="space0" variant="error">
+              {errorText}
+            </HelpText>
+          )}
+        </Box>
       </Box>
-    </Box>
-  );
-};
+    );
+  }
+);
 
 InlineControlGroup.displayName = 'InlineControlGroup';
 

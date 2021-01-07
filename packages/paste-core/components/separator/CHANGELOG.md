@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/separator@0.3.1...@twilio-paste/separator@0.3.2) (2021-01-07)
+
+**Note:** Version bump only for package @twilio-paste/separator
+
+
+
+
+
+## [0.3.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/separator@0.3.0...@twilio-paste/separator@0.3.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/separator
+
+
+
+
+
+# [0.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/separator@0.2.24...@twilio-paste/separator@0.3.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **separator:** add forwardRef ([c280432](https://github.com/twilio-labs/paste/commit/c28043288d78d23275d84af788ff5ad2f645337a))
+
+
+### BREAKING CHANGES
+
+* **separator:** component is now using fowardRef
+
+
+
+
+
+## [0.2.24](https://github.com/twilio-labs/paste/compare/@twilio-paste/separator@0.2.23...@twilio-paste/separator@0.2.24) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/separator
+
+
+
+
+
 ## [0.2.23](https://github.com/twilio-labs/paste/compare/@twilio-paste/separator@0.2.22...@twilio-paste/separator@0.2.23) (2020-12-11)
 
 **Note:** Version bump only for package @twilio-paste/separator

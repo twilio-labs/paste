@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.5.1...@twilio-paste/grid@0.5.2) (2021-01-07)
+
+**Note:** Version bump only for package @twilio-paste/grid
+
+
+
+
+
+## [0.5.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.5.0...@twilio-paste/grid@0.5.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/grid
+
+
+
+
+
+# [0.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.4.4...@twilio-paste/grid@0.5.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **grid:** add forwardRef ([aff1d09](https://github.com/twilio-labs/paste/commit/aff1d09689341adee724401b1144cbf4088a5128))
+
+
+### BREAKING CHANGES
+
+* **grid:** component is now using fowardRef
+
+
+
+
+
+## [0.4.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.4.3...@twilio-paste/grid@0.4.4) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/grid
+
+
+
+
+
 ## [0.4.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.4.2...@twilio-paste/grid@0.4.3) (2020-12-11)
 
 **Note:** Version bump only for package @twilio-paste/grid

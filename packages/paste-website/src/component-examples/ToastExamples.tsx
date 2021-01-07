@@ -35,7 +35,7 @@ export const ToasterExample: React.FC = () => {
               id={messageID}
               value={messageText}
               type="text"
-              onChange={e => setMessageText(e.target.value)}
+              onChange={(e) => setMessageText(e.target.value)}
               required
             />
           </div>
@@ -45,7 +45,7 @@ export const ToasterExample: React.FC = () => {
               id={dismissAfterID}
               value={toastTimeout}
               type="number"
-              onChange={e => setToastTimeout(e.target.value)}
+              onChange={(e) => setToastTimeout(e.target.value)}
               placeholder="7000"
             />
           </div>
@@ -53,7 +53,7 @@ export const ToasterExample: React.FC = () => {
             <RadioGroup
               name="variant"
               legend="Variant"
-              onChange={newVariant => {
+              onChange={(newVariant) => {
                 setVariantStyle(newVariant as ToastVariants);
               }}
               value={variantStyle}

@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.19](https://github.com/twilio-labs/paste/compare/@twilio-paste/textarea@1.1.18...@twilio-paste/textarea@1.1.19) (2021-01-07)
+
+**Note:** Version bump only for package @twilio-paste/textarea
+
+
+
+
+
+## [1.1.18](https://github.com/twilio-labs/paste/compare/@twilio-paste/textarea@1.1.17...@twilio-paste/textarea@1.1.18) (2021-01-07)
+
+**Note:** Version bump only for package @twilio-paste/textarea
+
+
+
+
+
+## [1.1.17](https://github.com/twilio-labs/paste/compare/@twilio-paste/textarea@1.1.16...@twilio-paste/textarea@1.1.17) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/textarea
+
+
+
+
+
+## [1.1.16](https://github.com/twilio-labs/paste/compare/@twilio-paste/textarea@1.1.15...@twilio-paste/textarea@1.1.16) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/textarea
+
+
+
+
+
+## [1.1.15](https://github.com/twilio-labs/paste/compare/@twilio-paste/textarea@1.1.14...@twilio-paste/textarea@1.1.15) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/textarea
+
+
+
+
+
 ## [1.1.14](https://github.com/twilio-labs/paste/compare/@twilio-paste/textarea@1.1.13...@twilio-paste/textarea@1.1.14) (2020-12-11)
 
 **Note:** Version bump only for package @twilio-paste/textarea

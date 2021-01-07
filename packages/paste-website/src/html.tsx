@@ -23,6 +23,8 @@ const HTML: React.FC<HTMLProps> = ({
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta name="viewport" content="width=1024" />
+        <link rel="preconnect" href="https://assets.twilio.com" crossOrigin="" />
+        <link rel="stylesheet" href="https://assets.twilio.com/public_assets/paste-fonts/main-1.2.0/fonts.css" />
         {headComponents}
       </head>
       <body {...bodyAttributes}>

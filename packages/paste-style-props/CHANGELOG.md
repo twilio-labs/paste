@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.15](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.8.14...@twilio-paste/style-props@1.8.15) (2021-01-07)
+
+**Note:** Version bump only for package @twilio-paste/style-props
+
+
+
+
+
+## [1.8.14](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.8.13...@twilio-paste/style-props@1.8.14) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/style-props
+
+
+
+
+
 ## [1.8.13](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.8.12...@twilio-paste/style-props@1.8.13) (2020-12-11)
 
 **Note:** Version bump only for package @twilio-paste/style-props

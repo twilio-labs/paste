@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@4.1.0...@twilio-paste/theme@4.1.1) (2021-01-07)
+
+**Note:** Version bump only for package @twilio-paste/theme
+
+
+
+
+
+# [4.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@4.0.1...@twilio-paste/theme@4.1.0) (2020-12-17)
+
+
+### Features
+
+* **theme:** load fonts.css file from theme provider ([acef2a5](https://github.com/twilio-labs/paste/commit/acef2a54ad76639c8063d134c374792bd7cff181))
+
+
+
+
+
 ## [4.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@4.0.0...@twilio-paste/theme@4.0.1) (2020-12-11)
 
 

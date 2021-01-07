@@ -32,7 +32,7 @@ const getButtonSize = (variant: ButtonVariants, children: React.ReactNode, size?
   } else if (variant === 'link' || variant === 'destructive_link') {
     smartSize = 'reset';
   } else if (React.Children.count(children) === 1) {
-    React.Children.forEach(children, child => {
+    React.Children.forEach(children, (child) => {
       if (React.isValidElement(child)) {
         // @ts-ignore
         if (typeof child.type.displayName === 'string' && child.type.displayName.includes('Icon')) {

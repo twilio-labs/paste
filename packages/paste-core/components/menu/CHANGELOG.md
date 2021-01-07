@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/menu@2.0.1...@twilio-paste/menu@2.0.2) (2021-01-07)
+
+**Note:** Version bump only for package @twilio-paste/menu
+
+
+
+
+
+## [2.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/menu@2.0.0...@twilio-paste/menu@2.0.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/menu
+
+
+
+
+
+# [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/menu@1.1.54...@twilio-paste/menu@2.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **menu:** add forwardRef ([6e3557e](https://github.com/twilio-labs/paste/commit/6e3557ebe93432a8d6226aab4ac947ab366785a4))
+
+
+### BREAKING CHANGES
+
+* **menu:** component is now using fowardRef
+
+
+
+
+
+## [1.1.54](https://github.com/twilio-labs/paste/compare/@twilio-paste/menu@1.1.53...@twilio-paste/menu@1.1.54) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/menu
+
+
+
+
+
 ## [1.1.53](https://github.com/twilio-labs/paste/compare/@twilio-paste/menu@1.1.52...@twilio-paste/menu@1.1.53) (2020-12-11)
 
 **Note:** Version bump only for package @twilio-paste/menu

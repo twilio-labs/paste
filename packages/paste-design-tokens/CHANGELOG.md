@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.4.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@6.4.0...@twilio-paste/design-tokens@6.4.1) (2021-01-07)
+
+**Note:** Version bump only for package @twilio-paste/design-tokens
+
+
+
+
+
+# [6.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@6.3.7...@twilio-paste/design-tokens@6.4.0) (2020-12-17)
+
+
+### Features
+
+* **design-tokens:** switch default theme font family to inter var ([796a3bb](https://github.com/twilio-labs/paste/commit/796a3bbe2634a0f6c21c487b216c779b5069e6bb))
+
+
+
+
+
 ## [6.3.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/design-tokens@6.3.6...@twilio-paste/design-tokens@6.3.7) (2020-12-09)
 
 **Note:** Version bump only for package @twilio-paste/design-tokens

@@ -3,6 +3,116 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.20.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.20.2...@twilio-paste/website@2.20.3) (2021-01-07)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.20.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.20.1...@twilio-paste/website@2.20.2) (2021-01-07)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.20.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.20.0...@twilio-paste/website@2.20.1) (2021-01-06)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+# [2.20.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.19.2...@twilio-paste/website@2.20.0) (2021-01-04)
+
+
+### Features
+
+* **website:** update copy around pattern contribution ([#1056](https://github.com/twilio-labs/paste/issues/1056)) ([83e8a6e](https://github.com/twilio-labs/paste/commit/83e8a6e7ad48e84ab0314c092db9fd3eadc37d3a))
+
+
+
+
+
+## [2.19.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.19.1...@twilio-paste/website@2.19.2) (2020-12-18)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.19.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.19.0...@twilio-paste/website@2.19.1) (2020-12-18)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+# [2.19.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.18.1...@twilio-paste/website@2.19.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **website:** update font guidelines for default theme ([43f4477](https://github.com/twilio-labs/paste/commit/43f4477205673927cb9866eb004cb077eb78df7b))
+
+
+### Features
+
+* **website:** switch to loading font.css ([67ec025](https://github.com/twilio-labs/paste/commit/67ec025d477c4e17c23869b87ff70f8c708473fb))
+
+
+
+
+
+## [2.18.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.18.0...@twilio-paste/website@2.18.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+# [2.18.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.17.4...@twilio-paste/website@2.18.0) (2020-12-17)
+
+
+### Features
+
+* **website:** add content and search skip links ([#1048](https://github.com/twilio-labs/paste/issues/1048)) ([1f52859](https://github.com/twilio-labs/paste/commit/1f528597746bf28dce06e3f1484310b0ad4217bd))
+
+
+
+
+
+## [2.17.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.17.3...@twilio-paste/website@2.17.4) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.17.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.17.2...@twilio-paste/website@2.17.3) (2020-12-16)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
+## [2.17.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.17.1...@twilio-paste/website@2.17.2) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
 ## [2.17.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.17.0...@twilio-paste/website@2.17.1) (2020-12-11)
 
 **Note:** Version bump only for package @twilio-paste/website

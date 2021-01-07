@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/help-text@2.0.2...@twilio-paste/help-text@2.0.3) (2021-01-07)
+
+**Note:** Version bump only for package @twilio-paste/help-text
+
+
+
+
+
+## [2.0.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/help-text@2.0.1...@twilio-paste/help-text@2.0.2) (2021-01-06)
+
+
+### Bug Fixes
+
+* **help-text:** align error icon to top of text ([ad28ce2](https://github.com/twilio-labs/paste/commit/ad28ce2c306d611c0b34515b0ff1bcf6cccd99a0))
+
+
+
+
+
+## [2.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/help-text@2.0.0...@twilio-paste/help-text@2.0.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/help-text
+
+
+
+
+
+# [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/help-text@1.1.24...@twilio-paste/help-text@2.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **help-text:** add forwardRef ([a9dfa0e](https://github.com/twilio-labs/paste/commit/a9dfa0ee8adb1cdad6c3c010872e59884d9b30b0))
+
+
+### BREAKING CHANGES
+
+* **help-text:** component is now using fowardRef
+
+
+
+
+
+## [1.1.24](https://github.com/twilio-labs/paste/compare/@twilio-paste/help-text@1.1.23...@twilio-paste/help-text@1.1.24) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/help-text
+
+
+
+
+
 ## [1.1.23](https://github.com/twilio-labs/paste/compare/@twilio-paste/help-text@1.1.22...@twilio-paste/help-text@1.1.23) (2020-12-11)
 
 **Note:** Version bump only for package @twilio-paste/help-text

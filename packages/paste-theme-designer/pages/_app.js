@@ -22,7 +22,7 @@ function MyApp({Component, pageProps}) {
     <TokenContext.Provider value={{tokens, updateToken, loadTokens}}>
       <Theme.Provider theme="default">
         <Head>
-          <title>Theme Designer</title>
+          <title>Paste: Theme Designer</title>
           <link rel="icon" href="/logo.svg" />
         </Head>
         <Component {...pageProps} />

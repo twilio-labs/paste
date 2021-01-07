@@ -4,7 +4,6 @@ import {Theme, ThemeVariants} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import addonsAPI, {makeDecorator} from '@storybook/addons';
 import {Events, THEME_STORAGE_KEY} from './constants';
-import './fonts.css';
 
 class ThemeWrapper extends React.Component {
   state = {

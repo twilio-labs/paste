@@ -5,6 +5,7 @@ import {Box} from '@twilio-paste/box';
 import {Input} from '@twilio-paste/input';
 import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
 import {useWindowSize} from '../../../hooks/useWindowSize';
+import {PASTE_DOCS_SEARCH_INPUT, PASTE_DOCS_SEARCH_INPUT_MOBILE} from '../../../constants';
 import 'docsearch.js/dist/cdn/docsearch.min.css';
 
 interface SiteHeaderSearchProps {
@@ -23,7 +24,7 @@ const SiteHeaderSearch: React.FC<SiteHeaderSearchProps> = ({value, onChange}) =>
     docsearch({
       apiKey: process.env.GATSBY_DOCSEARCH_APIKEY,
       indexName: 'twilio_paste',
-      inputSelector: breakpointIndex < 2 ? `#search-input-mobile` : `#search-input`,
+      inputSelector: breakpointIndex < 2 ? `#${PASTE_DOCS_SEARCH_INPUT_MOBILE}` : `#${PASTE_DOCS_SEARCH_INPUT}`,
     });
   }, [breakpointIndex]);
 
@@ -32,11 +33,11 @@ const SiteHeaderSearch: React.FC<SiteHeaderSearchProps> = ({value, onChange}) =>
   return (
     <Box minWidth={['size30', 'size30', 'size30', 'size40']}>
       <Input
-        id={isMobileNav ? 'search-input-mobile' : 'search-input'}
+        id={isMobileNav ? PASTE_DOCS_SEARCH_INPUT_MOBILE : PASTE_DOCS_SEARCH_INPUT}
         type="text"
         placeholder={`Try "button" or "token"`}
         value={value}
-        onChange={event => {
+        onChange={(event) => {
           onChange(event.target.value);
         }}
         variant={isMobileNav ? 'default' : 'inverse'}

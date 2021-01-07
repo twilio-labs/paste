@@ -14,7 +14,7 @@ const ButtonSizeOptions = ['default', 'small', 'icon', 'icon_small', 'reset'];
 const AllSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
   const allButtons = [];
 
-  ButtonSizeOptions.forEach(size => {
+  ButtonSizeOptions.forEach((size) => {
     if (variant === 'reset' && size !== 'reset') return;
     const children =
       size === 'icon' || size === 'icon_small' ? <PlusIcon title="Add item to cart" decorative={false} /> : variant;

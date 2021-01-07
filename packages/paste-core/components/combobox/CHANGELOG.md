@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@2.0.2...@twilio-paste/combobox@2.0.3) (2021-01-07)
+
+**Note:** Version bump only for package @twilio-paste/combobox
+
+
+
+
+
+## [2.0.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@2.0.1...@twilio-paste/combobox@2.0.2) (2021-01-06)
+
+**Note:** Version bump only for package @twilio-paste/combobox
+
+
+
+
+
+## [2.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@2.0.0...@twilio-paste/combobox@2.0.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/combobox
+
+
+
+
+
+# [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.4.31...@twilio-paste/combobox@2.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **combobox:** add forwardRef ([ca8ef5b](https://github.com/twilio-labs/paste/commit/ca8ef5b4fc2b469cb23b6fea5ca4d9f12069f900))
+
+
+### BREAKING CHANGES
+
+* **combobox:** component is now using fowardRef
+
+
+
+
+
+## [1.4.31](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.4.30...@twilio-paste/combobox@1.4.31) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/combobox
+
+
+
+
+
 ## [1.4.30](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@1.4.29...@twilio-paste/combobox@1.4.30) (2020-12-11)
 
 **Note:** Version bump only for package @twilio-paste/combobox

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 
-export const InputChevronWrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
+export const InputChevronWrapper = React.forwardRef<HTMLDivElement, {children: React.ReactNode}>(({children}, ref) => (
   <Box
     alignItems="center"
     display="inline-flex"
@@ -11,7 +11,8 @@ export const InputChevronWrapper: React.FC<{children: React.ReactNode}> = ({chil
     top="50%"
     transform="translateY(-50%)"
     zIndex="zIndex10"
+    ref={ref}
   >
     {children}
   </Box>
-);
+));

@@ -3,6 +3,76 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-designer@0.2.8...@twilio-paste/theme-designer@0.2.9) (2021-01-07)
+
+**Note:** Version bump only for package @twilio-paste/theme-designer
+
+
+
+
+
+## [0.2.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-designer@0.2.7...@twilio-paste/theme-designer@0.2.8) (2021-01-07)
+
+**Note:** Version bump only for package @twilio-paste/theme-designer
+
+
+
+
+
+## [0.2.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-designer@0.2.6...@twilio-paste/theme-designer@0.2.7) (2021-01-06)
+
+**Note:** Version bump only for package @twilio-paste/theme-designer
+
+
+
+
+
+## [0.2.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-designer@0.2.5...@twilio-paste/theme-designer@0.2.6) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/theme-designer
+
+
+
+
+
+## [0.2.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-designer@0.2.4...@twilio-paste/theme-designer@0.2.5) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/theme-designer
+
+
+
+
+
+## [0.2.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-designer@0.2.3...@twilio-paste/theme-designer@0.2.4) (2020-12-15)
+
+
+### Bug Fixes
+
+* **theme-designer:** edit layout and bg color fix ([8906ccf](https://github.com/twilio-labs/paste/commit/8906ccfe62c06a8dd871a0fdc99ddc3108016aa6))
+
+
+
+
+
+## [0.2.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-designer@0.2.2...@twilio-paste/theme-designer@0.2.3) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/theme-designer
+
+
+
+
+
+## [0.2.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-designer@0.2.1...@twilio-paste/theme-designer@0.2.2) (2020-12-14)
+
+
+### Bug Fixes
+
+* **theme-designer:** remove visible from tooltip and popover ([#1035](https://github.com/twilio-labs/paste/issues/1035)) ([60750cc](https://github.com/twilio-labs/paste/commit/60750cc67257060c266f0f3e060200f521a4a95f))
+
+
+
+
+
 ## [0.2.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-designer@0.2.0...@twilio-paste/theme-designer@0.2.1) (2020-12-11)
 
 **Note:** Version bump only for package @twilio-paste/theme-designer

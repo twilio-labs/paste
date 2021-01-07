@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/media-object@2.0.1...@twilio-paste/media-object@2.0.2) (2021-01-07)
+
+**Note:** Version bump only for package @twilio-paste/media-object
+
+
+
+
+
+## [2.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/media-object@2.0.0...@twilio-paste/media-object@2.0.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/media-object
+
+
+
+
+
+# [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/media-object@1.2.75...@twilio-paste/media-object@2.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **media-object:** add forwardRef ([6bcac35](https://github.com/twilio-labs/paste/commit/6bcac357000269a4f1a881373751068f675ceffe))
+
+
+### BREAKING CHANGES
+
+* **media-object:** component is now using fowardRef
+
+
+
+
+
+## [1.2.75](https://github.com/twilio-labs/paste/compare/@twilio-paste/media-object@1.2.74...@twilio-paste/media-object@1.2.75) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/media-object
+
+
+
+
+
 ## [1.2.74](https://github.com/twilio-labs/paste/compare/@twilio-paste/media-object@1.2.73...@twilio-paste/media-object@1.2.74) (2020-12-11)
 
 **Note:** Version bump only for package @twilio-paste/media-object

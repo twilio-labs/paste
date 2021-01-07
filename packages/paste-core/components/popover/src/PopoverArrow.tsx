@@ -7,7 +7,7 @@ import {useTheme} from '@twilio-paste/theme';
 
 export type PopoverArrowProps = NonModalDialogArrowPrimitiveProps;
 
-const PopoverArrow: React.FC<PopoverArrowProps> = props => {
+const PopoverArrow: React.FC<PopoverArrowProps> = (props) => {
   const theme = useTheme();
 
   return (

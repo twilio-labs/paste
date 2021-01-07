@@ -4,7 +4,9 @@ import {mount} from 'enzyme';
 import {Theme} from '../src';
 
 const ThemeConsumerExampleComponent = (): React.ReactElement => {
-  return <Theme.Consumer>{({theme}) => <p>{theme.breakpoints.map(breakpoint => `${breakpoint},`)}</p>}</Theme.Consumer>;
+  return (
+    <Theme.Consumer>{({theme}) => <p>{theme.breakpoints.map((breakpoint) => `${breakpoint},`)}</p>}</Theme.Consumer>
+  );
 };
 
 const ThemeConsumerExampleTextColor = (): React.ReactElement => {

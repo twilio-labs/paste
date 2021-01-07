@@ -7,7 +7,7 @@ interface HamburgerToggleProps {
   color: BackgroundColor;
 }
 
-const Pattie: React.FC<BoxProps> = props => (
+const Pattie: React.FC<BoxProps> = (props) => (
   <Box
     as="span"
     position="absolute"

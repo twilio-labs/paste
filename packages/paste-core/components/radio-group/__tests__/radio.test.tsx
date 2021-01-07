@@ -225,7 +225,7 @@ describe('Radio Group event handlers', () => {
           id="foo"
           name="foo"
           value={value}
-          onChange={newVal => {
+          onChange={(newVal) => {
             setValue(newVal);
           }}
         >
@@ -259,7 +259,7 @@ describe('Radio Group event handlers', () => {
           id="foo"
           name="foo"
           value={value}
-          onChange={newVal => {
+          onChange={(newVal) => {
             setValue(newVal);
           }}
         >

@@ -50,7 +50,7 @@ interface TokensListProps {
 }
 
 const getTokensByTheme = (theme: ThemeVariants, props: TokensListProps): TokenCategory[] => {
-  const font = props.consoleTokens[0].node.tokens.find(ele => ele.categoryName === 'fonts');
+  const font = props.consoleTokens[0].node.tokens.find((ele) => ele.categoryName === 'fonts');
   if (font) {
     font.info = (
       <Callout>
@@ -65,7 +65,7 @@ const getTokensByTheme = (theme: ThemeVariants, props: TokensListProps): TokenCa
     );
   }
 
-  const fontSize = props.consoleTokens[0].node.tokens.find(ele => ele.categoryName === 'font-sizes');
+  const fontSize = props.consoleTokens[0].node.tokens.find((ele) => ele.categoryName === 'font-sizes');
   if (fontSize) {
     fontSize.info = (
       <Callout>
@@ -101,7 +101,9 @@ const getTokensByTheme = (theme: ThemeVariants, props: TokensListProps): TokenCa
   return tokens;
 };
 
-export const TokensList: React.FC<TokensListProps> = props => {
+const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
+
+export const TokensList: React.FC<TokensListProps> = (props) => {
   const {theme} = useActiveSiteTheme();
   const [tokens, setTokens] = React.useState<TokenCategory[] | null>(getTokensByTheme(theme, props));
   const [filterString, setFilterString] = React.useState('');
@@ -110,13 +112,13 @@ export const TokensList: React.FC<TokensListProps> = props => {
     setTokens(() => {
       const newTokenCategories = getTokensByTheme(theme, props).map(
         (category): TokenCategory => {
-          const newTokens = category.tokens.filter(token => {
+          const newTokens = category.tokens.filter((token) => {
             return token.name.includes(filterString) || token.value.includes(filterString);
           });
           return {...category, tokens: newTokens};
         }
       );
-      const filteredCategories = newTokenCategories.filter(category => {
+      const filteredCategories = newTokenCategories.filter((category) => {
         return category.tokens.length > 0;
       });
       if (filteredCategories.length > 0) {
@@ -153,7 +155,7 @@ export const TokensList: React.FC<TokensListProps> = props => {
         />
       </Box>
       {tokens != null &&
-        tokens.map(cat => {
+        tokens.map((cat) => {
           return (
             <React.Fragment key={`catname${cat.categoryName}`}>
               <AnchoredHeading as="h2" variant="heading20">
@@ -171,22 +173,29 @@ export const TokensList: React.FC<TokensListProps> = props => {
                       </Tr>
                     </THead>
                     <TBody>
-                      {cat.tokens.map((token: Token) => {
-                        return (
-                          <Tr key={`token${token.name}`}>
-                            <Td>
-                              <Text as="p" marginBottom="space30">
-                                <InlineCode>${token.name}</InlineCode>
-                              </Text>
-                              <Text as="p">{token.comment}</Text>
-                            </Td>
-                            <Td>{getTokenValue(token)}</Td>
-                            <Td>
-                              <TokenExample token={token} />
-                            </Td>
-                          </Tr>
-                        );
-                      })}
+                      {cat.tokens
+                        .sort((a, b) => {
+                          if (cat.categoryName === 'font-weights') {
+                            return collator.compare(a.value, b.value);
+                          }
+                          return collator.compare(a.name, b.name);
+                        })
+                        .map((token: Token) => {
+                          return (
+                            <Tr key={`token${token.name}`}>
+                              <Td>
+                                <Text as="p" marginBottom="space30">
+                                  <InlineCode>${token.name}</InlineCode>
+                                </Text>
+                                <Text as="p">{token.comment}</Text>
+                              </Td>
+                              <Td>{getTokenValue(token)}</Td>
+                              <Td>
+                                <TokenExample token={token} />
+                              </Td>
+                            </Tr>
+                          );
+                        })}
                     </TBody>
                   </Table>
                 </Box>

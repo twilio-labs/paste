@@ -26,7 +26,7 @@ export interface StackProps extends BoxElementProps {
 
 export const getStackDisplay = (orientation: StackOrientation): DisplayValue => {
   if (Array.isArray(orientation)) {
-    return orientation.map(value => {
+    return orientation.map((value) => {
       if (value === 'horizontal') {
         return 'flex';
       }
@@ -81,11 +81,11 @@ export const getStackChildMargins = (orientation: StackOrientation, spacing: Spa
   return styles;
 };
 
-const Stack: React.FC<StackProps> = ({children, orientation, spacing, ...props}) => {
+const Stack = React.forwardRef<HTMLDivElement, StackProps>(({children, orientation, spacing, ...props}, ref) => {
   const [childrenCount, validChildren] = React.useMemo(
     () => [
       React.Children.count(children),
-      React.Children.toArray(children).filter(child => React.isValidElement(child) || typeof child === 'string'),
+      React.Children.toArray(children).filter((child) => React.isValidElement(child) || typeof child === 'string'),
     ],
     [children]
   );
@@ -94,7 +94,7 @@ const Stack: React.FC<StackProps> = ({children, orientation, spacing, ...props})
   const keySeed = useUIDSeed();
 
   return (
-    <Box {...safelySpreadBoxProps(props)} {...stackStyles}>
+    <Box {...safelySpreadBoxProps(props)} {...stackStyles} ref={ref}>
       {validChildren.map((child, index) => {
         return (
           <Box {...(childrenCount !== index + 1 ? childMargins : null)} key={keySeed(`stack-${index}`)}>
@@ -104,7 +104,7 @@ const Stack: React.FC<StackProps> = ({children, orientation, spacing, ...props})
       })}
     </Box>
   );
-};
+});
 
 Stack.displayName = 'Stack';
 

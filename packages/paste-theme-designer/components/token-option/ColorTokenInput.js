@@ -67,7 +67,7 @@ export const ColorTokenInput = ({bucket, tokenName, tokenValue, onChange}) => {
         <Popover aria-label={`Change color for token: ${tokenName}.`}>
           <Box marginTop="space40" marginRight="space30">
             <ChromePicker
-              onChangeComplete={handleColorChange}
+              onChange={handleColorChange}
               styles={{default: {picker: {boxShadow: 'none'}, saturation: {borderRadius: theme.radii.borderRadius10}}}}
               color={tokenValue}
               defaultView="rgb"

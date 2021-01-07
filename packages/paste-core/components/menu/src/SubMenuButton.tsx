@@ -11,7 +11,7 @@ const SubMenuButton = React.forwardRef<HTMLButtonElement, SubMenuButtonProps>((p
   return (
     <MenuPrimitiveButton {...props} as={StyledMenuItem as any} ref={ref}>
       <MediaObject as="span" verticalAlign="center">
-        <MediaBody as="span">{props.children}</MediaBody>
+        {props.children && <MediaBody as="span">{props.children}</MediaBody>}
         <MediaFigure as="span" align="end" spacing="space20">
           <ChevronRightIcon decorative size="sizeIcon30" />
         </MediaFigure>

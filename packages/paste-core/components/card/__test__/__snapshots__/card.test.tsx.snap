@@ -7,6 +7,7 @@ exports[`Card should filter out style props that are not allowed 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -35,6 +36,7 @@ exports[`Card should render children 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -65,6 +67,7 @@ exports[`Card should render default values 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -93,6 +96,7 @@ exports[`Card should render default values unless overridden by the component 1`
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
