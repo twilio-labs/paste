@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/truncate",
-  "version": "1.0.14",
+  "version": "2.0.1",
   "category": "typography",
   "status": "alpha",
   "description": "The Truncate component can be used to shorten a string of text that overflows a defined area.",
@@ -26,12 +26,24 @@
     "compile:dev": "rollup -c --environment NODE_ENV:development"
   },
   "peerDependencies": {
-    "@twilio-paste/styling-library": "^0.1.4",
+    "@twilio-paste/box": "^2.12.1",
+    "@twilio-paste/design-tokens": "^6.4.0",
+    "@twilio-paste/icons": "^3.10.5",
+    "@twilio-paste/style-props": "^1.8.14",
+    "@twilio-paste/styling-library": "^0.2.0",
+    "@twilio-paste/theme": "^4.1.0",
+    "@twilio-paste/types": "^3.0.30",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/styling-library": "^0.1.4"
+    "@twilio-paste/box": "^2.12.1",
+    "@twilio-paste/design-tokens": "^6.4.0",
+    "@twilio-paste/icons": "^3.10.5",
+    "@twilio-paste/style-props": "^1.8.14",
+    "@twilio-paste/styling-library": "^0.2.0",
+    "@twilio-paste/theme": "^4.1.0",
+    "@twilio-paste/types": "^3.0.30"
   }
 }

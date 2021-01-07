@@ -7,6 +7,7 @@ exports[`ListItem should filter out styling props 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -41,6 +42,7 @@ exports[`ListItem should render a plain list item 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -75,6 +77,7 @@ exports[`Ordered List should allow marginTop and marginBottom styling props 1`] 
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -110,6 +113,7 @@ exports[`Ordered List should filter out styling props 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -144,6 +148,7 @@ exports[`Ordered List should render a plain ordered list wrapper 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -178,6 +183,7 @@ exports[`Unordered List should filter out styling props 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -212,6 +218,7 @@ exports[`Unordered List should render a plain unordered list wrapper 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {

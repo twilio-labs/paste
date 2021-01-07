@@ -10,7 +10,7 @@ import {
 } from '@twilio-paste/disclosure-primitive';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
 
-export const Toggle: React.FC<{}> = ({children, ...props}) => {
+export const Toggle: React.FC = ({children, ...props}) => {
   return (
     <Heading as="h2" variant="heading20">
       <Button variant="reset" size="reset" {...props}>

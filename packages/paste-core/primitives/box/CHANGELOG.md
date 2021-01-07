@@ -3,6 +3,68 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.12.0...@twilio-paste/box@2.12.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/box
+
+
+
+
+
+# [2.12.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.11.13...@twilio-paste/box@2.12.0) (2020-12-15)
+
+
+### Features
+
+* **box:** remove propType checking ([e780672](https://github.com/twilio-labs/paste/commit/e7806727947732728dfeb86b1b953c76e2f5c766))
+
+
+
+
+
+## [2.11.13](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.11.12...@twilio-paste/box@2.11.13) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/box
+
+
+
+
+
+## [2.11.12](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.11.11...@twilio-paste/box@2.11.12) (2020-12-11)
+
+
+### Bug Fixes
+
+* **box:** accomodate the lack of color key on theme ([8c861a5](https://github.com/twilio-labs/paste/commit/8c861a5b1d32593eeeffcc62c85f65cea57daf5c))
+
+
+
+
+
+## [2.11.11](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.11.10...@twilio-paste/box@2.11.11) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/box
+
+
+
+
+
+## [2.11.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.11.9...@twilio-paste/box@2.11.10) (2020-12-02)
+
+**Note:** Version bump only for package @twilio-paste/box
+
+
+
+
+
+## [2.11.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.11.8...@twilio-paste/box@2.11.9) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/box
+
+
+
+
+
 ## [2.11.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.11.7...@twilio-paste/box@2.11.8) (2020-11-06)
 
 **Note:** Version bump only for package @twilio-paste/box

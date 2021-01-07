@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {styled, themeGet} from '@twilio-paste/styling-library';
+import {styled, css} from '@twilio-paste/styling-library';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {SiteLink} from '../SiteLink';
 
-const CrumbSlash: React.FC<{}> = () => (
+const CrumbSlash: React.FC = () => (
   <Box display="inline" paddingLeft="space20" paddingRight="space20">
     <Text as="span" color="colorTextWeak">
       /
@@ -12,7 +12,7 @@ const CrumbSlash: React.FC<{}> = () => (
   </Box>
 );
 
-const Breadcrumb: React.FC<{}> = ({children}) => {
+const Breadcrumb: React.FC = ({children}) => {
   return (
     <nav aria-label="breadcrumb">
       <Box
@@ -35,11 +35,12 @@ const Breadcrumb: React.FC<{}> = ({children}) => {
   );
 };
 
-// TODO use correct tokens for lineHeight after fix
-const BreadcrumbItem = styled(SiteLink)`
-  font-size: ${themeGet('fontSizes.fontSize30')};
-  line-height: ${themeGet('lineHeights.lineHeight30')};
-  letter-spacing: normal;
-`;
+const BreadcrumbItem = styled(SiteLink)(
+  css({
+    fontSize: 'fontSize30',
+    lineHeight: 'lineHeight30',
+    letterSpacing: 'normal',
+  })
+);
 
 export {Breadcrumb, BreadcrumbItem};

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import _ from 'lodash';
-import {axe} from 'jest-axe';
 import {render, screen, fireEvent} from '@testing-library/react';
 import {Button} from '@twilio-paste/button';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {Box} from '@twilio-paste/box';
+import axe from '../../../../../.jest/axe-helper';
 import {useCombobox, Combobox} from '../src';
 import {ComboboxProps} from '../src/types';
 
@@ -41,7 +41,7 @@ const groupedItems = [
   {label: 'Design Tokens'},
 ];
 
-const ComboboxMock: React.FC<{}> = () => {
+const ComboboxMock: React.FC = () => {
   const [inputItems, setInputItems] = React.useState(items);
   return (
     <>
@@ -131,7 +131,7 @@ const ControlledCombobox: React.FC = () => {
   );
 };
 
-describe('Combobox ', () => {
+describe('Combobox', () => {
   describe('Render', () => {
     it('should render', () => {
       const {asFragment} = render(<ComboboxMock />);

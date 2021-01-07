@@ -1,12 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card it should filter out style props that are not allowed 1`] = `
+exports[`Card should filter out style props that are not allowed 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -28,13 +29,14 @@ exports[`Card it should filter out style props that are not allowed 1`] = `
 </div>
 `;
 
-exports[`Card it should render children 1`] = `
+exports[`Card should render children 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -58,13 +60,14 @@ exports[`Card it should render children 1`] = `
 </div>
 `;
 
-exports[`Card it should render default values 1`] = `
+exports[`Card should render default values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -86,13 +89,14 @@ exports[`Card it should render default values 1`] = `
 </div>
 `;
 
-exports[`Card it should render default values unless overridden by the component 1`] = `
+exports[`Card should render default values unless overridden by the component 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {

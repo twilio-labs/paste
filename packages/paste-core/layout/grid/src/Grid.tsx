@@ -1,47 +1,77 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {MarginProps, Space, ResponsiveProp} from '@twilio-paste/style-props';
-import {safelySpreadBoxProps} from '@twilio-paste/box';
-import {Flex} from '@twilio-paste/flex';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {GridProps} from './types';
 import {getOuterGutterPull} from './utils';
 
-const getGridStyles = (gutter?: Space): MarginProps => {
+const getGutterStyles = (gutter?: Space): MarginProps => {
   const marginStyles: MarginProps = {
-    marginLeft: getOuterGutterPull(gutter),
     marginRight: getOuterGutterPull(gutter),
+    marginLeft: getOuterGutterPull(gutter),
   };
 
   return marginStyles;
 };
 
-const Grid: React.FC<GridProps> = ({as, children, gutter, marginTop, marginBottom, vertical, ...props}) => {
-  const GridColumns = React.useMemo(
-    () =>
-      React.Children.map(children, child =>
-        React.isValidElement(child)
-          ? React.cloneElement(child, {count: React.Children.count(children), gutter, vertical})
-          : child
-      ),
-    [children]
-  );
+// Returns an array of column/row, column, or row based on setting grid as vertical
+type GetFlexDirectionReturn = 'column' | 'row';
+const getFlexDirection = (vertical: GridProps['vertical']): GetFlexDirectionReturn[] | GetFlexDirectionReturn => {
+  if (Array.isArray(vertical)) {
+    return vertical.map(value => {
+      if (typeof value === 'boolean') {
+        return value === true ? 'column' : 'row';
+      }
+      return 'row';
+    });
+  }
 
-  const GridStyles = React.useMemo(() => getGridStyles(gutter), [gutter]);
+  if (vertical) {
+    return 'column';
+  }
 
-  return (
-    <Flex
-      {...GridStyles}
-      {...safelySpreadBoxProps(props)}
-      as={as}
-      marginTop={marginTop}
-      marginBottom={marginBottom}
-      vertical={vertical}
-      wrap
-    >
-      {GridColumns}
-    </Flex>
-  );
+  return 'row';
 };
+
+const Grid = React.forwardRef<HTMLDivElement, GridProps>(
+  ({as, children, equalColumnHeights, gutter, marginTop, marginBottom, vertical, ...props}, ref) => {
+    const GridColumns = React.useMemo(
+      () =>
+        React.Children.map(children, child =>
+          React.isValidElement(child)
+            ? React.cloneElement(child, {
+                count: React.Children.count(children),
+                gutter,
+                vertical,
+                stretchColumnContent: equalColumnHeights,
+              })
+            : child
+        ),
+      [children]
+    );
+
+    const gutterStyles = React.useMemo(() => getGutterStyles(gutter), [gutter]);
+    const flexDirection = React.useMemo(() => getFlexDirection(vertical), [vertical]);
+
+    return (
+      <Box
+        {...safelySpreadBoxProps(props)}
+        ref={ref}
+        as={as}
+        alignItems={equalColumnHeights ? 'stretch' : null}
+        flexDirection={flexDirection}
+        flexWrap="wrap"
+        display="flex"
+        marginTop={marginTop}
+        marginBottom={marginBottom}
+        {...gutterStyles}
+        minWidth="size0"
+      >
+        {GridColumns}
+      </Box>
+    );
+  }
+);
 Grid.displayName = 'Grid';
 
 Grid.defaultProps = {
@@ -53,6 +83,7 @@ if (process.env.NODE_ENV === 'development') {
     as: PropTypes.string as any,
     children: PropTypes.node.isRequired,
     vertical: ResponsiveProp(PropTypes.bool),
+    equalColumnHeights: PropTypes.bool,
   };
 }
 

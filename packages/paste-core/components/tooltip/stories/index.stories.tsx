@@ -39,12 +39,14 @@ storiesOf('Components|Tooltip', module)
     'Default',
     () => {
       return (
-        <Tooltip visible text={text('text', 'Welcome to Paste!')}>
-          <Button variant="primary">Open tooltip</Button>
-        </Tooltip>
+        <Box as="div" minHeight="400px">
+          <Tooltip visible text={text('text', 'Welcome to Paste!')}>
+            <Button variant="primary">Open tooltip</Button>
+          </Tooltip>
+        </Box>
       );
     },
-    {chromatic: {delay: 300}}
+    {chromatic: {delay: 800}}
   )
   .add(
     'Tooltip Placements',
@@ -68,7 +70,7 @@ storiesOf('Components|Tooltip', module)
         </Box>
       );
     },
-    {chromatic: {delay: 300}}
+    {chromatic: {delay: 800}}
   )
   .add('Automatic edge placement', () => {
     return (

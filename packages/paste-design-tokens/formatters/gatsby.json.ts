@@ -16,6 +16,6 @@ export const gatsbyJsonTokenFormat = (result: ImmutableStyleMap): string => {
   const groupedTokens = formatGroupTokensWithTemplate(result, categories, categoryTemplate);
 
   return `{
-    "tokens": [${groupedTokens.substring(0, groupedTokens.length - 1)}]
+    "tokens": [${groupedTokens.slice(0, Math.max(0, groupedTokens.length - 1))}]
   }`;
 };

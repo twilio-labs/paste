@@ -3,6 +3,86 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.11](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.4.10...@twilio-paste/button@2.4.11) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/button
+
+
+
+
+
+## [2.4.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.4.9...@twilio-paste/button@2.4.10) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/button
+
+
+
+
+
+## [2.4.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.4.8...@twilio-paste/button@2.4.9) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/button
+
+
+
+
+
+## [2.4.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.4.7...@twilio-paste/button@2.4.8) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/button
+
+
+
+
+
+## [2.4.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.4.6...@twilio-paste/button@2.4.7) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/button
+
+
+
+
+
+## [2.4.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.4.5...@twilio-paste/button@2.4.6) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/button
+
+
+
+
+
+## [2.4.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.4.4...@twilio-paste/button@2.4.5) (2020-12-03)
+
+**Note:** Version bump only for package @twilio-paste/button
+
+
+
+
+
+## [2.4.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.4.3...@twilio-paste/button@2.4.4) (2020-12-02)
+
+**Note:** Version bump only for package @twilio-paste/button
+
+
+
+
+
+## [2.4.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.4.2...@twilio-paste/button@2.4.3) (2020-11-16)
+
+**Note:** Version bump only for package @twilio-paste/button
+
+
+
+
+
+## [2.4.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.4.1...@twilio-paste/button@2.4.2) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/button
+
+
+
+
+
 ## [2.4.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/button@2.4.0...@twilio-paste/button@2.4.1) (2020-11-10)
 
 **Note:** Version bump only for package @twilio-paste/button

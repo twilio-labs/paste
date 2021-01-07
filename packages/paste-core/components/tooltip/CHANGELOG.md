@@ -3,6 +3,86 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.30](https://github.com/twilio-labs/paste/compare/@twilio-paste/tooltip@0.3.29...@twilio-paste/tooltip@0.3.30) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/tooltip
+
+
+
+
+
+## [0.3.29](https://github.com/twilio-labs/paste/compare/@twilio-paste/tooltip@0.3.28...@twilio-paste/tooltip@0.3.29) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/tooltip
+
+
+
+
+
+## [0.3.28](https://github.com/twilio-labs/paste/compare/@twilio-paste/tooltip@0.3.27...@twilio-paste/tooltip@0.3.28) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/tooltip
+
+
+
+
+
+## [0.3.27](https://github.com/twilio-labs/paste/compare/@twilio-paste/tooltip@0.3.26...@twilio-paste/tooltip@0.3.27) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/tooltip
+
+
+
+
+
+## [0.3.26](https://github.com/twilio-labs/paste/compare/@twilio-paste/tooltip@0.3.25...@twilio-paste/tooltip@0.3.26) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/tooltip
+
+
+
+
+
+## [0.3.25](https://github.com/twilio-labs/paste/compare/@twilio-paste/tooltip@0.3.24...@twilio-paste/tooltip@0.3.25) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/tooltip
+
+
+
+
+
+## [0.3.24](https://github.com/twilio-labs/paste/compare/@twilio-paste/tooltip@0.3.23...@twilio-paste/tooltip@0.3.24) (2020-12-03)
+
+**Note:** Version bump only for package @twilio-paste/tooltip
+
+
+
+
+
+## [0.3.23](https://github.com/twilio-labs/paste/compare/@twilio-paste/tooltip@0.3.22...@twilio-paste/tooltip@0.3.23) (2020-12-02)
+
+**Note:** Version bump only for package @twilio-paste/tooltip
+
+
+
+
+
+## [0.3.22](https://github.com/twilio-labs/paste/compare/@twilio-paste/tooltip@0.3.21...@twilio-paste/tooltip@0.3.22) (2020-11-16)
+
+**Note:** Version bump only for package @twilio-paste/tooltip
+
+
+
+
+
+## [0.3.21](https://github.com/twilio-labs/paste/compare/@twilio-paste/tooltip@0.3.20...@twilio-paste/tooltip@0.3.21) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/tooltip
+
+
+
+
+
 ## [0.3.20](https://github.com/twilio-labs/paste/compare/@twilio-paste/tooltip@0.3.19...@twilio-paste/tooltip@0.3.20) (2020-11-10)
 
 **Note:** Version bump only for package @twilio-paste/tooltip

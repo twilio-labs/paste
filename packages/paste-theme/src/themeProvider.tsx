@@ -1,52 +1,15 @@
 import * as React from 'react';
 import {useReducedMotion, Globals as AnimatedGlobals} from '@twilio-paste/animation-library';
-import {
-  styled,
-  StylingGlobals,
-  css,
-  SystemStyleObject,
-  ThemeProvider as StyledThemeProvider,
-} from '@twilio-paste/styling-library';
+import {styled, StylingGlobals, ThemeProvider as StyledThemeProvider} from '@twilio-paste/styling-library';
 import {DefaultTheme, SendGridTheme, ConsoleTheme} from './themes';
+import {pasteGlobalStyles} from './styles/global';
+import {pasteBaseStyles} from './styles/base';
+import {pasteFonts} from './styles/fonts';
 import {ThemeVariants} from './constants';
-
-const pasteGlobalStyles = css({
-  html: {
-    fontSize: '100%',
-  },
-  body: {
-    margin: 0,
-    fontSize: 'fontSize30',
-  },
-  '*, *::after, *::before': {
-    boxSizing: 'border-box',
-  },
-  '@media (prefers-reduced-motion: reduce)': {
-    '*': {
-      animationDuration: '0 !important' as SystemStyleObject,
-      animationIterationCount: '1 !important' as SystemStyleObject,
-      transitionDuration: '0 !important' as SystemStyleObject,
-      scrollBehavior: 'auto !important' as SystemStyleObject,
-    },
-  },
-  // To disable reach/dialog's style warning
-  // Issue: https://github.com/twilio-labs/paste/discussions/524
-  // Reach Docs Guidance: https://reach.tech/styling#skip-including-styles
-  ':root': {
-    ['--reach-dialog' as any]: '1',
-  },
-});
-
-export const pasteBaseStyles = css({
-  color: 'colorText',
-  fontSize: 'fontSize30',
-  fontFamily: 'fontFamilyText',
-  lineHeight: 'lineHeight30',
-  fontWeight: 'fontWeightNormal',
-});
 
 export const StyledBase = styled.div(pasteBaseStyles);
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 function getProviderThemeProps(theme: ThemeVariants, customBreakpoints?: string[]): {} {
   switch (theme) {
     case ThemeVariants.SENDGRID:
@@ -93,6 +56,7 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
   return (
     <StyledThemeProvider theme={providerThemeProps}>
       <StylingGlobals styles={pasteGlobalStyles({theme: providerThemeProps})} />
+      <StylingGlobals styles={pasteFonts} />
       <StyledBase {...props} />
     </StyledThemeProvider>
   );

@@ -3,6 +3,94 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@3.0.0...@twilio-paste/spinner@3.0.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/spinner
+
+
+
+
+
+# [3.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@2.0.41...@twilio-paste/spinner@3.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **spinner:** add forwardRef ([4045250](https://github.com/twilio-labs/paste/commit/40452503230184816fb1fe0323f37249ae64bc92))
+
+
+### BREAKING CHANGES
+
+* **spinner:** component is now using fowardRef
+
+
+
+
+
+## [2.0.41](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@2.0.40...@twilio-paste/spinner@2.0.41) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/spinner
+
+
+
+
+
+## [2.0.40](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@2.0.39...@twilio-paste/spinner@2.0.40) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/spinner
+
+
+
+
+
+## [2.0.39](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@2.0.38...@twilio-paste/spinner@2.0.39) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/spinner
+
+
+
+
+
+## [2.0.38](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@2.0.37...@twilio-paste/spinner@2.0.38) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/spinner
+
+
+
+
+
+## [2.0.37](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@2.0.36...@twilio-paste/spinner@2.0.37) (2020-12-03)
+
+**Note:** Version bump only for package @twilio-paste/spinner
+
+
+
+
+
+## [2.0.36](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@2.0.35...@twilio-paste/spinner@2.0.36) (2020-12-02)
+
+**Note:** Version bump only for package @twilio-paste/spinner
+
+
+
+
+
+## [2.0.35](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@2.0.34...@twilio-paste/spinner@2.0.35) (2020-11-16)
+
+**Note:** Version bump only for package @twilio-paste/spinner
+
+
+
+
+
+## [2.0.34](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@2.0.33...@twilio-paste/spinner@2.0.34) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/spinner
+
+
+
+
+
 ## [2.0.33](https://github.com/twilio-labs/paste/compare/@twilio-paste/spinner@2.0.32...@twilio-paste/spinner@2.0.33) (2020-11-10)
 
 **Note:** Version bump only for package @twilio-paste/spinner

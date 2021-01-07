@@ -1,12 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Flex Display it should render as any HTML element 1`] = `
+exports[`Flex Display should render as any HTML element 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -38,13 +39,14 @@ exports[`Flex Display it should render as any HTML element 1`] = `
 </div>
 `;
 
-exports[`Flex Display it should set a display: flex property 1`] = `
+exports[`Flex Display should set a display: flex property 1`] = `
 .emotion-2 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-1 {
@@ -87,13 +89,14 @@ exports[`Flex Display it should set a display: flex property 1`] = `
 </div>
 `;
 
-exports[`Flex Options it should set a flex-basis property 1`] = `
+exports[`Flex Options should set a flex-basis property 1`] = `
 .emotion-2 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -146,13 +149,14 @@ exports[`Flex Options it should set a flex-basis property 1`] = `
 </div>
 `;
 
-exports[`Flex Options it should set a flex-grow property 1`] = `
+exports[`Flex Options should set a flex-grow property 1`] = `
 .emotion-2 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -205,13 +209,14 @@ exports[`Flex Options it should set a flex-grow property 1`] = `
 </div>
 `;
 
-exports[`Flex Options it should set a flex-shrink property 1`] = `
+exports[`Flex Options should set a flex-shrink property 1`] = `
 .emotion-2 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -264,13 +269,14 @@ exports[`Flex Options it should set a flex-shrink property 1`] = `
 </div>
 `;
 
-exports[`Flex Options it should set a responsive flex-basis property 1`] = `
+exports[`Flex Options should set a responsive flex-basis property 1`] = `
 .emotion-2 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -339,13 +345,14 @@ exports[`Flex Options it should set a responsive flex-basis property 1`] = `
 </div>
 `;
 
-exports[`Flex Options it should set a responsive flex-grow property 1`] = `
+exports[`Flex Options should set a responsive flex-grow property 1`] = `
 .emotion-2 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -416,13 +423,14 @@ exports[`Flex Options it should set a responsive flex-grow property 1`] = `
 </div>
 `;
 
-exports[`Flex Options it should set a responsive flex-shrink property 1`] = `
+exports[`Flex Options should set a responsive flex-shrink property 1`] = `
 .emotion-2 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -491,13 +499,14 @@ exports[`Flex Options it should set a responsive flex-shrink property 1`] = `
 </div>
 `;
 
-exports[`Flex Row it should not set a flex-direction property 1`] = `
+exports[`Flex Row should not set a flex-direction property 1`] = `
 .emotion-5 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-1 {
@@ -558,13 +567,14 @@ exports[`Flex Row it should not set a flex-direction property 1`] = `
 </div>
 `;
 
-exports[`Flex Row it should set a responsive flex-direction property 1`] = `
+exports[`Flex Row should set a responsive flex-direction property 1`] = `
 .emotion-5 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-1 {
@@ -661,13 +671,14 @@ exports[`Flex Row it should set a responsive flex-direction property 1`] = `
 </div>
 `;
 
-exports[`Flex Wrap it should not set a flex-wrap property 1`] = `
+exports[`Flex Wrap should not set a flex-wrap property 1`] = `
 .emotion-5 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-1 {
@@ -728,13 +739,14 @@ exports[`Flex Wrap it should not set a flex-wrap property 1`] = `
 </div>
 `;
 
-exports[`Flex Wrap it should set a responsive flex-wrap property 1`] = `
+exports[`Flex Wrap should set a responsive flex-wrap property 1`] = `
 .emotion-5 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-1 {
@@ -831,13 +843,14 @@ exports[`Flex Wrap it should set a responsive flex-wrap property 1`] = `
 </div>
 `;
 
-exports[`Horizontal Alignment it should set a justify-content: flex-start property 1`] = `
+exports[`Horizontal Alignment should set a justify-content: flex-start property 1`] = `
 .emotion-5 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-1 {
@@ -898,13 +911,14 @@ exports[`Horizontal Alignment it should set a justify-content: flex-start proper
 </div>
 `;
 
-exports[`Horizontal Alignment it should set a responsive justify-content property 1`] = `
+exports[`Horizontal Alignment should set a responsive justify-content property 1`] = `
 .emotion-5 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-1 {
@@ -1000,13 +1014,14 @@ exports[`Horizontal Alignment it should set a responsive justify-content propert
 </div>
 `;
 
-exports[`Vertical Alignment it should set a align-items: flex-start property 1`] = `
+exports[`Vertical Alignment should set a align-items: flex-start property 1`] = `
 .emotion-5 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-1 {
@@ -1067,13 +1082,14 @@ exports[`Vertical Alignment it should set a align-items: flex-start property 1`]
 </div>
 `;
 
-exports[`Vertical Alignment it should set a responvise align-items property 1`] = `
+exports[`Vertical Alignment should set a responvise align-items property 1`] = `
 .emotion-5 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-1 {

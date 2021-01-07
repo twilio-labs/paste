@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "silvenon.mdx",
+    "jpoissonnier.vscode-styled-components",
+    "eamodio.gitlens",
+    "patbenatar.advanced-new-file",
+    "coenraads.bracket-pair-colorizer",
+    "wmaurer.change-case",
+    "bierner.docs-view",
+    "editorconfig.editorconfig",
+    "github.vscode-pull-request-github",
+    "ms-vsliveshare.vsliveshare",
+    "tyriar.sort-lines",
+    "dsznajder.es7-react-js-snippets"
+  ]
+}

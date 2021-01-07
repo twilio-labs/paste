@@ -3,6 +3,94 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/toast@0.3.0...@twilio-paste/toast@0.3.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/toast
+
+
+
+
+
+# [0.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/toast@0.2.16...@twilio-paste/toast@0.3.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **toast:** add forwardRef ([f32579f](https://github.com/twilio-labs/paste/commit/f32579fdf706fd9eb74b4a006efcce190ab4a381))
+
+
+### BREAKING CHANGES
+
+* **toast:** component is now using fowardRef
+
+
+
+
+
+## [0.2.16](https://github.com/twilio-labs/paste/compare/@twilio-paste/toast@0.2.15...@twilio-paste/toast@0.2.16) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/toast
+
+
+
+
+
+## [0.2.15](https://github.com/twilio-labs/paste/compare/@twilio-paste/toast@0.2.14...@twilio-paste/toast@0.2.15) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/toast
+
+
+
+
+
+## [0.2.14](https://github.com/twilio-labs/paste/compare/@twilio-paste/toast@0.2.13...@twilio-paste/toast@0.2.14) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/toast
+
+
+
+
+
+## [0.2.13](https://github.com/twilio-labs/paste/compare/@twilio-paste/toast@0.2.12...@twilio-paste/toast@0.2.13) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/toast
+
+
+
+
+
+## [0.2.12](https://github.com/twilio-labs/paste/compare/@twilio-paste/toast@0.2.11...@twilio-paste/toast@0.2.12) (2020-12-03)
+
+**Note:** Version bump only for package @twilio-paste/toast
+
+
+
+
+
+## [0.2.11](https://github.com/twilio-labs/paste/compare/@twilio-paste/toast@0.2.10...@twilio-paste/toast@0.2.11) (2020-12-02)
+
+**Note:** Version bump only for package @twilio-paste/toast
+
+
+
+
+
+## [0.2.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/toast@0.2.9...@twilio-paste/toast@0.2.10) (2020-11-16)
+
+**Note:** Version bump only for package @twilio-paste/toast
+
+
+
+
+
+## [0.2.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/toast@0.2.8...@twilio-paste/toast@0.2.9) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/toast
+
+
+
+
+
 ## [0.2.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/toast@0.2.7...@twilio-paste/toast@0.2.8) (2020-11-10)
 
 **Note:** Version bump only for package @twilio-paste/toast

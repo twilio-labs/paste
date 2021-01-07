@@ -21,10 +21,10 @@ const convertToSketchPaletteColor = (input: string): {[key: string]: number} => 
   const convertedColor: ColorRGB = color.rgb(input);
 
   return {
-    red: parseInt(convertedColor.color[0], 10) / 255,
-    green: parseInt(convertedColor.color[1], 10) / 255,
-    blue: parseInt(convertedColor.color[2], 10) / 255,
-    alpha: parseInt(convertedColor.valpha, 10),
+    red: Number.parseInt(convertedColor.color[0], 10) / 255,
+    green: Number.parseInt(convertedColor.color[1], 10) / 255,
+    blue: Number.parseInt(convertedColor.color[2], 10) / 255,
+    alpha: Number.parseInt(convertedColor.valpha, 10),
   };
 };
 

@@ -13,7 +13,7 @@ describe('ColorCombos', (): void => {
   const mockRGBa = ['rgb(255,255,255)', 'rgba(0,25,255, 0.4)'];
   const mockHSL = ['hsl(134,90%, 76%)', 'hsl(4,90%, 40%)'];
 
-  it('should return some color combos from an array of colors ', (): void => {
+  it('should return some color combos from an array of colors', (): void => {
     expect(ColorCombos(mockColorArray)).toEqual([
       {
         color: [255, 255, 255],
@@ -55,7 +55,7 @@ describe('ColorCombos', (): void => {
     ]);
   });
 
-  it('should return some color combos from an object of colors ', (): void => {
+  it('should return some color combos from an object of colors', (): void => {
     expect(ColorCombos(mockColorObject)).toEqual([
       {
         color: [255, 255, 255],
@@ -97,7 +97,7 @@ describe('ColorCombos', (): void => {
     ]);
   });
 
-  it('should return return false if not passed an array or object ', (): void => {
+  it('should return return false if not passed an array or object', (): void => {
     // @ts-ignore
     expect(ColorCombos('#ddd')).toEqual(false);
   });

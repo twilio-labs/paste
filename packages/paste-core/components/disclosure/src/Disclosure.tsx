@@ -5,6 +5,7 @@ import {
   DisclosurePrimitiveInitialState,
   DisclosurePrimitveStateReturn,
 } from '@twilio-paste/disclosure-primitive';
+import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 
 export type Variants = 'contained' | 'default';
@@ -26,23 +27,31 @@ export interface DisclosureProps extends DisclosurePrimitiveInitialState {
   variant?: Variants;
 }
 
-const Disclosure: React.FC<DisclosureProps> = ({children, variant = 'default', state, ...props}) => {
-  const disclosure = state || useDisclosurePrimitiveState({...props});
-  const disclosureContext = {
-    disclosure,
-    variant,
-  };
+const Disclosure = React.forwardRef<HTMLDivElement, DisclosureProps>(
+  ({children, variant = 'default', state, ...props}, ref) => {
+    const disclosure = state || useDisclosurePrimitiveState({...props});
+    const disclosureContext = {
+      disclosure,
+      variant,
+    };
 
-  if (variant === 'contained') {
+    if (variant === 'contained') {
+      return (
+        <DisclosureContext.Provider value={disclosureContext}>
+          <Card padding="space0" ref={ref}>
+            {children}
+          </Card>
+        </DisclosureContext.Provider>
+      );
+    }
+
     return (
       <DisclosureContext.Provider value={disclosureContext}>
-        <Card padding="space0">{children}</Card>
+        <Box ref={ref}>{children}</Box>
       </DisclosureContext.Provider>
     );
   }
-
-  return <DisclosureContext.Provider value={disclosureContext}>{children}</DisclosureContext.Provider>;
-};
+);
 Disclosure.displayName = 'Disclosure';
 
 if (process.env.NODE_ENV === 'development') {

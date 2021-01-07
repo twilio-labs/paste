@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/separator@0.3.0...@twilio-paste/separator@0.3.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/separator
+
+
+
+
+
+# [0.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/separator@0.2.24...@twilio-paste/separator@0.3.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **separator:** add forwardRef ([c280432](https://github.com/twilio-labs/paste/commit/c28043288d78d23275d84af788ff5ad2f645337a))
+
+
+### BREAKING CHANGES
+
+* **separator:** component is now using fowardRef
+
+
+
+
+
+## [0.2.24](https://github.com/twilio-labs/paste/compare/@twilio-paste/separator@0.2.23...@twilio-paste/separator@0.2.24) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/separator
+
+
+
+
+
+## [0.2.23](https://github.com/twilio-labs/paste/compare/@twilio-paste/separator@0.2.22...@twilio-paste/separator@0.2.23) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/separator
+
+
+
+
+
+## [0.2.22](https://github.com/twilio-labs/paste/compare/@twilio-paste/separator@0.2.21...@twilio-paste/separator@0.2.22) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/separator
+
+
+
+
+
+## [0.2.21](https://github.com/twilio-labs/paste/compare/@twilio-paste/separator@0.2.20...@twilio-paste/separator@0.2.21) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/separator
+
+
+
+
+
+## [0.2.20](https://github.com/twilio-labs/paste/compare/@twilio-paste/separator@0.2.19...@twilio-paste/separator@0.2.20) (2020-12-02)
+
+**Note:** Version bump only for package @twilio-paste/separator
+
+
+
+
+
+## [0.2.19](https://github.com/twilio-labs/paste/compare/@twilio-paste/separator@0.2.18...@twilio-paste/separator@0.2.19) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/separator
+
+
+
+
+
 ## [0.2.18](https://github.com/twilio-labs/paste/compare/@twilio-paste/separator@0.2.17...@twilio-paste/separator@0.2.18) (2020-11-06)
 
 **Note:** Version bump only for package @twilio-paste/separator

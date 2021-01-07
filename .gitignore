@@ -59,7 +59,7 @@ typings/
 
 # gatsby files
 packages/paste-website/.cache/
-public
+packages/paste-website/public
 
 # next.js build output
 .next
@@ -78,6 +78,9 @@ packages/**/docs
 package-lock.json
 tools/.cache/packages.json
 docs
+
+# codemods package
+packages/paste-codemods/tools/mappings.json
 
 # Cypress
 cypress/videos

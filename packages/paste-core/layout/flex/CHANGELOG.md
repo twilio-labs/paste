@@ -3,6 +3,76 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.4.4...@twilio-paste/flex@0.4.5) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/flex
+
+
+
+
+
+## [0.4.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.4.3...@twilio-paste/flex@0.4.4) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/flex
+
+
+
+
+
+## [0.4.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.4.2...@twilio-paste/flex@0.4.3) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/flex
+
+
+
+
+
+## [0.4.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.4.1...@twilio-paste/flex@0.4.2) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/flex
+
+
+
+
+
+## [0.4.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.4.0...@twilio-paste/flex@0.4.1) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/flex
+
+
+
+
+
+# [0.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.3.70...@twilio-paste/flex@0.4.0) (2020-12-02)
+
+
+### Features
+
+* **flex:** wrapping with forwardRefs ([362715f](https://github.com/twilio-labs/paste/commit/362715fc2e7f24932120e73e84493a93846afea1))
+
+
+
+
+
+## [0.3.70](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.3.69...@twilio-paste/flex@0.3.70) (2020-11-25)
+
+
+### Bug Fixes
+
+* **flex:** export types ([4ceb7e2](https://github.com/twilio-labs/paste/commit/4ceb7e2f92955b142a9af1b0a927e2bf2d5daa28))
+
+
+
+
+
+## [0.3.69](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.3.68...@twilio-paste/flex@0.3.69) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/flex
+
+
+
+
+
 ## [0.3.68](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.3.67...@twilio-paste/flex@0.3.68) (2020-11-06)
 
 **Note:** Version bump only for package @twilio-paste/flex

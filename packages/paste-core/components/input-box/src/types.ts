@@ -4,6 +4,7 @@ export type InputTypes = 'text' | 'email' | 'hidden' | 'number' | 'password' | '
 export type Variants = 'default' | 'inverse';
 
 export interface FauxInputProps {
+  children: NonNullable<React.ReactNode>;
   disabled?: boolean;
   hasError?: boolean;
   readOnly?: boolean;
@@ -12,6 +13,7 @@ export interface FauxInputProps {
 }
 
 export const FauxInputPropTypes = {
+  children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
   hasError: PropTypes.bool,
   readOnly: PropTypes.bool,

@@ -3,6 +3,86 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.4.0...@twilio-paste/tabs@0.4.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/tabs
+
+
+
+
+
+# [0.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.3.33...@twilio-paste/tabs@0.4.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **tabs:** add forwardRef ([467a726](https://github.com/twilio-labs/paste/commit/467a7265b6e56196011ca7a0aca76b1895ef973b))
+
+
+### BREAKING CHANGES
+
+* **tabs:** component is now using fowardRef
+
+
+
+
+
+## [0.3.33](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.3.32...@twilio-paste/tabs@0.3.33) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/tabs
+
+
+
+
+
+## [0.3.32](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.3.31...@twilio-paste/tabs@0.3.32) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/tabs
+
+
+
+
+
+## [0.3.31](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.3.30...@twilio-paste/tabs@0.3.31) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/tabs
+
+
+
+
+
+## [0.3.30](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.3.29...@twilio-paste/tabs@0.3.30) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/tabs
+
+
+
+
+
+## [0.3.29](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.3.28...@twilio-paste/tabs@0.3.29) (2020-12-02)
+
+**Note:** Version bump only for package @twilio-paste/tabs
+
+
+
+
+
+## [0.3.28](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.3.27...@twilio-paste/tabs@0.3.28) (2020-11-25)
+
+**Note:** Version bump only for package @twilio-paste/tabs
+
+
+
+
+
+## [0.3.27](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.3.26...@twilio-paste/tabs@0.3.27) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/tabs
+
+
+
+
+
 ## [0.3.26](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.3.25...@twilio-paste/tabs@0.3.26) (2020-11-06)
 
 **Note:** Version bump only for package @twilio-paste/tabs

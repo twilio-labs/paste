@@ -36,21 +36,23 @@ export interface SpinnerProps extends LoadingIconProps {
   delay?: number;
 }
 
-const Spinner: React.FC<SpinnerProps> = ({as, size, color, decorative, title, delay = 250}) => {
-  const [show, setShow] = React.useState(delay === 0);
+const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
+  ({as, size, color, decorative, title, delay = 250}, ref) => {
+    const [show, setShow] = React.useState(delay === 0);
 
-  React.useEffect(() => {
-    if (delay === 0) return;
-    const showTimer = setTimeout(() => setShow(true), delay);
-    return () => clearTimeout(showTimer);
-  }, [delay]);
+    React.useEffect(() => {
+      if (delay === 0) return;
+      const showTimer = setTimeout(() => setShow(true), delay);
+      return () => clearTimeout(showTimer);
+    }, [delay]);
 
-  return (
-    <SpinningWrapper size={size} show={show}>
-      <LoadingIcon as={as} size={size} color={color} decorative={decorative} title={title} />
-    </SpinningWrapper>
-  );
-};
+    return (
+      <SpinningWrapper size={size} show={show} ref={ref}>
+        <LoadingIcon as={as} size={size} color={color} decorative={decorative} title={title} />
+      </SpinningWrapper>
+    );
+  }
+);
 
 Spinner.defaultProps = {
   size: 'sizeIcon20',

@@ -1,6 +1,7 @@
 import * as React from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
+import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
 import {
   useDisclosurePrimitiveState,
   DisclosurePrimitive,
@@ -14,92 +15,14 @@ import {SidebarNestedList} from './SidebarNestedList';
 import {PackageStatus, SidebarCategoryRoutes} from '../../../constants';
 import {getCurrentPathname, getNameFromPackageName, getHumanizedNameFromPackageName} from '../../../utils/RouteUtils';
 import {filteredComponents} from '../../../utils/componentFilters';
+import {useNavigationContext} from '../../../context/NavigationContext';
 
 interface SidebarNavigationProps {
   children?: React.ReactNode;
 }
 
-interface SiteWrapperPageQuery {
-  allPasteComponent: {
-    edges: [
-      {
-        node: {
-          name: string;
-          status: string;
-          version: string;
-        };
-      }
-    ];
-  };
-  allPastePrimitive: {
-    edges: [
-      {
-        node: {
-          name: string;
-          status: string;
-          version: string;
-        };
-      }
-    ];
-  };
-  allPasteLayout: {
-    edges: [
-      {
-        node: {
-          name: string;
-          status: string;
-          version: string;
-        };
-      }
-    ];
-  };
-}
-
-const pageQuery = graphql`
-  {
-    allSitePage(filter: {path: {ne: "/dev-404-page/"}}) {
-      edges {
-        node {
-          path
-          componentChunkName
-          componentPath
-          id
-          component
-          internalComponentName
-          isCreatedByStatefulCreatePages
-          pluginCreatorId
-        }
-      }
-    }
-    allPasteComponent(sort: {order: ASC, fields: name}) {
-      edges {
-        node {
-          name
-          status
-        }
-      }
-    }
-    allPastePrimitive(sort: {order: ASC, fields: name}) {
-      edges {
-        node {
-          name
-          status
-        }
-      }
-    }
-    allPasteLayout(sort: {order: ASC, fields: name}) {
-      edges {
-        node {
-          name
-          status
-        }
-      }
-    }
-  }
-`;
-
 const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
-  const data: SiteWrapperPageQuery = useStaticQuery(pageQuery);
+  const data = useNavigationContext();
 
   const gettingStartedDisclosure = useDisclosurePrimitiveState({
     visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.GETTING_STARTED),
@@ -138,20 +61,66 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
   });
 
   return (
-    <Box as="nav" marginTop="space70" overflow="auto" role="navigation" aria-label="Main">
+    <Box
+      as="nav"
+      marginTop={['space0', 'space0', 'space70']}
+      marginLeft={['space10', 'space10', 'space0']}
+      paddingBottom={['space50', 'space50', 'space0']}
+      overflow="auto"
+      role="navigation"
+      aria-label="Main"
+    >
+      <Box
+        display={['block', 'block', 'none']}
+        marginTop="space20"
+        marginLeft="space20"
+        marginRight={['space160', 'space160', 'space0']}
+      >
+        <SidebarAnchor to="/">
+          <Box display={['flex', 'flex', 'none']} alignItems="center" marginLeft="spaceNegative80" height="28px">
+            <Box as="span" paddingRight="space30">
+              <img src="/logo.svg" alt="" width="28px" height="28px" />
+            </Box>
+            <Text as="span" paddingRight="space20" fontSize={['fontSize50', 'fontSize50', 'fontSize30']}>
+              Paste
+            </Text>
+            <Text as="span" fontSize={['fontSize50', 'fontSize50', 'fontSize30']}>
+              Home
+            </Text>
+          </Box>
+        </SidebarAnchor>
+      </Box>
       <Box as="ul" padding="space0" margin="space0" listStyleType="none">
-        <SidebarItem>
-          <SidebarAnchor to="/">Home</SidebarAnchor>
+        <SidebarItem display={['none', 'none', 'block']}>
+          <SidebarAnchor
+            to="/"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-home',
+                label: 'Home',
+              })
+            }
+          >
+            Home
+          </SidebarAnchor>
         </SidebarItem>
         <SidebarItem>
           <DisclosurePrimitive
             as={SidebarDisclosureButton}
             {...gettingStartedDisclosure}
             data-cy="getting-started-button"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-getting-started',
+                label: 'Getting Started',
+              })
+            }
           >
             Getting Started
           </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...gettingStartedDisclosure}>
+          <DisclosurePrimitiveContent {...gettingStartedDisclosure} data-cy="getting-started-list">
             <SidebarNestedList>
               <SidebarNestedItem>
                 <SidebarAnchor nested to="/getting-started/engineering">
@@ -188,10 +157,21 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <SidebarAnchor to="/inclusive-design">Inclusive Design Guide</SidebarAnchor>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...tokensDisclosure} data-cy="design-tokens-button">
+          <DisclosurePrimitive
+            as={SidebarDisclosureButton}
+            {...tokensDisclosure}
+            data-cy="design-tokens-button"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-design-tokens',
+                label: 'Design Tokens',
+              })
+            }
+          >
             Design Tokens
           </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...tokensDisclosure}>
+          <DisclosurePrimitiveContent {...tokensDisclosure} data-cy="design-tokens-list">
             <SidebarNestedList>
               <SidebarNestedItem>
                 <SidebarAnchor nested to={SidebarCategoryRoutes.TOKENS}>
@@ -217,10 +197,21 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...patternsDisclosure}>
+          <DisclosurePrimitive
+            as={SidebarDisclosureButton}
+            {...patternsDisclosure}
+            data-cy="patterns-button"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-patterns',
+                label: 'Patterns',
+              })
+            }
+          >
             Patterns
           </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...patternsDisclosure}>
+          <DisclosurePrimitiveContent {...patternsDisclosure} data-cy="patterns-list">
             <SidebarNestedList>
               <SidebarNestedItem>
                 <SidebarAnchor nested to={SidebarCategoryRoutes.PATTERNS}>
@@ -252,34 +243,25 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
                   Object details
                 </SidebarAnchor>
               </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/empty-state`}>
-                  Empty state
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/filter`}>
-                  Filter
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/status`}>
-                  Status indicators
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/stat-cards`}>
-                  Stat cards
-                </SidebarAnchor>
-              </SidebarNestedItem>
             </SidebarNestedList>
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...componentsDisclosure} data-cy="components-button">
+          <DisclosurePrimitive
+            as={SidebarDisclosureButton}
+            {...componentsDisclosure}
+            data-cy="components-button"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-components',
+                label: 'Components',
+              })
+            }
+          >
             Components
           </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...componentsDisclosure}>
+          <DisclosurePrimitiveContent {...componentsDisclosure} data-cy="components-list">
             <SidebarNestedList>
               <SidebarNestedItem>
                 <SidebarAnchor nested to={SidebarCategoryRoutes.COMPONENTS}>
@@ -302,10 +284,21 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...primitivesDisclosure} data-cy="primitives-button">
+          <DisclosurePrimitive
+            as={SidebarDisclosureButton}
+            {...primitivesDisclosure}
+            data-cy="primitives-button"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-primitives',
+                label: 'Primitives',
+              })
+            }
+          >
             Primitives
           </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...primitivesDisclosure}>
+          <DisclosurePrimitiveContent {...primitivesDisclosure} data-cy="primitives-list">
             <SidebarNestedList>
               <SidebarNestedItem>
                 <SidebarAnchor nested to={SidebarCategoryRoutes.PRIMITIVES}>
@@ -330,10 +323,21 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...layoutDisclosure} data-cy="layout-button">
+          <DisclosurePrimitive
+            as={SidebarDisclosureButton}
+            {...layoutDisclosure}
+            data-cy="layout-button"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-layout',
+                label: 'Layout',
+              })
+            }
+          >
             Layout
           </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...layoutDisclosure}>
+          <DisclosurePrimitiveContent {...layoutDisclosure} data-cy="layout-list">
             <SidebarNestedList>
               <SidebarNestedItem>
                 <SidebarAnchor nested to={SidebarCategoryRoutes.LAYOUT}>
@@ -355,10 +359,21 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...iconDisclosure} data-cy="icons-button">
+          <DisclosurePrimitive
+            as={SidebarDisclosureButton}
+            {...iconDisclosure}
+            data-cy="icons-button"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-icons',
+                label: 'Icons',
+              })
+            }
+          >
             Icons
           </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...iconDisclosure}>
+          <DisclosurePrimitiveContent {...iconDisclosure} data-cy="icons-list">
             <SidebarNestedList>
               <SidebarNestedItem>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.ICON_SYSTEM}`}>
@@ -379,13 +394,35 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <SidebarAnchor to="/illustrations">Illustrations</SidebarAnchor>
+          <SidebarAnchor
+            to="/illustrations"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-illustrations',
+                label: 'Illustrations',
+              })
+            }
+          >
+            Illustrations
+          </SidebarAnchor>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...contentDisclosure} data-cy="content-button">
+          <DisclosurePrimitive
+            as={SidebarDisclosureButton}
+            {...contentDisclosure}
+            data-cy="content-button"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-content',
+                label: 'Content',
+              })
+            }
+          >
             Content
           </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...contentDisclosure}>
+          <DisclosurePrimitiveContent {...contentDisclosure} data-cy="content-list">
             <SidebarNestedList>
               <SidebarNestedItem>
                 <SidebarAnchor nested to={SidebarCategoryRoutes.CONTENT}>
@@ -416,10 +453,21 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <DisclosurePrimitive as={SidebarDisclosureButton} {...librariesDisclosure} data-cy="libraries-button">
+          <DisclosurePrimitive
+            as={SidebarDisclosureButton}
+            {...librariesDisclosure}
+            data-cy="libraries-button"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-libraries',
+                label: 'Libraries',
+              })
+            }
+          >
             Libraries
           </DisclosurePrimitive>
-          <DisclosurePrimitiveContent {...librariesDisclosure}>
+          <DisclosurePrimitiveContent {...librariesDisclosure} data-cy="libraries-list">
             <SidebarNestedList>
               <SidebarNestedItem>
                 <SidebarAnchor nested to={SidebarCategoryRoutes.LIBRARIES}>
@@ -431,11 +479,27 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
                   UID
                 </SidebarAnchor>
               </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.LIBRARIES}/codemods`}>
+                  Codemods
+                </SidebarAnchor>
+              </SidebarNestedItem>
             </SidebarNestedList>
           </DisclosurePrimitiveContent>
         </SidebarItem>
         <SidebarItem>
-          <SidebarAnchor to="/roadmap">Roadmap</SidebarAnchor>
+          <SidebarAnchor
+            to="/roadmap"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-roadmap',
+                label: 'Roadmap',
+              })
+            }
+          >
+            Roadmap
+          </SidebarAnchor>
         </SidebarItem>
       </Box>
     </Box>

@@ -4,7 +4,7 @@ import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {useTooltipPrimitiveState, TooltipPrimitive, TooltipPrimitiveReference} from '../src';
 
-const Example: React.FC<{}> = () => {
+const Example: React.FC = () => {
   const tooltip = useTooltipPrimitiveState();
   return (
     <>
@@ -16,7 +16,7 @@ const Example: React.FC<{}> = () => {
   );
 };
 
-const RightPlacementExample: React.FC<{}> = () => {
+const RightPlacementExample: React.FC = () => {
   const tooltip = useTooltipPrimitiveState({placement: 'right'});
   return (
     <>
@@ -28,7 +28,7 @@ const RightPlacementExample: React.FC<{}> = () => {
   );
 };
 
-const LeftPlacementExample: React.FC<{}> = () => {
+const LeftPlacementExample: React.FC = () => {
   const tooltip = useTooltipPrimitiveState({placement: 'left'});
   return (
     <Box position="absolute" top={12} right={12}>
@@ -40,7 +40,7 @@ const LeftPlacementExample: React.FC<{}> = () => {
   );
 };
 
-const TopPlacementExample: React.FC<{}> = () => {
+const TopPlacementExample: React.FC = () => {
   const tooltip = useTooltipPrimitiveState({placement: 'top'});
   return (
     <Box position="absolute" bottom={12}>
@@ -52,7 +52,7 @@ const TopPlacementExample: React.FC<{}> = () => {
   );
 };
 
-const BottomPlacementExample: React.FC<{}> = () => {
+const BottomPlacementExample: React.FC = () => {
   const tooltip = useTooltipPrimitiveState({placement: 'bottom'});
   return (
     <>

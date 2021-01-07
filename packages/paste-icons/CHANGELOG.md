@@ -3,6 +3,84 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.10.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.10.4...@twilio-paste/icons@3.10.5) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/icons
+
+
+
+
+
+## [3.10.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.10.3...@twilio-paste/icons@3.10.4) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/icons
+
+
+
+
+
+## [3.10.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.10.2...@twilio-paste/icons@3.10.3) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/icons
+
+
+
+
+
+## [3.10.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.10.1...@twilio-paste/icons@3.10.2) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/icons
+
+
+
+
+
+## [3.10.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.10.0...@twilio-paste/icons@3.10.1) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/icons
+
+
+
+
+
+# [3.10.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.9.1...@twilio-paste/icons@3.10.0) (2020-12-03)
+
+
+### Features
+
+* **icons:** add EIP product icon ([#994](https://github.com/twilio-labs/paste/issues/994)) ([1c42901](https://github.com/twilio-labs/paste/commit/1c429015223cab45da43ebeb1f5e942a65cb7425))
+
+
+
+
+
+## [3.9.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.9.0...@twilio-paste/icons@3.9.1) (2020-12-02)
+
+**Note:** Version bump only for package @twilio-paste/icons
+
+
+
+
+
+# [3.9.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.8.4...@twilio-paste/icons@3.9.0) (2020-11-16)
+
+
+### Features
+
+* **icons:** add Frontline product icon ([#908](https://github.com/twilio-labs/paste/issues/908)) ([a9f5f06](https://github.com/twilio-labs/paste/commit/a9f5f065fe2f03cf0cb6bf7d3e54a6987f14fbfd))
+
+
+
+
+
+## [3.8.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.8.3...@twilio-paste/icons@3.8.4) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/icons
+
+
+
+
+
 ## [3.8.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.8.2...@twilio-paste/icons@3.8.3) (2020-11-10)
 
 

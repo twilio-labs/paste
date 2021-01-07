@@ -49,7 +49,7 @@ export const FittedTabsExample: React.FC = () => {
   );
 };
 
-export const VerticalTabsExample: React.FC<{}> = () => {
+export const VerticalTabsExample: React.FC = () => {
   const selectedId = useUID();
   return (
     <>

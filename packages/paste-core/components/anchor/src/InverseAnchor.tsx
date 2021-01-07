@@ -14,16 +14,16 @@ const InverseAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, r
     ref={ref}
     textDecoration="underline"
     _active={{
-      color: 'colorTextInverseWeaker',
+      color: 'colorTextInverse',
       textDecoration: 'none',
     }}
     _focus={{
       boxShadow: 'shadowFocusInverse',
-      color: 'colorTextInverseWeaker',
+      color: 'colorTextInverse',
       textDecoration: 'none',
     }}
     _hover={{
-      color: 'colorTextInverseWeaker',
+      color: 'colorTextInverse',
       textDecoration: 'none',
     }}
   >

@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.4.4...@twilio-paste/card@1.4.5) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/card
+
+
+
+
+
+## [1.4.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.4.3...@twilio-paste/card@1.4.4) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/card
+
+
+
+
+
+## [1.4.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.4.2...@twilio-paste/card@1.4.3) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/card
+
+
+
+
+
+## [1.4.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.4.1...@twilio-paste/card@1.4.2) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/card
+
+
+
+
+
+## [1.4.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.4.0...@twilio-paste/card@1.4.1) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/card
+
+
+
+
+
+# [1.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.3.76...@twilio-paste/card@1.4.0) (2020-12-02)
+
+
+### Features
+
+* **card:** wrapping with forwardRefs ([05996a5](https://github.com/twilio-labs/paste/commit/05996a5ab82623f4a69a84225dff57cee955c420))
+
+
+
+
+
+## [1.3.76](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.3.75...@twilio-paste/card@1.3.76) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/card
+
+
+
+
+
 ## [1.3.75](https://github.com/twilio-labs/paste/compare/@twilio-paste/card@1.3.74...@twilio-paste/card@1.3.75) (2020-11-06)
 
 **Note:** Version bump only for package @twilio-paste/card

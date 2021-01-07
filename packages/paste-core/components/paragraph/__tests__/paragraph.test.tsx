@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {render as testRender} from '@testing-library/react';
-import {axe} from 'jest-axe';
+import axe from '../../../../../.jest/axe-helper';
 import {Paragraph} from '../src';
 
 describe('General', () => {

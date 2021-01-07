@@ -3,6 +3,92 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.5.0...@twilio-paste/grid@0.5.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/grid
+
+
+
+
+
+# [0.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.4.4...@twilio-paste/grid@0.5.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **grid:** add forwardRef ([aff1d09](https://github.com/twilio-labs/paste/commit/aff1d09689341adee724401b1144cbf4088a5128))
+
+
+### BREAKING CHANGES
+
+* **grid:** component is now using fowardRef
+
+
+
+
+
+## [0.4.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.4.3...@twilio-paste/grid@0.4.4) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/grid
+
+
+
+
+
+## [0.4.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.4.2...@twilio-paste/grid@0.4.3) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/grid
+
+
+
+
+
+## [0.4.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.4.1...@twilio-paste/grid@0.4.2) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/grid
+
+
+
+
+
+## [0.4.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.4.0...@twilio-paste/grid@0.4.1) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/grid
+
+
+
+
+
+# [0.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.3.0...@twilio-paste/grid@0.4.0) (2020-12-02)
+
+
+### Features
+
+* **grid:** wrapping with forwardRefs ([724697b](https://github.com/twilio-labs/paste/commit/724697bddc6d3ce6b456aca640a9eef808b77d66))
+
+
+
+
+
+# [0.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.2.71...@twilio-paste/grid@0.3.0) (2020-11-25)
+
+
+### Features
+
+* **grid:** equal height columns ([ac8d758](https://github.com/twilio-labs/paste/commit/ac8d75865df3a7aaf43eb2ceb5234d6f8f430869))
+
+
+
+
+
+## [0.2.71](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.2.70...@twilio-paste/grid@0.2.71) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/grid
+
+
+
+
+
 ## [0.2.70](https://github.com/twilio-labs/paste/compare/@twilio-paste/grid@0.2.69...@twilio-paste/grid@0.2.70) (2020-11-06)
 
 **Note:** Version bump only for package @twilio-paste/grid

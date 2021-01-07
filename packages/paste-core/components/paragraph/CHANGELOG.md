@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/paragraph@2.0.0...@twilio-paste/paragraph@2.0.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/paragraph
+
+
+
+
+
+# [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/paragraph@1.1.57...@twilio-paste/paragraph@2.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **paragraph:** add forwardRef ([a5fe9d1](https://github.com/twilio-labs/paste/commit/a5fe9d10b1e0f673fe50bcdf181b1067a4188467))
+
+
+### BREAKING CHANGES
+
+* **paragraph:** component is now using fowardRef
+
+
+
+
+
+## [1.1.57](https://github.com/twilio-labs/paste/compare/@twilio-paste/paragraph@1.1.56...@twilio-paste/paragraph@1.1.57) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/paragraph
+
+
+
+
+
+## [1.1.56](https://github.com/twilio-labs/paste/compare/@twilio-paste/paragraph@1.1.55...@twilio-paste/paragraph@1.1.56) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/paragraph
+
+
+
+
+
+## [1.1.55](https://github.com/twilio-labs/paste/compare/@twilio-paste/paragraph@1.1.54...@twilio-paste/paragraph@1.1.55) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/paragraph
+
+
+
+
+
+## [1.1.54](https://github.com/twilio-labs/paste/compare/@twilio-paste/paragraph@1.1.53...@twilio-paste/paragraph@1.1.54) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/paragraph
+
+
+
+
+
+## [1.1.53](https://github.com/twilio-labs/paste/compare/@twilio-paste/paragraph@1.1.52...@twilio-paste/paragraph@1.1.53) (2020-12-02)
+
+**Note:** Version bump only for package @twilio-paste/paragraph
+
+
+
+
+
+## [1.1.52](https://github.com/twilio-labs/paste/compare/@twilio-paste/paragraph@1.1.51...@twilio-paste/paragraph@1.1.52) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/paragraph
+
+
+
+
+
 ## [1.1.51](https://github.com/twilio-labs/paste/compare/@twilio-paste/paragraph@1.1.50...@twilio-paste/paragraph@1.1.51) (2020-11-06)
 
 **Note:** Version bump only for package @twilio-paste/paragraph

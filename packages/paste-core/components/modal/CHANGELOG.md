@@ -3,6 +3,110 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@2.0.0...@twilio-paste/modal@2.0.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/modal
+
+
+
+
+
+# [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@1.0.55...@twilio-paste/modal@2.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **modal:** add forwardRef ([6061bfe](https://github.com/twilio-labs/paste/commit/6061bfe952a0422dcd4a48cb4040d12331851f5c))
+
+
+### BREAKING CHANGES
+
+* **modal:** component is now using fowardRef
+
+
+
+
+
+## [1.0.55](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@1.0.54...@twilio-paste/modal@1.0.55) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/modal
+
+
+
+
+
+## [1.0.54](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@1.0.53...@twilio-paste/modal@1.0.54) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/modal
+
+
+
+
+
+## [1.0.53](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@1.0.52...@twilio-paste/modal@1.0.53) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/modal
+
+
+
+
+
+## [1.0.52](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@1.0.51...@twilio-paste/modal@1.0.52) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/modal
+
+
+
+
+
+## [1.0.51](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@1.0.50...@twilio-paste/modal@1.0.51) (2020-12-03)
+
+**Note:** Version bump only for package @twilio-paste/modal
+
+
+
+
+
+## [1.0.50](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@1.0.49...@twilio-paste/modal@1.0.50) (2020-12-02)
+
+**Note:** Version bump only for package @twilio-paste/modal
+
+
+
+
+
+## [1.0.49](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@1.0.48...@twilio-paste/modal@1.0.49) (2020-11-25)
+
+**Note:** Version bump only for package @twilio-paste/modal
+
+
+
+
+
+## [1.0.48](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@1.0.47...@twilio-paste/modal@1.0.48) (2020-11-16)
+
+**Note:** Version bump only for package @twilio-paste/modal
+
+
+
+
+
+## [1.0.47](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@1.0.46...@twilio-paste/modal@1.0.47) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/modal
+
+
+
+
+
+## [1.0.46](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@1.0.45...@twilio-paste/modal@1.0.46) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/modal
+
+
+
+
+
 ## [1.0.45](https://github.com/twilio-labs/paste/compare/@twilio-paste/modal@1.0.44...@twilio-paste/modal@1.0.45) (2020-11-10)
 
 **Note:** Version bump only for package @twilio-paste/modal

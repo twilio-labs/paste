@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useUID} from 'react-uid';
+import {useUID} from '@twilio-paste/uid-library';
 import {Toaster, useToaster, ToastVariants} from '@twilio-paste/toast';
 import {Button} from '@twilio-paste/button';
 import {Stack} from '@twilio-paste/stack';
@@ -13,14 +13,14 @@ export const ToasterExample: React.FC = () => {
   const dismissAfterID = useUID();
   const [messageText, setMessageText] = React.useState('Nice one, you just pushed a Toast to the Toaster!');
   const [variantStyle, setVariantStyle] = React.useState<ToastVariants>('success');
-  const [timeout, setTimeout] = React.useState('');
+  const [toastTimeout, setToastTimeout] = React.useState('');
 
   const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
     toaster.push({
       variant: variantStyle,
       message: messageText,
-      ...(timeout !== '0' && timeout !== '' && {dismissAfter: parseInt(timeout, 10)}),
+      ...(toastTimeout !== '0' && toastTimeout !== '' && {dismissAfter: Number.parseInt(toastTimeout, 10)}),
     });
   };
   return (
@@ -43,9 +43,9 @@ export const ToasterExample: React.FC = () => {
             <Label htmlFor={dismissAfterID}>Dismiss after (milliseconds)</Label>
             <Input
               id={dismissAfterID}
-              value={timeout}
+              value={toastTimeout}
               type="number"
-              onChange={e => setTimeout(e.target.value)}
+              onChange={e => setToastTimeout(e.target.value)}
               placeholder="7000"
             />
           </div>

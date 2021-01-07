@@ -49,7 +49,6 @@ import {
   TableLayoutProperty,
 } from 'csstype';
 import {PseudoPropStyles} from './PseudoPropStyles';
-import {BoxPropTypes} from './BoxPropTypes';
 
 interface BoxBaseStyleProps
   extends LayoutProps,
@@ -127,6 +126,22 @@ const extraConfig = system({
     property: 'borderColor',
     scale: 'borderColors',
   },
+  borderBottomColor: {
+    property: 'borderBottomColor',
+    scale: 'borderColors',
+  },
+  borderLeftColor: {
+    property: 'borderLeftColor',
+    scale: 'borderColors',
+  },
+  borderRightColor: {
+    property: 'borderRightColor',
+    scale: 'borderColors',
+  },
+  borderTopColor: {
+    property: 'borderTopColor',
+    scale: 'borderColors',
+  },
   content: true,
   cursor: true,
   appearance: true,
@@ -162,7 +177,7 @@ const extraConfig = system({
   tableLayout: true,
 });
 
-const getPseudoStyles = (props: BoxProps): {} => {
+const getPseudoStyles = (props: BoxProps): unknown => {
   const pseudoProps = Object.keys(props).filter(propName => propName.startsWith('_'));
 
   if (pseudoProps.length === 0) {
@@ -204,9 +219,5 @@ export const Box = styled.div(
 ) as React.FC<BoxProps>;
 
 Box.displayName = 'Box';
-
-if (process.env.NODE_ENV === 'development') {
-  Box.propTypes = BoxPropTypes;
-}
 
 export * from './SafelySpreadProps';

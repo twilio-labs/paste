@@ -4,7 +4,7 @@ import {DisclosurePrimitiveContent, DisclosurePrimitiveContentProps} from '@twil
 import {Box, BoxStyleProps} from '@twilio-paste/box';
 import {DisclosureContext, Variants} from './Disclosure';
 
-const getVariantStyles = (variant: Variants): {} => {
+const getVariantStyles = (variant: Variants): BoxStyleProps => {
   switch (variant) {
     case 'contained':
       return {
@@ -21,14 +21,14 @@ const getVariantStyles = (variant: Variants): {} => {
 export interface DisclosureContentProps extends Omit<DisclosurePrimitiveContentProps, keyof BoxStyleProps> {
   children: NonNullable<React.ReactNode>;
 }
-const DisclosureContent: React.FC<DisclosureContentProps> = ({children, ...props}) => {
+const DisclosureContent = React.forwardRef<HTMLDivElement, DisclosureContentProps>(({children, ...props}, ref) => {
   const {disclosure, variant} = React.useContext(DisclosureContext);
   return (
-    <DisclosurePrimitiveContent {...disclosure} {...props} as={Box} {...getVariantStyles(variant)}>
+    <DisclosurePrimitiveContent {...disclosure} {...props} as={Box} ref={ref} {...getVariantStyles(variant)}>
       {children}
     </DisclosurePrimitiveContent>
   );
-};
+});
 DisclosureContent.displayName = 'DisclosureContent';
 
 if (process.env.NODE_ENV === 'development') {

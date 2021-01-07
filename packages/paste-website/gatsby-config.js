@@ -43,6 +43,7 @@ const gatsbyConfig = {
           '**/__fixtures__/**',
           '**/__tests__/**',
           '**/paste-website/**/*',
+          '**/paste-theme-designer/**/*',
           '**/README.md',
           '**/*.js',
           '**/*.ts',
@@ -165,7 +166,7 @@ const gatsbyConfig = {
         background_color: `#fff`,
         theme_color: `#f22f46`,
         display: `standalone`,
-        icon: `static/favicon.png`,
+        icon: `static/logo.svg`,
       },
     },
     {

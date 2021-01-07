@@ -39,20 +39,20 @@ const AspectRatioContainer = styled.div`
   }
 `;
 
-const AspectRatio: React.FC<AspectRatioProps> = props => {
+const AspectRatio = React.forwardRef<HTMLDivElement, AspectRatioProps>((props, ref) => {
   handlePropValidation(props);
 
   const aspectArray = props.ratio.split(':').map(Number);
   const aspectPercent = (aspectArray[1] / aspectArray[0]) * 100;
 
   return (
-    <AspectRatioContainer style={{paddingBottom: `${aspectPercent}%`}}>
+    <AspectRatioContainer ref={ref} style={{paddingBottom: `${aspectPercent}%`}}>
       <Box position="absolute" top={0} right={0} bottom={0} left={0}>
         {props.children}
       </Box>
     </AspectRatioContainer>
   );
-};
+});
 
 AspectRatio.displayName = 'AspectRatio';
 

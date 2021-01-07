@@ -3,6 +3,118 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/base-radio-checkbox@2.0.1...@twilio-paste/base-radio-checkbox@2.0.2) (2021-01-06)
+
+**Note:** Version bump only for package @twilio-paste/base-radio-checkbox
+
+
+
+
+
+## [2.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/base-radio-checkbox@2.0.0...@twilio-paste/base-radio-checkbox@2.0.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/base-radio-checkbox
+
+
+
+
+
+# [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/base-radio-checkbox@1.1.24...@twilio-paste/base-radio-checkbox@2.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **base-radio-checkbox:** add forwardRef ([e24b7f4](https://github.com/twilio-labs/paste/commit/e24b7f4b4008ceaa8e467bea8392112ddb2d2264))
+
+
+### BREAKING CHANGES
+
+* **base-radio-checkbox:** component is now using fowardRef
+
+
+
+
+
+## [1.1.24](https://github.com/twilio-labs/paste/compare/@twilio-paste/base-radio-checkbox@1.1.23...@twilio-paste/base-radio-checkbox@1.1.24) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/base-radio-checkbox
+
+
+
+
+
+## [1.1.23](https://github.com/twilio-labs/paste/compare/@twilio-paste/base-radio-checkbox@1.1.22...@twilio-paste/base-radio-checkbox@1.1.23) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/base-radio-checkbox
+
+
+
+
+
+## [1.1.22](https://github.com/twilio-labs/paste/compare/@twilio-paste/base-radio-checkbox@1.1.21...@twilio-paste/base-radio-checkbox@1.1.22) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/base-radio-checkbox
+
+
+
+
+
+## [1.1.21](https://github.com/twilio-labs/paste/compare/@twilio-paste/base-radio-checkbox@1.1.20...@twilio-paste/base-radio-checkbox@1.1.21) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/base-radio-checkbox
+
+
+
+
+
+## [1.1.20](https://github.com/twilio-labs/paste/compare/@twilio-paste/base-radio-checkbox@1.1.19...@twilio-paste/base-radio-checkbox@1.1.20) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/base-radio-checkbox
+
+
+
+
+
+## [1.1.19](https://github.com/twilio-labs/paste/compare/@twilio-paste/base-radio-checkbox@1.1.18...@twilio-paste/base-radio-checkbox@1.1.19) (2020-12-03)
+
+**Note:** Version bump only for package @twilio-paste/base-radio-checkbox
+
+
+
+
+
+## [1.1.18](https://github.com/twilio-labs/paste/compare/@twilio-paste/base-radio-checkbox@1.1.17...@twilio-paste/base-radio-checkbox@1.1.18) (2020-12-02)
+
+**Note:** Version bump only for package @twilio-paste/base-radio-checkbox
+
+
+
+
+
+## [1.1.17](https://github.com/twilio-labs/paste/compare/@twilio-paste/base-radio-checkbox@1.1.16...@twilio-paste/base-radio-checkbox@1.1.17) (2020-11-25)
+
+**Note:** Version bump only for package @twilio-paste/base-radio-checkbox
+
+
+
+
+
+## [1.1.16](https://github.com/twilio-labs/paste/compare/@twilio-paste/base-radio-checkbox@1.1.15...@twilio-paste/base-radio-checkbox@1.1.16) (2020-11-16)
+
+**Note:** Version bump only for package @twilio-paste/base-radio-checkbox
+
+
+
+
+
+## [1.1.15](https://github.com/twilio-labs/paste/compare/@twilio-paste/base-radio-checkbox@1.1.14...@twilio-paste/base-radio-checkbox@1.1.15) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/base-radio-checkbox
+
+
+
+
+
 ## [1.1.14](https://github.com/twilio-labs/paste/compare/@twilio-paste/base-radio-checkbox@1.1.13...@twilio-paste/base-radio-checkbox@1.1.14) (2020-11-10)
 
 **Note:** Version bump only for package @twilio-paste/base-radio-checkbox

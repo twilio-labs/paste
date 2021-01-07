@@ -6,7 +6,7 @@ import {Codeblock} from './codeblock';
 // not typed correctly
 const prettyFormat = require('pretty-format');
 
-export const ThemeObjectDisplay: React.FC<{}> = () => {
+export const ThemeObjectDisplay: React.FC = () => {
   const theme = useTheme();
   const themeKeys = Object.keys(theme);
   const reducedTheme = {};

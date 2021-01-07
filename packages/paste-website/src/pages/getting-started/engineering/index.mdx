@@ -210,11 +210,24 @@ in and cause some havoc. Make sure to thoroughly test Paste components to verify
 
 ### Fonts
 
-Paste leaves it up to you to load the fonts needed for the theme you've selected. Console uses Whitney ScreenSmart
-and SendGrid uses Colfax. More often than not you are working within existing SendGrid and Twilio Console applications
-and these fonts are automatically loaded for you.
+#### Default theme
 
-#### Special note on Whitney
+Fonts for the default theme are available via the Twilio CDN and published from an [internal git repository](https://code.hq.twilio.com/DSYS/paste-fonts).
+
+The best and most performant way to load the fonts is to include the following snippet in the `<head />` of your web page.
+
+```
+<link rel="preconnect" href="https://assets.twilio.com" crossorigin />
+<link rel="stylesheet" href="https://assets.twilio.com/public_assets/paste-fonts/main-1.2.0/fonts.css">
+```
+
+Alternatively, Paste will automatically load the fonts via JavaScript, so long as you wrap your application with the `Theme.Provider` and select the `default` theme. Though, you should note that this is not the most performant way.
+
+#### Other themes
+
+If you are using **any other theme**, Paste leaves it up to you to load the fonts needed. Console uses Whitney ScreenSmart
+and SendGrid uses Colfax. More often than not with those themes, you are working within existing SendGrid and Twilio Console applications
+and these fonts are automatically loaded for you.
 
 The Whitney font is loaded by the Typography.com service and is only allowed on \*.twilio.com domains as well as localhost.
 Make sure to serve your app from the correct hostname if you're having issues with font loading.
@@ -225,13 +238,6 @@ to load these fonts if you are serving your application from \*.twilio.com domai
 ```
 <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6230892/752864/css/fonts.css">
 ```
-
-#### Special note on Inter
-
-The default theme (UDL theme) uses [Inter](https://rsms.me/inter/) as its primary font family.
-This is a free font that is [hosted on Google Fonts](https://fonts.google.com/specimen/Inter). Feel free to copy
-[how we load the font](https://github.com/twilio-labs/paste/blob/main/packages/paste-website/src/assets/css/fonts.css#L105)
-into your own app if you are using the default theme.
 
 ## Additional information
 

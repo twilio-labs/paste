@@ -22,9 +22,8 @@ import {
   VerticalAlign,
 } from '@twilio-paste/style-props';
 import {PseudoPropStyles} from './PseudoPropStyles';
-import {TextPropTypes} from './TextPropTypes';
 
-interface TextStyleProps extends OverflowProps, PositionProps, ShadowProps, SpaceProps, TypographyProps {
+export interface TextStyleProps extends OverflowProps, PositionProps, ShadowProps, SpaceProps, TypographyProps {
   content?: string;
   cursor?: CursorProperty;
   display?: Display;
@@ -86,6 +85,7 @@ const extraConfig = system({
 
 const textDecoration = system({textDecoration: true});
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 const getPseudoStyles = (props: TextProps): {} => {
   const pseudoProps = Object.keys(props).filter(propName => propName.startsWith('_'));
 
@@ -135,9 +135,5 @@ Text.defaultProps = {
   fontSize: 'fontSize30',
   lineHeight: 'lineHeight30',
 };
-
-if (process.env.NODE_ENV === 'development') {
-  Text.propTypes = TextPropTypes;
-}
 
 export * from './SafelySpreadProps';

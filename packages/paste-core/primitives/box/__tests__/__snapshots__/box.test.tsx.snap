@@ -1,12 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Backgrounds it should render responsive values 1`] = `
+exports[`Backgrounds should render responsive values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -31,13 +32,14 @@ exports[`Backgrounds it should render responsive values 1`] = `
 </div>
 `;
 
-exports[`Backgrounds it should render single values 1`] = `
+exports[`Backgrounds should render single values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -56,13 +58,14 @@ exports[`Backgrounds it should render single values 1`] = `
 </div>
 `;
 
-exports[`Borders it should render responsive values 1`] = `
+exports[`Borders should render responsive values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -99,13 +102,14 @@ exports[`Borders it should render responsive values 1`] = `
 </div>
 `;
 
-exports[`Borders it should render single values 1`] = `
+exports[`Borders should render single values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -127,13 +131,159 @@ exports[`Borders it should render single values 1`] = `
 </div>
 `;
 
-exports[`Shadows it should render responsive values 1`] = `
+exports[`Color mappings should map pseudo selector color values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+}
+
+.emotion-0:hover {
+  background-color: rgb(248,248,249);
+  border-color: rgb(146,18,0);
+  color: rgb(255,255,255);
+}
+
+<div
+  className="emotion-1"
+>
+  <div
+    className="emotion-0"
+  >
+    background responsive
+  </div>
+</div>
+`;
+
+exports[`Color mappings should map responsive color values 1`] = `
+.emotion-1 {
+  color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.25rem;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  background-color: rgb(179,211,233);
+  border-color: rgb(136,140,142);
+  color: rgb(40,42,43);
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0 {
+    background-color: rgb(2,122,197);
+    border-color: rgb(146,18,0);
+    color: rgb(255,255,255);
+  }
+}
+
+<div
+  className="emotion-1"
+>
+  <div
+    className="emotion-0"
+    color={
+      Array [
+        "colorText",
+        "colorTextBrandInverse",
+      ]
+    }
+  >
+    background responsive
+  </div>
+</div>
+`;
+
+exports[`Color mappings should map responsive pseudo selector color values 1`] = `
+.emotion-1 {
+  color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.25rem;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+}
+
+.emotion-0:hover {
+  background-color: rgb(248,248,249);
+  border-color: rgb(146,18,0);
+  color: rgb(226,37,37);
+}
+
+@media screen and (min-width:25rem) {
+  .emotion-0:hover {
+    background-color: rgb(255,255,255);
+    border-color: rgb(146,18,0);
+    color: rgb(200,204,207);
+  }
+}
+
+<div
+  className="emotion-1"
+>
+  <div
+    className="emotion-0"
+  >
+    background responsive
+  </div>
+</div>
+`;
+
+exports[`Color mappings should map single color values 1`] = `
+.emotion-1 {
+  color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.25rem;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  background-color: rgb(2,122,197);
+  border-color: rgb(136,140,142);
+  border-bottom-color: rgb(146,18,0);
+  border-left-color: rgb(146,18,0);
+  border-right-color: rgba(255,255,255,0.5);
+  border-top-color: rgba(255,255,255,0.5);
+  color: rgb(40,42,43);
+}
+
+<div
+  className="emotion-1"
+>
+  <div
+    className="emotion-0"
+    color="colorText"
+  >
+    background single
+  </div>
+</div>
+`;
+
+exports[`Shadows should render responsive values 1`] = `
+.emotion-1 {
+  color: rgb(40,42,43);
+  font-size: 0.875rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
+  line-height: 1.25rem;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -158,13 +308,14 @@ exports[`Shadows it should render responsive values 1`] = `
 </div>
 `;
 
-exports[`Shadows it should render single values 1`] = `
+exports[`Shadows should render single values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -183,13 +334,14 @@ exports[`Shadows it should render single values 1`] = `
 </div>
 `;
 
-exports[`Sizes it should render responsive values 1`] = `
+exports[`Sizes should render responsive values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -236,13 +388,14 @@ exports[`Sizes it should render responsive values 1`] = `
 </div>
 `;
 
-exports[`Sizes it should render single values 1`] = `
+exports[`Sizes should render single values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -275,6 +428,7 @@ exports[`Spaces (A) it should render responsive values 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -306,6 +460,7 @@ exports[`Spaces (A) it should render single values 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -331,6 +486,7 @@ exports[`Spaces (B) it should render single values 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -359,6 +515,7 @@ exports[`Spaces (B)it should render responsive values 1`] = `
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -389,13 +546,14 @@ exports[`Spaces (B)it should render responsive values 1`] = `
 </div>
 `;
 
-exports[`ZIndex Pseudo-class props it should generate pseudo-class CSS 1`] = `
+exports[`ZIndex Pseudo-class props should generate pseudo-class CSS 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -531,13 +689,14 @@ exports[`ZIndex Pseudo-class props it should generate pseudo-class CSS 1`] = `
 </div>
 `;
 
-exports[`ZIndex it should render responsive values 1`] = `
+exports[`ZIndex should render responsive values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {
@@ -562,13 +721,14 @@ exports[`ZIndex it should render responsive values 1`] = `
 </div>
 `;
 
-exports[`ZIndex it should render single values 1`] = `
+exports[`ZIndex should render single values 1`] = `
 .emotion-1 {
   color: rgb(40,42,43);
   font-size: 0.875rem;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   line-height: 1.25rem;
   font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 .emotion-0 {

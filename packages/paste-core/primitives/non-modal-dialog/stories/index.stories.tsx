@@ -8,7 +8,7 @@ import {
   NonModalDialogArrowPrimitive,
 } from '../src';
 
-const Example: React.FC<{}> = () => {
+const Example: React.FC = () => {
   const nonModalDialog = useNonModalDialogPrimitiveState();
   return (
     <>
@@ -21,7 +21,7 @@ const Example: React.FC<{}> = () => {
   );
 };
 
-const RightPlacementExample: React.FC<{}> = () => {
+const RightPlacementExample: React.FC = () => {
   const nonModalDialog = useNonModalDialogPrimitiveState({placement: 'right'});
   return (
     <>
@@ -34,7 +34,7 @@ const RightPlacementExample: React.FC<{}> = () => {
   );
 };
 
-const LeftPlacementExample: React.FC<{}> = () => {
+const LeftPlacementExample: React.FC = () => {
   const nonModalDialog = useNonModalDialogPrimitiveState({placement: 'left'});
   return (
     <Box position="absolute" top={12} right={12}>
@@ -47,7 +47,7 @@ const LeftPlacementExample: React.FC<{}> = () => {
   );
 };
 
-const TopPlacementExample: React.FC<{}> = () => {
+const TopPlacementExample: React.FC = () => {
   const nonModalDialog = useNonModalDialogPrimitiveState({placement: 'top'});
   return (
     <Box position="absolute" bottom={12}>
@@ -60,7 +60,7 @@ const TopPlacementExample: React.FC<{}> = () => {
   );
 };
 
-const BottomPlacementExample: React.FC<{}> = () => {
+const BottomPlacementExample: React.FC = () => {
   const nonModalDialog = useNonModalDialogPrimitiveState({placement: 'bottom'});
   return (
     <>
@@ -73,7 +73,7 @@ const BottomPlacementExample: React.FC<{}> = () => {
   );
 };
 
-const GutterExample: React.FC<{}> = () => {
+const GutterExample: React.FC = () => {
   const nonModalDialog = useNonModalDialogPrimitiveState({gutter: 0});
   return (
     <>

@@ -61,7 +61,7 @@ interface ComponentHeaderProps {
   ];
 }
 
-const PackageValue: React.FC<{}> = ({children}) => {
+const PackageValue: React.FC = ({children}) => {
   return (
     <Text as="dd" display="inline-block">
       {children}
@@ -69,7 +69,7 @@ const PackageValue: React.FC<{}> = ({children}) => {
   );
 };
 
-const PackageLabel: React.FC<{}> = ({children}) => {
+const PackageLabel: React.FC = ({children}) => {
   return (
     <Text as="dt" display="inline-block" color="colorTextWeak" css={{width: '80px'}}>
       {children}
@@ -77,7 +77,7 @@ const PackageLabel: React.FC<{}> = ({children}) => {
   );
 };
 
-const PackageInstallSnippet: React.FC<{}> = ({children}) => {
+const PackageInstallSnippet: React.FC = ({children}) => {
   return <InlineCode>{children}</InlineCode>;
 };
 

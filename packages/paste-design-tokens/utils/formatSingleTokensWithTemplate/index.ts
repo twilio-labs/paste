@@ -12,11 +12,11 @@ export const formatSingleTokensWithTemplate = (
         return prop.get('name');
       }
     })
-    .map((prop): string | undefined => {
+    .map((prop): string | null => {
       if (prop !== undefined) {
         return tokenTemplate(prop.toJS());
       }
-      return undefined;
+      return null;
     })
     .join('\n');
 };

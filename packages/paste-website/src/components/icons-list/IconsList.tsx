@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
-import {styled} from '@twilio-paste/styling-library';
 import {Composite, useCompositeState} from '@twilio-paste/reakit-library';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
@@ -45,20 +44,14 @@ const getGroupedList = (icons: IconsListProps['icons']): GroupedList =>
   );
 
 const getFirstIcon = (iconsList: GroupedList): IconObject | null => {
-  if (iconsList.ui.length !== 0) {
+  if (iconsList.ui.length > 0) {
     return iconsList.ui[0];
   }
-  if (iconsList.logos.length !== 0) {
+  if (iconsList.logos.length > 0) {
     return iconsList.logos[0];
   }
   return null;
 };
-
-// Our Grid Column doesn't allow position for sticky, but our box doesn't allow percentage widths
-// Styled Box is fine I guess, but we might want to expand Box to take any width
-const IconColumn = styled(Box)({
-  width: '41.66666666666667%',
-});
 
 const IconsList: React.FC<IconsListProps> = () => {
   const filterID = useUID();
@@ -72,7 +65,7 @@ const IconsList: React.FC<IconsListProps> = () => {
   return (
     <Box maxWidth="size120">
       <Grid gutter="space60">
-        <Column span={7}>
+        <Column span={[12, 12, 6, 7]}>
           <Box as="form" role="search" onSubmit={e => e.preventDefault()} marginBottom="space70">
             <FormLabel htmlFor={filterID}>Filter Icons</FormLabel>
             <FormInput
@@ -93,7 +86,9 @@ const IconsList: React.FC<IconsListProps> = () => {
             />
           </Box>
         </Column>
-        <Column span={7}>
+      </Grid>
+      <Grid gutter="space60">
+        <Column span={[12, 6, 6, 7]}>
           {iconsList.ui.length > 0 && (
             <>
               <Heading as="h2" variant="heading20">
@@ -189,9 +184,14 @@ const IconsList: React.FC<IconsListProps> = () => {
             </Card>
           )}
         </Column>
-        <IconColumn paddingX="space60" position="sticky" top={STICKY_COLUMN_OFFSET}>
+        <Box
+          paddingX="space60"
+          position="sticky"
+          top={STICKY_COLUMN_OFFSET}
+          width={['100%', '50%', '50%', '41.66666666666667%']}
+        >
           <IconCard selectedIcon={selectedIcon} />
-        </IconColumn>
+        </Box>
       </Grid>
     </Box>
   );

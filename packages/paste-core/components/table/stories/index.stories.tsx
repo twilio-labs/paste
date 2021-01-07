@@ -10,7 +10,7 @@ import {Text} from '@twilio-paste/text';
 import {Truncate} from '@twilio-paste/truncate';
 import {Table, THead, TBody, TFoot, Tr, Td, Th} from '../src';
 
-const MoreMenu: React.FC<{}> = () => {
+const MoreMenu: React.FC = () => {
   const menu = useMenuState();
   return (
     <Box display="flex" justifyContent="flex-end">

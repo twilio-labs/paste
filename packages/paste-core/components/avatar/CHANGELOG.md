@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/avatar@0.3.0...@twilio-paste/avatar@0.3.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/avatar
+
+
+
+
+
+# [0.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/avatar@0.2.29...@twilio-paste/avatar@0.3.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **avatar:** add forwardRef ([f6f72f1](https://github.com/twilio-labs/paste/commit/f6f72f1c4915f783ee289fbff8ea24313616db56))
+
+
+### BREAKING CHANGES
+
+* **avatar:** component is now using fowardRef
+
+
+
+
+
+## [0.2.29](https://github.com/twilio-labs/paste/compare/@twilio-paste/avatar@0.2.28...@twilio-paste/avatar@0.2.29) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/avatar
+
+
+
+
+
+## [0.2.28](https://github.com/twilio-labs/paste/compare/@twilio-paste/avatar@0.2.27...@twilio-paste/avatar@0.2.28) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/avatar
+
+
+
+
+
+## [0.2.27](https://github.com/twilio-labs/paste/compare/@twilio-paste/avatar@0.2.26...@twilio-paste/avatar@0.2.27) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/avatar
+
+
+
+
+
+## [0.2.26](https://github.com/twilio-labs/paste/compare/@twilio-paste/avatar@0.2.25...@twilio-paste/avatar@0.2.26) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/avatar
+
+
+
+
+
+## [0.2.25](https://github.com/twilio-labs/paste/compare/@twilio-paste/avatar@0.2.24...@twilio-paste/avatar@0.2.25) (2020-12-02)
+
+**Note:** Version bump only for package @twilio-paste/avatar
+
+
+
+
+
+## [0.2.24](https://github.com/twilio-labs/paste/compare/@twilio-paste/avatar@0.2.23...@twilio-paste/avatar@0.2.24) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/avatar
+
+
+
+
+
 ## [0.2.23](https://github.com/twilio-labs/paste/compare/@twilio-paste/avatar@0.2.22...@twilio-paste/avatar@0.2.23) (2020-11-06)
 
 **Note:** Version bump only for package @twilio-paste/avatar

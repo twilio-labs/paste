@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.58](https://github.com/twilio-labs/paste/compare/@twilio-paste/list@0.2.57...@twilio-paste/list@0.2.58) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/list
+
+
+
+
+
+## [0.2.57](https://github.com/twilio-labs/paste/compare/@twilio-paste/list@0.2.56...@twilio-paste/list@0.2.57) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/list
+
+
+
+
+
+## [0.2.56](https://github.com/twilio-labs/paste/compare/@twilio-paste/list@0.2.55...@twilio-paste/list@0.2.56) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/list
+
+
+
+
+
+## [0.2.55](https://github.com/twilio-labs/paste/compare/@twilio-paste/list@0.2.54...@twilio-paste/list@0.2.55) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/list
+
+
+
+
+
+## [0.2.54](https://github.com/twilio-labs/paste/compare/@twilio-paste/list@0.2.53...@twilio-paste/list@0.2.54) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/list
+
+
+
+
+
+## [0.2.53](https://github.com/twilio-labs/paste/compare/@twilio-paste/list@0.2.52...@twilio-paste/list@0.2.53) (2020-12-02)
+
+**Note:** Version bump only for package @twilio-paste/list
+
+
+
+
+
+## [0.2.52](https://github.com/twilio-labs/paste/compare/@twilio-paste/list@0.2.51...@twilio-paste/list@0.2.52) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/list
+
+
+
+
+
 ## [0.2.51](https://github.com/twilio-labs/paste/compare/@twilio-paste/list@0.2.50...@twilio-paste/list@0.2.51) (2020-11-06)
 
 **Note:** Version bump only for package @twilio-paste/list

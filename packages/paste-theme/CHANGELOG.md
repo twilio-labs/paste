@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@4.0.1...@twilio-paste/theme@4.1.0) (2020-12-17)
+
+
+### Features
+
+* **theme:** load fonts.css file from theme provider ([acef2a5](https://github.com/twilio-labs/paste/commit/acef2a54ad76639c8063d134c374792bd7cff181))
+
+
+
+
+
+## [4.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@4.0.0...@twilio-paste/theme@4.0.1) (2020-12-11)
+
+
+### Bug Fixes
+
+* **theme:** add public access for npm publish ([ac823f8](https://github.com/twilio-labs/paste/commit/ac823f88a028fb05f1e92282c4446d59a4db6551))
+
+
+
+
+
+# [4.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@3.3.3...@twilio-paste/theme@4.0.0) (2020-12-11)
+
+
+### Features
+
+* **theme:** add ability to generate a theme from design tokens ([9b81663](https://github.com/twilio-labs/paste/commit/9b816639c6f63690048ce74afcaa80995d8fecb4))
+* **theme:** add ability to map a theme back to design token groupings ([8f7e6f9](https://github.com/twilio-labs/paste/commit/8f7e6f9e3ee3215f76f58755944d571512007680))
+* **theme:** export paste global styles ([b0e5d75](https://github.com/twilio-labs/paste/commit/b0e5d75c7377661aea60adf3a68f2ffe63d00c3e))
+* **theme:** remove the color key from theme ([d5f9e68](https://github.com/twilio-labs/paste/commit/d5f9e68c4030d0e80e55e39a6ea590b908c25bb1))
+
+
+### BREAKING CHANGES
+
+* **theme:** Color key is removed from the theme. This makes for a better experience as there are no duplicate colors. Each type of color has their own key on theme
+
+
+
+
+
+## [3.3.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@3.3.2...@twilio-paste/theme@3.3.3) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/theme
+
+
+
+
+
+## [3.3.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@3.3.1...@twilio-paste/theme@3.3.2) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/theme
+
+
+
+
+
 ## [3.3.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme@3.3.0...@twilio-paste/theme@3.3.1) (2020-11-06)
 
 **Note:** Version bump only for package @twilio-paste/theme

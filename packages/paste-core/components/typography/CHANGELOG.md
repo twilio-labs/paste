@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.95](https://github.com/twilio-labs/paste/compare/@twilio-paste/typography@1.0.94...@twilio-paste/typography@1.0.95) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/typography
+
+
+
+
+
+## [1.0.94](https://github.com/twilio-labs/paste/compare/@twilio-paste/typography@1.0.93...@twilio-paste/typography@1.0.94) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/typography
+
+
+
+
+
+## [1.0.93](https://github.com/twilio-labs/paste/compare/@twilio-paste/typography@1.0.92...@twilio-paste/typography@1.0.93) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/typography
+
+
+
+
+
+## [1.0.92](https://github.com/twilio-labs/paste/compare/@twilio-paste/typography@1.0.91...@twilio-paste/typography@1.0.92) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/typography
+
+
+
+
+
+## [1.0.91](https://github.com/twilio-labs/paste/compare/@twilio-paste/typography@1.0.90...@twilio-paste/typography@1.0.91) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/typography
+
+
+
+
+
+## [1.0.90](https://github.com/twilio-labs/paste/compare/@twilio-paste/typography@1.0.89...@twilio-paste/typography@1.0.90) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/typography
+
+
+
+
+
+## [1.0.89](https://github.com/twilio-labs/paste/compare/@twilio-paste/typography@1.0.88...@twilio-paste/typography@1.0.89) (2020-12-02)
+
+**Note:** Version bump only for package @twilio-paste/typography
+
+
+
+
+
+## [1.0.88](https://github.com/twilio-labs/paste/compare/@twilio-paste/typography@1.0.87...@twilio-paste/typography@1.0.88) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/typography
+
+
+
+
+
+## [1.0.87](https://github.com/twilio-labs/paste/compare/@twilio-paste/typography@1.0.86...@twilio-paste/typography@1.0.87) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/typography
+
+
+
+
+
 ## [1.0.86](https://github.com/twilio-labs/paste/compare/@twilio-paste/typography@1.0.85...@twilio-paste/typography@1.0.86) (2020-11-06)
 
 **Note:** Version bump only for package @twilio-paste/typography

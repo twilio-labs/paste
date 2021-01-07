@@ -7,7 +7,7 @@ const isSpaceTokenProp = propValidator(SpaceOptions);
 const mockComponentName = 'TestComponent';
 
 describe('propValidator', () => {
-  it('it should return correctly based on passed props', (): void => {
+  it('should return correctly based on passed props', (): void => {
     const mockProps = {
       marginTop: '2px', // bad
       marginRight: 'space20', // good

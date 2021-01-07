@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/input-box@2.0.0...@twilio-paste/input-box@2.0.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/input-box
+
+
+
+
+
+# [2.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/input-box@1.1.15...@twilio-paste/input-box@2.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **input-box:** add forwardRef ([674614c](https://github.com/twilio-labs/paste/commit/674614c0b885ed81231d43f7da2dfb06383c87d0))
+
+
+### BREAKING CHANGES
+
+* **input-box:** component is now using fowardRef
+
+
+
+
+
+## [1.1.15](https://github.com/twilio-labs/paste/compare/@twilio-paste/input-box@1.1.14...@twilio-paste/input-box@1.1.15) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/input-box
+
+
+
+
+
+## [1.1.14](https://github.com/twilio-labs/paste/compare/@twilio-paste/input-box@1.1.13...@twilio-paste/input-box@1.1.14) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/input-box
+
+
+
+
+
+## [1.1.13](https://github.com/twilio-labs/paste/compare/@twilio-paste/input-box@1.1.12...@twilio-paste/input-box@1.1.13) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/input-box
+
+
+
+
+
+## [1.1.12](https://github.com/twilio-labs/paste/compare/@twilio-paste/input-box@1.1.11...@twilio-paste/input-box@1.1.12) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/input-box
+
+
+
+
+
+## [1.1.11](https://github.com/twilio-labs/paste/compare/@twilio-paste/input-box@1.1.10...@twilio-paste/input-box@1.1.11) (2020-12-02)
+
+**Note:** Version bump only for package @twilio-paste/input-box
+
+
+
+
+
+## [1.1.10](https://github.com/twilio-labs/paste/compare/@twilio-paste/input-box@1.1.9...@twilio-paste/input-box@1.1.10) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/input-box
+
+
+
+
+
 ## [1.1.9](https://github.com/twilio-labs/paste/compare/@twilio-paste/input-box@1.1.8...@twilio-paste/input-box@1.1.9) (2020-11-06)
 
 **Note:** Version bump only for package @twilio-paste/input-box

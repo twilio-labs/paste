@@ -3,6 +3,89 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@3.0.0...@twilio-paste/heading@3.0.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/heading
+
+
+
+
+
+# [3.0.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@2.1.6...@twilio-paste/heading@3.0.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **heading:** add forwardRef ([c88d5a2](https://github.com/twilio-labs/paste/commit/c88d5a21297cef6cb7d2a0602151f7a2e79e5cde))
+
+
+### BREAKING CHANGES
+
+* **heading:** component is now using fowardRef
+
+
+
+
+
+## [2.1.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@2.1.5...@twilio-paste/heading@2.1.6) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/heading
+
+
+
+
+
+## [2.1.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@2.1.4...@twilio-paste/heading@2.1.5) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/heading
+
+
+
+
+
+## [2.1.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@2.1.3...@twilio-paste/heading@2.1.4) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/heading
+
+
+
+
+
+## [2.1.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@2.1.2...@twilio-paste/heading@2.1.3) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/heading
+
+
+
+
+
+## [2.1.2](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@2.1.1...@twilio-paste/heading@2.1.2) (2020-12-02)
+
+**Note:** Version bump only for package @twilio-paste/heading
+
+
+
+
+
+## [2.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@2.1.0...@twilio-paste/heading@2.1.1) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/heading
+
+
+
+
+
+# [2.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@2.0.50...@twilio-paste/heading@2.1.0) (2020-11-11)
+
+
+### Features
+
+* **heading:** update font weightfor new design language ([#924](https://github.com/twilio-labs/paste/issues/924)) ([7436e4b](https://github.com/twilio-labs/paste/commit/7436e4b964d1717f7e93eac3efac7b7ff97f34d9))
+
+
+
+
+
 ## [2.0.50](https://github.com/twilio-labs/paste/compare/@twilio-paste/heading@2.0.49...@twilio-paste/heading@2.0.50) (2020-11-06)
 
 **Note:** Version bump only for package @twilio-paste/heading

@@ -14,7 +14,7 @@ export const TEXT_PROPS_TO_BLOCK = [
   'style',
 ];
 
-export const safelySpreadTextProps = (props: {}): {} => {
+export const safelySpreadTextProps = (props: {[key: string]: any}): {[key: string]: any} => {
   // https://www.measurethat.net/Benchmarks/Show/6642/0/for-in-vs-reduce-vs-pick#latest_results_block
   const newList = Object.keys(props).reduce((newObj, key) => {
     if (!TEXT_PROPS_TO_BLOCK.includes(key)) {

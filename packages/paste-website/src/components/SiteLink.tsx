@@ -25,9 +25,10 @@ const StyledLink = styled(Link)`
   }
 `;
 
-interface SiteLinkProps {
+export interface SiteLinkProps {
   children: React.ReactNode;
   to: string;
+  onClick?: () => void;
 }
 
 const SiteLink: React.FC<SiteLinkProps> = ({children, to}) => <StyledLink to={to}>{children}</StyledLink>;

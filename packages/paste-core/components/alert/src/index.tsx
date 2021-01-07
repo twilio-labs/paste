@@ -30,9 +30,13 @@ export const AlertBorderColors = {
   WARNING: 'colorBorderWarningLight',
 } as const;
 
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export type AlertVariants = ValueOf<typeof AlertVariants>;
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export type AlertBackgroundColors = ValueOf<typeof AlertBackgroundColors>;
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export type AlertBorderColors = ValueOf<typeof AlertBorderColors>;
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export type AlertRoles = ValueOf<typeof AlertRoles>;
 
 export interface AlertProps {
@@ -56,7 +60,7 @@ const renderAlertIcon = (variant: AlertVariants): React.ReactElement => {
   }
 };
 
-const Alert: React.FC<AlertProps> = ({children, onDismiss, variant, role, ...props}) => {
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(({children, onDismiss, variant, role, ...props}, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
@@ -68,6 +72,7 @@ const Alert: React.FC<AlertProps> = ({children, onDismiss, variant, role, ...pro
       paddingRight="space60"
       paddingTop="space50"
       paddingBottom="space50"
+      ref={ref}
       role={role != null ? role : AlertRoles[variant.toUpperCase()]}
     >
       <MediaObject as="div">
@@ -85,7 +90,7 @@ const Alert: React.FC<AlertProps> = ({children, onDismiss, variant, role, ...pro
       </MediaObject>
     </Box>
   );
-};
+});
 Alert.displayName = 'Alert';
 
 if (process.env.NODE_ENV === 'development') {

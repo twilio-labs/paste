@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/stack@0.2.0...@twilio-paste/stack@0.2.1) (2020-12-17)
+
+**Note:** Version bump only for package @twilio-paste/stack
+
+
+
+
+
+# [0.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/stack@0.1.57...@twilio-paste/stack@0.2.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **stack:** add forwardRef ([56ff442](https://github.com/twilio-labs/paste/commit/56ff442ce4bb9754c2b8c5133800f1b6eac52c09))
+
+
+### BREAKING CHANGES
+
+* **stack:** component is now using fowardRef
+
+
+
+
+
+## [0.1.57](https://github.com/twilio-labs/paste/compare/@twilio-paste/stack@0.1.56...@twilio-paste/stack@0.1.57) (2020-12-15)
+
+**Note:** Version bump only for package @twilio-paste/stack
+
+
+
+
+
+## [0.1.56](https://github.com/twilio-labs/paste/compare/@twilio-paste/stack@0.1.55...@twilio-paste/stack@0.1.56) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/stack
+
+
+
+
+
+## [0.1.55](https://github.com/twilio-labs/paste/compare/@twilio-paste/stack@0.1.54...@twilio-paste/stack@0.1.55) (2020-12-11)
+
+**Note:** Version bump only for package @twilio-paste/stack
+
+
+
+
+
+## [0.1.54](https://github.com/twilio-labs/paste/compare/@twilio-paste/stack@0.1.53...@twilio-paste/stack@0.1.54) (2020-12-09)
+
+**Note:** Version bump only for package @twilio-paste/stack
+
+
+
+
+
+## [0.1.53](https://github.com/twilio-labs/paste/compare/@twilio-paste/stack@0.1.52...@twilio-paste/stack@0.1.53) (2020-12-02)
+
+**Note:** Version bump only for package @twilio-paste/stack
+
+
+
+
+
+## [0.1.52](https://github.com/twilio-labs/paste/compare/@twilio-paste/stack@0.1.51...@twilio-paste/stack@0.1.52) (2020-11-11)
+
+**Note:** Version bump only for package @twilio-paste/stack
+
+
+
+
+
 ## [0.1.51](https://github.com/twilio-labs/paste/compare/@twilio-paste/stack@0.1.50...@twilio-paste/stack@0.1.51) (2020-11-06)
 
 **Note:** Version bump only for package @twilio-paste/stack
