@@ -9,6 +9,8 @@ import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 import {NeutralIcon} from '@twilio-paste/icons/esm/NeutralIcon';
 import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
 
+type AlertVariantKeys = 'ERROR' | 'NEUTRAL' | 'WARNING';
+
 export const AlertRoles = {
   ERROR: 'alert',
   NEUTRAL: 'status',
@@ -64,8 +66,8 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(({children, onDismiss
   return (
     <Box
       {...safelySpreadBoxProps(props)}
-      backgroundColor={AlertBackgroundColors[variant.toUpperCase()]}
-      borderColor={AlertBorderColors[variant.toUpperCase()]}
+      backgroundColor={AlertBackgroundColors[variant.toUpperCase() as AlertVariantKeys]}
+      borderColor={AlertBorderColors[variant.toUpperCase() as AlertVariantKeys]}
       borderBottomWidth="borderWidth20"
       borderBottomStyle="solid"
       paddingLeft="space60"
@@ -73,7 +75,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(({children, onDismiss
       paddingTop="space50"
       paddingBottom="space50"
       ref={ref}
-      role={role != null ? role : AlertRoles[variant.toUpperCase()]}
+      role={role != null ? role : AlertRoles[variant.toUpperCase() as AlertVariantKeys]}
     >
       <MediaObject as="div">
         <MediaFigure as="div" spacing="space30">
@@ -98,7 +100,7 @@ if (process.env.NODE_ENV === 'development') {
     children: PropTypes.node.isRequired,
     onDismiss: PropTypes.func,
     role: PropTypes.string,
-    variant: PropTypes.oneOf(Object.keys(AlertVariants).map((variant) => AlertVariants[variant])).isRequired,
+    variant: PropTypes.oneOf(Object.values(AlertVariants)).isRequired,
   };
 }
 export {Alert};

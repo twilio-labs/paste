@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {Box, BoxStyleProps, safelySpreadBoxProps} from '@twilio-paste/box';
 import {SizeStyles, BaseStyles} from './styles';
-import {DirectButtonProps, DirectButtonPropTypes} from './types';
+import type {DirectButtonProps} from './types';
+import {DirectButtonPropTypes} from './proptypes';
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
 const merge = require('lodash.merge');

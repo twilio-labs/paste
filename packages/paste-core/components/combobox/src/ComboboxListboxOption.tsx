@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {Box, safelySpreadBoxProps, BoxStyleProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxStyleProps} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 
 export interface ComboboxListboxOptionProps {
