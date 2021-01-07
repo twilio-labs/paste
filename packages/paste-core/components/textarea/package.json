@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/textarea",
-  "version": "1.1.17",
+  "version": "1.1.18",
   "category": "user input",
   "status": "production",
   "description": "A textarea allows users to enter text on multiple lines",

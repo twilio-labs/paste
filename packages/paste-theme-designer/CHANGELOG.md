@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.8](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-designer@0.2.7...@twilio-paste/theme-designer@0.2.8) (2021-01-07)
+
+**Note:** Version bump only for package @twilio-paste/theme-designer
+
+
+
+
+
 ## [0.2.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/theme-designer@0.2.6...@twilio-paste/theme-designer@0.2.7) (2021-01-06)
 
 **Note:** Version bump only for package @twilio-paste/theme-designer
