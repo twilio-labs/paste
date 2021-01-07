@@ -66,7 +66,7 @@ const IconsList: React.FC<IconsListProps> = () => {
     <Box maxWidth="size120">
       <Grid gutter="space60">
         <Column span={[12, 12, 6, 7]}>
-          <Box as="form" role="search" onSubmit={e => e.preventDefault()} marginBottom="space70">
+          <Box as="form" role="search" onSubmit={(e) => e.preventDefault()} marginBottom="space70">
             <FormLabel htmlFor={filterID}>Filter Icons</FormLabel>
             <FormInput
               autoComplete="off"
@@ -74,7 +74,7 @@ const IconsList: React.FC<IconsListProps> = () => {
               type="text"
               value={filterString}
               placeholder="Filter by name..."
-              onChange={e => {
+              onChange={(e) => {
                 const filteredList = iconsJson.filter(({name}: IconObject) =>
                   name.toLowerCase().includes(e.currentTarget.value.toLowerCase())
                 );

@@ -24,7 +24,7 @@ const Breadcrumb: React.FC = ({children}) => {
           listStyle: 'none',
         }}
       >
-        {React.Children.map(children, child => (
+        {React.Children.map(children, (child) => (
           <Box as="li" margin="space0" padding="space0">
             {child}
             <CrumbSlash />

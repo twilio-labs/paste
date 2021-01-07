@@ -18,7 +18,7 @@ interface SpinnerWrapperProps {
   show: boolean;
 }
 
-const SpinningWrapper = styled.div<SpinnerWrapperProps>(sizeFn, props =>
+const SpinningWrapper = styled.div<SpinnerWrapperProps>(sizeFn, (props) =>
   css({
     display: 'inline-block',
     opacity: props.show ? 1 : 0,

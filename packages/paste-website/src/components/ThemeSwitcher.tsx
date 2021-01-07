@@ -12,7 +12,7 @@ interface ThemeSwitcherProps {
   children?: React.ReactElement;
 }
 
-const StyledThemeSwitcherLabel = styled.label<{checked: boolean}>(props =>
+const StyledThemeSwitcherLabel = styled.label<{checked: boolean}>((props) =>
   css({
     cursor: 'pointer',
     display: ['flex', 'flex', 'inline-block'],
@@ -54,7 +54,7 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
     return <div />; // return empty div because desktop flex expects something
   }
 
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = event => {
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     updateActiveSiteTheme(event.currentTarget.value as ThemeVariants);
   };
 

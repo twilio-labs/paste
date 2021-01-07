@@ -11,7 +11,7 @@ const ThemeConsumer = ({children, ...props}: ThemeConsumerProps): React.ReactEle
   }
   return (
     <ThemeContext.Consumer>
-      {theme => {
+      {(theme) => {
         const newTheme = theme as ThemeShape;
         return children({...props, theme: newTheme});
       }}

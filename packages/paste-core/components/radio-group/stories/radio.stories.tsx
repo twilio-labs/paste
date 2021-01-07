@@ -21,7 +21,7 @@ storiesOf('Components|Radio', module)
         value="label"
         name="foo"
         checked={checked}
-        onChange={event => setChecked(event.target.checked)}
+        onChange={(event) => setChecked(event.target.checked)}
       >
         Label
       </Radio>
@@ -43,7 +43,7 @@ storiesOf('Components|Radio', module)
         name="foo"
         disabled
         checked={checked}
-        onChange={event => setChecked(event.target.checked)}
+        onChange={(event) => setChecked(event.target.checked)}
       >
         Label
       </Radio>
@@ -65,7 +65,7 @@ storiesOf('Components|Radio', module)
         name="foo"
         hasError
         checked={checked}
-        onChange={event => setChecked(event.target.checked)}
+        onChange={(event) => setChecked(event.target.checked)}
       >
         Label
       </Radio>
@@ -145,7 +145,7 @@ storiesOf('Components|Radio', module)
         }
         helpText="Help text should go here."
         required
-        onChange={newValue => {
+        onChange={(newValue) => {
           setValue(newValue);
         }}
       >
@@ -182,7 +182,7 @@ storiesOf('Components|Radio', module)
         }
         helpText="Help text should go here."
         errorText="This is the error text."
-        onChange={newValue => {
+        onChange={(newValue) => {
           setValue(newValue);
         }}
       >
@@ -214,7 +214,7 @@ storiesOf('Components|Radio', module)
         value={value}
         legend="This is the legend text"
         disabled
-        onChange={newValue => {
+        onChange={(newValue) => {
           setValue(newValue);
         }}
       >
@@ -239,7 +239,7 @@ storiesOf('Components|Radio', module)
         value={value}
         legend="This is the legend text"
         disabled
-        onChange={newValue => {
+        onChange={(newValue) => {
           setValue(newValue);
         }}
       >
@@ -264,7 +264,7 @@ storiesOf('Components|Radio', module)
         legend="This is the legend text"
         helpText="Help text should go here."
         orientation="horizontal"
-        onChange={newValue => {
+        onChange={(newValue) => {
           setValue(newValue);
         }}
       >
@@ -289,7 +289,7 @@ storiesOf('Components|Radio', module)
         legend="This is the legend text"
         orientation="horizontal"
         disabled
-        onChange={newValue => {
+        onChange={(newValue) => {
           setValue(newValue);
         }}
       >
@@ -315,7 +315,7 @@ storiesOf('Components|Radio', module)
         helpText="Help text should go here."
         errorText="This is the error text."
         orientation="horizontal"
-        onChange={newValue => {
+        onChange={(newValue) => {
           setValue(newValue);
         }}
       >

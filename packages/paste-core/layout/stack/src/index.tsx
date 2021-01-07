@@ -26,7 +26,7 @@ export interface StackProps extends BoxElementProps {
 
 export const getStackDisplay = (orientation: StackOrientation): DisplayValue => {
   if (Array.isArray(orientation)) {
-    return orientation.map(value => {
+    return orientation.map((value) => {
       if (value === 'horizontal') {
         return 'flex';
       }
@@ -85,7 +85,7 @@ const Stack = React.forwardRef<HTMLDivElement, StackProps>(({children, orientati
   const [childrenCount, validChildren] = React.useMemo(
     () => [
       React.Children.count(children),
-      React.Children.toArray(children).filter(child => React.isValidElement(child) || typeof child === 'string'),
+      React.Children.toArray(children).filter((child) => React.isValidElement(child) || typeof child === 'string'),
     ],
     [children]
   );

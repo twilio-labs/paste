@@ -87,14 +87,14 @@ const textDecoration = system({textDecoration: true});
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 const getPseudoStyles = (props: TextProps): {} => {
-  const pseudoProps = Object.keys(props).filter(propName => propName.startsWith('_'));
+  const pseudoProps = Object.keys(props).filter((propName) => propName.startsWith('_'));
 
   if (pseudoProps.length === 0) {
     return {};
   }
 
   const pseudoStyles = {};
-  pseudoProps.forEach(pseudoProp => {
+  pseudoProps.forEach((pseudoProp) => {
     pseudoStyles[PseudoPropStyles[pseudoProp]] = props[pseudoProp];
   });
 
@@ -108,17 +108,7 @@ export const Text = styled.span(
     margin: 0,
     padding: 0,
   },
-  compose(
-    boxShadow,
-    display,
-    overflow,
-    position,
-    space,
-    textDecoration,
-    typography,
-    verticalAlign,
-    extraConfig
-  ),
+  compose(boxShadow, display, overflow, position, space, textDecoration, typography, verticalAlign, extraConfig),
   getPseudoStyles
   // we do this because the default typings of emotion styled
   // means Text gets typed as a span, and can't be extended

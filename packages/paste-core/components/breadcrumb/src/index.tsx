@@ -70,7 +70,7 @@ const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(({children,
   const [childrenCount, validChildren] = React.useMemo(
     () => [
       React.Children.count(children),
-      React.Children.toArray(children).filter(child => React.isValidElement(child) || typeof child === 'string'),
+      React.Children.toArray(children).filter((child) => React.isValidElement(child) || typeof child === 'string'),
     ],
     [children]
   );

@@ -66,7 +66,7 @@ const ColorCombos = (
 
   if (!Array.isArray(colors)) {
     if (typeof colors === 'object') {
-      arr = Object.keys(colors).map(key => {
+      arr = Object.keys(colors).map((key) => {
         if (Object.prototype.hasOwnProperty.call(colors, key)) {
           return Color(colors[key]);
         }
@@ -87,7 +87,7 @@ const ColorCombos = (
     }
 
     if (uniqueColors != null) {
-      arr = uniqueColors.map(color => Color(color));
+      arr = uniqueColors.map((color) => Color(color));
     }
   }
 

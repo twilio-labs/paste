@@ -40,7 +40,7 @@ const StyledSup = styled.sup`
   top: -0.4rem;
 `;
 
-const MdxLink: React.FC<AnchorProps> = props => {
+const MdxLink: React.FC<AnchorProps> = (props) => {
   return <Anchor {...props} showExternal={isExternalUrl(props.href)} />;
 };
 

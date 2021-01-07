@@ -178,14 +178,14 @@ const extraConfig = system({
 });
 
 const getPseudoStyles = (props: BoxProps): unknown => {
-  const pseudoProps = Object.keys(props).filter(propName => propName.startsWith('_'));
+  const pseudoProps = Object.keys(props).filter((propName) => propName.startsWith('_'));
 
   if (pseudoProps.length === 0) {
     return {};
   }
 
   const pseudoStyles = {};
-  pseudoProps.forEach(pseudoProp => {
+  pseudoProps.forEach((pseudoProp) => {
     if (PseudoPropStyles[pseudoProp] != null) {
       pseudoStyles[PseudoPropStyles[pseudoProp]] = props[pseudoProp];
     }
@@ -199,17 +199,7 @@ export const Box = styled.div(
   {
     boxSizing: 'border-box',
   },
-  compose(
-    space,
-    layout,
-    flexbox,
-    background,
-    border,
-    boxShadow,
-    position,
-    typography,
-    extraConfig
-  ),
+  compose(space, layout, flexbox, background, border, boxShadow, position, typography, extraConfig),
   getPseudoStyles
   // we do this because the default typings of emotion styled
   // means Text gets typed as a span, and can't be extended

@@ -17,7 +17,7 @@ export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> 
   variant?: LabelVariants;
 }
 
-export const RequiredDot: React.FC = props => {
+export const RequiredDot: React.FC = (props) => {
   return (
     <Box
       {...props}

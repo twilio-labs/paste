@@ -38,7 +38,7 @@ const ExperimentEmbed: React.FC = () => {
             }
           }
         `}
-        render={data => (
+        render={(data) => (
           <>
             <Img fluid={data.file.childImageSharp.fluid} />
             <ExperimentMobileButton />

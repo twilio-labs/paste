@@ -19,7 +19,7 @@ const Toaster: React.FC<ToasterProps> = ({toasts, pop, ...props}) => {
 
   const transitions = useTransition(toasts, {
     from: {height: 0, marginBottom: '0rem', opacity: 0, transform: 'translateX(100%) scale(1)'},
-    enter: item => async next => {
+    enter: (item) => async (next) => {
       await next({
         height: refMap.get(item).offsetHeight,
         marginBottom: theme.space.space40,
@@ -61,7 +61,7 @@ const Toaster: React.FC<ToasterProps> = ({toasts, pop, ...props}) => {
               key={item.id}
               onDismiss={() => pop(item.id)}
               {...item}
-              ref={ref => {
+              ref={(ref) => {
                 if (ref != null) {
                   // add a ref tot he HTMl for the item so we can use it for height calculations
                   refMap.set(item, ref);
@@ -69,7 +69,7 @@ const Toaster: React.FC<ToasterProps> = ({toasts, pop, ...props}) => {
               }}
               // When a toast is the first in the stack, set focus inside
               setFocus={index === 0}
-              onFocus={e => {
+              onFocus={(e) => {
                 // When we show a toast, when a user clears the toast we want them to return to the last element they
                 // interacted with and triggered the toast stack. This can be found by using the relatedTarget of a
                 // focus event. We do focus the user into the first toast in the stack though, so if you show more than

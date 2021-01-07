@@ -52,7 +52,7 @@ const ComboboxMock: React.FC = () => {
         labelText="Choose a component:"
         onInputValueChange={({inputValue}) => {
           if (inputValue !== undefined) {
-            setInputItems(items.filter(item => item.toLowerCase().startsWith(inputValue.toLowerCase())));
+            setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
           }
         }}
       />
@@ -72,7 +72,7 @@ const GroupedMockCombobox: React.FC<{groupLabelTemplate?: ComboboxProps['groupLa
       helpText="This is group"
       groupLabelTemplate={groupLabelTemplate}
       optionTemplate={(item: any) => <div>{item.label}</div>}
-      itemToString={item => (item && typeof item !== 'string' ? item.label : null)}
+      itemToString={(item) => (item && typeof item !== 'string' ? item.label : null)}
     />
   );
 };
@@ -83,8 +83,8 @@ const ControlledCombobox: React.FC = () => {
   const [inputItems, setInputItems] = React.useState(objectItems);
   const {reset, ...state} = useCombobox({
     items: inputItems,
-    itemToString: item => (item ? item.label : null),
-    onSelectedItemChange: changes => {
+    itemToString: (item) => (item ? item.label : null),
+    onSelectedItemChange: (changes) => {
       setSelectedItem(changes.selectedItem);
     },
     onInputValueChange: ({inputValue}) => {
@@ -163,7 +163,7 @@ describe('Combobox', () => {
     it('should render a list with unique option ids', () => {
       render(<ComboboxMock />);
       const renderedOptions = screen.getAllByRole('option');
-      const optionIDs = renderedOptions.map(option => option.id);
+      const optionIDs = renderedOptions.map((option) => option.id);
       const uniqueIDs = _.uniq(optionIDs);
       expect(uniqueIDs.length).toEqual(optionIDs.length);
     });
@@ -202,13 +202,13 @@ describe('Combobox', () => {
     it('should render a listbox with groups of options that contains no duplicate ids', () => {
       render(<GroupedMockCombobox />);
       const renderedOptions = screen.getAllByRole('option');
-      const optionIDs = renderedOptions.map(option => option.id);
+      const optionIDs = renderedOptions.map((option) => option.id);
       const uniqueIDs = _.uniq(optionIDs);
       expect(uniqueIDs.length).toEqual(optionIDs.length);
     });
 
     it('should render a custom group label', () => {
-      render(<GroupedMockCombobox groupLabelTemplate={groupName => <span>hi {groupName}</span>} />);
+      render(<GroupedMockCombobox groupLabelTemplate={(groupName) => <span>hi {groupName}</span>} />);
       const renderedGroups = screen.getAllByRole('group');
       expect(renderedGroups[0].querySelector('[role="group"] > div[role="presentation"]').textContent).toEqual(
         'hi Components'
