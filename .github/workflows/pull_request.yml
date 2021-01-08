@@ -63,6 +63,8 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies
         run: yarn install
+      - name: Initialise
+        run: yarn init-repo
       - name: Run eslint
         run: yarn lint
   build_and_tests:
@@ -93,6 +95,8 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies
         run: yarn install
+      - name: Initialise
+        run: yarn init-repo
       - name: Run tests
         run: yarn test
   build_and_prettier:
