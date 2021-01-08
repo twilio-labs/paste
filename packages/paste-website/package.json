@@ -1,7 +1,7 @@
 {
   "name": "@twilio-paste/website",
   "description": "",
-  "version": "2.20.3",
+  "version": "2.20.4",
   "author": "Twilio Inc.",
   "private": true,
   "license": "MIT",
@@ -29,7 +29,7 @@
     "@twilio-paste/breadcrumb": "^0.1.14",
     "@twilio-paste/button": "^2.4.12",
     "@twilio-paste/checkbox": "^2.0.3",
-    "@twilio-paste/combobox": "^2.0.3",
+    "@twilio-paste/combobox": "^2.0.4",
     "@twilio-paste/combobox-primitive": "^0.1.10",
     "@twilio-paste/design-tokens": "^6.4.1",
     "@twilio-paste/disclosure": "^0.3.2",

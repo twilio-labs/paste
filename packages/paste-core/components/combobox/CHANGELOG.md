@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@2.0.3...@twilio-paste/combobox@2.0.4) (2021-01-08)
+
+
+### Bug Fixes
+
+* **combobox:** fix grouped indexes so keyboard selection works ([#1070](https://github.com/twilio-labs/paste/issues/1070)) ([e5b1a9f](https://github.com/twilio-labs/paste/commit/e5b1a9fd2048256dc3b72da1ccc94812cb6fd803))
+
+
+
+
+
 ## [2.0.3](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@2.0.2...@twilio-paste/combobox@2.0.3) (2021-01-07)
 
 **Note:** Version bump only for package @twilio-paste/combobox
