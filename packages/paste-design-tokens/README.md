@@ -24,4 +24,4 @@ This command will compile the tokens into their respective formats for export. I
 
 ## `yarn tokens`
 
-This command will biuld all the tokens into the dist and docs directories.
+This command will build all the tokens into the dist and docs directories.
