@@ -1,4 +1,4 @@
-export const PseudoPropStyles: {[key: string]: string} = {
+export const PseudoPropStyles = {
   _hover: '&:hover',
   _active: '&:active, &[data-active=true]',
   _focus: '&:focus',

@@ -94,6 +94,7 @@ export interface TabProps {
   focusable?: boolean | undefined;
   disabled?: boolean | undefined;
   children: React.ReactNode;
+  'aria-disabled'?: boolean;
 }
 
 const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, ...tabProps}, ref) => {

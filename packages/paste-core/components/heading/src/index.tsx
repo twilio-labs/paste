@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Text, TextStyleProps, safelySpreadTextProps} from '@twilio-paste/text';
-import {HeadingVariants, HeadingProps, AsTags} from './types';
+import type {HeadingVariants, HeadingProps, AsTags} from './types';
 import {HeadingPropTypes} from './PropTypes';
 
 function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: 'space0'): TextStyleProps {
@@ -78,4 +78,5 @@ if (process.env.NODE_ENV === 'development') {
   Heading.propTypes = HeadingPropTypes;
 }
 
-export {Heading, HeadingProps, HeadingPropTypes, HeadingVariants, AsTags as asTags};
+export type {HeadingProps, HeadingVariants, AsTags as asTags};
+export {Heading, HeadingPropTypes};

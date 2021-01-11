@@ -13,7 +13,7 @@ function build(packageJson) {
     entryPoints,
     mainFields: ['module', 'main'],
     bundle: true,
-    //minify: process.env.NODE_ENV === 'production',
+    minify: process.env.NODE_ENV === 'production',
     define: {
       'process.env.NODE_ENV': `"${process.env.NODE_ENV}"`,
     },

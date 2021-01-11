@@ -87,13 +87,15 @@ const textDecoration = system({textDecoration: true});
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 const getPseudoStyles = (props: TextProps): {} => {
-  const pseudoProps = Object.keys(props).filter((propName) => propName.startsWith('_'));
+  const pseudoProps = Object.keys(props).filter((propName) => propName.startsWith('_')) as Array<
+    keyof typeof PseudoPropStyles
+  >;
 
   if (pseudoProps.length === 0) {
     return {};
   }
 
-  const pseudoStyles = {};
+  const pseudoStyles: {[key: string]: any} = {};
   pseudoProps.forEach((pseudoProp) => {
     pseudoStyles[PseudoPropStyles[pseudoProp]] = props[pseudoProp];
   });
