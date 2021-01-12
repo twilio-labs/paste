@@ -12,21 +12,17 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
     return (
       <TableContext.Provider value={tableContext}>
         <Box
+          {...safelySpreadBoxProps(props)}
+          ref={ref}
+          as="table"
+          borderCollapse="collapse"
           borderColor="colorBorderLighter"
-          borderRadius="borderRadius10"
+          borderSpacing="0"
           borderStyle="solid"
           borderWidth={variant === 'borderless' ? 'borderWidth0' : 'borderWidth10'}
-        >
-          <Box
-            {...safelySpreadBoxProps(props)}
-            ref={ref}
-            as="table"
-            borderCollapse="collapse"
-            borderSpacing="0"
-            tableLayout={tableLayout === 'fixed' ? 'fixed' : 'auto'}
-            width="100%"
-          />
-        </Box>
+          tableLayout={tableLayout === 'fixed' ? 'fixed' : 'auto'}
+          width="100%"
+        />
       </TableContext.Provider>
     );
   }

@@ -18,7 +18,7 @@ describe('Table', () => {
         </TBody>
       </Table>
     );
-    const renderedTable = screen.getByTestId('mockDefaultTable').parentElement;
+    const renderedTable = screen.getByTestId('mockDefaultTable');
     expect(renderedTable).toHaveStyleRule('border-width', 'borderWidth10');
   });
   it('should render a borderless table', (): void => {
@@ -32,7 +32,7 @@ describe('Table', () => {
         </TBody>
       </Table>
     );
-    const renderedTable = screen.getByTestId('mockBorderlessTable').parentElement;
+    const renderedTable = screen.getByTestId('mockBorderlessTable');
     expect(renderedTable).toHaveStyleRule('border-width', 'borderWidth0');
   });
   it('should render a striped table', (): void => {
