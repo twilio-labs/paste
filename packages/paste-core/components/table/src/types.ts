@@ -1,7 +1,6 @@
 import * as PropTypes from 'prop-types';
 import {ValueOf} from '@twilio-paste/types';
 import {WidthOptions, isWidthTokenProp} from '@twilio-paste/style-props';
-import {TableHTMLAttributes} from 'react';
 import {TableAlignmentObject, TableLayoutObject, TableVariantObject, TableVerticalAlignmentObject} from './constants';
 
 export type TableAlignmentOptions = ValueOf<typeof TableAlignmentObject>;
@@ -13,7 +12,7 @@ export interface TableContextProps {
   striped: boolean;
 }
 
-export interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
+export interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> {
   children: NonNullable<React.ReactNode>;
   striped?: boolean;
   tableLayout?: TableLayoutOptions;
@@ -27,7 +26,7 @@ export const TablePropTypes = {
   variant: PropTypes.oneOf(Object.values(TableVariantObject)),
 };
 
-export interface THeadProps extends TableHTMLAttributes<HTMLTableSectionElement> {
+export interface THeadProps extends React.TableHTMLAttributes<HTMLTableSectionElement> {
   children: NonNullable<React.ReactNode>;
 }
 
@@ -35,7 +34,7 @@ export const THeadPropTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export interface TBodyProps extends TableHTMLAttributes<HTMLTableSectionElement> {
+export interface TBodyProps extends React.TableHTMLAttributes<HTMLTableSectionElement> {
   children: NonNullable<React.ReactNode>;
 }
 
