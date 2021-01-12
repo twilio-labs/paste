@@ -3,7 +3,7 @@
   "version": "0.1.17",
   "category": "data display",
   "status": "beta",
-  "description": "The Table is used to represent static tabular data.",
+  "description": "Tables are used to display information that is meant to be compared across columns and rows.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
