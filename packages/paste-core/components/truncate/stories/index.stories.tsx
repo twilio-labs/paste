@@ -1,10 +1,14 @@
 import * as React from 'react';
-import {storiesOf} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Truncate} from '../src';
 
-storiesOf('Components|Truncate', module).add('Default', () => {
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Components/Truncate',
+};
+
+export const Default = (): React.ReactNode => {
   return (
     <Box maxWidth="size20">
       <Text as="p">
@@ -12,4 +16,4 @@ storiesOf('Components|Truncate', module).add('Default', () => {
       </Text>
     </Box>
   );
-});
+};

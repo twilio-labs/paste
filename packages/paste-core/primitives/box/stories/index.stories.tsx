@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {storiesOf} from '@storybook/react';
 import {withKnobs, select, text} from '@storybook/addon-knobs';
 import {DefaultTheme, ThemeShape} from '@twilio-paste/theme';
 import {Text} from '@twilio-paste/text';
@@ -21,138 +20,136 @@ const zIndexOptions = Object.keys(DefaultTheme.zIndices);
 
 const demoString = `I'm some text in a box`;
 
-storiesOf('Primitives|Box', module)
-  .addDecorator(withKnobs)
-  .add('Default', () => {
-    const backgroudColorValue = select(
-      'backgroundColor',
-      backgroundColorOptions,
-      'colorBackgroundPrimaryLight'
-    ) as keyof ThemeShape['backgroundColors'];
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Primitives/Box',
+  decorators: [withKnobs],
+};
 
-    const borderRadiusValue = select(
-      'borderRadius',
-      borderRadiusOptions,
-      'borderRadius20'
-    ) as keyof ThemeShape['radii'];
-    const borderTopLeftRadiusValue = select(
-      'borderTopLeftRadius',
-      borderRadiusOptions,
-      ''
-    ) as keyof ThemeShape['radii'];
-    const borderTopRightRadiusValue = select(
-      'borderTopRightRadius',
-      borderRadiusOptions,
-      ''
-    ) as keyof ThemeShape['radii'];
-    const borderBottomLeftRadiusValue = select(
-      'borderBottomLeftRadius',
-      borderRadiusOptions,
-      ''
-    ) as keyof ThemeShape['radii'];
+export const Default = (): React.ReactNode => {
+  const backgroudColorValue = select(
+    'backgroundColor',
+    backgroundColorOptions,
+    'colorBackgroundPrimaryLight'
+  ) as keyof ThemeShape['backgroundColors'];
 
-    const borderBottomRightRadiusValue = select(
-      'borderBottomRightRadius',
-      borderRadiusOptions,
-      ''
-    ) as keyof ThemeShape['radii'];
+  const borderRadiusValue = select('borderRadius', borderRadiusOptions, 'borderRadius20') as keyof ThemeShape['radii'];
+  const borderTopLeftRadiusValue = select('borderTopLeftRadius', borderRadiusOptions, '') as keyof ThemeShape['radii'];
+  const borderTopRightRadiusValue = select(
+    'borderTopRightRadius',
+    borderRadiusOptions,
+    ''
+  ) as keyof ThemeShape['radii'];
+  const borderBottomLeftRadiusValue = select(
+    'borderBottomLeftRadius',
+    borderRadiusOptions,
+    ''
+  ) as keyof ThemeShape['radii'];
 
-    const borderWidthValue = select('borderWidth', borderWidthOptions, '') as keyof ThemeShape['borderWidths'];
-    const borderTopWidthValue = select('borderTopWidth', borderWidthOptions, '') as keyof ThemeShape['borderWidths'];
-    const borderRightWidthValue = select(
-      'borderRightWidth',
-      borderWidthOptions,
-      ''
-    ) as keyof ThemeShape['borderWidths'];
-    const borderBottomWidthValue = select(
-      'borderBottomWidth',
-      borderWidthOptions,
-      ''
-    ) as keyof ThemeShape['borderWidths'];
-    const borderLeftWidthValue = select('borderLeftWidth', borderWidthOptions, '') as keyof ThemeShape['borderWidths'];
-    const borderColorValue = select(
-      'borderColor',
-      borderColorOptions,
-      'colorBorderPrimaryDark'
-    ) as keyof ThemeShape['borderColors'];
-    const borderStyleValue = text('borderStyle', 'solid');
+  const borderBottomRightRadiusValue = select(
+    'borderBottomRightRadius',
+    borderRadiusOptions,
+    ''
+  ) as keyof ThemeShape['radii'];
 
-    const paddingValue = select('padding', spaceOptions, 'space20') as keyof ThemeShape['space'];
-    const marginValue = select('margin', spaceOptions, 'space40') as keyof ThemeShape['space'];
+  const borderWidthValue = select('borderWidth', borderWidthOptions, '') as keyof ThemeShape['borderWidths'];
+  const borderTopWidthValue = select('borderTopWidth', borderWidthOptions, '') as keyof ThemeShape['borderWidths'];
+  const borderRightWidthValue = select('borderRightWidth', borderWidthOptions, '') as keyof ThemeShape['borderWidths'];
+  const borderBottomWidthValue = select(
+    'borderBottomWidth',
+    borderWidthOptions,
+    ''
+  ) as keyof ThemeShape['borderWidths'];
+  const borderLeftWidthValue = select('borderLeftWidth', borderWidthOptions, '') as keyof ThemeShape['borderWidths'];
+  const borderColorValue = select(
+    'borderColor',
+    borderColorOptions,
+    'colorBorderPrimaryDark'
+  ) as keyof ThemeShape['borderColors'];
+  const borderStyleValue = text('borderStyle', 'solid');
 
-    const widthValue = select('width', widthOptions, '') as keyof ThemeShape['widths'];
-    const minWidthValue = select('minWidth', minWidthOptions, '') as keyof ThemeShape['minWidths'];
-    const maxWidthValue = select('maxWidth', maxWidthOptions, '') as keyof ThemeShape['maxWidths'];
-    const heightValue = select('height', heightOptions, 'size10') as keyof ThemeShape['heights'];
-    const minHeightValue = select('minHeight', minHeightOptions, '') as keyof ThemeShape['minHeights'];
-    const maxHeightValue = select('maxHeight', maxHeightOptions, '') as keyof ThemeShape['maxHeights'];
+  const paddingValue = select('padding', spaceOptions, 'space20') as keyof ThemeShape['space'];
+  const marginValue = select('margin', spaceOptions, 'space40') as keyof ThemeShape['space'];
 
-    const boxShadowValue = select('boxShadow', boxShadowOptions, '') as keyof ThemeShape['shadows'];
-    const zIndexValue = select('zIndex', zIndexOptions, '') as keyof ThemeShape['zIndices'];
-    const displayValue = text('display', 'block');
-    const overflowValue = text('overflow', 'hidden');
+  const widthValue = select('width', widthOptions, '') as keyof ThemeShape['widths'];
+  const minWidthValue = select('minWidth', minWidthOptions, '') as keyof ThemeShape['minWidths'];
+  const maxWidthValue = select('maxWidth', maxWidthOptions, '') as keyof ThemeShape['maxWidths'];
+  const heightValue = select('height', heightOptions, 'size10') as keyof ThemeShape['heights'];
+  const minHeightValue = select('minHeight', minHeightOptions, '') as keyof ThemeShape['minHeights'];
+  const maxHeightValue = select('maxHeight', maxHeightOptions, '') as keyof ThemeShape['maxHeights'];
 
-    return (
-      <Box
-        backgroundColor={backgroudColorValue}
-        borderRadius={borderRadiusValue}
-        borderTopLeftRadius={borderTopLeftRadiusValue}
-        borderTopRightRadius={borderTopRightRadiusValue}
-        borderBottomLeftRadius={borderBottomLeftRadiusValue}
-        borderBottomRightRadius={borderBottomRightRadiusValue}
-        borderWidth={borderWidthValue}
-        borderTopWidth={borderTopWidthValue}
-        borderRightWidth={borderRightWidthValue}
-        borderBottomWidth={borderBottomWidthValue}
-        borderLeftWidth={borderLeftWidthValue}
-        borderStyle={borderStyleValue}
-        borderColor={borderColorValue}
-        width={widthValue}
-        minWidth={minWidthValue}
-        maxWidth={maxWidthValue}
-        height={heightValue}
-        minHeight={minHeightValue}
-        maxHeight={maxHeightValue}
-        margin={marginValue}
-        padding={paddingValue}
-        boxShadow={boxShadowValue}
-        display={displayValue}
-        zIndex={zIndexValue}
-        overflow={overflowValue}
-      >
-        <Text as="p" color="colorText">
-          {demoString}
-        </Text>
-      </Box>
-    );
-  })
-  .add('Responsive', () => {
-    return (
-      <Box
-        backgroundColor={['colorBackgroundPrimaryLight', 'colorBackgroundPrimary']}
-        padding={['space20', 'space70']}
-        height={['size10', 'size20']}
-      >
-        <Text as="p" color="colorText">
-          DO NOTE: width is not currently responsive due to a bug in Styled System v4. To be fixed in an upgrade.
-        </Text>
-      </Box>
-    );
-  })
-  .add('Pseudo-classes with props', () => {
-    return (
-      <Box
-        backgroundColor="colorBackgroundPrimaryLight"
-        height="size20"
-        position="relative"
-        _hover={{padding: 'space20', backgroundColor: 'colorBackgroundPrimaryLighter'}}
-        _first={{margin: 'space10'}}
-        _before={{content: `"Before text"`, position: 'absolute', bottom: 0, left: 0}}
-        _after={{content: `"After text"`, position: 'absolute', bottom: 0, right: 0}}
-      >
-        <Text as="p" color="colorText">
-          Hover this box
-        </Text>
-      </Box>
-    );
-  });
+  const boxShadowValue = select('boxShadow', boxShadowOptions, '') as keyof ThemeShape['shadows'];
+  const zIndexValue = select('zIndex', zIndexOptions, '') as keyof ThemeShape['zIndices'];
+  const displayValue = text('display', 'block');
+  const overflowValue = text('overflow', 'hidden');
+
+  return (
+    <Box
+      backgroundColor={backgroudColorValue}
+      borderRadius={borderRadiusValue}
+      borderTopLeftRadius={borderTopLeftRadiusValue}
+      borderTopRightRadius={borderTopRightRadiusValue}
+      borderBottomLeftRadius={borderBottomLeftRadiusValue}
+      borderBottomRightRadius={borderBottomRightRadiusValue}
+      borderWidth={borderWidthValue}
+      borderTopWidth={borderTopWidthValue}
+      borderRightWidth={borderRightWidthValue}
+      borderBottomWidth={borderBottomWidthValue}
+      borderLeftWidth={borderLeftWidthValue}
+      borderStyle={borderStyleValue}
+      borderColor={borderColorValue}
+      width={widthValue}
+      minWidth={minWidthValue}
+      maxWidth={maxWidthValue}
+      height={heightValue}
+      minHeight={minHeightValue}
+      maxHeight={maxHeightValue}
+      margin={marginValue}
+      padding={paddingValue}
+      boxShadow={boxShadowValue}
+      display={displayValue}
+      zIndex={zIndexValue}
+      overflow={overflowValue}
+    >
+      <Text as="p" color="colorText">
+        {demoString}
+      </Text>
+    </Box>
+  );
+};
+
+export const Responsive = (): React.ReactNode => {
+  return (
+    <Box
+      backgroundColor={['colorBackgroundPrimaryLight', 'colorBackgroundPrimary']}
+      padding={['space20', 'space70']}
+      height={['size10', 'size20']}
+    >
+      <Text as="p" color="colorText">
+        DO NOTE: width is not currently responsive due to a bug in Styled System v4. To be fixed in an upgrade.
+      </Text>
+    </Box>
+  );
+};
+
+export const PseudoClassesWithProps = (): React.ReactNode => {
+  return (
+    <Box
+      backgroundColor="colorBackgroundPrimaryLight"
+      height="size20"
+      position="relative"
+      _hover={{padding: 'space20', backgroundColor: 'colorBackgroundPrimaryLighter'}}
+      _first={{margin: 'space10'}}
+      _before={{content: `"Before text"`, position: 'absolute', bottom: 0, left: 0}}
+      _after={{content: `"After text"`, position: 'absolute', bottom: 0, right: 0}}
+    >
+      <Text as="p" color="colorText">
+        Hover this box
+      </Text>
+    </Box>
+  );
+};
+
+PseudoClassesWithProps.story = {
+  name: 'Pseudo-classes with props',
+};

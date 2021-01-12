@@ -1,10 +1,14 @@
 import * as React from 'react';
 import {useUIDSeed} from '@twilio-paste/uid-library';
-import {storiesOf} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {Checkbox, FormLabel, FormInput, Select, Option, Radio, FormTextArea} from '../src';
 
-storiesOf('Forms|Form', module).add('All', () => {
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Forms/Form',
+};
+
+export const All = (): React.ReactNode => {
   const inputIDSeed = useUIDSeed();
   return (
     <>
@@ -82,4 +86,4 @@ storiesOf('Forms|Form', module).add('All', () => {
       </Box>
     </>
   );
-});
+};
