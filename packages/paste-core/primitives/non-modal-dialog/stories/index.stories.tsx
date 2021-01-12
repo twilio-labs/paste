@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {storiesOf} from '@storybook/react';
 import {Box} from '@twilio-paste/box';
 import {
   useNonModalDialogPrimitiveState,
@@ -8,7 +7,12 @@ import {
   NonModalDialogArrowPrimitive,
 } from '../src';
 
-const Example: React.FC = () => {
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Primitives/Non-Modal Dialog',
+};
+
+export const SimpleNonModalDialog = (): React.ReactNode => {
   const nonModalDialog = useNonModalDialogPrimitiveState();
   return (
     <>
@@ -21,7 +25,11 @@ const Example: React.FC = () => {
   );
 };
 
-const RightPlacementExample: React.FC = () => {
+SimpleNonModalDialog.story = {
+  name: 'Simple Non-Modal Dialog',
+};
+
+export const NonModalDialogRightPlacement = (): React.ReactNode => {
   const nonModalDialog = useNonModalDialogPrimitiveState({placement: 'right'});
   return (
     <>
@@ -34,7 +42,11 @@ const RightPlacementExample: React.FC = () => {
   );
 };
 
-const LeftPlacementExample: React.FC = () => {
+NonModalDialogRightPlacement.story = {
+  name: 'Non-Modal Dialog Right Placement',
+};
+
+export const NonModalDialogLeftPlacement = (): React.ReactNode => {
   const nonModalDialog = useNonModalDialogPrimitiveState({placement: 'left'});
   return (
     <Box position="absolute" top={12} right={12}>
@@ -47,7 +59,11 @@ const LeftPlacementExample: React.FC = () => {
   );
 };
 
-const TopPlacementExample: React.FC = () => {
+NonModalDialogLeftPlacement.story = {
+  name: 'Non-Modal Dialog Left Placement',
+};
+
+export const NonModalDialogTopPlacement = (): React.ReactNode => {
   const nonModalDialog = useNonModalDialogPrimitiveState({placement: 'top'});
   return (
     <Box position="absolute" bottom={12}>
@@ -60,7 +76,11 @@ const TopPlacementExample: React.FC = () => {
   );
 };
 
-const BottomPlacementExample: React.FC = () => {
+NonModalDialogTopPlacement.story = {
+  name: 'Non-Modal Dialog Top Placement',
+};
+
+export const NonModalDialogBottomPlacement = (): React.ReactNode => {
   const nonModalDialog = useNonModalDialogPrimitiveState({placement: 'bottom'});
   return (
     <>
@@ -73,7 +93,11 @@ const BottomPlacementExample: React.FC = () => {
   );
 };
 
-const GutterExample: React.FC = () => {
+NonModalDialogBottomPlacement.story = {
+  name: 'Non-Modal Dialog Bottom Placement',
+};
+
+export const NonModalDialogWithoutGutter = (): React.ReactNode => {
   const nonModalDialog = useNonModalDialogPrimitiveState({gutter: 0});
   return (
     <>
@@ -85,22 +109,6 @@ const GutterExample: React.FC = () => {
   );
 };
 
-storiesOf('Primitives|Non-Modal Dialog', module)
-  .add('Simple Non-Modal Dialog', () => {
-    return <Example />;
-  })
-  .add('Non-Modal Dialog Right Placement', () => {
-    return <RightPlacementExample />;
-  })
-  .add('Non-Modal Dialog Left Placement', () => {
-    return <LeftPlacementExample />;
-  })
-  .add('Non-Modal Dialog Top Placement', () => {
-    return <TopPlacementExample />;
-  })
-  .add('Non-Modal Dialog Bottom Placement', () => {
-    return <BottomPlacementExample />;
-  })
-  .add('Non-Modal Dialog Without Gutter', () => {
-    return <GutterExample />;
-  });
+NonModalDialogWithoutGutter.story = {
+  name: 'Non-Modal Dialog Without Gutter',
+};

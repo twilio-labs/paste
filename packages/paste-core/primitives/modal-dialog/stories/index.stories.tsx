@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {storiesOf} from '@storybook/react';
 import {withKnobs, boolean} from '@storybook/addon-knobs';
 import {styled} from '@twilio-paste/styling-library';
 import {Text} from '@twilio-paste/text';
@@ -54,7 +53,13 @@ const BasicModalDialog: React.FC<BasicModalDialogProps> = ({isOpen, handleClose}
   );
 };
 
-const ModalActivator: React.FC = () => {
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Primitives/ModalDialog',
+  decorators: [withKnobs],
+};
+
+export const CustomOverlayAndContent = (): React.ReactNode => {
   const [isOpen, setIsOpen] = React.useState(false);
   const handleOpen = (): void => setIsOpen(true);
   const handleClose = (): void => setIsOpen(false);
@@ -69,8 +74,6 @@ const ModalActivator: React.FC = () => {
   );
 };
 
-storiesOf('Primitives|ModalDialog', module)
-  .addDecorator(withKnobs)
-  .add('Custom overlay and content', () => {
-    return <ModalActivator />;
-  });
+CustomOverlayAndContent.story = {
+  name: 'Custom overlay and content',
+};

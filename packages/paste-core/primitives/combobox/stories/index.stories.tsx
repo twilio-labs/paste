@@ -1,7 +1,5 @@
 import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
-import {storiesOf} from '@storybook/react';
-import {withKnobs} from '@storybook/addon-knobs';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
@@ -10,8 +8,12 @@ import {ComboboxPrimitive, useComboboxPrimitive} from '../src';
 
 const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
 
-/* eslint-disable react/no-array-index-key */
-const ComboxBoxPrimitive: React.FC = () => {
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Primitives/Combobox',
+};
+
+export const DropdownCombobox = (): React.ReactNode => {
   const {
     getComboboxProps,
     getInputProps,
@@ -43,6 +45,7 @@ const ComboxBoxPrimitive: React.FC = () => {
           items.map((item, index) => (
             <li
               style={highlightedIndex === index ? {backgroundColor: '#bde4ff'} : {}}
+              // eslint-disable-next-line react/no-array-index-key
               key={`${item}${index}`}
               {...getItemProps({item, index})}
             >
@@ -54,7 +57,7 @@ const ComboxBoxPrimitive: React.FC = () => {
   );
 };
 
-const AutocompleteComboboxPrimitive: React.FC = () => {
+export const AutocompleteCombobox = (): React.ReactNode => {
   const [inputItems, setInputItems] = React.useState(items);
   const {
     getComboboxProps,
@@ -88,6 +91,7 @@ const AutocompleteComboboxPrimitive: React.FC = () => {
           inputItems.map((item, index) => (
             <li
               style={highlightedIndex === index ? {backgroundColor: '#bde4ff'} : {}}
+              // eslint-disable-next-line react/no-array-index-key
               key={`${item}${index}`}
               {...getItemProps({item, index})}
             >
@@ -99,7 +103,7 @@ const AutocompleteComboboxPrimitive: React.FC = () => {
   );
 };
 
-const NonHookComboboxPrimitive: React.FC = () => {
+export const ComboboxNonHooks = (): React.ReactNode => {
   return (
     <ComboboxPrimitive>
       {({
@@ -150,16 +154,7 @@ const NonHookComboboxPrimitive: React.FC = () => {
     </ComboboxPrimitive>
   );
 };
-/* eslint-enable */
 
-storiesOf('Primitives|Combobox', module)
-  .addDecorator(withKnobs)
-  .add('Dropdown Combobox', () => {
-    return <ComboxBoxPrimitive />;
-  })
-  .add('Autocomplete Combobox', () => {
-    return <AutocompleteComboboxPrimitive />;
-  })
-  .add('Combobox - non-hooks', () => {
-    return <NonHookComboboxPrimitive />;
-  });
+ComboboxNonHooks.story = {
+  name: 'Combobox - non-hooks',
+};

@@ -1,6 +1,4 @@
 import * as React from 'react';
-import {storiesOf} from '@storybook/react';
-import {withKnobs} from '@storybook/addon-knobs';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
@@ -171,126 +169,158 @@ const MenuGroups: React.FC = () => {
   );
 };
 
-storiesOf('Components|Menu', module)
-  .addDecorator(withKnobs)
-  .add('default', () => {
-    return <PlainMenu />;
-  })
-  .add('sub menu', () => {
-    return <SubMenu />;
-  })
-  .add('actions demo menu', () => {
-    return <WithActionsMenu />;
-  })
-  .add('menu groups', () => {
-    return <MenuGroups />;
-  })
-  .add('menu dropdown', () => {
-    const menuMockProps = {
-      visible: true,
-      baseId: 'test',
-      first: () => {},
-      last: () => {},
-      items: [],
-      move: () => {},
-      next: () => {},
-      previous: () => {},
-      setCurrentId: () => {},
-    };
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Components/Menu',
+};
 
-    const menuItemMockProps = {
-      first: () => {},
-      last: () => {},
-      items: [],
-      move: () => {},
-      next: () => {},
-      previous: () => {},
-      up: () => {},
-      down: () => {},
-      setCurrentId: () => {},
-      registerItem: () => {},
-      unregisterItem: () => {},
-      tabIndex: -1,
-    };
-    return (
-      <Menu {...menuMockProps} aria-label="Code" placement="auto">
-        <MenuItem {...menuItemMockProps}>Default</MenuItem>
+export const Default = (): React.ReactNode => {
+  return <PlainMenu />;
+};
+
+Default.story = {
+  name: 'default',
+};
+
+export const SubMenuStory = (): React.ReactNode => {
+  return <SubMenu />;
+};
+
+SubMenuStory.story = {
+  name: 'sub menu',
+};
+
+export const ActionsDemoMenu = (): React.ReactNode => {
+  return <WithActionsMenu />;
+};
+
+ActionsDemoMenu.story = {
+  name: 'actions demo menu',
+};
+
+export const MenuGroupsStory = (): React.ReactNode => {
+  return <MenuGroups />;
+};
+
+MenuGroupsStory.story = {
+  name: 'menu groups',
+};
+
+export const MenuDropdown = (): React.ReactNode => {
+  const menuMockProps = {
+    visible: true,
+    baseId: 'test',
+    first: () => {},
+    last: () => {},
+    items: [],
+    move: () => {},
+    next: () => {},
+    previous: () => {},
+    setCurrentId: () => {},
+  };
+
+  const menuItemMockProps = {
+    first: () => {},
+    last: () => {},
+    items: [],
+    move: () => {},
+    next: () => {},
+    previous: () => {},
+    up: () => {},
+    down: () => {},
+    setCurrentId: () => {},
+    registerItem: () => {},
+    unregisterItem: () => {},
+    tabIndex: -1,
+  };
+  return (
+    <Menu {...menuMockProps} aria-label="Code" placement="auto">
+      <MenuItem {...menuItemMockProps}>Default</MenuItem>
+      <MenuItem {...menuItemMockProps} disabled>
+        Disabled
+      </MenuItem>
+      <MenuSeparator />
+      <MenuItem {...menuItemMockProps}>Suuuuuuuuuuuuuuuuuuuuuuper long menu item</MenuItem>
+      <MenuItem {...menuItemMockProps}>
+        <MediaObject verticalAlign="center">
+          <MediaFigure spacing="space20">
+            <AttachIcon decorative={false} title="information" />
+          </MediaFigure>
+          <MediaBody>Got an icon</MediaBody>
+        </MediaObject>
+      </MenuItem>
+      <MenuItem {...menuItemMockProps}>
+        <MediaObject verticalAlign="center">
+          <MediaBody>Got a right icon</MediaBody>
+          <MediaFigure spacing="space20" align="end">
+            <AttachIcon decorative={false} title="information" />
+          </MediaFigure>
+        </MediaObject>
+      </MenuItem>
+      <MenuItem {...menuItemMockProps}>
+        <MediaObject verticalAlign="center">
+          <MediaFigure spacing="space20">
+            <AttachIcon decorative={false} title="information" />
+          </MediaFigure>
+          <MediaBody>Got two icons</MediaBody>
+          <MediaFigure spacing="space20" align="end">
+            <AttachIcon decorative={false} title="information" />
+          </MediaFigure>
+        </MediaObject>
+      </MenuItem>
+      <MenuSeparator />
+      <MenuGroup icon={<ProductVoiceIcon decorative />} label="Search Options">
+        <MenuItem {...menuItemMockProps}>Search with Google</MenuItem>
         <MenuItem {...menuItemMockProps} disabled>
-          Disabled
+          Search with Bing
         </MenuItem>
-        <MenuSeparator />
-        <MenuItem {...menuItemMockProps}>Suuuuuuuuuuuuuuuuuuuuuuper long menu item</MenuItem>
-        <MenuItem {...menuItemMockProps}>
-          <MediaObject verticalAlign="center">
-            <MediaFigure spacing="space20">
-              <AttachIcon decorative={false} title="information" />
-            </MediaFigure>
-            <MediaBody>Got an icon</MediaBody>
-          </MediaObject>
-        </MenuItem>
-        <MenuItem {...menuItemMockProps}>
-          <MediaObject verticalAlign="center">
-            <MediaBody>Got a right icon</MediaBody>
-            <MediaFigure spacing="space20" align="end">
-              <AttachIcon decorative={false} title="information" />
-            </MediaFigure>
-          </MediaObject>
-        </MenuItem>
-        <MenuItem {...menuItemMockProps}>
-          <MediaObject verticalAlign="center">
-            <MediaFigure spacing="space20">
-              <AttachIcon decorative={false} title="information" />
-            </MediaFigure>
-            <MediaBody>Got two icons</MediaBody>
-            <MediaFigure spacing="space20" align="end">
-              <AttachIcon decorative={false} title="information" />
-            </MediaFigure>
-          </MediaObject>
-        </MenuItem>
-        <MenuSeparator />
-        <MenuGroup icon={<ProductVoiceIcon decorative />} label="Search Options">
-          <MenuItem {...menuItemMockProps}>Search with Google</MenuItem>
-          <MenuItem {...menuItemMockProps} disabled>
-            Search with Bing
-          </MenuItem>
-        </MenuGroup>
-        <MenuSeparator />
-        <MenuItem {...menuItemMockProps}>
-          <MediaObject verticalAlign="center">
-            <MediaFigure spacing="space20">
-              <AttachIcon decorative={false} title="information" />
-            </MediaFigure>
-            <MediaBody>keyboard shortcut?</MediaBody>
-            <MediaFigure spacing="space20" align="end">
-              <Text as="span" color="colorTextWeak" fontSize="fontSize20">
-                ⌘+s
-              </Text>
-            </MediaFigure>
-          </MediaObject>
-        </MenuItem>
-        <MenuItem {...menuItemMockProps}>
-          <MediaObject verticalAlign="center">
-            <MediaBody>Got a right icon</MediaBody>
-            <MediaFigure spacing="space20" align="end">
-              <AttachIcon decorative={false} title="information" />
-            </MediaFigure>
-          </MediaObject>
-        </MenuItem>
-        <SubMenuButton {...menuItemMockProps} toggle={() => {}} placement="auto" baseId="test" show={() => {}}>
-          Sub menu button
-        </SubMenuButton>
-      </Menu>
-    );
-  })
-  .add('different button triggers', () => {
-    return (
-      <>
-        <Stack orientation="vertical" spacing="space50">
-          <PlainMenu />
-          <SubMenu />
-          <Example3 />
-          <Example4 />
-        </Stack>
-      </>
-    );
-  });
+      </MenuGroup>
+      <MenuSeparator />
+      <MenuItem {...menuItemMockProps}>
+        <MediaObject verticalAlign="center">
+          <MediaFigure spacing="space20">
+            <AttachIcon decorative={false} title="information" />
+          </MediaFigure>
+          <MediaBody>keyboard shortcut?</MediaBody>
+          <MediaFigure spacing="space20" align="end">
+            <Text as="span" color="colorTextWeak" fontSize="fontSize20">
+              ⌘+s
+            </Text>
+          </MediaFigure>
+        </MediaObject>
+      </MenuItem>
+      <MenuItem {...menuItemMockProps}>
+        <MediaObject verticalAlign="center">
+          <MediaBody>Got a right icon</MediaBody>
+          <MediaFigure spacing="space20" align="end">
+            <AttachIcon decorative={false} title="information" />
+          </MediaFigure>
+        </MediaObject>
+      </MenuItem>
+      <SubMenuButton {...menuItemMockProps} toggle={() => {}} placement="auto" baseId="test" show={() => {}}>
+        Sub menu button
+      </SubMenuButton>
+    </Menu>
+  );
+};
+
+MenuDropdown.story = {
+  name: 'menu dropdown',
+};
+
+export const DifferentButtonTriggers = (): React.ReactNode => {
+  return (
+    <>
+      <Stack orientation="vertical" spacing="space50">
+        <PlainMenu />
+        <SubMenu />
+        <Example3 />
+        <Example4 />
+      </Stack>
+    </>
+  );
+};
+
+DifferentButtonTriggers.story = {
+  name: 'different button triggers',
+};
