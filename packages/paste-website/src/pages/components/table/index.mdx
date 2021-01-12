@@ -1,18 +1,27 @@
 ---
 title: Table
 package: '@twilio-paste/table'
-description: The Table is used to represent static tabular data.
+description: Tables are used to display information that is meant to be compared across columns and rows.
 slug: /components/table/
 ---
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
+import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
-import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Button} from '@twilio-paste/button';
+import {Card} from '@twilio-paste/card';
+import {Heading} from '@twilio-paste/heading';
+import {Stack} from '@twilio-paste/stack';
 import {Table, THead, TBody, TFoot, Tr, Th, Td} from '@twilio-paste/table';
-import Changelog from '@twilio-paste/table/CHANGELOG.md';
 import {Text} from '@twilio-paste/text';
+import {Tooltip} from '@twilio-paste/tooltip';
+import {Truncate} from '@twilio-paste/truncate';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import Changelog from '@twilio-paste/table/CHANGELOG.md';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 
 export const pageQuery = graphql`
@@ -45,7 +54,8 @@ export const pageQuery = graphql`
   name={props.pageContext.frontmatter.title}
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/table"
-  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-table--basic-table"
+  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-table--default-table"
+  abstractUrl="https://share.goabstract.com/ec5567dc-6d41-4f8d-b34b-6a5bdb912323"
   data={props.data.allPasteComponent.edges}
 />
 
@@ -57,47 +67,79 @@ export const pageQuery = graphql`
 
 <content>
 
-<Callout>
-  <CalloutTitle>Using alpha components in your product</CalloutTitle>
-  <CalloutText>
-    Alpha components are ready for you to use in production. Components such as Table are likely to not see any API
-    changes. This is only an alpha due to the lack of documentation and a matching Sketch symbol. Feel free to share
-    your experience using this component by{' '}
-    <Anchor href="https://github.com/twilio-labs/paste/discussions/new">starting a discussion on GitHub</Anchor>. We are
-    also looking for a contributor to symbolize this component in Sketch. Interested? Reach out!
-  </CalloutText>
-</Callout>
-
 ## Guidelines
 
 ### About Table
 
-A Table is used to represent tabular data, or information presented in a 2-dimensional table composed of rows and columns of cells containing data.
-Tables fill 100% width of the space of their containing element.
-
-You can create tables using a combination of:
-
-- **Table:** The table wrapper.
-- **THead:** The header of your table.
-- **TBody:** The main body of your table.
-- **TFoot:** The footer of your table.
-- **Tr:** A row of cells in your table.
-- **Th:** A header cell which can be used as a column title.
-- **Td:** A cell of table content.
+A Table is a grid of static textual and numeric data of the same content structure presented in rows and columns of cells.
+For example, a Table would be a good way to represent a list of multiple support agents and their respective skills
+and online/offline status.
 
 ### Accessibility
 
 Tables are used to organize data with a logical relationship in grids. Accessible tables need HTML markup that indicates
-header cells and data cells and defines their relationship. Assistive technologies use this information to provide context to users.
+header cells and data cells and defines their relationship. Assistive technologies use this information to provide
+context to users.
 
-In order to be fully accessible:
+Accessibility requirements:
 
-- Tables **must** have a `THead`, containing a Table Header `Th` for each column.
-- Tables **must** have a `TBody` wrapping the table body of rows.
+- Tables must have a `THead`, containing a Th for each column.
+- Tables must have a `TBody` wrapping the table body of rows.
+
+Accessibility recommendations:
+
+- It is a best practice to include row headers, which can be added by including a header (`Th`) as the first cell in
+  each row (`Tr`), with `scope="row"`. This is not relevant for all tables, but you should follow this practice when
+  the first cell in a row is the key value for that row, such as a username. You can find an example of this in
+  the section on [row headers](#row-headers).
+- Any component can be placed in a Table, but tables should only contain static textual and numeric data, rather
+  than actionable components like buttons, whenever possible. This is because, if the table is reasonably long—say
+  50 rows—with multiple actions per row—say 4 actions—a keyboard-only user would have to press the tab key 200
+  times to get past that table.
+
+<Callout>
+  <CalloutTitle>🦮 Accessibility insight: navigating tables with a screen reader</CalloutTitle>
+  <CalloutText>
+    Learn more about why semantic table markup is important in{' '}
+    <Anchor href="https://youtu.be/tlpQ0d2ADNo" showExternal>
+      this demo video by Inclusive Components
+    </Anchor>{' '}
+    that shows what it's like to explore a data table with a screen reader.
+  </CalloutText>
+</Callout>
+
+<Heading as="h5" variant="heading30">
+  So, why migrate to Table if you need to include actionable elements?
+</Heading>
+
+Our strong recommendation is to use Table over sticking with the legacy table, even if you need to include
+actionable elements, like buttons or anchors. While Table should only contain static information for
+the [accessibility reasons](#accessibility) we've outlined, Table _can_ support the inclusion of
+actionable components when needed, and it is the best option available to you today.
+
+Once we have a Data Grid component, our recommendation will be to use that whenever you need to include
+actions within a table (such as linking to object details, selecting rows, or deleting rows). Data Grid
+will be built on top of Table and will layer in some aria controls that make it easier to navigate with
+a keyboard (much like navigating through an Excel spreadsheet). However, until the Data Grid component
+is available, our recommendation is to use the Table component; we will just ask that you plan to switch
+to the Data Grid when it's ready. Here's why we recommend this over sticking with the legacy table:
+
+1. Using the Table component from Paste, even if it includes actionable elements, is much more accessible
+   than the legacy table.
+2. The visual design of the Paste Table component will be very similar to the Data Grid, so they will look
+   cohesive when used together in one product or feature, and there will be minimal customer impact when
+   upgrading from Table to Data Grid in the future.
+3. If you use the Table component from Paste, you will benefit from design and technical upgrades, whereas
+   the legacy table will not receive any updates.
+4. Migration from the Paste Table to Data Grid will be much easier than migrating from the legacy table
+   to Data Grid, as the underlying architecture of the Paste Table and Data Grid will be very similar.
+   In fact, Data Grid will be built using the Table component.
 
 ## Examples
 
-### Default Table
+### Layouts
+
+#### Default
 
 The Default Table uses an automatic table layout algorithm dictated by the browser. The width of the table cells are adjusted to fit the content.
 
@@ -151,11 +193,11 @@ The Default Table uses an automatic table layout algorithm dictated by the brows
 </Table>`}
 </LivePreview>
 
-### Fixed table-layout Table
+#### Fixed column width
 
-The fixed Table layout sets equal column widths for the table.
+The Fixed Table variant sets equal column widths for the table.
 
-<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td}} language="jsx">
+<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Text}} language="jsx">
   {`<Table tableLayout="fixed">
   <THead>
     <Tr>
@@ -166,34 +208,42 @@ The fixed Table layout sets equal column widths for the table.
   </THead>
   <TBody>
     <Tr>
-      <Td>Adam Brown</Td>
+      <Th scrope="row">Adam Brown</Th>
       <Td>English, French, Sales, Spanish</Td>
-      <Td textAlign="right">35</Td>
+      <Td textAlign="right">
+        <Text as="span" fontFamily="fontFamilyCode">35</Text>
+      </Td>
     </Tr>
     <Tr>
-      <Td>Adriana Lovelock</Td>
+      <Th scrope="row">Adriana Lovelock</Th>
       <Td>English, French, Sales, Spanish</Td>
-      <Td textAlign="right">28</Td>
+      <Td textAlign="right">
+        <Text as="span" fontFamily="fontFamilyCode">28</Text>
+      </Td>
     </Tr>
     <Tr>
-      <Td>Amanda Cutlack</Td>
+      <Th scrope="row">Amanda Cutlack</Th>
       <Td>English, French, Sales, Spanish</Td>
-      <Td textAlign="right">7</Td>
+      <Td textAlign="right">
+        <Text as="span" fontFamily="fontFamilyCode">7</Text>
+      </Td>
     </Tr>
   </TBody>
   <TFoot>
     <Tr>
-      <Td></Td>
-      <Td></Td>
-      <Td textAlign="right">70</Td>
+      <Td/>
+      <Td/>
+      <Td textAlign="right">
+        <Text as="span" fontFamily="fontFamilyCode">70</Text>
+      </Td>
     </Tr>
   </TFoot>
 </Table>`}
 </LivePreview>
 
-### Column Widths
+#### Specified column widths
 
-`THead` cells (`Th`) can be given a width in order to fill a section of the Table row (`Tr`). Widths can be set with Paste Size Tokens or a number value, e.g. 120px.
+THead cells (`Th`) can be given a width in order to fill a section of the Table row (`Tr`). Widths can be set with Paste Size Tokens or a number value, e.g. 120px.
 
 <LivePreview scope={{Table, THead, TBody, Tr, Th, Td}} language="jsx">
   {`<Table>
@@ -232,9 +282,15 @@ The fixed Table layout sets equal column widths for the table.
 </Table>`}
 </LivePreview>
 
-### Column Text Alignment
+### Alignment
 
-Table cells (`Td` or `Th`) can be set with either left, center, or right text alignment. By default they are left-aligned.
+#### Column alignment
+
+You can adjust the text alignment within Table cells (`Td` or `Th`). By default they are left-aligned.
+
+In general, text should be left-aligned, numbers should be right-aligned, and the header should be aligned with the data.
+Data should rarely ever be centered. Numbers only need to be right-aligned when they indicate size or are meant to be
+compared to each other. Numbers like ID numbers, phone numbers, etc. should stay left-aligned.
 
 <LivePreview scope={{Table, THead, TBody, Tr, Th, Td}} language="jsx">
   {`<Table>
@@ -273,7 +329,7 @@ Table cells (`Td` or `Th`) can be set with either left, center, or right text al
 </Table>`}
 </LivePreview>
 
-### Row Vertical Alignment
+#### Row alignment
 
 Table rows (`Tr`) can be set with either top, middle, or bottom vertical alignment. By default they are middle-aligned.
 
@@ -287,58 +343,667 @@ Table rows (`Tr`) can be set with either top, middle, or bottom vertical alignme
   </THead>
   <TBody>
     <Tr verticalAlign="top">
-      <Td>Chinua Achebe</Td>
-      <Td>The impatient idealist says: ‘Give me a place to stand and I shall move the earth.’ But such a place does not exist. We all have to stand on the earth itself and go with her at her pace.</Td>
+      <Th scrope="row">Chinua Achebe</Th>
+      <Td>The impatient idealist says: ‘Give me a place to stand and I shall move the earth.' But such a place does not exist. We all have to stand on the earth itself and go with her at her pace.</Td>
     </Tr>
     <Tr verticalAlign="middle">
-      <Td>James Baldwin</Td>
+      <Th scrope="row">James Baldwin</Th>
       <Td>Anyone who has ever struggled with poverty knows how extremely expensive it is to be poor.</Td>
     </Tr>
     <Tr verticalAlign="middle">
-      <Td>Dorothy West</Td>
+      <Th scrope="row">Dorothy West</Th>
       <Td>To know how much there is to know is the beginning of learning to live.</Td>
     </Tr>
     <Tr verticalAlign="bottom">
-      <Td>W.E.B. Du Bois</Td>
+      <Th scrope="row">W.E.B. Du Bois</Th>
       <Td>Herein lies the tragedy of the age: not that men are poor—all men know something of poverty; not that men are wicked—who is good? Not that men are ignorant—what is truth? Nay, but that men know so little of men.</Td>
     </Tr>
   </TBody>
 </Table>`}
 </LivePreview>
 
+### Borderless
+
+Tables can support a `borderless` variant, which can be useful in cases where the Table is placed inside of another
+containing element, such as a [modal](/components/modal/) or a [card](/components/card/). Tables have borders by default, but these can optionally be
+turned off by setting `variant="borderless"` on `Table`.
+
+<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Card, Text}} language="jsx">
+  {`<Card>
+  <Table variant="borderless">
+    <THead>
+      <Tr>
+        <Th>Agents</Th>
+        <Th>Skills</Th>
+        <Th textAlign="right">Tasks</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Th scrope="row">Adam Brown</Th>
+        <Td>English, French, Sales, Spanish</Td>
+        <Td textAlign="right">
+          <Text as="span" fontFamily="fontFamilyCode">35</Text>
+        </Td>
+      </Tr>
+      <Tr>
+        <Th scrope="row">Adriana Lovelock</Th>
+        <Td>English, French, Sales, Spanish</Td>
+        <Td textAlign="right">
+          <Text as="span" fontFamily="fontFamilyCode">28</Text>
+        </Td>
+      </Tr>
+      <Tr>
+        <Th scrope="row">Amanda Cutlack</Th>
+        <Td>English, French, Sales, Spanish</Td>
+        <Td textAlign="right">
+          <Text as="span" fontFamily="fontFamilyCode">7</Text>
+        </Td>
+      </Tr>
+    </TBody>
+    <TFoot>
+      <Tr>
+        <Td/>
+        <Td/>
+        <Td textAlign="right">
+          <Text as="span" fontFamily="fontFamilyCode">70</Text>
+        </Td>
+      </Tr>
+    </TFoot>
+  </Table>
+</Card>`}
+</LivePreview>
+
+### Row headers
+
+Tables support row headers in addition to the more commonly seen column headers. It is a [best practice](#accessibility) to provide
+row headers in cases where the first cell in a row is the key value for that row, such as a username or the
+name of an email campaign.
+
+Row headers can be added by including a `Th` as the first cell in each `Tr`, with `scope="row"`.
+
+<LivePreview scope={{Table, THead, TBody, Tr, Th, Td}} language="jsx">
+  {`<Table>
+  <THead>
+    <Tr>
+      <Th>User</Th>
+      <Th>Email Address</Th>
+      <Th>Last Login Time</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Th scope="row">tamir.rice</Th>
+      <Td>tamir@rice.com</Td>
+      <Td>12:24:00 PDT</Td>
+    </Tr>
+    <Tr>
+      <Th scope="row">philando.castile</Th>
+      <Td>philando@castile.com</Td>
+      <Td>08:24:20 PDT</Td>
+    </Tr>
+    <Tr>
+      <Th scope="row">trayvon.martin</Th>
+      <Td>trayvon@martin.com</Td>
+      <Td>16:05:10 PDT</Td>
+    </Tr>
+    <Tr>
+      <Th scope="row">breonna.taylor</Th>
+      <Td>breonna@taylor.com</Td>
+      <Td>13:10:28 PDT</Td>
+    </Tr>
+    <Tr>
+      <Th scope="row">shantel.davis</Th>
+      <Td>shantel@davis.com</Td>
+      <Td>01:04:54 PDT</Td>
+    </Tr>
+    <Tr>
+      <Th scope="row">walter.scott</Th>
+      <Td>walter@scott.com</Td>
+      <Td>08:19:10 PDT</Td>
+    </Tr>
+  </TBody>
+</Table>`}
+</LivePreview>
+
+### Table with footer
+
+Tables support an optional `TFoot`, which comes after the `TBody`. The `TFoot` must contain at least one `Tr`.
+A good use case for a `TFoot` is when you want to provide a summary or total for the rows of data in your table.
+
+The placement of the `TFoot` is based on classic HTML table design, so it can not be placed anywhere except at
+the bottom of a table. In cases where you do want to show a summary or total, and that information is of high
+importance to the user, you can place it above the table or at the top of the table in a regular table row,
+rather than using the `TFoot`.
+
+<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Text}} language="jsx">
+  {`<Table tableLayout="fixed">
+  <THead>
+    <Tr>
+      <Th>Agents</Th>
+      <Th>Skills</Th>
+      <Th textAlign="right">Tasks</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Th scope="row">Adam Brown</Th>
+      <Td>English, French, Sales, Spanish</Td>
+      <Td textAlign="right">
+        <Text as="span" fontFamily="fontFamilyCode">35</Text>
+      </Td>
+    </Tr>
+    <Tr>
+      <Th scope="row">Adriana Lovelock</Th>
+      <Td>English, French, Sales, Spanish</Td>
+      <Td textAlign="right">
+        <Text as="span" fontFamily="fontFamilyCode">28</Text>
+      </Td>
+    </Tr>
+    <Tr>
+      <Th scope="row">Amanda Cutlack</Th>
+      <Td>English, French, Sales, Spanish</Td>
+      <Td textAlign="right">
+        <Text as="span" fontFamily="fontFamilyCode">7</Text>
+      </Td>
+    </Tr>
+  </TBody>
+  <TFoot>
+    <Tr>
+      <Th scope="row">Total tasks</Th>
+      <Td/>
+      <Td textAlign="right">
+        <Text as="span" fontFamily="fontFamilyCode">70</Text>
+      </Td>
+    </Tr>
+  </TFoot>
+</Table>`}
+</LivePreview>
+
+## Composition Notes
+
+Tables must be created using a combination of:
+
+- `Table`: The table wrapper
+- `THead`: The header of your table
+- `TBody`: The main body of your table
+- `TFoot`: The footer of your table (optional)
+- `Tr`: A row of cells in your table
+- `Th`: A header cell which can be used as a column title and row title
+- `Td`: A cell of table content
+
+Tables fill 100% width of the space of their containing element. Use [Layout components](/layout) to control the size and
+placement of Tables within a page.
+
+### Ordering columns
+
+In many cases, each table row has some kind of identifier, such as a username, SID, or friendly name. In cases
+where the data in each row is associated with an overarching, named object, the name of that object should generally
+be the first column in the table. In these cases, the cells in that first column should be [Row Headers](#row-headers).
+
+For the remaining columns, you will need to conduct usability testing to hone in on what column ordering works
+best for your users and their particular needs. Generally, it is a good practice to put columns that are closely
+related to one another (such as a unit price, quantity purchased, and total price) near each other in a table.
+
+If you do have actions in your Table (see our [Accessibility Information](#accessibility) on this), they should
+generally be placed in the last column.
+
+### Text alignment in cells
+
+In general, text should be left-aligned, numbers should be right-aligned, and the header should be aligned with
+the data. Data should rarely ever be centered. Numbers only need to be right-aligned when they indicate size and/or
+are meant to be compared to each other. Numbers like ID numbers, phone numbers, etc. should stay left-aligned.
+
+### Zebra striping
+
+Tables can have zebra stripes (i.e. alternating row highlighting), which can improve readability of particularly
+large data sets. Tables have zebra stripes turned off by default, but these can optionally be turned on by
+setting `striped` on `Table`.
+
+<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Text}} language="jsx">
+  {`<Table striped>
+  <THead>
+    <Tr>
+      <Th>Agents</Th>
+      <Th>Skills</Th>
+      <Th textAlign="right">Tasks</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Th scope="row">Adam Brown</Th>
+      <Td>English, French, Sales, Spanish</Td>
+      <Td textAlign="right">
+        <Text as="span" fontFamily="fontFamilyCode">35</Text>
+      </Td>
+    </Tr>
+    <Tr>
+      <Th scope="row">Adriana Lovelock</Th>
+      <Td>English, French, Sales, Spanish</Td>
+      <Td textAlign="right">
+        <Text as="span" fontFamily="fontFamilyCode">28</Text>
+      </Td>
+    </Tr>
+    <Tr>
+      <Th scope="row">Amanda Cutlack</Th>
+      <Td>English, French, Sales, Spanish</Td>
+      <Td textAlign="right">
+        <Text as="span" fontFamily="fontFamilyCode">7</Text>
+      </Td>
+    </Tr>
+  </TBody>
+  <TFoot>
+    <Tr>
+      <Th scope="row">Total tasks</Th>
+      <Td/>
+      <Td textAlign="right">
+        <Text as="span" fontFamily="fontFamilyCode">70</Text>
+      </Td>
+    </Tr>
+  </TFoot>
+</Table>`}
+</LivePreview>
+
+### Table with description text
+
+Each individual table cell can support multiple rows of text, which we'll refer to as "description text".
+This is useful when you want to provide related details in a table without adding additional columns, such as
+placing a user's email address beneath their username in a single cell under a column header titled "user".
+
+Description text is recommended in cases where the user would benefit from having additional context about a
+particular cell, but that additional context is not the primary data that is being presented in the table.
+For example, in a table that lists a user's email campaigns with open rates, click rates, etc. for each,
+it may help the user identify a particular campaign by knowing both the campaign name and what time it was
+sent, so the first column of this table may include the campaign name with the send time included as
+description text. In this example, the send time is not being compared across rows like the open rates and
+click rates are; instead, the send time is used to add additional detail that helps the user identify and
+understand data in an individual row.
+
+<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Text}} language="jsx">
+  {`<Table>
+  <THead>
+    <Tr>
+      <Th>User</Th>
+      <Th>Skills</Th>
+      <Th textAlign="right">Tasks</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Th scope="row">
+        <Text as="p">
+          Adam Brown
+        </Text>
+        <Text as="p" color="colorTextWeak" fontWeight="fontWeightNormal">adam@brown.com</Text>
+      </Th>
+      <Td>English, French, Sales, Spanish</Td>
+      <Td textAlign="right">
+        <Text as="span" fontFamily="fontFamilyCode">35</Text>
+      </Td>
+    </Tr>
+    <Tr>
+      <Th scope="row">
+        <Text as="p" fontWeight="fontWeightBold">
+          Adriana Lovelock
+        </Text>
+        <Text as="p" color="colorTextWeak" fontWeight="fontWeightNormal">adriana@lovelock.com</Text>
+      </Th>
+      <Td>English, French, Sales, Spanish</Td>
+      <Td textAlign="right">
+        <Text as="span" fontFamily="fontFamilyCode">28</Text>
+      </Td>
+    </Tr>
+    <Tr>
+      <Th scope="row">
+        <Text as="p">
+          Amanda Cutlack
+        </Text>
+        <Text as="p" color="colorTextWeak" fontWeight="fontWeightNormal">amanda@cutlack.com</Text>
+      </Th>
+      <Td>English, French, Sales, Spanish</Td>
+      <Td textAlign="right">
+        <Text as="span" fontFamily="fontFamilyCode">7</Text>
+      </Td>
+    </Tr>
+  </TBody>
+</Table>`}
+</LivePreview>
+
+### Table with avatars
+
+Tables can be composed using Avatar, which can be used to make a table of user data more scannable.
+You can put an avatar next to a user's first and last name using `Stack` inside a single `Td`.
+
+<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Text, Avatar, Box, Stack}} language="jsx">
+  {`<Table>
+  <THead>
+    <Tr>
+      <Th>User</Th>
+      <Th>Skills</Th>
+      <Th textAlign="right">Tasks</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Th scope="row">
+        <Stack orientation="horizontal" spacing="space40">
+          <Avatar size="sizeIcon60" name="Adam Brown" src="/images/avatars/avatar1.png" />
+          <Box>
+            <Text as="p">
+              Adam Brown
+            </Text>
+            <Text as="p" color="colorTextWeak" fontWeight="fontWeightNormal">adam@brown.com</Text>
+          </Box>
+        </Stack>
+      </Th>
+      <Td>English, French, Sales, Spanish</Td>
+      <Td textAlign="right">
+        <Text as="span" fontFamily="fontFamilyCode">35</Text>
+      </Td>
+    </Tr>
+    <Tr>
+      <Th scope="row">
+        <Stack orientation="horizontal" spacing="space40">
+          <Avatar size="sizeIcon60" name="Adriana Lovelock" src="/images/avatars/avatar4.png" />
+          <Box>
+            <Text as="p">
+              Adriana Lovelock
+            </Text>
+            <Text as="p" color="colorTextWeak" fontWeight="fontWeightNormal">adriana@lovelock.com</Text>
+          </Box>
+        </Stack>
+      </Th>
+      <Td>English, French, Sales, Spanish</Td>
+      <Td textAlign="right">
+        <Text as="span" fontFamily="fontFamilyCode">28</Text>
+      </Td>
+    </Tr>
+    <Tr>
+      <Th scope="row">
+        <Stack orientation="horizontal" spacing="space40">
+          <Avatar size="sizeIcon60" name="Amanda Cutlack" src="/images/avatars/avatar3.png" />
+          <Box>
+            <Text as="p">
+              Amanda Cutlack
+            </Text>
+            <Text as="p" color="colorTextWeak" fontWeight="fontWeightNormal">amanda@cutlack.com</Text>
+          </Box>
+        </Stack>
+      </Th>
+      <Td>English, French, Sales, Spanish</Td>
+      <Td textAlign="right">
+        <Text as="span" fontFamily="fontFamilyCode">7</Text>
+      </Td>
+    </Tr>
+  </TBody>
+</Table>`}
+</LivePreview>
+
+### Table with status indicators
+
+Tables can support custom compositions using `Box` and `Text`, such as custom status indicators.
+When including statuses in a table, be sure to include supporting text so color isn't the only
+indicator of status.
+
+Refer to our Status Indicator pattern (coming soon!) for guidance on displaying statuses in your tables.
+
+<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Box, Stack, Text}} language="jsx">
+  {`<Table>
+  <THead>
+    <Tr>
+      <Th>Result</Th>
+      <Th>SID</Th>
+      <Th>Email Address</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>
+        <Box display="flex" alignItems="center">
+          <Box width="sizeSquare40" height="sizeSquare40" backgroundColor="colorBackgroundSuccess" borderRadius="borderRadiusCircle" />
+          <Text as="p" marginLeft="space30">Valid</Text>
+        </Box>
+        <Text as="p" color="colorTextWeak" marginLeft="space60">2020-09-17, 16:24:28 PDT</Text>
+      </Td>
+      <Td>
+        <Text as="span" fontFamily="fontFamilyCode">
+          SM0yc4mxi6cn4z13bte7qmflc2drc85mlp
+        </Text>
+      </Td>
+      <Td>hayden74@hotmail.com</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <Box display="flex" alignItems="center">
+          <Box width="sizeSquare40" height="sizeSquare40" backgroundColor="colorBackgroundWarning" borderRadius="borderRadiusCircle" />
+          <Text as="p" marginLeft="space30">Risky</Text>
+        </Box>
+        <Text as="p" color="colorTextWeak" marginLeft="space60">2020-09-17, 16:24:28 PDT</Text>
+      </Td>
+      <Td>
+        <Text as="span" fontFamily="fontFamilyCode">
+          SMl29llgoihx286uhxfb0yc5n0sg391x5n
+        </Text>
+      </Td>
+      <Td>beyrek70@hotmail.com</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <Box display="flex" alignItems="center">
+          <Box width="sizeSquare40" height="sizeSquare40" backgroundColor="colorBackgroundError" borderRadius="borderRadiusCircle" />
+          <Text as="p" marginLeft="space30">Invalid</Text>
+        </Box>
+        <Text as="p" color="colorTextWeak" marginLeft="space60">2020-09-17, 16:24:28 PDT</Text>
+      </Td>
+      <Td>
+        <Text as="span" fontFamily="fontFamilyCode">
+          SMxarke3v30fv17hauqn86a7nhgm3b5d87
+        </Text>
+      </Td>
+      <Td>kevin@hotmail.com</Td>
+    </Tr>
+  </TBody>
+</Table>`}
+</LivePreview>
+
+### Table with tooltips on headers
+
+A `Th` can be composed to include [icon buttons](/components/button#link-style-button), such as an information icon button with additional
+details placed in a [Tooltip](/components/tooltip/) or [Popover](/components/popover/).
+
+<LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Text, Box, Button, Tooltip, InformationIcon}} language="jsx">
+  {`<Table>
+  <THead>
+    <Tr>
+      <Th>Date</Th>
+      <Th>
+        <Box display="flex" alignItems="center">
+          <Text as="span" marginRight="space10">SID</Text>
+          <Tooltip text="SID Number">
+            <Button variant="reset" size="reset">
+              <InformationIcon decorative={false} title="Open Tooltip" display="block" />
+            </Button>
+          </Tooltip>
+        </Box>
+      </Th>
+      <Th>From</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>
+        <Text as="p">16:24:28 PDT</Text>
+        <Text as="p">2020-09-17</Text>
+      </Td>
+      <Td>
+        <Text as="span" fontFamily="fontFamilyCode">
+          SM0yc4mxi6cn4z13bte7qmflc2drc85mlp
+        </Text>
+      </Td>
+      <Td>(602) 609-6747</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <Text as="p">16:24:28 PDT</Text>
+        <Text as="p">2020-09-17</Text>
+      </Td>
+      <Td>
+        <Text as="span" fontFamily="fontFamilyCode">
+          SMl29llgoihx286uhxfb0yc5n0sg391x5n
+        </Text>
+      </Td>
+      <Td>(602) 609-6747</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <Text as="p">16:24:28 PDT</Text>
+        <Text as="p">2020-09-17</Text>
+      </Td>
+      <Td>
+        <Text as="span" fontFamily="fontFamilyCode">
+          SMxarke3v30fv17hauqn86a7nhgm3b5d87
+        </Text>
+      </Td>
+      <Td>(602) 609-6747</Td>
+    </Tr>
+  </TBody>
+</Table>`}
+</LivePreview>
+
+### Table with truncated cells
+
+In rare cases, you may want to [truncate](/components/truncate) the text in a given cell. For example, when a table contains
+long URLs, and the user does not need to read the full URL.
+
+<LivePreview scope={{Table, THead, TBody, TFoot, Tr, Th, Td, Anchor, Truncate}} language="jsx">
+  {`<Table tableLayout="fixed">
+  <THead>
+    <Tr>
+      <Th>Agents</Th>
+      <Th>Skills</Th>
+      <Th>Profile URL</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Th scope="row">Adam Brown</Th>
+      <Td>English, French, Sales, Spanish</Td>
+      <Td>
+        <Truncate>
+          <Anchor href="/getting-started/about-paste">
+            https://paste.twilio.design/getting-started/about-paste
+          </Anchor>
+        </Truncate>
+      </Td>
+    </Tr>
+    <Tr>
+      <Th scope="row">Adriana Lovelock</Th>
+      <Td>English, French, Sales, Spanish</Td>
+      <Td>
+        <Truncate>
+          <Anchor href="/getting-started/about-paste">
+            https://paste.twilio.design/getting-started/about-paste
+          </Anchor>
+        </Truncate>
+      </Td>
+    </Tr>
+    <Tr>
+      <Th scope="row">Amanda Cutlack</Th>
+      <Td>English, French, Sales, Spanish</Td>
+      <Td>
+        <Truncate>
+          <Anchor href="/getting-started/about-paste">
+            https://paste.twilio.design/getting-started/about-paste
+          </Anchor>
+        </Truncate>
+      </Td>
+    </Tr>
+  </TBody>
+</Table>`}
+</LivePreview>
+
+## When to use Table
+
+Tables are used to represent static, tabular data. For example, a list of users' first names, last names,
+and email addresses.
+
+<DoDont>
+  <Do title="Do" body="Left-align textual table data, such as an email address." preview={false} />
+  <Dont title="Don't" body="Don't right- or center-align textual table data." preview={false} />
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Right-align numeric table data that is meant to be compared along a single column, such as the open rate on an email campaign."
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body="Don't left- or center-align numeric table data that is meant to be compared along a single column."
+    preview={false}
+  />
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Provide numeric data that is meant to be compared along a single column at the same level of precision, so that the decimal point aligns across all rows and the numbers can be easily compared. For example, show all numbers to two decimal places."
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body="Don't provide numeric data that is meant to be compared along a single column at differing levels of precision. For example, don't show some numbers to one decimal place and others to two."
+    preview={false}
+  />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Include supporting text when providing a status in a table row." preview={false} />
+  <Dont title="Don't" body="Don't use color as the only indicator of status in a table row." preview={false} />
+</DoDont>
+
 ## Anatomy
 
-### Table
+##### Table
 
-| Property | Default token | Modifiable? |
-| -------- | ------------- | ----------- |
-| color    | color-text    | No          |
-| width    | 100%          | No          |
+| Property     | Default token                                        | Modifiable? |
+| ------------ | ---------------------------------------------------- | ----------- |
+| border-color | color-border-lighter                                 | No          |
+| border-width | Default: border-width-10, Borderless: border-width-0 | No          |
+| width        | 100%                                                 | No          |
 
-### TBody
+##### THead
+
+| Property            | Default token        | Modifiable? |
+| ------------------- | -------------------- | ----------- |
+| background-color    | color-background     | No          |
+| border-bottom-width | border-width-20      | No          |
+| border-bottom-color | color-border-lighter | No          |
+
+##### TBody
 
 | Property         | Default token         | Modifiable? |
 | ---------------- | --------------------- | ----------- |
 | background-color | color-background-body | No          |
-| border-width     | border-width-10       | No          |
-| border-color     | color-border-lighter  | No          |
 
-### TFoot
+##### TFoot
 
-| Property     | Default token        | Modifiable? |
-| ------------ | -------------------- | ----------- |
-| border-width | border-width-10      | No          |
-| border-color | color-border-lighter | No          |
+| Property         | Default token        | Modifiable? |
+| ---------------- | -------------------- | ----------- |
+| background-color | color-background     | No          |
+| border-top-width | border-width-20      | No          |
+| border-top-color | color-border-lighter | No          |
 
-### Tr
+##### Tr
 
-| Property             | Default token                           | Modifiable? |
-| -------------------- | --------------------------------------- | ----------- |
-| background-color     | Even rows: color-background-row-striped | No          |
-| border-bottom-width  | border-width-10                         | No          |
-| border-bottom- color | color-border-lighter                    | No          |
+| Property            | Default token                                   | Modifiable? |
+| ------------------- | ----------------------------------------------- | ----------- |
+| background-color    | Striped even rows: color-background-row-striped | No          |
+| border-bottom-width | border-width-10                                 | No          |
+| border-bottom-color | color-border-lighter                            | No          |
 
-### Th
+##### Th
 
 <Box marginBottom="space60">
   <Table tableLayout="fixed">
@@ -362,16 +1027,17 @@ Table rows (`Tr`) can be set with either top, middle, or bottom vertical alignme
       </Tr>
       <Tr>
         <Td>font-weight</Td>
-        <Td>font-weight-bold</Td>
+        <Td>font-weight-semibold</Td>
         <Td>No</Td>
       </Tr>
       <Tr>
         <Td>padding</Td>
         <Td>
           <UnorderedList marginBottom="space0">
-            <ListItem>space-40</ListItem>
-            <ListItem>First cell in row: padding-left: space-50</ListItem>
-            <ListItem>Last cell in row: padding-right: space-50</ListItem>
+            <ListItem>Top: space-40</ListItem>
+            <ListItem>Bottom: space-40</ListItem>
+            <ListItem>Left: space-50</ListItem>
+            <ListItem>Right: space-50</ListItem>
           </UnorderedList>
         </Td>
         <Td>No</Td>
@@ -380,7 +1046,7 @@ Table rows (`Tr`) can be set with either top, middle, or bottom vertical alignme
   </Table>
 </Box>
 
-### Td
+##### Td
 
 <Box marginBottom="space60">
   <Table tableLayout="fixed">
@@ -404,16 +1070,17 @@ Table rows (`Tr`) can be set with either top, middle, or bottom vertical alignme
       </Tr>
       <Tr>
         <Td>font-weight</Td>
-        <Td>font-weight-bold</Td>
+        <Td>font-weight-normal</Td>
         <Td>No</Td>
       </Tr>
       <Tr>
         <Td>padding</Td>
         <Td>
           <UnorderedList marginBottom="space0">
-            <ListItem>space-40</ListItem>
-            <ListItem>First cell in row: padding-left: space-50</ListItem>
-            <ListItem>Last cell in row: padding-right: space-50</ListItem>
+            <ListItem>Top: space-40</ListItem>
+            <ListItem>Bottom: space-40</ListItem>
+            <ListItem>Left: space-50</ListItem>
+            <ListItem>Right: space-50</ListItem>
           </UnorderedList>
         </Td>
         <Td>No</Td>
@@ -437,11 +1104,11 @@ yarn add @twilio-paste/table - or - yarn add @twilio-paste/core
 #### Usage
 
 ```jsx
-import {Table} from ‘@twilio-paste/table’;
+import {Table} from ‘@twilio-paste/table';
 
 const TableExample: React.FC = () => {
   return (
-    <Table tableLayout="fixed">
+    <Table tableLayout="fixed" variant="default" striped>
       <THead>
         <Tr verticalAlign="middle">
           <Th width="size40" textAlign="left">Column 1</Th>
@@ -467,31 +1134,47 @@ const TableExample: React.FC = () => {
 
 #### Props
 
-#### Table
+##### Table
 
-##### `tableLayout?: “auto” | “fixed”`
+All the valid HTML attributes for `table` are supported including the following props:
+
+###### `striped?: boolean`
+
+Sets a background color for even rows within the table.
+
+###### `tableLayout?: "auto" | "fixed"`
 
 Sets the `table-layout` style of the Table. Defaults to `auto`.
 
-#### Tr Props
+###### `variant?: "default" | "borderless"`
 
-##### `verticalAlign?: “top” | “middle” | “bottom”`
+Sets the `border` style of the Table. Defaults to `default`.
+
+##### Tr Props
+
+All the valid HTML attributes for `tr` are supported including the following props:
+
+###### `verticalAlign?: "top" | "middle" | "bottom"`
 
 Sets the vertical alignment of the content within the Table row. Defaults to `middle`.
 
-#### Th Props
+##### Th Props
 
-##### `textAlign?: “left” | “center” | “right”`
+All the valid HTML attributes for `th` are supported including the following props:
+
+###### `textAlign?: "left" | "center" | "right"`
 
 Sets the text alignment of the content within the Table cell. Defaults to `left`.
 
-##### `width?: WidthOptions`
+###### `width?: WidthOptions`
 
 Sets the width of a Table cell.
 
-#### Td Props
+##### Td Props
 
-##### `textAlign?: “left” | “center” | “right”`
+All the valid HTML attributes for `td` are supported including the following props:
+
+###### `textAlign?: "left" | "center" | "right"`
 
 Sets the text alignment of the content within the Table cell. Defaults to `left`.
 
