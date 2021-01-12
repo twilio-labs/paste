@@ -896,6 +896,45 @@ RowVerticalAlign.story = {
   name: 'Row verticalAlign',
 };
 
+export const RowHeaders = (): React.ReactNode => {
+  return (
+    <Table>
+      <THead>
+        <Tr>
+          <Th>&nbsp;</Th>
+          <Th>Column 1</Th>
+          <Th>Column 2</Th>
+          <Th>Column 3</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        <Tr>
+          <Th scope="row">Row header</Th>
+          <Td>Cell</Td>
+          <Td>Cell</Td>
+          <Td>Content</Td>
+        </Tr>
+        <Tr>
+          <Th scope="row">Row header</Th>
+          <Td>Cell</Td>
+          <Td>Cell</Td>
+          <Td>Content</Td>
+        </Tr>
+        <Tr>
+          <Th scope="row">Row header</Th>
+          <Td>Cell</Td>
+          <Td>Cell</Td>
+          <Td>Content</Td>
+        </Tr>
+      </TBody>
+    </Table>
+  );
+};
+
+RowHeaders.story = {
+  name: 'Row headers',
+};
+
 export const Truncation = (): React.ReactNode => {
   return (
     <Table tableLayout="fixed">
