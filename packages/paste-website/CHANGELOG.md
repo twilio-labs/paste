@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.20.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.20.6...@twilio-paste/website@2.20.7) (2021-01-13)
+
+
+### Bug Fixes
+
+* **website:** add periods to help text, fix small typo on input page ([#1057](https://github.com/twilio-labs/paste/issues/1057)) ([be0c5f1](https://github.com/twilio-labs/paste/commit/be0c5f1215ae6fd5ec4f2aab915721ec1a0bfd2d))
+
+
+
+
+
+## [2.20.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.20.5...@twilio-paste/website@2.20.6) (2021-01-13)
+
+**Note:** Version bump only for package @twilio-paste/website
+
+
+
+
+
 ## [2.20.5](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.20.4...@twilio-paste/website@2.20.5) (2021-01-12)
 
 **Note:** Version bump only for package @twilio-paste/website
