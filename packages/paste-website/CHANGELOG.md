@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.21.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.20.7...@twilio-paste/website@2.21.0) (2021-01-13)
+
+
+### Features
+
+* **website:** change slack to discussions on contribution guidelines ([#1080](https://github.com/twilio-labs/paste/issues/1080)) ([d6a4d1b](https://github.com/twilio-labs/paste/commit/d6a4d1be325f8cb35a459944560814d1ca0afb83))
+
+
+
+
+
 ## [2.20.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.20.6...@twilio-paste/website@2.20.7) (2021-01-13)
 
 
