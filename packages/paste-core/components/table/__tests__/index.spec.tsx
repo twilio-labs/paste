@@ -7,6 +7,54 @@ import {Table, THead, TBody, TFoot, Td, Tr, Th} from '../src';
 expect.extend(matchers);
 
 describe('Table', () => {
+  it('should render a default table', (): void => {
+    render(
+      <Table data-testid="mockDefaultTable">
+        <TBody>
+          <Tr>
+            <Td>Column 1</Td>
+            <Td>Column 2</Td>
+          </Tr>
+        </TBody>
+      </Table>
+    );
+    const renderedTable = screen.getByTestId('mockDefaultTable');
+    expect(renderedTable).toHaveStyleRule('border-width', 'borderWidth10');
+  });
+  it('should render a borderless table', (): void => {
+    render(
+      <Table variant="borderless" data-testid="mockBorderlessTable">
+        <TBody>
+          <Tr>
+            <Td>Column 1</Td>
+            <Td>Column 2</Td>
+          </Tr>
+        </TBody>
+      </Table>
+    );
+    const renderedTable = screen.getByTestId('mockBorderlessTable');
+    expect(renderedTable).toHaveStyleRule('border-width', 'borderWidth0');
+  });
+  it('should render a striped table', (): void => {
+    render(
+      <Table data-testid="mockStripedTable" striped>
+        <TBody>
+          <Tr>
+            <Td>Column 1</Td>
+            <Td>Column 2</Td>
+          </Tr>
+          <Tr>
+            <Td>Column 3</Td>
+            <Td>Column 4</Td>
+          </Tr>
+        </TBody>
+      </Table>
+    );
+    const renderedTable = screen.getByTestId('mockStripedTable').querySelector('tr:nth-of-type(even)');
+    expect(renderedTable).toHaveStyleRule('background-color', 'colorBackgroundRowStriped', {
+      target: ':nth-of-type(even)',
+    });
+  });
   it('should render auto tableLayout style', (): void => {
     render(
       <Table data-testid="mockAutoTable">

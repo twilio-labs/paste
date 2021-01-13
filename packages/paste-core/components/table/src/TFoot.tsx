@@ -8,9 +8,10 @@ const TFoot = React.forwardRef<HTMLTableSectionElement, TFootProps>((props, ref)
       {...safelySpreadBoxProps(props)}
       ref={ref}
       as="tfoot"
-      borderBottomStyle="solid"
-      borderBottomWidth="borderWidth10"
-      borderBottomColor="colorBorderLighter"
+      backgroundColor="colorBackground"
+      borderTopStyle="solid"
+      borderTopWidth="borderWidth20"
+      borderTopColor="colorBorderLighter"
     />
   );
 });

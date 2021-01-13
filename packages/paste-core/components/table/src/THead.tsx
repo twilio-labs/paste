@@ -3,7 +3,17 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {THeadProps, THeadPropTypes} from './types';
 
 const THead = React.forwardRef<HTMLTableSectionElement, THeadProps>((props, ref) => {
-  return <Box {...safelySpreadBoxProps(props)} ref={ref} as="thead" />;
+  return (
+    <Box
+      {...safelySpreadBoxProps(props)}
+      ref={ref}
+      as="thead"
+      backgroundColor="colorBackground"
+      borderBottomColor="colorBorderLighter"
+      borderBottomStyle="solid"
+      borderBottomWidth="borderWidth20"
+    />
+  );
 });
 
 THead.displayName = 'THead';
