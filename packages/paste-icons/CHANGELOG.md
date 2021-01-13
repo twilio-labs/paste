@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.11.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.10.6...@twilio-paste/icons@3.11.0) (2021-01-13)
+
+
+### Features
+
+* **icons:** add agent, calendar, link ([#1092](https://github.com/twilio-labs/paste/issues/1092)) ([c89365e](https://github.com/twilio-labs/paste/commit/c89365ea70fda722caf52780728467fc8e02ef0f))
+
+
+
+
+
 ## [3.10.6](https://github.com/twilio-labs/paste/compare/@twilio-paste/icons@3.10.5...@twilio-paste/icons@3.10.6) (2021-01-07)
 
 **Note:** Version bump only for package @twilio-paste/icons
