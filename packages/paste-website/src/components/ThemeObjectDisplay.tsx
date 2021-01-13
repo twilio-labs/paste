@@ -10,7 +10,7 @@ export const ThemeObjectDisplay: React.FC = () => {
   const theme = useTheme();
   const themeKeys = Object.keys(theme);
   const reducedTheme = {};
-  themeKeys.forEach(key => {
+  themeKeys.forEach((key) => {
     reducedTheme[key] = {};
   });
   return (

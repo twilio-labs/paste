@@ -1,6 +1,4 @@
 import * as React from 'react';
-import {storiesOf} from '@storybook/react';
-import {withKnobs} from '@storybook/addon-knobs';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
@@ -14,7 +12,7 @@ const ButtonSizeOptions = ['default', 'small', 'icon', 'icon_small', 'reset'];
 const AllSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
   const allButtons = [];
 
-  ButtonSizeOptions.forEach(size => {
+  ButtonSizeOptions.forEach((size) => {
     if (variant === 'reset' && size !== 'reset') return;
     const children =
       size === 'icon' || size === 'icon_small' ? <PlusIcon title="Add item to cart" decorative={false} /> : variant;
@@ -90,38 +88,42 @@ const AllSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
   );
 };
 
-storiesOf('Components|Button', module)
-  .addDecorator(withKnobs)
-  .add('Primary Button', () => <AllSizeOptions variant="primary" />)
-  .add('Secondary Button', () => <AllSizeOptions variant="secondary" />)
-  .add('Inverse Button', () => <AllSizeOptions variant="inverse" />)
-  .add('Destructive Button', () => <AllSizeOptions variant="destructive" />)
-  .add('Destructive Secondary Button', () => <AllSizeOptions variant="destructive_secondary" />)
-  .add('Destructive Link Button', () => <AllSizeOptions variant="destructive_link" />)
-  .add('Link Button', () => <AllSizeOptions variant="link" />)
-  .add('Inverse Link Button', () => <AllSizeOptions variant="inverse_link" />)
-  .add('Reset', () => (
-    <>
-      <AllSizeOptions variant="reset" />
-      <Box padding="space30">
-        <Button variant="reset" size="reset" fullWidth>
-          reset
-        </Button>
-      </Box>
-      <Heading variant="heading10" as="h1">
-        <Button variant="reset" size="reset">
-          Example using reset button in composition
-        </Button>
-      </Heading>
-      <Heading variant="heading20" as="h1">
-        <Button variant="reset" size="reset">
-          Example using reset button in composition
-        </Button>
-      </Heading>
-      <Heading variant="heading20" as="h1">
-        <Button variant="reset" size="reset" disabled>
-          Example using reset button in composition
-        </Button>
-      </Heading>
-    </>
-  ));
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Components/Button',
+};
+
+export const PrimaryButton = (): React.ReactNode => <AllSizeOptions variant="primary" />;
+export const SecondaryButton = (): React.ReactNode => <AllSizeOptions variant="secondary" />;
+export const InverseButton = (): React.ReactNode => <AllSizeOptions variant="inverse" />;
+export const DestructiveButton = (): React.ReactNode => <AllSizeOptions variant="destructive" />;
+export const DestructiveSecondaryButton = (): React.ReactNode => <AllSizeOptions variant="destructive_secondary" />;
+export const DestructiveLinkButton = (): React.ReactNode => <AllSizeOptions variant="destructive_link" />;
+export const LinkButton = (): React.ReactNode => <AllSizeOptions variant="link" />;
+export const InverseLinkButton = (): React.ReactNode => <AllSizeOptions variant="inverse_link" />;
+
+export const Reset = (): React.ReactNode => (
+  <>
+    <AllSizeOptions variant="reset" />
+    <Box padding="space30">
+      <Button variant="reset" size="reset" fullWidth>
+        reset
+      </Button>
+    </Box>
+    <Heading variant="heading10" as="h1">
+      <Button variant="reset" size="reset">
+        Example using reset button in composition
+      </Button>
+    </Heading>
+    <Heading variant="heading20" as="h1">
+      <Button variant="reset" size="reset">
+        Example using reset button in composition
+      </Button>
+    </Heading>
+    <Heading variant="heading20" as="h1">
+      <Button variant="reset" size="reset" disabled>
+        Example using reset button in composition
+      </Button>
+    </Heading>
+  </>
+);

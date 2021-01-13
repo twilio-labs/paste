@@ -14,15 +14,13 @@ import {ComboboxInputWrapper} from './ComboboxInputWrapper';
 import {ComboboxListbox} from './ComboboxListbox';
 import {ComboboxListboxGroup} from './ComboboxListboxGroup';
 import {ComboboxListboxOption} from './ComboboxListboxOption';
-import {GroupItemsProps, Item as ItemType, ItemProps, ItemsProps, ListBoxProps, ComboboxProps} from './types';
-
-// This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
-const groupBy = require('lodash.groupby');
+import {GroupItemsProps, ItemProps, ItemsProps, ListBoxProps, ComboboxProps} from './types';
+import {getIndexedItems, getGroupedItems} from './helpers';
 
 // Fixes chevron overlapping really long text
 // Extra right padding is removed when autocomplete is true
 /* eslint-disable emotion/syntax-preference */
-const StyledInputAsSelect = styled(InputElement)<ComboboxProps>(props =>
+const StyledInputAsSelect = styled(InputElement)<ComboboxProps>((props) =>
   css({
     paddingRight: !props.autocomplete ? 'space100' : null,
   })
@@ -73,18 +71,20 @@ const GroupedItems = React.forwardRef<HTMLDivElement, GroupItemsProps>(
       return null;
     }
 
-    const groupedItems = groupBy(items, (item: ItemType) => item[groupItemsBy]);
+    // Creating indexed Items so we can use original flat array index values for indexing within groups.
+    const indexedItems = getIndexedItems(items);
+    const groupedItems = getGroupedItems(indexedItems, groupItemsBy);
     const groupedItemKeys = Object.keys(groupedItems);
 
     return (
       <>
-        {groupedItemKeys.map(groupedItemKey => {
+        {groupedItemKeys.map((groupedItemKey) => {
           // These items are categorized as ungrouped
           if (groupedItemKey === 'undefined') {
-            return groupedItems[groupedItemKey].map((item: ItemType, index: number) => (
+            return groupedItems[groupedItemKey].map((item: {[key: string]: any}, index: number) => (
               <Item
                 item={item}
-                index={index}
+                index={item.index}
                 key={UIDSeed(`ungrouped-${index}`)}
                 getItemProps={getItemProps}
                 highlightedIndex={highlightedIndex}
@@ -99,11 +99,11 @@ const GroupedItems = React.forwardRef<HTMLDivElement, GroupItemsProps>(
               key={UIDSeed(groupedItemKey)}
               ref={ref}
             >
-              {groupedItems[groupedItemKey].map((item: ItemType, index: number) => {
+              {groupedItems[groupedItemKey].map((item: {[key: string]: any}, index: number) => {
                 return (
                   <Item
                     item={item}
-                    index={UIDSeed(`${groupedItemKey}-${index}`)}
+                    index={item.index}
                     key={UIDSeed(`${groupedItemKey}-${index}`)}
                     getItemProps={getItemProps}
                     highlightedIndex={highlightedIndex}
@@ -233,7 +233,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
             <StyledInputAsSelect
               {...getToggleButtonProps({tabIndex: 0})}
               {...getInputProps({disabled, ref})}
-              {...(!autocomplete ? {onChange: event => event.preventDefault()} : undefined)}
+              {...(!autocomplete ? {onChange: (event) => event.preventDefault()} : undefined)}
               autocomplete={autocomplete}
               aria-describedby={helpTextId}
               {...props}

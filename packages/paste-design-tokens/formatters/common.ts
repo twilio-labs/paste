@@ -10,7 +10,7 @@ export const tokenTemplate = ({name, value}: {name: string; value: string}): str
 
 export const tokenExportTemplate = ({name}: {name: string; value: string}): string => `${lodash.camelCase(name)},`;
 export const categoryTemplate = (categoryName: string, props: Token[]): string => `${lodash.camelCase(categoryName)}: {
-${props.map(prop => `${lodash.camelCase(prop.name)},`).join('\n')}
+${props.map((prop) => `${lodash.camelCase(prop.name)},`).join('\n')}
 },`;
 
 export const commonTokenFormat = (result: ImmutableStyleMap): string => {

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {storiesOf} from '@storybook/react';
 import {
   useMenuPrimitiveState,
   MenuPrimitive,
@@ -8,23 +7,6 @@ import {
   MenuPrimitiveButtonProps,
   MenuPrimitiveSeparator,
 } from '../src';
-
-const Example: React.FC = () => {
-  const menu = useMenuPrimitiveState();
-  return (
-    <>
-      <MenuPrimitiveButton {...menu}>Preferences</MenuPrimitiveButton>
-      <MenuPrimitive {...menu} aria-label="Preferences">
-        <MenuPrimitiveItem {...menu}>Settings</MenuPrimitiveItem>
-        <MenuPrimitiveItem {...menu} disabled>
-          Extensions
-        </MenuPrimitiveItem>
-        <MenuPrimitiveSeparator {...menu} />
-        <MenuPrimitiveItem {...menu}>Keyboard shortcuts</MenuPrimitiveItem>
-      </MenuPrimitive>
-    </>
-  );
-};
 
 const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuPrimitiveButtonProps>((props, ref) => {
   const menu = useMenuPrimitiveState();
@@ -45,7 +27,29 @@ const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuPrimitiveButtonP
   );
 });
 
-const Example2: React.FC = () => {
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Primitives/Menu',
+};
+
+export const SimpleMenu = (): React.ReactNode => {
+  const menu = useMenuPrimitiveState();
+  return (
+    <>
+      <MenuPrimitiveButton {...menu}>Preferences</MenuPrimitiveButton>
+      <MenuPrimitive {...menu} aria-label="Preferences">
+        <MenuPrimitiveItem {...menu}>Settings</MenuPrimitiveItem>
+        <MenuPrimitiveItem {...menu} disabled>
+          Extensions
+        </MenuPrimitiveItem>
+        <MenuPrimitiveSeparator {...menu} />
+        <MenuPrimitiveItem {...menu}>Keyboard shortcuts</MenuPrimitiveItem>
+      </MenuPrimitive>
+    </>
+  );
+};
+
+export const SubMenu = (): React.ReactNode => {
   const menu = useMenuPrimitiveState();
   return (
     <>
@@ -59,11 +63,3 @@ const Example2: React.FC = () => {
     </>
   );
 };
-
-storiesOf('Primitives|Menu', module)
-  .add('Simple Menu', () => {
-    return <Example />;
-  })
-  .add('Sub Menu', () => {
-    return <Example2 />;
-  });

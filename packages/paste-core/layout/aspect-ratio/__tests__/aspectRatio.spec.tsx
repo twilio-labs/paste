@@ -9,11 +9,6 @@ describe('AspectRatio', () => {
         <p>This is the AspectRatio utility.</p>
       </AspectRatio>
     );
-    expect(
-      wrapper
-        .find('div')
-        .first()
-        .props().style.paddingBottom
-    ).toBe('75%');
+    expect(wrapper.find('div').first().props().style.paddingBottom).toBe('75%');
   });
 });

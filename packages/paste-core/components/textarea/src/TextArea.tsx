@@ -26,7 +26,7 @@ export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextArea
 }
 
 /* eslint-disable emotion/syntax-preference */
-const TextAreaElement = styled(TextareaAutosize)<TextAreaProps>(props =>
+const TextAreaElement = styled(TextareaAutosize)<TextAreaProps>((props) =>
   css({
     appearance: 'none',
     background: 'transparent',

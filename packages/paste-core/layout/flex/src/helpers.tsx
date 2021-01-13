@@ -125,7 +125,7 @@ export const vAlignToProps = ({
   vAlignContent,
 }: FlexProps): ValueOf<typeof RemapedVerticalAlignments> | ValueOf<typeof RemapedVerticalAlignments>[] => {
   if (Array.isArray(vAlignContent)) {
-    return (vAlignContent as VerticalAlignOptions[]).map(value => RemapedVerticalAlignments[value]);
+    return (vAlignContent as VerticalAlignOptions[]).map((value) => RemapedVerticalAlignments[value]);
   }
 
   if (vAlignContent) {
@@ -149,7 +149,7 @@ const RemapedHorizontalAlignments = {
 // but space-between isn't a valid alignItems value and I don't know how to conditionally type things.
 export const hAlignToProps = ({hAlignContent}: FlexProps): any => {
   if (Array.isArray(hAlignContent)) {
-    return (hAlignContent as HorizontalAlignOptions[]).map(value => RemapedHorizontalAlignments[value]);
+    return (hAlignContent as HorizontalAlignOptions[]).map((value) => RemapedHorizontalAlignments[value]);
   }
 
   if (hAlignContent) {

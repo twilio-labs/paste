@@ -1,11 +1,15 @@
 import * as React from 'react';
-import {storiesOf} from '@storybook/react';
 import {Button} from '@twilio-paste/button';
 import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
 import {Stack} from '@twilio-paste/stack';
 import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '../src';
+
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Theme/Customization',
+};
 
 const ExampleComponents: React.FC = () => (
   <Box marginBottom="space70">
@@ -17,7 +21,7 @@ const ExampleComponents: React.FC = () => (
   </Box>
 );
 
-storiesOf('Theme|Customization', module).add('CustomizationProvider', () => {
+export const Provider = (): React.ReactNode => {
   return (
     <>
       <Heading as="h2" variant="heading30">
@@ -52,4 +56,8 @@ storiesOf('Theme|Customization', module).add('CustomizationProvider', () => {
       </CustomizationProvider>
     </>
   );
-});
+};
+
+Provider.story = {
+  name: 'CustomizationProvider',
+};

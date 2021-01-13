@@ -1,6 +1,4 @@
 import * as React from 'react';
-import {storiesOf} from '@storybook/react';
-import {withKnobs} from '@storybook/addon-knobs';
 import {useUID} from '@twilio-paste/uid-library';
 import {Button} from '@twilio-paste/button';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -107,17 +105,28 @@ export const StateHookExample: React.FC = () => {
   );
 };
 
-storiesOf('Components|Tabs', module)
-  .addDecorator(withKnobs)
-  .add('Horizontal Tabs', () => {
-    return <HorizontalTabsExample />;
-  })
-  .add('Vertical Tabs', () => {
-    return <VerticalTabsExample />;
-  })
-  .add('Fitted Tabs', () => {
-    return <FittedTabsExample />;
-  })
-  .add('State hook', () => {
-    return <StateHookExample />;
-  });
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Components/Tabs',
+  excludeStories: ['HorizontalTabsExample', 'FittedTabsExample', 'VerticalTabsExample', 'StateHookExample'],
+};
+
+export const HorizontalTabs = (): React.ReactNode => {
+  return <HorizontalTabsExample />;
+};
+
+export const VerticalTabs = (): React.ReactNode => {
+  return <VerticalTabsExample />;
+};
+
+export const FittedTabs = (): React.ReactNode => {
+  return <FittedTabsExample />;
+};
+
+export const StateHook = (): React.ReactNode => {
+  return <StateHookExample />;
+};
+
+StateHook.story = {
+  name: 'State hook',
+};

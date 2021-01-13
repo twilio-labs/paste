@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {storiesOf} from '@storybook/react';
 import {withKnobs, text, select} from '@storybook/addon-knobs';
 import {HeadingProps} from '@twilio-paste/heading';
 import {Stack} from '@twilio-paste/stack';
@@ -20,7 +19,7 @@ export const ExampleDisclosures: React.FC<{
   disabled?: boolean;
   variant?: Variants;
   headingVariant: DisclosureHeadingProps['variant'];
-}> = props => {
+}> = (props) => {
   return (
     <Stack orientation="vertical" spacing="space70">
       <Disclosure visible variant={props.variant}>
@@ -55,7 +54,140 @@ const useDelayedDisclosureState = ({delay, ...initialState}): DisclosureStateRet
   };
 };
 
-const StateHookExample: React.FC = () => {
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Components/Disclosure',
+  decorators: [withKnobs],
+  excludeStories: ['ExampleDisclosures'],
+};
+
+export const AllVariants = (): React.ReactNode => {
+  const asOptions = text('as', 'h2') as HeadingProps['as'];
+  const headingVariantValue = select('heading variant', headingVariantOptions, 'heading10') as HeadingProps['variant'];
+  const variantOptions = select('disclosure variant', ['default', 'contained'], 'default');
+  return (
+    <Disclosure variant={variantOptions}>
+      <DisclosureHeading as={asOptions} variant={headingVariantValue}>
+        Disclosure trigger as heading
+      </DisclosureHeading>
+      <DisclosureContent>Disclosure content</DisclosureContent>
+    </Disclosure>
+  );
+};
+
+AllVariants.story = {
+  name: 'All variants',
+};
+
+export const HeadingVariant10 = (): React.ReactNode => {
+  return <ExampleDisclosures headingVariant="heading10" />;
+};
+
+HeadingVariant10.story = {
+  name: 'Heading variant 10',
+};
+
+export const HeadingVariant20 = (): React.ReactNode => {
+  return <ExampleDisclosures headingVariant="heading20" />;
+};
+
+HeadingVariant20.story = {
+  name: 'Heading variant 20',
+};
+
+export const HeadingVariant30 = (): React.ReactNode => {
+  return <ExampleDisclosures headingVariant="heading30" />;
+};
+
+HeadingVariant30.story = {
+  name: 'Heading variant 30',
+};
+
+export const HeadingVariant40 = (): React.ReactNode => {
+  return <ExampleDisclosures headingVariant="heading40" />;
+};
+
+HeadingVariant40.story = {
+  name: 'Heading variant 40',
+};
+
+export const HeadingVariant50 = (): React.ReactNode => {
+  return <ExampleDisclosures headingVariant="heading50" />;
+};
+
+HeadingVariant50.story = {
+  name: 'Heading variant 50',
+};
+
+export const HeadingVariant60 = (): React.ReactNode => {
+  return <ExampleDisclosures headingVariant="heading60" />;
+};
+
+HeadingVariant60.story = {
+  name: 'Heading variant 60',
+};
+
+export const Disabled = (): React.ReactNode => {
+  return <ExampleDisclosures disabled headingVariant="heading10" />;
+};
+
+export const ContainedHeadingVariant10 = (): React.ReactNode => {
+  return <ExampleDisclosures headingVariant="heading10" variant="contained" />;
+};
+
+ContainedHeadingVariant10.story = {
+  name: 'Contained Heading variant 10',
+};
+
+export const ContainedHeadingVariant20 = (): React.ReactNode => {
+  return <ExampleDisclosures headingVariant="heading20" variant="contained" />;
+};
+
+ContainedHeadingVariant20.story = {
+  name: 'Contained Heading variant 20',
+};
+
+export const ContainedHeadingVariant30 = (): React.ReactNode => {
+  return <ExampleDisclosures headingVariant="heading30" variant="contained" />;
+};
+
+ContainedHeadingVariant30.story = {
+  name: 'Contained Heading variant 30',
+};
+
+export const ContainedHeadingVariant40 = (): React.ReactNode => {
+  return <ExampleDisclosures headingVariant="heading40" variant="contained" />;
+};
+
+ContainedHeadingVariant40.story = {
+  name: 'Contained Heading variant 40',
+};
+
+export const ContainedHeadingVariant50 = (): React.ReactNode => {
+  return <ExampleDisclosures headingVariant="heading50" variant="contained" />;
+};
+
+ContainedHeadingVariant50.story = {
+  name: 'Contained Heading variant 50',
+};
+
+export const ContainedHeadingVariant60 = (): React.ReactNode => {
+  return <ExampleDisclosures headingVariant="heading60" variant="contained" />;
+};
+
+ContainedHeadingVariant60.story = {
+  name: 'Contained Heading variant 60',
+};
+
+export const ContainedDisabled = (): React.ReactNode => {
+  return <ExampleDisclosures disabled headingVariant="heading10" variant="contained" />;
+};
+
+ContainedDisabled.story = {
+  name: 'Contained disabled',
+};
+
+export const StateHook = (): React.ReactNode => {
   const {transitioning, ...disclosure} = useDelayedDisclosureState({
     delay: 500,
   });
@@ -73,67 +205,6 @@ const StateHookExample: React.FC = () => {
   );
 };
 
-storiesOf('Components|Disclosure', module)
-  .addDecorator(withKnobs)
-  .add('All variants', () => {
-    const asOptions = text('as', 'h2') as HeadingProps['as'];
-    const headingVariantValue = select(
-      'heading variant',
-      headingVariantOptions,
-      'heading10'
-    ) as HeadingProps['variant'];
-    const variantOptions = select('disclosure variant', ['default', 'contained'], 'default');
-    return (
-      <Disclosure variant={variantOptions}>
-        <DisclosureHeading as={asOptions} variant={headingVariantValue}>
-          Disclosure trigger as heading
-        </DisclosureHeading>
-        <DisclosureContent>Disclosure content</DisclosureContent>
-      </Disclosure>
-    );
-  })
-  .add('Heading variant 10', () => {
-    return <ExampleDisclosures headingVariant="heading10" />;
-  })
-  .add('Heading variant 20', () => {
-    return <ExampleDisclosures headingVariant="heading20" />;
-  })
-  .add('Heading variant 30', () => {
-    return <ExampleDisclosures headingVariant="heading30" />;
-  })
-  .add('Heading variant 40', () => {
-    return <ExampleDisclosures headingVariant="heading40" />;
-  })
-  .add('Heading variant 50', () => {
-    return <ExampleDisclosures headingVariant="heading50" />;
-  })
-  .add('Heading variant 60', () => {
-    return <ExampleDisclosures headingVariant="heading60" />;
-  })
-  .add('Disabled', () => {
-    return <ExampleDisclosures disabled headingVariant="heading10" />;
-  })
-  .add('Contained Heading variant 10', () => {
-    return <ExampleDisclosures headingVariant="heading10" variant="contained" />;
-  })
-  .add('Contained Heading variant 20', () => {
-    return <ExampleDisclosures headingVariant="heading20" variant="contained" />;
-  })
-  .add('Contained Heading variant 30', () => {
-    return <ExampleDisclosures headingVariant="heading30" variant="contained" />;
-  })
-  .add('Contained Heading variant 40', () => {
-    return <ExampleDisclosures headingVariant="heading40" variant="contained" />;
-  })
-  .add('Contained Heading variant 50', () => {
-    return <ExampleDisclosures headingVariant="heading50" variant="contained" />;
-  })
-  .add('Contained Heading variant 60', () => {
-    return <ExampleDisclosures headingVariant="heading60" variant="contained" />;
-  })
-  .add('Contained disabled', () => {
-    return <ExampleDisclosures disabled headingVariant="heading10" variant="contained" />;
-  })
-  .add('State hook', () => {
-    return <StateHookExample />;
-  });
+StateHook.story = {
+  name: 'State hook',
+};

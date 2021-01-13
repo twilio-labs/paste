@@ -7,6 +7,7 @@ import {Box} from '@twilio-paste/box';
 import axe from '../../../../../.jest/axe-helper';
 import {useCombobox, Combobox} from '../src';
 import {ComboboxProps} from '../src/types';
+import {getIndexedItems, getGroupedItems} from '../src/helpers';
 
 const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
 
@@ -41,6 +42,12 @@ const groupedItems = [
   {label: 'Design Tokens'},
 ];
 
+const smallGroupedItems = [
+  {group: 'Components', label: 'Alert'},
+  {group: 'Primitives', label: 'Box'},
+  {label: 'Design Tokens'},
+];
+
 const ComboboxMock: React.FC = () => {
   const [inputItems, setInputItems] = React.useState(items);
   return (
@@ -52,7 +59,7 @@ const ComboboxMock: React.FC = () => {
         labelText="Choose a component:"
         onInputValueChange={({inputValue}) => {
           if (inputValue !== undefined) {
-            setInputItems(items.filter(item => item.toLowerCase().startsWith(inputValue.toLowerCase())));
+            setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
           }
         }}
       />
@@ -72,7 +79,7 @@ const GroupedMockCombobox: React.FC<{groupLabelTemplate?: ComboboxProps['groupLa
       helpText="This is group"
       groupLabelTemplate={groupLabelTemplate}
       optionTemplate={(item: any) => <div>{item.label}</div>}
-      itemToString={item => (item && typeof item !== 'string' ? item.label : null)}
+      itemToString={(item) => (item && typeof item !== 'string' ? item.label : null)}
     />
   );
 };
@@ -83,8 +90,8 @@ const ControlledCombobox: React.FC = () => {
   const [inputItems, setInputItems] = React.useState(objectItems);
   const {reset, ...state} = useCombobox({
     items: inputItems,
-    itemToString: item => (item ? item.label : null),
-    onSelectedItemChange: changes => {
+    itemToString: (item) => (item ? item.label : null),
+    onSelectedItemChange: (changes) => {
       setSelectedItem(changes.selectedItem);
     },
     onInputValueChange: ({inputValue}) => {
@@ -132,12 +139,25 @@ const ControlledCombobox: React.FC = () => {
 };
 
 describe('Combobox', () => {
-  describe('Render', () => {
-    it('should render', () => {
-      const {asFragment} = render(<ComboboxMock />);
-      expect(asFragment()).toMatchSnapshot();
+  describe('Unit tests', () => {
+    it('should return an indexed array of items', () => {
+      expect(getIndexedItems(smallGroupedItems)).toStrictEqual([
+        {group: 'Components', index: 0, label: 'Alert'},
+        {group: 'Primitives', index: 1, label: 'Box'},
+        {index: 2, label: 'Design Tokens'},
+      ]);
     });
 
+    it('should return grouped object of items with original array index', () => {
+      expect(getGroupedItems(getIndexedItems(smallGroupedItems), 'group')).toStrictEqual({
+        Components: [{group: 'Components', index: 0, label: 'Alert'}],
+        Primitives: [{group: 'Primitives', index: 1, label: 'Box'}],
+        undefined: [{index: 2, label: 'Design Tokens'}],
+      });
+    });
+  });
+
+  describe('Render', () => {
     it('should render a combobox with aria attributes', () => {
       render(<ComboboxMock />);
       const renderedCombobox = screen.getByRole('combobox');
@@ -163,7 +183,7 @@ describe('Combobox', () => {
     it('should render a list with unique option ids', () => {
       render(<ComboboxMock />);
       const renderedOptions = screen.getAllByRole('option');
-      const optionIDs = renderedOptions.map(option => option.id);
+      const optionIDs = renderedOptions.map((option) => option.id);
       const uniqueIDs = _.uniq(optionIDs);
       expect(uniqueIDs.length).toEqual(optionIDs.length);
     });
@@ -202,13 +222,13 @@ describe('Combobox', () => {
     it('should render a listbox with groups of options that contains no duplicate ids', () => {
       render(<GroupedMockCombobox />);
       const renderedOptions = screen.getAllByRole('option');
-      const optionIDs = renderedOptions.map(option => option.id);
+      const optionIDs = renderedOptions.map((option) => option.id);
       const uniqueIDs = _.uniq(optionIDs);
       expect(uniqueIDs.length).toEqual(optionIDs.length);
     });
 
     it('should render a custom group label', () => {
-      render(<GroupedMockCombobox groupLabelTemplate={groupName => <span>hi {groupName}</span>} />);
+      render(<GroupedMockCombobox groupLabelTemplate={(groupName) => <span>hi {groupName}</span>} />);
       const renderedGroups = screen.getAllByRole('group');
       expect(renderedGroups[0].querySelector('[role="group"] > div[role="presentation"]').textContent).toEqual(
         'hi Components'
@@ -219,6 +239,25 @@ describe('Combobox', () => {
       expect(renderedGroups[2].querySelector('[role="group"] > div[role="presentation"]').textContent).toEqual(
         'hi Layout'
       );
+    });
+
+    it('should select item using keyboard', () => {
+      render(<GroupedMockCombobox />);
+      // open the combobox
+      fireEvent.click(screen.getByRole('textbox'));
+      // select the third item using ArrowDown keyDown
+      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'ArrowDown', code: 'ArrowDown'});
+      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'ArrowDown', code: 'ArrowDown'});
+      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'ArrowDown', code: 'ArrowDown'});
+      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'Enter', code: 'Enter'});
+      // @ts-ignore Property 'value' does not exist on type 'HTMLElement' (I get it, but this is right)
+      expect(screen.getByRole('textbox').value).toEqual('Button');
+      // select the first item using ArrowUp keyDown
+      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'ArrowUp', code: 'ArrowUp'});
+      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'ArrowUp', code: 'ArrowUp'});
+      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'Enter', code: 'Enter'});
+      // @ts-ignore Property 'value' does not exist on type 'HTMLElement' (I get it, but this is right)
+      expect(screen.getByRole('textbox').value).toEqual('Alert');
     });
   });
 

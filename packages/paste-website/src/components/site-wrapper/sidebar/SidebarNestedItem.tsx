@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 
-export const SidebarNestedItem: React.FC = props => {
+export const SidebarNestedItem: React.FC = (props) => {
   return (
     <Box
       as="li"

@@ -32,13 +32,7 @@ export const getColumnStyles = (props: ColumnProps): ColumnStyleProps => {
   return columnStyles;
 };
 
-const StyledColumn = styled.div(
-  compose(
-    space,
-    flexbox,
-    layout
-  )
-) as React.FC<ColumnProps>;
+const StyledColumn = styled.div(compose(space, flexbox, layout)) as React.FC<ColumnProps>;
 
 const Column = React.forwardRef<HTMLDivElement, ColumnProps>(
   ({as, children, count, gutter, offset, span, stretchColumnContent, vertical}, ref) => {
