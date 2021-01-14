@@ -25,7 +25,7 @@
     "compile:dev": "rollup -c --environment NODE_ENV:development"
   },
   "dependencies": {
-    "react-uid": "2.3.0"
+    "react-uid": "2.3.1"
   },
   "peerDependencies": {
     "react": "^16.8.6",
