@@ -6,7 +6,7 @@ import {StyledScrollSpy, StyledListItem} from './styles';
 import {slugify} from '../../../utils/RouteUtils';
 
 // Table of contents should only include h2, h3, h4 headings
-const shouldIncludeInToC = ({depth}: {depth: number}): boolean => depth > 1 && depth < 5;
+const shouldIncludeInToC = ({depth}: {depth: number}): boolean => depth > 1 && depth < 4;
 
 const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
   if (headings == null) {
@@ -19,7 +19,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
     return headingAnchor;
   });
 
-  // TODO: Add changelog to headingsList Array becuase changelogs aren't imported.
+  // TODO: Add changelog to headingsList Array because changelogs aren't imported.
   // but only for pages with changelogs
   return (
     <Box as="nav" aria-label="document outline">
