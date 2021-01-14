@@ -55,7 +55,7 @@
     "chromatic": "chromatic"
   },
   "dependencies": {
-    "browser-sync": "^2.26.3",
+    "browser-sync": "^2.26.9",
     "del": "^5.1.0",
     "gh-pages": "^2.1.1",
     "gulp": "^4.0.2",
