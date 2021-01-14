@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
@@ -10,6 +11,25 @@ import {Menu, MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, use
 
 const PlainMenu: React.FC = () => {
   const menu = useMenuState();
+  return (
+    <>
+      <MenuButton {...menu} variant="primary">
+        Preferences <ChevronDownIcon decorative />
+      </MenuButton>
+      <Menu {...menu} aria-label="Preferences">
+        <MenuItem {...menu}>Settings</MenuItem>
+        <MenuItem {...menu} disabled>
+          Extensions
+        </MenuItem>
+        <MenuSeparator {...menu} />
+        <MenuItem {...menu}>Keyboard shortcuts</MenuItem>
+      </Menu>
+    </>
+  );
+};
+
+const AutoplacedMenu: React.FC = () => {
+  const menu = useMenuState({visible: true});
   return (
     <>
       <MenuButton {...menu} variant="primary">
@@ -323,4 +343,16 @@ export const DifferentButtonTriggers = (): React.ReactNode => {
 
 DifferentButtonTriggers.story = {
   name: 'different button triggers',
+};
+
+export const AutoPlacementMenuStory = (): React.ReactNode => {
+  return (
+    <Box position="absolute" top={10} right={10}>
+      <AutoplacedMenu />
+    </Box>
+  );
+};
+
+AutoPlacementMenuStory.story = {
+  name: 'auto placed menu',
 };
