@@ -20,7 +20,7 @@ const Sidebar: React.FC = () => {
       width="sizeSidebar"
       display={['none', 'none', 'flex']}
       flexDirection="column"
-      zIndex="zIndex10"
+      zIndex="zIndex20"
     >
       <SidebarNavigation />
       <ContactUsMenu />
