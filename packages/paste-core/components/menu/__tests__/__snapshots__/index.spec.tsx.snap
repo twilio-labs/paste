@@ -500,10 +500,10 @@ exports[`Menu Render should render 1`] = `
         class="emotion-6"
         color="colorTextWeaker"
         data-testid="example-disabled-submenu-item"
-        disabled=""
         display="block"
         id="sub-menu-2"
         role="menuitem"
+        tabindex="-1"
         text-decoration="none"
       >
         Extensions
@@ -593,10 +593,10 @@ exports[`Menu Render should render 1`] = `
         aria-disabled="true"
         class="emotion-16"
         color="colorTextWeaker"
-        disabled=""
         display="block"
         id="menu-example-5"
         role="menuitem"
+        tabindex="-1"
         text-decoration="none"
       >
         Search with Bing
