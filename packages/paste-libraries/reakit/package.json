@@ -26,9 +26,9 @@
     "compile:dev": "rollup -c --environment NODE_ENV:development"
   },
   "dependencies": {
-    "reakit": "1.2.3",
-    "reakit-system": "0.14.3",
-    "reakit-utils": "0.14.3"
+    "reakit": "1.3.4",
+    "reakit-system": "0.15.1",
+    "reakit-utils": "0.15.1"
   },
   "peerDependencies": {
     "react": "^16.8.6",
