@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/tooltip",
-  "version": "0.3.32",
+  "version": "0.3.33",
   "category": "interaction",
   "status": "alpha",
   "description": "The Tooltip is a popup that displays clarifying text related to an element that has been focused or hovered on.",
@@ -28,16 +28,16 @@
   "peerDependencies": {
     "@twilio-paste/box": "^2.12.2",
     "@twilio-paste/design-tokens": "^6.4.1",
-    "@twilio-paste/icons": "^3.11.0",
+    "@twilio-paste/icons": "^3.11.1",
     "@twilio-paste/reakit-library": "^0.7.4",
-    "@twilio-paste/spinner": "^3.0.3",
+    "@twilio-paste/spinner": "^3.0.4",
     "@twilio-paste/style-props": "^1.8.15",
     "@twilio-paste/styling-library": "^0.2.1",
     "@twilio-paste/text": "^2.4.2",
     "@twilio-paste/theme": "^4.1.1",
     "@twilio-paste/tooltip-primitive": "^0.1.7",
     "@twilio-paste/types": "^3.0.30",
-    "@twilio-paste/uid-library": "^0.1.1",
+    "@twilio-paste/uid-library": "^0.1.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
@@ -45,15 +45,15 @@
   "devDependencies": {
     "@twilio-paste/box": "^2.12.2",
     "@twilio-paste/design-tokens": "^6.4.1",
-    "@twilio-paste/icons": "^3.11.0",
+    "@twilio-paste/icons": "^3.11.1",
     "@twilio-paste/reakit-library": "^0.7.4",
-    "@twilio-paste/spinner": "^3.0.3",
+    "@twilio-paste/spinner": "^3.0.4",
     "@twilio-paste/style-props": "^1.8.15",
     "@twilio-paste/styling-library": "^0.2.1",
     "@twilio-paste/text": "^2.4.2",
     "@twilio-paste/theme": "^4.1.1",
     "@twilio-paste/tooltip-primitive": "^0.1.7",
     "@twilio-paste/types": "^3.0.30",
-    "@twilio-paste/uid-library": "^0.1.1"
+    "@twilio-paste/uid-library": "^0.1.2"
   }
 }
