@@ -54,6 +54,9 @@
     "@twilio-paste/theme": "^4.1.1",
     "@twilio-paste/tooltip-primitive": "^0.1.8",
     "@twilio-paste/types": "^3.0.30",
-    "@twilio-paste/uid-library": "^0.1.2"
+    "@twilio-paste/uid-library": "^0.1.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   }
 }
