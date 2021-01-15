@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/tabs-primitive",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "category": "interaction",
   "status": "production",
   "description": "An unstyled and accessible basis upon which to style a tabset.",
@@ -26,12 +26,12 @@
     "compile:dev": "rollup -c --environment NODE_ENV:development"
   },
   "peerDependencies": {
-    "@twilio-paste/reakit-library": "^0.7.5",
+    "@twilio-paste/reakit-library": "^0.7.6",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/reakit-library": "^0.7.5",
+    "@twilio-paste/reakit-library": "^0.7.6",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }
