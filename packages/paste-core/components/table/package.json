@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/table",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "category": "data display",
   "status": "beta",
   "description": "Tables are used to display information that is meant to be compared across columns and rows.",

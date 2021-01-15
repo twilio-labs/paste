@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "4.2.13",
+  "version": "4.2.14",
   "status": "beta",
   "description": "Contains all the core packages from the Paste internal design system.",
   "author": "Twilio Inc.",
@@ -68,7 +68,7 @@
     "@twilio-paste/stack": "^0.2.4",
     "@twilio-paste/style-props": "^1.8.16",
     "@twilio-paste/styling-library": "^0.2.2",
-    "@twilio-paste/table": "^0.1.17",
+    "@twilio-paste/table": "^0.1.18",
     "@twilio-paste/tabs": "^0.4.4",
     "@twilio-paste/tabs-primitive": "^0.1.14",
     "@twilio-paste/text": "^2.4.3",
