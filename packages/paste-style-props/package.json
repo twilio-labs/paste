@@ -35,6 +35,7 @@
   "devDependencies": {
     "@twilio-paste/design-tokens": "^6.4.1",
     "@twilio-paste/styling-library": "^0.2.1",
-    "@twilio-paste/theme": "^4.1.1"
+    "@twilio-paste/theme": "^4.1.1",
+    "prop-types": "^15.7.2"
   }
 }

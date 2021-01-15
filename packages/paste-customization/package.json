@@ -39,6 +39,8 @@
     "@twilio-paste/design-tokens": "^6.4.1",
     "@twilio-paste/styling-library": "^0.2.1",
     "@twilio-paste/theme": "^4.1.1",
-    "@twilio-paste/types": "^3.0.30"
+    "@twilio-paste/types": "^3.0.30",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   }
 }
