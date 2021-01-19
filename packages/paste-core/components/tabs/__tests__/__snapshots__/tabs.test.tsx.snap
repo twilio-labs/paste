@@ -22,9 +22,6 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   </p>
   .emotion-3 {
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   border-bottom-width: borderWidth10;
   border-bottom-color: colorBorderLight;
@@ -275,9 +272,6 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   -webkit-box-align: stretch;
   -ms-flex-align: stretch;
   align-items: stretch;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   min-width: size0;
 }

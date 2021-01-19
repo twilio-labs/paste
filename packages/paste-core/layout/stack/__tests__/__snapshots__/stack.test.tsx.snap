@@ -27,9 +27,6 @@ exports[`Stack should render a horizontal stack 1`] = `
 
 .emotion-4 {
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -102,9 +99,6 @@ exports[`Stack should render a responsive stack 1`] = `
 
 .emotion-4 {
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -123,9 +117,6 @@ exports[`Stack should render a responsive stack 1`] = `
 
 @media screen and (min-width:64rem) {
   .emotion-4 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
   }
 }

@@ -13,9 +13,6 @@ exports[`Input render should render 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   background-color: rgb(255,255,255);
@@ -200,9 +197,6 @@ exports[`Input render should render with disabled 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   background-color: rgb(248,248,249);
@@ -324,9 +318,6 @@ exports[`Input render should render with hasError 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   background-color: rgb(255,255,255);
@@ -384,9 +375,6 @@ exports[`Input render should render with prefix 1`] = `
 
 .emotion-2 {
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   background-color: rgb(255,255,255);
@@ -486,9 +474,6 @@ exports[`Input render should render with prefix 1`] = `
   border-right-style: solid;
   border-right-width: 1px;
   border-top-left-radius: 4px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   line-height: 1.25rem;
   padding: 0.5rem;
@@ -599,9 +584,6 @@ exports[`Input render should render with readOnly 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   background-color: rgb(248,248,249);
@@ -660,9 +642,6 @@ exports[`Input render should render with suffix 1`] = `
 
 .emotion-2 {
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   background-color: rgb(255,255,255);
@@ -762,9 +741,6 @@ exports[`Input render should render with suffix 1`] = `
   border-left-style: solid;
   border-left-width: 1px;
   border-top-right-radius: 4px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   line-height: 1.25rem;
   padding: 0.5rem;

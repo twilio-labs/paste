@@ -68,9 +68,6 @@ exports[`Popover Render should render 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-text-decoration: inherit;
   text-decoration: inherit;
