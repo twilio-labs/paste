@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {IconSizeOptions, TextColorOptions} from '@twilio-paste/style-props';
+import type {IconSizeOptions, TextColorOptions} from '@twilio-paste/style-props';
 import {DefaultTheme} from '@twilio-paste/theme';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';

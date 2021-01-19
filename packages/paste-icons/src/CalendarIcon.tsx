@@ -3,7 +3,8 @@
  */
 import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
-import {IconWrapper, IconWrapperProps} from './helpers/IconWrapper';
+import {IconWrapper} from './helpers/IconWrapper';
+import type {IconWrapperProps} from './helpers/IconWrapper';
 
 export interface CalendarIconProps extends IconWrapperProps {
   title?: string;
