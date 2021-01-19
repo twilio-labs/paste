@@ -10,7 +10,7 @@ import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import type {HelpTextVariants} from '@twilio-paste/help-text';
 import {InputElement} from '@twilio-paste/input';
-import {InputVariants} from '@twilio-paste/input';
+import type {InputVariants} from '@twilio-paste/input';
 import type {TextColor} from '@twilio-paste/style-props';
 import {ComboboxInputWrapper} from './ComboboxInputWrapper';
 import {ComboboxListbox} from './ComboboxListbox';
