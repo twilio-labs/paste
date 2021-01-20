@@ -5,7 +5,7 @@ import {TabPrimitiveList} from '@twilio-paste/tabs-primitive';
 import {TabsContext} from './TabsContext';
 import {Variants} from './types';
 
-interface TabListProps {
+export interface TabListProps {
   'aria-label': string;
   disabled?: boolean | undefined;
   focusable?: boolean | undefined;
