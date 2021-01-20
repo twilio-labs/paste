@@ -17,7 +17,7 @@ import {ComboboxListbox} from './ComboboxListbox';
 import {ComboboxListboxGroup} from './ComboboxListboxGroup';
 import {ComboboxListboxOption} from './ComboboxListboxOption';
 import {getIndexedItems, getGroupedItems} from './helpers';
-import type {GroupItemsProps, Item as ItemType, ItemProps, ItemsProps, ListBoxProps, ComboboxProps} from './types';
+import type {GroupItemsProps, ItemProps, ItemsProps, ListBoxProps, ComboboxProps} from './types';
 
 // Fixes chevron overlapping really long text
 // Extra right padding is removed when autocomplete is true

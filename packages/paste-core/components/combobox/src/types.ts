@@ -7,25 +7,29 @@ import type {InputVariants, InputProps} from '@twilio-paste/input';
 
 export type Item = string | {[key: string]: any};
 
+export interface OptionTemplateFn<ProvidedItem> {
+  (item: ProvidedItem): React.ReactNode;
+}
+
 export interface ComboboxProps extends Omit<InputProps, 'id' | 'type' | 'value'> {
   autocomplete?: boolean;
   helpText?: string | React.ReactNode;
-  initialIsOpen?: UseComboboxPrimitiveProps<Item>['initialIsOpen'];
-  initialSelectedItem?: UseComboboxPrimitiveProps<Item>['initialSelectedItem'];
-  items: UseComboboxPrimitiveProps<Item>['items'];
-  itemToString?: UseComboboxPrimitiveProps<Item>['itemToString'];
+  initialIsOpen?: UseComboboxPrimitiveProps<any>['initialIsOpen'];
+  initialSelectedItem?: UseComboboxPrimitiveProps<any>['initialSelectedItem'];
+  items: UseComboboxPrimitiveProps<any>['items'];
+  itemToString?: UseComboboxPrimitiveProps<any>['itemToString'];
   labelText: string | NonNullable<React.ReactNode>;
-  onHighlightedIndexChange?: UseComboboxPrimitiveProps<Item>['onHighlightedIndexChange'];
-  onInputValueChange?: UseComboboxPrimitiveProps<Item>['onInputValueChange'];
-  onIsOpenChange?: UseComboboxPrimitiveProps<Item>['onIsOpenChange'];
-  onSelectedItemChange?: UseComboboxPrimitiveProps<Item>['onSelectedItemChange'];
-  optionTemplate?: (item: string | Item) => React.ReactNode;
+  onHighlightedIndexChange?: UseComboboxPrimitiveProps<any>['onHighlightedIndexChange'];
+  onInputValueChange?: UseComboboxPrimitiveProps<any>['onInputValueChange'];
+  onIsOpenChange?: UseComboboxPrimitiveProps<any>['onIsOpenChange'];
+  onSelectedItemChange?: UseComboboxPrimitiveProps<any>['onSelectedItemChange'];
+  optionTemplate?: OptionTemplateFn<any>;
   groupLabelTemplate?: (groupName: string) => React.ReactNode;
-  selectedItem?: UseComboboxPrimitiveProps<Item>['selectedItem'];
-  inputValue?: UseComboboxPrimitiveProps<Item>['inputValue'];
+  selectedItem?: UseComboboxPrimitiveProps<any>['selectedItem'];
+  inputValue?: UseComboboxPrimitiveProps<any>['inputValue'];
   groupItemsBy?: string;
   variant?: InputVariants;
-  state?: Partial<UseComboboxPrimitiveReturnValue<Item>>;
+  state?: Partial<UseComboboxPrimitiveReturnValue<any>>;
 }
 
 export interface ItemProps extends Pick<ComboboxProps, 'optionTemplate'> {
