@@ -10,6 +10,7 @@ export interface TabStateReturn extends TabPrimitiveStateReturn {
 }
 
 export interface TabsProps extends TabPrimitiveInitialState {
+  children?: React.ReactNode;
   state?: TabStateReturn;
   variant?: Variants;
 }
