@@ -40,6 +40,9 @@ export {
 } from 'reakit';
 
 export type {
+  CompositeState,
+  CompositeStateReturn,
+  CompositeInitialState,
   CompositeProps,
   CompositeItemProps,
   CompositeGroupProps,

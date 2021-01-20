@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {styled} from '@twilio-paste/styling-library';
 import {Box} from '@twilio-paste/box';
-import {CompositeItem, CompositeStateReturn} from '@twilio-paste/reakit-library';
+import {CompositeItem} from '@twilio-paste/reakit-library';
+import type {CompositeStateReturn} from '@twilio-paste/reakit-library';
 import {IconTile} from './IconTile';
 import {IconObject} from './types';
 
