@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 import {Space, isMarginTokenProp} from '@twilio-paste/style-props';
 
-interface BaseListProps extends React.OlHTMLAttributes<HTMLElement> {
+export interface BaseListProps extends React.OlHTMLAttributes<HTMLElement> {
   className?: never;
   style?: never;
   as: 'ol' | 'ul';
