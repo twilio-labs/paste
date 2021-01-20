@@ -23,12 +23,19 @@ describe('createCustomTheme', () => {
   });
 
   it('should merge base theme with overrides that include multiple keys', () => {
-    expect(createCustomTheme(mockTheme, {colors: {colorGray90: 'red'}, borderWidths: {borderWidth0: '34px'}})).toEqual({
+    expect(
+      createCustomTheme(mockTheme, {
+        borderWidths: {borderWidth0: '34px'},
+        radii: {
+          borderRadiusCircle: '20%',
+        },
+      })
+    ).toEqual({
       shadows: {shadow: '0 4px 16px 0 rgba(18, 28, 45, 0.2)'},
       borderWidths: {borderWidth0: '34px', borderWidth10: '1px'},
-      radii: {borderRadius0: '0', borderRadiusCircle: '50%'},
+      radii: {borderRadius0: '0', borderRadiusCircle: '20%'},
       breakpoints: ['25rem', '64rem', '77rem'],
-      colors: {colorGray90: 'red'},
+      colors: {colorGray90: 'rgb(31, 48, 76)'},
     });
   });
 

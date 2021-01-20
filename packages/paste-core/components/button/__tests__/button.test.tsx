@@ -2,6 +2,7 @@ import * as React from 'react';
 import {render} from 'react-dom';
 import {Theme} from '@twilio-paste/theme';
 import {shallow, ReactWrapper, mount} from 'enzyme';
+// @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Button} from '../src';
 
@@ -192,11 +193,12 @@ describe('Button Errors', () => {
   });
 
   it('Throws an error when not passing children', () => {
+    // @ts-expect-error
     expect(() => shallow(<Button variant="primary" />)).toThrow();
   });
 
   it('Throws an error when passing an invalid tabIndex', () => {
-    // @ts-ignore we're testing the failure for JS
+    // @ts-expect-error
     expect(() => shallow(<Button variant="primary" tabIndex="-2" />)).toThrow();
   });
 });

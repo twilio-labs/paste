@@ -2,6 +2,7 @@ import * as React from 'react';
 import {render} from 'react-dom';
 import {Theme} from '@twilio-paste/theme';
 import renderer from 'react-test-renderer';
+// @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Card} from '../src';
 
@@ -21,6 +22,7 @@ describe('Card', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
+          {/* @ts-expect-error */}
           <Card margin="space10" backgroundColor="colorBackgroundSuccess" />
         </Theme.Provider>
       )

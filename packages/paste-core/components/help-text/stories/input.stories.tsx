@@ -5,6 +5,7 @@ import {HelpText} from '../src';
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Help Text',
+  component: HelpText,
 };
 
 export const Default = (): React.ReactNode => {

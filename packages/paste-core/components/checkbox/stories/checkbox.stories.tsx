@@ -8,6 +8,8 @@ import {Checkbox, CheckboxGroup, CheckboxDisclaimer} from '../src';
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Checkbox',
+  component: Checkbox,
+  subcomponents: {CheckboxGroup, CheckboxDisclaimer},
 };
 
 export const DefaultCheckbox = (): React.ReactNode => {

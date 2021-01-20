@@ -192,6 +192,8 @@ const MenuGroups: React.FC = () => {
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Menu',
+  component: Menu,
+  subcomponents: {MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator},
 };
 
 export const Default = (): React.ReactNode => {

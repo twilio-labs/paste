@@ -5,6 +5,8 @@ import {useDisclosurePrimitiveState, DisclosurePrimitive, DisclosurePrimitiveCon
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Primitives/Disclosure',
+  component: DisclosurePrimitive,
+  subcomponents: {DisclosurePrimitiveContent},
 };
 
 export const BasicExample: React.FC = () => {

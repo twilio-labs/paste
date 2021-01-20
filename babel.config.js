@@ -1,4 +1,4 @@
-const getPresets = isDev => [
+const getPresets = (isDev) => [
   [
     '@babel/preset-env',
     {
@@ -29,6 +29,8 @@ const BASE_PLUGINS = [
   'macros',
   '@babel/proposal-class-properties',
   '@babel/proposal-object-rest-spread',
+  '@babel/proposal-private-methods',
+  '@babel/proposal-private-property-in-object',
   '@babel/plugin-transform-runtime',
 ];
 

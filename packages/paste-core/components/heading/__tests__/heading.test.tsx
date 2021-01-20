@@ -2,6 +2,7 @@ import * as React from 'react';
 import renderer from 'react-test-renderer';
 import {render} from 'react-dom';
 import {Theme} from '@twilio-paste/theme';
+// @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Heading} from '../src';
 

@@ -16,6 +16,7 @@ const helpVariantOptions = ['default', 'error'];
 export default {
   title: 'Components/Textarea',
   decorators: [withKnobs],
+  component: TextArea,
 };
 
 export const TextareaOptions = (): React.ReactNode => {

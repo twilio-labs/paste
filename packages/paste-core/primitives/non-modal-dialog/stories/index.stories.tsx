@@ -10,6 +10,8 @@ import {
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Primitives/Non-Modal Dialog',
+  component: NonModalDialogPrimitive,
+  subcomponents: {NonModalDialogDisclosurePrimitive, NonModalDialogArrowPrimitive},
 };
 
 export const SimpleNonModalDialog = (): React.ReactNode => {

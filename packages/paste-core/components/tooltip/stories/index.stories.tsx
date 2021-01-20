@@ -37,6 +37,7 @@ export default {
   title: 'Components/Tooltip',
   decorators: [withKnobs],
   excludeStories: ['StateHookExample'],
+  component: Tooltip,
 };
 
 export const Default = (): React.ReactNode => {

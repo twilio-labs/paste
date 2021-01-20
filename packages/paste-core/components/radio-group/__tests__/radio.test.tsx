@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {render} from 'react-dom';
 import {render as testRender, fireEvent} from '@testing-library/react';
+// @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Radio, RadioGroup} from '../src';
 
@@ -41,7 +42,7 @@ describe('Radio', () => {
         foo
       </Radio>
     );
-    expect(getByLabelText('foo').checked).toBeTruthy();
+    expect((getByLabelText('foo') as HTMLInputElement).checked).toBeTruthy();
   });
 
   it('should render as disabled', () => {
@@ -50,7 +51,7 @@ describe('Radio', () => {
         foo
       </Radio>
     );
-    expect(getByLabelText('foo').disabled).toBeTruthy();
+    expect((getByLabelText('foo') as HTMLInputElement).disabled).toBeTruthy();
   });
 
   it('should render an id', () => {
@@ -60,12 +61,12 @@ describe('Radio', () => {
 
   it('should render a value', () => {
     const {getByLabelText} = testRender(<Radio {...defaultProps}>foo</Radio>);
-    expect(getByLabelText('foo').value).toBe('foo');
+    expect((getByLabelText('foo') as HTMLInputElement).value).toBe('foo');
   });
 
   it('should render a name', () => {
     const {getByLabelText} = testRender(<Radio {...defaultProps}>foo</Radio>);
-    expect(getByLabelText('foo').name).toBe('foo');
+    expect((getByLabelText('foo') as HTMLInputElement).name).toBe('foo');
   });
 
   it('should render aria attributes', () => {
@@ -124,7 +125,7 @@ describe('Radio Group', () => {
         <Radio {...defaultProps}>foo</Radio>
       </RadioGroup>
     );
-    expect(getByRole('radio').value).toBe('foo');
+    expect((getByRole('radio') as HTMLInputElement).value).toBe('foo');
   });
 
   it('should render a name', () => {
@@ -133,7 +134,7 @@ describe('Radio Group', () => {
         <Radio {...defaultProps}>foo</Radio>
       </RadioGroup>
     );
-    expect(getByRole('radio').name).toBe(defaultProps.name);
+    expect((getByRole('radio') as HTMLInputElement).name).toBe(defaultProps.name);
   });
 
   it('renders a helpText message when helpText prop is present', () => {
@@ -218,7 +219,7 @@ describe('Radio Group event handlers', () => {
 
   it('Should check the selected radio', () => {
     const MockRadioGroup: React.FC = () => {
-      const [value, setValue] = React.useState();
+      const [value, setValue] = React.useState('');
       return (
         <RadioGroup
           legend="foo"
@@ -241,13 +242,13 @@ describe('Radio Group event handlers', () => {
 
     const {getByTestId} = testRender(<MockRadioGroup />);
 
-    expect(getByTestId('radio-button').checked).toBe(false);
-    expect(getByTestId('radio-button1').checked).toBe(false);
+    expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
+    expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(false);
     fireEvent.click(getByTestId('radio-button'));
-    expect(getByTestId('radio-button').checked).toBe(true);
+    expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(true);
     fireEvent.click(getByTestId('radio-button1'));
-    expect(getByTestId('radio-button1').checked).toBe(true);
-    expect(getByTestId('radio-button').checked).toBe(false);
+    expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(true);
+    expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
   });
 
   it('Should check the selected value on initial', () => {
@@ -275,8 +276,8 @@ describe('Radio Group event handlers', () => {
 
     const {getByTestId} = testRender(<MockRadioGroup />);
 
-    expect(getByTestId('radio-button').checked).toBe(false);
-    expect(getByTestId('radio-button1').checked).toBe(true);
+    expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
+    expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(true);
   });
 });
 

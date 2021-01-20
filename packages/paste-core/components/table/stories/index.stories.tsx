@@ -37,6 +37,8 @@ const MoreMenu: React.FC = () => {
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Table',
+  component: Table,
+  subcomponents: {THead, TBody, TFoot, Tr, Td, Th},
 };
 
 export const DefaultTable = (): React.ReactNode => {

@@ -8,6 +8,8 @@ import {useTabPrimitiveState, TabPrimitive, TabPrimitiveList, TabPrimitivePanel,
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Primitives/Tabs',
+  component: TabPrimitive,
+  subcomponents: {TabPrimitiveList, TabPrimitivePanel},
 };
 
 export const HorizontalTabs = (): React.ReactNode => {

@@ -13,6 +13,7 @@ const AnchorTabIndexOptions = [0, -1];
 export default {
   title: 'Components/Anchor',
   decorators: [withKnobs],
+  component: Anchor,
 };
 
 export const Default = (): React.ReactNode => {

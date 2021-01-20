@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {matchers} from 'jest-emotion';
 import {render, screen} from '@testing-library/react';
+// @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Breadcrumb, BreadcrumbItem} from '../src';
 

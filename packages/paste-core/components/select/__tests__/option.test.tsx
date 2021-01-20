@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {render} from 'react-dom';
 import {render as testRender} from '@testing-library/react';
+// @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Option} from '../src';
 import {createAttributeMap} from '../test-utils';

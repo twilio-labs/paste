@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+// @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {useMenuState, Menu, MenuItem, MenuButton, MenuButtonProps, MenuGroup, MenuSeparator} from '../src';
 

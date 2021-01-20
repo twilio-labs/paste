@@ -5,6 +5,8 @@ import {OrderedList, UnorderedList, ListItem} from '../src';
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/List',
+  component: OrderedList,
+  subcomponents: {UnorderedList, ListItem},
 };
 
 export const DefaultOrderedList = (): React.ReactNode => {

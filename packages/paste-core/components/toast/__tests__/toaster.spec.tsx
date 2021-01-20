@@ -77,7 +77,7 @@ describe('Toaster', () => {
     });
 
     it('should add two toasts to toaster', () => {
-      const extraToast: ToasterToast = {message: 'hi2', variant: 'success'};
+      const extraToast: ToasterToast = {message: 'hi2', variant: 'success', id: 'idstring'};
       const toasterState = {
         ...mockToasterState,
         toasts: [...mockToasterState.toasts, extraToast],

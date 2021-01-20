@@ -11,6 +11,7 @@ const SizeOptions = Object.keys(DefaultTheme.iconSizes);
 export default {
   title: 'Components/Spinner',
   decorators: [withKnobs],
+  component: Spinner,
 };
 
 export const Default = (): React.ReactNode => {

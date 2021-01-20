@@ -15,6 +15,8 @@ const spaceOptions = Object.keys(DefaultTheme.space);
 export default {
   title: 'Layout/Grid',
   decorators: [withKnobs],
+  component: Grid,
+  subcomponents: {Column},
 };
 
 export const Grid12ColumnAndGutterSupport = (): React.ReactNode => {

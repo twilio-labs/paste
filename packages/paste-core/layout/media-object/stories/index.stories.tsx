@@ -10,6 +10,8 @@ import {MediaObject, MediaFigure, MediaBody} from '../src';
 export default {
   title: 'Layout/Media Object',
   decorators: [withKnobs],
+  component: MediaObject,
+  subcomponents: {MediaFigure, MediaBody},
 };
 
 export const Default = (): React.ReactNode => {

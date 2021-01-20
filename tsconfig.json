@@ -1,10 +1,30 @@
 {
   "compilerOptions": {
-    // Not sure why, but this is needed for typeRoots to work correctly
-    // Source: https://github.com/microsoft/TypeScript/issues/22217#issuecomment-369783776
+    "declaration": true,
+    "declarationMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "incremental": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "lib": ["es2017", "DOM"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmitOnError": false,
+    "noImplicitAny": true,
+    "noResolve": false,
     "paths": {
       "*": ["./@types/*"]
     },
-    "typeRoots": ["./@types", "node_modules/@types"]
-  }
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "target": "es6",
+    "typeRoots": ["./@types", "node_modules/@types"],
+    "forceConsistentCasingInFileNames": true,
+    "newLine": "lf",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+  },
+  "exclude": ["node_modules", "docs", "dist", "__testfixtures__"]
 }

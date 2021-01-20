@@ -7,6 +7,8 @@ import {Radio, RadioGroup} from '../src';
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Radio',
+  component: Radio,
+  subcomponents: {RadioGroup},
 };
 
 export const DefaultRadio = (): React.ReactNode => {

@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer';
 import {render} from 'react-dom';
 import {ReactWrapper, mount} from 'enzyme';
 import {Theme} from '@twilio-paste/theme';
+// @ts-ignore
 import axe from '../../../../../.jest/axe-helper';
 import {Alert} from '../src';
 

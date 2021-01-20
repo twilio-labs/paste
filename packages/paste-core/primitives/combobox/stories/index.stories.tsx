@@ -11,6 +11,7 @@ const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Primitives/Combobox',
+  component: ComboboxPrimitive,
 };
 
 export const DropdownCombobox = (): React.ReactNode => {
@@ -71,7 +72,9 @@ export const AutocompleteCombobox = (): React.ReactNode => {
   } = useComboboxPrimitive({
     items: inputItems,
     onInputValueChange: ({inputValue}) => {
-      setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
+      if (inputValue != null) {
+        setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
+      }
     },
   });
   const uid = useUID();
@@ -124,7 +127,7 @@ export const ComboboxNonHooks = (): React.ReactNode => {
             // @ts-ignore
             {...getRootProps({}, {suppressRefError: true})}
           >
-            <FormInput type="text" {...getInputProps()} />
+            <FormInput {...getInputProps()} type="text" />
             <Button {...getToggleButtonProps()} variant="primary" aria-label={'toggle menu'}>
               <ChevronDownIcon size="sizeIcon30" decorative={false} title="toggle menu" />
             </Button>
@@ -140,7 +143,7 @@ export const ComboboxNonHooks = (): React.ReactNode => {
                         index,
                         item,
                         style: {
-                          backgroundColor: highlightedIndex === index ? '#bde4ff' : null,
+                          backgroundColor: highlightedIndex === index ? '#bde4ff' : undefined,
                         },
                       })}
                     >

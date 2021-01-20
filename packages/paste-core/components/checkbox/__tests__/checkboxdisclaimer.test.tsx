@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {render} from 'react-dom';
 import {render as testRender} from '@testing-library/react';
+// @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {CheckboxDisclaimer} from '../src';
 
@@ -19,7 +20,7 @@ describe('Checkbox Disclaimer', () => {
   it('renders a errorText message when errorText prop is present', () => {
     const errorText = 'This is the error text.';
     const {getByText} = testRender(
-      <CheckboxDisclaimer {...defaultProps} hasError errorText={errorText}>
+      <CheckboxDisclaimer {...defaultProps} errorText={errorText}>
         foo
       </CheckboxDisclaimer>
     );

@@ -36,6 +36,7 @@ const CommonStories: React.FC<Omit<InputBoxProps, 'children'>> = ({variant, ...p
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Input box',
+  component: InputBox,
 };
 
 export const Default = (): React.ReactNode => {

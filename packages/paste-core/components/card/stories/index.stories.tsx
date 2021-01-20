@@ -13,6 +13,7 @@ const spaceOptions = Object.keys(DefaultTheme.space);
 export default {
   title: 'Components/Card',
   decorators: [withKnobs],
+  component: Card,
 };
 
 export const Default = (): React.ReactNode => (

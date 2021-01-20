@@ -10,6 +10,7 @@ import {Alert, AlertVariants} from '../src';
 export default {
   title: 'Components/Alert',
   decorators: [withKnobs],
+  component: Alert,
 };
 
 export const AllVariant = (): React.ReactNode => {

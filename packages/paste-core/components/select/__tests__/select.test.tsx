@@ -4,22 +4,20 @@ import {render as testRender, fireEvent} from '@testing-library/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {Theme} from '@twilio-paste/theme';
 import {Label} from '@twilio-paste/label';
+// @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
-import {Select, Option} from '../src';
+import {Select, SelectProps, Option} from '../src';
 import {createAttributeMap} from '../test-utils';
 
 const onChangeMock: jest.Mock = jest.fn();
 
-interface MockSelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+interface MockSelectProps extends SelectProps {
   dataPrefix?: string;
-  children?: React.ReactNode;
-  hasError?: boolean;
-  style?: unknown;
+  style?: React.CSSProperties | undefined;
   className?: string;
   height?: string;
   width?: string;
   size?: number;
-  onChange?: jest.Mock<any, any>;
 }
 
 const MockSelect: React.FC<MockSelectProps> = ({children, hasError = false, dataPrefix, ...props}) => {
@@ -28,17 +26,23 @@ const MockSelect: React.FC<MockSelectProps> = ({children, hasError = false, data
     <Theme.Provider theme="console">
       <Label htmlFor={selectID}>Label</Label>
       <Select
-        id={selectID}
-        onChange={onChangeMock}
         hasError={hasError}
         data-testid={dataPrefix ? `${dataPrefix}-select` : 'select'}
         {...props}
+        id={selectID}
+        onChange={onChangeMock}
         value={props.multiple ? [] : ''}
       >
         {children}
       </Select>
     </Theme.Provider>
   );
+};
+
+const DefaultProps = {
+  id: 'id-select',
+  onChange: onChangeMock,
+  value: '',
 };
 
 describe('Form | Select', () => {
@@ -51,10 +55,18 @@ describe('Form | Select', () => {
   };
 
   it('shoud have the correct accessibility attributes on the container', () => {
-    const {getByTestId} = testRender(<MockSelect />);
+    const {getByTestId} = testRender(
+      <MockSelect {...DefaultProps}>
+        <Option value="option-1">test</Option>
+      </MockSelect>
+    );
     expect(getByTestId('select').getAttribute('aria-invalid')).toEqual('false');
 
-    const {getByTestId: getByTestIdWithError} = testRender(<MockSelect dataPrefix="has-error" hasError />);
+    const {getByTestId: getByTestIdWithError} = testRender(
+      <MockSelect {...DefaultProps} dataPrefix="has-error" hasError>
+        <Option value="option-1">test</Option>
+      </MockSelect>
+    );
     expect(getByTestIdWithError('has-error-select').getAttribute('aria-invalid')).toEqual('true');
   });
 
@@ -70,7 +82,11 @@ describe('Form | Select', () => {
       draggable: true,
       accessKey: 't e s t',
     };
-    const {getByTestId} = testRender(<MockSelect {...nativeAttributes} />);
+    const {getByTestId} = testRender(
+      <MockSelect {...DefaultProps} {...nativeAttributes}>
+        <Option value="option-1">test</Option>
+      </MockSelect>
+    );
     const attributeMap = createAttributeMap(getByTestId('select'));
 
     expect(attributeMap['data-attr']).toEqual('test-attribute');
@@ -84,7 +100,11 @@ describe('Form | Select', () => {
   });
 
   it('should filter blocklisted props', () => {
-    const {getByTestId} = testRender(<MockSelect dataPrefix="blocklisted" {...blockListedPropsMap} />);
+    const {getByTestId} = testRender(
+      <MockSelect {...DefaultProps} dataPrefix="blocklisted" {...blockListedPropsMap}>
+        <Option value="option-1">test</Option>
+      </MockSelect>
+    );
     const selectAttributesMap = createAttributeMap(getByTestId('blocklisted-select'));
 
     expect(selectAttributesMap.style).toBe(undefined);
@@ -99,7 +119,9 @@ describe('Form | Select', () => {
       multiple: true,
     };
     const {getByTestId: getByTestIdWithMultiple} = testRender(
-      <MockSelect dataPrefix="blocklisted-multiple" {...multipleRenderProps} />
+      <MockSelect {...DefaultProps} dataPrefix="blocklisted-multiple" {...multipleRenderProps}>
+        <Option value="option-1">test</Option>
+      </MockSelect>
     );
 
     const selectMultipleAttributesMap = createAttributeMap(getByTestIdWithMultiple('blocklisted-multiple-select'));
@@ -115,7 +137,7 @@ describe('Form | Select', () => {
 
   it('should call onChange when an option is selected', () => {
     const {getByDisplayValue} = testRender(
-      <MockSelect>
+      <MockSelect {...DefaultProps}>
         <Option value="option-1">Option 1</Option>
         <Option data-testid="option-2" value="option-2">
           Option 2
@@ -128,14 +150,23 @@ describe('Form | Select', () => {
   });
 
   it('should set data-not-selectize="true" on the select element for console bootstrap overrides', () => {
-    const {getByTestId} = testRender(<MockSelect />);
+    const {getByTestId} = testRender(
+      <MockSelect {...DefaultProps}>
+        <Option value="option-1">test</Option>
+      </MockSelect>
+    );
     expect(getByTestId('select').getAttribute('data-not-selectize')).toEqual('true');
   });
 
   it('should have no accessibility violations', async () => {
     const container = document.createElement('div');
     document.body.append(container);
-    render(<MockSelect />, container);
+    render(
+      <MockSelect {...DefaultProps}>
+        <Option value="option-1">test</Option>
+      </MockSelect>,
+      container
+    );
     const results = await axe(document.body);
 
     expect(results).toHaveNoViolations();
