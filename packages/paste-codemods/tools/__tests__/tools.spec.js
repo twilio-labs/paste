@@ -1,7 +1,7 @@
-const {generatePackageExportsMap} = require('../tools/generatePackageExportsMap');
+const {generatePackageExportsMap} = require('../generatePackageExportsMap');
 
 // This is a simplified mock of paste packages
-const mockGetPastePackages = (): Array<unknown> => [
+const mockGetPastePackages = () => [
   {
     name: '@twilio-paste/stack',
     version: '0.1.49',
