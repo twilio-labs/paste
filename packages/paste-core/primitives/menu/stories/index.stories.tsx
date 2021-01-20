@@ -30,6 +30,8 @@ const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuPrimitiveButtonP
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Primitives/Menu',
+  component: MenuPrimitive,
+  subcomponents: {MenuPrimitiveItem, MenuPrimitiveButton, MenuPrimitiveSeparator},
 };
 
 export const SimpleMenu = (): React.ReactNode => {

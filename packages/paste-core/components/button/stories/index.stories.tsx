@@ -10,7 +10,7 @@ import {ButtonVariants, ButtonSizes} from '../src/types';
 const ButtonSizeOptions = ['default', 'small', 'icon', 'icon_small', 'reset'];
 
 const AllSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
-  const allButtons = [];
+  const allButtons: React.ReactNode[] = [];
 
   ButtonSizeOptions.forEach((size) => {
     if (variant === 'reset' && size !== 'reset') return;
@@ -91,6 +91,7 @@ const AllSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Button',
+  component: Button,
 };
 
 export const PrimaryButton = (): React.ReactNode => <AllSizeOptions variant="primary" />;

@@ -109,6 +109,8 @@ export const StateHookExample: React.FC = () => {
 export default {
   title: 'Components/Tabs',
   excludeStories: ['HorizontalTabsExample', 'FittedTabsExample', 'VerticalTabsExample', 'StateHookExample'],
+  component: Tabs,
+  subcomponents: {TabList, Tab, TabPanels, TabPanel},
 };
 
 export const HorizontalTabs = (): React.ReactNode => {

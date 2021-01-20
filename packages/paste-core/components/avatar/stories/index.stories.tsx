@@ -9,6 +9,7 @@ import {Avatar} from '../src';
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Avatar',
+  component: Avatar,
 };
 
 export const Initials = (): React.ReactNode => {

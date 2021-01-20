@@ -2,6 +2,7 @@ import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {Button} from '@twilio-paste/button';
 import {Theme} from '@twilio-paste/theme';
+// @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {StateHookExample} from '../stories/index.stories';
 import {Tooltip} from '../src';
@@ -34,14 +35,24 @@ describe('Tooltip', () => {
       const ButtonTwo = screen.queryByTestId('hide-button');
 
       let tooltip = screen.queryByTestId('state-hook-tooltip');
+
+      if (ButtonOne === null || ButtonTwo === null || tooltip === null) {
+        return;
+      }
       expect(tooltip.getAttribute('hidden')).toBeDefined();
 
       ButtonOne.click();
       tooltip = screen.queryByTestId('state-hook-tooltip');
+      if (tooltip === null) {
+        return;
+      }
       expect(tooltip.getAttribute('hidden')).toBeNull();
 
       ButtonTwo.click();
       tooltip = screen.queryByTestId('state-hook-tooltip');
+      if (tooltip === null) {
+        return;
+      }
       expect(tooltip.getAttribute('hidden')).toBeDefined();
     });
   });

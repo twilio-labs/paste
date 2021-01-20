@@ -14,6 +14,7 @@ const SizeOptions = Object.keys(DefaultTheme.iconSizes) as IconSizeOptions[];
 export default {
   title: 'Components/Icon',
   decorators: [withKnobs],
+  component: CopyIcon,
 };
 
 export const Default = (): React.ReactNode => {

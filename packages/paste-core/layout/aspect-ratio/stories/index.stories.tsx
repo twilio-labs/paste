@@ -7,6 +7,7 @@ import {AspectRatio} from '../src';
 export default {
   title: 'Layout/Aspect Ratio',
   decorators: [withKnobs],
+  component: AspectRatio,
 };
 
 export const Default = (): React.ReactNode => {

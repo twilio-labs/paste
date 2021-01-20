@@ -5,7 +5,9 @@ import {Theme} from '../src';
 
 const ThemeConsumerExampleComponent = (): React.ReactElement => {
   return (
-    <Theme.Consumer>{({theme}) => <p>{theme.breakpoints.map((breakpoint) => `${breakpoint},`)}</p>}</Theme.Consumer>
+    <Theme.Consumer>
+      {({theme}) => <p>{theme.breakpoints.map((breakpoint: string) => `${breakpoint},`)}</p>}
+    </Theme.Consumer>
   );
 };
 

@@ -32,7 +32,7 @@ interface BasicModalDialogProps {
 }
 
 const BasicModalDialog: React.FC<BasicModalDialogProps> = ({isOpen, handleClose}) => {
-  const inputRef = React.useRef();
+  const inputRef: React.RefObject<HTMLInputElement> = React.useRef(null);
 
   return (
     <StyledModalDialogOverlay
@@ -57,6 +57,8 @@ const BasicModalDialog: React.FC<BasicModalDialogProps> = ({isOpen, handleClose}
 export default {
   title: 'Primitives/ModalDialog',
   decorators: [withKnobs],
+  component: ModalDialogPrimitiveOverlay,
+  subcomponents: {ModalDialogPrimitiveContent},
 };
 
 export const CustomOverlayAndContent = (): React.ReactNode => {

@@ -19,6 +19,8 @@ const optionGroup = (idx: number): string => `option group ${idx}`;
 export default {
   title: 'Components/Select',
   decorators: [withKnobs],
+  component: Select,
+  subcomponents: {Option, OptionGroup},
 };
 
 export const DefaultSelect = (): React.ReactNode => {
@@ -72,10 +74,11 @@ export const DefaultSelect = (): React.ReactNode => {
             target: {value: targetValue, options},
           } = event;
           if (isMultiple) {
-            const update: string[] = Object.keys(options).reduce((optionTargetValues, key) => {
+            const update: [] = Object.keys(options).reduce((optionTargetValues: [], key): [] => {
+              // @ts-ignore implicit any issue with key
               const {selected, value: optionValue} = options[key];
               if (selected) {
-                return [...optionTargetValues, optionValue];
+                return ([...optionTargetValues, optionValue] as unknown) as [];
               }
               return optionTargetValues;
             }, []);
@@ -88,7 +91,7 @@ export const DefaultSelect = (): React.ReactNode => {
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
         multiple={isMultiple}
-        size={isMultiple && multiSelectSize}
+        size={isMultiple ? multiSelectSize : undefined}
         insertBefore={insertBefore && <div>$10.99</div>}
         insertAfter={
           insertAfter && (
@@ -325,10 +328,11 @@ export const SelectMultiple = (): React.ReactNode => {
         multiple
         size={2}
         onChange={({target: options}) => {
-          const update: string[] = Object.keys(options).reduce((optionValues, key) => {
+          const update: [] = Object.keys(options).reduce((optionValues: [], key): [] => {
+            // @ts-ignore implicit any with key
             const {selected, value: optionValue} = options[key];
             if (selected) {
-              return [...optionValues, optionValue];
+              return ([...optionValues, optionValue] as unknown) as [];
             }
             return optionValues;
           }, []);
@@ -595,10 +599,11 @@ export const SelectOptionGroupsAndMultiple = (): React.ReactNode => {
       <Select
         id={uid}
         onChange={({target: options}) => {
-          const update: string[] = Object.keys(options).reduce((optionValues, key) => {
+          const update: [] = Object.keys(options).reduce((optionValues: [], key): [] => {
+            // @ts-ignore implicit any with key
             const {selected, value: optionValue} = options[key];
             if (selected) {
-              return [...optionValues, optionValue];
+              return ([...optionValues, optionValue] as unknown) as [];
             }
             return optionValues;
           }, []);
@@ -640,10 +645,11 @@ export const SelectOptionGroupsAndMultipleInverse = (): React.ReactNode => {
       <Select
         id={uid}
         onChange={({target: options}) => {
-          const update: string[] = Object.keys(options).reduce((optionValues, key) => {
+          const update: [] = Object.keys(options).reduce((optionValues: [], key): [] => {
+            // @ts-ignore implicit any with key
             const {selected, value: optionValue} = options[key];
             if (selected) {
-              return [...optionValues, optionValue];
+              return ([...optionValues, optionValue] as unknown) as [];
             }
             return optionValues;
           }, []);

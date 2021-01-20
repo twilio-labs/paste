@@ -3,6 +3,7 @@ import {render} from 'react-dom';
 import {render as testRender, fireEvent} from '@testing-library/react';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
+// @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {TextArea} from '../src';
 

@@ -4,6 +4,7 @@ import {Paragraph} from '../src';
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Paragraph',
+  component: Paragraph,
 };
 
 export const Default = (): React.ReactNode => {

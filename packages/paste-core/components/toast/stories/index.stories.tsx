@@ -10,12 +10,14 @@ import {useUID} from '@twilio-paste/uid-library';
 import {Input} from '@twilio-paste/input';
 import {Label} from '@twilio-paste/label';
 import {RadioGroup, Radio} from '@twilio-paste/radio-group';
-import {Toast, ToastContainer, Toaster, ToasterToast, ToastVariants, useToaster} from '../src';
+import {Toast, ToastContainer, Toaster, ToastVariants, useToaster} from '../src';
 import {ToastVariantObject} from '../src/constants';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Toast',
+  component: Toast,
+  subcomponents: {Toaster, ToastContainer},
 };
 
 export const Neutral = (): React.ReactNode => {
@@ -166,9 +168,13 @@ export const Warning = (): React.ReactNode => {
   );
 };
 
+interface ToastContainerExample {
+  variant: ToastVariants;
+  message: string;
+}
 export const ToastContainerStory = (): React.ReactNode => {
   const variants = Object.values(ToastVariantObject);
-  const [toasts, setToasts] = React.useState<ToasterToast[]>([]);
+  const [toasts, setToasts] = React.useState<ToastContainerExample[]>([]);
   return (
     <Box height="300px">
       <Button

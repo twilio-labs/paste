@@ -8,6 +8,7 @@ import {Box} from '@twilio-paste/box';
 import {FormLabel, FormInput} from '@twilio-paste/form';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
+// @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '../src';
 
@@ -133,7 +134,7 @@ describe('Modal', () => {
 
   it('should call the onDismiss function when the close button is clicked', () => {
     const {getByTestId} = testRender(<MockModal />);
-    fireEvent.click(getByTestId('modal-header').querySelector('button'));
+    fireEvent.click(getByTestId('modal-header').querySelector('button') as HTMLButtonElement);
     expect(handleCloseMock).toHaveBeenCalled();
     cleanup();
   });

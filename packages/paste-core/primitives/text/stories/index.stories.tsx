@@ -33,6 +33,7 @@ const textColorOptions = Object.keys(DefaultTheme.textColors);
 export default {
   title: 'Primitives/Text',
   decorators: [withKnobs],
+  component: Text,
 };
 
 export const Default = (): React.ReactNode => {

@@ -1,8 +1,9 @@
 import * as React from 'react';
 import {render} from 'react-dom';
-import renderer from 'react-test-renderer';
+import * as renderer from 'react-test-renderer';
 import {render as testRender} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
+// @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Separator} from '../src';
 

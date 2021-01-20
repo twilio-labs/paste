@@ -57,11 +57,13 @@
     "packages:fix": "manypkg fix"
   },
   "dependencies": {
-    "@applitools/eyes-storybook": "^3.4.0",
+    "@applitools/eyes-storybook": "^3.16.3",
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.4",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/plugin-proposal-private-methods": "^7.12.1",
+    "@babel/plugin-proposal-private-property-in-object": "^7.12.1",
     "@babel/plugin-transform-runtime": "^7.12.0",
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
@@ -74,14 +76,15 @@
     "@manypkg/cli": "0.17.0",
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
-    "@storybook/addon-a11y": "^5.2.6",
-    "@storybook/addon-actions": "^5.2.3",
-    "@storybook/addon-knobs": "^5.2.3",
-    "@storybook/addon-links": "^5.2.3",
-    "@storybook/addon-viewport": "^5.3.14",
-    "@storybook/addons": "^5.2.3",
-    "@storybook/core": "^5.3.14",
-    "@storybook/react": "^5.2.3",
+    "@storybook/addon-a11y": "^6.1.14",
+    "@storybook/addon-actions": "^6.1.14",
+    "@storybook/addon-essentials": "^6.1.14",
+    "@storybook/addon-knobs": "^6.1.14",
+    "@storybook/addon-links": "^6.1.14",
+    "@storybook/addon-viewport": "^6.1.14",
+    "@storybook/addons": "^6.1.14",
+    "@storybook/core": "^6.1.14",
+    "@storybook/react": "^6.1.14",
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.2",
     "@testing-library/react-hooks": "^3.4.2",
@@ -165,6 +168,7 @@
     "rollup-plugin-typescript2": "^0.29.0",
     "shelljs": "^0.8.3",
     "start-server-and-test": "^1.11.5",
+    "storybook-addon-performance": "^0.14.0",
     "terser": "^5.3.0",
     "theo": "^8.1.5",
     "tslib": "^2.0.3",
@@ -174,7 +178,8 @@
   },
   "resolutions": {
     "**/websocket-extensions": "^0.1.4",
-    "**/graphql-playground-middleware-express": "^1.7.18"
+    "**/graphql-playground-middleware-express": "^1.7.18",
+    "@emotion/core": "10.0.28"
   },
   "husky": {
     "hooks": {

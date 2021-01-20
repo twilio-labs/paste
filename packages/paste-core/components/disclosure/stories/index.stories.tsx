@@ -11,6 +11,7 @@ import {
   DisclosureHeadingProps,
   useDisclosureState,
   DisclosureStateReturn,
+  DisclosureInitialState,
 } from '../src';
 
 const headingVariantOptions = ['heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60'];
@@ -38,7 +39,10 @@ export const ExampleDisclosures: React.FC<{
   );
 };
 
-const useDelayedDisclosureState = ({delay, ...initialState}): DisclosureStateReturn => {
+interface UseDelayedDisclosureStateProps extends DisclosureInitialState {
+  delay: number;
+}
+const useDelayedDisclosureState = ({delay, ...initialState}: UseDelayedDisclosureStateProps): DisclosureStateReturn => {
   const disclosure = useDisclosureState(initialState);
   const [transitioning, setTransitioning] = React.useState(false);
   return {
@@ -59,6 +63,8 @@ export default {
   title: 'Components/Disclosure',
   decorators: [withKnobs],
   excludeStories: ['ExampleDisclosures'],
+  component: Disclosure,
+  subcomponents: {DisclosureHeading, DisclosureContent},
 };
 
 export const AllVariants = (): React.ReactNode => {

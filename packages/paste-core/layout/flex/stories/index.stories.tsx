@@ -15,6 +15,7 @@ const flexHorizontalAlignOptions = ['left', 'center', 'right', 'around', 'betwee
 export default {
   title: 'Layout/Flex',
   decorators: [withKnobs],
+  component: Flex,
 };
 
 export const FlexAlignmentOptions = (): React.ReactNode => {

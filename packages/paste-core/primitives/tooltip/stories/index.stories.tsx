@@ -6,6 +6,8 @@ import {useTooltipPrimitiveState, TooltipPrimitive, TooltipPrimitiveReference} f
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Primitives/Tooltip',
+  component: TooltipPrimitive,
+  subcomponents: {TooltipPrimitiveReference},
 };
 
 export const SimpleTooltip = (): React.ReactNode => {

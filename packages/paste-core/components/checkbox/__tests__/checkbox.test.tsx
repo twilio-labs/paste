@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {render} from 'react-dom';
 import {render as testRender, fireEvent} from '@testing-library/react';
+// @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Checkbox, CheckboxGroup} from '../src';
 
@@ -39,7 +40,7 @@ describe('Checkbox', () => {
         foo
       </Checkbox>
     );
-    expect(getByLabelText('foo').checked).toBeTruthy();
+    expect((getByLabelText('foo') as HTMLInputElement).checked).toBeTruthy();
   });
 
   it('should render as indeterminate', () => {
@@ -57,7 +58,7 @@ describe('Checkbox', () => {
         foo
       </Checkbox>
     );
-    expect(getByLabelText('foo').disabled).toBeTruthy();
+    expect((getByLabelText('foo') as HTMLInputElement).disabled).toBeTruthy();
   });
 
   it('should render an id', () => {
@@ -67,7 +68,7 @@ describe('Checkbox', () => {
 
   it('should render a name', () => {
     const {getByLabelText} = testRender(<Checkbox {...defaultProps}>foo</Checkbox>);
-    expect(getByLabelText('foo').name).toBe('foo');
+    expect((getByLabelText('foo') as HTMLInputElement).name).toBe('foo');
   });
 
   it('should render aria attributes', () => {
@@ -126,7 +127,7 @@ describe('Checkbox Group', () => {
         <Checkbox {...defaultProps}>foo</Checkbox>
       </CheckboxGroup>
     );
-    expect(getByRole('checkbox').name).toBe(defaultProps.name);
+    expect((getByRole('checkbox') as HTMLInputElement).name).toBe(defaultProps.name);
   });
 
   it('should render a disabled checkbox in the checkbox group', () => {
@@ -137,7 +138,7 @@ describe('Checkbox Group', () => {
         </Checkbox>
       </CheckboxGroup>
     );
-    expect(getByRole('checkbox').disabled).toBeTruthy();
+    expect((getByRole('checkbox') as HTMLInputElement).disabled).toBeTruthy();
   });
 
   it('renders a helpText message when helpText prop is present', () => {
@@ -210,7 +211,7 @@ describe('Checkbox event handlers', () => {
     const {getByTestId} = testRender(<MockCheckBox />);
 
     fireEvent.click(getByTestId('checkbox-button'));
-    expect(getByTestId('checkbox-button').checked).toBe(true);
+    expect((getByTestId('checkbox-button') as HTMLInputElement).checked).toBe(true);
   });
 });
 

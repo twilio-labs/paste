@@ -9,6 +9,7 @@ import {CustomizationProvider} from '../src';
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Theme/Customization',
+  component: CustomizationProvider,
 };
 
 const ExampleComponents: React.FC = () => (

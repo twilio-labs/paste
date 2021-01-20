@@ -84,6 +84,7 @@ const groupedItems = [
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Combobox',
+  component: Combobox,
 };
 
 export const DefaultCombobox = (): React.ReactNode => {
@@ -108,7 +109,7 @@ export const DefaultCombobox = (): React.ReactNode => {
           ) : null}
         </MediaObject>
       )}
-      itemToString={(item: IconItems) => (item ? String(item.label) : null)}
+      itemToString={(item: IconItems) => (item ? String(item.label) : '')}
     />
   );
 };
@@ -124,7 +125,7 @@ export const ComboboxInverse = (): React.ReactNode => {
         items={iconItems}
         labelText="Choose a component:"
         helpText="This is the help text"
-        optionTemplate={(item: IconItems) => (
+        optionTemplate={(item) => (
           <MediaObject verticalAlign="center">
             {item.iconLeft ? (
               <MediaFigure spacing="space20">
@@ -140,7 +141,7 @@ export const ComboboxInverse = (): React.ReactNode => {
             ) : null}
           </MediaObject>
         )}
-        itemToString={(item: IconItems) => (item ? String(item.label) : null)}
+        itemToString={(item: IconItems) => (item ? String(item.label) : '')}
         variant="inverse"
       />
     </Box>
@@ -366,7 +367,7 @@ export const ComboboxObject = (): React.ReactNode => {
           );
         }
       }}
-      itemToString={(item: ObjectItem) => (item ? item.label : null)}
+      itemToString={(item: ObjectItem) => (item ? item.label : '')}
     />
   );
 };
@@ -422,7 +423,7 @@ export const ComboboxControlled = (): React.ReactNode => {
             setValue(inputValue);
           }
         }}
-        itemToString={(item: ObjectItem) => (item ? item.label : null)}
+        itemToString={(item: ObjectItem) => (item ? item.label : '')}
         selectedItem={selectedItem}
         onSelectedItemChange={(changes) => {
           setSelectedItem(changes.selectedItem);
@@ -448,8 +449,9 @@ export const ComboboxControlledUsingState = (): React.ReactNode => {
   const [inputItems, setInputItems] = React.useState(objectItems);
   const {reset, ...state} = useCombobox({
     items: inputItems,
-    itemToString: (item) => (item ? item.label : null),
+    itemToString: (item) => (item ? item.label : ''),
     onSelectedItemChange: (changes) => {
+      // @ts-ignore
       setSelectedItem(changes.selectedItem);
     },
     onInputValueChange: ({inputValue}) => {
@@ -507,7 +509,7 @@ export const ComboboxOpen = (): React.ReactNode => {
       labelText="Choose a country:"
       initialIsOpen
       optionTemplate={(item: ObjectItem) => <div>{item.label}</div>}
-      itemToString={(item: ObjectItem) => (item ? item.label : null)}
+      itemToString={(item: ObjectItem) => (item ? item.label : '')}
     />
   );
 };
@@ -524,7 +526,7 @@ export const ComboboxOptionGroups = (): React.ReactNode => {
       labelText="Choose a component:"
       helpText="This is group"
       optionTemplate={(item: GroupedItem) => <div>{item.label}</div>}
-      itemToString={(item: GroupedItem) => (item ? item.label : null)}
+      itemToString={(item: GroupedItem) => (item ? item.label : '')}
     />
   );
 };
@@ -555,7 +557,7 @@ export const ComboboxOptionGroupsOpen = (): React.ReactNode => {
         }
         return groupName;
       }}
-      itemToString={(item: GroupedItem) => (item ? item.label : null)}
+      itemToString={(item: GroupedItem) => (item ? item.label : '')}
     />
   );
 };
@@ -581,7 +583,7 @@ export const ComboboxOptionGroupsTypeahead = (): React.ReactNode => {
           );
         }
       }}
-      itemToString={(item: GroupedItem) => (item ? item.label : null)}
+      itemToString={(item: GroupedItem) => (item ? item.label : '')}
     />
   );
 };
@@ -616,7 +618,7 @@ export const ComboboxListboxZIndex = (): React.ReactNode => {
               ) : null}
             </MediaObject>
           )}
-          itemToString={(item: IconItems) => (item ? String(item.label) : null)}
+          itemToString={(item: IconItems) => (item ? String(item.label) : '')}
           initialIsOpen
         />
       </Box>

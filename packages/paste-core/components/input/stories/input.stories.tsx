@@ -17,6 +17,7 @@ const helpVariantOptions = ['default', 'error'];
 export default {
   title: 'Components/Input',
   decorators: [withKnobs],
+  component: Input,
 };
 
 export const InputOptions = (): React.ReactNode => {

@@ -24,6 +24,7 @@ const demoString = `I'm some text in a box`;
 export default {
   title: 'Primitives/Box',
   decorators: [withKnobs],
+  component: Box,
 };
 
 export const Default = (): React.ReactNode => {

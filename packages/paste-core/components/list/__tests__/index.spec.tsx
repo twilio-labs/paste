@@ -3,6 +3,7 @@ import {render} from 'react-dom';
 import renderer from 'react-test-renderer';
 import {ReactWrapper, mount} from 'enzyme';
 import {Theme} from '@twilio-paste/theme';
+// @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {OrderedList, UnorderedList, ListItem} from '../src';
 
@@ -37,6 +38,7 @@ describe('Ordered List', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
+          {/* @ts-expect-error */}
           <OrderedList margin="space40">Children</OrderedList>
         </Theme.Provider>
       )
@@ -143,6 +145,7 @@ describe('ListItem', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
+          {/* @ts-expect-error */}
           <ListItem padding="textColorSuccess">Children</ListItem>
         </Theme.Provider>
       )

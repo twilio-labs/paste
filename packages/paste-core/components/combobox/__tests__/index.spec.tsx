@@ -1,9 +1,10 @@
 import * as React from 'react';
-import _ from 'lodash';
+import * as _ from 'lodash';
 import {render, screen, fireEvent} from '@testing-library/react';
 import {Button} from '@twilio-paste/button';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {Box} from '@twilio-paste/box';
+// @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {useCombobox, Combobox} from '../src';
 import {ComboboxProps} from '../src/types';
@@ -90,15 +91,17 @@ const ControlledCombobox: React.FC = () => {
   const [inputItems, setInputItems] = React.useState(objectItems);
   const {reset, ...state} = useCombobox({
     items: inputItems,
-    itemToString: (item) => (item ? item.label : null),
+    itemToString: (item) => (item ? item.label : ''),
     onSelectedItemChange: (changes) => {
+      // @ts-ignore
       setSelectedItem(changes.selectedItem);
     },
     onInputValueChange: ({inputValue}) => {
       if (inputValue !== undefined) {
-        setInputItems(
-          _.filter(objectItems, (item: any) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
-        );
+        const newInputItems = _.filter(objectItems, (item: any) =>
+          item.label.toLowerCase().startsWith(inputValue.toLowerCase())
+        ) as [];
+        setInputItems(newInputItems);
         setValue(inputValue);
       }
     },
@@ -170,14 +173,14 @@ describe('Combobox', () => {
       render(<ComboboxMock />);
       const renderedCombobox = screen.getByRole('textbox');
       expect(renderedCombobox.getAttribute('aria-controls')).toEqual(screen.getByRole('listbox').id);
-      expect(renderedCombobox.getAttribute('aria-labelledby')).toEqual(document.querySelector('label').id);
+      expect(renderedCombobox.getAttribute('aria-labelledby')).toEqual(document.querySelector('label')!.id);
       expect(renderedCombobox.getAttribute('aria-describedby')).not.toEqual('');
     });
 
     it('should render a list with aria attributes', () => {
       render(<ComboboxMock />);
       const renderedCombobox = screen.getByRole('listbox');
-      expect(renderedCombobox.getAttribute('aria-labelledby')).toEqual(document.querySelector('label').id);
+      expect(renderedCombobox.getAttribute('aria-labelledby')).toEqual(document.querySelector('label')!.id);
     });
 
     it('should render a list with unique option ids', () => {
@@ -192,7 +195,7 @@ describe('Combobox', () => {
       render(<ComboboxMock />);
       const renderedLabel = document.querySelector('label');
       const renderedTextbox = screen.getByRole('textbox');
-      expect(renderedLabel.getAttribute('for')).toEqual(renderedTextbox.getAttribute('id'));
+      expect(renderedLabel!.getAttribute('for')).toEqual(renderedTextbox.getAttribute('id'));
     });
   });
 
@@ -230,13 +233,13 @@ describe('Combobox', () => {
     it('should render a custom group label', () => {
       render(<GroupedMockCombobox groupLabelTemplate={(groupName) => <span>hi {groupName}</span>} />);
       const renderedGroups = screen.getAllByRole('group');
-      expect(renderedGroups[0].querySelector('[role="group"] > div[role="presentation"]').textContent).toEqual(
+      expect(renderedGroups[0].querySelector('[role="group"] > div[role="presentation"]')!.textContent).toEqual(
         'hi Components'
       );
-      expect(renderedGroups[1].querySelector('[role="group"] > div[role="presentation"]').textContent).toEqual(
+      expect(renderedGroups[1].querySelector('[role="group"] > div[role="presentation"]')!.textContent).toEqual(
         'hi Primitives'
       );
-      expect(renderedGroups[2].querySelector('[role="group"] > div[role="presentation"]').textContent).toEqual(
+      expect(renderedGroups[2].querySelector('[role="group"] > div[role="presentation"]')!.textContent).toEqual(
         'hi Layout'
       );
     });

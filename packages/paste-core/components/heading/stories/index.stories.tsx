@@ -8,12 +8,14 @@ const headingVariantOptions = ['heading10', 'heading20', 'heading30', 'heading40
 export default {
   title: 'Components/Heading',
   decorators: [withKnobs],
+  component: Heading,
 };
 
 export const AllVariants = (): React.ReactNode => {
   const asOptions = text('as', 'h2') as asTags;
   const headingVariantValue = select('variant', headingVariantOptions, 'heading20') as HeadingVariants;
-  const marginBottomValue = select('marginBottom', [null, 'space0'], null);
+  // eslint-disable-next-line unicorn/no-useless-undefined
+  const marginBottomValue = select('marginBottom', [undefined, 'space0'], undefined);
   return (
     <Heading as={asOptions} marginBottom={marginBottomValue} variant={headingVariantValue}>
       I am a Very Large Heading

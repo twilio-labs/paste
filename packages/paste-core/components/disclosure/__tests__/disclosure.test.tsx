@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {render, screen, fireEvent} from '@testing-library/react';
+// @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {
   Disclosure,

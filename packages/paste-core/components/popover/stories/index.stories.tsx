@@ -6,6 +6,8 @@ import {Popover, PopoverContainer, PopoverButton} from '../src';
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Popover',
+  component: Popover,
+  subcomponents: {PopoverContainer, PopoverButton},
 };
 
 export const Default = (): React.ReactNode => {

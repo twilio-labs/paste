@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
+// @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {HorizontalTabsExample, VerticalTabsExample, StateHookExample} from '../stories/index.stories';
 import {Tabs, Tab, TabList, TabPanels, TabPanel} from '../src';
@@ -68,12 +69,14 @@ describe('Tabs', () => {
       expect(TabThree.getAttribute('tabindex')).toBe('-1');
 
       let activePanel = screen.queryByRole('tabpanel');
+      if (activePanel === null) return false;
       expect(activePanel.getAttribute('aria-labelledby')).toBe(tabOneId);
       expect(activePanel.getAttribute('id')).toBe(panelOneId);
       expect(activePanel.getAttribute('tabindex')).toBe('0');
 
       TabTwo.click();
       activePanel = screen.queryByRole('tabpanel');
+      if (activePanel === null) return false;
       expect(activePanel.getAttribute('aria-labelledby')).toBe(tabTwoId);
       expect(activePanel.getAttribute('id')).toBe(panelTwoId);
       expect(activePanel.getAttribute('tabindex')).toBe('0');
@@ -85,12 +88,14 @@ describe('Tabs', () => {
       const [ButtonOne] = screen.queryAllByRole('button');
 
       let activePanel = screen.queryByRole('tabpanel');
+      if (activePanel === null) return false;
       expect(activePanel.getAttribute('aria-labelledby')).toBe('state-hook-tab-example-1');
       expect(activePanel.getAttribute('id')).toBe('state-hook-tab-example-3');
       expect(activePanel.getAttribute('tabindex')).toBe('0');
 
       ButtonOne.click();
       activePanel = screen.queryByRole('tabpanel');
+      if (activePanel === null) return false;
       expect(activePanel.getAttribute('aria-labelledby')).toBe('state-hook-tab-example-2');
       expect(activePanel.getAttribute('id')).toBe('state-hook-tab-example-4');
       expect(activePanel.getAttribute('tabindex')).toBe('0');

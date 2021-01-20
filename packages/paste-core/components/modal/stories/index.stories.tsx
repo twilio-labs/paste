@@ -52,6 +52,8 @@ const ModalTrigger: React.FC<ModalTriggerProps> = ({size}) => {
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Modal',
+  component: Modal,
+  subcomponents: {ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading},
 };
 
 export const Default = (): React.ReactNode => {
@@ -553,7 +555,7 @@ export const PopoverInModal = (): React.ReactNode => {
   const [isOpen, setIsOpen] = React.useState(true);
   const handleOpen = (): void => setIsOpen(true);
   const handleClose = (): void => setIsOpen(false);
-  const nameInputRef: React.RefObject<HTMLInputElement> = React.createRef();
+  const nameButtonRef: React.RefObject<HTMLButtonElement> = React.createRef();
   const modalHeadingID = useUID();
   return (
     <div>
@@ -565,7 +567,7 @@ export const PopoverInModal = (): React.ReactNode => {
         isOpen={isOpen}
         onDismiss={handleClose}
         size="default"
-        initialFocusRef={nameInputRef}
+        initialFocusRef={nameButtonRef}
       >
         <ModalHeader>
           <ModalHeading as="h3" id={modalHeadingID}>
@@ -575,7 +577,7 @@ export const PopoverInModal = (): React.ReactNode => {
         <ModalBody>
           <Paragraph>Look at the modal work with a popover.</Paragraph>
           <PopoverContainer visible>
-            <PopoverButton variant="primary" ref={nameInputRef}>
+            <PopoverButton variant="primary" ref={nameButtonRef}>
               Open popover
             </PopoverButton>
             <Popover aria-label="Popover">

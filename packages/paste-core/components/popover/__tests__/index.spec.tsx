@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {act, render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
+// @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Popover, PopoverContainer, PopoverButton} from '../src';
 

@@ -13,6 +13,7 @@ const spaceOptions = Object.keys(DefaultTheme.space);
 export default {
   title: 'Layout/Stack',
   decorators: [withKnobs],
+  component: Stack,
 };
 
 export const DefaultStack = (): React.ReactNode => {
