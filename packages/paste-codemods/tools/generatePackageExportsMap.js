@@ -30,6 +30,7 @@ async function generatePackageExportsMap(getPackages = getRepoPackages) {
       packageExports = require(name);
     } catch (err) {
       console.log(`Failed to dynamically require package: ${name}`, err);
+      throw err;
     }
 
     // Now we create a mapping for every export to the core-bundle unbarreled package
