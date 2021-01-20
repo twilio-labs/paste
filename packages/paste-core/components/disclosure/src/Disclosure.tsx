@@ -21,6 +21,8 @@ export interface DisclosureStateReturn extends DisclosurePrimitveStateReturn {
   [key: string]: any;
 }
 
+export type {DisclosurePrimitiveInitialState as DisclosureInitialState};
+
 export interface DisclosureProps extends DisclosurePrimitiveInitialState {
   children: NonNullable<React.ReactNode>;
   state?: DisclosureStateReturn;
