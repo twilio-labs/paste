@@ -1,5 +1,6 @@
 const {getRepoPackages} = require('../../../tools/utils/getRepoPackages');
 
+// We don't want to use the 'form' or 'typography' packages because they are deprecated
 const DEPRECATED_PACKAGES = ['@twilio-paste/typography', '@twilio-paste/form'];
 
 async function generatePackageExportsMap(getPackages = getRepoPackages) {
@@ -9,24 +10,30 @@ async function generatePackageExportsMap(getPackages = getRepoPackages) {
   // Get all Paste packages
   const allPastePackages = await getPackages();
 
-  // For each package in Paste:
-  allPastePackages.forEach(({name, location}) => {
-    // We don't want to use the 'form' or 'typography' packages because they are deprecated
-    // Skip them for now
-    if (DEPRECATED_PACKAGES.includes(name)) return;
+  // Remove irrelevant packages
+  const filteredPastePackages = allPastePackages.filter((pkg) => {
+    if (pkg.private) return false;
+    if (DEPRECATED_PACKAGES.includes(pkg.name)) return false;
+    // Only include Paste core packages (except core-bundle!)
+    if (!pkg.location.includes('/paste-core/') || pkg.location.includes('/paste-core/core-bundle')) return false;
+    return true;
+  });
 
-    // Only include core packages but not the core-bundle package
-    if (!location.includes('/paste-core/') || location.includes('/paste-core/core-bundle')) return;
-
+  filteredPastePackages.forEach(({name}) => {
     // convert package name to core name
     const corePackageName = `@twilio-paste/core/${name.split('/')[1]}`;
 
     // Get the package's exported values to be mapped
-    // eslint-disable-next-line global-require, import/no-dynamic-require
-    const packageExports = require(name);
+    let packageExports = {};
+    try {
+      // eslint-disable-next-line global-require, import/no-dynamic-require
+      packageExports = require(name);
+    } catch (err) {
+      console.log(`Failed to dynamically require package: ${name}`, err);
+    }
 
     // Now we create a mapping for every export to the core-bundle unbarreled package
-    Object.keys(packageExports).forEach(packageExportName => {
+    Object.keys(packageExports).forEach((packageExportName) => {
       mapping[packageExportName] = corePackageName;
     });
   });
