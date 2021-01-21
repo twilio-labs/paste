@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/tooltip@0.3.35...@twilio-paste/tooltip@0.4.0) (2021-01-21)
+
+
+### Features
+
+* ESBuild for builds ([#1084](https://github.com/twilio-labs/paste/issues/1084)) ([0536460](https://github.com/twilio-labs/paste/commit/053646011508be10477d5b732269cdb0419235d7))
+
+
+
+
+
 ## [0.3.35](https://github.com/twilio-labs/paste/compare/@twilio-paste/tooltip@0.3.34...@twilio-paste/tooltip@0.3.35) (2021-01-15)
 
 **Note:** Version bump only for package @twilio-paste/tooltip

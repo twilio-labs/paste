@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/tabs-primitive",
-  "version": "0.1.14",
+  "version": "0.2.0",
   "category": "interaction",
   "status": "production",
   "description": "An unstyled and accessible basis upon which to style a tabset.",
@@ -25,12 +25,12 @@
     "tsc": "tsc"
   },
   "peerDependencies": {
-    "@twilio-paste/reakit-library": "^0.7.6",
+    "@twilio-paste/reakit-library": "^0.8.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/reakit-library": "^0.7.6",
+    "@twilio-paste/reakit-library": "^0.8.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.4.7...@twilio-paste/flex@0.5.0) (2021-01-21)
+
+
+### Features
+
+* ESBuild for builds ([#1084](https://github.com/twilio-labs/paste/issues/1084)) ([0536460](https://github.com/twilio-labs/paste/commit/053646011508be10477d5b732269cdb0419235d7))
+
+
+
+
+
 ## [0.4.7](https://github.com/twilio-labs/paste/compare/@twilio-paste/flex@0.4.6...@twilio-paste/flex@0.4.7) (2021-01-15)
 
 **Note:** Version bump only for package @twilio-paste/flex

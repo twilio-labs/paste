@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.8.16...@twilio-paste/style-props@1.9.0) (2021-01-21)
+
+
+### Features
+
+* ESBuild for builds ([#1084](https://github.com/twilio-labs/paste/issues/1084)) ([0536460](https://github.com/twilio-labs/paste/commit/053646011508be10477d5b732269cdb0419235d7))
+
+
+
+
+
 ## [1.8.16](https://github.com/twilio-labs/paste/compare/@twilio-paste/style-props@1.8.15...@twilio-paste/style-props@1.8.16) (2021-01-15)
 
 **Note:** Version bump only for package @twilio-paste/style-props

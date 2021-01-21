@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/sibling-box@1.1.19...@twilio-paste/sibling-box@1.2.0) (2021-01-21)
+
+
+### Features
+
+* ESBuild for builds ([#1084](https://github.com/twilio-labs/paste/issues/1084)) ([0536460](https://github.com/twilio-labs/paste/commit/053646011508be10477d5b732269cdb0419235d7))
+
+
+
+
+
 ## [1.1.19](https://github.com/twilio-labs/paste/compare/@twilio-paste/sibling-box@1.1.18...@twilio-paste/sibling-box@1.1.19) (2021-01-15)
 
 **Note:** Version bump only for package @twilio-paste/sibling-box

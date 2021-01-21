@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/disclosure-primitive",
-  "version": "0.2.8",
+  "version": "0.3.0",
   "category": "interaction",
   "status": "beta",
   "description": "An unstyled and accessible basis upon which to build a disclosure.",
@@ -25,13 +25,13 @@
     "tsc": "tsc"
   },
   "peerDependencies": {
-    "@twilio-paste/reakit-library": "^0.7.6",
+    "@twilio-paste/reakit-library": "^0.8.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/reakit-library": "^0.7.6",
+    "@twilio-paste/reakit-library": "^0.8.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"

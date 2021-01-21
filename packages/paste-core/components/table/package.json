@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/table",
-  "version": "0.1.18",
+  "version": "0.2.0",
   "category": "data display",
   "status": "beta",
   "description": "Tables are used to display information that is meant to be compared across columns and rows.",
@@ -25,23 +25,23 @@
     "tsc": "tsc"
   },
   "peerDependencies": {
-    "@twilio-paste/box": "^2.12.3",
-    "@twilio-paste/design-tokens": "^6.4.1",
-    "@twilio-paste/style-props": "^1.8.16",
-    "@twilio-paste/styling-library": "^0.2.2",
-    "@twilio-paste/theme": "^4.1.2",
-    "@twilio-paste/types": "^3.0.31",
+    "@twilio-paste/box": "^2.13.0",
+    "@twilio-paste/design-tokens": "^6.5.0",
+    "@twilio-paste/style-props": "^1.9.0",
+    "@twilio-paste/styling-library": "^0.3.0",
+    "@twilio-paste/theme": "^4.2.0",
+    "@twilio-paste/types": "^3.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^2.12.3",
-    "@twilio-paste/design-tokens": "^6.4.1",
-    "@twilio-paste/style-props": "^1.8.16",
-    "@twilio-paste/styling-library": "^0.2.2",
-    "@twilio-paste/theme": "^4.1.2",
-    "@twilio-paste/types": "^3.0.31",
+    "@twilio-paste/box": "^2.13.0",
+    "@twilio-paste/design-tokens": "^6.5.0",
+    "@twilio-paste/style-props": "^1.9.0",
+    "@twilio-paste/styling-library": "^0.3.0",
+    "@twilio-paste/theme": "^4.2.0",
+    "@twilio-paste/types": "^3.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
