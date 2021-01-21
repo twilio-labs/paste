@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {ValueOf} from '@twilio-paste/types';
+import type {ValueOf} from '@twilio-paste/types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {Button} from '@twilio-paste/button';
@@ -8,6 +8,8 @@ import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 import {NeutralIcon} from '@twilio-paste/icons/esm/NeutralIcon';
 import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
+
+type AlertVariantKeys = 'ERROR' | 'NEUTRAL' | 'WARNING';
 
 export const AlertRoles = {
   ERROR: 'alert',
@@ -64,8 +66,8 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(({children, onDismiss
   return (
     <Box
       {...safelySpreadBoxProps(props)}
-      backgroundColor={AlertBackgroundColors[variant.toUpperCase()]}
-      borderColor={AlertBorderColors[variant.toUpperCase()]}
+      backgroundColor={AlertBackgroundColors[variant.toUpperCase() as AlertVariantKeys]}
+      borderColor={AlertBorderColors[variant.toUpperCase() as AlertVariantKeys]}
       borderBottomWidth="borderWidth20"
       borderBottomStyle="solid"
       paddingLeft="space60"
@@ -73,7 +75,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(({children, onDismiss
       paddingTop="space50"
       paddingBottom="space50"
       ref={ref}
-      role={role != null ? role : AlertRoles[variant.toUpperCase()]}
+      role={role != null ? role : AlertRoles[variant.toUpperCase() as AlertVariantKeys]}
     >
       <MediaObject as="div">
         <MediaFigure as="div" spacing="space30">
@@ -98,7 +100,7 @@ if (process.env.NODE_ENV === 'development') {
     children: PropTypes.node.isRequired,
     onDismiss: PropTypes.func,
     role: PropTypes.string,
-    variant: PropTypes.oneOf(Object.keys(AlertVariants).map((variant) => AlertVariants[variant])).isRequired,
+    variant: PropTypes.oneOf(Object.values(AlertVariants)).isRequired,
   };
 }
 export {Alert};

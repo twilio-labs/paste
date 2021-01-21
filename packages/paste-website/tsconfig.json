@@ -3,7 +3,20 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "esnext",
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "lib": ["es2017", "DOM"],
+    "experimentalDecorators": true,
+    "incremental": true,
+    "noResolve": false,
+    "noEmitOnError": false,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "dist/",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "isolatedModules": true
   },
   "include": ["../../package.json", "./src/**/*", "./types/**/*", "./static/**/*"],
   "exclude": ["node_modules", "public", ".cache"]

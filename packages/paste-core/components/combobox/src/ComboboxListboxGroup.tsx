@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
-import {ComboboxProps} from './types';
+import type {ComboboxProps} from './types';
 
 export interface ComboboxListboxGroupProps extends Pick<ComboboxProps, 'groupLabelTemplate'> {
   children: NonNullable<React.ReactNode>;

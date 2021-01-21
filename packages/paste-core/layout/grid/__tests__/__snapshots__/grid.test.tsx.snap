@@ -25,9 +25,6 @@ exports[`Grid render should render a Grid 1`] = `
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   margin-right: auto;
   margin-left: auto;
@@ -53,9 +50,6 @@ exports[`Grid render should render a Grid as any HTML element 1`] = `
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   margin-right: auto;
   margin-left: auto;
@@ -81,9 +75,6 @@ exports[`Grid render should render responsive css 1`] = `
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   margin-right: spaceNegative10;
   margin-left: spaceNegative10;

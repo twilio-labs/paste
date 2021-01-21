@@ -14,7 +14,7 @@ import {
   zIndices as ZIndices,
 } from '@twilio-paste/design-tokens';
 
-import {GenericThemeShape} from './types/GenericThemeShape';
+import type {GenericThemeShape} from './types/GenericThemeShape';
 
 export const generateThemeFromTokens = (
   backgroundColors: Partial<{[key in keyof typeof BackgroundColors]: any}>,

@@ -2,15 +2,15 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Spinner} from '@twilio-paste/spinner';
-import {
+import type {
   ButtonProps,
   ButtonSizes,
   ButtonContentsProps,
-  ButtonVariants,
   DirectButtonProps,
+  ButtonVariants,
   ButtonStates,
-  ButtonPropTypes,
 } from './types';
+import {ButtonPropTypes} from './proptypes';
 import {PrimaryButton} from './PrimaryButton';
 import {SecondaryButton} from './SecondaryButton';
 import {DestructiveButton} from './DestructiveButton';
@@ -191,5 +191,5 @@ if (process.env.NODE_ENV === 'development') {
 
 Button.displayName = 'Button';
 
-export {ButtonProps};
+export type {ButtonProps};
 export {Button};

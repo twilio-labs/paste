@@ -1,4 +1,4 @@
-import {Item as ItemType} from './types';
+import type {Item as ItemType} from './types';
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
 const groupBy = require('lodash.groupby');
@@ -15,5 +15,5 @@ export const getGroupedItems = (items: ItemType[], groupItemsBy: string | undefi
     return null;
   }
 
-  return groupBy(items, (item: ItemType) => item[groupItemsBy]);
+  return groupBy(items, (item: ItemType) => (typeof item === 'string' ? 'Uncategorized' : item[groupItemsBy]));
 };

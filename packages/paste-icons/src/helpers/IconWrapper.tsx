@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {Box, BoxElementProps, BoxStyleProps, safelySpreadBoxProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxElementProps, BoxStyleProps} from '@twilio-paste/box';
 
 export interface IconWrapperProps extends BoxElementProps, Pick<BoxStyleProps, 'display' | 'size' | 'color'> {}
 

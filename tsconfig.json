@@ -1,55 +1,10 @@
 {
   "compilerOptions": {
-    // Always include these settings
-    "composite": true,
-    "declaration": true,
-    "jsx": "react",
-    "moduleResolution": "node",
-
-    // These settings are optional
-    "declarationMap": true,
-    "sourceMap": true,
-
-    // https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping
-    "baseUrl": ".",
-
-    /* 
-    The lib is a special declaration file included by TS. It contains ambient declarations for 
-    common JS constructs that are present in runtimes and the DOM. Based on the target, TS 
-    automatically includes typings for the dom and the ES5 syntax. That’s why we need to 
-    specify ourselves we want typings for es2015 and the dom.  This way we have all the es6 
-    typings while targeting es5.
-    */
-    "lib": ["es2015", "dom", "scripthost", "es2015.promise"],
-
-    // Extra
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "allowSyntheticDefaultImports": false,
-    "newLine": "lf",
-    "noErrorTruncation": true,
-    "noLib": false,
-    // Process & infer types from .js files.
-    "allowJs": false,
-    "checkJs": false,
-    // Enable strictest settings like strictNullChecks & noImplicitAny.
-    "strict": true,
-    "removeComments": true,
-    // Import non-ES modules as default imports.
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
     // Not sure why, but this is needed for typeRoots to work correctly
     // Source: https://github.com/microsoft/TypeScript/issues/22217#issuecomment-369783776
     "paths": {
       "*": ["./@types/*"]
     },
     "typeRoots": ["./@types", "node_modules/@types"]
-  },
-  "exclude": ["node_modules", "docs", "dist", "__testfixtures__"]
+  }
 }

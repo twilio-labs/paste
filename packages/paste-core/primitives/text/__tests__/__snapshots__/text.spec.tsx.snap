@@ -785,9 +785,8 @@ exports[`margin should set a margin property 1`] = `
 }
 
 .emotion-0 {
-  margin: 0;
-  padding: 0;
   margin: 0.125rem;
+  padding: 0;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -817,9 +816,8 @@ exports[`margin should set a responsive margin property 1`] = `
 }
 
 .emotion-0 {
-  margin: 0;
-  padding: 0;
   margin: 0.25rem;
+  padding: 0;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1136,7 +1134,6 @@ exports[`padding should set a padding property 1`] = `
 
 .emotion-0 {
   margin: 0;
-  padding: 0;
   padding: 0.125rem;
   color: rgb(40,42,43);
   font-size: 0.875rem;
@@ -1168,7 +1165,6 @@ exports[`padding should set a responsive padding property 1`] = `
 
 .emotion-0 {
   margin: 0;
-  padding: 0;
   padding: 0.25rem;
   color: rgb(40,42,43);
   font-size: 0.875rem;

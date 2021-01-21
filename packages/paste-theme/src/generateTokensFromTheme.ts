@@ -1,5 +1,5 @@
-import {GenericThemeShape} from './types/GenericThemeShape';
-import {GenericTokenShape} from './types/GenericTokenShape';
+import type {GenericThemeShape} from './types/GenericThemeShape';
+import type {GenericTokenShape} from './types/GenericTokenShape';
 
 export const generateTokensFromTheme = (
   backgroundColors: GenericThemeShape['backgroundColors'],

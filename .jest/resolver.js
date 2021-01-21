@@ -46,7 +46,7 @@ const keyedPackages = cachedPackages.reduce((acc, currentPackage) => {
 
 // Given "@twilio-paste/design-tokens/dist/themes/index.js"
 // Returns ["@twilio-paste", "design-tokens", "dist/themes.index.js"]
-const getPackageParts = package => {
+const getPackageParts = (package) => {
   const [packageScope, packageName, ...packagePath] = package.split('/');
   return [packageScope, packageName, packagePath.join('/')];
 };

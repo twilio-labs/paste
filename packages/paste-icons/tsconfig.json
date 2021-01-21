@@ -1,4 +1,29 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["src/**/*"]
+  "compilerOptions": {
+    "target": "es6",
+    "jsx": "react",
+    "lib": ["es2017", "DOM"],
+    "module": "commonjs",
+    "emitDeclarationOnly": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "incremental": true,
+    "noResolve": false,
+    "noEmitOnError": false,
+    "noImplicitAny": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./types",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "isolatedModules": true
+  },
+  "include": [
+    "src/**/*",
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -74,6 +74,7 @@ packages/paste-website/public
 packages/**/docs
 **/paste-icons/cjs/*
 **/paste-icons/esm/*
+**/paste-icons/types/*
 *.tsbuildinfo
 package-lock.json
 tools/.cache/packages.json

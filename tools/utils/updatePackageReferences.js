@@ -4,20 +4,22 @@
  */
 const chalk = require('chalk');
 const lodash = require('lodash');
+const {existsSync} = require('fs');
 const {resolve, relative} = require('path');
 const {getRepoPackages} = require('./getRepoPackages');
 const {sortObjectByKey} = require('./sortObjectByKey');
 const {writeToFile} = require('./writeToFile');
 
-const isPasteDependency = packageName => packageName.includes('@twilio-paste/');
-const getPasteDependencyList = dependencyObject => Object.keys(dependencyObject).filter(isPasteDependency);
+const isPasteDependency = (packageName) => packageName.includes('@twilio-paste/');
+const getPasteDependencyList = (dependencyObject) => Object.keys(dependencyObject).filter(isPasteDependency);
 
 async function updateTsconfigFile(path, referencesList = [], packagesList) {
   const TSCONFIG_FILE_PATH = resolve(path, 'tsconfig.build.json');
+  if (!existsSync(TSCONFIG_FILE_PATH)) return;
   // eslint-disable-next-line import/no-dynamic-require, global-require
   const tsconfigData = require(TSCONFIG_FILE_PATH);
 
-  const references = referencesList.map(referenceName => {
+  const references = referencesList.map((referenceName) => {
     const dep = packagesList.find(({name}) => name === referenceName);
     if (dep == null) return null;
     return {path: relative(path, dep.location)};
@@ -51,7 +53,7 @@ async function updatePackageDevDependencies(packageJsonPath, pastePeerDeps = [],
 
   // Move all packages from 'difference' into devDeps.
   const newDevDeps = packageJson.devDependencies || {};
-  missingDevDeps.forEach(dep => {
+  missingDevDeps.forEach((dep) => {
     newDevDeps[dep] = packageJson.peerDependencies[dep];
   });
 
@@ -69,7 +71,7 @@ async function updatePackageDevDependencies(packageJsonPath, pastePeerDeps = [],
 async function updatePackageReferences() {
   const packagesList = await getRepoPackages();
 
-  packagesList.forEach(async package => {
+  packagesList.forEach(async (package) => {
     const PACKAGE_JSON_PATH = resolve(package.location, 'package.json');
     // eslint-disable-next-line import/no-dynamic-require, global-require
     const packageJsonData = require(PACKAGE_JSON_PATH);

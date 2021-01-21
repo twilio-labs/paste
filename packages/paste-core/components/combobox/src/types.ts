@@ -1,9 +1,9 @@
-import {
+import type {
   UseComboboxPrimitiveProps,
   UseComboboxPrimitiveState,
   UseComboboxPrimitiveReturnValue,
 } from '@twilio-paste/combobox-primitive';
-import {InputVariants, InputProps} from '@twilio-paste/input';
+import type {InputVariants, InputProps} from '@twilio-paste/input';
 
 export type Item = string | {[key: string]: any};
 

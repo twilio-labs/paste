@@ -1,7 +1,7 @@
 // Very lightly TS Version of https://github.com/styled-system/styled-system/blob/685be747c51862b4c574bc18b03a6715c6c7ee6e/packages/css/src/index.js
 // not typed correctly in the slightest
 
-import {CSSObject} from '@styled-system/css';
+import type {CSSObject} from '@styled-system/css';
 
 interface GetFunc {
   (object: unknown, key: string | number, fallback?: unknown): any;
@@ -42,7 +42,7 @@ const aliases = {
   py: 'paddingY',
 };
 
-const multiples = {
+const multiples: {[key: string]: string[]} = {
   marginX: ['marginLeft', 'marginRight'],
   marginY: ['marginTop', 'marginBottom'],
   paddingX: ['paddingLeft', 'paddingRight'],
@@ -156,8 +156,8 @@ const transforms = [
   {}
 );
 
-export const responsive = (styles: JSON) => (theme: JSON) => {
-  const next = {};
+export const responsive = (styles: {[key: string]: any}) => (theme: JSON) => {
+  const next: {[key: string]: any} = {};
   const breakpoints = (get(theme, 'breakpoints', defaultBreakpoints) as unknown) as [];
   const mediaQueries = [null, ...breakpoints.map((n) => `@media screen and (min-width: ${n})`)];
 
@@ -192,7 +192,7 @@ export const responsive = (styles: JSON) => (theme: JSON) => {
 export const css = (args: any) => (props = {}): CSSObject => {
   // @ts-ignore
   const theme = {...defaultTheme, ...(props.theme || props)};
-  let result = {};
+  let result: {[key: string]: any} = {};
   const obj = typeof args === 'function' ? args(theme) : args;
   const styles = responsive(obj)(theme);
 

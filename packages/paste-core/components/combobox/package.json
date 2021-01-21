@@ -18,12 +18,14 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn clean && yarn compile",
-    "build:dev": "yarn clean && yarn compile:dev",
+    "build": "yarn clean && NODE_ENV=production node build.js && tsc",
+    "build:js": "NODE_ENV=development node build.js",
     "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
-    "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
-    "compile": "rollup -c --environment NODE_ENV:production",
-    "compile:dev": "rollup -c --environment NODE_ENV:development"
+    "clean": "rm -rf ./dist",
+    "tsc": "tsc"
+  },
+  "dependencies": {
+    "lodash.groupby": "^4.6.0"
   },
   "peerDependencies": {
     "@twilio-paste/box": "^2.12.3",
@@ -72,8 +74,5 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
-  },
-  "dependencies": {
-    "lodash.groupby": "^4.6.0"
   }
 }

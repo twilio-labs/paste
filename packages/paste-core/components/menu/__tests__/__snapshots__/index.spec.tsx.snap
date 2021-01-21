@@ -59,9 +59,6 @@ exports[`Menu Render should render 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-text-decoration: inherit;
   text-decoration: inherit;
@@ -155,9 +152,6 @@ exports[`Menu Render should render 1`] = `
 
 .emotion-3 {
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-text-decoration: inherit;
   text-decoration: inherit;
@@ -267,9 +261,6 @@ exports[`Menu Render should render 1`] = `
 
 .emotion-14 {
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-align-items: center;
   -webkit-box-align: center;

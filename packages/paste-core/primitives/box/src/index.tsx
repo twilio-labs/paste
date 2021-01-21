@@ -178,13 +178,15 @@ const extraConfig = system({
 });
 
 const getPseudoStyles = (props: BoxProps): unknown => {
-  const pseudoProps = Object.keys(props).filter((propName) => propName.startsWith('_'));
+  const pseudoProps = Object.keys(props).filter((propName) => propName.startsWith('_')) as Array<
+    keyof typeof PseudoPropStyles
+  >;
 
   if (pseudoProps.length === 0) {
     return {};
   }
 
-  const pseudoStyles = {};
+  const pseudoStyles: {[key: string]: any} = {};
   pseudoProps.forEach((pseudoProp) => {
     if (PseudoPropStyles[pseudoProp] != null) {
       pseudoStyles[PseudoPropStyles[pseudoProp]] = props[pseudoProp];

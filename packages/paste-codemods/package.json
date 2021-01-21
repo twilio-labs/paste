@@ -10,8 +10,7 @@
   },
   "bin": "./bin/paste-codemod.js",
   "scripts": {
-    "build": "node ./tools/create-package-mappings.js",
-    "test": "jest"
+    "build": "node ./tools/create-package-mappings.js"
   },
   "dependencies": {
     "chalk": "^2.4.2",

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
+import {act, render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import axe from '../../../../../.jest/axe-helper';
 import {Popover, PopoverContainer, PopoverButton} from '../src';
@@ -48,7 +48,9 @@ describe('Popover', () => {
     });
 
     it('should render a popover button with expanded aria attributes when popover is visible', () => {
-      render(<VisiblePopoverMock />);
+      act(() => {
+        render(<VisiblePopoverMock />);
+      });
       const renderedVisiblePopoverButton = screen.getByTestId('open-button');
       expect(renderedVisiblePopoverButton.getAttribute('aria-expanded')).toEqual('true');
     });
