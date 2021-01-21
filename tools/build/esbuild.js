@@ -32,10 +32,25 @@ function build(packageJson) {
   const config = {
     color: true,
     entryPoints,
+    /** From docs:
+     * The main fields setting is set to main,module. This means tree shaking
+     * will likely not happen for packages that provide both module and main
+     * since tree shaking works with ECMAScript modules but not with CommonJS
+     * modules.
+     * Unfortunately some packages incorrectly treat module as meaning
+     * "browser code" instead of "ECMAScript module code" so this default
+     * behavior is required for compatibility. You can manually configure the
+     * main fields setting to module,main if you want to enable tree shaking
+     * and know it is safe to do so.
+     */
     mainFields: ['module', 'main'],
-    bundle: true,
+    // Fixes issues related to SSR (website builds)
     platform: 'node',
+    bundle: true,
+    // Sets the target environment so the code is changed into a format that
+    // works  with node12 and the listed browsers
     target: ['chrome58', 'firefox57', 'safari11', 'edge16', 'node12.19.0'],
+    // Only minify in prod
     minify: process.env.NODE_ENV === 'production',
     define: {
       'process.env.NODE_ENV': `"${process.env.NODE_ENV}"`,
