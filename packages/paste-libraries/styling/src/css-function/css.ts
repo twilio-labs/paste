@@ -1,7 +1,7 @@
 // Very lightly TS Version of https://github.com/styled-system/styled-system/blob/685be747c51862b4c574bc18b03a6715c6c7ee6e/packages/css/src/index.js
 // not typed correctly in the slightest
 
-import {CSSObject} from '@styled-system/css';
+import type {CSSObject} from '@styled-system/css';
 
 interface GetFunc {
   (object: unknown, key: string | number, fallback?: unknown): any;

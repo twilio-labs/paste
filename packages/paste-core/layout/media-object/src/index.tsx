@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {Box, BoxProps} from '@twilio-paste/box';
+import {Box} from '@twilio-paste/box';
+import type {BoxProps} from '@twilio-paste/box';
 import {Space, isMarginTokenProp} from '@twilio-paste/style-props';
 
 export interface MediaObjectProps extends Pick<BoxProps, 'as' | 'marginTop' | 'marginBottom'> {

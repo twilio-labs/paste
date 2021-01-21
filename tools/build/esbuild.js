@@ -34,6 +34,7 @@ function build(packageJson) {
     entryPoints,
     mainFields: ['module', 'main'],
     bundle: true,
+    platform: 'node',
     target: ['chrome58', 'firefox57', 'safari11', 'edge16', 'node12.19.0'],
     minify: process.env.NODE_ENV === 'production',
     define: {
