@@ -10,14 +10,32 @@ const PasteCJSResolverPlugin = {
   setup(build) {
     // Change all ESM icon imports to CJS
     build.onResolve({filter: /@twilio-paste\/icons\/esm\//}, ({path}) => {
-      return {path: require.resolve(path).replace('/esm/', '/cjs/')};
+      return {path: path.replace('/esm/', '/cjs/'), external: true};
     });
 
     // Change all .es6 design-token imports to .common
-    build.onResolve({filter: /tokens.es6$/}, ({path}) => {
-      return {path: require.resolve(path).replace('es6', 'common')};
+    build.onResolve({filter: /\/tokens.es6$/}, ({path}) => {
+      return {path: path.replace('.es6', '.common'), external: true};
     });
   },
+};
+
+/**
+ * ESBuild handles externals literally so that `@twilio-paste/design-tokens` won't
+ * get bundled, but `@twilio-paste/design-tokens/dist/theme/sengrid/tokens` will.
+ * This function adds a wildcard lookup for all externals.
+ *
+ * Note: adding `/*` breaks external-ing the normal `@twilio-paste/design-tokens` because
+ * of the forward slash, and simply adding `*` to the end seems error prone, which
+ * is why we duplicate to add `/*`.
+ *
+ * @param {JSON} peerDeps
+ * @returns {Array<string>} externals
+ */
+const getWildcardExternalPeers = (peerDeps = {}) => {
+  const externalDeps = Object.keys(peerDeps);
+  const wildcardedExternalDeps = externalDeps.map((dep) => `${dep}/*`);
+  return [...externalDeps, ...wildcardedExternalDeps];
 };
 
 function build(packageJson) {
@@ -26,7 +44,7 @@ function build(packageJson) {
   const outFileCJS = packageJson['main'];
   const outFileESM = packageJson['module'];
   // Things we don't want to bundle
-  const external = [...Object.keys(packageJson.peerDependencies || {})];
+  const external = getWildcardExternalPeers(packageJson.peerDependencies);
 
   // ESbuild config
   const config = {
