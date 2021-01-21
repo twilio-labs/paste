@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, BoxProps} from '@twilio-paste/box';
 
-export interface TruncateProps extends Pick<BoxProps, 'as'> {
+export interface TruncateProps extends Omit<React.HtmlHTMLAttributes<HTMLSpanElement>, 'color'>, Pick<BoxProps, 'as'> {
   children: NonNullable<React.ReactNode>;
 }
 
