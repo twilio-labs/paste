@@ -10,10 +10,11 @@ import {
 } from '@twilio-paste/disclosure-primitive';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
 
-export const Toggle: React.FC = ({children, ...props}) => {
+type ToggleProps = Omit<React.HtmlHTMLAttributes<HTMLButtonElement>, 'tabIndex'>;
+export const Toggle: React.FC<ToggleProps> = ({children, ...props}) => {
   return (
     <Heading as="h2" variant="heading20">
-      <Button variant="reset" size="reset" {...props}>
+      <Button {...props} variant="reset" size="reset">
         <Box
           as="span"
           display="flex"

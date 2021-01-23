@@ -93,6 +93,7 @@ export const TextColorBox: React.FC<TextColorBoxProps> = ({boxColor, color}) => 
     ? theme.backgroundColors.colorBackgroundBodyInverse
     : theme.backgroundColors.colorBackgroundBody;
   const colorCombos = ColorCombos([boxColor, backgroundColorValue]);
+  // @ts-ignore
   const {accessibility} = colorCombos[1].combinations[0];
 
   return (
