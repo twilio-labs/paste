@@ -2,6 +2,7 @@
   "compilerOptions": {
     "declaration": true,
     "declarationMap": true,
+    "emitDeclarationOnly": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "incremental": true,
@@ -24,7 +25,7 @@
     "newLine": "lf",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "strict": true,
+    "strict": true
   },
   "exclude": ["node_modules", "docs", "dist", "__testfixtures__"]
 }
