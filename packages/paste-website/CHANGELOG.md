@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.22.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.22.0...@twilio-paste/website@2.22.1) (2021-01-25)
+
+
+### Bug Fixes
+
+* **website:** minor typing updates ([592c015](https://github.com/twilio-labs/paste/commit/592c015bec2ba7bbc4df7a9bf8fc8aacc59bcba7))
+
+
+
+
+
 # [2.22.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/website@2.21.5...@twilio-paste/website@2.22.0) (2021-01-21)
 
 

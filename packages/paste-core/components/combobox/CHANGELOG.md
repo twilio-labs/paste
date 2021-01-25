@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@2.1.0...@twilio-paste/combobox@2.1.1) (2021-01-25)
+
+
+### Bug Fixes
+
+* **combobox:** genericise some prop iterfaces for friendlier typings ([66f3174](https://github.com/twilio-labs/paste/commit/66f3174fddef030ad6c66a65b77725377c7b556e))
+
+
+
+
+
 # [2.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/combobox@2.0.7...@twilio-paste/combobox@2.1.0) (2021-01-21)
 
 

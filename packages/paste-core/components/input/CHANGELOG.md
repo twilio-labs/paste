@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/input@1.2.0...@twilio-paste/input@1.2.1) (2021-01-25)
+
+**Note:** Version bump only for package @twilio-paste/input
+
+
+
+
+
 # [1.2.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/input@1.1.20...@twilio-paste/input@1.2.0) (2021-01-21)
 
 

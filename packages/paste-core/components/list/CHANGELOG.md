@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/list@0.3.0...@twilio-paste/list@0.3.1) (2021-01-25)
+
+
+### Bug Fixes
+
+* **list:** missing type export ([2970394](https://github.com/twilio-labs/paste/commit/297039457033f7c4c4e5bf663880aa68f5a232f4))
+
+
+
+
+
 # [0.3.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/list@0.2.60...@twilio-paste/list@0.3.0) (2021-01-21)
 
 

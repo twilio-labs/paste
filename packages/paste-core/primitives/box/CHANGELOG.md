@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.13.0...@twilio-paste/box@2.13.1) (2021-01-25)
+
+**Note:** Version bump only for package @twilio-paste/box
+
+
+
+
+
 # [2.13.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/box@2.12.3...@twilio-paste/box@2.13.0) (2021-01-21)
 
 

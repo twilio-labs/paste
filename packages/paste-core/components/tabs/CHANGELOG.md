@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.5.0...@twilio-paste/tabs@0.5.1) (2021-01-25)
+
+
+### Bug Fixes
+
+* **tabs:** correctly typed to accept children ([ca08a15](https://github.com/twilio-labs/paste/commit/ca08a1590a20c1fbccd6212665761c942e18cb36))
+
+
+
+
+
 # [0.5.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/tabs@0.4.4...@twilio-paste/tabs@0.5.0) (2021-01-21)
 
 

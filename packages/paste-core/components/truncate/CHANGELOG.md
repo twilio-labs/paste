@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/twilio-labs/paste/compare/@twilio-paste/truncate@2.1.0...@twilio-paste/truncate@2.1.1) (2021-01-25)
+
+
+### Bug Fixes
+
+* **truncate:** correctly extend html span attribute typings ([e2783d3](https://github.com/twilio-labs/paste/commit/e2783d38343b04861d4811356df2dbbb237b39af))
+
+
+
+
+
 # [2.1.0](https://github.com/twilio-labs/paste/compare/@twilio-paste/truncate@2.0.5...@twilio-paste/truncate@2.1.0) (2021-01-21)
 
 
