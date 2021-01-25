@@ -1,22 +1,11 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "esnext",
-    "jsx": "preserve",
     "esModuleInterop": true,
-    "lib": ["es2017", "DOM"],
-    "experimentalDecorators": true,
-    "incremental": true,
-    "noResolve": false,
-    "noEmitOnError": false,
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
+    "jsx": "preserve",
     "outDir": "dist/",
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "isolatedModules": true
+    "target": "esnext",
+    "emitDeclarationOnly": false
   },
   "include": ["../../package.json", "./src/**/*", "./types/**/*", "./static/**/*"],
   "exclude": ["node_modules", "public", ".cache"]
