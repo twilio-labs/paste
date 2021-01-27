@@ -5,14 +5,15 @@ on: pull_request
 jobs:
   package-size:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.18.x]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2-beta
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js 12.x
+        uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 12.x
+
       - uses: preactjs/compressed-size-action@v2
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
