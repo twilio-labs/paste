@@ -8,39 +8,44 @@ jobs:
   vrt:
     runs-on: ubuntu-latest
     if: github.event.pull_request.draft == false
-    strategy:
-      matrix:
-        node-version: [12.18.x]
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Repo
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v1
+
+      - name: Setup Node.js 12.x
+        uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 12.x
+
       - name: Get yarn cache
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
-      - uses: actions/cache@v1
+
+      - uses: actions/cache@v2
+        name: Load Yarn cache
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-yarn
+
       - name: restore lerna
-        uses: actions/cache@master
+        uses: actions/cache@v2
         with:
           path: |
             node_modules
             */*/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Bootstrap repository
-        run: yarn bootstrap
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile && yarn bootstrap
+
       - name: Build packages
         run: yarn build
+
       - name: Run Chromatic
         uses: chromaui/action@v1
         with:
@@ -49,6 +54,7 @@ jobs:
           buildScriptName: "build:storybook"
           autoAcceptChanges: "main"
           exitOnceUploaded: true
+
       - name: Run applitools eyes-storybook
         run: yarn test:vrt
         env:
