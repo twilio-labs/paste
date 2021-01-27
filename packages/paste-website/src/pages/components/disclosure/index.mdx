@@ -60,22 +60,14 @@ export const pageQuery = graphql`
 
 <content>
 
-<Callout>
-  <CalloutTitle>Using alpha components in your product</CalloutTitle>
-  <CalloutText>
-    Alpha components are ready for you to use in production. Components such as Disclosure are likely to not see any API
-    changes. This is only an alpha due to the lack of documentation and a matching Sketch symbol. Feel free to share
-    your experience using this component by{' '}
-    <Anchor href="https://github.com/twilio-labs/paste/discussions/new">starting a discussion on GitHub</Anchor>. We are
-    also looking for a contributor to symbolize this component in Sketch. Interested? Reach out!
-  </CalloutText>
-</Callout>
-
 ## Guidelines
 
 ### About Disclosure
 
-<p>{props.pageContext.frontmatter.description} It uses the{' '}<Anchor href="/components/heading">Paste Heading</Anchor> component to create consistency across pages and content hierarchy.</p>
+<p>
+  {props.pageContext.frontmatter.description} It uses the <Anchor href="/components/heading">Paste Heading</Anchor>{' '}
+  component to create consistency across pages and content hierarchy.
+</p>
 
 ### Accessibility
 
@@ -361,13 +353,25 @@ Contained Disclosure variants share the Paste [Card anatomy](/components/card/#a
 
 Same Anatomy as [Heading](/components/heading), plus:
 
-| Property       | Default token    | Modifiable? |
-| -------------- | ---------------- | ----------- |
-| border-radius  | border-radius-20 | No          |
-| padding-bottom | space-50         | No          |
-| padding-left   | space-40         | No          |
-| padding-right  | space-40         | No          |
-| padding-top    | space-50         | No          |
+| Property                   | Default token                                         | Modifiable? |
+| -------------------------- | ----------------------------------------------------- | ----------- |
+| background-color           | color-background-body                                 | No          |
+| border-radius              | border-radius-20                                      | No          |
+| border-bottom-left-radius  | Default: border-radius-20, Contained: border-radius-0 | No          |
+| border-bottom-right-radius | Default: border-radius-20, Contained: border-radius-0 | No          |
+| padding                    | space-30                                              | No          |
+
+#### Expanded
+
+| Property         | Default token    | Modifiable? |
+| ---------------- | ---------------- | ----------- |
+| background-color | color-background | No          |
+
+#### Hover
+
+| Property         | Default token         | Modifiable? |
+| ---------------- | --------------------- | ----------- |
+| background-color | color-background-dark | No          |
 
 #### Focus
 
@@ -377,11 +381,9 @@ Same Anatomy as [Heading](/components/heading), plus:
 
 ### DisclosureContent
 
-| Property         | Default token        | Modifiable? |
-| ---------------- | -------------------- | ----------- |
-| border-top-width | border-width-20      | No          |
-| border-top-color | color-border-lighter | No          |
-| padding          | space-50             | No          |
+| Property | Default token | Modifiable? |
+| -------- | ------------- | ----------- |
+| padding  | space-50      | No          |
 
 ---
 
