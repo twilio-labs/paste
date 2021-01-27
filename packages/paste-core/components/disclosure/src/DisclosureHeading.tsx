@@ -1,95 +1,70 @@
 import * as React from 'react';
-import {Heading, HeadingProps, HeadingPropTypes} from '@twilio-paste/heading';
-import {Box, BoxStyleProps} from '@twilio-paste/box';
-import {ChevronDownIcon, ChevronDownIconProps} from '@twilio-paste/icons/esm/ChevronDownIcon';
-import {DisclosurePrimitive, DisclosurePrimitiveProps} from '@twilio-paste/disclosure-primitive';
-import {DisclosureContext, Variants} from './Disclosure';
-
-export interface DisclosureHeadingProps
-  extends Omit<DisclosurePrimitiveProps, 'baseId' | 'toggle' | keyof BoxStyleProps> {
-  children: NonNullable<React.ReactNode>;
-  as: HeadingProps['as'];
-  marginBottom?: HeadingProps['marginBottom'];
-  variant: HeadingProps['variant'];
-}
-
-interface StyledDisclosureHeadingProps extends Omit<DisclosureHeadingProps, 'as'> {
-  renderAs: HeadingProps['as'];
-  customDisabled?: boolean;
-  customFocusable?: boolean;
-  disclosureVariant: Variants;
-}
-
-const getIconSize = (variant: HeadingProps['variant']): ChevronDownIconProps['size'] => {
-  switch (variant) {
-    case 'heading10':
-      return 'sizeIcon90';
-    case 'heading20':
-      return 'sizeIcon70';
-    case 'heading30':
-      return 'sizeIcon60';
-    case 'heading40':
-      return 'sizeIcon40';
-    case 'heading50':
-      return 'sizeIcon30';
-    case 'heading60':
-    default:
-      return 'sizeIcon20';
-  }
-};
-
-const getVariantStyles = (variant: Variants): BoxStyleProps => {
-  switch (variant) {
-    case 'contained':
-      return {
-        paddingBottom: 'space50',
-        paddingLeft: 'space40',
-        paddingRight: 'space40',
-        paddingTop: 'space50',
-      };
-    default:
-      return {};
-  }
-};
+import {useTheme} from '@twilio-paste/theme';
+import type {BorderRadius} from '@twilio-paste/style-props';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import {Heading, HeadingPropTypes} from '@twilio-paste/heading';
+import {ChevronDisclosureExpandedIcon} from '@twilio-paste/icons/esm/ChevronDisclosureExpandedIcon';
+import {DisclosurePrimitive} from '@twilio-paste/disclosure-primitive';
+import {DisclosureContext} from './DisclosureContext';
+import type {DisclosureHeadingProps, StyledDisclosureHeadingProps} from './types';
+import {useHover, getIconHoverStyles} from './utils';
+import {IconSizeFromHeading} from './constants';
 
 const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosureHeadingProps>(
   ({children, marginBottom, renderAs, disclosureVariant, customDisabled, customFocusable, variant, ...props}, ref) => {
+    const theme = useTheme();
+    const hoverRef = React.useRef(null);
+    const isHovered = useHover(hoverRef);
+
+    let bottomBorderRadius = 'borderRadius20' as BorderRadius;
+    if (disclosureVariant === 'contained') {
+      bottomBorderRadius = 'borderRadius10';
+    }
+    if (disclosureVariant === 'contained' && props['aria-expanded']) {
+      bottomBorderRadius = 'borderRadius0';
+    }
+
     return (
-      <Heading
-        as={renderAs}
-        marginBottom={disclosureVariant === 'contained' ? 'space0' : marginBottom}
-        variant={variant}
-      >
+      <Heading as={renderAs} marginBottom="space0" variant={variant} ref={ref}>
         <Box
+          {...safelySpreadBoxProps(props)}
           as="div"
-          alignItems="center"
-          borderRadius="borderRadius20"
+          backgroundColor={props['aria-expanded'] ? 'colorBackground' : 'colorBackgroundBody'}
+          borderRadius={disclosureVariant === 'contained' ? 'borderRadius10' : 'borderRadius20'}
+          borderBottomLeftRadius={bottomBorderRadius}
+          borderBottomRightRadius={bottomBorderRadius}
           cursor="pointer"
           display="flex"
           outline="none"
+          padding="space30"
           position="relative"
-          ref={ref}
+          ref={hoverRef}
           role="button"
+          transition="background-color 100ms ease-out"
           _hover={{
-            textDecoration: 'underline',
+            backgroundColor: 'colorBackgroundDark',
           }}
           _focus={{
             boxShadow: 'shadowFocus',
           }}
           _disabled={{
+            backgroundColor: props['aria-expanded'] ? 'colorBackground' : 'colorBackgroundBody',
             color: 'colorTextWeak',
             cursor: 'not-allowed',
           }}
-          {...getVariantStyles(disclosureVariant)}
-          {...props}
         >
           <Box
             as="span"
             display="flex"
-            transform={props['aria-expanded'] ? 'rotate(0deg)' : 'rotate(-90deg)'}
-            transition="transform 100ms ease-out"
+            height={IconSizeFromHeading[variant] || 'sizeIcon20'}
+            width={IconSizeFromHeading[variant] || 'sizeIcon20'}
+            {...getIconHoverStyles(isHovered, variant, props[`aria-expanded`], props[`aria-disabled`], theme.space)}
           >
-            <ChevronDownIcon decorative size={getIconSize(variant)} />
+            <ChevronDisclosureExpandedIcon
+              color="inherit"
+              decorative
+              size={IconSizeFromHeading[variant] || 'sizeIcon20'}
+            />
           </Box>
           <Box flexGrow={1}>{children}</Box>
         </Box>
@@ -104,21 +79,23 @@ const DisclosureHeading: React.FC<DisclosureHeadingProps> = ({children, as, disa
     <DisclosurePrimitive
       {...disclosure}
       {...props}
-      renderAs={as}
       as={StyledDisclosureHeading}
-      disclosureVariant={variant}
-      disabled={disabled}
       customDisabled={disabled}
-      focusable={focusable}
       customFocusable={focusable}
+      disabled={disabled}
+      disclosureVariant={variant}
+      focusable={focusable}
+      renderAs={as}
     >
       {children}
     </DisclosurePrimitive>
   );
 };
+
 DisclosureHeading.displayName = 'DisclosureHeading';
 
 if (process.env.NODE_ENV === 'development') {
   DisclosureHeading.propTypes = HeadingPropTypes;
 }
+
 export {DisclosureHeading};

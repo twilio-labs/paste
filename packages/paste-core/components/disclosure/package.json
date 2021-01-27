@@ -2,7 +2,7 @@
   "name": "@twilio-paste/disclosure",
   "version": "0.4.1",
   "category": "interaction",
-  "status": "alpha",
+  "status": "beta",
   "description": "The Disclosure is used to create accessible, hierarchical, and collapsible structure to your pages.",
   "author": "Twilio Inc.",
   "license": "MIT",
@@ -25,6 +25,7 @@
     "tsc": "tsc"
   },
   "peerDependencies": {
+    "@twilio-paste/animation-library": "^0.3.1",
     "@twilio-paste/box": "^2.13.1",
     "@twilio-paste/card": "^1.5.1",
     "@twilio-paste/design-tokens": "^6.5.1",
@@ -42,6 +43,7 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
+    "@twilio-paste/animation-library": "^0.3.1",
     "@twilio-paste/box": "^2.13.1",
     "@twilio-paste/card": "^1.5.1",
     "@twilio-paste/design-tokens": "^6.5.1",

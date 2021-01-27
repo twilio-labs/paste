@@ -1,39 +1,48 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import {DisclosurePrimitiveContent, DisclosurePrimitiveContentProps} from '@twilio-paste/disclosure-primitive';
-import {Box, BoxStyleProps} from '@twilio-paste/box';
-import {DisclosureContext, Variants} from './Disclosure';
+import {useSpring, animated} from '@twilio-paste/animation-library';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import {DisclosurePrimitiveContent} from '@twilio-paste/disclosure-primitive';
+import {DisclosureContext} from './DisclosureContext';
+import type {DisclosureContentProps} from './types';
+import {DisclosureContentPropTypes} from './PropTypes';
 
-const getVariantStyles = (variant: Variants): BoxStyleProps => {
-  switch (variant) {
-    case 'contained':
-      return {
-        borderTopStyle: 'solid',
-        borderTopWidth: 'borderWidth20',
-        borderTopColor: 'colorBorderLighter',
-        padding: 'space50',
-      };
-    default:
-      return {};
+export const AnimatedDisclosureContent = animated(Box);
+
+const DisclosureContent = React.forwardRef<HTMLDivElement, DisclosureContentProps>(
+  ({children, visible, ...props}, ref) => {
+    const {disclosure} = React.useContext(DisclosureContext);
+    const {opacity} = useSpring({
+      opacity: disclosure.visible ? 1 : 0,
+      onRest: disclosure.stopAnimation,
+      config: {
+        mass: 1,
+        tension: 150,
+        friction: 20,
+        duration: 100,
+      },
+    });
+
+    return (
+      <DisclosurePrimitiveContent
+        {...disclosure}
+        {...safelySpreadBoxProps(props)}
+        as={AnimatedDisclosureContent}
+        padding="space50"
+        ref={ref}
+        style={{
+          opacity,
+        }}
+      >
+        {children}
+      </DisclosurePrimitiveContent>
+    );
   }
-};
+);
 
-export interface DisclosureContentProps extends Omit<DisclosurePrimitiveContentProps, keyof BoxStyleProps> {
-  children: NonNullable<React.ReactNode>;
-}
-const DisclosureContent = React.forwardRef<HTMLDivElement, DisclosureContentProps>(({children, ...props}, ref) => {
-  const {disclosure, variant} = React.useContext(DisclosureContext);
-  return (
-    <DisclosurePrimitiveContent {...disclosure} {...props} as={Box} ref={ref} {...getVariantStyles(variant)}>
-      {children}
-    </DisclosurePrimitiveContent>
-  );
-});
 DisclosureContent.displayName = 'DisclosureContent';
 
 if (process.env.NODE_ENV === 'development') {
-  DisclosureContent.propTypes = {
-    children: PropTypes.node.isRequired,
-  };
+  DisclosureContent.propTypes = DisclosureContentPropTypes;
 }
+
 export {DisclosureContent};
