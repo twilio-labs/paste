@@ -1,7 +1,7 @@
 <h1 align="center">Paste</h1>
 <p align="center">Paste is a design system used to build accessible, consistent, and high quality customer experiences at Twilio. Paste is open source and contributions are welcome.</p>
 <p align="center">
-<a href="https://github.com/twilio-labs/.github/blob/master/CODE_OF_CONDUCT.md"><img alt="Code of Conduct" src="https://img.shields.io/badge/%F0%9F%92%96-Code%20of%20Conduct-blueviolet.svg?style=flat-square"></a> 
+<a href="https://github.com/twilio-labs/.github/blob/master/CODE_OF_CONDUCT.md"><img alt="Code of Conduct" src="https://img.shields.io/badge/%F0%9F%92%96-Code%20of%20Conduct-blueviolet.svg?style=flat-square"></a>
 <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome" /></a>
 </p>
 <hr>
@@ -32,6 +32,20 @@ For more commands, please reference the [package.json file](https://github.com/t
 ### Contributing
 
 Before contributing, please make sure that you read our [Contributing Guidelines](https://github.com/twilio-labs/paste/blob/main/CONTRIBUTING.md) and agree with our [Code of Conduct.](https://github.com/twilio-labs/.github/blob/main/CODE_OF_CONDUCT.md)
+
+### Changesets
+
+Each change to a package must come with a [changeset](https://github.com/atlassian/changesets). You should have an individual changeset for each package you have touched.
+
+To create a changeset you can run:
+
+```
+yarn changeset
+```
+
+Follow the prompts shown to you in your terminal.
+
+Instructions on how to use the cli tool can be found [here](https://github.com/atlassian/changesets/blob/master/packages/cli/README.md), but all you should need to do is generate a changeset and commit it with your Pull Request.
 
 ### Maintainers
 
@@ -108,6 +122,10 @@ When a package has a peer dependency on another internal package in the mono rep
   }
 }
 ```
+
+## Releasing
+
+Releasing Paste happens via CI/CD using [Changesets](https://github.com/atlassian/changesets).
 
 ## License
 
