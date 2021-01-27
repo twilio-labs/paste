@@ -1,13 +1,16 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
+import {Anchor} from '@twilio-paste/anchor';
 import {SiteLink, SiteLinkProps} from '../SiteLink';
 
 export interface NewComponentBannerAnchorProps {
+  children: NonNullable<React.ReactNode>;
+  showExternal?: boolean;
   to: SiteLinkProps['to'];
   onClick?: () => void;
 }
 
-const NewComponentBannerLink: React.FC<NewComponentBannerAnchorProps> = ({children, to, onClick}) => {
+const NewComponentBannerLink: React.FC<NewComponentBannerAnchorProps> = ({children, to, onClick, showExternal}) => {
   return (
     <Box
       as="span"
@@ -17,9 +20,15 @@ const NewComponentBannerLink: React.FC<NewComponentBannerAnchorProps> = ({childr
       lineHeight={['lineHeight20', 'lineHeight30']}
       marginLeft="space30"
     >
-      <SiteLink to={to} onClick={onClick}>
-        {children}
-      </SiteLink>
+      {showExternal ? (
+        <Anchor href={to} onClick={onClick} showExternal={showExternal}>
+          {children}
+        </Anchor>
+      ) : (
+        <SiteLink to={to} onClick={onClick}>
+          {children}
+        </SiteLink>
+      )}
     </Box>
   );
 };
