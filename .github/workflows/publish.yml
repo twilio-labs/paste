@@ -11,7 +11,6 @@ jobs:
   components:
     name: Publish components and Storybook
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'chore(release): version packages')"
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
