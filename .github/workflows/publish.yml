@@ -2,8 +2,6 @@ name: Publish
 
 on:
   push:
-    paths:
-      - "packages/**"
     branches:
       - main
 
