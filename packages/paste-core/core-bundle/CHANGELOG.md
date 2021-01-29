@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.3.3
+
+### Patch Changes
+
+- [`e5e21040`](https://github.com/twilio-labs/paste/commit/e5e2104046e1ebaad164845edbe857760c0289db) [#1063](https://github.com/twilio-labs/paste/pull/1063) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Exclude cra-template package from the core bundle
+
 ## 4.3.2
 
 ### Patch Changes
