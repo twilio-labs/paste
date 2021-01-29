@@ -455,8 +455,8 @@ If you choose to handle state entirely yourself, you can use `<Toaster />` on it
 
 | Prop   | Type                        | Description                                             | Default |
 | ------ | --------------------------- | ------------------------------------------------------- | ------- |
-| toasts | `UseToasterToast[]`         | Array of Toasts to render inside the toaster. See below | null    |
-| push?  | `(UseToasterToast) => void` | Method used to push a Toast to the Toast stack          | null    |
+| toasts | `ToasterPush[]`             | Array of Toasts to render inside the toaster. See below | null    |
+| push?  | `(ToasterPush) => void`     | Method used to push a Toast to the Toast stack          | null    |
 | pop?   | `(id) => void`              | Method used to pop a Toast from the Toast stack         | null    |
 
 ##### UseToasterToast
