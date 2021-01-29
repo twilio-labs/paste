@@ -22,7 +22,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   size?: never;
   style?: never;
   type: InputTypes;
-  value: string;
+  value?: string;
   variant?: InputVariants;
   width?: never;
 }
@@ -146,7 +146,7 @@ if (process.env.NODE_ENV === 'development') {
     readOnly: PropTypes.bool,
     required: PropTypes.bool,
     type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel']).isRequired as any,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string,
   };
 }
 

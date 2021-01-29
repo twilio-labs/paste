@@ -5,7 +5,8 @@ import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
-import {InputTypes, Input} from '../src';
+import {Input} from '../src';
+import type {InputTypes} from '../src';
 
 const NOOP = (): void => {};
 
