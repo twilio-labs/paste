@@ -346,7 +346,7 @@ Use an input when users are expected to enter less than a single line of text, o
   <Do title="Do" body="Use an input to encourage short text entry." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="short_do">Name</Label>
-      <Input id="short_do" name="short_do" type="text" onChange=""/>
+      <Input id="short_do" name="short_do" type="text" onChange="" />
     </Box>
   </Do>
   <Dont
@@ -356,7 +356,7 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="short_dont">Tell us your life story</Label>
-      <Input id="short_dont" name="short_dont" type="text" onChange=""/>
+      <Input id="short_dont" name="short_dont" type="text" onChange="" />
     </Box>
   </Dont>
 </DoDont>
@@ -368,7 +368,7 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="limited_do">Job Title (60 characters)</Label>
-      <Input aria-describedby="limited_do_help_text" id="limited_do" name="limited_do" type="text" onChange=""/>
+      <Input aria-describedby="limited_do_help_text" id="limited_do" name="limited_do" type="text" onChange="" />
       <HelpText id="limited_do_help_text">Limit to 60 characters.</HelpText>
     </Box>
   </Do>
@@ -379,7 +379,7 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="limited_dont">Abbreviated Country</Label>
-      <Input id="limited_dont" name="limited_dont" type="text" onChange=""/>
+      <Input id="limited_dont" name="limited_dont" type="text" onChange="" />
     </Box>
   </Dont>
 </DoDont>
@@ -387,14 +387,21 @@ Use an input when users are expected to enter less than a single line of text, o
   <Do title="Do" body="Use help text to help users prevent errors and fill out a form field correctly." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="email_do">Email Address</Label>
-      <Input aria-describedby="email_do_help_text" id="email_do" name="email_do" type="email" placeholder="example@twilio.com" onChange=""/>
+      <Input
+        aria-describedby="email_do_help_text"
+        id="email_do"
+        name="email_do"
+        type="email"
+        placeholder="example@twilio.com"
+        onChange=""
+      />
       <HelpText id="email_do_help_text">Please enter a valid email.</HelpText>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use placeholder text for validation instructions." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="email_dont">Email Address</Label>
-      <Input id="email_dont" name="email_dont" type="email" placeholder="Please enter a valid email" onChange=""/>
+      <Input id="email_dont" name="email_dont" type="email" placeholder="Please enter a valid email" onChange="" />
     </Box>
   </Dont>
 </DoDont>
@@ -406,7 +413,7 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="tel_do">Phone Number</Label>
-      <Input id="tel_do" name="tel_do" type="tel" onChange=""/>
+      <Input id="tel_do" name="tel_do" type="tel" onChange="" />
     </Box>
   </Do>
   <Dont
@@ -416,7 +423,7 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="tel_dont">Phone Number</Label>
-      <Input id="tel_dont" name="tel_dont" type="text" onChange=""/>
+      <Input id="tel_dont" name="tel_dont" type="text" onChange="" />
     </Box>
   </Dont>
 </DoDont>
@@ -428,15 +435,18 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="help_do">Phone Number</Label>
-      <Input aria-describedby="help_do_help_text" id="help_do" name="help_do" type="tel" onChange=""/>
+      <Input aria-describedby="help_do_help_text" id="help_do" name="help_do" type="tel" onChange="" />
       <HelpText id="help_do_help_text">Use the following format: (###) ###-####</HelpText>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use more than 2 sentences in help text or error text." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="help_dont">Email Address</Label>
-      <Input aria-describedby="help_dont_help_text" id="help_dont" name="help_dont" type="email" onChange=""/>
-      <HelpText id="help_dont_help_text">Go to your settings. Then click on email addresses. After doing that, copy and paste your email address in this field.</HelpText>
+      <Input aria-describedby="help_dont_help_text" id="help_dont" name="help_dont" type="email" onChange="" />
+      <HelpText id="help_dont_help_text">
+        Go to your settings. Then click on email addresses. After doing that, copy and paste your email address in this
+        field.
+      </HelpText>
     </Box>
   </Dont>
 </DoDont>
@@ -444,12 +454,12 @@ Use an input when users are expected to enter less than a single line of text, o
   <Do title="Do" body="Include a visible label on every form field." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="label_do">Name</Label>
-      <Input id="label_do" name="label_do" type="text" onChange=""/>
+      <Input id="label_do" name="label_do" type="text" onChange="" />
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use prefix/suffix text as a replacement for a label." center>
     <Box width="100%" padding="space60">
-      <Input id="label_dont" name="label_dont" type="text" onChange="" insertBefore="Name"/>
+      <Input id="label_dont" name="label_dont" type="text" onChange="" insertBefore="Name" />
     </Box>
   </Dont>
 </DoDont>
@@ -461,7 +471,7 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="disabled_do">Name</Label>
-      <Input id="disabled_do" name="disabled_do" type="text" onChange="" disabled/>
+      <Input id="disabled_do" name="disabled_do" type="text" onChange="" disabled />
     </Box>
   </Do>
   <Dont
@@ -471,7 +481,7 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="disabled_dont">Company</Label>
-      <Input id="disabled_dont" name="disabled_dont" type="text" value="Twilio" onChange="" disabled/>
+      <Input id="disabled_dont" name="disabled_dont" type="text" value="Twilio" onChange="" disabled />
     </Box>
   </Dont>
 </DoDont>
@@ -660,7 +670,7 @@ All the valid HTML attributes for `input` are supported including the following 
 | id           | string                                                           | Sets the id of the input. Should match the htmlFor of `Label`. Required. | null      |
 | type         | 'text', 'email', 'hidden', 'number', 'password', 'search', 'tel' | Sets the type of the input. Required.                                    | null      |
 | name         | string                                                           | Sets the name of the input. Required.                                    | null      |
-| value        | string                                                           | Sets the value of the input. Required.                                   | null      |
+| value?       | string                                                           | Sets the value of the input.                                             | null      |
 | placeholder? | string                                                           | Sets the placeholder of the input.                                       | null      |
 | disabled?    | boolean                                                          | Disables the input.                                                      | false     |
 | readOnly?    | boolean                                                          | Sets the input to readonly.                                              | false     |
