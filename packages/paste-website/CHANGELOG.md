@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.23.0
+
+### Minor Changes
+
+- [`5eef071c`](https://github.com/twilio-labs/paste/commit/5eef071cd7e293e111ee21f350e774651881f5b8) [#1063](https://github.com/twilio-labs/paste/pull/1063) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Update getting started with engineering quickstart guide
+
 ## 2.22.2
 
 ### Patch Changes

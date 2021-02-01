@@ -1,6 +1,13 @@
 const fs = require('fs');
 const path = require('path');
-const {getPackageName, getUnbarreledFileFullPath, BLOCKLIST} = require('./constants');
+const {
+  getPackageName,
+  getUnbarreledFileFullPath,
+  BLOCKLIST,
+  BASE_CODESANDBOX_CI,
+  PACKAGES_ROOT_PATH,
+  CODESANDBOX_CI_JSON_PATH,
+} = require('./constants');
 const {getRepoPackages} = require('../../../../tools/utils/getRepoPackages');
 const {writeToFile} = require('../../../../tools/utils/writeToFile');
 const {mkdir} = require('../../../../tools/utils/mkdir');
@@ -94,6 +101,20 @@ ${ignoreList.join('\n')}`;
   });
 }
 
+function createCodeSandboxCIjson(packageList) {
+  // create a list of package locations based on the repo root, not including machine file structure
+  const packageLocationList = packageList.map(package => package.location.replace(PACKAGES_ROOT_PATH, ''));
+  const newCodeSandboxConfig = {
+    ...BASE_CODESANDBOX_CI,
+    packages: [...BASE_CODESANDBOX_CI.packages, ...packageLocationList],
+  };
+  writeToFile(CODESANDBOX_CI_JSON_PATH, newCodeSandboxConfig, {
+    formatJson: true,
+    successMessage: 'Successfully generated codesandbox ci.json file',
+    errorMessage: 'Failed to generate codesandbox ci.json file',
+  });
+}
+
 module.exports = {
   getRepoPackages,
   writeToFile,
@@ -104,4 +125,5 @@ module.exports = {
   getAllJsFiles,
   createRelativePackageFolders,
   createGitIgnore,
+  createCodeSandboxCIjson,
 };
