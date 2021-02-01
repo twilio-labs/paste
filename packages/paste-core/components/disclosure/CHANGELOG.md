@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`4114dac2`](https://github.com/twilio-labs/paste/commit/4114dac24d6b89f10aeeaeda2220825b9e146169)]:
+  - @twilio-paste/icons@3.13.0
+
 ## 1.0.0
 
 ### Major Changes
