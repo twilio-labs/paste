@@ -25,15 +25,11 @@
     "noResolve": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "paths": {
-      "*": ["./@types/*"]
-    },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
     "target": "es6",
-    "typeRoots": ["./@types", "node_modules/@types"]
   },
   "include": [
     "next-env.d.ts",
