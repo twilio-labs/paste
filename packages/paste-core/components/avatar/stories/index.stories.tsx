@@ -10,6 +10,8 @@ import {Avatar} from '../src';
 export default {
   title: 'Components/Avatar',
   component: Avatar,
+  // Sets the diffThreshold for all stories
+  chromatic: {diffThreshold: 0.2},
 };
 
 export const Initials = (): React.ReactNode => {
@@ -64,7 +66,7 @@ export const Image = (): React.ReactNode => {
 };
 
 Image.story = {
-  parameters: {chromatic: {delay: 600}},
+  parameters: {chromatic: {delay: 1000}},
 };
 
 export const ResponsiveInitials = (): React.ReactNode => {
@@ -84,5 +86,5 @@ export const ResponsiveImage = (): React.ReactNode => {
 };
 
 ResponsiveImage.story = {
-  parameters: {chromatic: {delay: 600}},
+  parameters: {chromatic: {delay: 1000}},
 };

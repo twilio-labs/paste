@@ -38,6 +38,10 @@ export default {
   decorators: [withKnobs],
   excludeStories: ['StateHookExample'],
   component: Tooltip,
+  parameters: {
+    // Sets a delay for the component's stories
+    chromatic: {delay: 1000},
+  },
 };
 
 export const Default = (): React.ReactNode => {
@@ -48,10 +52,6 @@ export const Default = (): React.ReactNode => {
       </Tooltip>
     </Box>
   );
-};
-
-Default.story = {
-  parameters: {chromatic: {delay: 800}},
 };
 
 export const TooltipPlacements = (): React.ReactNode => {
@@ -73,10 +73,6 @@ export const TooltipPlacements = (): React.ReactNode => {
       </Stack>
     </Box>
   );
-};
-
-TooltipPlacements.story = {
-  parameters: {chromatic: {delay: 800}},
 };
 
 export const AutomaticEdgePlacement = (): React.ReactNode => {
@@ -124,7 +120,6 @@ export const AutomaticAdjustedPlacement = (): React.ReactNode => {
 
 AutomaticAdjustedPlacement.story = {
   name: 'Automatic adjusted placement',
-  parameters: {chromatic: {delay: 300}},
 };
 
 export const IconButtonTooltip = (): React.ReactNode => {
