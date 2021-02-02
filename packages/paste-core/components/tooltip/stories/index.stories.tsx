@@ -40,7 +40,7 @@ export default {
   component: Tooltip,
   parameters: {
     // Sets a delay for the component's stories
-    chromatic: {delay: 1000},
+    chromatic: {delay: 1000, diffThreshold: 0.2},
   },
 };
 

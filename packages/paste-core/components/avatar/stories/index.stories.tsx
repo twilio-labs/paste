@@ -11,7 +11,7 @@ export default {
   title: 'Components/Avatar',
   component: Avatar,
   // Sets the diffThreshold for all stories
-  chromatic: {diffThreshold: 0.2},
+  chromatic: {diffThreshold: 0.3},
 };
 
 export const Initials = (): React.ReactNode => {
