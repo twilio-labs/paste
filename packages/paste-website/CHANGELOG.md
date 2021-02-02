@@ -1,5 +1,14 @@
 # Change Log
 
+## 2.23.2
+
+### Patch Changes
+
+- [`9617a70d`](https://github.com/twilio-labs/paste/commit/9617a70d51dccb3eb78148d708105fc162d152dd) [#1139](https://github.com/twilio-labs/paste/pull/1139) Thanks [@richbachman](https://github.com/richbachman)! - Removed required from the `value` prop description in the Input page anatomy table.
+
+- Updated dependencies [[`1c9683c6`](https://github.com/twilio-labs/paste/commit/1c9683c63e1db1333f26b5625aa21dea16e8ff69)]:
+  - @twilio-paste/input@1.2.2
+
 ## 2.23.1
 
 ### Patch Changes

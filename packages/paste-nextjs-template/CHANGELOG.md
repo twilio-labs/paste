@@ -1,5 +1,11 @@
 # @twilio-paste/nextjs-template
 
+## 1.0.2
+
+### Patch Changes
+
+- [`b7c72576`](https://github.com/twilio-labs/paste/commit/b7c7257689cf3a3884b598aed001b7118cf60afe) [#1143](https://github.com/twilio-labs/paste/pull/1143) Thanks [@SiTaggart](https://github.com/SiTaggart)! - As the NextJs template is used as a standalone application in a Codesandbox, it cannot inherit the base tsconfig from the the root of the monorepo. This is because it does not exist when deployed to Codesandbox
+
 ## 1.0.1
 
 ### Patch Changes
