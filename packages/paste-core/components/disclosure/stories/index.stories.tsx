@@ -1,24 +1,16 @@
 import * as React from 'react';
 import {withKnobs, text, select} from '@storybook/addon-knobs';
-import {HeadingProps} from '@twilio-paste/heading';
+import type {HeadingProps} from '@twilio-paste/heading';
 import {Stack} from '@twilio-paste/stack';
 import {Paragraph} from '@twilio-paste/paragraph';
-import {
-  Disclosure,
-  DisclosureHeading,
-  DisclosureContent,
-  Variants,
-  DisclosureHeadingProps,
-  useDisclosureState,
-  DisclosureStateReturn,
-  DisclosureInitialState,
-} from '../src';
+import {Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState} from '../src';
+import type {DisclosureHeadingProps, DisclosureInitialState, DisclosureStateReturn, DisclosureVariants} from '../src';
 
 const headingVariantOptions = ['heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60'];
 
 export const ExampleDisclosures: React.FC<{
   disabled?: boolean;
-  variant?: Variants;
+  variant?: DisclosureVariants;
   headingVariant: DisclosureHeadingProps['variant'];
 }> = (props) => {
   return (
@@ -27,13 +19,23 @@ export const ExampleDisclosures: React.FC<{
         <DisclosureHeading as="h2" disabled={props.disabled} variant={props.headingVariant}>
           Heading variant {props.headingVariant}
         </DisclosureHeading>
-        <DisclosureContent>Disclosure content</DisclosureContent>
+        <DisclosureContent>
+          Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus
+          commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae elit libero, a
+          pharetra augue.
+        </DisclosureContent>
       </Disclosure>
       <Disclosure variant={props.variant}>
         <DisclosureHeading as="h2" disabled={props.disabled} variant={props.headingVariant}>
           Heading variant {props.headingVariant}
         </DisclosureHeading>
-        <DisclosureContent>Disclosure content</DisclosureContent>
+        <DisclosureContent>
+          Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus
+          commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae elit libero, a
+          pharetra augue.
+        </DisclosureContent>
       </Disclosure>
     </Stack>
   );
@@ -137,6 +139,43 @@ export const Disabled = (): React.ReactNode => {
   return <ExampleDisclosures disabled headingVariant="heading10" />;
 };
 
+export const MultilineHeading = (): React.ReactNode => {
+  return (
+    <Stack orientation="vertical" spacing="space70">
+      <Disclosure visible>
+        <DisclosureHeading as="h2" variant="heading20">
+          Aenean eu leo quam. Pellentesque ornare sem lacinia quam.
+          <br />
+          Ut fermentum massa justo sit amet risus.
+        </DisclosureHeading>
+        <DisclosureContent>
+          Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus
+          commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae elit libero, a
+          pharetra augue.
+        </DisclosureContent>
+      </Disclosure>
+      <Disclosure>
+        <DisclosureHeading as="h2" variant="heading20">
+          Aenean eu leo quam. Pellentesque ornare sem lacinia quam.
+          <br />
+          Ut fermentum massa justo sit amet risus.
+        </DisclosureHeading>
+        <DisclosureContent>
+          Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus
+          commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae elit libero, a
+          pharetra augue.
+        </DisclosureContent>
+      </Disclosure>
+    </Stack>
+  );
+};
+
+MultilineHeading.story = {
+  name: 'Multiline heading',
+};
+
 export const ContainedHeadingVariant10 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading10" variant="contained" />;
 };
@@ -193,6 +232,43 @@ ContainedDisabled.story = {
   name: 'Contained disabled',
 };
 
+export const ContainedMultilineHeading = (): React.ReactNode => {
+  return (
+    <Stack orientation="vertical" spacing="space70">
+      <Disclosure visible variant="contained">
+        <DisclosureHeading as="h2" variant="heading20">
+          Aenean eu leo quam. Pellentesque ornare sem lacinia quam.
+          <br />
+          Ut fermentum massa justo sit amet risus.
+        </DisclosureHeading>
+        <DisclosureContent>
+          Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus
+          commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae elit libero, a
+          pharetra augue.
+        </DisclosureContent>
+      </Disclosure>
+      <Disclosure variant="contained">
+        <DisclosureHeading as="h2" variant="heading20">
+          Aenean eu leo quam. Pellentesque ornare sem lacinia quam.
+          <br />
+          Ut fermentum massa justo sit amet risus.
+        </DisclosureHeading>
+        <DisclosureContent>
+          Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus
+          commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae elit libero, a
+          pharetra augue.
+        </DisclosureContent>
+      </Disclosure>
+    </Stack>
+  );
+};
+
+ContainedMultilineHeading.story = {
+  name: 'Contained multiline heading',
+};
+
 export const StateHook = (): React.ReactNode => {
   const {transitioning, ...disclosure} = useDelayedDisclosureState({
     delay: 500,
@@ -205,7 +281,12 @@ export const StateHook = (): React.ReactNode => {
         <DisclosureHeading as="h2" variant="heading20">
           {transitioning ? 'Please wait...' : clickableHeading}
         </DisclosureHeading>
-        <DisclosureContent>Disclosure content</DisclosureContent>
+        <DisclosureContent>
+          Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus
+          commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae elit libero, a
+          pharetra augue.
+        </DisclosureContent>
       </Disclosure>
     </>
   );

@@ -73,13 +73,16 @@ module.exports = {
     // This rule tells people to do something (import foo = require('foo')) which doesn't work
     // with babel compiled typescript.
     '@typescript-eslint/no-var-requires': 'off',
+    // Warn about incorrect type imports
+    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/consistent-type-imports.md
+    '@typescript-eslint/consistent-type-imports': 'warn',
     // PropTypes are useless with typescript
     'react/prop-types': 'off',
     // ignore dev deps by default, point eslint to all package.json files in the monorepo
     'import/no-extraneous-dependencies': [
       'error',
       {
-        packageDir: [path.join(__dirname, './'), ...cachedPackages.map(package => package.location)],
+        packageDir: [path.join(__dirname, './'), ...cachedPackages.map((package) => package.location)],
       },
     ],
     'react/jsx-curly-brace-presence': 0,

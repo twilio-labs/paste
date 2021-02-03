@@ -69,19 +69,20 @@ const HomeHero: React.FC = () => {
           <Grid vertical={[true, false, false]}>
             <Column span={5}>
               <NewComponentBanner>
-                <NewComponentBannerBadge>New!</NewComponentBannerBadge>
-                <NewComponentBannerText>We released the Create pattern!</NewComponentBannerText>
+                <NewComponentBannerBadge>Apply!</NewComponentBannerBadge>
+                <NewComponentBannerText>We&rsquo;re looking for an Engineering Manager!</NewComponentBannerText>
                 <NewComponentBannerLink
-                  to="/patterns/create"
+                  to="https://boards.greenhouse.io/twilio/jobs/2537824"
+                  showExternal
                   onClick={() =>
                     trackCustomEvent({
                       category: 'Hero',
                       action: 'click-new-component-banner',
-                      label: 'New component banner',
+                      label: 'Manager Job Ad',
                     })
                   }
                 >
-                  Check it out
+                  Is it you?
                 </NewComponentBannerLink>
               </NewComponentBanner>
               <Text
