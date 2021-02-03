@@ -15,7 +15,7 @@ const {mkdir} = require('../../../../tools/utils/mkdir');
 // Given a list of packages, output the index.tsx exports string
 function generateIndexFromPackageList(packageList) {
   let output = '';
-  packageList.forEach(package => {
+  packageList.forEach((package) => {
     output = `${output}export * from '${package.name}';\n`;
   });
   return output;
@@ -23,7 +23,7 @@ function generateIndexFromPackageList(packageList) {
 
 // See: https://stackoverflow.com/questions/58527907/barrel-file-and-tree-shaking
 function generateUnbarreledExports(packageList) {
-  packageList.forEach(package => {
+  packageList.forEach((package) => {
     writeToFile(getUnbarreledFileFullPath(package), `export * from '${package.name}';\n`, {
       errorMessage: `[@twilio-paste/core] ${package.name} export file was not generated.`,
     });
@@ -33,15 +33,15 @@ function generateUnbarreledExports(packageList) {
 // Given a list of packages, output the package.json dependencies field
 function generateVersionedDependencyList(packageList) {
   const dependencies = {};
-  packageList.forEach(package => {
-    dependencies[package.name] = `^${package.version}`;
+  packageList.forEach((package) => {
+    dependencies[package.name] = `${package.version}`;
   });
   return dependencies;
 }
 
 // Given a list of all repo packages, return only public and not blocked packages.
 function getCoreRelevantPackages(packageList) {
-  return packageList.filter(item => {
+  return packageList.filter((item) => {
     const isReleased = !item.private;
     const isNotBlocked = !BLOCKLIST.includes(item.name);
     return isReleased && isNotBlocked;
@@ -52,14 +52,14 @@ function getAllJsFiles(dirPath) {
   const files = fs.readdirSync(dirPath);
   const arrayOfFiles = [];
 
-  files.forEach(file => {
+  files.forEach((file) => {
     arrayOfFiles.push(path.join(dirPath, '/', file));
   });
-  return arrayOfFiles.filter(file => file.match(/\.js$/));
+  return arrayOfFiles.filter((file) => file.match(/\.js$/));
 }
 
 function createRelativePackageFolders(packageList) {
-  packageList.forEach(package => {
+  packageList.forEach((package) => {
     const packageName = getPackageName(package);
     const relativePackagePath = path.join(__dirname, '../', packageName);
 
@@ -89,7 +89,7 @@ function createRelativePackageFolders(packageList) {
 }
 
 function createGitIgnore(packageList) {
-  const ignoreList = packageList.map(package => `/${getPackageName(package)}`);
+  const ignoreList = packageList.map((package) => `/${getPackageName(package)}`);
 
   const output = `# Automatically generated from "yarn generate-packages"
 /dist
@@ -103,7 +103,7 @@ ${ignoreList.join('\n')}`;
 
 function createCodeSandboxCIjson(packageList) {
   // create a list of package locations based on the repo root, not including machine file structure
-  const packageLocationList = packageList.map(package => package.location.replace(PACKAGES_ROOT_PATH, ''));
+  const packageLocationList = packageList.map((package) => package.location.replace(PACKAGES_ROOT_PATH, ''));
   const newCodeSandboxConfig = {
     ...BASE_CODESANDBOX_CI,
     packages: [...BASE_CODESANDBOX_CI.packages, ...packageLocationList],
