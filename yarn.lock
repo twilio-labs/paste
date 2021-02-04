@@ -5097,6 +5097,11 @@
     react-remove-scroll "^2.3.0"
     tslib "^2.0.0"
 
+"@reach/observe-rect@^1.1.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@reach/observe-rect/-/observe-rect-1.2.0.tgz#d7a6013b8aafcc64c778a0ccb83355a11204d3b2"
+  integrity sha512-Ba7HmkFgfQxZqqaeIWWkNK0rEhpxVQHIoVyW1YDSkGsGIXzcaW4deC8B0pZrNSSyLTdIk7y+5olKt5+g0GmFIQ==
+
 "@reach/portal@0.11.2":
   version "0.11.2"
   resolved "https://registry.yarnpkg.com/@reach/portal/-/portal-0.11.2.tgz#19a671be9ff010a345892b81e710cb6e4d9f9762"
@@ -25204,6 +25209,14 @@ react-uid@2.3.1:
   dependencies:
     tslib "^1.10.0"
 
+react-virtual@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/react-virtual/-/react-virtual-2.3.2.tgz#3d9f552465d2be248e38a694363dbf9d0bb31e9f"
+  integrity sha512-uTwiNMePiZQJgtDM57J0YkrLLlCYhKGrpFgedYejILc8QMCzu3rTQGFB9/o07bIFJ8RMfvbEzU4Q5uxcP6nu2g==
+  dependencies:
+    "@reach/observe-rect" "^1.1.0"
+    ts-toolbelt "^6.4.2"
+
 react-visibility-sensor@5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/react-visibility-sensor/-/react-visibility-sensor-5.1.1.tgz#5238380960d3a0b2be0b7faddff38541e337f5a9"
@@ -28992,6 +29005,11 @@ ts-pnp@^1.1.6:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.2.0.tgz#a500ad084b0798f1c3071af391e65912c86bca92"
   integrity sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==
+
+ts-toolbelt@^6.4.2:
+  version "6.15.5"
+  resolved "https://registry.yarnpkg.com/ts-toolbelt/-/ts-toolbelt-6.15.5.tgz#cb3b43ed725cb63644782c64fbcad7d8f28c0a83"
+  integrity sha512-FZIXf1ksVyLcfr7M317jbB67XFJhOO1YqdTcuGaq9q5jLUoTikukZ+98TPjKiP2jC5CgmYdWWYs0s2nLSU0/1A==
 
 tsconfig-paths@^3.9.0:
   version "3.9.0"

@@ -25,6 +25,9 @@ const items = [
   'Paragraph',
 ];
 
+// eslint-disable-next-line unicorn/prefer-spread
+const virtualizedItems = Array.from(new Array(1000), (_empty, index) => `${index}`);
+
 interface IconItems {
   label: string;
   iconRight?: boolean;
@@ -116,6 +119,14 @@ export const DefaultCombobox = (): React.ReactNode => {
 
 DefaultCombobox.story = {
   name: 'Combobox',
+};
+
+export const VirtualizedCombobox = (): React.ReactNode => {
+  return <Combobox items={virtualizedItems} labelText="Pick a number:" helpText="This large list is virtualized" />;
+};
+
+VirtualizedCombobox.story = {
+  name: 'Combobox - Virtualized',
 };
 
 export const ComboboxInverse = (): React.ReactNode => {

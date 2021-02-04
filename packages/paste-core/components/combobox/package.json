@@ -25,7 +25,8 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "lodash.groupby": "^4.6.0"
+    "lodash.groupby": "^4.6.0",
+    "react-virtual": "^2.3.2"
   },
   "peerDependencies": {
     "@twilio-paste/box": "^2.13.1",
