@@ -9,4 +9,5 @@ export type {
   UseComboboxProps as UseComboboxPrimitiveProps,
   UseComboboxState as UseComboboxPrimitiveState,
   UseComboboxReturnValue as UseComboboxPrimitiveReturnValue,
+  UseComboboxStateChange as UseComboboxPrimitiveStateChange,
 } from '@twilio-paste/dropdown-library';

@@ -3,11 +3,14 @@ import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxStyleProps} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
+import type {PositionOptions} from '@twilio-paste/style-props';
+import type {VirtualItem} from 'react-virtual/types';
 
 export interface ComboboxListboxOptionProps {
   children: NonNullable<React.ReactNode>;
   highlighted?: boolean;
   variant: 'default' | 'groupOption';
+  virtualItem: VirtualItem;
 }
 
 const VariantStyles: {[key in ComboboxListboxOptionProps['variant']]: BoxStyleProps} = {
@@ -22,7 +25,16 @@ const VariantStyles: {[key in ComboboxListboxOptionProps['variant']]: BoxStylePr
 };
 
 const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOptionProps>(
-  ({children, highlighted, variant = 'default', ...props}, ref) => {
+  ({children, highlighted, variant = 'default', virtualItem, ...props}, ref) => {
+    const virtualItemStyles = virtualItem
+      ? {
+          position: 'absolute' as PositionOptions,
+          top: 0,
+          left: 0,
+          width: '100%',
+          transform: `translateY(${virtualItem.start}px)`,
+        }
+      : {};
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -31,6 +43,7 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
         padding="space30"
         cursor="pointer"
         ref={ref}
+        {...virtualItemStyles}
         {...VariantStyles[variant]}
       >
         <Text
