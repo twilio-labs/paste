@@ -1,5 +1,21 @@
 # Change Log
 
+## 4.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`f1675586`](https://github.com/twilio-labs/paste/commit/f1675586933bcce71a6b5c5fec7d939735763a73)]:
+  - @twilio-paste/theme@4.3.0
+  - @twilio-paste/help-text@4.0.0
+  - @twilio-paste/label@4.0.0
+  - @twilio-paste/screen-reader-only@4.0.0
+  - @twilio-paste/flex@1.0.0
+  - @twilio-paste/box@3.0.0
+  - @twilio-paste/sibling-box@2.0.0
+  - @twilio-paste/text@3.0.0
+  - @twilio-paste/icons@4.0.0
+  - @twilio-paste/style-props@2.0.0
+
 ## 3.0.1
 
 ### Patch Changes

@@ -1,5 +1,29 @@
 # Change Log
 
+## 4.0.0
+
+### Minor Changes
+
+- [`f1675586`](https://github.com/twilio-labs/paste/commit/f1675586933bcce71a6b5c5fec7d939735763a73) [#1117](https://github.com/twilio-labs/paste/pull/1117) Thanks [@TheSisb](https://github.com/TheSisb)! - Comboboxes are now virtualized, but only when the 'groupItemsBy' and 'optionTemplate' props are not provided.
+
+### Patch Changes
+
+- Updated dependencies [[`f1675586`](https://github.com/twilio-labs/paste/commit/f1675586933bcce71a6b5c5fec7d939735763a73)]:
+  - @twilio-paste/theme@4.3.0
+  - @twilio-paste/button@4.0.0
+  - @twilio-paste/help-text@4.0.0
+  - @twilio-paste/input@2.0.0
+  - @twilio-paste/input-box@3.0.0
+  - @twilio-paste/label@4.0.0
+  - @twilio-paste/screen-reader-only@4.0.0
+  - @twilio-paste/spinner@5.0.0
+  - @twilio-paste/flex@1.0.0
+  - @twilio-paste/stack@1.0.0
+  - @twilio-paste/box@3.0.0
+  - @twilio-paste/text@3.0.0
+  - @twilio-paste/icons@4.0.0
+  - @twilio-paste/style-props@2.0.0
+
 ## 3.0.1
 
 ### Patch Changes
