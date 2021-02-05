@@ -66,7 +66,7 @@ export const Image = (): React.ReactNode => {
 };
 
 Image.story = {
-  parameters: {chromatic: {delay: 1000}},
+  parameters: {chromatic: {delay: 3000}},
 };
 
 export const ResponsiveInitials = (): React.ReactNode => {
@@ -86,5 +86,5 @@ export const ResponsiveImage = (): React.ReactNode => {
 };
 
 ResponsiveImage.story = {
-  parameters: {chromatic: {delay: 1000}},
+  parameters: {chromatic: {delay: 3000}},
 };

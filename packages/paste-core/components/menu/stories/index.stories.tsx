@@ -196,7 +196,7 @@ export default {
   subcomponents: {MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator},
   parameters: {
     // Sets a delay for the component's stories
-    chromatic: {delay: 1000},
+    chromatic: {delay: 3000},
   },
 };
 
