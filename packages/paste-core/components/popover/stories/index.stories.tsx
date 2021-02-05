@@ -10,7 +10,7 @@ export default {
   subcomponents: {PopoverContainer, PopoverButton},
   parameters: {
     // Sets a delay and diff threshold for the component's stories
-    chromatic: {delay: 1000, diffThreshold: 0.2},
+    chromatic: {delay: 1000, diffThreshold: 0.3},
   },
 };
 
