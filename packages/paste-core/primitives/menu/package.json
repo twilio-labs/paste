@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/menu-primitive",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "category": "interaction",
   "status": "beta",
   "description": "An unstyled and accessible basis upon which to build Menus.",
@@ -25,12 +25,12 @@
     "tsc": "tsc"
   },
   "peerDependencies": {
-    "@twilio-paste/reakit-library": "^0.8.1",
+    "@twilio-paste/reakit-library": "0.8.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/reakit-library": "^0.8.1",
+    "@twilio-paste/reakit-library": "0.8.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }

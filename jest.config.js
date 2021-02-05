@@ -10,7 +10,11 @@ module.exports = {
   ],
   cacheDirectory: '.jest-cache',
   coverageDirectory: '.jest-coverage',
-  coveragePathIgnorePatterns: ['<rootDir>/packages/(?:.+?)/dist/'],
+  coveragePathIgnorePatterns: [
+    '<rootDir>/packages/(?:.+?)/dist/',
+    '<rootDir>/packages/(?:.+?)/cjs/',
+    '<rootDir>/packages/(?:.+?)/esm/',
+  ],
   coverageReporters: ['html', 'text'],
   coverageThreshold: {
     global: {
