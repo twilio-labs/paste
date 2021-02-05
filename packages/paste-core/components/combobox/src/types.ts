@@ -4,12 +4,36 @@ import type {
   UseComboboxPrimitiveReturnValue,
 } from '@twilio-paste/combobox-primitive';
 import type {InputVariants, InputProps} from '@twilio-paste/input';
+import type {VirtualItem} from 'react-virtual/types';
 
 export type Item = string | {[key: string]: any};
 
 export interface OptionTemplateFn<ProvidedItem> {
   (item: ProvidedItem): React.ReactNode;
 }
+
+type ScrollAlignment = 'start' | 'center' | 'end' | 'auto';
+
+interface ScrollToOptions {
+  align: ScrollAlignment;
+}
+
+export type RowVirtualizer =
+  | {
+      virtualItems: VirtualItem[];
+      totalSize: number;
+      scrollToOffset: (index: number, options?: ScrollToOptions | undefined) => void;
+      scrollToIndex: (index: number, options?: ScrollToOptions | undefined) => void;
+    }
+  | undefined;
+
+export type HighlightedIndexChanges = {
+  type: number;
+  highlightedIndex: number;
+  isOpen: boolean;
+  selectedItem: string;
+  inputValue: string;
+};
 
 export interface ComboboxProps extends Omit<InputProps, 'id' | 'type' | 'value'> {
   autocomplete?: boolean;
@@ -32,18 +56,10 @@ export interface ComboboxProps extends Omit<InputProps, 'id' | 'type' | 'value'>
   state?: Partial<UseComboboxPrimitiveReturnValue<any>>;
 }
 
-export interface ItemProps extends Pick<ComboboxProps, 'optionTemplate'> {
-  item: Item;
-  index: number | string;
+export interface ComboboxItemsProps
+  extends Pick<ComboboxProps, 'groupItemsBy' | 'optionTemplate' | 'groupLabelTemplate'> {
+  items: Item[];
+  rowVirtualizer: RowVirtualizer | undefined;
   getItemProps: any;
   highlightedIndex: UseComboboxPrimitiveState<Item>['highlightedIndex'];
-  inGroup?: boolean;
 }
-
-export interface ItemsProps extends Omit<ItemProps, 'item' | 'index'> {
-  items: Item[];
-}
-
-export interface GroupItemsProps extends ItemsProps, Pick<ComboboxProps, 'groupLabelTemplate' | 'groupItemsBy'> {}
-
-export type ListBoxProps = GroupItemsProps;

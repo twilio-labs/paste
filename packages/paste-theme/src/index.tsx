@@ -22,3 +22,6 @@ export {ThemeVariants} from './constants';
 export {generateThemeFromTokens} from './generateThemeFromTokens';
 export {generateTokensFromTheme} from './generateTokensFromTheme';
 export {Theme};
+
+// utils
+export {remToPx} from './utils/remToPx';
