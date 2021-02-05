@@ -295,7 +295,9 @@ describe('Combobox', () => {
       const results = await axe(container, {
         rules: {
           // Incorrectly thinks our markup is bad for a11y.
-          // False negative
+          // False negative, see:
+          // https://github.com/dequelabs/axe-core/issues/2505
+          // https://github.com/dequelabs/axe-core/issues/2523
           'aria-required-parent': {enabled: false},
           'aria-required-children': {enabled: false},
         },
