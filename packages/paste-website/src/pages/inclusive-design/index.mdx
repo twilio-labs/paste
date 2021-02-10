@@ -5,17 +5,12 @@ slug: /getting-started/inclusive-design/
 ---
 
 import {graphql} from 'gatsby';
-import {
-  UnorderedList,
-  Card,
-  ListItem,
-  Stack,
-  Alert,
-  Anchor,
-  Disclosure,
-  DisclosureHeading,
-  DisclosureContent,
-} from '@twilio-paste/core';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Card} from '@twilio-paste/card';
+import {Stack} from '@twilio-paste/stack';
+import {Alert} from '@twilio-paste/alert';
+import {Anchor} from '@twilio-paste/anchor';
+import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {Link} from 'gatsby';
 
 export const pageQuery = graphql`
@@ -305,30 +300,33 @@ While the tips below are geared towards developers, it is recommended that desig
   </Disclosure>
 
 <Disclosure>
-    <DisclosureHeading as="h3" variant="heading30">
-      Responsive design considerations
-    </DisclosureHeading>
-    <DisclosureContent>
-      <UnorderedList>
-        <ListItem>Support "pinch zoom" (remove `user-scalable=no` if present)</ListItem>
-        <ListItem>
-          Use content-based, not device-specific, media queries{' '}
-          <Anchor showExternal href="http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/#content">
-            (Read more about why this matters)
-          </Anchor>
-        </ListItem>        
-        <ListItem>
-          Provide large touch "targets" for interactive elements{' '}
-          <Anchor showExternal href="http://www.bbc.co.uk/guidelines/futuremedia/accessibility/mobile/design/touch-target-size">
-            (Read more about why this matters)
-          </Anchor>
-        </ListItem>        
-        <ListItem>Ensure content is not obscured through zooming (no fixed widths)</ListItem>
-        <ListItem>Ensure the same content is available across different devices and platforms</ListItem>
-      </UnorderedList>
-    </DisclosureContent>
-  </Disclosure>
-  
+  <DisclosureHeading as="h3" variant="heading30">
+    Responsive design considerations
+  </DisclosureHeading>
+  <DisclosureContent>
+    <UnorderedList>
+      <ListItem>Support "pinch zoom" (remove `user-scalable=no` if present)</ListItem>
+      <ListItem>
+        Use content-based, not device-specific, media queries{' '}
+        <Anchor showExternal href="http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/#content">
+          (Read more about why this matters)
+        </Anchor>
+      </ListItem>
+      <ListItem>
+        Provide large touch "targets" for interactive elements{' '}
+        <Anchor
+          showExternal
+          href="http://www.bbc.co.uk/guidelines/futuremedia/accessibility/mobile/design/touch-target-size"
+        >
+          (Read more about why this matters)
+        </Anchor>
+      </ListItem>
+      <ListItem>Ensure content is not obscured through zooming (no fixed widths)</ListItem>
+      <ListItem>Ensure the same content is available across different devices and platforms</ListItem>
+    </UnorderedList>
+  </DisclosureContent>
+</Disclosure>
+
   <Disclosure>
     <DisclosureHeading as="h3" variant="heading30">
       Assistive technology considerations
@@ -364,7 +362,7 @@ While the tips below are geared towards developers, it is recommended that desig
         <ListItem>
           Provide a skip link if necessary{' '}
           <Anchor showExternal href="https://webaim.org/techniques/skipnav/">(Read more about why this matters)</Anchor>
-        </ListItem>        
+        </ListItem>
         <ListItem>Make sure controls within hidden content are not focusable</ListItem>
       </UnorderedList>
     </DisclosureContent>
