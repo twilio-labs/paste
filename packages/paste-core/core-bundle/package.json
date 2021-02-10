@@ -15,6 +15,7 @@
   "scripts": {
     "build": "yarn clean && yarn generate-packages && yarn compile && yarn build:types",
     "build:dev": "yarn clean && yarn generate-packages && yarn compile:dev && yarn build:types",
+    "build:js": "yarn clean && yarn generate-packages && yarn compile",
     "build:types": "./tools/build-types.sh",
     "generate-packages": "node ./tools/generate.js",
     "clean": "yarn clean:packages && rm -rf ./dist && rm -rf tsconfig.tsbuildinfo && rm -rf .rpt2_cache",

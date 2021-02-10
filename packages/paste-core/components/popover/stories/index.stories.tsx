@@ -8,6 +8,10 @@ export default {
   title: 'Components/Popover',
   component: Popover,
   subcomponents: {PopoverContainer, PopoverButton},
+  parameters: {
+    // Sets a delay and diff threshold for the component's stories
+    chromatic: {delay: 3000, diffThreshold: 0.3},
+  },
 };
 
 export const Default = (): React.ReactNode => {
@@ -21,10 +25,6 @@ export const Default = (): React.ReactNode => {
       </PopoverContainer>
     </Box>
   );
-};
-
-Default.story = {
-  parameters: {chromatic: {delay: 300}},
 };
 
 export const PopoverTop = (): React.ReactNode => {
