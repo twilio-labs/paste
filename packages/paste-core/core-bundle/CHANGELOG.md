@@ -1,5 +1,33 @@
 # Change Log
 
+## 6.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`7340a6a5`](https://github.com/twilio-labs/paste/commit/7340a6a552ddc45e35a786cbee4106998911458b), [`8e45efee`](https://github.com/twilio-labs/paste/commit/8e45efeecfba9599b3b049f196d60b5c6ee0da55)]:
+  - @twilio-paste/icons@4.0.1
+  - @twilio-paste/toast@2.0.1
+  - @twilio-paste/alert@4.0.1
+  - @twilio-paste/anchor@3.0.1
+  - @twilio-paste/base-radio-checkbox@4.0.1
+  - @twilio-paste/button@4.0.1
+  - @twilio-paste/checkbox@4.0.1
+  - @twilio-paste/combobox@4.0.1
+  - @twilio-paste/disclosure@3.0.1
+  - @twilio-paste/help-text@4.0.1
+  - @twilio-paste/inline-control-group@4.0.1
+  - @twilio-paste/menu@4.0.1
+  - @twilio-paste/modal@4.0.1
+  - @twilio-paste/popover@3.0.1
+  - @twilio-paste/radio-group@4.0.1
+  - @twilio-paste/screen-reader-only@4.0.1
+  - @twilio-paste/select@3.0.1
+  - @twilio-paste/spinner@5.0.1
+  - @twilio-paste/tooltip@2.0.1
+  - @twilio-paste/truncate@4.0.1
+  - @twilio-paste/breadcrumb@2.0.1
+  - @twilio-paste/label@4.0.1
+
 ## 6.0.0
 
 ### Patch Changes
