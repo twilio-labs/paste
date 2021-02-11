@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.0.1
+
+### Patch Changes
+
+- [`7340a6a5`](https://github.com/twilio-labs/paste/commit/7340a6a552ddc45e35a786cbee4106998911458b) [#1180](https://github.com/twilio-labs/paste/pull/1180) Thanks [@jeevan-sg](https://github.com/jeevan-sg)! - adds product icon for event streams app
+
 ## 4.0.0
 
 ### Patch Changes

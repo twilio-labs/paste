@@ -1,5 +1,16 @@
 # Change Log
 
+## 2.0.1
+
+### Patch Changes
+
+- [`8e45efee`](https://github.com/twilio-labs/paste/commit/8e45efeecfba9599b3b049f196d60b5c6ee0da55) [#1181](https://github.com/twilio-labs/paste/pull/1181) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Fixed a bug when setting an auto dismissing toast via the useToaster hook, that was supplied a custom id.
+
+- Updated dependencies [[`7340a6a5`](https://github.com/twilio-labs/paste/commit/7340a6a552ddc45e35a786cbee4106998911458b)]:
+  - @twilio-paste/icons@4.0.1
+  - @twilio-paste/button@4.0.1
+  - @twilio-paste/spinner@5.0.1
+
 ## 2.0.0
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/screen-reader-only",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "category": "typography",
   "status": "beta",
   "description": "Utility for visually hiding content to provide an accessible experience for users of assistive technology.",
@@ -27,7 +27,7 @@
   "peerDependencies": {
     "@twilio-paste/box": "3.0.0",
     "@twilio-paste/design-tokens": "6.5.1",
-    "@twilio-paste/icons": "4.0.0",
+    "@twilio-paste/icons": "4.0.1",
     "@twilio-paste/style-props": "2.0.0",
     "@twilio-paste/styling-library": "0.3.1",
     "@twilio-paste/theme": "4.3.0",
@@ -39,7 +39,7 @@
   "devDependencies": {
     "@twilio-paste/box": "3.0.0",
     "@twilio-paste/design-tokens": "6.5.1",
-    "@twilio-paste/icons": "4.0.0",
+    "@twilio-paste/icons": "4.0.1",
     "@twilio-paste/style-props": "2.0.0",
     "@twilio-paste/styling-library": "0.3.1",
     "@twilio-paste/theme": "4.3.0",

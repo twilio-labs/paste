@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`7340a6a5`](https://github.com/twilio-labs/paste/commit/7340a6a552ddc45e35a786cbee4106998911458b)]:
+  - @twilio-paste/icons@4.0.1
+  - @twilio-paste/spinner@5.0.1
+
 ## 4.0.0
 
 ### Patch Changes

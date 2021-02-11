@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.0.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @twilio-paste/screen-reader-only@4.0.1
+
 ## 4.0.0
 
 ### Patch Changes
