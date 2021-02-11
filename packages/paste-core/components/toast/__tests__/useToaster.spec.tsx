@@ -141,6 +141,24 @@ describe('useToaster', () => {
       // Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
 
       expect(result.current.toasts.length).toEqual(0);
+
+      // push a toast that has a custom id for auto dismissing
+      act(() => {
+        result.current.push({
+          message: 'hi',
+          variant: 'error',
+          id: 'custom_id',
+          dismissAfter: 1000,
+        });
+      });
+
+      expect(result.current.toasts.length).toEqual(1);
+
+      act(() => {
+        jest.advanceTimersByTime(1000);
+      });
+
+      expect(result.current.toasts.length).toEqual(0);
     });
   });
 });
