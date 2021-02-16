@@ -188,19 +188,6 @@ const Component = () => (
 );
 ```
 
-### Jest / Testing
-
-Just like rendering Paste components in a web application, when rendering components for the purposes of testing you
-are required to wrap them in the [Theme Provider](#setting-up-the-theme-provider). If you do not, your components may fail to render correctly.
-
-It can sometimes be helpful to test Paste components without animation. To disable animations on Paste components, pass the `disableAnimations` boolean prop to the &lt;Theme.Provider&gt;.
-
-```jsx
-<Theme.Provider theme="default" disableAnimations>
-  {/* your content */}
-</Theme.Provider>
-```
-
 ### Using Icons
 
 The Paste Icons package provides icon components. They can be used to enhance the appearance of a web interface and break
@@ -228,6 +215,44 @@ For more information about our icon system, checkout our [usage guide here](/ico
     <SiteLink to="/icons/how-to-add-an-icon">how to add an icon</SiteLink>.
   </CalloutText>
 </Callout>
+
+### Jest / Testing
+
+Just like rendering Paste components in a web application, when rendering components for the purposes of testing you
+are required to wrap them in the [Theme Provider](#setting-up-the-theme-provider). If you do not, your components may fail to render correctly.
+
+It can sometimes be helpful to test Paste components without animation. To disable animations on Paste components, pass the `disableAnimations` boolean prop to the &lt;Theme.Provider&gt;.
+
+```jsx
+<Theme.Provider theme="default" disableAnimations>
+  {/* your content */}
+</Theme.Provider>
+```
+
+#### Handling Icons in Jest
+
+Jest will often complain about using the esModules versions (`/esm/`) of Paste Icons, since it perfers the commonJS version. You'll often see an error similar to:
+
+```
+Test suite failed to run
+  unknown: Unexpected token (1:660)
+    This usually means that you are trying to import a file which
+    Jest cannot parse, e.g. it's not plain JavaScript.
+    ...
+```
+
+In order to fix these Jest errors, you'll need to configure Jest to correctly handle the esModules versions of Paste Icons.
+
+You can use the `transformIgnorePatterns` option to tell Jest to not transform Paste Icons, which allows Jest to transpile these files.
+
+```js
+// jest.config.js
+{
+  "transformIgnorePatterns": [
+    "/node_modules/@twilio-paste/icons/.*"
+  ]
+}
+```
 
 ### Global Styles
 
