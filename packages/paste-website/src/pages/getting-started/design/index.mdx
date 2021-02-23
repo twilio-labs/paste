@@ -11,13 +11,14 @@ import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {Tooltip} from '@twilio-paste/tooltip';
+import {Popover, PopoverContainer, PopoverButton} from '@twilio-paste/popover';
 import {Stack} from '@twilio-paste/stack';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 
 import { SuccessIcon } from "@twilio-paste/icons/esm/SuccessIcon";
 import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
 import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
-
+import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
 
 export const pageQuery = graphql`
   {
@@ -119,7 +120,6 @@ Sketch symbols, text styles, and layer styles.
 </Callout>
 
 ### Paste components
-
 <Tooltip text="There is ongoing maintenance and net new work in this project. Libraries in this project are at parity with code.">
   <Box
     role="button"
@@ -127,6 +127,14 @@ Sketch symbols, text styles, and layer styles.
     display="inline-block"
     width="auto"
     marginBottom="space50"
+    paddingTop="space20"
+    paddingBottom="space20"
+    paddingLeft="space30"
+    paddingRight="space30"
+    borderColor="colorBorder"
+    borderWidth="borderWidth10"
+    borderStyle="solid"
+    borderRadius="borderRadius20"
   >
   <Stack as="span" orientation="horizontal" spacing="space20">
     <SuccessIcon decorative={false} title="Success icon" color="colorTextSuccess"/>
@@ -242,6 +250,14 @@ exceptions: `typography`, `forms`, and `grid and spacing`.
     display="inline-block"
     width="auto"
     marginBottom="space50"
+    paddingTop="space20"
+    paddingBottom="space20"
+    paddingLeft="space30"
+    paddingRight="space30"
+    borderColor="colorBorder"
+    borderWidth="borderWidth10"
+    borderStyle="solid"
+    borderRadius="borderRadius20"
   >
   <Stack as="span" orientation="horizontal" spacing="space20">
     <SuccessIcon decorative={false} title="Success icon" color="colorTextSuccess"/>
@@ -308,6 +324,14 @@ using these text and layer styles to create custom compositions in Sketch.
       display="inline-block"
       width="auto"
       marginBottom="space50"
+      paddingTop="space20"
+      paddingBottom="space20"
+      paddingLeft="space30"
+      paddingRight="space30"
+      borderColor="colorBorder"
+      borderWidth="borderWidth10"
+      borderStyle="solid"
+      borderRadius="borderRadius20"
     >
     <Stack as="span" orientation="horizontal" spacing="space20">
       <WarningIcon decorative={false} title="WArning icon" color="colorTextWarning"/>
@@ -339,9 +363,17 @@ using these text and layer styles to create custom compositions in Sketch.
         display="inline-block"
         width="auto"
         marginBottom="space50"
+        paddingTop="space20"
+        paddingBottom="space20"
+        paddingLeft="space30"
+        paddingRight="space30"
+        borderColor="colorBorder"
+        borderWidth="borderWidth10"
+        borderStyle="solid"
+        borderRadius="borderRadius20"
       >
       <Stack as="span" orientation="horizontal" spacing="space20">
-        <WarningIcon decorative={false} title="WArning icon" color="colorTextWarning"/>
+        <WarningIcon decorative={false} title="Warning icon" color="colorTextWarning"/>
         <Text as="p">
           Sunset
         </Text>
@@ -366,6 +398,14 @@ using these text and layer styles to create custom compositions in Sketch.
       display="inline-block"
       width="auto"
       marginBottom="space50"
+      paddingTop="space20"
+      paddingBottom="space20"
+      paddingLeft="space30"
+      paddingRight="space30"
+      borderColor="colorBorder"
+      borderWidth="borderWidth10"
+      borderStyle="solid"
+      borderRadius="borderRadius20"
     >
     <Stack as="span" orientation="horizontal" spacing="space20">
       <ErrorIcon decorative={false} title="Error icon" color="colorTextError"/>
