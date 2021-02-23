@@ -69,16 +69,16 @@ const HomeHero: React.FC = () => {
           <Grid vertical={[true, false, false]}>
             <Column span={5}>
               <NewComponentBanner>
-                <NewComponentBannerBadge>Apply!</NewComponentBannerBadge>
-                <NewComponentBannerText>We&rsquo;re looking for an Engineering Manager!</NewComponentBannerText>
+                <NewComponentBannerBadge>Hello!</NewComponentBannerBadge>
+                <NewComponentBannerText>We&rsquo;re looking for a UX Engineer!</NewComponentBannerText>
                 <NewComponentBannerLink
-                  to="https://boards.greenhouse.io/twilio/jobs/2537824"
+                  to="https://boards.greenhouse.io/twilio/jobs/2900531"
                   showExternal
                   onClick={() =>
                     trackCustomEvent({
                       category: 'Hero',
                       action: 'click-new-component-banner',
-                      label: 'Manager Job Ad',
+                      label: 'UX Engineer Job Ad',
                     })
                   }
                 >
