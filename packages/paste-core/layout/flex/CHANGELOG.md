@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`944c3407`](https://github.com/twilio-labs/paste/commit/944c340790b932f4714b0e6075c5641ecdbee9d6)]:
+  - @twilio-paste/design-tokens@6.5.2
+  - @twilio-paste/box@3.0.1
+  - @twilio-paste/style-props@2.0.1
+  - @twilio-paste/theme@4.3.1
+
 ## 1.0.0
 
 ### Patch Changes

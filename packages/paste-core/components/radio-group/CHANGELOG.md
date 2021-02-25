@@ -1,5 +1,24 @@
 # Change Log
 
+## 4.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`944c3407`](https://github.com/twilio-labs/paste/commit/944c340790b932f4714b0e6075c5641ecdbee9d6), [`af779398`](https://github.com/twilio-labs/paste/commit/af77939865e030fb356dbc4193c8324e6261627a)]:
+  - @twilio-paste/design-tokens@6.5.2
+  - @twilio-paste/icons@4.0.2
+  - @twilio-paste/base-radio-checkbox@4.0.2
+  - @twilio-paste/help-text@4.0.2
+  - @twilio-paste/inline-control-group@4.0.2
+  - @twilio-paste/label@4.0.2
+  - @twilio-paste/screen-reader-only@4.0.2
+  - @twilio-paste/flex@1.0.1
+  - @twilio-paste/box@3.0.1
+  - @twilio-paste/sibling-box@2.0.1
+  - @twilio-paste/text@3.0.1
+  - @twilio-paste/style-props@2.0.1
+  - @twilio-paste/theme@4.3.1
+
 ## 4.0.1
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.3.1
+
+### Patch Changes
+
+- Updated dependencies [[`944c3407`](https://github.com/twilio-labs/paste/commit/944c340790b932f4714b0e6075c5641ecdbee9d6)]:
+  - @twilio-paste/design-tokens@6.5.2
+
 ## 4.3.0
 
 ### Minor Changes

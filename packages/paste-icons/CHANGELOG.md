@@ -1,5 +1,17 @@
 # Change Log
 
+## 4.0.2
+
+### Patch Changes
+
+- [`af779398`](https://github.com/twilio-labs/paste/commit/af77939865e030fb356dbc4193c8324e6261627a) [#1224](https://github.com/twilio-labs/paste/pull/1224) Thanks [@richbachman](https://github.com/richbachman)! - added ProductInternetOfThingsEmbeddedSIMIcon, ProductInternetOfThingsNarrowbandIcon, ProductInternetOfThingsSuperSIMIcon, ProductInternetOfThingsTrustOnboardIcon, ProductInternetOfThingsWirelessIcon icons
+
+- Updated dependencies [[`944c3407`](https://github.com/twilio-labs/paste/commit/944c340790b932f4714b0e6075c5641ecdbee9d6)]:
+  - @twilio-paste/design-tokens@6.5.2
+  - @twilio-paste/box@3.0.1
+  - @twilio-paste/style-props@2.0.1
+  - @twilio-paste/theme@4.3.1
+
 ## 4.0.1
 
 ### Patch Changes
