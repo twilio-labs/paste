@@ -2,7 +2,7 @@
   "name": "@twilio-paste/input",
   "version": "2.0.1",
   "category": "user input",
-  "status": "beta",
+  "status": "production",
   "description": "An input allows users to enter text on a single lines",
   "author": "Twilio Inc.",
   "license": "MIT",

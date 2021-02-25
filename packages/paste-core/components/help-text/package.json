@@ -2,7 +2,7 @@
   "name": "@twilio-paste/help-text",
   "version": "4.0.2",
   "category": "user input",
-  "status": "beta",
+  "status": "production",
   "description": "Help text that can be paired with a Paste form component",
   "author": "Twilio Inc.",
   "license": "MIT",

@@ -2,7 +2,7 @@
   "name": "@twilio-paste/menu-primitive",
   "version": "0.2.2",
   "category": "interaction",
-  "status": "beta",
+  "status": "production",
   "description": "An unstyled and accessible basis upon which to build Menus.",
   "author": "Twilio Inc.",
   "license": "MIT",

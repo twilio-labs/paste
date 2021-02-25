@@ -2,7 +2,7 @@
   "name": "@twilio-paste/non-modal-dialog-primitive",
   "version": "0.3.2",
   "category": "interaction",
-  "status": "beta",
+  "status": "production",
   "description": "An unstyled and accessible base upon which to build a non-modal dialog.",
   "author": "Twilio Inc.",
   "license": "MIT",

@@ -2,7 +2,7 @@
   "name": "@twilio-paste/screen-reader-only",
   "version": "4.0.2",
   "category": "typography",
-  "status": "beta",
+  "status": "production",
   "description": "Utility for visually hiding content to provide an accessible experience for users of assistive technology.",
   "author": "Twilio Inc.",
   "license": "MIT",
