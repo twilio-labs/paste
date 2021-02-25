@@ -9,12 +9,13 @@ export const StatusLegend: React.FC = () => (
       Component Status Details
     </Heading>
     <Text as="p" marginBottom="space20">
-      <strong>Alpha</strong>: Component is safe to use in customer-facing products only with guidance from the design
-      systems team.
+      <strong>Alpha</strong>: Component is safe to use in customer-facing products. Component API is <em>reasonably</em>{' '}
+      stable outside of minor changes and additional props or features. <strong>N.B.</strong> This component has
+      incomplete documentation, missing Sketch or Figma symbols and has not been through UX review.
     </Text>
     <Text as="p" marginBottom="space20">
-      <strong>Beta</strong>: Component is safe to use in customer-facing products, but there may be (non-breaking)
-      updates based on UX review and usability testing.
+      <strong>Beta</strong>: Component is safe to use in customer-facing products. Component API is stable outside of
+      additional props or features. <strong>N.B.</strong> This component has likely not been through UX review.
     </Text>
     <Text as="p" marginBottom="space20">
       <strong>Production</strong>: The component is stable.
