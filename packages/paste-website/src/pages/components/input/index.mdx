@@ -309,6 +309,14 @@ Give users enough information in help text to prevent input and formatting error
 
 Ask for information only when needed. Consider removing the field otherwise.
 
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+  {`<>
+  <Label htmlFor="email_address" required>Email Address</Label>
+  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
+  <HelpText id="email_help_text">Please enter a valid email.</HelpText>
+</>`}
+</LivePreview>
+
 Use required indicators to show users which fields they must fill out.
 
 ### Validation
