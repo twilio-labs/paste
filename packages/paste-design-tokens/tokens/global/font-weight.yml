@@ -5,7 +5,7 @@ imports:
   - ../aliases/font-weight.yml
 props:
   font-weight-light:
-    value: "{!font-weight-light}"
+    value: "{!font-weight-normal}"
     comment: Font weight for light weight
   font-weight-normal:
     value: "{!font-weight-normal}"
