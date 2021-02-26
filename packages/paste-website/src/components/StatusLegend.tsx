@@ -15,8 +15,8 @@ export const StatusLegend: React.FC = () => (
       <Anchor href="https://semver.org/" showExternal>
         Semantic Versioning
       </Anchor>
-      . All components are safe to use in customer-facing products regardless of "status". Components status is a
-      reflection of completeness, not stability.
+      . All components are safe to use in customer-facing products regardless of &ldquo;status&rdquo;. Components status
+      is a reflection of completeness, not stability.
     </Paragraph>
     <Text as="p" lineHeight="lineHeight40" marginBottom="space20">
       <strong>Alpha</strong>: This component has incomplete documentation, missing Sketch or Figma symbols, has not been
