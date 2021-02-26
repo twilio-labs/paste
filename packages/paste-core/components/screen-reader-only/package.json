@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/screen-reader-only",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "category": "typography",
   "status": "production",
   "description": "Utility for visually hiding content to provide an accessible experience for users of assistive technology.",

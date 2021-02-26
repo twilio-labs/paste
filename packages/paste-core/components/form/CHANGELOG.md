@@ -1,5 +1,20 @@
 # Change Log
 
+## 4.0.3
+
+### Patch Changes
+
+- Updated dependencies [[`ac38757f`](https://github.com/twilio-labs/paste/commit/ac38757f0e426531862d5c562a2f2300cfa30592)]:
+  - @twilio-paste/help-text@4.0.3
+  - @twilio-paste/input@2.0.2
+  - @twilio-paste/screen-reader-only@4.0.3
+  - @twilio-paste/flex@1.0.2
+  - @twilio-paste/base-radio-checkbox@4.0.3
+  - @twilio-paste/checkbox@4.0.3
+  - @twilio-paste/inline-control-group@4.0.3
+  - @twilio-paste/radio-group@4.0.3
+  - @twilio-paste/label@4.0.3
+
 ## 4.0.2
 
 ### Patch Changes

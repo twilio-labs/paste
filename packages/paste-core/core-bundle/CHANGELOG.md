@@ -1,5 +1,42 @@
 # Change Log
 
+## 6.0.3
+
+### Patch Changes
+
+- Updated dependencies [[`ac38757f`](https://github.com/twilio-labs/paste/commit/ac38757f0e426531862d5c562a2f2300cfa30592)]:
+  - @twilio-paste/help-text@4.0.3
+  - @twilio-paste/input@2.0.2
+  - @twilio-paste/modal@4.0.3
+  - @twilio-paste/screen-reader-only@4.0.3
+  - @twilio-paste/separator@1.0.2
+  - @twilio-paste/table@1.0.2
+  - @twilio-paste/toast@2.0.3
+  - @twilio-paste/truncate@4.0.3
+  - @twilio-paste/aspect-ratio@3.0.2
+  - @twilio-paste/flex@1.0.2
+  - @twilio-paste/grid@1.0.2
+  - @twilio-paste/stack@1.0.2
+  - @twilio-paste/combobox-primitive@0.2.3
+  - @twilio-paste/disclosure-primitive@0.3.3
+  - @twilio-paste/menu-primitive@0.2.3
+  - @twilio-paste/modal-dialog-primitive@0.2.2
+  - @twilio-paste/non-modal-dialog-primitive@0.3.3
+  - @twilio-paste/tooltip-primitive@0.2.3
+  - @twilio-paste/base-radio-checkbox@4.0.3
+  - @twilio-paste/checkbox@4.0.3
+  - @twilio-paste/combobox@4.0.3
+  - @twilio-paste/inline-control-group@4.0.3
+  - @twilio-paste/radio-group@4.0.3
+  - @twilio-paste/label@4.0.3
+  - @twilio-paste/menu@4.0.3
+  - @twilio-paste/tabs@1.0.2
+  - @twilio-paste/button@4.0.3
+  - @twilio-paste/disclosure@3.0.3
+  - @twilio-paste/popover@3.0.3
+  - @twilio-paste/tooltip@2.0.3
+  - @twilio-paste/alert@4.0.3
+
 ## 6.0.2
 
 ### Patch Changes
