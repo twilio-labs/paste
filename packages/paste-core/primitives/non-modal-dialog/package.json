@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/non-modal-dialog-primitive",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "category": "interaction",
   "status": "production",
   "description": "An unstyled and accessible base upon which to build a non-modal dialog.",

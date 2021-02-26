@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/disclosure-primitive",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "category": "interaction",
   "status": "production",
   "description": "An unstyled and accessible basis upon which to build a disclosure.",

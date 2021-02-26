@@ -1,5 +1,14 @@
 # Change Log
 
+## 4.0.3
+
+### Patch Changes
+
+- Updated dependencies [[`ac38757f`](https://github.com/twilio-labs/paste/commit/ac38757f0e426531862d5c562a2f2300cfa30592)]:
+  - @twilio-paste/separator@1.0.2
+  - @twilio-paste/menu-primitive@0.2.3
+  - @twilio-paste/button@4.0.3
+
 ## 4.0.2
 
 ### Patch Changes
