@@ -2,7 +2,8 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import {HelpText} from '@twilio-paste/help-text';
-import {Checkbox, CheckboxProps} from './Checkbox';
+import {Checkbox} from './Checkbox';
+import type {CheckboxProps} from './Checkbox';
 
 export interface CheckboxDisclaimerProps
   extends Omit<CheckboxProps, 'isSelectAll' | 'isSelectAllChild' | 'indeterminate' | 'helpText' | 'hasError'> {

@@ -43,6 +43,15 @@ describe('Checkbox', () => {
     expect((getByLabelText('foo') as HTMLInputElement).checked).toBeTruthy();
   });
 
+  it('should render a required dot', () => {
+    const {getByText} = testRender(
+      <Checkbox {...defaultProps} required onChange={NOOP}>
+        foo
+      </Checkbox>
+    );
+    expect(getByText('Required:')).not.toBeNull();
+  });
+
   it('should render as indeterminate', () => {
     const {getByLabelText} = testRender(
       <Checkbox {...defaultProps} indeterminate onChange={NOOP}>

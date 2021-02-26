@@ -17,6 +17,15 @@ describe('Checkbox Disclaimer', () => {
     expect(getByRole('checkbox')).not.toBeNull();
   });
 
+  it('should render a required dot', () => {
+    const {getByText} = testRender(
+      <CheckboxDisclaimer {...defaultProps} required>
+        foo
+      </CheckboxDisclaimer>
+    );
+    expect(getByText('Required:')).not.toBeNull();
+  });
+
   it('renders a errorText message when errorText prop is present', () => {
     const errorText = 'This is the error text.';
     const {getByText} = testRender(

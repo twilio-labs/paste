@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {useUID} from '@twilio-paste/uid-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {BackgroundColorOptions, SpaceOptions} from '@twilio-paste/style-props';
+import type {BackgroundColorOptions, SpaceOptions} from '@twilio-paste/style-props';
 import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
 import {MinusIcon} from '@twilio-paste/icons/esm/MinusIcon';
 import {
@@ -11,6 +11,8 @@ import {
   BaseRadioCheckboxLabelText,
   BaseRadioCheckboxHelpText,
 } from '@twilio-paste/base-radio-checkbox';
+import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
+import {RequiredDot} from '@twilio-paste/label';
 import {CheckboxContext} from './CheckboxContext';
 
 export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -26,7 +28,7 @@ export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElemen
 
 type HiddenCheckboxProps = Pick<
   CheckboxProps,
-  'checked' | 'disabled' | 'id' | 'indeterminate' | 'name' | 'onChange' | 'value'
+  'checked' | 'disabled' | 'id' | 'indeterminate' | 'name' | 'onChange' | 'required' | 'value'
 > & {
   ref?: any | undefined;
 };
@@ -62,7 +64,7 @@ const CheckboxIcon: React.FC<{
 };
 
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  ({checked, children, helpText, id, indeterminate, isSelectAll, isSelectAllChild, ...props}, ref) => {
+  ({checked, children, helpText, id, indeterminate, isSelectAll, isSelectAllChild, required, ...props}, ref) => {
     const helpTextId = useUID();
     const checkboxGroupContext = React.useContext(CheckboxContext);
 
@@ -110,6 +112,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           aria-checked={indeterminate ? 'mixed' : checked}
           aria-invalid={hasError}
           id={id}
+          required={required}
           ref={ref}
         />
         <BaseRadioCheckboxLabel disabled={disabled} htmlFor={id}>
@@ -123,7 +126,14 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             <CheckboxIcon checked={checked} disabled={disabled} indeterminate={indeterminate} />
           </BaseRadioCheckboxControl>
           <BaseRadioCheckboxLabelText fontWeight={isSelectAll ? null : 'fontWeightNormal'}>
-            {children}
+            <MediaObject verticalAlign="top">
+              {required && (
+                <MediaFigure spacing="space20">
+                  <RequiredDot />
+                </MediaFigure>
+              )}
+              <MediaBody>{children}</MediaBody>
+            </MediaObject>
           </BaseRadioCheckboxLabelText>
         </BaseRadioCheckboxLabel>
         {helpText && <BaseRadioCheckboxHelpText helpTextId={helpTextId}>{helpText}</BaseRadioCheckboxHelpText>}
