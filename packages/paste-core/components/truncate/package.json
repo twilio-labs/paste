@@ -2,7 +2,7 @@
   "name": "@twilio-paste/truncate",
   "version": "4.0.2",
   "category": "typography",
-  "status": "alpha",
+  "status": "production",
   "description": "The Truncate component can be used to shorten a string of text that overflows a defined area.",
   "author": "Twilio Inc.",
   "license": "MIT",

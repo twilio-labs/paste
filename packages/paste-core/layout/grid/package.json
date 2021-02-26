@@ -2,7 +2,7 @@
   "name": "@twilio-paste/grid",
   "version": "1.0.1",
   "category": "layout",
-  "status": "beta",
+  "status": "production",
   "description": "A flex-based horizontal grid system used to build layouts.",
   "author": "Twilio Inc.",
   "license": "MIT",

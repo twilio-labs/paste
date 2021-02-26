@@ -2,7 +2,7 @@
   "name": "@twilio-paste/aspect-ratio",
   "version": "3.0.1",
   "category": "layout",
-  "status": "alpha",
+  "status": "production",
   "description": "",
   "author": "Twilio Inc.",
   "license": "MIT",

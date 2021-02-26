@@ -2,7 +2,7 @@
   "name": "@twilio-paste/flex",
   "version": "1.0.1",
   "category": "layout",
-  "status": "beta",
+  "status": "production",
   "description": "A primitive component that can be used to build flexbox based elements and layouts.",
   "author": "Twilio Inc.",
   "license": "MIT",
