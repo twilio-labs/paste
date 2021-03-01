@@ -19,6 +19,19 @@ export const Default = (): React.ReactNode => {
   );
 };
 
+export const Disabled = (): React.ReactNode => {
+  return (
+    <>
+      <Label htmlFor="label" disabled>
+        Label
+      </Label>
+      <Label htmlFor="label" required disabled>
+        Required Label
+      </Label>
+    </>
+  );
+};
+
 export const Inverse = (): React.ReactNode => {
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
