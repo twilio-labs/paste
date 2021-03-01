@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {Flex} from '@twilio-paste/flex';
+import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {Text} from '@twilio-paste/text';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {TextColor} from '@twilio-paste/style-props';
+import type {TextColor} from '@twilio-paste/style-props';
 
 export type LabelVariants = 'default' | 'inverse';
 export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
@@ -21,17 +21,23 @@ export const RequiredDot: React.FC = (props) => {
   return (
     <Box
       {...props}
+      alignItems="center"
+      justifyContent="center"
       as="span"
-      backgroundColor="colorBackgroundRequired"
-      borderRadius="borderRadiusCircle"
       cursor="pointer"
-      display="block"
-      height="4px"
-      lineHeight="lineHeight30"
-      marginRight="space20"
-      width="4px"
+      display="flex"
+      height="sizeIcon30"
     >
-      <ScreenReaderOnly>Required: </ScreenReaderOnly>
+      <Box
+        as="span"
+        backgroundColor="colorBackgroundRequired"
+        borderRadius="borderRadiusCircle"
+        display="block"
+        height="4px"
+        width="4px"
+      >
+        <ScreenReaderOnly>Required: </ScreenReaderOnly>
+      </Box>
     </Box>
   );
 };
@@ -60,19 +66,25 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
         textTransform="none"
         ref={ref}
       >
-        <Flex as="span" vAlignContent="center">
-          {required ? <RequiredDot /> : null}
-          <Text
-            as="span"
-            fontSize="fontSize30"
-            fontWeight="fontWeightSemibold"
-            lineHeight="lineHeight30"
-            color={textColor}
-            cursor={disabled ? 'not-allowed' : 'pointer'}
-          >
-            {children}
-          </Text>
-        </Flex>
+        <MediaObject verticalAlign="top">
+          {required && (
+            <MediaFigure spacing="space20">
+              <RequiredDot />
+            </MediaFigure>
+          )}
+          <MediaBody>
+            <Text
+              as="span"
+              fontSize="fontSize30"
+              fontWeight="fontWeightSemibold"
+              lineHeight="lineHeight30"
+              color={textColor}
+              cursor={disabled ? 'not-allowed' : 'pointer'}
+            >
+              {children}
+            </Text>
+          </MediaBody>
+        </MediaObject>
       </Box>
     );
   }

@@ -1,29 +1,6 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
-import {Theme} from '@twilio-paste/theme';
 import {Label} from '../src';
-
-describe('Label render', () => {
-  it('should render', (): void => {
-    const {asFragment} = render(
-      <Theme.Provider theme="console">
-        <Label htmlFor="input">child</Label>
-      </Theme.Provider>
-    );
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it('should render with required', (): void => {
-    const {asFragment} = render(
-      <Theme.Provider theme="console">
-        <Label htmlFor="input" required>
-          child
-        </Label>
-      </Theme.Provider>
-    );
-    expect(asFragment()).toMatchSnapshot();
-  });
-});
 
 describe('Label for prop', () => {
   const initialProps = {
