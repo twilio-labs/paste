@@ -18,7 +18,6 @@ import { SuccessIcon } from "@twilio-paste/icons/esm/SuccessIcon";
 import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
 import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
 
-
 export const pageQuery = graphql`
   {
     mdx(fields: {slug: {eq: "/getting-started/design/"}}) {
@@ -119,7 +118,6 @@ Sketch symbols, text styles, and layer styles.
 </Callout>
 
 ### Paste components
-
 <Tooltip text="There is ongoing maintenance and net new work in this project. Libraries in this project are at parity with code.">
   <Box
     role="button"
@@ -129,10 +127,12 @@ Sketch symbols, text styles, and layer styles.
     marginBottom="space50"
     paddingTop="space20"
     paddingBottom="space20"
-    paddingLeft="space20"
+    paddingLeft="space30"
     paddingRight="space30"
+    borderColor="colorBorder"
+    borderWidth="borderWidth10"
+    borderStyle="solid"
     borderRadius="borderRadius20"
-    backgroundColor="colorBackgroundSuccessLightest"
   >
   <Stack as="span" orientation="horizontal" spacing="space20">
     <SuccessIcon decorative={false} title="Success icon" color="colorTextSuccess"/>
@@ -250,10 +250,12 @@ exceptions: `typography`, `forms`, and `grid and spacing`.
     marginBottom="space50"
     paddingTop="space20"
     paddingBottom="space20"
-    paddingLeft="space20"
+    paddingLeft="space30"
     paddingRight="space30"
+    borderColor="colorBorder"
+    borderWidth="borderWidth10"
+    borderStyle="solid"
     borderRadius="borderRadius20"
-    backgroundColor="colorBackgroundSuccessLightest"
   >
   <Stack as="span" orientation="horizontal" spacing="space20">
     <SuccessIcon decorative={false} title="Success icon" color="colorTextSuccess"/>
@@ -322,10 +324,12 @@ using these text and layer styles to create custom compositions in Sketch.
       marginBottom="space50"
       paddingTop="space20"
       paddingBottom="space20"
-      paddingLeft="space20"
+      paddingLeft="space30"
       paddingRight="space30"
+      borderColor="colorBorder"
+      borderWidth="borderWidth10"
+      borderStyle="solid"
       borderRadius="borderRadius20"
-      backgroundColor="colorBackgroundWarningLightest"
     >
     <Stack as="span" orientation="horizontal" spacing="space20">
       <WarningIcon decorative={false} title="WArning icon" color="colorTextWarning"/>
@@ -359,13 +363,15 @@ using these text and layer styles to create custom compositions in Sketch.
         marginBottom="space50"
         paddingTop="space20"
         paddingBottom="space20"
-        paddingLeft="space20"
+        paddingLeft="space30"
         paddingRight="space30"
+        borderColor="colorBorder"
+        borderWidth="borderWidth10"
+        borderStyle="solid"
         borderRadius="borderRadius20"
-        backgroundColor="colorBackgroundWarningLightest"
       >
       <Stack as="span" orientation="horizontal" spacing="space20">
-        <WarningIcon decorative={false} title="WArning icon" color="colorTextWarning"/>
+        <WarningIcon decorative={false} title="Warning icon" color="colorTextWarning"/>
         <Text as="p">
           Sunset
         </Text>
@@ -392,10 +398,12 @@ using these text and layer styles to create custom compositions in Sketch.
       marginBottom="space50"
       paddingTop="space20"
       paddingBottom="space20"
-      paddingLeft="space20"
+      paddingLeft="space30"
       paddingRight="space30"
+      borderColor="colorBorder"
+      borderWidth="borderWidth10"
+      borderStyle="solid"
       borderRadius="borderRadius20"
-      backgroundColor="colorBackgroundWarningLightest"
     >
     <Stack as="span" orientation="horizontal" spacing="space20">
       <ErrorIcon decorative={false} title="Error icon" color="colorTextError"/>
