@@ -3,4 +3,3 @@ global:
   type: font-size
 imports:
   - ../../../global/font-size.yml
-  - ../aliases/font-size.yml
