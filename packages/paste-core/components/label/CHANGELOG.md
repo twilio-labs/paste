@@ -1,5 +1,26 @@
 # Change Log
 
+## 4.0.3
+
+### Patch Changes
+
+- Updated dependencies [[`ac38757f`](https://github.com/twilio-labs/paste/commit/ac38757f0e426531862d5c562a2f2300cfa30592)]:
+  - @twilio-paste/screen-reader-only@4.0.3
+  - @twilio-paste/flex@1.0.2
+
+## 4.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`944c3407`](https://github.com/twilio-labs/paste/commit/944c340790b932f4714b0e6075c5641ecdbee9d6)]:
+  - @twilio-paste/design-tokens@6.5.2
+  - @twilio-paste/screen-reader-only@4.0.2
+  - @twilio-paste/flex@1.0.1
+  - @twilio-paste/box@3.0.1
+  - @twilio-paste/text@3.0.1
+  - @twilio-paste/style-props@2.0.1
+  - @twilio-paste/theme@4.3.1
+
 ## 4.0.1
 
 ### Patch Changes
