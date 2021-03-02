@@ -35,7 +35,7 @@ describe('Theme.Provider', () => {
         <ThemeConsumerExampleTextColor />
       </Theme.Provider>
     );
-    expect(wrapper.find('p').text()).toBe('Color: rgb(0, 58, 219)');
+    expect(wrapper.find('p').text()).toBe('Color: rgb(2, 99, 224)');
   });
 
   it('should rely on the default breakpoints set on the theme object', () => {
