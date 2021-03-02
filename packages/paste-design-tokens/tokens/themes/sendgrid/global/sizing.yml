@@ -3,4 +3,3 @@ global:
   category: sizing
 imports:
   - ../../../global/sizing.yml
-  - ../aliases/sizing.yml

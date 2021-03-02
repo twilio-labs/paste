@@ -6,4 +6,4 @@ imports:
   - ../aliases/font-family.yml
 props:
   font-family-text:
-    value: '{!font-family-10}'
+    value: "{!font-family-10}"

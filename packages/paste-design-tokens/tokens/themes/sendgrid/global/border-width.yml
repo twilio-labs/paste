@@ -3,4 +3,3 @@ global:
   category: border-width
 imports:
   - ../../../global/border-width.yml
-  - ../aliases/border-width.yml
