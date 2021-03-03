@@ -1,5 +1,54 @@
 # Change Log
 
+## 2.23.4
+
+### Patch Changes
+
+- Updated dependencies [[`083b31d2`](https://github.com/twilio-labs/paste/commit/083b31d262b9350626bab9a926c95f91c99a4e43), [`b1b4ac39`](https://github.com/twilio-labs/paste/commit/b1b4ac39ac70ec70bd9e150f2b8f94a123f1e1a6), [`4c9ed5ca`](https://github.com/twilio-labs/paste/commit/4c9ed5cac36ada218824d3e24bf45d4a03a12272), [`26c828d8`](https://github.com/twilio-labs/paste/commit/26c828d8681e0e671f28b5f2856cd1803f13953f)]:
+  - @twilio-paste/checkbox@5.0.0
+  - @twilio-paste/label@5.0.0
+  - @twilio-paste/design-tokens@6.6.0
+  - @twilio-paste/theme@5.0.0
+  - @twilio-paste/form@5.0.0
+  - @twilio-paste/base-radio-checkbox@5.0.0
+  - @twilio-paste/combobox@5.0.0
+  - @twilio-paste/inline-control-group@5.0.0
+  - @twilio-paste/radio-group@5.0.0
+  - @twilio-paste/alert@5.0.0
+  - @twilio-paste/anchor@4.0.0
+  - @twilio-paste/avatar@2.0.0
+  - @twilio-paste/breadcrumb@3.0.0
+  - @twilio-paste/button@5.0.0
+  - @twilio-paste/disclosure@4.0.0
+  - @twilio-paste/heading@5.0.0
+  - @twilio-paste/help-text@5.0.0
+  - @twilio-paste/input@3.0.0
+  - @twilio-paste/input-box@4.0.0
+  - @twilio-paste/list@2.0.0
+  - @twilio-paste/menu@5.0.0
+  - @twilio-paste/modal@5.0.0
+  - @twilio-paste/paragraph@4.0.0
+  - @twilio-paste/popover@4.0.0
+  - @twilio-paste/screen-reader-only@5.0.0
+  - @twilio-paste/select@4.0.0
+  - @twilio-paste/separator@2.0.0
+  - @twilio-paste/spinner@6.0.0
+  - @twilio-paste/table@2.0.0
+  - @twilio-paste/tabs@2.0.0
+  - @twilio-paste/textarea@3.0.0
+  - @twilio-paste/toast@3.0.0
+  - @twilio-paste/tooltip@3.0.0
+  - @twilio-paste/aspect-ratio@4.0.0
+  - @twilio-paste/flex@2.0.0
+  - @twilio-paste/grid@2.0.0
+  - @twilio-paste/media-object@4.0.0
+  - @twilio-paste/stack@2.0.0
+  - @twilio-paste/box@4.0.0
+  - @twilio-paste/sibling-box@3.0.0
+  - @twilio-paste/text@4.0.0
+  - @twilio-paste/icons@5.0.0
+  - @twilio-paste/style-props@3.0.0
+
 ## 2.23.3
 
 ### Patch Changes

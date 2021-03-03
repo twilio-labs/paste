@@ -1,5 +1,13 @@
 # @twilio-paste/nextjs-template
 
+## 1.0.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @twilio-paste/core@7.0.0
+  - @twilio-paste/icons@5.0.0
+
 ## 1.0.3
 
 ### Patch Changes
