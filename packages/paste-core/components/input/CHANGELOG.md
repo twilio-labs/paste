@@ -1,5 +1,16 @@
 # Change Log
 
+## 3.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`4c9ed5ca`](https://github.com/twilio-labs/paste/commit/4c9ed5cac36ada218824d3e24bf45d4a03a12272), [`26c828d8`](https://github.com/twilio-labs/paste/commit/26c828d8681e0e671f28b5f2856cd1803f13953f)]:
+  - @twilio-paste/design-tokens@6.6.0
+  - @twilio-paste/theme@5.0.0
+  - @twilio-paste/input-box@4.0.0
+  - @twilio-paste/box@4.0.0
+  - @twilio-paste/style-props@3.0.0
+
 ## 2.0.2
 
 ### Patch Changes

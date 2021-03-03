@@ -1,5 +1,20 @@
 # Change Log
 
+## 5.0.0
+
+### Patch Changes
+
+- [`b1b4ac39`](https://github.com/twilio-labs/paste/commit/b1b4ac39ac70ec70bd9e150f2b8f94a123f1e1a6) [#1232](https://github.com/twilio-labs/paste/pull/1232) Thanks [@richbachman](https://github.com/richbachman)! - Changed `RequiredDot` to use `sizeIcon30` height so there is alignment with the base `lineHeight30`. This aligns the dot with the center of the first line of text, and solves for multiline labels. Label also now uses Media Object, instead of Flex for the `RequiredDot` placement.
+
+- Updated dependencies [[`4c9ed5ca`](https://github.com/twilio-labs/paste/commit/4c9ed5cac36ada218824d3e24bf45d4a03a12272), [`26c828d8`](https://github.com/twilio-labs/paste/commit/26c828d8681e0e671f28b5f2856cd1803f13953f)]:
+  - @twilio-paste/design-tokens@6.6.0
+  - @twilio-paste/theme@5.0.0
+  - @twilio-paste/screen-reader-only@5.0.0
+  - @twilio-paste/media-object@4.0.0
+  - @twilio-paste/box@4.0.0
+  - @twilio-paste/text@4.0.0
+  - @twilio-paste/style-props@3.0.0
+
 ## 4.0.3
 
 ### Patch Changes

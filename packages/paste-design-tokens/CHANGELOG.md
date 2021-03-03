@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.6.0
+
+### Minor Changes
+
+- [`4c9ed5ca`](https://github.com/twilio-labs/paste/commit/4c9ed5cac36ada218824d3e24bf45d4a03a12272) [#1236](https://github.com/twilio-labs/paste/pull/1236) Thanks [@richbachman](https://github.com/richbachman)! - The SendGrid theme now inherits everything from the Default theme, except for font family. The SendGrid theme uses Colfax for `font-family-text`.
+
 ## 6.5.2
 
 ### Patch Changes
