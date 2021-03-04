@@ -12,7 +12,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   disabled?: boolean;
   hasError?: boolean;
   height?: never;
-  id: string;
+  id?: string;
   insertAfter?: React.ReactNode;
   insertBefore?: React.ReactNode;
   name?: string;
@@ -137,7 +137,7 @@ if (process.env.NODE_ENV === 'development') {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     disabled: PropTypes.bool,
     hasError: PropTypes.bool,
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     name: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
