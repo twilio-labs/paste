@@ -7,7 +7,8 @@ import {Text} from '@twilio-paste/text';
 import {Anchor} from '@twilio-paste/anchor';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Label} from '@twilio-paste/label';
-import {HelpText, HelpTextVariants} from '@twilio-paste/help-text';
+import {HelpText} from '@twilio-paste/help-text';
+import type {HelpTextVariants} from '@twilio-paste/help-text';
 import {Select, Option, OptionGroup} from '../src';
 
 const kebabCase = require('lodash/kebabCase');

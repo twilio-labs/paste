@@ -1,19 +1,19 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {TextColor} from '@twilio-paste/style-props';
+import type {TextColor} from '@twilio-paste/style-props';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {InputBox, InputChevronWrapper} from '@twilio-paste/input-box';
-import {Variants} from './types';
+import type {Variants} from './types';
 
 export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   children: NonNullable<React.ReactNode>;
   hasError?: boolean;
-  id: string;
+  id?: string;
   insertAfter?: React.ReactNode;
   insertBefore?: React.ReactNode;
-  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-  value: string | string[];
+  onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  value?: string | string[];
   variant?: Variants;
 }
 
@@ -99,9 +99,9 @@ Select.displayName = 'Select';
 
 if (process.env.NODE_ENV === 'development') {
   Select.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     hasError: PropTypes.bool,
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
   };
 }
 
