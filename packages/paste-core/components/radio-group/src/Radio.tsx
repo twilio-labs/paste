@@ -11,8 +11,8 @@ import {
 import {RadioContext} from './RadioContext';
 
 export interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  id: string;
-  value: string;
+  id?: string;
+  value?: string;
   name?: string;
   checked?: boolean;
   disabled?: boolean;
@@ -88,8 +88,8 @@ Radio.displayName = 'Radio';
 
 if (process.env.NODE_ENV === 'development') {
   Radio.propTypes = {
-    id: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    id: PropTypes.string,
+    value: PropTypes.string,
     name: PropTypes.string,
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
