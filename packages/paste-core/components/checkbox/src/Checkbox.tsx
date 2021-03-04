@@ -19,7 +19,7 @@ export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElemen
   children: NonNullable<React.ReactNode>;
   hasError?: boolean;
   helpText?: string | React.ReactNode;
-  id: string;
+  id?: string;
   indeterminate?: boolean;
   isSelectAll?: boolean;
   isSelectAllChild?: boolean;
@@ -151,7 +151,7 @@ if (process.env.NODE_ENV === 'development') {
     onChange: PropTypes.func,
     hasError: PropTypes.bool,
     helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     indeterminate: PropTypes.bool,
     isSelectAll: PropTypes.bool,
     isSelectAllChild: PropTypes.bool,
