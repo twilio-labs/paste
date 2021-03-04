@@ -109,6 +109,7 @@ export interface BoxElementProps extends Omit<React.HTMLAttributes<HTMLElement>,
   multiple?: boolean;
   // optgroup props
   label?: string;
+  datetime?: string;
 }
 
 export interface BoxProps extends BoxElementProps, BoxStyleProps {}
