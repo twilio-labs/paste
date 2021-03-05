@@ -1,9 +1,16 @@
 import * as React from 'react';
 import {Stack} from '@twilio-paste/stack';
-import Avatar1 from '../../../../../.storybook/static/avatars/avatar1.png';
-import Avatar2 from '../../../../../.storybook/static/avatars/avatar2.png';
-import Avatar3 from '../../../../../.storybook/static/avatars/avatar3.png';
-import Avatar4 from '../../../../../.storybook/static/avatars/avatar4.png';
+import Avatar10 from '../../../../../.storybook/static/avatars/avatar-sizeIcon10.png';
+import Avatar20 from '../../../../../.storybook/static/avatars/avatar-sizeIcon20.png';
+import Avatar30 from '../../../../../.storybook/static/avatars/avatar-sizeIcon30.png';
+import Avatar40 from '../../../../../.storybook/static/avatars/avatar-sizeIcon40.png';
+import Avatar50 from '../../../../../.storybook/static/avatars/avatar-sizeIcon50.png';
+import Avatar60 from '../../../../../.storybook/static/avatars/avatar-sizeIcon60.png';
+import Avatar70 from '../../../../../.storybook/static/avatars/avatar-sizeIcon70.png';
+import Avatar80 from '../../../../../.storybook/static/avatars/avatar-sizeIcon80.png';
+import Avatar90 from '../../../../../.storybook/static/avatars/avatar-sizeIcon90.png';
+import Avatar100 from '../../../../../.storybook/static/avatars/avatar-sizeIcon100.png';
+import Avatar110 from '../../../../../.storybook/static/avatars/avatar-sizeIcon110.png';
 import {Avatar} from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -50,17 +57,17 @@ export const Initials = (): React.ReactNode => {
 export const Image = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space40">
-      <Avatar size="sizeIcon10" name="avatar example" src={Avatar2} />
-      <Avatar size="sizeIcon20" name="avatar example" src={Avatar3} />
-      <Avatar size="sizeIcon30" name="avatar example" src={Avatar4} />
-      <Avatar size="sizeIcon40" name="avatar example" src={Avatar1} />
-      <Avatar size="sizeIcon50" name="avatar example" src={Avatar2} />
-      <Avatar size="sizeIcon60" name="avatar example" src={Avatar3} />
-      <Avatar size="sizeIcon70" name="avatar example" src={Avatar4} />
-      <Avatar size="sizeIcon80" name="avatar example" src={Avatar1} />
-      <Avatar size="sizeIcon90" name="avatar example" src={Avatar2} />
-      <Avatar size="sizeIcon100" name="avatar example" src={Avatar3} />
-      <Avatar size="sizeIcon110" name="avatar example" src={Avatar4} />
+      <Avatar size="sizeIcon10" name="avatar example" src={Avatar10} />
+      <Avatar size="sizeIcon20" name="avatar example" src={Avatar20} />
+      <Avatar size="sizeIcon30" name="avatar example" src={Avatar30} />
+      <Avatar size="sizeIcon40" name="avatar example" src={Avatar40} />
+      <Avatar size="sizeIcon50" name="avatar example" src={Avatar50} />
+      <Avatar size="sizeIcon60" name="avatar example" src={Avatar60} />
+      <Avatar size="sizeIcon70" name="avatar example" src={Avatar70} />
+      <Avatar size="sizeIcon80" name="avatar example" src={Avatar80} />
+      <Avatar size="sizeIcon90" name="avatar example" src={Avatar90} />
+      <Avatar size="sizeIcon100" name="avatar example" src={Avatar100} />
+      <Avatar size="sizeIcon110" name="avatar example" src={Avatar110} />
     </Stack>
   );
 };
@@ -80,7 +87,7 @@ export const ResponsiveInitials = (): React.ReactNode => {
 export const ResponsiveImage = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space40">
-      <Avatar size={['sizeIcon10', 'sizeIcon50', 'sizeIcon110']} name="avatar example" src={Avatar3} />
+      <Avatar size={['sizeIcon10', 'sizeIcon50', 'sizeIcon110']} name="avatar example" src={Avatar50} />
     </Stack>
   );
 };
