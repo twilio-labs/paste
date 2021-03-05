@@ -60,10 +60,3 @@ jobs:
           buildScriptName: "build:storybook"
           autoAcceptChanges: "main"
           exitOnceUploaded: true
-
-      - name: Run applitools eyes-storybook
-        run: yarn test:vrt
-        env:
-          APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
-          APPLITOOLS_BATCH_NAME: "twilio-labs/paste: main"
-          GITHUB_HEAD_SHA: ${{ github.sha }}

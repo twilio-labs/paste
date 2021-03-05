@@ -45,7 +45,6 @@
     "test:packages": "jest --silent ./packages/",
     "test:tools": "jest ./tools/ -c ./tools/jest.config.js",
     "test:coverage": "yarn pre-test && jest --coverage",
-    "test:vrt": "eyes-storybook",
     "test:website": "start-server-and-test 'yarn serve:website' http://localhost:9000 'yarn run cypress run --record --spec './cypress/integration/**/*.spec.ts''",
     "test:website-gui": "start-server-and-test 'yarn serve:website' http://localhost:9000  'yarn run cypress open'",
     "serve:website": "yarn workspace @twilio-paste/website serve",
@@ -60,7 +59,6 @@
     "changeset": "changeset"
   },
   "dependencies": {
-    "@applitools/eyes-storybook": "^3.16.3",
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.4",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
