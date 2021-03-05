@@ -49,7 +49,7 @@ export const pageQuery = graphql`
   name="Media Object"
   categoryRoute={SidebarCategoryRoutes.LAYOUT}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/media-object"
-  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/layout-media-object--default"
+  storybookUrl="https://main--5e53448165911c0022e68c74.chromatic.com/?path=/story/layout-media-object--default"
   data={props.data.allPasteLayout.edges}
 />
 
@@ -302,7 +302,7 @@ yarn add @twilio-paste/media-object
 ```jsx
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 
-const Component = props => (
+const Component = (props) => (
   <MediaObject verticalAlign="center">
     <MediaFigure spacing="space40">...</MediaFigure>
     <MediaBody>...</MediaBody>

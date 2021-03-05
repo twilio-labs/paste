@@ -57,7 +57,7 @@ export const pageQuery = graphql`
   name={props.pageContext.frontmatter.title}
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/toast"
-  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-toast--neutral"
+  storybookUrl="https://main--5e53448165911c0022e68c74.chromatic.com/?path=/story/components-toast--neutral"
   abstractUrl="https://share.goabstract.com/00bb0645-23b2-47aa-b57e-b0c6b1da9e8f"
   data={props.data.allPasteComponent.edges}
 />
@@ -453,11 +453,11 @@ If you choose to handle state entirely yourself, you can use `<Toaster />` on it
 
 #### useToaster return state
 
-| Prop   | Type                        | Description                                             | Default |
-| ------ | --------------------------- | ------------------------------------------------------- | ------- |
-| toasts | `ToasterToast[]`            | Array of Toasts to render inside the toaster. See below | null    |
-| push?  | `(ToasterPush) => void`     | Method used to push a Toast to the Toast stack          | null    |
-| pop?   | `(id) => void`              | Method used to pop a Toast from the Toast stack         | null    |
+| Prop   | Type                    | Description                                             | Default |
+| ------ | ----------------------- | ------------------------------------------------------- | ------- |
+| toasts | `ToasterToast[]`        | Array of Toasts to render inside the toaster. See below | null    |
+| push?  | `(ToasterPush) => void` | Method used to push a Toast to the Toast stack          | null    |
+| pop?   | `(id) => void`          | Method used to pop a Toast from the Toast stack         | null    |
 
 ##### UseToasterToast
 

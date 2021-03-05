@@ -53,23 +53,9 @@ This project is maintained by the [design systems team](https://github.com/orgs/
 
 ### Hosted Storybook
 
-[Storybook](https://twilio-labs.github.io/paste)
+[Storybook](https://main--5e53448165911c0022e68c74.chromatic.com)
 
-We use GitHub pages to host the Storybook instance. We use the `gh-pages` branch and the [`gh-pages` package](https://www.npmjs.com/package/gh-pages) to manage this.
-
-The `gh-pages` branch ignores _everything_ other than the built storybook instance in the root of the directory. The package handles everything.
-
-#### Updating
-
-🚨🚨🚨 This is now done in our CI/CD process 🚨🚨🚨
-
-To update this we simply run the `gh-pages` package from yarn by using the `release:storybook` task.
-
-```bash
-yarn release:storybook
-```
-
-This task will build the storybook, switch to the `gh-pages` branch, commit the changes from the storybook build and push to GitHub.
+We use Chromatic to host the Storybook instance.
 
 ## Dependencies
 

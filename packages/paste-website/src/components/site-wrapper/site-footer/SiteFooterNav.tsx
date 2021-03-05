@@ -151,7 +151,7 @@ const SiteFooterNav: React.FC = () => {
               Github
             </Anchor>
             <Anchor
-              href="https://twilio-labs.github.io/paste"
+              href="https://main--5e53448165911c0022e68c74.chromatic.com"
               variant="inverse"
               showExternal
               onClick={() =>

@@ -51,7 +51,7 @@ export const pageQuery = graphql`
   name="Grid"
   categoryRoute={SidebarCategoryRoutes.LAYOUT}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/grid"
-  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/layout-grid--grid-12-column-and-gutter-support"
+  storybookUrl="https://main--5e53448165911c0022e68c74.chromatic.com/?path=/story/layout-grid--grid-12-column-and-gutter-support"
   abstractUrl="https://share.goabstract.com/3e7528f5-7981-421c-9308-e06d2f341c70?"
   data={props.data.allPasteLayout.edges}
 />
@@ -213,7 +213,7 @@ When columns have equal heights, a single child element will stretch to the heig
 
 Use the `vertical` prop to stack columns vertically instead of horizontally. The `vertical` prop can work along with theme breakpoints,
 so your grid can be vertical on different viewports. For example to have your grid vertical on mobile and not tablet or desktop viewports,
-use `vertical={[true, false, false]}`. For a visual example, [see the Storybook example](https://twilio-labs.github.io/paste/?path=/story/layout-grid--grid-2-column-responsive-stack)
+use `vertical={[true, false, false]}`. For a visual example, [see the Storybook example](https://main--5e53448165911c0022e68c74.chromatic.com/?path=/story/layout-grid--grid-2-column-responsive-stack)
 and resize the browser.
 
 <LivePreview scope={{Grid, Column, Button, Box, Card, Heading, Paragraph}} language="jsx">
@@ -301,7 +301,7 @@ A Grid can be nested inside another Grid. For example, you can split a column in
 
 Grid column `span` and `offset` props can be changed based on the theme breakpoints. Both `span` and `offset` can accept responsive values, for example `span={[6, 8, 2] }`.
 This would set a columns `span` to be 6 columns wide on mobile, 8 columns wide on tablet, and 2 columns wide on desktop. The `offset` prop works in a similar fashion.
-For a visual example, [see the Storybook example](https://twilio-labs.github.io/paste/?path=/story/layout-grid--grid-2-column-responsive) and resize the browser.
+For a visual example, [see the Storybook example](https://main--5e53448165911c0022e68c74.chromatic.com/?path=/story/layout-grid--grid-2-column-responsive) and resize the browser.
 
 ## Composition Notes
 
@@ -377,8 +377,8 @@ Let's look at a common use case where we need to layout a page with a sidebar an
 
 Grid can also be used for responsive layouts.
 
-- You can determine what size columns should be based on the breakpoints set on a theme. [See the Storybook example](https://twilio-labs.github.io/paste/?path=/story/layout-grid--grid-2-column-responsive)
-- Grid columns can also stack based on theme breakpoints. [See the Storybook example](https://twilio-labs.github.io/paste/?path=/story/layout-grid--grid-2-column-responsive-stack)
+- You can determine what size columns should be based on the breakpoints set on a theme. [See the Storybook example](https://main--5e53448165911c0022e68c74.chromatic.com/?path=/story/layout-grid--grid-2-column-responsive)
+- Grid columns can also stack based on theme breakpoints. [See the Storybook example](https://main--5e53448165911c0022e68c74.chromatic.com/?path=/story/layout-grid--grid-2-column-responsive-stack)
 
 ### Component layout
 
