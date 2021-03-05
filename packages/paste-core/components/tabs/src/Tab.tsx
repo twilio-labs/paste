@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {Box, BoxStyleProps, safelySpreadBoxProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxStyleProps} from '@twilio-paste/box';
 import {TabPrimitive} from '@twilio-paste/tabs-primitive';
 import {TabsContext} from './TabsContext';
 import {Orientation, Variants} from './types';
@@ -89,7 +90,7 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
   }
 };
 
-export interface TabProps {
+export interface TabProps extends React.HTMLAttributes<HTMLElement> {
   id?: string | undefined;
   focusable?: boolean | undefined;
   disabled?: boolean | undefined;
