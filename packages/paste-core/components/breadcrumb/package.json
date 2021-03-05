@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/breadcrumb",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "category": "navigation",
   "status": "alpha",
   "description": "Breadcrumbs are used to show navigation hierarchy within a page. They provide a way for users to navigate a nested path of parent pages.",
@@ -25,8 +25,8 @@
     "tsc": "tsc"
   },
   "peerDependencies": {
-    "@twilio-paste/anchor": "4.0.0",
-    "@twilio-paste/box": "4.0.0",
+    "@twilio-paste/anchor": "4.0.1",
+    "@twilio-paste/box": "4.0.1",
     "@twilio-paste/design-tokens": "6.6.0",
     "@twilio-paste/style-props": "3.0.0",
     "@twilio-paste/styling-library": "0.3.1",
@@ -39,8 +39,8 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/anchor": "4.0.0",
-    "@twilio-paste/box": "4.0.0",
+    "@twilio-paste/anchor": "4.0.1",
+    "@twilio-paste/box": "4.0.1",
     "@twilio-paste/design-tokens": "6.6.0",
     "@twilio-paste/style-props": "3.0.0",
     "@twilio-paste/styling-library": "0.3.1",

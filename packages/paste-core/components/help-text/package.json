@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/help-text",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "category": "user input",
   "status": "production",
   "description": "Help text that can be paired with a Paste form component",
@@ -25,10 +25,10 @@
     "tsc": "tsc"
   },
   "peerDependencies": {
-    "@twilio-paste/box": "4.0.0",
+    "@twilio-paste/box": "4.0.1",
     "@twilio-paste/design-tokens": "6.6.0",
-    "@twilio-paste/flex": "2.0.0",
-    "@twilio-paste/icons": "5.0.0",
+    "@twilio-paste/flex": "2.0.1",
+    "@twilio-paste/icons": "5.0.1",
     "@twilio-paste/style-props": "3.0.0",
     "@twilio-paste/styling-library": "0.3.1",
     "@twilio-paste/text": "4.0.0",
@@ -40,10 +40,10 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/box": "4.0.0",
+    "@twilio-paste/box": "4.0.1",
     "@twilio-paste/design-tokens": "6.6.0",
-    "@twilio-paste/flex": "2.0.0",
-    "@twilio-paste/icons": "5.0.0",
+    "@twilio-paste/flex": "2.0.1",
+    "@twilio-paste/icons": "5.0.1",
     "@twilio-paste/style-props": "3.0.0",
     "@twilio-paste/styling-library": "0.3.1",
     "@twilio-paste/text": "4.0.0",

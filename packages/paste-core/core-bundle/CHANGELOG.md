@@ -1,5 +1,48 @@
 # Change Log
 
+## 7.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`509eba7a`](https://github.com/twilio-labs/paste/commit/509eba7a95325dd6f8adc3e905e22f92b7f004a9)]:
+  - @twilio-paste/box@4.0.1
+  - @twilio-paste/alert@5.0.1
+  - @twilio-paste/anchor@4.0.1
+  - @twilio-paste/avatar@2.0.1
+  - @twilio-paste/base-radio-checkbox@5.0.1
+  - @twilio-paste/breadcrumb@3.0.1
+  - @twilio-paste/button@5.0.1
+  - @twilio-paste/card@3.0.1
+  - @twilio-paste/checkbox@5.0.1
+  - @twilio-paste/combobox@5.0.1
+  - @twilio-paste/disclosure@4.0.1
+  - @twilio-paste/help-text@5.0.1
+  - @twilio-paste/inline-control-group@5.0.1
+  - @twilio-paste/input@3.0.1
+  - @twilio-paste/input-box@4.0.1
+  - @twilio-paste/label@5.0.1
+  - @twilio-paste/menu@5.0.1
+  - @twilio-paste/modal@5.0.1
+  - @twilio-paste/popover@4.0.1
+  - @twilio-paste/radio-group@5.0.1
+  - @twilio-paste/screen-reader-only@5.0.1
+  - @twilio-paste/select@4.0.1
+  - @twilio-paste/separator@2.0.1
+  - @twilio-paste/spinner@6.0.1
+  - @twilio-paste/table@2.0.1
+  - @twilio-paste/tabs@2.0.1
+  - @twilio-paste/textarea@3.0.1
+  - @twilio-paste/toast@3.0.1
+  - @twilio-paste/tooltip@3.0.1
+  - @twilio-paste/truncate@5.0.1
+  - @twilio-paste/aspect-ratio@4.0.1
+  - @twilio-paste/flex@2.0.1
+  - @twilio-paste/grid@2.0.1
+  - @twilio-paste/media-object@4.0.1
+  - @twilio-paste/stack@2.0.1
+  - @twilio-paste/sibling-box@3.0.1
+  - @twilio-paste/icons@5.0.1
+
 ## 7.0.0
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`509eba7a`](https://github.com/twilio-labs/paste/commit/509eba7a95325dd6f8adc3e905e22f92b7f004a9)]:
+  - @twilio-paste/box@4.0.1
+  - @twilio-paste/input-box@4.0.1
+
 ## 3.0.0
 
 ### Patch Changes
