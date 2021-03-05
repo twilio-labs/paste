@@ -102,7 +102,6 @@ export const FooterActions = (): React.ReactNode => {
 
 FooterActions.story = {
   name: 'Footer actions',
-  parameters: {eyes: {waitBeforeScreenshot: 150}},
 };
 
 export const LeftAlignedFooterActions = (): React.ReactNode => {
@@ -143,7 +142,6 @@ export const LeftAlignedFooterActions = (): React.ReactNode => {
 
 LeftAlignedFooterActions.story = {
   name: 'Left aligned footer actions',
-  parameters: {eyes: {waitBeforeScreenshot: 150}},
 };
 
 export const DirectionalFooterActions = (): React.ReactNode => {
@@ -187,7 +185,6 @@ export const DirectionalFooterActions = (): React.ReactNode => {
 
 DirectionalFooterActions.story = {
   name: 'Directional footer actions',
-  parameters: {eyes: {waitBeforeScreenshot: 150}},
 };
 
 export const ExtremelyLongHeading = (): React.ReactNode => {
@@ -228,7 +225,6 @@ export const ExtremelyLongHeading = (): React.ReactNode => {
 
 ExtremelyLongHeading.story = {
   name: 'Extremely long heading',
-  parameters: {eyes: {waitBeforeScreenshot: 150}},
 };
 
 export const OverflowingBodyContent = (): React.ReactNode => {
@@ -363,7 +359,6 @@ export const OverflowingBodyContent = (): React.ReactNode => {
 
 OverflowingBodyContent.story = {
   name: 'Overflowing body content',
-  parameters: {eyes: {waitBeforeScreenshot: 150}},
 };
 
 export const HeaderContent = (): React.ReactNode => {
@@ -410,7 +405,6 @@ export const HeaderContent = (): React.ReactNode => {
 
 HeaderContent.story = {
   name: 'Header content',
-  parameters: {eyes: {waitBeforeScreenshot: 150}},
 };
 
 export const CustomInitialFocusElement = (): React.ReactNode => {
@@ -466,7 +460,6 @@ export const CustomInitialFocusElement = (): React.ReactNode => {
 
 CustomInitialFocusElement.story = {
   name: 'Custom initial focus element',
-  parameters: {eyes: {waitBeforeScreenshot: 150}},
 };
 
 export const ConsolePatchProp = (): React.ReactNode => {
@@ -506,7 +499,6 @@ export const ConsolePatchProp = (): React.ReactNode => {
 
 ConsolePatchProp.story = {
   name: 'Console patch prop',
-  parameters: {eyes: {waitBeforeScreenshot: 150}},
 };
 
 export const TooltipInModal = (): React.ReactNode => {
@@ -548,7 +540,6 @@ export const TooltipInModal = (): React.ReactNode => {
 
 TooltipInModal.story = {
   name: 'Tooltip in modal',
-  parameters: {eyes: {waitBeforeScreenshot: 150}},
 };
 
 export const PopoverInModal = (): React.ReactNode => {
@@ -602,5 +593,4 @@ export const PopoverInModal = (): React.ReactNode => {
 
 PopoverInModal.story = {
   name: 'Popover in modal',
-  parameters: {eyes: {waitBeforeScreenshot: 150}},
 };

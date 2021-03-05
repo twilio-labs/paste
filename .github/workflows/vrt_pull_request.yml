@@ -57,10 +57,3 @@ jobs:
           buildScriptName: "build:storybook"
           autoAcceptChanges: "main"
           exitOnceUploaded: true
-
-      - name: Run applitools eyes-storybook
-        run: yarn test:vrt
-        env:
-          APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
-          APPLITOOLS_BATCH_NAME: "${{ github.event.pull_request.head.repo.full_name }}: pull request from ${{ github.event.pull_request.head.ref }} - ${{ github.event.pull_request.title }} (${{ github.event.pull_request.head.sha }})"
-          GITHUB_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
