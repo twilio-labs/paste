@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.0.1
+
+### Patch Changes
+
+- [`509eba7a`](https://github.com/twilio-labs/paste/commit/509eba7a95325dd6f8adc3e905e22f92b7f004a9) [#1253](https://github.com/twilio-labs/paste/pull/1253) Thanks [@TheSisb](https://github.com/TheSisb)! - Added 'datetime' prop Typescript typing to Box
+
 ## 4.0.0
 
 ### Patch Changes

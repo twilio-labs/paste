@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/popover",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "category": "interaction",
   "status": "alpha",
   "description": "A Popover is used for displaying additional rich content on top of something.",
@@ -25,13 +25,13 @@
     "tsc": "tsc"
   },
   "peerDependencies": {
-    "@twilio-paste/box": "4.0.0",
-    "@twilio-paste/button": "5.0.0",
+    "@twilio-paste/box": "4.0.1",
+    "@twilio-paste/button": "5.0.1",
     "@twilio-paste/design-tokens": "6.6.0",
-    "@twilio-paste/icons": "5.0.0",
+    "@twilio-paste/icons": "5.0.1",
     "@twilio-paste/non-modal-dialog-primitive": "0.3.3",
     "@twilio-paste/reakit-library": "0.8.1",
-    "@twilio-paste/spinner": "6.0.0",
+    "@twilio-paste/spinner": "6.0.1",
     "@twilio-paste/style-props": "3.0.0",
     "@twilio-paste/styling-library": "0.3.1",
     "@twilio-paste/text": "4.0.0",
@@ -43,13 +43,13 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/box": "4.0.0",
-    "@twilio-paste/button": "5.0.0",
+    "@twilio-paste/box": "4.0.1",
+    "@twilio-paste/button": "5.0.1",
     "@twilio-paste/design-tokens": "6.6.0",
-    "@twilio-paste/icons": "5.0.0",
+    "@twilio-paste/icons": "5.0.1",
     "@twilio-paste/non-modal-dialog-primitive": "0.3.3",
     "@twilio-paste/reakit-library": "0.8.1",
-    "@twilio-paste/spinner": "6.0.0",
+    "@twilio-paste/spinner": "6.0.1",
     "@twilio-paste/style-props": "3.0.0",
     "@twilio-paste/styling-library": "0.3.1",
     "@twilio-paste/text": "4.0.0",
