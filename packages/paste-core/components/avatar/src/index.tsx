@@ -7,10 +7,29 @@ import {getComputedTokenNames, getInitialsFromName} from './utils';
 import type {AvatarProps} from './types';
 
 const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
-  ({name, children, size = 'sizeIcon70', src, ...props}, ref) => {
+  ({name, children, size = 'sizeIcon70', src, icon, ...props}, ref) => {
     const computedTokenNames = getComputedTokenNames(size);
     if (src != null && name === undefined) {
       console.error('Paste Avatar: You must provide a name if you are displaying an image');
+    }
+    if (icon != null) {
+      const Icon = icon;
+      //why do we need Icon = icon???
+      return (
+        <Box
+          {...safelySpreadBoxProps(props)}
+          as="div"
+          backgroundColor="colorBackgroundUser"
+          borderRadius="borderRadiusCircle"
+          overflow="hidden"
+          ref={ref}
+          size={size}
+        >
+          <Box maxWidth="100%" size={size} display="flex" alignItems="center" justifyContent="center">
+            <Icon decorative={false} title={name} size={computedTokenNames.iconSize} color="colorText" />
+          </Box>
+        </Box>
+      );
     }
     return (
       <Box
