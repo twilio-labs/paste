@@ -6,6 +6,7 @@ import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {SiteFooterHeader} from './SiteFooterHeader';
 import TwilioLogo from '../../icons/TwilioLogo';
+import {STORYBOOK_DOMAIN} from '../../../constants';
 
 const SiteFooterNav: React.FC = () => {
   const theme = useTheme();
@@ -151,7 +152,7 @@ const SiteFooterNav: React.FC = () => {
               Github
             </Anchor>
             <Anchor
-              href="https://twilio-labs.github.io/paste"
+              href={STORYBOOK_DOMAIN}
               variant="inverse"
               showExternal
               onClick={() =>

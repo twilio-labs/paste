@@ -45,7 +45,7 @@ export const pageQuery = graphql`
   name={props.pageContext.frontmatter.title}
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/avatar"
-  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-avatar--initials"
+  storybookUrl="/?path=/story/components-avatar--initials"
   data={props.data.allPasteComponent.edges}
 />
 
@@ -72,7 +72,10 @@ export const pageQuery = graphql`
 
 ### About Avatar
 
-<p>{props.pageContext.frontmatter.description} The Avatar can be sized in the same way as the <a href="/icons">Paste Icon</a>.</p>
+<p>
+  {props.pageContext.frontmatter.description} The Avatar can be sized in the same way as the{' '}
+  <a href="/icons">Paste Icon</a>.
+</p>
 
 ## Examples
 

@@ -51,7 +51,7 @@ export const pageQuery = graphql`
   name="Textarea"
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/textarea"
-  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-textarea--textarea-options"
+  storybookUrl="/?path=/story/components-textarea--textarea-options"
   abstractUrl="https://share.goabstract.com/6cc5fc40-3408-4cfd-b1d0-103aea01601d"
   data={props.data.allPasteComponent.edges}
 />
@@ -303,7 +303,7 @@ Use a textarea when users are expected to enter text that exceeds a single line,
   <Do title="Do" body="Use a textarea to encourage longer text entry." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="long_do">Tell us your life story</Label>
-      <TextArea onChange={()=>{}} id="long_do" name="long_do"/>
+      <TextArea onChange={() => {}} id="long_do" name="long_do" />
     </Box>
   </Do>
   <Dont
@@ -313,7 +313,7 @@ Use a textarea when users are expected to enter text that exceeds a single line,
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="long_dont">First Name</Label>
-      <TextArea onChange={()=>{}} id="long_dont" name="long_dont"/>
+      <TextArea onChange={() => {}} id="long_dont" name="long_dont" />
     </Box>
   </Dont>
 </DoDont>
@@ -325,7 +325,7 @@ Use a textarea when users are expected to enter text that exceeds a single line,
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="limited_do">Job Description (120 characters)</Label>
-      <TextArea onChange={()=>{}} aria-describedby="limited_do_help_text" id="limited_do" name="limited_do"/>
+      <TextArea onChange={() => {}} aria-describedby="limited_do_help_text" id="limited_do" name="limited_do" />
       <HelpText id="limited_do_help_text">Limit to 120 characters</HelpText>
     </Box>
   </Do>
@@ -336,7 +336,7 @@ Use a textarea when users are expected to enter text that exceeds a single line,
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="limited_dont">State Moto</Label>
-      <TextArea onChange={()=>{}} id="limited_dont" name="limited_dont"/>
+      <TextArea onChange={() => {}} id="limited_dont" name="limited_dont" />
     </Box>
   </Dont>
 </DoDont>
@@ -344,14 +344,19 @@ Use a textarea when users are expected to enter text that exceeds a single line,
   <Do title="Do" body="Use help text to help users prevent errors and fill out a form field correctly." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="help_do">Enter the correct phrase</Label>
-      <TextArea onChange={()=>{}} aria-describedby="help_do_help_text" id="help_do" name="help_do"/>
+      <TextArea onChange={() => {}} aria-describedby="help_do_help_text" id="help_do" name="help_do" />
       <HelpText id="help_do_help_text">Please enter: Paste is open source and contributions are welcome.</HelpText>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use placeholder text for validation instructions." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="help_dont">Enter the correct phrase</Label>
-      <TextArea onChange={()=>{}} id="help_dont" name="help_dont" placeholder="Please enter: Paste is open source and contributions are welcome."/>
+      <TextArea
+        onChange={() => {}}
+        id="help_dont"
+        name="help_dont"
+        placeholder="Please enter: Paste is open source and contributions are welcome."
+      />
     </Box>
   </Dont>
 </DoDont>
@@ -362,37 +367,36 @@ Use a textarea when users are expected to enter text that exceeds a single line,
     center
   >
     <Box width="100%" padding="space60">
-      <Label htmlFor="error_do" required>Header</Label>
-      <TextArea onChange={()=>{}} id="error_do" name="error_do" required hasError />
+      <Label htmlFor="error_do" required>
+        Header
+      </Label>
+      <TextArea onChange={() => {}} id="error_do" name="error_do" required hasError />
       <HelpText variant="error">This is a required field. Please enter some text.</HelpText>
     </Box>
   </Do>
-  <Dont
-    title="Don't"
-    body="Don't use more than 2 sentences in help text or error text."
-    center
-  >
+  <Dont title="Don't" body="Don't use more than 2 sentences in help text or error text." center>
     <Box width="100%" padding="space60">
-      <Label htmlFor="error_dont" required>Phone Number</Label>
-      <TextArea onChange={()=>{}} id="error_dont" name="error_dont" required hasError/>
-      <HelpText variant="error">This field is needed to submit your document. If you don't enter any text, your submission will fail. Please enter some text into the field. This will make the field valid.</HelpText>
+      <Label htmlFor="error_dont" required>
+        Phone Number
+      </Label>
+      <TextArea onChange={() => {}} id="error_dont" name="error_dont" required hasError />
+      <HelpText variant="error">
+        This field is needed to submit your document. If you don't enter any text, your submission will fail. Please
+        enter some text into the field. This will make the field valid.
+      </HelpText>
     </Box>
   </Dont>
 </DoDont>
 <DoDont>
-  <Do
-    title="Do"
-    body="Include a visible label on every form field."
-    center
-  >
+  <Do title="Do" body="Include a visible label on every form field." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="label_do">Footer Text</Label>
-      <TextArea onChange={()=>{}} id="label_do" name="label_do"/>
+      <TextArea onChange={() => {}} id="label_do" name="label_do" />
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use prefix/suffix text as a replacement for a label." center>
     <Box width="100%" padding="space60">
-      <TextArea onChange={()=>{}} id="label_dont" name="label_dont" insertBefore={<div>Footer Text</div>} />
+      <TextArea onChange={() => {}} id="label_dont" name="label_dont" insertBefore={<div>Footer Text</div>} />
     </Box>
   </Dont>
 </DoDont>
@@ -404,7 +408,7 @@ Use a textarea when users are expected to enter text that exceeds a single line,
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="disabled_do">Legal Use Only</Label>
-      <TextArea onChange={()=>{}} id="disabled_do" name="disabled_do" disabled/>
+      <TextArea onChange={() => {}} id="disabled_do" name="disabled_do" disabled />
     </Box>
   </Do>
   <Dont
@@ -414,7 +418,13 @@ Use a textarea when users are expected to enter text that exceeds a single line,
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="disabled_dont">Company Information</Label>
-      <TextArea onChange={()=>{}} id="disabled_dont" name="disabled_dont" disabled value="Twilio powers the future of business communications." />
+      <TextArea
+        onChange={() => {}}
+        id="disabled_dont"
+        name="disabled_dont"
+        disabled
+        value="Twilio powers the future of business communications."
+      />
     </Box>
   </Dont>
 </DoDont>

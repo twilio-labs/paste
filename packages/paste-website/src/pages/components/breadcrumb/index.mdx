@@ -46,7 +46,7 @@ export const pageQuery = graphql`
   name={props.pageContext.frontmatter.title}
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/breadcrumb"
-  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-breadcrumb--anchors"
+  storybookUrl="/?path=/story/components-breadcrumb--anchors"
   data={props.data.allPasteComponent.edges}
 />
 
@@ -64,8 +64,8 @@ export const pageQuery = graphql`
     Alpha components are ready for use in production and components like Breadcrumb won't likely see any API changes.
     The term "Alpha" means there is only basic documentation and no corresponding Sketch symbol at this time. Those will
     eventually be prioritized, but please share your experience using this Alpha component by{' '}
-    <Anchor href="https://github.com/twilio-labs/paste/discussions/new">starting a discussion on GitHub</Anchor>.
-    If you’re interested in helping to symbolize this component in Sketch, we’d love your help – please reach out!
+    <Anchor href="https://github.com/twilio-labs/paste/discussions/new">starting a discussion on GitHub</Anchor>. If
+    you’re interested in helping to symbolize this component in Sketch, we’d love your help – please reach out!
   </CalloutText>
 </Callout>
 
@@ -84,8 +84,9 @@ Breadcrumbs are listed in order and represent the hierarchy of the page in the p
 
 <Callout variant="warning">
   <CalloutText>
-    The unlinked <inlineCode>BreadcrumbItem</inlineCode> should <strong>only</strong> be used for the page a user is currently on. If it is not
-    the current page, make sure to add the <inlineCode>href</inlineCode> so the <inlineCode>BreadcrumbItem</inlineCode> goes to the appropriate location.
+    The unlinked <inlineCode>BreadcrumbItem</inlineCode> should <strong>only</strong> be used for the page a user is
+    currently on. If it is not the current page, make sure to add the <inlineCode>href</inlineCode> so the{' '}
+    <inlineCode>BreadcrumbItem</inlineCode> goes to the appropriate location.
   </CalloutText>
 </Callout>
 
@@ -222,10 +223,10 @@ const BreadcrumbExample: React.FC = () => {
 
 #### BreadcrumbItem Props
 
-| Prop     | Type        | Description                                                              | Default |
-| -------- | ----------- | ------------------------------------------------------------------------ | ------- |
-| children | `ReactNode` |                                                                          | null    |
-| href?    | `string`    | The URL the breadcrumb routes to.                                        | null    |
+| Prop     | Type        | Description                                                                | Default |
+| -------- | ----------- | -------------------------------------------------------------------------- | ------- |
+| children | `ReactNode` |                                                                            | null    |
+| href?    | `string`    | The URL the breadcrumb routes to.                                          | null    |
 | last?    | `boolean`   | If true, removes the `BreadcrumbSeparator` after the last breadcrumb item. | null    |
 
 <ChangelogRevealer>
