@@ -665,21 +665,21 @@ const Component = () => (
 
 All the valid HTML attributes for `input` are supported including the following props:
 
-| Prop         | Type                                                             | Description                                                              | Default   |
-| ------------ | ---------------------------------------------------------------- | ------------------------------------------------------------------------ | --------- |
-| id           | string                                                           | Sets the id of the input. Should match the htmlFor of `Label`. Required. | null      |
-| type         | 'text', 'email', 'hidden', 'number', 'password', 'search', 'tel' | Sets the type of the input. Required.                                    | null      |
-| name         | string                                                           | Sets the name of the input. Required.                                    | null      |
-| value?       | string                                                           | Sets the value of the input.                                             | null      |
-| placeholder? | string                                                           | Sets the placeholder of the input.                                       | null      |
-| disabled?    | boolean                                                          | Disables the input.                                                      | false     |
-| readOnly?    | boolean                                                          | Sets the input to readonly.                                              | false     |
-| required?    | boolean                                                          | Sets the input as required.                                              | false     |
-| hasError?    | boolean                                                          | Sets the input to an error state.                                        | false     |
-| onChange?    | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                          | null      |
-| onFocus      | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                          | null      |
-| onBlur?      | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                          | null      |
-| variant?     | 'default', 'inverse'                                             |                                                                          | 'default' |
+| Prop         | Type                                                             | Description                                                    | Default   |
+| ------------ | ---------------------------------------------------------------- | -------------------------------------------------------------- | --------- |
+| id?          | string                                                           | Sets the id of the input. Should match the htmlFor of `Label`. | null      |
+| type         | 'text', 'email', 'hidden', 'number', 'password', 'search', 'tel' | Sets the type of the input. Required.                          | null      |
+| name?        | string                                                           | Sets the name of the input.                                    | null      |
+| value?       | string                                                           | Sets the value of the input.                                   | null      |
+| placeholder? | string                                                           | Sets the placeholder of the input.                             | null      |
+| disabled?    | boolean                                                          | Disables the input.                                            | false     |
+| readOnly?    | boolean                                                          | Sets the input to readonly.                                    | false     |
+| required?    | boolean                                                          | Sets the input as required.                                    | false     |
+| hasError?    | boolean                                                          | Sets the input to an error state.                              | false     |
+| onChange?    | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                | null      |
+| onFocus?     | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                | null      |
+| onBlur?      | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                | null      |
+| variant?     | 'default', 'inverse'                                             |                                                                | 'default' |
 
 #### Label Props
 
