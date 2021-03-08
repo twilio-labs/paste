@@ -4,7 +4,7 @@ import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Heading} from '@twilio-paste/heading';
 import {Breadcrumb, BreadcrumbItem} from '../../breadcrumb';
-import {SidebarCategoryRoutes} from '../../../constants';
+import {SidebarCategoryRoutes, STORYBOOK_DOMAIN} from '../../../constants';
 import {P, InlineCode} from '../../Typography';
 import {getHumanizedNameFromPackageName} from '../../../utils/RouteUtils';
 
@@ -116,7 +116,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
               <Anchor href={githubUrl}>Github</Anchor>
             </Box>
             <Box display="inline" marginRight="space30">
-              {storybookUrl != null ? <Anchor href={storybookUrl}>Storybook</Anchor> : null}
+              {storybookUrl != null ? <Anchor href={`${STORYBOOK_DOMAIN}${storybookUrl}`}>Storybook</Anchor> : null}
             </Box>
             {abstractUrl != null ? <Anchor href={abstractUrl}>Abstract</Anchor> : null}
           </PackageValue>
