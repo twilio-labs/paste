@@ -4,7 +4,7 @@ import {Text} from '@twilio-paste/text';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {isIconSizeTokenProp} from '@twilio-paste/style-props';
 import {getComputedTokenNames, getInitialsFromName} from './utils';
-import type { AvatarProps } from './types'
+import type {AvatarProps} from './types';
 
 const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
   ({name, children, size = 'sizeIcon70', src, ...props}, ref) => {
