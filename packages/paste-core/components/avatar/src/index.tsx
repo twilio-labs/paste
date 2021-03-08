@@ -2,14 +2,10 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Text} from '@twilio-paste/text';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {IconSize, isIconSizeTokenProp} from '@twilio-paste/style-props';
+import {isIconSizeTokenProp} from '@twilio-paste/style-props';
 import {getComputedTokenNames, getInitialsFromName} from './utils';
+import type { AvatarProps } from './types'
 
-export interface AvatarProps extends React.HTMLAttributes<'div'> {
-  name: string;
-  size: IconSize;
-  src?: string;
-}
 const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
   ({name, children, size = 'sizeIcon70', src, ...props}, ref) => {
     const computedTokenNames = getComputedTokenNames(size);
