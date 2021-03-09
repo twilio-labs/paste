@@ -1,5 +1,17 @@
 # Change Log
 
+## 7.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`12a669a3`](https://github.com/twilio-labs/paste/commit/12a669a33292915a71c0b83c1f7cf24d4cd28b8b), [`953f88bb`](https://github.com/twilio-labs/paste/commit/953f88bbb5476e5fdb66af3397634b8de822769f), [`7f909087`](https://github.com/twilio-labs/paste/commit/7f90908780ae4bdca709efb0b70644daa5942954), [`8992af4b`](https://github.com/twilio-labs/paste/commit/8992af4b834222581927b855fb0eed62630fafd0), [`14d33968`](https://github.com/twilio-labs/paste/commit/14d339680a7d3fb53b62b70762e4d2e786b473d6)]:
+  - @twilio-paste/checkbox@5.0.2
+  - @twilio-paste/textarea@3.0.2
+  - @twilio-paste/select@4.0.2
+  - @twilio-paste/radio-group@5.0.2
+  - @twilio-paste/input@3.0.2
+  - @twilio-paste/combobox@5.0.2
+
 ## 7.0.1
 
 ### Patch Changes

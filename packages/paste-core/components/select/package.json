@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/select",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "category": "user input",
   "status": "production",
   "description": "Select allows a user to make a selection from a list of options in a form field.",

@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.0.2
+
+### Patch Changes
+
+- [`14d33968`](https://github.com/twilio-labs/paste/commit/14d339680a7d3fb53b62b70762e4d2e786b473d6) [#1251](https://github.com/twilio-labs/paste/pull/1251) Thanks [@richbachman](https://github.com/richbachman)! - Removed required from the `id` prop, so Input can be used as an uncontrolled component. This allows Input to be used with libraries like `React-Hook-Form`.
+
 ## 3.0.1
 
 ### Patch Changes

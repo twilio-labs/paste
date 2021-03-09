@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`14d33968`](https://github.com/twilio-labs/paste/commit/14d339680a7d3fb53b62b70762e4d2e786b473d6)]:
+  - @twilio-paste/input@3.0.2
+
 ## 5.0.1
 
 ### Patch Changes

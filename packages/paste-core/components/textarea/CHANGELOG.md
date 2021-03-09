@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.0.2
+
+### Patch Changes
+
+- [`953f88bb`](https://github.com/twilio-labs/paste/commit/953f88bbb5476e5fdb66af3397634b8de822769f) [#1251](https://github.com/twilio-labs/paste/pull/1251) Thanks [@richbachman](https://github.com/richbachman)! - Removed required from the `id` prop, so TextArea can be used as an uncontrolled component. This allows TextArea to be used with libraries like `React-Hook-Form`.
+
 ## 3.0.1
 
 ### Patch Changes

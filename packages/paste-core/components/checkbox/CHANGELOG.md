@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.0.2
+
+### Patch Changes
+
+- [`12a669a3`](https://github.com/twilio-labs/paste/commit/12a669a33292915a71c0b83c1f7cf24d4cd28b8b) [#1251](https://github.com/twilio-labs/paste/pull/1251) Thanks [@richbachman](https://github.com/richbachman)! - Removed required from the `id` prop, so Checkbox can be used as an uncontrolled component. This allows Checkbox to be used with libraries like `React-Hook-Form`.
+
 ## 5.0.1
 
 ### Patch Changes

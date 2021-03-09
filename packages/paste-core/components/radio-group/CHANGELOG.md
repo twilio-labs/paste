@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.0.2
+
+### Patch Changes
+
+- [`8992af4b`](https://github.com/twilio-labs/paste/commit/8992af4b834222581927b855fb0eed62630fafd0) [#1251](https://github.com/twilio-labs/paste/pull/1251) Thanks [@richbachman](https://github.com/richbachman)! - Removed required from the `id` and `value` props, so RadioGroup can be used as an uncontrolled component. This allows RadioGroup to be used with libraries like `React-Hook-Form`.
+
 ## 5.0.1
 
 ### Patch Changes
