@@ -22,7 +22,7 @@ const SiteHeaderDesktop: React.FC<SiteHeaderDesktopProps> = ({searchValue, onSea
       top="0px"
       zIndex="zIndex80"
     >
-      <SiteHeaderLogo title="Paste" subtitle="Design System" />
+      <SiteHeaderLogo title="Paste" subtitle="UX Platform" />
       <Box
         display="flex"
         justifyContent="space-between"
