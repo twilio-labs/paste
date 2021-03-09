@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/checkbox",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "category": "user input",
   "status": "production",
   "description": "The Checkbox and Checkbox Group are used to enable binary choices",

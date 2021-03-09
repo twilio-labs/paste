@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.0.2
+
+### Patch Changes
+
+- [`7f909087`](https://github.com/twilio-labs/paste/commit/7f90908780ae4bdca709efb0b70644daa5942954) [#1251](https://github.com/twilio-labs/paste/pull/1251) Thanks [@richbachman](https://github.com/richbachman)! - Removed required from the `id`, `onChange`, and `value` props, so Select can be used as an uncontrolled component. This allows Select to be used with libraries like `React-Hook-Form`.
+
 ## 4.0.1
 
 ### Patch Changes
