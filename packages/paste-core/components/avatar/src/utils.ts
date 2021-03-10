@@ -50,11 +50,11 @@ export const getCorrespondingIconSizeFromSizeToken = (size: IconSize): IconSizeO
     case 'sizeIcon10':
     case 'sizeIcon20':
     case 'sizeIcon30':
+    case 'sizeIcon40':
     default:
       return 'sizeIcon10';
-    case 'sizeIcon40':
-    case 'sizeIcon60':
     case 'sizeIcon50':
+    case 'sizeIcon60':
       return 'sizeIcon20';
     case 'sizeIcon70':
       return 'sizeIcon30';

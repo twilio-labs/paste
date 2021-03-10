@@ -13,8 +13,17 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
       console.error('Paste Avatar: You must provide a name if you are displaying an image');
     }
     if (icon != null) {
-      const Icon = icon;
-      //why do we need Icon = icon???
+      const Icon = React.Children.only(icon);
+
+      if (
+        // @ts-ignore
+        typeof Icon.type.displayName !== 'string' ||
+        // @ts-ignore
+        !Icon.type.displayName.includes('Icon')
+      ) {
+        throw new Error('[Paste Avatar]: expects children to be a Paste icon only.');
+      }
+
       return (
         <Box
           {...safelySpreadBoxProps(props)}
@@ -75,6 +84,7 @@ Avatar.propTypes = {
   size: isIconSizeTokenProp,
   src: PropTypes.string,
   name: PropTypes.string.isRequired,
+  // icon: PropTypes.element
 };
 
 export {Avatar};

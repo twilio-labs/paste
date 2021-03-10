@@ -6,9 +6,11 @@ import {Avatar} from '../src';
 import {
   getCorrespondingLineHeightFromSizeToken,
   getCorrespondingFontSizeFromSizeToken,
+  getCorrespondingIconSizeFromSizeToken,
   getComputedTokenNames,
   getInitialsFromName,
 } from '../src/utils';
+import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 
 describe('Avatar', () => {
   describe('Utils', () => {
@@ -52,36 +54,46 @@ describe('Avatar', () => {
       });
     });
 
+    describe('getCorrespondingIconSizeFromSizeToken', () => {
+      it('should return a reduced sizeIcon to match icon size', () => {
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon10')).toEqual('sizeIcon10');
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon20')).toEqual('sizeIcon10');
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon30')).toEqual('sizeIcon10');
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon40')).toEqual('sizeIcon10');
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon50')).toEqual('sizeIcon20');
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon60')).toEqual('sizeIcon20');
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon70')).toEqual('sizeIcon30');
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon80')).toEqual('sizeIcon40');
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon90')).toEqual('sizeIcon50');
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon100')).toEqual('sizeIcon70');
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon110')).toEqual('sizeIcon80');
+      });
+    });
+
     describe('getComputedTokenNames', () => {
       it('should handle single size values', () => {
-        expect(getComputedTokenNames('sizeIcon50')).toEqual({fontSize: 'fontSize10', lineHeight: 'lineHeight50'});
+        expect(getComputedTokenNames('sizeIcon50')).toEqual({
+          fontSize: 'fontSize10',
+          lineHeight: 'lineHeight50',
+          iconSize: 'sizeIcon20',
+        });
       });
       it('should handle responsive size values', () => {
         expect(getComputedTokenNames(['sizeIcon50', 'sizeIcon100'])).toEqual({
           fontSize: ['fontSize10', 'fontSize60'],
           lineHeight: ['lineHeight50', 'lineHeight100'],
+          iconSize: ['sizeIcon20', 'sizeIcon70'],
         });
       });
     });
   });
 
-  describe('intials', () => {
-    it('should render responsive css', (): void => {
-      const {asFragment} = render(<Avatar size={['sizeIcon10', 'sizeIcon60', 'sizeIcon100']} name="Simon Taggart" />);
-      expect(asFragment()).toMatchSnapshot();
-    });
-  });
-  describe('image', () => {
-    it('should render alt and src attributes', (): void => {
-      render(<Avatar size="sizeIcon10" name="avatar example" src="/avatars/avatar2.png" />);
-      expect(screen.getByRole('img').getAttribute('src')).toEqual('/avatars/avatar2.png');
-      expect(screen.getByRole('img').getAttribute('alt')).toEqual('avatar example');
-    });
-    it('should render responsive css with an image', (): void => {
-      const {asFragment} = render(
-        <Avatar size={['sizeIcon30', 'sizeIcon40', 'sizeIcon90']} name="avatar example" src="/avatars/avatar2.png" />
+  describe('ensure icon is a Paste Icon', () => {
+    it('should fail if icon is not a Paste Icon', () => {
+      // const {container} = render(<Avatar size="sizeIcon20" name="avatar example" icon="UserIcon" />);
+      expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon="UserIcon" />)).toThrow(
+        '[Paste Avatar]: expects children to be a Paste icon only.'
       );
-      expect(asFragment()).toMatchSnapshot();
     });
   });
 
@@ -91,6 +103,7 @@ describe('Avatar', () => {
         <>
           <Avatar size="sizeIcon10" name="Simon Taggart" />
           <Avatar size="sizeIcon10" name="avatar example" src="/avatars/avatar2.png" />
+          <Avatar size="sizeIcon10" name="Simon Taggart" icon={UserIcon} />
         </>
       );
       const results = await axe(container);
