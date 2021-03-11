@@ -7,37 +7,19 @@ import {getComputedTokenNames, getInitialsFromName} from './utils';
 import type {AvatarProps} from './types';
 
 const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
-  ({name, children, size = 'sizeIcon70', src, icon, ...props}, ref) => {
+  ({name, children, size = 'sizeIcon70', src, icon: Icon, ...props}, ref) => {
     const computedTokenNames = getComputedTokenNames(size);
     if (src != null && name === undefined) {
-      console.error('Paste Avatar: You must provide a name if you are displaying an image');
+      console.error('[Paste Avatar]: You must provide a name if you are displaying an image');
     }
-    if (icon != null) {
-      // check that icon isn't a string
 
-      // type Child1Props = {
-      //   childern: React.FC<{title: string}>
-      // }
-      // const Child1: React.FC<string> = (title, decorative, size, color) => {
-      //   return <div title={title} decorative={decorative} size={size} color={color}/>;
-      // };
-
-      // const Child2: React.FC<string>  = (lastName) => {
-      //   return (
-      //     <Child1>
-      //       {/* <div /> */}
-      //     </Child1>
-      //   );
-      // };
-
-      let Icon = icon;
-      Icon = React.Children.only(Child1);
-
+    if (Icon != null) {
       if (
+        typeof Icon !== 'function' ||
         // @ts-ignore
-        typeof Icon.type.displayName !== 'string' ||
+        typeof Icon.displayName !== 'string' ||
         // @ts-ignore
-        !Icon.type.displayName.includes('Icon')
+        !Icon.displayName.includes('Icon')
       ) {
         throw new Error('[Paste Avatar]: expects children to be a Paste icon only.');
       }
@@ -58,6 +40,7 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
         </Box>
       );
     }
+
     return (
       <Box
         {...safelySpreadBoxProps(props)}
