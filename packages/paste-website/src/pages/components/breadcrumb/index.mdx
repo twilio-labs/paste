@@ -8,11 +8,13 @@ slug: /components/breadcrumb/
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Heading} from '@twilio-paste/heading';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Breadcrumb, BreadcrumbItem} from '@twilio-paste/breadcrumb';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {Truncate} from '@twilio-paste/truncate';
 import Changelog from '@twilio-paste/breadcrumb/CHANGELOG.md';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
 
@@ -130,6 +132,37 @@ Sometimes the text of a breadcrumb can be long. In those situations you can use 
   <BreadcrumbItem>Germany Hotline B</BreadcrumbItem>
 </Breadcrumb>`}
 </LivePreview>
+
+### Breadcrumb with Page Heading
+
+You may choose to use a page Heading as the current page in the breadcrumb.
+
+<LivePreview scope={{Breadcrumb, BreadcrumbItem, Box, Heading}} language="jsx">
+  {`<Box>
+  <Breadcrumb>
+    <BreadcrumbItem href="#">Phone Numbers</BreadcrumbItem>
+  </Breadcrumb>
+  <Heading as="h2" variant="heading20">My phone number</Heading>
+</Box>`}
+</LivePreview>
+
+## Considerations
+
+<DoDont>
+  <Do title="Do" body="Add a slash between two BreadcrumbItems" center>
+    <Breadcrumb>
+      <BreadcrumbItem href="#">Phone Numbers</BreadcrumbItem>
+      <BreadcrumbItem href="#">Buy new number</BreadcrumbItem>
+    </Breadcrumb>
+  </Do>
+  <Dont title="Don't" body="Add a trailing slash" center>
+    <Breadcrumb>
+      <BreadcrumbItem href="#">Phone Numbers</BreadcrumbItem>
+      <BreadcrumbItem href="#">Buy new number</BreadcrumbItem>
+      <BreadcrumbItem />
+    </Breadcrumb>
+  </Dont>
+</DoDont>
 
 ## Anatomy
 
