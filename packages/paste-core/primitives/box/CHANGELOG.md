@@ -1,5 +1,29 @@
 # Change Log
 
+## 4.0.1
+
+### Patch Changes
+
+- [`509eba7a`](https://github.com/twilio-labs/paste/commit/509eba7a95325dd6f8adc3e905e22f92b7f004a9) [#1253](https://github.com/twilio-labs/paste/pull/1253) Thanks [@TheSisb](https://github.com/TheSisb)! - Added 'datetime' prop Typescript typing to Box
+
+## 4.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`4c9ed5ca`](https://github.com/twilio-labs/paste/commit/4c9ed5cac36ada218824d3e24bf45d4a03a12272), [`26c828d8`](https://github.com/twilio-labs/paste/commit/26c828d8681e0e671f28b5f2856cd1803f13953f)]:
+  - @twilio-paste/design-tokens@6.6.0
+  - @twilio-paste/theme@5.0.0
+  - @twilio-paste/style-props@3.0.0
+
+## 3.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`944c3407`](https://github.com/twilio-labs/paste/commit/944c340790b932f4714b0e6075c5641ecdbee9d6)]:
+  - @twilio-paste/design-tokens@6.5.2
+  - @twilio-paste/style-props@2.0.1
+  - @twilio-paste/theme@4.3.1
+
 ## 3.0.0
 
 ### Patch Changes

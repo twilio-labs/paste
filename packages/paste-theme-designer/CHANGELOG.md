@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.2.22
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @twilio-paste/core@7.0.0
+  - @twilio-paste/icons@5.0.0
+
 ## 0.2.21
 
 ### Patch Changes

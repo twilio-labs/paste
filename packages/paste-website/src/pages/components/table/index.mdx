@@ -54,7 +54,7 @@ export const pageQuery = graphql`
   name={props.pageContext.frontmatter.title}
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/table"
-  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-table--default-table"
+  storybookUrl="/?path=/story/components-table--default-table"
   abstractUrl="https://share.goabstract.com/ec5567dc-6d41-4f8d-b34b-6a5bdb912323"
   data={props.data.allPasteComponent.edges}
 />
@@ -210,32 +210,24 @@ The Fixed Table variant sets equal column widths for the table.
     <Tr>
       <Th scope="row">Adam Brown</Th>
       <Td>English, French, Sales, Spanish</Td>
-      <Td textAlign="right">
-        <Text as="span" fontFamily="fontFamilyCode">35</Text>
-      </Td>
+      <Td textAlign="right">35</Td>
     </Tr>
     <Tr>
       <Th scope="row">Adriana Lovelock</Th>
       <Td>English, French, Sales, Spanish</Td>
-      <Td textAlign="right">
-        <Text as="span" fontFamily="fontFamilyCode">28</Text>
-      </Td>
+      <Td textAlign="right">28</Td>
     </Tr>
     <Tr>
       <Th scope="row">Amanda Cutlack</Th>
       <Td>English, French, Sales, Spanish</Td>
-      <Td textAlign="right">
-        <Text as="span" fontFamily="fontFamilyCode">7</Text>
-      </Td>
+      <Td textAlign="right">7</Td>
     </Tr>
   </TBody>
   <TFoot>
     <Tr>
       <Td/>
       <Td/>
-      <Td textAlign="right">
-        <Text as="span" fontFamily="fontFamilyCode">70</Text>
-      </Td>
+      <Td textAlign="right">70</Td>
     </Tr>
   </TFoot>
 </Table>`}
@@ -382,32 +374,24 @@ turned off by setting `variant="borderless"` on `Table`.
       <Tr>
         <Th scope="row">Adam Brown</Th>
         <Td>English, French, Sales, Spanish</Td>
-        <Td textAlign="right">
-          <Text as="span" fontFamily="fontFamilyCode">35</Text>
-        </Td>
+        <Td textAlign="right">35</Td>
       </Tr>
       <Tr>
         <Th scope="row">Adriana Lovelock</Th>
         <Td>English, French, Sales, Spanish</Td>
-        <Td textAlign="right">
-          <Text as="span" fontFamily="fontFamilyCode">28</Text>
-        </Td>
+        <Td textAlign="right">28</Td>
       </Tr>
       <Tr>
         <Th scope="row">Amanda Cutlack</Th>
         <Td>English, French, Sales, Spanish</Td>
-        <Td textAlign="right">
-          <Text as="span" fontFamily="fontFamilyCode">7</Text>
-        </Td>
+        <Td textAlign="right">7</Td>
       </Tr>
     </TBody>
     <TFoot>
       <Tr>
         <Td/>
         <Td/>
-        <Td textAlign="right">
-          <Text as="span" fontFamily="fontFamilyCode">70</Text>
-        </Td>
+        <Td textAlign="right">70</Td>
       </Tr>
     </TFoot>
   </Table>
@@ -489,32 +473,24 @@ rather than using the `TFoot`.
     <Tr>
       <Th scope="row">Adam Brown</Th>
       <Td>English, French, Sales, Spanish</Td>
-      <Td textAlign="right">
-        <Text as="span" fontFamily="fontFamilyCode">35</Text>
-      </Td>
+      <Td textAlign="right">35</Td>
     </Tr>
     <Tr>
       <Th scope="row">Adriana Lovelock</Th>
       <Td>English, French, Sales, Spanish</Td>
-      <Td textAlign="right">
-        <Text as="span" fontFamily="fontFamilyCode">28</Text>
-      </Td>
+      <Td textAlign="right">28</Td>
     </Tr>
     <Tr>
       <Th scope="row">Amanda Cutlack</Th>
       <Td>English, French, Sales, Spanish</Td>
-      <Td textAlign="right">
-        <Text as="span" fontFamily="fontFamilyCode">7</Text>
-      </Td>
+      <Td textAlign="right">7</Td>
     </Tr>
   </TBody>
   <TFoot>
     <Tr>
       <Th scope="row">Total tasks</Th>
       <Td/>
-      <Td textAlign="right">
-        <Text as="span" fontFamily="fontFamilyCode">70</Text>
-      </Td>
+      <Td textAlign="right">70</Td>
     </Tr>
   </TFoot>
 </Table>`}
@@ -573,32 +549,24 @@ setting `striped` on `Table`.
     <Tr>
       <Th scope="row">Adam Brown</Th>
       <Td>English, French, Sales, Spanish</Td>
-      <Td textAlign="right">
-        <Text as="span" fontFamily="fontFamilyCode">35</Text>
-      </Td>
+      <Td textAlign="right">35</Td>
     </Tr>
     <Tr>
       <Th scope="row">Adriana Lovelock</Th>
       <Td>English, French, Sales, Spanish</Td>
-      <Td textAlign="right">
-        <Text as="span" fontFamily="fontFamilyCode">28</Text>
-      </Td>
+      <Td textAlign="right">28</Td>
     </Tr>
     <Tr>
       <Th scope="row">Amanda Cutlack</Th>
       <Td>English, French, Sales, Spanish</Td>
-      <Td textAlign="right">
-        <Text as="span" fontFamily="fontFamilyCode">7</Text>
-      </Td>
+      <Td textAlign="right">7</Td>
     </Tr>
   </TBody>
   <TFoot>
     <Tr>
       <Th scope="row">Total tasks</Th>
       <Td/>
-      <Td textAlign="right">
-        <Text as="span" fontFamily="fontFamilyCode">70</Text>
-      </Td>
+      <Td textAlign="right">70</Td>
     </Tr>
   </TFoot>
 </Table>`}
@@ -637,9 +605,7 @@ understand data in an individual row.
         <Text as="p" color="colorTextWeak" fontWeight="fontWeightNormal">adam@brown.com</Text>
       </Th>
       <Td>English, French, Sales, Spanish</Td>
-      <Td textAlign="right">
-        <Text as="span" fontFamily="fontFamilyCode">35</Text>
-      </Td>
+      <Td textAlign="right">35</Td>
     </Tr>
     <Tr>
       <Th scope="row">
@@ -649,9 +615,7 @@ understand data in an individual row.
         <Text as="p" color="colorTextWeak" fontWeight="fontWeightNormal">adriana@lovelock.com</Text>
       </Th>
       <Td>English, French, Sales, Spanish</Td>
-      <Td textAlign="right">
-        <Text as="span" fontFamily="fontFamilyCode">28</Text>
-      </Td>
+      <Td textAlign="right">28</Td>
     </Tr>
     <Tr>
       <Th scope="row">
@@ -661,9 +625,7 @@ understand data in an individual row.
         <Text as="p" color="colorTextWeak" fontWeight="fontWeightNormal">amanda@cutlack.com</Text>
       </Th>
       <Td>English, French, Sales, Spanish</Td>
-      <Td textAlign="right">
-        <Text as="span" fontFamily="fontFamilyCode">7</Text>
-      </Td>
+      <Td textAlign="right">7</Td>
     </Tr>
   </TBody>
 </Table>`}
@@ -697,9 +659,7 @@ You can put an avatar next to a user's first and last name using `Stack` inside 
         </Stack>
       </Th>
       <Td>English, French, Sales, Spanish</Td>
-      <Td textAlign="right">
-        <Text as="span" fontFamily="fontFamilyCode">35</Text>
-      </Td>
+      <Td textAlign="right">35</Td>
     </Tr>
     <Tr>
       <Th scope="row">
@@ -714,9 +674,7 @@ You can put an avatar next to a user's first and last name using `Stack` inside 
         </Stack>
       </Th>
       <Td>English, French, Sales, Spanish</Td>
-      <Td textAlign="right">
-        <Text as="span" fontFamily="fontFamilyCode">28</Text>
-      </Td>
+      <Td textAlign="right">28</Td>
     </Tr>
     <Tr>
       <Th scope="row">
@@ -731,9 +689,7 @@ You can put an avatar next to a user's first and last name using `Stack` inside 
         </Stack>
       </Th>
       <Td>English, French, Sales, Spanish</Td>
-      <Td textAlign="right">
-        <Text as="span" fontFamily="fontFamilyCode">7</Text>
-      </Td>
+      <Td textAlign="right">7</Td>
     </Tr>
   </TBody>
 </Table>`}

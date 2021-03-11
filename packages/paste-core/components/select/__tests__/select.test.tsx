@@ -6,7 +6,8 @@ import {Theme} from '@twilio-paste/theme';
 import {Label} from '@twilio-paste/label';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
-import {Select, SelectProps, Option} from '../src';
+import {Select, Option} from '../src';
+import type {SelectProps} from '../src';
 import {createAttributeMap} from '../test-utils';
 
 const onChangeMock: jest.Mock = jest.fn();

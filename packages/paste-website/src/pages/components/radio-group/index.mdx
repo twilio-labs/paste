@@ -52,7 +52,7 @@ export const pageQuery = graphql`
   name="Radio Group"
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/radio-group"
-  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-radio--radio"
+  storybookUrl="/?path=/story/components-radio--radio"
   abstractUrl="https://share.goabstract.com/6cc5fc40-3408-4cfd-b1d0-103aea01601d"
   data={props.data.allPasteComponent.edges}
 />
@@ -256,8 +256,8 @@ All the valid HTML attributes for `input[type=radio]` are supported including th
 | Prop      | Type                                     | Description | Default |
 | --------- | ---------------------------------------- | ----------- | ------- |
 | children  | `ReactNode`                              |             | null    |
-| id        | `string`                                 |             | null    |
-| value     | `string`                                 |             | null    |
+| id?       | `string`                                 |             | null    |
+| value?    | `string`                                 |             | null    |
 | hasError? | `boolean`                                |             | false   |
 | helpText? | `string` or `ReactNode`                  |             | null    |
 | onChange? | `(event: React.MouseEvent<HTMLElement>)` |             | null    |

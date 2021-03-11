@@ -1,5 +1,59 @@
 # Change Log
 
+## 5.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`509eba7a`](https://github.com/twilio-labs/paste/commit/509eba7a95325dd6f8adc3e905e22f92b7f004a9)]:
+  - @twilio-paste/box@4.0.1
+  - @twilio-paste/button@5.0.1
+  - @twilio-paste/spinner@6.0.1
+  - @twilio-paste/flex@2.0.1
+  - @twilio-paste/icons@5.0.1
+
+## 5.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`4c9ed5ca`](https://github.com/twilio-labs/paste/commit/4c9ed5cac36ada218824d3e24bf45d4a03a12272), [`26c828d8`](https://github.com/twilio-labs/paste/commit/26c828d8681e0e671f28b5f2856cd1803f13953f)]:
+  - @twilio-paste/design-tokens@6.6.0
+  - @twilio-paste/theme@5.0.0
+  - @twilio-paste/button@5.0.0
+  - @twilio-paste/heading@5.0.0
+  - @twilio-paste/spinner@6.0.0
+  - @twilio-paste/flex@2.0.0
+  - @twilio-paste/box@4.0.0
+  - @twilio-paste/text@4.0.0
+  - @twilio-paste/icons@5.0.0
+  - @twilio-paste/style-props@3.0.0
+
+## 4.0.3
+
+### Patch Changes
+
+- [`ac38757f`](https://github.com/twilio-labs/paste/commit/ac38757f0e426531862d5c562a2f2300cfa30592) [#1228](https://github.com/twilio-labs/paste/pull/1228) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Bump status of the component to production
+
+- Updated dependencies [[`ac38757f`](https://github.com/twilio-labs/paste/commit/ac38757f0e426531862d5c562a2f2300cfa30592)]:
+  - @twilio-paste/flex@1.0.2
+  - @twilio-paste/modal-dialog-primitive@0.2.2
+  - @twilio-paste/button@4.0.3
+
+## 4.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`944c3407`](https://github.com/twilio-labs/paste/commit/944c340790b932f4714b0e6075c5641ecdbee9d6), [`af779398`](https://github.com/twilio-labs/paste/commit/af77939865e030fb356dbc4193c8324e6261627a)]:
+  - @twilio-paste/design-tokens@6.5.2
+  - @twilio-paste/icons@4.0.2
+  - @twilio-paste/button@4.0.2
+  - @twilio-paste/heading@4.0.1
+  - @twilio-paste/spinner@5.0.2
+  - @twilio-paste/flex@1.0.1
+  - @twilio-paste/box@3.0.1
+  - @twilio-paste/text@3.0.1
+  - @twilio-paste/style-props@2.0.1
+  - @twilio-paste/theme@4.3.1
+
 ## 4.0.1
 
 ### Patch Changes

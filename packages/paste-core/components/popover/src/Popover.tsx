@@ -35,7 +35,7 @@ const StyledPopover = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...pro
 const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(({children, ...props}, ref) => {
   const popover = React.useContext(PopoverContext);
   return (
-    <NonModalDialogPrimitive {...(popover as any)} {...props} as={StyledPopover} ref={ref}>
+    <NonModalDialogPrimitive {...(popover as any)} {...props} as={StyledPopover} ref={ref} preventBodyScroll={false}>
       {/* import Paste Theme Based Styles due to portal positioning. */}
       <StyledBase>
         <PopoverArrow {...(popover as any)} />

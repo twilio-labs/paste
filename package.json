@@ -35,7 +35,6 @@
     "prerelease": "yarn build && yarn lint && yarn test",
     "release": "yarn changeset publish",
     "release:next": "yarn lerna publish -m 'chore(release): pre release' --conventional-commits --canary --preid beta --dist-tag next",
-    "release:storybook": "yarn build:storybook && gh-pages -d docs",
     "version": "node ./tools/build/version.js",
     "clean": "node ./tools/build/clean-repo.js && lerna clean --yes && lerna run clean && yarn && yarn bootstrap",
     "clean:full": "node ./tools/build/clean-repo.js && lerna clean --yes && lerna run clean && rm -rf node_modules/ && yarn && yarn bootstrap",
@@ -45,7 +44,6 @@
     "test:packages": "jest --silent ./packages/",
     "test:tools": "jest ./tools/ -c ./tools/jest.config.js",
     "test:coverage": "yarn pre-test && jest --coverage",
-    "test:vrt": "eyes-storybook",
     "test:website": "start-server-and-test 'yarn serve:website' http://localhost:9000 'yarn run cypress run --record --spec './cypress/integration/**/*.spec.ts''",
     "test:website-gui": "start-server-and-test 'yarn serve:website' http://localhost:9000  'yarn run cypress open'",
     "serve:website": "yarn workspace @twilio-paste/website serve",
@@ -60,7 +58,6 @@
     "changeset": "changeset"
   },
   "dependencies": {
-    "@applitools/eyes-storybook": "^3.16.3",
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.4",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
@@ -142,7 +139,6 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-unicorn": "^23.0.0",
-    "gh-pages": "^2.1.1",
     "git-branch-is": "^3.0.0",
     "graphql": "^14.6.0",
     "gulp": "^4.0.2",

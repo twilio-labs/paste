@@ -3,4 +3,3 @@ global:
   type: size
 imports:
   - ../../../global/spacing.yml
-  - ../aliases/spacing.yml

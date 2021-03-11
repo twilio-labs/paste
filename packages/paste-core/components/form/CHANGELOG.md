@@ -1,5 +1,102 @@
 # Change Log
 
+## 5.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`12a669a3`](https://github.com/twilio-labs/paste/commit/12a669a33292915a71c0b83c1f7cf24d4cd28b8b), [`953f88bb`](https://github.com/twilio-labs/paste/commit/953f88bbb5476e5fdb66af3397634b8de822769f), [`7f909087`](https://github.com/twilio-labs/paste/commit/7f90908780ae4bdca709efb0b70644daa5942954), [`8992af4b`](https://github.com/twilio-labs/paste/commit/8992af4b834222581927b855fb0eed62630fafd0), [`14d33968`](https://github.com/twilio-labs/paste/commit/14d339680a7d3fb53b62b70762e4d2e786b473d6)]:
+  - @twilio-paste/checkbox@5.0.2
+  - @twilio-paste/textarea@3.0.2
+  - @twilio-paste/select@4.0.2
+  - @twilio-paste/radio-group@5.0.2
+  - @twilio-paste/input@3.0.2
+
+## 5.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`509eba7a`](https://github.com/twilio-labs/paste/commit/509eba7a95325dd6f8adc3e905e22f92b7f004a9)]:
+  - @twilio-paste/box@4.0.1
+  - @twilio-paste/base-radio-checkbox@5.0.1
+  - @twilio-paste/checkbox@5.0.1
+  - @twilio-paste/help-text@5.0.1
+  - @twilio-paste/inline-control-group@5.0.1
+  - @twilio-paste/input@3.0.1
+  - @twilio-paste/input-box@4.0.1
+  - @twilio-paste/label@5.0.1
+  - @twilio-paste/radio-group@5.0.1
+  - @twilio-paste/screen-reader-only@5.0.1
+  - @twilio-paste/select@4.0.1
+  - @twilio-paste/textarea@3.0.1
+  - @twilio-paste/flex@2.0.1
+  - @twilio-paste/sibling-box@3.0.1
+  - @twilio-paste/icons@5.0.1
+
+## 5.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`083b31d2`](https://github.com/twilio-labs/paste/commit/083b31d262b9350626bab9a926c95f91c99a4e43), [`b1b4ac39`](https://github.com/twilio-labs/paste/commit/b1b4ac39ac70ec70bd9e150f2b8f94a123f1e1a6), [`4c9ed5ca`](https://github.com/twilio-labs/paste/commit/4c9ed5cac36ada218824d3e24bf45d4a03a12272), [`26c828d8`](https://github.com/twilio-labs/paste/commit/26c828d8681e0e671f28b5f2856cd1803f13953f)]:
+  - @twilio-paste/checkbox@5.0.0
+  - @twilio-paste/label@5.0.0
+  - @twilio-paste/design-tokens@6.6.0
+  - @twilio-paste/theme@5.0.0
+  - @twilio-paste/base-radio-checkbox@5.0.0
+  - @twilio-paste/inline-control-group@5.0.0
+  - @twilio-paste/radio-group@5.0.0
+  - @twilio-paste/help-text@5.0.0
+  - @twilio-paste/input@3.0.0
+  - @twilio-paste/input-box@4.0.0
+  - @twilio-paste/screen-reader-only@5.0.0
+  - @twilio-paste/select@4.0.0
+  - @twilio-paste/textarea@3.0.0
+  - @twilio-paste/flex@2.0.0
+  - @twilio-paste/box@4.0.0
+  - @twilio-paste/sibling-box@3.0.0
+  - @twilio-paste/text@4.0.0
+  - @twilio-paste/icons@5.0.0
+  - @twilio-paste/style-props@3.0.0
+
+## 4.0.3
+
+### Patch Changes
+
+- Updated dependencies [[`ac38757f`](https://github.com/twilio-labs/paste/commit/ac38757f0e426531862d5c562a2f2300cfa30592)]:
+  - @twilio-paste/help-text@4.0.3
+  - @twilio-paste/input@2.0.2
+  - @twilio-paste/screen-reader-only@4.0.3
+  - @twilio-paste/flex@1.0.2
+  - @twilio-paste/base-radio-checkbox@4.0.3
+  - @twilio-paste/checkbox@4.0.3
+  - @twilio-paste/inline-control-group@4.0.3
+  - @twilio-paste/radio-group@4.0.3
+  - @twilio-paste/label@4.0.3
+
+## 4.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`944c3407`](https://github.com/twilio-labs/paste/commit/944c340790b932f4714b0e6075c5641ecdbee9d6), [`af779398`](https://github.com/twilio-labs/paste/commit/af77939865e030fb356dbc4193c8324e6261627a)]:
+  - @twilio-paste/design-tokens@6.5.2
+  - @twilio-paste/icons@4.0.2
+  - @twilio-paste/base-radio-checkbox@4.0.2
+  - @twilio-paste/checkbox@4.0.2
+  - @twilio-paste/help-text@4.0.2
+  - @twilio-paste/inline-control-group@4.0.2
+  - @twilio-paste/input@2.0.1
+  - @twilio-paste/input-box@3.0.1
+  - @twilio-paste/label@4.0.2
+  - @twilio-paste/radio-group@4.0.2
+  - @twilio-paste/screen-reader-only@4.0.2
+  - @twilio-paste/select@3.0.2
+  - @twilio-paste/textarea@2.0.1
+  - @twilio-paste/flex@1.0.1
+  - @twilio-paste/box@3.0.1
+  - @twilio-paste/sibling-box@2.0.1
+  - @twilio-paste/text@3.0.1
+  - @twilio-paste/style-props@2.0.1
+  - @twilio-paste/theme@4.3.1
+
 ## 4.0.1
 
 ### Patch Changes

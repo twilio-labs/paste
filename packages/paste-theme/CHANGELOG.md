@@ -1,5 +1,21 @@
 # Change Log
 
+## 5.0.0
+
+### Patch Changes
+
+- [`26c828d8`](https://github.com/twilio-labs/paste/commit/26c828d8681e0e671f28b5f2856cd1803f13953f) [#1236](https://github.com/twilio-labs/paste/pull/1236) Thanks [@richbachman](https://github.com/richbachman)! - Changed SendGrid theme link test so it passes with the correct color.
+
+- Updated dependencies [[`4c9ed5ca`](https://github.com/twilio-labs/paste/commit/4c9ed5cac36ada218824d3e24bf45d4a03a12272)]:
+  - @twilio-paste/design-tokens@6.6.0
+
+## 4.3.1
+
+### Patch Changes
+
+- Updated dependencies [[`944c3407`](https://github.com/twilio-labs/paste/commit/944c340790b932f4714b0e6075c5641ecdbee9d6)]:
+  - @twilio-paste/design-tokens@6.5.2
+
 ## 4.3.0
 
 ### Minor Changes

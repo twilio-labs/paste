@@ -1,0 +1,39 @@
+name: slack-notification
+on:
+  release:
+    types: [published]
+
+jobs:
+  slack-notifications:
+    runs-on: ubuntu-latest
+    name: Sends a message to Slack when a package is released
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          echo "${{ github.event.release.tag_name }}"
+          echo "${{ github.event.release.name }}"
+          echo "${{ github.event.release.body }}"
+      - name: Send message to Slack API
+        uses: archive/github-actions-slack@v2.0.0
+        id: send-message
+        with:
+          slack-function: send-message
+          slack-bot-user-oauth-access-token: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
+          slack-channel: ${{ secrets.SLACK_RELEASE_CHANNEL_ID }}
+          slack-text: ${{ github.event.release.tag_name }} has been released.
+
+      - name: Result from "Send Message"
+        run: echo "The result was ${{ steps.notify.outputs.slack-result }}"
+
+      - name: Send Thread Message
+        uses: archive/github-actions-slack@master
+        with:
+          slack-function: send-message
+          slack-bot-user-oauth-access-token: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
+          slack-channel: ${{ fromJson(steps.send-message.outputs.slack-result).response.channel }}
+          slack-optional-thread_ts: ${{ fromJson(steps.send-message.outputs.slack-result).response.message.ts }}
+          slack-text: ${{ github.event.release.body }}
+
+      - name: Send "Send Thread Message" Result
+        run: echo "Data - ${{ steps.send-message.outputs.slack-result }}"

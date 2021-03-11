@@ -51,7 +51,7 @@ export const UseUid = (): React.ReactNode => {
 
 UseUid.story = {
   name: 'useUID',
-  parameters: {eyes: {include: false}, chromatic: {disable: true}},
+  parameters: {chromatic: {disable: true}},
 };
 
 export const UseUidSeed = (): React.ReactNode => {
@@ -70,7 +70,7 @@ export const UseUidSeed = (): React.ReactNode => {
 
 UseUidSeed.story = {
   name: 'useUIDSeed',
-  parameters: {eyes: {include: false}, chromatic: {disable: true}},
+  parameters: {chromatic: {disable: true}},
 };
 
 export const UidFork = (): React.ReactNode => {
@@ -94,7 +94,7 @@ export const UidFork = (): React.ReactNode => {
 
 UidFork.story = {
   name: 'UIDFork',
-  parameters: {eyes: {include: false}, chromatic: {disable: true}},
+  parameters: {chromatic: {disable: true}},
 };
 
 export const VanillaUid = (): React.ReactNode => {
@@ -114,5 +114,5 @@ export const VanillaUid = (): React.ReactNode => {
 
 VanillaUid.story = {
   name: 'vanilla uid',
-  parameters: {eyes: {include: false}, chromatic: {disable: true}},
+  parameters: {chromatic: {disable: true}},
 };

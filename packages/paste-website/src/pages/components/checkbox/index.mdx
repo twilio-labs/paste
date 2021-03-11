@@ -54,7 +54,7 @@ export const pageQuery = graphql`
   name="Checkbox"
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/checkbox"
-  storybookUrl="https://twilio-labs.github.io/paste/?path=/story/components-checkbox--checkbox"
+  storybookUrl="/?path=/story/components-checkbox--checkbox"
   abstractUrl="https://share.goabstract.com/6cc5fc40-3408-4cfd-b1d0-103aea01601d"
   data={props.data.allPasteComponent.edges}
 />
@@ -129,7 +129,7 @@ When a checkbox is required to be checked, a required indicator should be displa
 <LivePreview scope={{Checkbox}} language="jsx">
   {`<>
   <Checkbox id="delete" value="delete" name="delete" required>
-    Confirm this message should be deleted (Required)
+    Confirm this message should be deleted
   </Checkbox>
 </>`}
 </LivePreview>
@@ -338,7 +338,7 @@ All the valid HTML attributes for `input[type=checkbox]` are supported including
 | Prop              | Type                                     | Description | Default |
 | ----------------- | ---------------------------------------- | ----------- | ------- |
 | children          | `ReactNode`                              |             | null    |
-| id                | `string`                                 |             | null    |
+| id?               | `string`                                 |             | null    |
 | checked?          | `boolean`                                |             | false   |
 | hasError?         | `boolean`                                |             | false   |
 | helpText?         | `string` or `ReactNode`                  |             | null    |
@@ -371,7 +371,7 @@ All the valid HTML attributes for `input[type=checkbox]` are supported including
 | Prop       | Type                                     | Description | Default |
 | ---------- | ---------------------------------------- | ----------- | ------- |
 | children   | `ReactNode`                              |             | null    |
-| id         | `string`                                 |             | null    |
+| id?        | `string`                                 |             | null    |
 | checked?   | `boolean`                                |             | false   |
 | errorText? | `string` or `ReactNode`                  |             | null    |
 | onChange?  | `(event: React.MouseEvent<HTMLElement>)` |             | null    |

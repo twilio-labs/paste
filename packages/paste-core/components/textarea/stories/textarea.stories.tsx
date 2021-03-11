@@ -7,7 +7,8 @@ import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Label} from '@twilio-paste/label';
-import {HelpText, HelpTextVariants} from '@twilio-paste/help-text';
+import {HelpText} from '@twilio-paste/help-text';
+import type {HelpTextVariants} from '@twilio-paste/help-text';
 import {TextArea} from '../src';
 
 const helpVariantOptions = ['default', 'error'];

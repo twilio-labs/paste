@@ -1,8 +1,8 @@
 {
   "name": "@twilio-paste/combobox-primitive",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "category": "user input",
-  "status": "beta",
+  "status": "production",
   "description": "An unstyled and accessible basis upon which to build a combobox.",
   "author": "Twilio Inc.",
   "license": "MIT",

@@ -44,6 +44,18 @@ CheckboxChecked.story = {
   name: 'Checkbox - Checked',
 };
 
+export const CheckboxRequired = (): React.ReactNode => {
+  return (
+    <Checkbox id={useUID()} value="label" name="foo" helpText="Some interesting help text" required>
+      Label
+    </Checkbox>
+  );
+};
+
+CheckboxRequired.story = {
+  name: 'Checkbox - Required',
+};
+
 export const CheckboxDisabled = (): React.ReactNode => {
   return (
     <Checkbox id={useUID()} value="1" disabled name="foo">
@@ -581,6 +593,23 @@ export const DefaultCheckboxDisclaimer = (): React.ReactNode => {
 
 DefaultCheckboxDisclaimer.story = {
   name: 'Checkbox Disclaimer',
+};
+
+export const CheckboxDisclaimerRequired = (): React.ReactNode => {
+  return (
+    <CheckboxDisclaimer id={useUID()} value="foo" name="foo" required>
+      <Text as="span">
+        I declare the information provided above is accurate. I acknowledge that Twilio will process the information
+        provided above for the purpose of identity verification, and will be sharing it with my local telecomm providers
+        or authorities where required by local law. I understand that Twilio phone numbers may be taken out of service
+        for inaccurate or false information.
+      </Text>
+    </CheckboxDisclaimer>
+  );
+};
+
+CheckboxDisclaimerRequired.story = {
+  name: 'Checkbox Disclaimer - Required',
 };
 
 export const CheckboxDisclaimerError = (): React.ReactNode => {

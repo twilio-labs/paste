@@ -3,4 +3,3 @@ global:
   category: z-index
 imports:
   - ../../../global/z-index.yml
-  - ../aliases/z-index.yml
