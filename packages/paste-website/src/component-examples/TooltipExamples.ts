@@ -9,10 +9,10 @@ const StateHookExample = () => {
       >
         <Button variant="primary">Open tooltip</Button>
       </Tooltip>
-      <Button variant="primary" onClick={() => tooltip.show()}>
+      <Button variant="secondary" onClick={() => tooltip.show()}>
         Open tooltip on click
       </Button>
-      <Button variant="primary" onClick={() => tooltip.hide()}>
+      <Button variant="secondary" onClick={() => tooltip.hide()}>
         Close tooltip on click
       </Button>
     </Stack>
