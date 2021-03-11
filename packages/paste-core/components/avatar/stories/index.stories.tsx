@@ -77,7 +77,7 @@ export const Icon = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space40">
       <Avatar size="sizeIcon10" name="avatar example" icon={UserIcon} />
-      <Avatar size="sizeIcon20" name="avatar example" icon={UserIcon} />
+      {/* <Avatar size="sizeIcon20" name="avatar example" icon={UserIcon} />
       <Avatar size="sizeIcon30" name="avatar example" icon={UserIcon} />
       <Avatar size="sizeIcon40" name="avatar example" icon={UserIcon} />
       <Avatar size="sizeIcon50" name="avatar example" icon={UserIcon} />
@@ -86,7 +86,7 @@ export const Icon = (): React.ReactNode => {
       <Avatar size="sizeIcon80" name="avatar example" icon={UserIcon} />
       <Avatar size="sizeIcon90" name="avatar example" icon={UserIcon} />
       <Avatar size="sizeIcon100" name="avatar example" icon={UserIcon} />
-      <Avatar size="sizeIcon110" name="avatar example" icon={UserIcon} />
+      <Avatar size="sizeIcon110" name="avatar example" icon={UserIcon} /> */}
     </Stack>
   );
 };

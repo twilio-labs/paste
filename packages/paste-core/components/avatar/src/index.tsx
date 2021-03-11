@@ -13,7 +13,25 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
       console.error('Paste Avatar: You must provide a name if you are displaying an image');
     }
     if (icon != null) {
-      const Icon = React.Children.only(icon);
+      // check that icon isn't a string
+
+      // type Child1Props = {
+      //   childern: React.FC<{title: string}>
+      // }
+      // const Child1: React.FC<string> = (title, decorative, size, color) => {
+      //   return <div title={title} decorative={decorative} size={size} color={color}/>;
+      // };
+
+      // const Child2: React.FC<string>  = (lastName) => {
+      //   return (
+      //     <Child1>
+      //       {/* <div /> */}
+      //     </Child1>
+      //   );
+      // };
+
+      let Icon = icon;
+      Icon = React.Children.only(Child1);
 
       if (
         // @ts-ignore
