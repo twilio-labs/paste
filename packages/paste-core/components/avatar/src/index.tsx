@@ -85,7 +85,7 @@ Avatar.propTypes = {
   size: isIconSizeTokenProp,
   src: PropTypes.string,
   name: PropTypes.string.isRequired,
-  // icon: PropTypes.element
+  icon: PropTypes.func,
 };
 
 export {Avatar};

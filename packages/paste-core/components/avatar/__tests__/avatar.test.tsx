@@ -90,7 +90,6 @@ describe('Avatar', () => {
 
   describe('ensure icon is a Paste Icon', () => {
     it('should fail if icon is not a Paste Icon', () => {
-      // const {container} = render(<Avatar size="sizeIcon20" name="avatar example" icon="UserIcon" />);
       expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon="UserIcon" />)).toThrow();
     });
   });
