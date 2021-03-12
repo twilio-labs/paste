@@ -1,5 +1,17 @@
 # Change Log
 
+## 6.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`8b5a8592`](https://github.com/twilio-labs/paste/commit/8b5a8592848abba3975717c33ed9aed93f376087)]:
+  - @twilio-paste/icons@5.1.0
+  - @twilio-paste/base-radio-checkbox@6.0.0
+  - @twilio-paste/help-text@6.0.0
+  - @twilio-paste/inline-control-group@6.0.0
+  - @twilio-paste/screen-reader-only@6.0.0
+  - @twilio-paste/label@6.0.0
+
 ## 5.0.2
 
 ### Patch Changes

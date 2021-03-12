@@ -1,5 +1,18 @@
 # Change Log
 
+## 5.0.0
+
+### Minor Changes
+
+- [`169089ce`](https://github.com/twilio-labs/paste/commit/169089cee859f40bf863e471745b867fd91c5837) [#1269](https://github.com/twilio-labs/paste/pull/1269) Thanks [@TheSisb](https://github.com/TheSisb)! - Fixed issue where open popovers would disable page scrolling
+
+### Patch Changes
+
+- Updated dependencies [[`8b5a8592`](https://github.com/twilio-labs/paste/commit/8b5a8592848abba3975717c33ed9aed93f376087)]:
+  - @twilio-paste/icons@5.1.0
+  - @twilio-paste/button@6.0.0
+  - @twilio-paste/spinner@7.0.0
+
 ## 4.0.1
 
 ### Patch Changes

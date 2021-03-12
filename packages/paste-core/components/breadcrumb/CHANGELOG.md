@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.0.0
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @twilio-paste/anchor@5.0.0
+
 ## 3.0.1
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # Change Log
 
+## 6.0.0
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @twilio-paste/screen-reader-only@6.0.0
+
 ## 5.0.1
 
 ### Patch Changes
