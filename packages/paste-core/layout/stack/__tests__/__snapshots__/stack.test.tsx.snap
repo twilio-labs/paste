@@ -14,7 +14,7 @@ exports[`Stack should render a horizontal stack 1`] = `
 .emotion-0 {
   box-sizing: border-box;
   border-width: 2px;
-  border-color: rgb(228,231,233);
+  border-color: rgb(225,227,234);
   border-style: solid;
   border-radius: 4px;
   padding: 1.25rem;
@@ -86,7 +86,7 @@ exports[`Stack should render a responsive stack 1`] = `
 .emotion-0 {
   box-sizing: border-box;
   border-width: 2px;
-  border-color: rgb(228,231,233);
+  border-color: rgb(225,227,234);
   border-style: solid;
   border-radius: 4px;
   padding: 1.25rem;
@@ -202,7 +202,7 @@ exports[`Stack should render a vertical stack 1`] = `
 .emotion-0 {
   box-sizing: border-box;
   border-width: 2px;
-  border-color: rgb(228,231,233);
+  border-color: rgb(225,227,234);
   border-style: solid;
   border-radius: 4px;
   padding: 1.25rem;
