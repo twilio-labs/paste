@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useReducedMotion, Globals as AnimatedGlobals} from '@twilio-paste/animation-library';
 import {styled, StylingGlobals, ThemeProvider as StyledThemeProvider} from '@twilio-paste/styling-library';
-import {DefaultTheme, SendGridTheme, ConsoleTheme} from './themes';
+import {DefaultTheme, SendGridTheme, ConsoleTheme, DarkTheme} from './themes';
 import {pasteGlobalStyles} from './styles/global';
 import {pasteBaseStyles} from './styles/base';
 import {pasteFonts} from './styles/fonts';
@@ -12,6 +12,11 @@ export const StyledBase = styled.div(pasteBaseStyles);
 // eslint-disable-next-line @typescript-eslint/ban-types
 function getProviderThemeProps(theme: ThemeVariants, customBreakpoints?: string[]): {} {
   switch (theme) {
+    case ThemeVariants.DARK:
+      return {
+        ...DarkTheme,
+        breakpoints: customBreakpoints || DarkTheme.breakpoints,
+      };
     case ThemeVariants.SENDGRID:
       return {
         ...SendGridTheme,
