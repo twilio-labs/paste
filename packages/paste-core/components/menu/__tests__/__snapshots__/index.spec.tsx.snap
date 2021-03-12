@@ -36,8 +36,8 @@ exports[`Menu Render should render 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   color: colorTextInverse;
-  background-color: colorBackgroundPrimaryDarker;
-  box-shadow: shadowBorderPrimaryDarker;
+  background-color: colorBackgroundPrimaryStronger;
+  box-shadow: shadowBorderPrimaryStronger;
 }
 
 .emotion-1:focus {
@@ -45,16 +45,16 @@ exports[`Menu Render should render 1`] = `
   text-decoration: none;
   box-shadow: shadowFocus;
   color: colorTextInverse;
-  background-color: colorBackgroundPrimaryDarker;
+  background-color: colorBackgroundPrimaryStronger;
 }
 
 .emotion-1:active,
 .emotion-1[data-active=true] {
   -webkit-text-decoration: none;
   text-decoration: none;
-  box-shadow: shadowBorderPrimaryDarker;
+  box-shadow: shadowBorderPrimaryStronger;
   color: colorTextInverse;
-  background-color: colorBackgroundPrimaryDark;
+  background-color: colorBackgroundPrimaryStrong;
 }
 
 .emotion-0 {
@@ -129,8 +129,8 @@ exports[`Menu Render should render 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   color: colorTextInverse;
-  background-color: colorBackgroundPrimaryDarker;
-  box-shadow: shadowBorderPrimaryDarker;
+  background-color: colorBackgroundPrimaryStronger;
+  box-shadow: shadowBorderPrimaryStronger;
 }
 
 .emotion-4:focus {
@@ -138,16 +138,16 @@ exports[`Menu Render should render 1`] = `
   text-decoration: none;
   box-shadow: shadowFocus;
   color: colorTextInverse;
-  background-color: colorBackgroundPrimaryDarker;
+  background-color: colorBackgroundPrimaryStronger;
 }
 
 .emotion-4:active,
 .emotion-4[data-active=true] {
   -webkit-text-decoration: none;
   text-decoration: none;
-  box-shadow: shadowBorderPrimaryDarker;
+  box-shadow: shadowBorderPrimaryStronger;
   color: colorTextInverse;
-  background-color: colorBackgroundPrimaryDark;
+  background-color: colorBackgroundPrimaryStrong;
 }
 
 .emotion-3 {
@@ -167,7 +167,7 @@ exports[`Menu Render should render 1`] = `
   background-color: colorBackgroundBody;
   border-style: solid;
   border-width: borderWidth10;
-  border-color: colorBorderLight;
+  border-color: colorBorderWeak;
   border-radius: borderRadius20;
   box-shadow: shadow;
   max-width: size30;
@@ -217,7 +217,7 @@ exports[`Menu Render should render 1`] = `
   margin-bottom: space40;
   margin-top: space40;
   border-width: borderWidth0;
-  border-color: colorBorderLight;
+  border-color: colorBorderWeak;
   border-style: solid;
   border-bottom-width: borderWidth10;
   width: auto;
