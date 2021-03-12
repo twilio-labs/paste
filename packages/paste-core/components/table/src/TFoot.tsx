@@ -11,7 +11,7 @@ const TFoot = React.forwardRef<HTMLTableSectionElement, TFootProps>((props, ref)
       backgroundColor="colorBackground"
       borderTopStyle="solid"
       borderTopWidth="borderWidth20"
-      borderTopColor="colorBorderLighter"
+      borderTopColor="colorBorderWeaker"
     />
   );
 });
