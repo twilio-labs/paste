@@ -45,8 +45,8 @@ exports[`Popover Render should render 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   color: rgb(255,255,255);
-  background-color: rgb(3,44,94);
-  box-shadow: 0 0 0 1px #032c5e;
+  background-color: rgb(3,11,93);
+  box-shadow: 0 0 0 1px #030b5d;
 }
 
 .emotion-1:focus {
@@ -54,16 +54,16 @@ exports[`Popover Render should render 1`] = `
   text-decoration: none;
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
   color: rgb(255,255,255);
-  background-color: rgb(3,44,94);
+  background-color: rgb(3,11,93);
 }
 
 .emotion-1:active,
 .emotion-1[data-active=true] {
   -webkit-text-decoration: none;
   text-decoration: none;
-  box-shadow: 0 0 0 1px #032c5e;
+  box-shadow: 0 0 0 1px #030b5d;
   color: rgb(255,255,255);
-  background-color: rgb(0,62,130);
+  background-color: rgb(0,20,137);
 }
 
 .emotion-0 {
