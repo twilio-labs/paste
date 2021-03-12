@@ -25,7 +25,7 @@ const Separator = React.forwardRef<HTMLHRElement, SeparatorProps>(
         marginTop={verticalSpacing}
         as="hr"
         borderWidth="borderWidth0"
-        borderColor="colorBorderLight"
+        borderColor="colorBorderWeak"
         borderStyle="solid"
         borderBottomWidth={orientation === 'horizontal' ? 'borderWidth10' : null}
         borderLeftWidth={orientation === 'vertical' ? 'borderWidth10' : null}
