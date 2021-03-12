@@ -12,7 +12,7 @@ exports[`Backgrounds should render responsive values 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  background-color: rgb(179,211,233);
+  background-color: rgb(153,205,255);
 }
 
 @media screen and (min-width:25rem) {
@@ -71,7 +71,7 @@ exports[`Borders should render responsive values 1`] = `
 .emotion-0 {
   box-sizing: border-box;
   border-style: dashed;
-  border-color: rgb(0,62,130);
+  border-color: rgb(0,20,137);
   border-width: 1px;
   border-radius: 0;
 }
@@ -79,7 +79,7 @@ exports[`Borders should render responsive values 1`] = `
 @media screen and (min-width:25rem) {
   .emotion-0 {
     border-style: dotted;
-    border-color: rgb(179,211,233);
+    border-color: rgb(102,179,255);
     border-width: 2px;
     border-radius: 2px;
   }
@@ -115,7 +115,7 @@ exports[`Borders should render single values 1`] = `
 .emotion-0 {
   box-sizing: border-box;
   border-style: solid;
-  border-color: rgb(0,62,130);
+  border-color: rgb(0,20,137);
   border-width: 1px;
   border-radius: 4px;
 }
@@ -147,7 +147,7 @@ exports[`Color mappings should map pseudo selector color values 1`] = `
 
 .emotion-0:hover {
   background-color: rgb(248,248,249);
-  border-color: rgb(146,18,0);
+  border-color: rgb(117,12,12);
   color: rgb(255,255,255);
 }
 
@@ -174,15 +174,15 @@ exports[`Color mappings should map responsive color values 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  background-color: rgb(179,211,233);
-  border-color: rgb(136,140,142);
+  background-color: rgb(153,205,255);
+  border-color: rgb(96,107,133);
   color: rgb(40,42,43);
 }
 
 @media screen and (min-width:25rem) {
   .emotion-0 {
     background-color: rgb(2,122,197);
-    border-color: rgb(146,18,0);
+    border-color: rgb(117,12,12);
     color: rgb(255,255,255);
   }
 }
@@ -220,14 +220,14 @@ exports[`Color mappings should map responsive pseudo selector color values 1`] =
 
 .emotion-0:hover {
   background-color: rgb(248,248,249);
-  border-color: rgb(146,18,0);
+  border-color: rgb(117,12,12);
   color: rgb(226,37,37);
 }
 
 @media screen and (min-width:25rem) {
   .emotion-0:hover {
     background-color: rgb(255,255,255);
-    border-color: rgb(146,18,0);
+    border-color: rgb(117,12,12);
     color: rgb(200,204,207);
   }
 }
@@ -256,9 +256,9 @@ exports[`Color mappings should map single color values 1`] = `
 .emotion-0 {
   box-sizing: border-box;
   background-color: rgb(2,122,197);
-  border-color: rgb(136,140,142);
-  border-bottom-color: rgb(146,18,0);
-  border-left-color: rgb(146,18,0);
+  border-color: rgb(96,107,133);
+  border-bottom-color: rgb(117,12,12);
+  border-left-color: rgb(117,12,12);
   border-right-color: rgba(255,255,255,0.5);
   border-top-color: rgba(255,255,255,0.5);
   color: rgb(40,42,43);
