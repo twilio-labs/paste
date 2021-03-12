@@ -1,0 +1,125 @@
+global:
+  type: color
+  category: background-color
+imports:
+  - ../../../global/background-color.yml
+  - ../aliases/color.yml
+  - ../aliases/color-palette.yml
+props:
+  # base background
+  color-background:
+    value: "{!palette-gray-100}"
+    comment: Default background color for any container
+  color-background-strong:
+    value: "{!palette-gray-90}"
+    comment: Dark default background color
+  color-background-stronger:
+    value: "{!palette-gray-50}"
+    comment: Darker default background color
+  color-background-strongest:
+    value: "{!palette-gray-30}"
+    comment: Darkest default background color
+  color-background-inverse:
+    value: "{!palette-gray-110}"
+    comment: Inverse background color for any container. Must be used on color-background-body-inverse.
+  color-background-inverse-strong:
+    value: "{!palette-gray-110}"
+    comment: Light inverse background color for any container. Must be used on color-background-body-inverse.
+
+  # brand backgrounds
+  color-background-brand:
+    value: "{!palette-blue-80}"
+    comment: Primary brand background, accessible with inverse text
+  color-background-brand-highlight:
+    value: "{!brand-highlight}"
+    comment: Highlight brand background, accessible with black text
+
+  # page body
+  color-background-body:
+    value: "{!palette-gray-110}"
+    comment: Background color of the main page body
+  color-background-body-inverse:
+    value: "{!palette-gray-0}"
+    comment: Inverse background color of the main page body
+
+  # status
+  color-background-success-stronger:
+    value: "{!palette-green-30}"
+    comment: Darker success background color
+  color-background-success-strong:
+    value: "{!palette-green-40}"
+    comment: Dark success background color
+  color-background-success:
+    value: "{!palette-green-50}"
+    comment: Success background color
+  color-background-success-weakest:
+    value: "{!palette-green-100}"
+    comment: Lightest success background color
+  color-background-warning-weakest:
+    value: "{!palette-orange-100}"
+    comment: Lightest warning background color
+  color-background-error-strong:
+    value: "{!palette-red-30}"
+    comment: Dark error background color
+  color-background-error:
+    value: "{!palette-red-40}"
+    comment: Error background color
+  color-background-error-weakest:
+    value: "{!palette-red-100}"
+    comment: Lightest error background color
+  color-background-new:
+    value: "{!palette-purple-10}"
+    comment: Background color for indicating a new status.
+
+  # row backgrounds
+  color-background-row-striped:
+    value: "{!palette-gray-100}"
+    comment: Background color for alternative striped rows
+
+  # primary background
+  color-background-primary-strongest:
+    value: "{!palette-blue-10}"
+    comment: Darkest background for primary actions or highlights
+  color-background-primary-stronger:
+    value: "{!palette-blue-20}"
+    comment: Darker background for primary actions or highlights
+  color-background-primary-strong:
+    value: "{!palette-blue-30}"
+    comment: Dark background for primary actions or highlights
+  color-background-primary:
+    value: "{!palette-blue-40}"
+    comment: Background for primary actions or highlights
+  color-background-primary-weak:
+    value: "{!palette-blue-80}"
+    comment: Light background for primary actions or highlights
+  color-background-primary-weaker:
+    value: "{!palette-blue-90}"
+    comment: Lighter background for primary actions or highlights
+  color-background-primary-weakest:
+    value: "{!palette-blue-100-transparent-40}"
+    comment: Lightest background for primary actions or highlights
+
+  # destructive backgrounds
+  color-background-destructive-stronger:
+    value: "{!palette-red-20}"
+    comment: Darker background for destructive actions or highlights
+  color-background-destructive-strong:
+    value: "{!palette-red-30}"
+    comment: Dark background for destructive actions or highlights
+  color-background-destructive:
+    value: "{!palette-red-40}"
+    comment: Background for destructive actions or highlights
+  color-background-destructive-weak:
+    value: "{!palette-red-80}"
+    comment: Light background for destructive actions or highlights
+  color-background-destructive-weaker:
+    value: "{!palette-red-90}"
+    comment: Lighter background for destructive actions or highlights
+  color-background-destructive-weakest:
+    value: "{!palette-red-100}"
+    comment: Lightest background for destructive actions or highlights
+
+  # overlay backgrounds
+  color-background-overlay:
+    value: "{!palette-blue-100-transparent-40}"
+    comment: Default background for overlays

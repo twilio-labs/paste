@@ -26,7 +26,13 @@ props:
   shadow-border-lighter:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-20}"
     comment: Lighter shadow border for disabled inputs.
+  shadow-border-stronger:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-20}"
+    comment: Lighter shadow border for disabled inputs.
   shadow-border-light:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-30}"
+    comment: Light shadow border for disabled inputs.
+  shadow-border-strong:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-30}"
     comment: Light shadow border for disabled inputs.
   shadow-border:
@@ -35,7 +41,13 @@ props:
   shadow-border-primary-lighter:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-20}"
     comment: "Lighter shadow border for primary interactions."
+  shadow-border-primary-weaker:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-20}"
+    comment: "Lighter shadow border for primary interactions."
   shadow-border-primary-light:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-30}"
+    comment: "Lighter shadow border for primary interactions."
+  shadow-border-primary-weak:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-30}"
     comment: "Lighter shadow border for primary interactions."
   shadow-border-primary:
@@ -44,13 +56,25 @@ props:
   shadow-border-primary-dark:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-80}"
     comment: Dark shadow border for inputs hover.
+  shadow-border-primary-strong:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-80}"
+    comment: Dark shadow border for inputs hover.
   shadow-border-primary-darker:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-90}"
+    comment: Darker shadow border for inputs active.
+  shadow-border-primary-stronger:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-90}"
     comment: Darker shadow border for inputs active.
   shadow-border-destructive-lighter:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-20}"
     comment: Lighter shadow border for destructive interactions.
+  shadow-border-destructive-weaker:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-20}"
+    comment: Lighter shadow border for destructive interactions.
   shadow-border-destructive-light:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-30}"
+    comment: Light shadow border for destructive interactions.
+  shadow-border-destructive-weak:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-30}"
     comment: Light shadow border for destructive interactions.
   shadow-border-destructive:
@@ -59,7 +83,13 @@ props:
   shadow-border-destructive-darker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-90}"
     comment: Dark shadow border for destructive interactions
+  shadow-border-destructive-stronger:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-90}"
+    comment: Dark shadow border for destructive interactions
   shadow-border-error-light:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-50}"
+    comment: Shadow border for inverse error inputs.
+  shadow-border-error-weak:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-50}"
     comment: Shadow border for inverse error inputs.
   shadow-border-error:
@@ -68,7 +98,13 @@ props:
   shadow-border-error-dark:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-80}"
     comment: Shadow border for error inputs hover.
+  shadow-border-error-strong:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-80}"
+    comment: Shadow border for error inputs hover.
   shadow-border-inverse-darker:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-20}"
+    comment: Darker shadow border on interactive elements on inverse backgrounds.
+  shadow-border-inverse-weaker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-20}"
     comment: Darker shadow border on interactive elements on inverse backgrounds.
   shadow-border-inverse:
@@ -77,6 +113,12 @@ props:
   shadow-border-inverse-light:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-90}"
     comment: Light shadow border on interactive elements on inverse backgrounds.
+  shadow-border-inverse-strong:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-90}"
+    comment: Light shadow border on interactive elements on inverse backgrounds.
   shadow-border-inverse-lightest:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0}"
+    comment: Lightest shadow border on interactive elements on inverse backgrounds.
+  shadow-border-inverse-strongest:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0}"
     comment: Lightest shadow border on interactive elements on inverse backgrounds.

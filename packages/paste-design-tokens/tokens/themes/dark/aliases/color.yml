@@ -1,0 +1,4 @@
+imports:
+  - ../../../aliases/color.yml
+aliases:
+  brand-highlight: "#F22F46"

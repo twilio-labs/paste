@@ -8,16 +8,28 @@ props:
   color-border-dark:
     value: "{!palette-gray-60}"
     comment: Dark border color
+  color-border-strong:
+    value: "{!palette-gray-60}"
+    comment: Dark border color
   color-border:
     value: "{!palette-gray-50}"
     comment: Default border color
   color-border-light:
     value: "{!palette-gray-30}"
     comment: Light border color
+  color-border-weak:
+    value: "{!palette-gray-30}"
+    comment: Light border color
   color-border-lighter:
     value: "{!palette-gray-20}"
     comment: Lighter border color
+  color-border-weaker:
+    value: "{!palette-gray-20}"
+    comment: Lighter border color
   color-border-inverse-darker:
+    value: "{!palette-gray-0-transparent-20}"
+    comment: Darker border on inverse backgrounds. Must be used on color-background-body-inverse.
+  color-border-error-weaker:
     value: "{!palette-gray-0-transparent-20}"
     comment: Darker border on inverse backgrounds. Must be used on color-background-body-inverse.
   color-border-inverse:
@@ -26,7 +38,13 @@ props:
   color-border-inverse-lighter:
     value: "{!palette-gray-0-transparent-90}"
     comment: Lighter border on inverse backgrounds. Must be used on color-background-body-inverse.
+  color-border-lighter-stronger:
+    value: "{!palette-gray-0-transparent-90}"
+    comment: Lighter border on inverse backgrounds. Must be used on color-background-body-inverse.
   color-border-inverse-lightest:
+    value: "{!palette-gray-0}"
+    comment: Lightest border on inverse backgrounds. Must be used on color-background-body-inverse.
+  color-border-lightest-strongest:
     value: "{!palette-gray-0}"
     comment: Lightest border on inverse backgrounds. Must be used on color-background-body-inverse.
 
@@ -34,7 +52,13 @@ props:
   color-border-primary-darker:
     value: "{!palette-blue-90}"
     comment: Darker primary border color
+  color-border-primary-stronger:
+    value: "{!palette-blue-90}"
+    comment: Darker primary border color
   color-border-primary-dark:
+    value: "{!palette-blue-80}"
+    comment: Dark primary border color
+  color-border-primary-strong:
     value: "{!palette-blue-80}"
     comment: Dark primary border color
   color-border-primary:
@@ -43,12 +67,21 @@ props:
   color-border-primary-light:
     value: "{!palette-blue-40}"
     comment: Light primary border color
+  color-border-primary-weak:
+    value: "{!palette-blue-40}"
+    comment: Light primary border color
   color-border-primary-lighter:
+    value: "{!palette-blue-20}"
+    comment: Lighter primary border color
+  color-border-primary-weaker:
     value: "{!palette-blue-20}"
     comment: Lighter primary border color
 
   # status borders
   color-border-neutral-light:
+    value: "{!palette-gray-50}"
+    comment: Light neutral border color
+  color-border-neutral-weak:
     value: "{!palette-gray-50}"
     comment: Light neutral border color
   color-border-neutral:
@@ -60,7 +93,13 @@ props:
   color-border-success-light:
     value: "{!palette-green-50}"
     comment: Light success border color
+  color-border-success-weak:
+    value: "{!palette-green-50}"
+    comment: Light success border color
   color-border-success-lightest:
+    value: "{!palette-green-10}"
+    comment: Lightest success border color
+  color-border-success-weakest:
     value: "{!palette-green-10}"
     comment: Lightest success border color
   color-border-warning:
@@ -69,10 +108,19 @@ props:
   color-border-warning-light:
     value: "{!palette-orange-40}"
     comment: Light warning border color
+  color-border-warning-weak:
+    value: "{!palette-orange-40}"
+    comment: Light warning border color
   color-border-warning-lightest:
     value: "{!palette-orange-10}"
     comment: Lightest warning border color
+  color-border-warning-weakest:
+    value: "{!palette-orange-10}"
+    comment: Lightest warning border color
   color-border-error-dark:
+    value: "{!palette-red-80}"
+    comment: Dark error border color
+  color-border-error-strong:
     value: "{!palette-red-80}"
     comment: Dark error border color
   color-border-error:
@@ -81,7 +129,13 @@ props:
   color-border-error-light:
     value: "{!palette-red-40}"
     comment: Light error border color
+  color-border-error-weak:
+    value: "{!palette-red-40}"
+    comment: Light error border color
   color-border-error-lightest:
+    value: "{!palette-red-10}"
+    comment: Lightest error border color
+  color-border-error-weakest:
     value: "{!palette-red-10}"
     comment: Lightest error border color
 
@@ -89,7 +143,13 @@ props:
   color-border-destructive-darker:
     value: "{!palette-red-90}"
     comment: Darker destructive hover border color
+  color-border-destructive-stronger:
+    value: "{!palette-red-90}"
+    comment: Darker destructive hover border color
   color-border-destructive-dark:
+    value: "{!palette-red-80}"
+    comment: Destructive focus border color
+  color-border-destructive-strong:
     value: "{!palette-red-80}"
     comment: Destructive focus border color
   color-border-destructive:
@@ -98,6 +158,12 @@ props:
   color-border-destructive-light:
     value: "{!palette-red-40}"
     comment: Destructive focus border color
+  color-border-destructive-weak:
+    value: "{!palette-red-40}"
+    comment: Destructive focus border color
   color-border-destructive-lighter:
+    value: "{!palette-red-20}"
+    comment: Destructive focus border color
+  color-border-destructive-weaker:
     value: "{!palette-red-20}"
     comment: Destructive focus border color

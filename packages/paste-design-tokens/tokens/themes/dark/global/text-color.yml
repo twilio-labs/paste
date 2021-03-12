@@ -2,118 +2,95 @@ global:
   type: color
   category: text-color
 imports:
+  - ../../../global/text-color.yml
   - ../aliases/color.yml
   - ../aliases/color-palette.yml
 props:
   # body text
   color-text:
-    value: "{!palette-gray-100}"
+    value: "{!palette-gray-0}"
     comment: Body text color
   color-text-weak:
-    value: "{!palette-gray-60}"
+    value: "{!palette-gray-30}"
     comment: Weak body text for visual hierarchy.
   color-text-weaker:
-    value: "{!palette-gray-40}"
+    value: "{!palette-gray-60}"
     comment: Weaker body text for visual hierarchy. Inaccessible unless used on disabled controls.
   color-text-inverse:
-    value: "{!palette-gray-0}"
+    value: "{!palette-gray-100}"
     comment: Inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
   color-text-inverse-weak:
-    value: "{!palette-gray-40}"
+    value: "{!palette-gray-70}"
     comment: Weak inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
   color-text-inverse-weaker:
-    value: "{!palette-gray-60}"
+    value: "{!palette-gray-40}"
     comment: Weaker inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
   color-text-brand-inverse:
-    value: "{!white}"
+    value: "{!palette-gray-100}"
     comment: Text color used on any brand color
   color-text-brand-highlight:
-    value: "{!amaranth}"
+    value: "{!brand-highlight}"
     comment: Twilio brand red, accessible on large text only.
 
   # links
   color-text-link:
-    value: "{!palette-blue-60}"
+    value: "{!palette-blue-40}"
     comment: Link text
-  color-text-link-light:
-    value: "{!palette-blue-30}"
-    comment: Light shade of link text to be used in interactions
   color-text-link-weak:
-    value: "{!palette-blue-30}"
+    value: "{!palette-blue-80}"
     comment: Light shade of link text to be used in interactions
-  color-text-link-dark:
-    value: "{!palette-blue-80}"
-    comment: Dark shade of link text to be used in interactions
   color-text-link-strong:
-    value: "{!palette-blue-80}"
+    value: "{!palette-blue-30}"
     comment: Dark shade of link text to be used in interactions
-  color-text-link-darker:
-    value: "{!palette-blue-90}"
-    comment: Darker shade of link text to be used in interactions
-  color-text-link-stronger:
-    value: "{!palette-blue-90}"
-    comment: Darker shade of link text to be used in interactions
   color-text-link-destructive:
-    value: "{!palette-red-60}"
+    value: "{!palette-red-40}"
     comment: Destructive link text
-  color-text-link-destructive-light:
-    value: "{!palette-red-30}"
-    comment: Light shade of destructive link text to be used in interactions
   color-text-link-destructive-weak:
-    value: "{!palette-red-30}"
+    value: "{!palette-red-80}"
     comment: Light shade of destructive link text to be used in interactions
-  color-text-link-destructive-dark:
-    value: "{!palette-red-70}"
-    comment: Dark shade of destructive link text to be used in interactions
   color-text-link-destructive-strong:
-    value: "{!palette-red-70}"
+    value: "{!palette-red-30}"
     comment: Dark shade of destructive link text to be used in interactions
-  color-text-link-destructive-darker:
-    value: "{!palette-red-90}"
-    comment: Darker shade of destructive link text to be used in interactions
   color-text-link-destructive-stronger:
-    value: "{!palette-red-90}"
+    value: "{!palette-red-20}"
     comment: Darker shade of destructive link text to be used in interactions
 
   #status
-  color-text-error-light:
-    value: "{!palette-red-50}"
-    comment: Light error text for inputs and error misc
   color-text-error-weak:
-    value: "{!palette-red-50}"
+    value: "{!palette-red-80}"
     comment: Light error text for inputs and error misc
   color-text-error:
-    value: "{!palette-red-60}"
+    value: "{!palette-red-40}"
     comment: Error text for inputs and error misc
-  color-text-error-dark:
-    value: "{!palette-red-70}"
-    comment: Dark error text for inputs and error misc
   color-text-error-strong:
-    value: "{!palette-red-70}"
+    value: "{!palette-red-30}"
     comment: Dark error text for inputs and error misc
   color-text-success:
-    value: "{!palette-green-60}"
+    value: "{!palette-green-50}"
+    comment: Text color for success text.
+  color-text-success-strong:
+    value: "{!palette-green-40}"
+    comment: Text color for success text.
+  color-text-success-stronger:
+    value: "{!palette-green-30}"
     comment: Text color for success text.
   color-text-warning:
-    value: "{!palette-orange-60}"
+    value: "{!palette-orange-40}"
     comment: Color for warning text.
-  color-text-warning-dark:
-    value: "{!palette-orange-70}"
-    comment: Color for dark warning text.
   color-text-warning-strong:
-    value: "{!palette-orange-70}"
+    value: "{!palette-orange-30}"
     comment: Color for dark warning text.
   color-text-new:
-    value: "{!palette-purple-60}"
+    value: "{!palette-purple-40}"
     comment: Color for text indicating a new status.
   color-text-neutral:
-    value: "{!palette-blue-80}"
+    value: "{!palette-blue-60}"
     comment: Color for text indicating a neutral status.
 
-  #icon
+    #icon
   color-text-icon:
-    value: "{!palette-gray-60}"
+    value: "{!palette-gray-50}"
     comment: Default icon color.
   color-text-icon-inverse:
-    value: "{!palette-gray-50}"
+    value: "{!palette-gray-60}"
     comment: Default icon color for inverse backgrounds.

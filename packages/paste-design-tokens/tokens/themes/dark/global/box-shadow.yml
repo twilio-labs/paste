@@ -1,0 +1,64 @@
+global:
+  type: shadow
+  category: box-shadow
+imports:
+  - ../../../global/box-shadow.yml
+  - ../aliases/box-shadow.yml
+props:
+  shadow-high:
+    value: "{!shadow-elevation-30}"
+    comment: High elevation default shadow.
+  shadow:
+    value: "{!shadow-elevation-20}"
+    comment: Default shadow.
+  shadow-low:
+    value: "{!shadow-elevation-30}"
+    comment: Low elevation default shadow.
+  shadow-focus:
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-blue-40}"
+    comment: Shadow for focus ring on interactive elements.
+  shadow-focus-inverse:
+    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-gray-100-transparent-50}"
+    comment: Shadow for focus ring on interactive elements on inverse backgrounds.
+  shadow-border-stronger:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-20}"
+    comment: Lighter shadow border for disabled inputs.
+  shadow-border-strong:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-40}"
+    comment: Light shadow border for disabled inputs.
+  shadow-border-primary-weaker:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-30}"
+    comment: "Lighter shadow border for primary interactions."
+  shadow-border-primary-weak:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-40}"
+    comment: "Lighter shadow border for primary interactions."
+  shadow-border-primary-strong:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-80}"
+    comment: Dark shadow border for inputs hover.
+  shadow-border-primary-stronger:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-90}"
+    comment: Darker shadow border for inputs active.
+  shadow-border-destructive-weaker:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-30}"
+    comment: Lighter shadow border for destructive interactions.
+  shadow-border-destructive-weak:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-40}"
+    comment: Light shadow border for destructive interactions.
+  shadow-border-destructive-stronger:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-90}"
+    comment: Dark shadow border for destructive interactions
+  shadow-border-error-weak:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-40}"
+    comment: Shadow border for inverse error inputs.
+  shadow-border-error-strong:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-80}"
+    comment: Shadow border for error inputs hover.
+  shadow-border-inverse-weaker:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-20}"
+    comment: Darker shadow border on interactive elements on inverse backgrounds.
+  shadow-border-inverse-strong:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-90}"
+    comment: Light shadow border on interactive elements on inverse backgrounds.
+  shadow-border-inverse-strongest:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0}"
+    comment: Lightest shadow border on interactive elements on inverse backgrounds.
