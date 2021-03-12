@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Stack} from '@twilio-paste/stack';
+import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 import Avatar10 from '../../../../../.storybook/static/avatars/avatar-sizeIcon10.png';
 import Avatar20 from '../../../../../.storybook/static/avatars/avatar-sizeIcon20.png';
 import Avatar30 from '../../../../../.storybook/static/avatars/avatar-sizeIcon30.png';
@@ -12,7 +13,6 @@ import Avatar90 from '../../../../../.storybook/static/avatars/avatar-sizeIcon90
 import Avatar100 from '../../../../../.storybook/static/avatars/avatar-sizeIcon100.png';
 import Avatar110 from '../../../../../.storybook/static/avatars/avatar-sizeIcon110.png';
 import {Avatar} from '../src';
-import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 
 // eslint-disable-next-line import/no-default-export
 export default {

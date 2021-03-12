@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {render} from '@testing-library/react';
 // @ts-ignore typescript doesn't like js imports
+import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 import axe from '../../../../../.jest/axe-helper';
 import {Avatar} from '../src';
 import {
@@ -10,7 +11,6 @@ import {
   getComputedTokenNames,
   getInitialsFromName,
 } from '../src/utils';
-import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 
 describe('Avatar', () => {
   describe('Utils', () => {
