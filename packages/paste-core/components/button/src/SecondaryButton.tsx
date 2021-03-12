@@ -16,26 +16,26 @@ const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default, {
   backgroundColor: 'colorBackgroundBody',
   boxShadow: 'shadowBorderPrimary',
   _hover: {
-    color: 'colorTextLinkDarker',
-    backgroundColor: 'colorBackgroundPrimaryLightest',
-    boxShadow: 'shadowBorderPrimaryDarker',
+    color: 'colorTextLinkStronger',
+    backgroundColor: 'colorBackgroundPrimaryWeakest',
+    boxShadow: 'shadowBorderPrimaryStronger',
   },
   _focus: {
-    color: 'colorTextLinkDarker',
-    backgroundColor: 'colorBackgroundPrimaryLightest',
+    color: 'colorTextLinkStronger',
+    backgroundColor: 'colorBackgroundPrimaryWeakest',
     boxShadow: 'shadowFocus',
   },
   _active: {
-    color: 'colorTextLinkDarker',
-    backgroundColor: 'colorBackgroundPrimaryLighter',
-    boxShadow: 'shadowBorderPrimaryDarker',
+    color: 'colorTextLinkStronger',
+    backgroundColor: 'colorBackgroundPrimaryWeaker',
+    boxShadow: 'shadowBorderPrimaryStronger',
   },
 });
 
 const baseLoadingStyles: BoxStyleProps = {
-  color: 'colorTextLinkDarker',
-  backgroundColor: 'colorBackgroundPrimaryLighter',
-  boxShadow: 'shadowBorderPrimaryLighter',
+  color: 'colorTextLinkStronger',
+  backgroundColor: 'colorBackgroundPrimaryWeaker',
+  boxShadow: 'shadowBorderPrimaryWeaker',
 };
 
 const loadingStyles: BoxStyleProps = merge({}, BaseStyles.loading, {
@@ -46,9 +46,9 @@ const loadingStyles: BoxStyleProps = merge({}, BaseStyles.loading, {
 });
 
 const baseDisabledStyles: BoxStyleProps = {
-  color: 'colorTextLinkLight',
+  color: 'colorTextLinkWeak',
   backgroundColor: 'colorBackgroundBody',
-  boxShadow: 'shadowBorderPrimaryLight',
+  boxShadow: 'shadowBorderPrimaryWeak',
 };
 
 const disabledStyles: BoxStyleProps = merge({}, BaseStyles.disabled, {

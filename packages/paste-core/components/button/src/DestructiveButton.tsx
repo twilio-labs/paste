@@ -17,31 +17,31 @@ const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default, {
   boxShadow: 'shadowBorderDestructive',
   _hover: {
     color: 'colorTextInverse',
-    backgroundColor: 'colorBackgroundDestructiveDarker',
-    boxShadow: 'shadowBorderDestructiveDarker',
+    backgroundColor: 'colorBackgroundDestructiveStronger',
+    boxShadow: 'shadowBorderDestructiveStronger',
   },
   _focus: {
     color: 'colorTextInverse',
-    backgroundColor: 'colorBackgroundDestructiveDarker',
+    backgroundColor: 'colorBackgroundDestructiveStronger',
     boxShadow: 'shadowFocus',
   },
   _active: {
     color: 'colorTextInverse',
-    backgroundColor: 'colorBackgroundDestructiveDark',
-    boxShadow: 'shadowBorderDestructiveDarker',
+    backgroundColor: 'colorBackgroundDestructiveStrong',
+    boxShadow: 'shadowBorderDestructiveStronger',
   },
 });
 
 const loadingStyles: BoxStyleProps = merge({}, BaseStyles.loading, {
   color: 'colorTextInverse',
-  backgroundColor: 'colorBackgroundDestructiveDarker',
-  boxShadow: 'shadowBorderDestructiveDarker',
+  backgroundColor: 'colorBackgroundDestructiveStronger',
+  boxShadow: 'shadowBorderDestructiveStronger',
 });
 
 const disabledStyles: BoxStyleProps = merge({}, BaseStyles.disabled, {
   color: 'colorTextInverse',
-  backgroundColor: 'colorBackgroundDestructiveLight',
-  boxShadow: 'shadowBorderDestructiveLight',
+  backgroundColor: 'colorBackgroundDestructiveWeak',
+  boxShadow: 'shadowBorderDestructiveWeak',
 });
 
 const ButtonStyleMapping = {

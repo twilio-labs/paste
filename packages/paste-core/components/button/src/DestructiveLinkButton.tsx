@@ -10,23 +10,23 @@ const merge = require('lodash.merge');
 const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default, {
   color: 'colorTextLinkDestructive',
   transition: 'none',
-  _hover: {color: 'colorTextLinkDestructiveDark', textDecoration: 'underline'},
-  _active: {color: 'colorTextLinkDestructiveDarker', textDecoration: 'underline'},
-  _focus: {color: 'colorTextLinkDestructiveDark', textDecoration: 'underline'},
+  _hover: {color: 'colorTextLinkDestructiveStrong', textDecoration: 'underline'},
+  _active: {color: 'colorTextLinkDestructiveStronger', textDecoration: 'underline'},
+  _focus: {color: 'colorTextLinkDestructiveStrong', textDecoration: 'underline'},
 });
 
 const loadingStyles: BoxStyleProps = merge({}, BaseStyles.loading, {
-  color: 'colorTextLinkDestructiveDarker',
-  _hover: {color: 'colorTextLinkDestructiveDarker'},
-  _active: {color: 'colorTextLinkDestructiveDarker'},
-  _focus: {color: 'colorTextLinkDestructiveDarker'},
+  color: 'colorTextLinkDestructiveStronger',
+  _hover: {color: 'colorTextLinkDestructiveStronger'},
+  _active: {color: 'colorTextLinkDestructiveStronger'},
+  _focus: {color: 'colorTextLinkDestructiveStronger'},
 });
 
 const disabledStyles: BoxStyleProps = merge({}, BaseStyles.disabled, {
-  color: 'colorTextLinkDestructiveLight',
-  _hover: {color: 'colorTextLinkDestructiveLight'},
-  _active: {color: 'colorTextLinkDestructiveLight'},
-  _focus: {color: 'colorTextLinkDestructiveLight'},
+  color: 'colorTextLinkDestructiveWeak',
+  _hover: {color: 'colorTextLinkDestructiveWeak'},
+  _active: {color: 'colorTextLinkDestructiveWeak'},
+  _focus: {color: 'colorTextLinkDestructiveWeak'},
 });
 
 const ButtonStyleMapping = {

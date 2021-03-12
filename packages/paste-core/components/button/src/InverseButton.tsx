@@ -19,35 +19,35 @@ const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default, {
   _hover: {
     color: 'colorTextInverse',
     fontWeight: 'fontWeightSemibold',
-    backgroundColor: 'colorBackgroundInverseLight',
+    backgroundColor: 'colorBackgroundInverseStrong',
     boxShadow: 'shadowBorderInverseLighter',
   },
   _focus: {
     color: 'colorTextInverse',
     fontWeight: 'fontWeightSemibold',
-    backgroundColor: 'colorBackgroundInverseLight',
+    backgroundColor: 'colorBackgroundInverseStrong',
     boxShadow: 'shadowFocusInverse',
   },
   _active: {
     color: 'colorTextInverse',
     fontWeight: 'fontWeightSemibold',
-    backgroundColor: 'colorBackgroundInverseLight',
-    boxShadow: 'shadowBorderInverseLightest',
+    backgroundColor: 'colorBackgroundInverseStrong',
+    boxShadow: 'shadowBorderInverseStrongest',
   },
 });
 
 const loadingStyles: BoxStyleProps = merge({}, BaseStyles.loading, {
   color: 'colorTextInverse',
   fontWeight: 'fontWeightSemibold',
-  backgroundColor: 'colorBackgroundInverseLight',
-  boxShadow: 'shadowBorderInverseDarker',
+  backgroundColor: 'colorBackgroundInverseStrong',
+  boxShadow: 'shadowBorderInverseWeaker',
 });
 
 const disabledStyles = merge({}, BaseStyles.disabled, {
   color: 'colorTextInverseWeaker',
   fontWeight: 'fontWeightSemibold',
   backgroundColor: 'colorBackgroundInverse',
-  boxShadow: 'shadowBorderInverseDarker',
+  boxShadow: 'shadowBorderInverseWeaker',
 });
 
 const ButtonStyleMapping = {

@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {Box, BoxStyleProps, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxStyleProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {SizeStyles, BaseStyles} from './styles';
 import type {DirectButtonProps} from './types';
 import {DirectButtonPropTypes} from './proptypes';
@@ -16,26 +17,26 @@ const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default, {
   backgroundColor: 'colorBackgroundBody',
   boxShadow: 'shadowBorderDestructive',
   _hover: {
-    color: 'colorTextLinkDestructiveDarker',
-    backgroundColor: 'colorBackgroundDestructiveLightest',
-    boxShadow: 'shadowBorderDestructiveDarker',
+    color: 'colorTextLinkDestructiveStronger',
+    backgroundColor: 'colorBackgroundDestructiveWeakest',
+    boxShadow: 'shadowBorderDestructiveStronger',
   },
   _focus: {
-    color: 'colorTextLinkDestructiveDarker',
-    backgroundColor: 'colorBackgroundDestructiveLightest',
+    color: 'colorTextLinkDestructiveStronger',
+    backgroundColor: 'colorBackgroundDestructiveWeakest',
     boxShadow: 'shadowFocus',
   },
   _active: {
-    color: 'colorTextLinkDestructiveDarker',
-    backgroundColor: 'colorBackgroundDestructiveLighter',
-    boxShadow: 'shadowBorderDestructiveDarker',
+    color: 'colorTextLinkDestructiveStronger',
+    backgroundColor: 'colorBackgroundDestructiveWeaker',
+    boxShadow: 'shadowBorderDestructiveStronger',
   },
 });
 
 const baseLoadingStyles: BoxStyleProps = {
-  color: 'colorTextLinkDestructiveDarker',
-  backgroundColor: 'colorBackgroundDestructiveLighter',
-  boxShadow: 'shadowBorderDestructiveLighter',
+  color: 'colorTextLinkDestructiveStronger',
+  backgroundColor: 'colorBackgroundDestructiveWeaker',
+  boxShadow: 'shadowBorderDestructiveWeaker',
 };
 
 const loadingStyles: BoxStyleProps = merge({}, BaseStyles.loading, {
@@ -46,9 +47,9 @@ const loadingStyles: BoxStyleProps = merge({}, BaseStyles.loading, {
 });
 
 const baseDisabledStyles: BoxStyleProps = {
-  color: 'colorTextLinkDestructiveLight',
+  color: 'colorTextLinkDestructiveWeak',
   backgroundColor: 'colorBackgroundBody',
-  boxShadow: 'shadowBorderDestructiveLight',
+  boxShadow: 'shadowBorderDestructiveWeak',
 };
 
 const disabledStyles: BoxStyleProps = merge({}, BaseStyles.disabled, {
