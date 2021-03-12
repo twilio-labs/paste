@@ -24,7 +24,7 @@ exports[`Input render should render 1`] = `
 }
 
 .emotion-1:hover {
-  box-shadow: 0 0 0 1px #003e82;
+  box-shadow: 0 0 0 1px #001489;
 }
 
 .emotion-1:focus-within {
@@ -33,7 +33,7 @@ exports[`Input render should render 1`] = `
 
 .emotion-1:active,
 .emotion-1[data-active=true] {
-  box-shadow: 0 0 0 1px #032c5e;
+  box-shadow: 0 0 0 1px #030b5d;
 }
 
 .emotion-0 {
@@ -200,7 +200,7 @@ exports[`Input render should render with disabled 1`] = `
   display: flex;
   width: 100%;
   background-color: rgb(248,248,249);
-  box-shadow: 0 0 0 1px #e4e7e9;
+  box-shadow: 0 0 0 1px #cacdd8;
   border-radius: 4px;
   -webkit-transition: box-shadow 100ms ease-in;
   transition: box-shadow 100ms ease-in;
@@ -208,7 +208,7 @@ exports[`Input render should render with disabled 1`] = `
 }
 
 .emotion-1:hover {
-  box-shadow: 0 0 0 1px #e4e7e9;
+  box-shadow: 0 0 0 1px #cacdd8;
 }
 
 .emotion-1:focus-within {
@@ -217,7 +217,7 @@ exports[`Input render should render with disabled 1`] = `
 
 .emotion-1:active,
 .emotion-1[data-active=true] {
-  box-shadow: 0 0 0 1px #e4e7e9;
+  box-shadow: 0 0 0 1px #cacdd8;
 }
 
 <div
@@ -329,7 +329,7 @@ exports[`Input render should render with hasError 1`] = `
 }
 
 .emotion-1:hover {
-  box-shadow: 0 0 0 1px #921200;
+  box-shadow: 0 0 0 1px #750c0c;
 }
 
 .emotion-1:focus-within {
@@ -338,7 +338,7 @@ exports[`Input render should render with hasError 1`] = `
 
 .emotion-1:active,
 .emotion-1[data-active=true] {
-  box-shadow: 0 0 0 1px #032c5e;
+  box-shadow: 0 0 0 1px #030b5d;
 }
 
 <div
@@ -386,7 +386,7 @@ exports[`Input render should render with prefix 1`] = `
 }
 
 .emotion-2:hover {
-  box-shadow: 0 0 0 1px #003e82;
+  box-shadow: 0 0 0 1px #001489;
 }
 
 .emotion-2:focus-within {
@@ -395,7 +395,7 @@ exports[`Input render should render with prefix 1`] = `
 
 .emotion-2:active,
 .emotion-2[data-active=true] {
-  box-shadow: 0 0 0 1px #032c5e;
+  box-shadow: 0 0 0 1px #030b5d;
 }
 
 .emotion-1 {
@@ -470,7 +470,7 @@ exports[`Input render should render with prefix 1`] = `
   align-items: flex-start;
   background-color: rgb(248,248,249);
   border-bottom-left-radius: 4px;
-  border-right-color: rgb(228,231,233);
+  border-right-color: rgb(225,227,234);
   border-right-style: solid;
   border-right-width: 1px;
   border-top-left-radius: 4px;
@@ -604,7 +604,7 @@ exports[`Input render should render with readOnly 1`] = `
 
 .emotion-1:active,
 .emotion-1[data-active=true] {
-  box-shadow: 0 0 0 1px #032c5e;
+  box-shadow: 0 0 0 1px #030b5d;
 }
 
 <div
@@ -653,7 +653,7 @@ exports[`Input render should render with suffix 1`] = `
 }
 
 .emotion-2:hover {
-  box-shadow: 0 0 0 1px #003e82;
+  box-shadow: 0 0 0 1px #001489;
 }
 
 .emotion-2:focus-within {
@@ -662,7 +662,7 @@ exports[`Input render should render with suffix 1`] = `
 
 .emotion-2:active,
 .emotion-2[data-active=true] {
-  box-shadow: 0 0 0 1px #032c5e;
+  box-shadow: 0 0 0 1px #030b5d;
 }
 
 .emotion-0 {
@@ -737,7 +737,7 @@ exports[`Input render should render with suffix 1`] = `
   align-items: flex-start;
   background-color: rgb(248,248,249);
   border-bottom-right-radius: 4px;
-  border-left-color: rgb(228,231,233);
+  border-left-color: rgb(225,227,234);
   border-left-style: solid;
   border-left-width: 1px;
   border-top-right-radius: 4px;
