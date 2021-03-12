@@ -81,7 +81,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       paddingLeft = 'space20';
 
       if (checked || indeterminate) {
-        checkboxBackground = 'colorBackgroundPrimaryLightest';
+        checkboxBackground = 'colorBackgroundPrimaryWeakest';
       } else if (!disabled) {
         checkboxBackground = 'colorBackground';
       }
