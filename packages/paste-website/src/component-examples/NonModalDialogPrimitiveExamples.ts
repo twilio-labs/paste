@@ -56,7 +56,7 @@ render(
 
 export const styledExample = `
 const StyledNonModalDialog = React.forwardRef(({children, ...props}, ref) => (
-  <Box backgroundColor="colorBackgroundPrimaryDarker" borderRadius="borderRadius20" padding="space30" ref={ref} {...props}>{children}</Box>
+  <Box backgroundColor="colorBackgroundPrimaryStronger" borderRadius="borderRadius20" padding="space30" ref={ref} {...props}>{children}</Box>
 ));
 
 const StyledExample = () => {

@@ -30,7 +30,7 @@ const getThemeFromWindow = (): ThemeVariants => {
   const theme: ThemeVariants =
     typeof window !== 'undefined' && window.activeTheme !== ''
       ? (window.activeTheme as ThemeVariants)
-      : (ThemeVariants.DEFAULT as ThemeVariants);
+      : (ThemeVariants.DARK as ThemeVariants);
   return theme;
 };
 

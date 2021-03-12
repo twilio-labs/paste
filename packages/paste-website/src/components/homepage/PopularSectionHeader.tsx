@@ -13,7 +13,7 @@ const PopularSectionHeader: React.FC = () => {
       marginTop="space0"
       position="relative"
       _after={{
-        borderTopColor: 'colorBorderLight',
+        borderTopColor: 'colorBorderWeak',
         borderTopStyle: 'solid',
         borderTopWidth: 'borderWidth10',
         content: `""`,

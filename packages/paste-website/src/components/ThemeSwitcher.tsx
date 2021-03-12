@@ -58,7 +58,7 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
     updateActiveSiteTheme(event.currentTarget.value as ThemeVariants);
   };
 
-  const consoleID = useUID();
+  const darkID = useUID();
   const pasteID = useUID();
 
   return (
@@ -94,20 +94,20 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = () => {
           />
         </StyledThemeSwitcherLabel>
 
-        <StyledThemeSwitcherLabel htmlFor={consoleID} checked={theme === ThemeVariants.CONSOLE}>
-          Legacy
+        <StyledThemeSwitcherLabel htmlFor={darkID} checked={theme === ThemeVariants.DARK}>
+          Dark
           <StyledThemeSwitcherRadio
-            checked={theme === ThemeVariants.CONSOLE}
-            id={consoleID}
+            checked={theme === ThemeVariants.DARK}
+            id={darkID}
             name="sitetheme"
             onChange={handleChange}
             type="radio"
-            value={ThemeVariants.CONSOLE}
+            value={ThemeVariants.DARK}
             onClick={() =>
               trackCustomEvent({
                 category: 'Top Navigation',
                 action: 'click-legacy',
-                label: 'Legacy',
+                label: 'DARK',
               })
             }
           />

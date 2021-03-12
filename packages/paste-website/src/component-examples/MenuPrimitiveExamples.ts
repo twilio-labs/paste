@@ -63,11 +63,11 @@ render(
 
 export const customExample = `
 const StyledMenu = React.forwardRef(({children, ...props}, ref) => (
-  <Box backgroundColor="colorBackgroundBody" borderColor="colorBorderLight" borderStyle="solid" borderWidth="borderWidth10" borderRadius="borderRadius30" outline="none" padding="space20" zIndex="zIndex10" ref={ref} {...props}>{children}</Box>
+  <Box backgroundColor="colorBackgroundBody" borderColor="colorBorderWeak" borderStyle="solid" borderWidth="borderWidth10" borderRadius="borderRadius30" outline="none" padding="space20" zIndex="zIndex10" ref={ref} {...props}>{children}</Box>
 ));
 
 const StyledMenuItem = React.forwardRef(({children, ...props}, ref) => (
-  <Box borderRadius="borderRadius30" padding="space30" minWidth="size40" outline="none" _hover={{cursor: 'pointer'}} _focus={{backgroundColor: 'colorBackgroundPrimaryLightest'}} _disabled={{cursor: 'not-allowed'}} ref={ref} {...props}>{children}</Box>
+  <Box borderRadius="borderRadius30" padding="space30" minWidth="size40" outline="none" _hover={{cursor: 'pointer'}} _focus={{backgroundColor: 'colorBackgroundPrimaryWeakest'}} _disabled={{cursor: 'not-allowed'}} ref={ref} {...props}>{children}</Box>
 ));
 
 const CustomMenu = () => {
