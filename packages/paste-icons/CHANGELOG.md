@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.1.0
+
+### Minor Changes
+
+- [`8b5a8592`](https://github.com/twilio-labs/paste/commit/8b5a8592848abba3975717c33ed9aed93f376087) [#1267](https://github.com/twilio-labs/paste/pull/1267) Thanks [@dazziola](https://github.com/dazziola)! - Adding a creditcard icon
+
 ## 5.0.1
 
 ### Patch Changes

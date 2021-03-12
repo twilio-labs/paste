@@ -1,5 +1,15 @@
 # Change Log
 
+## 6.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`8b5a8592`](https://github.com/twilio-labs/paste/commit/8b5a8592848abba3975717c33ed9aed93f376087)]:
+  - @twilio-paste/icons@5.1.0
+  - @twilio-paste/anchor@5.0.0
+  - @twilio-paste/button@6.0.0
+  - @twilio-paste/spinner@7.0.0
+
 ## 5.0.1
 
 ### Patch Changes
