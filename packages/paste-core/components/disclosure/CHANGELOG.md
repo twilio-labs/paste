@@ -122,7 +122,7 @@
   Style changes:
 
   - Added colorBackgroundBody to DisclosureHeading
-  - Added colorBackgroundDark to DisclosureHeading on hover
+  - Added colorBackgroundStrong to DisclosureHeading on hover
   - Added colorBackground to DisclosureHeading when expanded
   - Changed the DisclosureHeading icon to ChevronDisclosureExpandedIcon
   - Added colorText to icon when hovering on DisclosureHeading
