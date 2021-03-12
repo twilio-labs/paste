@@ -24,11 +24,11 @@ exports[`Pseudo-class props should generate pseudo-class CSS 1`] = `
 
 .emotion-0:active,
 .emotion-0[data-active=true] {
-  color: rgb(0,62,130);
+  color: rgb(0,20,137);
 }
 
 .emotion-0:focus {
-  color: rgb(3,44,94);
+  color: rgb(3,11,93);
 }
 
 .emotion-0:visited {
@@ -85,7 +85,7 @@ exports[`Pseudo-class props should generate pseudo-class CSS 1`] = `
 }
 
 .emotion-0:last-of-type {
-  color: rgb(179,211,233);
+  color: rgb(153,205,255);
 }
 
 .emotion-0[aria-expanded=true] {
@@ -101,7 +101,7 @@ exports[`Pseudo-class props should generate pseudo-class CSS 1`] = `
 }
 
 .emotion-0:not(:last-of-type) {
-  color: rgb(168,62,0);
+  color: rgb(195,83,35);
 }
 
 .emotion-0:before {
