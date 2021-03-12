@@ -22,14 +22,14 @@ export const AlertVariants = {
   WARNING: 'warning',
 } as const;
 export const AlertBackgroundColors = {
-  ERROR: 'colorBackgroundErrorLightest',
-  NEUTRAL: 'colorBackgroundPrimaryLightest',
-  WARNING: 'colorBackgroundWarningLightest',
+  ERROR: 'colorBackgroundErrorWeakest',
+  NEUTRAL: 'colorBackgroundPrimaryWeakest',
+  WARNING: 'colorBackgroundWarningWeakest',
 } as const;
 export const AlertBorderColors = {
-  ERROR: 'colorBorderErrorLight',
+  ERROR: 'colorBorderErrorWeak',
   NEUTRAL: 'colorBorderNeutral',
-  WARNING: 'colorBorderWarningLight',
+  WARNING: 'colorBorderWarningWeak',
 } as const;
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare

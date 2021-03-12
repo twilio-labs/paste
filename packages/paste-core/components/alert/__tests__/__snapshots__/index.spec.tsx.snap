@@ -38,8 +38,8 @@ exports[`Alert Variant error Should render an error alert 1`] = `
 
 .emotion-4 {
   box-sizing: border-box;
-  background-color: rgb(255,233,231);
-  border-color: rgb(222,88,88);
+  background-color: rgb(254,236,236);
+  border-color: rgb(245,138,138);
   border-bottom-width: 2px;
   border-bottom-style: solid;
   padding-left: 1.25rem;
@@ -195,14 +195,14 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
 .emotion-5:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
-  color: rgb(0,62,130);
+  color: rgb(0,20,137);
 }
 
 .emotion-5:focus {
   -webkit-text-decoration: underline;
   text-decoration: underline;
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
-  color: rgb(0,62,130);
+  color: rgb(0,20,137);
 }
 
 .emotion-5:active,
@@ -210,7 +210,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
   -webkit-text-decoration: underline;
   text-decoration: underline;
   box-shadow: none;
-  color: rgb(3,44,94);
+  color: rgb(3,11,93);
 }
 
 .emotion-3 {
@@ -224,8 +224,8 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
 
 .emotion-8 {
   box-sizing: border-box;
-  background-color: rgb(255,233,231);
-  border-color: rgb(222,88,88);
+  background-color: rgb(254,236,236);
+  border-color: rgb(245,138,138);
   border-bottom-width: 2px;
   border-bottom-style: solid;
   padding-left: 1.25rem;
@@ -372,7 +372,7 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
 
 .emotion-4 {
   box-sizing: border-box;
-  background-color: rgb(245,248,255);
+  background-color: rgb(235,244,255);
   border-color: rgb(2,122,197);
   border-bottom-width: 2px;
   border-bottom-style: solid;
@@ -493,7 +493,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
 
 .emotion-8 {
   box-sizing: border-box;
-  background-color: rgb(245,248,255);
+  background-color: rgb(235,244,255);
   border-color: rgb(2,122,197);
   border-bottom-width: 2px;
   border-bottom-style: solid;
@@ -567,14 +567,14 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
 .emotion-5:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
-  color: rgb(0,62,130);
+  color: rgb(0,20,137);
 }
 
 .emotion-5:focus {
   -webkit-text-decoration: underline;
   text-decoration: underline;
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
-  color: rgb(0,62,130);
+  color: rgb(0,20,137);
 }
 
 .emotion-5:active,
@@ -582,7 +582,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
   -webkit-text-decoration: underline;
   text-decoration: underline;
   box-shadow: none;
-  color: rgb(3,44,94);
+  color: rgb(3,11,93);
 }
 
 .emotion-3 {
@@ -740,8 +740,8 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
 
 .emotion-4 {
   box-sizing: border-box;
-  background-color: rgb(255,236,216);
-  border-color: rgb(242,133,16);
+  background-color: rgb(254,245,238);
+  border-color: rgb(255,179,122);
   border-bottom-width: 2px;
   border-bottom-style: solid;
   padding-left: 1.25rem;
@@ -899,14 +899,14 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
 .emotion-5:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
-  color: rgb(0,62,130);
+  color: rgb(0,20,137);
 }
 
 .emotion-5:focus {
   -webkit-text-decoration: underline;
   text-decoration: underline;
   box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
-  color: rgb(0,62,130);
+  color: rgb(0,20,137);
 }
 
 .emotion-5:active,
@@ -914,7 +914,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
   -webkit-text-decoration: underline;
   text-decoration: underline;
   box-shadow: none;
-  color: rgb(3,44,94);
+  color: rgb(3,11,93);
 }
 
 .emotion-3 {
@@ -928,8 +928,8 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
 
 .emotion-8 {
   box-sizing: border-box;
-  background-color: rgb(255,236,216);
-  border-color: rgb(242,133,16);
+  background-color: rgb(254,245,238);
+  border-color: rgb(255,179,122);
   border-bottom-width: 2px;
   border-bottom-style: solid;
   padding-left: 1.25rem;
