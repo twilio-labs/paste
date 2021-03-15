@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {render} from '@testing-library/react';
-// @ts-ignore typescript doesn't like js imports
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
+// @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Avatar} from '../src';
 import {
@@ -90,6 +90,7 @@ describe('Avatar', () => {
 
   describe('ensure icon is a Paste Icon', () => {
     it('should fail if icon is not a Paste Icon', () => {
+      // @ts-ignore
       expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon="UserIcon" />)).toThrow();
     });
   });
