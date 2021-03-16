@@ -11,10 +11,10 @@ props:
     value: "{!palette-gray-0}"
     comment: Body text color
   color-text-weak:
-    value: "{!palette-gray-30}"
+    value: "{!palette-gray-60}"
     comment: Weak body text for visual hierarchy.
   color-text-weaker:
-    value: "{!palette-gray-60}"
+    value: "{!palette-gray-80}"
     comment: Weaker body text for visual hierarchy. Inaccessible unless used on disabled controls.
   color-text-inverse:
     value: "{!palette-gray-100}"
@@ -34,7 +34,7 @@ props:
 
   # links
   color-text-link:
-    value: "{!palette-blue-40}"
+    value: "{!palette-blue-60}"
     comment: Link text
   color-text-link-weak:
     value: "{!palette-blue-80}"
@@ -42,6 +42,9 @@ props:
   color-text-link-strong:
     value: "{!palette-blue-30}"
     comment: Dark shade of link text to be used in interactions
+  color-text-link-stronger:
+    value: "{!palette-blue-20}"
+    comment: Darker shade of link text to be used in interactions
   color-text-link-destructive:
     value: "{!palette-red-40}"
     comment: Destructive link text

@@ -34,6 +34,11 @@ props:
     value: "{!brand-highlight}"
     comment: Highlight brand background, accessible with black text
 
+  # user background
+  color-background-user:
+    value: "{!palette-purple-70}"
+    comment: User avatar background color
+
   # page body
   color-background-body:
     value: "{!palette-gray-110}"
