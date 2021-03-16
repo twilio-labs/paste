@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.0.1
+
+### Patch Changes
+
+- [`22410172`](https://github.com/twilio-labs/paste/commit/224101728b1c55d31408b0dccecb489ce6cd2319) [#1287](https://github.com/twilio-labs/paste/pull/1287) Thanks [@TheSisb](https://github.com/TheSisb)! - Added a `__console_patch` boolean prop to fix issues with z-index in Twilio Console applications. This is a temporary fix.
+
 ## 4.0.0
 
 ### Patch Changes
