@@ -29,17 +29,25 @@ export const ToastPropTypes = {
 export interface ToastPortalProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
   ref?: any;
+  // FIXME: Overrides token zIndex to fix bug with Console product.
+  __console_patch?: boolean;
 }
 export const ToastPortalPropTypes = {
   children: PropTypes.node.isRequired,
+  // FIXME: Overrides token zIndex to fix bug with Console product.
+  __console_patch: PropTypes.bool,
 };
 
 export interface ToastContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
   ref?: any;
+  // FIXME: Overrides token zIndex to fix bug with Console product.
+  __console_patch?: boolean;
 }
 export const ToastContainerPropTypes = {
   children: PropTypes.node.isRequired,
+  // FIXME: Overrides token zIndex to fix bug with Console product.
+  __console_patch: PropTypes.bool,
 };
 
 export interface ToasterToast extends Pick<ToastProps, 'variant' | 'setFocus'> {
@@ -71,7 +79,11 @@ export interface UseToasterReturnedProps {
   pop: (id: ToasterToast['id']) => void;
 }
 
-export type ToasterProps = Pick<UseToasterReturnedProps, 'toasts' | 'pop'>;
+export interface ToasterProps extends Pick<UseToasterReturnedProps, 'toasts' | 'pop'> {
+  // FIXME: Overrides token zIndex to fix bug with Console product.
+  __console_patch?: boolean;
+}
+
 export const ToasterPropTypes = {
   toasts: PropTypes.arrayOf(
     PropTypes.shape({
@@ -82,4 +94,6 @@ export const ToasterPropTypes = {
     })
   ).isRequired as any,
   pop: PropTypes.func.isRequired,
+  // FIXME: Overrides token zIndex to fix bug with Console product.
+  __console_patch: PropTypes.bool,
 };

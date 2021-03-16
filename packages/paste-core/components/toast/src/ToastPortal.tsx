@@ -4,7 +4,7 @@ import {Portal} from '@twilio-paste/reakit-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {ToastPortalProps, ToastPortalPropTypes} from './types';
 
-const ToastPortal = React.forwardRef<HTMLDivElement, ToastPortalProps>(({children, ...props}, ref) => {
+const ToastPortal = React.forwardRef<HTMLDivElement, ToastPortalProps>(({children, __console_patch, ...props}, ref) => {
   return (
     <Portal>
       {/* import Paste Theme Based Styles due to portal positioning. */}
@@ -16,6 +16,7 @@ const ToastPortal = React.forwardRef<HTMLDivElement, ToastPortalProps>(({childre
           top="space90"
           zIndex="zIndex90"
           ref={ref}
+          style={__console_patch ? {zIndex: 1999} : undefined}
         >
           {children}
         </Box>
