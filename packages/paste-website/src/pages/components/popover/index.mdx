@@ -7,6 +7,10 @@ slug: /components/popover/
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
+import {Heading} from '@twilio-paste/heading';
+import {Button} from '@twilio-paste/button';
+import {Separator} from '@twilio-paste/separator';
+import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
 import {Popover, PopoverContainer, PopoverButton} from '@twilio-paste/popover';
 import Changelog from '@twilio-paste/popover/CHANGELOG.md';
@@ -75,6 +79,18 @@ export const pageQuery = graphql`
 The Popover component is a non-modal dialog that is commonly used for displaying additional rich content
 above your UI.
 
+### Popover compared to Tooltip
+
+<AspectRatio ratio="16:9">
+  <iframe
+    src="https://www.loom.com/embed/f70204bd8a4f4f21a5b1ded17f4559d1"
+    frameborder="0"
+    webkitallowfullscreen="true"
+    mozallowfullscreen="true"
+    allowfullscreen={true}
+  ></iframe>
+</AspectRatio>
+
 ### Accessibility
 
 Popovers and non-modal dialogs follow these accessibility guidelines:
@@ -94,6 +110,9 @@ Popovers and non-modal dialogs follow these accessibility guidelines:
     PopoverContainer,
     PopoverButton,
     Text,
+    Heading,
+    Separator,
+    Button,
   }}
   noInline
 >

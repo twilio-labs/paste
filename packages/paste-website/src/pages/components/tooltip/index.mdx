@@ -10,6 +10,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Stack} from '@twilio-paste/stack';
+import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Text} from '@twilio-paste/text';
 import Changelog from '@twilio-paste/tooltip/CHANGELOG.md';
@@ -79,6 +80,18 @@ The Tooltip component is a popup that displays text related to an element when t
 the keyboard or on mouse hover. Tooltip follows the
 [WAI-ARIA Tooltip Pattern](https://www.w3.org/TR/wai-aria-practices/#tooltip).
 
+### Tooltip compared to Popover
+
+<AspectRatio ratio="16:9">
+  <iframe
+    src="https://www.loom.com/embed/f70204bd8a4f4f21a5b1ded17f4559d1"
+    frameborder="0"
+    webkitallowfullscreen="true"
+    mozallowfullscreen="true"
+    allowfullscreen={true}
+  ></iframe>
+</AspectRatio>
+
 #### Accessibility
 
 A tooltip **must only** be placed on a **natively focusable** HTML element. Good candidates include a [Paste Button](/components/button) or a [Paste Anchor](/components/anchor) if the tip also links to a help article.
@@ -133,8 +146,8 @@ A tooltip **must** be placed on a **focusable** element, such as an anchor or bu
   }}
 >
   {`<Box display="flex" alignItems="center">
-  <Text as="span">Tooltip should appear from the icon.</Text>
-  <Tooltip text="Welcome to Paste!">
+  <Text as="span">Social Security Number</Text>
+  <Tooltip text="Your nine-digit Social Security number is your first and continuous connection with Social Security.">
     <Anchor href="https://paste.twilio.design">
       <InformationIcon decorative={false} title="Open Tooltip" display="block" />
     </Anchor>
