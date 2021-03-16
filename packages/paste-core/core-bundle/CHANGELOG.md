@@ -1,5 +1,12 @@
 # Change Log
 
+## 8.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`22410172`](https://github.com/twilio-labs/paste/commit/224101728b1c55d31408b0dccecb489ce6cd2319)]:
+  - @twilio-paste/toast@4.0.1
+
 ## 8.0.0
 
 ### Patch Changes

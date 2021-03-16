@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/toast",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "category": "feedback",
   "status": "production",
   "description": "A toast communicates an immediate and direct response to a user action.",
