@@ -10,6 +10,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Stack} from '@twilio-paste/stack';
+import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Text} from '@twilio-paste/text';
 import Changelog from '@twilio-paste/tooltip/CHANGELOG.md';
@@ -81,16 +82,15 @@ the keyboard or on mouse hover. Tooltip follows the
 
 ### Tooltip compared to Popover
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0;">
+<AspectRatio ratio="16:9">
   <iframe
     src="https://www.loom.com/embed/f70204bd8a4f4f21a5b1ded17f4559d1"
     frameborder="0"
     webkitallowfullscreen="true"
     mozallowfullscreen="true"
     allowfullscreen={true}
-    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
   ></iframe>
-</div>
+</AspectRatio>
 
 #### Accessibility
 
@@ -149,7 +149,7 @@ A tooltip **must** be placed on a **focusable** element, such as an anchor or bu
   <Text as="span">Social Security Number</Text>
   <Tooltip text="Your nine-digit Social Security number is your first and continuous connection with Social Security.">
     <Anchor href="https://paste.twilio.design">
-      <InformationIcon decorative={false} title="More information icon" display="block" />
+      <InformationIcon decorative={false} title="Open Tooltip" display="block" />
     </Anchor>
   </Tooltip>
 </Box>`}
