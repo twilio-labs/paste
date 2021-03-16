@@ -4,7 +4,7 @@ lib/
 dist/
 public/
 __IconList.tsx
-rollup.icon-list.js
+build.icon-list.js
 *.d.ts
 .yarn/
 __testfixtures__

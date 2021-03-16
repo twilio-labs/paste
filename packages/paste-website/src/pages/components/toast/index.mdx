@@ -471,10 +471,11 @@ If you choose to handle state entirely yourself, you can use `<Toaster />` on it
 
 #### Toaster Props
 
-| Prop   | Type             | Description                                             | Default |
-| ------ | ---------------- | ------------------------------------------------------- | ------- |
-| toasts | `ToasterToast[]` | Array of Toasts to render inside the toaster. See below | null    |
-| pop?   | `(id) => void`   | Method called when a toast is dismissed                 | null    |
+| Prop               | Type             | Description                                             | Default |
+| ------------------ | ---------------- | ------------------------------------------------------- | ------- |
+| toasts             | `ToasterToast[]` | Array of Toasts to render inside the toaster. See below | null    |
+| pop?               | `(id) => void`   | Method called when a toast is dismissed                 | null    |
+| \_\_console_patch? | `boolean`        | A temporary z-index fix for the Console product         | null    |
 
 ##### ToasterToast
 
@@ -487,9 +488,10 @@ If you choose to handle state entirely yourself, you can use `<Toaster />` on it
 
 #### ToastContainer Props
 
-| Prop     | Type        | Description | Default |
-| -------- | ----------- | ----------- | ------- |
-| children | `ReactNode` |             | null    |
+| Prop               | Type        | Description                                     | Default |
+| ------------------ | ----------- | ----------------------------------------------- | ------- |
+| children           | `ReactNode` |                                                 | null    |
+| \_\_console_patch? | `boolean`   | A temporary z-index fix for the Console product | null    |
 
 <ChangelogRevealer>
   <Changelog />
