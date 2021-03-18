@@ -69,9 +69,8 @@ describe('Avatar', () => {
         expect(getCorrespondingIconSizeFromSizeToken('sizeIcon110')).toEqual('sizeIcon80');
       });
       it('should throw an error when non IconSize values are passed in', () => {
-        // @ts-ignore
         expect(() => getCorrespondingIconSizeFromSizeToken('size50')).toThrow();
-        // @ts-ignore
+        // @ts-expect-error
         expect(() => getCorrespondingIconSizeFromSizeToken(true)).toThrow();
       });
     });
@@ -96,8 +95,12 @@ describe('Avatar', () => {
 
   describe('ensure icon is a Paste Icon', () => {
     it('should fail if icon is not a Paste Icon', () => {
-      // @ts-ignore
+      // @ts-expect-error
       expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon="UserIcon" />)).toThrow();
+      // @ts-expect-error
+      expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon={true} />)).toThrow();
+      // @ts-expect-error
+      expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon={<Box />} />)).toThrow();
     });
   });
 

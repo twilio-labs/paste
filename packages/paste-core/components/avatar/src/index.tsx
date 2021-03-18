@@ -9,13 +9,13 @@ import type {AvatarProps} from './types';
 const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
   ({name, children, size = 'sizeIcon70', src, icon: Icon, ...props}, ref) => {
     const computedTokenNames = getComputedTokenNames(size);
-    if (src != null && name === undefined) {
-      console.error('[Paste Avatar]: You must provide a name if you are displaying an image');
+    if (name === undefined) {
+      console.error('[Paste Avatar]: name prop is required');
     }
 
     if (Icon != null) {
       if (typeof Icon !== 'function' || typeof Icon.displayName !== 'string' || !Icon.displayName.includes('Icon')) {
-        throw new Error('[Paste Avatar]: expects children to be a Paste icon only.');
+        throw new Error('[Paste Avatar]: icon prop expected to be a Paste icon only.');
       }
 
       return (
