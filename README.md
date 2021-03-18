@@ -47,10 +47,6 @@ Follow the prompts shown to you in your terminal.
 
 Instructions on how to use the cli tool can be found [here](https://github.com/atlassian/changesets/blob/master/packages/cli/README.md), but all you should need to do is generate a changeset and commit it with your Pull Request.
 
-### Maintainers
-
-This project is maintained by the [design systems team](https://github.com/orgs/twilio-labs/teams/design-systems).
-
 ### Hosted Storybook
 
 [Storybook](https://main--5e53448165911c0022e68c74.chromatic.com)
