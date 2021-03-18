@@ -68,6 +68,12 @@ describe('Avatar', () => {
         expect(getCorrespondingIconSizeFromSizeToken('sizeIcon100')).toEqual('sizeIcon70');
         expect(getCorrespondingIconSizeFromSizeToken('sizeIcon110')).toEqual('sizeIcon80');
       });
+      it('should throw an error when non IconSize values are passed in', () => {
+        // @ts-ignore
+        expect(() => getCorrespondingIconSizeFromSizeToken('size50')).toThrow();
+        // @ts-ignore
+        expect(() => getCorrespondingIconSizeFromSizeToken(true)).toThrow();
+      });
     });
 
     describe('getComputedTokenNames', () => {

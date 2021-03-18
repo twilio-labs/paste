@@ -14,13 +14,7 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
     }
 
     if (Icon != null) {
-      if (
-        typeof Icon !== 'function' ||
-        // @ts-ignore
-        typeof Icon.displayName !== 'string' ||
-        // @ts-ignore
-        !Icon.displayName.includes('Icon')
-      ) {
+      if (typeof Icon !== 'function' || typeof Icon.displayName !== 'string' || !Icon.displayName.includes('Icon')) {
         throw new Error('[Paste Avatar]: expects children to be a Paste icon only.');
       }
 

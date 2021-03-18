@@ -22,7 +22,7 @@ export const getInitialsFromName = (fullname: string): string => {
 export const getCorrespondingLineHeightFromSizeToken = (size: IconSizeOptions): LineHeightOptions =>
   size.replace('sizeIcon', 'lineHeight') as LineHeightOptions;
 
-export const getCorrespondingFontSizeFromSizeToken = (size: IconSize): FontSizeOptions => {
+export const getCorrespondingFontSizeFromSizeToken = (size: IconSizeOptions): FontSizeOptions => {
   switch (size) {
     case 'sizeIcon10':
     case 'sizeIcon20':
@@ -45,28 +45,31 @@ export const getCorrespondingFontSizeFromSizeToken = (size: IconSize): FontSizeO
   }
 };
 
-export const getCorrespondingIconSizeFromSizeToken = (size: IconSize): IconSizeOptions => {
-  switch (size) {
-    case 'sizeIcon10':
-    case 'sizeIcon20':
-    case 'sizeIcon30':
-    case 'sizeIcon40':
-    default:
-      return 'sizeIcon10';
-    case 'sizeIcon50':
-    case 'sizeIcon60':
-      return 'sizeIcon20';
-    case 'sizeIcon70':
-      return 'sizeIcon30';
-    case 'sizeIcon80':
-      return 'sizeIcon40';
-    case 'sizeIcon90':
-      return 'sizeIcon50';
-    case 'sizeIcon100':
-      return 'sizeIcon70';
-    case 'sizeIcon110':
-      return 'sizeIcon80';
+export const getCorrespondingIconSizeFromSizeToken = (size: IconSizeOptions): IconSizeOptions => {
+  if (typeof size === 'string' && size.includes('sizeIcon')) {
+    switch (size) {
+      case 'sizeIcon10':
+      case 'sizeIcon20':
+      case 'sizeIcon30':
+      case 'sizeIcon40':
+      default:
+        return 'sizeIcon10';
+      case 'sizeIcon50':
+      case 'sizeIcon60':
+        return 'sizeIcon20';
+      case 'sizeIcon70':
+        return 'sizeIcon30';
+      case 'sizeIcon80':
+        return 'sizeIcon40';
+      case 'sizeIcon90':
+        return 'sizeIcon50';
+      case 'sizeIcon100':
+        return 'sizeIcon70';
+      case 'sizeIcon110':
+        return 'sizeIcon80';
+    }
   }
+  throw new Error('[Avatar]: size must be of type IconSizeOptions.');
 };
 
 // this function takes in a size and exports an object w/ lineheight and fontsize
@@ -74,6 +77,14 @@ export const getComputedTokenNames = (
   size: IconSize
 ): {lineHeight: LineHeight; fontSize: FontSize; iconSize: IconSize} => {
   // check to see if size is an array, map over it if it is
+  if (typeof size === 'string') {
+    // if it's a string, just put it into the correspondingSize function and specify its type
+    return {
+      lineHeight: getCorrespondingLineHeightFromSizeToken(size),
+      fontSize: getCorrespondingFontSizeFromSizeToken(size),
+      iconSize: getCorrespondingIconSizeFromSizeToken(size),
+    };
+  }
   if (Array.isArray(size)) {
     return {
       lineHeight: size.map((s) => {
@@ -96,11 +107,5 @@ export const getComputedTokenNames = (
       }),
     };
   }
-
-  // if it's a string, just put it into the correspondingSize function and specify its type
-  return {
-    lineHeight: getCorrespondingLineHeightFromSizeToken(size as IconSizeOptions),
-    fontSize: getCorrespondingFontSizeFromSizeToken(size),
-    iconSize: getCorrespondingIconSizeFromSizeToken(size),
-  };
+  throw new Error('[Avatar]: size must be a string or an array');
 };
