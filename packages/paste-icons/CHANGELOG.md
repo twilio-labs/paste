@@ -1,5 +1,16 @@
 # Change Log
 
+## 5.1.1
+
+### Patch Changes
+
+- [`514bd5aa`](https://github.com/twilio-labs/paste/commit/514bd5aa9fed6581bbc4c1de649457bcc8e87b3c) [#1299](https://github.com/twilio-labs/paste/pull/1299) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Correctly type the size prop to use the icons sizes from style props and not from box
+
+- Updated dependencies [[`514bd5aa`](https://github.com/twilio-labs/paste/commit/514bd5aa9fed6581bbc4c1de649457bcc8e87b3c)]:
+  - @twilio-paste/theme@5.0.1
+  - @twilio-paste/box@4.0.2
+  - @twilio-paste/style-props@3.0.1
+
 ## 5.1.0
 
 ### Minor Changes

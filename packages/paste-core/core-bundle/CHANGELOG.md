@@ -1,5 +1,55 @@
 # Change Log
 
+## 8.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`514bd5aa`](https://github.com/twilio-labs/paste/commit/514bd5aa9fed6581bbc4c1de649457bcc8e87b3c), [`514bd5aa`](https://github.com/twilio-labs/paste/commit/514bd5aa9fed6581bbc4c1de649457bcc8e87b3c)]:
+  - @twilio-paste/theme@5.0.1
+  - @twilio-paste/icons@5.1.1
+  - @twilio-paste/alert@6.0.1
+  - @twilio-paste/anchor@5.0.1
+  - @twilio-paste/avatar@2.0.2
+  - @twilio-paste/base-radio-checkbox@6.0.1
+  - @twilio-paste/breadcrumb@4.0.1
+  - @twilio-paste/button@6.0.1
+  - @twilio-paste/card@3.0.2
+  - @twilio-paste/checkbox@6.0.1
+  - @twilio-paste/combobox@6.0.1
+  - @twilio-paste/disclosure@5.0.1
+  - @twilio-paste/heading@5.0.1
+  - @twilio-paste/help-text@6.0.1
+  - @twilio-paste/inline-control-group@6.0.1
+  - @twilio-paste/input@3.0.3
+  - @twilio-paste/input-box@4.0.2
+  - @twilio-paste/label@6.0.1
+  - @twilio-paste/list@2.0.1
+  - @twilio-paste/menu@6.0.1
+  - @twilio-paste/modal@6.0.1
+  - @twilio-paste/paragraph@4.0.1
+  - @twilio-paste/popover@5.0.1
+  - @twilio-paste/radio-group@6.0.1
+  - @twilio-paste/screen-reader-only@6.0.1
+  - @twilio-paste/select@5.0.1
+  - @twilio-paste/separator@2.0.2
+  - @twilio-paste/spinner@7.0.1
+  - @twilio-paste/table@2.0.2
+  - @twilio-paste/tabs@2.0.2
+  - @twilio-paste/textarea@3.0.3
+  - @twilio-paste/toast@4.0.2
+  - @twilio-paste/tooltip@4.0.1
+  - @twilio-paste/truncate@6.0.1
+  - @twilio-paste/aspect-ratio@4.0.2
+  - @twilio-paste/flex@2.0.2
+  - @twilio-paste/grid@2.0.2
+  - @twilio-paste/media-object@4.0.2
+  - @twilio-paste/stack@2.0.2
+  - @twilio-paste/box@4.0.2
+  - @twilio-paste/sibling-box@3.0.2
+  - @twilio-paste/text@4.0.1
+  - @twilio-paste/customization@2.0.1
+  - @twilio-paste/style-props@3.0.1
+
 ## 8.0.1
 
 ### Patch Changes
