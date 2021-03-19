@@ -54,11 +54,19 @@ export interface GenericThemeShape {
       [key in keyof typeof sizings]: any;
     }
   >;
-  iconSizes: Partial<
-    {
-      [key in keyof typeof sizings]: any;
-    }
-  >;
+  iconSizes: {
+    sizeIcon10: typeof sizings['sizeIcon10'];
+    sizeIcon20: typeof sizings['sizeIcon20'];
+    sizeIcon30: typeof sizings['sizeIcon30'];
+    sizeIcon40: typeof sizings['sizeIcon40'];
+    sizeIcon50: typeof sizings['sizeIcon50'];
+    sizeIcon60: typeof sizings['sizeIcon60'];
+    sizeIcon70: typeof sizings['sizeIcon70'];
+    sizeIcon80: typeof sizings['sizeIcon80'];
+    sizeIcon90: typeof sizings['sizeIcon90'];
+    sizeIcon100: typeof sizings['sizeIcon100'];
+    sizeIcon110: typeof sizings['sizeIcon110'];
+  };
   lineHeights: Partial<
     {
       [key in keyof typeof lineHeights]: any;
