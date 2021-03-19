@@ -93,6 +93,26 @@ describe('Avatar', () => {
     });
   });
 
+  describe('intials', () => {
+    it('should render responsive css', (): void => {
+      const {asFragment} = render(<Avatar size={['sizeIcon10', 'sizeIcon60', 'sizeIcon100']} name="Simon Taggart" />);
+      expect(asFragment()).toMatchSnapshot();
+    });
+  });
+  describe('image', () => {
+    it('should render alt and src attributes', (): void => {
+      render(<Avatar size="sizeIcon10" name="avatar example" src="/avatars/avatar2.png" />);
+      expect(screen.getByRole('img').getAttribute('src')).toEqual('/avatars/avatar2.png');
+      expect(screen.getByRole('img').getAttribute('alt')).toEqual('avatar example');
+    });
+    it('should render responsive css with an image', (): void => {
+      const {asFragment} = render(
+        <Avatar size={['sizeIcon30', 'sizeIcon40', 'sizeIcon90']} name="avatar example" src="/avatars/avatar2.png" />
+      );
+      expect(asFragment()).toMatchSnapshot();
+    });
+  });
+
   describe('ensure icon is a Paste Icon', () => {
     it('should fail if icon is not a Paste Icon', () => {
       // @ts-expect-error
