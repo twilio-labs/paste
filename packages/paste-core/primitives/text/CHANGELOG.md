@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`514bd5aa`](https://github.com/twilio-labs/paste/commit/514bd5aa9fed6581bbc4c1de649457bcc8e87b3c)]:
+  - @twilio-paste/theme@5.0.1
+  - @twilio-paste/style-props@3.0.1
+
 ## 4.0.0
 
 ### Patch Changes

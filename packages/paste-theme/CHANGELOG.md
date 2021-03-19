@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.0.1
+
+### Patch Changes
+
+- [`514bd5aa`](https://github.com/twilio-labs/paste/commit/514bd5aa9fed6581bbc4c1de649457bcc8e87b3c) [#1299](https://github.com/twilio-labs/paste/pull/1299) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Correctly type the generic theme type to only include icon sizes in the iconSizes key
+
 ## 5.0.0
 
 ### Patch Changes
