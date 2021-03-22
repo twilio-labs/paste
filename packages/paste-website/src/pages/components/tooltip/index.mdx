@@ -17,7 +17,7 @@ import Changelog from '@twilio-paste/tooltip/CHANGELOG.md';
 import {useTooltipState, Tooltip} from '@twilio-paste/tooltip';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {StateHookTabsExample} from '../../../component-examples/TooltipExamples';
+import {StateHookTabsExample, NonPasteChildComponentExample} from '../../../component-examples/TooltipExamples';
 
 export const pageQuery = graphql`
   {
@@ -82,21 +82,27 @@ the keyboard or on mouse hover. Tooltip follows the
 
 ### Tooltip compared to Popover
 
-<AspectRatio ratio="16:9">
-  <iframe
-    src="https://www.loom.com/embed/f70204bd8a4f4f21a5b1ded17f4559d1"
-    frameborder="0"
-    webkitallowfullscreen="true"
-    mozallowfullscreen="true"
-    allowfullscreen={true}
-  ></iframe>
-</AspectRatio>
+<Box marginBottom="space70">
+  <AspectRatio ratio="16:9">
+    <iframe
+      src="https://www.loom.com/embed/f70204bd8a4f4f21a5b1ded17f4559d1"
+      frameborder="0"
+      webkitallowfullscreen="true"
+      mozallowfullscreen="true"
+      allowfullscreen={true}
+    ></iframe>
+  </AspectRatio>
+</Box>
 
-#### Accessibility
+### Accessibility
 
 A tooltip **must only** be placed on a **natively focusable** HTML element. Good candidates include a [Paste Button](/components/button) or a [Paste Anchor](/components/anchor) if the tip also links to a help article.
 
 **Do not** place tooltips on non-focusable elements, like an icon.
+
+If your tooltip wraps a natively focusable HTML element that includes only an icon, make sure you set the `decorative` prop to false, and
+give the icon a title. The title of the icon should describe what the icon is representing, and the tooltip provides the additional context.
+This ensures the icon and tooltip are accessible to screen readers. Refer to the [focusable element example](#focusable-element) for implmentation.
 
 ## Examples
 
@@ -155,19 +161,24 @@ A tooltip **must** be placed on a **focusable** element, such as an anchor or bu
 </Box>`}
 </LivePreview>
 
-<Callout>
-  <CalloutTitle>Icons and tooltips</CalloutTitle>
-  <CalloutText>
-    If your tooltip wraps an element that includes only an icon, make sure you set the `decorative` prop to false, and
-    give the icon a title. The title of the icon should describe what the icon is representing, and the tooltip
-    describes what that means. This ensures the icon and tooltip ara accessible to screen readers.
-  </CalloutText>
-</Callout>
+### Adding a Tooltip to non-Paste React components
+
+If you want to add a Tooltip around a React component that isn't in the Paste library, you must make sure that component [forwards refs](https://reactjs.org/docs/forwarding-refs.html).
+
+<LivePreview
+  scope={{
+    Tooltip,
+  }}
+  noInline
+  language="jsx"
+>
+  {NonPasteChildComponentExample}
+</LivePreview>
 
 ### Using state hooks
 
 <Callout variant="warning">
-  <CalloutTitle>🚨Power user move!🚨</CalloutTitle>
+  <CalloutTitle>🚨 Power user move! 🚨</CalloutTitle>
   <CalloutText>
     Only use this property if you are a power user. It's very easy to break your implementation and unfortunately the
     Paste team will not be able to debug this for you. Proceed with extreme caution.
