@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
@@ -36,6 +36,11 @@ describe('Avatar', () => {
         expect(getCorrespondingLineHeightFromSizeToken('sizeIcon100')).toEqual('lineHeight100');
         expect(getCorrespondingLineHeightFromSizeToken('sizeIcon110')).toEqual('lineHeight110');
       });
+      it('should throw an error when non IconSize values are passed in', () => {
+        expect(() => getCorrespondingLineHeightFromSizeToken('size50')).toThrow();
+        // @ts-expect-error
+        expect(() => getCorrespondingLineHeightFromSizeToken(true)).toThrow();
+      });
     });
 
     describe('getCorrespondingFontSizeFromSizeToken', () => {
@@ -51,6 +56,11 @@ describe('Avatar', () => {
         expect(getCorrespondingFontSizeFromSizeToken('sizeIcon90')).toEqual('fontSize40');
         expect(getCorrespondingFontSizeFromSizeToken('sizeIcon100')).toEqual('fontSize60');
         expect(getCorrespondingFontSizeFromSizeToken('sizeIcon110')).toEqual('fontSize70');
+      });
+      it('should throw an error when non IconSize values are passed in', () => {
+        expect(() => getCorrespondingFontSizeFromSizeToken('size50')).toThrow();
+        // @ts-expect-error
+        expect(() => getCorrespondingFontSizeFromSizeToken(true)).toThrow();
       });
     });
 

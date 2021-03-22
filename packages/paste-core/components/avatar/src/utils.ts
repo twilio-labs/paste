@@ -19,30 +19,37 @@ export const getInitialsFromName = (fullname: string): string => {
     }, '');
 };
 
-export const getCorrespondingLineHeightFromSizeToken = (size: IconSizeOptions): LineHeightOptions =>
-  size.replace('sizeIcon', 'lineHeight') as LineHeightOptions;
+export const getCorrespondingLineHeightFromSizeToken = (size: IconSizeOptions): LineHeightOptions => {
+  if (typeof size === 'string' && size.includes('sizeIcon')) {
+    return size.replace('sizeIcon', 'lineHeight') as LineHeightOptions;
+  }
+  throw new Error('[Avatar]: size must be of type IconSizeOptions.');
+};
 
 export const getCorrespondingFontSizeFromSizeToken = (size: IconSizeOptions): FontSizeOptions => {
-  switch (size) {
-    case 'sizeIcon10':
-    case 'sizeIcon20':
-    case 'sizeIcon30':
-    case 'sizeIcon40':
-    case 'sizeIcon50':
-    case 'sizeIcon60':
-    default:
-      return 'fontSize10';
-    case 'sizeIcon70':
-      return 'fontSize20';
-    case 'sizeIcon80':
-      return 'fontSize30';
-    case 'sizeIcon90':
-      return 'fontSize40';
-    case 'sizeIcon100':
-      return 'fontSize60';
-    case 'sizeIcon110':
-      return 'fontSize70';
+  if (typeof size === 'string' && size.includes('sizeIcon')) {
+    switch (size) {
+      case 'sizeIcon10':
+      case 'sizeIcon20':
+      case 'sizeIcon30':
+      case 'sizeIcon40':
+      case 'sizeIcon50':
+      case 'sizeIcon60':
+      default:
+        return 'fontSize10';
+      case 'sizeIcon70':
+        return 'fontSize20';
+      case 'sizeIcon80':
+        return 'fontSize30';
+      case 'sizeIcon90':
+        return 'fontSize40';
+      case 'sizeIcon100':
+        return 'fontSize60';
+      case 'sizeIcon110':
+        return 'fontSize70';
+    }
   }
+  throw new Error('[Avatar]: size must be of type IconSizeOptions.');
 };
 
 export const getCorrespondingIconSizeFromSizeToken = (size: IconSizeOptions): IconSizeOptions => {
@@ -72,19 +79,19 @@ export const getCorrespondingIconSizeFromSizeToken = (size: IconSizeOptions): Ic
   throw new Error('[Avatar]: size must be of type IconSizeOptions.');
 };
 
-// this function takes in a size and exports an object w/ lineheight and fontsize
+// this function takes in a size and exports an object w/ lineheight and fontsize and iconsize
 export const getComputedTokenNames = (
   size: IconSize
 ): {lineHeight: LineHeight; fontSize: FontSize; iconSize: IconSize} => {
-  // check to see if size is an array, map over it if it is
   if (typeof size === 'string') {
-    // if it's a string, just put it into the correspondingSize function and specify its type
+    // if size is a string, put it into the correspondingSize function
     return {
       lineHeight: getCorrespondingLineHeightFromSizeToken(size),
       fontSize: getCorrespondingFontSizeFromSizeToken(size),
       iconSize: getCorrespondingIconSizeFromSizeToken(size),
     };
   }
+  // check to see if size is an array, map over it if it is
   if (Array.isArray(size)) {
     return {
       lineHeight: size.map((s) => {
