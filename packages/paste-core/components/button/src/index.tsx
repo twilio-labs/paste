@@ -2,6 +2,9 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Spinner} from '@twilio-paste/spinner';
+import {secureExternalLink} from '@twilio-paste/anchor';
+import {useSpring, animated} from '@twilio-paste/animation-library';
+import {ArrowForwardIcon} from '@twilio-paste/icons/esm/ArrowForwardIcon';
 import type {
   ButtonProps,
   ButtonSizes,
@@ -21,6 +24,8 @@ import {InverseButton} from './InverseButton';
 import {InverseLinkButton} from './InverseLinkButton';
 import {ResetButton} from './ResetButton';
 
+const AnimatedBox = animated(Box);
+
 // If size isn't passed, come up with a smart default:
 // - 'reset' for variant 'link'
 // - 'icon' if there's 1 child that's an icon
@@ -29,12 +34,12 @@ const getButtonSize = (variant: ButtonVariants, children: React.ReactNode, size?
   let smartSize: ButtonSizes = 'default';
   if (size != null) {
     smartSize = size;
-  } else if (variant === 'link' || variant === 'destructive_link') {
+  } else if (variant === 'link' || variant === 'destructive_link' || variant === 'reset') {
     smartSize = 'reset';
   } else if (React.Children.count(children) === 1) {
     React.Children.forEach(children, (child) => {
       if (React.isValidElement(child)) {
-        // @ts-ignore
+        // @ts-expect-error we know displayName will exist in React
         if (typeof child.type.displayName === 'string' && child.type.displayName.includes('Icon')) {
           smartSize = 'icon';
         }
@@ -54,25 +59,50 @@ const getButtonState = (disabled?: boolean, loading?: boolean): ButtonStates => 
   return 'default';
 };
 
-const handlePropValidation = ({as, href, tabIndex, variant, size, fullWidth, children}: ButtonProps): void => {
+const handlePropValidation = ({
+  as,
+  href,
+  tabIndex,
+  variant,
+  size,
+  fullWidth,
+  children,
+  disabled,
+  loading,
+}: ButtonProps): void => {
   const hasHref = href != null && href !== '';
   const hasTabIndex = tabIndex != null;
 
+  // Link validation
   if (as !== 'a' && hasHref) {
     throw new Error(`[Paste: Button] You cannot pass href into a button without the 'a' tag.  Use 'as="a"'.`);
   }
-  if (as === 'a' && !hasHref) {
-    throw new Error(`[Paste: Button] Missing href prop for link button.`);
+  if (as === 'a') {
+    if (!hasHref) {
+      throw new Error(`[Paste: Button] Missing href prop for link button.`);
+    }
+    if (variant === 'link' || variant === 'inverse_link') {
+      throw new Error(`[Paste: Button] Using Button component as an Anchor. Use the Paste Anchor component instead.`);
+    }
+    if (variant !== 'primary' && variant !== 'secondary' && variant !== 'reset') {
+      throw new Error(`[Paste: Button] <Button as="a"> only works with the following variants: primary or secondary.`);
+    }
+    if (disabled || loading) {
+      throw new Error(`[Paste: Button] <Button as="a"> cannot be disabled or loading.`);
+    }
   }
-  if (as === 'a' && variant === 'link') {
-    throw new Error(`[Paste: Button] This should be a link. Use the [Paste: Anchor] component.`);
-  }
+
+  // Reset validation
   if (variant === 'reset' && size !== 'reset') {
     throw new Error('[Paste: Button] The "RESET" variant can only be used with the "RESET" size.');
   }
+
+  // Icon validation
   if ((size === 'icon' || size === 'icon_small') && fullWidth) {
     throw new Error('[Paste: Button] Icon buttons should not be fullWidth.');
   }
+
+  // Button validation
   if (children == null) {
     throw new Error(`[Paste: Button] Must have non-null children.`);
   }
@@ -147,20 +177,55 @@ const getButtonComponent = (variant: ButtonVariants): React.FunctionComponent<Di
 // memo
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {size, variant, children, disabled, loading, ...rest} = props;
+  const [hovered, setHovered] = React.useState(false);
+  const arrowIconStyles = useSpring({
+    translateX: hovered ? '4px' : '0px',
+    config: {
+      mass: 0.1,
+      tension: 275,
+      friction: 16,
+    },
+  });
 
-  handlePropValidation(props);
+  const smartDefaultSize = React.useMemo(() => {
+    return getButtonSize(variant, children, size);
+  }, [size, variant, children]);
+
+  handlePropValidation({...props, size: smartDefaultSize});
 
   const buttonState = getButtonState(disabled, loading);
   const showLoading = buttonState === 'loading';
   const showDisabled = buttonState !== 'default';
   const ButtonComponent = getButtonComponent(variant);
-  const smartDefaultSize = React.useMemo(() => {
-    return getButtonSize(variant, children, size);
-  }, [size, variant, children]);
+  // Automatically inject AnchorForwardIcon for link's dressed as buttons when possible
+  const injectIconChildren =
+    props.as === 'a' && props.href != null && typeof children === 'string' && variant !== 'reset' ? (
+      <>
+        {children}
+        <AnimatedBox style={arrowIconStyles}>
+          <ArrowForwardIcon decorative />
+        </AnimatedBox>
+      </>
+    ) : (
+      children
+    );
 
   return (
     <ButtonComponent
+      {...(rest.href != null ? secureExternalLink(rest.href) : null)}
       {...rest}
+      onMouseEnter={(event) => {
+        if (typeof rest.onMouseEnter === 'function') {
+          rest.onMouseEnter(event);
+        }
+        setHovered(true);
+      }}
+      onMouseLeave={(event) => {
+        if (typeof rest.onMouseLeave === 'function') {
+          rest.onMouseLeave(event);
+        }
+        setHovered(false);
+      }}
       buttonState={buttonState}
       disabled={showDisabled}
       size={smartDefaultSize as ButtonSizes}
@@ -170,7 +235,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => 
       ref={ref}
     >
       <ButtonContents buttonState={buttonState} showLoading={showLoading} variant={variant}>
-        {children}
+        {injectIconChildren}
       </ButtonContents>
     </ButtonComponent>
   );
