@@ -37,6 +37,7 @@ describe('Avatar', () => {
         expect(getCorrespondingLineHeightFromSizeToken('sizeIcon110')).toEqual('lineHeight110');
       });
       it('should throw an error when non IconSize values are passed in', () => {
+        // @ts-expect-error
         expect(() => getCorrespondingLineHeightFromSizeToken('size50')).toThrow();
         // @ts-expect-error
         expect(() => getCorrespondingLineHeightFromSizeToken(true)).toThrow();
@@ -58,6 +59,7 @@ describe('Avatar', () => {
         expect(getCorrespondingFontSizeFromSizeToken('sizeIcon110')).toEqual('fontSize70');
       });
       it('should throw an error when non IconSize values are passed in', () => {
+        // @ts-expect-error
         expect(() => getCorrespondingFontSizeFromSizeToken('size50')).toThrow();
         // @ts-expect-error
         expect(() => getCorrespondingFontSizeFromSizeToken(true)).toThrow();
@@ -79,6 +81,7 @@ describe('Avatar', () => {
         expect(getCorrespondingIconSizeFromSizeToken('sizeIcon110')).toEqual('sizeIcon80');
       });
       it('should throw an error when non IconSize values are passed in', () => {
+        // @ts-expect-error
         expect(() => getCorrespondingIconSizeFromSizeToken('size50')).toThrow();
         // @ts-expect-error
         expect(() => getCorrespondingIconSizeFromSizeToken(true)).toThrow();
@@ -131,6 +134,25 @@ describe('Avatar', () => {
       expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon={true} />)).toThrow();
       // @ts-expect-error
       expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon={<Box />} />)).toThrow();
+    });
+  });
+
+  describe('Render an icon and its attributes', () => {
+    it('should render an svg', () => {
+      render(<Avatar data-testid="avatar" size="sizeIcon20" name="avatar example" icon={UserIcon} />);
+      const avatarComponent = screen.getByTestId('avatar');
+      expect(avatarComponent.querySelectorAll('svg').length).toEqual(1);
+    });
+    it('should not have an aria-hidden attribute set to true', () => {
+      render(<Avatar data-testid="avatar" size="sizeIcon20" name="avatar example" icon={UserIcon} />);
+      const avatarComponent = screen.getByTestId('avatar');
+      expect(avatarComponent.getAttribute('aria-hidden')).not.toEqual(true);
+    });
+    it('should have a title equal to name attribute of Avatar', () => {
+      const name = 'avatar example';
+      render(<Avatar data-testid="avatar" size="sizeIcon20" name={name} icon={UserIcon} />);
+      const avatarComponent = screen.getByTestId('avatar');
+      expect(avatarComponent.querySelector('title')).toHaveTextContent(name);
     });
   });
 

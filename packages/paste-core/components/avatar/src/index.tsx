@@ -8,7 +8,7 @@ import type {AvatarProps} from './types';
 
 //not currently passing '...props' to renderAvatarContents
 //add to parameters if we want to safely pass props to Box
-const renderAvatarContents = ({name, size, src, icon: Icon, ...props}: AvatarProps): React.ReactElement => {
+const renderAvatarContents = ({name, size, src, icon: Icon}: AvatarProps): React.ReactElement => {
   const computedTokenNames = getComputedTokenNames(size);
   if (Icon != null) {
     if (typeof Icon !== 'function' || typeof Icon.displayName !== 'string' || !Icon.displayName.includes('Icon')) {
@@ -21,9 +21,7 @@ const renderAvatarContents = ({name, size, src, icon: Icon, ...props}: AvatarPro
     );
   }
   if (src != null) {
-    return (
-      <Box as="img" alt={name} maxWidth="100%" src={src} size={size} title={name} {...safelySpreadBoxProps(props)} />
-    );
+    return <Box as="img" alt={name} maxWidth="100%" src={src} size={size} title={name} />;
   }
   return (
     <Text
