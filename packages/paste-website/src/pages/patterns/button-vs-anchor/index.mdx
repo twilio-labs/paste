@@ -10,6 +10,7 @@ import {Breadcrumb, BreadcrumbItem} from '../../../components/breadcrumb';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
@@ -48,17 +49,8 @@ export const pageQuery = graphql`
   <Text as="dt" color="colorTextWeak" lineHeight="lineHeight30">
     <Box width="size10">Status</Box>
   </Text>
-  <Text as="dd">alpha</Text>
+  <Text as="dd">beta</Text>
 </Box>
-
-<Callout variant="warning">
-  <CalloutTitle>This is an ALPHA pattern, and we need your feedback!</CalloutTitle>
-  <CalloutText>
-    This pattern is still going through feedback cycles, so if you have feedback or ideas related to this pattern,
-    please create a <Anchor href="https://github.com/twilio-labs/paste/discussions">GitHub Discussion</Anchor> and let
-    us know.
-  </CalloutText>
-</Callout>
 
 </content>
 
@@ -72,8 +64,6 @@ export const pageQuery = graphql`
 
 ## Best Practices for Button and Anchor Usage
 
-[Link to example designs](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=400%3A851)
-
 Action hierarchy on a page should be easy and obvious for our users. To create effective user-centered experiences, it's important to follow user expectations and establish consistent UI action patterns. This is especially important when deciding when to use a button or an anchor (also known as a link).
 
 The [Create pattern](/patterns/create) also includes helpful guidance on how to layout buttons, links, and organize page hierarchy.
@@ -82,41 +72,79 @@ The [Create pattern](/patterns/create) also includes helpful guidance on how to 
 
 ## Ingredients
 
-<UnorderedList>
-  <ListItem>
-    <Anchor href="/components/button/#primary-button">Primary button</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/button/#secondary-button">Secondary button</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/button/#link-style-button">Link-style button</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/button#destructive-button">Desctructive button</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/button#destructive-secondary-button">Secondary desctructive button</Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/button#link-style-button">Link-style desctructive button</Anchor>
-  </ListItem>
-  <ListItem>
-    Primary button-style anchor{' '}
-    <Text as="span" color="colorTextNew" fontStyle="italic">
-      New!
-    </Text>
-  </ListItem>
-  <ListItem>
-    Secondary button-style anchor{' '}
-    <Text as="span" color="colorTextNew" fontStyle="italic">
-      New!
-    </Text>
-  </ListItem>
-  <ListItem>
-    <Anchor href="/components/anchor">Anchor</Anchor>
-  </ListItem>
-</UnorderedList>
+<Box marginBottom="space80">
+  <Stack orientation="horizontal" spacing="space30">
+    <Box marginBottom="space30">
+      <Card>
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="/components/button/#primary-button">Primary button</Anchor>
+        </Heading>
+      </Card>
+    </Box>
+    <Box marginBottom="space30">
+      <Card>
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="/components/button/#secondary-button">Secondary button</Anchor>
+        </Heading>
+      </Card>
+    </Box>
+    <Box marginBottom="space30">
+      <Card>
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="/components/button/#link-style-button">Link-style button</Anchor>
+        </Heading>
+      </Card>
+    </Box>
+    <Box marginBottom="space30">
+      <Card>
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="/components/button#destructive-button">Desctructive button</Anchor>
+        </Heading>
+      </Card>
+    </Box>
+    <Box marginBottom="space30">
+      <Card>
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="/components/button#destructive-secondary-button">Secondary desctructive button</Anchor>
+        </Heading>
+      </Card>
+    </Box>
+    <Box marginBottom="space30">
+      <Card>
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="/components/button#link-style-button">Link-style desctructive button</Anchor>
+        </Heading>
+      </Card>
+    </Box>
+    <Box marginBottom="space30">
+      <Card>
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          Primary button-style anchor{' '}
+          <Text as="span" color="colorTextNew" fontStyle="italic">
+            New!
+          </Text>
+        </Heading>
+      </Card>
+    </Box>
+    <Box marginBottom="space30">
+      <Card>
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          Secondary button-style anchor{' '}
+          <Text as="span" color="colorTextNew" fontStyle="italic">
+            New!
+          </Text>
+        </Heading>
+      </Card>
+    </Box>
+    <Box marginBottom="space30">
+      <Card>
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          <Anchor href="/components/anchor">Anchor</Anchor>
+        </Heading>
+      </Card>
+    </Box>
+  </Stack>
+</Box>
 
 ## Usage
 
@@ -176,10 +204,14 @@ There are some cases where a secondary button may be used for an irreversible ac
 ### Link-style button (tertiary)
 
 <Callout variant="warning">
-  <CalloutText>🚨 This is not a variant we recommend you use often.</CalloutText>
+  <CalloutTitle>🚨 This is not a variant we recommend you use often.</CalloutTitle>
+  <CalloutText>
+    When using buttons that look similar to anchors, <strong>be very strategic</strong> in their use since voice
+    dictation users may encounter issues when trying to activate them by mistaking them for anchors.
+  </CalloutText>
 </Callout>
 
-But, If you need to add additional, less-visually competitive actions on a page, use a link-style button. If you've exhausted the use of primary and secondary buttons, a link-style button is the way to go. Again, when using buttons that look similar to anchors, **be very strategic** in their use since voice dictation users may encounter issues when trying to activate them by mistaking them for anchors.
+If you need to add additional, less-visually competitive actions on a page, use a link-style button. If you've exhausted the use of primary and secondary buttons, a link-style button is the way to go.
 
 This can be used for the least important actions a user needs to take or when the use of multiple secondary buttons would be visually overwhelming. Given this information, you should weigh the risks between the UI control being unclear and the actions on the page being overwhelming.
 
@@ -218,10 +250,12 @@ For all anchors, the only functionality it supports is navigating. For this reas
 ### Anchors that look like buttons
 
 <Callout variant="warning">
-  <CalloutText>🚨 This is not a variant we recommend you use often.</CalloutText>
+  <CalloutTitle>🚨 This is not a variant we recommend you use often.</CalloutTitle>
+  <CalloutText>
+    When using anchors that look like buttons, be very strategic in their use as dictation software users may experience
+    usability issues.
+  </CalloutText>
 </Callout>
-
-Again, when using anchors that look like buttons, be very strategic in their use as dictation software users may experience usability issues.
 
 There are two variants of an anchor that look like a primary and secondary button. These are to be used when the primary action on the page is **navigating** the user somewhere. When this is used, it must be accompanied by an arrow pointing to the right after the text. This helps to indicate that we are navigating the user to the page in the button.
 
@@ -269,9 +303,10 @@ The destructive variants of the button and anchors should follow the same guidan
 
 Coming soon
 
-### Sketch
+### Figma
 
-Coming soon
+- [Anchor](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=453%3A1630)
+- [Button](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=400%3A851)
 
 </content>
 

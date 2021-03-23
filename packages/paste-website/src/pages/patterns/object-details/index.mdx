@@ -42,24 +42,24 @@ export const pageQuery = graphql`
   <BreadcrumbItem to="/">Home</BreadcrumbItem>
   <BreadcrumbItem to="/patterns">Patterns</BreadcrumbItem>
 </Breadcrumb>
-<Heading as="h1" variant="heading10">{props.pageContext.frontmatter.title}</Heading>
+<Heading as="h1" variant="heading10">
+  {props.pageContext.frontmatter.title}
+</Heading>
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
 <Box as="dl" display="flex">
   <Text as="dt" color="colorTextWeak" lineHeight="lineHeight30">
-    <Box width="size10">
-      Status
-    </Box>
+    <Box width="size10">Status</Box>
   </Text>
-  <Text as="dd">
-    alpha
-  </Text>
+  <Text as="dd">alpha</Text>
 </Box>
 
 <Callout variant="warning">
   <CalloutTitle>This is an ALPHA pattern, and we need your feedback!</CalloutTitle>
   <CalloutText>
-    This pattern is still going through feedback cycles, so if you have feedback or ideas related to this pattern, please create a <Anchor href="https://github.com/twilio-labs/paste/discussions">GitHub Discussion</Anchor> and let us know.
+    This pattern is still going through feedback cycles, so if you have feedback or ideas related to this pattern,
+    please create a <Anchor href="https://github.com/twilio-labs/paste/discussions">GitHub Discussion</Anchor> and let
+    us know.
   </CalloutText>
 </Callout>
 
@@ -80,23 +80,17 @@ export const pageQuery = graphql`
     <Stack orientation="vertical" spacing="space50">
       <Card>
         <Heading as="h3" variant="heading40" marginBottom="space0">
-          <Anchor href="/components/heading">
-            Heading
-          </Anchor>
+          <Anchor href="/components/heading">Heading</Anchor>
         </Heading>
       </Card>
       <Card>
         <Heading as="h3" variant="heading40" marginBottom="space0">
-          <Anchor href="/components/tabs">
-            Tabs
-          </Anchor>
+          <Anchor href="/components/tabs">Tabs</Anchor>
         </Heading>
       </Card>
       <Card>
         <Heading as="h3" variant="heading40" marginBottom="space0">
-          <Anchor href="/primitives/text">
-            Text
-          </Anchor>
+          <Anchor href="/primitives/text">Text</Anchor>
         </Heading>
       </Card>
     </Stack>
@@ -105,23 +99,17 @@ export const pageQuery = graphql`
     <Stack orientation="vertical" spacing="space50">
       <Card>
         <Heading as="h3" variant="heading40" marginBottom="space0">
-          <Anchor href="/primitives/box">
-            Box
-          </Anchor>
+          <Anchor href="/primitives/box">Box</Anchor>
         </Heading>
       </Card>
       <Card>
         <Heading as="h3" variant="heading40" marginBottom="space0">
-          <Anchor href="/layout/stack">
-            Stack
-          </Anchor>
+          <Anchor href="/layout/stack">Stack</Anchor>
         </Heading>
       </Card>
       <Card>
         <Heading as="h3" variant="heading40" marginBottom="space0">
-          <Anchor href="/layout/grid">
-            Grid
-          </Anchor>
+          <Anchor href="/layout/grid">Grid</Anchor>
         </Heading>
       </Card>
     </Stack>
@@ -134,11 +122,7 @@ export const pageQuery = graphql`
         (coming soon)
       </Heading>
       <Paragraph marginBottom="space0">
-        Learn more{' '}
-        <Anchor href="#standard-details">
-          about description lists and how to compose them
-        </Anchor>
-        {' '}below.
+        Learn more <Anchor href="#standard-details">about description lists and how to compose them</Anchor> below.
       </Paragraph>
     </Card>
   </Column>
@@ -147,14 +131,7 @@ export const pageQuery = graphql`
 ```jsx
 // import all components for Object details patterns
 
-import {
-  Heading,
-  Tabs, TabList, Tab, TabPanels, TabPanel,
-  Text,
-  Box,
-  Stack,
-  Grid, Column
-} from '@twilio-paste/core';
+import {Heading, Tabs, TabList, Tab, TabPanels, TabPanel, Text, Box, Stack, Grid, Column} from '@twilio-paste/core';
 ```
 
 ## Usage
@@ -168,12 +145,11 @@ Object details should:
 - Be clearly separated into content sections with headings, and if necessary, tabs to allow a customer to easily scan for relevant information.
 - Prioritize the order of content based on what customers find most important from customer research.
 
-
 ### Accessibility
 
 A well-structured [document hierarchy](https://www.w3.org/WAI/tutorials/page-structure/) helps provide efficient in-page navigation for keyboard users, assistive technologies, and mobile web users.
 
-Proper hierarchy allows users to skip directly to content that is most relevant to them. This is especially important on an object details page where there may be many  different types of information and customers are more likely to skim through.
+Proper hierarchy allows users to skip directly to content that is most relevant to them. This is especially important on an object details page where there may be many different types of information and customers are more likely to skim through.
 
 To structure a page:
 
@@ -189,43 +165,25 @@ To structure a page:
 The most common way to structure an object details page is to first show an overview of properties in a description list, followed by more detailed content sections. Properties should be left-aligned, and property labels and values should be vertically placed.
 
 <Callout>
-  <CalloutTitle>
-    Composing a Description List
-  </CalloutTitle>
+  <CalloutTitle>Composing a Description List</CalloutTitle>
   <CalloutText>
     <Paragraph>
       A list of properties should be structured into a description list using the{' '}
-      <Anchor href="/primitives/box">
-        Box
-      </Anchor>
-      {' '} and{' '}
-      <Anchor href="/primitives/text">
-        Text
-      </Anchor>
-      {' '}primitives (e.g.,{' '}
-      <Text
-        as="span"
-        fontFamily="fontFamilyCode"
-      >
+      <Anchor href="/primitives/box">Box</Anchor> and <Anchor href="/primitives/text">Text</Anchor> primitives (e.g.,{' '}
+      <Text as="span" fontFamily="fontFamilyCode">
         Box as="dl"
       </Text>
-      ,{' '}
-      <Text
-        as="span"
-        fontFamily="fontFamilyCode"
-      >
+      , <Text as="span" fontFamily="fontFamilyCode">
         Text as="dd"
-      </Text>
-      ) to help define the relationship between a property and its label, and spaced with the{' '}
-      <Anchor href="/layout/stack">
-        Stack
-      </Anchor>
-      {' '}component.
+      </Text>) to help define the relationship between a property and its label, and spaced with the{' '}
+      <Anchor href="/layout/stack">Stack</Anchor> component.
     </Paragraph>
     <Paragraph>
-      In the future, this composition will be replaced with a Description List component.{' '
-      }
-      <Anchor href="https://css-tricks.com/utilizing-the-underused-but-semantically-awesome-definition-list/" showExternal>
+      In the future, this composition will be replaced with a Description List component.{' '}
+      <Anchor
+        href="https://css-tricks.com/utilizing-the-underused-but-semantically-awesome-definition-list/"
+        showExternal
+      >
         Read more about description lists
       </Anchor>
     </Paragraph>
@@ -239,9 +197,7 @@ The most common way to structure an object details page is to first show an over
     <DisclosureHeading as="h4" variant="heading50">
       Show live example
     </DisclosureHeading>
-    <DisclosureContent>
-      TBD
-    </DisclosureContent>
+    <DisclosureContent>TBD</DisclosureContent>
   </Disclosure>
 </Box>
 
@@ -258,9 +214,7 @@ For example, when viewing the details of a sent email campaign, a customer may w
     <DisclosureHeading as="h4" variant="heading50">
       Show live example
     </DisclosureHeading>
-    <DisclosureContent>
-      TBD
-    </DisclosureContent>
+    <DisclosureContent>TBD</DisclosureContent>
   </Disclosure>
 </Box>
 
@@ -275,9 +229,7 @@ When you find that customers want to see multiple, top-level content sections, s
     <DisclosureHeading as="h4" variant="heading50">
       Show live example
     </DisclosureHeading>
-    <DisclosureContent>
-      TBD
-    </DisclosureContent>
+    <DisclosureContent>TBD</DisclosureContent>
   </Disclosure>
 </Box>
 
@@ -288,7 +240,8 @@ Many object detail pages also include a set of actions that can be performed on 
 <Callout variant="info">
   <CalloutTitle>This pattern is coming soon!</CalloutTitle>
   <CalloutText>
-    We've not yet patternized this part of Object Details. If you need this for your current or upcoming work, please consider partnering with us to <Anchor href="/patterns/contribute">contribute it</Anchor>.
+    We've not yet patternized this part of Object Details. If you need this for your current or upcoming work, please
+    consider partnering with us to <Anchor href="/patterns/contribute">contribute it</Anchor>.
   </CalloutText>
 </Callout>
 
@@ -298,7 +251,7 @@ Many object detail pages also include a set of actions that can be performed on 
 
 Coming soon
 
-### Sketch
+### Figma
 
 Coming soon
 
