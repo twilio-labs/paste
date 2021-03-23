@@ -304,6 +304,8 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
           fontFamily="fontFamilyText"
           fontWeight="fontWeightSemibold"
           onClick={[MockFunction]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           textDecoration="none"
           type="button"
           width="auto"
@@ -653,6 +655,8 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
           fontFamily="fontFamilyText"
           fontWeight="fontWeightSemibold"
           onClick={[MockFunction]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           textDecoration="none"
           type="button"
           width="auto"
@@ -1002,6 +1006,8 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
           fontFamily="fontFamilyText"
           fontWeight="fontWeightSemibold"
           onClick={[MockFunction]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           textDecoration="none"
           type="button"
           width="auto"
