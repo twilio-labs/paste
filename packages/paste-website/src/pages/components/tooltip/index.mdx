@@ -100,9 +100,9 @@ A tooltip **must only** be placed on a **natively focusable** HTML element. Good
 
 **Do not** place tooltips on non-focusable elements, like an icon.
 
-If your tooltip wraps a natively focusable HTML element that includes only an icon, make sure you set the `decorative` prop to false, and
-give the icon a title. The title of the icon should describe what the icon is representing, and the tooltip provides the additional context.
-This ensures the icon and tooltip are accessible to screen readers. Refer to the [focusable element example](#focusable-element) for implmentation.
+If your tooltip wraps a natively focusable HTML element that includes only an icon, make sure you set the prop `decorative={false}`, and
+give the icon a title. The title of the icon should be the accessible name for the button action, like "Delete phone number". The tooltip provides the additional context, like "You can delete phone numbers every 7 days".
+This ensures the icon and tooltip are accessible to screen readers. Refer to the [focusable element example](#focusable-element) for implementation.
 
 ## Examples
 
@@ -161,9 +161,9 @@ A tooltip **must** be placed on a **focusable** element, such as an anchor or bu
 </Box>`}
 </LivePreview>
 
-### Adding a Tooltip to non-Paste React components
+### Tooltips require their children to forwardRefs
 
-If you want to add a Tooltip around a React component that isn't in the Paste library, you must make sure that component [forwards refs](https://reactjs.org/docs/forwarding-refs.html).
+If you want to add a Tooltip around a React component, you must make sure that component [forwards refs](https://reactjs.org/docs/forwarding-refs.html). All Paste components do this by default, so this is only a concern when placing Tooltips around other types of components.
 
 <LivePreview
   scope={{
