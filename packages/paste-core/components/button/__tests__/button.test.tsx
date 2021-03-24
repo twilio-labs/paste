@@ -160,6 +160,55 @@ describe('Button Errors', () => {
         </Button>
       )
     ).toThrow();
+    expect(() =>
+      shallow(
+        <Button as="a" variant="inverse_link" href={HREF}>
+          Go to Paste
+        </Button>
+      )
+    ).toThrow();
+  });
+
+  it('Throws an error when an "a" tag is passed but not using correct variant', () => {
+    expect(() =>
+      shallow(
+        <Button as="a" href="#" variant="destructive">
+          Go to Paste
+        </Button>
+      )
+    ).toThrow();
+    expect(() =>
+      shallow(
+        <Button as="a" href="#" variant="destructive_secondary">
+          Go to Paste
+        </Button>
+      )
+    ).toThrow();
+    expect(() =>
+      shallow(
+        <Button as="a" href="#" variant="inverse">
+          Go to Paste
+        </Button>
+      )
+    ).toThrow();
+  });
+
+  it('Throws an error when an "a" tag is passed with disabled or loading state', () => {
+    expect(() =>
+      shallow(
+        <Button as="a" href="#" variant="primary" disabled>
+          Go to Paste
+        </Button>
+      )
+    ).toThrow();
+
+    expect(() =>
+      shallow(
+        <Button as="a" href="#" variant="primary" loading>
+          Go to Paste
+        </Button>
+      )
+    ).toThrow();
   });
 
   it('Throws an error when size=reset is not applied to variant=reset', () => {

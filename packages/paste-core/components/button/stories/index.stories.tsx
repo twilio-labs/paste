@@ -128,3 +128,33 @@ export const Reset = (): React.ReactNode => (
     </Heading>
   </>
 );
+export const ButtonAsAnchor = (): React.ReactNode => {
+  return (
+    <>
+      <Box padding="space30">
+        <Button as="a" href="https://twilio.com" variant="primary">
+          Automatically adds link icon
+        </Button>
+      </Box>
+      <Box padding="space30">
+        <Button as="a" href="https://twilio.com" variant="secondary">
+          Automatically adds link icon
+        </Button>
+      </Box>
+      <Box padding="space30">
+        <Button as="a" href="https://twilio.com" variant="reset">
+          Not added on reset variant
+        </Button>
+      </Box>
+
+      <Box padding="space30">
+        <Button as="a" href="https://twilio.com" variant="primary">
+          Not added when children{' '}
+          <em>
+            <u>is not string type</u>
+          </em>
+        </Button>
+      </Box>
+    </>
+  );
+};
