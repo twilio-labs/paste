@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
+import {Box} from '@twilio-paste/box';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Avatar} from '../src';
@@ -131,6 +132,7 @@ describe('Avatar', () => {
       // @ts-expect-error
       expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon="UserIcon" />)).toThrow();
       // @ts-expect-error
+      // eslint-disable-next-line react/jsx-boolean-value
       expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon={true} />)).toThrow();
       // @ts-expect-error
       expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon={<Box />} />)).toThrow();

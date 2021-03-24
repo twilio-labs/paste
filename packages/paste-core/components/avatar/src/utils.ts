@@ -1,4 +1,4 @@
-import {
+import type {
   IconSizeOptions,
   LineHeightOptions,
   FontSizeOptions,
@@ -52,6 +52,9 @@ export const getCorrespondingFontSizeFromSizeToken = (size: IconSizeOptions): Fo
   throw new Error('[Avatar]: size must be of type IconSizeOptions.');
 };
 
+/**
+ * Uses IconSizeOptions to return a smaller IconSize
+ */
 export const getCorrespondingIconSizeFromSizeToken = (size: IconSizeOptions): IconSizeOptions => {
   if (typeof size === 'string' && size.includes('sizeIcon')) {
     switch (size) {

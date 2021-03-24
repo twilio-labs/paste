@@ -6,8 +6,6 @@ import {isIconSizeTokenProp} from '@twilio-paste/style-props';
 import {getComputedTokenNames, getInitialsFromName} from './utils';
 import type {AvatarProps} from './types';
 
-//not currently passing '...props' to renderAvatarContents
-//add to parameters if we want to safely pass props to Box
 const renderAvatarContents = ({name, size, src, icon: Icon}: AvatarProps): React.ReactElement => {
   const computedTokenNames = getComputedTokenNames(size);
   if (Icon != null) {
