@@ -119,26 +119,6 @@ The [Create pattern](/patterns/create) also includes helpful guidance on how to 
     <Box marginBottom="space30">
       <Card>
         <Heading as="h3" variant="heading40" marginBottom="space0">
-          Primary button-style anchor{' '}
-          <Text as="span" color="colorTextNew" fontStyle="italic">
-            New!
-          </Text>
-        </Heading>
-      </Card>
-    </Box>
-    <Box marginBottom="space30">
-      <Card>
-        <Heading as="h3" variant="heading40" marginBottom="space0">
-          Secondary button-style anchor{' '}
-          <Text as="span" color="colorTextNew" fontStyle="italic">
-            New!
-          </Text>
-        </Heading>
-      </Card>
-    </Box>
-    <Box marginBottom="space30">
-      <Card>
-        <Heading as="h3" variant="heading40" marginBottom="space0">
           <Anchor href="/components/anchor">Anchor</Anchor>
         </Heading>
       </Card>
@@ -263,15 +243,15 @@ To create a button-styled anchor, use the Button component and add the as="a" pr
 
 The same guidance applies here for any action deemed "primary": use only one per page. If you have a primary button and a primary anchor styled as a button, only use one. Be sure to research which action is most important for your users.
 
+**Note:** Anchors that look like Buttons don't have the same disabled or loading functionality.
+
 <LivePreview scope={{Button, ArrowForwardIcon, Stack}} language="jsx">
   {`<Stack orientation="horizontal" spacing="space30">
   <Button as="a" href="#" variant="primary">
     Button as anchor
-    <ArrowForwardIcon decorative />
   </Button>
   <Button as="a" href="#" variant="secondary">
     Button as anchor
-    <ArrowForwardIcon decorative />
   </Button>
 </Stack>`}
 </LivePreview>
