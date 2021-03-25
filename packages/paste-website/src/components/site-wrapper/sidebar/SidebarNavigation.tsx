@@ -224,6 +224,11 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
                 </SidebarAnchor>
               </SidebarNestedItem>
               <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/button-vs-anchor`}>
+                  Button vs. Anchor
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/create`}>
                   Create
                 </SidebarAnchor>
