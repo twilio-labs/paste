@@ -39,24 +39,24 @@ export const pageQuery = graphql`
   <BreadcrumbItem to="/">Home</BreadcrumbItem>
   <BreadcrumbItem to="/patterns">Patterns</BreadcrumbItem>
 </Breadcrumb>
-<Heading as="h1" variant="heading10">{props.pageContext.frontmatter.title}</Heading>
+<Heading as="h1" variant="heading10">
+  {props.pageContext.frontmatter.title}
+</Heading>
 <Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
 <Box as="dl" display="flex">
   <Text as="dt" color="colorTextWeak" lineHeight="lineHeight30">
-    <Box width="size10">
-      Status
-    </Box>
+    <Box width="size10">Status</Box>
   </Text>
-  <Text as="dd">
-    alpha
-  </Text>
+  <Text as="dd">alpha</Text>
 </Box>
 
 <Callout variant="warning">
   <CalloutTitle>This is an ALPHA pattern, and we need your feedback!</CalloutTitle>
   <CalloutText>
-    This pattern is still going through feedback cycles, so if you have feedback or ideas related to this pattern, please create a <Anchor href="https://github.com/twilio-labs/paste/discussions">GitHub Discussion</Anchor> and let us know.
+    This pattern is still going through feedback cycles, so if you have feedback or ideas related to this pattern,
+    please create a <Anchor href="https://github.com/twilio-labs/paste/discussions">GitHub Discussion</Anchor> and let
+    us know.
   </CalloutText>
 </Callout>
 
@@ -76,36 +76,28 @@ export const pageQuery = graphql`
   <Column>
     <Card>
       <Heading as="h3" variant="heading40" marginBottom="space0">
-        <Anchor href="../components/button">
-          Button
-        </Anchor>
+        <Anchor href="../components/button">Button</Anchor>
       </Heading>
     </Card>
   </Column>
   <Column>
     <Card>
       <Heading as="h3" variant="heading40" marginBottom="space0">
-        <Anchor href="../components/Modal">
-          Modal
-        </Anchor>
+        <Anchor href="../components/Modal">Modal</Anchor>
       </Heading>
     </Card>
   </Column>
   <Column>
     <Card>
       <Heading as="h3" variant="heading40" marginBottom="space0">
-        <Anchor href="../components/input">
-          Input
-        </Anchor>
+        <Anchor href="../components/input">Input</Anchor>
       </Heading>
     </Card>
   </Column>
   <Column>
     <Card>
       <Heading as="h3" variant="heading40" marginBottom="space0">
-        <Anchor href="../components/toast">
-          Toast
-        </Anchor>
+        <Anchor href="../components/toast">Toast</Anchor>
       </Heading>
     </Card>
   </Column>
@@ -129,6 +121,7 @@ import {​
 The delete pattern should be utilized when a user is destroying an object. It is critical to communicate delete actions to our users in a consistent way, considering deletions come with significant consequences and often cannot be undone.
 
 The delete action should:
+
 - Be triggered by a destructive Button.
 - Generally be placed at the bottom of an [Object Details](/patterns/object-details) page.
 - Not usually be the primary action on the page. There are many variants of differing visual prominence to choose from to achieve the correct hierarchy for the delete action trigger.
@@ -155,9 +148,7 @@ For medium-severity deletions, show a confirmation modal that explains what is b
     <DisclosureHeading as="h5" variant="heading50">
       Show live example
     </DisclosureHeading>
-    <DisclosureContent>
-      Coming soon!
-    </DisclosureContent>
+    <DisclosureContent>Coming soon!</DisclosureContent>
   </Disclosure>
 </Box>
 
@@ -174,9 +165,7 @@ For high-severity deletions, show a confirmation modal that explains what is bei
     <DisclosureHeading as="h5" variant="heading50">
       Show live example
     </DisclosureHeading>
-    <DisclosureContent>
-      Coming soon!
-    </DisclosureContent>
+    <DisclosureContent>Coming soon!</DisclosureContent>
   </Disclosure>
 </Box>
 
@@ -194,7 +183,7 @@ For more information, check out our [Notifications and Feedback patterns](/patte
 
 Coming soon
 
-### Sketch
+### Figma
 
 Coming soon
 
