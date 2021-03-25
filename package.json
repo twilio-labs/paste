@@ -71,7 +71,7 @@
     "@babel/register": "^7.8.3",
     "@changesets/changelog-github": "^0.2.8",
     "@changesets/cli": "^2.13.1",
-    "@commitlint/cli": "8.0.0",
+    "@commitlint/cli": "9.0.0",
     "@commitlint/config-conventional": "8.0.0",
     "@emotion/babel-preset-css-prop": "^10.0.14",
     "@expo/spawn-async": "^1.5.0",
