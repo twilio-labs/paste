@@ -43,9 +43,8 @@ export const pageQuery = graphql`
 
 <Callout>
   <CalloutText>
-      Our icon set is still limited, and more will be added over time. Please <Anchor href="https://github.com/twilio-labs/paste/issues">
-      file an icon request
-    </Anchor> or follow the guide on <SiteLink to="/icons/how-to-add-an-icon">how to add an icon</SiteLink>.
+    Can't find the icon you need? Check <Anchor href="https://streamlineicons.com/">Streamline</Anchor> and contribute
+    it to the library following <SiteLink to="/icons/how-to-add-an-icon">our guidelines.</SiteLink>
   </CalloutText>
 </Callout>
 
@@ -71,13 +70,13 @@ A title is required so assistive technology can infer equal meaning as a sighted
 
 <DoDont>
   <Do title="Do" body="Use title text that gives context and meaning to the icon." center>
-    <PlusIcon decorative={false} title="Add to cart" />
+    <PlusIcon decorative={false} title="Add to cart" /> (Title: "Add to cart")
     <Box position="absolute" right={0} bottom={0}>
       (Hover over icon for tooltip)
     </Box>
   </Do>
   <Dont title="Avoid" body="Avoid title text that only describes the icon image." center>
-    <PlusIcon decorative={false} title="Plus" />
+    <PlusIcon decorative={false} title="Plus" /> (Title: "Plus")
     <Box position="absolute" right={0} bottom={0}>
       (Hover over icon for tooltip)
     </Box>
