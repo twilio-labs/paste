@@ -16,7 +16,6 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
-import {ArrowForwardIcon} from '@twilio-paste/icons/esm/ArrowForwardIcon';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 
 export const pageQuery = graphql`
@@ -245,7 +244,7 @@ The same guidance applies here for any action deemed "primary": use only one per
 
 **Note:** Anchors that look like Buttons don't have the same disabled or loading functionality.
 
-<LivePreview scope={{Button, ArrowForwardIcon, Stack}} language="jsx">
+<LivePreview scope={{Button, Stack}} language="jsx">
   {`<Stack orientation="horizontal" spacing="space30">
   <Button as="a" href="#" variant="primary">
     Button as anchor
