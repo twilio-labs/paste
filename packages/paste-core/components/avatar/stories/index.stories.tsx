@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Stack} from '@twilio-paste/stack';
+import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 import Avatar10 from '../../../../../.storybook/static/avatars/avatar-sizeIcon10.png';
 import Avatar20 from '../../../../../.storybook/static/avatars/avatar-sizeIcon20.png';
 import Avatar30 from '../../../../../.storybook/static/avatars/avatar-sizeIcon30.png';
@@ -72,6 +73,24 @@ export const Image = (): React.ReactNode => {
   );
 };
 
+export const Icon = (): React.ReactNode => {
+  return (
+    <Stack orientation="horizontal" spacing="space40">
+      <Avatar size="sizeIcon10" name="avatar example" icon={UserIcon} />
+      <Avatar size="sizeIcon20" name="avatar example" icon={UserIcon} />
+      <Avatar size="sizeIcon30" name="avatar example" icon={UserIcon} />
+      <Avatar size="sizeIcon40" name="avatar example" icon={UserIcon} />
+      <Avatar size="sizeIcon50" name="avatar example" icon={UserIcon} />
+      <Avatar size="sizeIcon60" name="avatar example" icon={UserIcon} />
+      <Avatar size="sizeIcon70" name="avatar example" icon={UserIcon} />
+      <Avatar size="sizeIcon80" name="avatar example" icon={UserIcon} />
+      <Avatar size="sizeIcon90" name="avatar example" icon={UserIcon} />
+      <Avatar size="sizeIcon100" name="avatar example" icon={UserIcon} />
+      <Avatar size="sizeIcon110" name="avatar example" icon={UserIcon} />
+    </Stack>
+  );
+};
+
 Image.story = {
   parameters: {chromatic: {delay: 3000}},
 };
@@ -88,6 +107,14 @@ export const ResponsiveImage = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space40">
       <Avatar size={['sizeIcon10', 'sizeIcon50', 'sizeIcon110']} name="avatar example" src={Avatar50} />
+    </Stack>
+  );
+};
+
+export const ResponsiveIcon = (): React.ReactNode => {
+  return (
+    <Stack orientation="horizontal" spacing="space40">
+      <Avatar size={['sizeIcon10', 'sizeIcon50', 'sizeIcon110']} name="avatar example" icon={UserIcon} />
     </Stack>
   );
 };

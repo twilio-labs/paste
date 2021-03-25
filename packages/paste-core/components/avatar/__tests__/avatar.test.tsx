@@ -1,11 +1,14 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
+import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
+import {Box} from '@twilio-paste/box';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Avatar} from '../src';
 import {
   getCorrespondingLineHeightFromSizeToken,
   getCorrespondingFontSizeFromSizeToken,
+  getCorrespondingIconSizeFromSizeToken,
   getComputedTokenNames,
   getInitialsFromName,
 } from '../src/utils';
@@ -34,6 +37,12 @@ describe('Avatar', () => {
         expect(getCorrespondingLineHeightFromSizeToken('sizeIcon100')).toEqual('lineHeight100');
         expect(getCorrespondingLineHeightFromSizeToken('sizeIcon110')).toEqual('lineHeight110');
       });
+      it('should throw an error when non IconSize values are passed in', () => {
+        // @ts-expect-error
+        expect(() => getCorrespondingLineHeightFromSizeToken('size50')).toThrow();
+        // @ts-expect-error
+        expect(() => getCorrespondingLineHeightFromSizeToken(true)).toThrow();
+      });
     });
 
     describe('getCorrespondingFontSizeFromSizeToken', () => {
@@ -50,16 +59,49 @@ describe('Avatar', () => {
         expect(getCorrespondingFontSizeFromSizeToken('sizeIcon100')).toEqual('fontSize60');
         expect(getCorrespondingFontSizeFromSizeToken('sizeIcon110')).toEqual('fontSize70');
       });
+      it('should throw an error when non IconSize values are passed in', () => {
+        // @ts-expect-error
+        expect(() => getCorrespondingFontSizeFromSizeToken('size50')).toThrow();
+        // @ts-expect-error
+        expect(() => getCorrespondingFontSizeFromSizeToken(true)).toThrow();
+      });
+    });
+
+    describe('getCorrespondingIconSizeFromSizeToken', () => {
+      it('should return a reduced sizeIcon to match icon size', () => {
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon10')).toEqual('sizeIcon10');
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon20')).toEqual('sizeIcon10');
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon30')).toEqual('sizeIcon10');
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon40')).toEqual('sizeIcon10');
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon50')).toEqual('sizeIcon20');
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon60')).toEqual('sizeIcon20');
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon70')).toEqual('sizeIcon30');
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon80')).toEqual('sizeIcon40');
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon90')).toEqual('sizeIcon50');
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon100')).toEqual('sizeIcon70');
+        expect(getCorrespondingIconSizeFromSizeToken('sizeIcon110')).toEqual('sizeIcon80');
+      });
+      it('should throw an error when non IconSize values are passed in', () => {
+        // @ts-expect-error
+        expect(() => getCorrespondingIconSizeFromSizeToken('size50')).toThrow();
+        // @ts-expect-error
+        expect(() => getCorrespondingIconSizeFromSizeToken(true)).toThrow();
+      });
     });
 
     describe('getComputedTokenNames', () => {
       it('should handle single size values', () => {
-        expect(getComputedTokenNames('sizeIcon50')).toEqual({fontSize: 'fontSize10', lineHeight: 'lineHeight50'});
+        expect(getComputedTokenNames('sizeIcon50')).toEqual({
+          fontSize: 'fontSize10',
+          lineHeight: 'lineHeight50',
+          iconSize: 'sizeIcon20',
+        });
       });
       it('should handle responsive size values', () => {
         expect(getComputedTokenNames(['sizeIcon50', 'sizeIcon100'])).toEqual({
           fontSize: ['fontSize10', 'fontSize60'],
           lineHeight: ['lineHeight50', 'lineHeight100'],
+          iconSize: ['sizeIcon20', 'sizeIcon70'],
         });
       });
     });
@@ -85,12 +127,44 @@ describe('Avatar', () => {
     });
   });
 
+  describe('ensure icon is a Paste Icon', () => {
+    it('should fail if icon is not a Paste Icon', () => {
+      // @ts-expect-error
+      expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon="UserIcon" />)).toThrow();
+      // @ts-expect-error
+      // eslint-disable-next-line react/jsx-boolean-value
+      expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon={true} />)).toThrow();
+      // @ts-expect-error
+      expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon={<Box />} />)).toThrow();
+    });
+  });
+
+  describe('Render an icon and its attributes', () => {
+    it('should render an svg', () => {
+      render(<Avatar data-testid="avatar" size="sizeIcon20" name="avatar example" icon={UserIcon} />);
+      const avatarComponent = screen.getByTestId('avatar');
+      expect(avatarComponent.querySelectorAll('svg').length).toEqual(1);
+    });
+    it('should not have an aria-hidden attribute set to true', () => {
+      render(<Avatar data-testid="avatar" size="sizeIcon20" name="avatar example" icon={UserIcon} />);
+      const avatarComponent = screen.getByTestId('avatar');
+      expect(avatarComponent.getAttribute('aria-hidden')).not.toEqual(true);
+    });
+    it('should have a title equal to name attribute of Avatar', () => {
+      const name = 'avatar example';
+      render(<Avatar data-testid="avatar" size="sizeIcon20" name={name} icon={UserIcon} />);
+      const avatarComponent = screen.getByTestId('avatar');
+      expect(avatarComponent.querySelector('title')).toHaveTextContent(name);
+    });
+  });
+
   describe('accessibility', () => {
     it('should have no accessibility violations', async () => {
       const {container} = render(
         <>
           <Avatar size="sizeIcon10" name="Simon Taggart" />
           <Avatar size="sizeIcon10" name="avatar example" src="/avatars/avatar2.png" />
+          <Avatar size="sizeIcon10" name="Simon Taggart" icon={UserIcon} />
         </>
       );
       const results = await axe(container);

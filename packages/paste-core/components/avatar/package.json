@@ -27,6 +27,7 @@
   "peerDependencies": {
     "@twilio-paste/box": "4.0.2",
     "@twilio-paste/design-tokens": "6.6.0",
+    "@twilio-paste/icons": "5.1.1",
     "@twilio-paste/style-props": "3.0.1",
     "@twilio-paste/styling-library": "0.3.1",
     "@twilio-paste/text": "4.0.1",
@@ -39,6 +40,7 @@
   "devDependencies": {
     "@twilio-paste/box": "4.0.2",
     "@twilio-paste/design-tokens": "6.6.0",
+    "@twilio-paste/icons": "5.1.1",
     "@twilio-paste/style-props": "3.0.1",
     "@twilio-paste/styling-library": "0.3.1",
     "@twilio-paste/text": "4.0.1",
