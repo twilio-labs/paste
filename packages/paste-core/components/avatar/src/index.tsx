@@ -6,7 +6,7 @@ import {isIconSizeTokenProp} from '@twilio-paste/style-props';
 import {getComputedTokenNames, getInitialsFromName} from './utils';
 import type {AvatarProps} from './types';
 
-const renderAvatarContents = ({name, size, src, icon: Icon}: AvatarProps): React.ReactElement => {
+const AvatarContents: React.FC<AvatarProps> = ({name, size, src, icon: Icon}) => {
   const computedTokenNames = getComputedTokenNames(size);
   if (Icon != null) {
     if (typeof Icon !== 'function' || typeof Icon.displayName !== 'string' || !Icon.displayName.includes('Icon')) {
@@ -53,7 +53,7 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
         ref={ref}
         size={size}
       >
-        {renderAvatarContents({name, size, src, icon, ...props})}
+        <AvatarContents name={name} size={size} src={src} icon={icon} {...props} />
       </Box>
     );
   }
