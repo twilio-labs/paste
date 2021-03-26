@@ -34,7 +34,7 @@ function generateUnbarreledExports(packageList) {
 function generateVersionedDependencyList(packageList) {
   const dependencies = {};
   packageList.forEach((package) => {
-    dependencies[package.name] = `${package.version}`;
+    dependencies[package.name] = `^${package.version}`;
   });
   return dependencies;
 }

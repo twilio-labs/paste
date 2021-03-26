@@ -22,7 +22,7 @@ const {
   // Sort the list so we don't get inconsistent ordering each rebuild
   const sortedPackageList = sortBy(filteredPublicPackages, ['name']);
   // Filter to all production ready core packages
-  const filteredCorePackageList = sortedPackageList.filter(item => item.location.includes('/paste-core/'));
+  const filteredCorePackageList = sortedPackageList.filter((item) => item.location.includes('/paste-core/'));
 
   /*
    * Write the index file
@@ -57,9 +57,15 @@ const {
    */
   // eslint-disable-next-line global-require, import/no-dynamic-require
   const packageJson = require(CORE_BUNDLE_PACKAGE_PATH);
+  /**
+   * Create a new Package.json file but keep existing version numbers, and only add new, not currently present packages
+   */
   const newPackageJson = {
     ...packageJson,
-    dependencies: generateVersionedDependencyList(sortedPackageList),
+    dependencies: {
+      ...generateVersionedDependencyList(sortedPackageList),
+      ...packageJson.dependencies,
+    },
   };
   const newPackageJsonString = `${JSON.stringify(newPackageJson, null, 2)}\n`;
   writeToFile(CORE_BUNDLE_PACKAGE_PATH, newPackageJsonString, {
