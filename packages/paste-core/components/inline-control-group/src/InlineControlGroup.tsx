@@ -13,11 +13,10 @@ export interface InlineControlGroupProps extends Omit<React.FieldsetHTMLAttribut
   orientation?: 'vertical' | 'horizontal';
   ref?: any;
   required?: boolean;
-  value?: string;
 }
 
 const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGroupProps>(
-  ({children, disabled, errorText, helpText, legend, orientation, required, value, ...props}, ref) => {
+  ({children, disabled, errorText, helpText, legend, orientation = 'vertical', required, ...props}, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -31,12 +30,12 @@ const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGr
           {legend}
         </Label>
         {helpText && <HelpText marginTop="space0">{helpText}</HelpText>}
-        <Box marginLeft="space20" marginRight="space20" marginTop="space40">
+        <Box marginLeft="space20" marginRight="space20">
           {React.Children.map(children, (child) => {
             return (
               <Box
                 display={orientation === 'horizontal' ? 'inline-block' : 'block'}
-                marginBottom="space40"
+                marginTop="space40"
                 marginRight={orientation === 'horizontal' ? 'space70' : null}
               >
                 {child}
@@ -44,9 +43,9 @@ const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGr
             );
           })}
           {errorText && (
-            <HelpText marginTop="space0" variant="error">
-              {errorText}
-            </HelpText>
+            <Box marginTop="space40">
+              <HelpText variant="error">{errorText}</HelpText>
+            </Box>
           )}
         </Box>
       </Box>
@@ -55,10 +54,6 @@ const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGr
 );
 
 InlineControlGroup.displayName = 'InlineControlGroup';
-
-InlineControlGroup.defaultProps = {
-  orientation: 'vertical',
-};
 
 if (process.env.NODE_ENV === 'development') {
   InlineControlGroup.propTypes = {
@@ -70,7 +65,6 @@ if (process.env.NODE_ENV === 'development') {
     name: PropTypes.string.isRequired,
     orientation: PropTypes.oneOf(['vertical', 'horizontal']),
     required: PropTypes.bool,
-    value: PropTypes.string,
   };
 }
 
