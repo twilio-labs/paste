@@ -12,6 +12,7 @@ export default {
   decorators: [withKnobs],
   component: MediaObject,
   subcomponents: {MediaFigure, MediaBody},
+  argTypes: {verticalAlign: {defaultValue: 'top'}},
 };
 
 export const Default = (): React.ReactNode => {
