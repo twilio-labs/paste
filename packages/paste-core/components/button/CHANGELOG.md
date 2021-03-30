@@ -1,5 +1,19 @@
 # Change Log
 
+## 7.0.0
+
+### Major Changes
+
+- [`1bcb8b30`](https://github.com/twilio-labs/paste/commit/1bcb8b3093920fdd871f8a13b498a8eb99201200) [#1307](https://github.com/twilio-labs/paste/pull/1307) Thanks [@TheSisb](https://github.com/TheSisb)! - BREAKING CHANGES:
+
+  Button components used as links (as="a" and href="") now automatically add an arrow icon if children is a string. This is a design breaking change that you should be aware of when upgrading.
+
+  Button also adds additional validation to throw an error if the `disabled` or `loading` props are set to `true` for a Button as link. This is a functionality breaking change to existing disabled link buttons.
+
+### Patch Changes
+
+- [`0eded1fd`](https://github.com/twilio-labs/paste/commit/0eded1fd63f081ba9aeab5b5946218e1c5b9b316) [#1319](https://github.com/twilio-labs/paste/pull/1319) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Change internal dependencies to have minor range matching on version numbers
+
 ## 6.0.1
 
 ### Patch Changes

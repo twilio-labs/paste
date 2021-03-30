@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/theme-designer",
-  "version": "0.2.23",
+  "version": "0.2.24",
   "author": "Twilio Inc.",
   "private": true,
   "license": "MIT",
@@ -10,8 +10,8 @@
     "start": "next start"
   },
   "dependencies": {
-    "@twilio-paste/core": "^8.0.0",
-    "@twilio-paste/icons": "^5.1.0",
+    "@twilio-paste/core": "^9.0.0",
+    "@twilio-paste/icons": "^5.1.2",
     "next": "10.0.4",
     "react-color": "^2.19.3"
   }

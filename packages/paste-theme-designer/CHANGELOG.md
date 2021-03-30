@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.2.24
+
+### Patch Changes
+
+- Updated dependencies [[`0eded1fd`](https://github.com/twilio-labs/paste/commit/0eded1fd63f081ba9aeab5b5946218e1c5b9b316), [`1bcb8b30`](https://github.com/twilio-labs/paste/commit/1bcb8b3093920fdd871f8a13b498a8eb99201200), [`3419ff64`](https://github.com/twilio-labs/paste/commit/3419ff64a07056ae365956d03ec62f1e5e619f29)]:
+  - @twilio-paste/core@9.0.0
+  - @twilio-paste/icons@5.1.2
+
 ## 0.2.23
 
 ### Patch Changes

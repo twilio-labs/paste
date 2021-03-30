@@ -1,5 +1,74 @@
 # Change Log
 
+## 9.0.0
+
+### Major Changes
+
+- [`1bcb8b30`](https://github.com/twilio-labs/paste/commit/1bcb8b3093920fdd871f8a13b498a8eb99201200) [#1307](https://github.com/twilio-labs/paste/pull/1307) Thanks [@TheSisb](https://github.com/TheSisb)! - BREAKING CHANGES:
+
+  Button components used as links (as="a" and href="") now automatically add an arrow icon if children is a string. This is a design breaking change that you should be aware of when upgrading.
+
+  Button also adds additional validation to throw an error if the `disabled` or `loading` props are set to `true` for a Button as link. This is a functionality breaking change to existing disabled link buttons.
+
+### Minor Changes
+
+- [`3419ff64`](https://github.com/twilio-labs/paste/commit/3419ff64a07056ae365956d03ec62f1e5e619f29) [#1281](https://github.com/twilio-labs/paste/pull/1281) Thanks [@nkrantz](https://github.com/nkrantz)! - Created an 'icon' prop on Avatar so that users can display Paste icons inside of Avatar components.
+
+### Patch Changes
+
+- [`0eded1fd`](https://github.com/twilio-labs/paste/commit/0eded1fd63f081ba9aeab5b5946218e1c5b9b316) [#1319](https://github.com/twilio-labs/paste/pull/1319) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Change internal dependencies to have minor range matching on version numbers
+
+- Updated dependencies [[`0eded1fd`](https://github.com/twilio-labs/paste/commit/0eded1fd63f081ba9aeab5b5946218e1c5b9b316), [`1bcb8b30`](https://github.com/twilio-labs/paste/commit/1bcb8b3093920fdd871f8a13b498a8eb99201200), [`3419ff64`](https://github.com/twilio-labs/paste/commit/3419ff64a07056ae365956d03ec62f1e5e619f29)]:
+  - @twilio-paste/alert@7.0.0
+  - @twilio-paste/anchor@5.0.2
+  - @twilio-paste/avatar@2.1.0
+  - @twilio-paste/base-radio-checkbox@6.0.2
+  - @twilio-paste/breadcrumb@4.0.2
+  - @twilio-paste/button@7.0.0
+  - @twilio-paste/card@3.0.3
+  - @twilio-paste/checkbox@6.0.2
+  - @twilio-paste/combobox@7.0.0
+  - @twilio-paste/disclosure@5.0.2
+  - @twilio-paste/heading@5.0.2
+  - @twilio-paste/help-text@6.0.2
+  - @twilio-paste/inline-control-group@6.0.2
+  - @twilio-paste/input@3.0.4
+  - @twilio-paste/input-box@4.0.3
+  - @twilio-paste/label@6.0.2
+  - @twilio-paste/list@2.0.2
+  - @twilio-paste/menu@7.0.0
+  - @twilio-paste/modal@7.0.0
+  - @twilio-paste/paragraph@4.0.2
+  - @twilio-paste/popover@6.0.0
+  - @twilio-paste/radio-group@6.0.2
+  - @twilio-paste/screen-reader-only@6.0.2
+  - @twilio-paste/select@5.0.2
+  - @twilio-paste/separator@2.0.3
+  - @twilio-paste/spinner@7.0.2
+  - @twilio-paste/table@2.0.3
+  - @twilio-paste/tabs@2.0.3
+  - @twilio-paste/textarea@3.0.4
+  - @twilio-paste/toast@5.0.0
+  - @twilio-paste/tooltip@4.0.2
+  - @twilio-paste/truncate@6.0.2
+  - @twilio-paste/aspect-ratio@4.0.3
+  - @twilio-paste/flex@2.0.3
+  - @twilio-paste/grid@2.0.3
+  - @twilio-paste/media-object@4.0.3
+  - @twilio-paste/stack@2.0.3
+  - @twilio-paste/box@4.0.3
+  - @twilio-paste/combobox-primitive@0.2.4
+  - @twilio-paste/disclosure-primitive@0.3.4
+  - @twilio-paste/menu-primitive@0.2.4
+  - @twilio-paste/non-modal-dialog-primitive@0.3.4
+  - @twilio-paste/sibling-box@3.0.3
+  - @twilio-paste/tabs-primitive@0.2.3
+  - @twilio-paste/text@4.0.2
+  - @twilio-paste/tooltip-primitive@0.2.4
+  - @twilio-paste/customization@2.0.2
+  - @twilio-paste/style-props@3.0.2
+  - @twilio-paste/theme@5.0.2
+
 ## 8.0.2
 
 ### Patch Changes

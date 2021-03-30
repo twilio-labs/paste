@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/table",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "category": "data display",
   "status": "production",
   "description": "Tables are used to display information that is meant to be compared across columns and rows.",
@@ -36,11 +36,11 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^4.0.2",
+    "@twilio-paste/box": "^4.0.3",
     "@twilio-paste/design-tokens": "^6.6.0",
-    "@twilio-paste/style-props": "^3.0.1",
+    "@twilio-paste/style-props": "^3.0.2",
     "@twilio-paste/styling-library": "^0.3.1",
-    "@twilio-paste/theme": "^5.0.1",
+    "@twilio-paste/theme": "^5.0.2",
     "@twilio-paste/types": "^3.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
