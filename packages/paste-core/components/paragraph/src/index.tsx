@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text} from '@twilio-paste/text';
+import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 
 export interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
   id?: never;
@@ -7,9 +7,10 @@ export interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElemen
   marginBottom?: 'space0';
 }
 
-const Paragraph = React.forwardRef<HTMLParagraphElement, ParagraphProps>(({children, marginBottom}, ref) => {
+const Paragraph = React.forwardRef<HTMLParagraphElement, ParagraphProps>(({children, marginBottom, ...props}, ref) => {
   return (
     <Text
+      {...safelySpreadTextProps(props)}
       as="p"
       marginBottom={marginBottom || 'space70'}
       fontSize="fontSize30"
