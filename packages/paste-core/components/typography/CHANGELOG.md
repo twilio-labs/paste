@@ -1,5 +1,16 @@
 # Change Log
 
+## 3.0.2
+
+### Patch Changes
+
+- [`0eded1fd`](https://github.com/twilio-labs/paste/commit/0eded1fd63f081ba9aeab5b5946218e1c5b9b316) [#1319](https://github.com/twilio-labs/paste/pull/1319) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Change internal dependencies to have minor range matching on version numbers
+
+- Updated dependencies [[`0eded1fd`](https://github.com/twilio-labs/paste/commit/0eded1fd63f081ba9aeab5b5946218e1c5b9b316)]:
+  - @twilio-paste/heading@5.0.2
+  - @twilio-paste/list@2.0.2
+  - @twilio-paste/paragraph@4.0.2
+
 ## 3.0.1
 
 ### Patch Changes

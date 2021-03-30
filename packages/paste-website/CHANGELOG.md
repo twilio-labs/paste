@@ -1,5 +1,59 @@
 # Change Log
 
+## 2.23.6
+
+### Patch Changes
+
+- Updated dependencies [[`0eded1fd`](https://github.com/twilio-labs/paste/commit/0eded1fd63f081ba9aeab5b5946218e1c5b9b316), [`1bcb8b30`](https://github.com/twilio-labs/paste/commit/1bcb8b3093920fdd871f8a13b498a8eb99201200), [`3419ff64`](https://github.com/twilio-labs/paste/commit/3419ff64a07056ae365956d03ec62f1e5e619f29)]:
+  - @twilio-paste/alert@7.0.0
+  - @twilio-paste/anchor@5.0.2
+  - @twilio-paste/avatar@2.1.0
+  - @twilio-paste/base-radio-checkbox@6.0.2
+  - @twilio-paste/breadcrumb@4.0.2
+  - @twilio-paste/button@7.0.0
+  - @twilio-paste/checkbox@6.0.2
+  - @twilio-paste/combobox@7.0.0
+  - @twilio-paste/disclosure@5.0.2
+  - @twilio-paste/form@6.0.2
+  - @twilio-paste/heading@5.0.2
+  - @twilio-paste/help-text@6.0.2
+  - @twilio-paste/inline-control-group@6.0.2
+  - @twilio-paste/input@3.0.4
+  - @twilio-paste/input-box@4.0.3
+  - @twilio-paste/label@6.0.2
+  - @twilio-paste/list@2.0.2
+  - @twilio-paste/menu@7.0.0
+  - @twilio-paste/modal@7.0.0
+  - @twilio-paste/paragraph@4.0.2
+  - @twilio-paste/popover@6.0.0
+  - @twilio-paste/radio-group@6.0.2
+  - @twilio-paste/screen-reader-only@6.0.2
+  - @twilio-paste/select@5.0.2
+  - @twilio-paste/separator@2.0.3
+  - @twilio-paste/spinner@7.0.2
+  - @twilio-paste/table@2.0.3
+  - @twilio-paste/tabs@2.0.3
+  - @twilio-paste/textarea@3.0.4
+  - @twilio-paste/toast@5.0.0
+  - @twilio-paste/tooltip@4.0.2
+  - @twilio-paste/aspect-ratio@4.0.3
+  - @twilio-paste/flex@2.0.3
+  - @twilio-paste/grid@2.0.3
+  - @twilio-paste/media-object@4.0.3
+  - @twilio-paste/stack@2.0.3
+  - @twilio-paste/box@4.0.3
+  - @twilio-paste/combobox-primitive@0.2.4
+  - @twilio-paste/disclosure-primitive@0.3.4
+  - @twilio-paste/menu-primitive@0.2.4
+  - @twilio-paste/non-modal-dialog-primitive@0.3.4
+  - @twilio-paste/sibling-box@3.0.3
+  - @twilio-paste/tabs-primitive@0.2.3
+  - @twilio-paste/text@4.0.2
+  - @twilio-paste/tooltip-primitive@0.2.4
+  - @twilio-paste/icons@5.1.2
+  - @twilio-paste/style-props@3.0.2
+  - @twilio-paste/theme@5.0.2
+
 ## 2.23.5
 
 ### Patch Changes
