@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/radio-group",
-  "version": "6.0.2",
+  "version": "6.0.3",
   "category": "user input",
   "status": "production",
   "description": "A radio group is used for selecting a single choice from a list of at least two options",
@@ -52,7 +52,7 @@
     "@twilio-paste/flex": "^2.0.3",
     "@twilio-paste/help-text": "^6.0.2",
     "@twilio-paste/icons": "^5.1.2",
-    "@twilio-paste/inline-control-group": "^6.0.2",
+    "@twilio-paste/inline-control-group": "^6.0.3",
     "@twilio-paste/label": "^6.0.2",
     "@twilio-paste/screen-reader-only": "^6.0.2",
     "@twilio-paste/sibling-box": "^3.0.3",
