@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.2.0
+
+### Minor Changes
+
+- [`3f99ec87`](https://github.com/twilio-labs/paste/commit/3f99ec87db3825247f6f805d6755640e0c9d4fab) [#1334](https://github.com/twilio-labs/paste/pull/1334) Thanks [@serifluous](https://github.com/serifluous)! - Add DataBarChartIcon, DataLineChartIcon, DataPieChartIcon, DataTableIcon, HideIcon, ShowIcon. Fix viewbox sizing issue with CreditCardIcon. Minor glyph update to some product logo icons.
+
 ## 5.1.2
 
 ### Patch Changes
