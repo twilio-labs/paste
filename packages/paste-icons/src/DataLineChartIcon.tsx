@@ -6,16 +6,16 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface CreditCardIconProps extends IconWrapperProps {
+export interface DataLineChartIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const CreditCardIcon: React.FC<CreditCardIconProps> = ({as, display, size, color, title, decorative}) => {
-  const titleId = `CreditCardIcon-${useUID()}`;
+const DataLineChartIcon: React.FC<DataLineChartIconProps> = ({as, display, size, color, title, decorative}) => {
+  const titleId = `DataLineChartIcon-${useUID()}`;
 
   if (!decorative && title == null) {
-    throw new Error('[CreditCardIcon]: Missing a title for non-decorative icon.');
+    throw new Error('[DataLineChartIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
@@ -30,16 +30,15 @@ const CreditCardIcon: React.FC<CreditCardIconProps> = ({as, display, size, color
         aria-labelledby={titleId}
       >
         {title ? <title id={titleId}>{title}</title> : null}
+        <path fill="currentColor" d="M4 3.5a.5.5 0 00-1 0v13a.5.5 0 00.5.5h13a.5.5 0 000-1H4V3.5z" />
         <path
           fill="currentColor"
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M2 6.5A1.5 1.5 0 013.5 5h13A1.5 1.5 0 0118 6.5v8a1.5 1.5 0 01-1.5 1.5h-13A1.5 1.5 0 012 14.5v-8zm15 0V8H3V6.5a.5.5 0 01.5-.5h13a.5.5 0 01.5.5zM17 9H3v5.5a.5.5 0 00.5.5h13a.5.5 0 00.5-.5V9zm-6.5 3a.5.5 0 000 1h4a.5.5 0 000-1h-4z"
+          d="M15.854 8.354a.5.5 0 00-.708-.708l-3.307 3.309a.127.127 0 01-.089.037.124.124 0 01-.088-.037l-1.616-1.616a1.126 1.126 0 00-1.591 0l-3.309 3.307a.5.5 0 10.708.708l3.308-3.308a.127.127 0 01.088-.037.125.125 0 01.089.037l1.616 1.616a1.125 1.125 0 001.591 0l3.308-3.308z"
         />
       </svg>
     </IconWrapper>
   );
 };
 
-CreditCardIcon.displayName = 'CreditCardIcon';
-export {CreditCardIcon};
+DataLineChartIcon.displayName = 'DataLineChartIcon';
+export {DataLineChartIcon};

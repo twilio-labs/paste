@@ -6,16 +6,16 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface CreditCardIconProps extends IconWrapperProps {
+export interface DataPieChartIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const CreditCardIcon: React.FC<CreditCardIconProps> = ({as, display, size, color, title, decorative}) => {
-  const titleId = `CreditCardIcon-${useUID()}`;
+const DataPieChartIcon: React.FC<DataPieChartIconProps> = ({as, display, size, color, title, decorative}) => {
+  const titleId = `DataPieChartIcon-${useUID()}`;
 
   if (!decorative && title == null) {
-    throw new Error('[CreditCardIcon]: Missing a title for non-decorative icon.');
+    throw new Error('[DataPieChartIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
@@ -34,12 +34,12 @@ const CreditCardIcon: React.FC<CreditCardIconProps> = ({as, display, size, color
           fill="currentColor"
           fillRule="evenodd"
           clipRule="evenodd"
-          d="M2 6.5A1.5 1.5 0 013.5 5h13A1.5 1.5 0 0118 6.5v8a1.5 1.5 0 01-1.5 1.5h-13A1.5 1.5 0 012 14.5v-8zm15 0V8H3V6.5a.5.5 0 01.5-.5h13a.5.5 0 01.5.5zM17 9H3v5.5a.5.5 0 00.5.5h13a.5.5 0 00.5-.5V9zm-6.5 3a.5.5 0 000 1h4a.5.5 0 000-1h-4z"
+          d="M5.05 14.95a7 7 0 119.9-9.9 7 7 0 01-9.9 9.9zM15.98 9.5a6 6 0 00-5.48-5.48V9.5h5.48zM9.5 4.02a6 6 0 102.924 11.468l-2.858-5.24A.498.498 0 019.5 9.99V4.02zm1.342 6.48h5.137a6 6 0 01-2.677 4.51l-2.46-4.51z"
         />
       </svg>
     </IconWrapper>
   );
 };
 
-CreditCardIcon.displayName = 'CreditCardIcon';
-export {CreditCardIcon};
+DataPieChartIcon.displayName = 'DataPieChartIcon';
+export {DataPieChartIcon};
