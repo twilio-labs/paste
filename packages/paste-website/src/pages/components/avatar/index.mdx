@@ -1,7 +1,7 @@
 ---
 title: Avatar
 package: '@twilio-paste/avatar'
-description: The Avatar is a pictorial representation of a user or object 👩‍🎤. It can display the initials of that entity or an image.
+description: The Avatar is a pictorial representation of a user or object 👩‍🎤. It can display the initials of that entity, an image or a Paste Icon.
 slug: /components/avatar/
 ---
 
@@ -14,6 +14,7 @@ import {Avatar} from '@twilio-paste/avatar';
 import Changelog from '@twilio-paste/avatar/CHANGELOG.md';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
+import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 
 export const pageQuery = graphql`
   {
@@ -74,7 +75,7 @@ export const pageQuery = graphql`
 
 <p>
   {props.pageContext.frontmatter.description} The Avatar can be sized in the same way as the{' '}
-  <a href="/icons">Paste Icon</a>.
+  <a href="/icons/usage-guidelines/#resizing-icons">Paste Icon</a>.
 </p>
 
 ## Examples
@@ -112,7 +113,7 @@ Provide the Avatar with a `name` and the component will render the initials as t
 
 ### Representing an entity via an image
 
-Provide the Avatar with a source path via the `src` prop to render the Avatar as an image. The `src` prop acts just like an `img` tag. You **must** still provide the name of the entity.
+Provide the Avatar with a source path via the `src` prop to render the Avatar as an image. The `src` prop acts just like an `img` tag. You **must** still provide a `name` prop.
 
 <LivePreview
   scope={{
@@ -130,6 +131,30 @@ Provide the Avatar with a source path via the `src` prop to render the Avatar as
   <Avatar size="sizeIcon90" name="avatar example" src="/images/avatars/avatar2.png" />
   <Avatar size="sizeIcon100" name="avatar example" src="/images/avatars/avatar3.png" />
   <Avatar size="sizeIcon110" name="avatar example" src="/images/avatars/avatar4.png" />
+</Stack>`}
+</LivePreview>
+
+### Representing an entity via an icon
+
+Provide the Avatar with an `icon` prop to display an icon. You must import the icon before passing it to the `icon` prop. You **must** still provide a `name` prop. The icon must be a <a href="https://paste.twilio.design/icons/">Paste Icon</a>.
+
+<LivePreview
+  scope={{
+    Avatar,
+    Stack,
+    UserIcon,
+  }}
+>
+  {`<Stack orientation="horizontal" spacing="space40">
+  <Avatar size="sizeIcon30" name="avatar example" icon={UserIcon} />
+  <Avatar size="sizeIcon40" name="avatar example" icon={UserIcon} />
+  <Avatar size="sizeIcon50" name="avatar example" icon={UserIcon} />
+  <Avatar size="sizeIcon60" name="avatar example" icon={UserIcon} />
+  <Avatar size="sizeIcon70" name="avatar example" icon={UserIcon} />
+  <Avatar size="sizeIcon80" name="avatar example" icon={UserIcon} />
+  <Avatar size="sizeIcon90" name="avatar example" icon={UserIcon} />
+  <Avatar size="sizeIcon100" name="avatar example" icon={UserIcon} />
+  <Avatar size="sizeIcon110" name="avatar example" icon={UserIcon} />
 </Stack>`}
 </LivePreview>
 
