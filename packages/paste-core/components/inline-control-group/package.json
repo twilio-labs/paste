@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/inline-control-group",
-  "version": "6.0.2",
+  "version": "6.0.3",
   "category": "user input",
   "status": "production",
   "description": "A base component for creating input groups",

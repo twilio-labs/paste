@@ -7,6 +7,7 @@ import {RadioContext} from './RadioContext';
 export interface RadioGroupProps extends InlineControlGroupProps {
   name: string;
   onChange: (value: string) => void;
+  value?: string;
 }
 
 const RadioGroup = React.forwardRef<HTMLFieldSetElement, RadioGroupProps>(
@@ -45,6 +46,7 @@ if (process.env.NODE_ENV === 'development') {
   RadioGroup.propTypes = {
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
+    value: PropTypes.string,
   };
 }
 
