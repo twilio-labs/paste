@@ -166,6 +166,7 @@ The Avatar `size` can be set as a responsive array of sizes.
   scope={{
     Avatar,
     Stack,
+    UserIcon,
   }}
 >
   {`<Stack orientation="horizontal" spacing="space40">
@@ -177,6 +178,11 @@ The Avatar `size` can be set as a responsive array of sizes.
     size={["sizeIcon20", "sizeIcon70", "sizeIcon110"]}
     name="avatar example"
     src="/images/avatars/avatar4.png"
+  />
+  <Avatar
+  size={["sizeIcon20", "sizeIcon70", "sizeIcon110"]}
+  name="avatar example"
+  icon={UserIcon}
   />
 </Stack>`}
 </LivePreview>
