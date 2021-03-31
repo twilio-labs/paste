@@ -1,5 +1,23 @@
 # Change Log
 
+## 9.0.1
+
+### Patch Changes
+
+- [`1a7bb349`](https://github.com/twilio-labs/paste/commit/1a7bb349186cdd2d131d44f0a22996a7df61e8c3) [#974](https://github.com/twilio-labs/paste/pull/974) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [RadioGroup] Added optional `value` string prop which this component needs and is no longer on the extended `InlineControlGroup` interface.
+
+* [`5e08f10d`](https://github.com/twilio-labs/paste/commit/5e08f10da50f13c057bb20a7208fcfb7ff08d6ad) [#974](https://github.com/twilio-labs/paste/pull/974) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Checkbox] Remove unused `value` prop.
+
+- [`9df657df`](https://github.com/twilio-labs/paste/commit/9df657df7e4994dee1b0dfa9071f8f50041adb0c) [#974](https://github.com/twilio-labs/paste/pull/974) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [InlineControlGroup] Adjusted the vertical spacing of `children`. This change improve the handling of RadioGroup and CheckboxGroup children.
+
+* [`d000a4e4`](https://github.com/twilio-labs/paste/commit/d000a4e4c88bc0d3dd67532df937b805191fe4c0) [#1333](https://github.com/twilio-labs/paste/pull/1333) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Paragraph] allow for global HTML attriutes to be passed to the paragraph element
+
+* Updated dependencies [[`1a7bb349`](https://github.com/twilio-labs/paste/commit/1a7bb349186cdd2d131d44f0a22996a7df61e8c3), [`5e08f10d`](https://github.com/twilio-labs/paste/commit/5e08f10da50f13c057bb20a7208fcfb7ff08d6ad), [`9df657df`](https://github.com/twilio-labs/paste/commit/9df657df7e4994dee1b0dfa9071f8f50041adb0c), [`d000a4e4`](https://github.com/twilio-labs/paste/commit/d000a4e4c88bc0d3dd67532df937b805191fe4c0)]:
+  - @twilio-paste/radio-group@6.0.3
+  - @twilio-paste/checkbox@6.0.3
+  - @twilio-paste/inline-control-group@6.0.3
+  - @twilio-paste/paragraph@4.0.3
+
 ## 9.0.0
 
 ### Major Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.0.3
+
+### Patch Changes
+
+- [`1a7bb349`](https://github.com/twilio-labs/paste/commit/1a7bb349186cdd2d131d44f0a22996a7df61e8c3) [#974](https://github.com/twilio-labs/paste/pull/974) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [RadioGroup] Added optional `value` string prop which this component needs and is no longer on the extended `InlineControlGroup` interface.
+
 ## 6.0.2
 
 ### Patch Changes
