@@ -66,7 +66,9 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
               size={IconSizeFromHeading[variant] || 'sizeIcon20'}
             />
           </Box>
-          <Box flexGrow={1}>{children}</Box>
+          <Box display="flex" flexGrow={1} minWidth="0px">
+            {children}
+          </Box>
         </Box>
       </Heading>
     );
