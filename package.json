@@ -149,7 +149,7 @@
     "jest": "26.6.0",
     "jest-axe": "^4.1.0",
     "jest-emotion": "^10.0.32",
-    "lerna": "^3.22.1",
+    "lerna": "^4.0.0",
     "lodash": "^4.17.19",
     "lodash.difference": "^4.5.0",
     "lodash.kebabcase": "^4.1.1",
