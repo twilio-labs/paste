@@ -1,12 +1,10 @@
 import * as React from 'react';
-import {withKnobs, text, select} from '@storybook/addon-knobs';
-import type {HeadingProps} from '@twilio-paste/heading';
+import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
+import {Truncate} from '@twilio-paste/truncate';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState} from '../src';
 import type {DisclosureHeadingProps, DisclosureInitialState, DisclosureStateReturn, DisclosureVariants} from '../src';
-
-const headingVariantOptions = ['heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60'];
 
 export const ExampleDisclosures: React.FC<{
   disabled?: boolean;
@@ -63,28 +61,10 @@ const useDelayedDisclosureState = ({delay, ...initialState}: UseDelayedDisclosur
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Disclosure',
-  decorators: [withKnobs],
+  decorators: [],
   excludeStories: ['ExampleDisclosures'],
   component: Disclosure,
   subcomponents: {DisclosureHeading, DisclosureContent},
-};
-
-export const AllVariants = (): React.ReactNode => {
-  const asOptions = text('as', 'h2') as HeadingProps['as'];
-  const headingVariantValue = select('heading variant', headingVariantOptions, 'heading10') as HeadingProps['variant'];
-  const variantOptions = select('disclosure variant', ['default', 'contained'], 'default');
-  return (
-    <Disclosure variant={variantOptions}>
-      <DisclosureHeading as={asOptions} variant={headingVariantValue}>
-        Disclosure trigger as heading
-      </DisclosureHeading>
-      <DisclosureContent>Disclosure content</DisclosureContent>
-    </Disclosure>
-  );
-};
-
-AllVariants.story = {
-  name: 'All variants',
 };
 
 export const HeadingVariant10 = (): React.ReactNode => {
@@ -174,6 +154,28 @@ export const MultilineHeading = (): React.ReactNode => {
 
 MultilineHeading.story = {
   name: 'Multiline heading',
+};
+
+export const TruncatedHeader = (): React.ReactNode => {
+  return (
+    <Box width="size40">
+      <Disclosure variant="contained">
+        <DisclosureHeading as="h3" variant="heading30">
+          <Truncate>This is a really long header with truncation</Truncate>
+        </DisclosureHeading>
+        <DisclosureContent>
+          Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus
+          commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae elit libero, a
+          pharetra augue.
+        </DisclosureContent>
+      </Disclosure>
+    </Box>
+  );
+};
+
+TruncatedHeader.story = {
+  name: 'Truncated Header',
 };
 
 export const ContainedHeadingVariant10 = (): React.ReactNode => {
