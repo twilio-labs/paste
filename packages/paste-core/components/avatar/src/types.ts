@@ -3,7 +3,7 @@ import type {GenericIconProps} from '@twilio-paste/icons/esm/types';
 
 export interface AvatarProps extends React.HTMLAttributes<'div'> {
   name: string;
-  size: IconSize;
+  size?: IconSize;
   src?: string;
   icon?: React.FC<GenericIconProps>;
 }
