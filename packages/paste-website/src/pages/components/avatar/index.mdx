@@ -180,9 +180,9 @@ The Avatar `size` can be set as a responsive array of sizes.
     src="/images/avatars/avatar4.png"
   />
   <Avatar
-  size={["sizeIcon20", "sizeIcon70", "sizeIcon110"]}
-  name="avatar example"
-  icon={UserIcon}
+    size={["sizeIcon20", "sizeIcon70", "sizeIcon110"]}
+    name="avatar example"
+    icon={UserIcon}
   />
 </Stack>`}
 </LivePreview>
@@ -231,6 +231,8 @@ const AvatarExample = () => {
 };
 ```
 
+**Note:** Avatar can only display _one_ of the following options (initials, image, icon) at a time. If both `src` and `icon` props are provided in addition to `name`, the Avatar will display the icon, not the image.
+
 #### Props
 
 ##### `name` string
@@ -244,6 +246,10 @@ Responsive size property that takes IconSize token names.
 ##### `src` string
 
 Used to set the image `src` attribute when setting an image as the Avatar.
+
+##### `icon` Paste Icon
+
+Specify a Paste Icon to be displayed in the Avatar.
 
 <ChangelogRevealer>
   <Changelog />
