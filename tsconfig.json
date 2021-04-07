@@ -27,5 +27,20 @@
     "noUnusedParameters": true,
     "strict": true
   },
-  "exclude": ["node_modules", "docs", "dist", "__testfixtures__"]
+  "include": ["packages/**/*"],
+  "exclude": [
+    "node_modules",
+    "docs",
+    "**/*.js",
+    "dist",
+    "lib",
+    "bin",
+    "public",
+    ".cache",
+    ".next",
+    ".yarn",
+    "cjs",
+    "esm",
+    "__testfixtures__"
+  ]
 }

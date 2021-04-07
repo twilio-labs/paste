@@ -10,8 +10,8 @@
     "build": "GATSBY_TELEMETRY_DISABLED=1 gatsby build",
     "serve": "GATSBY_TELEMETRY_DISABLED=1 gatsby serve",
     "format": "prettier --write src/**/*.{js,jsx}",
-    "type-check": "tsc --noEmit",
-    "type-check:watch": "yarn type-check -- --watch",
+    "tsc": "tsc --noEmit",
+    "tsc:watch": "yarn type-check -- --watch",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "setup-env": "vercel env pull"
   },

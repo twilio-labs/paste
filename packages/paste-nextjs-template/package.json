@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc --noEmit"
+    "tsc": "tsc --noEmit"
   },
   "dependencies": {
     "@twilio-paste/core": "^9.0.0",
