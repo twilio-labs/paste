@@ -6,7 +6,9 @@ import {isIconSizeTokenProp} from '@twilio-paste/style-props';
 import {getComputedTokenNames, getInitialsFromName} from './utils';
 import type {AvatarProps} from './types';
 
-const AvatarContents: React.FC<AvatarProps> = ({name, size, src, icon: Icon}) => {
+const DEFAULT_SIZE = 'sizeIcon70';
+
+const AvatarContents: React.FC<AvatarProps> = ({name, size = DEFAULT_SIZE, src, icon: Icon}) => {
   const computedTokenNames = getComputedTokenNames(size);
   if (Icon != null) {
     if (typeof Icon !== 'function' || typeof Icon.displayName !== 'string' || !Icon.displayName.includes('Icon')) {
@@ -38,7 +40,7 @@ const AvatarContents: React.FC<AvatarProps> = ({name, size, src, icon: Icon}) =>
 };
 
 const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
-  ({name, children, size = 'sizeIcon70', src, icon, ...props}, ref) => {
+  ({name, children, size = DEFAULT_SIZE, src, icon, ...props}, ref) => {
     if (name === undefined) {
       console.error('[Paste Avatar]: name prop is required');
     }
