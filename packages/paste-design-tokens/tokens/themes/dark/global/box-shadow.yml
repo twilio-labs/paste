@@ -27,7 +27,7 @@ props:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-90}"
     comment: Light shadow border for disabled inputs.
   shadow-border:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-80}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-50}"
     comment: Shadow border for inputs.
   shadow-border-primary-weaker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-20}"
