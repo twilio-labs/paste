@@ -13,34 +13,34 @@ const merge = require('lodash.merge');
  * legacy global styles "a {...}" when button is set as an anchor
  */
 const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default, {
-  color: 'colorTextInverse',
+  color: 'colorTextWeakest',
   backgroundColor: 'colorBackgroundPrimary',
   boxShadow: 'shadowBorderPrimary',
   _hover: {
-    color: 'colorTextInverse',
+    color: 'colorTextWeakest',
     backgroundColor: 'colorBackgroundPrimaryStronger',
     boxShadow: 'shadowBorderPrimaryStronger',
   },
   _focus: {
-    color: 'colorTextInverse',
+    color: 'colorTextWeakest',
     backgroundColor: 'colorBackgroundPrimaryStronger',
     boxShadow: 'shadowFocus',
   },
   _active: {
-    color: 'colorTextInverse',
+    color: 'colorTextWeakest',
     backgroundColor: 'colorBackgroundPrimaryStrong',
     boxShadow: 'shadowBorderPrimaryStronger',
   },
 });
 
 const loadingStyles: BoxStyleProps = merge({}, BaseStyles.loading, {
-  color: 'colorTextInverse',
+  color: 'colorTextWeakest',
   backgroundColor: 'colorBackgroundPrimaryStronger',
   boxShadow: 'shadowBorderPrimaryStronger',
 });
 
 const disabledStyles = merge({}, BaseStyles.disabled, {
-  color: 'colorTextInverse',
+  color: 'colorTextWeakest',
   backgroundColor: 'colorBackgroundPrimaryWeak',
   boxShadow: 'shadowBorderPrimaryWeak',
 });
