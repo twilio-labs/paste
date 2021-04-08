@@ -8,25 +8,25 @@ imports:
 props:
   # body text
   color-text:
-    value: "{!palette-gray-0}"
+    value: "{!palette-gray-10}"
     comment: Body text color
   color-text-weak:
-    value: "{!palette-gray-60}"
+    value: "{!palette-gray-30}"
     comment: Weak body text for visual hierarchy.
   color-text-weaker:
-    value: "{!palette-gray-80}"
+    value: "{!palette-gray-50}"
     comment: Weaker body text for visual hierarchy. Inaccessible unless used on disabled controls.
   color-text-inverse:
-    value: "{!palette-gray-100}"
+    value: "{!palette-gray-0}"
     comment: Inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
   color-text-inverse-weak:
-    value: "{!palette-gray-70}"
+    value: "{!palette-gray-40}"
     comment: Weak inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
   color-text-inverse-weaker:
-    value: "{!palette-gray-40}"
+    value: "{!palette-gray-100}"
     comment: Weaker inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
   color-text-brand-inverse:
-    value: "{!palette-gray-100}"
+    value: "{!palette-gray-0}"
     comment: Text color used on any brand color
   color-text-brand-highlight:
     value: "{!brand-highlight}"
@@ -34,42 +34,42 @@ props:
 
   # links
   color-text-link:
-    value: "{!palette-blue-60}"
+    value: "{!palette-blue-50}"
     comment: Link text
   color-text-link-weak:
-    value: "{!palette-blue-80}"
+    value: "{!palette-gray-0-transparent-20}"
     comment: Light shade of link text to be used in interactions
   color-text-link-strong:
-    value: "{!palette-blue-30}"
+    value: "{!palette-gray-0-transparent-10}"
     comment: Dark shade of link text to be used in interactions
   color-text-link-stronger:
-    value: "{!palette-blue-20}"
+    value: "{!palette-gray-0}"
     comment: Darker shade of link text to be used in interactions
   color-text-link-destructive:
-    value: "{!palette-red-40}"
+    value: "{!palette-red-50}"
     comment: Destructive link text
   color-text-link-destructive-weak:
-    value: "{!palette-red-80}"
+    value: "{!palette-gray-0-transparent-20}"
     comment: Light shade of destructive link text to be used in interactions
   color-text-link-destructive-strong:
-    value: "{!palette-red-30}"
+    value: "{!palette-gray-0-transparent-10}"
     comment: Dark shade of destructive link text to be used in interactions
   color-text-link-destructive-stronger:
-    value: "{!palette-red-20}"
+    value: "{!palette-gray-0}"
     comment: Darker shade of destructive link text to be used in interactions
 
   #status
   color-text-error-weak:
-    value: "{!palette-red-80}"
+    value: "{!palette-gray-0}"
     comment: Light error text for inputs and error misc
   color-text-error:
-    value: "{!palette-red-40}"
+    value: "{!palette-red-50}"
     comment: Error text for inputs and error misc
   color-text-error-strong:
-    value: "{!palette-red-30}"
+    value: "{!palette-red-50}"
     comment: Dark error text for inputs and error misc
   color-text-success:
-    value: "{!palette-green-50}"
+    value: "{!palette-green-40}"
     comment: Text color for success text.
   color-text-success-strong:
     value: "{!palette-green-40}"
@@ -78,22 +78,22 @@ props:
     value: "{!palette-green-30}"
     comment: Text color for success text.
   color-text-warning:
-    value: "{!palette-orange-40}"
+    value: "{!palette-orange-60}"
     comment: Color for warning text.
   color-text-warning-strong:
-    value: "{!palette-orange-30}"
+    value: "{!palette-orange-80}"
     comment: Color for dark warning text.
   color-text-new:
     value: "{!palette-purple-40}"
     comment: Color for text indicating a new status.
   color-text-neutral:
-    value: "{!palette-blue-60}"
+    value: "{!palette-blue-50}"
     comment: Color for text indicating a neutral status.
 
     #icon
   color-text-icon:
-    value: "{!palette-gray-50}"
+    value: "{!palette-gray-10}"
     comment: Default icon color.
   color-text-icon-inverse:
-    value: "{!palette-gray-60}"
+    value: "{!palette-gray-80}"
     comment: Default icon color for inverse backgrounds.

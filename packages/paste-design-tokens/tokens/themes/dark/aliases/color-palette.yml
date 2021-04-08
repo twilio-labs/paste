@@ -75,6 +75,30 @@ aliases:
   palette-gray-100-transparent-90: "rgba(40, 42, 43, 0.9)"
   palette-gray-100-transparent-100: "rgba(40, 42, 43, 1)"
 
+  ## Grays transparent based on 70 gray
+  palette-gray-70-transparent-10: "rgba(112, 117, 120, 0.1)"
+  palette-gray-70-transparent-20: "rgba(112, 117, 120, 0.2)"
+  palette-gray-70-transparent-30: "rgba(112, 117, 120, 0.3)"
+  palette-gray-70-transparent-40: "rgba(112, 117, 120, 0.4)"
+  palette-gray-70-transparent-50: "rgba(112, 117, 120, 0.5)"
+  palette-gray-70-transparent-60: "rgba(112, 117, 120, 0.6)"
+  palette-gray-70-transparent-70: "rgba(112, 117, 120, 0.7)"
+  palette-gray-70-transparent-80: "rgba(112, 117, 120, 0.8)"
+  palette-gray-70-transparent-90: "rgba(112, 117, 120, 0.9)"
+  palette-gray-70-transparent-100: "rgba(112, 117, 120, 1)"
+
+  ## Grays transparent based on 80 gray
+  palette-gray-80-transparent-10: "rgba(79, 83, 85, 0.1)"
+  palette-gray-80-transparent-20: "rgba(79, 83, 85, 0.2)"
+  palette-gray-80-transparent-30: "rgba(79, 83, 85, 0.3)"
+  palette-gray-80-transparent-40: "rgba(79, 83, 85, 0.4)"
+  palette-gray-80-transparent-50: "rgba(79, 83, 85, 0.5)"
+  palette-gray-80-transparent-60: "rgba(79, 83, 85, 0.6)"
+  palette-gray-80-transparent-70: "rgba(79, 83, 85, 0.7)"
+  palette-gray-80-transparent-80: "rgba(79, 83, 85, 0.8)"
+  palette-gray-80-transparent-90: "rgba(79, 83, 85, 0.9)"
+  palette-gray-80-transparent-100: "rgba(79, 83, 85, 1)"
+
   ## Grays transparent based on 110 gray
   palette-gray-110-transparent-10: "rgba(26, 27, 28, 0.1)"
   palette-gray-110-transparent-20: "rgba(26, 27, 28, 0.2)"

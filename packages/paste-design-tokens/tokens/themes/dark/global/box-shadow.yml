@@ -12,55 +12,58 @@ props:
     value: "{!shadow-elevation-20}"
     comment: Default shadow.
   shadow-low:
-    value: "{!shadow-elevation-30}"
+    value: "{!shadow-elevation-10}"
     comment: Low elevation default shadow.
   shadow-focus:
-    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-blue-40}"
+    value: "{!palette-gray-0-transparent-50}"
     comment: Shadow for focus ring on interactive elements.
   shadow-focus-inverse:
-    value: "{!offset-0} {!offset-0} {!offset-0} {!offset-20} {!palette-gray-100-transparent-50}"
+    value: "{!palette-gray-0-transparent-40}"
     comment: Shadow for focus ring on interactive elements on inverse backgrounds.
   shadow-border-stronger:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-20}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-60}"
     comment: Lighter shadow border for disabled inputs.
   shadow-border-strong:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-40}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-90}"
     comment: Light shadow border for disabled inputs.
   shadow-border:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-80}"
     comment: Shadow border for inputs.
   shadow-border-primary-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-90}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-20}"
     comment: "Lighter shadow border for primary interactions."
   shadow-border-primary-weak:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-80}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-40}"
     comment: "Lighter shadow border for primary interactions."
   shadow-border-primary:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-40}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-50}"
     comment: "Default shadow border for primary interactions."
   shadow-border-primary-strong:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-30}"
     comment: Dark shadow border for inputs hover.
   shadow-border-primary-stronger:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-20}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-10}"
     comment: Darker shadow border for inputs active.
   shadow-border-destructive-weaker:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-90}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-20}"
     comment: Lighter shadow border for destructive interactions.
   shadow-border-destructive-weak:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-80}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-70}"
     comment: Light shadow border for destructive interactions.
   shadow-border-destructive:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-40}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-50}"
     comment: Light shadow border for destructive interactions.
   shadow-border-destructive-stronger:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-30}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-20}"
     comment: Dark shadow border for destructive interactions
   shadow-border-error-weak:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-80}"
-    comment: Shadow border for inverse error inputs.
-  shadow-border-error-strong:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-40}"
+    comment: Shadow border for inverse error inputs.
+  shadow-border-error:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-50}"
+    comment: Shadow border for error inputs.
+  shadow-border-error-strong:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-30}"
     comment: Shadow border for error inputs hover.
   shadow-border-inverse-weaker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-20}"
