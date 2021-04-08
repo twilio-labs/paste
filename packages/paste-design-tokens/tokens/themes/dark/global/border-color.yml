@@ -34,7 +34,7 @@ props:
   # primary action borders
   color-border-primary-strongest:
     value: "{!palette-gray-0}"
-    comment: Darker primary border color
+    comment: Darkest primary border color
   color-border-primary-stronger:
     value: "{!palette-blue-10}"
     comment: Darker primary border color

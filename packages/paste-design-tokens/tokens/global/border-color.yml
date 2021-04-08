@@ -49,6 +49,12 @@ props:
     comment: Lightest border on inverse backgrounds. Must be used on color-background-body-inverse.
 
   # primary action borders
+  color-border-primary-darkest:
+    value: "{!palette-blue-100}"
+    comment: Darkest primary border color
+  color-border-primary-strongest:
+    value: "{!palette-blue-100}"
+    comment: Darkest primary border color
   color-border-primary-darker:
     value: "{!palette-blue-90}"
     comment: Darker primary border color
@@ -140,6 +146,12 @@ props:
     comment: Lightest error border color
 
   # destructive borders
+  color-border-destructive-darkest:
+    value: "{!palette-red-100}"
+    comment: Darkest destructive hover border color
+  color-border-destructive-strongest:
+    value: "{!palette-red-100}"
+    comment: Darkest destructive hover border color
   color-border-destructive-darker:
     value: "{!palette-red-90}"
     comment: Darker destructive hover border color

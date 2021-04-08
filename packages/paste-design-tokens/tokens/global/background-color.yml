@@ -160,6 +160,12 @@ props:
     comment: Lightest background for primary actions or highlights
 
   # destructive backgrounds
+  color-background-destructive-darkest:
+    value: "{!palette-red-100}"
+    comment: Darkest background for destructive actions or highlights
+  color-background-destructive-strongest:
+    value: "{!palette-red-100}"
+    comment: Darkest background for destructive actions or highlights
   color-background-destructive-darker:
     value: "{!palette-red-90}"
     comment: Darker background for destructive actions or highlights

@@ -15,6 +15,9 @@ props:
   color-text-weaker:
     value: "{!palette-gray-40}"
     comment: Weaker body text for visual hierarchy. Inaccessible unless used on disabled controls.
+  color-text-weakest:
+    value: "{!palette-gray-0}"
+    comment: Weakest body text for visual hierarchy. Inaccessible unless used on disabled controls.
   color-text-inverse:
     value: "{!palette-gray-0}"
     comment: Inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
