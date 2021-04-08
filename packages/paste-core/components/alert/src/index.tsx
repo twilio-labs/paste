@@ -23,7 +23,7 @@ export const AlertVariants = {
 } as const;
 export const AlertBackgroundColors = {
   ERROR: 'colorBackgroundErrorWeakest',
-  NEUTRAL: 'colorBackgroundPrimaryWeakest',
+  NEUTRAL: 'colorBackgroundNeutralLightest',
   WARNING: 'colorBackgroundWarningWeakest',
 } as const;
 export const AlertBorderColors = {
