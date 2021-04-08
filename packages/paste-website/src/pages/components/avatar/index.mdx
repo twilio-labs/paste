@@ -1,7 +1,7 @@
 ---
 title: Avatar
 package: '@twilio-paste/avatar'
-description: The Avatar is a pictorial representation of a user or object 👩‍🎤. It can display the initials of that entity or an image.
+description: The Avatar is a pictorial representation of a user or object 👩‍🎤. It can display the initials of that entity, an image or a Paste Icon.
 slug: /components/avatar/
 ---
 
@@ -14,6 +14,7 @@ import {Avatar} from '@twilio-paste/avatar';
 import Changelog from '@twilio-paste/avatar/CHANGELOG.md';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
+import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 
 export const pageQuery = graphql`
   {
@@ -61,10 +62,10 @@ export const pageQuery = graphql`
   <CalloutTitle>Using alpha components in your product</CalloutTitle>
   <CalloutText>
     Alpha components are ready for you to use in production. Components such as Avatar are likely to not see any API
-    changes. This is only an alpha due to the lack of documentation and a matching Sketch symbol. Feel free to share
+    changes. This is only an alpha due to the lack of documentation and a matching Figma component. Feel free to share
     your experience using this component by{' '}
     <Anchor href="https://github.com/twilio-labs/paste/discussions/new">starting a discussion on GitHub</Anchor>. We are
-    also looking for a contributor to symbolize this component in Sketch. Interested? Reach out!
+    also looking for a contributor to symbolize this component in Figma. Interested? Reach out!
   </CalloutText>
 </Callout>
 
@@ -74,7 +75,7 @@ export const pageQuery = graphql`
 
 <p>
   {props.pageContext.frontmatter.description} The Avatar can be sized in the same way as the{' '}
-  <a href="/icons">Paste Icon</a>.
+  <a href="/icons/usage-guidelines/#resizing-icons">Paste Icon</a>.
 </p>
 
 ## Examples
@@ -112,7 +113,7 @@ Provide the Avatar with a `name` and the component will render the initials as t
 
 ### Representing an entity via an image
 
-Provide the Avatar with a source path via the `src` prop to render the Avatar as an image. The `src` prop acts just like an `img` tag. You **must** still provide the name of the entity.
+Provide the Avatar with a source path via the `src` prop to render the Avatar as an image. The `src` prop acts just like an `img` tag. You **must** still provide a `name` prop.
 
 <LivePreview
   scope={{
@@ -133,6 +134,30 @@ Provide the Avatar with a source path via the `src` prop to render the Avatar as
 </Stack>`}
 </LivePreview>
 
+### Representing an entity via an icon
+
+Provide the Avatar with an `icon` prop to display an icon. You must import the icon before passing it to the `icon` prop. You **must** still provide a `name` prop. The icon must be a <a href="https://paste.twilio.design/icons/">Paste Icon</a>.
+
+<LivePreview
+  scope={{
+    Avatar,
+    Stack,
+    UserIcon,
+  }}
+>
+  {`<Stack orientation="horizontal" spacing="space40">
+  <Avatar size="sizeIcon30" name="avatar example" icon={UserIcon} />
+  <Avatar size="sizeIcon40" name="avatar example" icon={UserIcon} />
+  <Avatar size="sizeIcon50" name="avatar example" icon={UserIcon} />
+  <Avatar size="sizeIcon60" name="avatar example" icon={UserIcon} />
+  <Avatar size="sizeIcon70" name="avatar example" icon={UserIcon} />
+  <Avatar size="sizeIcon80" name="avatar example" icon={UserIcon} />
+  <Avatar size="sizeIcon90" name="avatar example" icon={UserIcon} />
+  <Avatar size="sizeIcon100" name="avatar example" icon={UserIcon} />
+  <Avatar size="sizeIcon110" name="avatar example" icon={UserIcon} />
+</Stack>`}
+</LivePreview>
+
 ### Responsive sizing
 
 The Avatar `size` can be set as a responsive array of sizes.
@@ -141,6 +166,7 @@ The Avatar `size` can be set as a responsive array of sizes.
   scope={{
     Avatar,
     Stack,
+    UserIcon,
   }}
 >
   {`<Stack orientation="horizontal" spacing="space40">
@@ -153,6 +179,11 @@ The Avatar `size` can be set as a responsive array of sizes.
     name="avatar example"
     src="/images/avatars/avatar4.png"
   />
+  <Avatar
+    size={["sizeIcon20", "sizeIcon70", "sizeIcon110"]}
+    name="avatar example"
+    icon={UserIcon}
+  />
 </Stack>`}
 </LivePreview>
 
@@ -164,19 +195,21 @@ The Avatar `size` can be set as a responsive array of sizes.
 | background-color | color-background-user | No          |
 | font-weight      | font-weight-bold      | No          |
 
-| Size          | Font Size    | Line Height     |
-| ------------- | ------------ | --------------- |
-| size-icon-10  | font-size-10 | line-height-10  |
-| size-icon-20  | font-size-10 | line-height-20  |
-| size-icon-30  | font-size-10 | line-height-30  |
-| size-icon-40  | font-size-10 | line-height-40  |
-| size-icon-50  | font-size-10 | line-height-50  |
-| size-icon-60  | font-size-10 | line-height-60  |
-| size-icon-70  | font-size-20 | line-height-70  |
-| size-icon-80  | font-size-30 | line-height-80  |
-| size-icon-90  | font-size-40 | line-height-90  |
-| size-icon-100 | font-size-60 | line-height-100 |
-| size-icon-110 | font-size-70 | line-height-110 |
+#### Size Token Mapping
+
+| Size          | Font Size    | Line Height     | Icon Size    |
+| ------------- | ------------ | --------------- | ------------ |
+| size-icon-10  | font-size-10 | line-height-10  | size-icon-10 |
+| size-icon-20  | font-size-10 | line-height-20  | size-icon-10 |
+| size-icon-30  | font-size-10 | line-height-30  | size-icon-10 |
+| size-icon-40  | font-size-10 | line-height-40  | size-icon-10 |
+| size-icon-50  | font-size-10 | line-height-50  | size-icon-20 |
+| size-icon-60  | font-size-10 | line-height-60  | size-icon-20 |
+| size-icon-70  | font-size-20 | line-height-70  | size-icon-30 |
+| size-icon-80  | font-size-30 | line-height-80  | size-icon-40 |
+| size-icon-90  | font-size-40 | line-height-90  | size-icon-50 |
+| size-icon-100 | font-size-60 | line-height-100 | size-icon-70 |
+| size-icon-110 | font-size-70 | line-height-110 | size-icon-80 |
 
 ---
 
@@ -200,6 +233,8 @@ const AvatarExample = () => {
 };
 ```
 
+**Note:** The Avatar component will display the `icon` if both the `icon` and `src` props are passed.
+
 #### Props
 
 ##### `name` string
@@ -213,6 +248,10 @@ Responsive size property that takes IconSize token names.
 ##### `src` string
 
 Used to set the image `src` attribute when setting an image as the Avatar.
+
+##### `icon` Paste Icon
+
+Specify a Paste Icon to be displayed in the Avatar.
 
 <ChangelogRevealer>
   <Changelog />
