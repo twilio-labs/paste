@@ -187,13 +187,13 @@ The **best and most performant way** to load the fonts is to include the followi
 
 <Callout>
   <CalloutText>
-    Loading the fonts directly from the Twilio CDN will provide the fastest download time, therefore giving you the most
-    optimized page load experience.
+    We recommend loading the fonts directly from the Twilio CDN. This provides the fastest download time, therefore
+    giving you the most optimized page load experience.
   </CalloutText>
 </Callout>
 
 Alternatively, Paste will automatically load the fonts via JavaScript, so long as you wrap your application with the `Theme.Provider`
-and select the `default` theme. Though, you should note that this is not the most performant way.
+and select the `default` theme. **Note:** this will result in slower download times than including the fonts in the `<head />`.
 
 #### Other themes
 
