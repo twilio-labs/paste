@@ -33,7 +33,7 @@ props:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-20}"
     comment: "Lighter shadow border for primary interactions."
   shadow-border-primary-weak:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-40}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-30}"
     comment: "Lighter shadow border for primary interactions."
   shadow-border-primary:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-50}"
@@ -48,7 +48,7 @@ props:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-20}"
     comment: Lighter shadow border for destructive interactions.
   shadow-border-destructive-weak:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-70}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-30}"
     comment: Light shadow border for destructive interactions.
   shadow-border-destructive:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-50}"

@@ -26,7 +26,7 @@ props:
     value: "{!palette-gray-40}"
     comment: Weak inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
   color-text-inverse-weaker:
-    value: "{!palette-gray-100}"
+    value: "{!palette-gray-60}"
     comment: Weaker inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
   color-text-brand-inverse:
     value: "{!palette-gray-0}"
