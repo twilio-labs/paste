@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {Box, BoxStyleProps, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxStyleProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {SizeStyles, BaseStyles} from './styles';
 import type {DirectButtonProps} from './types';
 import {DirectButtonPropTypes} from './proptypes';
@@ -10,8 +11,8 @@ const merge = require('lodash.merge');
 const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default, {
   color: 'colorTextLink',
   transition: 'none',
-  _hover: {color: 'colorTextLinkStrong', textDecoration: 'underline'},
-  _focus: {color: 'colorTextLinkStrong', textDecoration: 'underline'},
+  _hover: {color: 'colorTextLinkStronger', textDecoration: 'underline'},
+  _focus: {color: 'colorTextLinkStronger', textDecoration: 'underline'},
   _active: {color: 'colorTextLinkStronger', textDecoration: 'underline'},
 });
 

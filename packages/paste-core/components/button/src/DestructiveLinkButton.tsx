@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {Box, BoxStyleProps, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxStyleProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {SizeStyles, BaseStyles} from './styles';
 import type {DirectButtonProps} from './types';
 import {DirectButtonPropTypes} from './proptypes';
@@ -10,9 +11,9 @@ const merge = require('lodash.merge');
 const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default, {
   color: 'colorTextLinkDestructive',
   transition: 'none',
-  _hover: {color: 'colorTextLinkDestructiveStrong', textDecoration: 'underline'},
+  _hover: {color: 'colorTextLinkDestructiveStronger', textDecoration: 'underline'},
   _active: {color: 'colorTextLinkDestructiveStronger', textDecoration: 'underline'},
-  _focus: {color: 'colorTextLinkDestructiveStrong', textDecoration: 'underline'},
+  _focus: {color: 'colorTextLinkDestructiveStronger', textDecoration: 'underline'},
 });
 
 const loadingStyles: BoxStyleProps = merge({}, BaseStyles.loading, {
