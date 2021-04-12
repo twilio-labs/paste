@@ -172,6 +172,45 @@ const App = () => (
 );
 ```
 
+### How to Load the Right Font
+
+#### Default theme
+
+Fonts for the default theme are available via the Twilio CDN and published from an [internal git repository](https://code.hq.twilio.com/DSYS/paste-fonts).
+
+The **best and most performant way** to load the fonts is to include the following snippet in the `<head />` of your web page.
+
+```
+<link rel="preconnect" href="https://assets.twilio.com" crossorigin />
+<link rel="stylesheet" href="https://assets.twilio.com/public_assets/paste-fonts/main-1.2.0/fonts.css">
+```
+
+<Callout>
+  <CalloutText>
+    We recommend loading the fonts directly from the Twilio CDN. This provides the fastest download time, therefore
+    giving you the most optimized page load experience.
+  </CalloutText>
+</Callout>
+
+Alternatively, Paste will automatically load the fonts via JavaScript, so long as you wrap your application with the `Theme.Provider`
+and select the `default` theme. **Note:** this will result in slower download times than including the fonts in the `<head />`.
+
+#### Other themes
+
+If you are using **any other theme**, Paste leaves it up to you to load the fonts needed. Console uses Whitney ScreenSmart
+and SendGrid uses Colfax. More often than not with those themes, you are working within existing SendGrid and Twilio Console applications
+and these fonts are automatically loaded for you.
+
+The Whitney font is loaded by the Typography.com service and is only allowed on \*.twilio.com domains as well as localhost.
+Make sure to serve your app from the correct hostname if you're having issues with font loading.
+
+If you are not working in an existing Twilio Console experience, you can include the following link element in your sites `head`
+to load these fonts if you are serving your application from \*.twilio.com domains.
+
+```
+<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6230892/752864/css/fonts.css">
+```
+
 ## Usage
 
 ### Paste Components
@@ -259,37 +298,6 @@ information about `transformIgnorePatterns` can be found by [reading the Jest do
 
 Many apps/websites utilize global stylesheets. Even though Paste styles are scoped at the component level, global styles can creep
 in and cause some havoc. Make sure to thoroughly test Paste components to verify everything looks as they should.
-
-### Fonts
-
-#### Default theme
-
-Fonts for the default theme are available via the Twilio CDN and published from an [internal git repository](https://code.hq.twilio.com/DSYS/paste-fonts).
-
-The best and most performant way to load the fonts is to include the following snippet in the `<head />` of your web page.
-
-```
-<link rel="preconnect" href="https://assets.twilio.com" crossorigin />
-<link rel="stylesheet" href="https://assets.twilio.com/public_assets/paste-fonts/main-1.2.0/fonts.css">
-```
-
-Alternatively, Paste will automatically load the fonts via JavaScript, so long as you wrap your application with the `Theme.Provider` and select the `default` theme. Though, you should note that this is not the most performant way.
-
-#### Other themes
-
-If you are using **any other theme**, Paste leaves it up to you to load the fonts needed. Console uses Whitney ScreenSmart
-and SendGrid uses Colfax. More often than not with those themes, you are working within existing SendGrid and Twilio Console applications
-and these fonts are automatically loaded for you.
-
-The Whitney font is loaded by the Typography.com service and is only allowed on \*.twilio.com domains as well as localhost.
-Make sure to serve your app from the correct hostname if you're having issues with font loading.
-
-If you are not working in an existing Twilio Console experience, you can include the following link element in your sites `head`
-to load these fonts if you are serving your application from \*.twilio.com domains.
-
-```
-<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6230892/752864/css/fonts.css">
-```
 
 ## Additional information
 
