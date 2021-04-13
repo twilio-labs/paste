@@ -58,10 +58,10 @@ const CheckboxIcon: React.FC<{
   let color = 'transparent' as TextColorOptions;
 
   if (checked || indeterminate) {
-    color = 'colorTextInverse';
+    color = 'colorTextWeakest';
   }
   if (disabled && (checked || indeterminate)) {
-    color = 'colorTextInverseWeaker';
+    color = 'colorTextWeakest';
   }
 
   if (indeterminate) {
