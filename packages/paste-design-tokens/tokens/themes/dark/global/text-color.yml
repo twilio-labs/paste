@@ -72,7 +72,7 @@ props:
     value: "{!palette-red-50}"
     comment: Dark error text for inputs and error misc
   color-text-success:
-    value: "{!palette-green-40}"
+    value: "{!palette-green-50}"
     comment: Text color for success text.
   color-text-success-strong:
     value: "{!palette-green-40}"

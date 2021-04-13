@@ -44,6 +44,9 @@ props:
   shadow-border-primary-stronger:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-10}"
     comment: Darker shadow border for inputs active.
+  shadow-border-primary-strongest:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0}"
+    comment: Darkest shadow border for inputs active.
   shadow-border-destructive-weaker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-20}"
     comment: Lighter shadow border for destructive interactions.
@@ -54,8 +57,11 @@ props:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-50}"
     comment: Light shadow border for destructive interactions.
   shadow-border-destructive-stronger:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-20}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-10}"
     comment: Dark shadow border for destructive interactions
+  shadow-border-destructive-strongest:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0}"
+    comment: Darkest shadow border for destructive interactions
   shadow-border-error-weak:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-40}"
     comment: Shadow border for inverse error inputs.

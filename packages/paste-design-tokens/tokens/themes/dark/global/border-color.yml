@@ -65,7 +65,7 @@ props:
     value: "{!palette-green-60}"
     comment: Success border color
   color-border-success-weak:
-    value: "{!palette-green-50}"
+    value: "{!palette-green-40}"
     comment: Light success border color
   color-border-success-weakest:
     value: "{!palette-green-10}"
@@ -74,7 +74,7 @@ props:
     value: "{!palette-gray-80}"
     comment: Light neutral border color
   color-border-neutral:
-    value: "{!palette-blue-50}"
+    value: "{!palette-blue-40}"
     comment: Neutral border color
   color-border-warning:
     value: "{!palette-orange-60}"
@@ -92,7 +92,7 @@ props:
     value: "{!palette-red-50}"
     comment: Error border color
   color-border-error-weak:
-    value: "{!palette-red-50}"
+    value: "{!palette-red-40}"
     comment: Light error border color
   color-border-error-weakest:
     value: "{!palette-red-10}"
