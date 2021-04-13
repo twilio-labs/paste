@@ -28,8 +28,8 @@ const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default, {
   },
   _active: {
     color: 'colorTextWeakest',
-    backgroundColor: 'colorBackgroundDestructiveStrong',
-    boxShadow: 'shadowBorderDestructiveStronger',
+    backgroundColor: 'colorBackgroundDestructiveStrongest',
+    boxShadow: 'shadowBorderDestructiveStrongest',
   },
 });
 
