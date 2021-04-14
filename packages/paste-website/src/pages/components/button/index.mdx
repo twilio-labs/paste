@@ -265,6 +265,36 @@ Use link-style buttons when other types of buttons may be too distracting.
 </Stack>`}
 </LivePreview>
 
+#### Buttons with link functionality
+
+<Callout>
+  <CalloutTitle as="h4">Hot accessibility tip</CalloutTitle>
+  <CalloutText>
+    To reiterate, be mindful when choosing this variant as dictation software users may experience usability issues.
+    Read the guidelines first.
+  </CalloutText>
+</Callout>
+
+Buttons that **navigate** the user can only be represented by the `primary` and `secondary` variants.
+When this is used, it must be accompanied by an arrow pointing to the right or an external
+link icon after the text. The icons help to indicate that the action performed on click is a navigation.
+These button types do not have `disabled` or `loading` states, as anchors cannot be in those states.
+
+To create a button-styled anchor, use the Button component and add the `as="a"` prop so that it is rendered as an anchor semantically, while maintaining button styling.
+
+**Note:** The same guidance applies for any action deemed "primary"; use only one per page.
+
+<LivePreview scope={{Button, Stack}} language="jsx">
+  {`<Stack orientation="horizontal" spacing="space30">
+  <Button as="a" href="#" variant="primary">
+    Button as anchor (internal link)
+  </Button>
+  <Button as="a" href="https://twilio.com" variant="secondary">
+    Button as anchor (external link)
+  </Button>
+</Stack>`}
+</LivePreview>
+
 #### Small button
 
 Use small buttons sparingly, only when needed for vertical density.
