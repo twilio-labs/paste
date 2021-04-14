@@ -63,6 +63,7 @@ packages/paste-website/public
 
 # next.js build output
 .next
+out/
 
 # Apple gunk
 .DS_Store
