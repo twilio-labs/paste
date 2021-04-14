@@ -45,7 +45,7 @@ props:
     value: "{!palette-blue-50}"
     comment: Primary border color
   color-border-primary-weak:
-    value: "{!palette-blue-40}"
+    value: "{!palette-gray-0-transparent-30}"
     comment: Light primary border color
   color-border-primary-weaker:
     value: "{!palette-gray-0-transparent-20}"
@@ -112,7 +112,7 @@ props:
     value: "{!palette-red-50}"
     comment: Destructive border color
   color-border-destructive-weak:
-    value: "{!palette-red-70}"
+    value: "{!palette-gray-0-transparent-30}"
     comment: Destructive focus border color
   color-border-destructive-weaker:
     value: "{!palette-gray-0-transparent-20}"
