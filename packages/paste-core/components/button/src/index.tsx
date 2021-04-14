@@ -5,6 +5,7 @@ import {Spinner} from '@twilio-paste/spinner';
 import {secureExternalLink} from '@twilio-paste/anchor';
 import {useSpring, animated} from '@twilio-paste/animation-library';
 import {ArrowForwardIcon} from '@twilio-paste/icons/esm/ArrowForwardIcon';
+import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
 import type {
   ButtonProps,
   ButtonSizes,
@@ -197,22 +198,28 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => 
   const showLoading = buttonState === 'loading';
   const showDisabled = buttonState !== 'default';
   const ButtonComponent = getButtonComponent(variant);
+  const externalLinkProps = props.href != null ? secureExternalLink(props.href) : null;
+
   // Automatically inject AnchorForwardIcon for link's dressed as buttons when possible
-  const injectIconChildren =
-    props.as === 'a' && props.href != null && typeof children === 'string' && variant !== 'reset' ? (
+  let injectIconChildren = children;
+  if (props.as === 'a' && props.href != null && typeof children === 'string' && variant !== 'reset') {
+    injectIconChildren = (
       <>
         {children}
-        <AnimatedBox style={arrowIconStyles}>
-          <ArrowForwardIcon decorative />
-        </AnimatedBox>
+        {externalLinkProps != null ? (
+          <LinkExternalIcon decorative={false} title="link takes you to an external page" />
+        ) : (
+          <AnimatedBox style={arrowIconStyles}>
+            <ArrowForwardIcon decorative />
+          </AnimatedBox>
+        )}
       </>
-    ) : (
-      children
     );
+  }
 
   return (
     <ButtonComponent
-      {...(rest.href != null ? secureExternalLink(rest.href) : null)}
+      {...externalLinkProps}
       {...rest}
       onMouseEnter={(event) => {
         if (typeof rest.onMouseEnter === 'function') {
