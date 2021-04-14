@@ -57,6 +57,7 @@
     "@twilio-paste/modal": "^7.0.0",
     "@twilio-paste/modal-dialog-primitive": "^0.2.2",
     "@twilio-paste/non-modal-dialog-primitive": "^0.3.4",
+    "@twilio-paste/pagination": "^0.0.0",
     "@twilio-paste/paragraph": "^4.0.3",
     "@twilio-paste/popover": "^6.0.0",
     "@twilio-paste/radio-group": "^6.0.3",
