@@ -133,12 +133,12 @@ export const ButtonAsAnchor = (): React.ReactNode => {
     <>
       <Box padding="space30">
         <Button as="a" href="https://twilio.com" variant="primary">
-          Automatically adds link icon
+          Automatically adds external link icon
         </Button>
       </Box>
       <Box padding="space30">
-        <Button as="a" href="https://twilio.com" variant="secondary">
-          Automatically adds link icon
+        <Button as="a" href="/" variant="secondary">
+          Automatically adds internal link icon
         </Button>
       </Box>
       <Box padding="space30">
