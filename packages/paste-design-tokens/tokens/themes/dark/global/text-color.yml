@@ -81,7 +81,7 @@ props:
     value: "{!palette-green-30}"
     comment: Text color for success text.
   color-text-warning:
-    value: "{!palette-orange-60}"
+    value: "{!palette-orange-40}"
     comment: Color for warning text.
   color-text-warning-strong:
     value: "{!palette-orange-80}"
@@ -98,5 +98,5 @@ props:
     value: "{!palette-gray-10}"
     comment: Default icon color.
   color-text-icon-inverse:
-    value: "{!palette-gray-80}"
+    value: "{!palette-gray-20}"
     comment: Default icon color for inverse backgrounds.

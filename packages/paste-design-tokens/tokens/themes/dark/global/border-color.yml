@@ -55,47 +55,41 @@ props:
     comment: Lightest primary border color
 
   # status borders
-  color-border-success-stronger:
-    value: "{!palette-green-30}"
-    comment: Darker success border color
-  color-border-success-strong:
-    value: "{!palette-green-40}"
-    comment: Dark success border color
   color-border-success:
-    value: "{!palette-green-60}"
+    value: "{!palette-green-40}"
     comment: Success border color
   color-border-success-weak:
-    value: "{!palette-green-40}"
+    value: "{!palette-green-60}"
     comment: Light success border color
   color-border-success-weakest:
-    value: "{!palette-green-10}"
+    value: "{!palette-green-90}"
     comment: Lightest success border color
   color-border-neutral-weak:
-    value: "{!palette-gray-80}"
+    value: "{!palette-blue-50}"
     comment: Light neutral border color
   color-border-neutral:
     value: "{!palette-blue-40}"
     comment: Neutral border color
   color-border-warning:
-    value: "{!palette-orange-60}"
+    value: "{!palette-orange-40}"
     comment: Warning border color
   color-border-warning-weak:
-    value: "{!palette-orange-40}"
+    value: "{!palette-orange-60}"
     comment: Light warning border color
   color-border-warning-weakest:
-    value: "{!palette-orange-10}"
+    value: "{!palette-orange-90}"
     comment: Lightest warning border color
   color-border-error-strong:
     value: "{!palette-red-30}"
     comment: Dark error border color
   color-border-error:
-    value: "{!palette-red-50}"
+    value: "{!palette-red-40}"
     comment: Error border color
   color-border-error-weak:
-    value: "{!palette-red-40}"
+    value: "{!palette-red-50}"
     comment: Light error border color
   color-border-error-weakest:
-    value: "{!palette-red-10}"
+    value: "{!palette-red-90}"
     comment: Lightest error border color
 
   # destructive borders
@@ -106,7 +100,7 @@ props:
     value: "{!palette-red-20}"
     comment: Darker destructive hover border color
   color-border-destructive-strong:
-    value: "{!palette-red-10}"
+    value: "{!palette-red-30}"
     comment: Destructive focus border color
   color-border-destructive:
     value: "{!palette-red-50}"

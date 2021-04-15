@@ -14,7 +14,7 @@ props:
     value: "{!palette-gray-80}"
     comment: Dark default background color
   color-background-stronger:
-    value: "{!palette-gray-70-transparent-80}"
+    value: "{!palette-gray-70}"
     comment: Darker default background color
   color-background-strongest:
     value: "{!palette-gray-20}"
@@ -59,12 +59,6 @@ props:
   color-background-neutral-lightest:
     value: "{!palette-blue-90}"
     comment: Lightest neutral background color
-  color-background-success-stronger:
-    value: "{!palette-green-30}"
-    comment: Darker success background color
-  color-background-success-strong:
-    value: "{!palette-green-40}"
-    comment: Dark success background color
   color-background-success:
     value: "{!palette-green-40}"
     comment: Success background color
@@ -92,7 +86,7 @@ props:
 
   # row backgrounds
   color-background-row-striped:
-    value: "{!palette-gray-100}"
+    value: "{!palette-gray-90}"
     comment: Background color for alternative striped rows
 
   # primary background
