@@ -44,6 +44,11 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
     if (name === undefined) {
       console.error('[Paste Avatar]: name prop is required');
     }
+    if (src && icon) {
+      console.error('[Paste Avatar]: do not set both src and icon on Avatar');
+      return null;
+    }
+    console.log(src, icon);
 
     return (
       <Box
@@ -55,18 +60,31 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
         ref={ref}
         size={size}
       >
-        <AvatarContents name={name} size={size} src={src} icon={icon} {...props} />
+        {src ? (
+          <AvatarContents name={name} size={size} src={src} {...props} />
+        ) : (
+          <AvatarContents name={name} size={size} icon={icon} {...props} />
+        )}
       </Box>
     );
   }
 );
 
 Avatar.displayName = 'Avatar';
+
 Avatar.propTypes = {
   size: isIconSizeTokenProp,
-  src: PropTypes.string,
   name: PropTypes.string.isRequired,
-  icon: PropTypes.func,
+  src: function (props) {
+    if (props.src && props.icon) new Error('[Paste Avatar]: do not set both src and icon on Avatar');
+    if (typeof props.src !== 'string') new Error('[Paste Avatar]: src prop must be a string');
+    return props.src;
+  },
+  icon: function (props) {
+    if (props.src && props.icon) new Error('[Paste Avatar]: do not set both src and icon on Avatar');
+    if (typeof props.icon !== 'function') new Error('[Paste Avatar]: icon prop must be a Paste Icon');
+    return props.icon;
+  },
 };
 
 export {Avatar};

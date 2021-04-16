@@ -115,6 +115,11 @@ Provide the Avatar with a `name` and the component will render the initials as t
 
 Provide the Avatar with a source path via the `src` prop to render the Avatar as an image. The `src` prop acts just like an `img` tag. You **must** still provide a `name` prop.
 
+<Callout>
+  <CalloutTitle>A note about Avatar contents</CalloutTitle>
+  <CalloutText>The Avatar component can either display an image or an icon, but not both.</CalloutText>
+</Callout>
+
 <LivePreview
   scope={{
     Avatar,
@@ -137,6 +142,11 @@ Provide the Avatar with a source path via the `src` prop to render the Avatar as
 ### Representing an entity via an icon
 
 Provide the Avatar with an `icon` prop to display an icon. You must import the icon before passing it to the `icon` prop. You **must** still provide a `name` prop. The icon must be a <a href="https://paste.twilio.design/icons/">Paste Icon</a>.
+
+<Callout>
+  <CalloutTitle>A note about Avatar contents</CalloutTitle>
+  <CalloutText>The Avatar component can either display an image or an icon, but not both.</CalloutText>
+</Callout>
 
 <LivePreview
   scope={{
@@ -232,8 +242,6 @@ const AvatarExample = () => {
   return <Avatar size="sizeIcon10" name="Aayush Iyer" />;
 };
 ```
-
-**Note:** The Avatar component will display the `icon` if both the `icon` and `src` props are passed.
 
 #### Props
 
