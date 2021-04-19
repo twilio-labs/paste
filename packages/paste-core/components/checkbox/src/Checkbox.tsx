@@ -61,7 +61,7 @@ const CheckboxIcon: React.FC<{
     color = 'colorTextWeakest';
   }
   if (disabled && (checked || indeterminate)) {
-    color = 'colorTextWeakest';
+    color = 'colorTextIcon';
   }
 
   if (indeterminate) {
