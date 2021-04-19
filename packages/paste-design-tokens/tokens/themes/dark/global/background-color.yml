@@ -63,7 +63,7 @@ props:
     value: "{!palette-green-40}"
     comment: Success background color
   color-background-success-weakest:
-    value: "{!palette-green-80}"
+    value: "{!palette-green-90}"
     comment: Lightest success background color
   color-background-warning:
     value: "{!palette-orange-40}"
@@ -72,7 +72,7 @@ props:
     value: "{!palette-orange-100}"
     comment: Lightest warning background color
   color-background-error-strong:
-    value: "{!palette-red-30}"
+    value: "{!palette-red-20}"
     comment: Dark error background color
   color-background-error:
     value: "{!palette-red-50}"
@@ -97,7 +97,7 @@ props:
     value: "{!palette-blue-10}"
     comment: Darker background for primary actions or highlights
   color-background-primary-strong:
-    value: "{!palette-blue-30}"
+    value: "{!palette-blue-20}"
     comment: Dark background for primary actions or highlights
   color-background-primary:
     value: "{!palette-blue-50}"
@@ -120,7 +120,7 @@ props:
     value: "{!palette-red-10}"
     comment: Darker background for destructive actions or highlights
   color-background-destructive-strong:
-    value: "{!palette-red-30}"
+    value: "{!palette-red-20}"
     comment: Dark background for destructive actions or highlights
   color-background-destructive:
     value: "{!palette-red-50}"

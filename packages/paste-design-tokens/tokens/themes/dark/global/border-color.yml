@@ -7,16 +7,16 @@ imports:
   - ../aliases/color-palette.yml
 props:
   color-border-strong:
-    value: "{!palette-gray-60}"
+    value: "{!palette-gray-50}"
     comment: Dark border color
   color-border:
-    value: "{!palette-gray-50}"
+    value: "{!palette-gray-60}"
     comment: Default border color
   color-border-weak:
-    value: "{!palette-gray-90}"
+    value: "{!palette-gray-70}"
     comment: Light border color
   color-border-weaker:
-    value: "{!palette-gray-60}"
+    value: "{!palette-gray-80}"
     comment: Lighter border color
   color-border-error-weaker:
     value: "{!palette-gray-0-transparent-20}"
@@ -39,7 +39,7 @@ props:
     value: "{!palette-blue-10}"
     comment: Darker primary border color
   color-border-primary-strong:
-    value: "{!palette-blue-30}"
+    value: "{!palette-blue-20}"
     comment: Dark primary border color
   color-border-primary:
     value: "{!palette-blue-50}"
@@ -65,10 +65,10 @@ props:
     value: "{!palette-green-90}"
     comment: Lightest success border color
   color-border-neutral-weak:
-    value: "{!palette-blue-50}"
+    value: "{!palette-blue-60}"
     comment: Light neutral border color
   color-border-neutral:
-    value: "{!palette-blue-40}"
+    value: "{!palette-blue-50}"
     comment: Neutral border color
   color-border-warning:
     value: "{!palette-orange-40}"
@@ -80,13 +80,13 @@ props:
     value: "{!palette-orange-90}"
     comment: Lightest warning border color
   color-border-error-strong:
-    value: "{!palette-red-30}"
+    value: "{!palette-red-20}"
     comment: Dark error border color
   color-border-error:
-    value: "{!palette-red-40}"
+    value: "{!palette-red-50}"
     comment: Error border color
   color-border-error-weak:
-    value: "{!palette-red-50}"
+    value: "{!palette-red-60}"
     comment: Light error border color
   color-border-error-weakest:
     value: "{!palette-red-90}"
@@ -97,10 +97,10 @@ props:
     value: "{!palette-gray-0}"
     comment: Darkest destructive hover border color
   color-border-destructive-stronger:
-    value: "{!palette-red-20}"
+    value: "{!palette-red-10}"
     comment: Darker destructive hover border color
   color-border-destructive-strong:
-    value: "{!palette-red-30}"
+    value: "{!palette-red-10}"
     comment: Destructive focus border color
   color-border-destructive:
     value: "{!palette-red-50}"
