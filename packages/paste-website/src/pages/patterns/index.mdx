@@ -38,10 +38,12 @@ export const pageQuery = graphql`
 
 <content>
 
-  <Breadcrumb>
-    <BreadcrumbItem to="/">Home</BreadcrumbItem>
-  </Breadcrumb>
-  <Heading as="h1" variant="heading10">{props.pageContext.frontmatter.title}</Heading>
+<Breadcrumb>
+  <BreadcrumbItem to="/">Home</BreadcrumbItem>
+</Breadcrumb>
+<Heading as="h1" variant="heading10">
+  {props.pageContext.frontmatter.title}
+</Heading>
 
 </content>
 
@@ -124,6 +126,13 @@ There are two primary goals of patterns:
             </Tr>
             <Tr>
               <Td>
+                <Anchor href="/patterns/empty-state">Empty states</Anchor>
+              </Td>
+              <Td>How to inform a user that there is no data to display on a page or section.</Td>
+              <Td>Beta</Td>
+            </Tr>
+            <Tr>
+              <Td>
                 <Anchor href="/patterns/notifications">Notifications and feedback</Anchor>
               </Td>
               <Td>How to communicate timely information to users.</Td>
@@ -172,11 +181,6 @@ There are two primary goals of patterns:
               <Td>Filter group</Td>
               <Td>Controls for filtering lists of objects or data.</Td>
               <Td>Open for contribution</Td>
-            </Tr>
-            <Tr>
-              <Td>Empty states</Td>
-              <Td>How to inform a user that there is no data to display on a page or section.</Td>
-              <Td><strong>In progress</strong></Td>
             </Tr>
             <Tr>
               <Td>Copy</Td>
@@ -231,7 +235,9 @@ There are two primary goals of patterns:
             <Tr>
               <Td>Edit object</Td>
               <Td>How to make and apply changes to an object.</Td>
-              <Td><strong>In progress</strong></Td>
+              <Td>
+                <strong>In progress</strong>
+              </Td>
             </Tr>
             <Tr>
               <Td>Loading</Td>
@@ -246,7 +252,9 @@ There are two primary goals of patterns:
             <Tr>
               <Td>Wizard</Td>
               <Td>How to take a user through a multi-step flow.</Td>
-              <Td><strong>In progress</strong></Td>
+              <Td>
+                <strong>In progress</strong>
+              </Td>
             </Tr>
             <Tr>
               <Td>Country flags</Td>
@@ -270,9 +278,7 @@ There are two primary goals of patterns:
             </Tr>
             <Tr>
               <Td>Onboarding</Td>
-              <Td>
-                How to teach a user how to use a new product or feature.
-              </Td>
+              <Td>How to teach a user how to use a new product or feature.</Td>
               <Td>Open for contribution</Td>
             </Tr>
             <Tr>
@@ -298,7 +304,9 @@ There are two primary goals of patterns:
             <Tr>
               <Td>Export/Import/Download/Upload</Td>
               <Td>how to move a file into or out of Twilio.</Td>
-              <Td><strong>In progress</strong></Td>
+              <Td>
+                <strong>In progress</strong>
+              </Td>
             </Tr>
           </TBody>
         </Table>
