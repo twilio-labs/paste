@@ -1,7 +1,7 @@
 ---
 title: Empty states
 description: Give customers guidance on what steps to take if content is either unavailable or can't be displayed.
-slug: /patterns/delete/
+slug: /patterns/empty-states/
 ---
 
 import {graphql} from 'gatsby';
@@ -21,7 +21,7 @@ import {useUID} from 'react-uid';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/patterns/delete/"}}) {
+    mdx(fields: {slug: {eq: "/patterns/empty-states/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -113,7 +113,7 @@ export const pageQuery = graphql`
 </Grid>
 
 ```jsx
-// import all ingredients for the delete patterns
+// import all ingredients for the empty state patterns
 import {​Card} from '@twilio-paste/core/card';
 import {Heading} from '@twilio-paste/core/heading';
 import {Paragraph} from '@twilio-paste/core/paragraph';
@@ -144,13 +144,6 @@ In all other cases, use a [Button](/components/button). For detailed guidance on
 check out the [Button vs. Anchor pattern](/patterns/button-vs-anchor).
 
 ## Variations
-
-<Callout>
-  <CalloutText>
-    If you'd like to contribute guidelines for empty states in even more compact situations, like a navigation panel or
-    components like Combobox, please reach out in a GitHub Discussion!
-  </CalloutText>
-</Callout>
 
 ### Empty state with an immediate next step
 
