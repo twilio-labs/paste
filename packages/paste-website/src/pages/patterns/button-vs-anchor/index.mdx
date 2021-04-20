@@ -152,14 +152,18 @@ Use only one per page; this is the most important action a user needs to take. O
 
 If you decide to place an icon in a button, all button icons should be placed to the left. The only exception to this guidance is when you are moving the user forward (like in a multi-step modal, or when paginating through something). Only then should you use a "**Forward >**" (ChevronRightIcon) button. Don't use an arrow icon, since those are reserved for anchors.
 
-<LivePreview scope={{Button, PlusIcon, Stack}} language="jsx">
+<LivePreview scope={{Button, PlusIcon, ChevronRightIcon, Stack}} language="jsx">
   {`<Stack orientation="horizontal" spacing="space30">
-  <Button variant="primary" onClick={() => {}}>>
+  <Button variant="primary" onClick={() => {}}>
     Primary
   </Button>
-  <Button variant="primary" onClick={() => {}}>>
+  <Button variant="primary" onClick={() => {}}>
     <PlusIcon decorative />
     Create new
+  </Button>
+  <Button variant="primary" onClick={() => {}}>
+    Next
+    <ChevronRightIcon decorative />
   </Button>
 </Stack>`}
 </LivePreview>
@@ -173,7 +177,7 @@ Most actions on a page are secondary buttons. Use them for safe and easily rever
 There are some cases where a secondary button may be used for an irreversible action. An example of this would be a ‘Cancel' secondary button that may cause a customer to redo a long user flow. In this case, it should trigger an "Are you sure?" dialog or something similar. Check out the [delete pattern](/patterns/delete) for more guidance. This would be best to test with your users.
 
 <LivePreview scope={{Button}} language="jsx">
-  {`<Button variant="secondary" onClick={() => {}}>>
+  {`<Button variant="secondary" onClick={() => {}}>
   Secondary
 </Button>`}
 </LivePreview>
