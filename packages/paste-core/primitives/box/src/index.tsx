@@ -12,7 +12,7 @@ import {
   flexbox,
   system,
 } from '@twilio-paste/styling-library';
-import {
+import type {
   LayoutProps,
   SpaceProps,
   BackgroundProps,
@@ -22,7 +22,7 @@ import {
   FlexboxProps,
   TypographyProps,
 } from '@twilio-paste/style-props';
-import {
+import type {
   CursorProperty,
   AppearanceProperty,
   AnimationProperty,
@@ -47,6 +47,7 @@ import {
   BorderCollapseProperty,
   BorderSpacingProperty,
   TableLayoutProperty,
+  FontVariantNumericProperty,
 } from 'csstype';
 import {PseudoPropStyles} from './PseudoPropStyles';
 
@@ -84,6 +85,7 @@ interface BoxBaseStyleProps
   borderCollapse?: BorderCollapseProperty;
   borderSpacing?: BorderSpacingProperty<string>;
   tableLayout?: TableLayoutProperty;
+  fontVariantNumeric?: FontVariantNumericProperty;
 }
 
 export type BoxPseudoStyleProps = {
@@ -176,6 +178,7 @@ const extraConfig = system({
   borderCollapse: true,
   borderSpacing: true,
   tableLayout: true,
+  fontVariantNumeric: true,
 });
 
 const getPseudoStyles = (props: BoxProps): unknown => {
