@@ -1,6 +1,5 @@
 ---
 '@twilio-paste/avatar': patch
-'@twilio-paste/website': patch
 '@twilio-paste/core': patch
 ---
 
