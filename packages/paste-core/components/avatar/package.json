@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/avatar",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "category": "graphic",
   "status": "alpha",
   "description": "The Avatar is a pictorial representation of a user or object. It can display the initials of that entity or an image.",
