@@ -11,7 +11,6 @@ import {Breadcrumb, BreadcrumbItem} from '../../../components/breadcrumb';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Card} from '@twilio-paste/card';
-import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -137,6 +136,16 @@ In most cases, treat an empty state as an informational state of the entire page
 
 When a page is in an empty state, its call-to-action (CTA) should appear in the empty state card, not near the page heading like in the [Create pattern](/patterns/create/). Exceptions can be made in cases like some "No results found" scenarios, when a CTA is already on the page on load. The visually focus of hiding the CTA that's outside of the card could draw too much of the customer's attention away from their primary goal.
 
+<Box marginBottom="space70">
+  <iframe
+    src="https://codesandbox.io/embed/empty-state-with-immediate-next-step-bmxe1?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    title="Empty state requiring a customer to wait"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  ></iframe>
+</Box>
+
 ### Accessibility
 
 For call-to-actions in an empty state, use an [Anchor](/components/anchor) if the action will take the user to a new URL.
@@ -191,13 +200,14 @@ If your empty state composition needs to accommodate different screen sizes, you
   </CalloutText>
 </Callout>
 
-<Box marginBottom="space80">
-  <Disclosure variant="contained">
-    <DisclosureHeading as="h5" variant="heading50">
-      Show live example
-    </DisclosureHeading>
-    <DisclosureContent>Coming soon!</DisclosureContent>
-  </Disclosure>
+<Box marginBottom="space70">
+  <iframe
+    src="https://codesandbox.io/embed/empty-state-sizing-responsiveness-euj5p?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    title="Empty state requiring a customer to wait"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  ></iframe>
 </Box>
 
 ## Content examples by use case
