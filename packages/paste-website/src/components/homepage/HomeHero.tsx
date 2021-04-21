@@ -69,20 +69,19 @@ const HomeHero: React.FC = () => {
           <Grid vertical={[true, false, false]}>
             <Column span={5}>
               <NewComponentBanner>
-                <NewComponentBannerBadge>Hello!</NewComponentBannerBadge>
-                <NewComponentBannerText>We&rsquo;re looking for a UX Engineer!</NewComponentBannerText>
+                <NewComponentBannerBadge>New!</NewComponentBannerBadge>
+                <NewComponentBannerText>You can now use an Icon inside an Avatar.</NewComponentBannerText>
                 <NewComponentBannerLink
-                  to="https://boards.greenhouse.io/twilio/jobs/2900531"
-                  showExternal
+                  to="/components/avatar#representing-an-entity-via-an-icon"
                   onClick={() =>
                     trackCustomEvent({
                       category: 'Hero',
                       action: 'click-new-component-banner',
-                      label: 'UX Engineer Job Ad',
+                      label: 'Announcing Avatar Icon',
                     })
                   }
                 >
-                  Is it you?
+                  Check it out!
                 </NewComponentBannerLink>
               </NewComponentBanner>
               <Text
