@@ -35,7 +35,6 @@
     "@twilio-paste/disclosure": "^5.0.2",
     "@twilio-paste/disclosure-primitive": "^0.3.4",
     "@twilio-paste/flex": "^2.0.3",
-    "@twilio-paste/form": "^6.0.2",
     "@twilio-paste/grid": "^2.0.3",
     "@twilio-paste/heading": "^5.0.2",
     "@twilio-paste/help-text": "^6.0.2",

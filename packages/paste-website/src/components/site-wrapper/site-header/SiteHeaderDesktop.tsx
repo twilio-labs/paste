@@ -4,7 +4,6 @@ import {Stack} from '@twilio-paste/stack';
 import {GithubLink} from './GithubLink';
 import {SiteHeaderSearch} from './SiteHeaderSearch';
 import {SiteHeaderLogo} from './SiteHeaderLogo';
-import {ThemeSwitcher} from '../../ThemeSwitcher';
 
 interface SiteHeaderDesktopProps {
   searchValue: string;
@@ -25,7 +24,7 @@ const SiteHeaderDesktop: React.FC<SiteHeaderDesktopProps> = ({searchValue, onSea
       <SiteHeaderLogo title="Paste" subtitle="UX Platform" />
       <Box
         display="flex"
-        justifyContent="space-between"
+        justifyContent="flex-end"
         alignItems="center"
         flexDirection="row"
         borderLeftColor="colorBorderInverseDarker"
@@ -37,13 +36,10 @@ const SiteHeaderDesktop: React.FC<SiteHeaderDesktopProps> = ({searchValue, onSea
         paddingLeft="space70"
         width="100%"
       >
-        <ThemeSwitcher />
-        <Box marginTop="space0">
-          <Stack orientation="horizontal" spacing="space60">
-            <SiteHeaderSearch value={searchValue} onChange={onSearchChange} />
-            <GithubLink />
-          </Stack>
-        </Box>
+        <Stack orientation="horizontal" spacing="space60">
+          <SiteHeaderSearch value={searchValue} onChange={onSearchChange} />
+          <GithubLink />
+        </Stack>
       </Box>
     </Box>
   );

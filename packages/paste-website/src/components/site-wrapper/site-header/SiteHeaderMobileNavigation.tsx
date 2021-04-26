@@ -7,10 +7,8 @@ import {styled, css} from '@twilio-paste/styling-library';
 import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
 import {useTransition, animated} from '@twilio-paste/animation-library';
 import {HamburgerToggle} from './HamburgerToggle';
-import {ThemeSwitcher} from '../../ThemeSwitcher';
 import {SidebarNavigation} from '../sidebar/SidebarNavigation';
 import {ContactUsMenu} from '../../ContactUsMenu';
-import {useNavigationContext} from '../../../context/NavigationContext';
 
 const StyledModalDialogOverlay = animated(
   styled(ModalDialogPrimitiveOverlay)(
@@ -74,8 +72,6 @@ interface MobileNavigationProps {
 
 const MobileNavigation: React.FC<MobileNavigationProps> = ({isOpen, onClose}) => {
   const [burgerOpen, setBurgerOpen] = React.useState(false);
-  const {pathname} = useNavigationContext();
-  const isHomepage = pathname === '/';
 
   // Note: we use this trick to make the hamburger animate to the open state
   // immediately upon mount, to give the illusion that the button that was
@@ -120,14 +116,6 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({isOpen, onClose}) =>
                 <DropShadowWrapper>
                   <Separator orientation="horizontal" verticalSpacing="space30" />
                   <ContactUsMenu placement="top" />
-                  {!isHomepage ? (
-                    <>
-                      <Separator orientation="horizontal" verticalSpacing="space30" />
-                      <Box paddingX="space90" paddingTop="space30" paddingBottom="space20">
-                        <ThemeSwitcher />
-                      </Box>
-                    </>
-                  ) : null}
                 </DropShadowWrapper>
               </StyledModalDialogContent>
             </StyledModalDialogOverlay>
