@@ -1,7 +1,7 @@
 import * as gulp from 'gulp';
 import * as theo from 'theo';
-import gulpTheo from 'gulp-theo';
-import del from 'del';
+import * as gulpTheo from 'gulp-theo';
+import * as del from 'del';
 import {sketchpaletteTokenFormat} from './formatters/sketchpalette';
 import {gatsbyJsonTokenFormat} from './formatters/gatsby.json';
 import {es6TokenFormat} from './formatters/es6';

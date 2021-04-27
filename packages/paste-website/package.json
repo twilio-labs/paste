@@ -7,13 +7,12 @@
   "license": "MIT",
   "scripts": {
     "start": "GATSBY_TELEMETRY_DISABLED=1 gatsby develop",
-    "build": "GATSBY_TELEMETRY_DISABLED=1 gatsby build",
+    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "serve": "GATSBY_TELEMETRY_DISABLED=1 gatsby serve",
     "format": "prettier --write src/**/*.{js,jsx}",
     "tsc": "tsc --noEmit",
     "tsc:watch": "yarn type-check -- --watch",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "setup-env": "vercel env pull"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.0.23",
@@ -77,8 +76,9 @@
     "color": "^3.1.2",
     "docsearch.js": "2.6.3",
     "dotenv": "^8.2.0",
-    "gatsby": "^2.19.19",
+    "gatsby": "^2.20.4",
     "gatsby-image": "^2.2.41",
+    "gatsby-link": "^2.11.0",
     "gatsby-plugin-google-analytics": "^2.1.35",
     "gatsby-plugin-manifest": "^2.2.41",
     "gatsby-plugin-mdx": "^1.0.73",
@@ -88,6 +88,7 @@
     "gatsby-plugin-sharp": "^2.4.5",
     "gatsby-plugin-sitemap": "^2.2.27",
     "gatsby-plugin-typescript": "^2.1.27",
+    "gatsby-react-router-scroll": "^2.3.1",
     "gatsby-remark-images": "^3.1.44",
     "gatsby-source-airtable": "^2.1.1",
     "gatsby-source-filesystem": "^2.1.48",
@@ -108,9 +109,6 @@
     "react-visibility-sensor": "5.1.1",
     "use-clipboard-copy": "^0.1.2",
     "use-resize-observer": "^7.0.0"
-  },
-  "devDependencies": {
-    "vercel": "^20.1.2"
   },
   "resolutions": {
     "**/websocket-extensions": "^0.1.4",

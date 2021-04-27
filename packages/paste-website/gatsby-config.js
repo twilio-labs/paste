@@ -14,6 +14,9 @@ const gatsbyConfig = {
     description: 'Paste: The Design System for building Twilio customer experiences.',
     siteUrl: 'https://paste.twilio.design',
   },
+  flags: {
+    PARALLEL_SOURCING: true,
+  },
   plugins: [
     {
       resolve: 'gatsby-plugin-google-analytics',

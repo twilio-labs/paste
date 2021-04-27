@@ -21,7 +21,7 @@ const IconComponents: IconComponent = iconsJson.reduce((icons: IconComponent, {n
   return {
     ...icons,
     // eslint-disable-next-line import/no-dynamic-require,global-require
-    [`${name}`]: require(`@twilio-paste/icons/esm/${name}`)[name],
+    [`${name}`]: require(`@twilio-paste/icons/esm/${name}.js`)[name],
   };
 }, {});
 

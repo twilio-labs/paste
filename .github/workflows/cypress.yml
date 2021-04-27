@@ -34,12 +34,24 @@ jobs:
       - name: Build packages
         run: yarn build
 
+      - name: Caching Gatsby
+        id: gatsby-cache-build
+        uses: actions/cache@v2
+        with:
+          path: |
+            packages/paste-website/public
+            packages/paste-website/.cache
+          key: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-gatsby-build-
+
       - name: Build website
         run: yarn build:website
         env:
           AIRTABLE_APIKEY: ${{ secrets.AIRTABLE_APIKEY }}
           AIRTABLE_BASEID: ${{ secrets.AIRTABLE_BASEID }}
           GATSBY_DOCSEARCH_APIKEY: ${{ secrets.GATSBY_DOCSEARCH_APIKEY }}
+          CI: true
 
       - name: Run cypress
         run: yarn test:website
