@@ -46,11 +46,7 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
         {...virtualItemStyles}
         {...VariantStyles[variant]}
       >
-        <Text
-          as="span"
-          color={highlighted ? 'colorTextLink' : 'colorText'}
-          textDecoration={highlighted ? 'underline' : null}
-        >
+        <Text as="span" color="colorText" textDecoration={highlighted ? 'underline' : null}>
           {children}
         </Text>
       </Box>
