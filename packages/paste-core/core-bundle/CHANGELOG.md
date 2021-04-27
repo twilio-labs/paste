@@ -1,5 +1,14 @@
 # Change Log
 
+## 9.0.3
+
+### Patch Changes
+
+- [`7bfaff38`](https://github.com/twilio-labs/paste/commit/7bfaff381bc03a404aa0340cd487fba12527ad56) [#1390](https://github.com/twilio-labs/paste/pull/1390) Thanks [@TheSisb](https://github.com/TheSisb)! - Combobox: improve accessibility of hovered combobox option by keeping it the same color.
+
+- Updated dependencies [[`7bfaff38`](https://github.com/twilio-labs/paste/commit/7bfaff381bc03a404aa0340cd487fba12527ad56)]:
+  - @twilio-paste/combobox@7.0.1
+
 ## 9.0.2
 
 ### Patch Changes
