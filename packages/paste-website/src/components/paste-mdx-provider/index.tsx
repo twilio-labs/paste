@@ -1,14 +1,18 @@
 import * as React from 'react';
 import {MDXProvider} from '@mdx-js/react';
 import {styled} from '@twilio-paste/styling-library';
-import {Anchor, AnchorProps, isExternalUrl} from '@twilio-paste/anchor';
+import {Anchor, isExternalUrl} from '@twilio-paste/anchor';
+import type {AnchorProps} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
-import {Heading, HeadingProps} from '@twilio-paste/heading';
+import {Heading} from '@twilio-paste/heading';
+import type {HeadingProps} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {OrderedList, UnorderedList, ListItem} from '@twilio-paste/list';
-import {Separator, SeparatorProps} from '@twilio-paste/separator';
+import {Separator} from '@twilio-paste/separator';
+import type {SeparatorProps} from '@twilio-paste/separator';
 import {Table, THead, TBody, TFoot, Tr, Th, Td} from '@twilio-paste/table';
-import {Codeblock, CodeblockProps} from '../codeblock';
+import {Codeblock} from '../codeblock';
+import type {CodeblockProps} from '../codeblock';
 import {AnchoredHeading} from '../Heading';
 import {InlineCode, Pre} from '../Typography';
 // Shortcode imports
