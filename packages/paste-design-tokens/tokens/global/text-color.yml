@@ -15,6 +15,9 @@ props:
   color-text-weaker:
     value: "{!palette-gray-40}"
     comment: Weaker body text for visual hierarchy. Inaccessible unless used on disabled controls.
+  color-text-weakest:
+    value: "{!palette-gray-0}"
+    comment: Weakest body text for visual hierarchy. Inaccessible unless used on disabled controls.
   color-text-inverse:
     value: "{!palette-gray-0}"
     comment: Inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
@@ -38,10 +41,22 @@ props:
   color-text-link-light:
     value: "{!palette-blue-30}"
     comment: Light shade of link text to be used in interactions
+    deprecated: true
+  color-text-link-weak:
+    value: "{!palette-blue-30}"
+    comment: Light shade of link text to be used in interactions
   color-text-link-dark:
     value: "{!palette-blue-80}"
     comment: Dark shade of link text to be used in interactions
+    deprecated: true
+  color-text-link-strong:
+    value: "{!palette-blue-80}"
+    comment: Dark shade of link text to be used in interactions
   color-text-link-darker:
+    value: "{!palette-blue-90}"
+    comment: Darker shade of link text to be used in interactions
+    deprecated: true
+  color-text-link-stronger:
     value: "{!palette-blue-90}"
     comment: Darker shade of link text to be used in interactions
   color-text-link-destructive:
@@ -50,10 +65,22 @@ props:
   color-text-link-destructive-light:
     value: "{!palette-red-30}"
     comment: Light shade of destructive link text to be used in interactions
+    deprecated: true
+  color-text-link-destructive-weak:
+    value: "{!palette-red-30}"
+    comment: Light shade of destructive link text to be used in interactions
   color-text-link-destructive-dark:
     value: "{!palette-red-70}"
     comment: Dark shade of destructive link text to be used in interactions
+    deprecated: true
+  color-text-link-destructive-strong:
+    value: "{!palette-red-70}"
+    comment: Dark shade of destructive link text to be used in interactions
   color-text-link-destructive-darker:
+    value: "{!palette-red-90}"
+    comment: Darker shade of destructive link text to be used in interactions
+    deprecated: true
+  color-text-link-destructive-stronger:
     value: "{!palette-red-90}"
     comment: Darker shade of destructive link text to be used in interactions
 
@@ -61,10 +88,18 @@ props:
   color-text-error-light:
     value: "{!palette-red-50}"
     comment: Light error text for inputs and error misc
+    deprecated: true
+  color-text-error-weak:
+    value: "{!palette-red-50}"
+    comment: Light error text for inputs and error misc
   color-text-error:
     value: "{!palette-red-60}"
     comment: Error text for inputs and error misc
   color-text-error-dark:
+    value: "{!palette-red-70}"
+    comment: Dark error text for inputs and error misc
+    deprecated: true
+  color-text-error-strong:
     value: "{!palette-red-70}"
     comment: Dark error text for inputs and error misc
   color-text-success:
@@ -74,6 +109,10 @@ props:
     value: "{!palette-orange-60}"
     comment: Color for warning text.
   color-text-warning-dark:
+    value: "{!palette-orange-70}"
+    comment: Color for dark warning text.
+    deprecated: true
+  color-text-warning-strong:
     value: "{!palette-orange-70}"
     comment: Color for dark warning text.
   color-text-new:
