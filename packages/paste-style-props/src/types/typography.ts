@@ -1,14 +1,14 @@
 // https://styled-system.com/api/#typography
-import * as CSS from 'csstype';
-import {ThemeShape} from '@twilio-paste/theme';
-import {ResponsiveValue, TLengthStyledSystem} from '@twilio-paste/styling-library';
+import type * as CSS from 'csstype';
+import type {ThemeShape} from '@twilio-paste/theme';
+import type {ResponsiveValue, TLengthStyledSystem} from '@twilio-paste/styling-library';
 
 // Tokens
 export type FontFamilyOptions = keyof ThemeShape['fonts'] | 'inherit';
 export type FontSizeOptions = keyof ThemeShape['fontSizes'] | '100%' | 'inherit';
 export type FontWeightOptions = keyof ThemeShape['fontWeights'] | 'inherit';
 export type LineHeightOptions = keyof ThemeShape['lineHeights'] | 'unset' | 'inherit';
-export type TextColorOptions = keyof ThemeShape['textColors'] | 'currentColor' | 'inherit';
+export type TextColorOptions = keyof ThemeShape['textColors'] | 'currentColor' | 'inherit' | 'transparent';
 
 export type FontFamily = ResponsiveValue<FontFamilyOptions>;
 export type FontSize = ResponsiveValue<FontSizeOptions>;
