@@ -16,7 +16,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
           ref={ref}
           as="table"
           borderCollapse="collapse"
-          borderColor="colorBorderLighter"
+          borderColor="colorBorderWeaker"
           borderSpacing="0"
           borderStyle="solid"
           borderWidth={variant === 'borderless' ? 'borderWidth0' : 'borderWidth10'}

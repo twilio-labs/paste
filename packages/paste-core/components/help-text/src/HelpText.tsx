@@ -35,7 +35,7 @@ const HelpText = React.forwardRef<HTMLDivElement, HelpTextProps>(({marginTop, ch
     case HelpTextVariants.ERROR_INVERSE:
       icon = (
         <Box flexShrink={0}>
-          <ErrorIcon color="colorTextErrorLight" decorative size="sizeIcon20" />
+          <ErrorIcon color="colorTextErrorWeak" decorative size="sizeIcon20" />
         </Box>
       );
       break;
@@ -47,7 +47,7 @@ const HelpText = React.forwardRef<HTMLDivElement, HelpTextProps>(({marginTop, ch
   if (variant === 'error') {
     textColor = 'colorTextError';
   } else if (variant === 'error_inverse') {
-    textColor = 'colorTextErrorLight';
+    textColor = 'colorTextErrorWeak';
   } else if (variant === 'inverse') {
     textColor = 'colorTextInverseWeak';
   }

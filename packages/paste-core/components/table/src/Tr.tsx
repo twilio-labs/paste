@@ -12,7 +12,7 @@ const Tr = React.forwardRef<HTMLTableRowElement, TrProps>(({verticalAlign = 'mid
       ref={ref}
       as="tr"
       borderStyle="solid"
-      borderColor="colorBorderLighter"
+      borderColor="colorBorderWeaker"
       borderWidth="borderWidth0"
       borderBottomWidth="borderWidth10"
       verticalAlign={verticalAlign}
