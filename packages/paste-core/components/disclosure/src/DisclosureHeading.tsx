@@ -42,7 +42,7 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
           role="button"
           transition="background-color 100ms ease-out"
           _hover={{
-            backgroundColor: 'colorBackgroundDark',
+            backgroundColor: 'colorBackgroundStrong',
           }}
           _focus={{
             boxShadow: 'shadowFocus',

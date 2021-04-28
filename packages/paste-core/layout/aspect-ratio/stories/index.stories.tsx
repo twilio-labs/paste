@@ -15,7 +15,7 @@ export const Default = (): React.ReactNode => {
     <Box
       padding="space30"
       maxWidth="size40"
-      borderColor="colorBorderLighter"
+      borderColor="colorBorderWeaker"
       borderStyle="solid"
       borderWidth="borderWidth10"
     >

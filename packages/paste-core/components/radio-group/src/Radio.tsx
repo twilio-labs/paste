@@ -70,7 +70,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
           <BaseRadioCheckboxControl borderRadius="borderRadiusCircle" disabled={state.disabled} type="radio">
             <Box
               as="span"
-              backgroundColor={state.disabled && state.checked ? 'colorBackgroundDarkest' : 'colorBackgroundBody'}
+              backgroundColor={state.disabled && state.checked ? 'colorBackgroundStrongest' : 'colorBackgroundBody'}
               borderRadius="borderRadiusCircle"
               height="sizeSquare25"
               width="sizeSquare25"

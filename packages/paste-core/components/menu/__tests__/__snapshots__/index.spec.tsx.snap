@@ -20,7 +20,7 @@ exports[`Menu Render should render 1`] = `
   text-decoration: none;
   position: relative;
   cursor: pointer;
-  color: colorTextInverse;
+  color: colorTextWeakest;
   background-color: colorBackgroundPrimary;
   box-shadow: shadowBorderPrimary;
   padding-top: space30;
@@ -35,26 +35,26 @@ exports[`Menu Render should render 1`] = `
 .emotion-1:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: colorTextInverse;
-  background-color: colorBackgroundPrimaryDarker;
-  box-shadow: shadowBorderPrimaryDarker;
+  color: colorTextWeakest;
+  background-color: colorBackgroundPrimaryStronger;
+  box-shadow: shadowBorderPrimaryStronger;
 }
 
 .emotion-1:focus {
   -webkit-text-decoration: none;
   text-decoration: none;
   box-shadow: shadowFocus;
-  color: colorTextInverse;
-  background-color: colorBackgroundPrimaryDarker;
+  color: colorTextWeakest;
+  background-color: colorBackgroundPrimaryStronger;
 }
 
 .emotion-1:active,
 .emotion-1[data-active=true] {
   -webkit-text-decoration: none;
   text-decoration: none;
-  box-shadow: shadowBorderPrimaryDarker;
-  color: colorTextInverse;
-  background-color: colorBackgroundPrimaryDark;
+  box-shadow: shadowBorderPrimaryStrongest;
+  color: colorTextWeakest;
+  background-color: colorBackgroundPrimaryStrongest;
 }
 
 .emotion-0 {
@@ -75,7 +75,7 @@ exports[`Menu Render should render 1`] = `
     aria-expanded="false"
     aria-haspopup="menu"
     class="emotion-1"
-    color="colorTextInverse"
+    color="colorTextWeakest"
     cursor="pointer"
     display="inline-block"
     font-family="fontFamilyText"
@@ -113,7 +113,7 @@ exports[`Menu Render should render 1`] = `
   text-decoration: none;
   position: relative;
   cursor: pointer;
-  color: colorTextInverse;
+  color: colorTextWeakest;
   background-color: colorBackgroundPrimary;
   box-shadow: shadowBorderPrimary;
   padding-top: space30;
@@ -128,26 +128,26 @@ exports[`Menu Render should render 1`] = `
 .emotion-4:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: colorTextInverse;
-  background-color: colorBackgroundPrimaryDarker;
-  box-shadow: shadowBorderPrimaryDarker;
+  color: colorTextWeakest;
+  background-color: colorBackgroundPrimaryStronger;
+  box-shadow: shadowBorderPrimaryStronger;
 }
 
 .emotion-4:focus {
   -webkit-text-decoration: none;
   text-decoration: none;
   box-shadow: shadowFocus;
-  color: colorTextInverse;
-  background-color: colorBackgroundPrimaryDarker;
+  color: colorTextWeakest;
+  background-color: colorBackgroundPrimaryStronger;
 }
 
 .emotion-4:active,
 .emotion-4[data-active=true] {
   -webkit-text-decoration: none;
   text-decoration: none;
-  box-shadow: shadowBorderPrimaryDarker;
-  color: colorTextInverse;
-  background-color: colorBackgroundPrimaryDark;
+  box-shadow: shadowBorderPrimaryStrongest;
+  color: colorTextWeakest;
+  background-color: colorBackgroundPrimaryStrongest;
 }
 
 .emotion-3 {
@@ -167,7 +167,7 @@ exports[`Menu Render should render 1`] = `
   background-color: colorBackgroundBody;
   border-style: solid;
   border-width: borderWidth10;
-  border-color: colorBorderLight;
+  border-color: colorBorderWeak;
   border-radius: borderRadius20;
   box-shadow: shadow;
   max-width: size30;
@@ -217,7 +217,7 @@ exports[`Menu Render should render 1`] = `
   margin-bottom: space40;
   margin-top: space40;
   border-width: borderWidth0;
-  border-color: colorBorderLight;
+  border-color: colorBorderWeak;
   border-style: solid;
   border-bottom-width: borderWidth10;
   width: auto;
@@ -438,7 +438,7 @@ exports[`Menu Render should render 1`] = `
       aria-expanded="false"
       aria-haspopup="menu"
       class="emotion-4"
-      color="colorTextInverse"
+      color="colorTextWeakest"
       cursor="pointer"
       data-testid="example-submenu-trigger"
       display="inline-block"
