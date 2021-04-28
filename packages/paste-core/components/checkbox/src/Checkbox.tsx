@@ -132,7 +132,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           >
             <CheckboxIcon checked={checked} disabled={disabled} indeterminate={indeterminate} />
           </BaseRadioCheckboxControl>
-          <BaseRadioCheckboxLabelText fontWeight={isSelectAll ? null : 'fontWeightNormal'}>
+          <BaseRadioCheckboxLabelText fontWeight={isSelectAll ? null : 'fontWeightMedium'}>
             <MediaObject verticalAlign="top">
               {required && (
                 <MediaFigure spacing="space20">

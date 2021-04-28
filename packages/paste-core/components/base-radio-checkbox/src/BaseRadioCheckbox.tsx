@@ -126,7 +126,7 @@ export interface BaseRadioCheckboxLabelTextProps extends Omit<TextProps, 'as'> {
 const BaseRadioCheckboxLabelText = React.forwardRef<HTMLSpanElement, BaseRadioCheckboxLabelTextProps>(
   ({children, ...props}, ref) => {
     return (
-      <Text as="span" color="currentColor" marginLeft="space20" fontWeight="fontWeightNormal" ref={ref} {...props}>
+      <Text as="span" color="currentColor" marginLeft="space20" fontWeight="fontWeightMedium" ref={ref} {...props}>
         {children}
       </Text>
     );
