@@ -44,4 +44,17 @@ describe('Design Tokens', () => {
     });
     expect(theme).toMatchSnapshot();
   });
+
+  it('matches the Dark theme', () => {
+    const theme = theo.convertSync({
+      transform: {
+        type: 'web',
+        file: path.resolve(__dirname, '../tokens/themes/dark/tokens.yml'),
+      },
+      format: {
+        type: 'json',
+      },
+    });
+    expect(theme).toMatchSnapshot();
+  });
 });
