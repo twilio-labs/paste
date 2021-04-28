@@ -49,6 +49,9 @@ props:
   color-border-primary-weaker:
     value: "{!palette-blue-20}"
     comment: Lighter primary border color
+  color-border-primary-weakest:
+    value: "{!palette-blue-10}"
+    comment: Lightest primary border color
 
   # status borders
   color-border-neutral-weak:
@@ -106,4 +109,7 @@ props:
     comment: Destructive focus border color
   color-border-destructive-weaker:
     value: "{!palette-red-20}"
+    comment: Destructive focus border color
+  color-border-destructive-weakest:
+    value: "{!palette-red-10}"
     comment: Destructive focus border color
