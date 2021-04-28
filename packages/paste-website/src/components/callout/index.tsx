@@ -2,19 +2,20 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Stack} from '@twilio-paste/stack';
-import {Heading, asTags as HeadingAsTags} from '@twilio-paste/heading';
-import {BorderColor} from '@twilio-paste/style-props';
+import type {asTags as HeadingAsTags} from '@twilio-paste/heading';
+import {Heading} from '@twilio-paste/heading';
+import type {BorderColor} from '@twilio-paste/style-props';
 
 type CalloutVariants = 'primary' | 'secondary' | 'warning';
 
 const borderColorPartial = (variant?: CalloutVariants): BorderColor => {
   if (variant === 'secondary') {
-    return 'colorBorderPrimaryDark';
+    return 'colorBorderPrimaryStrong';
   }
   if (variant === 'warning') {
     return 'colorBorderWarning';
   }
-  return 'colorBorderPrimaryLight';
+  return 'colorBorderPrimaryWeak';
 };
 
 interface CalloutTitleProps {

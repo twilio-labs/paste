@@ -47,14 +47,14 @@ const StyledExample = () => {
       </TooltipPrimitiveReference>
       <TooltipPrimitive {...tooltip}>
         <Box
-          backgroundColor="colorBackgroundPrimaryDarker"
+          backgroundColor="colorBackgroundPrimaryStronger"
           borderRadius="borderRadius20"
           padding="space30"
         >
           <TooltipPrimitiveArrow
             {...tooltip}
-            fill="colorBackgroundPrimaryDarker"
-            stroke="colorBackgroundPrimaryDarker"
+            fill="colorBackgroundPrimaryStronger"
+            stroke="colorBackgroundPrimaryStronger"
           />
           <StyledBase>
             <Text color="colorTextInverse">

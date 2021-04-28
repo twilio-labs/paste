@@ -37,7 +37,7 @@ const IconTile = React.forwardRef<HTMLButtonElement, IconTileProps>(({children, 
         boxShadow: 'shadowLow',
       }}
       _selected={{
-        borderColor: 'colorBorderPrimaryDarker',
+        borderColor: 'colorBorderPrimaryStronger',
         boxShadow: 'shadowBorderPrimary',
       }}
       _focus={{

@@ -101,14 +101,14 @@ resulting accessibility implications.
 >
 Parent box on the hill side
   <Box
-    backgroundColor="colorBackgroundSuccessLightest"
+    backgroundColor="colorBackgroundSuccessWeakest"
     display="inline-block"
     padding="space40"
   >
     nested box 1 made out of ticky tacky
   </Box>
   <Box
-    backgroundColor="colorBackgroundPrimaryLight"
+    backgroundColor="colorBackgroundPrimaryWeak"
     display="inline-block"
     padding="space40"
   >
@@ -123,10 +123,10 @@ To view the full list of pseudo-class props, check the [props table](/primitives
 
 <LivePreview scope={{Box}} language="jsx">
   {`<Box
-  backgroundColor="colorBackgroundPrimaryLight"
+  backgroundColor="colorBackgroundPrimaryWeak"
   padding="space60"
   transition="all 200ms ease-in"
-  _hover={{padding: "space30", backgroundColor: "colorBackgroundPrimaryLightest", cursor: "pointer"}}
+  _hover={{padding: "space30", backgroundColor: "colorBackgroundPrimaryWeakest", cursor: "pointer"}}
 >
 Hover over me!
 </Box>`}
@@ -145,12 +145,12 @@ compose the modal using Box:
   borderRadius="borderRadius20"
   borderStyle="solid"
   borderWidth="borderWidth10"
-  borderColor="colorBorderPrimaryLight"
+  borderColor="colorBorderPrimaryWeak"
   >
-  <Box backgroundColor="colorBackgroundPrimaryLight" padding="space40">
+  <Box backgroundColor="colorBackgroundPrimaryWeak" padding="space40">
     Header area
   </Box>
-  <Box backgroundColor="colorBackgroundPrimaryLightest" padding="space40">
+  <Box backgroundColor="colorBackgroundPrimaryWeakest" padding="space40">
     Body area
     <Box
       width="size20"
@@ -161,7 +161,7 @@ compose the modal using Box:
       An inner box with margin and padding
     </Box>
   </Box>
-  <Box backgroundColor="colorBackgroundPrimaryLight" padding="space40">
+  <Box backgroundColor="colorBackgroundPrimaryWeak" padding="space40">
     Footer area
   </Box>
 </Box>`}
