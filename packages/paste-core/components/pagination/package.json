@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/pagination",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "category": "navigation",
   "status": "production",
   "description": "Pagination lets users navigate through content or a dataset that’s been broken up into multiple pages.",
@@ -39,10 +39,10 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^4.0.2",
+    "@twilio-paste/box": "^4.0.4",
     "@twilio-paste/design-tokens": "^6.6.0",
     "@twilio-paste/icons": "^5.1.1",
-    "@twilio-paste/style-props": "^3.0.2",
+    "@twilio-paste/style-props": "^3.0.3",
     "@twilio-paste/styling-library": "^0.3.1",
     "@twilio-paste/text": "^4.0.2",
     "@twilio-paste/theme": "^5.0.2",
