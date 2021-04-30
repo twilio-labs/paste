@@ -161,11 +161,18 @@ export const ControlledArrowPaginationExample: React.FC = () => {
           label="Go to previous page"
           visibleLabel="Previous"
           onClick={goToPreviousPage}
+          disabled={currentPage === 1}
         />
         <PaginationLabel>
           Page {currentPage} of {totalPages}
         </PaginationLabel>
-        <PaginationArrow variant="forward" label="Go to next page" visibleLabel="Next" onClick={goToNextPage} />
+        <PaginationArrow
+          variant="forward"
+          label="Go to next page"
+          visibleLabel="Next"
+          onClick={goToNextPage}
+          disabled={currentPage === 7}
+        />
       </PaginationItems>
     </Pagination>
   );
@@ -194,6 +201,7 @@ export const ControlledNumberPaginationExample: React.FC = () => {
           label="Go to previous page"
           visibleLabel="Previous"
           onClick={goToPreviousPage}
+          disabled={currentPage === 1}
         />
         <PaginationNumbers pageLabel={`Page ${currentPage} of ${totalPages}`}>
           {pages.map((page) => {
@@ -204,7 +212,13 @@ export const ControlledNumberPaginationExample: React.FC = () => {
             );
           })}
         </PaginationNumbers>
-        <PaginationArrow variant="forward" label="Go to next page" visibleLabel="Next" onClick={goToNextPage} />
+        <PaginationArrow
+          variant="forward"
+          label="Go to next page"
+          visibleLabel="Next"
+          onClick={goToNextPage}
+          disabled={currentPage === 7}
+        />
       </PaginationItems>
     </Pagination>
   );

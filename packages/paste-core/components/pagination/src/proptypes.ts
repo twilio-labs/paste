@@ -29,15 +29,23 @@ export const PaginationNumberPropTypes = {
 
 export const PaginationArrowButtonPropTypes = {
   as: PropTypes.oneOf(['a', 'button'] as AsTags[]),
+  disabled: PropTypes.bool,
   visibleLabel: PropTypes.string,
 };
 
 export const PaginationArrowPropTypes = {
   as: PropTypes.oneOf(['a', 'button'] as AsTags[]),
+  disabled: PropTypes.bool,
   href: PropTypes.string,
+  isHovered: PropTypes.bool,
   label: PropTypes.string.isRequired,
   variant: PropTypes.oneOf(['back', 'forward'] as Variants[]).isRequired,
   visibleLabel: PropTypes.string,
+};
+
+export const PaginationArrowIconWrapperPropTypes = {
+  children: PropTypes.node.isRequired,
+  isHovered: PropTypes.bool,
 };
 
 export const PaginationEllipsisPropTypes = {
