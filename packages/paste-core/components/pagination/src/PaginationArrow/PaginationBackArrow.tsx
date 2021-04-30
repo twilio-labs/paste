@@ -7,10 +7,10 @@ import type {PaginationArrowProps} from '../types';
 import {PaginationArrowPropTypes} from '../proptypes';
 
 const PaginationBackArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps>(
-  ({as = 'button', label, visibleLabel, ...props}, ref) => {
+  ({as = 'button', disabled, isHovered, label, visibleLabel, ...props}, ref) => {
     return (
-      <PaginationArrowButton {...props} ref={ref} as={as} visibleLabel={visibleLabel}>
-        <PaginationArrowIconWrapper>
+      <PaginationArrowButton {...props} ref={ref} as={as} disabled={disabled} visibleLabel={visibleLabel}>
+        <PaginationArrowIconWrapper isHovered={isHovered}>
           <ArrowBackIcon decorative={false} display="block" title={label} />
         </PaginationArrowIconWrapper>
         {visibleLabel ? (
