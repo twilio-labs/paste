@@ -67,6 +67,9 @@ export const InputElement = styled.input<InputProps>((props) =>
     '&:disabled': {
       color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
       cursor: 'not-allowed',
+      // Fixes value color in Safari
+      '-webkit-text-fill-color': props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
+      '-webkit-opacity': '1',
     },
   })
 );
