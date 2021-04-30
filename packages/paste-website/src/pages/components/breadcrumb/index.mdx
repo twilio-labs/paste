@@ -64,10 +64,8 @@ export const pageQuery = graphql`
   <CalloutTitle>Using alpha components in your product</CalloutTitle>
   <CalloutText>
     Alpha components are ready for use in production and components like Breadcrumb won't likely see any API changes.
-    The term "Alpha" means there is only basic documentation and no corresponding Sketch symbol at this time. Those will
-    eventually be prioritized, but please share your experience using this Alpha component by{' '}
-    <Anchor href="https://github.com/twilio-labs/paste/discussions/new">starting a discussion on GitHub</Anchor>. If
-    you’re interested in helping to symbolize this component in Sketch, we’d love your help – please reach out!
+    The term "Alpha" means there is only basic documentation at this time. Please share your experience using this Alpha component by{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/discussions/new" showExternal>starting a discussion on GitHub</Anchor>.
   </CalloutText>
 </Callout>
 
@@ -83,7 +81,7 @@ Breadcrumbs are listed in order and represent the hierarchy of the page in the p
   <CalloutTitle>Using Breadcrumb in Console products</CalloutTitle>
   <CalloutText>
     If you're planning on using Breadcrumbs in a Console product, please read the{' '}
-      <Anchor href="https://docs.google.com/document/d/1hQ0S4qC0N8lwpVAo4ySv3woYHjTNMEyK2bPKKPZ1eBo/edit">Console Navigation guidelines
+      <Anchor href="https://docs.google.com/document/d/1hQ0S4qC0N8lwpVAo4ySv3woYHjTNMEyK2bPKKPZ1eBo/edit" showExternal>Console Navigation guidelines
       </Anchor>
     {' '}and reach out to the Console team (#help-console-beta). Breadcrumbs will eventually be provided through the navigation framework.
   </CalloutText>
@@ -92,7 +90,7 @@ Breadcrumbs are listed in order and represent the hierarchy of the page in the p
 ### Accessibility
 
 - The Breadcrumb component includes the accessible `aria-label="breadcrumb"` attribute. Make sure to add the `href` so the `BreadcrumbItem` goes to the appropriate location.
-- Though you should generally avoid using the unlinked `BreadcrumbItem`, it includes the accessible `aria-current="page"` attribute. Head to the [Breadcrumb with unlinked page](#breadcrumb-with-unlinked-page) example for more details.
+- The unlinked `BreadcrumbItem` includes the accessible `aria-current="page"` attribute. Head to the [Breadcrumb with unlinked page](#breadcrumb-with-unlinked-page) example for more details on when you should use an unlinked `BreadcrumbItem`.
 
 ## Examples
 
@@ -109,15 +107,15 @@ The Breadcrumb component uses [Anchors](/components/anchor) to link back to pare
 
 ### Breadcrumb with unlinked page
 
-To show an unlinked page, use a `BreadcrumbItem` with no `href`.
+Use a Breadcrumb with an unlinked page when there's a parent page that customers can't return to, but showing the navigation hierarchy of the current page still helps a customer with their workflow. However this should **not** be used to show the current page, especially if there is a visible page heading directly below the Breadcrumb.
 
-Use an unlinked page when there's a parent page that customers can't return to, but showing the navigation hierarchy of the current page still helps a customer with their workflow. This should **not** be used for the current page, especially if there is a visible page heading directly below the Breadcrumb.
+To show an unlinked page, use a `BreadcrumbItem` with no `href`.
 
 <LivePreview scope={{Breadcrumb, BreadcrumbItem}} language="jsx">
   {`<Breadcrumb>
   <BreadcrumbItem href="#">Phone Numbers</BreadcrumbItem>
   <BreadcrumbItem href="#">Active Numbers</BreadcrumbItem>
-  <BreadcrumbItem>Germany Hotline B</BreadcrumbItem>
+  <BreadcrumbItem>Updates</BreadcrumbItem>
 </Breadcrumb>`}
 </LivePreview>
 
@@ -153,13 +151,13 @@ You may choose to use a page Heading as the current page in the breadcrumb.
 ## Considerations
 
 <DoDont>
-  <Do title="Do" body="Add a slash between two BreadcrumbItems" center>
+  <Do title="Do" body="Add a slash between two BreadcrumbItems." center>
     <Breadcrumb>
       <BreadcrumbItem href="#">Phone Numbers</BreadcrumbItem>
       <BreadcrumbItem href="#">Buy new number</BreadcrumbItem>
     </Breadcrumb>
   </Do>
-  <Dont title="Don't" body="Don't add a trailing slash" center>
+  <Dont title="Don't" body="Don't add a trailing slash." center>
     <Breadcrumb>
       <BreadcrumbItem href="#">Phone Numbers</BreadcrumbItem>
       <BreadcrumbItem href="#">Buy new number</BreadcrumbItem>
@@ -169,7 +167,7 @@ You may choose to use a page Heading as the current page in the breadcrumb.
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Use Breadcrumbs to show the navigation trail leading to the current page" center>
+  <Do title="Do" body="Use Breadcrumbs to show the navigation trail leading to the current page." center>
     <Breadcrumb>
       <BreadcrumbItem href="#">Phone Numbers</BreadcrumbItem>
       <BreadcrumbItem href="#">Buy new number</BreadcrumbItem>
