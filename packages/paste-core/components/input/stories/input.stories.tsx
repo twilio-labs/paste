@@ -334,7 +334,7 @@ InputDisabled.story = {
 
 export const InputDisabledInverse = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Input');
+  const [value, setValue] = React.useState('Input - Disabled');
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label htmlFor={uid} variant="inverse" disabled>

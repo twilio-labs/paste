@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {matchers} from 'jest-emotion';
 import {render} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {Label} from '@twilio-paste/label';
@@ -7,6 +8,8 @@ import {HelpText} from '@twilio-paste/help-text';
 import axe from '../../../../../.jest/axe-helper';
 import {Input} from '../src';
 import type {InputTypes} from '../src';
+
+expect.extend(matchers);
 
 const NOOP = (): void => {};
 
@@ -124,6 +127,7 @@ describe('Input inner input props', () => {
 
   it('should set disabled correctly', () => {
     expect(InnerInput.getAttribute('disabled')).toEqual('');
+    expect(InnerInput).toHaveStyleRule('-webkit-text-fill-color', 'colorTextWeaker', {target: ':disabled'});
   });
 
   it('should set readOnly correctly', () => {
