@@ -109,7 +109,9 @@ The Breadcrumb component uses [Anchors](/components/anchor) to link back to pare
 
 ### Breadcrumb with unlinked page
 
-To show an unlinked page, use a `BreadcrumbItem` with no `href`. This should **not** be used for the current page, especially if there is a visible page heading directly below the breadcrumb.
+To show an unlinked page, use a `BreadcrumbItem` with no `href`.
+
+Use an unlinked page when there's a parent page that customers can't return to, but showing the navigation hierarchy of the current page still helps a customer with their workflow. This should **not** be used for the current page, especially if there is a visible page heading directly below the Breadcrumb.
 
 <LivePreview scope={{Breadcrumb, BreadcrumbItem}} language="jsx">
   {`<Breadcrumb>
@@ -173,7 +175,7 @@ You may choose to use a page Heading as the current page in the breadcrumb.
       <BreadcrumbItem href="#">Buy new number</BreadcrumbItem>
     </Breadcrumb>
   </Do>
-  <Dont title="Don't" body="Avoid using an unlinked BreadcrumbItem, especially if there's already a visible heading on the page. Exceptions can be made when there are navigation items that customers can't return to, but still need to actively reference." center>
+  <Dont title="Don't" body="Avoid using an unlinked BreadcrumbItem, especially if there's already a visible heading on the page. Exceptions can be made when there are parent pages that customers can't return to, but still need to actively reference." center>
     <Breadcrumb>
       <BreadcrumbItem href="#">Phone Numbers</BreadcrumbItem>
       <BreadcrumbItem>Buy new number</BreadcrumbItem>
