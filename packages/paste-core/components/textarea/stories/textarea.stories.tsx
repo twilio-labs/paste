@@ -197,6 +197,7 @@ export const TextareaDisabled = (): React.ReactNode => {
       <TextArea
         id={uid}
         placeholder="Placeholder"
+        value="Disabled text content..."
         disabled
         onChange={action('handleFocus')}
         onFocus={action('handleFocus')}
@@ -221,6 +222,7 @@ export const TextareaDisabledInverse = (): React.ReactNode => {
       <TextArea
         id={uid}
         placeholder="Placeholder"
+        value="Disabled text content..."
         disabled
         onChange={action('handleFocus')}
         onFocus={action('handleFocus')}
