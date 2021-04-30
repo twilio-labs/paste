@@ -27,6 +27,7 @@ export * from '@twilio-paste/menu-primitive';
 export * from '@twilio-paste/modal';
 export * from '@twilio-paste/modal-dialog-primitive';
 export * from '@twilio-paste/non-modal-dialog-primitive';
+export * from '@twilio-paste/pagination';
 export * from '@twilio-paste/paragraph';
 export * from '@twilio-paste/popover';
 export * from '@twilio-paste/radio-group';

@@ -1,13 +1,13 @@
 // https://styled-system.com/api/#border
-import * as CSS from 'csstype';
-import {ThemeShape} from '@twilio-paste/theme';
-import {ResponsiveValue} from '@twilio-paste/styling-library';
-import {StyleReset} from './helpers';
+import type * as CSS from 'csstype';
+import type {ThemeShape} from '@twilio-paste/theme';
+import type {ResponsiveValue} from '@twilio-paste/styling-library';
+import type {StyleReset} from './helpers';
 
 // Tokens
 export type BorderRadiusOptions = keyof ThemeShape['radii'];
 export type BorderWidthOptions = keyof ThemeShape['borderWidths'];
-export type BorderColorOptions = keyof ThemeShape['borderColors'] | 'transparent';
+export type BorderColorOptions = keyof ThemeShape['borderColors'] | 'transparent' | 'inherit';
 
 export type BorderRadius = ResponsiveValue<BorderRadiusOptions>;
 export type BorderWidth = ResponsiveValue<BorderWidthOptions>;
