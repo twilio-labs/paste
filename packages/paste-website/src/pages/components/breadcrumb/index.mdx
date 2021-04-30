@@ -82,22 +82,17 @@ Breadcrumbs are listed in order and represent the hierarchy of the page in the p
 <Callout variant="warning">
   <CalloutTitle>Using Breadcrumb in Console products</CalloutTitle>
   <CalloutText>
-    If you're planning on using Breadcrumbs in a Console product, please reach out to the Console team first (#help-console-beta). Breadcrumbs will eventually be provided through Console navigation.
+    If you're planning on using Breadcrumbs in a Console product, please read the{' '}
+      <Anchor href="https://docs.google.com/document/d/1hQ0S4qC0N8lwpVAo4ySv3woYHjTNMEyK2bPKKPZ1eBo/edit">Console Navigation guidelines
+      </Anchor>
+    {' '}and reach out to the Console team (#help-console-beta). Breadcrumbs will eventually be provided through the navigation framework.
   </CalloutText>
 </Callout>
 
 ### Accessibility
 
-- The Breadcrumb component includes the accessible `aria-label="breadcrumb"` attribute.
-- An unlinked BreadcrumbItem includes the accessible `aria-current="page"` attribute.
-
-<Callout variant="warning">
-  <CalloutText>
-    The unlinked <inlineCode>BreadcrumbItem</inlineCode> should <strong>only</strong> be used for the page a user is
-    currently on. If it is not the current page, make sure to add the <inlineCode>href</inlineCode> so the{' '}
-    <inlineCode>BreadcrumbItem</inlineCode> goes to the appropriate location.
-  </CalloutText>
-</Callout>
+- The Breadcrumb component includes the accessible `aria-label="breadcrumb"` attribute. Make sure to add the `href` so the `BreadcrumbItem` goes to the appropriate location.
+- Though you should generally avoid using the unlinked `BreadcrumbItem`, it includes the accessible `aria-current="page"` attribute. Head to the [Breadcrumb with unlinked page](#breadcrumb-with-unlinked-page) example for more details.
 
 ## Examples
 
@@ -112,9 +107,9 @@ The Breadcrumb component uses [Anchors](/components/anchor) to link back to pare
 </Breadcrumb>`}
 </LivePreview>
 
-### Breadcrumb with Current Page
+### Breadcrumb with unlinked page
 
-To show the current page, use a `BreadcrumbItem` with no `href`. This should **not** be used if there is a visible page title directly below the breadcrumb.
+To show an unlinked page, use a `BreadcrumbItem` with no `href`. This should **not** be used for the current page, especially if there is a visible page heading directly below the breadcrumb.
 
 <LivePreview scope={{Breadcrumb, BreadcrumbItem}} language="jsx">
   {`<Breadcrumb>
@@ -162,11 +157,26 @@ You may choose to use a page Heading as the current page in the breadcrumb.
       <BreadcrumbItem href="#">Buy new number</BreadcrumbItem>
     </Breadcrumb>
   </Do>
-  <Dont title="Don't" body="Add a trailing slash" center>
+  <Dont title="Don't" body="Don't add a trailing slash" center>
     <Breadcrumb>
       <BreadcrumbItem href="#">Phone Numbers</BreadcrumbItem>
       <BreadcrumbItem href="#">Buy new number</BreadcrumbItem>
       <BreadcrumbItem />
+    </Breadcrumb>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use Breadcrumbs to show the navigation trail leading to the current page" center>
+    <Breadcrumb>
+      <BreadcrumbItem href="#">Phone Numbers</BreadcrumbItem>
+      <BreadcrumbItem href="#">Buy new number</BreadcrumbItem>
+    </Breadcrumb>
+  </Do>
+  <Dont title="Don't" body="Avoid using an unlinked BreadcrumbItem, especially if there's already a visible heading on the page. Exceptions can be made when there are navigation items that customers can't return to, but still need to actively reference." center>
+    <Breadcrumb>
+      <BreadcrumbItem href="#">Phone Numbers</BreadcrumbItem>
+      <BreadcrumbItem>Buy new number</BreadcrumbItem>
     </Breadcrumb>
   </Dont>
 </DoDont>
