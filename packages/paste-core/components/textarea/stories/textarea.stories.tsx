@@ -294,7 +294,11 @@ export const TextareaInsertBeforeAndAfter = (): React.ReactNode => {
         onChange={action('handleFocus')}
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
-        insertBefore={<div>$10.99</div>}
+        insertBefore={
+          <Text as="span" fontWeight="fontWeightSemibold">
+            $10.99
+          </Text>
+        }
         insertAfter={
           <Anchor href="#" display="flex">
             <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
@@ -323,7 +327,11 @@ export const TextareaDisabledInsertBeforeAndAfter = (): React.ReactNode => {
         onChange={action('handleFocus')}
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
-        insertBefore={<div>$10.99</div>}
+        insertBefore={
+          <Text as="span" fontWeight="fontWeightSemibold">
+            $10.99
+          </Text>
+        }
         insertAfter={
           <Anchor href="#" display="flex">
             <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
@@ -354,7 +362,7 @@ export const TextareaInsertBeforeAndAfterInverse = (): React.ReactNode => {
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
         insertBefore={
-          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20">
+          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }
@@ -388,7 +396,7 @@ export const TextareaDisabledInsertBeforeAndAfterInverse = (): React.ReactNode =
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
         insertBefore={
-          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20">
+          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }
