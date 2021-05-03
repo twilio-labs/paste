@@ -11,6 +11,7 @@ import {TextArea} from '@twilio-paste/textarea';
 import {HelpText} from '@twilio-paste/help-text';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
@@ -157,7 +158,7 @@ The textarea should include the base textarea, along with supporting elements to
 - **Prefix/suffix text** — Text that can be used as a prefix and/or suffix to the value that is entered. Use prefix/suffix to help users format text.
 - **Icon** — Icons can be placed in the same area as the prefix and suffix text. Icons should trigger an action (_e.g._, clearing a field).
 
-<LivePreview scope={{Label, HelpText, TextArea}} language="jsx">
+<LivePreview scope={{Label, HelpText, TextArea, Text}} language="jsx">
   {`<>
   <Label htmlFor="short_bio" required>Short Biography</Label>
   <TextArea onChange={()=>{}} id="short_bio" name="short_bio" insertBefore={<Text as="span" fontWeight="fontWeightSemibold">Bio</Text>} required />

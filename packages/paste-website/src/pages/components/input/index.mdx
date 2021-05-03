@@ -11,6 +11,7 @@ import {Input} from '@twilio-paste/input';
 import {HelpText} from '@twilio-paste/help-text';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
@@ -465,7 +466,17 @@ Use an input when users are expected to enter less than a single line of text, o
   </Do>
   <Dont title="Don't" body="Don't use prefix/suffix text as a replacement for a label." center>
     <Box width="100%" padding="space60">
-      <Input id="label_dont" name="label_dont" type="text" onChange="" insertBefore="Name" />
+      <Input
+        id="label_dont"
+        name="label_dont"
+        type="text"
+        onChange=""
+        insertBefore={
+          <Text as="span" fontWeight="fontWeightSemibold">
+            Name
+          </Text>
+        }
+      />
     </Box>
   </Dont>
 </DoDont>
