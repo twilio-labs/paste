@@ -161,7 +161,7 @@ The input component should include the base input, along with supporting element
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="payment_amount" required>Payment Amount</Label>
-  <Input aria-describedby="payment_amount_help_text" id="payment_amount" name="payment_amount" type="text" placeholder="124.45" insertBefore={<div>$</div>} onChange="" required />
+  <Input aria-describedby="payment_amount_help_text" id="payment_amount" name="payment_amount" type="text" placeholder="124.45" insertBefore={<Text as="span" fontWeight="fontWeightSemibold">$</Text>} onChange="" required />
   <HelpText id="payment_amount_help_text">Enter a dollar amount in USD format.</HelpText>
 </>`}
 </LivePreview>
