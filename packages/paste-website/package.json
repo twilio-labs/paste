@@ -101,8 +101,8 @@
     "pretty-format": "^24.9.0",
     "prism-react-renderer": "^0.1.7",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-helmet": "^5.2.1",
     "react-live": "^2.2.2",
     "react-scrollspy": "^3.4.0",
@@ -111,6 +111,7 @@
     "use-resize-observer": "^7.0.0"
   },
   "devDependencies": {
+    "express": "^4.16.2",
     "vercel": "^20.1.2"
   },
   "resolutions": {

@@ -11,10 +11,10 @@
   "dependencies": {
     "@twilio-paste/core": "^9.0.0",
     "@twilio-paste/icons": "^5.1.2",
-    "next": "10.0.4",
+    "next": "10.2.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.16",
