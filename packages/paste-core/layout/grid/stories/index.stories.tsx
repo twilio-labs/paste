@@ -25,62 +25,62 @@ export const Grid12ColumnAndGutterSupport = (): React.ReactNode => {
   return (
     <Grid as={asValue} gutter={gutterValue}>
       <Column as={asValue}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           1
         </Box>
       </Column>
       <Column as={asValue}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           2
         </Box>
       </Column>
       <Column as={asValue}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           3
         </Box>
       </Column>
       <Column as={asValue}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           4
         </Box>
       </Column>
       <Column as={asValue}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           5
         </Box>
       </Column>
       <Column as={asValue}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           6
         </Box>
       </Column>
       <Column as={asValue}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           7
         </Box>
       </Column>
       <Column as={asValue}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           8
         </Box>
       </Column>
       <Column as={asValue}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           9
         </Box>
       </Column>
       <Column as={asValue}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           10
         </Box>
       </Column>
       <Column as={asValue}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           11
         </Box>
       </Column>
       <Column as={asValue}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           12
         </Box>
       </Column>
@@ -96,7 +96,7 @@ export const Grid1Column = (): React.ReactNode => {
   return (
     <Grid gutter="space20">
       <Column>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           1
         </Box>
       </Column>
@@ -112,12 +112,12 @@ export const Grid2Column = (): React.ReactNode => {
   return (
     <Grid gutter="space20">
       <Column>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           1
         </Box>
       </Column>
       <Column>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           2
         </Box>
       </Column>
@@ -133,17 +133,17 @@ export const Grid3Column = (): React.ReactNode => {
   return (
     <Grid gutter="space20">
       <Column>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           1
         </Box>
       </Column>
       <Column>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           2
         </Box>
       </Column>
       <Column>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           3
         </Box>
       </Column>
@@ -159,22 +159,22 @@ export const Grid4Column = (): React.ReactNode => {
   return (
     <Grid gutter="space20">
       <Column>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           1
         </Box>
       </Column>
       <Column>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           2
         </Box>
       </Column>
       <Column>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           3
         </Box>
       </Column>
       <Column>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           4
         </Box>
       </Column>
@@ -190,32 +190,32 @@ export const Grid6Column = (): React.ReactNode => {
   return (
     <Grid gutter="space20">
       <Column>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           1
         </Box>
       </Column>
       <Column>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           2
         </Box>
       </Column>
       <Column>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           3
         </Box>
       </Column>
       <Column>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           4
         </Box>
       </Column>
       <Column>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           5
         </Box>
       </Column>
       <Column>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           6
         </Box>
       </Column>
@@ -231,17 +231,17 @@ export const Grid55And2Column = (): React.ReactNode => {
   return (
     <Grid gutter="space20">
       <Column span={5}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           5
         </Box>
       </Column>
       <Column span={5}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           5
         </Box>
       </Column>
       <Column span={2}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           2
         </Box>
       </Column>
@@ -257,12 +257,12 @@ export const Grid6And6Column = (): React.ReactNode => {
   return (
     <Grid gutter="space20">
       <Column span={6}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           6
         </Box>
       </Column>
       <Column span={6}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           6
         </Box>
       </Column>
@@ -278,12 +278,12 @@ export const Grid8And4Column = (): React.ReactNode => {
   return (
     <Grid gutter="space20">
       <Column span={8}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           8
         </Box>
       </Column>
       <Column span={4}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           4
         </Box>
       </Column>
@@ -299,12 +299,12 @@ export const Grid9And3Column = (): React.ReactNode => {
   return (
     <Grid gutter="space20">
       <Column span={9}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           9
         </Box>
       </Column>
       <Column span={3}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           3
         </Box>
       </Column>
@@ -320,12 +320,12 @@ export const Grid10And2Column = (): React.ReactNode => {
   return (
     <Grid gutter="space20">
       <Column span={10}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           10
         </Box>
       </Column>
       <Column span={2}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           2
         </Box>
       </Column>
@@ -341,12 +341,12 @@ export const Grid11And1Column = (): React.ReactNode => {
   return (
     <Grid gutter="space20">
       <Column span={11}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           11
         </Box>
       </Column>
       <Column span={1}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           1
         </Box>
       </Column>
@@ -362,57 +362,57 @@ export const Grid2ColumnAndSingleColumns = (): React.ReactNode => {
   return (
     <Grid gutter="space20">
       <Column span={2}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           2
         </Box>
       </Column>
       <Column span={1}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           1
         </Box>
       </Column>
       <Column span={1}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           1
         </Box>
       </Column>
       <Column span={1}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           1
         </Box>
       </Column>
       <Column span={1}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           1
         </Box>
       </Column>
       <Column span={1}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           1
         </Box>
       </Column>
       <Column span={1}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           1
         </Box>
       </Column>
       <Column span={1}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           1
         </Box>
       </Column>
       <Column span={1}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           1
         </Box>
       </Column>
       <Column span={1}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           1
         </Box>
       </Column>
       <Column span={1}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           1
         </Box>
       </Column>
@@ -428,27 +428,27 @@ export const Grid8ColumnAnd4SingleColumns = (): React.ReactNode => {
   return (
     <Grid gutter="space20">
       <Column span={8}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           8
         </Box>
       </Column>
       <Column span={1}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           1
         </Box>
       </Column>
       <Column span={1}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           1
         </Box>
       </Column>
       <Column span={1}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           1
         </Box>
       </Column>
       <Column span={1}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           1
         </Box>
       </Column>
@@ -464,7 +464,7 @@ export const Grid8ColumnSpanWithOffset = (): React.ReactNode => {
   return (
     <Grid>
       <Column span={[12, 6, 8]} offset={[0, 3, 2]}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           8
         </Box>
       </Column>
@@ -480,12 +480,12 @@ export const Grid2ColumnsWithOffset = (): React.ReactNode => {
   return (
     <Grid gutter="space20">
       <Column span={[12, 6, 6]} offset={[0, 2, 2]}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           6
         </Box>
       </Column>
       <Column span={4}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           4
         </Box>
       </Column>
@@ -501,12 +501,12 @@ export const GridRightOffsetColumn = (): React.ReactNode => {
   return (
     <Grid>
       <Column span={4}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           4
         </Box>
       </Column>
       <Column span={4} offset={4}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           4
         </Box>
       </Column>
@@ -522,12 +522,12 @@ export const GridMultipleOffsetColumns = (): React.ReactNode => {
   return (
     <Grid>
       <Column span={2} offset={2}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           2
         </Box>
       </Column>
       <Column span={2} offset={6}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           2
         </Box>
       </Column>
@@ -543,12 +543,12 @@ export const Grid2ColumnSidebar = (): React.ReactNode => {
   return (
     <Grid gutter="space20">
       <Column span={3}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           3
         </Box>
       </Column>
       <Column span={9}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           9
         </Box>
       </Column>
@@ -564,17 +564,17 @@ export const Grid3ColumnWiderCenterColumn = (): React.ReactNode => {
   return (
     <Grid gutter="space60">
       <Column span={2}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           2
         </Box>
       </Column>
       <Column span={8}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           8
         </Box>
       </Column>
       <Column span={2}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           2
         </Box>
       </Column>
@@ -590,12 +590,12 @@ export const Grid2ColumnResponsive = (): React.ReactNode => {
   return (
     <Grid gutter={['space20', 'space60', 'space90']}>
       <Column span={[2, 6, 8]}>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           Responsive Column Size
         </Box>
       </Column>
       <Column span={[10, 6, 4]}>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           Responsive Column Size
         </Box>
       </Column>
@@ -611,12 +611,12 @@ export const Grid2ColumnResponsiveStack = (): React.ReactNode => {
   return (
     <Grid gutter="space20" vertical={[true, false, false]}>
       <Column>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           Responsive Column Size
         </Box>
       </Column>
       <Column>
-        <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
           Responsive Column Size
         </Box>
       </Column>
@@ -632,7 +632,7 @@ export const GridNestedColumn = (): React.ReactNode => {
   return (
     <Grid gutter="space40">
       <Column>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           1
         </Box>
       </Column>
@@ -640,12 +640,12 @@ export const GridNestedColumn = (): React.ReactNode => {
         <Box height="size40">
           <Grid gutter="space20">
             <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+              <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
                 Nested Column 1
               </Box>
             </Column>
             <Column>
-              <Box backgroundColor="colorBackgroundPrimaryLight" height="size40">
+              <Box backgroundColor="colorBackgroundPrimaryWeak" height="size40">
                 Nested Column 2
               </Box>
             </Column>
@@ -653,7 +653,7 @@ export const GridNestedColumn = (): React.ReactNode => {
         </Box>
       </Column>
       <Column>
-        <Box backgroundColor="colorBackgroundPrimaryLighter" height="size40">
+        <Box backgroundColor="colorBackgroundPrimaryWeaker" height="size40">
           3
         </Box>
       </Column>

@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.0.4
+
+### Patch Changes
+
+- [`8fe6a2f4`](https://github.com/twilio-labs/paste/commit/8fe6a2f45cb3b03643da70ad1b4c8dd1eda426d8) [#1368](https://github.com/twilio-labs/paste/pull/1368) Thanks [@richbachman](https://github.com/richbachman)! - Box: added `font-variant-numeric` prop so we can control the usage of alternate glyphs for numbers, fractions, and ordinal markers.
+
 ## 4.0.3
 
 ### Patch Changes

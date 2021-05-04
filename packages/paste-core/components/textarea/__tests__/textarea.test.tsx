@@ -1,11 +1,14 @@
 import * as React from 'react';
 import {render} from 'react-dom';
+import {matchers} from 'jest-emotion';
 import {render as testRender, fireEvent} from '@testing-library/react';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {TextArea} from '../src';
+
+expect.extend(matchers);
 
 const NOOP = (): void => {};
 
@@ -35,6 +38,7 @@ describe('TextArea render', () => {
   it('should render as disabled', () => {
     const {getByRole} = testRender(<TextArea {...initialProps} disabled />);
     expect(getByRole('textbox').getAttribute('disabled')).toEqual('');
+    expect(getByRole('textbox')).toHaveStyleRule('-webkit-text-fill-color', 'colorTextWeaker', {target: ':disabled'});
   });
 
   it('should render an id', () => {

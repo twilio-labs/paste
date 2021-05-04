@@ -237,7 +237,15 @@ ComboboxErrorInverse.story = {
 };
 
 export const ComboboxDisabled = (): React.ReactNode => {
-  return <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" disabled />;
+  return (
+    <Combobox
+      items={items}
+      labelText="Choose a component:"
+      helpText="This is the help text"
+      initialSelectedItem={items[2]}
+      disabled
+    />
+  );
 };
 
 ComboboxDisabled.story = {
@@ -251,6 +259,7 @@ export const ComboboxDisabledInverse = (): React.ReactNode => {
         items={items}
         labelText="Choose a component:"
         helpText="This is the help text"
+        initialSelectedItem={items[2]}
         disabled
         variant="inverse"
       />

@@ -60,7 +60,7 @@ const Item: React.FC<DoProps> = ({center = false, ...props}) => {
         borderRightWidth="borderWidth10"
         borderBottomWidth="borderWidth0"
         borderLeftWidth="borderWidth10"
-        borderColor="colorBorderLight"
+        borderColor="colorBorderWeak"
         display={props.children == null ? 'none' : 'block'}
         overflowY="auto"
       >

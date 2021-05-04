@@ -1,9 +1,12 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
-import {Text, TextProps} from '@twilio-paste/text';
-import {SiblingBox, SiblingBoxProps} from '@twilio-paste/sibling-box';
-import {Label, LabelProps} from '@twilio-paste/label';
+import type {TextProps} from '@twilio-paste/text';
+import {Text} from '@twilio-paste/text';
+import type {SiblingBoxProps} from '@twilio-paste/sibling-box';
+import {SiblingBox} from '@twilio-paste/sibling-box';
+import type {LabelProps} from '@twilio-paste/label';
+import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 
 export interface BaseRadioCheckboxControlProps extends SiblingBoxProps {
@@ -26,17 +29,17 @@ const BaseRadioCheckboxControl = React.forwardRef<HTMLSpanElement, BaseRadioChec
         marginY="space10"
         width="sizeSquare50"
         _hoverSibling={{
-          borderColor: 'colorBorderPrimaryDark',
+          borderColor: 'colorBorderPrimaryStrong',
         }}
         _focusSibling={{
-          borderColor: 'colorBorderPrimaryDark',
+          borderColor: 'colorBorderPrimaryStrong',
           boxShadow: 'shadowFocus',
         }}
         _activeSibling={
           !disabled
             ? {
-                borderColor: 'colorBorderPrimaryDarker',
-                backgroundColor: 'colorBackgroundPrimaryDarker',
+                borderColor: 'colorBorderPrimaryStronger',
+                backgroundColor: 'colorBackgroundPrimaryStronger',
               }
             : undefined
         }
@@ -45,41 +48,41 @@ const BaseRadioCheckboxControl = React.forwardRef<HTMLSpanElement, BaseRadioChec
           backgroundColor: 'colorBackgroundPrimary',
         }}
         _disabledSibling={{
-          borderColor: 'colorBorderLighter',
+          borderColor: 'colorBorderWeaker',
         }}
         _invalidSibling={{
           borderColor: 'colorBorderError',
         }}
         _invalidAndHoverSibling={{
-          borderColor: 'colorBorderErrorDark',
+          borderColor: 'colorBorderErrorStrong',
         }}
         _checkedAndHoverSibling={{
-          borderColor: 'colorBorderPrimaryDarker',
-          backgroundColor: 'colorBackgroundPrimaryDark',
+          borderColor: 'colorBorderPrimaryStronger',
+          backgroundColor: 'colorBackgroundPrimaryStrong',
         }}
         _checkedAndFocusSibling={{
-          borderColor: 'colorBorderPrimaryDarker',
-          backgroundColor: 'colorBackgroundPrimaryDark',
+          borderColor: 'colorBorderPrimaryStronger',
+          backgroundColor: 'colorBackgroundPrimaryStrong',
         }}
         _checkedAndActiveSibling={
           !disabled
             ? {
-                borderColor: 'colorBorderPrimaryDarker',
-                backgroundColor: 'colorBackgroundPrimaryDarker',
+                borderColor: 'colorBorderPrimaryStronger',
+                backgroundColor: 'colorBackgroundPrimaryStronger',
               }
             : undefined
         }
         _checkedAndDisabledSibling={{
-          borderColor: 'colorBorderLighter',
-          backgroundColor: 'colorBackgroundDark',
+          borderColor: 'colorBorderWeaker',
+          backgroundColor: 'colorBackgroundStrong',
         }}
         _checkedAndInvalidSibling={{
           borderColor: 'colorBorderError',
           backgroundColor: 'colorBackgroundError',
         }}
         _checkedAndInvalidAndHoverSibling={{
-          borderColor: 'colorBorderErrorDark',
-          backgroundColor: 'colorBackgroundErrorDark',
+          borderColor: 'colorBorderErrorStrong',
+          backgroundColor: 'colorBackgroundErrorStrong',
         }}
         {...props}
       >

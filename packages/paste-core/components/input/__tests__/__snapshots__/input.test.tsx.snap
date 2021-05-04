@@ -98,6 +98,8 @@ exports[`Input render should render 1`] = `
 .emotion-0:disabled {
   color: rgb(200,204,207);
   cursor: not-allowed;
+  -webkit-text-fill-color: rgb(200,204,207);
+  -webkit-opacity: 1;
 }
 
 <div
@@ -193,6 +195,8 @@ exports[`Input render should render with disabled 1`] = `
 .emotion-0:disabled {
   color: rgb(200,204,207);
   cursor: not-allowed;
+  -webkit-text-fill-color: rgb(200,204,207);
+  -webkit-opacity: 1;
 }
 
 .emotion-1 {
@@ -314,6 +318,8 @@ exports[`Input render should render with hasError 1`] = `
 .emotion-0:disabled {
   color: rgb(200,204,207);
   cursor: not-allowed;
+  -webkit-text-fill-color: rgb(200,204,207);
+  -webkit-opacity: 1;
 }
 
 .emotion-1 {
@@ -460,6 +466,8 @@ exports[`Input render should render with prefix 1`] = `
 .emotion-1:disabled {
   color: rgb(200,204,207);
   cursor: not-allowed;
+  -webkit-text-fill-color: rgb(200,204,207);
+  -webkit-opacity: 1;
 }
 
 .emotion-0 {
@@ -580,6 +588,8 @@ exports[`Input render should render with readOnly 1`] = `
 .emotion-0:disabled {
   color: rgb(200,204,207);
   cursor: not-allowed;
+  -webkit-text-fill-color: rgb(200,204,207);
+  -webkit-opacity: 1;
 }
 
 .emotion-1 {
@@ -727,6 +737,8 @@ exports[`Input render should render with suffix 1`] = `
 .emotion-0:disabled {
   color: rgb(200,204,207);
   cursor: not-allowed;
+  -webkit-text-fill-color: rgb(200,204,207);
+  -webkit-opacity: 1;
 }
 
 .emotion-1 {

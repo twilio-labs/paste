@@ -121,6 +121,8 @@ const scales = {
   maxHeight: 'sizes',
   flexBasis: 'sizes',
   size: 'sizes',
+  // safari overrides
+  '-webkit-text-fill-color': 'textColors',
   // svg
   fill: 'fillColors',
   stroke: 'strokeColors',

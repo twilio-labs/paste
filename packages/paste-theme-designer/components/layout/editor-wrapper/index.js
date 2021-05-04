@@ -7,7 +7,7 @@ import {ExportModal} from './ExportModal';
 import {ImportModal} from './ImportModal';
 import {SITE_MASTHEAD_HEIGHT} from '../../../constants';
 
-const EditorWrapper = props => {
+const EditorWrapper = (props) => {
   const [isExportOpen, setExportOpen] = React.useState(false);
   const [isImportOpen, setImportOpen] = React.useState(false);
 
@@ -25,7 +25,7 @@ const EditorWrapper = props => {
           width="100%"
           display="flex"
           flexDirection="column"
-          borderRightColor="colorBorderDark"
+          borderRightColor="colorBorderStrong"
           borderRightWidth="borderWidth10"
           borderRightStyle="solid"
         >

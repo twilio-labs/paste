@@ -33,17 +33,17 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
           color: 'colorTextLink',
         },
         _hover: {
-          borderLeftColor: 'colorBorderPrimaryDarker',
-          color: 'colorTextLinkDarker',
+          borderLeftColor: 'colorBorderPrimaryStronger',
+          color: 'colorTextLinkStronger',
         },
         _disabled: {
           borderLeftColor: 'transparent',
           color: 'colorTextWeaker',
         },
         _focus: {
-          borderLeftColor: 'colorBorderPrimaryDarker',
+          borderLeftColor: 'colorBorderPrimaryStronger',
           boxShadow: 'shadowFocus',
-          color: 'colorTextLinkDarker',
+          color: 'colorTextLinkStronger',
           outline: 'none',
         },
       };
@@ -73,17 +73,17 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
           color: 'colorTextLink',
         },
         _hover: {
-          borderBottomColor: 'colorBorderPrimaryDarker',
-          color: 'colorTextLinkDarker',
+          borderBottomColor: 'colorBorderPrimaryStronger',
+          color: 'colorTextLinkStronger',
         },
         _disabled: {
           borderBottomColor: 'transparent',
           color: 'colorTextWeaker',
         },
         _focus: {
-          borderBottomColor: 'colorBorderPrimaryDarker',
+          borderBottomColor: 'colorBorderPrimaryStronger',
           boxShadow: 'shadowFocus',
-          color: 'colorTextLinkDarker',
+          color: 'colorTextLinkStronger',
           outline: 'none',
         },
       };
