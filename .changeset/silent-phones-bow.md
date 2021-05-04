@@ -12,6 +12,7 @@
 '@twilio-paste/menu': patch
 '@twilio-paste/modal': patch
 '@twilio-paste/popover': patch
+'@twilio-paste/pagination': patch
 '@twilio-paste/radio-group': patch
 '@twilio-paste/separator': patch
 '@twilio-paste/table': patch
