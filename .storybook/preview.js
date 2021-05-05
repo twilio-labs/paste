@@ -1,8 +1,12 @@
 import React from 'react';
 import {INITIAL_VIEWPORTS} from '@storybook/addon-viewport';
+import isChromatic from 'chromatic/isChromatic';
 import {withPerformance} from 'storybook-addon-performance';
+import {StylingGlobals} from '@twilio-paste/styling-library';
 import {Theme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
+import {Stack} from '@twilio-paste/stack';
+import {Grid, Column} from '@twilio-paste/grid';
 
 export const globalTypes = {
   theme: {
@@ -14,21 +18,90 @@ export const globalTypes = {
       // https://github.com/storybookjs/storybook/blob/master/lib/components/src/icon/icons.tsx
       icon: 'paintbrush',
       // array of plain string values or MenuItem shape (see below)
-      items: ['sendgrid', 'console', 'default'],
+      items: ['default', 'dark', 'sendgrid', 'console'],
+    },
+  },
+  theme_layout: {
+    name: 'Theme layout',
+    description: 'Choose how you wish to view the story themes',
+    defaultValue: isChromatic() ? 'stacked' : 'default',
+    toolbar: {
+      icon: 'component',
+      items: [
+        {value: 'default', title: 'default'},
+        {value: 'side-by-side', title: 'side by side'},
+        {value: 'stacked', title: 'stacked'},
+      ],
     },
   },
 };
 
+const GlobalStyles = () => (
+  <StylingGlobals
+    styles={{
+      body: {
+        padding: '0 !important',
+      },
+    }}
+  />
+);
+
 export const decorators = [
   (Story, context) => {
     const theme = context.globals.theme;
-    return (
-      <Theme.Provider theme={theme}>
-        <Box padding="space40">
-          <Story />
-        </Box>
-      </Theme.Provider>
-    );
+    const layout = context.globals.theme_layout;
+    switch (layout) {
+      default:
+      case 'default':
+        return (
+          <Theme.Provider theme={theme}>
+            <GlobalStyles />
+            <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
+              <Story />
+            </Box>
+          </Theme.Provider>
+        );
+      case 'side-by-side':
+        return (
+          <>
+            <GlobalStyles />
+            <Grid>
+              <Column>
+                <Theme.Provider theme="default">
+                  <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
+                    <Story />
+                  </Box>
+                </Theme.Provider>
+              </Column>
+              <Column>
+                <Theme.Provider theme="dark">
+                  <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
+                    <Story />
+                  </Box>
+                </Theme.Provider>
+              </Column>
+            </Grid>
+          </>
+        );
+      case 'stacked':
+        return (
+          <>
+            <GlobalStyles />
+            <Stack orientation="vertical">
+              <Theme.Provider theme="default">
+                <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
+                  <Story />
+                </Box>
+              </Theme.Provider>
+              <Theme.Provider theme="dark">
+                <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
+                  <Story />
+                </Box>
+              </Theme.Provider>
+            </Stack>
+          </>
+        );
+    }
   },
   withPerformance,
 ];

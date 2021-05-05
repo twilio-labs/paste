@@ -19,7 +19,7 @@ describe('Backgrounds', () => {
     const tree = renderer
       .create(
         <Theme.Provider theme="console">
-          <Box backgroundColor={['colorBackgroundPrimaryLight', 'colorBackgroundPrimary']}>background responsive</Box>
+          <Box backgroundColor={['colorBackgroundPrimaryWeak', 'colorBackgroundPrimary']}>background responsive</Box>
         </Theme.Provider>
       )
       .toJSON();
@@ -34,9 +34,9 @@ describe('Color mappings', () => {
         <Theme.Provider theme="console">
           <Box
             backgroundColor="colorBackgroundPrimary"
-            borderColor="colorBorderDark"
-            borderBottomColor="colorBorderErrorDark"
-            borderLeftColor="colorBorderErrorDark"
+            borderColor="colorBorderStrong"
+            borderBottomColor="colorBorderErrorStrong"
+            borderLeftColor="colorBorderErrorStrong"
             borderRightColor="colorBorderInverse"
             borderTopColor="colorBorderInverse"
             color="colorText"
@@ -54,8 +54,8 @@ describe('Color mappings', () => {
       .create(
         <Theme.Provider theme="console">
           <Box
-            backgroundColor={['colorBackgroundPrimaryLight', 'colorBackgroundPrimary']}
-            borderColor={['colorBorderDark', 'colorBorderDestructiveDark']}
+            backgroundColor={['colorBackgroundPrimaryWeak', 'colorBackgroundPrimary']}
+            borderColor={['colorBorderStrong', 'colorBorderDestructiveStrong']}
             color={['colorText', 'colorTextBrandInverse']}
           >
             background responsive
@@ -73,7 +73,7 @@ describe('Color mappings', () => {
           <Box
             _hover={{
               backgroundColor: 'colorBackground',
-              borderColor: 'colorBorderDestructiveDark',
+              borderColor: 'colorBorderDestructiveStrong',
               color: 'colorTextBrandInverse',
             }}
           >
@@ -92,7 +92,7 @@ describe('Color mappings', () => {
           <Box
             _hover={{
               backgroundColor: ['colorBackground', 'colorBackgroundBody'],
-              borderColor: ['colorBorderDestructiveDark', 'colorBorderErrorDark'],
+              borderColor: ['colorBorderDestructiveStrong', 'colorBorderErrorStrong'],
               color: ['colorTextError', 'colorTextIconInverse'],
             }}
           >
@@ -112,7 +112,7 @@ describe('Borders', () => {
         <Theme.Provider theme="console">
           <Box
             borderStyle="solid"
-            borderColor="colorBorderPrimaryDark"
+            borderColor="colorBorderPrimaryStrong"
             borderWidth="borderWidth10"
             borderRadius="borderRadius20"
           >
@@ -130,7 +130,7 @@ describe('Borders', () => {
         <Theme.Provider theme="console">
           <Box
             borderStyle={['dashed', 'dotted', 'solid']}
-            borderColor={['colorBorderPrimaryDark', 'colorBorderPrimaryLight']}
+            borderColor={['colorBorderPrimaryStrong', 'colorBorderPrimaryWeak']}
             borderWidth={['borderWidth10', 'borderWidth20']}
             borderRadius={['borderRadius0', 'borderRadius10']}
           >

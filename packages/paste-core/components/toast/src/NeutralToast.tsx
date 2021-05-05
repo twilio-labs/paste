@@ -8,7 +8,7 @@ const NeutralToast = React.forwardRef<HTMLDivElement, ToastProps>((props, ref) =
       {...safelySpreadBoxProps(props)}
       ref={ref}
       backgroundColor="colorBackgroundBody"
-      borderColor="colorBorderLighter"
+      borderColor="colorBorderWeaker"
       borderRadius="borderRadius20"
       borderStyle="solid"
       borderWidth="borderWidth10"

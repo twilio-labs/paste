@@ -11,6 +11,7 @@ import {TextArea} from '@twilio-paste/textarea';
 import {HelpText} from '@twilio-paste/help-text';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
@@ -157,10 +158,10 @@ The textarea should include the base textarea, along with supporting elements to
 - **Prefix/suffix text** — Text that can be used as a prefix and/or suffix to the value that is entered. Use prefix/suffix to help users format text.
 - **Icon** — Icons can be placed in the same area as the prefix and suffix text. Icons should trigger an action (_e.g._, clearing a field).
 
-<LivePreview scope={{Label, HelpText, TextArea}} language="jsx">
+<LivePreview scope={{Label, HelpText, TextArea, Text}} language="jsx">
   {`<>
   <Label htmlFor="short_bio" required>Short Biography</Label>
-  <TextArea onChange={()=>{}} id="short_bio" name="short_bio" insertBefore={<div>Bio</div>} required />
+  <TextArea onChange={()=>{}} id="short_bio" name="short_bio" insertBefore={<Text as="span" fontWeight="fontWeightSemibold">Bio</Text>} required />
 </>`}
 </LivePreview>
 
@@ -396,7 +397,16 @@ Use a textarea when users are expected to enter text that exceeds a single line,
   </Do>
   <Dont title="Don't" body="Don't use prefix/suffix text as a replacement for a label." center>
     <Box width="100%" padding="space60">
-      <TextArea onChange={() => {}} id="label_dont" name="label_dont" insertBefore={<div>Footer Text</div>} />
+      <TextArea
+        onChange={() => {}}
+        id="label_dont"
+        name="label_dont"
+        insertBefore={
+          <Text as="span" fontWeight="fontWeightSemibold">
+            Footer Text
+          </Text>
+        }
+      />
     </Box>
   </Dont>
 </DoDont>
@@ -467,10 +477,10 @@ Use a textarea when users are expected to enter text that exceeds a single line,
         <Td>
           <UnorderedList marginBottom="space0">
             <ListItem>Default: $shadow-border</ListItem>
-            <ListItem>Hover: $shadow-border-primary-dark</ListItem>
-            <ListItem>Disabled: $shadow-border-light</ListItem>
+            <ListItem>Hover: $shadow-border-primary-strong</ListItem>
+            <ListItem>Disabled: $shadow-border-weak</ListItem>
             <ListItem>Error: $shadow-border-error</ListItem>
-            <ListItem>Error hover: $shadow-border-error-dark</ListItem>
+            <ListItem>Error hover: $shadow-border-error-strong</ListItem>
           </UnorderedList>
         </Td>
         <Td>No</Td>
@@ -490,7 +500,7 @@ Use a textarea when users are expected to enter text that exceeds a single line,
         <Td>
           <UnorderedList marginBottom="space0">
             <ListItem>Background: $color-background</ListItem>
-            <ListItem>Border: $color-border-lighter</ListItem>
+            <ListItem>Border: $color-border-weaker</ListItem>
           </UnorderedList>
         </Td>
         <Td>No</Td>

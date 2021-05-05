@@ -14,6 +14,7 @@ import {CheckboxGroup, Checkbox} from '@twilio-paste/checkbox';
 
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
@@ -216,7 +217,7 @@ The select component should include the base select, along with supporting eleme
   <Select
     id="select_add_ons_prefix_demo"
     htmlFor="select_add_ons_prefix_demo"
-    insertBefore={<div>+1</div>}
+    insertBefore={<Text as="span" fontWeight="fontWeightSemibold">+1</Text>}
   >
     <Option value="cats">(415) 555-CATS</Option>
     <Option value="dogs">(415) 555-DOGS</Option>
@@ -724,10 +725,10 @@ Use a select when:
         <Td>
           <UnorderedList marginBottom="space0">
             <ListItem>Default: $shadow-border</ListItem>
-            <ListItem>Hover: $shadow-border-primary-dark</ListItem>
-            <ListItem>Disabled: $shadow-border-light</ListItem>
+            <ListItem>Hover: $shadow-border-primary-strong</ListItem>
+            <ListItem>Disabled: $shadow-border-weak</ListItem>
             <ListItem>Error: $shadow-border-error</ListItem>
-            <ListItem>Error hover: $shadow-border-error-dark</ListItem>
+            <ListItem>Error hover: $shadow-border-error-strong</ListItem>
           </UnorderedList>
         </Td>
         <Td>No</Td>
@@ -747,7 +748,7 @@ Use a select when:
         <Td>
           <UnorderedList marginBottom="space0">
             <ListItem>Background: $color-background</ListItem>
-            <ListItem>Border: $color-border-lighter</ListItem>
+            <ListItem>Border: $color-border-weaker</ListItem>
           </UnorderedList>
         </Td>
         <Td>No</Td>

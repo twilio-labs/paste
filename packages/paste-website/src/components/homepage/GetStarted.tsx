@@ -16,8 +16,8 @@ export const GetStarted: React.FC = () => {
   return (
     <Box paddingX={['space90', 'space180']} position="relative">
       <SlantedBackgroundGradient
-        startColor="colorBackgroundPrimaryDarkest"
-        endColor="colorBackgroundPrimaryDarker"
+        startColor="colorBackgroundPrimaryStrongest"
+        endColor="colorBackgroundPrimaryStronger"
         styles={{bottom: `${HOMEPAGE_SECTION_OVERFLOW_OFFSET}px`}}
       >
         <Box

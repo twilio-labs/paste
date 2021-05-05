@@ -11,6 +11,7 @@ import {Input} from '@twilio-paste/input';
 import {HelpText} from '@twilio-paste/help-text';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
@@ -161,7 +162,7 @@ The input component should include the base input, along with supporting element
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="payment_amount" required>Payment Amount</Label>
-  <Input aria-describedby="payment_amount_help_text" id="payment_amount" name="payment_amount" type="text" placeholder="124.45" insertBefore={<div>$</div>} onChange="" required />
+  <Input aria-describedby="payment_amount_help_text" id="payment_amount" name="payment_amount" type="text" placeholder="124.45" insertBefore={<Text as="span" fontWeight="fontWeightSemibold">$</Text>} onChange="" required />
   <HelpText id="payment_amount_help_text">Enter a dollar amount in USD format.</HelpText>
 </>`}
 </LivePreview>
@@ -465,7 +466,17 @@ Use an input when users are expected to enter less than a single line of text, o
   </Do>
   <Dont title="Don't" body="Don't use prefix/suffix text as a replacement for a label." center>
     <Box width="100%" padding="space60">
-      <Input id="label_dont" name="label_dont" type="text" onChange="" insertBefore="Name" />
+      <Input
+        id="label_dont"
+        name="label_dont"
+        type="text"
+        onChange=""
+        insertBefore={
+          <Text as="span" fontWeight="fontWeightSemibold">
+            Name
+          </Text>
+        }
+      />
     </Box>
   </Dont>
 </DoDont>
@@ -530,10 +541,10 @@ Use an input when users are expected to enter less than a single line of text, o
         <Td>
           <UnorderedList marginBottom="space0">
             <ListItem>Default: $shadow-border</ListItem>
-            <ListItem>Hover: $shadow-border-primary-dark</ListItem>
-            <ListItem>Disabled: $shadow-border-light</ListItem>
+            <ListItem>Hover: $shadow-border-primary-strong</ListItem>
+            <ListItem>Disabled: $shadow-border-weak</ListItem>
             <ListItem>Error: $shadow-border-error</ListItem>
-            <ListItem>Error hover: $shadow-border-error-dark</ListItem>
+            <ListItem>Error hover: $shadow-border-error-strong</ListItem>
           </UnorderedList>
         </Td>
         <Td>No</Td>

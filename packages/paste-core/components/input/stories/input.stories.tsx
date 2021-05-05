@@ -334,7 +334,7 @@ InputDisabled.story = {
 
 export const InputDisabledInverse = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Input');
+  const [value, setValue] = React.useState('Input - Disabled');
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label htmlFor={uid} variant="inverse" disabled>
@@ -486,7 +486,11 @@ export const InputInsertBeforeAndAfter = (): React.ReactNode => {
         }}
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
-        insertBefore={<div>$10.99</div>}
+        insertBefore={
+          <Text as="span" fontWeight="fontWeightSemibold">
+            $10.99
+          </Text>
+        }
         insertAfter={
           <Anchor href="#" display="flex">
             <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
@@ -520,7 +524,11 @@ export const InputDisabledInsertBeforeAndAfter = (): React.ReactNode => {
         }}
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
-        insertBefore={<div>$10.99</div>}
+        insertBefore={
+          <Text as="span" fontWeight="fontWeightSemibold">
+            $10.99
+          </Text>
+        }
         insertAfter={
           <Anchor href="#" display="flex">
             <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
@@ -558,7 +566,7 @@ export const InputInsertBeforeAndAfterInverse = (): React.ReactNode => {
         onBlur={action('handleBlur')}
         variant="inverse"
         insertBefore={
-          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20">
+          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }
@@ -598,7 +606,7 @@ export const InputDisabledInsertBeforeAndAfterInverse = (): React.ReactNode => {
         onBlur={action('handleBlur')}
         variant="inverse"
         insertBefore={
-          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20">
+          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }

@@ -9,7 +9,7 @@ const THead = React.forwardRef<HTMLTableSectionElement, THeadProps>((props, ref)
       ref={ref}
       as="thead"
       backgroundColor="colorBackground"
-      borderBottomColor="colorBorderLighter"
+      borderBottomColor="colorBorderWeaker"
       borderBottomStyle="solid"
       borderBottomWidth="borderWidth20"
     />

@@ -24,7 +24,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
   box-sizing: border-box;
   display: flex;
   border-bottom-width: borderWidth10;
-  border-bottom-color: colorBorderLight;
+  border-bottom-color: colorBorderWeak;
   border-bottom-style: solid;
   margin-bottom: space60;
 }
@@ -63,8 +63,8 @@ exports[`Tabs Render horizontally and vertically 1`] = `
 }
 
 .emotion-0:hover {
-  border-bottom-color: colorBorderPrimaryDarker;
-  color: colorTextLinkDarker;
+  border-bottom-color: colorBorderPrimaryStronger;
+  color: colorTextLinkStronger;
 }
 
 .emotion-0:disabled,
@@ -78,9 +78,9 @@ exports[`Tabs Render horizontally and vertically 1`] = `
 }
 
 .emotion-0:focus {
-  border-bottom-color: colorBorderPrimaryDarker;
+  border-bottom-color: colorBorderPrimaryStronger;
   box-shadow: shadowFocus;
-  color: colorTextLinkDarker;
+  color: colorTextLinkStronger;
   outline: none;
 }
 
@@ -118,8 +118,8 @@ exports[`Tabs Render horizontally and vertically 1`] = `
 }
 
 .emotion-1:hover {
-  border-bottom-color: colorBorderPrimaryDarker;
-  color: colorTextLinkDarker;
+  border-bottom-color: colorBorderPrimaryStronger;
+  color: colorTextLinkStronger;
 }
 
 .emotion-1:disabled,
@@ -133,9 +133,9 @@ exports[`Tabs Render horizontally and vertically 1`] = `
 }
 
 .emotion-1:focus {
-  border-bottom-color: colorBorderPrimaryDarker;
+  border-bottom-color: colorBorderPrimaryStronger;
   box-shadow: shadowFocus;
-  color: colorTextLinkDarker;
+  color: colorTextLinkStronger;
   outline: none;
 }
 
@@ -279,7 +279,7 @@ exports[`Tabs Render horizontally and vertically 1`] = `
 .emotion-3 {
   box-sizing: border-box;
   border-left-width: borderWidth10;
-  border-left-color: colorBorderLight;
+  border-left-color: colorBorderWeak;
   border-left-style: solid;
   margin-right: space110;
   min-width: size20;
@@ -316,8 +316,8 @@ exports[`Tabs Render horizontally and vertically 1`] = `
 }
 
 .emotion-0:hover {
-  border-left-color: colorBorderPrimaryDarker;
-  color: colorTextLinkDarker;
+  border-left-color: colorBorderPrimaryStronger;
+  color: colorTextLinkStronger;
 }
 
 .emotion-0:disabled,
@@ -331,9 +331,9 @@ exports[`Tabs Render horizontally and vertically 1`] = `
 }
 
 .emotion-0:focus {
-  border-left-color: colorBorderPrimaryDarker;
+  border-left-color: colorBorderPrimaryStronger;
   box-shadow: shadowFocus;
-  color: colorTextLinkDarker;
+  color: colorTextLinkStronger;
   outline: none;
 }
 

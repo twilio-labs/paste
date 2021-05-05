@@ -24,7 +24,7 @@ const StyledSidebarAnchor = styled(Link)<SidebarAnchorProps>((props) =>
     borderRadius: 'borderRadius10',
 
     "&[aria-current='page']": {
-      backgroundColor: 'colorBackgroundDark',
+      backgroundColor: 'colorBackgroundStrong',
       color: 'colorText',
       fontWeight: 'fontWeightBold',
     },
