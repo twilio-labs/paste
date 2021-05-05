@@ -37,7 +37,7 @@ const TextAreaElement = styled(TextareaAutosize)<TextAreaProps>((props) =>
     display: 'block',
     fontFamily: 'inherit',
     fontSize: 'fontSize30',
-    fontWeight: 'fontWeightNormal',
+    fontWeight: 'fontWeightMedium',
     lineHeight: 'lineHeight20',
     maxHeight: 'size30',
     outline: 'none',
@@ -60,6 +60,9 @@ const TextAreaElement = styled(TextareaAutosize)<TextAreaProps>((props) =>
     '&:disabled': {
       color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
       cursor: 'not-allowed',
+      // Fixes value color in Safari
+      '-webkit-text-fill-color': props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
+      '-webkit-opacity': '1',
     },
   })
 );

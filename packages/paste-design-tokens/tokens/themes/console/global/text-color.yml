@@ -36,36 +36,36 @@ props:
   color-text-link:
     value: "{!palette-blue-70}"
     comment: Link text
-  color-text-link-light:
+  color-text-link-weak:
     value: "{!palette-blue-40}"
     comment: Light shade of link text to be used in interactions
-  color-text-link-dark:
+  color-text-link-strong:
     value: "{!palette-blue-80}"
     comment: Dark shade of link text to be used in interactions
-  color-text-link-darker:
+  color-text-link-stronger:
     value: "{!palette-blue-90}"
     comment: Darker shade of link text to be used in interactions
   color-text-link-destructive:
     value: "{!palette-red-60}"
     comment: Destructive link text
-  color-text-link-destructive-light:
+  color-text-link-destructive-weak:
     value: "{!palette-red-40}"
     comment: Light shade of destructive link text to be used in interactions
-  color-text-link-destructive-dark:
+  color-text-link-destructive-strong:
     value: "{!palette-red-70}"
     comment: Dark shade of destructive link text to be used in interactions
-  color-text-link-destructive-darker:
+  color-text-link-destructive-stronger:
     value: "{!palette-red-90}"
     comment: Darker shade of destructive link text to be used in interactions
 
   #status
-  color-text-error-light:
+  color-text-error-weak:
     value: "{!palette-red-40}"
     comment: Light error text for inputs and error misc
   color-text-error:
     value: "{!palette-red-60}"
     comment: Error text for inputs and error misc
-  color-text-error-dark:
+  color-text-error-strong:
     value: "{!palette-red-80}"
     comment: Dark error text for inputs and error misc
   color-text-success:
@@ -74,7 +74,7 @@ props:
   color-text-warning:
     value: "{!palette-orange-60}"
     comment: Color for warning text.
-  color-text-warning-dark:
+  color-text-warning-strong:
     value: "{!palette-orange-70}"
     comment: Color for dark warning text.
   color-text-new:

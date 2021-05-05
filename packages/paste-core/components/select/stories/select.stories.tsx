@@ -93,7 +93,13 @@ export const DefaultSelect = (): React.ReactNode => {
         onBlur={action('handleBlur')}
         multiple={isMultiple}
         size={isMultiple ? multiSelectSize : undefined}
-        insertBefore={insertBefore && <div>$10.99</div>}
+        insertBefore={
+          insertBefore && (
+            <Text as="span" fontWeight="fontWeightSemibold">
+              $10.99
+            </Text>
+          )
+        }
         insertAfter={
           insertAfter && (
             <Anchor href="#" display="flex">
@@ -372,7 +378,11 @@ export const SelectInsertBeforeAndAfter = (): React.ReactNode => {
         }}
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
-        insertBefore={<div>$10.99</div>}
+        insertBefore={
+          <Text as="span" fontWeight="fontWeightSemibold">
+            $10.99
+          </Text>
+        }
         insertAfter={
           <Anchor href="#" display="flex">
             <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
@@ -410,7 +420,11 @@ export const SelectDisabledInsertBeforeAndAfter = (): React.ReactNode => {
         }}
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
-        insertBefore={<div>$10.99</div>}
+        insertBefore={
+          <Text as="span" fontWeight="fontWeightSemibold">
+            $10.99
+          </Text>
+        }
         insertAfter={
           <Anchor href="#" display="flex">
             <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
@@ -450,7 +464,7 @@ export const SelectInsertBeforeAndAfterInverse = (): React.ReactNode => {
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
         insertBefore={
-          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20">
+          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }
@@ -493,7 +507,7 @@ export const SelectDisabedInsertBeforeAndAfterInverse = (): React.ReactNode => {
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
         insertBefore={
-          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20">
+          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }

@@ -31,7 +31,7 @@ export const Default = (): React.ReactNode => {
   const backgroudColorValue = select(
     'backgroundColor',
     backgroundColorOptions,
-    'colorBackgroundPrimaryLight'
+    'colorBackgroundPrimaryWeak'
   ) as keyof ThemeShape['backgroundColors'];
 
   const borderRadiusValue = select('borderRadius', borderRadiusOptions, 'borderRadius20') as keyof ThemeShape['radii'];
@@ -65,7 +65,7 @@ export const Default = (): React.ReactNode => {
   const borderColorValue = select(
     'borderColor',
     borderColorOptions,
-    'colorBorderPrimaryDark'
+    'colorBorderPrimaryStrong'
   ) as keyof ThemeShape['borderColors'];
   const borderStyleValue = text('borderStyle', 'solid');
 
@@ -122,7 +122,7 @@ export const Default = (): React.ReactNode => {
 export const Responsive = (): React.ReactNode => {
   return (
     <Box
-      backgroundColor={['colorBackgroundPrimaryLight', 'colorBackgroundPrimary']}
+      backgroundColor={['colorBackgroundPrimaryWeak', 'colorBackgroundPrimary']}
       padding={['space20', 'space70']}
       height={['size10', 'size20']}
     >
@@ -136,10 +136,10 @@ export const Responsive = (): React.ReactNode => {
 export const PseudoClassesWithProps = (): React.ReactNode => {
   return (
     <Box
-      backgroundColor="colorBackgroundPrimaryLight"
+      backgroundColor="colorBackgroundPrimaryWeak"
       height="size20"
       position="relative"
-      _hover={{padding: 'space20', backgroundColor: 'colorBackgroundPrimaryLighter'}}
+      _hover={{padding: 'space20', backgroundColor: 'colorBackgroundPrimaryWeaker'}}
       _first={{margin: 'space10'}}
       _before={{content: `"Before text"`, position: 'absolute', bottom: 0, left: 0}}
       _after={{content: `"After text"`, position: 'absolute', bottom: 0, right: 0}}

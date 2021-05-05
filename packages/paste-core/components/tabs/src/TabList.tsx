@@ -17,7 +17,7 @@ const HorizontalTabList: React.FC = ({children}) => (
   <Box
     display="flex"
     borderBottomWidth="borderWidth10"
-    borderBottomColor="colorBorderLight"
+    borderBottomColor="colorBorderWeak"
     borderBottomStyle="solid"
     marginBottom="space60"
   >
@@ -28,7 +28,7 @@ const HorizontalTabList: React.FC = ({children}) => (
 const VerticalTabList: React.FC = ({children}) => (
   <Box
     borderLeftWidth="borderWidth10"
-    borderLeftColor="colorBorderLight"
+    borderLeftColor="colorBorderWeak"
     borderLeftStyle="solid"
     marginRight="space110"
     minWidth="size20"

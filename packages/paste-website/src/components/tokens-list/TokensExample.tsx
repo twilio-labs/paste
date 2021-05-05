@@ -138,7 +138,13 @@ interface ShadowBoxProps extends BoxProps {
 }
 export const ShadowBox: React.FC<ShadowBoxProps> = ({tokenName, shadow}) => {
   let isInverse = false;
-  if (tokenName.includes('inverse') || tokenName.includes('light') || tokenName.includes('lighter')) {
+  if (
+    tokenName.includes('inverse') ||
+    tokenName.includes('light') ||
+    tokenName.includes('lighter') ||
+    tokenName.includes('weak') ||
+    tokenName.includes('weaker')
+  ) {
     isInverse = true;
   }
   return (

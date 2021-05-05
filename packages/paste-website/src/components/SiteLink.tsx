@@ -9,18 +9,18 @@ const StyledLink = styled(Link)`
   outline: none;
 
   &:hover {
-    color: ${themeGet('textColors.colorTextLinkDarker')};
+    color: ${themeGet('textColors.colorTextLinkStronger')};
     text-decoration: none;
   }
 
   &:focus {
     box-shadow: ${themeGet('shadows.shadowFocus')};
-    color: ${themeGet('textColors.colorTextLinkDarker')};
+    color: ${themeGet('textColors.colorTextLinkStronger')};
     text-decoration: none;
   }
 
   &:active {
-    color: ${themeGet('textColors.colorTextLinkDarker')};
+    color: ${themeGet('textColors.colorTextLinkStronger')};
     text-decoration: none;
   }
 `;

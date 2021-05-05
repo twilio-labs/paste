@@ -39,7 +39,7 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
       <Box
         {...safelySpreadBoxProps(props)}
         as="li"
-        backgroundColor={highlighted ? 'colorBackgroundPrimaryLightest' : 'colorBackgroundBody'}
+        backgroundColor={highlighted ? 'colorBackgroundPrimaryWeakest' : 'colorBackgroundBody'}
         padding="space30"
         cursor="pointer"
         ref={ref}

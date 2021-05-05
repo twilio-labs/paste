@@ -14,16 +14,16 @@ const DefaultAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, r
     ref={ref}
     textDecoration="underline"
     _active={{
-      color: 'colorTextLinkDarker',
+      color: 'colorTextLinkStronger',
       textDecoration: 'none',
     }}
     _focus={{
       boxShadow: 'shadowFocus',
-      color: 'colorTextLinkDarker',
+      color: 'colorTextLinkStronger',
       textDecoration: 'none',
     }}
     _hover={{
-      color: 'colorTextLinkDarker',
+      color: 'colorTextLinkStronger',
       textDecoration: 'none',
     }}
   >

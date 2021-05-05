@@ -119,9 +119,9 @@ export const PseudoClassesWithHoverPseudoProps = (): React.ReactNode => {
     <Text
       as="p"
       color="colorText"
-      _hover={{color: 'colorTextWarningDark'}}
-      _before={{content: `"Before text"`, position: 'absolute', bottom: 0, left: 0, color: 'colorTextErrorDark'}}
-      _after={{content: `"After text"`, position: 'absolute', bottom: 0, right: 0, color: 'colorTextLinkDarker'}}
+      _hover={{color: 'colorTextWarningStrong'}}
+      _before={{content: `"Before text"`, position: 'absolute', bottom: 0, left: 0, color: 'colorTextErrorStrong'}}
+      _after={{content: `"After text"`, position: 'absolute', bottom: 0, right: 0, color: 'colorTextLinkStronger'}}
     >
       Hover this text
     </Text>
