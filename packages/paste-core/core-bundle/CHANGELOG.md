@@ -1,5 +1,15 @@
 # Change Log
 
+## 9.2.1
+
+### Patch Changes
+
+- [`41a3da0e`](https://github.com/twilio-labs/paste/commit/41a3da0e00bc8bea9927ef38f59e84b606239320) [#1407](https://github.com/twilio-labs/paste/pull/1407) Thanks [@richbachman](https://github.com/richbachman)! - - Added background color to `PaginationArrow` on hover.
+  - Added disabled prop to `PaginationArrow` which sets `aria-hidden` to true and `visibility: none`.
+  - Added left and right padding to `PaginationNumbers` to help center with longer page labels.
+- Updated dependencies [[`41a3da0e`](https://github.com/twilio-labs/paste/commit/41a3da0e00bc8bea9927ef38f59e84b606239320)]:
+  - @twilio-paste/pagination@0.1.2
+
 ## 9.2.0
 
 ### Minor Changes
