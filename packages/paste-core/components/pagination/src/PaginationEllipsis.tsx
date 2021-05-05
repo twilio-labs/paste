@@ -12,6 +12,8 @@ const PaginationEllipsis = React.forwardRef<HTMLSpanElement, PaginationEllipsisP
       as="span"
       display="inline-block"
       paddingBottom="space20"
+      paddingLeft="space30"
+      paddingRight="space30"
       paddingTop="space20"
     >
       &hellip;

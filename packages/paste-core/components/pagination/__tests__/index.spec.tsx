@@ -1,9 +1,12 @@
 import * as React from 'react';
+import {matchers} from 'jest-emotion';
 import {render, fireEvent} from '@testing-library/react';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {PaginationArrow, PaginationNumber} from '../src';
 import {ArrowsPageLabelExample, NumbersExample, NumbersPageLabelExample} from '../stories/index.stories';
+
+expect.extend(matchers);
 
 describe('Pagination', () => {
   it('should render a list of pagination numbers with a page label', () => {
@@ -25,6 +28,13 @@ describe('Pagination', () => {
     const {getByText} = render(<PaginationArrow label="Go to previous page" variant="back" visibleLabel="Previous" />);
     expect(getByText('Previous')).toBeDefined();
     expect(getByText('Previous').getAttribute('aria-hidden')).toBeTruthy();
+  });
+
+  it('should render a hidden pagination arrow', () => {
+    const {getByRole} = render(<PaginationArrow label="Go to previous page" variant="back" disabled />);
+    expect(getByRole('button', {hidden: true}).getAttribute('aria-hidden')).toBeTruthy();
+    expect(getByRole('button', {hidden: true})).toHaveStyleRule('visibility', 'hidden');
+    expect(getByRole('button', {hidden: true})).toHaveStyleRule('opacity', '0');
   });
 
   it('should render pagination arrow as a button', () => {

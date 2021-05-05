@@ -16,7 +16,16 @@ const PaginationNumbers = React.forwardRef<HTMLUListElement, PaginationNumbersPr
 
     return (
       <>
-        <Box {...ULStyles} {...safelySpreadBoxProps(props)} ref={ref} as="ul">
+        <Box
+          {...ULStyles}
+          {...safelySpreadBoxProps(props)}
+          ref={ref}
+          as="ul"
+          justifyContent="center"
+          paddingLeft="space40"
+          paddingRight="space40"
+          width="100%"
+        >
           {validChildren.map((child, index) => {
             return (
               <Box
