@@ -10,6 +10,7 @@
     "build": "GATSBY_TELEMETRY_DISABLED=1 gatsby build",
     "serve": "GATSBY_TELEMETRY_DISABLED=1 gatsby serve",
     "format": "prettier --write src/**/*.{js,jsx}",
+    "clean": "rm -rf public && rm -rf .cache",
     "tsc": "tsc --noEmit",
     "tsc:watch": "yarn type-check -- --watch",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
