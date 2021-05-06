@@ -1,13 +1,13 @@
-import Head from "next/head";
-import { useState } from "react";
-import { useRouter } from "next/router";
-import VisibilitySensor from "react-visibility-sensor";
-import { SiteWrapper } from "../components/site-wrapper";
-import { SiteMetaDefaults } from "../constants/index.ts";
-import { HomeHero } from "../components/homepage/HomeHero.tsx";
-import { GetStarted } from "../components/homepage/GetStarted";
-import { Experiment } from "../components/homepage/Experiment";
-import { PopularComponentsAndPatterns } from "../components/homepage/Popular";
+import Head from 'next/head';
+import {useState} from 'react';
+import {useRouter} from 'next/router';
+import VisibilitySensor from 'react-visibility-sensor';
+import {SiteWrapper} from '@components/site-wrapper';
+import {HomeHero} from '@components/homepage/HomeHero.tsx';
+import {GetStarted} from '@components/homepage/GetStarted';
+import {Experiment} from '@components/homepage/Experiment';
+import {PopularComponentsAndPatterns} from '@components/homepage/Popular';
+import {SiteMetaDefaults} from '@constants/index.ts';
 
 export default function Home() {
   const router = useRouter();
@@ -31,11 +31,7 @@ export default function Home() {
       <main>
         <HomeHero />
         <GetStarted />
-        <VisibilitySensor
-          onChange={handleVisibilityChange}
-          partialVisibility
-          minTopValue={50}
-        >
+        <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={50}>
           <PopularComponentsAndPatterns />
         </VisibilitySensor>
         <Experiment showIframe={showIframe} />

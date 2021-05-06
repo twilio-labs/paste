@@ -1,7 +1,7 @@
 import type {AppProps, NextWebVitalsMetric} from 'next/app';
 import {Theme} from '@twilio-paste/theme';
-import {SITE_BREAKPOINTS} from '../constants';
-import '../assets/scss/search.scss';
+import {SITE_BREAKPOINTS} from '../src/constants';
+import '../src/assets/scss/search.scss';
 
 function MyApp({Component, pageProps}: AppProps) {
   return (

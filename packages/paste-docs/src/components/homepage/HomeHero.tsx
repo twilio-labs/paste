@@ -31,7 +31,7 @@ const SeeRoadmapAnchor: React.FC = () => {
         onMouseLeave={handleMouseLeave}
         onClick={
           () => {}
-          /* TODO 
+          /* TODO
           trackCustomEvent({
             category: "Hero",
             action: "click-see-roadmap",
