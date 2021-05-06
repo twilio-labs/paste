@@ -36,7 +36,7 @@
 - [ ] a `src/` folder with all your package's code.
 - [ ] a `stories/` folder with your storybook stories named as `*.stories.ts(x)`. Give your stories knobs and make them cover all use-cases.
 - [ ] a `__tests__` folder with your package's tests.
-- [ ] a `rollup.config.js` file defining how to build the package. Similar to other packages usually.
+- [ ] a `build.js` file defining how to build the package. Similar to other packages usually.
 - [ ] a `CHANGELOG.md`. Note: this is kept up to date automatically so you don't need to manually edit it.
 - [ ] a `README.md` to detail more information about working on that package's code, if necessary.
 
