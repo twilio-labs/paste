@@ -13,4 +13,5 @@ export const TYPOGRAPHY_PROPS = [
   'whiteSpace',
   'wordBreak',
   'wordWrap',
+  'overflowWrap',
 ];

@@ -23,6 +23,7 @@ export type FontStyleOptions = CSS.FontStyleProperty;
 export type WhiteSpaceOptions = CSS.WhiteSpaceProperty;
 export type WordBreakOptions = CSS.WordBreakProperty;
 export type WordWrapOptions = CSS.WordWrapProperty;
+export type OverflowWrapOptions = CSS.OverflowWrapProperty;
 export type TextDecorationOptions = CSS.TextDecorationProperty<CSS.TextDecorationLineProperty>;
 export type TextOverflowOptions = CSS.TextOverflowProperty;
 export type TextTransformOptions = CSS.TextTransformProperty;
@@ -33,6 +34,7 @@ export type FontStyle = ResponsiveValue<FontStyleOptions>;
 export type WhiteSpace = ResponsiveValue<WhiteSpaceOptions>;
 export type WordBreak = ResponsiveValue<WordBreakOptions>;
 export type WordWrap = ResponsiveValue<WordWrapOptions>;
+export type OverflowWrap = ResponsiveValue<OverflowWrapOptions>;
 export type TextDecoration = ResponsiveValue<TextDecorationOptions>;
 export type TextOverflow = ResponsiveValue<TextOverflowOptions>;
 export type TextTransform = ResponsiveValue<TextTransformOptions>;
@@ -58,4 +60,5 @@ export interface TypographyProps {
   whiteSpace?: WhiteSpace;
   wordBreak?: WordBreak;
   wordWrap?: WordWrap;
+  overflowWrap?: OverflowWrap;
 }
