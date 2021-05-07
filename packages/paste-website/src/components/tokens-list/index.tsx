@@ -8,7 +8,6 @@ import {useUID} from '@twilio-paste/uid-library';
 import {InlineCode} from '../Typography';
 import {AnchoredHeading} from '../Heading';
 import {Callout, CalloutTitle, CalloutText} from '../callout';
-import {SiteLink} from '../SiteLink';
 import {TokenExample} from './TokensExample';
 import {getTokenValue} from './getTokenValue';
 
@@ -27,6 +26,7 @@ interface Token {
   comment: string;
   category: string;
   type: string;
+  deprecated: boolean;
 }
 
 interface TokenCategory {
@@ -43,27 +43,16 @@ interface TokensShape {
 
 interface TokensListProps {
   children?: React.ReactElement;
-  consoleTokens: TokensShape[];
-  sendgridTokens: TokensShape[];
   defaultTokens: TokensShape[];
 }
 
-const getTokensByTheme = (props: TokensListProps): TokenCategory[] => {
-  const font = props.defaultTokens[0].node.tokens.find((ele) => ele.categoryName === 'fonts');
-  if (font) {
-    font.info = (
-      <Callout>
-        <CalloutTitle as="h4">Heads up about fonts in Paste!</CalloutTitle>
-        <CalloutText>
-          Paste leaves it up to you to load the fonts needed for the theme you&apos;ve selected. Console uses Whitney
-          ScreenSmart and SendGrid uses Colfax. Checkout the{' '}
-          <SiteLink to="/getting-started/engineering/#how-to-load-the-right-font">font section</SiteLink> in the getting
-          started guide for more details.
-        </CalloutText>
-      </Callout>
-    );
-  }
+const filterDeprecatedTokens = (tokens: TokenCategory[]): TokenCategory[] => {
+  return tokens.map((category) => {
+    return {...category, tokens: [...category.tokens.filter((token) => !token.deprecated)]};
+  });
+};
 
+const getTokensByTheme = (props: TokensListProps): TokenCategory[] => {
   const fontSize = props.defaultTokens[0].node.tokens.find((ele) => ele.categoryName === 'font-sizes');
   if (fontSize) {
     fontSize.info = (
@@ -81,8 +70,7 @@ const getTokensByTheme = (props: TokensListProps): TokenCategory[] => {
   let tokens = [] as TokenCategory[];
 
   if (props.defaultTokens != null) {
-    // eslint-disable-next-line prefer-destructuring
-    tokens = props.defaultTokens[0].node.tokens;
+    tokens = filterDeprecatedTokens(props.defaultTokens[0].node.tokens);
   }
 
   return tokens;
