@@ -25,7 +25,8 @@
     "newLine": "lf",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "strict": true
+    "strict": true,
+    "resolveJsonModule": true
   },
   "include": ["packages/**/*"],
   "exclude": [

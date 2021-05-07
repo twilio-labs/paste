@@ -23,7 +23,8 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "csstype": "^2.6.10"
+    "csstype": "^2.6.10",
+    "lodash.camelcase": "^4.3.0"
   },
   "peerDependencies": {
     "@twilio-paste/design-tokens": "^6.6.0",
