@@ -11,8 +11,8 @@ import {
   typography,
   verticalAlign,
 } from '@twilio-paste/styling-library';
-import {CursorProperty, OutlineProperty, TextTransformProperty, TransitionProperty} from 'csstype';
-import {
+import type {CursorProperty, OutlineProperty, TextTransformProperty, TransitionProperty} from 'csstype';
+import type {
   Display,
   OverflowProps,
   PositionProps,
@@ -21,6 +21,7 @@ import {
   TypographyProps,
   VerticalAlign,
 } from '@twilio-paste/style-props';
+import {isDeprecatedBoxShadowTokenProp, isDeprecatedTextColorTokenProp} from '@twilio-paste/style-props';
 import {PseudoPropStyles} from './PseudoPropStyles';
 
 export interface TextStyleProps extends OverflowProps, PositionProps, ShadowProps, SpaceProps, TypographyProps {
@@ -126,6 +127,11 @@ Text.defaultProps = {
   color: 'colorText',
   fontSize: 'fontSize30',
   lineHeight: 'lineHeight30',
+};
+
+Text.propTypes = {
+  boxShadow: isDeprecatedBoxShadowTokenProp,
+  color: isDeprecatedTextColorTokenProp,
 };
 
 export * from './SafelySpreadProps';
