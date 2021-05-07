@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.0.6
+
+### Patch Changes
+
+- [`37f82857`](https://github.com/twilio-labs/paste/commit/37f82857ef5046156931a22e2431aed49629ff63) [#1424](https://github.com/twilio-labs/paste/pull/1424) Thanks [@TheSisb](https://github.com/TheSisb)! - Added the "overflowWrap" prop to Box
+
 ## 4.0.5
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # Change Log
 
+## 9.2.2
+
+### Patch Changes
+
+- [`37f82857`](https://github.com/twilio-labs/paste/commit/37f82857ef5046156931a22e2431aed49629ff63) [#1424](https://github.com/twilio-labs/paste/pull/1424) Thanks [@TheSisb](https://github.com/TheSisb)! - Added the "overflowWrap" prop to Box
+
+* [`3668591b`](https://github.com/twilio-labs/paste/commit/3668591bf9898b7770adb1f33c809c12798eb6e7) [#1424](https://github.com/twilio-labs/paste/pull/1424) Thanks [@TheSisb](https://github.com/TheSisb)! - Added overflowWrap to the Typography styled prop bucket
+
+* Updated dependencies [[`37f82857`](https://github.com/twilio-labs/paste/commit/37f82857ef5046156931a22e2431aed49629ff63), [`3668591b`](https://github.com/twilio-labs/paste/commit/3668591bf9898b7770adb1f33c809c12798eb6e7)]:
+  - @twilio-paste/box@4.0.6
+  - @twilio-paste/style-props@3.0.5
+
 ## 9.2.1
 
 ### Patch Changes

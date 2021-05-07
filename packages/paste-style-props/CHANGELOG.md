@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.0.5
+
+### Patch Changes
+
+- [`3668591b`](https://github.com/twilio-labs/paste/commit/3668591bf9898b7770adb1f33c809c12798eb6e7) [#1424](https://github.com/twilio-labs/paste/pull/1424) Thanks [@TheSisb](https://github.com/TheSisb)! - Added overflowWrap to the Typography styled prop bucket
+
 ## 3.0.4
 
 ### Patch Changes
