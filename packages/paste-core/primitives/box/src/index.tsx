@@ -174,6 +174,7 @@ const extraConfig = system({
   whiteSpace: true,
   wordBreak: true,
   wordWrap: true,
+  overflowWrap: true,
   opacity: true,
   borderCollapse: true,
   borderSpacing: true,
