@@ -1,5 +1,10 @@
-export {isBackgroundColorTokenProp} from './background';
-export {isBorderColorTokenProp, isBorderRadiusTokenProp, isBorderWidthTokenProp} from './border';
+export {isBackgroundColorTokenProp, isDeprecatedBackgroundColorTokenProp} from './background';
+export {
+  isBorderColorTokenProp,
+  isDeprecatedBorderColorTokenProp,
+  isBorderRadiusTokenProp,
+  isBorderWidthTokenProp,
+} from './border';
 export {
   isHeightTokenProp,
   isMaxHeightTokenProp,
@@ -10,7 +15,7 @@ export {
   isIconSizeTokenProp,
 } from './layout';
 export {isZIndexTokenProp} from './position';
-export {isBoxShadowTokenProp} from './shadow';
+export {isBoxShadowTokenProp, isDeprecatedBoxShadowTokenProp} from './shadow';
 export {isSpaceTokenProp, isMarginTokenProp, isPaddingTokenProp} from './space';
 export {
   isFontFamilyTokenProp,
@@ -18,6 +23,7 @@ export {
   isFontWeightTokenProp,
   isLineHeightTokenProp,
   isTextColorTokenProp,
+  isDeprecatedTextColorTokenProp,
 } from './typography';
 export {StyleResetProp} from './helpers';
 export {ResponsiveProp} from './utils/responsivePropValidator';
