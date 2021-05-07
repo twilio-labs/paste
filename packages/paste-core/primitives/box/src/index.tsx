@@ -22,6 +22,12 @@ import type {
   FlexboxProps,
   TypographyProps,
 } from '@twilio-paste/style-props';
+import {
+  isDeprecatedBackgroundColorTokenProp,
+  isDeprecatedBorderColorTokenProp,
+  isDeprecatedBoxShadowTokenProp,
+  isDeprecatedTextColorTokenProp,
+} from '@twilio-paste/style-props';
 import type {
   CursorProperty,
   AppearanceProperty,
@@ -216,5 +222,11 @@ export const Box = styled.div(
 ) as React.FC<BoxProps>;
 
 Box.displayName = 'Box';
+Box.propTypes = {
+  backgroundColor: isDeprecatedBackgroundColorTokenProp,
+  borderColor: isDeprecatedBorderColorTokenProp,
+  boxShadow: isDeprecatedBoxShadowTokenProp,
+  color: isDeprecatedTextColorTokenProp,
+};
 
 export * from './SafelySpreadProps';
