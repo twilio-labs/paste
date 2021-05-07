@@ -33,7 +33,7 @@ export const Blockquote: React.FC<Props> = ({children, name, source, sourceUrl})
   return (
     <Box
       borderLeftWidth="borderWidth20"
-      borderColor="colorBorderPrimaryLight"
+      borderColor="colorBorderPrimaryWeak"
       borderLeftStyle="solid"
       paddingLeft="space60"
       paddingTop="space30"

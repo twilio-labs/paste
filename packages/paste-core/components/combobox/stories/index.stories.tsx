@@ -237,7 +237,15 @@ ComboboxErrorInverse.story = {
 };
 
 export const ComboboxDisabled = (): React.ReactNode => {
-  return <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" disabled />;
+  return (
+    <Combobox
+      items={items}
+      labelText="Choose a component:"
+      helpText="This is the help text"
+      initialSelectedItem={items[2]}
+      disabled
+    />
+  );
 };
 
 ComboboxDisabled.story = {
@@ -251,6 +259,7 @@ export const ComboboxDisabledInverse = (): React.ReactNode => {
         items={items}
         labelText="Choose a component:"
         helpText="This is the help text"
+        initialSelectedItem={items[2]}
         disabled
         variant="inverse"
       />
@@ -266,7 +275,11 @@ export const ComboboxInsertBeforeAndAfter = (): React.ReactNode => {
   return (
     <Combobox
       items={items}
-      insertBefore={<div>$10.99</div>}
+      insertBefore={
+        <Text as="span" fontWeight="fontWeightSemibold">
+          $10.99
+        </Text>
+      }
       insertAfter={
         <Anchor href="#" display="flex">
           <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
@@ -286,7 +299,11 @@ export const ComboboxDisabledInsertBeforeAndAfter = (): React.ReactNode => {
   return (
     <Combobox
       items={items}
-      insertBefore={<div>$10.99</div>}
+      insertBefore={
+        <Text as="span" fontWeight="fontWeightSemibold">
+          $10.99
+        </Text>
+      }
       insertAfter={
         <Anchor href="#" display="flex">
           <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
@@ -309,7 +326,7 @@ export const ComboboxInsertBeforeAndAfterInverse = (): React.ReactNode => {
       <Combobox
         items={items}
         insertBefore={
-          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20">
+          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }
@@ -336,7 +353,7 @@ export const ComboboxDisabledInsertBeforeAndAfterInverse = (): React.ReactNode =
       <Combobox
         items={items}
         insertBefore={
-          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20">
+          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }

@@ -14,7 +14,7 @@ const PopoverArrow: React.FC<PopoverArrowProps> = (props) => {
     <NonModalDialogArrowPrimitive
       {...props}
       size={theme.fontSizes.fontSize70}
-      stroke={theme.borderColors.colorBorderLighter}
+      stroke={theme.borderColors.colorBorderWeaker}
       fill={theme.backgroundColors.colorBackgroundBody}
     />
   );

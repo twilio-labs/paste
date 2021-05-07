@@ -1,3 +1,5 @@
+const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
+
 module.exports = {
   stories: ['../packages/**/*.stories.mdx', '../packages/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
@@ -31,5 +33,16 @@ module.exports = {
       // don't include node_module props as you'll cause the machine to run out of memory on our repo
       propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
     },
+  },
+
+  webpackFinal: async (config) => {
+    const customPlugins = [
+      new DirectoryNamedWebpackPlugin({honorPackage: ['main:dev', 'main'], exclude: /node_modules/}),
+    ];
+
+    config.resolve.plugins =
+      config.resolve.plugins == null ? customPlugins : [...config.resolve.plugins, ...customPlugins];
+
+    return config;
   },
 };

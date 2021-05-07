@@ -42,7 +42,11 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({children, pageContext, loc
           </Anchor>
         </Alert>
       </Box>
-      <Box paddingTop={['space40', 'space40', 'space100']} paddingX={['space50', 'space70', 'space200']}>
+      <Box
+        paddingTop={['space40', 'space40', 'space100']}
+        paddingX={['space50', 'space70', 'space200']}
+        backgroundColor="colorBackgroundBody"
+      >
         <PasteMDXProvider>{children}</PasteMDXProvider>
       </Box>
     </SiteWrapper>

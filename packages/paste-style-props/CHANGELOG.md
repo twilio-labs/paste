@@ -1,5 +1,17 @@
 # Change Log
 
+## 3.0.4
+
+### Patch Changes
+
+- [`25a1f632`](https://github.com/twilio-labs/paste/commit/25a1f632b6d92271967470f8c65a2dbc6babbaca) [#1404](https://github.com/twilio-labs/paste/pull/1404) Thanks [@SiTaggart](https://github.com/SiTaggart)! - add ability to set transparent to color style prop
+
+## 3.0.3
+
+### Patch Changes
+
+- [`0f6b4728`](https://github.com/twilio-labs/paste/commit/0f6b4728abb2de315d03c0c009c1872b7cece045) [#1368](https://github.com/twilio-labs/paste/pull/1368) Thanks [@richbachman](https://github.com/richbachman)! - Style-props: added `inherit` to the typed `border-color` options.
+
 ## 3.0.2
 
 ### Patch Changes

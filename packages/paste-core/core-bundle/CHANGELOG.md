@@ -1,5 +1,170 @@
 # Change Log
 
+## 9.2.1
+
+### Patch Changes
+
+- [`41a3da0e`](https://github.com/twilio-labs/paste/commit/41a3da0e00bc8bea9927ef38f59e84b606239320) [#1407](https://github.com/twilio-labs/paste/pull/1407) Thanks [@richbachman](https://github.com/richbachman)! - - Added background color to `PaginationArrow` on hover.
+  - Added disabled prop to `PaginationArrow` which sets `aria-hidden` to true and `visibility: none`.
+  - Added left and right padding to `PaginationNumbers` to help center with longer page labels.
+- Updated dependencies [[`41a3da0e`](https://github.com/twilio-labs/paste/commit/41a3da0e00bc8bea9927ef38f59e84b606239320)]:
+  - @twilio-paste/pagination@0.1.2
+
+## 9.2.0
+
+### Minor Changes
+
+- [`25a1f632`](https://github.com/twilio-labs/paste/commit/25a1f632b6d92271967470f8c65a2dbc6babbaca) [#1404](https://github.com/twilio-labs/paste/pull/1404) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Add a dark theme to Paste
+
+* [`25a1f632`](https://github.com/twilio-labs/paste/commit/25a1f632b6d92271967470f8c65a2dbc6babbaca) [#1404](https://github.com/twilio-labs/paste/pull/1404) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Design tokens that are named using the light / dark nomenclature are being deprecated in favour of a new set of tokens based on a weak / strong nomenclature to accommodate light and dark modes.
+
+  If you are using these tokens with our `Box` or `Text` component, these will still work for now but we will be removing them in the 2021.11.16 release of Paste. In most cases replacing `dark` for `strong` and `light` for `weak` is all that is required to transition.
+
+  Design tokens that are being deprecated include:
+
+  | old                                   | new                                    |
+  | ------------------------------------- | -------------------------------------- |
+  | color-background-dark                 | color-background-strong                |
+  | color-background-darker               | color-background-stronger              |
+  | color-background-darkest              | color-background-strongest             |
+  | color-background-inverse-light        | color-background-inverse-weak          |
+  | color-background-neutral-lightest     | color-background-neutral-weakest       |
+  | color-background-success-lightest     | color-background-success-weakest       |
+  | color-background-warning-lightest     | color-background-warning-weakest       |
+  | color-background-error-dark           | color-background-error-strong          |
+  | color-background-error-lightest       | color-background-error-weakest         |
+  | color-background-primary-darkest      | color-background-primary-strongest     |
+  | color-background-primary-darker       | color-background-primary-stronger      |
+  | color-background-primary-dark         | color-background-primary-strong        |
+  | color-background-primary-light        | color-background-primary-weak          |
+  | color-background-primary-lighter      | color-background-primary-weaker        |
+  | color-background-primary-lightest     | color-background-primary-weakest       |
+  | color-background-destructive-darkest  | color-background-destructive-strongest |
+  | color-background-destructive-darker   | color-background-destructive-stronger  |
+  | color-background-destructive-dark     | color-background-destructive-strong    |
+  | color-background-destructive-light    | color-background-destructive-weak      |
+  | color-background-destructive-lighter  | color-background-destructive-weaker    |
+  | color-background-destructive-lightest | color-background-destructive-weakest   |
+
+  | old                              | new                                |
+  | -------------------------------- | ---------------------------------- |
+  | color-border-dark                | color-border-strong                |
+  | color-border-light               | color-border-weak                  |
+  | color-border-lighter             | color-border-weaker                |
+  | color-border-inverse-darker      | color-border-inverse-weaker        |
+  | color-border-inverse-lighter     | color-border-inverse-stronger      |
+  | color-border-inverse-lightest    | color-border-inverse-strongest     |
+  | color-border-primary-darkest     | color-border-primary-strongest     |
+  | color-border-primary-darker      | color-border-primary-stronger      |
+  | color-border-primary-dark        | color-border-primary-strong        |
+  | color-border-primary-light       | color-border-primary-weak          |
+  | color-border-primary-lighter     | color-border-primary-weaker        |
+  | color-border-neutral-light       | color-border-neutral-weak          |
+  | color-border-success-light       | color-border-success-weak          |
+  | color-border-success-lightest    | color-border-success-weakest       |
+  | color-border-warning-light       | color-border-warning-weak          |
+  | color-border-warning-lightest    | color-border-warning-weakest       |
+  | color-border-error-dark          | color-border-error-strong          |
+  | color-border-error-light         | color-border-error-weak            |
+  | color-border-error-lightest      | color-border-error-weakest         |
+  | color-border-destructive-darkest | color-border-destructive-strongest |
+  | color-border-destructive-darker  | color-border-destructive-stronger  |
+  | color-border-destructive-dark    | color-border-destructive-strong    |
+  | color-border-destructive-light   | color-border-destructive-weak      |
+  | color-border-destructive-lighter | color-border-destructive-weaker    |
+
+  | old                               | new                                |
+  | --------------------------------- | ---------------------------------- |
+  | shadow-border-lighter             | shadow-border-weaker               |
+  | shadow-border-light               | shadow-border-weak                 |
+  | shadow-border-primary-lighter     | shadow-border-primary-weaker       |
+  | shadow-border-primary-light       | shadow-border-primary-weak         |
+  | shadow-border-primary-dark        | shadow-border-primary-strong       |
+  | shadow-border-primary-darker      | shadow-border-primary-stronger     |
+  | shadow-border-destructive-lighter | shadow-border-destructive-weaker   |
+  | shadow-border-destructive-light   | shadow-border-destructive-weak     |
+  | shadow-border-destructive-darker  | shadow-border-destructive-stronger |
+  | shadow-border-error-light         | shadow-border-error-weak           |
+  | shadow-border-error-dark          | shadow-border-error-strong         |
+  | shadow-border-inverse-darker      | shadow-border-inverse-weaker       |
+  | shadow-border-inverse-light       | shadow-border-inverse-strong       |
+  | shadow-border-inverse-lightest    | shadow-border-inverse-strongest    |
+
+  | old                                | new                                  |
+  | ---------------------------------- | ------------------------------------ |
+  | color-text-link-light              | color-text-link-weak                 |
+  | color-text-link-dark               | color-text-link-strong               |
+  | color-text-link-darker             | color-text-link-stronger             |
+  | color-text-link-destructive-light  | color-text-link-destructive-weak     |
+  | color-text-link-destructive-dark   | color-text-link-destructive-strong   |
+  | color-text-link-destructive-darker | color-text-link-destructive-stronger |
+  | color-text-error-light             | color-text-error-weak                |
+  | color-text-error-dark              | color-text-error-strong              |
+  | color-text-warning-dark            | color-text-warning-strong            |
+
+### Patch Changes
+
+- [`87fc9178`](https://github.com/twilio-labs/paste/commit/87fc91784c86d25f619aa49a9f0586d9e3be97d0) [#1408](https://github.com/twilio-labs/paste/pull/1408) Thanks [@richbachman](https://github.com/richbachman)! - Fix disabled value color in Safari.
+
+* [`4d3fd7df`](https://github.com/twilio-labs/paste/commit/4d3fd7dfbdd410bee1e91805382280cd879f141a) [#1398](https://github.com/twilio-labs/paste/pull/1398) Thanks [@zahnster](https://github.com/zahnster)! - Updated font weights for all form components to make them bolder
+
+- [`df6d8f1d`](https://github.com/twilio-labs/paste/commit/df6d8f1dcff6a17c96976b7b54a5702ec3d09f76) [#1408](https://github.com/twilio-labs/paste/pull/1408) Thanks [@richbachman](https://github.com/richbachman)! - Added `-webkit-text-fill-color` and enable it to use Paste textColor token values.
+
+* [`25a1f632`](https://github.com/twilio-labs/paste/commit/25a1f632b6d92271967470f8c65a2dbc6babbaca) [#1404](https://github.com/twilio-labs/paste/pull/1404) Thanks [@SiTaggart](https://github.com/SiTaggart)! - update internal usage of design tokens to reflect new strong / weak nomenclature
+
+- [`25a1f632`](https://github.com/twilio-labs/paste/commit/25a1f632b6d92271967470f8c65a2dbc6babbaca) [#1404](https://github.com/twilio-labs/paste/pull/1404) Thanks [@SiTaggart](https://github.com/SiTaggart)! - add ability to set transparent to color style prop
+
+- Updated dependencies [[`87fc9178`](https://github.com/twilio-labs/paste/commit/87fc91784c86d25f619aa49a9f0586d9e3be97d0), [`4d3fd7df`](https://github.com/twilio-labs/paste/commit/4d3fd7dfbdd410bee1e91805382280cd879f141a), [`25a1f632`](https://github.com/twilio-labs/paste/commit/25a1f632b6d92271967470f8c65a2dbc6babbaca), [`df6d8f1d`](https://github.com/twilio-labs/paste/commit/df6d8f1dcff6a17c96976b7b54a5702ec3d09f76), [`25a1f632`](https://github.com/twilio-labs/paste/commit/25a1f632b6d92271967470f8c65a2dbc6babbaca), [`25a1f632`](https://github.com/twilio-labs/paste/commit/25a1f632b6d92271967470f8c65a2dbc6babbaca), [`25a1f632`](https://github.com/twilio-labs/paste/commit/25a1f632b6d92271967470f8c65a2dbc6babbaca)]:
+  - @twilio-paste/input@3.0.5
+  - @twilio-paste/textarea@3.0.5
+  - @twilio-paste/base-radio-checkbox@6.0.3
+  - @twilio-paste/checkbox@6.0.4
+  - @twilio-paste/label@6.0.3
+  - @twilio-paste/select@5.0.3
+  - @twilio-paste/design-tokens@6.7.0
+  - @twilio-paste/theme@5.1.0
+  - @twilio-paste/styling-library@0.3.2
+  - @twilio-paste/alert@7.0.1
+  - @twilio-paste/anchor@5.0.3
+  - @twilio-paste/button@7.0.2
+  - @twilio-paste/card@3.0.4
+  - @twilio-paste/combobox@7.0.2
+  - @twilio-paste/disclosure@5.0.4
+  - @twilio-paste/help-text@6.0.3
+  - @twilio-paste/input-box@4.0.4
+  - @twilio-paste/menu@7.0.1
+  - @twilio-paste/modal@7.0.1
+  - @twilio-paste/popover@6.0.1
+  - @twilio-paste/pagination@0.1.1
+  - @twilio-paste/radio-group@6.0.4
+  - @twilio-paste/separator@2.0.4
+  - @twilio-paste/table@2.0.4
+  - @twilio-paste/tabs@2.0.4
+  - @twilio-paste/toast@5.0.1
+  - @twilio-paste/tooltip@4.0.3
+  - @twilio-paste/aspect-ratio@4.0.4
+  - @twilio-paste/grid@2.0.4
+  - @twilio-paste/box@4.0.5
+  - @twilio-paste/text@4.0.3
+  - @twilio-paste/style-props@3.0.4
+
+## 9.1.0
+
+### Minor Changes
+
+- [`ed40d4de`](https://github.com/twilio-labs/paste/commit/ed40d4decd4c04a1f0e77a1f9d8f0237a3a26610) [#1368](https://github.com/twilio-labs/paste/pull/1368) Thanks [@richbachman](https://github.com/richbachman)! - Pagination: added the pagination componenents, stories, and tests.
+
+### Patch Changes
+
+- [`0f6b4728`](https://github.com/twilio-labs/paste/commit/0f6b4728abb2de315d03c0c009c1872b7cece045) [#1368](https://github.com/twilio-labs/paste/pull/1368) Thanks [@richbachman](https://github.com/richbachman)! - Style-props: added `inherit` to the typed `border-color` options.
+
+* [`8fe6a2f4`](https://github.com/twilio-labs/paste/commit/8fe6a2f45cb3b03643da70ad1b4c8dd1eda426d8) [#1368](https://github.com/twilio-labs/paste/pull/1368) Thanks [@richbachman](https://github.com/richbachman)! - Box: added `font-variant-numeric` prop so we can control the usage of alternate glyphs for numbers, fractions, and ordinal markers.
+
+* Updated dependencies [[`0f6b4728`](https://github.com/twilio-labs/paste/commit/0f6b4728abb2de315d03c0c009c1872b7cece045), [`ed40d4de`](https://github.com/twilio-labs/paste/commit/ed40d4decd4c04a1f0e77a1f9d8f0237a3a26610), [`8fe6a2f4`](https://github.com/twilio-labs/paste/commit/8fe6a2f45cb3b03643da70ad1b4c8dd1eda426d8)]:
+  - @twilio-paste/style-props@3.0.3
+  - @twilio-paste/pagination@0.1.0
+  - @twilio-paste/box@4.0.4
+
 ## 9.0.3
 
 ### Patch Changes

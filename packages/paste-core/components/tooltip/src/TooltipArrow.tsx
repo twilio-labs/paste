@@ -11,7 +11,7 @@ const TooltipArrow: React.FC<TooltipArrowProps> = (props) => {
     <TooltipPrimitiveArrow
       {...props}
       size={theme.fontSizes.fontSize50}
-      stroke={theme.borderColors.colorBorderDark}
+      stroke={theme.borderColors.colorBorderStrong}
       fill={theme.backgroundColors.colorBackgroundBodyInverse}
     />
   );

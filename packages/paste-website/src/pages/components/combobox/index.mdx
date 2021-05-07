@@ -126,7 +126,7 @@ The `optionTemplate` prop allows you to pass `jsx` in order to display more comp
 - **Prefix/suffix text** - Text that can be used as a prefix or suffix to the value that is entered. Use prefix/suffix to help users format text.
 - **Icon** - Icons that can be placed in the same area as the prefix and suffix text. Icons should trigger an action (_e.g._, opening a popover).
 
-<LivePreview scope={{Combobox, Anchor, InformationIcon}} noInline language="jsx">
+<LivePreview scope={{Combobox, Anchor, InformationIcon, Text}} noInline language="jsx">
   {prefixSuffixExample}
 </LivePreview>
 
@@ -246,10 +246,10 @@ For full details on how to use the state hook, and what props to provide it, fol
         <Td>
           <UnorderedList marginBottom="space0">
             <ListItem>Default: $shadow-border</ListItem>
-            <ListItem>Hover: $shadow-border-primary-dark</ListItem>
-            <ListItem>Disabled: $shadow-border-light</ListItem>
+            <ListItem>Hover: $shadow-border-primary-strong</ListItem>
+            <ListItem>Disabled: $shadow-border-weak</ListItem>
             <ListItem>Error: $shadow-border-error</ListItem>
-            <ListItem>Error hover: $shadow-border-error-dark</ListItem>
+            <ListItem>Error hover: $shadow-border-error-strong</ListItem>
           </UnorderedList>
         </Td>
         <Td>No</Td>
@@ -269,7 +269,7 @@ For full details on how to use the state hook, and what props to provide it, fol
         <Td>
           <UnorderedList marginBottom="space0">
             <ListItem>Background: $color-background</ListItem>
-            <ListItem>Border: $color-border-lighter</ListItem>
+            <ListItem>Border: $color-border-weaker</ListItem>
           </UnorderedList>
         </Td>
         <Td>No</Td>

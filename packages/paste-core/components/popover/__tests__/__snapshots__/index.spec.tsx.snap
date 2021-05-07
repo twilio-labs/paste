@@ -61,9 +61,9 @@ exports[`Popover Render should render 1`] = `
 .emotion-1[data-active=true] {
   -webkit-text-decoration: none;
   text-decoration: none;
-  box-shadow: 0 0 0 1px #032c5e;
+  box-shadow: 0 0 0 1px #00092b;
   color: rgb(255,255,255);
-  background-color: rgb(0,62,130);
+  background-color: rgb(0,9,43);
 }
 
 .emotion-0 {
@@ -87,7 +87,7 @@ exports[`Popover Render should render 1`] = `
       aria-expanded="false"
       aria-haspopup="dialog"
       class="emotion-1"
-      color="colorTextInverse"
+      color="colorTextWeakest"
       cursor="pointer"
       display="inline-block"
       font-family="fontFamilyText"

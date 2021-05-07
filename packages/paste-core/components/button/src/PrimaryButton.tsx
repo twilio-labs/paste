@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {Box, BoxStyleProps, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxStyleProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {SizeStyles, BaseStyles} from './styles';
 import type {DirectButtonProps} from './types';
 import {DirectButtonPropTypes} from './proptypes';
@@ -12,36 +13,36 @@ const merge = require('lodash.merge');
  * legacy global styles "a {...}" when button is set as an anchor
  */
 const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default, {
-  color: 'colorTextInverse',
+  color: 'colorTextWeakest',
   backgroundColor: 'colorBackgroundPrimary',
   boxShadow: 'shadowBorderPrimary',
   _hover: {
-    color: 'colorTextInverse',
-    backgroundColor: 'colorBackgroundPrimaryDarker',
-    boxShadow: 'shadowBorderPrimaryDarker',
+    color: 'colorTextWeakest',
+    backgroundColor: 'colorBackgroundPrimaryStronger',
+    boxShadow: 'shadowBorderPrimaryStronger',
   },
   _focus: {
-    color: 'colorTextInverse',
-    backgroundColor: 'colorBackgroundPrimaryDarker',
+    color: 'colorTextWeakest',
+    backgroundColor: 'colorBackgroundPrimaryStronger',
     boxShadow: 'shadowFocus',
   },
   _active: {
-    color: 'colorTextInverse',
-    backgroundColor: 'colorBackgroundPrimaryDark',
-    boxShadow: 'shadowBorderPrimaryDarker',
+    color: 'colorTextWeakest',
+    backgroundColor: 'colorBackgroundPrimaryStrongest',
+    boxShadow: 'shadowBorderPrimaryStrongest',
   },
 });
 
 const loadingStyles: BoxStyleProps = merge({}, BaseStyles.loading, {
-  color: 'colorTextInverse',
-  backgroundColor: 'colorBackgroundPrimaryDarker',
-  boxShadow: 'shadowBorderPrimaryDarker',
+  color: 'colorTextWeakest',
+  backgroundColor: 'colorBackgroundPrimaryStronger',
+  boxShadow: 'shadowBorderPrimaryStronger',
 });
 
 const disabledStyles = merge({}, BaseStyles.disabled, {
-  color: 'colorTextInverse',
-  backgroundColor: 'colorBackgroundPrimaryLight',
-  boxShadow: 'shadowBorderPrimaryLight',
+  color: 'colorTextWeakest',
+  backgroundColor: 'colorBackgroundPrimaryWeak',
+  boxShadow: 'shadowBorderPrimaryWeak',
 });
 
 const ButtonStyleMapping = {

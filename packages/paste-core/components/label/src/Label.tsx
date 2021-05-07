@@ -76,7 +76,7 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
             <Text
               as="span"
               fontSize="fontSize30"
-              fontWeight="fontWeightSemibold"
+              fontWeight="fontWeightBold"
               lineHeight="lineHeight30"
               color={textColor}
               cursor={disabled ? 'not-allowed' : 'pointer'}

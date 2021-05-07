@@ -5,6 +5,7 @@ export const ThemeVariants = {
   CONSOLE: 'console',
   SENDGRID: 'sendgrid',
   FLEX: 'flex',
+  DARK: 'dark',
 } as const;
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare

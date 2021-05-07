@@ -7,16 +7,16 @@ const InverseFauxInput = React.forwardRef<HTMLDivElement, FauxInputProps>(
   ({disabled, hasError, readOnly, children, type}, ref) => {
     let backgroundColor = 'colorBackgroundInverse' as BackgroundColor;
     let boxShadow = 'shadowBorderInverse' as BoxShadow;
-    let boxShadowHover = 'shadowBorderInverseLightest' as BoxShadow;
+    let boxShadowHover = 'shadowBorderInverseStrongest' as BoxShadow;
     if (disabled && type !== 'hidden') {
-      backgroundColor = 'colorBackgroundInverseLight';
-      boxShadow = 'shadowBorderInverseDarker';
-      boxShadowHover = 'shadowBorderInverseDarker';
+      backgroundColor = 'colorBackgroundInverseStrong';
+      boxShadow = 'shadowBorderInverseWeaker';
+      boxShadowHover = 'shadowBorderInverseWeaker';
     } else if (readOnly && type !== 'hidden') {
-      backgroundColor = 'colorBackgroundInverseLight';
+      backgroundColor = 'colorBackgroundInverseStrong';
       boxShadowHover = 'shadowBorderInverse';
     } else if (hasError && type !== 'hidden') {
-      boxShadow = 'shadowBorderErrorLight';
+      boxShadow = 'shadowBorderErrorWeak';
     } else if (type === 'hidden') {
       backgroundColor = null;
       boxShadow = null;
