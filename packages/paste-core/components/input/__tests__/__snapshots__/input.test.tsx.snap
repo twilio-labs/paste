@@ -50,6 +50,7 @@ exports[`Input render should render 1`] = `
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.25rem;
+  margin: 0;
   outline: none;
   padding-bottom: 0.5rem;
   padding-left: 0.75rem;
@@ -147,6 +148,7 @@ exports[`Input render should render with disabled 1`] = `
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.25rem;
+  margin: 0;
   outline: none;
   padding-bottom: 0.5rem;
   padding-left: 0.75rem;
@@ -270,6 +272,7 @@ exports[`Input render should render with hasError 1`] = `
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.25rem;
+  margin: 0;
   outline: none;
   padding-bottom: 0.5rem;
   padding-left: 0.75rem;
@@ -418,6 +421,7 @@ exports[`Input render should render with prefix 1`] = `
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.25rem;
+  margin: 0;
   outline: none;
   padding-bottom: 0.5rem;
   padding-left: 0.75rem;
@@ -540,6 +544,7 @@ exports[`Input render should render with readOnly 1`] = `
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.25rem;
+  margin: 0;
   outline: none;
   padding-bottom: 0.5rem;
   padding-left: 0.75rem;
@@ -689,6 +694,7 @@ exports[`Input render should render with suffix 1`] = `
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.25rem;
+  margin: 0;
   outline: none;
   padding-bottom: 0.5rem;
   padding-left: 0.75rem;

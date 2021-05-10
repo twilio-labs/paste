@@ -47,6 +47,7 @@ export const InputElement = styled.input<InputProps>((props) =>
     fontSize: 'fontSize30',
     fontWeight: 'fontWeightMedium',
     lineHeight: 'lineHeight20',
+    margin: 'space0',
     outline: 'none',
     paddingBottom: 'space30',
     paddingLeft: 'space40',
