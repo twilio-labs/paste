@@ -17,7 +17,7 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
   variant?: Variants;
 }
 
-const SelectElement = React.forwardRef<HTMLSelectElement, SelectProps>(({variant, size, ...props}, ref) => {
+export const SelectElement = React.forwardRef<HTMLSelectElement, SelectProps>(({variant, size, ...props}, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
@@ -39,6 +39,7 @@ const SelectElement = React.forwardRef<HTMLSelectElement, SelectProps>(({variant
       fontSize="fontSize30"
       fontWeight="fontWeightMedium"
       lineHeight="lineHeight20"
+      margin="space0"
       outline="none"
       paddingBottom="space30"
       paddingLeft="space40"
