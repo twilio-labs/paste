@@ -1,5 +1,16 @@
 # Change Log
 
+## 9.2.3
+
+### Patch Changes
+
+- [`b98b3713`](https://github.com/twilio-labs/paste/commit/b98b371315b09a5697be6f56611e428d0e6e377f) [#1426](https://github.com/twilio-labs/paste/pull/1426) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Add the ability to warn consumers that they are using a deprecated Design Token using prop type validation on the Box and Text component
+
+- Updated dependencies [[`b98b3713`](https://github.com/twilio-labs/paste/commit/b98b371315b09a5697be6f56611e428d0e6e377f)]:
+  - @twilio-paste/box@4.0.7
+  - @twilio-paste/text@4.0.4
+  - @twilio-paste/style-props@3.0.6
+
 ## 9.2.2
 
 ### Patch Changes
