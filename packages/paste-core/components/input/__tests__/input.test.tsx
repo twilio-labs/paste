@@ -158,6 +158,10 @@ describe('Input inner input props', () => {
   it('should set placeholder correctly', () => {
     expect(InnerInput.getAttribute('placeholder')).toEqual(initialProps.placeholder);
   });
+
+  it('should render with margin: space0', () => {
+    expect(InnerInput).toHaveStyleRule('margin', 'space0');
+  });
 });
 
 describe('Input insertBefore prop', () => {
