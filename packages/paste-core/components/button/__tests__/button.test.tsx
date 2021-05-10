@@ -1,10 +1,15 @@
 import * as React from 'react';
+import {matchers} from 'jest-emotion';
 import {render} from 'react-dom';
+import {render as testRender} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
-import {shallow, ReactWrapper, mount} from 'enzyme';
+import type {ReactWrapper} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Button} from '../src';
+
+expect.extend(matchers);
 
 const NOOP = (): void => {};
 const HREF = 'https://twilio.paste.design';
@@ -320,6 +325,17 @@ describe('Button render as', () => {
       </Button>
     );
     expect(wrapper.exists('a')).toEqual(true);
+  });
+});
+
+describe('Button margin styles', () => {
+  it('Renders a button with margin: space0', () => {
+    const {getByTestId} = testRender(
+      <Button variant="primary" data-testid="button-margin">
+        button
+      </Button>
+    );
+    expect(getByTestId('button-margin')).toHaveStyleRule('margin', 'space0');
   });
 });
 
