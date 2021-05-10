@@ -32,7 +32,7 @@ const BasicCombobox = () => {
         {isOpen &&
           items.map((item, index) => (
             <li
-              style={highlightedIndex === index ? {backgroundColor: '#bde4ff'} : {}}
+              style={highlightedIndex === index ? {textDecoration: 'underline'} : {}}
               key={item}
               {...getItemProps({item, index})}
             >
@@ -85,7 +85,7 @@ const AutocompleteCombobox = () => {
         {isOpen &&
           inputItems.map((item, index) => (
             <li
-              style={highlightedIndex === index ? {backgroundColor: '#bde4ff'} : {}}
+              style={highlightedIndex === index ? {textDecoration: 'underline'} : {}}
               key={item}
               {...getItemProps({item, index})}
             >

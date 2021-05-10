@@ -60,11 +60,7 @@ const HomeHero: React.FC = () => {
       paddingBottom={['space90', 'space160', 'space160']}
       position="relative"
     >
-      <SlantedBackgroundGradient
-        skewAngle={0}
-        startColor="colorBackgroundPrimaryStronger"
-        endColor="colorBackgroundPrimaryStrong"
-      >
+      <SlantedBackgroundGradient skewAngle={0} startColor="colorBackgroundBrandStrong" endColor="colorBackgroundBrand">
         <Box maxWidth={SITE_CONTENT_MAX_WIDTH} marginLeft="auto" marginRight="auto" position="relative">
           <Grid vertical={[true, false, false]}>
             <Column span={5}>

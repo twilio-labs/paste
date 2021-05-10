@@ -5,11 +5,13 @@ import {Input} from '@twilio-paste/input';
 import {Table, Tr, Th, Td, THead, TBody} from '@twilio-paste/table';
 import {Text} from '@twilio-paste/text';
 import {useUID} from '@twilio-paste/uid-library';
+import type {ThemeVariants} from '@twilio-paste/theme';
 import {InlineCode} from '../Typography';
 import {AnchoredHeading} from '../Heading';
 import {Callout, CalloutTitle, CalloutText} from '../callout';
 import {TokenExample} from './TokensExample';
 import {getTokenValue} from './getTokenValue';
+import {useDarkModeContext} from '../../context/DarkModeContext';
 
 const sentenceCase = (catName: string): string => {
   return catName
@@ -44,6 +46,7 @@ interface TokensShape {
 interface TokensListProps {
   children?: React.ReactElement;
   defaultTokens: TokensShape[];
+  darkTokens: TokensShape[];
 }
 
 const filterDeprecatedTokens = (tokens: TokenCategory[]): TokenCategory[] => {
@@ -52,8 +55,16 @@ const filterDeprecatedTokens = (tokens: TokenCategory[]): TokenCategory[] => {
   });
 };
 
-const getTokensByTheme = (props: TokensListProps): TokenCategory[] => {
-  const fontSize = props.defaultTokens[0].node.tokens.find((ele) => ele.categoryName === 'font-sizes');
+const getTokensByTheme = (props: TokensListProps, theme: ThemeVariants): TokenCategory[] => {
+  const unfilteredTokensBasedOnTheme =
+    theme === 'default' ? props.defaultTokens[0].node.tokens : props.darkTokens[0].node.tokens;
+  let tokens = [] as TokenCategory[];
+
+  if (unfilteredTokensBasedOnTheme != null) {
+    tokens = filterDeprecatedTokens(unfilteredTokensBasedOnTheme);
+  }
+
+  const fontSize = tokens.find((ele) => ele.categoryName === 'font-sizes');
   if (fontSize) {
     fontSize.info = (
       <Callout>
@@ -67,24 +78,23 @@ const getTokensByTheme = (props: TokensListProps): TokenCategory[] => {
     );
   }
 
-  let tokens = [] as TokenCategory[];
-
-  if (props.defaultTokens != null) {
-    tokens = filterDeprecatedTokens(props.defaultTokens[0].node.tokens);
-  }
-
   return tokens;
 };
 
 const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
 
 export const TokensList: React.FC<TokensListProps> = (props) => {
-  const [tokens, setTokens] = React.useState<TokenCategory[] | null>(getTokensByTheme(props));
+  const {theme} = useDarkModeContext();
+  const [tokens, setTokens] = React.useState<TokenCategory[] | null>(getTokensByTheme(props, theme));
   const [filterString, setFilterString] = React.useState('');
+
+  React.useEffect(() => {
+    setTokens(getTokensByTheme(props, theme));
+  }, [theme]);
 
   const filterTokenList = (): void => {
     setTokens(() => {
-      const newTokenCategories = getTokensByTheme(props).map(
+      const newTokenCategories = getTokensByTheme(props, theme).map(
         (category): TokenCategory => {
           const newTokens = category.tokens.filter((token) => {
             return token.name.includes(filterString) || token.value.includes(filterString);

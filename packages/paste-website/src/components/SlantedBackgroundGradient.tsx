@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {BackgroundColorOptions} from '@twilio-paste/style-props';
+import type {BackgroundColorOptions} from '@twilio-paste/style-props';
 import {useTheme} from '@twilio-paste/theme';
 import {useWindowSize} from '../hooks/useWindowSize';
 

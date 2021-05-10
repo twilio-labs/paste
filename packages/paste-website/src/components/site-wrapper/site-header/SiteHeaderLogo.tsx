@@ -32,6 +32,9 @@ const SiteHeaderLogo: React.FC<SiteHeaderLogoProps> = ({title, subtitle}) => {
       alignItems="center"
       paddingRight="space70"
       paddingLeft="space70"
+      borderRightColor="colorBorderInverseWeaker"
+      borderRightStyle="solid"
+      borderRightWidth={['borderWidth0', 'borderWidth0', 'borderWidth10']}
       minWidth={subtitle ? 'sizeSidebar' : 'size0'}
     >
       <MediaObject verticalAlign="center">

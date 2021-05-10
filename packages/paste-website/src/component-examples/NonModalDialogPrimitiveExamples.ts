@@ -4,9 +4,9 @@ const NonModalDialogExample = () => {
   return (
     <>
       <NonModalDialogDisclosurePrimitive {...nonModalDialog}>✊ Action</NonModalDialogDisclosurePrimitive>
-      <NonModalDialogPrimitive {...nonModalDialog} aria-label="Welcome" style={{backgroundColor: '#fff', zIndex:10}}>
+      <NonModalDialogPrimitive {...nonModalDialog} aria-label="Welcome" style={{backgroundColor: '#000', zIndex:10}}>
         <NonModalDialogArrowPrimitive {...nonModalDialog} />
-        Black Lives Matter. We stand with the Black community
+        <span style={{color: '#fff'}}>Black Lives Matter. We stand with the Black community</span>
       </NonModalDialogPrimitive>
     </>
   );
@@ -23,9 +23,9 @@ const RightPlacementExample = () => {
   return (
     <>
       <NonModalDialogDisclosurePrimitive {...nonModalDialog}>Open non-modal dialog</NonModalDialogDisclosurePrimitive>
-      <NonModalDialogPrimitive {...nonModalDialog} aria-label="Welcome" style={{backgroundColor: '#fff', zIndex:10}}>
+      <NonModalDialogPrimitive {...nonModalDialog} aria-label="Welcome" style={{backgroundColor: '#000', zIndex:10}}>
         <NonModalDialogArrowPrimitive {...nonModalDialog} />
-        Welcome to Paste!
+        <span style={{color: '#fff'}}>Welcome to Paste!</span>
       </NonModalDialogPrimitive>
     </>
   );
@@ -42,8 +42,8 @@ const GutterExample = () => {
   return (
     <>
       <NonModalDialogDisclosurePrimitive {...nonModalDialog}>Open non-modal dialog</NonModalDialogDisclosurePrimitive>
-      <NonModalDialogPrimitive {...nonModalDialog} aria-label="Welcome" style={{backgroundColor: '#fff', zIndex:10}}>
-        Welcome to Paste!
+      <NonModalDialogPrimitive {...nonModalDialog} aria-label="Welcome" style={{backgroundColor: '#000', zIndex:10}}>
+      <span style={{color: '#fff'}}>Welcome to Paste!</span>
       </NonModalDialogPrimitive>
     </>
   );
@@ -56,7 +56,7 @@ render(
 
 export const styledExample = `
 const StyledNonModalDialog = React.forwardRef(({children, ...props}, ref) => (
-  <Box backgroundColor="colorBackgroundPrimaryStronger" borderRadius="borderRadius20" padding="space30" ref={ref} {...props}>{children}</Box>
+  <Box backgroundColor="colorBackgroundBodyInverse" borderRadius="borderRadius20" padding="space30" ref={ref} {...props}>{children}</Box>
 ));
 
 const StyledExample = () => {

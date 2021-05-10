@@ -92,9 +92,15 @@ export const TextColorBox: React.FC<TextColorBoxProps> = ({boxColor, color}) => 
   const backgroundColorValue = isInverse
     ? theme.backgroundColors.colorBackgroundBodyInverse
     : theme.backgroundColors.colorBackgroundBody;
+
   const colorCombos = ColorCombos([boxColor, backgroundColorValue]);
-  // @ts-ignore
-  const {accessibility} = colorCombos[1].combinations[0];
+  let accessibility = {aa: false, aaLarge: false, aaa: false, aaaLarge: false};
+
+  if (colorCombos !== false && colorCombos[1] != null && colorCombos[1].combinations[0] != null) {
+    // @ts-ignore
+    // eslint-disable-next-line prefer-destructuring
+    accessibility = colorCombos[1].combinations[0].accessibility;
+  }
 
   return (
     <Box

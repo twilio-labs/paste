@@ -66,7 +66,7 @@ const Experiment: React.FC<ExperimentProps> = ({showIframe}) => {
       <SlantedBackgroundGradient
         gradientAngle="-180deg"
         startColor="colorBackgroundBody"
-        endColor="colorBackgroundBrandHighlightLightest"
+        endColor="colorBackgroundBrandHighlightWeakest"
         styles={{bottom: theme.space.space30}}
       >
         <Box

@@ -7,7 +7,7 @@ const SiteFooterTopAngle: React.FC = () => {
 
   return (
     <Box
-      backgroundColor="colorBackgroundPrimaryStronger"
+      backgroundColor="colorBackgroundBrandStronger"
       borderRadius="borderRadius20"
       height="75%"
       position="absolute"

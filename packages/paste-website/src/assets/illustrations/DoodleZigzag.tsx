@@ -1,11 +1,13 @@
 import * as React from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
 import {useSpring, animated} from '@twilio-paste/animation-library';
+import {useTheme} from '@twilio-paste/theme';
 
 const dashArray = 260;
 
 export const DoodleZigzag: React.FC = () => {
   const [show, setShow] = React.useState(false);
+  const theme = useTheme();
 
   function handleVisibilityChange(isVisible: boolean): void {
     if (!show) {
@@ -21,7 +23,7 @@ export const DoodleZigzag: React.FC = () => {
   return (
     <VisibilitySensor onChange={handleVisibilityChange}>
       <animated.svg
-        stroke="#06033a"
+        stroke={theme.backgroundColors.colorBackgroundPrimaryStrongest}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"

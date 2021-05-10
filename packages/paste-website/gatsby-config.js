@@ -25,7 +25,6 @@ const gatsbyConfig = {
     },
     `gatsby-plugin-typescript`,
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -142,12 +141,8 @@ const gatsbyConfig = {
             return 'PasteTokenDefault';
           }
 
-          if (node.relativePath.endsWith('dist/themes/sendgrid/tokens.gatsby.json')) {
-            return 'PasteTokenSendGrid';
-          }
-
-          if (node.relativePath.endsWith('dist/themes/console/tokens.gatsby.json')) {
-            return 'PasteTokenConsole';
+          if (node.relativePath.endsWith('dist/themes/dark/tokens.gatsby.json')) {
+            return 'PasteTokenDark';
           }
 
           return 'DefaultJson';
