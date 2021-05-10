@@ -1,5 +1,5 @@
-import {BoxStyleProps} from '@twilio-paste/box';
-import {ButtonStates, ButtonSizes} from './types';
+import type {BoxStyleProps} from '@twilio-paste/box';
+import type {ButtonStates, ButtonSizes} from './types';
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
 const merge = require('lodash.merge');
@@ -15,6 +15,7 @@ const ResetStyles: BoxStyleProps = {
   fontWeight: 'fontWeightSemibold',
   textDecoration: 'none',
   position: 'relative',
+  margin: 'space0',
   /*
    * defensively resetting from over zealous legacy global
    * styles "a {...}" when button is set as an anchor
