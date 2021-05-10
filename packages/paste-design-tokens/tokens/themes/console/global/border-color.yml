@@ -8,53 +8,53 @@ imports:
 props:
   color-border-strong:
     value: "{!palette-gray-60}"
-    comment: Dark border color
+    comment: Strong border color
   color-border:
     value: "{!palette-gray-60}"
     comment: Default border color
   color-border-weak:
     value: "{!palette-gray-50}"
-    comment: Light border color
+    comment: Weak border color
   color-border-weaker:
     value: "{!palette-gray-40}"
-    comment: Lighter border color
+    comment: Weaker border color
   color-border-inverse-weaker:
     value: "{!palette-gray-0-transparent-20}"
-    comment: Darker border on inverse backgrounds. Must be used on color-background-body-inverse.
+    comment: Weaker border on inverse backgrounds. Must be used on color-background-body-inverse.
   color-border-inverse:
     value: "{!palette-gray-0-transparent-50}"
     comment: Border on inverse backgrounds. Must be used on color-background-body-inverse.
   color-border-inverse-stronger:
     value: "{!palette-gray-0-transparent-90}"
-    comment: Lighter border on inverse backgrounds. Must be used on color-background-body-inverse.
+    comment: Stronger border on inverse backgrounds. Must be used on color-background-body-inverse.
   color-border-inverse-strongest:
     value: "{!palette-gray-0}"
-    comment: Lightest border on inverse backgrounds. Must be used on color-background-body-inverse.
+    comment: Strongest border on inverse backgrounds. Must be used on color-background-body-inverse.
 
   # primary action borders
   color-border-primary-strongest:
     value: "{!palette-blue-100}"
-    comment: Darkest primary border color
+    comment: Strongest primary border color
   color-border-primary-stronger:
     value: "{!palette-blue-90}"
-    comment: Darker primary border color
+    comment: Stronger primary border color
   color-border-primary-strong:
     value: "{!palette-blue-80}"
-    comment: Dark primary border color
+    comment: Strong primary border color
   color-border-primary:
     value: "{!palette-blue-60}"
     comment: Primary border color
   color-border-primary-weak:
     value: "{!palette-blue-40}"
-    comment: Light primary border color
+    comment: Weak primary border color
   color-border-primary-weaker:
     value: "{!palette-blue-30}"
-    comment: Lighter primary border color
+    comment: Weaker primary border color
 
   # status borders
   color-border-neutral-weak:
     value: "{!palette-gray-50}"
-    comment: Light neutral border color
+    comment: Weak neutral border color
   color-border-neutral:
     value: "{!palette-blue-60}"
     comment: Neutral border color
@@ -63,39 +63,39 @@ props:
     comment: Success border color
   color-border-success-weak:
     value: "{!palette-green-50}"
-    comment: Light success border color
+    comment: Weak success border color
   color-border-success-weakest:
     value: "{!palette-green-10}"
-    comment: Lightest success border color
+    comment: Weakest success border color
   color-border-warning:
     value: "{!palette-orange-60}"
     comment: Warning border color
   color-border-warning-weak:
     value: "{!palette-orange-50}"
-    comment: Light warning border color
+    comment: Weak warning border color
   color-border-warning-weakest:
     value: "{!palette-orange-10}"
-    comment: Lightest warning border color
+    comment: Weakest warning border color
   color-border-error-strong:
     value: "{!palette-red-80}"
-    comment: Dark error border color
+    comment: Strong error border color
   color-border-error:
     value: "{!palette-red-60}"
     comment: Error border color
   color-border-error-weak:
     value: "{!palette-red-50}"
-    comment: Light error border color
+    comment: Weak error border color
   color-border-error-weakest:
     value: "{!palette-red-10}"
-    comment: Lightest error border color
+    comment: Weakest error border color
 
   # destructive borders
   color-border-destructive-strongest:
     value: "{!palette-red-100}"
-    comment: Darkest destructive hover border color
+    comment: Strongest destructive hover border color
   color-border-destructive-stronger:
     value: "{!palette-red-90}"
-    comment: Darker destructive hover border color
+    comment: Stronger destructive hover border color
   color-border-destructive-strong:
     value: "{!palette-red-80}"
     comment: Destructive focus border color

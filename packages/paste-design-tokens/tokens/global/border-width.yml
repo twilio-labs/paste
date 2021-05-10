@@ -9,13 +9,13 @@ props:
     comment: Border width reset
   border-width-10:
     value: "{!border-width-10}"
-    comment: Small border width
+    comment: Constant border width token for border width 10
   border-width-20:
     value: "{!border-width-20}"
-    comment: Large border width
+    comment: Constant border width token for border width 20
   border-width-30:
     value: "{!border-width-30}"
-    comment: Small border width
+    comment: Constant border width token for border width 30
   border-width-40:
     value: "{!border-width-40}"
-    comment: Large border width
+    comment: Constant border width token for border width 40
