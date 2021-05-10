@@ -32,7 +32,7 @@ props:
     value: "{!palette-gray-0}"
     comment: Text color used on any brand color
   color-text-brand-highlight:
-    value: "{!brand-highlight}"
+    value: "{!amaranth}"
     comment: Twilio brand red, accessible on large text only.
 
   # links
@@ -41,36 +41,36 @@ props:
     comment: Link text
   color-text-link-weak:
     value: "{!palette-gray-0-transparent-20}"
-    comment: Light shade of link text to be used in interactions
+    comment: Weak shade of link text to be used in interactions
   color-text-link-strong:
     value: "{!palette-blue-30}"
-    comment: Dark shade of link text to be used in interactions
+    comment: Strong shade of link text to be used in interactions
   color-text-link-stronger:
     value: "{!palette-gray-0}"
-    comment: Darker shade of link text to be used in interactions
+    comment: Stronger shade of link text to be used in interactions
   color-text-link-destructive:
     value: "{!palette-red-50}"
     comment: Destructive link text
   color-text-link-destructive-weak:
     value: "{!palette-gray-0-transparent-20}"
-    comment: Light shade of destructive link text to be used in interactions
+    comment: Weak shade of destructive link text to be used in interactions
   color-text-link-destructive-strong:
     value: "{!palette-red-30}"
-    comment: Dark shade of destructive link text to be used in interactions
+    comment: Strong shade of destructive link text to be used in interactions
   color-text-link-destructive-stronger:
     value: "{!palette-gray-0}"
-    comment: Darker shade of destructive link text to be used in interactions
+    comment: Stronger shade of destructive link text to be used in interactions
 
   #status
   color-text-error-weak:
     value: "{!palette-red-50}"
-    comment: Light error text for inputs and error misc
+    comment: Weak error text for inputs and error misc
   color-text-error:
     value: "{!palette-red-50}"
     comment: Error text for inputs and error misc
   color-text-error-strong:
     value: "{!palette-red-30}"
-    comment: Dark error text for inputs and error misc
+    comment: Strong error text for inputs and error misc
   color-text-success:
     value: "{!palette-green-40}"
     comment: Text color for success text.

@@ -25,49 +25,49 @@ props:
     comment: Shadow for focus ring on interactive elements on inverse backgrounds.
   shadow-border-weaker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-40}"
-    comment: Lighter shadow border for disabled inputs.
+    comment: Weaker shadow border for disabled inputs.
   shadow-border-weak:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-50}"
-    comment: Light shadow border for disabled inputs.
+    comment: Weak shadow border for disabled inputs.
   shadow-border:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-60}"
     comment: Shadow border for inputs.
   shadow-border-strong:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-60}"
-    comment: Dark shadow border for inputs.
+    comment: Strong shadow border for inputs.
   shadow-border-primary-weaker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-30}"
-    comment: "Lighter shadow border for primary interactions."
+    comment: "Weaker shadow border for primary interactions."
   shadow-border-primary-weak:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-40}"
-    comment: "Lighter shadow border for primary interactions."
+    comment: "Weaker shadow border for primary interactions."
   shadow-border-primary:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-60}"
     comment: "Default shadow border for primary interactions."
   shadow-border-primary-strong:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-80}"
-    comment: Dark shadow border for inputs hover.
+    comment: Strong shadow border for inputs hover.
   shadow-border-primary-stronger:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-90}"
-    comment: Darker shadow border for inputs active.
+    comment: Stronger shadow border for inputs active.
   shadow-border-primary-strongest:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-blue-100}"
-    comment: Darkest shadow border for inputs active.
+    comment: Strongest shadow border for inputs active.
   shadow-border-destructive-weaker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-30}"
-    comment: Lighter shadow border for destructive interactions.
+    comment: Weaker shadow border for destructive interactions.
   shadow-border-destructive-weak:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-40}"
-    comment: Light shadow border for destructive interactions.
+    comment: Weak shadow border for destructive interactions.
   shadow-border-destructive:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-60}"
-    comment: Light shadow border for destructive interactions.
+    comment: Shadow border for destructive interactions.
   shadow-border-destructive-stronger:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-90}"
-    comment: Dark shadow border for destructive interactions
+    comment: Strong shadow border for destructive interactions
   shadow-border-destructive-strongest:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-100}"
-    comment: Darkest shadow border for destructive interactions
+    comment: Strongest shadow border for destructive interactions
   shadow-border-error-weak:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-red-40}"
     comment: Shadow border for inverse error inputs.
@@ -79,13 +79,13 @@ props:
     comment: Shadow border for error inputs hover.
   shadow-border-inverse-weaker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-20}"
-    comment: Darker shadow border on interactive elements on inverse backgrounds.
+    comment: Weaker shadow border on interactive elements on inverse backgrounds.
   shadow-border-inverse:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-50}"
     comment: Shadow border on interactive elements on inverse backgrounds.
   shadow-border-inverse-strong:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-90}"
-    comment: Light shadow border on interactive elements on inverse backgrounds.
+    comment: Strong shadow border on interactive elements on inverse backgrounds.
   shadow-border-inverse-strongest:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0}"
-    comment: Lightest shadow border on interactive elements on inverse backgrounds.
+    comment: Strongest shadow border on interactive elements on inverse backgrounds.
