@@ -28,6 +28,7 @@ exports[`Popover Render should render 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
+  margin: 0;
   cursor: pointer;
   color: rgb(255,255,255);
   background-color: rgb(2,122,197);
