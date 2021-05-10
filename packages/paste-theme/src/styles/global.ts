@@ -5,6 +5,7 @@ export const pasteGlobalStyles = css({
     fontSize: '100%',
   },
   body: {
+    backgroundColor: 'colorBackgroundBody',
     margin: 0,
     fontSize: 'fontSize30',
   },
