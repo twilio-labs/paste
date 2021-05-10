@@ -19,6 +19,7 @@ exports[`Menu Render should render 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
+  margin: space0;
   cursor: pointer;
   color: colorTextWeakest;
   background-color: colorBackgroundPrimary;
@@ -112,6 +113,7 @@ exports[`Menu Render should render 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
+  margin: space0;
   cursor: pointer;
   color: colorTextWeakest;
   background-color: colorBackgroundPrimary;
