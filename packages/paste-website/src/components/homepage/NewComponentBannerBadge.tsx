@@ -17,7 +17,6 @@ const NewComponentBannerBadge: React.FC = ({children}) => {
         fontSize="fontSize20"
         fontWeight="fontWeightSemibold"
         lineHeight="lineHeight20"
-        textTransform="uppercase"
       >
         {children}
       </Text>

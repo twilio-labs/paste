@@ -13,7 +13,7 @@ const SiteFooter: React.FC = () => {
       {pathname === '/' && <SiteFooterTopAngle />}
       <Box
         borderRadius="borderRadius20"
-        backgroundColor="colorBackgroundPrimaryStronger"
+        backgroundColor="colorBackgroundBrandStronger"
         marginTop={['space0', 'space0', 'space0', 'space0', 'space200']}
         paddingTop={['space0', 'space0', 'space0', 'space0', 'space200']}
       >

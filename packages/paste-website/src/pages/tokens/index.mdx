@@ -41,7 +41,7 @@ In Paste, **1 rem unit = 16 pixels**.
   </Paragraph>
 </Box>
 
-<TokensList defaultTokens={props.data.allPasteTokenDefault.edges} />
+<TokensList defaultTokens={props.data.allPasteTokenDefault.edges} darkTokens={props.data.allPasteTokenDark.edges} />
 
 export const pageQuery = graphql`
   {
@@ -59,6 +59,24 @@ export const pageQuery = graphql`
               type
               value
               deprecated
+            }
+          }
+        }
+      }
+    }
+    allPasteTokenDark {
+      edges {
+        node {
+          id
+          tokens {
+            categoryName
+            tokens {
+              category
+              comment
+              name
+              originalValue
+              type
+              value
             }
           }
         }

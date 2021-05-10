@@ -5,10 +5,11 @@ import {Stack} from '@twilio-paste/stack';
 import {Theme} from '@twilio-paste/theme';
 import {SiteBody} from './SiteBody';
 import {NavigationContext} from '../../context/NavigationContext';
+import {useDarkMode} from '../../hooks/useDarkMode';
 import {SkipLinkContainer} from '../SkipLinkContainer';
 import {PASTE_DOCS_CONTENT_AREA, PASTE_DOCS_SEARCH_INPUT, SITE_BREAKPOINTS} from '../../constants';
 import type {NavigationQuery} from '../../context/NavigationContext';
-import '../../assets/scss/search.scss';
+import {DarkModeContext} from '../../context/DarkModeContext';
 
 const pageQuery = graphql`
   {
@@ -62,17 +63,20 @@ interface SiteWrapperProps {
 
 const SiteWrapper: React.FC<SiteWrapperProps> = ({pathname, children}) => {
   const navigationQueryData: NavigationQuery = useStaticQuery(pageQuery);
+  const [theme, toggleMode, componentMounted] = useDarkMode();
 
   return (
-    <Theme.Provider theme="default" customBreakpoints={SITE_BREAKPOINTS}>
+    <Theme.Provider theme={theme} customBreakpoints={SITE_BREAKPOINTS}>
       <NavigationContext.Provider value={{...navigationQueryData, pathname}}>
-        <SkipLinkContainer>
-          <Stack orientation="horizontal" spacing="space60">
-            <Anchor href={`#${PASTE_DOCS_CONTENT_AREA}`}>Skip to content</Anchor>
-            <Anchor href={`#${PASTE_DOCS_SEARCH_INPUT}`}>Skip to search</Anchor>
-          </Stack>
-        </SkipLinkContainer>
-        <SiteBody>{children}</SiteBody>
+        <DarkModeContext.Provider value={{theme, toggleMode, componentMounted}}>
+          <SkipLinkContainer>
+            <Stack orientation="horizontal" spacing="space60">
+              <Anchor href={`#${PASTE_DOCS_CONTENT_AREA}`}>Skip to content</Anchor>
+              <Anchor href={`#${PASTE_DOCS_SEARCH_INPUT}`}>Skip to search</Anchor>
+            </Stack>
+          </SkipLinkContainer>
+          <SiteBody>{children}</SiteBody>
+        </DarkModeContext.Provider>
       </NavigationContext.Provider>
     </Theme.Provider>
   );

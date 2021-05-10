@@ -37,7 +37,7 @@ const PopularComponents: React.FC = () => {
         >
           <ComponentsIcon
             css={{height: theme.heights.sizeIcon40, width: theme.widths.sizeIcon40}}
-            color={theme.textColors.colorTextBrandHighlight}
+            color={theme.textColors.colorTextErrorStrong}
             decorative
           />
         </Box>

@@ -5,7 +5,7 @@ export const PASTE_THEME_ALERT_HEIGHT = 54;
 export const SITE_MASTHEAD_HEIGHT = 76;
 /* Note:
  * Changing the mobile breakpoint should be reflected
- * in assets/scss/search.scss
+ * in styles/docSearch.ts
  */
 export const SITE_BREAKPOINTS = ['768px', '1024px', '1220px', '1880px'];
 export const SITE_CONTENT_MAX_WIDTH = '1440px';

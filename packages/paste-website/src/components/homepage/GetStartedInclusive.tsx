@@ -4,21 +4,28 @@ import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import HomeGetStartedIllo1 from '../../assets/illustrations/home_getstarted_1.svg';
+import HomeGetStartedIllo1Dark from '../../assets/illustrations/home_getstarted_1_dark.svg';
 import {GetStartedCard} from './GetStartedCard';
 import {GetStartedCardIllustration} from './GetStartedCardIllustration';
 import {GetStartedCardLink} from './GetStartedCardLink';
+import {useDarkModeContext} from '../../context/DarkModeContext';
 
 interface GetStartedInclusiveProps {
   animationDelay: number;
 }
 
 export const GetStartedInclusive: React.FC<GetStartedInclusiveProps> = ({animationDelay}) => {
+  const {theme} = useDarkModeContext();
   return (
     <GetStartedCard animationDelay={animationDelay}>
       <Box display="flex" height="100%" flexDirection="column" justifyContent="space-between">
         <div>
           <GetStartedCardIllustration>
-            <HomeGetStartedIllo1 aria-hidden="true" />
+            {theme === 'default' ? (
+              <HomeGetStartedIllo1 aria-hidden="true" />
+            ) : (
+              <HomeGetStartedIllo1Dark aria-hidden="true" />
+            )}
           </GetStartedCardIllustration>
           <Heading as="h2" variant="heading30">
             Build inclusively by default

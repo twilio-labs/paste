@@ -61,7 +61,8 @@ const DropShadowWrapper = styled.div(
     bottom: 0,
     paddingBottom: 'space40',
     backgroundColor: 'colorBackgroundBody',
-    boxShadow: `0 -18px 20px #fff`,
+    boxShadow: '0 -18px 20px',
+    color: 'colorTextWeakest',
   })
 );
 
