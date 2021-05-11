@@ -13,8 +13,7 @@
     "clean": "rm -rf public && rm -rf .cache",
     "tsc": "tsc --noEmit",
     "tsc:watch": "yarn type-check -- --watch",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "setup-env": "vercel env pull"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.0.23",
@@ -109,9 +108,6 @@
     "react-visibility-sensor": "5.1.1",
     "use-clipboard-copy": "^0.1.2",
     "use-resize-observer": "^7.0.0"
-  },
-  "devDependencies": {
-    "vercel": "^20.1.2"
   },
   "resolutions": {
     "**/websocket-extensions": "^0.1.4",
