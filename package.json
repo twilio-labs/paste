@@ -55,7 +55,8 @@
     "chromatic": "chromatic",
     "packages:check": "manypkg check",
     "packages:fix": "manypkg fix",
-    "changeset": "changeset"
+    "changeset": "changeset",
+    "create:package": "plop create-package"
   },
   "dependencies": {
     "@babel/cli": "^7.10.5",
@@ -153,6 +154,7 @@
     "lodash.kebabcase": "^4.1.1",
     "lodash.startcase": " ^4.4.0",
     "lorem-ipsum": "^2.0.3",
+    "plop": "^2.7.4",
     "plugin-error": "^1.0.1",
     "precise-commits": "^1.0.2",
     "prettier": "^2.2.1",
