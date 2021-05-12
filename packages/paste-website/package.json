@@ -17,8 +17,8 @@
     "setup-env": "vercel env pull"
   },
   "dependencies": {
-    "@mdx-js/mdx": "^1.0.23",
-    "@mdx-js/react": "^1.0.23",
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
     "@mdx-js/tag": "^0.20.3",
     "@twilio-paste/alert": "^7.0.0",
     "@twilio-paste/anchor": "^5.0.2",
@@ -101,8 +101,8 @@
     "pretty-format": "^24.9.0",
     "prism-react-renderer": "^0.1.7",
     "prop-types": "^15.7.2",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-helmet": "^5.2.1",
     "react-live": "^2.2.2",
     "react-scrollspy": "^3.4.0",

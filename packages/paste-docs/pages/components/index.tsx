@@ -1,7 +1,7 @@
+import Link from 'next/link';
 import {getAllComponentPages} from '@api';
 
 export default function Components(props) {
-  console.log(props, getAllComponentPages);
   return (
     <div>
       <p>List of posts:</p>
@@ -9,7 +9,7 @@ export default function Components(props) {
         {props.posts.map(function (post, idx) {
           return (
             <li key={idx}>
-              <Link href={'/posts/' + post.slug}>
+              <Link href={'/components/' + post.slug}>
                 <a>{post.title}</a>
               </Link>
             </li>

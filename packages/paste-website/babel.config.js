@@ -1,17 +1,6 @@
-const getPresets = isDev => [
-  'babel-preset-gatsby',
-  [
-    '@emotion/babel-preset-css-prop',
-    {
-      sourceMap: isDev,
-      autoLabel: isDev,
-      labelFormat: '[local]',
-      cssPropOptimization: !isDev,
-    },
-  ],
-];
+const getPresets = (isDev) => ['babel-preset-gatsby'];
 
-const BASE_PLUGINS = ['@babel/proposal-object-rest-spread'];
+const BASE_PLUGINS = ['@emotion', '@babel/proposal-object-rest-spread'];
 
 module.exports = {
   env: {

@@ -13,19 +13,10 @@
       }
     ],
     "@babel/preset-react",
-    "@babel/preset-typescript",
-    [
-      "@emotion/babel-preset-css-prop",
-      {
-        "sourceMap": "true",
-        "autoLabel": "true",
-        "labelFormat": "[local]",
-        "cssPropOptimization": "false"
-      }
-    ]
+    "@babel/preset-typescript"
   ],
   "plugins": [
-    "macros",
+    "@emotion",
     ["@babel/proposal-class-properties", {"loose": true}],
     "@babel/proposal-object-rest-spread",
     ["@babel/proposal-private-methods", {"loose": true}],
