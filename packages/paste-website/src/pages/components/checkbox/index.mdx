@@ -14,6 +14,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import Changelog from '@twilio-paste/checkbox/CHANGELOG.md';
 import {
   defaultExample,
@@ -22,6 +23,10 @@ import {
   errorExample,
   requiredExample,
   disabledExample,
+  singleCheckboxExample,
+  helpTextCheckboxExample,
+  requiredCheckboxExample,
+  checkboxDisclaimerExample,
 } from '../../../component-examples/CheckboxExamples';
 
 export const pageQuery = graphql`
@@ -98,40 +103,36 @@ Use a checkbox to present a user with a binary (e.g. on/off) choice that is part
 
 ## Examples
 
+<Callout variant="warning">
+  <CalloutTitle>🚨 ATTENTION!! 🚨</CalloutTitle>
+  <CalloutText>
+    Checkboxes should be used as <strong>controlled components</strong> or with a form library that handles the control
+    for you.
+  </CalloutText>
+</Callout>
+
 ### Basic checkbox with label
 
 A checkbox is always displayed next to a visible label.
 
-<LivePreview scope={{Checkbox}} language="jsx">
-  {`<>
-  <Checkbox checked={true} id="blm" value="blm" name="blm">
-    Black lives matter
-  </Checkbox>
-</>`}
+<LivePreview scope={{Checkbox}} language="jsx" noInline>
+  {singleCheckboxExample}
 </LivePreview>
 
 ### Checkbox with help text
 
 In cases where the checkbox requires additional context, you can display this information as help text below the checkbox control and label. This can help keep checkbox labels concise.
 
-<LivePreview scope={{Checkbox}} language="jsx">
-  {`<>
-  <Checkbox id="enabled" value="enabled" name="enabled" helpText="Determines if certificate validation is performed on all Twilio originated requests">
-    Enable SSL Certificate Validation
-  </Checkbox>
-</>`}
+<LivePreview scope={{Checkbox}} language="jsx" noInline>
+  {helpTextCheckboxExample}
 </LivePreview>
 
 ### Required checkbox
 
 When a checkbox is required to be checked, a required indicator should be displayed alongside the label. The label text should also be written in such a way that this requirement is clear to the user.
 
-<LivePreview scope={{Checkbox}} language="jsx">
-  {`<>
-  <Checkbox id="delete" value="delete" name="delete" required>
-    Confirm this message should be deleted
-  </Checkbox>
-</>`}
+<LivePreview scope={{Checkbox}} language="jsx" noInline>
+  {requiredCheckboxExample}
 </LivePreview>
 
 ### Checkbox group
@@ -152,17 +153,8 @@ You can provide additional information about the group with the use of help text
 
 ### Checkbox Disclaimer
 
-<LivePreview scope={{CheckboxDisclaimer, Text}} language="jsx">
-  {`<>
-  <CheckboxDisclaimer id="disclaimer" value="disclaimer" name="disclaimer">
-    <Text as="span">
-      I declare the information provided above is accurate. I acknowledge that Twilio will process the information
-      provided above for the purpose of identity verification, and will be sharing it with my local telecomm
-      providers or authorities where required by local law. I understand that Twilio phone numbers may be taken out
-      of service for inaccurate or false information.
-    </Text>
-  </CheckboxDisclaimer>
-</>`}
+<LivePreview scope={{CheckboxDisclaimer, Text}} language="jsx" noInline>
+  {checkboxDisclaimerExample}
 </LivePreview>
 
 ## States
@@ -182,17 +174,15 @@ The third state a checkbox can appear in is the indeterminate state. This is to 
 Use a disabled checkbox to indicate that a particular option cannot be interacted with or can be safely ignored.
 
 <LivePreview scope={{Checkbox}} language="jsx">
-  {`<>
-  <Checkbox
-    id="hammer"
-    value="hammer"
-    name="hammer"
-    disabled
-    checked
-  >
-    Can't touch this
-  </Checkbox>
-</>`}
+  {`<Checkbox
+  id="hammer"
+  value="hammer"
+  name="hammer"
+  disabled
+  checked
+>
+  Can't touch this
+</Checkbox>`}
 </LivePreview>
 
 ### Required checkbox group
