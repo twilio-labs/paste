@@ -80,6 +80,7 @@ const HomeHero: React.FC = () => {
                       label: 'Product Designer job opening',
                     })
                   }
+                  showExternal
                 >
                   Is it you?
                 </NewComponentBannerLink>
