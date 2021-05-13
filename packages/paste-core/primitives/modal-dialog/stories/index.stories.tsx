@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {withKnobs, boolean} from '@storybook/addon-knobs';
+import {withKnobs} from '@storybook/addon-knobs';
 import {styled} from '@twilio-paste/styling-library';
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
-import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '../src';
+import {useModalDialogPrimitiveState, ModalDialogPrimitive, ModalDialogBackdropPrimitive} from '../src';
 
-const StyledModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)({
+const StyledModalDialogBackdrop = styled(ModalDialogBackdropPrimitive)({
   position: 'fixed',
   top: 0,
   right: 0,
@@ -17,7 +17,7 @@ const StyledModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)({
   background: 'rgba(0, 0, 0, 0.7)',
 });
 
-const StyledModalDialogContent = styled(ModalDialogPrimitiveContent)({
+const StyledModalDialog = styled(ModalDialogPrimitive)({
   width: '100%',
   maxWidth: '560px',
   maxHeight: 'calc(100% - 60px)',
@@ -26,54 +26,60 @@ const StyledModalDialogContent = styled(ModalDialogPrimitiveContent)({
   padding: '20px',
 });
 
-interface BasicModalDialogProps {
-  isOpen: boolean;
-  handleClose: () => void;
-}
+export const ModalPrimitiveExample: React.FC = () => {
+  const dialog = useModalDialogPrimitiveState({baseId: 'modal-primitive-example'});
+  const handleOpen = (): void => dialog.show();
+  const initialFocusRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
 
-const BasicModalDialog: React.FC<BasicModalDialogProps> = ({isOpen, handleClose}) => {
-  const inputRef: React.RefObject<HTMLInputElement> = React.useRef(null);
+  // Focusing back on the button after closing the dialog seems to work fine in the browser,
+  // but theres a console warning when running tests to use `unstable_finalFocusRef` on
+  // the Dialog component: https://reakit.io/docs/dialog/#dialog.
+
+  const finalFocusRef = React.useRef() as React.MutableRefObject<HTMLButtonElement>;
+
+  React.useEffect(() => {
+    if (dialog.visible) {
+      initialFocusRef.current.focus();
+    }
+  }, [dialog.visible]);
 
   return (
-    <StyledModalDialogOverlay
-      isOpen={isOpen}
-      onDismiss={handleClose}
-      allowPinchZoom={boolean('allowPinchZoom', true)}
-      initialFocusRef={inputRef}
-    >
-      <StyledModalDialogContent>
-        <input type="text" value="first" />
-        <br />
-        <input ref={inputRef} type="text" value="second (initial focused)" />
-        <Text as="p" color="colorText">
-          Roll your own dialog!
-        </Text>
-      </StyledModalDialogContent>
-    </StyledModalDialogOverlay>
+    <>
+      <Button
+        variant="primary"
+        onClick={handleOpen}
+        aria-controls={dialog.baseId}
+        aria-expanded={!!dialog.visible}
+        aria-haspopup="dialog"
+        ref={finalFocusRef}
+      >
+        Open Modal
+      </Button>
+      <StyledModalDialogBackdrop {...dialog}>
+        <StyledModalDialog {...dialog} aria-label="Welcome" unstable_finalFocusRef={finalFocusRef}>
+          <input type="text" defaultValue="first" />
+          <br />
+          <input ref={initialFocusRef} type="text" defaultValue="second (initial focused)" />
+          <Text as="p" color="colorText">
+            Roll your own dialog!
+          </Text>
+        </StyledModalDialog>
+      </StyledModalDialogBackdrop>
+    </>
   );
 };
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Primitives/ModalDialog',
+  excludeStories: ['ModalPrimitiveExample'],
   decorators: [withKnobs],
-  component: ModalDialogPrimitiveOverlay,
-  subcomponents: {ModalDialogPrimitiveContent},
+  component: ModalDialogBackdropPrimitive,
+  subcomponents: {ModalDialogPrimitive},
 };
 
 export const CustomOverlayAndContent = (): React.ReactNode => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const handleOpen = (): void => setIsOpen(true);
-  const handleClose = (): void => setIsOpen(false);
-
-  return (
-    <div>
-      <Button variant="primary" onClick={handleOpen}>
-        Open Modal
-      </Button>
-      <BasicModalDialog isOpen={isOpen} handleClose={handleClose} />
-    </div>
-  );
+  return <ModalPrimitiveExample />;
 };
 
 CustomOverlayAndContent.story = {
