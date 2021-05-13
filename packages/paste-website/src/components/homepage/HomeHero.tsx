@@ -70,7 +70,7 @@ const HomeHero: React.FC = () => {
             <Column span={5}>
               <NewComponentBanner>
                 <NewComponentBannerBadge>New!</NewComponentBannerBadge>
-                <NewComponentBannerText>We're looking for a Product Designer!</NewComponentBannerText>
+                <NewComponentBannerText>We&apos;re looking for a Product Designer!</NewComponentBannerText>
                 <NewComponentBannerLink
                   to="https://boards.greenhouse.io/twilio/jobs/3133421"
                   onClick={() =>
