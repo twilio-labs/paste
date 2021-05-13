@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {useUID} from '@twilio-paste/uid-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BackgroundColorOptions, SpaceOptions, TextColorOptions} from '@twilio-paste/style-props';
+import type {BackgroundColorOptions, SpaceOptions} from '@twilio-paste/style-props';
 import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
 import {MinusIcon} from '@twilio-paste/icons/esm/MinusIcon';
 import {
@@ -55,14 +55,7 @@ const CheckboxIcon: React.FC<{
   disabled: boolean | undefined;
   checked: boolean | undefined;
 }> = ({checked, disabled, indeterminate}) => {
-  let color = 'transparent' as TextColorOptions;
-
-  if (checked || indeterminate) {
-    color = 'colorTextWeakest';
-  }
-  if (disabled && (checked || indeterminate)) {
-    color = 'colorTextIcon';
-  }
+  const color = disabled && (checked || indeterminate) ? 'colorTextIcon' : 'colorTextWeakest';
 
   if (indeterminate) {
     return <MinusIcon decorative color={color} size="sizeIcon10" />;
