@@ -70,18 +70,18 @@ const HomeHero: React.FC = () => {
             <Column span={5}>
               <NewComponentBanner>
                 <NewComponentBannerBadge>New!</NewComponentBannerBadge>
-                <NewComponentBannerText>You can now use an Icon inside an Avatar.</NewComponentBannerText>
+                <NewComponentBannerText>We're looking for a Product Designer!</NewComponentBannerText>
                 <NewComponentBannerLink
-                  to="/components/avatar#representing-an-entity-via-an-icon"
+                  to="https://boards.greenhouse.io/twilio/jobs/3133421"
                   onClick={() =>
                     trackCustomEvent({
                       category: 'Hero',
                       action: 'click-new-component-banner',
-                      label: 'Announcing Avatar Icon',
+                      label: 'Product Designer job opening',
                     })
                   }
                 >
-                  Check it out!
+                  Is it you?
                 </NewComponentBannerLink>
               </NewComponentBanner>
               <Text
