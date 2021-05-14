@@ -1,5 +1,19 @@
 # Change Log
 
+## 9.2.4
+
+### Patch Changes
+
+- [`2086d9a2`](https://github.com/twilio-labs/paste/commit/2086d9a2cc592a4c9ac7ce07ab00a8592bcdba6a) [#1448](https://github.com/twilio-labs/paste/pull/1448) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Fix coloring the checkmark of a checkbox when interacting with it
+
+* [`80529764`](https://github.com/twilio-labs/paste/commit/8052976482f1a7ad412e68959e5bf7e186a5c318) [#1431](https://github.com/twilio-labs/paste/pull/1431) Thanks [@richbachman](https://github.com/richbachman)! - Added a margin reset (`margin: space0`) to fix a bug in Safari where a 2px margin is added by the browser.
+
+* Updated dependencies [[`2086d9a2`](https://github.com/twilio-labs/paste/commit/2086d9a2cc592a4c9ac7ce07ab00a8592bcdba6a), [`80529764`](https://github.com/twilio-labs/paste/commit/8052976482f1a7ad412e68959e5bf7e186a5c318)]:
+  - @twilio-paste/checkbox@6.0.5
+  - @twilio-paste/button@7.0.3
+  - @twilio-paste/input@3.0.6
+  - @twilio-paste/select@5.0.4
+
 ## 9.2.3
 
 ### Patch Changes

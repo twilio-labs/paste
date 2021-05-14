@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.0.5
+
+### Patch Changes
+
+- [`2086d9a2`](https://github.com/twilio-labs/paste/commit/2086d9a2cc592a4c9ac7ce07ab00a8592bcdba6a) [#1448](https://github.com/twilio-labs/paste/pull/1448) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Fix coloring the checkmark of a checkbox when interacting with it
+
 ## 6.0.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.0.4
+
+### Patch Changes
+
+- [`80529764`](https://github.com/twilio-labs/paste/commit/8052976482f1a7ad412e68959e5bf7e186a5c318) [#1431](https://github.com/twilio-labs/paste/pull/1431) Thanks [@richbachman](https://github.com/richbachman)! - Added a margin reset (`margin: space0`) to fix a bug in Safari where a 2px margin is added by the browser.
+
 ## 5.0.3
 
 ### Patch Changes
