@@ -1,5 +1,16 @@
 # Change Log
 
+## 9.3.0
+
+### Minor Changes
+
+- [`62f7fd3e`](https://github.com/twilio-labs/paste/commit/62f7fd3e3da78bca128aa2287c61d19248a2025d) [#1451](https://github.com/twilio-labs/paste/pull/1451) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [design-tokens] Adding for availability tokens to display entity status such as available, offline and busy
+
+### Patch Changes
+
+- Updated dependencies [[`62f7fd3e`](https://github.com/twilio-labs/paste/commit/62f7fd3e3da78bca128aa2287c61d19248a2025d)]:
+  - @twilio-paste/design-tokens@6.8.0
+
 ## 9.2.4
 
 ### Patch Changes
