@@ -15,14 +15,7 @@ import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/checkbox/CHANGELOG.md';
-import {
-  defaultExample,
-  helpTextExample,
-  indeterminateExample,
-  errorExample,
-  requiredExample,
-  disabledExample,
-} from '../../../component-examples/CheckboxExamples';
+import {checkedCheckbox, indeterminateExample} from '../../../component-examples/CheckboxExamples';
 
 export const pageQuery = graphql`
   {
@@ -102,12 +95,8 @@ Use a checkbox to present a user with a binary (e.g. on/off) choice that is part
 
 A checkbox is always displayed next to a visible label.
 
-<LivePreview scope={{Checkbox}} language="jsx">
-  {`<>
-  <Checkbox checked={true} id="blm" value="blm" name="blm">
-    Black lives matter
-  </Checkbox>
-</>`}
+<LivePreview scope={{Checkbox}} noInline>
+  {checkedCheckbox}
 </LivePreview>
 
 ### Checkbox with help text
@@ -115,11 +104,9 @@ A checkbox is always displayed next to a visible label.
 In cases where the checkbox requires additional context, you can display this information as help text below the checkbox control and label. This can help keep checkbox labels concise.
 
 <LivePreview scope={{Checkbox}} language="jsx">
-  {`<>
-  <Checkbox id="enabled" value="enabled" name="enabled" helpText="Determines if certificate validation is performed on all Twilio originated requests">
-    Enable SSL Certificate Validation
-  </Checkbox>
-</>`}
+  {`<Checkbox id="enabled" value="enabled" name="enabled" helpText="Determines if certificate validation is performed on all Twilio originated requests">
+  Enable SSL Certificate Validation
+</Checkbox>`}
 </LivePreview>
 
 ### Required checkbox
@@ -127,42 +114,70 @@ In cases where the checkbox requires additional context, you can display this in
 When a checkbox is required to be checked, a required indicator should be displayed alongside the label. The label text should also be written in such a way that this requirement is clear to the user.
 
 <LivePreview scope={{Checkbox}} language="jsx">
-  {`<>
-  <Checkbox id="delete" value="delete" name="delete" required>
-    Confirm this message should be deleted
-  </Checkbox>
-</>`}
+  {`<Checkbox id="delete" value="delete" name="delete" required>
+  Confirm this message should be deleted
+</Checkbox>`}
 </LivePreview>
 
 ### Checkbox group
 
 Multiple checkboxes and their labels are grouped together with a common group component. The group legend must be the first element inside the group. It must appear before any checkboxes or other content.
 
-<LivePreview scope={{Checkbox, CheckboxGroup}} noInline>
-  {defaultExample}
+<LivePreview scope={{Checkbox, CheckboxGroup}} language="jsx">
+  {`<CheckboxGroup
+  name="desktop"
+  legend="Select the clients you would like to test."
+>
+  <Checkbox id="apple_mail" value="apple_mail">
+    Apple Mail
+  </Checkbox>
+  <Checkbox id="outlook" value="outlook">
+    Outlook
+  </Checkbox>
+</CheckboxGroup>`}
 </LivePreview>
 
 ### Checkbox group with help text
 
 You can provide additional information about the group with the use of help text. Help text can appear after the group label but before the first group member. Each item in the group may also provide their own, individual help text.
 
-<LivePreview scope={{Checkbox, CheckboxGroup, Anchor, Text}} noInline>
-  {helpTextExample}
+<LivePreview scope={{Checkbox, CheckboxGroup, Anchor, Text}} language="jsx">
+  {`<CheckboxGroup
+  name="ad_partners"
+  legend="Which ad partnes would you like to advertise on?"
+  helpText="Select at least 1 ad partner to create a campaign."
+>
+  <Checkbox
+    id="facebook"
+    value="facebook"
+    helpText={
+      <Text as="span" color="currentColor">
+        Questions? <Anchor href="http://paste.twilio.com">Click here to learn more</Anchor>.
+      </Text>
+    }
+  >
+    Facebook
+  </Checkbox>
+  <Checkbox
+    id="instagram"
+    value="instagram"
+    helpText={
+      <Text as="span" color="currentColor">
+        Questions? <Anchor href="http://paste.twilio.com">Click here to learn more</Anchor>.
+      </Text>
+    }
+  >
+    Outlook
+  </Checkbox>
+</CheckboxGroup>`}
 </LivePreview>
 
 ### Checkbox Disclaimer
 
 <LivePreview scope={{CheckboxDisclaimer, Text}} language="jsx">
-  {`<>
-  <CheckboxDisclaimer id="disclaimer" value="disclaimer" name="disclaimer">
-    <Text as="span">
-      I declare the information provided above is accurate. I acknowledge that Twilio will process the information
-      provided above for the purpose of identity verification, and will be sharing it with my local telecomm
-      providers or authorities where required by local law. I understand that Twilio phone numbers may be taken out
-      of service for inaccurate or false information.
-    </Text>
-  </CheckboxDisclaimer>
-</>`}
+  {`<CheckboxDisclaimer id="disclaimer" value="disclaimer" name="disclaimer">
+  I declare the information provided above is accurate. I acknowledge that Twilio will process the information provided above for the purpose of identity verification, and will be sharing it with my local telecomm providers or authorities where required by local law. I understand that Twilio phone numbers may be taken out of service for inaccurate or false information.
+</CheckboxDisclaimer>`}
 </LivePreview>
 
 ## States
@@ -182,33 +197,61 @@ The third state a checkbox can appear in is the indeterminate state. This is to 
 Use a disabled checkbox to indicate that a particular option cannot be interacted with or can be safely ignored.
 
 <LivePreview scope={{Checkbox}} language="jsx">
-  {`<>
-  <Checkbox
-    id="hammer"
-    value="hammer"
-    name="hammer"
-    disabled
-    checked
-  >
-    Can't touch this
-  </Checkbox>
-</>`}
+  {`<Checkbox
+  id="hammer"
+  value="hammer"
+  name="hammer"
+  disabled
+  checked
+>
+  Can't touch this
+</Checkbox>`}
 </LivePreview>
 
 ### Required checkbox group
 
 When at least one item from the checkbox group is required, a required indicator should be displayed alongside the group legend. The group help text should be used to describe the requirement.
 
-<LivePreview scope={{Checkbox, CheckboxGroup}} noInline>
-  {requiredExample}
+<LivePreview scope={{Checkbox, CheckboxGroup}} language="jsx">
+  {`<CheckboxGroup
+  name="email"
+  legend="Email Notifications"
+  helpText="We can remind yuou when one of your Buffer is looking a little empty."
+  required
+>
+  <Checkbox id="empty_buffer" value="empty_buffer">
+    Empty Buffer
+  </Checkbox>
+  <Checkbox id="newsletter" value="newsletter">
+    Newsletter
+  </Checkbox>
+  <Checkbox id="update_failures" value="update_failures">
+    Update Failures
+  </Checkbox>
+</CheckboxGroup>`}
 </LivePreview>
 
 ### Disabled checkbox group
 
 Use a disabled checkbox group to indicate that all options cannot be interacted with, with each checkbox individually disabled.
 
-<LivePreview scope={{Checkbox, CheckboxGroup}} noInline>
-  {disabledExample}
+<LivePreview scope={{Checkbox, CheckboxGroup}} language="jsx">
+  {`<CheckboxGroup
+  name="capabilities"
+  legend="Capabilities"
+  orientation="horizontal"
+  disabled
+>
+  <Checkbox id="voice" value="voice">
+    Voice
+  </Checkbox>
+  <Checkbox id="fax" value="fax">
+    Fax
+  </Checkbox>
+  <Checkbox id="sms" value="sms">
+    SMS
+  </Checkbox>
+</CheckboxGroup>`}
 </LivePreview>
 
 ### Checkbox group with an inline error
@@ -217,8 +260,19 @@ If the selected options don't pass the group validation requirements, an inline 
 
 An inline error is placed at the top of the group to inform a user of any errors in their choices. If help text exists, the error text should replace and repeat the help text.
 
-<LivePreview scope={{Checkbox, CheckboxGroup}} noInline>
-  {errorExample}
+<LivePreview scope={{Checkbox, CheckboxGroup}} language="jsx">
+  {`<CheckboxGroup
+  name="api"
+  legend="API Key Permissions"
+  errorText="Please select at least one option."
+>
+  <Checkbox id="full_access" value="full_access">
+    Full Access
+  </Checkbox>
+  <Checkbox id="restricted_access" value="restricted_access">
+    Restricted Access
+  </Checkbox>
+</CheckboxGroup>`}
 </LivePreview>
 
 ## Composition notes
