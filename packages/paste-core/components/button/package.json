@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/button",
-  "version": "7.0.2",
+  "version": "7.0.3",
   "category": "interaction",
   "status": "production",
   "description": "A button communicates that users can trigger an action.",
