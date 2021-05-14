@@ -144,3 +144,17 @@ props:
   color-background-overlay:
     value: "{!palette-blue-100-transparent-40}"
     comment: Default background for overlays
+
+  #availability
+  color-background-available:
+    value: "{!palette-green-60}"
+    comment: Color used to represent an entity or person as "available".
+  color-background-busy:
+    value: "{!palette-orange-60}"
+    comment: Color used to represent an entity or person as "busy".
+  color-background-unavailable:
+    value: "{!palette-red-60}"
+    comment: Color used to represent an entity or person as "unavailable".
+  color-background-offline:
+    value: "{!palette-gray-40}"
+    comment: Color used to represent an entity or person as "offline".
