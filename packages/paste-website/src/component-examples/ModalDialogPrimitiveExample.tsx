@@ -2,9 +2,13 @@ import * as React from 'react';
 import {styled} from '@twilio-paste/styling-library';
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
-import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
+import {
+  useModalDialogPrimitiveState,
+  ModalDialogPrimitive,
+  ModalDialogBackdropPrimitive,
+} from '@twilio-paste/modal-dialog-primitive';
 
-const StyledModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)({
+const StyledModalDialogOverlay = styled(ModalDialogBackdropPrimitive)({
   position: 'fixed',
   top: 0,
   right: 0,
@@ -16,7 +20,7 @@ const StyledModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)({
   background: 'rgba(0, 0, 0, 0.7)',
 });
 
-const StyledModalDialogContent = styled(ModalDialogPrimitiveContent)({
+const StyledModalDialogContent = styled(ModalDialogPrimitive)({
   width: '100%',
   maxWidth: '560px',
   maxHeight: 'calc(100% - 60px)',
@@ -25,38 +29,38 @@ const StyledModalDialogContent = styled(ModalDialogPrimitiveContent)({
   padding: '20px',
 });
 
-interface BasicModalDialogProps {
-  isOpen: boolean;
-  handleClose: () => void;
-}
-
-const BasicModalDialog: React.FC<BasicModalDialogProps> = ({isOpen, handleClose}) => {
-  const inputRef = React.useRef(null);
-
-  return (
-    <StyledModalDialogOverlay isOpen={isOpen} onDismiss={handleClose} allowPinchZoom initialFocusRef={inputRef}>
-      <StyledModalDialogContent>
-        <input type="text" value="first" />
-        <br />
-        <input ref={inputRef} type="text" value="second (initial focused)" />
-        <Text as="p" color="colorText">
-          Roll your own dialog!
-        </Text>
-      </StyledModalDialogContent>
-    </StyledModalDialogOverlay>
-  );
-};
-
 export const ModalDialogPrimitiveExample: React.FC = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const handleOpen = (): void => setIsOpen(true);
-  const handleClose = (): void => setIsOpen(false);
+  const dialog = useModalDialogPrimitiveState({baseId: 'modal-primitive-example'});
+  const handleOpen = (): void => dialog.show();
+  const initialFocusRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
+
+  React.useEffect(() => {
+    if (dialog.visible) {
+      initialFocusRef.current.focus();
+    }
+  }, [dialog.visible]);
+
   return (
-    <div>
-      <Button variant="primary" onClick={handleOpen}>
-        Open Sample Modal
+    <>
+      <Button
+        variant="primary"
+        onClick={handleOpen}
+        aria-controls={dialog.baseId}
+        aria-expanded={!!dialog.visible}
+        aria-haspopup="dialog"
+      >
+        Open Modal
       </Button>
-      <BasicModalDialog isOpen={isOpen} handleClose={handleClose} />
-    </div>
+      <StyledModalDialogOverlay {...dialog}>
+        <StyledModalDialogContent {...dialog} aria-label="Welcome">
+          <input type="text" defaultValue="first" />
+          <br />
+          <input ref={initialFocusRef} type="text" defaultValue="second (initial focused)" />
+          <Text as="p" color="colorText">
+            Roll your own dialog!
+          </Text>
+        </StyledModalDialogContent>
+      </StyledModalDialogOverlay>
+    </>
   );
 };

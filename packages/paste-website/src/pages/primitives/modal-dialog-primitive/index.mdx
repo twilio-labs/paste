@@ -78,14 +78,14 @@ and accessibility issues in our products.
 
 ## Usage Guide
 
-This package is a wrapper around [`@reach/dialog`](https://reacttraining.com/reach-ui/dialog). If
+This package is a wrapper around [`Reakit Dialog`](https://reakit.io/docs/dialog/). If
 you’re wondering why we wrapped that package into our own, we reasoned that it would be best
 for our consumers’ developer experience. With reasons such as:
 
 - We can control which APIs we expose and how to expose them. For example, in this package we rename
   and export only some of the source package's exports.
 - If we want to migrate the underlying nuts and bolts in the future, Twilio products that
-  depend on this primitive would need to replace all occurrences of `import … from ‘@reach/dialog’`
+  depend on this primitive would need to replace all occurrences of `import … from ‘reakit’`
   to `import … from ‘@some-new/package’`. By wrapping it in `@twilio-paste/modal-dialog-primitive`,
   this refactor can be avoided. The only change would be a version bump in the package.json file.
 - We can more strictly enforce semver and backwards compatibility than some of our dependencies.
@@ -111,9 +111,9 @@ import * as React from 'react';
 import {styled} from '@twilio-paste/styling-library';
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
-import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
+import {useModalDialogPrimitiveState, ModalDialogPrimitive, ModalDialogBackdropPrimitive} from '@twilio-paste/modal-dialog-primitive';
 
-const StyledModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)({
+const StyledModalDialogOverlay = styled(ModalDialogBackdropPrimitive)({
   position: 'fixed',
   top: 0,
   right: 0,
@@ -125,7 +125,7 @@ const StyledModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)({
   background: 'rgba(0, 0, 0, 0.7)',
 });
 
-const StyledModalDialogContent = styled(ModalDialogPrimitiveContent)({
+const StyledModalDialogContent = styled(ModalDialogPrimitive)({
   width: '100%',
   maxWidth: '560px',
   maxHeight: 'calc(100% - 60px)',
@@ -134,193 +134,96 @@ const StyledModalDialogContent = styled(ModalDialogPrimitiveContent)({
   padding: '20px',
 });
 
-interface BasicModalDialogProps {
-  isOpen: boolean;
-  handleClose: () => void;
-}
+xport const ModalDialogPrimitiveExample: React.FC = () => {
+  const dialog = useModalDialogPrimitiveState({baseId: 'modal-primitive-example'});
+  const handleOpen = (): void => dialog.show();
+  const initialFocusRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
 
-const BasicModalDialog: React.FC<BasicModalDialogProps> = ({isOpen, handleClose}) => {
-  const inputRef = React.useRef();
-
-  return (
-    <StyledModalDialogOverlay
-      isOpen={isOpen}
-      onDismiss={handleClose}
-      allowPinchZoom={true}
-      initialFocusRef={inputRef}
-    >
-      <StyledModalDialogContent>
-        <input type="text" value="first" />
-        <br />
-        <input ref={inputRef} type="text" value="second (initial focused)" />
-        <Text as="p" color="colorText">
-          Roll your own dialog!
-        </Text>
-      </StyledModalDialogContent>
-    </StyledModalDialogOverlay>
-  );
-};
-
-export const ModalActivator: React.FC = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const handleOpen = (): void => setIsOpen(true);
-  const handleClose = (): void => setIsOpen(false);
+  React.useEffect(() => {
+    if (dialog.visible) {
+      initialFocusRef.current.focus();
+    }
+  }, [dialog.visible]);
 
   return (
-    <div>
-      <Button variant="primary" onClick={handleOpen}>
-        Open Sample Modal
+    <>
+      <Button
+        variant="primary"
+        onClick={handleOpen}
+        aria-controls={dialog.baseId}
+        aria-expanded={!!dialog.visible}
+        aria-haspopup="dialog"
+      >
+        Open Modal
       </Button>
-      <BasicModalDialog isOpen={isOpen} handleClose={handleClose} />
-    </div>
+      <StyledModalDialogOverlay {...dialog}>
+        <StyledModalDialogContent {...dialog} aria-label="Welcome">
+          <input type="text" defaultValue="first" />
+          <br />
+          <input ref={initialFocusRef} type="text" defaultValue="second (initial focused)" />
+          <Text as="p" color="colorText">
+            Roll your own dialog!
+          </Text>
+        </StyledModalDialogContent>
+      </StyledModalDialogOverlay>
+    </>
   );
 };
 ```
 
 ### API
 
+#### Installation
+
+```bash
+yarn add @twilio-paste/modal-dialog-primitive - or - yarn add @twilio-paste/core
+```
+
 <Callout>
   <CalloutText>
-    Much of the following is copied directly from{' '}
-    <Anchor href="https://reacttraining.com/reach-ui/dialog/">reach-ui's docs</Anchor>. Because we may update at a
-    different cadence, we're duplicating the docs here to prevent inconsistent behaviors.
+    Much of the following is copied directly from <Anchor href="https://reakit.io/docs/dialog/">Reakit's docs</Anchor>.
+    Because we may update at a different cadence, we're duplicating the docs here to prevent inconsistent behaviors.
   </CalloutText>
 </Callout>
 
-#### ModalDialogPrimitiveOverlay Props
+#### Props
 
-All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
+This props list is a scoped version of the properties available from the [Reakit Dialog](https://reakit.io/docs/dialog/) package.
 
-| Prop             | Type            | Default |
-| ---------------- | --------------- | ------- |
-| isOpen           | bool            | false   |
-| allowPinchZoom?  | bool            | false   |
-| onDismiss?       | (event) => void | noop    |
-| initialFocusRef? | ref             | null    |
-| children         | node            | null    |
+##### useModalDialogPrimitiveState
 
-##### `isOpen` prop
+##### `baseId?: string`
 
-Controls whether the dialog is open or not.
+Sets the ID that will serve as a base for all the items IDs.
 
-```
-<ModalDialogPrimitiveOverlay isOpen={true}>
-  <p>I will be open</p>
-</ModalDialogPrimitiveOverlay>
+##### `visible?: boolean`
 
-<ModalDialogPrimitiveOverlay isOpen={false}>
-  <p>I will be closed</p>
-</ModalDialogPrimitiveOverlay>
-```
+Whether the modal dialog is visible or not.
 
-##### `allowPinchZoom` prop
+##### `animated?: number | boolean`
 
-Controls whether the dialog should allow zoom/pinch gestures on iOS devices.
+If true, animating will be set to true when visible is updated. It'll wait for stopAnimation to be called or a CSS transition ends. If animated is set to a number, stopAnimation will be called only after the same number of milliseconds have passed.
 
-##### `onDismiss` prop
+##### `modal?: boolean`
 
-This function is called whenever the user hits "Escape" or clicks outside the dialog.
-It's important to close the dialog when onDismiss is fired, as seen in all the demos on this page.
+Sets the modal state.
 
-The only time you _shouldn't_ close the dialog onDismiss is when the dialog requires a
-choice and none of them are "cancel". For example, perhaps two records need to be merged
-and the user needs to pick the surviving record. Neither choice is less destructive than
-the other, in these cases you may want to alert the user they need to a make a choice
-onDismiss instead of closing the dialog.
+- Non-modal: preventBodyScroll doesn't work and focus is free.
+- Modal: preventBodyScroll is automatically enabled, focus is trapped within the modal dialog and the modal dialog is rendered within a Portal.
 
-```
-function Example(props) {
-  const [showDialog, setShowDialog] = React.useState(false);
-  const open = () => setShowDialog(true);
-  const close = () => setShowDialog(false);
+##### ModalDialogPrimitive
 
-  return (
-    <div>
-      <button onClick={open}>Show Dialog</button>
-      <ModalDialogPrimitiveOverlay isOpen={showDialog} onDismiss={close}>
-        <ModalDialogPrimitiveContent>
-          <Text as="p">
-            It is your job to close this with state when the user clicks outside
-            or presses escape.
-          </Text>
-          <button onClick={close}>Okay</button>
-        </ModalDialogPrimitiveContent>
-      </ModalDialogPrimitiveOverlay>
-    </div>
-  );
-}
-```
+##### `hideOnEsc?: boolean | undefined`
 
-```
-function Example(props) {
-  const [showDialog, setShowDialog] = React.useState(false);
-  const [showWarning, setShowWarning] = React.useState(false);
-  const open = () => {
-    setShowDialog(true);
-    setShowWarning(false);
-  };
-  const close = () => setShowDialog(false);
-  const dismiss = () => setShowWarning(true);
+If enabled, the user can hide the modal dialog by pressing Escape.
 
-  return (
-    <div>
-      <button onClick={open}>Show Dialog</button>
-      <ModalDialogPrimitiveOverlay isOpen={showDialog} onDismiss={close}>
-        <ModalDialogPrimitiveContent>
-          {showWarning && (
-            <p style={{ color: "red" }}>You must make a choice, sorry :(</p>
-          )}
-          <p>Which router should survive the merge?</p>
-          <button onClick={close}>React Router</button>{" "}
-          <button onClick={close}>@reach/router</button>
-        </ModalDialogPrimitiveContent>
-      </ModalDialogPrimitiveOverlay>
-    </div>
-  );
-}
-```
+##### `hideOnClickOutside?: boolean | undefined`
 
-##### `initialFocusRef` prop
+If enabled, the user can hide the modal dialog by clicking outside it.
 
-By default the first focusable element will receive focus when the dialog opens but you
-can provide a ref to focus instead.
+##### `preventBodyaScroll?: boolean | undefined`
 
-```
-function Example(props) {
-  const [showDialog, setShowDialog] = React.useState(false);
-  const buttonRef = React.useRef();
-  const open = () => setShowDialog(true);
-  const close = () => setShowDialog(false);
-
-  return (
-    <div>
-      <button onClick={open}>Show Dialog</button>
-      {showDialog && (
-        <ModalDialogPrimitiveOverlay initialFocusRef={buttonRef} onDismiss={close}>
-          <ModalDialogPrimitiveContent>
-            <p>Pass the button ref to DialogOverlay and the button.</p>
-            <button onClick={close}>Not me</button>
-            <button
-              ref={buttonRef}
-              onClick={close}
-            >
-              Got me!
-            </button>
-          </ModalDialogPrimitiveContent>
-        </ModalDialogPrimitiveOverlay>
-      )}
-    </div>
-  );
-}
-```
-
-#### ModalDialogPrimitiveContent Props
-
-All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
-
-| Prop     | Type | Default |
-| -------- | ---- | ------- |
-| children | node | null    |
+If enabled, the user can't scroll on body when the modal dialog is visible. This option doesn't work if the dialog isn't a modal.
 
 <ChangelogRevealer>
   <Changelog />
@@ -329,4 +232,3 @@ All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including 
 </content>
 
 </contentwrapper>
-```
