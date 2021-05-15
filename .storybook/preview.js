@@ -93,9 +93,23 @@ export const decorators = [
                   <Story />
                 </Box>
               </Theme.Provider>
+              <Theme.Provider theme="default">
+                <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space20">
+                  <Box margin="space40" padding="space40" backgroundColor="colorBackground">
+                    <Story />
+                  </Box>
+                </Box>
+              </Theme.Provider>
               <Theme.Provider theme="dark">
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
                   <Story />
+                </Box>
+              </Theme.Provider>
+              <Theme.Provider theme="dark">
+                <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space20">
+                  <Box margin="space40" padding="space40" backgroundColor="colorBackground">
+                    <Story />
+                  </Box>
                 </Box>
               </Theme.Provider>
             </Stack>
