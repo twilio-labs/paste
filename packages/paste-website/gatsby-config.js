@@ -4,9 +4,11 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-// const queries = require('./src/utils/algolia');
+const dotenv = require('dotenv');
+const dotenvExpand = require('dotenv-expand');
 
-require('dotenv').config();
+var localEnv = dotenv.config();
+dotenvExpand(localEnv);
 
 const gatsbyConfig = {
   siteMetadata: {

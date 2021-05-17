@@ -5,7 +5,7 @@ import {Box} from '@twilio-paste/box';
 import {Input} from '@twilio-paste/input';
 import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
 import {useWindowSize} from '../../../hooks/useWindowSize';
-import {PASTE_DOCS_SEARCH_INPUT, PASTE_DOCS_SEARCH_INPUT_MOBILE} from '../../../constants';
+import {PASTE_DOCS_SEARCH_INPUT, PASTE_DOCS_SEARCH_INPUT_MOBILE, DOCSEARCH_APIKEY} from '../../../constants';
 import 'docsearch.js/dist/cdn/docsearch.min.css';
 
 interface SiteHeaderSearchProps {
@@ -22,7 +22,7 @@ const SiteHeaderSearch: React.FC<SiteHeaderSearchProps> = ({value, onChange}) =>
     }
 
     docsearch({
-      apiKey: process.env.GATSBY_DOCSEARCH_APIKEY,
+      apiKey: DOCSEARCH_APIKEY,
       indexName: 'twilio_paste',
       inputSelector: breakpointIndex < 2 ? `#${PASTE_DOCS_SEARCH_INPUT_MOBILE}` : `#${PASTE_DOCS_SEARCH_INPUT}`,
     });

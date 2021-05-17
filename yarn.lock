@@ -3296,6 +3296,30 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
+"@datadog/browser-core@2.8.1":
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/@datadog/browser-core/-/browser-core-2.8.1.tgz#776e2b2f040e34786b228c33f245c5570e00c436"
+  integrity sha512-pxY/jOtWGpWcs04LPKBSXd0bChzgQY0oiActomB+z7xdhmqGB/R0Fy50ZA1gtJXny3Pava1O7tIY51E/CiH0Vg==
+  dependencies:
+    tslib "^1.10.0"
+
+"@datadog/browser-rum-core@2.8.1":
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/@datadog/browser-rum-core/-/browser-rum-core-2.8.1.tgz#4ac72dd8bdcc5ab24abd966403e49f956f1cba78"
+  integrity sha512-5z95vUEWwugcokv/vTKxQ26oW50Uv5XxoNkg/sgwDZFrIcOpjMqzRwEaot/dUM2w+THobnRzufBBYJcXmj5HpQ==
+  dependencies:
+    "@datadog/browser-core" "2.8.1"
+    tslib "^1.10.0"
+
+"@datadog/browser-rum@^2.8.1":
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/@datadog/browser-rum/-/browser-rum-2.8.1.tgz#cff29d3d6e707ec12e75b60290a28442a8017365"
+  integrity sha512-p/tp1869oyJXutOyr67Aip3e3tIJpSarO3RAwf2mt1evEbUfvopwNWfQPKifMzbtMRwRA26O9nmZ7wEKjMxvxA==
+  dependencies:
+    "@datadog/browser-core" "2.8.1"
+    "@datadog/browser-rum-core" "2.8.1"
+    tslib "^1.10.0"
+
 "@emotion/babel-plugin-jsx-pragmatic@^0.1.5":
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/@emotion/babel-plugin-jsx-pragmatic/-/babel-plugin-jsx-pragmatic-0.1.5.tgz#27debfe9c27c4d83574d509787ae553bf8a34d7e"
