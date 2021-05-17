@@ -4,11 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-const dotenv = require('dotenv');
-const dotenvExpand = require('dotenv-expand');
-
-var localEnv = dotenv.config();
-dotenvExpand(localEnv);
+require('dotenv').config();
 
 const gatsbyConfig = {
   siteMetadata: {

@@ -6,7 +6,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "CONTEXT=local GATSBY_TELEMETRY_DISABLED=1 gatsby develop",
+    "start": "GATSBY_TELEMETRY_DISABLED=1 gatsby develop",
     "build": "GATSBY_TELEMETRY_DISABLED=1 gatsby build",
     "serve": "GATSBY_TELEMETRY_DISABLED=1 gatsby serve",
     "format": "prettier --write src/**/*.{js,jsx}",
@@ -78,7 +78,6 @@
     "color": "^3.1.2",
     "docsearch.js": "2.6.3",
     "dotenv": "^8.2.0",
-    "dotenv-expand": "^5.1.0",
     "gatsby": "^2.19.19",
     "gatsby-image": "^2.2.41",
     "gatsby-plugin-google-analytics": "^2.1.35",
