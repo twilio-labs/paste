@@ -1,3 +1,12 @@
 [context.deploy-preview]
   # only do a preview deply when there is a website change
   ignore = "git diff --quiet HEAD^ main -- packages/paste-website packages/paste-theme-designer"
+
+[context.deploy-preview.environment]
+  GATSBY_ENVIRONMENT_CONTEXT = "deploy-preview"
+
+[context.branch-deploy.environment]
+  GATSBY_ENVIRONMENT_CONTEXT = "branch-deploy"
+
+[context.production.environment]
+  GATSBY_ENVIRONMENT_CONTEXT = "production"

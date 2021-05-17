@@ -4,8 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-// const queries = require('./src/utils/algolia');
-
 require('dotenv').config();
 
 const gatsbyConfig = {

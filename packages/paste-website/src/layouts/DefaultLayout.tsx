@@ -1,11 +1,25 @@
 import * as React from 'react';
+import {datadogRum} from '@datadog/browser-rum';
 import {Helmet} from 'react-helmet';
 import {Box} from '@twilio-paste/box';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
+import * as packageJSON from '../../../paste-core/core-bundle/package.json';
 import {SiteWrapper} from '../components/site-wrapper';
 import {PasteMDXProvider} from '../components/paste-mdx-provider';
-import {SiteMetaDefaults} from '../constants';
+import {SiteMetaDefaults, DATADOG_APPLICATION_ID, DATADOG_CLIENT_TOKEN, ENVIRONMENT_CONTEXT} from '../constants';
+
+datadogRum.init({
+  applicationId: DATADOG_APPLICATION_ID,
+  clientToken: DATADOG_CLIENT_TOKEN,
+  site: 'datadoghq.com',
+  env: ENVIRONMENT_CONTEXT,
+  service: 'paste',
+  // paste core version
+  version: packageJSON.version,
+  sampleRate: 100,
+  trackInteractions: true,
+});
 
 interface DefaultLayoutProps {
   children?: React.ReactElement;
