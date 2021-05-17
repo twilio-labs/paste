@@ -27,6 +27,7 @@ const DisclosureContent = React.forwardRef<HTMLDivElement, DisclosureContentProp
         {...disclosure}
         {...safelySpreadBoxProps(props)}
         as={AnimatedDisclosureContent}
+        backgroundColor="colorBackgroundBody"
         padding="space50"
         ref={ref}
         style={{
