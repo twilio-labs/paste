@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.0.5
+
+### Patch Changes
+
+- [`46495f48`](https://github.com/twilio-labs/paste/commit/46495f48ec005ff0971fb41e5fa76df53503aa84) [#1454](https://github.com/twilio-labs/paste/pull/1454) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Add a background color to disclosure content for when it is placed on top of a background color that is not the body color
+
 ## 5.0.4
 
 ### Patch Changes
