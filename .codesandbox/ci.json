@@ -17,6 +17,7 @@
     "/packages/paste-core/components/combobox",
     "/packages/paste-core/primitives/combobox",
     "/packages/paste-customization",
+    "/packages/paste-core/components/date-picker",
     "/packages/paste-design-tokens",
     "/packages/paste-core/components/disclosure",
     "/packages/paste-core/primitives/disclosure",

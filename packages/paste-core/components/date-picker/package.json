@@ -1,0 +1,45 @@
+{
+  "name": "@twilio-paste/date-picker",
+  "version": "0.0.0",
+  "category": "user input",
+  "status": "alpha",
+  "description": "A form component used to select a date.",
+  "author": "Twilio Inc.",
+  "license": "MIT",
+  "main:dev": "src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn clean && NODE_ENV=production node build.js && tsc",
+    "build:js": "NODE_ENV=development node build.js",
+    "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
+    "clean": "rm -rf ./dist",
+    "tsc": "tsc"
+  },
+  "dependencies": {
+    "@types/date-and-time": "0.13.0",
+    "date-and-time": "1.0.0"
+  },
+  "peerDependencies": {
+    "@twilio-paste/input-box": "^4.0.4",
+    "@twilio-paste/styling-library": "^0.3.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@twilio-paste/input-box": "^4.0.4",
+    "@twilio-paste/styling-library": "^0.3.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
