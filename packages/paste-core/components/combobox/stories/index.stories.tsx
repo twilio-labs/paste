@@ -418,6 +418,7 @@ export const ComboboxOverflowLongValue = (): React.ReactNode => {
             setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
           }
         }}
+        optionTemplate={(item: ObjectItem) => <>{item}</>}
       />
     </Box>
   );
