@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {styled, css} from '@twilio-paste/styling-library';
 import {useTransition, animated} from '@twilio-paste/animation-library';
+import {safelySpreadBoxProps} from '@twilio-paste/box';
 import {pasteBaseStyles} from '@twilio-paste/theme';
 import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
 import {ModalContext} from './ModalContext';
@@ -130,8 +131,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
               >
                 <ModalDialogContent
                   aria-labelledby={ariaLabelledby}
-                  {...props}
-                  className={null}
+                  {...safelySpreadBoxProps(props)}
                   ref={ref}
                   style={styles}
                   size={size}
