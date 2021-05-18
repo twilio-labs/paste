@@ -1,9 +1,11 @@
 import * as React from 'react';
+import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import {useUID} from '@twilio-paste/uid-library';
 import {Combobox} from '@twilio-paste/combobox';
+import {Stack} from '@twilio-paste/stack';
 import {DatePicker, formatReturnDate} from '../src';
 
 export const DefaultDatePicker: React.FC = (props) => {
@@ -11,9 +13,17 @@ export const DefaultDatePicker: React.FC = (props) => {
   const uidHT = useUID();
   return (
     <>
-      <Label htmlFor={uidDP}>When would you like your payment to be processed?</Label>
+      <Label htmlFor={uidDP}>What day did the Stonewall riots begin?</Label>
       <DatePicker id={uidDP} aria-describedby={uidHT} {...props} />
-      <HelpText id={uidHT}>Select a date above.</HelpText>
+      <HelpText id={uidHT}>
+        Enter a date above.&nbsp;
+        <Anchor
+          href="https://civilrights.org/2009/06/22/stonewall-riots-the-beginning-of-the-lgbt-movement/"
+          showExternal
+        >
+          Read more about Stonewall
+        </Anchor>
+      </HelpText>
     </>
   );
 };
@@ -24,11 +34,17 @@ export const InverseDatePicker: React.FC = (props) => {
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label htmlFor={uidDP} variant="inverse">
-        When would you like your payment to be processed?
+        What day did the Stonewall riots begin?
       </Label>
       <DatePicker variant="inverse" aria-describedby={uidHT} id={uidDP} {...props} />
       <HelpText variant="inverse" id={uidHT}>
-        Select a date above.
+        Enter a date above.&nbsp;
+        <Anchor
+          href="https://civilrights.org/2009/06/22/stonewall-riots-the-beginning-of-the-lgbt-movement/"
+          showExternal
+        >
+          Read more about Stonewall
+        </Anchor>
       </HelpText>
     </Box>
   );
@@ -40,10 +56,15 @@ export const RequiredDatePicker: React.FC = (props) => {
   return (
     <>
       <Label htmlFor={uidDP} required>
-        Display messaging logs from:
+        When was the abolition of slavery announced in Galveston Bay, Texas (also known as Juneteenth)?
       </Label>
       <DatePicker required id={uidDP} aria-describedby={uidHT} {...props} />
-      <HelpText id={uidHT}>Select a date to view messaging logs.</HelpText>
+      <HelpText id={uidHT}>
+        Enter a date above.&nbsp;
+        <Anchor href="https://nmaahc.si.edu/blog-post/historical-legacy-juneteenth" showExternal>
+          Read more about Juneteenth
+        </Anchor>
+      </HelpText>
     </>
   );
 };
@@ -54,11 +75,14 @@ export const InverseRequiredDatePicker: React.FC = (props) => {
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label htmlFor={uidDP} variant="inverse" required>
-        Display messaging logs from:
+        When was the abolition of slavery announced in Galveston Bay, Texas (also known as Juneteenth)?
       </Label>
       <DatePicker variant="inverse" aria-describedby={uidHT} id={uidDP} required {...props} />
       <HelpText variant="inverse" id={uidHT}>
-        Select a date to view messaging logs.
+        Enter a date above.&nbsp;
+        <Anchor href="https://nmaahc.si.edu/blog-post/historical-legacy-juneteenth" showExternal>
+          Read more about Juneteenth
+        </Anchor>
       </HelpText>
     </Box>
   );
@@ -69,9 +93,17 @@ export const ErrorDatePicker: React.FC = (props) => {
   const uidHT = useUID();
   return (
     <>
-      <Label htmlFor={uidDP}>Start date:</Label>
+      <Label htmlFor={uidDP}>When did the Jallianwala Bagh massacre take place?</Label>
       <DatePicker id={uidDP} aria-describedby={uidHT} hasError {...props} />
-      <HelpText id={uidHT}>Select a valid date to start your trial.</HelpText>
+      <HelpText id={uidHT} variant="error">
+        Enter a date above.&nbsp;
+        <Anchor
+          href="https://www.hindustantimes.com/india-news/jallianwala-bagh-massacre-here-is-how-the-deadly-incident-transpired-102-years-ago-101618276752335.html"
+          showExternal
+        >
+          Read more about the Jallianwala Bagh massacre
+        </Anchor>
+      </HelpText>
     </>
   );
 };
@@ -82,11 +114,17 @@ export const InverseErrorDatePicker: React.FC = (props) => {
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label htmlFor={uidDP} variant="inverse">
-        Start date:
+        When did the Jallianwala Bagh massacre take place?
       </Label>
       <DatePicker variant="inverse" aria-describedby={uidHT} hasError id={uidDP} {...props} />
-      <HelpText variant="inverse" id={uidHT}>
-        Select a valid date to start your trial.
+      <HelpText variant="error_inverse" id={uidHT}>
+        Enter a date above.&nbsp;
+        <Anchor
+          href="https://www.hindustantimes.com/india-news/jallianwala-bagh-massacre-here-is-how-the-deadly-incident-transpired-102-years-ago-101618276752335.html"
+          showExternal
+        >
+          Read more about the Jallianwala Bagh massacre
+        </Anchor>
       </HelpText>
     </Box>
   );
@@ -98,10 +136,14 @@ export const DisabledDatePicker: React.FC = (props) => {
   return (
     <>
       <Label htmlFor={uidDP} disabled>
-        Email release date:
+        When did the Supreme Court ban anti-miscegenation laws (in Loving v. Virginia)?
       </Label>
-      <DatePicker id={uidDP} aria-describedby={uidHT} disabled {...props} />
-      <HelpText id={uidHT}>Your email will be sent on the above date.</HelpText>
+      <DatePicker id={uidDP} aria-describedby={uidHT} disabled defaultValue="1967-06-12" {...props} />
+      <HelpText id={uidHT}>
+        <Anchor href="https://www.oyez.org/cases/1966/395" showExternal>
+          Read more about Loving Day
+        </Anchor>
+      </HelpText>
     </>
   );
 };
@@ -112,11 +154,13 @@ export const InverseDisabledDatePicker: React.FC = (props) => {
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label htmlFor={uidDP} variant="inverse" disabled>
-        Email release date:
+        When did the Supreme Court ban anti-miscegenation laws (in Loving v. Virginia)?
       </Label>
-      <DatePicker variant="inverse" aria-describedby={uidHT} disabled id={uidDP} {...props} />
+      <DatePicker variant="inverse" aria-describedby={uidHT} disabled id={uidDP} defaultValue="1967-06-12" {...props} />
       <HelpText variant="inverse" id={uidHT}>
-        Your email will be sent on the above date.
+        <Anchor href="https://www.oyez.org/cases/1966/395" showExternal>
+          Read more about Loving Day
+        </Anchor>
       </HelpText>
     </Box>
   );
@@ -127,9 +171,13 @@ export const ReadonlyDatePicker: React.FC = (props) => {
   const uidHT = useUID();
   return (
     <>
-      <Label htmlFor={uidDP}>View account insights from the following date:</Label>
-      <DatePicker id={uidDP} aria-describedby={uidHT} readOnly {...props} />
-      <HelpText id={uidHT}>Account insights will be displayed from the above date.</HelpText>
+      <Label htmlFor={uidDP}>In what month was the Combahee River Collective (CRC) Statement published?</Label>
+      <DatePicker id={uidDP} aria-describedby={uidHT} readOnly defaultValue="1977-04-01" {...props} />
+      <HelpText id={uidHT}>
+        <Anchor href="https://combaheerivercollective.weebly.com/" showExternal>
+          Read more about the CRC
+        </Anchor>
+      </HelpText>
     </>
   );
 };
@@ -140,11 +188,13 @@ export const InverseReadonlyDatePicker: React.FC = (props) => {
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label htmlFor={uidDP} variant="inverse">
-        View account insights from the following date:
+        In what month was the Combahee River Collective Statement published?
       </Label>
-      <DatePicker variant="inverse" aria-describedby={uidHT} readOnly id={uidDP} {...props} />
+      <DatePicker variant="inverse" aria-describedby={uidHT} readOnly id={uidDP} defaultValue="1977-04-01" {...props} />
       <HelpText variant="inverse" id={uidHT}>
-        Account insights will be displayed from the above date.
+        <Anchor href="https://combaheerivercollective.weebly.com/" showExternal>
+          Read more about the CRC
+        </Anchor>
       </HelpText>
     </Box>
   );
@@ -155,9 +205,15 @@ export const DefaultValueDatePicker: React.FC = (props) => {
   const uidHT = useUID();
   return (
     <>
-      <Label htmlFor={uidDP}>When should we reach out to you for an update?</Label>
-      <DatePicker id={uidDP} aria-describedby={uidHT} defaultValue="2020-03-18" {...props} />
-      <HelpText id={uidHT}>Change the date above if necessary.</HelpText>
+      <Label htmlFor={uidDP}>
+        When was Planned Parenthood (PPFA) founded in the US (under the name American Birth Control League)?
+      </Label>
+      <DatePicker id={uidDP} aria-describedby={uidHT} defaultValue="1916-10-16" {...props} />
+      <HelpText id={uidHT}>
+        <Anchor href="https://www.plannedparenthood.org/about-us/who-we-are/our-history" showExternal>
+          Read more about PPFA
+        </Anchor>
+      </HelpText>
     </>
   );
 };
@@ -174,15 +230,7 @@ export const OnChangeDatePicker: React.FC = (props) => {
   };
   return (
     <>
-      <Label htmlFor={uidDP}>I want my Twilio account to go live on:</Label>
-      <DatePicker
-        id={uidDP}
-        aria-describedby={uidHT}
-        onChange={(evt) => handleChange(evt.target.value, dateFormat)}
-        {...props}
-      />
-      <HelpText id={uidHT}>Select a date above.</HelpText>
-      <Box marginTop="space60">
+      <Box marginBottom="space60">
         <Combobox
           items={dateFormatOptions}
           labelText="Return date format:"
@@ -190,8 +238,107 @@ export const OnChangeDatePicker: React.FC = (props) => {
             if (inputValue !== undefined) setDateFormat(inputValue);
           }}
         />
-        <br /> <b>Return value:</b> {value}
       </Box>
+      <Label htmlFor={uidDP}>On what day was Apartheid legislation repealed in South Africa?</Label>
+      <DatePicker
+        id={uidDP}
+        aria-describedby={uidHT}
+        onChange={(evt) => handleChange(evt.target.value, dateFormat)}
+        {...props}
+      />
+      <HelpText id={uidHT}>
+        Enter a date above.&nbsp;
+        <Anchor href="https://www.sahistory.org.za/article/history-apartheid-south-africa" showExternal>
+          Read more about Apartheid in South Africa
+        </Anchor>
+      </HelpText>
+      <Box marginTop="space60">
+        <b>Return value </b>(will only change when the onChange event fires): {value}
+      </Box>
+    </>
+  );
+};
+
+export const LabelOnlyPicker: React.FC = (props) => {
+  const uidDP = useUID();
+  return (
+    <>
+      <Label htmlFor={uidDP}>When does this year&apos;s LGBTQ+ Pride month begin in the US?</Label>
+      <DatePicker id={uidDP} {...props} />
+    </>
+  );
+};
+
+export const DateRangePicker: React.FC = (props) => {
+  const [startDate, setStartDate] = React.useState('');
+  const startUidDP = useUID();
+  const endUidDP = useUID();
+  return (
+    <Stack orientation="horizontal" spacing="space80">
+      <Box>
+        <Label htmlFor={startUidDP}>Start date</Label>
+        <DatePicker id={startUidDP} onChange={(evt) => setStartDate(evt.target.value)} {...props} />
+      </Box>
+      <Box>
+        <Label htmlFor={endUidDP}>End date</Label>
+        <DatePicker id={endUidDP} min={startDate} {...props} />
+      </Box>
+    </Stack>
+  );
+};
+
+export const StackOfPickers: React.FC = (props) => {
+  const uidDPOne = useUID();
+  const uidHTOne = useUID();
+  const uidDPTwo = useUID();
+  const uidHTTwo = useUID();
+  return (
+    <Stack orientation="vertical" spacing="space80">
+      <Box>
+        <Label htmlFor={uidDPOne}>When was the NAACP Legal Defense Fund (LDF) founded?</Label>
+        <DatePicker id={uidDPOne} aria-describedby={uidHTOne} {...props} />
+        <HelpText id={uidHTOne}>
+          Enter a date above.&nbsp;
+          <Anchor href="https://www.naacpldf.org/about-us/history/" showExternal>
+            Read more about the NAACP LDF
+          </Anchor>
+        </HelpText>
+      </Box>
+      <Box>
+        <Label htmlFor={uidDPTwo}>
+          When did Thurgood Marshall become the first African American Supreme Court Justice?
+        </Label>
+        <DatePicker id={uidDPTwo} aria-describedby={uidHTTwo} {...props} />
+        <HelpText id={uidHTTwo}>
+          Enter a date above.&nbsp;
+          <Anchor
+            href="https://constitutioncenter.org/blog/thurgood-marshalls-unique-supreme-court-legacy"
+            showExternal
+          >
+            Read more about Marshall&apos;s legacy
+          </Anchor>
+        </HelpText>
+      </Box>
+    </Stack>
+  );
+};
+
+export const DatePickerWithMinAndMax: React.FC = (props) => {
+  const uidDP = useUID();
+  const uidHT = useUID();
+  return (
+    <>
+      <Label htmlFor={uidDP}>When was Grace Hopper awarded the Presidential Medal of Freedom?</Label>
+      <DatePicker id={uidDP} aria-describedby={uidHT} min="2016-10-15" max="2016-10-25" {...props} />
+      <HelpText id={uidHT}>
+        Hint: it was awarded posthumously by President Obama.&nbsp;
+        <Anchor
+          href="https://news.yale.edu/2017/02/10/grace-murray-hopper-1906-1992-legacy-innovation-and-service"
+          showExternal
+        >
+          Read more about Grace Hopper
+        </Anchor>
+      </HelpText>
     </>
   );
 };
