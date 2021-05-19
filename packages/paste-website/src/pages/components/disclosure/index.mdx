@@ -8,6 +8,7 @@ slug: /components/disclosure/
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Flex} from '@twilio-paste/flex';
 import {Text} from '@twilio-paste/text';
 import {Stack} from '@twilio-paste/stack';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
@@ -299,12 +300,18 @@ The only thing you **must not** do is place a focusable element inside the `Disc
     Disclosure,
     DisclosureHeading,
     DisclosureContent,
+    Flex,
     Text,
   }}
 >
   {`<Disclosure>
   <DisclosureHeading as="h2" variant="heading30">
-    Disclosure Heading <Text color="colorTextWeak" fontSize="fontSize50" as="span">(3 new items)</Text>
+    <Flex vAlignContent="center">
+      Disclosure Heading
+      <Text as="span" color="colorTextWeak" fontSize="fontSize50" marginLeft="space20">
+        (3 new items)
+      </Text>
+    </Flex>
   </DisclosureHeading>
   <DisclosureContent>
     Content
