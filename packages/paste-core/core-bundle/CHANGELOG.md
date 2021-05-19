@@ -1,5 +1,17 @@
 # Change Log
 
+## 9.3.2
+
+### Patch Changes
+
+- [`456e7210`](https://github.com/twilio-labs/paste/commit/456e72109c31677adad53383084cd052f22b1e52) [#1464](https://github.com/twilio-labs/paste/pull/1464) Thanks [@richbachman](https://github.com/richbachman)! - Bumped the version of React-Spring to 9.1.2 in order to fix a TS issue.
+
+* [`dd759feb`](https://github.com/twilio-labs/paste/commit/dd759febfa25e5d6823f280a1896635be2ba6376) [#1464](https://github.com/twilio-labs/paste/pull/1464) Thanks [@richbachman](https://github.com/richbachman)! - Bumped the version of Reach/Dialog to 0.15.0
+
+* Updated dependencies [[`456e7210`](https://github.com/twilio-labs/paste/commit/456e72109c31677adad53383084cd052f22b1e52), [`dd759feb`](https://github.com/twilio-labs/paste/commit/dd759febfa25e5d6823f280a1896635be2ba6376)]:
+  - @twilio-paste/animation-library@0.3.2
+  - @twilio-paste/modal-dialog-primitive@0.2.3
+
 ## 9.3.1
 
 ### Patch Changes
