@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/flex",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "category": "layout",
   "status": "production",
   "description": "A primitive component that can be used to build flexbox based elements and layouts.",
