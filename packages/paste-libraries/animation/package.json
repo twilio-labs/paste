@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/animation-library",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "category": "interaction",
   "status": "beta",
   "description": "Paste's animation library of choice.",
@@ -25,8 +25,8 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "@react-spring/shared": "9.0.0-rc.3",
-    "@react-spring/web": "9.0.0-rc.3"
+    "@react-spring/shared": "9.1.2",
+    "@react-spring/web": "9.1.2"
   },
   "peerDependencies": {
     "react": "^16.8.6",

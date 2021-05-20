@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.3
+
+### Patch Changes
+
+- [`dd759feb`](https://github.com/twilio-labs/paste/commit/dd759febfa25e5d6823f280a1896635be2ba6376) [#1464](https://github.com/twilio-labs/paste/pull/1464) Thanks [@richbachman](https://github.com/richbachman)! - Bumped the version of Reach/Dialog to 0.15.0
+
 ## 0.2.2
 
 ### Patch Changes
