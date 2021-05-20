@@ -1,8 +1,7 @@
 import * as React from 'react';
-import * as renderer from 'react-test-renderer';
-import {ReactWrapper, mount} from 'enzyme';
+import {render, screen} from '@testing-library/react';
+import {matchers} from 'jest-emotion';
 import {Theme} from '@twilio-paste/theme';
-import {Box} from '@twilio-paste/box';
 import {
   getGrow,
   getShrink,
@@ -14,7 +13,9 @@ import {
   hAlignToProps,
 } from '../src/helpers';
 import {Flex} from '../src';
-import {FlexProps} from '../src/types';
+import type {FlexProps} from '../src/types';
+
+expect.extend(matchers);
 
 describe('Flex Unit Tests', () => {
   it('should return grow: 1', (): void => {
@@ -198,261 +199,280 @@ describe('Flex Unit Tests', () => {
 
 describe('Flex Display', () => {
   it('should set a display: flex property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <Flex>
-            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    render(<Flex data-testid="renderedFlexElement" />);
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('display', 'flex');
   });
 
   it('should render as any HTML element', (): void => {
-    const wrapper: ReactWrapper = mount(<Flex as="article">child</Flex>);
-    expect(wrapper.exists('article')).toEqual(true);
-
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <Flex as="article">child</Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    render(
+      <Flex data-testid="renderedFlexArticle" as="article">
+        child
+      </Flex>
+    );
+    const renderedFlex = screen.getByTestId('renderedFlexArticle');
+    expect(renderedFlex.tagName).toEqual('ARTICLE');
   });
 });
 
 describe('Flex Options', () => {
   it('should set a flex-grow property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <Flex grow>
-            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    render(<Flex data-testid="renderedFlexElement" grow />);
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('flex-grow', '1');
   });
 
   it('should set a flex-shrink property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <Flex grow shrink>
-            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    render(<Flex data-testid="renderedFlexElement" grow shrink />);
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('flex-shrink', '1');
   });
 
   it('should set a flex-basis property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <Flex basis={400}>
-            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    render(<Flex data-testid="renderedFlexElement" basis={400} />);
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('flex-basis', '400px');
   });
 
   it('should set a responsive flex-grow property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <Flex grow={[true, false, 1]}>
-            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    render(
+      <Theme.Provider theme="console">
+        <Flex data-testid="renderedFlexElement" grow={[true, false, 1]} />
+      </Theme.Provider>
+    );
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('flex-grow', '0', {
+      media: 'screen and (min-width:25rem)',
+    });
+    expect(renderedFlex).toHaveStyleRule('flex-grow', '1', {
+      media: 'screen and (min-width:64rem)',
+    });
+    expect(renderedFlex).toHaveStyleRule('flex-grow', '1');
   });
 
   it('should set a responsive flex-shrink property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <Flex grow shrink={[true, false, 1]}>
-            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    render(
+      <Theme.Provider theme="console">
+        <Flex data-testid="renderedFlexElement" grow shrink={[true, false, 1]} />
+      </Theme.Provider>
+    );
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('flex-shrink', '0', {
+      media: 'screen and (min-width:25rem)',
+    });
+    expect(renderedFlex).toHaveStyleRule('flex-shrink', '1', {
+      media: 'screen and (min-width:64rem)',
+    });
+    expect(renderedFlex).toHaveStyleRule('flex-shrink', '1');
   });
 
   it('should set a responsive flex-basis property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <Flex basis={[400, 100, 200]}>
-            <Box padding="space30" backgroundColor="colorBackgroundBrand" width="100%" minHeight="size10" />
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    render(
+      <Theme.Provider theme="console">
+        <Flex data-testid="renderedFlexElement" basis={[400, 100, 200]} />
+      </Theme.Provider>
+    );
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('flex-basis', '100px', {
+      media: 'screen and (min-width:25rem)',
+    });
+    expect(renderedFlex).toHaveStyleRule('flex-basis', '200px', {
+      media: 'screen and (min-width:64rem)',
+    });
+    expect(renderedFlex).toHaveStyleRule('flex-basis', '400px');
   });
 });
 
 describe('Flex Row', () => {
   it('should not set a flex-direction property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <Flex display="flex">
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
-            </Flex>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
-            </Flex>
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    render(<Flex data-testid="renderedFlexElement" />);
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).not.toHaveStyleRule('flex-direction', 'row');
   });
 
   it('should set a responsive flex-direction property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <Flex display="flex" vertical={[true, false, false]}>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
-            </Flex>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
-            </Flex>
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    render(
+      <Theme.Provider theme="console">
+        <Flex data-testid="renderedFlexElement" display="flex" vertical={[true, false, false]} />
+      </Theme.Provider>
+    );
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('flex-direction', 'row', {
+      media: 'screen and (min-width:25rem)',
+    });
+    expect(renderedFlex).toHaveStyleRule('flex-direction', 'row', {
+      media: 'screen and (min-width:64rem)',
+    });
+    expect(renderedFlex).toHaveStyleRule('flex-direction', 'column');
   });
 });
 
 describe('Flex Wrap', () => {
   it('should not set a flex-wrap property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <Flex display="flex">
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
-            </Flex>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
-            </Flex>
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    render(<Flex data-testid="renderedFlexElement" />);
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).not.toHaveStyleRule('flex-wrap', 'wrap');
   });
 
   it('should set a responsive flex-wrap property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <Flex display="flex" wrap={[true, true, false]}>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
-            </Flex>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
-            </Flex>
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    render(
+      <Theme.Provider theme="console">
+        <Flex data-testid="renderedFlexElement" wrap={[true, true, false]} />
+      </Theme.Provider>
+    );
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('flex-wrap', 'wrap', {
+      media: 'screen and (min-width:25rem)',
+    });
+    expect(renderedFlex).toHaveStyleRule('flex-wrap', 'nowrap', {
+      media: 'screen and (min-width:64rem)',
+    });
+    expect(renderedFlex).toHaveStyleRule('flex-wrap', 'wrap');
   });
 });
 
 describe('Vertical Alignment', () => {
   it('should set a align-items: flex-start property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <Flex display="flex" vAlignContent="top">
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
-            </Flex>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
-            </Flex>
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    render(<Flex data-testid="renderedFlexElement" vAlignContent="top" />);
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('align-items', 'flex-start');
   });
 
-  it('should set a responvise align-items property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <Flex display="flex" vAlignContent={['top', 'center', 'bottom']}>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
-            </Flex>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
-            </Flex>
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+  it('should set a responsive align-items property', (): void => {
+    render(
+      <Theme.Provider theme="console">
+        <Flex data-testid="renderedFlexElement" vAlignContent={['top', 'center', 'bottom']} />
+      </Theme.Provider>
+    );
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('align-items', 'center', {
+      media: 'screen and (min-width:25rem)',
+    });
+    expect(renderedFlex).toHaveStyleRule('align-items', 'flex-end', {
+      media: 'screen and (min-width:64rem)',
+    });
+    expect(renderedFlex).toHaveStyleRule('align-items', 'flex-start');
   });
 });
 
 describe('Horizontal Alignment', () => {
   it('should set a justify-content: flex-start property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <Flex display="flex" hAlignContent="left">
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
-            </Flex>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
-            </Flex>
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    render(<Flex data-testid="renderedFlexElement" hAlignContent="left" />);
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('justify-content', 'flex-start');
   });
 
   it('should set a responsive justify-content property', (): void => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          <Flex display="flex" hAlignContent={['left', 'center', 'right']}>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
-            </Flex>
-            <Flex>
-              <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
-            </Flex>
-          </Flex>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    render(
+      <Theme.Provider theme="console">
+        <Flex data-testid="renderedFlexElement" hAlignContent={['left', 'center', 'right']} />
+      </Theme.Provider>
+    );
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('justify-content', 'center', {
+      media: 'screen and (min-width:25rem)',
+    });
+    expect(renderedFlex).toHaveStyleRule('justify-content', 'flex-end', {
+      media: 'screen and (min-width:64rem)',
+    });
+    expect(renderedFlex).toHaveStyleRule('justify-content', 'flex-start');
+  });
+});
+describe('Flex style props', () => {
+  it('should set all available pass through style props', (): void => {
+    render(
+      <Flex
+        data-testid="renderedFlexElement"
+        margin="space20"
+        padding="space30"
+        maxWidth="size40"
+        minWidth="size50"
+        minHeight="size60"
+        maxHeight="size70"
+      />
+    );
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('margin', 'space20');
+    expect(renderedFlex).toHaveStyleRule('padding', 'space30');
+    expect(renderedFlex).toHaveStyleRule('max-width', 'size40');
+    expect(renderedFlex).toHaveStyleRule('min-width', 'size50');
+    expect(renderedFlex).toHaveStyleRule('min-height', 'size60');
+    expect(renderedFlex).toHaveStyleRule('max-height', 'size70');
+  });
+
+  it('should set individual width and height style props', (): void => {
+    render(<Flex data-testid="renderedFlexElement" width="size20" height="size30" />);
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('width', 'size20');
+    expect(renderedFlex).toHaveStyleRule('height', 'size30');
+  });
+
+  it('should set individual margin style props', (): void => {
+    render(
+      <Flex
+        data-testid="renderedFlexElement"
+        marginTop="space20"
+        marginRight="space30"
+        marginBottom="space40"
+        marginLeft="space50"
+      />
+    );
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('margin-top', 'space20');
+    expect(renderedFlex).toHaveStyleRule('margin-right', 'space30');
+    expect(renderedFlex).toHaveStyleRule('margin-bottom', 'space40');
+    expect(renderedFlex).toHaveStyleRule('margin-left', 'space50');
+  });
+
+  it('should set individual padding style props', (): void => {
+    render(
+      <Flex
+        data-testid="renderedFlexElement"
+        paddingTop="space20"
+        paddingRight="space30"
+        paddingBottom="space40"
+        paddingLeft="space50"
+      />
+    );
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('padding-top', 'space20');
+    expect(renderedFlex).toHaveStyleRule('padding-right', 'space30');
+    expect(renderedFlex).toHaveStyleRule('padding-bottom', 'space40');
+    expect(renderedFlex).toHaveStyleRule('padding-left', 'space50');
+  });
+
+  it('should set margin x style props', (): void => {
+    render(<Flex data-testid="renderedFlexElement" marginX="space20" />);
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('margin-right', 'space20');
+    expect(renderedFlex).toHaveStyleRule('margin-left', 'space20');
+  });
+
+  it('should set margin y style props', (): void => {
+    render(<Flex data-testid="renderedFlexElement" marginY="space20" />);
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('margin-top', 'space20');
+    expect(renderedFlex).toHaveStyleRule('margin-bottom', 'space20');
+  });
+
+  it('should set padding x style props', (): void => {
+    render(<Flex data-testid="renderedFlexElement" paddingX="space20" />);
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('padding-right', 'space20');
+    expect(renderedFlex).toHaveStyleRule('padding-left', 'space20');
+  });
+
+  it('should set padding y style props', (): void => {
+    render(<Flex data-testid="renderedFlexElement" paddingY="space20" />);
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('padding-top', 'space20');
+    expect(renderedFlex).toHaveStyleRule('padding-bottom', 'space20');
+  });
+
+  it('should set size style props', (): void => {
+    render(<Flex data-testid="renderedFlexElement" size="size20" />);
+    const renderedFlex = screen.getByTestId('renderedFlexElement');
+    expect(renderedFlex).toHaveStyleRule('width', 'size20');
+    expect(renderedFlex).toHaveStyleRule('height', 'size20');
   });
 });
