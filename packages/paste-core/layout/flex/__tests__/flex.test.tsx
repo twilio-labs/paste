@@ -384,27 +384,27 @@ describe('Flex style props', () => {
       <Flex
         data-testid="renderedFlexElement"
         margin="space20"
-        padding="space20"
-        maxWidth="space20"
-        minWidth="space20"
-        minHeight="space20"
-        maxHeight="space20"
+        padding="space30"
+        maxWidth="size40"
+        minWidth="size50"
+        minHeight="size60"
+        maxHeight="size70"
       />
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('margin', 'space20');
-    expect(renderedFlex).toHaveStyleRule('padding', 'space20');
-    expect(renderedFlex).toHaveStyleRule('max-width', 'space20');
-    expect(renderedFlex).toHaveStyleRule('min-width', 'space20');
-    expect(renderedFlex).toHaveStyleRule('min-height', 'space20');
-    expect(renderedFlex).toHaveStyleRule('max-height', 'space20');
+    expect(renderedFlex).toHaveStyleRule('padding', 'space30');
+    expect(renderedFlex).toHaveStyleRule('max-width', 'size40');
+    expect(renderedFlex).toHaveStyleRule('min-width', 'size50');
+    expect(renderedFlex).toHaveStyleRule('min-height', 'size60');
+    expect(renderedFlex).toHaveStyleRule('max-height', 'size70');
   });
 
   it('should set individual width and height style props', (): void => {
-    render(<Flex data-testid="renderedFlexElement" width="size20" height="size20" />);
+    render(<Flex data-testid="renderedFlexElement" width="size20" height="size30" />);
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('width', 'size20');
-    expect(renderedFlex).toHaveStyleRule('height', 'size20');
+    expect(renderedFlex).toHaveStyleRule('height', 'size30');
   });
 
   it('should set individual margin style props', (): void => {
@@ -412,16 +412,16 @@ describe('Flex style props', () => {
       <Flex
         data-testid="renderedFlexElement"
         marginTop="space20"
-        marginRight="space20"
-        marginBottom="space20"
-        marginLeft="space20"
+        marginRight="space30"
+        marginBottom="space40"
+        marginLeft="space50"
       />
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('margin-top', 'space20');
-    expect(renderedFlex).toHaveStyleRule('margin-right', 'space20');
-    expect(renderedFlex).toHaveStyleRule('margin-bottom', 'space20');
-    expect(renderedFlex).toHaveStyleRule('margin-left', 'space20');
+    expect(renderedFlex).toHaveStyleRule('margin-right', 'space30');
+    expect(renderedFlex).toHaveStyleRule('margin-bottom', 'space40');
+    expect(renderedFlex).toHaveStyleRule('margin-left', 'space50');
   });
 
   it('should set individual padding style props', (): void => {
@@ -429,16 +429,16 @@ describe('Flex style props', () => {
       <Flex
         data-testid="renderedFlexElement"
         paddingTop="space20"
-        paddingRight="space20"
-        paddingBottom="space20"
-        paddingLeft="space20"
+        paddingRight="space30"
+        paddingBottom="space40"
+        paddingLeft="space50"
       />
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('padding-top', 'space20');
-    expect(renderedFlex).toHaveStyleRule('padding-right', 'space20');
-    expect(renderedFlex).toHaveStyleRule('padding-bottom', 'space20');
-    expect(renderedFlex).toHaveStyleRule('padding-left', 'space20');
+    expect(renderedFlex).toHaveStyleRule('padding-right', 'space30');
+    expect(renderedFlex).toHaveStyleRule('padding-bottom', 'space40');
+    expect(renderedFlex).toHaveStyleRule('padding-left', 'space50');
   });
 
   it('should set margin x style props', (): void => {

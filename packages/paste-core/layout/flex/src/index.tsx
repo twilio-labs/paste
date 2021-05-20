@@ -83,7 +83,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
     );
 
     if (size && (width || height)) {
-      console.error('[Paste Flex]: you cannot set height or width with the size attribute.');
+      console.error('[Paste Flex]: you cannot set a height or width when using the size attribute');
     }
     if (
       (marginX && (margin || marginBottom || marginLeft || marginRight || marginTop)) ||
