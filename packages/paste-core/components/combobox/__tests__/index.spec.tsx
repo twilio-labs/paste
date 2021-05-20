@@ -8,7 +8,7 @@ import {Box} from '@twilio-paste/box';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {useCombobox, Combobox} from '../src';
-import {ComboboxProps} from '../src/types';
+import type {ComboboxProps} from '../src/types';
 import {getIndexedItems, getGroupedItems} from '../src/helpers';
 
 const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
@@ -59,6 +59,7 @@ const ComboboxMock: React.FC = () => {
         initialIsOpen
         helpText="This is the help text"
         labelText="Choose a component:"
+        required
         onInputValueChange={({inputValue}) => {
           if (inputValue !== undefined) {
             setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
@@ -197,6 +198,12 @@ describe('Combobox', () => {
       const renderedLabel = document.querySelector('label');
       const renderedTextbox = screen.getByRole('textbox');
       expect(renderedLabel!.getAttribute('for')).toEqual(renderedTextbox.getAttribute('id'));
+    });
+
+    it('should render a required combobox', () => {
+      render(<ComboboxMock />);
+      const renderedTextbox = screen.getByRole('textbox');
+      expect(renderedTextbox.getAttribute('required')).toEqual('');
     });
   });
 

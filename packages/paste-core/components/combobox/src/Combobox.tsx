@@ -151,7 +151,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
           <ComboboxInputWrapper {...getComboboxProps({role: 'combobox'})}>
             <ComboboxInputSelect
               {...getToggleButtonProps({tabIndex: 0})}
-              {...getInputProps({disabled, ref})}
+              {...getInputProps({disabled, required, ref})}
               {...(!autocomplete ? {onChange: (event: React.ChangeEvent) => event.preventDefault()} : undefined)}
               autocomplete={autocomplete}
               aria-describedby={helpTextId}
