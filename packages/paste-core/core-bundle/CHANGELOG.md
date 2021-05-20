@@ -1,5 +1,14 @@
 # Change Log
 
+## 9.3.3
+
+### Patch Changes
+
+- [`b9e74f3a`](https://github.com/twilio-labs/paste/commit/b9e74f3ab15066381f2c99db5d49cc9adb960572) [#1466](https://github.com/twilio-labs/paste/pull/1466) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Flex]: correctly allow layout style props to be applied to the Flex component including width and height
+
+- Updated dependencies [[`b9e74f3a`](https://github.com/twilio-labs/paste/commit/b9e74f3ab15066381f2c99db5d49cc9adb960572)]:
+  - @twilio-paste/flex@2.0.4
+
 ## 9.3.2
 
 ### Patch Changes
