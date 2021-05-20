@@ -1,8 +1,10 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
+import {render} from '@testing-library/react';
+import {matchers} from 'jest-emotion';
 import {Card} from '@twilio-paste/card';
-import {Theme} from '@twilio-paste/theme';
 import {getStackDisplay, getStackStyles, getStackChildMargins, Stack, StackOrientation} from '../src';
+
+expect.extend(matchers);
 
 describe('Stack Unit Tests', () => {
   const mockHorizontalOrientation = 'horizontal';
@@ -51,91 +53,55 @@ describe('Stack Unit Tests', () => {
   });
 });
 
-const MockVerticalStack: React.FC = () => {
-  return (
-    <Theme.Provider theme="console">
-      <Stack orientation="vertical" spacing="space60">
-        <Card>Card one</Card>
-        <Card>Card two</Card>
-      </Stack>
-    </Theme.Provider>
-  );
-};
-
-const MockHorizontalStack: React.FC = () => {
-  return (
-    <Theme.Provider theme="console">
-      <Stack orientation="horizontal" spacing="space60">
-        <Card>Card one</Card>
-        <Card>Card two</Card>
-      </Stack>
-    </Theme.Provider>
-  );
-};
-
-const MockResponsiveStack: React.FC = () => {
-  return (
-    <Theme.Provider theme="console">
-      <Stack orientation={['horizontal', 'vertical', 'horizontal']} spacing="space60">
-        <Card>Card one</Card>
-        <Card>Card two</Card>
-      </Stack>
-    </Theme.Provider>
-  );
-};
-
 const MockHeaderStack: React.FC = () => {
   return (
-    <Theme.Provider theme="console">
-      <Stack
-        as="header"
-        orientation="vertical"
-        spacing="space60"
-        data-testid="header"
-        id="foo"
-        title="foo"
-        className="foo"
-      >
+    <Stack
+      as="header"
+      orientation="vertical"
+      spacing="space60"
+      data-testid="header"
+      id="foo"
+      title="foo"
+      className="foo"
+    >
+      <Card>Card one</Card>
+      <Card>Card two</Card>
+    </Stack>
+  );
+};
+
+const MockSingleChildStack: React.FC = () => {
+  return (
+    <>
+      <Stack orientation="horizontal" spacing="space60" data-testid="single-horizontal">
+        {null}
         <Card>Card one</Card>
-        <Card>Card two</Card>
+        {null}
       </Stack>
-    </Theme.Provider>
+      <Stack orientation="vertical" spacing="space60" data-testid="single-vertical">
+        {null}
+        <Card>Card one</Card>
+        {null}
+      </Stack>
+    </>
   );
 };
 
 describe('Stack', () => {
-  it('should render a vertical stack', () => {
-    const {asFragment} = render(<MockVerticalStack />);
-    expect(asFragment()).toMatchSnapshot();
+  it('renders a mock header with two children correctly', () => {
+    const {getByTestId} = render(<MockHeaderStack />);
+    const mockHeader = getByTestId('header');
+    expect(mockHeader.tagName).toEqual('HEADER');
+    expect(mockHeader.getAttribute('id')).toEqual('foo');
+    expect(mockHeader.getAttribute('title')).toEqual('foo');
+    expect(mockHeader.getAttribute('class')).not.toEqual('foo');
   });
 
-  it('should render a horizontal stack', () => {
-    const {asFragment} = render(<MockHorizontalStack />);
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it('should render a responsive stack', () => {
-    const {asFragment} = render(<MockResponsiveStack />);
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it('should render as a header', () => {
-    render(<MockHeaderStack />);
-    expect(screen.getByTestId('header').tagName).toEqual('HEADER');
-  });
-
-  it('should render with an id', () => {
-    render(<MockHeaderStack />);
-    expect(screen.getByTestId('header').getAttribute('id')).toEqual('foo');
-  });
-
-  it('should render with a title', () => {
-    render(<MockHeaderStack />);
-    expect(screen.getByTestId('header').getAttribute('title')).toEqual('foo');
-  });
-
-  it('should render without a className', () => {
-    render(<MockHeaderStack />);
-    expect(screen.getByTestId('header').getAttribute('class')).not.toEqual('foo');
+  it('renders a single child with no extra padding', () => {
+    const {getByTestId} = render(<MockSingleChildStack />);
+    const mockSingleChildHorizontal = getByTestId('single-horizontal');
+    expect(mockSingleChildHorizontal).not.toHaveStyleRule('marginRight', 'space60');
+    const mockSingleChildVertical = getByTestId('single-vertical');
+    expect(mockSingleChildVertical).not.toHaveStyleRule('marginBottom', 'space60');
   });
 });

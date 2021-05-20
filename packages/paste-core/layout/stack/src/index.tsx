@@ -82,13 +82,12 @@ export const getStackChildMargins = (orientation: StackOrientation, spacing: Spa
 };
 
 const Stack = React.forwardRef<HTMLDivElement, StackProps>(({children, orientation, spacing, ...props}, ref) => {
-  const [childrenCount, validChildren] = React.useMemo(
-    () => [
-      React.Children.count(children),
-      React.Children.toArray(children).filter((child) => React.isValidElement(child) || typeof child === 'string'),
-    ],
-    [children]
-  );
+  const [childrenCount, validChildren] = React.useMemo(() => {
+    const filteredChildren = React.Children.toArray(children).filter(
+      (child) => React.isValidElement(child) || typeof child === 'string'
+    );
+    return [filteredChildren.length, filteredChildren];
+  }, [children]);
   const stackStyles = React.useMemo(() => getStackStyles(orientation), [orientation]);
   const childMargins = React.useMemo(() => getStackChildMargins(orientation, spacing), [orientation, spacing]);
   const keySeed = useUIDSeed();
