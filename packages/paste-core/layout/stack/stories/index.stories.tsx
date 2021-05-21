@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {withKnobs, select} from '@storybook/addon-knobs';
 import {DefaultTheme, ThemeShape} from '@twilio-paste/theme';
+import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -124,4 +125,24 @@ export const StackResponsive = (): React.ReactNode => {
 
 StackResponsive.story = {
   name: 'Stack - Responsive',
+};
+
+export const OneChild = (): React.ReactNode => {
+  return (
+    <Box display="inline-block" padding="space20" backgroundColor="colorBackgroundPrimary">
+      <Stack orientation="horizontal" spacing="space60">
+        {null}
+        <Card>
+          <Heading as="h2" variant="heading20">
+            First Card
+          </Heading>
+        </Card>
+        {null}
+      </Stack>
+    </Box>
+  );
+};
+
+OneChild.story = {
+  name: 'Stack - One Child',
 };
