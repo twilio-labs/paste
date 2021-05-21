@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.0.3
+
+### Patch Changes
+
+- [`b1dd8b0c`](https://github.com/twilio-labs/paste/commit/b1dd8b0c385e59c35c4655479d862864db4d8e7b) [#1478](https://github.com/twilio-labs/paste/pull/1478) Thanks [@richbachman](https://github.com/richbachman)! - Fixed the `required` prop not being passed to the `textbox` inside Combobox.
+
 ## 7.0.2
 
 ### Patch Changes

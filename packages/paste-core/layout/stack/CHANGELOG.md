@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.4
+
+### Patch Changes
+
+- [`45c24b01`](https://github.com/twilio-labs/paste/commit/45c24b01aeabf3db34868c4f0ae91b49a0493169) [#1479](https://github.com/twilio-labs/paste/pull/1479) Thanks [@TheSisb](https://github.com/TheSisb)! - Fix a bug where `null` children to a Stack causes extra margin to be appended at the end.
+
 ## 2.0.3
 
 ### Patch Changes
