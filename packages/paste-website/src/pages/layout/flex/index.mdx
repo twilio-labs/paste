@@ -307,17 +307,38 @@ const Component = () => <Flex>Foo</Flex>;
 
 #### Props
 
-| Prop           | Type                                                | Description                   | Default |
-| -------------- | --------------------------------------------------- | ----------------------------- | ------- |
-| as?            | `keyof JSX.IntrinsicElements`                       | A custom HTML tag             | `div`   |
-| display?       | `string, ResponsiveValue<'flex', 'inline-flex'>`    | Display property              | 'flex'  |
-| basis?         | `string, number, ResponsiveValue<string, number>`   | Flex basis property           |         |
-| grow?          | `boolean, number, ResponsiveValue<boolean, number>` | Flex grow property            |         |
-| shrink?        | `string, number, ResponsiveValue<string, number>`   | Flex shrink property          |         |
-| hAlignContent? | `string, number, ResponsiveValue<string, number>`   | Horizontal alignment property |         |
-| vAlignContent? | `string, number, ResponsiveValue<string, number>`   | Vertical alignment property   |         |
-| vertical?      | `boolean, number, ResponsiveValue<boolean, number>` | Flex direction property       |         |
-| wrap?          | `boolean, number, ResponsiveValue<boolean, number>` | Flex wrap property            |         |
+| Prop           | Type                                                | Description                                 | Default |
+| -------------- | --------------------------------------------------- | ------------------------------------------- | ------- |
+| as?            | `keyof JSX.IntrinsicElements`                       | A custom HTML tag                           | `div`   |
+| display?       | `string, ResponsiveValue<'flex', 'inline-flex'>`    | Display property                            | 'flex'  |
+| basis?         | `string, number, ResponsiveValue<string, number>`   | Flex basis property                         |         |
+| grow?          | `boolean, number, ResponsiveValue<boolean, number>` | Flex grow property                          |         |
+| shrink?        | `string, number, ResponsiveValue<string, number>`   | Flex shrink property                        |         |
+| hAlignContent? | `string, number, ResponsiveValue<string, number>`   | Horizontal alignment property               |         |
+| vAlignContent? | `string, number, ResponsiveValue<string, number>`   | Vertical alignment property                 |         |
+| vertical?      | `boolean, number, ResponsiveValue<boolean, number>` | Flex direction property                     |         |
+| wrap?          | `boolean, number, ResponsiveValue<boolean, number>` | Flex wrap property                          |         |
+| minWidth       | `ResponsiveValue<MinWidthOptions>`                  | Responsive Size Token Value or CSS property |         |
+| width          | `ResponsiveValue<WidthOptions>`                     | Responsive Size Token Value or CSS property |         |
+| maxWidth       | `ResponsiveValue<MaxWidthOptions>`                  | Responsive Size Token Value or CSS property |         |
+| height         | `ResponsiveValue<Height>`                           | Responsive Size Token Value or CSS property |         |
+| minHeight      | `ResponsiveValue<MinHeight>`                        | Responsive Size Token Value or CSS property |         |
+| maxHeight      | `ResponsiveValue<MaxHeight>`                        | Responsive Size Token Value or CSS property |         |
+| size           | `Width` `Height`                                    | Responsive Size Token Value or CSS proterty |         |
+| margin         | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
+| marginTop      | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
+| marginRight    | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
+| marginBottom   | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
+| marginLeft     | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
+| marginX        | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
+| marginY        | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
+| padding        | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
+| paddingTop     | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
+| paddingRight   | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
+| paddingBottom  | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
+| paddingLeft    | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
+| paddingX       | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
+| paddingY       | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
 
 <ChangelogRevealer>
   <Changelog />
