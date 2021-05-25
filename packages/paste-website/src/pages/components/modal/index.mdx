@@ -75,7 +75,7 @@ A Modal is a dialog that appears over the main content and moves the system into
 - When you want to capture information from the user without having them leave the parent page.
 - When you want to show additional information to the user without losing context of the parent page.
 
-If you need to _interrupt_ a user's current task in order to make them perform an action, use an Alert Dialog (not available yet) instead. An Alert Dialog ensures the user acknowledges the information in the dialog but is visually similar to a Modal.
+If you need to _interrupt_ a user's current task in order to make them perform an action, use an [Alert Dialog](/components/alert-dialog) instead. An Alert Dialog ensures the user acknowledges the information in the dialog but is visually similar to a Modal.
 
 Users cannot interact with content outside an active modal window until the user explicitly closes it. When the modal opens, focus moves to an element contained in it (by default, the first element that can be focused) in the modal, and the focus should stay in and cycle through the modal's content. Focus shouldn't return to the underlying page until the user closes the modal. This can happen in any of the following ways:
 
@@ -313,9 +313,9 @@ If you need to show an important warning to prevent or correct critical errors, 
 | Property         | Default token                   | Modifiable? |
 | ---------------- | ------------------------------- | ----------- |
 | background-color | color-background-body           | No          |
-| border-color     | color-background-body           | No          |
+| border-color     | color-border-weak               | No          |
 | border-radius    | border-radius-20                | No          |
-| drop-shadow      | shadow-card                     | No          |
+| drop-shadow      | shadow                          | No          |
 | modal-width      | default: size-60, wide: size-80 | No          |
 | overlay-color    | color-background-overlay        | No          |
 

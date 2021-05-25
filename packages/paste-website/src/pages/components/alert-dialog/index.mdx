@@ -1,0 +1,234 @@
+---
+title: Alert Dialog - Components
+description: An alert dialog displays content over the main page and blocks any interaction with the page.
+slug: /components/alert-dialog/
+---
+
+import {graphql} from 'gatsby';
+import Changelog from '@twilio-paste/alert-dialog/CHANGELOG.md';
+import {useUID} from '@twilio-paste/uid-library';
+import {Anchor} from '@twilio-paste/anchor';
+import {AlertDialog} from '@twilio-paste/alert-dialog';
+import {Button} from '@twilio-paste/button';
+import {Heading} from '@twilio-paste/heading';
+import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {defaultExample, destructiveExample, modalExample} from '../../../component-examples/AlertDialogExamples';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/alert-dialog"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/components/alert-dialog/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name="Alert Dialog"
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/alert-dialog"
+  storybookUrl="/?path=/story/components-alert-dialog--alert-dialog-with-two-actions"
+  data={props.data.allPasteComponent.edges}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+<Callout>
+  <CalloutTitle>Using alpha components in your product</CalloutTitle>
+  <CalloutText>
+    Alpha components are ready for use in production and components like Alert Dialog won't likely see any API changes.
+    The term "Alpha" means there is only basic documentation at this time. Please share your experience using this Alpha
+    component by{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/discussions/new" showExternal>
+      starting a discussion on GitHub
+    </Anchor>
+    .
+  </CalloutText>
+</Callout>
+
+## Guidelines
+
+### About Alert Dialog
+
+The Alert Dialog should be used to interrupt a user flow until a specific action is taken. It is used to convey important messages that can't be ignored like [Alert](/components/alert) content. Potential use cases for Alert Dialog are:
+
+- Confirming a permanent change, like deleting data
+- Relaying an important system message like a maintenance downtime window
+
+Though it's visually similar to a [Modal](/components/modal), an Alert Dialog requires the user to acknowledge the information in the dialog.
+
+Users cannot interact with content outside an active Alert Dialog window until the user explicitly closes it. When the Alert Dialog opens, focus moves to an element contained in it (by default, the first element that can be focused), and the focus should stay in and cycle through the Alert Dialog's content. Focus shouldn't return to the underlying page until the user closes the Alert Dialog. This can happen in any of the following ways:
+
+- Presses a "Cancel" button in the Alert Dialog footer
+- Presses a "Submit" or "Confirm" button in the Alert Dialog footer
+
+### Accessibility
+
+- All elements required to interact with the Alert Dialog, including closing or acknowledging it, are contained in the
+  Alert Dialog since they trap focus, and users can't interact with the underlying page.
+- Tabbing through an Alert Dialog will cycle through its content in the same way it does on a page.
+- The element that serves as the Alert Dialog container has a role of `alertdialog`.
+- The Alert Dialog is labelled by the `heading` prop.
+
+## Examples
+
+### Default Alert Dialog
+
+<LivePreview scope={{AlertDialog, Button}} noInline>
+  {defaultExample}
+</LivePreview>
+
+### Destructive Alert Dialog
+
+<LivePreview scope={{AlertDialog, Button}} noInline>
+  {destructiveExample}
+</LivePreview>
+
+### Opening an Alert Dialog from a Modal
+
+<LivePreview
+  scope={{
+    useUID,
+    AlertDialog,
+    Button,
+    Heading,
+    Modal,
+    ModalBody,
+    ModalFooter,
+    ModalFooterActions,
+    ModalHeader,
+    ModalHeading,
+    Paragraph,
+  }}
+  noInline
+>
+  {modalExample}
+</LivePreview>
+
+## Anatomy
+
+### General
+
+| Property         | Default token            | Modifiable? |
+| ---------------- | ------------------------ | ----------- |
+| background-color | color-background-body    | No          |
+| border-color     | color-border-weak        | No          |
+| border-radius    | border-radius-20         | No          |
+| drop-shadow      | shadow                   | No          |
+| width            | size-40                  | No          |
+| overlay-color    | color-background-overlay | No          |
+
+### Heading
+
+| Property      | Default token/child | Modifiable? |
+| ------------- | ------------------- | ----------- |
+| Heading       | h3                  | No          |
+| marginBottom  | space-0             | No          |
+| paddingTop    | space-50            | No          |
+| paddingRight  | space-50            | No          |
+| paddingBottom | space-0             | No          |
+| paddingLeft   | space-50            | No          |
+
+### Body
+
+| Property | Default token | Modifiable? |
+| -------- | ------------- | ----------- |
+| padding  | space-50      | No          |
+
+### Footer
+
+| Property      | Default token | Modifiable? |
+| ------------- | ------------- | ----------- |
+| paddingTop    | space-0       | No          |
+| paddingRight  | space-50      | No          |
+| paddingBottom | space-50      | No          |
+| paddingLeft   | space-50      | No          |
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/alert-dialog - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {AlertDialog} from '@twilio-paste/alert-dialog';
+import {Button} from '@twilio-paste/button';
+
+const AlertDialogExample = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const handleOpen = () => setIsOpen(true);
+  const handleClose = () => setIsOpen(false);
+
+  return (
+    <div>
+      <Button variant="primary" onClick={handleOpen}>
+        Open alert dialog
+      </Button>
+      <AlertDialog
+        heading="Submit application"
+        isOpen={isOpen}
+        onConfirm={() => {}}
+        onConfirmLabel="Submit"
+        onDismiss={handleClose}
+        onDismissLabel="Cancel"
+      >
+        Are you sure you want to submit this application? No information can be changed after submitting.
+      </AlertDialog>
+    </div>
+  );
+};
+```
+
+#### Props
+
+| Prop           | Type                 | Description | Default |
+| -------------- | -------------------- | ----------- | ------- |
+| children       | `ReactNode`          |             | null    |
+| isOpen         | `boolean`            |             | null    |
+| destructive?   | `boolean`            |             | null    |
+| onConfirmLabel | `string`             |             | null    |
+| onConfirm      | `Function() => void` |             | null    |
+| onDismissLabel | `string`             |             | null    |
+| onDismiss      | `Function() => void` |             | null    |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>
