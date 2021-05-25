@@ -3,6 +3,8 @@ import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Truncate} from '@twilio-paste/truncate';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {ProductInternetOfThingsIcon} from '@twilio-paste/icons/esm/ProductInternetOfThingsIcon';
+import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
 import {Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState} from '../src';
 import type {DisclosureHeadingProps, DisclosureInitialState, DisclosureStateReturn, DisclosureVariants} from '../src';
 
@@ -176,6 +178,33 @@ export const TruncatedHeader = (): React.ReactNode => {
 
 TruncatedHeader.story = {
   name: 'Truncated Header',
+};
+
+export const MediaObjectHeading = (): React.ReactNode => {
+  return (
+    <Disclosure variant="contained">
+      <DisclosureHeading as="h2" variant="heading30">
+        <Box width="100%">
+          <MediaObject verticalAlign="center">
+            <MediaFigure spacing="space10">
+              <ProductInternetOfThingsIcon decorative={false} title="phone numbers" size="sizeIcon40" />
+            </MediaFigure>
+            <MediaBody as="div">
+              <Box display="flex" justifyContent="space-between" flexWrap="wrap">
+                <Box>Internet of Things</Box>
+                <Box>$808</Box>
+              </Box>
+            </MediaBody>
+          </MediaObject>
+        </Box>
+      </DisclosureHeading>
+      <DisclosureContent>It works!</DisclosureContent>
+    </Disclosure>
+  );
+};
+
+MediaObjectHeading.story = {
+  name: 'MediaObject in Heading',
 };
 
 export const ContainedHeadingVariant10 = (): React.ReactNode => {
