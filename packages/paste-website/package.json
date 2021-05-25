@@ -21,6 +21,7 @@
     "@mdx-js/react": "^1.0.23",
     "@mdx-js/tag": "^0.20.3",
     "@twilio-paste/alert": "^7.0.0",
+    "@twilio-paste/alert-dialog": "^0.1.0",
     "@twilio-paste/anchor": "^5.0.2",
     "@twilio-paste/animation-library": "^0.3.1",
     "@twilio-paste/aspect-ratio": "^4.0.3",
