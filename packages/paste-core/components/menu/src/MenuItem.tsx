@@ -2,7 +2,7 @@ import * as React from 'react';
 import {secureExternalLink} from '@twilio-paste/anchor';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {MenuPrimitiveItem} from '@twilio-paste/menu-primitive';
-import {MenuItemProps} from './types';
+import type {MenuItemProps} from './types';
 import {MenuItemVariants} from './constants';
 import {MenuGroupContext} from './MenuGroup';
 
@@ -10,10 +10,15 @@ export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElemen
   return (
     <Box
       {...(props.href && secureExternalLink(props.href))}
+      {...(props.href ? {as: 'a'} : {as: 'button'})}
       {...safelySpreadBoxProps(props)}
-      as="a"
       color={props['aria-disabled'] ? 'colorTextWeaker' : 'colorText'}
+      border="none"
+      background="none"
       display="block"
+      width="100%"
+      textAlign="left"
+      lineHeight="lineHeight30"
       paddingY="space30"
       paddingX={props.variant === MenuItemVariants.GROUP_ITEM ? 'space90' : 'space70'}
       textDecoration={props.tabIndex === 0 ? 'underline' : 'none'}

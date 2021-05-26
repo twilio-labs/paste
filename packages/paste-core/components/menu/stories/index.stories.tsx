@@ -11,18 +11,29 @@ import {Menu, MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, use
 
 const PlainMenu: React.FC = () => {
   const menu = useMenuState();
+  const onClick = () => {
+    menu.hide();
+    console.log('click');
+  };
   return (
     <>
       <MenuButton {...menu} variant="primary">
         Preferences <ChevronDownIcon decorative />
       </MenuButton>
       <Menu {...menu} aria-label="Preferences">
-        <MenuItem {...menu}>Settings</MenuItem>
+        <MenuItem {...menu} onClick={onClick}>
+          Settings
+        </MenuItem>
+        <MenuItem {...menu} href="http://www.google.com" onClick={() => menu.hide()}>
+          Has a link
+        </MenuItem>
         <MenuItem {...menu} disabled>
           Extensions
         </MenuItem>
         <MenuSeparator {...menu} />
-        <MenuItem {...menu}>Keyboard shortcuts</MenuItem>
+        <MenuItem {...menu} onClick={onClick}>
+          Keyboard shortcuts
+        </MenuItem>
       </Menu>
     </>
   );
