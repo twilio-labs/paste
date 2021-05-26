@@ -1,6 +1,8 @@
 import * as React from 'react';
-import {MenuPrimitiveButton, MenuPrimitiveButtonProps} from '@twilio-paste/menu-primitive';
-import {ButtonProps, Button} from '@twilio-paste/button';
+import type {MenuPrimitiveButtonProps} from '@twilio-paste/menu-primitive';
+import {MenuPrimitiveButton} from '@twilio-paste/menu-primitive';
+import type {ButtonProps} from '@twilio-paste/button';
+import {Button} from '@twilio-paste/button';
 
 export type MenuButtonProps = MenuPrimitiveButtonProps & ButtonProps;
 

@@ -11,9 +11,8 @@ import {Menu, MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, use
 
 const PlainMenu: React.FC = () => {
   const menu = useMenuState();
-  const onClick = () => {
+  const onClick = (): void => {
     menu.hide();
-    console.log('click');
   };
   return (
     <>
@@ -24,7 +23,7 @@ const PlainMenu: React.FC = () => {
         <MenuItem {...menu} onClick={onClick}>
           Settings
         </MenuItem>
-        <MenuItem {...menu} href="http://www.google.com" onClick={() => menu.hide()}>
+        <MenuItem {...menu} href="http://www.google.com" onClick={onClick}>
           Has a link
         </MenuItem>
         <MenuItem {...menu} disabled>
@@ -307,7 +306,9 @@ export const MenuDropdown = (): React.ReactNode => {
       </MenuItem>
       <MenuSeparator />
       <MenuGroup icon={<ProductVoiceIcon decorative />} label="Search Options">
-        <MenuItem {...menuItemMockProps}>Search with Google</MenuItem>
+        <MenuItem {...menuItemMockProps} href="https://google.com">
+          Search with Google
+        </MenuItem>
         <MenuItem {...menuItemMockProps} disabled>
           Search with Bing
         </MenuItem>
