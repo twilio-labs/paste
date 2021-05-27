@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/menu",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "category": "interaction",
   "status": "alpha",
   "description": "A menu presents a list of menu items that a user can choose to perform an action with.",

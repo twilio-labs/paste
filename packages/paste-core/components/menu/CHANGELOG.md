@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.0.2
+
+### Patch Changes
+
+- [`eab3fd93`](https://github.com/twilio-labs/paste/commit/eab3fd9384510a7aa35c6f5244e8d0431144197b) [#1501](https://github.com/twilio-labs/paste/pull/1501) Thanks [@richbachman](https://github.com/richbachman)! - MenuItem now renders as a `button` by default. In order to render it as an `a`, and `href` needs to be passed.
+
 ## 7.0.1
 
 ### Patch Changes
