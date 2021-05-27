@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {MenuPrimitiveButtonProps, MenuPrimitiveButton} from '@twilio-paste/menu-primitive';
+import type {MenuPrimitiveButtonProps} from '@twilio-paste/menu-primitive';
+import {MenuPrimitiveButton} from '@twilio-paste/menu-primitive';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
 import {ChevronRightIcon} from '@twilio-paste/icons/esm/ChevronRightIcon';
 import {StyledMenuItem} from './MenuItem';

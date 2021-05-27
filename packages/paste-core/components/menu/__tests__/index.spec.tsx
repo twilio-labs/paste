@@ -1,9 +1,12 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
+import {fireEvent, render, screen} from '@testing-library/react';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
-import {useMenuState, Menu, MenuItem, MenuButton, MenuButtonProps, MenuGroup, MenuSeparator} from '../src';
+import {useMenuState, Menu, MenuItem, MenuButton, MenuGroup, MenuSeparator} from '../src';
+import type {MenuButtonProps} from '../src';
+
+const handleClickMock: jest.Mock = jest.fn();
 
 const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuButtonProps>((props, ref) => {
   const menu = useMenuState({baseId: 'sub-menu'});
@@ -34,8 +37,8 @@ const MenuMock: React.FC<{groupRef?: React.Ref<HTMLDivElement>}> = ({groupRef}) 
       <MenuButton {...menu} variant="primary">
         Code
       </MenuButton>
-      <Menu {...menu} aria-label="Code">
-        <MenuItem {...menu} data-testid="example-menu-item">
+      <Menu {...menu} aria-label="Code" data-testid="example-menu">
+        <MenuItem {...menu} onClick={handleClickMock} data-testid="example-menu-item">
           About Visual Studio Code
         </MenuItem>
         <MenuItem {...menu}>Check for Updates...</MenuItem>
@@ -43,7 +46,9 @@ const MenuMock: React.FC<{groupRef?: React.Ref<HTMLDivElement>}> = ({groupRef}) 
         <MenuItem {...menu} as={PreferencesMenu} />
         <MenuSeparator {...menu} data-testid="example-menu-separator-2" />
         <MenuGroup icon={<InformationIcon decorative />} label={GROUP_LABEL_TEXT} ref={groupRef}>
-          <MenuItem {...menu}>Search with Google</MenuItem>
+          <MenuItem {...menu} href="https://google.com" onClick={handleClickMock} data-testid="example-menu-anchor">
+            Search with Google
+          </MenuItem>
           <MenuItem {...menu} disabled>
             Search with Bing
           </MenuItem>
@@ -56,8 +61,11 @@ const MenuMock: React.FC<{groupRef?: React.Ref<HTMLDivElement>}> = ({groupRef}) 
 describe('Menu', () => {
   describe('Render', () => {
     it('should render', () => {
-      const {asFragment} = render(<MenuMock />);
-      expect(asFragment()).toMatchSnapshot();
+      render(<MenuMock />);
+      const renderedMenuButton = screen.getByRole('button');
+      const renderedMenu = screen.getByTestId('example-menu');
+      expect(renderedMenuButton).toBeDefined();
+      expect(renderedMenu).toBeDefined();
     });
 
     it('should render a menu button with aria attributes', () => {
@@ -78,6 +86,18 @@ describe('Menu', () => {
       render(<MenuMock />);
       const renderedMenuItem = screen.getByTestId('example-menu-item');
       expect(renderedMenuItem.getAttribute('role')).toEqual('menuitem');
+    });
+
+    it('should render a menu item as a button', () => {
+      render(<MenuMock />);
+      const renderedMenuItem = screen.getByTestId('example-menu-item');
+      expect(renderedMenuItem.tagName).toBe('BUTTON');
+    });
+
+    it('should render a menu item as an anchor', () => {
+      render(<MenuMock />);
+      const renderedMenuItem = screen.getByTestId('example-menu-anchor');
+      expect(renderedMenuItem.tagName).toEqual('A');
     });
 
     it('should render a menu separator', () => {
@@ -125,6 +145,28 @@ describe('Menu', () => {
       const renderedMenuItem = screen.getByTestId('example-disabled-submenu-item');
       expect(renderedMenuItem.getAttribute('role')).toEqual('menuitem');
       expect(renderedMenuItem.getAttribute('aria-disabled')).toEqual('true');
+    });
+
+    it('should fire onClick events using for menu item as a button', () => {
+      render(<MenuMock />);
+      const renderedMenuItem = screen.getByTestId('example-menu-item');
+      fireEvent.click(renderedMenuItem);
+      expect(handleClickMock).toHaveBeenCalled();
+      fireEvent.keyDown(renderedMenuItem, {key: 'Space', code: 'Space'});
+      expect(handleClickMock).toHaveBeenCalled();
+      fireEvent.keyDown(renderedMenuItem, {key: 'Enter', code: 'Enter'});
+      expect(handleClickMock).toHaveBeenCalled();
+    });
+
+    it('should fire onClick events using for menu item as an anchor', () => {
+      render(<MenuMock />);
+      const renderedMenuItem = screen.getByTestId('example-menu-anchor');
+      fireEvent.click(renderedMenuItem);
+      expect(handleClickMock).toHaveBeenCalled();
+      fireEvent.keyDown(renderedMenuItem, {key: 'Space', code: 'Space'});
+      expect(handleClickMock).toHaveBeenCalled();
+      fireEvent.keyDown(renderedMenuItem, {key: 'Enter', code: 'Enter'});
+      expect(handleClickMock).toHaveBeenCalled();
     });
   });
 

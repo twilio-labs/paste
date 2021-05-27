@@ -1,6 +1,10 @@
-import {ValueOf} from '@twilio-paste/types';
-import {MenuPrimitiveItemProps, MenuPrimitiveProps, MenuPrimitiveSeparatorProps} from '@twilio-paste/menu-primitive';
-import {MenuItemVariants} from './constants';
+import type {ValueOf} from '@twilio-paste/types';
+import type {
+  MenuPrimitiveItemProps,
+  MenuPrimitiveProps,
+  MenuPrimitiveSeparatorProps,
+} from '@twilio-paste/menu-primitive';
+import type {MenuItemVariants} from './constants';
 
 export type MenuProps = MenuPrimitiveProps & {'aria-label': string};
 
