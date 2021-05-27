@@ -1,7 +1,8 @@
 import * as React from 'react';
-import {BoxElementProps, safelySpreadBoxProps, Box} from '@twilio-paste/box';
+import type {BoxElementProps} from '@twilio-paste/box';
+import {safelySpreadBoxProps, Box} from '@twilio-paste/box';
 import {MenuPrimitive} from '@twilio-paste/menu-primitive';
-import {MenuProps} from './types';
+import type {MenuProps} from './types';
 
 const StyledMenu = React.forwardRef<HTMLDivElement, BoxElementProps>(({style, ...props}, ref) => {
   return (

@@ -2,7 +2,7 @@ import * as React from 'react';
 import {safelySpreadBoxProps, Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {MenuItemVariants} from './constants';
-import {MenuItemVariant, MenuGroupProps} from './types';
+import type {MenuItemVariant, MenuGroupProps} from './types';
 
 export const MenuGroupContext = React.createContext<MenuItemVariant>(MenuItemVariants.DEFAULT);
 
