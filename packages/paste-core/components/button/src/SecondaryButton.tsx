@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {Box, BoxStyleProps, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxStyleProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {SizeStyles, BaseStyles} from './styles';
 import type {DirectButtonProps} from './types';
 import {DirectButtonPropTypes} from './proptypes';
@@ -12,9 +13,9 @@ const merge = require('lodash.merge');
  * global styles "a {...}" when button is set as an anchor
  */
 const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default, {
-  color: 'colorTextLink',
+  color: 'colorText',
   backgroundColor: 'colorBackgroundBody',
-  boxShadow: 'shadowBorderPrimary',
+  boxShadow: 'shadowBorder',
   _hover: {
     color: 'colorTextLinkStronger',
     backgroundColor: 'colorBackgroundPrimaryWeakest',
@@ -46,9 +47,9 @@ const loadingStyles: BoxStyleProps = merge({}, BaseStyles.loading, {
 });
 
 const baseDisabledStyles: BoxStyleProps = {
-  color: 'colorTextLinkWeak',
+  color: 'colorTextWeaker',
   backgroundColor: 'colorBackgroundBody',
-  boxShadow: 'shadowBorderPrimaryWeak',
+  boxShadow: 'shadowBorderWeak',
 };
 
 const disabledStyles: BoxStyleProps = merge({}, BaseStyles.disabled, {
