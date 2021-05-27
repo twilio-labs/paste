@@ -10,6 +10,9 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {Heading} from '@twilio-paste/heading';
+import {Card} from '@twilio-paste/card';
+import {Stack} from '@twilio-paste/stack';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {useTabState, Tabs, Tab, TabList, TabPanels, TabPanel} from '@twilio-paste/tabs';
 import Changelog from '@twilio-paste/tabs/CHANGELOG.md';
@@ -21,7 +24,12 @@ import {useUID} from '@twilio-paste/uid-library';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {HorizontalTabsExample, FittedTabsExample, StateHookTabsExample} from '../../../component-examples/TabsExamples';
+import {
+  HorizontalTabsExample,
+  FittedTabsExample,
+  VerticalTabsExample,
+  StateHookTabsExample,
+} from '../../../component-examples/TabsExamples';
 
 export const pageQuery = graphql`
   {
@@ -93,6 +101,10 @@ The Tabs component allows a user to flip through multiple views within the same 
     TabPanels,
     TabPanel,
     useUID,
+    Heading,
+    Card,
+    Paragraph,
+    Stack,
   }}
   noInline
 >
@@ -111,21 +123,37 @@ Fitted tabs allow the tabs to expand and fit the width of a containing element.
     TabPanels,
     TabPanel,
     useUID,
+    Heading,
+    Card,
+    Paragraph,
+    Stack,
   }}
   noInline
 >
   {FittedTabsExample}
 </LivePreview>
 
-### Using state hooks
+### Vertical Tabs
 
-<Callout variant="warning">
-  <CalloutTitle>🚨 ATTENTION!! 🚨</CalloutTitle>
-  <CalloutText>
-    If you decided to use state hooks, the Paste team is <strong>NOT</strong> responsible for debugging any issues in
-    your application.
-  </CalloutText>
-</Callout>
+<LivePreview
+  scope={{
+    Tabs,
+    Tab,
+    TabList,
+    TabPanels,
+    TabPanel,
+    useUID,
+    Heading,
+    Card,
+    Paragraph,
+    Stack,
+  }}
+  noInline
+>
+  {VerticalTabsExample}
+</LivePreview>
+
+### Using state hooks
 
 The `state` prop allows you to hook into, and keep in sync the state of the Tabs and the state of your application.
 
@@ -145,6 +173,10 @@ using the `select` function from the tab state to advance to the next tab, and g
     TabPanel,
     Button,
     Paragraph,
+    Heading,
+    Card,
+    Box,
+    Stack,
   }}
   noInline
   language="jsx"
@@ -180,8 +212,6 @@ using the `select` function from the tab state to advance to the next tab, and g
         <Td>Tab Label box</Td>
         <Td>
           <UnorderedList marginBottom="space0">
-            <ListItem>border-bottom (selected tab): $color-border-primary</ListItem>
-            <ListItem>border-bottom (on hover): $color-border-primary-stronger</ListItem>
             <ListItem>
               Horizontal Tabs
               <UnorderedList marginBottom="space0">
@@ -190,6 +220,8 @@ using the `select` function from the tab state to advance to the next tab, and g
                 <ListItem>padding-bottom: $space-40</ListItem>
                 <ListItem>padding-left: $space-20</ListItem>
                 <ListItem>margin-right: $space-70 (except for last tab)</ListItem>
+                <ListItem>border-bottom (selected tab): $color-border-primary</ListItem>
+                <ListItem>border-bottom (on hover): $color-border-primary-stronger</ListItem>
               </UnorderedList>
             </ListItem>
             <ListItem>
@@ -199,6 +231,20 @@ using the `select` function from the tab state to advance to the next tab, and g
                 <ListItem>padding-right: $space-20</ListItem>
                 <ListItem>padding-bottom: $space-40</ListItem>
                 <ListItem>padding-left: $space-20</ListItem>
+                <ListItem>border-bottom (selected tab): $color-border-primary</ListItem>
+                <ListItem>border-bottom (on hover): $color-border-primary-stronger</ListItem>
+              </UnorderedList>
+            </ListItem>
+            <ListItem>
+              Vertical Tabs
+              <UnorderedList marginBottom="space0">
+                <ListItem>padding-top: $space-30</ListItem>
+                <ListItem>padding-right: $space-50</ListItem>
+                <ListItem>padding-bottom: $space-30</ListItem>
+                <ListItem>padding-left: $space-50</ListItem>
+                <ListItem>margin-bottom: $space-40 (except for last tab)</ListItem>
+                <ListItem>border-left (selected tab): $color-border-primary</ListItem>
+                <ListItem>border-left (on hover): $color-border-primary-stronger</ListItem>
               </UnorderedList>
             </ListItem>
           </UnorderedList>
@@ -255,6 +301,10 @@ const HorizontalTabsExample: React.FC = () => {
 ```
 
 #### Tabs Props
+
+##### `orientation?: 'horizontal' (default) | 'vertical' | undefined`
+
+Changes the Tabs' direction to either have the panels below or on the right side.
 
 ##### `variant?: 'fitted' | undefined (default)`
 
