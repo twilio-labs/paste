@@ -16,3 +16,4 @@ packages/paste-theme-designer/public/
 
 tsconfig.build.tsbuildinfo
 **/*.d.ts
+codesandbox/ci.json
