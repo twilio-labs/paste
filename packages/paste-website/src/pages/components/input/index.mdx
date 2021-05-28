@@ -148,7 +148,7 @@ The input component should include the base input, along with supporting element
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
-  <Label htmlFor="email_address" required>Email Address</Label>
+  <Label htmlFor="email_address" required>Email address</Label>
   <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
   <HelpText id="email_help_text">Please enter a valid email.</HelpText>
 </>`}
@@ -161,7 +161,7 @@ The input component should include the base input, along with supporting element
 
 <LivePreview scope={{Input, Label, HelpText, Text}} language="jsx">
   {`<>
-  <Label htmlFor="payment_amount" required>Payment Amount</Label>
+  <Label htmlFor="payment_amount" required>Payment amount</Label>
   <Input aria-describedby="payment_amount_help_text" id="payment_amount" name="payment_amount" type="text" placeholder="124.45" insertBefore={<Text as="span" fontWeight="fontWeightSemibold">$</Text>} onChange="" required />
   <HelpText id="payment_amount_help_text">Enter a dollar amount in USD format.</HelpText>
 </>`}
@@ -169,7 +169,7 @@ The input component should include the base input, along with supporting element
 
 <LivePreview scope={{Input, Label, HelpText, InformationIcon, Button}} language="jsx">
   {`<>
-  <Label htmlFor="message_title" required>Message Title</Label>
+  <Label htmlFor="message_title" required>Message title</Label>
   <Input
     aria-describedby="display_name_help_text"
     id="display_name"
@@ -233,7 +233,7 @@ An inline error is placed below the field to inform a user of any errors in thei
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
-  <Label htmlFor="email_error">Email Address</Label>
+  <Label htmlFor="email_error">Email address</Label>
   <Input aria-describedby="email_error_help_text" id="email_error" name="email_error" type="email" placeholder="example@twilio.com" onChange="" hasError />
   <HelpText id="email_error_help_text" variant="error">Please enter a valid email.</HelpText>
 </>`}
@@ -247,7 +247,7 @@ If you want to show information that can't be edited, use a [read-only](#read-on
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
-  <Label htmlFor="email_disabled" disabled>Email Address</Label>
+  <Label htmlFor="email_disabled" disabled>Email address</Label>
   <Input aria-describedby="email_disabled_help_text" id="email_disabled" name="email_disabled" type="email" placeholder="example@twilio.com" onChange="" disabled />
   <HelpText id="email_disabled_help_text">Please enter a valid email.</HelpText>
 </>`}
@@ -259,7 +259,7 @@ Use a read-only form field when a field's value can't be changed, but users shou
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
-  <Label htmlFor="email_readonly">Email Address</Label>
+  <Label htmlFor="email_readonly">Email address</Label>
   <Input aria-describedby="email_readonly_help_text" id="email_readonly" name="email_readonly" type="email" placeholder="example@twilio.com" value="example@twilio.com" onChange="" readOnly />
   <HelpText id="email_readonly_help_text">Please enter a valid email.</HelpText>
 </>`}
@@ -283,11 +283,11 @@ Stack form fields vertically with `$space-80` spacing between each field.
 <LivePreview scope={{Input, Label, HelpText, Box}} language="jsx">
   {`<>
   <Box marginBottom="space80">
-    <Label htmlFor="first_name">First Name</Label>
+    <Label htmlFor="first_name">First name</Label>
     <Input id="first_name" name="first_name" type="text" placeholder="John" onChange="" />
   </Box>
   <Box>
-    <Label htmlFor="last_name">Last Name</Label>
+    <Label htmlFor="last_name">Last name</Label>
     <Input id="last_name" name="last_name" type="text" placeholder="Smith" onChange="" />
   </Box>
 </>`}
@@ -312,7 +312,7 @@ Use required indicators to show users which fields they must fill out.
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
-  <Label htmlFor="email_address" required>Email Address</Label>
+  <Label htmlFor="email_address" required>Email address</Label>
   <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
   <HelpText id="email_help_text">Please enter a valid email.</HelpText>
 </>`}
@@ -374,7 +374,7 @@ Use an input when users are expected to enter less than a single line of text, o
     center
   >
     <Box width="100%" padding="space60">
-      <Label htmlFor="limited_do">Job Title (60 characters)</Label>
+      <Label htmlFor="limited_do">Job title (60 characters)</Label>
       <Input aria-describedby="limited_do_help_text" id="limited_do" name="limited_do" type="text" onChange="" />
       <HelpText id="limited_do_help_text">Limit to 60 characters.</HelpText>
     </Box>
@@ -385,7 +385,7 @@ Use an input when users are expected to enter less than a single line of text, o
     center
   >
     <Box width="100%" padding="space60">
-      <Label htmlFor="limited_dont">Abbreviated Country</Label>
+      <Label htmlFor="limited_dont">Abbreviated country</Label>
       <Input id="limited_dont" name="limited_dont" type="text" onChange="" />
     </Box>
   </Dont>
@@ -393,7 +393,7 @@ Use an input when users are expected to enter less than a single line of text, o
 <DoDont>
   <Do title="Do" body="Use help text to help users prevent errors and fill out a form field correctly." center>
     <Box width="100%" padding="space60">
-      <Label htmlFor="email_do">Email Address</Label>
+      <Label htmlFor="email_do">Email address</Label>
       <Input
         aria-describedby="email_do_help_text"
         id="email_do"
@@ -407,7 +407,7 @@ Use an input when users are expected to enter less than a single line of text, o
   </Do>
   <Dont title="Don't" body="Don't use placeholder text for validation instructions." center>
     <Box width="100%" padding="space60">
-      <Label htmlFor="email_dont">Email Address</Label>
+      <Label htmlFor="email_dont">Email address</Label>
       <Input id="email_dont" name="email_dont" type="email" placeholder="Please enter a valid email" onChange="" />
     </Box>
   </Dont>
@@ -419,7 +419,7 @@ Use an input when users are expected to enter less than a single line of text, o
     center
   >
     <Box width="100%" padding="space60">
-      <Label htmlFor="tel_do">Phone Number</Label>
+      <Label htmlFor="tel_do">Phone number</Label>
       <Input id="tel_do" name="tel_do" type="tel" onChange="" />
     </Box>
   </Do>
@@ -429,7 +429,7 @@ Use an input when users are expected to enter less than a single line of text, o
     center
   >
     <Box width="100%" padding="space60">
-      <Label htmlFor="tel_dont">Phone Number</Label>
+      <Label htmlFor="tel_dont">Phone number</Label>
       <Input id="tel_dont" name="tel_dont" type="text" onChange="" />
     </Box>
   </Dont>
@@ -441,14 +441,14 @@ Use an input when users are expected to enter less than a single line of text, o
     center
   >
     <Box width="100%" padding="space60">
-      <Label htmlFor="help_do">Phone Number</Label>
+      <Label htmlFor="help_do">Phone number</Label>
       <Input aria-describedby="help_do_help_text" id="help_do" name="help_do" type="tel" onChange="" />
       <HelpText id="help_do_help_text">Use the following format: (###) ###-####</HelpText>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use more than 2 sentences in help text or error text." center>
     <Box width="100%" padding="space60">
-      <Label htmlFor="help_dont">Email Address</Label>
+      <Label htmlFor="help_dont">Email address</Label>
       <Input aria-describedby="help_dont_help_text" id="help_dont" name="help_dont" type="email" onChange="" />
       <HelpText id="help_dont_help_text">
         Go to your settings. Then click on email addresses. After doing that, copy and paste your email address in this
