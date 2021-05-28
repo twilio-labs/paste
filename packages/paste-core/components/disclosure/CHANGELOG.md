@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.0.6
+
+### Patch Changes
+
+- [`79a9dfba`](https://github.com/twilio-labs/paste/commit/79a9dfbaf60c13bd4985c7d30017d9db5b8c7c76) [#1487](https://github.com/twilio-labs/paste/pull/1487) Thanks [@TheSisb](https://github.com/TheSisb)! - DisclosureHeading now gracefully handles children and doesn't impose flex behavior. This makes it easier to pass MediaObjects and Truncate as children.
+
 ## 5.0.5
 
 ### Patch Changes
