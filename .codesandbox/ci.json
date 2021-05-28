@@ -62,5 +62,7 @@
     "/packages/paste-types",
     "/packages/paste-libraries/uid"
   ],
-  "sandboxes": ["/packages/paste-nextjs-template"]
+  "sandboxes": [
+    "/packages/paste-nextjs-template"
+  ]
 }
