@@ -52,6 +52,16 @@ export const Provider = (): React.ReactNode => {
           fonts: {fontFamilyText: 'cursive'},
           textColors: {colorTextLink: 'green'},
         }}
+        elements={{
+          CARD: {
+            backgroundColor: 'colorBackground',
+            variant: {
+              primary: {
+                backgroundColor: 'colorBackgroundBody',
+              },
+            },
+          },
+        }}
       >
         <ExampleComponents />
       </CustomizationProvider>

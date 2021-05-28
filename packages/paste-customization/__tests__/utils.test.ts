@@ -3,7 +3,7 @@ import {mockTheme} from '../__fixtures__/mockThemes';
 
 describe('createCustomTheme', () => {
   it('should merge base theme with overrides', () => {
-    expect(createCustomTheme(mockTheme, {radii: {borderRadiusCircle: '20rem'}})).toEqual({
+    expect(createCustomTheme({baseTheme: mockTheme, overrides: {radii: {borderRadiusCircle: '20rem'}}})).toEqual({
       shadows: {shadow: '0 4px 16px 0 rgba(18, 28, 45, 0.2)'},
       borderWidths: {borderWidth0: '0', borderWidth10: '1px'},
       radii: {borderRadius0: '0', borderRadiusCircle: '20rem'},
@@ -13,7 +13,13 @@ describe('createCustomTheme', () => {
   });
 
   it('should merge base theme with overrides and breakpoints', () => {
-    expect(createCustomTheme(mockTheme, {borderWidths: {borderWidth10: '10px'}}, ['120px', '360px'])).toEqual({
+    expect(
+      createCustomTheme({
+        baseTheme: mockTheme,
+        overrides: {borderWidths: {borderWidth10: '10px'}},
+        customBreakpoints: ['120px', '360px'],
+      })
+    ).toEqual({
       shadows: {shadow: '0 4px 16px 0 rgba(18, 28, 45, 0.2)'},
       borderWidths: {borderWidth0: '0', borderWidth10: '10px'},
       radii: {borderRadius0: '0', borderRadiusCircle: '50%'},
@@ -24,10 +30,13 @@ describe('createCustomTheme', () => {
 
   it('should merge base theme with overrides that include multiple keys', () => {
     expect(
-      createCustomTheme(mockTheme, {
-        borderWidths: {borderWidth0: '34px'},
-        radii: {
-          borderRadiusCircle: '20%',
+      createCustomTheme({
+        baseTheme: mockTheme,
+        overrides: {
+          borderWidths: {borderWidth0: '34px'},
+          radii: {
+            borderRadiusCircle: '20%',
+          },
         },
       })
     ).toEqual({
@@ -41,22 +50,49 @@ describe('createCustomTheme', () => {
 
   it('should merge base theme with overrides that include multiple keys and breakpoints', () => {
     expect(
-      createCustomTheme(
-        mockTheme,
-        {
+      createCustomTheme({
+        baseTheme: mockTheme,
+        overrides: {
           shadows: {shadow: 'blue'},
           radii: {
             borderRadius0: '3',
           },
         },
-        ['120px', '800px']
-      )
+        customBreakpoints: ['120px', '800px'],
+      })
     ).toEqual({
       shadows: {shadow: 'blue'},
       borderWidths: {borderWidth0: '0', borderWidth10: '1px'},
       radii: {borderRadius0: '3', borderRadiusCircle: '50%'},
       breakpoints: ['120px', '800px'],
       colors: {colorGray90: 'rgb(31, 48, 76)'},
+    });
+  });
+
+  it('should merge base theme with overrides and include elements', () => {
+    expect(
+      createCustomTheme({
+        baseTheme: mockTheme,
+        overrides: {
+          radii: {borderRadiusCircle: '20rem'},
+        },
+        elements: {
+          CARD: {
+            backgroundColor: 'red',
+          },
+        },
+      })
+    ).toEqual({
+      shadows: {shadow: '0 4px 16px 0 rgba(18, 28, 45, 0.2)'},
+      borderWidths: {borderWidth0: '0', borderWidth10: '1px'},
+      radii: {borderRadius0: '0', borderRadiusCircle: '20rem'},
+      breakpoints: ['25rem', '64rem', '77rem'],
+      colors: {colorGray90: 'rgb(31, 48, 76)'},
+      elements: {
+        CARD: {
+          backgroundColor: 'red',
+        },
+      },
     });
   });
 });

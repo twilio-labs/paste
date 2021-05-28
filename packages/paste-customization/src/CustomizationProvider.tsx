@@ -1,26 +1,44 @@
 import * as React from 'react';
 import {useReducedMotion, Globals as AnimatedGlobals} from '@twilio-paste/animation-library';
 import {StylingGlobals, ThemeProvider as StyledThemeProvider} from '@twilio-paste/styling-library';
-import {pasteGlobalStyles, StyledBase, DefaultTheme, ThemeProviderProps} from '@twilio-paste/theme';
+import {pasteGlobalStyles, StyledBase, DefaultTheme, DarkTheme} from '@twilio-paste/theme';
 import {createCustomTheme} from './utils';
-import {CustomTheme} from './types';
+import type {CustomizationProviderProps} from './types';
 
-export interface CustomizationProviderProps {
-  customBreakpoints?: ThemeProviderProps['customBreakpoints'];
-  disableAnimations?: ThemeProviderProps['disableAnimations'];
-  theme?: CustomTheme;
-}
-
+/**
+ * The customization provider can be used to wrap a Paste applications and customize the
+ * look and feel of the components you are using. You can provide overrides to the entire
+ * theme, supply custom breakpoints for responsive design, and customize tagged DOM
+ * elements within each paste component with custom CSS.
+ *
+ * @param {*} {
+ *   baseTheme = 'default',
+ *   customBreakpoints,
+ *   elements,
+ *   theme,
+ *   disableAnimations = false,
+ *   ...props
+ * }
+ * @return {*}
+ */
 const CustomizationProvider: React.FC<CustomizationProviderProps> = ({
+  baseTheme = 'default',
   customBreakpoints,
+  elements,
   theme,
   disableAnimations = false,
   ...props
 }) => {
-  const customTheme = React.useMemo(() => createCustomTheme(DefaultTheme, theme || {}, customBreakpoints), [
-    theme,
-    customBreakpoints,
-  ]);
+  const customTheme = React.useMemo(
+    () =>
+      createCustomTheme({
+        baseTheme: baseTheme === 'dark' ? DarkTheme : DefaultTheme,
+        overrides: theme || {},
+        elements: elements || {},
+        customBreakpoints,
+      }),
+    [baseTheme, customBreakpoints, elements, theme]
+  );
 
   const prefersReducedMotion = useReducedMotion();
   React.useEffect(() => {
