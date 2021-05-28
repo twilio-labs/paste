@@ -7,4 +7,3 @@ export type SendGridThemeShape = typeof SendGridTheme;
 export type ConsoleThemeShape = typeof ConsoleTheme;
 export type DarkThemeShape = typeof DarkTheme;
 export type ThemeShape = typeof DefaultTheme;
-export type GenericThemeShape = keyof ThemeShape;
