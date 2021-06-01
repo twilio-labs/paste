@@ -4,6 +4,7 @@
     "/packages/paste-icons",
     "/packages/paste-core/core-bundle",
     "/packages/paste-core/components/alert",
+    "/packages/paste-core/components/alert-dialog",
     "/packages/paste-core/components/anchor",
     "/packages/paste-libraries/animation",
     "/packages/paste-core/layout/aspect-ratio",
