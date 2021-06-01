@@ -1,6 +1,7 @@
 # Automatically generated from "yarn generate-packages"
 /dist
 /alert
+/alert-dialog
 /anchor
 /animation-library
 /aspect-ratio

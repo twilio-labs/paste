@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@twilio-paste/alert": "^7.0.1",
+    "@twilio-paste/alert-dialog": "^0.0.0",
     "@twilio-paste/anchor": "^5.0.3",
     "@twilio-paste/animation-library": "^0.3.2",
     "@twilio-paste/aspect-ratio": "^4.0.4",
