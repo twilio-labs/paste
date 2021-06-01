@@ -1,4 +1,5 @@
 export * from '@twilio-paste/alert';
+export * from '@twilio-paste/alert-dialog';
 export * from '@twilio-paste/anchor';
 export * from '@twilio-paste/aspect-ratio';
 export * from '@twilio-paste/avatar';

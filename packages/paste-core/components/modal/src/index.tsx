@@ -4,3 +4,4 @@ export * from './ModalHeading';
 export * from './ModalBody';
 export * from './ModalFooter';
 export * from './ModalFooterActions';
+export * from './styles';

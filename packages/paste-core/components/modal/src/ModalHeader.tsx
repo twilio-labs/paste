@@ -5,6 +5,7 @@ import {Button} from '@twilio-paste/button';
 import {Flex} from '@twilio-paste/flex';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {useModalContext} from './ModalContext';
+import {modalHeaderStyles} from './styles';
 
 export interface ModalHeaderProps extends React.HTMLAttributes<HTMLHeadElement> {
   children: NonNullable<React.ReactNode>;
@@ -12,17 +13,7 @@ export interface ModalHeaderProps extends React.HTMLAttributes<HTMLHeadElement> 
 const ModalHeader = React.forwardRef<HTMLHeadElement, ModalHeaderProps>(({children, ...props}, ref) => {
   const {onDismiss} = useModalContext();
   return (
-    <Box
-      {...safelySpreadBoxProps(props)}
-      as="header"
-      borderBottomStyle="solid"
-      borderBottomWidth="borderWidth10"
-      borderBottomColor="colorBorderWeaker"
-      padding="space50"
-      margin="space0"
-      flexShrink={0}
-      ref={ref}
-    >
+    <Box {...safelySpreadBoxProps(props)} as="header" {...modalHeaderStyles} ref={ref}>
       <Flex hAlignContent="between">
         <Flex vAlignContent="center" grow={1} marginRight="space70">
           {children}
