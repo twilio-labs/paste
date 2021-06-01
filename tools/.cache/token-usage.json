@@ -1,37 +1,101 @@
 {
   "unusedTokenList": [
+    "colorBackgroundPrimaryDarker",
+    "colorBackgroundPrimaryLighter",
+    "colorBackgroundDestructiveDarker",
+    "colorBackgroundDestructiveLighter",
+    "colorBackgroundInverseLight",
+    "colorBackgroundErrorLightest",
+    "colorBackgroundNeutralLightest",
+    "colorBackgroundDark",
+    "colorBackgroundSuccessLightest",
+    "colorBackgroundDestructiveLightest",
+    "colorBackgroundDestructiveDarkest",
+    "colorBackgroundErrorDark",
+    "colorBackgroundPrimaryDarkest",
+    "colorBackgroundDestructiveDark",
+    "colorBackgroundDestructiveLight",
+    "colorBackgroundPrimaryDark",
+    "colorBackgroundPrimaryLight",
+    "colorBackgroundWarningLightest",
+    "colorBackgroundDarker",
+    "colorBackgroundDarkest",
     "colorBackgroundTrial",
     "colorBackgroundSubaccount",
     "colorBackgroundBrandHighlightLightest",
     "colorBackgroundWarning",
     "colorBackgroundNew",
-    "colorBackgroundNeutralLightest",
-    "colorBackgroundSuccessLightest",
-    "colorBackgroundPrimaryDarkest",
+    "colorBackgroundBusy",
+    "colorBackgroundOffline",
+    "colorBackgroundSuccessWeakest",
     "colorBackgroundBrand",
-    "colorBackgroundDarker",
+    "colorBackgroundAvailable",
+    "colorBackgroundDestructiveStrong",
+    "colorBackgroundStronger",
     "colorBackgroundBrandHighlight",
+    "colorBackgroundUnavailable",
     "colorBorderDestructiveLighter",
     "colorBorderPrimaryLighter",
     "colorBorderInverseLightest",
-    "colorBorderWarning",
+    "colorBorderPrimaryDarker",
     "colorBorderDestructiveDarker",
-    "colorBorderDestructive",
-    "colorBorderSuccess",
+    "colorBorderLighter",
     "colorBorderErrorLightest",
+    "colorBorderDark",
+    "colorBorderDestructiveDarkest",
+    "colorBorderPrimaryDarkest",
+    "colorBorderWarningLight",
     "colorBorderInverseLighter",
     "colorBorderSuccessLightest",
+    "colorBorderErrorDark",
     "colorBorderDestructiveLight",
     "colorBorderPrimaryLight",
+    "colorBorderSuccessLight",
+    "colorBorderInverseDarker",
     "colorBorderWarningLightest",
+    "colorBorderPrimaryDark",
     "colorBorderDestructiveDark",
     "colorBorderNeutralLight",
-    "borderRadius0",
+    "colorBorderErrorLight",
+    "colorBorderLight",
+    "colorBorderWarning",
+    "colorBorderDestructiveStronger",
+    "colorBorderWarningWeakest",
+    "colorBorderPrimaryWeaker",
+    "colorBorderDestructiveWeaker",
+    "colorBorderDestructive",
+    "colorBorderPrimaryWeakest",
+    "colorBorderSuccess",
+    "colorBorderDestructiveWeakest",
+    "colorBorderDestructiveStrongest",
+    "colorBorderPrimaryStrongest",
+    "colorBorderSuccessWeakest",
+    "colorBorderErrorWeakest",
+    "colorBorderNeutralWeak",
+    "colorBorderInverseStronger",
+    "colorBorderDestructiveStrong",
+    "colorBorderPrimaryWeak",
+    "colorBorderDestructiveWeak",
+    "colorBorderInverseStrongest",
     "borderRadius30",
     "borderWidth40",
+    "shadowBorderInverseLightest",
+    "shadowBorderDestructiveDarker",
+    "shadowBorderPrimaryDarker",
+    "shadowBorderLight",
+    "shadowBorderDestructiveLighter",
+    "shadowBorderPrimaryLighter",
     "shadowBorderInverseLight",
-    "shadowLow",
+    "shadowBorderErrorDark",
     "shadowBorderLighter",
+    "shadowBorderInverseDarker",
+    "shadowBorderPrimaryDark",
+    "shadowBorderPrimaryLight",
+    "shadowBorderDestructiveLight",
+    "shadowBorderErrorLight",
+    "shadowLow",
+    "shadowBorderDestructiveStrong",
+    "shadowBorderStronger",
     "fontFamilyCode",
     "fontSize110",
     "fontSize100",
@@ -68,6 +132,7 @@
     "sizeSquare180",
     "sizeSquare170",
     "sizeSquare160",
+    "size50",
     "sizeSquare150",
     "sizeSquare140",
     "sizeSquare120",
@@ -78,7 +143,6 @@
     "sizeSquare200",
     "sizeSidebar",
     "sizeSquare90",
-    "sizeSquare80",
     "sizeSquare70",
     "sizeSquare60",
     "spaceNegative100",
@@ -99,7 +163,6 @@
     "spaceNegative40",
     "spaceNegative30",
     "spaceNegative20",
-    "spaceNegative10",
     "spaceNegative190",
     "spaceNegative180",
     "spaceNegative170",
@@ -109,12 +172,23 @@
     "spaceNegative130",
     "spaceNegative120",
     "spaceNegative110",
-    "colorTextNew",
+    "colorTextLinkDarker",
+    "colorTextLinkDestructiveDarker",
+    "colorTextLinkDestructiveLight",
     "colorTextErrorDark",
+    "colorTextLinkDark",
+    "colorTextLinkLight",
+    "colorTextErrorLight",
+    "colorTextWarningDark",
+    "colorTextLinkDestructiveDark",
+    "colorTextNew",
     "colorTextIconInverse",
+    "colorTextErrorStrong",
+    "colorTextLinkStrong",
     "colorTextBrandInverse",
     "colorTextBrandHighlight",
-    "colorTextWarningDark",
+    "colorTextWarningStrong",
+    "colorTextLinkDestructiveStrong",
     "zIndex0",
     "zIndex70",
     "zIndex60",
@@ -122,57 +196,83 @@
     "zIndex40",
     "zIndex30"
   ],
-  "minimalUsedPackageSet": [
+  "minimalUsedPackageList": [
+    "@twilio-paste/pagination",
     "@twilio-paste/avatar",
     "@twilio-paste/button",
     "@twilio-paste/alert",
-    "@twilio-paste/base-radio-checkbox",
     "@twilio-paste/card",
     "@twilio-paste/table",
+    "@twilio-paste/base-radio-checkbox",
     "@twilio-paste/label",
+    "@twilio-paste/radio-group",
     "@twilio-paste/tooltip",
     "@twilio-paste/modal",
-    "@twilio-paste/radio-group",
-    "@twilio-paste/toast",
     "@twilio-paste/input-box",
+    "@twilio-paste/toast",
+    "@twilio-paste/disclosure",
     "@twilio-paste/heading",
     "@twilio-paste/select",
-    "@twilio-paste/combobox",
     "@twilio-paste/tabs",
-    "@twilio-paste/help-text"
+    "@twilio-paste/screen-reader-only",
+    "@twilio-paste/help-text",
+    "@twilio-paste/menu"
   ],
   "tokenPackageMap": {
+    "colorBackgroundPrimaryDarker": [],
+    "colorBackgroundPrimaryLighter": [],
+    "colorBackgroundDestructiveDarker": [],
+    "colorBackgroundDestructiveLighter": [],
+    "colorBackgroundInverseLight": [],
+    "colorBackgroundErrorLightest": [],
+    "colorBackgroundNeutralLightest": [],
+    "colorBackgroundDark": [],
+    "colorBackgroundSuccessLightest": [],
+    "colorBackgroundDestructiveLightest": [],
+    "colorBackgroundDestructiveDarkest": [],
+    "colorBackgroundErrorDark": [],
+    "colorBackgroundPrimaryLightest": [
+      "@twilio-paste/pagination"
+    ],
+    "colorBackgroundPrimaryDarkest": [],
+    "colorBackgroundDestructiveDark": [],
+    "colorBackgroundDestructiveLight": [],
+    "colorBackgroundPrimaryDark": [],
+    "colorBackgroundPrimaryLight": [],
+    "colorBackgroundWarningLightest": [],
+    "colorBackgroundDarker": [],
+    "colorBackgroundDarkest": [],
     "colorBackgroundUser": [
       "@twilio-paste/avatar"
     ],
     "colorBackgroundTrial": [],
     "colorBackgroundSubaccount": [],
-    "colorBackgroundPrimaryDarker": [
+    "colorBackgroundBrandHighlightLightest": [],
+    "colorBackgroundPrimaryStronger": [
       "@twilio-paste/base-radio-checkbox",
       "@twilio-paste/button"
     ],
-    "colorBackgroundPrimaryLighter": [
+    "colorBackgroundDestructiveStronger": [
       "@twilio-paste/button"
     ],
-    "colorBackgroundDestructiveDarker": [
+    "colorBackgroundPrimaryWeaker": [
       "@twilio-paste/button"
     ],
-    "colorBackgroundDestructiveLighter": [
+    "colorBackgroundDestructiveWeaker": [
       "@twilio-paste/button"
     ],
-    "colorBackgroundBrandHighlightLightest": [],
-    "colorBackgroundInverseLight": [
+    "colorBackgroundWarning": [],
+    "colorBackgroundWarningWeakest": [
+      "@twilio-paste/alert"
+    ],
+    "colorBackgroundInverseStrong": [
       "@twilio-paste/button",
       "@twilio-paste/input-box"
     ],
-    "colorBackgroundWarning": [],
-    "colorBackgroundErrorLightest": [
-      "@twilio-paste/alert"
-    ],
     "colorBackgroundNew": [],
-    "colorBackgroundNeutralLightest": [],
-    "colorBackgroundDark": [
-      "@twilio-paste/base-radio-checkbox"
+    "colorBackgroundStrong": [
+      "@twilio-paste/base-radio-checkbox",
+      "@twilio-paste/disclosure"
     ],
     "colorBackgroundDestructive": [
       "@twilio-paste/button"
@@ -181,68 +281,82 @@
       "@twilio-paste/base-radio-checkbox",
       "@twilio-paste/button"
     ],
+    "colorBackgroundPrimaryWeakest": [
+      "@twilio-paste/button",
+      "@twilio-paste/checkbox",
+      "@twilio-paste/combobox",
+      "@twilio-paste/pagination"
+    ],
+    "colorBackgroundBusy": [],
     "colorBackgroundSuccess": [
       "@twilio-paste/card"
     ],
+    "colorBackgroundDestructiveWeakest": [
+      "@twilio-paste/button"
+    ],
+    "colorBackgroundOffline": [],
     "colorBackgroundRowStriped": [
       "@twilio-paste/table"
     ],
-    "colorBackgroundSuccessLightest": [],
-    "colorBackgroundDestructiveLightest": [
+    "colorBackgroundPrimaryStrongest": [
       "@twilio-paste/button"
     ],
-    "colorBackgroundErrorDark": [
+    "colorBackgroundSuccessWeakest": [],
+    "colorBackgroundDestructiveStrongest": [
+      "@twilio-paste/button"
+    ],
+    "colorBackgroundErrorStrong": [
       "@twilio-paste/base-radio-checkbox"
     ],
-    "colorBackgroundPrimaryLightest": [
-      "@twilio-paste/alert",
-      "@twilio-paste/button",
-      "@twilio-paste/combobox",
-      "@twilio-paste/checkbox"
-    ],
-    "colorBackgroundPrimaryDarkest": [],
     "colorBackgroundBrand": [],
     "colorBackgroundError": [
       "@twilio-paste/base-radio-checkbox"
     ],
+    "colorBackgroundNeutralWeakest": [
+      "@twilio-paste/alert"
+    ],
+    "colorBackgroundAvailable": [],
+    "colorBackgroundErrorWeakest": [
+      "@twilio-paste/alert"
+    ],
     "colorBackgroundRequired": [
       "@twilio-paste/label"
     ],
-    "colorBackgroundDestructiveDark": [
-      "@twilio-paste/button"
-    ],
-    "colorBackgroundDestructiveLight": [
-      "@twilio-paste/button"
-    ],
-    "colorBackgroundPrimaryDark": [
-      "@twilio-paste/base-radio-checkbox",
-      "@twilio-paste/button"
-    ],
-    "colorBackgroundPrimaryLight": [
-      "@twilio-paste/button"
-    ],
-    "colorBackgroundWarningLightest": [
-      "@twilio-paste/alert"
-    ],
     "colorBackgroundBody": [
       "@twilio-paste/base-radio-checkbox",
-      "@twilio-paste/card",
       "@twilio-paste/button",
-      "@twilio-paste/combobox",
+      "@twilio-paste/card",
+      "@twilio-paste/disclosure",
       "@twilio-paste/menu",
-      "@twilio-paste/radio-group",
       "@twilio-paste/popover",
+      "@twilio-paste/radio-group",
       "@twilio-paste/table",
       "@twilio-paste/toast",
+      "@twilio-paste/combobox",
       "@twilio-paste/input-box",
       "@twilio-paste/modal"
     ],
-    "colorBackgroundDarker": [],
+    "colorBackgroundPrimaryStrong": [
+      "@twilio-paste/base-radio-checkbox"
+    ],
+    "colorBackgroundDestructiveStrong": [],
+    "colorBackgroundDestructiveWeak": [
+      "@twilio-paste/button"
+    ],
     "colorBackground": [
       "@twilio-paste/checkbox",
+      "@twilio-paste/disclosure",
+      "@twilio-paste/table",
       "@twilio-paste/input-box"
     ],
+    "colorBackgroundPrimaryWeak": [
+      "@twilio-paste/button"
+    ],
+    "colorBackgroundStronger": [],
     "colorBackgroundBrandHighlight": [],
+    "colorBackgroundStrongest": [
+      "@twilio-paste/radio-group"
+    ],
     "colorBackgroundBodyInverse": [
       "@twilio-paste/tooltip"
     ],
@@ -253,95 +367,126 @@
     "colorBackgroundOverlay": [
       "@twilio-paste/modal"
     ],
-    "colorBackgroundDarkest": [
-      "@twilio-paste/radio-group"
-    ],
+    "colorBackgroundUnavailable": [],
     "colorBorderDestructiveLighter": [],
     "colorBorderPrimaryLighter": [],
     "colorBorderInverseLightest": [],
-    "colorBorderPrimaryDarker": [
+    "colorBorderPrimaryDarker": [],
+    "colorBorderDestructiveDarker": [],
+    "colorBorderLighter": [],
+    "colorBorderErrorLightest": [],
+    "colorBorderDark": [],
+    "colorBorderDestructiveDarkest": [],
+    "colorBorderPrimaryDarkest": [],
+    "colorBorderWarningLight": [],
+    "colorBorderInverseLighter": [],
+    "colorBorderSuccessLightest": [],
+    "colorBorderErrorDark": [],
+    "colorBorderDestructiveLight": [],
+    "colorBorderPrimaryLight": [],
+    "colorBorderSuccessLight": [],
+    "colorBorderInverseDarker": [],
+    "colorBorderWarningLightest": [],
+    "colorBorderPrimaryDark": [],
+    "colorBorderDestructiveDark": [],
+    "colorBorderNeutralLight": [],
+    "colorBorderErrorLight": [],
+    "colorBorderLight": [],
+    "colorBorderWarningWeak": [
+      "@twilio-paste/alert",
+      "@twilio-paste/toast"
+    ],
+    "colorBorderWarning": [],
+    "colorBorderPrimaryStronger": [
       "@twilio-paste/base-radio-checkbox",
       "@twilio-paste/tabs"
     ],
-    "colorBorderWarning": [],
-    "colorBorderDestructiveDarker": [],
+    "colorBorderDestructiveStronger": [],
+    "colorBorderWarningWeakest": [],
+    "colorBorderPrimaryWeaker": [],
+    "colorBorderDestructiveWeaker": [],
     "colorBorderDestructive": [],
     "colorBorderPrimary": [
       "@twilio-paste/base-radio-checkbox",
-      "@twilio-paste/tabs"
+      "@twilio-paste/tabs",
+      "@twilio-paste/pagination"
     ],
+    "colorBorderPrimaryWeakest": [],
     "colorBorderSuccess": [],
-    "colorBorderLighter": [
+    "colorBorderDestructiveWeakest": [],
+    "colorBorderDestructiveStrongest": [],
+    "colorBorderPrimaryStrongest": [],
+    "colorBorderSuccessWeakest": [],
+    "colorBorderStrong": [
+      "@twilio-paste/tooltip"
+    ],
+    "colorBorderWeak": [
+      "@twilio-paste/menu",
+      "@twilio-paste/separator",
+      "@twilio-paste/tabs",
+      "@twilio-paste/combobox",
+      "@twilio-paste/modal"
+    ],
+    "colorBorderNeutral": [
+      "@twilio-paste/alert",
+      "@twilio-paste/toast"
+    ],
+    "colorBorderError": [
+      "@twilio-paste/base-radio-checkbox"
+    ],
+    "colorBorderErrorWeakest": [],
+    "colorBorderErrorStrong": [
+      "@twilio-paste/base-radio-checkbox"
+    ],
+    "colorBorderErrorWeak": [
+      "@twilio-paste/alert",
+      "@twilio-paste/toast"
+    ],
+    "colorBorderNeutralWeak": [],
+    "colorBorder": [
+      "@twilio-paste/base-radio-checkbox",
+      "@twilio-paste/pagination"
+    ],
+    "colorBorderInverseStronger": [],
+    "colorBorderInverseWeaker": [
+      "@twilio-paste/input-box"
+    ],
+    "colorBorderSuccessWeak": [
+      "@twilio-paste/toast"
+    ],
+    "colorBorderPrimaryStrong": [
+      "@twilio-paste/base-radio-checkbox"
+    ],
+    "colorBorderInverse": [
+      "@twilio-paste/input-box"
+    ],
+    "colorBorderDestructiveStrong": [],
+    "colorBorderPrimaryWeak": [],
+    "colorBorderDestructiveWeak": [],
+    "colorBorderInverseStrongest": [],
+    "colorBorderWeaker": [
       "@twilio-paste/base-radio-checkbox",
       "@twilio-paste/card",
-      "@twilio-paste/disclosure",
       "@twilio-paste/popover",
       "@twilio-paste/table",
       "@twilio-paste/toast",
       "@twilio-paste/input-box",
       "@twilio-paste/modal"
     ],
-    "colorBorderErrorLightest": [],
-    "colorBorderDark": [
-      "@twilio-paste/tooltip"
+    "borderRadius0": [
+      "@twilio-paste/disclosure"
     ],
-    "colorBorderWarningLight": [
-      "@twilio-paste/alert",
-      "@twilio-paste/toast"
-    ],
-    "colorBorderInverseLighter": [],
-    "colorBorderNeutral": [
-      "@twilio-paste/alert",
-      "@twilio-paste/toast"
-    ],
-    "colorBorderSuccessLightest": [],
-    "colorBorderError": [
-      "@twilio-paste/base-radio-checkbox"
-    ],
-    "colorBorderErrorDark": [
-      "@twilio-paste/base-radio-checkbox"
-    ],
-    "colorBorderDestructiveLight": [],
-    "colorBorderPrimaryLight": [],
-    "colorBorderSuccessLight": [
-      "@twilio-paste/toast"
-    ],
-    "colorBorder": [
-      "@twilio-paste/base-radio-checkbox"
-    ],
-    "colorBorderInverseDarker": [
-      "@twilio-paste/input-box"
-    ],
-    "colorBorderWarningLightest": [],
-    "colorBorderPrimaryDark": [
-      "@twilio-paste/base-radio-checkbox"
-    ],
-    "colorBorderDestructiveDark": [],
-    "colorBorderNeutralLight": [],
-    "colorBorderInverse": [
-      "@twilio-paste/input-box"
-    ],
-    "colorBorderErrorLight": [
-      "@twilio-paste/alert",
-      "@twilio-paste/toast"
-    ],
-    "colorBorderLight": [
-      "@twilio-paste/combobox",
-      "@twilio-paste/menu",
-      "@twilio-paste/separator",
-      "@twilio-paste/tabs"
-    ],
-    "borderRadius0": [],
     "borderRadius10": [
       "@twilio-paste/button",
-      "@twilio-paste/checkbox"
+      "@twilio-paste/checkbox",
+      "@twilio-paste/disclosure",
+      "@twilio-paste/pagination"
     ],
     "borderRadius20": [
-      "@twilio-paste/checkbox",
-      "@twilio-paste/card",
       "@twilio-paste/button",
+      "@twilio-paste/card",
+      "@twilio-paste/checkbox",
       "@twilio-paste/disclosure",
-      "@twilio-paste/combobox",
       "@twilio-paste/input",
       "@twilio-paste/menu",
       "@twilio-paste/popover",
@@ -349,6 +494,7 @@
       "@twilio-paste/textarea",
       "@twilio-paste/tooltip",
       "@twilio-paste/toast",
+      "@twilio-paste/combobox",
       "@twilio-paste/input-box",
       "@twilio-paste/modal"
     ],
@@ -356,7 +502,8 @@
     "borderRadiusCircle": [
       "@twilio-paste/avatar",
       "@twilio-paste/label",
-      "@twilio-paste/radio-group"
+      "@twilio-paste/radio-group",
+      "@twilio-paste/pagination"
     ],
     "borderWidth0": [
       "@twilio-paste/button",
@@ -367,64 +514,78 @@
     ],
     "borderWidth10": [
       "@twilio-paste/base-radio-checkbox",
-      "@twilio-paste/combobox",
       "@twilio-paste/menu",
       "@twilio-paste/popover",
+      "@twilio-paste/separator",
+      "@twilio-paste/table",
       "@twilio-paste/tabs",
       "@twilio-paste/toast",
-      "@twilio-paste/separator",
       "@twilio-paste/tooltip",
-      "@twilio-paste/table",
+      "@twilio-paste/combobox",
+      "@twilio-paste/input-box",
       "@twilio-paste/modal",
-      "@twilio-paste/input-box"
+      "@twilio-paste/pagination"
     ],
     "borderWidth20": [
       "@twilio-paste/alert",
       "@twilio-paste/card",
-      "@twilio-paste/disclosure",
+      "@twilio-paste/table",
       "@twilio-paste/tabs"
     ],
     "borderWidth30": [
       "@twilio-paste/toast"
     ],
     "borderWidth40": [],
+    "shadowBorderInverseLightest": [],
+    "shadowBorderDestructiveDarker": [],
+    "shadowBorderPrimaryDarker": [],
+    "shadowBorderLight": [],
+    "shadowBorderDestructiveLighter": [],
+    "shadowBorderPrimaryLighter": [],
+    "shadowBorderInverseLight": [],
+    "shadowBorderErrorDark": [],
+    "shadowBorderLighter": [],
+    "shadowBorderInverseDarker": [],
+    "shadowBorderPrimaryDark": [],
+    "shadowBorderPrimaryLight": [],
+    "shadowBorderDestructiveLight": [],
+    "shadowBorderErrorLight": [],
     "shadow": [
-      "@twilio-paste/box",
       "@twilio-paste/button",
-      "@twilio-paste/combobox",
       "@twilio-paste/menu",
       "@twilio-paste/tooltip",
-      "@twilio-paste/input-box"
+      "@twilio-paste/combobox",
+      "@twilio-paste/input-box",
+      "@twilio-paste/pagination"
     ],
-    "shadowBorderInverseLightest": [
+    "shadowBorderDestructiveStronger": [
+      "@twilio-paste/button"
+    ],
+    "shadowBorderPrimaryStronger": [
       "@twilio-paste/button",
       "@twilio-paste/input-box"
     ],
-    "shadowBorderDestructiveDarker": [
+    "shadowBorderDestructiveWeaker": [
       "@twilio-paste/button"
     ],
-    "shadowBorderPrimaryDarker": [
-      "@twilio-paste/button",
-      "@twilio-paste/input-box"
-    ],
-    "shadowBorderLight": [
-      "@twilio-paste/input-box"
-    ],
-    "shadowBorderDestructiveLighter": [
+    "shadowBorderPrimaryWeaker": [
       "@twilio-paste/button"
     ],
-    "shadowBorderPrimaryLighter": [
-      "@twilio-paste/button"
-    ],
-    "shadowBorderInverseLight": [],
     "shadowLow": [],
+    "shadowBorderInverseStrong": [
+      "@twilio-paste/button"
+    ],
+    "shadowBorderStrong": [
+      "@twilio-paste/input-box"
+    ],
     "shadowFocus": [
       "@twilio-paste/anchor",
-      "@twilio-paste/button",
       "@twilio-paste/base-radio-checkbox",
+      "@twilio-paste/button",
       "@twilio-paste/disclosure",
       "@twilio-paste/tabs",
-      "@twilio-paste/input-box"
+      "@twilio-paste/input-box",
+      "@twilio-paste/pagination"
     ],
     "shadowFocusInverse": [
       "@twilio-paste/anchor",
@@ -437,29 +598,39 @@
     "shadowBorderDestructive": [
       "@twilio-paste/button"
     ],
-    "shadowBorderErrorDark": [
-      "@twilio-paste/input-box"
-    ],
     "shadowHigh": [
       "@twilio-paste/toast"
     ],
-    "shadowBorderLighter": [],
+    "shadowBorderErrorStrong": [
+      "@twilio-paste/input-box"
+    ],
+    "shadowBorderPrimaryStrongest": [
+      "@twilio-paste/button"
+    ],
+    "shadowBorderDestructiveStrongest": [
+      "@twilio-paste/button"
+    ],
+    "shadowBorderErrorWeak": [
+      "@twilio-paste/input-box"
+    ],
     "shadowBorderError": [
       "@twilio-paste/input-box"
     ],
-    "shadowBorderInverseDarker": [
+    "shadowBorderDestructiveStrong": [],
+    "shadowBorderInverseWeaker": [
       "@twilio-paste/button",
       "@twilio-paste/input-box"
     ],
-    "shadowBorderPrimaryDark": [
+    "shadowBorderPrimaryStrong": [
       "@twilio-paste/input-box"
     ],
-    "shadowBorderPrimaryLight": [
+    "shadowBorderPrimaryWeak": [
       "@twilio-paste/button"
     ],
-    "shadowBorderDestructiveLight": [
+    "shadowBorderDestructiveWeak": [
       "@twilio-paste/button"
     ],
+    "shadowBorderStronger": [],
     "shadowBorder": [
       "@twilio-paste/input-box"
     ],
@@ -467,16 +638,19 @@
       "@twilio-paste/button",
       "@twilio-paste/input-box"
     ],
-    "shadowBorderErrorLight": [
-      "@twilio-paste/input-box"
-    ],
     "shadowCard": [
       "@twilio-paste/popover",
       "@twilio-paste/modal"
     ],
+    "shadowBorderInverseStrongest": [
+      "@twilio-paste/button",
+      "@twilio-paste/input-box"
+    ],
     "fontFamilyText": [
       "@twilio-paste/button",
-      "@twilio-paste/select"
+      "@twilio-paste/menu",
+      "@twilio-paste/select",
+      "@twilio-paste/pagination"
     ],
     "fontFamilyCode": [],
     "fontSize110": [],
@@ -506,15 +680,17 @@
       "@twilio-paste/avatar",
       "@twilio-paste/button",
       "@twilio-paste/heading",
-      "@twilio-paste/input",
       "@twilio-paste/help-text",
-      "@twilio-paste/list",
+      "@twilio-paste/input",
       "@twilio-paste/label",
+      "@twilio-paste/menu",
+      "@twilio-paste/list",
       "@twilio-paste/paragraph",
       "@twilio-paste/select",
       "@twilio-paste/table",
       "@twilio-paste/tabs",
-      "@twilio-paste/textarea"
+      "@twilio-paste/textarea",
+      "@twilio-paste/pagination"
     ],
     "fontSize20": [
       "@twilio-paste/avatar",
@@ -526,28 +702,29 @@
     ],
     "fontWeightLight": [],
     "fontWeightNormal": [
+      "@twilio-paste/list",
+      "@twilio-paste/menu",
+      "@twilio-paste/paragraph",
+      "@twilio-paste/pagination"
+    ],
+    "fontWeightMedium": [
       "@twilio-paste/base-radio-checkbox",
       "@twilio-paste/checkbox",
       "@twilio-paste/input",
-      "@twilio-paste/list",
-      "@twilio-paste/paragraph",
       "@twilio-paste/select",
       "@twilio-paste/textarea"
     ],
-    "fontWeightMedium": [
-      "@twilio-paste/select"
-    ],
     "fontWeightSemibold": [
       "@twilio-paste/button",
-      "@twilio-paste/label",
+      "@twilio-paste/table",
       "@twilio-paste/tabs"
     ],
     "fontWeightBold": [
       "@twilio-paste/avatar",
-      "@twilio-paste/combobox",
       "@twilio-paste/heading",
+      "@twilio-paste/label",
       "@twilio-paste/menu",
-      "@twilio-paste/table"
+      "@twilio-paste/combobox"
     ],
     "lineHeight0": [],
     "lineHeight110": [],
@@ -571,20 +748,22 @@
       "@twilio-paste/paragraph"
     ],
     "lineHeight30": [
+      "@twilio-paste/text",
       "@twilio-paste/button",
       "@twilio-paste/heading",
       "@twilio-paste/help-text",
+      "@twilio-paste/menu",
       "@twilio-paste/label",
       "@twilio-paste/table",
-      "@twilio-paste/text"
+      "@twilio-paste/pagination"
     ],
     "lineHeight20": [
       "@twilio-paste/breadcrumb",
       "@twilio-paste/button",
       "@twilio-paste/heading",
       "@twilio-paste/input",
-      "@twilio-paste/select",
       "@twilio-paste/textarea",
+      "@twilio-paste/select",
       "@twilio-paste/input-box"
     ],
     "lineHeight10": [],
@@ -626,8 +805,8 @@
       "@twilio-paste/modal"
     ],
     "size0": [
-      "@twilio-paste/flex",
       "@twilio-paste/media-object",
+      "@twilio-paste/flex",
       "@twilio-paste/grid",
       "@twilio-paste/checkbox",
       "@twilio-paste/radio-group"
@@ -642,11 +821,12 @@
     "size100": [],
     "sizeIcon30": [
       "@twilio-paste/avatar",
-      "@twilio-paste/combobox",
       "@twilio-paste/disclosure",
+      "@twilio-paste/label",
       "@twilio-paste/menu",
       "@twilio-paste/popover",
-      "@twilio-paste/select"
+      "@twilio-paste/select",
+      "@twilio-paste/combobox"
     ],
     "sizeSquare180": [],
     "size60": [
@@ -669,14 +849,13 @@
       "@twilio-paste/radio-group"
     ],
     "sizeSquare160": [],
-    "size50": [
-      "@twilio-paste/combobox"
-    ],
+    "size50": [],
     "sizeIcon110": [
       "@twilio-paste/avatar"
     ],
     "sizeSquare150": [],
     "size40": [
+      "@twilio-paste/alert-dialog",
       "@twilio-paste/tabs",
       "@twilio-paste/toast"
     ],
@@ -687,8 +866,9 @@
     "size30": [
       "@twilio-paste/menu",
       "@twilio-paste/popover",
+      "@twilio-paste/textarea",
       "@twilio-paste/tooltip",
-      "@twilio-paste/textarea"
+      "@twilio-paste/combobox"
     ],
     "sizeSquare130": [
       "@twilio-paste/tabs"
@@ -705,7 +885,9 @@
     "sizeSquare200": [],
     "sizeSidebar": [],
     "sizeSquare90": [],
-    "sizeSquare80": [],
+    "sizeSquare80": [
+      "@twilio-paste/pagination"
+    ],
     "sizeSquare70": [],
     "sizeSquare60": [],
     "sizeSquare50": [
@@ -716,14 +898,14 @@
       "@twilio-paste/disclosure"
     ],
     "space70": [
-      "@twilio-paste/combobox",
-      "@twilio-paste/inline-control-group",
       "@twilio-paste/heading",
+      "@twilio-paste/inline-control-group",
       "@twilio-paste/list",
-      "@twilio-paste/menu",
       "@twilio-paste/paragraph",
+      "@twilio-paste/menu",
       "@twilio-paste/popover",
       "@twilio-paste/tabs",
+      "@twilio-paste/combobox",
       "@twilio-paste/modal"
     ],
     "spaceNegative100": [],
@@ -738,9 +920,10 @@
     "spaceNegative200": [],
     "space190": [],
     "space50": [
+      "@twilio-paste/alert-dialog",
       "@twilio-paste/alert",
-      "@twilio-paste/disclosure",
       "@twilio-paste/checkbox",
+      "@twilio-paste/disclosure",
       "@twilio-paste/heading",
       "@twilio-paste/popover",
       "@twilio-paste/table",
@@ -750,52 +933,57 @@
     "space180": [],
     "space40": [
       "@twilio-paste/button",
-      "@twilio-paste/disclosure",
       "@twilio-paste/heading",
-      "@twilio-paste/inline-control-group",
       "@twilio-paste/input",
+      "@twilio-paste/inline-control-group",
       "@twilio-paste/menu",
       "@twilio-paste/select",
       "@twilio-paste/table",
-      "@twilio-paste/tabs",
       "@twilio-paste/textarea",
-      "@twilio-paste/toast"
+      "@twilio-paste/tabs",
+      "@twilio-paste/toast",
+      "@twilio-paste/pagination"
     ],
     "space170": [],
     "space30": [
       "@twilio-paste/alert",
       "@twilio-paste/button",
       "@twilio-paste/checkbox",
-      "@twilio-paste/combobox",
       "@twilio-paste/heading",
+      "@twilio-paste/disclosure",
       "@twilio-paste/help-text",
       "@twilio-paste/input",
       "@twilio-paste/list",
       "@twilio-paste/menu",
       "@twilio-paste/select",
       "@twilio-paste/textarea",
-      "@twilio-paste/tooltip",
       "@twilio-paste/tabs",
-      "@twilio-paste/input-box"
+      "@twilio-paste/tooltip",
+      "@twilio-paste/input-box",
+      "@twilio-paste/pagination",
+      "@twilio-paste/combobox"
     ],
     "space160": [],
     "space20": [
       "@twilio-paste/base-radio-checkbox",
+      "@twilio-paste/button",
       "@twilio-paste/breadcrumb",
       "@twilio-paste/checkbox",
-      "@twilio-paste/combobox",
-      "@twilio-paste/button",
-      "@twilio-paste/help-text",
+      "@twilio-paste/disclosure",
       "@twilio-paste/inline-control-group",
-      "@twilio-paste/label",
+      "@twilio-paste/help-text",
       "@twilio-paste/menu",
+      "@twilio-paste/label",
       "@twilio-paste/select",
       "@twilio-paste/tabs",
-      "@twilio-paste/tooltip"
+      "@twilio-paste/tooltip",
+      "@twilio-paste/combobox",
+      "@twilio-paste/pagination"
     ],
     "space150": [],
     "space10": [
       "@twilio-paste/base-radio-checkbox",
+      "@twilio-paste/disclosure",
       "@twilio-paste/card"
     ],
     "space140": [],
@@ -809,26 +997,32 @@
       "@twilio-paste/grid",
       "@twilio-paste/media-object",
       "@twilio-paste/stack",
-      "@twilio-paste/base-radio-checkbox",
       "@twilio-paste/breadcrumb",
-      "@twilio-paste/checkbox",
-      "@twilio-paste/combobox",
+      "@twilio-paste/alert-dialog",
       "@twilio-paste/button",
+      "@twilio-paste/base-radio-checkbox",
       "@twilio-paste/disclosure",
-      "@twilio-paste/inline-control-group",
-      "@twilio-paste/heading",
+      "@twilio-paste/checkbox",
       "@twilio-paste/help-text",
+      "@twilio-paste/heading",
+      "@twilio-paste/inline-control-group",
+      "@twilio-paste/input",
       "@twilio-paste/label",
+      "@twilio-paste/menu",
       "@twilio-paste/paragraph",
       "@twilio-paste/radio-group",
       "@twilio-paste/separator",
+      "@twilio-paste/screen-reader-only",
+      "@twilio-paste/select",
       "@twilio-paste/tabs",
-      "@twilio-paste/modal"
+      "@twilio-paste/combobox",
+      "@twilio-paste/modal",
+      "@twilio-paste/pagination"
     ],
     "spaceNegative80": [],
     "space100": [
-      "@twilio-paste/combobox",
-      "@twilio-paste/select"
+      "@twilio-paste/select",
+      "@twilio-paste/combobox"
     ],
     "spaceNegative70": [],
     "space200": [
@@ -839,7 +1033,9 @@
     "spaceNegative40": [],
     "spaceNegative30": [],
     "spaceNegative20": [],
-    "spaceNegative10": [],
+    "spaceNegative10": [
+      "@twilio-paste/screen-reader-only"
+    ],
     "spaceNegative190": [],
     "spaceNegative180": [],
     "spaceNegative170": [],
@@ -848,16 +1044,29 @@
     "spaceNegative140": [],
     "spaceNegative130": [],
     "space90": [
-      "@twilio-paste/combobox",
       "@twilio-paste/menu",
-      "@twilio-paste/toast"
+      "@twilio-paste/toast",
+      "@twilio-paste/combobox",
+      "@twilio-paste/pagination"
     ],
     "spaceNegative120": [],
     "space80": [
       "@twilio-paste/base-radio-checkbox"
     ],
     "spaceNegative110": [],
-    "colorTextLinkDarker": [
+    "colorTextLinkDarker": [],
+    "colorTextLinkDestructiveDarker": [],
+    "colorTextLinkDestructiveLight": [],
+    "colorTextErrorDark": [],
+    "colorTextLinkDark": [],
+    "colorTextLinkLight": [],
+    "colorTextErrorLight": [],
+    "colorTextWarningDark": [],
+    "colorTextLinkDestructiveDark": [],
+    "colorTextLinkDestructiveWeak": [
+      "@twilio-paste/button"
+    ],
+    "colorTextLinkStronger": [
       "@twilio-paste/anchor",
       "@twilio-paste/button",
       "@twilio-paste/tabs"
@@ -871,14 +1080,14 @@
     ],
     "colorTextNew": [],
     "colorTextInverseWeak": [
-      "@twilio-paste/combobox",
       "@twilio-paste/input",
       "@twilio-paste/help-text",
       "@twilio-paste/label",
       "@twilio-paste/select",
-      "@twilio-paste/textarea"
+      "@twilio-paste/textarea",
+      "@twilio-paste/combobox"
     ],
-    "colorTextLinkDestructiveDarker": [
+    "colorTextLinkDestructiveStronger": [
       "@twilio-paste/button"
     ],
     "colorTextSuccess": [
@@ -886,33 +1095,32 @@
     ],
     "colorTextWeak": [
       "@twilio-paste/breadcrumb",
-      "@twilio-paste/help-text",
       "@twilio-paste/disclosure",
+      "@twilio-paste/help-text",
       "@twilio-paste/input",
       "@twilio-paste/label",
-      "@twilio-paste/tabs",
       "@twilio-paste/popover",
+      "@twilio-paste/tabs",
       "@twilio-paste/textarea",
+      "@twilio-paste/pagination",
       "@twilio-paste/modal"
-    ],
-    "colorTextLinkDestructiveLight": [
-      "@twilio-paste/button"
     ],
     "colorTextIcon": [
       "@twilio-paste/alert",
-      "@twilio-paste/combobox",
+      "@twilio-paste/checkbox",
+      "@twilio-paste/disclosure",
       "@twilio-paste/menu",
       "@twilio-paste/select",
-      "@twilio-paste/toast"
+      "@twilio-paste/toast",
+      "@twilio-paste/combobox"
     ],
     "colorTextLink": [
       "@twilio-paste/anchor",
       "@twilio-paste/button",
-      "@twilio-paste/combobox",
       "@twilio-paste/menu",
-      "@twilio-paste/tabs"
+      "@twilio-paste/tabs",
+      "@twilio-paste/pagination"
     ],
-    "colorTextErrorDark": [],
     "colorTextNeutral": [
       "@twilio-paste/alert",
       "@twilio-paste/toast"
@@ -923,55 +1131,56 @@
       "@twilio-paste/toast"
     ],
     "colorTextIconInverse": [],
-    "colorTextLinkDark": [
+    "colorTextErrorStrong": [],
+    "colorTextErrorWeak": [
+      "@twilio-paste/help-text"
+    ],
+    "colorTextLinkStrong": [],
+    "colorTextBrandInverse": [],
+    "colorTextLinkWeak": [
       "@twilio-paste/button"
     ],
-    "colorTextBrandInverse": [],
     "colorText": [
+      "@twilio-paste/text",
+      "@twilio-paste/avatar",
       "@twilio-paste/breadcrumb",
-      "@twilio-paste/combobox",
+      "@twilio-paste/disclosure",
       "@twilio-paste/heading",
-      "@twilio-paste/label",
-      "@twilio-paste/menu",
       "@twilio-paste/list",
+      "@twilio-paste/menu",
+      "@twilio-paste/label",
       "@twilio-paste/paragraph",
-      "@twilio-paste/table",
-      "@twilio-paste/text"
+      "@twilio-paste/combobox",
+      "@twilio-paste/pagination"
+    ],
+    "colorTextWeakest": [
+      "@twilio-paste/button",
+      "@twilio-paste/checkbox"
     ],
     "colorTextBrandHighlight": [],
     "colorTextInverseWeaker": [
       "@twilio-paste/button",
-      "@twilio-paste/checkbox",
       "@twilio-paste/input",
       "@twilio-paste/select",
       "@twilio-paste/textarea"
-    ],
-    "colorTextLinkLight": [
-      "@twilio-paste/button"
     ],
     "colorTextInverse": [
       "@twilio-paste/anchor",
       "@twilio-paste/button",
-      "@twilio-paste/checkbox",
       "@twilio-paste/label",
       "@twilio-paste/tooltip",
       "@twilio-paste/input-box"
     ],
-    "colorTextErrorLight": [
-      "@twilio-paste/help-text"
-    ],
     "colorTextWeaker": [
-      "@twilio-paste/combobox",
       "@twilio-paste/input",
       "@twilio-paste/menu",
       "@twilio-paste/select",
+      "@twilio-paste/textarea",
       "@twilio-paste/tabs",
-      "@twilio-paste/textarea"
+      "@twilio-paste/combobox"
     ],
-    "colorTextWarningDark": [],
-    "colorTextLinkDestructiveDark": [
-      "@twilio-paste/button"
-    ],
+    "colorTextWarningStrong": [],
+    "colorTextLinkDestructiveStrong": [],
     "zIndex0": [],
     "zIndex90": [
       "@twilio-paste/toast",
@@ -987,8 +1196,8 @@
     "zIndex40": [],
     "zIndex30": [],
     "zIndex20": [
-      "@twilio-paste/combobox",
-      "@twilio-paste/menu"
+      "@twilio-paste/menu",
+      "@twilio-paste/combobox"
     ],
     "zIndex10": [
       "@twilio-paste/input-box"
