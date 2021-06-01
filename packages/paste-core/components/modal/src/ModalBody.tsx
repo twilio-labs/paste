@@ -1,13 +1,14 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import {modalBodyStyles} from './styles';
 
 export interface ModalBodyProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
 }
 const ModalBody = React.forwardRef<HTMLDivElement, ModalBodyProps>(({children, ...props}, ref) => {
   return (
-    <Box {...safelySpreadBoxProps(props)} as="div" overflowY="auto" padding="space50" paddingBottom="space60" ref={ref}>
+    <Box {...safelySpreadBoxProps(props)} {...modalBodyStyles} as="div" ref={ref}>
       {children}
     </Box>
   );
