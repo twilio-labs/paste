@@ -10,7 +10,7 @@ const PopoverExample = () => {
           Black Lives Matter. We stand with the Black community
         </Text>
         <Separator orientation="horizontal" verticalSpacing="space50" />
-        <Button onClick={() => {}} variat="pimary">Agree</Button>
+        <Button onClick={() => {}} variant="primary">Agree</Button>
       </Popover>
     </PopoverContainer>
   );

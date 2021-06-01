@@ -160,14 +160,14 @@ The textarea should include the base textarea, along with supporting elements to
 
 <LivePreview scope={{Label, HelpText, TextArea, Text}} language="jsx">
   {`<>
-  <Label htmlFor="short_bio" required>Short Biography</Label>
+  <Label htmlFor="short_bio" required>Short biography</Label>
   <TextArea onChange={()=>{}} id="short_bio" name="short_bio" insertBefore={<Text as="span" fontWeight="fontWeightSemibold">Bio</Text>} required />
 </>`}
 </LivePreview>
 
 <LivePreview scope={{Label, HelpText, TextArea, InformationIcon, Button}} language="jsx">
   {`<>
-  <Label htmlFor="body" required>Body Copy</Label>
+  <Label htmlFor="body" required>Body copy</Label>
   <TextArea
     onChange={()=>{}}
     aria-describedby="body_help_text"
@@ -313,7 +313,7 @@ Use a textarea when users are expected to enter text that exceeds a single line,
     center
   >
     <Box width="100%" padding="space60">
-      <Label htmlFor="long_dont">First Name</Label>
+      <Label htmlFor="long_dont">First name</Label>
       <TextArea onChange={() => {}} id="long_dont" name="long_dont" />
     </Box>
   </Dont>
@@ -325,7 +325,7 @@ Use a textarea when users are expected to enter text that exceeds a single line,
     center
   >
     <Box width="100%" padding="space60">
-      <Label htmlFor="limited_do">Job Description (120 characters)</Label>
+      <Label htmlFor="limited_do">Job description (120 characters)</Label>
       <TextArea onChange={() => {}} aria-describedby="limited_do_help_text" id="limited_do" name="limited_do" />
       <HelpText id="limited_do_help_text">Limit to 120 characters</HelpText>
     </Box>
@@ -336,7 +336,7 @@ Use a textarea when users are expected to enter text that exceeds a single line,
     center
   >
     <Box width="100%" padding="space60">
-      <Label htmlFor="limited_dont">State Moto</Label>
+      <Label htmlFor="limited_dont">State motto</Label>
       <TextArea onChange={() => {}} id="limited_dont" name="limited_dont" />
     </Box>
   </Dont>
@@ -378,7 +378,7 @@ Use a textarea when users are expected to enter text that exceeds a single line,
   <Dont title="Don't" body="Don't use more than 2 sentences in help text or error text." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="error_dont" required>
-        Phone Number
+        Phone number
       </Label>
       <TextArea onChange={() => {}} id="error_dont" name="error_dont" required hasError />
       <HelpText variant="error">
@@ -391,7 +391,7 @@ Use a textarea when users are expected to enter text that exceeds a single line,
 <DoDont>
   <Do title="Do" body="Include a visible label on every form field." center>
     <Box width="100%" padding="space60">
-      <Label htmlFor="label_do">Footer Text</Label>
+      <Label htmlFor="label_do">Footer text</Label>
       <TextArea onChange={() => {}} id="label_do" name="label_do" />
     </Box>
   </Do>
@@ -403,7 +403,7 @@ Use a textarea when users are expected to enter text that exceeds a single line,
         name="label_dont"
         insertBefore={
           <Text as="span" fontWeight="fontWeightSemibold">
-            Footer Text
+            Footer text
           </Text>
         }
       />
@@ -417,7 +417,7 @@ Use a textarea when users are expected to enter text that exceeds a single line,
     center
   >
     <Box width="100%" padding="space60">
-      <Label htmlFor="disabled_do">Legal Use Only</Label>
+      <Label htmlFor="disabled_do">Legal use only</Label>
       <TextArea onChange={() => {}} id="disabled_do" name="disabled_do" disabled />
     </Box>
   </Do>
@@ -427,7 +427,7 @@ Use a textarea when users are expected to enter text that exceeds a single line,
     center
   >
     <Box width="100%" padding="space60">
-      <Label htmlFor="disabled_dont">Company Information</Label>
+      <Label htmlFor="disabled_dont">Company information</Label>
       <TextArea
         onChange={() => {}}
         id="disabled_dont"

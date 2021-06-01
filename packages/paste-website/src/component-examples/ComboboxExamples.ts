@@ -19,7 +19,7 @@ const PrefixSuffixCombobox = () => {
   return (
     <Combobox
       items={numbers}
-      labelText="Select a Phone Number"
+      labelText="Select a phone number"
       insertBefore={<Text as="span" fontWeight="fontWeightSemibold">+1</Text>}
       insertAfter={
         <Anchor href="#" display="flex">
@@ -44,7 +44,7 @@ const AutoCompleteCombobox = () => {
     <Combobox
       autocomplete
       items={inputItems}
-      labelText="Select a Product"
+      labelText="Select a product"
       helpText="Please choose a Twilio product."
       onInputValueChange={({inputValue}) => {
         if (inputValue !== undefined) {
@@ -72,7 +72,7 @@ const OptionTemplateCombobox = () => {
   return (
     <Combobox
       items={months}
-      labelText="Select a Month"
+      labelText="Select a month"
       optionTemplate={(item) => (
         <MediaObject verticalAlign="center">
           <MediaBody>
@@ -115,7 +115,7 @@ const ControlledCombobox = () => {
       <Combobox
         autocomplete
         items={items}
-        labelText="Select a Month"
+        labelText="Select a month"
         optionTemplate={(item) => (
           <MediaObject verticalAlign="center">
             <MediaBody>
@@ -218,9 +218,9 @@ const groupedItems = [
   {type: 'Components', label: 'Paragraph'},
   {type: 'Primitives', label: 'Box'},
   {type: 'Primitives', label: 'Text'},
-  {type: 'Primitives', label: 'Non-modal dialog'},
+  {type: 'Primitives', label: 'Non-modal Dialog'},
   {type: 'Layout', label: 'Grid'},
-  {label: 'Design Tokens'},
+  {label: 'Design tokens'},
 ];
 
 const GroupedCombobox = () => {
@@ -288,7 +288,7 @@ const products = ['SMS', 'Phone Numbers', 'Video'];
 
 const ErrorCombobox = () => {
   return (
-    <Combobox items={products} labelText="Select a Product" helpText="This is the error message" hasError />
+    <Combobox items={products} labelText="Select a product" helpText="This is the error message" hasError />
   );
 };
 
@@ -302,7 +302,7 @@ const products = ['SMS', 'Phone Numbers', 'Video'];
 
 const RequiredCombobox = () => {
   return (
-    <Combobox items={products} labelText="Select a Product" required />
+    <Combobox items={products} labelText="Select a product" required />
   );
 };
 
@@ -316,7 +316,7 @@ const products = ['SMS', 'Phone Numbers', 'Video'];
 
 const DisabledCombobox = () => {
   return (
-    <Combobox items={products} labelText="Select a Product" disabled />
+    <Combobox items={products} labelText="Select a product" disabled />
   );
 };
 
@@ -331,7 +331,7 @@ const products = ['SMS', 'Phone Numbers', 'Video'];
 const InverseCombobox = () => {
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
-      <Combobox items={products} labelText="Select a Product" helpText="This is the help text" variant="inverse" />
+      <Combobox items={products} labelText="Select a product" helpText="This is the help text" variant="inverse" />
     </Box>
   );
 };
@@ -347,7 +347,7 @@ const products = ['SMS', 'Phone Numbers', 'Video'];
 const InverseErrorCombobox = () => {
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
-      <Combobox items={products} labelText="Select a Product" helpText="This is the error message" hasError variant="inverse" />
+      <Combobox items={products} labelText="Select a product" helpText="This is the error message" hasError variant="inverse" />
     </Box>
   );
 };
