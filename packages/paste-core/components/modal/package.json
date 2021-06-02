@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/modal",
-  "version": "7.0.1",
+  "version": "7.1.0",
   "category": "overlay",
   "status": "production",
   "description": "A modal displays content over the main page and blocks any interaction with the page.",
@@ -55,7 +55,7 @@
     "@twilio-paste/modal-dialog-primitive": "^0.2.2",
     "@twilio-paste/spinner": "^7.0.2",
     "@twilio-paste/style-props": "^3.0.4",
-    "@twilio-paste/styling-library": "^0.3.2",
+    "@twilio-paste/styling-library": "^0.3.3",
     "@twilio-paste/text": "^4.0.3",
     "@twilio-paste/theme": "^5.1.0",
     "@twilio-paste/types": "^3.1.1",

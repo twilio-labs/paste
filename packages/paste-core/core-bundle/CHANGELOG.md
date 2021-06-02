@@ -1,5 +1,27 @@
 # Change Log
 
+## 9.4.0
+
+### Minor Changes
+
+- [`d27dc745`](https://github.com/twilio-labs/paste/commit/d27dc7455c221daefb8ee8cf9b209ebb16833e4e) [#1484](https://github.com/twilio-labs/paste/pull/1484) Thanks [@gloriliale](https://github.com/gloriliale)! - Created an alert dialog component
+
+* [`5b26f9bf`](https://github.com/twilio-labs/paste/commit/5b26f9bf2c7000b0fdf655a3ab79482c210b94c3) [#1509](https://github.com/twilio-labs/paste/pull/1509) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [customization]: add ability for customization provider to accept an elements prop which it then merges into the styled theme context.
+
+  Also add the ability to choose which base theme is used when customizing a theme, for use in programmable apps. You can choose from Default or Dark theme as your starting point.
+
+- [`f6f26815`](https://github.com/twilio-labs/paste/commit/f6f26815528b073237b7fd591064abee29f48427) [#1484](https://github.com/twilio-labs/paste/pull/1484) Thanks [@gloriliale](https://github.com/gloriliale)! - Created style file for stylings of the Modal so they can be used in other components, like Alert Dialog.
+
+### Patch Changes
+
+- [`5b26f9bf`](https://github.com/twilio-labs/paste/commit/5b26f9bf2c7000b0fdf655a3ab79482c210b94c3) [#1509](https://github.com/twilio-labs/paste/pull/1509) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [styling-library]: export some types from styled-system to help with custom styling tasks
+
+- Updated dependencies [[`d27dc745`](https://github.com/twilio-labs/paste/commit/d27dc7455c221daefb8ee8cf9b209ebb16833e4e), [`5b26f9bf`](https://github.com/twilio-labs/paste/commit/5b26f9bf2c7000b0fdf655a3ab79482c210b94c3), [`5b26f9bf`](https://github.com/twilio-labs/paste/commit/5b26f9bf2c7000b0fdf655a3ab79482c210b94c3), [`f6f26815`](https://github.com/twilio-labs/paste/commit/f6f26815528b073237b7fd591064abee29f48427)]:
+  - @twilio-paste/alert-dialog@0.1.0
+  - @twilio-paste/customization@2.1.0
+  - @twilio-paste/styling-library@0.3.3
+  - @twilio-paste/modal@7.1.0
+
 ## 9.3.5
 
 ### Patch Changes
