@@ -170,8 +170,8 @@
     "storybook-addon-performance": "^0.14.0",
     "terser": "^5.3.0",
     "theo": "^8.1.5",
-    "tslib": "^2.0.3",
     "ts-node": "^10.0.0",
+    "tslib": "^2.0.3",
     "typedoc": "^0.20.12",
     "typescript": "^4.1.3",
     "webpack": "^4.44.2"
