@@ -2,24 +2,12 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {useUID} from '@twilio-paste/uid-library';
 import {useTransition} from '@twilio-paste/animation-library';
-import {css, styled} from '@twilio-paste/styling-library';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
-import {Button} from '@twilio-paste/button';
-import {Stack} from '@twilio-paste/stack';
-import {
-  modalHeaderStyles,
-  modalBodyStyles,
-  modalFooterStyles,
-  ModalDialogOverlay,
-  ModalDialogContent,
-} from '@twilio-paste/modal';
-
-const NarrowModalDialogContent = styled(ModalDialogContent)(() =>
-  css({
-    maxWidth: 'size40',
-  })
-);
+import {safelySpreadBoxProps} from '@twilio-paste/box';
+import {ModalDialogOverlay} from '@twilio-paste/modal';
+import {AlertDialogHeader} from './AlertDialogHeader';
+import {AlertDialogBody} from './AlertDialogBody';
+import {AlertDialogContent} from './AlertDialogContent';
+import {AlertDialogFooter} from './AlertDialogFooter';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getAnimationStates = (): any => ({
@@ -35,7 +23,7 @@ const getAnimationStates = (): any => ({
 });
 
 export interface AlertDialogProps extends React.HTMLAttributes<HTMLElement> {
-  children: React.ReactNode;
+  children: NonNullable<React.ReactNode>;
   destructive?: boolean;
   heading: string;
   isOpen: boolean;
@@ -51,15 +39,13 @@ export const AlertDialog = React.forwardRef<HTMLDivElement, AlertDialogProps>(
     const headingID = useUID();
     const bodyID = useUID();
 
-    const primaryVariant = destructive ? 'destructive' : 'primary';
-
     return (
       <>
         {transitions(
           (styles, item) =>
             item && (
               <ModalDialogOverlay isOpen={isOpen} style={{opacity: styles.opacity}}>
-                <NarrowModalDialogContent
+                <AlertDialogContent
                   {...safelySpreadBoxProps(props)}
                   aria-labelledby={headingID}
                   aria-describedby={bodyID}
@@ -67,25 +53,16 @@ export const AlertDialog = React.forwardRef<HTMLDivElement, AlertDialogProps>(
                   role="alertdialog"
                   style={styles}
                 >
-                  <Box as="header" {...modalHeaderStyles} border="none" paddingBottom="space0">
-                    <Heading as="h3" marginBottom="space0" variant="heading30" id={headingID}>
-                      {heading}
-                    </Heading>
-                  </Box>
-                  <Box as="div" {...modalBodyStyles} id={bodyID}>
-                    {children}
-                  </Box>
-                  <Box as="footer" {...modalFooterStyles} border="none" justifyContent="flex-end" paddingTop="space0">
-                    <Stack orientation="horizontal" spacing="space50">
-                      <Button variant="secondary" onClick={onDismiss}>
-                        {onDismissLabel}
-                      </Button>
-                      <Button variant={primaryVariant} onClick={onConfirm}>
-                        {onConfirmLabel}
-                      </Button>
-                    </Stack>
-                  </Box>
-                </NarrowModalDialogContent>
+                  <AlertDialogHeader headingID={headingID}>{heading}</AlertDialogHeader>
+                  <AlertDialogBody bodyID={bodyID}>{children}</AlertDialogBody>
+                  <AlertDialogFooter
+                    destructive={destructive}
+                    onDismiss={onDismiss}
+                    onDismissLabel={onDismissLabel}
+                    onConfirm={onConfirm}
+                    onConfirmLabel={onConfirmLabel}
+                  />
+                </AlertDialogContent>
               </ModalDialogOverlay>
             )
         )}
