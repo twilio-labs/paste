@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/alert-dialog",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "category": "overlay",
   "status": "production",
   "description": "An alert dialog displays content over the main page and blocks any interaction with the page.",
@@ -42,7 +42,7 @@
     "@twilio-paste/box": "^4.0.5",
     "@twilio-paste/button": "^7.0.3",
     "@twilio-paste/heading": "^5.0.2",
-    "@twilio-paste/modal": "^7.0.1",
+    "@twilio-paste/modal": "^7.1.0",
     "@twilio-paste/stack": "^2.0.4",
     "@twilio-paste/theme": "^5.1.0",
     "@twilio-paste/types": "^3.1.1",

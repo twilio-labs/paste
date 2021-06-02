@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.1.0
+
+### Minor Changes
+
+- [`f6f26815`](https://github.com/twilio-labs/paste/commit/f6f26815528b073237b7fd591064abee29f48427) [#1484](https://github.com/twilio-labs/paste/pull/1484) Thanks [@gloriliale](https://github.com/gloriliale)! - Created style file for stylings of the Modal so they can be used in other components, like Alert Dialog.
+
 ## 7.0.1
 
 ### Patch Changes
