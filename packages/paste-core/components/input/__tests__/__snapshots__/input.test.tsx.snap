@@ -58,6 +58,7 @@ exports[`Input render should render 1`] = `
   padding-top: 0.5rem;
   resize: none;
   width: 100%;
+  cursor: auto;
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -101,6 +102,14 @@ exports[`Input render should render 1`] = `
   cursor: not-allowed;
   -webkit-text-fill-color: rgb(200,204,207);
   -webkit-opacity: 1;
+}
+
+.emotion-0::-webkit-datetime-edit {
+  display: flex;
+}
+
+.emotion-0::-webkit-calendar-picker-indicator:hover {
+  cursor: pointer;
 }
 
 <div
@@ -156,6 +165,7 @@ exports[`Input render should render with disabled 1`] = `
   padding-top: 0.5rem;
   resize: none;
   width: 100%;
+  cursor: auto;
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -199,6 +209,14 @@ exports[`Input render should render with disabled 1`] = `
   cursor: not-allowed;
   -webkit-text-fill-color: rgb(200,204,207);
   -webkit-opacity: 1;
+}
+
+.emotion-0::-webkit-datetime-edit {
+  display: flex;
+}
+
+.emotion-0::-webkit-calendar-picker-indicator:hover {
+  cursor: default;
 }
 
 .emotion-1 {
@@ -280,6 +298,7 @@ exports[`Input render should render with hasError 1`] = `
   padding-top: 0.5rem;
   resize: none;
   width: 100%;
+  cursor: auto;
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -323,6 +342,14 @@ exports[`Input render should render with hasError 1`] = `
   cursor: not-allowed;
   -webkit-text-fill-color: rgb(200,204,207);
   -webkit-opacity: 1;
+}
+
+.emotion-0::-webkit-datetime-edit {
+  display: flex;
+}
+
+.emotion-0::-webkit-calendar-picker-indicator:hover {
+  cursor: pointer;
 }
 
 .emotion-1 {
@@ -429,6 +456,7 @@ exports[`Input render should render with prefix 1`] = `
   padding-top: 0.5rem;
   resize: none;
   width: 100%;
+  cursor: auto;
 }
 
 .emotion-1::-webkit-input-placeholder {
@@ -472,6 +500,14 @@ exports[`Input render should render with prefix 1`] = `
   cursor: not-allowed;
   -webkit-text-fill-color: rgb(200,204,207);
   -webkit-opacity: 1;
+}
+
+.emotion-1::-webkit-datetime-edit {
+  display: flex;
+}
+
+.emotion-1::-webkit-calendar-picker-indicator:hover {
+  cursor: pointer;
 }
 
 .emotion-0 {
@@ -530,6 +566,31 @@ exports[`Input render should render with readOnly 1`] = `
   font-variant-numeric: tabular-nums;
 }
 
+.emotion-1 {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  background-color: rgb(248,248,249);
+  box-shadow: 0 0 0 1px #888c8e;
+  border-radius: 4px;
+  -webkit-transition: box-shadow 100ms ease-in;
+  transition: box-shadow 100ms ease-in;
+  cursor: text;
+}
+
+.emotion-1:hover {
+  box-shadow: 0 0 0 1px #888c8e;
+}
+
+.emotion-1:focus-within {
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+}
+
+.emotion-1:active,
+.emotion-1[data-active=true] {
+  box-shadow: 0 0 0 1px #032c5e;
+}
+
 .emotion-0 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -552,6 +613,7 @@ exports[`Input render should render with readOnly 1`] = `
   padding-top: 0.5rem;
   resize: none;
   width: 100%;
+  cursor: auto;
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -597,29 +659,12 @@ exports[`Input render should render with readOnly 1`] = `
   -webkit-opacity: 1;
 }
 
-.emotion-1 {
-  box-sizing: border-box;
+.emotion-0::-webkit-datetime-edit {
   display: flex;
-  width: 100%;
-  background-color: rgb(248,248,249);
-  box-shadow: 0 0 0 1px #888c8e;
-  border-radius: 4px;
-  -webkit-transition: box-shadow 100ms ease-in;
-  transition: box-shadow 100ms ease-in;
-  cursor: text;
 }
 
-.emotion-1:hover {
-  box-shadow: 0 0 0 1px #888c8e;
-}
-
-.emotion-1:focus-within {
-  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
-}
-
-.emotion-1:active,
-.emotion-1[data-active=true] {
-  box-shadow: 0 0 0 1px #032c5e;
+.emotion-0::-webkit-calendar-picker-indicator:hover {
+  cursor: default;
 }
 
 <div
@@ -702,6 +747,7 @@ exports[`Input render should render with suffix 1`] = `
   padding-top: 0.5rem;
   resize: none;
   width: 100%;
+  cursor: auto;
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -745,6 +791,14 @@ exports[`Input render should render with suffix 1`] = `
   cursor: not-allowed;
   -webkit-text-fill-color: rgb(200,204,207);
   -webkit-opacity: 1;
+}
+
+.emotion-0::-webkit-datetime-edit {
+  display: flex;
+}
+
+.emotion-0::-webkit-calendar-picker-indicator:hover {
+  cursor: pointer;
 }
 
 .emotion-1 {
