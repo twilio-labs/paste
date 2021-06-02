@@ -25,7 +25,7 @@ Reason: [vulnerability](https://github.com/twilio-labs/paste/pull/494)
 
 At this time, the latest Gatsby version does not have the correct version of this package.
 
-## "meow": "^10.0.0"
+## "meow": "^8.0.0"
 
 Reason: [vulnerability](https://github.com/twilio-labs/paste/pull/1511)
 
@@ -37,11 +37,5 @@ At this time, various verions of Meow are used in other dependencies:
 
 - changesets
 - manypkg
-- chromatic
-- conventional-changelog-writer
-- conventional-commits-parser
-- conventional-recommended-bump
 - get-pkg-rep
-- git-raw-commits
-- git-semver-tags
 - lpad-align
