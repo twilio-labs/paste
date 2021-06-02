@@ -176,6 +176,7 @@
   "resolutions": {
     "**/websocket-extensions": "^0.1.4",
     "**/graphql-playground-middleware-express": "^1.7.18",
+    "**/meow": "^10.0.0",
     "@emotion/core": "10.0.28"
   },
   "husky": {
