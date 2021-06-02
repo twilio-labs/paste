@@ -24,3 +24,18 @@ Reason: [vulnerability](https://github.com/twilio-labs/paste/pull/494)
 ```
 
 At this time, the latest Gatsby version does not have the correct version of this package.
+
+## "meow": "^8.0.0"
+
+Reason: [vulnerability](https://github.com/twilio-labs/paste/pull/1511)
+
+```
+- Hoisted from "_project_#@twilio-paste#codemods#meow"
+```
+
+At this time, various verions of Meow are used in other dependencies:
+
+- changesets
+- manypkg
+- get-pkg-rep
+- lpad-align
