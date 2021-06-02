@@ -1,6 +1,6 @@
 import * as PropTypes from 'prop-types';
 
-export type FormInputTypes = 'text' | 'email' | 'hidden' | 'number' | 'password' | 'search' | 'tel';
+export type FormInputTypes = 'text' | 'email' | 'hidden' | 'number' | 'password' | 'search' | 'tel' | 'date';
 export type FieldVariants = 'default' | 'inverse';
 
 export interface FieldWrapperProps {
@@ -16,7 +16,7 @@ export const FieldWrapperPropTypes = {
   hasError: PropTypes.bool,
   readOnly: PropTypes.bool,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel']) as any,
+  type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel', 'date']) as any,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   variant: PropTypes.oneOf(['default', 'inverse']) as any,
 };
