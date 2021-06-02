@@ -206,7 +206,7 @@ exports[`Input render should render with disabled 1`] = `
   display: flex;
   width: 100%;
   background-color: rgb(248,248,249);
-  box-shadow: 0 0 0 1px #e4e7e9;
+  box-shadow: 0 0 0 1px #c8cccf;
   border-radius: 4px;
   -webkit-transition: box-shadow 100ms ease-in;
   transition: box-shadow 100ms ease-in;
@@ -214,7 +214,7 @@ exports[`Input render should render with disabled 1`] = `
 }
 
 .emotion-1:hover {
-  box-shadow: 0 0 0 1px #e4e7e9;
+  box-shadow: 0 0 0 1px #c8cccf;
 }
 
 .emotion-1:focus-within {
@@ -223,7 +223,7 @@ exports[`Input render should render with disabled 1`] = `
 
 .emotion-1:active,
 .emotion-1[data-active=true] {
-  box-shadow: 0 0 0 1px #e4e7e9;
+  box-shadow: 0 0 0 1px #c8cccf;
 }
 
 <div
