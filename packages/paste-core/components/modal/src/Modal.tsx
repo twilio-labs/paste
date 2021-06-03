@@ -53,7 +53,7 @@ export const ModalDialogContent = animated(
       borderRadius: 'borderRadius20',
       borderStyle: 'solid',
       borderWidth: 'borderWidth10',
-      boxShadow: 'shadowCard',
+      boxShadow: 'shadow',
       display: 'flex',
       flexDirection: 'column',
     })
