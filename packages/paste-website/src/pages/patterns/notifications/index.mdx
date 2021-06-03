@@ -8,7 +8,6 @@ import {graphql} from 'gatsby';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
-import {Breadcrumb, BreadcrumbItem} from '../../../components/breadcrumb';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Card} from '@twilio-paste/card';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
@@ -37,35 +36,29 @@ export const pageQuery = graphql`
         value
       }
     }
+    allAirtable(filter: {data: {Feature: {eq: "Notifications and feedback"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+          }
+        }
+      }
+    }
   }
 `;
 
 <content>
 
-<Breadcrumb>
-  <BreadcrumbItem to="/">Home</BreadcrumbItem>
-  <BreadcrumbItem to="/patterns">Patterns</BreadcrumbItem>
-</Breadcrumb>
-<Heading as="h1" variant="heading10">
-  {props.pageContext.frontmatter.title}
-</Heading>
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
-
-<Box as="dl" display="flex">
-  <Text as="dt" color="colorTextWeak" lineHeight="lineHeight30">
-    <Box width="size10">Status</Box>
-  </Text>
-  <Text as="dd">alpha</Text>
-</Box>
-
-<Callout variant="warning">
-  <CalloutTitle>This is an ALPHA pattern, and we need your feedback!</CalloutTitle>
-  <CalloutText>
-    This pattern is still going through feedback cycles, so if you have feedback or ideas related to this pattern,
-    please create a <Anchor href="https://github.com/twilio-labs/paste/discussions">GitHub Discussion</Anchor> and let
-    us know.
-  </CalloutText>
-</Callout>
+<PatternHeader
+  description={props.pageContext.frontmatter.description}
+  name={props.pageContext.frontmatter.title}
+  packageStatus={props.data.allAirtable.edges}
+/>
 
 </content>
 
