@@ -79,6 +79,7 @@ packages/**/docs
 *.tsbuildinfo
 package-lock.json
 tools/.cache/packages.json
+tools/.cache/token-usage.json
 docs
 
 # codemods package

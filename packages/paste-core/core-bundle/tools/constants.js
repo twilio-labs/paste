@@ -14,6 +14,7 @@ const BLOCKLIST = [
 
 const BASE_CODESANDBOX_CI = {
   buildCommand: 'build',
+  node: '12',
   packages: ['/packages/paste-icons', '/packages/paste-core/core-bundle'],
   sandboxes: ['/packages/paste-nextjs-template'],
 };
@@ -25,9 +26,9 @@ const CORE_BUNDLE_INDEX_PATH = join(CORE_BUNDLE_PATH, 'src/index.tsx');
 const CORE_BUNDLE_PACKAGE_PATH = join(CORE_BUNDLE_PATH, 'package.json');
 const CORE_BUNDLE_OUTPUT_PATH = join(CORE_BUNDLE_PATH, 'dist/');
 
-const getPackageName = package => package.name.replace('@twilio-paste/', '');
-const getUnbarreledFilePath = package => `src/${getPackageName(package)}.tsx`;
-const getUnbarreledFileFullPath = package => join(CORE_BUNDLE_PATH, getUnbarreledFilePath(package));
+const getPackageName = (package) => package.name.replace('@twilio-paste/', '');
+const getUnbarreledFilePath = (package) => `src/${getPackageName(package)}.tsx`;
+const getUnbarreledFileFullPath = (package) => join(CORE_BUNDLE_PATH, getUnbarreledFilePath(package));
 
 module.exports = {
   BLOCKLIST,
