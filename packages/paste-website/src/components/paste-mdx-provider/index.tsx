@@ -17,6 +17,7 @@ import {AnchoredHeading} from '../Heading';
 import {InlineCode, Pre} from '../Typography';
 // Shortcode imports
 import {ComponentHeader} from '../shortcodes/component-header';
+import {PatternHeader} from '../shortcodes/pattern-header';
 import {LivePreview} from '../shortcodes/live-preview';
 import {TableOfContents} from '../shortcodes/table-of-contents';
 import {QuestionMenu} from '../shortcodes/question-menu';
@@ -48,7 +49,15 @@ const MdxLink: React.FC<AnchorProps> = (props) => {
   return <Anchor {...props} showExternal={isExternalUrl(props.href)} />;
 };
 
-const shortcodes = {ComponentHeader, LivePreview, PageAside, QuestionMenu, TableOfContents, ChangelogRevealer};
+const shortcodes = {
+  ChangelogRevealer,
+  ComponentHeader,
+  LivePreview,
+  PageAside,
+  PatternHeader,
+  QuestionMenu,
+  TableOfContents,
+};
 
 const MDXPoviderComponents = {
   ...shortcodes,

@@ -171,7 +171,6 @@ const gatsbyConfig = {
           {
             baseId: process.env.AIRTABLE_BASEID,
             tableName: `System`,
-            tableView: `Roadmap`,
           },
         ],
       },
