@@ -1,5 +1,46 @@
 # Change Log
 
+## 6.9.0
+
+### Minor Changes
+
+- [`c42f86ca`](https://github.com/twilio-labs/paste/commit/c42f86ca2b652e7876188e94a8acab63d486ab04) [#1434](https://github.com/twilio-labs/paste/pull/1434) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [design-tokens]: Added two extra brand based background tokens. Update the new design tokens for better dark mode contrast.
+
+  Renamed black aliases in the dark theme as they are not palette colors.
+
+  Updated meta data for weak and strong design tokens to reflect their new naming convention
+
+### Patch Changes
+
+- [`f551079a`](https://github.com/twilio-labs/paste/commit/f551079ad141a06532e4d1bcd1c0d4ef7f6f226d) [#1505](https://github.com/twilio-labs/paste/pull/1505) Thanks [@richbachman](https://github.com/richbachman)! - Fixed shadow-border, shadow-border-weak, shadow-border-weaker, shadow-border-strong values to match respective color-border-\* values in all themes.
+
+  Shadow-border-stronger token has been removed in all themes.
+
+  **Default theme**
+
+  | Token                | Original color value | New color value |
+  | -------------------- | -------------------- | --------------- |
+  | shadow-border-weak   | NA                   | palette-gray-30 |
+  | shadow-border-weaker | NA                   | palette-gray-20 |
+  | shadow-border-strong | palette-gray-30      | palette-gray-60 |
+
+  **Console theme**
+
+  | Token                | Original color value | New color value |
+  | -------------------- | -------------------- | --------------- |
+  | shadow-border-weak   | NA                   | palette-gray-50 |
+  | shadow-border-weaker | NA                   | palette-gray-40 |
+  | shadow-border-strong | palette-gray-40      | palette-gray-60 |
+
+  **Dark theme**
+
+  | Token                | Original color value | New color value |
+  | -------------------- | -------------------- | --------------- |
+  | shadow-border        | palette-gray-50      | palette-gray-60 |
+  | shadow-border-weak   | NA                   | palette-gray-70 |
+  | shadow-border-weaker | NA                   | palette-gray-80 |
+  | shadow-border-strong | palette-gray-90      | palette-gray-50 |
+
 ## 6.8.0
 
 ### Minor Changes
