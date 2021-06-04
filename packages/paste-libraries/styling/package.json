@@ -2,7 +2,7 @@
   "name": "@twilio-paste/styling-library",
   "version": "0.3.3",
   "category": "library",
-  "status": "beta",
+  "status": "production",
   "description": "Custom CSS-in-JS wrapper library for use in Paste.",
   "author": "Twilio Inc.",
   "license": "MIT",
