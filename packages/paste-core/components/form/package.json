@@ -2,7 +2,7 @@
   "name": "@twilio-paste/form",
   "version": "6.0.2",
   "category": "user input",
-  "status": "beta",
+  "status": "production",
   "description": "All the basic form elements for Twilio Paste",
   "author": "Twilio Inc.",
   "license": "MIT",
