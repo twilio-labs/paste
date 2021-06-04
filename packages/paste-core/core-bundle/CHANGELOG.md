@@ -1,5 +1,66 @@
 # Change Log
 
+## 9.5.0
+
+### Minor Changes
+
+- [`c42f86ca`](https://github.com/twilio-labs/paste/commit/c42f86ca2b652e7876188e94a8acab63d486ab04) [#1434](https://github.com/twilio-labs/paste/pull/1434) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Added two new icons for light and dark mode
+
+* [`c42f86ca`](https://github.com/twilio-labs/paste/commit/c42f86ca2b652e7876188e94a8acab63d486ab04) [#1434](https://github.com/twilio-labs/paste/pull/1434) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Adding a body background color for purposes of applying the color background body design token so that you can see the affect it has when theming the website
+
+- [`c42f86ca`](https://github.com/twilio-labs/paste/commit/c42f86ca2b652e7876188e94a8acab63d486ab04) [#1434](https://github.com/twilio-labs/paste/pull/1434) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [design-tokens]: Added two extra brand based background tokens. Update the new design tokens for better dark mode contrast.
+
+  Renamed black aliases in the dark theme as they are not palette colors.
+
+  Updated meta data for weak and strong design tokens to reflect their new naming convention
+
+### Patch Changes
+
+- [`2db8bf96`](https://github.com/twilio-labs/paste/commit/2db8bf963c2fc34e191aa3bfec5c0a0e95e7c72f) [#1505](https://github.com/twilio-labs/paste/pull/1505) Thanks [@richbachman](https://github.com/richbachman)! - Changed disabled box shadows to use correct shadow-border-weak token.
+
+* [`fa48e8dd`](https://github.com/twilio-labs/paste/commit/fa48e8ddf03325d0effb4b1a0201dbf5fd207e71) [#1489](https://github.com/twilio-labs/paste/pull/1489) Thanks [@richbachman](https://github.com/richbachman)! - Added missing dependencies.
+
+- [`f551079a`](https://github.com/twilio-labs/paste/commit/f551079ad141a06532e4d1bcd1c0d4ef7f6f226d) [#1505](https://github.com/twilio-labs/paste/pull/1505) Thanks [@richbachman](https://github.com/richbachman)! - Fixed shadow-border, shadow-border-weak, shadow-border-weaker, shadow-border-strong values to match respective color-border-\* values in all themes.
+
+  Shadow-border-stronger token has been removed in all themes.
+
+  **Default theme**
+
+  | Token                | Original color value | New color value |
+  | -------------------- | -------------------- | --------------- |
+  | shadow-border-weak   | NA                   | palette-gray-30 |
+  | shadow-border-weaker | NA                   | palette-gray-20 |
+  | shadow-border-strong | palette-gray-30      | palette-gray-60 |
+
+  **Console theme**
+
+  | Token                | Original color value | New color value |
+  | -------------------- | -------------------- | --------------- |
+  | shadow-border-weak   | NA                   | palette-gray-50 |
+  | shadow-border-weaker | NA                   | palette-gray-40 |
+  | shadow-border-strong | palette-gray-40      | palette-gray-60 |
+
+  **Dark theme**
+
+  | Token                | Original color value | New color value |
+  | -------------------- | -------------------- | --------------- |
+  | shadow-border        | palette-gray-50      | palette-gray-60 |
+  | shadow-border-weak   | NA                   | palette-gray-70 |
+  | shadow-border-weaker | NA                   | palette-gray-80 |
+  | shadow-border-strong | palette-gray-90      | palette-gray-50 |
+
+* [`f640550a`](https://github.com/twilio-labs/paste/commit/f640550a7306806feaedfd7c3184cad4327cc8a8) [#1489](https://github.com/twilio-labs/paste/pull/1489) Thanks [@richbachman](https://github.com/richbachman)! - Changed box-shadow for ModalDialogContent to use shadow token instead of shadow-card.
+
+- [`104628b3`](https://github.com/twilio-labs/paste/commit/104628b358b773df6f5afc885252eaa64f311c97) [#1505](https://github.com/twilio-labs/paste/pull/1505) Thanks [@richbachman](https://github.com/richbachman)! - Changed default and disabled secondary button box shadow and text color styles to match Figma design files.
+
+- Updated dependencies [[`2db8bf96`](https://github.com/twilio-labs/paste/commit/2db8bf963c2fc34e191aa3bfec5c0a0e95e7c72f), [`fa48e8dd`](https://github.com/twilio-labs/paste/commit/fa48e8ddf03325d0effb4b1a0201dbf5fd207e71), [`c42f86ca`](https://github.com/twilio-labs/paste/commit/c42f86ca2b652e7876188e94a8acab63d486ab04), [`c42f86ca`](https://github.com/twilio-labs/paste/commit/c42f86ca2b652e7876188e94a8acab63d486ab04), [`f551079a`](https://github.com/twilio-labs/paste/commit/f551079ad141a06532e4d1bcd1c0d4ef7f6f226d), [`f640550a`](https://github.com/twilio-labs/paste/commit/f640550a7306806feaedfd7c3184cad4327cc8a8), [`104628b3`](https://github.com/twilio-labs/paste/commit/104628b358b773df6f5afc885252eaa64f311c97)]:
+  - @twilio-paste/input-box@4.0.5
+  - @twilio-paste/alert-dialog@0.1.1
+  - @twilio-paste/theme@5.2.0
+  - @twilio-paste/design-tokens@6.9.0
+  - @twilio-paste/modal@7.1.1
+  - @twilio-paste/button@7.0.4
+
 ## 9.4.0
 
 ### Minor Changes
