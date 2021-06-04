@@ -2,7 +2,7 @@
   "name": "@twilio-paste/typography",
   "version": "3.0.2",
   "category": "typography",
-  "status": "alpha",
+  "status": "production",
   "description": "Twilio's Typography component",
   "author": "Twilio Inc.",
   "license": "MIT",
