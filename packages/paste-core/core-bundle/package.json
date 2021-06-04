@@ -1,7 +1,7 @@
 {
   "name": "@twilio-paste/core",
   "version": "9.6.1",
-  "status": "beta",
+  "status": "production",
   "description": "Contains all the core packages from the Paste internal design system.",
   "author": "Twilio Inc.",
   "license": "MIT",
