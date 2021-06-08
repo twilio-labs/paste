@@ -57,7 +57,7 @@ interface MobileSearchProps {
 const CoolLinks = [
   '/principles',
   '/inclusive-design',
-  '/tokens/how-to-compose-custom-ui-with-tokens',
+  '/customization/composing-custom-components-with-design-tokens',
   '/patterns',
   '/content/voice-and-tone',
   '/primitives/box',

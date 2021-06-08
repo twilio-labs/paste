@@ -24,6 +24,8 @@ const getCategoryNameFromRoute = (categoryRoute: string): string => {
       return 'Tokens';
     case SidebarCategoryRoutes.LIBRARIES:
       return 'Libraries';
+    case SidebarCategoryRoutes.CUSTOMIZATION:
+      return 'Customization';
     default:
       return 'Layout';
   }
