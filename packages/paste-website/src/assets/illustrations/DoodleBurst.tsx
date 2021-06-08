@@ -3,9 +3,9 @@ import VisibilitySensor from 'react-visibility-sensor';
 import {useSpring, animated} from '@twilio-paste/animation-library';
 import {useTheme} from '@twilio-paste/theme';
 
-const dashArray = 350;
+const dashArray = 260;
 
-export const DoodleLoopLarge: React.FC = () => {
+export const DoodleBurst: React.FC = () => {
   const [show, setShow] = React.useState(false);
   const theme = useTheme();
 
@@ -23,31 +23,24 @@ export const DoodleLoopLarge: React.FC = () => {
   return (
     <VisibilitySensor onChange={handleVisibilityChange}>
       <animated.svg
-        stroke={theme.backgroundColors.colorBackgroundPrimaryStronger}
+        stroke={theme.backgroundColors.colorBackgroundPrimaryStrongest}
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="2.464"
+        strokeWidth="2"
         strokeDashoffset={styles.x}
         strokeDasharray={`${dashArray} ${dashArray}`}
+        width="62"
+        height="57"
         fill="none"
-        height="260"
-        width="78"
-        viewBox="0 0 78 260"
+        viewBox="0 0 62 57"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          stroke="#001489"
+          stroke={theme.backgroundColors.colorBackgroundPrimaryStrongest}
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="2"
-          d="M48.76 170.658l-19.484 28.028-7.676-31.39"
-        />
-        <path
-          stroke="#001489"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="M191.344 14.59c-34.204 9.243-53.899 28.315-45.514 45.921 6.641 13.945 18.251 14.937 12.365.38-25.277-62.507-125.41 60.187-125.65 119.237"
+          d="M41.9 1.811L49.76 31.14M19.856 16.52l19.743 23.629M1.366 38.239L32.938 52.83"
         />
       </animated.svg>
     </VisibilitySensor>

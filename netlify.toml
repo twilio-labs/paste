@@ -19,3 +19,11 @@
 [functions]
   directory = "packages/paste-website/functions"
   external_node_modules = ["chrome-aws-lambda", "puppeteer-core"]
+
+[[redirects]]
+  from = "/tokens/how-to-compose-custom-ui-with-tokens"
+  to = "/customization/composing-custom-components-with-design-tokens"
+
+[[redirects]]
+  from = "/customization"
+  to = "/customization/paste-for-programmable-apps"
