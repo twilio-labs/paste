@@ -7,11 +7,12 @@ slug: /tokens/how-to-compose-custom-ui-with-tokens/
 import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {P} from '../../components/Typography';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/tokens/how-to-compose-custom-ui-with-tokens/"}}) {
+    mdx(fields: {slug: {eq: "/customization/composing-custom-components-with-design-tokens/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -25,17 +26,21 @@ export const pageQuery = graphql`
   }
 `;
 
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<P variant="lead">{props.pageContext.frontmatter.description}</P>
+
+</content>
+
+---
+
 <contentwrapper>
 
 <PageAside data={props.data.mdx} />
 
 <content>
-
-<h1>{props.pageContext.frontmatter.title}</h1>
-
-<p>{props.pageContext.frontmatter.description}</p>
-
----
 
 ## Why would I need to build Custom Components?
 
@@ -182,15 +187,6 @@ If you aren't using React, hop on over to the [Design Tokens Package](/tokens/de
 ## Epilogue
 
 Remember, Paste is not a component library. It's a design system - and design systems come with carefully curated opinions defined by our product design team over the years. By using this guide, we believe that you can express even the most unique UI needs while maintaining a seamless Twilio experience. **We can't wait to see what you build.**
-
-## Give us Feedback on this Page
-
-As you use Paste, you'll likely encounter things that _don't seem right_. Please reach out with your feedback! Here's some prompts to consider:
-
-- Is this page easy for me to consume?
-- Is the information supporting it sufficient / well-described?
-- What information is missing?
-- How approachable is the documentation? Can a new engineer / PM / designer at Twilio get started with it easily?
 
 </content>
 
