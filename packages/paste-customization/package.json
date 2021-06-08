@@ -1,7 +1,7 @@
 {
   "name": "@twilio-paste/customization",
   "version": "2.1.0",
-  "description": "Paste Design System customization provider.",
+  "description": "The Customization Provider allows you to customize the style of Paste components.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

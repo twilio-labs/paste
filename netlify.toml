@@ -10,3 +10,11 @@
 
 [context.production.environment]
   GATSBY_ENVIRONMENT_CONTEXT = "production"
+
+[[redirects]]
+  from = "/tokens/how-to-compose-custom-ui-with-tokens"
+  to = "/customization/composing-custom-components-with-design-tokens"
+
+[[redirects]]
+  from = "/customization"
+  to = "/customization/paste-for-programmable-apps"
