@@ -1,0 +1,49 @@
+---
+title: Paste for Programmable Apps
+description: Programmable apps are an integral part of the Twilio Customer Engagement Platform. Paste can be used to build the delightful, inclusive user interfaces that power your customer experiences on top of the Twilio Platform.
+slug: /customization/paste-for-programmable-apps/
+---
+
+import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+import {P} from '../../components/Typography';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/customization/paste-for-programmable-apps/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<P variant="lead">{props.pageContext.frontmatter.description}</P>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+Paste is evolving. No longer is it designed just for Twilio, to build Twilio customer experiences. Paste is there for you to leverage when you are building on top of the Twilio Customer Engagement Platform. Whether you are building a <Anchor href="https://www.twilio.com/flex" showExternal>Flex</Anchor> plugin, or a <Anchor href="https://www.twilio.com/conversations-api" showExternal>Programmable Chat</Anchor> app, Paste can scale with you to bring high quality, inclusive customer experiences to your users.
+
+More details to come on this page soon.
+
+</content>
+
+</contentwrapper>

@@ -1,0 +1,46 @@
+---
+title: Customizing Component Elements
+description: A powerful concept for any programmable application is extending existing components and customizing their look and feel.
+slug: /customization/paste-for-programmable-apps/
+---
+
+import {graphql} from 'gatsby';
+import {P} from '../../components/Typography';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/customization/customizing-component-elements/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<P variant="lead">{props.pageContext.frontmatter.description}</P>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+We are currently working on this feature and providing support for it gradually across the entire suite of components. Watch this space!
+
+</content>
+
+</contentwrapper>

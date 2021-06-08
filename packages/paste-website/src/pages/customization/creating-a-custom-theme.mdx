@@ -1,0 +1,230 @@
+---
+title: Creating a Custom Theme
+description: Creating a custom theme is the most the common way a consumer can customize the look and feel of a Paste application.
+slug: /customization/customization-provider/
+---
+
+import {graphql} from 'gatsby';
+import {Box} from '@twilio-paste/box';
+import {ThemeObjectDisplay} from '../../components/ThemeObjectDisplay';
+import {AccessibilityCallout} from '../../components/page-components/customization/customization-provider/AccessibilityCallout';
+import {FontCallout} from '../../components/page-components/customization/customization-provider/FontCallout';
+import {CustomThemeKeyList} from '../../components/page-components/customization/customization-provider/CustomThemeKeyList';
+import {P} from '../../components/Typography';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/customization/creating-a-custom-theme/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<P variant="lead">{props.pageContext.frontmatter.description}</P>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+A custom theme can be created either manually or using the [Paste Theme Designer](https://paste-theme-designer.netlify.app/edit). A [Paste Theme](/tokens/theme-package) is categorized into groups of [Design Tokens](/tokens). The value of any Design Token from any Group can be changed when supplied to the Customization Provider via the theme object. The following token groups are available for customization:
+
+<CustomThemeKeyList />
+
+### Choosing your base theme
+
+Firstly you need to decide what base theme you want to extend from. The Customization Provider allows you to choose either the Default or Dark themes as a base. This means that you can choose to only override certain tokens from the base theme, or completely replace it with a whole new theme.
+
+```
+import {CustomizationProvider} from '@twilio-paste/core/customization';
+
+const MyApp = () => (
+  <CustomizationProvider baseTheme="Dark">
+    rest of app
+  </CustomizationProvider>
+)
+```
+
+### Manually creating a custom theme
+
+Manually creating a custom theme can be done by duplicating the Paste default theme, and changing the [design token](/tokens) values you want to customize. You can change every design token value within the theme, or just a small set. The value of each key/value pair on the theme can be any valid value for the CSS property that the design token can be used for. This might be the best method if you&rsquo;re only customizing a small set of tokens as you only need to provide those specific token overrides.
+
+Below we are choosing the dark theme as our base, and manually creating a custom theme by providing the Customization Provider an object that only overrides certain font weights and border widths.
+
+```
+import {CustomizationProvider} from '@twilio-paste/core/customization';
+
+const MyApp = () => (
+  <CustomizationProvider baseTheme="Dark" theme={{
+    "fontWeights": {
+      "fontWeightNormal": "light"
+      "fontWeightMedium": "500"
+      "fontWeightBold": "600"
+    }
+    "borderWidths": {
+      "borderWidth10": '2px'
+      "borderWidth20": '4rem'
+      "borderWidth30": '4em'
+    }
+  }}>
+    rest of app
+  </CustomizationProvider>
+)
+```
+
+### Create a custom theme using the Paste Theme Designer
+
+If you&rsquo;re looking for a visual approach to creating a custom theme, then the [Paste Theme Designer](https://paste-theme-designer.netlify.app/edit) is the best choice.
+
+The theme designer comes with a UI so you can visually see what tokens are used in various components. For ease of use, each set of tokens is separated into categories. Once a category is selected, you can change individual token values and immediately see what component(s) will be affected by that change. Once all token changes have been made, you can then export your custom theme.
+
+Once exported from the Theme Designer, you can store that JSON object in you application and import in where you initialize the Customization Provider to provide your application with an entire custom theme.
+
+```jsx
+import {CustomizationProvider} from '@twilio-paste/core/customization';
+import CustomTheme from './themes/theme.json';
+
+const MyApp = () => (
+  <CustomizationProvider baseTheme="Default" theme={CustomTheme}>
+    rest of app
+  </CustomizationProvider>
+);
+```
+
+The theme designer can also be used to import a custom theme if you wish to make a change to an existing theme and want immediate feedback on how that change would affect Paste components.
+
+### Tips for creating your custom theme
+
+- Make sure your color choices are accessible.
+- Provide clear focus shadow or outline color.
+- If you change the font family tokens, make sure you&rsquo;re loading the font in the `head` of your application.
+- Make sure your hover, focus, and active states provide enough visual affordance for all users.
+- Follow the Paste [Inclusive Design Checklist](/accessibility/inclusive-design)
+
+<AccessibilityCallout />
+
+---
+
+## Examples
+
+### Creating a branded theme
+
+Something simple, yet effective that you might want to do is apply branding to your custom application. With Paste, a quick way to do that is to change the Primary colors within in the theme to be a tint of your primary brand color.
+
+As an example you might provide the Customization Provider a theme object that only sets values for the follow Design Tokens, based on your own companies branding:
+
+```
+{
+  backgroundColors: {
+    colorBackgroundPrimaryWeakest: PROVIDE_YOUR_COLOR,
+    colorBackgroundPrimaryWeaker: PROVIDE_YOUR_COLOR,
+    colorBackgroundPrimaryWeak: PROVIDE_YOUR_COLOR,
+    colorBackgroundPrimary: PROVIDE_YOUR_COLOR,
+    colorBackgroundPrimaryStrong: PROVIDE_YOUR_COLOR,
+    colorBackgroundPrimaryStronger: PROVIDE_YOUR_COLOR,
+    colorBackgroundPrimaryStrongest: PROVIDE_YOUR_COLOR
+  },
+  borderColors: {
+    colorBorderPrimaryWeakest: PROVIDE_YOUR_COLOR,
+    colorBorderPrimaryWeaker: PROVIDE_YOUR_COLOR,
+    colorBorderPrimaryWeak: PROVIDE_YOUR_COLOR,
+    colorBorderPrimary: PROVIDE_YOUR_COLOR,
+    colorBorderPrimaryStrong: PROVIDE_YOUR_COLOR,
+    colorBorderPrimaryStronger: PROVIDE_YOUR_COLOR,
+    colorBorderPrimaryStrongest: PROVIDE_YOUR_COLOR
+  },
+  shadows: {
+    shadowBorderPrimaryWeaker: PROVIDE_YOUR_COLOR,
+    shadowBorderPrimaryWeak: PROVIDE_YOUR_COLOR,
+    shadowBorderPrimary: PROVIDE_YOUR_COLOR,
+    shadowBorderPrimaryStrong: PROVIDE_YOUR_COLOR,
+    shadowBorderPrimaryStronger: PROVIDE_YOUR_COLOR,
+    shadowBorderPrimaryStrongest: PROVIDE_YOUR_COLOR
+  },
+  textColors: {
+    colorTextLinkWeak: PROVIDE_YOUR_COLOR,
+    colorTextLink: PROVIDE_YOUR_COLOR,
+    colorTextLinkStrong: PROVIDE_YOUR_COLOR,
+    colorTextLinkStronger: PROVIDE_YOUR_COLOR,
+  }
+}
+```
+
+This will apply your companies brand color as the primary accent to all Paste components that need to use it. You can see an example of this in the Code Sandbox below.
+
+<Box marginBottom="space70">
+  <iframe
+    src="https://codesandbox.io/embed/custom-branding-uh7cc?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    title="Custom Branding"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  ></iframe>
+</Box>
+
+### Customizating typography
+
+Another small customization might involve changing the typography that is supplied with Paste. Maybe your companies brand guidelines stipulate that you should use a certain font family? By changing the set of typography tokens on the theme, you can make ajustments to the font family and sizing ramps used in Paste to suit your companies needs.
+
+To achieve the result displayed below, we have provided Paste with the following partial theme object.
+
+```
+{
+  fonts: {
+    fontFamilyText: "'Poppins', sans-serif"
+  },
+  fontWeights: {
+    fontWeightLight: "400",
+    fontWeightNormal: "400",
+    fontWeightMedium: "500",
+    fontWeightSemibold: "600",
+    fontWeightBold: "800"
+  },
+  fontSizes: {
+    fontSize10: "10px",
+    fontSize20: "12px",
+    fontSize30: "16px",
+    fontSize40: "20px",
+    fontSize50: "24px",
+    fontSize60: "28px",
+    fontSize70: "32px",
+    fontSize80: "36px",
+    fontSize90: "40px",
+    fontSize100: "44px",
+    fontSize110: "48px"
+  }
+}
+```
+
+<FontCallout />
+
+<Box marginBottom="space70">
+  <iframe
+    src="https://codesandbox.io/embed/custom-typography-ioudh?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    title="Custom Typography"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  ></iframe>
+</Box>
+
+</content>
+
+</contentwrapper>
