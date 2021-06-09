@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/input",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "category": "user input",
   "status": "production",
   "description": "An input allows users to enter text on a single lines",
@@ -40,7 +40,7 @@
   "devDependencies": {
     "@twilio-paste/box": "^4.0.5",
     "@twilio-paste/design-tokens": "^6.7.0",
-    "@twilio-paste/input-box": "^4.0.4",
+    "@twilio-paste/input-box": "^4.0.6",
     "@twilio-paste/style-props": "^3.0.4",
     "@twilio-paste/styling-library": "^0.3.2",
     "@twilio-paste/theme": "^5.1.0",
