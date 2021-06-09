@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.0.5
+
+### Patch Changes
+
+- [`2db8bf96`](https://github.com/twilio-labs/paste/commit/2db8bf963c2fc34e191aa3bfec5c0a0e95e7c72f) [#1505](https://github.com/twilio-labs/paste/pull/1505) Thanks [@richbachman](https://github.com/richbachman)! - Changed disabled box shadows to use correct shadow-border-weak token.
+
 ## 4.0.4
 
 ### Patch Changes

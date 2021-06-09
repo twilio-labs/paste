@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.3.0
+
+### Minor Changes
+
+- [`c42f86ca`](https://github.com/twilio-labs/paste/commit/c42f86ca2b652e7876188e94a8acab63d486ab04) [#1434](https://github.com/twilio-labs/paste/pull/1434) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Added two new icons for light and dark mode
+
 ## 5.2.0
 
 ### Minor Changes

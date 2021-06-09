@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.0.4
+
+### Patch Changes
+
+- [`104628b3`](https://github.com/twilio-labs/paste/commit/104628b358b773df6f5afc885252eaa64f311c97) [#1505](https://github.com/twilio-labs/paste/pull/1505) Thanks [@richbachman](https://github.com/richbachman)! - Changed default and disabled secondary button box shadow and text color styles to match Figma design files.
+
 ## 7.0.3
 
 ### Patch Changes
