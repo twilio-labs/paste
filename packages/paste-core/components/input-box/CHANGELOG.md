@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.0.6
+
+### Patch Changes
+
+- [`ed8e7ccf`](https://github.com/twilio-labs/paste/commit/ed8e7ccfc8a0d4a6aa18e8741796496690459b5d) [#1499](https://github.com/twilio-labs/paste/pull/1499) Thanks [@nkrantz](https://github.com/nkrantz)! - Added type 'date' to Input-Box types for date picker component
+
 ## 4.0.5
 
 ### Patch Changes
