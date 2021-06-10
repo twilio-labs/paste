@@ -6,7 +6,7 @@ import {Box} from '@twilio-paste/box';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
 import {styled} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';
-import {PasteIconInverse} from '../../icons/PasteIconInverse';
+import {PasteIconPride} from '../../icons/PasteIconPride';
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -39,7 +39,7 @@ const SiteHeaderLogo: React.FC<SiteHeaderLogoProps> = ({title, subtitle}) => {
     >
       <MediaObject verticalAlign="center">
         <MediaFigure spacing={subtitle ? 'space40' : 'space0'}>
-          <PasteIconInverse color={theme.textColors.colorTextInverse} display="block" size={42} />
+          <PasteIconPride display="block" size={42} />
         </MediaFigure>
         <MediaBody>
           <Text as="div" fontSize="fontSize40" lineHeight="lineHeight40" color="colorTextInverse">
