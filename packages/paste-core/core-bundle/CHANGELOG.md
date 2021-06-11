@@ -1,5 +1,14 @@
 # Change Log
 
+## 9.6.1
+
+### Patch Changes
+
+- [`5e770d20`](https://github.com/twilio-labs/paste/commit/5e770d200ebef1f18b67e6861407e8c092503c57) [#1558](https://github.com/twilio-labs/paste/pull/1558) Thanks [@TheSisb](https://github.com/TheSisb)! - Fixes a bug where Toasts may not display using the provided Toaster for users with the system flag "prefers-reduced-motion"
+
+- Updated dependencies [[`5e770d20`](https://github.com/twilio-labs/paste/commit/5e770d200ebef1f18b67e6861407e8c092503c57)]:
+  - @twilio-paste/toast@5.0.2
+
 ## 9.6.0
 
 ### Minor Changes
