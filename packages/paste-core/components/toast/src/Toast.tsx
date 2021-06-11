@@ -10,7 +10,8 @@ import {ErrorToast} from './ErrorToast';
 import {NeutralToast} from './NeutralToast';
 import {SuccessToast} from './SuccessToast';
 import {WarningToast} from './WarningToast';
-import {ToastProps, ToastPropTypes, ToastVariants} from './types';
+import {ToastPropTypes} from './propTypes';
+import type {ToastProps, ToastVariants} from './types';
 import {ToastVariantObject} from './constants';
 
 const ToastComponentVariants = {

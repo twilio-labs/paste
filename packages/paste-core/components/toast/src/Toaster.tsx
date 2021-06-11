@@ -1,10 +1,11 @@
 import * as React from 'react';
-import {useTransition, animated} from '@twilio-paste/animation-library';
+import {useTransition, animated, useReducedMotion} from '@twilio-paste/animation-library';
 import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {Toast} from './Toast';
 import {ToastPortal} from './ToastPortal';
-import {ToasterProps, ToasterPropTypes} from './types';
+import {ToasterPropTypes} from './propTypes';
+import type {ToasterProps} from './types';
 
 export const AnimatedToast = animated(Box);
 
@@ -13,21 +14,41 @@ interface ReturnTargetState {
 }
 
 const Toaster: React.FC<ToasterProps> = ({toasts, pop, ...props}) => {
+  const prefersReducedMotion = useReducedMotion();
   const [refMap] = React.useState(() => new WeakMap());
   const [returnTarget, setReturnTarget] = React.useState<ReturnTargetState>({trigger: null});
   const theme = useTheme();
 
+  // Convoluted code to fix bug in react-spring + skipAnimation being true
+  // when prefersReducedMotion
   const transitions = useTransition(toasts, {
-    from: {height: 0, marginBottom: '0rem', opacity: 0, transform: 'translateX(100%) scale(1)'},
-    enter: (item) => async (next) => {
-      await next({
-        height: refMap.get(item).offsetHeight,
-        marginBottom: theme.space.space40,
-        opacity: 1,
-        transform: 'translateX(0px) scale(1)',
-      });
+    from: {
+      marginBottom: '0rem',
+      opacity: 0,
+      transform: 'translateX(100%) scale(1)',
+      height: prefersReducedMotion ? 'auto' : 0,
     },
-    leave: {height: 0, marginBottom: '0rem', opacity: 0, transform: 'translateX(0px) scale(0.8)'},
+    /* We use object notation instead of function / next to fix a bug
+     * with prefers reduced motion in our version of React spring
+     * Similar to issue: https://github.com/pmndrs/react-spring/issues/1160
+     * FIXME: try again in v9+ of react-spring
+     */
+    enter: prefersReducedMotion
+      ? {marginBottom: theme.space.space40, opacity: 1, transform: 'translateX(0px) scale(1)'}
+      : (item: any) => async (next: any) => {
+          await next({
+            marginBottom: theme.space.space40,
+            opacity: 1,
+            transform: 'translateX(0px) scale(1)',
+            height: refMap.get(item).offsetHeight,
+          });
+        },
+    leave: {
+      marginBottom: '0rem',
+      opacity: 0,
+      transform: 'translateX(0px) scale(0.8)',
+      height: prefersReducedMotion ? 'auto' : 0,
+    },
     config: {
       mass: 1,
       tension: 150,
@@ -53,7 +74,7 @@ const Toaster: React.FC<ToasterProps> = ({toasts, pop, ...props}) => {
 
   return (
     <ToastPortal {...props}>
-      {transitions((styles, item, state, index) => {
+      {transitions((styles: unknown, item: any, state: {key: any}, index: number) => {
         return (
           // type clash between spring styles and style object. Not sure how to type cast it
           <AnimatedToast as="div" key={state.key} style={styles as any}>

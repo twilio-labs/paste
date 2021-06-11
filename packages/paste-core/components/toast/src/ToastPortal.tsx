@@ -2,7 +2,8 @@ import * as React from 'react';
 import {StyledBase} from '@twilio-paste/theme';
 import {Portal} from '@twilio-paste/reakit-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {ToastPortalProps, ToastPortalPropTypes} from './types';
+import {ToastPortalPropTypes} from './propTypes';
+import type {ToastPortalProps} from './types';
 
 const ToastPortal = React.forwardRef<HTMLDivElement, ToastPortalProps>(({children, __console_patch, ...props}, ref) => {
   return (
