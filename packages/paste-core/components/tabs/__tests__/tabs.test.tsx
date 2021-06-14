@@ -2,21 +2,11 @@ import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
-import {HorizontalTabsExample, VerticalTabsExample, StateHookExample} from '../stories/index.stories';
+import {HorizontalTabs, StateHookTabs} from '../stories/index.stories';
 import {Tabs, Tab, TabList, TabPanels, TabPanel} from '../src';
 
 describe('Tabs', () => {
   describe('Render', () => {
-    it('horizontally and vertically', () => {
-      const {asFragment} = render(
-        <>
-          <HorizontalTabsExample />
-          <VerticalTabsExample />
-        </>
-      );
-      expect(asFragment()).toMatchSnapshot();
-    });
-
     it('relevant html and aria attributes', () => {
       const [tabOneId, tabTwoId, tabThreeId, panelOneId, panelTwoId, panelThreeId] = [...new Array(6)].map(
         (_, i) => `${i}`
@@ -83,7 +73,7 @@ describe('Tabs', () => {
     });
 
     it('should render tabs using the state prop and go to the next tab on button click', () => {
-      render(<StateHookExample />);
+      render(<StateHookTabs />);
 
       const [ButtonOne] = screen.queryAllByRole('button');
 
@@ -104,7 +94,7 @@ describe('Tabs', () => {
 
   describe('Accessibility', () => {
     it('Should have no accessibility violations', async () => {
-      const {container} = render(<HorizontalTabsExample />);
+      const {container} = render(<HorizontalTabs />);
       const results = await axe(container);
       expect(results).toHaveNoViolations();
     });
