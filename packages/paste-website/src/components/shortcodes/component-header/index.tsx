@@ -46,7 +46,6 @@ interface ComponentHeaderProps {
   categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
   githubUrl: string;
   storybookUrl: string;
-  abstractUrl: string;
   data?: [
     {
       node: {
@@ -81,14 +80,7 @@ const PackageInstallSnippet: React.FC = ({children}) => {
   return <InlineCode>{children}</InlineCode>;
 };
 
-const ComponentHeader: React.FC<ComponentHeaderProps> = ({
-  name,
-  categoryRoute,
-  githubUrl,
-  storybookUrl,
-  abstractUrl,
-  data,
-}) => {
+const ComponentHeader: React.FC<ComponentHeaderProps> = ({name, categoryRoute, githubUrl, storybookUrl, data}) => {
   if (data == null || data[0] == null || data[0].node == null) {
     return <ComponentHeaderBasic categoryRoute={categoryRoute} name={name} />;
   }
@@ -115,10 +107,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
             <Box display="inline" marginRight="space30">
               <Anchor href={githubUrl}>Github</Anchor>
             </Box>
-            <Box display="inline" marginRight="space30">
-              {storybookUrl != null ? <Anchor href={`${STORYBOOK_DOMAIN}${storybookUrl}`}>Storybook</Anchor> : null}
-            </Box>
-            {abstractUrl != null ? <Anchor href={abstractUrl}>Abstract</Anchor> : null}
+            {storybookUrl != null ? <Anchor href={`${STORYBOOK_DOMAIN}${storybookUrl}`}>Storybook</Anchor> : null}
           </PackageValue>
         </Box>
         <Box marginBottom="space20">
