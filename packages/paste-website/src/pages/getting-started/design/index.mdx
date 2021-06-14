@@ -54,25 +54,21 @@ export const pageQuery = graphql`
 
 You’ll need to download a few things before you can get started designing UIs with Paste.
 
-### Abstract
-
-All product designers across Twilio use [Abstract](https://www.abstract.com) to host and version control
-their design files. We also use Abstract to link Paste Sketch libraries and manage library updates (more on
-that later). Connect with your design manager to get added to the Twilio team in Abstract.
+### Figma
 
 <Callout variant="information">
-  <CalloutTitle>Getting familiar with Abstract</CalloutTitle>
+  <CalloutTitle>Migrating from Sketch to Figma</CalloutTitle>
   <CalloutText>
-    If you are not yet familiar with Abstract, please take some time to learn about{' '}
-    <Anchor href="https://www.abstract.com/how-it-works">how it works</Anchor>, and read through these resources on{' '}
-    <Anchor href="https://help.abstract.com/hc/en-us/categories/360004353732-Best-Practices">best practices</Anchor>.
+    A{' '}
+    <Anchor href="https://docs.google.com/document/d/1IOBY2kxdHB6b8nlSWIFOLK7TKTV-Xxv7czzCZIVTAxg/edit#heading=h.ovpqdunx7hsp">
+      full migration and onboarding guide
+    </Anchor>{' '}
+    has been created to help with the transition to Figma.
   </CalloutText>
 </Callout>
 
-### Sketch
-
-Product designers across Twilio use Sketch to design their UIs. You can [file a ticket with IT](https://twilio.service-now.com/sp/)
-to get a Sketch license.
+Product designers across Twilio use Figma to design their UIs. You can [file a ticket with IT](https://twilio.service-now.com/sp/)
+to get a Figma license.
 
 ### Font files
 
@@ -100,22 +96,19 @@ It’s a free font. After you download the files, follow the instructions in the
 If you are using the <strong>Console theme</strong> in Paste, you will need to download Whitney, which we use for UI text.
 Reach out to us in `#help-design-system` if you need access to the Whitney font files for your work.
 
-## How to use Sketch libraries
+## How to use Figma libraries
 
-For every Abstract project, you
-will need to link the necessary Paste Sketch libraries in order to use the
-Sketch symbols, text styles, and layer styles.
+For every Figma project, you will need to link the necessary Paste libraries in order to use the
+components, text, and layer styles.
 
-<Callout variant="information">
-  <CalloutTitle>Tips on linking libraries in Abstract</CalloutTitle>
-  <CalloutText>
-    If you haven’t linked libraries in Abstract before, follow{' '}
-    <Anchor href="https://help.abstract.com/hc/en-us/articles/360050379891-Linking-Libraries">this guide</Anchor> to
-    learn how.
-  </CalloutText>
-</Callout>
+### Linking the libraries
 
-### Paste components
+You will need to "link" the Paste libaries to get all the components, text, and layer styles in your design files.
+
+![Buttons to click in Figma to open the library selector](../../../assets/images/design-guidelines/figma-open-library-modal.png)
+![Modal in Figma where you can select the Paste components library to link to your project](../../../assets/images/design-guidelines/figma-link-paste-libraries.png)
+
+#### Paste Components library
 
 <Tooltip text="There is ongoing maintenance and net new work in this project. Libraries in this project are at parity with code.">
   <Box
@@ -140,39 +133,52 @@ Sketch symbols, text styles, and layer styles.
   </Box>
 </Tooltip>
 
-The `Paste components` project contains libraries that represent components that are available in Paste. For example,
-within the `Paste components` project, we have a Sketch library called `button`, which has all variants and states of
-our button component in both the Console and Default themes.
+The `Paste Components` library contains components that are available in Paste. For example,
+within the `Paste components` project, we have a `button`, which has all variants and states of
+our button component as seen on this documentation website.
 
-#### Linking the libraries
+#### Paste Default Theme library
 
-To add Paste components to your designs, you will need to link the relevant component libraries from the `Paste components`
-project in Abstract. There are many libraries available in this project: one library per component available in Paste
-(except for a few [special cases](#special-cases)).
+<Tooltip text="There is ongoing maintenance and net new work in this project. Libraries in this project are at parity with code.">
+  <Box
+    role="button"
+    as="span"
+    display="inline-block"
+    width="auto"
+    marginBottom="space50"
+    paddingTop="space20"
+    paddingBottom="space20"
+    paddingLeft="space30"
+    paddingRight="space30"
+    borderColor="colorBorder"
+    borderWidth="borderWidth10"
+    borderStyle="solid"
+    borderRadius="borderRadius20"
+  >
+    <Stack as="span" orientation="horizontal" spacing="space20">
+      <SuccessIcon decorative={false} title="Success icon" color="colorTextSuccess" />
+      <Text as="p">Actively maintained</Text>
+    </Stack>
+  </Box>
+</Tooltip>
 
-You can link all libraries within `Paste components` if you’d like, or you can link them as you need them. For example, if you are
-working on a flow that uses anchor, button, and card from Paste, at a minimum, you should link those libraries to your project.
+The design tokens are housed in the `Paste Default Theme` library. They contain
+the [tokens](/tokens) available for use in the system.
 
-![Modal in Abstract where you can select libraries from the Paste compenents project to link to your project](../../../assets/images/design-guidelines/link-component-library-modal.png)
+##### Using the library
 
-#### Using the libraries
+Once you have this library linked, you will see text styles (which include text colors, font families, and font sizes) and layer
+styles (which include background colors, border widths and colors, shadows, etc.) for that theme.
 
-Once you have them linked, you will be able to insert symbols from those libraries into your Sketch files in that Abstract project.
-Use the symbols that match the theme you are using in your project.
+![Menu in Figma when you can navigate through tokens for the Default theme](../../../assets/images/design-guidelines/token-styles.png)
 
-![Menu in Sketch where you can navigate through symbols from the Anchor Sketch library](../../../assets/images/design-guidelines/paste-components-symbol.png)
-
-<Callout variant="warning">
-  <CalloutTitle>A note on SendGrid components</CalloutTitle>
-  <CalloutText>
-    You will see that some symbols are provided in the SendGrid theme. If you plan to use them, please reach out to us
-    in #help-design-system.
-  </CalloutText>
-</Callout>
+You should be using components from Paste to compose your UIs whenever possible, but the text and layer styles will be helpful when you need to compose something more custom.
+This can be anything from setting a piece of text next to an icon to creating a custom stepper component. Check out this [how-to](https://www.loom.com/share/7f3fe097ad9d4c5abf2a5cd0cdd0846a) for
+using these text and layer styles to create custom compositions.
 
 #### Special cases
 
-Most library names in the `Paste components` project mirror the list of components you will find on the docs site, with a few notable
+Most library names in the `Paste Components` project mirror the list of components you will find on the docs site, with a few notable
 exceptions: `typography`, `forms`, and `grid and spacing`.
 
 <Box marginBottom="space70">
@@ -238,70 +244,6 @@ This library contains symbols for some common grid layouts, as well as the verti
 </Disclosure>
 </Stack>
 </Box>
-
-### Paste design tokens
-
-<Tooltip text="There is ongoing maintenance and net new work in this project. Libraries in this project are at parity with code.">
-  <Box
-    role="button"
-    as="span"
-    display="inline-block"
-    width="auto"
-    marginBottom="space50"
-    paddingTop="space20"
-    paddingBottom="space20"
-    paddingLeft="space30"
-    paddingRight="space30"
-    borderColor="colorBorder"
-    borderWidth="borderWidth10"
-    borderStyle="solid"
-    borderRadius="borderRadius20"
-  >
-    <Stack as="span" orientation="horizontal" spacing="space20">
-      <SuccessIcon decorative={false} title="Success icon" color="colorTextSuccess" />
-      <Text as="p">Actively maintained</Text>
-    </Stack>
-  </Box>
-</Tooltip>
-
-The `Paste design tokens` project houses the text and layer styles for each theme in Paste. These libraries represent
-the [tokens](/tokens) available for use in the system. For example, in the `default theme` file,
-you can find layer styles for every background color token that is available for the Default theme.
-
-#### Linking the library
-
-There are two libraries available in this project:
-
-- The `console theme` is the current theme you see in Console. Flip the toggle on the Paste docs site to "Current"
-  to see this theme.
-- The `default theme` is the new unified theme, formerly known as the "Unified Design Language" or "UDL". Flip the toggle
-  on the Paste docs site to "Preview" to see this theme.
-
-Link whichever library matches the theme you are using in your project. For example, if you are designing using the
-Default theme, link the `default theme` library to your project.
-
-![Modal in Abstract where you can select libraries from the Paste design tokens project to link to your project](../../../assets/images/design-guidelines/link-theme-library-modal.png)
-
-<Callout variant="warning">
-  <CalloutTitle>A note on the SendGrid theme</CalloutTitle>
-  <CalloutText>
-    You will also see the SendGrid theme in this project. If you plan to use this theme, please reach out to us in
-    #help-design-system.
-  </CalloutText>
-</Callout>
-
-#### Using the library
-
-Once you have this library linked, you will see text styles (which include text colors, font families, and font sizes) and layer
-styles (which include background colors, border widths and colors, shadows, etc.) for that theme.
-
-![Menu in Sketch when you can navigate through text styles for the Default theme](../../../assets/images/design-guidelines/text-styles.png)
-
-![Menu in Sketch where you can navigate through layer styles for the Default theme](../../../assets/images/design-guidelines/layer-styles.png)
-
-You should be using components from Paste to compose your UIs whenever possible, but the text and layer styles will be helpful when you need to compose something more custom.
-This can be anything from setting a piece of text next to an icon to creating a custom stepper component. Check out this [how-to](https://www.loom.com/share/7f3fe097ad9d4c5abf2a5cd0cdd0846a) for
-using these text and layer styles to create custom compositions in Sketch.
 
 ### Other libraries
 
@@ -413,7 +355,7 @@ For those of you doing design work in the SendGrid app, you are likely using the
 
 This project previously housed all icons available in Paste. For simplicity, we have pulled our icons into the `Paste components` project. If you are still using the `Paste icons` project in
 your work, please transition to using the [`icons`](https://app.abstract.com/projects/3daed58b-10b9-4ade-9373-a837591fe3c8/branches/master/files/84f1514e-bf2c-4784-99d7-def6e0b6f33d) library
-in the `Paste components` project.
+in the [`Paste Components` Figma library](/getting-started/design#paste-components-library).
 
   </DisclosureContent>
 </Disclosure>
@@ -455,7 +397,7 @@ Non-breaking functionality was added that requires no work to incorporate. For e
 
 Non-breaking bug fixes that require no work to incorporate. For example, the alignment of text in an input was fixed, or an incorrect border radius on small buttons was updated.
 
-### Safely accepting library updates
+### Safely accepting library updates (in legacy Abstract)
 
 When we merge library updates into the master branch in Abstract, those updates will be available in any projects where you have those libraries linked.
 
@@ -510,16 +452,6 @@ If the library updates broke anything in your design, identify which of the foll
 ## Additional questions or concerns
 
 If you have any questions for us that weren’t covered by this guide, or you are running into problems using our design resources, please [reach out](/getting-started/working-guide)!
-
-## Useful resources
-
-- [Sketch Runner](https://sketchrunner.com/): Download the free version of Runner to install any plugin right from Sketch. [Learn how to install a Sketch plugin from your desktop](https://www.sketch.com/docs/plugins/).
-
-For the following plugins, once you've installed Runner, go to Plugins > Runner > Install, then search for the plugin:
-
-- [Camilo](https://github.com/Pausansol/Camilo): Swaps Sketch libraries (e.g., from `console theme.sketch` to `default theme.sketch`).
-- [Symbol Swapper](https://github.com/sonburn/symbol-swapper): Swaps all symbol instances in a file (e.g., swaps all destructive primary button symbols in the Console theme to destructive primary button symbols in the Default theme).
-- [SVGO Compressor](https://www.sketch.com/extensions/plugins/svgo-compressor/): Compresses any SVG export automatically for more performant images and icons.
 
 </content>
 
