@@ -22,24 +22,14 @@ import {TokensList} from '../../components/tokens-list';
   visual design attributes.
 </Blockquote>
 
-Tokens are named for their use case, rather than their value. For example `$color-background-error` is named to indicate the appropriate background color for an error, as opposed to `$color-background-red` which is less specific and could be used in a number of ways depending on cultural context and design language. This makes their intended use clear and intentional, and allows us to develop a scalable and consistent visual language.
+Tokens are named for their use case, rather than their value. For example
+`$color-background-error` is named to indicate the appropriate background
+color for an error, as opposed to `$color-background-red` which is less
+specific and could be used in a number of ways depending on cultural context
+and design language. This makes their intended use clear and intentional,
+and allows us to develop a scalable and consistent visual language.
 
 In Paste, **1 rem unit = 16 pixels**.
-
-<Box
-  backgroundColor="colorBackground"
-  borderRadius="borderRadius20"
-  padding="space80"
-  marginTop="space100"
-  marginBottom="space100"
-  maxWidth="size40"
->
-  <Paragraph>
-    Use design tokens in your Sketch files through Abstract. Get the{' '}
-    <Anchor href="https://share.goabstract.com/06c5a50d-87df-4f40-bfe8-e92cc55de4aa">Console theme</Anchor> and{' '}
-    <Anchor href="https://share.goabstract.com/2a0af593-d939-463e-9763-6976bbbfbdbc">SendGrid theme</Anchor>.
-  </Paragraph>
-</Box>
 
 <TokensList defaultTokens={props.data.allPasteTokenDefault.edges} darkTokens={props.data.allPasteTokenDark.edges} />
 
