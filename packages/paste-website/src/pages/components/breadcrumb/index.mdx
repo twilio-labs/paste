@@ -41,6 +41,19 @@ export const pageQuery = graphql`
         value
       }
     }
+    allAirtable(filter: {data: {Feature: {eq: "Breadcrumb"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -50,6 +63,7 @@ export const pageQuery = graphql`
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/breadcrumb"
   storybookUrl="/?path=/story/components-breadcrumb--anchors"
   data={props.data.allPasteComponent.edges}
+  packageStatus={props.data.allAirtable.edges}
 />
 
 ---
@@ -59,15 +73,6 @@ export const pageQuery = graphql`
 <PageAside data={props.data.mdx} />
 
 <content>
-
-<Callout>
-  <CalloutTitle>Using alpha components in your product</CalloutTitle>
-  <CalloutText>
-    Alpha components are ready for use in production and components like Breadcrumb won't likely see any API changes.
-    The term "Alpha" means there is only basic documentation at this time. Please share your experience using this Alpha component by{' '}
-    <Anchor href="https://github.com/twilio-labs/paste/discussions/new" showExternal>starting a discussion on GitHub</Anchor>.
-  </CalloutText>
-</Callout>
 
 ## Guidelines
 
@@ -81,9 +86,11 @@ Breadcrumbs are listed in order and represent the hierarchy of the page in the p
   <CalloutTitle>Using Breadcrumb in Console products</CalloutTitle>
   <CalloutText>
     If you're planning on using Breadcrumbs in a Console product, please read the{' '}
-      <Anchor href="https://docs.google.com/document/d/1hQ0S4qC0N8lwpVAo4ySv3woYHjTNMEyK2bPKKPZ1eBo/edit" showExternal>Console Navigation guidelines
-      </Anchor>
-    {' '}and reach out to the Console team (#help-console-beta). Breadcrumbs will eventually be provided through the navigation framework.
+    <Anchor href="https://docs.google.com/document/d/1hQ0S4qC0N8lwpVAo4ySv3woYHjTNMEyK2bPKKPZ1eBo/edit" showExternal>
+      Console Navigation guidelines
+    </Anchor>{' '}
+    and reach out to the Console team (#help-console-beta). Breadcrumbs will eventually be provided through the
+    navigation framework.
   </CalloutText>
 </Callout>
 
@@ -173,7 +180,11 @@ You may choose to use a page Heading as the current page in the breadcrumb.
       <BreadcrumbItem href="#">Buy new number</BreadcrumbItem>
     </Breadcrumb>
   </Do>
-  <Dont title="Don't" body="Avoid using an unlinked BreadcrumbItem, especially if there's already a visible heading on the page. Exceptions can be made when there are parent pages that customers can't return to, but still need to actively reference." center>
+  <Dont
+    title="Don't"
+    body="Avoid using an unlinked BreadcrumbItem, especially if there's already a visible heading on the page. Exceptions can be made when there are parent pages that customers can't return to, but still need to actively reference."
+    center
+  >
     <Breadcrumb>
       <BreadcrumbItem href="#">Phone Numbers</BreadcrumbItem>
       <BreadcrumbItem>Buy new number</BreadcrumbItem>

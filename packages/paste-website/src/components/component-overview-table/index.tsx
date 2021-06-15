@@ -1,16 +1,21 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Table, THead, TBody, Tr, Th, Td} from '@twilio-paste/table';
+import {Popover, PopoverContainer, PopoverButton} from '@twilio-paste/popover';
+import {Text} from '@twilio-paste/text';
+import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
+import {AssetStatus} from '../component-status/AssetStatus';
+import {PeerReviewStatus} from '../component-status/PeerReviewStatus';
 import {SiteLink} from '../SiteLink';
-import {SidebarCategoryRoutes, PackageStatus} from '../../constants';
-import {getPackagePath, getHumanizedNameFromPackageName} from '../../utils/RouteUtils';
-import {ComponentNode} from '../../utils/types';
-import {filteredComponents, sortNodeByName} from '../../utils/componentFilters';
+import type {SidebarCategoryRoutes} from '../../constants';
+import {getPackagePath} from '../../utils/RouteUtils';
+import type {AirTableComponentNode} from '../../utils/types';
 
 interface ComponentOverviewTableProps {
   children?: React.ReactElement;
   categoryRoute?: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
-  componentsList?: [ComponentNode];
+  componentsList?: [AirTableComponentNode];
 }
 
 const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({categoryRoute, componentsList}) => {
@@ -18,46 +23,82 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({category
     return null;
   }
 
-  // Sort backlog items to the bottom of the list
-  const sortedBacklogList = componentsList
-    .filter(({node}) => node.status === PackageStatus.BACKLOG)
-    .sort(sortNodeByName);
-  const sortedComponentsList = componentsList.filter(filteredComponents).sort(sortNodeByName);
-
   return (
     <Box marginTop="space60" marginBottom="space60">
       <Table>
         <THead>
           <Tr>
             <Th>Name</Th>
-            <Th>Status</Th>
-            <Th>Version</Th>
+            <Th textAlign="center" width="150px">
+              Code ready
+            </Th>
+            <Th textAlign="center" width="150px">
+              Design assets
+            </Th>
+            <Th textAlign="center" width="150px">
+              Documentation
+            </Th>
+            <Th textAlign="center" width="150px">
+              <Box display="flex" alignItems="center">
+                <Text as="span" marginRight="space20">
+                  Peer review
+                </Text>
+                <PopoverContainer baseId="peer-review-popover">
+                  <PopoverButton variant="link" size="icon_small">
+                    <InformationIcon decorative={false} title="More information about peer review" />
+                  </PopoverButton>
+                  <Popover aria-label="Peer review information">
+                    Component/Pattern has been reviewed by both design and engineering committees.
+                  </Popover>
+                </PopoverContainer>
+              </Box>
+            </Th>
           </Tr>
         </THead>
         <TBody>
-          {sortedComponentsList.map(({node}) => {
+          {componentsList.map(({node}) => {
+            const {
+              Feature,
+              Figma,
+              Documentation,
+              // eslint-disable-next-line @typescript-eslint/naming-convention
+              Design_committee_review,
+              // eslint-disable-next-line @typescript-eslint/naming-convention
+              Engineer_committee_review,
+              Code,
+            } = node.data;
+
             return (
-              <Tr key={node.name}>
+              <Tr key={Feature}>
                 <Td>
-                  <SiteLink to={getPackagePath(categoryRoute, node.name)}>
-                    {getHumanizedNameFromPackageName(node.name)}
-                  </SiteLink>
+                  <SiteLink to={getPackagePath(categoryRoute, Feature)}>{Feature}</SiteLink>
                 </Td>
-                <Td>{node.status}</Td>
-                <Td>{node.version}</Td>
-              </Tr>
-            );
-          })}
-          {sortedBacklogList.map(({node}) => {
-            return (
-              <Tr key={node.name}>
-                <Td>
-                  <SiteLink to={getPackagePath(categoryRoute, node.name)}>
-                    {getHumanizedNameFromPackageName(node.name)}
-                  </SiteLink>
+                <Td textAlign="center">
+                  <AssetStatus label="Code done" status={Code} />
                 </Td>
-                <Td>{node.status}</Td>
-                <Td>&nbsp;</Td>
+                <Td textAlign="center">
+                  <AssetStatus label="Design assets done" status={Figma} />
+                </Td>
+                <Td textAlign="center">
+                  {Documentation === true ? (
+                    <Box display="flex" alignItems="center" justifyContent="center">
+                      <SuccessIcon
+                        display="inline-block"
+                        decorative={false}
+                        title="Documentation done"
+                        color="colorTextSuccess"
+                        size="sizeIcon30"
+                      />
+                    </Box>
+                  ) : (
+                    <Text as="span" color="colorTextWeak">
+                      Pending
+                    </Text>
+                  )}
+                </Td>
+                <Td textAlign="center">
+                  <PeerReviewStatus designStatus={Design_committee_review} engineerStatus={Engineer_committee_review} />
+                </Td>
               </Tr>
             );
           })}

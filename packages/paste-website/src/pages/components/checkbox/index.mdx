@@ -40,6 +40,19 @@ export const pageQuery = graphql`
         value
       }
     }
+    allAirtable(filter: {data: {Feature: {eq: "Checkbox"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -49,6 +62,7 @@ export const pageQuery = graphql`
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/checkbox"
   storybookUrl="/?path=/story/components-checkbox--checkbox"
   data={props.data.allPasteComponent.edges}
+  packageStatus={props.data.allAirtable.edges}
 />
 
 ---

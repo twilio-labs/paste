@@ -6,7 +6,6 @@ slug: /patterns/button-vs-anchor/
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
-import {Breadcrumb, BreadcrumbItem} from '../../../components/breadcrumb';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
@@ -32,25 +31,29 @@ export const pageQuery = graphql`
         value
       }
     }
+    allAirtable(filter: {data: {Feature: {eq: "Button vs Anchor"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+          }
+        }
+      }
+    }
   }
 `;
 
 <content>
-<Breadcrumb>
-  <BreadcrumbItem to="/">Home</BreadcrumbItem>
-  <BreadcrumbItem to="/patterns">Patterns</BreadcrumbItem>
-</Breadcrumb>
-<Heading as="h1" variant="heading10">
-  {props.pageContext.frontmatter.title}
-</Heading>
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
-<Box as="dl" display="flex">
-  <Text as="dt" color="colorTextWeak" lineHeight="lineHeight30">
-    <Box width="size10">Status</Box>
-  </Text>
-  <Text as="dd">beta</Text>
-</Box>
+<PatternHeader
+  description={props.pageContext.frontmatter.description}
+  name={props.pageContext.frontmatter.title}
+  packageStatus={props.data.allAirtable.edges}
+/>
 
 </content>
 

@@ -60,6 +60,19 @@ export const pageQuery = graphql`
         value
       }
     }
+    allAirtable(filter: {data: {Feature: {eq: "Combobox"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -69,6 +82,7 @@ export const pageQuery = graphql`
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/combobox"
   storybookUrl="/?path=/story/components-combobox--default-combobox"
   data={props.data.allPasteComponent.edges}
+  packageStatus={props.data.allAirtable.edges}
 />
 
 ---
@@ -78,16 +92,6 @@ export const pageQuery = graphql`
 <PageAside data={props.data.mdx} />
 
 <content>
-
-<Callout>
-  <CalloutTitle>Using alpha components in your product</CalloutTitle>
-  <CalloutText>
-    Alpha components are ready for you to use in production. Components such as Combobox are likely to not see any API
-    changes. This is only an alpha due to the lack of documentation and minimal design. Feel free to share your
-    experience using this component at #help-design-system or{' '}
-    <Anchor href="https://github.com/twilio-labs/paste/discussions/new">start a discussion on GitHub</Anchor>.
-  </CalloutText>
-</Callout>
 
 ## Guidelines
 

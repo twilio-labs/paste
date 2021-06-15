@@ -15,7 +15,6 @@ import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
 import {SidebarCategoryRoutes} from '../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
-import {StatusLegend} from '../../components/StatusLegend';
 
 <content>
 
@@ -34,11 +33,9 @@ import {StatusLegend} from '../../components/StatusLegend';
 
 <content>
 
-<StatusLegend />
-
 <ComponentOverviewTable
   categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
-  componentsList={props.data.allPastePrimitive.edges}
+  componentsList={props.data.allAirtable.edges}
 />
 
 <Callout>
@@ -78,6 +75,23 @@ export const pageQuery = graphql`
           version
           name
           status
+        }
+      }
+    }
+    allAirtable(
+      sort: {fields: [data___Feature]}
+      filter: {data: {status: {ne: null}, Component_Category: {eq: "primitive"}}}
+    ) {
+      edges {
+        node {
+          data {
+            Feature
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+          }
         }
       }
     }

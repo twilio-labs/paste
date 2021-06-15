@@ -1,5 +1,5 @@
 import {PackageStatus} from '../constants';
-import {ComponentNode} from './types';
+import type {ComponentNode} from './types';
 
 export const filteredComponents = (component: ComponentNode): boolean => {
   return (
@@ -12,5 +12,3 @@ export const filteredComponents = (component: ComponentNode): boolean => {
     component.node.name !== '@twilio-paste/input-box'
   );
 };
-
-export const sortNodeByName = (a: ComponentNode, b: ComponentNode): number => (a.node.name > b.node.name ? 1 : -1);

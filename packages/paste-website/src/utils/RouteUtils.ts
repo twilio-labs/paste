@@ -30,7 +30,7 @@ export function getHumanizedNameFromPackageName(packageName: string): string {
 
 // Returns `/components/button` from a category constant and package name
 export function getPackagePath(categoryRoute: string, packageName: string): string {
-  return `${categoryRoute}/${getNameFromPackageName(packageName)}`;
+  return `${categoryRoute}/${packageName.replace(/\s+/g, '-').toLowerCase()}`;
 }
 
 export function slugify(text: string): string {

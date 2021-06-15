@@ -2,7 +2,7 @@
   "name": "@twilio-paste/base-radio-checkbox",
   "version": "6.0.3",
   "category": "user input",
-  "status": "beta",
+  "status": "production",
   "description": "A shared base component for radio and checks",
   "author": "Twilio Inc.",
   "license": "MIT",

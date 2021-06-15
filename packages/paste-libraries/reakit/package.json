@@ -2,7 +2,7 @@
   "name": "@twilio-paste/reakit-library",
   "version": "0.8.1",
   "category": "library",
-  "status": "backlog",
+  "status": "production",
   "description": "The reakit third-party library.",
   "author": "Twilio Inc.",
   "license": "MIT",
