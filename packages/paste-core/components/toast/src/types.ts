@@ -1,5 +1,4 @@
-import * as PropTypes from 'prop-types';
-import {ValueOf} from '@twilio-paste/types';
+import type {ValueOf} from '@twilio-paste/types';
 import {ToastVariantObject} from './constants';
 
 export type ToastVariants = ValueOf<typeof ToastVariantObject>;
@@ -19,12 +18,6 @@ export interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
    */
   setFocus?: boolean;
 }
-export const ToastPropTypes = {
-  children: PropTypes.node.isRequired,
-  onDismiss: PropTypes.func,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  variant: PropTypes.oneOf(['error', 'neutral', 'success', 'warning']) as any,
-};
 
 export interface ToastPortalProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
@@ -32,11 +25,6 @@ export interface ToastPortalProps extends React.HTMLAttributes<HTMLDivElement> {
   // FIXME: Overrides token zIndex to fix bug with Console product.
   __console_patch?: boolean;
 }
-export const ToastPortalPropTypes = {
-  children: PropTypes.node.isRequired,
-  // FIXME: Overrides token zIndex to fix bug with Console product.
-  __console_patch: PropTypes.bool,
-};
 
 export interface ToastContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
@@ -44,11 +32,6 @@ export interface ToastContainerProps extends React.HTMLAttributes<HTMLDivElement
   // FIXME: Overrides token zIndex to fix bug with Console product.
   __console_patch?: boolean;
 }
-export const ToastContainerPropTypes = {
-  children: PropTypes.node.isRequired,
-  // FIXME: Overrides token zIndex to fix bug with Console product.
-  __console_patch: PropTypes.bool,
-};
 
 export interface ToasterToast extends Pick<ToastProps, 'variant' | 'setFocus'> {
   id: string;
@@ -83,17 +66,3 @@ export interface ToasterProps extends Pick<UseToasterReturnedProps, 'toasts' | '
   // FIXME: Overrides token zIndex to fix bug with Console product.
   __console_patch?: boolean;
 }
-
-export const ToasterPropTypes = {
-  toasts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      message: PropTypes.node.isRequired,
-      setFocus: PropTypes.bool,
-      variant: PropTypes.oneOf(Object.values(ToastVariantObject)).isRequired,
-    })
-  ).isRequired as any,
-  pop: PropTypes.func.isRequired,
-  // FIXME: Overrides token zIndex to fix bug with Console product.
-  __console_patch: PropTypes.bool,
-};

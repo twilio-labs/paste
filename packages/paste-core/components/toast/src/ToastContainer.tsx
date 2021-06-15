@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {Stack} from '@twilio-paste/stack';
 import {ToastPortal} from './ToastPortal';
-import {ToastContainerProps, ToastContainerPropTypes} from './types';
+import {ToastContainerPropTypes} from './propTypes';
+import type {ToastContainerProps} from './types';
 
 const ToastContainer = React.forwardRef<HTMLDivElement, ToastContainerProps>(({children, ...props}, ref) => {
   return (

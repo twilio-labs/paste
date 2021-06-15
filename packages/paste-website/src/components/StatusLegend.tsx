@@ -19,8 +19,8 @@ export const StatusLegend: React.FC = () => (
       is a reflection of completeness, not stability.
     </Paragraph>
     <Text as="p" lineHeight="lineHeight40" marginBottom="space20">
-      <strong>Alpha</strong>: This component has incomplete documentation, missing Sketch or Figma symbols, has not been
-      through DSYS committee review and has not been through UX review.
+      <strong>Alpha</strong>: This component has incomplete documentation, missing Figma component, has not been through
+      DSYS committee review and has not been through UX review.
     </Text>
     <Text as="p" lineHeight="lineHeight40" marginBottom="space20">
       <strong>Beta</strong>: This component may not have been through DSYS committee review or UX review.

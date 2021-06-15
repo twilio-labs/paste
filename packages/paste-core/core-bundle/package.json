@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "9.6.0",
+  "version": "9.6.1",
   "status": "beta",
   "description": "Contains all the core packages from the Paste internal design system.",
   "author": "Twilio Inc.",
@@ -78,7 +78,7 @@
     "@twilio-paste/text": "^4.0.4",
     "@twilio-paste/textarea": "^3.0.5",
     "@twilio-paste/theme": "^5.2.0",
-    "@twilio-paste/toast": "^5.0.1",
+    "@twilio-paste/toast": "^5.0.2",
     "@twilio-paste/tooltip": "^4.0.3",
     "@twilio-paste/tooltip-primitive": "^0.2.4",
     "@twilio-paste/truncate": "^6.0.2",
