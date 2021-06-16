@@ -39,6 +39,19 @@ export const pageQuery = graphql`
         value
       }
     }
+    allAirtable(filter: {data: {Feature: {eq: "List"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -47,8 +60,8 @@ export const pageQuery = graphql`
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/list"
   storybookUrl="/?path=/story/components-list--default-ordered-list"
-  abstractUrl="https://share.goabstract.com/85c81258-90b9-49c8-b34b-9418da5f2f00"
   data={props.data.allPasteComponent.edges}
+  packageStatus={props.data.allAirtable.edges}
 />
 
 ---
@@ -63,25 +76,22 @@ export const pageQuery = graphql`
   {`<UnorderedList>
 
   <ListItem>
-    Mario Gonzalez
+    Trans black lives matter
   </ListItem>
   <ListItem>
-    Tamir Rice
+    Queer black lives matter
   </ListItem>
   <ListItem>
-    Philando Castile
+    Poor black lives matter
   </ListItem>
   <ListItem>
-    Trayvon Martin
+    Young black lives matter
   </ListItem>
   <ListItem>
-    Breonna Taylor
+    Old black lives matter
   </ListItem>
   <ListItem>
-    Shantel Davis
-  </ListItem>
-  <ListItem>
-    Walter Scott
+    All black lives matter
   </ListItem>
   </UnorderedList>`}
 </LivePreview>
@@ -99,8 +109,6 @@ Lists are a number of connected list items that are printed consecutively, typic
 - Lists can be nested as deeply as needed, and they may alternate between ordered and unordered
 - Lists should align with the font-size, font-weight, and line-height of paragraphs, but are styled with bullets or numbers
 - Lists can have similar children elements as paragraphs to provide emphasis on a certain word or phrase
-
-List is part of the [Typography package](/components/typography), which includes Header and Paragraph as well.
 
 ### Accessibility
 
@@ -127,7 +135,7 @@ Use unordered list to display a basic list of items. This is the default variant
 
 <LivePreview scope={{UnorderedList, ListItem}} language="jsx">
   {`<UnorderedList>
-    <ListItem>
+  <ListItem>
     Tamir Rice
   </ListItem>
   <ListItem>
@@ -144,6 +152,9 @@ Use unordered list to display a basic list of items. This is the default variant
   </ListItem>
   <ListItem>
     Walter Scott
+  </ListItem>
+  <ListItem>
+    Mario Gonzalez
   </ListItem>
 </UnorderedList>`}
 </LivePreview>
@@ -171,6 +182,9 @@ Use ordered list to display a numbered list of items.
   </ListItem>
   <ListItem>
     Walter Scott
+  </ListItem>
+  <ListItem>
+    Mario Gonzalez
   </ListItem>
 </OrderedList>`}
 </LivePreview>

@@ -124,20 +124,6 @@ const SiteFooterNav: React.FC = () => {
         <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={['space0', 'space130']}>
           <Stack orientation="vertical" spacing="space60">
             <Anchor
-              href="https://share.goabstract.com/786b3d8f-b87a-4140-af7d-eb4cdd40e8ed"
-              variant="inverse"
-              showExternal
-              onClick={() =>
-                trackCustomEvent({
-                  category: 'Footer',
-                  action: 'click-abstract',
-                  label: 'Abstract',
-                })
-              }
-            >
-              Abstract
-            </Anchor>
-            <Anchor
               href="https://github.com/twilio-labs/paste"
               variant="inverse"
               showExternal

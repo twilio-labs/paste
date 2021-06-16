@@ -2,7 +2,7 @@
   "name": "@twilio-paste/tooltip",
   "version": "4.0.3",
   "category": "interaction",
-  "status": "alpha",
+  "status": "production",
   "description": "The Tooltip is a popup that displays clarifying text related to an element that has been focused or hovered on.",
   "author": "Twilio Inc.",
   "license": "MIT",

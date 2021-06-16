@@ -36,19 +36,18 @@ render(
 `.trim();
 
 export const autoCompleteExample = `
-const products = ['SMS', 'Phone Numbers', 'Video'];
+const artists = ['The Aces', 'Brandi Carlile', 'Claud', 'Deb Never', 'Hayley Kiyoko', 'Janelle Monáe', 'LP', 'MUNA', 'Sam Smith', 'Years & Years'];
 
 const AutoCompleteCombobox = () => {
-  const [inputItems, setInputItems] = React.useState(products);
+  const [inputItems, setInputItems] = React.useState(artists);
   return (
     <Combobox
       autocomplete
       items={inputItems}
-      labelText="Select a product"
-      helpText="Please choose a Twilio product."
+      labelText="Select an artist"
       onInputValueChange={({inputValue}) => {
         if (inputValue !== undefined) {
-          setInputItems(products.filter(item => item.toLowerCase().startsWith(inputValue.toLowerCase())));
+          setInputItems(artists.filter(item => item.toLowerCase().startsWith(inputValue.toLowerCase())));
         }
       }}
     />

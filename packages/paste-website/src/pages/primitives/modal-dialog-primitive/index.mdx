@@ -37,6 +37,19 @@ export const pageQuery = graphql`
         value
       }
     }
+    allAirtable(filter: {data: {Feature: {eq: "Modal Dialog Primitive"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -46,6 +59,7 @@ export const pageQuery = graphql`
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/modal-dialog"
   storybookUrl="/?path=/story/primitives-modaldialog--custom-overlay-and-content"
   data={props.data.allPastePrimitive.edges}
+  packageStatus={props.data.allAirtable.edges}
 />
 
 ---
@@ -62,7 +76,7 @@ export const pageQuery = graphql`
 
 The modal dialog primitive is an unstyled and barebones version of a [Modal dialog](https://www.w3.org/TR/wai-aria-practices/#dialog_modal).
 It handles the implementation details around accessibility and provides a robust API to
-build upon. For example, our [Modal component](../components/modal) is built on top of this primitive.
+build upon. For example, our [Modal component](/components/modal) is built on top of this primitive.
 If you find that our designed Modal component can’t work for your particular use case,
 we suggest falling back to this component to roll your own solution. We encourage
 using this code as a basis for all modal dialogs in order to avoid code fragmentation

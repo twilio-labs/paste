@@ -37,6 +37,19 @@ export const pageQuery = graphql`
         value
       }
     }
+    allAirtable(filter: {data: {Feature: {eq: "Button"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -45,8 +58,8 @@ export const pageQuery = graphql`
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/button"
   storybookUrl="/?path=/story/components-button--primary-button"
-  abstractUrl="https://share.goabstract.com/58f1e53e-9f3e-4a04-b84e-44918d1ccdaf"
   data={props.data.allPasteComponent.edges}
+  packageStatus={props.data.allAirtable.edges}
 />
 
 ---

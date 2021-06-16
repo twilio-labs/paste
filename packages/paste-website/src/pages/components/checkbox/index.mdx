@@ -40,6 +40,19 @@ export const pageQuery = graphql`
         value
       }
     }
+    allAirtable(filter: {data: {Feature: {eq: "Checkbox"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -48,8 +61,8 @@ export const pageQuery = graphql`
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/checkbox"
   storybookUrl="/?path=/story/components-checkbox--checkbox"
-  abstractUrl="https://share.goabstract.com/6cc5fc40-3408-4cfd-b1d0-103aea01601d"
   data={props.data.allPasteComponent.edges}
+  packageStatus={props.data.allAirtable.edges}
 />
 
 ---
@@ -216,7 +229,7 @@ When at least one item from the checkbox group is required, a required indicator
   {`<CheckboxGroup
   name="email"
   legend="Email Notifications"
-  helpText="We can remind yuou when one of your Buffer is looking a little empty."
+  helpText="We can remind you when one of your Buffer is looking a little empty."
   required
 >
   <Checkbox id="empty_buffer" value="empty_buffer">

@@ -2,7 +2,7 @@
   "name": "@twilio-paste/uid-library",
   "version": "0.2.1",
   "category": "library",
-  "status": "beta",
+  "status": "production",
   "description": "A library to generate unique IDs for use in user interfaces such as forms.",
   "author": "Twilio Inc.",
   "license": "MIT",

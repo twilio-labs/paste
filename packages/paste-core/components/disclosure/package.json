@@ -2,7 +2,7 @@
   "name": "@twilio-paste/disclosure",
   "version": "5.0.6",
   "category": "interaction",
-  "status": "beta",
+  "status": "production",
   "description": "The Disclosure is used to create accessible, hierarchical, and collapsible structure to your pages.",
   "author": "Twilio Inc.",
   "license": "MIT",

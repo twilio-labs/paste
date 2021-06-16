@@ -45,6 +45,19 @@ export const pageQuery = graphql`
         value
       }
     }
+    allAirtable(filter: {data: {Feature: {eq: "Tabs Primitive"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -54,6 +67,7 @@ export const pageQuery = graphql`
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/tabs"
   storybookUrl="/?path=/story/primitives-tabs--horizontal-tabs"
   data={props.data.allPastePrimitive.edges}
+  packageStatus={props.data.allAirtable.edges}
 />
 
 ---

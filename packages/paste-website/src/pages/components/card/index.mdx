@@ -13,6 +13,7 @@ import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {Stack} from '@twilio-paste/stack';
 import Changelog from '@twilio-paste/card/CHANGELOG.md';
 import Img from 'gatsby-image';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
@@ -73,6 +74,19 @@ export const pageQuery = graphql`
         value
       }
     }
+    allAirtable(filter: {data: {Feature: {eq: "Card"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -81,8 +95,8 @@ export const pageQuery = graphql`
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/card/"
   storybookUrl="/?path=/story/components-card--default"
-  abstractUrl="https://share.goabstract.com/6a1699c0-a54a-47fc-9a4e-84d23b4e42fc?"
   data={props.data.allPasteComponent.edges}
+  packageStatus={props.data.allAirtable.edges}
 />
 
 ---
@@ -125,7 +139,9 @@ An example of a Card with default padding.
   {`<Card>
   <Heading as="h2" variant="heading20">Parable of the Talents</Heading>
   <Paragraph>
-    Choose your leaders with wisdom and forethought. To be led by a coward is to be controlled by all that the coward fears. To be led by a fool is to be led by the opportunists who control the fool. To be led by a thief is to offer up your most precious treasures to be stolen. To be led by a liar is to ask to be lied to. To be led by a tyrant is to sell yourself and those you love into slavery.
+    Choose your leaders with wisdom and forethought. To be led by a coward is to be controlled by all that the coward fears. To be led by a fool is to be led
+    by the opportunists who control the fool. To be led by a thief is to offer up your most precious treasures to be stolen. To be led by a liar is to ask to be
+    lied to. To be led by a tyrant is to sell yourself and those you love into slavery.
   </Paragraph>
   <Paragraph marginBottom="space0">— <Anchor href="https://www.goodreads.com/book/show/60932.Parable_of_the_Talents">Octavia Butler</Anchor></Paragraph>
 </Card>`}
@@ -138,15 +154,36 @@ and primary action ([Button](/components/button)) together. Relating these three
 digest and provides a clear call to action. Padding surrounding the inner content of a Card can be
 adjusted to suit the needs of your implementation.
 
-<LivePreview scope={{Card, Paragraph, Heading, Button}} language="jsx">
-  {`<Card padding="space120">
-  <Heading as="h2" variant="heading20">This is a card with a primary action</Heading>
-  <Paragraph>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dui tellus, tristique in tincidunt cursus, efficitur
-    at felis. Phasellus imperdiet, lorem et commodo egestas, arcu.
-  </Paragraph>
-  <Button variant="submit"> I am a primary action button </Button>
-</Card>`}
+<LivePreview scope={{Stack, Card, Paragraph, Heading, Button}} language="jsx">
+  {`<Stack orientation="vertical" spacing="space40">
+    <Card padding="space120">
+      <Heading as="h2" variant="heading20">The Transgender District</Heading>
+      <Paragraph>
+        The mission of the Transgender District is to create an urban environment that fosters the rich history, culture, legacy, and empowerment of transgender
+        people and its deep roots in the southeastern Tenderloin neighborhood. The transgender district aims to stabilize and economically empower the transgender
+        community through ownership of homes, businesses, historic and cultural sites, and safe community spaces.
+      </Paragraph>
+      <Button variant="primary" as="a" href="https://www.transgenderdistrictsf.com/">Support The Transgender District</Button>
+    </Card>
+    <Card padding="space120">
+      <Heading as="h2" variant="heading20">Inside Out</Heading>
+      <Paragraph>
+        Inside Out empowers, educates, and advocates for LGBTQ+ of youth from the Pikes Peak Region in Southern Colorado. Inside Out does this by creating safe spaces,
+        support systems and teaching life skills to all youth in the community and working to make the community safer and more accepting of gender and sexual orientation
+        diversity.
+      </Paragraph>
+      <Button variant="primary" as="a" href="https://insideoutys.org/">Support Inside Out</Button>
+    </Card>
+    <Card padding="space120">
+      <Heading as="h2" variant="heading20">The Audre Lorde Project</Heading>
+      <Paragraph>
+        The Audre Lorde Project is a Lesbian, Gay, Bisexual, Two Spirit, Trans and Gender Non Conforming People of Color center for community organizing, focusing on
+        the New York City area. Through mobilization, education and capacity-building, they work for community wellness and progressive social and economic justice. Committed
+        to struggling across differences, they seek to responsibly reflect, represent and serve their various communities.
+      </Paragraph>
+      <Button variant="primary" as="a" href="https://alp.org/">Support The Audre Lorde Project</Button>
+    </Card>
+  </Stack>`}
 </LivePreview>
 
 #### Card with Centered Content
@@ -155,17 +192,15 @@ Your implementation use case may call for a Card with centered content. You can 
 using the alignment props available on some components, or by creating a custom layout inside your
 Card using Box or Flex.
 
-<LivePreview scope={{Card, Paragraph, Heading, Button, Text}} language="jsx">
+<LivePreview scope={{Card, Paragraph, Anchor, Text}} language="jsx">
   {`<Card padding="space200">
   <Text as="div" textAlign="center">
-    <Heading as="h2" variant="heading20">
-      Let's verify your integration
-    </Heading>
     <Paragraph>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua.
+      We want a world where boys can feel, girls can lead, and the rest of us can not only exist but thrive. This is not
+      about erasing men and women but rather acknowledging that man and woman are two of many—stars in a constellation that
+      do not compete but amplify one another’s shine.
     </Paragraph>
-    <Button variant="submit"> Test my integration </Button>
+    <Paragraph marginBottom="space0">— <Anchor href="https://www.goodreads.com/book/show/51794301-beyond-the-gender-binary">Alok Vaid-Menon</Anchor></Paragraph>
   </Text>
 </Card>;`}
 </LivePreview>

@@ -19,6 +19,7 @@ import {SiteLink} from '../../components/SiteLink.tsx';
 import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {ComponentOverviewTable} from '../../components/component-overview-table';
 
 export const pageQuery = graphql`
   {
@@ -31,6 +32,23 @@ export const pageQuery = graphql`
       headings {
         depth
         value
+      }
+    }
+    allAirtable(
+      sort: {fields: [data___Feature]}
+      filter: {data: {status: {nin: [null, "in development"]}, Component_Category: {eq: "pattern"}}}
+    ) {
+      edges {
+        node {
+          data {
+            Feature
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+          }
+        }
       }
     }
   }
@@ -71,83 +89,10 @@ There are two primary goals of patterns:
   </TabList>
   <TabPanels paddingTop="space20">
     <TabPanel>
-      <Box marginBottom="space60">
-        <Card>
-          <Heading as="h4" variant="heading40">
-            Pattern status details
-          </Heading>
-          <Heading as="h5" variant="heading50">
-            Alpha
-          </Heading>
-          <Text as="p" marginBottom="space50">
-            Pattern is currently incubating with a contributing team and should not be used in other customer-facing
-            products without guidance from the Design Systems team.
-          </Text>
-          <Heading as="h5" variant="heading50">
-            Beta
-          </Heading>
-          <Text as="p" marginBottom="space30">
-            Pattern can be used in customer-facing products but should be usability tested in new scenarios to identify
-            any further risks, especially in critical customer journeys.
-          </Text>
-          <Text as="p" marginBottom="space50" fontStyle="italic">
-            Please reach out to us in #help-design-system if you plan on user testing a beta pattern so we can include
-            any research insights in the patterns guidelines.
-          </Text>
-          <Heading as="h5" variant="heading50">
-            Production
-          </Heading>
-          <Text as="p">Pattern is stable.</Text>
-        </Card>
-      </Box>
-      <Box marginBottom="space60">
-        <Table tableLayout="fixed">
-          <THead>
-            <Tr>
-              <Th>Pattern name</Th>
-              <Th>Description</Th>
-              <Th>Status</Th>
-            </Tr>
-          </THead>
-          <TBody>
-            <Tr>
-              <Td>
-                <Anchor href="/patterns/create">Create</Anchor>
-              </Td>
-              <Td>How to enable a user to generate a new object.</Td>
-              <Td>Alpha</Td>
-            </Tr>
-            <Tr>
-              <Td>
-                <Anchor href="/patterns/delete">Delete</Anchor>
-              </Td>
-              <Td>How to enable a user to destroy an object.</Td>
-              <Td>Alpha</Td>
-            </Tr>
-            <Tr>
-              <Td>
-                <Anchor href="/patterns/empty-state">Empty states</Anchor>
-              </Td>
-              <Td>How to inform a user that there is no data to display on a page or section.</Td>
-              <Td>Beta</Td>
-            </Tr>
-            <Tr>
-              <Td>
-                <Anchor href="/patterns/notifications">Notifications and feedback</Anchor>
-              </Td>
-              <Td>How to communicate timely information to users.</Td>
-              <Td>Alpha</Td>
-            </Tr>
-            <Tr>
-              <Td>
-                <Anchor href="/patterns/object-details">Object details</Anchor>
-              </Td>
-              <Td>How to show a read-only page or panel of information about an object.</Td>
-              <Td>Alpha</Td>
-            </Tr>
-          </TBody>
-        </Table>
-      </Box>
+      <ComponentOverviewTable
+        categoryRoute={SidebarCategoryRoutes.LAYOUT}
+        componentsList={props.data.allAirtable.edges}
+      />
     </TabPanel>
     <TabPanel>
       <Paragraph>

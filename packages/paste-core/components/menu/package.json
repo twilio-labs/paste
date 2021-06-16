@@ -2,7 +2,7 @@
   "name": "@twilio-paste/menu",
   "version": "7.0.2",
   "category": "interaction",
-  "status": "alpha",
+  "status": "production",
   "description": "A menu presents a list of menu items that a user can choose to perform an action with.",
   "author": "Twilio Inc.",
   "license": "MIT",

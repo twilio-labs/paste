@@ -2,7 +2,7 @@
   "name": "@twilio-paste/combobox",
   "version": "7.0.3",
   "category": "user input",
-  "status": "alpha",
+  "status": "production",
   "description": "An accessible styled drop-down list box.",
   "author": "Twilio Inc.",
   "license": "MIT",

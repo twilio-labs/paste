@@ -2,7 +2,7 @@
   "name": "@twilio-paste/tabs",
   "version": "2.0.4",
   "category": "interaction",
-  "status": "alpha",
+  "status": "production",
   "description": "Twilio's Tabs component.",
   "author": "Twilio Inc.",
   "license": "MIT",

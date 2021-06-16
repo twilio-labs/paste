@@ -6,7 +6,6 @@ slug: /patterns/create/
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
-import {Breadcrumb, BreadcrumbItem} from '../../../components/breadcrumb';
 import {Box} from '@twilio-paste/box';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Card} from '@twilio-paste/card';
@@ -30,35 +29,29 @@ export const pageQuery = graphql`
         value
       }
     }
+    allAirtable(filter: {data: {Feature: {eq: "Create"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+          }
+        }
+      }
+    }
   }
 `;
 
 <content>
 
-<Breadcrumb>
-  <BreadcrumbItem to="/">Home</BreadcrumbItem>
-  <BreadcrumbItem to="/patterns">Patterns</BreadcrumbItem>
-</Breadcrumb>
-<Heading as="h1" variant="heading10">
-  {props.pageContext.frontmatter.title}
-</Heading>
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
-
-<Box as="dl" display="flex">
-  <Text as="dt" color="colorTextWeak" lineHeight="lineHeight30">
-    <Box width="size10">Status</Box>
-  </Text>
-  <Text as="dd">alpha</Text>
-</Box>
-
-<Callout variant="warning">
-  <CalloutTitle>This is an ALPHA pattern, and we need your feedback!</CalloutTitle>
-  <CalloutText>
-    This pattern is still going through feedback cycles, so if you have feedback or ideas related to this pattern,
-    please create a <Anchor href="https://github.com/twilio-labs/paste/discussions">GitHub Discussion</Anchor> and let
-    us know.
-  </CalloutText>
-</Callout>
+<PatternHeader
+  description={props.pageContext.frontmatter.description}
+  name={props.pageContext.frontmatter.title}
+  packageStatus={props.data.allAirtable.edges}
+/>
 
 </content>
 
@@ -248,9 +241,9 @@ Bringing consistency to what happens after the user triggers the Create action i
 
 ## Post-creation
 
-After the user has created a new object, navigate them either back to the index page, where they can see a list of all objects, or to the individual object detail page (whichever makes most sense for the given user flow), and show a success [Toast](../components/toast) informing them that the object has successfully been created.
+After the user has created a new object, navigate them either back to the index page, where they can see a list of all objects, or to the individual object detail page (whichever makes most sense for the given user flow), and show a success [Toast](/components/toast) informing them that the object has successfully been created.
 
-If the create action fails, keep the user where they were and display an error [Toast](../components/toast) that explains what went wrong and how to try again.
+If the create action fails, keep the user where they were and display an error [Toast](/components/toast) that explains what went wrong and how to try again.
 
 For more information, check out our [Notifications and Feedback patterns](/patterns/notifications).
 

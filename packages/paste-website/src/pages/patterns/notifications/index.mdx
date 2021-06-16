@@ -8,7 +8,6 @@ import {graphql} from 'gatsby';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
-import {Breadcrumb, BreadcrumbItem} from '../../../components/breadcrumb';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Card} from '@twilio-paste/card';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
@@ -37,35 +36,29 @@ export const pageQuery = graphql`
         value
       }
     }
+    allAirtable(filter: {data: {Feature: {eq: "Notifications and feedback"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+          }
+        }
+      }
+    }
   }
 `;
 
 <content>
 
-<Breadcrumb>
-  <BreadcrumbItem to="/">Home</BreadcrumbItem>
-  <BreadcrumbItem to="/patterns">Patterns</BreadcrumbItem>
-</Breadcrumb>
-<Heading as="h1" variant="heading10">
-  {props.pageContext.frontmatter.title}
-</Heading>
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
-
-<Box as="dl" display="flex">
-  <Text as="dt" color="colorTextWeak" lineHeight="lineHeight30">
-    <Box width="size10">Status</Box>
-  </Text>
-  <Text as="dd">alpha</Text>
-</Box>
-
-<Callout variant="warning">
-  <CalloutTitle>This is an ALPHA pattern, and we need your feedback!</CalloutTitle>
-  <CalloutText>
-    This pattern is still going through feedback cycles, so if you have feedback or ideas related to this pattern,
-    please create a <Anchor href="https://github.com/twilio-labs/paste/discussions">GitHub Discussion</Anchor> and let
-    us know.
-  </CalloutText>
-</Callout>
+<PatternHeader
+  description={props.pageContext.frontmatter.description}
+  name={props.pageContext.frontmatter.title}
+  packageStatus={props.data.allAirtable.edges}
+/>
 
 </content>
 
@@ -100,7 +93,7 @@ Each notification or feedback pattern uses one or more of these components.
     <Stack orientation="vertical" spacing="space50">
       <Card>
         <Heading as="h3" variant="heading40" marginBottom="space0">
-          <Anchor href="/form-elements/input/#input-with-inline-error">Inline error on form fields</Anchor>
+          <Anchor href="/components/input/#input-with-inline-error">Inline error on form fields</Anchor>
         </Heading>
       </Card>
       <Card>
@@ -116,9 +109,9 @@ Each notification or feedback pattern uses one or more of these components.
         Component composition
       </Heading>
       <Paragraph marginBottom="space0">
-        Create a composition with <Anchor href="/components/card">Card</Anchor>, <Anchor href="/components/heading">
-          Heading
-        </Anchor>, and <Anchor href="/components/paragraph">Paragraph</Anchor> for in-page messaging.
+        Create a composition with <Anchor href="/components/card">Card</Anchor>,{' '}
+        <Anchor href="/components/heading">Heading</Anchor>, and <Anchor href="/components/paragraph">Paragraph</Anchor>{' '}
+        for in-page messaging.
       </Paragraph>
     </Card>
   </Column>
@@ -182,7 +175,7 @@ Notifications and feedback can come in 4 variants:
 
 Give users enough time to read a notification message, make a decision, and act on their decision. Users’ reading speeds, vision levels, literacy levels, dexterity, and familiarity with Twilio products can all affect how much time they’ll need to interact with a notification.
 
-Visit the [Alert](/components/alert), [Modal](/components/modal), [Form element](/form-elements/input), and [Toast](/components/toast) pages for more specific guidelines on how to implement each component accessibly.
+Visit the [Alert](/components/alert), [Modal](/components/modal), [Form element](/components/input), and [Toast](/components/toast) pages for more specific guidelines on how to implement each component accessibly.
 
 ## Notification and feedback levels
 
