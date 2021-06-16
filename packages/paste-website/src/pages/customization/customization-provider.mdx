@@ -8,7 +8,6 @@ import {graphql} from 'gatsby';
 import PackageJSON from '@twilio-paste/customization/package.json';
 import Changelog from '@twilio-paste/customization/CHANGELOG.md';
 import {ThemeObjectDisplay} from '../../components/ThemeObjectDisplay';
-import {ProgrammableAppsCallout} from '../../components/page-components/customization/customization-provider/ProgrammableAppsCallout';
 import {SidebarCategoryRoutes} from '../../constants';
 
 export const pageQuery = graphql`
@@ -56,8 +55,6 @@ The `CustomizationProvider` provides a central place for customizations to be ap
 Say you want to build a web application or website using Paste, but want to have your own look and feel—the `CustomizationProvider` exists to do just that.
 
 If you&rsquo;re a Flex customer, and want to build a Flex plugin that follows your brand guidelines, the `CustomizationProvider` can be used for that as well.
-
-<ProgrammableAppsCallout />
 
 ## About the Customization Provider
 
@@ -109,7 +106,7 @@ The theme object should follow the following format, where each theme key can ta
 
 <ThemeObjectDisplay />
 
-Custom themes can also be imported as a json object, along with the `CustomizationProvider`. Remember, the custom theme must follow the format of the Paste theme object.
+Custom themes can also be stored in their own files and imported as a json object. As long as the imported custom theme follows the format of the Paste theme object, you can pass it directly to the theme prop.
 
 The `CustomizationProvider` should wrap the root of your application, or a part of the application you would like to theme.
 

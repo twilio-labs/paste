@@ -7,7 +7,6 @@ slug: /customization/customization-provider/
 import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {ThemeObjectDisplay} from '../../components/ThemeObjectDisplay';
-import {ProgrammableAppsCallout} from '../../components/page-components/customization/customization-provider/ProgrammableAppsCallout';
 import {AccessibilityCallout} from '../../components/page-components/customization/customization-provider/AccessibilityCallout';
 import {FontCallout} from '../../components/page-components/customization/customization-provider/FontCallout';
 import {CustomThemeKeyList} from '../../components/page-components/customization/customization-provider/CustomThemeKeyList';
@@ -44,8 +43,6 @@ export const pageQuery = graphql`
 <PageAside data={props.data.mdx} />
 
 <content>
-
-<ProgrammableAppsCallout />
 
 A custom theme can be created either manually or using the [Paste Theme Designer](https://paste-theme-designer.netlify.app/edit). A [Paste Theme](/tokens/theme-package) is categorized into groups of [Design Tokens](/tokens). The value of any Design Token from any Group can be changed when supplied to the Customization Provider via the theme object. The following token groups are available for customization:
 
