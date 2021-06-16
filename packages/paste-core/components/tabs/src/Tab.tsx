@@ -64,7 +64,7 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
         paddingLeft: 'space20',
         paddingRight: 'space20',
         paddingTop: 'space40',
-        textAlign: variant === 'fitted' ? 'center' : undefined,
+        textAlign: 'center',
         _last: {
           marginRight: 'space0',
         },
