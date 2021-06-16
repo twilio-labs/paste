@@ -16,6 +16,7 @@ const IGNORE_LIST = [
   'components/help-text',
   'components/label',
   'primitives/sibling-box',
+  'components/time-picker',
   '/__/', // I don't know where this is being picked up
 ];
 
