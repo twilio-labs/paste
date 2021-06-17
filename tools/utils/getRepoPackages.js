@@ -19,8 +19,11 @@ async function getRepoPackages() {
   if (repoPackages != null) {
     return repoPackages;
   }
-
-  repoPackages = await runCmdJson(LERNA_CLI_PATH, ['la', '--json']);
+  try {
+    repoPackages = await runCmdJson(LERNA_CLI_PATH, ['la', '--json']);
+  } catch (e) {
+    console.log('Error in getRepoPackages', e);
+  }
   return repoPackages;
 }
 

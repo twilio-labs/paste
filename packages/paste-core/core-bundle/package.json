@@ -86,7 +86,7 @@
     "@twilio-paste/uid-library": "^0.2.1"
   },
   "peerDependencies": {
-    "@twilio-paste/icons": "^5.1.1",
+    "@twilio-paste/icons": "^5.3.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"

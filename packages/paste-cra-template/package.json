@@ -29,5 +29,8 @@
   },
   "bugs": {
     "url": "https://github.com/twilio-labs/paste/issues"
-  }
+  },
+  "dependencies": {},
+  "peerDependencies": {},
+  "devDependencies": {}
 }

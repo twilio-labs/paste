@@ -25,14 +25,14 @@
     "tsc": "tsc"
   },
   "peerDependencies": {
-    "@twilio-paste/box": "^4.0.2",
-    "@twilio-paste/design-tokens": "^6.6.0",
-    "@twilio-paste/media-object": "^4.0.2",
-    "@twilio-paste/screen-reader-only": "^6.0.1",
-    "@twilio-paste/style-props": "^3.0.1",
-    "@twilio-paste/styling-library": "^0.3.1",
-    "@twilio-paste/text": "^4.0.1",
-    "@twilio-paste/theme": "^5.0.1",
+    "@twilio-paste/box": "^4.0.7",
+    "@twilio-paste/design-tokens": "^6.9.0",
+    "@twilio-paste/media-object": "^4.0.3",
+    "@twilio-paste/screen-reader-only": "^6.0.2",
+    "@twilio-paste/style-props": "^3.0.6",
+    "@twilio-paste/styling-library": "^0.3.3",
+    "@twilio-paste/text": "^4.0.4",
+    "@twilio-paste/theme": "^5.2.0",
     "@twilio-paste/types": "^3.1.1",
     "@twilio-paste/uid-library": "^0.2.1",
     "prop-types": "^15.7.2",
@@ -40,18 +40,19 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^4.0.5",
-    "@twilio-paste/design-tokens": "^6.7.0",
+    "@twilio-paste/box": "^4.0.7",
+    "@twilio-paste/design-tokens": "^6.9.0",
     "@twilio-paste/media-object": "^4.0.3",
     "@twilio-paste/screen-reader-only": "^6.0.2",
-    "@twilio-paste/style-props": "^3.0.4",
-    "@twilio-paste/styling-library": "^0.3.2",
-    "@twilio-paste/text": "^4.0.3",
-    "@twilio-paste/theme": "^5.1.0",
+    "@twilio-paste/style-props": "^3.0.6",
+    "@twilio-paste/styling-library": "^0.3.3",
+    "@twilio-paste/text": "^4.0.4",
+    "@twilio-paste/theme": "^5.2.0",
     "@twilio-paste/types": "^3.1.1",
     "@twilio-paste/uid-library": "^0.2.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
-  }
+  },
+  "dependencies": {}
 }
