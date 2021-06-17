@@ -2,9 +2,9 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {styled, css} from '@twilio-paste/styling-library';
 import {InputBox} from '@twilio-paste/input-box';
+import type {InputBoxTypes} from '@twilio-paste/input-box';
 import {safelySpreadFormControlProps} from './utils';
 
-export type InputTypes = 'text' | 'email' | 'hidden' | 'number' | 'password' | 'search' | 'tel' | 'date';
 export type InputVariants = 'default' | 'inverse';
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -21,14 +21,14 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   required?: boolean;
   size?: never;
   style?: never;
-  type: InputTypes;
+  type: InputBoxTypes;
   value?: string;
   variant?: InputVariants;
   width?: never;
 }
 
 interface TypeProps {
-  type: InputTypes;
+  type: InputBoxTypes;
   inputmode?: string | undefined;
   pattern?: string | undefined;
 }
@@ -55,7 +55,7 @@ export const InputElement = styled.input<InputProps>((props) =>
     paddingTop: 'space30',
     resize: 'none',
     width: '100%',
-    cursor: props.type === 'date' && !props.readOnly && !props.disabled ? 'text' : 'auto',
+    cursor: (props.type === 'date' || props.type === 'time') && !props.readOnly && !props.disabled ? 'text' : 'auto',
 
     '&::placeholder': {
       color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
@@ -159,9 +159,11 @@ if (process.env.NODE_ENV === 'development') {
     placeholder: PropTypes.string,
     readOnly: PropTypes.bool,
     required: PropTypes.bool,
-    type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel', 'date']).isRequired as any,
+    type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel', 'date', 'time'])
+      .isRequired as any,
     value: PropTypes.string,
   };
 }
 
 export {Input};
+export type {InputBoxTypes as InputTypes};
