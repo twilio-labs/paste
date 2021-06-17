@@ -69,7 +69,7 @@ function build(packageJson) {
     // works  with node12 and the listed browsers
     target: ['chrome58', 'firefox57', 'safari11', 'edge16', 'node12.19.0'],
     // Only minify in prod
-    minify: process.env.NODE_ENV === 'production',
+    minify: true,
     define: {
       'process.env.NODE_ENV': `"${process.env.NODE_ENV}"`,
     },
