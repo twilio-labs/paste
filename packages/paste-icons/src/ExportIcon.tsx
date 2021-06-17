@@ -6,16 +6,16 @@ import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from './helpers/IconWrapper';
 import type {IconWrapperProps} from './helpers/IconWrapper';
 
-export interface DownloadIconProps extends IconWrapperProps {
+export interface ExportIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const DownloadIcon: React.FC<DownloadIconProps> = ({as, display, size, color, title, decorative}) => {
-  const titleId = `DownloadIcon-${useUID()}`;
+const ExportIcon: React.FC<ExportIconProps> = ({as, display, size, color, title, decorative}) => {
+  const titleId = `ExportIcon-${useUID()}`;
 
   if (!decorative && title == null) {
-    throw new Error('[DownloadIcon]: Missing a title for non-decorative icon.');
+    throw new Error('[ExportIcon]: Missing a title for non-decorative icon.');
   }
 
   return (
@@ -41,5 +41,5 @@ const DownloadIcon: React.FC<DownloadIconProps> = ({as, display, size, color, ti
   );
 };
 
-DownloadIcon.displayName = 'DownloadIcon';
-export {DownloadIcon};
+ExportIcon.displayName = 'ExportIcon';
+export {ExportIcon};
