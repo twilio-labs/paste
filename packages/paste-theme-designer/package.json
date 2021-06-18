@@ -13,7 +13,7 @@
   "dependencies": {
     "@twilio-paste/core": "^9.0.0",
     "@twilio-paste/icons": "^5.1.2",
-    "next": "10.0.4",
+    "next": "10.0.6",
     "react-color": "^2.19.3"
   }
 }
