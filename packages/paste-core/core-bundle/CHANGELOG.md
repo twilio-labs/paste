@@ -1,5 +1,14 @@
 # Change Log
 
+## 9.6.2
+
+### Patch Changes
+
+- [`a7954e29`](https://github.com/twilio-labs/paste/commit/a7954e290af91fa7deba991e554c3ecb838612da) [#1567](https://github.com/twilio-labs/paste/pull/1567) Thanks [@TheSisb](https://github.com/TheSisb)! - **Tabs**: Horizontal tabs now have center-aligned inner text.
+
+- Updated dependencies [[`a7954e29`](https://github.com/twilio-labs/paste/commit/a7954e290af91fa7deba991e554c3ecb838612da)]:
+  - @twilio-paste/tabs@2.0.5
+
 ## 9.6.1
 
 ### Patch Changes
