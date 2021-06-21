@@ -94,7 +94,7 @@
     "gatsby-source-airtable": "^2.1.1",
     "gatsby-source-filesystem": "^2.1.48",
     "gatsby-transformer-json": "^2.2.26",
-    "gatsby-transformer-remark": "^2.6.53",
+    "gatsby-transformer-remark": "^4.0.0",
     "gatsby-transformer-sharp": "^2.3.14",
     "lodash": "^4.17.19",
     "lottie-web": "^5.7.4",
