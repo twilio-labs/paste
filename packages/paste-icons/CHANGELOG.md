@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.3.1
+
+### Patch Changes
+
+- [`96137d79`](https://github.com/twilio-labs/paste/commit/96137d791db35987f6915e01ad995cb3e74f7ab9) [#1573](https://github.com/twilio-labs/paste/pull/1573) Thanks [@andipants12](https://github.com/andipants12)! - [Icons] added ThumbsUpIcon, ThumbsDownIcon, SupportIcon, ExportIcon, ChatIcon, ShowIcon, HideIcon, DownloadIcon
+
 ## 5.3.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "9.6.1",
+  "version": "9.6.2",
   "status": "production",
   "description": "Contains all the core packages from the Paste internal design system.",
   "author": "Twilio Inc.",
@@ -73,7 +73,7 @@
     "@twilio-paste/style-props": "^3.0.6",
     "@twilio-paste/styling-library": "^0.3.3",
     "@twilio-paste/table": "^2.0.4",
-    "@twilio-paste/tabs": "^2.0.4",
+    "@twilio-paste/tabs": "^2.0.5",
     "@twilio-paste/tabs-primitive": "^0.2.3",
     "@twilio-paste/text": "^4.0.4",
     "@twilio-paste/textarea": "^3.0.5",
@@ -92,7 +92,7 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/icons": "^5.3.0",
+    "@twilio-paste/icons": "^5.3.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
