@@ -8,6 +8,7 @@ import {PackageStatusLegend} from '../package-status-legend';
 import {SidebarCategoryRoutes, STORYBOOK_DOMAIN} from '../../../constants';
 import {P, InlineCode} from '../../Typography';
 import {getHumanizedNameFromPackageName} from '../../../utils/RouteUtils';
+import {sentenceCase} from '../../../utils/SentenceCase';
 import type {PackageStatusObject} from '../../../utils/types';
 
 const getCategoryNameFromRoute = (categoryRoute: string): string => {
@@ -108,7 +109,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
         {packageStatus[0].node.data.status && (
           <Box marginBottom="space20">
             <PackageLabel>Status</PackageLabel>
-            <PackageValue>{packageStatus[0].node.data.status}</PackageValue>
+            <PackageValue>{sentenceCase(packageStatus[0].node.data.status)}</PackageValue>
           </Box>
         )}
         <Box marginBottom="space20">

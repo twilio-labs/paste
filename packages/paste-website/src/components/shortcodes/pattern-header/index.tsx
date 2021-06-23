@@ -5,6 +5,7 @@ import {PackageLabel, PackageValue} from '../component-header';
 import {PackageStatusLegend} from '../package-status-legend';
 import {P} from '../../Typography';
 import {Breadcrumb, BreadcrumbItem} from '../../breadcrumb';
+import {sentenceCase} from '../../../utils/SentenceCase';
 import type {PackageStatusObject} from '../../../utils/types';
 
 const PatternHeaderBasic: React.FC<{
@@ -41,7 +42,7 @@ const PatternHeader: React.FC<PatternHeaderProps> = ({description, name, package
         {packageStatus[0].node.data.status && (
           <Box marginBottom="space20">
             <PackageLabel>Status</PackageLabel>
-            <PackageValue>{packageStatus[0].node.data.status}</PackageValue>
+            <PackageValue>{sentenceCase(packageStatus[0].node.data.status)}</PackageValue>
           </Box>
         )}
       </Box>

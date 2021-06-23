@@ -10,6 +10,7 @@ import {PeerReviewStatus} from '../component-status/PeerReviewStatus';
 import {SiteLink} from '../SiteLink';
 import type {SidebarCategoryRoutes} from '../../constants';
 import {getPackagePath} from '../../utils/RouteUtils';
+import {sentenceCase} from '../../utils/SentenceCase';
 import type {AirTableComponentNode} from '../../utils/types';
 
 interface ComponentOverviewTableProps {
@@ -77,7 +78,7 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({category
                 <Td>
                   <SiteLink to={getPackagePath(categoryRoute, Feature)}>{Feature}</SiteLink>
                 </Td>
-                <Td textAlign="center">{status}</Td>
+                <Td textAlign="center">{sentenceCase(status)}</Td>
                 <Td textAlign="center">
                   <AssetStatus label="Code done" status={Code} />
                 </Td>
