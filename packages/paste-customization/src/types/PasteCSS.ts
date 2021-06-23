@@ -26,7 +26,7 @@ type AllStyleProps = BackgroundProps &
 
 export type PasteCustomCSS = SystemStyleObject &
   AllStyleProps & {
-    variant?: {
+    variants?: {
       [key: string]: (SystemCssProperties | CSSPseudoSelectorProps | CSSSelectorObject) & AllStyleProps;
     };
   };
