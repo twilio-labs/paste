@@ -97,6 +97,7 @@ input[type=checkbox][aria-invalid=true] + label .emotion-0 {
   <div
     aria-hidden="true"
     className="emotion-0"
+    data-paste-element="BOX"
     display="inline-flex"
     width="sizeSquare50"
   >

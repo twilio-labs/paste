@@ -90,6 +90,7 @@ exports[`Popover Render should render 1`] = `
       class="emotion-1"
       color="colorTextWeakest"
       cursor="pointer"
+      data-paste-element="BOX"
       display="inline-block"
       font-family="fontFamilyText"
       font-size="fontSize30"
@@ -101,6 +102,7 @@ exports[`Popover Render should render 1`] = `
       <span
         aria-hidden="false"
         class="emotion-0"
+        data-paste-element="BOX"
         display="flex"
         opacity="1"
         text-decoration="inherit"

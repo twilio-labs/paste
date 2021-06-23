@@ -13,12 +13,12 @@ exports[`Heading should render an H1 at fontSize90 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 2.75rem;
-  display: block;
   color: rgb(40,42,43);
+  font-size: 2rem;
+  line-height: 2.75rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  display: block;
 }
 
 <div
@@ -27,6 +27,7 @@ exports[`Heading should render an H1 at fontSize90 1`] = `
   <h1
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     display="block"
     fontSize="fontSize90"
     fontWeight="fontWeightBold"
@@ -49,12 +50,12 @@ exports[`Heading should render an H2 at fontSize70 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  margin-bottom: 1.25rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 2rem;
-  display: block;
   color: rgb(40,42,43);
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+  display: block;
 }
 
 <div
@@ -63,6 +64,7 @@ exports[`Heading should render an H2 at fontSize70 1`] = `
   <h2
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     display="block"
     fontSize="fontSize70"
     fontWeight="fontWeightBold"
@@ -85,12 +87,12 @@ exports[`Heading should render an H3 at fontSize60 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 1.75rem;
-  display: block;
   color: rgb(40,42,43);
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  display: block;
 }
 
 <div
@@ -99,6 +101,7 @@ exports[`Heading should render an H3 at fontSize60 1`] = `
   <h3
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     display="block"
     fontSize="fontSize60"
     fontWeight="fontWeightBold"
@@ -121,12 +124,12 @@ exports[`Heading should render an H4 at fontSize40 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  margin-bottom: 0.75rem;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.5rem;
-  display: block;
   color: rgb(40,42,43);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  display: block;
 }
 
 <div
@@ -135,6 +138,7 @@ exports[`Heading should render an H4 at fontSize40 1`] = `
   <h4
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     display="block"
     fontSize="fontSize40"
     fontWeight="fontWeightBold"
@@ -157,12 +161,12 @@ exports[`Heading should render an H5 at fontSize30 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 700;
-  line-height: 1.25rem;
-  display: block;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  display: block;
 }
 
 <div
@@ -171,6 +175,7 @@ exports[`Heading should render an H5 at fontSize30 1`] = `
   <h5
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     display="block"
     fontSize="fontSize30"
     fontWeight="fontWeightBold"
@@ -193,12 +198,12 @@ exports[`Heading should render an H6 at fontSize20 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  margin-bottom: 0.5rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  line-height: 1.25rem;
-  display: block;
   color: rgb(40,42,43);
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  display: block;
 }
 
 <div
@@ -207,6 +212,7 @@ exports[`Heading should render an H6 at fontSize20 1`] = `
   <h6
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     display="block"
     fontSize="fontSize20"
     fontWeight="fontWeightBold"
@@ -229,12 +235,12 @@ exports[`Heading should render an italic H2 at fontSize50 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  margin-bottom: 1.25rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 2rem;
-  display: block;
   color: rgb(40,42,43);
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+  display: block;
 }
 
 <div
@@ -243,6 +249,7 @@ exports[`Heading should render an italic H2 at fontSize50 1`] = `
   <h2
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     display="block"
     fontSize="fontSize70"
     fontWeight="fontWeightBold"
@@ -267,67 +274,67 @@ exports[`Heading should render with no margin 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  margin-bottom: 0;
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 2.75rem;
-  display: block;
   color: rgb(40,42,43);
+  font-size: 2rem;
+  line-height: 2.75rem;
+  margin-bottom: 0;
+  font-weight: 700;
+  display: block;
 }
 
 .emotion-1 {
   margin: 0;
   padding: 0;
-  margin-bottom: 0;
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 2rem;
-  display: block;
   color: rgb(40,42,43);
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 0;
+  font-weight: 700;
+  display: block;
 }
 
 .emotion-2 {
   margin: 0;
   padding: 0;
-  margin-bottom: 0;
-  font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 1.75rem;
-  display: block;
   color: rgb(40,42,43);
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-bottom: 0;
+  font-weight: 700;
+  display: block;
 }
 
 .emotion-3 {
   margin: 0;
   padding: 0;
-  margin-bottom: 0;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.5rem;
-  display: block;
   color: rgb(40,42,43);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 0;
+  font-weight: 700;
+  display: block;
 }
 
 .emotion-4 {
   margin: 0;
   padding: 0;
-  margin-bottom: 0;
-  font-size: 0.875rem;
-  font-weight: 700;
-  line-height: 1.25rem;
-  display: block;
   color: rgb(40,42,43);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-bottom: 0;
+  font-weight: 700;
+  display: block;
 }
 
 .emotion-5 {
   margin: 0;
   padding: 0;
-  margin-bottom: 0;
-  font-size: 0.75rem;
-  font-weight: 700;
-  line-height: 1.25rem;
-  display: block;
   color: rgb(40,42,43);
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  margin-bottom: 0;
+  font-weight: 700;
+  display: block;
 }
 
 <div
@@ -336,6 +343,7 @@ exports[`Heading should render with no margin 1`] = `
   <h2
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     display="block"
     fontSize="fontSize90"
     fontWeight="fontWeightBold"
@@ -345,6 +353,7 @@ exports[`Heading should render with no margin 1`] = `
   <h2
     className="emotion-1"
     color="colorText"
+    data-paste-element="TEXT"
     display="block"
     fontSize="fontSize70"
     fontWeight="fontWeightBold"
@@ -354,6 +363,7 @@ exports[`Heading should render with no margin 1`] = `
   <h2
     className="emotion-2"
     color="colorText"
+    data-paste-element="TEXT"
     display="block"
     fontSize="fontSize60"
     fontWeight="fontWeightBold"
@@ -363,6 +373,7 @@ exports[`Heading should render with no margin 1`] = `
   <h2
     className="emotion-3"
     color="colorText"
+    data-paste-element="TEXT"
     display="block"
     fontSize="fontSize40"
     fontWeight="fontWeightBold"
@@ -372,6 +383,7 @@ exports[`Heading should render with no margin 1`] = `
   <h2
     className="emotion-4"
     color="colorText"
+    data-paste-element="TEXT"
     display="block"
     fontSize="fontSize30"
     fontWeight="fontWeightBold"
@@ -381,6 +393,7 @@ exports[`Heading should render with no margin 1`] = `
   <h2
     className="emotion-5"
     color="colorText"
+    data-paste-element="TEXT"
     display="block"
     fontSize="fontSize20"
     fontWeight="fontWeightBold"
