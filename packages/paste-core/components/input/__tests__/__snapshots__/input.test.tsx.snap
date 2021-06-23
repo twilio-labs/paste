@@ -118,6 +118,7 @@ exports[`Input render should render 1`] = `
     <div
       class="emotion-1"
       cursor="text"
+      data-paste-element="BOX"
       display="flex"
       width="100%"
     >
@@ -250,6 +251,7 @@ exports[`Input render should render with disabled 1`] = `
     <div
       class="emotion-1"
       cursor="not-allowed"
+      data-paste-element="BOX"
       display="flex"
       width="100%"
     >
@@ -383,6 +385,7 @@ exports[`Input render should render with hasError 1`] = `
     <div
       class="emotion-1"
       cursor="text"
+      data-paste-element="BOX"
       display="flex"
       width="100%"
     >
@@ -533,11 +536,13 @@ exports[`Input render should render with prefix 1`] = `
     <div
       class="emotion-2"
       cursor="text"
+      data-paste-element="BOX"
       display="flex"
       width="100%"
     >
       <div
         class="emotion-0"
+        data-paste-element="BOX"
         display="flex"
       >
         <div>
@@ -673,6 +678,7 @@ exports[`Input render should render with readOnly 1`] = `
     <div
       class="emotion-1"
       cursor="text"
+      data-paste-element="BOX"
       display="flex"
       width="100%"
     >
@@ -824,6 +830,7 @@ exports[`Input render should render with suffix 1`] = `
     <div
       class="emotion-2"
       cursor="text"
+      data-paste-element="BOX"
       display="flex"
       width="100%"
     >
@@ -835,6 +842,7 @@ exports[`Input render should render with suffix 1`] = `
       />
       <div
         class="emotion-1"
+        data-paste-element="BOX"
         display="flex"
       >
         <div>

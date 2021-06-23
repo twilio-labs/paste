@@ -48,11 +48,13 @@ exports[`Avatar image should render responsive css with an image 1`] = `
 
 <div
     class="emotion-1"
+    data-paste-element="BOX"
     overflow="hidden"
   >
     <img
       alt="avatar example"
       class="emotion-0"
+      data-paste-element="BOX"
       src="/avatars/avatar2.png"
       title="avatar example"
     />
@@ -88,14 +90,14 @@ exports[`Avatar intials should render responsive css 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  display: block;
+  color: colorText;
   font-size: fontSize10;
-  font-weight: fontWeightBold;
   line-height: lineHeight10;
+  display: block;
+  font-weight: fontWeightBold;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: colorText;
 }
 
 @media screen and (min-width:40em) {
@@ -114,11 +116,13 @@ exports[`Avatar intials should render responsive css 1`] = `
 
 <div
     class="emotion-1"
+    data-paste-element="BOX"
     overflow="hidden"
   >
     <abbr
       class="emotion-0"
       color="colorText"
+      data-paste-element="TEXT"
       display="block"
       font-size="fontSize10,fontSize10,fontSize60"
       font-weight="fontWeightBold"

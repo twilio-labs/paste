@@ -33,6 +33,7 @@ exports[`Grid render should render a Grid 1`] = `
 
 <div
     class="emotion-0"
+    data-paste-element="BOX"
     display="flex"
   >
     child
@@ -58,6 +59,7 @@ exports[`Grid render should render a Grid as any HTML element 1`] = `
 
 <section
     class="emotion-0"
+    data-paste-element="BOX"
     display="flex"
   >
     child
@@ -152,6 +154,7 @@ exports[`Grid render should render responsive css 1`] = `
 
 <div
     class="emotion-2"
+    data-paste-element="BOX"
     display="flex"
   >
     <div
