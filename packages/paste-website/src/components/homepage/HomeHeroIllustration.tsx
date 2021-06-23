@@ -33,7 +33,7 @@ const IllustrationChildren: React.FC<{state: IllustrationStatesType}> = ({state}
  */
 const HomeHeroIllustration: React.FC = () => {
   const prefersReducedMotion = useReducedMotion();
-  const containerRef = React.useRef();
+  const containerRef = React.useRef(null);
   const [illustrationState, setIllustrationState] = React.useState(IllustrationStates.UNINITIALIZED);
 
   const handleVisibilityChange = (isVisible: boolean): void => {
