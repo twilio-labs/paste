@@ -1,6 +1,7 @@
 // Base styling system (emotion)
 import styled from '@emotion/styled';
 
+export type {StyledComponent} from '@emotion/styled';
 export type {SerializedStyles} from '@emotion/core';
 export {Global as StylingGlobals, ThemeContext, keyframes, css as EmotionCSS} from '@emotion/core';
 export {ThemeProvider, withTheme} from 'emotion-theming';
@@ -16,6 +17,7 @@ export type {
   VariantProperty,
   UseThemeFunction,
   EmotionLabel,
+  CSSObject,
 } from '@styled-system/css';
 export {css} from './css-function';
 export {themeGet} from '@styled-system/theme-get';
