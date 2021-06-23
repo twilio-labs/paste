@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "build": "yarn clean && NODE_ENV=production gulp",
-    "build:dev": "yarn clean && NODE_ENV=development gulp",
+    "build:js": "yarn clean && NODE_ENV=development gulp",
     "build:watch": "yarn clean && gulp dev",
     "clean": "rm -rf ./dist",
     "tokens": "gulp default",
