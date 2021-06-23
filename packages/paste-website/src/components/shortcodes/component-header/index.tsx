@@ -63,7 +63,7 @@ interface ComponentHeaderProps {
   packageStatus: PackageStatusObject;
 }
 
-const PackageValue: React.FC = ({children}) => {
+export const PackageValue: React.FC = ({children}) => {
   return (
     <Text as="dd" display="inline-block">
       {children}
@@ -71,7 +71,7 @@ const PackageValue: React.FC = ({children}) => {
   );
 };
 
-const PackageLabel: React.FC = ({children}) => {
+export const PackageLabel: React.FC = ({children}) => {
   return (
     <Text as="dt" display="inline-block" color="colorTextWeak" css={{width: '80px'}}>
       {children}
@@ -105,6 +105,12 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
       {categoryRoute.includes('/form/') ? null : <P variant="lead">{description}</P>}
       <PackageStatusLegend packageStatus={packageStatus} />
       <Box as="dl" marginBottom="space100">
+        {packageStatus[0].node.data.status && (
+          <Box marginBottom="space20">
+            <PackageLabel>Status</PackageLabel>
+            <PackageValue>{packageStatus[0].node.data.status}</PackageValue>
+          </Box>
+        )}
         <Box marginBottom="space20">
           <PackageLabel>Version</PackageLabel>
           <PackageValue>{version}</PackageValue>

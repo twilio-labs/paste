@@ -28,17 +28,20 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({category
       <Table>
         <THead>
           <Tr>
-            <Th>Name</Th>
+            <Th width="150px">Name</Th>
+            <Th textAlign="center" width="150px">
+              Status
+            </Th>
             <Th textAlign="center" width="150px">
               Code ready
             </Th>
-            <Th textAlign="center" width="150px">
+            <Th textAlign="center" width="170px">
               Design assets
             </Th>
             <Th textAlign="center" width="150px">
               Documentation
             </Th>
-            <Th textAlign="center" width="150px">
+            <Th textAlign="center" width="170px">
               <Box display="flex" alignItems="center">
                 <Text as="span" marginRight="space20">
                   Peer review
@@ -66,6 +69,7 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({category
               // eslint-disable-next-line @typescript-eslint/naming-convention
               Engineer_committee_review,
               Code,
+              status,
             } = node.data;
 
             return (
@@ -73,6 +77,7 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({category
                 <Td>
                   <SiteLink to={getPackagePath(categoryRoute, Feature)}>{Feature}</SiteLink>
                 </Td>
+                <Td textAlign="center">{status}</Td>
                 <Td textAlign="center">
                   <AssetStatus label="Code done" status={Code} />
                 </Td>

@@ -1,5 +1,7 @@
 import * as React from 'react';
+import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
+import {PackageLabel, PackageValue} from '../component-header';
 import {PackageStatusLegend} from '../package-status-legend';
 import {P} from '../../Typography';
 import {Breadcrumb, BreadcrumbItem} from '../../breadcrumb';
@@ -35,6 +37,14 @@ const PatternHeader: React.FC<PatternHeaderProps> = ({description, name, package
       <PatternHeaderBasic name={name} />
       <P variant="lead">{description}</P>
       <PackageStatusLegend packageStatus={packageStatus} />
+      <Box as="dl" marginBottom="space100">
+        {packageStatus[0].node.data.status && (
+          <Box marginBottom="space20">
+            <PackageLabel>Status</PackageLabel>
+            <PackageValue>{packageStatus[0].node.data.status}</PackageValue>
+          </Box>
+        )}
+      </Box>
     </>
   );
 };
