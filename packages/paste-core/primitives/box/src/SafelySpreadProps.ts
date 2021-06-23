@@ -20,8 +20,6 @@ export const BOX_PROPS_TO_BLOCK = [
   ...FLEXBOX_PROPS,
   ...TYPOGRAPHY_PROPS,
   ...Object.keys(PseudoPropStyles),
-  'backgroundColor',
-  'borderColor',
   'className',
   'style',
 ];
