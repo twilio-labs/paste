@@ -1,5 +1,14 @@
 # Change Log
 
+## 9.6.3
+
+### Patch Changes
+
+- [`e43dec0e`](https://github.com/twilio-labs/paste/commit/e43dec0e611defd3ab3e89614b4d57bb33cf481d) [#1594](https://github.com/twilio-labs/paste/pull/1594) Thanks [@TheSisb](https://github.com/TheSisb)! - Minifies output to commonJS and ES6 token files
+
+- Updated dependencies [[`e43dec0e`](https://github.com/twilio-labs/paste/commit/e43dec0e611defd3ab3e89614b4d57bb33cf481d)]:
+  - @twilio-paste/design-tokens@6.9.1
+
 ## 9.6.2
 
 ### Patch Changes
