@@ -49,7 +49,9 @@ export const Neutral = (): React.ReactNode => {
             ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
           </Text>
           <Text as="p">
-            <Truncate>http://www.extremelylongurlthatmightbreakthelayout.com</Truncate>
+            <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+              http://www.extremelylongurlthatmightbreakthelayout.com
+            </Truncate>
           </Text>
         </Toast>
       </ToastContainer>
@@ -86,7 +88,9 @@ export const Success = (): React.ReactNode => {
             ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
           </Text>
           <Text as="p">
-            <Truncate>http://www.extremelylongurlthatmightbreakthelayout.com</Truncate>
+            <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+              http://www.extremelylongurlthatmightbreakthelayout.com
+            </Truncate>
           </Text>
         </Toast>
       </ToastContainer>
@@ -123,7 +127,9 @@ export const Error = (): React.ReactNode => {
             ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
           </Text>
           <Text as="p">
-            <Truncate>http://www.extremelylongurlthatmightbreakthelayout.com</Truncate>
+            <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+              http://www.extremelylongurlthatmightbreakthelayout.com
+            </Truncate>
           </Text>
         </Toast>
       </ToastContainer>
@@ -160,7 +166,9 @@ export const Warning = (): React.ReactNode => {
             ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
           </Text>
           <Text as="p">
-            <Truncate>http://www.extremelylongurlthatmightbreakthelayout.com</Truncate>
+            <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+              http://www.extremelylongurlthatmightbreakthelayout.com
+            </Truncate>
           </Text>
         </Toast>
       </ToastContainer>
