@@ -7,6 +7,7 @@ export {
 
 export type {
   PopoverState as NonModalDialogPrimitiveState,
+  PopoverStateReturn as NonModalDialogPrimitiveStateReturn,
   PopoverInitialState as NonModalDialogPrimitivePopoverInitialState,
   PopoverProps as NonModalDialogPrimitiveProps,
   PopoverDisclosureProps as NonModalDialogDisclosurePrimitiveProps,
