@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "9.6.2",
+  "version": "9.6.3",
   "status": "production",
   "description": "Contains all the core packages from the Paste internal design system.",
   "author": "Twilio Inc.",
@@ -40,7 +40,7 @@
     "@twilio-paste/combobox-primitive": "^0.2.4",
     "@twilio-paste/customization": "^2.1.0",
     "@twilio-paste/date-picker": "^0.1.0",
-    "@twilio-paste/design-tokens": "^6.9.0",
+    "@twilio-paste/design-tokens": "^6.9.1",
     "@twilio-paste/disclosure": "^5.0.6",
     "@twilio-paste/disclosure-primitive": "^0.3.4",
     "@twilio-paste/dropdown-library": "^1.1.1",
