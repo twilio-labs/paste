@@ -3,7 +3,7 @@
   "version": "3.0.7",
   "category": "user input",
   "status": "production",
-  "description": "An input allows users to enter text on a single lines",
+  "description": "An input allows users to enter text on a single line.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

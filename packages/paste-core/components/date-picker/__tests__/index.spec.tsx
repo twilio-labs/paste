@@ -32,7 +32,6 @@ describe('formatReturnDate()', () => {
     }).toThrow('[Paste Date Picker]: Please make sure dateValue string matches YYYY-MM-DD format');
   });
 });
-
 describe('DatePicker', () => {
   describe('DatePicker inner props', () => {
     const initialProps = {
