@@ -2,6 +2,8 @@ import * as gulp from 'gulp';
 import * as theo from 'theo';
 import gulpTheo from 'gulp-theo';
 import del from 'del';
+import gulpif from 'gulp-if';
+import terser from 'gulp-terser';
 import {sketchpaletteTokenFormat} from './formatters/sketchpalette';
 import {gatsbyJsonTokenFormat} from './formatters/gatsby.json';
 import {es6TokenFormat} from './formatters/es6';
@@ -178,6 +180,7 @@ gulp.task('tokens:commonjs', () =>
     .on('error', (err: string) => {
       throw new Error(err);
     })
+    .pipe(gulpif(process.env.NODE_ENV === 'production', terser()))
     .pipe(gulp.dest(paths.dist))
 );
 
@@ -193,6 +196,7 @@ gulp.task('tokens:es6', () =>
     .on('error', (err: string) => {
       throw new Error(err);
     })
+    .pipe(gulpif(process.env.NODE_ENV === 'production', terser()))
     .pipe(gulp.dest(paths.dist))
 );
 
