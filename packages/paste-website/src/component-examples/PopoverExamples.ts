@@ -39,3 +39,29 @@ render(
   <PopoverRightExample />
 )
 `.trim();
+
+export const StateHookPopoverExample = `
+const StateHookExample = () => {
+  const popover = usePopoverState({baseId: 'test-id'});
+  return (
+    <Stack orientation="horizontal" spacing="space60">
+      <PopoverContainer state={popover}>
+        <PopoverButton variant="primary">Open popover</PopoverButton>
+        <Popover aria-label="Popover">
+          <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
+        </Popover>
+      </PopoverContainer>
+      <Button variant="primary" onClick={() => popover.show()}>
+        Open popover on click
+      </Button>
+      <Button variant="primary" onClick={() => popover.hide()}>
+        Close popover on click
+      </Button>
+    </Stack>
+  );
+};
+
+render(
+  <StateHookExample />
+)
+`.trim();

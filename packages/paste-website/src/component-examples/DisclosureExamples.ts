@@ -36,3 +36,36 @@ render(
   <StateHookDisclosure />
 )
 `.trim();
+
+export const StateHookToggleExample = `
+const StateHookToggleDisclosure = () => {
+  const [show, setShow] = React.useState(false);
+  const disclosure = useDisclosureState();
+  const toggleDisclosure = () => setShow(state => !state);
+  const customDisclosureState = {
+    ...disclosure,
+    toggle: toggleDisclosure,
+    visible: show
+  };
+
+  return (
+    <>
+      <Disclosure variant="contained" state={customDisclosureState}>
+        <DisclosureHeading as="h2" variant="heading20">
+          Disclosure Heading
+        </DisclosureHeading>
+        <DisclosureContent>Disclosure content</DisclosureContent>
+      </Disclosure>
+      <Box marginTop="space60">
+        <Button onClick={toggleDisclosure} variant="primary">
+          Toggle Disclosure
+        </Button>
+      </Box>
+    </>
+  );
+};
+
+render(
+  <StateHookToggleDisclosure />
+)
+`.trim();

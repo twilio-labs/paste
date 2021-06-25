@@ -10,14 +10,15 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
 import {Button} from '@twilio-paste/button';
 import {Separator} from '@twilio-paste/separator';
+import {Stack} from '@twilio-paste/stack';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
-import {Popover, PopoverContainer, PopoverButton} from '@twilio-paste/popover';
+import {usePopoverState, Popover, PopoverContainer, PopoverButton} from '@twilio-paste/popover';
 import Changelog from '@twilio-paste/popover/CHANGELOG.md';
 import {Text} from '@twilio-paste/text';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {defaultExample, rightExample} from '../../../component-examples/PopoverExamples';
+import {defaultExample, rightExample, StateHookPopoverExample} from '../../../component-examples/PopoverExamples';
 
 export const pageQuery = graphql`
   {
@@ -142,6 +143,44 @@ available in the [props description here](#popover-container).
   {rightExample}
 </LivePreview>
 
+### Using state hooks
+
+Popover comes with the option of "hooking" into the internal state by using the state hook originally provided by
+[Reakit](https://reakit.io/docs/popover/#usepopoverstate).
+
+Rather than the state be internal to the component, you can use the `usePopoverState` hook and pass the returned state
+to `PopoverContainer` as the `state` prop.
+
+This allows you to use certain returned props from the state hook, including functions like `hide` and `show`.
+
+An example usecase of this might be programmatically providing the user a popover when a certain user action is taken.
+In the example below we are showing a popover when another button is pressed. When pressed the button uses the `show`
+function from the hook. Another button using the `hide` function from the hook is also provided to hide the popover
+when pressed.
+
+It should be noted that when doing so, the state prop takes precedent over the other properties that affect
+the state or initial state of the Popover. They will be ignored in favour of them being provided as arguments
+to the usePopoverState hook.
+
+For full details on how to use the state hook, and what props to provide it, follow the
+[Non-Modal Dialog Primitive documentation](/primitives/non-modal-dialog-primitive). It's the same hook, just renamed.
+
+<LivePreview
+  scope={{
+    usePopoverState,
+    Popover,
+    PopoverContainer,
+    PopoverButton,
+    Text,
+    Stack,
+    Button,
+  }}
+  noInline
+  language="jsx"
+>
+  {StateHookPopoverExample}
+</LivePreview>
+
 ## Anatomy
 
 ### PopoverButton
@@ -191,6 +230,116 @@ const PopoverExample: React.FC = () => {
 ```
 
 #### Props
+
+#### usePopoverState
+
+Pass these as part of an object to the usePopoverState hook.
+
+##### `baseId?: string`
+
+Sets the ID that will serve as a base for all the items IDs.
+
+##### `gutter?: string`
+
+Sets the offset between the reference and the popover on the main axis.
+
+##### `placement?: "auto-start" | "auto" | "auto-end" | "top-start...`
+
+Sets the placement of popover in relation to the `NonModalDialogDisclosurePrimitive`. Available options include:
+
+- auto-start
+- auto-end
+- auto
+- top-start
+- top-end
+- top
+- bottom-start
+- bottom-end
+- bottom
+- right-start
+- right-end
+- right
+- left-start
+- left-end
+- left
+
+##### `visible?: boolean`
+
+Whether the dialog is visible or not.
+
+##### `animated?: number | boolean`
+
+If true, animating will be set to true when visible is updated. It'll wait for stopAnimation to be called or a CSS transition ends. If animated is set to a number, stopAnimation will be called only after the same number of milliseconds have passed.
+
+##### `modal?: boolean`
+
+Sets the modal state.
+
+- Non-modal: preventBodyScroll doesn't work and focus is free.
+- Modal: preventBodyScroll is automatically enabled, focus is trapped within the dialog and the dialog is rendered within a Portal.
+
+#### usePopoverState returned props
+
+These props are returned by the state hook. You can spread them into this component (`{...state}`) or pass them separately. You can also provide these props from your own state logic.
+
+##### `baseId?: string`
+
+Sets the ID that will serve as a base for all the items IDs.
+
+##### `gutter?: string`
+
+Sets the offset between the reference and the popover on the main axis.
+
+##### `placement?: "auto-start" | "auto" | "auto-end" | "top-start...`
+
+Sets the placement of popover in relation to the `NonModalDialogDisclosurePrimitive`. Available options include:
+
+- auto-start
+- auto-end
+- auto
+- top-start
+- top-end
+- top
+- bottom-start
+- bottom-end
+- bottom
+- right-start
+- right-end
+- right
+- left-start
+- left-end
+- left
+
+##### `visible?: boolean`
+
+Whether the dialog is visible or not.
+
+##### `animated?: number | boolean`
+
+If true, animating will be set to true when visible is updated. It'll wait for stopAnimation to be called or a CSS transition ends. If animated is set to a number, stopAnimation will be called only after the same number of milliseconds have passed.
+
+##### `modal?: boolean`
+
+Sets the modal state.
+
+- Non-modal: preventBodyScroll doesn't work and focus is free.
+- Modal: preventBodyScroll is automatically enabled, focus is trapped within the dialog and the dialog is rendered within a Portal.
+
+##### `animating?: boolean`
+
+Whether it's animating or not.
+
+##### `stopAnimation?: () => void`
+
+Stops animation. It's called automatically if there's a CSS transition
+
+##### `show?: () => void`
+
+Changes the `visible` state to `true`.
+
+##### `hide?: () => void`
+
+Changes the `visible` state to `false`.
 
 #### Popover Container
 
