@@ -1,6 +1,6 @@
 import type {CustomTheme, CreateCustomTheme} from './types';
 
-const merge = require('lodash.merge');
+const merge = require('deepmerge');
 
 export const createCustomTheme = ({
   baseTheme,
@@ -9,7 +9,7 @@ export const createCustomTheme = ({
   elements,
 }: CreateCustomTheme): CustomTheme => {
   const breakpoints = customBreakpoints || baseTheme.breakpoints;
-  const mergedTheme = merge({}, baseTheme, overrides);
+  const mergedTheme = merge(baseTheme, overrides);
   return {
     ...mergedTheme,
     breakpoints,
