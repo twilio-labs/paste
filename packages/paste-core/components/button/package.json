@@ -25,7 +25,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "lodash.merge": "^4.6.2"
+    "deepmerge": "4.2.2"
   },
   "peerDependencies": {
     "@twilio-paste/anchor": "^5.0.1",

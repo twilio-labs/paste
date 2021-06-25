@@ -2,7 +2,7 @@ import type {BoxStyleProps} from '@twilio-paste/box';
 import type {ButtonStates, ButtonSizes} from './types';
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
-const merge = require('lodash.merge');
+const merge = require('deepmerge');
 
 const ResetStyles: BoxStyleProps = {
   appearance: 'none',
@@ -26,14 +26,14 @@ const ResetStyles: BoxStyleProps = {
 };
 
 export const BaseStyles: {[key in ButtonStates]: BoxStyleProps} = {
-  default: merge({}, ResetStyles, {
+  default: merge(ResetStyles, {
     cursor: 'pointer',
     _active: {boxShadow: 'none'},
   }),
-  disabled: merge({}, ResetStyles, {
+  disabled: merge(ResetStyles, {
     cursor: 'not-allowed',
   }),
-  loading: merge({}, ResetStyles, {
+  loading: merge(ResetStyles, {
     cursor: 'wait',
   }),
 };

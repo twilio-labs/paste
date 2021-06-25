@@ -6,13 +6,13 @@ import type {DirectButtonProps} from './types';
 import {DirectButtonPropTypes} from './proptypes';
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
-const merge = require('lodash.merge');
+const merge = require('deepmerge');
 
 /*
  * defensively resetting 'color' on pseudostyles from over zealous
  * legacy global styles "a {...}" when button is set as an anchor
  */
-const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default, {
+const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   color: 'colorTextWeakest',
   backgroundColor: 'colorBackgroundDestructive',
   boxShadow: 'shadowBorderDestructive',
@@ -33,13 +33,13 @@ const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default, {
   },
 });
 
-const loadingStyles: BoxStyleProps = merge({}, BaseStyles.loading, {
+const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
   color: 'colorTextWeakest',
   backgroundColor: 'colorBackgroundDestructiveStronger',
   boxShadow: 'shadowBorderDestructiveStronger',
 });
 
-const disabledStyles: BoxStyleProps = merge({}, BaseStyles.disabled, {
+const disabledStyles: BoxStyleProps = merge(BaseStyles.disabled, {
   color: 'colorTextWeakest',
   backgroundColor: 'colorBackgroundDestructiveWeak',
   boxShadow: 'shadowBorderDestructiveWeak',
