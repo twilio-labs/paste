@@ -4,7 +4,7 @@ import {Box, BoxProps} from '@twilio-paste/box';
 
 export interface TruncateProps extends Omit<React.HtmlHTMLAttributes<HTMLSpanElement>, 'color'>, Pick<BoxProps, 'as'> {
   children: NonNullable<React.ReactNode>;
-  title: NonNullable<string>;
+  title: string;
 }
 
 const Truncate = React.forwardRef<HTMLSpanElement, TruncateProps>(({children, ...props}, ref) => {
