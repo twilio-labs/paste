@@ -50,45 +50,41 @@ export const pageQuery = graphql`
 
 <content>
 
-## Installation
+## Font files
 
-You’ll need to download a few things before you can get started designing UIs with Paste.
-
-### Font files
-
-#### Fira Mono
+### Fira Mono
 
 If you are using <strong>any theme</strong> in Paste, you will need
 to [download and install Fira Mono](https://fonts.google.com/specimen/Fira+Mono?query=fira+mono),
 our monospace typeface for code. It’s a free Google font.
 
-#### SF Pro
+### SF Pro
 
 If you are using <strong>any theme</strong> in Paste, you will need to [download and install SF Pro](https://developer.apple.com/fonts/), the
 system font for Apple platforms. We represent native web element styles (like option lists in [Select](/components/select/)) in
 our design assets in the macOS styles.
 
-#### Inter
+### Inter
 
 If you are using the <strong>Default theme</strong> in Paste, you will need
 to [download and install Inter](https://github.com/rsms/inter/releases/download/v3.15/Inter-3.15.zip), which we use for UI text.
 It’s a free font. After you download the files, follow the instructions in the
 `install-mac.txt` file in your download. We recommend following the steps using Font Book.
 
-#### Whitney
+### Whitney
 
 If you are using the <strong>Console theme</strong> in Paste, you will need to download Whitney, which we use for UI text.
 Reach out to us in `#help-design-system` if you need access to the Whitney font files for your work.
 
 ---
 
-### Figma
+## Figma
 
 As a Twilio Designer you have access to Figma. Join the Twilio organization by requesting an
 account through [ServiceNow](https://twilio.service-now.com/sp/). To learn more,
 review our [working with Figma guide](https://www.figma.com/file/WiJFrYa9YpIcFUmT06gTn0/Working-with-Figma).
 
-#### How to turn on libraries
+### How to turn on libraries
 
 👉&nbsp;&nbsp;Ideally, you won’t have to worry too much about turning libraries on if you’re
 joining an existing team. A "Team Owner" (or "Admin") should have already gone through
@@ -100,103 +96,23 @@ also where you can drag in components to your file. Click the book icon in the u
 corner. From the modal, you can turn libraries on and off.
 
 ![Buttons to click in Figma to open the library selector](../../../assets/images/design-guidelines/figma-open-library-modal.png)
+
 ![Modal in Figma where you can select the Paste components library to link to your project](../../../assets/images/design-guidelines/figma-link-paste-libraries.png)
 
 The main libraries we recommend you have enabled for each file are:
 
-- “Console-navigation” for Teams with Console projects
-- “Paste Components”
-- “Paste Default Theme” includes tokens (color, text, and shadow styles), needed for the Paste components library.
-- “Paste Patterns”
-- “File and Cover Sheet Template” includes a cover sheet template
+- [Paste Components](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components)
+- [Paste Default Theme](https://www.figma.com/file/OZKRQFOkOAl413m5JVIYE6/Paste-Default-Theme) includes tokens (color, text, and shadow styles), needed for the Paste components library
+- [Paste Patterns](https://www.figma.com/file/S4z0Kqjb9AYosnkRQldLte/Paste-Patterns)
+- [Brand Illustrations](https://www.figma.com/file/XeA9WNBcoojrdJbiz5Nj5q/Brand-Illustrations) includes illustrations for empty states, sections, etc
+- [Asset Documentation](https://www.figma.com/file/GfY11A2VW638eFK48nDtdE/Asset-Documentation) includes helpful utilities for marking up designs, like sticky notes and cursors
+- [File and Cover Sheet Template](https://www.figma.com/file/RfZYRjUH56rZ0qe0veqRJA/File-and-Cover-Sheet-Template)
+- [Console Library](https://www.figma.com/file/vvdKgsO8OLcn7Q6FmuhWtl/Console-Library) for teams with Console projects **(managed by the Console team)**
+- [SendGrid's legacy SG-DS](https://www.figma.com/file/YgSlHVVKgdCY2BzdTbHsPf/SG-DS) for teams with legacy Sendgrid projects **(managed by the Sendgrid team)**
 
-Any time a library is updated, you’ll get a notification in the file asking if you’d like to update.
+Any time a library is updated, you’ll get a notification in your project asking if you’d like to update.
 
-##### Paste Components library
-
-<Tooltip text="There is ongoing maintenance and net new work in this project. Libraries in this project are at parity with code.">
-  <Box
-    role="button"
-    as="span"
-    display="inline-block"
-    width="auto"
-    marginBottom="space50"
-    paddingTop="space20"
-    paddingBottom="space20"
-    paddingLeft="space30"
-    paddingRight="space30"
-    borderColor="colorBorder"
-    borderWidth="borderWidth10"
-    borderStyle="solid"
-    borderRadius="borderRadius20"
-  >
-    <Stack as="span" orientation="horizontal" spacing="space20">
-      <SuccessIcon decorative={false} title="Success icon" color="colorTextSuccess" />
-      <Text as="p">Actively maintained</Text>
-    </Stack>
-  </Box>
-</Tooltip>
-
-The `Paste Components` library contains components that are available in Paste. For example,
-within the `Paste components` project, we have a `button`, which has all variants and states of
-our button component as seen on this documentation website.
-
-##### Paste Default Theme library
-
-<Tooltip text="There is ongoing maintenance and net new work in this project. Libraries in this project are at parity with code.">
-  <Box
-    role="button"
-    as="span"
-    display="inline-block"
-    width="auto"
-    marginBottom="space50"
-    paddingTop="space20"
-    paddingBottom="space20"
-    paddingLeft="space30"
-    paddingRight="space30"
-    borderColor="colorBorder"
-    borderWidth="borderWidth10"
-    borderStyle="solid"
-    borderRadius="borderRadius20"
-  >
-    <Stack as="span" orientation="horizontal" spacing="space20">
-      <SuccessIcon decorative={false} title="Success icon" color="colorTextSuccess" />
-      <Text as="p">Actively maintained</Text>
-    </Stack>
-  </Box>
-</Tooltip>
-
-The design tokens are housed in the `Paste Default Theme` library. They contain
-the [tokens](/tokens) available for use in the system.
-
-##### Paste Patterns library
-
-<Tooltip text="There is ongoing maintenance and net new work in this project. Libraries in this project are at parity with code.">
-  <Box
-    role="button"
-    as="span"
-    display="inline-block"
-    width="auto"
-    marginBottom="space50"
-    paddingTop="space20"
-    paddingBottom="space20"
-    paddingLeft="space30"
-    paddingRight="space30"
-    borderColor="colorBorder"
-    borderWidth="borderWidth10"
-    borderStyle="solid"
-    borderRadius="borderRadius20"
-  >
-    <Stack as="span" orientation="horizontal" spacing="space20">
-      <SuccessIcon decorative={false} title="Success icon" color="colorTextSuccess" />
-      <Text as="p">Actively maintained</Text>
-    </Stack>
-  </Box>
-</Tooltip>
-
-A Figma library housing [Paste patterns](/patterns)
-
-#### Using the library
+### Using the library
 
 Once you have this library linked, you will see text styles (which include text colors, font families, and font sizes) and layer
 styles (which include background colors, border widths and colors, shadows, etc.) for that theme.
@@ -204,32 +120,18 @@ styles (which include background colors, border widths and colors, shadows, etc.
 ![Menu in Figma when you can navigate through tokens for the Default theme](../../../assets/images/design-guidelines/token-styles.png)
 
 You should be using components from Paste to compose your UIs whenever possible, but the text and layer styles will be helpful when you need to compose something more custom.
-This can be anything from setting a piece of text next to an icon to creating a custom stepper component. Check out this [how-to](https://www.loom.com/share/7f3fe097ad9d4c5abf2a5cd0cdd0846a) for
-using these text and layer styles to create custom compositions.
+This can be anything from setting a piece of text next to an icon to creating a custom stepper component.
 
-#### Library release roadmap and notices
+### Types of library changes
 
-The DSYS Design Team releases library updates on a 6-week cadence. [Take a look at our roadmap](/roadmap) to see release dates, as well as what will be included in each release (note that the
-roadmap is approximate, so each release may look a little bit different than what’s on the roadmap due to shifting priorities).
+We release continuously, but we demark changes with the following hints:
 
-With each release, we will make an announcement in the `#team-ux` channel, as well as send out an email to the UX team. This announcement will outline all changes included in that release, and there will be special
-callouts for any [major changes](#types-of-library-changes) and how to safely accept those changes into your design files.
+- 🚀&nbsp;&nbsp;**New**: [summary of a new thing]
+- ✨&nbsp;&nbsp;**Improved**: [summary of an improved thing]
+- 🐛&nbsp;&nbsp;**Fixed**: [summary of a bug fix]
+- ❗️&nbsp;&nbsp;**Breaking**: [summary of a breaking change]
 
-#### Types of library changes
-
-##### Major
-
-Breaking changes that require work to incorporate into designs. For example, symbols changed size, requiring designers to realign design elements; or symbol overrides reset, requiring designers to reapply them.
-
-##### Minor
-
-Non-breaking functionality was added that requires no work to incorporate. For example, a new button variant was added, or a token value was adjusted.
-
-##### Patch
-
-Non-breaking bug fixes that require no work to incorporate. For example, the alignment of text in an input was fixed, or an incorrect border radius on small buttons was updated.
-
-### Additional questions or concerns
+## Additional questions or concerns
 
 If you have any questions for us that weren’t covered by this guide, or you are running into problems using our design resources, please [reach out](/getting-started/working-guide)!
 
