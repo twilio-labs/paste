@@ -50,7 +50,7 @@ const IconTile = React.forwardRef<HTMLButtonElement, IconTileProps>(({children, 
       {children}
       <Box as="div" display="flex" color="colorTextWeak" marginTop="space30" maxWidth="100%">
         <ScreenReaderOnly>Show details for:</ScreenReaderOnly>
-        <Truncate>{icon.name.replace('Icon', '')}</Truncate>
+        <Truncate title={icon.name}>{icon.name.replace('Icon', '')}</Truncate>
       </Box>
     </Box>
   );

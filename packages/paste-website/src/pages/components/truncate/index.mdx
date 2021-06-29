@@ -116,7 +116,7 @@ spans the full width of a container.
 >
   {`<Box maxWidth="size30">
   <Text as="p">
-    <Truncate>Black Lives Matter. We stand with the Black community.</Truncate>
+    <Truncate title="Black Lives Matter. We stand with the Black community.">Black Lives Matter. We stand with the Black community.</Truncate>
   </Text>
 </Box>`}
 </LivePreview>
@@ -132,7 +132,7 @@ spans the full width of a container.
 >
   {`<Box maxWidth="size30">
   <Anchor href="/getting-started/about-paste">
-    <Truncate>https://paste.twilio.design/getting-started/about-paste</Truncate>
+    <Truncate title="Learn more about Paste">https://paste.twilio.design/getting-started/about-paste</Truncate>
   </Anchor>
 </Box>`}
 </LivePreview>
@@ -141,7 +141,7 @@ spans the full width of a container.
   <Do title="Do" body="Use Truncate to shorten text that doesn't fit in its parent container">
     <Box maxWidth="size20" padding="space60">
       <Text as="p">
-        <Truncate>Some very long text to truncate</Truncate>
+        <Truncate title="Some very long text to truncate">Some very long text to truncate</Truncate>
       </Text>
     </Box>
   </Do>
@@ -153,7 +153,7 @@ spans the full width of a container.
     <Alert variant="error">
       <Box maxWidth="size20">
         <Text as="span">
-          <Truncate>
+          <Truncate title="Your account balance is low and your credit card has expired. As a result we have suspended your account">
             Your account balance is low and your credit card has expired. As a result we have suspended your account
           </Truncate>
         </Text>
@@ -183,7 +183,7 @@ const Component: React.FC = () => {
   return (
     <Box maxWidth="size20">
       <Text as="p">
-        <Truncate>Some very long text to truncate</Truncate>
+        <Truncate title="Some very long text to truncate">Some very long text to truncate</Truncate>
       </Text>
     </Box>
   );
@@ -195,6 +195,7 @@ const Component: React.FC = () => {
 | Prop     | Type        | Description | Default |
 | -------- | ----------- | ----------- | ------- |
 | children | `ReactNode` |             | null    |
+| title    | `string`    |             | null    |
 
 <ChangelogRevealer>
   <Changelog />

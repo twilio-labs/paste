@@ -384,10 +384,14 @@ export const ContainedWidth = (): React.ReactNode => {
       <Paragraph>Text should not cause the flex boxes to break out of their containers when too long.</Paragraph>
       <Flex>
         <Flex>
-          <Truncate>http://www.extremelylongurlthatmightbreakthelayout.com</Truncate>
+          <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+            http://www.extremelylongurlthatmightbreakthelayout.com
+          </Truncate>
         </Flex>
         <Flex>
-          <Truncate>http://www.extremelylongurlthatmightbreakthelayout.com</Truncate>
+          <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+            http://www.extremelylongurlthatmightbreakthelayout.com
+          </Truncate>
         </Flex>
       </Flex>
     </Box>
