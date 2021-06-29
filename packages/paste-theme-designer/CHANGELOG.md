@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.2.25
+
+### Patch Changes
+
+- Updated dependencies [[`fa2ffc5c`](https://github.com/twilio-labs/paste/commit/fa2ffc5cf4da037dcfa0894d033665720cc70ab4)]:
+  - @twilio-paste/core@10.0.0
+
 ## 0.2.24
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @twilio-paste/nextjs-template
 
+## 1.0.7
+
+### Patch Changes
+
+- Updated dependencies [[`fa2ffc5c`](https://github.com/twilio-labs/paste/commit/fa2ffc5cf4da037dcfa0894d033665720cc70ab4)]:
+  - @twilio-paste/core@10.0.0
+
 ## 1.0.6
 
 ### Patch Changes
