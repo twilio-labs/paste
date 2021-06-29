@@ -24,7 +24,13 @@
     "clean": "rm -rf ./dist",
     "tsc": "tsc"
   },
+  "dependencies": {
+    "csstype": "^2.6.10",
+    "deepmerge": "4.2.2"
+  },
   "peerDependencies": {
+    "@twilio-paste/animation-library": "^0.3.2",
+    "@twilio-paste/customization": "^2.1.0",
     "@twilio-paste/design-tokens": "^6.6.0",
     "@twilio-paste/style-props": "^3.0.1",
     "@twilio-paste/styling-library": "^0.3.1",
@@ -35,6 +41,8 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
+    "@twilio-paste/animation-library": "^0.3.2",
+    "@twilio-paste/customization": "^2.1.0",
     "@twilio-paste/design-tokens": "^6.7.0",
     "@twilio-paste/style-props": "^3.0.6",
     "@twilio-paste/styling-library": "^0.3.2",
