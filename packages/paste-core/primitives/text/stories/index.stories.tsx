@@ -1,7 +1,9 @@
 import * as React from 'react';
 import {withKnobs, text, select} from '@storybook/addon-knobs';
 import {DefaultTheme} from '@twilio-paste/theme';
-import {
+import {Separator} from '@twilio-paste/separator';
+import {CustomizationProvider} from '@twilio-paste/customization';
+import type {
   Display,
   FontFamily,
   FontSize,
@@ -21,6 +23,7 @@ import {
   Margin,
 } from '@twilio-paste/style-props';
 import {Text} from '../src';
+import {CustomizableTextExample} from '../__fixtures__/CustomizableText';
 
 const fontSizeOptions = Object.keys(DefaultTheme.fontSizes);
 const fontFamilyOptions = [''].concat(Object.keys(DefaultTheme.fonts));
@@ -130,4 +133,79 @@ export const PseudoClassesWithHoverPseudoProps = (): React.ReactNode => {
 
 PseudoClassesWithHoverPseudoProps.story = {
   name: 'Pseudo-classes with hover pseudo props',
+};
+
+const CustomTextCollection: React.FC = () => {
+  return (
+    <>
+      <CustomizableTextExample element="RECTANGLE">base</CustomizableTextExample>
+      <CustomizableTextExample element="RECTANGLE" variant="secondary">
+        secondary
+      </CustomizableTextExample>
+      <CustomizableTextExample element="RECTANGLE" variant="primary">
+        primary
+      </CustomizableTextExample>
+      <CustomizableTextExample element="SQUARE">base</CustomizableTextExample>
+      <CustomizableTextExample element="SQUARE" variant="secondary">
+        secondary
+      </CustomizableTextExample>
+      <CustomizableTextExample element="SQUARE" variant="primary">
+        primary
+      </CustomizableTextExample>
+    </>
+  );
+};
+
+export const CustomText: React.FC = () => {
+  return (
+    <>
+      <CustomTextCollection />
+      <Separator orientation="horizontal" verticalSpacing="space60" />
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{
+          RECTANGLE: {
+            borderRadius: 'borderRadius20',
+            variants: {
+              primary: {
+                backgroundColor: 'colorBackgroundPrimaryWeaker',
+                padding: 'space30',
+                textDecoration: 'underline',
+              },
+              secondary: {
+                backgroundColor: 'colorBackgroundSuccess',
+                margin: 'space30',
+              },
+            },
+          },
+          SQUARE: {
+            padding: 'space20',
+            ':hover': {
+              backgroundColor: 'colorBackgroundSuccess',
+              cursor: 'pointer',
+            },
+            variants: {
+              primary: {
+                color: 'colorTextNew',
+                ':hover': {
+                  backgroundColor: 'colorBackgroundWarning',
+                },
+              },
+              secondary: {
+                color: 'colorTextWarning',
+                ':hover': {
+                  backgroundColor: 'colorBackgroundError',
+                },
+              },
+            },
+          },
+        }}
+      >
+        <Text as="h2" element="CARD">
+          Customized
+        </Text>
+        <CustomTextCollection />
+      </CustomizationProvider>
+    </>
+  );
 };

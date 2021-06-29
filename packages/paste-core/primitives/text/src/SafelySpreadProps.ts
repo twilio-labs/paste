@@ -8,7 +8,6 @@ export const TEXT_PROPS_TO_BLOCK = [
   ...OVERFLOW_PROPS,
   ...Object.keys(PseudoPropStyles),
   'display',
-  'color',
   'verticalAlign',
   'className',
   'style',
