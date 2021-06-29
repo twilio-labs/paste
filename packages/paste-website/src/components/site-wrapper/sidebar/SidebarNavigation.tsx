@@ -244,7 +244,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
                 </SidebarAnchor>
               </SidebarNestedItem>
               <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/notifications`}>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/notifications-and-feedback`}>
                   Notifications and feedback
                 </SidebarAnchor>
               </SidebarNestedItem>
