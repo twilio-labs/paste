@@ -1,5 +1,12 @@
 # Change Log
 
+## 7.0.0
+
+### Major Changes
+
+- [`fa2ffc5c`](https://github.com/twilio-labs/paste/commit/fa2ffc5cf4da037dcfa0894d033665720cc70ab4) [#1603](https://github.com/twilio-labs/paste/pull/1603) Thanks [@andipants12](https://github.com/andipants12)! - [Truncate] Added the title prop to show full non-truncated text
+  BREAKING CHANGE: `title` prop is now required for the Truncate component.
+
 ## 6.0.2
 
 ### Patch Changes
