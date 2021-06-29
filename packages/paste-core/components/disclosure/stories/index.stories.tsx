@@ -163,7 +163,9 @@ export const TruncatedHeader = (): React.ReactNode => {
     <Box width="size40">
       <Disclosure variant="contained">
         <DisclosureHeading as="h3" variant="heading30">
-          <Truncate>This is a really long header with truncation</Truncate>
+          <Truncate title="This is a really long header with truncation">
+            This is a really long header with truncation
+          </Truncate>
         </DisclosureHeading>
         <DisclosureContent>
           Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus

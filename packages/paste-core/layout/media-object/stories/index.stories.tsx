@@ -82,7 +82,9 @@ export const ConstrainedWidth = (): React.ReactNode => {
         <MediaBody as="div">
           <Text as="p">Some media Object body text</Text>
           <Text as="p">
-            <Truncate>http://www.extremelylongurlthatmightbreakthelayout.com</Truncate>
+            <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+              http://www.extremelylongurlthatmightbreakthelayout.com
+            </Truncate>
           </Text>
         </MediaBody>
         <MediaFigure as="div" align="end" spacing="space70">
