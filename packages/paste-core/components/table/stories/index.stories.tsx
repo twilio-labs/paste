@@ -952,7 +952,7 @@ export const Truncation = (): React.ReactNode => {
       <TBody>
         <Tr>
           <Td>
-            <Truncate>Some very long text to truncate</Truncate>
+            <Truncate title="Some very long text to truncate">Some very long text to truncate</Truncate>
           </Td>
           <Td>Empty</Td>
           <Td>Cell</Td>
@@ -965,7 +965,7 @@ export const Truncation = (): React.ReactNode => {
         </Tr>
         <Tr>
           <Td>
-            <Truncate>Some very long text to truncate</Truncate>
+            <Truncate title="Some very long text to truncate">Some very long text to truncate</Truncate>
           </Td>
           <Td>Empty</Td>
           <Td>Cell</Td>
@@ -978,7 +978,7 @@ export const Truncation = (): React.ReactNode => {
         </Tr>
         <Tr>
           <Td>
-            <Truncate>Some very long text to truncate</Truncate>
+            <Truncate title="Some very long text to truncate">Some very long text to truncate</Truncate>
           </Td>
           <Td>Empty</Td>
           <Td>Cell</Td>

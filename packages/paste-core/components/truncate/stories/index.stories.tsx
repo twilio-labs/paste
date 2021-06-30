@@ -13,7 +13,7 @@ export const Default = (): React.ReactNode => {
   return (
     <Box maxWidth="size20">
       <Text as="p">
-        <Truncate>Some very long text to truncate</Truncate>
+        <Truncate title="Some very long text to truncate">Some very long text to truncate</Truncate>
       </Text>
     </Box>
   );
