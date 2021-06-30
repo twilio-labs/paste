@@ -76,7 +76,11 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({category
             return (
               <Tr key={Feature}>
                 <Td>
-                  <SiteLink to={getPackagePath(categoryRoute, Feature)}>{Feature}</SiteLink>
+                  {Documentation === true ? (
+                    <SiteLink to={getPackagePath(categoryRoute, Feature)}>{Feature}</SiteLink>
+                  ) : (
+                    <Text as="span">{Feature}</Text>
+                  )}
                 </Td>
                 <Td textAlign="center">{sentenceCase(status)}</Td>
                 <Td textAlign="center">
