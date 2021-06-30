@@ -45,6 +45,7 @@
 /select
 /separator
 /sibling-box
+/skeleton-loader
 /spinner
 /stack
 /style-props

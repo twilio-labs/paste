@@ -69,6 +69,7 @@
     "@twilio-paste/select": "^5.0.4",
     "@twilio-paste/separator": "^2.0.4",
     "@twilio-paste/sibling-box": "^3.0.3",
+    "@twilio-paste/skeleton-loader": "^0.0.0",
     "@twilio-paste/spinner": "^7.0.2",
     "@twilio-paste/stack": "^2.0.4",
     "@twilio-paste/style-props": "^3.0.6",
