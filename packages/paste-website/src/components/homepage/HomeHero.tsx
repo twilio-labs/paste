@@ -66,19 +66,18 @@ const HomeHero: React.FC = () => {
             <Column span={5}>
               <NewComponentBanner>
                 <NewComponentBannerBadge>New!</NewComponentBannerBadge>
-                <NewComponentBannerText>We&apos;re looking for a Product Designer!</NewComponentBannerText>
+                <NewComponentBannerText>We just added the Date Picker!</NewComponentBannerText>
                 <NewComponentBannerLink
-                  to="https://boards.greenhouse.io/twilio/jobs/3133421"
+                  to="/components/date-picker"
                   onClick={() =>
                     trackCustomEvent({
                       category: 'Hero',
                       action: 'click-new-component-banner',
-                      label: 'Product Designer job opening',
+                      label: 'Date Picker component page',
                     })
                   }
-                  showExternal
                 >
-                  Is it you?
+                  Take a look
                 </NewComponentBannerLink>
               </NewComponentBanner>
               <Text
