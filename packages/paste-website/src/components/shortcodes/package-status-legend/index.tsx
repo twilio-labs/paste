@@ -23,7 +23,7 @@ const PackageStatusLegend: React.FC<PackageStatusLegendProps> = ({packageStatus}
   } = packageStatus[0].node.data;
 
   return (
-    <Box marginBottom="space100">
+    <Box marginBottom="space70">
       <Stack orientation="horizontal" spacing="space60">
         <Box display="flex" alignItems="center">
           <Text as="span" marginRight="space20">
