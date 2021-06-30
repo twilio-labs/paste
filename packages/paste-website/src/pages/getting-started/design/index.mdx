@@ -1,6 +1,6 @@
 ---
 title: Design Guidelines for Paste
-description: Notes on how to use Paste in design work
+description: How to use Paste design tooling
 slug: /getting-started/design/
 ---
 
@@ -108,23 +108,34 @@ The main libraries we recommend you have enabled for each file are:
 - [Asset Documentation](https://www.figma.com/file/GfY11A2VW638eFK48nDtdE/Asset-Documentation) includes helpful utilities for marking up designs, like sticky notes and cursors
 - [File and Cover Sheet Template](https://www.figma.com/file/RfZYRjUH56rZ0qe0veqRJA/File-and-Cover-Sheet-Template)
 - [Console Library](https://www.figma.com/file/vvdKgsO8OLcn7Q6FmuhWtl/Console-Library) for teams with Console projects **(managed by the Console team)**
-- [SendGrid's legacy SG-DS](https://www.figma.com/file/YgSlHVVKgdCY2BzdTbHsPf/SG-DS) for teams with legacy Sendgrid projects **(managed by the Sendgrid team)**
+- [SendGrid's legacy SG-DS](https://www.figma.com/file/YgSlHVVKgdCY2BzdTbHsPf/SG-DS) for teams with legacy SendGrid projects **(managed by the SendGrid team)**
 
 Any time a library is updated, you’ll get a notification in your project asking if you’d like to update.
 
-### Using the library
+### Using the Paste Components library
 
-Once you have this library linked, you will see text styles (which include text colors, font families, and font sizes) and layer
-styles (which include background colors, border widths and colors, shadows, etc.) for that theme.
+The Paste Components library houses Figma components for all components available in
+Paste. You can drag and drop components into your project via the Assets panel on the left,
+and swap to different variants for a given component via the Design panel on the right.
+Some more complex components include nested variants, so be sure to explore the different
+layers on each component for any layer with a ⚙️ emoji. This emoji indicates that there are
+variants available on that layer. Any layer with a ✏️ emoji indicates an editable layer.
+Check out our [tips and tricks](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=284%3A1158)
+for more helpful hints about using the Paste Components library.
+
+### Using the Paste Default Theme library
+
+Once you have this library linked, you will see text styles (which include font families, font weights, and font sizes), fill
+and stroke styles (which include background, border, and text colors), and effect styles (which include shadows) for that theme.
 
 ![Menu in Figma when you can navigate through tokens for the Default theme](../../../assets/images/design-guidelines/token-styles.png)
 
 You should be using components from Paste to compose your UIs whenever possible, but the text and layer styles will be helpful when you need to compose something more custom.
 This can be anything from setting a piece of text next to an icon to creating a custom stepper component.
 
-### Types of library changes
+### How we publish library updates
 
-We release continuously, but we demark changes with hints which you can see on the description of the update:
+We release library updates continuously, and we demarcate changes with hints which you can see in the description of each update:
 
 - 🚀&nbsp;&nbsp;**New**: [summary of a new thing]
 - ✨&nbsp;&nbsp;**Improved**: [summary of an improved thing]
