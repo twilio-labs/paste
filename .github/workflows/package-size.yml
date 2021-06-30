@@ -8,13 +8,3 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
-
-      - name: Setup Node.js 12.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: 12.x
-
-      - uses: preactjs/compressed-size-action@v2
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          build-script: "build:js"
