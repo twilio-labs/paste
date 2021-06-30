@@ -58,7 +58,9 @@ describe('Broken link checker', () => {
           // to request it and scan for that page's anchors
           // until every link has been crawled. #recursion
           $anchors.each((index: number) => {
-            const link = $anchors[index].href;
+            const href = $anchors[index].href;
+            // Remove the hash to prevent checking the same actual link multiple times
+            const link = href.split('#')[0];
 
             if (shouldVisitLink(link)) {
               crawlPageLinks(link);
