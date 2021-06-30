@@ -8,6 +8,7 @@ export type PackageStatusObject = [
         Engineer_committee_review: string;
         Code: string;
         status: string;
+        Product_suitability: ['Console' | 'SendGrid' | 'Flex'];
       };
     };
   }
