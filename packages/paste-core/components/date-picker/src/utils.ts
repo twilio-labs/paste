@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import {format} from 'date-fns';
 
 // https://stackoverflow.com/questions/22061723/regex-date-validation-for-yyyy-mm-dd/22061800
