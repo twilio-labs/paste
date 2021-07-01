@@ -95,4 +95,23 @@ describe('createCustomTheme', () => {
       },
     });
   });
+
+  it('should not allow duplicate element keys', () => {
+    expect(() => {
+      createCustomTheme({
+        baseTheme: mockTheme,
+        overrides: {},
+        elements: {
+          CARD: {
+            backgroundColor: 'red',
+          },
+          card: {
+            backgroundColor: 'pink',
+          },
+        },
+      });
+    }).toThrow(
+      '[CustomizationProvider]: duplicate element names, even when using a different casing, is not supported with Paste.'
+    );
+  });
 });
