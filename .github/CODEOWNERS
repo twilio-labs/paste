@@ -1,0 +1,7 @@
+* @twilio-labs/design-system-eng-leads
+
+# Paste core - round robin someone from the team and a lead for review
+/packages/ @twilio-labs/design-systems-eng @twilio-labs/design-system-eng-leads
+
+# Design tokens - ensure someone from design reviews to keep in sync with Figma
+/packages/paste-design-tokens @twilio-labs/design-systems-pd @twilio-labs/design-system-eng-leads
