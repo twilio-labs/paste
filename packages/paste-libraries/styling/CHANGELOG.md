@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.4
+
+### Patch Changes
+
+- [`4dcc7b31`](https://github.com/twilio-labs/paste/commit/4dcc7b310830dd77481d7b4546aa5618b0de4f11) [#1599](https://github.com/twilio-labs/paste/pull/1599) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Styling-library] Export StyledComponent and CSSObject types from emotion and styled system respectively
+
 ## 0.3.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.1.0
+
+### Minor Changes
+
+- [`7d703959`](https://github.com/twilio-labs/paste/commit/7d703959e6d989c1257942355115b17d3615bc7f) [#1599](https://github.com/twilio-labs/paste/pull/1599) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box] Enable Box to respect element customizations set on the customization provider. Box now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 4.0.7
 
 ### Patch Changes
