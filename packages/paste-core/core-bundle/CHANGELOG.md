@@ -1,5 +1,22 @@
 # Change Log
 
+## 10.2.0
+
+### Minor Changes
+
+- [`2b7567b7`](https://github.com/twilio-labs/paste/commit/2b7567b72026e6393517b846c7bb867c3929dea1) [#1607](https://github.com/twilio-labs/paste/pull/1607) Thanks [@gloriliale](https://github.com/gloriliale)! - Created a time picker component package.
+
+### Patch Changes
+
+- [`a7fcccd5`](https://github.com/twilio-labs/paste/commit/a7fcccd55fc145b6a711530b030280c24e0e3aa2) [#1607](https://github.com/twilio-labs/paste/pull/1607) Thanks [@gloriliale](https://github.com/gloriliale)! - Added type 'time' to Input types for time picker component.
+
+* [`81ef55dc`](https://github.com/twilio-labs/paste/commit/81ef55dc5ce8ec8b6c1a1a28545fd1cd1628a60c) [#1607](https://github.com/twilio-labs/paste/pull/1607) Thanks [@gloriliale](https://github.com/gloriliale)! - Added type 'time' to Input-Box types for time picker component, changed InputTypes to name InputBoxTypes.
+
+* Updated dependencies [[`2b7567b7`](https://github.com/twilio-labs/paste/commit/2b7567b72026e6393517b846c7bb867c3929dea1), [`a7fcccd5`](https://github.com/twilio-labs/paste/commit/a7fcccd55fc145b6a711530b030280c24e0e3aa2), [`81ef55dc`](https://github.com/twilio-labs/paste/commit/81ef55dc5ce8ec8b6c1a1a28545fd1cd1628a60c)]:
+  - @twilio-paste/time-picker@0.1.0
+  - @twilio-paste/input@3.0.8
+  - @twilio-paste/input-box@4.0.7
+
 ## 10.1.0
 
 ### Minor Changes

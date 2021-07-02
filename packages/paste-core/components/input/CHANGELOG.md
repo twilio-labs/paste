@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.0.8
+
+### Patch Changes
+
+- [`a7fcccd5`](https://github.com/twilio-labs/paste/commit/a7fcccd55fc145b6a711530b030280c24e0e3aa2) [#1607](https://github.com/twilio-labs/paste/pull/1607) Thanks [@gloriliale](https://github.com/gloriliale)! - Added type 'time' to Input types for time picker component.
+
 ## 3.0.7
 
 ### Patch Changes
