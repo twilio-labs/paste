@@ -315,20 +315,18 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
                   Overview
                 </SidebarAnchor>
               </SidebarNestedItem>
-              {data.allPastePrimitive.edges
-                .filter(({node}) => node.status !== PackageStatus.BACKLOG)
-                .map(({node}) => {
-                  return (
-                    <SidebarNestedItem key={node.name}>
-                      <SidebarAnchor
-                        nested
-                        to={`${SidebarCategoryRoutes.PRIMITIVES}/${getNameFromPackageName(node.name)}`}
-                      >
-                        {getHumanizedNameFromPackageName(node.name)}
-                      </SidebarAnchor>
-                    </SidebarNestedItem>
-                  );
-                })}
+              {data.allPastePrimitive.edges.filter(filteredComponents).map(({node}) => {
+                return (
+                  <SidebarNestedItem key={node.name}>
+                    <SidebarAnchor
+                      nested
+                      to={`${SidebarCategoryRoutes.PRIMITIVES}/${getNameFromPackageName(node.name)}`}
+                    >
+                      {getHumanizedNameFromPackageName(node.name)}
+                    </SidebarAnchor>
+                  </SidebarNestedItem>
+                );
+              })}
             </SidebarNestedList>
           </DisclosurePrimitiveContent>
         </SidebarItem>
