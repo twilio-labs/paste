@@ -1,7 +1,7 @@
 ---
 title: Help Text - Components
 package: '@twilio-paste/help-text'
-description: 'Help text that can be paired with a Paste form component'
+description: 'Help text that can be paired with a Paste form component.'
 slug: /components/help-text/
 ---
 
@@ -47,7 +47,7 @@ export const pageQuery = graphql`
         value
       }
     }
-    allAirtable(filter: {data: {Feature: {eq: "HelpText"}}}) {
+    allAirtable(filter: {data: {Feature: {eq: "Help Text"}}}) {
       edges {
         node {
           data {
@@ -94,9 +94,11 @@ Text that's placed below the field to help users prevent an error and describe w
     Pair help text with a valid form element. Include a visible label on <strong>all</strong> form fields.
   </ListItem>
   <ListItem>
-    Include a unique <inlineCode>id</inlineCode> for the help text, regardless of state ("default" or "error"). Be sure
-    to also include the <inlineCode>aria-describedby</inlineCode> prop on the form element (input, select, textarea,
-    etc.).
+    Include a unique <inlineCode>id</inlineCode> for the help text, regardless of state ("default" or "error").
+  </ListItem>
+  <ListItem>
+    Be sure to also include the <inlineCode>aria-describedby</inlineCode> prop on the form element that equals the{' '}
+    <inlineCode>id</inlineCode> of the help text.
   </ListItem>
 </UnorderedList>
 
@@ -107,9 +109,8 @@ Text that's placed below the field to help users prevent an error and describe w
 <Callout>
   <CalloutTitle as="h4">Hot accessibility tip</CalloutTitle>
   <CalloutText>
-    If using help text, the form element should also use the <inlineCode>aria-describedby</inlineCode> prop that equals
-    the <inlineCode>id</inlineCode> of the help text. This ensures screen readers know the help text ties directly to
-    the input.
+    Including the <inlineCode>aria-describedby</inlineCode> prop ensures screen readers know the help text ties directly
+    to the form element.
   </CalloutText>
 </Callout>
 
@@ -151,13 +152,14 @@ Text that's placed below the field to help users prevent an error and describe w
 
 Give users enough information in help text to prevent input and formatting errors. Keep it concise and scoped to information that will help with validation. For example, use help text if a password field has specific requirements that a user should know prior to filling it out.
 
-Ideally, help text should have enough information to help users prevent errors.
+- Help text should have enough information to help users prevent errors.
+- Use help text to provide instruction if needed. For example, don't use "Enter the date you wish to receive your bill below" as label text. Instead, use "Billing date" as a label and "Your account will be automatically billed on the above date." as help text.
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
-  <Label htmlFor="email_error">Email address</Label>
-  <Input aria-describedby="email_error_help_text" id="email_error" name="email_error" type="email" placeholder="example@twilio.com" onChange="" hasError />
-  <HelpText id="email_error_help_text" variant="default">Please enter a valid email.</HelpText>
+  <Label htmlFor="email_default_example">Email address</Label>
+  <Input aria-describedby="email_default_help_text" id="email_default_example" name="email_default_example" type="email" placeholder="example@twilio.com" onChange="" />
+  <HelpText id="email_default_help_text" variant="default">Please enter a valid email.</HelpText>
 </>`}
 </LivePreview>
 
@@ -175,8 +177,8 @@ Error text should:
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
-  <Label htmlFor="email_error">Email address</Label>
-  <Input aria-describedby="email_error_help_text" id="email_error" name="email_error" type="email" placeholder="example@twilio.com" onChange="" hasError />
+  <Label htmlFor="email_error_example">Email address</Label>
+  <Input aria-describedby="email_error_help_text" id="email_error_example" value="this is not a vaild entry" name="email_error_example" type="email" placeholder="example@twilio.com" onChange="" hasError />
   <HelpText id="email_error_help_text" variant="error">Please enter a valid email.</HelpText>
 </>`}
 </LivePreview>
@@ -186,7 +188,7 @@ Error text should:
 Use help text when users might need additional information to fill out a form field.
 
 <DoDont>
-  <Do title="Do" body="Use help text to help users prevent errors and fill out a form field correctly." center>
+  <Do title="Do" body="Use help text in composition with a form element." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="email_do">Email address</Label>
       <Input
@@ -200,10 +202,37 @@ Use help text when users might need additional information to fill out a form fi
       <HelpText id="email_do_help_text">Please enter a valid email.</HelpText>
     </Box>
   </Do>
+  <Dont title="Don't" body="Don’t use help text as a stand-alone component." center>
+    <Box width="100%" padding="space60">
+      <HelpText id="email_do_help_text">You should instead style the Text component with design tokens.</HelpText>
+    </Box>
+  </Dont>
+</DoDont>
+<DoDont>
+  <Do title="Do" body="Use help text to help users prevent errors and fill out a form field correctly." center>
+    <Box width="100%" padding="space60">
+      <Label htmlFor="phone_number_do">Phone number</Label>
+      <Input
+        aria-describedby="phone_number_do_help_text"
+        id="phone_number_do"
+        name="hone_number_do"
+        type="phone-number"
+        placeholder="(415) 888-CATS"
+        onChange=""
+      />
+      <HelpText id="phone_number_do_help_text">Please enter a valid phone number.</HelpText>
+    </Box>
+  </Do>
   <Dont title="Don't" body="Don't use placeholder text for validation instructions." center>
     <Box width="100%" padding="space60">
-      <Label htmlFor="email_dont">Email address</Label>
-      <Input id="email_dont" name="email_dont" type="email" placeholder="Please enter a valid email" onChange="" />
+      <Label htmlFor="phone_number_dont">Email address</Label>
+      <Input
+        id="phone_number_dont"
+        name="phone_number_dont"
+        type="phone-number"
+        placeholder="Please enter a valid phone number."
+        onChange=""
+      />
     </Box>
   </Dont>
 </DoDont>
@@ -318,6 +347,10 @@ import {Input, Label, HelpText} from '@twilio-paste/core';
 
 const Component = () => (
   <>
+    <Label htmlFor="foo" required>
+      Foo
+    </Label>
+    <Input id="foo" type="text" value="" onChange="" aria-describedby="foo_text" />
     <HelpText id="foo_text">Please enter some text</HelpText>
   </>
 );
