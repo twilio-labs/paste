@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/design-tokens",
-  "version": "6.9.0",
+  "version": "6.9.1",
   "description": "Paste Design System Tokens package with a number of different formats for Web, Mobile, and Sketch.",
   "main": "dist/tokens.common.js",
   "module": "dist/tokens.es6.js",
@@ -12,8 +12,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn clean && gulp",
-    "build:dev": "yarn build",
+    "build": "yarn clean && NODE_ENV=production gulp",
+    "build:js": "yarn clean && NODE_ENV=development gulp",
     "build:watch": "yarn clean && gulp dev",
     "clean": "rm -rf ./dist",
     "tokens": "gulp default",

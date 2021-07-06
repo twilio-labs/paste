@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import {FieldWrapper} from './FauxInput';
 import {Prefix} from './Prefix';
 import {Suffix} from './Suffix';
-import {InputTypes, Variants} from './types';
+import type {InputBoxTypes, Variants} from './types';
 
 export interface InputBoxProps {
   children: NonNullable<React.ReactNode>;
@@ -12,7 +12,7 @@ export interface InputBoxProps {
   insertAfter?: React.ReactNode;
   insertBefore?: React.ReactNode;
   readOnly?: boolean;
-  type?: InputTypes;
+  type?: InputBoxTypes;
   variant?: Variants;
 }
 
@@ -53,7 +53,7 @@ if (process.env.NODE_ENV === 'development') {
     insertBefore: PropTypes.node,
     readOnly: PropTypes.bool,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel', 'date']) as any,
+    type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel', 'date', 'time']) as any,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     variant: PropTypes.oneOf(['default', 'inverse']) as any,
   };

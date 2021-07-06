@@ -1,5 +1,68 @@
 # Change Log
 
+## 10.2.0
+
+### Minor Changes
+
+- [`2b7567b7`](https://github.com/twilio-labs/paste/commit/2b7567b72026e6393517b846c7bb867c3929dea1) [#1607](https://github.com/twilio-labs/paste/pull/1607) Thanks [@gloriliale](https://github.com/gloriliale)! - Created a time picker component package.
+
+### Patch Changes
+
+- [`a7fcccd5`](https://github.com/twilio-labs/paste/commit/a7fcccd55fc145b6a711530b030280c24e0e3aa2) [#1607](https://github.com/twilio-labs/paste/pull/1607) Thanks [@gloriliale](https://github.com/gloriliale)! - Added type 'time' to Input types for time picker component.
+
+* [`81ef55dc`](https://github.com/twilio-labs/paste/commit/81ef55dc5ce8ec8b6c1a1a28545fd1cd1628a60c) [#1607](https://github.com/twilio-labs/paste/pull/1607) Thanks [@gloriliale](https://github.com/gloriliale)! - Added type 'time' to Input-Box types for time picker component, changed InputTypes to name InputBoxTypes.
+
+* Updated dependencies [[`2b7567b7`](https://github.com/twilio-labs/paste/commit/2b7567b72026e6393517b846c7bb867c3929dea1), [`a7fcccd5`](https://github.com/twilio-labs/paste/commit/a7fcccd55fc145b6a711530b030280c24e0e3aa2), [`81ef55dc`](https://github.com/twilio-labs/paste/commit/81ef55dc5ce8ec8b6c1a1a28545fd1cd1628a60c)]:
+  - @twilio-paste/time-picker@0.1.0
+  - @twilio-paste/input@3.0.8
+  - @twilio-paste/input-box@4.0.7
+
+## 10.1.0
+
+### Minor Changes
+
+- [`035bb7d8`](https://github.com/twilio-labs/paste/commit/035bb7d812dbf84604c3c95adb53c67d18601a60) [#1599](https://github.com/twilio-labs/paste/pull/1599) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Text] Enable Text to respect element customizations set on the customization provider. Text now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`7d703959`](https://github.com/twilio-labs/paste/commit/7d703959e6d989c1257942355115b17d3615bc7f) [#1599](https://github.com/twilio-labs/paste/pull/1599) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box] Enable Box to respect element customizations set on the customization provider. Box now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+### Patch Changes
+
+- [`66285238`](https://github.com/twilio-labs/paste/commit/66285238c23b1ac756a6bf30af0ece5a45a0ddc7) [#1599](https://github.com/twilio-labs/paste/pull/1599) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Switch lodash.merge with deepmerge for significant bundle size savings
+
+* [`f2594fca`](https://github.com/twilio-labs/paste/commit/f2594fca7955014922f83d1d4c28df385ee519a5) [#1599](https://github.com/twilio-labs/paste/pull/1599) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Customization] minor change to the elements prop type to change the `variant` to the `variants` key to more closely match styled system. Also correct the elements type to use a string key for the element names
+
+- [`4dcc7b31`](https://github.com/twilio-labs/paste/commit/4dcc7b310830dd77481d7b4546aa5618b0de4f11) [#1599](https://github.com/twilio-labs/paste/pull/1599) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Styling-library] Export StyledComponent and CSSObject types from emotion and styled system respectively
+
+* [`72cdd336`](https://github.com/twilio-labs/paste/commit/72cdd336bcbf9e00befbc2e8e39c7acfa1fed190) [#1599](https://github.com/twilio-labs/paste/pull/1599) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Ensure that the elements object cannot have duplicate element names, even across different casings of the names
+
+* Updated dependencies [[`66285238`](https://github.com/twilio-labs/paste/commit/66285238c23b1ac756a6bf30af0ece5a45a0ddc7), [`f2594fca`](https://github.com/twilio-labs/paste/commit/f2594fca7955014922f83d1d4c28df385ee519a5), [`4dcc7b31`](https://github.com/twilio-labs/paste/commit/4dcc7b310830dd77481d7b4546aa5618b0de4f11), [`035bb7d8`](https://github.com/twilio-labs/paste/commit/035bb7d812dbf84604c3c95adb53c67d18601a60), [`72cdd336`](https://github.com/twilio-labs/paste/commit/72cdd336bcbf9e00befbc2e8e39c7acfa1fed190), [`7d703959`](https://github.com/twilio-labs/paste/commit/7d703959e6d989c1257942355115b17d3615bc7f)]:
+  - @twilio-paste/button@7.0.5
+  - @twilio-paste/customization@2.1.1
+  - @twilio-paste/styling-library@0.3.4
+  - @twilio-paste/text@4.1.0
+  - @twilio-paste/box@4.1.0
+
+## 10.0.0
+
+### Major Changes
+
+- [`fa2ffc5c`](https://github.com/twilio-labs/paste/commit/fa2ffc5cf4da037dcfa0894d033665720cc70ab4) [#1603](https://github.com/twilio-labs/paste/pull/1603) Thanks [@andipants12](https://github.com/andipants12)! - [Truncate] Added the title prop to show full non-truncated text
+  BREAKING CHANGE: `title` prop is now required for the Truncate component.
+
+### Patch Changes
+
+- Updated dependencies [[`fa2ffc5c`](https://github.com/twilio-labs/paste/commit/fa2ffc5cf4da037dcfa0894d033665720cc70ab4)]:
+  - @twilio-paste/truncate@7.0.0
+
+## 9.6.3
+
+### Patch Changes
+
+- [`e43dec0e`](https://github.com/twilio-labs/paste/commit/e43dec0e611defd3ab3e89614b4d57bb33cf481d) [#1594](https://github.com/twilio-labs/paste/pull/1594) Thanks [@TheSisb](https://github.com/TheSisb)! - Minifies output to commonJS and ES6 token files
+
+- Updated dependencies [[`e43dec0e`](https://github.com/twilio-labs/paste/commit/e43dec0e611defd3ab3e89614b4d57bb33cf481d)]:
+  - @twilio-paste/design-tokens@6.9.1
+
 ## 9.6.2
 
 ### Patch Changes

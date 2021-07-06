@@ -1,8 +1,12 @@
 import * as React from 'react';
 import {withKnobs, select, text} from '@storybook/addon-knobs';
-import {DefaultTheme, ThemeShape} from '@twilio-paste/theme';
+import {DefaultTheme} from '@twilio-paste/theme';
+import type {ThemeShape} from '@twilio-paste/theme';
+import {CustomizationProvider} from '@twilio-paste/customization';
+import {Separator} from '@twilio-paste/separator';
 import {Text} from '@twilio-paste/text';
 import {Box} from '../src';
+import {CustomizableBoxExample} from '../__fixtures__/CustomizableBox';
 
 const backgroundColorOptions = Object.keys(DefaultTheme.backgroundColors);
 const spaceOptions = Object.keys(DefaultTheme.space);
@@ -153,4 +157,77 @@ export const PseudoClassesWithProps = (): React.ReactNode => {
 
 PseudoClassesWithProps.story = {
   name: 'Pseudo-classes with props',
+};
+
+const CustomBoxCollection: React.FC = () => {
+  return (
+    <>
+      <CustomizableBoxExample element="RECTANGLE">base</CustomizableBoxExample>
+      <CustomizableBoxExample element="RECTANGLE" variant="secondary">
+        secondary
+      </CustomizableBoxExample>
+      <CustomizableBoxExample element="RECTANGLE" variant="primary">
+        primary
+      </CustomizableBoxExample>
+      <CustomizableBoxExample element="SQUARE">base</CustomizableBoxExample>
+      <CustomizableBoxExample element="SQUARE" variant="secondary">
+        secondary
+      </CustomizableBoxExample>
+      <CustomizableBoxExample element="SQUARE" variant="primary">
+        primary
+      </CustomizableBoxExample>
+    </>
+  );
+};
+
+export const CustomBox: React.FC = () => {
+  return (
+    <>
+      <CustomBoxCollection />
+      <Separator orientation="horizontal" verticalSpacing="space60" />
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{
+          RECTANGLE: {
+            borderRadius: 'borderRadius20',
+            variants: {
+              primary: {
+                backgroundColor: 'colorBackgroundPrimary',
+                padding: 'space30',
+                textDecoration: 'underline',
+              },
+              secondary: {
+                backgroundColor: 'colorBackgroundSuccess',
+                margin: 'space30',
+              },
+            },
+          },
+          SQUARE: {
+            padding: 'space20',
+            ':hover': {
+              backgroundColor: 'colorBackgroundSuccess',
+              cursor: 'pointer',
+            },
+            variants: {
+              primary: {
+                color: 'colorTextNew',
+                ':hover': {
+                  backgroundColor: 'colorBackgroundWarning',
+                },
+              },
+              secondary: {
+                color: 'colorTextWarning',
+                ':hover': {
+                  backgroundColor: 'colorBackgroundError',
+                },
+              },
+            },
+          },
+        }}
+      >
+        <Box element="CARD">Customized</Box>
+        <CustomBoxCollection />
+      </CustomizationProvider>
+    </>
+  );
 };

@@ -23,6 +23,7 @@ exports[`MediaBody should render 1`] = `
 >
   <span
     className="emotion-0"
+    data-paste-element="BOX"
   >
     default
   </span>
@@ -52,6 +53,7 @@ exports[`MediaBody should render as any HTML element 1`] = `
 >
   <article
     className="emotion-0"
+    data-paste-element="BOX"
   >
     default
   </article>
@@ -82,6 +84,7 @@ exports[`MediaFigure should render 1`] = `
 >
   <span
     className="emotion-0"
+    data-paste-element="BOX"
     display="flex"
   >
     default
@@ -113,6 +116,7 @@ exports[`MediaFigure should render as any HTML element 1`] = `
 >
   <a
     className="emotion-0"
+    data-paste-element="BOX"
     display="flex"
   >
     default
@@ -144,6 +148,7 @@ exports[`MediaFigure should render with spacing on the left for end alignment 1`
 >
   <span
     className="emotion-0"
+    data-paste-element="BOX"
     display="flex"
   >
     center align
@@ -175,6 +180,7 @@ exports[`MediaFigure should render with spacing on the right for default alignme
 >
   <span
     className="emotion-0"
+    data-paste-element="BOX"
     display="flex"
   >
     center align
@@ -206,6 +212,7 @@ exports[`MediaObject should render 1`] = `
 >
   <span
     className="emotion-0"
+    data-paste-element="BOX"
     display="flex"
   >
     default
@@ -237,6 +244,7 @@ exports[`MediaObject should render as another HTML element 1`] = `
 >
   <section
     className="emotion-0"
+    data-paste-element="BOX"
     display="flex"
   >
     background single
@@ -269,6 +277,7 @@ exports[`MediaObject should render bottom margin 1`] = `
 >
   <span
     className="emotion-0"
+    data-paste-element="BOX"
     display="flex"
   >
     background single
@@ -301,6 +310,7 @@ exports[`MediaObject should render top margin 1`] = `
 >
   <span
     className="emotion-0"
+    data-paste-element="BOX"
     display="flex"
   >
     background single
@@ -332,6 +342,7 @@ exports[`MediaObject should render with center aligned children 1`] = `
 >
   <span
     className="emotion-0"
+    data-paste-element="BOX"
     display="flex"
   >
     center align

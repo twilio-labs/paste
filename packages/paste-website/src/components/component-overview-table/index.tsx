@@ -10,6 +10,7 @@ import {PeerReviewStatus} from '../component-status/PeerReviewStatus';
 import {SiteLink} from '../SiteLink';
 import type {SidebarCategoryRoutes} from '../../constants';
 import {getPackagePath} from '../../utils/RouteUtils';
+import {sentenceCase} from '../../utils/SentenceCase';
 import type {AirTableComponentNode} from '../../utils/types';
 
 interface ComponentOverviewTableProps {
@@ -25,20 +26,23 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({category
 
   return (
     <Box marginTop="space60" marginBottom="space60">
-      <Table>
+      <Table data-cy="overview-table">
         <THead>
           <Tr>
-            <Th>Name</Th>
+            <Th width="150px">Name</Th>
+            <Th textAlign="center" width="150px">
+              Status
+            </Th>
             <Th textAlign="center" width="150px">
               Code ready
             </Th>
-            <Th textAlign="center" width="150px">
+            <Th textAlign="center" width="170px">
               Design assets
             </Th>
             <Th textAlign="center" width="150px">
               Documentation
             </Th>
-            <Th textAlign="center" width="150px">
+            <Th textAlign="center" width="170px">
               <Box display="flex" alignItems="center">
                 <Text as="span" marginRight="space20">
                   Peer review
@@ -66,13 +70,19 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({category
               // eslint-disable-next-line @typescript-eslint/naming-convention
               Engineer_committee_review,
               Code,
+              status,
             } = node.data;
 
             return (
               <Tr key={Feature}>
                 <Td>
-                  <SiteLink to={getPackagePath(categoryRoute, Feature)}>{Feature}</SiteLink>
+                  {Documentation === true ? (
+                    <SiteLink to={getPackagePath(categoryRoute, Feature)}>{Feature}</SiteLink>
+                  ) : (
+                    <Text as="span">{Feature}</Text>
+                  )}
                 </Td>
+                <Td textAlign="center">{sentenceCase(status)}</Td>
                 <Td textAlign="center">
                   <AssetStatus label="Code done" status={Code} />
                 </Td>

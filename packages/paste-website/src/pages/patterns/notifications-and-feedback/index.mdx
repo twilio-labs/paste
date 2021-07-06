@@ -1,7 +1,7 @@
 ---
 title: Notification and feedback patterns
 description: Use these notification and feedback patterns to communicate timely information to users.
-slug: /patterns/notifications/
+slug: /patterns/notifications-and-feedback/
 ---
 
 import {graphql} from 'gatsby';
@@ -25,7 +25,7 @@ import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/patterns/notifications/"}}) {
+    mdx(fields: {slug: {eq: "/patterns/notifications-and-feedback/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -45,6 +45,8 @@ export const pageQuery = graphql`
             Design_committee_review
             Engineer_committee_review
             Code
+            status
+            Product_suitability
           }
         }
       }

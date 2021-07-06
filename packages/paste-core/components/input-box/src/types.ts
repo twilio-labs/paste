@@ -1,6 +1,6 @@
 import * as PropTypes from 'prop-types';
 
-export type InputTypes = 'text' | 'email' | 'hidden' | 'number' | 'password' | 'search' | 'tel' | 'date';
+export type InputBoxTypes = 'text' | 'email' | 'hidden' | 'number' | 'password' | 'search' | 'tel' | 'date' | 'time';
 export type Variants = 'default' | 'inverse';
 
 export interface FauxInputProps {
@@ -8,7 +8,7 @@ export interface FauxInputProps {
   disabled?: boolean;
   hasError?: boolean;
   readOnly?: boolean;
-  type?: InputTypes;
+  type?: InputBoxTypes;
   variant?: Variants;
 }
 
@@ -18,7 +18,7 @@ export const FauxInputPropTypes = {
   hasError: PropTypes.bool,
   readOnly: PropTypes.bool,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel', 'date']) as any,
+  type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel', 'date', 'time']) as any,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   variant: PropTypes.oneOf(['default', 'inverse']) as any,
 };

@@ -24,6 +24,8 @@ describe('formatReturnDate()', () => {
     expect(formatReturnDate(TEST_DATE, 'EEEEEE MMMMM dd yy')).toEqual('Su F 14 21');
     expect(formatReturnDate(TEST_DATE, 'E..EEE M Do yo')).toEqual('Sun..Sun 2 45th 2021st');
     expect(formatReturnDate(TEST_DATE, 'Mo d Yo')).toEqual('2nd 14 2021st');
+  });
+  it('should format dates with edge cases and catch errors', () => {
     // test for first day of the year to avoid 1-day-off error
     expect(formatReturnDate('2020-01-01', 'MM/dd/yyyy')).toEqual('01/01/2020');
     // test for edge cases (passing in time+date value) to throw an error

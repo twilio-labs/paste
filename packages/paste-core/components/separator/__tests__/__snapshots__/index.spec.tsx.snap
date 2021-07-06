@@ -28,6 +28,7 @@ exports[`Separator should set horizontal margins 1`] = `
   <hr
     aria-orientation="horizontal"
     className="emotion-0"
+    data-paste-element="BOX"
     height={null}
     width="auto"
   />
@@ -76,6 +77,7 @@ exports[`Separator should set responsive horizontal margins 1`] = `
   <hr
     aria-orientation="horizontal"
     className="emotion-0"
+    data-paste-element="BOX"
     height={null}
     width="auto"
   />
@@ -124,6 +126,7 @@ exports[`Separator should set responsive vertical margins 1`] = `
   <hr
     aria-orientation="vertical"
     className="emotion-0"
+    data-paste-element="BOX"
     height="auto"
     width={null}
   />
@@ -158,6 +161,7 @@ exports[`Separator should set vertical margins 1`] = `
   <hr
     aria-orientation="vertical"
     className="emotion-0"
+    data-paste-element="BOX"
     height="auto"
     width={null}
   />

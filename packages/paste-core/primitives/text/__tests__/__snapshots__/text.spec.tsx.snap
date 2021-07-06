@@ -128,6 +128,7 @@ exports[`Pseudo-class props should generate pseudo-class CSS 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     PseudoBox
@@ -159,6 +160,7 @@ exports[`as should render as a provided HTML element 1`] = `
   <label
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     background single
@@ -190,6 +192,7 @@ exports[`color should set a color property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     color single
@@ -232,6 +235,7 @@ exports[`color should set a responsive color property 1`] = `
         "colorTextSuccess",
       ]
     }
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     color responsive
@@ -252,10 +256,10 @@ exports[`display should set a display property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  display: inline-block;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  display: inline-block;
 }
 
 <div
@@ -264,6 +268,7 @@ exports[`display should set a display property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     display="inline-block"
     fontSize="fontSize30"
   >
@@ -285,10 +290,10 @@ exports[`display should set a responsive display property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  display: inline-block;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  display: inline-block;
 }
 
 @media screen and (min-width:25rem) {
@@ -303,6 +308,7 @@ exports[`display should set a responsive display property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     display={
       Array [
         "inline-block",
@@ -329,10 +335,10 @@ exports[`fontFamily should set a font family property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  font-family: 'Fira Mono','Courier New',Courier,monospace;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  font-family: 'Fira Mono','Courier New',Courier,monospace;
 }
 
 <div
@@ -341,6 +347,7 @@ exports[`fontFamily should set a font family property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontFamily="fontFamilyCode"
     fontSize="fontSize30"
   >
@@ -362,10 +369,10 @@ exports[`fontFamily should set a responsive font family property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
 @media screen and (min-width:25rem) {
@@ -380,6 +387,7 @@ exports[`fontFamily should set a responsive font family property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontFamily={
       Array [
         "fontFamilyText",
@@ -406,8 +414,8 @@ exports[`fontSize should set a font size property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  font-size: 0.625rem;
   color: rgb(40,42,43);
+  font-size: 0.625rem;
   line-height: 1.25rem;
 }
 
@@ -417,6 +425,7 @@ exports[`fontSize should set a font size property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize10"
   >
     font size single
@@ -437,8 +446,8 @@ exports[`fontSize should set a responsive font size property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  font-size: 0.75rem;
   color: rgb(40,42,43);
+  font-size: 0.75rem;
   line-height: 1.25rem;
 }
 
@@ -454,6 +463,7 @@ exports[`fontSize should set a responsive font size property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize={
       Array [
         "fontSize20",
@@ -479,10 +489,10 @@ exports[`fontStyle should set a font style property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  font-style: italic;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  font-style: italic;
 }
 
 <div
@@ -491,6 +501,7 @@ exports[`fontStyle should set a font style property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
     fontStyle="italic"
   >
@@ -512,10 +523,10 @@ exports[`fontStyle should set a responsive font style property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  font-style: italic;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  font-style: italic;
 }
 
 @media screen and (min-width:25rem) {
@@ -530,6 +541,7 @@ exports[`fontStyle should set a responsive font style property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
     fontStyle={
       Array [
@@ -556,10 +568,10 @@ exports[`fontWeight should set a font weight property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  font-weight: 700;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  font-weight: 700;
 }
 
 <div
@@ -568,6 +580,7 @@ exports[`fontWeight should set a font weight property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
     fontWeight="fontWeightBold"
   >
@@ -589,10 +602,10 @@ exports[`fontWeight should set a responsive font weight property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  font-weight: 300;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  font-weight: 300;
 }
 
 @media screen and (min-width:25rem) {
@@ -607,6 +620,7 @@ exports[`fontWeight should set a responsive font weight property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
     fontWeight={
       Array [
@@ -633,13 +647,13 @@ exports[`letterSpacing should set a letter spacing property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
+  color: rgb(40,42,43);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   -webkit-letter-spacing: 1px;
   -moz-letter-spacing: 1px;
   -ms-letter-spacing: 1px;
   letter-spacing: 1px;
-  color: rgb(40,42,43);
-  font-size: 0.875rem;
-  line-height: 1.25rem;
 }
 
 <div
@@ -648,6 +662,7 @@ exports[`letterSpacing should set a letter spacing property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
     letterSpacing="1px"
   >
@@ -669,13 +684,13 @@ exports[`letterSpacing should set a responsive letter spacing property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
+  color: rgb(40,42,43);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   -webkit-letter-spacing: -2px;
   -moz-letter-spacing: -2px;
   -ms-letter-spacing: -2px;
   letter-spacing: -2px;
-  color: rgb(40,42,43);
-  font-size: 0.875rem;
-  line-height: 1.25rem;
 }
 
 @media screen and (min-width:25rem) {
@@ -693,6 +708,7 @@ exports[`letterSpacing should set a responsive letter spacing property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
     letterSpacing={
       Array [
@@ -719,9 +735,9 @@ exports[`lineHeight should set a line height property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  line-height: 1rem;
   color: rgb(40,42,43);
   font-size: 0.875rem;
+  line-height: 1rem;
 }
 
 <div
@@ -730,6 +746,7 @@ exports[`lineHeight should set a line height property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     line height single
@@ -750,9 +767,9 @@ exports[`lineHeight should set a responsive line height property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  line-height: 1.25rem;
   color: rgb(40,42,43);
   font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 @media screen and (min-width:25rem) {
@@ -767,6 +784,7 @@ exports[`lineHeight should set a responsive line height property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     line height responsive
@@ -798,6 +816,7 @@ exports[`margin should set a margin property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     margin single
@@ -835,6 +854,7 @@ exports[`margin should set a responsive margin property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     margin responsive
@@ -855,10 +875,10 @@ exports[`marginBottom should set a marginBottom property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  margin-bottom: 0.125rem;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  margin-bottom: 0.125rem;
 }
 
 <div
@@ -867,6 +887,7 @@ exports[`marginBottom should set a marginBottom property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     marginBottom single
@@ -887,10 +908,10 @@ exports[`marginBottom should set a responsive marginBottom property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  margin-bottom: 0.25rem;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  margin-bottom: 0.25rem;
 }
 
 @media screen and (min-width:25rem) {
@@ -905,6 +926,7 @@ exports[`marginBottom should set a responsive marginBottom property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     marginBottom responsive
@@ -925,10 +947,10 @@ exports[`marginLeft should set a marginLeft property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  margin-left: 0.125rem;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  margin-left: 0.125rem;
 }
 
 <div
@@ -937,6 +959,7 @@ exports[`marginLeft should set a marginLeft property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     marginLeft single
@@ -957,10 +980,10 @@ exports[`marginLeft should set a responsive marginLeft property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  margin-left: 0.25rem;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  margin-left: 0.25rem;
 }
 
 @media screen and (min-width:25rem) {
@@ -975,6 +998,7 @@ exports[`marginLeft should set a responsive marginLeft property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     marginLeft responsive
@@ -995,10 +1019,10 @@ exports[`marginRight should set a marginRight property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  margin-right: 0.125rem;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  margin-right: 0.125rem;
 }
 
 <div
@@ -1007,6 +1031,7 @@ exports[`marginRight should set a marginRight property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     marginRight single
@@ -1027,10 +1052,10 @@ exports[`marginRight should set a responsive marginRight property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  margin-right: 0.25rem;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  margin-right: 0.25rem;
 }
 
 @media screen and (min-width:25rem) {
@@ -1045,6 +1070,7 @@ exports[`marginRight should set a responsive marginRight property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     marginRight responsive
@@ -1065,10 +1091,10 @@ exports[`marginTop should set a marginTop property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  margin-top: 0.125rem;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  margin-top: 0.125rem;
 }
 
 <div
@@ -1077,6 +1103,7 @@ exports[`marginTop should set a marginTop property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     marginTop single
@@ -1097,10 +1124,10 @@ exports[`marginTop should set a responsive marginTop property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  margin-top: 0.25rem;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  margin-top: 0.25rem;
 }
 
 @media screen and (min-width:25rem) {
@@ -1115,6 +1142,7 @@ exports[`marginTop should set a responsive marginTop property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     marginTop responsive
@@ -1146,6 +1174,7 @@ exports[`padding should set a padding property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     padding single
@@ -1183,6 +1212,7 @@ exports[`padding should set a responsive padding property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     padding responsive
@@ -1203,10 +1233,10 @@ exports[`paddingBottom should set a paddingBottom property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  padding-bottom: 0.125rem;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  padding-bottom: 0.125rem;
 }
 
 <div
@@ -1215,6 +1245,7 @@ exports[`paddingBottom should set a paddingBottom property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     paddingBottom single
@@ -1235,10 +1266,10 @@ exports[`paddingBottom should set a responsive paddingBottom property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  padding-bottom: 0.25rem;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  padding-bottom: 0.25rem;
 }
 
 @media screen and (min-width:25rem) {
@@ -1253,6 +1284,7 @@ exports[`paddingBottom should set a responsive paddingBottom property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     paddingBottom responsive
@@ -1273,10 +1305,10 @@ exports[`paddingLeft should set a paddingLeft property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  padding-left: 0.125rem;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  padding-left: 0.125rem;
 }
 
 <div
@@ -1285,6 +1317,7 @@ exports[`paddingLeft should set a paddingLeft property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     paddingLeft single
@@ -1305,10 +1338,10 @@ exports[`paddingLeft should set a responsive paddingLeft property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  padding-left: 0.25rem;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  padding-left: 0.25rem;
 }
 
 @media screen and (min-width:25rem) {
@@ -1323,6 +1356,7 @@ exports[`paddingLeft should set a responsive paddingLeft property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     paddingLeft responsive
@@ -1343,10 +1377,10 @@ exports[`paddingRight should set a paddingRight property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  padding-right: 0.125rem;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  padding-right: 0.125rem;
 }
 
 <div
@@ -1355,6 +1389,7 @@ exports[`paddingRight should set a paddingRight property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     paddingRight single
@@ -1375,10 +1410,10 @@ exports[`paddingRight should set a responsive paddingRight property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  padding-right: 0.25rem;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  padding-right: 0.25rem;
 }
 
 @media screen and (min-width:25rem) {
@@ -1393,6 +1428,7 @@ exports[`paddingRight should set a responsive paddingRight property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     paddingRight responsive
@@ -1413,10 +1449,10 @@ exports[`paddingTop should set a paddingTop property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  padding-top: 0.125rem;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  padding-top: 0.125rem;
 }
 
 <div
@@ -1425,6 +1461,7 @@ exports[`paddingTop should set a paddingTop property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     paddingTop single
@@ -1445,10 +1482,10 @@ exports[`paddingTop should set a responsive paddingTop property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  padding-top: 0.25rem;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  padding-top: 0.25rem;
 }
 
 @media screen and (min-width:25rem) {
@@ -1463,6 +1500,7 @@ exports[`paddingTop should set a responsive paddingTop property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     paddingTop responsive
@@ -1483,10 +1521,10 @@ exports[`textAlign should set a responsive textAlign property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  text-align: center;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  text-align: center;
 }
 
 @media screen and (min-width:25rem) {
@@ -1501,6 +1539,7 @@ exports[`textAlign should set a responsive textAlign property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     textAlign responsive
@@ -1521,10 +1560,10 @@ exports[`textAlign should set a textAlign property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  text-align: right;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  text-align: right;
 }
 
 <div
@@ -1533,6 +1572,7 @@ exports[`textAlign should set a textAlign property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
   >
     textAlign single
@@ -1553,11 +1593,11 @@ exports[`textDecoration should set a responsive textDecoration property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
 @media screen and (min-width:25rem) {
@@ -1573,6 +1613,7 @@ exports[`textDecoration should set a responsive textDecoration property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
     textDecoration={
       Array [
@@ -1599,11 +1640,11 @@ exports[`textDecoration should set a textDecoration property 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
   color: rgb(40,42,43);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
 <div
@@ -1612,6 +1653,7 @@ exports[`textDecoration should set a textDecoration property 1`] = `
   <span
     className="emotion-0"
     color="colorText"
+    data-paste-element="TEXT"
     fontSize="fontSize30"
     textDecoration="underline"
   >

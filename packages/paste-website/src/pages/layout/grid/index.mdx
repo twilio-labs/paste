@@ -53,6 +53,7 @@ export const pageQuery = graphql`
             Design_committee_review
             Engineer_committee_review
             Code
+            status
           }
         }
       }
@@ -630,16 +631,6 @@ const Component = () => (
 | span?   | `number, ResponsiveValue<number>` | Sets the width of Columns (how many columns a column can span)         |         |
 | offset? | `number, ResponsiveValue<number>` | Sets the left margin of a Column (how many columns a column is offset) |         |
 
-### Sketch
-
-Add [Grid symbols from the “Paste components” project](https://share.goabstract.com/3e7528f5-7981-421c-9308-e06d2f341c70) to your own artboards to help you align content.
-
-Additionally, each Paste container component (_e.g._, Card, Modal) symbol in Sketch has an invisible grid symbol named “📐 Grid” that you can override with visible grid symbols.
-
-We use grid symbols instead of Sketch Layout Settings for two reasons:
-
-1. Resizing a symbol better represents the behavior of a fluid grid in a responsive layout. You might be designing for multiple screen widths in a single Sketch file. Sketch Layout Settings, however, restricts you to a single setting of grid width, column width, gutter width, and number of columns for each file.
-2. Symbols allow you to place a grid within a component or container on an artboard, whereas Sketch Layout Settings can be applied only to a whole artboard.
 
 <ChangelogRevealer>
   <Changelog />

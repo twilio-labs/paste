@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.1.0
+
+### Minor Changes
+
+- [`035bb7d8`](https://github.com/twilio-labs/paste/commit/035bb7d812dbf84604c3c95adb53c67d18601a60) [#1599](https://github.com/twilio-labs/paste/pull/1599) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Text] Enable Text to respect element customizations set on the customization provider. Text now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 4.0.4
 
 ### Patch Changes

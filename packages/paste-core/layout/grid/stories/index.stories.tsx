@@ -875,18 +875,26 @@ export const GridContainingLongContent = (): React.ReactNode => {
       </Text>
       <Grid gutter="space70">
         <Column span={8}>
-          <Truncate>http://www.extremelylongurlthatmightbreakthelayout.com</Truncate>
+          <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+            http://www.extremelylongurlthatmightbreakthelayout.com
+          </Truncate>
         </Column>
         <Column span={4}>
-          <Truncate>http://www.extremelylongurlthatmightbreakthelayout.com</Truncate>
+          <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+            http://www.extremelylongurlthatmightbreakthelayout.com
+          </Truncate>
         </Column>
       </Grid>
       <Grid gutter="space70">
         <Column>
-          <Truncate>http://www.extremelylongurlthatmightbreakthelayout.com</Truncate>
+          <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+            http://www.extremelylongurlthatmightbreakthelayout.com
+          </Truncate>
         </Column>
         <Column>
-          <Truncate>http://www.extremelylongurlthatmightbreakthelayout.com</Truncate>
+          <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+            http://www.extremelylongurlthatmightbreakthelayout.com
+          </Truncate>
         </Column>
       </Grid>
     </Box>

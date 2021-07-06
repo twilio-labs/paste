@@ -5,9 +5,9 @@ import type {DirectButtonProps} from './types';
 import {DirectButtonPropTypes} from './proptypes';
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
-const merge = require('lodash.merge');
+const merge = require('deepmerge');
 
-const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default, {
+const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   color: 'colorTextInverse',
   transition: 'none',
   _hover: {color: 'colorTextInverseWeaker', textDecoration: 'underline'},
@@ -15,11 +15,11 @@ const defaultStyles: BoxStyleProps = merge({}, BaseStyles.default, {
   _active: {textDecoration: 'underline'},
 });
 
-const loadingStyles: BoxStyleProps = merge({}, BaseStyles.loading, {
+const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
   color: 'colorTextInverse',
 });
 
-const disabledStyles: BoxStyleProps = merge({}, BaseStyles.disabled, {
+const disabledStyles: BoxStyleProps = merge(BaseStyles.disabled, {
   color: 'colorTextInverseWeaker',
 });
 

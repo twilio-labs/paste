@@ -1,7 +1,13 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
+import {matchers} from 'jest-emotion';
+import {render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {Text} from '../src';
+import {CustomizableTextExample} from '../__fixtures__/CustomizableText';
+
+expect.extend(matchers);
 
 describe('as', () => {
   it('should render as a provided HTML element', (): void => {
@@ -612,5 +618,126 @@ describe('Pseudo-class props', () => {
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
+  });
+});
+
+describe('HTML attributes', () => {
+  it('should set a default element data attribute', () => {
+    render(<Text as="p">text</Text>);
+    expect(screen.getByText('text').getAttribute('data-paste-element')).toEqual('TEXT');
+  });
+  it('should set a custom element data attribute', () => {
+    render(
+      <Text as="p" element="bar">
+        text
+      </Text>
+    );
+    expect(screen.getByText('text').getAttribute('data-paste-element')).toEqual('bar');
+  });
+});
+
+describe('Customization', () => {
+  it('should add custom styles to a component provided as element styles on the customization provider', (): void => {
+    render(
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{CUSTOM_TEXT: {color: 'colorTextWeak', textDecoration: 'underline'}}}
+      >
+        <CustomizableTextExample element="CUSTOM_TEXT" data-testid="customizable-box">
+          Custom Box
+        </CustomizableTextExample>
+      </CustomizationProvider>
+    );
+    const renderedBox = screen.getByTestId('customizable-box');
+    expect(renderedBox).toHaveStyleRule('text-decoration', 'underline');
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
+    expect(renderedBox).toHaveStyleRule('padding', '0.75rem');
+  });
+
+  it('should override existing styles when provided as element styles on the customization provider', (): void => {
+    render(
+      <CustomizationProvider baseTheme="default" elements={{CUSTOM_TEXT: {padding: 'space20'}}}>
+        <CustomizableTextExample element="CUSTOM_TEXT" data-testid="customizable-box">
+          Custom Box
+        </CustomizableTextExample>
+      </CustomizationProvider>
+    );
+    const renderedBox = screen.getByTestId('customizable-box');
+    expect(renderedBox).toHaveStyleRule('padding', '0.25rem');
+  });
+
+  it('should add custom styles to pseudo selectors when provided as element styles on the customization provider', (): void => {
+    render(
+      <CustomizationProvider baseTheme="default" elements={{CUSTOM_TEXT: {':hover': {color: 'colorTextSuccess'}}}}>
+        <CustomizableTextExample element="CUSTOM_TEXT" data-testid="customizable-box">
+          Custom Box
+        </CustomizableTextExample>
+      </CustomizationProvider>
+    );
+    const renderedBox = screen.getByTestId('customizable-box');
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(20,176,83)', {target: ':hover'});
+  });
+
+  it('should override existing pseudo selector styles when provided as element styles on the customization provider', (): void => {
+    render(
+      <CustomizationProvider baseTheme="default" elements={{CUSTOM_TEXT: {':hover': {textDecoration: 'dotted'}}}}>
+        <CustomizableTextExample element="CUSTOM_TEXT" data-testid="customizable-box">
+          Custom Box
+        </CustomizableTextExample>
+      </CustomizationProvider>
+    );
+    const renderedBox = screen.getByTestId('customizable-box');
+    expect(renderedBox).toHaveStyleRule('text-decoration', 'dotted', {target: ':hover'});
+  });
+
+  it('should add custom styles to a component variant provided as element styles on the customization provider', (): void => {
+    render(
+      <CustomizationProvider baseTheme="default" elements={{CUSTOM_TEXT: {variants: {primary: {fontStyle: 'italic'}}}}}>
+        <CustomizableTextExample element="CUSTOM_TEXT" variant="primary" data-testid="customizable-box">
+          Custom Box
+        </CustomizableTextExample>
+      </CustomizationProvider>
+    );
+    const renderedBox = screen.getByTestId('customizable-box');
+    expect(renderedBox).toHaveStyleRule('font-style', 'italic');
+  });
+
+  it('should override existing variant styles when provided as element styles on the customization provider', (): void => {
+    render(
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{CUSTOM_TEXT: {variants: {primary: {color: 'colorTextSuccess'}}}}}
+      >
+        <CustomizableTextExample element="CUSTOM_TEXT" variant="primary" data-testid="customizable-box">
+          Custom Box
+        </CustomizableTextExample>
+      </CustomizationProvider>
+    );
+    const renderedBox = screen.getByTestId('customizable-box');
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(20,176,83)');
+  });
+
+  it('should add custom styles to variant pseudo selectors when provided as element styles on the customization provider', (): void => {
+    render(
+      <CustomizationProvider baseTheme="default" elements={{CUSTOM_TEXT: {':hover': {margin: 'space30'}}}}>
+        <CustomizableTextExample element="CUSTOM_TEXT" variant="primary" data-testid="customizable-box">
+          Custom Box
+        </CustomizableTextExample>
+      </CustomizationProvider>
+    );
+    const renderedBox = screen.getByTestId('customizable-box');
+    expect(renderedBox).toHaveStyleRule('margin', '0.5rem', {target: ':hover'});
+  });
+
+  it('should override existing variant pseudo selector styles when provided as element styles on the customization provider', (): void => {
+    render(
+      <CustomizationProvider baseTheme="default" elements={{CUSTOM_TEXT: {':hover': {fontWeight: 'fontWeightMedium'}}}}>
+        <CustomizableTextExample element="CUSTOM_TEXT" variant="primary" data-testid="customizable-box">
+          Custom Box
+        </CustomizableTextExample>
+      </CustomizationProvider>
+    );
+    const renderedBox = screen.getByTestId('customizable-box');
+    expect(renderedBox).toHaveStyleRule('font-weight', '500', {target: ':hover'});
   });
 });
