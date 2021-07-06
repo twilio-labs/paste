@@ -1,0 +1,235 @@
+---
+title: Skeleton Loader - Components
+description: A component that gives users a hint of what type of information will be loaded on a page and helps reduce the perceived time a page takes to load.
+slug: /components/skeleton-loader/
+---
+
+import {graphql} from 'gatsby';
+import Changelog from '@twilio-paste/skeleton-loader/CHANGELOG.md';
+import {Anchor} from '@twilio-paste/anchor';
+import {Avatar} from '@twilio-paste/avatar';
+import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
+import {Card} from '@twilio-paste/card';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {SkeletonLoader} from '@twilio-paste/skeleton-loader';
+import {Stack} from '@twilio-paste/stack';
+import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
+import {Text} from '@twilio-paste/text';
+import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  CompositionExample,
+  TextExample,
+  ParagraphExample,
+  HeadingExample,
+  ButtonsExample,
+  AvatarExample,
+  IconExample,
+  CardExample,
+  TableExample,
+} from '../../../component-examples/SkeletonLoaderExamples';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/skeleton-loader"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/components/skeleton-loader/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Skeleton Loader"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name="Skeleton Loader"
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/skeleton-loader"
+  storybookUrl="/?path=/story/components-skeleton-loader--default"
+  data={props.data.allPasteComponent.edges}
+  packageStatus={props.data.allAirtable.edges}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+<LivePreview scope={{SkeletonLoader}}>{`<SkeletonLoader />`}</LivePreview>
+
+## Guidelines
+
+### About Skeleton Loader
+
+The Skeleton Loader displays a placeholder representing the page's content before the page is ready to display. This component is used to improve [perceived performance](https://developer.mozilla.org/en-US/docs/Learn/Performance/Perceived_performance). This tends to improve user experience by reducing load time frustration and making the page feel more responsive.
+
+This loader is an alternative to the [Spinner component](/components/spinner). Rather than showing an abstract spinner, it frames the content of what is to come which creates anticipation.
+
+The component is designed to be used in place of the content being loaded. For example:
+
+<LivePreview scope={{SkeletonLoader, Text}} noInline>
+  {CompositionExample}
+</LivePreview>
+
+### Accessibility
+
+- The animation can be disabled by enabling the `prefers-reduced-motion` setting at the OS level.
+- Skeleton Loader has the `aria-busy` attribute set to `true` by default. This is to indicate that the content is loading.
+
+## Examples
+
+### Default Skeleton Loader
+
+The default Skeleton Loader can be used to represent a line of text. It uses the `sizeIcon20` token for the `height`, and `borderRadius20` for the `border-radius`. The `width` will be 100% unless a different `width` is specified.
+
+<LivePreview scope={{SkeletonLoader}}>{`<SkeletonLoader />`}</LivePreview>
+
+### Changing the Skeleton Loader height
+
+Use the `height` prop to change the height of the Skeleton Loader. The height can be any valid height unit, such as `px`, `rem`, or `%`. It can also be one of the [Paste size tokens](/tokens/#sizings).
+
+<LivePreview scope={{SkeletonLoader}}>{`<SkeletonLoader height="150px" />`}</LivePreview>
+
+### Loading text
+
+<LivePreview scope={{Box, Button, SkeletonLoader, Stack, Text}} noInline>
+  {TextExample}
+</LivePreview>
+
+### Loading a paragraph
+
+In order to simulate a paragraph's line spacing, you can use the [Stack component](/layout/stack).
+
+<LivePreview scope={{Box, Button, Paragraph, SkeletonLoader, Stack}} noInline>
+  {ParagraphExample}
+</LivePreview>
+
+### Loading a heading
+
+<LivePreview scope={{Box, Button, Heading, SkeletonLoader, Stack}} noInline>
+  {HeadingExample}
+</LivePreview>
+
+### Loading buttons
+
+<LivePreview scope={{Box, Button, SkeletonLoader, Stack}} noInline>
+  {ButtonsExample}
+</LivePreview>
+
+### Loading an avatar
+
+<LivePreview scope={{Avatar, Box, Button, SkeletonLoader, Stack}} noInline>
+  {AvatarExample}
+</LivePreview>
+
+### Loading an icon
+
+<LivePreview scope={{Box, CalendarIcon, Button, SkeletonLoader, Stack}} noInline>
+  {IconExample}
+</LivePreview>
+
+### Loading a card
+
+<LivePreview scope={{Box, Button, Card, Heading, Paragraph, SkeletonLoader, Stack}} noInline>
+  {CardExample}
+</LivePreview>
+
+### Loading a table
+
+<LivePreview scope={{Box, Button, SkeletonLoader, Text, Table, THead, TBody, Tr, Td, Th, Stack}} noInline>
+  {TableExample}
+</LivePreview>
+
+## Anatomy
+
+### General
+
+| Property        | Default token         | Modifiable? |
+| --------------- | --------------------- | ----------- |
+| backgroundColor | colorBackgroundStrong | No          |
+| borderRadius    | borderRadius20        | Yes         |
+| height          | sizeIcon20            | Yes         |
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/skeleton-loader - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {SkeletonLoader} from '@twilio-paste/skeleton-loader';
+import {Text} from '@twilio-paste/text';
+
+const SkeletonLoaderExample = () => {
+  const [loaded] = React.useState(false);
+
+  return <>{loaded ? <Text as="span">Single line of text</Text> : <SkeletonLoader width="100px" />}</>;
+};
+```
+
+#### Props
+
+| Prop                     | Type                                         | Description | Default           |
+| ------------------------ | -------------------------------------------- | ----------- | ----------------- |
+| display?                 | `ResponsiveValue<CSS.DisplayProperty>`       |             |                   |
+| width?                   | `ResponsiveValue<WidthOptions>`              |             |                   |
+| minWidth?                | `ResponsiveValue<MinWidthOptions>`           |             |                   |
+| maxWidth?                | `ResponsiveValue<MaxWidthOptions>`           |             |                   |
+| height?                  | `ResponsiveValue<HeightOptions>`             |             | `sizeIcon20`      |
+| minHeight?               | `ResponsiveValue<MinHeightOptions>`          |             |                   |
+| maxHeight?               | `ResponsiveValue<MaxHeightOptions>`          |             |                   |
+| size?                    | `ResponsiveValue<WidthOptions>`              |             |                   |
+| borderRadius?            | `ResponsiveValue<keyof ThemeShape['radii']>` |             | `borderRadius20 ` |
+| borderTopLeftRadius?     | `ResponsiveValue<keyof ThemeShape['radii']>` |             |                   |
+| borderTopRightRadius?    | `ResponsiveValue<keyof ThemeShape['radii']>` |             |                   |
+| borderBottomRightRadius? | `ResponsiveValue<keyof ThemeShape['radii']>` |             |                   |
+| borderBottomLeftRadius?  | `ResponsiveValue<keyof ThemeShape['radii']>` |             |                   |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>
