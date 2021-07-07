@@ -439,6 +439,7 @@ describe('ZIndex', () => {
             _before={{padding: 'space10'}}
             _after={{padding: 'space10'}}
             _focusWithin={{padding: 'space10'}}
+            _focusVisible={{padding: 'space10'}}
             _placeholder={{padding: 'space10'}}
             data-testid="box"
           >
@@ -470,6 +471,7 @@ describe('ZIndex', () => {
       expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':before'});
       expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':after'});
       expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':focus-within'});
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':focus-visible'});
       expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: '::placeholder'});
     });
   });
