@@ -1,6 +1,6 @@
 import * as lodash from 'lodash';
-import {ImmutableStyleMap} from 'theo';
-import {Token} from '../types';
+import type {ImmutableStyleMap} from 'theo';
+import type {DesignToken} from '../types';
 import {getTokenCategories} from '../utils/getTokenCategories';
 import {formatSingleTokensWithTemplate} from '../utils/formatSingleTokensWithTemplate';
 import {formatGroupTokensWithTemplate} from '../utils/formatGroupTokensWithTemplate';
@@ -9,7 +9,9 @@ export const tokenTemplate = ({name, value}: {name: string; value: string}): str
   `const ${lodash.camelCase(name)} = "${value.replace(/"/g, '\\"')}";`;
 
 export const tokenExportTemplate = ({name}: {name: string; value: string}): string => `${lodash.camelCase(name)},`;
-export const categoryTemplate = (categoryName: string, props: Token[]): string => `${lodash.camelCase(categoryName)}: {
+export const categoryTemplate = (categoryName: string, props: DesignToken[]): string => `${lodash.camelCase(
+  categoryName
+)}: {
 ${props.map((prop) => `${lodash.camelCase(prop.name)},`).join('\n')}
 },`;
 

@@ -9,12 +9,13 @@
   "license": "MIT",
   "sideEffects": false,
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
   "scripts": {
     "build": "yarn clean && NODE_ENV=production gulp",
-    "build:js": "yarn clean && NODE_ENV=development gulp",
-    "build:watch": "yarn clean && gulp dev",
+    "build:js": "NODE_ENV=development gulp",
+    "build:watch": "gulp dev",
     "clean": "rm -rf ./dist",
     "tokens": "gulp default",
     "test": "jest"

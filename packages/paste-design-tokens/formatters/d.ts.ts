@@ -1,6 +1,6 @@
 import * as lodash from 'lodash';
-import {ImmutableStyleMap} from 'theo';
-import {Token} from '../types';
+import type {ImmutableStyleMap} from 'theo';
+import type {DesignToken} from '../types';
 import {getTokenCategories} from '../utils/getTokenCategories';
 import {formatSingleTokensWithTemplate} from '../utils/formatSingleTokensWithTemplate';
 import {formatGroupTokensWithTemplate} from '../utils/formatGroupTokensWithTemplate';
@@ -14,9 +14,10 @@ const isNumeric = (value: string): boolean => {
 export const tokenTemplate = ({name, value}: {name: string; value: string}): string =>
   `export declare const ${lodash.camelCase(name)} = "${value}";`;
 
-const categoryTemplate = (categoryName: string, props: Token[]): string => `export declare const ${lodash.camelCase(
-  categoryName
-)}: {
+const categoryTemplate = (
+  categoryName: string,
+  props: DesignToken[]
+): string => `export declare const ${lodash.camelCase(categoryName)}: {
 ${props
   .map((prop) => {
     const value = isNumeric(prop.value) ? prop.value : `"${prop.value}"`;

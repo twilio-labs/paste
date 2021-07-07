@@ -9,9 +9,43 @@ props:
   color-text:
     value: "{!palette-gray-100}"
     comment: Body text color
+    text_contrast_pairing:
+      - color-background
+      - color-background-strong
+      - color-background-stronger
+      - color-background-body
+      - color-background-user
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success
+      - color-background-success-weakest
+      - color-background-warning
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-new
+      - color-background-row-striped
+      - color-background-primary-weak
+      - color-background-primary-weaker
+      - color-background-primary-weakest
+      - color-background-destructive-weak
+      - color-background-destructive-weaker
+      - color-background-destructive-weakest
   color-text-weak:
     value: "{!palette-gray-60}"
     comment: Weak body text for visual hierarchy.
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
   color-text-weaker:
     value: "{!palette-gray-40}"
     comment: Weaker body text for visual hierarchy. Inaccessible unless used on disabled controls.
@@ -21,44 +55,161 @@ props:
   color-text-inverse:
     value: "{!palette-gray-0}"
     comment: Inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
+    text_contrast_pairing:
+      - color-background-body-inverse
+      - color-background-strongest
+      - color-background-brand
+      - color-background-error
+      - color-background-error-strong
+      - color-background-primary-strongest
+      - color-background-primary-stronger
+      - color-background-primary-strong
+      - color-background-primary
+      - color-background-destructive-stronger
+      - color-background-destructive-strong
+      - color-background-destructive
   color-text-inverse-weak:
     value: "{!palette-gray-40}"
     comment: Weak inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
+    text_contrast_pairing:
+      - color-background-body-inverse
+      - color-background-brand
+      - color-background-error-strong
+      - color-background-primary-strongest
+      - color-background-primary-stronger
+      - color-background-primary-strong
+      - color-background-destructive-stronger
+      - color-background-destructive-strong
   color-text-inverse-weaker:
     value: "{!palette-gray-60}"
     comment: Weaker inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
   color-text-brand-inverse:
     value: "{!white}"
     comment: Text color used on any brand color
+    text_contrast_pairing:
+      - color-background-body-inverse
+      - color-background-brand
   color-text-brand-highlight:
     value: "{!amaranth}"
     comment: Twilio brand red, accessible on large text only.
+    uicontrol_contrast_pairing:
+      - color-background-body
 
   # links
   color-text-link:
     value: "{!palette-blue-60}"
     comment: Link text
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
+    uicontrol_contrast_pairing:
+      - color-background
+      - color-background-strong
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-new
+      - color-background-row-striped
+      - color-background-primary-weak
+      - color-background-primary-weaker
+      - color-background-primary-weakest
+      - color-background-destructive-weak
+      - color-background-destructive-weaker
+      - color-background-destructive-weakest
   color-text-link-weak:
     value: "{!palette-blue-30}"
     comment: Weak shade of link text to be used in interactions
   color-text-link-strong:
     value: "{!palette-blue-80}"
     comment: Strong shade of link text to be used in interactions
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
   color-text-link-stronger:
     value: "{!palette-blue-90}"
     comment: Stronger shade of link text to be used in interactions
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
   color-text-link-destructive:
     value: "{!palette-red-60}"
     comment: Destructive link text
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
   color-text-link-destructive-weak:
     value: "{!palette-red-30}"
     comment: Weak shade of destructive link text to be used in interactions
   color-text-link-destructive-strong:
     value: "{!palette-red-70}"
     comment: Strong shade of destructive link text to be used in interactions
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
   color-text-link-destructive-stronger:
     value: "{!palette-red-90}"
     comment: Stronger shade of destructive link text to be used in interactions
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
 
   #status
   color-text-error-weak:
@@ -67,29 +218,129 @@ props:
   color-text-error:
     value: "{!palette-red-60}"
     comment: Error text for inputs and error misc
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      # - color-background-body-inverse
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
   color-text-error-strong:
     value: "{!palette-red-70}"
     comment: Strong error text for inputs and error misc
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
   color-text-success:
     value: "{!palette-green-60}"
     comment: Text color for success text.
+    uicontrol_contrast_pairing:
+      # - color-background
+      # - color-background-body
+      - color-background-body-inverse
+      # - color-background-row-striped
   color-text-warning:
     value: "{!palette-orange-60}"
     comment: Color for warning text.
+    uicontrol_contrast_pairing:
+      # - color-background
+      # - color-background-body
+      - color-background-body-inverse
+      # - color-background-row-striped
   color-text-warning-strong:
     value: "{!palette-orange-70}"
     comment: Color for dark warning text.
+    text_contrast_pairing:
+      - color-background-body
+    uicontrol_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-body-inverse
+      - color-background-row-striped
   color-text-new:
     value: "{!palette-purple-60}"
     comment: Color for text indicating a new status.
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      # - color-background-body-inverse
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
   color-text-neutral:
     value: "{!palette-blue-80}"
     comment: Color for text indicating a neutral status.
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      # - color-background-body-inverse
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
 
   #icon
   color-text-icon:
     value: "{!palette-gray-60}"
     comment: Default icon color.
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
+    uicontrol_contrast_pairing:
+      - color-background
+      - color-background-strong
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-new
+      - color-background-row-striped
+      - color-background-primary-weak
+      - color-background-primary-weaker
+      - color-background-primary-weakest
+      - color-background-destructive-weak
+      - color-background-destructive-weaker
+      - color-background-destructive-weakest
   color-text-icon-inverse:
     value: "{!palette-gray-50}"
     comment: Default icon color for inverse backgrounds.
+    text_contrast_pairing:
+      - color-background-body-inverse
