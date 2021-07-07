@@ -3,17 +3,17 @@ import {generateThemeFromTokens} from '../src/generateThemeFromTokens';
 describe('generateThemeFromTokens', () => {
   it('should generate a theme in the desired shape based on design tokens provided', () => {
     expect(
-      generateThemeFromTokens(
-        {colorBackground: 'red'},
-        {colorBorder: 'blue'},
-        {borderWidth0: '10px'},
-        {borderRadius0: '20px'},
-        {fontFamilyCode: 'arial'},
-        {fontSize100: '300px'},
-        {fontWeightBold: '800'},
-        {lineHeight0: '20px'},
-        {shadow: 'grey'},
-        {
+      generateThemeFromTokens({
+        backgroundColors: {colorBackground: 'red'},
+        borderColors: {colorBorder: 'blue'},
+        borderWidths: {borderWidth0: '10px'},
+        radii: {borderRadius0: '20px'},
+        fonts: {fontFamilyCode: 'arial'},
+        fontSizes: {fontSize100: '300px'},
+        fontWeights: {fontWeightBold: '800'},
+        lineHeights: {lineHeight0: '20px'},
+        boxShadows: {shadow: 'grey'},
+        sizings: {
           size0: '1px',
           size10: '1px',
           size20: '1px',
@@ -62,10 +62,10 @@ describe('generateThemeFromTokens', () => {
           sizeIcon110: '1px',
           sizeSidebar: '1px',
         },
-        {space10: '28px'},
-        {colorText: 'black'},
-        {zIndex0: '-20'}
-      )
+        spacings: {space10: '28px'},
+        textColors: {colorText: 'black'},
+        zIndices: {zIndex0: '-20'},
+      })
     ).toMatchSnapshot();
   });
 });

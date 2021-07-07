@@ -24,6 +24,7 @@
   },
   "peerDependencies": {
     "@twilio-paste/animation-library": "^0.3.1",
+    "@twilio-paste/color-contrast-utils": "^1.0.0",
     "@twilio-paste/design-tokens": "^6.6.0",
     "@twilio-paste/styling-library": "^0.3.1",
     "@twilio-paste/types": "^3.1.1",
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "@twilio-paste/animation-library": "^0.3.1",
+    "@twilio-paste/color-contrast-utils": "^1.0.0",
     "@twilio-paste/design-tokens": "^6.9.0",
     "@twilio-paste/styling-library": "^0.3.2",
     "@twilio-paste/types": "^3.1.1",

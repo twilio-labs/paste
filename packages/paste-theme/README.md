@@ -9,7 +9,7 @@ import {Theme} from '@twilio-paste/theme';
 
 <Theme.Provider theme="console">
   <App />
-</Theme.Provider>
+</Theme.Provider>;
 ```
 
 ## Using tokens in custom components
@@ -44,7 +44,7 @@ import {Theme} from '@twilio-paste/theme';
   {({theme}) => {
     return <p>What is the default text color {theme.textColors.colorText}</p>;
   }}
-</Theme.Consumer>
+</Theme.Consumer>;
 ```
 
 ### Paste useTheme Hook
@@ -73,4 +73,39 @@ const ExampleComponent = ({theme}) => <p>What is the default text color {theme.t
 
 // Provides this component with the theme object as a prop
 const ExampleComponentwithTheme = withTheme(ExampleComponent);
+```
+
+## useThemeContrastCheck
+
+Import the `useThemeContrastCheck` hook into any Paste app and have it automatically detect color contrast ratio issues
+with the currently used theme, based on the Paste Design Token pairing requirements.
+
+```tsx
+import {useThemeContrastCheck} from '@twilio-paste/core/theme-utils';
+
+const SomewhereInYourApp = () => {
+  const {
+    textContrastRating,
+    uiControlContrastRating,
+    numberOfTextFailures,
+    numberOfUIControlFailures,
+    totalFailures,
+  } = useThemeContrastCheck();
+
+  return <div />;
+};
+```
+
+Use your component when it is a child of the Paste theme provider, or Customization Provider.
+
+```tsx
+import {Theme} from '@twilio-paste/core/theme';
+
+const App = () => {
+  return (
+    <Theme.Provider theme="default">
+      <SomewhereInYourApp />
+    </Theme.Provider>
+  );
+};
 ```
