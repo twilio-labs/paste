@@ -12,21 +12,7 @@ const ExportModal = ({isOpen, onDismiss}) => {
   const modalTextareaID = useUID();
 
   // Builds the new tokens JSON from the custom theme build from various inputs
-  const customTheme = generateThemeFromTokens(
-    tokens.backgroundColors,
-    tokens.borderColors,
-    tokens.borderWidths,
-    tokens.radii,
-    tokens.fonts,
-    tokens.fontSizes,
-    tokens.fontWeights,
-    tokens.lineHeights,
-    tokens.boxShadows,
-    tokens.sizings,
-    tokens.spacings,
-    tokens.textColors,
-    tokens.zIndices
-  );
+  const customTheme = generateThemeFromTokens(tokens);
 
   const themeJson = JSON.stringify(customTheme, null, '  ');
   const themeDownload = 'data:application/json;charset=utf-8,' + encodeURIComponent(themeJson);

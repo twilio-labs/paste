@@ -1,4 +1,4 @@
-import {
+import type {
   backgroundColors as BackgroundColors,
   borderColors as BorderColors,
   borderWidths as BorderWidths,
@@ -16,22 +16,38 @@ import {
 
 import type {GenericThemeShape} from './types/GenericThemeShape';
 
-export const generateThemeFromTokens = (
-  backgroundColors: Partial<{[key in keyof typeof BackgroundColors]: any}>,
-  borderColors: Partial<{[key in keyof typeof BorderColors]: any}>,
-  borderWidths: Partial<{[key in keyof typeof BorderWidths]: any}>,
-  radii: Partial<{[key in keyof typeof Radii]: any}>,
-  fonts: Partial<{[key in keyof typeof Fonts]: any}>,
-  fontSizes: Partial<{[key in keyof typeof FontSizes]: any}>,
-  fontWeights: Partial<{[key in keyof typeof FontWeights]: any}>,
-  lineHeights: Partial<{[key in keyof typeof LineHeights]: any}>,
-  boxShadows: Partial<{[key in keyof typeof BoxShadows]: any}>,
+interface GenerateThemeFromTokensArgs {
+  backgroundColors: Partial<{[key in keyof typeof BackgroundColors]: any}>;
+  borderColors: Partial<{[key in keyof typeof BorderColors]: any}>;
+  borderWidths: Partial<{[key in keyof typeof BorderWidths]: any}>;
+  radii: Partial<{[key in keyof typeof Radii]: any}>;
+  fonts: Partial<{[key in keyof typeof Fonts]: any}>;
+  fontSizes: Partial<{[key in keyof typeof FontSizes]: any}>;
+  fontWeights: Partial<{[key in keyof typeof FontWeights]: any}>;
+  lineHeights: Partial<{[key in keyof typeof LineHeights]: any}>;
+  boxShadows: Partial<{[key in keyof typeof BoxShadows]: any}>;
   // there are some sizes we expect must appear to generate breakpoints and icons sizes
-  sizings: {[key in keyof typeof Sizings]: any},
-  spacings: Partial<{[key in keyof typeof Spacings]: any}>,
-  textColors: Partial<{[key in keyof typeof TextColors]: any}>,
-  zIndices: Partial<{[key in keyof typeof ZIndices]: any}>
-): GenericThemeShape => {
+  sizings: {[key in keyof typeof Sizings]: any};
+  spacings: Partial<{[key in keyof typeof Spacings]: any}>;
+  textColors: Partial<{[key in keyof typeof TextColors]: any}>;
+  zIndices: Partial<{[key in keyof typeof ZIndices]: any}>;
+}
+
+export const generateThemeFromTokens = ({
+  backgroundColors,
+  borderColors,
+  borderWidths,
+  radii,
+  fonts,
+  fontSizes,
+  fontWeights,
+  lineHeights,
+  boxShadows,
+  sizings,
+  spacings,
+  textColors,
+  zIndices,
+}: GenerateThemeFromTokensArgs): GenericThemeShape => {
   // default breakpoints
   const breakpoints = [sizings.size40, sizings.size100, sizings.size120];
 

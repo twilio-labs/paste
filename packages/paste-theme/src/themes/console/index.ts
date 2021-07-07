@@ -16,7 +16,7 @@ import {
 
 import {generateThemeFromTokens} from '../../generateThemeFromTokens';
 
-export const ConsoleTheme = generateThemeFromTokens(
+export const ConsoleTheme = generateThemeFromTokens({
   backgroundColors,
   borderColors,
   borderWidths,
@@ -29,5 +29,5 @@ export const ConsoleTheme = generateThemeFromTokens(
   sizings,
   spacings,
   textColors,
-  zIndices
-);
+  zIndices,
+});

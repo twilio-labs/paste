@@ -16,7 +16,7 @@ import {
 
 import {generateThemeFromTokens} from '../../generateThemeFromTokens';
 
-export const SendGridTheme = generateThemeFromTokens(
+export const SendGridTheme = generateThemeFromTokens({
   backgroundColors,
   borderColors,
   borderWidths,
@@ -29,5 +29,5 @@ export const SendGridTheme = generateThemeFromTokens(
   sizings,
   spacings,
   textColors,
-  zIndices
-);
+  zIndices,
+});

@@ -13,7 +13,7 @@ const ImportModal = ({isOpen, onDismiss}) => {
   const importModalTextareaID = useUID();
   const [importValue, setImportValue] = React.useState();
 
-  const handleLoadTokens = event => {
+  const handleLoadTokens = (event) => {
     // TODO sanitize? meh for tweek
     let hasError = false;
     let theme;
@@ -34,21 +34,7 @@ const ImportModal = ({isOpen, onDismiss}) => {
       theme = JSON.parse(importValue);
 
       // Builds the new custom theme using the tokens JSON from the textarea
-      const newTokens = generateTokensFromTheme(
-        theme.backgroundColors,
-        theme.borderColors,
-        theme.borderWidths,
-        theme.radii,
-        theme.fonts,
-        theme.fontSizes,
-        theme.fontWeights,
-        theme.lineHeights,
-        theme.shadows,
-        theme.sizes,
-        theme.space,
-        theme.textColors,
-        theme.zIndices
-      );
+      const newTokens = generateTokensFromTheme(theme);
 
       loadTokens(newTokens);
       toaster.push({
@@ -72,7 +58,7 @@ const ImportModal = ({isOpen, onDismiss}) => {
           <TextArea
             id={importModalTextareaID}
             value={importValue}
-            onChange={event => {
+            onChange={(event) => {
               setImportValue(event.target.value);
             }}
           />
