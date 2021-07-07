@@ -9,7 +9,9 @@ packages/paste-icons/cjs
 packages/paste-icons/esm
 packages/paste-icons/json
 packages/paste-website/public
-packages/paste-theme-designer/public/
+packages/paste-theme-designer/public
+packages/paste-theme-designer/out
+packages/paste-token-contrast-checker/public
 .cache
 .next
 .yarn
