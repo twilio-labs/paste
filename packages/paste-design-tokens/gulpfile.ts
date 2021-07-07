@@ -1,7 +1,6 @@
 import * as gulp from 'gulp';
 import * as theo from 'theo';
 import gulpTheo from 'gulp-theo';
-import del from 'del';
 import gulpif from 'gulp-if';
 import terser from 'gulp-terser';
 import {sketchpaletteTokenFormat} from './formatters/sketchpalette';
@@ -30,8 +29,6 @@ theo.registerFormat('es6.d.ts', dTSTokenFormat);
 theo.registerFormat('sketchpalette', sketchpaletteTokenFormat);
 theo.registerFormat('gatsby.json', gatsbyJsonTokenFormat);
 theo.registerTransform('web', ['color/rgb']);
-
-gulp.task('clean', () => del([paths.dist]));
 
 gulp.task('tokens:less', () =>
   gulp
@@ -290,10 +287,12 @@ gulp.task('browsersync', () =>
 );
 
 gulp.task('watch', () => {
-  gulp.watch([`${paths.aliases}/**/*.*`, `${paths.globals}/**/*.*`], gulp.series('tokens:all', 'docs'));
-  gulp.watch([`${paths.docs}/**/*.*`]).on('change', browserSync.reload);
+  gulp.watch(
+    [`${paths.aliases}/**/*.*`, `${paths.globals}/**/*.*`],
+    gulp.series('tokens:raw', 'tokens:es6', 'tokens:es6:dts')
+  );
 });
 
-gulp.task('dev', gulp.series('clean', 'tokens:all', 'docs', gulp.parallel('watch', 'browsersync')));
+gulp.task('dev', gulp.series('tokens:raw', 'tokens:es6', 'tokens:es6:dts', 'watch'));
 
-gulp.task('default', gulp.series('clean', 'tokens:all', 'docs'));
+gulp.task('default', gulp.series('tokens:all', 'docs'));
