@@ -448,11 +448,6 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
                 </SidebarAnchor>
               </SidebarNestedItem>
               <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CONTENT}/writing-for-components`}>
-                  Writing for components
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.CONTENT}/get-support`}>
                   Get support
                 </SidebarAnchor>
