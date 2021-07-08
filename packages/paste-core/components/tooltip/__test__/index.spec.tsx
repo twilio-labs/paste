@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
+import {act, fireEvent, render, screen} from '@testing-library/react';
 import {Button} from '@twilio-paste/button';
 import {Theme} from '@twilio-paste/theme';
 // @ts-ignore typescript doesn't like js imports
@@ -54,6 +54,26 @@ describe('Tooltip', () => {
         return;
       }
       expect(tooltip.getAttribute('hidden')).toBeDefined();
+    });
+  });
+
+  describe('Children', () => {
+    it('should not override child provided events such as onBlur or onFocus', async () => {
+      const focusHandlerMock: jest.Mock = jest.fn();
+      const clickHandlerMock: jest.Mock = jest.fn();
+      render(
+        <Theme.Provider theme="console">
+          <Tooltip text="Welcome to Paste!" data-testid="tooltip-children-example">
+            <Button variant="primary" onFocus={focusHandlerMock} onClick={clickHandlerMock}>
+              Open Tooltip
+            </Button>
+          </Tooltip>
+        </Theme.Provider>
+      );
+      await act(async () => screen.getByRole('button').focus());
+      await act(async () => fireEvent.click(document.activeElement));
+      expect(focusHandlerMock).toHaveBeenCalled();
+      expect(clickHandlerMock).toHaveBeenCalled();
     });
   });
 

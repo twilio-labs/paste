@@ -49,7 +49,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(({baseId, childre
   return (
     <>
       {React.Children.only(
-        <TooltipPrimitiveReference {...tooltip} ref={ref}>
+        <TooltipPrimitiveReference {...tooltip} ref={ref} {...children.props}>
           {(referenceProps) => React.cloneElement(children, referenceProps)}
         </TooltipPrimitiveReference>
       )}
