@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.1.1
+
+### Patch Changes
+
+- [`24bdd104`](https://github.com/twilio-labs/paste/commit/24bdd10427d3da5873cf7a21b6341342ccf0ea0a) [#1654](https://github.com/twilio-labs/paste/pull/1654) Thanks [@richbachman](https://github.com/richbachman)! - [Box] Added `focusVisble` to `PseudoPropStyles`.
+
 ## 4.1.0
 
 ### Minor Changes

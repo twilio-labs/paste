@@ -1,5 +1,40 @@
 # Change Log
 
+## 10.3.0
+
+### Minor Changes
+
+- [`10f4a285`](https://github.com/twilio-labs/paste/commit/10f4a285df84e757d0574f4024770b5eddad17ea) [#1310](https://github.com/twilio-labs/paste/pull/1310) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [design tokens] export design token types from the design-tokens page
+  [theme] `GenericTokenShape` is now called `GenericTokensShape` and exported from `@twilio-paste/design-tokens`
+
+* [`e268bfd1`](https://github.com/twilio-labs/paste/commit/e268bfd13f9d2bbeb1a17f2a7ff0bcdc6796c10a) [#1310](https://github.com/twilio-labs/paste/pull/1310) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [theme] `generateThemeFromTokens` and `generateTokensFromTheme` now take objects as arguments
+
+- [`e268bfd1`](https://github.com/twilio-labs/paste/commit/e268bfd13f9d2bbeb1a17f2a7ff0bcdc6796c10a) [#1310](https://github.com/twilio-labs/paste/pull/1310) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [theme] provide a hook that will calculate the color contrast rating of the current Paste theme `useThemeContrastCheck`
+
+* [`7a78987a`](https://github.com/twilio-labs/paste/commit/7a78987ac3c3fe9bc00f5f944733b04af2b192d2) [#1310](https://github.com/twilio-labs/paste/pull/1310) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [color-contrast-utils] Provides utilities that can be used to detect the color contrast rating of a given theme of design tokens. The package now export four methods; `getContrastRatingsOfTokensWithTextContrastRequirements`, `getContrastRatingsOfTokensWithUIControlContrastRequirements`, `getNumberOfTextFailures` and `getNumberOfUIControlFailures`
+
+### Patch Changes
+
+- [`b10ac908`](https://github.com/twilio-labs/paste/commit/b10ac908d2728185a66f334506a29cb054df6778) [#1654](https://github.com/twilio-labs/paste/pull/1654) Thanks [@richbachman](https://github.com/richbachman)! - [Tabs]
+
+  - Added `:focus-visible` styles to TabPanel in order to override the default browser style.
+  - Added a `borderRadius20` border-radius to TabPanel to make the focus not so harsh.
+
+* [`6730c0a6`](https://github.com/twilio-labs/paste/commit/6730c0a643cf52fb9008ec3bf707759bd1333b68) [#1606](https://github.com/twilio-labs/paste/pull/1606) Thanks [@richbachman](https://github.com/richbachman)! - [Popover] added the `state` prop that allows hooking into the state of the component using `usePopoverState`. Package is also now exporting `usePopoverState`.
+
+- [`24bdd104`](https://github.com/twilio-labs/paste/commit/24bdd10427d3da5873cf7a21b6341342ccf0ea0a) [#1654](https://github.com/twilio-labs/paste/pull/1654) Thanks [@richbachman](https://github.com/richbachman)! - [Box] Added `focusVisble` to `PseudoPropStyles`.
+
+* [`355a5509`](https://github.com/twilio-labs/paste/commit/355a550910830912bda407906db19339a5054512) [#1606](https://github.com/twilio-labs/paste/pull/1606) Thanks [@richbachman](https://github.com/richbachman)! - [NonModalDialogPrimitive] exported `PopoverStateReturn` as `NonModalDialogPrimitiveStateReturn`.
+
+* Updated dependencies [[`b10ac908`](https://github.com/twilio-labs/paste/commit/b10ac908d2728185a66f334506a29cb054df6778), [`6730c0a6`](https://github.com/twilio-labs/paste/commit/6730c0a643cf52fb9008ec3bf707759bd1333b68), [`10f4a285`](https://github.com/twilio-labs/paste/commit/10f4a285df84e757d0574f4024770b5eddad17ea), [`24bdd104`](https://github.com/twilio-labs/paste/commit/24bdd10427d3da5873cf7a21b6341342ccf0ea0a), [`e268bfd1`](https://github.com/twilio-labs/paste/commit/e268bfd13f9d2bbeb1a17f2a7ff0bcdc6796c10a), [`e268bfd1`](https://github.com/twilio-labs/paste/commit/e268bfd13f9d2bbeb1a17f2a7ff0bcdc6796c10a), [`7a78987a`](https://github.com/twilio-labs/paste/commit/7a78987ac3c3fe9bc00f5f944733b04af2b192d2), [`355a5509`](https://github.com/twilio-labs/paste/commit/355a550910830912bda407906db19339a5054512)]:
+  - @twilio-paste/tabs@2.0.6
+  - @twilio-paste/popover@6.0.2
+  - @twilio-paste/design-tokens@6.10.0
+  - @twilio-paste/theme@5.3.0
+  - @twilio-paste/box@4.1.1
+  - @twilio-paste/color-contrast-utils@1.1.0
+  - @twilio-paste/non-modal-dialog-primitive@0.3.5
+
 ## 10.2.0
 
 ### Minor Changes
