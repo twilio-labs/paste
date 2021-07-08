@@ -70,8 +70,13 @@ describe('Tooltip', () => {
           </Tooltip>
         </Theme.Provider>
       );
-      await act(async () => screen.getByRole('button').focus());
-      await act(async () => fireEvent.click(document.activeElement));
+      await act(async () => {
+        await screen.getByRole('button').focus();
+      });
+      await act(async () => {
+        // @ts-expect-error yes, I know activeElement MIGHT be null, but it's not, OK?
+        await fireEvent.click(document.activeElement);
+      });
       expect(focusHandlerMock).toHaveBeenCalled();
       expect(clickHandlerMock).toHaveBeenCalled();
     });
