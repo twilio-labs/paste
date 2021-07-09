@@ -70,13 +70,22 @@ describe('Tooltip', () => {
           </Tooltip>
         </Theme.Provider>
       );
+      const tooltip = screen.getByTestId('tooltip-children-example');
+
+      expect(tooltip.getAttribute('hidden')).toBeDefined();
+
       await act(async () => {
         await screen.getByRole('button').focus();
       });
+
+      expect(tooltip.getAttribute('hidden')).toBeNull();
+
       await act(async () => {
         // @ts-expect-error yes, I know activeElement MIGHT be null, but it's not, OK?
         await fireEvent.click(document.activeElement);
       });
+
+      expect(tooltip.getAttribute('hidden')).toBeDefined();
       expect(focusHandlerMock).toHaveBeenCalled();
       expect(clickHandlerMock).toHaveBeenCalled();
     });
