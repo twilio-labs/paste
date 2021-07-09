@@ -39,7 +39,7 @@ describe('Tooltip', () => {
       if (ButtonOne === null || ButtonTwo === null || tooltip === null) {
         return;
       }
-      expect(tooltip.getAttribute('hidden')).toBeDefined();
+      expect(tooltip.getAttribute('hidden')).not.toBeNull();
 
       ButtonOne.click();
       tooltip = screen.queryByTestId('state-hook-tooltip');
@@ -53,7 +53,7 @@ describe('Tooltip', () => {
       if (tooltip === null) {
         return;
       }
-      expect(tooltip.getAttribute('hidden')).toBeDefined();
+      expect(tooltip.getAttribute('hidden')).not.toBeNull();
     });
   });
 
@@ -72,7 +72,7 @@ describe('Tooltip', () => {
       );
       const tooltip = screen.getByTestId('tooltip-children-example');
 
-      expect(tooltip.getAttribute('hidden')).toBeDefined();
+      expect(tooltip.getAttribute('hidden')).not.toBeNull();
 
       await act(async () => {
         await screen.getByRole('button').focus();
@@ -85,7 +85,6 @@ describe('Tooltip', () => {
         await fireEvent.click(document.activeElement);
       });
 
-      expect(tooltip.getAttribute('hidden')).toBeDefined();
       expect(focusHandlerMock).toHaveBeenCalled();
       expect(clickHandlerMock).toHaveBeenCalled();
     });
