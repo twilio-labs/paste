@@ -504,6 +504,20 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
             Roadmap
           </SidebarAnchor>
         </SidebarItem>
+        <SidebarItem>
+          <SidebarAnchor
+            to="/articles"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-articles',
+                label: 'Articles',
+              })
+            }
+          >
+            Articles
+          </SidebarAnchor>
+        </SidebarItem>
       </Box>
     </Box>
   );

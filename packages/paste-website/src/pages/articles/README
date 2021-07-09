@@ -1,0 +1,135 @@
+# Paste Articles
+
+This folder contains the articles we publish as blog posts on the Paste docs site.
+
+Articles come in two forms:
+
+- **Full article** - All the article content lives on the doc site
+- **Linked article** - We only link to the article published on another platform
+
+## Creating an article file
+
+All articles are MDX pages. Like all gatsby pages, the url is reflective of the file name.
+
+File names are in the format `YYYY-MM-DD-title-of-post.mdx`
+
+Each file must start with a Frontmatter section that controls the meta data of that page.
+
+## Frontmatter
+
+### Article data
+
+- **Title** - Title of the article or post
+- **date** - `YYYY-MM-DD` Date at which it was published
+- **slug** - URL slug that the full article appears at, absolute to the root of the website domain
+- **status** - `draft` | `published` Controls the display of the article on the list view. If it is draft it will not appear in the list but will build and be available by url
+- **Description** `optional` - Meta tag description
+- **external_link** `optional` - URL where an Article or Post lives, if we are linking to it and not republishing
+- **excerpt** `optional` - If we are not hosting the Article content, we need to create a manual excerpt to appear on the list view.
+
+### Author data
+
+- **author** - Name of the author
+- **author_link** - Link to the authors bio, twitter, portfolio site
+- **avatar** `optional` - Url to a avatar image
+
+## Creating a full article
+
+Treated exactly like any other MDX page. It can include react components and markdown.
+
+### Frontmatter
+
+Suggested Frontmatter options for a full article
+
+```
+---
+title:
+description:
+slug:
+date:
+author:
+avatar:
+author_link:
+status:
+---
+```
+
+### Shortcodes
+
+#### ArticleHeader
+
+Controls showing the article header with author, avatar and date. Takes Article data from frontmatter and graphql as props.
+
+```
+<ArticleHeader
+  title={props.data.mdx.frontmatter.title}
+  description={props.data.mdx.frontmatter.description}
+  date={props.data.mdx.frontmatter.date}
+  machineDate={props.data.mdx.frontmatter.machineDate}
+  author={props.data.mdx.frontmatter.author}
+  avatar={props.data.mdx.frontmatter.avatar}
+  authorLink={props.data.mdx.frontmatter.author_link}
+/>
+```
+
+#### ArticleContent
+
+Simple layout component for the main article content column
+
+```
+<contentwrapper>
+
+<ArticleContent>
+
+... article content in MDX goes here ...
+
+</ArticleContent>
+
+<contentwrapper>
+
+```
+
+#### ArticleAside `optional`
+
+Simple layout component for the article aside, right hand small column.
+
+```
+<contentwrapper>
+
+<ArticleContent>
+
+... article content in MDX goes here ...
+
+</ArticleContent>
+
+<ArticleAside>
+
+... article aside content in mdx goes here ...
+
+</ArticleAside>
+
+<contentwrapper>
+
+```
+
+## Creating a linked article
+
+Similar to a normal MDX page, but we only use the frontmatter it provides to display the linted article in the Article list. We do not need to write any content.
+
+### Frontmatter
+
+Suggested Frontmatter options for a linked article
+
+```
+---
+title:
+slug:
+date:
+author:
+avatar:
+author_link:
+status:
+external_link:
+excerpt:
+---
+```

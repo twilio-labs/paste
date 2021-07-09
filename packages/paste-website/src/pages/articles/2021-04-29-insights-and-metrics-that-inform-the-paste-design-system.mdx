@@ -1,0 +1,280 @@
+---
+title: Insights & Metrics that Inform the Paste Design System
+description: Learn how the Twilio Paste design system captures data to gain insights and track metrics which guide the development of the system.
+slug: /articles/2021-04-29-insights-and-metrics-that-inform-the-paste-design-system/
+date: 2021-04-29
+author: Shadi Isber
+avatar: https://avatars.githubusercontent.com/u/1592327?v=4
+author_link: https://twitter.com/thesisb
+status: published
+---
+
+import {graphql} from 'gatsby';
+import Img from 'gatsby-image';
+import {Box} from '@twilio-paste/box';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/articles/2021-04-29-insights-and-metrics-that-inform-the-paste-design-system/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+        description
+        date(formatString: "MMMM D, YYYY")
+        machineDate: date
+        author
+        avatar
+        author_link
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    downloads: file(
+      sourceInstanceName: {eq: "assets"}
+      relativePath: {eq: "images/articles/insights-metrics-inform-paste-design-system/downloads.png"}
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    search: file(
+      sourceInstanceName: {eq: "assets"}
+      relativePath: {eq: "images/articles/insights-metrics-inform-paste-design-system/search.png"}
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    trends: file(
+      sourceInstanceName: {eq: "assets"}
+      relativePath: {eq: "images/articles/insights-metrics-inform-paste-design-system/trend.png"}
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
+
+<ArticleHeader
+  title={props.data.mdx.frontmatter.title}
+  description={props.data.mdx.frontmatter.description}
+  date={props.data.mdx.frontmatter.date}
+  machineDate={props.data.mdx.frontmatter.machineDate}
+  author={props.data.mdx.frontmatter.author}
+  avatar={props.data.mdx.frontmatter.avatar}
+  authorLink={props.data.mdx.frontmatter.author_link}
+/>
+
+---
+
+<contentwrapper>
+
+<ArticleContent>
+
+_Originally published on [twilio.com](https://www.twilio.com/blog/insights-metrics-inform-paste-design-system)_
+
+On Twilio's Paste design system team, we're often curious about who uses our work and how they use it. Besides being generally interesting, this information helps us track the adoption of our system, which helps clarify the business case of our work, while also informing us for our future decision making.
+
+This post will show you how we're tracking Paste's usage and how we use this data to improve how we build our design system.
+
+## Looking for answers
+
+With all of the potential value of that usage data hovering over our heads, we decided we'd finally chase down some answers. First stop: [our package's NPM page](https://www.npmjs.com/package/@twilio-paste/core).
+
+<Box marginBottom="space70">
+  <Img fluid={props.data.downloads.childImageSharp.fluid} alt="" />
+</Box>
+
+Unsurprisingly, it didn't provide much information. The weekly download count didn't help us understand who is using our packages, which parts of our packages are used, and how they are used. It wasn't a very strong signal that could drive our decision-making.
+
+Even Ol' Reliable, Google, didn't really have an answer for us:
+
+<Box marginBottom="space70">
+  <Img
+    fluid={props.data.search.childImageSharp.fluid}
+    alt="First page of Google search results for term: track npm package adoption showing no relevant results"
+  />
+</Box>
+
+We realized this wasn't going to be easy. Most analytics tools are designed for traditional products like websites and desktop apps, not for code and NPM packages. The word "telemetry" was bounced around internally, but the process of building such a system required more time and effort than we initially wanted to budget for.
+
+## How we collect data
+
+The fact that you're reading this blog post means that we found another way: scraping Github. At Twilio, most of the company's code lives on an Enterprise Github instance with very generous rate limits. This means we could scan through the entirety of the enterprise Github for the information we seek. For the projects living on regular Github, we added the [Github organizations](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/about-organizations) to an ancillary crawl list.
+
+Using the excellent [Octokit library](https://github.com/octokit/rest.js), we didn't have to write much code to get a lot accomplished. Here's how we grab every organization:
+
+```js
+async function getAllOrgs() {
+  try {
+    const response = await octokit.paginate('GET /organizations');
+    return response;
+  } catch (error) {
+    console.error(error);
+  }
+}
+```
+
+And here's how we grab every repository under every organization:
+
+```js
+async function getAllRelevantReposForOrg(org) {
+  try {
+    const allRepos = await octokit.paginate('GET /orgs/:org/repos', {
+      org,
+      type: 'all',
+    });
+    return cleanReposResponse(allRepos);
+  } catch (error) {
+    console.error(`[fn 'getAllRelevantReposForOrg']:`, error);
+  }
+}
+```
+
+The "cleanReposResponse" function trims the response by:
+
+- Only keeping the name, language, and last updated fields from the response
+- Removing any repositories that haven't been updated in a few years
+- Keeping only the repositories with code in certain programming languages like Typescript and JavaScript, which are relevant to our system.
+
+At this point we're very close, but there may still be some repositories in this list that don't pertain to us. So we then fetch the `package.json` files in each repository. Some repositories have several `package.json` files, such as monorepos, so we first run a search to find their locations:
+
+```js
+const response = await octokit.search.code({
+  q: `repo:${orgName}/${repo.name}+filename:package.json`,
+});
+```
+
+Then we get the content of the `package.json` files and map them back up to the repository and organization:
+
+```js
+async function getPackageJson(owner, repo, packagePath = Endpoints.PACKAGE_JSON) {
+  try {
+    const response = await octokit.repos.getContent({
+      owner,
+      repo,
+      path: packagePath,
+    });
+
+    let pkg = JSON.parse(Buffer.from(response.data.content, response.data.encoding).toString());
+
+    return lodash.pick(pkg, AllowedPackageJsonFields);
+  } catch (error) {
+    if (error.response == null || error.response.status === 404) {
+      console.log(`[getPackageJson] Processing: ${owner}/${repo} -- No package.json found.`);
+    } else {
+      console.log(error.response);
+    }
+  }
+}
+```
+
+We now know:
+
+- which organizations have front-end or Node.js code
+- which repositories have a `package.json` file
+- and all the information contained within their `package.json`, such as project name, version, and dependencies
+
+Since all of the Paste Design System packages are namespaced, we can scan the `package.json` files to find repositories with the `@twilio-paste/` prefix.
+
+## Our first report
+
+The very first report we generated looks something like this:
+
+```json
+{
+  "numberOfOrgs": 10,
+  "numberOfRepos": 20,
+  "orgs": {
+    "cool-org": {
+      "cool-repo": {
+        "root-package.json": {
+          "@twilio-paste/core": "6.0.1",
+          "@twilio-paste/icons": "4.0.1"
+        },
+        "subdir-package.json": {
+          "@twilio-paste/core": "6.0.1",
+          "@twilio-paste/icons": "4.0.1"
+        },
+      },
+      ...
+    },
+  }
+}
+```
+
+This report shows us how many organizations and repositories at the company are using Paste, plus which packages and versions they're using. Since this is an exhaustive scan of the entire enterprise Github instance, the report is very accurate. Using this information, we tracked our adoption curve growth **from 7 organizations and 11 repositories on March 22, 2020 to 19 organizations and 60 repositories one year later**.
+
+<Box marginBottom="space70">
+  <Img fluid={props.data.trends.childImageSharp.fluid} alt="" />
+</Box>
+
+For science, we were able to run a slightly modified version of the scan to track the adoption of other component libraries. This helped keep track of how predecessor systems were being deprecated, and which parts were the stickiest.
+
+The version numbers proved really helpful when we discovered a customer-facing bug with the `@twilio-paste/core` package prior to version 4.2.4. Using this report, we were able to discover which teams had affected products and support them in fixing the problem. This sparked something of a lightbulb moment for us; not only is reporting a tool to track adoption, but it's also a tool to empower support. That experience demonstrated that we could provide targeted outreach to Paste consumers when bugs arose, rather than an all too easy to miss company announcement.
+
+## Tracking more than adoption
+
+Well, what else? Now that we know which repositories are using Paste, we can also... clone and scan every repository using Paste.
+
+We used [NodeGit](https://github.com/nodegit/nodegit) to clone every relevant repository into a "repos" folder. Then we scanned them with an excellent tool called [react-scanner](https://github.com/moroshko/react-scanner#readme) to track what components are imported, how often they're imported, which props they're using, and in which files they appear.
+
+Here's a snippet showing our [Anchor](https://paste.twilio.design/components/anchor/) component being misused:
+
+```json
+{
+  "importInfo": {
+    "imported": "Anchor",
+    "local": "Anchor",
+    "moduleName": "@twilio-paste/core",
+    "importType": "ImportSpecifier"
+  },
+  "props": {
+    "onClick": "(Identifier)"
+  },
+  "propsSpread": true,
+  "location": {
+    "file": "cool-org/cool-repo/packages/ui/src/components/InternalSpaLink.tsx",
+    "start": {
+      "line": 16,
+      "column": 5
+    }
+  }
+}
+```
+
+We can see that the Anchor component is only being provided an `onClick` in a Typescript (.tsx) file. However, Anchors should have a `href` prop.
+
+This information is valuable because it lets us check if our typings could be wrong or if the user added a `// @ts-ignore`. More than that, it tells us that someone is trying to use our component in a way we didn't we didn't design for or document well enough. We can use this information to reach out to the team by opening an issue or by messaging the developers on Slack, striking up a conversation with enough context to be helpful.
+
+## A few of the ways this data has changed the way we work
+
+1. **Dealing with breaking changes in Paste.** We've even used this information to figure out if we can or should make breaking changes to our API. We can answer, "how widely is this component or prop used?". And if we do go forward with the breaking change, we can communicate directly with the affected parties.
+2. **Assisting teams with onboarding and reducing bounce rates.** We can track who our newest adopters of Paste are by seeing when a new repository adds a Paste dependency and reach out offering a helping hand. We can also track who stops using Paste and reach out to ask why.
+3. **Helping us refine our roadmap.** Remember I mentioned how we modified our code to scan for other component libraries in order to track which parts were particularly sticky? That report, along with our increased communication with teams, has helped us to refine our roadmap and prioritization. We have unprecedented visibility into the most pressing needs of our consumers.
+
+## Future plans for reporting
+
+Our reporting tooling has become such a central part of how we work that we're investing in expanding our tooling. Some ideas we're working on this year include:
+
+- **Implementing a Github bot for automatic workflows.** We think it would be a great developer experience for Paste consumers if we could automatically open Github Issues or PRs on affected repositories for breaking changes, with detailed "how-to upgrade" guides.
+- **Expanding our dataset.** Right now, we filter our dataset heavily to be relevant to Paste. However, this tooling has the potential to help other teams at Twilio, so we want to capture data that can be helpful to our colleagues in other teams, helping them improve their workflows the same way ours has.
+- **Integrating into a Business Intelligence tool** to empower more people to dig into the results. Right now, our results are stored as JSON files that we commit to Github. This brought us really far, but is not accessible to non-engineering-minded folks.
+
+If any of this seems interesting to you, we're hiring! paste [at] twilio [dot] com
+
+_Shadi is a Staff UX Engineer working on the Paste design system. He's invested in using data to build high quality products – and to describe what high quality products are. He can be reached at sisber [at] twilio.com or at [https://twitter.com/thesisb](https://twitter.com/thesisb)_
+
+</ArticleContent>
+
+</contentwrapper>

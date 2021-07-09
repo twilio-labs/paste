@@ -23,20 +23,12 @@ import {TableOfContents} from '../shortcodes/table-of-contents';
 import {QuestionMenu} from '../shortcodes/question-menu';
 import {PageAside} from '../shortcodes/PageAside';
 import {ChangelogRevealer} from '../shortcodes/ChangelogRevealer';
+import {ArticleHeader} from '../shortcodes/ArticleHeader';
+import {ArticleContent, ArticleAside} from '../shortcodes/ArticleLayouts';
 
 interface PasteMDXProviderProps {
   children?: React.ReactElement;
 }
-
-const StyledContentWrapper = styled.div`
-  display: flex;
-`;
-
-const StyledContent = styled.div`
-  /* magic number from Jasons initial layout */
-  max-width: 816px;
-  min-width: 0;
-`;
 
 // These sub styles fix a bug that causes it to break line-heights
 const StyledSup = styled.sup`
@@ -57,6 +49,9 @@ const shortcodes = {
   PatternHeader,
   QuestionMenu,
   TableOfContents,
+  ArticleHeader,
+  ArticleContent,
+  ArticleAside,
 };
 
 const MDXPoviderComponents = {
@@ -95,8 +90,12 @@ const MDXPoviderComponents = {
   a: (props: AnchorProps): React.ReactElement => <MdxLink {...props} />, // eslint-disable-line jsx-a11y/anchor-has-content
   img: (props: React.ComponentProps<'img'>): React.ReactElement => <img {...props} />, // eslint-disable-line jsx-a11y/alt-text
   sup: (props: React.ComponentProps<'sup'>): React.ReactElement => <StyledSup {...props} />,
-  content: (props: React.ComponentProps<'div'>): React.ReactElement => <StyledContent {...props} />,
-  contentwrapper: (props: React.ComponentProps<'div'>): React.ReactElement => <StyledContentWrapper {...props} />,
+  content: (props: Omit<React.ComponentProps<'div'>, 'color' | 'ref'>): React.ReactElement => (
+    <Box as="div" maxWidth="size80" minWidth="0" {...props} />
+  ),
+  contentwrapper: (props: Omit<React.ComponentProps<'div'>, 'color' | 'ref'>): React.ReactElement => (
+    <Box as="div" display={['block', 'block', 'flex']} {...props} />
+  ),
 };
 
 /* eslint-disable no-shadow */
