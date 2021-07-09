@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.0.2
+
+### Patch Changes
+
+- [`6730c0a6`](https://github.com/twilio-labs/paste/commit/6730c0a643cf52fb9008ec3bf707759bd1333b68) [#1606](https://github.com/twilio-labs/paste/pull/1606) Thanks [@richbachman](https://github.com/richbachman)! - [Popover] added the `state` prop that allows hooking into the state of the component using `usePopoverState`. Package is also now exporting `usePopoverState`.
+
 ## 6.0.1
 
 ### Patch Changes

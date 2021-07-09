@@ -1,5 +1,16 @@
 # Change Log
 
+## 5.3.0
+
+### Minor Changes
+
+- [`10f4a285`](https://github.com/twilio-labs/paste/commit/10f4a285df84e757d0574f4024770b5eddad17ea) [#1310](https://github.com/twilio-labs/paste/pull/1310) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [design tokens] export design token types from the design-tokens page
+  [theme] `GenericTokenShape` is now called `GenericTokensShape` and exported from `@twilio-paste/design-tokens`
+
+* [`e268bfd1`](https://github.com/twilio-labs/paste/commit/e268bfd13f9d2bbeb1a17f2a7ff0bcdc6796c10a) [#1310](https://github.com/twilio-labs/paste/pull/1310) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [theme] `generateThemeFromTokens` and `generateTokensFromTheme` now take objects as arguments
+
+- [`e268bfd1`](https://github.com/twilio-labs/paste/commit/e268bfd13f9d2bbeb1a17f2a7ff0bcdc6796c10a) [#1310](https://github.com/twilio-labs/paste/pull/1310) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [theme] provide a hook that will calculate the color contrast rating of the current Paste theme `useThemeContrastCheck`
+
 ## 5.2.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.5
+
+### Patch Changes
+
+- [`355a5509`](https://github.com/twilio-labs/paste/commit/355a550910830912bda407906db19339a5054512) [#1606](https://github.com/twilio-labs/paste/pull/1606) Thanks [@richbachman](https://github.com/richbachman)! - [NonModalDialogPrimitive] exported `PopoverStateReturn` as `NonModalDialogPrimitiveStateReturn`.
+
 ## 0.3.4
 
 ### Patch Changes

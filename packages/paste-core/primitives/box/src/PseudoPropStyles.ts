@@ -27,6 +27,7 @@ export const PseudoPropStyles = {
   _before: '&:before',
   _after: '&:after',
   _focusWithin: '&:focus-within',
+  _focusVisible: '&:focus-visible',
   _placeholder: '&::placeholder',
   __moz_focus_inner: '&::-moz-focus-inner',
 };
