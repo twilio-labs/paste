@@ -35,6 +35,7 @@ export interface TextElementProps extends Omit<React.HTMLAttributes<HTMLElement>
   ref?: any | null;
   rel?: string;
   target?: string;
+  dateTime?: string;
   /** element identifier for customization */
   element?: string;
   /** variant for variant styling */
