@@ -1,7 +1,7 @@
 ---
 title: Help Text - Components
 package: '@twilio-paste/help-text'
-description: 'Help text that can be paired with a Paste form component.'
+description: 'Help Text that can be paired with a Paste form component.'
 slug: /components/help-text/
 ---
 
@@ -18,7 +18,7 @@ import {Button} from '@twilio-paste/button';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -68,7 +68,7 @@ export const pageQuery = graphql`
   name="Help Text"
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/help-text"
-  storybookUrl="/?path=/story/components-help-text--help-text-options"
+  storybookUrl="/?path=/story/components-help-text--default"
   data={props.data.allPasteComponent.edges}
   packageStatus={props.data.allAirtable.edges}
 />
@@ -91,28 +91,27 @@ Text that's placed below the field to help users prevent an error and describe w
 
 <UnorderedList>
   <ListItem>
-    Pair help text with a valid form element. Include a visible label on <strong>all</strong> form fields.
+    Pair Help Text with a valid form element. Include a visible label on <strong>all</strong> form fields.
   </ListItem>
   <ListItem>
-    Include a unique <inlineCode>id</inlineCode> for the help text, regardless of state ("default" or "error").
+    Include a unique <inlineCode>id</inlineCode> for the Help Text, regardless of state ("default" or "error").
   </ListItem>
   <ListItem>
     Be sure to also include the <inlineCode>aria-describedby</inlineCode> prop on the form element that equals the{' '}
-    <inlineCode>id</inlineCode> of the help text.
+    <inlineCode>id</inlineCode> of the Help Text.
   </ListItem>
 </UnorderedList>
 
-## Examples
-
-### Help text with input
-
 <Callout>
-  <CalloutTitle as="h4">Hot accessibility tip</CalloutTitle>
   <CalloutText>
-    Including the <inlineCode>aria-describedby</inlineCode> prop ensures screen readers know the help text ties directly
+    Including the <inlineCode>aria-describedby</inlineCode> prop ensures screen readers know the Help Text ties directly
     to the form element.
   </CalloutText>
 </Callout>
+
+## Examples
+
+### Help Text with input
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
@@ -122,7 +121,7 @@ Text that's placed below the field to help users prevent an error and describe w
 </>`}
 </LivePreview>
 
-### Help text with select
+### HelpText with select
 
 <LivePreview scope={{Select, Option, HelpText, Label}} language="jsx">
   {`<>
@@ -136,7 +135,7 @@ Text that's placed below the field to help users prevent an error and describe w
 </>`}
 </LivePreview>
 
-### Help text with textarea
+### Help Text with textarea
 
 <LivePreview scope={{Label, HelpText, TextArea}} language="jsx">
   {`<>
@@ -148,12 +147,12 @@ Text that's placed below the field to help users prevent an error and describe w
 
 ## States
 
-### Default help text
+### Default Help Text
 
-Give users enough information in help text to prevent input and formatting errors. Keep it concise and scoped to information that will help with validation. For example, use help text if a password field has specific requirements that a user should know prior to filling it out.
+Give users enough information in Help Text to prevent input and formatting errors. Keep it concise and scoped to information that will help with validation. For example, use Help Text if a password field has specific requirements that a user should know prior to filling it out.
 
-- Help text should have enough information to help users prevent errors.
-- Use help text to provide instruction if needed. For example, don't use "Enter the date you wish to receive your bill below" as label text. Instead, use "Billing date" as a label and "Your account will be automatically billed on the above date." as help text.
+- Help Text should have enough information to help users prevent errors.
+- Use Help Text to provide instruction if needed. For example, don't use "Enter the date you wish to receive your bill below" as label text. Instead, use "Billing date" as a label and "Your account will be automatically billed on the above date." as Help Text.
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
@@ -163,10 +162,10 @@ Give users enough information in help text to prevent input and formatting error
 </>`}
 </LivePreview>
 
-### Error help text
+### Error Help Text
 
-An inline error is placed below the field to inform a user of any errors in their value. If help text exists, the error text should replace and repeat the help text.
-If only rendering error text, be sure to include the appropriate attributes on the form element and the help text.
+An inline error is placed below the field to inform a user of any errors in their value. If Help Text exists, the error text should replace and repeat the Help Text.
+If only rendering error text, be sure to include the appropriate attributes on the form element and the Help Text.
 
 Error text should:
 
@@ -178,17 +177,17 @@ Error text should:
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_error_example">Email address</Label>
-  <Input aria-describedby="email_error_help_text" id="email_error_example" value="this is not a vaild entry" name="email_error_example" type="email" placeholder="example@twilio.com" onChange="" hasError />
+  <Input aria-describedby="email_error_help_text" id="email_error_example" defaultValue="this is not a vaild entry" name="email_error_example" type="email" placeholder="example@twilio.com" onChange="" hasError />
   <HelpText id="email_error_help_text" variant="error">Please enter a valid email.</HelpText>
 </>`}
 </LivePreview>
 
-## When to use help text
+## When to use Help Text
 
-Use help text when users might need additional information to fill out a form field.
+Use Help Text when users might need additional information to fill out a form field.
 
 <DoDont>
-  <Do title="Do" body="Use help text in composition with a form element." center>
+  <Do title="Do" body="Use Help Text in composition with a form element." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="email_do">Email address</Label>
       <Input
@@ -202,14 +201,14 @@ Use help text when users might need additional information to fill out a form fi
       <HelpText id="email_do_help_text">Please enter a valid email.</HelpText>
     </Box>
   </Do>
-  <Dont title="Don't" body="Don’t use help text as a stand-alone component." center>
+  <Dont title="Don't" body="Don’t use Help Text as a stand-alone component." center>
     <Box width="100%" padding="space60">
       <HelpText id="email_do_help_text">You should instead style the Text component with design tokens.</HelpText>
     </Box>
   </Dont>
 </DoDont>
 <DoDont>
-  <Do title="Do" body="Use help text to help users prevent errors and fill out a form field correctly." center>
+  <Do title="Do" body="Use Help Text to help users prevent errors and fill out a form field correctly." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="phone_number_do">Phone number</Label>
       <Input
@@ -239,11 +238,11 @@ Use help text when users might need additional information to fill out a form fi
 <DoDont>
   <Do
     title="Do"
-    body="If you limit the length of text entry, show a character counter and explain to users in help text why their entry is restricted."
+    body="If you limit the length of text entry, show a character counter and explain to users in Help Text why their entry is restricted."
     center
   >
     <Box width="100%" padding="space60">
-      <Label htmlFor="limited_do">Job title (60 characters)</Label>
+      <Label htmlFor="limited_do">Job title</Label>
       <Input aria-describedby="limited_do_help_text" id="limited_do" name="limited_do" type="text" onChange="" />
       <HelpText id="limited_do_help_text">Limit to 60 characters.</HelpText>
     </Box>
@@ -262,7 +261,7 @@ Use help text when users might need additional information to fill out a form fi
 <DoDont>
   <Do
     title="Do"
-    body="Keep help text and error text concise and simple. If you need to use more than 2 sentences to explain a field, link out to supporting docs or trigger a popover instead."
+    body="Keep Help Text and error text concise and simple. If you need to use more than 2 sentences to explain a field, link out to supporting docs or trigger a popover instead."
     center
   >
     <Box width="100%" padding="space60">
@@ -271,7 +270,7 @@ Use help text when users might need additional information to fill out a form fi
       <HelpText id="help_do_help_text">Use the following format: (###) ###-####</HelpText>
     </Box>
   </Do>
-  <Dont title="Don't" body="Don't use more than 2 sentences in help text or error text." center>
+  <Dont title="Don't" body="Don't use more than 2 sentences in Help Text or error text." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="help_dont">Email address</Label>
       <Input aria-describedby="help_dont_help_text" id="help_dont" name="help_dont" type="email" onChange="" />
@@ -296,7 +295,7 @@ Use help text when users might need additional information to fill out a form fi
     </THead>
     <TBody>
       <Tr>
-        <Td>Help text</Td>
+        <Td>Help Text</Td>
         <Td>$color-text-weak, $font-size-30</Td>
         <Td>No</Td>
       </Tr>
@@ -315,7 +314,7 @@ Use help text when users might need additional information to fill out a form fi
         <Td>
           <UnorderedList marginBottom="space0">
             <ListItem>
-              Help text:
+              Help Text:
               <UnorderedList marginBottom="space0">
                 <ListItem>Top: $space-30</ListItem>
               </UnorderedList>
