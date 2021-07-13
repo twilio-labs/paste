@@ -16,6 +16,9 @@ export const HOMEPAGE_SECTION_OVERFLOW_OFFSET = 150;
 export const STICKY_COLUMN_OFFSET = 20 + PSA_ALERT_HEIGHT + SITE_MASTHEAD_HEIGHT;
 export const STICKY_SIDEBAR_OFFSET = PSA_ALERT_HEIGHT + SITE_MASTHEAD_HEIGHT;
 
+export const OPENGRAPH_SERVICE_URL = (path: string): string =>
+  `https://og-image-test-cyan.vercel.app/api/screenshot?page=${path}`;
+
 export const PASTE_PACKAGE_PREFIX = '@twilio-paste/';
 export const STORYBOOK_DOMAIN = 'https://main--5e53448165911c0022e68c74.chromatic.com';
 
