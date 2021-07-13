@@ -232,7 +232,7 @@ While cross-browser functionality, style and accessibility differences are prese
     changed.
   </ListItem>
   <ListItem>
-    If the Time Picker has associated help text or error text, include the <inlineCode>aria-describedby</inlineCode>{' '}
+    If the Time Picker has associated Help Text or error text, include the <inlineCode>aria-describedby</inlineCode>{' '}
     prop on the Time Picker. This should match the <inlineCode>id</inlineCode> of the help or error text.
   </ListItem>
 </UnorderedList>
@@ -252,8 +252,8 @@ The Time Picker component should include the base TimePicker, along with support
     Picker. Those two need to match.
   </CalloutText>
   <CalloutText>
-    If the Time Picker has any associated help text, it should also use the <inlineCode>aria-describedby</inlineCode>{' '}
-    prop that equals the <inlineCode>id</inlineCode> of the help text. This ensures screen readers know the help text
+    If the Time Picker has any associated Help Text, it should also use the <inlineCode>aria-describedby</inlineCode>{' '}
+    prop that equals the <inlineCode>id</inlineCode> of the Help Text. This ensures screen readers know the Help Text
     ties directly to the Time Picker.
   </CalloutText>
 </Callout>
@@ -286,7 +286,7 @@ a 24-hour time format).
 
 To change the format of the return time value, we recommend using the <inlineCode>formatReturnTime()</inlineCode> function on the Time Picker's <inlineCode>onChange()</inlineCode> or <inlineCode>onBlur()</inlineCode> handler.
 
-The function accepts two parameters: (1) the time value that should be formatted (e.g. <inlineCode>'2021-03-24'</inlineCode>), and (2) the desired time format (e.g. <inlineCode>'MM dd yyyy'</inlineCode>). It uses a library called <Anchor href="https://github.com/time-fns/time-fns" showExternal>time-fns</Anchor> to return the given time in the desired format. Time format must follow the <Anchor href="https://time-fns.org/v2.21.3/docs/format" showExternal>tokens outlined by time-fns</Anchor>.
+The function accepts two parameters: (1) the time value that should be formatted (e.g. <inlineCode>'14:52'</inlineCode>), and (2) the desired time format (e.g. <inlineCode>'mm:hh aa'</inlineCode>). It uses a library called <Anchor href="https://github.com/date-fns/date-fns" showExternal>date-fns</Anchor> to return the given time in the desired format. Time format must follow the <Anchor href="https://date-fns.org/v2.21.3/docs/format" showExternal>tokens outlined by date-fns</Anchor>.
 
 <LivePreview scope={{TimePicker, Label, HelpText, useUID, Anchor, Box, Combobox, formatReturnTime}} noInline>
   {OnChangePicker}
@@ -298,7 +298,7 @@ The function accepts two parameters: (1) the time value that should be formatted
 
 Change a Time Picker to its error state and add an inline error if the value entered doesn't pass validation requirements.
 
-An inline error is placed below the field to inform a user of any errors in their value. If help text exists, the error text should replace and repeat the help text.
+An inline error is placed below the field to inform a user of any errors in their value. If Help Text exists, the error text should replace and repeat the Help Text.
 
 <LivePreview scope={{TimePicker, Label, HelpText, useUID, Anchor}} noInline>
   {HasErrorPicker}
@@ -350,11 +350,11 @@ When using multiple Time Pickers, stack them vertically with `$space-80` spacing
 
 Avoid placing multiple pickers on the same horizontal row to help make it easier to scan a page vertically. Use a <Anchor href="/layout/grid">Grid</Anchor> if you need to place them horizontally.
 
-### Labels and help text
+### Labels and Help Text
 
 Labels should clearly describe the time value being requested. They should be concise and descriptive, not instructional. To do this:
 
-- Use help text to provide instruction if needed. For example, don't use "Enter the time you wish to receive your bill below" as label text. Instead, use "Billing time" as a label and "Your account will be automatically billed on the above time." as help text.
+- Use Help Text to provide instruction if needed. For example, don't use "Enter the date you wish to receive your bill below" as label text. Instead, use "Billing date" as a label and "Your account will be automatically billed on the above date." as Help Text.
 - Avoid articles ("a", "the") and punctuation. For example, use "SIM registration code" rather than "The SIM registration code".
 
 To support internationalization, avoid starting a sentence with the label and using the field to finish it since sentence structures vary across languages. For example, use "Call log expiration time" or "How long should logs be stored?". Don't use "Remove logs after:".
@@ -369,23 +369,19 @@ Use required indicators to show users which fields they must fill out.
 
 ### Validation
 
-Valitime Time Picker fields on form submission.
+Validate Time Picker fields on form submission.
 
 Validating a field input when the user leaves the current field (on blur) can be helpful to check for syntax errors. However, this can be frustrating to users who tab through controls to navigate a page, and to screen reader users, who might not be able to detect that an error occurred on blur.
 
 Don't prevent form submission by disabling the submit button. An error message can give more information than a disabled button can to help users figure out which fields are invalid.
 
-Usage of the <inlineCode>min</inlineCode> and <inlineCode>max</inlineCode> props on Time Picker is encouraged if certain times are invalid.
-
-<LivePreview scope={{TimePicker, Label, HelpText, useUID, Anchor}} noInline>
-  {MinAndMaxPicker}
-</LivePreview>
+Usage of the <inlineCode>min</inlineCode> and <inlineCode>max</inlineCode> props on Time Picker is discouraged as browser support is varied and limited.
 
 ### Errors
 
 Use inline error text to explain how to fix an error.
 
-Ideally, help text should have enough information to help users prevent errors. If help text exists and you need to show an error, the error text should replace and repeat the help text until the error has been resolved.
+Ideally, Help Text should have enough information to help users prevent errors. If Help Text exists and you need to show an error, the error text should replace and repeat the Help Text until the error has been resolved.
 
 Error text should:
 
@@ -399,9 +395,10 @@ Error text should:
     Time Picker and <inlineCode>placeHolder</inlineCode>
   </CalloutTitle>
   <CalloutText>
-    Because Time Picker has a default display value of <inlineCode>mm/dd/yyyy</inlineCode> (and defaults to the current
-    time on Safari), any value that gets passed into <inlineCode>placeholder</inlineCode> will be overwritten (and
-    effectively ignored).
+    Because Time Picker has a default display value of <inlineCode>--:-- --</inlineCode> (and defaults to{' '}
+    <inlineCode>12:30 PM</inlineCode>
+    on Safari), any value that gets passed into <inlineCode>placeholder</inlineCode> will be overwritten (and effectively
+    ignored).
   </CalloutText>
 </Callout>
 
@@ -555,7 +552,7 @@ const TimePickerExample = () => {
         aria-describedby="foo_text"
         id="foo"
         name="foo"
-        onChange={(evt) => formatReturnTime(evt.target.value, 'MM/dd/yyyy')}
+        onChange={(evt) => formatReturnTime(evt.target.value, 'hh:mm aa')}
         required
       />
       <HelpText id="foo_text">Please select a time.</HelpText>
@@ -588,8 +585,8 @@ All the valid HTML attributes for `input` (except `type`) are supported, includi
 
 | Prop       | Type   | Description                                                                                                           | Default |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------------------- | ------- |
-| timeValue  | string | Time value to be formatted. Must be in <inlineCode>yyyy-mm-dd</inlineCode> format.                                    | null    |
-| timeFormat | string | Speficy the format in which to return the timeValue. Formats come from the <inlineCode>time-fns</inlineCode> library. | null    |
+| timeValue  | string | Time value to be formatted. Must be in <inlineCode>HH:mm</inlineCode> format.                                         | null    |
+| timeFormat | string | Speficy the format in which to return the timeValue. Formats come from the <inlineCode>date-fns</inlineCode> library. | null    |
 
 #### Label Props
 
