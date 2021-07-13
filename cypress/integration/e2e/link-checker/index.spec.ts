@@ -13,7 +13,6 @@
 const IGNORE_LIST = [
   // Left these in there because they're being called from the sidebar nav.
   // That will need to be refactored to pull from AirTable instead of packages.
-  'components/help-text',
   'components/label',
   'primitives/sibling-box',
   'components/time-picker',
