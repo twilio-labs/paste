@@ -16,7 +16,7 @@ import {
 
 import {generateThemeFromTokens} from '../../generateThemeFromTokens';
 
-export const DarkTheme = generateThemeFromTokens(
+export const DarkTheme = generateThemeFromTokens({
   backgroundColors,
   borderColors,
   borderWidths,
@@ -29,5 +29,5 @@ export const DarkTheme = generateThemeFromTokens(
   sizings,
   spacings,
   textColors,
-  zIndices
-);
+  zIndices,
+});

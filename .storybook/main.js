@@ -22,6 +22,7 @@ module.exports = {
         '!**/__fixtures__/**/*',
         // This has it's own type check
         '!packages/paste-nextjs-template/**/*',
+        '!packages/paste-website/**/*',
         // ignore the template files as they don't have dependencies to reference, hence the errors
         '!packages/paste-cra-template/template/**/*',
       ],

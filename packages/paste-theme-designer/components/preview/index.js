@@ -10,21 +10,7 @@ import {SITE_MASTHEAD_HEIGHT} from '../../constants';
 const Preview = () => {
   const {tokens} = React.useContext(TokenContext);
 
-  const customTheme = generateThemeFromTokens(
-    tokens.backgroundColors,
-    tokens.borderColors,
-    tokens.borderWidths,
-    tokens.radii,
-    tokens.fonts,
-    tokens.fontSizes,
-    tokens.fontWeights,
-    tokens.lineHeights,
-    tokens.boxShadows,
-    tokens.sizings,
-    tokens.spacings,
-    tokens.textColors,
-    tokens.zIndices
-  );
+  const customTheme = generateThemeFromTokens(tokens);
 
   return (
     <Box width="100%" flexGrow={1} overflow="scroll" display="flex">

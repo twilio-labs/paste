@@ -16,6 +16,7 @@
     "/packages/paste-core/components/button",
     "/packages/paste-core/components/card",
     "/packages/paste-core/components/checkbox",
+    "/packages/paste-color-contrast-utils",
     "/packages/paste-core/components/combobox",
     "/packages/paste-core/primitives/combobox",
     "/packages/paste-customization",

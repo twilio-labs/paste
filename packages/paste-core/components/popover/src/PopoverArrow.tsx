@@ -1,8 +1,6 @@
 import * as React from 'react';
-import {
-  NonModalDialogArrowPrimitive,
-  NonModalDialogArrowPrimitiveProps,
-} from '@twilio-paste/non-modal-dialog-primitive';
+import type {NonModalDialogArrowPrimitiveProps} from '@twilio-paste/non-modal-dialog-primitive';
+import {NonModalDialogArrowPrimitive} from '@twilio-paste/non-modal-dialog-primitive';
 import {useTheme} from '@twilio-paste/theme';
 
 export type PopoverArrowProps = NonModalDialogArrowPrimitiveProps;

@@ -257,7 +257,105 @@ const PopoverExample: React.FC = () => {
 };
 ```
 
-#### Tooltip Props
+#### Props
+
+##### useTooltipState
+
+Pass these as part of an object to the useTooltipState hook.
+
+##### `baseId?: string`
+
+Sets the ID that will serve as a base for all the items IDs.
+
+##### `gutter?: string`
+
+Sets the offset between the reference and the tooltip on the main axis.
+
+##### `placement?: "auto-start" | "auto" | "auto-end" | "top-start...`
+
+Sets the placement of popover in relation to the `TooltipPrimitiveReference`. Available options include:
+
+- auto-start
+- auto-end
+- auto
+- top-start
+- top-end
+- top
+- bottom-start
+- bottom-end
+- bottom
+- right-start
+- right-end
+- right
+- left-start
+- left-end
+- left
+
+##### `visible?: boolean`
+
+Whether the tooltip is visible or not.
+
+##### `animated?: number | boolean`
+
+If true, animating will be set to true when visible is updated. It'll wait for stopAnimation to be called or a CSS transition ends. If animated is set to a number, stopAnimation will be called only after the same number of milliseconds have passed.
+
+##### useTooltipState returned props
+
+These props are returned by the state hook. You can spread them into this component (`{...state}`) or pass them separately. You can also provide these props from your own state logic.
+
+##### `baseId?: string`
+
+Sets the ID that will serve as a base for all the items IDs.
+
+##### `gutter?: string`
+
+Sets the offset between the reference and the tooltip on the main axis.
+
+##### `placement?: "auto-start" | "auto" | "auto-end" | "top-start...`
+
+Sets the placement of popover in relation to the `TooltipPrimitiveReference`. Available options include:
+
+- auto-start
+- auto-end
+- auto
+- top-start
+- top-end
+- top
+- bottom-start
+- bottom-end
+- bottom
+- right-start
+- right-end
+- right
+- left-start
+- left-end
+- left
+
+##### `visible?: boolean`
+
+Whether the tooltip is visible or not.
+
+##### `animated?: number | boolean`
+
+If true, animating will be set to true when visible is updated. It'll wait for stopAnimation to be called or a CSS transition ends. If animated is set to a number, stopAnimation will be called only after the same number of milliseconds have passed.
+
+##### `animating?: boolean`
+
+Whether it's animating or not.
+
+##### `stopAnimation?: () => void`
+
+Stops animation. It's called automatically if there's a CSS transition.
+
+##### `show?: () => void`
+
+Changes the `visible` state to `true`.
+
+##### `hide?: () => void`
+
+Changes the `visible` state to `false`.
+
+##### Tooltip
 
 ##### `baseId?: string`
 

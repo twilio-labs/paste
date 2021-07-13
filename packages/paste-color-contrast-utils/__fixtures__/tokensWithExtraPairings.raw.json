@@ -1,0 +1,168 @@
+{
+  "props": {
+    "color-text-weak": {
+      "type": "color",
+      "category": "text-color",
+      "value": "#606b85",
+      "comment": "Weak body text for visual hierarchy.",
+      "text_contrast_pairing": ["color-text-link-destructive-light"],
+      "originalValue": "{!palette-gray-60}",
+      "name": "color-text-weak"
+    },
+    "color-text-weakester": {
+      "type": "color",
+      "category": "text-color",
+      "value": "#606b85",
+      "comment": "Weak body text for visual hierarchy.",
+      "text_contrast_pairing": ["color-text-link-bleak"],
+      "originalValue": "{!palette-gray-60}",
+      "name": "color-text-weakester"
+    },
+    "color-text-link-destructive-light": {
+      "type": "color",
+      "category": "text-color",
+      "value": "#f6b1b1",
+      "comment": "Light shade of destructive link text to be used in interactions",
+      "originalValue": "{!palette-red-30}",
+      "name": "color-text-link-destructive-light"
+    },
+    "color-text-icon": {
+      "type": "color",
+      "category": "text-color",
+      "value": "#606b85",
+      "comment": "Default icon color.",
+      "originalValue": "{!palette-gray-60}",
+      "name": "color-text-icon"
+    },
+    "color-text-link": {
+      "type": "color",
+      "category": "text-color",
+      "value": "#0263e0",
+      "comment": "Link text",
+      "originalValue": "{!palette-blue-60}",
+      "name": "color-text-link"
+    },
+    "color-text-error-dark": {
+      "type": "color",
+      "category": "text-color",
+      "value": "#ad1111",
+      "comment": "Dark error text for inputs and error misc",
+      "originalValue": "{!palette-red-70}",
+      "name": "color-text-error-dark"
+    },
+    "color-text-neutral": {
+      "type": "color",
+      "category": "text-color",
+      "value": "#001489",
+      "comment": "Color for text indicating a neutral status.",
+      "originalValue": "{!palette-blue-80}",
+      "name": "color-text-neutral"
+    },
+    "color-text-error": {
+      "type": "color",
+      "category": "text-color",
+      "value": "#d61f1f",
+      "comment": "Error text for inputs and error misc",
+      "originalValue": "{!palette-red-60}",
+      "name": "color-text-error"
+    },
+    "color-text-icon-inverse": {
+      "type": "color",
+      "category": "text-color",
+      "value": "#8891aa",
+      "comment": "Default icon color for inverse backgrounds.",
+      "originalValue": "{!palette-gray-50}",
+      "name": "color-text-icon-inverse"
+    },
+    "color-text-link-dark": {
+      "type": "color",
+      "category": "text-color",
+      "value": "#001489",
+      "comment": "Dark shade of link text to be used in interactions",
+      "originalValue": "{!palette-blue-80}",
+      "name": "color-text-link-dark"
+    },
+    "color-text-brand-inverse": {
+      "type": "color",
+      "category": "text-color",
+      "value": "#FFFFFF",
+      "comment": "Text color used on any brand color",
+      "originalValue": "{!white}",
+      "name": "color-text-brand-inverse"
+    },
+    "color-text": {
+      "type": "color",
+      "category": "text-color",
+      "value": "#121c2d",
+      "comment": "Body text color",
+      "text_contrast_pairing": ["color-text-inverse-weaker", "color-text-inverse"],
+      "originalValue": "{!palette-gray-100}",
+      "name": "color-text"
+    },
+    "color-text-brand-highlight": {
+      "type": "color",
+      "category": "text-color",
+      "value": "#F22F46",
+      "comment": "Twilio brand red, accessible on large text only.",
+      "uicontrol_contrast_pairing": ["color-text-link-light"],
+      "originalValue": "{!amaranth}",
+      "name": "color-text-brand-highlight"
+    },
+    "color-text-inverse-weaker": {
+      "type": "color",
+      "category": "text-color",
+      "value": "#606b85",
+      "comment": "Weaker inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.",
+      "originalValue": "{!palette-gray-60}",
+      "name": "color-text-inverse-weaker"
+    },
+    "color-text-link-light": {
+      "type": "color",
+      "category": "text-color",
+      "value": "#99cdff",
+      "comment": "Light shade of link text to be used in interactions",
+      "originalValue": "{!palette-blue-30}",
+      "name": "color-text-link-light"
+    },
+    "color-text-inverse": {
+      "type": "color",
+      "category": "text-color",
+      "value": "#ffffff",
+      "comment": "Inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.",
+      "originalValue": "{!palette-gray-0}",
+      "name": "color-text-inverse"
+    },
+    "color-text-error-light": {
+      "type": "color",
+      "category": "text-color",
+      "value": "#eb5656",
+      "comment": "Light error text for inputs and error misc",
+      "originalValue": "{!palette-red-50}",
+      "name": "color-text-error-light"
+    },
+    "color-text-weaker": {
+      "type": "color",
+      "category": "text-color",
+      "value": "#aeb2c1",
+      "comment": "Weaker body text for visual hierarchy. Inaccessible unless used on disabled controls.",
+      "originalValue": "{!palette-gray-40}",
+      "name": "color-text-weaker"
+    },
+    "color-text-warning-dark": {
+      "type": "color",
+      "category": "text-color",
+      "value": "#c35323",
+      "comment": "Color for dark warning text.",
+      "originalValue": "{!palette-orange-70}",
+      "name": "color-text-warning-dark"
+    },
+    "color-text-link-destructive-dark": {
+      "type": "color",
+      "category": "text-color",
+      "value": "#ad1111",
+      "comment": "Dark shade of destructive link text to be used in interactions",
+      "originalValue": "{!palette-red-70}",
+      "name": "color-text-link-destructive-dark"
+    }
+  }
+}

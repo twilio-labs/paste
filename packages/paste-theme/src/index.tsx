@@ -14,7 +14,6 @@ export {StyledBase};
 export type {ThemeProviderProps};
 export type {ThemeShape, SendGridThemeShape, ConsoleThemeShape, DarkThemeShape} from './types/themes';
 export type {GenericThemeShape} from './types/GenericThemeShape';
-export type {GenericTokenShape} from './types/GenericTokenShape';
 export {DefaultTheme, ConsoleTheme, SendGridTheme, DarkTheme} from './themes';
 export {withTheme} from './withTheme';
 export {useTheme} from './useTheme';
@@ -25,3 +24,4 @@ export {Theme};
 
 // utils
 export {remToPx} from './utils/remToPx';
+export * from './useThemeContrastCheck';

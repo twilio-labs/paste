@@ -1,0 +1,374 @@
+---
+title: Help Text - Components
+package: '@twilio-paste/help-text'
+description: 'Help Text that can be paired with a Paste form component.'
+slug: /components/help-text/
+---
+
+import {graphql} from 'gatsby';
+import {Label} from '@twilio-paste/label';
+import {Input} from '@twilio-paste/input';
+import {Select, Option} from '@twilio-paste/select';
+import {TextArea} from '@twilio-paste/textarea';
+import {HelpText} from '@twilio-paste/help-text';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
+import {Button} from '@twilio-paste/button';
+import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
+import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Callout, CalloutText} from '../../../components/callout';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {Codeblock} from '../../../components/codeblock';
+import {SidebarCategoryRoutes} from '../../../constants';
+import Changelog from '@twilio-paste/help-text/CHANGELOG.md';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/help-text"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/components/help-text/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Help Text"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name="Help Text"
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/help-text"
+  storybookUrl="/?path=/story/components-help-text--default"
+  data={props.data.allPasteComponent.edges}
+  packageStatus={props.data.allAirtable.edges}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+## Guidelines
+
+### About Help Text
+
+Text that's placed below the field to help users prevent an error and describe what makes the form field successful.
+
+### Accessibility
+
+<UnorderedList>
+  <ListItem>
+    Pair Help Text with a valid form element. Include a visible label on <strong>all</strong> form fields.
+  </ListItem>
+  <ListItem>
+    Include a unique <inlineCode>id</inlineCode> for the Help Text, regardless of state ("default" or "error").
+  </ListItem>
+  <ListItem>
+    Be sure to also include the <inlineCode>aria-describedby</inlineCode> prop on the form element that equals the{' '}
+    <inlineCode>id</inlineCode> of the Help Text.
+  </ListItem>
+</UnorderedList>
+
+<Callout>
+  <CalloutText>
+    Including the <inlineCode>aria-describedby</inlineCode> prop ensures screen readers know the Help Text ties directly
+    to the form element.
+  </CalloutText>
+</Callout>
+
+## Examples
+
+### Help Text with input
+
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+  {`<>
+  <Label htmlFor="email_address" required>Email address</Label>
+  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
+  <HelpText id="email_help_text">Please enter a valid email.</HelpText>
+</>`}
+</LivePreview>
+
+### HelpText with select
+
+<LivePreview scope={{Select, Option, HelpText, Label}} language="jsx">
+  {`<>
+  <Label htmlFor="select_product_demo" required>Select a product</Label>
+  <Select id="select_product_demo" htmlFor="select_product_demo" required>
+    <Option value="messaging">SMS</Option>
+    <Option value="numbers">Phone Numbers</Option>
+    <Option value="video">Video</Option>
+  </Select>
+  <HelpText variant="default">Please choose a Twilio product.</HelpText>
+</>`}
+</LivePreview>
+
+### Help Text with textarea
+
+<LivePreview scope={{Label, HelpText, TextArea}} language="jsx">
+  {`<>
+  <Label htmlFor="message" required>Message (at least 120 characters)</Label>
+  <TextArea onChange={()=>{}} onChange={()=>{}} aria-describedby="message_help_text" id="message" name="message" placeholder="Enter message" required />
+  <HelpText id="message_help_text">Please enter at least 120 characters</HelpText>
+</>`}
+</LivePreview>
+
+## States
+
+### Default Help Text
+
+Give users enough information in Help Text to prevent input and formatting errors. Keep it concise and scoped to information that will help with validation. For example, use Help Text if a password field has specific requirements that a user should know prior to filling it out.
+
+- Help Text should have enough information to help users prevent errors.
+- Use Help Text to provide instruction if needed. For example, don't use "Enter the date you wish to receive your bill below" as label text. Instead, use "Billing date" as a label and "Your account will be automatically billed on the above date." as Help Text.
+
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+  {`<>
+  <Label htmlFor="email_default_example">Email address</Label>
+  <Input aria-describedby="email_default_help_text" id="email_default_example" name="email_default_example" type="email" placeholder="example@twilio.com" onChange="" />
+  <HelpText id="email_default_help_text" variant="default">Please enter a valid email.</HelpText>
+</>`}
+</LivePreview>
+
+### Error Help Text
+
+An inline error is placed below the field to inform a user of any errors in their value. If Help Text exists, the error text should replace and repeat the Help Text.
+If only rendering error text, be sure to include the appropriate attributes on the form element and the Help Text.
+
+Error text should:
+
+- Be actionable. Explain how to fix an error and if reasonable, why it happened so that it might also be prevented in the future.
+- Be concise and simple, maybe even more than normal. Avoid jargon. Try to keep error text to 2 sentences or fewer.
+- Use the passive voice for input errors to avoid placing blame on the user. For example, "A friendly name is required."
+- Use the active voice for system errors. For example, "Our systems are currently down. Please contact our support team."
+
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+  {`<>
+  <Label htmlFor="email_error_example">Email address</Label>
+  <Input aria-describedby="email_error_help_text" id="email_error_example" defaultValue="this is not a vaild entry" name="email_error_example" type="email" placeholder="example@twilio.com" onChange="" hasError />
+  <HelpText id="email_error_help_text" variant="error">Please enter a valid email.</HelpText>
+</>`}
+</LivePreview>
+
+## When to use Help Text
+
+Use Help Text when users might need additional information to fill out a form field.
+
+<DoDont>
+  <Do title="Do" body="Use Help Text in composition with a form element." center>
+    <Box width="100%" padding="space60">
+      <Label htmlFor="email_do">Email address</Label>
+      <Input
+        aria-describedby="email_do_help_text"
+        id="email_do"
+        name="email_do"
+        type="email"
+        placeholder="example@twilio.com"
+        onChange=""
+      />
+      <HelpText id="email_do_help_text">Please enter a valid email.</HelpText>
+    </Box>
+  </Do>
+  <Dont title="Don't" body="Don’t use Help Text as a stand-alone component." center>
+    <Box width="100%" padding="space60">
+      <HelpText id="email_do_help_text">You should instead style the Text component with design tokens.</HelpText>
+    </Box>
+  </Dont>
+</DoDont>
+<DoDont>
+  <Do title="Do" body="Use Help Text to help users prevent errors and fill out a form field correctly." center>
+    <Box width="100%" padding="space60">
+      <Label htmlFor="phone_number_do">Phone number</Label>
+      <Input
+        aria-describedby="phone_number_do_help_text"
+        id="phone_number_do"
+        name="hone_number_do"
+        type="phone-number"
+        placeholder="(415) 888-CATS"
+        onChange=""
+      />
+      <HelpText id="phone_number_do_help_text">Please enter a valid phone number.</HelpText>
+    </Box>
+  </Do>
+  <Dont title="Don't" body="Don't use placeholder text for validation instructions." center>
+    <Box width="100%" padding="space60">
+      <Label htmlFor="phone_number_dont">Email address</Label>
+      <Input
+        id="phone_number_dont"
+        name="phone_number_dont"
+        type="phone-number"
+        placeholder="Please enter a valid phone number."
+        onChange=""
+      />
+    </Box>
+  </Dont>
+</DoDont>
+<DoDont>
+  <Do
+    title="Do"
+    body="If you limit the length of text entry, show a character counter and explain to users in Help Text why their entry is restricted."
+    center
+  >
+    <Box width="100%" padding="space60">
+      <Label htmlFor="limited_do">Job title</Label>
+      <Input aria-describedby="limited_do_help_text" id="limited_do" name="limited_do" type="text" onChange="" />
+      <HelpText id="limited_do_help_text">Limit to 60 characters.</HelpText>
+    </Box>
+  </Do>
+  <Dont
+    title="Don't"
+    body="Don't have a character limit if you can't explain to the user why their text entry is restricted."
+    center
+  >
+    <Box width="100%" padding="space60">
+      <Label htmlFor="limited_dont">Abbreviated country</Label>
+      <Input id="limited_dont" name="limited_dont" type="text" onChange="" />
+    </Box>
+  </Dont>
+</DoDont>
+<DoDont>
+  <Do
+    title="Do"
+    body="Keep Help Text and error text concise and simple. If you need to use more than 2 sentences to explain a field, link out to supporting docs or trigger a popover instead."
+    center
+  >
+    <Box width="100%" padding="space60">
+      <Label htmlFor="help_do">Phone number</Label>
+      <Input aria-describedby="help_do_help_text" id="help_do" name="help_do" type="tel" onChange="" />
+      <HelpText id="help_do_help_text">Use the following format: (###) ###-####</HelpText>
+    </Box>
+  </Do>
+  <Dont title="Don't" body="Don't use more than 2 sentences in Help Text or error text." center>
+    <Box width="100%" padding="space60">
+      <Label htmlFor="help_dont">Email address</Label>
+      <Input aria-describedby="help_dont_help_text" id="help_dont" name="help_dont" type="email" onChange="" />
+      <HelpText id="help_dont_help_text">
+        Go to your settings. Then click on email addresses. After doing that, copy and paste your email address in this
+        field.
+      </HelpText>
+    </Box>
+  </Dont>
+</DoDont>
+
+## Anatomy
+
+<Box marginBottom="space60">
+  <Table tableLayout="fixed">
+    <THead>
+      <Tr>
+        <Th>Property</Th>
+        <Th>Default token</Th>
+        <Th>Modifiable?</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr>
+        <Td>Help Text</Td>
+        <Td>$color-text-weak, $font-size-30</Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Inline error</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>Text: $color-text-error, $font-size-30</ListItem>
+            <ListItem>Icon: IconError, $color-text-error, $icon-size-20</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>Spacing</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>
+              Help Text:
+              <UnorderedList marginBottom="space0">
+                <ListItem>Top: $space-30</ListItem>
+              </UnorderedList>
+            </ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/help-text - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {Input, Label, HelpText} from '@twilio-paste/core';
+
+const Component = () => (
+  <>
+    <Label htmlFor="foo" required>
+      Foo
+    </Label>
+    <Input id="foo" type="text" value="" onChange="" aria-describedby="foo_text" />
+    <HelpText id="foo_text">Please enter some text</HelpText>
+  </>
+);
+```
+
+#### Input Props
+
+All the [valid HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes) (role, aria-\*, type, and so on) are supported including the following props:
+
+| Prop       | Type                                           | Description                               | Default   |
+| ---------- | ---------------------------------------------- | ----------------------------------------- | --------- |
+| children?  | `ReactNode`                                    |                                           | null      |
+| marginTop? | 'space0'                                       | Sets the top margin on the `div` element. | 'space30' |
+| variant?   | 'default', 'error', 'error_inverse', 'inverse' | Changes the render state.                 | 'default' |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

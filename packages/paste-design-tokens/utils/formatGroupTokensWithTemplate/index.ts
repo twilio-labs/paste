@@ -1,5 +1,5 @@
-import {ImmutableStyleMap} from 'theo';
-import {Token} from '../../types';
+import type {ImmutableStyleMap} from 'theo';
+import type {DesignToken} from '../../types';
 
 // These plurals should map to the default styled system theme keys where possible
 const pluralCategoryMap = new Map(
@@ -47,7 +47,7 @@ const getPluralCatName = (name: string): string => {
 export const formatGroupTokensWithTemplate = (
   tokens: ImmutableStyleMap,
   categories: any,
-  categoryTemplate: (cat: string, props: Token[]) => string
+  categoryTemplate: (cat: string, props: DesignToken[]) => string
 ): string => {
   return categories
     .map((cat: string): string | null => {

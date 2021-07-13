@@ -8,6 +8,7 @@ slug: /components/disclosure/
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
 import {Flex} from '@twilio-paste/flex';
 import {Text} from '@twilio-paste/text';
 import {Stack} from '@twilio-paste/stack';
@@ -17,7 +18,7 @@ import {Disclosure, DisclosureHeading, DisclosureContent, useDisclosureState} fr
 import Changelog from '@twilio-paste/disclosure/CHANGELOG.md';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {StateHookExample} from '../../../component-examples/DisclosureExamples';
+import {StateHookExample, StateHookToggleExample} from '../../../component-examples/DisclosureExamples';
 
 export const pageQuery = graphql`
   {
@@ -252,10 +253,20 @@ You can control the initial state of the disclosure to be expanded or collapsed 
 
 ### Using state hooks
 
+Disclosure comes with the option of "hooking" into the internal state by using the state hook originally provided by
+[Reakit](https://reakit.io/docs/disclosure/#usedisclosurestate).
+
 The `state` prop allows you to hook into, and keep in sync the state of the Disclosure and the state of your application.
 
 This will allow you to set initial state and merge the returned state from the hook with the application state,
 and keep it in sync with user interactions.
+
+It should be noted that when doing so, the state prop takes precident over the other properties that affect
+the state or initial state of the Disclosure. They will be ignored in favour of them being provided as arguments
+to the useDisclosureState hook.
+
+For full details on how to use the state hook, and what props to provide it, follow the
+[Disclosure Primitive documentation](/primitives/disclosure-primitive). It's the same hook, just renamed.
 
 You could use this if you need to wait for a response from an API before opening the Disclosure content. In the
 example below, we're simulating the response time by adding a delay.
@@ -271,6 +282,24 @@ example below, we're simulating the response time by adding a delay.
   language="jsx"
 >
   {StateHookExample}
+</LivePreview>
+
+Another usecase of this might be programmatically opening/closing a Disclosure. In the example below we are
+using a separate button to toggle the visibilty of the disclosure content.
+
+<LivePreview
+  scope={{
+    useDisclosureState,
+    Disclosure,
+    DisclosureHeading,
+    DisclosureContent,
+    Box,
+    Button,
+  }}
+  noInline
+  language="jsx"
+>
+  {StateHookToggleExample}
 </LivePreview>
 
 ## States
@@ -430,19 +459,47 @@ const PopoverExample: React.FC = () => {
 
 #### Props
 
+#### useDisclosureState Props
+
+Pass these as part of an object to the useDisclosureState hook.
+
+##### `baseId?: string`
+
+ID that will serve as a base for all the items IDs.
+
+##### `visible?: boolean`
+
+Whether it's visible or not.
+
+#### useDisclosureState returned props
+
+These props are returned by the state hook. You can spread them into this component (`{...state}`) or pass them separately. You can also provide these props from your own state logic.
+
+##### `baseId?: string`
+
+ID that will serve as a base for all the items IDs.
+
+##### `visible?: boolean`
+
+Whether it's visible or not.
+
+##### `toggle?: () => void`
+
+Toggles the visible state
+
 #### Disclosure Props
 
 All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
 
-##### `baseId` prop
+##### `baseId?: string`
 
 ID that will serve as a base for all the items IDs.
 
-##### `visible` prop
+##### `visible?: boolean`
 
 Whether it's visible or not.
 
-##### `variant` prop
+##### `variant?: 'default' | 'contained'`
 
 Changes the styling on the component based on the variant selected.
 
@@ -454,11 +511,11 @@ All [Heading](/components/heading) props.
 
 Also including the following custom props:
 
-##### `disabled` prop
+##### `disabled?: boolean | undefined`
 
 Same as the HTML attribute.
 
-##### `focusable` prop
+##### `focusable?: boolean | undefined`
 
 When an element is `disabled`, it may still be `focusable`. It works similarly to `readOnly` on form elements. In this case, only `aria-disabled` will be set.
 

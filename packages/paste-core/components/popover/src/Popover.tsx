@@ -1,17 +1,13 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {Box, BoxProps, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {StyledBase} from '@twilio-paste/theme';
 import {NonModalDialogPrimitive} from '@twilio-paste/non-modal-dialog-primitive';
 import {PopoverArrow} from './PopoverArrow';
 import {PopoverContext} from './PopoverContext';
-
-export interface PopoverProps {
-  'aria-label': string;
-  children: React.ReactNode;
-}
 
 const StyledPopover = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...props}, ref) => {
   return (
@@ -31,6 +27,11 @@ const StyledPopover = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...pro
     />
   );
 });
+
+export interface PopoverProps {
+  'aria-label': string;
+  children: React.ReactNode;
+}
 
 const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(({children, ...props}, ref) => {
   const popover = React.useContext(PopoverContext);

@@ -1,9 +1,9 @@
-import {ImmutableStyleMap} from 'theo';
-import {Token} from '../types';
+import type {ImmutableStyleMap} from 'theo';
+import type {DesignToken} from '../types';
 import {getTokenCategories} from '../utils/getTokenCategories';
 import {formatGroupTokensWithTemplate} from '../utils/formatGroupTokensWithTemplate';
 
-export const categoryTemplate = (categoryName: string, props: Token[]): string => {
+export const categoryTemplate = (categoryName: string, props: DesignToken[]): string => {
   return `{
     "categoryName": "${categoryName}",
     "tokens": ${JSON.stringify(props)}

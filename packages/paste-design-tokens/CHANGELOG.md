@@ -1,5 +1,12 @@
 # Change Log
 
+## 6.10.0
+
+### Minor Changes
+
+- [`10f4a285`](https://github.com/twilio-labs/paste/commit/10f4a285df84e757d0574f4024770b5eddad17ea) [#1310](https://github.com/twilio-labs/paste/pull/1310) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [design tokens] export design token types from the design-tokens page
+  [theme] `GenericTokenShape` is now called `GenericTokensShape` and exported from `@twilio-paste/design-tokens`
+
 ## 6.9.1
 
 ### Patch Changes

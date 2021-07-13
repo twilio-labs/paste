@@ -1,5 +1,14 @@
 # Change Log
 
+## 2.0.6
+
+### Patch Changes
+
+- [`b10ac908`](https://github.com/twilio-labs/paste/commit/b10ac908d2728185a66f334506a29cb054df6778) [#1654](https://github.com/twilio-labs/paste/pull/1654) Thanks [@richbachman](https://github.com/richbachman)! - [Tabs]
+
+  - Added `:focus-visible` styles to TabPanel in order to override the default browser style.
+  - Added a `borderRadius20` border-radius to TabPanel to make the focus not so harsh.
+
 ## 2.0.5
 
 ### Patch Changes
