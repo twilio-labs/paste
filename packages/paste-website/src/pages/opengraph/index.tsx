@@ -122,7 +122,6 @@ const OpenGraphCard: React.FC<OpenGraphCardProps> = ({location, data}): React.Re
 
     // Someone is requesting a package that doesn't exist.
     if (!itemAirtable) {
-      console.log('No Airtable data found for:', name);
       return EMPTY_PACKAGE_DATA;
     }
 
@@ -169,8 +168,6 @@ const OpenGraphCard: React.FC<OpenGraphCardProps> = ({location, data}): React.Re
       break;
     }
   }
-
-  console.log(packageData);
 
   return (
     <Theme.Provider theme="default">
