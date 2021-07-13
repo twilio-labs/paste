@@ -170,7 +170,7 @@ export const OnChangeTimePicker: React.FC = (props) => {
   const [timeFormat, setTimeFormat] = React.useState('HH:mm');
   const uidTP = useUID();
   const uidHT = useUID();
-  const timeFormatOptions = ['hh:mm', 'HH:mm:ss', 'hh:mm:ss.SSS', 'HH:mm aa'];
+  const timeFormatOptions = ['hh:mm aa', 'hh:mm aaaa', 'HH:mm'];
   const handleChange = (val: string, format: string): string => {
     setValue(formatReturnTime(val, format));
     return value;
