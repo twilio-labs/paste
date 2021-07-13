@@ -90,8 +90,6 @@ export const pageQuery = graphql`
 
 ## Guidelines
 
-{/_ TODO: before merging, update "has documentation" in airtable _/}
-
 ### About Time Picker
 
 The Time Picker is an input field which accepts a value in <inlineCode>HH:mm</inlineCode> format.
@@ -103,8 +101,6 @@ In order to release a functional and stable Time Picker for immediate use, we de
 
 Because browsers' implementations of the native time picker vary, this component <strong>may not be fully accessible</strong> in all cases. Chrome/Edge, Safari and Firefox all support the Time Picker, but the user experience differs browser-to-browser. Some of those differences are outlined below:
 
-{/_ TODO: update screenshots and details _/}
-
 <Box margin="space70">
   <Table variant="borderless">
     <TBody>
@@ -112,12 +108,12 @@ Because browsers' implementations of the native time picker vary, this component
         <Td textAlign="left">
           <strong>Chrome/Edge</strong>
           <UnorderedList>
-            <ListItem>Default value is "mm/dd/yyyy"</ListItem>
+            <ListItem>Default value is "--:-- --"</ListItem>
             <ListItem>
-              Calendar pop-up is triggered by clicking on the calendar icon - clicking on the input field places focus
-              on the value
+              Clock pop-up is triggered by clicking on the clock icon - clicking on the input field places focus on the
+              value
             </ListItem>
-            <ListItem>"Today" button selects current time and closes calendar pop-up</ListItem>
+            <ListItem>Scrollable time selector pop-up</ListItem>
           </UnorderedList>
         </Td>
         <Td textAlign="right">
@@ -138,14 +134,9 @@ Because browsers' implementations of the native time picker vary, this component
         <Td textAlign="left">
           <strong>Safari</strong>
           <UnorderedList>
-            <ListItem>Default value is the current time</ListItem>
-            <ListItem>
-              Clicking on the input field triggers the calendar pop-up and places focus on the value (calendar icon not
-              present)
-            </ListItem>
-            <ListItem>
-              Circular button (in between navigation left/right arrows) navigates calendar pop-up back to selected time
-            </ListItem>
+            <ListItem>Default value is 12:30 PM</ListItem>
+            <ListItem>No clock icon or time selector pop-up, only usable by keyboard (number or arrow keys)</ListItem>
+            <ListItem>Clicking on the input field places focus on the hour value</ListItem>
           </UnorderedList>
         </Td>
         <Td>
@@ -166,12 +157,9 @@ Because browsers' implementations of the native time picker vary, this component
         <Td textAlign="left">
           <strong>Firefox</strong>
           <UnorderedList>
-            <ListItem>Default value is "mm/dd/yyyy"</ListItem>
-            <ListItem>
-              Clicking on the input field triggers the calendar pop-up and places focus on the value (calendar icon not
-              present)
-            </ListItem>
-            <ListItem>No functionality to navigate user back to current or selected time</ListItem>
+            <ListItem>Default value is "--:-- --"</ListItem>
+            <ListItem>No clock icon or time selector pop-up, only usable by keyboard (number or arrow keys)</ListItem>
+            <ListItem>Clicking on the input field places focus on the hour value</ListItem>
           </UnorderedList>
         </Td>
         <Td>
