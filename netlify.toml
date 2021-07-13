@@ -10,3 +10,6 @@
 
 [context.production.environment]
   GATSBY_ENVIRONMENT_CONTEXT = "production"
+
+[functions]
+  directory = "packages/paste-website/functions"
