@@ -73,6 +73,7 @@
     "@twilio-paste/text": "^4.0.2",
     "@twilio-paste/textarea": "^3.0.4",
     "@twilio-paste/theme": "^5.0.2",
+    "@twilio-paste/time-picker": "^0.1.0",
     "@twilio-paste/toast": "^5.0.0",
     "@twilio-paste/tooltip": "^4.0.2",
     "@twilio-paste/tooltip-primitive": "^0.2.4",
