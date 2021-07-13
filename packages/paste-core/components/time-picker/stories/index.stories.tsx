@@ -104,7 +104,7 @@ export const DisabledTimePicker: React.FC = (props) => {
         Set a curfew for your child
       </Label>
       <TimePicker id={uidTP} aria-describedby={uidHT} disabled {...props} />
-      <HelpText id={uidHT}>Choose a time</HelpText>
+      <HelpText id={uidHT}>Choose a time.</HelpText>
     </>
   );
 };
@@ -226,7 +226,7 @@ export const TimeRangePicker: React.FC = (props) => {
       </Box>
       <Box>
         <Label htmlFor={endUidTP}>End time</Label>
-        <TimePicker id={endUidTP} min={startTime} {...props} />
+        <TimePicker id={endUidTP} {...props} />
       </Box>
     </Stack>
   );
