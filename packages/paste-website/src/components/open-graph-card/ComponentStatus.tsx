@@ -3,8 +3,8 @@ import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
-import {AssetStatus} from '../component-status/AssetStatus';
-import {PeerReviewStatus} from '../component-status/PeerReviewStatus';
+import {AssetStatus} from './AssetStatus';
+import {PeerReviewStatus} from './PeerReviewStatus';
 import type {PackageData} from './types';
 
 export const ComponentStatus: React.FC<PackageData> = ({
@@ -20,7 +20,14 @@ export const ComponentStatus: React.FC<PackageData> = ({
     <Stack orientation="vertical" spacing="space20">
       <Box display="flex">
         <Box display="flex" flexBasis="50%">
-          <Box flexGrow={0} flexShrink={0} flexBasis="120px">
+          <Box
+            fontSize="fontSize60"
+            fontWeight="fontWeightMedium"
+            lineHeight="lineHeight60"
+            flexGrow={0}
+            flexShrink={0}
+            flexBasis="180px"
+          >
             Code ready:
           </Box>
           <Box>
@@ -28,7 +35,14 @@ export const ComponentStatus: React.FC<PackageData> = ({
           </Box>
         </Box>
         <Box display="flex" flexBasis="50%">
-          <Box flexGrow={0} flexShrink={0} flexBasis="120px">
+          <Box
+            fontSize="fontSize60"
+            fontWeight="fontWeightMedium"
+            lineHeight="lineHeight60"
+            flexGrow={0}
+            flexShrink={0}
+            flexBasis="180px"
+          >
             Design assets:
           </Box>
           <Box>
@@ -38,7 +52,14 @@ export const ComponentStatus: React.FC<PackageData> = ({
       </Box>
       <Box display="flex">
         <Box display="flex" flexBasis="50%">
-          <Box flexGrow={0} flexShrink={0} flexBasis="120px">
+          <Box
+            fontSize="fontSize60"
+            fontWeight="fontWeightMedium"
+            lineHeight="lineHeight60"
+            flexGrow={0}
+            flexShrink={0}
+            flexBasis="180px"
+          >
             Documentation:
           </Box>
           <Box>
@@ -49,18 +70,25 @@ export const ComponentStatus: React.FC<PackageData> = ({
                   decorative={false}
                   title="Documentation done"
                   color="colorTextSuccess"
-                  size="sizeIcon30"
+                  size="sizeIcon60"
                 />
               </Box>
             ) : (
-              <Text as="span" color="colorTextWeak">
+              <Text fontSize="fontSize60" lineHeight="lineHeight60" as="span" color="colorTextWeak">
                 Pending
               </Text>
             )}
           </Box>
         </Box>
         <Box display="flex" flexBasis="50%">
-          <Box flexGrow={0} flexShrink={0} flexBasis="120px">
+          <Box
+            fontSize="fontSize60"
+            fontWeight="fontWeightMedium"
+            lineHeight="lineHeight60"
+            flexGrow={0}
+            flexShrink={0}
+            flexBasis="180px"
+          >
             Peer review:
           </Box>
           <Box>
