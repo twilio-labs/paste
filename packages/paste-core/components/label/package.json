@@ -3,7 +3,7 @@
   "version": "6.0.3",
   "category": "user input",
   "status": "production",
-  "description": "Label used to name Paste form fields",
+  "description": "The Label component is used to provide a visible, accessible name to any form element.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
