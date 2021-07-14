@@ -215,14 +215,13 @@ export const LabelOnlyPicker: React.FC = (props) => {
 };
 
 export const TimeRangePicker: React.FC = (props) => {
-  const [startTime, setStartTime] = React.useState('');
   const startUidTP = useUID();
   const endUidTP = useUID();
   return (
     <Stack orientation="horizontal" spacing="space80">
       <Box>
         <Label htmlFor={startUidTP}>Start time</Label>
-        <TimePicker id={startUidTP} onChange={(evt) => setStartTime(evt.target.value)} {...props} />
+        <TimePicker id={startUidTP} {...props} />
       </Box>
       <Box>
         <Label htmlFor={endUidTP}>End time</Label>
