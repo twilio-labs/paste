@@ -1,10 +1,9 @@
 import * as React from 'react';
 import {graphql} from 'gatsby';
 import {Theme} from '@twilio-paste/theme';
-import {Box} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
-import {Text} from '@twilio-paste/text';
-import {ComponentStatus} from '../../components/open-graph-card/ComponentStatus';
+import {GraphImageWrapper} from '../../components/open-graph-card/GraphImageWrapper';
+import {GraphImageHero} from '../../components/open-graph-card/GraphImageHero';
+import {GraphImageDetails} from '../../components/open-graph-card/GraphImageDetails';
 import type {PackageData} from '../../components/open-graph-card/types';
 import {getHumanizedNameFromPackageName} from '../../utils/RouteUtils';
 
@@ -170,34 +169,14 @@ const OpenGraphCard: React.FC<OpenGraphCardProps> = ({location, data}): React.Re
   }
 
   return (
-    <Theme.Provider theme="default">
-      <Box
-        marginX="space40"
-        marginY="space20"
-        position="relative"
-        width="560px"
-        minHeight="150px"
-        display="flex"
-        flexDirection="column"
-        justifyContent="space-between"
-      >
-        <Box>
-          <img alt="" src="/logo.svg" width="32px" height="32px" style={{position: 'absolute', top: 6, right: 6}} />
-          <Heading as="h1" variant="heading10" marginBottom="space0">
-            {packageData.Feature}
-          </Heading>
-          <Text as="p" marginBottom="space50" lineHeight={'lineHeight40'} fontSize={'fontSize40'}>
-            {packageData.description}
-          </Text>
-        </Box>
-        <Box>
-          <Text as="span" display="inline-block" color="colorTextWeak" css={{width: '80px'}}>
-            Status
-          </Text>
-          <ComponentStatus {...packageData} />
-        </Box>
-      </Box>
-    </Theme.Provider>
+    <div>
+      <Theme.Provider theme="default" aria-label="Open Graph Template">
+        <GraphImageWrapper>
+          <GraphImageHero feature={packageData.Feature} description={packageData.description} />
+          <GraphImageDetails {...packageData} />
+        </GraphImageWrapper>
+      </Theme.Provider>
+    </div>
   );
 };
 

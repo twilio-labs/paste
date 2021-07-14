@@ -10,7 +10,8 @@
 // or 900 seconds (Enterprise plan).
 
 import puppeteer from 'puppeteer-core';
-import chrome from 'chrome-aws-lambda';
+import chromium from 'chrome-aws-lambda';
+import type {Handler} from '@netlify/functions';
 
 /** The code below determines the executable location for Chrome to
  * start up and take the screenshot when running a local development environment.
@@ -36,33 +37,38 @@ async function getOptions(isDev: boolean): Promise<{args: any; executablePath: a
       headless: true,
     };
   }
+
   return {
-    args: chrome.args,
-    executablePath: await chrome.executablePath,
-    headless: chrome.headless,
+    executablePath: await chromium.executablePath,
+    args: chromium.args,
+    headless: chromium.headless,
   };
 }
 
-// TODO typing req and res
-module.exports = async (req: any, res: any) => {
-  const pageToScreenshot = Array.isArray(req.query.page) ? req.query.page[0] : req.query.page;
-
-  // check for a legit link
-  if (!pageToScreenshot || !pageToScreenshot.includes('/')) {
-    res.statusCode = 404;
-    res.json({
-      body: "Sorry, we couldn't screenshot that page. Did you include a page?",
-    });
-  }
+const handler: Handler = async (event) => {
+  const componentRequested = event.path.replace('/.netlify/functions/opengraph/', '');
+  console.log('component requested:', componentRequested);
 
   // pass in this parameter if you are developing locally
   // to ensure puppeteer picks up your machine installation of
   // Chrome via the configurable options
-  const isDev = req.query.isDev === 'true';
+  const isDev = event.queryStringParameters.isDev === 'true';
+
+  const hostURL = isDev ? 'http://localhost:8888' : `https://${event.headers.host}`;
+  console.log('host:', hostURL);
+
+  // check for a legit link
+  if (!componentRequested || !componentRequested.includes('/')) {
+    return {
+      statusCode: 404,
+      body: "Sorry, we couldn't screenshot that page. Did you include a page?",
+    };
+  }
 
   try {
     // get options for browser
     const options = await getOptions(isDev);
+    console.log('puppeteer options:', options);
 
     // launch a new headless browser with dev / prod options
     const browser = await puppeteer.launch(options);
@@ -70,59 +76,52 @@ module.exports = async (req: any, res: any) => {
     const page = await browser.newPage();
 
     // set the viewport size
+    // recommended size 1200x630
     await page.setViewport({
-      width: 578,
-      height: 192,
+      width: 800,
+      height: 420,
       deviceScaleFactor: 1,
     });
 
+    const pageToVisit = `${hostURL}/opengraph/?path=${componentRequested}`;
+    console.log('page to visit:', pageToVisit);
+
     // tell the page to visit the url
-    await page.goto(`https://deploy-preview-1661--paste-docs.netlify.app/opengraph/?path=${pageToScreenshot}`, {
-      waitUntil: 'domcontentloaded',
+    await page.goto(pageToVisit, {
+      // wait for the load event as we need JS to render the page
+      waitUntil: 'load',
     });
 
-    // Wait until all images and fonts have loaded
-    await page.evaluate(async () => {
-      const selectors = [...document.querySelectorAll('img')];
-      await Promise.all([
-        // @ts-expect-error document exists in evaluate because this function is called in the browser
-        document.fonts.ready,
-        ...selectors.map((img) => {
-          // Image has already finished loading, let’s see if it worked
-          if (img.complete) {
-            // Image loaded and has presence
-            if (img.naturalHeight !== 0) return;
-            // Image failed, so it has no height
-            throw new Error('Image failed to load');
-          }
-          // Image hasn’t loaded yet, added an event listener to know when it does
-          return new Promise((resolve, reject) => {
-            img.addEventListener('load', resolve);
-            img.addEventListener('error', reject);
-          });
-        }),
-      ]);
-    });
+    console.log('page visited');
 
     await page.waitForTimeout(100);
 
     // take a screenshot
-    const file = await page.screenshot({
-      type: 'png',
-    });
+    const file = (await page.screenshot({
+      encoding: 'base64',
+    })) as string;
+
+    console.log('screenshot taken:', file);
 
     // close the browser
     await browser.close();
 
-    res.statusCode = 200;
-    res.setHeader('Content-Type', `image/png`);
+    console.log('browser closed');
 
-    // return the file!
-    res.end(file);
+    return {
+      statusCode: 200,
+      headers: {
+        'Content-Type': 'image/png',
+      },
+      body: file,
+      isBase64Encoded: true,
+    };
   } catch (error) {
-    res.statusCode = 500;
-    res.json({
+    return {
+      statusCode: 500,
       body: error,
-    });
+    };
   }
 };
+
+export {handler};
