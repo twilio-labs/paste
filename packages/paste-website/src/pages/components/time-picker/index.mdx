@@ -1,16 +1,16 @@
 ---
-title: Date Picker - Components
-description: A form component used to select a date.
-slug: /components/date-picker/
+title: Time Picker - Components
+description: A form component used to select a time.
+slug: /components/time-picker/
 ---
 
 import {graphql} from 'gatsby';
-import Changelog from '@twilio-paste/date-picker/CHANGELOG.md';
+import Changelog from '@twilio-paste/time-picker/CHANGELOG.md';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
-import {DatePicker, formatReturnDate} from '@twilio-paste/date-picker';
+import {TimePicker, formatReturnTime} from '@twilio-paste/time-picker';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Stack} from '@twilio-paste/stack';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -20,8 +20,8 @@ import {Combobox} from '@twilio-paste/combobox';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {
-  RequiredDatePicker,
-  DateRangePicker,
+  RequiredTimePicker,
+  TimeRangePicker,
   OnChangePicker,
   HasErrorPicker,
   DisabledPicker,
@@ -29,11 +29,11 @@ import {
   LabelOnlyPicker,
   StackOfPickers,
   MinAndMaxPicker,
-} from '../../../component-examples/DatePickerExamples.ts';
+} from '../../../component-examples/TimePickerExamples.ts';
 
 export const pageQuery = graphql`
   {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/date-picker"}}) {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/time-picker"}}) {
       edges {
         node {
           name
@@ -43,7 +43,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    mdx(fields: {slug: {eq: "/components/date-picker/"}}) {
+    mdx(fields: {slug: {eq: "/components/time-picker/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -54,7 +54,7 @@ export const pageQuery = graphql`
         value
       }
     }
-    allAirtable(filter: {data: {Feature: {eq: "Date Picker"}}}) {
+    allAirtable(filter: {data: {Feature: {eq: "Time Picker"}}}) {
       edges {
         node {
           data {
@@ -72,10 +72,10 @@ export const pageQuery = graphql`
 `;
 
 <ComponentHeader
-  name="Date Picker"
+  name="Time Picker"
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/date-picker"
-  storybookUrl="/?path=/story/components-date-picker--default-date-picker"
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/time-picker"
+  storybookUrl="/?path=/story/components-time-picker--default-time-picker"
   data={props.data.allPasteComponent.edges}
   packageStatus={props.data.allAirtable.edges}
 />
@@ -90,16 +90,16 @@ export const pageQuery = graphql`
 
 ## Guidelines
 
-### About Date Picker
+### About Time Picker
 
-The Date Picker is an input field which accepts a value in <inlineCode>MM/DD/YYYY</inlineCode> format.
+The Time Picker is an input field which accepts a value in <inlineCode>HH:mm</inlineCode> format.
 
-Currently, the Date Picker is built on top of <Anchor href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date" showExternal>the HTML date picker</Anchor>, using an <inlineCode>input</inlineCode> field with <inlineCode>type="date"</inlineCode>, which comes with some inherent limitations.
-In order to release a functional and stable Date Picker for immediate use, we decided to work within these limitations with the intention of updating this package to a custom Date Picker in a future release. The current API was designed to avoid any breaking changes with future versions of the Date Picker.
+Currently, the Time Picker is built on top of <Anchor href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time" showExternal>the HTML time picker</Anchor>, using an <inlineCode>input</inlineCode> field with <inlineCode>type="time"</inlineCode>, which comes with some inherent limitations.
+In order to release a functional and stable Time Picker for immediate use, we decided to work within these limitations with the intention of updating this package to a custom Time Picker in a future release. The current API was designed to avoid any breaking changes with future versions of the Time Picker.
 
 ### Browser support
 
-Because browsers' implementations of the native date picker vary, this component <strong>may not be fully accessible</strong> in all cases. Chrome/Edge, Safari and Firefox all support the Date Picker, but the user experience differs browser-to-browser. Some of those differences are outlined below:
+Because browsers' implementations of the native time picker vary, this component <strong>may not be fully accessible</strong> in all cases. Chrome/Edge, Safari and Firefox all support the Time Picker, but the user experience differs browser-to-browser. Some of those differences are outlined below:
 
 <Box margin="space70">
   <Table variant="borderless">
@@ -108,20 +108,20 @@ Because browsers' implementations of the native date picker vary, this component
         <Td textAlign="left">
           <strong>Chrome/Edge</strong>
           <UnorderedList>
-            <ListItem>Default value is "mm/dd/yyyy"</ListItem>
+            <ListItem>Default value is "--:-- --"</ListItem>
             <ListItem>
-              Calendar pop-up is triggered by clicking on the calendar icon - clicking on the input field places focus
-              on the value
+              Clock pop-up is triggered by clicking on the clock icon - clicking on the input field places focus on the
+              value
             </ListItem>
-            <ListItem>"Today" button selects current date and closes calendar pop-up</ListItem>
+            <ListItem>Scrollable time selector pop-up</ListItem>
           </UnorderedList>
         </Td>
         <Td textAlign="right">
           <Box
             margin="space20"
             as="img"
-            src="/images/date-picker/chrome.png"
-            alt="Chrome/Edge implementation of date picker"
+            src="/images/time-picker/chrome.png"
+            alt="Chrome/Edge implementation of time picker"
             display="block"
             marginLeft="auto"
             marginRight="auto"
@@ -134,22 +134,17 @@ Because browsers' implementations of the native date picker vary, this component
         <Td textAlign="left">
           <strong>Safari</strong>
           <UnorderedList>
-            <ListItem>Default value is the current date</ListItem>
-            <ListItem>
-              Clicking on the input field triggers the calendar pop-up and places focus on the value (calendar icon not
-              present)
-            </ListItem>
-            <ListItem>
-              Circular button (in between navigation left/right arrows) navigates calendar pop-up back to selected date
-            </ListItem>
+            <ListItem>Default value is 12:30 PM</ListItem>
+            <ListItem>No clock icon or time selector pop-up, only usable by keyboard (number or arrow keys)</ListItem>
+            <ListItem>Clicking on the input field places focus on the hour value</ListItem>
           </UnorderedList>
         </Td>
         <Td>
           <Box
             margin="space20"
             as="img"
-            src="/images/date-picker/safari.png"
-            alt="Chrome/Edge implementation of date picker"
+            src="/images/time-picker/safari.png"
+            alt="Chrome/Edge implementation of time picker"
             display="block"
             marginLeft="auto"
             marginRight="auto"
@@ -162,20 +157,17 @@ Because browsers' implementations of the native date picker vary, this component
         <Td textAlign="left">
           <strong>Firefox</strong>
           <UnorderedList>
-            <ListItem>Default value is "mm/dd/yyyy"</ListItem>
-            <ListItem>
-              Clicking on the input field triggers the calendar pop-up and places focus on the value (calendar icon not
-              present)
-            </ListItem>
-            <ListItem>No functionality to navigate user back to current or selected date</ListItem>
+            <ListItem>Default value is "--:-- --"</ListItem>
+            <ListItem>No clock icon or time selector pop-up, only usable by keyboard (number or arrow keys)</ListItem>
+            <ListItem>Clicking on the input field places focus on the hour value</ListItem>
           </UnorderedList>
         </Td>
         <Td>
           <Box
             margin="space20"
             as="img"
-            src="/images/date-picker/firefox.png"
-            alt="Chrome/Edge implementation of date picker"
+            src="/images/time-picker/firefox.png"
+            alt="Chrome/Edge implementation of time picker"
             display="block"
             marginLeft="auto"
             marginRight="auto"
@@ -188,26 +180,26 @@ Because browsers' implementations of the native date picker vary, this component
   </Table>
 </Box>
 
-While cross-browser functionality, style and accessibility differences are present, they will not affect the usability of the Date Picker. The API is stable and full usage of the component is encouraged. There are certain use cases not included in the <inlineCode>input type="date"</inlineCode> functionality, such as a date range picker. You can find examples of how to recreate those use cases below. If there's a Date Picker use case not covered by the current implementation, feel free to <Anchor href="https://github.com/twilio-labs/paste/discussions/new" showExternal>open a Discussion</Anchor> so that we can help you find a solution.
+While cross-browser functionality, style and accessibility differences are present, they will not affect the usability of the Time Picker. The API is stable and full usage of the component is encouraged. There are certain use cases not included in the <inlineCode>input type="time"</inlineCode> functionality, such as a time range picker. You can find examples of how to recreate those use cases below. If there's a Time Picker use case not covered by the current implementation, feel free to <Anchor href="https://github.com/twilio-labs/paste/discussions/new" showExternal>open a Discussion</Anchor> so that we can help you find a solution.
 
 ### Accessibility
 
 <UnorderedList>
   <ListItem>
-    Include a visible label on <strong>all</strong> Date Pickers.
+    Include a visible label on <strong>all</strong> Time Pickers.
   </ListItem>
   <ListItem>
     Each label must use the <inlineCode>htmlFor</inlineCode> prop that matches the <inlineCode>id</inlineCode> of the
     associated input.
   </ListItem>
   <ListItem>
-    Use one of 3 ways to label a Date Picker:
+    Use one of 3 ways to label a Time Picker:
     <UnorderedList marginBottom="space0">
       <ListItem>
         Visible label with <Anchor href="#label-props">Label</Anchor> (preferred)
       </ListItem>
       <ListItem>
-        Visible label that's associated to the Date Picker with <inlineCode>aria-labelledby</inlineCode>
+        Visible label that's associated to the Time Picker with <inlineCode>aria-labelledby</inlineCode>
       </ListItem>
       <ListItem>
         Label directly using <inlineCode>aria-label</inlineCode>
@@ -228,159 +220,156 @@ While cross-browser functionality, style and accessibility differences are prese
     changed.
   </ListItem>
   <ListItem>
-    If the Date Picker has associated help text or error text, include the <inlineCode>aria-describedby</inlineCode>{' '}
-    prop on the Date Picker. This should match the <inlineCode>id</inlineCode> of the help or error text.
+    If the Time Picker has associated Help Text or error text, include the <inlineCode>aria-describedby</inlineCode>{' '}
+    prop on the Time Picker. This should match the <inlineCode>id</inlineCode> of the help or error text.
   </ListItem>
 </UnorderedList>
 
 ## Examples
 
-The Date Picker component should include the base DatePicker, along with supporting elements to compose an input field that gives users the context they need to successfully fill it out.
+The Time Picker component should include the base TimePicker, along with supporting elements to compose an input field that gives users the context they need to successfully fill it out.
 
-- **Label** — A label should be included for every Date Picker and provide a short title for its associated input.
+- **Label** — A label should be included for every Time Picker and provide a short title for its associated input.
 - **Required field indicator** — In a form where there are fewer or as many required fields as optional, use a required indicator to show users which fields are required to be filled out.
-- **Help text** — Text that's placed below the field to help users prevent an error and describe what makes the Date Picker input successful.
+- **Help text** — Text that's placed below the field to help users prevent an error and describe what makes the Time Picker input successful.
 
 <Callout>
   <CalloutText>
-    Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>DatePicker</inlineCode>. This is done
-    with the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the Date
+    Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>TimePicker</inlineCode>. This is done
+    with the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the Time
     Picker. Those two need to match.
   </CalloutText>
   <CalloutText>
-    If the Date Picker has any associated help text, it should also use the <inlineCode>aria-describedby</inlineCode>{' '}
-    prop that equals the <inlineCode>id</inlineCode> of the help text. This ensures screen readers know the help text
-    ties directly to the Date Picker.
+    If the Time Picker has any associated Help Text, it should also use the <inlineCode>aria-describedby</inlineCode>{' '}
+    prop that equals the <inlineCode>id</inlineCode> of the Help Text. This ensures screen readers know the Help Text
+    ties directly to the Time Picker.
   </CalloutText>
 </Callout>
 
-<LivePreview scope={{DatePicker, Label, HelpText, useUID, Anchor}} noInline>
-  {RequiredDatePicker}
+<LivePreview scope={{TimePicker, Label, HelpText, useUID, Anchor}} noInline>
+  {RequiredTimePicker}
 </LivePreview>
 
-### Date range picker
+### Time range picker
 
-The Date Picker doesn't currently support the selection of date ranges within a single input field, however a date range picker can be easily implemented using two side-by-side Date Pickers. For further validation, use the <inlineCode>value</inlineCode> of the start Date Picker as the <inlineCode>min</inlineCode> for the end Date Picker.
+The Time Picker doesn't currently support the selection of time ranges within a single input field, however a time range picker can be easily implemented using two side-by-side Time Pickers.
 
-<LivePreview scope={{DatePicker, Label, HelpText, useUID, Anchor, Stack, Box}} noInline>
-  {DateRangePicker}
+<LivePreview scope={{TimePicker, Label, HelpText, useUID, Anchor, Stack, Box}} noInline>
+  {TimeRangePicker}
 </LivePreview>
 
-## Date formatting
+## Time formatting
 
-In addition to the Date Picker, this package exports a <inlineCode>formatReturnDate()</inlineCode> function that can be used to format the date value that's being <em>returned</em> from the Date Picker.
+In addition to the Time Picker, this package exports a <inlineCode>formatReturnTime()</inlineCode> function that can be used to format the time value that's being <em>returned</em> from the Time Picker.
 
-<strong>Note:</strong> the format of the date being displayed by the Date Picker <em>cannot</em> be changed. The display
+<strong>Note:</strong> the format of the time being displayed by the Time Picker <em>cannot</em> be changed. The display
 value is formatted according to the <Anchor
-  href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date#value"
+  href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time#time_value_format"
   showExternal
 >
   locale of the user's browser
 </Anchor>
-. The parsed <inlineCode>value</inlineCode>, however, is always returned in <inlineCode>yyyy-mm-dd</inlineCode> format.
+. The parsed <inlineCode>value</inlineCode> format, however, which is returned in <inlineCode>HH:mm</inlineCode> format (using
+a 24-hour time format), can be changed.
 
-To change the format of the return date value, we recommend using the <inlineCode>formatReturnDate()</inlineCode> function on the Date Picker's <inlineCode>onChange()</inlineCode> or <inlineCode>onBlur()</inlineCode> handler.
+To change the format of the return time value, we recommend using the <inlineCode>formatReturnTime()</inlineCode> function on the Time Picker's <inlineCode>onChange()</inlineCode> or <inlineCode>onBlur()</inlineCode> handler.
 
-The function accepts two parameters: (1) the date value that should be formatted (e.g. <inlineCode>'2021-03-24'</inlineCode>), and (2) the desired date format (e.g. <inlineCode>'MM dd yyyy'</inlineCode>). It uses a library called <Anchor href="https://github.com/date-fns/date-fns" showExternal>date-fns</Anchor> to return the given date in the desired format. Date format must follow the <Anchor href="https://date-fns.org/v2.21.3/docs/format" showExternal>tokens outlined by date-fns</Anchor>.
+The function accepts two parameters: (1) the time value that should be formatted (e.g. <inlineCode>'14:52'</inlineCode>), and (2) the desired time format (e.g. <inlineCode>'mm:hh aa'</inlineCode>). It uses a library called <Anchor href="https://github.com/date-fns/date-fns" showExternal>date-fns</Anchor> to return the given time in the desired format. Time format must follow the <Anchor href="https://date-fns.org/v2.21.3/docs/format" showExternal>tokens outlined by date-fns</Anchor>.
 
-<LivePreview scope={{DatePicker, Label, HelpText, useUID, Anchor, Box, Combobox, formatReturnDate}} noInline>
+<LivePreview scope={{TimePicker, Label, HelpText, useUID, Anchor, Box, Combobox, formatReturnTime}} noInline>
   {OnChangePicker}
 </LivePreview>
 
 ## States
 
-### DatePicker with inline error
+### TimePicker with inline error
 
-Change a Date Picker to its error state and add an inline error if the value entered doesn't pass validation requirements.
+Change a Time Picker to its error state and add an inline error if the value entered doesn't pass validation requirements.
 
-An inline error is placed below the field to inform a user of any errors in their value. If help text exists, the error text should replace and repeat the help text.
+An inline error is placed below the field to inform a user of any errors in their value. If Help Text exists, the error text should replace and repeat the Help Text.
 
-<LivePreview scope={{DatePicker, Label, HelpText, useUID, Anchor}} noInline>
+<LivePreview scope={{TimePicker, Label, HelpText, useUID, Anchor}} noInline>
   {HasErrorPicker}
 </LivePreview>
 
 ### Disabled input
 
-Use a disabled Date Picker to show users that they can't interact with it.
+Use a disabled Time Picker to show users that they can't interact with it.
 
 If you want to show information that can't be edited, use a [read-only](/components/input#read-only-input) field or consider another way of showing static information.
 
-<LivePreview scope={{DatePicker, Label, HelpText, useUID, Anchor}} noInline>
+<LivePreview scope={{TimePicker, Label, HelpText, useUID, Anchor}} noInline>
   {DisabledPicker}
 </LivePreview>
 
 ### Read-only input
 
-Use a read-only Date Picker when a its value can't be changed, but users should be able to read or apply focus on it.
+Use a read-only Time Picker when a its value can't be changed, but users should be able to read or apply focus on it.
 
-<LivePreview scope={{DatePicker, Label, HelpText, useUID, Anchor}} noInline>
+<LivePreview scope={{TimePicker, Label, HelpText, useUID, Anchor}} noInline>
   {ReadOnlyPicker}
 </LivePreview>
 
 ## Composition notes
 
-A Date Picker must have at least a label and an input.
+A Time Picker must have at least a label and an input.
 
-<LivePreview scope={{DatePicker, Label, useUID}} noInline>
+<LivePreview scope={{TimePicker, Label, useUID}} noInline>
   {LabelOnlyPicker}
 </LivePreview>
 
 <Callout>
-  <CalloutTitle as="h4">Quick note about Date Picker DOM methods</CalloutTitle>
+  <CalloutTitle as="h4">Quick note about Time Picker DOM methods</CalloutTitle>
   <CalloutText>
     There are three methods that come with the HTML picker: <inlineCode>stepUp()</inlineCode>,{' '}
     <inlineCode>stepDown()</inlineCode> and <inlineCode>select()</inlineCode>. Usage of these methods is possible, but
-    we <strong>do not</strong> encourage it, as they may not be supported in future versions of the Date Picker. Use at
+    we <strong>do not</strong> encourage it, as they may not be supported in future versions of the Time Picker. Use at
     your own risk!
   </CalloutText>
 </Callout>
 
-### Positioning Date Pickers
+### Positioning Time Pickers
 
-When using multiple Date Pickers, stack them vertically with `$space-80` spacing between each field. To stack them, you can use either a <Anchor href="/primitives/box">Box</Anchor> or a <Anchor href="/layout/stack">Stack</Anchor> (as seen in the example below).
+When using multiple Time Pickers, stack them vertically with `$space-80` spacing between each field. To stack them, you can use either a <Anchor href="/primitives/box">Box</Anchor> or a <Anchor href="/layout/stack">Stack</Anchor> (as seen in the example below).
 
-<LivePreview scope={{DatePicker, Label, HelpText, useUID, Anchor, Box, Stack}} noInline>
+<LivePreview scope={{TimePicker, Label, HelpText, useUID, Anchor, Box, Stack}} noInline>
   {StackOfPickers}
 </LivePreview>
 
 Avoid placing multiple pickers on the same horizontal row to help make it easier to scan a page vertically. Use a <Anchor href="/layout/grid">Grid</Anchor> if you need to place them horizontally.
 
-### Labels and help text
+### Labels and Help Text
 
-Labels should clearly describe the date value being requested. They should be concise and descriptive, not instructional. To do this:
+Labels should clearly describe the time value being requested. They should be concise and descriptive, not instructional. To do this:
 
-- Use help text to provide instruction if needed. For example, don't use "Enter the date you wish to receive your bill below" as label text. Instead, use "Billing date" as a label and "Your account will be automatically billed on the above date." as help text.
+- Use Help Text to provide instruction if needed. For example, don't use "Enter the date you wish to receive your bill below" as label text. Instead, use "Billing date" as a label and "Your account will be automatically billed on the above date." as Help Text.
 - Avoid articles ("a", "the") and punctuation. For example, use "SIM registration code" rather than "The SIM registration code".
 
-To support internationalization, avoid starting a sentence with the label and using the field to finish it since sentence structures vary across languages. For example, use "Call log expiration date" or "How long should logs be stored?". Don't use "Remove logs after:".
+To support internationalization, avoid starting a sentence with the label and using the field to finish it since sentence structures vary across languages. For example, use "Call log expiration time" or "How long should logs be stored?". Don't use "Remove logs after:".
 
 ### Required field indicator
 
 Use required indicators to show users which fields they must fill out.
 
-<LivePreview scope={{DatePicker, Label, HelpText, useUID, Anchor}} noInline>
-  {RequiredDatePicker}
+<LivePreview scope={{TimePicker, Label, HelpText, useUID, Anchor}} noInline>
+  {RequiredTimePicker}
 </LivePreview>
 
 ### Validation
 
-Validate Date Picker fields on form submission.
+Validate Time Picker fields on form submission.
 
 Validating a field input when the user leaves the current field (on blur) can be helpful to check for syntax errors. However, this can be frustrating to users who tab through controls to navigate a page, and to screen reader users, who might not be able to detect that an error occurred on blur.
 
 Don't prevent form submission by disabling the submit button. An error message can give more information than a disabled button can to help users figure out which fields are invalid.
 
-Usage of the <inlineCode>min</inlineCode> and <inlineCode>max</inlineCode> props on Date Picker is encouraged if certain dates are invalid.
-
-<LivePreview scope={{DatePicker, Label, HelpText, useUID, Anchor}} noInline>
-  {MinAndMaxPicker}
-</LivePreview>
+Usage of the <inlineCode>min</inlineCode> and <inlineCode>max</inlineCode> props on Time Picker is discouraged as browser support is varied and limited.
 
 ### Errors
 
 Use inline error text to explain how to fix an error.
 
-Ideally, help text should have enough information to help users prevent errors. If help text exists and you need to show an error, the error text should replace and repeat the help text until the error has been resolved.
+Ideally, Help Text should have enough information to help users prevent errors. If Help Text exists and you need to show an error, the error text should replace and repeat the Help Text until the error has been resolved.
 
 Error text should:
 
@@ -391,12 +380,13 @@ Error text should:
 
 <Callout>
   <CalloutTitle as="h4">
-    Date Picker and <inlineCode>placeHolder</inlineCode>
+    Time Picker and <inlineCode>placeHolder</inlineCode>
   </CalloutTitle>
   <CalloutText>
-    Because Date Picker has a default display value of <inlineCode>mm/dd/yyyy</inlineCode> (and defaults to the current
-    date on Safari), any value that gets passed into <inlineCode>placeholder</inlineCode> will be overwritten (and
-    effectively ignored).
+    Because Time Picker has a default display value of <inlineCode>--:-- --</inlineCode> (and defaults to{' '}
+    <inlineCode>12:30 PM</inlineCode>
+    on Safari), any value that gets passed into <inlineCode>placeholder</inlineCode> will be overwritten (and effectively
+    ignored).
   </CalloutText>
 </Callout>
 
@@ -494,7 +484,7 @@ Error text should:
               </UnorderedList>
             </ListItem>
             <ListItem>
-              DatePicker:
+              TimePicker:
               <UnorderedList marginBottom="space0">
                 <ListItem>Left padding: $space-40</ListItem>
                 <ListItem>Top, right, bottom padding: $space-30</ListItem>
@@ -530,61 +520,61 @@ Error text should:
 #### Installation
 
 ```bash
-yarn add @twilio-paste/date-picker - or - yarn add @twilio-paste/core
+yarn add @twilio-paste/time-picker - or - yarn add @twilio-paste/core
 ```
 
 #### Usage
 
 ```jsx
-import {DatePicker, formatReturnDate} from '@twilio-paste/core/date-picker';
+import {TimePicker, formatReturnTime} from '@twilio-paste/core/time-picker';
 import {Label} from '@twilio-paste/core/label';
 import {HelpText} from '@twilio-paste/core/helptext';
 
-const DatePickerExample = () => {
+const TimePickerExample = () => {
   return (
     <>
       <Label htmlFor="foo" required>
-        Start date
+        Start time
       </Label>
-      <DatePicker
+      <TimePicker
         aria-describedby="foo_text"
         id="foo"
         name="foo"
-        onChange={(evt) => formatReturnDate(evt.target.value, 'MM/dd/yyyy')}
+        onChange={(evt) => formatReturnTime(evt.target.value, 'hh:mm aa')}
         required
       />
-      <HelpText id="foo_text">Please select a date.</HelpText>
+      <HelpText id="foo_text">Please select a time.</HelpText>
     </>
   );
 };
 ```
 
-#### DatePicker Props
+#### TimePicker Props
 
 All the valid HTML attributes for `input` (except `type`) are supported, including the following props:
 
 | Prop      | Type                                     | Description                                                          | Default   |
 | --------- | ---------------------------------------- | -------------------------------------------------------------------- | --------- |
-| id?       | string                                   | Sets the id of the date picker. Should match the htmlFor of `Label`. | null      |
-| name?     | string                                   | Sets the name of the date picker.                                    | null      |
-| value?    | string                                   | Sets the value of the date picker.                                   | null      |
-| disabled? | boolean                                  | Disables the date picker.                                            | false     |
-| readOnly? | boolean                                  | Sets the date picker to readonly.                                    | false     |
-| required? | boolean                                  | Sets the date picker as required.                                    | false     |
-| hasError? | boolean                                  | Sets the date picker to an error state.                              | false     |
-| min?      | string                                   | Sets the earliest valid date value.                                  | null      |
-| max?      | string                                   | Sets the last valid date value.                                      | null      |
+| id?       | string                                   | Sets the id of the time picker. Should match the htmlFor of `Label`. | null      |
+| name?     | string                                   | Sets the name of the time picker.                                    | null      |
+| value?    | string                                   | Sets the value of the time picker.                                   | null      |
+| disabled? | boolean                                  | Disables the time picker.                                            | false     |
+| readOnly? | boolean                                  | Sets the time picker to readonly.                                    | false     |
+| required? | boolean                                  | Sets the time picker as required.                                    | false     |
+| hasError? | boolean                                  | Sets the time picker to an error state.                              | false     |
+| min?      | string                                   | Sets the earliest valid time value.                                  | null      |
+| max?      | string                                   | Sets the last valid time value.                                      | null      |
 | onChange? | `(event: React.MouseEvent<HTMLElement>)` |                                                                      | null      |
 | onFocus?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                      | null      |
 | onBlur?   | `(event: React.MouseEvent<HTMLElement>)` |                                                                      | null      |
 | variant?  | 'default', 'inverse'                     |                                                                      | 'default' |
 
-#### formatReturnDate() Props
+#### formatReturnTime() Props
 
 | Prop       | Type   | Description                                                                                                           | Default |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------------------- | ------- |
-| dateValue  | string | Date value to be formatted. Must be in <inlineCode>yyyy-mm-dd</inlineCode> format.                                    | null    |
-| dateFormat | string | Specify the format in which to return the dateValue. Formats come from the <inlineCode>date-fns</inlineCode> library. | null    |
+| timeValue  | string | Time value to be formatted. Must be in <inlineCode>HH:mm</inlineCode> format.                                         | null    |
+| timeFormat | string | Specify the format in which to return the timeValue. Formats come from the <inlineCode>date-fns</inlineCode> library. | null    |
 
 #### Label Props
 
@@ -593,9 +583,9 @@ All the valid HTML attributes for `label` are supported including the following 
 | Prop          | Type                 | Description                                                               | Default   |
 | ------------- | -------------------- | ------------------------------------------------------------------------- | --------- |
 | children?     | `ReactNode`          |                                                                           | null      |
-| htmlFor       | string               | Sets the for of the label. Should match the id of `DatePicker`. Required. | null      |
-| disabled?     | boolean              | Shows the date picker is disabled.                                        | false     |
-| required?     | boolean              | Shows the date picker is required.                                        | false     |
+| htmlFor       | string               | Sets the for of the label. Should match the id of `TimePicker`. Required. | null      |
+| disabled?     | boolean              | Shows the time picker is disabled.                                        | false     |
+| required?     | boolean              | Shows the time picker is required.                                        | false     |
 | marginBottom? | 'space0', 'space10'  |                                                                           | 'space10' |
 | variant ?     | 'default', 'inverse' |                                                                           | 'default' |
 

@@ -104,7 +104,7 @@ export const DisabledTimePicker: React.FC = (props) => {
         Set a curfew for your child
       </Label>
       <TimePicker id={uidTP} aria-describedby={uidHT} disabled {...props} />
-      <HelpText id={uidHT}>Choose a time</HelpText>
+      <HelpText id={uidHT}>Choose a time.</HelpText>
     </>
   );
 };
@@ -170,7 +170,7 @@ export const OnChangeTimePicker: React.FC = (props) => {
   const [timeFormat, setTimeFormat] = React.useState('HH:mm');
   const uidTP = useUID();
   const uidHT = useUID();
-  const timeFormatOptions = ['hh:mm', 'HH:mm:ss', 'hh:mm:ss.SSS', 'HH:mm aa'];
+  const timeFormatOptions = ['hh:mm aa', 'hh:mm aaaa', 'HH:mm'];
   const handleChange = (val: string, format: string): string => {
     setValue(formatReturnTime(val, format));
     return value;
@@ -215,18 +215,17 @@ export const LabelOnlyPicker: React.FC = (props) => {
 };
 
 export const TimeRangePicker: React.FC = (props) => {
-  const [startTime, setStartTime] = React.useState('');
   const startUidTP = useUID();
   const endUidTP = useUID();
   return (
     <Stack orientation="horizontal" spacing="space80">
       <Box>
         <Label htmlFor={startUidTP}>Start time</Label>
-        <TimePicker id={startUidTP} onChange={(evt) => setStartTime(evt.target.value)} {...props} />
+        <TimePicker id={startUidTP} {...props} />
       </Box>
       <Box>
         <Label htmlFor={endUidTP}>End time</Label>
-        <TimePicker id={endUidTP} min={startTime} {...props} />
+        <TimePicker id={endUidTP} {...props} />
       </Box>
     </Stack>
   );
