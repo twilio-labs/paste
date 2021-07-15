@@ -20,8 +20,6 @@ import {ComponentHeader} from '../shortcodes/component-header';
 import {PatternHeader} from '../shortcodes/pattern-header';
 import {LivePreview} from '../shortcodes/live-preview';
 import {TableOfContents} from '../shortcodes/table-of-contents';
-import {QuestionMenu} from '../shortcodes/question-menu';
-import {PageRating} from '../shortcodes/page-rating';
 import {PageAside} from '../shortcodes/PageAside';
 import {ChangelogRevealer} from '../shortcodes/ChangelogRevealer';
 import {ArticleHeader} from '../shortcodes/ArticleHeader';
@@ -48,8 +46,6 @@ const shortcodes = {
   LivePreview,
   PageAside,
   PatternHeader,
-  QuestionMenu,
-  PageRating,
   TableOfContents,
   ArticleHeader,
   ArticleContent,
