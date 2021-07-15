@@ -423,7 +423,8 @@ Consider [contributing a Table Actions pattern](/patterns/contribute) to help st
         <Td>background-color (arrow only)</Td>
         <Td>
           <UnorderedList marginBottom="space0">
-            <ListItem>Hover: $color-background-primary-lightest</ListItem>
+            <ListItem>Hover: $color-background-primary-weakest</ListItem>
+            <ListItem>Focus: $color-background-primary-weakest</ListItem>
           </UnorderedList>
         </Td>
         <Td>No</Td>
@@ -433,8 +434,8 @@ Consider [contributing a Table Actions pattern](/patterns/contribute) to help st
         <Td>
           <UnorderedList marginBottom="space0">
             <ListItem>$color-border</ListItem>
-            <ListItem>Hover: $color-border-primary</ListItem>
-            <ListItem>Focus: $color-border-primary</ListItem>
+            <ListItem>Hover: $color-border-primary-stronger</ListItem>
+            <ListItem>Focus: $color-border-primary-stronger</ListItem>
           </UnorderedList>
         </Td>
         <Td>No</Td>
@@ -444,8 +445,8 @@ Consider [contributing a Table Actions pattern](/patterns/contribute) to help st
         <Td>
           <UnorderedList marginBottom="space0">
             <ListItem>$color-text</ListItem>
-            <ListItem>Hover: $color-text-link</ListItem>
-            <ListItem>Focus: $color-text-link</ListItem>
+            <ListItem>Hover: $color-text-link-stronger</ListItem>
+            <ListItem>Focus: $color-text-link-stronger</ListItem>
           </UnorderedList>
         </Td>
         <Td>No</Td>
@@ -486,9 +487,25 @@ Consider [contributing a Table Actions pattern](/patterns/contribute) to help st
         <Td>
           <UnorderedList marginBottom="space0">
             <ListItem>transparent</ListItem>
-            <ListItem>Current: $color-background-primary-lightest</ListItem>
-            <ListItem>Hover: $color-background-primary-lightest</ListItem>
-            <ListItem>Focus: $color-background-primary-lightest</ListItem>
+            <ListItem>Hover: $color-background-primary-weakest</ListItem>
+            <ListItem>Focus: $color-background-primary-weakest</ListItem>
+            <ListItem>Current: $color-background-primary-stronger</ListItem>
+            <ListItem>Current hover: $color-background-primary-stronger</ListItem>
+            <ListItem>Current focus: $color-background-primary-stronger</ListItem>
+          </UnorderedList>
+        </Td>
+        <Td>No</Td>
+      </Tr>
+      <Tr>
+        <Td>border-color</Td>
+        <Td>
+          <UnorderedList marginBottom="space0">
+            <ListItem>transparent</ListItem>
+            <ListItem>Hover: $color-border-primary-stronger</ListItem>
+            <ListItem>Focus: $color-border-primary-stronger</ListItem>
+            <ListItem>Current: transparent</ListItem>
+            <ListItem>Current hover: transparent</ListItem>
+            <ListItem>Current focus: transparent</ListItem>
           </UnorderedList>
         </Td>
         <Td>No</Td>
@@ -498,9 +515,11 @@ Consider [contributing a Table Actions pattern](/patterns/contribute) to help st
         <Td>
           <UnorderedList marginBottom="space0">
             <ListItem>$color-text</ListItem>
-            <ListItem>Current: $color-text-link</ListItem>
-            <ListItem>Hover: $color-text-link</ListItem>
-            <ListItem>Focus: $color-text-link</ListItem>
+            <ListItem>Hover: $color-text-link-stronger</ListItem>
+            <ListItem>Focus: $color-text-link-stronger</ListItem>
+            <ListItem>Current: $color-text-weakest</ListItem>
+            <ListItem>Current hover: $color-text-weakest</ListItem>
+            <ListItem>Current focus: $color-text-weakest</ListItem>
           </UnorderedList>
         </Td>
         <Td>No</Td>
