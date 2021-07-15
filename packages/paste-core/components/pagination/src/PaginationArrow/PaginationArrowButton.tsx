@@ -31,15 +31,15 @@ const PaginationArrowButton = React.forwardRef<HTMLButtonElement, PaginationArro
         transition="border-color 100ms ease-in, box-shadow 100ms ease-in, color 100ms ease-in, opacity 150ms ease-in, visibility 150ms ease-in"
         visibility={disabled ? 'hidden' : 'visible'}
         _hover={{
-          borderColor: 'colorBorderPrimary',
-          color: 'colorTextLink',
+          borderColor: 'colorBorderPrimaryStronger',
+          color: 'colorTextLinkStronger',
           cursor: 'pointer',
           textDecoration: 'none',
         }}
         _focus={{
-          borderColor: 'colorBorderPrimary',
+          borderColor: 'colorBorderPrimaryStronger',
           boxShadow: 'shadowFocus',
-          color: 'colorTextLink',
+          color: 'colorTextLinkStronger',
           textDecoration: 'none',
         }}
         _active={{textDecoration: 'none'}}
