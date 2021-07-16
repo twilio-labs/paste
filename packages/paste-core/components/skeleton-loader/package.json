@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/skeleton-loader",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "category": "data display",
   "status": "production",
   "description": "A component that gives users a hint of what type of information will be loaded on a page and helps reduce the perceived time a page takes to load.",

@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.1.1
+
+### Patch Changes
+
+- [`bf5ad8d6`](https://github.com/twilio-labs/paste/commit/bf5ad8d6ede2ba911a1aa45e39341c9137cb692c) [#1656](https://github.com/twilio-labs/paste/pull/1656) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Text] Allow datetime html attribute to be a valid prop
+
 ## 4.1.0
 
 ### Minor Changes

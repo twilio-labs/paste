@@ -1,5 +1,16 @@
 # Change Log
 
+## 2.23.7
+
+### Patch Changes
+
+- Updated dependencies [[`e4a8aef5`](https://github.com/twilio-labs/paste/commit/e4a8aef5253ee5df290cf106612a58bce7572ef3), [`bf5ad8d6`](https://github.com/twilio-labs/paste/commit/bf5ad8d6ede2ba911a1aa45e39341c9137cb692c), [`750a38e0`](https://github.com/twilio-labs/paste/commit/750a38e05b9d91f82b14f49a160112f013629468), [`e7cc5ca0`](https://github.com/twilio-labs/paste/commit/e7cc5ca09e8ec1cf913ae88e08c6ee4b616a056a), [`c7d6fa75`](https://github.com/twilio-labs/paste/commit/c7d6fa7526ac10f98dbf406800513fd7af6c371d)]:
+  - @twilio-paste/label@6.0.4
+  - @twilio-paste/text@4.1.1
+  - @twilio-paste/tooltip@4.0.4
+  - @twilio-paste/pagination@0.1.3
+  - @twilio-paste/skeleton-loader@0.1.0
+
 ## 2.23.6
 
 ### Patch Changes
