@@ -65,7 +65,7 @@ export default (packageList: PackageShape[]) => {
       modifiedChangeSetFiles,
       publicPackagesWithUnpublishedSourceChanges
     );
-    const idea = 'edit an existing changeset or run `yarn changeset` to create one';
+    const idea = 'edit an existing changeset or run `pnpm changeset` to create one';
     if (missingPackages.length > 0) {
       missingPackages.forEach((packageName: string) => {
         fail(`Looks like ${packageName} was not included in a changeset - *${idea}*`);

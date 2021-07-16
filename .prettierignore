@@ -10,7 +10,7 @@ packages/paste-icons/json
 packages/paste-theme-designer/public/
 .cache
 .next
-.yarn
+pnpm-lock.yaml
 
 tsconfig.build.tsbuildinfo
 **/*.d.ts

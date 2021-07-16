@@ -12,14 +12,14 @@ export declare function warn(message: string): void;
 export default () => {
   // package.json related files
   const packageJSONsChanged = getPackJsonsFromFiles([...danger.git.modified_files, ...danger.git.created_files]);
-  const lockfileChanged = danger.git.modified_files.includes('yarn.lock');
+  const lockfileChanged = danger.git.modified_files.includes('pnpm-lock.yaml');
 
   /**
    * Warn when user potentially forgets to update lockfile
    */
   if (packageJSONsChanged.length > 0 && !lockfileChanged) {
-    const message = 'Changes were made to package.json, but not to yarn.lock';
-    const idea = 'Perhaps you need to run `yarn install`?';
+    const message = 'Changes were made to package.json, but not to pnpm-lock.yaml';
+    const idea = 'Perhaps you need to run `pnpm install`?';
     warn(`${message} - <i>${idea}</i>`);
   }
 };

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "composite": true,
     "declaration": true,
     "declarationMap": true,
     "emitDeclarationOnly": true,
@@ -24,7 +25,12 @@
     "noUnusedParameters": true,
     "strict": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@emotion/styled": ["./packages/paste-libraries/styling/node_modules/@emotion/styled"],
+      "@emotion/react": ["./packages/paste-libraries/styling/node_modules/@emotion/react"],
+      "@twilio-paste/styling-library": ["./packages/paste-libraries/styling/src/index.tsx"]
+    }
   },
   "include": [
     "packages/**/*",
@@ -35,6 +41,12 @@
     "tools/**/*",
     "cypress.config.ts",
     "vite.config.ts"
+  ],
+  "files": [],
+  "references": [
+    {"path": "./packages/component"},
+    {"path": "./packages/library"},
+    {"path": "./packages/shared-library"}
   ],
   "exclude": [
     "node_modules",

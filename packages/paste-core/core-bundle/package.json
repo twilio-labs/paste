@@ -5,12 +5,12 @@
   "description": "Core contains all the packages from the Paste design system.",
   "author": "Twilio Inc.",
   "license": "MIT",
-  "main:dev": "src/index.tsx",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "src/index.tsx",
   "sideEffects": false,
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts"
   },
   "nx": {
     "targets": {
@@ -60,12 +60,12 @@
     ]
   },
   "scripts": {
-    "build": "yarn clean && yarn generate-packages && yarn compile && yarn build:types",
-    "build:dev": "yarn clean && yarn generate-packages && yarn compile:dev && yarn build:types",
-    "build:js": "yarn clean && yarn generate-packages && yarn compile",
+    "build": "pnpm clean && pnpm generate-packages && pnpm compile && pnpm build:types",
+    "build:dev": "pnpm clean && pnpm generate-packages && pnpm compile:dev && pnpm build:types",
+    "build:js": "pnpm clean && pnpm generate-packages && pnpm compile",
     "build:types": "./tools/build-types.sh",
     "generate-packages": "ts-node ./tools/generate.ts",
-    "clean": "yarn clean:packages && rm -rf ./dist && rm -rf tsconfig.tsbuildinfo && rm -rf .rpt2_cache",
+    "clean": "pnpm clean:packages && rm -rf ./dist && rm -rf tsconfig.tsbuildinfo && rm -rf .rpt2_cache",
     "clean:packages": "./tools/clean-packages.sh",
     "compile": "babel ./src/*.tsx --out-dir ./dist --extensions '.tsx' && ts-node ./tools/minify",
     "compile:dev": "babel ./src/*.tsx --out-dir ./dist --extensions '.tsx'"

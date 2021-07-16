@@ -17,14 +17,14 @@ For usage guidelines, please see our [documentation website](https://paste.twili
 Clone the repo then run the following commands from within the repo's folder:
 
 ```
-yarn # bootstraps the repo and downloads packages
-yarn build # builds all of Paste
+pnpm install # bootstraps the repo and downloads packages
+pnpm build # builds all of Paste
 ```
 
 Then you can run a local storybook instance with:
 
 ```
-yarn start:storybook
+pnpm start:storybook
 ```
 
 For more commands, please reference the [package.json file](https://github.com/twilio-labs/paste/blob/main/package.json).
@@ -40,7 +40,7 @@ Each change to a package must come with a [changeset](https://github.com/atlassi
 To create a changeset you can run:
 
 ```
-yarn changeset
+pnpm changeset
 ```
 
 Follow the prompts shown to you in your terminal.
@@ -59,7 +59,7 @@ Paste is a monorepo and has some specific requirements in how it handles depende
 
 ### Dev Deps
 
-Each package can have dev dep requirements, such as typescript. As this is a monorepo using yarn workspaces there is no requirement to list these as package dev deps. All dev deps are hoisted to the monorepo root. Declare them at the root package.json file.
+Each package can have dev dep requirements, such as typescript. As this is a monorepo using pnpm workspaces there is no requirement to list these as package dev deps. All dev deps are hoisted to the monorepo root. Declare them at the root package.json file.
 
 ### Peer Deps
 

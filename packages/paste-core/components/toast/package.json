@@ -6,19 +6,19 @@
   "description": "A Toast is an animated, temporary banner that communicates an immediate and direct response to a user action.",
   "author": "Twilio Inc.",
   "license": "MIT",
-  "main:dev": "src/index.tsx",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "main": "src/index.tsx",
   "sideEffects": false,
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "main": "dist/index.js",
+    "module": "dist/index.es.js",
+    "types": "dist/index.d.ts"
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "yarn clean && NODE_ENV=production node build.js && tsc",
+    "build": "pnpm clean && NODE_ENV=production node build.js && tsc",
     "build:js": "NODE_ENV=development node build.js",
     "clean": "rm -rf ./dist",
     "tsc": "tsc"

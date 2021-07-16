@@ -30,7 +30,7 @@ const convertToSketchPaletteColor = (input: string): {[key: string]: number} => 
 };
 
 const convertColorArray = (result: ImmutableStyleMap): SketchPaletteColor[] =>
-  result
+  (result
     .get('props')
     // eslint-disable-next-line consistent-return
     .sortBy((prop) => {
@@ -47,7 +47,7 @@ const convertColorArray = (result: ImmutableStyleMap): SketchPaletteColor[] =>
       }
       return Immutable.Map({name}).merge(convertToSketchPaletteColor(value));
     })
-    .toJS();
+    .toJS() as unknown) as SketchPaletteColor[];
 
 export const sketchpaletteTokenFormat = (result: ImmutableStyleMap): string => {
   return JSON.stringify({

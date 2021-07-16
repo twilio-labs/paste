@@ -6,19 +6,19 @@
   "description": "Screen Reader Only is a utility that visually hides content to provide an accessible experience for users of assistive technology.",
   "author": "Twilio Inc.",
   "license": "MIT",
-  "main:dev": "src/index.tsx",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "main": "src/index.tsx",
   "sideEffects": false,
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "main": "dist/index.js",
+    "module": "dist/index.es.js",
+    "types": "dist/index.d.ts"
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "yarn clean && NODE_ENV=production node build.js && tsc",
+    "build": "pnpm clean && NODE_ENV=production node build.js && tsc",
     "build:js": "NODE_ENV=development node build.js",
     "clean": "rm -rf ./dist",
     "tsc": "tsc"

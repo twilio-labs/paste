@@ -22,7 +22,7 @@ export const formatGroupTokensWithTemplate = (
           return collator.compare(a.get('name') as string, b.get('name') as string);
         })
         .filter((prop) => prop !== undefined && cat === prop.get('category'))
-        .toJS();
+        .toJS() as DesignToken[];
 
       /*
        * Run a conditional filter function against the tokens

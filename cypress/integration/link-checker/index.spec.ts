@@ -1,11 +1,11 @@
 /**
  * USAGE:
- * 1. yarn build:website
- * 2. yarn start:website
- * 3. yarn run cyprus open
+ * 1. pnpm build:website
+ * 2. pnpm serve:website
+ * 3. pnpm run cyprus open
  * 4. Click the link-checker test in the cyprus window that pops up
  *
- * Doesn't work on the `yarn start:website` command because
+ * Doesn't work on the `pnpm start:website` command because
  * this runs on the SSR site for speed of execution in CI.
  */
 

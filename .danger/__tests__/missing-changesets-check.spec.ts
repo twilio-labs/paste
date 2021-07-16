@@ -105,7 +105,7 @@ describe('missingChangesetCheck()', () => {
           'packages/paste-core/components/avatar/src/index.tsx',
           'packages/paste-core/primitives/box/src/index.tsx',
           'packages/paste-design-tokens/tokens/themes/evergreen/global/background-color.yml',
-          'yarn.lock',
+          'pnpm-lock.yaml',
           './.danger/__fixtures__/changeset/pretty-cameras-burn.md',
         ],
         created_files: [],
@@ -124,7 +124,7 @@ describe('missingChangesetCheck()', () => {
           'packages/paste-icons/src/index.tsx',
           'packages/paste-core/components/avatar/src/index.tsx',
           'packages/paste-core/primitives/box/src/index.tsx',
-          'yarn.lock',
+          'pnpm-lock.yaml',
         ],
         created_files: [],
       },
@@ -142,7 +142,7 @@ describe('missingChangesetCheck()', () => {
           'packages/paste-icons/src/index.tsx',
           'packages/paste-core/components/avatar/src/index.tsx',
           'packages/paste-core/primitives/box/src/index.tsx',
-          'yarn.lock',
+          'pnpm-lock.yaml',
           './.danger/__fixtures__/changeset/heavy-peaches-repeat.md',
           './.danger/__fixtures__/changeset/pink-masks-walk.md',
           './.danger/__fixtures__/changeset/popular-cheetahs-punch.md',
@@ -168,7 +168,7 @@ describe('missingChangesetCheck()', () => {
     };
     missingChangesetCheck(mockPackList);
     expect(global.fail).toHaveBeenCalledWith(
-      'Looks like @twilio-paste/icons was not included in a changeset - *edit an existing changeset or run `yarn changeset` to create one*'
+      'Looks like @twilio-paste/icons was not included in a changeset - *edit an existing changeset or run `pnpm changeset` to create one*'
     );
   });
 });

@@ -14,9 +14,9 @@
     "json"
   ],
   "scripts": {
-    "build": "yarn clean && NODE_ENV=production node build.js && tsc && yarn list-icons && yarn postbuild",
+    "build": "pnpm clean && NODE_ENV=production node build.js && pnpm tsc && pnpm list-icons && pnpm postbuild",
     "postbuild": "cp -R ./types/* ./cjs && cp -R ./types/* ./esm",
-    "build:js": "NODE_ENV=development node build.js && yarn list-icons",
+    "build:js": "NODE_ENV=development node build.js && pnpm list-icons",
     "clean": "rm -rf ./esm && rm -rf ./cjs && rm -rf ./types",
     "tsc": "tsc",
     "list-icons": "ts-node ./tools/cli.ts list-icons",

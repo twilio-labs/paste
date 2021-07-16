@@ -3,7 +3,7 @@
 To run just run
 
 ```
-yarn dev
+pnpm dev
 ```
 
 At the root of the Paste monorepo.

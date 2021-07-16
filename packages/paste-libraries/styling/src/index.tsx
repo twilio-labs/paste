@@ -23,7 +23,17 @@ export {createShouldForwardProp, props} from '@styled-system/should-forward-prop
 export * from 'styled-system';
 export type CreateCacheOptions = Pick<Options, 'key' | 'nonce'>;
 
-export type {StyledComponent, Interpolation} from '@emotion/styled';
+export type {
+  ArrayInterpolation,
+  ComponentSelector,
+  FunctionInterpolation,
+  Interpolation,
+  StyledComponent,
+  StyledOptions,
+  CreateStyledComponent,
+  StyledTags,
+  CreateStyled,
+} from '@emotion/styled';
 export type {SerializedStyles} from '@emotion/react';
 export {
   Global as StylingGlobals,

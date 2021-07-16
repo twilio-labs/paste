@@ -29,7 +29,7 @@ describe('packageJsonCheck()', () => {
             'package.json',
             'packages/paste-codemods/package.json',
             'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
-            'yarn.lock',
+            'pnpm-lock.yaml',
             '.changeset/pretty-cameras-burn.md',
           ],
           created_files: [],
@@ -85,7 +85,7 @@ describe('packageJsonCheck()', () => {
           modified_files: [
             'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
             '.changeset/pretty-cameras-burn.md',
-            'yarn.lock',
+            'pnpm-lock.yaml',
           ],
           created_files: ['packages/paste-codemods/package.json'],
         },
