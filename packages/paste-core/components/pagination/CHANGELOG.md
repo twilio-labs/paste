@@ -1,5 +1,25 @@
 # @twilio-paste/pagination
 
+## 0.1.3
+
+### Patch Changes
+
+- [`e7cc5ca0`](https://github.com/twilio-labs/paste/commit/e7cc5ca09e8ec1cf913ae88e08c6ee4b616a056a) [#1675](https://github.com/twilio-labs/paste/pull/1675) Thanks [@richbachman](https://github.com/richbachman)! - [Pagination] Update styles for better dark theme accessibility
+
+  `PaginationArrow` hover and focus:
+
+  - border-color: colorBorderPrimary changed to colorBorderPrimaryStronger
+  - color: colorTextLink changed to colorTextLinkStronger
+
+  `PaginationNumber`:
+
+  - border-color: added colorBorderPrimaryStronger border on hover and focus
+  - color: colorTextLink changed to colorTextLinkStronger on hover and focus
+  - isCurrent:
+    - background-color: colorBackgroundPrimaryWeakest changed to colorBackgroundPrimary Stronger
+    - color: colorTextLink changed to colorTextWeakest
+    - isCurrent hover and focus uses same background-colors and colors
+
 ## 0.1.2
 
 ### Patch Changes

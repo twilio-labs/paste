@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.0.4
+
+### Patch Changes
+
+- [`750a38e0`](https://github.com/twilio-labs/paste/commit/750a38e05b9d91f82b14f49a160112f013629468) [#1655](https://github.com/twilio-labs/paste/pull/1655) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Tooltip] Fix a bug where the Tooltip component was swallowing the event handlers of the child component it was wrapping
+
 ## 4.0.3
 
 ### Patch Changes
