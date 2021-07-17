@@ -1,0 +1,34 @@
+# https://github.com/actions/labeler
+
+# Add 'repo' label to any root file changes
+"Area: Repo":
+  - "*"
+
+"Area: Components":
+  - packages/paste-core/components/**/*
+
+"Area: Doc Site":
+  - packages/paste-website/**/*
+
+"Area: Theme":
+  - packages/paste-theme/**/*
+
+"Area: Tokens":
+  - packages/paste-design-tokens/**/*
+
+"Area: Storybook":
+  - .storybook/**/*
+
+"Area: Infrastructure":
+  - .eslint/**/*
+  - .github/**/*
+  - .jest/**/*
+  - .vscode/**/*
+  - tools/**/*
+
+"Type: Documentation":
+  - packages/paste-website/src/pages/**/*
+
+"Type: Tests":
+  - "**/__tests__/**/*"
+  - cypress/**/*

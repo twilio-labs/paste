@@ -1,0 +1,26 @@
+queue_rules:
+  # once on the merge queue, mergify always makes sure the pr is up to date with the target branch before merging.
+  - name: default
+    conditions:
+      - base=main
+
+pull_request_rules:
+  # mergify always respects branch protection rules, which includes required CI checks
+  - name: automatic merge for main when labelled ready to merge
+    # when against main, labelled "ready-to-merge" and approved by 2 reviewers, PR is added to the merge queue
+    conditions:
+      - base=main
+      # must be approved and have no out standing change requests
+      - "#approved-reviews-by>=2"
+      - "#changes-requested-reviews-by=0"
+      # must be labelled ready-to-merge and not do-not-merge
+      - "label=Status: Ready to merge"
+      - "label!=Status: Do Not Merge"
+    actions:
+      queue:
+        # name of queue to add to
+        name: default
+        # rebase onto main as the primary method of merging the PR
+        method: rebase
+        # if rebase can't happen, squash the commits onto main
+        rebase_fallback: squash
