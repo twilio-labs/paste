@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/label",
-  "version": "6.0.3",
+  "version": "6.0.4",
   "category": "user input",
   "status": "production",
   "description": "The Label component is used to provide a visible, accessible name to any form element.",
@@ -46,7 +46,7 @@
     "@twilio-paste/screen-reader-only": "^6.0.2",
     "@twilio-paste/style-props": "^3.0.4",
     "@twilio-paste/styling-library": "^0.3.2",
-    "@twilio-paste/text": "^4.0.3",
+    "@twilio-paste/text": "^4.1.1",
     "@twilio-paste/theme": "^5.1.0",
     "@twilio-paste/types": "^3.1.1",
     "@twilio-paste/uid-library": "^0.2.1",

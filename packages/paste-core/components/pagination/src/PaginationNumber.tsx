@@ -18,10 +18,12 @@ const PaginationNumber = React.forwardRef<HTMLButtonElement, PaginationNumberPro
         href={href}
         appearance="none"
         background="none"
-        backgroundColor={isCurrent ? 'colorBackgroundPrimaryWeakest' : 'transparent'}
-        border="none"
+        backgroundColor={isCurrent ? 'colorBackgroundPrimaryStronger' : 'transparent'}
+        borderColor="transparent"
         borderRadius="borderRadius10"
-        color={isCurrent ? 'colorTextLink' : 'colorText'}
+        borderStyle="solid"
+        borderWidth="borderWidth10"
+        color={isCurrent ? 'colorTextWeakest' : 'colorText'}
         display="inline-block"
         fontFamily="fontFamilyText"
         fontSize="fontSize30"
@@ -36,17 +38,19 @@ const PaginationNumber = React.forwardRef<HTMLButtonElement, PaginationNumberPro
         paddingTop="space20"
         position="relative"
         textDecoration="none"
-        transition="background-color 100ms ease-in, box-shadow 100ms ease-in, color 100ms ease-in"
+        transition="background-color 100ms ease-in, border-color 100ms ease-in, box-shadow 100ms ease-in, color 100ms ease-in"
         _hover={{
-          backgroundColor: 'colorBackgroundPrimaryWeakest',
-          color: 'colorTextLink',
+          backgroundColor: isCurrent ? 'colorBackgroundPrimaryStronger' : 'colorBackgroundPrimaryWeakest',
+          borderColor: isCurrent ? 'transparent' : 'colorBorderPrimaryStronger',
+          color: isCurrent ? 'colorTextWeakest' : 'colorTextLinkStronger',
           cursor: 'pointer',
           textDecoration: 'none',
         }}
         _focus={{
-          backgroundColor: 'colorBackgroundPrimaryWeakest',
+          backgroundColor: isCurrent ? 'colorBackgroundPrimaryStronger' : 'colorBackgroundPrimaryWeakest',
+          borderColor: isCurrent ? 'transparent' : 'colorBorderPrimaryStronger',
           boxShadow: 'shadowFocus',
-          color: 'colorTextLink',
+          color: isCurrent ? 'colorTextWeakest' : 'colorTextLinkStronger',
           textDecoration: 'none',
         }}
         _active={{textDecoration: 'none'}}

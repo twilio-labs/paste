@@ -21,6 +21,7 @@ export interface PaginationButtonProps extends React.HTMLAttributes<'button'> {
 
 export interface PaginationArrowProps extends PaginationButtonProps {
   disabled?: boolean;
+  isFocused?: boolean;
   isHovered?: boolean;
   label: string;
   variant: Variants;
@@ -40,6 +41,7 @@ export interface PaginationNumbersProps extends React.HTMLAttributes<'ul'> {
 
 export interface PaginationArrowIconWrapperProps {
   children: React.ReactNode;
+  isFocused?: boolean;
   isHovered?: boolean;
 }
 

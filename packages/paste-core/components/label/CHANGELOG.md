@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.0.4
+
+### Patch Changes
+
+- [`e4a8aef5`](https://github.com/twilio-labs/paste/commit/e4a8aef5253ee5df290cf106612a58bce7572ef3) [#1663](https://github.com/twilio-labs/paste/pull/1663) Thanks [@richbachman](https://github.com/richbachman)! - [Label] Updated package.json description.
+
 ## 6.0.3
 
 ### Patch Changes

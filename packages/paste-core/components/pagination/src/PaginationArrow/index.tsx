@@ -8,6 +8,7 @@ import {handleLinkValidation} from '../utils';
 const PaginationArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps>(
   ({as = 'button', disabled, href, isHovered, label, variant = 'back', visibleLabel, ...props}, ref) => {
     const [hovered, setHovered] = React.useState(false);
+    const [focused, setFocused] = React.useState(false);
     handleLinkValidation({as, href});
     return variant === 'back' ? (
       <PaginationBackArrow
@@ -16,6 +17,7 @@ const PaginationArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps
         as={as}
         disabled={disabled}
         href={href}
+        isFocused={focused}
         isHovered={hovered}
         label={label}
         variant={variant}
@@ -31,6 +33,18 @@ const PaginationArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps
             props.onMouseLeave(event);
           }
           setHovered(false);
+        }}
+        onFocus={(event) => {
+          if (typeof props.onFocus === 'function') {
+            props.onFocus(event);
+          }
+          setFocused(true);
+        }}
+        onBlur={(event) => {
+          if (typeof props.onBlur === 'function') {
+            props.onBlur(event);
+          }
+          setFocused(false);
         }}
       />
     ) : (
@@ -40,6 +54,7 @@ const PaginationArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps
         as={as}
         disabled={disabled}
         href={href}
+        isFocused={focused}
         isHovered={hovered}
         label={label}
         variant={variant}
@@ -55,6 +70,18 @@ const PaginationArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps
             props.onMouseLeave(event);
           }
           setHovered(false);
+        }}
+        onFocus={(event) => {
+          if (typeof props.onFocus === 'function') {
+            props.onFocus(event);
+          }
+          setFocused(true);
+        }}
+        onBlur={(event) => {
+          if (typeof props.onBlur === 'function') {
+            props.onBlur(event);
+          }
+          setFocused(false);
         }}
       />
     );
