@@ -24,11 +24,11 @@ describe('formatReturnTime()', () => {
     expect(formatReturnTime(TEST_TIME, 'hh:mm:ss')).toEqual('01:30:04');
     expect(formatReturnTime(TEST_TIME, 'HH:mm:ss.SSS')).toEqual('13:30:04.000');
     expect(formatReturnTime(TEST_TIME, 'HH:mm:ss.SSS')).toEqual('13:30:04.000');
-    expect(formatReturnTime(TEST_TIME, 'hh:mm:ss.SSS aa')).toEqual('01:30:04.000 p.m.');
+    expect(formatReturnTime(TEST_TIME, 'hh:mm:ss.SSS aa')).toEqual('01:30:04.000 PM');
   });
   it('should format times with edge cases and catch errors', () => {
     // testing midnight
-    expect(formatReturnTime('00:00', 'hh:mm A')).toEqual('12:00 AM');
+    expect(formatReturnTime('00:00', 'hh:mm aa')).toEqual('12:00 AM');
     // test for edge cases (passing in time+date value) to throw an error
     expect(() => {
       formatReturnTime('2022-03-01T03:35Z', 'hh:mm:ss');
