@@ -66,14 +66,14 @@ const HomeHero: React.FC = () => {
             <Column span={5}>
               <NewComponentBanner>
                 <NewComponentBannerBadge>New!</NewComponentBannerBadge>
-                <NewComponentBannerText>We just added the Date Picker!</NewComponentBannerText>
+                <NewComponentBannerText>Did you know we&apos;ve got an Alert Dialog?!</NewComponentBannerText>
                 <NewComponentBannerLink
-                  to="/components/date-picker"
+                  to="/components/alert-dialog"
                   onClick={() =>
                     trackCustomEvent({
                       category: 'Hero',
                       action: 'click-new-component-banner',
-                      label: 'Date Picker component page',
+                      label: 'Alert Dialog component page',
                     })
                   }
                 >
