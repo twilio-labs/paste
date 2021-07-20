@@ -1,7 +1,7 @@
 const {getRepoPackages} = require('../../../tools/utils/getRepoPackages');
 
 // We don't want to use the 'form' or 'typography' packages because they are deprecated
-const DEPRECATED_PACKAGES = ['@twilio-paste/typography', '@twilio-paste/form'];
+const DEPRECATED_PACKAGES = ['@twilio-paste/form'];
 
 async function generatePackageExportsMap(getPackages = getRepoPackages) {
   // Object to store all the generated mappings for our codemod

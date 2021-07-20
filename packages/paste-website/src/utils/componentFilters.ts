@@ -4,7 +4,6 @@ import type {ComponentNode} from './types';
 export const filteredComponents = (component: ComponentNode): boolean => {
   return (
     component.node.status !== PackageStatus.BACKLOG &&
-    component.node.name !== '@twilio-paste/typography' &&
     component.node.name !== '@twilio-paste/form' &&
     component.node.name !== '@twilio-paste/inline-control-group' &&
     component.node.name !== '@twilio-paste/base-radio-checkbox' &&

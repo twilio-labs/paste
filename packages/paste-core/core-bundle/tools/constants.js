@@ -4,7 +4,6 @@ const {join} = require('path');
 // it's a private package and won't be included anyways
 const BLOCKLIST = [
   '@twilio-paste/core',
-  '@twilio-paste/typography',
   '@twilio-paste/icons',
   '@twilio-paste/website',
   '@twilio-paste/form',
