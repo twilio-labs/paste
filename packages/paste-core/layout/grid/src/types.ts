@@ -1,5 +1,5 @@
-import {ResponsiveValue} from '@twilio-paste/styling-library';
-import {LayoutProps, FlexboxProps, PaddingProps, Space, SpaceProps} from '@twilio-paste/style-props';
+import type {ResponsiveValue} from '@twilio-paste/styling-library';
+import type {LayoutProps, FlexboxProps, PaddingProps, Space, Margin, SpaceProps} from '@twilio-paste/style-props';
 
 export interface GridProps extends SpaceProps {
   as?: keyof JSX.IntrinsicElements;
@@ -7,6 +7,10 @@ export interface GridProps extends SpaceProps {
   equalColumnHeights?: boolean;
   gutter?: Space;
   vertical?: ResponsiveValue<boolean>;
+  marginTop?: Margin;
+  marginBottom?: Margin;
+  marginRight?: Margin;
+  marginLeft?: Margin;
 }
 
 export type ColumnMinWidth = ResponsiveValue<'100%' | '0'>;
