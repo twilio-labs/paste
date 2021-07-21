@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Button} from '@twilio-paste/button';
-import {Paragraph} from '@twilio-paste/typography';
+import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
 import {useUID} from '@twilio-paste/uid-library';
 import {useTabPrimitiveState, TabPrimitive, TabPrimitiveList, TabPrimitivePanel, TabPrimitiveStateReturn} from '../src';
