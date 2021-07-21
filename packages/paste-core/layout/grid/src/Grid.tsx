@@ -5,7 +5,6 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {GridProps} from './types';
 import {getOuterGutterPull, getSpacing, getResponsiveSpacing} from './utils';
 
-// @TODO maybe should add defaults to the others too...?
 export const getGutterStyles = (
   gutter?: Space,
   vertical: GridProps['vertical'] = false

@@ -11,29 +11,44 @@ import type {
 
 type Vertical = ResponsiveValue<boolean>;
 
-const getVerticalSpacing = (prefix: string, spacing: Margin | Padding): {[x: string]: Margin | Padding} => ({
-  [`${prefix}Top`]: spacing,
-  [`${prefix}Bottom`]: spacing,
-});
-const getHorizontalSpacing = (prefix: string, spacing: Margin | Padding): {[x: string]: Margin | Padding} => ({
-  [`${prefix}Right`]: spacing,
-  [`${prefix}Left`]: spacing,
-});
-
 export const getSpacing = (
   vertical: boolean,
   prefix: 'margin' | 'padding',
   spacing: Margin | Padding
-): {[x: string]: Margin | Padding} => {
-  const DEFAULT = {
-    [`${prefix}Top`]: 'space0',
-    [`${prefix}Bottom`]: 'space0',
-    [`${prefix}Right`]: 'space0',
-    [`${prefix}Left`]: 'space0',
-  };
-  const margins = vertical ? getVerticalSpacing(prefix, spacing) : getHorizontalSpacing(prefix, spacing);
+): {[x: string]: Margin | Padding} =>
+  vertical
+    ? {
+        [`${prefix}Top`]: spacing,
+        [`${prefix}Bottom`]: spacing,
+      }
+    : {
+        [`${prefix}Right`]: spacing,
+        [`${prefix}Left`]: spacing,
+      };
 
-  return {...DEFAULT, ...margins};
+export const getResponsiveSpacing = (
+  vertical: boolean[],
+  prefix: string,
+  spacing: Margin | Padding
+): {[x: string]: (Margin | Padding)[]} => {
+  const styles = {
+    [`${prefix}Top`]: ['space0', 'space0', 'space0'] as (Margin | Padding)[],
+    [`${prefix}Bottom`]: ['space0', 'space0', 'space0'] as (Margin | Padding)[],
+    [`${prefix}Right`]: ['space0', 'space0', 'space0'] as (Margin | Padding)[],
+    [`${prefix}Left`]: ['space0', 'space0', 'space0'] as (Margin | Padding)[],
+  };
+
+  vertical.forEach((isVertical: boolean, idx) => {
+    if (isVertical) {
+      styles[`${prefix}Top`][idx] = spacing;
+      styles[`${prefix}Bottom`][idx] = spacing;
+    } else {
+      styles[`${prefix}Right`][idx] = spacing;
+      styles[`${prefix}Left`][idx] = spacing;
+    }
+  });
+
+  return styles;
 };
 
 // Gets the gutter and returns the value to be used as negative margin to Grid
@@ -59,27 +74,6 @@ export const getOuterGutterPull = (gutter?: Space): Margin => {
   }
 
   return 'auto';
-};
-
-export const getResponsiveSpacing = (vertical: boolean[], prefix: string, spacing) => {
-  const styles = {
-    [`${prefix}Top`]: ['space0', 'space0', 'space0'],
-    [`${prefix}Bottom`]: ['space0', 'space0', 'space0'],
-    [`${prefix}Right`]: ['space0', 'space0', 'space0'],
-    [`${prefix}Left`]: ['space0', 'space0', 'space0'],
-  };
-
-  vertical.forEach((isVertical, idx) => {
-    if (isVertical) {
-      styles[`${prefix}Top`][idx] = spacing;
-      styles[`${prefix}Bottom`][idx] = spacing;
-    } else {
-      styles[`${prefix}Right`][idx] = spacing;
-      styles[`${prefix}Left`][idx] = spacing;
-    }
-  });
-
-  return styles;
 };
 
 // Gets the vertical prop and returns 100% or 0 to be used as Column minWidths
