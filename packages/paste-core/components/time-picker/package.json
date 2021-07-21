@@ -24,6 +24,9 @@
     "clean": "rm -rf ./dist",
     "tsc": "tsc"
   },
+  "dependencies": {
+    "date-fns": "2.21.3"
+  },
   "peerDependencies": {
     "@twilio-paste/box": "^4.0.2",
     "@twilio-paste/design-tokens": "^6.6.0",
