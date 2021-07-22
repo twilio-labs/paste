@@ -8,7 +8,7 @@ import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-
 import {ModalContext} from './ModalContext';
 import {addConsoleHeightPatch, removeConsoleHeightPatch} from './utils/consoleUtils';
 
-export const ModalDialogOverlay = animated(
+export const ModalDialogOverlay: any = animated(
   /* eslint-disable emotion/syntax-preference */
   styled(ModalDialogPrimitiveOverlay)(
     css({
@@ -40,7 +40,7 @@ type Sizes = 'default' | 'wide';
 interface ModalDialogContentProps {
   size?: Sizes;
 }
-export const ModalDialogContent = animated(
+export const ModalDialogContent: any = animated(
   /* eslint-disable emotion/syntax-preference */
   styled(ModalDialogPrimitiveContent)<ModalDialogContentProps>(({size}) =>
     css({

@@ -7,7 +7,7 @@ import {ToastPortal} from './ToastPortal';
 import {ToasterPropTypes} from './propTypes';
 import type {ToasterProps} from './types';
 
-export const AnimatedToast = animated(Box);
+export const AnimatedToast: any = animated(Box);
 
 interface ReturnTargetState {
   trigger: HTMLElement | null;

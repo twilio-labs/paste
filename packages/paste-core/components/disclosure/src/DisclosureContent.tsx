@@ -6,7 +6,7 @@ import {DisclosureContext} from './DisclosureContext';
 import type {DisclosureContentProps} from './types';
 import {DisclosureContentPropTypes} from './PropTypes';
 
-export const AnimatedDisclosureContent = animated(Box);
+export const AnimatedDisclosureContent: any = animated(Box);
 
 const DisclosureContent = React.forwardRef<HTMLDivElement, DisclosureContentProps>(
   ({children, visible, ...props}, ref) => {

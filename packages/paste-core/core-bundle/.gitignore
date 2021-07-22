@@ -1,4 +1,4 @@
-# Automatically generated from "yarn generate-packages"
+# Automatically generated from "pnpm generate-packages"
 /dist
 /alert
 /alert-dialog

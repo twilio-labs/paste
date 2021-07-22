@@ -815,7 +815,7 @@ Co-authored-by: Rich Bachman <rb@richbachman.com>
 
 - chore: use `esm` instead of `es` in rollup for correctness
 
-- chore: yarn.lock
+- chore: pnpm.lock
 
 - fix(spinner): lint error
 

@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-yarn add @twilio-paste/button
+pnpm add @twilio-paste/button
 ```
 
 ## Usage

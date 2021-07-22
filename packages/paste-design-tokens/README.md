@@ -7,21 +7,21 @@ Token list for Paste
 Install all the things
 
 ```
-yarn install
+pnpm install
 ```
 
 Then run
 
 ```
-yarn dev
+pnpm dev
 ```
 
 To get started
 
-## `yarn dev`
+## `pnpm dev`
 
 This command will compile the tokens into their respective formats for export. It will also spin up the docs in HTML format for you to preview your work whilst you add or modify tokens.
 
-## `yarn tokens`
+## `pnpm tokens`
 
 This command will build all the tokens into the dist and docs directories.

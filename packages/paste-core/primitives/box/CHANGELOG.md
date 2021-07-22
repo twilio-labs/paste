@@ -569,7 +569,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - chore: use `esm` instead of `es` in rollup for correctness
 
-- chore: yarn.lock
+- chore: pnpm.lock
 
 - fix(spinner): lint error
 
@@ -605,7 +605,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - fix(box): update story and light tweaks to OverflowProps
 
-- chore: update yarn.lock file
+- chore: update pnpm.lock file
 
 - fix(types): many more types fixes
 

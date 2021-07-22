@@ -7,7 +7,7 @@ import {pasteBaseStyles} from './styles/base';
 import {pasteFonts} from './styles/fonts';
 import {ThemeVariants} from './constants';
 
-export const StyledBase = styled.div(pasteBaseStyles);
+export const StyledBase: any = styled.div(pasteBaseStyles);
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 function getProviderThemeProps(theme: ThemeVariants, customBreakpoints?: string[]): {} {

@@ -13,11 +13,14 @@
     "types"
   ],
   "scripts": {
-    "build": "yarn clean && NODE_ENV=production gulp",
+    "build": "pnpm clean && NODE_ENV=production gulp",
     "build:js": "NODE_ENV=development gulp",
     "build:watch": "gulp dev",
     "clean": "rm -rf ./dist",
     "tokens": "gulp default",
     "test": "jest"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.136"
   }
 }

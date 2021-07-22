@@ -25,7 +25,7 @@ import {InverseButton} from './InverseButton';
 import {InverseLinkButton} from './InverseLinkButton';
 import {ResetButton} from './ResetButton';
 
-const AnimatedBox = animated(Box);
+const AnimatedBox: any = animated(Box);
 
 // If size isn't passed, come up with a smart default:
 // - 'reset' for variant 'link'

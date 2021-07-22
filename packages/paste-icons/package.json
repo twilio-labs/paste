@@ -14,9 +14,9 @@
     "json"
   ],
   "scripts": {
-    "build": "yarn clean && NODE_ENV=production node build.js && tsc && yarn list-icons",
+    "build": "pnpm clean && NODE_ENV=production node build.js && tsc && pnpm list-icons",
     "postbuild": "cp -R ./types/* ./cjs && cp -R ./types/* ./esm",
-    "build:js": "NODE_ENV=development node build.js && yarn list-icons",
+    "build:js": "NODE_ENV=development node build.js && pnpm list-icons",
     "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
     "clean": "rm -rf ./esm && rm -rf ./cjs && rm -rf ./types",
     "tsc": "tsc",

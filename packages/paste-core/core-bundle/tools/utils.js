@@ -91,7 +91,7 @@ function createRelativePackageFolders(packageList) {
 function createGitIgnore(packageList) {
   const ignoreList = packageList.map((package) => `/${getPackageName(package)}`);
 
-  const output = `# Automatically generated from "yarn generate-packages"
+  const output = `# Automatically generated from "pnpm generate-packages"
 /dist
 ${ignoreList.join('\n')}`;
 

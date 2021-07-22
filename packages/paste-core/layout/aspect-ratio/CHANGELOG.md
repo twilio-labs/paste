@@ -519,7 +519,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - chore: use `esm` instead of `es` in rollup for correctness
 
-- chore: yarn.lock
+- chore: pnpm.lock
 
 - fix(spinner): lint error
 

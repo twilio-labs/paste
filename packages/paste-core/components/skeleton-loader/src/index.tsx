@@ -4,9 +4,9 @@ import {css, styled} from '@twilio-paste/styling-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {LayoutProps, BorderRadiusProps} from '@twilio-paste/style-props';
 
-const AnimatedSkeleton = animated(Box);
+const AnimatedSkeleton: any = animated(Box);
 
-const StyledAnimatedSkeleton = styled(AnimatedSkeleton)(() =>
+const StyledAnimatedSkeleton: any = styled(AnimatedSkeleton)(() =>
   css({
     background: `linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.3) 60%, transparent)`,
   })

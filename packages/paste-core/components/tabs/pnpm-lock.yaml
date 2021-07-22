@@ -1,0 +1,87 @@
+lockfileVersion: 5.3
+
+specifiers:
+  '@twilio-paste/box': ^4.1.1
+  '@twilio-paste/design-tokens': ^6.10.0
+  '@twilio-paste/flex': ^2.0.3
+  '@twilio-paste/reakit-library': ^0.8.1
+  '@twilio-paste/style-props': ^3.0.4
+  '@twilio-paste/styling-library': ^0.3.2
+  '@twilio-paste/tabs-primitive': ^0.2.3
+  '@twilio-paste/theme': ^5.3.0
+  '@twilio-paste/types': ^3.1.1
+  prop-types: ^15.7.2
+  react: ^16.8.6
+  react-dom: ^16.8.6
+
+devDependencies:
+  '@twilio-paste/box': link:../../primitives/box
+  '@twilio-paste/design-tokens': link:../../../paste-design-tokens
+  '@twilio-paste/flex': link:../../layout/flex
+  '@twilio-paste/reakit-library': link:../../../paste-libraries/reakit
+  '@twilio-paste/style-props': link:../../../paste-style-props
+  '@twilio-paste/styling-library': link:../../../paste-libraries/styling
+  '@twilio-paste/tabs-primitive': link:../../primitives/tabs
+  '@twilio-paste/theme': link:../../../paste-theme
+  '@twilio-paste/types': link:../../../paste-types
+  prop-types: 15.7.2
+  react: 16.14.0
+  react-dom: 16.14.0_react@16.14.0
+
+packages:
+
+  /js-tokens/4.0.0:
+    resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
+    dev: true
+
+  /loose-envify/1.4.0:
+    resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
+    hasBin: true
+    dependencies:
+      js-tokens: 4.0.0
+    dev: true
+
+  /object-assign/4.1.1:
+    resolution: {integrity: sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=}
+    engines: {node: '>=0.10.0'}
+    dev: true
+
+  /prop-types/15.7.2:
+    resolution: {integrity: sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==}
+    dependencies:
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+      react-is: 16.13.1
+    dev: true
+
+  /react-dom/16.14.0_react@16.14.0:
+    resolution: {integrity: sha512-1gCeQXDLoIqMgqD3IO2Ah9bnf0w9kzhwN5q4FGnHZ67hBm9yePzB5JJAIQCc8x3pFnNlwFq4RidZggNAAkzWWw==}
+    peerDependencies:
+      react: ^16.14.0
+    dependencies:
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+      prop-types: 15.7.2
+      react: 16.14.0
+      scheduler: 0.19.1
+    dev: true
+
+  /react-is/16.13.1:
+    resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+    dev: true
+
+  /react/16.14.0:
+    resolution: {integrity: sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+      prop-types: 15.7.2
+    dev: true
+
+  /scheduler/0.19.1:
+    resolution: {integrity: sha512-n/zwRWRYSUj0/3g/otKDRPMh6qv2SYMWNq85IEa8iZyAv8od9zDYpGSnpBEjNgcMNq6Scbu5KfIPxNF72R/2EA==}
+    dependencies:
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+    dev: true
