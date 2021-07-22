@@ -43,6 +43,7 @@
     "clean:core": "yarn workspace @twilio-paste/core clean",
     "pre-test": "node ./tools/build/pre-test.js",
     "test": "yarn pre-test && concurrently \"yarn:test:packages\" \"yarn:test:tools\"",
+    "test:dev": "jest ./packages/paste-core/components/badge/__tests__/index.spec.tsx",
     "test:packages": "jest --silent ./packages/",
     "test:tools": "jest ./tools/ -c ./tools/jest.config.js",
     "test:coverage": "yarn pre-test && jest --coverage",

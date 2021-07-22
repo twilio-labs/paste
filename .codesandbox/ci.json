@@ -10,6 +10,7 @@
     "/packages/paste-libraries/animation",
     "/packages/paste-core/layout/aspect-ratio",
     "/packages/paste-core/components/avatar",
+    "/packages/paste-core/components/badge",
     "/packages/paste-core/components/base-radio-checkbox",
     "/packages/paste-core/primitives/box",
     "/packages/paste-core/components/breadcrumb",

@@ -3,6 +3,7 @@ export * from '@twilio-paste/alert-dialog';
 export * from '@twilio-paste/anchor';
 export * from '@twilio-paste/aspect-ratio';
 export * from '@twilio-paste/avatar';
+export * from '@twilio-paste/badge';
 export * from '@twilio-paste/base-radio-checkbox';
 export * from '@twilio-paste/box';
 export * from '@twilio-paste/breadcrumb';
