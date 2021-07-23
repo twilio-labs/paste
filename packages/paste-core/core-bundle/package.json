@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "10.4.0",
+  "version": "10.5.0",
   "status": "production",
   "description": "Contains all the core packages from the Paste internal design system.",
   "author": "Twilio Inc.",
@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@twilio-paste/alert": "^7.0.1",
-    "@twilio-paste/alert-dialog": "^0.1.1",
+    "@twilio-paste/alert-dialog": "^0.1.2",
     "@twilio-paste/anchor": "^5.0.3",
     "@twilio-paste/animation-library": "^0.3.2",
     "@twilio-paste/aspect-ratio": "^4.0.4",
@@ -54,7 +54,7 @@
     "@twilio-paste/input-box": "^4.0.7",
     "@twilio-paste/label": "^6.0.4",
     "@twilio-paste/list": "^2.0.2",
-    "@twilio-paste/media-object": "^4.0.3",
+    "@twilio-paste/media-object": "^4.1.0",
     "@twilio-paste/menu": "^7.0.2",
     "@twilio-paste/menu-primitive": "^0.2.4",
     "@twilio-paste/modal": "^7.1.1",
@@ -80,7 +80,7 @@
     "@twilio-paste/text": "^4.1.1",
     "@twilio-paste/textarea": "^3.0.5",
     "@twilio-paste/theme": "^5.3.0",
-    "@twilio-paste/time-picker": "^0.1.0",
+    "@twilio-paste/time-picker": "^0.1.1",
     "@twilio-paste/toast": "^5.0.2",
     "@twilio-paste/tooltip": "^4.0.4",
     "@twilio-paste/tooltip-primitive": "^0.2.4",
@@ -95,7 +95,7 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/icons": "^5.3.1",
+    "@twilio-paste/icons": "^5.3.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
