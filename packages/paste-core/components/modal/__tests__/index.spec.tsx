@@ -5,7 +5,8 @@ import {render as testRender, fireEvent} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
-import {FormLabel, FormInput} from '@twilio-paste/form';
+import {Input} from '@twilio-paste/input';
+import {Label} from '@twilio-paste/label';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 // @ts-ignore typescript doesn't like js imports
@@ -74,12 +75,12 @@ const MockInitalFocusModal: React.FC = () => {
         </ModalHeader>
         <ModalBody data-testid="modal-body">
           <Box as="form">
-            <FormLabel htmlFor={inputID}>Name</FormLabel>
-            <FormInput
+            <Label htmlFor={inputID}>Name</Label>
+            <Input
               id={inputID}
               value={name}
               ref={nameInputRef}
-              onChange={(e) => setName(e.currentTarget.value)}
+              onChange={(e: any) => setName(e.currentTarget.value)}
               type="text"
             />
           </Box>

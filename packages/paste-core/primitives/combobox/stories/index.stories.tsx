@@ -3,7 +3,8 @@ import {useUID} from '@twilio-paste/uid-library';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
-import {FormLabel, FormInput} from '@twilio-paste/form';
+import {Label} from '@twilio-paste/label';
+import {Input} from '@twilio-paste/input';
 import {ComboboxPrimitive, useComboboxPrimitive} from '../src';
 
 const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
@@ -29,11 +30,11 @@ export const DropdownCombobox = (): React.ReactNode => {
   const uid = useUID();
   return (
     <>
-      <FormLabel htmlFor={uid} {...getLabelProps()}>
+      <Label htmlFor={uid} {...getLabelProps()}>
         Choose a component:
-      </FormLabel>
+      </Label>
       <Box {...getComboboxProps({role: 'combobox'})}>
-        <FormInput
+        <Input
           id={uid}
           type="text"
           {...getInputProps()}
@@ -80,11 +81,11 @@ export const AutocompleteCombobox = (): React.ReactNode => {
   const uid = useUID();
   return (
     <>
-      <FormLabel htmlFor={uid} {...getLabelProps()}>
+      <Label htmlFor={uid} {...getLabelProps()}>
         Choose a component:
-      </FormLabel>
+      </Label>
       <Box display="flex" {...getComboboxProps()}>
-        <FormInput id={uid} type="text" {...getInputProps()} />
+        <Input id={uid} type="text" {...getInputProps()} />
         <Button {...getToggleButtonProps()} aria-label="toggle menu" variant="primary">
           <ChevronDownIcon size="sizeIcon30" decorative={false} title="toggle menu" />
         </Button>
@@ -121,13 +122,13 @@ export const ComboboxNonHooks = (): React.ReactNode => {
         isOpen,
       }) => (
         <Box>
-          <FormLabel {...getLabelProps()}>Choose a component:</FormLabel>
+          <Label {...getLabelProps()}>Choose a component:</Label>
           <Box
             display="flex"
             // @ts-ignore
             {...getRootProps({}, {suppressRefError: true})}
           >
-            <FormInput {...getInputProps()} type="text" />
+            <Input {...getInputProps()} type="text" />
             <Button {...getToggleButtonProps()} variant="primary" aria-label={'toggle menu'}>
               <ChevronDownIcon size="sizeIcon30" decorative={false} title="toggle menu" />
             </Button>

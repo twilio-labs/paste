@@ -22,9 +22,9 @@
     "meow": "^8.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.4",
-    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
-    "@babel/preset-env": "^7.8.4",
+    "@babel/core": "^7.14.8",
+    "@babel/plugin-proposal-object-rest-spread": "^7.14.7",
+    "@babel/preset-env": "^7.14.8",
     "@twilio-paste/core": "^10.0.0"
   },
   "resolutions": {

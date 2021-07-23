@@ -9,7 +9,8 @@ import {Box} from '@twilio-paste/box';
 import {Popover, PopoverContainer, PopoverButton} from '@twilio-paste/popover';
 import {Tooltip} from '@twilio-paste/tooltip';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {FormLabel, FormInput} from '@twilio-paste/form';
+import {Label} from '@twilio-paste/label';
+import {Input} from '@twilio-paste/input';
 import type {ModalProps} from '../src';
 import {
   Modal,
@@ -476,8 +477,8 @@ export const CustomInitialFocusElement = (): React.ReactNode => {
         </ModalHeader>
         <ModalBody>
           <Box as="form">
-            <FormLabel htmlFor={inputID}>Name</FormLabel>
-            <FormInput
+            <Label htmlFor={inputID}>Name</Label>
+            <Input
               id={inputID}
               value={name}
               ref={nameInputRef}
