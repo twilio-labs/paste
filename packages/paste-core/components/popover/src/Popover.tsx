@@ -40,8 +40,9 @@ const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(({children, ...pr
       {/* import Paste Theme Based Styles due to portal positioning. */}
       <StyledBase>
         <PopoverArrow {...(popover as any)} />
-        <Box padding="space50" paddingLeft="space70" paddingRight="space70">
+        <Box padding="space90">
           {children}
+          {/* TODO: allow tokens for 'top' and 'right' */}
           <Box position="absolute" right={8} top={8}>
             <Button
               variant="reset"
@@ -52,7 +53,7 @@ const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(({children, ...pr
               // https://reakit.io/docs/popover/#initial-focus
               onClick={popover.hide}
             >
-              <CloseIcon decorative={false} color="colorTextWeak" size="sizeIcon30" title="Close popover" />
+              <CloseIcon decorative={false} color="colorTextWeak" size="sizeIcon10" title="Close popover" />
             </Button>
           </Box>
         </Box>
