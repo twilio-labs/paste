@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {styled, compose, flexbox, layout, space} from '@twilio-paste/styling-library';
-import {ResponsiveProp, SpaceOptions} from '@twilio-paste/style-props';
+import {ResponsiveProp} from '@twilio-paste/style-props';
 import type {ColumnProps, ColumnStyleProps} from './types';
-import {getStackedColumns, getColumnOffset, getColumnSpan, getSpacing, getResponsiveSpacing} from './utils';
+import {getStackedColumns, getColumnOffset, getColumnSpan, getColumnPadding} from './utils';
 
 export const getColumnStyles = ({
   count,
@@ -15,18 +15,8 @@ export const getColumnStyles = ({
 }: ColumnProps): ColumnStyleProps => {
   const columnStyles: ColumnStyleProps = {
     width: getColumnSpan({count, span}),
+    ...getColumnPadding({gutter, vertical}),
   };
-
-  if (gutter) {
-    if (Array.isArray(vertical)) {
-      const paddingStyles = getResponsiveSpacing(vertical as boolean[], 'padding', gutter);
-
-      Object.assign(columnStyles, paddingStyles);
-    } else {
-      const additionalStyles = getSpacing(vertical as boolean, 'padding', gutter as SpaceOptions);
-      Object.assign(columnStyles, additionalStyles);
-    }
-  }
 
   if (offset) {
     columnStyles.marginLeft = getColumnOffset(offset);

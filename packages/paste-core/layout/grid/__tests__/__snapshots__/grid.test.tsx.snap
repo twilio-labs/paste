@@ -4,6 +4,10 @@ exports[`Grid render should render a Column 1`] = `
 <DocumentFragment>
   .emotion-0 {
   width: 8.333333333333332%;
+  padding-top: space0;
+  padding-bottom: space0;
+  padding-right: space0;
+  padding-left: space0;
 }
 
 <div
@@ -78,8 +82,8 @@ exports[`Grid render should render responsive css 1`] = `
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   display: flex;
-  margin-right: spaceNegative10;
-  margin-left: spaceNegative10;
+  margin-right: space0;
+  margin-left: space0;
   min-width: size0;
 }
 
@@ -88,8 +92,8 @@ exports[`Grid render should render responsive css 1`] = `
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-    margin-right: spaceNegative20;
-    margin-left: spaceNegative20;
+    margin-right: space0;
+    margin-left: space0;
   }
 }
 
@@ -105,16 +109,20 @@ exports[`Grid render should render responsive css 1`] = `
 
 .emotion-0 {
   width: 16.666666666666664%;
-  padding-left: space10;
-  padding-right: space10;
+  padding-top: space10;
+  padding-bottom: space10;
+  padding-right: space0;
+  padding-left: space0;
   margin-left: 66.66666666666666%;
 }
 
 @media screen and (min-width:40em) {
   .emotion-0 {
     width: 33.33333333333333%;
-    padding-left: space20;
-    padding-right: space20;
+    padding-top: space20;
+    padding-bottom: space20;
+    padding-right: space0;
+    padding-left: space0;
     margin-left: 50%;
   }
 }
@@ -122,32 +130,40 @@ exports[`Grid render should render responsive css 1`] = `
 @media screen and (min-width:52em) {
   .emotion-0 {
     width: 16.666666666666664%;
-    padding-left: space30;
+    padding-top: space0;
+    padding-bottom: space0;
     padding-right: space30;
+    padding-left: space30;
     margin-left: 66.66666666666666%;
   }
 }
 
 .emotion-1 {
   width: 50%;
-  padding-left: space10;
-  padding-right: space10;
+  padding-top: space10;
+  padding-bottom: space10;
+  padding-right: space0;
+  padding-left: space0;
   min-width: 100%;
   margin-left: space0;
 }
 
 @media screen and (min-width:40em) {
   .emotion-1 {
-    padding-left: space20;
-    padding-right: space20;
+    padding-top: space20;
+    padding-bottom: space20;
+    padding-right: space0;
+    padding-left: space0;
     min-width: 100%;
   }
 }
 
 @media screen and (min-width:52em) {
   .emotion-1 {
-    padding-left: space30;
+    padding-top: space0;
+    padding-bottom: space0;
     padding-right: space30;
+    padding-left: space30;
     min-width: 0;
   }
 }
