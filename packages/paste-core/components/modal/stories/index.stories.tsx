@@ -11,7 +11,7 @@ import {Tooltip} from '@twilio-paste/tooltip';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
-import type {ModalProps} from '../src';
+import type {ModalProps} from '@twilio-paste/modal';
 import {
   Modal,
   ModalBody,
@@ -22,7 +22,7 @@ import {
   ModalContext,
   ModalDialogContent,
   ModalDialogOverlay,
-} from '../src';
+} from '@twilio-paste/modal';
 
 type ModalTriggerProps = Pick<ModalProps, 'size'>;
 const ModalTrigger: React.FC<ModalTriggerProps> = ({size}) => {

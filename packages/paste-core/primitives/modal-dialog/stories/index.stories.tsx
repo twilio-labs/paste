@@ -3,7 +3,7 @@ import {withKnobs, boolean} from '@storybook/addon-knobs';
 import {styled} from '@twilio-paste/styling-library';
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
-import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '../src';
+import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
 
 const StyledModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)({
   position: 'fixed',

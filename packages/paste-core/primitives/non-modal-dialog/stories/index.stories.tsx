@@ -5,7 +5,7 @@ import {
   NonModalDialogPrimitive,
   NonModalDialogDisclosurePrimitive,
   NonModalDialogArrowPrimitive,
-} from '../src';
+} from '@twilio-paste/non-modal-dialog-primitive';
 
 // eslint-disable-next-line import/no-default-export
 export default {

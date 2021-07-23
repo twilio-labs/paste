@@ -10,8 +10,8 @@ import {Stack} from '@twilio-paste/stack';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
 import {Text} from '@twilio-paste/text';
 import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
-import type {SkeletonLoaderProps} from '../src';
-import {SkeletonLoader} from '../src';
+import type {SkeletonLoaderProps} from '@twilio-paste/skeleton-loader';
+import {SkeletonLoader} from '@twilio-paste/skeleton-loader';
 
 // eslint-disable-next-line import/no-default-export
 export default {

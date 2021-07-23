@@ -6,7 +6,7 @@ import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
 import {Text} from '@twilio-paste/text';
 import {Truncate} from '@twilio-paste/truncate';
-import {Table, THead, TBody, TFoot, Tr, Td, Th} from '../src';
+import {Table, THead, TBody, TFoot, Tr, Td, Th} from '@twilio-paste/table';
 
 const MoreMenu: React.FC = () => {
   const menu = useMenuState();

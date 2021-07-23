@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Paragraph} from '@twilio-paste/paragraph';
-import {OrderedList, UnorderedList, ListItem} from '../src';
+import {OrderedList, UnorderedList, ListItem} from '@twilio-paste/list';
 
 // eslint-disable-next-line import/no-default-export
 export default {

@@ -5,7 +5,7 @@ import {Text} from '@twilio-paste/text';
 import {Padding as PaddingProps} from '@twilio-paste/style-props';
 import {DefaultTheme} from '@twilio-paste/theme';
 
-import {Card} from '../src';
+import {Card} from '@twilio-paste/card';
 
 const spaceOptions = Object.keys(DefaultTheme.space);
 

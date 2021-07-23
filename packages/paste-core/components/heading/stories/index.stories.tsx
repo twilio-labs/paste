@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {withKnobs, text, select} from '@storybook/addon-knobs';
 import {Card} from '@twilio-paste/card';
-import {asTags, Heading, HeadingVariants} from '../src';
+import {asTags, Heading, HeadingVariants} from '@twilio-paste/heading';
 
 const headingVariantOptions = ['heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60'];
 // eslint-disable-next-line import/no-default-export

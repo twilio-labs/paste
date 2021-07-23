@@ -7,7 +7,7 @@ import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import {ProductVoiceIcon} from '@twilio-paste/icons/esm/ProductVoiceIcon';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
-import {Menu, MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, useMenuState} from '../src';
+import {Menu, MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, useMenuState} from '@twilio-paste/menu';
 
 const PlainMenu: React.FC = () => {
   const menu = useMenuState();

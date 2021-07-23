@@ -22,8 +22,7 @@ import type {
   Padding,
   Margin,
 } from '@twilio-paste/style-props';
-import {Text} from '../src';
-import {CustomizableTextExample} from '../__fixtures__/CustomizableText';
+import {Text} from '@twilio-paste/text';
 
 const fontSizeOptions = Object.keys(DefaultTheme.fontSizes);
 const fontFamilyOptions = [''].concat(Object.keys(DefaultTheme.fonts));
@@ -135,31 +134,9 @@ PseudoClassesWithHoverPseudoProps.story = {
   name: 'Pseudo-classes with hover pseudo props',
 };
 
-const CustomTextCollection: React.FC = () => {
-  return (
-    <>
-      <CustomizableTextExample element="RECTANGLE">base</CustomizableTextExample>
-      <CustomizableTextExample element="RECTANGLE" variant="secondary">
-        secondary
-      </CustomizableTextExample>
-      <CustomizableTextExample element="RECTANGLE" variant="primary">
-        primary
-      </CustomizableTextExample>
-      <CustomizableTextExample element="SQUARE">base</CustomizableTextExample>
-      <CustomizableTextExample element="SQUARE" variant="secondary">
-        secondary
-      </CustomizableTextExample>
-      <CustomizableTextExample element="SQUARE" variant="primary">
-        primary
-      </CustomizableTextExample>
-    </>
-  );
-};
-
 export const CustomText: React.FC = () => {
   return (
     <>
-      <CustomTextCollection />
       <Separator orientation="horizontal" verticalSpacing="space60" />
       <CustomizationProvider
         baseTheme="default"
@@ -204,7 +181,6 @@ export const CustomText: React.FC = () => {
         <Text as="h2" element="CARD">
           Customized
         </Text>
-        <CustomTextCollection />
       </CustomizationProvider>
     </>
   );

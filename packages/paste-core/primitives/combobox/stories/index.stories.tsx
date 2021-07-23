@@ -5,7 +5,7 @@ import {Button} from '@twilio-paste/button';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
-import {ComboboxPrimitive, useComboboxPrimitive} from '../src';
+import {ComboboxPrimitive, useComboboxPrimitive} from '@twilio-paste/combobox-primitive';
 
 const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
 

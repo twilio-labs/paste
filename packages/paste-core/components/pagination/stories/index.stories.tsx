@@ -7,7 +7,7 @@ import {
   PaginationLabel,
   PaginationNumber,
   PaginationNumbers,
-} from '../src';
+} from '@twilio-paste/pagination';
 
 export const ArrowExample: React.FC = () => {
   return (

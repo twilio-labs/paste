@@ -9,7 +9,7 @@ import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import type {HelpTextVariants} from '@twilio-paste/help-text';
-import {Select, Option, OptionGroup} from '../src';
+import {Select, Option, OptionGroup} from '@twilio-paste/select';
 
 const kebabCase = require('lodash/kebabCase');
 
@@ -79,7 +79,7 @@ export const DefaultSelect = (): React.ReactNode => {
               // @ts-ignore implicit any issue with key
               const {selected, value: optionValue} = options[key];
               if (selected) {
-                return ([...optionTargetValues, optionValue] as unknown) as [];
+                return [...optionTargetValues, optionValue] as unknown as [];
               }
               return optionTargetValues;
             }, []);
@@ -339,7 +339,7 @@ export const SelectMultiple = (): React.ReactNode => {
             // @ts-ignore implicit any with key
             const {selected, value: optionValue} = options[key];
             if (selected) {
-              return ([...optionValues, optionValue] as unknown) as [];
+              return [...optionValues, optionValue] as unknown as [];
             }
             return optionValues;
           }, []);
@@ -618,7 +618,7 @@ export const SelectOptionGroupsAndMultiple = (): React.ReactNode => {
             // @ts-ignore implicit any with key
             const {selected, value: optionValue} = options[key];
             if (selected) {
-              return ([...optionValues, optionValue] as unknown) as [];
+              return [...optionValues, optionValue] as unknown as [];
             }
             return optionValues;
           }, []);
@@ -664,7 +664,7 @@ export const SelectOptionGroupsAndMultipleInverse = (): React.ReactNode => {
             // @ts-ignore implicit any with key
             const {selected, value: optionValue} = options[key];
             if (selected) {
-              return ([...optionValues, optionValue] as unknown) as [];
+              return [...optionValues, optionValue] as unknown as [];
             }
             return optionValues;
           }, []);

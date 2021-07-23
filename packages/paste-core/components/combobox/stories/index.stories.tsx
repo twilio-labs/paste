@@ -11,7 +11,7 @@ import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
-import {useCombobox, Combobox} from '../src';
+import {useCombobox, Combobox} from '@twilio-paste/combobox';
 
 const items = [
   'Alert',

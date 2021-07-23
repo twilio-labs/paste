@@ -2,7 +2,7 @@ import * as React from 'react';
 import {withKnobs, text, select, boolean} from '@storybook/addon-knobs';
 import {IconSize, TextColor} from '@twilio-paste/style-props';
 import {DefaultTheme} from '@twilio-paste/theme';
-import {Spinner} from '../src';
+import {Spinner} from '@twilio-paste/spinner';
 
 const ColorOptions = Object.keys(DefaultTheme.textColors);
 const SizeOptions = Object.keys(DefaultTheme.iconSizes);

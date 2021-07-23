@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
-import {InputBox, InputBoxProps} from '../src';
+import {InputBox, InputBoxProps} from '@twilio-paste/input-box';
 
 const Insert: React.FC = () => {
   return <Box padding="space20" />;

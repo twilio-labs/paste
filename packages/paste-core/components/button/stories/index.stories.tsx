@@ -4,8 +4,8 @@ import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Stack} from '@twilio-paste/stack';
 import {isRenderingOnServer} from '@twilio-paste/animation-library';
-import {Button} from '../src';
-import {ButtonVariants, ButtonSizes} from '../src/types';
+import {Button} from '@twilio-paste/button';
+import type {ButtonVariants, ButtonSizes} from '@twilio-paste/button';
 
 const ButtonSizeOptions = ['default', 'small', 'icon', 'icon_small', 'reset'];
 

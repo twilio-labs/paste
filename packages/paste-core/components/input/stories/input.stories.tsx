@@ -9,8 +9,8 @@ import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import type {HelpTextVariants} from '@twilio-paste/help-text';
-import {Input} from '../src';
-import type {InputTypes} from '../src';
+import {Input} from '@twilio-paste/input';
+import type {InputTypes} from '@twilio-paste/input';
 
 const inputTypeOptions = ['text', 'email', 'hidden', 'number', 'password', 'search', 'tel'];
 const helpVariantOptions = ['default', 'error'];

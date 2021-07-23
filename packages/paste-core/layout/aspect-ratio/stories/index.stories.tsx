@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {withKnobs, text} from '@storybook/addon-knobs';
 import {Box} from '@twilio-paste/box';
-import {AspectRatio} from '../src';
+import {AspectRatio} from '@twilio-paste/aspect-ratio';
 
 // eslint-disable-next-line import/no-default-export
 export default {

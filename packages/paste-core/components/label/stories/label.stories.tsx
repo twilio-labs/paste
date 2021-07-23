@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import {Label} from '../src';
+import {Label} from '@twilio-paste/label';
 
 // eslint-disable-next-line import/no-default-export
 export default {

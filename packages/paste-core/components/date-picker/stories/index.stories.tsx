@@ -6,7 +6,7 @@ import {HelpText} from '@twilio-paste/help-text';
 import {useUID} from '@twilio-paste/uid-library';
 import {Combobox} from '@twilio-paste/combobox';
 import {Stack} from '@twilio-paste/stack';
-import {DatePicker, formatReturnDate} from '../src';
+import {DatePicker, formatReturnDate} from '@twilio-paste/date-picker';
 
 export const DefaultDatePicker: React.FC = (props) => {
   const uidDP = useUID();

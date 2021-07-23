@@ -4,8 +4,8 @@ import {Button} from '@twilio-paste/button';
 import {Heading} from '@twilio-paste/heading';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
-import {useTabState, Tabs, TabList, Tab, TabPanels, TabPanel} from '../src';
-import type {TabStateReturn} from '../src';
+import {useTabState, Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/tabs';
+import type {TabStateReturn} from '@twilio-paste/tabs';
 
 export const HorizontalTabs: React.FC = () => {
   const selectedId = useUID();

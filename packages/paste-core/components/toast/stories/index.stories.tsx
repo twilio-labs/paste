@@ -10,8 +10,7 @@ import {useUID} from '@twilio-paste/uid-library';
 import {Input} from '@twilio-paste/input';
 import {Label} from '@twilio-paste/label';
 import {RadioGroup, Radio} from '@twilio-paste/radio-group';
-import {Toast, ToastContainer, Toaster, ToastVariants, useToaster} from '../src';
-import {ToastVariantObject} from '../src/constants';
+import {Toast, ToastContainer, Toaster, ToastVariants, useToaster} from '@twilio-paste/toast';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -174,45 +173,6 @@ export const Warning = (): React.ReactNode => {
       </ToastContainer>
     </Box>
   );
-};
-
-interface ToastContainerExample {
-  variant: ToastVariants;
-  message: string;
-}
-export const ToastContainerStory = (): React.ReactNode => {
-  const variants = Object.values(ToastVariantObject);
-  const [toasts, setToasts] = React.useState<ToastContainerExample[]>([]);
-  return (
-    <Box height="300px">
-      <Button
-        variant="primary"
-        onClick={() =>
-          // eslint-disable-next-line @typescript-eslint/no-shadow
-          setToasts((toasts) => [
-            ...toasts,
-            {variant: variants[Math.floor(Math.random() * 3 + 0)], message: loremIpsum()},
-          ])
-        }
-      >
-        Add toast
-      </Button>
-      <ToastContainer>
-        <Toast variant="success" onDismiss={() => {}}>
-          <Text as="div">I am a toast</Text>
-        </Toast>
-        {toasts.map((toast) => (
-          <Toast variant={toast.variant} onDismiss={() => {}}>
-            <Text as="div">{toast.message}</Text>
-          </Toast>
-        ))}
-      </ToastContainer>
-    </Box>
-  );
-};
-
-ToastContainerStory.story = {
-  name: 'Toast container',
 };
 
 export const ToasterStory = (): React.ReactNode => {

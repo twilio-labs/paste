@@ -3,7 +3,7 @@ import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
-import {usePopoverState, Popover, PopoverContainer, PopoverButton} from '../src';
+import {usePopoverState, Popover, PopoverContainer, PopoverButton} from '@twilio-paste/popover';
 
 // eslint-disable-next-line import/no-default-export
 export default {

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Truncate} from '@twilio-paste/truncate';
-import {Breadcrumb, BreadcrumbItem} from '../src';
+import {Breadcrumb, BreadcrumbItem} from '@twilio-paste/breadcrumb';
 
 // eslint-disable-next-line import/no-default-export
 export default {

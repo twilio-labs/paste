@@ -9,7 +9,7 @@ import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import type {HelpTextVariants} from '@twilio-paste/help-text';
-import {TextArea} from '../src';
+import {TextArea} from '@twilio-paste/textarea';
 
 const helpVariantOptions = ['default', 'error'];
 

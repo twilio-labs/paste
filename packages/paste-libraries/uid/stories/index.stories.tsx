@@ -4,7 +4,7 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Input} from '@twilio-paste/input';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
-import {useUID, useUIDSeed, UIDFork} from '../src';
+import {useUID, useUIDSeed, UIDFork} from '@twilio-paste/uid-library';
 
 const SignupForm: React.FC<{emailId: string; passwordId: string}> = ({emailId, passwordId}) => {
   return (

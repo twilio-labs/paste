@@ -14,7 +14,6 @@ module.exports = {
     '../packages/paste-core/components/combobox/stories/*.stories.tsx',
     '../packages/paste-core/components/date-picker/stories/*.stories.tsx',
     '../packages/paste-core/components/disclosure/stories/*.stories.tsx',
-    '../packages/paste-core/components/form/stories/*.stories.tsx',
     '../packages/paste-core/components/heading/stories/*.stories.tsx',
     '../packages/paste-core/components/help-text/stories/*.stories.tsx',
     '../packages/paste-core/components/inline-control-group/stories/*.stories.tsx',

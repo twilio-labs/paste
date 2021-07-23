@@ -2,7 +2,7 @@ import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
 import {Text} from '@twilio-paste/text';
-import {Radio, RadioGroup} from '../src';
+import {Radio, RadioGroup} from '@twilio-paste/radio-group';
 
 // eslint-disable-next-line import/no-default-export
 export default {

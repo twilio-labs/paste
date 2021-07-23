@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
-import {InlineControlGroup} from '../src';
-import type {InlineControlGroupProps} from '../src';
+import {InlineControlGroup} from '@twilio-paste/inline-control-group';
+import type {InlineControlGroupProps} from '@twilio-paste/inline-control-group';
 
 const MockChild: React.FC = ({children}) => {
   return <Box backgroundColor="colorBackground">{children}</Box>;

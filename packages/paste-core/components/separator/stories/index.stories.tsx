@@ -4,7 +4,7 @@ import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
-import {Separator} from '../src';
+import {Separator} from '@twilio-paste/separator';
 
 // eslint-disable-next-line import/no-default-export
 export default {

@@ -4,7 +4,7 @@ import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Truncate} from '@twilio-paste/truncate';
-import {Flex} from '../src';
+import {Flex} from '@twilio-paste/flex';
 import {Display, VerticalAlign, HorizontalAlign} from '../src/types';
 
 const flexDisplayOptions = ['flex', 'inline-flex'];

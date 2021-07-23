@@ -7,7 +7,7 @@ import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Text} from '@twilio-paste/text';
 import {Truncate} from '@twilio-paste/truncate';
-import {Grid, Column} from '../src';
+import {Grid, Column} from '@twilio-paste/flex';
 
 const spaceOptions = Object.keys(DefaultTheme.space);
 

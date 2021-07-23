@@ -4,7 +4,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
 import {Stack} from '@twilio-paste/stack';
 import {Box} from '@twilio-paste/box';
-import {CustomizationProvider} from '../src';
+import {CustomizationProvider} from '@twilio-paste/customization';
 
 // eslint-disable-next-line import/no-default-export
 export default {

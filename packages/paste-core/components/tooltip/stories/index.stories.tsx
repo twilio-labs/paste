@@ -7,7 +7,7 @@ import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {Theme} from '@twilio-paste/theme';
-import {useTooltipState, Tooltip} from '../src';
+import {useTooltipState, Tooltip} from '@twilio-paste/tooltip';
 
 export const StateHookExample: React.FC = () => {
   const tooltip = useTooltipState();

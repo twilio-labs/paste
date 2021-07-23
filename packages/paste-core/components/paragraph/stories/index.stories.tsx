@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Paragraph} from '../src';
+import {Paragraph} from '@twilio-paste/paragraph';
 
 // eslint-disable-next-line import/no-default-export
 export default {

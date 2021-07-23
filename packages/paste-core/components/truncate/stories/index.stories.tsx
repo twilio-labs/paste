@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
-import {Truncate} from '../src';
+import {Truncate} from '@twilio-paste/truncate';
 
 // eslint-disable-next-line import/no-default-export
 export default {

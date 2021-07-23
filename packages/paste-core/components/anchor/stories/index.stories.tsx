@@ -3,8 +3,8 @@ import {action} from '@storybook/addon-actions';
 import {withKnobs, select, text} from '@storybook/addon-knobs';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
-import {Anchor} from '../src';
-import {AnchorTargets, AnchorTabIndexes} from '../src/types';
+import {Anchor} from '@twilio-paste/anchor';
+import type {AnchorTargets, AnchorTabIndexes} from '@twilio-paste/anchor';
 
 const AnchorTargetOptions = ['_self', '_blank', '_parent', '_top'];
 const AnchorTabIndexOptions = [0, -1];

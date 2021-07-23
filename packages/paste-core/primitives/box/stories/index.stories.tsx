@@ -5,7 +5,7 @@ import type {ThemeShape} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Separator} from '@twilio-paste/separator';
 import {Text} from '@twilio-paste/text';
-import {Box} from '../src';
+import {Box} from '@twilio-paste/box';
 import {CustomizableBoxExample} from '../__fixtures__/CustomizableBox';
 
 const backgroundColorOptions = Object.keys(DefaultTheme.backgroundColors);

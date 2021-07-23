@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
-import {useTooltipPrimitiveState, TooltipPrimitive, TooltipPrimitiveReference} from '../src';
+import {useTooltipPrimitiveState, TooltipPrimitive, TooltipPrimitiveReference} from '@twilio-paste/tooltip-primitive';
 
 // eslint-disable-next-line import/no-default-export
 export default {

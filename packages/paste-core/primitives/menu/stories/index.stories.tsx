@@ -6,7 +6,7 @@ import {
   MenuPrimitiveButton,
   MenuPrimitiveButtonProps,
   MenuPrimitiveSeparator,
-} from '../src';
+} from '@twilio-paste/menu-primitive';
 
 const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuPrimitiveButtonProps>((props, ref) => {
   const menu = useMenuPrimitiveState();

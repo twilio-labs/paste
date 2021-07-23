@@ -4,8 +4,24 @@ import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Anchor} from '@twilio-paste/anchor';
-import {Checkbox, FormLabel, FormInput, Select, Option, Radio, FormTextArea, CheckboxGroup, RadioGroup} from '../src';
-import type {FormInputProps, SelectProps, FormTextAreaProps, CheckboxGroupProps, RadioGroupProps} from '../src';
+import {
+  Checkbox,
+  FormLabel,
+  FormInput,
+  Select,
+  Option,
+  Radio,
+  FormTextArea,
+  CheckboxGroup,
+  RadioGroup,
+} from '@twilio-paste/form';
+import type {
+  FormInputProps,
+  SelectProps,
+  FormTextAreaProps,
+  CheckboxGroupProps,
+  RadioGroupProps,
+} from '@twilio-paste/form';
 
 const InputField: React.FC<Pick<FormInputProps, 'disabled' | 'hasError'>> = ({disabled, hasError}) => {
   const inputIDSeed = useUIDSeed();

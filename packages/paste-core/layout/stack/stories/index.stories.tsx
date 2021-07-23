@@ -5,7 +5,7 @@ import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
-import {Stack, StackOrientation} from '../src';
+import {Stack, StackOrientation} from '@twilio-paste/stack';
 
 const orientationOptions = ['horizontal', 'vertical'];
 const spaceOptions = Object.keys(DefaultTheme.space);

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Stack} from '@twilio-paste/stack';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
-import {Avatar} from '../src';
+import {Avatar} from '@twilio-paste/avatar';
 
 // eslint-disable-next-line import/no-default-export
 export default {

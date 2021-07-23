@@ -4,7 +4,7 @@ import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Truncate} from '@twilio-paste/truncate';
 import {DefaultTheme, ThemeShape} from '@twilio-paste/theme';
-import {MediaObject, MediaFigure, MediaBody} from '../src';
+import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 
 // eslint-disable-next-line import/no-default-export
 export default {

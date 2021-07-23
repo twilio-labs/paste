@@ -4,7 +4,7 @@ import {action} from '@storybook/addon-actions';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Truncate} from '@twilio-paste/truncate';
-import {Alert, AlertVariants} from '../src';
+import {Alert, AlertVariants} from '@twilio-paste/alert';
 
 // eslint-disable-next-line import/no-default-export
 export default {

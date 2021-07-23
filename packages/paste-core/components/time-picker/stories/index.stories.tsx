@@ -5,7 +5,7 @@ import {HelpText} from '@twilio-paste/help-text';
 import {Box} from '@twilio-paste/box';
 import {Combobox} from '@twilio-paste/combobox';
 import {Stack} from '@twilio-paste/stack';
-import {TimePicker, formatReturnTime} from '../src';
+import {TimePicker, formatReturnTime} from '@twilio-paste/time-picker';
 
 export const DefaultTimePicker: React.FC = (props) => {
   const uidTP = useUID();
