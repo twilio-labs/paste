@@ -1,5 +1,11 @@
 # @twilio-paste/alert-dialog
 
+## 0.1.2
+
+### Patch Changes
+
+- [`b6c1d692`](https://github.com/twilio-labs/paste/commit/b6c1d69277fecc660ce3281d82d37472a9015bff) [#1684](https://github.com/twilio-labs/paste/pull/1684) Thanks [@richbachman](https://github.com/richbachman)! - [AlertDialog]: added missing `@twilio-paste/uid-library` dependency.
+
 ## 0.1.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.3.2
+
+### Patch Changes
+
+- [`139ca465`](https://github.com/twilio-labs/paste/commit/139ca465d9df011bf0664566375bdb066d1b3b4d) [#1679](https://github.com/twilio-labs/paste/pull/1679) Thanks [@gloriliale](https://github.com/gloriliale)! - New icons added: Color Picker and Theme
+
 ## 5.3.1
 
 ### Patch Changes

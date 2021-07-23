@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.1.0
+
+### Minor Changes
+
+- [`72f18ba1`](https://github.com/twilio-labs/paste/commit/72f18ba18e97a33ec8cf76f37cbf6092bbdb6fee) [#1676](https://github.com/twilio-labs/paste/pull/1676) Thanks [@richbachman](https://github.com/richbachman)! - [MediaObject] Enable media-object, media-figure, and media-body to respect element customizations set on the customization provider. Media-object, media-figure, and media-body now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 4.0.3
 
 ### Patch Changes

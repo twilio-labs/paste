@@ -1,5 +1,24 @@
 # Change Log
 
+## 10.5.0
+
+### Minor Changes
+
+- [`72f18ba1`](https://github.com/twilio-labs/paste/commit/72f18ba18e97a33ec8cf76f37cbf6092bbdb6fee) [#1676](https://github.com/twilio-labs/paste/pull/1676) Thanks [@richbachman](https://github.com/richbachman)! - [MediaObject] Enable media-object, media-figure, and media-body to respect element customizations set on the customization provider. Media-object, media-figure, and media-body now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`21c935aa`](https://github.com/twilio-labs/paste/commit/21c935aa83df06b43a65cfcb3ff7e53615946180) [#1681](https://github.com/twilio-labs/paste/pull/1681) Thanks [@gloriliale](https://github.com/gloriliale)! - Removed the deprecated Typography component package
+
+### Patch Changes
+
+- [`b6c1d692`](https://github.com/twilio-labs/paste/commit/b6c1d69277fecc660ce3281d82d37472a9015bff) [#1684](https://github.com/twilio-labs/paste/pull/1684) Thanks [@richbachman](https://github.com/richbachman)! - [AlertDialog]: added missing `@twilio-paste/uid-library` dependency.
+
+* [`a6518f96`](https://github.com/twilio-labs/paste/commit/a6518f966747aa5bfa3a708ee894a9f4aef361a1) [#1684](https://github.com/twilio-labs/paste/pull/1684) Thanks [@richbachman](https://github.com/richbachman)! - [TimePicker]: added missing `date-fns` dependency.
+
+* Updated dependencies [[`72f18ba1`](https://github.com/twilio-labs/paste/commit/72f18ba18e97a33ec8cf76f37cbf6092bbdb6fee), [`b6c1d692`](https://github.com/twilio-labs/paste/commit/b6c1d69277fecc660ce3281d82d37472a9015bff), [`a6518f96`](https://github.com/twilio-labs/paste/commit/a6518f966747aa5bfa3a708ee894a9f4aef361a1)]:
+  - @twilio-paste/media-object@4.1.0
+  - @twilio-paste/alert-dialog@0.1.2
+  - @twilio-paste/time-picker@0.1.1
+
 ## 10.4.0
 
 ### Minor Changes
