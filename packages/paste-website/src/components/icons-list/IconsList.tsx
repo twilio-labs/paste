@@ -3,7 +3,8 @@ import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
 import {Composite, useCompositeState} from '@twilio-paste/reakit-library';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
-import {FormLabel, FormInput} from '@twilio-paste/form';
+import {Label} from '@twilio-paste/label';
+import {Input} from '@twilio-paste/input';
 import {Heading} from '@twilio-paste/heading';
 import {Card} from '@twilio-paste/card';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -67,8 +68,8 @@ const IconsList: React.FC<IconsListProps> = () => {
       <Grid gutter="space60">
         <Column span={[12, 12, 6, 7]}>
           <Box as="form" role="search" onSubmit={(e) => e.preventDefault()} marginBottom="space70">
-            <FormLabel htmlFor={filterID}>Filter Icons</FormLabel>
-            <FormInput
+            <Label htmlFor={filterID}>Filter Icons</Label>
+            <Input
               autoComplete="off"
               id={filterID}
               type="text"

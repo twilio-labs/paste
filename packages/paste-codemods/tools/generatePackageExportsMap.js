@@ -1,7 +1,7 @@
 const {getRepoPackages} = require('../../../tools/utils/getRepoPackages');
 
-// We don't want to use the 'form' or 'typography' packages because they are deprecated
-const DEPRECATED_PACKAGES = ['@twilio-paste/typography', '@twilio-paste/form'];
+// If we deprecate pacjkages, add them here. Previously typography and form packages.
+// const DEPRECATED_PACKAGES = [];
 
 async function generatePackageExportsMap(getPackages = getRepoPackages) {
   // Object to store all the generated mappings for our codemod
@@ -13,7 +13,7 @@ async function generatePackageExportsMap(getPackages = getRepoPackages) {
   // Remove irrelevant packages
   const filteredPastePackages = allPastePackages.filter((pkg) => {
     if (pkg.private) return false;
-    if (DEPRECATED_PACKAGES.includes(pkg.name)) return false;
+    // if (DEPRECATED_PACKAGES.includes(pkg.name)) return false;
     // Only include Paste core packages (except core-bundle!)
     if (!pkg.location.includes('/paste-core/') || pkg.location.includes('/paste-core/core-bundle')) return false;
     return true;

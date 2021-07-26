@@ -15,7 +15,9 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Button} from '@twilio-paste/button';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
-import {FormLabel, FormInput, Select, Option} from '@twilio-paste/form';
+import {Label} from '@twilio-paste/label';
+import {Input} from '@twilio-paste/input';
+import {Select, Option} from '@twilio-paste/select';
 import Changelog from '@twilio-paste/modal/CHANGELOG.md';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
@@ -140,7 +142,7 @@ A Modal has a default width of 608 px to allow for an optimal reading length at 
     ModalHeading,
     useUID,
     Button,
-    FormLabel,
+    Label,
     Select,
     Option,
     Paragraph,
@@ -170,8 +172,8 @@ At viewports smaller than 816 px, the Modal will shift to the default width (608
     Text,
     Grid,
     Column,
-    FormLabel,
-    FormInput,
+    Label,
+    Input,
   }}
   noInline
 >
@@ -198,8 +200,8 @@ To set a different initial focus target, set the `initialFocusRef` prop on the `
     Text,
     Grid,
     Column,
-    FormLabel,
-    FormInput,
+    Label,
+    Input,
   }}
   noInline
 >

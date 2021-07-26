@@ -7,7 +7,6 @@ const BLOCKLIST = [
   '@twilio-paste/typography',
   '@twilio-paste/icons',
   '@twilio-paste/website',
-  '@twilio-paste/form',
   '@twilio-paste/codemods',
   '@twilio-paste/cra-template',
 ];
