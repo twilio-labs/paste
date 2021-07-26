@@ -13,6 +13,8 @@ All articles are MDX pages. Like all gatsby pages, the url is reflective of the 
 
 File names are in the format `YYYY-MM-DD-title-of-post.mdx`
 
+Create a new file in the `/articles` directory and copy/paste an existing article's file contents.
+
 Each file must start with a Frontmatter section that controls the meta data of that page.
 
 ## Frontmatter
@@ -21,7 +23,7 @@ Each file must start with a Frontmatter section that controls the meta data of t
 
 - **Title** - Title of the article or post
 - **date** - `YYYY-MM-DD` Date at which it was published
-- **slug** - URL slug that the full article appears at, absolute to the root of the website domain
+- **slug** - URL slug that the full article appears at, absolute to the root of the website domain (must end with a `/`)
 - **status** - `draft` | `published` Controls the display of the article on the list view. If it is draft it will not appear in the list but will build and be available by url
 - **Description** `optional` - Meta tag description
 - **external_link** `optional` - URL where an Article or Post lives, if we are linking to it and not republishing
@@ -31,7 +33,7 @@ Each file must start with a Frontmatter section that controls the meta data of t
 
 - **author** - Name of the author
 - **author_link** - Link to the authors bio, twitter, portfolio site
-- **avatar** `optional` - Url to a avatar image
+- **avatar** `optional` - Url to a avatar image (for a link to your Github avatar, go to your profile, right click your photo, and click "open image in new tab")
 
 ## Creating a full article
 
