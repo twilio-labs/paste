@@ -2,6 +2,7 @@ import {render} from '@testing-library/react';
 import * as React from 'react';
 import {Column, Grid} from '../src';
 import {getColumnStyles} from '../src/Column';
+
 import {
   getColumnOffset,
   getColumnSpan,
@@ -19,10 +20,10 @@ describe('Grid', () => {
     paddingTop: 'space0',
   };
   const BASE_MARGIN = {
-    marginBottom: 'space0',
-    marginLeft: 'space0',
-    marginRight: 'space0',
-    marginTop: 'space0',
+    marginBottom: 'auto',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: 'auto',
   };
   describe('Utils', () => {
     describe('getSpacing', () => {
@@ -75,10 +76,10 @@ describe('Grid', () => {
       it('should return the default responsive spacing if spacing is undefined', () => {
         // eslint-disable-next-line unicorn/no-useless-undefined
         expect(getResponsiveSpacing([true, true, false], 'margin', undefined)).toEqual({
-          marginTop: ['space0', 'space0', 'space0'],
-          marginBottom: ['space0', 'space0', 'space0'],
-          marginLeft: ['space0', 'space0', 'space0'],
-          marginRight: ['space0', 'space0', 'space0'],
+          marginTop: ['auto', 'auto', 'auto'],
+          marginBottom: ['auto', 'auto', 'auto'],
+          marginLeft: ['auto', 'auto', 'auto'],
+          marginRight: ['auto', 'auto', 'auto'],
         });
         // eslint-disable-next-line unicorn/no-useless-undefined
         expect(getResponsiveSpacing([true, true, false], 'padding', undefined)).toEqual({
@@ -91,10 +92,10 @@ describe('Grid', () => {
 
       it('should return the correct responsive spacing if spacing is a single token', () => {
         expect(getResponsiveSpacing([true, true, false], 'margin', 'space20')).toEqual({
-          marginTop: ['space20', 'space20', 'space0'],
-          marginBottom: ['space20', 'space20', 'space0'],
-          marginLeft: ['space0', 'space0', 'space20'],
-          marginRight: ['space0', 'space0', 'space20'],
+          marginTop: ['space20', 'space20', 'auto'],
+          marginBottom: ['space20', 'space20', 'auto'],
+          marginLeft: ['auto', 'auto', 'space20'],
+          marginRight: ['auto', 'auto', 'space20'],
         });
 
         expect(getResponsiveSpacing([true, true, false], 'padding', 'space20')).toEqual({
@@ -107,10 +108,10 @@ describe('Grid', () => {
 
       it('should return the correct responsive spacing if spacing is a responsive array', () => {
         expect(getResponsiveSpacing([true, true, false], 'margin', ['space10', 'space40', 'space80'])).toEqual({
-          marginTop: ['space10', 'space40', 'space0'],
-          marginBottom: ['space10', 'space40', 'space0'],
-          marginLeft: ['space0', 'space0', 'space80'],
-          marginRight: ['space0', 'space0', 'space80'],
+          marginTop: ['space10', 'space40', 'auto'],
+          marginBottom: ['space10', 'space40', 'auto'],
+          marginLeft: ['auto', 'auto', 'space80'],
+          marginRight: ['auto', 'auto', 'space80'],
         });
 
         expect(getResponsiveSpacing([true, true, false], 'padding', ['space10', 'space40', 'space80'])).toEqual({
@@ -327,9 +328,11 @@ describe('Grid', () => {
       const {asFragment} = render(
         <Grid gutter={['space10', 'space20', 'space30']} vertical={[true, true, false]}>
           <Column span={[2, 4, 2]} offset={[8, 6, 8]} />
+
           <Column />
         </Grid>
       );
+
       expect(asFragment()).toMatchSnapshot();
     });
   });

@@ -82,8 +82,8 @@ exports[`Grid render should render responsive css 1`] = `
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   display: flex;
-  margin-right: space0;
-  margin-left: space0;
+  margin-right: auto;
+  margin-left: auto;
   min-width: size0;
 }
 
@@ -92,8 +92,8 @@ exports[`Grid render should render responsive css 1`] = `
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-    margin-right: space0;
-    margin-left: space0;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 

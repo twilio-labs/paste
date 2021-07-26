@@ -57,8 +57,6 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
     const gutterStyles = React.useMemo(() => getGutterStyles(gutter, vertical), [gutter, vertical]);
     const flexDirection = React.useMemo(() => getFlexDirection(vertical), [vertical]);
 
-    const gridStyles = {...gutterStyles, marginTop, marginBottom};
-
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -68,7 +66,9 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
         flexDirection={flexDirection}
         flexWrap="wrap"
         display="flex"
-        {...gridStyles}
+        {...gutterStyles}
+        marginTop={marginTop}
+        marginBottom={marginBottom}
         minWidth="size0"
       >
         {GridColumns}

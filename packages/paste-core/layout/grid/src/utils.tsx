@@ -11,29 +11,36 @@ import type {
 } from './types';
 
 type Vertical = ResponsiveValue<boolean>;
-
-const getSpaceDefault = (responsive = false): 'space0'[] | 'space0' =>
-  responsive ? new Array(3).fill('space0') : 'space0';
+type SpacingPrefix = 'margin' | 'padding';
 
 const initDefaultSpacing = ({
   prefix,
   responsive,
+  defaultValue,
 }: {
   prefix: string;
   responsive: boolean;
-}): {[x: string]: Margin | Padding} => ({
-  [`${prefix}Top`]: getSpaceDefault(responsive),
-  [`${prefix}Bottom`]: getSpaceDefault(responsive),
-  [`${prefix}Right`]: getSpaceDefault(responsive),
-  [`${prefix}Left`]: getSpaceDefault(responsive),
-});
+  defaultValue: Margin | Padding;
+}): {[x: string]: typeof defaultValue} => {
+  const getSpaceDefault = (): typeof defaultValue => (responsive ? new Array(3).fill(defaultValue) : defaultValue);
+  return {
+    [`${prefix}Top`]: getSpaceDefault(),
+    [`${prefix}Bottom`]: getSpaceDefault(),
+    [`${prefix}Right`]: getSpaceDefault(),
+    [`${prefix}Left`]: getSpaceDefault(),
+  };
+};
+
+const getDefaultSpacingValue = (prefix: SpacingPrefix): Margin | Padding =>
+  prefix === 'margin' ? ('auto' as Margin) : ('space0' as Padding);
 
 export const getSpacing = (
   vertical: boolean,
-  prefix: 'margin' | 'padding',
+  prefix: SpacingPrefix,
   spacing: Margin | Padding | undefined
 ): {[x: string]: Margin | Padding} => {
-  const computedSpacing = initDefaultSpacing({prefix, responsive: false});
+  const defaultValue = getDefaultSpacingValue(prefix);
+  const computedSpacing = initDefaultSpacing({prefix, responsive: false, defaultValue});
 
   if (spacing === undefined) {
     return computedSpacing;
@@ -51,14 +58,15 @@ export const getSpacing = (
 
 export const getResponsiveSpacing = (
   vertical: boolean[],
-  prefix: string,
+  prefix: SpacingPrefix & string,
   spacing: (Margin | Padding) | (Margin[] | Padding[]) | undefined
 ): {[x: string]: (Margin | Padding)[]} => {
+  const defaultValue = getDefaultSpacingValue(prefix);
   const styles = {
-    [`${prefix}Top`]: ['space0', 'space0', 'space0'] as (Margin | Padding)[],
-    [`${prefix}Bottom`]: ['space0', 'space0', 'space0'] as (Margin | Padding)[],
-    [`${prefix}Right`]: ['space0', 'space0', 'space0'] as (Margin | Padding)[],
-    [`${prefix}Left`]: ['space0', 'space0', 'space0'] as (Margin | Padding)[],
+    [`${prefix}Top`]: [defaultValue, defaultValue, defaultValue],
+    [`${prefix}Bottom`]: [defaultValue, defaultValue, defaultValue],
+    [`${prefix}Right`]: [defaultValue, defaultValue, defaultValue],
+    [`${prefix}Left`]: [defaultValue, defaultValue, defaultValue],
   };
 
   const spacingIsEmptyArray = Array.isArray(spacing) && spacing.length === 0;
