@@ -17,7 +17,7 @@
     "start:storybook": "start-storybook -s ./.storybook/static -p 9001",
     "start:storybook:quiet": "export DROP_PROGRESS=TRUE && pnpm start:storybook",
     "start:tokens": "pnpm workspace @twilio-paste/design-tokens build:watch",
-    "start:website": "pnpm workspace @twilio-paste/website start",
+    "start:website": "pnpm start --filter \"@twilio-paste/website\"",
     "start:theme-designer": "pnpm workspace @twilio-paste/theme-designer dev",
     "start:token-contrast-checker": "pnpm workspace @twilio-paste/token-contrast-checker start",
     "start:nextjs-template": "pnpm workspace @twilio-paste/nextjs-template dev",
