@@ -47,7 +47,7 @@ async function getOptions(isDev: boolean): Promise<{args: any; executablePath: a
 
 const handler: Handler = async (event) => {
   const componentRequested = event.path.replace('/.netlify/functions/opengraph/', '');
-  console.log('component requested:', componentRequested);
+  // console.log('component requested:', componentRequested);
 
   // pass in this parameter if you are developing locally
   // to ensure puppeteer picks up your machine installation of
@@ -55,7 +55,6 @@ const handler: Handler = async (event) => {
   const isDev = event.queryStringParameters.isDev === 'true';
 
   const hostURL = isDev ? 'http://localhost:8888' : `https://${event.headers.host}`;
-  console.log('host:', hostURL);
 
   // check for a legit link
   if (!componentRequested || !componentRequested.includes('/')) {
@@ -68,15 +67,10 @@ const handler: Handler = async (event) => {
   try {
     // get options for browser
     const options = await getOptions(isDev);
-    console.log('puppeteer options:', options);
-
     // launch a new headless browser with dev / prod options
     const browser = await puppeteer.launch(options);
-
     const page = await browser.newPage();
-
     // set the viewport size
-    // recommended size 1200x630
     await page.setViewport({
       width: 800,
       height: 420,
@@ -84,29 +78,22 @@ const handler: Handler = async (event) => {
     });
 
     const pageToVisit = `${hostURL}/opengraph/?path=${componentRequested}`;
-    console.log('page to visit:', pageToVisit);
+    // console.log('page to visit:', pageToVisit, Date.now());
 
     // tell the page to visit the url
     await page.goto(pageToVisit, {
       // wait for the load event as we need JS to render the page
-      waitUntil: 'load',
+      waitUntil: 'networkidle2',
     });
-
-    console.log('page visited');
-
-    await page.waitForTimeout(100);
+    // console.log('page visited', Date.now());
 
     // take a screenshot
     const file = (await page.screenshot({
       encoding: 'base64',
     })) as string;
 
-    console.log('screenshot taken:', file);
-
     // close the browser
     await browser.close();
-
-    console.log('browser closed');
 
     return {
       statusCode: 200,
