@@ -66,14 +66,19 @@ const HomeHero: React.FC = () => {
             <Column span={5}>
               <NewComponentBanner>
                 <NewComponentBannerBadge>New!</NewComponentBannerBadge>
-                <NewComponentBannerText>Did you know we&apos;ve got an Alert Dialog?!</NewComponentBannerText>
+                <NewComponentBannerText>
+                  <span role="img" aria-label="Skeleton emoji">
+                    💀
+                  </span>{' '}
+                  Skeleton Loaders have arrived!
+                </NewComponentBannerText>
                 <NewComponentBannerLink
-                  to="/components/alert-dialog"
+                  to="/components/skeleton-loader"
                   onClick={() =>
                     trackCustomEvent({
                       category: 'Hero',
                       action: 'click-new-component-banner',
-                      label: 'Alert Dialog component page',
+                      label: 'Skeleton Loader component page',
                     })
                   }
                 >
