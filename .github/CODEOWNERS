@@ -5,3 +5,6 @@
 
 # Design tokens - ensure someone from design reviews to keep in sync with Figma
 /packages/paste-design-tokens @twilio-labs/design-systems-pd @twilio-labs/design-system-eng-leads
+
+# Icons - ensure changes to icons are reviewed by a designer
+/packages/paste-icons/svg @twilio-labs/design-systems-pd
