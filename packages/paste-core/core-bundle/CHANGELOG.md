@@ -1,5 +1,14 @@
 # Change Log
 
+## 10.5.1
+
+### Patch Changes
+
+- [`b04e98b1`](https://github.com/twilio-labs/paste/commit/b04e98b17f4e35016956280e1762267f82ad6c51) [#1693](https://github.com/twilio-labs/paste/pull/1693) Thanks [@nkrantz](https://github.com/nkrantz)! - Increase padding on popover content and decrease size of close icon
+
+- Updated dependencies [[`b04e98b1`](https://github.com/twilio-labs/paste/commit/b04e98b17f4e35016956280e1762267f82ad6c51)]:
+  - @twilio-paste/popover@6.0.3
+
 ## 10.5.0
 
 ### Minor Changes
