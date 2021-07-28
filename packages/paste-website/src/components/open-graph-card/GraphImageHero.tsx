@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
 import {Text} from '@twilio-paste/text';
+import {Logo} from './Logo';
 import type {PackageData} from './types';
-import Logo from '../../assets/svg/logo.svg';
 
 export interface GraphImageHeroProps {
   feature: PackageData['Feature'];
@@ -21,7 +21,7 @@ const GraphImageHero: React.FC<GraphImageHeroProps> = ({feature, description}) =
         </Text>
       </MediaBody>
       <MediaFigure as="div" spacing="space180" align="end">
-        <Logo width="90px" height="90px" />
+        <Logo decorative size={90} />
       </MediaFigure>
     </MediaObject>
   );
