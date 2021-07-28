@@ -4,6 +4,7 @@ import {Text} from '@twilio-paste/text';
 import {PopoverContainer, PopoverButton, Popover} from '@twilio-paste/popover';
 import {useUID} from '@twilio-paste/uid-library';
 import {Box} from '@twilio-paste/box';
+import {Stack} from '@twilio-paste/stack';
 import {Separator} from '@twilio-paste/separator';
 import {Anchor} from '@twilio-paste/anchor';
 import {Button} from '@twilio-paste/button';
@@ -26,16 +27,16 @@ const UnratedPage: React.FC<RatingProps> = ({likePage, dislikePage}) => (
     <Text as="p" marginBottom="space50">
       Let us know how we&apos;re doing! Please rate this page:
     </Text>
-    <Button variant="link" onClick={likePage}>
-      <ThumbsUpIcon size="sizeIcon50" decorative={false} title="Like this page" />
-      It&apos;s useful!
-    </Button>
-    <Box as="span" marginLeft="space60">
+    <Stack orientation="horizontal" spacing="space60">
+      <Button variant="link" onClick={likePage}>
+        <ThumbsUpIcon size="sizeIcon50" decorative={false} title="Like this page" />
+        It&apos;s useful!
+      </Button>
       <Button variant="link" onClick={dislikePage}>
         <ThumbsDownIcon size="sizeIcon50" decorative={false} title="Dislike this page" />
         It has issues
       </Button>
-    </Box>
+    </Stack>
   </>
 );
 
@@ -45,7 +46,7 @@ const LikedPage: React.FC<RatingProps> = () => (
       <ThumbsUpIcon size="sizeIcon50" decorative={false} title="Like this page" />
       It&apos;s useful!
     </Button>
-    <Separator orientation="horizontal" verticalSpacing="space30" />
+    <Separator orientation="horizontal" verticalSpacing="space40" />
     <Text as="span">
       You&apos;re the best! Thanks for helping us improve.{' '}
       <span role="img" aria-label="raised hands emoji">
@@ -61,8 +62,8 @@ const DislikedPage: React.FC<RatingProps> = () => (
       <ThumbsDownIcon size="sizeIcon50" decorative={false} title="Dislike this page" />
       It has issues
     </Button>
-    <Separator orientation="horizontal" verticalSpacing="space30" />
-    <Text as="p" marginBottom="space20">
+    <Separator orientation="horizontal" verticalSpacing="space40" />
+    <Text as="p" marginBottom="space40">
       Thank you for helping us improve!{' '}
       <span role="img" aria-label="raised hands emoji">
         🙌
