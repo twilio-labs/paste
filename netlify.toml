@@ -18,4 +18,4 @@
 
 [functions]
   directory = "packages/paste-website/functions"
-  external_node_modules = ["chrome-aws-lambda", "puppeteer-core", "path-match"]
+  external_node_modules = ["chrome-aws-lambda", "puppeteer-core"]

@@ -1,14 +1,13 @@
 // Shout outs to the following repositories:
-
 // https://github.com/whitep4nth3r/puppeteer-demo
 // https://github.com/vercel/og-image
 // https://github.com/ireade/netlify-puppeteer-screenshot-demo
 
+// Note
 // The maximum execution timeout is 10
 // seconds when deployed on a Personal Account (Hobby plan).
 // For Teams, the execution timeout is 60 seconds (Pro plan)
 // or 900 seconds (Enterprise plan).
-
 import puppeteer from 'puppeteer-core';
 import chromium from 'chrome-aws-lambda';
 import type {Handler} from '@netlify/functions';
@@ -46,15 +45,13 @@ async function getOptions(isDev: boolean): Promise<{args: any; executablePath: a
 }
 
 const handler: Handler = async (event) => {
-  const componentRequested = event.path.replace('/.netlify/functions/opengraph/', '');
-  // console.log('component requested:', componentRequested);
-
   // pass in this parameter if you are developing locally
   // to ensure puppeteer picks up your machine installation of
   // Chrome via the configurable options
   const isDev = event.queryStringParameters.isDev === 'true';
-
   const hostURL = isDev ? 'http://localhost:8888' : `https://${event.headers.host}`;
+  const componentRequested = event.path.replace('/.netlify/functions/opengraph/', '');
+  const pageToVisit = `${hostURL}/opengraph/?path=${componentRequested}`;
 
   // check for a legit link
   if (!componentRequested || !componentRequested.includes('/')) {
@@ -77,15 +74,12 @@ const handler: Handler = async (event) => {
       deviceScaleFactor: 1,
     });
 
-    const pageToVisit = `${hostURL}/opengraph/?path=${componentRequested}`;
-    // console.log('page to visit:', pageToVisit, Date.now());
-
-    // tell the page to visit the url
+    // console.log('Visiting page:', pageToVisit, Date.now());
     await page.goto(pageToVisit, {
       // wait for the load event as we need JS to render the page
       waitUntil: 'networkidle2',
     });
-    // console.log('page visited', Date.now());
+    // console.log('Page visited', Date.now());
 
     // take a screenshot
     const file = (await page.screenshot({

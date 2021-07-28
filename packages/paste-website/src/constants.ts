@@ -16,12 +16,6 @@ export const HOMEPAGE_SECTION_OVERFLOW_OFFSET = 150;
 export const STICKY_COLUMN_OFFSET = 20 + PSA_ALERT_HEIGHT + SITE_MASTHEAD_HEIGHT;
 export const STICKY_SIDEBAR_OFFSET = PSA_ALERT_HEIGHT + SITE_MASTHEAD_HEIGHT;
 
-// TODO detect the netlify deployment url we're in otherwise use local
-// export const FUNCTIONS_URL = process.env.DEPLOYMENT_URL ? process.env.DEPLOYMENT_URL : 'http://localhost:9999';
-export const FUNCTIONS_URL = 'https://deploy-preview-1661--paste-docs.netlify.app';
-
-export const OPENGRAPH_SERVICE_URL = (path: string): string => `${FUNCTIONS_URL}/.netlify/functions/opengraph/${path}`;
-
 export const PASTE_PACKAGE_PREFIX = '@twilio-paste/';
 export const STORYBOOK_DOMAIN = 'https://main--5e53448165911c0022e68c74.chromatic.com';
 
@@ -40,6 +34,10 @@ export const DOCSEARCH_APIKEY = process.env.GATSBY_DOCSEARCH_APIKEY;
 export type EnvironmentContext = 'production' | 'deploy-preview' | 'branch-deploy' | 'local';
 export const ENVIRONMENT_CONTEXT: EnvironmentContext =
   (process.env.GATSBY_ENVIRONMENT_CONTEXT as EnvironmentContext) || 'local';
+
+// Detect the netlify deployment url we're in otherwise use local
+export const FUNCTIONS_URL = ENVIRONMENT_CONTEXT === 'local' ? 'http://localhost:8888' : process.env.DEPLOYMENT_URL;
+export const OPENGRAPH_SERVICE_URL = (path: string): string => `${FUNCTIONS_URL}/.netlify/functions/opengraph/${path}`;
 
 export const SidebarCategoryRoutes = {
   COMPONENTS: '/components',
