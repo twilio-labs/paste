@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "10.5.0",
+  "version": "10.5.1",
   "status": "production",
   "description": "Contains all the core packages from the Paste internal design system.",
   "author": "Twilio Inc.",
@@ -62,7 +62,7 @@
     "@twilio-paste/non-modal-dialog-primitive": "^0.3.5",
     "@twilio-paste/pagination": "^0.1.3",
     "@twilio-paste/paragraph": "^4.0.3",
-    "@twilio-paste/popover": "^6.0.2",
+    "@twilio-paste/popover": "^6.0.3",
     "@twilio-paste/radio-group": "^6.0.4",
     "@twilio-paste/reakit-library": "^0.8.1",
     "@twilio-paste/screen-reader-only": "^6.0.2",
