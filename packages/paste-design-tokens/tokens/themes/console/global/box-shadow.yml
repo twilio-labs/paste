@@ -84,8 +84,11 @@ props:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-50}"
     comment: Shadow border on interactive elements on inverse backgrounds.
   shadow-border-inverse-strong:
-    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-90}"
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-70}"
     comment: Strong shadow border on interactive elements on inverse backgrounds.
+  shadow-border-inverse-stronger:
+    value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0-transparent-90}"
+    comment: Stronger shadow border on interactive elements on inverse backgrounds.
   shadow-border-inverse-strongest:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-0}"
     comment: Strongest shadow border on interactive elements on inverse backgrounds.

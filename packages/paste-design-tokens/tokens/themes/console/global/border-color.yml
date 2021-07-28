@@ -24,6 +24,9 @@ props:
   color-border-inverse:
     value: "{!palette-gray-0-transparent-50}"
     comment: Border on inverse backgrounds. Must be used on color-background-body-inverse.
+  color-border-inverse-strong:
+    value: "{!palette-gray-0-transparent-70}"
+    comment: Strong border on inverse backgrounds. Must be used on color-background-body-inverse.
   color-border-inverse-stronger:
     value: "{!palette-gray-0-transparent-90}"
     comment: Stronger border on inverse backgrounds. Must be used on color-background-body-inverse.
