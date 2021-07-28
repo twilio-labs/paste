@@ -5,7 +5,7 @@ export type PackageData = {
   Documentation: boolean;
   Figma: string;
   Code: string;
-  Design_committee_review: string;
-  Engineer_committee_review: string;
+  Design_committee_review: string | null;
+  Engineer_committee_review: string | null;
   type: string;
 };
