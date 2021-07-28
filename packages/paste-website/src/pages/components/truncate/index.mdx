@@ -87,12 +87,14 @@ Good use cases for truncation include:
 
 - Breadcrumbs
 - Long URL links
+- Long friendly names
 
-Truncation should <strong>NOT</strong> be used on page headers, titles, labels, error messages, validation messages,
-notifications, or SIDs.
+Truncation should generally not be used for page titles, labels, error messages,
+validation messages, notifications, or SIDs. A notable exception is when a long
+friendly name is used as a page title.
 
-Truncation can only happen on single lines of text and will never work on multiple lines. If you're looking for multiline
-truncation, that will need to be controlled with JavaScript.
+Truncation can only happen on single lines of text and will never work on multiple lines.
+If you're looking for multiline truncation, that will need to be controlled with JavaScript.
 
 #### Accessibility
 
@@ -138,7 +140,7 @@ spans the full width of a container.
 </LivePreview>
 
 <DoDont>
-  <Do title="Do" body="Use Truncate to shorten text that doesn't fit in its parent container">
+  <Do title="Do" body="Use Truncate to shorten text that doesn't fit in its parent container.">
     <Box maxWidth="size20" padding="space60">
       <Text as="p">
         <Truncate title="Some very long text to truncate">Some very long text to truncate</Truncate>
@@ -147,8 +149,7 @@ spans the full width of a container.
   </Do>
   <Dont
     title="Don't"
-    body="Don't use Truncate to shorten page headings, titles, labels, error messages, validation messages,
-    or notifications"
+    body="Don’t use Truncate to shorten page headings, titles, labels, error messages, validation messages, or notifications. One exception is when a long friendly name is used as a page title."
   >
     <Alert variant="error">
       <Box maxWidth="size20">
@@ -192,10 +193,10 @@ const Component: React.FC = () => {
 
 #### Props
 
-| Prop     | Type        | Description | Default |
-| -------- | ----------- | ----------- | ------- |
-| children | `ReactNode` |             | null    |
-| title    | `string`    |             | null    |
+| Prop     | Type        | Description                                                                                                         | Default |
+| -------- | ----------- | ------------------------------------------------------------------------------------------------------------------- | ------- |
+| title    | `string`    | An accessible label that should match the content of the truncated text. Allows users to see the truncated content. | null    |
+| children | `ReactNode` |                                                                                                                     | null    |
 
 <ChangelogRevealer>
   <Changelog />
