@@ -40,7 +40,7 @@ const AvatarContents: React.FC<AvatarProps> = ({name, size = DEFAULT_SIZE, src, 
 };
 
 const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
-  ({name, children, size = DEFAULT_SIZE, src, icon, ...props}, ref) => {
+  ({name, children, size = DEFAULT_SIZE, element = 'AVATAR', src, icon, ...props}, ref) => {
     if (name === undefined) {
       console.error('[Paste Avatar]: name prop is required');
     }
@@ -53,6 +53,7 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
       <Box
         {...safelySpreadBoxProps(props)}
         as="div"
+        element={element}
         backgroundColor="colorBackgroundUser"
         borderRadius="borderRadiusCircle"
         overflow="hidden"
