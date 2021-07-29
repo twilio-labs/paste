@@ -35,10 +35,6 @@ export type EnvironmentContext = 'production' | 'deploy-preview' | 'branch-deplo
 export const ENVIRONMENT_CONTEXT: EnvironmentContext =
   (process.env.GATSBY_ENVIRONMENT_CONTEXT as EnvironmentContext) || 'local';
 
-// Detect the netlify deployment url we're in otherwise use local
-export const FUNCTIONS_URL = ENVIRONMENT_CONTEXT === 'local' ? 'http://localhost:8888' : process.env.DEPLOYMENT_URL;
-export const OPENGRAPH_SERVICE_URL = (path: string): string => `${FUNCTIONS_URL}/.netlify/functions/opengraph/${path}`;
-
 export const SidebarCategoryRoutes = {
   COMPONENTS: '/components',
   PATTERNS: '/patterns',

@@ -6,9 +6,9 @@ import {Text} from '@twilio-paste/text';
 import {Heading} from '@twilio-paste/heading';
 import {Breadcrumb, BreadcrumbItem} from '../../breadcrumb';
 import {PackageStatusLegend} from '../package-status-legend';
-import {SidebarCategoryRoutes, STORYBOOK_DOMAIN, OPENGRAPH_SERVICE_URL} from '../../../constants';
+import {SidebarCategoryRoutes, STORYBOOK_DOMAIN} from '../../../constants';
 import {P, InlineCode} from '../../Typography';
-import {getHumanizedNameFromPackageName} from '../../../utils/RouteUtils';
+import {getHumanizedNameFromPackageName, getOpengraphServiceUrl} from '../../../utils/RouteUtils';
 import {sentenceCase} from '../../../utils/SentenceCase';
 import type {PackageStatusObject} from '../../../utils/types';
 
@@ -37,7 +37,7 @@ const ComponentHeaderBasic: React.FC<{
   <>
     {ogImagePath ? (
       <Helmet>
-        <meta property="og:image" content={OPENGRAPH_SERVICE_URL(ogImagePath)} />
+        <meta property="og:image" content={getOpengraphServiceUrl(ogImagePath)} />
       </Helmet>
     ) : null}
     <Breadcrumb>
