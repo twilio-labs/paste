@@ -1,8 +1,9 @@
 import * as React from 'react';
-import {render} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import {matchers} from 'jest-emotion';
 import {Card} from '@twilio-paste/card';
 import {getStackDisplay, getStackStyles, getStackChildMargins, Stack, StackOrientation} from '../src';
+import {CustomizationProvider} from '@twilio-paste/customization';
 
 expect.extend(matchers);
 
@@ -103,5 +104,91 @@ describe('Stack', () => {
     expect(mockSingleChildHorizontal).not.toHaveStyleRule('marginRight', 'space60');
     const mockSingleChildVertical = getByTestId('single-vertical');
     expect(mockSingleChildVertical).not.toHaveStyleRule('marginBottom', 'space60');
+  });
+});
+
+describe('Stack Customization', () => {
+  it('should set a custom element attribute for Stack', (): void => {
+    render(
+      <CustomizationProvider baseTheme="default">
+        <Stack orientation="vertical" spacing="space0" data-testid="stack-customization">
+          <p>One</p>
+          <p>Two</p>
+        </Stack>
+      </CustomizationProvider>
+    );
+    const renderedBox = screen.getByTestId('stack-customization');
+    expect(renderedBox).toHaveAttribute('data-paste-element', 'STACK');
+  });
+
+  it('should set a custom element attribute for Stack Children', (): void => {
+    const {container} = render(
+      <CustomizationProvider baseTheme="default">
+        <Stack orientation="vertical" spacing="space0">
+          <p>One</p>
+          <p>Two</p>
+        </Stack>
+      </CustomizationProvider>
+    );
+    expect(container.querySelector('[data-paste-element="STACK_CHILD"]')).toBeInTheDocument();
+  });
+
+  it('should allow a custom element name to be set for Stack', (): void => {
+    render(
+      <CustomizationProvider baseTheme="default">
+        <Stack element="STACKY" orientation="vertical" spacing="space0" data-testid="stack-customization-name">
+          <p>One</p>
+          <p>Two</p>
+        </Stack>
+      </CustomizationProvider>
+    );
+    const renderedBox = screen.getByTestId('stack-customization-name');
+    expect(renderedBox).toHaveAttribute('data-paste-element', 'STACKY');
+  });
+
+  it('should allow a custom element name to be set for Stack children', (): void => {
+    const {container} = render(
+      <CustomizationProvider baseTheme="default">
+        <Stack element="STACKY" orientation="vertical" spacing="space0">
+          <p>One</p>
+          <p>Two</p>
+        </Stack>
+      </CustomizationProvider>
+    );
+    expect(container.querySelector('[data-paste-element="STACKY_CHILD"]')).toBeInTheDocument();
+  });
+
+  it('should style Stack according to the customization provider', (): void => {
+    render(
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{STACK: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+      >
+        <Stack orientation="vertical" spacing="space0" data-testid="customizable-stack">
+          <p>One</p>
+          <p>Two</p>
+        </Stack>
+      </CustomizationProvider>
+    );
+    const renderedBox = screen.getByTestId('customizable-stack');
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
+  });
+
+  it('should style Stack children according to the customization provider', (): void => {
+    const {container} = render(
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{STACK_CHILD: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+      >
+        <Stack orientation="vertical" spacing="space0">
+          <p>One</p>
+          <p>Two</p>
+        </Stack>
+      </CustomizationProvider>
+    );
+    const childNode = container.querySelector('[data-paste-element="STACK_CHILD"]');
+    expect(childNode).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+    expect(childNode).toHaveStyleRule('color', 'rgb(96,107,133)');
   });
 });
