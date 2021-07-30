@@ -55,6 +55,7 @@ const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(({children, ...pr
               <CloseIcon decorative={false} color="colorTextWeak" size="sizeIcon10" title="Close popover" />
             </Button>
           </Box>
+          {children}
         </Box>
       </StyledBase>
     </NonModalDialogPrimitive>
