@@ -10,9 +10,10 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Button} from '@twilio-paste/button';
 import {ThumbsUpIcon} from '@twilio-paste/icons/esm/ThumbsUpIcon';
 import {ThumbsDownIcon} from '@twilio-paste/icons/esm/ThumbsDownIcon';
-import {EditIcon} from '@twilio-paste/icons/esm/EditIcon';
+import {SupportIcon} from '@twilio-paste/icons/esm/SupportIcon';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {SimpleStorage} from '../../../utils/SimpleStorage';
+import {getCurrentPathname} from '../../../utils/RouteUtils';
 
 type RatingProps = {
   likePage: (event: React.MouseEvent) => void;
@@ -37,6 +38,15 @@ const UnratedPage: React.FC<RatingProps> = ({likePage, dislikePage}) => (
         It has issues
       </Button>
     </Stack>
+    <Separator orientation="horizontal" verticalSpacing="space50" />
+    <Text as="p">
+      Spot an issue?{' '}
+      <Anchor
+        href={`https://github.com/twilio-labs/paste/issues/new?assignees=&labels=Type%3A+Bug&template=bug_report.md&title=Spotted%20a%20documentation%20error%20on%20${getCurrentPathname()}`}
+      >
+        Let us know!
+      </Anchor>
+    </Text>
   </>
 );
 
@@ -70,8 +80,9 @@ const DislikedPage: React.FC<RatingProps> = () => (
       </span>
     </Text>
     <Text as="p">
-      For questions and suggestions, please{' '}
-      <Anchor href="https://github.com/twilio-labs/paste/discussions">create a Github discussion</Anchor>.
+      It would mean a lot to us if you could{' '}
+      <Anchor href="https://github.com/twilio-labs/paste/discussions">create a Github discussion</Anchor> with your
+      feedback so that we can make this page better. Thank you!
     </Text>
   </>
 );
@@ -121,7 +132,7 @@ export const FeedbackPopover: React.FC = () => {
     <Box marginBottom="space90">
       <PopoverContainer baseId={popoverId} placement="left-start">
         <PopoverButton variant="secondary">
-          <EditIcon size="sizeIcon20" decorative /> Rate this page
+          <SupportIcon size="sizeIcon20" decorative /> Rate this page
         </PopoverButton>
         <Popover aria-label="Give us feedback popover panel">
           <ShownComponent likePage={likePage} dislikePage={dislikePage} />
