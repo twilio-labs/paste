@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.11.0
+
+### Minor Changes
+
+- [`a2860c3b`](https://github.com/twilio-labs/paste/commit/a2860c3bf7dba4cf26d94b8bd5b82fa627a2f4ac) [#1708](https://github.com/twilio-labs/paste/pull/1708) Thanks [@nkrantz](https://github.com/nkrantz)! - Add `color-border-inverse-strong` and `shadow-border-inverse-stronger`, adjust `shadow-border-inverse-strong` to align color-border tokens and shadow-border tokens.
+
 ## 6.10.0
 
 ### Minor Changes
