@@ -52,10 +52,12 @@ const UnratedPage: React.FC<RatingProps> = ({likePage, dislikePage}) => (
 
 const LikedPage: React.FC<RatingProps> = () => (
   <>
-    <Button variant="link" disabled>
+    <Box display="flex" lineHeight="lineHeight50">
       <ThumbsUpIcon size="sizeIcon50" decorative={false} title="Like this page" />
-      It&apos;s useful!
-    </Button>
+      <Box as="span" marginLeft="space20">
+        This page is useful!
+      </Box>
+    </Box>
     <Separator orientation="horizontal" verticalSpacing="space40" />
     <Text as="span">
       You&apos;re the best! Thanks for helping us improve.{' '}
@@ -68,10 +70,12 @@ const LikedPage: React.FC<RatingProps> = () => (
 
 const DislikedPage: React.FC<RatingProps> = () => (
   <>
-    <Button variant="link" disabled>
-      <ThumbsDownIcon size="sizeIcon50" decorative={false} title="Dislike this page" />
-      It has issues
-    </Button>
+    <Box display="flex" lineHeight="lineHeight50">
+      <ThumbsDownIcon display="inline-block" size="sizeIcon50" decorative={false} title="Dislike this page" />
+      <Box as="span" marginLeft="space20">
+        This page has issues
+      </Box>
+    </Box>
     <Separator orientation="horizontal" verticalSpacing="space40" />
     <Text as="p" marginBottom="space40">
       Thank you for helping us improve!{' '}
@@ -97,7 +101,7 @@ const usePathname = (): string => {
 
 export const FeedbackPopover: React.FC = () => {
   const pathname = usePathname();
-  const localStorageKey = `page-rating-${pathname}`;
+  const localStorageKey = `page-rating${pathname}`;
   const popoverId = useUID();
   const [pageRating, setPageRating] = React.useState<string>(SimpleStorage.get(localStorageKey) || '');
 
