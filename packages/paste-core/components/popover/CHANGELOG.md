@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.0.3
+
+### Patch Changes
+
+- [`b04e98b1`](https://github.com/twilio-labs/paste/commit/b04e98b17f4e35016956280e1762267f82ad6c51) [#1693](https://github.com/twilio-labs/paste/pull/1693) Thanks [@nkrantz](https://github.com/nkrantz)! - Increase padding on popover content and decrease size of close icon
+
 ## 6.0.2
 
 ### Patch Changes
