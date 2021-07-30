@@ -20,7 +20,8 @@ export function getCurrentPathHash(): string {
 
 export function getCurrentOrigin(): string {
   if (!hasWindowObject()) {
-    return '';
+    // Be default, assume the origin is our own domain
+    return 'https://paste.twilio.design';
   }
   return window.location.origin;
 }
