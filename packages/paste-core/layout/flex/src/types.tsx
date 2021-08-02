@@ -22,6 +22,8 @@ export interface FlexProps extends Omit<LayoutProps, 'verticalAlign'>, MarginPro
   as?: keyof JSX.IntrinsicElements;
   children?: React.ReactNode;
   display?: Display;
+  /** element identifier for customization */
+  element?: string;
   vertical?: Vertical;
   vAlignContent?: VerticalAlign;
   hAlignContent?: HorizontalAlign;
