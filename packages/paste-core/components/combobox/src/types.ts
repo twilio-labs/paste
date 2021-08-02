@@ -54,6 +54,18 @@ export interface ComboboxProps extends Omit<InputProps, 'id' | 'type' | 'value'>
   groupItemsBy?: string;
   variant?: InputVariants;
   state?: Partial<UseComboboxPrimitiveReturnValue<any>>;
+  /**
+   * Use `onInputValueChange` instead.
+   * @type {never}
+   * @memberof ComboboxProps
+   */
+  onChange?: never;
+  /**
+   * Use `onInputValueChange` instead.
+   * @type {never}
+   * @memberof ComboboxProps
+   */
+  onInput?: never;
 }
 
 export interface ComboboxItemsProps
