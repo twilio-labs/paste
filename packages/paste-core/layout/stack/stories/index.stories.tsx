@@ -1,12 +1,14 @@
 import * as React from 'react';
 import {withKnobs, select} from '@storybook/addon-knobs';
-import {DefaultTheme, ThemeShape} from '@twilio-paste/theme';
+import type {ThemeShape} from '@twilio-paste/theme';
+import {DefaultTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {CustomizationProvider} from '@twilio-paste/customization';
-import {Stack, StackOrientation} from '../src';
+import type {StackOrientation} from '../src';
+import {Stack} from '../src';
 
 const orientationOptions = ['horizontal', 'vertical'];
 const spaceOptions = Object.keys(DefaultTheme.space);

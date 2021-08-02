@@ -1,16 +1,11 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {useUIDSeed} from '@twilio-paste/uid-library';
-import {ResponsiveValue} from '@twilio-paste/styling-library';
-import {
-  isSpaceTokenProp,
-  ResponsiveProp,
-  LayoutProps,
-  FlexboxProps,
-  MarginProps,
-  SpaceOptions,
-} from '@twilio-paste/style-props';
-import {Box, BoxElementProps, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {ResponsiveValue} from '@twilio-paste/styling-library';
+import type {LayoutProps, FlexboxProps, MarginProps, SpaceOptions} from '@twilio-paste/style-props';
+import {isSpaceTokenProp, ResponsiveProp} from '@twilio-paste/style-props';
+import type {BoxElementProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
 type StackChildMargins = Pick<MarginProps, 'marginRight' | 'marginBottom'>;
 type DisplayOptions = 'block' | 'flex';

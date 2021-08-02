@@ -2,8 +2,9 @@ import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {matchers} from 'jest-emotion';
 import {Card} from '@twilio-paste/card';
-import {getStackDisplay, getStackStyles, getStackChildMargins, Stack, StackOrientation} from '../src';
 import {CustomizationProvider} from '@twilio-paste/customization';
+import type {StackOrientation} from '../src';
+import {getStackDisplay, getStackStyles, getStackChildMargins, Stack} from '../src';
 
 expect.extend(matchers);
 
