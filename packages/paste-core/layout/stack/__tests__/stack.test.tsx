@@ -109,7 +109,7 @@ describe('Stack', () => {
 });
 
 describe('Stack Customization', () => {
-  it('should set a custom element attribute for Stack', (): void => {
+  it('should set the data-paste-element attribute for Stack to "STACK"', (): void => {
     render(
       <CustomizationProvider baseTheme="default">
         <Stack orientation="vertical" spacing="space0" data-testid="stack-customization">
@@ -122,7 +122,7 @@ describe('Stack Customization', () => {
     expect(renderedBox).toHaveAttribute('data-paste-element', 'STACK');
   });
 
-  it('should set a custom element attribute for Stack Children', (): void => {
+  it('should set the data-paste-attribute attribute for Stack Children to "STACK_CHILD"', (): void => {
     const {container} = render(
       <CustomizationProvider baseTheme="default">
         <Stack orientation="vertical" spacing="space0">
