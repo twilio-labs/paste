@@ -2,6 +2,7 @@ import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {matchers} from 'jest-emotion';
 import {Theme} from '@twilio-paste/theme';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {
   getGrow,
   getShrink,
@@ -474,5 +475,32 @@ describe('Flex style props', () => {
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('width', 'size20');
     expect(renderedFlex).toHaveStyleRule('height', 'size20');
+  });
+});
+
+describe('HTML Attributes', () => {
+  it('should set an element data attribute on Flex', (): void => {
+    render(<Flex data-testid="renderedFlexElement" />);
+    expect(screen.getByTestId('renderedFlexElement').getAttribute('data-paste-element')).toEqual('FLEX');
+  });
+  it('should set a custom element data attribute on Flex', (): void => {
+    render(<Flex data-testid="renderedFlexElement" element="bar" />);
+    expect(screen.getByTestId('renderedFlexElement').getAttribute('data-paste-element')).toEqual('bar');
+  });
+});
+
+describe('Customization', () => {
+  it('should add custom styles to Flex', (): void => {
+    render(
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{FLEX: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+      >
+        <Flex data-testid="renderedFlexElement" />
+      </CustomizationProvider>
+    );
+    const renderedBox = screen.getByTestId('renderedFlexElement');
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
   });
 });
