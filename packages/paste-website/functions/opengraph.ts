@@ -77,7 +77,7 @@ const handler: Handler = async (event) => {
     // console.log('Visiting page:', pageToVisit, Date.now());
     await page.goto(pageToVisit, {
       // wait for the load event as we need JS to render the page
-      waitUntil: 'networkidle2',
+      waitUntil: 'networkidle0',
     });
     // console.log('Page visited', Date.now());
 

@@ -41,7 +41,6 @@ const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(({children, ...pr
       <StyledBase>
         <PopoverArrow {...(popover as any)} />
         <Box paddingX="space80" paddingY="space70">
-          {children}
           <Box position="absolute" right={8} top={8}>
             <Button
               variant="reset"
