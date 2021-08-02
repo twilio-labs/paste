@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Helmet} from 'react-helmet';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
@@ -7,7 +8,7 @@ import {Breadcrumb, BreadcrumbItem} from '../../breadcrumb';
 import {PackageStatusLegend} from '../package-status-legend';
 import {SidebarCategoryRoutes, STORYBOOK_DOMAIN} from '../../../constants';
 import {P, InlineCode} from '../../Typography';
-import {getHumanizedNameFromPackageName} from '../../../utils/RouteUtils';
+import {getHumanizedNameFromPackageName, getOpengraphServiceUrl} from '../../../utils/RouteUtils';
 import {sentenceCase} from '../../../utils/SentenceCase';
 import type {PackageStatusObject} from '../../../utils/types';
 
@@ -30,9 +31,15 @@ const getCategoryNameFromRoute = (categoryRoute: string): string => {
 
 const ComponentHeaderBasic: React.FC<{
   name: string;
+  ogImagePath?: string;
   categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
-}> = ({name, categoryRoute}) => (
+}> = ({name, ogImagePath, categoryRoute}) => (
   <>
+    {ogImagePath ? (
+      <Helmet>
+        <meta property="og:image" content={getOpengraphServiceUrl(ogImagePath)} />
+      </Helmet>
+    ) : null}
     <Breadcrumb>
       <BreadcrumbItem to="/">Home</BreadcrumbItem>
       <BreadcrumbItem to={categoryRoute}>{getCategoryNameFromRoute(categoryRoute)}</BreadcrumbItem>
@@ -98,11 +105,12 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
   if (packageStatus == null || packageStatus[0] == null || packageStatus[0].node == null) {
     return <ComponentHeaderBasic categoryRoute={categoryRoute} name={name} />;
   }
-  const {description, name: packageName, version} = data[0].node;
 
+  const ogImagePath = `${categoryRoute.replace('/', '')}/${data[0].node.name.replace('@twilio-paste/', '')}`;
+  const {description, name: packageName, version} = data[0].node;
   return (
     <>
-      <ComponentHeaderBasic categoryRoute={categoryRoute} name={name} />
+      <ComponentHeaderBasic categoryRoute={categoryRoute} name={name} ogImagePath={ogImagePath} />
       {categoryRoute.includes('/form/') ? null : <P variant="lead">{description}</P>}
       <PackageStatusLegend packageStatus={packageStatus} />
       <Box as="dl" marginBottom="space100">

@@ -1,3 +1,8 @@
+[dev]
+  command = "yarn start:website"
+  targetPort = 8000
+  framework = "#custom"
+
 [context.deploy-preview]
   # only do a preview deply when there is a website change
   ignore = "git diff --quiet HEAD^ main -- packages/paste-website packages/paste-theme-designer"
@@ -10,3 +15,7 @@
 
 [context.production.environment]
   GATSBY_ENVIRONMENT_CONTEXT = "production"
+
+[functions]
+  directory = "packages/paste-website/functions"
+  external_node_modules = ["chrome-aws-lambda", "puppeteer-core"]
