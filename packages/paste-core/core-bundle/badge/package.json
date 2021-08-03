@@ -1,8 +1,0 @@
-{
-  "name": "@twilio-paste-core/badge",
-  "version": "0.0.0",
-  "private": true,
-  "sideEffects": false,
-  "main": "../dist/badge.js",
-  "types": "../dist/badge.d.ts"
-}
