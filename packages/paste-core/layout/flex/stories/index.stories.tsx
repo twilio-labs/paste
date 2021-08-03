@@ -6,6 +6,7 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Truncate} from '@twilio-paste/truncate';
 import {Flex} from '../src';
 import {Display, VerticalAlign, HorizontalAlign} from '../src/types';
+import {CustomizationProvider} from '@twilio-paste/customization';
 
 const flexDisplayOptions = ['flex', 'inline-flex'];
 const flexVerticalAlignOptions = ['top', 'center', 'bottom', 'stretch'];
@@ -395,6 +396,59 @@ export const ContainedWidth = (): React.ReactNode => {
         </Flex>
       </Flex>
     </Box>
+  );
+};
+
+export const CustomizedFlex = (): React.ReactNode => {
+  return (
+    <>
+      <Paragraph>Default Flex Row</Paragraph>
+      <Box padding="space30" borderStyle="solid" marginBottom="space70">
+        <Flex display="flex">
+          <Flex>
+            <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
+          </Flex>
+          <Flex>
+            <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
+          </Flex>
+          <Flex>
+            <Box backgroundColor="colorBackgroundPrimary" minWidth="size20" minHeight="size10" />
+          </Flex>
+        </Flex>
+      </Box>
+      <Paragraph>Customized Flex Row</Paragraph>
+      <CustomizationProvider baseTheme="default" elements={{FLEX: {backgroundColor: 'colorBackgroundBusy'}}}>
+        <Box padding="space30" borderStyle="solid" marginBottom="space70">
+          <Flex display="flex">
+            <Flex>
+              <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
+            </Flex>
+            <Flex>
+              <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
+            </Flex>
+            <Flex>
+              <Box backgroundColor="colorBackgroundPrimary" minWidth="size20" minHeight="size10" />
+            </Flex>
+          </Flex>
+        </Box>
+      </CustomizationProvider>
+      <Paragraph>Customized Flex Row With Custom Element Attribute</Paragraph>
+      <CustomizationProvider baseTheme="default" elements={{MY_FLEX: {backgroundColor: 'colorBackgroundSuccess'}}}>
+        <Box padding="space30" borderStyle="solid" marginBottom="space70">
+          <Flex display="flex" element="MY_FLEX">
+            <Flex>
+              <Box backgroundColor="colorBackgroundBrand" minWidth="size20" minHeight="size10" />
+            </Flex>
+            <Flex>
+              <Box backgroundColor="colorBackgroundBrandHighlight" minWidth="size20" minHeight="size10" />
+            </Flex>
+            <Flex>
+              <Box backgroundColor="colorBackgroundPrimary" minWidth="size20" minHeight="size10" />
+            </Flex>
+          </Flex>
+        </Box>
+      </CustomizationProvider>
+    </>
   );
 };
 
