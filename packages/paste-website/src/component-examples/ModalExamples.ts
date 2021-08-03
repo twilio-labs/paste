@@ -6,10 +6,6 @@ const ModalTrigger = () => {
   const handleClose = () => setIsOpen(false);
   const modalHeadingID = useUID();
 
-  // Content properties
-  const [projectName, setProjectName] = React.useState('');
-  const projectInputID = useUID();
-
   return (
     <div>
       <Button variant="primary" onClick={handleOpen}>
