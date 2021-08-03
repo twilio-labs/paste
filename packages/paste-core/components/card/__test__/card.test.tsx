@@ -1,7 +1,6 @@
 import * as React from 'react';
-import {render} from 'react-dom';
 import {matchers} from 'jest-emotion';
-import {render as testRender, screen} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
@@ -12,7 +11,7 @@ expect.extend(matchers);
 
 describe('Card', () => {
   it('should render', (): void => {
-    testRender(
+    render(
       <Theme.Provider theme="default">
         <Card data-testid="card" />
       </Theme.Provider>
@@ -22,7 +21,7 @@ describe('Card', () => {
   });
 
   it('should render default padding', (): void => {
-    testRender(
+    render(
       <Theme.Provider theme="default">
         <Card data-testid="card" />
       </Theme.Provider>
@@ -32,7 +31,7 @@ describe('Card', () => {
   });
 
   it('should render custom padding values', (): void => {
-    testRender(
+    render(
       <Theme.Provider theme="default">
         <Card
           data-testid="card"
@@ -51,7 +50,7 @@ describe('Card', () => {
   });
 
   it('should render children', (): void => {
-    testRender(
+    render(
       <Theme.Provider theme="default">
         <Card>I AM A JEDI!!!!</Card>
       </Theme.Provider>
@@ -59,40 +58,55 @@ describe('Card', () => {
     const renderedCardContent = screen.getByText('I AM A JEDI!!!!');
     expect(renderedCardContent).toBeDefined();
   });
+});
 
-  it('should have no accessibility violations', async () => {
-    const container = document.createElement('div');
-    document.body.append(container);
-    render(
+describe('Accessibility', () => {
+  it('Should have no accessibility violations', async () => {
+    const {container} = render(
       <Theme.Provider theme="console">
         <Card>card content</Card>
-      </Theme.Provider>,
-      container
+      </Theme.Provider>
     );
-    const results = await axe(document.body);
+    const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
 });
 
 describe('HTML attributes', () => {
   it('should set a element data attribute for Card', () => {
-    testRender(<Card>card-content</Card>);
+    render(<Card>card-content</Card>);
     expect(screen.getByText('card-content').getAttribute('data-paste-element')).toEqual('CARD');
   });
   it('should set a custom element data attribute for Card', () => {
-    testRender(<Card element="foo">card-content</Card>);
+    render(<Card element="foo">card-content</Card>);
     expect(screen.getByText('card-content').getAttribute('data-paste-element')).toEqual('foo');
   });
 });
 
 describe('Customization', () => {
   it('should add custom styles to Card', (): void => {
-    testRender(
+    render(
       <CustomizationProvider
         baseTheme="default"
         elements={{CARD: {backgroundColor: 'colorBackground', borderColor: 'colorBorderDestructive'}}}
       >
         <Card data-testid="customizable-card">Custom card</Card>
+      </CustomizationProvider>
+    );
+    const renderedCard = screen.getByTestId('customizable-card');
+    expect(renderedCard).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+    expect(renderedCard).toHaveStyleRule('border-color', 'rgb(214,31,31)');
+  });
+
+  it('should add custom styles to Card with a custom element data attribute', (): void => {
+    render(
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{foo: {backgroundColor: 'colorBackground', borderColor: 'colorBorderDestructive'}}}
+      >
+        <Card element="foo" data-testid="customizable-card">
+          Custom card
+        </Card>
       </CustomizationProvider>
     );
     const renderedCard = screen.getByTestId('customizable-card');
