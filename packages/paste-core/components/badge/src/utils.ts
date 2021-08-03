@@ -2,12 +2,12 @@ import type {TextColorOptions, BackgroundColorOptions} from '@twilio-paste/style
 
 import type {BadgeVariants, BadgeProps} from './types';
 
-export const hasValidButtonVariantProps = ({as, onClick}: Pick<BadgeProps, 'as' | 'onClick'>): boolean => {
+export const hasValidButtonVariantProps = ({as, onClick}: Partial<BadgeProps>): boolean => {
   const clickHandlerIsValid = typeof onClick == 'function';
   const asPropIsValid = as === 'button';
   return clickHandlerIsValid && asPropIsValid;
 };
-export const hasValidAnchorVariantProps = ({as, href}: Pick<BadgeProps, 'as' | 'href'>): boolean => {
+export const hasValidAnchorVariantProps = ({as, href}: Partial<BadgeProps>): boolean => {
   const asPropIsValid = as === 'a';
   const hrefIsValid = typeof href === 'string';
   return asPropIsValid && hrefIsValid;

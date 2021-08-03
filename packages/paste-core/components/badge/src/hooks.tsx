@@ -28,11 +28,11 @@ export type StyleProps =
   | Record<string, never>;
 
 export const useFocusableVariants = (
-  props: Pick<BadgeProps, 'as' | 'onClick' | 'href'>
+  props: Omit<BadgeProps, 'variant' | 'children'>
 ): {
   wrapper: Wrapper;
   styleProps: StyleProps;
-  spanProps: Record<string, any>;
+  spanProps: Partial<Omit<BadgeProps, 'variant' | 'children'>> | Omit<BadgeProps, 'variant' | 'children'>;
 } => {
   const isValidButtonVariant = hasValidButtonVariantProps(props);
   const isValidAnchorVariant = hasValidAnchorVariantProps(props);

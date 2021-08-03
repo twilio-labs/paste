@@ -1,17 +1,20 @@
 import * as React from 'react';
 import {render, fireEvent} from '@testing-library/react';
+import {renderHook} from '@testing-library/react-hooks';
 import {matchers} from 'jest-emotion';
+
+import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Badge} from '../src';
-import {getVariantStyles} from '../src/utils';
+import {getVariantStyles, hasValidButtonVariantProps, hasValidAnchorVariantProps} from '../src/utils';
+import {useFocusableVariants, useResizeChildIcons} from '../src/hooks';
 
 expect.extend(matchers);
 
 describe('Badge', () => {
   describe('Utils', () => {
-    // @TODO other util tests.
     describe('getVariantStyles', () => {
       it('should return the correct tokens when variant is "success"', () => {
         expect(getVariantStyles('success')).toEqual({
@@ -53,6 +56,151 @@ describe('Badge', () => {
           backgroundColor: 'colorBackground',
           color: 'colorTextWeak',
         });
+      });
+    });
+
+    describe('hasValidButtonVariantProps', () => {
+      it('should return "true" if props.as is "button" and the props.onClick is a function', () => {
+        expect(hasValidButtonVariantProps({as: 'button', onClick: () => null})).toBe(true);
+      });
+      it('should return "false" if props.as is not "button" and the props.onClick is a function', () => {
+        expect(hasValidButtonVariantProps({as: 'a', onClick: () => null})).toBe(false);
+        // @ts-expect-error test case
+        expect(hasValidButtonVariantProps({as: true, onClick: () => null})).toBe(false);
+        // @ts-expect-error test case
+        expect(hasValidButtonVariantProps({as: 10, onClick: () => null})).toBe(false);
+        // @ts-expect-error test case
+        expect(hasValidButtonVariantProps({as: 'div', onClick: () => null})).toBe(false);
+      });
+      it('should return "false" if props.as is "button" and the props.onClick is not a function', () => {
+        expect(hasValidButtonVariantProps({as: 'button', onClick: true})).toBe(false);
+        expect(hasValidButtonVariantProps({as: 'button', onClick: undefined})).toBe(false);
+        expect(hasValidButtonVariantProps({as: 'button', onClick: null})).toBe(false);
+        expect(hasValidButtonVariantProps({as: 'button', onClick: {}})).toBe(false);
+        expect(hasValidButtonVariantProps({as: 'button', onClick: 'test'})).toBe(false);
+      });
+      it('should return "false" if props.as is not "button" and the props.onClick is not a function', () => {
+        expect(hasValidButtonVariantProps({as: 'a', onClick: true})).toBe(false);
+        // @ts-expect-error test case
+        expect(hasValidButtonVariantProps({as: true, onClick: undefined})).toBe(false);
+        // @ts-expect-error test case
+        expect(hasValidButtonVariantProps({as: 10, onClick: null})).toBe(false);
+        // @ts-expect-error test case
+        expect(hasValidButtonVariantProps({as: 'div', onClick: {}})).toBe(false);
+        expect(hasValidButtonVariantProps({as: null, onClick: 'test'})).toBe(false);
+      });
+    });
+
+    describe('hasValidAnchorVariantProps', () => {
+      it('should return "true" if props.as is "a" and the props.href is a string', () => {
+        expect(hasValidAnchorVariantProps({as: 'a', href: '#test'})).toBe(true);
+      });
+      it('should return "false" if props.as is not "a" and the props.href is a string', () => {
+        expect(hasValidAnchorVariantProps({as: 'button', href: '#test'})).toBe(false);
+        expect(hasValidAnchorVariantProps({as: undefined, href: '#test'})).toBe(false);
+        expect(hasValidAnchorVariantProps({as: null, href: '#test'})).toBe(false);
+        // @ts-expect-error test case
+        expect(hasValidAnchorVariantProps({as: true, href: '#test'})).toBe(false);
+        // @ts-expect-error test case
+        expect(hasValidAnchorVariantProps({as: 10, href: '#test'})).toBe(false);
+      });
+      it('should return "false" if props.as is "a" and the props.href is not a string', () => {
+        expect(hasValidAnchorVariantProps({as: 'a', href: undefined})).toBe(false);
+        expect(hasValidAnchorVariantProps({as: 'a', href: null})).toBe(false);
+        expect(hasValidAnchorVariantProps({as: 'a', href: () => null})).toBe(false);
+        expect(hasValidAnchorVariantProps({as: 'a', href: true})).toBe(false);
+      });
+      it('should return "false" if props.as is not "a" and the props.href is not a string', () => {
+        expect(hasValidAnchorVariantProps({as: 'button', href: undefined})).toBe(false);
+        expect(hasValidAnchorVariantProps({as: undefined, href: undefined})).toBe(false);
+        expect(hasValidAnchorVariantProps({as: null, href: undefined})).toBe(false);
+        // @ts-expect-error test case
+        expect(hasValidAnchorVariantProps({as: true, href: undefined})).toBe(false);
+        // @ts-expect-error test case
+        expect(hasValidAnchorVariantProps({as: 10, href: undefined})).toBe(false);
+      });
+    });
+  });
+
+  describe('Hooks', () => {
+    describe('useFocusableVariants', () => {
+      it('should return the focusable variant style props, no span props, and a button wrapper when "as" is "button" and "onClick" is a function', () => {
+        const {result} = renderHook(() => useFocusableVariants({as: 'button', onClick: () => null}));
+
+        const {wrapper: Wrapper, ...rest} = result.current;
+        expect(rest).toEqual({
+          styleProps: {
+            textDecoration: 'underline',
+            cursor: 'pointer',
+            _hover: {textDecoration: 'none'},
+            _focus: {boxShadow: 'shadowFocus', textDecoration: 'none'},
+          },
+          spanProps: {},
+        });
+
+        const {getByRole, getByText} = render(<Wrapper>Test</Wrapper>);
+        expect(getByRole('button')).toBeInTheDocument();
+        expect(getByText('Test')).toBeInTheDocument();
+      });
+
+      it('should return the focusable variant style props, no span props, and an anchor wrapper when "as" is "a" and "href" is a string', () => {
+        const {result} = renderHook(() => useFocusableVariants({as: 'a', href: '#test', onClick: () => null}));
+
+        const {wrapper: Wrapper, ...rest} = result.current;
+        expect(rest).toEqual({
+          styleProps: {
+            textDecoration: 'underline',
+            cursor: 'pointer',
+            _hover: {textDecoration: 'none'},
+            _focus: {boxShadow: 'shadowFocus', textDecoration: 'none'},
+          },
+          spanProps: {},
+        });
+
+        const {getByRole, getByText} = render(<Wrapper>Test</Wrapper>);
+
+        expect(getByRole('link')).toBeInTheDocument();
+        expect(getByText('Test')).toBeInTheDocument();
+      });
+
+      it('should return an props as span props, an empty style props object, and an react fragment wrapper by default', () => {
+        const {result} = renderHook(() => useFocusableVariants({'data-testid': 'test'}));
+
+        const {wrapper: Wrapper, ...rest} = result.current;
+        expect(rest).toEqual({
+          styleProps: {},
+          spanProps: {
+            'data-testid': 'test',
+          },
+        });
+
+        const {queryByRole, getByText} = render(<Wrapper>Test</Wrapper>);
+
+        expect(queryByRole('link')).not.toBeInTheDocument();
+        expect(queryByRole('a')).not.toBeInTheDocument();
+        expect(getByText('Test')).toBeInTheDocument();
+      });
+    });
+
+    describe('useResizeChildIcons', () => {
+      it('should meow', () => {
+        const {result} = renderHook(() => useResizeChildIcons(['test', <InformationIcon decorative />]));
+
+        const icon = result.current[1];
+
+        expect(icon.type.displayName).toEqual('InformationIcon');
+        expect(icon.props.size).toEqual('sizeIcon10');
+      });
+
+      it('should woof', () => {
+        const {result} = renderHook(() =>
+          useResizeChildIcons(['test', <InformationIcon size="sizeIcon40" decorative />])
+        );
+
+        const icon = result.current[1];
+
+        expect(icon.type.displayName).toEqual('InformationIcon');
+        expect(icon.props.size).toEqual('sizeIcon10');
       });
     });
   });
