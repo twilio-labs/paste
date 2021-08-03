@@ -3,7 +3,8 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
 import {DefaultAnchor} from './DefaultAnchor';
 import {InverseAnchor} from './InverseAnchor';
-import {AnchorProps, AnchorPropTypes} from './types';
+import {AnchorPropTypes} from './proptypes';
+import type {AnchorProps} from './types';
 
 const AnchorVariants = {
   inverse: InverseAnchor,
@@ -28,8 +29,17 @@ export const secureExternalLink = (
 const Anchor = React.forwardRef<HTMLAnchorElement, AnchorProps>(
   (
     {
+      element = 'ANCHOR',
+      variant = 'default',
+      showExternal,
       display,
       height,
+      minHeight,
+      maxHeight,
+      width,
+      minWidth,
+      maxWidth,
+      size,
       margin,
       marginBottom,
       marginLeft,
@@ -37,10 +47,6 @@ const Anchor = React.forwardRef<HTMLAnchorElement, AnchorProps>(
       marginTop,
       marginX = null,
       marginY = null,
-      maxHeight,
-      maxWidth,
-      minHeight,
-      minWidth,
       padding,
       paddingBottom,
       paddingLeft,
@@ -48,11 +54,7 @@ const Anchor = React.forwardRef<HTMLAnchorElement, AnchorProps>(
       paddingTop,
       paddingX = null,
       paddingY = null,
-      showExternal,
-      size,
-      variant = 'default',
       verticalAlign,
-      width,
       ...props
     },
     ref
@@ -66,8 +68,15 @@ const Anchor = React.forwardRef<HTMLAnchorElement, AnchorProps>(
         variant={variant}
         {...secureExternalLink(props.href)}
         {...safelySpreadBoxProps(props)}
+        element={element}
         display={display}
         height={height}
+        minHeight={minHeight}
+        maxHeight={maxHeight}
+        width={width}
+        minWidth={minWidth}
+        maxWidth={maxWidth}
+        size={size}
         margin={margin}
         marginBottom={marginBottom}
         marginLeft={marginLeft}
@@ -75,10 +84,6 @@ const Anchor = React.forwardRef<HTMLAnchorElement, AnchorProps>(
         marginTop={marginTop}
         marginX={marginX}
         marginY={marginY}
-        maxHeight={maxHeight}
-        maxWidth={maxWidth}
-        minHeight={minHeight}
-        minWidth={minWidth}
         padding={padding}
         paddingBottom={paddingBottom}
         paddingLeft={paddingLeft}
@@ -86,9 +91,7 @@ const Anchor = React.forwardRef<HTMLAnchorElement, AnchorProps>(
         paddingTop={paddingTop}
         paddingX={paddingX}
         paddingY={paddingY}
-        size={size}
         verticalAlign={verticalAlign}
-        width={width}
       >
         {showExternal ? (
           <Box as="span" display="inline-flex" alignItems="center">
