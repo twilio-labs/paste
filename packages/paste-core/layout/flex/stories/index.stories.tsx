@@ -1,12 +1,12 @@
 import * as React from 'react';
 import {withKnobs, select, boolean, number, text} from '@storybook/addon-knobs';
 import {Box} from '@twilio-paste/box';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Truncate} from '@twilio-paste/truncate';
 import {Flex} from '../src';
-import {Display, VerticalAlign, HorizontalAlign} from '../src/types';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import type {Display, VerticalAlign, HorizontalAlign} from '../src/types';
 
 const flexDisplayOptions = ['flex', 'inline-flex'];
 const flexVerticalAlignOptions = ['top', 'center', 'bottom', 'stretch'];
