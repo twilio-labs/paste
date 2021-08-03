@@ -69,6 +69,14 @@ export const PasteStyleProps = system({
   borderSpacing: true,
   tableLayout: true,
   fontVariantNumeric: true,
+  columnGap: {
+    property: 'columnGap',
+    scale: 'space',
+  },
+  rowGap: {
+    property: 'rowGap',
+    scale: 'space',
+  },
 });
 
 /**
