@@ -352,6 +352,39 @@ describe('Spaces', () => {
       media: 'screen and (min-width:25rem)',
     });
   });
+
+  it('(C) it should render single values for column and row gap', (): void => {
+    render(
+      <Theme.Provider theme="console">
+        <Box display="flex" columnGap="space10" rowGap="space10" data-testid="box">
+          space single 3
+        </Box>
+      </Theme.Provider>
+    );
+    const renderedBox = screen.getByTestId('box');
+    expect(renderedBox).toHaveStyleRule('column-gap', '0.125rem');
+    expect(renderedBox).toHaveStyleRule('row-gap', '0.125rem');
+  });
+
+  it('(C) it should render responsive values for column and row gap', (): void => {
+    render(
+      <Theme.Provider theme="console">
+        <Box display="flex" columnGap={['space20', 'space30']} rowGap={['space30', 'space40']} data-testid="box">
+          space single 3
+        </Box>
+      </Theme.Provider>
+    );
+    const renderedBox = screen.getByTestId('box');
+    expect(renderedBox).toHaveStyleRule('column-gap', '0.25rem');
+    expect(renderedBox).toHaveStyleRule('row-gap', '0.5rem');
+
+    expect(renderedBox).toHaveStyleRule('column-gap', '0.5rem', {
+      media: 'screen and (min-width:25rem)',
+    });
+    expect(renderedBox).toHaveStyleRule('row-gap', '0.75rem', {
+      media: 'screen and (min-width:25rem)',
+    });
+  });
 });
 
 describe('Shadows', () => {
