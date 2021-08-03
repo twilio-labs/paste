@@ -503,4 +503,17 @@ describe('Customization', () => {
     expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)');
     expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
   });
+  it('should add custom styles to Flex with custom element attributes', (): void => {
+    render(
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{MY_FLEX: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+      >
+        <Flex data-testid="renderedFlexElement" element="MY_FLEX" />
+      </CustomizationProvider>
+    );
+    const renderedBox = screen.getByTestId('renderedFlexElement');
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
+  });
 });
