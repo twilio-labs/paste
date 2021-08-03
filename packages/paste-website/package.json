@@ -87,7 +87,7 @@
     "color": "^3.1.2",
     "docsearch.js": "2.6.3",
     "dotenv": "^8.2.0",
-    "gatsby": "^2.19.19",
+    "gatsby": "^3.0.0",
     "gatsby-image": "^2.2.41",
     "gatsby-plugin-google-analytics": "^2.1.35",
     "gatsby-plugin-manifest": "^2.2.41",
