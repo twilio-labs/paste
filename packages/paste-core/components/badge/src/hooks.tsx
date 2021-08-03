@@ -1,17 +1,15 @@
 import * as React from 'react';
-import type {Padding} from '@twilio-paste/style-props';
 import {Button} from '@twilio-paste/button';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import {safelySpreadBoxProps} from '@twilio-paste/box';
 import {useUIDSeed} from '@twilio-paste/uid-library';
 
-import type {BadgeProps} from './types';
+import type {BadgeProps, BadgeChildren} from './types';
 import {hasValidAnchorVariantProps, hasValidButtonVariantProps, safelySpreadProps} from './utils';
 
 const BUTTON_DENY_LIST = ['fullWidth', 'as', 'size', 'type', 'variant', 'href'];
 const ANCHOR_DENY_LIST = ['variant', 'as', 'onHover'];
 
 const DEFAULT_ICON_SIZE = 'sizeIcon10';
-const BADGE_ICON_PADDING = 'space10';
 const FOCUSABLE_STYLES = {
   textDecoration: 'underline',
   cursor: 'pointer',
@@ -46,8 +44,6 @@ export const useFocusableVariants = (
   const buttonProps = safelySpreadProps(redactedProps, BUTTON_DENY_LIST);
   const anchorProps = safelySpreadProps(redactedProps, ANCHOR_DENY_LIST);
 
-  // eslint-disable-next-line unicorn/consistent-function-scoping
-
   if (isValidButtonVariant) {
     return {
       styleProps,
@@ -58,7 +54,6 @@ export const useFocusableVariants = (
       ),
       spanProps: {},
     };
-    // UPDATE SPAN PROPS
   }
   if (isValidAnchorVariant) {
     return {
@@ -70,8 +65,6 @@ export const useFocusableVariants = (
       ),
       spanProps: {},
     };
-
-    // UPDATE SPAN PROPS
   }
 
   return {
@@ -81,59 +74,26 @@ export const useFocusableVariants = (
   };
 };
 
-const StyledSpan: React.FC<{children: React.ReactNode}> = ({children, ...props}) => (
-  <Box display="inherit" as="span" alignSelf="center" {...props}>
-    {children}
-  </Box>
-);
-
-export const useWrapChildren = (reactChildren: React.ReactNode): React.ReactNode => {
+export const useResizeChildIcons = (children: BadgeChildren): BadgeChildren => {
   const seed = useUIDSeed();
-  if (!Array.isArray(reactChildren)) {
-    return (
-      <Box as="span" display="inherit">
-        {reactChildren}
-      </Box>
-    );
+
+  if (!Array.isArray(children)) {
+    return children;
   }
 
-  const lastChildIndex = reactChildren.length - 1;
-
-  return reactChildren.map((child, idx) => {
-    const key = seed(child);
-
-    if (typeof child === 'string') {
-      return <StyledSpan key={key}>{child}</StyledSpan>;
+  return children.map((child) => {
+    if (
+      typeof child === 'object' &&
+      !Array.isArray(child) &&
+      typeof child?.type?.displayName === 'string' &&
+      child?.type?.displayName.includes('Icon')
+    ) {
+      return React.cloneElement(child, {
+        ...child.props,
+        key: seed(child),
+        size: DEFAULT_ICON_SIZE,
+      });
     }
-
-    const nonStringChild = child as React.ReactElement<Record<string, any>, React.NamedExoticComponent>;
-
-    const {
-      type: {displayName},
-      props,
-    } = nonStringChild;
-
-    if (typeof displayName === 'string' && displayName.includes('Icon')) {
-      const padding: {[x: string]: Padding} = {
-        paddingLeft: BADGE_ICON_PADDING,
-        paddingRight: BADGE_ICON_PADDING,
-      };
-      if (idx === 0) {
-        delete padding.paddingLeft;
-      } else if (idx === lastChildIndex) {
-        delete padding.paddingRight;
-      }
-
-      return (
-        <StyledSpan key={key} {...padding}>
-          {React.cloneElement(nonStringChild, {
-            ...props,
-            size: DEFAULT_ICON_SIZE,
-          })}
-        </StyledSpan>
-      );
-    }
-
-    return <StyledSpan key={key}>{child}</StyledSpan>;
+    return <React.Fragment key={seed(child)}>{child}</React.Fragment>;
   });
 };
