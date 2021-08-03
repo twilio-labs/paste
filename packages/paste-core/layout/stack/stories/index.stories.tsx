@@ -1,11 +1,14 @@
 import * as React from 'react';
 import {withKnobs, select} from '@storybook/addon-knobs';
-import {DefaultTheme, ThemeShape} from '@twilio-paste/theme';
+import type {ThemeShape} from '@twilio-paste/theme';
+import {DefaultTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
-import {Stack, StackOrientation} from '../src';
+import {CustomizationProvider} from '@twilio-paste/customization';
+import type {StackOrientation} from '../src';
+import {Stack} from '../src';
 
 const orientationOptions = ['horizontal', 'vertical'];
 const spaceOptions = Object.keys(DefaultTheme.space);
@@ -145,4 +148,86 @@ export const OneChild = (): React.ReactNode => {
 
 OneChild.story = {
   name: 'Stack - One Child',
+};
+
+export const CustomizedStack = (): React.ReactNode => {
+  return (
+    <>
+      <Stack orientation="vertical" spacing="space40">
+        <Card>
+          <Heading as="h2" variant="heading20">
+            First Card
+          </Heading>
+        </Card>
+
+        <Card>
+          <Heading as="h2" variant="heading20">
+            Second Card
+          </Heading>
+        </Card>
+      </Stack>
+
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{
+          STACK: {
+            backgroundColor: 'colorBackground',
+            padding: 'space40',
+            color: 'colorTextWarning',
+          },
+          STACK_CHILD: {
+            flex: 1,
+          },
+          STACKY: {
+            padding: 'space40',
+          },
+          STACKY_CHILD: {
+            fontWeight: 'fontWeightBold',
+          },
+        }}
+      >
+        {/* Default Customized Stack */}
+        <Stack orientation={['vertical', 'vertical', 'horizontal']} spacing="space40">
+          <Card>
+            <Heading as="h2" variant="heading20">
+              First Card
+            </Heading>
+
+            <p>Customized Card content.</p>
+          </Card>
+
+          <Card>
+            <Heading as="h2" variant="heading20">
+              Second Card
+            </Heading>
+
+            <p>Customized Card content.</p>
+          </Card>
+        </Stack>
+
+        {/* Custom Named Stack */}
+        <Stack orientation="vertical" spacing="space40" element="STACKY">
+          <Card>
+            <Heading as="h2" variant="heading20">
+              First Card
+            </Heading>
+
+            <p>Customized Card content.</p>
+          </Card>
+
+          <Card>
+            <Heading as="h2" variant="heading20">
+              Second Card
+            </Heading>
+
+            <p>Customized Card content.</p>
+          </Card>
+        </Stack>
+      </CustomizationProvider>
+    </>
+  );
+};
+
+CustomizedStack.story = {
+  name: 'Stack - Customized',
 };

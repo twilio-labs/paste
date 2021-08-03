@@ -1,16 +1,11 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {useUIDSeed} from '@twilio-paste/uid-library';
-import {ResponsiveValue} from '@twilio-paste/styling-library';
-import {
-  isSpaceTokenProp,
-  ResponsiveProp,
-  LayoutProps,
-  FlexboxProps,
-  MarginProps,
-  SpaceOptions,
-} from '@twilio-paste/style-props';
-import {Box, BoxElementProps, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {ResponsiveValue} from '@twilio-paste/styling-library';
+import type {LayoutProps, FlexboxProps, MarginProps, SpaceOptions} from '@twilio-paste/style-props';
+import {isSpaceTokenProp, ResponsiveProp} from '@twilio-paste/style-props';
+import type {BoxElementProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
 type StackChildMargins = Pick<MarginProps, 'marginRight' | 'marginBottom'>;
 type DisplayOptions = 'block' | 'flex';
@@ -81,37 +76,42 @@ export const getStackChildMargins = (orientation: StackOrientation, spacing: Spa
   return styles;
 };
 
-const Stack = React.forwardRef<HTMLDivElement, StackProps>(({children, orientation, spacing, ...props}, ref) => {
-  const [childrenCount, validChildren] = React.useMemo(() => {
-    const filteredChildren = React.Children.toArray(children).filter(
-      (child) => React.isValidElement(child) || typeof child === 'string'
-    );
-    return [filteredChildren.length, filteredChildren];
-  }, [children]);
-  const stackStyles = React.useMemo(() => getStackStyles(orientation), [orientation]);
-  const childMargins = React.useMemo(() => getStackChildMargins(orientation, spacing), [orientation, spacing]);
-  const keySeed = useUIDSeed();
+const Stack = React.forwardRef<HTMLDivElement, StackProps>(
+  ({children, orientation, spacing, element = 'STACK', ...props}, ref) => {
+    const [childrenCount, validChildren] = React.useMemo(() => {
+      const filteredChildren = React.Children.toArray(children).filter(
+        (child) => React.isValidElement(child) || typeof child === 'string'
+      );
+      return [filteredChildren.length, filteredChildren];
+    }, [children]);
+    const stackStyles = React.useMemo(() => getStackStyles(orientation), [orientation]);
+    const childMargins = React.useMemo(() => getStackChildMargins(orientation, spacing), [orientation, spacing]);
+    const keySeed = useUIDSeed();
 
-  return (
-    <Box {...safelySpreadBoxProps(props)} {...stackStyles} ref={ref}>
-      {validChildren.map((child, index) => {
-        return (
-          <Box {...(childrenCount !== index + 1 ? childMargins : null)} key={keySeed(`stack-${index}`)}>
-            {child}
-          </Box>
-        );
-      })}
-    </Box>
-  );
-});
+    return (
+      <Box element={element} {...safelySpreadBoxProps(props)} {...stackStyles} ref={ref}>
+        {validChildren.map((child, index) => {
+          return (
+            <Box
+              element={`${element}_CHILD`}
+              {...(childrenCount !== index + 1 ? childMargins : null)}
+              key={keySeed(`stack-${index}`)}
+            >
+              {child}
+            </Box>
+          );
+        })}
+      </Box>
+    );
+  }
+);
 
 Stack.displayName = 'Stack';
 
-if (process.env.NODE_ENV === 'development') {
-  Stack.propTypes = {
-    orientation: ResponsiveProp(PropTypes.oneOf(['horizontal', 'vertical'])).isRequired,
-    spacing: isSpaceTokenProp,
-  };
-}
+Stack.propTypes = {
+  orientation: ResponsiveProp(PropTypes.oneOf(['horizontal', 'vertical'])).isRequired,
+  spacing: isSpaceTokenProp,
+  element: PropTypes.string,
+};
 
 export {Stack};
