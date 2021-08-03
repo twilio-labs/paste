@@ -1,7 +1,8 @@
+import type {BoxProps} from '@twilio-paste/box';
 import type {ResponsiveValue} from '@twilio-paste/styling-library';
 import type {LayoutProps, FlexboxProps, PaddingProps, Space, Padding, SpaceProps} from '@twilio-paste/style-props';
 
-export interface GridProps extends SpaceProps {
+export interface GridProps extends React.HTMLAttributes<any>, SpaceProps, Pick<BoxProps, 'element'> {
   as?: keyof JSX.IntrinsicElements;
   children: NonNullable<React.ReactNode>;
   equalColumnHeights?: boolean;
@@ -29,7 +30,7 @@ export interface ColumnStyleProps extends Omit<LayoutProps, 'minWidth' | 'width'
   width?: ColumnWidthSpan;
 }
 
-export interface ColumnProps extends ColumnStyleProps {
+export interface ColumnProps extends React.HTMLAttributes<any>, ColumnStyleProps, Pick<BoxProps, 'element'> {
   as?: keyof JSX.IntrinsicElements;
   children?: React.ReactNode;
   count?: number;
