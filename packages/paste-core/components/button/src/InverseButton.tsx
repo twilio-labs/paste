@@ -20,7 +20,7 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
     color: 'colorTextInverse',
     fontWeight: 'fontWeightSemibold',
     backgroundColor: 'colorBackgroundInverseStrong',
-    boxShadow: 'shadowBorderInverseStrong',
+    boxShadow: 'shadowBorderInverseStrongest',
   },
   _focus: {
     color: 'colorTextInverse',

@@ -88,3 +88,6 @@ packages/paste-codemods/tools/mappings.json
 # Cypress
 cypress/videos
 cypress/screenshots
+
+# Local Netlify folder
+.netlify

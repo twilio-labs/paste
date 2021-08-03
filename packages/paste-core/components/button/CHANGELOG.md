@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.0.6
+
+### Patch Changes
+
+- [`1a7fcfbc`](https://github.com/twilio-labs/paste/commit/1a7fcfbc60601b277f1fec435f43c9f53e05025a) [#1708](https://github.com/twilio-labs/paste/pull/1708) Thanks [@nkrantz](https://github.com/nkrantz)! - Update inverse button to use `shadow-border-inverse-strongest` on hover
+
 ## 7.0.5
 
 ### Patch Changes

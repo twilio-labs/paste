@@ -18,6 +18,14 @@ export function getCurrentPathHash(): string {
   return window.location.hash;
 }
 
+export function getCurrentOrigin(): string {
+  if (!hasWindowObject()) {
+    // Be default, assume the origin is our own domain
+    return 'https://paste.twilio.design';
+  }
+  return window.location.origin;
+}
+
 // Returns "aspect-ratio" from "@twilio-paste/aspect-ratio"
 export function getNameFromPackageName(packageName: string): string {
   return packageName.replace(PASTE_PACKAGE_PREFIX, '');
@@ -35,4 +43,8 @@ export function getPackagePath(categoryRoute: string, packageName: string): stri
 
 export function slugify(text: string): string {
   return kebabCase(text.toLowerCase().replace(/[&+]/g, '-and-'));
+}
+
+export function getOpengraphServiceUrl(path: string): string {
+  return `${getCurrentOrigin()}/.netlify/functions/opengraph/${path}`;
 }
