@@ -1,5 +1,5 @@
-import {ResponsiveValue} from '@twilio-paste/styling-library';
-import {LayoutProps, FlexboxProps, PaddingProps, Space, SpaceProps} from '@twilio-paste/style-props';
+import type {ResponsiveValue} from '@twilio-paste/styling-library';
+import type {LayoutProps, FlexboxProps, PaddingProps, Space, Padding, SpaceProps} from '@twilio-paste/style-props';
 
 export interface GridProps extends SpaceProps {
   as?: keyof JSX.IntrinsicElements;
@@ -15,6 +15,12 @@ export type ColumnOffsetOptions = number;
 export type ColumnOffset = ResponsiveValue<ColumnOffsetOptions>;
 export type ColumnSpanOptions = number;
 export type ColumnSpan = ResponsiveValue<ColumnSpanOptions>;
+export type ColumnPadding = {
+  paddingTop?: Padding;
+  paddingBottom?: Padding;
+  paddingRight?: Padding;
+  paddingLeft?: Padding;
+};
 
 export interface ColumnStyleProps extends Omit<LayoutProps, 'minWidth' | 'width'>, PaddingProps {
   alignContent?: FlexboxProps['alignContent'];
