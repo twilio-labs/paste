@@ -183,7 +183,7 @@ describe('Badge', () => {
     });
 
     describe('useResizeChildIcons', () => {
-      it('should meow', () => {
+      it('should return return no modifications when child icon size is default', () => {
         const {result} = renderHook(() => useResizeChildIcons(['test', <InformationIcon decorative />]));
 
         const icon = result.current[1];
@@ -192,7 +192,7 @@ describe('Badge', () => {
         expect(icon.props.size).toEqual('sizeIcon10');
       });
 
-      it('should woof', () => {
+      it('should return the correct modifications when child icon size is not the default', () => {
         const {result} = renderHook(() =>
           useResizeChildIcons(['test', <InformationIcon size="sizeIcon40" decorative />])
         );
