@@ -169,9 +169,9 @@ describe('Avatar', () => {
       expect(avatarComponent.getAttribute('data-paste-element')).toEqual('AVATAR');
     });
     it('should set a custom element data attribute for Avatar', () => {
-      render(<Avatar data-testid="avatar" element="foo" size="sizeIcon20" name="avatar example" icon={UserIcon} />);
+      render(<Avatar data-testid="avatar" element="FOO" size="sizeIcon20" name="avatar example" icon={UserIcon} />);
       const avatarComponent = screen.getByTestId('avatar');
-      expect(avatarComponent.getAttribute('data-paste-element')).toEqual('foo');
+      expect(avatarComponent.getAttribute('data-paste-element')).toEqual('FOO');
     });
 
     it('should add custom styles to Avatar', () => {
@@ -181,6 +181,18 @@ describe('Avatar', () => {
           elements={{AVATAR: {color: 'colorTextWeaker', backgroundColor: 'colorBackgroundAvailable'}}}
         >
           <Avatar data-testid="avatar" size="sizeIcon20" name="avatar example" />
+        </CustomizationProvider>
+      );
+      const renderedAvatar = screen.getByTestId('avatar');
+      expect(renderedAvatar).toHaveStyleRule('background-color', 'rgb(20,176,83)');
+    });
+    it('should add custom styles to custom element Avatar', () => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          elements={{FOO: {color: 'colorTextWeaker', backgroundColor: 'colorBackgroundAvailable'}}}
+        >
+          <Avatar data-testid="avatar" element="FOO" size="sizeIcon20" name="avatar example" />
         </CustomizationProvider>
       );
       const renderedAvatar = screen.getByTestId('avatar');
