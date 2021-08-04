@@ -75,6 +75,7 @@ Avatar.displayName = 'Avatar';
 Avatar.propTypes = {
   size: isIconSizeTokenProp,
   name: PropTypes.string.isRequired,
+  element: PropTypes.string,
   src: (props) => {
     // eslint-disable-next-line no-new
     if (props.src && props.icon) new Error('[Paste Avatar]: do not set both src and icon on Avatar');

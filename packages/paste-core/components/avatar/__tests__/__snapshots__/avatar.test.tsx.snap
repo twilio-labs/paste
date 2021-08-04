@@ -48,7 +48,7 @@ exports[`Avatar image should render responsive css with an image 1`] = `
 
 <div
     class="emotion-1"
-    data-paste-element="BOX"
+    data-paste-element="AVATAR"
     overflow="hidden"
   >
     <img
@@ -116,7 +116,7 @@ exports[`Avatar intials should render responsive css 1`] = `
 
 <div
     class="emotion-1"
-    data-paste-element="BOX"
+    data-paste-element="AVATAR"
     overflow="hidden"
   >
     <abbr
