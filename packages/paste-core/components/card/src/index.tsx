@@ -5,6 +5,7 @@ import type {BoxProps} from '@twilio-paste/box';
 import type {PaddingProps} from '@twilio-paste/style-props';
 import {isPaddingTokenProp} from '@twilio-paste/style-props';
 
+/** element identifier from BoxProps for customization */
 export interface CardProps extends React.HTMLAttributes<HTMLElement>, PaddingProps, Pick<BoxProps, 'element'> {}
 
 const Card = React.forwardRef<HTMLElement, CardProps>(
@@ -36,7 +37,6 @@ const Card = React.forwardRef<HTMLElement, CardProps>(
 );
 
 Card.propTypes = {
-  /** element identifier for customization */
   element: PropTypes.string,
   padding: isPaddingTokenProp,
   paddingTop: isPaddingTokenProp,

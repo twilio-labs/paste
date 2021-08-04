@@ -4,7 +4,7 @@ import {withKnobs, select} from '@storybook/addon-knobs';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Text} from '@twilio-paste/text';
-import type {Padding as PaddingProps} from '@twilio-paste/style-props';
+import type {Padding} from '@twilio-paste/style-props';
 import {DefaultTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Card} from '../src';
@@ -19,7 +19,7 @@ export default {
 };
 
 export const Default = (): React.ReactNode => (
-  <Card padding={select('padding', spaceOptions, 'space10') as PaddingProps}>
+  <Card padding={select('padding', spaceOptions, 'space10') as Padding}>
     <Heading as="h2" variant="heading20">
       Notifications
     </Heading>
@@ -30,7 +30,7 @@ export const Default = (): React.ReactNode => (
   </Card>
 );
 
-export const Padding = (): React.ReactNode => (
+export const DefinedPadding = (): React.ReactNode => (
   <Card padding="space200">
     <Heading as="h2" variant="heading20">
       Mass Alerts
@@ -40,6 +40,10 @@ export const Padding = (): React.ReactNode => (
     </Paragraph>
   </Card>
 );
+
+DefinedPadding.story = {
+  name: 'Padding',
+};
 
 export const NoPadding = (): React.ReactNode => (
   <Card padding="space0">
