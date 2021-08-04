@@ -1,4 +1,4 @@
-import {ButtonProps} from '@twilio-paste/button';
+import type {ButtonProps} from '@twilio-paste/button';
 
 export type NamedChild = React.ReactElement<Record<string, any>, React.NamedExoticComponent>;
 

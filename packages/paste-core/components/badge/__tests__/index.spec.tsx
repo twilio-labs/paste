@@ -5,9 +5,10 @@ import {matchers} from 'jest-emotion';
 
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore typescript doesn't like js imports
+// @ts-ignore
 import axe from '../../../../../.jest/axe-helper';
 import {Badge} from '../src';
+import type {NamedChild} from '../src/types';
 import {getVariantStyles, hasValidButtonVariantProps, hasValidAnchorVariantProps} from '../src/utils';
 import {useFocusableVariants, useResizeChildIcons} from '../src/hooks';
 
@@ -65,28 +66,32 @@ describe('Badge', () => {
       });
       it('should return "false" if props.as is not "button" and the props.onClick is a function', () => {
         expect(hasValidButtonVariantProps({as: 'a', onClick: () => null})).toBe(false);
-        // @ts-expect-error test case
+        // @ts-expect-error testing incorrectly typed inputs
         expect(hasValidButtonVariantProps({as: true, onClick: () => null})).toBe(false);
-        // @ts-expect-error test case
+        // @ts-expect-error testing incorrectly typed inputs
         expect(hasValidButtonVariantProps({as: 10, onClick: () => null})).toBe(false);
-        // @ts-expect-error test case
+        // @ts-expect-error testing incorrectly typed inputs
         expect(hasValidButtonVariantProps({as: 'div', onClick: () => null})).toBe(false);
       });
       it('should return "false" if props.as is "button" and the props.onClick is not a function', () => {
+        // @ts-expect-error testing incorrectly typed inputs
         expect(hasValidButtonVariantProps({as: 'button', onClick: true})).toBe(false);
         expect(hasValidButtonVariantProps({as: 'button', onClick: undefined})).toBe(false);
-        expect(hasValidButtonVariantProps({as: 'button', onClick: null})).toBe(false);
+        // @ts-expect-error testing incorrectly typed inputs
         expect(hasValidButtonVariantProps({as: 'button', onClick: {}})).toBe(false);
+        // @ts-expect-error testing incorrectly typed inputs
         expect(hasValidButtonVariantProps({as: 'button', onClick: 'test'})).toBe(false);
       });
       it('should return "false" if props.as is not "button" and the props.onClick is not a function', () => {
+        // @ts-expect-error testing incorrectly typed inputs
         expect(hasValidButtonVariantProps({as: 'a', onClick: true})).toBe(false);
-        // @ts-expect-error test case
+        // @ts-expect-error testing incorrectly typed inputs
         expect(hasValidButtonVariantProps({as: true, onClick: undefined})).toBe(false);
-        // @ts-expect-error test case
+        // @ts-expect-error testing incorrectly typed inputs
         expect(hasValidButtonVariantProps({as: 10, onClick: null})).toBe(false);
-        // @ts-expect-error test case
+        // @ts-expect-error testing incorrectly typed inputs
         expect(hasValidButtonVariantProps({as: 'div', onClick: {}})).toBe(false);
+        // @ts-expect-error testing incorrectly typed inputs
         expect(hasValidButtonVariantProps({as: null, onClick: 'test'})).toBe(false);
       });
     });
@@ -98,25 +103,24 @@ describe('Badge', () => {
       it('should return "false" if props.as is not "a" and the props.href is a string', () => {
         expect(hasValidAnchorVariantProps({as: 'button', href: '#test'})).toBe(false);
         expect(hasValidAnchorVariantProps({as: undefined, href: '#test'})).toBe(false);
-        expect(hasValidAnchorVariantProps({as: null, href: '#test'})).toBe(false);
-        // @ts-expect-error test case
+        // @ts-expect-error testing incorrectly typed inputs
         expect(hasValidAnchorVariantProps({as: true, href: '#test'})).toBe(false);
-        // @ts-expect-error test case
+        // @ts-expect-error testing incorrectly typed inputs
         expect(hasValidAnchorVariantProps({as: 10, href: '#test'})).toBe(false);
       });
       it('should return "false" if props.as is "a" and the props.href is not a string', () => {
         expect(hasValidAnchorVariantProps({as: 'a', href: undefined})).toBe(false);
-        expect(hasValidAnchorVariantProps({as: 'a', href: null})).toBe(false);
+        // @ts-expect-error testing incorrectly typed inputs
         expect(hasValidAnchorVariantProps({as: 'a', href: () => null})).toBe(false);
+        // @ts-expect-error testing incorrectly typed inputs
         expect(hasValidAnchorVariantProps({as: 'a', href: true})).toBe(false);
       });
       it('should return "false" if props.as is not "a" and the props.href is not a string', () => {
         expect(hasValidAnchorVariantProps({as: 'button', href: undefined})).toBe(false);
         expect(hasValidAnchorVariantProps({as: undefined, href: undefined})).toBe(false);
-        expect(hasValidAnchorVariantProps({as: null, href: undefined})).toBe(false);
-        // @ts-expect-error test case
+        // @ts-expect-error testing incorrectly typed inputs
         expect(hasValidAnchorVariantProps({as: true, href: undefined})).toBe(false);
-        // @ts-expect-error test case
+        // @ts-expect-error testing incorrectly typed inputs
         expect(hasValidAnchorVariantProps({as: 10, href: undefined})).toBe(false);
       });
     });
@@ -164,14 +168,12 @@ describe('Badge', () => {
       });
 
       it('should return an props as span props, an empty style props object, and an react fragment wrapper by default', () => {
-        const {result} = renderHook(() => useFocusableVariants({'data-testid': 'test'}));
+        const {result} = renderHook(() => useFocusableVariants({}));
 
         const {wrapper: Wrapper, ...rest} = result.current;
         expect(rest).toEqual({
           styleProps: {},
-          spanProps: {
-            'data-testid': 'test',
-          },
+          spanProps: {},
         });
 
         const {queryByRole, getByText} = render(<Wrapper>Test</Wrapper>);
@@ -186,7 +188,7 @@ describe('Badge', () => {
       it('should return return no modifications when child icon size is default', () => {
         const {result} = renderHook(() => useResizeChildIcons(['test', <InformationIcon decorative />]));
 
-        const icon = result.current[1];
+        const icon = (result.current as ArrayLike<NamedChild>)[1];
 
         expect(icon.type.displayName).toEqual('InformationIcon');
         expect(icon.props.size).toEqual('sizeIcon10');
@@ -197,7 +199,7 @@ describe('Badge', () => {
           useResizeChildIcons(['test', <InformationIcon size="sizeIcon40" decorative />])
         );
 
-        const icon = result.current[1];
+        const icon = (result.current as ArrayLike<NamedChild>)[1];
 
         expect(icon.type.displayName).toEqual('InformationIcon');
         expect(icon.props.size).toEqual('sizeIcon10');
