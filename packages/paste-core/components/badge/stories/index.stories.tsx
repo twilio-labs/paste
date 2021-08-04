@@ -1,10 +1,11 @@
 import * as React from 'react';
-import {Stack} from '@twilio-paste/stack';
+import {Box} from '@twilio-paste/box';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
+import {styled, css} from '@twilio-paste/styling-library';
 
 import {Badge} from '../src';
 
@@ -14,19 +15,27 @@ export default {
   component: Badge,
 };
 
+const Wrapper = styled.div(
+  css({
+    display: 'flex',
+    columnGap: 'space60',
+    alignItems: 'center',
+  })
+);
+
 export const AllBadges: React.FC = () => (
-  <Stack orientation="horizontal" spacing="space80">
+  <Wrapper>
     <Badge variant="default">Default</Badge>
     <Badge variant="info">Info</Badge>
     <Badge variant="warning">Warning</Badge>
     <Badge variant="error">Error</Badge>
     <Badge variant="success">Success</Badge>
     <Badge variant="new">New</Badge>
-  </Stack>
+  </Wrapper>
 );
 
 export const DefaultBadge: React.FC = () => (
-  <Stack orientation="horizontal" spacing="space80">
+  <Wrapper>
     <Badge variant="default">Default</Badge>
     <Badge variant="default">
       <InformationIcon decorative />
@@ -36,11 +45,11 @@ export const DefaultBadge: React.FC = () => (
       Default&nbsp;
       <InformationIcon decorative />
     </Badge>
-  </Stack>
+  </Wrapper>
 );
 
 export const DefaultBadgeAsAnchor: React.FC = () => (
-  <Stack orientation="horizontal" spacing="space80">
+  <Wrapper>
     <Badge variant="default">Default</Badge>
 
     <Badge variant="default">
@@ -52,29 +61,31 @@ export const DefaultBadgeAsAnchor: React.FC = () => (
       Default&nbsp;
       <InformationIcon decorative />
     </Badge>
-  </Stack>
+  </Wrapper>
 );
 
 export const DefaultBadgeAsButton: React.FC = () => (
-  <Stack orientation="horizontal" spacing="space80">
-    <Badge as="button" onClick={() => {}} variant="default">
-      Default
-    </Badge>
+  <Box display="flex" flexDirection="column" alignContent="flex-start">
+    <Wrapper>
+      <Badge as="button" onClick={() => {}} variant="default">
+        Default
+      </Badge>
 
-    <Badge as="button" onClick={() => {}} variant="default">
-      <InformationIcon decorative />
-      &nbsp;Default
-    </Badge>
+      <Badge as="button" onClick={() => {}} variant="default">
+        <InformationIcon decorative />
+        &nbsp;Default
+      </Badge>
 
-    <Badge as="button" onClick={() => {}} variant="default">
-      Default&nbsp;
-      <InformationIcon decorative />
-    </Badge>
-  </Stack>
+      <Badge as="button" onClick={() => {}} variant="default">
+        Default&nbsp;
+        <InformationIcon decorative />
+      </Badge>
+    </Wrapper>
+  </Box>
 );
 
 export const InfoBadge: React.FC = () => (
-  <Stack orientation="horizontal" spacing="space80">
+  <Wrapper>
     <Badge variant="info">Info</Badge>
 
     <Badge variant="info">
@@ -86,10 +97,10 @@ export const InfoBadge: React.FC = () => (
       Info&nbsp;
       <InformationIcon decorative />
     </Badge>
-  </Stack>
+  </Wrapper>
 );
 export const InfoBadgeAsButton: React.FC = () => (
-  <Stack orientation="horizontal" spacing="space80">
+  <Wrapper>
     <Badge as="button" onClick={() => {}} variant="info">
       Info
     </Badge>
@@ -103,10 +114,10 @@ export const InfoBadgeAsButton: React.FC = () => (
       Info&nbsp;
       <InformationIcon decorative />
     </Badge>
-  </Stack>
+  </Wrapper>
 );
 export const InfoBadgeAsAnchor: React.FC = () => (
-  <Stack orientation="horizontal" spacing="space80">
+  <Wrapper>
     <Badge as="a" href="#" variant="info">
       Info
     </Badge>
@@ -120,11 +131,11 @@ export const InfoBadgeAsAnchor: React.FC = () => (
       Info&nbsp;
       <InformationIcon decorative />
     </Badge>
-  </Stack>
+  </Wrapper>
 );
 
 export const WarningBadge: React.FC = () => (
-  <Stack orientation="horizontal" spacing="space80">
+  <Wrapper>
     <Badge variant="warning">Warning</Badge>
 
     <Badge variant="warning">
@@ -136,11 +147,11 @@ export const WarningBadge: React.FC = () => (
       Warning&nbsp;
       <WarningIcon decorative />
     </Badge>
-  </Stack>
+  </Wrapper>
 );
 
 export const WarningBadgeAsButton: React.FC = () => (
-  <Stack orientation="horizontal" spacing="space80">
+  <Wrapper>
     <Badge as="a" href="#" variant="warning">
       Warning
     </Badge>
@@ -154,11 +165,11 @@ export const WarningBadgeAsButton: React.FC = () => (
       Warning&nbsp;
       <WarningIcon decorative />
     </Badge>
-  </Stack>
+  </Wrapper>
 );
 
 export const WarningBadgeAsAnchor: React.FC = () => (
-  <Stack orientation="horizontal" spacing="space80">
+  <Wrapper>
     <Badge as="a" href="#" variant="warning">
       Warning
     </Badge>
@@ -172,11 +183,11 @@ export const WarningBadgeAsAnchor: React.FC = () => (
       Warning&nbsp;
       <WarningIcon decorative />
     </Badge>
-  </Stack>
+  </Wrapper>
 );
 
 export const ErrorBadge: React.FC = () => (
-  <Stack orientation="horizontal" spacing="space80">
+  <Wrapper>
     <Badge variant="error">Error</Badge>
 
     <Badge variant="error">
@@ -188,11 +199,11 @@ export const ErrorBadge: React.FC = () => (
       Error&nbsp;
       <ErrorIcon decorative />
     </Badge>
-  </Stack>
+  </Wrapper>
 );
 
 export const ErrorBadgeAsAnchor: React.FC = () => (
-  <Stack orientation="horizontal" spacing="space80">
+  <Wrapper>
     <Badge as="a" href="#" variant="error">
       Error
     </Badge>
@@ -206,11 +217,11 @@ export const ErrorBadgeAsAnchor: React.FC = () => (
       Error&nbsp;
       <ErrorIcon decorative />
     </Badge>
-  </Stack>
+  </Wrapper>
 );
 
 export const ErrorBadgeAsButton: React.FC = () => (
-  <Stack orientation="horizontal" spacing="space80">
+  <Wrapper>
     <Badge as="a" href="#" variant="error">
       Error
     </Badge>
@@ -224,11 +235,11 @@ export const ErrorBadgeAsButton: React.FC = () => (
       Error&nbsp;
       <ErrorIcon decorative />
     </Badge>
-  </Stack>
+  </Wrapper>
 );
 
 export const SuccessBadge: React.FC = () => (
-  <Stack orientation="horizontal" spacing="space80">
+  <Wrapper>
     <Badge variant="success">Success</Badge>
 
     <Badge variant="success">
@@ -240,11 +251,11 @@ export const SuccessBadge: React.FC = () => (
       Success&nbsp;
       <SuccessIcon decorative />
     </Badge>
-  </Stack>
+  </Wrapper>
 );
 
 export const SuccessBadgeAsAnchor: React.FC = () => (
-  <Stack orientation="horizontal" spacing="space80">
+  <Wrapper>
     <Badge as="a" href="#" variant="success">
       Success
     </Badge>
@@ -258,11 +269,11 @@ export const SuccessBadgeAsAnchor: React.FC = () => (
       Success&nbsp;
       <SuccessIcon decorative />
     </Badge>
-  </Stack>
+  </Wrapper>
 );
 
 export const SuccessBadgeAsButton: React.FC = () => (
-  <Stack orientation="horizontal" spacing="space80">
+  <Wrapper>
     <Badge as="button" onClick={() => {}} variant="success">
       Success
     </Badge>
@@ -276,11 +287,11 @@ export const SuccessBadgeAsButton: React.FC = () => (
       Success&nbsp;
       <SuccessIcon decorative />
     </Badge>
-  </Stack>
+  </Wrapper>
 );
 
 export const NewBadge: React.FC = () => (
-  <Stack orientation="horizontal" spacing="space80">
+  <Wrapper>
     <Badge variant="new">New</Badge>
 
     <Badge variant="new">
@@ -292,11 +303,11 @@ export const NewBadge: React.FC = () => (
       New&nbsp;
       <NewIcon decorative />
     </Badge>
-  </Stack>
+  </Wrapper>
 );
 
 export const NewBadgeAsButton: React.FC = () => (
-  <Stack orientation="horizontal" spacing="space80">
+  <Wrapper>
     <Badge as="button" onClick={() => {}} variant="new">
       New
     </Badge>
@@ -310,11 +321,11 @@ export const NewBadgeAsButton: React.FC = () => (
       New&nbsp;
       <NewIcon decorative />
     </Badge>
-  </Stack>
+  </Wrapper>
 );
 
 export const NewBadgeAsAnchor: React.FC = () => (
-  <Stack orientation="horizontal" spacing="space80">
+  <Wrapper>
     <Badge as="a" href="#" variant="new">
       New
     </Badge>
@@ -328,5 +339,5 @@ export const NewBadgeAsAnchor: React.FC = () => (
       New&nbsp;
       <NewIcon decorative />
     </Badge>
-  </Stack>
+  </Wrapper>
 );
