@@ -28,12 +28,10 @@ export const AllBadges: React.FC = () => (
 export const DefaultBadge: React.FC = () => (
   <Stack orientation="horizontal" spacing="space80">
     <Badge variant="default">Default</Badge>
-
     <Badge variant="default">
       <InformationIcon decorative />
       &nbsp;Default
     </Badge>
-
     <Badge variant="default">
       Default&nbsp;
       <InformationIcon decorative />

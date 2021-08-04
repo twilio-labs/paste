@@ -16,13 +16,14 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(({variant, ch
     <Wrapper>
       <Box
         {...spanProps}
+        alignItems="center"
         as="span"
         backgroundColor={backgroundColor}
         border="unset"
         borderRadius="borderRadius30"
         color={color}
         columnGap="space10"
-        display="inline-flex"
+        display="flex"
         fontSize="fontSize20"
         fontWeight="fontWeightSemibold"
         lineHeight="lineHeight10"
