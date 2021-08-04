@@ -1,5 +1,6 @@
 import type {ResponsiveValue} from '@twilio-paste/styling-library';
 import type {LayoutProps, MarginProps, PaddingProps} from '@twilio-paste/style-props';
+import type {BoxProps} from '@twilio-paste/box';
 
 export type DisplayOptions = 'flex' | 'inline-flex';
 export type Display = ResponsiveValue<DisplayOptions>;
@@ -18,12 +19,14 @@ export type Basis = ResponsiveValue<BasisOptions>;
 export type WrapOptions = boolean;
 export type Wrap = ResponsiveValue<WrapOptions>;
 
-export interface FlexProps extends Omit<LayoutProps, 'verticalAlign'>, MarginProps, PaddingProps {
+export interface FlexProps
+  extends Omit<LayoutProps, 'verticalAlign'>,
+    MarginProps,
+    PaddingProps,
+    Pick<BoxProps, 'element'> {
   as?: keyof JSX.IntrinsicElements;
   children?: React.ReactNode;
   display?: Display;
-  /** element identifier for customization */
-  element?: string;
   vertical?: Vertical;
   vAlignContent?: VerticalAlign;
   hAlignContent?: HorizontalAlign;
