@@ -2,8 +2,8 @@ import * as React from 'react';
 import {Stack} from '@twilio-paste/stack';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
-import {Avatar} from '../src';
 import {colorTextWeaker} from '@twilio-paste/design-tokens';
+import {Avatar} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
