@@ -1,7 +1,9 @@
 import * as React from 'react';
 import {Stack} from '@twilio-paste/stack';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 import {Avatar} from '../src';
+import {colorTextWeaker} from '@twilio-paste/design-tokens';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -114,4 +116,31 @@ export const ResponsiveIcon = (): React.ReactNode => {
 
 ResponsiveImage.story = {
   parameters: {chromatic: {delay: 3000}},
+};
+
+export const CustomAvatar = (): React.ReactNode => {
+  return (
+    <>
+      <Stack orientation="horizontal" spacing="space40">
+        <Avatar size="sizeIcon40" name="Breonna Taylor" />
+        <Avatar size="sizeIcon50" name="avatar example" src="./avatars/avatar-sizeIcon50.png" />
+        <Avatar size="sizeIcon60" name="avatar example" icon={UserIcon} />
+      </Stack>
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{
+          AVATAR: {
+            color: 'colorTextWeaker',
+            backgroundColor: 'colorBackgroundAvailable',
+          },
+        }}
+      >
+        <Stack orientation="horizontal" spacing="space40">
+          <Avatar size="sizeIcon40" name="Breonna Taylor" />
+          <Avatar size="sizeIcon50" name="avatar example" src="./avatars/avatar-sizeIcon50.png" />
+          <Avatar size="sizeIcon60" name="avatar example" icon={UserIcon} />
+        </Stack>
+      </CustomizationProvider>
+    </>
+  );
 };

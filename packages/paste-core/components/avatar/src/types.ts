@@ -16,3 +16,8 @@ export type AvatarProps = React.HTMLAttributes<'div'> &
     size?: IconSize;
     element?: string;
   };
+
+export type AvatarContentProps = (AvatarImage | AvatarIcon) & {
+  name: string;
+  size?: IconSize;
+};
