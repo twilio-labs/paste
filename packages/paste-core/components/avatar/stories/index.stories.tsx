@@ -130,8 +130,10 @@ export const CustomAvatar = (): React.ReactNode => {
         baseTheme="default"
         elements={{
           AVATAR: {
-            color: 'colorTextWeaker',
             backgroundColor: 'colorBackgroundAvailable',
+          },
+          AANG: {
+            backgroundColor: 'colorBackgroundPrimary',
           },
         }}
       >
@@ -139,6 +141,11 @@ export const CustomAvatar = (): React.ReactNode => {
           <Avatar size="sizeIcon40" name="Breonna Taylor" />
           <Avatar size="sizeIcon50" name="avatar example" src="./avatars/avatar-sizeIcon50.png" />
           <Avatar size="sizeIcon60" name="avatar example" icon={UserIcon} />
+        </Stack>
+        <Stack orientation="horizontal" spacing="space40">
+          <Avatar element="AANG" size="sizeIcon40" name="Breonna Taylor" />
+          <Avatar element="AANG" size="sizeIcon50" name="avatar example" src="./avatars/avatar-sizeIcon50.png" />
+          <Avatar element="AANG" size="sizeIcon60" name="avatar example" icon={UserIcon} />
         </Stack>
       </CustomizationProvider>
     </>

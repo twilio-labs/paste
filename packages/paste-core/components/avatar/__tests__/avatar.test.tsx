@@ -176,10 +176,7 @@ describe('Avatar', () => {
 
     it('should add custom styles to Avatar', () => {
       render(
-        <CustomizationProvider
-          baseTheme="default"
-          elements={{AVATAR: {color: 'colorTextWeaker', backgroundColor: 'colorBackgroundAvailable'}}}
-        >
+        <CustomizationProvider baseTheme="default" elements={{AVATAR: {backgroundColor: 'colorBackgroundAvailable'}}}>
           <Avatar data-testid="avatar" size="sizeIcon20" name="avatar example" />
         </CustomizationProvider>
       );
@@ -188,10 +185,7 @@ describe('Avatar', () => {
     });
     it('should add custom styles to custom element Avatar', () => {
       render(
-        <CustomizationProvider
-          baseTheme="default"
-          elements={{FOO: {color: 'colorTextWeaker', backgroundColor: 'colorBackgroundAvailable'}}}
-        >
+        <CustomizationProvider baseTheme="default" elements={{FOO: {backgroundColor: 'colorBackgroundAvailable'}}}>
           <Avatar data-testid="avatar" element="FOO" size="sizeIcon20" name="avatar example" />
         </CustomizationProvider>
       );
