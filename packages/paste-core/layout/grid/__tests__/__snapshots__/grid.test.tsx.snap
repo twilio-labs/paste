@@ -3,6 +3,7 @@
 exports[`Grid render should render a Column 1`] = `
 <DocumentFragment>
   .emotion-0 {
+  box-sizing: border-box;
   width: 8.333333333333332%;
   padding-top: space0;
   padding-bottom: space0;
@@ -109,6 +110,7 @@ exports[`Grid render should render responsive css 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
   width: 16.666666666666664%;
   padding-top: space10;
   padding-bottom: space10;
@@ -140,6 +142,7 @@ exports[`Grid render should render responsive css 1`] = `
 }
 
 .emotion-1 {
+  box-sizing: border-box;
   width: 50%;
   padding-top: space10;
   padding-bottom: space10;

@@ -1,9 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import type {StyledBoxProps} from '@twilio-paste/box';
-import {safelySpreadBoxProps, getCustomElementStyles} from '@twilio-paste/box';
-import {styled, compose, flexbox, layout, space} from '@twilio-paste/styling-library';
-import type {StyledComponent} from '@twilio-paste/styling-library';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {ResponsiveProp} from '@twilio-paste/style-props';
 import type {ColumnProps, ColumnStyleProps} from './types';
 import {getStackedColumns, getColumnOffset, getColumnSpan, getColumnPadding} from './utils';
@@ -38,16 +35,6 @@ export const getColumnStyles = ({
   return columnStyles;
 };
 
-// @ts-ignore can't work out how to stop the styled div color prop from emotion clashing with our color style prop in BoxProps
-const StyledColumn = styled.div<StyledBoxProps>(
-  compose(space, flexbox, layout),
-  getCustomElementStyles
-) as StyledComponent<
-  Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>, 'color'>,
-  ColumnProps,
-  Record<string, unknown>
->;
-
 const Column = React.forwardRef<HTMLDivElement, ColumnProps>(
   ({as, children, count, element = 'COLUMN', gutter, offset, span, stretchColumnContent, vertical, ...props}, ref) => {
     const ColumnStyles = React.useMemo(
@@ -55,9 +42,9 @@ const Column = React.forwardRef<HTMLDivElement, ColumnProps>(
       [count, gutter, offset, span, stretchColumnContent, vertical]
     );
     return (
-      <StyledColumn {...safelySpreadBoxProps(props)} {...ColumnStyles} as={as} data-paste-element={element} ref={ref}>
+      <Box {...safelySpreadBoxProps(props)} {...ColumnStyles} as={as} element={element} ref={ref}>
         {children}
-      </StyledColumn>
+      </Box>
     );
   }
 );
