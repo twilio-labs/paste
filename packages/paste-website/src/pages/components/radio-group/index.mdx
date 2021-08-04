@@ -20,6 +20,7 @@ import {
   horizontalExample,
   errorExample,
   disabledExample,
+  disabledPreSelectedExample,
 } from '../../../component-examples/RadioGroupExamples';
 
 export const pageQuery = graphql`
@@ -134,7 +135,9 @@ Don't have a default selection if:
 - You are collecting unbiased data. Defaulting to an option biases or alters the experience in an undesired way and your data will be skewed
 - There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. (show display error)
 
-Component Example
+<LivePreview scope={{Radio, RadioGroup}} noInline>
+  {disabledPreSelectedExample}
+</LivePreview>
 
 ### With Help Text
 
