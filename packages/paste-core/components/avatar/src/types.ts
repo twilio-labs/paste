@@ -1,5 +1,6 @@
 import type {IconSize} from '@twilio-paste/style-props';
 import type {GenericIconProps} from '@twilio-paste/icons/esm/types';
+import type {BoxProps} from '@twilio-paste/box';
 
 type AvatarImage = {
   src?: string;
@@ -11,10 +12,10 @@ type AvatarIcon = {
 };
 
 export type AvatarProps = React.HTMLAttributes<'div'> &
+  Pick<BoxProps, 'element'> &
   (AvatarImage | AvatarIcon) & {
     name: string;
     size?: IconSize;
-    element?: string;
   };
 
 export type AvatarContentProps = (AvatarImage | AvatarIcon) & {

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {Stack} from '@twilio-paste/stack';
+import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
-import {colorTextWeaker} from '@twilio-paste/design-tokens';
 import {Avatar} from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -137,11 +137,13 @@ export const CustomAvatar = (): React.ReactNode => {
           },
         }}
       >
-        <Stack orientation="horizontal" spacing="space40">
-          <Avatar size="sizeIcon40" name="Breonna Taylor" />
-          <Avatar size="sizeIcon50" name="avatar example" src="./avatars/avatar-sizeIcon50.png" />
-          <Avatar size="sizeIcon60" name="avatar example" icon={UserIcon} />
-        </Stack>
+        <Box marginBottom="space60" marginTop="space60">
+          <Stack orientation="horizontal" spacing="space40">
+            <Avatar size="sizeIcon40" name="Breonna Taylor" />
+            <Avatar size="sizeIcon50" name="avatar example" src="./avatars/avatar-sizeIcon50.png" />
+            <Avatar size="sizeIcon60" name="avatar example" icon={UserIcon} />
+          </Stack>
+        </Box>
         <Stack orientation="horizontal" spacing="space40">
           <Avatar element="AANG" size="sizeIcon40" name="Breonna Taylor" />
           <Avatar element="AANG" size="sizeIcon50" name="avatar example" src="./avatars/avatar-sizeIcon50.png" />
