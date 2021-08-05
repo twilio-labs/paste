@@ -2,6 +2,8 @@ import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 import {Box} from '@twilio-paste/box';
+import {CustomizationProvider} from '@twilio-paste/customization';
+import {matchers} from 'jest-emotion';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Avatar} from '../src';
@@ -12,6 +14,8 @@ import {
   getComputedTokenNames,
   getInitialsFromName,
 } from '../src/utils';
+
+expect.extend(matchers);
 
 describe('Avatar', () => {
   describe('Utils', () => {
@@ -155,6 +159,38 @@ describe('Avatar', () => {
       render(<Avatar data-testid="avatar" size="sizeIcon20" name={name} icon={UserIcon} />);
       const avatarComponent = screen.getByTestId('avatar');
       expect(avatarComponent.querySelector('title')).toHaveTextContent(name);
+    });
+  });
+
+  describe('Customization', () => {
+    it('should set an element data attribute for Avatar', () => {
+      render(<Avatar data-testid="avatar" size="sizeIcon20" name="avatar example" icon={UserIcon} />);
+      const avatarComponent = screen.getByTestId('avatar');
+      expect(avatarComponent.getAttribute('data-paste-element')).toEqual('AVATAR');
+    });
+    it('should set a custom element data attribute for Avatar', () => {
+      render(<Avatar data-testid="avatar" element="FOO" size="sizeIcon20" name="avatar example" icon={UserIcon} />);
+      const avatarComponent = screen.getByTestId('avatar');
+      expect(avatarComponent.getAttribute('data-paste-element')).toEqual('FOO');
+    });
+
+    it('should add custom styles to Avatar', () => {
+      render(
+        <CustomizationProvider baseTheme="default" elements={{AVATAR: {backgroundColor: 'colorBackgroundAvailable'}}}>
+          <Avatar data-testid="avatar" size="sizeIcon20" name="avatar example" />
+        </CustomizationProvider>
+      );
+      const renderedAvatar = screen.getByTestId('avatar');
+      expect(renderedAvatar).toHaveStyleRule('background-color', 'rgb(20,176,83)');
+    });
+    it('should add custom styles to custom element Avatar', () => {
+      render(
+        <CustomizationProvider baseTheme="default" elements={{FOO: {backgroundColor: 'colorBackgroundAvailable'}}}>
+          <Avatar data-testid="avatar" element="FOO" size="sizeIcon20" name="avatar example" />
+        </CustomizationProvider>
+      );
+      const renderedAvatar = screen.getByTestId('avatar');
+      expect(renderedAvatar).toHaveStyleRule('background-color', 'rgb(20,176,83)');
     });
   });
 
