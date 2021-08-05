@@ -19,7 +19,7 @@ export default {
 };
 
 export const Default = (): React.ReactNode => (
-  <Card padding={select('padding', spaceOptions, 'space10') as Padding}>
+  <Card padding={select('padding', spaceOptions, 'space60') as Padding}>
     <Heading as="h2" variant="heading20">
       Notifications
     </Heading>
