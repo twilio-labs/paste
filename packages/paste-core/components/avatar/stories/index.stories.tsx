@@ -130,9 +130,10 @@ export const CustomAvatar = (): React.ReactNode => {
         baseTheme="default"
         elements={{
           AVATAR: {
-            backgroundColor: 'colorBackgroundAvailable',
+            backgroundColor: 'colorBackgroundTrial',
           },
           AANG: {
+            color: 'colorTextWeakest',
             backgroundColor: 'colorBackgroundPrimary',
           },
         }}

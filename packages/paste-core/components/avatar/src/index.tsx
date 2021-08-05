@@ -16,7 +16,7 @@ const AvatarContents: React.FC<AvatarContentProps> = ({name, size = DEFAULT_SIZE
     }
     return (
       <Box maxWidth="100%" size={size} display="flex" alignItems="center" justifyContent="center">
-        <Icon decorative={false} title={name} size={computedTokenNames.iconSize} color="colorText" />
+        <Icon decorative={false} title={name} size={computedTokenNames.iconSize} />
       </Box>
     );
   }
@@ -33,6 +33,7 @@ const AvatarContents: React.FC<AvatarContentProps> = ({name, size = DEFAULT_SIZE
       textAlign="center"
       textDecoration="none"
       title={name}
+      color="inherit"
     >
       {getInitialsFromName(name)}
     </Text>
@@ -59,6 +60,7 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
         overflow="hidden"
         ref={ref}
         size={size}
+        color="colorText"
       >
         {src ? (
           <AvatarContents name={name} size={size} src={src} />
