@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/badge",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "category": "data display",
   "status": "production",
   "description": "A small chunk of information that describes an object in a visually highlighted way.",

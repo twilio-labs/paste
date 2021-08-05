@@ -39,10 +39,10 @@ export const DefaultBadge: React.FC = () => (
     <Badge variant="default">Default</Badge>
     <Badge variant="default">
       <InformationIcon decorative />
-      &nbsp;Default
+      Default
     </Badge>
     <Badge variant="default">
-      Default&nbsp;
+      Default
       <InformationIcon decorative />
     </Badge>
   </Wrapper>
@@ -54,11 +54,11 @@ export const DefaultBadgeAsAnchor: React.FC = () => (
 
     <Badge variant="default">
       <InformationIcon decorative />
-      &nbsp;Default
+      Default
     </Badge>
 
     <Badge variant="default">
-      Default&nbsp;
+      Default
       <InformationIcon decorative />
     </Badge>
   </Wrapper>
@@ -73,11 +73,11 @@ export const DefaultBadgeAsButton: React.FC = () => (
 
       <Badge as="button" onClick={() => {}} variant="default">
         <InformationIcon decorative />
-        &nbsp;Default
+        Default
       </Badge>
 
       <Badge as="button" onClick={() => {}} variant="default">
-        Default&nbsp;
+        Default
         <InformationIcon decorative />
       </Badge>
     </Wrapper>
@@ -90,11 +90,11 @@ export const InfoBadge: React.FC = () => (
 
     <Badge variant="info">
       <InformationIcon decorative />
-      &nbsp;Info
+      Info
     </Badge>
 
     <Badge variant="info">
-      Info&nbsp;
+      Info
       <InformationIcon decorative />
     </Badge>
   </Wrapper>
@@ -107,11 +107,11 @@ export const InfoBadgeAsButton: React.FC = () => (
 
     <Badge as="button" onClick={() => {}} variant="info">
       <InformationIcon decorative />
-      &nbsp;Info
+      Info
     </Badge>
 
     <Badge as="button" onClick={() => {}} variant="info">
-      Info&nbsp;
+      Info
       <InformationIcon decorative />
     </Badge>
   </Wrapper>
@@ -124,11 +124,11 @@ export const InfoBadgeAsAnchor: React.FC = () => (
 
     <Badge as="a" href="#" variant="info">
       <InformationIcon decorative />
-      &nbsp;Info
+      Info
     </Badge>
 
     <Badge as="a" href="#" variant="info">
-      Info&nbsp;
+      Info
       <InformationIcon decorative />
     </Badge>
   </Wrapper>
@@ -140,11 +140,11 @@ export const WarningBadge: React.FC = () => (
 
     <Badge variant="warning">
       <WarningIcon decorative />
-      &nbsp;Warning
+      Warning
     </Badge>
 
     <Badge variant="warning">
-      Warning&nbsp;
+      Warning
       <WarningIcon decorative />
     </Badge>
   </Wrapper>
@@ -158,11 +158,11 @@ export const WarningBadgeAsButton: React.FC = () => (
 
     <Badge as="a" href="#" variant="warning">
       <WarningIcon decorative />
-      &nbsp;Warning
+      Warning
     </Badge>
 
     <Badge as="a" href="#" variant="warning">
-      Warning&nbsp;
+      Warning
       <WarningIcon decorative />
     </Badge>
   </Wrapper>
@@ -176,11 +176,11 @@ export const WarningBadgeAsAnchor: React.FC = () => (
 
     <Badge as="a" href="#" variant="warning">
       <WarningIcon decorative />
-      &nbsp;Warning
+      Warning
     </Badge>
 
     <Badge as="a" href="#" variant="warning">
-      Warning&nbsp;
+      Warning
       <WarningIcon decorative />
     </Badge>
   </Wrapper>
@@ -192,11 +192,11 @@ export const ErrorBadge: React.FC = () => (
 
     <Badge variant="error">
       <ErrorIcon decorative />
-      &nbsp;Error
+      Error
     </Badge>
 
     <Badge variant="error">
-      Error&nbsp;
+      Error
       <ErrorIcon decorative />
     </Badge>
   </Wrapper>
@@ -210,11 +210,11 @@ export const ErrorBadgeAsAnchor: React.FC = () => (
 
     <Badge as="a" href="#" variant="error">
       <ErrorIcon decorative />
-      &nbsp;Error
+      Error
     </Badge>
 
     <Badge as="a" href="#" variant="error">
-      Error&nbsp;
+      Error
       <ErrorIcon decorative />
     </Badge>
   </Wrapper>
@@ -228,11 +228,11 @@ export const ErrorBadgeAsButton: React.FC = () => (
 
     <Badge as="a" href="#" variant="error">
       <ErrorIcon decorative />
-      &nbsp;Error
+      Error
     </Badge>
 
     <Badge as="a" href="#" variant="error">
-      Error&nbsp;
+      Error
       <ErrorIcon decorative />
     </Badge>
   </Wrapper>
@@ -244,11 +244,11 @@ export const SuccessBadge: React.FC = () => (
 
     <Badge variant="success">
       <SuccessIcon decorative />
-      &nbsp;Success
+      Success
     </Badge>
 
     <Badge variant="success">
-      Success&nbsp;
+      Success
       <SuccessIcon decorative />
     </Badge>
   </Wrapper>
@@ -262,11 +262,11 @@ export const SuccessBadgeAsAnchor: React.FC = () => (
 
     <Badge as="a" href="#" variant="success">
       <SuccessIcon decorative />
-      &nbsp;Success
+      Success
     </Badge>
 
     <Badge as="a" href="#" variant="success">
-      Success&nbsp;
+      Success
       <SuccessIcon decorative />
     </Badge>
   </Wrapper>
@@ -280,11 +280,11 @@ export const SuccessBadgeAsButton: React.FC = () => (
 
     <Badge as="button" onClick={() => {}} variant="success">
       <SuccessIcon decorative />
-      &nbsp;Success
+      Success
     </Badge>
 
     <Badge as="button" onClick={() => {}} variant="success">
-      Success&nbsp;
+      Success
       <SuccessIcon decorative />
     </Badge>
   </Wrapper>
@@ -296,11 +296,11 @@ export const NewBadge: React.FC = () => (
 
     <Badge variant="new">
       <NewIcon decorative />
-      &nbsp;New
+      New
     </Badge>
 
     <Badge variant="new">
-      New&nbsp;
+      New
       <NewIcon decorative />
     </Badge>
   </Wrapper>
@@ -314,11 +314,11 @@ export const NewBadgeAsButton: React.FC = () => (
 
     <Badge as="button" onClick={() => {}} variant="new">
       <NewIcon decorative />
-      &nbsp;New
+      New
     </Badge>
 
     <Badge as="button" onClick={() => {}} variant="new">
-      New&nbsp;
+      New
       <NewIcon decorative />
     </Badge>
   </Wrapper>
@@ -332,11 +332,11 @@ export const NewBadgeAsAnchor: React.FC = () => (
 
     <Badge as="a" href="#" variant="new">
       <NewIcon decorative />
-      &nbsp;New
+      New
     </Badge>
 
     <Badge as="a" href="#" variant="new">
-      New&nbsp;
+      New
       <NewIcon decorative />
     </Badge>
   </Wrapper>
