@@ -9,6 +9,7 @@ exports[`Avatar image should render responsive css with an image 1`] = `
   overflow: hidden;
   width: sizeIcon30;
   height: sizeIcon30;
+  color: colorText;
 }
 
 @media screen and (min-width:40em) {
@@ -48,6 +49,7 @@ exports[`Avatar image should render responsive css with an image 1`] = `
 
 <div
     class="emotion-1"
+    color="colorText"
     data-paste-element="AVATAR"
     overflow="hidden"
   >
@@ -71,6 +73,7 @@ exports[`Avatar intials should render responsive css 1`] = `
   overflow: hidden;
   width: sizeIcon10;
   height: sizeIcon10;
+  color: colorText;
 }
 
 @media screen and (min-width:40em) {
@@ -90,7 +93,7 @@ exports[`Avatar intials should render responsive css 1`] = `
 .emotion-0 {
   margin: 0;
   padding: 0;
-  color: colorText;
+  color: inherit;
   font-size: fontSize10;
   line-height: lineHeight10;
   display: block;
@@ -116,12 +119,13 @@ exports[`Avatar intials should render responsive css 1`] = `
 
 <div
     class="emotion-1"
+    color="colorText"
     data-paste-element="AVATAR"
     overflow="hidden"
   >
     <abbr
       class="emotion-0"
-      color="colorText"
+      color="inherit"
       data-paste-element="TEXT"
       display="block"
       font-size="fontSize10,fontSize10,fontSize60"
