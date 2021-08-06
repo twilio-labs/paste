@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.2.0
+
+### Minor Changes
+
+- [`d14381b9`](https://github.com/twilio-labs/paste/commit/d14381b96ab3e83d4987b91db755ed27d315b3c6) [#1742](https://github.com/twilio-labs/paste/pull/1742) Thanks [@gloriliale](https://github.com/gloriliale)! - [Avatar] Enable Avatar to respect customizations set on the customization provider. Avatar now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 2.1.1
 
 ### Patch Changes

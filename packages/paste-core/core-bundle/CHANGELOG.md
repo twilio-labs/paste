@@ -1,5 +1,41 @@
 # Change Log
 
+## 10.7.0
+
+### Minor Changes
+
+- [`d14381b9`](https://github.com/twilio-labs/paste/commit/d14381b96ab3e83d4987b91db755ed27d315b3c6) [#1742](https://github.com/twilio-labs/paste/pull/1742) Thanks [@gloriliale](https://github.com/gloriliale)! - [Avatar] Enable Avatar to respect customizations set on the customization provider. Avatar now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`5374cd7b`](https://github.com/twilio-labs/paste/commit/5374cd7b261431b337a53ce26850fda242812e19) [#1733](https://github.com/twilio-labs/paste/pull/1733) Thanks [@TheSisb](https://github.com/TheSisb)! - [Anchor] Enable Anchor to respect element customizations set on the customization provider. Anchor now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+- [`86c567bc`](https://github.com/twilio-labs/paste/commit/86c567bc8af556e7aa085789968b7823c0c01869) [#1734](https://github.com/twilio-labs/paste/pull/1734) Thanks [@richbachman](https://github.com/richbachman)! - [Grid] Enable Grid and Column to respect element customizations set on the customization provider. Grid, and Column now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+  `Column` has been refactored to use `Box` instead of being a styled div.
+
+* [`5e46a5eb`](https://github.com/twilio-labs/paste/commit/5e46a5eb8c8af94bf7362156dd29016a3281672a) [#1722](https://github.com/twilio-labs/paste/pull/1722) Thanks [@zahnster](https://github.com/zahnster)! - [Stack] Enable stack and stack children to respect element customizations set on the customization provider. Stack and stack children now enable setting an element name on the underlying HTML element, and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+- [`53e9583f`](https://github.com/twilio-labs/paste/commit/53e9583f3330c201db56f0ffd1bdcd736a7044da) [#1726](https://github.com/twilio-labs/paste/pull/1726) Thanks [@richbachman](https://github.com/richbachman)! - [Card] Enable Card to respect element customizations set on the customization provider. Card now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`9f1f99ca`](https://github.com/twilio-labs/paste/commit/9f1f99cae442bc9fd1c658cc85ad64695d61870a) [#1723](https://github.com/twilio-labs/paste/pull/1723) Thanks [@nkrantz](https://github.com/nkrantz)! - [Flex] Enable Flex to respect element customizations set on the customization provider. Flex now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+### Patch Changes
+
+- [`b02b0d60`](https://github.com/twilio-labs/paste/commit/b02b0d606ce308a15e933fe433b6b655e45348e1) [#1685](https://github.com/twilio-labs/paste/pull/1685) Thanks [@andipants12](https://github.com/andipants12)! - [Grid] Fix to apply gutter value to top/bottom padding for vertical grid.
+
+* [`b0e8ab80`](https://github.com/twilio-labs/paste/commit/b0e8ab80d557f102ed5bed3a693d0e53eb99a7c3) [#1725](https://github.com/twilio-labs/paste/pull/1725) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Allow Downshift to handle input events past by the component consumer. This allows for event data and internal state of the combobox to stay in sync correctly
+
+- [`0bfba62d`](https://github.com/twilio-labs/paste/commit/0bfba62d66efe74fc410216f62e67fdd5ab11bea) [#1720](https://github.com/twilio-labs/paste/pull/1720) Thanks [@TheSisb](https://github.com/TheSisb)! - The Popover's close button will now always be the first focus upon opening.
+
+- Updated dependencies [[`d14381b9`](https://github.com/twilio-labs/paste/commit/d14381b96ab3e83d4987b91db755ed27d315b3c6), [`5374cd7b`](https://github.com/twilio-labs/paste/commit/5374cd7b261431b337a53ce26850fda242812e19), [`86c567bc`](https://github.com/twilio-labs/paste/commit/86c567bc8af556e7aa085789968b7823c0c01869), [`5e46a5eb`](https://github.com/twilio-labs/paste/commit/5e46a5eb8c8af94bf7362156dd29016a3281672a), [`53e9583f`](https://github.com/twilio-labs/paste/commit/53e9583f3330c201db56f0ffd1bdcd736a7044da), [`b02b0d60`](https://github.com/twilio-labs/paste/commit/b02b0d606ce308a15e933fe433b6b655e45348e1), [`9f1f99ca`](https://github.com/twilio-labs/paste/commit/9f1f99cae442bc9fd1c658cc85ad64695d61870a), [`b0e8ab80`](https://github.com/twilio-labs/paste/commit/b0e8ab80d557f102ed5bed3a693d0e53eb99a7c3), [`0bfba62d`](https://github.com/twilio-labs/paste/commit/0bfba62d66efe74fc410216f62e67fdd5ab11bea)]:
+  - @twilio-paste/avatar@2.2.0
+  - @twilio-paste/anchor@5.1.0
+  - @twilio-paste/grid@2.1.0
+  - @twilio-paste/stack@2.1.0
+  - @twilio-paste/card@3.1.0
+  - @twilio-paste/flex@2.1.0
+  - @twilio-paste/combobox@7.0.4
+  - @twilio-paste/popover@6.0.4
+
 ## 10.6.0
 
 ### Minor Changes

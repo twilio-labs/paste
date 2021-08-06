@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.1.0
+
+### Minor Changes
+
+- [`5e46a5eb`](https://github.com/twilio-labs/paste/commit/5e46a5eb8c8af94bf7362156dd29016a3281672a) [#1722](https://github.com/twilio-labs/paste/pull/1722) Thanks [@zahnster](https://github.com/zahnster)! - [Stack] Enable stack and stack children to respect element customizations set on the customization provider. Stack and stack children now enable setting an element name on the underlying HTML element, and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 2.0.4
 
 ### Patch Changes
