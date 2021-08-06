@@ -162,8 +162,8 @@ The textarea should include the base textarea, along with supporting elements to
 <LivePreview scope={{Label, HelpText, TextArea}} language="jsx">
   {`<>
   <Label htmlFor="message" required>Message (at least 120 characters)</Label>
-  <TextArea onChange={()=>{}} onChange={()=>{}} aria-describedby="message_help_text" id="message" name="message" placeholder="Enter message" required />
-  <HelpText id="message_help_text">Please enter at least 120 characters</HelpText>
+  <TextArea onChange={()=>{}} onChange={()=>{}} aria-describedby="message_help_text" id="message" name="message" required />
+  <HelpText id="message_help_text">Enter at least 120 characters</HelpText>
 </>`}
 </LivePreview>
 
@@ -194,7 +194,7 @@ The textarea should include the base textarea, along with supporting elements to
       </Button>
     }
   />
-  <HelpText id="body_help_text">Please enter text for the copy area</HelpText>
+  <HelpText id="body_help_text">Enter text for the copy area</HelpText>
 </>`}
 </LivePreview>
 
@@ -210,7 +210,7 @@ An inline error is placed below the field to inform a user of any errors in thei
   {`<>
   <Label htmlFor="text_error">Description</Label>
   <TextArea onChange={()=>{}} aria-describedby="text_error_help_text" id="text_error" name="text_error" hasError />
-  <HelpText id="text_error_help_text" variant="error">Please enter a description</HelpText>
+  <HelpText id="text_error_help_text" variant="error">Enter a description</HelpText>
 </>`}
 </LivePreview>
 
@@ -221,7 +221,7 @@ Use a disabled form field to show users that they can't interact with the field.
 <LivePreview scope={{Label, TextArea}} language="jsx">
   {`<>
   <Label htmlFor="text_disabled" disabled>Description (disabled)</Label>
-  <TextArea onChange={()=>{}} id="text_disabled" name="text_disabled" placeholder="Enter a description..." disabled />
+  <TextArea onChange={()=>{}} id="text_disabled" name="text_disabled" placeholder="Paste is a design system used to build accessible, consistent, and high quality customer experiences at Twilio. Paste is open source and contributions are welcome." disabled />
 </>`}
 </LivePreview>
 
@@ -255,16 +255,16 @@ Stack form fields vertically with `$space-80` spacing between each field.
   {`<>
   <Box marginBottom="space80">
     <Label htmlFor="header">Header</Label>
-    <TextArea onChange={()=>{}} id="header" name="header" placeholder="Enter header content..." />
+    <TextArea onChange={()=>{}} id="header" name="header" placeholder="Ahoy, World!" />
   </Box>
   <Box>
     <Label htmlFor="footer">Footer</Label>
-    <TextArea onChange={()=>{}} id="footer" name="footer" placeholder="Enter footer content..." />
+    <TextArea onChange={()=>{}} id="footer" name="footer" placeholder="Bon voyage" />
   </Box>
 </>`}
 </LivePreview>
 
-Avoid placing multiple form fields on the same horizontal row to help make it easier to scan a page vertically. Use the Grid component if you need to place form fields horizontally.
+Avoid placing multiple form fields on the same horizontal row to help make it easier to scan a page vertically. Use the [Grid component](https://paste.twilio.design/layout/grid) if you need to place form fields horizontally.
 
 ### Labels and help text
 
@@ -295,7 +295,7 @@ Don't prevent form submission by disabling the submit button. An error message c
 
 Use inline error text to explain how to fix an error.
 
-Ideally, help text should have enough information to help users prevent errors. If help text exists and you need to show an error, the error text should replace and repeat the help text until the error has been resolved.
+Ideally, help text should have enough information to help users prevent errors. If you need to show an error and`HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy.
 
 Error text should:
 
@@ -360,7 +360,7 @@ Use a textarea when users are expected to enter text that exceeds a single line,
     <Box width="100%" padding="space60">
       <Label htmlFor="help_do">Enter the correct phrase</Label>
       <TextArea onChange={() => {}} aria-describedby="help_do_help_text" id="help_do" name="help_do" />
-      <HelpText id="help_do_help_text">Please enter: Paste is open source and contributions are welcome.</HelpText>
+      <HelpText id="help_do_help_text">Type in: "Paste is open source and contributions are welcome."</HelpText>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use placeholder text for validation instructions." center>
@@ -370,7 +370,7 @@ Use a textarea when users are expected to enter text that exceeds a single line,
         onChange={() => {}}
         id="help_dont"
         name="help_dont"
-        placeholder="Please enter: Paste is open source and contributions are welcome."
+        placeholder="Type in: Paste is open source and contributions are welcome."
       />
     </Box>
   </Dont>
@@ -386,7 +386,7 @@ Use a textarea when users are expected to enter text that exceeds a single line,
         Header
       </Label>
       <TextArea onChange={() => {}} id="error_do" name="error_do" required hasError />
-      <HelpText variant="error">This is a required field. Please enter some text.</HelpText>
+      <HelpText variant="error">This is a required field. Enter some text.</HelpText>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use more than 2 sentences in help text or error text." center>
@@ -623,7 +623,7 @@ const Component = () => (
       foo
     </Label>
     <TextArea onChange={() => {}} aria-describedby="foo_text" id="foo" name="foo" placeholder="foo" required />
-    <HelpText id="foo_text">Please enter some text</HelpText>
+    <HelpText id="foo_text">Enter some text.</HelpText>
   </>
 );
 ```
