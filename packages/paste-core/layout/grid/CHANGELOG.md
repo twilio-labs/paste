@@ -1,5 +1,17 @@
 # Change Log
 
+## 2.1.0
+
+### Minor Changes
+
+- [`86c567bc`](https://github.com/twilio-labs/paste/commit/86c567bc8af556e7aa085789968b7823c0c01869) [#1734](https://github.com/twilio-labs/paste/pull/1734) Thanks [@richbachman](https://github.com/richbachman)! - [Grid] Enable Grid and Column to respect element customizations set on the customization provider. Grid, and Column now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+  `Column` has been refactored to use `Box` instead of being a styled div.
+
+### Patch Changes
+
+- [`b02b0d60`](https://github.com/twilio-labs/paste/commit/b02b0d606ce308a15e933fe433b6b655e45348e1) [#1685](https://github.com/twilio-labs/paste/pull/1685) Thanks [@andipants12](https://github.com/andipants12)! - [Grid] Fix to apply gutter value to top/bottom padding for vertical grid.
+
 ## 2.0.4
 
 ### Patch Changes

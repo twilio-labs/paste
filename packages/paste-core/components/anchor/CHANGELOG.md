@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.1.0
+
+### Minor Changes
+
+- [`5374cd7b`](https://github.com/twilio-labs/paste/commit/5374cd7b261431b337a53ce26850fda242812e19) [#1733](https://github.com/twilio-labs/paste/pull/1733) Thanks [@TheSisb](https://github.com/TheSisb)! - [Anchor] Enable Anchor to respect element customizations set on the customization provider. Anchor now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 5.0.3
 
 ### Patch Changes

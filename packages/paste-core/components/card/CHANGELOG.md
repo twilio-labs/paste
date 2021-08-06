@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.1.0
+
+### Minor Changes
+
+- [`53e9583f`](https://github.com/twilio-labs/paste/commit/53e9583f3330c201db56f0ffd1bdcd736a7044da) [#1726](https://github.com/twilio-labs/paste/pull/1726) Thanks [@richbachman](https://github.com/richbachman)! - [Card] Enable Card to respect element customizations set on the customization provider. Card now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 3.0.4
 
 ### Patch Changes

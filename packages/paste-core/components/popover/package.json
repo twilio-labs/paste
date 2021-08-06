@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/popover",
-  "version": "6.0.3",
+  "version": "6.0.4",
   "category": "interaction",
   "status": "production",
   "description": "A Popover is used for displaying additional rich content on top of something.",
