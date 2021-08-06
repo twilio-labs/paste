@@ -141,9 +141,7 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
         <Input
           autoComplete="off"
           id={uid}
-          onChange={(e) => {
-            handleInput(e);
-          }}
+          onChange={handleInput}
           placeholder="filter by name or value"
           type="text"
           value={filterString}
