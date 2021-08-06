@@ -6,6 +6,7 @@ import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {Truncate} from '@twilio-paste/truncate';
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -909,12 +910,12 @@ GridContainingLongContent.story = {
 
 export const CustomGrid: React.FC = () => {
   return (
-    <>
+    <Stack orientation="vertical" spacing="space60">
       <Grid gutter="space30" equalColumnHeights>
         <Column>
           <Card padding="space70">
             <Heading as="h2" variant="heading20">
-              Why use Paste?
+              Default
             </Heading>
             <Paragraph marginBottom="space0">
               Paste helps you rapidly prototype, and ship great, inclusive customer experiences. It makes it easy to do
@@ -925,7 +926,7 @@ export const CustomGrid: React.FC = () => {
         <Column>
           <Card padding="space70">
             <Heading as="h2" variant="heading20">
-              Inclusive by default
+              Default
             </Heading>
             <Paragraph marginBottom="space0">
               Paste meets WCAG 2.1 AA standards in the design and development of our components, making it even easier
@@ -938,9 +939,6 @@ export const CustomGrid: React.FC = () => {
           </Card>
         </Column>
       </Grid>
-      <Box marginTop="space60" marginBottom="space60">
-        <Text as="span">Customized</Text>
-      </Box>
       <CustomizationProvider
         baseTheme="default"
         elements={{
@@ -959,7 +957,7 @@ export const CustomGrid: React.FC = () => {
           <Column>
             <Card padding="space70">
               <Heading as="h2" variant="heading20">
-                Why use Paste?
+                Customized
               </Heading>
               <Paragraph marginBottom="space0">
                 Paste helps you rapidly prototype, and ship great, inclusive customer experiences. It makes it easy to
@@ -970,7 +968,7 @@ export const CustomGrid: React.FC = () => {
           <Column>
             <Card padding="space70">
               <Heading as="h2" variant="heading20">
-                Inclusive by default
+                Customized
               </Heading>
               <Paragraph marginBottom="space0">
                 Paste meets WCAG 2.1 AA standards in the design and development of our components, making it even easier
@@ -984,9 +982,6 @@ export const CustomGrid: React.FC = () => {
           </Column>
         </Grid>
       </CustomizationProvider>
-      <Box marginTop="space60" marginBottom="space60">
-        <Text as="span">Customized element</Text>
-      </Box>
       <CustomizationProvider
         baseTheme="default"
         elements={{
@@ -1008,7 +1003,7 @@ export const CustomGrid: React.FC = () => {
           <Column element="NEW_COLUMN">
             <Card padding="space70">
               <Heading as="h2" variant="heading20">
-                Why use Paste?
+                Customized element
               </Heading>
               <Paragraph marginBottom="space0">
                 Paste helps you rapidly prototype, and ship great, inclusive customer experiences. It makes it easy to
@@ -1019,7 +1014,7 @@ export const CustomGrid: React.FC = () => {
           <Column element="ANOTHER_NEW_COLUMN">
             <Card padding="space70">
               <Heading as="h2" variant="heading20">
-                Inclusive by default
+                Customized element
               </Heading>
               <Paragraph marginBottom="space0">
                 Paste meets WCAG 2.1 AA standards in the design and development of our components, making it even easier
@@ -1033,6 +1028,6 @@ export const CustomGrid: React.FC = () => {
           </Column>
         </Grid>
       </CustomizationProvider>
-    </>
+    </Stack>
   );
 };

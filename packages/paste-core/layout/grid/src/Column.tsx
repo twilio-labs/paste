@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {ResponsiveProp} from '@twilio-paste/style-props';
+import type {Space} from '@twilio-paste/style-props';
 import type {ColumnProps, ColumnStyleProps} from './types';
 import {getStackedColumns, getColumnOffset, getColumnSpan, getColumnPadding} from './utils';
 
@@ -19,7 +20,7 @@ export const getColumnStyles = ({
   };
 
   if (offset) {
-    columnStyles.marginLeft = getColumnOffset(offset);
+    columnStyles.marginLeft = getColumnOffset(offset) as Space;
   }
 
   if (vertical && !offset) {
