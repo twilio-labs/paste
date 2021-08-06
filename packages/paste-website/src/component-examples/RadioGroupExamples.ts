@@ -158,7 +158,7 @@ const CriteriaRadioGroup = () => {
       name="exit"
       value={value}
       legend="Exit Criteria"
-      errorText="Please select an exit criteria."
+      errorText="Select an exit criteria."
       onChange={newValue => {
         setValue(newValue);
       }}
