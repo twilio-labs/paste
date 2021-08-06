@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {matchers} from 'jest-emotion';
+import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Anchor} from '../src';
@@ -177,6 +178,58 @@ describe('Anchor', () => {
       );
       const results = await axe(container);
       expect(results).toHaveNoViolations();
+    });
+  });
+
+  describe('Customization', () => {
+    it('should set a element data attribute for Anchor', () => {
+      render(
+        <Anchor href="https://twilio.com">
+          This is an anchor that links to Twilio.com with an external target and rel
+        </Anchor>
+      );
+      const renderedAnchor = screen.getByRole('link');
+      expect(renderedAnchor.getAttribute('data-paste-element')).toEqual('ANCHOR');
+    });
+    it('should set a custom element data attribute for Anchor', () => {
+      render(
+        <Anchor element="FUNKY_ANCHOR" href="https://twilio.com">
+          This is an anchor that links to Twilio.com with an external target and rel
+        </Anchor>
+      );
+      const renderedAnchor = screen.getByRole('link');
+      expect(renderedAnchor.getAttribute('data-paste-element')).toEqual('FUNKY_ANCHOR');
+    });
+
+    it('should add custom styles to Anchor', (): void => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          elements={{ANCHOR: {backgroundColor: 'colorBackground', borderColor: 'colorBorderDestructive'}}}
+        >
+          <Anchor href="https://paste.twilio.design" data-testid="customizable-anchor">
+            Custom anchor
+          </Anchor>
+        </CustomizationProvider>
+      );
+      const renderedAnchor = screen.getByTestId('customizable-anchor');
+      expect(renderedAnchor).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+      expect(renderedAnchor).toHaveStyleRule('border-color', 'rgb(214,31,31)');
+    });
+    it('should add custom styles to Anchor when a custom element data attribute is used', (): void => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          elements={{FUNKY_ANCHOR: {backgroundColor: 'colorBackground', borderColor: 'colorBorderDestructive'}}}
+        >
+          <Anchor element="FUNKY_ANCHOR" href="https://paste.twilio.design" data-testid="customizable-anchor">
+            Custom anchor
+          </Anchor>
+        </CustomizationProvider>
+      );
+      const renderedAnchor = screen.getByTestId('customizable-anchor');
+      expect(renderedAnchor).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+      expect(renderedAnchor).toHaveStyleRule('border-color', 'rgb(214,31,31)');
     });
   });
 });

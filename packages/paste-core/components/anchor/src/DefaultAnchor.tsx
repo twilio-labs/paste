@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import {AnchorProps, AnchorPropTypes} from './types';
+import {AnchorPropTypes} from './proptypes';
+import type {AnchorProps} from './types';
 
 const DefaultAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, ref) => (
   <Box
