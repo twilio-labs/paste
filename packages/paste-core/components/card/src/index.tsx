@@ -1,11 +1,18 @@
 import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {PaddingProps, isPaddingTokenProp} from '@twilio-paste/style-props';
+import type {BoxProps} from '@twilio-paste/box';
+import type {PaddingProps} from '@twilio-paste/style-props';
+import {isPaddingTokenProp} from '@twilio-paste/style-props';
 
-export interface CardProps extends React.HTMLAttributes<HTMLElement>, PaddingProps {}
+/** element identifier from BoxProps for customization */
+export interface CardProps extends React.HTMLAttributes<HTMLElement>, PaddingProps, Pick<BoxProps, 'element'> {}
 
 const Card = React.forwardRef<HTMLElement, CardProps>(
-  ({children, padding = 'space60', paddingBottom, paddingLeft, paddingRight, paddingTop, ...props}, ref) => {
+  (
+    {children, element = 'CARD', padding = 'space60', paddingBottom, paddingLeft, paddingRight, paddingTop, ...props},
+    ref
+  ) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -15,6 +22,7 @@ const Card = React.forwardRef<HTMLElement, CardProps>(
         borderColor="colorBorderWeaker"
         borderStyle="solid"
         borderRadius="borderRadius20"
+        element={element}
         padding={padding}
         paddingBottom={paddingBottom}
         paddingLeft={paddingLeft}
@@ -28,15 +36,14 @@ const Card = React.forwardRef<HTMLElement, CardProps>(
   }
 );
 
-if (process.env.NODE_ENV === 'development') {
-  Card.propTypes = {
-    padding: isPaddingTokenProp,
-    paddingTop: isPaddingTokenProp,
-    paddingRight: isPaddingTokenProp,
-    paddingBottom: isPaddingTokenProp,
-    paddingLeft: isPaddingTokenProp,
-  };
-}
+Card.propTypes = {
+  element: PropTypes.string,
+  padding: isPaddingTokenProp,
+  paddingTop: isPaddingTokenProp,
+  paddingRight: isPaddingTokenProp,
+  paddingBottom: isPaddingTokenProp,
+  paddingLeft: isPaddingTokenProp,
+};
 
 Card.displayName = 'Card';
 
