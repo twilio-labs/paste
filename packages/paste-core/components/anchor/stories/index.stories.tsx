@@ -2,9 +2,11 @@ import * as React from 'react';
 import {action} from '@storybook/addon-actions';
 import {withKnobs, select, text} from '@storybook/addon-knobs';
 import {Box} from '@twilio-paste/box';
+import {Stack} from '@twilio-paste/stack';
 import {Heading} from '@twilio-paste/heading';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {Anchor} from '../src';
-import {AnchorTargets, AnchorTabIndexes} from '../src/types';
+import type {AnchorTargets, AnchorTabIndexes} from '../src/types';
 
 const AnchorTargetOptions = ['_self', '_blank', '_parent', '_top'];
 const AnchorTabIndexOptions = [0, -1];
@@ -72,4 +74,39 @@ export const ShowExternalProp = (): React.ReactNode => {
 
 ShowExternalProp.story = {
   name: 'showExternal prop',
+};
+
+export const CustomAnchor = (): React.ReactNode => {
+  return (
+    <CustomizationProvider
+      baseTheme="default"
+      theme={{
+        textColors: {colorTextLink: 'red'},
+        fonts: {fontFamilyText: 'cursive'},
+      }}
+      elements={{
+        ANCHOR: {
+          color: 'colorTextLink',
+          padding: 'space40',
+          ':hover': {
+            color: 'colorTextLink',
+          },
+        },
+        CUSTOM_ANCHOR: {
+          backgroundColor: 'colorBackgroundPrimary',
+          color: 'colorTextInverse',
+          ':hover': {
+            color: 'colorTextInverse',
+          },
+        },
+      }}
+    >
+      <Stack spacing="space60" orientation="horizontal">
+        <Anchor href="#app">customized Anchor styles</Anchor>
+        <Anchor element="CUSTOM_ANCHOR" href="#app">
+          customized Anchor styles with custom element
+        </Anchor>
+      </Stack>
+    </CustomizationProvider>
+  );
 };

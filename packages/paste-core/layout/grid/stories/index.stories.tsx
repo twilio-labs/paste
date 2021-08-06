@@ -1,12 +1,15 @@
 import * as React from 'react';
 import {withKnobs, select, text} from '@storybook/addon-knobs';
-import {DefaultTheme, ThemeShape} from '@twilio-paste/theme';
+import type {ThemeShape} from '@twilio-paste/theme';
+import {DefaultTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {Truncate} from '@twilio-paste/truncate';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {Grid, Column} from '../src';
 
 const spaceOptions = Object.keys(DefaultTheme.space);
@@ -903,4 +906,128 @@ export const GridContainingLongContent = (): React.ReactNode => {
 
 GridContainingLongContent.story = {
   name: 'Grid - Containing long content',
+};
+
+export const CustomGrid: React.FC = () => {
+  return (
+    <Stack orientation="vertical" spacing="space60">
+      <Grid gutter="space30" equalColumnHeights>
+        <Column>
+          <Card padding="space70">
+            <Heading as="h2" variant="heading20">
+              Default
+            </Heading>
+            <Paragraph marginBottom="space0">
+              Paste helps you rapidly prototype, and ship great, inclusive customer experiences. It makes it easy to do
+              the right thing, cheaply.
+            </Paragraph>
+          </Card>
+        </Column>
+        <Column>
+          <Card padding="space70">
+            <Heading as="h2" variant="heading20">
+              Default
+            </Heading>
+            <Paragraph marginBottom="space0">
+              Paste meets WCAG 2.1 AA standards in the design and development of our components, making it even easier
+              to build accessibly.
+            </Paragraph>
+            <Paragraph marginBottom="space0">
+              Paste meets WCAG 2.1 AA standards in the design and development of our components, making it even easier
+              to build accessibly.
+            </Paragraph>
+          </Card>
+        </Column>
+      </Grid>
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{
+          GRID: {
+            backgroundColor: 'colorBackgroundPrimary',
+            borderRadius: 'borderRadius30',
+            padding: 'space30',
+          },
+          COLUMN: {
+            backgroundColor: 'colorBackgroundDestructiveWeaker',
+            padding: 'space30',
+          },
+        }}
+      >
+        <Grid gutter="space30" equalColumnHeights>
+          <Column>
+            <Card padding="space70">
+              <Heading as="h2" variant="heading20">
+                Customized
+              </Heading>
+              <Paragraph marginBottom="space0">
+                Paste helps you rapidly prototype, and ship great, inclusive customer experiences. It makes it easy to
+                do the right thing, cheaply.
+              </Paragraph>
+            </Card>
+          </Column>
+          <Column>
+            <Card padding="space70">
+              <Heading as="h2" variant="heading20">
+                Customized
+              </Heading>
+              <Paragraph marginBottom="space0">
+                Paste meets WCAG 2.1 AA standards in the design and development of our components, making it even easier
+                to build accessibly.
+              </Paragraph>
+              <Paragraph marginBottom="space0">
+                Paste meets WCAG 2.1 AA standards in the design and development of our components, making it even easier
+                to build accessibly.
+              </Paragraph>
+            </Card>
+          </Column>
+        </Grid>
+      </CustomizationProvider>
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{
+          NEW_GRID: {
+            backgroundColor: 'colorBackgroundStrongest',
+            padding: 'space60',
+          },
+          NEW_COLUMN: {
+            backgroundColor: 'colorBackgroundPrimaryWeakest',
+            padding: 'space40',
+          },
+          ANOTHER_NEW_COLUMN: {
+            backgroundColor: 'colorBackgroundTrial',
+            padding: 'space80',
+          },
+        }}
+      >
+        <Grid element="NEW_GRID" gutter="space30" equalColumnHeights>
+          <Column element="NEW_COLUMN">
+            <Card padding="space70">
+              <Heading as="h2" variant="heading20">
+                Customized element
+              </Heading>
+              <Paragraph marginBottom="space0">
+                Paste helps you rapidly prototype, and ship great, inclusive customer experiences. It makes it easy to
+                do the right thing, cheaply.
+              </Paragraph>
+            </Card>
+          </Column>
+          <Column element="ANOTHER_NEW_COLUMN">
+            <Card padding="space70">
+              <Heading as="h2" variant="heading20">
+                Customized element
+              </Heading>
+              <Paragraph marginBottom="space0">
+                Paste meets WCAG 2.1 AA standards in the design and development of our components, making it even easier
+                to build accessibly.
+              </Paragraph>
+              <Paragraph marginBottom="space0">
+                Paste meets WCAG 2.1 AA standards in the design and development of our components, making it even easier
+                to build accessibly.
+              </Paragraph>
+            </Card>
+          </Column>
+        </Grid>
+      </CustomizationProvider>
+    </Stack>
+  );
 };
