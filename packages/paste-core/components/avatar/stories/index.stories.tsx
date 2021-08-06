@@ -1,5 +1,7 @@
 import * as React from 'react';
 import {Stack} from '@twilio-paste/stack';
+import {Box} from '@twilio-paste/box';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 import {Avatar} from '../src';
 
@@ -114,4 +116,41 @@ export const ResponsiveIcon = (): React.ReactNode => {
 
 ResponsiveImage.story = {
   parameters: {chromatic: {delay: 3000}},
+};
+
+export const CustomAvatar = (): React.ReactNode => {
+  return (
+    <>
+      <Stack orientation="horizontal" spacing="space40">
+        <Avatar size="sizeIcon40" name="Breonna Taylor" />
+        <Avatar size="sizeIcon50" name="avatar example" src="./avatars/avatar-sizeIcon50.png" />
+        <Avatar size="sizeIcon60" name="avatar example" icon={UserIcon} />
+      </Stack>
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{
+          AVATAR: {
+            backgroundColor: 'colorBackgroundTrial',
+          },
+          AANG: {
+            color: 'colorTextWeakest',
+            backgroundColor: 'colorBackgroundPrimary',
+          },
+        }}
+      >
+        <Box marginBottom="space60" marginTop="space60">
+          <Stack orientation="horizontal" spacing="space40">
+            <Avatar size="sizeIcon40" name="Breonna Taylor" />
+            <Avatar size="sizeIcon50" name="avatar example" src="./avatars/avatar-sizeIcon50.png" />
+            <Avatar size="sizeIcon60" name="avatar example" icon={UserIcon} />
+          </Stack>
+        </Box>
+        <Stack orientation="horizontal" spacing="space40">
+          <Avatar element="AANG" size="sizeIcon40" name="Breonna Taylor" />
+          <Avatar element="AANG" size="sizeIcon50" name="avatar example" src="./avatars/avatar-sizeIcon50.png" />
+          <Avatar element="AANG" size="sizeIcon60" name="avatar example" icon={UserIcon} />
+        </Stack>
+      </CustomizationProvider>
+    </>
+  );
 };

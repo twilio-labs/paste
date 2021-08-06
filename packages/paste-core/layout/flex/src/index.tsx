@@ -46,6 +46,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
       basis,
       children,
       display,
+      element = 'FLEX',
       hAlignContent,
       grow,
       marginTop,
@@ -115,6 +116,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
         ref={ref}
         as={as}
         display={display}
+        element={element}
         {...margins}
         {...paddings}
         minHeight={minHeight}
@@ -134,40 +136,39 @@ Flex.defaultProps = {
   display: 'flex',
 };
 
-if (process.env.NODE_ENV === 'development') {
-  Flex.propTypes = {
-    as: PropTypes.string as any,
-    display: ResponsiveProp(PropTypes.oneOf(['flex', 'inline-flex'])),
-    vertical: ResponsiveProp(PropTypes.bool),
-    vAlignContent: ResponsiveProp(PropTypes.oneOf(['top', 'center', 'bottom', 'stretch'])),
-    hAlignContent: ResponsiveProp(PropTypes.oneOf(['left', 'center', 'right', 'around', 'between'])),
-    grow: ResponsiveProp(PropTypes.oneOfType([PropTypes.bool, PropTypes.number])),
-    shrink: ResponsiveProp(PropTypes.oneOfType([PropTypes.bool, PropTypes.number])),
-    basis: ResponsiveProp(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
-    wrap: ResponsiveProp(PropTypes.bool),
-    width: isWidthTokenProp,
-    minWidth: isMinWidthTokenProp,
-    maxWidth: isMaxWidthTokenProp,
-    height: isHeightTokenProp,
-    minHeight: isMinHeightTokenProp,
-    maxHeight: isMaxHeightTokenProp,
-    size: isWidthTokenProp,
-    margin: isMarginTokenProp,
-    marginTop: isMarginTokenProp,
-    marginRight: isMarginTokenProp,
-    marginBottom: isMarginTokenProp,
-    marginLeft: isMarginTokenProp,
-    marginX: isMarginTokenProp,
-    marginY: isMarginTokenProp,
-    padding: isPaddingTokenProp,
-    paddingTop: isPaddingTokenProp,
-    paddingRight: isPaddingTokenProp,
-    paddingBottom: isPaddingTokenProp,
-    paddingLeft: isPaddingTokenProp,
-    paddingX: isPaddingTokenProp,
-    paddingY: isPaddingTokenProp,
-  };
-}
+Flex.propTypes = {
+  as: PropTypes.string as any,
+  display: ResponsiveProp(PropTypes.oneOf(['flex', 'inline-flex'])),
+  element: PropTypes.string,
+  vertical: ResponsiveProp(PropTypes.bool),
+  vAlignContent: ResponsiveProp(PropTypes.oneOf(['top', 'center', 'bottom', 'stretch'])),
+  hAlignContent: ResponsiveProp(PropTypes.oneOf(['left', 'center', 'right', 'around', 'between'])),
+  grow: ResponsiveProp(PropTypes.oneOfType([PropTypes.bool, PropTypes.number])),
+  shrink: ResponsiveProp(PropTypes.oneOfType([PropTypes.bool, PropTypes.number])),
+  basis: ResponsiveProp(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+  wrap: ResponsiveProp(PropTypes.bool),
+  width: isWidthTokenProp,
+  minWidth: isMinWidthTokenProp,
+  maxWidth: isMaxWidthTokenProp,
+  height: isHeightTokenProp,
+  minHeight: isMinHeightTokenProp,
+  maxHeight: isMaxHeightTokenProp,
+  size: isWidthTokenProp,
+  margin: isMarginTokenProp,
+  marginTop: isMarginTokenProp,
+  marginRight: isMarginTokenProp,
+  marginBottom: isMarginTokenProp,
+  marginLeft: isMarginTokenProp,
+  marginX: isMarginTokenProp,
+  marginY: isMarginTokenProp,
+  padding: isPaddingTokenProp,
+  paddingTop: isPaddingTokenProp,
+  paddingRight: isPaddingTokenProp,
+  paddingBottom: isPaddingTokenProp,
+  paddingLeft: isPaddingTokenProp,
+  paddingX: isPaddingTokenProp,
+  paddingY: isPaddingTokenProp,
+};
 
 export {Flex};
 
