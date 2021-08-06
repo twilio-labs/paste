@@ -1,0 +1,454 @@
+---
+title: Copy to clipboard
+description: Give customers guidance on what steps to take if content is either unavailable or can't be displayed.
+slug: /patterns/copy-to-clipboard/
+---
+
+import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {Card} from '@twilio-paste/card';
+import {Grid, Column} from '@twilio-paste/grid';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Table, Tr, Th, Td, THead, TBody} from '@twilio-paste/table';
+import {Text} from '@twilio-paste/text';
+import {useUID} from 'react-uid';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/patterns/copy-to-clipboard/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Copy to clipboard"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+          }
+        }
+      }
+    }
+  }
+`;
+
+<content>
+
+<PatternHeader
+  description={props.pageContext.frontmatter.description}
+  name={props.pageContext.frontmatter.title}
+  packageStatus={props.data.allAirtable.edges}
+/>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+## Ingredients
+
+<Grid gutter="space30" marginBottom="space80">
+  <Column>
+    <Card>
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="/components/card">Card</Anchor>
+      </Heading>
+    </Card>
+  </Column>
+  <Column>
+    <Card>
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="/components/heading">Heading</Anchor>
+      </Heading>
+    </Card>
+  </Column>
+  <Column>
+    <Card>
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="/components/paragraph">Paragraph</Anchor>
+      </Heading>
+    </Card>
+  </Column>
+</Grid>
+<Grid gutter="space30" marginBottom="space80">
+  <Column>
+    <Card>
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="/components/button">Button (optional)</Anchor>
+      </Heading>
+    </Card>
+  </Column>
+  <Column>
+    <Card>
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="/components/anchor">Anchor (optional)</Anchor>
+      </Heading>
+    </Card>
+  </Column>
+  <Column>
+    <Card>
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="/illustrations">Illustrations (optional)</Anchor>
+      </Heading>
+    </Card>
+  </Column>
+</Grid>
+
+For Card sizing, go to the [Sizing & responsiveness section](/patterns/copy-to-clipboard#sizing-and-responsiveness) for more details.
+
+For illustrations, we recommend using a fixed width of `$size-20`. The illustration must be directly related to the message you’re communicating. Read more about [which illustrations to use for each use case](/patterns/copy-to-clipboard#content-examples-by-use-case).
+
+```jsx
+// import all ingredients for the empty state patterns
+import {​Card} from '@twilio-paste/core/card';
+import {Heading} from '@twilio-paste/core/heading';
+import {Paragraph} from '@twilio-paste/core/paragraph';
+import {Button} from '@twilio-paste/core/button';
+import {​Anchor} from '@twilio-paste/core/anchor';
+```
+
+## Usage
+
+### General
+
+This pattern is used to create a standardized pattern for customers to easily copy things like important codes or SIDs in a variety of different situations.
+
+Copy to clipboard should:
+
+- **Be accessible:** Sighted users should be able to access this functionality just as easily as non-sighted users.
+
+In most cases, copying to clipboard is a secondary feature. Thus, it should stay out of the user's way unless he or she explicitly reaches for it.
+
+<Box marginBottom="space70">
+  <iframe
+    src="https://codesandbox.io/embed/empty-state-with-immediate-next-step-bmxe1?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+    style="width:100%; height:350px; border:0; border-radius: 4px; overflow:hidden;"
+    title="Empty state requiring a customer to wait"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  ></iframe>
+</Box>
+
+### Accessibility
+
+For call-to-actions in an empty state, use an [Anchor](/components/anchor) if the action will take the user to a new URL.
+In all other cases, use a [Button](/components/button). For detailed guidance on applying this recommendation,
+check out the [Button vs. Anchor pattern](/patterns/button-vs-anchor).
+
+## Variations
+
+### CopyToClipboard button
+
+This is the base component that will be able to be used directly or composed into other components; when clicked, the provided value will be copied.
+
+<Box marginBottom="space70">
+  <iframe
+    src="TODO: fill in with codesandbox"
+    style="width:100%; height:350px; border:0; border-radius: 4px; overflow:hidden;"
+    title="Empty States with immediate next steps"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  ></iframe>
+</Box>
+
+### CopyToClipboard wrapper
+
+In cases where we want to allow users to easily copy text or SIDs, wrapping the text with a CopyToClipboardWrapper component may be the most ergonomic path forward.
+The CopyToClipboard button is used in this context by displaying on hover for sighted users and still tab-accessible by non-sighted users.
+
+<Box marginBottom="space70">
+  <iframe
+    src="TODO: fill in with codesandbox"
+    style="width:100%; height:350px; border:0; border-radius: 4px; overflow:hidden;"
+    title="Empty States with immediate next steps"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  ></iframe>
+</Box>
+
+### InsertAfter/InsertBefore content for Input
+
+There can situations where forms are frozen and its inputs become readonly. Whether or not the input is readonly, we can still make copying important values easy for the user by providing the CopyToClipboard in the InsertAfter/InsertBefore props.
+
+<Box marginBottom="space70">
+  <iframe
+    src="TODO: fill in with codesandbox"
+    style="width:100%; height:350px; border:0; border-radius: 4px; overflow:hidden;"
+    title="Empty state requiring a customer to wait"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  ></iframe>
+</Box>
+
+### Sizing & Responsiveness
+
+When an empty state card is wider than 540px (recommended), use `padding="space150"`, and align illustrations horizontally with the text content.
+
+In smaller spaces, use `padding="space100"` and stack the illustration in the card above the text content.
+
+If your empty state composition needs to accommodate different screen sizes, you can also wrap it in the Stack or Grid component.
+
+<Callout>
+  <CalloutText>
+    If you'd like to contribute guidelines for empty states in even more compact situations, like a navigation panel or
+    components like <Anchor href="/components/combobox">Combobox</Anchor>, please reach out in a{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/discussions">GitHub Discussion</Anchor>!
+  </CalloutText>
+</Callout>
+
+Open the sandbox in a new tab and resize the browser for an example of responsive sizing.
+
+<Box marginBottom="space70">
+  <iframe
+    src="https://codesandbox.io/embed/empty-state-sizing-responsiveness-euj5p?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    title="Empty state requiring a customer to wait"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  ></iframe>
+</Box>
+
+## Examples of Empty State use cases
+
+For all use cases:
+
+- Use a heading that succinctly summarizes the situation. We recommended a maximum of 7 words.
+- Use an illustration only if it’s directly related to the message you’re communicating. Don’t use a random illustration to “fill in the blank.” The more that illustrations are used throughout our products, the more they lose their emotional and visual impact when it really matters. [Learn more about requesting a new illustration](/illustrations#request-new-illustrations).
+
+<Box marginBottom="space70">
+  <Table>
+    <THead>
+      <Tr>
+        <Th width="200px">Use case</Th>
+        <Th>Customer scenario</Th>
+        <Th width="200px">Example heading</Th>
+        <Th width="200px">Illustration</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr verticalAlign="top">
+        <Th scope="row">Create an object</Th>
+        <Td>
+          The customer needs to create something new to populate the page or learn more about why/how to create it.
+        </Td>
+        <Td>"Create an alpha sender"</Td>
+        <Td>
+          <Box
+            as="img"
+            src="/images/patterns/empty-create-an-object.png"
+            alt="Create an object illustration"
+            display="block"
+            marginLeft="auto"
+            marginRight="auto"
+            maxWidth="100px"
+            height="auto"
+          />
+          <Anchor href="https://library.twilio.com/collections/view/963D9AB3-47A0-4C13-978BC97108C1EBCC/?mediaId=76338C93-160D-49BE-ABF66BA274D512FE">
+            Download from the Brand library
+          </Anchor>
+        </Td>
+      </Tr>
+      <Tr verticalAlign="top">
+        <Th scope="row">No results found</Th>
+        <Td>Based on a customer's search or filter criteria, we're unable to give them any results.</Td>
+        <Td>"No phone numbers found"</Td>
+        <Td>
+          <Box
+            as="img"
+            src="/images/patterns/empty-no-results-found.png"
+            alt="No results found illustration"
+            display="block"
+            marginLeft="auto"
+            marginRight="auto"
+            maxWidth="100px"
+            height="auto"
+          />
+          <Anchor href="https://library.twilio.com/share/0B06AF02-1A85-41D6-8C712765E741B791/?mediaId=394526A8-0A5D-4C18-9A11AEBCED9ECAEE">
+            Download from the Brand library
+          </Anchor>
+        </Td>
+      </Tr>
+      <Tr verticalAlign="top">
+        <Th scope="row">Awaiting data</Th>
+        <Td>
+          The customer has done everything they need to do. Now they're waiting on a response or for data to come in.
+        </Td>
+        <Td />
+        <Td>
+          <Box
+            as="img"
+            src="/images/patterns/empty-awaiting-data.png"
+            alt="Awaiting data illustration"
+            display="block"
+            marginLeft="auto"
+            marginRight="auto"
+            maxWidth="100px"
+            height="auto"
+          />
+          <Anchor href="https://library.twilio.com/collections/view/963D9AB3-47A0-4C13-978BC97108C1EBCC/?mediaId=CCE495BC-0D72-4F3D-A7E4958ECA83A41B">
+            Download from the Brand library
+          </Anchor>
+        </Td>
+      </Tr>
+      <Tr verticalAlign="top">
+        <Th scope="row">Generic dependency state</Th>
+        <Td>The customer needs to do something or go somewhere else to continue their workflow.</Td>
+        <Td />
+        <Td>
+          <Box
+            as="img"
+            src="/images/patterns/empty-generic-dependency-state.png"
+            alt="Generic dependency state illustration"
+            display="block"
+            marginLeft="auto"
+            marginRight="auto"
+            maxWidth="100px"
+            height="auto"
+          />
+          <Anchor href="https://library.twilio.com/collections/view/963D9AB3-47A0-4C13-978BC97108C1EBCC/?mediaId=BCB4A8CB-6717-4041-B8F05F726C7AD6CA">
+            Download from the Brand library
+          </Anchor>
+        </Td>
+      </Tr>
+      <Tr verticalAlign="top">
+        <Th scope="row">No permissions to view</Th>
+        <Td>The customer doesn't have permissions to view the page.</Td>
+        <Td>"Request access to WhatsApp"</Td>
+        <Td>
+          <Box
+            as="img"
+            src="/images/patterns/empty-no-permissions-to-view.png"
+            alt="No permissions to view illustration"
+            display="block"
+            marginLeft="auto"
+            marginRight="auto"
+            maxWidth="100px"
+            height="auto"
+          />
+          <Anchor href="https://library.twilio.com/collections/view/963D9AB3-47A0-4C13-978BC97108C1EBCC/?mediaId=8C1B7853-CB10-4C2E-89BF03871593BDC3">
+            Download from the Brand library
+          </Anchor>
+        </Td>
+      </Tr>
+      <Tr verticalAlign="top">
+        <Th scope="row">Change regional data location</Th>
+        <Td>The customer needs to swap regions to access the data.</Td>
+        <Td>"View event logs in the United States region"</Td>
+        <Td>
+          <Box
+            as="img"
+            src="/images/patterns/empty-change-regional-data-location.png"
+            alt="Change regional data location illustration"
+            display="block"
+            marginLeft="auto"
+            marginRight="auto"
+            maxWidth="100px"
+            height="auto"
+          />
+          <Anchor href="https://library.twilio.com/collections/view/963D9AB3-47A0-4C13-978BC97108C1EBCC/?mediaId=F44538E4-FD2E-45B2-806402557124153C">
+            Download from the Brand library
+          </Anchor>
+        </Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
+
+## Dos and Don'ts
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Include a heading that summarizes the situation. We recommend a maximum of 7 words."
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body="Don't include a long heading providing too many details. If the heading wraps to 2 or more lines, that may be a sign to be more concise. Don't use a period at the end of a heading."
+    preview={false}
+  />
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Include a more detailed explanation of the situation and next steps, when applicable."
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body="Don't repeat the heading copy in paragraph text if it doesn't add additional clarity."
+    preview={false}
+  />
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Show a call-to-action in the empty state card only, unless the movement from hiding a CTA outside of the card draws too much of the customer's attention away from their primary goal."
+    preview={false}
+  />
+  <Dont title="Don't" body="Avoid showing the same CTA twice on a page." preview={false} />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="If the empty state requires CTAs, try to include no more than 2." preview={false} />
+  <Dont
+    title="Don't"
+    body="Avoid giving the user more than 3 calls-to-action on the same empty state, so they're not overwhelmed with choice. If more than 3 are needed, consider grouping them under different headings or other content sections."
+    preview={false}
+  />
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use an illustration that's directly related to the message you are sending. Check the list of illustrations to use based on use case."
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body='Don&apos;t use a random illustration to "fill in the blank." The more that illustrations are used throughout our products, the more they lose their emotional and visual impact when it really matters.'
+    preview={false}
+  />
+</DoDont>
+
+## Starter kits
+
+### Figma
+
+Coming soon
+
+## What's missing?
+
+If you're interested in contributing more guidelines, please reach out in a [GitHub Discussion](https://github.com/twilio-labs/paste/discussions).
+
+Here are use cases we're know we're missing guidelines on:
+
+- Copy to clipboard in compact situations, like a navigation panel or components like [Combobox](/components/combobox).
+- Copy to clipboard for charts and graphs.
+- Error states and when to use error states vs. empty states.
+- Notice anything else? [Let us know](https://github.com/twilio-labs/paste/discussions)!
+
+</content>
+
+</contentwrapper>
