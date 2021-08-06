@@ -89,56 +89,51 @@ Radio groups are used when a user has a single choice to make from two or more o
 
 Radio groups should:
 
-- Include at least two or more options
-- Allow users to select only one option
-- Include at most 6 options (use your discretion here if you need more; if there's a chance in the future that it might be more than 6, use a Select component drop-down) If there is help text that the user needs to know before making selection, use checkbox/radio.
-- List options in a rational order that makes logical sense
+- Include at least two or more options.
+- Allow users to select only one option.
+- Include at most 6 options. If there's a chance the Radio might later expand to include more than 6 options, use a [Select](https://paste.twilio.design/components/select) instead.
+- List options in a rational order that makes logical sense.
 
-#### Best Practices
+#### Best practices
 
-- See [content guidelines](/content) for copy requirements
-- Avoid nesting radio buttons with other radio buttons
-- If an option is strongly recommended, add "(Recommended)" to the label. Be sure to add to the label, not the help text
-- See [Default Pre-Selected](#default-pre-selected-state) State to determine if you should have a default selection
+- Avoid nesting radio buttons within other radio buttons.
+- If an option is strongly recommended, add "(Recommended)" to the label. Be sure to add it to the label, not the help text.
 - Use the same name attribute on all radio buttons in the group. This ensures that if there is more than one group in the form, each one stays associated with its own group
 - If a radio group is “Optional”, users won't be able to unselect a selected radio. If you need to give users a way to unselect, consider adding a clear button or using another type of form field.
-- Use a Select Component if there is a chance additional options over 6 will be added in the future.
 
-### Accessibility Information
+### Accessibility information
 
 - A radio group must have a visible label that is in close proximity to the control
 - HTML radio groups don't natively support the `required` attribute. In cases where a radio is required to be checked:
   - Display a required indicator
   - Ensure the radio label text includes wording that successfully describes the requirement to the user that they should select the radio
-- When in an error state, display an inline error message below the offending radio group that clearly describes the error.
 
-## Layout Examples
+## Layout examples
 
-### Vertically Stacked Radio Group
+### Vertically stacked Radio Group
 
-Use this option if labels are too long (see horizontal alignment for limits) or the list needs to wrap to two lines.
-
-An optional default choice is pre-selected (see Default Pre-Selected State below).
+Use this option if labels are too long (see [horizontal alignment](#horizontal-alignment) for limits) or the list needs to wrap to two lines.
 
 <LivePreview scope={{Radio, RadioGroup}} noInline>
   {verticalExample}
 </LivePreview>
 
-### Default Pre-Selected State
+### Pre-selected value
 
-By default, we don't have a pre-selected state. It's at the discretion of Paste consumers to set a default selected option. If there is a pre-selected state, be sure to make the first option the default option. Please review this article to determine if you should default a selection: [https://www.nngroup.com/articles/radio-buttons-default-selection/](https://www.nngroup.com/articles/radio-buttons-default-selection/).
+By default, the Radio Group component doesn't apply a pre-selected value.
 
-Don't have a default selection if:
+Apply a pre-selected value to make it clear the user must select an option only if:
 
-- A default value would incorrectly imply that the user doesn't need to make a selection when they actually need to make a choice.
-- You are collecting unbiased data. Defaulting to an option biases or alters the experience in an undesired way and your data will be skewed
-- There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. (show display error)
+- Your default value is a safe, secure, and reversible option, and you're willing to collect biased data. Defaulting to a value biases or alters the experience so that your data may be skewed.
+- The user doesn't need to make an explicit choice for safety, security, or legal reasons.
+  
+If you do apply a pre-selected value, make the first option the default option. This article can help you further determine if you should default a selection: [Radio Buttons: Select One by Default or Leave All Unselected?, Nielsen Norman](https://www.nngroup.com/articles/radio-buttons-default-selection/).
 
 Component Example
 
 ### With Help Text
 
-You can provide additional information about the group with the use of help text. Help text can appear after the group label but before the first option. Use the group label to explain the purpose of the group, not how to make the selection. Assume that users know how to use radio buttons. For example, don't say "Select one of the following choices".
+You can provide additional information about the group with the use of help text. Help text can appear after the group label but before the first option. Use the group label to explain the purpose of the group, not how to make the selection. For example, don't say "Select one of the following choices".
 
 <LivePreview scope={{Radio, RadioGroup}} noInline>
   {defaultExample}
@@ -156,7 +151,7 @@ Use the required dot only when necessary to denote it is required. This goes bef
 
 - Options are placed next to each other, in logical order, with appropriate spacing. If people can easily compare shorter options from left to right, use this alignment
 - Do not run onto two lines
-- If the label is longer than 3 words/20 characters, consider using a vertically stacked version. If the content is too long, please use vertical stacking
+- If the label is longer than 3 words/20 characters, consider using a vertically stacked version. If the content is too long, please use vertical stacking.
 
 <LivePreview scope={{Radio, RadioGroup}} noInline>
   {horizontalExample}
@@ -190,7 +185,7 @@ Use the required dot only when necessary to denote it is required. This goes bef
   {disabledExample}
 </LivePreview>
 
-### Group Error
+### Group error
 
 If the selected items don't pass the group validation requirements an inline error message should be displayed.
 
@@ -212,25 +207,20 @@ An inline error is placed at the bottom of the group to inform a user of any err
 
 ## Composition notes
 
-## When to use an Radio Group
+## When to use a Radio Group
 
-Use a Radio Group to select a single option from a list of two, but no more than six (use your discretion) options.
+Use a Radio Group to select a single option from a list of 2, but no more than 6 options.
 
-## Content Guidelines
+## Content guidelines
 
 ### Validation
 
 Validate the group on form submission. Don't validate each item in the group, treat validation on the group as a whole.
 
-### Errors
-
-Error text should go below groups.
-
 ### Labels and Help Text
 
-- Radio text should not end in punctuation even if it's a sentence, but especially it it's a word or a fragment
-- Use with an associated label component
-- All labels begin with a capital letter
+- Radio text should not end in punctuation even if it's a sentence.
+- All labels begin with a capital letter.
 
 ---
 
