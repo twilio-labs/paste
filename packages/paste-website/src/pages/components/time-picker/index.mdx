@@ -286,7 +286,7 @@ The function accepts two parameters: (1) the time value that should be formatted
 
 Change a Time Picker to its error state and add an inline error if the value entered doesn't pass validation requirements.
 
-An inline error is placed below the field to inform a user of any errors in their value. If Help Text exists, the error text should replace and repeat the Help Text.
+An inline error is placed below the field to inform a user of any errors in their value. If `HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy.
 
 <LivePreview scope={{TimePicker, Label, HelpText, useUID, Anchor}} noInline>
   {HasErrorPicker}
@@ -543,7 +543,7 @@ const TimePickerExample = () => {
         onChange={(evt) => formatReturnTime(evt.target.value, 'hh:mm aa')}
         required
       />
-      <HelpText id="foo_text">Please select a time.</HelpText>
+      <HelpText id="foo_text">Select a time.</HelpText>
     </>
   );
 };
