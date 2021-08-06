@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
@@ -12,6 +13,8 @@ import {Callout, CalloutTitle, CalloutText} from '../callout';
 import {TokenExample} from './TokensExample';
 import {getTokenValue} from './getTokenValue';
 import {useDarkModeContext} from '../../context/DarkModeContext';
+
+const debounce = require('lodash/debounce');
 
 const sentenceCase = (catName: string): string => {
   return catName
@@ -83,6 +86,16 @@ const getTokensByTheme = (props: TokensListProps, theme: ThemeVariants): TokenCa
 
 const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
 
+const trackTokenFilterString = debounce((filter: string): void => {
+  if (filter !== '') {
+    trackCustomEvent({
+      category: 'Design Tokens',
+      action: 'filter',
+      label: filter,
+    });
+  }
+}, 500);
+
 export const TokensList: React.FC<TokensListProps> = (props) => {
   const {theme} = useDarkModeContext();
   const [tokens, setTokens] = React.useState<TokenCategory[] | null>(getTokensByTheme(props, theme));
@@ -116,6 +129,7 @@ export const TokensList: React.FC<TokensListProps> = (props) => {
     const filter = e.currentTarget.value;
     setFilterString(filter);
     filterTokenList();
+    trackTokenFilterString(filter);
   };
 
   const uid = useUID();
