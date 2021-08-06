@@ -1,8 +1,9 @@
-import {render} from '@testing-library/react';
 import * as React from 'react';
+import {matchers} from 'jest-emotion';
+import {render, screen} from '@testing-library/react';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {Column, Grid} from '../src';
 import {getColumnStyles} from '../src/Column';
-
 import {
   getColumnOffset,
   getColumnSpan,
@@ -11,6 +12,8 @@ import {
   getSpacing,
   getResponsiveSpacing,
 } from '../src/utils';
+
+expect.extend(matchers);
 
 describe('Grid', () => {
   const BASE_PADDING = {
@@ -334,6 +337,87 @@ describe('Grid', () => {
       );
 
       expect(asFragment()).toMatchSnapshot();
+    });
+  });
+
+  describe('HTML attributes', () => {
+    it('should set a element data attribute for Grid', () => {
+      render(<Grid>grid</Grid>);
+      expect(screen.getByText('grid').getAttribute('data-paste-element')).toEqual('GRID');
+    });
+    it('should set a custom element data attribute for Grid', () => {
+      render(<Grid element="foo">grid</Grid>);
+      expect(screen.getByText('grid').getAttribute('data-paste-element')).toEqual('foo');
+    });
+    it('should set a element data attribute for Column', () => {
+      render(<Column>column</Column>);
+      expect(screen.getByText('column').getAttribute('data-paste-element')).toEqual('COLUMN');
+    });
+    it('should set a custom element data attribute for Column', () => {
+      render(<Column element="foo">column</Column>);
+      expect(screen.getByText('column').getAttribute('data-paste-element')).toEqual('foo');
+    });
+  });
+
+  describe('Customization', () => {
+    it('should add custom styles to Grid', (): void => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          elements={{GRID: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+        >
+          <Grid data-testid="customizable-grid">Custom grid</Grid>
+        </CustomizationProvider>
+      );
+      const renderedBox = screen.getByTestId('customizable-grid');
+      expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+      expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
+    });
+
+    it('should add custom styles to Grid with a custom element data attribute', (): void => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+        >
+          <Grid element="foo" data-testid="customizable-grid">
+            Custom grid
+          </Grid>
+        </CustomizationProvider>
+      );
+      const renderedBox = screen.getByTestId('customizable-grid');
+      expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+      expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
+    });
+
+    it('should add custom styles to Column', (): void => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          elements={{COLUMN: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+        >
+          <Column data-testid="customizable-column">Custom column</Column>
+        </CustomizationProvider>
+      );
+      const renderedBox = screen.getByTestId('customizable-column');
+      expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+      expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
+    });
+
+    it('should add custom styles to Column with a custom element data attribute', (): void => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+        >
+          <Column element="foo" data-testid="customizable-column">
+            Custom column
+          </Column>
+        </CustomizationProvider>
+      );
+      const renderedBox = screen.getByTestId('customizable-column');
+      expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+      expect(renderedBox).toHaveStyleRule('color', 'rgb(96,107,133)');
     });
   });
 });
