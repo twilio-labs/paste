@@ -1,10 +1,9 @@
 import * as React from 'react';
 import {Heading} from '@twilio-paste/heading';
 import {withKnobs, select} from '@storybook/addon-knobs';
-import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
-import {Text} from '@twilio-paste/text';
 import type {Padding} from '@twilio-paste/style-props';
+import {Stack} from '@twilio-paste/stack';
 import {DefaultTheme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Card} from '../src';
@@ -70,19 +69,16 @@ export const PropPassthrough = (): React.ReactNode => (
 
 export const CustomCard: React.FC = () => {
   return (
-    <>
+    <Stack orientation="vertical" spacing="space60">
       <Card>
         <Heading as="h2" variant="heading20">
-          Mass Alerts
+          Default
         </Heading>
         <Paragraph marginBottom="space0">
           Deliver critical time-sensitive messages to employees and customers at scale with the Programmable Messaging
           API.
         </Paragraph>
       </Card>
-      <Box marginTop="space60" marginBottom="space60">
-        <Text as="span">Customized</Text>
-      </Box>
       <CustomizationProvider
         baseTheme="default"
         elements={{
@@ -95,7 +91,7 @@ export const CustomCard: React.FC = () => {
       >
         <Card>
           <Heading as="h2" variant="heading20">
-            Mass Alerts
+            Customized
           </Heading>
           <Paragraph marginBottom="space0">
             Deliver critical time-sensitive messages to employees and customers at scale with the Programmable Messaging
@@ -103,9 +99,6 @@ export const CustomCard: React.FC = () => {
           </Paragraph>
         </Card>
       </CustomizationProvider>
-      <Box marginTop="space60" marginBottom="space60">
-        <Text as="span">Customized element</Text>
-      </Box>
       <CustomizationProvider
         baseTheme="default"
         elements={{
@@ -119,7 +112,7 @@ export const CustomCard: React.FC = () => {
       >
         <Card element="NEW_CARD">
           <Heading as="h2" variant="heading20">
-            Mass Alerts
+            Customized element
           </Heading>
           <Paragraph marginBottom="space0">
             Deliver critical time-sensitive messages to employees and customers at scale with the Programmable Messaging
@@ -127,6 +120,6 @@ export const CustomCard: React.FC = () => {
           </Paragraph>
         </Card>
       </CustomizationProvider>
-    </>
+    </Stack>
   );
 };
