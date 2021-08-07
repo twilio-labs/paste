@@ -1,8 +1,8 @@
 import Scrollspy from 'react-scrollspy';
 import {styled, themeGet} from '@twilio-paste/styling-library';
-import {TableOfContentsListItemProps} from './types';
+import type {TableOfContentsListItemProps} from './types';
 
-export const StyledScrollSpy = styled(Scrollspy)`
+export const TableOfContentsList = styled(Scrollspy)`
   position: sticky;
   top: 0;
   right: 0;
@@ -35,7 +35,7 @@ export const fontSizePartial = ({depth}: TableOfContentsListItemProps): string =
   return themeGet('fontSizes.fontSize30');
 };
 
-export const StyledListItem = styled.li<TableOfContentsListItemProps>`
+export const TableOfContentsListItem = styled.li<TableOfContentsListItemProps>`
   display: block;
   margin-top: ${marginTopPartial};
   margin-left: ${marginLeftPartial};
