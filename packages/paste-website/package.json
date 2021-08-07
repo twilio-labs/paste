@@ -114,7 +114,7 @@
     "react-live": "^2.2.2",
     "react-scrollspy": "^3.4.0",
     "react-visibility-sensor": "5.1.1",
-    "use-clipboard-copy": "^0.1.2",
+    "use-clipboard-copy": "^0.2.0",
     "use-resize-observer": "^7.0.0"
   },
   "resolutions": {
