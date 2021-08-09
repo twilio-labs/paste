@@ -20,7 +20,7 @@ const Template: Story<{clipboardProps: UseClipboardProps}> = ({clipboardProps}) 
   return (
     <Box>
       <Label htmlFor="input">Copy</Label>
-      <Input ref={clipboard.target} id="input" />
+      <Input ref={clipboard.target} id="input" type="text" />
       <Button variant="primary" onClick={clipboard.copy}>
         Copy
       </Button>
