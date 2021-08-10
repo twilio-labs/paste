@@ -30,4 +30,7 @@ export const PADDING_PROPS = [
   'paddingY',
   'py',
 ];
-export const SPACE_PROPS = [...MARGIN_PROPS, ...PADDING_PROPS];
+
+export const GAP_PROPS = ['columnGap', 'rowGap'];
+
+export const SPACE_PROPS = [...MARGIN_PROPS, ...PADDING_PROPS, ...GAP_PROPS];
