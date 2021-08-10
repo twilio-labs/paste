@@ -230,34 +230,28 @@ so your grid can be vertical on different viewports. For example to have your gr
 use `vertical={[true, false, false]}`. For a visual example, [see the Storybook example](https://main--5e53448165911c0022e68c74.chromatic.com/?path=/story/layout-grid--grid-2-column-responsive-stack)
 and resize the browser.
 
-<LivePreview scope={{Grid, Column, Button, Box, Card, Heading, Paragraph}} language="jsx">
+<LivePreview scope={{Grid, Column, Button, Card, Heading, Paragraph}} language="jsx">
   {`<Grid gutter="space30" vertical>
   <Column>
-    <Box marginTop="space30">
-      <Card padding="space70">
-        <Heading as="h4" variant="heading40">Web API</Heading>
-        <Paragraph>The fastest, most flexible way to send email using languages like Node.js, Ruby, C#, and more.</Paragraph>
-        <Button>Choose</Button>
-      </Card>
-    </Box>
+    <Card padding="space70">
+      <Heading as="h4" variant="heading40">Web API</Heading>
+      <Paragraph>The fastest, most flexible way to send email using languages like Node.js, Ruby, C#, and more.</Paragraph>
+      <Button>Choose</Button>
+    </Card>
   </Column>
   <Column>
-    <Box marginTop="space30">
-      <Card padding="space70">
-        <Heading as="h4" variant="heading40">SMTP Relay</Heading>
-        <Paragraph>The easiest way to send email. It only requires modifying your application's SMTP configuration.</Paragraph>
-        <Button>Choose</Button>
-      </Card>
-    </Box>
+    <Card padding="space70">
+      <Heading as="h4" variant="heading40">SMTP Relay</Heading>
+      <Paragraph>The easiest way to send email. It only requires modifying your application's SMTP configuration.</Paragraph>
+      <Button>Choose</Button>
+    </Card>
   </Column>
   <Column>
-    <Box marginTop="space30">
-      <Card padding="space70">
-        <Heading as="h4" variant="heading40">What's new at Twilio</Heading>
-        <Paragraph>Check out our newest product releases on the Twilio Changelog.</Paragraph>
-        <Button>Changelog</Button>
-      </Card>
-    </Box>
+    <Card padding="space70">
+      <Heading as="h4" variant="heading40">What's new at Twilio</Heading>
+      <Paragraph>Check out our newest product releases on the Twilio Changelog.</Paragraph>
+      <Button>Changelog</Button>
+    </Card>
   </Column>
 </Grid>`}
 </LivePreview>
@@ -267,7 +261,7 @@ and resize the browser.
 A Grid can be nested inside another Grid. For example, you can split a column into multiple smaller columns in order to stack the outer Grid in a responsive view but not the inner Grid.
 
 <LivePreview scope={{Grid, Column, Box, Card, Heading, Paragraph}} language="jsx">
-  {`<Grid vertical>
+  {`<Grid gutter="space30" vertical>
   <Column>
     <Grid gutter="space30">
       <Column>
@@ -285,12 +279,10 @@ A Grid can be nested inside another Grid. For example, you can split a column in
     </Grid>
   </Column>
   <Column>
-    <Box marginTop="space60" marginBottom="space60">
-      <Card padding="space70">
-        <Heading as="h4" variant="heading40">SMTP Relay</Heading>
-        <Paragraph>The easiest way to send email. It only requires modifying your application's SMTP configuration.</Paragraph>
-      </Card>
-    </Box>
+    <Card padding="space70">
+      <Heading as="h4" variant="heading40">SMTP Relay</Heading>
+      <Paragraph>The easiest way to send email. It only requires modifying your application's SMTP configuration.</Paragraph>
+    </Card>
   </Column>
   <Column>
     <Grid gutter="space30">
@@ -313,9 +305,48 @@ A Grid can be nested inside another Grid. For example, you can split a column in
 
 ### Responsive columns
 
-Grid column `span` and `offset` props can be changed based on the theme breakpoints. Both `span` and `offset` can accept responsive values, for example `span={[6, 8, 2] }`.
-This would set a columns `span` to be 6 columns wide on mobile, 8 columns wide on tablet, and 2 columns wide on desktop. The `offset` prop works in a similar fashion.
-For a visual example, [see the Storybook example](https://main--5e53448165911c0022e68c74.chromatic.com/?path=/story/layout-grid--grid-2-column-responsive) and resize the browser.
+Grid column `span`, `offset`, and `gutter` props accept accept responsive values, allowing them to be changed on theme breakpoints.
+For example, passing `span={[6, 8, 2] }` to a `Column`component sets the column `span` to be 6 columns wide on mobile, 8 columns wide on tablet, and 2 columns wide on desktop. The `offset`, `gutter`, and `vertical` props work in a similar fashion.
+Check out the examples below and resize the browser to see the responsive values in action.
+
+#### Responsive column offset and span
+
+<LivePreview scope={{Grid, Column, Box}} language="jsx">
+  {`<Grid gutter="space20">
+    <Column span={[12, 6, 6]} offset={[0, 2, 2]}>
+      <Box backgroundColor="colorBackgroundPrimaryWeaker" fontSize="fontSize100" height="size40" display="flex" justifyContent="center" alignItems="center">
+        A
+      </Box>
+    </Column>
+    <Column span={4}>
+      <Box backgroundColor="colorBackgroundPrimaryWeak" fontSize="fontSize100" height="size40" display="flex" justifyContent="center" alignItems="center">
+        B
+      </Box>
+    </Column>
+</Grid>`}
+</LivePreview>
+
+#### Responsive column gutters
+
+<LivePreview scope={{Grid, Column, Box}} language="jsx">
+  {`<Grid gutter={['space20', 'space60', 'space90']} vertical={[true, true, false]}>
+    <Column>
+      <Box backgroundColor="colorBackgroundPrimaryWeakest" fontSize="fontSize100" height="size40" display="flex" justifyContent="center" alignItems="center">
+        A
+      </Box>
+    </Column>
+    <Column>
+      <Box backgroundColor="colorBackgroundPrimaryWeaker" fontSize="fontSize100" height="size40" display="flex" justifyContent="center" alignItems="center">
+        B
+      </Box>
+    </Column>
+    <Column>
+      <Box backgroundColor="colorBackgroundPrimaryWeak" fontSize="fontSize100" height="size40" display="flex" justifyContent="center" alignItems="center">
+        C
+      </Box>
+    </Column>
+</Grid>`}
+</LivePreview>
 
 ## Composition Notes
 
@@ -630,7 +661,6 @@ const Component = () => (
 | ------- | --------------------------------- | ---------------------------------------------------------------------- | ------- |
 | span?   | `number, ResponsiveValue<number>` | Sets the width of Columns (how many columns a column can span)         |         |
 | offset? | `number, ResponsiveValue<number>` | Sets the left margin of a Column (how many columns a column is offset) |         |
-
 
 <ChangelogRevealer>
   <Changelog />
