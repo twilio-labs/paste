@@ -1,9 +1,9 @@
 {
-  "name": "@twilio-paste/use-clipboard-library",
+  "name": "@twilio-paste/clipboard-copy-library",
   "version": "0.2.1",
   "category": "library",
   "status": "production",
-  "description": "A library to copy text to clipboard",
+  "description": "A library that allows the user to copy text with the click of a button.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
@@ -25,7 +25,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "use-clipboard-copy": "^0.2.0"
+    "use-clipboard-copy": "0.2.0"
   },
   "peerDependencies": {
     "react": "^16.8.6",
