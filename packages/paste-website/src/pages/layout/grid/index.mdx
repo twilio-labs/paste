@@ -309,10 +309,12 @@ Grid column `span`, `offset`, and `gutter` props accept accept responsive values
 For example, passing `span={[6, 8, 2] }` to a `Column`component sets the column `span` to be 6 columns wide on mobile, 8 columns wide on tablet, and 2 columns wide on desktop. The `offset`, `gutter`, and `vertical` props work in a similar fashion.
 Check out the examples below and resize the browser to see the responsive values in action.
 
+While you can achieve a one column responsive layout by changing each column `span` to 12, you lose out on the ability to have vertical spacing between each row. In this case, we recommend using the vertical prop as it will continue to apply the gutter spacing
+
 #### Responsive column offset and span
 
 <LivePreview scope={{Grid, Column, Box}} language="jsx">
-  {`<Grid gutter="space20">
+  {`<Grid gutter="space20" vertical={[true, false, false]}>
     <Column span={[12, 6, 6]} offset={[0, 2, 2]}>
       <Box backgroundColor="colorBackgroundPrimaryWeaker" fontSize="fontSize100" height="size40" display="flex" justifyContent="center" alignItems="center">
         A
@@ -614,6 +616,46 @@ Since the grid is sized to the full width of its parent container, you may not w
           </Card>
         </Column>
         <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+      </Grid>
+    </Box>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use a vertical grid to create a a stack columns.">
+    <Box padding="space60">
+      <Grid gutter="space30" vertical>
+        <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+        <Column>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+      </Grid>
+    </Box>
+  </Do>
+  <Dont title="Don't" body="Don’t use column span to stack columns.">
+    <Box padding="space60">
+      <Grid gutter="space30">
+        <Column span={12}>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+        <Column span={12}>
+          <Card>
+            <Paragraph>Card content</Paragraph>
+          </Card>
+        </Column>
+        <Column span={12}>
           <Card>
             <Paragraph>Card content</Paragraph>
           </Card>
