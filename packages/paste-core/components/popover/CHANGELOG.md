@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.0.4
+
+### Patch Changes
+
+- [`0bfba62d`](https://github.com/twilio-labs/paste/commit/0bfba62d66efe74fc410216f62e67fdd5ab11bea) [#1720](https://github.com/twilio-labs/paste/pull/1720) Thanks [@TheSisb](https://github.com/TheSisb)! - The Popover's close button will now always be the first focus upon opening.
+
 ## 6.0.3
 
 ### Patch Changes

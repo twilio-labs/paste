@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
 import {Composite, useCompositeState} from '@twilio-paste/reakit-library';
 import {Box} from '@twilio-paste/box';
@@ -9,12 +10,13 @@ import {Card} from '@twilio-paste/card';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Anchor} from '@twilio-paste/anchor';
-import {IconObject, IconComponent, IconsListProps, GroupedList} from './types';
+import type {IconObject, IconComponent, IconsListProps, GroupedList} from './types';
 import {IconCard} from './IconCard';
 import {SiteLink} from '../SiteLink';
 import {IconListItem} from './IconListItem';
 import {STICKY_COLUMN_OFFSET} from '../../constants';
 
+const debounce = require('lodash/debounce');
 const iconsJson = require('@twilio-paste/icons/json/icons.json');
 
 const IconComponents: IconComponent = iconsJson.reduce((icons: IconComponent, {name}: IconObject) => {
@@ -53,6 +55,16 @@ const getFirstIcon = (iconsList: GroupedList): IconObject | null => {
   return null;
 };
 
+const trackIconFilterString = debounce((filter: string): void => {
+  if (filter !== '') {
+    trackCustomEvent({
+      category: 'Icons',
+      action: 'filter',
+      label: filter,
+    });
+  }
+}, 500);
+
 const IconsList: React.FC<IconsListProps> = () => {
   const filterID = useUID();
   const iconKeySeed = useUIDSeed();
@@ -61,6 +73,16 @@ const IconsList: React.FC<IconsListProps> = () => {
   const [selectedIcon, setSelectedIcon] = React.useState(getFirstIcon(iconsList));
   const uiComposite = useCompositeState();
   const productComposite = useCompositeState();
+
+  const handleChange = (e: React.FormEvent<HTMLInputElement>): void => {
+    const filter = e.currentTarget.value;
+    const filteredList = iconsJson.filter(({name}: IconObject) => name.toLowerCase().includes(filter.toLowerCase()));
+    const filteredGroupedList = getGroupedList(filteredList);
+    setIconsList(filteredGroupedList);
+    setSelectedIcon(getFirstIcon(filteredGroupedList));
+    setFilterString(filter);
+    trackIconFilterString(filter);
+  };
 
   return (
     <Box maxWidth="size120">
@@ -74,15 +96,7 @@ const IconsList: React.FC<IconsListProps> = () => {
               type="text"
               value={filterString}
               placeholder="Filter by name..."
-              onChange={(e) => {
-                const filteredList = iconsJson.filter(({name}: IconObject) =>
-                  name.toLowerCase().includes(e.currentTarget.value.toLowerCase())
-                );
-                const filteredGroupedList = getGroupedList(filteredList);
-                setIconsList(filteredGroupedList);
-                setSelectedIcon(getFirstIcon(filteredGroupedList));
-                setFilterString(e.currentTarget.value);
-              }}
+              onChange={handleChange}
             />
           </Box>
         </Column>

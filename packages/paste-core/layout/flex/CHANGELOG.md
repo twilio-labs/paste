@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.1.0
+
+### Minor Changes
+
+- [`9f1f99ca`](https://github.com/twilio-labs/paste/commit/9f1f99cae442bc9fd1c658cc85ad64695d61870a) [#1723](https://github.com/twilio-labs/paste/pull/1723) Thanks [@nkrantz](https://github.com/nkrantz)! - [Flex] Enable Flex to respect element customizations set on the customization provider. Flex now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 2.0.4
 
 ### Patch Changes

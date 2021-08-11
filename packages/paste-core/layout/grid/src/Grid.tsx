@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {MarginProps, Space, ResponsiveProp} from '@twilio-paste/style-props';
+import type {MarginProps, Space} from '@twilio-paste/style-props';
+import {ResponsiveProp} from '@twilio-paste/style-props';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {GridProps} from './types';
 import {getOuterGutterPull, getSpacing, getResponsiveSpacing} from './utils';
@@ -38,7 +39,10 @@ const getFlexDirection = (vertical: GridProps['vertical']): GetFlexDirectionRetu
 };
 
 const Grid = React.forwardRef<HTMLDivElement, GridProps>(
-  ({as, children, equalColumnHeights, gutter, marginTop, marginBottom, vertical, ...props}, ref) => {
+  (
+    {as, children, element = 'GRID', equalColumnHeights, gutter, marginTop, marginBottom, vertical = false, ...props},
+    ref
+  ) => {
     const GridColumns = React.useMemo(
       () =>
         React.Children.map(children, (child) =>
@@ -63,6 +67,7 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
         ref={ref}
         as={as}
         alignItems={equalColumnHeights ? 'stretch' : null}
+        element={element}
         flexDirection={flexDirection}
         flexWrap="wrap"
         display="flex"
@@ -76,19 +81,15 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
     );
   }
 );
+
 Grid.displayName = 'Grid';
 
-Grid.defaultProps = {
-  vertical: false,
+Grid.propTypes = {
+  as: PropTypes.string as any,
+  children: PropTypes.node.isRequired,
+  equalColumnHeights: PropTypes.bool,
+  element: PropTypes.string,
+  vertical: ResponsiveProp(PropTypes.bool),
 };
-
-if (process.env.NODE_ENV === 'development') {
-  Grid.propTypes = {
-    as: PropTypes.string as any,
-    children: PropTypes.node.isRequired,
-    vertical: ResponsiveProp(PropTypes.bool),
-    equalColumnHeights: PropTypes.bool,
-  };
-}
 
 export {Grid};

@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.0.4
+
+### Patch Changes
+
+- [`b0e8ab80`](https://github.com/twilio-labs/paste/commit/b0e8ab80d557f102ed5bed3a693d0e53eb99a7c3) [#1725](https://github.com/twilio-labs/paste/pull/1725) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Allow Downshift to handle input events past by the component consumer. This allows for event data and internal state of the combobox to stay in sync correctly
+
 ## 7.0.3
 
 ### Patch Changes

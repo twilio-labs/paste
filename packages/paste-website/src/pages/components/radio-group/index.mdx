@@ -20,6 +20,7 @@ import {
   horizontalExample,
   errorExample,
   disabledExample,
+  disabledPreSelectedExample,
 } from '../../../component-examples/RadioGroupExamples';
 
 export const pageQuery = graphql`
@@ -129,7 +130,9 @@ Apply a pre-selected value to make it clear the user must select an option only 
   
 If you do apply a pre-selected value, make the first option the default option. This article can help you further determine if you should default a selection: [Radio Buttons: Select One by Default or Leave All Unselected?, Nielsen Norman](https://www.nngroup.com/articles/radio-buttons-default-selection/).
 
-Component Example
+<LivePreview scope={{Radio, RadioGroup}} noInline>
+  {disabledPreSelectedExample}
+</LivePreview>
 
 ### With Help Text
 

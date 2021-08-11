@@ -34,6 +34,41 @@ render(
 )
 `.trim();
 
+export const disabledPreSelectedExample = `
+const AccountRadioGroup = () => {
+  const [value, setValue] = React.useState('accountSid');
+  return (
+    <RadioGroup
+      name="account"
+      value={value}
+      legend="How should we identify your account?"
+      onChange={newValue => {
+        setValue(newValue);
+      }}
+    >
+      <Radio
+        id="accountSid"
+        value="accountSid"
+        name="account"
+      >
+        Account SID
+      </Radio>
+      <Radio
+        id="messageSid"
+        value="messageSid"
+        name="account"
+      >
+        Message SID
+      </Radio>
+    </RadioGroup>
+  );
+};
+
+render(
+  <AccountRadioGroup />
+)
+`.trim();
+
 export const horizontalExample = `
 const PaymentMethodRadioGroup = () => {
   const [value, setValue] = React.useState('credit');
