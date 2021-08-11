@@ -200,6 +200,85 @@ render(
 )
 `.trim();
 
+export const exportDownloadPage = `
+const ExportDownloadPage = () => (
+  <>
+    <Heading as="h2" variant="heading20">
+      Active Exports
+    </Heading>
+    <Table>
+      <THead>
+        <Tr>
+          <Th>Status</Th>
+          <Th>Export name</Th>
+          <Th>Actions</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        <Tr>
+          <Td>
+            <Box display="flex" alignItems="center">
+              <Box
+                width="sizeSquare40"
+                height="sizeSquare40"
+                backgroundColor="colorBackgroundSuccess"
+                borderRadius="borderRadiusCircle"
+              />
+              <Text as="p" marginLeft="space30">
+                Ready for download
+              </Text>
+            </Box>
+            <Text as="p" color="colorTextWeak" marginLeft="space60">
+              Tuesday, June 1, 2021
+            </Text>
+          </Td>
+          <Td>
+            <strong>Contacts who did not click</strong>
+          </Td>
+          <Td>
+            <Button variant="link">
+              <DownloadIcon decorative />
+              Download CSV
+            </Button>
+          </Td>
+        </Tr>
+        <Tr>
+          <Td>
+            <Box display="flex" alignItems="center">
+              <Box
+                width="sizeSquare40"
+                height="sizeSquare40"
+                backgroundColor="colorBackgroundSuccess"
+                borderRadius="borderRadiusCircle"
+              />
+              <Text as="p" marginLeft="space30">
+                Ready for download
+              </Text>
+            </Box>
+            <Text as="p" color="colorTextWeak" marginLeft="space60">
+              Tuesday, February 2, 2021
+            </Text>
+          </Td>
+          <Td>
+            <strong>All contacts</strong>
+          </Td>
+          <Td>
+            <Button variant="link">
+              <DownloadIcon decorative />
+              Download CSV
+            </Button>
+          </Td>
+        </Tr>
+      </TBody>
+    </Table>
+  </>
+);
+
+render(
+  <ExportDownloadPage />
+)
+`.trim();
+
 export const exportPlacement = `
 const ExportPlacement = () => (
   <>
@@ -246,7 +325,8 @@ const ExportPlacement = () => (
 
 render(
   <ExportPlacement />
-)`;
+)
+`.trim();
 
 export const exportCard = `
 const ExportCard = () => (
@@ -264,4 +344,5 @@ const ExportCard = () => (
 
 render(
   <ExportCard />
-)`;
+)
+`.trim();

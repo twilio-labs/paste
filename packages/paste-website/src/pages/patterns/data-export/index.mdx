@@ -19,6 +19,7 @@ import {Stack} from '@twilio-paste/stack';
 import {MenuButton, MenuItem, Menu, useMenuState} from '@twilio-paste/menu';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {ExportIcon} from '@twilio-paste/icons/esm/ExportIcon';
+import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
 import {CheckboxGroup, Checkbox} from '@twilio-paste/checkbox';
 import {Toaster, useToaster} from '@twilio-paste/toast';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
@@ -30,6 +31,7 @@ import {
   exportImmediate,
   exportModal,
   exportDelayed,
+  exportDownloadPage,
   exportPlacement,
   exportCard,
 } from '../../../component-examples/DataExportPatternExamples';
@@ -164,11 +166,11 @@ Exporting should:
   {exportButton}
 </LivePreview>
 
-Using the word “Export” and the ExportIcon are predictable signals to customers that they can extract data from Twilio.
+Using the word “Export” and the [ExportIcon](/icons) are predictable signals to customers that they can extract data from Twilio.
 
 Twilio products generally enable customers to convert files to a range of formats before downloading and saving. However if you can’t provide a format conversion, you should still use the word “Export” and the ExportIcon.
 
-The [delayed export](#delayed-export) is an exception to this copy guideline and uses the word “Download” and the DownloadIcon instead. action is placed at the top right of the area where the object will appear once it has been created. In this example, the entire page is dedicated to displaying the user’s services, so the “create new service” action is placed at the top of the page next to the page header.
+The [delayed export](#delayed-export) is an exception to this copy guideline and uses the word “Download” and the [DownloadIcon](/icons) instead.
 
 ## Variations
 
@@ -223,7 +225,6 @@ A delayed export happens when a customer needs to wait for data to be ready.
 Use the same components as the immediate export pattern, but make sure to:
 
 1. Confirm the export was initiated by using a Toast component. Inform the customer that they’ll receive an email notification when it’s ready.
-2. Send an email notification to the customer when the export is ready, with a link to or attachment of the file(s). In this second step, use the word “Download” (example: “Download CSV”) to trigger the actual file download since the customer already clicked an export action to start the export process.
 
 <LivePreview
   scope={{
@@ -236,6 +237,29 @@ Use the same components as the immediate export pattern, but make sure to:
   language="jsx"
 >
   {exportDelayed}
+</LivePreview>
+
+2. Send an email notification to the customer when the export is ready, with a link to or attachment of the file(s). In this second step, use the word “Download” (example: “Download CSV”) to trigger the actual file download since the customer already clicked an export action to start the export process.
+
+<LivePreview
+  scope={{
+    Heading,
+    Box,
+    Tooltip,
+    Table,
+    THead,
+    TBody,
+    Tr,
+    Td,
+    Th,
+    Text,
+    Button,
+    DownloadIcon,
+  }}
+  noInline
+  language="jsx"
+>
+  {exportDownloadPage}
 </LivePreview>
 
 ## Positioning the export action
