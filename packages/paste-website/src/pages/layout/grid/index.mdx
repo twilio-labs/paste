@@ -305,11 +305,22 @@ A Grid can be nested inside another Grid. For example, you can split a column in
 
 ### Responsive columns
 
-Grid column `span`, `offset`, and `gutter` props accept accept responsive values, allowing them to be changed on theme breakpoints.
-For example, passing `span={[6, 8, 2] }` to a `Column`component sets the column `span` to be 6 columns wide on mobile, 8 columns wide on tablet, and 2 columns wide on desktop. The `offset`, `gutter`, and `vertical` props work in a similar fashion.
+Grid column `span`, `offset`, and `gutter` props accept responsive values, allowing them to be changed on theme breakpoints.
+For example, setting `span={[6, 8, 2] }` on a `Column` will instruct the column to `span` 6 columns of the grid at the first breakpoint, 8 columns at the second, and 2 columns at the third breakpoint.
 Check out the examples below and resize the browser to see the responsive values in action.
 
-While you can achieve a one column responsive layout by changing each column `span` to 12, you lose out on the ability to have vertical spacing between each row. In this case, we recommend using the vertical prop as it will continue to apply the gutter spacing
+When creating responsive layouts with the Grid, it is important to remember to control the `vertical` prop accordingly. At the breakpoints you wish to stack the columns, set `vertical` to equal true. This will apply the column gutters vertically, rather than horizontally.
+
+<Callout>
+  <CalloutTitle as="h4" variant="heading40">
+    An important note about stacking columns.
+  </CalloutTitle>
+  <CalloutText>
+    If you would like to achieve a one column responsive layout (or responsive stacked columns), we recommend using the{' '}
+    <strong>vertical</strong>. You can also achieve this by setting each column `span` to 12, but the spacing between
+    the stacked columns is not applied.
+  </CalloutText>
+</Callout>
 
 #### Responsive column offset and span
 
@@ -616,46 +627,6 @@ Since the grid is sized to the full width of its parent container, you may not w
           </Card>
         </Column>
         <Column>
-          <Card>
-            <Paragraph>Card content</Paragraph>
-          </Card>
-        </Column>
-      </Grid>
-    </Box>
-  </Dont>
-</DoDont>
-
-<DoDont>
-  <Do title="Do" body="Use a vertical grid to create a a stack columns.">
-    <Box padding="space60">
-      <Grid gutter="space30" vertical>
-        <Column>
-          <Card>
-            <Paragraph>Card content</Paragraph>
-          </Card>
-        </Column>
-        <Column>
-          <Card>
-            <Paragraph>Card content</Paragraph>
-          </Card>
-        </Column>
-      </Grid>
-    </Box>
-  </Do>
-  <Dont title="Don't" body="Don’t use column span to stack columns.">
-    <Box padding="space60">
-      <Grid gutter="space30">
-        <Column span={12}>
-          <Card>
-            <Paragraph>Card content</Paragraph>
-          </Card>
-        </Column>
-        <Column span={12}>
-          <Card>
-            <Paragraph>Card content</Paragraph>
-          </Card>
-        </Column>
-        <Column span={12}>
           <Card>
             <Paragraph>Card content</Paragraph>
           </Card>
