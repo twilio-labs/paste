@@ -1,8 +1,17 @@
 export const exportButton = `
 const ExportButton = () => {
+  const [submitting, setSubmitting] = React.useState(false);
+
+  const handleClick = () => {
+    setSubmitting(true);
+    setTimeout(() => {
+      setSubmitting(false);
+    }, 2000);
+  };
+
   return (
     <Tooltip text="Export first 10,000 message log lines">
-      <Button variant="secondary" onClick={() => {}}>
+      <Button variant="secondary" onClick={handleClick} loading={submitting}>
         <ExportIcon decorative />
         Export CSV
       </Button>
@@ -15,10 +24,29 @@ render(
 )
 `.trim();
 
-export const exportMenu = `
+export const exportImmediate = `
+const ExportButton = () => {
+  const [submitting, setSubmitting] = React.useState(false);
+
+  const handleClick = () => {
+    setSubmitting(true);
+    setTimeout(() => {
+      setSubmitting(false);
+    }, 2000);
+  };
+
+  return (
+    <Tooltip text="Export first 10,000 message log lines">
+      <Button variant="secondary" onClick={handleClick} loading={submitting}>
+        <ExportIcon decorative />
+        Export CSV
+      </Button>
+    </Tooltip>
+  );
+};
+
 const ExportMenu = () => {
   const menu = useMenuState();
-
   return (
     <>
       <MenuButton {...menu} variant="secondary">
@@ -48,8 +76,17 @@ const ExportMenu = () => {
   );
 };
 
+const ExportImmediate = () => {
+  return (
+    <Stack orientation="horizontal" spacing="space60">
+      <ExportButton />
+      <ExportMenu />
+    </Stack>
+  );
+};
+
 render(
-  <ExportMenu />
+  <ExportImmediate />
 )
 `.trim();
 
@@ -162,3 +199,69 @@ render(
   <ExportDelayed />
 )
 `.trim();
+
+export const exportPlacement = `
+const ExportPlacement = () => (
+  <>
+    <Heading as="h2" variant="heading20">
+      90s Music
+    </Heading>
+    <Box display="flex" justifyContent="flex-end" marginBottom="space60">
+      <Tooltip text="Export first 10,000 message log lines">
+        <Button variant="secondary" onClick={() => {}}>
+          <ExportIcon decorative />
+          Export CSV
+        </Button>
+      </Tooltip>
+    </Box>
+    <Table>
+      <THead>
+        <Tr>
+          <Th>Artist</Th>
+          <Th>Title</Th>
+          <Th>Year</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        <Tr>
+          <Td>Blackstreet</Td>
+          <Td>No Diggity</Td>
+          <Td>1996</Td>
+        </Tr>
+        <Tr>
+          <Td>Oasis</Td>
+          <Td>Wonderwall</Td>
+          <Td>1995</Td>
+        </Tr>
+        <Tr>
+          <Td>Daft Punk</Td>
+          <Td>Around the World</Td>
+          <Td>1997</Td>
+        </Tr>
+      </TBody>
+    </Table>
+  </>
+);
+
+
+render(
+  <ExportPlacement />
+)`;
+
+export const exportCard = `
+const ExportCard = () => (
+  <Card>
+    <Heading as="h3" variant="heading30">
+      August 2021 usage
+    </Heading>
+    <Paragraph>Balance: -$10,512.02</Paragraph>
+    <Button variant="secondary" onClick={() => {}}>
+      <ExportIcon decorative />
+      Export PDF
+    </Button>
+  </Card>
+);
+
+render(
+  <ExportCard />
+)`;

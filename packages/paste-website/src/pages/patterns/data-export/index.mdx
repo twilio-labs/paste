@@ -15,19 +15,23 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Tooltip} from '@twilio-paste/tooltip';
 import {Button} from '@twilio-paste/button';
 import {Text} from '@twilio-paste/text';
+import {Stack} from '@twilio-paste/stack';
 import {MenuButton, MenuItem, Menu, useMenuState} from '@twilio-paste/menu';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {ExportIcon} from '@twilio-paste/icons/esm/ExportIcon';
 import {CheckboxGroup, Checkbox} from '@twilio-paste/checkbox';
 import {Toaster, useToaster} from '@twilio-paste/toast';
+import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
 import {Modal, ModalHeader, ModalHeading, ModalBody, ModalFooter, ModalFooterActions} from '@twilio-paste/modal';
 import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {
   exportButton,
-  exportMenu,
+  exportImmediate,
   exportModal,
   exportDelayed,
+  exportPlacement,
+  exportCard,
 } from '../../../component-examples/DataExportPatternExamples';
 
 export const pageQuery = graphql`
@@ -43,7 +47,7 @@ export const pageQuery = graphql`
         value
       }
     }
-    allAirtable(filter: {data: {Feature: {eq: "Data Export"}}}) {
+    allAirtable(filter: {data: {Feature: {eq: "Data export"}}}) {
       edges {
         node {
           data {
@@ -164,7 +168,7 @@ Using the word “Export” and the ExportIcon are predictable signals to custom
 
 Twilio products generally enable customers to convert files to a range of formats before downloading and saving. However if you can’t provide a format conversion, you should still use the word “Export” and the ExportIcon.
 
-The delayed export is an exception to this copy guideline and uses the word “Download” and the DownloadIcon instead. action is placed at the top right of the area where the object will appear once it has been created. In this example, the entire page is dedicated to displaying the user’s services, so the “create new service” action is placed at the top of the page next to the page header.
+The [delayed export](#delayed-export) is an exception to this copy guideline and uses the word “Download” and the DownloadIcon instead. action is placed at the top right of the area where the object will appear once it has been created. In this example, the entire page is dedicated to displaying the user’s services, so the “create new service” action is placed at the top of the page next to the page header.
 
 ## Variations
 
@@ -177,11 +181,11 @@ When using a Button, while an export is in progress, show the Button loading
 state. When it’s in a loading state, it will disable by default.
 
 <LivePreview
-  scope={{MenuButton, MenuItem, Menu, useMenuState, Button, ChevronDownIcon, ExportIcon}}
+  scope={{Stack, MenuButton, MenuItem, Menu, Tooltip, useMenuState, Button, ChevronDownIcon, ExportIcon}}
   noInline
   language="jsx"
 >
-  {exportMenu}
+  {exportImmediate}
 </LivePreview>
 
 Most often, selecting the export Button or Menu item should trigger a “save as”
@@ -239,20 +243,47 @@ Use the same components as the immediate export pattern, but make sure to:
 Place the export Button above and right-aligned to the data it’s exporting,
 usually a data table or graph.
 
-![table with a data export button placed at the top right](../../../assets/images/patterns/data-export-example-6a.png)
-
-![chart with a data export button placed at the top right](../../../assets/images/patterns/data-export-example-6b.png)
+<LivePreview
+  scope={{
+    Heading,
+    Box,
+    Tooltip,
+    Table,
+    THead,
+    TBody,
+    Tr,
+    Td,
+    Th,
+    Button,
+    ExportIcon,
+  }}
+  noInline
+  language="jsx"
+>
+  {exportPlacement}
+</LivePreview>
 
 It can also be placed in a card component that shows the specific data that will
 be exported, such as a billing invoice.
 
-![A card with a data export button](../../../assets/images/patterns/data-export-example-7.png)
+<LivePreview
+  scope={{
+    Heading,
+    Card,
+    Paragraph,
+    Button,
+    ExportIcon,
+  }}
+  noInline
+  language="jsx"
+>
+  {exportCard}
+</LivePreview>
 
 ## Starter kits
 
-### Design Templates
-
-Coming soon
+- [Figma](https://www.figma.com/file/S4z0Kqjb9AYosnkRQldLte/Paste-Patterns?node-id=304%3A19078)
+- [CodeSandbox](https://codesandbox.io/dashboard/all/Patterns/data-export?workspace=219744aa-c106-40cc-b308-dffc5b5c5b01)
 
 ## Related Discussions
 
