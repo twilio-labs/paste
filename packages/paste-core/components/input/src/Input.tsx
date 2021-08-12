@@ -1,13 +1,17 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {styled, css} from '@twilio-paste/styling-library';
+import {Box} from '@twilio-paste/box';
+import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
 import {InputBox} from '@twilio-paste/input-box';
 import type {InputBoxTypes} from '@twilio-paste/input-box';
 import {safelySpreadFormControlProps} from './utils';
 
 export type InputVariants = 'default' | 'inverse';
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'color'>,
+    Pick<BoxProps, 'element'>,
+    Pick<BoxStyleProps, 'paddingRight'> {
   className?: never;
   disabled?: boolean;
   hasError?: boolean;
@@ -33,63 +37,62 @@ interface TypeProps {
   pattern?: string | undefined;
 }
 
-/* eslint-disable emotion/syntax-preference */
-export const InputElement = styled.input<InputProps>((props) =>
-  css({
-    appearance: 'none',
-    background: 'transparent',
-    border: 'none',
-    borderRadius: 'borderRadius20',
-    boxShadow: 'none',
-    color: 'inherit',
-    display: 'block',
-    fontFamily: 'inherit',
-    fontSize: 'fontSize30',
-    fontWeight: 'fontWeightMedium',
-    lineHeight: 'lineHeight20',
-    margin: 'space0',
-    outline: 'none',
-    paddingBottom: 'space30',
-    paddingLeft: 'space40',
-    paddingRight: 'space40',
-    paddingTop: 'space30',
-    resize: 'none',
-    width: '100%',
-    cursor: (props.type === 'date' || props.type === 'time') && !props.readOnly && !props.disabled ? 'text' : 'auto',
-
-    '&::placeholder': {
-      color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
-      fontStyle: 'italic',
-    },
-
-    '&:focus::placeholder': {
-      color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
-    },
-
-    '&:disabled': {
-      color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
-      cursor: 'not-allowed',
-      // Fixes value color in Safari
-      '-webkit-text-fill-color': props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
-      '-webkit-opacity': '1',
-    },
-    // Fixes extra height issue in Safari
-    '&::-webkit-datetime-edit': {
-      display: 'flex',
-    },
-
-    // Change to pointer cursor on cal icon
-    '&::-webkit-calendar-picker-indicator:hover': {
-      cursor: props.readOnly || props.disabled ? 'default' : 'pointer',
-    },
-  })
-);
-/* eslint-enable */
+export const InputElement = React.forwardRef<HTMLInputElement, InputProps>(({element, ...props}, ref) => {
+  return (
+    <Box
+      appearance="none"
+      as="input"
+      backgroundColor="transparent"
+      border="none"
+      borderRadius="borderRadius20"
+      boxShadow="none"
+      color="inherit"
+      cursor={(props.type === 'date' || props.type === 'time') && !props.readOnly && !props.disabled ? 'text' : 'auto'}
+      display="block"
+      element={element}
+      fontFamily="inherit"
+      fontSize="fontSize30"
+      fontWeight="fontWeightMedium"
+      lineHeight="lineHeight20"
+      margin="space0"
+      outline="none"
+      paddingBottom="space30"
+      paddingLeft="space40"
+      paddingRight="space40"
+      paddingTop="space30"
+      resize="none"
+      width="100%"
+      variant={props.variant}
+      ref={ref}
+      _placeholder={{
+        color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
+        fontStyle: 'italic',
+      }}
+      _focus_placeholder={{
+        color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
+      }}
+      _disabled={{
+        color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
+        cursor: 'not-allowed',
+        '-webkit-text-fill-color': props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
+        '-webkit-opacity': '1',
+      }}
+      __webkit_datetime_edit={{
+        display: 'flex',
+      }}
+      __webkit_calendar_picker_indicator_hover={{
+        cursor: props.readOnly || props.disabled ? 'default' : 'pointer',
+      }}
+      {...props}
+    />
+  );
+});
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
     {
       disabled,
+      element = 'INPUT',
       hasError,
       id,
       insertAfter,
@@ -117,6 +120,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <InputBox
         disabled={disabled}
+        element={element}
         hasError={hasError}
         insertAfter={insertAfter}
         insertBefore={insertBefore}
@@ -130,6 +134,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           {...safelySpreadFormControlProps(props)}
           {...typeProps}
           disabled={disabled}
+          element={`${element}_ELEMENT`}
           id={id}
           name={name}
           placeholder={placeholder}
@@ -146,24 +151,23 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
 Input.displayName = 'Input';
 
-if (process.env.NODE_ENV === 'development') {
-  Input.propTypes = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    disabled: PropTypes.bool,
-    hasError: PropTypes.bool,
-    id: PropTypes.string,
-    name: PropTypes.string,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    placeholder: PropTypes.string,
-    readOnly: PropTypes.bool,
-    required: PropTypes.bool,
-    type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel', 'date', 'time'])
-      .isRequired as any,
-    value: PropTypes.string,
-  };
-}
+Input.propTypes = {
+  disabled: PropTypes.bool,
+  element: PropTypes.string,
+  hasError: PropTypes.bool,
+  id: PropTypes.string,
+  name: PropTypes.string,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  placeholder: PropTypes.string,
+  readOnly: PropTypes.bool,
+  required: PropTypes.bool,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel', 'date', 'time'])
+    .isRequired as any,
+  value: PropTypes.string,
+};
 
 export {Input};
 export type {InputBoxTypes as InputTypes};
