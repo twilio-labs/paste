@@ -50,6 +50,95 @@ export const pageQuery = graphql`
 
 <content>
 
+Paste supports Product Designers with tooling and assets that help them build customer UIs. 
+  
+## Access to Figma
+  
+As a Twilio Designer, you have access to Figma. Join the Twilio organization by requesting an
+account through [ServiceNow](https://twilio.service-now.com/sp/). To learn more,
+review our [working with Figma guide](https://www.figma.com/file/WiJFrYa9YpIcFUmT06gTn0/Working-with-Figma).
+
+---
+
+## Using libraries
+
+### How to turn on libraries
+
+👉&nbsp;&nbsp;Ideally, you won’t have to worry too much about turning libraries on if you’re
+joining an existing team. A "Team Owner" (or "Admin") should have already gone through
+the steps of turning on default libraries (like the Paste and Console Navigation
+libraries) with these steps: [setting up a Figma team](https://docs.google.com/document/d/1IOBY2kxdHB6b8nlSWIFOLK7TKTV-Xxv7czzCZIVTAxg/edit#heading=h.f209dtpr7col).
+
+If you want to control libraries per file, go to the “Assets” tab on a file. This is
+also where you can drag in components to your file. Click the book icon in the upper
+corner. From the modal, you can turn libraries on and off.
+
+![Buttons to click in Figma to open the library selector](../../../assets/images/design-guidelines/figma-open-library-modal.png)
+
+![Modal in Figma where you can select the Paste components library to link to your project](../../../assets/images/design-guidelines/figma-link-paste-libraries.png)
+
+### Main libraries
+
+The main libraries we recommend you have enabled for each file are:
+
+- [Paste Components](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components)
+- [Paste Default Theme](https://www.figma.com/file/OZKRQFOkOAl413m5JVIYE6/Paste-Default-Theme) includes tokens (color, text, and shadow styles), needed for the Paste components library
+- [Paste Patterns](https://www.figma.com/file/S4z0Kqjb9AYosnkRQldLte/Paste-Patterns)
+- [Brand Illustrations](https://www.figma.com/file/XeA9WNBcoojrdJbiz5Nj5q/Brand-Illustrations) includes illustrations for empty states, sections, etc
+- [Asset Documentation](https://www.figma.com/file/GfY11A2VW638eFK48nDtdE/Asset-Documentation) includes helpful utilities for marking up designs, like sticky notes and cursors
+- [File and Cover Sheet Template](https://www.figma.com/file/RfZYRjUH56rZ0qe0veqRJA/File-and-Cover-Sheet-Template)
+- [Console Library](https://www.figma.com/file/vvdKgsO8OLcn7Q6FmuhWtl/Console-Library) for teams with Console projects **(managed by the Console team)**
+- [SendGrid's legacy SG-DS](https://www.figma.com/file/YgSlHVVKgdCY2BzdTbHsPf/SG-DS) for teams with legacy SendGrid projects **(managed by the SendGrid team)**
+
+Any time a library is updated, you’ll get a notification in your project asking if you’d like to update.
+
+---
+
+## Using themes
+
+Paste currently has [Default Theme](https://www.figma.com/file/OZKRQFOkOAl413m5JVIYE6/Paste-Default-Theme) and 
+[Dark Theme](https://www.figma.com/file/TZMBaCxXkX8u5aVRVYboid/Paste-Dark-Theme?node-id=0%3A1) libraries.
+
+When you have a theme library linked, you'll have access to:
+- Text styles (font families, font weights, and font sizes)
+- Colour styles (fill and stroke for background, border, and text colors)
+- Effect styles (shadows, etc.)
+
+![Menu in Figma when you can navigate through tokens for the Default theme](../../../assets/images/design-guidelines/token-styles.png)
+
+You should be using components from Paste to compose your UIs whenever possible, but the text and layer styles will be helpful when you need to compose something more custom. 
+
+This can be anything from setting a piece of text next to an icon to creating a custom stepper component.
+
+---
+
+## Using components
+  
+Components are UI elements that can be reused across your designs. They help you create and manage consistent designs across projects.
+
+You can drag and drop components into your project via the Assets panel on the left, and swap to different variants for a given component via the Design panel on the right. 
+
+Any layer with a ⚙️ emoji indicates that there are nested variants available. 
+
+Any layer with a ✏️ emoji indicates an editable layer. 
+
+Check out our [tips and tricks](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=284%3A1158) for more helpful hints about using the Paste Components library.
+
+---
+
+## Library updates
+
+We release library updates continuously and use Figma’s version history to keep track.
+
+We demarcate changes with hints which you can see in the description of each update:
+
+- 🚀&nbsp;&nbsp;**New**: [summary of a new thing]
+- ✨&nbsp;&nbsp;**Improved**: [summary of an improved thing]
+- 🐛&nbsp;&nbsp;**Fixed**: [summary of a bug fix]
+- ❗️&nbsp;&nbsp;**Breaking**: [summary of a breaking change]
+
+---
+
 ## Fonts
 
 Fonts in Paste are preloaded into Figma so you don't have to worry about downloading or installing them.
@@ -72,73 +161,7 @@ If you are using the <strong>Console theme</strong> in Paste, you will need to d
 Reach out to us in `#help-design-system` if you need access to the Whitney font files for your work.
 
 ---
-
-## Figma
-
-As a Twilio Designer you have access to Figma. Join the Twilio organization by requesting an
-account through [ServiceNow](https://twilio.service-now.com/sp/). To learn more,
-review our [working with Figma guide](https://www.figma.com/file/WiJFrYa9YpIcFUmT06gTn0/Working-with-Figma).
-
-### How to turn on libraries
-
-👉&nbsp;&nbsp;Ideally, you won’t have to worry too much about turning libraries on if you’re
-joining an existing team. A "Team Owner" (or "Admin") should have already gone through
-the steps of turning on default libraries (like the Paste and Console Navigation
-libraries) with these steps: [setting up a Figma team](https://docs.google.com/document/d/1IOBY2kxdHB6b8nlSWIFOLK7TKTV-Xxv7czzCZIVTAxg/edit#heading=h.f209dtpr7col).
-
-If you want to control libraries per file, go to the “Assets” tab on a file. This is
-also where you can drag in components to your file. Click the book icon in the upper
-corner. From the modal, you can turn libraries on and off.
-
-![Buttons to click in Figma to open the library selector](../../../assets/images/design-guidelines/figma-open-library-modal.png)
-
-![Modal in Figma where you can select the Paste components library to link to your project](../../../assets/images/design-guidelines/figma-link-paste-libraries.png)
-
-The main libraries we recommend you have enabled for each file are:
-
-- [Paste Components](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components)
-- [Paste Default Theme](https://www.figma.com/file/OZKRQFOkOAl413m5JVIYE6/Paste-Default-Theme) includes tokens (color, text, and shadow styles), needed for the Paste components library
-- [Paste Patterns](https://www.figma.com/file/S4z0Kqjb9AYosnkRQldLte/Paste-Patterns)
-- [Brand Illustrations](https://www.figma.com/file/XeA9WNBcoojrdJbiz5Nj5q/Brand-Illustrations) includes illustrations for empty states, sections, etc
-- [Asset Documentation](https://www.figma.com/file/GfY11A2VW638eFK48nDtdE/Asset-Documentation) includes helpful utilities for marking up designs, like sticky notes and cursors
-- [File and Cover Sheet Template](https://www.figma.com/file/RfZYRjUH56rZ0qe0veqRJA/File-and-Cover-Sheet-Template)
-- [Console Library](https://www.figma.com/file/vvdKgsO8OLcn7Q6FmuhWtl/Console-Library) for teams with Console projects **(managed by the Console team)**
-- [SendGrid's legacy SG-DS](https://www.figma.com/file/YgSlHVVKgdCY2BzdTbHsPf/SG-DS) for teams with legacy SendGrid projects **(managed by the SendGrid team)**
-
-Any time a library is updated, you’ll get a notification in your project asking if you’d like to update.
-
-### Using the Paste Components library
-
-The Paste Components library houses Figma components for all components available in
-Paste. You can drag and drop components into your project via the Assets panel on the left,
-and swap to different variants for a given component via the Design panel on the right.
-Some more complex components include nested variants, so be sure to explore the different
-layers on each component for any layer with a ⚙️ emoji. This emoji indicates that there are
-variants available on that layer. Any layer with a ✏️ emoji indicates an editable layer.
-Check out our [tips and tricks](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=284%3A1158)
-for more helpful hints about using the Paste Components library.
-
-### Using the Paste Default Theme library
-
-Once you have this library linked, you will see text styles (which include font families, font weights, and font sizes), fill
-and stroke styles (which include background, border, and text colors), and effect styles (which include shadows) for that theme.
-
-![Menu in Figma when you can navigate through tokens for the Default theme](../../../assets/images/design-guidelines/token-styles.png)
-
-You should be using components from Paste to compose your UIs whenever possible, but the text and layer styles will be helpful when you need to compose something more custom.
-This can be anything from setting a piece of text next to an icon to creating a custom stepper component.
-
-### How we publish library updates
-
-We release library updates continuously, and we demarcate changes with hints which you can see in the description of each update:
-
-- 🚀&nbsp;&nbsp;**New**: [summary of a new thing]
-- ✨&nbsp;&nbsp;**Improved**: [summary of an improved thing]
-- 🐛&nbsp;&nbsp;**Fixed**: [summary of a bug fix]
-- ❗️&nbsp;&nbsp;**Breaking**: [summary of a breaking change]
-
----
-
+  
 ## Additional questions or concerns
 
 If you have any questions for us that weren’t covered by this guide, or you are running into problems using our design resources, please [reach out](/getting-started/working-guide)!
