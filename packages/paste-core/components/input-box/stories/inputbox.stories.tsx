@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
-import {InputBox, InputBoxProps} from '../src';
+import type {InputBoxProps} from '../src';
+import {InputBox} from '../src';
 
 const Insert: React.FC = () => {
   return <Box padding="space20" />;
@@ -40,7 +41,7 @@ export default {
 };
 
 export const Default = (): React.ReactNode => {
-  return <CommonStories variant="default" />;
+  return <CommonStories variant="default" element="INPUT_BOX" />;
 };
 
 Default.story = {
@@ -48,7 +49,7 @@ Default.story = {
 };
 
 export const Readonly = (): React.ReactNode => {
-  return <CommonStories readOnly variant="default" />;
+  return <CommonStories readOnly variant="default" element="INPUT_BOX" />;
 };
 
 Readonly.story = {
@@ -56,7 +57,7 @@ Readonly.story = {
 };
 
 export const Disabled = (): React.ReactNode => {
-  return <CommonStories disabled variant="default" />;
+  return <CommonStories disabled variant="default" element="INPUT_BOX" />;
 };
 
 Disabled.story = {
@@ -64,7 +65,7 @@ Disabled.story = {
 };
 
 export const Error = (): React.ReactNode => {
-  return <CommonStories hasError variant="default" />;
+  return <CommonStories hasError variant="default" element="INPUT_BOX" />;
 };
 
 Error.story = {
@@ -74,7 +75,7 @@ Error.story = {
 export const Inverse = (): React.ReactNode => {
   return (
     <Box padding="space40" backgroundColor="colorBackgroundBodyInverse">
-      <CommonStories variant="inverse" />
+      <CommonStories variant="inverse" element="INPUT_BOX" />
     </Box>
   );
 };
@@ -86,7 +87,7 @@ Inverse.story = {
 export const InverseReadonly = (): React.ReactNode => {
   return (
     <Box padding="space40" backgroundColor="colorBackgroundBodyInverse">
-      <CommonStories readOnly variant="inverse" />
+      <CommonStories readOnly variant="inverse" element="INPUT_BOX" />
     </Box>
   );
 };
@@ -98,7 +99,7 @@ InverseReadonly.story = {
 export const InverseDisabled = (): React.ReactNode => {
   return (
     <Box padding="space40" backgroundColor="colorBackgroundBodyInverse">
-      <CommonStories disabled variant="inverse" />
+      <CommonStories disabled variant="inverse" element="INPUT_BOX" />
     </Box>
   );
 };
@@ -110,7 +111,7 @@ InverseDisabled.story = {
 export const InverseError = (): React.ReactNode => {
   return (
     <Box padding="space40" backgroundColor="colorBackgroundBodyInverse">
-      <CommonStories hasError variant="inverse" />
+      <CommonStories hasError variant="inverse" element="INPUT_BOX" />
     </Box>
   );
 };
