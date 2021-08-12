@@ -1,170 +1,283 @@
 import * as React from 'react';
-import {render} from 'react-dom';
-import renderer from 'react-test-renderer';
-import {ReactWrapper, mount} from 'enzyme';
+import {render, screen} from '@testing-library/react';
+import {matchers} from 'jest-emotion';
 import {Theme} from '@twilio-paste/theme';
+import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {OrderedList, UnorderedList, ListItem} from '../src';
 
+expect.extend(matchers);
+
 describe('Ordered List', () => {
-  it('should render a plain ordered list wrapper', () => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
+  describe('Render', () => {
+    it('should render a plain ordered list wrapper', () => {
+      render(
+        <Theme.Provider theme="default">
           <OrderedList>Children</OrderedList>
         </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
+      );
+      const renderedList = screen.getByRole('list');
+      expect(renderedList).not.toBeNull();
+    });
 
-  it('should have no accessibility violations', async () => {
-    const container = document.createElement('div');
-    document.body.append(container);
-    render(
-      <Theme.Provider theme="console">
-        <OrderedList>
-          <ListItem>item</ListItem>
-        </OrderedList>
-      </Theme.Provider>,
-      container
-    );
-    const results = await axe(document.body);
-    expect(results).toHaveNoViolations();
-  });
-
-  it('should filter out styling props', () => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          {/* @ts-expect-error */}
-          <OrderedList margin="space40">Children</OrderedList>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('should allow marginTop and marginBottom styling props', () => {
-    const tree = renderer
-      .create(
+    it('should allow marginTop and marginBottom styling props', () => {
+      render(
         <Theme.Provider theme="console">
           <OrderedList marginTop="space40" marginBottom="space40">
             Children
           </OrderedList>
         </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+      );
+      const renderedList = screen.getByRole('list');
+      expect(renderedList).toHaveStyleRule('margin-top', '0.75rem');
+      expect(renderedList).toHaveStyleRule('margin-bottom', '0.75rem');
+    });
+
+    it('should allow aria attributes', () => {
+      render(<OrderedList aria-expanded="true">Children</OrderedList>);
+      const renderedList = screen.getByRole('list');
+      expect(renderedList).toHaveAttribute('aria-expanded', 'true');
+    });
+
+    it('should allow data attributes', () => {
+      render(<OrderedList data-test="test-hook">Children</OrderedList>);
+      const renderedList = screen.getByRole('list');
+      expect(renderedList).toHaveAttribute('data-test', 'test-hook');
+    });
+
+    it('should allow HTML attributes', () => {
+      render(<OrderedList title="random title">Children</OrderedList>);
+      const renderedList = screen.getByRole('list');
+      expect(renderedList).toHaveAttribute('title', 'random title');
+    });
   });
 
-  it('should allow aria attributes', () => {
-    const wrapper: ReactWrapper = mount(<OrderedList aria-expanded="true">Children</OrderedList>);
-    expect(wrapper.exists('ol[aria-expanded="true"]')).toEqual(true);
+  describe('HTML attributes', () => {
+    it('should set a element data attribute for OrderedList', () => {
+      render(<OrderedList>ordered list</OrderedList>);
+      expect(screen.getByRole('list').getAttribute('data-paste-element')).toEqual('ORDERED_LIST');
+    });
+    it('should set a custom element data attribute for OrderedList', () => {
+      render(<OrderedList element="foo">ordered list</OrderedList>);
+      expect(screen.getByRole('list').getAttribute('data-paste-element')).toEqual('foo');
+    });
   });
 
-  it('should allow data attributes', () => {
-    const wrapper: ReactWrapper = mount(<OrderedList data-test="test-hook">Children</OrderedList>);
-    expect(wrapper.exists('ol[data-test="test-hook"]')).toEqual(true);
+  describe('Customization', () => {
+    it('should add custom styles to OrderedList', (): void => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          elements={{ORDERED_LIST: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+        >
+          <OrderedList>Custom ordered list</OrderedList>
+        </CustomizationProvider>
+      );
+      const renderedList = screen.getByRole('list');
+      expect(renderedList).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+      expect(renderedList).toHaveStyleRule('color', 'rgb(96,107,133)');
+    });
+
+    it('should add custom styles to OrderedList with a custom element data attribute', (): void => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+        >
+          <OrderedList element="foo">Custom ordered list</OrderedList>
+        </CustomizationProvider>
+      );
+      const renderedList = screen.getByRole('list');
+      expect(renderedList).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+      expect(renderedList).toHaveStyleRule('color', 'rgb(96,107,133)');
+    });
   });
 
-  it('should allow HTML attributes', () => {
-    const wrapper: ReactWrapper = mount(<OrderedList title="random title">Children</OrderedList>);
-    expect(wrapper.exists('ol[title="random title"]')).toEqual(true);
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const {container} = render(
+        <Theme.Provider theme="default">
+          <OrderedList>
+            <ListItem>item</ListItem>
+          </OrderedList>
+        </Theme.Provider>
+      );
+      const results = await axe(container);
+      expect(results).toHaveNoViolations();
+    });
   });
 });
 
 describe('Unordered List', () => {
-  it('should render a plain unordered list wrapper', () => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
+  describe('Render', () => {
+    it('should render a plain unordered list wrapper', () => {
+      render(
+        <Theme.Provider theme="default">
           <UnorderedList>Children</UnorderedList>
         </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
+      );
+      const renderedList = screen.getByRole('list');
+      expect(renderedList).not.toBeNull();
+    });
 
-  it('should have no accessibility violations', async () => {
-    const container = document.createElement('div');
-    document.body.append(container);
-    render(
-      <Theme.Provider theme="console">
-        <UnorderedList>
-          <ListItem>item</ListItem>
-        </UnorderedList>
-      </Theme.Provider>,
-      container
-    );
-    const results = await axe(document.body);
-    expect(results).toHaveNoViolations();
-  });
-
-  it('should filter out styling props', () => {
-    const tree = renderer
-      .create(
+    it('should allow marginTop and marginBottom styling props', () => {
+      render(
         <Theme.Provider theme="console">
-          <UnorderedList color="textColorSuccess">Children</UnorderedList>
+          <UnorderedList marginTop="space40" marginBottom="space40">
+            Children
+          </UnorderedList>
         </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+      );
+      const renderedList = screen.getByRole('list');
+      expect(renderedList).toHaveStyleRule('margin-top', '0.75rem');
+      expect(renderedList).toHaveStyleRule('margin-bottom', '0.75rem');
+    });
+
+    it('should allow aria attributes', () => {
+      render(<UnorderedList aria-label="label">Children</UnorderedList>);
+      const renderedList = screen.getByRole('list');
+      expect(renderedList).toHaveAttribute('aria-label', 'label');
+    });
+
+    it('should allow data attributes', () => {
+      render(<UnorderedList data-rando="test-hook">Children</UnorderedList>);
+      const renderedList = screen.getByRole('list');
+      expect(renderedList).toHaveAttribute('data-rando', 'test-hook');
+    });
+
+    it('should allow HTML attributes', () => {
+      render(<UnorderedList title="random title">Children</UnorderedList>);
+      const renderedList = screen.getByRole('list');
+      expect(renderedList).toHaveAttribute('title', 'random title');
+    });
   });
 
-  it('should allow aria attributes', () => {
-    const wrapper: ReactWrapper = mount(<UnorderedList aria-label="label">Children</UnorderedList>);
-    expect(wrapper.exists('ul[aria-label="label"]')).toEqual(true);
+  describe('HTML attributes', () => {
+    it('should set a element data attribute for UnorderedList', () => {
+      render(<UnorderedList>unordered list</UnorderedList>);
+      expect(screen.getByRole('list').getAttribute('data-paste-element')).toEqual('UNORDERED_LIST');
+    });
+    it('should set a custom element data attribute for UnorderedList', () => {
+      render(<UnorderedList element="foo">unordered list</UnorderedList>);
+      expect(screen.getByRole('list').getAttribute('data-paste-element')).toEqual('foo');
+    });
   });
 
-  it('should allow data attributes', () => {
-    const wrapper: ReactWrapper = mount(<UnorderedList data-rando="test-hook">Children</UnorderedList>);
-    expect(wrapper.exists('ul[data-rando="test-hook"]')).toEqual(true);
+  describe('Customization', () => {
+    it('should add custom styles to UnorderedList', (): void => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          elements={{UNORDERED_LIST: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+        >
+          <UnorderedList>Custom unordered list</UnorderedList>
+        </CustomizationProvider>
+      );
+      const renderedList = screen.getByRole('list');
+      expect(renderedList).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+      expect(renderedList).toHaveStyleRule('color', 'rgb(96,107,133)');
+    });
+
+    it('should add custom styles to UnorderedList with a custom element data attribute', (): void => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+        >
+          <UnorderedList element="foo">Custom unordered list</UnorderedList>
+        </CustomizationProvider>
+      );
+      const renderedList = screen.getByRole('list');
+      expect(renderedList).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+      expect(renderedList).toHaveStyleRule('color', 'rgb(96,107,133)');
+    });
   });
 
-  it('should allow HTML attributes', () => {
-    const wrapper: ReactWrapper = mount(<UnorderedList title="random title">Children</UnorderedList>);
-    expect(wrapper.exists('ul[title="random title"]')).toEqual(true);
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const {container} = render(
+        <Theme.Provider theme="default">
+          <UnorderedList>
+            <ListItem>item</ListItem>
+          </UnorderedList>
+        </Theme.Provider>
+      );
+      const results = await axe(container);
+      expect(results).toHaveNoViolations();
+    });
   });
 });
 
 describe('ListItem', () => {
-  it('should render a plain list item', () => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
+  describe('Render', () => {
+    it('should render a plain list item', () => {
+      render(
+        <Theme.Provider theme="default">
           <ListItem>Children</ListItem>
         </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+      );
+      const renderedListItem = screen.getByRole('listitem');
+      expect(renderedListItem).not.toBeNull();
+    });
+
+    it('should allow aria attributes', () => {
+      render(<ListItem aria-pressed="true">Children</ListItem>);
+      const renderedListItem = screen.getByRole('listitem');
+      expect(renderedListItem).toHaveAttribute('aria-pressed', 'true');
+    });
+
+    it('should allow data attributes', () => {
+      render(<ListItem data-rando="test-hook">Children</ListItem>);
+      const renderedListItem = screen.getByRole('listitem');
+      expect(renderedListItem).toHaveAttribute('data-rando', 'test-hook');
+    });
+
+    it('should allow HTML attributes', () => {
+      render(<ListItem title="random title">Children</ListItem>);
+      const renderedListItem = screen.getByRole('listitem');
+      expect(renderedListItem).toHaveAttribute('title', 'random title');
+    });
   });
 
-  it('should filter out styling props', () => {
-    const tree = renderer
-      .create(
-        <Theme.Provider theme="console">
-          {/* @ts-expect-error */}
-          <ListItem padding="textColorSuccess">Children</ListItem>
-        </Theme.Provider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+  describe('HTML attributes', () => {
+    it('should set a element data attribute for ListItem', () => {
+      render(<ListItem>list item</ListItem>);
+      expect(screen.getByRole('listitem').getAttribute('data-paste-element')).toEqual('LIST_ITEM');
+    });
+    it('should set a custom element data attribute for ListItem', () => {
+      render(<ListItem element="foo">list item</ListItem>);
+      expect(screen.getByRole('listitem').getAttribute('data-paste-element')).toEqual('foo');
+    });
   });
 
-  it('should allow aria attributes', () => {
-    const wrapper: ReactWrapper = mount(<ListItem aria-pressed="true">Children</ListItem>);
-    expect(wrapper.exists('li[aria-pressed="true"]')).toEqual(true);
-  });
+  describe('Customization', () => {
+    it('should add custom styles to ListItem', (): void => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          elements={{LIST_ITEM: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+        >
+          <ListItem>Custom list item</ListItem>
+        </CustomizationProvider>
+      );
+      const renderedListItem = screen.getByRole('listitem');
+      expect(renderedListItem).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+      expect(renderedListItem).toHaveStyleRule('color', 'rgb(96,107,133)');
+    });
 
-  it('should allow data attributes', () => {
-    const wrapper: ReactWrapper = mount(<ListItem data-rando="test-hook">Children</ListItem>);
-    expect(wrapper.exists('li[data-rando="test-hook"]')).toEqual(true);
-  });
-
-  it('should allow HTML attributes', () => {
-    const wrapper: ReactWrapper = mount(<ListItem title="random title">Children</ListItem>);
-    expect(wrapper.exists('li[title="random title"]')).toEqual(true);
+    it('should add custom styles to ListItem with a custom element data attribute', (): void => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+        >
+          <ListItem element="foo">Custom list item</ListItem>
+        </CustomizationProvider>
+      );
+      const renderedListItem = screen.getByRole('listitem');
+      expect(renderedListItem).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+      expect(renderedListItem).toHaveStyleRule('color', 'rgb(96,107,133)');
+    });
   });
 });
