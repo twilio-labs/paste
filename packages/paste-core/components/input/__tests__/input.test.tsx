@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {matchers} from 'jest-emotion';
-import {render} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {Theme} from '@twilio-paste/theme';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
@@ -217,7 +218,7 @@ describe('Input block props', () => {
     const {getByRole} = render(<Input {...initialProps} />);
     const RenderedInput = getByRole('textbox');
 
-    expect(RenderedInput.getAttribute('width')).toEqual(null);
+    expect(RenderedInput.getAttribute('width')).toEqual('100%');
 
     const classNames = RenderedInput.getAttribute('class');
     expect(classNames).toBeDefined();
@@ -225,5 +226,238 @@ describe('Input block props', () => {
       // eslint-disable-next-line jest/no-conditional-expect
       expect(classNames.indexOf(initialProps.className)).toBe(-1);
     }
+  });
+});
+
+describe('HTML attributes', () => {
+  it('should set a element data attribute for Input', () => {
+    render(<Input id="input" type="text" value="test" onChange={NOOP} />);
+    expect(screen.getByRole('textbox').getAttribute('data-paste-element')).toEqual('INPUT_ELEMENT');
+  });
+
+  it('should set a custom element data attribute for Input', () => {
+    render(<Input id="input" type="text" value="test" onChange={NOOP} element="foo" />);
+    expect(screen.getByRole('textbox').getAttribute('data-paste-element')).toEqual('foo_ELEMENT');
+  });
+
+  it('should set the data attribute for all Input nodes', (): void => {
+    const {container} = render(
+      <Input
+        id="input"
+        type="text"
+        value="test"
+        onChange={NOOP}
+        insertBefore={<>test before</>}
+        insertAfter={<>test after</>}
+      />
+    );
+    expect(container.querySelector('[data-paste-element="INPUT"]')).toBeInTheDocument();
+    expect(screen.getByRole('textbox').getAttribute('data-paste-element')).toEqual('INPUT_ELEMENT');
+    expect(screen.getByText('test before').getAttribute('data-paste-element')).toEqual('INPUT_PREFIX');
+    expect(screen.getByText('test after').getAttribute('data-paste-element')).toEqual('INPUT_SUFFIX');
+  });
+
+  it('should set the custom element data attribute for all Input nodes', (): void => {
+    const {container} = render(
+      <Input
+        id="input"
+        type="text"
+        value="test"
+        onChange={NOOP}
+        element="foo"
+        insertBefore={<>test before</>}
+        insertAfter={<>test after</>}
+      />
+    );
+    expect(container.querySelector('[data-paste-element="foo"]')).toBeInTheDocument();
+    expect(screen.getByRole('textbox').getAttribute('data-paste-element')).toEqual('foo_ELEMENT');
+    expect(screen.getByText('test before').getAttribute('data-paste-element')).toEqual('foo_PREFIX');
+    expect(screen.getByText('test after').getAttribute('data-paste-element')).toEqual('foo_SUFFIX');
+  });
+});
+
+describe('Customization', () => {
+  it('should add custom styles to Input', (): void => {
+    const {container} = render(
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{
+          INPUT: {backgroundColor: 'colorBackground'},
+          INPUT_ELEMENT: {backgroundColor: 'colorBackground'},
+          INPUT_PREFIX: {backgroundColor: 'colorBackground'},
+          INPUT_SUFFIX: {backgroundColor: 'colorBackground'},
+        }}
+      >
+        <Input
+          id="input"
+          type="text"
+          value="test"
+          onChange={NOOP}
+          insertBefore={<>test before</>}
+          insertAfter={<>test after</>}
+        />
+      </CustomizationProvider>
+    );
+    const renderedInput = container.querySelector('[data-paste-element="INPUT"]');
+    const renderedInputElement = screen.getByRole('textbox');
+    const renderedInputPrefix = screen.getByText('test before');
+    const renderedInputSuffix = screen.getByText('test after');
+    expect(renderedInput).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+    expect(renderedInputElement).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+    expect(renderedInputPrefix).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+    expect(renderedInputSuffix).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+  });
+
+  it('should add custom styles to a Input variant', (): void => {
+    const {container} = render(
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{
+          INPUT: {
+            backgroundColor: 'colorBackground',
+            variants: {
+              inverse: {
+                backgroundColor: 'colorBackgroundBrand',
+              },
+            },
+          },
+          INPUT_ELEMENT: {
+            backgroundColor: 'colorBackground',
+            variants: {
+              inverse: {
+                backgroundColor: 'colorBackgroundBrand',
+              },
+            },
+          },
+          INPUT_PREFIX: {
+            backgroundColor: 'colorBackground',
+            variants: {
+              inverse: {
+                backgroundColor: 'colorBackgroundBrand',
+              },
+            },
+          },
+          INPUT_SUFFIX: {
+            backgroundColor: 'colorBackground',
+            variants: {
+              inverse: {
+                backgroundColor: 'colorBackgroundBrand',
+              },
+            },
+          },
+        }}
+      >
+        <Input
+          id="input"
+          type="text"
+          value="test"
+          onChange={NOOP}
+          variant="inverse"
+          insertBefore={<>test before</>}
+          insertAfter={<>test after</>}
+        />
+      </CustomizationProvider>
+    );
+    const renderedInput = container.querySelector('[data-paste-element="INPUT"]');
+    const renderedInputElement = screen.getByRole('textbox');
+    const renderedInputPrefix = screen.getByText('test before');
+    const renderedInputSuffix = screen.getByText('test after');
+    expect(renderedInput).toHaveStyleRule('background-color', 'rgb(0,20,137)');
+    expect(renderedInputElement).toHaveStyleRule('background-color', 'rgb(0,20,137)');
+    expect(renderedInputPrefix).toHaveStyleRule('background-color', 'rgb(0,20,137)');
+    expect(renderedInputSuffix).toHaveStyleRule('background-color', 'rgb(0,20,137)');
+  });
+
+  it('should add custom styles to Input with a custom element data attribute', (): void => {
+    const {container} = render(
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{
+          foo: {backgroundColor: 'colorBackground'},
+          foo_ELEMENT: {backgroundColor: 'colorBackground'},
+          foo_PREFIX: {backgroundColor: 'colorBackground'},
+          foo_SUFFIX: {backgroundColor: 'colorBackground'},
+        }}
+      >
+        <Input
+          id="input"
+          type="text"
+          value="test"
+          onChange={NOOP}
+          element="foo"
+          insertBefore={<>test before</>}
+          insertAfter={<>test after</>}
+        />
+      </CustomizationProvider>
+    );
+    const renderedInput = container.querySelector('[data-paste-element="foo"]');
+    const renderedInputElement = screen.getByRole('textbox');
+    const renderedInputPrefix = screen.getByText('test before');
+    const renderedInputSuffix = screen.getByText('test after');
+    expect(renderedInput).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+    expect(renderedInputElement).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+    expect(renderedInputPrefix).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+    expect(renderedInputSuffix).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+  });
+
+  it('should add custom styles to a Input variant with a custom element data attribute', (): void => {
+    const {container} = render(
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{
+          foo: {
+            backgroundColor: 'colorBackground',
+            variants: {
+              inverse: {
+                backgroundColor: 'colorBackgroundBrand',
+              },
+            },
+          },
+          foo_ELEMENT: {
+            backgroundColor: 'colorBackground',
+            variants: {
+              inverse: {
+                backgroundColor: 'colorBackgroundBrand',
+              },
+            },
+          },
+          foo_PREFIX: {
+            backgroundColor: 'colorBackground',
+            variants: {
+              inverse: {
+                backgroundColor: 'colorBackgroundBrand',
+              },
+            },
+          },
+          foo_SUFFIX: {
+            backgroundColor: 'colorBackground',
+            variants: {
+              inverse: {
+                backgroundColor: 'colorBackgroundBrand',
+              },
+            },
+          },
+        }}
+      >
+        <Input
+          id="input"
+          type="text"
+          value="test"
+          onChange={NOOP}
+          variant="inverse"
+          element="foo"
+          insertBefore={<>test before</>}
+          insertAfter={<>test after</>}
+        />
+      </CustomizationProvider>
+    );
+    const renderedInput = container.querySelector('[data-paste-element="foo"]');
+    const renderedInputElement = screen.getByRole('textbox');
+    const renderedInputPrefix = screen.getByText('test before');
+    const renderedInputSuffix = screen.getByText('test after');
+    expect(renderedInput).toHaveStyleRule('background-color', 'rgb(0,20,137)');
+    expect(renderedInputElement).toHaveStyleRule('background-color', 'rgb(0,20,137)');
+    expect(renderedInputPrefix).toHaveStyleRule('background-color', 'rgb(0,20,137)');
+    expect(renderedInputSuffix).toHaveStyleRule('background-color', 'rgb(0,20,137)');
   });
 });

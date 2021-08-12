@@ -37,14 +37,16 @@ exports[`Input render should render 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: transparent;
+  background-color: transparent;
   border: none;
   border-radius: 4px;
   box-shadow: none;
   color: inherit;
+  cursor: auto;
   display: block;
   font-family: inherit;
   font-size: 0.875rem;
@@ -58,7 +60,6 @@ exports[`Input render should render 1`] = `
   padding-top: 0.5rem;
   resize: none;
   width: 100%;
-  cursor: auto;
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -97,7 +98,12 @@ exports[`Input render should render 1`] = `
   color: rgb(112,117,120);
 }
 
-.emotion-0:disabled {
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
   color: rgb(200,204,207);
   cursor: not-allowed;
   -webkit-text-fill-color: rgb(200,204,207);
@@ -118,15 +124,23 @@ exports[`Input render should render 1`] = `
     <div
       class="emotion-1"
       cursor="text"
-      data-paste-element="BOX"
+      data-paste-element="INPUT"
       display="flex"
       width="100%"
     >
       <input
         class="emotion-0"
+        color="inherit"
+        cursor="auto"
+        data-paste-element="INPUT_ELEMENT"
+        display="block"
+        font-family="inherit"
+        font-size="fontSize30"
+        font-weight="fontWeightMedium"
         id="input"
         type="text"
         value="test"
+        width="100%"
       />
     </div>
   </div>
@@ -145,14 +159,16 @@ exports[`Input render should render with disabled 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: transparent;
+  background-color: transparent;
   border: none;
   border-radius: 4px;
   box-shadow: none;
   color: inherit;
+  cursor: auto;
   display: block;
   font-family: inherit;
   font-size: 0.875rem;
@@ -166,7 +182,6 @@ exports[`Input render should render with disabled 1`] = `
   padding-top: 0.5rem;
   resize: none;
   width: 100%;
-  cursor: auto;
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -205,7 +220,12 @@ exports[`Input render should render with disabled 1`] = `
   color: rgb(112,117,120);
 }
 
-.emotion-0:disabled {
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
   color: rgb(200,204,207);
   cursor: not-allowed;
   -webkit-text-fill-color: rgb(200,204,207);
@@ -251,16 +271,24 @@ exports[`Input render should render with disabled 1`] = `
     <div
       class="emotion-1"
       cursor="not-allowed"
-      data-paste-element="BOX"
+      data-paste-element="INPUT"
       display="flex"
       width="100%"
     >
       <input
         class="emotion-0"
+        color="inherit"
+        cursor="auto"
+        data-paste-element="INPUT_ELEMENT"
         disabled=""
+        display="block"
+        font-family="inherit"
+        font-size="fontSize30"
+        font-weight="fontWeightMedium"
         id="input"
         type="text"
         value="test"
+        width="100%"
       />
     </div>
   </div>
@@ -279,14 +307,16 @@ exports[`Input render should render with hasError 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: transparent;
+  background-color: transparent;
   border: none;
   border-radius: 4px;
   box-shadow: none;
   color: inherit;
+  cursor: auto;
   display: block;
   font-family: inherit;
   font-size: 0.875rem;
@@ -300,7 +330,6 @@ exports[`Input render should render with hasError 1`] = `
   padding-top: 0.5rem;
   resize: none;
   width: 100%;
-  cursor: auto;
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -339,7 +368,12 @@ exports[`Input render should render with hasError 1`] = `
   color: rgb(112,117,120);
 }
 
-.emotion-0:disabled {
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
   color: rgb(200,204,207);
   cursor: not-allowed;
   -webkit-text-fill-color: rgb(200,204,207);
@@ -385,16 +419,24 @@ exports[`Input render should render with hasError 1`] = `
     <div
       class="emotion-1"
       cursor="text"
-      data-paste-element="BOX"
+      data-paste-element="INPUT"
       display="flex"
       width="100%"
     >
       <input
         aria-invalid="true"
         class="emotion-0"
+        color="inherit"
+        cursor="auto"
+        data-paste-element="INPUT_ELEMENT"
+        display="block"
+        font-family="inherit"
+        font-size="fontSize30"
+        font-weight="fontWeightMedium"
         id="input"
         type="text"
         value="test"
+        width="100%"
       />
     </div>
   </div>
@@ -438,14 +480,16 @@ exports[`Input render should render with prefix 1`] = `
 }
 
 .emotion-1 {
+  box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: transparent;
+  background-color: transparent;
   border: none;
   border-radius: 4px;
   box-shadow: none;
   color: inherit;
+  cursor: auto;
   display: block;
   font-family: inherit;
   font-size: 0.875rem;
@@ -459,7 +503,6 @@ exports[`Input render should render with prefix 1`] = `
   padding-top: 0.5rem;
   resize: none;
   width: 100%;
-  cursor: auto;
 }
 
 .emotion-1::-webkit-input-placeholder {
@@ -498,7 +541,12 @@ exports[`Input render should render with prefix 1`] = `
   color: rgb(112,117,120);
 }
 
-.emotion-1:disabled {
+.emotion-1:disabled,
+.emotion-1:disabled:focus,
+.emotion-1:disabled:hover,
+.emotion-1[aria-disabled=true],
+.emotion-1[aria-disabled=true]:focus,
+.emotion-1[aria-disabled=true]:hover {
   color: rgb(200,204,207);
   cursor: not-allowed;
   -webkit-text-fill-color: rgb(200,204,207);
@@ -536,13 +584,13 @@ exports[`Input render should render with prefix 1`] = `
     <div
       class="emotion-2"
       cursor="text"
-      data-paste-element="BOX"
+      data-paste-element="INPUT"
       display="flex"
       width="100%"
     >
       <div
         class="emotion-0"
-        data-paste-element="BOX"
+        data-paste-element="INPUT_PREFIX"
         display="flex"
       >
         <div>
@@ -551,9 +599,17 @@ exports[`Input render should render with prefix 1`] = `
       </div>
       <input
         class="emotion-1"
+        color="inherit"
+        cursor="auto"
+        data-paste-element="INPUT_ELEMENT"
+        display="block"
+        font-family="inherit"
+        font-size="fontSize30"
+        font-weight="fontWeightMedium"
         id="input"
         type="text"
         value="test"
+        width="100%"
       />
     </div>
   </div>
@@ -597,14 +653,16 @@ exports[`Input render should render with readOnly 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: transparent;
+  background-color: transparent;
   border: none;
   border-radius: 4px;
   box-shadow: none;
   color: inherit;
+  cursor: auto;
   display: block;
   font-family: inherit;
   font-size: 0.875rem;
@@ -618,7 +676,6 @@ exports[`Input render should render with readOnly 1`] = `
   padding-top: 0.5rem;
   resize: none;
   width: 100%;
-  cursor: auto;
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -657,7 +714,12 @@ exports[`Input render should render with readOnly 1`] = `
   color: rgb(112,117,120);
 }
 
-.emotion-0:disabled {
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
   color: rgb(200,204,207);
   cursor: not-allowed;
   -webkit-text-fill-color: rgb(200,204,207);
@@ -678,17 +740,25 @@ exports[`Input render should render with readOnly 1`] = `
     <div
       class="emotion-1"
       cursor="text"
-      data-paste-element="BOX"
+      data-paste-element="INPUT"
       display="flex"
       width="100%"
     >
       <input
         aria-readonly="true"
         class="emotion-0"
+        color="inherit"
+        cursor="auto"
+        data-paste-element="INPUT_ELEMENT"
+        display="block"
+        font-family="inherit"
+        font-size="fontSize30"
+        font-weight="fontWeightMedium"
         id="input"
         readonly=""
         type="text"
         value="test"
+        width="100%"
       />
     </div>
   </div>
@@ -732,14 +802,16 @@ exports[`Input render should render with suffix 1`] = `
 }
 
 .emotion-0 {
+  box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: transparent;
+  background-color: transparent;
   border: none;
   border-radius: 4px;
   box-shadow: none;
   color: inherit;
+  cursor: auto;
   display: block;
   font-family: inherit;
   font-size: 0.875rem;
@@ -753,7 +825,6 @@ exports[`Input render should render with suffix 1`] = `
   padding-top: 0.5rem;
   resize: none;
   width: 100%;
-  cursor: auto;
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -792,7 +863,12 @@ exports[`Input render should render with suffix 1`] = `
   color: rgb(112,117,120);
 }
 
-.emotion-0:disabled {
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
   color: rgb(200,204,207);
   cursor: not-allowed;
   -webkit-text-fill-color: rgb(200,204,207);
@@ -830,19 +906,27 @@ exports[`Input render should render with suffix 1`] = `
     <div
       class="emotion-2"
       cursor="text"
-      data-paste-element="BOX"
+      data-paste-element="INPUT"
       display="flex"
       width="100%"
     >
       <input
         class="emotion-0"
+        color="inherit"
+        cursor="auto"
+        data-paste-element="INPUT_ELEMENT"
+        display="block"
+        font-family="inherit"
+        font-size="fontSize30"
+        font-weight="fontWeightMedium"
         id="input"
         type="text"
         value="test"
+        width="100%"
       />
       <div
         class="emotion-1"
-        data-paste-element="BOX"
+        data-paste-element="INPUT_SUFFIX"
         display="flex"
       >
         <div>
