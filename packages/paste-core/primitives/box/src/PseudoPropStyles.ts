@@ -6,6 +6,7 @@ export const PseudoPropStyles = {
   _hover: '&:hover',
   _active: '&:active, &[data-active=true]',
   _focus: '&:focus',
+  _focus_placeholder: '&:focus::placeholder',
   _visited: '&:visited',
   _even: '&:nth-of-type(even)',
   _odd: '&:nth-of-type(odd)',
@@ -30,4 +31,6 @@ export const PseudoPropStyles = {
   _focusVisible: '&:focus-visible',
   _placeholder: '&::placeholder',
   __moz_focus_inner: '&::-moz-focus-inner',
+  __webkit_datetime_edit: '&::-webkit-datetime-edit',
+  __webkit_calendar_picker_indicator_hover: '&::-webkit-calendar-picker-indicator:hover',
 };
