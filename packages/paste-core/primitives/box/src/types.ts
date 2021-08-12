@@ -73,6 +73,8 @@ export interface BoxBaseStyleProps
   userSelect?: UserSelectProperty;
   visibility?: VisibilityProperty;
   willChange?: WillChangeProperty;
+  '-webkit-text-fill-color'?: string;
+  '-webkit-opacity'?: string;
 }
 
 export type BoxPseudoStyleProps = {
