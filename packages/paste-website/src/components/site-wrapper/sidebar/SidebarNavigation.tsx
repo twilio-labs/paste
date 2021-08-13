@@ -258,6 +258,11 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
                   Object details
                 </SidebarAnchor>
               </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/status`}>
+                  Status
+                </SidebarAnchor>
+              </SidebarNestedItem>
             </SidebarNestedList>
           </DisclosurePrimitiveContent>
         </SidebarItem>
