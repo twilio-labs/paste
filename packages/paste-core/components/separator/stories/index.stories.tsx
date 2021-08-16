@@ -1,9 +1,11 @@
 import * as React from 'react';
-import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {Stack} from '@twilio-paste/stack';
+import {Text} from '@twilio-paste/text';
 import {Separator} from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -136,4 +138,62 @@ export const Responsive = (): React.ReactNode => {
 
 Responsive.story = {
   name: 'responsive',
+};
+
+export const CustomSeparator: React.FC = () => {
+  return (
+    <Stack orientation="vertical" spacing="space60">
+      <Box>
+        <Paragraph>
+          <strong>Default</strong>
+        </Paragraph>
+        <Separator orientation="horizontal" verticalSpacing="space70" />
+        <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
+        <Separator orientation="horizontal" verticalSpacing="space70" />
+        <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
+      </Box>
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{
+          SEPARATOR: {
+            borderColor: 'colorBorderDestructive',
+            borderWidth: 'borderWidth40',
+          },
+        }}
+      >
+        <Box>
+          <Paragraph>
+            <strong>Customized</strong>
+          </Paragraph>
+          <Separator orientation="horizontal" verticalSpacing="space70" />
+          <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
+          <Separator orientation="horizontal" verticalSpacing="space70" />
+          <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
+        </Box>
+      </CustomizationProvider>
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{
+          NEW_SEPARATOR: {
+            borderColor: 'colorBorderPrimary',
+            borderWidth: 'borderWidth30',
+          },
+          ANOTHER_NEW_SEPARATOR: {
+            borderColor: 'colorBorderSuccess',
+            borderWidth: 'borderWidth40',
+          },
+        }}
+      >
+        <Box>
+          <Paragraph>
+            <strong>Customized element</strong>
+          </Paragraph>
+          <Separator orientation="horizontal" verticalSpacing="space70" element="NEW_SEPARATOR" />
+          <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
+          <Separator orientation="horizontal" verticalSpacing="space70" element="ANOTHER_NEW_SEPARATOR" />
+          <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
+        </Box>
+      </CustomizationProvider>
+    </Stack>
+  );
 };
