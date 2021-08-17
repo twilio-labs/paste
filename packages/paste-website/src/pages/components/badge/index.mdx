@@ -1,0 +1,493 @@
+---
+title: Badge - Components
+description: A badge is a visually highlighted text label that describes an object.
+slug: /components/badge/
+---
+
+import {graphql} from 'gatsby';
+import Changelog from '@twilio-paste/badge/CHANGELOG.md';
+
+import {Badge} from '@twilio-paste/badge';
+import {Text} from '@twilio-paste/text';
+import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
+import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
+import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
+import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
+import {styled, css} from '@twilio-paste/styling-library';
+
+import {Box} from '@twilio-paste/box';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Stack} from '@twilio-paste/stack';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
+import {useUID} from '@twilio-paste/uid-library';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {CodeHighlight} from '../../../components/CodeHighlight';
+import {
+  defaultVariantExamples,
+  infoVariantExamples,
+  warningVariantExamples,
+  errorVariantExamples,
+  successVariantExamples,
+  newVariantExamples,
+} from '../../../component-examples/BadgeExamples';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/badge"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/components/badge/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Badge"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name="Badge"
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/badge"
+  storybookUrl="/?path=/story/components-badge--all-badges"
+  data={props.data.allPasteComponent.edges}
+  packageStatus={props.data.allAirtable.edges}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+## Guidelines
+
+### About Badge
+
+A badge is a small chunk of information that describes an object in a visually highlighted way. You can think of badges as a 1-3 word description of a more complex object that is highlighted to draw visual focus. Badges should be used to describe static attributes.
+
+### Examples
+
+#### Default badge
+
+<LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
+  {`<Box display="flex" columnGap="space80">
+  <Badge as="span" variant="default">
+    Default
+  </Badge>
+  <Badge as="span" variant="default">
+    <InformationIcon decorative />
+    Default
+  </Badge>
+  <Badge as="span" variant="default">
+    Default
+    <InformationIcon decorative />
+  </Badge>
+</Box>
+`.trim()}
+</LivePreview>
+
+#### Info badge
+
+<LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
+  {`<Box display="flex" columnGap="space80">
+  <Badge as="span" variant="info">
+    Info
+  </Badge>
+  <Badge as="span" variant="info">
+    <InformationIcon decorative />
+    Info
+  </Badge>
+  <Badge as="span" variant="info">
+    Info
+    <InformationIcon decorative />
+  </Badge>
+</Box>
+`.trim()}
+</LivePreview>
+
+#### Warning badge
+
+<LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
+  {`<Box display="flex" columnGap="space80">
+  <Badge variant="warning">
+    Warning
+  </Badge>
+  <Badge variant="warning">
+    <WarningIcon decorative />
+    Warning
+  </Badge>
+  <Badge variant="warning">
+    Warning
+    <WarningIcon decorative />
+  </Badge>
+</Box>
+`.trim()}
+</LivePreview>
+
+#### Error badge
+
+<LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
+  {`<Box display="flex" columnGap="space80">
+  <Badge variant="error">
+    Error
+  </Badge>
+  <Badge variant="error">
+    <ErrorIcon decorative />
+    Error
+  </Badge>
+  <Badge variant="error">
+    Error
+    <ErrorIcon decorative />
+  </Badge>
+</Box>
+`.trim()}
+</LivePreview>
+
+#### Success badge
+
+<LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
+  {`<Box display="flex" columnGap="space80">
+  <Badge variant="success">
+    Success
+  </Badge>
+  <Badge variant="success">
+    <SuccessIcon decorative />
+    Success
+  </Badge>
+  <Badge variant="success">
+    Success
+    <SuccessIcon decorative />
+  </Badge>
+</Box>
+`.trim()}
+</LivePreview>
+
+#### New badge
+
+<LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
+  {`<Box display="flex" columnGap="space80">
+  <Badge variant="new">
+    New
+  </Badge>
+  <Badge variant="new">
+    <NewIcon decorative />
+    New
+  </Badge>
+  <Badge variant="new">
+    New
+    <NewIcon decorative />
+  </Badge>
+</Box>
+`.trim()}
+</LivePreview>
+
+#### Badge with anchor functionality
+
+<LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
+  {`<Box display="flex" flexDirection="column" rowGap="space80">
+  <Box display="flex" columnGap="space40">
+    <Badge as="a" href="#" variant="default">
+      Default
+    </Badge>
+    <Badge as="a" href="#" variant="info">
+      Info
+    </Badge>
+    <Badge as="a" href="#" variant="warning">
+      Warning
+    </Badge>
+    <Badge as="a" href="#" variant="error">
+      Error
+    </Badge>
+    <Badge as="a" href="#" variant="success">
+      Success
+    </Badge>
+    <Badge as="a" href="#" variant="new">
+      New
+    </Badge>
+  </Box>
+  <Box display="flex" columnGap="space40">
+    <Badge as="a" href="#" variant="default">
+      <InformationIcon decorative />
+      Default
+    </Badge>
+    <Badge as="a" href="#" variant="info">
+      <InformationIcon decorative />
+      Info
+    </Badge>
+    <Badge as="a" href="#" variant="warning">
+      <WarningIcon decorative />
+      Warning
+    </Badge>
+    <Badge as="a" href="#" variant="error">
+      <ErrorIcon decorative />
+      Error
+    </Badge>
+    <Badge as="a" href="#" variant="success">
+      <SuccessIcon decorative />
+      Success
+    </Badge>
+    <Badge as="a" href="#" variant="new">
+      <NewIcon decorative />
+      New
+    </Badge>
+  </Box>
+  <Box display="flex" columnGap="space40">
+    <Badge as="a" href="#" variant="default">
+      Default
+      <InformationIcon decorative />
+    </Badge>
+    <Badge as="a" href="#" variant="info">
+      Info
+      <InformationIcon decorative />
+    </Badge>
+    <Badge as="a" href="#" variant="warning">
+      Warning
+      <WarningIcon decorative />
+    </Badge>
+    <Badge as="a" href="#" variant="error">
+      Error
+      <ErrorIcon decorative />
+    </Badge>
+    <Badge as="a" href="#" variant="success">
+      Success
+      <SuccessIcon decorative />
+    </Badge>
+    <Badge as="a" href="#" variant="new">
+      New
+      <NewIcon decorative />
+    </Badge>
+  </Box>
+</Box>
+`.trim()}
+</LivePreview>
+
+#### Badge with button functionality
+
+<LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
+  {`<Box display="flex" flexDirection="column" rowGap="space80">
+  <Box display="flex" columnGap="space40">
+    <Badge as="button" onClick={() => null} variant="default">
+      Default
+    </Badge>
+    <Badge as="button" onClick={() => null} variant="info">
+      Info
+    </Badge>
+    <Badge as="button" onClick={() => null} variant="warning">
+      Warning
+    </Badge>
+    <Badge as="button" onClick={() => null} variant="error">
+      Error
+    </Badge>
+    <Badge as="button" onClick={() => null} variant="success">
+      Success
+    </Badge>
+    <Badge as="button" onClick={() => null} variant="new">
+      New
+    </Badge>
+  </Box>
+  <Box display="flex" columnGap="space40">
+    <Badge as="button" onClick={() => null} variant="default">
+      <InformationIcon decorative />
+      Default
+    </Badge>
+    <Badge as="button" onClick={() => null} variant="info">
+      <InformationIcon decorative />
+      Info
+    </Badge>
+    <Badge as="button" onClick={() => null} variant="warning">
+      <WarningIcon decorative />
+      Warning
+    </Badge>
+    <Badge as="button" onClick={() => null} variant="error">
+      <ErrorIcon decorative />
+      Error
+    </Badge>
+    <Badge as="button" onClick={() => null} variant="success">
+      <SuccessIcon decorative />
+      Success
+    </Badge>
+    <Badge as="button" onClick={() => null} variant="new">
+      <NewIcon decorative />
+      New
+    </Badge>
+  </Box>
+  <Box display="flex" columnGap="space40">
+    <Badge as="button" onClick={() => null} variant="default">
+      Default
+      <InformationIcon decorative />
+    </Badge>
+    <Badge as="button" onClick={() => null} variant="info">
+      Info
+      <InformationIcon decorative />
+    </Badge>
+    <Badge as="button" onClick={() => null} variant="warning">
+      Warning
+      <WarningIcon decorative />
+    </Badge>
+    <Badge as="button" onClick={() => null} variant="error">
+      Error
+      <ErrorIcon decorative />
+    </Badge>
+    <Badge as="button" onClick={() => null} variant="success">
+      Success
+      <SuccessIcon decorative />
+    </Badge>
+    <Badge as="button" onClick={() => null} variant="new">
+      New
+      <NewIcon decorative />
+    </Badge>
+  </Box>
+</Box>
+`.trim()}
+</LivePreview>
+
+## Composition notes
+
+### children
+
+- string, icon, Text, Box
+- will resize the icons
+- cannot be empty
+
+### display should be inline
+
+- should not create multi-line badges
+- should set the badge to be inline if passing multiple children to the badge
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/badge - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {Badge} from '@twilio-paste/badge';
+
+const BadgeExample = () => (
+  <Badge variant="default" as="span">
+    Default Badge
+  </Badge>
+);
+```
+
+#### Props
+
+<Table>
+  <THead>
+    <Tr>
+      <Th>Prop</Th>
+      <Th>Type</Th>
+      <Th>Description</Th>
+      <Th>Default</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>children</Td>
+      <Td>
+        <CodeHighlight>
+          NonNullable{'<'}ReactNode{'>'}
+        </CodeHighlight>
+      </Td>
+      <Td>TODO</Td>
+      <Td>
+        <CodeHighlight>null</CodeHighlight>
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>variant</Td>
+      <Td>
+        <CodeHighlight>default</CodeHighlight> &#124; <CodeHighlight>info</CodeHighlight> &#124;{' '}
+        <CodeHighlight>warning</CodeHighlight> &#124; <CodeHighlight>error</CodeHighlight> &#124;{' '}
+        <CodeHighlight>success</CodeHighlight> &#124; <CodeHighlight>new</CodeHighlight>
+      </Td>
+      <Td>TODO</Td>
+      <Td>
+        <CodeHighlight>null</CodeHighlight>
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>as</Td>
+      <Td>
+        <CodeHighlight>span</CodeHighlight> &#124; <CodeHighlight>a</CodeHighlight> &#124;{' '}
+        <CodeHighlight>button</CodeHighlight>
+      </Td>
+      <Td>TODO</Td>
+      <Td>
+        <CodeHighlight>null</CodeHighlight>
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>href?</Td>
+      <Td>
+        <CodeHighlight>string</CodeHighlight> &#124; <CodeHighlight>undefined</CodeHighlight>
+      </Td>
+      <Td>TODO</Td>
+      <Td>
+        <CodeHighlight>undefined</CodeHighlight>
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>onClick?</Td>
+      <Td>
+        <CodeHighlight>
+          MouseEventHandler{'<'}HTMLButtonElement{'>'}
+        </CodeHighlight>{' '}
+        &#124; <CodeHighlight>undefined</CodeHighlight>
+      </Td>
+      <Td>TODO</Td>
+      <Td>
+        <CodeHighlight>undefined</CodeHighlight>
+      </Td>
+    </Tr>
+  </TBody>
+</Table>
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>
