@@ -4,6 +4,7 @@ exports[`Avatar image should render responsive css with an image 1`] = `
 <DocumentFragment>
   .emotion-1 {
   box-sizing: border-box;
+  word-break: break-all;
   background-color: colorBackgroundUser;
   border-radius: borderRadiusCircle;
   overflow: hidden;
@@ -28,6 +29,7 @@ exports[`Avatar image should render responsive css with an image 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
+  word-break: break-all;
   max-width: 100%;
   width: sizeIcon30;
   height: sizeIcon30;
@@ -68,6 +70,7 @@ exports[`Avatar intials should render responsive css 1`] = `
 <DocumentFragment>
   .emotion-1 {
   box-sizing: border-box;
+  word-break: break-all;
   background-color: colorBackgroundUser;
   border-radius: borderRadiusCircle;
   overflow: hidden;

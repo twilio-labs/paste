@@ -4,6 +4,7 @@ exports[`Grid render should render a Column 1`] = `
 <DocumentFragment>
   .emotion-0 {
   box-sizing: border-box;
+  word-break: break-all;
   width: 8.333333333333332%;
   padding-top: space0;
   padding-bottom: space0;
@@ -25,6 +26,7 @@ exports[`Grid render should render a Grid 1`] = `
 <DocumentFragment>
   .emotion-0 {
   box-sizing: border-box;
+  word-break: break-all;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
@@ -51,6 +53,7 @@ exports[`Grid render should render a Grid as any HTML element 1`] = `
 <DocumentFragment>
   .emotion-0 {
   box-sizing: border-box;
+  word-break: break-all;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
@@ -77,6 +80,7 @@ exports[`Grid render should render responsive css 1`] = `
 <DocumentFragment>
   .emotion-2 {
   box-sizing: border-box;
+  word-break: break-all;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
@@ -111,6 +115,7 @@ exports[`Grid render should render responsive css 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
+  word-break: break-all;
   width: 16.666666666666664%;
   padding-top: space10;
   padding-bottom: space10;
@@ -143,6 +148,7 @@ exports[`Grid render should render responsive css 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
+  word-break: break-all;
   width: 50%;
   padding-top: space10;
   padding-bottom: space10;

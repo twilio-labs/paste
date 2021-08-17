@@ -25,6 +25,7 @@ import {getPseudoStyles, PasteStyleProps, getCustomElementStyles} from './StyleF
 export const StyledBox = styled.div<StyledBoxProps>(
   {
     boxSizing: 'border-box',
+    'word-break': 'break-all',
   },
   compose(space, layout, flexbox, background, border, boxShadow, position, typography, PasteStyleProps),
   getPseudoStyles,

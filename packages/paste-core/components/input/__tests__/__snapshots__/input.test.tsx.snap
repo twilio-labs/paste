@@ -13,6 +13,7 @@ exports[`Input render should render 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
+  word-break: break-all;
   display: flex;
   width: 100%;
   background-color: rgb(255,255,255);
@@ -222,6 +223,7 @@ exports[`Input render should render with disabled 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
+  word-break: break-all;
   display: flex;
   width: 100%;
   background-color: rgb(248,248,249);
@@ -356,6 +358,7 @@ exports[`Input render should render with hasError 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
+  word-break: break-all;
   display: flex;
   width: 100%;
   background-color: rgb(255,255,255);
@@ -414,6 +417,7 @@ exports[`Input render should render with prefix 1`] = `
 
 .emotion-2 {
   box-sizing: border-box;
+  word-break: break-all;
   display: flex;
   width: 100%;
   background-color: rgb(255,255,255);
@@ -515,6 +519,7 @@ exports[`Input render should render with prefix 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
+  word-break: break-all;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -573,6 +578,7 @@ exports[`Input render should render with readOnly 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
+  word-break: break-all;
   display: flex;
   width: 100%;
   background-color: rgb(248,248,249);
@@ -708,6 +714,7 @@ exports[`Input render should render with suffix 1`] = `
 
 .emotion-2 {
   box-sizing: border-box;
+  word-break: break-all;
   display: flex;
   width: 100%;
   background-color: rgb(255,255,255);
@@ -809,6 +816,7 @@ exports[`Input render should render with suffix 1`] = `
 
 .emotion-1 {
   box-sizing: border-box;
+  word-break: break-all;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;

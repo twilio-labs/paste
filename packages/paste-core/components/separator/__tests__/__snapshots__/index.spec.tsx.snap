@@ -12,6 +12,7 @@ exports[`Separator should set horizontal margins 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
+  word-break: break-all;
   margin: 0;
   margin-left: 1rem;
   margin-right: 1rem;
@@ -47,6 +48,7 @@ exports[`Separator should set responsive horizontal margins 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
+  word-break: break-all;
   margin: 0;
   margin-left: 0.25rem;
   margin-right: 0.25rem;
@@ -96,6 +98,7 @@ exports[`Separator should set responsive vertical margins 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
+  word-break: break-all;
   margin: 0;
   margin-bottom: 0.25rem;
   margin-top: 0.25rem;
@@ -145,6 +148,7 @@ exports[`Separator should set vertical margins 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
+  word-break: break-all;
   margin: 0;
   margin-bottom: 2.25rem;
   margin-top: 2.25rem;

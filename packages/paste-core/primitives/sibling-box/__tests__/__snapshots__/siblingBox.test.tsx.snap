@@ -12,6 +12,7 @@ exports[`SiblingBox render should render 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
+  word-break: break-all;
   width: 1rem;
   -webkit-align-items: center;
   -webkit-box-align: center;
