@@ -144,13 +144,19 @@ export const CustomSeparator: React.FC = () => {
   return (
     <Stack orientation="vertical" spacing="space60">
       <Box>
-        <Paragraph>
-          <strong>Default</strong>
-        </Paragraph>
+        <Card>
+          <Paragraph>
+            <strong>Default</strong>
+          </Paragraph>
+        </Card>
         <Separator orientation="horizontal" verticalSpacing="space70" />
-        <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
+        <Card>
+          <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
+        </Card>
         <Separator orientation="horizontal" verticalSpacing="space70" />
-        <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
+        <Card>
+          <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
+        </Card>
       </Box>
       <CustomizationProvider
         baseTheme="default"
@@ -162,13 +168,19 @@ export const CustomSeparator: React.FC = () => {
         }}
       >
         <Box>
-          <Paragraph>
-            <strong>Customized</strong>
-          </Paragraph>
+          <Card>
+            <Paragraph>
+              <strong>Customized</strong>
+            </Paragraph>
+          </Card>
           <Separator orientation="horizontal" verticalSpacing="space70" />
-          <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
+          <Card>
+            <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
+          </Card>
           <Separator orientation="horizontal" verticalSpacing="space70" />
-          <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
+          <Card>
+            <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
+          </Card>
         </Box>
       </CustomizationProvider>
       <CustomizationProvider
@@ -185,13 +197,19 @@ export const CustomSeparator: React.FC = () => {
         }}
       >
         <Box>
-          <Paragraph>
-            <strong>Customized element</strong>
-          </Paragraph>
+          <Card>
+            <Paragraph>
+              <strong>Customized element</strong>
+            </Paragraph>
+          </Card>
           <Separator orientation="horizontal" verticalSpacing="space70" element="NEW_SEPARATOR" />
-          <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
+          <Card>
+            <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
+          </Card>
           <Separator orientation="horizontal" verticalSpacing="space70" element="ANOTHER_NEW_SEPARATOR" />
-          <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
+          <Card>
+            <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
+          </Card>
         </Box>
       </CustomizationProvider>
     </Stack>
