@@ -193,6 +193,7 @@ export const CustomSeparator: React.FC = () => {
           ANOTHER_NEW_SEPARATOR: {
             borderColor: 'colorBorderSuccess',
             borderWidth: 'borderWidth40',
+            borderStyle: 'dashed',
           },
         }}
       >
