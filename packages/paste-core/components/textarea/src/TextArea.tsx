@@ -2,12 +2,13 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {styled, css} from '@twilio-paste/styling-library';
 import TextareaAutosize from 'react-autosize-textarea';
+import type {BoxProps} from '@twilio-paste/box';
 import {InputBox} from '@twilio-paste/input-box';
 import {safelySpreadFormControlProps} from './utils';
 
 export type TextAreaVariants = 'default' | 'inverse';
 
-export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement>, Pick<BoxProps, 'element'> {
   className?: never;
   disabled?: boolean;
   hasError?: boolean;
@@ -70,12 +71,26 @@ const TextAreaElement = styled(TextareaAutosize)<TextAreaProps>((props) =>
 
 const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (
-    {children, disabled, hasError, id, insertBefore, insertAfter, name, placeholder, readOnly, variant, ...props},
+    {
+      children,
+      disabled,
+      element,
+      hasError,
+      id,
+      insertBefore,
+      insertAfter,
+      name,
+      placeholder,
+      readOnly,
+      variant,
+      ...props
+    },
     ref
   ) => {
     return (
       <InputBox
         disabled={disabled}
+        element={element}
         hasError={hasError}
         insertAfter={insertAfter}
         insertBefore={insertBefore}
