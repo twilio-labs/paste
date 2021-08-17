@@ -171,4 +171,24 @@ describe('getCustomElementStyles', () => {
       });
     }
   });
+
+  it('should not throw when variants that are not present on the theme are set on a component', () => {
+    // this just covers a bug where Text would be looking for a variant that is not present on the theme
+    // and rather than gracefully handle this, it would throw an error
+
+    const primaryAlertProps = {
+      'data-paste-element': 'ALERT',
+      variant: 'noneexistantvariant',
+      ...mockTheme,
+    };
+    // @ts-expect-error because I'm not setting the whole theme
+    const alertCSSFun = getCustomElementStyles(primaryAlertProps);
+    if (typeof alertCSSFun === 'function') {
+      // eslint-disable-next-line jest/no-conditional-expect
+      expect(alertCSSFun()).toEqual({
+        padding: '10px',
+        textDecoration: 'underline',
+      });
+    }
+  });
 });
