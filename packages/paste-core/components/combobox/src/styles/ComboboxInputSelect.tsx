@@ -1,15 +1,9 @@
+import * as React from 'react';
 import {InputElement} from '@twilio-paste/input';
-import {styled, css} from '@twilio-paste/styling-library';
 import type {ComboboxProps} from '../types';
 
-// Fixes chevron overlapping really long text
-// Extra right padding is removed when autocomplete is true
-/* eslint-disable emotion/syntax-preference */
-const ComboboxInputSelect = styled(InputElement)<ComboboxProps>((props) =>
-  css({
-    paddingRight: !props.autocomplete ? 'space100' : null,
-  })
-);
-/* eslint-enable */
+const ComboboxInputSelect = React.forwardRef<HTMLInputElement, ComboboxProps>(({...props}, ref) => {
+  return <InputElement paddingRight={!props.autocomplete ? 'space100' : null} type="text" ref={ref} {...props} />;
+});
 
 export {ComboboxInputSelect};
