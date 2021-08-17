@@ -89,7 +89,7 @@ describe('Separator', () => {
       expect(renderedSeparator).toHaveStyleRule('margin', '1rem');
     });
 
-    it('should add custom styles to Grid with a custom element data attribute', (): void => {
+    it('should add custom styles to Separator with a custom element data attribute', (): void => {
       render(
         <CustomizationProvider
           baseTheme="default"
