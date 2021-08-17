@@ -1,40 +1,40 @@
 import type {
-  LayoutProps,
-  SpaceProps,
   BackgroundProps,
   BorderProps,
-  ShadowProps,
-  PositionProps,
   FlexboxProps,
+  LayoutProps,
+  PositionProps,
+  ShadowProps,
+  SpaceProps,
   TypographyProps,
 } from '@twilio-paste/style-props';
 import type {CustomTheme} from '@twilio-paste/customization';
 import type {
-  CursorProperty,
-  AppearanceProperty,
   AnimationProperty,
-  TransformProperty,
-  TransformOriginProperty,
-  VisibilityProperty,
-  UserSelectProperty,
-  PointerEventsProperty,
-  BoxSizingProperty,
-  ResizeProperty,
-  TransitionProperty,
-  ListStyleTypeProperty,
-  ListStylePositionProperty,
-  ListStyleImageProperty,
-  ObjectFitProperty,
-  ObjectPositionProperty,
-  OutlineProperty,
-  FloatProperty,
-  WillChangeProperty,
-  ClipProperty,
-  OpacityProperty,
+  AppearanceProperty,
   BorderCollapseProperty,
   BorderSpacingProperty,
-  TableLayoutProperty,
+  BoxSizingProperty,
+  ClipProperty,
+  CursorProperty,
+  FloatProperty,
   FontVariantNumericProperty,
+  ListStyleImageProperty,
+  ListStylePositionProperty,
+  ListStyleTypeProperty,
+  ObjectFitProperty,
+  ObjectPositionProperty,
+  OpacityProperty,
+  OutlineProperty,
+  PointerEventsProperty,
+  ResizeProperty,
+  TableLayoutProperty,
+  TransformOriginProperty,
+  TransformProperty,
+  TransitionProperty,
+  UserSelectProperty,
+  VisibilityProperty,
+  WillChangeProperty,
 } from 'csstype';
 import type {PseudoPropStyles} from './PseudoPropStyles';
 
@@ -47,32 +47,32 @@ export interface BoxBaseStyleProps
     PositionProps,
     TypographyProps,
     FlexboxProps {
-  content?: string;
-  cursor?: CursorProperty;
-  appearance?: AppearanceProperty;
-  transition?: TransitionProperty;
-  transform?: TransformProperty;
   animation?: AnimationProperty;
-  transformOrigin?: TransformOriginProperty<string>;
-  visibility?: VisibilityProperty;
-  userSelect?: UserSelectProperty;
-  pointerEvents?: PointerEventsProperty;
-  boxSizing?: BoxSizingProperty;
-  resize?: ResizeProperty;
-  listStyleType?: ListStyleTypeProperty;
-  listStylePosition?: ListStylePositionProperty;
-  listStyleImage?: ListStyleImageProperty;
-  objectFit?: ObjectFitProperty;
-  objectPosition?: ObjectPositionProperty<string>;
-  outline?: OutlineProperty<string>;
-  float?: FloatProperty;
-  willChange?: WillChangeProperty;
-  clip?: ClipProperty;
-  opacity?: OpacityProperty;
+  appearance?: AppearanceProperty;
   borderCollapse?: BorderCollapseProperty;
   borderSpacing?: BorderSpacingProperty<string>;
-  tableLayout?: TableLayoutProperty;
+  boxSizing?: BoxSizingProperty;
+  clip?: ClipProperty;
+  content?: string;
+  cursor?: CursorProperty;
+  float?: FloatProperty;
   fontVariantNumeric?: FontVariantNumericProperty;
+  listStyleImage?: ListStyleImageProperty;
+  listStylePosition?: ListStylePositionProperty;
+  listStyleType?: ListStyleTypeProperty;
+  objectFit?: ObjectFitProperty;
+  objectPosition?: ObjectPositionProperty<string>;
+  opacity?: OpacityProperty;
+  outline?: OutlineProperty<string>;
+  pointerEvents?: PointerEventsProperty;
+  resize?: ResizeProperty;
+  tableLayout?: TableLayoutProperty;
+  transform?: TransformProperty;
+  transformOrigin?: TransformOriginProperty<string>;
+  transition?: TransitionProperty;
+  userSelect?: UserSelectProperty;
+  visibility?: VisibilityProperty;
+  willChange?: WillChangeProperty;
 }
 
 export type BoxPseudoStyleProps = {
