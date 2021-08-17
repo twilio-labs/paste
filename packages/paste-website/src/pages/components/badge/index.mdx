@@ -8,12 +8,20 @@ import {graphql} from 'gatsby';
 import Changelog from '@twilio-paste/badge/CHANGELOG.md';
 
 import {Badge} from '@twilio-paste/badge';
+import {Card} from '@twilio-paste/card';
 import {Text} from '@twilio-paste/text';
+import {Heading} from '@twilio-paste/heading';
+import {Radio, RadioGroup} from '@twilio-paste/radio-group';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
+import {ProductVoiceIcon} from '@twilio-paste/icons/esm/ProductVoiceIcon';
+import {ProductElasticSIPTrunkingIcon} from '@twilio-paste/icons/esm/ProductElasticSIPTrunkingIcon';
+import {Grid, Column} from '@twilio-paste/grid';
+
+import {Truncate} from '@twilio-paste/truncate';
 import {styled, css} from '@twilio-paste/styling-library';
 
 import {Box} from '@twilio-paste/box';
@@ -27,6 +35,7 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {CodeHighlight} from '../../../components/CodeHighlight';
+import {tableExample, betaFeatureExample, settingsAndProducts} from '../../../component-examples/BadgeExamples';
 
 export const pageQuery = graphql`
   {
@@ -210,79 +219,25 @@ A badge is a small chunk of information that describes an object in a visually h
 #### Badge with anchor functionality
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
-  {`<Box display="flex" flexDirection="column" rowGap="space80">
-  <Box display="flex" columnGap="space40">
-    <Badge as="a" href="#" variant="default">
-      Default
-    </Badge>
-    <Badge as="a" href="#" variant="info">
-      Info
-    </Badge>
-    <Badge as="a" href="#" variant="warning">
-      Warning
-    </Badge>
-    <Badge as="a" href="#" variant="error">
-      Error
-    </Badge>
-    <Badge as="a" href="#" variant="success">
-      Success
-    </Badge>
-    <Badge as="a" href="#" variant="new">
-      New
-    </Badge>
-  </Box>
-  <Box display="flex" columnGap="space40">
-    <Badge as="a" href="#" variant="default">
-      <InformationIcon decorative />
-      Default
-    </Badge>
-    <Badge as="a" href="#" variant="info">
-      <InformationIcon decorative />
-      Info
-    </Badge>
-    <Badge as="a" href="#" variant="warning">
-      <WarningIcon decorative />
-      Warning
-    </Badge>
-    <Badge as="a" href="#" variant="error">
-      <ErrorIcon decorative />
-      Error
-    </Badge>
-    <Badge as="a" href="#" variant="success">
-      <SuccessIcon decorative />
-      Success
-    </Badge>
-    <Badge as="a" href="#" variant="new">
-      <NewIcon decorative />
-      New
-    </Badge>
-  </Box>
-  <Box display="flex" columnGap="space40">
-    <Badge as="a" href="#" variant="default">
-      Default
-      <InformationIcon decorative />
-    </Badge>
-    <Badge as="a" href="#" variant="info">
-      Info
-      <InformationIcon decorative />
-    </Badge>
-    <Badge as="a" href="#" variant="warning">
-      Warning
-      <WarningIcon decorative />
-    </Badge>
-    <Badge as="a" href="#" variant="error">
-      Error
-      <ErrorIcon decorative />
-    </Badge>
-    <Badge as="a" href="#" variant="success">
-      Success
-      <SuccessIcon decorative />
-    </Badge>
-    <Badge as="a" href="#" variant="new">
-      New
-      <NewIcon decorative />
-    </Badge>
-  </Box>
+  {`<Box display="flex" columnGap="space40" rowGap="space60" flexWrap="wrap">
+  <Badge as="a" href="#" variant="default">
+    Default
+  </Badge>
+  <Badge as="a" href="#" variant="info">
+    Info
+  </Badge>
+  <Badge as="a" href="#" variant="warning">
+    Warning
+  </Badge>
+  <Badge as="a" href="#" variant="error">
+    Error
+  </Badge>
+  <Badge as="a" href="#" variant="success">
+    Success
+  </Badge>
+  <Badge as="a" href="#" variant="new">
+    New
+  </Badge>
 </Box>
 `.trim()}
 </LivePreview>
@@ -290,95 +245,89 @@ A badge is a small chunk of information that describes an object in a visually h
 #### Badge with button functionality
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
-  {`<Box display="flex" flexDirection="column" rowGap="space80">
-  <Box display="flex" columnGap="space40">
-    <Badge as="button" onClick={() => null} variant="default">
-      Default
-    </Badge>
-    <Badge as="button" onClick={() => null} variant="info">
-      Info
-    </Badge>
-    <Badge as="button" onClick={() => null} variant="warning">
-      Warning
-    </Badge>
-    <Badge as="button" onClick={() => null} variant="error">
-      Error
-    </Badge>
-    <Badge as="button" onClick={() => null} variant="success">
-      Success
-    </Badge>
-    <Badge as="button" onClick={() => null} variant="new">
-      New
-    </Badge>
-  </Box>
-  <Box display="flex" columnGap="space40">
-    <Badge as="button" onClick={() => null} variant="default">
-      <InformationIcon decorative />
-      Default
-    </Badge>
-    <Badge as="button" onClick={() => null} variant="info">
-      <InformationIcon decorative />
-      Info
-    </Badge>
-    <Badge as="button" onClick={() => null} variant="warning">
-      <WarningIcon decorative />
-      Warning
-    </Badge>
-    <Badge as="button" onClick={() => null} variant="error">
-      <ErrorIcon decorative />
-      Error
-    </Badge>
-    <Badge as="button" onClick={() => null} variant="success">
-      <SuccessIcon decorative />
-      Success
-    </Badge>
-    <Badge as="button" onClick={() => null} variant="new">
-      <NewIcon decorative />
-      New
-    </Badge>
-  </Box>
-  <Box display="flex" columnGap="space40">
-    <Badge as="button" onClick={() => null} variant="default">
-      Default
-      <InformationIcon decorative />
-    </Badge>
-    <Badge as="button" onClick={() => null} variant="info">
-      Info
-      <InformationIcon decorative />
-    </Badge>
-    <Badge as="button" onClick={() => null} variant="warning">
-      Warning
-      <WarningIcon decorative />
-    </Badge>
-    <Badge as="button" onClick={() => null} variant="error">
-      Error
-      <ErrorIcon decorative />
-    </Badge>
-    <Badge as="button" onClick={() => null} variant="success">
-      Success
-      <SuccessIcon decorative />
-    </Badge>
-    <Badge as="button" onClick={() => null} variant="new">
-      New
-      <NewIcon decorative />
-    </Badge>
-  </Box>
+  {`<Box display="flex" columnGap="space40" rowGap="space60" flexWrap="wrap">
+  <Badge as="button" onClick={() => null} variant="default">
+    Default
+  </Badge>
+  <Badge as="button" onClick={() => null} variant="info">
+    Info
+  </Badge>
+  <Badge as="button" onClick={() => null} variant="warning">
+    Warning
+  </Badge>
+  <Badge as="button" onClick={() => null} variant="error">
+    Error
+  </Badge>
+  <Badge as="button" onClick={() => null} variant="success">
+    Success
+  </Badge>
+  <Badge as="button" onClick={() => null} variant="new">
+    New
+  </Badge>
 </Box>
 `.trim()}
 </LivePreview>
 
-## Composition notes
+## When to use a badge
 
-### children
+Use a badge when you want to visually highlight an attribute of an item.
 
-- string, icon, Text, Box
-- will resize the icons
-- cannot be empty
+### Use cases
 
-### display should be inline
+#### Call attention to attributes of table items
 
-- should not create multi-line badges
-- should set the badge to be inline if passing multiple children to the badge
+<LivePreview
+  scope={{
+    Box,
+    Table,
+    THead,
+    Td,
+    Th,
+    Tr,
+    Text,
+    TBody,
+    Badge,
+  }}
+  language="jsx"
+>
+  {tableExample.trim()}
+</LivePreview>
+
+#### Identify an item as as a beta release
+
+<LivePreview
+  scope={{
+    Box,
+    Badge,
+    Card,
+    NewIcon,
+    Heading,
+    Paragraph,
+  }}
+  language="jsx"
+>
+  {betaFeatureExample.trim()}
+</LivePreview>
+
+#### Highlight products
+
+<LivePreview
+  scope={{
+    Box,
+    Badge,
+    Grid,
+    Column,
+    RadioGroup,
+    Radio,
+    ProductElasticSIPTrunkingIcon,
+    ProductVoiceIcon,
+  }}
+  language="jsx"
+>
+  {settingsAndProducts.trim()}
+</LivePreview>
+
+### Do & Don't
 
 <DoDont>
   <Do title="Do" body="Use 1-3 words as badge text.">
@@ -449,10 +398,10 @@ const BadgeExample = () => (
       <Td>children</Td>
       <Td>
         <CodeHighlight>
-          NonNullable{'<'}ReactNode{'>'}
+          BadgeChildren
         </CodeHighlight>
       </Td>
-      <Td>TODO</Td>
+      <Td>-</Td>
       <Td>
         <CodeHighlight>null</CodeHighlight>
       </Td>
@@ -460,11 +409,12 @@ const BadgeExample = () => (
     <Tr>
       <Td>variant</Td>
       <Td>
+        <CodeHighlight>BadgeVariants</CodeHighlight>
+      </Td>
+      <Td>
         <CodeHighlight>default</CodeHighlight> &#124; <CodeHighlight>info</CodeHighlight> &#124;{' '}
         <CodeHighlight>warning</CodeHighlight> &#124; <CodeHighlight>error</CodeHighlight> &#124;{' '}
-        <CodeHighlight>success</CodeHighlight> &#124; <CodeHighlight>new</CodeHighlight>
-      </Td>
-      <Td>TODO</Td>
+        <CodeHighlight>success</CodeHighlight> &#124; <CodeHighlight>new</CodeHighlight></Td>
       <Td>
         <CodeHighlight>null</CodeHighlight>
       </Td>
@@ -472,10 +422,10 @@ const BadgeExample = () => (
     <Tr>
       <Td>as</Td>
       <Td>
-        <CodeHighlight>span</CodeHighlight> &#124; <CodeHighlight>a</CodeHighlight> &#124;{' '}
-        <CodeHighlight>button</CodeHighlight>
+        <CodeHighlight>BadgeBaseElements</CodeHighlight>
       </Td>
-      <Td>TODO</Td>
+      <Td>The HTML tag to use as base.<Box as="br" /><CodeHighlight>span</CodeHighlight> &#124; <CodeHighlight>a</CodeHighlight> &#124;{' '}
+        <CodeHighlight>button</CodeHighlight></Td>
       <Td>
         <CodeHighlight>null</CodeHighlight>
       </Td>
@@ -483,9 +433,9 @@ const BadgeExample = () => (
     <Tr>
       <Td>href?</Td>
       <Td>
-        <CodeHighlight>string</CodeHighlight> &#124; <CodeHighlight>undefined</CodeHighlight>
+        <CodeHighlight>string</CodeHighlight>
       </Td>
-      <Td>TODO</Td>
+      <Td>A URL to route to. Must use <CodeHighlight>as="a"</CodeHighlight> for this prop to work.</Td>
       <Td>
         <CodeHighlight>undefined</CodeHighlight>
       </Td>
@@ -496,13 +446,13 @@ const BadgeExample = () => (
         <CodeHighlight>
           MouseEventHandler{'<'}HTMLButtonElement{'>'}
         </CodeHighlight>{' '}
-        &#124; <CodeHighlight>undefined</CodeHighlight>
       </Td>
-      <Td>TODO</Td>
+      <Td>React event handler. Must use <CodeHighlight>as="button"</CodeHighlight> for this prop to work.</Td>
       <Td>
         <CodeHighlight>undefined</CodeHighlight>
       </Td>
     </Tr>
+
   </TBody>
 </Table>
 
