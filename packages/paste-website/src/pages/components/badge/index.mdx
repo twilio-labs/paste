@@ -34,7 +34,6 @@ import {useUID} from '@twilio-paste/uid-library';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
-import {CodeHighlight} from '../../../components/CodeHighlight';
 import {tableExample, betaFeatureExample, settingsAndProducts} from '../../../component-examples/BadgeExamples';
 
 export const pageQuery = graphql`
@@ -98,11 +97,11 @@ export const pageQuery = graphql`
 
 ### About Badge
 
-A badge is a small chunk of information that describes an object in a visually highlighted way. You can think of badges as a 1-3 word description of a more complex object that is highlighted to draw visual focus. Badges should be used to describe static attributes.
+A badge is a small chunk of information that describes an object in a visually highlighted way. You can think of badges as a 1-3 word description of a more complex object that is highlighted to draw visual focus. Badges should be used to describe static attributes. Badges should be used to highlight static attributes of an object, for example to identify a feature that is available in a `beta` release phase. For dynamic attributes, such as the status of a dynamic process, refer to the [Status Pattern](https://paste.twilio.design/roadmap 'See our roadmap for the Status Pattern release date').
 
-### Examples
+## Examples
 
-#### Default badge
+### Default badge
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -121,7 +120,7 @@ A badge is a small chunk of information that describes an object in a visually h
 `.trim()}
 </LivePreview>
 
-#### Info badge
+### Info badge
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -140,7 +139,7 @@ A badge is a small chunk of information that describes an object in a visually h
 `.trim()}
 </LivePreview>
 
-#### Warning badge
+### Warning badge
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -159,7 +158,7 @@ A badge is a small chunk of information that describes an object in a visually h
 `.trim()}
 </LivePreview>
 
-#### Error badge
+### Error badge
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -178,7 +177,7 @@ A badge is a small chunk of information that describes an object in a visually h
 `.trim()}
 </LivePreview>
 
-#### Success badge
+### Success badge
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -197,7 +196,7 @@ A badge is a small chunk of information that describes an object in a visually h
 `.trim()}
 </LivePreview>
 
-#### New badge
+### New badge
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -216,7 +215,7 @@ A badge is a small chunk of information that describes an object in a visually h
 `.trim()}
 </LivePreview>
 
-#### Badge with anchor functionality
+### Badge with anchor functionality
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space40" rowGap="space60" flexWrap="wrap">
@@ -242,7 +241,7 @@ A badge is a small chunk of information that describes an object in a visually h
 `.trim()}
 </LivePreview>
 
-#### Badge with button functionality
+### Badge with button functionality
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space40" rowGap="space60" flexWrap="wrap">
@@ -323,6 +322,7 @@ Use a badge when you want to visually highlight an attribute of an item.
     ProductVoiceIcon,
   }}
   language="jsx"
+  noInline
 >
   {settingsAndProducts.trim()}
 </LivePreview>
@@ -384,77 +384,13 @@ const BadgeExample = () => (
 
 #### Props
 
-<Table>
-  <THead>
-    <Tr>
-      <Th>Prop</Th>
-      <Th>Type</Th>
-      <Th>Description</Th>
-      <Th>Default</Th>
-    </Tr>
-  </THead>
-  <TBody>
-    <Tr>
-      <Td>children</Td>
-      <Td>
-        <CodeHighlight>
-          BadgeChildren
-        </CodeHighlight>
-      </Td>
-      <Td>-</Td>
-      <Td>
-        <CodeHighlight>null</CodeHighlight>
-      </Td>
-    </Tr>
-    <Tr>
-      <Td>variant</Td>
-      <Td>
-        <CodeHighlight>BadgeVariants</CodeHighlight>
-      </Td>
-      <Td>
-        <CodeHighlight>default</CodeHighlight> &#124; <CodeHighlight>info</CodeHighlight> &#124;{' '}
-        <CodeHighlight>warning</CodeHighlight> &#124; <CodeHighlight>error</CodeHighlight> &#124;{' '}
-        <CodeHighlight>success</CodeHighlight> &#124; <CodeHighlight>new</CodeHighlight></Td>
-      <Td>
-        <CodeHighlight>null</CodeHighlight>
-      </Td>
-    </Tr>
-    <Tr>
-      <Td>as</Td>
-      <Td>
-        <CodeHighlight>BadgeBaseElements</CodeHighlight>
-      </Td>
-      <Td>The HTML tag to use as base.<Box as="br" /><CodeHighlight>span</CodeHighlight> &#124; <CodeHighlight>a</CodeHighlight> &#124;{' '}
-        <CodeHighlight>button</CodeHighlight></Td>
-      <Td>
-        <CodeHighlight>null</CodeHighlight>
-      </Td>
-    </Tr>
-    <Tr>
-      <Td>href?</Td>
-      <Td>
-        <CodeHighlight>string</CodeHighlight>
-      </Td>
-      <Td>A URL to route to. Must use <CodeHighlight>as="a"</CodeHighlight> for this prop to work.</Td>
-      <Td>
-        <CodeHighlight>undefined</CodeHighlight>
-      </Td>
-    </Tr>
-    <Tr>
-      <Td>onClick?</Td>
-      <Td>
-        <CodeHighlight>
-          MouseEventHandler{'<'}HTMLButtonElement{'>'}
-        </CodeHighlight>{' '}
-      </Td>
-      <Td>React event handler. Must use <CodeHighlight>as="button"</CodeHighlight> for this prop to work.</Td>
-      <Td>
-        <CodeHighlight>undefined</CodeHighlight>
-      </Td>
-    </Tr>
-
-  </TBody>
-</Table>
+| Prop     | Type                                   | Description                                                        | Default     |
+| -------- | -------------------------------------- | ------------------------------------------------------------------ | ----------- |
+| children | `BadgeChildren`                        |                                                                    | `null`      |
+| variant  | `BadgeVariants`                        | `default`, `info`, `success`, `warning`, `error`, `new`            | `null`      |
+| as       | `BadgeBaseElements`                    | The HTML tag to use as base. -`span`, `button`, `a`                | `null`      |
+| href?    | `string`                               | A URL to route to. Must use `as="a"` for this prop to work.        | `undefined` |
+| onClick? | `MouseEventHandler<HTMLButtonElement>` | React event handler. Must use `as="button"` for this prop to work. | `undefined` |
 
 <ChangelogRevealer>
   <Changelog />

@@ -81,32 +81,53 @@ export const betaFeatureExample = `<Card>
 </Paragraph>
 </Card>`;
 
-export const settingsAndProducts = `<Box
-    display="flex"
-    flexDirection="row"
-    alignItems="flex-start"
-    columnGap="space40"
-    minWidth="size100"
-  >
-    <RadioGroup
-      name="call-recording"
-      value="always"
-      legend="Would you like to enable call recording?"
-      helpText="Applies to all incoming and outbound calls."
-      onChange={() => null}
-    >
-      <Radio value="always">Always</Radio>
-      <Radio value="never">Never</Radio>
-    </RadioGroup>
+export const settingsAndProducts = `const SettingsAndProducts = () => {
+  const [callRecording, setCallRecording] = React.useState("always");
 
-  <Box display="flex" minWidth="size60" columnGap="space20">
-    <Badge variant="info" as="span">
-      <ProductElasticSIPTrunkingIcon decorative size="sizeIcon10" />
-      SIP Trunking
-    </Badge>
-    <Badge variant="info" as="span">
-      <ProductVoiceIcon decorative size="sizeIcon10" />
-      Voice
-    </Badge>
-  </Box>
-</Box>`;
+  const handleOnChange = React.useCallback(
+    (newValue) => {
+      setCallRecording(newValue);
+    },
+    [setCallRecording]
+  );
+  return (
+    <Box
+      display="flex"
+      flexDirection="row"
+      alignItems="flex-start"
+      columnGap="space40"
+      minWidth="size100"
+    >
+      <RadioGroup
+        name="call-recording"
+        value={callRecording}
+        legend="Would you like to enable call recording?"
+        helpText="Applies to all incoming and outbound calls."
+        onChange={handleOnChange}
+      >
+        <Radio id="always" value="always">
+          Always
+        </Radio>
+        <Radio id="never" value="never">
+          Never
+        </Radio>
+      </RadioGroup>
+
+      <Box display="flex" minWidth="size60" columnGap="space20">
+        <Badge variant="info" as="span">
+          <ProductElasticSIPTrunkingIcon decorative size="sizeIcon10" />
+          SIP Trunking
+        </Badge>
+        <Badge variant="info" as="span">
+          <ProductVoiceIcon decorative size="sizeIcon10" />
+          Voice
+        </Badge>
+      </Box>
+    </Box>
+  );
+};
+
+render(
+  SettingsAndProducts
+)
+`.trim();
