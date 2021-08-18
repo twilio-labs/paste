@@ -159,8 +159,6 @@ export const ComboboxNonHooks = (): React.ReactNode => {
   );
 };
 
-const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
-
 export const BasicMultiCombobox: React.FC = () => {
   const seed = useUIDSeed();
   const [filteredItems, setFilteredItems] = React.useState([...items]);
