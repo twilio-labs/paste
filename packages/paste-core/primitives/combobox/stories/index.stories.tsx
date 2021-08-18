@@ -159,31 +159,7 @@ export const ComboboxNonHooks = (): React.ReactNode => {
   );
 };
 
-// @TODO resolve this issue here.
-const BasicSelectedItem = React.forwardRef(({...props}, ref) => (
-  <Box as="li" listStyleType="none" display="inline-block" marginRight="space30">
-    <Box
-      {...props}
-      ref={ref}
-      as="div"
-      cursor="pointer"
-      color="colorText"
-      backgroundColor="colorBackground"
-      borderWidth="borderWidth10"
-      borderColor="colorBorderWeak"
-      borderStyle="solid"
-      borderRadius="borderRadius20"
-      paddingX="space30"
-      paddingY="space20"
-      height="30px"
-      display="flex"
-      columnGap="space20"
-      alignItems="center"
-    >
-      {props.children}
-    </Box>
-  </Box>
-));
+const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
 
 export const BasicMultiCombobox: React.FC = () => {
   const seed = useUIDSeed();
@@ -262,17 +238,33 @@ export const BasicMultiCombobox: React.FC = () => {
         </ul>
       </Box>
       <Box>
-        {selectedItems.map((selectedItem, index) => (
-          <BasicSelectedItem
-            {...getSelectedItemProps({
-              selectedItem,
-              index,
-            })}
-            key={seed(`selected-item-${selectedItem}`)}
-            onClick={() => handleRemoveItemOnClick(selectedItem)}
-          >
-            {selectedItem}
-          </BasicSelectedItem>
+        {selectedItems.map((item, index) => (
+          <Box as="li" listStyleType="none" display="inline-block" marginRight="space30">
+            <Box
+              {...getSelectedItemProps({
+                selectedItem,
+                index,
+              })}
+              key={seed(`selected-item-${item}`)}
+              onClick={() => handleRemoveItemOnClick(item)}
+              as="div"
+              cursor="pointer"
+              color="colorText"
+              backgroundColor="colorBackground"
+              borderWidth="borderWidth10"
+              borderColor="colorBorderWeak"
+              borderStyle="solid"
+              borderRadius="borderRadius20"
+              paddingX="space30"
+              paddingY="space20"
+              height="30px"
+              display="flex"
+              columnGap="space20"
+              alignItems="center"
+            >
+              {item}
+            </Box>
+          </Box>
         ))}
       </Box>
     </>

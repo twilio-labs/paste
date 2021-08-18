@@ -5,15 +5,21 @@ slug: /primitives/combobox-primitive/
 ---
 
 import {graphql} from 'gatsby';
-import {useUID} from '@twilio-paste/uid-library';
-import {useComboboxPrimitive} from '@twilio-paste/combobox-primitive';
+import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
+import {useComboboxPrimitive, useMultiSelectPrimitive} from '@twilio-paste/combobox-primitive';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
+import {Label} from '@twilio-paste/label';
+import {Input} from '@twilio-paste/input';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
-import {FormLabel, FormInput} from '@twilio-paste/form';
+
 import {SidebarCategoryRoutes} from '../../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
-import {autocompleteExample, defaultExample} from '../../../component-examples/ComboboxPrimitiveExamples';
+import {
+  autocompleteExample,
+  defaultExample,
+  multiSelectExample,
+} from '../../../component-examples/ComboboxPrimitiveExamples';
 import Changelog from '@twilio-paste/combobox-primitive/CHANGELOG.md';
 
 export const pageQuery = graphql`
@@ -145,7 +151,7 @@ getter or directly on the element itself. You can see this demonstrated below:
   </CalloutText>
 </Callout>
 
-<LivePreview scope={{useComboboxPrimitive, Box, FormLabel, FormInput, useUID}} noInline language="jsx">
+<LivePreview scope={{useComboboxPrimitive, Box, Label, Input, useUID}} noInline language="jsx">
   {defaultExample}
 </LivePreview>
 
@@ -154,12 +160,28 @@ getter or directly on the element itself. You can see this demonstrated below:
 This hook can be used to create custom autocomplete Combobox controls. These controls are useful when the
 customer needs to filter a list of available options, or provide a custom free form value to the input.
 
+<LivePreview scope={{useComboboxPrimitive, Box, Button, ChevronDownIcon, Label, Input, useUID}} noInline language="jsx">
+  {autocompleteExample}
+</LivePreview>
+
+#### Multiselect Combobox Example
+
 <LivePreview
-  scope={{useComboboxPrimitive, Box, Button, ChevronDownIcon, FormLabel, FormInput, useUID}}
+  scope={{
+    useComboboxPrimitive,
+    useMultiSelectPrimitive,
+    Box,
+    Button,
+    ChevronDownIcon,
+    Label,
+    Input,
+    useUID,
+    useUIDSeed,
+  }}
   noInline
   language="jsx"
 >
-  {autocompleteExample}
+  {multiSelectExample}
 </LivePreview>
 
 ### useComboboxPrimitive Arguments
