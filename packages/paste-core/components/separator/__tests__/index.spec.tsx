@@ -16,12 +16,12 @@ describe('Separator', () => {
       expect(getByRole('separator')).not.toBeNull();
     });
 
-    it('should render set horizontal orientation', () => {
+    it('should render correctly when the value of orientation prop is horizontal', () => {
       const {getByRole} = render(<Separator orientation="horizontal" />);
       expect(getByRole('separator').getAttribute('aria-orientation')).toBe('horizontal');
     });
 
-    it('should render set vertical orientation', () => {
+    it('should render correctly when the value of orientation prop is vertical', () => {
       const {getByRole} = render(<Separator orientation="vertical" />);
       expect(getByRole('separator').getAttribute('aria-orientation')).toBe('vertical');
     });
