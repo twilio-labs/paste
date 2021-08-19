@@ -28,7 +28,7 @@
     "strict": true,
     "resolveJsonModule": true
   },
-  "include": ["packages/**/*"],
+  "include": ["packages/**/*", "dangerfile.ts", ".danger/**/*"],
   "exclude": [
     "node_modules",
     "docs",
