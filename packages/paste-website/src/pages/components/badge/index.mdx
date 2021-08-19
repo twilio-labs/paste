@@ -1,6 +1,6 @@
 ---
 title: Badge - Components
-description: A badge is a visually highlighted text label that describes an object.
+description: A Badge is a small chunk of information that describes an object in a visually highlighted way.
 slug: /components/badge/
 ---
 
@@ -97,11 +97,11 @@ export const pageQuery = graphql`
 
 ### About Badge
 
-A badge is a small chunk of information that describes an object in a visually highlighted way. You can think of badges as a 1-3 word description of a more complex object that is highlighted to draw visual focus. Badges should be used to describe static attributes. Badges should be used to highlight static attributes of an object, for example to identify a feature that is available in a `beta` release phase. For dynamic attributes, such as the status of a dynamic process, refer to the [Status Pattern](https://paste.twilio.design/roadmap 'See our roadmap for the Status Pattern release date').
+A Badge is a small chunk of information that describes an object in a visually highlighted way. You can think of badges as a short description of a more complex object that is highlighted to draw visual focus. Badges should be used to describe static attributes. Badges should be used to highlight static attributes of an object, for example to identify a feature that is available in a `beta` release phase. For dynamic attributes, such as the status of a dynamic process, refer to the [Status Pattern](https://paste.twilio.design/roadmap 'See our roadmap for the Status Pattern release date').
 
 ## Examples
 
-### Default badge
+### Default Badge
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -120,7 +120,7 @@ A badge is a small chunk of information that describes an object in a visually h
 `.trim()}
 </LivePreview>
 
-### Info badge
+### Info Badge
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -139,7 +139,7 @@ A badge is a small chunk of information that describes an object in a visually h
 `.trim()}
 </LivePreview>
 
-### Warning badge
+### Warning Badge
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -158,7 +158,7 @@ A badge is a small chunk of information that describes an object in a visually h
 `.trim()}
 </LivePreview>
 
-### Error badge
+### Error Badge
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -177,7 +177,7 @@ A badge is a small chunk of information that describes an object in a visually h
 `.trim()}
 </LivePreview>
 
-### Success badge
+### Success Badge
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -196,7 +196,7 @@ A badge is a small chunk of information that describes an object in a visually h
 `.trim()}
 </LivePreview>
 
-### New badge
+### New Badge
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -267,9 +267,9 @@ A badge is a small chunk of information that describes an object in a visually h
 `.trim()}
 </LivePreview>
 
-## When to use a badge
+## When to use a Badge
 
-Use a badge when you want to visually highlight an attribute of an item.
+Use a Badge when you want to visually highlight an attribute of an item.
 
 ### Use cases
 
@@ -330,26 +330,26 @@ Use a badge when you want to visually highlight an attribute of an item.
 ### Do & Don't
 
 <DoDont>
-  <Do title="Do" body="Use 1-3 words as badge text.">
+  <Do title="Do" body="Use 1-3 words as Badge text.">
     <Badge variant="new" as="span">
-      <NewIcon title="New badge component" size="sizeIcon10" />
+      <NewIcon title="New Badge component" size="sizeIcon10" />
       New Component
     </Badge>
   </Do>
-  <Dont title="Don't" body="Don't use lengthy copy inside a badge.">
+  <Dont title="Don't" body="Don't use lengthy copy inside a Badge.">
     <Badge variant="error" as="span">
-      This is some very long text inside a badge that creates a very large badge.
+      This is some very long text inside a Badge that creates a very large Badge.
     </Badge>
   </Dont>
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Set the badge children to be inline.">
+  <Do title="Do" body="Set the Badge children to be inline.">
     <Badge variant="new" as="span">
-      Inline badge
+      Inline Badge
     </Badge>
   </Do>
-  <Dont title="Don't" body="Don't use multiline badge text.">
+  <Dont title="Don't" body="Don't use multiline Badge text.">
     <Badge variant="new" as="span">
       This
       <Box as="br" /> is <Box as="br" />
