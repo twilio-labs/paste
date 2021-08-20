@@ -331,30 +331,38 @@ Use a Badge when you want to visually highlight an attribute of an item.
 
 <DoDont>
   <Do title="Do" body="Use 1-3 words as Badge text.">
-    <Badge variant="new" as="span">
-      <NewIcon title="New Badge component" size="sizeIcon10" />
-      New Component
-    </Badge>
+    <Box alignItems="center" display="flex" justifyContent="space-around" height="100%" paddingX="space60">
+      <Badge variant="new" as="span">
+        <NewIcon title="New Badge component" size="sizeIcon10" />
+        New Component
+      </Badge>
+    </Box>
   </Do>
   <Dont title="Don't" body="Don't use lengthy copy inside a Badge.">
-    <Badge variant="error" as="span">
-      This is some very long text inside a Badge that creates a very large Badge.
-    </Badge>
+    <Box alignItems="center" display="flex" justifyContent="space-around" height="100%" paddingX="space60">
+      <Badge variant="error" as="span">
+        This is some very long text inside a Badge that creates a very large Badge.
+      </Badge>
+    </Box>
   </Dont>
 </DoDont>
 
 <DoDont>
   <Do title="Do" body="Set the Badge children to be inline.">
-    <Badge variant="new" as="span">
-      Inline Badge
-    </Badge>
+    <Box alignItems="center" display="flex" justifyContent="space-around" height="100%" paddingX="space60">
+      <Badge variant="new" as="span">
+        Inline Badge
+      </Badge>
+    </Box>
   </Do>
   <Dont title="Don't" body="Don't use multiline Badge text.">
-    <Badge variant="new" as="span">
-      This
-      <Box as="br" /> is <Box as="br" />
-      not ideal
-    </Badge>
+    <Box alignItems="center" display="flex" justifyContent="space-around" height="100%" paddingX="space60">
+      <Badge variant="new" as="span">
+        This
+        <Box as="br" /> is <Box as="br" />
+        not ideal
+      </Badge>
+    </Box>
   </Dont>
 </DoDont>
 
