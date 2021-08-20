@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.1.0
+
+### Minor Changes
+
+- [`cb3d14ce`](https://github.com/twilio-labs/paste/commit/cb3d14ce95f8fbdfcf86f9ba7a85b3a2f4856e95) [#1766](https://github.com/twilio-labs/paste/pull/1766) Thanks [@richbachman](https://github.com/richbachman)! - [List] Enable UnorderedList, OrderedList and ListItem to respect element customizations set on the customization provider. UnorderedList, OrderedList and ListItem now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 2.0.2
 
 ### Patch Changes

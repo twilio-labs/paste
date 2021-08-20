@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.1.0
+
+### Minor Changes
+
+- [`2d61c95d`](https://github.com/twilio-labs/paste/commit/2d61c95d09473298e76909b1d20bc705a4e48744) [#1766](https://github.com/twilio-labs/paste/pull/1766) Thanks [@richbachman](https://github.com/richbachman)! - [Heading] Enable Heading to respect element customizations set on the customization provider. Heading now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 5.0.2
 
 ### Patch Changes

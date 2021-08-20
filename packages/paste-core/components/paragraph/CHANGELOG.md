@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.1.0
+
+### Minor Changes
+
+- [`72c5ce66`](https://github.com/twilio-labs/paste/commit/72c5ce66c1098311d7d9e4a0d6ea2bd62eda9632) [#1766](https://github.com/twilio-labs/paste/pull/1766) Thanks [@richbachman](https://github.com/richbachman)! - [Paragraph] Enable Paragraph to respect element customizations set on the customization provider. Paragraph now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 4.0.3
 
 ### Patch Changes

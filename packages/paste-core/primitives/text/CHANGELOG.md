@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.1.2
+
+### Patch Changes
+
+- [`7a1ed203`](https://github.com/twilio-labs/paste/commit/7a1ed20300159fa095c197cef4dcd28c92369814) [#1785](https://github.com/twilio-labs/paste/pull/1785) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Text] Text now handles the case where a variant being set on the component, does not appear in the elements object set on the Customization Provider
+
 ## 4.1.1
 
 ### Patch Changes
