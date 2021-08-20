@@ -1,7 +1,10 @@
 import * as React from 'react';
 import {withKnobs, text, select} from '@storybook/addon-knobs';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {Card} from '@twilio-paste/card';
-import {asTags, Heading, HeadingVariants} from '../src';
+import {Stack} from '@twilio-paste/stack';
+import type {asTags, HeadingVariants} from '../src';
+import {Heading} from '../src';
 
 const headingVariantOptions = ['heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60'];
 // eslint-disable-next-line import/no-default-export
@@ -181,4 +184,67 @@ export const Heading60NoMargin = (): React.ReactNode => {
 
 Heading60NoMargin.story = {
   name: 'heading60 no margin',
+};
+
+export const CustomHeading: React.FC = () => {
+  return (
+    <Stack orientation="vertical" spacing="space60">
+      <Heading as="h1" variant="heading10">
+        Default heading
+      </Heading>
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{
+          HEADING: {
+            backgroundColor: 'colorBackgroundPrimaryWeaker',
+            color: 'colorTextError',
+            padding: 'space40',
+            textDecoration: 'underline',
+            variants: {
+              heading10: {
+                color: 'colorTextError',
+              },
+              heading20: {
+                color: 'colorTextLink',
+                textDecoration: 'none',
+              },
+            },
+          },
+        }}
+      >
+        <Heading as="h1" variant="heading10">
+          Customized heading
+        </Heading>
+        <Heading as="h2" variant="heading20">
+          Customized heading variant
+        </Heading>
+      </CustomizationProvider>
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{
+          NEW_HEADING: {
+            backgroundColor: 'colorBackgroundTrial',
+            color: 'colorTextLink',
+            padding: 'space60',
+            variants: {
+              heading10: {
+                color: 'colorTextLink',
+              },
+              heading20: {
+                color: 'colorTextError',
+                textDecoration: 'underline',
+              },
+            },
+          },
+        }}
+      >
+        <Heading as="h1" variant="heading10" element="NEW_HEADING">
+          Customized element heading
+        </Heading>
+        <Heading as="h2" variant="heading20" element="NEW_HEADING">
+          Customized element heading variant
+        </Heading>
+      </CustomizationProvider>
+    </Stack>
+  );
 };

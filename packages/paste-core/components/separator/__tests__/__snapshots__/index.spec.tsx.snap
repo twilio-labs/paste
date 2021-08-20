@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Separator should set horizontal margins 1`] = `
-.emotion-1 {
+exports[`Separator Render should set horizontal margins 1`] = `
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -23,20 +24,21 @@ exports[`Separator should set horizontal margins 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <hr
-    aria-orientation="horizontal"
-    className="emotion-0"
-    data-paste-element="BOX"
-    height={null}
-    width="auto"
-  />
-</div>
+    class="emotion-1"
+  >
+    <hr
+      aria-orientation="horizontal"
+      class="emotion-0"
+      data-paste-element="SEPARATOR"
+      width="auto"
+    />
+  </div>
+</DocumentFragment>
 `;
 
-exports[`Separator should set responsive horizontal margins 1`] = `
-.emotion-1 {
+exports[`Separator Render should set responsive horizontal margins 1`] = `
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -72,20 +74,21 @@ exports[`Separator should set responsive horizontal margins 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <hr
-    aria-orientation="horizontal"
-    className="emotion-0"
-    data-paste-element="BOX"
-    height={null}
-    width="auto"
-  />
-</div>
+    class="emotion-1"
+  >
+    <hr
+      aria-orientation="horizontal"
+      class="emotion-0"
+      data-paste-element="SEPARATOR"
+      width="auto"
+    />
+  </div>
+</DocumentFragment>
 `;
 
-exports[`Separator should set responsive vertical margins 1`] = `
-.emotion-1 {
+exports[`Separator Render should set responsive vertical margins 1`] = `
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -121,20 +124,21 @@ exports[`Separator should set responsive vertical margins 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <hr
-    aria-orientation="vertical"
-    className="emotion-0"
-    data-paste-element="BOX"
-    height="auto"
-    width={null}
-  />
-</div>
+    class="emotion-1"
+  >
+    <hr
+      aria-orientation="vertical"
+      class="emotion-0"
+      data-paste-element="SEPARATOR"
+      height="auto"
+    />
+  </div>
+</DocumentFragment>
 `;
 
-exports[`Separator should set vertical margins 1`] = `
-.emotion-1 {
+exports[`Separator Render should set vertical margins 1`] = `
+<DocumentFragment>
+  .emotion-1 {
   color: rgb(18,28,45);
   font-size: 0.875rem;
   font-family: 'Inter var experimental','Inter var',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
@@ -156,14 +160,14 @@ exports[`Separator should set vertical margins 1`] = `
 }
 
 <div
-  className="emotion-1"
->
-  <hr
-    aria-orientation="vertical"
-    className="emotion-0"
-    data-paste-element="BOX"
-    height="auto"
-    width={null}
-  />
-</div>
+    class="emotion-1"
+  >
+    <hr
+      aria-orientation="vertical"
+      class="emotion-0"
+      data-paste-element="SEPARATOR"
+      height="auto"
+    />
+  </div>
+</DocumentFragment>
 `;

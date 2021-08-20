@@ -1,10 +1,12 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {Space, isMarginTokenProp} from '@twilio-paste/style-props';
+import type {BoxProps} from '@twilio-paste/box';
+import type {Space} from '@twilio-paste/style-props';
+import {isMarginTokenProp} from '@twilio-paste/style-props';
 
 type Orientation = 'horizontal' | 'vertical';
-export interface SeparatorProps extends React.HTMLAttributes<HTMLHRElement> {
+export interface SeparatorProps extends React.HTMLAttributes<HTMLHRElement>, Pick<BoxProps, 'element'> {
   id?: never;
   className?: never;
   orientation: Orientation;
@@ -13,11 +15,12 @@ export interface SeparatorProps extends React.HTMLAttributes<HTMLHRElement> {
 }
 
 const Separator = React.forwardRef<HTMLHRElement, SeparatorProps>(
-  ({orientation, horizontalSpacing, verticalSpacing, ...props}, ref) => {
+  ({element = 'SEPARATOR', orientation, horizontalSpacing, verticalSpacing, ...props}, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
         aria-orientation={orientation}
+        element={element}
         margin="space0"
         marginBottom={verticalSpacing}
         marginLeft={horizontalSpacing}
@@ -39,11 +42,11 @@ const Separator = React.forwardRef<HTMLHRElement, SeparatorProps>(
 
 Separator.displayName = 'Separator';
 
-if (process.env.NODE_ENV === 'development') {
-  Separator.propTypes = {
-    orientation: PropTypes.oneOf(['horizontal', 'vertical'] as Orientation[]).isRequired,
-    horizontalSpacing: isMarginTokenProp,
-    verticalSpacing: isMarginTokenProp,
-  };
-}
+Separator.propTypes = {
+  element: PropTypes.string,
+  orientation: PropTypes.oneOf(['horizontal', 'vertical'] as Orientation[]).isRequired,
+  horizontalSpacing: isMarginTokenProp,
+  verticalSpacing: isMarginTokenProp,
+};
+
 export {Separator};
