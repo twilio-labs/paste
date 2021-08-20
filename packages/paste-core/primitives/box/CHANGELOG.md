@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.2.1
+
+### Patch Changes
+
+- [`8654c408`](https://github.com/twilio-labs/paste/commit/8654c408faec07eed80b49536c95a214e6606400) [#1785](https://github.com/twilio-labs/paste/pull/1785) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box]: Box now handles the case where a variant being set on the component, does not appear in the elements object set on the Customization Provider
+
 ## 4.2.0
 
 ### Minor Changes

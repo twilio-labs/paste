@@ -1,5 +1,31 @@
 # Change Log
 
+## 10.9.0
+
+### Minor Changes
+
+- [`72c5ce66`](https://github.com/twilio-labs/paste/commit/72c5ce66c1098311d7d9e4a0d6ea2bd62eda9632) [#1766](https://github.com/twilio-labs/paste/pull/1766) Thanks [@richbachman](https://github.com/richbachman)! - [Paragraph] Enable Paragraph to respect element customizations set on the customization provider. Paragraph now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`2d61c95d`](https://github.com/twilio-labs/paste/commit/2d61c95d09473298e76909b1d20bc705a4e48744) [#1766](https://github.com/twilio-labs/paste/pull/1766) Thanks [@richbachman](https://github.com/richbachman)! - [Heading] Enable Heading to respect element customizations set on the customization provider. Heading now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+- [`cb3d14ce`](https://github.com/twilio-labs/paste/commit/cb3d14ce95f8fbdfcf86f9ba7a85b3a2f4856e95) [#1766](https://github.com/twilio-labs/paste/pull/1766) Thanks [@richbachman](https://github.com/richbachman)! - [List] Enable UnorderedList, OrderedList and ListItem to respect element customizations set on the customization provider. UnorderedList, OrderedList and ListItem now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`7350eed5`](https://github.com/twilio-labs/paste/commit/7350eed570e8ee36bcd330397df600cbfbdade4a) [#1781](https://github.com/twilio-labs/paste/pull/1781) Thanks [@richbachman](https://github.com/richbachman)! - [Separator] Enable Separator to respect element customizations set on the customization provider. Separator now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+### Patch Changes
+
+- [`8654c408`](https://github.com/twilio-labs/paste/commit/8654c408faec07eed80b49536c95a214e6606400) [#1785](https://github.com/twilio-labs/paste/pull/1785) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box]: Box now handles the case where a variant being set on the component, does not appear in the elements object set on the Customization Provider
+
+* [`7a1ed203`](https://github.com/twilio-labs/paste/commit/7a1ed20300159fa095c197cef4dcd28c92369814) [#1785](https://github.com/twilio-labs/paste/pull/1785) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Text] Text now handles the case where a variant being set on the component, does not appear in the elements object set on the Customization Provider
+
+* Updated dependencies [[`72c5ce66`](https://github.com/twilio-labs/paste/commit/72c5ce66c1098311d7d9e4a0d6ea2bd62eda9632), [`8654c408`](https://github.com/twilio-labs/paste/commit/8654c408faec07eed80b49536c95a214e6606400), [`7a1ed203`](https://github.com/twilio-labs/paste/commit/7a1ed20300159fa095c197cef4dcd28c92369814), [`2d61c95d`](https://github.com/twilio-labs/paste/commit/2d61c95d09473298e76909b1d20bc705a4e48744), [`cb3d14ce`](https://github.com/twilio-labs/paste/commit/cb3d14ce95f8fbdfcf86f9ba7a85b3a2f4856e95), [`7350eed5`](https://github.com/twilio-labs/paste/commit/7350eed570e8ee36bcd330397df600cbfbdade4a)]:
+  - @twilio-paste/paragraph@4.1.0
+  - @twilio-paste/box@4.2.1
+  - @twilio-paste/text@4.1.2
+  - @twilio-paste/heading@5.1.0
+  - @twilio-paste/list@2.1.0
+  - @twilio-paste/separator@2.1.0
+
 ## 10.8.0
 
 ### Minor Changes
