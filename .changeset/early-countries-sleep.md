@@ -1,7 +1,6 @@
 ---
 '@twilio-paste/clipboard-copy-library': major
 '@twilio-paste/core': minor
-'@twilio-paste/website': patch
 ---
 
-add clipboard copy library
+adds the clipboard-copy library; this will provide baseline functionality for developers to intuitively interact with the Clipboard API.

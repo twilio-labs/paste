@@ -15,7 +15,7 @@ export default {
   title: 'Libraries/clipboard-copy',
 } as Meta;
 
-const Template: Story<{clipboardProps: UseClipboardProps}> = ({clipboardProps}) => {
+const Template: Story<{clipboardProps: UseClipboardProps}> = ({clipboardProps = {}}) => {
   const clipboard = useClipboard(clipboardProps);
   const uid = useUID();
 
@@ -26,7 +26,7 @@ const Template: Story<{clipboardProps: UseClipboardProps}> = ({clipboardProps}) 
         <Input ref={clipboard.target} id={uid} type="text" readOnly value="AC00000000000000000000000000" />
       </Box>
       <Button variant="primary" onClick={clipboard.copy}>
-        Copy
+        {clipboardProps.copiedTimeout && clipboard.copied ? 'Copied' : 'Copy'}
       </Button>
     </Stack>
   );
@@ -40,7 +40,7 @@ export const Timeout = Template.bind({});
 
 Timeout.args = {
   clipboardProps: {
-    copiedTimeout: 100,
+    copiedTimeout: 2000,
   },
 };
 
