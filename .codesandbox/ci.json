@@ -25,6 +25,7 @@
     "/packages/paste-design-tokens",
     "/packages/paste-core/components/disclosure",
     "/packages/paste-core/primitives/disclosure",
+    "/packages/paste-core/components/display-pill-group",
     "/packages/paste-libraries/dropdown",
     "/packages/paste-core/layout/flex",
     "/packages/paste-core/layout/grid",

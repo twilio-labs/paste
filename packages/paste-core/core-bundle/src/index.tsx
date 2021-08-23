@@ -15,6 +15,7 @@ export * from '@twilio-paste/combobox-primitive';
 export * from '@twilio-paste/date-picker';
 export * from '@twilio-paste/disclosure';
 export * from '@twilio-paste/disclosure-primitive';
+export * from '@twilio-paste/display-pill-group';
 export * from '@twilio-paste/flex';
 export * from '@twilio-paste/grid';
 export * from '@twilio-paste/heading';
