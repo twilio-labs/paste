@@ -1,6 +1,6 @@
 ---
 title: Badge - Components
-description: A Badge is a small chunk of information that describes an object in a visually highlighted way.
+description: A badge is a visually highlighted text label that describes an attribute of an object.
 slug: /components/badge/
 ---
 
@@ -97,7 +97,9 @@ export const pageQuery = graphql`
 
 ### About Badge
 
-A Badge is a small chunk of information that describes an object in a visually highlighted way. You can think of badges as a short description of a more complex object that is highlighted to draw visual focus. Badges should be used to describe static attributes. Badges should be used to highlight static attributes of an object, for example to identify a feature that is available in a `beta` release phase. For dynamic attributes, such as the status of a dynamic process, refer to the [Status Pattern](https://paste.twilio.design/roadmap 'See our roadmap for the Status Pattern release date').
+A Badge can be used to label a piece of UI for quick identification and navigation. It can be used in a wide variety of situations such as labelling Beta product features or a state, for example a status.
+
+A Badge should contain text content and can optionally contain smaller graphical elements such as Icons and Avatars. Text length should be kept short.
 
 ## Examples
 
@@ -217,6 +219,8 @@ A Badge is a small chunk of information that describes an object in a visually h
 
 ### Badge with anchor functionality
 
+A badge can link to other pages. When doing so, add an href ref to the Badge and set the rendered element to an anchor with `as=”a”`.
+
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space40" rowGap="space60" flexWrap="wrap">
   <Badge as="a" href="#" variant="default">
@@ -242,6 +246,8 @@ A Badge is a small chunk of information that describes an object in a visually h
 </LivePreview>
 
 ### Badge with button functionality
+
+A Badge can also be used to trigger an action, such as showing a Popover or Modal Dialog. To do so, provide an `onClick` event handler and set the rendered element to a button with `as=”button”`.
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space40" rowGap="space60" flexWrap="wrap">
@@ -269,7 +275,7 @@ A Badge is a small chunk of information that describes an object in a visually h
 
 ## When to use a Badge
 
-Use a Badge when you want to visually highlight an attribute of an item.
+Use a Badge when you want to add a label to a piece of UI for quick identification and navigation.
 
 ### Use cases
 
