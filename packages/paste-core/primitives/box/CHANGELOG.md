@@ -1,5 +1,17 @@
 # Change Log
 
+## 4.2.1
+
+### Patch Changes
+
+- [`8654c408`](https://github.com/twilio-labs/paste/commit/8654c408faec07eed80b49536c95a214e6606400) [#1785](https://github.com/twilio-labs/paste/pull/1785) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box]: Box now handles the case where a variant being set on the component, does not appear in the elements object set on the Customization Provider
+
+## 4.2.0
+
+### Minor Changes
+
+- [`14c6fd2e`](https://github.com/twilio-labs/paste/commit/14c6fd2e73e33b86fc49b4e6979afa007833ff89) [#1743](https://github.com/twilio-labs/paste/pull/1743) Thanks [@andipants12](https://github.com/andipants12)! - [Box] Add column-gap and row-gap (CSS grid, flex box) to Box API.
+
 ## 4.1.1
 
 ### Patch Changes

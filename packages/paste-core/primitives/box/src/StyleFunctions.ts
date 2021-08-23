@@ -1,5 +1,6 @@
 import {css, system} from '@twilio-paste/styling-library';
 import type {CSSObject} from '@twilio-paste/styling-library';
+import type {PasteCustomCSS} from '@twilio-paste/customization';
 import {PseudoPropStyles} from './PseudoPropStyles';
 import type {StyledBoxProps} from './types';
 
@@ -69,6 +70,14 @@ export const PasteStyleProps = system({
   borderSpacing: true,
   tableLayout: true,
   fontVariantNumeric: true,
+  columnGap: {
+    property: 'columnGap',
+    scale: 'space',
+  },
+  rowGap: {
+    property: 'rowGap',
+    scale: 'space',
+  },
 });
 
 /**
@@ -113,12 +122,11 @@ export const getCustomElementStyles = (props: StyledBoxProps): (() => CSSObject)
 
     if (themeElements[targetElement] != null) {
       const elementOverrides = themeElements[targetElement];
-      const computedStyles = css(elementOverrides)(props);
+      const computedStyles = css(elementOverrides)(props) as PasteCustomCSS;
       const {variants, ...elementStyles} = computedStyles;
       let variantStyles = {};
 
-      if (props.variant != null && variants != null) {
-        // @ts-ignore typing of css function returns a cssObject which doesn't think variants exists
+      if (props.variant != null && variants != null && variants[props.variant] != null) {
         variantStyles = variants[props.variant];
       }
 

@@ -16,7 +16,7 @@ export {
 } from './layout';
 export {isZIndexTokenProp} from './position';
 export {isBoxShadowTokenProp, isDeprecatedBoxShadowTokenProp} from './shadow';
-export {isSpaceTokenProp, isMarginTokenProp, isPaddingTokenProp} from './space';
+export {isSpaceTokenProp, isMarginTokenProp, isPaddingTokenProp, isGapTokenProp} from './space';
 export {
   isFontFamilyTokenProp,
   isFontSizeTokenProp,

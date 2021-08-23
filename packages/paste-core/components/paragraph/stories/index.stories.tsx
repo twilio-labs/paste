@@ -1,4 +1,6 @@
 import * as React from 'react';
+import {CustomizationProvider} from '@twilio-paste/customization';
+import {Stack} from '@twilio-paste/stack';
 import {Paragraph} from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -10,16 +12,59 @@ export default {
 export const Default = (): React.ReactNode => {
   return (
     <>
-      <Paragraph>I am paragraph text.</Paragraph>
       <Paragraph>
-        Kale chips distillery authentic, portland etsy cloud bread vinyl gentrify drinking vinegar viral meh hot chicken
-        bitters fashion axe palo santo. Chillwave fixie sustainable <i>helvetica</i> etsy.
+        Deliver critical time-sensitive messages to employees and customers at scale with the Programmable Messaging
+        API.
+      </Paragraph>
+      <Paragraph>
+        Proactively inform customers about account activity, purchase confirmations, and shipping notifications with the
+        Programmable Messaging API.
       </Paragraph>
       <Paragraph marginBottom="space0">
-        Prism whatever ethical, gochujang <strong>edison bulb</strong> put a bird on it kitsch. Pop-up 90&apos;s la
-        croix tumeric, palo santo chia try-hard direct trade tote bag roof party scenester kitsch stumptown
-        intelligentsia. Literally heirloom blue bottle etsy.
+        Build customer relationships with secure, cross-channel conversations that can include multiple parties, all on
+        one platform with the Conversations API.
       </Paragraph>
     </>
+  );
+};
+
+export const CustomParagraph: React.FC = () => {
+  return (
+    <Stack orientation="vertical" spacing="space60">
+      <Paragraph>
+        <strong>Default paragraph.</strong> Deliver critical time-sensitive messages to employees and customers at scale
+        with the Programmable Messaging API.
+      </Paragraph>
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{
+          PARAGRAPH: {
+            backgroundColor: 'colorBackgroundPrimaryWeaker',
+            color: 'colorTextError',
+            padding: 'space40',
+          },
+        }}
+      >
+        <Paragraph>
+          <strong>Customized paragraph.</strong> Deliver critical time-sensitive messages to employees and customers at
+          scale with the Programmable Messaging API.
+        </Paragraph>
+      </CustomizationProvider>
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{
+          NEW_PARAGRAPH: {
+            backgroundColor: 'colorBackgroundTrial',
+            color: 'colorTextLink',
+            padding: 'space60',
+          },
+        }}
+      >
+        <Paragraph element="NEW_PARAGRAPH">
+          <strong>Customized element paragraph.</strong> Deliver critical time-sensitive messages to employees and
+          customers at scale with the Programmable Messaging API.
+        </Paragraph>
+      </CustomizationProvider>
+    </Stack>
   );
 };

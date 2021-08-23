@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/text",
-  "version": "4.1.1",
+  "version": "4.1.2",
   "category": "typography",
   "status": "production",
   "description": "A primitive component that can be used to create all text styles in Paste",
