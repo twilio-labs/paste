@@ -1,6 +1,6 @@
 ---
 title: Design Guidelines for Paste
-description: How to use Paste design tooling
+description: Get started with Paste design tools to create your own Twilio customer experiences and prototypes.
 slug: /getting-started/design/
 ---
 
@@ -50,39 +50,14 @@ export const pageQuery = graphql`
 
 <content>
 
-## Font files
+## Access to Figma
 
-### Fira Mono
-
-If you are using <strong>any theme</strong> in Paste, you will need
-to [download and install Fira Mono](https://fonts.google.com/specimen/Fira+Mono?query=fira+mono),
-our monospace typeface for code. It’s a free Google font.
-
-### SF Pro
-
-If you are using <strong>any theme</strong> in Paste, you will need to [download and install SF Pro](https://developer.apple.com/fonts/), the
-system font for Apple platforms. We represent native web element styles (like option lists in [Select](/components/select/)) in
-our design assets in the macOS styles.
-
-### Inter
-
-If you are using the <strong>Default theme</strong> in Paste, you will need
-to [download and install Inter](https://github.com/rsms/inter/releases/download/v3.15/Inter-3.15.zip), which we use for UI text.
-It’s a free font. After you download the files, follow the instructions in the
-`install-mac.txt` file in your download. We recommend following the steps using Font Book.
-
-### Whitney
-
-If you are using the <strong>Console theme</strong> in Paste, you will need to download Whitney, which we use for UI text.
-Reach out to us in `#help-design-system` if you need access to the Whitney font files for your work.
+As a Twilio Designer, you have access to Figma. Join the Twilio organization by requesting an
+account through [ServiceNow](https://twilio.service-now.com/sp/). When you have access to Figma, you can learn more by reviewing our [Working with Figma guide](https://www.figma.com/file/WiJFrYa9YpIcFUmT06gTn0/Working-with-Figma).
 
 ---
 
-## Figma
-
-As a Twilio Designer you have access to Figma. Join the Twilio organization by requesting an
-account through [ServiceNow](https://twilio.service-now.com/sp/). To learn more,
-review our [working with Figma guide](https://www.figma.com/file/WiJFrYa9YpIcFUmT06gTn0/Working-with-Figma).
+## Using libraries
 
 ### How to turn on libraries
 
@@ -99,6 +74,8 @@ corner. From the modal, you can turn libraries on and off.
 
 ![Modal in Figma where you can select the Paste components library to link to your project](../../../assets/images/design-guidelines/figma-link-paste-libraries.png)
 
+### Main libraries
+
 The main libraries we recommend you have enabled for each file are:
 
 - [Paste Components](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components)
@@ -112,36 +89,75 @@ The main libraries we recommend you have enabled for each file are:
 
 Any time a library is updated, you’ll get a notification in your project asking if you’d like to update.
 
-### Using the Paste Components library
+---
 
-The Paste Components library houses Figma components for all components available in
-Paste. You can drag and drop components into your project via the Assets panel on the left,
-and swap to different variants for a given component via the Design panel on the right.
-Some more complex components include nested variants, so be sure to explore the different
-layers on each component for any layer with a ⚙️ emoji. This emoji indicates that there are
-variants available on that layer. Any layer with a ✏️ emoji indicates an editable layer.
-Check out our [tips and tricks](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=284%3A1158)
-for more helpful hints about using the Paste Components library.
+## Using themes
 
-### Using the Paste Default Theme library
+Paste currently has [Default Theme](https://www.figma.com/file/OZKRQFOkOAl413m5JVIYE6/Paste-Default-Theme) and 
+[Dark Theme](https://www.figma.com/file/TZMBaCxXkX8u5aVRVYboid/Paste-Dark-Theme?node-id=0%3A1) libraries.
 
-Once you have this library linked, you will see text styles (which include font families, font weights, and font sizes), fill
-and stroke styles (which include background, border, and text colors), and effect styles (which include shadows) for that theme.
+When you have a theme library linked, you'll have access to:
+- Text styles (font families, font weights, and font sizes)
+- Colour styles (fill and stroke for background, border, and text colors)
+- Effect styles (shadows, etc.)
 
 ![Menu in Figma when you can navigate through tokens for the Default theme](../../../assets/images/design-guidelines/token-styles.png)
 
-You should be using components from Paste to compose your UIs whenever possible, but the text and layer styles will be helpful when you need to compose something more custom.
+You should be using components from Paste to compose your UIs whenever possible, but the text and layer styles will be helpful when you need to compose something more custom. 
+
 This can be anything from setting a piece of text next to an icon to creating a custom stepper component.
 
-### How we publish library updates
+---
 
-We release library updates continuously, and we demarcate changes with hints which you can see in the description of each update:
+## Using components
+  
+Components are UI elements that can be reused across your designs. They help you create and manage consistent designs across projects.
+
+You can drag and drop components into your project via the Assets panel on the left, and swap to different variants for a given component via the Design panel on the right. 
+
+Any layer with a ⚙️ emoji indicates that there are nested variants available. 
+
+Any layer with a ✏️ emoji indicates an editable layer. 
+
+Check out our [tips and tricks](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=284%3A1158) for more helpful hints about using the Paste Components library.
+
+---
+
+## Library updates
+
+We release library updates continuously and use Figma’s version history to keep track.
+
+We demarcate changes with hints which you can see in the description of each update:
 
 - 🚀&nbsp;&nbsp;**New**: [summary of a new thing]
 - ✨&nbsp;&nbsp;**Improved**: [summary of an improved thing]
 - 🐛&nbsp;&nbsp;**Fixed**: [summary of a bug fix]
 - ❗️&nbsp;&nbsp;**Breaking**: [summary of a breaking change]
 
+---
+
+## Fonts
+
+Fonts in Paste are preloaded into Figma so you don't need to download or install any font files.
+
+### Inter
+
+[Inter](https://fonts.google.com/specimen/Inter) is a free Google font and our typeface for UI text.
+
+### Fira Mono
+
+[Fira Mono](https://fonts.google.com/specimen/Fira+Mono?query=fira+mono) is a free Google font and our monospace typeface for code.
+
+### SF Pro Text
+
+[SF Pro Text](https://developer.apple.com/fonts/) is the system font for Apple platforms. We represent native web element styles (like option lists in [Select](/components/select/)) in our design assets in macOS styles.
+
+### Whitney
+  
+[Whitney](https://www.twilio.com/brand/elements/typography) is the Twilio brand typeface. Reach out to us in `#help-design-system` if you need access to the Whitney font files for work outside of Figma.
+
+---
+  
 ## Additional questions or concerns
 
 If you have any questions for us that weren’t covered by this guide, or you are running into problems using our design resources, please [reach out](/getting-started/working-guide)!
