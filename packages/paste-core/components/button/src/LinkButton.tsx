@@ -37,6 +37,7 @@ const LinkButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
       <Box
         ref={ref}
         width={fullWidth ? '100%' : 'auto'}
+        textAlign="left"
         {...safelySpreadBoxProps(props)}
         {...ButtonStyleMapping[buttonState]}
         {...SizeStyles[size]}

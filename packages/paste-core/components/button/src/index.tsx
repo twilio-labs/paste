@@ -112,7 +112,13 @@ const handlePropValidation = ({
   }
 };
 
+const variantsWithoutBoundingBox = new Set(['reset', 'link', 'destructive_link']);
+
 const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, showLoading, variant}) => {
+  const buttonVariantHasBoundingBox = React.useMemo(() => variant && variantsWithoutBoundingBox.has(variant), [
+    variant,
+  ]);
+
   return (
     <>
       <Box
@@ -121,7 +127,7 @@ const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, s
         textDecoration="inherit"
         opacity={buttonState === 'loading' ? '0' : '1'}
         aria-hidden={buttonState === 'loading' ? 'true' : 'false'}
-        justifyContent={variant === 'reset' ? null : 'center'}
+        justifyContent={buttonVariantHasBoundingBox ? null : 'center'}
       >
         {React.Children.count(children) > 1 ? (
           <Stack as="span" orientation="horizontal" spacing="space20">
@@ -140,8 +146,8 @@ const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, s
           bottom={0}
           left={0}
           display="flex"
-          justifyContent="center"
-          alignItems="center"
+          justifyContent={buttonVariantHasBoundingBox ? null : 'center'}
+          alignItems={buttonVariantHasBoundingBox ? null : 'center'}
           lineHeight="lineHeight30"
         >
           <Spinner decorative={false} title="Loading, please wait." delay={0} />

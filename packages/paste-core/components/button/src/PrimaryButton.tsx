@@ -16,6 +16,7 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   color: 'colorTextWeakest',
   backgroundColor: 'colorBackgroundPrimary',
   boxShadow: 'shadowBorderPrimary',
+  textAlign: 'unset',
   _hover: {
     color: 'colorTextWeakest',
     backgroundColor: 'colorBackgroundPrimaryStronger',

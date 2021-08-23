@@ -43,6 +43,7 @@ const DestructiveLinkButton = React.forwardRef<HTMLButtonElement, DirectButtonPr
       <Box
         ref={ref}
         width={fullWidth ? '100%' : 'auto'}
+        textAlign="left"
         {...safelySpreadBoxProps(props)}
         {...ButtonStyleMapping[buttonState]}
         {...SizeStyles[size]}
