@@ -32,6 +32,7 @@
     "@twilio-paste/button": "^7.0.0",
     "@twilio-paste/card": "^3.0.4",
     "@twilio-paste/checkbox": "^6.0.2",
+    "@twilio-paste/clipboard-copy-library": "^0.2.1",
     "@twilio-paste/color-contrast-utils": "^1.1.0",
     "@twilio-paste/combobox": "^7.0.0",
     "@twilio-paste/combobox-primitive": "^0.2.4",
@@ -114,7 +115,6 @@
     "react-live": "^2.2.2",
     "react-scrollspy": "^3.4.0",
     "react-visibility-sensor": "5.1.1",
-    "use-clipboard-copy": "^0.1.2",
     "use-resize-observer": "^7.0.0"
   },
   "resolutions": {
