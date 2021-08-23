@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {act, renderHook} from '@testing-library/react-hooks';
-import {render, fireEvent, screen, waitFor} from '@testing-library/react';
+import {render, fireEvent, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {useUIDSeed} from '@twilio-paste/uid-library';
 
@@ -33,7 +33,7 @@ const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 
 
 const dataTestIds = {
   selectedItemPrefix: 'selected-item-id',
-  selectedItem: (index) => `selected-item-id-${index}`,
+  selectedItem: (index: number) => `selected-item-id-${index}`,
   input: 'input-id',
   menu: 'menu-id',
   combobox: 'combobox-id',
@@ -89,7 +89,7 @@ const DropdownMultipleCombobox: React.FC<DropdownMultipleComboboxProps> = ({
 };
 
 const renderMultipleCombobox = (
-  props
+  props: DropdownMultipleComboboxProps
 ): {
   label: HTMLElement;
   menu: HTMLElement;
@@ -102,7 +102,7 @@ const renderMultipleCombobox = (
   ) => ReturnType<FireObject['keyDown']>;
   focusSelectedItemAtIndex: (index: number) => void;
   getSelectedItems: () => HTMLSpanElement[];
-  getA11yStatusContainer: () => HTMLElement;
+  getA11yStatusContainer: () => HTMLElement | null;
   input: HTMLInputElement;
   keyDownOnInput: (key: string, options?: Record<string, any>) => void;
 } => {
@@ -122,7 +122,7 @@ const renderMultipleCombobox = (
   const focusSelectedItemAtIndex = (index: number): void => {
     getSelectedItemAtIndex(index).focus();
   };
-  const getA11yStatusContainer = (): HTMLElement => screen.queryByRole('status');
+  const getA11yStatusContainer = (): HTMLElement | null => screen.queryByRole('status');
   const keyDownOnInput = (key: string, options = {}): void => {
     if (document.activeElement !== input) {
       input.focus();
@@ -166,7 +166,9 @@ describe('useMultiSelectPrimitive', () => {
 
     describe('selectedItems', () => {
       afterEach(() => {
-        act(() => jest.runAllTimers());
+        act(() => {
+          jest.runAllTimers();
+        });
       });
 
       test('passed as objects should work with custom itemToString', () => {
@@ -199,7 +201,9 @@ describe('useMultiSelectPrimitive', () => {
 
     describe('getA11yRemovalMessage', () => {
       afterEach(() => {
-        act(() => jest.runAllTimers());
+        act(() => {
+          jest.runAllTimers();
+        });
       });
 
       test('is called with object that contains specific props', () => {
@@ -276,7 +280,7 @@ describe('useMultiSelectPrimitive', () => {
 
     describe('stateReducer', () => {
       test('is called at each state change with the function change type', () => {
-        const stateReducer = jest.fn((s, a) => a.changes);
+        const stateReducer = jest.fn((_s, a) => a.changes);
         const {result} = renderHook(() => useMultiSelectPrimitive({stateReducer}));
 
         act(() => {
@@ -368,7 +372,7 @@ describe('useMultiSelectPrimitive', () => {
       });
 
       test('is called at each state change with the appropriate change type', async () => {
-        const stateReducer = jest.fn((s, {changes}) => {
+        const stateReducer = jest.fn((_s, {changes}) => {
           return changes;
         });
         const {keyDownOnSelectedItemAtIndex, keyDownOnInput, input, getSelectedItemAtIndex} = renderMultipleCombobox({
@@ -491,7 +495,7 @@ describe('useMultiSelectPrimitive', () => {
       });
 
       test('replaces prop values with user defined', () => {
-        const stateReducer = jest.fn((s, {changes}) => {
+        const stateReducer = jest.fn((_s, {changes}) => {
           const shallowClone = {...changes};
           shallowClone.activeIndex = 0;
           return shallowClone;
@@ -622,7 +626,7 @@ describe('useMultiSelectPrimitive', () => {
             initialSelectedItems: items,
             activeIndex,
             onActiveIndexChange: (changes) => {
-              activeIndex = changes.activeIndex;
+              activeIndex = changes.activeIndex as number;
             },
           },
         });
@@ -697,7 +701,7 @@ describe('useMultiSelectPrimitive', () => {
             selectedItems,
             initialActiveIndex: 0,
             onSelectedItemsChange: (changes) => {
-              selectedItems = changes.selectedItems;
+              selectedItems = changes.selectedItems as string[];
             },
           },
         });
