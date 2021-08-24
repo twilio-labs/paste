@@ -462,7 +462,6 @@ describe('Button', () => {
 
       expect(button).toHaveStyleRule('color', 'colorTextLinkDestructive');
       expect(button).toHaveStyleRule('transition', 'none');
-      expect(button).toHaveStyleRule('text-align', 'left');
       expect(getByText('Destructive link')).not.toHaveStyleRule('justify-content', 'center');
     });
 
@@ -475,7 +474,6 @@ describe('Button', () => {
 
       const button = getByTestId('link-styles');
 
-      expect(button).toHaveStyleRule('text-align', 'left');
       expect(button).toHaveStyleRule('color', 'colorTextLink');
       expect(button).toHaveStyleRule('transition', 'none');
 
@@ -483,28 +481,25 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the reset variant', () => {
-      const {getByTestId, getByText} = testRender(
+      const {getByText} = testRender(
         <Button variant="reset" data-testid="reset-styles">
           Reset
         </Button>
       );
 
-      expect(getByTestId('reset-styles')).not.toHaveStyleRule('text-align', 'left');
-      expect(getByText('Reset')).toHaveStyleRule('justify-content', 'center');
+      expect(getByText('Reset')).not.toHaveStyleRule('justify-content', 'center');
     });
 
     it('should have the correct styles for a link button in loading state', () => {
-      const {getByTestId, getByText, container} = testRender(
+      const {getByText, container} = testRender(
         <Button variant="link" loading data-testid="loading-link-styles">
           Loading link
         </Button>
       );
 
-      const buttonComponent = getByTestId('loading-link-styles');
       const buttonContent = getByText('Loading link');
       const loadingIconWrapper = (container.firstChild as ChildNode).lastChild as ChildNode;
 
-      expect(buttonComponent).toHaveStyleRule('text-align', 'left');
       expect(buttonContent).toHaveAttribute('aria-hidden', 'true');
       expect(buttonContent).toHaveAttribute('opacity', '0');
 
@@ -529,7 +524,7 @@ describe('Button', () => {
       const buttonContent = getByText('Disabled link');
 
       expect(buttonComponent).toHaveStyleRule('color', 'colorTextLinkWeak');
-      expect(buttonComponent).toHaveStyleRule('text-align', 'left');
+
       expect(buttonComponent).toHaveStyleRule('cursor', 'not-allowed');
       expect(buttonContent).toHaveAttribute('aria-hidden', 'false');
     });
