@@ -115,9 +115,7 @@ const handlePropValidation = ({
 const variantsWithoutBoundingBox = new Set(['link', 'destructive_link', 'inverse_link', 'reset']);
 
 const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, showLoading, variant}) => {
-  const buttonVariantHasBoundingBox = React.useMemo(() => variant && variantsWithoutBoundingBox.has(variant), [
-    variant,
-  ]);
+  const buttonVariantHasBoundingBox = variant && variantsWithoutBoundingBox.has(variant);
 
   return (
     <>
