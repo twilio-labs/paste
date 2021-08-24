@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "category": "data display",
   "status": "production",
-  "description": "A small chunk of information that describes an object in a visually highlighted way.",
+  "description": "A badge is a visually highlighted text label that describes an attribute of an object.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
