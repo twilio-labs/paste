@@ -5,10 +5,10 @@ import {render as testRender} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import type {ReactWrapper} from 'enzyme';
 import {shallow, mount} from 'enzyme';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Button} from '../src';
-import {ThemeProvider} from '@twilio-paste/theme/dist/themeProvider';
 
 expect.extend(matchers);
 
@@ -383,94 +383,84 @@ describe('Button', () => {
     });
   });
 
-  describe.only('button default styles', () => {
+  describe('button default styles', () => {
     it('should have the correct styles for the primary variant', () => {
       const {getByTestId, getByText} = testRender(
-        <Theme.Provider theme="default">
-          <Button variant="primary" data-testid="primary-styles">
-            Primary
-          </Button>
-        </Theme.Provider>
+        <Button variant="primary" data-testid="primary-styles">
+          Primary
+        </Button>
       );
 
       const button = getByTestId('primary-styles');
 
       expect(button).not.toHaveStyleRule('text-align', 'left');
-      expect(button).toHaveStyleRule('color', 'rgb(255,255,255)');
-      expect(button).toHaveStyleRule('background-color', 'rgb(2,99,224)');
-      expect(button).toHaveStyleRule('box-shadow', '0 0 0 1px #0263e0');
+      expect(button).toHaveStyleRule('color', 'colorTextWeakest');
+      expect(button).toHaveStyleRule('background-color', 'colorBackgroundPrimary');
+      expect(button).toHaveStyleRule('box-shadow', 'shadowBorderPrimary');
 
       expect(getByText('Primary')).toHaveStyleRule('justify-content', 'center');
     });
 
     it('should have the correct styles for the secondary variant', () => {
       const {getByTestId, getByText} = testRender(
-        <Theme.Provider theme="default">
-          <Button variant="secondary" data-testid="secondary-styles">
-            Secondary
-          </Button>
-        </Theme.Provider>
+        <Button variant="secondary" data-testid="secondary-styles">
+          Secondary
+        </Button>
       );
 
       const button = getByTestId('secondary-styles');
 
       expect(button).not.toHaveStyleRule('text-align', 'left');
-      expect(button).toHaveStyleRule('color', 'rgb(18,28,45)');
-      expect(button).toHaveStyleRule('background-color', 'rgb(255,255,255)');
-      expect(button).toHaveStyleRule('box-shadow', '0 0 0 1px #8891aa');
+      expect(button).toHaveStyleRule('color', 'colorText');
+      expect(button).toHaveStyleRule('background-color', 'colorBackgroundBody');
+      expect(button).toHaveStyleRule('box-shadow', 'shadowBorder');
 
       expect(getByText('Secondary')).toHaveStyleRule('justify-content', 'center');
     });
 
     it('should have the correct styles for the destructive variant', () => {
       const {getByTestId, getByText} = testRender(
-        <Theme.Provider theme="default">
-          <Button variant="destructive" data-testid="destructive-styles">
-            Destructive
-          </Button>
-        </Theme.Provider>
+        <Button variant="destructive" data-testid="destructive-styles">
+          Destructive
+        </Button>
       );
 
       const button = getByTestId('destructive-styles');
 
       expect(button).not.toHaveStyleRule('text-align', 'left');
-      expect(button).toHaveStyleRule('color', 'rgb(255,255,255)');
-      expect(button).toHaveStyleRule('background-color', 'rgb(214,31,31)');
-      expect(button).toHaveStyleRule('box-shadow', '0 0 0 1px #d61f1f');
+      expect(button).toHaveStyleRule('color', 'colorTextWeakest');
+      expect(button).toHaveStyleRule('background-color', 'colorBackgroundDestructive');
+      expect(button).toHaveStyleRule('box-shadow', 'shadowBorderDestructive');
 
       expect(getByText('Destructive')).toHaveStyleRule('justify-content', 'center');
     });
 
     it('should have the correct styles for the destructive_secondary variant', () => {
       const {getByTestId, getByText} = testRender(
-        <Theme.Provider theme="default">
-          <Button variant="destructive_secondary" data-testid="destructive_secondary-styles">
-            Destructive secondary
-          </Button>
-        </Theme.Provider>
+        <Button variant="destructive_secondary" data-testid="destructive_secondary-styles">
+          Destructive secondary
+        </Button>
       );
 
       const button = getByTestId('destructive_secondary-styles');
       expect(button).not.toHaveStyleRule('text-align', 'left');
-      expect(button).toHaveStyleRule('color', 'rgb(214,31,31)');
-      expect(button).toHaveStyleRule('background-color', 'rgb(255,255,255)');
-      expect(button).toHaveStyleRule('box-shadow', '0 0 0 1px #d61f1f');
+      expect(button).toHaveStyleRule('color', 'colorTextLinkDestructive');
+      expect(button).toHaveStyleRule('background-color', 'colorBackgroundBody');
+      expect(button).toHaveStyleRule('box-shadow', 'shadowBorderDestructive');
 
       expect(getByText('Destructive secondary')).toHaveStyleRule('justify-content', 'center');
     });
 
     it('should have the correct styles for the destructive_link variant', () => {
       const {getByTestId, getByText} = testRender(
-        <Theme.Provider theme="default">
-          <Button variant="destructive_link" data-testid="destructive_link-styles">
-            Destructive link
-          </Button>
-        </Theme.Provider>
+        <Button variant="destructive_link" data-testid="destructive_link-styles">
+          Destructive link
+        </Button>
       );
 
       const button = getByTestId('destructive_link-styles');
 
-      expect(button).toHaveStyleRule('color', 'rgb(214,31,31)');
+      expect(button).toHaveStyleRule('color', 'colorTextLinkDestructive');
       expect(button).toHaveStyleRule('transition', 'none');
       expect(button).toHaveStyleRule('text-align', 'left');
       expect(getByText('Destructive link')).not.toHaveStyleRule('justify-content', 'center');
@@ -478,17 +468,15 @@ describe('Button', () => {
 
     it('should have the correct styles for the link variant', () => {
       const {getByTestId, getByText} = testRender(
-        <Theme.Provider theme="default">
-          <Button variant="link" data-testid="link-styles">
-            Link
-          </Button>
-        </Theme.Provider>
+        <Button variant="link" data-testid="link-styles">
+          Link
+        </Button>
       );
 
       const button = getByTestId('link-styles');
 
       expect(button).toHaveStyleRule('text-align', 'left');
-      expect(button).toHaveStyleRule('color', 'rgb(2,99,224)');
+      expect(button).toHaveStyleRule('color', 'colorTextLink');
       expect(button).toHaveStyleRule('transition', 'none');
 
       expect(getByText('Link')).not.toHaveStyleRule('justify-content', 'center');
@@ -496,29 +484,25 @@ describe('Button', () => {
 
     it('should have the correct styles for the reset variant', () => {
       const {getByTestId, getByText} = testRender(
-        <Theme.Provider theme="default">
-          <Button variant="reset" data-testid="reset-styles">
-            Reset
-          </Button>
-        </Theme.Provider>
+        <Button variant="reset" data-testid="reset-styles">
+          Reset
+        </Button>
       );
 
       expect(getByTestId('reset-styles')).not.toHaveStyleRule('text-align', 'left');
       expect(getByText('Reset')).toHaveStyleRule('justify-content', 'center');
     });
 
-    it('should have the correct styles for a button in loading state', () => {
+    it('should have the correct styles for a link button in loading state', () => {
       const {getByTestId, getByText, container} = testRender(
-        <Theme.Provider theme="default">
-          <Button variant="link" loading data-testid="loading-link-styles">
-            Loading link
-          </Button>
-        </Theme.Provider>
+        <Button variant="link" loading data-testid="loading-link-styles">
+          Loading link
+        </Button>
       );
 
       const buttonComponent = getByTestId('loading-link-styles');
       const buttonContent = getByText('Loading link');
-      const loadingIconWrapper = container.firstChild.firstChild.lastChild;
+      const loadingIconWrapper = container.firstChild.lastChild;
 
       expect(buttonComponent).toHaveStyleRule('text-align', 'left');
       expect(buttonContent).toHaveAttribute('aria-hidden', 'true');
@@ -534,19 +518,17 @@ describe('Button', () => {
       expect(loadingIconWrapper).toHaveStyleRule('justify-content', 'center');
     });
 
-    it('should have the correct styles for the disabled state', () => {
+    it('should have the correct styles for the link variant in disabled state', () => {
       const {getByTestId, getByText} = testRender(
-        <Theme.Provider theme="default">
-          <Button variant="link" disabled data-testid="disabled-link-styles">
-            Disabled link
-          </Button>
-        </Theme.Provider>
+        <Button variant="link" disabled data-testid="disabled-link-styles">
+          Disabled link
+        </Button>
       );
 
       const buttonComponent = getByTestId('disabled-link-styles');
       const buttonContent = getByText('Disabled link');
 
-      expect(buttonComponent).toHaveStyleRule('color', 'rgb(153,205,255)');
+      expect(buttonComponent).toHaveStyleRule('color', 'colorTextLinkWeak');
       expect(buttonComponent).toHaveStyleRule('text-align', 'left');
       expect(buttonComponent).toHaveStyleRule('cursor', 'not-allowed');
       expect(buttonContent).toHaveAttribute('aria-hidden', 'false');
