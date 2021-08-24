@@ -101,6 +101,8 @@ module.exports = {
         depth: 3,
       },
     ],
+    // We don't use jasmine and this clashes with danger js
+    'jest/no-jasmine-globals': 'off',
   },
   settings: {
     'import/resolver': {
