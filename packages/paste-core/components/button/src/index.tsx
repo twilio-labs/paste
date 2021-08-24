@@ -146,8 +146,8 @@ const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, s
           bottom={0}
           left={0}
           display="flex"
-          justifyContent={buttonVariantHasBoundingBox ? null : 'center'}
-          alignItems={buttonVariantHasBoundingBox ? null : 'center'}
+          justifyContent="center"
+          alignItems="center"
           lineHeight="lineHeight30"
         >
           <Spinner decorative={false} title="Loading, please wait." delay={0} />

@@ -380,3 +380,14 @@ describe('button event handlers', () => {
     expect(onBlurMock).toHaveBeenCalledTimes(1);
   });
 });
+
+describe('button styles', () => {
+  // Primary variant
+  // Secondary variant
+  // Destructive variant
+  // Destructive_secondary variant
+  // Destructive_link variant
+  // Link variant
+  // Loading state
+  // Disabled state
+});
