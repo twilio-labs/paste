@@ -3,4 +3,4 @@
 '@twilio-paste/core': patch
 ---
 
-[Button] reset and link variants should have left aligned text
+[Button] All link variants should have left aligned text.
