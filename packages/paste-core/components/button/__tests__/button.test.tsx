@@ -502,7 +502,7 @@ describe('Button', () => {
 
       const buttonComponent = getByTestId('loading-link-styles');
       const buttonContent = getByText('Loading link');
-      const loadingIconWrapper = container.firstChild.lastChild;
+      const loadingIconWrapper = (container.firstChild as ChildNode).lastChild as ChildNode;
 
       expect(buttonComponent).toHaveStyleRule('text-align', 'left');
       expect(buttonContent).toHaveAttribute('aria-hidden', 'true');
