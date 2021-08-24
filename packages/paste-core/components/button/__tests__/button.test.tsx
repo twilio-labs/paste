@@ -503,8 +503,8 @@ describe('Button', () => {
         </Theme.Provider>
       );
 
-      expect(getByTestId('reset-styles')).toHaveStyleRule('text-align', 'left');
-      expect(getByText('Reset')).not.toHaveStyleRule('justify-content', 'center');
+      expect(getByTestId('reset-styles')).not.toHaveStyleRule('text-align', 'left');
+      expect(getByText('Reset')).toHaveStyleRule('justify-content', 'center');
     });
 
     it('should have the correct styles for a button in loading state', () => {
