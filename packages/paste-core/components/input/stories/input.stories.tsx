@@ -3,6 +3,7 @@ import {useUID} from '@twilio-paste/uid-library';
 import {action} from '@storybook/addon-actions';
 import {withKnobs, boolean, text, select} from '@storybook/addon-knobs';
 import {Anchor} from '@twilio-paste/anchor';
+import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
@@ -722,6 +723,7 @@ export const CustomInput: React.FC = () => {
   const [valueTwoVariant, setValueTwoVariant] = React.useState('');
   const [valueThree, setValueThree] = React.useState('');
   const [valueThreeVariant, setValueThreeVariant] = React.useState('');
+  const theme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">
       <Box>
@@ -751,6 +753,7 @@ export const CustomInput: React.FC = () => {
       </Box>
       <CustomizationProvider
         baseTheme="default"
+        theme={theme}
         elements={{
           INPUT: {
             backgroundColor: 'colorBackgroundPrimaryWeakest',
@@ -876,6 +879,7 @@ export const CustomInput: React.FC = () => {
       </CustomizationProvider>
       <CustomizationProvider
         baseTheme="default"
+        theme={theme}
         elements={{
           NEW_INPUT: {
             backgroundColor: 'colorBackgroundDestructiveWeakest',
