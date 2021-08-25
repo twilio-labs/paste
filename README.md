@@ -59,7 +59,7 @@ Paste is a monorepo and has some specific requirements in how it handles depende
 
 ### Dev Deps
 
-Each package can have dev dep requirements, such as typescript and rollup. As this is a monorepo using yarn workspaces there is no requirement to list these as package dev deps. All dev deps are hoisted to the monorepo root. Declare them at the root package.json file.
+Each package can have dev dep requirements, such as typescript. As this is a monorepo using yarn workspaces there is no requirement to list these as package dev deps. All dev deps are hoisted to the monorepo root. Declare them at the root package.json file.
 
 ### Peer Deps
 
