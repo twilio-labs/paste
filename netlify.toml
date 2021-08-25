@@ -19,3 +19,8 @@
 [functions]
   directory = "packages/paste-website/functions"
   external_node_modules = ["chrome-aws-lambda", "puppeteer-core"]
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Shenanigans = "none"
