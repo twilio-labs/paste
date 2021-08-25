@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.1.0
+
+### Minor Changes
+
+- [`18c1f595`](https://github.com/twilio-labs/paste/commit/18c1f595e03d6152789342d1fc05942201cec5d3) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Input-box] Enable InputBox, Prefix and Suffix to respect element customizations set on the customization provider. InputBox, Prefix and Suffix now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 4.0.7
 
 ### Patch Changes

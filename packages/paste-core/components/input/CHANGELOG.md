@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.1.0
+
+### Minor Changes
+
+- [`9ceb48bd`](https://github.com/twilio-labs/paste/commit/9ceb48bd5d7c7d1f60bb3371085651c220e20f35) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Input] Enable Input to respect element customizations set on the customization provider. Input now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 3.0.8
 
 ### Patch Changes

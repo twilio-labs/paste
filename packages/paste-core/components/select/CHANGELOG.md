@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.0.5
+
+### Patch Changes
+
+- [`a5c17a31`](https://github.com/twilio-labs/paste/commit/a5c17a313ba1cca7f0d48a3b3ae64d8ceddae53f) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Select] Added the `element` prop for customization in order to fix a Typescript error after the `element` prop was added as a required prop for `InputBox` and `InputChevronWrapper`. This does not include any default naming, tests, or stories. It only fixes the Typescript error.
+
 ## 5.0.4
 
 ### Patch Changes

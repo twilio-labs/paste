@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/box",
-  "version": "4.2.1",
+  "version": "4.2.2",
   "category": "layout",
   "status": "production",
   "description": "A primitive component that can be used to create all block level styles in Paste",

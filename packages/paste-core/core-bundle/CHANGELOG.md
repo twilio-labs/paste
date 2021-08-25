@@ -1,5 +1,58 @@
 # Change Log
 
+## 10.10.0
+
+### Minor Changes
+
+- [`ca0bf618`](https://github.com/twilio-labs/paste/commit/ca0bf6188ad7ac3375bec75d6461924b13edb391) [#1800](https://github.com/twilio-labs/paste/pull/1800) Thanks [@TheSisb](https://github.com/TheSisb)! - [DisplayPillGroup]: Adding this new Paste component package for Display Pill Group.
+
+* [`a0cf511c`](https://github.com/twilio-labs/paste/commit/a0cf511c0078df0441d859939e9002a5e0b3431d) [#1799](https://github.com/twilio-labs/paste/pull/1799) Thanks [@vnguyen94](https://github.com/vnguyen94)! - adds the clipboard-copy library; this will provide baseline functionality for developers to intuitively interact with the Clipboard API.
+
+- [`c9cc610b`](https://github.com/twilio-labs/paste/commit/c9cc610b6834fd9be22488e8e727ee65b1114aa0) [#1790](https://github.com/twilio-labs/paste/pull/1790) Thanks [@andipants12](https://github.com/andipants12)! - [Combobox Primitive] expose useMultiSelectPrimitive
+
+* [`06bae4e2`](https://github.com/twilio-labs/paste/commit/06bae4e21077a32a6eeb059941f8717c76d76ce0) [#1803](https://github.com/twilio-labs/paste/pull/1803) Thanks [@TheSisb](https://github.com/TheSisb)! - [Form Pill Group] Adding the FormPillGroup component package. This component renders is a collection of Pills that can be selected or removed from within a data entry form.
+
+- [`9ceb48bd`](https://github.com/twilio-labs/paste/commit/9ceb48bd5d7c7d1f60bb3371085651c220e20f35) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Input] Enable Input to respect element customizations set on the customization provider. Input now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`18c1f595`](https://github.com/twilio-labs/paste/commit/18c1f595e03d6152789342d1fc05942201cec5d3) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Input-box] Enable InputBox, Prefix and Suffix to respect element customizations set on the customization provider. InputBox, Prefix and Suffix now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+### Patch Changes
+
+- [`af3b1e55`](https://github.com/twilio-labs/paste/commit/af3b1e558fc438352b47098d7d085d7eeffbfa51) [#1801](https://github.com/twilio-labs/paste/pull/1801) Thanks [@andipants12](https://github.com/andipants12)! - [Button] All link variants should have left aligned text.
+
+* [`e3398bd5`](https://github.com/twilio-labs/paste/commit/e3398bd5aaa84aaabe934bcad061cda705cdbe0a) [#1783](https://github.com/twilio-labs/paste/pull/1783) Thanks [@andipants12](https://github.com/andipants12)! - [Badge]: Update badge container div max width value to be "fit-content"
+
+- [`2eb6dd74`](https://github.com/twilio-labs/paste/commit/2eb6dd74eb1cdc06079e64a711e71b93d4f9c823) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Combobox] Added the `element` prop for customization in order to fix a Typescript error after the `element` prop was added as a required prop for `InputBox`. This does not include any default naming, tests, or stories. It only fixes the Typescript error.
+
+* [`0347aef6`](https://github.com/twilio-labs/paste/commit/0347aef6e8100f9dbc2bcd8830dd5c81b4de5a03) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [TextArea] Added the `element` prop for customization in order to fix a Typescript error after the `element` prop was added as a required prop for `InputBox`. This does not include any default naming, tests, or stories. It only fixes the Typescript error.
+
+- [`4964821b`](https://github.com/twilio-labs/paste/commit/4964821bd7a2d0fc267b4daf2eef5f1810d8f534) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Box] Added the following style props to support input:
+
+  - PsuedoProps:
+
+    - \_\_webkit_datetime_edit
+    - \_\_webkit_calendar_picker_indicator_hover
+
+  - StyleProps:
+    - -webkit-text-fill-color
+    - -webkit-opacity
+
+* [`a5c17a31`](https://github.com/twilio-labs/paste/commit/a5c17a313ba1cca7f0d48a3b3ae64d8ceddae53f) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Select] Added the `element` prop for customization in order to fix a Typescript error after the `element` prop was added as a required prop for `InputBox` and `InputChevronWrapper`. This does not include any default naming, tests, or stories. It only fixes the Typescript error.
+
+* Updated dependencies [[`ca0bf618`](https://github.com/twilio-labs/paste/commit/ca0bf6188ad7ac3375bec75d6461924b13edb391), [`af3b1e55`](https://github.com/twilio-labs/paste/commit/af3b1e558fc438352b47098d7d085d7eeffbfa51), [`e3398bd5`](https://github.com/twilio-labs/paste/commit/e3398bd5aaa84aaabe934bcad061cda705cdbe0a), [`a0cf511c`](https://github.com/twilio-labs/paste/commit/a0cf511c0078df0441d859939e9002a5e0b3431d), [`2eb6dd74`](https://github.com/twilio-labs/paste/commit/2eb6dd74eb1cdc06079e64a711e71b93d4f9c823), [`c9cc610b`](https://github.com/twilio-labs/paste/commit/c9cc610b6834fd9be22488e8e727ee65b1114aa0), [`0347aef6`](https://github.com/twilio-labs/paste/commit/0347aef6e8100f9dbc2bcd8830dd5c81b4de5a03), [`06bae4e2`](https://github.com/twilio-labs/paste/commit/06bae4e21077a32a6eeb059941f8717c76d76ce0), [`4964821b`](https://github.com/twilio-labs/paste/commit/4964821bd7a2d0fc267b4daf2eef5f1810d8f534), [`a5c17a31`](https://github.com/twilio-labs/paste/commit/a5c17a313ba1cca7f0d48a3b3ae64d8ceddae53f), [`9ceb48bd`](https://github.com/twilio-labs/paste/commit/9ceb48bd5d7c7d1f60bb3371085651c220e20f35), [`18c1f595`](https://github.com/twilio-labs/paste/commit/18c1f595e03d6152789342d1fc05942201cec5d3)]:
+  - @twilio-paste/display-pill-group@1.0.0
+  - @twilio-paste/button@7.0.7
+  - @twilio-paste/badge@1.0.1
+  - @twilio-paste/clipboard-copy-library@1.0.0
+  - @twilio-paste/combobox@8.0.0
+  - @twilio-paste/combobox-primitive@0.3.0
+  - @twilio-paste/textarea@3.0.6
+  - @twilio-paste/form-pill-group@1.0.0
+  - @twilio-paste/box@4.2.2
+  - @twilio-paste/select@5.0.5
+  - @twilio-paste/input@3.1.0
+  - @twilio-paste/input-box@4.1.0
+
 ## 10.9.0
 
 ### Minor Changes
