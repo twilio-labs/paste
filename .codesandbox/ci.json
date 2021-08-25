@@ -28,6 +28,7 @@
     "/packages/paste-core/components/display-pill-group",
     "/packages/paste-libraries/dropdown",
     "/packages/paste-core/layout/flex",
+    "/packages/paste-core/components/form-pill-group",
     "/packages/paste-core/layout/grid",
     "/packages/paste-core/components/heading",
     "/packages/paste-core/components/help-text",
