@@ -37,6 +37,7 @@
     "@twilio-paste/button": "^7.0.6",
     "@twilio-paste/card": "^3.1.0",
     "@twilio-paste/checkbox": "^6.0.5",
+    "@twilio-paste/clipboard-copy-library": "^0.0.0",
     "@twilio-paste/color-contrast-utils": "^1.1.0",
     "@twilio-paste/combobox": "^7.0.4",
     "@twilio-paste/combobox-primitive": "^0.2.4",
