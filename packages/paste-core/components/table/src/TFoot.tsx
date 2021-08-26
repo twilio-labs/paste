@@ -1,8 +1,9 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {TFootProps, TFootPropTypes} from './types';
+import type {TFootProps} from './types';
+import {TFootPropTypes} from './types';
 
-const TFoot = React.forwardRef<HTMLTableSectionElement, TFootProps>((props, ref) => {
+const TFoot = React.forwardRef<HTMLTableSectionElement, TFootProps>(({element = 'TFOOT', ...props}, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
@@ -12,6 +13,7 @@ const TFoot = React.forwardRef<HTMLTableSectionElement, TFootProps>((props, ref)
       borderTopStyle="solid"
       borderTopWidth="borderWidth20"
       borderTopColor="colorBorderWeaker"
+      element={element}
     />
   );
 });

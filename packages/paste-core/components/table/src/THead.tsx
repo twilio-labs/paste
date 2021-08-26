@@ -1,8 +1,9 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {THeadProps, THeadPropTypes} from './types';
+import type {THeadProps} from './types';
+import {THeadPropTypes} from './types';
 
-const THead = React.forwardRef<HTMLTableSectionElement, THeadProps>((props, ref) => {
+const THead = React.forwardRef<HTMLTableSectionElement, THeadProps>(({element = 'THEAD', ...props}, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
@@ -12,6 +13,7 @@ const THead = React.forwardRef<HTMLTableSectionElement, THeadProps>((props, ref)
       borderBottomColor="colorBorderWeaker"
       borderBottomStyle="solid"
       borderBottomWidth="borderWidth20"
+      element={element}
     />
   );
 });
