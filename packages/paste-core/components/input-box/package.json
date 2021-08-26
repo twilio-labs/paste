@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/input-box",
-  "version": "4.0.7",
+  "version": "4.1.0",
   "category": "user input",
   "status": "production",
   "description": "Visual box around every Paste input type",
@@ -37,7 +37,7 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^4.0.5",
+    "@twilio-paste/box": "^4.2.2",
     "@twilio-paste/design-tokens": "^6.9.0",
     "@twilio-paste/style-props": "^3.0.4",
     "@twilio-paste/styling-library": "^0.3.2",

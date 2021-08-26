@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/display-pill-group",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "category": "data display",
   "status": "production",
   "description": "A Display Pill Group is a collection of Pills that are used to visually represent a collection of entities outside of a data entry form.",
@@ -43,7 +43,7 @@
   "devDependencies": {
     "@twilio-paste/anchor": "^5.1.0",
     "@twilio-paste/animation-library": "^0.3.2",
-    "@twilio-paste/box": "^4.2.0",
+    "@twilio-paste/box": "^4.2.2",
     "@twilio-paste/customization": "^2.1.1",
     "@twilio-paste/design-tokens": "^6.10.0",
     "@twilio-paste/icons": "^5.1.1",

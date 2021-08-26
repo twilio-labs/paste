@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/form-pill-group",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "category": "interaction",
   "status": "production",
   "description": "A Display Pill Group is a collection of Pills that can be selected or removed from within a data entry form.",
@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@twilio-paste/animation-library": "^0.3.2",
-    "@twilio-paste/box": "^4.2.0",
+    "@twilio-paste/box": "^4.2.2",
     "@twilio-paste/customization": "^2.1.1",
     "@twilio-paste/design-tokens": "^6.10.0",
     "@twilio-paste/icons": "^5.1.1",

@@ -1,5 +1,20 @@
 # Change Log
 
+## 4.2.2
+
+### Patch Changes
+
+- [`4964821b`](https://github.com/twilio-labs/paste/commit/4964821bd7a2d0fc267b4daf2eef5f1810d8f534) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Box] Added the following style props to support input:
+
+  - PsuedoProps:
+
+    - \_\_webkit_datetime_edit
+    - \_\_webkit_calendar_picker_indicator_hover
+
+  - StyleProps:
+    - -webkit-text-fill-color
+    - -webkit-opacity
+
 ## 4.2.1
 
 ### Patch Changes

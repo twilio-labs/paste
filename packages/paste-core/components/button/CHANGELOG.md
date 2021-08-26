@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.0.7
+
+### Patch Changes
+
+- [`af3b1e55`](https://github.com/twilio-labs/paste/commit/af3b1e558fc438352b47098d7d085d7eeffbfa51) [#1801](https://github.com/twilio-labs/paste/pull/1801) Thanks [@andipants12](https://github.com/andipants12)! - [Button] All link variants should have left aligned text.
+
 ## 7.0.6
 
 ### Patch Changes

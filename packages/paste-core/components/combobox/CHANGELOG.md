@@ -1,5 +1,14 @@
 # Change Log
 
+## 8.0.0
+
+### Patch Changes
+
+- [`2eb6dd74`](https://github.com/twilio-labs/paste/commit/2eb6dd74eb1cdc06079e64a711e71b93d4f9c823) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Combobox] Added the `element` prop for customization in order to fix a Typescript error after the `element` prop was added as a required prop for `InputBox`. This does not include any default naming, tests, or stories. It only fixes the Typescript error.
+
+- Updated dependencies [[`c9cc610b`](https://github.com/twilio-labs/paste/commit/c9cc610b6834fd9be22488e8e727ee65b1114aa0)]:
+  - @twilio-paste/combobox-primitive@0.3.0
+
 ## 7.0.4
 
 ### Patch Changes
