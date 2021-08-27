@@ -2,6 +2,7 @@ import * as React from 'react';
 import {useSpring, animated} from '@twilio-paste/animation-library';
 import {css, styled} from '@twilio-paste/styling-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxElementProps} from '@twilio-paste/box';
 import type {LayoutProps, BorderRadiusProps} from '@twilio-paste/style-props';
 
 const AnimatedSkeleton = animated(Box);
@@ -14,6 +15,7 @@ const StyledAnimatedSkeleton = styled(AnimatedSkeleton)(() =>
 
 export interface SkeletonLoaderProps
   extends React.HTMLAttributes<HTMLDivElement>,
+    Pick<BoxElementProps, 'element'>,
     Omit<LayoutProps, 'verticalAlign'>,
     BorderRadiusProps {}
 
@@ -25,6 +27,7 @@ const SkeletonLoader = React.forwardRef<HTMLDivElement, SkeletonLoaderProps>(
       borderRadius = 'borderRadius20',
       borderTopLeftRadius,
       borderTopRightRadius,
+      element = 'SKELETON_LOADER',
       display,
       height = 'sizeIcon20',
       maxHeight,
@@ -59,6 +62,7 @@ const SkeletonLoader = React.forwardRef<HTMLDivElement, SkeletonLoaderProps>(
         borderTopLeftRadius={borderTopLeftRadius}
         borderTopRightRadius={borderTopRightRadius}
         display={display}
+        element={element}
         height={height}
         maxHeight={maxHeight}
         maxWidth={maxWidth}
