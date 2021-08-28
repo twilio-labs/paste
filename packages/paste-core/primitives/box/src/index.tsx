@@ -51,6 +51,6 @@ Box.propTypes = {
   color: isDeprecatedTextColorTokenProp,
 };
 
-export {Box};
+export {Box, getCustomElementStyles};
 export * from './types';
 export * from './SafelySpreadProps';
