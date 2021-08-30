@@ -3,21 +3,51 @@ import {uid} from '@twilio-paste/uid-library';
 import type {ToasterToast, ToasterPush, UseToasterReturnedProps} from './types';
 
 export const useToaster = (): UseToasterReturnedProps => {
+  const isMounted = React.useRef<boolean | null>(null);
   const [toasts, setToasts] = React.useState<ToasterToast[]>([]);
 
+  React.useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+      /**
+       * Clear all timeouts from the toaster when the component unmounts
+       */
+      toasts.forEach((toast) => {
+        if (toast.timeOutId) {
+          window.clearTimeout(toast.timeOutId);
+        }
+      });
+    };
+  }, []);
+
   const pop = (id: ToasterToast['id']): void => {
+    if (!isMounted.current) {
+      return;
+    }
+
     setToasts((currentToasts) =>
       currentToasts.filter((toast) => {
         // if the target toast has a related timeOut, clear that timeout as it's no longer needed
-        if (toast.id === id && toast.timeOutId) {
-          window.clearTimeout(toast.timeOutId);
+        if (toast.id === id) {
+          if (toast.timeOutId) {
+            window.clearTimeout(toast.timeOutId);
+          }
+          if (toast.onDismiss) {
+            toast.onDismiss();
+          }
         }
+
         return toast.id !== id;
       })
     );
   };
 
   const push = (newToast: ToasterPush): void => {
+    if (!isMounted.current) {
+      return;
+    }
+
     const generatedID = uid(newToast);
     let timeOutId;
     // if you are setting a dismissAfter time, we need to grab a timeout id to use later if we need to clear the timeout

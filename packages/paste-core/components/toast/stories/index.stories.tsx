@@ -231,6 +231,9 @@ export const ToasterStory = (): React.ReactNode => {
       variant,
       message: messageText,
       ...(toastTimeout !== '0' && {dismissAfter: Number.parseInt(toastTimeout, 10)}),
+      onDismiss: () => {
+        console.log('dismissed!');
+      },
     });
   };
   return (
