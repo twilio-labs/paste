@@ -1,6 +1,23 @@
 import * as React from 'react';
 import {matchers} from 'jest-emotion';
 import {render, screen} from '@testing-library/react';
+import {CustomizationProvider} from '@twilio-paste/customization';
+import {
+  backgroundColors,
+  borderColors,
+  borderWidths,
+  radii,
+  fonts,
+  fontSizes,
+  fontWeights,
+  lineHeights,
+  boxShadows,
+  sizings,
+  spacings,
+  textColors,
+  zIndices,
+  fontWeightBold,
+} from '@twilio-paste/design-tokens';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Table, THead, TBody, TFoot, Td, Tr, Th} from '../src';
@@ -221,6 +238,244 @@ describe('Table', () => {
     );
     const renderedTd = screen.getByTestId('mockTd');
     expect(renderedTd).toHaveStyleRule('text-align', 'right');
+  });
+
+  describe('HTML Attribute', () => {
+    it('should set an element data attribute for Table (default)', () => {
+      render(
+        <Table data-testid="table">
+          <THead data-testid="table-thead">
+            <Tr data-testid="table-tr">
+              <Th data-testid="table-th">Column 1</Th>
+              <Th>Column 2</Th>
+            </Tr>
+          </THead>
+          <TBody data-testid="table-tbody">
+            <Tr>
+              <Td data-testid="table-td">1</Td>
+              <Td>Empty</Td>
+            </Tr>
+            <Tr>
+              <Td>2</Td>
+              <Td>Empty</Td>
+            </Tr>
+          </TBody>
+          <TFoot data-testid="table-tfoot">
+            <Tr>
+              <Td>100</Td>
+              <Td>end</Td>
+            </Tr>
+          </TFoot>
+        </Table>
+      );
+
+      expect(screen.getByTestId('table').getAttribute('data-paste-element')).toEqual('TABLE');
+      expect(screen.getByTestId('table-thead').getAttribute('data-paste-element')).toEqual('THEAD');
+      expect(screen.getByTestId('table-tr').getAttribute('data-paste-element')).toEqual('TR');
+      expect(screen.getByTestId('table-th').getAttribute('data-paste-element')).toEqual('TH');
+      expect(screen.getByTestId('table-tbody').getAttribute('data-paste-element')).toEqual('TBODY');
+      expect(screen.getByTestId('table-td').getAttribute('data-paste-element')).toEqual('TD');
+      expect(screen.getByTestId('table-tfoot').getAttribute('data-paste-element')).toEqual('TFOOT');
+    });
+
+    it('should set an element data attribute for Table', () => {
+      render(
+        <Table element="dog" data-testid="table">
+          <THead element="cat" data-testid="table-thead">
+            <Tr element="bear" data-testid="table-tr">
+              <Th element="wolf" data-testid="table-th">
+                Column 1
+              </Th>
+              <Th element="hamster" data-testid="table-th-1">
+                Column 2
+              </Th>
+            </Tr>
+          </THead>
+          <TBody element="chinchilla" data-testid="table-tbody">
+            <Tr>
+              <Td element="horse" data-testid="table-td">
+                1
+              </Td>
+              <Td>Empty</Td>
+            </Tr>
+            <Tr>
+              <Td>2</Td>
+              <Td>Empty</Td>
+            </Tr>
+          </TBody>
+          <TFoot element="goldfish" data-testid="table-tfoot">
+            <Tr>
+              <Td>100</Td>
+              <Td>end</Td>
+            </Tr>
+          </TFoot>
+        </Table>
+      );
+
+      expect(screen.getByTestId('table').getAttribute('data-paste-element')).toEqual('dog');
+      expect(screen.getByTestId('table-thead').getAttribute('data-paste-element')).toEqual('cat');
+      expect(screen.getByTestId('table-tr').getAttribute('data-paste-element')).toEqual('bear');
+      expect(screen.getByTestId('table-th').getAttribute('data-paste-element')).toEqual('wolf');
+      expect(screen.getByTestId('table-th-1').getAttribute('data-paste-element')).toEqual('hamster');
+      expect(screen.getByTestId('table-tbody').getAttribute('data-paste-element')).toEqual('chinchilla');
+      expect(screen.getByTestId('table-td').getAttribute('data-paste-element')).toEqual('horse');
+      expect(screen.getByTestId('table-tfoot').getAttribute('data-paste-element')).toEqual('goldfish');
+    });
+  });
+
+  describe('Customization', () => {
+    it('should add custom styles to Table', () => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          elements={{
+            TABLE: {borderColor: 'colorBorderDestructive', fontWeight: 'fontWeightBold'},
+            TH: {borderStyle: 'dotted', fontWeight: 'fontWeightMedium'},
+            TR: {borderStyle: 'dashed', fontWeight: 'fontWeightLight'},
+            THEAD: {borderColor: 'colorBorderDestructiveDark', fontWeight: 'fontWeightNormal'},
+            TBODY: {borderColor: 'colorBorderDestructiveLight', fontWeight: 'inherit'},
+            TFOOT: {borderColor: 'colorBorderDark', fontWeight: 'inherit'},
+            TD: {borderColor: 'colorBorderLight', fontWeight: 'fontWeightSemibold'},
+          }}
+        >
+          <Table data-testid="table">
+            <THead data-testid="table-thead">
+              <Tr data-testid="table-tr">
+                <Th data-testid="table-th">Column 1</Th>
+                <Th>Column 2</Th>
+              </Tr>
+            </THead>
+            <TBody data-testid="table-tbody">
+              <Tr>
+                <Td data-testid="table-td">1</Td>
+                <Td>Empty</Td>
+              </Tr>
+              <Tr>
+                <Td>2</Td>
+                <Td>Empty</Td>
+              </Tr>
+            </TBody>
+            <TFoot data-testid="table-tfoot">
+              <Tr>
+                <Td>100</Td>
+                <Td>end</Td>
+              </Tr>
+            </TFoot>
+          </Table>
+        </CustomizationProvider>
+      );
+
+      const table = screen.getByTestId('table');
+      const tHead = screen.getByTestId('table-thead');
+      const tr = screen.getByTestId('table-tr');
+      const th = screen.getByTestId('table-th');
+      const tBody = screen.getByTestId('table-tbody');
+      const td = screen.getByTestId('table-td');
+      const tFoot = screen.getByTestId('table-tfoot');
+
+      expect(table).toHaveStyleRule('font-weight', '700');
+      expect(table).toHaveStyleRule('border-color', 'rgb(214,31,31)');
+
+      expect(tr).toHaveStyleRule('font-weight', '400');
+      expect(tr).toHaveStyleRule('border-style', 'dashed');
+
+      expect(th).toHaveStyleRule('font-weight', '500');
+      expect(th).toHaveStyleRule('border-style', 'dotted');
+
+      expect(td).toHaveStyleRule('border-color', 'rgb(202,205,216)');
+      expect(td).toHaveStyleRule('font-weight', '600');
+
+      expect(tBody).toHaveStyleRule('border-color', 'rgb(245,138,138)');
+      expect(tBody).toHaveStyleRule('font-weight', 'inherit');
+
+      expect(tFoot).toHaveStyleRule('border-color', 'rgb(96,107,133)');
+      expect(tFoot).toHaveStyleRule('font-weight', 'inherit');
+
+      expect(tHead).toHaveStyleRule('border-color', 'rgb(117,12,12)');
+      expect(tHead).toHaveStyleRule('font-weight', '400');
+    });
+
+    it('should add custom styles to Table with a custom element data attribute', () => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          elements={{
+            dog: {borderColor: 'colorBorderDestructive', fontWeight: 'fontWeightBold'},
+            cat: {borderStyle: 'dotted', fontWeight: 'fontWeightMedium'},
+            bear: {borderStyle: 'dashed', fontWeight: 'fontWeightLight'},
+            wolf: {borderColor: 'colorBorderDestructiveDark', fontWeight: 'inherit'},
+            hamster: {borderColor: 'colorBorderDestructiveLight', fontWeight: 'inherit'},
+            chinchilla: {borderColor: 'colorBorderDark', fontWeight: 'inherit'},
+            horse: {borderColor: 'colorBorderLight', fontWeight: 'fontWeightSemibold'},
+            goldfish: {borderColor: 'colorBorderDestructiveDark', fontWeight: 'inherit'},
+          }}
+        >
+          <Table element="dog" data-testid="table">
+            <THead element="cat" data-testid="table-thead">
+              <Tr element="bear" data-testid="table-tr">
+                <Th element="wolf" data-testid="table-th">
+                  Column 1
+                </Th>
+                <Th element="hamster" data-testid="table-th-1">
+                  Column 2
+                </Th>
+              </Tr>
+            </THead>
+            <TBody element="chinchilla" data-testid="table-tbody">
+              <Tr>
+                <Td element="horse" data-testid="table-td">
+                  1
+                </Td>
+                <Td>Empty</Td>
+              </Tr>
+              <Tr>
+                <Td>2</Td>
+                <Td>Empty</Td>
+              </Tr>
+            </TBody>
+            <TFoot element="goldfish" data-testid="table-tfoot">
+              <Tr>
+                <Td>100</Td>
+                <Td>end</Td>
+              </Tr>
+            </TFoot>
+          </Table>
+        </CustomizationProvider>
+      );
+
+      const table = screen.getByTestId('table');
+      const tHead = screen.getByTestId('table-thead');
+      const tr = screen.getByTestId('table-tr');
+      const th = screen.getByTestId('table-th');
+      const th1 = screen.getByTestId('table-th-1');
+      const tBody = screen.getByTestId('table-tbody');
+      const td = screen.getByTestId('table-td');
+      const tFoot = screen.getByTestId('table-tfoot');
+
+      expect(table).toHaveStyleRule('font-weight', '700');
+      expect(table).toHaveStyleRule('border-color', 'rgb(214,31,31)');
+
+      expect(tr).toHaveStyleRule('font-weight', '400');
+      expect(tr).toHaveStyleRule('border-style', 'dashed');
+
+      expect(th).toHaveStyleRule('font-weight', 'inherit');
+      expect(th).toHaveStyleRule('border-color', 'rgb(117,12,12)');
+
+      expect(th1).toHaveStyleRule('font-weight', 'inherit');
+      expect(th1).toHaveStyleRule('border-color', 'rgb(245,138,138)');
+
+      expect(td).toHaveStyleRule('border-color', 'rgb(202,205,216)');
+      expect(td).toHaveStyleRule('font-weight', '600');
+
+      expect(tBody).toHaveStyleRule('border-color', 'rgb(96,107,133)');
+      expect(tBody).toHaveStyleRule('font-weight', 'inherit');
+
+      expect(tFoot).toHaveStyleRule('border-color', 'rgb(117,12,12)');
+      expect(tFoot).toHaveStyleRule('font-weight', 'inherit');
+
+      expect(tHead).toHaveStyleRule('border-style', 'dotted');
+      expect(tHead).toHaveStyleRule('font-weight', '500');
+    });
   });
 
   describe('Accessibility', () => {
