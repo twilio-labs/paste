@@ -2,22 +2,6 @@ import * as React from 'react';
 import {matchers} from 'jest-emotion';
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
-import {
-  backgroundColors,
-  borderColors,
-  borderWidths,
-  radii,
-  fonts,
-  fontSizes,
-  fontWeights,
-  lineHeights,
-  boxShadows,
-  sizings,
-  spacings,
-  textColors,
-  zIndices,
-  fontWeightBold,
-} from '@twilio-paste/design-tokens';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Table, THead, TBody, TFoot, Td, Tr, Th} from '../src';

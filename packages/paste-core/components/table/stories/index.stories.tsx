@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
 import {Menu, MenuButton, MenuItem, MenuSeparator, useMenuState} from '@twilio-paste/menu';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
 import {Text} from '@twilio-paste/text';
@@ -1005,4 +1006,75 @@ export const Truncation = (): React.ReactNode => {
       </TFoot>
     </Table>
   );
+};
+
+export const CustomTable = (): React.ReactNode => (
+  <CustomizationProvider
+    baseTheme="default"
+    elements={{
+      TABLE: {fontFamily: 'fontFamilyCode'},
+      TH_HEAD_LARGE: {fontSize: 'fontSize50'},
+      TH: {fontWeight: 'fontWeightBold'},
+      TH_BODY: {fontWeight: 'fontWeightMedium'},
+      TH_FOOTER: {textDecoration: 'underline'},
+      TR_DESTRUCTIVE: {color: 'colorTextLinkDestructive', fontWeight: 'fontWeightBold'},
+      TR_NEUTRAL: {color: 'colorTextNeutral', fontFamily: 'fontFamilyText'},
+      TR: {color: 'colorTextWeak'},
+      TD_FOOT_HIGHLIGHT: {
+        backgroundColor: 'colorBackgroundAvailable',
+        fontWeight: 'fontWeightSemibold',
+        color: 'colorTextInverse',
+      },
+    }}
+  >
+    <Table>
+      <THead>
+        <Tr>
+          <Th>First</Th>
+          <Th>Second</Th>
+          <Th element="TH_HEAD_LARGE">Third</Th>
+          <Th>Fourth</Th>
+          <Th element="TH_HEAD_LARGE">Fifth</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        <Tr element="TR_DESTRUCTIVE">
+          <Th element="TH_BODY">First</Th>
+          <Td>Second</Td>
+          <Td>Third</Td>
+          <Td>Fourth</Td>
+          <Td>Fifth</Td>
+        </Tr>
+        <Tr element="TR_NEUTRAL">
+          <Th element="TH_BODY">First</Th>
+          <Td>Second</Td>
+          <Td>Third</Td>
+          <Td>Fourth</Td>
+          <Td>Fifth</Td>
+        </Tr>
+        <Tr>
+          <Th element="TH_ROW">First</Th>
+          <Td>Second</Td>
+          <Td>Third</Td>
+          <Td>Fourth</Td>
+          <Td>Fifth</Td>
+        </Tr>
+      </TBody>
+      <TFoot>
+        <Tr>
+          <Th element="TH_FOOTER">First</Th>
+          <Td>end</Td>
+          <Td>end</Td>
+          <Td>end</Td>
+          <Td element="TD_FOOT_HIGHLIGHT" textAlign="right">
+            100
+          </Td>
+        </Tr>
+      </TFoot>
+    </Table>
+  </CustomizationProvider>
+);
+
+CustomTable.story = {
+  name: 'Custom table',
 };
