@@ -57,7 +57,10 @@ export const SelectElement = React.forwardRef<HTMLSelectElement, SelectProps>(({
 });
 
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
-  ({disabled, element, hasError, insertBefore, insertAfter, children, size, multiple, variant, ...props}, ref) => {
+  (
+    {disabled, element = 'SELECT', hasError, insertBefore, insertAfter, children, size, multiple, variant, ...props},
+    ref
+  ) => {
     let iconColor = 'colorTextIcon' as TextColor;
     if (disabled) {
       iconColor = 'colorTextWeaker';
