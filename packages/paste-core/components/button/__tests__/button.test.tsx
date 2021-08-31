@@ -393,7 +393,7 @@ describe('Button', () => {
 
       const button = getByTestId('primary-styles');
 
-      expect(button).not.toHaveStyleRule('text-align', 'left');
+      expect(button).toHaveStyleRule('text-align', 'unset');
       expect(button).toHaveStyleRule('color', 'colorTextWeakest');
       expect(button).toHaveStyleRule('background-color', 'colorBackgroundPrimary');
       expect(button).toHaveStyleRule('box-shadow', 'shadowBorderPrimary');
@@ -410,7 +410,7 @@ describe('Button', () => {
 
       const button = getByTestId('secondary-styles');
 
-      expect(button).not.toHaveStyleRule('text-align', 'left');
+      expect(button).toHaveStyleRule('text-align', 'unset');
       expect(button).toHaveStyleRule('color', 'colorText');
       expect(button).toHaveStyleRule('background-color', 'colorBackgroundBody');
       expect(button).toHaveStyleRule('box-shadow', 'shadowBorder');
@@ -427,7 +427,7 @@ describe('Button', () => {
 
       const button = getByTestId('destructive-styles');
 
-      expect(button).not.toHaveStyleRule('text-align', 'left');
+      expect(button).toHaveStyleRule('text-align', 'unset');
       expect(button).toHaveStyleRule('color', 'colorTextWeakest');
       expect(button).toHaveStyleRule('background-color', 'colorBackgroundDestructive');
       expect(button).toHaveStyleRule('box-shadow', 'shadowBorderDestructive');
@@ -443,7 +443,7 @@ describe('Button', () => {
       );
 
       const button = getByTestId('destructive_secondary-styles');
-      expect(button).not.toHaveStyleRule('text-align', 'left');
+      expect(button).toHaveStyleRule('text-align', 'unset');
       expect(button).toHaveStyleRule('color', 'colorTextLinkDestructive');
       expect(button).toHaveStyleRule('background-color', 'colorBackgroundBody');
       expect(button).toHaveStyleRule('box-shadow', 'shadowBorderDestructive');
@@ -460,6 +460,7 @@ describe('Button', () => {
 
       const button = getByTestId('destructive_link-styles');
 
+      expect(button).toHaveStyleRule('text-align', 'unset');
       expect(button).toHaveStyleRule('color', 'colorTextLinkDestructive');
       expect(button).toHaveStyleRule('transition', 'none');
       expect(getByText('Destructive link')).not.toHaveStyleRule('justify-content', 'center');
@@ -474,6 +475,7 @@ describe('Button', () => {
 
       const button = getByTestId('link-styles');
 
+      expect(button).toHaveStyleRule('text-align', 'unset');
       expect(button).toHaveStyleRule('color', 'colorTextLink');
       expect(button).toHaveStyleRule('transition', 'none');
 
@@ -481,17 +483,18 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the reset variant', () => {
-      const {getByText} = testRender(
+      const {getByText, getByTestId} = testRender(
         <Button variant="reset" data-testid="reset-styles">
           Reset
         </Button>
       );
 
       expect(getByText('Reset')).not.toHaveStyleRule('justify-content', 'center');
+      expect(getByTestId('reset-styles')).toHaveStyleRule('text-align', 'unset');
     });
 
     it('should have the correct styles for a link button in loading state', () => {
-      const {getByText, container} = testRender(
+      const {getByText, getByTestId, container} = testRender(
         <Button variant="link" loading data-testid="loading-link-styles">
           Loading link
         </Button>
@@ -499,6 +502,8 @@ describe('Button', () => {
 
       const buttonContent = getByText('Loading link');
       const loadingIconWrapper = (container.firstChild as ChildNode).lastChild as ChildNode;
+
+      expect(getByTestId('loading-link-styles')).toHaveStyleRule('text-align', 'unset');
 
       expect(buttonContent).toHaveAttribute('aria-hidden', 'true');
       expect(buttonContent).toHaveAttribute('opacity', '0');
@@ -523,6 +528,7 @@ describe('Button', () => {
       const buttonComponent = getByTestId('disabled-link-styles');
       const buttonContent = getByText('Disabled link');
 
+      expect(buttonComponent).toHaveStyleRule('text-align', 'unset');
       expect(buttonComponent).toHaveStyleRule('color', 'colorTextLinkWeak');
 
       expect(buttonComponent).toHaveStyleRule('cursor', 'not-allowed');

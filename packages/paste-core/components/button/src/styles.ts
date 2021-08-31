@@ -13,6 +13,7 @@ const ResetStyles: BoxStyleProps = {
   transition: 'background-color 100ms ease-in, box-shadow 100ms ease-in, color 100ms ease-in',
   fontFamily: 'fontFamilyText',
   fontWeight: 'fontWeightSemibold',
+  textAlign: 'unset',
   textDecoration: 'none',
   position: 'relative',
   margin: 'space0',
