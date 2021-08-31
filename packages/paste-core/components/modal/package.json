@@ -3,7 +3,7 @@
   "version": "7.1.1",
   "category": "overlay",
   "status": "production",
-  "description": "A modal displays content over the main page and blocks any interaction with the page.",
+  "description": "A Modal is a page overlay that displays information and blocks interaction with the page until an action is taken or the Modal is dismissed.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

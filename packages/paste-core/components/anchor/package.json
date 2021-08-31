@@ -3,7 +3,7 @@
   "version": "5.1.0",
   "category": "interaction",
   "status": "production",
-  "description": "Twilio's Anchor component",
+  "description": "An Anchor is text that hyperlinks to a webpage.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
