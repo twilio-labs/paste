@@ -37,7 +37,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
     {
       autocomplete,
       disabled,
-      element,
+      element = 'COMBOBOX',
       hasError,
       helpText,
       initialSelectedItem,
