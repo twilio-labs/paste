@@ -181,6 +181,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
   transition: none;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
+  text-align: unset;
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -564,6 +565,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
   transition: none;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
+  text-align: unset;
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
@@ -907,6 +909,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
   transition: none;
   font-family: 'Whitney SSm A','Whitney SSm B','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
+  text-align: unset;
   -webkit-text-decoration: none;
   text-decoration: none;
   position: relative;
