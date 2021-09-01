@@ -3,7 +3,7 @@
   "version": "8.0.1",
   "category": "user input",
   "status": "production",
-  "description": "A Combobox is a styled drop-down form element that allows users to either type a value or select a value from a list.",
+  "description": "A Combobox is a styled dropdown form element that allows users to either type a value or select a value from a list.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

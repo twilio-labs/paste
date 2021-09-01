@@ -3,7 +3,7 @@
   "version": "5.0.6",
   "category": "user input",
   "status": "production",
-  "description": "A Select is an unstyled drop-down form element that allows users to select a value from a list.",
+  "description": "A Select is an unstyled dropdown form element that allows users to select a value from a list.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
