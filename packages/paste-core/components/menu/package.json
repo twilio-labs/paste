@@ -3,7 +3,7 @@
   "version": "7.0.2",
   "category": "interaction",
   "status": "production",
-  "description": "A menu presents a list of menu items that a user can choose to perform an action with.",
+  "description": "A Menu is a button that presents a list of items that users can choose to trigger an action.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

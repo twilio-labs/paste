@@ -3,7 +3,7 @@
   "version": "6.0.5",
   "category": "user input",
   "status": "production",
-  "description": "The Checkbox and Checkbox Group are used to enable binary choices",
+  "description": "A Checkbox is a form element that enables a binary choice and a Checkbox Group is a collection of Checkboxes.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

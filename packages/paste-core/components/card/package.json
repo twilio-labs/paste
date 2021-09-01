@@ -3,7 +3,7 @@
   "version": "3.1.0",
   "category": "data display",
   "status": "production",
-  "description": "The Paste cards are specifically-styled containers that group relatable content and actions.",
+  "description": "A Card is a styled container that groups related content and actions.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

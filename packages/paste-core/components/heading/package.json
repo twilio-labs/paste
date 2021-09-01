@@ -3,7 +3,7 @@
   "version": "5.1.0",
   "category": "typography",
   "status": "production",
-  "description": "Twilio's Heading component",
+  "description": "A Heading is text that gives hierarchical structure to a page.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

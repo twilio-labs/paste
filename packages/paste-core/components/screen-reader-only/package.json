@@ -3,7 +3,7 @@
   "version": "6.0.2",
   "category": "typography",
   "status": "production",
-  "description": "Utility for visually hiding content to provide an accessible experience for users of assistive technology.",
+  "description": "Screen Reader Only is a utility that visually hides content to provide an accessible experience for users of assistive technology.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

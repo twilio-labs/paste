@@ -3,7 +3,7 @@
   "version": "4.0.2",
   "category": "navigation",
   "status": "production",
-  "description": "Breadcrumbs are used to show navigation hierarchy within a page. They provide a way for users to navigate a nested path of parent pages.",
+  "description": "A Breadcrumb is text that shows navigation hierarchy and lets users navigate a nested path of pages.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

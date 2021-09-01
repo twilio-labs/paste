@@ -3,7 +3,7 @@
   "version": "6.0.4",
   "category": "user input",
   "status": "production",
-  "description": "A radio group is used for selecting a single choice from a list of at least two options",
+  "description": "A Radio Group is a form element that lets users select a single choice from a list of at least two options.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

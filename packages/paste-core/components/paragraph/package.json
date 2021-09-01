@@ -3,7 +3,7 @@
   "version": "4.1.0",
   "category": "typography",
   "status": "production",
-  "description": "The paragraph component is used to render blocks of text, with a preset amount of space beneath it to distinguish from adjacent content.",
+  "description": "A Paragraph is a block of text.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
