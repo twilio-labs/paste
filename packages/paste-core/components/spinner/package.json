@@ -3,7 +3,7 @@
   "version": "7.0.2",
   "category": "feedback",
   "status": "production",
-  "description": "Twilio's Spinner component",
+  "description": "A Spinner is an animation that communicates a loading state to users.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

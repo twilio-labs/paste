@@ -3,7 +3,7 @@
   "version": "2.1.0",
   "category": "typography",
   "status": "production",
-  "description": "The list component is used to render text as a list of items.",
+  "description": "A List is a set of text objects in a bulleted or numbered format.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

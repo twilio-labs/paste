@@ -3,7 +3,7 @@
   "version": "4.0.4",
   "category": "interaction",
   "status": "production",
-  "description": "The Tooltip is a popup that displays clarifying text related to an element that has been focused or hovered on.",
+  "description": "A Tooltip is a page overlay that displays non-interactive clarifying text related to an element that’s in a focused or hovered state.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
