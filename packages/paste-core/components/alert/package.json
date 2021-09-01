@@ -3,7 +3,7 @@
   "version": "7.0.1",
   "category": "feedback",
   "status": "production",
-  "description": "An alert notifies a user to high-priority or time-sensitive information.",
+  "description": "An Alert is a banner that notifies users to high-priority or time-sensitive information.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

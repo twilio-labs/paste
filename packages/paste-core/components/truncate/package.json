@@ -3,7 +3,7 @@
   "version": "7.0.0",
   "category": "typography",
   "status": "production",
-  "description": "The Truncate component can be used to shorten a string of text that overflows a defined area.",
+  "description": "Truncate is a wrapper that shortens a string of text that overflows a defined area.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

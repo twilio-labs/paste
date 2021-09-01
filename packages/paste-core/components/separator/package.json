@@ -3,7 +3,7 @@
   "version": "2.1.0",
   "category": "layout",
   "status": "production",
-  "description": "The Separator component can be used to create visual and semantic separation between UI elements or sections.",
+  "description": "A Separator is a line that creates visual and semantic separation between UI elements or sections.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

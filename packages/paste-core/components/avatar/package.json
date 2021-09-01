@@ -3,7 +3,7 @@
   "version": "2.2.0",
   "category": "graphic",
   "status": "production",
-  "description": "The Avatar is a pictorial representation of a user or object. It can display the initials of that entity or an image.",
+  "description": "An Avatar is a graphical representation of a user or object.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

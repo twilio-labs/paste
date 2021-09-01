@@ -3,7 +3,7 @@
   "version": "7.0.7",
   "category": "interaction",
   "status": "production",
-  "description": "A button communicates that users can trigger an action.",
+  "description": "A Button is a clickable element which communicates that users can trigger an action.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
