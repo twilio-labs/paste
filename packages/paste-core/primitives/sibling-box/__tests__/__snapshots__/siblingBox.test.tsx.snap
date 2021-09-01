@@ -12,7 +12,6 @@ exports[`SiblingBox render should render 1`] = `
 
 .emotion-0 {
   box-sizing: border-box;
-  width: 1rem;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -27,6 +26,7 @@ exports[`SiblingBox render should render 1`] = `
   justify-content: center;
   -webkit-transition: all 120ms;
   transition: all 120ms;
+  width: 1rem;
 }
 
 .emotion-0:hover {
@@ -97,7 +97,7 @@ input[type=checkbox][aria-invalid=true] + label .emotion-0 {
   <div
     aria-hidden="true"
     className="emotion-0"
-    data-paste-element="BOX"
+    data-paste-element="SIBLING_BOX"
     display="inline-flex"
     width="sizeSquare50"
   >

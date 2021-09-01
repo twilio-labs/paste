@@ -1,6 +1,8 @@
+import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {styled, css} from '@twilio-paste/styling-library';
-import {Box, BoxProps, BoxStyleProps} from '@twilio-paste/box';
+import {Box} from '@twilio-paste/box';
+import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
 
 export interface SiblingBoxProps extends BoxProps {
   _activeSibling?: BoxStyleProps;
@@ -22,7 +24,7 @@ export interface SiblingBoxProps extends BoxProps {
 }
 
 /* eslint-disable emotion/syntax-preference */
-const SiblingBox = styled(Box)<SiblingBoxProps>(
+const StyledSiblingBox = styled(Box)<SiblingBoxProps>(
   ({
     _activeSibling,
     _boxChild,
@@ -77,21 +79,34 @@ const SiblingBox = styled(Box)<SiblingBoxProps>(
 );
 /* eslint-enable */
 
-SiblingBox.displayName = 'SiblingBox';
-
-SiblingBox.defaultProps = {
-  alignItems: 'center',
-  'aria-hidden': 'true',
-  display: 'inline-flex',
-  flexShrink: 0,
-  justifyContent: 'center',
-  transition: 'all 120ms',
+const SiblingBox: React.FC<SiblingBoxProps> = ({
+  'aria-hidden': ariaHidden = 'true',
+  alignItems = 'center',
+  display = 'inline-flex',
+  element = 'SIBLING_BOX',
+  flexShrink = 0,
+  justifyContent = 'center',
+  transition = 'all 120ms',
+  ...props
+}) => {
+  return (
+    <StyledSiblingBox
+      alignItems={alignItems}
+      aria-hidden={ariaHidden}
+      display={display}
+      element={element}
+      flexShrink={flexShrink}
+      justifyContent={justifyContent}
+      transition={transition}
+      {...props}
+    />
+  );
 };
 
-if (process.env.NODE_ENV === 'development') {
-  SiblingBox.propTypes = {
-    type: PropTypes.oneOf(['checkbox', 'radio']),
-  };
-}
+SiblingBox.displayName = 'SiblingBox';
+
+SiblingBox.propTypes = {
+  type: PropTypes.oneOf(['checkbox', 'radio']),
+};
 
 export {SiblingBox};
