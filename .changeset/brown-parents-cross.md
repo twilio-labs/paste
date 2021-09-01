@@ -3,4 +3,4 @@
 '@twilio-paste/core': patch
 ---
 
-[Button]: Unset default text alignment for buttons.
+[Button]: Link, Destructive link, and inverse destructive link button variants should have left aligned text.
