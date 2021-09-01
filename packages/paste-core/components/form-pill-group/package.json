@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "category": "interaction",
   "status": "production",
-  "description": "A Display Pill Group is a collection of Pills that can be selected or removed from within a data entry form.",
+  "description": "A Form Pill Group is a editable set of Pills used to visually represent a collection of entities for form UIs.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

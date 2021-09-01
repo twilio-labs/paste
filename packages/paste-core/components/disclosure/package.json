@@ -3,7 +3,7 @@
   "version": "5.0.6",
   "category": "interaction",
   "status": "production",
-  "description": "The Disclosure is used to create accessible, hierarchical, and collapsible structure to your pages.",
+  "description": "A Disclosure is a collapsible accordion that gives hierarchy to a page.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

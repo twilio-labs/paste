@@ -3,7 +3,7 @@
   "version": "5.0.2",
   "category": "feedback",
   "status": "production",
-  "description": "A toast communicates an immediate and direct response to a user action.",
+  "description": "A Toast is an animated, temporary banner that communicates an immediate and direct response to a user action.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

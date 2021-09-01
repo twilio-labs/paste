@@ -3,7 +3,7 @@
   "version": "3.0.7",
   "category": "user input",
   "status": "production",
-  "description": "A textarea allows users to enter text on multiple lines",
+  "description": "A Textarea is a form element that allows users to enter text on multiple lines.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "category": "data display",
   "status": "production",
-  "description": "A Display Pill Group is a collection of Pills that are used to visually represent a collection of entities outside of a data entry form.",
+  "description": "A Display Pill Group is a set of Pills used to visually represent a collection of entities for non-form UIs.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

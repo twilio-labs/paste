@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "category": "user input",
   "status": "production",
-  "description": "An input field for users to enter a time.",
+  "description": "A Time Picker is a form element used to select a time.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
