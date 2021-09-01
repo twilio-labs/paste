@@ -54,7 +54,7 @@ export const decorators = [
       default:
       case 'default':
         return (
-          <Theme.Provider theme={theme}>
+          <Theme.Provider theme={theme} disableAnimations={isChromatic()}>
             <GlobalStyles />
             <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
               <Story />
@@ -67,14 +67,14 @@ export const decorators = [
             <GlobalStyles />
             <Grid>
               <Column>
-                <Theme.Provider theme="default">
+                <Theme.Provider theme="default" disableAnimations={isChromatic()}>
                   <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
                     <Story />
                   </Box>
                 </Theme.Provider>
               </Column>
               <Column>
-                <Theme.Provider theme="dark">
+                <Theme.Provider theme="dark" disableAnimations={isChromatic()}>
                   <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
                     <Story />
                   </Box>
@@ -88,24 +88,24 @@ export const decorators = [
           <>
             <GlobalStyles />
             <Stack orientation="vertical">
-              <Theme.Provider theme="default">
+              <Theme.Provider theme="default" disableAnimations={isChromatic()}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
                   <Story />
                 </Box>
               </Theme.Provider>
-              <Theme.Provider theme="default">
+              <Theme.Provider theme="default" disableAnimations={isChromatic()}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space20">
                   <Box margin="space40" padding="space40" backgroundColor="colorBackground">
                     <Story />
                   </Box>
                 </Box>
               </Theme.Provider>
-              <Theme.Provider theme="dark">
+              <Theme.Provider theme="dark" disableAnimations={isChromatic()}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space80">
                   <Story />
                 </Box>
               </Theme.Provider>
-              <Theme.Provider theme="dark">
+              <Theme.Provider theme="dark" disableAnimations={isChromatic()}>
                 <Box backgroundColor="colorBackgroundBody" color="colorText" padding="space20">
                   <Box margin="space40" padding="space40" backgroundColor="colorBackground">
                     <Story />

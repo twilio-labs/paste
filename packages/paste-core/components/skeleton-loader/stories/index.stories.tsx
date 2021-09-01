@@ -8,6 +8,8 @@ import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
+import {CustomizationProvider} from '@twilio-paste/customization';
+import {useTheme} from '@twilio-paste/theme';
 import {Text} from '@twilio-paste/text';
 import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
 import type {SkeletonLoaderProps} from '../src';
@@ -322,5 +324,30 @@ export const TableLoading: React.FC = () => {
         </Stack>
       </Box>
     </>
+  );
+};
+
+export const CustomizedSkeletonLoader: React.FC = () => {
+  const activeTheme = useTheme();
+  return (
+    <CustomizationProvider
+      baseTheme="default"
+      theme={activeTheme}
+      elements={{
+        SKELETON_LOADER: {backgroundColor: 'colorBackgroundBrandHighlight', margin: 'space100'},
+        CUSTOM_SKELETON: {backgroundColor: 'colorBackgroundBrand', padding: 'space80'},
+      }}
+    >
+      <Stack orientation="vertical" spacing="space50">
+        <Heading as="h2" variant="heading20" marginBottom="space0">
+          Customized Skeleton
+        </Heading>
+        <SkeletonLoader data-testid="default-skeleton" />
+        <Heading as="h2" variant="heading20" marginBottom="space0">
+          Custom Skeleton
+        </Heading>
+        <SkeletonLoader element="CUSTOM_SKELETON" data-testid="default-skeleton" />
+      </Stack>
+    </CustomizationProvider>
   );
 };
