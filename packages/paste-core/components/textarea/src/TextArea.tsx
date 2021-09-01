@@ -74,7 +74,7 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
     {
       children,
       disabled,
-      element,
+      element = 'TEXTAREA',
       hasError,
       id,
       insertBefore,

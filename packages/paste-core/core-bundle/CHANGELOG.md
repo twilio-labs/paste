@@ -1,5 +1,16 @@
 # Change Log
 
+## 10.10.1
+
+### Patch Changes
+
+- [`fe4a2383`](https://github.com/twilio-labs/paste/commit/fe4a23834e9aecf2ab249651e8713ae5d37e8d3d) [#1824](https://github.com/twilio-labs/paste/pull/1824) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Combobox], [Select] and [Textarea] all given a default element name to meet their PropTypes validation.
+
+- Updated dependencies [[`fe4a2383`](https://github.com/twilio-labs/paste/commit/fe4a23834e9aecf2ab249651e8713ae5d37e8d3d)]:
+  - @twilio-paste/combobox@8.0.1
+  - @twilio-paste/select@5.0.6
+  - @twilio-paste/textarea@3.0.7
+
 ## 10.10.0
 
 ### Minor Changes
