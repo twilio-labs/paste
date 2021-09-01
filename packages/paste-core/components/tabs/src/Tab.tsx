@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxStyleProps} from '@twilio-paste/box';
+import type {BoxStyleProps, BoxProps} from '@twilio-paste/box';
 import {TabPrimitive} from '@twilio-paste/tabs-primitive';
 import {TabsContext} from './TabsContext';
-import {Orientation, Variants} from './types';
+import type {Orientation, Variants} from './types';
 
 // TODO:
 // Split vertical tabs into a separate component
@@ -94,13 +94,17 @@ export interface TabProps extends React.HTMLAttributes<HTMLElement> {
   id?: string | undefined;
   focusable?: boolean | undefined;
   disabled?: boolean | undefined;
+  element?: BoxProps['element'];
   children: React.ReactNode;
   'aria-disabled'?: boolean;
 }
 
-const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, ...tabProps}, ref) => {
+const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, element = 'TAB', ...tabProps}, ref) => {
   const tab = React.useContext(TabsContext);
   const boxStyles = React.useMemo(() => getTabBoxStyles(tab.orientation, tab.variant), [tab.orientation, tab.variant]);
+
+  // Do we need to pass into the primitive wrapper?
+  // is this just an HOC? Does it add something to the DOM? --> needs element prop.
   return (
     <TabPrimitive {...(tab as any)} {...tabProps} ref={ref}>
       {(props: TabProps) => {
@@ -110,6 +114,7 @@ const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, ...tabProps},
             {...boxStyles}
             as="span"
             cursor={props['aria-disabled'] ? 'not-allowed' : 'pointer'}
+            element={element}
             fontSize="fontSize30"
             fontWeight="fontWeightSemibold"
             overflow={tab.orientation !== 'vertical' ? 'hidden' : undefined}
@@ -131,6 +136,7 @@ if (process.env.NODE_ENV === 'development') {
     id: PropTypes.string,
     focusable: PropTypes.bool,
     disabled: PropTypes.bool,
+    element: PropTypes.string,
   };
 }
 
