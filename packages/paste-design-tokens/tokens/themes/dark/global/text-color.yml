@@ -94,3 +94,15 @@ props:
   color-text-icon-inverse:
     value: "{!palette-gray-20}"
     comment: Default icon color for inverse backgrounds.
+  color-text-icon-error:
+    value: "{!palette-red-40}"
+    comment: Icon color for indicating an error.
+  color-text-icon-success:
+    value: "{!palette-green-50}"
+    comment: Icon color for indicating success.
+  color-text-icon-warning:
+    value: "{!palette-orange-40}"
+    comment: Icon color for indicating a warning.
+  color-text-icon-neutral:
+    value: "{!palette-blue-40}"
+    comment: Icon color for being neutral.
