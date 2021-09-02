@@ -10,6 +10,7 @@ const merge = require('deepmerge');
 
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   color: 'colorTextLink',
+  textAlign: 'left',
   transition: 'none',
   _hover: {color: 'colorTextLinkStronger', textDecoration: 'underline'},
   _focus: {color: 'colorTextLinkStronger', textDecoration: 'underline'},
@@ -18,10 +19,12 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
   color: 'colorTextLinkStronger',
+  textAlign: 'left',
 });
 
 const disabledStyles: BoxStyleProps = merge(BaseStyles.disabled, {
   color: 'colorTextLinkWeak',
+  textAlign: 'left',
 });
 
 const ButtonStyleMapping = {
