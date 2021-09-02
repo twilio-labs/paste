@@ -40,6 +40,7 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
           position="relative"
           ref={hoverRef}
           role="button"
+          zIndex="zIndex10"
           transition="background-color 100ms ease-out"
           _hover={{
             backgroundColor: 'colorBackgroundStrong',
