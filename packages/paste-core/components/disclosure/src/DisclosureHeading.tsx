@@ -11,7 +11,10 @@ import {useHover, getIconHoverStyles} from './utils';
 import {IconSizeFromHeading} from './constants';
 
 const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosureHeadingProps>(
-  ({children, marginBottom, renderAs, disclosureVariant, customDisabled, customFocusable, variant, ...props}, ref) => {
+  (
+    {children, element, marginBottom, renderAs, disclosureVariant, customDisabled, customFocusable, variant, ...props},
+    ref
+  ) => {
     const theme = useTheme();
     const hoverRef = React.useRef(null);
     const isHovered = useHover(hoverRef);
@@ -35,6 +38,7 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
           borderBottomRightRadius={bottomBorderRadius}
           cursor="pointer"
           display="flex"
+          element={element}
           outline="none"
           padding="space30"
           position="relative"
@@ -74,7 +78,14 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
   }
 );
 
-const DisclosureHeading: React.FC<DisclosureHeadingProps> = ({children, as, disabled, focusable, ...props}) => {
+const DisclosureHeading: React.FC<DisclosureHeadingProps> = ({
+  children,
+  as,
+  element = 'DISCLOSURE_HEADING',
+  disabled,
+  focusable,
+  ...props
+}) => {
   const {disclosure, variant} = React.useContext(DisclosureContext);
   return (
     <DisclosurePrimitive
@@ -85,6 +96,7 @@ const DisclosureHeading: React.FC<DisclosureHeadingProps> = ({children, as, disa
       customFocusable={focusable}
       disabled={disabled}
       disclosureVariant={variant}
+      element={element}
       focusable={focusable}
       renderAs={as}
     >
