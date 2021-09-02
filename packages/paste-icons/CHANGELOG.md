@@ -1,5 +1,31 @@
 # Change Log
 
+## 5.4.0
+
+### Minor Changes
+
+- [`8394ac05`](https://github.com/twilio-labs/paste/commit/8394ac050a4652d046cdd6734bef1466967e4eea) [#1837](https://github.com/twilio-labs/paste/pull/1837) Thanks [@gloriliale](https://github.com/gloriliale)! - Added the following icons:
+
+  - AttachmentIcon
+  - BoldIcon
+  - FileIcon
+  - HistoryIcon
+  - ItalicIcon
+  - OrderedListIcon
+  - StrikethroughIcon
+  - UnderlineIcon
+  - UnorderedListIcon
+
+* [`e967a33c`](https://github.com/twilio-labs/paste/commit/e967a33c342172dd0d9aba74b8425ccceeac755d) [#1774](https://github.com/twilio-labs/paste/pull/1774) Thanks [@nkrantz](https://github.com/nkrantz)! - Added the following icons:
+
+  - ProcessDisabledIcon
+  - ProcessDraftIcon
+  - ProcessErrorIcon
+  - ProcessInProgressIcon
+  - ProcessNeutralIcon
+  - ProcessSuccessIcon
+  - ProcessWarningIcon
+
 ## 5.3.2
 
 ### Patch Changes
