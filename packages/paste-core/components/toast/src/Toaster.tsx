@@ -80,8 +80,13 @@ const Toaster: React.FC<ToasterProps> = ({toasts, pop, ...props}) => {
           <AnimatedToast as="div" key={state.key} style={styles as any}>
             <Toast
               key={item.id}
-              onDismiss={() => pop(item.id)}
               {...item}
+              onDismiss={() => {
+                if (item.onDismiss != null) {
+                  item.onDismiss();
+                }
+                pop(item.id);
+              }}
               ref={(ref) => {
                 if (ref != null) {
                   // add a ref tot he HTMl for the item so we can use it for height calculations
