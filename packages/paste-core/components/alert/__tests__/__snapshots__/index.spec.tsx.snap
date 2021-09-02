@@ -187,6 +187,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
   margin: 0;
   cursor: pointer;
   color: rgb(0,94,166);
+  text-align: left;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
@@ -570,6 +571,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
   margin: 0;
   cursor: pointer;
   color: rgb(0,94,166);
+  text-align: left;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
@@ -913,6 +915,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
   margin: 0;
   cursor: pointer;
   color: rgb(0,94,166);
+  text-align: left;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
