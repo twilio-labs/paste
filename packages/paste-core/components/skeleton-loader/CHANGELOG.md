@@ -1,5 +1,11 @@
 # @twilio-paste/skeleton-loader
 
+## 0.1.1
+
+### Patch Changes
+
+- [`ab55fa27`](https://github.com/twilio-labs/paste/commit/ab55fa270f982ad867a5933dcea8ee240e780fed) [#1814](https://github.com/twilio-labs/paste/pull/1814) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Skeleton-loader] Enable Compoonent to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 0.1.0
 
 ### Minor Changes

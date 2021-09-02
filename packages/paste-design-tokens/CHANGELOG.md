@@ -1,5 +1,18 @@
 # Change Log
 
+## 6.11.1
+
+### Patch Changes
+
+- [`30160725`](https://github.com/twilio-labs/paste/commit/30160725ecdb5a028f15a162c7a6806b7bc7b178) [#1774](https://github.com/twilio-labs/paste/pull/1774) Thanks [@nkrantz](https://github.com/nkrantz)! - Added an alias for orange-65 and added the following text color tokens for icons:
+
+  - color-text-icon-error -> red-60 (default) / red-40 (dark)
+  - color-text-icon-success -> green-70 (default) / green-50 (dark)
+  - color-text-icon-warning -> orange-65 (default) / orange-40 (dark)
+  - color-text-icon-neutral -> blue-80 (default) / blue-40 (dark)
+  - color-text-icon-brand-highlight -> amaranth
+  - color-text-icon-brand-inverse -> gray-0
+
 ## 6.11.0
 
 ### Minor Changes
