@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {fireEvent, render, screen, waitFor} from '@testing-library/react';
+import {renderHook, act} from '@testing-library/react-hooks';
 import {loremIpsum} from 'lorem-ipsum';
 import {Button} from '@twilio-paste/button';
 import {Theme} from '@twilio-paste/theme';
@@ -102,6 +103,50 @@ describe('Toaster', () => {
       const dismissButton = screen.getByText('dismiss this toast');
       fireEvent.click(dismissButton);
       expect(mockDismiss).toHaveBeenCalledWith('custom_id');
+    });
+
+    it('should call onDismiss when unmounting', () => {
+      const {result} = renderHook(() => useToaster());
+      render(
+        <Theme.Provider theme="default">
+          <Toaster {...result.current} data-testid="toaster" />
+        </Theme.Provider>
+      );
+
+      const onDismissMock: jest.Mock = jest.fn();
+
+      // Timeout unmount
+      act(() => {
+        result.current.push({
+          message: 'hi',
+          variant: 'error',
+          id: 'custom_id',
+          onDismiss: onDismissMock,
+          dismissAfter: 1000,
+        });
+      });
+      expect(result.current.toasts.length).toEqual(1);
+      act(() => {
+        jest.advanceTimersByTime(1000);
+      });
+      expect(result.current.toasts.length).toEqual(0);
+      expect(onDismissMock).toBeCalledTimes(1);
+
+      // manual unmount
+      act(() => {
+        result.current.push({
+          message: 'hi',
+          variant: 'success',
+          id: 'pop_id',
+          onDismiss: onDismissMock,
+        });
+      });
+      expect(result.current.toasts.length).toEqual(1);
+      act(() => {
+        result.current.pop('pop_id');
+      });
+      expect(result.current.toasts.length).toEqual(0);
+      expect(onDismissMock).toBeCalledTimes(2);
     });
   });
 
