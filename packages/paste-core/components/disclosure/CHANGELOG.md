@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.0.7
+
+### Patch Changes
+
+- [`ef450904`](https://github.com/twilio-labs/paste/commit/ef450904d727da5d1ddffc770a16a25c4a947247) [#1831](https://github.com/twilio-labs/paste/pull/1831) Thanks [@andipants12](https://github.com/andipants12)! - [Disclosure] Add z-index to Disclosure Heading to fix flash that occurs when disclosure content renders and the z-indeces are recalculated.
+
 ## 5.0.6
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/icons",
-  "version": "5.3.2",
+  "version": "5.4.0",
   "description": "Twilio's icon library, ready for use and with accessibility considerations",
   "author": "Twilio Inc.",
   "license": "MIT",
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@twilio-paste/box": "^4.0.3",
-    "@twilio-paste/design-tokens": "^6.9.0",
+    "@twilio-paste/design-tokens": "^6.11.1",
     "@twilio-paste/style-props": "^3.0.2",
     "@twilio-paste/styling-library": "^0.3.1",
     "@twilio-paste/theme": "^5.2.0",

@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.1.0
+
+### Minor Changes
+
+- [`f0737a27`](https://github.com/twilio-labs/paste/commit/f0737a279663a774e4d0a4beaa70ee6c11a55da7) [#1817](https://github.com/twilio-labs/paste/pull/1817) Thanks [@andipants12](https://github.com/andipants12)! - [Table]: Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 2.0.4
 
 ### Patch Changes

@@ -1,5 +1,41 @@
 # Change Log
 
+## 10.11.0
+
+### Minor Changes
+
+- [`63a39e0c`](https://github.com/twilio-labs/paste/commit/63a39e0c86d5c7683420f373eb3ed71e02e621aa) [#1818](https://github.com/twilio-labs/paste/pull/1818) Thanks [@TheSisb](https://github.com/TheSisb)! - [Toast] The `useToaster` push method now allows passing in an `onDismiss` callback function.
+
+* [`f0737a27`](https://github.com/twilio-labs/paste/commit/f0737a279663a774e4d0a4beaa70ee6c11a55da7) [#1817](https://github.com/twilio-labs/paste/pull/1817) Thanks [@andipants12](https://github.com/andipants12)! - [Table]: Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+### Patch Changes
+
+- [`1cf0ee5f`](https://github.com/twilio-labs/paste/commit/1cf0ee5fb4d969474de7a3c299706d1fbdcf0482) [#1810](https://github.com/twilio-labs/paste/pull/1810) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sibling Box] Enable SiblingBox to respect element customizations set on the customization provider. SiblingBox now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`9ed68c88`](https://github.com/twilio-labs/paste/commit/9ed68c886cd0992ff32b5aceff59c1f62a661e69) [#1826](https://github.com/twilio-labs/paste/pull/1826) Thanks [@andipants12](https://github.com/andipants12)! - [Button]: Link, Destructive link, and inverse destructive link button variants should have left aligned text.
+
+- [`30160725`](https://github.com/twilio-labs/paste/commit/30160725ecdb5a028f15a162c7a6806b7bc7b178) [#1774](https://github.com/twilio-labs/paste/pull/1774) Thanks [@nkrantz](https://github.com/nkrantz)! - Added an alias for orange-65 and added the following text color tokens for icons:
+
+  - color-text-icon-error -> red-60 (default) / red-40 (dark)
+  - color-text-icon-success -> green-70 (default) / green-50 (dark)
+  - color-text-icon-warning -> orange-65 (default) / orange-40 (dark)
+  - color-text-icon-neutral -> blue-80 (default) / blue-40 (dark)
+  - color-text-icon-brand-highlight -> amaranth
+  - color-text-icon-brand-inverse -> gray-0
+
+* [`ef450904`](https://github.com/twilio-labs/paste/commit/ef450904d727da5d1ddffc770a16a25c4a947247) [#1831](https://github.com/twilio-labs/paste/pull/1831) Thanks [@andipants12](https://github.com/andipants12)! - [Disclosure] Add z-index to Disclosure Heading to fix flash that occurs when disclosure content renders and the z-indeces are recalculated.
+
+- [`ab55fa27`](https://github.com/twilio-labs/paste/commit/ab55fa270f982ad867a5933dcea8ee240e780fed) [#1814](https://github.com/twilio-labs/paste/pull/1814) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Skeleton-loader] Enable Compoonent to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+- Updated dependencies [[`1cf0ee5f`](https://github.com/twilio-labs/paste/commit/1cf0ee5fb4d969474de7a3c299706d1fbdcf0482), [`9ed68c88`](https://github.com/twilio-labs/paste/commit/9ed68c886cd0992ff32b5aceff59c1f62a661e69), [`30160725`](https://github.com/twilio-labs/paste/commit/30160725ecdb5a028f15a162c7a6806b7bc7b178), [`ef450904`](https://github.com/twilio-labs/paste/commit/ef450904d727da5d1ddffc770a16a25c4a947247), [`63a39e0c`](https://github.com/twilio-labs/paste/commit/63a39e0c86d5c7683420f373eb3ed71e02e621aa), [`ab55fa27`](https://github.com/twilio-labs/paste/commit/ab55fa270f982ad867a5933dcea8ee240e780fed), [`f0737a27`](https://github.com/twilio-labs/paste/commit/f0737a279663a774e4d0a4beaa70ee6c11a55da7)]:
+  - @twilio-paste/sibling-box@3.0.4
+  - @twilio-paste/button@7.0.8
+  - @twilio-paste/design-tokens@6.11.1
+  - @twilio-paste/disclosure@5.0.7
+  - @twilio-paste/toast@5.1.0
+  - @twilio-paste/skeleton-loader@0.1.1
+  - @twilio-paste/table@2.1.0
+
 ## 10.10.1
 
 ### Patch Changes

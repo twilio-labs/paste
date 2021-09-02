@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/skeleton-loader",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "category": "data display",
   "status": "production",
   "description": "A Skeleton Loader is a visual placeholder that gives users a hint of what type of information will be loaded on a page.",
@@ -39,7 +39,7 @@
   "devDependencies": {
     "@twilio-paste/animation-library": "^0.3.1",
     "@twilio-paste/box": "^4.0.3",
-    "@twilio-paste/design-tokens": "^6.6.0",
+    "@twilio-paste/design-tokens": "^6.11.1",
     "@twilio-paste/style-props": "^3.0.2",
     "@twilio-paste/styling-library": "^0.3.1",
     "@twilio-paste/theme": "^5.0.2",

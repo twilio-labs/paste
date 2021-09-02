@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/table",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "category": "data display",
   "status": "production",
   "description": "A Table is a collection of information displayed across columns and rows.",
@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@twilio-paste/box": "^4.0.5",
-    "@twilio-paste/design-tokens": "^6.7.0",
+    "@twilio-paste/design-tokens": "^6.11.1",
     "@twilio-paste/style-props": "^3.0.4",
     "@twilio-paste/styling-library": "^0.3.2",
     "@twilio-paste/theme": "^5.1.0",
