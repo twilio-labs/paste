@@ -11,7 +11,7 @@ export interface PinIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const PinIcon: React.FC<PinIconProps> = ({as, display, size, color, title, decorative}) => {
+const PinIcon: React.FC<PinIconProps> = ({as, display, element = 'ICON', size, color, title, decorative}) => {
   const titleId = `PinIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +19,7 @@ const PinIcon: React.FC<PinIconProps> = ({as, display, size, color, title, decor
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg role="img" aria-hidden={decorative} width="100%" height="100%" viewBox="0 0 20 20" aria-labelledby={titleId}>
         {title ? <title id={titleId}>{title}</title> : null}
         <path

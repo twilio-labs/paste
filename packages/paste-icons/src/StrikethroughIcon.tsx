@@ -11,7 +11,15 @@ export interface StrikethroughIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const StrikethroughIcon: React.FC<StrikethroughIconProps> = ({as, display, size, color, title, decorative}) => {
+const StrikethroughIcon: React.FC<StrikethroughIconProps> = ({
+  as,
+  display,
+  element = 'ICON',
+  size,
+  color,
+  title,
+  decorative,
+}) => {
   const titleId = `StrikethroughIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +27,7 @@ const StrikethroughIcon: React.FC<StrikethroughIconProps> = ({as, display, size,
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}

@@ -11,7 +11,15 @@ export interface ProcessErrorIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ProcessErrorIcon: React.FC<ProcessErrorIconProps> = ({as, display, size, color, title, decorative}) => {
+const ProcessErrorIcon: React.FC<ProcessErrorIconProps> = ({
+  as,
+  display,
+  element = 'ICON',
+  size,
+  color,
+  title,
+  decorative,
+}) => {
   const titleId = `ProcessErrorIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +27,7 @@ const ProcessErrorIcon: React.FC<ProcessErrorIconProps> = ({as, display, size, c
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}

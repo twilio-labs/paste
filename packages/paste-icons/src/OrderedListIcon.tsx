@@ -11,7 +11,15 @@ export interface OrderedListIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const OrderedListIcon: React.FC<OrderedListIconProps> = ({as, display, size, color, title, decorative}) => {
+const OrderedListIcon: React.FC<OrderedListIconProps> = ({
+  as,
+  display,
+  element = 'ICON',
+  size,
+  color,
+  title,
+  decorative,
+}) => {
   const titleId = `OrderedListIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +27,7 @@ const OrderedListIcon: React.FC<OrderedListIconProps> = ({as, display, size, col
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}

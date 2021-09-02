@@ -11,7 +11,7 @@ export interface FileIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const FileIcon: React.FC<FileIconProps> = ({as, display, size, color, title, decorative}) => {
+const FileIcon: React.FC<FileIconProps> = ({as, display, element = 'ICON', size, color, title, decorative}) => {
   const titleId = `FileIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +19,7 @@ const FileIcon: React.FC<FileIconProps> = ({as, display, size, color, title, dec
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}
