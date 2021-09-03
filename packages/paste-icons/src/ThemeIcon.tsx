@@ -11,7 +11,7 @@ export interface ThemeIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ThemeIcon: React.FC<ThemeIconProps> = ({as, display, size, color, title, decorative}) => {
+const ThemeIcon: React.FC<ThemeIconProps> = ({as, display, element = 'ICON', size, color, title, decorative}) => {
   const titleId = `ThemeIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +19,7 @@ const ThemeIcon: React.FC<ThemeIconProps> = ({as, display, size, color, title, d
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}

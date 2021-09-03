@@ -11,7 +11,15 @@ export interface DataBarChartIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const DataBarChartIcon: React.FC<DataBarChartIconProps> = ({as, display, size, color, title, decorative}) => {
+const DataBarChartIcon: React.FC<DataBarChartIconProps> = ({
+  as,
+  display,
+  element = 'ICON',
+  size,
+  color,
+  title,
+  decorative,
+}) => {
   const titleId = `DataBarChartIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +27,7 @@ const DataBarChartIcon: React.FC<DataBarChartIconProps> = ({as, display, size, c
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}

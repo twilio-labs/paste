@@ -11,7 +11,15 @@ export interface LightModeIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const LightModeIcon: React.FC<LightModeIconProps> = ({as, display, size, color, title, decorative}) => {
+const LightModeIcon: React.FC<LightModeIconProps> = ({
+  as,
+  display,
+  element = 'ICON',
+  size,
+  color,
+  title,
+  decorative,
+}) => {
   const titleId = `LightModeIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +27,7 @@ const LightModeIcon: React.FC<LightModeIconProps> = ({as, display, size, color, 
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}

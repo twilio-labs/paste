@@ -11,7 +11,7 @@ export interface BoldIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const BoldIcon: React.FC<BoldIconProps> = ({as, display, size, color, title, decorative}) => {
+const BoldIcon: React.FC<BoldIconProps> = ({as, display, element = 'ICON', size, color, title, decorative}) => {
   const titleId = `BoldIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +19,7 @@ const BoldIcon: React.FC<BoldIconProps> = ({as, display, size, color, title, dec
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}

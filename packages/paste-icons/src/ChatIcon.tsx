@@ -11,7 +11,7 @@ export interface ChatIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ChatIcon: React.FC<ChatIconProps> = ({as, display, size, color, title, decorative}) => {
+const ChatIcon: React.FC<ChatIconProps> = ({as, display, element = 'ICON', size, color, title, decorative}) => {
   const titleId = `ChatIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +19,7 @@ const ChatIcon: React.FC<ChatIconProps> = ({as, display, size, color, title, dec
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}

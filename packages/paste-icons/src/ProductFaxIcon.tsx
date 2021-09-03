@@ -11,7 +11,15 @@ export interface ProductFaxIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ProductFaxIcon: React.FC<ProductFaxIconProps> = ({as, display, size, color, title, decorative}) => {
+const ProductFaxIcon: React.FC<ProductFaxIconProps> = ({
+  as,
+  display,
+  element = 'ICON',
+  size,
+  color,
+  title,
+  decorative,
+}) => {
   const titleId = `ProductFaxIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +27,7 @@ const ProductFaxIcon: React.FC<ProductFaxIconProps> = ({as, display, size, color
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg role="img" aria-hidden={decorative} width="100%" height="100%" viewBox="0 0 20 20" aria-labelledby={titleId}>
         {title ? <title id={titleId}>{title}</title> : null}
         <path

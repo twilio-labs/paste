@@ -11,7 +11,7 @@ export interface BuiltInIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const BuiltInIcon: React.FC<BuiltInIconProps> = ({as, display, size, color, title, decorative}) => {
+const BuiltInIcon: React.FC<BuiltInIconProps> = ({as, display, element = 'ICON', size, color, title, decorative}) => {
   const titleId = `BuiltInIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +19,7 @@ const BuiltInIcon: React.FC<BuiltInIconProps> = ({as, display, size, color, titl
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg role="img" aria-hidden={decorative} width="100%" height="100%" viewBox="0 0 20 20" aria-labelledby={titleId}>
         {title ? <title id={titleId}>{title}</title> : null}
         <path
