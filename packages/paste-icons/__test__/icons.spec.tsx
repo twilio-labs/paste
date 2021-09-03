@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {matchers} from 'jest-emotion';
-import {render, screen} from '@testing-library/react';
-import {Theme} from '@twilio-paste/theme';
+import {render} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {AgentIcon} from '../src/AgentIcon';
 
