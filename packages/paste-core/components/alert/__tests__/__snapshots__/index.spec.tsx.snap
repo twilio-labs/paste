@@ -78,7 +78,7 @@ exports[`Alert Variant error Should render an error alert 1`] = `
         <span
           className="emotion-0"
           color="colorTextError"
-          data-paste-element="BOX"
+          data-paste-element="ICON"
           display="block"
           size="sizeIcon20"
         >
@@ -267,7 +267,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
         <span
           className="emotion-0"
           color="colorTextError"
-          data-paste-element="BOX"
+          data-paste-element="ICON"
           display="block"
           size="sizeIcon20"
         >
@@ -331,7 +331,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
             <span
               className="emotion-3"
               color="colorTextIcon"
-              data-paste-element="BOX"
+              data-paste-element="ICON"
               display="block"
               size="sizeIcon20"
             >
@@ -441,7 +441,7 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
         <span
           className="emotion-0"
           color="colorTextNeutral"
-          data-paste-element="BOX"
+          data-paste-element="ICON"
           display="block"
           size="sizeIcon20"
         >
@@ -630,7 +630,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
         <span
           className="emotion-0"
           color="colorTextNeutral"
-          data-paste-element="BOX"
+          data-paste-element="ICON"
           display="block"
           size="sizeIcon20"
         >
@@ -694,7 +694,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
             <span
               className="emotion-3"
               color="colorTextIcon"
-              data-paste-element="BOX"
+              data-paste-element="ICON"
               display="block"
               size="sizeIcon20"
             >
@@ -804,7 +804,7 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
         <span
           className="emotion-0"
           color="colorTextWarning"
-          data-paste-element="BOX"
+          data-paste-element="ICON"
           display="block"
           size="sizeIcon20"
         >
@@ -995,7 +995,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
         <span
           className="emotion-0"
           color="colorTextWarning"
-          data-paste-element="BOX"
+          data-paste-element="ICON"
           display="block"
           size="sizeIcon20"
         >
@@ -1061,7 +1061,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
             <span
               className="emotion-3"
               color="colorTextIcon"
-              data-paste-element="BOX"
+              data-paste-element="ICON"
               display="block"
               size="sizeIcon20"
             >

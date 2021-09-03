@@ -14,6 +14,7 @@ export interface ProductInternetOfThingsSuperSIMIconProps extends IconWrapperPro
 const ProductInternetOfThingsSuperSIMIcon: React.FC<ProductInternetOfThingsSuperSIMIconProps> = ({
   as,
   display,
+  element = 'ICON',
   size,
   color,
   title,
@@ -26,7 +27,7 @@ const ProductInternetOfThingsSuperSIMIcon: React.FC<ProductInternetOfThingsSuper
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}

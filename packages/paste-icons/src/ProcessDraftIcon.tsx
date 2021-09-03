@@ -11,7 +11,15 @@ export interface ProcessDraftIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ProcessDraftIcon: React.FC<ProcessDraftIconProps> = ({as, display, size, color, title, decorative}) => {
+const ProcessDraftIcon: React.FC<ProcessDraftIconProps> = ({
+  as,
+  display,
+  element = 'ICON',
+  size,
+  color,
+  title,
+  decorative,
+}) => {
   const titleId = `ProcessDraftIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +27,7 @@ const ProcessDraftIcon: React.FC<ProcessDraftIconProps> = ({as, display, size, c
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type {IconSizeOptions, TextColorOptions} from '@twilio-paste/style-props';
-import {DefaultTheme} from '@twilio-paste/theme';
+import {DefaultTheme, useTheme} from '@twilio-paste/theme';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {Flex} from '@twilio-paste/flex';
@@ -73,4 +74,23 @@ export const Alignment = (): React.ReactNode => {
 
 Alignment.story = {
   name: 'alignment',
+};
+
+export const CustomizedIcon: React.FC = () => {
+  const currentTheme = useTheme();
+  return (
+    <CustomizationProvider
+      baseTheme="default"
+      theme={currentTheme}
+      elements={{
+        ICON: {borderRadius: 'borderRadius20', backgroundColor: 'colorBackgroundSuccess'},
+        CUSTOM_ICON: {borderRadius: 'borderRadius20', backgroundColor: 'colorBackgroundDestructive'},
+      }}
+    >
+      <Stack orientation="vertical" spacing="space40">
+        <CopyIcon color="colorTextWeakest" decorative />
+        <CopyIcon color="colorTextWeakest" element="CUSTOM_ICON" decorative />
+      </Stack>
+    </CustomizationProvider>
+  );
 };

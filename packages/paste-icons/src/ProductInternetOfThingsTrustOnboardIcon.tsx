@@ -14,6 +14,7 @@ export interface ProductInternetOfThingsTrustOnboardIconProps extends IconWrappe
 const ProductInternetOfThingsTrustOnboardIcon: React.FC<ProductInternetOfThingsTrustOnboardIconProps> = ({
   as,
   display,
+  element = 'ICON',
   size,
   color,
   title,
@@ -26,7 +27,7 @@ const ProductInternetOfThingsTrustOnboardIcon: React.FC<ProductInternetOfThingsT
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}

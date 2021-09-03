@@ -11,7 +11,15 @@ export interface ProcessDisabledIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ProcessDisabledIcon: React.FC<ProcessDisabledIconProps> = ({as, display, size, color, title, decorative}) => {
+const ProcessDisabledIcon: React.FC<ProcessDisabledIconProps> = ({
+  as,
+  display,
+  element = 'ICON',
+  size,
+  color,
+  title,
+  decorative,
+}) => {
   const titleId = `ProcessDisabledIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +27,7 @@ const ProcessDisabledIcon: React.FC<ProcessDisabledIconProps> = ({as, display, s
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}

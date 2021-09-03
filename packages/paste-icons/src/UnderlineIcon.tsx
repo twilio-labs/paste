@@ -11,7 +11,15 @@ export interface UnderlineIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const UnderlineIcon: React.FC<UnderlineIconProps> = ({as, display, size, color, title, decorative}) => {
+const UnderlineIcon: React.FC<UnderlineIconProps> = ({
+  as,
+  display,
+  element = 'ICON',
+  size,
+  color,
+  title,
+  decorative,
+}) => {
   const titleId = `UnderlineIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +27,7 @@ const UnderlineIcon: React.FC<UnderlineIconProps> = ({as, display, size, color, 
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}

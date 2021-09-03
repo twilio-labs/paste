@@ -14,6 +14,7 @@ export interface ProductInternetOfThingsNarrowbandIconProps extends IconWrapperP
 const ProductInternetOfThingsNarrowbandIcon: React.FC<ProductInternetOfThingsNarrowbandIconProps> = ({
   as,
   display,
+  element = 'ICON',
   size,
   color,
   title,
@@ -26,7 +27,7 @@ const ProductInternetOfThingsNarrowbandIcon: React.FC<ProductInternetOfThingsNar
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}
