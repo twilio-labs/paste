@@ -11,7 +11,7 @@ export interface WarningIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const WarningIcon: React.FC<WarningIconProps> = ({as, display, size, color, title, decorative}) => {
+const WarningIcon: React.FC<WarningIconProps> = ({as, display, element = 'ICON', size, color, title, decorative}) => {
   const titleId = `WarningIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +19,7 @@ const WarningIcon: React.FC<WarningIconProps> = ({as, display, size, color, titl
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}

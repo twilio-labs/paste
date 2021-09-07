@@ -11,7 +11,7 @@ export interface ItalicIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ItalicIcon: React.FC<ItalicIconProps> = ({as, display, size, color, title, decorative}) => {
+const ItalicIcon: React.FC<ItalicIconProps> = ({as, display, element = 'ICON', size, color, title, decorative}) => {
   const titleId = `ItalicIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +19,7 @@ const ItalicIcon: React.FC<ItalicIconProps> = ({as, display, size, color, title,
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}
