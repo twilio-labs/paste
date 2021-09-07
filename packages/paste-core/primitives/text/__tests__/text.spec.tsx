@@ -675,7 +675,7 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('customizable-box');
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(20,176,83)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(14,124,58)', {target: ':hover'});
   });
 
   it('should override existing pseudo selector styles when provided as element styles on the customization provider', (): void => {
@@ -714,7 +714,7 @@ describe('Customization', () => {
       </CustomizationProvider>
     );
     const renderedBox = screen.getByTestId('customizable-box');
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(20,176,83)');
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(14,124,58)');
   });
 
   it('should add custom styles to variant pseudo selectors when provided as element styles on the customization provider', (): void => {
