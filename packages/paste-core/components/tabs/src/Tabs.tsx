@@ -23,18 +23,18 @@ export interface TabsProps extends TabPrimitiveInitialState {
 const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
   ({children, element = 'TABS', orientation = 'horizontal', state, variant, ...initialState}, ref) => {
     const tab = state || useTabPrimitiveState({orientation, ...initialState});
-    const value = React.useMemo(() => ({...tab, variant}), [...Object.values(tab), variant]);
+    const value = React.useMemo(() => ({orientation, ...tab, variant}), [...Object.values(tab), orientation, variant]);
     const returnValue = <TabsContext.Provider value={value}>{children}</TabsContext.Provider>;
 
     if (tab.orientation === 'vertical') {
       return (
-        <Flex element={element} ref={ref} wrap={false} vAlignContent="stretch">
+        <Flex element={`VERTICAL_${element}`} ref={ref} wrap={false} vAlignContent="stretch">
           {returnValue}
         </Flex>
       );
     }
 
-    return <Box element={element}>{returnValue}</Box>;
+    return <Box element={`HORIZONTAL_${element}`}>{returnValue}</Box>;
   }
 );
 
@@ -42,7 +42,7 @@ if (process.env.NODE_ENV === 'development') {
   Tabs.propTypes = {
     element: PropTypes.string,
     selectedId: PropTypes.string,
-    orientation: PropTypes.oneOf(['horizontal', 'vertical', null]),
+    orientation: PropTypes.oneOf(['horizontal', 'vertical', undefined]),
     variant: PropTypes.oneOf(['fitted', null]),
   };
 }

@@ -10,6 +10,7 @@ export interface TabListProps {
   'aria-label': string;
   disabled?: boolean | undefined;
   element?: BoxProps['element'];
+
   focusable?: boolean | undefined;
   children: React.ReactNode;
   variant?: Variants;
@@ -21,7 +22,7 @@ const HorizontalTabList: React.FC<{element?: BoxProps['element']}> = ({children,
     borderBottomWidth="borderWidth10"
     borderBottomColor="colorBorderWeak"
     borderBottomStyle="solid"
-    element={element}
+    element={`HORIZONTAL_${element}`}
     marginBottom="space60"
   >
     {children}
@@ -33,7 +34,7 @@ const VerticalTabList: React.FC<{element?: BoxProps['element']}> = ({children, e
     borderLeftWidth="borderWidth10"
     borderLeftColor="colorBorderWeak"
     borderLeftStyle="solid"
-    element={element}
+    element={`VERTICAL_${element}`}
     marginRight="space110"
     minWidth="size20"
     maxWidth="size40"
@@ -45,10 +46,17 @@ const VerticalTabList: React.FC<{element?: BoxProps['element']}> = ({children, e
 const TabList = React.forwardRef<HTMLDivElement, TabListProps>(
   ({children, element = 'TAB_LIST', variant, ...props}, ref) => {
     const tab = React.useContext(TabsContext);
-    const TabListWrapper = tab.orientation === 'vertical' ? VerticalTabList : HorizontalTabList;
+    const {orientation} = tab;
+    const TabListWrapper = orientation === 'vertical' ? VerticalTabList : HorizontalTabList;
 
     return (
-      <TabPrimitiveList {...(tab as any)} as={Box} {...props} element={element} ref={ref}>
+      <TabPrimitiveList
+        {...(tab as any)}
+        as={Box}
+        {...props}
+        element={`${orientation.toUpperCase()}_${element}`}
+        ref={ref}
+      >
         <TabListWrapper element={`${element}_CHILD`}>{children}</TabListWrapper>
       </TabPrimitiveList>
     );

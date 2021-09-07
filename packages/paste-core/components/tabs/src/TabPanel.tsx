@@ -22,8 +22,16 @@ export interface TabPanelProps {
 
 const TabPanel = React.forwardRef<HTMLDivElement, TabPanelProps>(({children, element = 'TAB_PANEL', ...props}, ref) => {
   const tab = React.useContext(TabsContext);
+
   return (
-    <TabPrimitivePanel {...(tab as any)} {...tabPanelStyles} {...props} element={element} as={Box} ref={ref}>
+    <TabPrimitivePanel
+      {...(tab as any)}
+      {...tabPanelStyles}
+      {...props}
+      element={`${tab.orientation.toUpperCase()}_${element}`}
+      as={Box}
+      ref={ref}
+    >
       {children}
     </TabPrimitivePanel>
   );

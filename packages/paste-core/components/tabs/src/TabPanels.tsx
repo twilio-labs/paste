@@ -3,6 +3,8 @@ import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 
+import {TabsContext} from './TabsContext';
+
 export interface TabPanelsProps {
   children: React.ReactNode;
   element?: BoxProps['element'];
@@ -10,8 +12,9 @@ export interface TabPanelsProps {
 
 const TabPanels = React.forwardRef<HTMLDivElement, TabPanelsProps>(
   ({children, element = 'TAB_PANELS', ...props}, ref) => {
+    const {orientation} = React.useContext(TabsContext);
     return (
-      <Box {...safelySpreadBoxProps(props)} element={element} width="100%" ref={ref}>
+      <Box {...safelySpreadBoxProps(props)} element={`${orientation.toUpperCase()}_${element}`} width="100%" ref={ref}>
         {children}
       </Box>
     );

@@ -103,8 +103,8 @@ const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, element = 'TA
   const tab = React.useContext(TabsContext);
   const boxStyles = React.useMemo(() => getTabBoxStyles(tab.orientation, tab.variant), [tab.orientation, tab.variant]);
 
-  // Do we need to pass into the primitive wrapper?
-  // is this just an HOC? Does it add something to the DOM? --> needs element prop.
+  const {orientation} = tab;
+
   return (
     <TabPrimitive {...(tab as any)} {...tabProps} ref={ref}>
       {(props: TabProps) => {
@@ -114,14 +114,14 @@ const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, element = 'TA
             {...boxStyles}
             as="span"
             cursor={props['aria-disabled'] ? 'not-allowed' : 'pointer'}
-            element={element}
+            element={`${orientation.toUpperCase()}_${element}`}
             fontSize="fontSize30"
             fontWeight="fontWeightSemibold"
-            overflow={tab.orientation !== 'vertical' ? 'hidden' : undefined}
+            overflow={orientation !== 'vertical' ? 'hidden' : undefined}
             position="relative"
-            textOverflow={tab.orientation !== 'vertical' ? 'ellipsis' : undefined}
+            textOverflow={orientation !== 'vertical' ? 'ellipsis' : undefined}
             transition="border-color 100ms ease, color 100ms ease"
-            whiteSpace={tab.orientation !== 'vertical' ? 'nowrap' : undefined}
+            whiteSpace={orientation !== 'vertical' ? 'nowrap' : undefined}
           >
             {children}
           </Box>
@@ -136,7 +136,6 @@ if (process.env.NODE_ENV === 'development') {
     id: PropTypes.string,
     focusable: PropTypes.bool,
     disabled: PropTypes.bool,
-    element: PropTypes.string,
   };
 }
 
