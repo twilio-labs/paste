@@ -287,13 +287,24 @@ export const CustomHorizontalTabs: React.FC = () => {
           borderColor: 'colorBorderDestructiveWeak',
           marginY: 'space20',
         },
+        HORIZONTAL_CUSTOM_TAB: {
+          color: 'colorTextWarning',
+        },
+        HORIZONTAL_OTHER_TAB: {
+          color: 'colorText',
+        },
+        HORIZONTAL_DIFFERENT_PANEL: {
+          fontWeight: 'fontWeightBold',
+        },
       }}
     >
       <Tabs selectedId={selectedId} baseId="horizontal-tabs-example">
         <TabList aria-label="LGBTQ+ Projects">
-          <Tab>Inside Out</Tab>
+          <Tab element="CUSTOM_TAB">Inside Out</Tab>
           <Tab>Transgender District</Tab>
-          <Tab id={selectedId}>Audre Lorde Project</Tab>
+          <Tab element="OTHER_TAB" id={selectedId}>
+            Audre Lorde Project
+          </Tab>
           <Tab disabled>Coming soon...</Tab>
         </TabList>
         <TabPanels>
@@ -309,7 +320,7 @@ export const CustomHorizontalTabs: React.FC = () => {
             </Paragraph>
             <Anchor href="https://insideoutys.org/">Support Inside Out</Anchor>
           </TabPanel>
-          <TabPanel>
+          <TabPanel element="DIFFERENT_PANEL">
             <Heading as="h2" variant="heading20">
               Transgender District
             </Heading>
@@ -358,6 +369,12 @@ export const CustomVerticalTabs: React.FC = () => {
         VERTICAL_TAB: {
           fontFamily: 'fontFamilyCode',
         },
+        VERTICAL_CUSTOM_TAB: {
+          color: 'colorTextWarning',
+        },
+        VERTICAL_OTHER_TAB: {
+          color: 'colorText',
+        },
         VERTICAL_TAB_LIST: {
           borderColor: 'colorBorderDestructive',
           marginY: 'space100',
@@ -365,14 +382,19 @@ export const CustomVerticalTabs: React.FC = () => {
         VERTICAL_TAB_LIST_CHILD: {
           borderColor: 'colorBorderDestructive',
         },
+        VERTICAL_DIFFERENT_PANEL: {
+          fontWeight: 'fontWeightBold',
+        },
       }}
     >
       <Tabs orientation="vertical" selectedId={selectedId} baseId="vertical-tabs-example">
         <TabList aria-label="LGBTQ+ Projects">
           <Tab id={selectedId}>Inside Out</Tab>
-          <Tab>Transgender District</Tab>
+          <Tab element="CUSTOM_TAB">Transgender District</Tab>
           <Tab>Audre Lorde Project</Tab>
-          <Tab disabled>Coming soon...</Tab>
+          <Tab element="OTHER_TAB" disabled>
+            Coming soon...
+          </Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
@@ -399,7 +421,7 @@ export const CustomVerticalTabs: React.FC = () => {
             </Paragraph>
             <Anchor href="https://www.transgenderdistrictsf.com/">Support The Transgender District</Anchor>
           </TabPanel>
-          <TabPanel>
+          <TabPanel element="DIFFERENT_PANEL">
             <Heading as="h2" variant="heading20">
               Audre Lorde Project
             </Heading>

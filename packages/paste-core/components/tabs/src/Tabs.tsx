@@ -33,7 +33,7 @@ const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
     ]);
     const returnValue = <TabsContext.Provider value={value}>{children}</TabsContext.Provider>;
 
-    if (tab.orientation === 'vertical') {
+    if (tabOrientation === 'vertical') {
       return (
         <Flex element={`VERTICAL_${element}`} ref={ref} wrap={false} vAlignContent="stretch">
           {returnValue}
