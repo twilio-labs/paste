@@ -7,10 +7,33 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import axe from '../../../../../.jest/axe-helper';
 import {HorizontalTabs, StateHookTabs} from '../stories/index.stories';
 import {Tabs, Tab, TabList, TabPanels, TabPanel} from '../src';
+import {getElementName} from '../src/utils';
 
 expect.extend(matchers);
 
 describe('Tabs', () => {
+  describe('Utils', () => {
+    describe('getElementName', () => {
+      const mockFallbackName = 'TEST_ELEMENT_FALLBACK';
+
+      it('should return the correct string when element is undefined', () => {
+        expect(getElementName('horizontal', mockFallbackName)).toEqual('HORIZONTAL_TEST_ELEMENT_FALLBACK');
+        expect(getElementName('vertical', mockFallbackName)).toEqual('VERTICAL_TEST_ELEMENT_FALLBACK');
+      });
+      it('should return the correct string when element is null', () => {
+        expect(getElementName('horizontal', mockFallbackName, null)).toEqual('HORIZONTAL_TEST_ELEMENT_FALLBACK');
+        expect(getElementName('vertical', mockFallbackName, null)).toEqual('VERTICAL_TEST_ELEMENT_FALLBACK');
+      });
+      it('should return the correct string when element is defined', () => {
+        expect(getElementName('horizontal', mockFallbackName, 'CUSTOM_NAME')).toEqual('CUSTOM_NAME');
+        expect(getElementName('vertical', mockFallbackName, 'CUSTOM_NAME')).toEqual('CUSTOM_NAME');
+      });
+      it('should return the correct string when element is an empty string', () => {
+        expect(getElementName('horizontal', mockFallbackName, '')).toEqual('');
+        expect(getElementName('vertical', mockFallbackName, '')).toEqual('');
+      });
+    });
+  });
   describe('Render', () => {
     it('relevant html and aria attributes', () => {
       const [tabOneId, tabTwoId, tabThreeId, panelOneId, panelTwoId, panelThreeId] = [...new Array(6)].map(
