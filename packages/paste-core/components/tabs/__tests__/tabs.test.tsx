@@ -114,7 +114,7 @@ describe('Tabs', () => {
         </Tabs>
       );
 
-      const outerDiv = screen.getByTestId('tab-list').parentElement;
+      const outerDiv = screen.getByTestId('tab-list').parentElement as HTMLElement;
 
       expect(outerDiv.getAttribute('data-paste-element')).toEqual('HORIZONTAL_TABS');
       expect(screen.getByTestId('tab-list').getAttribute('data-paste-element')).toEqual('HORIZONTAL_TAB_LIST');
@@ -146,7 +146,7 @@ describe('Tabs', () => {
         </Tabs>
       );
 
-      const outerDiv = screen.getByTestId('tab-list').parentElement;
+      const outerDiv = screen.getByTestId('tab-list').parentElement as HTMLElement;
 
       expect(outerDiv.getAttribute('data-paste-element')).toEqual('VERTICAL_TABS');
       expect(screen.getByTestId('tab-list').getAttribute('data-paste-element')).toEqual('VERTICAL_TAB_LIST');
@@ -190,7 +190,7 @@ describe('Tabs', () => {
         </Tabs>
       );
 
-      const outerDiv = screen.getByTestId('tab-list').parentElement;
+      const outerDiv = screen.getByTestId('tab-list').parentElement as HTMLElement;
 
       expect(outerDiv.getAttribute('data-paste-element')).toEqual('HORIZONTAL_HORSE');
       expect(screen.getByTestId('tab-list').getAttribute('data-paste-element')).toEqual('HORIZONTAL_CAT');
@@ -234,7 +234,7 @@ describe('Tabs', () => {
         </Tabs>
       );
 
-      const outerDiv = screen.getByTestId('tab-list').parentElement;
+      const outerDiv = screen.getByTestId('tab-list').parentElement as HTMLElement;
 
       expect(outerDiv.getAttribute('data-paste-element')).toEqual('VERTICAL_HORSE');
       expect(screen.getByTestId('tab-list').getAttribute('data-paste-element')).toEqual('VERTICAL_CAT');
