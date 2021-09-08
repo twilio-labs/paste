@@ -293,7 +293,7 @@ export const CustomHorizontalTabs: React.FC = () => {
         HORIZONTAL_OTHER_TAB: {
           paddingLeft: 'space100',
           color: 'colorText',
-          backgroundColor: 'colorBackgroundAvailable',
+          backgroundColor: 'colorBackgroundNeutralWeakest',
         },
         HORIZONTAL_DIFFERENT_PANEL: {
           fontWeight: 'fontWeightBold',
@@ -374,7 +374,7 @@ export const CustomVerticalTabs: React.FC = () => {
           fontSize: 'fontSize10',
         },
         VERTICAL_CUSTOM_TAB: {
-          backgroundColor: 'colorBackgroundAvailable',
+          backgroundColor: 'colorBackgroundNeutralWeakest',
         },
         VERTICAL_OTHER_TAB: {
           color: 'colorText',
@@ -469,7 +469,7 @@ export const CustomFittedTabs: React.FC = () => {
           fontSize: 'fontSize10',
         },
         HORIZONTAL_CUSTOM_TAB: {
-          backgroundColor: 'colorBackgroundAvailable',
+          backgroundColor: 'colorBackgroundNeutralWeakest',
           fontFamily: 'fontFamilyCode',
         },
         HORIZONTAL_OTHER_TAB: {
