@@ -5,9 +5,12 @@ import {HelpText} from '@twilio-paste/help-text';
 import {Box} from '@twilio-paste/box';
 import {Combobox} from '@twilio-paste/combobox';
 import {Stack} from '@twilio-paste/stack';
+import {useTheme} from '@twilio-paste/theme';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {TimePicker, formatReturnTime} from '../src';
+import type {TimePickerProps} from '../src';
 
-export const DefaultTimePicker: React.FC = (props) => {
+export const DefaultTimePicker: React.FC<TimePickerProps> = (props) => {
   const uidTP = useUID();
   const uidHT = useUID();
   return (
@@ -249,6 +252,107 @@ export const StackOfPickers: React.FC = (props) => {
         <HelpText id={uidHTTwo}>Select a time above.</HelpText>
       </Box>
     </Stack>
+  );
+};
+
+export const CustomizedTimePicker: React.FC = (props) => {
+  const activeTheme = useTheme();
+  const uidDP = useUID();
+  return (
+    <CustomizationProvider
+      baseTheme="default"
+      theme={activeTheme}
+      elements={{
+        TIMEPICKER: {
+          backgroundColor: 'colorBackgroundPrimaryWeakest',
+          borderRadius: 'borderRadius30',
+          boxShadow: 'none',
+          borderStyle: 'solid',
+          borderWidth: 'borderWidth10',
+          borderColor: 'colorBorderPrimary',
+          variants: {
+            default: {
+              backgroundColor: 'colorBackgroundPrimaryWeakest',
+            },
+            inverse: {
+              backgroundColor: 'colorBackgroundDestructiveWeakest',
+              borderColor: 'colorBorderDestructive',
+            },
+          },
+        },
+        TIMEPICKER_ELEMENT: {
+          color: 'colorTextLinkStronger',
+          padding: 'space50',
+          '::placeholder': {
+            color: 'colorTextLink',
+          },
+          variants: {
+            default: {
+              backgroundColor: 'colorBackgroundPrimaryWeakest',
+            },
+            inverse: {
+              backgroundColor: 'colorBackgroundDestructiveWeakest',
+            },
+          },
+        },
+        CUSTOM_TIME: {
+          backgroundColor: 'colorBackgroundDestructiveWeakest',
+          borderRadius: 'borderRadius30',
+          boxShadow: 'none',
+          borderStyle: 'solid',
+          borderWidth: 'borderWidth20',
+          borderColor: 'colorBorderDestructive',
+          variants: {
+            default: {
+              backgroundColor: 'colorBackgroundDestructiveWeakest',
+            },
+            inverse: {
+              backgroundColor: 'colorBackgroundPrimaryWeakest',
+              borderColor: 'colorBorderPrimary',
+            },
+          },
+        },
+        CUSTOM_TIME_ELEMENT: {
+          color: 'colorTextLinkDestructive',
+          padding: 'space70',
+          '::placeholder': {
+            color: 'colorTextLinkDestructive',
+          },
+          variants: {
+            default: {
+              backgroundColor: 'colorBackgroundDestructiveWeakest',
+            },
+            inverse: {
+              backgroundColor: 'colorBackgroundPrimaryWeakest',
+              borderRadius: 'borderRadius30',
+            },
+          },
+        },
+      }}
+    >
+      <Stack orientation="vertical" spacing="space40">
+        <div>
+          <Label htmlFor={uidDP}>What time is your appointment?</Label>
+          <TimePicker id={uidDP} {...props} />
+        </div>
+        <Box backgroundColor="colorBackgroundBodyInverse" padding="space80">
+          <Label variant="inverse" htmlFor={uidDP}>
+            What time is your appointment?
+          </Label>
+          <TimePicker variant="inverse" id={uidDP} {...props} />
+        </Box>
+        <div>
+          <Label htmlFor={uidDP}>What time is your appointment?</Label>
+          <TimePicker element="CUSTOM_TIME" id={uidDP} {...props} />
+        </div>
+        <Box backgroundColor="colorBackgroundBodyInverse" padding="space80">
+          <Label variant="inverse" htmlFor={uidDP}>
+            What time is your appointment?
+          </Label>
+          <TimePicker variant="inverse" element="CUSTOM_TIME" id={uidDP} {...props} />
+        </Box>
+      </Stack>
+    </CustomizationProvider>
   );
 };
 

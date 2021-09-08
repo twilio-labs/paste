@@ -1,4 +1,6 @@
 import * as React from 'react';
+import {CustomizationProvider} from '@twilio-paste/customization';
+import {useTheme} from '@twilio-paste/theme';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
@@ -7,8 +9,9 @@ import {useUID} from '@twilio-paste/uid-library';
 import {Combobox} from '@twilio-paste/combobox';
 import {Stack} from '@twilio-paste/stack';
 import {DatePicker, formatReturnDate} from '../src';
+import type {DatePickerProps} from '../src';
 
-export const DefaultDatePicker: React.FC = (props) => {
+export const DefaultDatePicker: React.FC<DatePickerProps> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -340,6 +343,107 @@ export const DatePickerWithMinAndMax: React.FC = (props) => {
         </Anchor>
       </HelpText>
     </>
+  );
+};
+
+export const CustomizedDatePicker: React.FC = (props) => {
+  const activeTheme = useTheme();
+  const uidDP = useUID();
+  return (
+    <CustomizationProvider
+      baseTheme="default"
+      theme={activeTheme}
+      elements={{
+        DATEPICKER: {
+          backgroundColor: 'colorBackgroundPrimaryWeakest',
+          borderRadius: 'borderRadius30',
+          boxShadow: 'none',
+          borderStyle: 'solid',
+          borderWidth: 'borderWidth10',
+          borderColor: 'colorBorderPrimary',
+          variants: {
+            default: {
+              backgroundColor: 'colorBackgroundPrimaryWeakest',
+            },
+            inverse: {
+              backgroundColor: 'colorBackgroundDestructiveWeakest',
+              borderColor: 'colorBorderDestructive',
+            },
+          },
+        },
+        DATEPICKER_ELEMENT: {
+          color: 'colorTextLinkStronger',
+          padding: 'space50',
+          '::placeholder': {
+            color: 'colorTextLink',
+          },
+          variants: {
+            default: {
+              backgroundColor: 'colorBackgroundPrimaryWeakest',
+            },
+            inverse: {
+              backgroundColor: 'colorBackgroundDestructiveWeakest',
+            },
+          },
+        },
+        CUSTOM_DATE: {
+          backgroundColor: 'colorBackgroundDestructiveWeakest',
+          borderRadius: 'borderRadius30',
+          boxShadow: 'none',
+          borderStyle: 'solid',
+          borderWidth: 'borderWidth20',
+          borderColor: 'colorBorderDestructive',
+          variants: {
+            default: {
+              backgroundColor: 'colorBackgroundDestructiveWeakest',
+            },
+            inverse: {
+              backgroundColor: 'colorBackgroundPrimaryWeakest',
+              borderColor: 'colorBorderPrimary',
+            },
+          },
+        },
+        CUSTOM_DATE_ELEMENT: {
+          color: 'colorTextLinkDestructive',
+          padding: 'space70',
+          '::placeholder': {
+            color: 'colorTextLinkDestructive',
+          },
+          variants: {
+            default: {
+              backgroundColor: 'colorBackgroundDestructiveWeakest',
+            },
+            inverse: {
+              backgroundColor: 'colorBackgroundPrimaryWeakest',
+              borderRadius: 'borderRadius30',
+            },
+          },
+        },
+      }}
+    >
+      <Stack orientation="vertical" spacing="space40">
+        <div>
+          <Label htmlFor={uidDP}>When does this year&apos;s LGBTQ+ Pride month begin in the US?</Label>
+          <DatePicker id={uidDP} {...props} />
+        </div>
+        <Box backgroundColor="colorBackgroundBodyInverse" padding="space80">
+          <Label variant="inverse" htmlFor={uidDP}>
+            When does this year&apos;s LGBTQ+ Pride month begin in the US?
+          </Label>
+          <DatePicker variant="inverse" id={uidDP} {...props} />
+        </Box>
+        <div>
+          <Label htmlFor={uidDP}>When does this year&apos;s LGBTQ+ Pride month begin in the US?</Label>
+          <DatePicker element="CUSTOM_DATE" id={uidDP} {...props} />
+        </div>
+        <Box backgroundColor="colorBackgroundBodyInverse" padding="space80">
+          <Label variant="inverse" htmlFor={uidDP}>
+            When does this year&apos;s LGBTQ+ Pride month begin in the US?
+          </Label>
+          <DatePicker variant="inverse" element="CUSTOM_DATE" id={uidDP} {...props} />
+        </Box>
+      </Stack>
+    </CustomizationProvider>
   );
 };
 
