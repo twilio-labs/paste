@@ -1,9 +1,10 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
-import type {BoxStyleProps} from '@twilio-paste/box';
+import type {BoxStyleProps, BoxProps} from '@twilio-paste/box';
 import {TabPrimitivePanel} from '@twilio-paste/tabs-primitive';
 import {TabsContext} from './TabsContext';
+import {getElementName} from './utils';
 
 export const tabPanelStyles = {
   borderRadius: 'borderRadius20',
@@ -17,12 +18,15 @@ export interface TabPanelProps {
   id?: string | undefined;
   tabId?: string | undefined;
   children: React.ReactNode;
+  element?: BoxProps['element'];
 }
 
-const TabPanel = React.forwardRef<HTMLDivElement, TabPanelProps>(({children, ...props}, ref) => {
+const TabPanel = React.forwardRef<HTMLDivElement, TabPanelProps>(({children, element, ...props}, ref) => {
   const tab = React.useContext(TabsContext);
+  const elementName = getElementName(tab.orientation, 'TAB_PANEL', element);
+
   return (
-    <TabPrimitivePanel {...(tab as any)} {...tabPanelStyles} {...props} as={Box} ref={ref}>
+    <TabPrimitivePanel {...(tab as any)} {...tabPanelStyles} {...props} element={elementName} as={Box} ref={ref}>
       {children}
     </TabPrimitivePanel>
   );
@@ -30,6 +34,7 @@ const TabPanel = React.forwardRef<HTMLDivElement, TabPanelProps>(({children, ...
 
 if (process.env.NODE_ENV === 'development') {
   TabPanel.propTypes = {
+    element: PropTypes.string,
     id: PropTypes.string,
     tabId: PropTypes.string,
   };
