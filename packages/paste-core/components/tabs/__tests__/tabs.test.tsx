@@ -20,14 +20,12 @@ describe('Tabs', () => {
         expect(getElementName('horizontal', mockFallbackName)).toEqual('HORIZONTAL_TEST_ELEMENT_FALLBACK');
         expect(getElementName('vertical', mockFallbackName)).toEqual('VERTICAL_TEST_ELEMENT_FALLBACK');
       });
-      it('should return the correct string when element is null', () => {
-        expect(getElementName('horizontal', mockFallbackName, null)).toEqual('HORIZONTAL_TEST_ELEMENT_FALLBACK');
-        expect(getElementName('vertical', mockFallbackName, null)).toEqual('VERTICAL_TEST_ELEMENT_FALLBACK');
-      });
+
       it('should return the correct string when element is defined', () => {
         expect(getElementName('horizontal', mockFallbackName, 'CUSTOM_NAME')).toEqual('CUSTOM_NAME');
         expect(getElementName('vertical', mockFallbackName, 'CUSTOM_NAME')).toEqual('CUSTOM_NAME');
       });
+
       it('should return the correct string when element is an empty string', () => {
         expect(getElementName('horizontal', mockFallbackName, '')).toEqual('');
         expect(getElementName('vertical', mockFallbackName, '')).toEqual('');
