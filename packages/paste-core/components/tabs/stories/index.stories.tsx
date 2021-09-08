@@ -244,12 +244,6 @@ CenterAlignTabTest.story = {
   name: 'Testing Center Alignment',
 };
 
-// eslint-disable-next-line import/no-default-export
-export default {
-  title: 'Components/Tabs',
-  component: Tabs,
-};
-
 export const CustomHorizontalTabs: React.FC = () => {
   const currentTheme = useTheme();
   const selectedId = useUID();
@@ -438,4 +432,10 @@ export const CustomVerticalTabs: React.FC = () => {
       </Tabs>
     </CustomizationProvider>
   );
+};
+
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'Components/Tabs',
+  component: Tabs,
 };
