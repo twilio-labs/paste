@@ -5,14 +5,15 @@ import {Input} from '@twilio-paste/input';
 
 export type DatePickerProps = Omit<InputProps, 'type' | 'insertBefore' | 'insertAfter'>;
 
-const DatePicker = React.forwardRef<HTMLInputElement, DatePickerProps>((props, ref) => {
-  return <Input {...props} type="date" ref={ref} />;
+const DatePicker = React.forwardRef<HTMLInputElement, DatePickerProps>(({element = 'DATEPICKER', ...props}, ref) => {
+  return <Input element={element} {...props} type="date" ref={ref} />;
 });
 
 DatePicker.displayName = 'DatePicker';
 
 DatePicker.propTypes = {
   disabled: PropTypes.bool,
+  element: PropTypes.string,
   hasError: PropTypes.bool,
   id: PropTypes.string,
   name: PropTypes.string,
