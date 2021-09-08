@@ -192,18 +192,18 @@ describe('Tabs', () => {
 
       const outerDiv = screen.getByTestId('tab-list').parentElement as HTMLElement;
 
-      expect(outerDiv.getAttribute('data-paste-element')).toEqual('HORIZONTAL_HORSE');
-      expect(screen.getByTestId('tab-list').getAttribute('data-paste-element')).toEqual('HORIZONTAL_CAT');
+      expect(outerDiv.getAttribute('data-paste-element')).toEqual('HORSE');
+      expect(screen.getByTestId('tab-list').getAttribute('data-paste-element')).toEqual('CAT');
       expect((screen.getByTestId('tab-list').firstChild as HTMLElement).getAttribute('data-paste-element')).toEqual(
-        'HORIZONTAL_CAT_CHILD'
+        'CAT_CHILD'
       );
-      expect(screen.getByTestId('tab-1').getAttribute('data-paste-element')).toEqual('HORIZONTAL_TIGER');
-      expect(screen.getByTestId('tab-2').getAttribute('data-paste-element')).toEqual('HORIZONTAL_PANTHER');
-      expect(screen.getByTestId('tab-3').getAttribute('data-paste-element')).toEqual('HORIZONTAL_SCOTTISH_FOLD');
-      expect(screen.getByTestId('tab-panels').getAttribute('data-paste-element')).toEqual('HORIZONTAL_DOG');
-      expect(screen.getByTestId('tab-panel-1').getAttribute('data-paste-element')).toEqual('HORIZONTAL_CORGI');
-      expect(screen.getByTestId('tab-panel-2').getAttribute('data-paste-element')).toEqual('HORIZONTAL_GOLDEN_DOODLE');
-      expect(screen.getByTestId('tab-panel-3').getAttribute('data-paste-element')).toEqual('HORIZONTAL_PUG');
+      expect(screen.getByTestId('tab-1').getAttribute('data-paste-element')).toEqual('TIGER');
+      expect(screen.getByTestId('tab-2').getAttribute('data-paste-element')).toEqual('PANTHER');
+      expect(screen.getByTestId('tab-3').getAttribute('data-paste-element')).toEqual('SCOTTISH_FOLD');
+      expect(screen.getByTestId('tab-panels').getAttribute('data-paste-element')).toEqual('DOG');
+      expect(screen.getByTestId('tab-panel-1').getAttribute('data-paste-element')).toEqual('CORGI');
+      expect(screen.getByTestId('tab-panel-2').getAttribute('data-paste-element')).toEqual('GOLDEN_DOODLE');
+      expect(screen.getByTestId('tab-panel-3').getAttribute('data-paste-element')).toEqual('PUG');
     });
 
     it('should set an element data attribute for Vertical Tabs', () => {
@@ -236,18 +236,18 @@ describe('Tabs', () => {
 
       const outerDiv = screen.getByTestId('tab-list').parentElement as HTMLElement;
 
-      expect(outerDiv.getAttribute('data-paste-element')).toEqual('VERTICAL_HORSE');
-      expect(screen.getByTestId('tab-list').getAttribute('data-paste-element')).toEqual('VERTICAL_CAT');
+      expect(outerDiv.getAttribute('data-paste-element')).toEqual('HORSE');
+      expect(screen.getByTestId('tab-list').getAttribute('data-paste-element')).toEqual('CAT');
       expect((screen.getByTestId('tab-list').firstChild as HTMLElement).getAttribute('data-paste-element')).toEqual(
-        'VERTICAL_CAT_CHILD'
+        'CAT_CHILD'
       );
-      expect(screen.getByTestId('tab-1').getAttribute('data-paste-element')).toEqual('VERTICAL_TIGER');
-      expect(screen.getByTestId('tab-2').getAttribute('data-paste-element')).toEqual('VERTICAL_PANTHER');
-      expect(screen.getByTestId('tab-3').getAttribute('data-paste-element')).toEqual('VERTICAL_SCOTTISH_FOLD');
-      expect(screen.getByTestId('tab-panels').getAttribute('data-paste-element')).toEqual('VERTICAL_DOG');
-      expect(screen.getByTestId('tab-panel-1').getAttribute('data-paste-element')).toEqual('VERTICAL_CORGI');
-      expect(screen.getByTestId('tab-panel-2').getAttribute('data-paste-element')).toEqual('VERTICAL_GOLDEN_DOODLE');
-      expect(screen.getByTestId('tab-panel-3').getAttribute('data-paste-element')).toEqual('VERTICAL_PUG');
+      expect(screen.getByTestId('tab-1').getAttribute('data-paste-element')).toEqual('TIGER');
+      expect(screen.getByTestId('tab-2').getAttribute('data-paste-element')).toEqual('PANTHER');
+      expect(screen.getByTestId('tab-3').getAttribute('data-paste-element')).toEqual('SCOTTISH_FOLD');
+      expect(screen.getByTestId('tab-panels').getAttribute('data-paste-element')).toEqual('DOG');
+      expect(screen.getByTestId('tab-panel-1').getAttribute('data-paste-element')).toEqual('CORGI');
+      expect(screen.getByTestId('tab-panel-2').getAttribute('data-paste-element')).toEqual('GOLDEN_DOODLE');
+      expect(screen.getByTestId('tab-panel-3').getAttribute('data-paste-element')).toEqual('PUG');
     });
   });
 
@@ -322,37 +322,37 @@ describe('Tabs', () => {
         <CustomizationProvider
           baseTheme="default"
           elements={{
-            HORIZONTAL_HORSE: {
+            HORSE: {
               margin: 'space100',
               padding: 'space100',
               borderStyle: 'solid',
               borderWidth: 'borderWidth30',
               borderColor: 'colorBorderPrimary',
             },
-            HORIZONTAL_CATS: {
+            CATS: {
               borderColor: 'colorBorderDestructive',
               marginY: 'space100',
             },
-            HORIZONTAL_CATS_CHILD: {borderColor: 'colorBorderDestructive'},
-            HORIZONTAL_RAGDOLL: {
+            CATS_CHILD: {borderColor: 'colorBorderDestructive'},
+            RAGDOLL: {
               fontFamily: 'fontFamilyCode',
             },
-            HORIZONTAL_JAGUAR: {
+            JAGUAR: {
               fontFamily: 'fontFamilyCode',
             },
-            HORIZONTAL_CHEETAH: {
+            CHEETAH: {
               fontFamily: 'fontFamilyCode',
             },
-            HORIZONTAL_DOGS: {
+            DOGS: {
               marginY: 'space10',
             },
-            HORIZONTAL_CORGI: {
+            CORGI: {
               paddingX: 'space0',
             },
-            HORIZONTAL_DOODLE: {
+            DOODLE: {
               paddingX: 'space20',
             },
-            HORIZONTAL_TERRIER: {
+            TERRIER: {
               paddingX: 'space40',
             },
           }}

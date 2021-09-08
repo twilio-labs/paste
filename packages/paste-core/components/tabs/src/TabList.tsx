@@ -5,12 +5,12 @@ import type {BoxProps} from '@twilio-paste/box';
 import {TabPrimitiveList} from '@twilio-paste/tabs-primitive';
 import {TabsContext} from './TabsContext';
 import type {Variants} from './types';
+import {getElementName} from './utils';
 
 export interface TabListProps {
   'aria-label': string;
   disabled?: boolean | undefined;
   element?: BoxProps['element'];
-
   focusable?: boolean | undefined;
   children: React.ReactNode;
   variant?: Variants;
@@ -22,7 +22,7 @@ const HorizontalTabList: React.FC<{element?: BoxProps['element']}> = ({children,
     borderBottomWidth="borderWidth10"
     borderBottomColor="colorBorderWeak"
     borderBottomStyle="solid"
-    element={`HORIZONTAL_${element}`}
+    element={element}
     marginBottom="space60"
   >
     {children}
@@ -34,7 +34,7 @@ const VerticalTabList: React.FC<{element?: BoxProps['element']}> = ({children, e
     borderLeftWidth="borderWidth10"
     borderLeftColor="colorBorderWeak"
     borderLeftStyle="solid"
-    element={`VERTICAL_${element}`}
+    element={element}
     marginRight="space110"
     minWidth="size20"
     maxWidth="size40"
@@ -43,25 +43,18 @@ const VerticalTabList: React.FC<{element?: BoxProps['element']}> = ({children, e
   </Box>
 );
 
-const TabList = React.forwardRef<HTMLDivElement, TabListProps>(
-  ({children, element = 'TAB_LIST', variant, ...props}, ref) => {
-    const tab = React.useContext(TabsContext);
-    const {orientation} = tab;
-    const TabListWrapper = orientation === 'vertical' ? VerticalTabList : HorizontalTabList;
+const TabList = React.forwardRef<HTMLDivElement, TabListProps>(({children, element, variant, ...props}, ref) => {
+  const tab = React.useContext(TabsContext);
+  const {orientation} = tab;
+  const elementName = getElementName(orientation, 'TAB_LIST', element);
+  const TabListWrapper = orientation === 'vertical' ? VerticalTabList : HorizontalTabList;
 
-    return (
-      <TabPrimitiveList
-        {...(tab as any)}
-        as={Box}
-        {...props}
-        element={`${orientation.toUpperCase()}_${element}`}
-        ref={ref}
-      >
-        <TabListWrapper element={`${element}_CHILD`}>{children}</TabListWrapper>
-      </TabPrimitiveList>
-    );
-  }
-);
+  return (
+    <TabPrimitiveList {...(tab as any)} as={Box} {...props} element={elementName} ref={ref}>
+      <TabListWrapper element={`${elementName}_CHILD`}>{children}</TabListWrapper>
+    </TabPrimitiveList>
+  );
+});
 
 if (process.env.NODE_ENV === 'development') {
   TabList.propTypes = {

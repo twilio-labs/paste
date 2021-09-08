@@ -6,6 +6,8 @@ import {TabPrimitive} from '@twilio-paste/tabs-primitive';
 import {TabsContext} from './TabsContext';
 import type {Orientation, Variants} from './types';
 
+import {getElementName} from './utils';
+
 // TODO:
 // Split vertical tabs into a separate component
 // because fitted tabs do nothing when orientation
@@ -99,11 +101,12 @@ export interface TabProps extends React.HTMLAttributes<HTMLElement> {
   'aria-disabled'?: boolean;
 }
 
-const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, element = 'TAB', ...tabProps}, ref) => {
+const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, element, ...tabProps}, ref) => {
   const tab = React.useContext(TabsContext);
   const boxStyles = React.useMemo(() => getTabBoxStyles(tab.orientation, tab.variant), [tab.orientation, tab.variant]);
 
   const {orientation} = tab;
+  const elementName = getElementName(orientation, 'TAB', element);
 
   return (
     <TabPrimitive {...(tab as any)} {...tabProps} ref={ref}>
@@ -114,7 +117,7 @@ const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, element = 'TA
             {...boxStyles}
             as="span"
             cursor={props['aria-disabled'] ? 'not-allowed' : 'pointer'}
-            element={`${orientation.toUpperCase()}_${element}`}
+            element={elementName}
             fontSize="fontSize30"
             fontWeight="fontWeightSemibold"
             overflow={orientation !== 'vertical' ? 'hidden' : undefined}

@@ -7,6 +7,7 @@ import {useTabPrimitiveState} from '@twilio-paste/tabs-primitive';
 import type {TabPrimitiveInitialState, TabPrimitiveStateReturn} from '@twilio-paste/tabs-primitive';
 import {TabsContext} from './TabsContext';
 import type {Variants} from './types';
+import {getElementName} from './utils';
 
 export interface TabStateReturn extends TabPrimitiveStateReturn {
   [key: string]: any;
@@ -21,27 +22,27 @@ export interface TabsProps extends TabPrimitiveInitialState {
 
 // Set orientation to horizontal because undefined enables all arrow key movement
 const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
-  ({children, element = 'TABS', orientation = 'horizontal', state, variant, ...initialState}, ref) => {
+  ({children, element, orientation = 'horizontal', state, variant, ...initialState}, ref) => {
     // If returned state from primitive has orientation set to undefined, use the default "horizontal"
     const {orientation: tabOrientation = orientation, ...tab} =
       state || useTabPrimitiveState({orientation, ...initialState});
-
+    const elementName = getElementName(tabOrientation, 'TABS', element);
     const value = React.useMemo(() => ({...tab, orientation: tabOrientation, variant}), [
       ...Object.values(tab),
-      orientation,
+      tabOrientation,
       variant,
     ]);
     const returnValue = <TabsContext.Provider value={value}>{children}</TabsContext.Provider>;
 
     if (tabOrientation === 'vertical') {
       return (
-        <Flex element={`VERTICAL_${element}`} ref={ref} wrap={false} vAlignContent="stretch">
+        <Flex element={elementName} ref={ref} wrap={false} vAlignContent="stretch">
           {returnValue}
         </Flex>
       );
     }
 
-    return <Box element={`HORIZONTAL_${element}`}>{returnValue}</Box>;
+    return <Box element={elementName}>{returnValue}</Box>;
   }
 );
 
