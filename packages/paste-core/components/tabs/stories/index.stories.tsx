@@ -261,6 +261,7 @@ export const CustomHorizontalTabs: React.FC = () => {
         },
         HORIZONTAL_TAB: {
           fontFamily: 'fontFamilyCode',
+          paddingLeft: 'space0',
         },
         HORIZONTAL_TAB_LIST: {
           borderColor: 'colorBorderDestructive',
@@ -282,10 +283,17 @@ export const CustomHorizontalTabs: React.FC = () => {
           marginY: 'space20',
         },
         HORIZONTAL_CUSTOM_TAB: {
+          paddingLeft: 'space40',
           color: 'colorTextWarning',
+          fontSize: 'fontSize10',
+          borderBottomStyle: 'solid',
+          borderBottomWidth: 'borderWidth30',
+          borderBottomColor: 'colorBorderPrimary',
         },
         HORIZONTAL_OTHER_TAB: {
+          paddingLeft: 'space100',
           color: 'colorText',
+          backgroundColor: 'colorBackgroundAvailable',
         },
         HORIZONTAL_DIFFERENT_PANEL: {
           fontWeight: 'fontWeightBold',
@@ -294,9 +302,9 @@ export const CustomHorizontalTabs: React.FC = () => {
     >
       <Tabs selectedId={selectedId} baseId="horizontal-tabs-example">
         <TabList aria-label="LGBTQ+ Projects">
-          <Tab element="CUSTOM_TAB">Inside Out</Tab>
+          <Tab element="HORIZONTAL_CUSTOM_TAB">Inside Out</Tab>
           <Tab>Transgender District</Tab>
-          <Tab element="OTHER_TAB" id={selectedId}>
+          <Tab element="HORIZONTAL_OTHER_TAB" id={selectedId}>
             Audre Lorde Project
           </Tab>
           <Tab disabled>Coming soon...</Tab>
@@ -314,7 +322,7 @@ export const CustomHorizontalTabs: React.FC = () => {
             </Paragraph>
             <Anchor href="https://insideoutys.org/">Support Inside Out</Anchor>
           </TabPanel>
-          <TabPanel element="DIFFERENT_PANEL">
+          <TabPanel element="HORIZONTAL_DIFFERENT_PANEL">
             <Heading as="h2" variant="heading20">
               Transgender District
             </Heading>
@@ -362,12 +370,18 @@ export const CustomVerticalTabs: React.FC = () => {
         },
         VERTICAL_TAB: {
           fontFamily: 'fontFamilyCode',
+          paddingTop: 'space10',
+          fontSize: 'fontSize10',
         },
         VERTICAL_CUSTOM_TAB: {
-          color: 'colorTextWarning',
+          backgroundColor: 'colorBackgroundAvailable',
         },
         VERTICAL_OTHER_TAB: {
           color: 'colorText',
+          paddingTop: 'space100',
+          borderBottomStyle: 'solid',
+          borderBottomWidth: 'borderWidth30',
+          borderBottomColor: 'colorBorderPrimary',
         },
         VERTICAL_TAB_LIST: {
           borderColor: 'colorBorderDestructive',
@@ -384,9 +398,9 @@ export const CustomVerticalTabs: React.FC = () => {
       <Tabs orientation="vertical" selectedId={selectedId} baseId="vertical-tabs-example">
         <TabList aria-label="LGBTQ+ Projects">
           <Tab id={selectedId}>Inside Out</Tab>
-          <Tab element="CUSTOM_TAB">Transgender District</Tab>
+          <Tab element="VERTICAL_CUSTOM_TAB">Transgender District</Tab>
           <Tab>Audre Lorde Project</Tab>
-          <Tab element="OTHER_TAB" disabled>
+          <Tab element="VERTICAL_OTHER_TAB" disabled>
             Coming soon...
           </Tab>
         </TabList>
@@ -415,7 +429,99 @@ export const CustomVerticalTabs: React.FC = () => {
             </Paragraph>
             <Anchor href="https://www.transgenderdistrictsf.com/">Support The Transgender District</Anchor>
           </TabPanel>
-          <TabPanel element="DIFFERENT_PANEL">
+          <TabPanel element="VERTICAL_DIFFERENT_PANEL">
+            <Heading as="h2" variant="heading20">
+              Audre Lorde Project
+            </Heading>
+            <Paragraph>
+              The Audre Lorde Project is a Lesbian, Gay, Bisexual, Two Spirit, Trans and Gender Non Conforming People of
+              Color center for community organizing, focusing on the New York City area. Through mobilization, education
+              and capacity-building, they work for community wellness and progressive social and economic justice.
+              Committed to struggling across differences, they seek to responsibly reflect, represent and serve their
+              various communities.
+            </Paragraph>
+            <Anchor href="https://alp.org/">Support The Audre Lorde Project</Anchor>
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
+    </CustomizationProvider>
+  );
+};
+
+// @TODO
+export const CustomFittedTabs: React.FC = () => {
+  const currentTheme = useTheme();
+  const selectedId = useUID();
+
+  return (
+    <CustomizationProvider
+      theme={currentTheme}
+      elements={{
+        HORIZONTAL_TABS: {
+          margin: 'space100',
+          padding: 'space100',
+          borderStyle: 'dashed',
+          borderWidth: 'borderWidth10',
+          borderColor: 'colorBorderPrimary',
+        },
+        HORIZONTAL_TAB: {
+          paddingTop: 'space10',
+          fontSize: 'fontSize10',
+        },
+        HORIZONTAL_CUSTOM_TAB: {
+          backgroundColor: 'colorBackgroundAvailable',
+          fontFamily: 'fontFamilyCode',
+        },
+        HORIZONTAL_OTHER_TAB: {
+          borderBottomStyle: 'dotted',
+          borderBottomWidth: 'borderWidth20',
+          borderBottomColor: 'colorBorderPrimary',
+        },
+        HORIZONTAL_TAB_LIST: {
+          borderColor: 'colorBorderDestructive',
+          marginY: 'space100',
+        },
+        HORIZONTAL_TAB_LIST_CHILD: {
+          borderColor: 'colorBorderDestructive',
+        },
+        HORIZONTAL_DIFFERENT_PANEL: {
+          fontWeight: 'fontWeightBold',
+        },
+      }}
+    >
+      <Tabs selectedId={selectedId} baseId="fitted-tabs-example" variant="fitted">
+        <TabList aria-label="LGBTQ+ Projects">
+          <Tab element="HORIZONTAL_CUSTOM_TAB">Inside Out</Tab>
+          <Tab id={selectedId}>Transgender District</Tab>
+          <Tab element="HORIZONTAL_OTHER_TAB">Audre Lorde Project</Tab>
+          <Tab disabled>Coming soon...</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            <Heading as="h2" variant="heading20">
+              Inside Out
+            </Heading>
+            <Paragraph>
+              Inside Out empowers, educates, and advocates for LGBTQ+ of youth from the Pikes Peak Region in Southern
+              Colorado. Inside Out does this by creating safe spaces, support systems and teaching life skills to all
+              youth in the community and working to make the community safer and more accepting of gender and sexual
+              orientation diversity.
+            </Paragraph>
+            <Anchor href="https://insideoutys.org/">Support Inside Out</Anchor>
+          </TabPanel>
+          <TabPanel>
+            <Heading as="h2" variant="heading20">
+              Transgender District
+            </Heading>
+            <Paragraph>
+              The mission of the Transgender District is to create an urban environment that fosters the rich history,
+              culture, legacy, and empowerment of transgender people and its deep roots in the southeastern Tenderloin
+              neighborhood. The transgender district aims to stabilize and economically empower the transgender
+              community through ownership of homes, businesses, historic and cultural sites, and safe community spaces.
+            </Paragraph>
+            <Anchor href="https://www.transgenderdistrictsf.com/">Support The Transgender District</Anchor>
+          </TabPanel>
+          <TabPanel>
             <Heading as="h2" variant="heading20">
               Audre Lorde Project
             </Heading>
