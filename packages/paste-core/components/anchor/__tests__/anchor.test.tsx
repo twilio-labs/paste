@@ -205,6 +205,8 @@ describe('Anchor', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{ANCHOR: {backgroundColor: 'colorBackground', borderColor: 'colorBorderDestructive'}}}
         >
           <Anchor href="https://paste.twilio.design" data-testid="customizable-anchor">
@@ -220,6 +222,8 @@ describe('Anchor', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{FUNKY_ANCHOR: {backgroundColor: 'colorBackground', borderColor: 'colorBorderDestructive'}}}
         >
           <Anchor element="FUNKY_ANCHOR" href="https://paste.twilio.design" data-testid="customizable-anchor">
