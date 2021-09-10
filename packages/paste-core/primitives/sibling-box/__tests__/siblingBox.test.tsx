@@ -82,6 +82,8 @@ describe('SiblingBox render', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{SIBLING_BOX: {color: 'colorTextWeak', textDecoration: 'underline'}}}
         >
           <SiblingBox data-testid="customized-sibling-box">Custom Box</SiblingBox>

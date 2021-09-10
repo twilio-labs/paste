@@ -364,6 +364,8 @@ describe('Grid', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{GRID: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
           <Grid data-testid="customizable-grid">Custom grid</Grid>
@@ -378,6 +380,8 @@ describe('Grid', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
           <Grid element="foo" data-testid="customizable-grid">
@@ -394,6 +398,8 @@ describe('Grid', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{COLUMN: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
           <Column data-testid="customizable-column">Custom column</Column>
@@ -408,6 +414,8 @@ describe('Grid', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
           <Column element="foo" data-testid="customizable-column">
