@@ -3,7 +3,7 @@ import {keyframes} from '@twilio-paste/styling-library';
 export const SvgAnimate = keyframes`
   0%,
   25% {
-    stroke-dashoffset: 285;
+    stroke-dashoffset: 280;
     transform: rotate(0);
   }
 
@@ -14,7 +14,7 @@ export const SvgAnimate = keyframes`
   }
 
   100% {
-    stroke-dashoffset: 285;
+    stroke-dashoffset: 280;
     transform: rotate(360deg);
   }
 `;

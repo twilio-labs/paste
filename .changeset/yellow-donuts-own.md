@@ -3,4 +3,4 @@
 '@twilio-paste/core': minor
 ---
 
-[Styling-Library] update scaleswq
+[Styling-Library] update scales
