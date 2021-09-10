@@ -11,7 +11,7 @@ export interface DarkModeIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const DarkModeIcon: React.FC<DarkModeIconProps> = ({as, display, size, color, title, decorative}) => {
+const DarkModeIcon: React.FC<DarkModeIconProps> = ({as, display, element = 'ICON', size, color, title, decorative}) => {
   const titleId = `DarkModeIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +19,7 @@ const DarkModeIcon: React.FC<DarkModeIconProps> = ({as, display, size, color, ti
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}

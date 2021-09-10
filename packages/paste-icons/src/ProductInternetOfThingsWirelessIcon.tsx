@@ -14,6 +14,7 @@ export interface ProductInternetOfThingsWirelessIconProps extends IconWrapperPro
 const ProductInternetOfThingsWirelessIcon: React.FC<ProductInternetOfThingsWirelessIconProps> = ({
   as,
   display,
+  element = 'ICON',
   size,
   color,
   title,
@@ -26,7 +27,7 @@ const ProductInternetOfThingsWirelessIcon: React.FC<ProductInternetOfThingsWirel
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}

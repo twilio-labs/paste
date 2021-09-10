@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.1.0
+
+### Minor Changes
+
+- [`a6df510d`](https://github.com/twilio-labs/paste/commit/a6df510dffb3706e5132ea04d8f875f313798ee0) [#1743](https://github.com/twilio-labs/paste/pull/1743) Thanks [@andipants12](https://github.com/andipants12)! - [Style Props] add types for column gap and row gap
+
 ## 3.0.6
 
 ### Patch Changes

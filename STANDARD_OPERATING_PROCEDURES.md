@@ -45,6 +45,6 @@ Then we think about the development and technical debt incurred by this product.
   - [ ] the required yarn scripts: `[build, build:js, build:props, clean, tsc]`.
   - [ ] the following keys: `[name, version, category, status, description, author, license (MIT), main:dev, main, module, types, sideEffects, files]`
 - [ ] The components have defined a `displayName` static.
-- [ ] The package is compiled with rollup and typescript.
+- [ ] The package is compiled with esbuild and typescript.
 - [ ] The `@twilio-paste/*` dependencies are marked as `peerDependencies`.
 - [ ] The `@twilio-paste/*` peerDependencies are also listed under devDependencies.

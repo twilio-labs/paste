@@ -77,8 +77,8 @@ exports[`Alert Variant error Should render an error alert 1`] = `
       >
         <span
           className="emotion-0"
-          color="colorTextError"
-          data-paste-element="BOX"
+          color="colorTextIconError"
+          data-paste-element="ICON"
           display="block"
           size="sizeIcon20"
         >
@@ -130,10 +130,6 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
   -webkit-text-decoration: inherit;
   text-decoration: inherit;
   opacity: 1;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
 }
 
 .emotion-9 {
@@ -191,6 +187,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
   margin: 0;
   cursor: pointer;
   color: rgb(0,94,166);
+  text-align: left;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
@@ -269,8 +266,8 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
       >
         <span
           className="emotion-0"
-          color="colorTextError"
-          data-paste-element="BOX"
+          color="colorTextIconError"
+          data-paste-element="ICON"
           display="block"
           size="sizeIcon20"
         >
@@ -334,7 +331,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
             <span
               className="emotion-3"
               color="colorTextIcon"
-              data-paste-element="BOX"
+              data-paste-element="ICON"
               display="block"
               size="sizeIcon20"
             >
@@ -443,8 +440,8 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
       >
         <span
           className="emotion-0"
-          color="colorTextNeutral"
-          data-paste-element="BOX"
+          color="colorTextIconNeutral"
+          data-paste-element="ICON"
           display="block"
           size="sizeIcon20"
         >
@@ -496,10 +493,6 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
   -webkit-text-decoration: inherit;
   text-decoration: inherit;
   opacity: 1;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
 }
 
 .emotion-9 {
@@ -578,6 +571,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
   margin: 0;
   cursor: pointer;
   color: rgb(0,94,166);
+  text-align: left;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
@@ -635,8 +629,8 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
       >
         <span
           className="emotion-0"
-          color="colorTextNeutral"
-          data-paste-element="BOX"
+          color="colorTextIconNeutral"
+          data-paste-element="ICON"
           display="block"
           size="sizeIcon20"
         >
@@ -700,7 +694,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
             <span
               className="emotion-3"
               color="colorTextIcon"
-              data-paste-element="BOX"
+              data-paste-element="ICON"
               display="block"
               size="sizeIcon20"
             >
@@ -809,8 +803,8 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
       >
         <span
           className="emotion-0"
-          color="colorTextWarning"
-          data-paste-element="BOX"
+          color="colorTextIconWarning"
+          data-paste-element="ICON"
           display="block"
           size="sizeIcon20"
         >
@@ -864,10 +858,6 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
   -webkit-text-decoration: inherit;
   text-decoration: inherit;
   opacity: 1;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
 }
 
 .emotion-9 {
@@ -925,6 +915,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
   margin: 0;
   cursor: pointer;
   color: rgb(0,94,166);
+  text-align: left;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
@@ -1003,8 +994,8 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
       >
         <span
           className="emotion-0"
-          color="colorTextWarning"
-          data-paste-element="BOX"
+          color="colorTextIconWarning"
+          data-paste-element="ICON"
           display="block"
           size="sizeIcon20"
         >
@@ -1070,7 +1061,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
             <span
               className="emotion-3"
               color="colorTextIcon"
-              data-paste-element="BOX"
+              data-paste-element="ICON"
               display="block"
               size="sizeIcon20"
             >

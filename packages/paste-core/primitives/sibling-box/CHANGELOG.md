@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.0.4
+
+### Patch Changes
+
+- [`1cf0ee5f`](https://github.com/twilio-labs/paste/commit/1cf0ee5fb4d969474de7a3c299706d1fbdcf0482) [#1810](https://github.com/twilio-labs/paste/pull/1810) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sibling Box] Enable SiblingBox to respect element customizations set on the customization provider. SiblingBox now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 3.0.3
 
 ### Patch Changes

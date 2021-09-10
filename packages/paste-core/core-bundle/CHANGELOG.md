@@ -1,5 +1,148 @@
 # Change Log
 
+## 10.11.0
+
+### Minor Changes
+
+- [`63a39e0c`](https://github.com/twilio-labs/paste/commit/63a39e0c86d5c7683420f373eb3ed71e02e621aa) [#1818](https://github.com/twilio-labs/paste/pull/1818) Thanks [@TheSisb](https://github.com/TheSisb)! - [Toast] The `useToaster` push method now allows passing in an `onDismiss` callback function.
+
+* [`f0737a27`](https://github.com/twilio-labs/paste/commit/f0737a279663a774e4d0a4beaa70ee6c11a55da7) [#1817](https://github.com/twilio-labs/paste/pull/1817) Thanks [@andipants12](https://github.com/andipants12)! - [Table]: Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+### Patch Changes
+
+- [`1cf0ee5f`](https://github.com/twilio-labs/paste/commit/1cf0ee5fb4d969474de7a3c299706d1fbdcf0482) [#1810](https://github.com/twilio-labs/paste/pull/1810) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sibling Box] Enable SiblingBox to respect element customizations set on the customization provider. SiblingBox now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`9ed68c88`](https://github.com/twilio-labs/paste/commit/9ed68c886cd0992ff32b5aceff59c1f62a661e69) [#1826](https://github.com/twilio-labs/paste/pull/1826) Thanks [@andipants12](https://github.com/andipants12)! - [Button]: Link, Destructive link, and inverse destructive link button variants should have left aligned text.
+
+- [`30160725`](https://github.com/twilio-labs/paste/commit/30160725ecdb5a028f15a162c7a6806b7bc7b178) [#1774](https://github.com/twilio-labs/paste/pull/1774) Thanks [@nkrantz](https://github.com/nkrantz)! - Added an alias for orange-65 and added the following text color tokens for icons:
+
+  - color-text-icon-error -> red-60 (default) / red-40 (dark)
+  - color-text-icon-success -> green-70 (default) / green-50 (dark)
+  - color-text-icon-warning -> orange-65 (default) / orange-40 (dark)
+  - color-text-icon-neutral -> blue-80 (default) / blue-40 (dark)
+  - color-text-icon-brand-highlight -> amaranth
+  - color-text-icon-brand-inverse -> gray-0
+
+* [`ef450904`](https://github.com/twilio-labs/paste/commit/ef450904d727da5d1ddffc770a16a25c4a947247) [#1831](https://github.com/twilio-labs/paste/pull/1831) Thanks [@andipants12](https://github.com/andipants12)! - [Disclosure] Add z-index to Disclosure Heading to fix flash that occurs when disclosure content renders and the z-indeces are recalculated.
+
+- [`ab55fa27`](https://github.com/twilio-labs/paste/commit/ab55fa270f982ad867a5933dcea8ee240e780fed) [#1814](https://github.com/twilio-labs/paste/pull/1814) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Skeleton-loader] Enable Compoonent to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+- Updated dependencies [[`1cf0ee5f`](https://github.com/twilio-labs/paste/commit/1cf0ee5fb4d969474de7a3c299706d1fbdcf0482), [`9ed68c88`](https://github.com/twilio-labs/paste/commit/9ed68c886cd0992ff32b5aceff59c1f62a661e69), [`30160725`](https://github.com/twilio-labs/paste/commit/30160725ecdb5a028f15a162c7a6806b7bc7b178), [`ef450904`](https://github.com/twilio-labs/paste/commit/ef450904d727da5d1ddffc770a16a25c4a947247), [`63a39e0c`](https://github.com/twilio-labs/paste/commit/63a39e0c86d5c7683420f373eb3ed71e02e621aa), [`ab55fa27`](https://github.com/twilio-labs/paste/commit/ab55fa270f982ad867a5933dcea8ee240e780fed), [`f0737a27`](https://github.com/twilio-labs/paste/commit/f0737a279663a774e4d0a4beaa70ee6c11a55da7)]:
+  - @twilio-paste/sibling-box@3.0.4
+  - @twilio-paste/button@7.0.8
+  - @twilio-paste/design-tokens@6.11.1
+  - @twilio-paste/disclosure@5.0.7
+  - @twilio-paste/toast@5.1.0
+  - @twilio-paste/skeleton-loader@0.1.1
+  - @twilio-paste/table@2.1.0
+
+## 10.10.1
+
+### Patch Changes
+
+- [`fe4a2383`](https://github.com/twilio-labs/paste/commit/fe4a23834e9aecf2ab249651e8713ae5d37e8d3d) [#1824](https://github.com/twilio-labs/paste/pull/1824) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Combobox], [Select] and [Textarea] all given a default element name to meet their PropTypes validation.
+
+- Updated dependencies [[`fe4a2383`](https://github.com/twilio-labs/paste/commit/fe4a23834e9aecf2ab249651e8713ae5d37e8d3d)]:
+  - @twilio-paste/combobox@8.0.1
+  - @twilio-paste/select@5.0.6
+  - @twilio-paste/textarea@3.0.7
+
+## 10.10.0
+
+### Minor Changes
+
+- [`ca0bf618`](https://github.com/twilio-labs/paste/commit/ca0bf6188ad7ac3375bec75d6461924b13edb391) [#1800](https://github.com/twilio-labs/paste/pull/1800) Thanks [@TheSisb](https://github.com/TheSisb)! - [DisplayPillGroup]: Adding this new Paste component package for Display Pill Group.
+
+* [`a0cf511c`](https://github.com/twilio-labs/paste/commit/a0cf511c0078df0441d859939e9002a5e0b3431d) [#1799](https://github.com/twilio-labs/paste/pull/1799) Thanks [@vnguyen94](https://github.com/vnguyen94)! - adds the clipboard-copy library; this will provide baseline functionality for developers to intuitively interact with the Clipboard API.
+
+- [`c9cc610b`](https://github.com/twilio-labs/paste/commit/c9cc610b6834fd9be22488e8e727ee65b1114aa0) [#1790](https://github.com/twilio-labs/paste/pull/1790) Thanks [@andipants12](https://github.com/andipants12)! - [Combobox Primitive] expose useMultiSelectPrimitive
+
+* [`06bae4e2`](https://github.com/twilio-labs/paste/commit/06bae4e21077a32a6eeb059941f8717c76d76ce0) [#1803](https://github.com/twilio-labs/paste/pull/1803) Thanks [@TheSisb](https://github.com/TheSisb)! - [Form Pill Group] Adding the FormPillGroup component package. This component renders is a collection of Pills that can be selected or removed from within a data entry form.
+
+- [`9ceb48bd`](https://github.com/twilio-labs/paste/commit/9ceb48bd5d7c7d1f60bb3371085651c220e20f35) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Input] Enable Input to respect element customizations set on the customization provider. Input now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`18c1f595`](https://github.com/twilio-labs/paste/commit/18c1f595e03d6152789342d1fc05942201cec5d3) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Input-box] Enable InputBox, Prefix and Suffix to respect element customizations set on the customization provider. InputBox, Prefix and Suffix now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+### Patch Changes
+
+- [`af3b1e55`](https://github.com/twilio-labs/paste/commit/af3b1e558fc438352b47098d7d085d7eeffbfa51) [#1801](https://github.com/twilio-labs/paste/pull/1801) Thanks [@andipants12](https://github.com/andipants12)! - [Button] All link variants should have left aligned text.
+
+* [`e3398bd5`](https://github.com/twilio-labs/paste/commit/e3398bd5aaa84aaabe934bcad061cda705cdbe0a) [#1783](https://github.com/twilio-labs/paste/pull/1783) Thanks [@andipants12](https://github.com/andipants12)! - [Badge]: Update badge container div max width value to be "fit-content"
+
+- [`2eb6dd74`](https://github.com/twilio-labs/paste/commit/2eb6dd74eb1cdc06079e64a711e71b93d4f9c823) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Combobox] Added the `element` prop for customization in order to fix a Typescript error after the `element` prop was added as a required prop for `InputBox`. This does not include any default naming, tests, or stories. It only fixes the Typescript error.
+
+* [`0347aef6`](https://github.com/twilio-labs/paste/commit/0347aef6e8100f9dbc2bcd8830dd5c81b4de5a03) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [TextArea] Added the `element` prop for customization in order to fix a Typescript error after the `element` prop was added as a required prop for `InputBox`. This does not include any default naming, tests, or stories. It only fixes the Typescript error.
+
+- [`4964821b`](https://github.com/twilio-labs/paste/commit/4964821bd7a2d0fc267b4daf2eef5f1810d8f534) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Box] Added the following style props to support input:
+
+  - PsuedoProps:
+
+    - \_\_webkit_datetime_edit
+    - \_\_webkit_calendar_picker_indicator_hover
+
+  - StyleProps:
+    - -webkit-text-fill-color
+    - -webkit-opacity
+
+* [`a5c17a31`](https://github.com/twilio-labs/paste/commit/a5c17a313ba1cca7f0d48a3b3ae64d8ceddae53f) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Select] Added the `element` prop for customization in order to fix a Typescript error after the `element` prop was added as a required prop for `InputBox` and `InputChevronWrapper`. This does not include any default naming, tests, or stories. It only fixes the Typescript error.
+
+* Updated dependencies [[`ca0bf618`](https://github.com/twilio-labs/paste/commit/ca0bf6188ad7ac3375bec75d6461924b13edb391), [`af3b1e55`](https://github.com/twilio-labs/paste/commit/af3b1e558fc438352b47098d7d085d7eeffbfa51), [`e3398bd5`](https://github.com/twilio-labs/paste/commit/e3398bd5aaa84aaabe934bcad061cda705cdbe0a), [`a0cf511c`](https://github.com/twilio-labs/paste/commit/a0cf511c0078df0441d859939e9002a5e0b3431d), [`2eb6dd74`](https://github.com/twilio-labs/paste/commit/2eb6dd74eb1cdc06079e64a711e71b93d4f9c823), [`c9cc610b`](https://github.com/twilio-labs/paste/commit/c9cc610b6834fd9be22488e8e727ee65b1114aa0), [`0347aef6`](https://github.com/twilio-labs/paste/commit/0347aef6e8100f9dbc2bcd8830dd5c81b4de5a03), [`06bae4e2`](https://github.com/twilio-labs/paste/commit/06bae4e21077a32a6eeb059941f8717c76d76ce0), [`4964821b`](https://github.com/twilio-labs/paste/commit/4964821bd7a2d0fc267b4daf2eef5f1810d8f534), [`a5c17a31`](https://github.com/twilio-labs/paste/commit/a5c17a313ba1cca7f0d48a3b3ae64d8ceddae53f), [`9ceb48bd`](https://github.com/twilio-labs/paste/commit/9ceb48bd5d7c7d1f60bb3371085651c220e20f35), [`18c1f595`](https://github.com/twilio-labs/paste/commit/18c1f595e03d6152789342d1fc05942201cec5d3)]:
+  - @twilio-paste/display-pill-group@1.0.0
+  - @twilio-paste/button@7.0.7
+  - @twilio-paste/badge@1.0.1
+  - @twilio-paste/clipboard-copy-library@1.0.0
+  - @twilio-paste/combobox@8.0.0
+  - @twilio-paste/combobox-primitive@0.3.0
+  - @twilio-paste/textarea@3.0.6
+  - @twilio-paste/form-pill-group@1.0.0
+  - @twilio-paste/box@4.2.2
+  - @twilio-paste/select@5.0.5
+  - @twilio-paste/input@3.1.0
+  - @twilio-paste/input-box@4.1.0
+
+## 10.9.0
+
+### Minor Changes
+
+- [`72c5ce66`](https://github.com/twilio-labs/paste/commit/72c5ce66c1098311d7d9e4a0d6ea2bd62eda9632) [#1766](https://github.com/twilio-labs/paste/pull/1766) Thanks [@richbachman](https://github.com/richbachman)! - [Paragraph] Enable Paragraph to respect element customizations set on the customization provider. Paragraph now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`2d61c95d`](https://github.com/twilio-labs/paste/commit/2d61c95d09473298e76909b1d20bc705a4e48744) [#1766](https://github.com/twilio-labs/paste/pull/1766) Thanks [@richbachman](https://github.com/richbachman)! - [Heading] Enable Heading to respect element customizations set on the customization provider. Heading now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+- [`cb3d14ce`](https://github.com/twilio-labs/paste/commit/cb3d14ce95f8fbdfcf86f9ba7a85b3a2f4856e95) [#1766](https://github.com/twilio-labs/paste/pull/1766) Thanks [@richbachman](https://github.com/richbachman)! - [List] Enable UnorderedList, OrderedList and ListItem to respect element customizations set on the customization provider. UnorderedList, OrderedList and ListItem now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`7350eed5`](https://github.com/twilio-labs/paste/commit/7350eed570e8ee36bcd330397df600cbfbdade4a) [#1781](https://github.com/twilio-labs/paste/pull/1781) Thanks [@richbachman](https://github.com/richbachman)! - [Separator] Enable Separator to respect element customizations set on the customization provider. Separator now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+### Patch Changes
+
+- [`8654c408`](https://github.com/twilio-labs/paste/commit/8654c408faec07eed80b49536c95a214e6606400) [#1785](https://github.com/twilio-labs/paste/pull/1785) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box]: Box now handles the case where a variant being set on the component, does not appear in the elements object set on the Customization Provider
+
+* [`7a1ed203`](https://github.com/twilio-labs/paste/commit/7a1ed20300159fa095c197cef4dcd28c92369814) [#1785](https://github.com/twilio-labs/paste/pull/1785) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Text] Text now handles the case where a variant being set on the component, does not appear in the elements object set on the Customization Provider
+
+* Updated dependencies [[`72c5ce66`](https://github.com/twilio-labs/paste/commit/72c5ce66c1098311d7d9e4a0d6ea2bd62eda9632), [`8654c408`](https://github.com/twilio-labs/paste/commit/8654c408faec07eed80b49536c95a214e6606400), [`7a1ed203`](https://github.com/twilio-labs/paste/commit/7a1ed20300159fa095c197cef4dcd28c92369814), [`2d61c95d`](https://github.com/twilio-labs/paste/commit/2d61c95d09473298e76909b1d20bc705a4e48744), [`cb3d14ce`](https://github.com/twilio-labs/paste/commit/cb3d14ce95f8fbdfcf86f9ba7a85b3a2f4856e95), [`7350eed5`](https://github.com/twilio-labs/paste/commit/7350eed570e8ee36bcd330397df600cbfbdade4a)]:
+  - @twilio-paste/paragraph@4.1.0
+  - @twilio-paste/box@4.2.1
+  - @twilio-paste/text@4.1.2
+  - @twilio-paste/heading@5.1.0
+  - @twilio-paste/list@2.1.0
+  - @twilio-paste/separator@2.1.0
+
+## 10.8.0
+
+### Minor Changes
+
+- [`14c6fd2e`](https://github.com/twilio-labs/paste/commit/14c6fd2e73e33b86fc49b4e6979afa007833ff89) [#1743](https://github.com/twilio-labs/paste/pull/1743) Thanks [@andipants12](https://github.com/andipants12)! - [Box] Add column-gap and row-gap (CSS grid, flex box) to Box API.
+
+* [`a6df510d`](https://github.com/twilio-labs/paste/commit/a6df510dffb3706e5132ea04d8f875f313798ee0) [#1743](https://github.com/twilio-labs/paste/pull/1743) Thanks [@andipants12](https://github.com/andipants12)! - [Style Props] add types for column gap and row gap
+
+- [`14c6fd2e`](https://github.com/twilio-labs/paste/commit/14c6fd2e73e33b86fc49b4e6979afa007833ff89) [#1743](https://github.com/twilio-labs/paste/pull/1743) Thanks [@andipants12](https://github.com/andipants12)! - [Badge] Release Stage 1 of Badge component. A badge is a small chunk of information that describes an object in a visually highlighted way.
+
+### Patch Changes
+
+- Updated dependencies [[`14c6fd2e`](https://github.com/twilio-labs/paste/commit/14c6fd2e73e33b86fc49b4e6979afa007833ff89), [`a6df510d`](https://github.com/twilio-labs/paste/commit/a6df510dffb3706e5132ea04d8f875f313798ee0), [`14c6fd2e`](https://github.com/twilio-labs/paste/commit/14c6fd2e73e33b86fc49b4e6979afa007833ff89)]:
+  - @twilio-paste/box@4.2.0
+  - @twilio-paste/style-props@3.1.0
+  - @twilio-paste/badge@1.0.0
+
 ## 10.7.0
 
 ### Minor Changes

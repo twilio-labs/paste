@@ -112,7 +112,11 @@ const handlePropValidation = ({
   }
 };
 
+const variantsWithoutBoundingBox = new Set(['link', 'destructive_link', 'inverse_link', 'reset']);
+
 const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, showLoading, variant}) => {
+  const buttonVariantHasBoundingBox = variant && variantsWithoutBoundingBox.has(variant);
+
   return (
     <>
       <Box
@@ -121,7 +125,7 @@ const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, s
         textDecoration="inherit"
         opacity={buttonState === 'loading' ? '0' : '1'}
         aria-hidden={buttonState === 'loading' ? 'true' : 'false'}
-        justifyContent={variant === 'reset' ? null : 'center'}
+        justifyContent={buttonVariantHasBoundingBox ? null : 'center'}
       >
         {React.Children.count(children) > 1 ? (
           <Stack as="span" orientation="horizontal" spacing="space20">

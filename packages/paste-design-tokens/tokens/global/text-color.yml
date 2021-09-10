@@ -52,6 +52,15 @@ props:
   color-text-weakest:
     value: "{!palette-gray-0}"
     comment: Weakest body text for visual hierarchy. Inaccessible unless used on disabled controls.
+    text_contrast_pairing:
+      - color-background-primary
+      - color-background-primary-strong
+      - color-background-primary-stronger
+      - color-background-primary-strongest
+      - color-background-destructive
+      - color-background-destructive-strong
+      - color-background-destructive-stronger
+      - color-background-destructive-strongest
   color-text-inverse:
     value: "{!palette-gray-0}"
     comment: Inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
@@ -247,31 +256,44 @@ props:
       - color-background-primary-weakest
       - color-background-destructive-weakest
   color-text-success:
-    value: "{!palette-green-60}"
+    value: "{!palette-green-70}"
     comment: Text color for success text.
-    uicontrol_contrast_pairing:
-      # - color-background
-      # - color-background-body
-      - color-background-body-inverse
-      # - color-background-row-striped
-  color-text-warning:
-    value: "{!palette-orange-60}"
-    comment: Color for warning text.
-    uicontrol_contrast_pairing:
-      # - color-background
-      # - color-background-body
-      - color-background-body-inverse
-      # - color-background-row-striped
-  color-text-warning-strong:
-    value: "{!palette-orange-70}"
-    comment: Color for dark warning text.
     text_contrast_pairing:
+      - color-background
       - color-background-body
+      - color-background-success-weakest
+      - color-background-row-striped
     uicontrol_contrast_pairing:
       - color-background
       - color-background-body
-      - color-background-body-inverse
+      - color-background-success-weakest
       - color-background-row-striped
+  color-text-warning:
+    value: "{!palette-orange-80}"
+    comment: Color for warning text.
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-warning-weakest
+      - color-background-row-striped
+    uicontrol_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-warning-weakest
+      - color-background-row-striped
+  color-text-warning-strong:
+    value: "{!palette-orange-80}"
+    comment: Color for dark warning text.
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-row-striped
+      - color-background-warning-weakest
+    uicontrol_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-row-striped
+      - color-background-warning-weakest
   color-text-new:
     value: "{!palette-purple-60}"
     comment: Color for text indicating a new status.
@@ -342,5 +364,48 @@ props:
   color-text-icon-inverse:
     value: "{!palette-gray-50}"
     comment: Default icon color for inverse backgrounds.
+    text_contrast_pairing:
+      - color-background-body-inverse
+  color-text-icon-error:
+    value: "{!palette-red-60}"
+    comment: Icon color for indicating an error.
+    uicontrol_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-error-weakest
+      - color-background-row-striped
+  color-text-icon-success:
+    value: "{!palette-green-70}"
+    comment: Icon color for indicating success.
+    uicontrol_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-success-weakest
+      - color-background-row-striped
+  color-text-icon-warning:
+    value: "{!palette-orange-65}"
+    comment: Icon color for indicating a warning.
+    uicontrol_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-warning-weakest
+      - color-background-row-striped
+  color-text-icon-neutral:
+    value: "{!palette-blue-80}"
+    comment: Icon color for being neutral.
+    uicontrol_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-neutral-weakest
+      - color-background-row-striped
+  color-text-icon-brand-highlight:
+    value: "{!amaranth}"
+    comment: Twilio brand red icon color used for the Twilio logo.
+    uicontrol_contrast_pairing:
+      - color-background
+      - color-background-body
+  color-text-icon-brand-inverse:
+    value: "{!palette-gray-0}"
+    comment: Twilio brand icon color used for the Twilio logo on inverse backgrounds.
     text_contrast_pairing:
       - color-background-body-inverse

@@ -11,7 +11,15 @@ export interface DataLineChartIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const DataLineChartIcon: React.FC<DataLineChartIconProps> = ({as, display, size, color, title, decorative}) => {
+const DataLineChartIcon: React.FC<DataLineChartIconProps> = ({
+  as,
+  display,
+  element = 'ICON',
+  size,
+  color,
+  title,
+  decorative,
+}) => {
   const titleId = `DataLineChartIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +27,7 @@ const DataLineChartIcon: React.FC<DataLineChartIconProps> = ({as, display, size,
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}

@@ -1,9 +1,11 @@
 import * as React from 'react';
-import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {Stack} from '@twilio-paste/stack';
+import {Text} from '@twilio-paste/text';
 import {Separator} from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -136,4 +138,81 @@ export const Responsive = (): React.ReactNode => {
 
 Responsive.story = {
   name: 'responsive',
+};
+
+export const CustomSeparator: React.FC = () => {
+  return (
+    <Stack orientation="vertical" spacing="space60">
+      <Box>
+        <Card>
+          <Paragraph marginBottom="space0">
+            <strong>Default</strong>
+          </Paragraph>
+        </Card>
+        <Separator orientation="horizontal" verticalSpacing="space70" />
+        <Card>
+          <Paragraph marginBottom="space0">Nulla vitae elit libero, a pharetra augue.</Paragraph>
+        </Card>
+        <Separator orientation="horizontal" verticalSpacing="space70" />
+        <Card>
+          <Paragraph marginBottom="space0">Nulla vitae elit libero, a pharetra augue.</Paragraph>
+        </Card>
+      </Box>
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{
+          SEPARATOR: {
+            borderColor: 'colorBorderDestructive',
+            borderWidth: 'borderWidth40',
+          },
+        }}
+      >
+        <Box>
+          <Card>
+            <Paragraph marginBottom="space0">
+              <strong>Customized</strong>
+            </Paragraph>
+          </Card>
+          <Separator orientation="horizontal" verticalSpacing="space70" />
+          <Card>
+            <Paragraph marginBottom="space0">Nulla vitae elit libero, a pharetra augue.</Paragraph>
+          </Card>
+          <Separator orientation="horizontal" verticalSpacing="space70" />
+          <Card>
+            <Paragraph marginBottom="space0">Nulla vitae elit libero, a pharetra augue.</Paragraph>
+          </Card>
+        </Box>
+      </CustomizationProvider>
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{
+          NEW_SEPARATOR: {
+            borderColor: 'colorBorderPrimary',
+            borderWidth: 'borderWidth30',
+          },
+          ANOTHER_NEW_SEPARATOR: {
+            borderColor: 'colorBorderSuccess',
+            borderWidth: 'borderWidth40',
+            borderStyle: 'dashed',
+          },
+        }}
+      >
+        <Box>
+          <Card>
+            <Paragraph marginBottom="space0">
+              <strong>Customized element</strong>
+            </Paragraph>
+          </Card>
+          <Separator orientation="horizontal" verticalSpacing="space70" element="NEW_SEPARATOR" />
+          <Card>
+            <Paragraph marginBottom="space0">Nulla vitae elit libero, a pharetra augue.</Paragraph>
+          </Card>
+          <Separator orientation="horizontal" verticalSpacing="space70" element="ANOTHER_NEW_SEPARATOR" />
+          <Card>
+            <Paragraph marginBottom="space0">Nulla vitae elit libero, a pharetra augue.</Paragraph>
+          </Card>
+        </Box>
+      </CustomizationProvider>
+    </Stack>
+  );
 };

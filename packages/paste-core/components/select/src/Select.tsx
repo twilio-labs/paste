@@ -1,12 +1,13 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxProps} from '@twilio-paste/box';
 import type {TextColor} from '@twilio-paste/style-props';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {InputBox, InputChevronWrapper} from '@twilio-paste/input-box';
 import type {Variants} from './types';
 
-export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement>, Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
   hasError?: boolean;
   id?: string;
@@ -56,7 +57,10 @@ export const SelectElement = React.forwardRef<HTMLSelectElement, SelectProps>(({
 });
 
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
-  ({disabled, hasError, insertBefore, insertAfter, children, size, multiple, variant, ...props}, ref) => {
+  (
+    {disabled, element = 'SELECT', hasError, insertBefore, insertAfter, children, size, multiple, variant, ...props},
+    ref
+  ) => {
     let iconColor = 'colorTextIcon' as TextColor;
     if (disabled) {
       iconColor = 'colorTextWeaker';
@@ -67,6 +71,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     return (
       <InputBox
         disabled={disabled}
+        element={element}
         hasError={hasError}
         insertAfter={insertAfter}
         insertBefore={insertBefore}
@@ -86,7 +91,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
             {children}
           </SelectElement>
           {!multiple && (
-            <InputChevronWrapper>
+            <InputChevronWrapper element={element}>
               <ChevronDownIcon aria-hidden="true" decorative color={iconColor} size="sizeIcon30" />
             </InputChevronWrapper>
           )}

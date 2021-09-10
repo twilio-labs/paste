@@ -1,4 +1,5 @@
 import * as PropTypes from 'prop-types';
+import type {BoxProps} from '@twilio-paste/box';
 
 export type InputBoxTypes = 'text' | 'email' | 'hidden' | 'number' | 'password' | 'search' | 'tel' | 'date' | 'time';
 export type Variants = 'default' | 'inverse';
@@ -6,6 +7,9 @@ export type Variants = 'default' | 'inverse';
 export interface FauxInputProps {
   children: NonNullable<React.ReactNode>;
   disabled?: boolean;
+  // Requiring element here instead of extending directly from BoxProps.
+  // This ensures an element prop is always passed on these composite components.
+  element: BoxProps['element'];
   hasError?: boolean;
   readOnly?: boolean;
   type?: InputBoxTypes;
@@ -15,6 +19,7 @@ export interface FauxInputProps {
 export const FauxInputPropTypes = {
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
+  element: PropTypes.string.isRequired,
   hasError: PropTypes.bool,
   readOnly: PropTypes.bool,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

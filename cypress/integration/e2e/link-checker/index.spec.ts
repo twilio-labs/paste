@@ -15,6 +15,8 @@ const IGNORE_LIST = [
   // That will need to be refactored to pull from AirTable instead of packages.
   'primitives/sibling-box',
   'components/badge',
+  'components/display-pill-group',
+  'components/form-pill-group',
   'patterns/data-export', // this randomly started failing and the page doesn't exist.
   '/__/', // I don't know where this is being picked up
 ];

@@ -37,6 +37,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
     {
       autocomplete,
       disabled,
+      element = 'COMBOBOX',
       hasError,
       helpText,
       initialSelectedItem,
@@ -143,6 +144,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
         </Label>
         <InputBox
           disabled={disabled}
+          element={element}
           hasError={hasError}
           insertBefore={insertBefore}
           insertAfter={insertAfter}
@@ -156,10 +158,9 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
               {...(!autocomplete ? {onChange: (event: React.ChangeEvent) => event.preventDefault()} : undefined)}
               autocomplete={autocomplete}
               aria-describedby={helpTextId}
-              type="text"
             />
             {!autocomplete && (
-              <InputChevronWrapper>
+              <InputChevronWrapper element={element}>
                 <ChevronDownIcon aria-hidden="true" decorative color={iconColor} size="sizeIcon30" />
               </InputChevronWrapper>
             )}

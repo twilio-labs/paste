@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {DefaultFauxInput} from './DefaultFauxInput';
 import {InverseFauxInput} from './InverseFauxInput';
-import {FauxInputProps, FauxInputPropTypes} from '../types';
+import type {FauxInputProps} from '../types';
+import {FauxInputPropTypes} from '../types';
 
 const FauxInputVariants = {
   default: DefaultFauxInput,
@@ -9,12 +10,13 @@ const FauxInputVariants = {
 };
 
 const FieldWrapper = React.forwardRef<HTMLDivElement, FauxInputProps>(
-  ({children, disabled, hasError, readOnly, type, variant = 'default'}, ref) => {
+  ({children, disabled, element, hasError, readOnly, type, variant = 'default'}, ref) => {
     const FieldWrapperComponent = FauxInputVariants[variant];
 
     return (
       <FieldWrapperComponent
         disabled={disabled}
+        element={element}
         hasError={hasError}
         readOnly={readOnly}
         type={type}
@@ -29,8 +31,6 @@ const FieldWrapper = React.forwardRef<HTMLDivElement, FauxInputProps>(
 
 FieldWrapper.displayName = 'FieldWrapper';
 
-if (process.env.NODE_ENV === 'development') {
-  FieldWrapper.propTypes = FauxInputPropTypes;
-}
+FieldWrapper.propTypes = FauxInputPropTypes;
 
 export {FieldWrapper};

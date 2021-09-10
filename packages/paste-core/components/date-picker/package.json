@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "category": "user input",
   "status": "production",
-  "description": "A form component used to select a date.",
+  "description": "A Date Picker is a form element used to select a date.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

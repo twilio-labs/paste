@@ -5,7 +5,7 @@ import type {FauxInputProps} from '../types';
 import {FauxInputPropTypes} from '../types';
 
 const DefaultFauxInput = React.forwardRef<HTMLDivElement, FauxInputProps>(
-  ({disabled, hasError, readOnly, children, type}, ref) => {
+  ({disabled, element, hasError, readOnly, children, type, variant}, ref) => {
     let backgroundColor = 'colorBackgroundBody' as BackgroundColor;
     let boxShadow = 'shadowBorder' as BoxShadow;
     let boxShadowHover = 'shadowBorderPrimaryStrong' as BoxShadow;
@@ -30,6 +30,7 @@ const DefaultFauxInput = React.forwardRef<HTMLDivElement, FauxInputProps>(
 
     return (
       <Box
+        element={element}
         ref={ref}
         display="flex"
         width="100%"
@@ -38,6 +39,7 @@ const DefaultFauxInput = React.forwardRef<HTMLDivElement, FauxInputProps>(
         borderRadius="borderRadius20"
         transition="box-shadow 100ms ease-in"
         cursor={disabled ? 'not-allowed' : 'text'}
+        variant={variant}
         _hover={{
           boxShadow: boxShadowHover,
         }}
@@ -56,8 +58,6 @@ const DefaultFauxInput = React.forwardRef<HTMLDivElement, FauxInputProps>(
 
 DefaultFauxInput.displayName = 'DefaultFauxInput';
 
-if (process.env.NODE_ENV === 'development') {
-  DefaultFauxInput.propTypes = FauxInputPropTypes;
-}
+DefaultFauxInput.propTypes = FauxInputPropTypes;
 
 export {DefaultFauxInput};

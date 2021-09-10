@@ -33,7 +33,7 @@ export interface ToastContainerProps extends React.HTMLAttributes<HTMLDivElement
   __console_patch?: boolean;
 }
 
-export interface ToasterToast extends Pick<ToastProps, 'variant' | 'setFocus'> {
+export interface ToasterToast extends Pick<ToastProps, 'variant' | 'setFocus' | 'onDismiss'> {
   id: string;
   message: React.ReactElement | string;
   /**
@@ -43,7 +43,7 @@ export interface ToasterToast extends Pick<ToastProps, 'variant' | 'setFocus'> {
   timeOutId?: number;
 }
 
-export interface ToasterPush extends Omit<ToasterToast, 'id'> {
+export interface ToasterPush extends Omit<ToasterToast, 'id'>, Pick<ToastProps, 'onDismiss'> {
   id?: string;
 }
 

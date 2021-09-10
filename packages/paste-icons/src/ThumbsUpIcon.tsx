@@ -11,7 +11,7 @@ export interface ThumbsUpIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ThumbsUpIcon: React.FC<ThumbsUpIconProps> = ({as, display, size, color, title, decorative}) => {
+const ThumbsUpIcon: React.FC<ThumbsUpIconProps> = ({as, display, element = 'ICON', size, color, title, decorative}) => {
   const titleId = `ThumbsUpIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +19,7 @@ const ThumbsUpIcon: React.FC<ThumbsUpIconProps> = ({as, display, size, color, ti
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}

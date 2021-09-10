@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.0
+
+### Minor Changes
+
+- [`c9cc610b`](https://github.com/twilio-labs/paste/commit/c9cc610b6834fd9be22488e8e727ee65b1114aa0) [#1790](https://github.com/twilio-labs/paste/pull/1790) Thanks [@andipants12](https://github.com/andipants12)! - [Combobox Primitive] expose useMultiSelectPrimitive
+
 ## 0.2.4
 
 ### Patch Changes

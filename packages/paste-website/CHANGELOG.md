@@ -1,5 +1,20 @@
 # Change Log
 
+## 2.23.8
+
+### Patch Changes
+
+- Updated dependencies [[`af3b1e55`](https://github.com/twilio-labs/paste/commit/af3b1e558fc438352b47098d7d085d7eeffbfa51), [`a0cf511c`](https://github.com/twilio-labs/paste/commit/a0cf511c0078df0441d859939e9002a5e0b3431d), [`2eb6dd74`](https://github.com/twilio-labs/paste/commit/2eb6dd74eb1cdc06079e64a711e71b93d4f9c823), [`c9cc610b`](https://github.com/twilio-labs/paste/commit/c9cc610b6834fd9be22488e8e727ee65b1114aa0), [`0347aef6`](https://github.com/twilio-labs/paste/commit/0347aef6e8100f9dbc2bcd8830dd5c81b4de5a03), [`4964821b`](https://github.com/twilio-labs/paste/commit/4964821bd7a2d0fc267b4daf2eef5f1810d8f534), [`a5c17a31`](https://github.com/twilio-labs/paste/commit/a5c17a313ba1cca7f0d48a3b3ae64d8ceddae53f), [`9ceb48bd`](https://github.com/twilio-labs/paste/commit/9ceb48bd5d7c7d1f60bb3371085651c220e20f35), [`18c1f595`](https://github.com/twilio-labs/paste/commit/18c1f595e03d6152789342d1fc05942201cec5d3)]:
+  - @twilio-paste/button@7.0.7
+  - @twilio-paste/clipboard-copy-library@1.0.0
+  - @twilio-paste/combobox@8.0.0
+  - @twilio-paste/combobox-primitive@0.3.0
+  - @twilio-paste/textarea@3.0.6
+  - @twilio-paste/box@4.2.2
+  - @twilio-paste/select@5.0.5
+  - @twilio-paste/input@3.1.0
+  - @twilio-paste/input-box@4.1.0
+
 ## 2.23.7
 
 ### Patch Changes

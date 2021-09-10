@@ -1,16 +1,16 @@
 import * as React from 'react';
-import {useClipboard} from 'use-clipboard-copy';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
+import {useClipboard} from '@twilio-paste/clipboard-copy-library';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {Codeblock} from '../codeblock';
 import {SiteLink} from '../SiteLink';
-import {IconObject} from './types';
+import type {IconObject} from './types';
 
 const iconSnippet = (name: string): string => `import { ${name} } from "@twilio-paste/icons/esm/${name}";
 

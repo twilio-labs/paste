@@ -234,6 +234,11 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
                 </SidebarAnchor>
               </SidebarNestedItem>
               <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/data-export`}>
+                  Data Export
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/delete`}>
                   Delete
                 </SidebarAnchor>
@@ -251,6 +256,11 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
               <SidebarNestedItem>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/object-details`}>
                   Object details
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/status`}>
+                  Status
                 </SidebarAnchor>
               </SidebarNestedItem>
             </SidebarNestedList>

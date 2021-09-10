@@ -5,15 +5,18 @@ import {Input} from '@twilio-paste/input';
 
 export type TimePickerProps = Omit<InputProps, 'type' | 'insertBefore' | 'insertAfter' | 'step'>;
 
-// @ts-expect-error because ts doesn't like destructuring the step prop after omitting it from the type
-const TimePicker = React.forwardRef<HTMLInputElement, TimePickerProps>(({step: _step, ...props}, ref) => {
-  return <Input {...props} type="time" ref={ref} />;
-});
+const TimePicker = React.forwardRef<HTMLInputElement, TimePickerProps>(
+  // @ts-expect-error because ts doesn't like destructuring the step prop after omitting it from the type
+  ({step: _step, element = 'TIMEPICKER', ...props}, ref) => {
+    return <Input element={element} {...props} type="time" ref={ref} />;
+  }
+);
 
 TimePicker.displayName = 'TimePicker';
 
 TimePicker.propTypes = {
   disabled: PropTypes.bool,
+  element: PropTypes.string,
   hasError: PropTypes.bool,
   id: PropTypes.string,
   name: PropTypes.string,

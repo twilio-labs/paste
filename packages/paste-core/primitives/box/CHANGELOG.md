@@ -1,5 +1,32 @@
 # Change Log
 
+## 4.2.2
+
+### Patch Changes
+
+- [`4964821b`](https://github.com/twilio-labs/paste/commit/4964821bd7a2d0fc267b4daf2eef5f1810d8f534) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Box] Added the following style props to support input:
+
+  - PsuedoProps:
+
+    - \_\_webkit_datetime_edit
+    - \_\_webkit_calendar_picker_indicator_hover
+
+  - StyleProps:
+    - -webkit-text-fill-color
+    - -webkit-opacity
+
+## 4.2.1
+
+### Patch Changes
+
+- [`8654c408`](https://github.com/twilio-labs/paste/commit/8654c408faec07eed80b49536c95a214e6606400) [#1785](https://github.com/twilio-labs/paste/pull/1785) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box]: Box now handles the case where a variant being set on the component, does not appear in the elements object set on the Customization Provider
+
+## 4.2.0
+
+### Minor Changes
+
+- [`14c6fd2e`](https://github.com/twilio-labs/paste/commit/14c6fd2e73e33b86fc49b4e6979afa007833ff89) [#1743](https://github.com/twilio-labs/paste/pull/1743) Thanks [@andipants12](https://github.com/andipants12)! - [Box] Add column-gap and row-gap (CSS grid, flex box) to Box API.
+
 ## 4.1.1
 
 ### Patch Changes

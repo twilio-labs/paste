@@ -1,6 +1,6 @@
 ---
 title: Create
-description: Use these patterns to allow a user to generate a new object.
+description: The Create pattern allows the user to create a new instance of something, such as a service or a contact list.
 slug: /patterns/create/
 ---
 
@@ -101,12 +101,10 @@ export const pageQuery = graphql`
 ```jsx
 // import all ingredients for the create patterns
 
-import {​
-  Button,
-  Anchor,
-  Menu,
-  Toast
-} from '@twilio-paste/core
+import {​ Button } from "@twilio-paste/core/button";
+import { Menu } from "@twilio-paste/core/menu";
+import { Anchor } from "@twilio-paste/core/anchor;
+import { Toast } from "@twilio-paste/core/toast";
 ```
 
 ## Usage

@@ -1,10 +1,12 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxStyleProps} from '@twilio-paste/box';
+import type {BoxStyleProps, BoxProps} from '@twilio-paste/box';
 import {TabPrimitive} from '@twilio-paste/tabs-primitive';
 import {TabsContext} from './TabsContext';
-import {Orientation, Variants} from './types';
+import type {Orientation, Variants} from './types';
+
+import {getElementName} from './utils';
 
 // TODO:
 // Split vertical tabs into a separate component
@@ -94,13 +96,18 @@ export interface TabProps extends React.HTMLAttributes<HTMLElement> {
   id?: string | undefined;
   focusable?: boolean | undefined;
   disabled?: boolean | undefined;
+  element?: BoxProps['element'];
   children: React.ReactNode;
   'aria-disabled'?: boolean;
 }
 
-const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, ...tabProps}, ref) => {
+const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, element, ...tabProps}, ref) => {
   const tab = React.useContext(TabsContext);
   const boxStyles = React.useMemo(() => getTabBoxStyles(tab.orientation, tab.variant), [tab.orientation, tab.variant]);
+
+  const {orientation} = tab;
+  const elementName = getElementName(orientation, 'TAB', element);
+
   return (
     <TabPrimitive {...(tab as any)} {...tabProps} ref={ref}>
       {(props: TabProps) => {
@@ -110,13 +117,14 @@ const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, ...tabProps},
             {...boxStyles}
             as="span"
             cursor={props['aria-disabled'] ? 'not-allowed' : 'pointer'}
+            element={elementName}
             fontSize="fontSize30"
             fontWeight="fontWeightSemibold"
-            overflow={tab.orientation !== 'vertical' ? 'hidden' : undefined}
+            overflow={orientation !== 'vertical' ? 'hidden' : undefined}
             position="relative"
-            textOverflow={tab.orientation !== 'vertical' ? 'ellipsis' : undefined}
+            textOverflow={orientation !== 'vertical' ? 'ellipsis' : undefined}
             transition="border-color 100ms ease, color 100ms ease"
-            whiteSpace={tab.orientation !== 'vertical' ? 'nowrap' : undefined}
+            whiteSpace={orientation !== 'vertical' ? 'nowrap' : undefined}
           >
             {children}
           </Box>

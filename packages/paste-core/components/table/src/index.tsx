@@ -6,3 +6,4 @@ export * from './Tr';
 export * from './Td';
 export * from './Th';
 export * from './types';
+export * from './proptypes';

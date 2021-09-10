@@ -3,7 +3,7 @@
   "version": "6.0.4",
   "category": "user input",
   "status": "production",
-  "description": "The Label component is used to provide a visible, accessible name to any form element.",
+  "description": "A Label is text that provides a visible and accessible name to a form element.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
