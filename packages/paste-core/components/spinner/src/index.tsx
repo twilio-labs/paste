@@ -1,8 +1,10 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {styled, keyframes, css, size as sizeFn} from '@twilio-paste/styling-library';
-import type {LoadingIcon, LoadingIconProps} from '@twilio-paste/icons/esm/LoadingIcon';
-import type {IconSize, isIconSizeTokenProp} from '@twilio-paste/style-props';
+import {LoadingIcon} from '@twilio-paste/icons/esm/LoadingIcon';
+import type {LoadingIconProps} from '@twilio-paste/icons/esm/LoadingIcon';
+import {isIconSizeTokenProp} from '@twilio-paste/style-props';
+import type {IconSize} from '@twilio-paste/style-props';
 
 const rotate = keyframes`
   0% {

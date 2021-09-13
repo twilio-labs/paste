@@ -1,25 +1,57 @@
 import {keyframes} from '@twilio-paste/styling-library';
 
-export const SvgAnimate = keyframes`
+// const originalKeyframes = `
+//   0%,
+//   25% {
+//     stroke-dashoffset: 280;
+//     transform: rotate(0);
+//   }
+
+//   50%,
+//   75% {
+//     stroke-dashoffset: 75;
+//     transform: rotate(45deg);
+//   }
+
+//   100% {
+//     stroke-dashoffset: 280;
+//     transform: rotate(360deg);
+//   }
+// `;
+
+export const SvgKeyframes = keyframes`
   0%,
-  25% {
+  10% {
     stroke-dashoffset: 280;
     transform: rotate(0);
   }
 
-  50%,
+  50% {
+    stroke-dashoffset: 75;
+    transform: rotate(45deg);
+  }
+
   75% {
-    stroke-dashoffset: 60;
+    stroke-dashoffset: 0;
+    transform: rotate(45deg);
+  }
+
+  80% {
+    stroke-dashoffset: 20;
+    transform: rotate(45deg);
+  }
+
+  90% {
+    stroke-dashoffset: 75;
     transform: rotate(45deg);
   }
 
   100% {
     stroke-dashoffset: 280;
     transform: rotate(360deg);
-  }
-`;
+  }`;
 
-export const CircleAnimate = keyframes`
+export const CircleKeyframes = keyframes`
   0% {
     transform: rotateZ(0deg);
   }

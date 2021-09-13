@@ -125,8 +125,7 @@ const scales = {
   '-webkit-text-fill-color': 'textColors',
   // svg
   fill: 'fillColors',
-  stroke: 'textColors',
-  strokeWidth: 'sizes',
+  stroke: 'strokeColors',
 };
 
 const positiveOrNegative = (scale: any, value: any): string | number => {

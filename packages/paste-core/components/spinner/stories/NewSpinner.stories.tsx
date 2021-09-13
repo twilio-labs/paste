@@ -3,7 +3,7 @@ import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {useTheme, DefaultTheme} from '@twilio-paste/theme';
 import {withKnobs, text, select, boolean} from '@storybook/addon-knobs';
-import type {IconSize, TextColor} from '@twilio-paste/style-props';
+import type {IconSize, TextColor, TextColorOptions} from '@twilio-paste/style-props';
 import {styled} from '@twilio-paste/styling-library';
 
 import {Spinner} from '../src/v2';
@@ -17,7 +17,7 @@ export default {
   excludeStories: ['LoadingOverlay', 'StyledLoadingOverlay', 'StyledLoadingOverlayContent'],
 };
 
-export const Default = (): React.ReactNode => {
+export const SpinnerWithKnobs = (): React.ReactNode => {
   const {textColors, iconSizes} = useTheme();
   const colorOptions = React.useMemo(() => Object.keys(textColors), [textColors]);
   const sizeOptions = React.useMemo(() => Object.keys(iconSizes), [iconSizes]);
@@ -27,16 +27,12 @@ export const Default = (): React.ReactNode => {
 
   return (
     <Spinner
-      color={colorValue as string}
-      size={sizeValue as string}
+      color={colorValue as TextColorOptions}
+      size={sizeValue}
       title={text('title', 'Now loading')}
       decorative={decorativeValue}
     />
   );
-};
-
-export const Responsive = (): React.ReactNode => {
-  return <Spinner color="colorTextIcon" title={text('title', 'Now loading')} decorative={false} />;
 };
 
 const {textColors: defaultThemeTextColors, iconSizes} = DefaultTheme;
@@ -57,7 +53,13 @@ export const Colors = (): React.ReactNode => (
     paddingY="space80"
   >
     {standard.map((color) => (
-      <Spinner decorative={false} size="sizeIcon60" title={color} color={color} key={`default-${color}`} />
+      <Spinner
+        decorative={false}
+        size="sizeIcon60"
+        title={color}
+        color={color as TextColorOptions}
+        key={`default-${color}`}
+      />
     ))}
   </Box>
 );
@@ -73,7 +75,13 @@ export const InverseColors = (): React.ReactNode => (
     paddingY="space80"
   >
     {inverse.map((color) => (
-      <Spinner decorative={false} size="sizeIcon60" title={color} color={color} key={`default-inverse-${color}`} />
+      <Spinner
+        decorative={false}
+        size="sizeIcon60"
+        title={color}
+        color={color as TextColorOptions}
+        key={`default-inverse-${color}`}
+      />
     ))}
   </Box>
 );
@@ -81,7 +89,7 @@ export const InverseColors = (): React.ReactNode => (
 export const Sizes: React.ReactNode = () => (
   <Box display="flex" marginX="space80" paddingY="space80" alignItems="center" justifyContent="space-between">
     {Object.keys(iconSizes).map((iconSize) => (
-      <Spinner decorative={false} title={iconSize} size={iconSize} key={`dark-${iconSize}`} />
+      <Spinner decorative={false} title={iconSize} size={iconSize as IconSize} key={`dark-${iconSize}`} />
     ))}
   </Box>
 );

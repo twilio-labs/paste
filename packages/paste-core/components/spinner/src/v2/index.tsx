@@ -1,14 +1,16 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {useUID} from '@twilio-paste/uid-library';
+import type {IconSize} from '@twilio-paste/style-props';
 
 import {StyledCircleTrack, AnimatedStyledCircle, StyledSvg} from './styled';
+import type {Stroke} from './types';
 
 type SpinnerProps = {
-  size?: string;
-  color?: string;
+  size?: IconSize;
   title?: string;
   decorative?: boolean;
+  color?: Stroke;
 };
 
 type CircleGeometryProps = Pick<React.SVGProps<SVGCircleElement>, 'cx' | 'cy' | 'r'>;
