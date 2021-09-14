@@ -1,6 +1,6 @@
 ---
-'@twilio-paste/spinner': major
+'@twilio-paste/spinner': minor
 '@twilio-paste/core': minor
 ---
 
-[Spinner]: Add new spinner component (TODO update this.)
+[Spinner]: Update spinner animation and styling.

@@ -2,7 +2,6 @@ import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
 import {IconWrapper} from '@twilio-paste/icons/esm/helpers/IconWrapper';
 import type {IconWrapperProps} from '@twilio-paste/icons/esm/helpers/IconWrapper';
-import type {IconSize, TextColor} from '@twilio-paste/style-props';
 import {useTheme} from '@twilio-paste/theme';
 
 import {StyledCircleTrack, AnimatedStyledCircle, StyledSvg} from './styled';
@@ -17,10 +16,8 @@ const circleGeometry: CircleGeometryProps = {
 
 export interface SpinnerProps extends IconWrapperProps {
   title: string;
-  size?: IconSize;
   delay?: number;
   decorative: boolean;
-  color?: TextColor;
 }
 
 export const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(

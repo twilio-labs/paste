@@ -1,25 +1,23 @@
 import {keyframes} from '@twilio-paste/styling-library';
 
-const originalKeyframes = `
+export const SvgKeyframes = keyframes`
   0%,
   25% {
-    stroke-dashoffset: 280;
+    stroke-dashoffset: 282;
     transform: rotate(0);
   }
 
   50%,
-  75% {
-    stroke-dashoffset: 75;
-    transform: rotate(45deg);
+  70% {
+    stroke-dashoffset: 45;
+    transform: rotate(20deg);
   }
 
   100% {
-    stroke-dashoffset: 280;
+    stroke-dashoffset: 281;
     transform: rotate(360deg);
   }
 `;
-
-export const SvgKeyframes = keyframes`${originalKeyframes}`;
 
 export const CircleKeyframes = keyframes`
   0% {

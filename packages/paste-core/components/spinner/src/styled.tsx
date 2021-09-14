@@ -27,9 +27,6 @@ export const AnimatedStyledCircle = styled.circle<{show: boolean}>(({show}) => {
     animation: `1.4s linear infinite both ${CircleKeyframes}`,
     strokeDasharray: '285',
     stroke: 'currentColor',
-    '@media screen and (prefers-reduced-motion: reduce)': {
-      animation: 'none',
-    },
     opacity: show ? 1 : 0,
   };
 });
@@ -39,7 +36,4 @@ export const StyledSvg = styled.svg(() => ({
   width: '100%',
   display: 'block',
   animation: `6s ease-in-out infinite both ${SvgKeyframes}`,
-  '@media screen and (prefers-reduced-motion: reduce)': {
-    animation: 'none',
-  },
 }));
