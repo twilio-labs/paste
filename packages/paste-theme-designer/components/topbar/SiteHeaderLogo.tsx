@@ -6,6 +6,7 @@ import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/core/media-obje
 import {styled} from '@twilio-paste/core/styling-library';
 import {useTheme} from '@twilio-paste/core/theme';
 import {PasteIconInverse} from './PasteIconInverse';
+import {BetaBadge} from './BetaBadge';
 
 const StyledA = styled.a`
   text-decoration: none;
@@ -44,15 +45,18 @@ const SiteHeaderLogo: React.FC<SiteHeaderLogoProps> = ({title, subtitle}) => {
             </Link>
           </Text>
           {subtitle ? (
-            <Text
+            <Box
               as="div"
+              display="flex"
+              alignItems="center"
+              columnGap="space40"
               fontSize="fontSize20"
               fontWeight="fontWeightNormal"
               lineHeight="lineHeight20"
               color="colorTextInverse"
             >
-              {subtitle}
-            </Text>
+              {subtitle} <BetaBadge />
+            </Box>
           ) : null}
         </MediaBody>
       </MediaObject>

@@ -13,7 +13,7 @@ const TopBar: React.FC = () => {
       top="0px"
       zIndex="zIndex80"
     >
-      <SiteHeaderLogo title="Paste" subtitle="Theme Designer" />
+      <SiteHeaderLogo title="Paste" subtitle="Remix" />
     </Box>
   );
 };
