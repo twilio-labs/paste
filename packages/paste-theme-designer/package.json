@@ -8,7 +8,8 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
-    "clean": "rm -rf .next"
+    "clean": "rm -rf .next",
+    "type-check": "tsc"
   },
   "dependencies": {
     "@twilio-paste/core": "^10.0.0",
