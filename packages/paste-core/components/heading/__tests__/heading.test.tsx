@@ -163,6 +163,8 @@ describe('Heading', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{HEADING: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
           <Heading as="h1" variant="heading10">
@@ -179,6 +181,8 @@ describe('Heading', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{
             HEADING: {
               color: 'colorTextWeak',
@@ -207,6 +211,8 @@ describe('Heading', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
           <Heading as="h1" variant="heading10" element="foo">
@@ -223,6 +229,8 @@ describe('Heading', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{
             foo: {
               color: 'colorTextWeak',
