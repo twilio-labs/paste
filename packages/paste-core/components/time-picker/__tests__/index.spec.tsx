@@ -116,6 +116,8 @@ describe('TimePicker', () => {
       const {container} = render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{
             TIMEPICKER: {backgroundColor: 'colorBackgroundBrandStronger'},
             TIMEPICKER_ELEMENT: {backgroundColor: 'colorBackgroundBrandHighlight'},
@@ -134,6 +136,8 @@ describe('TimePicker', () => {
       const {container} = render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{
             TIMEPICKER: {variants: {inverse: {backgroundColor: 'colorBackgroundBrand'}}},
             TIMEPICKER_ELEMENT: {variants: {inverse: {backgroundColor: 'colorBackgroundBrand'}}},
@@ -152,6 +156,8 @@ describe('TimePicker', () => {
       const {container} = render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{
             CUSTOM_TIME: {backgroundColor: 'colorBackgroundBusy'},
             CUSTOM_TIME_ELEMENT: {backgroundColor: 'colorBackgroundDestructive'},
@@ -170,6 +176,8 @@ describe('TimePicker', () => {
       const {container} = render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{
             CUSTOM_TIME: {variants: {inverse: {backgroundColor: 'colorBackgroundNew'}}},
             CUSTOM_TIME_ELEMENT: {variants: {inverse: {backgroundColor: 'colorBackgroundSuccess'}}},

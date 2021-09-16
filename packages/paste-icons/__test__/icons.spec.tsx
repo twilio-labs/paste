@@ -23,6 +23,8 @@ describe('Icons', () => {
       const {container} = render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{
             ICON: {borderRadius: 'borderRadius20', backgroundColor: 'colorBackgroundSuccess'},
             CUSTOM_ICON: {borderRadius: 'borderRadius20', backgroundColor: 'colorBackgroundDestructive'},

@@ -277,6 +277,8 @@ describe('Tabs', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{
             HORIZONTAL_TABS: {
               margin: 'space100',
@@ -342,6 +344,8 @@ describe('Tabs', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{
             HORSE: {
               margin: 'space100',
