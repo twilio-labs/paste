@@ -105,6 +105,7 @@
     "@types/jest": "^24.0.18",
     "@types/jest-axe": "^3.5.1",
     "@types/node": "^14.14.16",
+    "@types/react-github-button": "^0.1.1",
     "@types/react-helmet": "^5.0.14",
     "@types/react-scrollspy": "^3.3.1",
     "@types/react-test-renderer": "^16.9.0",
@@ -201,8 +202,5 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-push": "if git-branch-is main; then yarn pre-push; fi"
     }
-  },
-  "devDependencies": {
-    "@types/react-github-button": "^0.1.1"
   }
 }
