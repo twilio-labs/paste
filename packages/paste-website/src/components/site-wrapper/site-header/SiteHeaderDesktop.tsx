@@ -46,7 +46,7 @@ const SiteHeaderDesktop: React.FC<SiteHeaderDesktopProps> = ({searchValue, onSea
             <SiteHeaderSearch value={searchValue} onChange={onSearchChange} />
             <GithubLink />
             <Box>
-              <GitHubButton type="stargazers" size="small" namespace="twilio-labs" repo="paste" />
+              <GitHubButton type="stargazers" namespace="twilio-labs" repo="paste" />
             </Box>
           </Stack>
         </Box>

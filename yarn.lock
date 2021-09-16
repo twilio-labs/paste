@@ -8951,6 +8951,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-github-button@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@types/react-github-button/-/react-github-button-0.1.1.tgz#5aa6961f70f2fbb56ca3e7664fd35913e4d4a1e6"
+  integrity sha512-1xaD0XHOmR6RlKAaF4AAyq5AhAqUhXZCW11gs+VQhIprA8Oe1I/HdfsWHxpDGjFFyBvgEdNfD3NSrFhGkQO3Gw==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-helmet@^5.0.14":
   version "5.0.15"
   resolved "https://registry.yarnpkg.com/@types/react-helmet/-/react-helmet-5.0.15.tgz#af0370617307e9f062c6aee0f1f5588224ce646e"

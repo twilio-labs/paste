@@ -26,6 +26,7 @@
     "@twilio-paste/animation-library": "^0.3.1",
     "@twilio-paste/aspect-ratio": "^4.0.3",
     "@twilio-paste/avatar": "^2.1.0",
+    "@twilio-paste/badge": "^1.0.1",
     "@twilio-paste/base-radio-checkbox": "^6.0.2",
     "@twilio-paste/box": "^4.2.2",
     "@twilio-paste/breadcrumb": "^4.0.2",

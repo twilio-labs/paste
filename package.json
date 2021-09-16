@@ -201,5 +201,8 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-push": "if git-branch-is main; then yarn pre-push; fi"
     }
+  },
+  "devDependencies": {
+    "@types/react-github-button": "^0.1.1"
   }
 }

@@ -8,11 +8,11 @@ import type {GenericTokensShape} from '@twilio-paste/design-tokens/types/Generic
 import {TokenContext} from '../context/TokenContext';
 
 datadogRum.init({
-  applicationId: process.env.NEXT_PUBLIC_DATADOG_APPLICATION_ID || '',
-  clientToken: process.env.NEXT_PUBLIC_DATADOG_CLIENT_TOKEN || '',
+  applicationId: process.env.DATADOG_APPLICATION_ID || '',
+  clientToken: process.env.DATADOG_CLIENT_TOKEN || '',
   site: 'datadoghq.com',
   service: 'paste-remix',
-  env: process.env.NEXT_PUBLIC_ENVIRONMENT_CONTEXT,
+  env: process.env.ENVIRONMENT_CONTEXT,
   version: '1.0.0',
   sampleRate: 100,
   trackInteractions: true,
@@ -37,13 +37,13 @@ function MyApp({Component, pageProps}: AppProps): JSX.Element {
     <TokenContext.Provider value={{tokens, updateToken, loadTokens}}>
       <Theme.Provider theme="default">
         <Head>
-          <title>Paste Remix</title>
+          <title>Home: Paste Remix</title>
           <link rel="icon" href="/logo.svg" />
 
           <meta name="twitter:card" content="summary" key="twcard" />
           <meta name="twitter:creator" content="TwilioPaste" key="twhandle" />
           <meta property="og:url" content="https://remix.twilio.design" key="ogurl" />
-          <meta property="og:image" content="/og-card.png" key="ogimage" />
+          <meta property="og:image" content={`${process.env.DEPLOY_URL}/og-card.png`} key="ogimage" />
           <meta property="og:site_name" content="Paste Remix" key="ogsitename" />
           <meta property="og:title" content="Home: Paste Remix" key="ogtitle" />
 
@@ -53,15 +53,18 @@ function MyApp({Component, pageProps}: AppProps): JSX.Element {
             key="ogdesc"
           />
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-FL02YG9W9H" />
-          <script>
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
+          <script
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-              gtag('config', 'G-FL02YG9W9H');
-            `}
-          </script>
+            gtag('config', 'G-FL02YG9W9H');
+          `,
+            }}
+          />
         </Head>
         <Component {...pageProps} />
       </Theme.Provider>
