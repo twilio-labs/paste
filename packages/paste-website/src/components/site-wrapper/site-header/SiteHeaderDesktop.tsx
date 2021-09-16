@@ -1,10 +1,13 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
+import GitHubButton from 'react-github-button';
 import {GithubLink} from './GithubLink';
 import {SiteHeaderSearch} from './SiteHeaderSearch';
 import {SiteHeaderLogo} from './SiteHeaderLogo';
 import {DarkModeToggle} from './DarkModeToggle';
+
+import 'react-github-button/assets/style.css';
 
 interface SiteHeaderDesktopProps {
   searchValue: string;
@@ -42,6 +45,9 @@ const SiteHeaderDesktop: React.FC<SiteHeaderDesktopProps> = ({searchValue, onSea
           <Stack orientation="horizontal" spacing="space60">
             <SiteHeaderSearch value={searchValue} onChange={onSearchChange} />
             <GithubLink />
+            <Box>
+              <GitHubButton type="stargazers" size="small" namespace="twilio-labs" repo="paste" />
+            </Box>
           </Stack>
         </Box>
       </Box>

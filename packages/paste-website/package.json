@@ -111,6 +111,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-github-button": "^0.1.11",
     "react-helmet": "^5.2.1",
     "react-live": "^2.2.2",
     "react-scrollspy": "^3.4.0",

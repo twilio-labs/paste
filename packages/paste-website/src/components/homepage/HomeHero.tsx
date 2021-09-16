@@ -66,19 +66,15 @@ const HomeHero: React.FC = () => {
             <Column span={5}>
               <NewComponentBanner>
                 <NewComponentBannerBadge>New!</NewComponentBannerBadge>
-                <NewComponentBannerText>
-                  <span role="img" aria-label="Skeleton emoji">
-                    💀
-                  </span>{' '}
-                  Skeleton Loaders have arrived!
-                </NewComponentBannerText>
+                <NewComponentBannerText>Announcing Paste Remix!</NewComponentBannerText>
                 <NewComponentBannerLink
-                  to="/components/skeleton-loader"
+                  to="https://remix.twilio.design"
+                  showExternal
                   onClick={() =>
                     trackCustomEvent({
                       category: 'Hero',
                       action: 'click-new-component-banner',
-                      label: 'Skeleton Loader component page',
+                      label: 'Theme Designer Launch',
                     })
                   }
                 >
