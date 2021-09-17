@@ -238,6 +238,7 @@ describe('Disclosure', () => {
             DISCLOSURE: {padding: 'space100'},
             DISCLOSURE_CONTENT: {color: 'colorTextErrorStrong'},
             DISCLOSURE_HEADING: {color: 'colorTextWeakest', backgroundColor: 'colorBackgroundDestructiveStrong'},
+            DISCLOSURE_HEADING_ICON: {color: 'colorTextIconError'},
           }}
         >
           <MockDefaultElementDisclosure />
@@ -245,12 +246,14 @@ describe('Disclosure', () => {
       );
 
       const renderedDisclosureHeading = screen.getByTestId('disclosure-heading');
+      const renderedDisclosureHeadingIcon = renderedDisclosureHeading.firstChild;
       const renderedDisclosure = screen.getByTestId('disclosure');
       const renderedDisclosureContent = screen.getByTestId('disclosure-content');
 
       expect(renderedDisclosure).toHaveStyleRule('padding', '2.25rem');
       expect(renderedDisclosureHeading).toHaveStyleRule('color', 'rgb(255,255,255)');
       expect(renderedDisclosureHeading).toHaveStyleRule('background-color', 'rgb(117,12,12)');
+      expect(renderedDisclosureHeadingIcon).toHaveStyleRule('color', 'rgb(214,31,31)');
       expect(renderedDisclosureContent).toHaveStyleRule('color', 'rgb(173,17,17)');
     });
 
@@ -264,18 +267,21 @@ describe('Disclosure', () => {
             MY_DISCLOSURE: {padding: 'space100'},
             MY_DISCLOSURE_CONTENT: {color: 'colorTextErrorStrong'},
             MY_DISCLOSURE_HEADING: {color: 'colorTextWeakest', backgroundColor: 'colorBackgroundDestructiveStrong'},
+            MY_DISCLOSURE_HEADING_ICON: {color: 'colorTextIconError'},
           }}
         >
           <MockCustomElementDisclosure />
         </CustomizationProvider>
       );
       const renderedDisclosureHeading = screen.getByTestId('disclosure-heading');
+      const renderedDisclosureHeadingIcon = renderedDisclosureHeading.firstChild;
       const renderedDisclosure = screen.getByTestId('disclosure');
       const renderedDisclosureContent = screen.getByTestId('disclosure-content');
 
       expect(renderedDisclosure).toHaveStyleRule('padding', '2.25rem');
       expect(renderedDisclosureHeading).toHaveStyleRule('color', 'rgb(255,255,255)');
       expect(renderedDisclosureHeading).toHaveStyleRule('background-color', 'rgb(117,12,12)');
+      expect(renderedDisclosureHeadingIcon).toHaveStyleRule('color', 'rgb(214,31,31)');
       expect(renderedDisclosureContent).toHaveStyleRule('color', 'rgb(173,17,17)');
     });
   });
