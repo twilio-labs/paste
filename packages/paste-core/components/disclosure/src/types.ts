@@ -40,6 +40,7 @@ export interface StyledDisclosureHeadingProps extends Omit<DisclosureHeadingProp
   customDisabled?: boolean;
   customFocusable?: boolean;
   disclosureVariant: DisclosureVariants;
+  element: string;
 }
 
 export interface DisclosureContentProps
