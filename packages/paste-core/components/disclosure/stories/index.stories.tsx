@@ -335,12 +335,15 @@ export const Customization = (): React.ReactNode => {
     <CustomizationProvider
       baseTheme="default"
       elements={{
-        DISCLOSURE: {padding: 'space100', variants: {contained: {borderColor: 'colorBorderError'}}},
+        DISCLOSURE: {padding: 'space30', variants: {contained: {borderColor: 'colorBorderError'}}},
         DISCLOSURE_CONTENT: {color: 'colorTextErrorStrong'},
         DISCLOSURE_HEADING: {
-          color: 'colorTextNeutral',
-          backgroundColor: 'colorBackgroundDestructiveWeakest',
-          ':hover': {backgroundColor: 'colorBackgroundNeutralWeakest'},
+          color: 'colorText',
+          backgroundColor: 'colorBackgroundErrorWeakest',
+          ':hover': {backgroundColor: 'colorBackgroundErrorWeak'},
+        },
+        DISCLOSURE_HEADING_ICON: {
+          color: 'colorTextIconError',
         },
       }}
     >
