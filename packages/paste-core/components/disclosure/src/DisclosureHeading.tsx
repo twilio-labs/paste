@@ -60,6 +60,7 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
         >
           <Box
             as="span"
+            element={`${element}_ICON`}
             display="flex"
             height={IconSizeFromHeading[variant] || 'sizeIcon20'}
             width={IconSizeFromHeading[variant] || 'sizeIcon20'}
