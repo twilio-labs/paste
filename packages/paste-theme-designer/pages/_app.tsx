@@ -40,7 +40,7 @@ function MyApp({Component, pageProps}: AppProps): JSX.Element {
           <title>Home: Paste Remix</title>
           <link rel="icon" href="/logo.svg" />
 
-          <meta name="twitter:card" content="summary" key="twcard" />
+          <meta name="twitter:card" content="summary_large_image" key="twcard" />
           <meta name="twitter:creator" content="TwilioPaste" key="twhandle" />
           <meta property="og:url" content="https://remix.twilio.design" key="ogurl" />
           <meta property="og:image" content={`${process.env.DEPLOY_URL}/og-card.png`} key="ogimage" />
