@@ -14,10 +14,7 @@ export const pageQuery = graphql`
         value
       }
     }
-    allAirtable(
-      sort: {fields: [data___Release_, data___Feature]}
-      filter: {data: {Done: {eq: null}, On_internal_roadmap_only: {ne: true}}}
-    ) {
+    allAirtable(sort: {fields: [data___Release_, data___Feature]}, filter: {data: {Done: {eq: null}}}) {
       group(field: data___Release_) {
         release: fieldValue
         edges {
