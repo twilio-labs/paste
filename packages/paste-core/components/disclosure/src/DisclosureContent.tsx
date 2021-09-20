@@ -9,7 +9,7 @@ import {DisclosureContentPropTypes} from './PropTypes';
 export const AnimatedDisclosureContent = animated(Box);
 
 const DisclosureContent = React.forwardRef<HTMLDivElement, DisclosureContentProps>(
-  ({children, visible, ...props}, ref) => {
+  ({children, element = 'DISCLOSURE_CONTENT', visible, ...props}, ref) => {
     const {disclosure} = React.useContext(DisclosureContext);
     const {opacity} = useSpring({
       opacity: disclosure.visible ? 1 : 0,
@@ -27,6 +27,7 @@ const DisclosureContent = React.forwardRef<HTMLDivElement, DisclosureContentProp
         {...disclosure}
         {...safelySpreadBoxProps(props)}
         as={AnimatedDisclosureContent}
+        element={element}
         backgroundColor="colorBackgroundBody"
         padding="space50"
         ref={ref}
