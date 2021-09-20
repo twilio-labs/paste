@@ -74,6 +74,7 @@ describe('Input render', () => {
       <Theme.Provider theme="console">
         <Label htmlFor="input_1">Label Text</Label>
         <Input id="input_1" type="text" value="test" onChange={NOOP} />
+        <HelpText>Help text.</HelpText>
       </Theme.Provider>
     );
     const results = await axe(container);
@@ -87,6 +88,7 @@ describe('Input render', () => {
           Label Text
         </Label>
         <Input id="input_2" type="text" value="test" onChange={NOOP} disabled />
+        <HelpText>Help text.</HelpText>
       </Theme.Provider>
     );
     const results = await axe(container);
