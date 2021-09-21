@@ -4,7 +4,6 @@ import {Button} from '@twilio-paste/button';
 import {useTheme, DefaultTheme} from '@twilio-paste/theme';
 import {withKnobs, text, select, boolean, number} from '@storybook/addon-knobs';
 import type {IconSize, TextColor, TextColorOptions} from '@twilio-paste/style-props';
-import type {ButtonVariants} from '@twilio-paste/button/dist/types';
 import {styled} from '@twilio-paste/styling-library';
 
 import {Spinner} from '../src';
@@ -96,20 +95,6 @@ export const Sizes: React.ReactNode = () => (
   </Box>
 );
 
-const buttonVariants: ButtonVariants[] = ['primary', 'secondary', 'destructive', 'destructive_secondary'];
-
-export const InButton: React.ReactNode = () => (
-  <Box display="flex" flexDirection="column" rowGap="space80" maxWidth="size50">
-    <Box display="flex" alignItems="center" justifyContent="space-between" maxHeight="min-content">
-      {buttonVariants.map((variant) => (
-        <Button variant={variant} key={`dark-${variant}`} loading>
-          Loading
-        </Button>
-      ))}
-    </Box>
-  </Box>
-);
-
 const StyledLoadingOverlay = styled.div({
   position: 'fixed',
   top: 0,
@@ -123,7 +108,7 @@ const StyledLoadingOverlay = styled.div({
 });
 const StyledLoadingOverlayContent = styled.div({
   position: 'fixed',
-  top: '30%',
+  top: '50%',
   display: 'flex',
 });
 interface LoadingOverlayProps {
@@ -151,7 +136,7 @@ export const InFullscreenOverlay: React.ReactNode = () => {
   React.useEffect(() => {
     let timeout: NodeJS.Timeout;
     if (isOpen) {
-      timeout = setTimeout((): void => setIsOpen(false), 4000);
+      timeout = setTimeout((): void => setIsOpen(false), 7000);
     }
 
     return () => {

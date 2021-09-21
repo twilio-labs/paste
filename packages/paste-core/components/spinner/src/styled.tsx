@@ -14,7 +14,7 @@ export const AnimatedStyledCircle = styled.circle<{show: boolean}>(({show}) => {
   return {
     transformOrigin: 'center',
     animation: `${1.5}s ease-in-out infinite both ${CircleKeyframes}`,
-    strokeDasharray: circleCircumference + 1,
+    strokeDasharray: circleCircumference,
     opacity: show ? 1 : 0,
   };
 });

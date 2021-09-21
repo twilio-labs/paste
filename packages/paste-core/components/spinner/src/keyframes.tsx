@@ -1,11 +1,11 @@
 import {keyframes} from '@twilio-paste/styling-library';
 
-import {circleCircumference} from './constants';
+import {maxStrokeOffset} from './constants';
 
 export const SvgKeyframes = keyframes`
   0%,
   15% {
-    stroke-dashoffset: ${circleCircumference};
+    stroke-dashoffset: ${maxStrokeOffset};
     transform: rotate(0);
   }
 
@@ -16,7 +16,7 @@ export const SvgKeyframes = keyframes`
   }
 
   100% {
-    stroke-dashoffset: ${circleCircumference};
+    stroke-dashoffset: ${maxStrokeOffset};
     transform: rotate(360deg);
   }
 `;

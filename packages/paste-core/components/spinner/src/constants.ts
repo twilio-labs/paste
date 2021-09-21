@@ -6,6 +6,6 @@ export const circleGeometry: CircleGeometryProps = {
   cy: 50,
   r: circleRadius,
 };
-export const circleCircumference = Math.floor(Math.PI * 2 * circleRadius);
 
-export const strokeDashArray = circleCircumference + 1;
+export const circleCircumference = Math.PI * 2 * circleRadius;
+export const maxStrokeOffset = Math.floor(circleCircumference);
