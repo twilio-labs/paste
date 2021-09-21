@@ -1,7 +1,7 @@
 import {styled} from '@twilio-paste/styling-library';
 
 import {SvgKeyframes, CircleKeyframes} from './keyframes';
-import {circleCircumference} from './constants';
+import {strokeDasharray} from './constants';
 
 export const StyledCircleTrack = styled.circle(() => {
   return {
@@ -14,7 +14,7 @@ export const AnimatedStyledCircle = styled.circle<{show: boolean}>(({show}) => {
   return {
     transformOrigin: 'center',
     animation: `${1.5}s ease-in-out infinite both ${CircleKeyframes}`,
-    strokeDasharray: circleCircumference,
+    strokeDasharray,
     opacity: show ? 1 : 0,
   };
 });
