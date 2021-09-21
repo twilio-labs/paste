@@ -13,7 +13,7 @@ export const StyledCircleTrack = styled.circle(() => {
 export const AnimatedStyledCircle = styled.circle<{show: boolean}>(({show}) => {
   return {
     transformOrigin: 'center',
-    animation: `${1.5}s ease-in-out infinite both ${CircleKeyframes}`,
+    animation: `1.5s ease-in-out infinite both ${CircleKeyframes}`,
     strokeDasharray,
     opacity: show ? 1 : 0,
   };
@@ -23,5 +23,5 @@ export const StyledSvg = styled.svg(() => ({
   height: '100%',
   width: '100%',
   display: 'block',
-  animation: `${4.25}s linear infinite both ${SvgKeyframes}`,
+  animation: `4.25s linear infinite both ${SvgKeyframes}`,
 }));
