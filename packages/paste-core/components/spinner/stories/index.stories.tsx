@@ -102,7 +102,7 @@ export const InButton: React.ReactNode = () => (
   <Box display="flex" flexDirection="column" rowGap="space80" maxWidth="size50">
     <Box display="flex" alignItems="center" justifyContent="space-between" maxHeight="min-content">
       {buttonVariants.map((variant) => (
-        <Button size="icon_small" variant={variant} key={`dark-${variant}`} loading>
+        <Button variant={variant} key={`dark-${variant}`} loading>
           Loading
         </Button>
       ))}

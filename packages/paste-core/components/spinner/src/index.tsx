@@ -14,7 +14,7 @@ export interface SpinnerProps extends IconWrapperProps {
 }
 
 export const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
-  ({size = 'sizeIcon30', color = 'currentColor', title, as, display, decorative, delay = 250}, ref) => {
+  ({size, color = 'currentColor', title, as, display, decorative, delay = 250}, ref) => {
     const titleId = `spinner-${useUID()}`;
     const {borderWidths: {borderWidth40 = '8px'} = {}} = useTheme() || {};
 
