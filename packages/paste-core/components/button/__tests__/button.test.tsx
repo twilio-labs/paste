@@ -505,7 +505,8 @@ describe('Button', () => {
       );
 
       const buttonContent = getByText('Loading link');
-      const loadingIconWrapper = (getByTestId('wrapping-div').firstChild as ChildNode).lastChild as ChildNode;
+      const themeWrapper = getByTestId('wrapping-div').firstChild as ChildNode;
+      const loadingIconWrapper = themeWrapper.lastChild as ChildNode;
 
       expect(getByTestId('loading-link-styles')).toHaveStyleRule('text-align', 'left');
 

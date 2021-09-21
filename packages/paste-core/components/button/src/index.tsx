@@ -88,7 +88,6 @@ const handlePropValidation = ({
     if (variant !== 'primary' && variant !== 'secondary' && variant !== 'reset') {
       throw new Error(`[Paste: Button] <Button as="a"> only works with the following variants: primary or secondary.`);
     }
-
     if (disabled || loading) {
       throw new Error(`[Paste: Button] <Button as="a"> cannot be disabled or loading.`);
     }
