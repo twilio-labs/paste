@@ -1,0 +1,18 @@
+[dev]
+  command = "yarn dev"
+  targetPort = 3000
+  framework = "#auto"
+
+[context.deploy-preview.environment]
+  ENVIRONMENT_CONTEXT = "deploy-preview"
+
+[context.branch-deploy.environment]
+  ENVIRONMENT_CONTEXT = "branch-deploy"
+
+[context.production.environment]
+  ENVIRONMENT_CONTEXT = "production"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Shenanigans = "none"

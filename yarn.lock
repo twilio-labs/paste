@@ -8951,6 +8951,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-github-button@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@types/react-github-button/-/react-github-button-0.1.1.tgz#5aa6961f70f2fbb56ca3e7664fd35913e4d4a1e6"
+  integrity sha512-1xaD0XHOmR6RlKAaF4AAyq5AhAqUhXZCW11gs+VQhIprA8Oe1I/HdfsWHxpDGjFFyBvgEdNfD3NSrFhGkQO3Gw==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-helmet@^5.0.14":
   version "5.0.15"
   resolved "https://registry.yarnpkg.com/@types/react-helmet/-/react-helmet-5.0.15.tgz#af0370617307e9f062c6aee0f1f5588224ce646e"
@@ -29657,6 +29664,13 @@ react-focus-lock@^2.5.0:
     react-clientside-effect "^1.2.2"
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
+
+react-github-button@^0.1.11:
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/react-github-button/-/react-github-button-0.1.11.tgz#fc61e1f1e1371169d3618c1ba37306ba04081e56"
+  integrity sha1-/GHh8eE3EWnTYYwbo3MGugQIHlY=
+  dependencies:
+    prop-types "^15.5.10"
 
 react-helmet-async@^1.0.7:
   version "1.0.9"
