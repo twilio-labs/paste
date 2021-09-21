@@ -1,13 +1,13 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxProps} from '@twilio-paste/box';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
-import {Text} from '@twilio-paste/text';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import type {TextColor} from '@twilio-paste/style-props';
 
 export type LabelVariants = 'default' | 'inverse';
-export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
+export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement>, Pick<BoxProps, 'element'> {
   as?: 'label' | 'legend';
   children: NonNullable<React.ReactNode>;
   disabled?: boolean;
@@ -17,7 +17,11 @@ export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> 
   variant?: LabelVariants;
 }
 
-export const RequiredDot: React.FC = (props) => {
+export interface RequiredDotProps {
+  element?: BoxProps['element'];
+}
+
+export const RequiredDot: React.FC<RequiredDotProps> = ({element, ...props}) => {
   return (
     <Box
       {...props}
@@ -33,6 +37,7 @@ export const RequiredDot: React.FC = (props) => {
         backgroundColor="colorBackgroundRequired"
         borderRadius="borderRadiusCircle"
         display="block"
+        element={`${element}_REQUIRED_DOT`}
         height="4px"
         width="4px"
       >
@@ -43,7 +48,7 @@ export const RequiredDot: React.FC = (props) => {
 };
 
 const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
-  ({as, marginBottom, required, disabled, children, variant, ...props}, ref) => {
+  ({as, marginBottom, required, disabled, children, variant, element = 'LABEL', ...props}, ref) => {
     let textColor = 'colorText' as TextColor;
     if (disabled && variant === 'inverse') {
       textColor = 'colorTextInverseWeak';
@@ -64,26 +69,21 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
         paddingLeft="space0"
         paddingRight="space0"
         textTransform="none"
+        element={element}
+        fontSize="fontSize30"
+        fontWeight="fontWeightBold"
+        lineHeight="lineHeight30"
+        color={textColor}
+        cursor={disabled ? 'not-allowed' : 'pointer'}
         ref={ref}
       >
         <MediaObject verticalAlign="top">
           {required && (
             <MediaFigure spacing="space20">
-              <RequiredDot />
+              <RequiredDot element={element} />
             </MediaFigure>
           )}
-          <MediaBody>
-            <Text
-              as="span"
-              fontSize="fontSize30"
-              fontWeight="fontWeightBold"
-              lineHeight="lineHeight30"
-              color={textColor}
-              cursor={disabled ? 'not-allowed' : 'pointer'}
-            >
-              {children}
-            </Text>
-          </MediaBody>
+          <MediaBody>{children}</MediaBody>
         </MediaObject>
       </Box>
     );
@@ -96,16 +96,15 @@ Label.defaultProps = {
   as: 'label',
 };
 
-if (process.env.NODE_ENV === 'development') {
-  Label.propTypes = {
-    as: PropTypes.oneOf(['label', 'legend']),
-    disabled: PropTypes.bool,
-    htmlFor: PropTypes.string,
-    marginBottom: PropTypes.oneOf(['space0']),
-    required: PropTypes.bool,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    variant: PropTypes.oneOf(['default', 'inverse']) as any,
-  };
-}
+Label.propTypes = {
+  as: PropTypes.oneOf(['label', 'legend']),
+  disabled: PropTypes.bool,
+  element: PropTypes.string,
+  htmlFor: PropTypes.string,
+  marginBottom: PropTypes.oneOf(['space0']),
+  required: PropTypes.bool,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  variant: PropTypes.oneOf(['default', 'inverse']) as any,
+};
 
 export {Label};

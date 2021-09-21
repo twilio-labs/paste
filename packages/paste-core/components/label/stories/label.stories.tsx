@@ -1,5 +1,9 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Stack} from '@twilio-paste/stack';
+import {Card} from '@twilio-paste/card';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {Label} from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -42,5 +46,56 @@ export const Inverse = (): React.ReactNode => {
         Required Label
       </Label>
     </Box>
+  );
+};
+
+export const Customized: React.FC = () => {
+  return (
+    <Stack orientation="vertical" spacing="space20">
+      <Box marginBottom="space70">
+        <Paragraph>Default:</Paragraph>
+        <Card>
+          <Label htmlFor="label">Label</Label>
+          <Label required htmlFor="required_label">
+            Required label
+          </Label>
+        </Card>
+      </Box>
+      <Box marginBottom="space70">
+        <Paragraph>Customized:</Paragraph>
+        <Card>
+          <CustomizationProvider
+            baseTheme="default"
+            elements={{
+              LABEL: {color: 'colorTextWarningDark', fontWeight: 'fontWeightLight'},
+              LABEL_REQUIRED_DOT: {backgroundColor: 'colorBackgroundDestructiveDark'},
+            }}
+          >
+            <Label htmlFor="label">Label</Label>
+            <Label required htmlFor="required_label" data-testid="label_test">
+              Required label
+            </Label>
+          </CustomizationProvider>
+        </Card>
+      </Box>
+      <Box marginBottom="space70">
+        <Paragraph>Customized with custom element attribute:</Paragraph>
+        <Card>
+          <CustomizationProvider
+            elements={{
+              foo: {color: 'colorTextWarningDark', fontWeight: 'fontWeightLight'},
+              foo_REQUIRED_DOT: {backgroundColor: 'colorBackgroundDestructiveDark'},
+            }}
+          >
+            <Label htmlFor="label" element="foo">
+              Label
+            </Label>
+            <Label required htmlFor="required_label" element="foo" data-testid="custom_label_test">
+              Required label
+            </Label>
+          </CustomizationProvider>
+        </Card>
+      </Box>
+    </Stack>
   );
 };
