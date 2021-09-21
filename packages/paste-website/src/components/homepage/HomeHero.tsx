@@ -74,7 +74,7 @@ const HomeHero: React.FC = () => {
                     trackCustomEvent({
                       category: 'Hero',
                       action: 'click-new-component-banner',
-                      label: 'Theme Designer Launch',
+                      label: 'Launch Theme Designer',
                     })
                   }
                 >

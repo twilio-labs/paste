@@ -16,33 +16,33 @@ const BetaModal: React.FC<BetaModalProps> = ({isOpen, onDismiss}) => {
         <ModalHeading id={modalID}>Welcome to Paste Remix</ModalHeading>
       </ModalHeader>
       <ModalBody>
+        <Paragraph>Paste Remix is a design tool used to create themes for applications built with Paste.</Paragraph>
         <Paragraph>
-          Paste Remix is an interactive design tool aimed at creating custom themes for applications built using Paste.
-        </Paragraph>
-        <Paragraph>
-          Remix is currently an experimental release. It aims to help solve an important customer problem, the need to
-          theme and brand applications built on top of the Twilio Platform. Example applications include{' '}
+          You can use Remix to customize and brand your Twilio application. Example applications include{' '}
           <Anchor href="https://www.twilio.com/flex" showExternal>
             Flex
           </Anchor>{' '}
-          plugins which may need to look and feel like your company brand.
+          <Anchor href="https://www.twilio.com/docs/flex/developer/plugins" showExternal>
+            plugins
+          </Anchor>{' '}
+          which may need to look and feel like your company brand.
         </Paragraph>
         <Paragraph>
-          On the left you will see a Token Category selector. Selecting a category displays a list of{' '}
+          On the left you can select a &ldquo;Token category&rdquo;. Selecting a category displays a list of{' '}
           <Anchor href="https://paste.twilio.design/tokens/" showExternal>
             Design Tokens
           </Anchor>{' '}
           that power Paste and its design language. Changing the values of these updates the look and feel of Paste. The
-          result is reflected in the right hand preview panel.
+          result is reflected to the right of the token controls.
         </Paragraph>
         <Paragraph>
           Once you&rsquo;re happy with the design, you can export the theme to use with the Customization Provider, and
           be on your way to creating your custom Paste experience.
         </Paragraph>
         <Paragraph>
-          If you have any feedback on this tool,{' '}
+          Remix is currently an <strong>experimental release</strong>. If you have any feedback on this tool,{' '}
           <Anchor href="https://github.com/twilio-labs/paste/discussions/new" showExternal>
-            start a discussion with us
+            we&rsquo;d love to hear your thoughts
           </Anchor>
           . We can&rsquo;t wait to see what you build!
         </Paragraph>
