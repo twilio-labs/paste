@@ -5,14 +5,7 @@ import type {IconWrapperProps} from '@twilio-paste/icons/esm/helpers/IconWrapper
 import {useTheme} from '@twilio-paste/theme';
 
 import {StyledCircleTrack, AnimatedStyledCircle, StyledSvg} from './styled';
-
-type CircleGeometryProps = Pick<React.SVGProps<SVGCircleElement>, 'cx' | 'cy' | 'r'>;
-
-const circleGeometry: CircleGeometryProps = {
-  cx: 50,
-  cy: 50,
-  r: 45,
-};
+import {circleGeometry} from './constants';
 
 export interface SpinnerProps extends IconWrapperProps {
   title: string;
@@ -36,7 +29,7 @@ export const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
       <IconWrapper as={as} display={display} size={size} color={color} aria-hidden={decorative} ref={ref}>
         <StyledSvg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-labelledby={titleId}>
           {title ? <title id={titleId}>{title}</title> : null}
-          <g strokeWidth={borderWidth40}>
+          <g strokeWidth={borderWidth40} stroke="currentColor" strokeLinecap="round" fill="transparent">
             <StyledCircleTrack {...circleGeometry} />
             <AnimatedStyledCircle show={show} {...circleGeometry} />
           </g>

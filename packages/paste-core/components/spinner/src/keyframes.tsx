@@ -1,20 +1,22 @@
 import {keyframes} from '@twilio-paste/styling-library';
 
+import {circleCircumference} from './constants';
+
 export const SvgKeyframes = keyframes`
   0%,
-  25% {
-    stroke-dashoffset: 282;
+  15% {
+    stroke-dashoffset: ${circleCircumference};
     transform: rotate(0);
   }
 
   50%,
-  70% {
-    stroke-dashoffset: 45;
-    transform: rotate(20deg);
+  75% {
+    stroke-dashoffset: 65;
+    transform: rotate(45deg);
   }
 
   100% {
-    stroke-dashoffset: 281;
+    stroke-dashoffset: ${circleCircumference};
     transform: rotate(360deg);
   }
 `;
