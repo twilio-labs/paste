@@ -3,4 +3,4 @@
 '@twilio-paste/core': minor
 ---
 
-[Spinner]: Update spinner animation and styling.
+[Spinner]: Our existing Spinner is looking quite dated, so this PR refreshes the appearance of it. There are no breaking changes, so Paste consumers will be happy to see a refreshed Spinner in their apps without any effort.
