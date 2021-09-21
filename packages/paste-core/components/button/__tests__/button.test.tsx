@@ -289,9 +289,11 @@ describe('Button', () => {
 
     it('Has an aria-busy attribute when loading', () => {
       const wrapper: ReactWrapper = mount(
-        <Button variant="secondary" loading>
-          button
-        </Button>
+        <Theme.Provider theme="default">
+          <Button variant="secondary" loading>
+            button
+          </Button>
+        </Theme.Provider>
       );
       expect(wrapper.exists('button[aria-busy="true"]')).toEqual(true);
       expect(wrapper.find('button').props().disabled).toEqual(true);
@@ -494,14 +496,16 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for a link button in loading state', () => {
-      const {getByText, getByTestId, container} = testRender(
-        <Button variant="link" loading data-testid="loading-link-styles">
-          Loading link
-        </Button>
+      const {getByText, getByTestId} = testRender(
+        <Theme.Provider theme="default" data-testid="wrapping-div">
+          <Button variant="link" loading data-testid="loading-link-styles">
+            Loading link
+          </Button>
+        </Theme.Provider>
       );
 
       const buttonContent = getByText('Loading link');
-      const loadingIconWrapper = (container.firstChild as ChildNode).lastChild as ChildNode;
+      const loadingIconWrapper = (getByTestId('wrapping-div').firstChild as ChildNode).lastChild as ChildNode;
 
       expect(getByTestId('loading-link-styles')).toHaveStyleRule('text-align', 'left');
 

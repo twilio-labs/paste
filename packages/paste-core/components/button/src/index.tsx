@@ -90,7 +90,6 @@ const handlePropValidation = ({
     }
 
     if (disabled || loading) {
-      console.log('this should throws');
       throw new Error(`[Paste: Button] <Button as="a"> cannot be disabled or loading.`);
     }
   }
