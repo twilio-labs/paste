@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/spinner",
-  "version": "7.0.2",
+  "version": "7.1.0",
   "category": "feedback",
   "status": "production",
   "description": "A Spinner is an animation that communicates a loading state to users.",
@@ -38,9 +38,9 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^4.0.3",
-    "@twilio-paste/design-tokens": "^6.6.0",
-    "@twilio-paste/icons": "^5.1.2",
+    "@twilio-paste/box": "^4.2.3",
+    "@twilio-paste/design-tokens": "^6.11.2",
+    "@twilio-paste/icons": "^5.5.0",
     "@twilio-paste/style-props": "^3.0.2",
     "@twilio-paste/styling-library": "^0.3.1",
     "@twilio-paste/theme": "^5.0.2",
