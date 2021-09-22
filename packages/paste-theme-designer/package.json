@@ -8,9 +8,11 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
-    "clean": "rm -rf .next"
+    "clean": "rm -rf .next",
+    "type-check": "tsc"
   },
   "dependencies": {
+    "@datadog/browser-rum": "^2.8.1",
     "@twilio-paste/core": "^10.0.0",
     "@twilio-paste/icons": "^5.1.2",
     "next": "10.0.4",
