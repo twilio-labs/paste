@@ -3,8 +3,8 @@ import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import type {TextColor} from '@twilio-paste/style-props';
+import {RequiredDot} from './RequiredDot';
 
 export type LabelVariants = 'default' | 'inverse';
 export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement>, Pick<BoxProps, 'element'> {
@@ -17,38 +17,8 @@ export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement>,
   variant?: LabelVariants;
 }
 
-export interface RequiredDotProps {
-  element?: BoxProps['element'];
-}
-
-export const RequiredDot: React.FC<RequiredDotProps> = ({element = 'REQUIRED_DOT', ...props}) => {
-  return (
-    <Box
-      {...props}
-      alignItems="center"
-      justifyContent="center"
-      as="span"
-      cursor="pointer"
-      display="flex"
-      height="sizeIcon30"
-    >
-      <Box
-        as="span"
-        backgroundColor="colorBackgroundRequired"
-        borderRadius="borderRadiusCircle"
-        display="block"
-        element={element}
-        height="4px"
-        width="4px"
-      >
-        <ScreenReaderOnly>Required: </ScreenReaderOnly>
-      </Box>
-    </Box>
-  );
-};
-
 const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
-  ({as, marginBottom, required, disabled, children, variant, element = 'LABEL', ...props}, ref) => {
+  ({as = 'label', marginBottom, required, disabled, children, variant, element = 'LABEL', ...props}, ref) => {
     let textColor = 'colorText' as TextColor;
     if (disabled && variant === 'inverse') {
       textColor = 'colorTextInverseWeak';
@@ -91,10 +61,6 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
 );
 
 Label.displayName = 'Label';
-
-Label.defaultProps = {
-  as: 'label',
-};
 
 Label.propTypes = {
   as: PropTypes.oneOf(['label', 'legend']),

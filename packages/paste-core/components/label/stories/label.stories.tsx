@@ -4,7 +4,7 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
 import {Card} from '@twilio-paste/card';
 import {CustomizationProvider} from '@twilio-paste/customization';
-import {Label} from '../src';
+import {Label, RequiredDot} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -59,6 +59,7 @@ export const Customized: React.FC = () => {
           <Label required htmlFor="required_label">
             Required label
           </Label>
+          <RequiredDot />
         </Card>
       </Box>
       <Box marginBottom="space70">
@@ -75,6 +76,7 @@ export const Customized: React.FC = () => {
             <Label required htmlFor="required_label" data-testid="label_test">
               Required label
             </Label>
+            <RequiredDot data-testid="required_dot" />
           </CustomizationProvider>
         </Card>
       </Box>

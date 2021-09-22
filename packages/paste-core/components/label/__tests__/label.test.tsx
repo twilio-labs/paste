@@ -34,13 +34,16 @@ describe('Label required prop', () => {
 });
 
 describe('Customization', () => {
-  const {container} = render(<Customized />);
-  const label = screen.getByTestId('label_test');
-  const customLabel = screen.getByTestId('custom_label_test');
+  const {getByTestId} = render(<Customized />);
+  const label = getByTestId('label_test');
+  const customLabel = getByTestId('custom_label_test');
+  const requiredDotWrapper = getByTestId('required_dot');
+  const requiredDot = requiredDotWrapper.firstChild as HTMLElement;
 
   it('should set element data attribute for label and required dot', () => {
     expect(label.getAttribute('data-paste-element')).toEqual('LABEL');
-    // expect(container.querySelector('[data-paste-element="LABEL_REQUIRED_DOT"]')).toBeInTheDocument();
+    expect(requiredDotWrapper.getAttribute('data-paste-element')).toEqual('REQUIRED_DOT_WRAPPER');
+    expect(requiredDot.getAttribute('data-paste-element')).toEqual('REQUIRED_DOT');
   });
 
   it('should set custom element data attribute for label and required dot', () => {
