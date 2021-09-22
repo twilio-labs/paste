@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.11.2
+
+### Patch Changes
+
+- [`866cf8f1`](https://github.com/twilio-labs/paste/commit/866cf8f1dd7f2dffa53dfb4ab94b4f06b659e6db) [#1835](https://github.com/twilio-labs/paste/pull/1835) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] Text, background, and icon color tokens are updated to meet accessibility guidelines.
+
 ## 6.11.1
 
 ### Patch Changes
