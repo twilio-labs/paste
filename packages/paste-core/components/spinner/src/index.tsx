@@ -17,7 +17,7 @@ export const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
   ({size, color = 'currentColor', title, as, display, decorative, delay = 250}, ref) => {
     const titleId = `spinner-${useUID()}`;
     const {
-      borderWidths: {borderWidth40 = '8px'},
+      borderWidths: {borderWidth40},
     } = useTheme();
 
     const [show, setShow] = React.useState(delay === 0);
