@@ -1,7 +1,9 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
 import {action} from '@storybook/addon-actions';
 import {withKnobs, boolean, text, select, array, number} from '@storybook/addon-knobs';
+import {useTheme} from '@twilio-paste/theme';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Anchor} from '@twilio-paste/anchor';
@@ -725,4 +727,91 @@ export const SelectOverflowLongValue = (): React.ReactNode => {
 
 SelectOverflowLongValue.story = {
   name: 'Select - overflow long value',
+};
+
+export const CustomizedSelect = (): React.ReactNode => {
+  const currentTheme = useTheme();
+
+  const seed = useUIDSeed();
+
+  return (
+    <CustomizationProvider
+      theme={{
+        ...currentTheme,
+        shadows: {
+          ...currentTheme.shadows,
+          shadowFocus: '0 0 0 4px rgba(3, 154, 165, 0.9)',
+        },
+      }}
+      elements={{
+        SELECT_ELEMENT: {
+          color: 'colorTextNew',
+          variants: {
+            inverse: {
+              color: 'colorTextWarningStrong',
+              fontWeight: 'fontWeightBold',
+            },
+          },
+        },
+        CUSTOM_SELECT_ELEMENT: {
+          color: 'colorTextSuccess',
+          fontWeight: 'fontWeightSemibold',
+          fontFamily: 'fontFamilyCode',
+          variants: {
+            inverse: {
+              fontWeight: 'fontWeightMedium',
+              color: 'colorTextWeakest',
+            },
+          },
+        },
+        SELECT_WRAPPER: {
+          boxShadow: 'shadowBorderPrimary',
+          ':hover': {boxShadow: 'shadowBorderError'},
+          ':focus-within': {boxShadow: 'shadowFocus'},
+        },
+        SELECT_CHEVRON_WRAPPER: {
+          transform: 'rotate(90deg) translateX(-50%) translateY(-20%)',
+        },
+        CUSTOM_SELECT_ICON: {
+          color: 'colorTextInverseWeak',
+        },
+      }}
+    >
+      <Box maxWidth="size40" paddingX="space40" paddingY="space80">
+        <Label htmlFor={seed('default')}>Default variant</Label>
+        <Select variant="default" id={seed('default')}>
+          <OptionGroup element="CUSTOM_OPTION_GROUP" label="Group A">
+            <Option value="option-1">Option 1</Option>
+            <Option element="CUSTOM_OPTION" value="option-2">
+              Option 2
+            </Option>
+          </OptionGroup>
+          <OptionGroup label="Group B">
+            <Option value="option-3">Option 3</Option>
+            <Option value="option-4">Option 4</Option>
+          </OptionGroup>
+        </Select>
+      </Box>
+
+      <Box maxWidth="size40" paddingX="space40" paddingY="space80" backgroundColor="colorBackgroundBodyInverse">
+        <Label variant="inverse" htmlFor={seed('inverse')}>
+          Inverse variant
+        </Label>
+        <Select variant="inverse" element="CUSTOM_SELECT" id={seed('inverse')}>
+          <OptionGroup label="Group C">
+            <Option value="option-1">Option 1</Option>
+            <Option value="option-2">Option 2</Option>
+          </OptionGroup>
+          <OptionGroup label="Group D">
+            <Option value="option-3">Option 3</Option>
+            <Option value="option-4">Option 4</Option>
+          </OptionGroup>
+        </Select>
+      </Box>
+    </CustomizationProvider>
+  );
+};
+
+CustomizedSelect.story = {
+  name: 'Select - Customized',
 };
