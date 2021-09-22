@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.1.1
+
+### Patch Changes
+
+- [`8006c59b`](https://github.com/twilio-labs/paste/commit/8006c59b6e56633405c0835707da6704169b26e9) [#1835](https://github.com/twilio-labs/paste/pull/1835) Thanks [@nkrantz](https://github.com/nkrantz)! - [Toast] Icons in Toast now use text icon color tokens.
+
 ## 5.1.0
 
 ### Minor Changes

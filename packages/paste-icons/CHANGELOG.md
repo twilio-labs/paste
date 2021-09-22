@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.5.0
+
+### Minor Changes
+
+- [`c59aa865`](https://github.com/twilio-labs/paste/commit/c59aa865f0dd52c8ec45fac24c565a1087ea9814) [#1839](https://github.com/twilio-labs/paste/pull/1839) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Icons] enable all icons to respect customization by giving them a generic element name, and ability to create custom element names.
+
 ## 5.4.0
 
 ### Minor Changes
