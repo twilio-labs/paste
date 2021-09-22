@@ -59,7 +59,9 @@ export const Customized: React.FC = () => {
           <Label required htmlFor="required_label">
             Required label
           </Label>
-          <RequiredDot />
+          <Box display="flex" alignContent="start">
+            <RequiredDot />
+          </Box>
         </Card>
       </Box>
       <Box marginBottom="space70">
@@ -70,13 +72,17 @@ export const Customized: React.FC = () => {
             elements={{
               LABEL: {color: 'colorTextWarningDark', fontWeight: 'fontWeightLight'},
               LABEL_REQUIRED_DOT: {backgroundColor: 'colorBackgroundDestructiveDark'},
+              REQUIRED_DOT: {backgroundColor: 'colorBackgroundDestructiveDark'},
+              REQUIRED_DOT_WRAPPER: {cursor: 'help'},
             }}
           >
             <Label htmlFor="label">Label</Label>
             <Label required htmlFor="required_label" data-testid="label_test">
               Required label
             </Label>
-            <RequiredDot data-testid="required_dot" />
+            <Box display="flex" alignContent="start">
+              <RequiredDot data-testid="required_dot" />
+            </Box>
           </CustomizationProvider>
         </Card>
       </Box>
@@ -87,6 +93,8 @@ export const Customized: React.FC = () => {
             elements={{
               foo: {color: 'colorTextWarningDark', fontWeight: 'fontWeightLight'},
               foo_REQUIRED_DOT: {backgroundColor: 'colorBackgroundDestructiveDark'},
+              bar: {backgroundColor: 'colorBackgroundDestructiveDark'},
+              bar_WRAPPER: {cursor: 'help'},
             }}
           >
             <Label htmlFor="label" element="foo">
@@ -95,6 +103,9 @@ export const Customized: React.FC = () => {
             <Label required htmlFor="required_label" element="foo" data-testid="custom_label_test">
               Required label
             </Label>
+            <Box display="flex" alignContent="start">
+              <RequiredDot data-testid="custom_required_dot" element="bar" />
+            </Box>
           </CustomizationProvider>
         </Card>
       </Box>

@@ -39,6 +39,8 @@ describe('Customization', () => {
   const customLabel = getByTestId('custom_label_test');
   const requiredDotWrapper = getByTestId('required_dot');
   const requiredDot = requiredDotWrapper.firstChild as HTMLElement;
+  const customRequiredDotWrapper = getByTestId('custom_required_dot');
+  const customRequiredDot = customRequiredDotWrapper.firstChild as HTMLElement;
 
   it('should set element data attribute for label and required dot', () => {
     expect(label.getAttribute('data-paste-element')).toEqual('LABEL');
@@ -48,24 +50,21 @@ describe('Customization', () => {
 
   it('should set custom element data attribute for label and required dot', () => {
     expect(customLabel.getAttribute('data-paste-element')).toEqual('foo');
-    // expect(container.querySelector('[data-paste-element="foo_REQUIRED_DOT"]')).toBeInTheDocument();
+    expect(customRequiredDotWrapper.getAttribute('data-paste-element')).toEqual('bar_WRAPPER');
+    expect(customRequiredDot.getAttribute('data-paste-element')).toEqual('bar');
   });
 
   it('should customize label and required dot', () => {
     expect(label).toHaveStyleRule('color', 'rgb(195,83,35)');
     expect(label).toHaveStyleRule('font-weight', '400');
-    // expect(container.querySelectorAll('[data-paste-element="LABEL_REQUIRED_DOT"]')).toHaveStyleRule(
-    //   'background-color',
-    //   'rgb(0,0,0)'
-    // );
+    expect(requiredDot).toHaveStyleRule('background-color', 'rgb(117,12,12)');
+    expect(requiredDotWrapper).toHaveStyleRule('cursor', 'help');
   });
 
   it('should customize label and required dot with custom element attribute', () => {
     expect(customLabel).toHaveStyleRule('color', 'rgb(195,83,35)');
     expect(customLabel).toHaveStyleRule('font-weight', '400');
-    // expect(container.querySelectorAll('[data-paste-element="foo_REQUIRED_DOT"]')).toHaveStyleRule(
-    //   'background-color',
-    //   'rgb(0,0,0)'
-    // );
+    expect(customRequiredDot).toHaveStyleRule('background-color', 'rgb(117,12,12)');
+    expect(customRequiredDotWrapper).toHaveStyleRule('cursor', 'help');
   });
 });
