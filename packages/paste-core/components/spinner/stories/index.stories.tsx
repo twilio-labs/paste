@@ -3,6 +3,7 @@ import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {useTheme, DefaultTheme} from '@twilio-paste/theme';
 import {withKnobs, text, select, boolean, number} from '@storybook/addon-knobs';
+import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import type {IconSize, TextColor, TextColorOptions} from '@twilio-paste/style-props';
 import {styled} from '@twilio-paste/styling-library';
 
@@ -21,7 +22,7 @@ export const SpinnerWithKnobs = (): React.ReactNode => {
   const colorOptions = React.useMemo(() => Object.keys(textColors), [textColors]);
   const sizeOptions = React.useMemo(() => Object.keys(iconSizes), [iconSizes]);
   const colorValue = select('color', colorOptions, 'currentColor') as TextColor;
-  const sizeValue = select('size', sizeOptions, 'sizeIcon20') as IconSize;
+  const sizeValue = select('size', sizeOptions, 'sizeIcon40') as IconSize;
   const decorativeValue = boolean('decorative', false);
   const delay = number('delay', 250);
 
@@ -120,7 +121,9 @@ export const LoadingOverlay: React.FC<LoadingOverlayProps> = ({isOpen, children}
     return (
       <StyledLoadingOverlay>
         <StyledLoadingOverlayContent>
-          <Box>{children}</Box>
+          <Box display="flex" flexDirection="column">
+            {children}
+          </Box>
         </StyledLoadingOverlayContent>
       </StyledLoadingOverlay>
     );
@@ -130,18 +133,30 @@ export const LoadingOverlay: React.FC<LoadingOverlayProps> = ({isOpen, children}
 };
 
 export const InFullscreenOverlay: React.ReactNode = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const countdown = 7;
+  const timeoutTime = countdown * 1000;
+  const [isOpen, setIsOpen] = React.useState(true);
   const handleOpenOnClick = (): void => setIsOpen(true);
+
+  const [seconds, updateSeconds] = React.useState(countdown);
+
+  const decrementSeconds = (): void => {
+    updateSeconds((state: number) => state - 1);
+  };
 
   React.useEffect(() => {
     let timeout: NodeJS.Timeout;
+    let interval: NodeJS.Timeout;
+
     if (isOpen) {
-      timeout = setTimeout((): void => setIsOpen(false), 7000);
+      timeout = setTimeout((): void => setIsOpen(false), timeoutTime);
+      interval = setInterval(decrementSeconds, 1000);
     }
 
     return () => {
       if (timeout) {
         clearTimeout(timeout);
+        clearInterval(interval);
       }
     };
   }, [isOpen, setIsOpen]);
@@ -155,6 +170,7 @@ export const InFullscreenOverlay: React.ReactNode = () => {
       {isOpen ? (
         <StyledLoadingOverlay>
           <StyledLoadingOverlayContent>
+            <ScreenReaderOnly>Spinner example with full page overlay, {seconds} seconds remain.</ScreenReaderOnly>
             <Spinner size="sizeIcon80" decorative={false} title="Loading logs..." color="colorTextInverse" />
           </StyledLoadingOverlayContent>
         </StyledLoadingOverlay>
