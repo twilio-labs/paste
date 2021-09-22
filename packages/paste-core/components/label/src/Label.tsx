@@ -21,7 +21,7 @@ export interface RequiredDotProps {
   element?: BoxProps['element'];
 }
 
-export const RequiredDot: React.FC<RequiredDotProps> = ({element, ...props}) => {
+export const RequiredDot: React.FC<RequiredDotProps> = ({element = 'REQUIRED_DOT', ...props}) => {
   return (
     <Box
       {...props}
@@ -37,7 +37,7 @@ export const RequiredDot: React.FC<RequiredDotProps> = ({element, ...props}) => 
         backgroundColor="colorBackgroundRequired"
         borderRadius="borderRadiusCircle"
         display="block"
-        element={`${element}_REQUIRED_DOT`}
+        element={element}
         height="4px"
         width="4px"
       >
@@ -80,7 +80,7 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
         <MediaObject verticalAlign="top">
           {required && (
             <MediaFigure spacing="space20">
-              <RequiredDot element={element} />
+              <RequiredDot element={`${element}_REQUIRED_DOT`} />
             </MediaFigure>
           )}
           <MediaBody>{children}</MediaBody>
