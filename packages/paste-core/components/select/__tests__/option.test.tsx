@@ -1,25 +1,30 @@
 import * as React from 'react';
 import {render} from 'react-dom';
-import {render as testRender} from '@testing-library/react';
+import {matchers} from 'jest-emotion';
+import {render as testRender, screen} from '@testing-library/react';
+import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Option} from '../src';
+import type {OptionProps} from '../src';
 import {createAttributeMap} from '../test-utils';
 
-interface MockOptionProps extends React.OptionHTMLAttributes<HTMLOptionElement> {
+expect.extend(matchers);
+
+interface ExampleOptionProps extends OptionProps {
   suffix?: string;
-  value?: string;
+  element?: string;
 }
 
-const MockOption: React.FC<MockOptionProps> = ({suffix = 'test', ...props}): React.ReactElement => {
+const ExampleOption: React.FC<ExampleOptionProps> = ({suffix = 'test', ...props}): React.ReactElement => {
   return (
-    <Option data-testid={`option-${suffix}`} value={'option-1'} {...props}>
+    <Option data-testid={`option-${suffix}`} {...props}>
       Option 1
     </Option>
   );
 };
 
-describe('Form | Option', () => {
+describe('Option', () => {
   it('should be able to take arbitrary html attributes on the container', () => {
     const additionalAttributes = {
       disabled: true,
@@ -32,7 +37,11 @@ describe('Form | Option', () => {
       draggable: true,
       accessKey: 't e s t',
     };
-    const {getByTestId} = testRender(<MockOption {...additionalAttributes} />);
+    const {getByTestId} = testRender(
+      <ExampleOption {...additionalAttributes} value="option-1">
+        Option 1
+      </ExampleOption>
+    );
     const attributeMap = createAttributeMap(getByTestId('option-test'));
 
     expect(attributeMap['data-attr']).toEqual('test-attribute');
@@ -54,7 +63,11 @@ describe('Form | Option', () => {
       size: 2,
       selected: true,
     };
-    const {getByTestId} = testRender(<MockOption {...blockListedPropsMap} />);
+    const {getByTestId} = testRender(
+      <ExampleOption {...blockListedPropsMap} value="option-1">
+        Option 1
+      </ExampleOption>
+    );
     const attributeMap = createAttributeMap(getByTestId('option-test'));
 
     expect(attributeMap.hasOwnProperty('style')).toBe(false);
@@ -69,9 +82,80 @@ describe('Form | Option', () => {
   it('should have no accessibility violations', async () => {
     const container = document.createElement('div');
     document.body.append(container);
-    render(<MockOption />, container);
+    render(<ExampleOption value="option-1">Option 1</ExampleOption>, container);
     const results = await axe(document.body);
 
     expect(results).toHaveNoViolations();
+  });
+
+  describe('HTML Attribute', () => {
+    it('should set an element data attribute for Option (default)', () => {
+      testRender(
+        <ExampleOption suffix="default-data-attribute" value="option-1">
+          Option 1
+        </ExampleOption>
+      );
+      expect(screen.getByTestId('option-default-data-attribute').getAttribute('data-paste-element')).toEqual('OPTION');
+    });
+
+    it('should set an element data attribute for Option', () => {
+      testRender(
+        <ExampleOption suffix="unique-data-attribute" element="UNIQUE_NAME" value="option-1">
+          Option 1
+        </ExampleOption>
+      );
+
+      expect(screen.getByTestId('option-unique-data-attribute').getAttribute('data-paste-element')).toEqual(
+        'UNIQUE_NAME'
+      );
+    });
+  });
+
+  describe('Customization', () => {
+    it('should add custom styles to Option', () => {
+      testRender(
+        <CustomizationProvider
+          // @ts-expect-error global test variable
+          theme={TestTheme}
+          elements={{
+            OPTION: {
+              color: 'colorTextLinkDarker',
+            },
+            OPTION_GROUP: {
+              color: 'colorText',
+            },
+          }}
+        >
+          <ExampleOption suffix="custom-styles" value="option-1">
+            Option 1
+          </ExampleOption>
+        </CustomizationProvider>
+      );
+
+      expect(screen.getByTestId('option-custom-styles')).toHaveStyleRule('color', 'rgb(3,11,93)');
+    });
+
+    it('should add custom styles to Option with a custom element data attribute', () => {
+      testRender(
+        <CustomizationProvider
+          // @ts-expect-error global test variable
+          theme={TestTheme}
+          elements={{
+            OPTION: {
+              color: 'colorTextLinkDarker',
+            },
+            CAT: {
+              color: 'colorTextLink',
+            },
+          }}
+        >
+          <ExampleOption suffix="custom-styles-unique-name" element="CAT" value="option-1">
+            Option 1
+          </ExampleOption>
+        </CustomizationProvider>
+      );
+
+      expect(screen.getByTestId('option-custom-styles-unique-name')).toHaveStyleRule('color', 'rgb(2,99,224)');
+    });
   });
 });
