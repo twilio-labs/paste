@@ -1,43 +1,25 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import {styled, keyframes, css, size as sizeFn} from '@twilio-paste/styling-library';
-import {LoadingIcon, LoadingIconProps} from '@twilio-paste/icons/esm/LoadingIcon';
-import {IconSize, isIconSizeTokenProp} from '@twilio-paste/style-props';
+import {useUID} from '@twilio-paste/uid-library';
+import {IconWrapper} from '@twilio-paste/icons/esm/helpers/IconWrapper';
+import type {IconWrapperProps} from '@twilio-paste/icons/esm/helpers/IconWrapper';
+import {useTheme} from '@twilio-paste/theme';
 
-const rotate = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(359deg);
-  }
-`;
+import {StyledCircleTrack, AnimatedStyledCircle, StyledSvg} from './styled';
+import {circleGeometry} from './constants';
 
-interface SpinnerWrapperProps {
-  size?: IconSize;
-  show: boolean;
-}
-
-const SpinningWrapper = styled.div<SpinnerWrapperProps>(sizeFn, (props) =>
-  css({
-    display: 'inline-block',
-    opacity: props.show ? 1 : 0,
-    transition: 'opacity 250ms cubic-bezier(0.215, 0.61, 0.355, 1)',
-    animation: `${rotate} 2s linear infinite`,
-    '@media screen and (prefers-reduced-motion: reduce)': {
-      animation: 'none',
-    },
-  })
-);
-
-export interface SpinnerProps extends LoadingIconProps {
+export interface SpinnerProps extends IconWrapperProps {
   title: string;
-  size?: IconSize;
   delay?: number;
+  decorative: boolean;
 }
 
-const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
-  ({as, size, color, decorative, title, delay = 250}, ref) => {
+export const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
+  ({size, color = 'currentColor', title, as, display, decorative, delay = 250}, ref) => {
+    const titleId = `spinner-${useUID()}`;
+    const {
+      borderWidths: {borderWidth40},
+    } = useTheme();
+
     const [show, setShow] = React.useState(delay === 0);
 
     React.useEffect(() => {
@@ -45,26 +27,16 @@ const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
       const showTimer = setTimeout(() => setShow(true), delay);
       return () => clearTimeout(showTimer);
     }, [delay]);
-
     return (
-      <SpinningWrapper size={size} show={show} ref={ref}>
-        <LoadingIcon as={as} size={size} color={color} decorative={decorative} title={title} />
-      </SpinningWrapper>
+      <IconWrapper as={as} display={display} size={size} color={color} aria-hidden={decorative} ref={ref}>
+        <StyledSvg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-labelledby={titleId}>
+          {title ? <title id={titleId}>{title}</title> : null}
+          <g strokeWidth={borderWidth40} stroke="currentColor" strokeLinecap="round" fill="transparent">
+            <StyledCircleTrack {...circleGeometry} />
+            <AnimatedStyledCircle show={show} {...circleGeometry} />
+          </g>
+        </StyledSvg>
+      </IconWrapper>
     );
   }
 );
-
-Spinner.defaultProps = {
-  size: 'sizeIcon20',
-};
-
-if (process.env.NODE_ENV === 'development') {
-  Spinner.propTypes = {
-    title: PropTypes.string.isRequired,
-    delay: PropTypes.number,
-    size: isIconSizeTokenProp,
-  };
-}
-
-Spinner.displayName = 'Spinner';
-export {Spinner};
