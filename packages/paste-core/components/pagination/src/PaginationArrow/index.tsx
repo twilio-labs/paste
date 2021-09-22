@@ -6,13 +6,27 @@ import {PaginationArrowPropTypes} from '../proptypes';
 import {handleLinkValidation} from '../utils';
 
 const PaginationArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps>(
-  ({as = 'button', disabled, href, isHovered, label, variant = 'back', visibleLabel, ...props}, ref) => {
+  (
+    {
+      as = 'button',
+      element = 'PAGINATION_ARROW',
+      disabled,
+      href,
+      isHovered,
+      label,
+      variant = 'back',
+      visibleLabel,
+      ...props
+    },
+    ref
+  ) => {
     const [hovered, setHovered] = React.useState(false);
     const [focused, setFocused] = React.useState(false);
     handleLinkValidation({as, href});
     return variant === 'back' ? (
       <PaginationBackArrow
         {...props}
+        element={element}
         ref={ref}
         as={as}
         disabled={disabled}
@@ -50,6 +64,7 @@ const PaginationArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps
     ) : (
       <PaginationForwardArrow
         {...props}
+        element={element}
         ref={ref}
         as={as}
         disabled={disabled}

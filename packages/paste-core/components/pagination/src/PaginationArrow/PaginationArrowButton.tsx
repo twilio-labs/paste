@@ -4,10 +4,11 @@ import type {PaginationArrowButtonProps} from '../types';
 import {PaginationArrowButtonPropTypes} from '../proptypes';
 
 const PaginationArrowButton = React.forwardRef<HTMLButtonElement, PaginationArrowButtonProps>(
-  ({children, disabled, visibleLabel, ...props}, ref) => {
+  ({children, element = 'PAGINATION_ARROW_BUTTON', disabled, visibleLabel, ...props}, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
+        element={element}
         ref={ref}
         aria-hidden={disabled}
         alignItems="center"

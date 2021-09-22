@@ -3,9 +3,15 @@ import {Box} from '@twilio-paste/box';
 import type {PaginationArrowIconWrapperProps} from '../types';
 import {PaginationArrowIconWrapperPropTypes} from '../proptypes';
 
-const PaginationArrowIconWrapper: React.FC<PaginationArrowIconWrapperProps> = ({children, isFocused, isHovered}) => {
+const PaginationArrowIconWrapper: React.FC<PaginationArrowIconWrapperProps> = ({
+  children,
+  element = 'PAGINATION_ARROW_ICON_WRAPPER',
+  isFocused,
+  isHovered,
+}) => {
   return (
     <Box
+      element={element}
       alignItems="center"
       backgroundColor={isHovered || isFocused ? 'colorBackgroundPrimaryWeakest' : 'none'}
       borderColor="inherit"
