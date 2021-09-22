@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/help-text",
-  "version": "6.0.3",
+  "version": "6.1.0",
   "category": "user input",
   "status": "production",
   "description": "Help Text is paired with a form element to give users information to prevent or correct formatting errors.",
@@ -38,9 +38,9 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^4.0.5",
-    "@twilio-paste/design-tokens": "^6.7.0",
-    "@twilio-paste/icons": "^5.1.2",
+    "@twilio-paste/box": "^4.2.3",
+    "@twilio-paste/design-tokens": "^6.11.2",
+    "@twilio-paste/icons": "^5.5.0",
     "@twilio-paste/style-props": "^3.0.4",
     "@twilio-paste/styling-library": "^0.3.2",
     "@twilio-paste/theme": "^5.1.0",

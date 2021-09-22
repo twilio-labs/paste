@@ -1,5 +1,52 @@
 # Change Log
 
+## 10.12.0
+
+### Minor Changes
+
+- [`26b25e18`](https://github.com/twilio-labs/paste/commit/26b25e18b561b35991016e23851f3b586b2b8508) [#1816](https://github.com/twilio-labs/paste/pull/1816) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Date picker] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`01233345`](https://github.com/twilio-labs/paste/commit/012333451cc36383cd4dc6f79fb1e678da676d66) [#1840](https://github.com/twilio-labs/paste/pull/1840) Thanks [@andipants12](https://github.com/andipants12)! - [Tabs]: Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+- [`08859377`](https://github.com/twilio-labs/paste/commit/0885937786a51d7ec93624780f6c6c6ffc7f489b) [#1858](https://github.com/twilio-labs/paste/pull/1858) Thanks [@andipants12](https://github.com/andipants12)! - [Spinner]: Our existing Spinner is looking quite dated, so this PR refreshes the appearance of it. There are no breaking changes, so Paste consumers will be happy to see a refreshed Spinner in their apps without any effort.
+
+* [`26b25e18`](https://github.com/twilio-labs/paste/commit/26b25e18b561b35991016e23851f3b586b2b8508) [#1816](https://github.com/twilio-labs/paste/pull/1816) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Time-picker] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+- [`26b25e18`](https://github.com/twilio-labs/paste/commit/26b25e18b561b35991016e23851f3b586b2b8508) [#1816](https://github.com/twilio-labs/paste/pull/1816) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Textarea] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`cba9f8fe`](https://github.com/twilio-labs/paste/commit/cba9f8fe8380f24b6f849eefc3c734fbdb8fd555) [#1852](https://github.com/twilio-labs/paste/pull/1852) Thanks [@nkrantz](https://github.com/nkrantz)! - [Help-Text] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+- [`d387eda8`](https://github.com/twilio-labs/paste/commit/d387eda82cf3d77dbcd5df60cad2a6f5bb0e5e9e) [#1860](https://github.com/twilio-labs/paste/pull/1860) Thanks [@gloriliale](https://github.com/gloriliale)! - [Disclosure] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+### Patch Changes
+
+- [`8006c59b`](https://github.com/twilio-labs/paste/commit/8006c59b6e56633405c0835707da6704169b26e9) [#1835](https://github.com/twilio-labs/paste/pull/1835) Thanks [@nkrantz](https://github.com/nkrantz)! - [Toast] Icons in Toast now use text icon color tokens.
+
+* [`1ce8e1d3`](https://github.com/twilio-labs/paste/commit/1ce8e1d3768cede4d1e780d80b04a29477dd87d0) [#1835](https://github.com/twilio-labs/paste/pull/1835) Thanks [@nkrantz](https://github.com/nkrantz)! - [Alert] Icons in Alert now use text icon color tokens
+
+- [`866cf8f1`](https://github.com/twilio-labs/paste/commit/866cf8f1dd7f2dffa53dfb4ab94b4f06b659e6db) [#1835](https://github.com/twilio-labs/paste/pull/1835) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] Text, background, and icon color tokens are updated to meet accessibility guidelines.
+
+* [`d387eda8`](https://github.com/twilio-labs/paste/commit/d387eda82cf3d77dbcd5df60cad2a6f5bb0e5e9e) [#1860](https://github.com/twilio-labs/paste/pull/1860) Thanks [@gloriliale](https://github.com/gloriliale)! - [Card]: updated the props to include variant to help with customizing dependent components.
+
+- [`16b53ea1`](https://github.com/twilio-labs/paste/commit/16b53ea1a6d4530a60ef1db6d715b6bb9de29f3b) [#1878](https://github.com/twilio-labs/paste/pull/1878) Thanks [@nkrantz](https://github.com/nkrantz)! - [Label] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`26b25e18`](https://github.com/twilio-labs/paste/commit/26b25e18b561b35991016e23851f3b586b2b8508) [#1816](https://github.com/twilio-labs/paste/pull/1816) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box] exports the getCustomElementStyles utility function
+
+* Updated dependencies [[`26b25e18`](https://github.com/twilio-labs/paste/commit/26b25e18b561b35991016e23851f3b586b2b8508), [`01233345`](https://github.com/twilio-labs/paste/commit/012333451cc36383cd4dc6f79fb1e678da676d66), [`8006c59b`](https://github.com/twilio-labs/paste/commit/8006c59b6e56633405c0835707da6704169b26e9), [`1ce8e1d3`](https://github.com/twilio-labs/paste/commit/1ce8e1d3768cede4d1e780d80b04a29477dd87d0), [`08859377`](https://github.com/twilio-labs/paste/commit/0885937786a51d7ec93624780f6c6c6ffc7f489b), [`866cf8f1`](https://github.com/twilio-labs/paste/commit/866cf8f1dd7f2dffa53dfb4ab94b4f06b659e6db), [`26b25e18`](https://github.com/twilio-labs/paste/commit/26b25e18b561b35991016e23851f3b586b2b8508), [`26b25e18`](https://github.com/twilio-labs/paste/commit/26b25e18b561b35991016e23851f3b586b2b8508), [`cba9f8fe`](https://github.com/twilio-labs/paste/commit/cba9f8fe8380f24b6f849eefc3c734fbdb8fd555), [`d387eda8`](https://github.com/twilio-labs/paste/commit/d387eda82cf3d77dbcd5df60cad2a6f5bb0e5e9e), [`16b53ea1`](https://github.com/twilio-labs/paste/commit/16b53ea1a6d4530a60ef1db6d715b6bb9de29f3b), [`d387eda8`](https://github.com/twilio-labs/paste/commit/d387eda82cf3d77dbcd5df60cad2a6f5bb0e5e9e), [`26b25e18`](https://github.com/twilio-labs/paste/commit/26b25e18b561b35991016e23851f3b586b2b8508)]:
+  - @twilio-paste/date-picker@0.2.0
+  - @twilio-paste/tabs@2.1.0
+  - @twilio-paste/toast@5.1.1
+  - @twilio-paste/alert@7.0.2
+  - @twilio-paste/spinner@7.1.0
+  - @twilio-paste/design-tokens@6.11.2
+  - @twilio-paste/time-picker@0.2.0
+  - @twilio-paste/textarea@3.1.0
+  - @twilio-paste/help-text@6.1.0
+  - @twilio-paste/card@3.1.1
+  - @twilio-paste/label@6.0.5
+  - @twilio-paste/disclosure@5.1.0
+  - @twilio-paste/box@4.2.3
+
 ## 10.11.0
 
 ### Minor Changes
