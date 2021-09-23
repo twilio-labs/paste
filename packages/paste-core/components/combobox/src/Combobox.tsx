@@ -160,7 +160,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
               aria-describedby={helpTextId}
             />
             {!autocomplete && (
-              <InputChevronWrapper element={element}>
+              <InputChevronWrapper element={`${element}_CHEVRON_WRAPPER`}>
                 <ChevronDownIcon aria-hidden="true" decorative color={iconColor} size="sizeIcon30" />
               </InputChevronWrapper>
             )}
