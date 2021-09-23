@@ -254,8 +254,12 @@ describe('Button', () => {
     });
 
     it('Throws an error when passing an invalid tabIndex', () => {
+      const originalError = console.error;
+      console.error = jest.fn();
       // @ts-expect-error
       expect(() => shallow(<Button variant="primary" tabIndex="-2" />)).toThrow();
+      expect(console.error).toHaveBeenCalled();
+      console.error = originalError;
     });
   });
 
