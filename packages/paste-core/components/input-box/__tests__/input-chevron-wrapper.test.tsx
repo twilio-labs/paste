@@ -8,13 +8,13 @@ expect.extend(matchers);
 
 describe('HTML attributes', () => {
   it('should set a element data attribute for InputChevronWrapper', () => {
-    render(<InputChevronWrapper element="INPUT">input-chevron</InputChevronWrapper>);
+    render(<InputChevronWrapper element="INPUT_CHEVRON_WRAPPER">input-chevron</InputChevronWrapper>);
     expect(screen.getByText('input-chevron').getAttribute('data-paste-element')).toEqual('INPUT_CHEVRON_WRAPPER');
   });
 
   it('should set a custom element data attribute for InputChevronWrapper', () => {
-    render(<InputChevronWrapper element="foo">input-chevron</InputChevronWrapper>);
-    expect(screen.getByText('input-chevron').getAttribute('data-paste-element')).toEqual('foo_CHEVRON_WRAPPER');
+    render(<InputChevronWrapper element="FOO_CHEVRON_WRAPPER">input-chevron</InputChevronWrapper>);
+    expect(screen.getByText('input-chevron').getAttribute('data-paste-element')).toEqual('FOO_CHEVRON_WRAPPER');
   });
 });
 
@@ -27,7 +27,7 @@ describe('Customization', () => {
           INPUT_CHEVRON_WRAPPER: {backgroundColor: 'colorBackground'},
         }}
       >
-        <InputChevronWrapper element="INPUT">input-chevron</InputChevronWrapper>
+        <InputChevronWrapper element="INPUT_CHEVRON_WRAPPER">input-chevron</InputChevronWrapper>
       </CustomizationProvider>
     );
     const renderedInputChevronWrapper = screen.getByText('input-chevron');
@@ -39,10 +39,10 @@ describe('Customization', () => {
       <CustomizationProvider
         baseTheme="default"
         elements={{
-          foo_CHEVRON_WRAPPER: {backgroundColor: 'colorBackground'},
+          FOO_CHEVRON_WRAPPER: {backgroundColor: 'colorBackground'},
         }}
       >
-        <InputChevronWrapper element="foo">input-chevron</InputChevronWrapper>
+        <InputChevronWrapper element="FOO_CHEVRON_WRAPPER">input-chevron</InputChevronWrapper>
       </CustomizationProvider>
     );
     const renderedInputChevronWrapper = screen.getByText('input-chevron');

@@ -21,7 +21,7 @@ export const InputChevronWrapper = React.forwardRef<HTMLDivElement, InputChevron
       top="50%"
       transform="translateY(-50%)"
       zIndex="zIndex10"
-      element={`${element}_CHEVRON_WRAPPER`}
+      element={element}
       ref={ref}
     >
       {children}
