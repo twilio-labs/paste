@@ -24,6 +24,7 @@ export const DirectButtonPropTypes = {
 
 export const ButtonPropTypes = {
   as: PropTypes.string as any,
+  element: PropTypes.string,
   fullWidth: PropTypes.bool,
   href: PropTypes.string,
   size: PropTypes.oneOf(['small', 'default', 'icon', 'icon_small', 'reset']) as any,

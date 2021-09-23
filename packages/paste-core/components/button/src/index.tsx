@@ -180,7 +180,7 @@ const getButtonComponent = (variant: ButtonVariants): React.FunctionComponent<Di
 };
 
 // memo
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({element = 'BUTTON', ...props}, ref) => {
   const {size, variant, children, disabled, loading, ...rest} = props;
   const [hovered, setHovered] = React.useState(false);
   const arrowIconStyles = useSpring({
@@ -239,6 +239,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => 
       }}
       buttonState={buttonState}
       disabled={showDisabled}
+      element={element}
+      variant={variant}
       size={smartDefaultSize as ButtonSizes}
       aria-busy={buttonState === 'loading' ? 'true' : 'false'}
       className={undefined}
@@ -261,9 +263,7 @@ Button.defaultProps = {
   variant: 'primary',
 };
 
-if (process.env.NODE_ENV === 'development') {
-  Button.propTypes = ButtonPropTypes;
-}
+Button.propTypes = ButtonPropTypes;
 
 Button.displayName = 'Button';
 
