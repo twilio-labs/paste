@@ -1,19 +1,15 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {useUID} from '@twilio-paste/uid-library';
-import {Box, BoxProps, safelySpreadBoxProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxProps} from '@twilio-paste/box';
 import {StyledBase} from '@twilio-paste/theme';
 import {Text} from '@twilio-paste/text';
-import {
-  TooltipPrimitiveInitialState,
-  useTooltipPrimitiveState,
-  TooltipPrimitive,
-  TooltipPrimitiveReference,
-  TooltipPrimitiveStateReturn,
-} from '@twilio-paste/tooltip-primitive';
+import {useTooltipPrimitiveState, TooltipPrimitive, TooltipPrimitiveReference} from '@twilio-paste/tooltip-primitive';
+import type {TooltipPrimitiveInitialState, TooltipPrimitiveStateReturn} from '@twilio-paste/tooltip-primitive';
 import {TooltipArrow} from './TooltipArrow';
 
-const StyledTooltip = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...props}, ref) => {
+const StyledTooltip = React.forwardRef<HTMLDivElement, BoxProps>(({style, element, ...props}, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
@@ -23,6 +19,7 @@ const StyledTooltip = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...pro
       borderStyle="solid"
       borderWidth="borderWidth10"
       boxShadow="shadow"
+      element={element}
       maxWidth="size30"
       padding="space30"
       paddingBottom="space20"
@@ -40,36 +37,46 @@ export interface TooltipStateReturn extends TooltipPrimitiveStateReturn {
 }
 export interface TooltipProps extends TooltipPrimitiveInitialState {
   children: NonNullable<React.ReactElement>;
+  element?: string;
   state?: TooltipStateReturn;
   text: string;
 }
 
-const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(({baseId, children, state, text, ...props}, ref) => {
-  const tooltip = state || useTooltipPrimitiveState({baseId: `paste-tooltip-${useUID()}`, ...props});
-  return (
-    <>
-      {React.Children.only(
-        <TooltipPrimitiveReference {...tooltip} ref={ref} {...children.props}>
-          {(referenceProps) => React.cloneElement(children, referenceProps)}
-        </TooltipPrimitiveReference>
-      )}
-      <TooltipPrimitive {...tooltip} {...props} as={StyledTooltip}>
-        {/* import Paste Theme Based Styles due to portal positioning. */}
-        <StyledBase>
-          <TooltipArrow {...tooltip} />
-          <Text as="span" color="colorTextInverse">
-            {text}
-          </Text>
-        </StyledBase>
-      </TooltipPrimitive>
-    </>
-  );
-});
+/*
+Tooltip's current structure does not allow for customization of its arrow.
+TODO: refactor Tooltip so that the styling of its arrow can be customized
+using Customization Provider.
+*/
+
+const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
+  ({baseId, children, element = 'TOOLTIP', state, text, ...props}, ref) => {
+    const tooltip = state || useTooltipPrimitiveState({baseId: `paste-tooltip-${useUID()}`, ...props});
+    return (
+      <>
+        {React.Children.only(
+          <TooltipPrimitiveReference {...tooltip} ref={ref} {...children.props}>
+            {(referenceProps) => React.cloneElement(children, referenceProps)}
+          </TooltipPrimitiveReference>
+        )}
+        <TooltipPrimitive element={element} {...tooltip} {...props} as={StyledTooltip}>
+          {/* import Paste Theme Based Styles due to portal positioning. */}
+          <StyledBase>
+            <TooltipArrow {...tooltip} />
+            <Text element={`${element}_TEXT`} as="span" color="colorTextInverse">
+              {text}
+            </Text>
+          </StyledBase>
+        </TooltipPrimitive>
+      </>
+    );
+  }
+);
 
 if (process.env.NODE_ENV === 'development') {
   Tooltip.propTypes = {
     children: PropTypes.element.isRequired,
     text: PropTypes.string.isRequired,
+    element: PropTypes.string,
   };
 }
 

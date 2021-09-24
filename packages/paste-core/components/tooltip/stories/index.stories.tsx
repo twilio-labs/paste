@@ -7,12 +7,13 @@ import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {Theme} from '@twilio-paste/theme';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTooltipState, Tooltip} from '../src';
 
 export const StateHookExample: React.FC = () => {
   const tooltip = useTooltipState();
   return (
-    <Theme.Provider theme="console">
+    <Theme.Provider theme="default">
       <Stack orientation="horizontal" spacing="space60">
         <Tooltip
           data-testid="state-hook-tooltip"
@@ -132,7 +133,7 @@ export const IconButtonTooltip = (): React.ReactNode => {
   );
 };
 
-export const CustomTooltip = (): React.ReactNode => {
+export const NonButtonTooltip = (): React.ReactNode => {
   return (
     <Box display="flex" alignItems="center">
       <Text as="span">Tooltip should appear from the icon.</Text>
@@ -169,4 +170,33 @@ export const StateHookTooltip = (): React.ReactNode => {
 
 StateHookTooltip.story = {
   name: 'State hook Tooltip',
+};
+
+export const CustomizedTooltip = (): React.ReactNode => {
+  return (
+    <CustomizationProvider
+      baseTheme="default"
+      elements={{
+        TOOLTIP: {
+          backgroundColor: 'colorBackgroundErrorWeakest',
+          borderColor: 'colorBorderDestructive',
+          maxWidth: 'size10',
+          textAlign: 'center',
+        },
+        TOOLTIP_TEXT: {
+          color: 'colorTextErrorStrong',
+        },
+      }}
+    >
+      <Box as="div" minHeight="400px">
+        <Tooltip visible text={text('text', 'Welcome to Paste!')}>
+          <Button variant="primary">Open tooltip</Button>
+        </Tooltip>
+      </Box>
+    </CustomizationProvider>
+  );
+};
+
+CustomizedTooltip.story = {
+  name: 'Customized Tooltip',
 };
