@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "category": "interaction",
   "status": "production",
-  "description": "A Form Pill Group is a editable set of Pills used to visually represent a collection of entities for form UIs.",
+  "description": "A Form Pill Group is an editable set of Pills used to visually represent a collection of entities inside a form field.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
