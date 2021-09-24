@@ -28,9 +28,67 @@ export const Basic: React.FC = () => {
 
 type Pills = string[];
 
-export const SelectAndRemove: React.FC = () => {
+export const Selectable: React.FC = () => {
+  const [pills] = React.useState<Pills>(['Tennis', 'Baseball', 'Football', 'Soccer']);
+  const [selectedSet, updateSelectedSet] = React.useState<Set<string>>(new Set(['Football']));
+  const pillState = useFormPillState();
+
+  console.log(selectedSet);
+  return (
+    <form>
+      <FormPillGroup {...pillState} data-testid="form-pill-group" aria-label="Your favorite sports:">
+        {pills.map((pill, index) => (
+          <FormPill
+            key={pill}
+            data-testid={`form-pill-${index}`}
+            {...pillState}
+            selected={selectedSet.has(pill)}
+            onSelect={() => {
+              const newSelectedSet = new Set(selectedSet);
+              if (newSelectedSet.has(pill)) {
+                newSelectedSet.delete(pill);
+              } else {
+                newSelectedSet.add(pill);
+              }
+              updateSelectedSet(newSelectedSet);
+            }}
+          >
+            {pill}
+          </FormPill>
+        ))}
+      </FormPillGroup>
+    </form>
+  );
+};
+
+export const Removable: React.FC = () => {
   const [pills, setPills] = React.useState<Pills>(['Tennis', 'Baseball', 'Football', 'Soccer']);
-  const [selectedSet, updateSelectedSet] = React.useState<Set<string>>(new Set('Football'));
+  const pillState = useFormPillState();
+
+  return (
+    <form>
+      <FormPillGroup {...pillState} data-testid="form-pill-group" aria-label="Your favorite sports:">
+        {pills.map((pill, index) => (
+          <FormPill
+            key={pill}
+            data-testid={`form-pill-${index}`}
+            {...pillState}
+            onDismiss={() => {
+              setPills(pills.filter((_, i) => i !== index));
+            }}
+          >
+            {pill}
+          </FormPill>
+        ))}
+        {pills.length === 0 ? <Text as="p">No sports remaining</Text> : null}
+      </FormPillGroup>
+    </form>
+  );
+};
+
+export const SelectableAndRemovable: React.FC = () => {
+  const [pills, setPills] = React.useState<Pills>(['Tennis', 'Baseball', 'Football', 'Soccer']);
+  const [selectedSet, updateSelectedSet] = React.useState<Set<string>>(new Set(['Football']));
   const pillState = useFormPillState();
 
   return (
@@ -65,6 +123,7 @@ export const SelectAndRemove: React.FC = () => {
 };
 
 export const CustomFormPillGroup: React.FC = () => {
+  const [showTennis, setShowTennis] = React.useState(true);
   const pillState = useFormPillState();
 
   return (
@@ -87,19 +146,22 @@ export const CustomFormPillGroup: React.FC = () => {
     >
       <form>
         <FormPillGroup {...pillState} data-testid="form-pill-group" aria-label="Your favorite sports:">
-          <FormPill
-            data-testid="form-pill"
-            {...pillState}
-            onDismiss={() => {
-              console.log('removed the first pill');
-            }}
-            onSelect={() => {}}
-            onFocus={() => {}}
-            onBlur={() => {}}
-          >
-            <CalendarIcon decorative size="sizeIcon10" />
-            Tennis
-          </FormPill>
+          {showTennis && (
+            <FormPill
+              data-testid="form-pill"
+              {...pillState}
+              onDismiss={() => {
+                console.log('removed the first pill');
+                setShowTennis(false);
+              }}
+              onSelect={() => {}}
+              onFocus={() => {}}
+              onBlur={() => {}}
+            >
+              <CalendarIcon decorative size="sizeIcon10" />
+              Tennis
+            </FormPill>
+          )}
           <FormPill {...pillState} onSelect={() => {}}>
             Baseball
           </FormPill>
@@ -118,5 +180,5 @@ export const CustomFormPillGroup: React.FC = () => {
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Form Pill Group',
-  component: Basic,
+  component: FormPillGroup,
 };
