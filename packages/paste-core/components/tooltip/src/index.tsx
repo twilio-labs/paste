@@ -35,9 +35,8 @@ const StyledTooltip = React.forwardRef<HTMLDivElement, BoxProps>(({style, elemen
 export interface TooltipStateReturn extends TooltipPrimitiveStateReturn {
   [key: string]: any;
 }
-export interface TooltipProps extends TooltipPrimitiveInitialState {
+export interface TooltipProps extends Pick<BoxProps, 'element'>, TooltipPrimitiveInitialState {
   children: NonNullable<React.ReactElement>;
-  element?: string;
   state?: TooltipStateReturn;
   text: string;
 }
