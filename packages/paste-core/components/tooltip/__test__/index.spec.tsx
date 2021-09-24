@@ -80,6 +80,7 @@ describe('Tooltip', () => {
 
       expect(tooltip.getAttribute('hidden')).not.toBeNull();
 
+      // @ts-expect-error yes, I know activeElement MIGHT be null, but it's not, OK?
       await act(async () => {
         await screen.getByRole('button').focus();
       });
