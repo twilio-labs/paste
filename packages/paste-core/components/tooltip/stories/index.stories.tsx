@@ -186,10 +186,21 @@ export const CustomizedTooltip = (): React.ReactNode => {
         TOOLTIP_TEXT: {
           color: 'colorTextErrorStrong',
         },
+        CUSTOM_TOOLTIP: {
+          backgroundColor: 'colorBackgroundSuccessWeakest',
+          borderColor: 'colorBorderSuccess',
+          textAlign: 'left',
+        },
+        CUSTOM_TOOLTIP_TEXT: {
+          color: 'colorTextSuccess',
+        },
       }}
     >
-      <Box as="div" minHeight="400px">
+      <Box as="div" display="flex" columnGap="space80">
         <Tooltip visible text={text('text', 'Welcome to Paste!')}>
+          <Button variant="primary">Open tooltip</Button>
+        </Tooltip>
+        <Tooltip element="CUSTOM_TOOLTIP" visible text={text('text', 'Welcome to Paste!')}>
           <Button variant="primary">Open tooltip</Button>
         </Tooltip>
       </Box>
