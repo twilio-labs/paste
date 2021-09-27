@@ -308,7 +308,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
           className="emotion-5"
           color="colorTextLink"
           cursor="pointer"
-          data-paste-element="BOX"
+          data-paste-element="BUTTON"
           disabled={false}
           display="inline-block"
           fontFamily="fontFamilyText"
@@ -671,7 +671,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
           className="emotion-5"
           color="colorTextLink"
           cursor="pointer"
-          data-paste-element="BOX"
+          data-paste-element="BUTTON"
           disabled={false}
           display="inline-block"
           fontFamily="fontFamilyText"
@@ -1038,7 +1038,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
           className="emotion-5"
           color="colorTextLink"
           cursor="pointer"
-          data-paste-element="BOX"
+          data-paste-element="BUTTON"
           disabled={false}
           display="inline-block"
           fontFamily="fontFamilyText"
