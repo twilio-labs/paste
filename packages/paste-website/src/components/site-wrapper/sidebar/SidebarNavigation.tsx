@@ -482,8 +482,8 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <DisclosurePrimitiveContent {...customizationDisclosure} data-cy="customization-list">
             <SidebarNestedList>
               <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CUSTOMIZATION}/paste-for-programmable-apps`}>
-                  Paste for Programmable Apps
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CUSTOMIZATION}/`}>
+                  Overview
                 </SidebarAnchor>
               </SidebarNestedItem>
               <SidebarNestedItem>
