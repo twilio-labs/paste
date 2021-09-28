@@ -29,7 +29,9 @@ export interface BreadcrumbItemProps extends React.HTMLAttributes<HTMLLIElement>
 }
 
 const BreadcrumbItem = React.forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
-  ({children, element = 'BREADCRUMB_ITEM', href, last, ...props}, ref) => {
+  ({children, element, href, last, ...props}, ref) => {
+    const separatorElementName = element || 'BREADCRUMB';
+    const elementName = element || 'BREADCRUMB_ITEM';
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -37,20 +39,27 @@ const BreadcrumbItem = React.forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
         as="li"
         color="colorText"
         display="inline-flex"
-        element={element}
+        element={elementName}
         fontSize="fontSize20"
         lineHeight="lineHeight20"
       >
         {href ? (
-          <Anchor href={href} ref={ref}>
+          <Anchor element={`${elementName}_ANCHOR`} href={href} ref={ref}>
             {children}
           </Anchor>
         ) : (
-          <Text aria-current="page" as="span" fontSize="fontSize20" lineHeight="lineHeight20" ref={ref}>
+          <Text
+            aria-current="page"
+            as="span"
+            element={`${elementName}_TEXT`}
+            fontSize="fontSize20"
+            lineHeight="lineHeight20"
+            ref={ref}
+          >
             {children}
           </Text>
         )}
-        {!last && <BreadcrumbSeparator element={element} />}
+        {!last && <BreadcrumbSeparator element={separatorElementName} />}
       </Box>
     );
   }
@@ -90,7 +99,6 @@ const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
             React.cloneElement(child as React.ReactElement<any>, {
               last: childrenCount === index + 1,
               key: keySeed(`breadcrumb-${index}`),
-              element: `${element}_CHILD`,
             })
           )}
         </Box>
