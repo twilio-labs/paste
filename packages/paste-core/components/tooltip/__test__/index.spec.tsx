@@ -128,15 +128,26 @@ describe('Tooltip', () => {
         <CustomizationProvider
           // @ts-expect-error global test variable
           theme={TestTheme}
+          elements={{
+            TOOLTIP: {
+              backgroundColor: 'colorBackgroundErrorWeakest',
+              borderColor: 'colorBorderDestructive',
+              maxWidth: 'size10',
+              textAlign: 'center',
+            },
+            TOOLTIP_TEXT: {
+              color: 'colorTextErrorStrong',
+            },
+          }}
         >
           <TooltipWithoutTheme />
         </CustomizationProvider>
       );
       const tooltip = screen.getByTestId('tooltip-example');
       const tooltipText = screen.getByText('Welcome to Paste!');
-      screen.debug();
-      expect(tooltip).toHaveStyleRule('background-color', 'rgb(18,28,45)');
-      expect(tooltipText).toHaveStyleRule('color', 'rgb(255,255,255)');
+
+      expect(tooltip).toHaveStyleRule('background-color', 'rgb(254,236,236)');
+      expect(tooltipText).toHaveStyleRule('color', 'rgb(173,17,17)');
     });
 
     it('should add custom styling to custom named Tooltip', (): void => {
