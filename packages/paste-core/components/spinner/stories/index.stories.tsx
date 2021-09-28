@@ -1,7 +1,9 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
+import {Card} from '@twilio-paste/card';
 import {Button} from '@twilio-paste/button';
 import {useTheme, DefaultTheme} from '@twilio-paste/theme';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {withKnobs, text, select, boolean, number} from '@storybook/addon-knobs';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import type {IconSize, TextColor, TextColorOptions} from '@twilio-paste/style-props';
@@ -176,5 +178,78 @@ export const InFullscreenOverlay: React.ReactNode = () => {
         </StyledLoadingOverlay>
       ) : null}
     </Box>
+  );
+};
+
+export const CustomizedSpinner = (): React.ReactNode => {
+  const currentTheme = useTheme();
+  return (
+    <CustomizationProvider
+      theme={currentTheme}
+      elements={{
+        SPINNER_ICON_WRAPPER: {
+          color: 'colorTextIcon',
+        },
+        CUSTOM_SPINNER_ICON_WRAPPER_A: {
+          size: 'sizeIcon80',
+          backgroundColor: 'colorBackgroundBrand',
+          color: 'colorTextInverse',
+          alignSelf: 'flex-start',
+          padding: 'space20',
+        },
+        CUSTOM_SPINNER_ICON_WRAPPER_B: {
+          size: 'sizeIcon60',
+          alignSelf: 'flex-end',
+          color: 'colorTextNew',
+        },
+      }}
+    >
+      <Box width="50%">
+        <Card>
+          <Box display="flex" justifyContent="space-between" alignItems="center" padding="space40">
+            <Spinner color="colorText" title="Loading content" decorative={false} />
+
+            {/* Note: color passed here is ignored due to customization rules above */}
+            <Spinner
+              element="CUSTOM_SPINNER_ICON_WRAPPER_A"
+              color="colorText"
+              title="Loading content"
+              decorative={false}
+            />
+            <Spinner color="colorText" title="Loading content" decorative={false} />
+
+            {/* Note: color passed here is ignored due to customization rules above */}
+            <Spinner
+              element="CUSTOM_SPINNER_ICON_WRAPPER_B"
+              color="colorText"
+              title="Loading content"
+              decorative={false}
+            />
+
+            <Spinner color="colorText" title="Loading content" decorative={false} />
+
+            {/* Note: color passed here is ignored due to customization rules above */}
+            <Spinner
+              element="CUSTOM_SPINNER_ICON_WRAPPER_A"
+              color="colorText"
+              title="Loading content"
+              decorative={false}
+            />
+
+            <Spinner color="colorText" title="Loading content" decorative={false} />
+
+            {/* Note: color passed here is ignored due to customization rules above */}
+            <Spinner
+              element="CUSTOM_SPINNER_ICON_WRAPPER_B"
+              color="colorText"
+              title="Loading content"
+              decorative={false}
+            />
+
+            <Spinner color="colorText" title="Loading content" decorative={false} />
+          </Box>
+        </Card>
+      </Box>
+    </CustomizationProvider>
   );
 };

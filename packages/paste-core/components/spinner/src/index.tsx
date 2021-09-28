@@ -14,7 +14,10 @@ export interface SpinnerProps extends IconWrapperProps {
 }
 
 export const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
-  ({size, color = 'currentColor', title, as, display, decorative, delay = 250}, ref) => {
+  (
+    {size, color = 'currentColor', title, as, display, decorative, delay = 250, element = 'SPINNER_ICON_WRAPPER'},
+    ref
+  ) => {
     const titleId = `spinner-${useUID()}`;
     const {
       borderWidths: {borderWidth40},
@@ -28,7 +31,15 @@ export const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
       return () => clearTimeout(showTimer);
     }, [delay]);
     return (
-      <IconWrapper as={as} display={display} size={size} color={color} aria-hidden={decorative} ref={ref}>
+      <IconWrapper
+        as={as}
+        element={element}
+        display={display}
+        size={size}
+        color={color}
+        aria-hidden={decorative}
+        ref={ref}
+      >
         <StyledSvg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-labelledby={titleId}>
           {title ? <title id={titleId}>{title}</title> : null}
           <g strokeWidth={borderWidth40} stroke="currentColor" strokeLinecap="round" fill="transparent">
