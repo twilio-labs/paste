@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
+import type {BoxElementProps} from '@twilio-paste/box';
 import {IconWrapper} from '@twilio-paste/icons/esm/helpers/IconWrapper';
 import type {IconWrapperProps} from '@twilio-paste/icons/esm/helpers/IconWrapper';
 import {useTheme} from '@twilio-paste/theme';
@@ -11,13 +12,11 @@ export interface SpinnerProps extends IconWrapperProps {
   title: string;
   delay?: number;
   decorative: boolean;
+  element?: BoxElementProps['element'];
 }
 
 export const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
-  (
-    {size, color = 'currentColor', title, as, display, decorative, delay = 250, element = 'SPINNER_ICON_WRAPPER'},
-    ref
-  ) => {
+  ({size, color = 'currentColor', title, as, display, decorative, delay = 250, element = 'SPINNER'}, ref) => {
     const titleId = `spinner-${useUID()}`;
     const {
       borderWidths: {borderWidth40},

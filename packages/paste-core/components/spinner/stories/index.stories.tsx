@@ -187,17 +187,17 @@ export const CustomizedSpinner = (): React.ReactNode => {
     <CustomizationProvider
       theme={currentTheme}
       elements={{
-        SPINNER_ICON_WRAPPER: {
-          color: 'colorTextIcon',
+        SPINNER: {
+          color: 'colorTextIconSuccess',
         },
-        CUSTOM_SPINNER_ICON_WRAPPER_A: {
+        CUSTOM_SPINNER_A: {
           size: 'sizeIcon80',
           backgroundColor: 'colorBackgroundBrand',
           color: 'colorTextInverse',
           alignSelf: 'flex-start',
           padding: 'space20',
         },
-        CUSTOM_SPINNER_ICON_WRAPPER_B: {
+        CUSTOM_SPINNER_B: {
           size: 'sizeIcon60',
           alignSelf: 'flex-end',
           color: 'colorTextNew',
@@ -207,46 +207,27 @@ export const CustomizedSpinner = (): React.ReactNode => {
       <Box width="50%">
         <Card>
           <Box display="flex" justifyContent="space-between" alignItems="center" padding="space40">
-            <Spinner color="colorText" title="Loading content" decorative={false} />
-
-            {/* Note: color passed here is ignored due to customization rules above */}
             <Spinner
-              element="CUSTOM_SPINNER_ICON_WRAPPER_A"
               color="colorText"
-              title="Loading content"
-              decorative={false}
-            />
-            <Spinner color="colorText" title="Loading content" decorative={false} />
-
-            {/* Note: color passed here is ignored due to customization rules above */}
-            <Spinner
-              element="CUSTOM_SPINNER_ICON_WRAPPER_B"
-              color="colorText"
-              title="Loading content"
+              title="Example of a customized spinner with default element name"
               decorative={false}
             />
 
-            <Spinner color="colorText" title="Loading content" decorative={false} />
-
             {/* Note: color passed here is ignored due to customization rules above */}
             <Spinner
-              element="CUSTOM_SPINNER_ICON_WRAPPER_A"
+              element="CUSTOM_SPINNER_A"
               color="colorText"
-              title="Loading content"
+              title="Example of a customized spinner with unique element name A"
               decorative={false}
             />
 
-            <Spinner color="colorText" title="Loading content" decorative={false} />
-
             {/* Note: color passed here is ignored due to customization rules above */}
             <Spinner
-              element="CUSTOM_SPINNER_ICON_WRAPPER_B"
+              element="CUSTOM_SPINNER_B"
               color="colorText"
-              title="Loading content"
+              title="Example of a customized spinner with unique element name A"
               decorative={false}
             />
-
-            <Spinner color="colorText" title="Loading content" decorative={false} />
           </Box>
         </Card>
       </Box>
