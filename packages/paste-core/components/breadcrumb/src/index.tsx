@@ -24,14 +24,16 @@ const BreadcrumbSeparator: React.FC<{element: BoxElementProps['element']}> = ({e
 export interface BreadcrumbItemProps extends React.HTMLAttributes<HTMLLIElement> {
   children: NonNullable<React.ReactNode>;
   element?: BoxElementProps['element'];
+  parentElement?: BoxElementProps['element'];
   href?: string;
   last?: boolean;
 }
 
+const DEFAULT_ELEMENT_NAME = 'BREADCRUMB';
+
 const BreadcrumbItem = React.forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
-  ({children, element, href, last, ...props}, ref) => {
-    const separatorElementName = element || 'BREADCRUMB';
-    const elementName = element || 'BREADCRUMB_ITEM';
+  ({children, element, parentElement, href, last, ...props}, ref) => {
+    const elementName = element || parentElement || DEFAULT_ELEMENT_NAME;
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -39,7 +41,7 @@ const BreadcrumbItem = React.forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
         as="li"
         color="colorText"
         display="inline-flex"
-        element={elementName}
+        element={`${elementName}_ITEM`}
         fontSize="fontSize20"
         lineHeight="lineHeight20"
       >
@@ -59,7 +61,7 @@ const BreadcrumbItem = React.forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
             {children}
           </Text>
         )}
-        {!last && <BreadcrumbSeparator element={separatorElementName} />}
+        {!last && <BreadcrumbSeparator element={elementName} />}
       </Box>
     );
   }
@@ -82,7 +84,7 @@ export interface BreadcrumbProps extends React.HTMLAttributes<'nav'> {
 }
 
 const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
-  ({children, element = 'BREADCRUMB', ...props}, ref) => {
+  ({children, element = DEFAULT_ELEMENT_NAME, ...props}, ref) => {
     const [childrenCount, validChildren] = React.useMemo(
       () => [
         React.Children.count(children),
@@ -95,12 +97,13 @@ const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
     return (
       <Box {...safelySpreadBoxProps(props)} aria-label="breadcrumb" as="nav" element={element} ref={ref}>
         <Box alignItems="center" as="ol" display="inline-flex" listStyleType="none" margin="space0" padding="space0">
-          {validChildren.map((child, index) =>
-            React.cloneElement(child as React.ReactElement<any>, {
+          {validChildren.map((child, index) => {
+            return React.cloneElement(child as React.ReactElement<any>, {
               last: childrenCount === index + 1,
               key: keySeed(`breadcrumb-${index}`),
-            })
-          )}
+              parentElement: element,
+            });
+          })}
         </Box>
       </Box>
     );

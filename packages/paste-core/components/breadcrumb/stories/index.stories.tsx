@@ -60,12 +60,12 @@ export const CustomizationBreadcrumb = (): React.ReactNode => {
       elements={{
         BREADCRUMB: {fontVariantNumeric: 'slashed-zero'},
         BREADCRUMB_ITEM: {fontWeight: 'fontWeightMedium'},
-        BREADCRUMB_ITEM_ANCHOR: {
+        BREADCRUMB_ANCHOR: {
           textDecoration: 'underline wavy',
           color: 'colorTextInverseWeaker',
           ':hover': {color: 'colorLinkStronger'},
         },
-        BREADCRUMB_ITEM_TEXT: {letterSpacing: '0.25rem'},
+        BREADCRUMB_TEXT: {letterSpacing: '0.25rem'},
         BREADCRUMB_SEPARATOR: {
           color: 'colorTextBrandHighlight',
         },
