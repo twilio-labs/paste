@@ -208,6 +208,7 @@ export const CustomizedSpinner = (): React.ReactNode => {
         <Card>
           <Box display="flex" justifyContent="space-between" alignItems="center" padding="space40">
             <Spinner
+              data-testid="default-name-customization"
               color="colorText"
               title="Example of a customized spinner with default element name"
               decorative={false}
@@ -215,6 +216,7 @@ export const CustomizedSpinner = (): React.ReactNode => {
 
             {/* Note: color passed here is ignored due to customization rules above */}
             <Spinner
+              data-testid="unique-name-customization-a"
               element="CUSTOM_SPINNER_A"
               color="colorText"
               title="Example of a customized spinner with unique element name A"
@@ -223,6 +225,7 @@ export const CustomizedSpinner = (): React.ReactNode => {
 
             {/* Note: color passed here is ignored due to customization rules above */}
             <Spinner
+              data-testid="unique-name-customization-b"
               element="CUSTOM_SPINNER_B"
               color="colorText"
               title="Example of a customized spinner with unique element name A"
