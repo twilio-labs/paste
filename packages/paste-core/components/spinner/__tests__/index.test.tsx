@@ -12,16 +12,14 @@ import axe from '../../../../../.jest/axe-helper';
 expect.extend(matchers);
 
 const TestWrapper = (elements?: Record<string, any>): RenderOptions['wrapper'] => ({children}) => (
-  <Theme.Provider theme="default">
-    <CustomizationProvider
-      // @ts-expect-error global test variable
-      theme={TestTheme}
-      elements={elements}
-      data-testid="test-wrapper"
-    >
-      {children}
-    </CustomizationProvider>
-  </Theme.Provider>
+  <CustomizationProvider
+    // @ts-expect-error global test variable
+    theme={TestTheme}
+    elements={elements}
+    data-testid="test-wrapper"
+  >
+    {children}
+  </CustomizationProvider>
 );
 
 describe('Spinner', () => {

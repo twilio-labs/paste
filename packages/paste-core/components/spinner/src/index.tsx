@@ -53,13 +53,11 @@ const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
   }
 );
 
-if (process.env.NODE_ENV === 'development') {
-  Spinner.propTypes = {
-    title: PropTypes.string.isRequired,
-    delay: PropTypes.number,
-    element: PropTypes.string,
-    size: isIconSizeTokenProp,
-  };
-}
+Spinner.propTypes = {
+  title: PropTypes.string.isRequired,
+  delay: PropTypes.number,
+  element: PropTypes.string,
+  size: isIconSizeTokenProp,
+};
 
 export {Spinner};
