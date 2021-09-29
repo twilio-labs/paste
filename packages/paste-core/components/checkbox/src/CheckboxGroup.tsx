@@ -12,7 +12,17 @@ export interface CheckboxGroupProps extends InlineControlGroupProps {
 
 const CheckboxGroup = React.forwardRef<HTMLFieldSetElement, CheckboxGroupProps>(
   (
-    {children, disabled = false, errorText, isSelectAll = false, name, onChange, orientation = 'vertical', ...props},
+    {
+      children,
+      element = 'CHECKBOX_GROUP',
+      disabled = false,
+      errorText,
+      isSelectAll = false,
+      name,
+      onChange,
+      orientation = 'vertical',
+      ...props
+    },
     ref
   ) => {
     const onChangeHandler = React.useCallback(
@@ -37,6 +47,7 @@ const CheckboxGroup = React.forwardRef<HTMLFieldSetElement, CheckboxGroupProps>(
       <CheckboxContext.Provider value={contextValue}>
         <InlineControlGroup
           {...props}
+          element={element}
           disabled={disabled}
           errorText={errorText}
           name={name}
@@ -63,6 +74,7 @@ if (process.env.NODE_ENV === 'development') {
   CheckboxGroup.propTypes = {
     isSelectAll: PropTypes.bool,
     name: PropTypes.string.isRequired,
+    element: PropTypes.string,
     onChange: PropTypes.func,
     disabled: PropTypes.bool,
     errorText: PropTypes.string,
