@@ -86,7 +86,7 @@ CustomizationBreadcrumb.story = {
   name: 'Customized ',
 };
 
-export const CustomizationBreadcrumWithCustomName = (): React.ReactNode => {
+export const CustomizationBreadcrumbWithCustomName = (): React.ReactNode => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
@@ -126,6 +126,6 @@ export const CustomizationBreadcrumWithCustomName = (): React.ReactNode => {
   );
 };
 
-CustomizationBreadcrumWithCustomName.story = {
+CustomizationBreadcrumbWithCustomName.story = {
   name: 'Customized unique name',
 };
