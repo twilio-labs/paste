@@ -68,7 +68,7 @@ describe('Breadcrumb', () => {
     });
   });
 
-  describe.only('HTML attributes', () => {
+  describe('HTML attributes', () => {
     it('should set a element data attribute for Breadcrumb', () => {
       render(
         <Breadcrumb data-testid="breadcrumb">
@@ -106,7 +106,6 @@ describe('Breadcrumb', () => {
 
       const node3 = breadcrumbItem3.firstChild as HTMLElement;
 
-      // fix this test!!!!!!
       expect(node3.getAttribute('data-paste-element')).toEqual('BREADCRUMB_ITEM_TEXT');
     });
 
@@ -153,7 +152,7 @@ describe('Breadcrumb', () => {
     });
   });
 
-  describe.only('Customization', () => {
+  describe('Customization', () => {
     it('should add custom styles to Breadcrumb', () => {
       render(
         <CustomizationProvider
