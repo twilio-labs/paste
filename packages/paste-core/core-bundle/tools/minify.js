@@ -8,8 +8,8 @@ const files = getAllJsFiles(CORE_BUNDLE_OUTPUT_PATH);
 
 // Applied terserJS to provided file paths
 function minifyFiles(filePaths) {
-  filePaths.forEach(async filePath => {
-    const result = await Terser.minify(fs.readFileSync(filePath, 'utf8'), {});
+  filePaths.forEach(async (filePath) => {
+    const result = await Terser.minify(fs.readFileSync(filePath, 'utf8'), {keep_fnames: true});
     writeToFile(filePath, result.code, {});
   });
 }
