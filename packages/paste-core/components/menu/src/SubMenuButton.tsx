@@ -1,24 +1,29 @@
 import * as React from 'react';
+import type {BoxElementProps} from '@twilio-paste/box';
 import type {MenuPrimitiveButtonProps} from '@twilio-paste/menu-primitive';
 import {MenuPrimitiveButton} from '@twilio-paste/menu-primitive';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
 import {ChevronRightIcon} from '@twilio-paste/icons/esm/ChevronRightIcon';
 import {StyledMenuItem} from './MenuItem';
+import {DEFAULT_ELEMENT_NAME} from './constants';
 
-export type SubMenuButtonProps = MenuPrimitiveButtonProps;
+export type SubMenuButtonProps = MenuPrimitiveButtonProps & {element?: BoxElementProps['element']};
 
-const SubMenuButton = React.forwardRef<HTMLButtonElement, SubMenuButtonProps>((props, ref) => {
-  // MenuPrimitiveButton from reakit types `as` as HTML element names, but accepts components. any prevents type errors
-  return (
-    <MenuPrimitiveButton {...props} as={StyledMenuItem as any} ref={ref}>
-      <MediaObject as="span" verticalAlign="center">
-        {props.children && <MediaBody as="span">{props.children}</MediaBody>}
-        <MediaFigure as="span" align="end" spacing="space20">
-          <ChevronRightIcon decorative size="sizeIcon30" />
-        </MediaFigure>
-      </MediaObject>
-    </MenuPrimitiveButton>
-  );
-});
+const SubMenuButton = React.forwardRef<HTMLButtonElement, SubMenuButtonProps>(
+  ({element = `SUB_${DEFAULT_ELEMENT_NAME}`, ...props}, ref) => {
+    console.log({element});
+    // MenuPrimitiveButton from reakit types `as` as HTML element names, but accepts components. any prevents type errors
+    return (
+      <MenuPrimitiveButton {...props} as={StyledMenuItem as any} element={element} ref={ref}>
+        <MediaObject as="span" verticalAlign="center" element={`${element}_MEDIA_OBJECT`}>
+          {props.children && <MediaBody as="span">{props.children}</MediaBody>}
+          <MediaFigure as="span" align="end" spacing="space20" element={`${element}_MEDIA_FIGURE`}>
+            <ChevronRightIcon decorative size="sizeIcon30" element={`${element}_ICON`} />
+          </MediaFigure>
+        </MediaObject>
+      </MenuPrimitiveButton>
+    );
+  }
+);
 SubMenuButton.displayName = 'SubMenuButton';
 export {SubMenuButton};

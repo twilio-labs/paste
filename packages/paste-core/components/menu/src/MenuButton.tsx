@@ -6,9 +6,9 @@ import {Button} from '@twilio-paste/button';
 
 export type MenuButtonProps = MenuPrimitiveButtonProps & ButtonProps;
 
-const MenuButton = React.forwardRef<HTMLButtonElement, MenuButtonProps>((props, ref) => {
+const MenuButton = React.forwardRef<HTMLButtonElement, MenuButtonProps>(({element = 'MENU_BUTTON', ...props}, ref) => {
   return (
-    <MenuPrimitiveButton {...props} as={Button} ref={ref}>
+    <MenuPrimitiveButton {...props} element={element} as={Button} ref={ref}>
       {props.children}
     </MenuPrimitiveButton>
   );
