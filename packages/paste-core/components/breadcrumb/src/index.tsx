@@ -112,11 +112,9 @@ const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
 
 Breadcrumb.displayName = 'Breadcrumb';
 
-if (process.env.NODE_ENV === 'development') {
-  Breadcrumb.propTypes = {
-    children: PropTypes.node.isRequired,
-    element: PropTypes.string,
-  };
-}
+Breadcrumb.propTypes = {
+  children: PropTypes.node.isRequired,
+  element: PropTypes.string,
+};
 
 export {Breadcrumb, BreadcrumbItem};
