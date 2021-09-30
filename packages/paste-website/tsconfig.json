@@ -7,6 +7,6 @@
     "target": "esnext",
     "emitDeclarationOnly": false
   },
-  "include": ["../../package.json", "./src/**/*", "./types/**/*", "./static/**/*"],
+  "include": ["../../package.json", "./src/**/*", "./types/**/*", "./static/**/*", "./stories/**/*"],
   "exclude": ["node_modules", "public", ".cache"]
 }
