@@ -1,12 +1,12 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxStyleProps} from '@twilio-paste/box';
+import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import type {PositionOptions} from '@twilio-paste/style-props';
 import type {VirtualItem} from 'react-virtual/types';
 
-export interface ComboboxListboxOptionProps {
+export interface ComboboxListboxOptionProps extends Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
   highlighted?: boolean;
   variant: 'default' | 'groupOption';
@@ -25,7 +25,7 @@ const VariantStyles: {[key in ComboboxListboxOptionProps['variant']]: BoxStylePr
 };
 
 const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOptionProps>(
-  ({children, highlighted, variant = 'default', virtualItem, ...props}, ref) => {
+  ({children, element = 'COMBOBOX', highlighted, variant = 'default', virtualItem, ...props}, ref) => {
     const virtualItemStyles = virtualItem
       ? {
           position: 'absolute' as PositionOptions,
@@ -39,6 +39,7 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
       <Box
         {...safelySpreadBoxProps(props)}
         as="li"
+        element={`${element}_LIST_ITEM`}
         backgroundColor={highlighted ? 'colorBackgroundPrimaryWeakest' : 'colorBackgroundBody'}
         padding="space30"
         cursor="pointer"
@@ -46,7 +47,12 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
         {...virtualItemStyles}
         {...VariantStyles[variant]}
       >
-        <Text as="span" color="colorText" textDecoration={highlighted ? 'underline' : null}>
+        <Text
+          as="span"
+          color="colorText"
+          element={`${element}_LIST_ITEM_TEXT`}
+          textDecoration={highlighted ? 'underline' : null}
+        >
           {children}
         </Text>
       </Box>
