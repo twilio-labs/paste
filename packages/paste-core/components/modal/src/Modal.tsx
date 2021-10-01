@@ -3,6 +3,7 @@ import * as PropTypes from 'prop-types';
 import {styled, css} from '@twilio-paste/styling-library';
 import {useTransition, animated} from '@twilio-paste/animation-library';
 import {safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxElementProps} from '@twilio-paste/box';
 import {pasteBaseStyles} from '@twilio-paste/theme';
 import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
 import {ModalContext} from './ModalContext';
@@ -63,6 +64,7 @@ export const ModalDialogContent = animated(
 
 export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
+  element?: BoxElementProps['element'];
   isOpen: boolean;
   onDismiss: () => void;
   allowPinchZoom?: boolean;
@@ -94,6 +96,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
   (
     {
       children,
+      element = 'MODAL',
       isOpen,
       onDismiss,
       allowPinchZoom = true,
@@ -128,10 +131,12 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
                 allowPinchZoom={allowPinchZoom}
                 initialFocusRef={initialFocusRef}
                 style={{opacity: styles.opacity}}
+                data-paste-element={`${element}_DIALOG_OVERLAY`}
               >
                 <ModalDialogContent
                   aria-labelledby={ariaLabelledby}
                   {...safelySpreadBoxProps(props)}
+                  data-paste-element={`${element}_DIALOG_CONTENT`}
                   ref={ref}
                   style={styles}
                   size={size}

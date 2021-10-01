@@ -6,13 +6,15 @@ import {modalBodyStyles} from './styles';
 export interface ModalBodyProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
 }
-const ModalBody = React.forwardRef<HTMLDivElement, ModalBodyProps>(({children, ...props}, ref) => {
-  return (
-    <Box {...safelySpreadBoxProps(props)} {...modalBodyStyles} as="div" ref={ref}>
-      {children}
-    </Box>
-  );
-});
+const ModalBody = React.forwardRef<HTMLDivElement, ModalBodyProps>(
+  ({children, element = 'MODAL_BODY', ...props}, ref) => {
+    return (
+      <Box {...safelySpreadBoxProps(props)} {...modalBodyStyles} as="div" element={element} ref={ref}>
+        {children}
+      </Box>
+    );
+  }
+);
 ModalBody.displayName = 'ModalBody';
 
 if (process.env.NODE_ENV === 'development') {
