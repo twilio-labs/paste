@@ -23,6 +23,7 @@ const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGr
         as="fieldset"
         margin="space0"
         padding="space0"
+        minWidth="0px"
         borderWidth="borderWidth0"
         ref={ref}
       >
