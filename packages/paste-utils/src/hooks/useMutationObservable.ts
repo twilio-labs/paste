@@ -35,7 +35,7 @@ export function useMutationObservable(targetEl: Element, cb: Callback, options: 
   useEffect(() => {
     if (!cb || typeof cb !== 'function') {
       // eslint-disable-next-line no-console
-      console.warn(`You must provide a valida callback function, instead you've provided ${cb}`);
+      console.warn(`You must provide a valid callback function, instead you've provided ${cb}`);
       return;
     }
 
