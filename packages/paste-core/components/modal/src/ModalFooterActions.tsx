@@ -25,7 +25,7 @@ const ModalFooterActions = React.forwardRef<HTMLDivElement, ModalFooterActionsPr
       >
         {React.Children.map(children, (child, index) => {
           return (
-            <Box marginRight={count !== index + 1 ? 'space50' : null} element={`${element}_CHILD`}>
+            <Box marginRight={count !== index + 1 ? 'space50' : null} element={`${element}_ITEM`}>
               {child}
             </Box>
           );

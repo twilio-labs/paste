@@ -131,12 +131,12 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
                 allowPinchZoom={allowPinchZoom}
                 initialFocusRef={initialFocusRef}
                 style={{opacity: styles.opacity}}
-                data-paste-element={`${element}_DIALOG_OVERLAY`}
+                data-paste-element={`${element}_OVERLAY`}
               >
                 <ModalDialogContent
                   aria-labelledby={ariaLabelledby}
                   {...safelySpreadBoxProps(props)}
-                  data-paste-element={`${element}_DIALOG_CONTENT`}
+                  data-paste-element={element}
                   ref={ref}
                   style={styles}
                   size={size}
