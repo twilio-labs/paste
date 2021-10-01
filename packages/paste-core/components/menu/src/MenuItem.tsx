@@ -8,13 +8,12 @@ import {MenuGroupContext} from './MenuGroup';
 
 export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElement, MenuItemProps>(
   ({element = `${DEFAULT_ELEMENT_NAME}_ITEM`, ...props}, ref) => {
-    const woof = props.href ? 'ANCHOR' : 'BUTTON';
     return (
       <Box
         {...(props.href && secureExternalLink(props.href))}
         as={props.href ? 'a' : 'button'}
         {...safelySpreadBoxProps(props)}
-        element={`${element}_${woof}`}
+        element={element}
         appearance="none"
         background="none"
         border="none"
