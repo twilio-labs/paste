@@ -13,6 +13,17 @@ const StyledAnimatedSkeleton = styled(AnimatedSkeleton)(() =>
   })
 );
 
+const animatedConfig = {
+  loop: {delay: 700, reset: true},
+  from: {translateX: '-100%', skew: '155deg'},
+  to: {translateX: '100%', skew: '155deg'},
+  config: {
+    mass: 0.1,
+    tension: 80,
+    friction: 50,
+  },
+};
+
 export interface SkeletonLoaderProps
   extends React.HTMLAttributes<HTMLDivElement>,
     Pick<BoxElementProps, 'element'>,
@@ -40,16 +51,7 @@ const SkeletonLoader = React.forwardRef<HTMLDivElement, SkeletonLoaderProps>(
     },
     ref
   ) => {
-    const animatedSkeletonStyles = useSpring({
-      loop: {delay: 700, reset: true},
-      from: {translateX: '-100%', skew: '155deg'},
-      to: {translateX: '100%', skew: '155deg'},
-      config: {
-        mass: 0.1,
-        tension: 80,
-        friction: 50,
-      },
-    });
+    const animatedSkeletonStyles = useSpring(animatedConfig);
 
     return (
       <Box
