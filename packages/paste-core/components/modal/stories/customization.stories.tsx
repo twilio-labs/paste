@@ -1,5 +1,8 @@
 import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
+import {CustomizationProvider} from '@twilio-paste/customization';
+import type {PasteCustomCSS} from '@twilio-paste/customization';
+import {useTheme} from '@twilio-paste/theme';
 import {Button} from '@twilio-paste/button';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -7,9 +10,56 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import type {ModalProps} from '../src';
 import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '../src';
 
+const initOverrides = (prefix: string): Record<string, PasteCustomCSS> => ({
+  [prefix]: {
+    borderRadius: 'borderRadius30',
+    boxShadow: 'shadowHigh',
+    borderColor: 'colorBorderDark',
+    variants: {
+      wide: {
+        maxWidth: 'unset',
+        width: '70%',
+      },
+    },
+  },
+  [`${prefix}_OVERLAY`]: {
+    backgroundColor: 'colorBackgroundBrandStronger',
+    variants: {
+      wide: {
+        backgroundColor: 'colorBackground',
+      },
+    },
+  },
+  [`${prefix}_HEADING`]: {
+    fontSize: 'fontSize110',
+  },
+  [`${prefix}_HEADER`]: {
+    borderWidth: 'borderWidth0',
+    borderStyle: 'none',
+    borderColor: 'transparent',
+  },
+  [`${prefix}_BODY`]: {
+    paddingX: 'space60',
+  },
+  [`${prefix}_FOOTER`]: {
+    borderWidth: 'borderWidth0',
+    borderStyle: 'none',
+    borderColor: 'transparent',
+  },
+  [`${prefix}_FOOTER_ACTIONS`]: {
+    justifyContent: 'flex-start',
+  },
+  [`${prefix}_FOOTER_ACTIONS_ITEM`]: {
+    paddingX: 'space40',
+    ':first-of-type': {
+      paddingLeft: 'space0',
+    },
+  },
+});
+
 type BaseModalProps = Pick<ModalProps, 'size'> & {testId?: string | undefined; element?: string | undefined};
 const NOOP: VoidFunction = () => null;
-const BaseModal: React.FC<BaseModalProps> = ({size, element}) => {
+const BaseModal: React.FC<BaseModalProps> = ({size, element = 'MODAL'}) => {
   const modalHeadingId = useUID();
 
   return (
@@ -47,7 +97,12 @@ export default {
 };
 
 export const First = (): React.ReactNode => {
-  return <BaseModal size="default" />;
+  const currentTheme = useTheme();
+  return (
+    <CustomizationProvider theme={currentTheme} elements={initOverrides('MODAL')}>
+      <BaseModal size="default" />
+    </CustomizationProvider>
+  );
 };
 
 First.story = {
@@ -58,7 +113,12 @@ First.story = {
 };
 
 export const Second = (): React.ReactNode => {
-  return <BaseModal element="CUSTOM" size="default" />;
+  const currentTheme = useTheme();
+  return (
+    <CustomizationProvider theme={currentTheme} elements={initOverrides('CUSTOM')}>
+      <BaseModal element="CUSTOM" size="default" />
+    </CustomizationProvider>
+  );
 };
 
 Second.story = {
@@ -69,7 +129,12 @@ Second.story = {
 };
 
 export const Third = (): React.ReactNode => {
-  return <BaseModal size="wide" />;
+  const currentTheme = useTheme();
+  return (
+    <CustomizationProvider theme={currentTheme} elements={initOverrides('MODAL')}>
+      <BaseModal element="MODAL" size="wide" />
+    </CustomizationProvider>
+  );
 };
 
 Third.story = {
@@ -80,7 +145,12 @@ Third.story = {
 };
 
 export const Fourth = (): React.ReactNode => {
-  return <BaseModal element="CUSTOM" size="wide" />;
+  const currentTheme = useTheme();
+  return (
+    <CustomizationProvider theme={currentTheme} elements={initOverrides('CUSTOM')}>
+      <BaseModal element="CUSTOM" size="wide" />
+    </CustomizationProvider>
+  );
 };
 
 Fourth.story = {

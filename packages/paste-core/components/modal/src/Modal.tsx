@@ -1,8 +1,9 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {styled, css} from '@twilio-paste/styling-library';
+
+import {css, styled} from '@twilio-paste/styling-library';
 import {useTransition, animated} from '@twilio-paste/animation-library';
-import {safelySpreadBoxProps} from '@twilio-paste/box';
+import {safelySpreadBoxProps, Box} from '@twilio-paste/box';
 import type {BoxElementProps} from '@twilio-paste/box';
 import {pasteBaseStyles} from '@twilio-paste/theme';
 import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
@@ -40,7 +41,10 @@ type Sizes = 'default' | 'wide';
 
 interface ModalDialogContentProps {
   size?: Sizes;
+  children: React.ReactNode;
+  element?: BoxElementProps['element'];
 }
+
 export const ModalDialogContent = animated(
   /* eslint-disable emotion/syntax-preference */
   styled(ModalDialogPrimitiveContent)<ModalDialogContentProps>(({size}) =>
@@ -61,12 +65,11 @@ export const ModalDialogContent = animated(
   )
   /* eslint-enable */
 );
-
 export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
   element?: BoxElementProps['element'];
   isOpen: boolean;
-  onDismiss: () => void;
+  onDismiss: VoidFunction;
   allowPinchZoom?: boolean;
   size: Sizes;
   initialFocusRef?: React.RefObject<any>;
@@ -126,24 +129,30 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
         {transitions(
           (styles, item) =>
             item && (
-              <ModalDialogOverlay
+              <Box
+                // @ts-expect-error Render overlay as box for customization
+                as={ModalDialogOverlay}
                 onDismiss={onDismiss}
                 allowPinchZoom={allowPinchZoom}
                 initialFocusRef={initialFocusRef}
                 style={{opacity: styles.opacity}}
-                data-paste-element={`${element}_OVERLAY`}
+                element={`${element}_OVERLAY`}
+                variant={size}
               >
-                <ModalDialogContent
+                <Box
+                  // @ts-expect-error Render overlay as box for customization
+                  as={ModalDialogContent}
                   aria-labelledby={ariaLabelledby}
                   {...safelySpreadBoxProps(props)}
-                  data-paste-element={element}
+                  element={element}
                   ref={ref}
                   style={styles}
                   size={size}
+                  variant={size}
                 >
                   {children}
-                </ModalDialogContent>
-              </ModalDialogOverlay>
+                </Box>
+              </Box>
             )
         )}
       </ModalContext.Provider>
