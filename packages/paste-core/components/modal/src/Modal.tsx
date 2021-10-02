@@ -161,16 +161,14 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
 );
 Modal.displayName = 'Modal';
 
-if (process.env.NODE_ENV === 'development') {
-  Modal.propTypes = {
-    children: PropTypes.node.isRequired,
-    isOpen: PropTypes.bool.isRequired,
-    onDismiss: PropTypes.func.isRequired,
-    allowPinchZoom: PropTypes.bool,
-    size: PropTypes.oneOf(['default', 'wide'] as Sizes[]).isRequired,
-    initialFocusRef: PropTypes.object as any,
-    ariaLabelledby: PropTypes.string.isRequired,
-  };
-}
+Modal.propTypes = {
+  children: PropTypes.node.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  onDismiss: PropTypes.func.isRequired,
+  allowPinchZoom: PropTypes.bool,
+  size: PropTypes.oneOf(['default', 'wide'] as Sizes[]).isRequired,
+  initialFocusRef: PropTypes.object as any,
+  ariaLabelledby: PropTypes.string.isRequired,
+};
 
 export {Modal};

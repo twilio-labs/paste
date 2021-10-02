@@ -19,9 +19,8 @@ const ModalBody = React.forwardRef<HTMLDivElement, ModalBodyProps>(
 );
 ModalBody.displayName = 'ModalBody';
 
-if (process.env.NODE_ENV === 'development') {
-  ModalBody.propTypes = {
-    children: PropTypes.node.isRequired,
-  };
-}
+ModalBody.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
 export {ModalBody};

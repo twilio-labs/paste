@@ -36,10 +36,9 @@ const ModalFooterActions = React.forwardRef<HTMLDivElement, ModalFooterActionsPr
 );
 ModalFooterActions.displayName = 'ModalFooterActions';
 
-if (process.env.NODE_ENV === 'development') {
-  ModalFooterActions.propTypes = {
-    children: PropTypes.node.isRequired,
-    justify: PropTypes.oneOf(['start', 'end'] as Justify[]),
-  };
-}
+ModalFooterActions.propTypes = {
+  children: PropTypes.node.isRequired,
+  justify: PropTypes.oneOf(['start', 'end'] as Justify[]),
+};
+
 export {ModalFooterActions};

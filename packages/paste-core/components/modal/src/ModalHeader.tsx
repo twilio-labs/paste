@@ -37,9 +37,8 @@ const ModalHeader = React.forwardRef<HTMLHeadElement, ModalHeaderProps>(
 );
 ModalHeader.displayName = 'ModalHeader';
 
-if (process.env.NODE_ENV === 'development') {
-  ModalHeader.propTypes = {
-    children: PropTypes.node.isRequired,
-  };
-}
+ModalHeader.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
 export {ModalHeader};

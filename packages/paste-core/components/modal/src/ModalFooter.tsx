@@ -19,9 +19,8 @@ const ModalFooter = React.forwardRef<HTMLDivElement, ModalFooterProps>(
 );
 ModalFooter.displayName = 'ModalFooter';
 
-if (process.env.NODE_ENV === 'development') {
-  ModalFooter.propTypes = {
-    children: PropTypes.node.isRequired,
-  };
-}
+ModalFooter.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
 export {ModalFooter};
