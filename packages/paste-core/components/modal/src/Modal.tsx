@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-
 import {css, styled} from '@twilio-paste/styling-library';
 import {useTransition, animated} from '@twilio-paste/animation-library';
 import {safelySpreadBoxProps, Box} from '@twilio-paste/box';
@@ -65,6 +64,7 @@ export const ModalDialogContent = animated(
   )
   /* eslint-enable */
 );
+
 export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
   element?: BoxElementProps['element'];
