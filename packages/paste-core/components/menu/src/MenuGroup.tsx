@@ -21,7 +21,7 @@ const MenuGroup = React.forwardRef<HTMLDivElement, MenuGroupProps>(
           <Box display="flex" alignItems="center" paddingX="space70" paddingY="space30" cursor="default">
             {React.isValidElement(icon) ? (
               <Box flexShrink={0} size="sizeIcon30">
-                {React.cloneElement(icon, {color: 'colorTextIcon', parentElement: element})}
+                {React.cloneElement(icon, {color: 'colorTextIcon'})}
               </Box>
             ) : null}
             <Text
