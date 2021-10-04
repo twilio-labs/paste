@@ -23,6 +23,7 @@ ModalHeading.displayName = 'ModalHeading';
 ModalHeading.propTypes = {
   children: PropTypes.node.isRequired,
   as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
+  element: PropTypes.string,
 };
 
 export {ModalHeading};

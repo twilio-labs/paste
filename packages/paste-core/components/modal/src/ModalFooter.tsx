@@ -21,6 +21,7 @@ ModalFooter.displayName = 'ModalFooter';
 
 ModalFooter.propTypes = {
   children: PropTypes.node.isRequired,
+  element: PropTypes.string,
 };
 
 export {ModalFooter};

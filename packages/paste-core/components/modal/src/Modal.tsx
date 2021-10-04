@@ -163,6 +163,7 @@ Modal.displayName = 'Modal';
 
 Modal.propTypes = {
   children: PropTypes.node.isRequired,
+  element: PropTypes.string,
   isOpen: PropTypes.bool.isRequired,
   onDismiss: PropTypes.func.isRequired,
   allowPinchZoom: PropTypes.bool,

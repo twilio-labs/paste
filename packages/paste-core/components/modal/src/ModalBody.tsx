@@ -21,6 +21,7 @@ ModalBody.displayName = 'ModalBody';
 
 ModalBody.propTypes = {
   children: PropTypes.node.isRequired,
+  element: PropTypes.string,
 };
 
 export {ModalBody};

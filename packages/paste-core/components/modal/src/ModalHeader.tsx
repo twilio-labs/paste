@@ -39,6 +39,7 @@ ModalHeader.displayName = 'ModalHeader';
 
 ModalHeader.propTypes = {
   children: PropTypes.node.isRequired,
+  element: PropTypes.string,
 };
 
 export {ModalHeader};

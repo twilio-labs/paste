@@ -38,6 +38,7 @@ ModalFooterActions.displayName = 'ModalFooterActions';
 
 ModalFooterActions.propTypes = {
   children: PropTypes.node.isRequired,
+  element: PropTypes.string,
   justify: PropTypes.oneOf(['start', 'end'] as Justify[]),
 };
 
