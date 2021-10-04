@@ -1,11 +1,15 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
-import {render} from 'react-dom';
+import {render, screen} from '@testing-library/react';
 import {ReactWrapper, mount} from 'enzyme';
+import {matchers} from 'jest-emotion';
 import {Theme} from '@twilio-paste/theme';
+import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore
 import axe from '../../../../../.jest/axe-helper';
 import {Alert} from '../src';
+
+expect.extend(matchers);
 
 const onDismissMock: jest.Mock = jest.fn();
 
@@ -182,6 +186,108 @@ describe('Alert', () => {
       );
       const results = await axe(document.body);
       expect(results).toHaveNoViolations();
+    });
+  });
+
+  describe('Customization', () => {
+    it('should set default data-paste-element attribute on Alert and customizable Alert children', (): void => {
+      render(
+        <CustomizationProvider baseTheme="default">
+          <Alert data-testid="alert-customization" variant="neutral" onDismiss={onDismissMock}>
+            This is my test alert
+          </Alert>
+        </CustomizationProvider>
+      );
+
+      const alert = screen.getByTestId('alert-customization');
+      expect(alert).toHaveAttribute('data-paste-element', 'ALERT');
+
+      expect(alert.querySelector('[data-paste-element="ALERT_ICON"]')).toBeInTheDocument();
+      expect(alert.querySelector('[data-paste-element="ALERT_DISMISS_BUTTON"]')).toBeInTheDocument();
+      expect(alert.querySelector('[data-paste-element="ALERT_DISMISS_ICON"]')).toBeInTheDocument();
+    });
+
+    it('should add custom styles to Alert and Alert children', (): void => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          elements={{
+            ALERT: {
+              backgroundColor: 'colorBackground',
+            },
+            ALERT_ICON: {
+              color: 'colorTextIconNeutral',
+            },
+            ALERT_DISMISS_BUTTON: {
+              backgroundColor: 'colorBackgroundBodyInverse',
+            },
+            ALERT_DISMISS_ICON: {
+              color: 'colorTextInverse',
+            },
+          }}
+        >
+          <Alert data-testid="alert-customization" variant="neutral" onDismiss={onDismissMock}>
+            This is my test alert
+          </Alert>
+        </CustomizationProvider>
+      );
+
+      const alert = screen.getByTestId('alert-customization');
+
+      expect(alert).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+      expect(alert.querySelector('[data-paste-element="ALERT_ICON"]')).toHaveStyleRule('color', 'rgb(0,20,137)');
+      expect(alert.querySelector('[data-paste-element="ALERT_DISMISS_BUTTON"]')).toHaveStyleRule(
+        'background-color',
+        'rgb(18,28,45)'
+      );
+      expect(alert.querySelector('[data-paste-element="ALERT_DISMISS_ICON"]')).toHaveStyleRule(
+        'color',
+        'rgb(255,255,255)'
+      );
+    });
+
+    it('should set custom element name and properly apply styles to Alert and customizable children', (): void => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          elements={{
+            MYALERT: {
+              backgroundColor: 'colorBackground',
+            },
+            MYALERT_ICON: {
+              color: 'colorTextIconNeutral',
+            },
+            MYALERT_DISMISS_BUTTON: {
+              backgroundColor: 'colorBackgroundBodyInverse',
+            },
+            MYALERT_DISMISS_ICON: {
+              color: 'colorTextInverse',
+            },
+          }}
+        >
+          <Alert data-testid="alert-customization" element="MYALERT" variant="neutral" onDismiss={onDismissMock}>
+            This is my test alert
+          </Alert>
+        </CustomizationProvider>
+      );
+
+      const alert = screen.getByTestId('alert-customization');
+      expect(alert).toHaveAttribute('data-paste-element', 'MYALERT');
+
+      expect(alert.querySelector('[data-paste-element="MYALERT_ICON"]')).toBeInTheDocument();
+      expect(alert.querySelector('[data-paste-element="MYALERT_DISMISS_BUTTON"]')).toBeInTheDocument();
+      expect(alert.querySelector('[data-paste-element="MYALERT_DISMISS_ICON"]')).toBeInTheDocument();
+
+      expect(alert).toHaveStyleRule('background-color', 'rgb(244,244,246)');
+      expect(alert.querySelector('[data-paste-element="MYALERT_ICON"]')).toHaveStyleRule('color', 'rgb(0,20,137)');
+      expect(alert.querySelector('[data-paste-element="MYALERT_DISMISS_BUTTON"]')).toHaveStyleRule(
+        'background-color',
+        'rgb(18,28,45)'
+      );
+      expect(alert.querySelector('[data-paste-element="MYALERT_DISMISS_ICON"]')).toHaveStyleRule(
+        'color',
+        'rgb(255,255,255)'
+      );
     });
   });
 });

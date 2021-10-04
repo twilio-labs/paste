@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import type {BoxProps} from '@twilio-paste/box';
 import type {ValueOf} from '@twilio-paste/types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
@@ -41,7 +42,7 @@ export type AlertBorderColors = ValueOf<typeof AlertBorderColors>;
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export type AlertRoles = ValueOf<typeof AlertRoles>;
 
-export interface AlertProps {
+export interface AlertProps extends Pick<BoxProps, 'element'> {
   id?: never;
   className?: never;
   children: NonNullable<React.ReactNode>;
@@ -50,57 +51,91 @@ export interface AlertProps {
   variant: AlertVariants;
 }
 
-const renderAlertIcon = (variant: AlertVariants): React.ReactElement => {
+const renderAlertIcon = (variant: AlertVariants, element: Pick<BoxProps, 'element'>): React.ReactElement => {
   switch (variant) {
     case AlertVariants.ERROR:
-      return <ErrorIcon color="colorTextIconError" decorative={false} title="error: " size="sizeIcon20" />;
+      return (
+        <ErrorIcon
+          element={`${element}_ICON`}
+          color="colorTextIconError"
+          decorative={false}
+          title="error: "
+          size="sizeIcon20"
+        />
+      );
     case AlertVariants.WARNING:
-      return <WarningIcon color="colorTextIconWarning" decorative={false} title="warning: " size="sizeIcon20" />;
+      return (
+        <WarningIcon
+          element={`${element}_ICON`}
+          color="colorTextIconWarning"
+          decorative={false}
+          title="warning: "
+          size="sizeIcon20"
+        />
+      );
     case AlertVariants.NEUTRAL:
     default:
-      return <NeutralIcon color="colorTextIconNeutral" decorative={false} title="information: " size="sizeIcon20" />;
+      return (
+        <NeutralIcon
+          element={`${element}_ICON`}
+          color="colorTextIconNeutral"
+          decorative={false}
+          title="information: "
+          size="sizeIcon20"
+        />
+      );
   }
 };
 
-const Alert = React.forwardRef<HTMLDivElement, AlertProps>(({children, onDismiss, variant, role, ...props}, ref) => {
-  return (
-    <Box
-      {...safelySpreadBoxProps(props)}
-      backgroundColor={AlertBackgroundColors[variant.toUpperCase() as AlertVariantKeys]}
-      borderColor={AlertBorderColors[variant.toUpperCase() as AlertVariantKeys]}
-      borderBottomWidth="borderWidth20"
-      borderBottomStyle="solid"
-      paddingLeft="space60"
-      paddingRight="space60"
-      paddingTop="space50"
-      paddingBottom="space50"
-      ref={ref}
-      role={role != null ? role : AlertRoles[variant.toUpperCase() as AlertVariantKeys]}
-    >
-      <MediaObject as="div">
-        <MediaFigure as="div" spacing="space30">
-          {renderAlertIcon(variant)}
-        </MediaFigure>
-        <MediaBody as="div">{children}</MediaBody>
-        {onDismiss && typeof onDismiss === 'function' && (
-          <MediaFigure align="end" spacing="space60">
-            <Button onClick={onDismiss} variant="link" size="reset">
-              <CloseIcon color="colorTextIcon" decorative={false} title="dismiss this alert" size="sizeIcon20" />
-            </Button>
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
+  ({children, onDismiss, variant, role, element = 'ALERT', ...props}, ref) => {
+    return (
+      <Box
+        {...safelySpreadBoxProps(props)}
+        backgroundColor={AlertBackgroundColors[variant.toUpperCase() as AlertVariantKeys]}
+        borderColor={AlertBorderColors[variant.toUpperCase() as AlertVariantKeys]}
+        borderBottomWidth="borderWidth20"
+        borderBottomStyle="solid"
+        paddingLeft="space60"
+        paddingRight="space60"
+        paddingTop="space50"
+        paddingBottom="space50"
+        element={element}
+        variant={variant}
+        ref={ref}
+        role={role != null ? role : AlertRoles[variant.toUpperCase() as AlertVariantKeys]}
+      >
+        <MediaObject as="div">
+          <MediaFigure as="div" spacing="space30">
+            {renderAlertIcon(variant, element)}
           </MediaFigure>
-        )}
-      </MediaObject>
-    </Box>
-  );
-});
+          <MediaBody as="div">{children}</MediaBody>
+          {onDismiss && typeof onDismiss === 'function' && (
+            <MediaFigure align="end" spacing="space60">
+              <Button onClick={onDismiss} variant="link" size="reset" element={`${element}_DISMISS_BUTTON`}>
+                <CloseIcon
+                  element={`${element}_DISMISS_ICON`}
+                  color="colorTextIcon"
+                  decorative={false}
+                  title="dismiss this alert"
+                  size="sizeIcon20"
+                />
+              </Button>
+            </MediaFigure>
+          )}
+        </MediaObject>
+      </Box>
+    );
+  }
+);
 Alert.displayName = 'Alert';
 
-if (process.env.NODE_ENV === 'development') {
-  Alert.propTypes = {
-    children: PropTypes.node.isRequired,
-    onDismiss: PropTypes.func,
-    role: PropTypes.string,
-    variant: PropTypes.oneOf(Object.values(AlertVariants)).isRequired,
-  };
-}
+Alert.propTypes = {
+  children: PropTypes.node.isRequired,
+  onDismiss: PropTypes.func,
+  role: PropTypes.string,
+  variant: PropTypes.oneOf(Object.values(AlertVariants)).isRequired,
+  element: PropTypes.string,
+};
+
 export {Alert};
