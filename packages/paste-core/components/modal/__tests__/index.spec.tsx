@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
 import {render} from 'react-dom';
-import {render as testRender, fireEvent} from '@testing-library/react';
+import {render as testRender, fireEvent, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
@@ -152,16 +152,18 @@ describe('Modal', () => {
     expect(handleCloseMock).toHaveBeenCalled();
   });
 
-  it('Should have no accessibility violations', async () => {
-    const container = document.createElement('div');
-    document.body.append(container);
-    render(<MockModal />, container);
-    const results = await axe(document.body, {
-      rules: {
-        // ignore the tabindex of the focus trap helper
-        tabindex: {enabled: false},
-      },
+  describe('Accessibility', () => {
+    it('Should have no accessibility violations', async () => {
+      const container = document.createElement('div');
+      document.body.append(container);
+      render(<MockModal />, container);
+      const results = await axe(document.body, {
+        rules: {
+          // ignore the tabindex of the focus trap helper
+          tabindex: {enabled: false},
+        },
+      });
+      expect(results).toHaveNoViolations();
     });
-    expect(results).toHaveNoViolations();
   });
 });

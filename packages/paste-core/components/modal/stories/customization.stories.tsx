@@ -10,7 +10,7 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import type {ModalProps} from '../src';
 import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '../src';
 
-const initOverrides = (prefix: string): Record<string, PasteCustomCSS> => ({
+export const initStyles = (prefix: string): Record<string, PasteCustomCSS> => ({
   [prefix]: {
     borderRadius: 'borderRadius30',
     boxShadow: 'shadowHigh',
@@ -57,26 +57,46 @@ const initOverrides = (prefix: string): Record<string, PasteCustomCSS> => ({
   },
 });
 
+const getElementName = (elementName: string | undefined, suffix?: string): string | undefined => {
+  const end = suffix ? `_${suffix}` : '';
+  return elementName != null ? `${elementName}${end}` : undefined;
+};
+
 type BaseModalProps = Pick<ModalProps, 'size'> & {testId?: string | undefined; element?: string | undefined};
 const NOOP: VoidFunction = () => null;
-const BaseModal: React.FC<BaseModalProps> = ({size, element = 'MODAL'}) => {
+export const BaseModal: React.FC<BaseModalProps> = ({size, element}) => {
   const modalHeadingId = useUID();
 
   return (
-    <Modal element={element} ariaLabelledby={modalHeadingId} isOpen onDismiss={NOOP} size={size}>
-      <ModalHeader element={`${element}_HEADER`}>
-        <ModalHeading element={`${element}_HEADING`} as="h3" id={modalHeadingId}>
+    <Modal
+      element={getElementName(element)}
+      data-testid="modal-test-id"
+      ariaLabelledby={modalHeadingId}
+      isOpen
+      onDismiss={NOOP}
+      size={size}
+    >
+      <ModalHeader element={getElementName(element, 'HEADER')} data-testid="modal-header-test-id">
+        <ModalHeading
+          element={getElementName(element, 'HEADING')}
+          as="h3"
+          id={modalHeadingId}
+          data-testid="modal-heading-test-id"
+        >
           Modal Heading
         </ModalHeading>
       </ModalHeader>
-      <ModalBody element={`${element}_BODY`}>
+      <ModalBody element={getElementName(element, 'BODY')} data-testid="modal-body-test-id">
         <Heading as="h2" variant="heading40">
           Modal heading
         </Heading>
         <Paragraph>Custom modal body content.</Paragraph>
       </ModalBody>
-      <ModalFooter element={`${element}_FOOTER`}>
-        <ModalFooterActions element={`${element}_FOOTER_ACTIONS`}>
+      <ModalFooter element={getElementName(element, 'FOOTER')} data-testid="modal-footer-test-id">
+        <ModalFooterActions
+          element={getElementName(element, 'FOOTER_ACTIONS')}
+          data-testid="modal-footer-actions-test-id"
+        >
           <Button variant="secondary" onClick={NOOP}>
             Cancel
           </Button>
@@ -99,7 +119,7 @@ export default {
 export const First = (): React.ReactNode => {
   const currentTheme = useTheme();
   return (
-    <CustomizationProvider theme={currentTheme} elements={initOverrides('MODAL')}>
+    <CustomizationProvider theme={currentTheme} elements={initStyles('MODAL')}>
       <BaseModal size="default" />
     </CustomizationProvider>
   );
@@ -115,7 +135,7 @@ First.story = {
 export const Second = (): React.ReactNode => {
   const currentTheme = useTheme();
   return (
-    <CustomizationProvider theme={currentTheme} elements={initOverrides('CUSTOM')}>
+    <CustomizationProvider theme={currentTheme} elements={initStyles('CUSTOM')}>
       <BaseModal element="CUSTOM" size="default" />
     </CustomizationProvider>
   );
@@ -131,7 +151,7 @@ Second.story = {
 export const Third = (): React.ReactNode => {
   const currentTheme = useTheme();
   return (
-    <CustomizationProvider theme={currentTheme} elements={initOverrides('MODAL')}>
+    <CustomizationProvider theme={currentTheme} elements={initStyles('MODAL')}>
       <BaseModal element="MODAL" size="wide" />
     </CustomizationProvider>
   );
@@ -147,7 +167,7 @@ Third.story = {
 export const Fourth = (): React.ReactNode => {
   const currentTheme = useTheme();
   return (
-    <CustomizationProvider theme={currentTheme} elements={initOverrides('CUSTOM')}>
+    <CustomizationProvider theme={currentTheme} elements={initStyles('CUSTOM')}>
       <BaseModal element="CUSTOM" size="wide" />
     </CustomizationProvider>
   );
