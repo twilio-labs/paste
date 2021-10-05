@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.1.1
+
+### Patch Changes
+
+- [`ca2a8669`](https://github.com/twilio-labs/paste/commit/ca2a8669b9d9ea57ccc5c39e234e13a9dc59ab5b) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Replaced deprecated 'HTMLTableHeaderCellElement' typing for 'HTMLTableCellElement' in Th component.
+
 ## 2.1.0
 
 ### Minor Changes

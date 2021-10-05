@@ -1,5 +1,79 @@
 # Change Log
 
+## 10.13.0
+
+### Minor Changes
+
+- [`420c78fc`](https://github.com/twilio-labs/paste/commit/420c78fc0f37a2a9189bbb97d77d80f6a58515cd) [#1889](https://github.com/twilio-labs/paste/pull/1889) Thanks [@gloriliale](https://github.com/gloriliale)! - [Tooltip] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`bec21fa0`](https://github.com/twilio-labs/paste/commit/bec21fa0e7d247202994d962d504ef1bb32f22e4) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Added 'shadow-focus-inset', a box-shadow token representing an inset focus outline.
+
+- [`8e0037ab`](https://github.com/twilio-labs/paste/commit/8e0037ab6c83e5b552758444fc9a5338437aeb00) [#1879](https://github.com/twilio-labs/paste/pull/1879) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Display Pill Group] Updated design for display and form pills, improving interactive states such as focus, hover and selected
+
+* [`d7003b63`](https://github.com/twilio-labs/paste/commit/d7003b633068654591b68748ece3d0ac8a80c402) [#1880](https://github.com/twilio-labs/paste/pull/1880) Thanks [@TheSisb](https://github.com/TheSisb)! - [Pagination] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+- [`1e9a9583`](https://github.com/twilio-labs/paste/commit/1e9a9583c4957a401b9a808565395269d711e336) [#1879](https://github.com/twilio-labs/paste/pull/1879) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Form Pill Group] Updated design for display and form pills, improving interactive states such as focus, hover and selected
+
+* [`49a0db69`](https://github.com/twilio-labs/paste/commit/49a0db696408a9fa05d7c02c29cf70bd7defc294) [#1894](https://github.com/twilio-labs/paste/pull/1894) Thanks [@andipants12](https://github.com/andipants12)! - [Spinner]: Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+- [`9adf3edd`](https://github.com/twilio-labs/paste/commit/9adf3edd88598aa3e8de3f6dd027371a2e54d368) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Adding "@twilio-paste/data-grid", an accessible and responsive data grid component to Paste.
+
+* [`36cc8dce`](https://github.com/twilio-labs/paste/commit/36cc8dce42f4abe357779c6fb80af6c2cd6abd52) [#1895](https://github.com/twilio-labs/paste/pull/1895) Thanks [@andipants12](https://github.com/andipants12)! - [Breadcrumb] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+- [`52779450`](https://github.com/twilio-labs/paste/commit/52779450c531d21d1da2413c37c0374580d5a062) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Added a new Paste package: @twilio-paste/utils. This package contains utilities such as React hooks that are used within or alongside Paste components.
+
+* [`7d231ec0`](https://github.com/twilio-labs/paste/commit/7d231ec02993bb1e34c02b6dc1adf04e0fbba4fd) [#1886](https://github.com/twilio-labs/paste/pull/1886) Thanks [@andipants12](https://github.com/andipants12)! - [Select]: Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+### Patch Changes
+
+- [`3a5a90b7`](https://github.com/twilio-labs/paste/commit/3a5a90b74201fece264c2a07344810d52c7b3bc4) [#1897](https://github.com/twilio-labs/paste/pull/1897) Thanks [@nkrantz](https://github.com/nkrantz)! - [Combobox] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`a8ba78e4`](https://github.com/twilio-labs/paste/commit/a8ba78e469b839fe4e920bb75f6909ae005b16cd) [#1903](https://github.com/twilio-labs/paste/pull/1903) Thanks [@andipants12](https://github.com/andipants12)! - [Modal] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+- [`7d231ec0`](https://github.com/twilio-labs/paste/commit/7d231ec02993bb1e34c02b6dc1adf04e0fbba4fd) [#1886](https://github.com/twilio-labs/paste/pull/1886) Thanks [@andipants12](https://github.com/andipants12)! - [InputBox] Remove duplicative prefix in chevron icon wrapper element name, and update name too better reflect the component's purpose.
+
+* [`7d231ec0`](https://github.com/twilio-labs/paste/commit/7d231ec02993bb1e34c02b6dc1adf04e0fbba4fd) [#1886](https://github.com/twilio-labs/paste/pull/1886) Thanks [@andipants12](https://github.com/andipants12)! - [Combobox]: Update customization tests and stories to use more explicit a more explicit element name for the chevron wrapper. No consumer change required.
+
+- [`7edfbcfb`](https://github.com/twilio-labs/paste/commit/7edfbcfb54ff9bedcaa1a3439461dd1a96665e07) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Minor performance improvement to the animation code.
+
+* [`ca2a8669`](https://github.com/twilio-labs/paste/commit/ca2a8669b9d9ea57ccc5c39e234e13a9dc59ab5b) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Replaced deprecated 'HTMLTableHeaderCellElement' typing for 'HTMLTableCellElement' in Th component.
+
+- [`ba307e2f`](https://github.com/twilio-labs/paste/commit/ba307e2f3b4f4f3dc932fe0f71a1b680fc06b521) [#1887](https://github.com/twilio-labs/paste/pull/1887) Thanks [@nkrantz](https://github.com/nkrantz)! - [BaseRadioCheckbox] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`b2b0f792`](https://github.com/twilio-labs/paste/commit/b2b0f79272b5a7f2159218bc7f519b01a445ca7e) [#1887](https://github.com/twilio-labs/paste/pull/1887) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+- [`d1126c27`](https://github.com/twilio-labs/paste/commit/d1126c278bb14788208b998257a29806edf40ca8) [#1900](https://github.com/twilio-labs/paste/pull/1900) Thanks [@andipants12](https://github.com/andipants12)! - [Menu]: Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`da38673e`](https://github.com/twilio-labs/paste/commit/da38673e0726010eecaafc4762e927180ab3e120) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Adding lodash.debounce and lodash.iselement typings to @twilio-paste/types
+
+- [`28f12236`](https://github.com/twilio-labs/paste/commit/28f122360e1e474b60b44837fe427d0f05f55c88) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Fixes a browser quirk around responsive 'fieldset' HTML elements.
+
+* [`9d32315e`](https://github.com/twilio-labs/paste/commit/9d32315e2aee4176fb4b27aac6a131582a0e0bb9) [#1879](https://github.com/twilio-labs/paste/pull/1879) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Added three new pseudo selectors to be used on Box and Text. You can now style selected and hover, selected and focus
+  and selected and focus-visible
+* Updated dependencies [[`3a5a90b7`](https://github.com/twilio-labs/paste/commit/3a5a90b74201fece264c2a07344810d52c7b3bc4), [`420c78fc`](https://github.com/twilio-labs/paste/commit/420c78fc0f37a2a9189bbb97d77d80f6a58515cd), [`a8ba78e4`](https://github.com/twilio-labs/paste/commit/a8ba78e469b839fe4e920bb75f6909ae005b16cd), [`bec21fa0`](https://github.com/twilio-labs/paste/commit/bec21fa0e7d247202994d962d504ef1bb32f22e4), [`7d231ec0`](https://github.com/twilio-labs/paste/commit/7d231ec02993bb1e34c02b6dc1adf04e0fbba4fd), [`7d231ec0`](https://github.com/twilio-labs/paste/commit/7d231ec02993bb1e34c02b6dc1adf04e0fbba4fd), [`7edfbcfb`](https://github.com/twilio-labs/paste/commit/7edfbcfb54ff9bedcaa1a3439461dd1a96665e07), [`8e0037ab`](https://github.com/twilio-labs/paste/commit/8e0037ab6c83e5b552758444fc9a5338437aeb00), [`d7003b63`](https://github.com/twilio-labs/paste/commit/d7003b633068654591b68748ece3d0ac8a80c402), [`1e9a9583`](https://github.com/twilio-labs/paste/commit/1e9a9583c4957a401b9a808565395269d711e336), [`ca2a8669`](https://github.com/twilio-labs/paste/commit/ca2a8669b9d9ea57ccc5c39e234e13a9dc59ab5b), [`49a0db69`](https://github.com/twilio-labs/paste/commit/49a0db696408a9fa05d7c02c29cf70bd7defc294), [`ba307e2f`](https://github.com/twilio-labs/paste/commit/ba307e2f3b4f4f3dc932fe0f71a1b680fc06b521), [`9adf3edd`](https://github.com/twilio-labs/paste/commit/9adf3edd88598aa3e8de3f6dd027371a2e54d368), [`b2b0f792`](https://github.com/twilio-labs/paste/commit/b2b0f79272b5a7f2159218bc7f519b01a445ca7e), [`36cc8dce`](https://github.com/twilio-labs/paste/commit/36cc8dce42f4abe357779c6fb80af6c2cd6abd52), [`d1126c27`](https://github.com/twilio-labs/paste/commit/d1126c278bb14788208b998257a29806edf40ca8), [`da38673e`](https://github.com/twilio-labs/paste/commit/da38673e0726010eecaafc4762e927180ab3e120), [`28f12236`](https://github.com/twilio-labs/paste/commit/28f122360e1e474b60b44837fe427d0f05f55c88), [`9d32315e`](https://github.com/twilio-labs/paste/commit/9d32315e2aee4176fb4b27aac6a131582a0e0bb9), [`52779450`](https://github.com/twilio-labs/paste/commit/52779450c531d21d1da2413c37c0374580d5a062), [`7d231ec0`](https://github.com/twilio-labs/paste/commit/7d231ec02993bb1e34c02b6dc1adf04e0fbba4fd)]:
+  - @twilio-paste/combobox@8.0.2
+  - @twilio-paste/tooltip@4.1.0
+  - @twilio-paste/modal@7.1.2
+  - @twilio-paste/design-tokens@6.12.0
+  - @twilio-paste/input-box@4.1.1
+  - @twilio-paste/skeleton-loader@0.1.2
+  - @twilio-paste/display-pill-group@1.1.0
+  - @twilio-paste/pagination@0.2.0
+  - @twilio-paste/form-pill-group@1.1.0
+  - @twilio-paste/table@2.1.1
+  - @twilio-paste/spinner@7.2.0
+  - @twilio-paste/base-radio-checkbox@6.0.4
+  - @twilio-paste/data-grid@0.1.0
+  - @twilio-paste/button@7.0.9
+  - @twilio-paste/breadcrumb@4.1.0
+  - @twilio-paste/menu@7.0.3
+  - @twilio-paste/types@3.1.2
+  - @twilio-paste/inline-control-group@6.0.4
+  - @twilio-paste/box@4.2.4
+  - @twilio-paste/text@4.1.3
+  - @twilio-paste/utils@1.1.0
+  - @twilio-paste/select@5.1.0
+
 ## 10.12.0
 
 ### Minor Changes
