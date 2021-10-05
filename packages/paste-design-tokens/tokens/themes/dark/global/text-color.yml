@@ -91,6 +91,9 @@ props:
   color-text-icon:
     value: "{!palette-gray-10}"
     comment: Default icon color.
+  color-text-icon-available:
+    value: "{!palette-green-50}"
+    comment: "Icon color for indicating a available status"
   color-text-icon-inverse:
     value: "{!palette-gray-20}"
     comment: Default icon color for inverse backgrounds.
