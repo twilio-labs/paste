@@ -51,7 +51,7 @@ export interface AlertProps extends Pick<BoxProps, 'element'> {
   variant: AlertVariants;
 }
 
-const renderAlertIcon = (variant: AlertVariants, element: Pick<BoxProps, 'element'>): React.ReactElement => {
+const renderAlertIcon = (variant: AlertVariants, element: string): React.ReactElement => {
   switch (variant) {
     case AlertVariants.ERROR:
       return (
