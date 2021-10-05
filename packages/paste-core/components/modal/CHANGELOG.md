@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.1.2
+
+### Patch Changes
+
+- [`a8ba78e4`](https://github.com/twilio-labs/paste/commit/a8ba78e469b839fe4e920bb75f6909ae005b16cd) [#1903](https://github.com/twilio-labs/paste/pull/1903) Thanks [@andipants12](https://github.com/andipants12)! - [Modal] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 7.1.1
 
 ### Patch Changes

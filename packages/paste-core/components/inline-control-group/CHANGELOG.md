@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.0.4
+
+### Patch Changes
+
+- [`28f12236`](https://github.com/twilio-labs/paste/commit/28f122360e1e474b60b44837fe427d0f05f55c88) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Fixes a browser quirk around responsive 'fieldset' HTML elements.
+
 ## 6.0.3
 
 ### Patch Changes

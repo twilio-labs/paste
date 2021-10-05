@@ -1,5 +1,11 @@
 # @twilio-paste/pagination
 
+## 0.2.0
+
+### Minor Changes
+
+- [`d7003b63`](https://github.com/twilio-labs/paste/commit/d7003b633068654591b68748ece3d0ac8a80c402) [#1880](https://github.com/twilio-labs/paste/pull/1880) Thanks [@TheSisb](https://github.com/TheSisb)! - [Pagination] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 0.1.3
 
 ### Patch Changes
