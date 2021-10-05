@@ -15,12 +15,11 @@ import {Menu, MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, use
 type ButtonVariants = ButtonProps['variant'];
 type ElementOverrides = Record<string, PasteCustomCSS>;
 
-const initStyles = (element: string): ElementOverrides => ({
+export const initStyles = (element: string): ElementOverrides => ({
   [element]: {
     boxShadow: 'shadowHigh',
     borderRadius: 'borderRadius0',
   },
-  [`${element}_GROUP`]: {},
   [`${element}_BUTTON`]: {
     variants: {
       secondary: {backgroundColor: 'colorBackgroundBusy'},
@@ -36,25 +35,24 @@ const initStyles = (element: string): ElementOverrides => ({
       },
     },
   },
-  [`SUB_${element}_BUTTON`]: {
+  [`SUB${element}_BUTTON`]: {
     ':hover': {
       borderLeftWidth: 'borderWidth30',
       borderLeftStyle: 'solid',
       color: 'colorTextLink',
       borderLeftColor: 'colorBorderPrimary',
       textDecoration: 'none',
-      ':disabled': {
-        borderLeftWidth: 'borderWidth0',
-      },
+    },
+    ':disabled': {
+      borderLeftWidth: 'borderWidth0',
     },
   },
-  // [`SUB_${element}_MEDIA_OBJECT`]: {},
-  [`SUB_${element}_MEDIA_FIGURE`]: {
+  [`SUB${element}_MEDIA_FIGURE`]: {
     ':hover': {
       color: 'currentColor',
     },
   },
-  [`SUB_${element}_ICON`]: {
+  [`SUB${element}_ICON`]: {
     paddingLeft: 'space0',
   },
   [`${element}_SEPARATOR`]: {
@@ -70,9 +68,6 @@ const initStyles = (element: string): ElementOverrides => ({
       borderLeftStyle: 'solid',
       borderLeftColor: 'colorBorderPrimary',
       textDecoration: 'none',
-      ':disabled': {
-        borderLeftWidth: 'borderWidth0',
-      },
     },
     ':focus': {
       borderLeftWidth: 'borderWidth30',
@@ -81,8 +76,16 @@ const initStyles = (element: string): ElementOverrides => ({
       textDecoration: 'none',
       fontWeight: 'fontWeightBold',
     },
+    ':disabled': {
+      borderLeftWidth: 'borderWidth0',
+    },
   },
 });
+
+const getElementName = (elementName: string | undefined, suffix?: string): string | undefined => {
+  const end = suffix ? `_${suffix}` : '';
+  return elementName != null ? `${elementName}${end}` : undefined;
+};
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -93,94 +96,136 @@ export default {
     // Sets a delay for the component's stories
     chromatic: {delay: 3000},
   },
+  excludeStories: ['initStyles', 'BaseMenu'],
 };
 
-const PreferencesSubMenu = React.forwardRef<HTMLButtonElement, {element: string}>(({element, ...props}, ref) => {
-  const menu = useMenuState();
-  return (
-    <>
-      <SubMenuButton ref={ref} {...menu} {...props} element={element}>
-        Advanced settings
-      </SubMenuButton>
-      <Menu {...menu} aria-label="Advanced settings" element={element}>
-        <MenuItem {...menu} element={`${element}_ITEM`}>
-          Keyboard shortcuts
-        </MenuItem>
-      </Menu>
-    </>
-  );
-});
-
-const BaseMenu: React.FC<{menuButtonVariant?: ButtonVariants; element?: string}> = React.memo(
-  ({menuButtonVariant = 'primary', element = 'MENU'}) => {
-    const currentTheme = useTheme();
+export const BaseMenu: React.FC<{menuButtonVariant?: ButtonVariants; element?: string}> = React.memo(
+  ({menuButtonVariant = 'primary', element}) => {
     const menu = useMenuState({
       visible: true,
-      baseId: `${menuButtonVariant}-${element.toLowerCase()}-customization-story`,
+      baseId: `${menuButtonVariant}-menu-customization-story`,
     });
+
+    const subMenu = useMenuState({baseId: `${menuButtonVariant}-menu-submenu`});
     const onClick = React.useCallback(() => {
       menu.hide();
     }, [menu.hide]);
     return (
-      <CustomizationProvider theme={currentTheme} elements={initStyles(element)}>
-        <MenuButton {...menu} element={`${element}_BUTTON`} variant={menuButtonVariant}>
+      <>
+        <MenuButton
+          {...menu}
+          element={getElementName(element, 'BUTTON')}
+          variant={menuButtonVariant}
+          data-testid="menu-button"
+        >
           Preferences <ChevronDownIcon decorative />
         </MenuButton>
-        <Menu {...menu} element={element} aria-label="Preferences">
-          <MenuGroup element={`${element}_GROUP`} icon={<ProductSettingsIcon decorative />} label="Settings">
-            <MenuItem {...menu} element={`${element}_ITEM`} onClick={onClick}>
+        <Menu {...menu} element={getElementName(element)} aria-label="Preferences" data-testid="menu">
+          <MenuGroup
+            element={getElementName(element, 'GROUP')}
+            icon={<ProductSettingsIcon decorative />}
+            label="Settings"
+            data-testid="menu-group-settings"
+          >
+            <MenuItem {...menu} element={getElementName(element, 'ITEM')} onClick={onClick} data-testid="menu-item-1">
               User info
             </MenuItem>
-            <MenuItem {...menu} element={`${element}_ITEM`} onClick={onClick}>
+            <MenuItem {...menu} element={getElementName(element, 'ITEM')} onClick={onClick} data-testid="menu-item-2">
               Extensions
             </MenuItem>
-            <PreferencesSubMenu element={element} />
+            {/* submenu */}
+            <SubMenuButton
+              {...subMenu}
+              element={getElementName(!element ? element : `SUB${element}`)}
+              data-testid="submenu-button"
+            >
+              Advanced settings
+            </SubMenuButton>
+            <Menu
+              {...subMenu}
+              aria-label="Advanced settings"
+              element={getElementName(!element ? element : `SUB${element}`)}
+              data-testid="submenu"
+            >
+              <MenuItem {...subMenu} element={getElementName(element, 'ITEM')} data-testid="submenu-item-1">
+                Keyboard shortcuts
+              </MenuItem>
+            </Menu>
+            {/* submenu */}
           </MenuGroup>
-          <MenuSeparator {...menu} element={`${element}_SEPARATOR`} />
-          <MenuGroup element={`${element}_GROUP`} icon={<SearchIcon decorative />} label="Search Options">
-            <MenuItem {...menu} element={`${element}_ITEM`} onClick={onClick}>
+          <MenuSeparator {...menu} element={getElementName(element, 'SEPARATOR')} data-testid="menu-separator-1" />
+          <MenuGroup
+            element={getElementName(element, 'GROUP')}
+            icon={<SearchIcon decorative />}
+            label="Search Options"
+            data-testid="menu-group-search-options"
+          >
+            <MenuItem {...menu} element={getElementName(element, 'ITEM')} onClick={onClick} data-testid="menu-item-3">
               Google
             </MenuItem>
 
-            <MenuItem {...menu} element={`${element}_ITEM`} disabled>
+            <MenuItem {...menu} element={getElementName(element, 'ITEM')} disabled data-testid="menu-item-4">
               Bing
             </MenuItem>
           </MenuGroup>
-          <MenuSeparator {...menu} element={`${element}_SEPARATOR`} />
-          <MenuGroup element={`${element}_GROUP`} icon={<SupportIcon decorative />} label="Help">
-            <MenuItem {...menu} element={`${element}_ITEM`} href="" onClick={onClick}>
+          <MenuSeparator {...menu} element={getElementName(element, 'SEPARATOR')} data-testid="menu-separator-2" />
+          <MenuGroup
+            element={getElementName(element, 'GROUP')}
+            icon={<SupportIcon decorative />}
+            label="Help"
+            data-testid="menu-group-help"
+          >
+            <MenuItem
+              {...menu}
+              element={getElementName(element, 'ITEM')}
+              href=""
+              onClick={onClick}
+              data-testid="menu-item-5"
+            >
               Contact support
             </MenuItem>
-            <MenuItem {...menu} element={`${element}_ITEM`} href="" onClick={onClick}>
+            <MenuItem
+              {...menu}
+              element={getElementName(element, 'ITEM')}
+              href=""
+              onClick={onClick}
+              data-testid="menu-item-6"
+            >
               View FAQ
             </MenuItem>
           </MenuGroup>
         </Menu>
-      </CustomizationProvider>
+      </>
     );
   }
 );
 
 export const WithDefaultElementName: React.FC = () => {
+  const currentTheme = useTheme();
   return (
-    <Box display="flex" flexDirection="row" justifyContent="space-between">
-      <BaseMenu menuButtonVariant="primary" element="MENU" />
-      <BaseMenu menuButtonVariant="secondary" element="MENU" />
-      <BaseMenu menuButtonVariant="destructive" element="MENU" />
-      <BaseMenu menuButtonVariant="destructive_secondary" element="MENU" />
-      <BaseMenu menuButtonVariant="link" element="MENU" />
-    </Box>
+    <CustomizationProvider theme={currentTheme} elements={initStyles('MENU')}>
+      <Box display="flex" flexDirection="row" justifyContent="space-between">
+        <BaseMenu menuButtonVariant="primary" element="MENU" />
+        <BaseMenu menuButtonVariant="secondary" element="MENU" />
+        <BaseMenu menuButtonVariant="destructive" element="MENU" />
+        <BaseMenu menuButtonVariant="destructive_secondary" element="MENU" />
+        <BaseMenu menuButtonVariant="link" element="MENU" />
+      </Box>
+    </CustomizationProvider>
   );
 };
 
 export const WithCustomElementName: React.FC = () => {
+  const currentTheme = useTheme();
   return (
-    <Box display="flex" flexDirection="row" justifyContent="space-between">
-      <BaseMenu menuButtonVariant="primary" element="CUSTOM" />
-      <BaseMenu menuButtonVariant="secondary" element="CUSTOM" />
-      <BaseMenu menuButtonVariant="destructive" element="CUSTOM" />
-      <BaseMenu menuButtonVariant="destructive_secondary" element="CUSTOM" />
-      <BaseMenu menuButtonVariant="link" element="CUSTOM" />
-    </Box>
+    <CustomizationProvider theme={currentTheme} elements={initStyles('CUSTOM')}>
+      <Box display="flex" flexDirection="row" justifyContent="space-between">
+        <BaseMenu menuButtonVariant="primary" element="CUSTOM" />
+        <BaseMenu menuButtonVariant="secondary" element="CUSTOM" />
+        <BaseMenu menuButtonVariant="destructive" element="CUSTOM" />
+        <BaseMenu menuButtonVariant="destructive_secondary" element="CUSTOM" />
+        <BaseMenu menuButtonVariant="link" element="CUSTOM" />
+      </Box>
+    </CustomizationProvider>
   );
 };

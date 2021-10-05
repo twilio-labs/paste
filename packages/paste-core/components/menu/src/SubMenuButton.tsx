@@ -5,13 +5,11 @@ import {MenuPrimitiveButton} from '@twilio-paste/menu-primitive';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
 import {ChevronRightIcon} from '@twilio-paste/icons/esm/ChevronRightIcon';
 import {StyledMenuItem} from './MenuItem';
-import {DEFAULT_ELEMENT_NAME} from './constants';
 
 export type SubMenuButtonProps = MenuPrimitiveButtonProps & {element?: BoxElementProps['element']};
 
 const SubMenuButton = React.forwardRef<HTMLButtonElement, SubMenuButtonProps>(
-  ({element = `SUB_${DEFAULT_ELEMENT_NAME}`, ...props}, ref) => {
-    console.log({element});
+  ({element = 'SUBMENU', ...props}, ref) => {
     // MenuPrimitiveButton from reakit types `as` as HTML element names, but accepts components. any prevents type errors
     return (
       <MenuPrimitiveButton {...props} as={StyledMenuItem as any} element={`${element}_BUTTON`} ref={ref}>

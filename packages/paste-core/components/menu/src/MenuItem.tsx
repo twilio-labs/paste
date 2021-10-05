@@ -3,11 +3,11 @@ import {secureExternalLink} from '@twilio-paste/anchor';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {MenuPrimitiveItem} from '@twilio-paste/menu-primitive';
 import type {MenuItemProps} from './types';
-import {MenuItemVariants, DEFAULT_ELEMENT_NAME} from './constants';
+import {MenuItemVariants} from './constants';
 import {MenuGroupContext} from './MenuGroup';
 
 export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElement, MenuItemProps>(
-  ({element = `${DEFAULT_ELEMENT_NAME}_ITEM`, ...props}, ref) => {
+  ({element = 'STYLED_MENU_ITEM', ...props}, ref) => {
     return (
       <Box
         {...(props.href && secureExternalLink(props.href))}
@@ -46,7 +46,7 @@ export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElemen
 );
 
 const MenuItem = React.forwardRef<HTMLDivElement, MenuItemProps>(
-  ({as = StyledMenuItem, variant: _variant, element = `${DEFAULT_ELEMENT_NAME}_ITEM`, ...props}, ref) => {
+  ({as = StyledMenuItem, variant: _variant, element = 'MENU_ITEM', ...props}, ref) => {
     const variant = _variant || React.useContext(MenuGroupContext);
     return <MenuPrimitiveItem {...props} element={element} variant={variant} as={as} ref={ref} />;
   }
