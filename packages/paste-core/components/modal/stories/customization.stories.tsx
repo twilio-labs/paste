@@ -114,6 +114,7 @@ export default {
   title: 'Components/Modal/Customization',
   component: Modal,
   subcomponents: {ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading},
+  excludeStories: ['initStyles', 'BaseModal'],
 };
 
 export const First = (): React.ReactNode => {

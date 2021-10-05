@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
 import {render} from 'react-dom';
-import {render as testRender, fireEvent, screen} from '@testing-library/react';
+import {render as testRender, fireEvent} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
