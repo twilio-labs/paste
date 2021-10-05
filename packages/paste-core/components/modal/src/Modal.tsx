@@ -1,8 +1,9 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import {styled, css} from '@twilio-paste/styling-library';
+import {css, styled} from '@twilio-paste/styling-library';
 import {useTransition, animated} from '@twilio-paste/animation-library';
-import {safelySpreadBoxProps} from '@twilio-paste/box';
+import {safelySpreadBoxProps, Box} from '@twilio-paste/box';
+import type {BoxElementProps} from '@twilio-paste/box';
 import {pasteBaseStyles} from '@twilio-paste/theme';
 import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
 import {ModalContext} from './ModalContext';
@@ -39,7 +40,10 @@ type Sizes = 'default' | 'wide';
 
 interface ModalDialogContentProps {
   size?: Sizes;
+  children: React.ReactNode;
+  element?: BoxElementProps['element'];
 }
+
 export const ModalDialogContent = animated(
   /* eslint-disable emotion/syntax-preference */
   styled(ModalDialogPrimitiveContent)<ModalDialogContentProps>(({size}) =>
@@ -63,8 +67,9 @@ export const ModalDialogContent = animated(
 
 export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   children: NonNullable<React.ReactNode>;
+  element?: BoxElementProps['element'];
   isOpen: boolean;
-  onDismiss: () => void;
+  onDismiss: VoidFunction;
   allowPinchZoom?: boolean;
   size: Sizes;
   initialFocusRef?: React.RefObject<any>;
@@ -94,6 +99,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
   (
     {
       children,
+      element = 'MODAL',
       isOpen,
       onDismiss,
       allowPinchZoom = true,
@@ -123,22 +129,30 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
         {transitions(
           (styles, item) =>
             item && (
-              <ModalDialogOverlay
+              <Box
+                // @ts-expect-error Render overlay as box for customization
+                as={ModalDialogOverlay}
                 onDismiss={onDismiss}
                 allowPinchZoom={allowPinchZoom}
                 initialFocusRef={initialFocusRef}
                 style={{opacity: styles.opacity}}
+                element={`${element}_OVERLAY`}
+                variant={size}
               >
-                <ModalDialogContent
+                <Box
+                  // @ts-expect-error Render overlay as box for customization
+                  as={ModalDialogContent}
                   aria-labelledby={ariaLabelledby}
                   {...safelySpreadBoxProps(props)}
+                  element={element}
                   ref={ref}
                   style={styles}
                   size={size}
+                  variant={size}
                 >
                   {children}
-                </ModalDialogContent>
-              </ModalDialogOverlay>
+                </Box>
+              </Box>
             )
         )}
       </ModalContext.Provider>
@@ -147,16 +161,15 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
 );
 Modal.displayName = 'Modal';
 
-if (process.env.NODE_ENV === 'development') {
-  Modal.propTypes = {
-    children: PropTypes.node.isRequired,
-    isOpen: PropTypes.bool.isRequired,
-    onDismiss: PropTypes.func.isRequired,
-    allowPinchZoom: PropTypes.bool,
-    size: PropTypes.oneOf(['default', 'wide'] as Sizes[]).isRequired,
-    initialFocusRef: PropTypes.object as any,
-    ariaLabelledby: PropTypes.string.isRequired,
-  };
-}
+Modal.propTypes = {
+  children: PropTypes.node.isRequired,
+  element: PropTypes.string,
+  isOpen: PropTypes.bool.isRequired,
+  onDismiss: PropTypes.func.isRequired,
+  allowPinchZoom: PropTypes.bool,
+  size: PropTypes.oneOf(['default', 'wide'] as Sizes[]).isRequired,
+  initialFocusRef: PropTypes.object as any,
+  ariaLabelledby: PropTypes.string.isRequired,
+};
 
 export {Modal};
