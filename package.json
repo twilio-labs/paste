@@ -44,7 +44,6 @@
     "pre-test": "node ./tools/build/pre-test.js",
     "test": "yarn pre-test && concurrently \"yarn:test:packages\" \"yarn:test:tools\"",
     "test:packages": "jest --silent ./packages/",
-    "test:dev": "jest --silent ./packages/paste-core/components/menu/__tests__/customization.spec.tsx",
     "test:tools": "jest ./tools/ -c ./tools/jest.config.js",
     "test:coverage": "yarn pre-test && jest --coverage",
     "test:website": "start-server-and-test 'yarn serve:website' http://localhost:9000 'yarn run cypress run --record --spec './cypress/integration/**/*.spec.ts''",
