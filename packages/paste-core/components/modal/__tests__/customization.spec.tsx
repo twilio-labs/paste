@@ -2,8 +2,11 @@ import * as React from 'react';
 
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
+import {matchers} from 'jest-emotion';
 
 import {BaseModal, initStyles} from '../stories/customization.stories';
+
+expect.extend(matchers);
 
 jest.mock('@twilio-paste/modal-dialog-primitive', () => {
   const actual = jest.requireActual('@twilio-paste/modal-dialog-primitive');
