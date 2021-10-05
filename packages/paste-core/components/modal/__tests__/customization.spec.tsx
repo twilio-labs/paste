@@ -9,6 +9,7 @@ import {BaseModal, initStyles} from '../stories/customization.stories';
 expect.extend(matchers);
 
 jest.mock('@twilio-paste/modal-dialog-primitive', () => {
+  // Mocking the portal as a div so it renders within the body of the rendered test fragment, rather than using Portal behavior.
   const actual = jest.requireActual('@twilio-paste/modal-dialog-primitive');
   const {forwardRef: mockForwardRef} = jest.requireActual('react');
   const MockModalDialogPrimitiveOverlay = mockForwardRef(
