@@ -9,10 +9,10 @@ import {StyledMenuItem} from './MenuItem';
 export type SubMenuButtonProps = MenuPrimitiveButtonProps & {element?: BoxElementProps['element']};
 
 const SubMenuButton = React.forwardRef<HTMLButtonElement, SubMenuButtonProps>(
-  ({element = 'SUBMENU', ...props}, ref) => {
+  ({element = 'SUBMENU_BUTTON', ...props}, ref) => {
     // MenuPrimitiveButton from reakit types `as` as HTML element names, but accepts components. any prevents type errors
     return (
-      <MenuPrimitiveButton {...props} as={StyledMenuItem as any} element={`${element}_BUTTON`} ref={ref}>
+      <MenuPrimitiveButton {...props} as={StyledMenuItem as any} element={element} ref={ref}>
         <MediaObject as="span" verticalAlign="center" element={`${element}_MEDIA_OBJECT`}>
           {props.children && (
             <MediaBody as="span" element={`${element}_MEDIA_BODY`}>

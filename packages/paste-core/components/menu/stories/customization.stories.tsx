@@ -47,12 +47,12 @@ export const initStyles = (element: string): ElementOverrides => ({
       borderLeftWidth: 'borderWidth0',
     },
   },
-  [`SUB${element}_MEDIA_FIGURE`]: {
+  [`SUB${element}_BUTTON_MEDIA_FIGURE`]: {
     ':hover': {
       color: 'currentColor',
     },
   },
-  [`SUB${element}_ICON`]: {
+  [`SUB${element}_BUTTON_ICON`]: {
     paddingLeft: 'space0',
   },
   [`${element}_SEPARATOR`]: {
@@ -82,9 +82,10 @@ export const initStyles = (element: string): ElementOverrides => ({
   },
 });
 
-const getElementName = (elementName: string | undefined, suffix?: string): string | undefined => {
+const getElementName = (elementName: string | undefined, suffix?: string, prefix?: string): string | undefined => {
   const end = suffix ? `_${suffix}` : '';
-  return elementName != null ? `${elementName}${end}` : undefined;
+  const start = prefix ? `${prefix}` : '';
+  return elementName != null ? `${start}${elementName}${end}` : undefined;
 };
 
 // eslint-disable-next-line import/no-default-export
@@ -134,19 +135,10 @@ export const BaseMenu: React.FC<{menuButtonVariant?: ButtonVariants; element?: s
               Extensions
             </MenuItem>
             {/* submenu */}
-            <SubMenuButton
-              {...subMenu}
-              element={getElementName(!element ? element : `SUB${element}`)}
-              data-testid="submenu-button"
-            >
+            <SubMenuButton {...subMenu} element={getElementName(element, 'BUTTON', 'SUB')} data-testid="submenu-button">
               Advanced settings
             </SubMenuButton>
-            <Menu
-              {...subMenu}
-              aria-label="Advanced settings"
-              element={getElementName(!element ? element : `SUB${element}`)}
-              data-testid="submenu"
-            >
+            <Menu {...subMenu} aria-label="Advanced settings" element={getElementName(element)} data-testid="submenu">
               <MenuItem {...subMenu} element={getElementName(element, 'ITEM')} data-testid="submenu-item-1">
                 Keyboard shortcuts
               </MenuItem>
@@ -205,11 +197,11 @@ export const WithDefaultElementName: React.FC = () => {
   return (
     <CustomizationProvider theme={currentTheme} elements={initStyles('MENU')}>
       <Box display="flex" flexDirection="row" justifyContent="space-between">
-        <BaseMenu menuButtonVariant="primary" element="MENU" />
-        <BaseMenu menuButtonVariant="secondary" element="MENU" />
-        <BaseMenu menuButtonVariant="destructive" element="MENU" />
-        <BaseMenu menuButtonVariant="destructive_secondary" element="MENU" />
-        <BaseMenu menuButtonVariant="link" element="MENU" />
+        <BaseMenu menuButtonVariant="primary" />
+        <BaseMenu menuButtonVariant="secondary" />
+        <BaseMenu menuButtonVariant="destructive" />
+        <BaseMenu menuButtonVariant="destructive_secondary" />
+        <BaseMenu menuButtonVariant="link" />
       </Box>
     </CustomizationProvider>
   );
