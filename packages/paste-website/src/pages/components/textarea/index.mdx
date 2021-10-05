@@ -81,7 +81,7 @@ export const pageQuery = graphql`
 
 ## Guidelines
 
-A textarea allows users to enter text on multiple lines.
+A textarea allows users to enter text on multiple lines. It is used with the <Anchor href="/component/label">Label</Anchor> and <Anchor href="/component/help-text">Help Text</Anchor> components.
 
 ### About Textarea
 
@@ -645,29 +645,6 @@ All the valid HTML attributes for `textarea` are supported including the followi
 | onFocus?     | `(event: React.MouseEvent<HTMLElement>)` |                                                                   | null      |
 | onBlur?      | `(event: React.MouseEvent<HTMLElement>)` |                                                                   | null      |
 | variant?     | 'default', 'inverse'                     |                                                                   | 'default' |
-
-#### Label Props
-
-All the valid HTML attributes for `label` are supported including the following props:
-
-| Prop          | Type                 | Description                                                             | Default   |
-| ------------- | -------------------- | ----------------------------------------------------------------------- | --------- |
-| children?     | `ReactNode`          |                                                                         | null      |
-| htmlFor       | string               | Sets the for of the label. Should match the id of `TextArea`. Required. | null      |
-| disabled?     | boolean              | Shows the textarea is disabled.                                         | false     |
-| required?     | boolean              | Shows the textarea is required.                                         | false     |
-| marginBottom? | 'space0', 'space10'  |                                                                         | 'space10' |
-| variant ?     | 'default', 'inverse' |                                                                         | 'default' |
-
-#### HelpText Props
-
-All the valid HTML attributes (role, aria-\*, type, and so on) including the following props:
-
-| Prop       | Type                                           | Description        | Default   |
-| ---------- | ---------------------------------------------- | ------------------ | --------- |
-| children?  | `ReactNode`                                    |                    | null      |
-| marginTop? | 'space0', 'space30'                            |                    | 'space30' |
-| variant?   | 'default', 'error', 'error_inverse', 'inverse' | Changes the state. | 'default' |
 
 <ChangelogRevealer>
   <Changelog />
