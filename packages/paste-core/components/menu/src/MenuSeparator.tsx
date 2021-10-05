@@ -8,9 +8,11 @@ const StyledMenuSeparator = React.forwardRef<HTMLHRElement, SeparatorProps>((pro
   return <Separator {...props} orientation="horizontal" verticalSpacing="space40" ref={ref} />;
 });
 
-const MenuSeparator = React.forwardRef<HTMLHRElement, MenuSeparatorProps>((props, ref) => {
-  // as prop from reakit for some reason only accepts a string of `hr` but accepts components. any prevent type errors
-  return <MenuPrimitiveSeparator {...props} as={StyledMenuSeparator as any} ref={ref} />;
-});
+const MenuSeparator = React.forwardRef<HTMLHRElement, MenuSeparatorProps>(
+  ({element = 'MENU_SEPARATOR', ...props}, ref) => {
+    // as prop from reakit for some reason only accepts a string of `hr` but accepts components. any prevent type errors
+    return <MenuPrimitiveSeparator {...props} element={element} as={StyledMenuSeparator as any} ref={ref} />;
+  }
+);
 MenuSeparator.displayName = 'MenuSeparator';
 export {MenuSeparator};

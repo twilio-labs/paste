@@ -10,6 +10,7 @@ const handleClickMock: jest.Mock = jest.fn();
 
 const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuButtonProps>((props, ref) => {
   const menu = useMenuState({baseId: 'sub-menu'});
+
   return (
     <>
       <MenuButton ref={ref} {...menu} {...props} data-testid="example-submenu-trigger">
