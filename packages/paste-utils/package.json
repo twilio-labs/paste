@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/utils",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Paste Design System shared utilities and React hooks.",
   "author": "Twilio Inc.",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/types": "^3.1.1",
+    "@twilio-paste/types": "^3.1.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }

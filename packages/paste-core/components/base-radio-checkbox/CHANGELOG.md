@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.0.4
+
+### Patch Changes
+
+- [`ba307e2f`](https://github.com/twilio-labs/paste/commit/ba307e2f3b4f4f3dc932fe0f71a1b680fc06b521) [#1887](https://github.com/twilio-labs/paste/pull/1887) Thanks [@nkrantz](https://github.com/nkrantz)! - [BaseRadioCheckbox] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 6.0.3
 
 ### Patch Changes

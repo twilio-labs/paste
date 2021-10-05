@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.6.0
+
+### Minor Changes
+
+- [`46ee743a`](https://github.com/twilio-labs/paste/commit/46ee743a5f9d63b3d5ef76371afab6ae64ae50a8) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Added an icon for displaying unsorted data: "UnsortedIcon"
+
 ## 5.5.0
 
 ### Minor Changes

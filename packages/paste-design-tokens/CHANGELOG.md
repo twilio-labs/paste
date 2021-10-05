@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.12.0
+
+### Minor Changes
+
+- [`bec21fa0`](https://github.com/twilio-labs/paste/commit/bec21fa0e7d247202994d962d504ef1bb32f22e4) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Added 'shadow-focus-inset', a box-shadow token representing an inset focus outline.
+
 ## 6.11.2
 
 ### Patch Changes
