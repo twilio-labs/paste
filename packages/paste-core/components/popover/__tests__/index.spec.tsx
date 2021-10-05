@@ -1,9 +1,15 @@
 import * as React from 'react';
 import {render, screen, waitFor} from '@testing-library/react';
+import {matchers} from 'jest-emotion';
 import {Theme} from '@twilio-paste/theme';
+import {CustomizationProvider} from '@twilio-paste/customization';
+import {Text} from '@twilio-paste/text';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {PopoverTop, StateHookExample} from '../stories/index.stories';
+import {Popover, PopoverContainer, PopoverButton} from '../src';
+
+expect.extend(matchers);
 
 describe('Popover', () => {
   describe('Render', () => {
@@ -76,6 +82,130 @@ describe('Popover', () => {
       );
       const results = await axe(container);
       expect(results).toHaveNoViolations();
+    });
+  });
+
+  describe('Customization', () => {
+    it('should set default data-paste-element attribute on Popover and customizable children', (): void => {
+      render(
+        <CustomizationProvider baseTheme="default">
+          <PopoverContainer baseId="test-id" visible>
+            <PopoverButton variant="primary" data-testid="popover-button">
+              Open popover
+            </PopoverButton>
+            <Popover aria-label="Popover" data-testid="popover">
+              <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
+            </Popover>
+          </PopoverContainer>
+        </CustomizationProvider>
+      );
+
+      const popoverComp = screen.getByTestId('popover');
+      const popoverButton = screen.getByTestId('popover-button');
+
+      expect(popoverComp.querySelector('[data-paste-element="POPOVER"]')).toBeInTheDocument();
+      expect(popoverComp.querySelector('[data-paste-element="POPOVER_CLOSE_BUTTON"]')).toBeInTheDocument();
+      expect(popoverComp.querySelector('[data-paste-element="POPOVER_CLOSE_ICON"]')).toBeInTheDocument();
+
+      expect(popoverButton).toHaveAttribute('data-paste-element', 'POPOVER_BUTTON');
+    });
+
+    it('should add custom styles to Popover and customizable children', (): void => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          elements={{
+            POPOVER: {
+              backgroundColor: 'colorBackground',
+            },
+            POPOVER_BUTTON: {
+              backgroundColor: 'colorBackgroundSuccess',
+            },
+            POPOVER_CLOSE_BUTTON: {
+              backgroundColor: 'colorBackgroundBodyInverse',
+            },
+            POPOVER_CLOSE_ICON: {
+              color: 'colorTextInverse',
+            },
+          }}
+        >
+          <PopoverContainer baseId="test-id" visible>
+            <PopoverButton variant="primary" data-testid="popover-button">
+              Open popover
+            </PopoverButton>
+            <Popover aria-label="Popover" data-testid="popover">
+              <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
+            </Popover>
+          </PopoverContainer>
+        </CustomizationProvider>
+      );
+
+      const popoverComp = screen.getByTestId('popover');
+      const popoverButton = screen.getByTestId('popover-button');
+
+      expect(popoverComp.querySelector('[data-paste-element="POPOVER"]')).toHaveStyleRule(
+        'background-color',
+        'rgb(244,244,246)'
+      );
+      expect(popoverComp.querySelector('[data-paste-element="POPOVER_CLOSE_BUTTON"]')).toHaveStyleRule(
+        'background-color',
+        'rgb(18,28,45)'
+      );
+      expect(popoverComp.querySelector('[data-paste-element="POPOVER_CLOSE_ICON"]')).toHaveStyleRule(
+        'color',
+        'rgb(255,255,255)'
+      );
+
+      expect(popoverButton).toHaveStyleRule('background-color', 'rgb(20,176,83)');
+    });
+
+    it('should set a custom element name and properly apply styles to Popover and customizable children', (): void => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          elements={{
+            MYPOPOVER: {
+              backgroundColor: 'colorBackground',
+            },
+            MYPOPOVER_BUTTON: {
+              backgroundColor: 'colorBackgroundSuccess',
+            },
+            MYPOPOVER_CLOSE_BUTTON: {
+              backgroundColor: 'colorBackgroundBodyInverse',
+            },
+            MYPOPOVER_CLOSE_ICON: {
+              color: 'colorTextInverse',
+            },
+          }}
+        >
+          <PopoverContainer baseId="test-id" visible>
+            <PopoverButton element="MYPOPOVER_BUTTON" variant="primary" data-testid="popover-button">
+              Open popover
+            </PopoverButton>
+            <Popover element="MYPOPOVER" aria-label="Popover" data-testid="popover">
+              <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
+            </Popover>
+          </PopoverContainer>
+        </CustomizationProvider>
+      );
+
+      const popoverComp = screen.getByTestId('popover');
+      const popoverButton = screen.getByTestId('popover-button');
+
+      expect(popoverComp.querySelector('[data-paste-element="MYPOPOVER"]')).toHaveStyleRule(
+        'background-color',
+        'rgb(244,244,246)'
+      );
+      expect(popoverComp.querySelector('[data-paste-element="MYPOPOVER_CLOSE_BUTTON"]')).toHaveStyleRule(
+        'background-color',
+        'rgb(18,28,45)'
+      );
+      expect(popoverComp.querySelector('[data-paste-element="MYPOPOVER_CLOSE_ICON"]')).toHaveStyleRule(
+        'color',
+        'rgb(255,255,255)'
+      );
+
+      expect(popoverButton).toHaveStyleRule('background-color', 'rgb(20,176,83)');
     });
   });
 });

@@ -3,6 +3,7 @@ import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {usePopoverState, Popover, PopoverContainer, PopoverButton} from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -96,5 +97,38 @@ export const StateHookExample: React.FC = () => {
         </Button>
       </Stack>
     </Box>
+  );
+};
+
+export const Customization: React.FC = () => {
+  return (
+    <CustomizationProvider
+      baseTheme="default"
+      elements={{
+        POPOVER: {
+          backgroundColor: 'colorBackgroundNeutralWeakest',
+          fontWeight: 'fontWeightBold',
+        },
+        POPOVER_BUTTON: {
+          backgroundColor: 'colorBackgroundSuccess',
+        },
+        POPOVER_CLOSE_BUTTON: {
+          backgroundColor: 'colorBackgroundBodyInverse',
+          borderRadius: 'borderRadius20',
+        },
+        POPOVER_CLOSE_ICON: {
+          color: 'colorTextInverse',
+        },
+      }}
+    >
+      <Box height="300px">
+        <PopoverContainer baseId="test-id" visible>
+          <PopoverButton variant="primary">Open popover</PopoverButton>
+          <Popover aria-label="Popover">
+            <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
+          </Popover>
+        </PopoverContainer>
+      </Box>
+    </CustomizationProvider>
   );
 };
