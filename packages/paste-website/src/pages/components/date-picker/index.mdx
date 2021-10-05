@@ -92,7 +92,7 @@ export const pageQuery = graphql`
 
 ### About Date Picker
 
-The Date Picker is an input field which accepts a value in <inlineCode>MM/DD/YYYY</inlineCode> format.
+The Date Picker is an input field which accepts a value in <inlineCode>MM/DD/YYYY</inlineCode> format. It is used with the <Anchor href="/component/label">Label</Anchor> and <Anchor href="/component/help-text">Help Text</Anchor> components.
 
 Currently, the Date Picker is built on top of <Anchor href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date" showExternal>the HTML date picker</Anchor>, using an <inlineCode>input</inlineCode> field with <inlineCode>type="date"</inlineCode>, which comes with some inherent limitations.
 In order to release a functional and stable Date Picker for immediate use, we decided to work within these limitations with the intention of updating this package to a custom Date Picker in a future release. The current API was designed to avoid any breaking changes with future versions of the Date Picker.
@@ -585,29 +585,6 @@ All the valid HTML attributes for `input` (except `type`) are supported, includi
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------------------- | ------- |
 | dateValue  | string | Date value to be formatted. Must be in <inlineCode>yyyy-mm-dd</inlineCode> format.                                    | null    |
 | dateFormat | string | Specify the format in which to return the dateValue. Formats come from the <inlineCode>date-fns</inlineCode> library. | null    |
-
-#### Label Props
-
-All the valid HTML attributes for `label` are supported including the following props:
-
-| Prop          | Type                 | Description                                                               | Default   |
-| ------------- | -------------------- | ------------------------------------------------------------------------- | --------- |
-| children?     | `ReactNode`          |                                                                           | null      |
-| htmlFor       | string               | Sets the for of the label. Should match the id of `DatePicker`. Required. | null      |
-| disabled?     | boolean              | Shows the date picker is disabled.                                        | false     |
-| required?     | boolean              | Shows the date picker is required.                                        | false     |
-| marginBottom? | 'space0', 'space10'  |                                                                           | 'space10' |
-| variant ?     | 'default', 'inverse' |                                                                           | 'default' |
-
-#### HelpText Props
-
-All the valid HTML attributes (role, aria-\*, type, and so on) including the following props:
-
-| Prop       | Type                                           | Description        | Default   |
-| ---------- | ---------------------------------------------- | ------------------ | --------- |
-| children?  | `ReactNode`                                    |                    | null      |
-| marginTop? | 'space0', 'space20'                            |                    | 'space20' |
-| variant?   | 'default', 'error', 'error_inverse', 'inverse' | Changes the state. | 'default' |
 
 <ChangelogRevealer>
   <Changelog />
