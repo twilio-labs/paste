@@ -1,3 +1,4 @@
+import React from 'react';
 import {Box} from '@twilio-paste/box';
 import {ProcessDisabledIcon} from '@twilio-paste/icons/esm/ProcessDisabledIcon';
 import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
@@ -6,11 +7,6 @@ import {ProcessInProgressIcon} from '@twilio-paste/icons/esm/ProcessInProgressIc
 import {ProcessNeutralIcon} from '@twilio-paste/icons/esm/ProcessNeutralIcon';
 import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
 import {ProcessWarningIcon} from '@twilio-paste/icons/esm/ProcessWarningIcon';
-import {ConnectivityAvailableIcon} from '@twilio-paste/icons/esm/ConnectivityAvailableIcon';
-import {ConnectivityBusyIcon} from '@twilio-paste/icons/esm/ConnectivityBusyIcon';
-import {ConnectivityUnavailableIcon} from '@twilio-paste/icons/esm/ConnectivityUnavailableIcon';
-import {ConnectivityOfflineIcon} from '@twilio-paste/icons/esm/ConnectivityOfflineIcon';
-import React from 'react';
 
 export const BannerExample = `
 <Box display="flex">
