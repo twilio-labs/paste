@@ -89,7 +89,7 @@ describe('Popover', () => {
     it('should set default data-paste-element attribute on Popover and customizable children', (): void => {
       render(
         <CustomizationProvider baseTheme="default">
-          <PopoverContainer baseId="test-id" visible>
+          <PopoverContainer baseId="test-id">
             <PopoverButton variant="primary" data-testid="popover-button">
               Open popover
             </PopoverButton>
@@ -129,7 +129,7 @@ describe('Popover', () => {
             },
           }}
         >
-          <PopoverContainer baseId="test-id" visible>
+          <PopoverContainer baseId="test-id">
             <PopoverButton variant="primary" data-testid="popover-button">
               Open popover
             </PopoverButton>
@@ -178,7 +178,7 @@ describe('Popover', () => {
             },
           }}
         >
-          <PopoverContainer baseId="test-id" visible>
+          <PopoverContainer baseId="test-id">
             <PopoverButton element="MYPOPOVER_BUTTON" variant="primary" data-testid="popover-button">
               Open popover
             </PopoverButton>
