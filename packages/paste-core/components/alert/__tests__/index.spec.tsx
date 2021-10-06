@@ -128,18 +128,15 @@ describe('Alert', () => {
     });
 
     it('Should have no accessibility violations', async () => {
-      const container = document.createElement('div');
-      document.body.append(container);
-      render(
+      const {container} = render(
         <Theme.Provider theme="console">
           <Alert variant="error">This is a error alert</Alert>
           <Alert onDismiss={onDismissMock} variant="error">
             This is a error alert
           </Alert>
-        </Theme.Provider>,
-        container
+        </Theme.Provider>
       );
-      const results = await axe(document.body);
+      const results = await axe(container);
       expect(results).toHaveNoViolations();
     });
   });
@@ -170,18 +167,15 @@ describe('Alert', () => {
     });
 
     it('Should have no accessibility violations', async () => {
-      const container = document.createElement('div');
-      document.body.append(container);
-      render(
+      const {container} = render(
         <Theme.Provider theme="console">
           <Alert variant="warning">This is a warning alert</Alert>
           <Alert onDismiss={onDismissMock} variant="warning">
             This is a warning alert
           </Alert>
-        </Theme.Provider>,
-        container
+        </Theme.Provider>
       );
-      const results = await axe(document.body);
+      const results = await axe(container);
       expect(results).toHaveNoViolations();
     });
   });
