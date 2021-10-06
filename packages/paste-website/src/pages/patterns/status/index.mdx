@@ -31,6 +31,10 @@ import {ProcessInProgressIcon} from '@twilio-paste/icons/esm/ProcessInProgressIc
 import {ProcessNeutralIcon} from '@twilio-paste/icons/esm/ProcessNeutralIcon';
 import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
 import {ProcessWarningIcon} from '@twilio-paste/icons/esm/ProcessWarningIcon';
+import {ConnectivityAvailableIcon} from '@twilio-paste/icons/esm/ConnectivityAvailableIcon';
+import {ConnectivityBusyIcon} from '@twilio-paste/icons/esm/ConnectivityBusyIcon';
+import {ConnectivityUnavailableIcon} from '@twilio-paste/icons/esm/ConnectivityUnavailableIcon';
+import {ConnectivityOfflineIcon} from '@twilio-paste/icons/esm/ConnectivityOfflineIcon';
 
 import {
   ProcessDisabled,
@@ -45,13 +49,13 @@ import {
   ConnectivityUnavailable,
   ConnectivityOffline,
   processStatusExamples,
-  connectivityStatusExamples,
   prefixSuffixTooltipExamples,
   tableExample,
   tableWithPlainTextExample,
   linkInStatusExamples,
   otherCommonPlacements,
   BannerExample,
+  connectivityStatusExamples,
 } from '../../../component-examples/StatusPatternExamples.tsx';
 
 export const pageQuery = graphql`
@@ -281,6 +285,87 @@ used to 3 or 4 of the most important statuses. For statuses that are not as crit
       GitHub Discussion
     </Anchor>{' '}
     and let us know how these current Status guidelines are working for you.
+  </CalloutText>
+</Callout>
+
+### Connectivity status
+
+Connectivity statuses are used to show if a user, object, or system is online or offline. Connectivity statuses are composed using a connectivity Icon and Text.
+
+**Connectivity statuses should almost always be paired with accompanying text**, though Available and Offline can be used without text in cases where space is constrained, since there is a shape difference.
+
+<LivePreview
+  scope={{
+    Box,
+    Text,
+    Card,
+    ConnectivityAvailableIcon,
+    ConnectivityBusyIcon,
+    ConnectivityUnavailableIcon,
+    ConnectivityOfflineIcon,
+  }}
+  language="jsx"
+>
+  {connectivityStatusExamples}
+</LivePreview>
+
+#### Connectivity icon and token pairings
+
+<Table>
+  <THead>
+    <Tr>
+      <Th>Icon</Th>
+      <Th>Icon name</Th>
+      <Th width="250px">Token</Th>
+      <Th>Usage</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>
+        <ConnectivityAvailableIcon title="available" color="colorTextIconAvailable" />
+      </Td>
+      <Td>ConnectivityAvailableIcon</Td>
+      <Td>$color-text-icon-available</Td>
+      <Td>Indicates that a person or entity is available or online.</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <ConnectivityBusyIcon title="busy" color="colorTextIconBusy" />
+      </Td>
+      <Td>ConnectivityBusyIcon</Td>
+      <Td>$color-text-icon-busy</Td>
+      <Td>Indicates that a person or entity is busy or away.</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <ConnectivityUnavailableIcon title="unavailable" color="colorTextIconUnavailable" />
+      </Td>
+      <Td>ConnectivityUnavailableIcon</Td>
+      <Td>$color-text-icon-unavailable</Td>
+      <Td>Indicates that a person or entity is unavailable or at capacity.</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <ConnectivityOfflineIcon title="offline" color="colorTextIconOffline" />
+      </Td>
+      <Td>ConnectivityOfflineIcon</Td>
+      <Td>$color-text-icon-offline</Td>
+      <Td>Indicates that a person or entity is offline.</Td>
+    </Tr>
+  </TBody>
+</Table>
+
+<Callout>
+  <CalloutTitle>Connectivity statuses in Flex</CalloutTitle>
+  <CalloutText>
+    Connectivity statuses are used heavily throughout Flex, where the circle indicators should retain the same color
+    across the product on any background color (including the dark topmast).
+    <br /><br />
+    Since icons must have high enough contrast with their background, Flex uses Box with a background color here instead of using an icon. This gives more flexibility to the number of backgrounds a connectivity status can be placed on.
+    <br /><br />
+    In general, Connectivity statuses should use the icons and tokens documented in this pattern, but if you have a use case similar to Flex, you can follow their approach.
+
   </CalloutText>
 </Callout>
 

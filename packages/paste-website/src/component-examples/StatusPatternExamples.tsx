@@ -6,6 +6,10 @@ import {ProcessInProgressIcon} from '@twilio-paste/icons/esm/ProcessInProgressIc
 import {ProcessNeutralIcon} from '@twilio-paste/icons/esm/ProcessNeutralIcon';
 import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
 import {ProcessWarningIcon} from '@twilio-paste/icons/esm/ProcessWarningIcon';
+import {ConnectivityAvailableIcon} from '@twilio-paste/icons/esm/ConnectivityAvailableIcon';
+import {ConnectivityBusyIcon} from '@twilio-paste/icons/esm/ConnectivityBusyIcon';
+import {ConnectivityUnavailableIcon} from '@twilio-paste/icons/esm/ConnectivityUnavailableIcon';
+import {ConnectivityOfflineIcon} from '@twilio-paste/icons/esm/ConnectivityOfflineIcon';
 import React from 'react';
 
 export const BannerExample = `
@@ -120,42 +124,6 @@ export const processStatusExamples = `
       decorative={false}
       title="draft" />
     <Text marginLeft="space20">Draft</Text>
-  </Box>
-</Box>
-`.trim();
-
-export const connectivityStatusExamples = `
-<Box display="flex" columnGap="space80" rowGap="space60" flexWrap="wrap">
-  <Box display="flex" alignItems="center">
-    <Box
-      borderRadius="borderRadiusCircle"
-      size="sizeSquare30"
-      backgroundColor="colorBackgroundAvailable" />
-    <Text marginLeft="space30">Available</Text>
-  </Box>
-  <Box display="flex" alignItems="center">
-    <Box
-      borderRadius="borderRadiusCircle"
-      size="sizeSquare30"
-      backgroundColor="colorBackgroundBusy" />
-    <Text marginLeft="space30">Busy</Text>
-  </Box>
-  <Box display="flex" alignItems="center">
-    <Box
-      borderRadius="borderRadiusCircle"
-      size="sizeSquare30"
-      backgroundColor="colorBackgroundUnavailable" />
-    <Text marginLeft="space30">Unavailable</Text>
-  </Box>
-  <Box display="flex" alignItems="center">
-    <Box
-    borderRadius="borderRadiusCircle"
-    borderWidth="borderWidth20"
-    borderStyle="solid"
-    borderColor="colorBorder"
-    size="sizeSquare30"
-    />
-    <Text marginLeft="space30">Offline</Text>
   </Box>
 </Box>
 `.trim();
@@ -493,4 +461,41 @@ export const otherCommonPlacements = `
     </Box>
   </Box>
 </Stack>
+`.trim();
+
+export const connectivityStatusExamples = `
+<Box display="flex" columnGap="space90" flexWrap="wrap">
+  <Box display="inherit">
+    <ConnectivityAvailableIcon
+      color="colorTextIconAvailable"
+      decorative={false}
+      title="available"
+    />
+    Available
+  </Box>
+  <Box display="inherit">
+    <ConnectivityBusyIcon
+      color="colorTextIconBusy"
+      decorative={false}
+      title="busy"
+    />
+    Busy
+  </Box>
+  <Box display="inherit">
+    <ConnectivityUnavailableIcon
+      color="colorTextIconUnavailable"
+      decorative={false}
+      title="unavailable"
+    />
+    Unavailable
+  </Box>
+  <Box display="inherit">
+    <ConnectivityOfflineIcon
+      color="colorTextIconOffline"
+      decorative={false}
+      title="offline"
+    />
+    Offline
+  </Box>
+</Box>
 `.trim();
