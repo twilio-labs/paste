@@ -361,6 +361,38 @@ props:
       - color-background-destructive-weak
       - color-background-destructive-weaker
       - color-background-destructive-weakest
+  color-text-icon-available:
+    value: "{!palette-green-70}"
+    comment: "Icon color for indicating a available status"
+    uicontrol_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-warning-weakest
+      - color-background-row-striped
+  color-text-icon-unavailable:
+    value: "{!palette-red-60}"
+    comment: "Icon color for indicating a unavailable status"
+    uicontrol_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-warning-weakest
+      - color-background-row-striped
+  color-text-icon-offline:
+    value: "{!palette-gray-60}"
+    comment: "Icon color for indicating a offline status"
+    uicontrol_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-warning-weakest
+      - color-background-row-striped
+  color-text-icon-busy:
+    value: "{!palette-orange-65}"
+    comment: "Icon color for indicating a busy status"
+    uicontrol_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-warning-weakest
+      - color-background-row-striped
   color-text-icon-inverse:
     value: "{!palette-gray-50}"
     comment: Default icon color for inverse backgrounds.
