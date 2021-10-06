@@ -89,18 +89,15 @@ describe('Alert', () => {
     });
 
     it('Should have no accessibility violations', async () => {
-      const container = document.createElement('div');
-      document.body.append(container);
-      render(
+      const {container} = render(
         <Theme.Provider theme="console">
           <Alert variant="neutral">This is a neutral alert</Alert>
           <Alert onDismiss={onDismissMock} variant="neutral">
             This is a neutral alert
           </Alert>
-        </Theme.Provider>,
-        container
+        </Theme.Provider>
       );
-      const results = await axe(document.body);
+      const results = await axe(container);
       expect(results).toHaveNoViolations();
     });
   });
