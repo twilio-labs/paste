@@ -119,7 +119,7 @@ describe('Popover', () => {
               backgroundColor: 'colorBackground',
             },
             POPOVER_BUTTON: {
-              backgroundColor: 'colorBackgroundSuccess',
+              backgroundColor: 'colorBackgroundBrandStronger',
             },
             POPOVER_CLOSE_BUTTON: {
               backgroundColor: 'colorBackgroundBodyInverse',
@@ -168,7 +168,7 @@ describe('Popover', () => {
               backgroundColor: 'colorBackground',
             },
             MYPOPOVER_BUTTON: {
-              backgroundColor: 'colorBackgroundSuccess',
+              backgroundColor: 'colorBackgroundBrandStronger',
             },
             MYPOPOVER_CLOSE_BUTTON: {
               backgroundColor: 'colorBackgroundBodyInverse',

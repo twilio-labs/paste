@@ -110,7 +110,7 @@ export const Customization: React.FC = () => {
           fontWeight: 'fontWeightBold',
         },
         POPOVER_BUTTON: {
-          backgroundColor: 'colorBackgroundSuccess',
+          backgroundColor: 'colorBackgroundBrandStronger',
         },
         POPOVER_CLOSE_BUTTON: {
           backgroundColor: 'colorBackgroundBodyInverse',
