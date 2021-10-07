@@ -86,31 +86,7 @@ describe('Popover', () => {
   });
 
   describe('Customization', () => {
-    it('should set default data-paste-element attribute on Popover and customizable children', (): void => {
-      render(
-        <CustomizationProvider baseTheme="default">
-          <PopoverContainer baseId="test-id">
-            <PopoverButton variant="primary" data-testid="popover-button">
-              Open popover
-            </PopoverButton>
-            <Popover aria-label="Popover" data-testid="popover">
-              <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
-            </Popover>
-          </PopoverContainer>
-        </CustomizationProvider>
-      );
-
-      const popoverComp = screen.getByTestId('popover');
-      const popoverButton = screen.getByTestId('popover-button');
-
-      expect(popoverComp.querySelector('[data-paste-element="POPOVER"]')).toBeInTheDocument();
-      expect(popoverComp.querySelector('[data-paste-element="POPOVER_CLOSE_BUTTON"]')).toBeInTheDocument();
-      expect(popoverComp.querySelector('[data-paste-element="POPOVER_CLOSE_ICON"]')).toBeInTheDocument();
-
-      expect(popoverButton).toHaveAttribute('data-paste-element', 'POPOVER_BUTTON');
-    });
-
-    it('should add custom styles to Popover and customizable children', (): void => {
+    it('should set default data-paste-element attribute on Popover and customizable children and respect custom styles', (): void => {
       render(
         <CustomizationProvider
           baseTheme="default"
@@ -143,6 +119,13 @@ describe('Popover', () => {
       const popoverComp = screen.getByTestId('popover');
       const popoverButton = screen.getByTestId('popover-button');
 
+      // presence of popover hooks
+      expect(popoverComp.querySelector('[data-paste-element="POPOVER"]')).toBeInTheDocument();
+      expect(popoverComp.querySelector('[data-paste-element="POPOVER_CLOSE_BUTTON"]')).toBeInTheDocument();
+      expect(popoverComp.querySelector('[data-paste-element="POPOVER_CLOSE_ICON"]')).toBeInTheDocument();
+      expect(popoverButton).toHaveAttribute('data-paste-element', 'POPOVER_BUTTON');
+
+      // applied style rules
       expect(popoverComp.querySelector('[data-paste-element="POPOVER"]')).toHaveStyleRule(
         'background-color',
         'rgb(244,244,246)'
@@ -155,8 +138,7 @@ describe('Popover', () => {
         'color',
         'rgb(255,255,255)'
       );
-
-      expect(popoverButton).toHaveStyleRule('background-color', 'rgb(20,176,83)');
+      expect(popoverButton).toHaveStyleRule('background-color', 'rgb(6,3,58)');
     });
 
     it('should set a custom element name and properly apply styles to Popover and customizable children', (): void => {
@@ -205,7 +187,7 @@ describe('Popover', () => {
         'rgb(255,255,255)'
       );
 
-      expect(popoverButton).toHaveStyleRule('background-color', 'rgb(20,176,83)');
+      expect(popoverButton).toHaveStyleRule('background-color', 'rgb(6,3,58)');
     });
   });
 });
