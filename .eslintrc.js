@@ -87,6 +87,7 @@ module.exports = {
     ],
     'react/jsx-curly-brace-presence': 0,
     'react/jsx-props-no-spreading': 0,
+    'react/display-name': 1,
     'no-useless-constructor': 'off',
     eqeqeq: ['error', 'smart'],
     'no-plusplus': 'off',
