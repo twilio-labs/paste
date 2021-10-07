@@ -3,23 +3,28 @@ import {Text} from '@twilio-paste/text';
 import {Grid, Column} from '@twilio-paste/grid';
 import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
+import {css} from '@twilio-paste/styling-library';
 
 import {FlexCard} from './FlexCard';
-import {ProgrammableVoiceCard} from './ProgrammableVideoCard';
+import {ComingSoonCard} from './ComingSoonCard';
 import {ReactCard} from './ReactCard';
-import {LandingPageSection, LandingPageSectionContent} from './LandingPageLayoutUtils';
+import {LandingPageSectionContent} from './LandingPageLayoutUtils';
 import {DoodleLoopArrow} from '../../assets/illustrations/DoodleLoopArrow';
 
 export const WorksGreatWith: React.FC = () => {
-  const {backgroundColors} = useTheme();
+  const {backgroundColors, ...theme} = useTheme();
   return (
-    <LandingPageSection
-      css={{
+    <Box
+      as="section"
+      css={css({
         background: `linear-gradient(90deg, ${backgroundColors.colorBackgroundPrimaryDark} 0%, ${backgroundColors.colorBackgroundPrimaryDarkest} 100%)`,
         clipPath: 'polygon(0px 80px,100% 0,100% 100%,0 100%)',
-        paddingTop: '150px',
         marginTop: '-80px',
-      }}
+        paddingTop: ['120px', '130px', '150px'],
+        paddingBottom: ['space90', 'space120', 'space200'],
+        position: 'relative',
+        paddingX: ['space90', 'space120', 'space190'],
+      })(theme)}
     >
       <LandingPageSectionContent variant="default">
         <Box position="relative">
@@ -44,13 +49,13 @@ export const WorksGreatWith: React.FC = () => {
             <FlexCard />
           </Column>
           <Column span={[12, 4, 4]}>
-            <ProgrammableVoiceCard />
+            <ComingSoonCard />
           </Column>
           <Column span={[12, 4, 4]}>
             <ReactCard />
           </Column>
         </Grid>
       </LandingPageSectionContent>
-    </LandingPageSection>
+    </Box>
   );
 };

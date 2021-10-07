@@ -24,7 +24,7 @@ export const ProjectHeading: React.FC = ({children}) => {
 };
 export const ProjectLogo: React.FC = ({children}) => {
   return (
-    <Box element="PROJECT_LOGO" marginBottom="space40" display="flex" columnGap="space50">
+    <Box element="PROJECT_LOGO" alignItems="center" marginBottom="space40" display="flex" columnGap="space50">
       {children}
     </Box>
   );
