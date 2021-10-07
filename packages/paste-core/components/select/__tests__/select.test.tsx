@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {matchers} from 'jest-emotion';
 import {render} from 'react-dom';
-import {render as testRender, fireEvent} from '@testing-library/react';
+import {render as testRender, fireEvent, screen} from '@testing-library/react';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {useUID} from '@twilio-paste/uid-library';
 import {Theme} from '@twilio-paste/theme';
 import {Label} from '@twilio-paste/label';
@@ -15,7 +16,8 @@ expect.extend(matchers);
 
 const onChangeMock: jest.Mock = jest.fn();
 
-interface MockSelectProps extends SelectProps {
+interface ExampleSelectProps extends SelectProps {
+  element?: string;
   dataPrefix?: string;
   style?: React.CSSProperties | undefined;
   className?: string;
@@ -24,10 +26,10 @@ interface MockSelectProps extends SelectProps {
   size?: number;
 }
 
-const MockSelect: React.FC<MockSelectProps> = ({children, hasError = false, dataPrefix, ...props}) => {
+const ExampleSelect: React.FC<ExampleSelectProps> = ({children, hasError = false, dataPrefix, ...props}) => {
   const selectID = `select-${useUID()}`;
   return (
-    <Theme.Provider theme="console">
+    <>
       <Label htmlFor={selectID}>Label</Label>
       <Select
         hasError={hasError}
@@ -39,17 +41,29 @@ const MockSelect: React.FC<MockSelectProps> = ({children, hasError = false, data
       >
         {children}
       </Select>
+    </>
+  );
+};
+
+const initTestId = (prefix?: string): string => `${prefix ? `${prefix}-` : ''}select-wrapper`;
+
+const MockWrappedSelect: React.FC<ExampleSelectProps> = ({children, dataPrefix, ...props}) => {
+  return (
+    <Theme.Provider theme="default" data-testid={initTestId(dataPrefix)}>
+      <ExampleSelect dataPrefix={dataPrefix} {...props}>
+        {children}
+      </ExampleSelect>
     </Theme.Provider>
   );
 };
 
-const DefaultProps = {
+const defaultProps = {
   id: 'id-select',
   onChange: onChangeMock,
   value: '',
 };
 
-describe('Form | Select', () => {
+describe('Select', () => {
   const blockListedPropsMap = {
     style: {},
     className: 'blocklisted',
@@ -58,18 +72,18 @@ describe('Form | Select', () => {
     size: 2,
   };
 
-  it('shoud have the correct accessibility attributes on the container', () => {
+  it('should have the correct accessibility attributes on the container', () => {
     const {getByTestId} = testRender(
-      <MockSelect {...DefaultProps}>
+      <MockWrappedSelect {...defaultProps}>
         <Option value="option-1">test</Option>
-      </MockSelect>
+      </MockWrappedSelect>
     );
     expect(getByTestId('select').getAttribute('aria-invalid')).toEqual('false');
 
     const {getByTestId: getByTestIdWithError} = testRender(
-      <MockSelect {...DefaultProps} dataPrefix="has-error" hasError>
+      <MockWrappedSelect {...defaultProps} dataPrefix="has-error" hasError>
         <Option value="option-1">test</Option>
-      </MockSelect>
+      </MockWrappedSelect>
     );
     expect(getByTestIdWithError('has-error-select').getAttribute('aria-invalid')).toEqual('true');
   });
@@ -87,9 +101,9 @@ describe('Form | Select', () => {
       accessKey: 't e s t',
     };
     const {getByTestId} = testRender(
-      <MockSelect {...DefaultProps} {...nativeAttributes}>
+      <MockWrappedSelect {...defaultProps} {...nativeAttributes}>
         <Option value="option-1">test</Option>
-      </MockSelect>
+      </MockWrappedSelect>
     );
     const attributeMap = createAttributeMap(getByTestId('select'));
 
@@ -105,9 +119,9 @@ describe('Form | Select', () => {
 
   it('should filter blocklisted props', () => {
     const {getByTestId} = testRender(
-      <MockSelect {...DefaultProps} dataPrefix="blocklisted" {...blockListedPropsMap}>
+      <MockWrappedSelect {...defaultProps} dataPrefix="blocklisted" {...blockListedPropsMap}>
         <Option value="option-1">test</Option>
-      </MockSelect>
+      </MockWrappedSelect>
     );
     const selectAttributesMap = createAttributeMap(getByTestId('blocklisted-select'));
 
@@ -123,9 +137,9 @@ describe('Form | Select', () => {
       multiple: true,
     };
     const {getByTestId: getByTestIdWithMultiple} = testRender(
-      <MockSelect {...DefaultProps} dataPrefix="blocklisted-multiple" {...multipleRenderProps}>
+      <MockWrappedSelect {...defaultProps} dataPrefix="blocklisted-multiple" {...multipleRenderProps}>
         <Option value="option-1">test</Option>
-      </MockSelect>
+      </MockWrappedSelect>
     );
 
     const selectMultipleAttributesMap = createAttributeMap(getByTestIdWithMultiple('blocklisted-multiple-select'));
@@ -141,12 +155,12 @@ describe('Form | Select', () => {
 
   it('should call onChange when an option is selected', () => {
     const {getByDisplayValue} = testRender(
-      <MockSelect {...DefaultProps}>
+      <MockWrappedSelect {...defaultProps}>
         <Option value="option-1">Option 1</Option>
         <Option data-testid="option-2" value="option-2">
           Option 2
         </Option>
-      </MockSelect>
+      </MockWrappedSelect>
     );
     fireEvent.change(getByDisplayValue('Option 1'), {target: {value: 'option-2'}});
 
@@ -155,9 +169,9 @@ describe('Form | Select', () => {
 
   it('should set data-not-selectize="true" on the select element for console bootstrap overrides', () => {
     const {getByTestId} = testRender(
-      <MockSelect {...DefaultProps}>
+      <MockWrappedSelect {...defaultProps}>
         <Option value="option-1">test</Option>
-      </MockSelect>
+      </MockWrappedSelect>
     );
     expect(getByTestId('select').getAttribute('data-not-selectize')).toEqual('true');
   });
@@ -171,13 +185,229 @@ describe('Form | Select', () => {
     const container = document.createElement('div');
     document.body.append(container);
     render(
-      <MockSelect {...DefaultProps}>
+      <MockWrappedSelect {...defaultProps}>
         <Option value="option-1">test</Option>
-      </MockSelect>,
+      </MockWrappedSelect>,
       container
     );
     const results = await axe(document.body);
 
     expect(results).toHaveNoViolations();
+  });
+
+  describe('HTML Attribute', () => {
+    it('should set an element data attribute for Select (default)', () => {
+      testRender(
+        <MockWrappedSelect {...defaultProps} dataPrefix="default-data-attribute" hasError>
+          <Option value="option-1">test</Option>
+        </MockWrappedSelect>
+      );
+
+      expect(screen.getByTestId('default-data-attribute-select').getAttribute('data-paste-element')).toEqual(
+        'SELECT_ELEMENT'
+      );
+    });
+
+    it('should set an element data attribute for Select', () => {
+      testRender(
+        <MockWrappedSelect {...defaultProps} dataPrefix="unique-data-attribute" element="UNIQUE_NAME" hasError>
+          <Option value="option-1">test</Option>
+        </MockWrappedSelect>
+      );
+
+      expect(screen.getByTestId('unique-data-attribute-select').getAttribute('data-paste-element')).toEqual(
+        'UNIQUE_NAME_ELEMENT'
+      );
+    });
+  });
+
+  describe('Customization', () => {
+    const CustomizationWrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
+      <CustomizationProvider
+        // @ts-expect-error global test variable
+        theme={TestTheme}
+        elements={{
+          SELECT: {
+            color: 'colorTextLinkDarker',
+            cursor: 'help',
+            boxShadow: 'shadowBorderPrimary',
+            variants: {
+              inverse: {
+                boxShadow: 'shadowBorderDestructiveLighter',
+              },
+              default: {
+                color: 'colorTextLinkDarker',
+                cursor: 'help',
+                boxShadow: 'shadowBorderPrimary',
+              },
+            },
+          },
+          SELECT_ELEMENT: {
+            fontFamily: 'fontFamilyCode',
+            variants: {
+              inverse: {
+                color: 'colorTextWarningStrong',
+                fontWeight: 'fontWeightBold',
+              },
+              default: {
+                color: 'inherit',
+                fontWeight: 'inherit',
+              },
+            },
+          },
+          SELECT_CHEVRON_WRAPPER: {
+            transform: 'rotate(90deg) translateX(-50%) translateY(-20%)',
+          },
+          SELECT_ICON: {
+            color: 'colorTextInverseWeak',
+          },
+          HORSE: {
+            color: 'colorTextError',
+            cursor: 'not-allowed',
+            boxShadow: 'shadowBorderPrimary',
+          },
+          HORSE_ELEMENT: {
+            fontFamily: 'fontFamilyCode',
+            fontSize: 'fontSize40',
+            variants: {
+              inverse: {
+                color: 'colorTextWarningStrong',
+                fontWeight: 'fontWeightBold',
+              },
+              default: {
+                color: 'inherit',
+                fontWeight: 'inherit',
+              },
+            },
+          },
+          HORSE_ICON: {
+            transform: 'rotate(90deg) translateX(-50%) translateY(-20%)',
+          },
+          HORSE_CHEVRON_WRAPPER: {
+            color: 'colorTextInverseWeak',
+          },
+        }}
+      >
+        {children}
+      </CustomizationProvider>
+    );
+    it('should add custom styles to Select for default variant', () => {
+      const dataPrefix = 'custom-styles';
+      testRender(
+        <CustomizationWrapper>
+          <div data-testid={initTestId(dataPrefix)}>
+            <ExampleSelect {...defaultProps} dataPrefix={dataPrefix}>
+              <Option value="option-1">test</Option>
+            </ExampleSelect>
+          </div>
+        </CustomizationWrapper>
+      );
+
+      const nodeNamedSelect = screen.getByTestId('custom-styles-select-wrapper').lastChild as ChildNode;
+      expect(nodeNamedSelect).toHaveStyleRule('color', 'rgb(3,11,93)');
+      expect(nodeNamedSelect).toHaveStyleRule('cursor', 'help');
+      expect(nodeNamedSelect).toHaveStyleRule('box-shadow', '0 0 0 1px #0263e0');
+
+      const nodeNamedSelectElement = screen.getByTestId('custom-styles-select');
+      expect(nodeNamedSelectElement).toHaveStyleRule('font-family', "'Fira Mono','Courier New',Courier,monospace");
+      expect(nodeNamedSelectElement).toHaveStyleRule('color', 'inherit');
+      expect(nodeNamedSelectElement).toHaveStyleRule('font-weight', '500');
+
+      const nodeNamedBox = nodeNamedSelect.firstChild as ChildNode;
+      const nodeNamedIconWrapper = nodeNamedBox.lastChild as ChildNode;
+      expect(nodeNamedIconWrapper).toHaveStyleRule('transform', 'rotate(90deg) translateX(-50%) translateY(-20%)');
+
+      const nodeNamedIcon = nodeNamedIconWrapper.firstChild as ChildNode;
+      expect(nodeNamedIcon).toHaveStyleRule('color', 'rgb(174,178,193)');
+    });
+
+    it('should add custom styles to Select for inverse variant', () => {
+      const dataPrefix = 'custom-styles';
+      testRender(
+        <CustomizationWrapper>
+          <div data-testid={initTestId(dataPrefix)}>
+            <ExampleSelect {...defaultProps} variant="inverse" dataPrefix={dataPrefix}>
+              <Option value="option-1">test</Option>
+            </ExampleSelect>
+          </div>
+        </CustomizationWrapper>
+      );
+
+      const nodeNamedSelect = screen.getByTestId('custom-styles-select-wrapper').lastChild as ChildNode;
+      expect(nodeNamedSelect).toHaveStyleRule('color', 'rgb(3,11,93)');
+      expect(nodeNamedSelect).toHaveStyleRule('cursor', 'help');
+      expect(nodeNamedSelect).toHaveStyleRule('box-shadow', '0 0 0 1px #fccfcf');
+
+      const nodeNamedSelectElement = screen.getByTestId('custom-styles-select');
+      expect(nodeNamedSelectElement).toHaveStyleRule('font-family', "'Fira Mono','Courier New',Courier,monospace");
+      expect(nodeNamedSelectElement).toHaveStyleRule('color', 'rgb(141,49,24)');
+      expect(nodeNamedSelectElement).toHaveStyleRule('font-weight', '700');
+
+      const nodeNamedBox = nodeNamedSelect.firstChild as ChildNode;
+      const nodeNamedIconWrapper = nodeNamedBox.lastChild as ChildNode;
+      expect(nodeNamedIconWrapper).toHaveStyleRule('transform', 'rotate(90deg) translateX(-50%) translateY(-20%)');
+
+      const nodeNamedIcon = nodeNamedIconWrapper.firstChild as ChildNode;
+      expect(nodeNamedIcon).toHaveStyleRule('color', 'rgb(174,178,193)');
+    });
+
+    it('should add custom styles to Select with a custom element data attribute', () => {
+      const dataPrefix = 'custom-styles-unique-name';
+      testRender(
+        <CustomizationWrapper>
+          <div data-testid={initTestId(dataPrefix)}>
+            <ExampleSelect {...defaultProps} dataPrefix={dataPrefix} element="HORSE">
+              <Option value="option-1">test</Option>
+            </ExampleSelect>
+          </div>
+        </CustomizationWrapper>
+      );
+
+      const nodeNamedSelect = screen.getByTestId('custom-styles-unique-name-select-wrapper').lastChild as ChildNode;
+      expect(nodeNamedSelect).toHaveStyleRule('color', 'rgb(214,31,31)');
+      expect(nodeNamedSelect).toHaveStyleRule('cursor', 'not-allowed');
+
+      const nodeNamedSelectElement = screen.getByTestId('custom-styles-unique-name-select');
+      expect(nodeNamedSelectElement).toHaveStyleRule('font-family', "'Fira Mono','Courier New',Courier,monospace");
+      expect(nodeNamedSelectElement).toHaveStyleRule('color', 'inherit');
+      expect(nodeNamedSelectElement).toHaveStyleRule('font-weight', '500');
+      expect(nodeNamedSelectElement).toHaveStyleRule('font-size', '1rem');
+
+      const nodeNamedBox = nodeNamedSelect.firstChild as ChildNode;
+      const nodeNamedIconWrapper = nodeNamedBox.lastChild as ChildNode;
+      expect(nodeNamedIconWrapper).toHaveStyleRule('display', 'inline-flex');
+
+      const nodeNamedIcon = nodeNamedIconWrapper.firstChild as ChildNode;
+      expect(nodeNamedIcon).toHaveStyleRule('color', 'rgb(96,107,133)');
+    });
+
+    it('should add custom styles to Select inverse variant with a custom element data attribute', () => {
+      const dataPrefix = 'custom-styles-unique-name';
+      testRender(
+        <CustomizationWrapper>
+          <div data-testid={initTestId(dataPrefix)}>
+            <ExampleSelect {...defaultProps} variant="inverse" dataPrefix={dataPrefix} element="HORSE">
+              <Option value="option-1">test</Option>
+            </ExampleSelect>
+          </div>
+        </CustomizationWrapper>
+      );
+
+      const nodeNamedSelect = screen.getByTestId('custom-styles-unique-name-select-wrapper').lastChild as ChildNode;
+      expect(nodeNamedSelect).toHaveStyleRule('color', 'rgb(214,31,31)');
+      expect(nodeNamedSelect).toHaveStyleRule('cursor', 'not-allowed');
+
+      const nodeNamedSelectElement = screen.getByTestId('custom-styles-unique-name-select');
+      expect(nodeNamedSelectElement).toHaveStyleRule('font-family', "'Fira Mono','Courier New',Courier,monospace");
+      expect(nodeNamedSelectElement).toHaveStyleRule('color', 'rgb(141,49,24)');
+      expect(nodeNamedSelectElement).toHaveStyleRule('font-weight', '700');
+
+      const nodeNamedBox = nodeNamedSelect.firstChild as ChildNode;
+      const nodeNamedIconWrapper = nodeNamedBox.lastChild as ChildNode;
+      expect(nodeNamedIconWrapper).toHaveStyleRule('display', 'inline-flex');
+
+      const nodeNamedIcon = nodeNamedIconWrapper.firstChild as ChildNode;
+      expect(nodeNamedIcon).toHaveStyleRule('color', 'rgb(174,178,193)');
+    });
   });
 });

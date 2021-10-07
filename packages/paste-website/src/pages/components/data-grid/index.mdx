@@ -1,0 +1,403 @@
+---
+title: Data Grid
+package: '@twilio-paste/data-grid'
+description: A data grid is an interactive table used for working with a large collection of data in a scannable way.
+slug: /components/data-grid/
+---
+
+import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+
+import {
+  DataGrid,
+  DataGridHead,
+  DataGridRow,
+  DataGridHeader,
+  DataGridBody,
+  DataGridCell,
+  DataGridFoot,
+} from '@twilio-paste/data-grid';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+
+import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import {standardDataGrid, TableHeaderData, TableBodyData} from '../../../component-examples/DataGridExamples';
+import Changelog from '@twilio-paste/data-grid/CHANGELOG.md';
+
+export const pageQuery = graphql`
+  {
+    allPasteComponent(filter: {name: {eq: "@twilio-paste/data-grid"}}) {
+      edges {
+        node {
+          name
+          description
+          status
+          version
+        }
+      }
+    }
+    mdx(fields: {slug: {eq: "/components/data-grid/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+    allAirtable(filter: {data: {Feature: {eq: "Data Grid"}}}) {
+      edges {
+        node {
+          data {
+            Documentation
+            Figma
+            Design_committee_review
+            Engineer_committee_review
+            Code
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+<ComponentHeader
+  name={props.pageContext.frontmatter.title}
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/data-grid"
+  storybookUrl="/?path=/story/components-data-grid--plain-data-grid"
+  data={props.data.allPasteComponent.edges}
+  packageStatus={props.data.allAirtable.edges}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+<LivePreview
+  scope={{
+    TableHeaderData,
+    TableBodyData,
+    DataGrid,
+    DataGridHead,
+    DataGridRow,
+    DataGridHeader,
+    DataGridBody,
+    DataGridCell,
+  }}
+  language="jsx"
+  noInline
+>
+  {standardDataGrid}
+</LivePreview>
+
+## Guidelines
+
+## About Data Grid
+
+The Data Grid is an enhanced [Table](/components/table) component. It can be used to improve the way
+users scan and interact with tabular data. It can be used alongside other components in Paste to provide
+the following functionality:
+
+- Full keyboard navigation
+- Responsive horizontal scrolling
+- Column sorting
+- Editable cells
+- Selectable rows
+- Pagination
+
+### Accessibility
+
+#### Semantics
+
+- The `DataGrid` component uses HTML `table` elements rather than `div` elements. This provides better screen reader support.
+- The `DataGrid` `table` element has `role="grid"` applied.
+- The `DataGrid` `table` element has an `aria-label` provided.
+- The `DataGridRow` `tr` element has `role="row"` applied.
+- The `DataGridRow` `tr` element has an `aria-selected` provided.
+- Column headers with sorting list the direction with the `aria-sort` attribute.
+
+#### Keyboard navigation
+
+The data grid can be in two navigational modes: **Actionable** and **Navigational**. Each has
+different requirements listed below:
+
+##### Navigational:
+
+- The data grid has one tab stop. This means if you press the [Tab] key to enter the data grid,
+  the next [Tab] key press will take you to the first element outside the data grid.
+- Data cells can be focused using standard navigation keys, including directional arrows,
+  [Home], [End], [Control+Home], [Control+End], [Page up], and [Page down].
+- Tabbing out of the table and back into the table will restore focus to the last selected data cell.
+- Pressing the [Enter] key will swap the user into the **Actionable** mode. If there’s a
+  focusable child element in the current cell, it will gain focus.
+
+##### Actionable:
+
+- Data grid cells lose the ability to focus. However, focusable elements inside each cell regain
+  their tabindex.
+- The user can [Tab] through all the focusable elements in the table.
+- Pressing the [Escape] key returns the user to **Navigational** mode, and moves the focus to the closest parent cell.
+- When interacting with a component in a cell that also uses the [Escape] key, the
+  user will need to press the [Escape] key twice to return to **Navigational** mode.
+
+## Examples
+
+### Data grid with custom cell content
+
+This example shows the composition of Paste components like [Input](/components/input) and [Select](/components/select) in the cells.
+Notice how the `tabIndex` is [correctly managed](#keyboard-navigation) without any additional code.
+
+<iframe
+  src="https://codesandbox.io/embed/composable-cells-datagrid-7dfxh?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.tsx&theme=dark&view=preview"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden; margin-bottom:40px;"
+  title="Composable Cells data grid"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+### Data grid with selectable rows
+
+Row selection is achieved with the [CheckboxGroup and Checkbox components](/components/checkbox) and the `selected` prop on `DataGridRow`.
+
+<iframe
+  src="https://codesandbox.io/embed/selectable-rows-datagrid-5vtlt?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.tsx&theme=dark&view=preview"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden; margin-bottom:40px;"
+  title="Selectable Rows data grid"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+### Data grid with sortable columns
+
+This package exports a `DataGridHeaderSort` component which render the UI for a sort button in the `DataGridHeader`. Please be mindful to correctly set the `aria-sort` attribute on the `DataGridHeader` component.
+
+<iframe
+  src="https://codesandbox.io/embed/sortable-columns-datagrid-yj9kl?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.tsx&theme=dark&view=preview"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden; margin-bottom:40px;"
+  title="Sortable Columns data grid"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+### Data grid with pagination
+
+It is not ideal to display more than a few rows at a time (consider 10 as a default), so the [Pagination component](/components/pagination) is used to handle multiple pages of information.
+
+<iframe
+  src="https://codesandbox.io/embed/paginated-datagrid-pvfs9?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.tsx&theme=dark&view=preview"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden; margin-bottom:40px;"
+  title="Paginated data grid"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+### Data grid in a loading state
+
+Rather than using a [Spinner component](/components/spinner), you can use the [Skeleton Loader](/components/skeleton-loader)
+in the cells to create a more pleasant loading experience.
+
+<iframe
+  src="https://codesandbox.io/embed/loading-datagrid-z7j2k?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.tsx&theme=dark&view=preview"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden; margin-bottom:40px;"
+  title="Loading data grid"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+### Kitchen sink
+
+This example combines all the separate features displayed previously into one example. It shows how all the features work together harmoniously through composition.
+
+<iframe
+  src="https://codesandbox.io/embed/kitchen-sink-datagrid-7w6pj?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.tsx&theme=dark&view=preview"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden; margin-bottom:40px;"
+  title="Kitchen Sink data grid"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+## Composition Notes
+
+The Data Grid component was designed to be [accessible and composable](/getting-started/about-paste/#paste-is).
+This means it can adapt to any of your product and development needs while providing an inclusive experience
+for all of your users.
+
+This package provides the following component exports, which correspond closely to HTML table element naming:
+
+- `DataGrid`
+- `DataGridHead`
+- `DataGridRow`
+- `DataGridHeader`
+- `DataGridHeaderSort`
+- `DataGridBody`
+- `DataGridCell`
+- `DataGridFoot`
+
+You are free to put any Paste component in the Data Grid cells and it should just work.
+Keep in mind that anything that dynamically updates an element's `tabIndex` value may fail to work correctly.
+
+### When to use a Data Grid
+
+<Callout>
+  <CalloutTitle as="h4">Don't forget about the Table component</CalloutTitle>
+  <CalloutText>
+    If the data is static and doesn't need sorting, prefer to use a <Anchor href="/components/table">Table</Anchor>{' '}
+    component which is more lightweight.
+  </CalloutText>
+</Callout>
+
+<DoDont>
+  <Do title="Do" body="Use data grid for interactive, tabular data" />
+  <Dont title="Don't" body="Don't use data grid for static data" />
+</DoDont>
+
+---
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {
+  DataGrid,
+  DataGridHead,
+  DataGridRow,
+  DataGridHeader,
+  DataGridBody,
+  DataGridCell,
+  DataGridFoot,
+} from '@twilio-paste/core/data-grid';
+
+const Component = () => (
+  <DataGrid aria-label="User information table">
+    <DataGridHead>
+      <DataGridRow>
+        <DataGridHeader>First Name</DataGridHeader>
+        <DataGridHeader>Last Name</DataGridHeader>
+        <DataGridHeader>Country</DataGridHeader>
+        <DataGridHeader>Email</DataGridHeader>
+        <DataGridHeader>Phone</DataGridHeader>
+      </DataGridRow>
+    </DataGridHead>
+    <DataGridBody>
+      <DataGridRow>
+        <DataGridCell>Devyn</DataGridCell>
+        <DataGridCell>Weimann</DataGridCell>
+        <DataGridCell>Congo</DataGridCell>
+        <DataGridCell>Matilde86@gmail.com</DataGridCell>
+        <DataGridCell>652-441-1766 x377</DataGridCell>
+      </DataGridRow>
+      <DataGridRow>
+        <DataGridCell>Fritz</DataGridCell>
+        <DataGridCell>Bashirian</DataGridCell>
+        <DataGridCell>France</DataGridCell>
+        <DataGridCell>Magali.Harber@hotmail.com</DataGridCell>
+        <DataGridCell>1-229-278-7567</DataGridCell>
+      </DataGridRow>
+      <DataGridRow>
+        <DataGridCell>Jovanny</DataGridCell>
+        <DataGridCell>Mante</DataGridCell>
+        <DataGridCell>Pitcairn Islands</DataGridCell>
+        <DataGridCell>Fausto_Vandervort15@gmail.com</DataGridCell>
+        <DataGridCell>(629) 375-5743 x726</DataGridCell>
+      </DataGridRow>
+    </DataGridBody>
+    <DataGridFoot>
+      <DataGridRow>
+        <DataGridCell>Devyn</DataGridCell>
+        <DataGridCell>Weimann</DataGridCell>
+        <DataGridCell>Congo</DataGridCell>
+        <DataGridCell>Matilde86@gmail.com</DataGridCell>
+        <DataGridCell>652-441-1766 x377</DataGridCell>
+      </DataGridRow>
+    </DataGridFoot>
+  </DataGrid>
+);
+```
+
+#### DataGrid Props
+
+| Prop       | Type        | Description                                             | Default     |
+| ---------- | ----------- | ------------------------------------------------------- | ----------- |
+| aria-label | `string`    | Defines a string value that labels the current element. | null        |
+| element?   | `string`    | Override for customization element name                 | `DATA_GRID` |
+| children?  | `ReactNode` |                                                         | null        |
+
+#### DataGridHead Props
+
+| Prop      | Type        | Description                             | Default          |
+| --------- | ----------- | --------------------------------------- | ---------------- |
+| element?  | `string`    | Override for customization element name | `DATA_GRID_HEAD` |
+| children? | `ReactNode` |                                         | null             |
+
+#### DataGridBody Props
+
+| Prop      | Type        | Description                             | Default          |
+| --------- | ----------- | --------------------------------------- | ---------------- |
+| element?  | `string`    | Override for customization element name | `DATA_GRID_BODY` |
+| children? | `ReactNode` |                                         | null             |
+
+#### DataGridFoot Props
+
+| Prop      | Type        | Description                             | Default          |
+| --------- | ----------- | --------------------------------------- | ---------------- |
+| element?  | `string`    | Override for customization element name | `DATA_GRID_FOOT` |
+| children? | `ReactNode` |                                         | null             |
+
+#### DataGridHeader Props
+
+| Prop       | Type        | Description                                  | Default            |
+| ---------- | ----------- | -------------------------------------------- | ------------------ |
+| textAlign? | `string`    | CSS text align for this cell                 | `left`             |
+| width?     | `string`    | Allows setting column width programmatically | null               |
+| element?   | `string`    | Override for customization element name      | `DATA_GRID_HEADER` |
+| children?  | `ReactNode` |                                              | null               |
+
+#### DataGridHeaderSort Props
+
+| Prop      | Type                              | Description                                                       | Default                 |
+| --------- | --------------------------------- | ----------------------------------------------------------------- | ----------------------- |
+| direction | "ascending", "descending", "none" | Sort direction matching aria spec                                 | null                    |
+| onClick?  | `() => {}`                        | Callback when the sort button is pressed. Used to handle sorting. | null                    |
+| element?  | `string`                          | Override for customization element name                           | `DATA_GRID_HEADER_SORT` |
+
+#### DataGridRow Props
+
+| Prop      | Type        | Description                                                                    | Default         |
+| --------- | ----------- | ------------------------------------------------------------------------------ | --------------- |
+| selected? | `boolean`   | Visally displays a row highlight indicating selection and sets `aria-selected` | false           |
+| element?  | `string`    | Override for customization element name                                        | `DATA_GRID_ROW` |
+| children? | `ReactNode` |                                                                                | null            |
+
+#### DataGridCell Props
+
+| Prop      | Type        | Description                                             | Default          |
+| --------- | ----------- | ------------------------------------------------------- | ---------------- |
+| as?       | "th", "td"  | Cells can either be th or td, so rows can have headers. | `td`             |
+| element?  | `string`    | Override for customization element name                 | `DATA_GRID_CELL` |
+| children? | `ReactNode` |                                                         | null             |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

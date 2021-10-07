@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.2.0
+
+### Minor Changes
+
+- [`49a0db69`](https://github.com/twilio-labs/paste/commit/49a0db696408a9fa05d7c02c29cf70bd7defc294) [#1894](https://github.com/twilio-labs/paste/pull/1894) Thanks [@andipants12](https://github.com/andipants12)! - [Spinner]: Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 7.1.0
 
 ### Minor Changes

@@ -22,6 +22,7 @@
     "/packages/paste-core/components/combobox",
     "/packages/paste-core/primitives/combobox",
     "/packages/paste-customization",
+    "/packages/paste-core/components/data-grid",
     "/packages/paste-core/components/date-picker",
     "/packages/paste-design-tokens",
     "/packages/paste-core/components/disclosure",
@@ -70,7 +71,8 @@
     "/packages/paste-core/primitives/tooltip",
     "/packages/paste-core/components/truncate",
     "/packages/paste-types",
-    "/packages/paste-libraries/uid"
+    "/packages/paste-libraries/uid",
+    "/packages/paste-utils"
   ],
   "sandboxes": [
     "/packages/paste-nextjs-template"

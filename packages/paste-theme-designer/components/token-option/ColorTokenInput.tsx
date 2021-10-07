@@ -8,7 +8,7 @@ import {Label} from '@twilio-paste/core/label';
 import {ChromePicker} from 'react-color';
 import type {ColorChangeHandler, ColorResult} from 'react-color';
 import {Input} from '@twilio-paste/core/input';
-import {EditIcon} from '@twilio-paste/icons/cjs/EditIcon';
+import {ColorPickerIcon} from '@twilio-paste/icons/cjs/ColorPickerIcon';
 import type {TokenContextProps} from '../../context/TokenContext';
 
 type ColorTokenInputProps = {
@@ -74,7 +74,7 @@ export const ColorTokenInput: React.FC<ColorTokenInputProps> = ({bucket, tokenNa
           value={localValue}
           insertAfter={
             <PopoverButton variant="link" id={seed(`popover-${tokenName}`)}>
-              <EditIcon decorative={false} size="sizeIcon20" title="Get more info" />
+              <ColorPickerIcon decorative={false} size="sizeIcon20" title={`Change ${tokenName} value`} />
             </PopoverButton>
           }
           onChange={handleInputChange}

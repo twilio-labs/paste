@@ -1,7 +1,7 @@
 {
   "name": "@twilio-paste/customization",
   "version": "2.1.1",
-  "description": "Paste Design System customization provider.",
+  "description": "The Customization Provider provides functionality to change token values and the style of Paste components.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
@@ -23,7 +23,8 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "deepmerge": "4.2.2"
+    "deepmerge": "4.2.2",
+    "lodash.merge": "^4.6.2"
   },
   "peerDependencies": {
     "@twilio-paste/animation-library": "^0.3.1",

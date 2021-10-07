@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.2.4
+
+### Patch Changes
+
+- [`9d32315e`](https://github.com/twilio-labs/paste/commit/9d32315e2aee4176fb4b27aac6a131582a0e0bb9) [#1879](https://github.com/twilio-labs/paste/pull/1879) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Added three new pseudo selectors to be used on Box and Text. You can now style selected and hover, selected and focus
+  and selected and focus-visible
+
 ## 4.2.3
 
 ### Patch Changes

@@ -25,8 +25,8 @@ const StyledMenu = React.forwardRef<HTMLDivElement, BoxElementProps>(({style, ..
   );
 });
 
-const Menu = React.forwardRef<HTMLDivElement, MenuProps>((props, ref) => {
-  return <MenuPrimitive {...props} as={StyledMenu} ref={ref} />;
+const Menu = React.forwardRef<HTMLDivElement, MenuProps>(({element = 'MENU', ...props}, ref) => {
+  return <MenuPrimitive {...props} element={element} as={StyledMenu} ref={ref} />;
 });
 Menu.displayName = 'Menu';
 export {Menu};

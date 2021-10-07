@@ -73,5 +73,5 @@ export const CustomDisplayPillGroup: React.FC = () => {
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Display Pill Group',
-  component: Basic,
+  component: DisplayPill,
 };

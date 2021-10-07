@@ -1,16 +1,21 @@
 import * as React from 'react';
 import {render} from 'react-dom';
-import {render as testRender} from '@testing-library/react';
+import {matchers} from 'jest-emotion';
+import {render as testRender, screen} from '@testing-library/react';
+import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {OptionGroup, Option} from '../src';
+import type {OptionGroupProps} from '../src';
 import {createAttributeMap} from '../test-utils';
 
-interface MockOptionGroupProps extends React.OptgroupHTMLAttributes<HTMLOptGroupElement> {
+expect.extend(matchers);
+
+interface ExampleOptionGroupProps extends Omit<OptionGroupProps, 'children' | 'label'> {
   groupSuffix?: string;
 }
 
-const MockOptionGroup: React.FC<MockOptionGroupProps> = ({groupSuffix = 'test', ...props}) => {
+const ExampleOptionGroup: React.FC<ExampleOptionGroupProps> = ({groupSuffix = 'test', ...props}) => {
   return (
     <OptionGroup data-testid={`optgroup-1-${groupSuffix}`} {...props} label="first-group">
       <Option value="option-1">Option 1</Option>
@@ -19,7 +24,7 @@ const MockOptionGroup: React.FC<MockOptionGroupProps> = ({groupSuffix = 'test', 
   );
 };
 
-describe('Form | OptionGroup', () => {
+describe('OptionGroup', () => {
   it('should be able to take arbitrary html attributes on the container', () => {
     const additionalAttributes = {
       disabled: true,
@@ -30,7 +35,7 @@ describe('Form | OptionGroup', () => {
       draggable: true,
       accessKey: 't e s t',
     };
-    const {getByTestId} = testRender(<MockOptionGroup {...additionalAttributes} />);
+    const {getByTestId} = testRender(<ExampleOptionGroup {...additionalAttributes} />);
     const attributeMap = createAttributeMap(getByTestId('optgroup-1-test'));
 
     expect(attributeMap['data-attr']).toEqual('test-attribute');
@@ -50,7 +55,7 @@ describe('Form | OptionGroup', () => {
       width: '2px',
       size: 2,
     };
-    const {getByTestId} = testRender(<MockOptionGroup {...blockListedPropsMap} />);
+    const {getByTestId} = testRender(<ExampleOptionGroup {...blockListedPropsMap} />);
     const attributeMap = createAttributeMap(getByTestId('optgroup-1-test'));
 
     expect(attributeMap.hasOwnProperty('style')).toBe(false);
@@ -64,9 +69,72 @@ describe('Form | OptionGroup', () => {
   it('should have no accessibility violations', async () => {
     const container = document.createElement('div');
     document.body.append(container);
-    render(<MockOptionGroup />, container);
+    render(<ExampleOptionGroup />, container);
     const results = await axe(document.body);
 
     expect(results).toHaveNoViolations();
+  });
+
+  describe('HTML Attribute', () => {
+    it('should set an element data attribute for Option (default)', () => {
+      testRender(<ExampleOptionGroup groupSuffix="default-data-attribute" />);
+      expect(screen.getByTestId('optgroup-1-default-data-attribute').getAttribute('data-paste-element')).toEqual(
+        'OPTION_GROUP'
+      );
+    });
+
+    it('should set an element data attribute for Option', () => {
+      testRender(<ExampleOptionGroup groupSuffix="unique-data-attribute" element="UNIQUE_NAME" />);
+
+      expect(screen.getByTestId('optgroup-1-unique-data-attribute').getAttribute('data-paste-element')).toEqual(
+        'UNIQUE_NAME'
+      );
+    });
+  });
+
+  describe('Customization', () => {
+    it('should add custom styles to OptionGroup', () => {
+      testRender(
+        <CustomizationProvider
+          baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
+          elements={{
+            OPTION: {
+              color: 'colorTextLinkDarker',
+            },
+            OPTION_GROUP: {
+              color: 'colorTextSuccess',
+            },
+          }}
+        >
+          <ExampleOptionGroup groupSuffix="custom-styles" />
+        </CustomizationProvider>
+      );
+
+      expect(screen.getByTestId('optgroup-1-custom-styles')).toHaveStyleRule('color', 'rgb(14,124,58)');
+    });
+
+    it('should add custom styles to OptionGroup with a custom element data attribute', () => {
+      testRender(
+        <CustomizationProvider
+          baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
+          elements={{
+            OPTION_GROUP: {
+              color: 'colorTextLinkDarker',
+            },
+            UNIQUE_NAME: {
+              color: 'colorTextLink',
+            },
+          }}
+        >
+          <ExampleOptionGroup groupSuffix="custom-styles-unique-name" element="UNIQUE_NAME" />
+        </CustomizationProvider>
+      );
+
+      expect(screen.getByTestId('optgroup-1-custom-styles-unique-name')).toHaveStyleRule('color', 'rgb(2,99,224)');
+    });
   });
 });
