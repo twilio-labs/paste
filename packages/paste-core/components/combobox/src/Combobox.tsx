@@ -67,7 +67,8 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
     const parentRef = React.useRef(null);
     const helpTextId = useUID();
 
-    // Only virtualize non-grouped items and not templated items
+    // Only virtualize non-grouped items
+    // Not virtualizing grouped items because we cannot accessibly define position within nested sets (e.g. "groups")
     const rowVirtualizer = useVirtual({
       size: items.length,
       parentRef,

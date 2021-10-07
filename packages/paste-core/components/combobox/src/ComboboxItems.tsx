@@ -33,18 +33,18 @@ const ComboboxItems: React.FC<ComboboxItemsProps> = ({
       <ComboboxListboxGroup element={element}>
         <li role="presentation" key="total-size" style={{height: totalSize}} />
         {virtualItems.map((virtualItem: VirtualItem) => {
-          const itemIndex = virtualItem.index;
-          const item = templatizedItems[itemIndex];
+          const {index: virtualItemIndex} = virtualItem;
+          const item = templatizedItems[virtualItemIndex];
           return (
             <ComboboxListboxOption
-              {...getItemProps({item, index: itemIndex, ref: virtualItem.measureRef})}
+              {...getItemProps({item, index: virtualItemIndex, ref: virtualItem.measureRef})}
               element={element}
-              highlighted={highlightedIndex === itemIndex}
-              key={uidSeed(`item-${itemIndex}`)}
+              highlighted={highlightedIndex === virtualItemIndex}
+              key={uidSeed(`item-${virtualItemIndex}`)}
               variant="default"
-              virtualItem={virtualItem}
-              aria-setsize={totalSize}
-              aria-posinset={itemIndex}
+              startHeight={virtualItem.start}
+              aria-setsize={items.length}
+              aria-posinset={virtualItemIndex}
             >
               {item}
             </ComboboxListboxOption>
