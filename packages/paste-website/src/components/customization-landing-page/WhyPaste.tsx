@@ -44,11 +44,12 @@ const WhyPasteTopAngle: React.FC = () => {
     <Box
       // @ts-expect-error combat semi opaque dark mode token value
       backgroundColor={theme === 'dark' ? '#2a3342' : 'colorBackgroundPrimaryWeakest'}
+      borderRadius="borderRadius20"
       height="95%"
-      position="absolute"
-      top={skewOffset}
-      right={0}
       left={0}
+      position="absolute"
+      right={0}
+      top={skewOffset}
       transform="skewY(10deg)"
       transformOrigin="100% 0"
       zIndex="zIndex0"
@@ -64,11 +65,12 @@ const WhyPasteBottomAngle: React.FC = () => {
     <Box
       // @ts-expect-error combat semi opaque dark mode token value
       backgroundColor={theme === 'dark' ? '#2a3342' : 'colorBackgroundPrimaryWeakest'}
-      height="100%"
-      position="absolute"
+      borderRadius="borderRadius20"
       bottom={skewOffset}
-      right={0}
+      height="100%"
       left={0}
+      position="absolute"
+      right={0}
       transform="skewY(10deg)"
       transformOrigin="100% 0"
       zIndex="zIndex0"
@@ -80,60 +82,75 @@ export const WhyPaste: React.FC = () => {
   const imageData = useStaticQuery(imageQuery);
 
   return (
-    <LandingPageSection backgroundColor="colorBackgroundPrimaryWeakest" paddingTop={['space0', 'space0', 'space0']}>
+    <LandingPageSection
+      backgroundColor="colorBackgroundPrimaryWeakest"
+      paddingTop={['space0', 'space0', 'space0']}
+      paddingBottom={['space0', 'space0', 'space0']}
+      maxWidth="96%"
+      marginX="auto"
+    >
       <WhyPasteTopAngle />
       <WhyPasteBottomAngle />
-      <LandingPageSectionContent variant="narrow" zIndex="zIndex10">
-        <Box maxWidth="size60" marginBottom="space130">
-          <Heading as="h2" variant="heading40">
-            Why Paste
-          </Heading>
-          <Heading as="h3" variant="heading10">
-            A fully extensible and accessible customization platform
-          </Heading>
-        </Box>
-        <Grid gutter={['space60', 'space120', 'space200']} vertical={[true, false, false]}>
-          <Column span={6}>
-            <ReasonBlock
-              icon={<ThemableIcon decorative />}
-              headingText="Themeable"
-              subHeadingText="To meet your brand needs"
-              description="Change a single color or customize your full palette with our theming system, your UIs come out looking exactly the way you want them."
-              href="/customization/creating-a-custom-theme"
-              linkText="Learn about theming"
-            />
-          </Column>
-          <Column span={6}>
-            <ReasonBlock
-              icon={<CustomizableIcon decorative />}
-              headingText="Customizable"
-              subHeadingText="To meet your application needs"
-              description="Fully customize all components of the same type across an application, or extend Paste components to create your own custom components."
-              href="/customization/customizing-component-elements"
-              linkText="Learn about customizing components"
-            />
-          </Column>
-          <Column span={6}>
-            <ReasonBlock
-              icon={<A11yIcon decorative />}
-              headingText="Accessible"
-              subHeadingText="To meet your customers’ needs"
-              description="Do the right thing for all your customers' needs with accessible UIs built out of the box that support high contrast, screen reader support, and much more."
-              href="/inclusive-design"
-              linkText="Read our Inclusive Design Checklist"
-            />
-          </Column>
-        </Grid>
-        <Box display={['none', 'block']} position="absolute" bottom="-150px" right="0" width="60%" maxWidth="100%">
+      <Box position="relative" maxWidth="1400px" marginX="auto">
+        <LandingPageSectionContent variant="narrow" zIndex="zIndex10">
+          <Box maxWidth="size60" marginBottom="space130">
+            <Heading as="h2" variant="heading40">
+              Why Paste
+            </Heading>
+            <Heading as="h3" variant="heading10">
+              A fully extensible and accessible customization platform
+            </Heading>
+          </Box>
+          <Grid gutter={['space60', 'space120', 'space200']} vertical={[true, false, false]}>
+            <Column span={6}>
+              <ReasonBlock
+                icon={<ThemableIcon decorative />}
+                headingText="Themeable"
+                subHeadingText="To meet your brand needs"
+                description="Change a single color or customize your full palette—with our theming system, your UIs come out looking exactly the way you want them."
+                href="/customization/creating-a-custom-theme"
+                linkText="Learn about theming"
+              />
+            </Column>
+            <Column span={6}>
+              <ReasonBlock
+                icon={<CustomizableIcon decorative />}
+                headingText="Customizable"
+                subHeadingText="To meet your application needs"
+                description="Fully customize all components of the same type across an application, or extend Paste components to create your own custom components."
+                href="/customization/customizing-component-elements"
+                linkText="Learn about customizing components"
+              />
+            </Column>
+            <Column span={6}>
+              <ReasonBlock
+                icon={<A11yIcon decorative />}
+                headingText="Accessible"
+                subHeadingText="To meet your customers’ needs"
+                description="Do the right thing for all your customers' needs with accessible UIs built out of the box that support high contrast, screen reader support, and much more."
+                href="/inclusive-design"
+                linkText="Read our Inclusive Design Checklist"
+              />
+            </Column>
+          </Grid>
+          <Box display={['block', 'none']} width="100%" maxWidth="400px" marginX="auto" marginTop="space70">
+            <Img fluid={imageData.whyPasteSmall.childImageSharp.fluid} />
+          </Box>
+          <Box as="span" position="absolute" display={['none', 'none', 'block']} bottom={-280} left={0}>
+            <DoodleLoopArrowLarge />
+          </Box>
+        </LandingPageSectionContent>
+        <Box
+          display={['none', 'block']}
+          position="absolute"
+          bottom={['-300px', '-300px', '-300px', '-350px']}
+          right="0"
+          width={['700px', '700px', '700px', '800px']}
+          maxWidth="100%"
+        >
           <Img fluid={imageData.whyPaste.childImageSharp.fluid} />
         </Box>
-        <Box display={['block', 'none']} width="100%" maxWidth="400px" marginX="auto" marginTop="space70">
-          <Img fluid={imageData.whyPasteSmall.childImageSharp.fluid} />
-        </Box>
-        <Box as="span" position="absolute" display={['none', 'none', 'block']} bottom={-200} left={0}>
-          <DoodleLoopArrowLarge />
-        </Box>
-      </LandingPageSectionContent>
+      </Box>
     </LandingPageSection>
   );
 };

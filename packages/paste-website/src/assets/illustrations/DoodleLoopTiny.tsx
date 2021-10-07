@@ -23,7 +23,7 @@ export const DoodleLoopTiny: React.FC = () => {
   return (
     <VisibilitySensor onChange={handleVisibilityChange}>
       <animated.svg
-        stroke={theme.backgroundColors.colorBackgroundPrimaryStronger}
+        stroke={theme.borderColors.colorBorderPrimaryStrong}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"
@@ -36,7 +36,7 @@ export const DoodleLoopTiny: React.FC = () => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          stroke="#001489"
+          stroke={theme.borderColors.colorBorderPrimaryStrong}
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="2"

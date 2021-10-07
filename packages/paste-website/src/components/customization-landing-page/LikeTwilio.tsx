@@ -30,7 +30,7 @@ const pageQuery = graphql`
 
 const LikeTwilioHeadline: React.FC = () => {
   return (
-    <Box maxWidth="size60" marginX="auto" textAlign="center">
+    <Box maxWidth="size60" marginX="auto" paddingBottom="space100" textAlign="center">
       <Heading as="h2" variant="heading10">
         Like Twilio, but for UI
       </Heading>
@@ -52,7 +52,7 @@ const DesktopDesigner: React.FC = () => {
         <LandingPageDesigner />
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <Text as="span" color="colorTextWeak">
-            Your data will not be saved
+            Your data will not be saved.
           </Text>
           <Button as="a" href="https://remix.twilio.design" variant="secondary">
             Try the Beta Theme Designer
@@ -89,7 +89,7 @@ const MobileDesigner: React.FC = () => {
 
 export const LikeTwilio: React.FC = () => {
   return (
-    <LandingPageSection zIndex="zIndex10">
+    <LandingPageSection zIndex="zIndex10" overflow="hidden">
       <LandingPageSectionContent variant="narrow" paddingTop={['space200', 'space200', 'space0']}>
         <LikeTwilioHeadline />
 
