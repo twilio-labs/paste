@@ -8,6 +8,8 @@ const StyledMenuSeparator = React.forwardRef<HTMLHRElement, SeparatorProps>((pro
   return <Separator {...props} orientation="horizontal" verticalSpacing="space40" ref={ref} />;
 });
 
+StyledMenuSeparator.displayName = 'StyledMenuSeparator';
+
 const MenuSeparator = React.forwardRef<HTMLHRElement, MenuSeparatorProps>(
   ({element = 'MENU_SEPARATOR', ...props}, ref) => {
     // as prop from reakit for some reason only accepts a string of `hr` but accepts components. any prevent type errors
