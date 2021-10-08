@@ -1,0 +1,11 @@
+{
+  "name": "@twilio-paste/eslint-config",
+  "version": "0.0.1",
+  "description": "A custom ESLint config for Paste.",
+  "author": "Twilio Inc.",
+  "license": "MIT",
+  "main:dev": "src/index.js",
+  "peerDependencies": {
+    "eslint": "^7.11.0"
+  }
+}
