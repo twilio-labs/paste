@@ -51,6 +51,8 @@ const HiddenCheckbox = React.forwardRef<HTMLInputElement, HiddenCheckboxProps>((
   />
 ));
 
+HiddenCheckbox.displayName = 'HiddenCheckbox';
+
 const CheckboxIcon: React.FC<{
   indeterminate: boolean | undefined;
   disabled: boolean | undefined;
