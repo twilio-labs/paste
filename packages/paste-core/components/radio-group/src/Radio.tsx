@@ -45,6 +45,8 @@ const HiddenRadio = React.forwardRef<HTMLInputElement, HiddenRadioProps>((props,
   />
 ));
 
+HiddenRadio.displayName = 'HiddenRadio';
+
 const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
   ({id, name, element = 'RADIO', value, checked, disabled, hasError, onChange, children, helpText, ...props}, ref) => {
     const helpTextId = useUID();
