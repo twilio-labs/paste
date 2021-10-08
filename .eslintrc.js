@@ -7,7 +7,7 @@ module.exports = {
   parserOptions: {
     project: './tsconfig.json',
   },
-  plugins: ['@typescript-eslint', 'eslint-comments', 'jest', 'promise', 'unicorn', 'emotion'],
+  plugins: ['@typescript-eslint', 'eslint-comments', 'jest', 'promise', 'unicorn', 'emotion', 'import'],
   extends: [
     'airbnb-typescript',
     'plugin:@typescript-eslint/recommended',
@@ -31,6 +31,7 @@ module.exports = {
     // https://basarat.gitbooks.io/typescript/docs/tips/defaultIsBad.html
     'import/prefer-default-export': 'off',
     'import/no-default-export': 'error',
+    'import/no-unused-modules': [1, {missingExports: true}],
     // Too restrictive: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/destructuring-assignment.md
     'react/destructuring-assignment': 'off',
     // No jsx extension: https://github.com/facebook/create-react-app/issues/87#issuecomment-234627904
