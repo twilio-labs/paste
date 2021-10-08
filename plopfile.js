@@ -10,7 +10,7 @@ module.exports = function (plop) {
       {
         type: 'list',
         name: 'component-type',
-        message: 'Whay type of component package?',
+        message: 'What type of component package?',
         choices: ['components', 'layout', 'primitives'],
       },
       {
