@@ -9,6 +9,7 @@ import {Spinner} from '../src';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 
+// eslint-disable-next-line react/display-name
 const TestWrapper = (elements?: Record<string, any>): RenderOptions['wrapper'] => ({children}) => (
   <CustomizationProvider
     // @ts-expect-error global test variable
