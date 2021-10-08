@@ -18,6 +18,7 @@
 /combobox
 /combobox-primitive
 /customization
+/data-grid
 /date-picker
 /design-tokens
 /disclosure
@@ -67,3 +68,4 @@
 /truncate
 /types
 /uid-library
+/utils

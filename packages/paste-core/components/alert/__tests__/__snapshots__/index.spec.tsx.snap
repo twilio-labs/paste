@@ -62,7 +62,7 @@ exports[`Alert Variant error Should render an error alert 1`] = `
 >
   <div
     className="emotion-4"
-    data-paste-element="BOX"
+    data-paste-element="ALERT"
     role="alert"
   >
     <div
@@ -77,8 +77,8 @@ exports[`Alert Variant error Should render an error alert 1`] = `
       >
         <span
           className="emotion-0"
-          color="colorTextError"
-          data-paste-element="BOX"
+          color="colorTextIconError"
+          data-paste-element="ALERT_ICON"
           display="block"
           size="sizeIcon20"
         >
@@ -187,6 +187,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
   margin: 0;
   cursor: pointer;
   color: rgb(0,94,166);
+  text-align: left;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
@@ -250,7 +251,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
 >
   <div
     className="emotion-8"
-    data-paste-element="BOX"
+    data-paste-element="ALERT"
     role="alert"
   >
     <div
@@ -265,8 +266,8 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
       >
         <span
           className="emotion-0"
-          color="colorTextError"
-          data-paste-element="BOX"
+          color="colorTextIconError"
+          data-paste-element="ALERT_ICON"
           display="block"
           size="sizeIcon20"
         >
@@ -307,7 +308,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
           className="emotion-5"
           color="colorTextLink"
           cursor="pointer"
-          data-paste-element="BOX"
+          data-paste-element="ALERT_DISMISS_BUTTON"
           disabled={false}
           display="inline-block"
           fontFamily="fontFamilyText"
@@ -330,7 +331,7 @@ exports[`Alert Variant error Should render an error alert with dismiss button 1`
             <span
               className="emotion-3"
               color="colorTextIcon"
-              data-paste-element="BOX"
+              data-paste-element="ALERT_DISMISS_ICON"
               display="block"
               size="sizeIcon20"
             >
@@ -424,7 +425,7 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
 >
   <div
     className="emotion-4"
-    data-paste-element="BOX"
+    data-paste-element="ALERT"
     role="status"
   >
     <div
@@ -439,8 +440,8 @@ exports[`Alert Variant neutral Should render a neutral alert 1`] = `
       >
         <span
           className="emotion-0"
-          color="colorTextNeutral"
-          data-paste-element="BOX"
+          color="colorTextIconNeutral"
+          data-paste-element="ALERT_ICON"
           display="block"
           size="sizeIcon20"
         >
@@ -570,6 +571,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
   margin: 0;
   cursor: pointer;
   color: rgb(0,94,166);
+  text-align: left;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
@@ -612,7 +614,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
 >
   <div
     className="emotion-8"
-    data-paste-element="BOX"
+    data-paste-element="ALERT"
     role="status"
   >
     <div
@@ -627,8 +629,8 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
       >
         <span
           className="emotion-0"
-          color="colorTextNeutral"
-          data-paste-element="BOX"
+          color="colorTextIconNeutral"
+          data-paste-element="ALERT_ICON"
           display="block"
           size="sizeIcon20"
         >
@@ -669,7 +671,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
           className="emotion-5"
           color="colorTextLink"
           cursor="pointer"
-          data-paste-element="BOX"
+          data-paste-element="ALERT_DISMISS_BUTTON"
           disabled={false}
           display="inline-block"
           fontFamily="fontFamilyText"
@@ -692,7 +694,7 @@ exports[`Alert Variant neutral Should render a neutral alert with dismiss button
             <span
               className="emotion-3"
               color="colorTextIcon"
-              data-paste-element="BOX"
+              data-paste-element="ALERT_DISMISS_ICON"
               display="block"
               size="sizeIcon20"
             >
@@ -786,7 +788,7 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
 >
   <div
     className="emotion-4"
-    data-paste-element="BOX"
+    data-paste-element="ALERT"
     role="alert"
   >
     <div
@@ -801,8 +803,8 @@ exports[`Alert Variant warning Should render an warning alert 1`] = `
       >
         <span
           className="emotion-0"
-          color="colorTextWarning"
-          data-paste-element="BOX"
+          color="colorTextIconWarning"
+          data-paste-element="ALERT_ICON"
           display="block"
           size="sizeIcon20"
         >
@@ -913,6 +915,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
   margin: 0;
   cursor: pointer;
   color: rgb(0,94,166);
+  text-align: left;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
@@ -976,7 +979,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
 >
   <div
     className="emotion-8"
-    data-paste-element="BOX"
+    data-paste-element="ALERT"
     role="alert"
   >
     <div
@@ -991,8 +994,8 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
       >
         <span
           className="emotion-0"
-          color="colorTextWarning"
-          data-paste-element="BOX"
+          color="colorTextIconWarning"
+          data-paste-element="ALERT_ICON"
           display="block"
           size="sizeIcon20"
         >
@@ -1035,7 +1038,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
           className="emotion-5"
           color="colorTextLink"
           cursor="pointer"
-          data-paste-element="BOX"
+          data-paste-element="ALERT_DISMISS_BUTTON"
           disabled={false}
           display="inline-block"
           fontFamily="fontFamilyText"
@@ -1058,7 +1061,7 @@ exports[`Alert Variant warning Should render an warning alert with dismiss butto
             <span
               className="emotion-3"
               color="colorTextIcon"
-              data-paste-element="BOX"
+              data-paste-element="ALERT_DISMISS_ICON"
               display="block"
               size="sizeIcon20"
             >

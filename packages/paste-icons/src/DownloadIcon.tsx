@@ -11,7 +11,7 @@ export interface DownloadIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const DownloadIcon: React.FC<DownloadIconProps> = ({as, display, size, color, title, decorative}) => {
+const DownloadIcon: React.FC<DownloadIconProps> = ({as, display, element = 'ICON', size, color, title, decorative}) => {
   const titleId = `DownloadIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +19,7 @@ const DownloadIcon: React.FC<DownloadIconProps> = ({as, display, size, color, ti
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}

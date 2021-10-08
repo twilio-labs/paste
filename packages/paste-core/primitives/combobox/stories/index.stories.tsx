@@ -4,6 +4,8 @@ import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Input} from '@twilio-paste/input';
 import {Label} from '@twilio-paste/label';
+import {FormPill, FormPillGroup, useFormPillState} from '@twilio-paste/form-pill-group';
+import {ComboboxListbox, ComboboxListboxGroup, ComboboxListboxOption} from '@twilio-paste/combobox';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {ComboboxPrimitive, useComboboxPrimitive, useMultiSelectPrimitive} from '../src';
 
@@ -163,6 +165,8 @@ export const BasicMultiCombobox: React.FC = () => {
   const seed = useUIDSeed();
   const [filteredItems, setFilteredItems] = React.useState([...items]);
 
+  const formPillState = useFormPillState();
+
   const {
     getSelectedItemProps,
     getDropdownProps,
@@ -209,7 +213,7 @@ export const BasicMultiCombobox: React.FC = () => {
 
   return (
     <>
-      <Box>
+      <Box marginBottom="space40" position="relative">
         <Label htmlFor={uid} {...getLabelProps()}>
           Choose a component
         </Label>
@@ -222,49 +226,40 @@ export const BasicMultiCombobox: React.FC = () => {
             value={selectedItem || ''}
           />
         </Box>
-        <ul {...getMenuProps()}>
-          {isOpen &&
-            filteredItems.map((item, index) => (
-              <li
-                style={highlightedIndex === index ? {textDecoration: 'underline'} : {}}
-                key={seed(`item-${item}`)}
-                {...getItemProps({item, index})}
-              >
-                {item}
-              </li>
-            ))}
-        </ul>
+        {isOpen && (
+          <ComboboxListbox {...getMenuProps()}>
+            <ComboboxListboxGroup>
+              {filteredItems.map((item, index) => (
+                <ComboboxListboxOption
+                  highlighted={highlightedIndex === index}
+                  key={seed(`item-${item}`)}
+                  {...getItemProps({item, index})}
+                >
+                  {item}
+                </ComboboxListboxOption>
+              ))}
+            </ComboboxListboxGroup>
+          </ComboboxListbox>
+        )}
       </Box>
-      <Box>
-        {selectedItems.map((item, index) => (
-          <Box as="li" listStyleType="none" display="inline-block" marginRight="space30">
-            <Box
+      <FormPillGroup {...formPillState} aria-label="Selected components">
+        {selectedItems.map((item, index) => {
+          return (
+            <FormPill
               {...getSelectedItemProps({
                 selectedItem,
                 index,
               })}
+              tabIndex={null}
+              {...formPillState}
               key={seed(`selected-item-${item}`)}
-              onClick={() => handleRemoveItemOnClick(item)}
-              as="div"
-              cursor="pointer"
-              color="colorText"
-              backgroundColor="colorBackground"
-              borderWidth="borderWidth10"
-              borderColor="colorBorderWeak"
-              borderStyle="solid"
-              borderRadius="borderRadius20"
-              paddingX="space30"
-              paddingY="space20"
-              height="30px"
-              display="flex"
-              columnGap="space20"
-              alignItems="center"
+              onDismiss={() => handleRemoveItemOnClick(item)}
             >
               {item}
-            </Box>
-          </Box>
-        ))}
-      </Box>
+            </FormPill>
+          );
+        })}
+      </FormPillGroup>
     </>
   );
 };

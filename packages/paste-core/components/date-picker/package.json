@@ -1,9 +1,9 @@
 {
   "name": "@twilio-paste/date-picker",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "category": "user input",
   "status": "production",
-  "description": "A form component used to select a date.",
+  "description": "A Date Picker is a form element used to select a date.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
@@ -42,8 +42,8 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^4.0.2",
-    "@twilio-paste/design-tokens": "^6.6.0",
+    "@twilio-paste/box": "^4.2.3",
+    "@twilio-paste/design-tokens": "^6.11.2",
     "@twilio-paste/input": "^3.0.7",
     "@twilio-paste/input-box": "^4.0.6",
     "@twilio-paste/style-props": "^3.0.1",

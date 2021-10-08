@@ -17,7 +17,8 @@ export const STICKY_COLUMN_OFFSET = 20 + PSA_ALERT_HEIGHT + SITE_MASTHEAD_HEIGHT
 export const STICKY_SIDEBAR_OFFSET = PSA_ALERT_HEIGHT + SITE_MASTHEAD_HEIGHT;
 
 export const PASTE_PACKAGE_PREFIX = '@twilio-paste/';
-export const STORYBOOK_DOMAIN = 'https://main--5e53448165911c0022e68c74.chromatic.com';
+export const STORYBOOK_DOMAIN = 'https://paste-storybook.twilio.design';
+export const REMIX_DOMAIN = 'https://remix.twilio.design';
 
 // IDs for skip links
 export const PASTE_DOCS_CONTENT_AREA = 'paste-docs-content-area';
@@ -45,6 +46,7 @@ export const SidebarCategoryRoutes = {
   LIBRARIES: '/libraries',
   GETTING_STARTED: '/getting-started',
   TOKENS: '/tokens',
+  CUSTOMIZATION: '/customization',
 };
 
 export const PackageStatus = {

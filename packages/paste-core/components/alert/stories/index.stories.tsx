@@ -4,6 +4,7 @@ import {action} from '@storybook/addon-actions';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
 import {Truncate} from '@twilio-paste/truncate';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {Alert, AlertVariants} from '../src';
 
 // eslint-disable-next-line import/no-default-export
@@ -137,5 +138,64 @@ export const Warning = (): React.ReactNode => {
         </Alert>
       </Box>
     </>
+  );
+};
+
+export const CustomAlert = (): React.ReactNode => {
+  return (
+    <CustomizationProvider
+      baseTheme="default"
+      elements={{
+        ALERT: {
+          paddingY: 'space100',
+          borderWidth: 'borderWidth40',
+          variants: {
+            neutral: {
+              backgroundColor: 'colorBackgroundSuccessWeakest',
+              borderColor: 'colorBorderSuccess',
+              padding: 'space30',
+
+              '[data-paste-element="ALERT_ICON"]': {
+                color: 'colorTextIconSuccess',
+              },
+            },
+            warning: {
+              backgroundColor: 'colorBackgroundNew',
+            },
+          },
+        },
+        ALERT_DISMISS_BUTTON: {
+          backgroundColor: 'colorBackgroundBodyInverse',
+          borderRadius: 'borderRadius20',
+        },
+        ALERT_DISMISS_ICON: {
+          color: 'colorTextInverse',
+        },
+      }}
+    >
+      <Alert variant="neutral">
+        <Text as="div">I am a custom neutral alert</Text>
+      </Alert>
+
+      <Alert variant="warning">
+        <Text as="div">I am a custom warning alert</Text>
+      </Alert>
+
+      <Alert variant="error">
+        <Text as="div">I am a custom error alert</Text>
+      </Alert>
+
+      <Alert variant="neutral" onDismiss={action('dismiss')}>
+        <Text as="div">
+          <strong>Dismissable:</strong> I am a dismissable custom alert
+        </Text>
+      </Alert>
+
+      <Alert variant="error" onDismiss={action('dismiss')}>
+        <Text as="p">
+          <strong>Dismissable:</strong> I am a dismissable custom alert
+        </Text>
+      </Alert>
+    </CustomizationProvider>
   );
 };

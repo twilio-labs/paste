@@ -69,6 +69,8 @@ describe('Ordered List', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{ORDERED_LIST: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
           <OrderedList>Custom ordered list</OrderedList>
@@ -83,6 +85,8 @@ describe('Ordered List', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
           <OrderedList element="foo">Custom ordered list</OrderedList>
@@ -169,6 +173,8 @@ describe('Unordered List', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{UNORDERED_LIST: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
           <UnorderedList>Custom unordered list</UnorderedList>
@@ -183,6 +189,8 @@ describe('Unordered List', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
           <UnorderedList element="foo">Custom unordered list</UnorderedList>
@@ -256,6 +264,8 @@ describe('ListItem', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{LIST_ITEM: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
           <ListItem>Custom list item</ListItem>
@@ -270,6 +280,8 @@ describe('ListItem', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
         >
           <ListItem element="foo">Custom list item</ListItem>

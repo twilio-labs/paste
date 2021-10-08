@@ -12,6 +12,8 @@ import {Button} from '@twilio-paste/button';
 import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
+import {FormPill, FormPillGroup, useFormPillState} from '@twilio-paste/form-pill-group';
+import {ComboboxListbox, ComboboxListboxGroup, ComboboxListboxOption} from '@twilio-paste/combobox';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
@@ -149,6 +151,12 @@ customer needs to filter a list of available options, or provide a custom free f
     Input,
     useUID,
     useUIDSeed,
+    ComboboxListbox,
+    ComboboxListboxGroup,
+    ComboboxListboxOption,
+    FormPill,
+    FormPillGroup,
+    useFormPillState,
   }}
   noInline
   language="jsx"

@@ -7,7 +7,7 @@ import type {PaginationNumbersProps} from './types';
 import {PaginationNumbersPropTypes} from './proptypes';
 
 const PaginationNumbers = React.forwardRef<HTMLUListElement, PaginationNumbersProps>(
-  ({children, pageLabel, ...props}, ref) => {
+  ({children, element = 'PAGINATION_NUMBERS', pageLabel, ...props}, ref) => {
     const [validChildren] = React.useMemo(
       () => [React.Children.toArray(children).filter((child) => React.isValidElement(child))],
       [children]
@@ -19,6 +19,7 @@ const PaginationNumbers = React.forwardRef<HTMLUListElement, PaginationNumbersPr
         <Box
           {...ULStyles}
           {...safelySpreadBoxProps(props)}
+          element={element}
           ref={ref}
           as="ul"
           justifyContent="center"
@@ -31,6 +32,7 @@ const PaginationNumbers = React.forwardRef<HTMLUListElement, PaginationNumbersPr
               <Box
                 {...LIStyles}
                 key={keySeed(`pagination-numbers-${index}`)}
+                element={`${element}_ITEM`}
                 as="li"
                 marginRight="space30"
                 _last={{

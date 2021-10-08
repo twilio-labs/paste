@@ -10,6 +10,7 @@ const merge = require('deepmerge');
 
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   color: 'colorTextLinkDestructive',
+  textAlign: 'left',
   transition: 'none',
   _hover: {color: 'colorTextLinkDestructiveStronger', textDecoration: 'underline'},
   _active: {color: 'colorTextLinkDestructiveStronger', textDecoration: 'underline'},
@@ -18,6 +19,7 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
   color: 'colorTextLinkDestructiveStronger',
+  textAlign: 'left',
   _hover: {color: 'colorTextLinkDestructiveStronger'},
   _active: {color: 'colorTextLinkDestructiveStronger'},
   _focus: {color: 'colorTextLinkDestructiveStronger'},
@@ -25,6 +27,7 @@ const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
 
 const disabledStyles: BoxStyleProps = merge(BaseStyles.disabled, {
   color: 'colorTextLinkDestructiveWeak',
+  textAlign: 'left',
   _hover: {color: 'colorTextLinkDestructiveWeak'},
   _active: {color: 'colorTextLinkDestructiveWeak'},
   _focus: {color: 'colorTextLinkDestructiveWeak'},

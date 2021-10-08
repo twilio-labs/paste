@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {matchers} from 'jest-emotion';
-import {render} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
+import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {SkeletonLoader} from '../src';
@@ -10,15 +11,15 @@ expect.extend(matchers);
 
 describe('SkeletonLoader', () => {
   it('should render', () => {
-    const {getByTestId} = render(<Default />);
-    expect(getByTestId('default-skeleton')).toBeDefined();
-    expect(getByTestId('default-skeleton')).toHaveStyleRule('background-color', 'colorBackgroundStrong');
-    expect(getByTestId('default-skeleton')).toHaveStyleRule('border-radius', 'borderRadius20');
-    expect(getByTestId('default-skeleton')).toHaveStyleRule('height', 'sizeIcon20');
+    render(<Default />);
+    expect(screen.getByTestId('default-skeleton')).toBeDefined();
+    expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('background-color', 'colorBackgroundStrong');
+    expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('border-radius', 'borderRadius20');
+    expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('height', 'sizeIcon20');
   });
 
   it('should render layout prop styles', (): void => {
-    const {getByTestId} = render(
+    render(
       <Default
         display="block"
         width="size30"
@@ -30,51 +31,99 @@ describe('SkeletonLoader', () => {
         size="size30"
       />
     );
-    expect(getByTestId('default-skeleton')).toHaveStyleRule('display', 'block');
-    expect(getByTestId('default-skeleton')).toHaveStyleRule('width', 'size30');
-    expect(getByTestId('default-skeleton')).toHaveStyleRule('min-width', 'size30');
-    expect(getByTestId('default-skeleton')).toHaveStyleRule('max-width', 'size30');
-    expect(getByTestId('default-skeleton')).toHaveStyleRule('height', 'size30');
-    expect(getByTestId('default-skeleton')).toHaveStyleRule('min-height', 'size30');
-    expect(getByTestId('default-skeleton')).toHaveStyleRule('max-height', 'size30');
+    expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('display', 'block');
+    expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('width', 'size30');
+    expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('min-width', 'size30');
+    expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('max-width', 'size30');
+    expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('height', 'size30');
+    expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('min-height', 'size30');
+    expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('max-height', 'size30');
   });
 
   it('should render size prop styles', (): void => {
-    const {getByTestId} = render(<Default size="size30" />);
-    expect(getByTestId('default-skeleton')).toHaveStyleRule('height', 'size30');
-    expect(getByTestId('default-skeleton')).toHaveStyleRule('width', 'size30');
+    render(<Default size="size30" />);
+    expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('height', 'size30');
+    expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('width', 'size30');
   });
 
   it('should render border-radius prop styles', (): void => {
-    const {getByTestId} = render(<Default borderRadius="borderRadiusCircle" />);
-    expect(getByTestId('default-skeleton')).toHaveStyleRule('border-radius', 'borderRadiusCircle');
+    render(<Default borderRadius="borderRadiusCircle" />);
+    expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('border-radius', 'borderRadiusCircle');
   });
 
   it('should render top left border-radius prop styles', (): void => {
-    const {getByTestId} = render(<Default borderTopLeftRadius="borderRadiusCircle" />);
-    expect(getByTestId('default-skeleton')).toHaveStyleRule('border-top-left-radius', 'borderRadiusCircle');
+    render(<Default borderTopLeftRadius="borderRadiusCircle" />);
+    expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('border-top-left-radius', 'borderRadiusCircle');
   });
 
   it('should render top right border-radius prop styles', (): void => {
-    const {getByTestId} = render(<Default borderTopRightRadius="borderRadiusCircle" />);
-    expect(getByTestId('default-skeleton')).toHaveStyleRule('border-top-right-radius', 'borderRadiusCircle');
+    render(<Default borderTopRightRadius="borderRadiusCircle" />);
+    expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('border-top-right-radius', 'borderRadiusCircle');
   });
 
   it('should render bottom left border-radius prop styles', (): void => {
-    const {getByTestId} = render(<Default borderBottomLeftRadius="borderRadiusCircle" />);
-    expect(getByTestId('default-skeleton')).toHaveStyleRule('border-bottom-left-radius', 'borderRadiusCircle');
+    render(<Default borderBottomLeftRadius="borderRadiusCircle" />);
+    expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('border-bottom-left-radius', 'borderRadiusCircle');
   });
 
   it('should render bottom right border-radius prop styles', (): void => {
-    const {getByTestId} = render(<Default borderBottomRightRadius="borderRadiusCircle" />);
-    expect(getByTestId('default-skeleton')).toHaveStyleRule('border-bottom-right-radius', 'borderRadiusCircle');
+    render(<Default borderBottomRightRadius="borderRadiusCircle" />);
+    expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('border-bottom-right-radius', 'borderRadiusCircle');
   });
-});
 
-describe('Accessibility', () => {
-  it('Should have no accessibility violations', async () => {
-    const {container} = render(<SkeletonLoader />);
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
+  describe('Customization', () => {
+    it('should have default DOM attribute present', () => {
+      render(<Default />);
+      expect(screen.getByTestId('default-skeleton').getAttribute('data-paste-element')).toEqual('SKELETON_LOADER');
+    });
+
+    it('should be able to create custom element dom attribute', () => {
+      render(<Default element="CUSTOM" />);
+      expect(screen.getByTestId('default-skeleton').getAttribute('data-paste-element')).toEqual('CUSTOM');
+    });
+
+    it('should apply custom style to default element name', () => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
+          elements={{
+            SKELETON_LOADER: {
+              margin: 'space80',
+            },
+          }}
+        >
+          <Default />
+        </CustomizationProvider>
+      );
+      expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('margin', '1.75rem');
+    });
+
+    it('should apply custom style to a custom element name', () => {
+      render(
+        <CustomizationProvider
+          baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
+          elements={{
+            CUSTOM_SKELETON_LOADER: {
+              padding: 'space30',
+            },
+          }}
+        >
+          <Default element="CUSTOM_SKELETON_LOADER" />
+        </CustomizationProvider>
+      );
+      expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('padding', '0.5rem');
+    });
+  });
+
+  describe('Accessibility', () => {
+    it('Should have no accessibility violations', async () => {
+      const {container} = render(<SkeletonLoader />);
+      const results = await axe(container);
+      expect(results).toHaveNoViolations();
+    });
   });
 });

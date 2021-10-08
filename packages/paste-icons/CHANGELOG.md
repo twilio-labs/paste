@@ -1,5 +1,43 @@
 # Change Log
 
+## 5.6.0
+
+### Minor Changes
+
+- [`46ee743a`](https://github.com/twilio-labs/paste/commit/46ee743a5f9d63b3d5ef76371afab6ae64ae50a8) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Added an icon for displaying unsorted data: "UnsortedIcon"
+
+## 5.5.0
+
+### Minor Changes
+
+- [`c59aa865`](https://github.com/twilio-labs/paste/commit/c59aa865f0dd52c8ec45fac24c565a1087ea9814) [#1839](https://github.com/twilio-labs/paste/pull/1839) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Icons] enable all icons to respect customization by giving them a generic element name, and ability to create custom element names.
+
+## 5.4.0
+
+### Minor Changes
+
+- [`8394ac05`](https://github.com/twilio-labs/paste/commit/8394ac050a4652d046cdd6734bef1466967e4eea) [#1837](https://github.com/twilio-labs/paste/pull/1837) Thanks [@gloriliale](https://github.com/gloriliale)! - Added the following icons:
+
+  - AttachmentIcon
+  - BoldIcon
+  - FileIcon
+  - HistoryIcon
+  - ItalicIcon
+  - OrderedListIcon
+  - StrikethroughIcon
+  - UnderlineIcon
+  - UnorderedListIcon
+
+* [`e967a33c`](https://github.com/twilio-labs/paste/commit/e967a33c342172dd0d9aba74b8425ccceeac755d) [#1774](https://github.com/twilio-labs/paste/pull/1774) Thanks [@nkrantz](https://github.com/nkrantz)! - Added the following icons:
+
+  - ProcessDisabledIcon
+  - ProcessDraftIcon
+  - ProcessErrorIcon
+  - ProcessInProgressIcon
+  - ProcessNeutralIcon
+  - ProcessSuccessIcon
+  - ProcessWarningIcon
+
 ## 5.3.2
 
 ### Patch Changes

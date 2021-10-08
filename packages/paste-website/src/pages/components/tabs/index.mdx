@@ -94,6 +94,14 @@ export const pageQuery = graphql`
 
 The Tabs component allows a user to flip through multiple views within the same page.
 
+### Accessibility
+
+When the user is focused on a tab in a TabList, the following keyboard interactions apply:
+
+- Right and left arrow move the user between tabs and opens the currently focused tab's panel
+  - If the tabs are vertical, up and down arrows move between tabs instead of right and left
+  - If the currently focused tab is disabled, the tab panel does not open
+
 ## Examples
 
 ### Horizontal Tabs

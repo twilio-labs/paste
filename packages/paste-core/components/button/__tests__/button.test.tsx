@@ -254,8 +254,12 @@ describe('Button', () => {
     });
 
     it('Throws an error when passing an invalid tabIndex', () => {
+      const originalError = console.error;
+      console.error = jest.fn();
       // @ts-expect-error
       expect(() => shallow(<Button variant="primary" tabIndex="-2" />)).toThrow();
+      expect(console.error).toHaveBeenCalled();
+      console.error = originalError;
     });
   });
 
@@ -289,9 +293,11 @@ describe('Button', () => {
 
     it('Has an aria-busy attribute when loading', () => {
       const wrapper: ReactWrapper = mount(
-        <Button variant="secondary" loading>
-          button
-        </Button>
+        <Theme.Provider theme="default">
+          <Button variant="secondary" loading>
+            button
+          </Button>
+        </Theme.Provider>
       );
       expect(wrapper.exists('button[aria-busy="true"]')).toEqual(true);
       expect(wrapper.find('button').props().disabled).toEqual(true);
@@ -460,6 +466,7 @@ describe('Button', () => {
 
       const button = getByTestId('destructive_link-styles');
 
+      expect(button).toHaveStyleRule('text-align', 'left');
       expect(button).toHaveStyleRule('color', 'colorTextLinkDestructive');
       expect(button).toHaveStyleRule('transition', 'none');
       expect(getByText('Destructive link')).not.toHaveStyleRule('justify-content', 'center');
@@ -474,6 +481,7 @@ describe('Button', () => {
 
       const button = getByTestId('link-styles');
 
+      expect(button).toHaveStyleRule('text-align', 'left');
       expect(button).toHaveStyleRule('color', 'colorTextLink');
       expect(button).toHaveStyleRule('transition', 'none');
 
@@ -481,24 +489,30 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the reset variant', () => {
-      const {getByText} = testRender(
+      const {getByText, getByTestId} = testRender(
         <Button variant="reset" data-testid="reset-styles">
           Reset
         </Button>
       );
 
       expect(getByText('Reset')).not.toHaveStyleRule('justify-content', 'center');
+      expect(getByTestId('reset-styles')).not.toHaveStyleRule('text-align', 'left');
     });
 
     it('should have the correct styles for a link button in loading state', () => {
-      const {getByText, container} = testRender(
-        <Button variant="link" loading data-testid="loading-link-styles">
-          Loading link
-        </Button>
+      const {getByText, getByTestId} = testRender(
+        <Theme.Provider theme="default" data-testid="wrapping-div">
+          <Button variant="link" loading data-testid="loading-link-styles">
+            Loading link
+          </Button>
+        </Theme.Provider>
       );
 
       const buttonContent = getByText('Loading link');
-      const loadingIconWrapper = (container.firstChild as ChildNode).lastChild as ChildNode;
+      const themeWrapper = getByTestId('wrapping-div').firstChild as ChildNode;
+      const loadingIconWrapper = themeWrapper.lastChild as ChildNode;
+
+      expect(getByTestId('loading-link-styles')).toHaveStyleRule('text-align', 'left');
 
       expect(buttonContent).toHaveAttribute('aria-hidden', 'true');
       expect(buttonContent).toHaveAttribute('opacity', '0');
@@ -523,6 +537,7 @@ describe('Button', () => {
       const buttonComponent = getByTestId('disabled-link-styles');
       const buttonContent = getByText('Disabled link');
 
+      expect(buttonComponent).toHaveStyleRule('text-align', 'left');
       expect(buttonComponent).toHaveStyleRule('color', 'colorTextLinkWeak');
 
       expect(buttonComponent).toHaveStyleRule('cursor', 'not-allowed');

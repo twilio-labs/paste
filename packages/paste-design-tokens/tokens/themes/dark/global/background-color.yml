@@ -50,10 +50,10 @@ props:
 
   # account backgrounds
   color-background-subaccount:
-    value: "{!palette-yellow-40}"
+    value: "{!palette-yellow-90}"
     comment: Subaccount background color
   color-background-trial:
-    value: "{!palette-purple-80}"
+    value: "{!palette-green-90}"
     comment: Trial account background color
 
   # page body
@@ -87,7 +87,7 @@ props:
     value: "{!palette-red-50}"
     comment: Error background color
   color-background-error-weakest:
-    value: "{!palette-red-90}"
+    value: "{!palette-red-100}"
     comment: Weakest error background color
   color-background-new:
     value: "{!palette-purple-80}"

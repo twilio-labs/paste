@@ -12,7 +12,7 @@ import {SidebarDisclosureButton} from './SidebarDisclosureButton';
 import {SidebarItem} from './SidebarItem';
 import {SidebarNestedItem} from './SidebarNestedItem';
 import {SidebarNestedList} from './SidebarNestedList';
-import {PackageStatus, SidebarCategoryRoutes} from '../../../constants';
+import {ENVIRONMENT_CONTEXT, PackageStatus, SidebarCategoryRoutes} from '../../../constants';
 import {getCurrentPathname, getNameFromPackageName, getHumanizedNameFromPackageName} from '../../../utils/RouteUtils';
 import {filteredComponents} from '../../../utils/componentFilters';
 import {useNavigationContext} from '../../../context/NavigationContext';
@@ -58,6 +58,10 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
 
   const patternsDisclosure = useDisclosurePrimitiveState({
     visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.PATTERNS),
+  });
+
+  const customizationDisclosure = useDisclosurePrimitiveState({
+    visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.CUSTOMIZATION),
   });
 
   return (
@@ -179,11 +183,6 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
                 </SidebarAnchor>
               </SidebarNestedItem>
               <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.TOKENS}/how-to-compose-custom-ui-with-tokens`}>
-                  How to compose custom UI with tokens
-                </SidebarAnchor>
-              </SidebarNestedItem>
-              <SidebarNestedItem>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.TOKENS}/design-tokens-package`}>
                   Design Tokens package
                 </SidebarAnchor>
@@ -256,6 +255,11 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
               <SidebarNestedItem>
                 <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/object-details`}>
                   Object details
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/status`}>
+                  Status
                 </SidebarAnchor>
               </SidebarNestedItem>
             </SidebarNestedList>
@@ -460,6 +464,56 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
             </SidebarNestedList>
           </DisclosurePrimitiveContent>
         </SidebarItem>
+        {ENVIRONMENT_CONTEXT !== 'production' && (
+          <SidebarItem>
+            <DisclosurePrimitive
+              as={SidebarDisclosureButton}
+              {...customizationDisclosure}
+              data-cy="customization-button"
+              onClick={() =>
+                trackCustomEvent({
+                  category: 'Left Navigation',
+                  action: 'click-customization',
+                  label: 'Customization',
+                })
+              }
+            >
+              Customization
+            </DisclosurePrimitive>
+            <DisclosurePrimitiveContent {...customizationDisclosure} data-cy="customization-list">
+              <SidebarNestedList>
+                <SidebarNestedItem>
+                  <SidebarAnchor nested to={`${SidebarCategoryRoutes.CUSTOMIZATION}/`}>
+                    Overview
+                  </SidebarAnchor>
+                </SidebarNestedItem>
+                <SidebarNestedItem>
+                  <SidebarAnchor nested to={`${SidebarCategoryRoutes.CUSTOMIZATION}/customization-provider`}>
+                    Customization Provider
+                  </SidebarAnchor>
+                </SidebarNestedItem>
+                <SidebarNestedItem>
+                  <SidebarAnchor nested to={`${SidebarCategoryRoutes.CUSTOMIZATION}/creating-a-custom-theme`}>
+                    Creating a Custom Theme
+                  </SidebarAnchor>
+                </SidebarNestedItem>
+                <SidebarNestedItem>
+                  <SidebarAnchor nested to={`${SidebarCategoryRoutes.CUSTOMIZATION}/customizing-component-elements`}>
+                    Customizing Component Elements
+                  </SidebarAnchor>
+                </SidebarNestedItem>
+                <SidebarNestedItem>
+                  <SidebarAnchor
+                    nested
+                    to={`${SidebarCategoryRoutes.CUSTOMIZATION}/composing-custom-components-with-design-tokens`}
+                  >
+                    Composing Custom Components With Design Tokens
+                  </SidebarAnchor>
+                </SidebarNestedItem>
+              </SidebarNestedList>
+            </DisclosurePrimitiveContent>
+          </SidebarItem>
+        )}
         <SidebarItem>
           <DisclosurePrimitive
             as={SidebarDisclosureButton}

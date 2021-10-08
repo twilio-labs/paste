@@ -1,5 +1,30 @@
 # Change Log
 
+## 6.12.0
+
+### Minor Changes
+
+- [`bec21fa0`](https://github.com/twilio-labs/paste/commit/bec21fa0e7d247202994d962d504ef1bb32f22e4) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Added 'shadow-focus-inset', a box-shadow token representing an inset focus outline.
+
+## 6.11.2
+
+### Patch Changes
+
+- [`866cf8f1`](https://github.com/twilio-labs/paste/commit/866cf8f1dd7f2dffa53dfb4ab94b4f06b659e6db) [#1835](https://github.com/twilio-labs/paste/pull/1835) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] Text, background, and icon color tokens are updated to meet accessibility guidelines.
+
+## 6.11.1
+
+### Patch Changes
+
+- [`30160725`](https://github.com/twilio-labs/paste/commit/30160725ecdb5a028f15a162c7a6806b7bc7b178) [#1774](https://github.com/twilio-labs/paste/pull/1774) Thanks [@nkrantz](https://github.com/nkrantz)! - Added an alias for orange-65 and added the following text color tokens for icons:
+
+  - color-text-icon-error -> red-60 (default) / red-40 (dark)
+  - color-text-icon-success -> green-70 (default) / green-50 (dark)
+  - color-text-icon-warning -> orange-65 (default) / orange-40 (dark)
+  - color-text-icon-neutral -> blue-80 (default) / blue-40 (dark)
+  - color-text-icon-brand-highlight -> amaranth
+  - color-text-icon-brand-inverse -> gray-0
+
 ## 6.11.0
 
 ### Minor Changes

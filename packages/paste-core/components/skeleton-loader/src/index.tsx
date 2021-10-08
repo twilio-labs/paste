@@ -2,6 +2,7 @@ import * as React from 'react';
 import {useSpring, animated} from '@twilio-paste/animation-library';
 import {css, styled} from '@twilio-paste/styling-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxElementProps} from '@twilio-paste/box';
 import type {LayoutProps, BorderRadiusProps} from '@twilio-paste/style-props';
 
 const AnimatedSkeleton = animated(Box);
@@ -12,8 +13,20 @@ const StyledAnimatedSkeleton = styled(AnimatedSkeleton)(() =>
   })
 );
 
+const animatedConfig = {
+  loop: {delay: 700, reset: true},
+  from: {translateX: '-100%', skew: '155deg'},
+  to: {translateX: '100%', skew: '155deg'},
+  config: {
+    mass: 0.1,
+    tension: 80,
+    friction: 50,
+  },
+};
+
 export interface SkeletonLoaderProps
   extends React.HTMLAttributes<HTMLDivElement>,
+    Pick<BoxElementProps, 'element'>,
     Omit<LayoutProps, 'verticalAlign'>,
     BorderRadiusProps {}
 
@@ -25,6 +38,7 @@ const SkeletonLoader = React.forwardRef<HTMLDivElement, SkeletonLoaderProps>(
       borderRadius = 'borderRadius20',
       borderTopLeftRadius,
       borderTopRightRadius,
+      element = 'SKELETON_LOADER',
       display,
       height = 'sizeIcon20',
       maxHeight,
@@ -37,16 +51,7 @@ const SkeletonLoader = React.forwardRef<HTMLDivElement, SkeletonLoaderProps>(
     },
     ref
   ) => {
-    const animatedSkeletonStyles = useSpring({
-      loop: {delay: 700, reset: true},
-      from: {translateX: '-100%', skew: '155deg'},
-      to: {translateX: '100%', skew: '155deg'},
-      config: {
-        mass: 0.1,
-        tension: 80,
-        friction: 50,
-      },
-    });
+    const animatedSkeletonStyles = useSpring(animatedConfig);
 
     return (
       <Box
@@ -59,6 +64,7 @@ const SkeletonLoader = React.forwardRef<HTMLDivElement, SkeletonLoaderProps>(
         borderTopLeftRadius={borderTopLeftRadius}
         borderTopRightRadius={borderTopRightRadius}
         display={display}
+        element={element}
         height={height}
         maxHeight={maxHeight}
         maxWidth={maxWidth}

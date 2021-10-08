@@ -1,32 +1,41 @@
 ---
 title: Roadmap
-description: Here's a glimpse of what is coming up in future releases of Paste. Unless explicitly mentioned, all roadmap dates are tentative and subject to change.
+description: Here's a glimpse of what is coming up in future releases of Paste. Unless explicitly mentioned, all release candidates are tentative and subject to change.
 slug: /roadmap/
 ---
 
 import {graphql} from 'gatsby';
-import {Roadmap} from '../../components/Roadmap';
+import {Roadmap, RoadmapAside} from '../../components/Roadmap';
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/roadmap/"}}) {
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(
-      sort: {fields: [data___Release_, data___Feature]}
-      filter: {data: {Done: {eq: null}, On_internal_roadmap_only: {ne: true}}}
+    Roadmap: allAirtable(
+      sort: {fields: [data___Release_, data___Status, data___Release_feature_name]}
+      filter: {table: {eq: "Roadmap"}, isFuture: {eq: true}}
     ) {
-      group(field: data___Release_) {
+      group(field: data___Release) {
         release: fieldValue
         edges {
           node {
             data {
-              Release_
-              Feature
-              Public_Description
+              Release_feature_name
+              Release
+              Release_Description
+              Public_Description__from_System_
+              Status
             }
+          }
+        }
+      }
+    }
+    BPM: allAirtable(sort: {fields: [data___Name]}, filter: {table: {eq: "2021 BPM"}}) {
+      edges {
+        node {
+          data {
+            Name
+            Short_description
+            Long_description
+            Status
+            Status_description
           }
         }
       }
@@ -36,7 +45,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<TableOfContents headings={props.data.mdx.headings} />
+<RoadmapAside data={props.data.Roadmap.group} />
 
 <content>
 
@@ -44,7 +53,7 @@ export const pageQuery = graphql`
 
 <p>{props.pageContext.frontmatter.description}</p>
 
-<Roadmap data={props.data.allAirtable.group} />
+<Roadmap data={props.data.Roadmap.group} />
 
 </content>
 

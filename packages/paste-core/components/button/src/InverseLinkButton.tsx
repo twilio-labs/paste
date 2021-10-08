@@ -9,6 +9,7 @@ const merge = require('deepmerge');
 
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   color: 'colorTextInverse',
+  textAlign: 'left',
   transition: 'none',
   _hover: {color: 'colorTextInverseWeaker', textDecoration: 'underline'},
   _focus: {color: 'colorTextInverseWeaker', boxShadow: 'shadowFocusInverse', textDecoration: 'underline'},
@@ -17,10 +18,12 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
   color: 'colorTextInverse',
+  textAlign: 'left',
 });
 
 const disabledStyles: BoxStyleProps = merge(BaseStyles.disabled, {
   color: 'colorTextInverseWeaker',
+  textAlign: 'left',
 });
 
 const ButtonStyleMapping = {

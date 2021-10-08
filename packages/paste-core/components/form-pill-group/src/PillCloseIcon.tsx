@@ -12,7 +12,7 @@ export const PillCloseIcon: React.FC<PillCloseIconProps> = ({onClick}) => {
     <Box
       onClick={onClick}
       _hover={{
-        color: 'colorTextLinkDark',
+        cursor: 'pointer',
       }}
     >
       <ScreenReaderOnly>. Press delete or backspace to remove</ScreenReaderOnly>

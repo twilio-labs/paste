@@ -1,9 +1,9 @@
 {
   "name": "@twilio-paste/card",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "category": "data display",
   "status": "production",
-  "description": "The Paste cards are specifically-styled containers that group relatable content and actions.",
+  "description": "A Card is a styled container that groups related content and actions.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
@@ -36,8 +36,8 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@twilio-paste/box": "^4.0.5",
-    "@twilio-paste/design-tokens": "^6.7.0",
+    "@twilio-paste/box": "^4.2.3",
+    "@twilio-paste/design-tokens": "^6.11.2",
     "@twilio-paste/style-props": "^3.0.4",
     "@twilio-paste/styling-library": "^0.3.2",
     "@twilio-paste/theme": "^5.1.0",

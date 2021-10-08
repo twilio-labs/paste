@@ -6,12 +6,13 @@ import {PaginationNumberPropTypes} from './proptypes';
 import {handleLinkValidation} from './utils';
 
 const PaginationNumber = React.forwardRef<HTMLButtonElement, PaginationNumberProps>(
-  ({as = 'button', children, href, isCurrent, label, ...props}, ref) => {
+  ({as = 'button', element = 'PAGINATION_NUMBER', children, href, isCurrent, label, ...props}, ref) => {
     handleLinkValidation({as, href});
     return (
       <Box
         {...safelySpreadBoxProps(props)}
         ref={ref}
+        element={element}
         aria-label={label}
         aria-current={isCurrent}
         as={as}
@@ -56,7 +57,7 @@ const PaginationNumber = React.forwardRef<HTMLButtonElement, PaginationNumberPro
         _active={{textDecoration: 'none'}}
       >
         {children ? (
-          <Text aria-hidden="true" as="span" color="inherit">
+          <Text aria-hidden="true" as="span" color="inherit" element={`${element}_TEXT`}>
             {children}
           </Text>
         ) : null}

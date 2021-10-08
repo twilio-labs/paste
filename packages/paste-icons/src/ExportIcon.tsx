@@ -11,7 +11,7 @@ export interface ExportIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const ExportIcon: React.FC<ExportIconProps> = ({as, display, size, color, title, decorative}) => {
+const ExportIcon: React.FC<ExportIconProps> = ({as, display, element = 'ICON', size, color, title, decorative}) => {
   const titleId = `ExportIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +19,7 @@ const ExportIcon: React.FC<ExportIconProps> = ({as, display, size, color, title,
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}

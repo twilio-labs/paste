@@ -3,7 +3,7 @@
   "version": "3.1.0",
   "category": "user input",
   "status": "production",
-  "description": "An input allows users to enter text on a single line.",
+  "description": "An Input is a form element that lets users enter one of various types of text on a single line.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

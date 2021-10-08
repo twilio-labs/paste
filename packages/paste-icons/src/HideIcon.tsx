@@ -11,7 +11,7 @@ export interface HideIconProps extends IconWrapperProps {
   decorative: boolean;
 }
 
-const HideIcon: React.FC<HideIconProps> = ({as, display, size, color, title, decorative}) => {
+const HideIcon: React.FC<HideIconProps> = ({as, display, element = 'ICON', size, color, title, decorative}) => {
   const titleId = `HideIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -19,7 +19,7 @@ const HideIcon: React.FC<HideIconProps> = ({as, display, size, color, title, dec
   }
 
   return (
-    <IconWrapper as={as} display={display} size={size} color={color}>
+    <IconWrapper as={as} display={display} element={element} size={size} color={color}>
       <svg
         role="img"
         aria-hidden={decorative}
