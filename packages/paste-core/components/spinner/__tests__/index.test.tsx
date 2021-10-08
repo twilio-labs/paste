@@ -107,6 +107,7 @@ describe('Spinner', () => {
   describe('Accessibility', () => {
     it('Should have no accessibility violations', async () => {
       const {container} = render(<Spinner title="Loading" decorative />, {
+        // eslint-disable-next-line react/display-name
         wrapper: ({children}) => <Theme.Provider theme="default">{children}</Theme.Provider>,
       });
       const results = await axe(container);
