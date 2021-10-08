@@ -144,6 +144,7 @@ describe('Modal Customization', () => {
 
     it('Should apply correct style rules to wide size variant', () => {
       render(<BaseModal size="wide" />, {
+        // eslint-disable-next-line react/display-name
         wrapper: ({children}) => (
           <CustomizationProvider
             // @ts-expect-error global test variable
