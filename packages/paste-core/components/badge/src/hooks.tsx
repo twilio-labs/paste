@@ -39,6 +39,7 @@ export const useFocusableVariants = (
     const buttonProps = safelySpreadProps(redactedProps, BUTTON_DENY_LIST);
     return {
       styleProps: {...FOCUSABLE_STYLES} as FocusableStyleProps,
+      // eslint-disable-next-line react/display-name
       wrapper: ({children}) => (
         <Button variant="reset" size="reset" type="button" {...buttonProps}>
           {children}
@@ -51,6 +52,7 @@ export const useFocusableVariants = (
     const anchorProps = safelySpreadProps(redactedProps, ANCHOR_DENY_LIST);
     return {
       styleProps: {...FOCUSABLE_STYLES} as FocusableStyleProps,
+      // eslint-disable-next-line react/display-name
       wrapper: ({children}) => (
         <Button variant="reset" size="reset" type="button" as="a" {...anchorProps}>
           {children}
@@ -62,6 +64,7 @@ export const useFocusableVariants = (
 
   return {
     styleProps: {},
+    // eslint-disable-next-line react/display-name
     wrapper: ({children}) => <>{children}</>,
     spanProps: redactedProps,
   };
