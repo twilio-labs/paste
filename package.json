@@ -192,9 +192,6 @@
     "webpack": "^4.44.2"
   },
   "resolutions": {
-    "**/websocket-extensions": "^0.1.4",
-    "**/graphql-playground-middleware-express": "^1.7.18",
-    "**/meow": "^8.0.0",
     "@emotion/core": "10.0.28"
   },
   "husky": {
@@ -203,5 +200,6 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-push": "if git-branch-is main; then yarn pre-push; fi"
     }
-  }
+  },
+  "packageManager": "yarn@3.0.2"
 }
