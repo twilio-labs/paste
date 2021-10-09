@@ -26,8 +26,5 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
     "@babel/preset-env": "^7.8.4",
     "@twilio-paste/core": "^10.0.0"
-  },
-  "resolutions": {
-    "**/meow": "^8.0.0"
   }
 }

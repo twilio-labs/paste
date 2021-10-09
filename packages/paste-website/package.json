@@ -121,9 +121,5 @@
     "react-scrollspy": "^3.4.0",
     "react-visibility-sensor": "5.1.1",
     "use-resize-observer": "^7.0.0"
-  },
-  "resolutions": {
-    "**/websocket-extensions": "^0.1.4",
-    "**/graphql-playground-middleware-express": "^1.7.18"
   }
 }
