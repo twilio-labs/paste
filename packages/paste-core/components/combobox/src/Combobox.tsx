@@ -69,7 +69,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
 
     // Only virtualize non-grouped items
     // Not virtualizing grouped items because we cannot accessibly define position within nested sets (e.g. "groups")
-    const rowVirtualizer = useVirtual({
+    const {scrollToIndex, virtualItems, totalSize} = useVirtual({
       size: items.length,
       parentRef,
       // 36 is a magic number that represents the comboboxItem height in px
@@ -82,16 +82,14 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
     const defaultState = useComboboxPrimitive({
       initialSelectedItem,
       items,
-      onHighlightedIndexChange: (changes: UseComboboxPrimitiveStateChange<string>) => {
-        const currentHighlight = defaultState.highlightedIndex ?? 0;
-        const newHighlight = changes.highlightedIndex ?? currentHighlight;
-        if (rowVirtualizer) {
-          rowVirtualizer.scrollToIndex(newHighlight);
-        }
-        if (onHighlightedIndexChange) {
-          onHighlightedIndexChange(changes);
-        }
-      },
+      onHighlightedIndexChange: React.useCallback(
+        (changes: UseComboboxPrimitiveStateChange<string>) => {
+          if (onHighlightedIndexChange) {
+            onHighlightedIndexChange(changes);
+          }
+        },
+        [onHighlightedIndexChange]
+      ),
       onInputValueChange,
       onIsOpenChange,
       onSelectedItemChange,
@@ -111,6 +109,12 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       highlightedIndex,
       isOpen,
     } = state || defaultState;
+
+    React.useEffect(() => {
+      if (highlightedIndex !== undefined && typeof scrollToIndex === 'function' && highlightedIndex > -1) {
+        scrollToIndex(highlightedIndex);
+      }
+    }, [highlightedIndex, scrollToIndex]);
 
     if (
       getComboboxProps === undefined ||
@@ -173,8 +177,8 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
             optionTemplate={optionTemplate}
             groupItemsBy={groupItemsBy}
             groupLabelTemplate={groupLabelTemplate}
-            totalSize={rowVirtualizer.totalSize}
-            virtualItems={rowVirtualizer.virtualItems}
+            totalSize={totalSize}
+            virtualItems={virtualItems}
           />
         </ComboboxListbox>
         {helpText && (

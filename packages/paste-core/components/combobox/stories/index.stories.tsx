@@ -125,16 +125,15 @@ DefaultCombobox.story = {
   name: 'Combobox',
 };
 
-const ItemToString = ({name}): string => name;
+const ItemToString = ({name}: {name: string}): string => name;
 
 export const VirtualizedCombobox = (): React.ReactNode => {
-  const itemsForVirtualCombobox = createLargeArray((index) => index.toString());
+  const itemsForVirtualCombobox = React.useMemo(() => createLargeArray((index) => (index as number).toString()), []);
 
   return (
     <Box width="20%">
       <Combobox
         initialIsOpen
-        itemToString={(item) => item}
         items={itemsForVirtualCombobox}
         labelText="Select a virtualized item"
         helpText="This large list is virtualized"
@@ -148,10 +147,14 @@ VirtualizedCombobox.story = {
 };
 
 export const VirtualizedCombobox1 = (): React.ReactNode => {
-  const itemsForVirtualCombobox = createLargeArray((index) => ({
-    name: `Item ${index}`,
-    subtext: 'Virtualized combobox from Twilio Paste',
-  }));
+  const itemsForVirtualCombobox = React.useMemo(
+    () =>
+      createLargeArray((index) => ({
+        name: `Item ${index as number}`,
+        subtext: 'Virtualized combobox from Twilio Paste',
+      })),
+    []
+  );
 
   return (
     <Box width="20%">
@@ -159,7 +162,7 @@ export const VirtualizedCombobox1 = (): React.ReactNode => {
         initialIsOpen
         itemToString={ItemToString}
         items={itemsForVirtualCombobox}
-        optionTemplate={({name, subtext}): string => `${name} - ${subtext}`}
+        optionTemplate={({name, subtext}: {name: string; subtext: string}): string => `${name} - ${subtext}`}
         labelText="Select a virtualized item"
         helpText="This large list is virtualized"
       />
@@ -172,10 +175,14 @@ VirtualizedCombobox1.story = {
 };
 
 export const VirtualizedCombobox2 = (): React.ReactNode => {
-  const itemsForVirtualCombobox = createLargeArray((index) => ({
-    name: `Item ${index}`,
-    subtext: 'Virtualized combobox from Twilio Paste',
-  }));
+  const itemsForVirtualCombobox = React.useMemo(
+    () =>
+      createLargeArray((index) => ({
+        name: `Item ${index as number}`,
+        subtext: 'Virtualized combobox from Twilio Paste',
+      })),
+    []
+  );
   return (
     <Box width="20%">
       <Combobox
