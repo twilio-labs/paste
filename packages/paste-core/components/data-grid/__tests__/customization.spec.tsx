@@ -1,11 +1,9 @@
 import * as React from 'react';
-import {matchers} from 'jest-emotion';
+
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {render} from '@testing-library/react';
 import {PlainDataGrid} from '../stories/components/PlainDataGrid';
 import {customElementStyles} from '../stories/components/CustomizableDataGrid';
-
-expect.extend(matchers);
 
 describe('Data Grid Customization', () => {
   it('can be customized generically', () => {

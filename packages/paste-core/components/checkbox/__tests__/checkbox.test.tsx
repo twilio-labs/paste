@@ -1,14 +1,12 @@
 import * as React from 'react';
 import {render} from 'react-dom';
-import {matchers} from 'jest-emotion';
+
 import {render as testRender, fireEvent, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Checkbox, CheckboxGroup} from '../src';
-
-expect.extend(matchers);
 
 const getCustomizationStyles = (element = 'CHECKBOX'): {[key: string]: PasteCustomCSS} => ({
   [`${element}_GROUP`]: {padding: 'space60'},

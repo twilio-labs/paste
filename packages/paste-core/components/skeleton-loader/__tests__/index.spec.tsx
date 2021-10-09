@@ -1,13 +1,11 @@
 import * as React from 'react';
-import {matchers} from 'jest-emotion';
+
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {SkeletonLoader} from '../src';
 import {Default} from '../stories/index.stories';
-
-expect.extend(matchers);
 
 describe('SkeletonLoader', () => {
   it('should render', () => {

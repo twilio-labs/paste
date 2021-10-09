@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {matchers} from 'jest-emotion';
+
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Theme} from '@twilio-paste/theme';
@@ -9,8 +9,6 @@ import {HelpText} from '@twilio-paste/help-text';
 import axe from '../../../../../.jest/axe-helper';
 import {Input} from '../src';
 import type {InputTypes} from '../src';
-
-expect.extend(matchers);
 
 const NOOP = (): void => {};
 

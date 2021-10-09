@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {render} from 'react-dom';
-import {matchers} from 'jest-emotion';
+
 import {render as testRender, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
@@ -8,8 +8,6 @@ import axe from '../../../../../.jest/axe-helper';
 import {Option} from '../src';
 import type {OptionProps} from '../src';
 import {createAttributeMap} from '../test-utils';
-
-expect.extend(matchers);
 
 interface ExampleOptionProps extends OptionProps {
   suffix?: string;

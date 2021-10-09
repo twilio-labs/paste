@@ -1,12 +1,10 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import {matchers} from 'jest-emotion';
+
 import {render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {SiblingBox} from '../src';
-
-expect.extend(matchers);
 
 describe('SiblingBox render', () => {
   it('should render', (): void => {

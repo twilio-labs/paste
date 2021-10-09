@@ -2,10 +2,8 @@ import * as React from 'react';
 import {shallow} from 'enzyme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {render, screen} from '@testing-library/react';
-import {matchers} from 'jest-emotion';
-import {HelpText} from '../src';
 
-expect.extend(matchers);
+import {HelpText} from '../src';
 
 describe('HelpText variant prop', () => {
   const container = shallow(<HelpText variant="error" />);

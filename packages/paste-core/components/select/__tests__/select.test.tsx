@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {matchers} from 'jest-emotion';
+
 import {render} from 'react-dom';
 import {render as testRender, fireEvent, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
@@ -11,8 +11,6 @@ import axe from '../../../../../.jest/axe-helper';
 import {Select, Option, SelectElement} from '../src';
 import type {SelectProps} from '../src';
 import {createAttributeMap} from '../test-utils';
-
-expect.extend(matchers);
 
 const onChangeMock: jest.Mock = jest.fn();
 

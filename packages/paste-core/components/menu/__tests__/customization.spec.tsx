@@ -1,12 +1,10 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
-import {matchers} from 'jest-emotion';
+
 import type {RenderOptions} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 
 import {initStyles, BaseMenu} from '../stories/customization.stories';
-
-expect.extend(matchers);
 
 const PASTE_ELEMENT = 'data-paste-element';
 

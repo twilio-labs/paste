@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
-import {matchers} from 'jest-emotion';
+
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {
@@ -15,8 +15,6 @@ import {
 } from '../src/helpers';
 import {Flex} from '../src';
 import type {FlexProps} from '../src/types';
-
-expect.extend(matchers);
 
 describe('Flex Unit Tests', () => {
   it('should return grow: 1', (): void => {

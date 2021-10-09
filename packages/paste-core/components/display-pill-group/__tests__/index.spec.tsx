@@ -1,13 +1,11 @@
 import * as React from 'react';
 import {render} from '@testing-library/react';
-import {matchers} from 'jest-emotion';
+
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {DisplayPillGroup, DisplayPill} from '../src';
 import {Basic, CustomDisplayPillGroup} from '../stories/index.stories';
-
-expect.extend(matchers);
 
 describe('DisplayPillGroup', () => {
   // Verifies that the correct aria attributes and semantics are met

@@ -1,14 +1,11 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import type {RenderOptions} from '@testing-library/react';
-import {matchers} from 'jest-emotion';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Text} from '@twilio-paste/text';
 import {Combobox} from '../src';
-
-expect.extend(matchers);
 
 const getStyles = (element = 'COMBOBOX'): {[key: string]: PasteCustomCSS} => ({
   [`${element}_WRAPPER`]: {backgroundColor: 'colorBackgroundDark', fontFamily: 'fontFamilyCode'},

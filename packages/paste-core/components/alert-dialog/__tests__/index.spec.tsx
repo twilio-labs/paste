@@ -1,11 +1,9 @@
 import * as React from 'react';
-import {matchers} from 'jest-emotion';
+
 import {render, screen} from '@testing-library/react';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {AlertDialogWithTwoActions, DestructiveAlertDialog} from '../stories/index.stories';
-
-expect.extend(matchers);
 
 describe('Alert Dialog', () => {
   it('Should render an alert dialog box', () => {
