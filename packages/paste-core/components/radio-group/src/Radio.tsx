@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {useUID} from '@twilio-paste/uid-library';
 import {Box} from '@twilio-paste/box';
+import type {BoxProps} from '@twilio-paste/box';
 import {
   BaseRadioCheckboxControl,
   BaseRadioCheckboxLabel,
@@ -20,6 +21,7 @@ export interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> 
   helpText?: string | React.ReactNode;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   children: NonNullable<React.ReactNode>;
+  element?: BoxProps['element'];
 }
 
 type HiddenRadioProps = Pick<RadioProps, 'checked' | 'value' | 'id' | 'disabled' | 'name' | 'onChange'> & {
@@ -44,7 +46,7 @@ const HiddenRadio = React.forwardRef<HTMLInputElement, HiddenRadioProps>((props,
 ));
 
 const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
-  ({id, name, value, checked, disabled, hasError, onChange, children, helpText, ...props}, ref) => {
+  ({id, name, element = 'RADIO', value, checked, disabled, hasError, onChange, children, helpText, ...props}, ref) => {
     const helpTextId = useUID();
     const radioGroupContext = React.useContext(RadioContext);
     const state = {
@@ -56,7 +58,14 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
     };
 
     return (
-      <Box position="relative" display="inline-flex" alignItems="flex-start" flexDirection="column" verticalAlign="top">
+      <Box
+        element={element}
+        position="relative"
+        display="inline-flex"
+        alignItems="flex-start"
+        flexDirection="column"
+        verticalAlign="top"
+      >
         <HiddenRadio
           {...props}
           {...state}
@@ -67,7 +76,12 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
           ref={ref}
         />
         <BaseRadioCheckboxLabel disabled={state.disabled} htmlFor={id}>
-          <BaseRadioCheckboxControl borderRadius="borderRadiusCircle" disabled={state.disabled} type="radio">
+          <BaseRadioCheckboxControl
+            element={`${element}_CONTROL`}
+            borderRadius="borderRadiusCircle"
+            disabled={state.disabled}
+            type="radio"
+          >
             <Box
               as="span"
               backgroundColor={state.disabled && state.checked ? 'colorBackgroundStrongest' : 'colorBackgroundBody'}
@@ -76,9 +90,13 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
               width="sizeSquare25"
             />
           </BaseRadioCheckboxControl>
-          <BaseRadioCheckboxLabelText>{children}</BaseRadioCheckboxLabelText>
+          <BaseRadioCheckboxLabelText element={`${element}_LABEL_TEXT`}>{children}</BaseRadioCheckboxLabelText>
         </BaseRadioCheckboxLabel>
-        {helpText && <BaseRadioCheckboxHelpText helpTextId={helpTextId}>{helpText}</BaseRadioCheckboxHelpText>}
+        {helpText && (
+          <BaseRadioCheckboxHelpText element={`${element}_HELP_TEXT_WRAPPER`} helpTextId={helpTextId}>
+            {helpText}
+          </BaseRadioCheckboxHelpText>
+        )}
       </Box>
     );
   }
@@ -97,6 +115,7 @@ if (process.env.NODE_ENV === 'development') {
     helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     onChange: PropTypes.func,
     children: PropTypes.node.isRequired,
+    element: PropTypes.string,
   };
 }
 
