@@ -30,7 +30,6 @@ export const CustomizedCheckboxGroup = (): React.ReactNode => {
         MY_CHECKBOX_GROUP: {padding: 'space30'},
         MY_CHECKBOX_GROUP_SET: {marginLeft: 'space60'},
         MY_CHECKBOX_GROUP_ITEM: {marginBottom: 'space60'},
-        MY_CHECKBOX_GROUP_ERROR_TEXT: {color: 'colorTextWarning'},
         MY_CHECKBOX: {padding: 'space30'}, // the whole box
         MY_CHECKBOX_CONTROL: {borderRadius: 'borderRadius20'},
         MY_CHECKBOX_LABEL_TEXT: {color: 'colorTextNeutral'},
