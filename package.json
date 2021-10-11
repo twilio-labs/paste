@@ -12,7 +12,7 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "prestart": "yarn prebuild",
-    "start": "yarn build:tokens && concurrently \"yarn:start:tokens\" \"yarn:start:storybook\"",
+    "start": "yarn prestart && yarn build:tokens && concurrently \"yarn:start:tokens\" \"yarn:start:storybook\"",
     "start:all": "yarn build:tokens && concurrently \"yarn:start:tokens\" \"yarn:start:storybook:quiet\" \"yarn:start:website\"",
     "start:storybook": "start-storybook -s ./.storybook/static -p 9001",
     "start:storybook:quiet": "export DROP_PROGRESS=TRUE && yarn start:storybook",
@@ -24,7 +24,7 @@
     "start:contrast-checking": "concurrently \"yarn:start:tokens\" \"yarn:start:token-contrast-checker\"",
     "watch:icons": "yarn workspace @twilio-paste/icons watch",
     "prebuild": "node ./tools/build/pre-build.js && yarn packages:check",
-    "build": "lerna run build --ignore @twilio-paste/website --ignore @twilio-paste/theme-designer --ignore @twilio-paste/nextjs-template --ignore @twilio-paste/token-contrast-checker",
+    "build": "yarn prebuild && lerna run build --ignore @twilio-paste/website --ignore @twilio-paste/theme-designer --ignore @twilio-paste/nextjs-template --ignore @twilio-paste/token-contrast-checker",
     "build:js": "yarn prebuild && lerna run build:js --ignore @twilio-paste/website --ignore @twilio-paste/theme-designer",
     "build:tokens": "yarn workspace @twilio-paste/design-tokens tokens",
     "build:icons": "yarn workspace @twilio-paste/icons build",
