@@ -1,9 +1,25 @@
 import * as React from 'react';
 import {render} from 'react-dom';
 import {render as testRender, fireEvent} from '@testing-library/react';
+import {CustomizationProvider} from '@twilio-paste/customization';
+import type {PasteCustomCSS} from '@twilio-paste/customization';
+import {matchers} from 'jest-emotion';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Radio, RadioGroup} from '../src';
+
+expect.extend(matchers);
+
+const getCustomizationStyles = (element = 'RADIO'): {[key: string]: PasteCustomCSS} => ({
+  [`${element}_GROUP`]: {padding: 'space60'},
+  [`${element}_GROUP_SET`]: {marginLeft: 'space60'},
+  [`${element}_GROUP_FIELD`]: {marginBottom: 'space60'},
+  [`${element}_GROUP_ERROR_TEXT_WRAPPER`]: {marginBottom: 'space60'},
+  [`${element}`]: {padding: 'space30'},
+  [`${element}_CONTROL`]: {borderRadius: 'borderRadius20'},
+  [`${element}_LABEL_TEXT`]: {color: 'colorTextNeutral'},
+  [`${element}_HELP_TEXT_WRAPPER`]: {marginBottom: 'space60'},
+});
 
 const NOOP = (): void => {};
 
@@ -278,6 +294,123 @@ describe('Radio Group event handlers', () => {
 
     expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
     expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(true);
+  });
+});
+
+describe('Customization', () => {
+  it('should add default element attribute to Radio', () => {
+    const {container} = testRender(
+      <RadioGroup {...defaultGroupProps} errorText="error">
+        <Radio helpText="help" {...defaultProps}>
+          foo
+        </Radio>
+      </RadioGroup>
+    );
+
+    expect(container.querySelector('[data-paste-element="RADIO_GROUP"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="RADIO_GROUP_SET"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="RADIO_GROUP_FIELD"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="RADIO_GROUP_ERROR_TEXT_WRAPPER"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="RADIO"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="RADIO_CONTROL"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="RADIO_LABEL_TEXT"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="RADIO_HELP_TEXT_WRAPPER"]')).toBeInTheDocument();
+  });
+
+  it('should add custom default element attribute to Radio', () => {
+    const {container} = testRender(
+      <RadioGroup element="MY_RADIO_GROUP" {...defaultGroupProps} errorText="error">
+        <Radio element="MY_RADIO" helpText="help" {...defaultProps}>
+          foo
+        </Radio>
+      </RadioGroup>
+    );
+
+    expect(container.querySelector('[data-paste-element="MY_RADIO_GROUP"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="MY_RADIO_GROUP_SET"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="MY_RADIO_GROUP_FIELD"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="MY_RADIO_GROUP_ERROR_TEXT_WRAPPER"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="MY_RADIO"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="MY_RADIO_CONTROL"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="MY_RADIO_LABEL_TEXT"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="MY_RADIO_HELP_TEXT_WRAPPER"]')).toBeInTheDocument();
+  });
+
+  it('should add custom styling to a default Radio', () => {
+    const {container} = testRender(
+      <CustomizationProvider
+        // @ts-expect-error global test variable
+        theme={TestTheme}
+        elements={getCustomizationStyles()}
+      >
+        <RadioGroup {...defaultGroupProps} errorText="error">
+          <Radio helpText="help" {...defaultProps}>
+            foo
+          </Radio>
+        </RadioGroup>
+      </CustomizationProvider>
+    );
+
+    expect(container.querySelector('[data-paste-element="RADIO_GROUP"]')).toHaveStyleRule('padding', '1.25rem');
+    expect(container.querySelector('[data-paste-element="RADIO_GROUP_SET"]')).toHaveStyleRule('margin-left', '1.25rem');
+    expect(container.querySelector('[data-paste-element="RADIO_GROUP_FIELD"]')).toHaveStyleRule(
+      'margin-bottom',
+      '1.25rem'
+    );
+    expect(container.querySelector('[data-paste-element="RADIO_GROUP_ERROR_TEXT_WRAPPER"]')).toHaveStyleRule(
+      'margin-bottom',
+      '1.25rem'
+    );
+    expect(container.querySelector('[data-paste-element="RADIO"]')).toHaveStyleRule('padding', '0.5rem');
+    expect(container.querySelector('[data-paste-element="RADIO_CONTROL"]')).toHaveStyleRule('border-radius', '4px');
+    expect(container.querySelector('[data-paste-element="RADIO_LABEL_TEXT"]')).toHaveStyleRule(
+      'color',
+      'rgb(0,20,137)'
+    );
+    expect(container.querySelector('[data-paste-element="RADIO_HELP_TEXT_WRAPPER"]')).toHaveStyleRule(
+      'margin-bottom',
+      '1.25rem'
+    );
+  });
+
+  it('should add custom styling to a custom element Radio', () => {
+    const {container} = testRender(
+      <CustomizationProvider
+        // @ts-expect-error global test variable
+        theme={TestTheme}
+        elements={getCustomizationStyles('MY_RADIO')}
+      >
+        <RadioGroup element="MY_RADIO_GROUP" {...defaultGroupProps} errorText="error">
+          <Radio element="MY_RADIO" helpText="help" {...defaultProps}>
+            foo
+          </Radio>
+        </RadioGroup>
+      </CustomizationProvider>
+    );
+
+    expect(container.querySelector('[data-paste-element="MY_RADIO_GROUP"]')).toHaveStyleRule('padding', '1.25rem');
+    expect(container.querySelector('[data-paste-element="MY_RADIO_GROUP_SET"]')).toHaveStyleRule(
+      'margin-left',
+      '1.25rem'
+    );
+    expect(container.querySelector('[data-paste-element="MY_RADIO_GROUP_FIELD"]')).toHaveStyleRule(
+      'margin-bottom',
+      '1.25rem'
+    );
+    expect(container.querySelector('[data-paste-element="MY_RADIO_GROUP_ERROR_TEXT_WRAPPER"]')).toHaveStyleRule(
+      'margin-bottom',
+      '1.25rem'
+    );
+    expect(container.querySelector('[data-paste-element="MY_RADIO"]')).toHaveStyleRule('padding', '0.5rem');
+    expect(container.querySelector('[data-paste-element="MY_RADIO_CONTROL"]')).toHaveStyleRule('border-radius', '4px');
+    expect(container.querySelector('[data-paste-element="MY_RADIO_LABEL_TEXT"]')).toHaveStyleRule(
+      'color',
+      'rgb(0,20,137)'
+    );
+    expect(container.querySelector('[data-paste-element="MY_RADIO_HELP_TEXT_WRAPPER"]')).toHaveStyleRule(
+      'margin-bottom',
+      '1.25rem'
+    );
   });
 });
 
