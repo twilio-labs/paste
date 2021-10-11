@@ -32,11 +32,10 @@ const CheckboxDisclaimer = React.forwardRef<HTMLInputElement, CheckboxDisclaimer
 
 CheckboxDisclaimer.displayName = 'CheckboxDisclaimer';
 
-if (process.env.NODE_ENV === 'development') {
-  CheckboxDisclaimer.propTypes = {
-    children: PropTypes.node.isRequired,
-    errorText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  };
-}
+CheckboxDisclaimer.propTypes = {
+  children: PropTypes.node.isRequired,
+  errorText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  element: PropTypes.string,
+};
 
 export {CheckboxDisclaimer};
