@@ -12,9 +12,12 @@ packages/paste-website/public
 packages/paste-theme-designer/public
 packages/paste-theme-designer/out
 packages/paste-token-contrast-checker/public
+packages/paste-core/core-bundle
 .cache
 .next
 .yarn
+
+packages/**/dist/*
 
 tsconfig.build.tsbuildinfo
 **/*.d.ts
