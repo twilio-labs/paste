@@ -44,7 +44,7 @@ const ComboboxItems: React.FC<ComboboxItemsProps> = ({
               variant="default"
               startHeight={virtualItem.start}
               aria-setsize={items.length}
-              aria-posinset={virtualItemIndex}
+              aria-posinset={virtualItemIndex + 1}
             >
               {item}
             </ComboboxListboxOption>
