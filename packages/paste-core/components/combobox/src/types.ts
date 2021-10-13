@@ -19,14 +19,12 @@ interface ScrollToOptions {
   align: ScrollAlignment;
 }
 
-export type RowVirtualizer =
-  | {
-      virtualItems: VirtualItem[];
-      totalSize: number;
-      scrollToOffset: (index: number, options?: ScrollToOptions | undefined) => void;
-      scrollToIndex: (index: number, options?: ScrollToOptions | undefined) => void;
-    }
-  | undefined;
+export type RowVirtualizer = {
+  virtualItems: VirtualItem[];
+  totalSize: number;
+  scrollToOffset: (index: number, options?: ScrollToOptions | undefined) => void;
+  scrollToIndex: (index: number, options?: ScrollToOptions | undefined) => void;
+};
 
 export type HighlightedIndexChanges = {
   type: number;
@@ -72,7 +70,8 @@ export interface ComboboxProps extends Omit<InputProps, 'id' | 'type' | 'value'>
 export interface ComboboxItemsProps
   extends Pick<ComboboxProps, 'groupItemsBy' | 'optionTemplate' | 'groupLabelTemplate' | 'element'> {
   items: Item[];
-  rowVirtualizer: RowVirtualizer | undefined;
   getItemProps: any;
   highlightedIndex: UseComboboxPrimitiveState<Item>['highlightedIndex'];
+  totalSize: RowVirtualizer['totalSize'];
+  virtualItems: RowVirtualizer['virtualItems'];
 }

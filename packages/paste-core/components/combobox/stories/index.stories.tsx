@@ -25,8 +25,12 @@ const items = [
   'Paragraph',
 ];
 
-// eslint-disable-next-line unicorn/prefer-spread
-const virtualizedItems = Array.from(new Array(1000), (_empty, index) => `${index}`);
+function createLargeArray<TemplateResult = string & Record<string, string>>(
+  template: (index?: number | undefined) => TemplateResult
+): TemplateResult[] {
+  // eslint-disable-next-line unicorn/prefer-spread
+  return Array.from(new Array(1000), (_empty, index) => template(index));
+}
 
 interface IconItems {
   label: string;
@@ -121,12 +125,85 @@ DefaultCombobox.story = {
   name: 'Combobox',
 };
 
+const ItemToString = ({name}: {name: string}): string => name;
+
 export const VirtualizedCombobox = (): React.ReactNode => {
-  return <Combobox items={virtualizedItems} labelText="Pick a number:" helpText="This large list is virtualized" />;
+  const itemsForVirtualCombobox = React.useMemo(() => createLargeArray((index) => (index as number).toString()), []);
+
+  return (
+    <Box width="20%">
+      <Combobox
+        initialIsOpen
+        items={itemsForVirtualCombobox}
+        labelText="Select a virtualized item"
+        helpText="This large list is virtualized"
+      />
+    </Box>
+  );
 };
 
 VirtualizedCombobox.story = {
-  name: 'Combobox - Virtualized',
+  name: 'Combobox - Virtualized without option template',
+};
+
+export const VirtualizedCombobox1 = (): React.ReactNode => {
+  const itemsForVirtualCombobox = React.useMemo(
+    () =>
+      createLargeArray((index) => ({
+        name: `Item ${index as number}`,
+        subtext: 'Virtualized combobox from Twilio Paste',
+      })),
+    []
+  );
+
+  return (
+    <Box width="20%">
+      <Combobox
+        initialIsOpen
+        itemToString={ItemToString}
+        items={itemsForVirtualCombobox}
+        optionTemplate={({name, subtext}: {name: string; subtext: string}): string => `${name} - ${subtext}`}
+        labelText="Select a virtualized item"
+        helpText="This large list is virtualized"
+      />
+    </Box>
+  );
+};
+
+VirtualizedCombobox1.story = {
+  name: 'Combobox - Virtualized with string option template',
+};
+
+export const VirtualizedCombobox2 = (): React.ReactNode => {
+  const itemsForVirtualCombobox = React.useMemo(
+    () =>
+      createLargeArray((index) => ({
+        name: `Item ${index as number}`,
+        subtext: 'Virtualized combobox from Twilio Paste',
+      })),
+    []
+  );
+  return (
+    <Box width="20%">
+      <Combobox
+        initialIsOpen
+        items={itemsForVirtualCombobox}
+        itemToString={ItemToString}
+        optionTemplate={({name, subtext}) => (
+          <Box as="span" display="flex" flexDirection="column">
+            <Box as="span">{name}</Box>
+            <Box as="span">{subtext}</Box>
+          </Box>
+        )}
+        labelText="Select a virtualized item"
+        helpText="This large list is virtualized"
+      />
+    </Box>
+  );
+};
+
+VirtualizedCombobox2.story = {
+  name: 'Combobox - Virtualized with React child option template',
 };
 
 export const ComboboxInverse = (): React.ReactNode => {
