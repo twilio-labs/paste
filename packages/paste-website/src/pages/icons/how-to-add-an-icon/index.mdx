@@ -42,26 +42,24 @@ export const pageQuery = graphql`
 
 ## Finding an icon
 
-1. Make sure the icon you need doesn’t already exist in [our icon list](/icons).
+1. Make sure the icon you need doesn't already exist in [our icon list](/icons).
 2. If the icon can be used for a similar use case to yours in multiple products ("UI icon"), find a new icon by searching through the [Streamline app](https://app.streamlineicons.com/streamline-regular). If the icon needs to be reserved for use in your product only ("logo icon"), please [request one from our Brand team](https://www.twilio.com/brand/resources/logos).
 3. Create a [GitHub discussion](https://github.com/twilio-labs/paste/discussions) with:
-   1. A link or screenshot of the icon
+   1. A link or screenshot of the icon in Streamline
    2. A brief explanation or mockup of what you'll need it for
-   3. Whether this icon is a logo icon or a UI icon.
+   3. Whether this icon is a logo icon or a UI icon
 4. We'll discuss in GitHub if the icon should be added to Paste.
-   1. If the icon will be added to Paste, create a branch in
-      the ["Paste components" Figma library](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=124%3A0).
-   2. If the icon won’t be added to Paste, create a branch in your own Figma project
-      and skip to [Using a Streamline icon](/icons/how-to-add-an-icon#using-a-streamline-icon).
+   1. If the icon will be added to Paste, the design systems team will reply to the discussion with next steps. If you're an engineer, skip to [Adding the icon to the Paste repository](#adding-the-icon-to-the-paste-repository). If you're a designer, you'll receive a Streamline SVG from a design systems team member. Continue to the instructions below.
+   2. If the icon won't be added to Paste, place the icon SVG in your own Figma project and skip to [Using a Streamline icon](#using-a-streamline-icon).
 
 ## Setting up an icon in Figma
 
-1. Open the ["Paste Components" Figma Library](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components).
-2. Go to the page ["Icon"](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=124%3A0).
-3. Duplicate the empty template frame "[IconName](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=124%3A1005)".
-4. Group the new frame in the section that fits its use case (e.g. a "filter" icon would belong in the "actions" section). Make sure the new frame is aligned evenly on the canvas with the existing icon frames.
-5. Turn the new frame into a symbol.
-6. In the frame name, replace "IconName" with the name of your icon. Follow the naming pattern of the existing icon frames in that section (e.g. "action/Filter").
+1. Create a branch of the ["Paste components" Figma library](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=124%3A0).
+2. Go to the "Icon" page in your branch.
+3. Duplicate the empty template frame called "IconName".
+4. Move the newly created frame to the section that best fits its use case (e.g. a "filter" icon would belong in the "actions" section). If you aren't sure which group the icon belongs to, ask the design systems team in your GitHub discussion.
+5. In the frame name, replace "IconName" with the name of your icon. Follow the naming pattern of the existing icon frames in that section (e.g. "action/Filter").
+6. Select the frame and convert it to a new component.
 
 <Callout>
   <CalloutTitle>How to name icon frames</CalloutTitle>
@@ -77,78 +75,54 @@ export const pageQuery = graphql`
 
 ## Using a Streamline icon
 
-1. Copy and paste the Streamline icon onto your icon frame.
+1. Copy and paste the Streamline icon onto your icon frame. Remove any additional frames the icon import added.
 2. Select all the layers and make sure the border width is 1.
-3. Select the layer group. Lock the width-height aspect ratio. If the icon appears
-   larger than the bounds of the frame, shrink the icon down so that it's visually aligned with our default text size. Use the "icon tester" frame on the Icon tester page in the Sketch file to help. Resizing the icon to 16–18 px usually works.
-4. Duplicate the layer group. Rename the original group to "source" and hide it.
-5. Ungroup the new layer group.
+3. Shrink the icon down so that it's visually aligned with our default text size. Use the "Icon sizing tester" frame to help with sizing. Resizing the icon to 12–16 px usually works.
 
 ## Formatting an icon
 
-1. Convert your icons to outlines so that the width of the lines stay consistent.
-   1. Select all the layers and press "OPTION + COMMAND + O", or use Sketch's menu, "Layer > Convert to Outlines".
-   2. Make sure each layer now has a fill and not a stroke.
-2. Create a union with all the pieces of your icon. This will merge individual pieces
-   together to create one shape. You can find the Union tool in Sketch's toolbar at the
-   top or go to "Layer > Combine > Union".
-3. Apply the layer style "icon/color-text-icon" from one of the Paste themes to the
-   combined shape. In the layer list, you should only have this shape and the hidden
-   "source" group.
-4. Rename the combined shape to the icon name in lowercase with spaces (e.g., "link external").
-5. Make sure the icon is centered on the frame both vertically and horizontally.
-   If you’re working with an asymmetric shape, you might need to adjust it manually to make
-   sure it’s [optically centered](https://blog.marvelapp.com/optical-adjustment-logic-vs-designers/).
-   For example, you might need to move a "play" icon a bit
-   right-of-center to account for the low visual weight on its right side.
-6. Make sure there are no transforms on the shape. If there are, go to "Layer > Combine > Flatten".
-7. Rename the layers to "icon".
+1. **Setting up the frame:** For all Paste icons, we maintain a vector-lined version (or "source") of the icon so that if we need to make edits, we can do that easily in the future. When you're satisfied with the shape and design of your icon, duplicate the layer group. Then rename the original vector-lined icon to "source". Hide the "source" group.
+2. **Outline the stroke:** All icons used in Paste use a single pathed icon. Outline the stroke of your icon by right-clicking on the visible layer group and selecting "Outline stroke" from the menu. Make sure each visible layer has a fill and not a stroke so that the width of its lines stay consistent when the icon sizes up or down.
+3. Unite all the layers of your icon by selecting them and then clicking on "Union selection". Learn more about how to do this with this [Figma support article about Boolean Operations](https://help.figma.com/hc/en-us/articles/360039957534-Boolean-Operations).
+4. Flatten the icon further by right-clicking and selecting "Flatten" from the menu. Doing this ensures there's no part of your icon that is rotated or reflected.
+5. At this point in your icon frame, you should only have an icon layer and the hidden "source" group in your frame. Rename the icon layer to "icon".
+6. Apply the layer style "color-text-icon" from the Paste Default Theme.
+7. Make sure the icon is centered on the frame both vertically and horizontally. If you're working with an asymmetric shape, you might need to adjust it manually to make sure it's [optically centered](https://marvelapp.com/blog/optical-adjustment-logic-vs-designers/). For example, you might need to move a "play" icon a bit right-of-center to account for the low visual weight on its right side.
+8. Lock the icon layer.
 
 ## Exporting the icon
 
-1. Make sure you have the [SVG export Figma plugin](https://www.figma.com/community/plugin/814345141907543603/SVG-Export) installed.
-2. Export the icon frame (not the combined shape) as an SVG. The template frame
-   is already set up to do this.
+1. Make sure you have the [SVG Export Figma plugin](https://www.figma.com/community/plugin/814345141907543603/SVG-Export) installed.
+2. Export the icon frame (not the layer) as an SVG. Right-click on the frame and go to "Plugins > SVG Export". Export the SVG.
 3. Make sure the SVG code is clean:
-   1. You shouldn’t see `id`. If you do, make sure the SVGO compressor plugin is properly installed.
-   2. You shouldn’t see `transform`. If you do, flatten your shape.
-   3. You should see `width=”20" height="20"`. If you don’t, check that the frame you’re
-      exporting is 20px × 20px and that you’re exporting the frame, not the layer.
-4. If you're adding a logo icon, add the word "Product" to the
-   beginning of the SVG file name. For example: "ProductCodeExchangeCommunity".
+   1. You shouldn't see `id`.
+   2. You shouldn't see `transform`. If you do, flatten your shape.
+   3. You should see `width="20" height="20"` and `viewBox="0 0 20 20"`. If you don't, check that the frame you're exporting is 20px × 20px and that you're exporting the frame, not the layer.
+4. If you're adding a logo icon, add the word "Product" to the beginning of the SVG file name. For example: "ProductCodeExchangeCommunity".
 
 ## Adding the icon to the Paste repository
 
-Once the icon is designed and exported, we need to get it in the hands of our developers.
-There are two ways for icons to be added into the `@twilio-paste/icons` code package:
+Once the icon is designed and exported, we need to get it in the hands of our developers. There are two ways for icons to be added into the `@twilio-paste/icons` code package:
 
-1. You can [file an issue on Github](https://github.com/twilio-labs/paste/issues) providing all the
-   information you have about the icon. Ideally, this issue would attach the SVG icon generated in
-   the above steps. This method is hands-off, but comes at the cost of needing to wait between 2 to 6 weeks
-   for us to plan and execute on the work.
-2. Alternatively, you can open a Pull Request (PR) on our repository with the required changes.
-   This self-service approach would greatly speed up the process of getting your icon into the Paste package
-   because it bypasses our team's sprint practices.
+1. You can wait for the design systems team to add in the icon. This usually takes between 2 to 6 weeks for us to plan and execute on the work. If you formatted the icon in Figma using the instructions above, attach the SVG export to your original GitHub discussion. We'll reply to the discussion when your icon component is ready.
+2. Alternatively, you or your team can open a Pull Request (PR) on our repository with the required changes. If you or a member of your team can't format the icon in Figma, the design systems team will still need to plan and execute on the design part of the work. Overall, this self-service approach greatly speeds up the process of getting your icon into the Paste package because it bypasses our team's sprint practices.
 
 ### Self-service instructions
 
 1. Fork the Paste repository because PRs can only be open against forks and not branches for security reasons.
 2. Clone your newly forked Paste repository: `git clone <url>`
-3. Navigate inside the newly cloned repository with `cd paste`
-4. Install the dependencies with `yarn install`
-5. Add all the new `svg` icon files into the `packages/paste-icons/svg/` folder.
+3. Navigate inside the newly cloned repository with cd paste
+4. Install the dependencies with yarn install
+5. Add all the new svg icon files into the packages/paste-icons/svg/ folder.
 6. From the root Paste folder, run the following command in your terminal: `yarn workspace @twilio-paste/icons convert`
-7. Verify your new icons were added correctly by checking the `packages/paste-icons/src` folder to see the newly created source files.
+7. Verify your new icons were added correctly by checking the packages/paste-icons/src folder to see the newly created source files.
 8. Commit your changes and submit a new PR on Github!
 
 ## Troubleshooting
 
-If you run into any issues with creating your icon, double check you've followed
-all the steps. In the past, we've seen icons that had small artifacts or
-missing pieces because of the order of layers within a combined shape
-or union. Try moving layers around to get the shape you need, or flattening the icon shape layer.
+If you run into any issues with creating your icon, double check you've followed all the steps. Try moving layers around to get the shape you need, or flattening the icon shape layer.
 
-Get in touch with the Paste team through Slack at #help-design-system.
+Get in touch with the Paste team through your GitHub discussion.
 
 </content>
 
