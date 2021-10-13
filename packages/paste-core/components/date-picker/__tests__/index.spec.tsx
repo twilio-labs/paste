@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {matchers} from 'jest-emotion';
+
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {render, screen} from '@testing-library/react';
 // @ts-ignore typescript doesn't like js imports
@@ -12,8 +12,6 @@ import {
   InverseDatePicker,
   ReadonlyDatePicker,
 } from '../stories/index.stories';
-
-expect.extend(matchers);
 
 describe('formatReturnDate()', () => {
   const TEST_DATE = '2021-02-14';

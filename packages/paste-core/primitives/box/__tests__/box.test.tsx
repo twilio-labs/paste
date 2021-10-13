@@ -1,12 +1,10 @@
 import * as React from 'react';
-import {matchers} from 'jest-emotion';
+
 import {render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Box} from '../src';
 import {CustomizableBoxExample} from '../__fixtures__/CustomizableBox';
-
-expect.extend(matchers);
 
 describe('Backgrounds', () => {
   it('should render single values', (): void => {

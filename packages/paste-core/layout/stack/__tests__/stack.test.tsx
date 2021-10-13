@@ -1,12 +1,10 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
-import {matchers} from 'jest-emotion';
+
 import {Card} from '@twilio-paste/card';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {StackOrientation} from '../src';
 import {getStackDisplay, getStackStyles, getStackChildMargins, Stack} from '../src';
-
-expect.extend(matchers);
 
 describe('Stack Unit Tests', () => {
   const mockHorizontalOrientation = 'horizontal';

@@ -1,11 +1,9 @@
 import * as React from 'react';
-import {matchers} from 'jest-emotion';
+
 import {render} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
 import {WrapperAndArrows, NumbersAndLabel} from '../stories/customization.stories';
-
-expect.extend(matchers);
 
 const paginationStyles = {fontSize: 'fontSize60', fontWeight: 'fontWeightBold'} as PasteCustomCSS;
 const getCustomizedStyles = (prefix = 'PAGINATION'): {[key: string]: any} => ({

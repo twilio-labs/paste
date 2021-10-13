@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {matchers} from 'jest-emotion';
+
 import {Theme} from '@twilio-paste/theme';
 import {render, screen} from '@testing-library/react';
 import type {RenderOptions} from '@testing-library/react';
@@ -8,8 +8,6 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import {Spinner} from '../src';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
-
-expect.extend(matchers);
 
 const TestWrapper = (elements?: Record<string, any>): RenderOptions['wrapper'] => ({children}) => (
   <CustomizationProvider

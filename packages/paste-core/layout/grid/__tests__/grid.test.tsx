@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {matchers} from 'jest-emotion';
+
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Column, Grid} from '../src';
@@ -12,8 +12,6 @@ import {
   getSpacing,
   getResponsiveSpacing,
 } from '../src/utils';
-
-expect.extend(matchers);
 
 describe('Grid', () => {
   const BASE_PADDING = {

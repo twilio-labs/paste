@@ -2,14 +2,12 @@ import * as React from 'react';
 import {render, screen, fireEvent} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
-import {matchers} from 'jest-emotion';
+
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState} from '../src';
 import type {DisclosureHeadingProps, DisclosureProps, DisclosureStateReturn} from '../src';
 import {getIconHoverStyles} from '../src/utils';
-
-expect.extend(matchers);
 
 const MockDisclosure: React.FC<{
   visible?: DisclosureProps['visible'];
