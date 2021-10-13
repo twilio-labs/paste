@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.1.0
+
+### Minor Changes
+
+- [`db9f9665`](https://github.com/twilio-labs/paste/commit/db9f96657c8e3d9230ef17e1a0ab4658b6016dca) [#1915](https://github.com/twilio-labs/paste/pull/1915) Thanks [@zahnster](https://github.com/zahnster)! - [Popover] Enable component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 6.0.4
 
 ### Patch Changes
