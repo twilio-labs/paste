@@ -1,5 +1,16 @@
 # Change Log
 
+## 6.13.0
+
+### Minor Changes
+
+- [`d13c1095`](https://github.com/twilio-labs/paste/commit/d13c10956420897e8215630bc713c1105dfdfe21) [#1911](https://github.com/twilio-labs/paste/pull/1911) Thanks [@andipants12](https://github.com/andipants12)! - [paste-design-tokens] Added the following tokens for usage with the Connectivity variant and status pattern:
+
+  - color-text-icon-available:
+  - color-text-icon-busy
+  - color-text-icon-unavailable
+  - color-text-icon-offline
+
 ## 6.12.0
 
 ### Minor Changes

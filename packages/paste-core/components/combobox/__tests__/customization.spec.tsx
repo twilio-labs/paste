@@ -1,13 +1,11 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
-import {matchers} from 'jest-emotion';
+import type {RenderOptions} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Text} from '@twilio-paste/text';
 import {Combobox} from '../src';
-
-expect.extend(matchers);
 
 const getStyles = (element = 'COMBOBOX'): {[key: string]: PasteCustomCSS} => ({
   [`${element}_WRAPPER`]: {backgroundColor: 'colorBackgroundDark', fontFamily: 'fontFamilyCode'},
@@ -23,6 +21,16 @@ const getStyles = (element = 'COMBOBOX'): {[key: string]: PasteCustomCSS} => ({
   [`${element}_PREFIX`]: {backgroundColor: 'colorBackgroundRequired', borderRadius: 'borderRadius20'},
   [`${element}_SUFFIX`]: {backgroundColor: 'colorBackgroundSubaccount', borderRadius: 'borderRadiusCircle'},
 });
+
+const initCustomizationWrapper = (elementName?: string | undefined): RenderOptions['wrapper'] => ({children}) => (
+  <CustomizationProvider
+    // @ts-expect-error global test variable
+    theme={TestTheme}
+    elements={getStyles(elementName)}
+  >
+    {children}
+  </CustomizationProvider>
+);
 
 const ComboboxToTest = ({element = 'COMBOBOX'}): React.ReactElement => (
   <Combobox
@@ -45,7 +53,7 @@ const ComboboxToTest = ({element = 'COMBOBOX'}): React.ReactElement => (
 
 describe('Combobox data-paste-element attributes', () => {
   it('should set the correct attributes on all Combobox components', () => {
-    const {container} = render(<ComboboxToTest />);
+    const {container} = render(<ComboboxToTest />, {wrapper: initCustomizationWrapper()});
     expect(container.querySelector('[data-paste-element="COMBOBOX"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="COMBOBOX_WRAPPER"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="COMBOBOX_ELEMENT"]')).toBeInTheDocument();
@@ -61,7 +69,7 @@ describe('Combobox data-paste-element attributes', () => {
     expect(container.querySelector('[data-paste-element="COMBOBOX_SUFFIX"]')).toBeInTheDocument();
   });
   it('should set the correct attributes on all Combobox components with custom element prop', () => {
-    const {container} = render(<ComboboxToTest element="FOO" />);
+    const {container} = render(<ComboboxToTest element="FOO" />, {wrapper: initCustomizationWrapper()});
     expect(container.querySelector('[data-paste-element="FOO"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="FOO_WRAPPER"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="FOO_ELEMENT"]')).toBeInTheDocument();
@@ -80,15 +88,7 @@ describe('Combobox data-paste-element attributes', () => {
 
 describe('Combobox customization', () => {
   it('should add styles to Combobox', () => {
-    const {container} = render(
-      <CustomizationProvider
-        // @ts-expect-error global test variable
-        theme={TestTheme}
-        elements={getStyles()}
-      >
-        <ComboboxToTest />
-      </CustomizationProvider>
-    );
+    const {container} = render(<ComboboxToTest />, {wrapper: initCustomizationWrapper('COMBOBOX')});
     expect(container.querySelector('[data-paste-element="COMBOBOX"]')).toHaveStyleRule(
       'background-color',
       'rgb(235,244,255)'
@@ -130,15 +130,7 @@ describe('Combobox customization', () => {
   });
 
   it('should add styles to Combobox with custom element attribute', () => {
-    const {container} = render(
-      <CustomizationProvider
-        // @ts-expect-error global test variable
-        theme={TestTheme}
-        elements={getStyles('FOO')}
-      >
-        <ComboboxToTest element="FOO" />
-      </CustomizationProvider>
-    );
+    const {container} = render(<ComboboxToTest element="FOO" />, {wrapper: initCustomizationWrapper('FOO')});
     expect(container.querySelector('[data-paste-element="FOO"]')).toHaveStyleRule(
       'background-color',
       'rgb(235,244,255)'

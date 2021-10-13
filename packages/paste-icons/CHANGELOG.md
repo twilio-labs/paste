@@ -1,5 +1,18 @@
 # Change Log
 
+## 5.7.0
+
+### Minor Changes
+
+- [`fa49442f`](https://github.com/twilio-labs/paste/commit/fa49442f98484ecda470d8df23b2aa3d1a6da2fb) [#1938](https://github.com/twilio-labs/paste/pull/1938) Thanks [@SiTaggart](https://github.com/SiTaggart)! - New Icon: Product Icon for Twilio Live
+
+* [`d13c1095`](https://github.com/twilio-labs/paste/commit/d13c10956420897e8215630bc713c1105dfdfe21) [#1911](https://github.com/twilio-labs/paste/pull/1911) Thanks [@andipants12](https://github.com/andipants12)! - [Icons] Added the following icons for connectivity status pattern:
+
+  - ConnectivityAvailableIcon
+  - ConnectivityBusyIcon
+  - ConnectivityOfflineIcon
+  - ConnectivityUnavailableIcon
+
 ## 5.6.0
 
 ### Minor Changes

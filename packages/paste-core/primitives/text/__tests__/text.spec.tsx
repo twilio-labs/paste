@@ -1,13 +1,11 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
-import {matchers} from 'jest-emotion';
+
 import {render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Text} from '../src';
 import {CustomizableTextExample} from '../__fixtures__/CustomizableText';
-
-expect.extend(matchers);
 
 describe('as', () => {
   it('should render as a provided HTML element', (): void => {

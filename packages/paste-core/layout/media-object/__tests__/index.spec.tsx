@@ -1,11 +1,9 @@
 import * as React from 'react';
-import {matchers} from 'jest-emotion';
+
 import {render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {MediaObject, MediaFigure, MediaBody} from '../src';
-
-expect.extend(matchers);
 
 describe('MediaObject', () => {
   it('should render', (): void => {

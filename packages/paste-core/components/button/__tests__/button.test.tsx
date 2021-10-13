@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {matchers} from 'jest-emotion';
+
 import {render} from 'react-dom';
 import {render as testRender} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
@@ -9,8 +9,6 @@ import {shallow, mount} from 'enzyme';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Button} from '../src';
-
-expect.extend(matchers);
 
 const NOOP = (): void => {};
 const HREF = 'https://twilio.paste.design';

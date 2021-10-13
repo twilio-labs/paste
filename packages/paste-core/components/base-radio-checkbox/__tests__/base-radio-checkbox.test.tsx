@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {matchers} from 'jest-emotion';
+
 import {render} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
@@ -9,8 +9,6 @@ import {
   BaseRadioCheckboxLabelText,
   BaseRadioCheckboxHelpText,
 } from '../src/BaseRadioCheckbox';
-
-expect.extend(matchers);
 
 describe('Base radio checkbox HTML attributes', () => {
   it('should set element data attribute on base radio checkbox components', () => {

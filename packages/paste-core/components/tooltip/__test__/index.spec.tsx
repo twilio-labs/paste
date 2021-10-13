@@ -2,14 +2,12 @@ import * as React from 'react';
 import {act, fireEvent, render, screen} from '@testing-library/react';
 import {Button} from '@twilio-paste/button';
 import {Theme} from '@twilio-paste/theme';
-import {matchers} from 'jest-emotion';
+
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {StateHookExample} from '../stories/index.stories';
 import {Tooltip} from '../src';
-
-expect.extend(matchers);
 
 const TooltipWithoutTheme: React.FC<{elementName?: string}> = ({elementName}) => {
   return (

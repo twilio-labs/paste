@@ -4,6 +4,8 @@ import {Button} from '@twilio-paste/button';
 import {Heading} from '@twilio-paste/heading';
 import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {CustomizationProvider} from '@twilio-paste/customization';
+import {useTheme} from '@twilio-paste/theme';
 import {AlertDialog} from '../src';
 import {AlertDialogHeader} from '../src/AlertDialogHeader';
 import {AlertDialogBody} from '../src/AlertDialogBody';
@@ -212,4 +214,62 @@ export const DestructiveAlertDialogVRT = (): React.ReactNode => {
 
 DestructiveAlertDialogVRT.story = {
   name: 'Destructive Alert Dialog for VRT',
+};
+
+export const CustomizedAlertDialog = (): React.ReactElement => {
+  const theme = useTheme();
+  return (
+    <CustomizationProvider
+      theme={theme}
+      elements={{
+        ALERT_DIALOG: {backgroundColor: 'colorBackgroundSubaccount'},
+        ALERT_DIALOG_HEADER_WRAPPER: {border: 'inherit'},
+        ALERT_DIALOG_HEADER: {fontFamily: 'fontFamilyCode', backgroundColor: 'colorBackgroundNeutralWeakest'},
+        ALERT_DIALOG_BODY: {backgroundColor: 'colorBackgroundSuccessWeakest'},
+        ALERT_DIALOG_FOOTER: {paddingTop: 'space50', backgroundColor: 'colorBackgroundWarningWeakest'},
+      }}
+    >
+      <AlertDialog
+        data-testid="alert_dialog"
+        isOpen
+        onConfirm={() => {}}
+        onDismiss={() => {}}
+        onConfirmLabel="Confirm"
+        onDismissLabel="Dismiss"
+        heading="Alert Dialog"
+      >
+        Are you sure you want to submit this application? No information can be changed after submitting.
+      </AlertDialog>
+    </CustomizationProvider>
+  );
+};
+
+export const CustomizedDestructiveAlertDialog = (): React.ReactElement => {
+  const currentTheme = useTheme();
+  return (
+    <CustomizationProvider
+      theme={currentTheme}
+      elements={{
+        FOO: {backgroundColor: 'colorBackgroundError'},
+        FOO_HEADER_WRAPPER: {border: 'inherit'},
+        FOO_HEADER: {fontFamily: 'fontFamilyCode', backgroundColor: 'colorBackgroundNeutralWeakest'},
+        FOO_BODY: {backgroundColor: 'colorBackgroundSuccessWeakest'},
+        FOO_FOOTER: {paddingTop: 'space50', backgroundColor: 'colorBackgroundWarningWeakest'},
+      }}
+    >
+      <AlertDialog
+        data-testid="destructive_alert_dialog"
+        element="FOO"
+        isOpen
+        destructive
+        onConfirm={() => {}}
+        onDismiss={() => {}}
+        onConfirmLabel="Confirm"
+        onDismissLabel="Dismiss"
+        heading="Alert Dialog"
+      >
+        Are you sure you want to delete this data? This action cannot be undone.
+      </AlertDialog>
+    </CustomizationProvider>
+  );
 };

@@ -1,13 +1,11 @@
 import * as React from 'react';
 import {render} from 'react-dom';
-import {matchers} from 'jest-emotion';
+
 import {render as testRender} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {CheckboxDisclaimer} from '../src';
-
-expect.extend(matchers);
 
 const defaultProps = {
   id: 'foo',

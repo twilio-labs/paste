@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {render, screen, waitFor} from '@testing-library/react';
-import {matchers} from 'jest-emotion';
+
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Text} from '@twilio-paste/text';
@@ -8,8 +8,6 @@ import {Text} from '@twilio-paste/text';
 import axe from '../../../../../.jest/axe-helper';
 import {PopoverTop, StateHookExample} from '../stories/index.stories';
 import {Popover, PopoverContainer, PopoverButton} from '../src';
-
-expect.extend(matchers);
 
 describe('Popover', () => {
   describe('Render', () => {

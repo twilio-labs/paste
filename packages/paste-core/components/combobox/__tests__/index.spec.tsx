@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as _ from 'lodash';
 import {render, screen, fireEvent} from '@testing-library/react';
+import type {RenderOptions} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {Button} from '@twilio-paste/button';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
@@ -50,23 +51,25 @@ const smallGroupedItems = [
   {label: 'Design Tokens'},
 ];
 
+const ThemeWrapper: RenderOptions['wrapper'] = ({children}) => (
+  <Theme.Provider theme="default">{children}</Theme.Provider>
+);
+
 const ComboboxMock: React.FC = () => {
   const [inputItems, setInputItems] = React.useState(items);
   return (
-    <Theme.Provider theme="default">
-      <Combobox
-        items={inputItems}
-        initialIsOpen
-        helpText="This is the help text"
-        labelText="Choose a component:"
-        required
-        onInputValueChange={({inputValue}) => {
-          if (inputValue !== undefined) {
-            setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
-          }
-        }}
-      />
-    </Theme.Provider>
+    <Combobox
+      items={inputItems}
+      initialIsOpen
+      helpText="This is the help text"
+      labelText="Choose a component:"
+      required
+      onInputValueChange={({inputValue}) => {
+        if (inputValue !== undefined) {
+          setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
+        }
+      }}
+    />
   );
 };
 
@@ -164,7 +167,7 @@ describe('Combobox', () => {
 
   describe('Render', () => {
     it('should render a combobox with aria attributes', () => {
-      render(<ComboboxMock />);
+      render(<ComboboxMock />, {wrapper: ThemeWrapper});
       const renderedCombobox = screen.getByRole('combobox');
       expect(renderedCombobox.getAttribute('aria-haspopup')).toEqual('listbox');
       expect(renderedCombobox.getAttribute('aria-owns')).toEqual(screen.getByRole('listbox').id);
@@ -172,7 +175,7 @@ describe('Combobox', () => {
     });
 
     it('should render a textbox with aria attributes', () => {
-      render(<ComboboxMock />);
+      render(<ComboboxMock />, {wrapper: ThemeWrapper});
       const renderedCombobox = screen.getByRole('textbox');
       expect(renderedCombobox.getAttribute('aria-controls')).toEqual(screen.getByRole('listbox').id);
       expect(renderedCombobox.getAttribute('aria-labelledby')).toEqual(document.querySelector('label')!.id);
@@ -180,13 +183,13 @@ describe('Combobox', () => {
     });
 
     it('should render a list with aria attributes', () => {
-      render(<ComboboxMock />);
+      render(<ComboboxMock />, {wrapper: ThemeWrapper});
       const renderedCombobox = screen.getByRole('listbox');
       expect(renderedCombobox.getAttribute('aria-labelledby')).toEqual(document.querySelector('label')!.id);
     });
 
     it('should render a list with unique option ids', () => {
-      render(<ComboboxMock />);
+      render(<ComboboxMock />, {wrapper: ThemeWrapper});
       const renderedOptions = screen.getAllByRole('option');
       const optionIDs = renderedOptions.map((option) => option.id);
       const uniqueIDs = _.uniq(optionIDs);
@@ -194,14 +197,14 @@ describe('Combobox', () => {
     });
 
     it('should render a label for that matches the input id', () => {
-      render(<ComboboxMock />);
+      render(<ComboboxMock />, {wrapper: ThemeWrapper});
       const renderedLabel = document.querySelector('label');
       const renderedTextbox = screen.getByRole('textbox');
       expect(renderedLabel!.getAttribute('for')).toEqual(renderedTextbox.getAttribute('id'));
     });
 
     it('should render a required combobox', () => {
-      render(<ComboboxMock />);
+      render(<ComboboxMock />, {wrapper: ThemeWrapper});
       const renderedTextbox = screen.getByRole('textbox');
       expect(renderedTextbox.getAttribute('required')).toEqual('');
     });
@@ -209,7 +212,7 @@ describe('Combobox', () => {
 
   describe('Groups', () => {
     it('should render a group of options', () => {
-      render(<GroupedMockCombobox />);
+      render(<GroupedMockCombobox />, {wrapper: ThemeWrapper});
       const renderedGroups = screen.getAllByRole('group');
       // check groups, group label and number of options per group
       expect(renderedGroups[0].getAttribute('aria-label')).toEqual('Components');
@@ -221,7 +224,7 @@ describe('Combobox', () => {
     });
 
     it('should render any items not identified as part of the group as ungrouped options', () => {
-      render(<GroupedMockCombobox />);
+      render(<GroupedMockCombobox />, {wrapper: ThemeWrapper});
       const renderedListbox = screen.getByRole('listbox');
       const renderedGroups = screen.getAllByRole('group');
       // check we have 3 groups
@@ -233,7 +236,7 @@ describe('Combobox', () => {
     });
 
     it('should render a listbox with groups of options that contains no duplicate ids', () => {
-      render(<GroupedMockCombobox />);
+      render(<GroupedMockCombobox />, {wrapper: ThemeWrapper});
       const renderedOptions = screen.getAllByRole('option');
       const optionIDs = renderedOptions.map((option) => option.id);
       const uniqueIDs = _.uniq(optionIDs);
@@ -241,7 +244,9 @@ describe('Combobox', () => {
     });
 
     it('should render a custom group label', () => {
-      render(<GroupedMockCombobox groupLabelTemplate={(groupName) => <span>hi {groupName}</span>} />);
+      render(<GroupedMockCombobox groupLabelTemplate={(groupName) => <span>hi {groupName}</span>} />, {
+        wrapper: ThemeWrapper,
+      });
       const renderedGroups = screen.getAllByRole('group');
       expect(renderedGroups[0].querySelector('[role="group"] > li[role="presentation"]')!.textContent).toEqual(
         'hi Components'
@@ -255,7 +260,7 @@ describe('Combobox', () => {
     });
 
     it('should select item using keyboard', () => {
-      render(<GroupedMockCombobox />);
+      render(<GroupedMockCombobox />, {wrapper: ThemeWrapper});
       // open the combobox
       fireEvent.click(screen.getByRole('textbox'));
       // select the third item using ArrowDown keyDown
@@ -276,7 +281,7 @@ describe('Combobox', () => {
 
   describe('Controlled Combobox', () => {
     it('should be able to clear a Combobox', () => {
-      render(<ControlledCombobox />);
+      render(<ControlledCombobox />, {wrapper: ThemeWrapper});
       // open the combobox
       fireEvent.click(screen.getByRole('textbox'));
       // select the first item
@@ -298,7 +303,7 @@ describe('Combobox', () => {
 
   describe('Accessibility', () => {
     it('Should have no accessibility violations', async () => {
-      const {container} = render(<ComboboxMock />);
+      const {container} = render(<ComboboxMock />, {wrapper: ThemeWrapper});
       const results = await axe(container, {
         rules: {
           // Incorrectly thinks our markup is bad for a11y.

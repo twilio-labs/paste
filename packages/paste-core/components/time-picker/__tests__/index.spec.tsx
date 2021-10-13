@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
-import {matchers} from 'jest-emotion';
+
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
@@ -12,8 +12,6 @@ import {
   InverseTimePicker,
   ReadonlyTimePicker,
 } from '../stories/index.stories';
-
-expect.extend(matchers);
 
 describe('formatReturnTime()', () => {
   const TEST_TIME = '13:30:04';

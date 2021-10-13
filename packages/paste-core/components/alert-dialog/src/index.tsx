@@ -2,7 +2,8 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {useUID} from '@twilio-paste/uid-library';
 import {useTransition} from '@twilio-paste/animation-library';
-import {safelySpreadBoxProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxProps} from '@twilio-paste/box';
 import {ModalDialogOverlay} from '@twilio-paste/modal';
 import {AlertDialogHeader} from './AlertDialogHeader';
 import {AlertDialogBody} from './AlertDialogBody';
@@ -22,7 +23,7 @@ const getAnimationStates = (): any => ({
   },
 });
 
-export interface AlertDialogProps extends React.HTMLAttributes<HTMLElement> {
+export interface AlertDialogProps extends React.HTMLAttributes<HTMLElement>, Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
   destructive?: boolean;
   heading: string;
@@ -34,7 +35,21 @@ export interface AlertDialogProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 export const AlertDialog = React.forwardRef<HTMLDivElement, AlertDialogProps>(
-  ({children, destructive, heading, isOpen, onConfirm, onConfirmLabel, onDismiss, onDismissLabel, ...props}, ref) => {
+  (
+    {
+      children,
+      destructive,
+      element = 'ALERT_DIALOG',
+      heading,
+      isOpen,
+      onConfirm,
+      onConfirmLabel,
+      onDismiss,
+      onDismissLabel,
+      ...props
+    },
+    ref
+  ) => {
     const transitions = useTransition(isOpen, getAnimationStates());
     const headingID = useUID();
     const bodyID = useUID();
@@ -45,24 +60,32 @@ export const AlertDialog = React.forwardRef<HTMLDivElement, AlertDialogProps>(
           (styles, item) =>
             item && (
               <ModalDialogOverlay isOpen={isOpen} style={{opacity: styles.opacity}}>
-                <AlertDialogContent
+                <Box
+                  // @ts-expect-error Render overlay as box for customization
+                  as={AlertDialogContent}
                   {...safelySpreadBoxProps(props)}
                   aria-labelledby={headingID}
                   aria-describedby={bodyID}
+                  element={element}
                   ref={ref}
                   role="alertdialog"
                   style={styles}
                 >
-                  <AlertDialogHeader headingID={headingID}>{heading}</AlertDialogHeader>
-                  <AlertDialogBody bodyID={bodyID}>{children}</AlertDialogBody>
+                  <AlertDialogHeader headingID={headingID} element={`${element}_HEADER`}>
+                    {heading}
+                  </AlertDialogHeader>
+                  <AlertDialogBody bodyID={bodyID} element={`${element}_BODY`}>
+                    {children}
+                  </AlertDialogBody>
                   <AlertDialogFooter
                     destructive={destructive}
+                    element={`${element}_FOOTER`}
                     onDismiss={onDismiss}
                     onDismissLabel={onDismissLabel}
                     onConfirm={onConfirm}
                     onConfirmLabel={onConfirmLabel}
                   />
-                </AlertDialogContent>
+                </Box>
               </ModalDialogOverlay>
             )
         )}
@@ -76,6 +99,7 @@ AlertDialog.displayName = 'AlertDialog';
 AlertDialog.propTypes = {
   children: PropTypes.node.isRequired,
   destructive: PropTypes.bool,
+  element: PropTypes.string,
   heading: PropTypes.string.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onConfirm: PropTypes.func.isRequired,

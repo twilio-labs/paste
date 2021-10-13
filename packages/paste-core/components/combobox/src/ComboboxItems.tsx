@@ -14,47 +14,37 @@ const ComboboxItems: React.FC<ComboboxItemsProps> = ({
   optionTemplate,
   groupLabelTemplate,
   groupItemsBy,
-  rowVirtualizer,
+  totalSize,
+  virtualItems,
 }) => {
-  const UIDSeed = useUIDSeed();
+  const uidSeed = useUIDSeed();
+
+  // Use option template if provided
+  // otherwise, return the items array.
+  const templatizedItems = React.useMemo(() => {
+    return optionTemplate != null && typeof optionTemplate === 'function'
+      ? items.map((item) => optionTemplate(item))
+      : items;
+  }, [JSON.stringify(items), optionTemplate]);
 
   // If no groupings, return plain list
   if (groupItemsBy == null) {
-    // If there's an option template, disable virtualization
-    // because calcing dynamic heights is hard
-    // TODO: virtualize
-    return optionTemplate != null ? (
+    return (
       <ComboboxListboxGroup element={element}>
-        {items.map((item, index) => (
-          <ComboboxListboxOption
-            {...getItemProps({item, index})}
-            element={element}
-            highlighted={highlightedIndex === index}
-            key={UIDSeed(`item-${index}`)}
-            variant="default"
-          >
-            {optionTemplate(item)}
-          </ComboboxListboxOption>
-        ))}
-      </ComboboxListboxGroup>
-    ) : (
-      <ComboboxListboxGroup element={element}>
-        <li role="presentation" key="total-size" style={{height: rowVirtualizer!.totalSize}} />
-        {rowVirtualizer!.virtualItems.map((virtualItem: VirtualItem) => {
-          const itemIndex = virtualItem.index;
-          const item = items[itemIndex];
+        <li role="presentation" key="total-size" style={{height: totalSize}} />
+        {virtualItems.map((virtualItem: VirtualItem) => {
+          const {index: virtualItemIndex} = virtualItem;
+          const item = templatizedItems[virtualItemIndex];
           return (
             <ComboboxListboxOption
-              // @ts-ignore
-              ref={(currentElement) => virtualItem.measureRef(currentElement)}
-              {...getItemProps({item, index: itemIndex})}
+              {...getItemProps({item, index: virtualItemIndex, ref: virtualItem.measureRef})}
               element={element}
-              highlighted={highlightedIndex === itemIndex}
-              key={UIDSeed(`item-${itemIndex}`)}
+              highlighted={highlightedIndex === virtualItemIndex}
+              key={uidSeed(`item-${virtualItemIndex}`)}
               variant="default"
-              virtualItem={virtualItem}
+              startHeight={virtualItem.start}
               aria-setsize={items.length}
-              aria-posinset={items.indexOf(item)}
+              aria-posinset={virtualItemIndex + 1}
             >
               {item}
             </ComboboxListboxOption>
@@ -80,7 +70,7 @@ const ComboboxItems: React.FC<ComboboxItemsProps> = ({
         return (
           <ComboboxListboxGroup
             element={element}
-            key={UIDSeed(groupKey)}
+            key={uidSeed(groupKey)}
             groupName={isUncategorized ? undefined : groupKey}
             groupLabelTemplate={groupLabelTemplate}
           >
@@ -89,7 +79,7 @@ const ComboboxItems: React.FC<ComboboxItemsProps> = ({
                 {...getItemProps({item, index: item.index})}
                 element={element}
                 highlighted={highlightedIndex === item.index}
-                key={UIDSeed(`${groupKey}-${item.index}`)}
+                key={uidSeed(`${groupKey}-${item.index}`)}
                 variant={isUncategorized ? 'default' : 'groupOption'}
               >
                 {optionTemplate ? optionTemplate(item) : item}

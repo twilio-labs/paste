@@ -10,7 +10,7 @@ export interface ComboboxListboxOptionProps extends Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
   highlighted?: boolean;
   variant: 'default' | 'groupOption';
-  virtualItem: VirtualItem;
+  startHeight?: VirtualItem['start'];
 }
 
 const VariantStyles: {[key in ComboboxListboxOptionProps['variant']]: BoxStyleProps} = {
@@ -25,16 +25,17 @@ const VariantStyles: {[key in ComboboxListboxOptionProps['variant']]: BoxStylePr
 };
 
 const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOptionProps>(
-  ({children, element = 'COMBOBOX', highlighted, variant = 'default', virtualItem, ...props}, ref) => {
-    const virtualItemStyles = virtualItem
-      ? {
-          position: 'absolute' as PositionOptions,
-          top: 0,
-          left: 0,
-          width: '100%',
-          transform: `translateY(${virtualItem.start}px)`,
-        }
-      : {};
+  ({children, element = 'COMBOBOX', highlighted, variant = 'default', startHeight, ...props}, ref) => {
+    const virtualItemStyles =
+      startHeight !== undefined
+        ? {
+            position: 'absolute' as PositionOptions,
+            top: 0,
+            left: 0,
+            width: '100%',
+            transform: `translateY(${startHeight}px)`,
+          }
+        : {};
     return (
       <Box
         {...safelySpreadBoxProps(props)}
