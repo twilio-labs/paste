@@ -84,7 +84,7 @@ export const pageQuery = graphql`
 
 Checkbox groups are used when you have multiple binary choices to make but all choices belong to a single group or field. For example, choosing capabilities when searching for a Phone Number to provision from Twilio. By placing them in a group, users should be able to clearly understand which options make up the collection and also how those options are related to each other.
 
-#### Accessibility Information
+#### Accessibility information
 
 - Checkbox groups **must** have a group legend that describes the collection.
   - The label _should_ be visible.
@@ -94,7 +94,7 @@ Checkbox groups are used when you have multiple binary choices to make but all c
 
 Use a checkbox to present a user with a binary (e.g. on/off) choice that is part of a form. A checkbox should not be used to apply a user's choice instantly. In that case, such as enabling a system feature, you should consider using the toggle switch component ([coming soon](https://paste.twilio.design/roadmap/)).
 
-#### Accessibility Information
+#### Accessibility information
 
 - A checkbox must have a visible label that is in close proximity to the control
 - HTML checkboxes don't natively support the `required` attribute. In cases where a checkbox is required to be checked:
@@ -366,7 +366,7 @@ There is no maximum number of checkboxes you can have in a group, but consider u
 
 ---
 
-## Usage Guide
+## Usage guide
 
 ### API
 
@@ -390,7 +390,7 @@ const Component = () => (
 );
 ```
 
-#### Checkbox Props
+#### Checkbox props
 
 All the valid HTML attributes for `input[type=checkbox]` are supported including the following props:
 
@@ -408,7 +408,7 @@ All the valid HTML attributes for `input[type=checkbox]` are supported including
 | onFocus?          | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
 | onBlur?           | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
 
-#### CheckboxGroup Props
+#### CheckboxGroup props
 
 | Prop         | Type                                | Description | Default  |
 | ------------ | ----------------------------------- | ----------- | -------- |
@@ -423,7 +423,7 @@ All the valid HTML attributes for `input[type=checkbox]` are supported including
 | required?    | `boolean`                           |             | false    |
 | isSelectAll? | `boolean`                           |             | false    |
 
-#### CheckboxDisclaimer Props
+#### CheckboxDisclaimer props
 
 All the valid HTML attributes for `input[type=checkbox]` are supported including the following props:
 
