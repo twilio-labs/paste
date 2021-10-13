@@ -1,5 +1,33 @@
 # Change Log
 
+## 10.14.0
+
+### Minor Changes
+
+- [`dd964dc7`](https://github.com/twilio-labs/paste/commit/dd964dc7d589313237f5a4926800646953d2e9fa) [#1899](https://github.com/twilio-labs/paste/pull/1899) Thanks [@gloriliale](https://github.com/gloriliale)! - [Inline-Control-Group] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`7f8afb28`](https://github.com/twilio-labs/paste/commit/7f8afb28f6f63f4d98d668c1ad8be0411411c1ba) [#1907](https://github.com/twilio-labs/paste/pull/1907) Thanks [@zahnster](https://github.com/zahnster)! - [Alert] Enable component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author."
+
+- [`d13c1095`](https://github.com/twilio-labs/paste/commit/d13c10956420897e8215630bc713c1105dfdfe21) [#1911](https://github.com/twilio-labs/paste/pull/1911) Thanks [@andipants12](https://github.com/andipants12)! - [paste-design-tokens] Added the following tokens for usage with the Connectivity variant and status pattern:
+
+  - color-text-icon-available:
+  - color-text-icon-busy
+  - color-text-icon-unavailable
+  - color-text-icon-offline
+
+* [`db9f9665`](https://github.com/twilio-labs/paste/commit/db9f96657c8e3d9230ef17e1a0ab4658b6016dca) [#1915](https://github.com/twilio-labs/paste/pull/1915) Thanks [@zahnster](https://github.com/zahnster)! - [Popover] Enable component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+- [`b9658287`](https://github.com/twilio-labs/paste/commit/b96582875b124d953164b0c98cafa079b53e7d70) [#1899](https://github.com/twilio-labs/paste/pull/1899) Thanks [@gloriliale](https://github.com/gloriliale)! - [Checkbox] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+### Patch Changes
+
+- Updated dependencies [[`dd964dc7`](https://github.com/twilio-labs/paste/commit/dd964dc7d589313237f5a4926800646953d2e9fa), [`7f8afb28`](https://github.com/twilio-labs/paste/commit/7f8afb28f6f63f4d98d668c1ad8be0411411c1ba), [`d13c1095`](https://github.com/twilio-labs/paste/commit/d13c10956420897e8215630bc713c1105dfdfe21), [`db9f9665`](https://github.com/twilio-labs/paste/commit/db9f96657c8e3d9230ef17e1a0ab4658b6016dca), [`b9658287`](https://github.com/twilio-labs/paste/commit/b96582875b124d953164b0c98cafa079b53e7d70)]:
+  - @twilio-paste/inline-control-group@6.1.0
+  - @twilio-paste/alert@7.1.0
+  - @twilio-paste/design-tokens@6.13.0
+  - @twilio-paste/popover@6.1.0
+  - @twilio-paste/checkbox@6.1.0
+
 ## 10.13.0
 
 ### Minor Changes
