@@ -113,7 +113,7 @@ Radio groups should:
 
 ## Layout examples
 
-### Vertically stacked Radio Group
+### Vertically-stacked Radio Group
 
 Use this option if labels are too long (see [horizontal alignment](#horizontal-alignment) for limits) or the list needs to wrap to two lines.
 
@@ -144,7 +144,7 @@ You can provide additional information about the group with the use of help text
   {defaultExample}
 </LivePreview>
 
-### Required Usage
+### Required usage
 
 Use the required dot only when necessary to denote it is required. This goes before the fieldset legend.
 
@@ -152,7 +152,7 @@ Use the required dot only when necessary to denote it is required. This goes bef
   {requiredExample}
 </LivePreview>
 
-### Horizontal Alignment
+### Horizontal alignment
 
 - Options are placed next to each other, in logical order, with appropriate spacing. If people can easily compare shorter options from left to right, use this alignment
 - Do not run onto two lines
@@ -212,24 +212,22 @@ An inline error is placed at the bottom of the group to inform a user of any err
 
 ## Composition notes
 
-## When to use a Radio Group
+### When to use a Radio Group
 
 Use a Radio Group to select a single option from a list of 2, but no more than 6 options.
-
-## Content guidelines
 
 ### Validation
 
 Validate the group on form submission. Don't validate each item in the group, treat validation on the group as a whole.
 
-### Labels and Help Text
+### Content guidelines
 
 - Radio text should not end in punctuation even if it's a sentence.
 - All labels begin with a capital letter.
 
 ---
 
-## Usage Guide
+## Usage guide
 
 ### API
 
@@ -253,7 +251,7 @@ const Component = () => (
 );
 ```
 
-#### Radio Props
+#### Radio props
 
 All the valid HTML attributes for `input[type=radio]` are supported including the following props:
 
@@ -268,7 +266,7 @@ All the valid HTML attributes for `input[type=radio]` are supported including th
 | onFocus?  | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
 | onBlur?   | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
 
-#### RadioGroup Props
+#### RadioGroup props
 
 | Prop        | Type                                     | Description | Default  |
 | ----------- | ---------------------------------------- | ----------- | -------- |
