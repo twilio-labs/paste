@@ -86,6 +86,8 @@ describe('SkeletonLoader', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{
             SKELETON_LOADER: {
               margin: 'space80',
@@ -102,6 +104,8 @@ describe('SkeletonLoader', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{
             CUSTOM_SKELETON_LOADER: {
               padding: 'space30',

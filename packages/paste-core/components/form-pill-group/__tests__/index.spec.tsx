@@ -5,7 +5,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {useFormPillState, FormPillGroup, FormPill} from '../src';
-import {Basic, SelectAndRemove, CustomFormPillGroup} from '../stories/index.stories';
+import {Basic, SelectableAndRemovable, CustomFormPillGroup} from '../stories/index.stories';
 
 expect.extend(matchers);
 
@@ -51,7 +51,7 @@ describe('FormPillGroup', () => {
 
   describe('Selecting and Removing', () => {
     it('can select and navigate pills', () => {
-      const {getByTestId} = render(<SelectAndRemove />);
+      const {getByTestId} = render(<SelectableAndRemovable />);
 
       // Get the first pill
       const firstPill = getByTestId('form-pill-0');
@@ -79,7 +79,7 @@ describe('FormPillGroup', () => {
       fireEvent.keyDown(document.activeElement, {key: 'ArrowRight', code: 'ArrowRight'});
       expect(document.activeElement.getAttribute('data-testid')).toBe('form-pill-2');
       fireEvent.keyDown(document.activeElement, {key: 'Enter', code: 'Enter'});
-      expect(document.activeElement.getAttribute('aria-selected')).toBe('true');
+      expect(document.activeElement.getAttribute('aria-selected')).toBe('false');
 
       // Try moving left this time
       fireEvent.keyDown(document.activeElement, {key: 'ArrowLeft', code: 'ArrowLeft'});
@@ -92,7 +92,7 @@ describe('FormPillGroup', () => {
     });
 
     it('can remove pills', () => {
-      const {getByTestId, getAllByText} = render(<SelectAndRemove />);
+      const {getByTestId, getAllByText} = render(<SelectableAndRemovable />);
 
       /* Test click to remove */
       const xButtonScreenReaderElement = getAllByText('. Press delete or backspace to remove');
@@ -149,10 +149,8 @@ describe('FormPillGroup', () => {
       const {getByTestId} = render(
         <CustomizationProvider
           baseTheme="default"
-          theme={{
-            textColors: {colorTextLink: 'red'},
-            fonts: {fontFamilyText: 'arial'},
-          }}
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{
             CUSTOM_PILL_GROUP: {
               margin: 'space40',
@@ -183,7 +181,7 @@ describe('FormPillGroup', () => {
     });
 
     it('Should have no accessibility violations #2', async () => {
-      const {container} = render(<SelectAndRemove />);
+      const {container} = render(<SelectableAndRemovable />);
       const results = await axe(container);
       expect(results).toHaveNoViolations();
     });

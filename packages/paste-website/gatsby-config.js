@@ -23,7 +23,7 @@ const gatsbyConfig = {
         respectDNT: true,
       },
     },
-    `gatsby-plugin-typescript`,
+    'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
@@ -73,14 +73,14 @@ const gatsbyConfig = {
         ignore: ['**/.cache/**', '**/public/**', '**/src/**/*', '**/static/**', '**/types/**'],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 1632,
               linkImagesToOriginal: false,
@@ -90,9 +90,9 @@ const gatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-mdx`,
+      resolve: 'gatsby-plugin-mdx',
       options: {
-        extensions: [`.mdx`, `.md`],
+        extensions: ['.mdx', '.md'],
         defaultLayouts: {
           default: require.resolve('./src/layouts/DefaultLayout.tsx'),
           packages: require.resolve('./src/layouts/ChangelogLayout.tsx'),
@@ -100,7 +100,7 @@ const gatsbyConfig = {
         },
         gatsbyRemarkPlugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 1632,
               linkImagesToOriginal: false,
@@ -151,26 +151,34 @@ const gatsbyConfig = {
     },
     'gatsby-plugin-sitemap',
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `Paste: The Design System for building Twilio customer experiences`,
-        short_name: `Paste`,
-        start_url: `/`,
-        background_color: `#fff`,
-        theme_color: `#f22f46`,
-        display: `standalone`,
-        icon: `static/logo.svg`,
+        name: 'Paste: The Design System for building Twilio customer experiences',
+        short_name: 'Paste',
+        start_url: '/',
+        background_color: '#fff',
+        theme_color: '#f22f46',
+        display: 'standalone',
+        icon: 'static/logo.svg',
       },
     },
     {
-      resolve: `gatsby-source-airtable`,
+      resolve: 'gatsby-source-airtable',
       options: {
         apiKey: process.env.AIRTABLE_APIKEY,
         concurrency: 5,
         tables: [
           {
             baseId: process.env.AIRTABLE_BASEID,
-            tableName: `System`,
+            tableName: 'System',
+          },
+          {
+            baseId: process.env.AIRTABLE_BASEID,
+            tableName: 'Roadmap',
+          },
+          {
+            baseId: process.env.AIRTABLE_BASEID,
+            tableName: '2021 BPM',
           },
         ],
       },

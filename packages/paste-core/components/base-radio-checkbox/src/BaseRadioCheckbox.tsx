@@ -8,18 +8,20 @@ import {SiblingBox} from '@twilio-paste/sibling-box';
 import type {LabelProps} from '@twilio-paste/label';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
+import type {BoxProps} from '@twilio-paste/box';
 
-export interface BaseRadioCheckboxControlProps extends SiblingBoxProps {
+export interface BaseRadioCheckboxControlProps extends SiblingBoxProps, Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
   disabled?: boolean;
 }
 const BaseRadioCheckboxControl = React.forwardRef<HTMLSpanElement, BaseRadioCheckboxControlProps>(
-  ({children, disabled, ...props}, ref) => {
+  ({children, disabled, element = 'BASE_RADIO_CHECKBOX_CONTROL', ...props}, ref) => {
     return (
       <SiblingBox
         as="span"
         ref={ref}
         display="flex"
+        element={element}
         backgroundColor="colorBackgroundBody"
         borderColor="colorBorder"
         borderStyle="solid"
@@ -92,12 +94,10 @@ const BaseRadioCheckboxControl = React.forwardRef<HTMLSpanElement, BaseRadioChec
   }
 );
 BaseRadioCheckboxControl.displayName = 'BaseRadioCheckboxControl';
-if (process.env.NODE_ENV === 'development') {
-  BaseRadioCheckboxControl.propTypes = {
-    children: PropTypes.node.isRequired,
-    disabled: PropTypes.bool,
-  };
-}
+BaseRadioCheckboxControl.propTypes = {
+  children: PropTypes.node.isRequired,
+  disabled: PropTypes.bool,
+};
 
 export interface BaseRadioCheckboxLabelProps extends LabelProps {
   children: NonNullable<React.ReactNode>;
@@ -114,39 +114,44 @@ const BaseRadioCheckboxLabel = React.forwardRef<HTMLLabelElement, BaseRadioCheck
   }
 );
 BaseRadioCheckboxLabel.displayName = 'BaseRadioCheckboxLabel';
-if (process.env.NODE_ENV === 'development') {
-  BaseRadioCheckboxLabel.propTypes = {
-    children: PropTypes.node.isRequired,
-  };
-}
+BaseRadioCheckboxLabel.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
-export interface BaseRadioCheckboxLabelTextProps extends Omit<TextProps, 'as'> {
+export interface BaseRadioCheckboxLabelTextProps extends Omit<TextProps, 'as'>, Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
 }
 const BaseRadioCheckboxLabelText = React.forwardRef<HTMLSpanElement, BaseRadioCheckboxLabelTextProps>(
-  ({children, ...props}, ref) => {
+  ({children, element = 'BASE_RADIO_CHECKBOX_LABEL_TEXT', ...props}, ref) => {
     return (
-      <Text as="span" color="currentColor" marginLeft="space20" fontWeight="fontWeightMedium" ref={ref} {...props}>
+      <Text
+        as="span"
+        color="currentColor"
+        marginLeft="space20"
+        fontWeight="fontWeightMedium"
+        element={element}
+        ref={ref}
+        {...props}
+      >
         {children}
       </Text>
     );
   }
 );
 BaseRadioCheckboxLabelText.displayName = 'BaseRadioCheckboxLabelText';
-if (process.env.NODE_ENV === 'development') {
-  BaseRadioCheckboxLabelText.propTypes = {
-    children: PropTypes.node.isRequired,
-  };
-}
+BaseRadioCheckboxLabelText.propTypes = {
+  children: PropTypes.node.isRequired,
+  element: PropTypes.string,
+};
 
-export interface BaseRadioCheckboxHelpTextProps {
+export interface BaseRadioCheckboxHelpTextProps extends Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
   helpTextId: string;
 }
 const BaseRadioCheckboxHelpText = React.forwardRef<HTMLSpanElement, BaseRadioCheckboxHelpTextProps>(
-  ({children, helpTextId}, ref) => {
+  ({children, helpTextId, element = 'BASE_RADIO_CHECKBOX_HELP_TEXT_WRAPPER'}, ref) => {
     return (
-      <Box as="span" display="block" marginLeft="space80" ref={ref}>
+      <Box as="span" display="block" element={element} marginLeft="space80" ref={ref}>
         <HelpText id={helpTextId} marginTop="space0">
           {children}
         </HelpText>
@@ -155,11 +160,10 @@ const BaseRadioCheckboxHelpText = React.forwardRef<HTMLSpanElement, BaseRadioChe
   }
 );
 BaseRadioCheckboxHelpText.displayName = 'BaseRadioCheckboxHelpText';
-if (process.env.NODE_ENV === 'development') {
-  BaseRadioCheckboxHelpText.propTypes = {
-    children: PropTypes.node.isRequired,
-    helpTextId: PropTypes.string.isRequired,
-  };
-}
+BaseRadioCheckboxHelpText.propTypes = {
+  children: PropTypes.node.isRequired,
+  helpTextId: PropTypes.string.isRequired,
+  element: PropTypes.string,
+};
 
 export {BaseRadioCheckboxHelpText, BaseRadioCheckboxControl, BaseRadioCheckboxLabel, BaseRadioCheckboxLabelText};

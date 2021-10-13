@@ -6,7 +6,7 @@ import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {SiteFooterHeader} from './SiteFooterHeader';
 import TwilioLogo from '../../icons/TwilioLogo';
-import {STORYBOOK_DOMAIN} from '../../../constants';
+import {STORYBOOK_DOMAIN, REMIX_DOMAIN} from '../../../constants';
 
 const SiteFooterNav: React.FC = () => {
   const theme = useTheme();
@@ -150,6 +150,20 @@ const SiteFooterNav: React.FC = () => {
               }
             >
               Storybook
+            </Anchor>
+            <Anchor
+              href={REMIX_DOMAIN}
+              variant="inverse"
+              showExternal
+              onClick={() =>
+                trackCustomEvent({
+                  category: 'Footer',
+                  action: 'click-remix',
+                  label: 'Theme Designer',
+                })
+              }
+            >
+              Paste Remix
             </Anchor>
           </Stack>
         </Box>

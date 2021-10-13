@@ -1,5 +1,17 @@
 # Change Log
 
+## 5.6.0
+
+### Minor Changes
+
+- [`46ee743a`](https://github.com/twilio-labs/paste/commit/46ee743a5f9d63b3d5ef76371afab6ae64ae50a8) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Added an icon for displaying unsorted data: "UnsortedIcon"
+
+## 5.5.0
+
+### Minor Changes
+
+- [`c59aa865`](https://github.com/twilio-labs/paste/commit/c59aa865f0dd52c8ec45fac24c565a1087ea9814) [#1839](https://github.com/twilio-labs/paste/pull/1839) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Icons] enable all icons to respect customization by giving them a generic element name, and ability to create custom element names.
+
 ## 5.4.0
 
 ### Minor Changes

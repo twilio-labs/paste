@@ -84,7 +84,7 @@ export const pageQuery = graphql`
 ### About Input
 
 Use an input when you want to allow a user to enter a single line of text. By default, text inputs allow users to enter any type of text (letters, numbers, and symbols).
-You can set the input to more [specific types](#input-types) if needed.
+You can set the input to more [specific types](#input-types) if needed. It is used with the [Label](/components/label) and [Help Text](/components/help-text) components.
 
 ### Accessibility
 
@@ -105,7 +105,7 @@ You can set the input to more [specific types](#input-types) if needed.
     Use one of 3 ways to label a form field:
     <UnorderedList marginBottom="space0">
       <ListItem>
-        Visible label with <Anchor href="#label-props">Label</Anchor> (preferred)
+        Visible label with <Anchor href="/components/label">Label</Anchor> (preferred)
       </ListItem>
       <ListItem>
         Visible label that's associated to the input with <inlineCode>aria-labelledby</inlineCode>
@@ -709,29 +709,6 @@ All the valid HTML attributes for `input` are supported including the following 
 | onFocus?     | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                | null      |
 | onBlur?      | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                | null      |
 | variant?     | 'default', 'inverse'                                             |                                                                | 'default' |
-
-#### Label Props
-
-All the valid HTML attributes for `label` are supported including the following props:
-
-| Prop          | Type                 | Description                                                          | Default   |
-| ------------- | -------------------- | -------------------------------------------------------------------- | --------- |
-| children?     | `ReactNode`          |                                                                      | null      |
-| htmlFor       | string               | Sets the for of the label. Should match the id of `Input`. Required. | null      |
-| disabled?     | boolean              | Shows the input is disabled.                                         | false     |
-| required?     | boolean              | Shows the input is required.                                         | false     |
-| marginBottom? | 'space0', 'space10'  |                                                                      | 'space10' |
-| variant ?     | 'default', 'inverse' |                                                                      | 'default' |
-
-#### HelpText Props
-
-All the valid HTML attributes (role, aria-\*, type, and so on) including the following props:
-
-| Prop       | Type                                           | Description        | Default   |
-| ---------- | ---------------------------------------------- | ------------------ | --------- |
-| children?  | `ReactNode`                                    |                    | null      |
-| marginTop? | 'space0', 'space30'                            |                    | 'space30' |
-| variant?   | 'default', 'error', 'error_inverse', 'inverse' | Changes the state. | 'default' |
 
 <ChangelogRevealer>
   <Changelog />

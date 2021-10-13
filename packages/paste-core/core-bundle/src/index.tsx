@@ -12,6 +12,7 @@ export * from '@twilio-paste/card';
 export * from '@twilio-paste/checkbox';
 export * from '@twilio-paste/combobox';
 export * from '@twilio-paste/combobox-primitive';
+export * from '@twilio-paste/data-grid';
 export * from '@twilio-paste/date-picker';
 export * from '@twilio-paste/disclosure';
 export * from '@twilio-paste/disclosure-primitive';

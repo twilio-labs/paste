@@ -138,7 +138,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
     }
 
     return (
-      <Box position="relative">
+      <Box position="relative" element={`${element}_WRAPPER`}>
         <Label disabled={disabled} required={required} variant={variant} {...getLabelProps()}>
           {labelText}
         </Label>
@@ -158,17 +158,19 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
               {...(!autocomplete ? {onChange: (event: React.ChangeEvent) => event.preventDefault()} : undefined)}
               autocomplete={autocomplete}
               aria-describedby={helpTextId}
+              element={`${element}_ELEMENT`}
             />
             {!autocomplete && (
-              <InputChevronWrapper element={element}>
+              <InputChevronWrapper element={`${element}_CHEVRON_WRAPPER`}>
                 <ChevronDownIcon aria-hidden="true" decorative color={iconColor} size="sizeIcon30" />
               </InputChevronWrapper>
             )}
           </ComboboxInputWrapper>
         </InputBox>
-        <ComboboxListbox hidden={!isOpen} {...getMenuProps({ref: parentRef})}>
+        <ComboboxListbox hidden={!isOpen} element={element} {...getMenuProps({ref: parentRef})}>
           <ComboboxItems
             items={items}
+            element={element}
             rowVirtualizer={rowVirtualizer}
             getItemProps={getItemProps}
             highlightedIndex={highlightedIndex}
@@ -189,23 +191,22 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
 
 Combobox.displayName = 'Combobox';
 
-if (process.env.NODE_ENV === 'development') {
-  Combobox.propTypes = {
-    autocomplete: PropTypes.bool,
-    groupItemsBy: PropTypes.string,
-    helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    initialIsOpen: PropTypes.bool,
-    initialSelectedItem: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    items: PropTypes.arrayOf(PropTypes.any).isRequired,
-    itemToString: PropTypes.func,
-    labelText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-    onHighlightedIndexChange: PropTypes.func,
-    onInputValueChange: PropTypes.func,
-    onIsOpenChange: PropTypes.func,
-    onSelectedItemChange: PropTypes.func,
-    optionTemplate: PropTypes.func,
-    selectedItem: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  };
-}
+Combobox.propTypes = {
+  autocomplete: PropTypes.bool,
+  element: PropTypes.string,
+  groupItemsBy: PropTypes.string,
+  helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  initialIsOpen: PropTypes.bool,
+  initialSelectedItem: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  items: PropTypes.arrayOf(PropTypes.any).isRequired,
+  itemToString: PropTypes.func,
+  labelText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+  onHighlightedIndexChange: PropTypes.func,
+  onInputValueChange: PropTypes.func,
+  onIsOpenChange: PropTypes.func,
+  onSelectedItemChange: PropTypes.func,
+  optionTemplate: PropTypes.func,
+  selectedItem: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+};
 
 export {Combobox};

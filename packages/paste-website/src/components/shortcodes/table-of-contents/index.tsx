@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
-import {TableOfContentsProps} from './types';
-import {StyledScrollSpy, StyledListItem} from './styles';
+import type {TableOfContentsProps} from './types';
+import {TableOfContentsList, TableOfContentsListItem} from './styles';
 import {slugify} from '../../../utils/RouteUtils';
 
 // Table of contents should only include h2, h3, h4 headings
@@ -23,7 +23,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
   // but only for pages with changelogs
   return (
     <Box as="nav" aria-label="document outline">
-      <StyledScrollSpy items={headingsList} currentClassName="is-current" rootEl="main">
+      <TableOfContentsList items={headingsList} currentClassName="is-current">
         {
           // Get heading anchors and convert to #anchor format. Excluding h1 elements.
           headings.filter(shouldIncludeInToC).map(({value, depth}) => {
@@ -32,13 +32,13 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
             const depthLevel = depth.toString();
 
             return (
-              <StyledListItem key={value} depth={depthLevel}>
+              <TableOfContentsListItem key={value} depth={depthLevel}>
                 <Anchor href={headingLink}>{value}</Anchor>
-              </StyledListItem>
+              </TableOfContentsListItem>
             );
           })
         }
-      </StyledScrollSpy>
+      </TableOfContentsList>
     </Box>
   );
 };

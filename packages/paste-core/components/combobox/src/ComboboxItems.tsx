@@ -8,6 +8,7 @@ import type {ComboboxItemsProps} from './types';
 
 const ComboboxItems: React.FC<ComboboxItemsProps> = ({
   items,
+  element = 'COMBOBOX',
   getItemProps,
   highlightedIndex,
   optionTemplate,
@@ -23,10 +24,11 @@ const ComboboxItems: React.FC<ComboboxItemsProps> = ({
     // because calcing dynamic heights is hard
     // TODO: virtualize
     return optionTemplate != null ? (
-      <ComboboxListboxGroup>
+      <ComboboxListboxGroup element={element}>
         {items.map((item, index) => (
           <ComboboxListboxOption
             {...getItemProps({item, index})}
+            element={element}
             highlighted={highlightedIndex === index}
             key={UIDSeed(`item-${index}`)}
             variant="default"
@@ -36,7 +38,7 @@ const ComboboxItems: React.FC<ComboboxItemsProps> = ({
         ))}
       </ComboboxListboxGroup>
     ) : (
-      <ComboboxListboxGroup>
+      <ComboboxListboxGroup element={element}>
         <li role="presentation" key="total-size" style={{height: rowVirtualizer!.totalSize}} />
         {rowVirtualizer!.virtualItems.map((virtualItem: VirtualItem) => {
           const itemIndex = virtualItem.index;
@@ -44,8 +46,9 @@ const ComboboxItems: React.FC<ComboboxItemsProps> = ({
           return (
             <ComboboxListboxOption
               // @ts-ignore
-              ref={(element) => virtualItem.measureRef(element)}
+              ref={(currentElement) => virtualItem.measureRef(currentElement)}
               {...getItemProps({item, index: itemIndex})}
+              element={element}
               highlighted={highlightedIndex === itemIndex}
               key={UIDSeed(`item-${itemIndex}`)}
               variant="default"
@@ -76,6 +79,7 @@ const ComboboxItems: React.FC<ComboboxItemsProps> = ({
 
         return (
           <ComboboxListboxGroup
+            element={element}
             key={UIDSeed(groupKey)}
             groupName={isUncategorized ? undefined : groupKey}
             groupLabelTemplate={groupLabelTemplate}
@@ -83,6 +87,7 @@ const ComboboxItems: React.FC<ComboboxItemsProps> = ({
             {groupedItems[groupedItemKey].map((item: {[key: string]: any}) => (
               <ComboboxListboxOption
                 {...getItemProps({item, index: item.index})}
+                element={element}
                 highlighted={highlightedIndex === item.index}
                 key={UIDSeed(`${groupKey}-${item.index}`)}
                 variant={isUncategorized ? 'default' : 'groupOption'}

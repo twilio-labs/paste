@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Truncate} from '@twilio-paste/truncate';
@@ -327,4 +328,75 @@ export const StateHook = (): React.ReactNode => {
 
 StateHook.story = {
   name: 'State hook',
+};
+
+export const Customization = (): React.ReactNode => {
+  return (
+    <CustomizationProvider
+      baseTheme="default"
+      elements={{
+        DISCLOSURE: {padding: 'space30', variants: {contained: {borderColor: 'colorBorderError'}}},
+        DISCLOSURE_CONTENT: {color: 'colorTextErrorStrong'},
+        DISCLOSURE_HEADING: {
+          color: 'colorText',
+          backgroundColor: 'colorBackgroundErrorWeakest',
+          ':hover': {backgroundColor: 'colorBackgroundErrorWeak'},
+        },
+        DISCLOSURE_HEADING_ICON: {
+          color: 'colorTextIconError',
+        },
+      }}
+    >
+      <Stack orientation="vertical" spacing="space70">
+        <Disclosure visible>
+          <DisclosureHeading as="h2" variant="heading20">
+            Aenean eu leo quam. Pellentesque ornare sem lacinia quam.
+          </DisclosureHeading>
+          <DisclosureContent>
+            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac
+            cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor
+            sit amet, consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae
+            elit libero, a pharetra augue.
+          </DisclosureContent>
+        </Disclosure>
+        <Disclosure>
+          <DisclosureHeading as="h2" variant="heading20">
+            Aenean eu leo quam. Pellentesque ornare sem lacinia quam.
+            <br />
+            Ut fermentum massa justo sit amet risus.
+          </DisclosureHeading>
+          <DisclosureContent>
+            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac
+            cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor
+            sit amet, consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae
+            elit libero, a pharetra augue.
+          </DisclosureContent>
+        </Disclosure>
+        <Disclosure visible variant="contained">
+          <DisclosureHeading as="h2" variant="heading20">
+            Aenean eu leo quam. Pellentesque ornare sem lacinia quam.
+          </DisclosureHeading>
+          <DisclosureContent>
+            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac
+            cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor
+            sit amet, consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae
+            elit libero, a pharetra augue.
+          </DisclosureContent>
+        </Disclosure>
+        <Disclosure variant="contained">
+          <DisclosureHeading as="h2" variant="heading20">
+            Aenean eu leo quam. Pellentesque ornare sem lacinia quam.
+            <br />
+            Ut fermentum massa justo sit amet risus.
+          </DisclosureHeading>
+          <DisclosureContent>
+            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac
+            cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor
+            sit amet, consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae
+            elit libero, a pharetra augue.
+          </DisclosureContent>
+        </Disclosure>
+      </Stack>
+    </CustomizationProvider>
+  );
 };

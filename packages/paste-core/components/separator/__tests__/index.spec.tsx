@@ -79,6 +79,8 @@ describe('Separator', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{SEPARATOR: {borderColor: 'colorBorderStrong', margin: 'space50'}}}
         >
           <Separator orientation="horizontal" data-testid="custom-separator" />
@@ -93,6 +95,8 @@ describe('Separator', () => {
       render(
         <CustomizationProvider
           baseTheme="default"
+          // @ts-expect-error global test variable
+          theme={TestTheme}
           elements={{foo: {borderColor: 'colorBorderStrong', margin: 'space50'}}}
         >
           <Separator orientation="horizontal" data-testid="custom-separator" element="foo" />

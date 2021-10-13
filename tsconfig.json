@@ -32,7 +32,6 @@
   "exclude": [
     "node_modules",
     "docs",
-    "**/*.js",
     "dist",
     "lib",
     "bin",
