@@ -359,7 +359,7 @@ Otherwise, use disabled options sparingly. Most browsers show disabled option te
 </>`}
 </LivePreview>
 
-### Disabled select
+### Disabled Select
 
 Use a disabled form field to show users that they can’t interact with the field.
 
@@ -381,7 +381,7 @@ If you want to show information that can’t be edited, use a [read-only Input](
 </>`}
 </LivePreview>
 
-## Composition Notes
+## Composition notes
 
 A select field should be composed with at least a label and a select.
 
@@ -408,7 +408,7 @@ Stack form fields vertically with `$space-80` spacing between each field.
 
 Avoid placing multiple form fields on the same horizontal row to help make it easier to scan a page vertically. Use the <Anchor href="/layout/grid">Grid component</Anchor> if you need to place form fields horizontally.
 
-### Options in a select
+### Options in a Select
 
 Keep option text concise and simple. Option text will truncate when it’s longer than the width of the container. If choosing options requires more explanation, consider using a <Anchor href="/components/checkbox/">Checkbox</Anchor> instead and add help text for each option, or give more explanation through help text.
 
@@ -843,7 +843,7 @@ Use a select when:
 
 ---
 
-## Usage Guide
+## Usage guide
 
 ### API
 
@@ -866,7 +866,7 @@ import {Select, Option, Label, HelpText} from '@twilio-paste/core';
 <HelpText variant="default">Select one</HelpText>
 ```
 
-#### Select Props
+#### Select props
 
 All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select">valid HTML attributes</Anchor> for `select` are supported including the following props:
 
@@ -886,7 +886,7 @@ All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/W
 | onBlur?       | `(event: React.MouseEvent<HTMLElement>)`        |                                                                            | null      |
 | variant?      | 'default', 'inverse'                            |                                                                            | 'default' |
 
-#### Option Props
+#### Option props
 
 All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option">valid HTML attributes</Anchor> for `option` are supported including the following props:
 
@@ -897,7 +897,7 @@ All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/W
 | value     | string, string[] | Sets the value of the select. Expects an array when `multiple` is present. Required. | null    |
 | disabled? | boolean          | Disables the input.                                                                  | false   |
 
-#### OptionGroup Props
+#### OptionGroup props
 
 All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup">valid HTML attributes</Anchor> for `optgroup` are supported including the following props:
 
