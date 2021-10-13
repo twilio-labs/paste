@@ -283,7 +283,7 @@ The function accepts two parameters: (1) the time value that should be formatted
 
 ## States
 
-### TimePicker with inline error
+### Time Picker with inline error
 
 Change a Time Picker to its error state and add an inline error if the value entered doesn't pass validation requirements.
 
@@ -293,7 +293,7 @@ An inline error is placed below the field to inform a user of any errors in thei
   {HasErrorPicker}
 </LivePreview>
 
-### Disabled input
+### Disabled Time Picker
 
 Use a disabled Time Picker to show users that they can't interact with it.
 
@@ -303,7 +303,7 @@ If you want to show information that can't be edited, use a [read-only](/compone
   {DisabledPicker}
 </LivePreview>
 
-### Read-only input
+### Read-only Time Picker
 
 Use a read-only Time Picker when a its value can't be changed, but users should be able to read or apply focus on it.
 
@@ -381,7 +381,7 @@ Error text should:
 
 <Callout>
   <CalloutTitle as="h4">
-    Time Picker and <inlineCode>placeHolder</inlineCode>
+    Time Picker and <inlineCode>placeholder</inlineCode>
   </CalloutTitle>
   <CalloutText>
     Because Time Picker has a default display value of <inlineCode>--:-- --</inlineCode> (and defaults to{' '}
@@ -425,7 +425,7 @@ Error text should:
         <Td>No</Td>
       </Tr>
       <Tr>
-        <Td>Box Shadow</Td>
+        <Td>Box shadow</Td>
         <Td>
           <UnorderedList marginBottom="space0">
             <ListItem>Default: $shadow-border</ListItem>
@@ -514,7 +514,7 @@ Error text should:
 
 ---
 
-## Usage Guide
+## Usage guide
 
 ### API
 
@@ -550,7 +550,7 @@ const TimePickerExample = () => {
 };
 ```
 
-#### TimePicker Props
+#### TimePicker props
 
 All the valid HTML attributes for `input` (except `type`) are supported, including the following props:
 
@@ -570,7 +570,7 @@ All the valid HTML attributes for `input` (except `type`) are supported, includi
 | onBlur?   | `(event: React.MouseEvent<HTMLElement>)` |                                                                      | null      |
 | variant?  | 'default', 'inverse'                     |                                                                      | 'default' |
 
-#### formatReturnTime() Props
+#### formatReturnTime() props
 
 | Prop       | Type   | Description                                                                                                           | Default |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------------------- | ------- |
