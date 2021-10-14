@@ -52,7 +52,7 @@ const ComponentOverviewTable: React.FC<ComponentOverviewTableProps> = ({category
                     <InformationIcon decorative={false} title="More information about peer review" />
                   </PopoverButton>
                   <Popover aria-label="Peer review information">
-                    Component/Pattern has been reviewed by both design and engineering committees.
+                    A Component/Pattern has been reviewed by the relevant committee(s) and/or peer stakeholders.
                   </Popover>
                 </PopoverContainer>
               </Box>

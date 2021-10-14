@@ -26,6 +26,8 @@ const getCategoryNameFromRoute = (categoryRoute: string): string => {
       return 'Libraries';
     case SidebarCategoryRoutes.CUSTOMIZATION:
       return 'Customization';
+    case SidebarCategoryRoutes.CORE:
+      return 'Core';
     default:
       return 'Layout';
   }
@@ -71,6 +73,7 @@ interface ComponentHeaderProps {
     }
   ];
   packageStatus: PackageStatusObject;
+  isCore?: boolean;
 }
 
 export const PackageValue: React.FC = ({children}) => {
@@ -100,6 +103,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
   storybookUrl,
   data,
   packageStatus,
+  isCore = false,
 }) => {
   if (data == null || data[0] == null || data[0].node == null) {
     return <ComponentHeaderBasic categoryRoute={categoryRoute} name={name} />;
@@ -138,10 +142,16 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
         <Box marginBottom="space20">
           <PackageLabel>Import from</PackageLabel>
           <PackageValue>
-            <PackageInstallSnippet>
-              {packageName.replace('@twilio-paste/', '@twilio-paste/core/')}
-            </PackageInstallSnippet>{' '}
-            &mdash; or &mdash; <PackageInstallSnippet>{packageName}</PackageInstallSnippet>
+            {!isCore && (
+              <>
+                {' '}
+                <PackageInstallSnippet>
+                  {packageName.replace('@twilio-paste/', '@twilio-paste/core/')}
+                </PackageInstallSnippet>{' '}
+                &mdash; or &mdash;{' '}
+              </>
+            )}
+            <PackageInstallSnippet>{packageName}</PackageInstallSnippet>
           </PackageValue>
         </Box>
       </Box>
