@@ -52,7 +52,7 @@
     "package-size-action-build": "yarn bootstrap && yarn build",
     "prettier": "prettier --list-different '{.storybook,packages}/**/*.{ts,tsx}'",
     "prettier-clean": "prettier --write '{.storybook,packages}/**/*.{ts,tsx}'",
-    "lint": "yarn pre-test && eslint --ext .tsx,.ts ./packages/** --no-error-on-unmatched-pattern",
+    "lint": "yarn pre-test && eslint --ext .tsx,.ts ./packages",
     "type-check": "lerna run tsc",
     "tsc": "echo Did you mean to run yarn type-check?",
     "chromatic": "chromatic",
