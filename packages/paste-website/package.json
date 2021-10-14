@@ -121,5 +121,8 @@
     "react-scrollspy": "^3.4.0",
     "react-visibility-sensor": "5.1.1",
     "use-resize-observer": "^7.0.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^6.13.1"
   }
 }
