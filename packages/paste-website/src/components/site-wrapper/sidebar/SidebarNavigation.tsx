@@ -64,6 +64,10 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
     visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.CUSTOMIZATION),
   });
 
+  const coreDisclosure = useDisclosurePrimitiveState({
+    visible: getCurrentPathname().startsWith(SidebarCategoryRoutes.CORE),
+  });
+
   return (
     <Box
       as="nav"
@@ -165,6 +169,43 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
         <SidebarItem>
           <SidebarAnchor to="/inclusive-design">Inclusive Design Guide</SidebarAnchor>
         </SidebarItem>
+
+        <SidebarItem>
+          <DisclosurePrimitive
+            as={SidebarDisclosureButton}
+            {...coreDisclosure}
+            data-cy="core-button"
+            onClick={() =>
+              trackCustomEvent({
+                category: 'Left Navigation',
+                action: 'click-core',
+                label: 'Core',
+              })
+            }
+          >
+            Core
+          </DisclosurePrimitive>
+          <DisclosurePrimitiveContent {...coreDisclosure} data-cy="core-list">
+            <SidebarNestedList>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={SidebarCategoryRoutes.CORE}>
+                  Core Package
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CORE}/changelog`}>
+                  Core Changelog
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CORE}/upgrade-guide`}>
+                  Upgrade Guide
+                </SidebarAnchor>
+              </SidebarNestedItem>
+            </SidebarNestedList>
+          </DisclosurePrimitiveContent>
+        </SidebarItem>
+
         <SidebarItem>
           <DisclosurePrimitive
             as={SidebarDisclosureButton}
