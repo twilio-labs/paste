@@ -1,5 +1,5 @@
 #!/bin/sh
 
-yarn --frozen-lockfile
+yarn --immutable
 yarn build
 yarn build:website

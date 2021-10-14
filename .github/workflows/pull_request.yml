@@ -38,7 +38,7 @@ jobs:
 
       - name: Install Dependencies
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Bootstrap lerna
         run: yarn bootstrap
@@ -84,7 +84,7 @@ jobs:
 
       - name: Install Dependencies
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Bootstrap lerna
         run: yarn bootstrap
@@ -130,7 +130,7 @@ jobs:
 
       - name: Install Dependencies
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Bootstrap lerna
         run: yarn bootstrap
@@ -176,7 +176,7 @@ jobs:
 
       - name: Install Dependencies
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Bootstrap lerna
         run: yarn bootstrap
@@ -217,7 +217,7 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - name: Install Dependencies
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Bootstrap lerna
         run: yarn bootstrap
       - name: Run DangerJS

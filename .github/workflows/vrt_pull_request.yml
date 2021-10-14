@@ -44,7 +44,7 @@ jobs:
 
       - name: Install Dependencies
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile && yarn bootstrap
+        run: yarn install --immutable && yarn bootstrap
 
       - name: Bootstrap lerna
         run: yarn bootstrap
