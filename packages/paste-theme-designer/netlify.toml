@@ -8,6 +8,8 @@
 
 [build.environment]
   YARN_VERSION = "3.0.2"
+  YARN_ENABLE_GLOBAL_CACHE = "true"
+  YARN_GLOBAL_FOLDER = "/opt/buildhome/.yarn_cache"
 
 [context.deploy-preview.environment]
   ENVIRONMENT_CONTEXT = "deploy-preview"
