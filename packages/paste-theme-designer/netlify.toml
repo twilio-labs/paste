@@ -3,6 +3,12 @@
   targetPort = 3000
   framework = "#auto"
 
+[build]
+  command = "yarn build && yarn build:theme-designer"
+
+[build.environment]
+  YARN_VERSION = "3.0.2"
+
 [context.deploy-preview.environment]
   ENVIRONMENT_CONTEXT = "deploy-preview"
 
@@ -16,6 +22,3 @@
   for = "/*"
   [headers.values]
     X-Shenanigans = "none"
-
-[build.environment]
-  YARN_VERSION = "3.0.2"

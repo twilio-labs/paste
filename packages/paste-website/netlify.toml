@@ -3,6 +3,13 @@
   targetPort = 8000
   framework = "#custom"
 
+[build]
+  publish = "packages/paste-website/public/"
+  command = "yarn build:js && yarn build:tokens && yarn build:website"
+
+[build.environment]
+  YARN_VERSION = "3.0.2"
+
 [context.deploy-preview]
   # only do a preview deply when there is a website change
   ignore = "git diff --quiet HEAD^ main -- packages/paste-website packages/paste-theme-designer"
@@ -29,5 +36,3 @@
   [headers.values]
     X-Shenanigans = "none"
 
-[build.environment]
-  YARN_VERSION = "3.0.2"
