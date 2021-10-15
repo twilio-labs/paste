@@ -16,3 +16,6 @@
   for = "/*"
   [headers.values]
     X-Shenanigans = "none"
+
+[build.environment]
+  YARN_VERSION = "3.0.2"

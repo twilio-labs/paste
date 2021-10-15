@@ -20,15 +20,15 @@ jobs:
         with:
           node-version: 12.x
 
-      - name: Get yarn cache
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
       - name: Load Yarn cache
         uses: actions/cache@v2
         id: yarn_cache_id
         with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn
@@ -44,10 +44,7 @@ jobs:
 
       - name: Install Dependencies
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --immutable && yarn bootstrap
-
-      - name: Bootstrap lerna
-        run: yarn bootstrap
+        run: yarn install --immutable
 
       - name: Build packages
         run: yarn build

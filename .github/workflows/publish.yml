@@ -20,20 +20,21 @@ jobs:
         with:
           node-version: 12.x
 
-      - id: yarn-cache
-        name: Get Yarn cache path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-      - uses: actions/cache@v2
-        name: Load Yarn cache
+      - name: Load Yarn cache
+        uses: actions/cache@v2
+        id: yarn_cache_id
         with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn
 
       - name: Install Dependencies
-        run: yarn install --immutable && yarn bootstrap
+        run: yarn install --immutable
 
       - name: Setup CI Git User
         run: |
