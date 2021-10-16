@@ -105,14 +105,4 @@ module.exports = {
     // We don't use jasmine and this clashes with danger js
     'jest/no-jasmine-globals': 'off',
   },
-  settings: {
-    'import/resolver': {
-      [path.join(__dirname, './.eslint/resolver')]: {
-        someConfig: '',
-      },
-      node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts'],
-      },
-    },
-  },
 };
