@@ -12014,7 +12014,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/form@workspace:packages/paste-core/components/form":
+"@twilio-paste/form@^6.0.2, @twilio-paste/form@workspace:packages/paste-core/components/form":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/form@workspace:packages/paste-core/components/form"
   dependencies:
@@ -12446,6 +12446,7 @@ __metadata:
     "@twilio-paste/button": ^7.0.9
     "@twilio-paste/design-tokens": ^6.12.0
     "@twilio-paste/flex": ^2.0.3
+    "@twilio-paste/form": ^6.0.2
     "@twilio-paste/heading": ^5.0.2
     "@twilio-paste/icons": ^5.6.0
     "@twilio-paste/modal-dialog-primitive": ^0.2.2
@@ -12465,6 +12466,7 @@ __metadata:
     "@twilio-paste/button": ^7.0.0
     "@twilio-paste/design-tokens": ^6.6.0
     "@twilio-paste/flex": ^2.0.2
+    "@twilio-paste/form": ^6.0.2
     "@twilio-paste/heading": ^5.0.1
     "@twilio-paste/icons": ^5.1.1
     "@twilio-paste/modal-dialog-primitive": ^0.2.2
