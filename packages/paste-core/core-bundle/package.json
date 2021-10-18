@@ -2,7 +2,7 @@
   "name": "@twilio-paste/core",
   "version": "10.15.0",
   "status": "production",
-  "description": "Contains all the core packages from the Paste internal design system.",
+  "description": "Core contains all the packages from the Paste design system.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
