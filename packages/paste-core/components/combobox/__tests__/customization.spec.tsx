@@ -22,6 +22,7 @@ const getStyles = (element = 'COMBOBOX'): {[key: string]: PasteCustomCSS} => ({
   [`${element}_SUFFIX`]: {backgroundColor: 'colorBackgroundSubaccount', borderRadius: 'borderRadiusCircle'},
 });
 
+// eslint-disable-next-line react/display-name
 const initCustomizationWrapper = (elementName?: string | undefined): RenderOptions['wrapper'] => ({children}) => (
   <CustomizationProvider
     // @ts-expect-error global test variable
