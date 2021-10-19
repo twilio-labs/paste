@@ -88,6 +88,8 @@ export const InputElement = React.forwardRef<HTMLInputElement, InputProps>(({ele
   );
 });
 
+InputElement.displayName = 'InputElement';
+
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
     {
