@@ -6,7 +6,6 @@ import {Sidebar} from './sidebar';
 import {SiteHeader} from './site-header';
 import {SiteFooter} from './site-footer';
 import {useWindowSize} from '../../hooks/useWindowSize';
-// import {ScrollAnchorIntoView} from './ScrollAnchorIntoView';
 import {PASTE_DOCS_CONTENT_AREA, SITE_BREAKPOINTS} from '../../constants';
 import {docSearchStyles} from '../../styles/docSearch';
 
