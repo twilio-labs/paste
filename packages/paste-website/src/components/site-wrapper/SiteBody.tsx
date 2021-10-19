@@ -16,7 +16,7 @@ const StyledSiteWrapper = styled.div`
   height: 100vh;
 `;
 
-/* Wraps the entire doc site page */
+/* Wraps the main region and footer on the doc site page */
 const StyledSiteBody = styled.div`
   display: flex;
   min-width: 240px;
@@ -44,10 +44,7 @@ export const SiteBody: React.FC = ({children}) => {
       <StyledSiteBody>
         {breakpointIndex === undefined || breakpointIndex > 1 ? <Sidebar /> : null}
         <Box flex="1" minWidth="size0">
-          <main id={PASTE_DOCS_CONTENT_AREA}>
-            {/* <ScrollAnchorIntoView /> */}
-            {children}
-          </main>
+          <main id={PASTE_DOCS_CONTENT_AREA}>{children}</main>
           <SiteFooter />
         </Box>
       </StyledSiteBody>
