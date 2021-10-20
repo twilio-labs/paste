@@ -9,13 +9,6 @@ import {useWindowSize} from '../../hooks/useWindowSize';
 import {PASTE_DOCS_CONTENT_AREA, SITE_BREAKPOINTS} from '../../constants';
 import {docSearchStyles} from '../../styles/docSearch';
 
-/* Wraps the entire doc site page */
-const StyledSiteWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-`;
-
 /* Wraps the main region and footer on the doc site page */
 const StyledSiteBody = styled.div`
   display: flex;
@@ -41,7 +34,7 @@ export const SiteBody: React.FC = ({children}) => {
   const themeObject = useTheme();
 
   return (
-    <StyledSiteWrapper>
+    <Box display="flex" flexDirection="column" height="100vh">
       <StylingGlobals styles={docSearchStyles({theme: themeObject})} />
       <SiteHeader />
       <StyledSiteBody id="styled-site-body">
@@ -51,6 +44,6 @@ export const SiteBody: React.FC = ({children}) => {
           <SiteFooter />
         </Box>
       </StyledSiteBody>
-    </StyledSiteWrapper>
+    </Box>
   );
 };
