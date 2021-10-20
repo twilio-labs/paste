@@ -11,7 +11,7 @@ export interface RadioGroupProps extends InlineControlGroupProps {
 }
 
 const RadioGroup = React.forwardRef<HTMLFieldSetElement, RadioGroupProps>(
-  ({name, value, onChange, disabled = false, errorText, children, ...props}, ref) => {
+  ({name, element = 'RADIO_GROUP', value, onChange, disabled = false, errorText, children, ...props}, ref) => {
     const onChangeHandler = React.useMemo(() => {
       return (event: React.ChangeEvent<HTMLInputElement>): void => {
         if (onChange != null) {
@@ -32,7 +32,14 @@ const RadioGroup = React.forwardRef<HTMLFieldSetElement, RadioGroupProps>(
 
     return (
       <RadioContext.Provider value={contextValue}>
-        <InlineControlGroup {...props} disabled={disabled} errorText={errorText} name={name} ref={ref}>
+        <InlineControlGroup
+          element={element}
+          {...props}
+          disabled={disabled}
+          errorText={errorText}
+          name={name}
+          ref={ref}
+        >
           {children}
         </InlineControlGroup>
       </RadioContext.Provider>
@@ -47,6 +54,7 @@ if (process.env.NODE_ENV === 'development') {
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     value: PropTypes.string,
+    element: PropTypes.string,
   };
 }
 

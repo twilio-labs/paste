@@ -76,6 +76,8 @@ const PreferencesMenu = React.forwardRef<HTMLButtonElement>((props, ref) => {
   );
 });
 
+PreferencesMenu.displayName = 'PreferencesMenu';
+
 const SubMenu: React.FC = () => {
   const menu = useMenuState();
   return (

@@ -28,6 +28,8 @@ const StyledPopover = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...pro
   );
 });
 
+StyledPopover.displayName = 'StyledPopover';
+
 export interface PopoverProps extends Pick<BoxProps, 'element'> {
   'aria-label': string;
   children: React.ReactNode;

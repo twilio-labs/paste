@@ -16,8 +16,6 @@ const ToastContainer = React.forwardRef<HTMLDivElement, ToastContainerProps>(({c
 
 ToastContainer.displayName = 'ToastContainer';
 
-if (process.env.NODE_ENV === 'development') {
-  ToastContainer.propTypes = ToastContainerPropTypes;
-}
+ToastContainer.propTypes = ToastContainerPropTypes;
 
 export {ToastContainer};
