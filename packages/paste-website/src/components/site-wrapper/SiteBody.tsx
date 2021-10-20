@@ -44,7 +44,7 @@ export const SiteBody: React.FC = ({children}) => {
     <StyledSiteWrapper>
       <StylingGlobals styles={docSearchStyles({theme: themeObject})} />
       <SiteHeader />
-      <StyledSiteBody>
+      <StyledSiteBody id="styled-site-body">
         {breakpointIndex === undefined || breakpointIndex > 1 ? <Sidebar /> : null}
         <Box flex="1" minWidth="size0">
           <main id={PASTE_DOCS_CONTENT_AREA}>{children}</main>
