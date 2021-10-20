@@ -43,7 +43,7 @@ export const pageQuery = graphql`
 ## Finding an icon
 
 1. Make sure the icon you need doesn't already exist in [our icon list](/icons).
-2. If the icon can be used for a similar use case to yours in multiple products ("UI icon"), find a new icon by searching through the [Streamline app](https://app.streamlineicons.com/streamline-regular). If the icon needs to be reserved for use in your product only ("logo icon"), please [request one from our Brand team](https://www.twilio.com/brand/resources/logos).
+2. If the icon can be used for a similar use case to yours in multiple products ("UI icon"), find a new icon by searching through the [Streamline app](https://app.streamlineicons.com/streamline-regular). If the icon needs to be reserved for use in your product only ("logo icon"), please [request one from our Brand team](https://www.twilio.com/brand/documentation/creative-project-request#Filling_out_the_request).
 3. Create a [GitHub discussion](https://github.com/twilio-labs/paste/discussions) with:
    1. A link or screenshot of the icon in Streamline
    2. A brief explanation or mockup of what you'll need it for
@@ -54,7 +54,7 @@ export const pageQuery = graphql`
 
 ## Setting up an icon in Figma
 
-1. Create a branch of the ["Paste components" Figma library](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=124%3A0).
+1. Create a branch off of the ["Paste components" Figma library](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=124%3A0).
 2. Go to the "Icon" page in your branch.
 3. Duplicate the empty template frame called "IconName".
 4. Move the newly created frame to the section that best fits its use case (e.g. a "filter" icon would belong in the "actions" section). If you aren't sure which group the icon belongs to, ask the design systems team in your GitHub discussion.
@@ -116,7 +116,8 @@ Once the icon is designed and exported, we need to get it in the hands of our de
 5. Add all the new svg icon files into the packages/paste-icons/svg/ folder.
 6. From the root Paste folder, run the following command in your terminal: `yarn workspace @twilio-paste/icons convert`
 7. Verify your new icons were added correctly by checking the packages/paste-icons/src folder to see the newly created source files.
-8. Commit your changes and submit a new PR on Github!
+8. Create a changeset to document your updates by running `yarn changeset`.
+9. Commit your changes and submit a new PR on Github!
 
 ## Troubleshooting
 
