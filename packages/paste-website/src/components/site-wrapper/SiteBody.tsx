@@ -21,7 +21,10 @@ const StyledSiteBody = styled.div`
   display: flex;
   min-width: 240px;
   overflow: auto;
-  scroll-behavior: smooth;
+
+  @supports (scroll-behavior: smooth) {
+    scroll-behavior: smooth;
+  }
 
   @supports (display: grid) {
     display: grid;
