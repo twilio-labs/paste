@@ -21,22 +21,54 @@ const ToastComponentVariants = {
   warning: WarningToast,
 };
 
-const renderToastIcon = (variant: ToastVariants): React.ReactElement => {
+const renderToastIcon = (variant: ToastVariants, element?: string): React.ReactElement => {
   switch (variant) {
     case ToastVariantObject.ERROR:
-      return <ErrorIcon color="colorTextIconError" decorative={false} title="error: " size="sizeIcon20" />;
+      return (
+        <ErrorIcon
+          color="colorTextIconError"
+          decorative={false}
+          element={`${element}_ICON`}
+          title="error: "
+          size="sizeIcon20"
+        />
+      );
     case ToastVariantObject.SUCCESS:
-      return <SuccessIcon color="colorTextIconSuccess" decorative={false} title="success: " size="sizeIcon20" />;
+      return (
+        <SuccessIcon
+          color="colorTextIconSuccess"
+          decorative={false}
+          element={`${element}_ICON`}
+          title="success: "
+          size="sizeIcon20"
+        />
+      );
     case ToastVariantObject.WARNING:
-      return <WarningIcon color="colorTextIconWarning" decorative={false} title="warning: " size="sizeIcon20" />;
+      return (
+        <WarningIcon
+          color="colorTextIconWarning"
+          decorative={false}
+          element={`${element}_ICON`}
+          title="warning: "
+          size="sizeIcon20"
+        />
+      );
     case ToastVariantObject.NEUTRAL:
     default:
-      return <NeutralIcon color="colorTextIconNeutral" decorative={false} title="information: " size="sizeIcon20" />;
+      return (
+        <NeutralIcon
+          color="colorTextIconNeutral"
+          decorative={false}
+          element={`${element}_ICON`}
+          title="information: "
+          size="sizeIcon20"
+        />
+      );
   }
 };
 
 const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
-  ({children, onDismiss, variant = 'neutral', setFocus, ...props}, ref) => {
+  ({children, onDismiss, variant = 'neutral', element = 'TOAST', setFocus, ...props}, ref) => {
     const ToastComponent = ToastComponentVariants[variant];
     const buttonRef: React.RefObject<HTMLButtonElement> = React.useRef(null);
 
@@ -47,16 +79,28 @@ const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
     }, [setFocus]);
 
     return (
-      <ToastComponent role="status" variant={variant} ref={ref} {...props}>
+      <ToastComponent role="status" variant={variant} element={element} ref={ref} {...props}>
         <MediaObject as="div">
           <MediaFigure as="div" spacing="space60">
-            {renderToastIcon(variant)}
+            {renderToastIcon(variant, element)}
           </MediaFigure>
           <MediaBody as="div">{children}</MediaBody>
           {onDismiss && typeof onDismiss === 'function' && (
             <MediaFigure align="end" spacing="space40">
-              <Button onClick={onDismiss} variant="link" ref={buttonRef} size="reset">
-                <CloseIcon color="colorTextIcon" decorative={false} title="dismiss this toast" size="sizeIcon20" />
+              <Button
+                onClick={onDismiss}
+                variant="link"
+                ref={buttonRef}
+                size="reset"
+                element={`${element}_CLOSE_BUTTON`}
+              >
+                <CloseIcon
+                  color="colorTextIcon"
+                  decorative={false}
+                  title="dismiss this toast"
+                  size="sizeIcon20"
+                  element={`${element}_CLOSE_ICON`}
+                />
               </Button>
             </MediaFigure>
           )}
@@ -68,8 +112,6 @@ const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
 
 Toast.displayName = 'Toast';
 
-if (process.env.NODE_ENV === 'development') {
-  Toast.propTypes = ToastPropTypes;
-}
+Toast.propTypes = ToastPropTypes;
 
 export {Toast};

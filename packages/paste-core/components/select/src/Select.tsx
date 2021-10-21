@@ -60,6 +60,8 @@ export const SelectElement = React.forwardRef<HTMLSelectElement, SelectProps>(
   }
 );
 
+SelectElement.displayName = 'SelectElement';
+
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
   (
     {disabled, element = 'SELECT', hasError, insertBefore, insertAfter, children, size, multiple, variant, ...props},

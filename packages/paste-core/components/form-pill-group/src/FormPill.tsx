@@ -69,6 +69,8 @@ const FormPillStyles = React.forwardRef<HTMLElement, FormPillStylesProps>(
   )
 );
 
+FormPillStyles.displayName = 'StyledFormPill';
+
 interface FormPillProps extends CompositeStateReturn, Pick<BoxProps, 'element'> {
   selected?: boolean;
   children: React.ReactNode;
@@ -135,3 +137,5 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
     );
   }
 );
+
+FormPill.displayName = 'FormPill';

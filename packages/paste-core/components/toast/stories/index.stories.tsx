@@ -10,7 +10,8 @@ import {useUID} from '@twilio-paste/uid-library';
 import {Input} from '@twilio-paste/input';
 import {Label} from '@twilio-paste/label';
 import {RadioGroup, Radio} from '@twilio-paste/radio-group';
-import {Toast, ToastContainer, Toaster, ToastVariants, useToaster} from '../src';
+import type {ToastVariants} from '../src';
+import {Toast, ToastContainer, Toaster, useToaster} from '../src';
 import {ToastVariantObject} from '../src/constants';
 
 // eslint-disable-next-line import/no-default-export

@@ -8,6 +8,7 @@ import {initStyles, BaseMenu} from '../stories/customization.stories';
 
 const PASTE_ELEMENT = 'data-paste-element';
 
+// eslint-disable-next-line react/display-name
 const initWrapper = (element: string): RenderOptions['wrapper'] => ({children}) => (
   <CustomizationProvider
     // @ts-expect-error global test variable
