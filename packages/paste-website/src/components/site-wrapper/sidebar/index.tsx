@@ -19,7 +19,7 @@ const Sidebar: React.FC = () => {
       borderRightWidth="borderWidth10"
       borderRightStyle="solid"
       position="sticky"
-      top={`${SITE_MASTHEAD_HEIGHT}px`}
+      top="0px"
       width="sizeSidebar"
       display={['none', 'none', 'flex']}
       flexDirection="column"

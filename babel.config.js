@@ -32,6 +32,7 @@ const BASE_PLUGINS = [
   '@babel/proposal-private-methods',
   '@babel/proposal-private-property-in-object',
   '@babel/plugin-transform-runtime',
+  '@babel/plugin-proposal-optional-chaining',
 ];
 
 module.exports = {

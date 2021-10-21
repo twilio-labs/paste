@@ -157,7 +157,7 @@ const gatsbyConfig = {
         short_name: 'Paste',
         start_url: '/',
         background_color: '#fff',
-        theme_color: '#f22f46',
+        theme_color: '#141c2c',
         display: 'standalone',
         icon: 'static/logo.svg',
       },
