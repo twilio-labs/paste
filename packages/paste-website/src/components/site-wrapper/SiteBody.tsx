@@ -6,14 +6,18 @@ import {Sidebar} from './sidebar';
 import {SiteHeader} from './site-header';
 import {SiteFooter} from './site-footer';
 import {useWindowSize} from '../../hooks/useWindowSize';
-import {ScrollAnchorIntoView} from './ScrollAnchorIntoView';
 import {PASTE_DOCS_CONTENT_AREA, SITE_BREAKPOINTS} from '../../constants';
 import {docSearchStyles} from '../../styles/docSearch';
 
-/* Wraps the entire doc site page */
+/* Wraps the main region and footer on the doc site page */
 const StyledSiteBody = styled.div`
   display: flex;
   min-width: 240px;
+  overflow: auto;
+
+  @supports (scroll-behavior: smooth) {
+    scroll-behavior: smooth;
+  }
 
   @supports (display: grid) {
     display: grid;
@@ -30,19 +34,16 @@ export const SiteBody: React.FC = ({children}) => {
   const themeObject = useTheme();
 
   return (
-    <>
+    <Box display="flex" flexDirection="column" height="100vh">
       <StylingGlobals styles={docSearchStyles({theme: themeObject})} />
       <SiteHeader />
-      <StyledSiteBody>
+      <StyledSiteBody id="styled-site-body">
         {breakpointIndex === undefined || breakpointIndex > 1 ? <Sidebar /> : null}
         <Box flex="1" minWidth="size0">
-          <main id={PASTE_DOCS_CONTENT_AREA}>
-            <ScrollAnchorIntoView />
-            {children}
-          </main>
+          <main id={PASTE_DOCS_CONTENT_AREA}>{children}</main>
           <SiteFooter />
         </Box>
       </StyledSiteBody>
-    </>
+    </Box>
   );
 };
