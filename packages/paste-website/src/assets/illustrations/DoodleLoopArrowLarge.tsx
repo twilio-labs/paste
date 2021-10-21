@@ -23,7 +23,7 @@ export const DoodleLoopArrowLarge: React.FC = () => {
   return (
     <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={60}>
       <animated.svg
-        stroke={theme.backgroundColors.colorBackgroundBodyInverse}
+        stroke={theme.borderColors.colorBorderPrimaryStrong}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2.7"
@@ -36,14 +36,14 @@ export const DoodleLoopArrowLarge: React.FC = () => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          stroke={theme.backgroundColors.colorBackgroundPrimaryStrongest}
+          stroke={theme.borderColors.colorBorderPrimaryStrong}
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="2"
           d="M28.76 157.658L9.274 185.686 1.6 154.296"
         />
         <path
-          stroke={theme.backgroundColors.colorBackgroundPrimaryStrongest}
+          stroke={theme.borderColors.colorBorderPrimaryStrong}
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="2"

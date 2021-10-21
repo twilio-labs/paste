@@ -23,7 +23,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
   // but only for pages with changelogs
   return (
     <Box as="nav" aria-label="document outline">
-      <TableOfContentsList items={headingsList} currentClassName="is-current">
+      <TableOfContentsList items={headingsList} currentClassName="is-current" rootEl="#styled-site-body">
         {
           // Get heading anchors and convert to #anchor format. Excluding h1 elements.
           headings.filter(shouldIncludeInToC).map(({value, depth}) => {

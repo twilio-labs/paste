@@ -27,7 +27,14 @@ export const LandingPageDesigner: React.FC = () => {
   }, []);
 
   return (
-    <Box borderRadius="borderRadius20" boxShadow="shadowCard" display="flex">
+    <Box
+      borderColor="colorBorderWeak"
+      borderStyle="solid"
+      borderWidth="borderWidth10"
+      borderRadius="borderRadius20"
+      boxShadow="shadowCard"
+      display="flex"
+    >
       <Helmet>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" cross-origin />

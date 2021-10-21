@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {Anchor} from '@twilio-paste/anchor';
 import {ReactLogoIcon} from '../icons/ReactLogoIcon';
 
 import {ProjectCard, ProjectCardBody, ProjectHeading, ProjectLogo} from './ProjectCard';
@@ -15,7 +16,9 @@ export const ReactCard: React.FC = () => {
         <Paragraph>You can add Paste to any React-based UI, including Next.js and Create React App.</Paragraph>
       </ProjectCardBody>
       <Paragraph marginBottom="space0">
-        <em>Starter kits coming soon!</em>
+        <Anchor href="https://github.com/twilio-labs/paste/tree/main/packages/paste-nextjs-template" showExternal>
+          Try our Next.js Starter Kit
+        </Anchor>
       </Paragraph>
     </ProjectCard>
   );

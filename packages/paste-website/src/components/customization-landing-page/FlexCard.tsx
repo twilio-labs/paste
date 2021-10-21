@@ -10,7 +10,7 @@ export const FlexCard: React.FC = () => {
     <ProjectCard>
       <ProjectCardBody>
         <ProjectLogo>
-          <ProductFlexIcon decorative={false} title="Flex" size="sizeIcon70" color="colorTextIcon" />
+          <ProductFlexIcon color="colorTextBrandHighlight" decorative={false} title="Flex" size="sizeIcon70" />
         </ProjectLogo>
         <ProjectHeading>Flex</ProjectHeading>
         <Paragraph>

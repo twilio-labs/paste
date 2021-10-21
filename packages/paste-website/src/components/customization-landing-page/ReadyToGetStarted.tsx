@@ -4,12 +4,19 @@ import {Column, Grid} from '@twilio-paste/grid';
 import {Card} from '@twilio-paste/card';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Anchor} from '@twilio-paste/anchor';
+import {useTheme} from '@twilio-paste/theme';
+import {css} from '@twilio-paste/styling-library';
 
 import {LandingPageSection, LandingPageSectionContent} from './LandingPageLayoutUtils';
 
 export const ReadyToGetStarted: React.FC = () => {
+  const theme = useTheme();
   return (
-    <LandingPageSection marginTop="space200" paddingTop={['space200', 'space200', 'space200']}>
+    <LandingPageSection
+      paddingTop={['space200', 'space200', 'space200']}
+      paddingBottom={['space0', 'space0', 'space0']}
+      css={css({marginTop: ['50px', '250px', '300px']})(theme)}
+    >
       <LandingPageSectionContent variant="default">
         <Heading as="h2" variant="heading20">
           Ready to get started?
