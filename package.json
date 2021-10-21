@@ -30,7 +30,7 @@
   },
   "types": "./types/index.d.ts",
   "scripts": {
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "",
     "prestart": "yarn prebuild",
     "start": "yarn prestart && yarn build:tokens && concurrently \"yarn:start:tokens\" \"yarn:start:storybook\"",
     "start:all": "yarn build:tokens && concurrently \"yarn:start:tokens\" \"yarn:start:storybook:quiet\" \"yarn:start:website\"",
