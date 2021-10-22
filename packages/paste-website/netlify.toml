@@ -8,7 +8,6 @@
   command = "yarn build:js && yarn build:tokens && yarn build:website"
 
 [build.environment]
-  YARN_VERSION = "3.0.2"
   YARN_ENABLE_GLOBAL_CACHE = "true"
   YARN_GLOBAL_FOLDER = "/opt/buildhome/.yarn_cache"
 
