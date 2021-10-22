@@ -10,6 +10,7 @@ module.exports = {
     '@storybook/addon-actions',
     '@storybook/addon-viewport',
     'storybook-addon-performance',
+    './addons/google-analytics/register',
   ],
   typescript: {
     // enable type checking
