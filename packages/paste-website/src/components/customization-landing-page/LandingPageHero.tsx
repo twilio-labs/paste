@@ -8,6 +8,7 @@ import {Heading} from '@twilio-paste/heading';
 
 import {WorksGreatWith} from './WorksGreatWith';
 import {LandingPageSectionContent} from './LandingPageLayoutUtils';
+import {ImageSlider} from './image-slider';
 
 const imageQuery = graphql`
   query {
@@ -28,11 +29,33 @@ const imageQuery = graphql`
         }
       }
     }
+    heroFrontImage: file(
+      sourceInstanceName: {eq: "assets"}
+      relativePath: {eq: "images/customization/hero-front.png"}
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 640) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    heroBackImage: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/customization/hero-back.png"}) {
+      childImageSharp {
+        fluid(maxWidth: 640) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
   }
 `;
 
 export const LandingPageHero: React.FC = () => {
   const imageData = useStaticQuery(imageQuery);
+
+  const {
+    heroFrontImage: {childImageSharp: {fluid: {src: frontPath = ''} = {}} = {}} = {},
+    heroBackImage: {childImageSharp: {fluid: {src: backPath = ''} = {}} = {}} = {},
+  } = imageData;
 
   return (
     <Box overflow="hidden">
@@ -82,17 +105,9 @@ export const LandingPageHero: React.FC = () => {
                 Start customizing
               </Button>
             </Box>
-            <Box
-              display={['none', 'block']}
-              position="absolute"
-              right="spaceNegative160"
-              top="50px"
-              maxWidth="size60"
-              width="60%"
-              zIndex="zIndex10"
-            >
-              <Img fluid={imageData.sliderImage.childImageSharp.fluid} />
-            </Box>
+
+            <ImageSlider frontPath={frontPath} backPath={backPath} />
+
             <Box display={['block', 'none']} maxWidth="600px" marginX="auto">
               <Img fluid={imageData.sliderImageSmall.childImageSharp.fluid} />
             </Box>
