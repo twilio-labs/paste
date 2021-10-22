@@ -31,9 +31,9 @@
     "@types/react-dom": "^16.8.4"
   },
   "peerDependencies": {
-    "react": "^16.8.6 || ^17.0.2"
+    "react": "^17.0.2"
   },
   "devDependencies": {
-    "react": "^16.8.6 || ^17.0.2"
+    "react": "^17.0.2"
   }
 }
