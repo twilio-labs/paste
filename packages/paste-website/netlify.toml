@@ -3,6 +3,14 @@
   targetPort = 8000
   framework = "#custom"
 
+[build]
+  publish = "packages/paste-website/public/"
+  command = "yarn build:js && yarn build:tokens && yarn build:website"
+
+[build.environment]
+  YARN_ENABLE_GLOBAL_CACHE = "true"
+  YARN_GLOBAL_FOLDER = "/opt/buildhome/.yarn_cache"
+
 [context.deploy-preview]
   # only do a preview deply when there is a website change
   ignore = "git diff --quiet HEAD^ main -- packages/paste-website packages/paste-theme-designer"
@@ -28,3 +36,4 @@
   for = "/*"
   [headers.values]
     X-Shenanigans = "none"
+

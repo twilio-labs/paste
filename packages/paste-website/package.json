@@ -122,8 +122,7 @@
     "react-visibility-sensor": "5.1.1",
     "use-resize-observer": "^7.0.0"
   },
-  "resolutions": {
-    "**/websocket-extensions": "^0.1.4",
-    "**/graphql-playground-middleware-express": "^1.7.18"
+  "devDependencies": {
+    "netlify-cli": "^6.13.1"
   }
 }

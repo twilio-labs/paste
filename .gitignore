@@ -92,3 +92,12 @@ cypress/screenshots
 
 # Local Netlify folder
 .netlify
+
+# Yarn Folders
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
