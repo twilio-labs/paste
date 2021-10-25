@@ -53,11 +53,6 @@ const imageQuery = graphql`
 export const LandingPageHero: React.FC = () => {
   const imageData = useStaticQuery(imageQuery);
 
-  const {
-    heroFrontImage: {childImageSharp: {fluid: {src: frontPath = ''} = {}} = {}} = {},
-    heroBackImage: {childImageSharp: {fluid: {src: backPath = ''} = {}} = {}} = {},
-  } = imageData;
-
   const frontFluidObject = imageData.heroFrontImage.childImageSharp.fluid;
   const backFluidObject = imageData.heroBackImage.childImageSharp.fluid;
 
@@ -110,10 +105,6 @@ export const LandingPageHero: React.FC = () => {
               </Button>
             </Box>
 
-            {/* without gatsby image */}
-            {/* <ImageSlider frontPath={frontPath} backPath={backPath} /> */}
-
-            {/* with gatsby image */}
             <ImageSlider frontFluidObject={frontFluidObject} backFluidObject={backFluidObject} />
 
             <Box display={['block', 'none']} maxWidth="600px" marginX="auto">

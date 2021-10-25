@@ -13,27 +13,37 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
   frontFluidObject,
   backFluidObject,
 }) => {
-  const [value, setValue] = React.useState<number>(MAX_VALUE / 2);
+  // Set the initial state of the slider to be roughly at the 60% position.
+  const [value, setValue] = React.useState<number>(MAX_VALUE * 0.6);
   const [shouldMeasure, setShouldMeasure] = React.useState(false);
   const [refsAreInitiated, setRefsAreInitiated] = React.useState(false);
 
-  const circleRef = React.useRef<SVGCircleElement>();
   const containerRef = React.useRef<HTMLElement>();
   const svgContainerRef = React.useRef<SVGSVGElement>();
+  const svgCircleRef = React.useRef<SVGCircleElement>();
 
   const {width: containerWidth, x: containerX, height: containerHeight} = containerRef?.current
-    ? (containerRef.current as HTMLElement).getBoundingClientRect()
-    : {width: undefined, height: 460, x: undefined};
+    ? containerRef.current.getBoundingClientRect()
+    : {width: undefined, height: undefined, x: undefined};
 
   const {width: svgWidth, height: svgHeight} = svgContainerRef?.current
-    ? (svgContainerRef.current as SVGSVGElement).getBoundingClientRect()
-    : {width: undefined, height: 396};
+    ? svgContainerRef.current.getBoundingClientRect()
+    : {width: undefined, height: undefined};
 
-  const svgOffset = `-${Math.abs(svgHeight - containerHeight) / 2}px`;
+  // SVG offset defines the offset from the top position of the SVG that is required to center it against the images.
+  // The default value reflects the relative height ratio of the thumb to the container, allowing a render before the Ref Object is attached and the SVG can be measured.
+  // This value is only a fallback, the actual measurement is taken after mount (in an update cycle)
+  const svgOffset = svgHeight
+    ? `-${Math.abs(svgHeight - (containerHeight as number)) / 2}px`
+    : `-${Math.abs(containerHeight as number) / 8}px`;
 
+  // Minimum change defines the absolute distance threshold for value to change.
+  // Calculated by half the width of the SVG, default is half of the absolute width.
   const minimumChange = svgWidth ? svgWidth / 2 : DEFAULT_MIN_CHANGE;
 
-  const clipX = (value / MAX_VALUE) * (containerWidth as number);
+  // Width of SVG Clip used to conditionally show/hide part of the each image
+  // SVG clip is calculated from right to left, since the dynamic value here is the width.
+  const clip = (value / MAX_VALUE) * (containerWidth as number);
 
   React.useEffect(() => {
     if (!refsAreInitiated) {
@@ -91,7 +101,6 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
             });
           }}
           onMouseMove={(e) => {
-            // e.persist();
             const {clientX} = e;
             if (shouldMeasure) {
               const computedValue = convertPositionToInputValue(
@@ -117,18 +126,19 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
           fluid={frontFluidObject}
         />
 
-        {typeof clipX === 'number' && !Number.isNaN(clipX) ? (
+        {typeof clip === 'number' && !Number.isNaN(clip) ? (
           <>
             <SVGThumb
-              left={`${clipX - minimumChange}px`}
+              left={`${clip - minimumChange}px`}
               top={svgOffset}
-              circleRef={circleRef as LegacyRef<SVGCircleElement>}
               svgContainerRef={svgContainerRef as LegacyRef<SVGSVGElement>}
+              svgCircleRef={svgCircleRef as LegacyRef<SVGCircleElement>}
+              initRefs={setRefsAreInitiated}
             />
             <svg height="0" width="0">
               <defs>
                 <clipPath id="input-range-clip">
-                  <rect y="0" x="0" width={clipX} height={(containerHeight as number) * 2} />
+                  <rect y="0" x="0" width={clip} height={(containerHeight as number) * 2} />
                 </clipPath>
               </defs>
             </svg>
@@ -148,13 +158,13 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
         value={value}
         type="range"
         onFocus={() => {
-          if (circleRef.current) {
-            (circleRef.current as SVGCircleElement).setAttribute('stroke', 'rgba(2, 99, 224, 0.7)');
+          if (svgCircleRef.current) {
+            (svgCircleRef.current as SVGCircleElement).setAttribute('stroke', 'rgba(2, 99, 224, 0.7)');
           }
         }}
         onBlur={() => {
-          if (circleRef.current) {
-            (circleRef.current as SVGCircleElement).removeAttribute('stroke');
+          if (svgCircleRef.current) {
+            (svgCircleRef.current as SVGCircleElement).removeAttribute('stroke');
           }
         }}
         onChange={({target: {value: inputTargetValue}}: React.ChangeEvent<HTMLInputElement>) => {

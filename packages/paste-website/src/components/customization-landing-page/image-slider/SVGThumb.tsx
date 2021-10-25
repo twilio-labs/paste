@@ -4,16 +4,23 @@ import {Box} from '@twilio-paste/core/box';
 import {useTheme} from '@twilio-paste/theme';
 
 interface SVGThumbProps {
-  circleRef: LegacyRef<SVGCircleElement>;
   left: string;
   top: string;
   svgContainerRef: LegacyRef<SVGSVGElement>;
+  svgCircleRef: LegacyRef<SVGCircleElement>;
+  initRefs: (bool: boolean) => void;
 }
 
-export const SVGThumb: React.FC<SVGThumbProps> = ({circleRef, left, top, svgContainerRef}) => {
+export const SVGThumb: React.FC<SVGThumbProps> = ({left, top, svgContainerRef, svgCircleRef, initRefs}) => {
   const {
     backgroundColors: {colorBackground},
   } = useTheme();
+
+  // Force update of this child component to ensure that the refs are correctly set on the initial render.
+  // Required to measure the actual rendered dimensions and resize accordingly.
+  React.useEffect(() => {
+    initRefs(true);
+  }, []);
 
   return (
     <Box display="flex" height="100%" width="100%" pointerEvents="none" position="absolute" left={left} top={top}>
@@ -33,7 +40,7 @@ export const SVGThumb: React.FC<SVGThumbProps> = ({circleRef, left, top, svgCont
         <g filter="url(#filter1_f_287:39576)">
           <circle cx="17.5" cy="289" r="16" fill="#121C2D" fillOpacity="0.1" />
         </g>
-        <circle ref={circleRef} strokeWidth="4px" cx="17.5" cy="289" r="15.5" fill={colorBackground} />
+        <circle ref={svgCircleRef} strokeWidth="4px" cx="17.5" cy="289" r="15.5" fill={colorBackground} />
         <circle cx="17.5" cy="289" r="8" fill="currentColor" />
 
         <defs>
