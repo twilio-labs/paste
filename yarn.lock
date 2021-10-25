@@ -13393,9 +13393,9 @@ __metadata:
     pretty-format: ^24.9.0
     prism-react-renderer: ^0.1.7
     prop-types: ^15.7.2
-    react: ^17.0.2
+    react-16: "npm:react@^16.8.6"
     react-color: ^2.19.3
-    react-dom: ^17.0.2
+    react-dom-16: "npm:react-dom@^16.8.6"
     react-github-button: ^0.1.11
     react-helmet: ^5.2.1
     react-live: ^2.2.2
@@ -38746,8 +38746,12 @@ is-whitespace@latest:
     prettier: ^2.2.1
     prop-types: ^15.7.2
     puppeteer-core: ^10.1.0
-    react: ^16.8.6 || ^17.0.2
-    react-dom: ^16.8.6 || ^17.0.2
+    react: ^17.0.2
+    react-16: "npm:react@^16.8.6"
+    react-dom: ^17.0.2
+    react-dom-16: "npm:react-dom@^16.8.6"
+    react-is: ^17.0.2
+    react-is-16: "npm:react-is@^16.8.6"
     react-test-renderer: ^16.8.6
     regenerator-runtime: ^0.13.3
     search-in-file: ^1.2.2
@@ -41151,6 +41155,20 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"react-16@npm:react@^16.8.6":
+  version: 16.14.0
+  resolution: "react@npm:16.14.0"
+  dependencies:
+    loose-envify: ^1.1.0
+    object-assign: ^4.1.1
+    prop-types: ^15.6.2
+  checksum: 8484f3ecb13414526f2a7412190575fc134da785c02695eb92bb6028c930bfe1c238d7be2a125088fec663cc7cda0a3623373c46807cf2c281f49c34b79881ac
+  languageName: node
+  linkType: hard
+
+>>>>>>> 8a58be46 (chore: revert website to 16)
 "react-app-polyfill@npm:^2.0.0":
   version: 2.0.0
   resolution: "react-app-polyfill@npm:2.0.0"
@@ -41364,7 +41382,7 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"react-dom-16@npm:react-dom@^16.14.0":
+"react-dom-16@npm:react-dom@^16.8.6":
   version: 16.14.0
   resolution: "react-dom@npm:16.14.0"
   dependencies:
@@ -41568,7 +41586,7 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"react-is@npm:16.13.1, react-is@npm:^16.12.0, react-is@npm:^16.13.1, react-is@npm:^16.7.0, react-is@npm:^16.8.1, react-is@npm:^16.8.4, react-is@npm:^16.8.6, react-is@npm:^16.9.0":
+"react-is-16@npm:react-is@^16.8.6, react-is@npm:16.13.1, react-is@npm:^16.12.0, react-is@npm:^16.13.1, react-is@npm:^16.7.0, react-is@npm:^16.8.1, react-is@npm:^16.8.4, react-is@npm:^16.8.6, react-is@npm:^16.9.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
