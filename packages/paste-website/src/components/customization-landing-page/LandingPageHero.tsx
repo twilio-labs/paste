@@ -8,6 +8,7 @@ import {Heading} from '@twilio-paste/heading';
 
 import {WorksGreatWith} from './WorksGreatWith';
 import {LandingPageSectionContent} from './LandingPageLayoutUtils';
+
 import {ImageSlider} from './image-slider';
 
 const imageQuery = graphql`
@@ -56,6 +57,9 @@ export const LandingPageHero: React.FC = () => {
     heroFrontImage: {childImageSharp: {fluid: {src: frontPath = ''} = {}} = {}} = {},
     heroBackImage: {childImageSharp: {fluid: {src: backPath = ''} = {}} = {}} = {},
   } = imageData;
+
+  const frontFluidObject = imageData.heroFrontImage.childImageSharp.fluid;
+  const backFluidObject = imageData.heroBackImage.childImageSharp.fluid;
 
   return (
     <Box overflow="hidden">
@@ -106,7 +110,11 @@ export const LandingPageHero: React.FC = () => {
               </Button>
             </Box>
 
-            <ImageSlider frontPath={frontPath} backPath={backPath} />
+            {/* without gatsby image */}
+            {/* <ImageSlider frontPath={frontPath} backPath={backPath} /> */}
+
+            {/* with gatsby image */}
+            <ImageSlider frontFluidObject={frontFluidObject} backFluidObject={backFluidObject} />
 
             <Box display={['block', 'none']} maxWidth="600px" marginX="auto">
               <Img fluid={imageData.sliderImageSmall.childImageSharp.fluid} />

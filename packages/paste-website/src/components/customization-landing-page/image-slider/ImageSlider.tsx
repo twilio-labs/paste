@@ -1,15 +1,18 @@
 import * as React from 'react';
 import type {MutableRefObject, LegacyRef} from 'react';
 import {Box} from '@twilio-paste/core/box';
-
+import type {FluidObject} from 'gatsby-image';
 import {SVGThumb} from './SVGThumb';
-import {ImageBox} from './partials';
+import {ImageBox} from './ImageBox';
 import {DEFAULT_MIN_CHANGE, MAX_VALUE, MIN_VALUE} from './constants';
-import {convertPositionToInputValue} from './utils';
+import {convertPositionToInputValue, getValueInRange} from './utils';
 
 const ID = 'input-range-image-slider-control';
 
-export const ImageSlider: React.FC<{frontPath: string; backPath: string}> = ({frontPath, backPath}) => {
+export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObject: FluidObject}> = ({
+  frontFluidObject,
+  backFluidObject,
+}) => {
   const [value, setValue] = React.useState<number>(MAX_VALUE / 2);
   const [shouldMeasure, setShouldMeasure] = React.useState(false);
   const [refsAreInitiated, setRefsAreInitiated] = React.useState(false);
@@ -41,14 +44,15 @@ export const ImageSlider: React.FC<{frontPath: string; backPath: string}> = ({fr
   return (
     <Box
       display={['none', 'block']}
-      minHeight="460px"
-      position="absolute"
-      right="spaceNegative150"
-      top="50px"
       height="100%"
+      minHeight="460px"
+      maxWidth="size60"
+      position="absolute"
+      top="50px"
+      ref={containerRef as MutableRefObject<HTMLElement>}
+      right="spaceNegative150"
       width="60%"
       zIndex="zIndex10"
-      ref={containerRef as MutableRefObject<HTMLElement>}
     >
       <Box
         as="label"
@@ -63,6 +67,7 @@ export const ImageSlider: React.FC<{frontPath: string; backPath: string}> = ({fr
           position="absolute"
           width="100%"
           height="100%"
+          maxWidth="640px"
           cursor={shouldMeasure ? 'grabbing' : 'grab'}
           onMouseDown={(e) => {
             e.persist();
@@ -70,25 +75,33 @@ export const ImageSlider: React.FC<{frontPath: string; backPath: string}> = ({fr
           }}
           onMouseUp={(e) => {
             const {clientX} = e;
-
             setShouldMeasure((currentShouldMeasure) => {
               if (currentShouldMeasure) {
-                setValue(
-                  convertPositionToInputValue(containerWidth as number, clientX - (containerX as number), minimumChange)
+                const computedValue = convertPositionToInputValue(
+                  containerWidth as number,
+                  clientX - (containerX as number),
+                  minimumChange
                 );
+                const newValue = getValueInRange(computedValue);
+
+                setValue(newValue);
               }
 
               return false;
             });
           }}
           onMouseMove={(e) => {
-            e.persist();
+            // e.persist();
+            const {clientX} = e;
             if (shouldMeasure) {
-              const {clientX} = e;
-
-              setValue(
-                convertPositionToInputValue(containerWidth as number, clientX - (containerX as number), minimumChange)
+              const computedValue = convertPositionToInputValue(
+                containerWidth as number,
+                clientX - (containerX as number),
+                minimumChange
               );
+              const newValue = getValueInRange(computedValue);
+
+              setValue(newValue);
             }
           }}
           onMouseLeave={(e) => {
@@ -97,8 +110,12 @@ export const ImageSlider: React.FC<{frontPath: string; backPath: string}> = ({fr
           }}
         />
 
-        <ImageBox label="Image of hero with customized Paste theme" src={backPath} />
-        <ImageBox label="Image of hero with default Paste theme" clipPath="url(#input-range-clip)" src={frontPath} />
+        <ImageBox label="Sample components with a customized Paste theme" fluid={backFluidObject} />
+        <ImageBox
+          label="Sample components with a default Paste theme"
+          clipPath="url(#input-range-clip)"
+          fluid={frontFluidObject}
+        />
 
         {typeof clipX === 'number' && !Number.isNaN(clipX) ? (
           <>
@@ -111,7 +128,7 @@ export const ImageSlider: React.FC<{frontPath: string; backPath: string}> = ({fr
             <svg height="0" width="0">
               <defs>
                 <clipPath id="input-range-clip">
-                  <rect y="0" x={clipX} width={containerWidth} height={(containerHeight as number) * 2} />
+                  <rect y="0" x="0" width={clipX} height={(containerHeight as number) * 2} />
                 </clipPath>
               </defs>
             </svg>
@@ -141,7 +158,9 @@ export const ImageSlider: React.FC<{frontPath: string; backPath: string}> = ({fr
           }
         }}
         onChange={({target: {value: inputTargetValue}}: React.ChangeEvent<HTMLInputElement>) => {
-          setValue(Number(inputTargetValue));
+          const newValue = getValueInRange(Number(inputTargetValue));
+
+          setValue(newValue);
         }}
       />
     </Box>
