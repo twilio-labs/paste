@@ -3,6 +3,7 @@ import * as React from 'react';
 import {render} from 'react-dom';
 import {render as testRender} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
+import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import type {ReactWrapper} from 'enzyme';
 import {shallow, mount} from 'enzyme';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -342,6 +343,22 @@ describe('Button', () => {
         </Button>
       );
       expect(getByTestId('button-margin')).toHaveStyleRule('margin', 'space0');
+    });
+  });
+
+  describe('Button inner padding', () => {
+    it('should not set padding for buttons with only one child', () => {
+      const {getByText} = testRender(<Button variant="primary">Hello</Button>);
+      expect(getByText('Hello')).not.toHaveStyleRule('padding', 'undefined');
+    });
+    it('should set padding between rendered children', () => {
+      const {getByText} = testRender(
+        <Button variant="primary">
+          Hello
+          <PlusIcon decorative />
+        </Button>
+      );
+      expect(getByText('Hello')).toHaveStyleRule('column-gap', 'space20');
     });
   });
 
