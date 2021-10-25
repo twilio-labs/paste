@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {Box, BoxProps} from '@twilio-paste/box';
 import {ChevronDisclosureExpandedIcon} from '@twilio-paste/icons/esm/ChevronDisclosureExpandedIcon';
 

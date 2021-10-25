@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {Box} from '@twilio-paste/box';
 import {Table, Tr, THead, Th, TBody, Td} from '@twilio-paste/table';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';

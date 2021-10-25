@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import VisibilitySensor from 'react-visibility-sensor';
 import {useSpring, animated} from '@twilio-paste/animation-library';
 import {useTheme} from '@twilio-paste/theme';

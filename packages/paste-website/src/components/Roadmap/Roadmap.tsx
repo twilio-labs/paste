@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Badge} from '@twilio-paste/badge';

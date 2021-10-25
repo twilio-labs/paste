@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {styled, themeGet} from '@twilio-paste/styling-library';
 import Highlight, {defaultProps} from 'prism-react-renderer';
 import {CodeblockTheme} from '../shortcodes/live-preview/theme';

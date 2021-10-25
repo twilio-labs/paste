@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {Heading, HeadingProps} from '@twilio-paste/heading';
 import {styled, themeGet} from '@twilio-paste/styling-library';
 import {slugify} from '../utils/RouteUtils';

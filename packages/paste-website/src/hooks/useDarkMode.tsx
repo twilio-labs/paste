@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 
 type Theme = 'default' | 'dark';
 export type UseDarkModeReturn = [Theme, () => void, boolean];

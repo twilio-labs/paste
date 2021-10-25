@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {StaticQuery, graphql} from 'gatsby';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import Img from 'gatsby-image';

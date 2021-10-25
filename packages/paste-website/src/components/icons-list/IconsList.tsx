@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
 import {Composite, useCompositeState} from '@twilio-paste/reakit-library';

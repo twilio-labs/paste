@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import type {UseDarkModeReturn} from '../hooks/useDarkMode';
 
 type DarkModeContextValue = {

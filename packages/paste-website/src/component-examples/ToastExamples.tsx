@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {useUID} from '@twilio-paste/uid-library';
 import {Toaster, useToaster, ToastVariants} from '@twilio-paste/toast';
 import {Button} from '@twilio-paste/button';

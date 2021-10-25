@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {styled, css} from '@twilio-paste/styling-library';
 import {Link} from 'gatsby';
 

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {Anchor, isExternalUrl} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';

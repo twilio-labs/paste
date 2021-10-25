@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {Box} from '@twilio-paste/box';
 
 const ProductBadge: React.FC = ({children}) => {

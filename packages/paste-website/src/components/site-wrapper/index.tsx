@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {graphql, useStaticQuery} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Stack} from '@twilio-paste/stack';

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {Box} from '@twilio-paste/box';
 import {Table, THead, TBody, Tr, Th, Td} from '@twilio-paste/table';
 import {Popover, PopoverContainer, PopoverButton} from '@twilio-paste/popover';

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
 import {Anchor} from '@twilio-paste/anchor';

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Truncate} from '@twilio-paste/truncate';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';

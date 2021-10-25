@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {styled} from '@twilio-paste/styling-library';
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';

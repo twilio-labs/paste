@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {Grid, Column, GridProps} from '@twilio-paste/grid';
 
 interface GetStartedCardLinksProps {

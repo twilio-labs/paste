@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {Helmet} from 'react-helmet';
 import {Box} from '@twilio-paste/box';
 import {useTheme, generateTokensFromTheme} from '@twilio-paste/theme';

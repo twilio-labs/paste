@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
 import {PopoverContainer, PopoverButton, Popover} from '@twilio-paste/popover';

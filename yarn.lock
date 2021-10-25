@@ -13368,6 +13368,7 @@ __metadata:
     "@twilio-paste/truncate": ^7.0.0
     "@twilio-paste/types": ^3.1.2
     "@twilio-paste/uid-library": ^0.2.1
+    "@types/react-16": "npm:@types/react@^16.0.0"
     color: ^3.1.2
     docsearch.js: 2.6.3
     dotenv: ^8.2.0
@@ -14227,6 +14228,17 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: 061dc348decebc4eb217987fee01e3abffe96535f4a095e2c8897a950e86110d6292d973951a987d78b7fea10698192dc9fc599e19b2f26309e77dbb7b222386
+  languageName: node
+  linkType: hard
+
+"@types/react-16@npm:@types/react@^16.0.0":
+  version: 16.14.19
+  resolution: "@types/react@npm:16.14.19"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: 47515081bf112e4e8c2e643e947577c3813e1b23c7f4d101aa5d93e35019c2658ca4e8cf4e996af3fbd0b870a95533f91542c9b15f8d013b4f70637be012f021
   languageName: node
   linkType: hard
 
@@ -38677,6 +38689,7 @@ is-whitespace@latest:
     "@types/jest": ^24.0.18
     "@types/jest-axe": ^3.5.1
     "@types/node": ^14.14.16
+    "@types/react-16": "npm:@types/react@^16.0.0"
     "@types/react-github-button": ^0.1.1
     "@types/react-helmet": ^5.0.14
     "@types/react-scrollspy": ^3.3.1
@@ -38750,8 +38763,6 @@ is-whitespace@latest:
     react-16: "npm:react@^16.8.6"
     react-dom: ^17.0.2
     react-dom-16: "npm:react-dom@^16.8.6"
-    react-is: ^17.0.2
-    react-is-16: "npm:react-is@^16.8.6"
     react-test-renderer: ^16.8.6
     regenerator-runtime: ^0.13.3
     search-in-file: ^1.2.2
@@ -41586,7 +41597,7 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"react-is-16@npm:react-is@^16.8.6, react-is@npm:16.13.1, react-is@npm:^16.12.0, react-is@npm:^16.13.1, react-is@npm:^16.7.0, react-is@npm:^16.8.1, react-is@npm:^16.8.4, react-is@npm:^16.8.6, react-is@npm:^16.9.0":
+"react-is@npm:16.13.1, react-is@npm:^16.12.0, react-is@npm:^16.13.1, react-is@npm:^16.7.0, react-is@npm:^16.8.1, react-is@npm:^16.8.4, react-is@npm:^16.8.6, react-is@npm:^16.9.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f

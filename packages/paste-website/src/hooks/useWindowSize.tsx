@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react-16';
 import {useTheme} from '@twilio-paste/theme';
 import {findIndex, debounce} from 'lodash';
 

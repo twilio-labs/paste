@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {useUID} from 'react-uid';
 import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';

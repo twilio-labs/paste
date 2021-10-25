@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';

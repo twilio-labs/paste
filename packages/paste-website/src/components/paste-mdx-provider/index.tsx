@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {MDXProvider} from '@mdx-js/react';
 import {styled} from '@twilio-paste/styling-library';
 import {Anchor, isExternalUrl} from '@twilio-paste/anchor';

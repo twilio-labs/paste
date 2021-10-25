@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {Grid, Column} from '@twilio-paste/grid';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 

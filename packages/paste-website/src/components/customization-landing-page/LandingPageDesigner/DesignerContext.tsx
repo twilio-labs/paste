@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import * as Tokens from '@twilio-paste/core/design-tokens';
 import type {GenericTokensShape} from '@twilio-paste/design-tokens/types/GenericTokensShape';
 

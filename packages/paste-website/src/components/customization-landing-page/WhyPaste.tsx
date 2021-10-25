@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react-16';
 import {graphql, useStaticQuery} from 'gatsby';
 import Img from 'gatsby-image';
 import {Box} from '@twilio-paste/box';
