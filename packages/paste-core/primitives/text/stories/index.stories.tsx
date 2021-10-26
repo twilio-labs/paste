@@ -57,7 +57,8 @@ export const Default = (): React.ReactNode => {
   const overflowXValue = text('overflowX', '') as OverflowX;
   const overflowYValue = text('overflowY', '') as OverflowY;
   const textOverflowValue = text('textOverflow', '') as TextOverflow;
-  const whitespaceValue = text('whitespace', '') as WhiteSpace;
+  const whiteSpaceValue = text('whiteSpace', '') as WhiteSpace;
+  const fontVariantNumericValue = text('fontVariantNumeric', '');
 
   const paddingValue = select('padding', spaceOptions, '') as Padding;
   const paddingBottomValue = select('paddingBottom', spaceOptions, '') as Padding;
@@ -96,7 +97,8 @@ export const Default = (): React.ReactNode => {
       color={textColorValue}
       textDecoration={textDecorationValue}
       textOverflow={textOverflowValue}
-      whiteSpace={whitespaceValue}
+      whiteSpace={whiteSpaceValue}
+      fontVariantNumeric={fontVariantNumericValue}
     >
       Some text
     </Text>
