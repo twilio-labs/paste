@@ -22,7 +22,7 @@ const imageStyleProps = {
 };
 
 export const ImageBox: React.FC<ImageBoxProps> = ({fluid, label, clipPath}) => (
-  <Img fluid={fluid} aria-label={label} alt={label} style={{...styleProps}} imgStyle={{...imageStyleProps, clipPath}} />
+  <Img fluid={fluid} aria-label={label} alt={label} style={styleProps} imgStyle={{...imageStyleProps, clipPath}} />
 );
 
 ImageBox.displayName = 'ImageBox';

@@ -1,18 +1,23 @@
 import * as React from 'react';
 import type {MutableRefObject, LegacyRef} from 'react';
-import {Box} from '@twilio-paste/core/box';
+import {Box} from '@twilio-paste/box';
+import {useUIDSeed} from '@twilio-paste/uid-library';
+
 import type {FluidObject} from 'gatsby-image';
 import {SVGThumb} from './SVGThumb';
 import {ImageBox} from './ImageBox';
 import {DEFAULT_MIN_CHANGE, MAX_VALUE, MIN_VALUE} from './constants';
-import {convertPositionToInputValue, getValueInRange} from './utils';
+import {convertPositionToInputValue, clampValueToRange} from './utils';
 
-const ID = 'input-range-image-slider-control';
+const INPUT_ID = 'input-range-id';
+const CLIP_PATH_ID = 'clip-path-id';
 
 export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObject: FluidObject}> = ({
   frontFluidObject,
   backFluidObject,
 }) => {
+  const uidSeed = useUIDSeed();
+
   // Set the initial state of the slider to be roughly at the 60% position.
   const [value, setValue] = React.useState<number>(MAX_VALUE * 0.6);
   const [shouldMeasure, setShouldMeasure] = React.useState(false);
@@ -26,16 +31,21 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
     ? containerRef.current.getBoundingClientRect()
     : {width: undefined, height: undefined, x: undefined};
 
-  const {width: svgWidth, height: svgHeight} = svgContainerRef?.current
+  const {width: svgWidth} = svgContainerRef?.current
     ? svgContainerRef.current.getBoundingClientRect()
-    : {width: undefined, height: undefined};
+    : {width: undefined};
 
   // SVG offset defines the offset from the top position of the SVG that is required to center it against the images.
   // The default value reflects the relative height ratio of the thumb to the container, allowing a render before the Ref Object is attached and the SVG can be measured.
   // This value is only a fallback, the actual measurement is taken after mount (in an update cycle)
-  const svgOffset = svgHeight
-    ? `-${Math.abs(svgHeight - (containerHeight as number)) / 2}px`
-    : `-${Math.abs(containerHeight as number) / 8}px`;
+  // const svgOffset = svgHeight
+  //   ? `-${Math.abs(svgHeight - (containerHeight as number)) / 2}px`
+  //   : `-${Math.abs(containerHeight as number) / 8}px`;
+
+  // const svgOffset =
+  //   svgHeight && containerHeight
+  //     ? `-${Math.abs((svgHeight as number) - (containerHeight as number)) / 2}px`
+  //     : 'calc(100vh * -0.06)';
 
   // Minimum change defines the absolute distance threshold for value to change.
   // Calculated by half the width of the SVG, default is half of the absolute width.
@@ -43,7 +53,8 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
 
   // Width of SVG Clip used to conditionally show/hide part of the each image
   // SVG clip is calculated from right to left, since the dynamic value here is the width.
-  const clip = (value / MAX_VALUE) * (containerWidth as number);
+  // const clip = (value / MAX_VALUE) * (containerWidth as number);
+  const clip = containerWidth && (value / MAX_VALUE) * (containerWidth as number);
 
   React.useEffect(() => {
     if (!refsAreInitiated) {
@@ -54,8 +65,7 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
   return (
     <Box
       display={['none', 'block']}
-      height="100%"
-      minHeight="460px"
+      minHeight={['size0', '260px', '460px']}
       maxWidth="size60"
       position="absolute"
       top="50px"
@@ -63,13 +73,14 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
       right="spaceNegative150"
       width="60%"
       zIndex="zIndex10"
+      marginRight={['space0', 'space0', 'space100']}
     >
       <Box
         as="label"
         display="inherit"
         aria-label="Controls the width of the customizable image."
         // @ts-expect-error "htmlFor" is an allowed attribute for Label elements.
-        htmlFor={ID}
+        htmlFor={uidSeed(INPUT_ID)}
         color="colorTextWeaker"
         _hover={{color: 'colorTextWeak'}}
       >
@@ -92,7 +103,7 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
                   clientX - (containerX as number),
                   minimumChange
                 );
-                const newValue = getValueInRange(computedValue);
+                const newValue = clampValueToRange(computedValue);
 
                 setValue(newValue);
               }
@@ -108,7 +119,7 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
                 clientX - (containerX as number),
                 minimumChange
               );
-              const newValue = getValueInRange(computedValue);
+              const newValue = clampValueToRange(computedValue);
 
               setValue(newValue);
             }
@@ -122,7 +133,7 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
         <ImageBox label="Sample components with a customized Paste theme" fluid={backFluidObject} />
         <ImageBox
           label="Sample components with a default Paste theme"
-          clipPath="url(#input-range-clip)"
+          clipPath={`url(#${uidSeed(CLIP_PATH_ID)})`}
           fluid={frontFluidObject}
         />
 
@@ -130,15 +141,23 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
           <>
             <SVGThumb
               left={`${clip - minimumChange}px`}
-              top={svgOffset}
+              // top={svgOffset}
               svgContainerRef={svgContainerRef as LegacyRef<SVGSVGElement>}
               svgCircleRef={svgCircleRef as LegacyRef<SVGCircleElement>}
               initRefs={setRefsAreInitiated}
+              containerHeight={containerHeight}
+              containerWidth={containerWidth}
             />
             <svg height="0" width="0">
               <defs>
-                <clipPath id="input-range-clip">
-                  <rect y="0" x="0" width={clip} height={(containerHeight as number) * 2} />
+                <clipPath id={uidSeed(CLIP_PATH_ID)}>
+                  <rect
+                    y="0"
+                    x="0"
+                    width={containerWidth}
+                    height={(containerHeight as number) * 2}
+                    style={{transform: `translateX(${clip}px)`}}
+                  />
                 </clipPath>
               </defs>
             </svg>
@@ -149,7 +168,7 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
       <Box
         as="input"
         opacity="0"
-        id={ID}
+        id={uidSeed(INPUT_ID)}
         // @ts-expect-error Allowed attribute "max" for input range
         max={MAX_VALUE}
         min={MIN_VALUE}
@@ -168,7 +187,7 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
           }
         }}
         onChange={({target: {value: inputTargetValue}}: React.ChangeEvent<HTMLInputElement>) => {
-          const newValue = getValueInRange(Number(inputTargetValue));
+          const newValue = clampValueToRange(Number(inputTargetValue));
 
           setValue(newValue);
         }}

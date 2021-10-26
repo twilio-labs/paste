@@ -6,7 +6,7 @@ export const convertPositionToInputValue = (width: number, xPosition: number, of
   return Math.floor((xPosition + offset) * positionToValue);
 };
 
-export const getValueInRange = (computedValue: number): number => {
+export const clampValueToRange = (computedValue: number): number => {
   let newValue = computedValue;
 
   if (computedValue > MAX_VALUE_IN_RANGE) {
