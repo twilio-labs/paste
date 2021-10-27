@@ -7,32 +7,20 @@ import {useUIDSeed} from 'react-uid';
 interface SVGThumbProps {
   left: string;
   top: string;
-  svgContainerRef: LegacyRef<SVGSVGElement>;
   svgCircleRef: LegacyRef<SVGCircleElement>;
   initRefs: (bool: boolean) => void;
+  height: number | undefined;
+  width: number | undefined;
 }
 
 const FILTER_1 = 'filter-1';
 const FILTER_2 = 'filter-2';
 
-const widthRatio = 640 / (35 * 1.3);
-const heightRatio = 583 / (578 * 1.3);
-
-export const SVGThumb: React.FC<SVGThumbProps> = ({
-  left,
-
-  svgContainerRef,
-  svgCircleRef,
-  initRefs,
-  containerHeight,
-  containerWidth,
-}) => {
+export const SVGThumb: React.FC<SVGThumbProps> = ({left, svgCircleRef, initRefs, height, width, top}) => {
   const seed = useUIDSeed();
   const {
     backgroundColors: {colorBackground},
   } = useTheme();
-  const [thumbHeight, setThumbHeight] = React.useState<number>();
-  const [thumbWidth, setThumbWidth] = React.useState<number>();
 
   // Force update of this child component to ensure that the refs are correctly set on the initial render.
   // Required to measure the actual rendered dimensions and resize accordingly.
@@ -40,42 +28,25 @@ export const SVGThumb: React.FC<SVGThumbProps> = ({
     initRefs(true);
   }, []);
 
-  React.useEffect(() => {
-    if (typeof containerHeight === 'number' && !Number.isNaN(containerHeight)) {
-      setThumbHeight(containerHeight / heightRatio);
-    }
-  }, [containerHeight]);
-  React.useEffect(() => {
-    if (typeof containerWidth === 'number' && !Number.isNaN(containerWidth)) {
-      setThumbWidth(containerWidth / widthRatio);
-    }
-  }, [containerWidth]);
-
-  const svgOffset =
-    thumbHeight && containerHeight ? `-${Math.abs((thumbHeight as number) - (containerHeight as number)) / 2}px` : 0;
-  console.log({containerHeight, thumbHeight, containerWidth, thumbWidth, svgOffset});
-
   return (
     <Box
       display="flex"
-      // height={thumbHeight}
       minHeight="fit-content"
-      // width={thumbWidth}
       pointerEvents="none"
       position="absolute"
       left={left}
-      top={svgOffset}
+      top={top}
+      transform={`translateX${left}px`}
+      transition="left 0.15s ease"
     >
       <svg
-        ref={svgContainerRef}
         role="img"
-        // width="35"
-        // height="578"
-        width={thumbWidth}
-        height={thumbHeight}
+        width={width}
+        height={height}
         viewBox="0 0 35 578"
         fill="inherit"
         xmlns="http://www.w3.org/2000/svg"
+        overflow="visible"
       >
         <g filter={`url(#${seed(FILTER_1)})`}>
           <rect x="12.5" y="3" width="10" height="577" rx="5" fill="#121C2D" fillOpacity="0.1" />
@@ -84,7 +55,15 @@ export const SVGThumb: React.FC<SVGThumbProps> = ({
         <g filter={`url(#${seed(FILTER_2)})`}>
           <circle cx="17.5" cy="289" r="16" fill="#121C2D" fillOpacity="0.1" />
         </g>
-        <circle ref={svgCircleRef} strokeWidth="4px" cx="17.5" cy="289" r="15.5" fill={colorBackground} />
+        <circle
+          ref={svgCircleRef}
+          strokeWidth="4px"
+          cx="17.5"
+          cy="289"
+          r="15.5"
+          fill={colorBackground}
+          style={{transition: '0.2s ease', transformOrigin: '50% 50%'}}
+        />
         <circle cx="17.5" cy="289" r="8" fill="currentColor" />
 
         <defs>
