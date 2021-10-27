@@ -67,12 +67,12 @@ const SiteFooterNav: React.FC = () => {
               onClick={() =>
                 trackCustomEvent({
                   category: 'Footer',
-                  action: 'click-engineering-guidelines',
-                  label: 'Engineering guidelines',
+                  action: 'click-quickstart',
+                  label: 'Quick Start',
                 })
               }
             >
-              Engineering guidelines
+              Quick start
             </Anchor>
           </Stack>
         </Box>
