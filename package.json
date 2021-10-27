@@ -219,7 +219,8 @@
     "webpack": "^4.44.2"
   },
   "resolutions": {
-    "@emotion/core": "10.0.28"
+    "@emotion/core": "10.0.28",
+    "react-hot-loader": "^4.13.0"
   },
   "husky": {
     "hooks": {
