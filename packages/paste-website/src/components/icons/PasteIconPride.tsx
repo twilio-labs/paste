@@ -1,4 +1,4 @@
-import * as React from 'react-16';
+import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
 
 export interface PasteIconPrideProps {

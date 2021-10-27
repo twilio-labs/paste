@@ -1,4 +1,4 @@
-import * as React from 'react-16';
+import * as React from 'react';
 import {datadogRum} from '@datadog/browser-rum';
 import {Helmet} from 'react-helmet';
 import {Box} from '@twilio-paste/box';

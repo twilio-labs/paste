@@ -13368,7 +13368,6 @@ __metadata:
     "@twilio-paste/truncate": ^7.0.0
     "@twilio-paste/types": ^3.1.2
     "@twilio-paste/uid-library": ^0.2.1
-    "@types/react-16": "npm:@types/react@^16.0.0"
     color: ^3.1.2
     docsearch.js: 2.6.3
     dotenv: ^8.2.0
@@ -13394,9 +13393,9 @@ __metadata:
     pretty-format: ^24.9.0
     prism-react-renderer: ^0.1.7
     prop-types: ^15.7.2
-    react-16: "npm:react@^16.8.6"
+    react: ^17.0.2
     react-color: ^2.19.3
-    react-dom-16: "npm:react-dom@^16.8.6"
+    react-dom: ^17.0.2
     react-github-button: ^0.1.11
     react-helmet: ^5.2.1
     react-live: ^2.2.2
@@ -14232,13 +14231,13 @@ __metadata:
   linkType: hard
 
 "@types/react-16@npm:@types/react@^16.0.0":
-  version: 16.14.19
-  resolution: "@types/react@npm:16.14.19"
+  version: 16.14.20
+  resolution: "@types/react@npm:16.14.20"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 47515081bf112e4e8c2e643e947577c3813e1b23c7f4d101aa5d93e35019c2658ca4e8cf4e996af3fbd0b870a95533f91542c9b15f8d013b4f70637be012f021
+  checksum: 2fc0b83ce93c4cf003832b5451a4397d6840803162ce1dea3d889c16ffb516062bc5c32f7dd17762b16b4660bc093dc6edc0d97aa5a447f43019b4331e4f760b
   languageName: node
   linkType: hard
 
@@ -14334,13 +14333,13 @@ __metadata:
   linkType: hard
 
 "@types/react@npm:^17.0.31":
-  version: 17.0.31
-  resolution: "@types/react@npm:17.0.31"
+  version: 17.0.33
+  resolution: "@types/react@npm:17.0.33"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: c2ea547b3e3398f53971908ae34bdb1ca1f2d8f1cf57a6f21c37b2bb77c2e625b5349de69b3c573f969056362eddac4bbac075d5d470716feef4161e26692b83
+  checksum: 5f53f3dae034229ff1eccb5de1c16d046696e883f8eae81b86e95c532798e655015e4edff8a6c9ec8f1c0ef12bb60dec43622d06256ba33ba6069e67a74b8d4e
   languageName: node
   linkType: hard
 
@@ -41167,15 +41166,21 @@ is-whitespace@latest:
   linkType: hard
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 "react-16@npm:react@^16.8.6":
   version: 16.14.0
   resolution: "react@npm:16.14.0"
+=======
+"react-16@npm:react@^16.8.6, react@npm:^16.8.0":
+  version: 16.13.1
+  resolution: "react@npm:16.13.1"
+>>>>>>> 949918e0 (fix: website can run now)
   dependencies:
     loose-envify: ^1.1.0
     object-assign: ^4.1.1
     prop-types: ^15.6.2
-  checksum: 8484f3ecb13414526f2a7412190575fc134da785c02695eb92bb6028c930bfe1c238d7be2a125088fec663cc7cda0a3623373c46807cf2c281f49c34b79881ac
+  checksum: 4508f4207caca6bef55736284cbf2ce18d2edfee4c1457fc0bb2086b34ed5bcf9b44acdb71e27574e73a5b5d4d093720b5b4ec0bf92bb89394ee3a0a7c42c2d4
   languageName: node
   linkType: hard
 
@@ -41394,16 +41399,16 @@ is-whitespace@latest:
   linkType: hard
 
 "react-dom-16@npm:react-dom@^16.8.6":
-  version: 16.14.0
-  resolution: "react-dom@npm:16.14.0"
+  version: 16.13.1
+  resolution: "react-dom@npm:16.13.1"
   dependencies:
     loose-envify: ^1.1.0
     object-assign: ^4.1.1
     prop-types: ^15.6.2
     scheduler: ^0.19.1
   peerDependencies:
-    react: ^16.14.0
-  checksum: 5a5c49da0f106b2655a69f96c622c347febcd10532db391c262b26aec225b235357d9da1834103457683482ab1b229af7a50f6927a6b70e53150275e31785544
+    react: ^16.13.1
+  checksum: 5009f3ee9bca06d6d4b9cf92c832eca102c284e6d019e832179c8de3e353534571474c95b7ab975935b22823726710dcd73783596c11dd71304beb11c19281c5
   languageName: node
   linkType: hard
 
@@ -47588,10 +47593,17 @@ resolve@^1.17.0:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "tslib@npm:^2.1.0":
   version: 2.2.0
   resolution: "tslib@npm:2.2.0"
   checksum: a48c9639f7496fa701ea8ffe0561070fcb44c104a59632f7f845c0af00825c99b6373575ec59b2b5cdbfd7505875086dbe5dc83312304d8979f22ce571218ca3
+=======
+"tslib@npm:^2.3.0":
+  version: 2.3.1
+  resolution: "tslib@npm:2.3.1"
+  checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
+>>>>>>> 949918e0 (fix: website can run now)
   languageName: node
   linkType: hard
 
@@ -48739,7 +48751,11 @@ typescript@^4.4.3:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "use-callback-ref@npm:^1.2.1, use-callback-ref@npm:^1.2.3":
+=======
+"use-callback-ref@npm:^1.2.3":
+>>>>>>> 949918e0 (fix: website can run now)
   version: 1.2.3
   resolution: "use-callback-ref@npm:1.2.3"
   peerDependencies:

@@ -1,4 +1,4 @@
-import * as React from 'react-16';
+import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';
 import {FeedbackPopover} from '../shortcodes/feedback-popover';

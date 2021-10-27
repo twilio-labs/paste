@@ -1,4 +1,4 @@
-import * as React from 'react-16';
+import * as React from 'react';
 import * as lodash from 'lodash';
 import {ThemeShape, useTheme} from '@twilio-paste/theme';
 import {Box, BoxProps} from '@twilio-paste/box';

@@ -1,4 +1,4 @@
-import * as React from 'react-16';
+import * as React from 'react';
 import {graphql} from 'gatsby';
 import {Theme} from '@twilio-paste/theme';
 import {GraphImageWrapper} from '../../components/open-graph-card/GraphImageWrapper';

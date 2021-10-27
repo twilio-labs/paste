@@ -1,4 +1,4 @@
-import React from 'react-16';
+import React from 'react';
 import {Box} from '@twilio-paste/box';
 import {ProcessDisabledIcon} from '@twilio-paste/icons/esm/ProcessDisabledIcon';
 import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';

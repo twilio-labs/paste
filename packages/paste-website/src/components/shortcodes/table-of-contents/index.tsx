@@ -1,4 +1,4 @@
-import * as React from 'react-16';
+import * as React from 'react';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import type {TableOfContentsProps} from './types';

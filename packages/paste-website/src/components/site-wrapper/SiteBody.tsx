@@ -1,4 +1,4 @@
-import * as React from 'react-16';
+import * as React from 'react';
 import {styled, themeGet, StylingGlobals} from '@twilio-paste/styling-library';
 import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';

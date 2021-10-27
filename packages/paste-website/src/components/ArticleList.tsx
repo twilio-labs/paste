@@ -1,4 +1,4 @@
-import * as React from 'react-16';
+import * as React from 'react';
 import {Stack} from '@twilio-paste/stack';
 import {useUID} from '@twilio-paste/uid-library';
 import {Article} from './Article';

@@ -1,4 +1,4 @@
-import * as React from 'react-16';
+import * as React from 'react';
 import {Callout, CalloutTitle, CalloutText} from '../../../callout';
 
 export const FontCallout: React.FC = () => {

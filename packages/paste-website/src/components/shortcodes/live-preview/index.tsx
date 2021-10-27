@@ -1,5 +1,5 @@
 // https://github.com/FormidableLabs/react-live
-import * as React from 'react-16';
+import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {LiveProvider, LiveEditor, LiveError, LivePreview as ReactLivePreview} from 'react-live';
 import {useTheme} from '@twilio-paste/theme';

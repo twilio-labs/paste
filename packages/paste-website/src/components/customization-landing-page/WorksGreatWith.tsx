@@ -1,4 +1,4 @@
-import * as React from 'react-16';
+import * as React from 'react';
 import {Text} from '@twilio-paste/text';
 import {Grid, Column} from '@twilio-paste/grid';
 import {useTheme} from '@twilio-paste/theme';

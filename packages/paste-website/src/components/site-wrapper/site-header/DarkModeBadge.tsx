@@ -1,4 +1,4 @@
-import * as React from 'react-16';
+import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Modal, ModalBody, ModalHeader, ModalHeading} from '@twilio-paste/modal';

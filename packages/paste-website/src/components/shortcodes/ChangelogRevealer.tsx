@@ -1,4 +1,4 @@
-import * as React from 'react-16';
+import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Separator} from '@twilio-paste/separator';
 import {Disclosure, DisclosureContent, DisclosureHeading} from '@twilio-paste/disclosure';
