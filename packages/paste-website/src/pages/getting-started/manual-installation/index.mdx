@@ -87,12 +87,9 @@ npm install react react-dom prop-types
 ## Paste Packages
 
 Paste is split into two main packages: `@twilio-paste/core` and `@twilio-paste/icons`. Everything provided by Paste
-is included into those two packages. A key distinction with Paste Core is that we _include_ - not _bundle_ - all of Paste; this means we expose sub-packages you can individually import.
-For example, you would install `@twilio-paste/core` and import the Button component from `@twilio-paste/core/button` rather than directly from `@twilio-paste/core`.
-This keeps your app lean by only including the code you use. You can [read about how Paste keeps your bundles small](#how-the-core-package-stays-lean) down below.
+is included into those two packages.
 
-Everything exposed inside Paste Core can also be installed individually; you could install `@twilio-paste/button` and import only that one package.
-However, we recommend using the Core package for ease of maintenance and only falling back to the individual packages if you need to pin to a specific version.
+A key distinction with Paste Core is that we _include_ - not _bundle_ - all of Paste; this means we expose sub-packages you can individually import. This keeps your app lean by only including the code you use. For more information, read our Paste Core documentation.
 
 <Box marginBottom="space30">
   <Table tableLayout="fixed">
