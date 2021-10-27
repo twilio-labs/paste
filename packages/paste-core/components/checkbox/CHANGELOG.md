@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.1.1
+
+### Patch Changes
+
+- [`01baddcd`](https://github.com/twilio-labs/paste/commit/01baddcd62c9367c7d6d12bb853a25d4849132f6) [#1925](https://github.com/twilio-labs/paste/pull/1925) Thanks [@shleewhite](https://github.com/shleewhite)! - Add displayNames to all components
+
+* [`3f80fef3`](https://github.com/twilio-labs/paste/commit/3f80fef3173ddaf084f26a371040fc6b4eaa585a) [#1936](https://github.com/twilio-labs/paste/pull/1936) Thanks [@gloriliale](https://github.com/gloriliale)! - [Checkbox] Ensured PropTypes aligned with customization needs by adding element prop.
+
 ## 6.1.0
 
 ### Minor Changes

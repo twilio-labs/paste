@@ -1,5 +1,57 @@
 # Change Log
 
+## 10.15.0
+
+### Minor Changes
+
+- [`bdff8b23`](https://github.com/twilio-labs/paste/commit/bdff8b23c308c0882a340b74ce0b2ebadd20b85f) [#1928](https://github.com/twilio-labs/paste/pull/1928) Thanks [@loreina](https://github.com/loreina)! - [Tokens] Added shadow-focus-inset token to dark theme, and adjusted shadow-focus-inset token value for default theme.
+
+* [`4d87a7c9`](https://github.com/twilio-labs/paste/commit/4d87a7c9a9a1349db51824fb0a827ec5eaa2cf18) [#1919](https://github.com/twilio-labs/paste/pull/1919) Thanks [@nkrantz](https://github.com/nkrantz)! - [AlertDialog] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+- [`d4eaf8b1`](https://github.com/twilio-labs/paste/commit/d4eaf8b1802780842daeeaed43ba1cc5062d2a9e) [#1919](https://github.com/twilio-labs/paste/pull/1919) Thanks [@nkrantz](https://github.com/nkrantz)! - [Toast] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`b17344da`](https://github.com/twilio-labs/paste/commit/b17344dad70812566afa5206786968e59f50efb2) [#1922](https://github.com/twilio-labs/paste/pull/1922) Thanks [@andipants12](https://github.com/andipants12)! - [Combobox] Fix virtualization bug and add virtualization to combobox when an option template is used. The virtualization library we use, react-virtual, provides a ref that is required for correct sizing of virtualized items. The ref from this library's hook was being overridden by another, thus, the virtualized options were not resizing correctly. This behavior was observed in comboboxes that were not using option templates, and had sufficiently long option text.
+
+- [`51723bcc`](https://github.com/twilio-labs/paste/commit/51723bccee321cc7dab4922d90c76d2b912c9f68) [#1950](https://github.com/twilio-labs/paste/pull/1950) Thanks [@nkrantz](https://github.com/nkrantz)! - [Badge] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+* [`10d5989a`](https://github.com/twilio-labs/paste/commit/10d5989a8da2dca37d168fdfaaa04231ba2bcfa6) [#1936](https://github.com/twilio-labs/paste/pull/1936) Thanks [@gloriliale](https://github.com/gloriliale)! - [Radio-Group] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
+### Patch Changes
+
+- [`e1fc74a5`](https://github.com/twilio-labs/paste/commit/e1fc74a56ca06511d1182ad72a0605e10905b909) [#1977](https://github.com/twilio-labs/paste/pull/1977) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button]: Fix bug that was adding extra padding when Screen Reader Only was passed as a child.
+
+* [`193f0d12`](https://github.com/twilio-labs/paste/commit/193f0d122893a6d165b93d2ca561621c58f9e39d) [#1969](https://github.com/twilio-labs/paste/pull/1969) Thanks [@TheSisb](https://github.com/TheSisb)! - [Anchor] Fixed the missing underline in Firefox. Also improved how external anchors wrap with their icons.
+
+- [`01baddcd`](https://github.com/twilio-labs/paste/commit/01baddcd62c9367c7d6d12bb853a25d4849132f6) [#1925](https://github.com/twilio-labs/paste/pull/1925) Thanks [@shleewhite](https://github.com/shleewhite)! - Add displayNames to all components
+
+* [`3f80fef3`](https://github.com/twilio-labs/paste/commit/3f80fef3173ddaf084f26a371040fc6b4eaa585a) [#1936](https://github.com/twilio-labs/paste/pull/1936) Thanks [@gloriliale](https://github.com/gloriliale)! - [Checkbox] Ensured PropTypes aligned with customization needs by adding element prop.
+
+- [`130d817b`](https://github.com/twilio-labs/paste/commit/130d817b6072b1a7948ee664a1e716714a2a6442) [#1975](https://github.com/twilio-labs/paste/pull/1975) Thanks [@TheSisb](https://github.com/TheSisb)! - [Text] Add missing style props "whiteSpace" and "fontVariantNumeric"
+
+- Updated dependencies [[`bdff8b23`](https://github.com/twilio-labs/paste/commit/bdff8b23c308c0882a340b74ce0b2ebadd20b85f), [`4d87a7c9`](https://github.com/twilio-labs/paste/commit/4d87a7c9a9a1349db51824fb0a827ec5eaa2cf18), [`e1fc74a5`](https://github.com/twilio-labs/paste/commit/e1fc74a56ca06511d1182ad72a0605e10905b909), [`d4eaf8b1`](https://github.com/twilio-labs/paste/commit/d4eaf8b1802780842daeeaed43ba1cc5062d2a9e), [`193f0d12`](https://github.com/twilio-labs/paste/commit/193f0d122893a6d165b93d2ca561621c58f9e39d), [`b17344da`](https://github.com/twilio-labs/paste/commit/b17344dad70812566afa5206786968e59f50efb2), [`01baddcd`](https://github.com/twilio-labs/paste/commit/01baddcd62c9367c7d6d12bb853a25d4849132f6), [`3f80fef3`](https://github.com/twilio-labs/paste/commit/3f80fef3173ddaf084f26a371040fc6b4eaa585a), [`51723bcc`](https://github.com/twilio-labs/paste/commit/51723bccee321cc7dab4922d90c76d2b912c9f68), [`130d817b`](https://github.com/twilio-labs/paste/commit/130d817b6072b1a7948ee664a1e716714a2a6442), [`10d5989a`](https://github.com/twilio-labs/paste/commit/10d5989a8da2dca37d168fdfaaa04231ba2bcfa6)]:
+  - @twilio-paste/design-tokens@6.14.0
+  - @twilio-paste/alert-dialog@0.2.0
+  - @twilio-paste/button@7.0.10
+  - @twilio-paste/toast@5.2.0
+  - @twilio-paste/anchor@5.1.1
+  - @twilio-paste/combobox@8.1.0
+  - @twilio-paste/badge@1.1.0
+  - @twilio-paste/checkbox@6.1.1
+  - @twilio-paste/disclosure@5.1.1
+  - @twilio-paste/display-pill-group@1.1.1
+  - @twilio-paste/form-pill-group@1.1.1
+  - @twilio-paste/input@3.1.1
+  - @twilio-paste/menu@7.0.4
+  - @twilio-paste/modal@7.1.3
+  - @twilio-paste/popover@6.1.1
+  - @twilio-paste/radio-group@6.1.0
+  - @twilio-paste/select@5.1.1
+  - @twilio-paste/spinner@7.2.1
+  - @twilio-paste/tooltip@4.1.1
+  - @twilio-paste/menu-primitive@0.2.5
+  - @twilio-paste/theme@5.3.1
+  - @twilio-paste/text@4.1.4
+
 ## 10.14.0
 
 ### Minor Changes

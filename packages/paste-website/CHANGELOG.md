@@ -1,5 +1,34 @@
 # Change Log
 
+## 2.23.11
+
+### Patch Changes
+
+- Updated dependencies [[`bdff8b23`](https://github.com/twilio-labs/paste/commit/bdff8b23c308c0882a340b74ce0b2ebadd20b85f), [`4d87a7c9`](https://github.com/twilio-labs/paste/commit/4d87a7c9a9a1349db51824fb0a827ec5eaa2cf18), [`e1fc74a5`](https://github.com/twilio-labs/paste/commit/e1fc74a56ca06511d1182ad72a0605e10905b909), [`d4eaf8b1`](https://github.com/twilio-labs/paste/commit/d4eaf8b1802780842daeeaed43ba1cc5062d2a9e), [`193f0d12`](https://github.com/twilio-labs/paste/commit/193f0d122893a6d165b93d2ca561621c58f9e39d), [`b17344da`](https://github.com/twilio-labs/paste/commit/b17344dad70812566afa5206786968e59f50efb2), [`01baddcd`](https://github.com/twilio-labs/paste/commit/01baddcd62c9367c7d6d12bb853a25d4849132f6), [`3f80fef3`](https://github.com/twilio-labs/paste/commit/3f80fef3173ddaf084f26a371040fc6b4eaa585a), [`51723bcc`](https://github.com/twilio-labs/paste/commit/51723bccee321cc7dab4922d90c76d2b912c9f68), [`130d817b`](https://github.com/twilio-labs/paste/commit/130d817b6072b1a7948ee664a1e716714a2a6442), [`6e530fb9`](https://github.com/twilio-labs/paste/commit/6e530fb9f2c9288f39e311f99361e6f6b22b1d11), [`06603c60`](https://github.com/twilio-labs/paste/commit/06603c602e7af86625e0fd58712a80b17ec5688f), [`10d5989a`](https://github.com/twilio-labs/paste/commit/10d5989a8da2dca37d168fdfaaa04231ba2bcfa6)]:
+  - @twilio-paste/design-tokens@6.14.0
+  - @twilio-paste/alert-dialog@0.2.0
+  - @twilio-paste/button@7.0.10
+  - @twilio-paste/toast@5.2.0
+  - @twilio-paste/anchor@5.1.1
+  - @twilio-paste/combobox@8.1.0
+  - @twilio-paste/badge@1.1.0
+  - @twilio-paste/checkbox@6.1.1
+  - @twilio-paste/disclosure@5.1.1
+  - @twilio-paste/display-pill-group@1.1.1
+  - @twilio-paste/form-pill-group@1.1.1
+  - @twilio-paste/input@3.1.1
+  - @twilio-paste/menu@7.0.4
+  - @twilio-paste/modal@7.1.3
+  - @twilio-paste/popover@6.1.1
+  - @twilio-paste/radio-group@6.1.0
+  - @twilio-paste/select@5.1.1
+  - @twilio-paste/spinner@7.2.1
+  - @twilio-paste/tooltip@4.1.1
+  - @twilio-paste/menu-primitive@0.2.5
+  - @twilio-paste/theme@5.3.1
+  - @twilio-paste/text@4.1.4
+  - @twilio-paste/icons@5.8.0
+
 ## 2.23.10
 
 ### Patch Changes
