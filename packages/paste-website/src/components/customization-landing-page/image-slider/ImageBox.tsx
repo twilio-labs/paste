@@ -8,6 +8,8 @@ interface ImageBoxProps {
   label: string;
 }
 
+// 608 x 460
+
 const styleProps = {
   pointerEvents: 'none',
   position: 'absolute',

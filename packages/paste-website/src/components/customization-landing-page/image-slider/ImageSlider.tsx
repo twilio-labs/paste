@@ -143,7 +143,6 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
                     height={(containerHeight as number) * 2}
                     style={{
                       transform: `translateX(${clip}px)`,
-                      transition: '0.15s ease',
                     }}
                   />
                 </clipPath>
