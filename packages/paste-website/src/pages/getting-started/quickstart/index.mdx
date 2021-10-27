@@ -1,0 +1,131 @@
+---
+title: Quick Start for Paste
+description: Instructions to create a new Paste project.
+slug: /getting-started/quickstart/
+---
+
+import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+// import {SiteLink} from '../../../components/SiteLink';
+// import {Box} from '@twilio-paste/box';
+import {Paragraph} from '@twilio-paste/paragraph';
+// import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
+// import {Disclosure, DisclosureContent, DisclosureHeading} from '@twilio-paste/disclosure';
+// import {version as coreVersion, dependencies as coreDependencies} from '@twilio-paste/core/package.json';
+// import {version as iconsVersion} from '@twilio-paste/icons/package.json';
+import {Callout, CalloutText} from '../../../components/callout';
+// import {InlineCode} from '../../../components/Typography';
+// import Package from '../../../../../../package.json';
+// {/_ <PageAside data={props.data.mdx} /> _/}
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/getting-started/quickstart/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<content>
+
+<h1>{props.pageContext.frontmatter.title}</h1>
+
+<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+The quickest way to get started with Paste is to bootstrap a new React app using one of our templates for popular React frameworks, [Next.js](https://nextjs.org/) and [Create React App](https://create-react-app.dev/). Both approaches will create a new React app with Paste installed and ready for development.
+
+## Create an App
+
+You can use either [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) or [npm](https://docs.npmjs.com/cli/init) to bootstrap your project, but in these examples we will use Yarn.
+
+### Using create-next-app
+
+To create a new [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) app using the Paste template execute the following command:
+
+```shell
+yarn create next-app --example https://github.com/twilio-labs/paste/tree/main/packages/paste-nextjs-template my-paste-app
+cd my-paste-app
+yarn dev
+```
+
+This starts your project in development mode and it can be seen at `http://localhost:3000`.
+
+#### Scripts
+
+- `yarn dev`: runs project in development mode, with hot reloading
+- `yarn build`: creates a production build of the project
+- `yarn start`: runs the project in production mode, need to run `yarn build` first
+
+### Using create-react-app
+
+To create a new [`create-react-app`](https://create-react-app.dev/) app using the Paste template execute the following command:
+
+```shell
+yarn create react-app --template @twilio-paste my-paste-app
+cd my-paste-app
+yarn start
+```
+
+This starts your project in development mode and it can be seen at `http://localhost:3000`.
+
+#### Scripts
+
+- `yarn start`: runs project in development mode, with hot reloading
+- `yarn build`: creates a production build of the project
+- `yarn test`: runs tests in watcher mode
+
+## Usage
+
+### Paste Components
+
+You can use the Paste components anywhere that is wrapped by the [Theme Provider](#setting-up-the-theme-provider).
+
+```jsx
+import {Box} from '@twilio-paste/core/box';
+
+const Component = () => (
+  <Box margin="space20" backgroundColor="colorBackground">
+    Hello Paste!
+  </Box>
+);
+```
+
+### Using Icons
+
+The Paste Icons package provides icon components. They can be used to enhance the appearance of a web interface and break
+up the monotony of text. Icons have to be imported individually.
+
+```jsx
+import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
+
+const Component = () => (
+  <Button variant="secondary" size="small" onClick={() => {}}>
+    <PlusIcon decorative={true} />
+    Add to cart
+  </Button>
+);
+```
+
+For more information about our icon system, checkout our [usage guide here](/icons/usage-guidelines).
+
+</content>
+
+</contentwrapper>

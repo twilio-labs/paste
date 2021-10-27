@@ -127,6 +127,11 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           <DisclosurePrimitiveContent {...gettingStartedDisclosure} data-cy="getting-started-list">
             <SidebarNestedList>
               <SidebarNestedItem>
+                <SidebarAnchor nested to="/getting-started/quickstart">
+                  Quick Start
+                </SidebarAnchor>
+              </SidebarNestedItem>
+              <SidebarNestedItem>
                 <SidebarAnchor nested to="/getting-started/engineering">
                   Engineering Guidelines
                 </SidebarAnchor>
