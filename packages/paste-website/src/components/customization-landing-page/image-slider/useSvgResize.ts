@@ -9,7 +9,7 @@ const heightRatio = 583 / (578 * 1.3);
 export const useSvgResize = (
   containerHeight: number | undefined,
   containerWidth: number | undefined
-): {svgOffset: string; svgHeight: number | undefined; svgWidth: number | undefined} => {
+): {svgOffset: number; svgHeight: number | undefined; svgWidth: number | undefined} => {
   const [svgHeight, setSvgHeight] = React.useState<number>();
   const [svgWidth, setSvgWidth] = React.useState<number>();
 
@@ -26,7 +26,7 @@ export const useSvgResize = (
 
   // SVG offset defines the offset from the top position of the SVG that is required to center it against the images.
   const svgOffset =
-    svgHeight && containerHeight ? `-${Math.abs((svgHeight as number) - (containerHeight as number)) / 2}px` : '0px';
+    svgHeight && containerHeight ? (-1 * Math.abs((svgHeight as number) - (containerHeight as number))) / 2 : 0;
 
   return {svgOffset, svgHeight, svgWidth};
 };

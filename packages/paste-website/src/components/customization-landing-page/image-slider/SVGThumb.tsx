@@ -5,8 +5,8 @@ import {useTheme} from '@twilio-paste/theme';
 import {useUIDSeed} from 'react-uid';
 
 interface SVGThumbProps {
-  left: string;
-  top: string;
+  left: number;
+  top: number;
   svgCircleRef: LegacyRef<SVGCircleElement>;
   initRefs: (bool: boolean) => void;
   height: number | undefined;
@@ -28,15 +28,17 @@ export const SVGThumb: React.FC<SVGThumbProps> = ({left, svgCircleRef, initRefs,
     initRefs(true);
   }, []);
 
+  console.log({top});
+
   return (
     <Box
       display="flex"
       minHeight="fit-content"
       pointerEvents="none"
       position="absolute"
-      left={left}
-      top={top}
-      transform={`translateX${left}px`}
+      top={`${top}px`}
+      transform={`translateX(${left}px)`}
+      transformOrigin="50% 50%"
       overflow="visible"
     >
       <svg
@@ -55,14 +57,16 @@ export const SVGThumb: React.FC<SVGThumbProps> = ({left, svgCircleRef, initRefs,
         <g filter={`url(#${seed(FILTER_2)})`}>
           <circle cx="17.5" cy="289" r="16" fill="#121C2D" fillOpacity="0.3" overflow="visible" />
         </g>
+
         <circle
           ref={svgCircleRef}
-          strokeWidth="4px"
+          strokeWidth="0px"
+          stroke="rgba(2, 99, 224, 0.7)"
           cx="17.5"
           cy="289"
           r="15.5"
           fill={colorBackground}
-          style={{transition: '0.2s ease', transformOrigin: '50% 50%'}}
+          style={{transition: 'stroke-width 0.2s ease'}}
         />
         <circle cx="17.5" cy="289" r="8" fill="currentColor" />
 

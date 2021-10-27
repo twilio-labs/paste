@@ -126,7 +126,7 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
         {typeof clip === 'number' && !Number.isNaN(clip) ? (
           <>
             <SVGThumb
-              left={`${clip - minimumChange}px`}
+              left={Math.round(clip - minimumChange)}
               top={svgOffset}
               svgCircleRef={svgCircleRef as LegacyRef<SVGCircleElement>}
               initRefs={setRefsAreInitiated}
@@ -165,14 +165,12 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
         type="range"
         onFocus={() => {
           if (svgCircleRef.current) {
-            (svgCircleRef.current as SVGCircleElement).setAttribute('stroke', 'rgba(2, 99, 224, 0.7)');
-            (svgCircleRef.current as SVGCircleElement).setAttribute('transform', 'scale(1.1)');
+            (svgCircleRef.current as SVGCircleElement).setAttribute('stroke-width', '0.22rem');
           }
         }}
         onBlur={() => {
           if (svgCircleRef.current) {
-            (svgCircleRef.current as SVGCircleElement).removeAttribute('stroke');
-            (svgCircleRef.current as SVGCircleElement).removeAttribute('transform');
+            (svgCircleRef.current as SVGCircleElement).setAttribute('stroke-width', '0');
           }
         }}
         onChange={({target: {value: inputTargetValue}}: React.ChangeEvent<HTMLInputElement>) => {
