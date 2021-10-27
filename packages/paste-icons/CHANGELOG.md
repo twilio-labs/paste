@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.8.0
+
+### Minor Changes
+
+- [`6e530fb9`](https://github.com/twilio-labs/paste/commit/6e530fb9f2c9288f39e311f99361e6f6b22b1d11) [#1973](https://github.com/twilio-labs/paste/pull/1973) Thanks [@loreina](https://github.com/loreina)! - [paste-icons] Added a Home product logo icon
+
+* [`06603c60`](https://github.com/twilio-labs/paste/commit/06603c602e7af86625e0fd58712a80b17ec5688f) [#1957](https://github.com/twilio-labs/paste/pull/1957) Thanks [@loreina](https://github.com/loreina)! - [Icons] Added ProductAlarmsIcon and TextFormatIcon, Updated svgs for ProductEventStreamsIcon and UnsortedIcon
+
 ## 5.7.0
 
 ### Minor Changes
