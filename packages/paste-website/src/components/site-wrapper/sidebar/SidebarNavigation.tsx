@@ -132,8 +132,8 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
                 </SidebarAnchor>
               </SidebarNestedItem>
               <SidebarNestedItem>
-                <SidebarAnchor nested to="/getting-started/engineering">
-                  Engineering Guidelines
+                <SidebarAnchor nested to="/getting-started/manual-installation">
+                  Manual Installation
                 </SidebarAnchor>
               </SidebarNestedItem>
               <SidebarNestedItem>

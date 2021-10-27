@@ -1,25 +1,21 @@
 ---
-title: Engineering Guidelines for Paste
-description: Installation and usage instructions for using Paste.
-slug: /getting-started/engineering/
+title: Paste Manual Installation
+description: Instructions to manually add Paste to a project.
+slug: /getting-started/manual-installation/
 ---
 
 import {graphql} from 'gatsby';
-import {Anchor} from '@twilio-paste/anchor';
-import {SiteLink} from '../../../components/SiteLink';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
-import {Disclosure, DisclosureContent, DisclosureHeading} from '@twilio-paste/disclosure';
 import {version as coreVersion} from '@twilio-paste/core/package.json';
 import {version as iconsVersion} from '@twilio-paste/icons/package.json';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
-import {InlineCode} from '../../../components/Typography';
 import Package from '../../../../../../package.json';
 
 export const pageQuery = graphql`
   {
-    mdx(fields: {slug: {eq: "/getting-started/engineering/"}}) {
+    mdx(fields: {slug: {eq: "/getting-started/manual-installation/"}}) {
       fileAbsolutePath
       frontmatter {
         slug
@@ -49,9 +45,7 @@ export const pageQuery = graphql`
 
 <content>
 
-## Manual Installation
-
-### Dependencies
+## Dependencies
 
 To start using Paste, you must first install the following third party dependencies:
 
@@ -90,7 +84,7 @@ yarn add react react-dom prop-types
 npm install react react-dom prop-types
 ```
 
-### Paste Packages
+## Paste Packages
 
 Paste is split into two main packages: `@twilio-paste/core` and `@twilio-paste/icons`. Everything provided by Paste
 is included into those two packages. A key distinction with Paste Core is that we _include_ - not _bundle_ - all of Paste; this means we expose sub-packages you can individually import.
@@ -146,9 +140,9 @@ const App = () => (
 );
 ```
 
-### How to Load the Right Font
+## How to Load the Right Font
 
-#### Default theme
+### Default theme
 
 Fonts for the default theme are available via the Twilio CDN and published from an [internal git repository](https://code.hq.twilio.com/DSYS/paste-fonts).
 
@@ -169,7 +163,7 @@ The **best and most performant way** to load the fonts is to include the followi
 Alternatively, Paste will automatically load the fonts via JavaScript, so long as you wrap your application with the `Theme.Provider`
 and select the `default` theme. **Note:** this will result in slower download times than including the fonts in the `<head />`.
 
-#### Other themes
+### Other themes
 
 If you are using **any other theme**, Paste leaves it up to you to load the fonts needed. Console uses Whitney ScreenSmart
 and SendGrid uses Colfax. More often than not with those themes, you are working within existing SendGrid and Twilio Console applications
@@ -185,9 +179,9 @@ to load these fonts if you are serving your application from \*.twilio.com domai
 <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6230892/752864/css/fonts.css">
 ```
 
-## Usage
+## Tips for Testing
 
-### Jest / Testing
+### Disable Animation
 
 Just like rendering Paste components in a web application, when rendering components for the purposes of testing you
 are required to wrap them in the [Theme Provider](#setting-up-the-theme-provider). If you do not, your components may fail to render correctly.
@@ -200,7 +194,7 @@ It can sometimes be helpful to test Paste components without animation. To disab
 </Theme.Provider>
 ```
 
-#### Handling Icons in Jest
+### Handling Icons in Jest
 
 Jest will often complain about using the esModules versions (`/esm/`) of Paste Icons, since it perfers the commonJS version. You'll often see an error similar to:
 

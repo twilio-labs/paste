@@ -62,7 +62,7 @@ const SiteFooterNav: React.FC = () => {
               Design guidelines
             </Anchor>
             <Anchor
-              href="/getting-started/engineering"
+              href="/getting-started/quickstart"
               variant="inverse"
               onClick={() =>
                 trackCustomEvent({
