@@ -1,8 +1,8 @@
 ---
 title: Button
 package: '@twilio-paste/button'
-description: A button communicates that users can trigger an action.
-slug: /components/button/
+description: A Button communicates that users can trigger an action.
+slug: /components/Button/
 ---
 
 import {graphql} from 'gatsby';
@@ -57,8 +57,8 @@ export const pageQuery = graphql`
 <ComponentHeader
   name="Button"
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/button"
-  storybookUrl="/?path=/story/components-button--primary-button"
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/Button"
+  storybookUrl="/?path=/story/components-Button--primary-Button"
   data={props.data.allPasteComponent.edges}
   packageStatus={props.data.allAirtable.edges}
 />
@@ -73,16 +73,16 @@ export const pageQuery = graphql`
 
 ## Guidelines
 
-### About buttons
+### About Buttons
 
-A button communicates that users can trigger an action. Places you’d use
-a button include:
+A Button communicates that users can trigger an action. Places you’d use
+a Button include:
 
 - Submitting a form
 - Closing a modal
 - Moving to the next step in a flow
 
-A button can contain an icon and/or text. See Composing a button below
+A Button can contain an icon and/or text. See Composing a Button below
 for more detailed guidelines.
 
 #### Button vs. Anchor (Link)
@@ -92,15 +92,15 @@ page makes sense as a whole new browser tab use an **Anchor** element.
 Everything else is a **Button**.
 
 It may not be immediately obvious but the semantic distinction between an
-anchor and button HTML element is extremely important to learn. Without
+anchor and Button HTML element is extremely important to learn. Without
 realising it the decision can cause significant usability problems due to
 the in-built behaviours, interactions and expectations that come with each.
 
 For example, an anchor element will perform its action when clicked and
-when the enter key is pressed. A button element will perform its action
+when the enter key is pressed. A Button element will perform its action
 when clicked and when the enter and spacebar keys are pressed. When
 holding the control or command key an anchor will open a new browser
-tab, a button will not.
+tab, a Button will not.
 
 You should:
 
@@ -117,16 +117,16 @@ For accessibility, the distinction becomes even more important,
 especially for those who are using Assistive Technology (A.T.) such as
 screen readers and dictation software. Here are some quick tips:
 
-- Correctly choosing between an anchor or button element will help inform A.T.
+- Correctly choosing between an anchor or Button element will help inform A.T.
   users what will happen next. Will I be taken to an entirely new page or will
   something happen on the current page?
-- Choose button text that clearly describes the action that is about to happen
-- Don’t repeat the same button text on the same page. Try not to have 20
-  “edit” buttons, add clarifying text, even if it’s visually hidden, to
+- Choose Button text that clearly describes the action that is about to happen
+- Don’t repeat the same Button text on the same page. Try not to have 20
+  “edit” Buttons, add clarifying text, even if it’s visually hidden, to
   fully describe the action. E.g. “edit home address”, “add new phone number”
-- Don’t communicate with color alone. When choosing a destructive button,
-  make sure the button text also indicates the action is destructive
-- Use anchors that look like buttons sparingly. Voice dictation users may encounter issues when trying to activate them. A user may say, “Click the read more button”, but the dictation software won’t respond since it can’t tell what the anchor looks like visually. Use an alternative where possible, such as an anchor with an icon or with a larger font size.
+- Don’t communicate with color alone. When choosing a destructive Button,
+  make sure the Button text also indicates the action is destructive
+- Use anchors that look like Buttons sparingly. Voice dictation users may encounter issues when trying to activate them. A user may say, “Click the read more Button”, but the dictation software won’t respond since it can’t tell what the anchor looks like visually. Use an alternative where possible, such as an anchor with an icon or with a larger font size.
 
 ### Examples
 
@@ -158,13 +158,13 @@ screen readers and dictation software. Here are some quick tips:
 </Stack>`}
 </LivePreview>
 
-#### Primary button
+#### Primary Button
 
-Use a primary button to indicate the most prominent action a customer would
+Use a primary Button to indicate the most prominent action a customer would
 make on a screen. It should be a safe and if possible, reversible action
 without much cost.
 
-Try to use only one primary button on a screen. Using multiple might be
+Try to use only one primary Button on a screen. Using multiple might be
 distracting.
 
 <LivePreview scope={{Button}} language="jsx">
@@ -173,11 +173,11 @@ distracting.
 </Button>`}
 </LivePreview>
 
-#### Secondary button
+#### Secondary Button
 
-The secondary button is the most frequently used button.
+The secondary Button is the most frequently used Button.
 
-Use a secondary button to indicate an action that should be easy for a customer
+Use a secondary Button to indicate an action that should be easy for a customer
 to make but isn’t the most prominent on a screen. It should be a safe and if
 possible, reversible action without much cost.
 
@@ -187,9 +187,9 @@ possible, reversible action without much cost.
 </Button>`}
 </LivePreview>
 
-#### Destructive secondary button
+#### Destructive secondary Button
 
-A destructive secondary button indicates a destructive action, such as “Delete” or
+A destructive secondary Button indicates a destructive action, such as “Delete” or
 “Remove”, that might be difficult to reverse. If possible, give users
 the ability to undo the action, or at least, confirm the action.
 
@@ -199,9 +199,9 @@ the ability to undo the action, or at least, confirm the action.
 </Button>`}
 </LivePreview>
 
-#### Destructive button
+#### Destructive Button
 
-Use a destructive primary button for the most prominent action a customer would make on a
+Use a destructive primary Button for the most prominent action a customer would make on a
 screen if that action is destructive and could be difficult to reverse.
 
 <LivePreview scope={{Button}} language="jsx">
@@ -210,9 +210,9 @@ screen if that action is destructive and could be difficult to reverse.
 </Button>`}
 </LivePreview>
 
-#### Icon-only button
+#### Icon-only Button
 
-Use icon-only buttons sparingly.
+Use icon-only Buttons sparingly.
 
 They should be used only in compact UI situations. Use an icon that can
 only convey a single action.
@@ -258,9 +258,9 @@ only convey a single action.
 </Stack>`}
 </LivePreview>
 
-#### Link-style button
+#### Link-style Button
 
-Use link-style buttons when other types of buttons may be too distracting.
+Use Link-style Buttons when other types of Buttons may be too distracting.
 
 <Callout>
   <CalloutTitle as="h4">Hot accessibility tip</CalloutTitle>
@@ -292,9 +292,9 @@ Use link-style buttons when other types of buttons may be too distracting.
 Buttons that **navigate** the user can only be represented by the `primary` and `secondary` variants.
 When this is used, it must be accompanied by an arrow pointing to the right or an external
 link icon after the text. The icons help to indicate that the action performed on click is a navigation.
-These button types do not have `disabled` or `loading` states, as anchors cannot be in those states.
+These Button types do not have `disabled` or `loading` states, as anchors cannot be in those states.
 
-To create a button-styled anchor, use the Button component and add the `as="a"` prop so that it is rendered as an anchor semantically, while maintaining button styling.
+To create a Button-styled anchor, use the Button component and add the `as="a"` prop so that it is rendered as an anchor semantically, while maintaining Button styling.
 
 **Note:** The same guidance applies for any action deemed "primary"; use only one per page.
 
@@ -309,10 +309,10 @@ To create a button-styled anchor, use the Button component and add the `as="a"` 
 </Stack>`}
 </LivePreview>
 
-#### Small button
+#### Small Button
 
-Use small buttons sparingly, only when needed for vertical density.
-Guidelines for using variants in small buttons are the same as in
+Use small Buttons sparingly, only when needed for vertical density.
+Guidelines for using variants in small Buttons are the same as in
 their default size.
 
 <LivePreview scope={{Button, Stack}} language="jsx">
@@ -332,12 +332,12 @@ their default size.
 </Stack>`}
 </LivePreview>
 
-#### Reset button styles
+#### Reset Button styles
 
-The reset button is basically a primitive button. The button styles are
+The reset Button is basically a primitive Button. The Button styles are
 reset, so styles won't interfere with any child elements. This allows you to
-create your own buttons using the Paste. This reset variant only resets
-styles. No other button functionality is reset.
+create your own Buttons using the Paste. This reset variant only resets
+styles. No other Button functionality is reset.
 
 <LivePreview scope={{Button}} language="jsx">
   {`<Button variant="reset" size="reset">
@@ -350,7 +350,7 @@ styles. No other button functionality is reset.
 #### Loading
 
 Use the loading state if the action doesn’t happen instantly.
-The button is also disabled in this state.
+The Button is also disabled in this state.
 
 However, the loading state may make an action appear to take longer
 than it does and doesn’t communicate what’s preventing the action
@@ -398,10 +398,10 @@ from completing. Use it when you can’t move the user to the next state.
 
 Use the disabled state sparingly.
 
-The customer shouldn't have to guess why a button is disabled.
-It should be immediately obvious to the customer why a button
+The customer shouldn't have to guess why a Button is disabled.
+It should be immediately obvious to the customer why a Button
 might be disabled (_e.g._, if it follows a single empty text
-field). Otherwise, show the button in its default state, then
+field). Otherwise, show the Button in its default state, then
 provide helpful error text after it's pressed.
 
 <LivePreview scope={{Button, Stack}} language="jsx">
@@ -442,9 +442,9 @@ provide helpful error text after it's pressed.
 </Stack>`}
 </LivePreview>
 
-### Composing a button
+### Composing a Button
 
-In most cases, you’ll use a text-only button.
+In most cases, you’ll use a text-only Button.
 
 Button text should:
 
@@ -454,42 +454,42 @@ Button text should:
 - Be concise without sacrificing clarity and user confidence.
 
 Pair text with an icon only if the icon clarifies the meaning of
-the button. Use no more than one icon before text and one icon after text.
+the Button. Use no more than one icon before text and one icon after text.
 
-### When to use a button
+### When to use a Button
 
-Use a button to indicate that users can trigger an action.
+Use a Button to indicate that users can trigger an action.
 
-In general, align buttons to the direction of the text (_e.g._,
+In general, align Buttons to the direction of the text (_e.g._,
 left-aligned in English) for easy scannability.
 
-When moving customers through a sequence, place the primary button in
-the direction of the movement (e.g., a “Next” button goes on the
+When moving customers through a sequence, place the primary Button in
+the direction of the movement (e.g., a “Next” Button goes on the
 right in an English-language flow).
 
 <DoDont>
   <Do
     title="Do"
-    body="Prioritize actions on a screen. Only one primary button should be used on each screen so users are clear about what the intended action is."
+    body="Prioritize actions on a screen. Only one primary Button should be used on each screen so users are clear about what the intended action is."
     preview={false}
   />
-  <Dont title="Don't" body="Don’t use many primary buttons on a screen, which may distract users." preview={false} />
+  <Dont title="Don't" body="Don’t use many primary Buttons on a screen, which may distract users." preview={false} />
 </DoDont>
 
 <DoDont>
   <Do title="Do" body="Use the right variant to communicate meaning and hierarchy." preview={false} />
-  <Dont title="Don't" body="Don’t use a button variant for an action it’s not intended for." preview={false} />
+  <Dont title="Don't" body="Don’t use a Button variant for an action it’s not intended for." preview={false} />
 </DoDont>
 
 <DoDont>
   <Do
     title="Do"
-    body="Write button text that is clear, starts with a verb, and helps users confidently trigger an action."
+    body="Write Button text that is clear, starts with a verb, and helps users confidently trigger an action."
     preview={false}
   />
   <Dont
     title="Don't"
-    body="Don’t use product or brand icons in buttons since they don’t communicate action."
+    body="Don’t use product or brand icons in Buttons since they don’t communicate action."
     preview={false}
   />
 </DoDont>
@@ -509,7 +509,7 @@ yarn add @twilio-paste/button - or - yarn add @twilio-paste/core
 #### Usage
 
 ```jsx
-import {Button} from '@twilio-paste/button';
+import {Button} from '@twilio-paste/core/button';
 
 const Component = () => (
   <Button variant="secondary" size="small" onClick={() => {}}>
@@ -520,17 +520,17 @@ const Component = () => (
 
 #### Props
 
-All the valid HTML attributes for `button` are supported including the following props:
+All the valid HTML attributes for `Button` are supported including the following props:
 
 | Prop          | Type                                     | Description                                                                                                                    | Default   |
 | ------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------- |
 | as?           | `string`                                 | The HTML tag to replace the default `<button>` tag.                                                                            | 'button'  |
-| disabled?     | `boolean`                                | Prevent actions from firing on this button                                                                                     | false     |
-| fullWidth     | `boolean`                                | Sets the button width to 100% of the parent container.                                                                         | false     |
+| disabled?     | `boolean`                                | Prevent actions from firing on this Button                                                                                     | false     |
+| fullWidth     | `boolean`                                | Sets the Button width to 100% of the parent container.                                                                         | false     |
 | href?         | `string`                                 | A URL to route to. Must use `as="a"` for this prop to work.                                                                    | null      |
 | loading?      | `boolean`                                | Prevent actions and show a loading spinner                                                                                     | false     |
 | size?         | `ButtonSizes`                            | 'default', 'small', 'icon', 'icon_small', 'reset'                                                                              | 'default' |
-| type?         | `ButtonTypes`                            | 'button', 'submit', 'reset'. If the button is inside a `<form>`: use 'submit'. Otherwise use 'button' (default).               | 'button'  |
+| type?         | `ButtonTypes`                            | 'button', 'submit', 'reset'. If the Button is inside a `<form>`: use 'submit'. Otherwise use 'button' (default).               | 'button'  |
 | variant?      | `ButtonVariants`                         | 'primary', 'secondary', 'inverse', 'destructive', 'destructive_secondary', 'destructive_link', 'link', 'inverse_link', 'reset' | 'primary' |
 | onClick?      | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                | null      |
 | onMouseDown?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                | null      |
