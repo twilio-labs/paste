@@ -10,6 +10,7 @@ import {Button} from '@twilio-paste/button';
 import {Stack} from '@twilio-paste/stack';
 import Changelog from '@twilio-paste/button/CHANGELOG.md';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
+import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -210,9 +211,9 @@ screen if that action is destructive and could be difficult to reverse.
 </Button>`}
 </LivePreview>
 
-#### Icon-only button
+#### Single-action Button
 
-Use icon-only buttons sparingly.
+Use single-action Buttons sparingly.
 
 They should be used only in compact UI situations. Use an icon that can
 only convey a single action.
@@ -256,6 +257,19 @@ only convey a single action.
     <PlusIcon decorative={false} title="Add to cart" />
   </Button>
 </Stack>`}
+</LivePreview>
+
+#### Icon-only Button
+
+Use icon-only Buttons sparingly.
+
+The `icon_only` variant can be used as the close button in Modals, Alerts and Popvers. Only pass a single icon child.
+
+<LivePreview scope={{Button, CloseIcon}} language="jsx">
+  {`<Button variant="icon_only">
+      <CloseIcon decorative={false} title="Close Modal" />
+    </Button>
+  `}
 </LivePreview>
 
 #### Link-style button
