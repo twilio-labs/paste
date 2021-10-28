@@ -1,11 +1,9 @@
 import * as React from 'react';
 
-import {render} from 'react-dom';
 import {render as testRender, fireEvent} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
-import type {ReactWrapper} from 'enzyme';
-import {shallow, mount} from 'enzyme';
+import {shallow} from 'enzyme';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
