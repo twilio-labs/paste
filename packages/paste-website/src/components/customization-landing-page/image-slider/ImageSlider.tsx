@@ -27,6 +27,10 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
   const containerRef = React.useRef<HTMLElement>();
   const svgCircleRef = React.useRef<SVGCircleElement>();
 
+  const handleMouseUp = (): void => {
+    setShouldMeasure(false);
+  };
+
   const {width: containerWidth, x: containerX, height: containerHeight} = containerRef?.current
     ? containerRef.current.getBoundingClientRect()
     : {width: undefined, height: undefined, x: undefined};
@@ -48,6 +52,12 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
     }
   }, [refsAreInitiated]);
 
+  React.useEffect(() => {
+    return () => {
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, []);
+
   return (
     <Box
       display={['none', 'block']}
@@ -63,41 +73,25 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
     >
       <Box
         as="label"
+        position="absolute"
+        width="100%"
+        height="100%"
         display="inherit"
+        maxWidth="640px"
+        cursor={shouldMeasure ? 'grabbing' : 'grab'}
         aria-label="Controls the width of the customizable image."
         // @ts-expect-error "htmlFor" is an allowed attribute for Label elements.
         htmlFor={uidSeed(INPUT_ID)}
         color="colorTextWeaker"
         _hover={{color: 'colorTextWeak'}}
-      >
-        <Box
-          position="absolute"
-          width="100%"
-          height="100%"
-          maxWidth="640px"
-          cursor={shouldMeasure ? 'grabbing' : 'grab'}
-          onMouseDown={(e) => {
-            e.persist();
-            setShouldMeasure(true);
-          }}
-          onMouseUp={(e) => {
-            const {clientX} = e;
-            setShouldMeasure((currentShouldMeasure) => {
-              if (currentShouldMeasure) {
-                const computedValue = convertPositionToInputValue(
-                  containerWidth as number,
-                  clientX - (containerX as number)
-                );
-
-                setValue(computedValue);
-              }
-
-              return false;
-            });
-          }}
-          onMouseMove={(e) => {
-            const {clientX} = e;
-            if (shouldMeasure) {
+        onMouseDown={() => {
+          setShouldMeasure(true);
+          document.addEventListener('mouseup', handleMouseUp);
+        }}
+        onMouseUp={(e) => {
+          const {clientX} = e;
+          setShouldMeasure((currentShouldMeasure) => {
+            if (currentShouldMeasure) {
               const computedValue = convertPositionToInputValue(
                 containerWidth as number,
                 clientX - (containerX as number)
@@ -105,9 +99,22 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
 
               setValue(computedValue);
             }
-          }}
-        />
 
+            return false;
+          });
+        }}
+        onMouseMove={(e) => {
+          const {clientX} = e;
+          if (shouldMeasure) {
+            const computedValue = convertPositionToInputValue(
+              containerWidth as number,
+              clientX - (containerX as number)
+            );
+
+            setValue(computedValue);
+          }
+        }}
+      >
         <ImageBox label="Sample components with a customized Paste theme" fluid={backFluidObject} />
         <ImageBox
           label="Sample components with a default Paste theme"
