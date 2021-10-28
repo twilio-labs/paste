@@ -68,9 +68,8 @@ const DestructiveButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>
 DestructiveButton.defaultProps = {
   as: 'button',
 };
-if (process.env.NODE_ENV === 'development') {
-  DestructiveButton.propTypes = DirectButtonPropTypes;
-}
+DestructiveButton.propTypes = DirectButtonPropTypes;
+
 DestructiveButton.displayName = 'DestructiveButton';
 
 export {DestructiveButton};

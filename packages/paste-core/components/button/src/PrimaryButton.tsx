@@ -68,9 +68,8 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
 PrimaryButton.defaultProps = {
   as: 'button',
 };
-if (process.env.NODE_ENV === 'development') {
-  PrimaryButton.propTypes = DirectButtonPropTypes;
-}
+PrimaryButton.propTypes = DirectButtonPropTypes;
+
 PrimaryButton.displayName = 'PrimaryButton';
 
 export {PrimaryButton};

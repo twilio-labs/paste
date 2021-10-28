@@ -237,6 +237,17 @@ describe('Button', () => {
       ).toThrow();
     });
 
+    it('Throws an error when using multiple children with variant="icon-only', () => {
+      expect(() =>
+        shallow(
+          <Button variant="icon_only">
+            <PlusIcon decorative />
+            <PlusIcon decorative />
+          </Button>
+        )
+      ).toThrow();
+    });
+
     it('Throws an error when using fullWidth with an icon_small sizing', () => {
       expect(() =>
         shallow(
@@ -512,6 +523,17 @@ describe('Button', () => {
 
       expect(getByText('Reset')).not.toHaveStyleRule('justify-content', 'center');
       expect(getByTestId('reset-styles')).not.toHaveStyleRule('text-align', 'left');
+    });
+
+    it('should have the correct styles for the icon_only variant', () => {
+      const {getByTestId} = testRender(
+        <Button variant="icon_only" data-testid="icon_only-styles">
+          <PlusIcon decorative />
+        </Button>
+      );
+
+      expect(getByTestId('icon_only-styles')).toHaveStyleRule('color', 'SOMETHING');
+      expect(getByTestId('icon_only-styles')).toHaveStyleRule('color', 'SOMETHING', {target: ':hover'});
     });
 
     it('should have the correct styles for a link button in loading state', () => {

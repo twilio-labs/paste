@@ -73,9 +73,8 @@ const InverseButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
 InverseButton.defaultProps = {
   as: 'button',
 };
-if (process.env.NODE_ENV === 'development') {
-  InverseButton.propTypes = DirectButtonPropTypes;
-}
+InverseButton.propTypes = DirectButtonPropTypes;
+
 InverseButton.displayName = 'InverseButton';
 
 export {InverseButton};

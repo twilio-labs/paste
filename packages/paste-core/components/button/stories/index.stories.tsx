@@ -5,6 +5,7 @@ import {Heading} from '@twilio-paste/heading';
 import {Stack} from '@twilio-paste/stack';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {isRenderingOnServer} from '@twilio-paste/animation-library';
+import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {Button} from '../src';
 import type {ButtonVariants, ButtonSizes} from '../src/types';
 
@@ -103,6 +104,13 @@ export const DestructiveSecondaryButton = (): React.ReactNode => <AllSizeOptions
 export const DestructiveLinkButton = (): React.ReactNode => <AllSizeOptions variant="destructive_link" />;
 export const LinkButton = (): React.ReactNode => <AllSizeOptions variant="link" />;
 export const InverseLinkButton = (): React.ReactNode => <AllSizeOptions variant="inverse_link" />;
+
+export const IconOnlyButton = (): React.ReactNode => (
+  <Button variant="icon_only">
+    <CloseIcon decorative={false} title="Close modal button" />
+  </Button>
+);
+
 // This story is for VRT to ensure that non-visual elements don't add padding within the Button
 export const NoExtraPaddingButton = (): React.ReactNode => (
   <Stack orientation="vertical" spacing="space50">

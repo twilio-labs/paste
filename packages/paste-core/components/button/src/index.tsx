@@ -23,6 +23,7 @@ import {LinkButton} from './LinkButton';
 import {InverseButton} from './InverseButton';
 import {InverseLinkButton} from './InverseLinkButton';
 import {ResetButton} from './ResetButton';
+import {IconOnlyButton} from './IconOnlyButton';
 
 const AnimatedBox = animated(Box);
 
@@ -34,7 +35,9 @@ const getButtonSize = (variant: ButtonVariants, children: React.ReactNode, size?
   let smartSize: ButtonSizes = 'default';
   if (size != null) {
     smartSize = size;
-  } else if (variant === 'link' || variant === 'destructive_link' || variant === 'reset') {
+    // per slack thread: https://twilio.slack.com/archives/GGQD89JRL/p1599762114086200
+    // icon-only variant size will either be 'reset' or 'icon' size
+  } else if (variant === 'link' || variant === 'destructive_link' || variant === 'reset' || variant === 'icon_only') {
     smartSize = 'reset';
   } else if (React.Children.count(children) === 1) {
     React.Children.forEach(children, (child) => {
@@ -101,6 +104,9 @@ const handlePropValidation = ({
   if ((size === 'icon' || size === 'icon_small') && fullWidth) {
     throw new Error('[Paste: Button] Icon buttons should not be fullWidth.');
   }
+  if (variant === 'icon_only' && React.Children.count(children) > 1) {
+    throw new Error('[Paste: Button] Icon-only Buttons can only have one icon child.');
+  }
 
   // Button validation
   if (children == null) {
@@ -111,6 +117,7 @@ const handlePropValidation = ({
   }
 };
 
+// not sure yet whether icon-only should go in here (because I'm not sure what this does)
 const variantsWithoutBoundingBox = new Set(['link', 'destructive_link', 'inverse_link', 'reset']);
 
 const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, showLoading, variant}) => {
@@ -167,6 +174,8 @@ const getButtonComponent = (variant: ButtonVariants): React.FunctionComponent<Di
       return InverseButton;
     case 'inverse_link':
       return InverseLinkButton;
+    case 'icon_only':
+      return IconOnlyButton;
     case 'primary':
     default:
       return PrimaryButton;

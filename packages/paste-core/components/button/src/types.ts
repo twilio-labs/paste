@@ -8,6 +8,7 @@ export type ButtonVariants =
   | 'destructive'
   | 'destructive_link'
   | 'destructive_secondary'
+  | 'icon_only'
   | 'link'
   | 'inverse_link'
   | 'inverse'

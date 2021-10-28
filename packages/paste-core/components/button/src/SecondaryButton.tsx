@@ -82,9 +82,8 @@ const SecondaryButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
 SecondaryButton.defaultProps = {
   as: 'button',
 };
-if (process.env.NODE_ENV === 'development') {
-  SecondaryButton.propTypes = DirectButtonPropTypes;
-}
+SecondaryButton.propTypes = DirectButtonPropTypes;
+
 SecondaryButton.displayName = 'SecondaryButton';
 
 export {SecondaryButton};

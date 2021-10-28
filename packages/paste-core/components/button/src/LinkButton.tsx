@@ -50,9 +50,8 @@ const LinkButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
 LinkButton.defaultProps = {
   as: 'a',
 };
-if (process.env.NODE_ENV === 'development') {
-  LinkButton.propTypes = DirectButtonPropTypes;
-}
+LinkButton.propTypes = DirectButtonPropTypes;
+
 LinkButton.displayName = 'LinkButton';
 
 export {LinkButton};

@@ -82,9 +82,8 @@ const DestructiveSecondaryButton = React.forwardRef<HTMLButtonElement, DirectBut
 DestructiveSecondaryButton.defaultProps = {
   as: 'button',
 };
-if (process.env.NODE_ENV === 'development') {
-  DestructiveSecondaryButton.propTypes = DirectButtonPropTypes;
-}
+DestructiveSecondaryButton.propTypes = DirectButtonPropTypes;
+
 DestructiveSecondaryButton.displayName = 'DestructiveSecondaryButton';
 
 export {DestructiveSecondaryButton};

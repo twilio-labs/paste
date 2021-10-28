@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {Box, BoxStyleProps, safelySpreadBoxProps} from '@twilio-paste/box';
+import type {BoxStyleProps} from '@twilio-paste/box';
+import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {SizeStyles, BaseStyles} from './styles';
 import type {DirectButtonProps} from './types';
 import {DirectButtonPropTypes} from './proptypes';
@@ -7,10 +8,29 @@ import {DirectButtonPropTypes} from './proptypes';
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
 const merge = require('deepmerge');
 
+/*
+ * defensively resetting interaction color from over zealous legacy
+ * global styles "a {...}" when button is set as an anchor
+ */
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
-  fontSize: 'inherit',
-  fontWeight: 'inherit',
-  color: 'inherit',
+  color: 'colorTextIcon',
+  backgroundColor: 'colorBackgroundBody',
+  boxShadow: 'shadowBorder',
+  _hover: {
+    color: 'colorText',
+    backgroundColor: 'colorBackgroundPrimaryWeakest',
+    boxShadow: 'shadowBorderPrimaryStronger',
+  },
+  _focus: {
+    color: 'colorTextLinkStronger',
+    backgroundColor: 'colorBackgroundPrimaryWeakest',
+    boxShadow: 'shadowFocus',
+  },
+  _active: {
+    color: 'colorTextLinkStronger',
+    backgroundColor: 'colorBackgroundPrimaryWeaker',
+    boxShadow: 'shadowBorderPrimaryStronger',
+  },
 });
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {fontSize: 'inherit', fontWeight: 'inherit'});
@@ -23,7 +43,7 @@ const ButtonStyleMapping = {
   disabled: disabledStyles,
 };
 
-const ResetButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
+const IconOnlyButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
   ({size, buttonState, fullWidth, ...props}, ref) => {
     // Must spread size styles after button styles
     return (
@@ -37,11 +57,11 @@ const ResetButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
     );
   }
 );
-ResetButton.defaultProps = {
+IconOnlyButton.defaultProps = {
   as: 'button',
 };
-ResetButton.propTypes = DirectButtonPropTypes;
+IconOnlyButton.propTypes = DirectButtonPropTypes;
 
-ResetButton.displayName = 'ResetButton';
+IconOnlyButton.displayName = 'IconOnlyButton';
 
-export {ResetButton};
+export {IconOnlyButton};
