@@ -9025,20 +9025,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reach/dialog@npm:0.15.0":
-  version: 0.15.0
-  resolution: "@reach/dialog@npm:0.15.0"
+"@reach/dialog@npm:0.16.2":
+  version: 0.16.2
+  resolution: "@reach/dialog@npm:0.16.2"
   dependencies:
-    "@reach/portal": 0.15.0
-    "@reach/utils": 0.15.0
+    "@reach/portal": 0.16.2
+    "@reach/utils": 0.16.0
     prop-types: ^15.7.2
-    react-focus-lock: ^2.5.0
-    react-remove-scroll: ^2.4.1
-    tslib: ^2.1.0
+    react-focus-lock: ^2.5.2
+    react-remove-scroll: ^2.4.3
+    tslib: ^2.3.0
   peerDependencies:
     react: ^16.8.0 || 17.x
     react-dom: ^16.8.0 || 17.x
-  checksum: a97dd294ccca1c7517b69ff35c3af40df5ebc130649d84fa03d719c250aeda4b7d82fb04257d9796525759d9fbf02c6a144452cb4f485f9fa0970fa89c6bd341
+  checksum: 1478ad3c4c0a86c30b02f4360fb06ead5b2e894c5e6ab96523970d45272298e2e31cb5278f861e4f92a90bcab0a30f4bac5572ab534f56529145619e7675497f
   languageName: node
   linkType: hard
 
@@ -9049,16 +9049,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reach/portal@npm:0.15.0":
-  version: 0.15.0
-  resolution: "@reach/portal@npm:0.15.0"
+"@reach/portal@npm:0.16.2":
+  version: 0.16.2
+  resolution: "@reach/portal@npm:0.16.2"
   dependencies:
-    "@reach/utils": 0.15.0
-    tslib: ^2.1.0
+    "@reach/utils": 0.16.0
+    tiny-warning: ^1.0.3
+    tslib: ^2.3.0
   peerDependencies:
     react: ^16.8.0 || 17.x
     react-dom: ^16.8.0 || 17.x
-  checksum: 9cb6f00a9fb7e61efd811a4a56e50d7a5257c5e1ef9ebc3083f0340610b55a62688214a11313e0c93b4d631fe7a4854247d0e94bbc844941fbf06f3a48d4c49d
+  checksum: 7413dcd169cfb9854dd0d3a01f811ec19ef170558fcbd00118d676fc02c197d1c0bce1d1357508879d4775169561d103e13a8e4d74cc677eb0037cc7b04f7a1e
   languageName: node
   linkType: hard
 
@@ -9092,16 +9093,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reach/utils@npm:0.15.0":
-  version: 0.15.0
-  resolution: "@reach/utils@npm:0.15.0"
+"@reach/utils@npm:0.16.0":
+  version: 0.16.0
+  resolution: "@reach/utils@npm:0.16.0"
   dependencies:
     tiny-warning: ^1.0.3
-    tslib: ^2.1.0
+    tslib: ^2.3.0
   peerDependencies:
     react: ^16.8.0 || 17.x
     react-dom: ^16.8.0 || 17.x
-  checksum: f542b574955b7eb8bd8a0b33a145a3b5243976cd33c3e37098ef680bbb25a969c666e10019734a1fdf8f959456a6f4499b0450ee6304433242aa7484da5f068a
+  checksum: 36bc0eb41a71798eb6186b23de265ba709e51dae5bf214fb8505c66bb3f2e6a41bb2401457350436ba89ca9e3a50f93a04fe7c33d15648ce11e568a85622d770
   languageName: node
   linkType: hard
 
@@ -13258,7 +13259,7 @@ __metadata:
     "@types/lodash.iselement": ^4.1.6
     "@types/react": ^17.0.31
     "@types/react-dom": ^16.8.4
-    react: ^16.8.6 || ^17.0.2
+    react: ^17.0.2
   peerDependencies:
     react: ^16.8.6 || ^17.0.2
   languageName: unknown
@@ -22603,6 +22604,13 @@ __metadata:
   version: 3.1.0
   resolution: "detect-newline@npm:3.1.0"
   checksum: ae6cd429c41ad01b164c59ea36f264a2c479598e61cba7c99da24175a7ab80ddf066420f2bec9a1c57a6bead411b4655ff15ad7d281c000a89791f48cbe939e7
+  languageName: node
+  linkType: hard
+
+"detect-node-es@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "detect-node-es@npm:1.1.0"
+  checksum: e46307d7264644975b71c104b9f028ed1d3d34b83a15b8a22373640ce5ea630e5640b1078b8ea15f202b54641da71e4aa7597093bd4b91f113db520a26a37449
   languageName: node
   linkType: hard
 
@@ -41165,17 +41173,9 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-"react-16@npm:react@^16.8.6":
-  version: 16.14.0
-  resolution: "react@npm:16.14.0"
-=======
 "react-16@npm:react@^16.8.6, react@npm:^16.8.0":
   version: 16.13.1
   resolution: "react@npm:16.13.1"
->>>>>>> 949918e0 (fix: website can run now)
   dependencies:
     loose-envify: ^1.1.0
     object-assign: ^4.1.1
@@ -41184,7 +41184,6 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
->>>>>>> 8a58be46 (chore: revert website to 16)
 "react-app-polyfill@npm:^2.0.0":
   version: 2.0.0
   resolution: "react-app-polyfill@npm:2.0.0"
@@ -41213,14 +41212,14 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"react-clientside-effect@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "react-clientside-effect@npm:1.2.2"
+"react-clientside-effect@npm:^1.2.5":
+  version: 1.2.5
+  resolution: "react-clientside-effect@npm:1.2.5"
   dependencies:
-    "@babel/runtime": ^7.0.0
+    "@babel/runtime": ^7.12.13
   peerDependencies:
-    react: ^15.3.0 || ^16.0.0
-  checksum: 8cf5ac447817c58ed2ab3b700b7781f8ab3c2c80199dc30abf2abcac7a3ec30c56d145bc5f016aca79992d6afede78762868940b461e7a67e24c3d261b22723a
+    react: ^15.3.0 || ^16.0.0 || ^17.0.0
+  checksum: 1ce12cabd73567b5d593ec604d0f2a59d5b818e49a96ebb2403281d43f2bbfa4091af64128d5d36e2214d30c6f9f9b043839b15515dfff9ce6851ee62c72eccc
   languageName: node
   linkType: hard
 
@@ -41490,29 +41489,19 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"react-focus-lock@npm:^2.5.0":
-  version: 2.5.1
-  resolution: "react-focus-lock@npm:2.5.1"
+"react-focus-lock@npm:^2.5.2":
+  version: 2.5.2
+  resolution: "react-focus-lock@npm:2.5.2"
   dependencies:
     "@babel/runtime": ^7.0.0
     focus-lock: ^0.9.1
     prop-types: ^15.6.2
-    react-clientside-effect: ^1.2.2
-    use-callback-ref: ^1.2.1
-    use-sidecar: ^1.0.1
+    react-clientside-effect: ^1.2.5
+    use-callback-ref: ^1.2.5
+    use-sidecar: ^1.0.5
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
-  checksum: 632b3094a3cd70378b9c19efa214b37e5a100e487fc4598b125a691afcbc26ac783ecea68c61dbd3d8d1674e0f017c39f98df487fa74b1204d3ebef0b69c9568
-  languageName: node
-  linkType: hard
-
-"react-ga@npm:^3.3.0":
-  version: 3.3.0
-  resolution: "react-ga@npm:3.3.0"
-  peerDependencies:
-    prop-types: ^15.6.0
-    react: ^15.6.2 || ^16.0 || ^17
-  checksum: b4f5b0ed3a5d7ea781397d6a1f8dacae2284fe7f03f72dde330958dd0a64732f8766c6fa26cf0f1a8fb1303fa02aa51f23cf0b261e52981d0275262b831c7fea
+  checksum: 520b12a4496be21b3228bbf938657f6c33f868e486a0cd355d8bec918129d2c1bf7aabecb20aecdb446a1fbdb61b16f680b5d15b998f544f1b5c0dc5c8914c40
   languageName: node
   linkType: hard
 
@@ -41555,9 +41544,9 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"react-hot-loader@npm:^4.12.20":
-  version: 4.12.21
-  resolution: "react-hot-loader@npm:4.12.21"
+"react-hot-loader@npm:^4.13.0":
+  version: 4.13.0
+  resolution: "react-hot-loader@npm:4.13.0"
   dependencies:
     fast-levenshtein: ^2.0.6
     global: ^4.3.0
@@ -41568,13 +41557,13 @@ is-whitespace@latest:
     shallowequal: ^1.1.0
     source-map: ^0.7.3
   peerDependencies:
-    "@types/react": ^15.0.0 || ^16.0.0
-    react: ^15.0.0 || ^16.0.0
-    react-dom: ^15.0.0 || ^16.0.0
+    "@types/react": "^15.0.0 || ^16.0.0 || ^17.0.0 "
+    react: "^15.0.0 || ^16.0.0 || ^17.0.0 "
+    react-dom: "^15.0.0 || ^16.0.0 || ^17.0.0 "
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: b91f16c50e39ac7a80861724eaee97540151eeddc1c719eadd9ee6d52251dd3f91fbdf7401efb826527747e78a7d84037870441c1588300fc241c9ec56e2ba31
+  checksum: effdbf4644ce912ae20ad94be62083970c74b26a59fe24ed0024cf73190a5b3edf59650cb693bdd7b70791df8ab8530de273d73b895c4831a91da8a76683e3a3
   languageName: node
   linkType: hard
 
@@ -41717,9 +41706,9 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"react-remove-scroll@npm:^2.4.1":
-  version: 2.4.2
-  resolution: "react-remove-scroll@npm:2.4.2"
+"react-remove-scroll@npm:^2.4.3":
+  version: 2.4.3
+  resolution: "react-remove-scroll@npm:2.4.3"
   dependencies:
     react-remove-scroll-bar: ^2.1.0
     react-style-singleton: ^2.1.0
@@ -41732,7 +41721,7 @@ is-whitespace@latest:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 6b287ae81d7fdd85cc2325f2a33268f28891048f6da0d87bedfacf4671e3e5b395d17cde5317c470cc3fdfed017a98f3ccf61b7b25254e4bb4a2383cbc041dd7
+  checksum: c2f4277ee953b3905b8500c72b6f509f5138dc6eff157ff1160f7810cb6934ee148d13aef7f9fa3f4ed12372cc4564347ed6b16083ff1e4d241708bb1b8bf5a7
   languageName: node
   linkType: hard
 
@@ -47593,17 +47582,10 @@ resolve@^1.17.0:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-"tslib@npm:^2.1.0":
-  version: 2.2.0
-  resolution: "tslib@npm:2.2.0"
-  checksum: a48c9639f7496fa701ea8ffe0561070fcb44c104a59632f7f845c0af00825c99b6373575ec59b2b5cdbfd7505875086dbe5dc83312304d8979f22ce571218ca3
-=======
 "tslib@npm:^2.3.0":
   version: 2.3.1
   resolution: "tslib@npm:2.3.1"
   checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
->>>>>>> 949918e0 (fix: website can run now)
   languageName: node
   linkType: hard
 
@@ -48751,11 +48733,7 @@ typescript@^4.4.3:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-"use-callback-ref@npm:^1.2.1, use-callback-ref@npm:^1.2.3":
-=======
 "use-callback-ref@npm:^1.2.3":
->>>>>>> 949918e0 (fix: website can run now)
   version: 1.2.3
   resolution: "use-callback-ref@npm:1.2.3"
   peerDependencies:
@@ -48765,6 +48743,19 @@ typescript@^4.4.3:
     "@types/react":
       optional: true
   checksum: ebf928c26f7ba99dca970b3be12802e1efbddd77c80efa514640b5fd25fd2ceca0e4b03669d1c1b41e036c4c1683306aa4828777e23d01ad55132880f048b9c2
+  languageName: node
+  linkType: hard
+
+"use-callback-ref@npm:^1.2.5":
+  version: 1.2.5
+  resolution: "use-callback-ref@npm:1.2.5"
+  peerDependencies:
+    "@types/react": ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: b0027242311ed3fb006575c3be69efe31946f17129f2464707f4fcf2e167b91917236569a1d622c57b36843bc05efd9740a4ba51591553ad6fe2799cc12b138e
   languageName: node
   linkType: hard
 
@@ -48837,6 +48828,18 @@ typescript@^4.4.3:
   peerDependencies:
     react: ^16.8.0
   checksum: 4f55b5f55f6ac9a29d62e0c0e88f55496b7335a574f50594520928063565de135aa35b91f41b5a258386c5b8c161012ba14d0f735a087a8fea43467ebcd0d90e
+  languageName: node
+  linkType: hard
+
+"use-sidecar@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "use-sidecar@npm:1.0.5"
+  dependencies:
+    detect-node-es: ^1.1.0
+    tslib: ^1.9.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+  checksum: 9207ad8af787f4005b55813dd34ab392c06c5c86971182068f74f4aca5781c067085813167d438d460a84289d67dc915d04f2309dfc016172423c65bfd22bb3e
   languageName: node
   linkType: hard
 
