@@ -9025,20 +9025,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reach/dialog@npm:0.16.2":
-  version: 0.16.2
-  resolution: "@reach/dialog@npm:0.16.2"
+"@reach/dialog@npm:0.15.0":
+  version: 0.15.0
+  resolution: "@reach/dialog@npm:0.15.0"
   dependencies:
-    "@reach/portal": 0.16.2
-    "@reach/utils": 0.16.0
+    "@reach/portal": 0.15.0
+    "@reach/utils": 0.15.0
     prop-types: ^15.7.2
-    react-focus-lock: ^2.5.2
-    react-remove-scroll: ^2.4.3
-    tslib: ^2.3.0
+    react-focus-lock: ^2.5.0
+    react-remove-scroll: ^2.4.1
+    tslib: ^2.1.0
   peerDependencies:
     react: ^16.8.0 || 17.x
     react-dom: ^16.8.0 || 17.x
-  checksum: 1478ad3c4c0a86c30b02f4360fb06ead5b2e894c5e6ab96523970d45272298e2e31cb5278f861e4f92a90bcab0a30f4bac5572ab534f56529145619e7675497f
+  checksum: a97dd294ccca1c7517b69ff35c3af40df5ebc130649d84fa03d719c250aeda4b7d82fb04257d9796525759d9fbf02c6a144452cb4f485f9fa0970fa89c6bd341
   languageName: node
   linkType: hard
 
@@ -9049,17 +9049,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reach/portal@npm:0.16.2":
-  version: 0.16.2
-  resolution: "@reach/portal@npm:0.16.2"
+"@reach/portal@npm:0.15.0":
+  version: 0.15.0
+  resolution: "@reach/portal@npm:0.15.0"
   dependencies:
-    "@reach/utils": 0.16.0
-    tiny-warning: ^1.0.3
-    tslib: ^2.3.0
+    "@reach/utils": 0.15.0
+    tslib: ^2.1.0
   peerDependencies:
     react: ^16.8.0 || 17.x
     react-dom: ^16.8.0 || 17.x
-  checksum: 7413dcd169cfb9854dd0d3a01f811ec19ef170558fcbd00118d676fc02c197d1c0bce1d1357508879d4775169561d103e13a8e4d74cc677eb0037cc7b04f7a1e
+  checksum: 9cb6f00a9fb7e61efd811a4a56e50d7a5257c5e1ef9ebc3083f0340610b55a62688214a11313e0c93b4d631fe7a4854247d0e94bbc844941fbf06f3a48d4c49d
   languageName: node
   linkType: hard
 
@@ -9093,16 +9092,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reach/utils@npm:0.16.0":
-  version: 0.16.0
-  resolution: "@reach/utils@npm:0.16.0"
+"@reach/utils@npm:0.15.0":
+  version: 0.15.0
+  resolution: "@reach/utils@npm:0.15.0"
   dependencies:
     tiny-warning: ^1.0.3
-    tslib: ^2.3.0
+    tslib: ^2.1.0
   peerDependencies:
     react: ^16.8.0 || 17.x
     react-dom: ^16.8.0 || 17.x
-  checksum: 36bc0eb41a71798eb6186b23de265ba709e51dae5bf214fb8505c66bb3f2e6a41bb2401457350436ba89ca9e3a50f93a04fe7c33d15648ce11e568a85622d770
+  checksum: f542b574955b7eb8bd8a0b33a145a3b5243976cd33c3e37098ef680bbb25a969c666e10019734a1fdf8f959456a6f4499b0450ee6304433242aa7484da5f068a
   languageName: node
   linkType: hard
 
@@ -12429,7 +12428,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/modal-dialog-primitive@workspace:packages/paste-core/primitives/modal-dialog"
   dependencies:
-    "@reach/dialog": 0.16.2
+    "@reach/dialog": 0.15.0
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -41489,7 +41488,7 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"react-focus-lock@npm:^2.5.2":
+"react-focus-lock@npm:^2.5.0":
   version: 2.5.2
   resolution: "react-focus-lock@npm:2.5.2"
   dependencies:
@@ -41706,7 +41705,7 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"react-remove-scroll@npm:^2.4.3":
+"react-remove-scroll@npm:^2.4.1":
   version: 2.4.3
   resolution: "react-remove-scroll@npm:2.4.3"
   dependencies:
@@ -47582,7 +47581,7 @@ resolve@^1.17.0:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.3.0":
+"tslib@npm:^2.1.0":
   version: 2.3.1
   resolution: "tslib@npm:2.3.1"
   checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
