@@ -86,12 +86,10 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
               if (currentShouldMeasure) {
                 const computedValue = convertPositionToInputValue(
                   containerWidth as number,
-                  clientX - (containerX as number),
-                  minimumChange
+                  clientX - (containerX as number)
                 );
-                const newValue = clampValueToRange(computedValue);
 
-                setValue(newValue);
+                setValue(computedValue);
               }
 
               return false;
@@ -102,17 +100,11 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
             if (shouldMeasure) {
               const computedValue = convertPositionToInputValue(
                 containerWidth as number,
-                clientX - (containerX as number),
-                minimumChange
+                clientX - (containerX as number)
               );
-              const newValue = clampValueToRange(computedValue);
 
-              setValue(newValue);
+              setValue(computedValue);
             }
-          }}
-          onMouseLeave={(e) => {
-            e.persist();
-            setShouldMeasure(false);
           }}
         />
 

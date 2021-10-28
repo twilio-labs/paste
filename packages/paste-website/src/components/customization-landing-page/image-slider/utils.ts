@@ -1,9 +1,9 @@
 import {MAX_VALUE, MIN_VALUE} from './constants';
 
-export const convertPositionToInputValue = (width: number, xPosition: number, offset: number): number => {
+export const convertPositionToInputValue = (width: number, xPosition: number, offset = 0): number => {
   const positionToValue = MAX_VALUE / width;
 
-  return Math.floor((xPosition + offset) * positionToValue);
+  return Math.round((xPosition + offset) * positionToValue);
 };
 
 export const clampValueToRange = (computedValue: number): number => {

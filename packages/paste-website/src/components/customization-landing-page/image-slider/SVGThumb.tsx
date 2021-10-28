@@ -28,8 +28,6 @@ export const SVGThumb: React.FC<SVGThumbProps> = ({left, svgCircleRef, initRefs,
     initRefs(true);
   }, []);
 
-  console.log({top});
-
   return (
     <Box
       display="flex"
@@ -39,23 +37,24 @@ export const SVGThumb: React.FC<SVGThumbProps> = ({left, svgCircleRef, initRefs,
       top={`${top}px`}
       transform={`translateX(${left}px)`}
       transformOrigin="50% 50%"
-      overflow="visible"
+      height={height}
+      width={width}
     >
       <svg
         role="img"
-        width={width}
-        height={height}
-        viewBox={`0 0 ${Math.round(width as number)} ${Math.round(height as number)}`}
+        width="100%"
+        height="100%"
+        viewBox="0 0 35 578"
         fill="inherit"
         xmlns="http://www.w3.org/2000/svg"
-        overflow="overlay"
+        overflow="visible"
       >
         <g filter={`url(#${seed(FILTER_1)})`}>
           <rect x="12.5" y="3" width="10" height="577" rx="5" fill="#121C2D" fillOpacity="0.2" />
         </g>
         <rect x="13" y="0.5" width="9" height="576" rx="4.5" fill="white" stroke="#E1E3EA" />
         <g filter={`url(#${seed(FILTER_2)})`}>
-          <circle cx="17.5" cy="289" r="16" fill="#121C2D" fillOpacity="0.3" overflow="visible" />
+          <circle cx="17.5" cy="289" r="16" fill="#121C2D" fillOpacity="0.3" />
         </g>
 
         <circle
@@ -92,7 +91,6 @@ export const SVGThumb: React.FC<SVGThumbProps> = ({left, svgCircleRef, initRefs,
             height="60"
             filterUnits="userSpaceOnUse"
             colorInterpolationFilters="sRGB"
-            overflow="overlay"
           >
             <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
