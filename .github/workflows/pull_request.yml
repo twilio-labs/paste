@@ -130,7 +130,7 @@ jobs:
         run: yarn build
 
       - name: Run tests
-        run: yarn test
+        run: concurrently yarn:test yarn:test:react-16
 
   build_and_prettier:
     runs-on: ubuntu-latest
