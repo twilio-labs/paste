@@ -132,7 +132,7 @@ jobs:
       - name: Run tests
         run: yarn test
 
-  build_and_tests_16:
+  build_and_react16_tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
