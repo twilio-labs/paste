@@ -13257,7 +13257,7 @@ __metadata:
     "@types/lodash.groupby": ^4.6.6
     "@types/lodash.iselement": ^4.1.6
     "@types/react": ^17.0.31
-    "@types/react-dom": ^16.8.4
+    "@types/react-dom": ^17.0.10
     react: ^17.0.2
   peerDependencies:
     react: ^16.8.6 || ^17.0.2
@@ -14250,12 +14250,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^16.8.4":
-  version: 16.9.7
-  resolution: "@types/react-dom@npm:16.9.7"
+"@types/react-dom@npm:^17.0.10":
+  version: 17.0.10
+  resolution: "@types/react-dom@npm:17.0.10"
   dependencies:
     "@types/react": "*"
-  checksum: 8d81a39d159cfc44692f765db679b96b898e66171c8d34079a37e97faa271fe18bc2b336f25d08817734673f6cebea31ceaf3d7509b8de29b4968dfe199080cb
+  checksum: cc7d8d5b77ee2f3b989c107abd8ec0f2460ba1b1ee6e6d637124e1939594b5619fa4166ef0ea7632a69b68358e0b71aa618de446ccc416dcc0017175549da601
   languageName: node
   linkType: hard
 
@@ -38695,6 +38695,7 @@ is-whitespace@latest:
     "@types/jest": ^24.0.18
     "@types/jest-axe": ^3.5.1
     "@types/node": ^14.14.16
+    "@types/react": ^17.0.31
     "@types/react-16": "npm:@types/react@^16.0.0"
     "@types/react-github-button": ^0.1.1
     "@types/react-helmet": ^5.0.14
