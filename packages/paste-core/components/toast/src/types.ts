@@ -1,9 +1,10 @@
+import type {BoxProps} from '@twilio-paste/box';
 import type {ValueOf} from '@twilio-paste/types';
-import {ToastVariantObject} from './constants';
+import type {ToastVariantObject} from './constants';
 
 export type ToastVariants = ValueOf<typeof ToastVariantObject>;
 
-export interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ToastProps extends React.HTMLAttributes<HTMLDivElement>, Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
   /**
    * callback when user clicks the dismiss button

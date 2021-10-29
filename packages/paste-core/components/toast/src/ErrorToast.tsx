@@ -3,7 +3,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {ToastPropTypes} from './propTypes';
 import type {ToastProps} from './types';
 
-const ErrorToast = React.forwardRef<HTMLDivElement, ToastProps>((props, ref) => {
+const ErrorToast = React.forwardRef<HTMLDivElement, ToastProps>(({element = 'TOAST', variant, ...props}, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
@@ -16,7 +16,9 @@ const ErrorToast = React.forwardRef<HTMLDivElement, ToastProps>((props, ref) => 
       borderLeftWidth="borderWidth30"
       borderLeftColor="colorBorderErrorWeak"
       boxShadow="shadowHigh"
+      element={element}
       padding="space60"
+      variant={variant}
       width="size40"
     >
       {props.children}
@@ -26,8 +28,6 @@ const ErrorToast = React.forwardRef<HTMLDivElement, ToastProps>((props, ref) => 
 
 ErrorToast.displayName = 'ErrorToast';
 
-if (process.env.NODE_ENV === 'development') {
-  ErrorToast.propTypes = ToastPropTypes;
-}
+ErrorToast.propTypes = ToastPropTypes;
 
 export {ErrorToast};

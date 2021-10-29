@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
 import {Spinner} from '@twilio-paste/spinner';
 import {secureExternalLink} from '@twilio-paste/anchor';
 import {useSpring, animated} from '@twilio-paste/animation-library';
@@ -126,14 +125,9 @@ const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, s
         opacity={buttonState === 'loading' ? '0' : '1'}
         aria-hidden={buttonState === 'loading' ? 'true' : 'false'}
         justifyContent={buttonVariantHasBoundingBox ? null : 'center'}
+        columnGap="space20"
       >
-        {React.Children.count(children) > 1 ? (
-          <Stack as="span" orientation="horizontal" spacing="space20">
-            {children}
-          </Stack>
-        ) : (
-          children
-        )}
+        {children}
       </Box>
       {showLoading ? (
         <Box

@@ -53,6 +53,8 @@ const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
   }
 );
 
+Spinner.displayName = 'Spinner';
+
 Spinner.propTypes = {
   title: PropTypes.string.isRequired,
   delay: PropTypes.number,

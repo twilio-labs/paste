@@ -2,14 +2,12 @@ import * as React from 'react';
 import renderer from 'react-test-renderer';
 import {render, screen} from '@testing-library/react';
 import {ReactWrapper, mount} from 'enzyme';
-import {matchers} from 'jest-emotion';
+
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore
 import axe from '../../../../../.jest/axe-helper';
 import {Alert} from '../src';
-
-expect.extend(matchers);
 
 const onDismissMock: jest.Mock = jest.fn();
 

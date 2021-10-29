@@ -3,7 +3,7 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {ToastPropTypes} from './propTypes';
 import type {ToastProps} from './types';
 
-const WarningToast = React.forwardRef<HTMLDivElement, ToastProps>((props, ref) => {
+const WarningToast = React.forwardRef<HTMLDivElement, ToastProps>(({element = 'TOAST', variant, ...props}, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
@@ -16,7 +16,9 @@ const WarningToast = React.forwardRef<HTMLDivElement, ToastProps>((props, ref) =
       borderLeftWidth="borderWidth30"
       borderLeftColor="colorBorderWarningWeak"
       boxShadow="shadowHigh"
+      element={element}
       padding="space60"
+      variant={variant}
       width="size40"
     >
       {props.children}
@@ -26,8 +28,6 @@ const WarningToast = React.forwardRef<HTMLDivElement, ToastProps>((props, ref) =
 
 WarningToast.displayName = 'WarningToast';
 
-if (process.env.NODE_ENV === 'development') {
-  WarningToast.propTypes = ToastPropTypes;
-}
+WarningToast.propTypes = ToastPropTypes;
 
 export {WarningToast};

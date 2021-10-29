@@ -1,14 +1,12 @@
 import * as React from 'react';
 import {render} from 'react-dom';
-import {matchers} from 'jest-emotion';
+
 import {render as testRender, fireEvent, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Checkbox, CheckboxGroup} from '../src';
-
-expect.extend(matchers);
 
 const getCustomizationStyles = (element = 'CHECKBOX'): {[key: string]: PasteCustomCSS} => ({
   [`${element}_GROUP`]: {padding: 'space60'},
@@ -18,7 +16,7 @@ const getCustomizationStyles = (element = 'CHECKBOX'): {[key: string]: PasteCust
   [`${element}`]: {padding: 'space30'},
   [`${element}_CONTROL`]: {borderRadius: 'borderRadius20'},
   [`${element}_ICON`]: {color: 'colorTextIconNeutral'},
-  [`${element}_LABEL_TEXT_WRAPPER`]: {color: 'colorTextNeutral'},
+  [`${element}_LABEL_TEXT`]: {color: 'colorTextNeutral'},
   [`${element}_HELP_TEXT_WRAPPER`]: {marginBottom: 'space60'},
 });
 
@@ -258,7 +256,7 @@ describe('Customization', () => {
     expect(container.querySelector('[data-paste-element="CHECKBOX"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="CHECKBOX_CONTROL"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="CHECKBOX_ICON"]')).toBeInTheDocument();
-    expect(container.querySelector('[data-paste-element="CHECKBOX_LABEL_TEXT_WRAPPER"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="CHECKBOX_LABEL_TEXT"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="CHECKBOX_HELP_TEXT_WRAPPER"]')).toBeInTheDocument();
   });
   it('Should set a custom element data attribute on Checkbox', (): void => {
@@ -277,7 +275,7 @@ describe('Customization', () => {
     expect(container.querySelector('[data-paste-element="SPECIAL_CHECKBOX"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="SPECIAL_CHECKBOX_CONTROL"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="SPECIAL_CHECKBOX_ICON"]')).toBeInTheDocument();
-    expect(container.querySelector('[data-paste-element="SPECIAL_CHECKBOX_LABEL_TEXT_WRAPPER"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="SPECIAL_CHECKBOX_LABEL_TEXT"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="SPECIAL_CHECKBOX_HELP_TEXT_WRAPPER"]')).toBeInTheDocument();
   });
 
@@ -311,7 +309,7 @@ describe('Customization', () => {
     expect(container.querySelector('[data-paste-element="CHECKBOX"]')).toHaveStyleRule('padding', '0.5rem');
     expect(container.querySelector('[data-paste-element="CHECKBOX_CONTROL"]')).toHaveStyleRule('border-radius', '4px');
     expect(container.querySelector('[data-paste-element="CHECKBOX_ICON"]')).toHaveStyleRule('color', 'rgb(0,20,137)');
-    expect(container.querySelector('[data-paste-element="CHECKBOX_LABEL_TEXT_WRAPPER"]')).toHaveStyleRule(
+    expect(container.querySelector('[data-paste-element="CHECKBOX_LABEL_TEXT"]')).toHaveStyleRule(
       'color',
       'rgb(0,20,137)'
     );
@@ -362,7 +360,7 @@ describe('Customization', () => {
       'color',
       'rgb(0,20,137)'
     );
-    expect(container.querySelector('[data-paste-element="MY_CHECKBOX_LABEL_TEXT_WRAPPER"]')).toHaveStyleRule(
+    expect(container.querySelector('[data-paste-element="MY_CHECKBOX_LABEL_TEXT"]')).toHaveStyleRule(
       'color',
       'rgb(0,20,137)'
     );

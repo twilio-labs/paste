@@ -114,13 +114,6 @@ export const DesignerControls: React.FC = () => {
             bucket="backgroundColors"
             onChange={updateToken}
           />
-          <ColorTokenInput
-            labelText="Button focus color"
-            tokenName="colorBackgroundPrimaryStronger"
-            tokenValue={tokens.backgroundColors?.colorBackgroundPrimaryStronger}
-            bucket="backgroundColors"
-            onChange={updateToken}
-          />
         </Stack>
       </Box>
       <Separator orientation="horizontal" verticalSpacing="space80" />

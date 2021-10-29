@@ -79,6 +79,8 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
   }
 );
 
+StyledDisclosureHeading.displayName = 'StyledDisclosureHeading';
+
 const DisclosureHeading: React.FC<DisclosureHeadingProps> = ({
   children,
   as,

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {matchers} from 'jest-emotion';
+
 import {Theme} from '@twilio-paste/theme';
 import {render, screen} from '@testing-library/react';
 import type {RenderOptions} from '@testing-library/react';
@@ -9,8 +9,7 @@ import {Spinner} from '../src';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 
-expect.extend(matchers);
-
+// eslint-disable-next-line react/display-name
 const TestWrapper = (elements?: Record<string, any>): RenderOptions['wrapper'] => ({children}) => (
   <CustomizationProvider
     // @ts-expect-error global test variable
@@ -108,6 +107,7 @@ describe('Spinner', () => {
   describe('Accessibility', () => {
     it('Should have no accessibility violations', async () => {
       const {container} = render(<Spinner title="Loading" decorative />, {
+        // eslint-disable-next-line react/display-name
         wrapper: ({children}) => <Theme.Provider theme="default">{children}</Theme.Provider>,
       });
       const results = await axe(container);

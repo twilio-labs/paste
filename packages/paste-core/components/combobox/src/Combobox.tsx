@@ -17,7 +17,7 @@ import {ComboboxInputSelect} from './styles/ComboboxInputSelect';
 import {ComboboxInputWrapper} from './styles/ComboboxInputWrapper';
 import {ComboboxListbox} from './styles/ComboboxListbox';
 import {ComboboxItems} from './ComboboxItems';
-import type {RowVirtualizer, ComboboxProps} from './types';
+import type {ComboboxProps} from './types';
 
 const getHelpTextVariant = (variant: InputVariants, hasError: boolean | undefined): HelpTextVariants => {
   if (hasError && variant === 'inverse') {
@@ -67,20 +67,37 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
     const parentRef = React.useRef(null);
     const helpTextId = useUID();
 
-    // Only virtualize non-grouped items and not templated items
-    const rowVirtualizer: RowVirtualizer =
-      !groupItemsBy && !optionTemplate
-        ? useVirtual({
-            size: items.length,
-            parentRef,
-            // 36 is a magic number that represents the comboboxItem height in px
-            // this is an estimate, and gets recalculated in runtime
-            estimateSize: React.useCallback(() => 36, []),
-            overscan: 4,
-            // @ts-ignore - will return a number
-            paddingStart: remToPx(theme.space.space30, 'number'),
-          })
-        : undefined;
+    // Only virtualize non-grouped items
+    // Not virtualizing grouped items because we cannot accessibly define position within nested sets (e.g. "groups")
+    const {scrollToIndex, virtualItems, totalSize} = useVirtual({
+      size: items.length,
+      parentRef,
+      // 36 is a magic number that represents the comboboxItem height in px
+      // this is an estimate, and gets recalculated in runtime
+      estimateSize: React.useCallback(() => 36, []),
+      overscan: 4,
+      paddingStart: remToPx(theme.space.space30, 'number') as number,
+    });
+
+    const defaultState = useComboboxPrimitive({
+      initialSelectedItem,
+      items,
+      onHighlightedIndexChange: React.useCallback(
+        (changes: UseComboboxPrimitiveStateChange<string>) => {
+          if (onHighlightedIndexChange) {
+            onHighlightedIndexChange(changes);
+          }
+        },
+        [onHighlightedIndexChange]
+      ),
+      onInputValueChange,
+      onIsOpenChange,
+      onSelectedItemChange,
+      ...(itemToString != null && {itemToString}),
+      ...(initialIsOpen != null && {initialIsOpen}),
+      ...(inputValue != null && {inputValue}),
+      ...(selectedItem != null && {selectedItem}),
+    });
 
     const {
       getComboboxProps,
@@ -91,29 +108,13 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       getToggleButtonProps,
       highlightedIndex,
       isOpen,
-    } =
-      state ||
-      useComboboxPrimitive({
-        initialSelectedItem,
-        items,
-        onHighlightedIndexChange: (changes: UseComboboxPrimitiveStateChange<string>) => {
-          const currentHighlight = highlightedIndex ?? 0;
-          const newHighlight = changes.highlightedIndex ?? currentHighlight;
-          if (rowVirtualizer) {
-            rowVirtualizer.scrollToIndex(newHighlight);
-          }
-          if (onHighlightedIndexChange) {
-            onHighlightedIndexChange(changes);
-          }
-        },
-        onInputValueChange,
-        onIsOpenChange,
-        onSelectedItemChange,
-        ...(itemToString != null && {itemToString}),
-        ...(initialIsOpen != null && {initialIsOpen}),
-        ...(inputValue != null && {inputValue}),
-        ...(selectedItem != null && {selectedItem}),
-      });
+    } = state || defaultState;
+
+    React.useEffect(() => {
+      if (highlightedIndex !== undefined && typeof scrollToIndex === 'function' && highlightedIndex > -1) {
+        scrollToIndex(highlightedIndex);
+      }
+    }, [highlightedIndex, scrollToIndex]);
 
     if (
       getComboboxProps === undefined ||
@@ -171,12 +172,13 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
           <ComboboxItems
             items={items}
             element={element}
-            rowVirtualizer={rowVirtualizer}
             getItemProps={getItemProps}
             highlightedIndex={highlightedIndex}
             optionTemplate={optionTemplate}
             groupItemsBy={groupItemsBy}
             groupLabelTemplate={groupLabelTemplate}
+            totalSize={totalSize}
+            virtualItems={virtualItems}
           />
         </ComboboxListbox>
         {helpText && (

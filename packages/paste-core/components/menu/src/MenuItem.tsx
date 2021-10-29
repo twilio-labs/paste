@@ -45,6 +45,8 @@ export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElemen
   }
 );
 
+StyledMenuItem.displayName = 'StyledMenuItem';
+
 const MenuItem = React.forwardRef<HTMLDivElement, MenuItemProps>(
   ({as = StyledMenuItem, variant: _variant, element = 'MENU_ITEM', ...props}, ref) => {
     const variant = _variant || React.useContext(MenuGroupContext);

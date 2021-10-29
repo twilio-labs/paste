@@ -1,12 +1,10 @@
 import * as React from 'react';
-import {matchers} from 'jest-emotion';
+
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Breadcrumb, BreadcrumbItem} from '../src';
-
-expect.extend(matchers);
 
 describe('Breadcrumb', () => {
   const BreadcrumbExample: React.FC = () => {

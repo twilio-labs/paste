@@ -34,3 +34,5 @@ export const DisplayPillGroup = React.forwardRef<HTMLUListElement, DisplayPillGr
     );
   }
 );
+
+DisplayPillGroup.displayName = 'DisplayPillGroup';

@@ -16,5 +16,7 @@ packages/paste-token-contrast-checker/public
 .next
 .yarn
 
+packages/**/dist/*
+
 tsconfig.build.tsbuildinfo
 **/*.d.ts

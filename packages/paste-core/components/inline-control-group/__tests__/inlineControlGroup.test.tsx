@@ -1,10 +1,8 @@
 import * as React from 'react';
 import {render as testRender, screen} from '@testing-library/react';
-import {matchers} from 'jest-emotion';
+
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {InlineControlGroup} from '../src';
-
-expect.extend(matchers);
 
 const defaultGroupProps = {
   legend: 'This is a group legend',

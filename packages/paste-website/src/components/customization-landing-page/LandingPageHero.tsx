@@ -35,7 +35,7 @@ export const LandingPageHero: React.FC = () => {
   const imageData = useStaticQuery(imageQuery);
 
   return (
-    <Box>
+    <Box overflow="hidden">
       <Box padding="space70">
         <Box
           paddingX={['space90', 'space160']}
@@ -87,7 +87,7 @@ export const LandingPageHero: React.FC = () => {
               position="absolute"
               right="spaceNegative160"
               top="50px"
-              maxWidth="size70"
+              maxWidth="size60"
               width="60%"
               zIndex="zIndex10"
             >

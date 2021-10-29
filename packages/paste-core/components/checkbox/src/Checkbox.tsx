@@ -51,6 +51,8 @@ const HiddenCheckbox = React.forwardRef<HTMLInputElement, HiddenCheckboxProps>((
   />
 ));
 
+HiddenCheckbox.displayName = 'HiddenCheckbox';
+
 const CheckboxIcon: React.FC<{
   indeterminate: boolean | undefined;
   disabled: boolean | undefined;
@@ -149,7 +151,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             />
           </BaseRadioCheckboxControl>
           <BaseRadioCheckboxLabelText
-            element={`${element}_LABEL_TEXT_WRAPPER`}
+            element={`${element}_LABEL_TEXT`}
             fontWeight={isSelectAll ? null : 'fontWeightMedium'}
           >
             <MediaObject verticalAlign="top">
@@ -173,19 +175,18 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
 );
 Checkbox.displayName = 'Checkbox';
 
-if (process.env.NODE_ENV === 'development') {
-  Checkbox.propTypes = {
-    children: PropTypes.node.isRequired,
-    disabled: PropTypes.bool,
-    name: PropTypes.string,
-    onChange: PropTypes.func,
-    hasError: PropTypes.bool,
-    helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    id: PropTypes.string,
-    indeterminate: PropTypes.bool,
-    isSelectAll: PropTypes.bool,
-    isSelectAllChild: PropTypes.bool,
-  };
-}
+Checkbox.propTypes = {
+  children: PropTypes.node.isRequired,
+  disabled: PropTypes.bool,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  hasError: PropTypes.bool,
+  helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  id: PropTypes.string,
+  indeterminate: PropTypes.bool,
+  isSelectAll: PropTypes.bool,
+  isSelectAllChild: PropTypes.bool,
+  element: PropTypes.string,
+};
 
 export {Checkbox};

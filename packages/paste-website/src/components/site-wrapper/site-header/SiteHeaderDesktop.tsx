@@ -24,9 +24,7 @@ const SiteHeaderDesktop: React.FC<SiteHeaderDesktopProps> = ({searchValue, onSea
       borderBottomColor="colorBorderInverseWeaker"
       borderBottomWidth="borderWidth10"
       borderBottomStyle="solid"
-      position="sticky"
-      top="0px"
-      zIndex="zIndex80"
+      flex="1 0 auto"
     >
       <SiteHeaderLogo title="Paste" subtitle="UX Platform" />
       <Box

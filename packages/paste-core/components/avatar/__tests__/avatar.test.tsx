@@ -3,7 +3,7 @@ import {render, screen} from '@testing-library/react';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
 import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
-import {matchers} from 'jest-emotion';
+
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Avatar} from '../src';
@@ -14,8 +14,6 @@ import {
   getComputedTokenNames,
   getInitialsFromName,
 } from '../src/utils';
-
-expect.extend(matchers);
 
 describe('Avatar', () => {
   describe('Utils', () => {

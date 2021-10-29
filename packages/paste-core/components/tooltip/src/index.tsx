@@ -32,6 +32,8 @@ const StyledTooltip = React.forwardRef<HTMLDivElement, BoxProps>(({style, elemen
   );
 });
 
+StyledTooltip.displayName = 'StyledTooltip';
+
 export interface TooltipStateReturn extends TooltipPrimitiveStateReturn {
   [key: string]: any;
 }

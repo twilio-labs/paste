@@ -3,6 +3,7 @@ import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Stack} from '@twilio-paste/stack';
+import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {isRenderingOnServer} from '@twilio-paste/animation-library';
 import {Button} from '../src';
 import type {ButtonVariants, ButtonSizes} from '../src/types';
@@ -102,6 +103,16 @@ export const DestructiveSecondaryButton = (): React.ReactNode => <AllSizeOptions
 export const DestructiveLinkButton = (): React.ReactNode => <AllSizeOptions variant="destructive_link" />;
 export const LinkButton = (): React.ReactNode => <AllSizeOptions variant="link" />;
 export const InverseLinkButton = (): React.ReactNode => <AllSizeOptions variant="inverse_link" />;
+// This story is for VRT to ensure that non-visual elements don't add padding within the Button
+export const NoExtraPaddingButton = (): React.ReactNode => (
+  <Stack orientation="vertical" spacing="space50">
+    <Button variant="primary">Adding a `ScreenReaderOnly` should not give me extra padding</Button>
+    <Button variant="primary">
+      Adding a `ScreenReaderOnly` should not give me extra padding
+      <ScreenReaderOnly>I am the `ScreenReaderOnly`</ScreenReaderOnly>
+    </Button>
+  </Stack>
+);
 
 export const Reset = (): React.ReactNode => (
   <>
