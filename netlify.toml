@@ -25,7 +25,7 @@
   to = "/customization/composing-custom-components-with-design-tokens"
 
 [[redirects]]
-  from = "/getting-started/engineering-guidelines"
+  from = "/getting-started/engineering"
   to = "/getting-started/quickstart"
 
 [[headers]]
