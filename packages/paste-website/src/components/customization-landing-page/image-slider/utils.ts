@@ -1,19 +1,18 @@
 import {MAX_VALUE, MIN_VALUE} from './constants';
 
+export const clampValueToRange = (computedValue: number): number => {
+  if (computedValue > MAX_VALUE) {
+    return MAX_VALUE;
+  }
+  if (computedValue < MIN_VALUE) {
+    return MIN_VALUE;
+  }
+
+  return computedValue;
+};
+
 export const convertPositionToInputValue = (width: number, xPosition: number, offset = 0): number => {
   const positionToValue = MAX_VALUE / width;
 
-  return Math.round((xPosition + offset) * positionToValue);
-};
-
-export const clampValueToRange = (computedValue: number): number => {
-  let newValue = computedValue;
-
-  if (computedValue > MAX_VALUE) {
-    newValue = MAX_VALUE;
-  } else if (computedValue < MIN_VALUE) {
-    newValue = MIN_VALUE;
-  }
-
-  return newValue;
+  return clampValueToRange(Math.round((xPosition + offset) * positionToValue));
 };

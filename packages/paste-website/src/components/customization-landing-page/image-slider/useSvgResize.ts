@@ -10,8 +10,8 @@ export const useSvgResize = (
   containerHeight: number | undefined,
   containerWidth: number | undefined
 ): {svgOffset: number; svgHeight: number | undefined; svgWidth: number | undefined} => {
-  const [svgHeight, setSvgHeight] = React.useState<number>();
-  const [svgWidth, setSvgWidth] = React.useState<number>();
+  const [svgHeight, setSvgHeight] = React.useState<number>(0);
+  const [svgWidth, setSvgWidth] = React.useState<number>(0);
 
   React.useEffect(() => {
     if (typeof containerHeight === 'number' && !Number.isNaN(containerHeight)) {
@@ -25,8 +25,7 @@ export const useSvgResize = (
   }, [containerWidth]);
 
   // SVG offset defines the offset from the top position of the SVG that is required to center it against the images.
-  const svgOffset =
-    svgHeight && containerHeight ? (-1 * Math.abs((svgHeight as number) - (containerHeight as number))) / 2 : 0;
+  const svgOffset = containerHeight ? (-1 * Math.abs(svgHeight - containerHeight)) / 2 : 0;
 
   return {svgOffset, svgHeight, svgWidth};
 };

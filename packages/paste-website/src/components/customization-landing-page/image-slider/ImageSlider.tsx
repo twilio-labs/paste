@@ -21,19 +21,15 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
 
   // Set the initial state of the slider to be roughly at the 60% position.
   const [value, setValue] = React.useState<number>(MAX_VALUE * 0.6);
-  const [shouldMeasure, setShouldMeasure] = React.useState(false);
+  const [isDragging, setIsDragging] = React.useState(false);
   const [refsAreInitiated, setRefsAreInitiated] = React.useState(false);
 
   const containerRef = React.useRef<HTMLElement>();
   const svgCircleRef = React.useRef<SVGCircleElement>();
 
-  const handleMouseUp = (): void => {
-    setShouldMeasure(false);
-  };
-
   const {width: containerWidth, x: containerX, height: containerHeight} = containerRef?.current
     ? containerRef.current.getBoundingClientRect()
-    : {width: undefined, height: undefined, x: undefined};
+    : {width: 0, height: 0, x: 0};
 
   const {svgOffset, svgHeight, svgWidth} = useSvgResize(containerHeight, containerWidth);
 
@@ -43,20 +39,40 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
 
   // Width of SVG Clip used to conditionally show/hide part of the each image
   // SVG clip is calculated from right to left, since the dynamic value here is the width.
-  // const clip = (value / MAX_VALUE) * (containerWidth as number);
-  const clip = containerWidth && (value / MAX_VALUE) * (containerWidth as number);
+  // const clip = (value / MAX_VALUE) * containerWidth;
+  const clip = (value / MAX_VALUE) * containerWidth;
+
+  const handleMouseMove = React.useCallback(
+    (event): void => {
+      const {clientX} = event;
+      const computedValue = convertPositionToInputValue(containerWidth, clientX - containerX);
+
+      setValue(computedValue);
+    },
+    [containerWidth, containerX]
+  );
+
+  const handleMouseUp = React.useCallback(
+    (event): void => {
+      setIsDragging(false);
+
+      // We must unbind these manually managed events
+      document.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('mousemove', handleMouseMove);
+
+      const {clientX} = event;
+      const computedValue = convertPositionToInputValue(containerWidth, clientX - containerX);
+
+      setValue(computedValue);
+    },
+    [containerWidth, containerX]
+  );
 
   React.useEffect(() => {
     if (!refsAreInitiated) {
       setRefsAreInitiated(true);
     }
   }, [refsAreInitiated]);
-
-  React.useEffect(() => {
-    return () => {
-      document.removeEventListener('mouseup', handleMouseUp);
-    };
-  }, []);
 
   return (
     <Box
@@ -78,41 +94,16 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
         height="100%"
         display="inherit"
         maxWidth="640px"
-        cursor={shouldMeasure ? 'grabbing' : 'grab'}
+        cursor={isDragging ? 'grabbing' : 'grab'}
         aria-label="Controls the width of the customizable image."
         // @ts-expect-error "htmlFor" is an allowed attribute for Label elements.
         htmlFor={uidSeed(INPUT_ID)}
         color="colorTextWeaker"
         _hover={{color: 'colorTextWeak'}}
         onMouseDown={() => {
-          setShouldMeasure(true);
+          setIsDragging(true);
           document.addEventListener('mouseup', handleMouseUp);
-        }}
-        onMouseUp={(e) => {
-          const {clientX} = e;
-          setShouldMeasure((currentShouldMeasure) => {
-            if (currentShouldMeasure) {
-              const computedValue = convertPositionToInputValue(
-                containerWidth as number,
-                clientX - (containerX as number)
-              );
-
-              setValue(computedValue);
-            }
-
-            return false;
-          });
-        }}
-        onMouseMove={(e) => {
-          const {clientX} = e;
-          if (shouldMeasure) {
-            const computedValue = convertPositionToInputValue(
-              containerWidth as number,
-              clientX - (containerX as number)
-            );
-
-            setValue(computedValue);
-          }
+          document.addEventListener('mousemove', handleMouseMove);
         }}
       >
         <ImageBox label="Sample components with a customized Paste theme" fluid={backFluidObject} />
@@ -137,9 +128,9 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
                 <clipPath id={uidSeed(CLIP_PATH_ID)}>
                   <rect
                     y="0"
-                    x={-1 * (containerWidth as number)}
+                    x={-1 * containerWidth}
                     width={containerWidth}
-                    height={(containerHeight as number) * 2}
+                    height={containerHeight * 2}
                     style={{
                       transform: `translateX(${clip}px)`,
                     }}
@@ -150,7 +141,6 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
           </>
         ) : null}
       </Box>
-
       <Box
         as="input"
         opacity="0"
@@ -174,7 +164,6 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
         }}
         onChange={({target: {value: inputTargetValue}}: React.ChangeEvent<HTMLInputElement>) => {
           const newValue = clampValueToRange(Number(inputTargetValue));
-
           setValue(newValue);
         }}
       />
