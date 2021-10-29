@@ -1,5 +1,4 @@
 import * as React from 'react';
-import renderer from 'react-test-renderer';
 import {render, screen, fireEvent} from '@testing-library/react';
 
 import {Theme} from '@twilio-paste/theme';
@@ -66,27 +65,23 @@ describe('Alert', () => {
 
   describe('Variant neutral', () => {
     it('Should render a neutral alert', (): void => {
-      const tree = renderer
-        .create(
-          <Theme.Provider theme="console">
-            <Alert variant="neutral">This is an alert</Alert>
-          </Theme.Provider>
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+      const {asFragment} = render(
+        <Theme.Provider theme="console">
+          <Alert variant="neutral">This is an alert</Alert>
+        </Theme.Provider>
+      );
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('Should render a neutral alert with dismiss button', (): void => {
-      const tree = renderer
-        .create(
-          <Theme.Provider theme="console">
-            <Alert onDismiss={onDismissMock} variant="neutral">
-              This is an alert
-            </Alert>
-          </Theme.Provider>
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+      const {asFragment} = render(
+        <Theme.Provider theme="console">
+          <Alert onDismiss={onDismissMock} variant="neutral">
+            This is an alert
+          </Alert>
+        </Theme.Provider>
+      );
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('Should have no accessibility violations', async () => {
@@ -105,27 +100,23 @@ describe('Alert', () => {
 
   describe('Variant error', () => {
     it('Should render an error alert', (): void => {
-      const tree = renderer
-        .create(
-          <Theme.Provider theme="console">
-            <Alert variant="error">This is an error alert</Alert>
-          </Theme.Provider>
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+      const {asFragment} = render(
+        <Theme.Provider theme="console">
+          <Alert variant="error">This is an error alert</Alert>
+        </Theme.Provider>
+      );
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('Should render an error alert with dismiss button', (): void => {
-      const tree = renderer
-        .create(
-          <Theme.Provider theme="console">
-            <Alert onDismiss={onDismissMock} variant="error">
-              This is an error alert
-            </Alert>
-          </Theme.Provider>
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+      const {asFragment} = render(
+        <Theme.Provider theme="console">
+          <Alert onDismiss={onDismissMock} variant="neutral">
+            This is an alert
+          </Alert>
+        </Theme.Provider>
+      );
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('Should have no accessibility violations', async () => {
@@ -144,27 +135,23 @@ describe('Alert', () => {
 
   describe('Variant warning', () => {
     it('Should render an warning alert', (): void => {
-      const tree = renderer
-        .create(
-          <Theme.Provider theme="console">
-            <Alert variant="warning">This is an warning alert</Alert>
-          </Theme.Provider>
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+      const {asFragment} = render(
+        <Theme.Provider theme="console">
+          <Alert variant="warning">This is an warning alert</Alert>
+        </Theme.Provider>
+      );
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('Should render an warning alert with dismiss button', (): void => {
-      const tree = renderer
-        .create(
-          <Theme.Provider theme="console">
-            <Alert onDismiss={onDismissMock} variant="warning">
-              This is an warning alert
-            </Alert>
-          </Theme.Provider>
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+      const {asFragment} = render(
+        <Theme.Provider theme="console">
+          <Alert onDismiss={onDismissMock} variant="warning">
+            This is an warning alert
+          </Alert>
+        </Theme.Provider>
+      );
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('Should have no accessibility violations', async () => {

@@ -5,11 +5,13 @@ import {AspectRatio} from '../src';
 describe('AspectRatio', () => {
   it('should render a 4:3 aspect ratio div', () => {
     const {getByTestId} = render(
-      <AspectRatio ratio="4:3" data-testid="foo">
-        <p data-testid="foo">This is the AspectRatio utility.</p>
-      </AspectRatio>
+      <div data-testid="wrapper">
+        <AspectRatio ratio="4:3">
+          <p>This is the AspectRatio utility.</p>
+        </AspectRatio>
+      </div>
     );
 
-    expect(getByTestId('foo')).toHaveStyleRule('padding', '75%');
+    expect(getByTestId('wrapper').firstChild).toHaveAttribute('style', 'padding-bottom: 75%;');
   });
 });
