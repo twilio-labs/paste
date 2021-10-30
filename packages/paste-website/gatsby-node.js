@@ -43,7 +43,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
         isFuture: {
           type: 'Boolean!',
           resolve: (source) => {
-            return new Date(source.data.Release_Date) > new Date();
+            return new Date(source.data.Release_date) > new Date();
           },
         },
       },
