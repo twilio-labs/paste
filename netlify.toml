@@ -24,6 +24,10 @@
   from = "/tokens/how-to-compose-custom-ui-with-tokens"
   to = "/customization/composing-custom-components-with-design-tokens"
 
+[[redirects]]
+  from = "/getting-started/engineering"
+  to = "/getting-started/quickstart"
+
 [[headers]]
   for = "/*"
   [headers.values]

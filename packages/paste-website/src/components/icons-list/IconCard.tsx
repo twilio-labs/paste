@@ -60,8 +60,8 @@ const IconCard: React.FC<IconCardProps> = ({selectedIcon}) => {
           </Box>
         </Box>
         <Paragraph marginBottom="space0">
-          Be sure to read the <SiteLink to="/getting-started/engineering">engineering getting started</SiteLink> page to
-          ensure you have the correct dependencies.
+          Be sure to read the <SiteLink to="/getting-started/quickstart">quick start guide</SiteLink> page to ensure you
+          have the correct dependencies.
         </Paragraph>
       </Card>
     </>
