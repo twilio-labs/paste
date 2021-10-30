@@ -22,7 +22,6 @@ jest.mock('react-virtual', () => {
         ...returnValue,
         virtualItems: virtualItems.map(({measureRef, ...virtualItem}: VirtualItem) => ({
           ...virtualItem,
-          // @ts-expect-error pass on ref to mock implementation
           measureRef: mockMeasureRef.mockImplementation((element) => measureRef(element)),
         })),
       };
