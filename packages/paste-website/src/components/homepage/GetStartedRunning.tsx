@@ -37,7 +37,7 @@ export const GetStartedRunning: React.FC<GetStartedRunningProps> = ({animationDe
         </div>
         <GetStartedCardLinks ref={ref} vertical={linkBoxWidth < 220}>
           <GetStartedCardLink
-            to="/getting-started/engineering"
+            to="/getting-started/quickstart"
             onClick={() =>
               trackCustomEvent({
                 category: 'Get started',

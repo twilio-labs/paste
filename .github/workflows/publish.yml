@@ -44,6 +44,7 @@ jobs:
       - name: "Create Pull Request or Publish to npm"
         uses: changesets/action@master
         with:
+          version: yarn version
           publish: yarn release
           commit: "chore(release): version packages"
         env:
