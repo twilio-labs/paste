@@ -162,7 +162,7 @@ The input component should include the base input, along with supporting element
   {`<>
   <Label htmlFor="email_address" required>Email address</Label>
   <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
-  <HelpText id="email_help_text">Please enter a valid email.</HelpText>
+  <HelpText id="email_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
 
@@ -195,7 +195,7 @@ The input component should include the base input, along with supporting element
     }
     onChange=""
   />
-  <HelpText id="display_name_help_text">Please enter a short title for your message.</HelpText>
+  <HelpText id="display_name_help_text">Enter a short title for your message.</HelpText>
 </>`}
 </LivePreview>
 
@@ -241,13 +241,13 @@ An input for entering a telephone number. It displays a telephone keypad in some
 
 Change a form field to its error state and add an inline error if the value entered doesn't pass validation requirements.
 
-An inline error is placed below the field to inform a user of any errors in their value. If help text exists, the error text should replace and repeat the help text.
+An inline error is placed below the field to inform a user of any errors in their value. If `HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy.
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_error">Email address</Label>
   <Input aria-describedby="email_error_help_text" id="email_error" name="email_error" type="email" placeholder="example@twilio.com" onChange="" hasError />
-  <HelpText id="email_error_help_text" variant="error">Please enter a valid email.</HelpText>
+  <HelpText id="email_error_help_text" variant="error">Enter a valid email. Use your work email address.</HelpText>
 </>`}
 </LivePreview>
 
@@ -261,7 +261,7 @@ If you want to show information that can't be edited, use a [read-only](#read-on
   {`<>
   <Label htmlFor="email_disabled" disabled>Email address</Label>
   <Input aria-describedby="email_disabled_help_text" id="email_disabled" name="email_disabled" type="email" placeholder="example@twilio.com" onChange="" disabled />
-  <HelpText id="email_disabled_help_text">Please enter a valid email.</HelpText>
+  <HelpText id="email_disabled_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
 
@@ -273,7 +273,7 @@ Use a read-only form field when a field's value can't be changed, but users shou
   {`<>
   <Label htmlFor="email_readonly">Email address</Label>
   <Input aria-describedby="email_readonly_help_text" id="email_readonly" name="email_readonly" type="email" placeholder="example@twilio.com" value="example@twilio.com" onChange="" readOnly />
-  <HelpText id="email_readonly_help_text">Please enter a valid email.</HelpText>
+  <HelpText id="email_readonly_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
 
@@ -326,7 +326,7 @@ Use required indicators to show users which fields they must fill out.
   {`<>
   <Label htmlFor="email_address" required>Email address</Label>
   <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
-  <HelpText id="email_help_text">Please enter a valid email.</HelpText>
+  <HelpText id="email_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
 
@@ -342,7 +342,7 @@ Don't prevent form submission by disabling the submit button. An error message c
 
 Use inline error text to explain how to fix an error.
 
-Ideally, help text should have enough information to help users prevent errors. If help text exists and you need to show an error, the error text should replace and repeat the help text until the error has been resolved.
+Ideally, help text should have enough information to help users prevent errors. If `HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy.
 
 Error text should:
 
@@ -414,13 +414,13 @@ Use an input when users are expected to enter less than a single line of text, o
         placeholder="example@twilio.com"
         onChange=""
       />
-      <HelpText id="email_do_help_text">Please enter a valid email.</HelpText>
+      <HelpText id="email_do_help_text">Use your work email address.</HelpText>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use placeholder text for validation instructions." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="email_dont">Email address</Label>
-      <Input id="email_dont" name="email_dont" type="email" placeholder="Please enter a valid email" onChange="" />
+      <Input id="email_dont" name="email_dont" type="email" placeholder="Use your work email address" onChange="" />
     </Box>
   </Dont>
 </DoDont>
@@ -664,7 +664,7 @@ Use an input when users are expected to enter less than a single line of text, o
 
 ---
 
-## Usage Guide
+## Usage guide
 
 ### API
 
@@ -692,7 +692,7 @@ const Component = () => (
 );
 ```
 
-#### Input Props
+#### Input props
 
 All the valid HTML attributes for `input` are supported including the following props:
 

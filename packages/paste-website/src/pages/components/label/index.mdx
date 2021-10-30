@@ -86,7 +86,7 @@ export const pageQuery = graphql`
   {`<>
   <Label htmlFor="email_address" required>Email address</Label>
   <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
-  <HelpText id="email_help_text">Please enter a valid email.</HelpText>
+  <HelpText id="email_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
 
@@ -129,7 +129,7 @@ To support internationalization, avoid starting a sentence with the label and us
   {`<>
   <Label htmlFor="email_address" required>Email address</Label>
   <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
-  <HelpText id="email_help_text">Please enter a valid email.</HelpText>
+  <HelpText id="email_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
 
@@ -155,7 +155,7 @@ To support internationalization, avoid starting a sentence with the label and us
   {`<>
   <Label htmlFor="message" required>Message (at least 120 characters)</Label>
   <TextArea onChange={()=>{}} onChange={()=>{}} aria-describedby="message_help_text" id="message" name="message" placeholder="Enter message" required />
-  <HelpText id="message_help_text">Please enter at least 120 characters</HelpText>
+  <HelpText id="message_help_text">Enter at least 120 characters</HelpText>
 </>`}
 </LivePreview>
 
@@ -183,7 +183,7 @@ To support internationalization, avoid starting a sentence with the label and us
   {`<>
   <Label htmlFor="email_address">Email address</Label>
   <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange=""/>
-  <HelpText id="email_help_text">Please enter a valid email.</HelpText>
+  <HelpText id="email_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
 
@@ -195,7 +195,7 @@ Use required indicators to show users which fields they must fill out.
   {`<>
   <Label htmlFor="email_address" required>Email address</Label>
   <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
-  <HelpText id="email_help_text">Please enter a valid email.</HelpText>
+  <HelpText id="email_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
 
@@ -207,7 +207,7 @@ Use the disabled prop if a the label is associated with a disabled form field to
   {`<>
   <Label htmlFor="email_disabled" disabled>Email address</Label>
   <Input aria-describedby="email_disabled_help_text" id="email_disabled" name="email_disabled" type="email" placeholder="example@twilio.com" onChange="" disabled />
-  <HelpText id="email_disabled_help_text">Please enter a valid email.</HelpText>
+  <HelpText id="email_disabled_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
 
@@ -306,7 +306,7 @@ Use a Label to clearly describe the the form field.
 
 ---
 
-## Usage Guide
+## Usage guide
 
 ### API
 
@@ -329,12 +329,12 @@ const Component = () => (
       foo
     </Label>
     <Input aria-describedby="foo_text" id="foo" name="foo" type="text" placeholder="foo" onChange={FOO} required />
-    <HelpText id="foo_text">Please enter some text</HelpText>
+    <HelpText id="foo_text">Enter some text.</HelpText>
   </>
 );
 ```
 
-Props
+#### Props
 
 All the valid HTML attributes for `label` are supported including the following props:
 
