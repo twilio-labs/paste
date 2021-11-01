@@ -39,7 +39,6 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
 
   // Width of SVG Clip used to conditionally show/hide part of the each image
   // SVG clip is calculated from right to left, since the dynamic value here is the width.
-  // const clip = (value / MAX_VALUE) * containerWidth;
   const clip = (value / MAX_VALUE) * containerWidth;
 
   const handleMouseMove = React.useCallback(
