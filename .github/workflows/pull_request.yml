@@ -30,6 +30,9 @@ jobs:
       - name: Install Dependencies
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install --immutable
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
+
   install_mode_equals:
     runs-on: ubuntu-latest
     steps:
@@ -57,6 +60,9 @@ jobs:
       - name: Install Dependencies
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install --mode=update-lockfile
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
+
   install_mode_space:
     runs-on: ubuntu-latest
     steps:
@@ -84,6 +90,9 @@ jobs:
       - name: Install Dependencies
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install --mode update-lockfile
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
+
   install:
     runs-on: ubuntu-latest
     steps:
@@ -111,6 +120,8 @@ jobs:
       - name: Install Dependencies
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
 
   # build_and_types:
   #   runs-on: ubuntu-latest
