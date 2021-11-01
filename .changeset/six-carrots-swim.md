@@ -71,4 +71,4 @@
 '@twilio-paste/utils': patch
 ---
 
-Upgrade to React 17
+Upgrade Paste to use React 17 by default, but maintain React 16 support for consumers.
