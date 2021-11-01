@@ -15,8 +15,11 @@ import type {
 } from './types';
 import {ButtonPropTypes} from './proptypes';
 import {PrimaryButton} from './PrimaryButton';
+import {PrimaryIconButton} from './PrimaryIconButton';
 import {SecondaryButton} from './SecondaryButton';
+import {SecondaryIconButton} from './SecondaryIconButton';
 import {DestructiveButton} from './DestructiveButton';
+import {DestructiveIconButton} from './DestructiveIconButton';
 import {DestructiveLinkButton} from './DestructiveLinkButton';
 import {DestructiveSecondaryButton} from './DestructiveSecondaryButton';
 import {LinkButton} from './LinkButton';
@@ -152,10 +155,16 @@ const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, s
 
 const getButtonComponent = (variant: ButtonVariants): React.FunctionComponent<DirectButtonProps> => {
   switch (variant) {
+    case 'primary_icon':
+      return PrimaryIconButton;
     case 'secondary':
       return SecondaryButton;
+    case 'secondary_icon':
+      return SecondaryIconButton;
     case 'destructive':
       return DestructiveButton;
+    case 'destructive_icon':
+      return DestructiveIconButton;
     case 'destructive_secondary':
       return DestructiveSecondaryButton;
     case 'link':
