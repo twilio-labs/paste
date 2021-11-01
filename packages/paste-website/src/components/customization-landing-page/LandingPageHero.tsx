@@ -9,6 +9,8 @@ import {Heading} from '@twilio-paste/heading';
 import {WorksGreatWith} from './WorksGreatWith';
 import {LandingPageSectionContent} from './LandingPageLayoutUtils';
 
+import {ImageSlider} from './image-slider';
+
 const imageQuery = graphql`
   query {
     sliderImage: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/customization/hero-slider.png"}) {
@@ -28,11 +30,31 @@ const imageQuery = graphql`
         }
       }
     }
+    heroFrontImage: file(
+      sourceInstanceName: {eq: "assets"}
+      relativePath: {eq: "images/customization/hero-front.png"}
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 640) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    heroBackImage: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/customization/hero-back.png"}) {
+      childImageSharp {
+        fluid(maxWidth: 640) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
   }
 `;
 
 export const LandingPageHero: React.FC = () => {
   const imageData = useStaticQuery(imageQuery);
+
+  const frontFluidObject = imageData.heroFrontImage.childImageSharp.fluid;
+  const backFluidObject = imageData.heroBackImage.childImageSharp.fluid;
 
   return (
     <Box overflow="hidden">
@@ -82,17 +104,9 @@ export const LandingPageHero: React.FC = () => {
                 Start customizing
               </Button>
             </Box>
-            <Box
-              display={['none', 'block']}
-              position="absolute"
-              right="spaceNegative160"
-              top="50px"
-              maxWidth="size60"
-              width="60%"
-              zIndex="zIndex10"
-            >
-              <Img fluid={imageData.sliderImage.childImageSharp.fluid} />
-            </Box>
+
+            <ImageSlider frontFluidObject={frontFluidObject} backFluidObject={backFluidObject} />
+
             <Box display={['block', 'none']} maxWidth="600px" marginX="auto">
               <Img fluid={imageData.sliderImageSmall.childImageSharp.fluid} />
             </Box>
