@@ -83,9 +83,6 @@ tools/.cache/packages.json
 tools/.cache/token-usage.json
 docs
 
-# codemods package
-packages/paste-codemods/tools/mappings.json
-
 # Cypress
 cypress/videos
 cypress/screenshots

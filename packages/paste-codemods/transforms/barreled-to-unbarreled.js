@@ -1,4 +1,4 @@
-const ComponentLookup = require('../tools/mappings.json');
+const ComponentLookup = require('../tools/.cache/mappings.json');
 
 module.exports = function barreledToUnbarreled(fileInfo, api, options) {
   const j = api.jscodeshift;
@@ -6,7 +6,7 @@ module.exports = function barreledToUnbarreled(fileInfo, api, options) {
   const root = j(fileInfo.source);
   const importLookups = {};
 
-  const update = path => {
+  const update = (path) => {
     const importSource = path.value.source.value;
 
     // If it isn't exactly from the package (i.e.: core/esm or core/dist etc) then skip it.
@@ -17,7 +17,7 @@ module.exports = function barreledToUnbarreled(fileInfo, api, options) {
     const untransformedSpecifiers = [];
     const transformedSpecifiers = [];
 
-    path.value.specifiers.forEach(s => {
+    path.value.specifiers.forEach((s) => {
       if (ComponentLookup[s.imported.name]) {
         transformedSpecifiers.push(s);
       } else {
@@ -31,7 +31,7 @@ module.exports = function barreledToUnbarreled(fileInfo, api, options) {
       path.value.specifiers = untransformedSpecifiers;
     }
 
-    transformedSpecifiers.forEach(s => {
+    transformedSpecifiers.forEach((s) => {
       // This may need to check the value but the original lookup should provide that
       const properImport = ComponentLookup[s.imported.name];
 
@@ -50,8 +50,5 @@ module.exports = function barreledToUnbarreled(fileInfo, api, options) {
     });
   };
 
-  return root
-    .find(j.ImportDeclaration)
-    .forEach(update)
-    .toSource(printOptions);
+  return root.find(j.ImportDeclaration).forEach(update).toSource(printOptions);
 };
