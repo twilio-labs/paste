@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {render, screen, fireEvent} from '@testing-library/react';
-
+import {render, screen} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {Theme} from '@twilio-paste/theme';
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore
@@ -19,7 +19,7 @@ describe('Alert', () => {
         </Alert>
       );
 
-      expect(getByRole('button')).toBeDefined();
+      expect(getByRole('button')).toBeInTheDocument();
     });
 
     it('Should call the onDismiss event handler when close button clicked', () => {
@@ -32,7 +32,7 @@ describe('Alert', () => {
       );
 
       const button = getByRole('button');
-      fireEvent.click(button);
+      userEvent.click(button);
       expect(eventHandlerMock).toHaveBeenCalledTimes(1);
     });
   });
@@ -40,17 +40,17 @@ describe('Alert', () => {
   describe('Aria roles', () => {
     it('Should add the role of status to the neutral alert', () => {
       const {getByRole} = render(<Alert variant="neutral">This is an alert</Alert>);
-      expect(getByRole('status')).toBeDefined();
+      expect(getByRole('status')).toBeInTheDocument();
     });
 
     it('Should add the role of alert to the error alert', () => {
       const {getByRole} = render(<Alert variant="error">This is an alert</Alert>);
-      expect(getByRole('alert')).toBeDefined();
+      expect(getByRole('alert')).toBeInTheDocument();
     });
 
     it('Should add the role of alert to the warning alert', () => {
       const {getByRole} = render(<Alert variant="warning">This is an alert</Alert>);
-      expect(getByRole('alert')).toBeDefined();
+      expect(getByRole('alert')).toBeInTheDocument();
     });
 
     it('Should add the provided role to the alert', () => {
@@ -59,31 +59,11 @@ describe('Alert', () => {
           This is an alert
         </Alert>
       );
-      expect(getByRole('tab')).toBeDefined();
+      expect(getByRole('tab')).toBeInTheDocument();
     });
   });
 
   describe('Variant neutral', () => {
-    it('Should render a neutral alert', (): void => {
-      const {asFragment} = render(
-        <Theme.Provider theme="console">
-          <Alert variant="neutral">This is an alert</Alert>
-        </Theme.Provider>
-      );
-      expect(asFragment()).toMatchSnapshot();
-    });
-
-    it('Should render a neutral alert with dismiss button', (): void => {
-      const {asFragment} = render(
-        <Theme.Provider theme="console">
-          <Alert onDismiss={onDismissMock} variant="neutral">
-            This is an alert
-          </Alert>
-        </Theme.Provider>
-      );
-      expect(asFragment()).toMatchSnapshot();
-    });
-
     it('Should have no accessibility violations', async () => {
       const {container} = render(
         <Theme.Provider theme="console">
@@ -99,26 +79,6 @@ describe('Alert', () => {
   });
 
   describe('Variant error', () => {
-    it('Should render an error alert', (): void => {
-      const {asFragment} = render(
-        <Theme.Provider theme="console">
-          <Alert variant="error">This is an error alert</Alert>
-        </Theme.Provider>
-      );
-      expect(asFragment()).toMatchSnapshot();
-    });
-
-    it('Should render an error alert with dismiss button', (): void => {
-      const {asFragment} = render(
-        <Theme.Provider theme="console">
-          <Alert onDismiss={onDismissMock} variant="neutral">
-            This is an alert
-          </Alert>
-        </Theme.Provider>
-      );
-      expect(asFragment()).toMatchSnapshot();
-    });
-
     it('Should have no accessibility violations', async () => {
       const {container} = render(
         <Theme.Provider theme="console">
@@ -134,26 +94,6 @@ describe('Alert', () => {
   });
 
   describe('Variant warning', () => {
-    it('Should render an warning alert', (): void => {
-      const {asFragment} = render(
-        <Theme.Provider theme="console">
-          <Alert variant="warning">This is an warning alert</Alert>
-        </Theme.Provider>
-      );
-      expect(asFragment()).toMatchSnapshot();
-    });
-
-    it('Should render an warning alert with dismiss button', (): void => {
-      const {asFragment} = render(
-        <Theme.Provider theme="console">
-          <Alert onDismiss={onDismissMock} variant="warning">
-            This is an warning alert
-          </Alert>
-        </Theme.Provider>
-      );
-      expect(asFragment()).toMatchSnapshot();
-    });
-
     it('Should have no accessibility violations', async () => {
       const {container} = render(
         <Theme.Provider theme="console">

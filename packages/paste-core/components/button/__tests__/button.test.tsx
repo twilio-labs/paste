@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import {render as testRender, fireEvent} from '@testing-library/react';
+import {render as testRender} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {Theme} from '@twilio-paste/theme';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {shallow} from 'enzyme';
@@ -313,7 +314,7 @@ describe('Button', () => {
         </Button>
       );
 
-      expect(getByRole('link')).toBeDefined();
+      expect(getByRole('link')).toBeInTheDocument();
     });
   });
 
@@ -371,25 +372,21 @@ describe('Button', () => {
 
       const button = getByRole('button');
 
-      fireEvent.click(button);
+      userEvent.click(button);
+      expect(onMouseDownMock).toHaveBeenCalledTimes(1);
+      expect(onMouseUpMock).toHaveBeenCalledTimes(1);
       expect(onClickMock).toHaveBeenCalledTimes(1);
 
-      fireEvent.mouseDown(button);
-      expect(onMouseDownMock).toHaveBeenCalledTimes(1);
+      userEvent.hover(button);
+      expect(onMouseEnterMock).toHaveBeenCalledTimes(2);
 
-      fireEvent.mouseUp(button);
-      expect(onMouseUpMock).toHaveBeenCalledTimes(1);
-
-      fireEvent.mouseEnter(button);
-      expect(onMouseEnterMock).toHaveBeenCalledTimes(1);
-
-      fireEvent.mouseLeave(button);
+      userEvent.unhover(button);
       expect(onMouseLeaveMock).toHaveBeenCalledTimes(1);
 
-      fireEvent.focus(button);
+      userEvent.tab();
       expect(onFocusMock).toHaveBeenCalledTimes(1);
 
-      fireEvent.blur(button);
+      userEvent.tab();
       expect(onBlurMock).toHaveBeenCalledTimes(1);
     });
   });
