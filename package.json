@@ -57,7 +57,8 @@
     "prerelease": "yarn build && yarn lint && yarn test",
     "release": "yarn prerelease && yarn changeset publish",
     "release:next": "yarn lerna publish -m 'chore(release): pre release' --conventional-commits --canary --preid beta --dist-tag next",
-    "version": "node ./tools/build/version.js",
+    "version": "yarn changeset version && yarn install --mode=update-lockfile",
+    "sync-internal-peer-dependencies": "node ./tools/build/version.js",
     "clean": "node ./tools/build/clean-repo.js && lerna clean --yes && lerna run clean && yarn",
     "clean:full": "node ./tools/build/clean-repo.js && lerna clean --yes && lerna run clean && rm -rf node_modules/ && yarn",
     "clean:core": "yarn workspace @twilio-paste/core clean",
@@ -222,5 +223,5 @@
       "pre-push": "if git-branch-is main; then yarn pre-push; fi"
     }
   },
-  "packageManager": "yarn@3.0.2"
+  "packageManager": "yarn@3.1.0"
 }

@@ -84,7 +84,7 @@ export const pageQuery = graphql`
 
 Checkbox groups are used when you have multiple binary choices to make but all choices belong to a single group or field. For example, choosing capabilities when searching for a Phone Number to provision from Twilio. By placing them in a group, users should be able to clearly understand which options make up the collection and also how those options are related to each other.
 
-#### Accessibility Information
+#### Accessibility information
 
 - Checkbox groups **must** have a group legend that describes the collection.
   - The label _should_ be visible.
@@ -92,9 +92,9 @@ Checkbox groups are used when you have multiple binary choices to make but all c
 
 ### About Checkbox
 
-Use a checkbox to present a user with a binary (e.g. on/off) choice that is part of a form. A checkbox should not be used to apply a user's choice instantly. In that case, such as enabling a system feature, you should consider using the toggle switch component (being built in a coming sprint).
+Use a checkbox to present a user with a binary (e.g. on/off) choice that is part of a form. A checkbox should not be used to apply a user's choice instantly. In that case, such as enabling a system feature, you should consider using the toggle switch component ([coming soon](https://paste.twilio.design/roadmap/)).
 
-#### Accessibility Information
+#### Accessibility information
 
 - A checkbox must have a visible label that is in close proximity to the control
 - HTML checkboxes don't natively support the `required` attribute. In cases where a checkbox is required to be checked:
@@ -272,13 +272,13 @@ Use a disabled checkbox group to indicate that all options cannot be interacted 
 
 If the selected options don't pass the group validation requirements, an inline error message should be displayed.
 
-An inline error is placed at the top of the group to inform a user of any errors in their choices. If help text exists, the error text should replace and repeat the help text.
+An inline error is placed at the bottom of the group to inform a user of any errors in their choices.
 
 <LivePreview scope={{Checkbox, CheckboxGroup}} language="jsx">
   {`<CheckboxGroup
   name="api"
   legend="API Key Permissions"
-  errorText="Please select at least one option."
+  errorText="Select at least one option."
 >
   <Checkbox id="full_access" value="full_access">
     Full Access
@@ -290,8 +290,6 @@ An inline error is placed at the top of the group to inform a user of any errors
 </LivePreview>
 
 ## Composition notes
-
-A checkbox must have a visible label.
 
 ### Checkbox labels, legends and help text
 
@@ -308,11 +306,9 @@ To support internationalization, avoid starting a sentence with the legend and u
 
 ### Validation and errors
 
-Validate form fields on form submission. Don't validate each item in a group, treat validation on the group as a whole.
+Validate form fields on form submission. Don't validate each item in a group, treat validation on the group as a whole. Ideally, help text should have enough information to help users prevent errors.
 
 Use inline error text to explain how to fix an error.
-
-Ideally, help text should have enough information to help users prevent errors. If help text exists and you need to show an error, the error text should replace and repeat the help text until the error has been resolved.
 
 Error text should:
 
@@ -325,13 +321,13 @@ Error text should:
 
 Use a checkbox when users are required to make a binary choice. Use a checkbox group when more than one checkbox is related to one another.
 
-There is no maximum number of checkboxes you can have in a group, but when it starts to get over 6 you might consider another component. Use your discretion to decide what is best for your use case. Some alternatives to look at when the number of options starts getting above 6 might be a Select or Combobox.
+There is no maximum number of checkboxes you can have in a group, but consider using another component when you have more than 6 options. Some alternatives might be a [Select](https://paste.twilio.design/components/select/) or [Combobox](https://paste.twilio.design/components/combobox/).
 
 <DoDont>
   <Do title="Do" body="Use checkboxes to enable multiple choice." />
   <Dont
     title="Don't"
-    body="Don't use checkboxes when you need to restrict selection to a single option, use a radio group or select instead."
+    body="Don't use checkboxes when you need to restrict selection to a single option. Use a Radio Group or Select instead."
   />
 </DoDont>
 
@@ -349,18 +345,13 @@ There is no maximum number of checkboxes you can have in a group, but when it st
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Include a visible label on every checkbox" />
+  <Do title="Do" body="Include a visible label on every checkbox. Include a visible legend for the entire group of checkboxes." />
   <Dont title="Don't" body="Don't leave floating, unlabelled checkboxes." />
 </DoDont>
 
 <DoDont>
   <Do title="Do" body="Write label text that clearly describes the value being requested." />
   <Dont title="Don't" body="Don't use the legend and label text in a way that is intended to be read as a sentence." />
-</DoDont>
-
-<DoDont>
-  <Do title="Do" body="Include a visible legend for the entire group of checkboxes." />
-  <Dont title="Don't" body="Don't leave floating, unlabelled checkbox groups." />
 </DoDont>
 
 <DoDont>
@@ -375,7 +366,7 @@ There is no maximum number of checkboxes you can have in a group, but when it st
 
 ---
 
-## Usage Guide
+## Usage guide
 
 ### API
 
@@ -388,7 +379,7 @@ yarn add @twilio-paste/checkbox - or - yarn add @twilio-paste/core
 #### Usage
 
 ```jsx
-import {Checkbox, CheckboxGroup} from '@twilio-paste/checkbox';
+import {Checkbox, CheckboxGroup} from '@twilio-paste/core/checkbox';
 
 const Component = () => (
   <CheckboxGroup name="foo" legend="foo">
@@ -399,7 +390,7 @@ const Component = () => (
 );
 ```
 
-#### Checkbox Props
+#### Checkbox props
 
 All the valid HTML attributes for `input[type=checkbox]` are supported including the following props:
 
@@ -417,7 +408,7 @@ All the valid HTML attributes for `input[type=checkbox]` are supported including
 | onFocus?          | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
 | onBlur?           | `(event: React.MouseEvent<HTMLElement>)` |             | null    |
 
-#### CheckboxGroup Props
+#### CheckboxGroup props
 
 | Prop         | Type                                | Description | Default  |
 | ------------ | ----------------------------------- | ----------- | -------- |
@@ -432,7 +423,7 @@ All the valid HTML attributes for `input[type=checkbox]` are supported including
 | required?    | `boolean`                           |             | false    |
 | isSelectAll? | `boolean`                           |             | false    |
 
-#### CheckboxDisclaimer Props
+#### CheckboxDisclaimer props
 
 All the valid HTML attributes for `input[type=checkbox]` are supported including the following props:
 
