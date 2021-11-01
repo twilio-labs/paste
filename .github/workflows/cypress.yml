@@ -1,48 +1,48 @@
-name: Cypress
+# name: Cypress
 
-on: push
+# on: push
 
-jobs:
-  cypress:
-    runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'chore(release): version packages')"
+# jobs:
+#   cypress:
+#     runs-on: ubuntu-latest
+#     if: "!contains(github.event.head_commit.message, 'chore(release): version packages')"
 
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
+#     steps:
+#       - name: Checkout Repo
+#         uses: actions/checkout@v2
 
-      - name: Setup Node.js 12.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: 12.x
+#       - name: Setup Node.js 12.x
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: 12.x
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+#       - name: Get yarn cache directory path
+#         id: yarn-cache-dir-path
+#         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-      - name: Load Yarn cache
-        uses: actions/cache@v2
-        id: yarn_cache_id
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn
+#       - name: Load Yarn cache
+#         uses: actions/cache@v2
+#         id: yarn_cache_id
+#         with:
+#           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+#           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+#           restore-keys: |
+#             ${{ runner.os }}-yarn
 
-      - name: Install Dependencies
-        run: yarn install --immutable
+#       - name: Install Dependencies
+#         run: yarn install --immutable
 
-      - name: Build packages
-        run: yarn build
+#       - name: Build packages
+#         run: yarn build
 
-      - name: Build website
-        run: yarn build:website
-        env:
-          AIRTABLE_APIKEY: ${{ secrets.AIRTABLE_APIKEY }}
-          AIRTABLE_BASEID: ${{ secrets.AIRTABLE_BASEID }}
-          GATSBY_DOCSEARCH_APIKEY: ${{ secrets.GATSBY_DOCSEARCH_APIKEY }}
+#       - name: Build website
+#         run: yarn build:website
+#         env:
+#           AIRTABLE_APIKEY: ${{ secrets.AIRTABLE_APIKEY }}
+#           AIRTABLE_BASEID: ${{ secrets.AIRTABLE_BASEID }}
+#           GATSBY_DOCSEARCH_APIKEY: ${{ secrets.GATSBY_DOCSEARCH_APIKEY }}
 
-      - name: Run cypress
-        run: yarn test:website
-        env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+#       - name: Run cypress
+#         run: yarn test:website
+#         env:
+#           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
