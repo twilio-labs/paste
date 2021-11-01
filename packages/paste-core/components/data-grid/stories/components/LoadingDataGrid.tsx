@@ -9,7 +9,7 @@ export const LoadingDataGrid: React.FC = () => {
   const widthsLength = widths.length;
   /* eslint-disable react/no-array-index-key */
   return (
-    <DataGrid aria-label="User information table">
+    <DataGrid aria-label="User information table" striped={false}>
       <DataGridHead>
         <DataGridRow>
           <DataGridHeader>{TableHeaderData[0]}</DataGridHeader>
