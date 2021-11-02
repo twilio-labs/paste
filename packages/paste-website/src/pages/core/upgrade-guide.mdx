@@ -1,0 +1,206 @@
+---
+title: Upgrade Guide
+description: Summary of Breaking Changes to Core, with actions that should be taken before upgrading
+slug: /core/upgrade-guide
+---
+
+import {Card} from '@twilio-paste/card';
+import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
+import {Stack} from '@twilio-paste/stack';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
+import {Codeblock} from '../../components/codeblock';
+import {SidebarCategoryRoutes} from '../../constants';
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/core/upgrade-guide/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<ComponentHeader name={props.pageContext.frontmatter.title} categoryRoute={SidebarCategoryRoutes.CORE} />
+<p>{props.pageContext.frontmatter.description}</p>
+
+---
+
+ <contentwrapper>
+
+<PageAside data={props.data.mdx} />
+
+<content>
+
+### Core 10.0.0
+
+- [Truncate] `title` prop is required for the Truncate component. More details: [`fa2ffc5c`](https://github.com/twilio-labs/paste/commit/fa2ffc5cf4da037dcfa0894d033665720cc70ab4) [#1603](https://github.com/twilio-labs/paste/pull/1603)
+
+  **ACTION NEEDED**: Add a title prop to all uses of the Truncate component. This prop should be a string that matches the contents of the component.
+
+  ```
+  // prior to action taken:
+  <Truncate>Some very long text to truncate</Truncate>
+
+  // AFTER action taken:
+  <Truncate title="Some very long text to truncate">Some very long text to truncate</Truncate>
+
+  ```
+
+### Core 9.0.0
+
+- [Button] Button components used as links (as="a" and href="") now automatically add an arrow icon if children is a string. This is a **design** breaking change that you should be aware of when upgrading. More details: [`1bcb8b30`](https://github.com/twilio-labs/paste/commit/1bcb8b3093920fdd871f8a13b498a8eb99201200) [#1307](https://github.com/twilio-labs/paste/pull/1307)
+
+  **ACTION NEEDED**: Inspect all instances of Buttons as links, ensuring the design change works as intended for your layout.
+
+  <Box marginBottom="space30">
+    <Button as="a" href="https://twilio.com">
+      <span>Twilio</span>
+    </Button>
+  </Box>
+
+  ```
+  // prior to upgrade:
+  <Button as="a" href="https://twilio.com">Twilio</Button>
+  ```
+
+  <Box marginBottom="space30">
+    <Button as="a" href="https://twilio.com">
+      Twilio
+    </Button>
+  </Box>
+
+  ```
+  // AFTER upgrade:
+  <Button as="a" href="https://twilio.com">Twilio</Button>
+  ```
+
+- [Button] Additional validation added to throw an error if the `disabled` or `loading` props are set to true for a Button as link. This is a functionality breaking change to existing disabled link buttons. More details: [`1bcb8b30`](https://github.com/twilio-labs/paste/commit/1bcb8b3093920fdd871f8a13b498a8eb99201200) [#1307](https://github.com/twilio-labs/paste/pull/1307)
+
+  **ACTION NEEDED**: Ensure there are no instances of Buttons as links that use `disabled` or `loading` props as true.
+
+  ```
+  // prior to action taken:
+  <Button as="a" href="https://twilio.com" disabled>Twilio</Button>
+
+  // AFTER action taken:
+  <Button as="a" href="https://twilio.com">Twilio</Button>
+
+  ```
+
+### Core 4.3.2
+
+- [Disclosure] `style` prop is now being blocked by safelySpreadBoxProps, so any additional styles will no longer be rendered. More details: [`b8265071`](https://github.com/twilio-labs/paste/commit/b82650716256de22aeff36e00d46577f71d1b3fd)
+
+  **ACTION NEEDED**: Ensure there are no instances of Disclosure that use the `style` prop.
+
+```
+//prior to action taken:
+<Disclosure style={{background-color: 'red'}}>
+ <DisclosureHeading as="h2" variant="heading20">
+    Disclosure Heading
+  </DisclosureHeading>
+  <DisclosureContent>
+    Content
+  </DisclosureContent>
+</Disclosure>
+```
+
+<LivePreview scope={{Disclosure, DisclosureHeading, DisclosureContent}} language="jsx">
+  {`
+// AFTER action taken:
+<Disclosure>
+  <DisclosureHeading as="h2" variant="heading40">
+    Disclosure Heading
+  </DisclosureHeading>
+  <DisclosureContent>
+    Content
+  </DisclosureContent>
+</Disclosure>`}
+</LivePreview>
+
+### Core 4.2.3
+
+- [Several Components] Many components now use fowardRef, allowing for ease in passing down refs. The full list is available below. More details: [commit history](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@4.2.2...@twilio-paste/core@4.2.3)
+
+<Box marginBottom="space60">
+  <Disclosure>
+    <DisclosureHeading as="h4" variant="heading50">
+      Show full list of components now using forwardRef
+    </DisclosureHeading>
+    <DisclosureContent>
+      <UnorderedList>
+        <ListItem>Alert</ListItem>
+        <ListItem>Avatar</ListItem>
+        <ListItem>Checkbox</ListItem>
+        <ListItem>Heading</ListItem>
+        <ListItem>Help Text</ListItem>
+        <ListItem>Label</ListItem>
+        <ListItem>Paragraph</ListItem>
+        <ListItem>Screen Reader Only</ListItem>
+        <ListItem>Separator</ListItem>
+        <ListItem>Spinner</ListItem>
+        <ListItem>Truncate</ListItem>
+        <ListItem>Aspect Ratio</ListItem>
+        <ListItem>Media Object</ListItem>
+        <ListItem>Stack</ListItem>
+        <ListItem>Combobox</ListItem>
+        <ListItem>Disclosure</ListItem>
+        <ListItem>Menu</ListItem>
+        <ListItem>Modal</ListItem>
+        <ListItem>Radio Group</ListItem>
+        <ListItem>Tabs</ListItem>
+        <ListItem>Toast</ListItem>
+        <ListItem>Grid</ListItem>
+      </UnorderedList>
+    </DisclosureContent>
+  </Disclosure>
+</Box>
+
+**ACTION NEEDED**: No action is needed, but you can now pass a ref down to a component easily, as shown in the following example.
+
+```
+<Alert ref={ref} />
+```
+
+### Core 4.2.0
+
+- [Theme] The Color key has been removed from the theme. This makes for a better experience as there are no duplicate colors. Each type of color has their own key on theme. More details: [commit history](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@4.1.15...@twilio-paste/core@4.2.0)
+
+### Core 4.0.0
+
+- [Core] The Absolute component has been deprecated. For a replacement use the Box component with absolute positioning. More details: [`84c22b4`](https://github.com/twilio-labs/paste/commit/84c22b42ccdc5e924101b586592e93e1c8f19fba)
+
+**Action Needed**: Replace any Absolute components with a Box component with the `position` prop set to `absolute`.
+
+```
+// prior to action taken:
+<Absolute>Content goes here</Absolute>
+
+// AFTER action taken:
+<Box position="absolute">Content goes here</Box>
+```
+
+### Core 3.0.0
+
+- [Core] The Core package no longer bundles the '@twilio-paste/form' package. All components previously in '@twilio-paste/form' are now available separately within core. More details: [commit history](https://github.com/twilio-labs/paste/compare/@twilio-paste/core@2.18.6...@twilio-paste/core@3.0.0)
+
+**Action Required**: Update any import statements from '@twilio-paste/form' to use '@twilio-paste/core' instead.
+
+```
+// prior to action taken:
+import {Input} from '@twilio-paste/form'
+
+// AFTER action taken:
+import {Input} from '@twilio-paste/core/input'
+```
+
+</content>
+</contentwrapper>
