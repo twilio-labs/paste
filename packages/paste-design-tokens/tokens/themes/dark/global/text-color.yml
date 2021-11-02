@@ -46,8 +46,11 @@ props:
     value: "{!palette-blue-30}"
     comment: Strong shade of link text to be used in interactions
   color-text-link-stronger:
-    value: "{!palette-gray-0}"
+    value: "{!palette-blue-10}"
     comment: Stronger shade of link text to be used in interactions
+  color-text-link-strongest:
+    value: "{!palette-gray-0}"
+    comment: Strongest shade of link text to be used in interactions
   color-text-link-destructive:
     value: "{!palette-red-50}"
     comment: Destructive link text
@@ -58,8 +61,11 @@ props:
     value: "{!palette-red-30}"
     comment: Strong shade of destructive link text to be used in interactions
   color-text-link-destructive-stronger:
-    value: "{!palette-gray-0}"
+    value: "{!palette-red-10}"
     comment: Stronger shade of destructive link text to be used in interactions
+  color-text-link-destructive-strongest:
+    value: "{!palette-gray-0}"
+    comment: Strongest shade of destructive link text to be used in interactions
 
   #status
   color-text-error-weak:
