@@ -1,5 +1,7 @@
 import * as React from 'react';
-import {render as testRender} from '@testing-library/react';
+import {render as testRender, screen} from '@testing-library/react';
+
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {InlineControlGroup} from '../src';
 
 const defaultGroupProps = {
@@ -54,5 +56,108 @@ describe('InlineControlGroup', () => {
       </InlineControlGroup>
     );
     expect(getByText(errorText)).toBeDefined();
+  });
+});
+
+describe('Customization', () => {
+  it('Should set a default element data attribute for Inline Control Group', (): void => {
+    const {container} = testRender(
+      <InlineControlGroup data-testid="inline-control-group" {...defaultGroupProps} errorText="error">
+        <div />
+      </InlineControlGroup>
+    );
+    expect(screen.getByTestId('inline-control-group')).toHaveAttribute('data-paste-element', 'INLINE_CONTROL_GROUP');
+    expect(container.querySelector('[data-paste-element="INLINE_CONTROL_GROUP_SET"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="INLINE_CONTROL_GROUP_FIELD"]')).toBeInTheDocument();
+    expect(
+      container.querySelector('[data-paste-element="INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER"]')
+    ).toBeInTheDocument();
+  });
+
+  it('Should set a custom element data attribute for custom named Inline Control Group', (): void => {
+    const {container} = testRender(
+      <InlineControlGroup
+        element="MY_INLINE_CONTROL_GROUP"
+        data-testid="inline-control-group"
+        {...defaultGroupProps}
+        errorText="error"
+      >
+        <div />
+      </InlineControlGroup>
+    );
+    expect(screen.getByTestId('inline-control-group')).toHaveAttribute('data-paste-element', 'MY_INLINE_CONTROL_GROUP');
+    expect(container.querySelector('[data-paste-element="MY_INLINE_CONTROL_GROUP_SET"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="MY_INLINE_CONTROL_GROUP_FIELD"]')).toBeInTheDocument();
+    expect(
+      container.querySelector('[data-paste-element="MY_INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER"]')
+    ).toBeInTheDocument();
+  });
+
+  it('Should add custom styling to default Inline Control Group', (): void => {
+    const {container} = testRender(
+      <CustomizationProvider
+        // @ts-expect-error global test variable
+        theme={TestTheme}
+        elements={{
+          INLINE_CONTROL_GROUP: {margin: 'space60'},
+          INLINE_CONTROL_GROUP_SET: {marginLeft: 'space60'},
+          INLINE_CONTROL_GROUP_FIELD: {color: 'colorTextSuccess'},
+          INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER: {marginTop: 'space60'},
+        }}
+      >
+        <InlineControlGroup data-testid="inline-control-group" {...defaultGroupProps} errorText="error">
+          <div />
+        </InlineControlGroup>
+      </CustomizationProvider>
+    );
+    expect(screen.getByTestId('inline-control-group')).toHaveStyleRule('margin', '1.25rem');
+    expect(container.querySelector('[data-paste-element="INLINE_CONTROL_GROUP_SET"]')).toHaveStyleRule(
+      'margin-left',
+      '1.25rem'
+    );
+    expect(container.querySelector('[data-paste-element="INLINE_CONTROL_GROUP_FIELD"]')).toHaveStyleRule(
+      'color',
+      'rgb(14,124,58)'
+    );
+    expect(container.querySelector('[data-paste-element="INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER"]')).toHaveStyleRule(
+      'margin-top',
+      '1.25rem'
+    );
+  });
+
+  it('Should add custom styling to custom named Inline Control Group', (): void => {
+    const {container} = testRender(
+      <CustomizationProvider
+        // @ts-expect-error global test variable
+        theme={TestTheme}
+        elements={{
+          MY_INLINE_CONTROL_GROUP: {margin: 'space60'},
+          MY_INLINE_CONTROL_GROUP_SET: {marginLeft: 'space60'},
+          MY_INLINE_CONTROL_GROUP_FIELD: {color: 'colorTextSuccess'},
+          MY_INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER: {marginTop: 'space60'},
+        }}
+      >
+        <InlineControlGroup
+          element="MY_INLINE_CONTROL_GROUP"
+          data-testid="inline-control-group"
+          {...defaultGroupProps}
+          errorText="error"
+        >
+          <div />
+        </InlineControlGroup>
+      </CustomizationProvider>
+    );
+    expect(screen.getByTestId('inline-control-group')).toHaveStyleRule('margin', '1.25rem');
+    expect(container.querySelector('[data-paste-element="MY_INLINE_CONTROL_GROUP_SET"]')).toHaveStyleRule(
+      'margin-left',
+      '1.25rem'
+    );
+    expect(container.querySelector('[data-paste-element="MY_INLINE_CONTROL_GROUP_FIELD"]')).toHaveStyleRule(
+      'color',
+      'rgb(14,124,58)'
+    );
+    expect(
+      container.querySelector('[data-paste-element="MY_INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER"]')
+    ).toHaveStyleRule('margin-top', '1.25rem');
   });
 });

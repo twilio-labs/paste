@@ -1,16 +1,14 @@
 import * as React from 'react';
-import {matchers} from 'jest-emotion';
-import {render} from 'react-dom';
+
 import {render as testRender} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {Theme} from '@twilio-paste/theme';
-import type {ReactWrapper} from 'enzyme';
-import {shallow, mount} from 'enzyme';
+import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
+import {shallow} from 'enzyme';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Button} from '../src';
-
-expect.extend(matchers);
 
 const NOOP = (): void => {};
 const HREF = 'https://twilio.paste.design';
@@ -18,122 +16,98 @@ const HREF = 'https://twilio.paste.design';
 describe('Button', () => {
   describe('Button axe checker', () => {
     it('Primary has no accessibility violations', async () => {
-      const container = document.createElement('div');
-      document.body.append(container);
-      render(
+      const {container} = testRender(
         <Theme.Provider theme="console">
           <Button variant="primary" type="submit" onClick={NOOP}>
             Submit
           </Button>
-        </Theme.Provider>,
-        container
+        </Theme.Provider>
       );
-      const results = await axe(document.body);
+      const results = await axe(container);
       expect(results).toHaveNoViolations();
     });
 
     it('Secondary has no accessibility violations', async () => {
-      const container = document.createElement('div');
-      document.body.append(container);
-      render(
+      const {container} = testRender(
         <Theme.Provider theme="console">
-          <Button variant="secondary" type="button" onClick={NOOP}>
+          <Button variant="secondary" type="submit" onClick={NOOP}>
             Submit
           </Button>
-        </Theme.Provider>,
-        container
+        </Theme.Provider>
       );
-      const results = await axe(document.body);
+      const results = await axe(container);
       expect(results).toHaveNoViolations();
     });
 
     it('Destructive has no accessibility violations', async () => {
-      const container = document.createElement('div');
-      document.body.append(container);
-      render(
+      const {container} = testRender(
         <Theme.Provider theme="console">
           <Button variant="destructive" onClick={NOOP}>
             Delete
           </Button>
-        </Theme.Provider>,
-        container
+        </Theme.Provider>
       );
-      const results = await axe(document.body);
+      const results = await axe(container);
       expect(results).toHaveNoViolations();
     });
 
     it('Destructive_secondary has no accessibility violations', async () => {
-      const container = document.createElement('div');
-      document.body.append(container);
-      render(
+      const {container} = testRender(
         <Theme.Provider theme="console">
           <Button variant="destructive_secondary" onClick={NOOP}>
             Delete
           </Button>
-        </Theme.Provider>,
-        container
+        </Theme.Provider>
       );
-      const results = await axe(document.body);
+      const results = await axe(container);
       expect(results).toHaveNoViolations();
     });
 
     it('Destructive_link has no accessibility violations', async () => {
-      const container = document.createElement('div');
-      document.body.append(container);
-      render(
+      const {container} = testRender(
         <Theme.Provider theme="console">
           <Button variant="destructive_link" onClick={NOOP}>
             Undo
           </Button>
-        </Theme.Provider>,
-        container
+        </Theme.Provider>
       );
-      const results = await axe(document.body);
+      const results = await axe(container);
       expect(results).toHaveNoViolations();
     });
 
     it('Link button has no accessibility violations', async () => {
-      const container = document.createElement('div');
-      document.body.append(container);
-      render(
+      const {container} = testRender(
         <Theme.Provider theme="console">
           <Button variant="link" onClick={NOOP}>
             Go to Paste
           </Button>
-        </Theme.Provider>,
-        container
+        </Theme.Provider>
       );
-      const results = await axe(document.body);
+      const results = await axe(container);
       expect(results).toHaveNoViolations();
     });
 
     it('Loading states have no accessibility violations', async () => {
-      const container = document.createElement('div');
-      document.body.append(container);
-      render(
+      const {container} = testRender(
         <Theme.Provider theme="console">
-          <Button variant="primary" loading>
+          <Button variant="primary" onClick={NOOP} loading>
             Submit
           </Button>
-        </Theme.Provider>,
-        container
+        </Theme.Provider>
       );
-      const results = await axe(document.body);
+      const results = await axe(container);
       expect(results).toHaveNoViolations();
     });
 
     it('Disabled states have no accessibility violations', async () => {
-      const container = document.createElement('div');
-      document.body.append(container);
-      render(
+      const {container} = testRender(
         <Theme.Provider theme="console">
-          <Button variant="destructive" disabled>
-            Submit
+          <Button variant="destructive" onClick={NOOP} disabled>
+            Undo
           </Button>
-        </Theme.Provider>,
-        container
+        </Theme.Provider>
       );
-      const results = await axe(document.body);
+      const results = await axe(container);
       expect(results).toHaveNoViolations();
     });
   });
@@ -265,74 +239,82 @@ describe('Button', () => {
 
   describe('Button aria attributes', () => {
     it('Has an aria-expanded attribute', () => {
-      const wrapper: ReactWrapper = mount(
+      const {getByRole} = testRender(
         <Button variant="secondary" aria-expanded="true">
           button
         </Button>
       );
-      expect(wrapper.exists('button[aria-expanded="true"]')).toEqual(true);
+
+      expect(getByRole('button')).toHaveAttribute('aria-expanded', 'true');
     });
 
     it('Has an aria-haspopup attribute', () => {
-      const wrapper: ReactWrapper = mount(
-        <Button variant="secondary" aria-haspopup="true" onClick={NOOP}>
+      const {getByRole} = testRender(
+        <Button variant="secondary" aria-haspopup="true">
           button
         </Button>
       );
-      expect(wrapper.exists('button[aria-haspopup="true"]')).toEqual(true);
+
+      expect(getByRole('button')).toHaveAttribute('aria-haspopup', 'true');
     });
 
     it('Has an aria-controls attribute', () => {
-      const wrapper: ReactWrapper = mount(
+      const {getByRole} = testRender(
         <Button variant="secondary" aria-controls="some-id">
           button
         </Button>
       );
-      expect(wrapper.exists('button[aria-controls="some-id"]')).toEqual(true);
+
+      expect(getByRole('button')).toHaveAttribute('aria-controls', 'some-id');
     });
 
     it('Has an aria-busy attribute when loading', () => {
-      const wrapper: ReactWrapper = mount(
-        <Theme.Provider theme="default">
+      const {getByRole} = testRender(
+        <Theme.Provider theme="console">
           <Button variant="secondary" loading>
             button
           </Button>
         </Theme.Provider>
       );
-      expect(wrapper.exists('button[aria-busy="true"]')).toEqual(true);
-      expect(wrapper.find('button').props().disabled).toEqual(true);
+
+      const button = getByRole('button');
+
+      expect(button).toHaveAttribute('aria-busy', 'true');
+      expect(button).toBeDisabled();
     });
 
     it('Has disabled set on HTML when disabled', () => {
-      const wrapper: ReactWrapper = mount(
+      const {getByRole} = testRender(
         <Button variant="secondary" disabled>
           button
         </Button>
       );
-      expect(wrapper.exists('button[aria-busy="true"]')).toEqual(false);
-      expect(wrapper.find('button').props().disabled).toEqual(true);
+
+      expect(getByRole('button')).toBeDisabled();
     });
   });
 
   describe('Button data attributes', () => {
     it('Has an data-foo attribute', () => {
-      const wrapper: ReactWrapper = mount(
+      const {getByRole} = testRender(
         <Button variant="secondary" data-foo="test">
           button
         </Button>
       );
-      expect(wrapper.exists('button[data-foo="test"]')).toEqual(true);
+
+      expect(getByRole('button')).toHaveAttribute('data-foo', 'test');
     });
   });
 
   describe('Button render as', () => {
     it('Renders a button as a link', () => {
-      const wrapper: ReactWrapper = mount(
+      const {getByRole} = testRender(
         <Button as="a" variant="secondary" href="/tests">
           button
         </Button>
       );
-      expect(wrapper.exists('a')).toEqual(true);
+
+      expect(getByRole('link')).toBeInTheDocument();
     });
   });
 
@@ -347,6 +329,22 @@ describe('Button', () => {
     });
   });
 
+  describe('Button inner padding', () => {
+    it('should not set padding for buttons with only one child', () => {
+      const {getByText} = testRender(<Button variant="primary">Hello</Button>);
+      expect(getByText('Hello')).not.toHaveStyleRule('padding', 'undefined');
+    });
+    it('should set padding between rendered children', () => {
+      const {getByText} = testRender(
+        <Button variant="primary">
+          Hello
+          <PlusIcon decorative />
+        </Button>
+      );
+      expect(getByText('Hello')).toHaveStyleRule('column-gap', 'space20');
+    });
+  });
+
   describe('button event handlers', () => {
     it('Should call the appropriate event handlers', () => {
       const onClickMock: jest.Mock = jest.fn();
@@ -357,9 +355,9 @@ describe('Button', () => {
       const onFocusMock: jest.Mock = jest.fn();
       const onBlurMock: jest.Mock = jest.fn();
 
-      const wrapper: ReactWrapper = mount(
+      const {getByRole} = testRender(
         <Button
-          variant="secondary"
+          variant="primary"
           onClick={onClickMock}
           onMouseDown={onMouseDownMock}
           onMouseUp={onMouseUpMock}
@@ -368,23 +366,27 @@ describe('Button', () => {
           onFocus={onFocusMock}
           onBlur={onBlurMock}
         >
-          button
+          Hello
         </Button>
       );
 
-      wrapper.simulate('click');
-      expect(onClickMock).toHaveBeenCalledTimes(1);
-      wrapper.simulate('mousedown');
+      const button = getByRole('button');
+
+      userEvent.click(button);
       expect(onMouseDownMock).toHaveBeenCalledTimes(1);
-      wrapper.simulate('mouseup');
       expect(onMouseUpMock).toHaveBeenCalledTimes(1);
-      wrapper.simulate('mouseenter');
-      expect(onMouseEnterMock).toHaveBeenCalledTimes(1);
-      wrapper.simulate('mouseleave');
+      expect(onClickMock).toHaveBeenCalledTimes(1);
+
+      userEvent.hover(button);
+      expect(onMouseEnterMock).toHaveBeenCalledTimes(2);
+
+      userEvent.unhover(button);
       expect(onMouseLeaveMock).toHaveBeenCalledTimes(1);
-      wrapper.simulate('focus');
+
+      userEvent.tab();
       expect(onFocusMock).toHaveBeenCalledTimes(1);
-      wrapper.simulate('blur');
+
+      userEvent.tab();
       expect(onBlurMock).toHaveBeenCalledTimes(1);
     });
   });

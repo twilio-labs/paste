@@ -1,5 +1,17 @@
 # Change Log
 
+## 6.1.1
+
+### Patch Changes
+
+- [`01baddcd`](https://github.com/twilio-labs/paste/commit/01baddcd62c9367c7d6d12bb853a25d4849132f6) [#1925](https://github.com/twilio-labs/paste/pull/1925) Thanks [@shleewhite](https://github.com/shleewhite)! - Add displayNames to all components
+
+## 6.1.0
+
+### Minor Changes
+
+- [`db9f9665`](https://github.com/twilio-labs/paste/commit/db9f96657c8e3d9230ef17e1a0ab4658b6016dca) [#1915](https://github.com/twilio-labs/paste/pull/1915) Thanks [@zahnster](https://github.com/zahnster)! - [Popover] Enable component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
+
 ## 6.0.4
 
 ### Patch Changes

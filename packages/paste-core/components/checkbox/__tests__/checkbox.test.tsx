@@ -1,9 +1,24 @@
 import * as React from 'react';
 import {render} from 'react-dom';
-import {render as testRender, fireEvent} from '@testing-library/react';
+
+import {render as testRender, fireEvent, screen} from '@testing-library/react';
+import {CustomizationProvider} from '@twilio-paste/customization';
+import type {PasteCustomCSS} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {Checkbox, CheckboxGroup} from '../src';
+
+const getCustomizationStyles = (element = 'CHECKBOX'): {[key: string]: PasteCustomCSS} => ({
+  [`${element}_GROUP`]: {padding: 'space60'},
+  [`${element}_GROUP_SET`]: {marginLeft: 'space60'},
+  [`${element}_GROUP_FIELD`]: {marginBottom: 'space60'},
+  [`${element}_GROUP_ERROR_TEXT_WRAPPER`]: {marginBottom: 'space60'},
+  [`${element}`]: {padding: 'space30'},
+  [`${element}_CONTROL`]: {borderRadius: 'borderRadius20'},
+  [`${element}_ICON`]: {color: 'colorTextIconNeutral'},
+  [`${element}_LABEL_TEXT`]: {color: 'colorTextNeutral'},
+  [`${element}_HELP_TEXT_WRAPPER`]: {marginBottom: 'space60'},
+});
 
 const NOOP = (): void => {};
 
@@ -221,6 +236,138 @@ describe('Checkbox event handlers', () => {
 
     fireEvent.click(getByTestId('checkbox-button'));
     expect((getByTestId('checkbox-button') as HTMLInputElement).checked).toBe(true);
+  });
+});
+
+describe('Customization', () => {
+  it('Should set an element data attribute for Checkbox', (): void => {
+    const {container} = testRender(
+      <CheckboxGroup data-testid="checkbox-group" {...defaultGroupProps} errorText="error">
+        <Checkbox {...defaultProps} helpText="bar">
+          foo
+        </Checkbox>
+      </CheckboxGroup>
+    );
+
+    expect(screen.getByTestId('checkbox-group')).toHaveAttribute('data-paste-element', 'CHECKBOX_GROUP');
+    expect(container.querySelector('[data-paste-element="CHECKBOX_GROUP_SET"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="CHECKBOX_GROUP_FIELD"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="CHECKBOX_GROUP_ERROR_TEXT_WRAPPER"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="CHECKBOX"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="CHECKBOX_CONTROL"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="CHECKBOX_ICON"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="CHECKBOX_LABEL_TEXT"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="CHECKBOX_HELP_TEXT_WRAPPER"]')).toBeInTheDocument();
+  });
+  it('Should set a custom element data attribute on Checkbox', (): void => {
+    const {container} = testRender(
+      <CheckboxGroup element="MY_CHECKBOX_GROUP" data-testid="checkbox-group" {...defaultGroupProps} errorText="error">
+        <Checkbox element="SPECIAL_CHECKBOX" {...defaultProps} helpText="bar">
+          foo
+        </Checkbox>
+      </CheckboxGroup>
+    );
+
+    expect(screen.getByTestId('checkbox-group')).toHaveAttribute('data-paste-element', 'MY_CHECKBOX_GROUP');
+    expect(container.querySelector('[data-paste-element="MY_CHECKBOX_GROUP_SET"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="MY_CHECKBOX_GROUP_FIELD"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="MY_CHECKBOX_GROUP_ERROR_TEXT_WRAPPER"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="SPECIAL_CHECKBOX"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="SPECIAL_CHECKBOX_CONTROL"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="SPECIAL_CHECKBOX_ICON"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="SPECIAL_CHECKBOX_LABEL_TEXT"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-paste-element="SPECIAL_CHECKBOX_HELP_TEXT_WRAPPER"]')).toBeInTheDocument();
+  });
+
+  it('should add custom styling to default Checkbox', (): void => {
+    const {container} = testRender(
+      <CustomizationProvider
+        // @ts-expect-error global test variable
+        theme={TestTheme}
+        elements={getCustomizationStyles()}
+      >
+        <CheckboxGroup data-testid="checkbox-group" {...defaultGroupProps} errorText="error">
+          <Checkbox {...defaultProps} helpText="bar">
+            foo
+          </Checkbox>
+        </CheckboxGroup>
+      </CustomizationProvider>
+    );
+    expect(screen.getByTestId('checkbox-group')).toHaveStyleRule('padding', '1.25rem');
+    expect(container.querySelector('[data-paste-element="CHECKBOX_GROUP_SET"]')).toHaveStyleRule(
+      'margin-left',
+      '1.25rem'
+    );
+    expect(container.querySelector('[data-paste-element="CHECKBOX_GROUP_FIELD"]')).toHaveStyleRule(
+      'margin-bottom',
+      '1.25rem'
+    );
+    expect(container.querySelector('[data-paste-element="CHECKBOX_GROUP_ERROR_TEXT_WRAPPER"]')).toHaveStyleRule(
+      'margin-bottom',
+      '1.25rem'
+    );
+    expect(container.querySelector('[data-paste-element="CHECKBOX"]')).toHaveStyleRule('padding', '0.5rem');
+    expect(container.querySelector('[data-paste-element="CHECKBOX_CONTROL"]')).toHaveStyleRule('border-radius', '4px');
+    expect(container.querySelector('[data-paste-element="CHECKBOX_ICON"]')).toHaveStyleRule('color', 'rgb(0,20,137)');
+    expect(container.querySelector('[data-paste-element="CHECKBOX_LABEL_TEXT"]')).toHaveStyleRule(
+      'color',
+      'rgb(0,20,137)'
+    );
+    expect(container.querySelector('[data-paste-element="CHECKBOX_HELP_TEXT_WRAPPER"]')).toHaveStyleRule(
+      'margin-bottom',
+      '1.25rem'
+    );
+  });
+
+  it('should add custom styling to a custom named Checkbox', (): void => {
+    const {container} = testRender(
+      <CustomizationProvider
+        // @ts-expect-error global test variable
+        theme={TestTheme}
+        elements={getCustomizationStyles('MY_CHECKBOX')}
+      >
+        <CheckboxGroup
+          element="MY_CHECKBOX_GROUP"
+          data-testid="checkbox-group"
+          {...defaultGroupProps}
+          errorText="error"
+        >
+          <Checkbox element="MY_CHECKBOX" {...defaultProps} helpText="bar">
+            foo
+          </Checkbox>
+        </CheckboxGroup>
+      </CustomizationProvider>
+    );
+    expect(screen.getByTestId('checkbox-group')).toHaveStyleRule('padding', '1.25rem');
+    expect(container.querySelector('[data-paste-element="MY_CHECKBOX_GROUP_SET"]')).toHaveStyleRule(
+      'margin-left',
+      '1.25rem'
+    );
+    expect(container.querySelector('[data-paste-element="MY_CHECKBOX_GROUP_FIELD"]')).toHaveStyleRule(
+      'margin-bottom',
+      '1.25rem'
+    );
+    expect(container.querySelector('[data-paste-element="MY_CHECKBOX_GROUP_ERROR_TEXT_WRAPPER"]')).toHaveStyleRule(
+      'margin-bottom',
+      '1.25rem'
+    );
+    expect(container.querySelector('[data-paste-element="MY_CHECKBOX"]')).toHaveStyleRule('padding', '0.5rem');
+    expect(container.querySelector('[data-paste-element="MY_CHECKBOX_CONTROL"]')).toHaveStyleRule(
+      'border-radius',
+      '4px'
+    );
+    expect(container.querySelector('[data-paste-element="MY_CHECKBOX_ICON"]')).toHaveStyleRule(
+      'color',
+      'rgb(0,20,137)'
+    );
+    expect(container.querySelector('[data-paste-element="MY_CHECKBOX_LABEL_TEXT"]')).toHaveStyleRule(
+      'color',
+      'rgb(0,20,137)'
+    );
+    expect(container.querySelector('[data-paste-element="MY_CHECKBOX_HELP_TEXT_WRAPPER"]')).toHaveStyleRule(
+      'margin-bottom',
+      '1.25rem'
+    );
   });
 });
 

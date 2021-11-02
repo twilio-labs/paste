@@ -67,7 +67,7 @@ export const SelectableRowsDataGrid: React.FC = () => {
   /* eslint-disable react/no-array-index-key */
   return (
     <CheckboxGroup name="items" legend="Select which user to promote">
-      <DataGrid aria-label="example grid">
+      <DataGrid aria-label="example grid" striped>
         <DataGridHead>
           <DataGridRow>
             <DataGridHeader width="55px">

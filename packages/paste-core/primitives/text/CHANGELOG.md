@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.1.4
+
+### Patch Changes
+
+- [`130d817b`](https://github.com/twilio-labs/paste/commit/130d817b6072b1a7948ee664a1e716714a2a6442) [#1975](https://github.com/twilio-labs/paste/pull/1975) Thanks [@TheSisb](https://github.com/TheSisb)! - [Text] Add missing style props "whiteSpace" and "fontVariantNumeric"
+
 ## 4.1.3
 
 ### Patch Changes

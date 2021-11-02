@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {matchers} from 'jest-emotion';
+
 import {render, screen, fireEvent} from '@testing-library/react';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
@@ -7,8 +7,6 @@ import {HelpText} from '@twilio-paste/help-text';
 import axe from '../../../../../.jest/axe-helper';
 import {TextArea} from '../src';
 import {CustomizedTextarea} from '../stories/textarea.stories';
-
-expect.extend(matchers);
 
 const NOOP = (): void => {};
 

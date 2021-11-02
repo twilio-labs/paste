@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {render, fireEvent} from '@testing-library/react';
 import {renderHook} from '@testing-library/react-hooks';
-import {matchers} from 'jest-emotion';
 
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -11,8 +10,6 @@ import {Badge} from '../src';
 import type {NamedChild} from '../src/types';
 import {getVariantStyles, hasValidButtonVariantProps, hasValidAnchorVariantProps} from '../src/utils';
 import {useFocusableVariants, useResizeChildIcons} from '../src/hooks';
-
-expect.extend(matchers);
 
 describe('Badge', () => {
   describe('Utils', () => {

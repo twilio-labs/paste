@@ -28,21 +28,24 @@ const StyledPopover = React.forwardRef<HTMLDivElement, BoxProps>(({style, ...pro
   );
 });
 
-export interface PopoverProps {
+StyledPopover.displayName = 'StyledPopover';
+
+export interface PopoverProps extends Pick<BoxProps, 'element'> {
   'aria-label': string;
   children: React.ReactNode;
 }
 
-const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(({children, ...props}, ref) => {
+const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(({children, element = 'POPOVER', ...props}, ref) => {
   const popover = React.useContext(PopoverContext);
   return (
     <NonModalDialogPrimitive {...(popover as any)} {...props} as={StyledPopover} ref={ref} preventBodyScroll={false}>
       {/* import Paste Theme Based Styles due to portal positioning. */}
       <StyledBase>
         <PopoverArrow {...(popover as any)} />
-        <Box paddingX="space80" paddingY="space70">
+        <Box element={element} paddingX="space80" paddingY="space70">
           <Box position="absolute" right={8} top={8}>
             <Button
+              element={`${element}_CLOSE_BUTTON`}
               variant="reset"
               size="reset"
               // @ts-ignore
@@ -51,7 +54,13 @@ const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(({children, ...pr
               // https://reakit.io/docs/popover/#initial-focus
               onClick={popover.hide}
             >
-              <CloseIcon decorative={false} color="colorTextWeak" size="sizeIcon10" title="Close popover" />
+              <CloseIcon
+                element={`${element}_CLOSE_ICON`}
+                decorative={false}
+                color="colorTextWeak"
+                size="sizeIcon10"
+                title="Close popover"
+              />
             </Button>
           </Box>
           {children}
@@ -61,12 +70,11 @@ const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(({children, ...pr
   );
 });
 
-if (process.env.NODE_ENV === 'development') {
-  Popover.propTypes = {
-    'aria-label': PropTypes.string.isRequired,
-    children: PropTypes.node.isRequired,
-  };
-}
+Popover.propTypes = {
+  'aria-label': PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+  element: PropTypes.string,
+};
 
 Popover.displayName = 'Popover';
 export {Popover};

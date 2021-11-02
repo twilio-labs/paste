@@ -1,10 +1,8 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
-import {matchers} from 'jest-emotion';
+
 import {Customized} from '../stories/label.stories';
 import {Label} from '../src';
-
-expect.extend(matchers);
 
 describe('Label for prop', () => {
   const initialProps = {

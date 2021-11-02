@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.0.10
+
+### Patch Changes
+
+- [`e1fc74a5`](https://github.com/twilio-labs/paste/commit/e1fc74a56ca06511d1182ad72a0605e10905b909) [#1977](https://github.com/twilio-labs/paste/pull/1977) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button]: Fix bug that was adding extra padding when Screen Reader Only was passed as a child.
+
 ## 7.0.9
 
 ### Patch Changes

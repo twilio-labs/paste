@@ -1,6 +1,8 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {CustomizationProvider} from '@twilio-paste/customization';
 import {InlineControlGroup} from '../src';
 import type {InlineControlGroupProps} from '../src';
 
@@ -12,10 +14,12 @@ const MockControlGroup: React.FC<{
   showRequired?: boolean;
   showHelpText?: boolean;
   showErrorText?: boolean;
+  element?: string;
   orientation?: InlineControlGroupProps['orientation'];
-}> = ({showRequired, showHelpText, showErrorText, orientation = 'vertical'}) => {
+}> = ({showRequired, showHelpText, showErrorText, element, orientation = 'vertical'}) => {
   return (
     <InlineControlGroup
+      element={element}
       errorText={showErrorText && 'It can take error text'}
       helpText={showHelpText && 'It can take help text'}
       required={showRequired}
@@ -92,5 +96,28 @@ export const ControlSpacingTest = (): React.ReactNode => {
         <MockChild>Mock UI element</MockChild>
       </Column>
     </Grid>
+  );
+};
+
+export const Customized = (): React.ReactNode => {
+  return (
+    <CustomizationProvider
+      baseTheme="default"
+      elements={{
+        INLINE_CONTROL_GROUP: {margin: 'space60'},
+        INLINE_CONTROL_GROUP_SET: {marginLeft: 'space60'},
+        INLINE_CONTROL_GROUP_FIELD: {color: 'colorTextSuccess', backgroundColor: 'colorBackgroundSuccessWeakest'},
+        INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER: {marginTop: 'space60'},
+        MY_INLINE_CONTROL_GROUP: {margin: 'space60'},
+        MY_INLINE_CONTROL_GROUP_SET: {marginLeft: 'space60'},
+        MY_INLINE_CONTROL_GROUP_FIELD: {color: 'colorTextSuccess', backgroundColor: 'colorBackgroundSuccessWeakest'},
+        MY_INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER: {marginTop: 'space60'},
+      }}
+    >
+      <Paragraph>Using default element name:</Paragraph>
+      <MockControlGroup showErrorText />
+      <Paragraph>Using custom element name:</Paragraph>
+      <MockControlGroup element="MY_INLINE_CONTROL_GROUP" showErrorText />
+    </CustomizationProvider>
   );
 };

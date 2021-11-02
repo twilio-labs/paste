@@ -94,9 +94,11 @@ const Anchor = React.forwardRef<HTMLAnchorElement, AnchorProps>(
         verticalAlign={verticalAlign}
       >
         {showExternal ? (
-          <Box as="span" display="inline-flex" alignItems="center">
+          <Box as="span">
             {props.children}
-            <LinkExternalIcon decorative={false} title="link takes you to an external page" />
+            <Box as="span" display="inline-block" flexShrink={0} verticalAlign="middle">
+              <LinkExternalIcon decorative={false} title="link takes you to an external page" />
+            </Box>
           </Box>
         ) : (
           props.children

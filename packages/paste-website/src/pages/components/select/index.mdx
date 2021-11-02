@@ -92,9 +92,9 @@ Select allows a user to make a selection from a list of options in a form field.
 
 ### What's the difference between select and combobox?
 
-At its most basic, a select has an options list that’s styled according to the browser default. A combo box has a Twilio-styled options list and can allow for additional functionality like typeahead.
+At its most basic, a Select has an options list that’s styled according to the browser default. A [Combobox](https://paste.twilio.design/components/combobox) has a Twilio-styled options list and can allow for additional functionality like typeahead.
 
-Use a select when:
+Use a Select when:
 
 <UnorderedList>
   <ListItem>You need a native picker experience, especially on mobile devices.</ListItem>
@@ -105,7 +105,7 @@ Use a select when:
   <ListItem>You need the component to work out-of-the-box across all operating systems and browsers.</ListItem>
 </UnorderedList>
 
-Use a combobox when:
+Use a [Combobox](https://paste.twilio.design/components/combobox) when:
 
 <UnorderedList>
   <ListItem>You need a Twilio-styled options list.</ListItem>
@@ -169,12 +169,12 @@ Use a combobox when:
 
 ### Base Select
 
-The base select is the input without any supporting elements (_e.g_., label, help text, etc).
+The base Select is the input without any supporting elements (_e.g_., label, help text, etc).
 
-- **Options** — The list of items contained in a select
+- **Options** — The list of items contained in a Select
 - **Selected value** — (Optional) The value that appears in the select on page load. By default, this is the first option in the list.
 
-The select will fill the width of the container it’s placed in.
+The Select will fill the width of the container it’s placed in.
 
 <LivePreview scope={{Select, Option, Label}} language="jsx">
   {`<>
@@ -192,7 +192,7 @@ The select will fill the width of the container it’s placed in.
 
 ### Select
 
-The select component should include the base select, along with supporting elements to compose a select form field that gives the user the context they need to successfully fill it out.
+The Select component should include the base Select, along with supporting elements to compose a Select form field that gives the user the context they need to successfully fill it out.
 
 - **Label** — A label should be included for every form field and provide a short title for its associated input.
 - **Required field indicator** — In a form where there are fewer or as many required fields as optional, use a required indicator to show users which fields are required to be filled out.
@@ -216,7 +216,7 @@ The select component should include the base select, along with supporting eleme
     <Option value="numbers">Phone Numbers</Option>
     <Option value="video">Video</Option>
   </Select>
-  <HelpText variant="default">Please choose a Twilio product.</HelpText>
+  <HelpText variant="default">Choose a Twilio product.</HelpText>
 </>`}
 </LivePreview>
 
@@ -359,7 +359,7 @@ Otherwise, use disabled options sparingly. Most browsers show disabled option te
 </>`}
 </LivePreview>
 
-### Disabled select
+### Disabled Select
 
 Use a disabled form field to show users that they can’t interact with the field.
 
@@ -381,7 +381,7 @@ If you want to show information that can’t be edited, use a [read-only Input](
 </>`}
 </LivePreview>
 
-## Composition Notes
+## Composition notes
 
 A select field should be composed with at least a label and a select.
 
@@ -408,7 +408,7 @@ Stack form fields vertically with `$space-80` spacing between each field.
 
 Avoid placing multiple form fields on the same horizontal row to help make it easier to scan a page vertically. Use the <Anchor href="/layout/grid">Grid component</Anchor> if you need to place form fields horizontally.
 
-### Options in a select
+### Options in a Select
 
 Keep option text concise and simple. Option text will truncate when it’s longer than the width of the container. If choosing options requires more explanation, consider using a <Anchor href="/components/checkbox/">Checkbox</Anchor> instead and add help text for each option, or give more explanation through help text.
 
@@ -456,7 +456,7 @@ Don’t prevent form submission by disabling the submit button. An error message
 
 Disable or remove any options in a select that would result in an error if possible. If an error occurs, use inline error text to explain how to fix an error.
 
-Ideally, help text should have enough information to help users prevent errors. If you need to show an error, the error text should replace and repeat the help text until the error has been resolved.
+Ideally, help text should have enough information to help users prevent errors. If you need to show an error and `HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy.
 
 Error text should:
 
@@ -656,7 +656,7 @@ Use a select when:
         <Option value="post">POST</Option>
         <Option value="put">PUT</Option>
       </Select>
-      <HelpText variant="default">Please sign in again to change the HTTP method.</HelpText>
+      <HelpText variant="default">Sign in again to change the HTTP method.</HelpText>
     </Box>
   </Do>
   <Dont
@@ -843,7 +843,7 @@ Use a select when:
 
 ---
 
-## Usage Guide
+## Usage guide
 
 ### API
 
@@ -856,17 +856,19 @@ yarn add @twilio-paste/select
 #### Usage
 
 ```jsx
-import {Select, Option, Label, HelpText} from '@twilio-paste/core';
+import {Select, Option} from '@twilio-paste/core/select';
+import {Label} from '@twilio-paste/core/label';
+import {HelpText} from '@twilio-paste/core/help-text';
 
 <Label htmlFor="foo" required>Foo</Label>
 <Select id="foo" name="foo" onChange={FOO} required>
   <Option value="foo-bar">Foo Bar</Option>
   <Option value="bar-foo">Bar Foo</Option>
 </Select>
-<HelpText variant="default">Please select one</HelpText>
+<HelpText variant="default">Select one</HelpText>
 ```
 
-#### Select Props
+#### Select props
 
 All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select">valid HTML attributes</Anchor> for `select` are supported including the following props:
 
@@ -886,7 +888,7 @@ All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/W
 | onBlur?       | `(event: React.MouseEvent<HTMLElement>)`        |                                                                            | null      |
 | variant?      | 'default', 'inverse'                            |                                                                            | 'default' |
 
-#### Option Props
+#### Option props
 
 All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option">valid HTML attributes</Anchor> for `option` are supported including the following props:
 
@@ -897,7 +899,7 @@ All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/W
 | value     | string, string[] | Sets the value of the select. Expects an array when `multiple` is present. Required. | null    |
 | disabled? | boolean          | Disables the input.                                                                  | false   |
 
-#### OptionGroup Props
+#### OptionGroup props
 
 All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup">valid HTML attributes</Anchor> for `optgroup` are supported including the following props:
 

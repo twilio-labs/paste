@@ -6,8 +6,8 @@ const {generatePackageExportsMap} = require('./generatePackageExportsMap');
   const mapping = await generatePackageExportsMap();
 
   // Write to disk
-  writeToFile(path.join(__dirname, 'mappings.json'), mapping, {
-    successMessage: 'Wrote core packages export mapping to mappings.json file!',
+  writeToFile(path.join(__dirname, '.cache/mappings.json'), mapping, {
+    successMessage: 'Wrote core packages export mapping to .cache/mappings.json file!',
     errorMessage: 'Could not generate mappings!',
     formatJson: true,
   });

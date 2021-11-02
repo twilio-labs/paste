@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {matchers} from 'jest-emotion';
+
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -8,8 +8,6 @@ import axe from '../../../../../.jest/axe-helper';
 import {HorizontalTabs, StateHookTabs} from '../stories/index.stories';
 import {Tabs, Tab, TabList, TabPanels, TabPanel} from '../src';
 import {getElementName} from '../src/utils';
-
-expect.extend(matchers);
 
 describe('Tabs', () => {
   describe('Utils', () => {

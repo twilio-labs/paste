@@ -1,4 +1,10 @@
-import type {CursorProperty, OutlineProperty, TextTransformProperty, TransitionProperty} from 'csstype';
+import type {
+  CursorProperty,
+  OutlineProperty,
+  TextTransformProperty,
+  TransitionProperty,
+  FontVariantNumericProperty,
+} from 'csstype';
 import type {CustomTheme} from '@twilio-paste/customization';
 import type {
   Display,
@@ -20,6 +26,7 @@ export interface TextBaseStyleProps extends OverflowProps, PositionProps, Shadow
   textTransform?: TextTransformProperty;
   transition?: TransitionProperty;
   verticalAlign?: VerticalAlign;
+  fontVariantNumeric?: FontVariantNumericProperty;
 }
 
 export type TextPseudoStyleProps = {

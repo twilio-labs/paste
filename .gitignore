@@ -71,6 +71,7 @@ out/
 
 .jest-coverage
 .jest-cache
+.jest-cache-react-16
 **/lib/*
 **/dist/*
 packages/**/docs
@@ -83,12 +84,18 @@ tools/.cache/packages.json
 tools/.cache/token-usage.json
 docs
 
-# codemods package
-packages/paste-codemods/tools/mappings.json
-
 # Cypress
 cypress/videos
 cypress/screenshots
 
 # Local Netlify folder
 .netlify
+
+# Yarn Folders
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

@@ -1,13 +1,11 @@
 import * as React from 'react';
 import {render, fireEvent} from '@testing-library/react';
-import {matchers} from 'jest-emotion';
+
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {useFormPillState, FormPillGroup, FormPill} from '../src';
 import {Basic, SelectableAndRemovable, CustomFormPillGroup} from '../stories/index.stories';
-
-expect.extend(matchers);
 
 const CustomElementFormPillGroup: React.FC = () => {
   const pillState = useFormPillState();

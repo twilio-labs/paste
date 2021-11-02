@@ -20,6 +20,11 @@ const babelOptions = {
       },
     ],
   ],
-  plugins: ['macros', '@babel/proposal-class-properties', '@babel/proposal-object-rest-spread'],
+  plugins: [
+    'macros',
+    '@babel/proposal-class-properties',
+    '@babel/proposal-object-rest-spread',
+    '@babel/plugin-proposal-optional-chaining',
+  ],
 };
 module.exports = require('babel-jest').createTransformer(babelOptions);

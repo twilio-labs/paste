@@ -1,10 +1,8 @@
 import * as React from 'react';
-import {matchers} from 'jest-emotion';
+
 import {render} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {AgentIcon} from '../src/AgentIcon';
-
-expect.extend(matchers);
 
 describe('Icons', () => {
   describe('HTML attributes', () => {

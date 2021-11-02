@@ -2,11 +2,8 @@ import * as React from 'react';
 
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
-import {matchers} from 'jest-emotion';
 
 import {BaseModal, initStyles} from '../stories/customization.stories';
-
-expect.extend(matchers);
 
 jest.mock('@twilio-paste/modal-dialog-primitive', () => {
   // Mocking the portal as a div so it renders within the body of the rendered test fragment, rather than using Portal behavior.
@@ -100,6 +97,7 @@ describe('Modal Customization', () => {
   describe('Custom styles', () => {
     it('Should apply correct style rules to normal size variant', () => {
       render(<BaseModal size="default" />, {
+        // eslint-disable-next-line react/display-name
         wrapper: ({children}) => (
           <CustomizationProvider
             // @ts-expect-error global test variable
@@ -146,6 +144,7 @@ describe('Modal Customization', () => {
 
     it('Should apply correct style rules to wide size variant', () => {
       render(<BaseModal size="wide" />, {
+        // eslint-disable-next-line react/display-name
         wrapper: ({children}) => (
           <CustomizationProvider
             // @ts-expect-error global test variable

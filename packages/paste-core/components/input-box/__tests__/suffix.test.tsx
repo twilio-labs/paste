@@ -1,10 +1,8 @@
 import * as React from 'react';
-import {matchers} from 'jest-emotion';
+
 import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {Suffix} from '../src';
-
-expect.extend(matchers);
 
 describe('HTML attributes', () => {
   it('should set a element data attribute for Suffix', () => {

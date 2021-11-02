@@ -1,8 +1,10 @@
 const Enzyme = require('enzyme');
 const TestingLibrary = require('@testing-library/react');
+const {matchers: jestEmotionMatchers} = require('jest-emotion');
 const Adapter = require('enzyme-adapter-react-16');
 require('@testing-library/jest-dom');
 const {toHaveNoViolations} = require('jest-axe');
 expect.extend(toHaveNoViolations);
+expect.extend(jestEmotionMatchers);
 TestingLibrary.configure({computedStyleSupportsPseudoElements: false});
 Enzyme.configure({adapter: new Adapter()});

@@ -16,8 +16,10 @@ export const PasteStyleProps = system({
   transition: true,
   textDecoration: true,
   textTransform: true,
+  whiteSpace: true,
   wordBreak: true,
   wordWrap: true,
+  fontVariantNumeric: true,
 });
 
 /**

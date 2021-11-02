@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/display-pill-group",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "category": "data display",
   "status": "production",
   "description": "A Display Pill Group is a set of Pills used to visually represent a collection of entities outside of form-based UIs.",
@@ -37,23 +37,23 @@
     "@twilio-paste/types": "^3.1.1",
     "@twilio-paste/uid-library": "^0.2.1",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "^16.8.6 || ^17.0.2",
+    "react-dom": "^16.8.6 || ^17.0.2"
   },
   "devDependencies": {
-    "@twilio-paste/anchor": "^5.1.0",
+    "@twilio-paste/anchor": "^5.1.1",
     "@twilio-paste/animation-library": "^0.3.2",
     "@twilio-paste/box": "^4.2.4",
     "@twilio-paste/customization": "^2.1.1",
-    "@twilio-paste/design-tokens": "^6.12.0",
-    "@twilio-paste/icons": "^5.6.0",
+    "@twilio-paste/design-tokens": "^6.14.0",
+    "@twilio-paste/icons": "^5.8.0",
     "@twilio-paste/style-props": "^3.1.0",
     "@twilio-paste/styling-library": "^0.3.4",
-    "@twilio-paste/theme": "^5.3.0",
+    "@twilio-paste/theme": "^5.3.1",
     "@twilio-paste/types": "^3.1.2",
     "@twilio-paste/uid-library": "^0.2.1",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }

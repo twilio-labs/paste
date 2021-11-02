@@ -1,0 +1,35 @@
+---
+title: Core Package Changelog
+slug: /core/changelog
+---
+
+import Changelog from '@twilio-paste/core/CHANGELOG.md';
+import {SidebarCategoryRoutes} from '../../constants';
+
+export const pageQuery = graphql`
+  {
+    mdx(fields: {slug: {eq: "/core/changelog/"}}) {
+      fileAbsolutePath
+      frontmatter {
+        slug
+        title
+      }
+      headings {
+        depth
+        value
+      }
+    }
+  }
+`;
+
+<ComponentHeader name={props.pageContext.frontmatter.title} categoryRoute={SidebarCategoryRoutes.CORE} />
+
+---
+
+ <contentwrapper>
+<content>
+
+<Changelog />
+
+</content>
+</contentwrapper>

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/radio-group",
-  "version": "6.0.4",
+  "version": "6.1.0",
   "category": "user input",
   "status": "production",
   "description": "A Radio Group is a form element that lets users select a single choice from a list of at least two options.",
@@ -42,28 +42,28 @@
     "@twilio-paste/types": "^3.1.1",
     "@twilio-paste/uid-library": "^0.2.1",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "^16.8.6 || ^17.0.2",
+    "react-dom": "^16.8.6 || ^17.0.2"
   },
   "devDependencies": {
     "@twilio-paste/base-radio-checkbox": "^6.0.3",
     "@twilio-paste/box": "^4.0.5",
-    "@twilio-paste/design-tokens": "^6.7.0",
+    "@twilio-paste/design-tokens": "^6.14.0",
     "@twilio-paste/flex": "^2.0.3",
     "@twilio-paste/help-text": "^6.0.3",
-    "@twilio-paste/icons": "^5.1.2",
+    "@twilio-paste/icons": "^5.8.0",
     "@twilio-paste/inline-control-group": "^6.0.3",
     "@twilio-paste/label": "^6.0.3",
     "@twilio-paste/screen-reader-only": "^6.0.2",
     "@twilio-paste/sibling-box": "^3.0.3",
     "@twilio-paste/style-props": "^3.0.4",
     "@twilio-paste/styling-library": "^0.3.2",
-    "@twilio-paste/text": "^4.0.3",
-    "@twilio-paste/theme": "^5.1.0",
+    "@twilio-paste/text": "^4.1.4",
+    "@twilio-paste/theme": "^5.3.1",
     "@twilio-paste/types": "^3.1.1",
     "@twilio-paste/uid-library": "^0.2.1",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }

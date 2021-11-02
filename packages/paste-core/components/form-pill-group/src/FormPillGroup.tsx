@@ -27,6 +27,8 @@ const FormPillGroupStyles = React.forwardRef<HTMLUListElement, FormPillGroupProp
   )
 );
 
+FormPillGroupStyles.displayName = 'StyledFormPillGroup';
+
 /**
  * FormPillGroup should be used to wrap a collection of FormPills. It should be used in conjunction with
  * useFormPillGroupState hook
@@ -44,3 +46,5 @@ export const FormPillGroup = React.forwardRef<HTMLUListElement, FormPillGroupPro
     </Composite>
   );
 });
+
+FormPillGroup.displayName = 'FormPillGroup';

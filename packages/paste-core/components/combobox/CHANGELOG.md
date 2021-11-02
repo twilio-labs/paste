@@ -1,5 +1,15 @@
 # Change Log
 
+## 8.1.0
+
+### Minor Changes
+
+- [`b17344da`](https://github.com/twilio-labs/paste/commit/b17344dad70812566afa5206786968e59f50efb2) [#1922](https://github.com/twilio-labs/paste/pull/1922) Thanks [@andipants12](https://github.com/andipants12)! - [Combobox] Fix virtualization bug and add virtualization to combobox when an option template is used. The virtualization library we use, react-virtual, provides a ref that is required for correct sizing of virtualized items. The ref from this library's hook was being overridden by another, thus, the virtualized options were not resizing correctly. This behavior was observed in comboboxes that were not using option templates, and had sufficiently long option text.
+
+### Patch Changes
+
+- [`01baddcd`](https://github.com/twilio-labs/paste/commit/01baddcd62c9367c7d6d12bb853a25d4849132f6) [#1925](https://github.com/twilio-labs/paste/pull/1925) Thanks [@shleewhite](https://github.com/shleewhite)! - Add displayNames to all components
+
 ## 8.0.2
 
 ### Patch Changes

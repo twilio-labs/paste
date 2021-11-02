@@ -13,7 +13,7 @@ export const PlainDataGrid: React.FC<{element?: BoxProps['element']}> = ({elemen
         Note: for DataGrids with no interactivity, use the{' '}
         <Anchor href="https://paste.twilio.design/components/table">Table component</Anchor> instead!
       </Paragraph>
-      <DataGrid aria-label="User information table" data-testid="data-grid" element={element}>
+      <DataGrid aria-label="User information table" data-testid="data-grid" element={element} striped>
         <DataGridHead data-testid="data-grid-head" element={`${element}_HEAD`}>
           <DataGridRow element={`${element}_ROW`}>
             <DataGridHeader data-testid="data-grid-header" element={`${element}_HEADER`}>

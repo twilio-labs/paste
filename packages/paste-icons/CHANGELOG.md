@@ -1,5 +1,26 @@
 # Change Log
 
+## 5.8.0
+
+### Minor Changes
+
+- [`6e530fb9`](https://github.com/twilio-labs/paste/commit/6e530fb9f2c9288f39e311f99361e6f6b22b1d11) [#1973](https://github.com/twilio-labs/paste/pull/1973) Thanks [@loreina](https://github.com/loreina)! - [paste-icons] Added a Home product logo icon
+
+* [`06603c60`](https://github.com/twilio-labs/paste/commit/06603c602e7af86625e0fd58712a80b17ec5688f) [#1957](https://github.com/twilio-labs/paste/pull/1957) Thanks [@loreina](https://github.com/loreina)! - [Icons] Added ProductAlarmsIcon and TextFormatIcon, Updated svgs for ProductEventStreamsIcon and UnsortedIcon
+
+## 5.7.0
+
+### Minor Changes
+
+- [`fa49442f`](https://github.com/twilio-labs/paste/commit/fa49442f98484ecda470d8df23b2aa3d1a6da2fb) [#1938](https://github.com/twilio-labs/paste/pull/1938) Thanks [@SiTaggart](https://github.com/SiTaggart)! - New Icon: Product Icon for Twilio Live
+
+* [`d13c1095`](https://github.com/twilio-labs/paste/commit/d13c10956420897e8215630bc713c1105dfdfe21) [#1911](https://github.com/twilio-labs/paste/pull/1911) Thanks [@andipants12](https://github.com/andipants12)! - [Icons] Added the following icons for connectivity status pattern:
+
+  - ConnectivityAvailableIcon
+  - ConnectivityBusyIcon
+  - ConnectivityOfflineIcon
+  - ConnectivityUnavailableIcon
+
 ## 5.6.0
 
 ### Minor Changes

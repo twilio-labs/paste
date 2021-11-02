@@ -27,6 +27,8 @@ const BasePopoverContainer = React.forwardRef<HTMLDivElement, PopoverContainerPr
   }
 );
 
+BasePopoverContainer.displayName = 'BasePopoverContainer';
+
 const PopoverContainer = React.memo(BasePopoverContainer);
 
 PopoverContainer.displayName = 'PopoverContainer';

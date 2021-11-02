@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.1.1
+
+### Patch Changes
+
+- [`193f0d12`](https://github.com/twilio-labs/paste/commit/193f0d122893a6d165b93d2ca561621c58f9e39d) [#1969](https://github.com/twilio-labs/paste/pull/1969) Thanks [@TheSisb](https://github.com/TheSisb)! - [Anchor] Fixed the missing underline in Firefox. Also improved how external anchors wrap with their icons.
+
 ## 5.1.0
 
 ### Minor Changes

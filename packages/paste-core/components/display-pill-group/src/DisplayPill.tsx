@@ -60,3 +60,5 @@ export const DisplayPill = React.forwardRef<HTMLAnchorElement, DisplayPillProps>
     );
   }
 );
+
+DisplayPill.displayName = 'DisplayPill';

@@ -3,6 +3,14 @@
   targetPort = 8000
   framework = "#custom"
 
+[build]
+  publish = "packages/paste-website/public/"
+  command = "yarn build:js && yarn build:tokens && yarn build:website"
+
+[build.environment]
+  YARN_ENABLE_GLOBAL_CACHE = "true"
+  YARN_GLOBAL_FOLDER = "/opt/buildhome/.yarn_cache"
+
 [context.deploy-preview]
   # only do a preview deply when there is a website change
   ignore = "git diff --quiet HEAD^ main -- packages/paste-website packages/paste-theme-designer"
@@ -24,7 +32,12 @@
   from = "/tokens/how-to-compose-custom-ui-with-tokens"
   to = "/customization/composing-custom-components-with-design-tokens"
 
+[[redirects]]
+  from = "/getting-started/engineering"
+  to = "/getting-started/quickstart"
+
 [[headers]]
   for = "/*"
   [headers.values]
     X-Shenanigans = "none"
+

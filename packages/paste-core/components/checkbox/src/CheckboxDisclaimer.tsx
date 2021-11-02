@@ -12,16 +12,16 @@ export interface CheckboxDisclaimerProps
 }
 
 const CheckboxDisclaimer = React.forwardRef<HTMLInputElement, CheckboxDisclaimerProps>(
-  ({children, errorText, ...props}, ref) => {
+  ({children, element = 'CHECKBOX_DISCLAIMER', errorText, ...props}, ref) => {
     return (
       <>
-        <Box backgroundColor="colorBackground" borderRadius="borderRadius20" padding="space50">
+        <Box element={element} backgroundColor="colorBackground" borderRadius="borderRadius20" padding="space50">
           <Checkbox {...props} hasError={errorText != null} ref={ref}>
             {children}
           </Checkbox>
         </Box>
         {errorText && (
-          <Box marginTop="space30" marginLeft="space50">
+          <Box marginTop="space30" element={`${element}_ERROR_TEXT_WRAPPER`} marginLeft="space50">
             <HelpText variant="error">{errorText}</HelpText>
           </Box>
         )}
@@ -32,11 +32,10 @@ const CheckboxDisclaimer = React.forwardRef<HTMLInputElement, CheckboxDisclaimer
 
 CheckboxDisclaimer.displayName = 'CheckboxDisclaimer';
 
-if (process.env.NODE_ENV === 'development') {
-  CheckboxDisclaimer.propTypes = {
-    children: PropTypes.node.isRequired,
-    errorText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  };
-}
+CheckboxDisclaimer.propTypes = {
+  children: PropTypes.node.isRequired,
+  errorText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  element: PropTypes.string,
+};
 
 export {CheckboxDisclaimer};

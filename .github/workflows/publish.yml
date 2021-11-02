@@ -20,20 +20,21 @@ jobs:
         with:
           node-version: 12.x
 
-      - id: yarn-cache
-        name: Get Yarn cache path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-      - uses: actions/cache@v2
-        name: Load Yarn cache
+      - name: Load Yarn cache
+        uses: actions/cache@v2
+        id: yarn_cache_id
         with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn
 
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile && yarn bootstrap
+        run: yarn install --immutable
 
       - name: Setup CI Git User
         run: |
@@ -43,8 +44,11 @@ jobs:
       - name: "Create Pull Request or Publish to npm"
         uses: changesets/action@master
         with:
+          version: yarn version
           publish: yarn release
           commit: "chore(release): version packages"
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # due to this bug in yarn https://github.com/yarnpkg/berry/issues/3606 we need to manually turn off immutable installs to update the lockfile
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false

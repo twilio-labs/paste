@@ -3,6 +3,7 @@ import type {CompositeStateReturn} from '@twilio-paste/reakit-library';
 
 interface DataGridState extends Partial<CompositeStateReturn> {
   actionable: boolean;
+  striped: boolean;
 }
 
 /**
@@ -10,4 +11,5 @@ interface DataGridState extends Partial<CompositeStateReturn> {
  */
 export const DataGridContext = React.createContext<DataGridState>({
   actionable: false,
+  striped: false,
 });

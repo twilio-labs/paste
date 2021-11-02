@@ -2,7 +2,6 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import GitHubButton from 'react-github-button';
-import {GithubLink} from './GithubLink';
 import {SiteHeaderSearch} from './SiteHeaderSearch';
 import {SiteHeaderLogo} from './SiteHeaderLogo';
 import {DarkModeToggle} from './DarkModeToggle';
@@ -24,9 +23,7 @@ const SiteHeaderDesktop: React.FC<SiteHeaderDesktopProps> = ({searchValue, onSea
       borderBottomColor="colorBorderInverseWeaker"
       borderBottomWidth="borderWidth10"
       borderBottomStyle="solid"
-      position="sticky"
-      top="0px"
-      zIndex="zIndex80"
+      flex="1 0 auto"
     >
       <SiteHeaderLogo title="Paste" subtitle="UX Platform" />
       <Box
@@ -44,7 +41,6 @@ const SiteHeaderDesktop: React.FC<SiteHeaderDesktopProps> = ({searchValue, onSea
         <Box marginTop="space10">
           <Stack orientation="horizontal" spacing="space60">
             <SiteHeaderSearch value={searchValue} onChange={onSearchChange} />
-            <GithubLink />
             <Box>
               <GitHubButton type="stargazers" namespace="twilio-labs" repo="paste" />
             </Box>

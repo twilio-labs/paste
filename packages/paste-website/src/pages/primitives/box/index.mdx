@@ -234,7 +234,7 @@ yarn add @twilio-paste/box - or - yarn add @twilio-paste/core
 #### Usage
 
 ```jsx
-import {Box} from '@twilio-paste/box';
+import {Box} from '@twilio-paste/core/box';
 
 const Component = () => (
   <Box
@@ -298,6 +298,7 @@ All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including 
 | borderStyle?             | `ResponsiveValue<CSS.BorderStyleProperty>`              |         |
 | boxshadow?               | `ResponsiveValue<keyof ThemeShape['shadows']>`          |         |
 | zIndex?                  | `ResponsiveValue<keyof ThemeShape['zIndices']>`         |         |
+| fontVariantNumeric?      | FontVariantNumericProperty                              |         |
 | cursor?                  | CursorProperty                                          |         |
 | content?                 | string                                                  |         |
 | appearance?              | AppearanceProperty                                      |         |

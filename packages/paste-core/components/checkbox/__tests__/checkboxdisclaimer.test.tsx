@@ -1,6 +1,8 @@
 import * as React from 'react';
 import {render} from 'react-dom';
+
 import {render as testRender} from '@testing-library/react';
+import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
 import {CheckboxDisclaimer} from '../src';
@@ -34,6 +36,82 @@ describe('Checkbox Disclaimer', () => {
       </CheckboxDisclaimer>
     );
     expect(getByText(errorText)).toBeDefined();
+  });
+});
+
+describe('Customization', () => {
+  it('Should set a default element data attribute Checkbox Disclaimer', () => {
+    const {container} = testRender(
+      <CheckboxDisclaimer {...defaultProps} errorText="error">
+        foo
+      </CheckboxDisclaimer>
+    );
+    expect(container.querySelector('[data-paste-element="CHECKBOX_DISCLAIMER"]')).toBeInTheDocument();
+    expect(
+      container.querySelector('[data-paste-element="CHECKBOX_DISCLAIMER_ERROR_TEXT_WRAPPER"]')
+    ).toBeInTheDocument();
+  });
+
+  it('Should set a custom element data attribute for a custom named Checkbox Disclaimer', () => {
+    const {container} = testRender(
+      <CheckboxDisclaimer element="MY_CHECKBOX_DISCLAIMER" {...defaultProps} errorText="error">
+        foo
+      </CheckboxDisclaimer>
+    );
+    expect(container.querySelector('[data-paste-element="MY_CHECKBOX_DISCLAIMER"]')).toBeInTheDocument();
+    expect(
+      container.querySelector('[data-paste-element="MY_CHECKBOX_DISCLAIMER_ERROR_TEXT_WRAPPER"]')
+    ).toBeInTheDocument();
+  });
+
+  it('Should add custom styling to a default Checkbox Disclaimer', () => {
+    const {container} = testRender(
+      <CustomizationProvider
+        // @ts-expect-error global test variable
+        theme={TestTheme}
+        elements={{
+          CHECKBOX_DISCLAIMER: {backgroundColor: 'colorBackgroundDestructiveWeakest'},
+          CHECKBOX_DISCLAIMER_ERROR_TEXT_WRAPPER: {marginTop: 'space60'},
+        }}
+      >
+        <CheckboxDisclaimer {...defaultProps} errorText="error">
+          foo
+        </CheckboxDisclaimer>
+      </CustomizationProvider>
+    );
+    expect(container.querySelector('[data-paste-element="CHECKBOX_DISCLAIMER"]')).toHaveStyleRule(
+      'background-color',
+      'rgb(254,236,236)'
+    );
+    expect(container.querySelector('[data-paste-element="CHECKBOX_DISCLAIMER_ERROR_TEXT_WRAPPER"]')).toHaveStyleRule(
+      'margin-top',
+      '1.25rem'
+    );
+  });
+
+  it('Should add custom styling to a custom named Checkbox Disclaimer', () => {
+    const {container} = testRender(
+      <CustomizationProvider
+        // @ts-expect-error global test variable
+        theme={TestTheme}
+        elements={{
+          MY_CHECKBOX_DISCLAIMER: {backgroundColor: 'colorBackgroundDestructiveWeakest'},
+          MY_CHECKBOX_DISCLAIMER_ERROR_TEXT_WRAPPER: {marginTop: 'space60'},
+        }}
+      >
+        <CheckboxDisclaimer element="MY_CHECKBOX_DISCLAIMER" {...defaultProps} errorText="error">
+          foo
+        </CheckboxDisclaimer>
+      </CustomizationProvider>
+    );
+    expect(container.querySelector('[data-paste-element="MY_CHECKBOX_DISCLAIMER"]')).toHaveStyleRule(
+      'background-color',
+      'rgb(254,236,236)'
+    );
+    expect(container.querySelector('[data-paste-element="MY_CHECKBOX_DISCLAIMER_ERROR_TEXT_WRAPPER"]')).toHaveStyleRule(
+      'margin-top',
+      '1.25rem'
+    );
   });
 });
 
