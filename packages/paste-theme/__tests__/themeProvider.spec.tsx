@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {mount} from 'enzyme';
+import {render} from '@testing-library/react';
 import {Theme} from '../src';
 
 const ThemeConsumerExampleComponent = (): React.ReactElement => {
@@ -21,39 +21,44 @@ describe('Theme.Provider', () => {
   });
 
   it('should render the console link text color', (): void => {
-    const wrapper = mount(
+    const {getByText} = render(
       <Theme.Provider theme="console">
         <ThemeConsumerExampleTextColor />
       </Theme.Provider>
     );
-    expect(wrapper.find('p').text()).toBe('Color: rgb(0, 94, 166)');
+
+    expect(getByText('Color: rgb(0, 94, 166)')).toBeDefined();
   });
 
   it('should render the sendgrid link text color', (): void => {
-    const wrapper = mount(
+    const {getByText} = render(
       <Theme.Provider theme="sendgrid">
         <ThemeConsumerExampleTextColor />
       </Theme.Provider>
     );
-    expect(wrapper.find('p').text()).toBe('Color: rgb(2, 99, 224)');
+
+    expect(getByText('Color: rgb(2, 99, 224)')).toBeDefined();
   });
 
   it('should rely on the default breakpoints set on the theme object', () => {
-    const wrapper = mount(
+    const {getByText} = render(
       <Theme.Provider theme="console">
         <ThemeConsumerExampleComponent />
       </Theme.Provider>
     );
-    expect(wrapper.find('p').text()).toBe('25rem,64rem,77rem,');
+
+    expect(getByText('25rem,64rem,77rem,')).toBeDefined();
   });
 
   it('should set custom breakpoints when provided', () => {
     const customBreakpoints = ['30rem', '20rem', '90rem'];
-    const wrapper = mount(
+
+    const {getByText} = render(
       <Theme.Provider customBreakpoints={customBreakpoints}>
         <ThemeConsumerExampleComponent />
       </Theme.Provider>
     );
-    expect(wrapper.find('p').text()).toBe('30rem,20rem,90rem,');
+
+    expect(getByText('30rem,20rem,90rem,')).toBeDefined();
   });
 });

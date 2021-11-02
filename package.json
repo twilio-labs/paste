@@ -64,8 +64,11 @@
     "clean:core": "yarn workspace @twilio-paste/core clean",
     "pre-test": "node ./tools/build/pre-test.js",
     "test": "yarn pre-test && concurrently \"yarn:test:packages\" \"yarn:test:tools\"",
+    "test:react-16": "yarn pre-test && concurrently \"yarn:test:packages-16\" \"yarn:test:tools-16\"",
     "test:packages": "jest --silent ./packages/",
+    "test:packages-16": "USE_REACT_16=true jest --silent ./packages/",
     "test:tools": "jest ./tools/ -c ./tools/jest.config.js",
+    "test:tools-16": "USE_REACT_16=true jest ./tools/ -c ./tools/jest.config.js",
     "test:coverage": "yarn pre-test && jest --coverage",
     "test:website": "start-server-and-test 'yarn serve:website' http://localhost:9000 'yarn cypress run --record --spec ./cypress/integration/**/*.spec.ts'",
     "test:website-gui": "start-server-and-test 'yarn serve:website' http://localhost:9000  'yarn cypress open'",
@@ -127,6 +130,8 @@
     "@types/jest": "^24.0.18",
     "@types/jest-axe": "^3.5.1",
     "@types/node": "^14.14.16",
+    "@types/react": "^17.0.31",
+    "@types/react-16": "npm:@types/react@^16.0.0",
     "@types/react-github-button": "^0.1.1",
     "@types/react-helmet": "^5.0.14",
     "@types/react-scrollspy": "^3.3.1",
@@ -196,8 +201,10 @@
     "prettier": "^2.2.1",
     "prop-types": "^15.7.2",
     "puppeteer-core": "^10.1.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^17.0.2",
+    "react-16": "npm:react@^16.8.6",
+    "react-dom": "^17.0.2",
+    "react-dom-16": "npm:react-dom@^16.8.6",
     "react-ga": "^3.3.0",
     "react-test-renderer": "^16.8.6",
     "regenerator-runtime": "^0.13.3",
@@ -214,7 +221,8 @@
     "webpack": "^4.44.2"
   },
   "resolutions": {
-    "@emotion/core": "10.0.28"
+    "@emotion/core": "10.0.28",
+    "react-hot-loader": "^4.13.0"
   },
   "husky": {
     "hooks": {

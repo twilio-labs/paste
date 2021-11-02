@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {mount} from 'enzyme';
+import {render} from '@testing-library/react';
 import {Theme, withTheme, ThemeShape} from '../src';
 
 const MockComponent = ({theme}: {theme: ThemeShape}): React.ReactElement => <p>{theme.textColors.colorText}</p>;
@@ -17,11 +17,12 @@ describe('withTheme', () => {
   });
 
   it('should be able to access the theme object', () => {
-    const wrapper = mount(
+    const {getByText} = render(
       <Theme.Provider theme="console">
         <MockComponentWithTheme />
       </Theme.Provider>
     );
-    expect(wrapper.find('p').text()).toBe('rgb(40, 42, 43)');
+
+    expect(getByText('rgb(40, 42, 43)')).toBeDefined();
   });
 });

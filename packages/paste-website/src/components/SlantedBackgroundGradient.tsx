@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type {BackgroundColorOptions} from '@twilio-paste/style-props';
 import {useTheme} from '@twilio-paste/theme';
+import {css} from '@twilio-paste/styling-library';
 import {useWindowSize} from '../hooks/useWindowSize';
 
 // https://codepen.io/enbee81/full/yLyrmyg
@@ -36,7 +37,7 @@ export const SlantedBackgroundGradient: React.FC<BackgroundGradientProps> = ({
 
   return (
     <div
-      css={{
+      css={css({
         '&:before': {
           content: `" "`,
           zIndex: -1,
@@ -57,7 +58,7 @@ export const SlantedBackgroundGradient: React.FC<BackgroundGradientProps> = ({
           )`,
           ...styles,
         },
-      }}
+      })}
       {...props}
     />
   );
