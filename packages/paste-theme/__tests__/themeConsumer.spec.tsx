@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {mount} from 'enzyme';
+import {render} from '@testing-library/react';
 import {Theme} from '../src';
 
 const ThemeConsumerExampleComponent = (): React.ReactElement => {
@@ -18,11 +18,12 @@ describe('Theme.Consumer', () => {
   });
 
   it('should be able to access the theme object', () => {
-    const wrapper = mount(
+    const {getByText} = render(
       <Theme.Provider theme="console">
         <ThemeConsumerExampleComponent />
       </Theme.Provider>
     );
-    expect(wrapper.find('p').text()).toBe('rgb(40, 42, 43)');
+
+    expect(getByText('rgb(40, 42, 43)')).toBeDefined();
   });
 });
