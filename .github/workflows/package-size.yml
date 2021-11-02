@@ -32,4 +32,4 @@ jobs:
           build-script: "build:js"
           # only do common js files, no need to double count files
           pattern: "{**/dist/**/*.js,./packages/paste-icons/cjs/**/*.js}"
-          exclude: "{**/*.map,**/node_modules/**,**/*.es.js,**/*.es6.js}"
+          exclude: "{**/*.map,**/node_modules/**,**/*.es.js,**/*.es6.js,**/*.debug.js,**/*.debug.es.js}"

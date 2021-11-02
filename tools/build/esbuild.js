@@ -68,17 +68,17 @@ function build(packageJson) {
     // Sets the target environment so the code is changed into a format that
     // works  with node12 and the listed browsers
     target: ['chrome58', 'firefox57', 'safari11', 'edge16', 'node12.19.0'],
-    // Only minify in prod
-    minify: process.env.NODE_ENV === 'production',
     define: {
       'process.env.NODE_ENV': `"${process.env.NODE_ENV}"`,
     },
     external,
   };
 
+  // Minified
   esbuild
     .build({
       ...config,
+      minify: true,
       format: 'cjs',
       outfile: outFileCJS,
       // Needed to fix ES6 module import paths for CJS builds
@@ -89,8 +89,28 @@ function build(packageJson) {
   esbuild
     .build({
       ...config,
+      minify: true,
       format: 'esm',
       outfile: outFileESM,
+    })
+    .catch(() => process.exit(1));
+
+  // Debug
+  esbuild
+    .build({
+      ...config,
+      format: 'cjs',
+      outfile: outFileCJS.replace('.js', '.debug.js'),
+      // Needed to fix ES6 module import paths for CJS builds
+      plugins: [PasteCJSResolverPlugin],
+    })
+    .catch(() => process.exit(1));
+
+  esbuild
+    .build({
+      ...config,
+      format: 'esm',
+      outfile: outFileESM.replace('.es.js', '.debug.es.js'),
     })
     .catch(() => process.exit(1));
 }
