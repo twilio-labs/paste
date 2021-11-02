@@ -47,6 +47,7 @@ export const SidebarCategoryRoutes = {
   GETTING_STARTED: '/getting-started',
   TOKENS: '/tokens',
   CUSTOMIZATION: '/customization',
+  CORE: '/core',
 };
 
 export const PackageStatus = {
