@@ -194,7 +194,7 @@ export const PaginatedDataGrid: React.FC = () => {
   return (
     <>
       <CheckboxGroup name="items" legend="Select which user to promote">
-        <DataGrid aria-label="example grid">
+        <DataGrid aria-label="example grid" striped>
           <DataGridHead>
             <DataGridRow>
               <DataGridHeader data-testid="first-cell" width="55px">

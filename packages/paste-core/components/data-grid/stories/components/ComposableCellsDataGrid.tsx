@@ -29,7 +29,7 @@ const ActionMenu: React.FC = () => {
 export const ComposableCellsDataGrid: React.FC = () => {
   /* eslint-disable react/no-array-index-key */
   return (
-    <DataGrid aria-label="User list" data-testid="data-grid">
+    <DataGrid aria-label="User list" data-testid="data-grid" striped>
       <DataGridHead>
         <DataGridRow>
           <DataGridHeader data-testid="header-1">{TableHeaderData[0]}</DataGridHeader>

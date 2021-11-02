@@ -51,7 +51,7 @@ export const SortableColumnsDataGrid: React.FC = () => {
 
   /* eslint-disable react/no-array-index-key */
   return (
-    <DataGrid aria-label="User information table">
+    <DataGrid aria-label="User information table" striped>
       <DataGridHead>
         <DataGridRow>
           <DataGridHeader aria-sort={sortedColumns[0]} data-testid="header">

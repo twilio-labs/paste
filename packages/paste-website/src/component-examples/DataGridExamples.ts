@@ -21,7 +21,7 @@ export const TableBodyData = [
 export const standardDataGrid = `
 const StandardDataGrid = ({element = 'DATA_GRID'}) => {
   return (
-    <DataGrid aria-label="User information table" striped={false}>
+    <DataGrid aria-label="User information table" striped>
       <DataGridHead >
         <DataGridRow >
           <DataGridHeader>{TableHeaderData[0]}</DataGridHeader>
