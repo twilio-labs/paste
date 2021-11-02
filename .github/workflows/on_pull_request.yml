@@ -357,6 +357,8 @@ jobs:
           buildScriptName: "build:storybook"
           autoAcceptChanges: "main"
           exitOnceUploaded: true
+        env:
+          STORYBOOK_GITHUB_SHA: ${{ github.sha }}
 
   cypress:
     name: Website tests
