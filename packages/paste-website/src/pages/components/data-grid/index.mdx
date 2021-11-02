@@ -286,7 +286,7 @@ import {
 } from '@twilio-paste/core/data-grid';
 
 const Component = () => (
-  <DataGrid aria-label="User information table">
+  <DataGrid aria-label="User information table" striped>
     <DataGridHead>
       <DataGridRow>
         <DataGridHeader>First Name</DataGridHeader>
@@ -337,7 +337,7 @@ const Component = () => (
 | Prop       | Type        | Description                                             | Default     |
 | ---------- | ----------- | ------------------------------------------------------- | ----------- |
 | aria-label | `string`    | Defines a string value that labels the current element. | null        |
-| striped?   | `boolean`   | Toggles row zebra striping                              | true        |
+| striped?   | `boolean`   | Toggles row zebra striping                              | false       |
 | element?   | `string`    | Override for customization element name                 | `DATA_GRID` |
 | children?  | `ReactNode` |                                                         | null        |
 

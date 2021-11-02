@@ -28,7 +28,7 @@ export interface DataGridProps extends TableProps {
  * @param {string} element - customization element
  */
 export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
-  ({element = 'DATA_GRID', striped = true, ...props}, ref) => {
+  ({element = 'DATA_GRID', striped = false, ...props}, ref) => {
     const dataGridId = `data-grid-${useUID()}`;
     const lastFocusedElement = React.useRef<Element | null>(null);
     const compositeState = useCompositeState({unstable_virtual: false});

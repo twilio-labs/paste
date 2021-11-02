@@ -11,5 +11,5 @@ interface DataGridState extends Partial<CompositeStateReturn> {
  */
 export const DataGridContext = React.createContext<DataGridState>({
   actionable: false,
-  striped: true,
+  striped: false,
 });
