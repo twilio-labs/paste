@@ -52,7 +52,7 @@ describe('generatePackageExportsMap', () => {
   // This is the local cache of the last run of getPastePackages, which we also mock as `mockGetPastePackages`
   // const pastePackagesFromCache = require('../../../tools/.cache/packages.json');
   // This is the local cache of the last run of generateExportsMap
-  // const mappingsFromCache = require('../tools/mappings.json');
+  // const mappingsFromCache = require('../tools/.cache/mappings.json');
 
   it('Creates mapping file successfully from cache', async () => {
     const generatedMappings = await generatePackageExportsMap(() => pastePackagesFromCache);
