@@ -68,8 +68,13 @@ export const pageQuery = graphql`
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/radio-group"
   storybookUrl="/?path=/story/components-radio--radio"
-  data={props.data.allPasteComponent.edges}
-  packageStatus={props.data.allAirtable.edges}
+  packageName={props.data.allPasteComponent.edges[0].node.name}
+  version={props.data.allPasteComponent.edges[0].node.version}
+  description={props.data.allPasteComponent.edges[0].node.description}
+  status={props.data.allPasteComponent.edges[0].node.status}
+  figmaStatus={props.data.allAirtable.edges[0].node.data.Figma}
+  designCommitteeStatus={props.data.allAirtable.edges[0].node.data.Design_committee_review}
+  engineerCommitteeStatus={props.data.allAirtable.edges[0].node.data.Engineer_committee_review}
 />
 
 ---
@@ -129,7 +134,7 @@ Apply a pre-selected value to make it clear the user must select an option only 
 
 - Your default value is a safe, secure, and reversible option, and you're willing to collect biased data. Defaulting to a value biases or alters the experience so that your data may be skewed.
 - The user doesn't need to make an explicit choice for safety, security, or legal reasons.
-  
+
 If you do apply a pre-selected value, make the first option the default option. This article can help you further determine if you should default a selection: [Radio Buttons: Select One by Default or Leave All Unselected?, Nielsen Norman](https://www.nngroup.com/articles/radio-buttons-default-selection/).
 
 <LivePreview scope={{Radio, RadioGroup}} noInline>
