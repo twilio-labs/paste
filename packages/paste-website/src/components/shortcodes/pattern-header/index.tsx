@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Stack} from '@twilio-paste/stack';
-import {PackageLabel, PackageValue} from '../component-header';
+import {Text} from '@twilio-paste/text';
 import {PackageStatusLegend} from '../package-status-legend';
 import {P} from '../../Typography';
 import {Breadcrumb, BreadcrumbItem} from '../../breadcrumb';
@@ -23,6 +23,22 @@ const PatternHeaderBasic: React.FC<{
     </Heading>
   </>
 );
+
+const PackageValue: React.FC = ({children}) => {
+  return (
+    <Text as="dd" display="inline-block">
+      {children}
+    </Text>
+  );
+};
+
+const PackageLabel: React.FC = ({children}) => {
+  return (
+    <Text as="dt" display="inline-block" color="colorTextWeak" css={{width: '80px'}}>
+      {children}
+    </Text>
+  );
+};
 
 interface PatternHeaderProps {
   description: string;

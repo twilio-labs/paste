@@ -2,14 +2,16 @@ import * as React from 'react';
 import {Helmet} from 'react-helmet';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {Heading} from '@twilio-paste/heading';
-import {Breadcrumb, BreadcrumbItem} from '../../breadcrumb';
 import {PackageStatusLegend} from '../package-status-legend';
 import {SidebarCategoryRoutes, STORYBOOK_DOMAIN} from '../../../constants';
-import {P, InlineCode} from '../../Typography';
-import {getHumanizedNameFromPackageName, getOpengraphServiceUrl} from '../../../utils/RouteUtils';
-import {sentenceCase} from '../../../utils/SentenceCase';
+import {
+  getHumanizedNameFromPackageName,
+  getOpengraphServiceUrl,
+  getNameFromPackageName,
+} from '../../../utils/RouteUtils';
 import type {PackageStatusObject} from '../../../utils/types';
 
 const getCategoryNameFromRoute = (categoryRoute: string): string => {
@@ -33,33 +35,21 @@ const getCategoryNameFromRoute = (categoryRoute: string): string => {
   }
 };
 
-const ComponentHeaderBasic: React.FC<{
-  name: string;
-  ogImagePath?: string;
-  categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
-}> = ({name, ogImagePath, categoryRoute}) => (
-  <>
-    {ogImagePath ? (
-      <Helmet>
-        <meta property="og:image" content={getOpengraphServiceUrl(ogImagePath)} />
-      </Helmet>
-    ) : null}
-    <Breadcrumb>
-      <BreadcrumbItem to="/">Home</BreadcrumbItem>
-      <BreadcrumbItem to={categoryRoute}>{getCategoryNameFromRoute(categoryRoute)}</BreadcrumbItem>
-    </Breadcrumb>
-    <Heading as="h1" variant="heading10">
-      {getHumanizedNameFromPackageName(name)}
-    </Heading>
-  </>
-);
-
 interface ComponentHeaderProps {
-  children?: React.ReactElement;
   name: string;
   categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
-  githubUrl: string;
-  storybookUrl: string;
+  githubUrl?: string;
+  storybookUrl?: string;
+  status?: string;
+  designCommitteeStatus?: string;
+  engineerCommitteeStatus?: string;
+  figmaStatus?: string;
+  description?: string;
+  version?: string;
+  packageName?: string;
+
+  // DEPRECATED
+  children?: React.ReactElement;
   data?: [
     {
       node: {
@@ -76,47 +66,64 @@ interface ComponentHeaderProps {
   isCore?: boolean;
 }
 
-export const PackageValue: React.FC = ({children}) => {
-  return (
-    <Text as="dd" display="inline-block">
-      {children}
-    </Text>
-  );
-};
-
-export const PackageLabel: React.FC = ({children}) => {
-  return (
-    <Text as="dt" display="inline-block" color="colorTextWeak" css={{width: '80px'}}>
-      {children}
-    </Text>
-  );
-};
-
-const PackageInstallSnippet: React.FC = ({children}) => {
-  return <InlineCode>{children}</InlineCode>;
-};
-
 const ComponentHeader: React.FC<ComponentHeaderProps> = ({
   name,
   categoryRoute,
+  packageName,
+  version,
   githubUrl,
   storybookUrl,
-  data,
-  packageStatus,
-  isCore = false,
-}) => {
-  if (data == null || data[0] == null || data[0].node == null) {
-    return <ComponentHeaderBasic categoryRoute={categoryRoute} name={name} />;
-  }
-  if (packageStatus == null || packageStatus[0] == null || packageStatus[0].node == null) {
-    return <ComponentHeaderBasic categoryRoute={categoryRoute} name={name} />;
-  }
+  description,
+  status,
+  figmaStatus,
+  designCommitteeStatus,
+  engineerCommitteeStatus,
 
-  const ogImagePath = `${categoryRoute.replace('/', '')}/${data[0].node.name.replace('@twilio-paste/', '')}`;
-  const {description, name: packageName, version} = data[0].node;
+  // data,
+  // packageStatus,
+  // isCore = false,
+}) => {
+  const ogImagePath = packageName
+    ? `${categoryRoute.replace('/', '')}/${getNameFromPackageName(packageName)}`
+    : undefined;
+
+  const showStatus = status || figmaStatus || designCommitteeStatus || engineerCommitteeStatus;
+
   return (
-    <>
-      <ComponentHeaderBasic categoryRoute={categoryRoute} name={name} ogImagePath={ogImagePath} />
+    <Box paddingBottom="space90">
+      {ogImagePath ? (
+        <Helmet>
+          <meta property="og:image" content={getOpengraphServiceUrl(ogImagePath)} />
+        </Helmet>
+      ) : null}
+      <Box marginBottom="space50">
+        <Anchor href={categoryRoute}>{getCategoryNameFromRoute(categoryRoute)}</Anchor>
+      </Box>
+      <Stack spacing="space50" orientation="horizontal">
+        <Heading as="h1" variant="heading10" marginBottom="space0">
+          {getHumanizedNameFromPackageName(name)}
+        </Heading>
+        {showStatus ? (
+          <PackageStatusLegend
+            status={status}
+            figmaStatus={figmaStatus}
+            designCommitteeStatus={designCommitteeStatus}
+            engineerCommitteeStatus={engineerCommitteeStatus}
+          />
+        ) : null}
+      </Stack>
+      <Text as="p" paddingTop="space70" paddingBottom="space70">
+        {description}
+      </Text>
+      <Stack orientation="horizontal" spacing="space70">
+        <Text as="span" color="colorTextWeak">
+          Version {version}
+        </Text>
+        {githubUrl ? <Anchor href={githubUrl}>Github</Anchor> : null}
+        {storybookUrl ? <Anchor href={`${STORYBOOK_DOMAIN}${storybookUrl}`}>Storybook</Anchor> : null}
+      </Stack>
+
+      {/* <ComponentHeaderBasic categoryRoute={categoryRoute} name={name} ogImagePath={ogImagePath} />
       {categoryRoute.includes('/form/') ? null : <P variant="lead">{description}</P>}
       <PackageStatusLegend packageStatus={packageStatus} />
       <Box as="dl" marginBottom="space100">
@@ -154,8 +161,8 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
             <PackageInstallSnippet>{packageName}</PackageInstallSnippet>
           </PackageValue>
         </Box>
-      </Box>
-    </>
+      </Box> */}
+    </Box>
   );
 };
 
