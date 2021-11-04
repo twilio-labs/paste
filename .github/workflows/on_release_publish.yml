@@ -1,4 +1,4 @@
-name: slack-notification
+name: On Release Publish
 on:
   release:
     types: [published]
