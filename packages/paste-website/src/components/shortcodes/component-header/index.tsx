@@ -68,7 +68,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
   const showStatus = status || figmaStatus || designCommitteeStatus || engineerCommitteeStatus;
 
   return (
-    <Box paddingBottom="space90">
+    <Box>
       {ogImagePath ? (
         <Helmet>
           <meta property="og:image" content={getOpengraphServiceUrl(ogImagePath)} />
@@ -90,9 +90,11 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
           />
         ) : null}
       </Stack>
-      <Text as="p" paddingTop="space70" paddingBottom="space70">
-        {description}
-      </Text>
+      {description ? (
+        <Text as="p" paddingTop="space70" paddingBottom="space70">
+          {description}
+        </Text>
+      ) : null}
       <Stack orientation="horizontal" spacing="space70">
         {version ? (
           <Text as="span" color="colorTextWeak">
