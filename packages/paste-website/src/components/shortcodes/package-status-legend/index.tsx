@@ -2,69 +2,67 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Stack} from '@twilio-paste/stack';
-import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
-import {AssetStatus} from '../../component-status/AssetStatus';
+import {Badge} from '@twilio-paste/badge';
+import type {BadgeVariant} from '@twilio-paste/badge/types';
+
+import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
+import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
+
+import {sentenceCase} from '../../../utils/SentenceCase';
+// import {AssetStatus} from '../../component-status/AssetStatus';
 import {PeerReviewStatus} from '../../component-status/PeerReviewStatus';
-import type {PackageStatusObject} from '../../../utils/types';
 
 interface PackageStatusLegendProps {
-  packageStatus: PackageStatusObject;
+  status?: string;
+  figmaStatus?: string;
+  designCommitteeStatus?: string;
+  engineerCommitteeStatus?: string;
 }
 
-const PackageStatusLegend: React.FC<PackageStatusLegendProps> = ({packageStatus}) => {
-  const {
-    Figma,
-    Documentation,
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    Design_committee_review,
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    Engineer_committee_review,
-    Code,
-  } = packageStatus[0].node.data;
+const PackageStatusBadge: React.FC<{status: string}> = ({status}) => {
+  let badgeVariant: BadgeVariant;
+
+  if (status === 'beta') {
+    badgeVariant = 'info';
+  }
+  if (status === 'alpha') {
+    badgeVariant = 'new';
+  }
 
   return (
-    <Box marginBottom="space70">
-      <Stack orientation="horizontal" spacing="space60">
-        <Box display="flex" alignItems="center">
-          <Text as="span" marginRight="space20">
-            Code ready:
-          </Text>
-          <AssetStatus label="Code done" status={Code} />
-        </Box>
-        <Box display="flex" alignItems="center">
-          <Text as="span" marginRight="space20">
-            Design assets:
-          </Text>
-          <AssetStatus label="Design assets done" status={Figma} />
-        </Box>
-        <Box display="flex" alignItems="center">
-          <Text as="span" marginRight="space20">
-            Documentation:
-          </Text>
-          {Documentation === true ? (
-            <Box display="flex" alignItems="center" justifyContent="center">
-              <SuccessIcon
-                display="inline-block"
-                decorative={false}
-                title="Documentation done"
-                color="colorTextSuccess"
-                size="sizeIcon30"
-              />
-            </Box>
-          ) : (
-            <Text as="span" color="colorTextWeak">
-              Pending
-            </Text>
-          )}
-        </Box>
-        <Box display="flex" alignItems="center">
-          <Text as="span" marginRight="space20">
-            Peer review:
-          </Text>
-          <PeerReviewStatus designStatus={Design_committee_review} engineerStatus={Engineer_committee_review} />
-        </Box>
-      </Stack>
-    </Box>
+    <>
+      {badgeVariant ? (
+        <Badge as="span" variant={badgeVariant}>
+          <NewIcon decorative />
+          <Box as="span">{sentenceCase(status)}</Box>
+        </Badge>
+      ) : null}
+    </>
+  );
+};
+
+const PackageStatusLegend: React.FC<PackageStatusLegendProps> = ({
+  status,
+  figmaStatus,
+  designCommitteeStatus,
+  engineerCommitteeStatus,
+}) => {
+  const isFigmaPending = figmaStatus === null;
+
+  return (
+    <Stack orientation="horizontal" spacing="space40">
+      {status ? <PackageStatusBadge status={status} /> : null}
+      {isFigmaPending ? (
+        <Text as="span" color="colorTextWeak" display="flex">
+          <ProcessDraftIcon decorative />
+          Design assets pending
+        </Text>
+      ) : null}
+      <PeerReviewStatus
+        designCommitteeStatus={designCommitteeStatus}
+        engineerCommitteeStatus={engineerCommitteeStatus}
+      />
+    </Stack>
   );
 };
 
