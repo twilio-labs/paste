@@ -34,34 +34,13 @@ export const pageQuery = graphql`
 `;
 
 <ComponentHeader
-  isCore
   name={props.pageContext.frontmatter.title}
   categoryRoute={SidebarCategoryRoutes.CORE}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core"
   storybookUrl="?path=/story/"
-  packageStatus={[
-    {
-      node: {
-        data: {
-          Documentation: true,
-          Figma: 'not applicable',
-          Design_committee_review: 'yes',
-          Engineer_committee_review: 'yes',
-          Code: 'yes',
-          status: 'production',
-        },
-      },
-    },
-  ]}
-  data={[
-    {
-      node: {
-        name: PackageJSON.name,
-        description: PackageJSON.description,
-        version: PackageJSON.version,
-      },
-    },
-  ]}
+  packageName={PackageJSON.name}
+  version={PackageJSON.version}
+  description={PackageJSON.description}
 />
 
 ---
