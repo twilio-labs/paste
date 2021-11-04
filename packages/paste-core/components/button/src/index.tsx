@@ -126,6 +126,7 @@ const ButtonContents: React.FC<ButtonContentsProps> = ({buttonState, children, s
         aria-hidden={buttonState === 'loading' ? 'true' : 'false'}
         justifyContent={buttonVariantHasBoundingBox ? null : 'center'}
         columnGap="space20"
+        alignItems="center"
       >
         {children}
       </Box>

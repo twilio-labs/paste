@@ -20,7 +20,7 @@ type RatingProps = {
   dislikePage: (event: React.MouseEvent) => void;
 };
 
-const UnratedPage: React.FC<RatingProps> = ({likePage, dislikePage}) => (
+export const UnratedPage: React.FC<RatingProps> = ({likePage, dislikePage}) => (
   <>
     <Heading as="h4" variant="heading40">
       Rate this page
@@ -50,7 +50,7 @@ const UnratedPage: React.FC<RatingProps> = ({likePage, dislikePage}) => (
   </>
 );
 
-const LikedPage: React.FC<RatingProps> = () => (
+export const LikedPage: React.FC<RatingProps> = () => (
   <>
     <Box display="flex" lineHeight="lineHeight50">
       <ThumbsUpIcon size="sizeIcon50" decorative={false} title="Like this page" />
@@ -68,7 +68,7 @@ const LikedPage: React.FC<RatingProps> = () => (
   </>
 );
 
-const DislikedPage: React.FC<RatingProps> = () => (
+export const DislikedPage: React.FC<RatingProps> = () => (
   <>
     <Box display="flex" lineHeight="lineHeight50">
       <ThumbsDownIcon display="inline-block" size="sizeIcon50" decorative={false} title="Dislike this page" />
