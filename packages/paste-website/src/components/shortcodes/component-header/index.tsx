@@ -12,7 +12,6 @@ import {
   getOpengraphServiceUrl,
   getNameFromPackageName,
 } from '../../../utils/RouteUtils';
-import type {PackageStatusObject} from '../../../utils/types';
 
 const getCategoryNameFromRoute = (categoryRoute: string): string => {
   switch (categoryRoute) {
@@ -47,23 +46,6 @@ interface ComponentHeaderProps {
   description?: string;
   version?: string;
   packageName?: string;
-
-  // DEPRECATED
-  children?: React.ReactElement;
-  data?: [
-    {
-      node: {
-        name: string;
-        category: string;
-        description: string;
-        status: string;
-        sideEffects: boolean;
-        version: string;
-      };
-    }
-  ];
-  packageStatus: PackageStatusObject;
-  isCore?: boolean;
 }
 
 const ComponentHeader: React.FC<ComponentHeaderProps> = ({
@@ -78,10 +60,6 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
   figmaStatus,
   designCommitteeStatus,
   engineerCommitteeStatus,
-
-  // data,
-  // packageStatus,
-  // isCore = false,
 }) => {
   const ogImagePath = packageName
     ? `${categoryRoute.replace('/', '')}/${getNameFromPackageName(packageName)}`
@@ -116,52 +94,14 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
         {description}
       </Text>
       <Stack orientation="horizontal" spacing="space70">
-        <Text as="span" color="colorTextWeak">
-          Version {version}
-        </Text>
+        {version ? (
+          <Text as="span" color="colorTextWeak">
+            Version {version}
+          </Text>
+        ) : null}
         {githubUrl ? <Anchor href={githubUrl}>Github</Anchor> : null}
         {storybookUrl ? <Anchor href={`${STORYBOOK_DOMAIN}${storybookUrl}`}>Storybook</Anchor> : null}
       </Stack>
-
-      {/* <ComponentHeaderBasic categoryRoute={categoryRoute} name={name} ogImagePath={ogImagePath} />
-      {categoryRoute.includes('/form/') ? null : <P variant="lead">{description}</P>}
-      <PackageStatusLegend packageStatus={packageStatus} />
-      <Box as="dl" marginBottom="space100">
-        {packageStatus[0].node.data.status && (
-          <Box marginBottom="space20">
-            <PackageLabel>Status</PackageLabel>
-            <PackageValue>{sentenceCase(packageStatus[0].node.data.status)}</PackageValue>
-          </Box>
-        )}
-        <Box marginBottom="space20">
-          <PackageLabel>Version</PackageLabel>
-          <PackageValue>{version}</PackageValue>
-        </Box>
-        <Box marginBottom="space20">
-          <PackageLabel>Sources</PackageLabel>
-          <PackageValue>
-            <Box display="inline" marginRight="space30">
-              <Anchor href={githubUrl}>Github</Anchor>
-            </Box>
-            {storybookUrl != null ? <Anchor href={`${STORYBOOK_DOMAIN}${storybookUrl}`}>Storybook</Anchor> : null}
-          </PackageValue>
-        </Box>
-        <Box marginBottom="space20">
-          <PackageLabel>Import from</PackageLabel>
-          <PackageValue>
-            {!isCore && (
-              <>
-                {' '}
-                <PackageInstallSnippet>
-                  {packageName.replace('@twilio-paste/', '@twilio-paste/core/')}
-                </PackageInstallSnippet>{' '}
-                &mdash; or &mdash;{' '}
-              </>
-            )}
-            <PackageInstallSnippet>{packageName}</PackageInstallSnippet>
-          </PackageValue>
-        </Box>
-      </Box> */}
     </Box>
   );
 };
