@@ -85,6 +85,7 @@ export const ImageSlider: React.FC<{frontFluidObject: FluidObject; backFluidObje
       width="60%"
       zIndex="zIndex10"
       marginRight={['space0', 'space0', 'space100']}
+      userSelect="none"
     >
       <Box
         as="label"
