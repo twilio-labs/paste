@@ -24,6 +24,6 @@ export const FullHeader = (): React.ReactNode => {
 };
 
 export default {
-  title: 'Website/ComponentHeader',
+  title: 'Website/ComponentPageHeader',
   component: BasicHeader,
 };
