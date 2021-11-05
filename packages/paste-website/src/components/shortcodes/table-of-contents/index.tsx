@@ -33,7 +33,9 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
 
             return (
               <TableOfContentsListItem key={value} depth={depthLevel}>
-                <Anchor href={headingLink}>{value}</Anchor>
+                <Anchor data-cy="page-aside-anchor" href={headingLink}>
+                  {value}
+                </Anchor>
               </TableOfContentsListItem>
             );
           })

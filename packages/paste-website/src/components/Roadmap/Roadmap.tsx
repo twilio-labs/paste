@@ -42,11 +42,11 @@ const Roadmap: React.FC<RoadmapProps> = ({data}) => {
         {data.map((release) => {
           const releaseSlug = `#${slugify(release.release)}`;
           return (
-            <Box key={useUID()} id={releaseSlug}>
+            <Box key={useUID()} id={releaseSlug} data-cy={`release-container-${releaseSlug}`}>
               <Heading as="h2" variant="heading20">
                 <Box as="span" display="flex" alignItems="center">
                   Release - {release.release}{' '}
-                  <Anchor href={releaseSlug}>
+                  <Anchor data-cy="anchored-heading-h2" href={releaseSlug}>
                     <LinkIcon
                       color="colorTextIcon"
                       decorative={false}

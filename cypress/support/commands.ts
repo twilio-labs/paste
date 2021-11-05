@@ -28,7 +28,8 @@
 declare namespace Cypress {
   interface Chainable<Subject> {
     pageHeaderShouldBeVisible(headerText: string): void;
-    overviewTableRendersCorrectly(airtableDataAlias: string): Chainable<Subject>;
+    overviewTableRendersCorrectly(): void;
+    checkInPageNavigationLinks(): void;
   }
 }
 
@@ -36,7 +37,7 @@ Cypress.Commands.add('pageHeaderShouldBeVisible', (headerText) => {
   cy.contains('h1', headerText).should('be.visible');
 });
 
-Cypress.Commands.add('overviewTableRendersCorrectly', (airtableDataAlias: string) => {
+Cypress.Commands.add('overviewTableRendersCorrectly', () => {
   cy.get('table').first().as('componentsTable').should('be.visible');
   cy.get('@componentsTable').find('thead').find('tr').find('th').as('overviewTableHeaders');
   cy.get('@componentsTable').find('tbody').find('tr').as('tableRows');
@@ -51,7 +52,22 @@ Cypress.Commands.add('overviewTableRendersCorrectly', (airtableDataAlias: string
     cy.wrap(header).should('include.text', headers[index]);
   });
 
-  return cy.get<{allAirtable: {edges: Record<string, any>[]}}>(airtableDataAlias).then(({allAirtable: {edges}}) => {
-    return cy.get('@tableRows').its('length').should('eql', edges.length);
+  // verify at least one row is rendered.
+  cy.get('@tableRows').its('length').should('be.greaterThan', 0);
+});
+
+Cypress.Commands.add('checkInPageNavigationLinks', () => {
+  cy.get('#paste-docs-content-area').as('contentArea');
+
+  cy.get('@contentArea').find('[data-cy="page-aside-anchor"]').as('pageAsideAnchors');
+  cy.get('@contentArea')
+    .find('[data-cy*="anchored-heading-h2"], [data-cy*="anchored-heading-h3"]')
+    .as('anchoredHeadings');
+
+  cy.get('@pageAsideAnchors').then((anchors) => {
+    cy.get('@anchoredHeadings').each((anchor, idx) => {
+      cy.wrap(anchor).should('have.attr', 'href').and('include', '#');
+      cy.wrap(anchors[idx]).should('have.attr', 'href').and('include', '#').and('eql', anchor.attr('href'));
+    });
   });
 });

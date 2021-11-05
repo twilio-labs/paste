@@ -23,7 +23,9 @@ const RoadmapAside: React.FC<RoadmapAsideProps> = ({data}) => {
 
             return (
               <TableOfContentsListItem key={release} depth="1">
-                <Anchor href={headingLink}>{release}</Anchor>
+                <Anchor data-cy="page-aside-anchor" href={headingLink}>
+                  {release}
+                </Anchor>
               </TableOfContentsListItem>
             );
           })}
