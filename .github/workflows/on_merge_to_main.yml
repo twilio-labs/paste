@@ -1,0 +1,183 @@
+name: Merge to main
+
+on:
+  push:
+    paths:
+      - "packages/**"
+    branches:
+      - main
+
+jobs:
+  prerelease:
+    name: Prerelease test and build
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'chore(release): version packages')"
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js 12.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - name: Load Yarn cache
+        uses: actions/cache@v2
+        id: yarn_cache_id
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn
+
+      - name: Node modules cache
+        uses: actions/cache@v2
+        id: node_modules_cache_id
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Dependencies
+        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: yarn install --immutable
+
+      - name: Run prerelease
+        run: yarn prerelase
+
+      - name: Store build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: compiled-js-and-types
+          path: |
+            packages/**/dist/**/*
+            packages/paste-core/core-bundle/**/*
+            packages/paste-icons/cjs/**/*
+            packages/paste-icons/esm/**/*
+            packages/paste-design-tokens/types/**/*
+            packages/paste-codemods/tools/.cache/mappings.json
+
+  version_or_publish:
+    name: Version or publish the packages
+    needs: prerelease
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js 12.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - name: Load Yarn cache
+        uses: actions/cache@v2
+        id: yarn_cache_id
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn
+
+      - name: Node modules cache
+        uses: actions/cache@v2
+        id: node_modules_cache_id
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Dependencies
+        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: yarn install --immutable
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: compiled-js-and-types
+          path: packages/
+
+      - name: Setup CI Git User
+        run: |
+          git config --global user.email "paste@twilio.com"
+          git config --global user.name "PasteBot"
+
+      - name: "Create Pull Request or Publish to npm"
+        uses: changesets/action@master
+        with:
+          version: yarn version
+          publish: yarn release
+          commit: "chore(release): version packages"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # due to this bug in yarn https://github.com/yarnpkg/berry/issues/3606 we need to manually turn off immutable installs to update the lockfile
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
+
+  chromatic:
+    name: Chromatic baseline update
+    needs: prerelease
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          # Chromatic needs the full git history to work
+          fetch-depth: 0
+
+      - name: Setup Node.js 12.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - name: Load Yarn cache
+        uses: actions/cache@v2
+        id: yarn_cache_id
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn
+
+      - name: Node modules cache
+        uses: actions/cache@v2
+        id: node_modules_cache_id
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Dependencies
+        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: yarn install --immutable
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: compiled-js-and-types
+          path: packages/
+
+      - name: Run Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMA_APP_CODE }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          buildScriptName: "build:storybook"
+          autoAcceptChanges: "main"
+          exitOnceUploaded: true

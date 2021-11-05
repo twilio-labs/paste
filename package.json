@@ -55,7 +55,7 @@
     "build:props": "lerna run build:props --ignore @twilio-paste/website --concurrency 2",
     "pre-push": "concurrently \"yarn:lint\" \"yarn:test\" \"yarn:prettier\" \"yarn:type-check\"",
     "prerelease": "yarn build && yarn lint && yarn test",
-    "release": "yarn prerelease && yarn changeset publish",
+    "release": "yarn changeset publish",
     "release:next": "yarn lerna publish -m 'chore(release): pre release' --conventional-commits --canary --preid beta --dist-tag next",
     "version": "yarn changeset version && yarn install --mode=update-lockfile",
     "sync-internal-peer-dependencies": "node ./tools/build/version.js",
