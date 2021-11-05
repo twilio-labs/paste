@@ -40,7 +40,7 @@ const Roadmap: React.FC<RoadmapProps> = ({data}) => {
     <Box width="100%">
       <Stack orientation="vertical" spacing="space190">
         {data.map((release) => {
-          const releaseSlug = slugify(release.release);
+          const releaseSlug = `#${slugify(release.release)}`;
           return (
             <Box key={useUID()} id={releaseSlug}>
               <Heading as="h2" variant="heading20">
