@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
 import type {
   NonModalDialogPrimitiveStateReturn,
   NonModalDialogPrimitivePopoverInitialState,
@@ -16,17 +15,16 @@ export interface PopoverContainerProps extends NonModalDialogPrimitivePopoverIni
   state?: PopoverStateReturn;
 }
 
-const BasePopoverContainer = React.forwardRef<HTMLDivElement, PopoverContainerProps>(
-  ({children, gutter, placement, state, ...initialState}, ref) => {
-    const popover = state || useNonModalDialogPrimitiveState({gutter, modal: true, placement, ...initialState});
-    return (
-      <PopoverContext.Provider value={popover}>
-        <Box ref={ref}>{children}</Box>
-      </PopoverContext.Provider>
-    );
-  }
-);
-
+const BasePopoverContainer: React.FC<PopoverContainerProps> = ({
+  children,
+  gutter,
+  placement,
+  state,
+  ...initialState
+}) => {
+  const popover = state || useNonModalDialogPrimitiveState({gutter, modal: true, placement, ...initialState});
+  return <PopoverContext.Provider value={popover}>{children}</PopoverContext.Provider>;
+};
 BasePopoverContainer.displayName = 'BasePopoverContainer';
 
 const PopoverContainer = React.memo(BasePopoverContainer);
