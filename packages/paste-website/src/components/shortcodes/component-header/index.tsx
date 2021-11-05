@@ -37,29 +37,29 @@ const getCategoryNameFromRoute = (categoryRoute: string): string => {
 interface ComponentHeaderProps {
   name: string;
   categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
-  githubUrl?: string;
-  storybookUrl?: string;
-  status?: string;
+  description?: string;
   designCommitteeStatus?: string;
   engineerCommitteeStatus?: string;
   figmaStatus?: string;
-  description?: string;
-  version?: string;
+  githubUrl?: string;
   packageName?: string;
+  status?: string;
+  storybookUrl?: string;
+  version?: string;
 }
 
 const ComponentHeader: React.FC<ComponentHeaderProps> = ({
   name,
   categoryRoute,
-  packageName,
-  version,
-  githubUrl,
-  storybookUrl,
   description,
-  status,
-  figmaStatus,
   designCommitteeStatus,
   engineerCommitteeStatus,
+  figmaStatus,
+  githubUrl,
+  packageName,
+  status,
+  storybookUrl,
+  version,
 }) => {
   const ogImagePath = packageName
     ? `${categoryRoute.replace('/', '')}/${getNameFromPackageName(packageName)}`
