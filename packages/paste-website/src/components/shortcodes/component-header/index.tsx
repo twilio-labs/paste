@@ -5,8 +5,11 @@ import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {Heading} from '@twilio-paste/heading';
+import {useTheme} from '@twilio-paste/theme';
 import {PackageStatusLegend} from '../package-status-legend';
 import {SidebarCategoryRoutes, STORYBOOK_DOMAIN} from '../../../constants';
+import GithubIcon from '../../icons/GithubIcon';
+import StorybookIcon from '../../icons/StorybookIcon';
 import {
   getHumanizedNameFromPackageName,
   getOpengraphServiceUrl,
@@ -33,6 +36,21 @@ const getCategoryNameFromRoute = (categoryRoute: string): string => {
       return 'Layout';
   }
 };
+
+const IconAnchor: React.FC<{href: string; icon: React.ReactNode; children: React.ReactNode}> = ({
+  href,
+  icon,
+  children,
+}) => (
+  <Anchor href={href}>
+    <Box as="span" display="flex">
+      <Box as="span" display="inline-block" flexShrink={0} verticalAlign="middle" marginRight="space20">
+        {icon}
+      </Box>
+      {children}
+    </Box>
+  </Anchor>
+);
 
 interface ComponentHeaderProps {
   name: string;
@@ -66,6 +84,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
     : undefined;
 
   const showStatus = status || figmaStatus || designCommitteeStatus || engineerCommitteeStatus;
+  const theme = useTheme();
 
   return (
     <Box>
@@ -101,8 +120,32 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
             Version {version}
           </Text>
         ) : null}
-        {githubUrl ? <Anchor href={githubUrl}>Github</Anchor> : null}
-        {storybookUrl ? <Anchor href={`${STORYBOOK_DOMAIN}${storybookUrl}`}>Storybook</Anchor> : null}
+        {githubUrl ? (
+          <IconAnchor
+            href={githubUrl}
+            icon={
+              <GithubIcon
+                css={{height: theme.space.space40, width: theme.space.space40, color: '#191717'}}
+                decorative
+              />
+            }
+          >
+            Github
+          </IconAnchor>
+        ) : null}
+        {storybookUrl ? (
+          <IconAnchor
+            href={`${STORYBOOK_DOMAIN}${storybookUrl}`}
+            icon={
+              <StorybookIcon
+                css={{height: theme.space.space40, width: theme.space.space40, color: '#FF4785'}}
+                decorative
+              />
+            }
+          >
+            Storybook
+          </IconAnchor>
+        ) : null}
       </Stack>
     </Box>
   );
