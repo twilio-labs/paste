@@ -32,6 +32,8 @@ const getCategoryNameFromRoute = (categoryRoute: string): string => {
       return 'Customization';
     case SidebarCategoryRoutes.CORE:
       return 'Core';
+    case SidebarCategoryRoutes.PATTERNS:
+      return 'Patterns';
     default:
       return 'Layout';
   }
