@@ -6,12 +6,13 @@ const NewComponentBanner: React.FC = ({children}) => {
     <Box
       alignItems="center"
       backgroundColor="colorBackgroundBody"
-      borderRadius="borderRadius10"
+      borderRadius="borderRadius30"
       display="inline-flex"
       paddingBottom="space20"
       paddingLeft="space20"
       paddingRight="space40"
       paddingTop="space20"
+      columnGap="space30"
       role="status"
     >
       {children}

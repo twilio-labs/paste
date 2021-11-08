@@ -18,7 +18,6 @@ const NewComponentBannerLink: React.FC<NewComponentBannerAnchorProps> = ({childr
       fontSize={['fontSize20', 'fontSize30']}
       fontWeight="fontWeightSemibold"
       lineHeight={['lineHeight20', 'lineHeight30']}
-      marginLeft="space30"
     >
       {showExternal ? (
         <Anchor href={to} onClick={onClick} showExternal={showExternal}>

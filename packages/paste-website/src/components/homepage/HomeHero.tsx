@@ -4,9 +4,9 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Text} from '@twilio-paste/text';
+import {Badge} from '@twilio-paste/badge';
 import {ArrowForwardIcon} from '@twilio-paste/icons/esm/ArrowForwardIcon';
 import {NewComponentBanner} from './NewComponentBanner';
-import {NewComponentBannerBadge} from './NewComponentBannerBadge';
 import {NewComponentBannerLink} from './NewComponentBannerLink';
 import {NewComponentBannerText} from './NewComponentBannerText';
 import {HomeHeroIllustration} from './HomeHeroIllustration';
@@ -65,16 +65,17 @@ const HomeHero: React.FC = () => {
           <Grid vertical={[true, false, false]}>
             <Column span={5}>
               <NewComponentBanner>
-                <NewComponentBannerBadge>New!</NewComponentBannerBadge>
-                <NewComponentBannerText>Announcing Paste Remix!</NewComponentBannerText>
+                <Badge as="span" variant="new">
+                  New!
+                </Badge>
+                <NewComponentBannerText>Announcing Paste for Twilio programmable apps!</NewComponentBannerText>
                 <NewComponentBannerLink
-                  to="https://remix.twilio.design"
-                  showExternal
+                  to="/customization"
                   onClick={() =>
                     trackCustomEvent({
                       category: 'Hero',
                       action: 'click-new-component-banner',
-                      label: 'Launch Theme Designer',
+                      label: 'Launch Customization',
                     })
                   }
                 >
