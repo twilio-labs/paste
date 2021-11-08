@@ -11098,21 +11098,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@twilio-paste/alert-dialog@^0.2.0, @twilio-paste/alert-dialog@workspace:packages/paste-core/components/alert-dialog":
+"@twilio-paste/alert-dialog@^0.2.0, @twilio-paste/alert-dialog@^0.2.1, @twilio-paste/alert-dialog@workspace:packages/paste-core/components/alert-dialog":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/alert-dialog@workspace:packages/paste-core/components/alert-dialog"
   dependencies:
-    "@twilio-paste/animation-library": ^0.3.1
-    "@twilio-paste/box": ^4.0.5
-    "@twilio-paste/button": ^7.0.10
-    "@twilio-paste/heading": ^5.0.2
-    "@twilio-paste/modal": ^7.1.3
-    "@twilio-paste/stack": ^2.0.4
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.3
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/types": ^3.1.1
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/animation-library": ^0.3.3
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/button": ^7.0.11
+    "@twilio-paste/heading": ^5.1.1
+    "@twilio-paste/modal": ^7.1.4
+    "@twilio-paste/stack": ^2.1.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11134,21 +11134,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/alert@^7.0.2, @twilio-paste/alert@^7.1.0, @twilio-paste/alert@workspace:packages/paste-core/components/alert":
+"@twilio-paste/alert@^7.0.2, @twilio-paste/alert@^7.1.1, @twilio-paste/alert@workspace:packages/paste-core/components/alert":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/alert@workspace:packages/paste-core/components/alert"
   dependencies:
-    "@twilio-paste/box": ^4.2.3
-    "@twilio-paste/button": ^7.0.2
-    "@twilio-paste/design-tokens": ^6.13.0
-    "@twilio-paste/icons": ^5.7.0
-    "@twilio-paste/media-object": ^4.0.3
-    "@twilio-paste/spinner": ^7.1.0
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/theme": ^5.1.0
-    "@twilio-paste/types": ^3.1.1
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/button": ^7.0.11
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/media-object": ^4.1.1
+    "@twilio-paste/spinner": ^7.2.2
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11170,18 +11170,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/anchor@^5.0.1, @twilio-paste/anchor@^5.0.2, @twilio-paste/anchor@^5.1.1, @twilio-paste/anchor@workspace:packages/paste-core/components/anchor":
+"@twilio-paste/anchor@^5.1.1, @twilio-paste/anchor@^5.1.2, @twilio-paste/anchor@workspace:packages/paste-core/components/anchor":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/anchor@workspace:packages/paste-core/components/anchor"
   dependencies:
-    "@twilio-paste/box": ^4.0.5
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/icons": ^5.8.0
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/types": ^3.1.1
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11200,7 +11200,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/animation-library@^0.3.1, @twilio-paste/animation-library@^0.3.2, @twilio-paste/animation-library@workspace:packages/paste-libraries/animation":
+"@twilio-paste/animation-library@^0.3.1, @twilio-paste/animation-library@^0.3.3, @twilio-paste/animation-library@workspace:packages/paste-libraries/animation":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/animation-library@workspace:packages/paste-libraries/animation"
   dependencies:
@@ -11214,16 +11214,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/aspect-ratio@^4.0.3, @twilio-paste/aspect-ratio@^4.0.4, @twilio-paste/aspect-ratio@workspace:packages/paste-core/layout/aspect-ratio":
+"@twilio-paste/aspect-ratio@^4.0.3, @twilio-paste/aspect-ratio@^4.0.5, @twilio-paste/aspect-ratio@workspace:packages/paste-core/layout/aspect-ratio":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/aspect-ratio@workspace:packages/paste-core/layout/aspect-ratio"
   dependencies:
-    "@twilio-paste/box": ^4.0.5
-    "@twilio-paste/design-tokens": ^6.7.0
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/theme": ^5.1.0
-    "@twilio-paste/types": ^3.1.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11240,18 +11240,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/avatar@^2.1.0, @twilio-paste/avatar@^2.2.0, @twilio-paste/avatar@workspace:packages/paste-core/components/avatar":
+"@twilio-paste/avatar@^2.1.0, @twilio-paste/avatar@^2.2.1, @twilio-paste/avatar@workspace:packages/paste-core/components/avatar":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/avatar@workspace:packages/paste-core/components/avatar"
   dependencies:
-    "@twilio-paste/box": ^4.0.3
-    "@twilio-paste/design-tokens": ^6.6.0
-    "@twilio-paste/icons": ^5.1.2
-    "@twilio-paste/style-props": ^3.0.2
-    "@twilio-paste/styling-library": ^0.3.1
-    "@twilio-paste/text": ^4.0.2
-    "@twilio-paste/theme": ^5.0.2
-    "@twilio-paste/types": ^3.1.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/text": ^4.1.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11270,23 +11270,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/badge@^1.1.0, @twilio-paste/badge@workspace:packages/paste-core/components/badge":
+"@twilio-paste/badge@^1.1.0, @twilio-paste/badge@^1.1.1, @twilio-paste/badge@workspace:packages/paste-core/components/badge":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/badge@workspace:packages/paste-core/components/badge"
   dependencies:
-    "@twilio-paste/anchor": ^5.1.1
-    "@twilio-paste/animation-library": ^0.3.2
-    "@twilio-paste/box": ^4.2.2
-    "@twilio-paste/button": ^7.0.10
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/icons": ^5.8.0
-    "@twilio-paste/spinner": ^7.2.1
-    "@twilio-paste/stack": ^2.0.4
-    "@twilio-paste/style-props": ^3.1.0
-    "@twilio-paste/styling-library": ^0.3.4
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/types": ^3.1.1
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/anchor": ^5.1.2
+    "@twilio-paste/animation-library": ^0.3.3
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/button": ^7.0.11
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/spinner": ^7.2.2
+    "@twilio-paste/stack": ^2.1.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11310,24 +11310,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/base-radio-checkbox@^6.0.2, @twilio-paste/base-radio-checkbox@^6.0.3, @twilio-paste/base-radio-checkbox@^6.0.4, @twilio-paste/base-radio-checkbox@workspace:packages/paste-core/components/base-radio-checkbox":
+"@twilio-paste/base-radio-checkbox@^6.0.4, @twilio-paste/base-radio-checkbox@^6.0.5, @twilio-paste/base-radio-checkbox@workspace:packages/paste-core/components/base-radio-checkbox":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/base-radio-checkbox@workspace:packages/paste-core/components/base-radio-checkbox"
   dependencies:
-    "@twilio-paste/box": ^4.2.4
-    "@twilio-paste/design-tokens": ^6.12.0
-    "@twilio-paste/flex": ^2.0.3
-    "@twilio-paste/help-text": ^6.0.3
-    "@twilio-paste/icons": ^5.6.0
-    "@twilio-paste/label": ^6.0.3
-    "@twilio-paste/screen-reader-only": ^6.0.2
-    "@twilio-paste/sibling-box": ^3.0.3
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/text": ^4.1.3
-    "@twilio-paste/theme": ^5.1.0
-    "@twilio-paste/types": ^3.1.2
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/flex": ^2.1.1
+    "@twilio-paste/help-text": ^6.1.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/label": ^6.0.6
+    "@twilio-paste/screen-reader-only": ^6.0.3
+    "@twilio-paste/sibling-box": ^3.0.5
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/text": ^4.1.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11352,17 +11352,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/box@^4.0.3, @twilio-paste/box@^4.0.5, @twilio-paste/box@^4.1.1, @twilio-paste/box@^4.2.1, @twilio-paste/box@^4.2.2, @twilio-paste/box@^4.2.3, @twilio-paste/box@^4.2.4, @twilio-paste/box@workspace:packages/paste-core/primitives/box":
+"@twilio-paste/box@^4.2.4, @twilio-paste/box@^4.2.5, @twilio-paste/box@workspace:packages/paste-core/primitives/box":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/box@workspace:packages/paste-core/primitives/box"
   dependencies:
-    "@twilio-paste/animation-library": ^0.3.2
-    "@twilio-paste/customization": ^2.1.1
-    "@twilio-paste/design-tokens": ^6.12.0
-    "@twilio-paste/style-props": ^3.1.0
-    "@twilio-paste/styling-library": ^0.3.4
-    "@twilio-paste/theme": ^5.3.0
-    "@twilio-paste/types": ^3.1.2
+    "@twilio-paste/animation-library": ^0.3.3
+    "@twilio-paste/customization": ^2.1.2
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
     csstype: ^2.6.10
     deepmerge: 4.2.2
     prop-types: ^15.7.2
@@ -11382,19 +11382,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/breadcrumb@^4.1.0, @twilio-paste/breadcrumb@workspace:packages/paste-core/components/breadcrumb":
+"@twilio-paste/breadcrumb@^4.1.0, @twilio-paste/breadcrumb@^4.1.1, @twilio-paste/breadcrumb@workspace:packages/paste-core/components/breadcrumb":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/breadcrumb@workspace:packages/paste-core/components/breadcrumb"
   dependencies:
-    "@twilio-paste/anchor": ^5.0.2
-    "@twilio-paste/box": ^4.2.4
-    "@twilio-paste/design-tokens": ^6.12.0
-    "@twilio-paste/style-props": ^3.0.2
-    "@twilio-paste/styling-library": ^0.3.1
-    "@twilio-paste/text": ^4.1.3
-    "@twilio-paste/theme": ^5.0.2
-    "@twilio-paste/types": ^3.1.2
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/anchor": ^5.1.2
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/text": ^4.1.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11414,22 +11414,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/button@^7.0.10, @twilio-paste/button@^7.0.2, @twilio-paste/button@^7.0.9, @twilio-paste/button@workspace:packages/paste-core/components/button":
+"@twilio-paste/button@^7.0.10, @twilio-paste/button@^7.0.11, @twilio-paste/button@workspace:packages/paste-core/components/button":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/button@workspace:packages/paste-core/components/button"
   dependencies:
-    "@twilio-paste/anchor": ^5.1.1
-    "@twilio-paste/animation-library": ^0.3.1
-    "@twilio-paste/box": ^4.2.4
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/icons": ^5.8.0
-    "@twilio-paste/spinner": ^7.2.1
-    "@twilio-paste/stack": ^2.0.3
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.4
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/types": ^3.1.2
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/anchor": ^5.1.2
+    "@twilio-paste/animation-library": ^0.3.3
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/spinner": ^7.2.2
+    "@twilio-paste/stack": ^2.1.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     deepmerge: 4.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
@@ -11453,16 +11453,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/card@^3.1.1, @twilio-paste/card@workspace:packages/paste-core/components/card":
+"@twilio-paste/card@^3.1.1, @twilio-paste/card@^3.1.2, @twilio-paste/card@workspace:packages/paste-core/components/card":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/card@workspace:packages/paste-core/components/card"
   dependencies:
-    "@twilio-paste/box": ^4.2.3
-    "@twilio-paste/design-tokens": ^6.11.2
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/theme": ^5.1.0
-    "@twilio-paste/types": ^3.1.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11479,26 +11479,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/checkbox@^6.0.2, @twilio-paste/checkbox@^6.1.1, @twilio-paste/checkbox@workspace:packages/paste-core/components/checkbox":
+"@twilio-paste/checkbox@^6.1.1, @twilio-paste/checkbox@^6.1.2, @twilio-paste/checkbox@workspace:packages/paste-core/components/checkbox":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/checkbox@workspace:packages/paste-core/components/checkbox"
   dependencies:
-    "@twilio-paste/base-radio-checkbox": ^6.0.3
-    "@twilio-paste/box": ^4.0.5
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/help-text": ^6.0.3
-    "@twilio-paste/icons": ^5.8.0
-    "@twilio-paste/inline-control-group": ^6.1.0
-    "@twilio-paste/label": ^6.0.3
-    "@twilio-paste/media-object": ^4.0.3
-    "@twilio-paste/screen-reader-only": ^6.0.2
-    "@twilio-paste/sibling-box": ^3.0.3
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/text": ^4.1.4
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/types": ^3.1.1
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/base-radio-checkbox": ^6.0.5
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/help-text": ^6.1.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/inline-control-group": ^6.1.1
+    "@twilio-paste/label": ^6.0.6
+    "@twilio-paste/media-object": ^4.1.1
+    "@twilio-paste/screen-reader-only": ^6.0.3
+    "@twilio-paste/sibling-box": ^3.0.5
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/text": ^4.1.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11525,7 +11525,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/clipboard-copy-library@^1.0.0, @twilio-paste/clipboard-copy-library@workspace:packages/paste-libraries/clipboard-copy":
+"@twilio-paste/clipboard-copy-library@^1.0.0, @twilio-paste/clipboard-copy-library@^1.0.1, @twilio-paste/clipboard-copy-library@workspace:packages/paste-libraries/clipboard-copy":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/clipboard-copy-library@workspace:packages/paste-libraries/clipboard-copy"
   dependencies:
@@ -11545,7 +11545,7 @@ __metadata:
     "@babel/core": ^7.11.4
     "@babel/plugin-proposal-object-rest-spread": ^7.8.3
     "@babel/preset-env": ^7.8.4
-    "@twilio-paste/core": ^10.0.0
+    "@twilio-paste/core": ^10.16.0
     chalk: ^2.4.2
     execa: ^3.2.0
     globby: ^10.0.1
@@ -11570,11 +11570,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/combobox-primitive@^0.3.0, @twilio-paste/combobox-primitive@workspace:packages/paste-core/primitives/combobox":
+"@twilio-paste/combobox-primitive@^0.3.0, @twilio-paste/combobox-primitive@^0.3.1, @twilio-paste/combobox-primitive@workspace:packages/paste-core/primitives/combobox":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/combobox-primitive@workspace:packages/paste-core/primitives/combobox"
   dependencies:
-    "@twilio-paste/dropdown-library": ^1.1.1
+    "@twilio-paste/dropdown-library": ^1.1.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11586,29 +11586,29 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/combobox@^8.1.0, @twilio-paste/combobox@workspace:packages/paste-core/components/combobox":
+"@twilio-paste/combobox@^8.1.0, @twilio-paste/combobox@^8.1.1, @twilio-paste/combobox@workspace:packages/paste-core/components/combobox":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/combobox@workspace:packages/paste-core/components/combobox"
   dependencies:
-    "@twilio-paste/box": ^4.2.4
-    "@twilio-paste/button": ^7.0.10
-    "@twilio-paste/combobox-primitive": ^0.3.0
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/flex": ^2.1.0
-    "@twilio-paste/help-text": ^6.0.3
-    "@twilio-paste/icons": ^5.8.0
-    "@twilio-paste/input": ^3.1.1
-    "@twilio-paste/input-box": ^4.1.1
-    "@twilio-paste/label": ^6.0.3
-    "@twilio-paste/screen-reader-only": ^6.0.2
-    "@twilio-paste/spinner": ^7.2.1
-    "@twilio-paste/stack": ^2.1.0
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/text": ^4.1.4
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/types": ^3.1.2
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/button": ^7.0.11
+    "@twilio-paste/combobox-primitive": ^0.3.1
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/flex": ^2.1.1
+    "@twilio-paste/help-text": ^6.1.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/input": ^3.1.2
+    "@twilio-paste/input-box": ^4.1.2
+    "@twilio-paste/label": ^6.0.6
+    "@twilio-paste/screen-reader-only": ^6.0.3
+    "@twilio-paste/spinner": ^7.2.2
+    "@twilio-paste/stack": ^2.1.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/text": ^4.1.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     lodash.groupby: ^4.6.0
     prop-types: ^15.7.2
     react: ^17.0.2
@@ -11640,80 +11640,80 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/core@^10.0.0, @twilio-paste/core@workspace:packages/paste-core/core-bundle":
+"@twilio-paste/core@^10.0.0, @twilio-paste/core@^10.16.0, @twilio-paste/core@workspace:packages/paste-core/core-bundle":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/core@workspace:packages/paste-core/core-bundle"
   dependencies:
-    "@twilio-paste/alert": ^7.1.0
-    "@twilio-paste/alert-dialog": ^0.2.0
-    "@twilio-paste/anchor": ^5.1.1
-    "@twilio-paste/animation-library": ^0.3.2
-    "@twilio-paste/aspect-ratio": ^4.0.4
-    "@twilio-paste/avatar": ^2.2.0
-    "@twilio-paste/badge": ^1.1.0
-    "@twilio-paste/base-radio-checkbox": ^6.0.4
-    "@twilio-paste/box": ^4.2.4
-    "@twilio-paste/breadcrumb": ^4.1.0
-    "@twilio-paste/button": ^7.0.10
-    "@twilio-paste/card": ^3.1.1
-    "@twilio-paste/checkbox": ^6.1.1
-    "@twilio-paste/clipboard-copy-library": ^1.0.0
+    "@twilio-paste/alert": ^7.1.1
+    "@twilio-paste/alert-dialog": ^0.2.1
+    "@twilio-paste/anchor": ^5.1.2
+    "@twilio-paste/animation-library": ^0.3.3
+    "@twilio-paste/aspect-ratio": ^4.0.5
+    "@twilio-paste/avatar": ^2.2.1
+    "@twilio-paste/badge": ^1.1.1
+    "@twilio-paste/base-radio-checkbox": ^6.0.5
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/breadcrumb": ^4.1.1
+    "@twilio-paste/button": ^7.0.11
+    "@twilio-paste/card": ^3.1.2
+    "@twilio-paste/checkbox": ^6.1.2
+    "@twilio-paste/clipboard-copy-library": ^1.0.1
     "@twilio-paste/color-contrast-utils": ^1.1.0
-    "@twilio-paste/combobox": ^8.1.0
-    "@twilio-paste/combobox-primitive": ^0.3.0
-    "@twilio-paste/customization": ^2.1.1
-    "@twilio-paste/data-grid": ^0.1.0
-    "@twilio-paste/date-picker": ^0.2.0
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/disclosure": ^5.1.1
-    "@twilio-paste/disclosure-primitive": ^0.3.4
-    "@twilio-paste/display-pill-group": ^1.1.1
-    "@twilio-paste/dropdown-library": ^1.1.1
-    "@twilio-paste/flex": ^2.1.0
-    "@twilio-paste/form-pill-group": ^1.1.1
-    "@twilio-paste/grid": ^2.1.0
-    "@twilio-paste/heading": ^5.1.0
-    "@twilio-paste/help-text": ^6.1.0
-    "@twilio-paste/icons": ^5.8.0
-    "@twilio-paste/inline-control-group": ^6.1.0
-    "@twilio-paste/input": ^3.1.1
-    "@twilio-paste/input-box": ^4.1.1
-    "@twilio-paste/label": ^6.0.5
-    "@twilio-paste/list": ^2.1.0
-    "@twilio-paste/media-object": ^4.1.0
-    "@twilio-paste/menu": ^7.0.4
-    "@twilio-paste/menu-primitive": ^0.2.5
-    "@twilio-paste/modal": ^7.1.3
-    "@twilio-paste/modal-dialog-primitive": ^0.2.3
-    "@twilio-paste/non-modal-dialog-primitive": ^0.3.5
-    "@twilio-paste/pagination": ^0.2.0
-    "@twilio-paste/paragraph": ^4.1.0
-    "@twilio-paste/popover": ^6.1.1
-    "@twilio-paste/radio-group": ^6.1.0
-    "@twilio-paste/reakit-library": ^0.8.1
-    "@twilio-paste/screen-reader-only": ^6.0.2
-    "@twilio-paste/select": ^5.1.1
-    "@twilio-paste/separator": ^2.1.0
-    "@twilio-paste/sibling-box": ^3.0.4
-    "@twilio-paste/skeleton-loader": ^0.1.2
-    "@twilio-paste/spinner": ^7.2.1
-    "@twilio-paste/stack": ^2.1.0
-    "@twilio-paste/style-props": ^3.1.0
-    "@twilio-paste/styling-library": ^0.3.4
-    "@twilio-paste/table": ^2.1.1
-    "@twilio-paste/tabs": ^2.1.0
-    "@twilio-paste/tabs-primitive": ^0.2.3
-    "@twilio-paste/text": ^4.1.4
-    "@twilio-paste/textarea": ^3.1.0
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/time-picker": ^0.2.0
-    "@twilio-paste/toast": ^5.2.0
-    "@twilio-paste/tooltip": ^4.1.1
-    "@twilio-paste/tooltip-primitive": ^0.2.4
-    "@twilio-paste/truncate": ^7.0.0
-    "@twilio-paste/types": ^3.1.2
-    "@twilio-paste/uid-library": ^0.2.1
-    "@twilio-paste/utils": ^1.1.0
+    "@twilio-paste/combobox": ^8.1.1
+    "@twilio-paste/combobox-primitive": ^0.3.1
+    "@twilio-paste/customization": ^2.1.2
+    "@twilio-paste/data-grid": ^0.1.1
+    "@twilio-paste/date-picker": ^0.2.1
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/disclosure": ^5.1.2
+    "@twilio-paste/disclosure-primitive": ^0.3.5
+    "@twilio-paste/display-pill-group": ^1.1.2
+    "@twilio-paste/dropdown-library": ^1.1.2
+    "@twilio-paste/flex": ^2.1.1
+    "@twilio-paste/form-pill-group": ^1.1.2
+    "@twilio-paste/grid": ^2.1.1
+    "@twilio-paste/heading": ^5.1.1
+    "@twilio-paste/help-text": ^6.1.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/inline-control-group": ^6.1.1
+    "@twilio-paste/input": ^3.1.2
+    "@twilio-paste/input-box": ^4.1.2
+    "@twilio-paste/label": ^6.0.6
+    "@twilio-paste/list": ^2.1.1
+    "@twilio-paste/media-object": ^4.1.1
+    "@twilio-paste/menu": ^7.0.5
+    "@twilio-paste/menu-primitive": ^0.2.6
+    "@twilio-paste/modal": ^7.1.4
+    "@twilio-paste/modal-dialog-primitive": ^0.2.4
+    "@twilio-paste/non-modal-dialog-primitive": ^0.3.6
+    "@twilio-paste/pagination": ^0.2.1
+    "@twilio-paste/paragraph": ^4.1.1
+    "@twilio-paste/popover": ^6.2.0
+    "@twilio-paste/radio-group": ^6.1.1
+    "@twilio-paste/reakit-library": ^0.8.2
+    "@twilio-paste/screen-reader-only": ^6.0.3
+    "@twilio-paste/select": ^5.1.2
+    "@twilio-paste/separator": ^2.1.1
+    "@twilio-paste/sibling-box": ^3.0.5
+    "@twilio-paste/skeleton-loader": ^0.1.3
+    "@twilio-paste/spinner": ^7.2.2
+    "@twilio-paste/stack": ^2.1.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/table": ^2.1.2
+    "@twilio-paste/tabs": ^2.1.1
+    "@twilio-paste/tabs-primitive": ^0.2.4
+    "@twilio-paste/text": ^4.1.5
+    "@twilio-paste/textarea": ^3.1.1
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/time-picker": ^0.2.1
+    "@twilio-paste/toast": ^5.2.1
+    "@twilio-paste/tooltip": ^4.1.2
+    "@twilio-paste/tooltip-primitive": ^0.2.5
+    "@twilio-paste/truncate": ^7.0.1
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
+    "@twilio-paste/utils": ^1.1.1
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11731,16 +11731,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/customization@^2.1.0, @twilio-paste/customization@^2.1.1, @twilio-paste/customization@workspace:packages/paste-customization":
+"@twilio-paste/customization@^2.1.1, @twilio-paste/customization@^2.1.2, @twilio-paste/customization@workspace:packages/paste-customization":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/customization@workspace:packages/paste-customization"
   dependencies:
-    "@twilio-paste/animation-library": ^0.3.1
-    "@twilio-paste/design-tokens": ^6.6.0
-    "@twilio-paste/style-props": ^3.0.6
-    "@twilio-paste/styling-library": ^0.3.4
-    "@twilio-paste/theme": ^5.0.2
-    "@twilio-paste/types": ^3.1.1
+    "@twilio-paste/animation-library": ^0.3.3
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
     deepmerge: 4.2.2
     lodash.merge: ^4.6.2
     react: ^17.0.2
@@ -11757,27 +11757,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/data-grid@^0.1.0, @twilio-paste/data-grid@workspace:packages/paste-core/components/data-grid":
+"@twilio-paste/data-grid@^0.1.1, @twilio-paste/data-grid@workspace:packages/paste-core/components/data-grid":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/data-grid@workspace:packages/paste-core/components/data-grid"
   dependencies:
-    "@twilio-paste/anchor": ^5.0.1
-    "@twilio-paste/animation-library": ^0.3.2
-    "@twilio-paste/box": ^4.2.4
-    "@twilio-paste/button": ^7.0.9
-    "@twilio-paste/customization": ^2.1.0
-    "@twilio-paste/design-tokens": ^6.12.0
-    "@twilio-paste/icons": ^5.6.0
-    "@twilio-paste/reakit-library": ^0.8.1
-    "@twilio-paste/spinner": ^7.2.0
-    "@twilio-paste/stack": ^2.0.2
-    "@twilio-paste/style-props": ^3.0.6
-    "@twilio-paste/styling-library": ^0.3.3
-    "@twilio-paste/table": ^2.1.1
-    "@twilio-paste/theme": ^5.2.0
-    "@twilio-paste/types": ^3.1.2
-    "@twilio-paste/uid-library": ^0.2.1
-    "@twilio-paste/utils": ^1.1.0
+    "@twilio-paste/anchor": ^5.1.2
+    "@twilio-paste/animation-library": ^0.3.3
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/button": ^7.0.11
+    "@twilio-paste/customization": ^2.1.2
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/reakit-library": ^0.8.2
+    "@twilio-paste/spinner": ^7.2.2
+    "@twilio-paste/stack": ^2.1.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/table": ^2.1.2
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
+    "@twilio-paste/utils": ^1.1.1
     lodash.iselement: ^4.1.1
     prop-types: ^15.7.2
     react: ^17.0.2
@@ -11806,19 +11806,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/date-picker@^0.2.0, @twilio-paste/date-picker@workspace:packages/paste-core/components/date-picker":
+"@twilio-paste/date-picker@^0.2.0, @twilio-paste/date-picker@^0.2.1, @twilio-paste/date-picker@workspace:packages/paste-core/components/date-picker":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/date-picker@workspace:packages/paste-core/components/date-picker"
   dependencies:
-    "@twilio-paste/box": ^4.2.3
-    "@twilio-paste/design-tokens": ^6.11.2
-    "@twilio-paste/input": ^3.0.7
-    "@twilio-paste/input-box": ^4.0.6
-    "@twilio-paste/style-props": ^3.0.1
-    "@twilio-paste/styling-library": ^0.3.1
-    "@twilio-paste/theme": ^5.0.1
-    "@twilio-paste/types": ^3.1.1
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/input": ^3.1.2
+    "@twilio-paste/input-box": ^4.1.2
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     date-fns: 2.21.3
     prop-types: ^15.7.2
     react: ^17.0.2
@@ -11839,17 +11839,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/design-tokens@^6.10.0, @twilio-paste/design-tokens@^6.11.1, @twilio-paste/design-tokens@^6.11.2, @twilio-paste/design-tokens@^6.12.0, @twilio-paste/design-tokens@^6.13.0, @twilio-paste/design-tokens@^6.14.0, @twilio-paste/design-tokens@^6.6.0, @twilio-paste/design-tokens@^6.7.0, @twilio-paste/design-tokens@workspace:packages/paste-design-tokens":
+"@twilio-paste/design-tokens@^6.10.0, @twilio-paste/design-tokens@^6.14.0, @twilio-paste/design-tokens@^6.14.1, @twilio-paste/design-tokens@workspace:packages/paste-design-tokens":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/design-tokens@workspace:packages/paste-design-tokens"
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/disclosure-primitive@^0.3.4, @twilio-paste/disclosure-primitive@workspace:packages/paste-core/primitives/disclosure":
+"@twilio-paste/disclosure-primitive@^0.3.4, @twilio-paste/disclosure-primitive@^0.3.5, @twilio-paste/disclosure-primitive@workspace:packages/paste-core/primitives/disclosure":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/disclosure-primitive@workspace:packages/paste-core/primitives/disclosure"
   dependencies:
-    "@twilio-paste/reakit-library": ^0.8.1
+    "@twilio-paste/reakit-library": ^0.8.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11861,23 +11861,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/disclosure@^5.1.1, @twilio-paste/disclosure@workspace:packages/paste-core/components/disclosure":
+"@twilio-paste/disclosure@^5.1.1, @twilio-paste/disclosure@^5.1.2, @twilio-paste/disclosure@workspace:packages/paste-core/components/disclosure":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/disclosure@workspace:packages/paste-core/components/disclosure"
   dependencies:
-    "@twilio-paste/animation-library": ^0.3.1
-    "@twilio-paste/box": ^4.2.3
-    "@twilio-paste/card": ^3.1.1
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/disclosure-primitive": ^0.3.4
-    "@twilio-paste/heading": ^5.0.2
-    "@twilio-paste/icons": ^5.8.0
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/text": ^4.1.4
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/types": ^3.1.1
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/animation-library": ^0.3.3
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/card": ^3.1.2
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/disclosure-primitive": ^0.3.5
+    "@twilio-paste/heading": ^5.1.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/text": ^4.1.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11901,21 +11901,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/display-pill-group@^1.1.1, @twilio-paste/display-pill-group@workspace:packages/paste-core/components/display-pill-group":
+"@twilio-paste/display-pill-group@^1.1.1, @twilio-paste/display-pill-group@^1.1.2, @twilio-paste/display-pill-group@workspace:packages/paste-core/components/display-pill-group":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/display-pill-group@workspace:packages/paste-core/components/display-pill-group"
   dependencies:
-    "@twilio-paste/anchor": ^5.1.1
-    "@twilio-paste/animation-library": ^0.3.2
-    "@twilio-paste/box": ^4.2.4
-    "@twilio-paste/customization": ^2.1.1
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/icons": ^5.8.0
-    "@twilio-paste/style-props": ^3.1.0
-    "@twilio-paste/styling-library": ^0.3.4
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/types": ^3.1.2
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/anchor": ^5.1.2
+    "@twilio-paste/animation-library": ^0.3.3
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/customization": ^2.1.2
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11937,7 +11937,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/dropdown-library@^1.1.1, @twilio-paste/dropdown-library@workspace:packages/paste-libraries/dropdown":
+"@twilio-paste/dropdown-library@^1.1.1, @twilio-paste/dropdown-library@^1.1.2, @twilio-paste/dropdown-library@workspace:packages/paste-libraries/dropdown":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/dropdown-library@workspace:packages/paste-libraries/dropdown"
   dependencies:
@@ -11950,16 +11950,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/flex@^2.0.3, @twilio-paste/flex@^2.1.0, @twilio-paste/flex@workspace:packages/paste-core/layout/flex":
+"@twilio-paste/flex@^2.0.3, @twilio-paste/flex@^2.1.1, @twilio-paste/flex@workspace:packages/paste-core/layout/flex":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/flex@workspace:packages/paste-core/layout/flex"
   dependencies:
-    "@twilio-paste/box": ^4.0.3
-    "@twilio-paste/design-tokens": ^6.6.0
-    "@twilio-paste/style-props": ^3.0.2
-    "@twilio-paste/styling-library": ^0.3.1
-    "@twilio-paste/theme": ^5.0.2
-    "@twilio-paste/types": ^3.1.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11976,22 +11976,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/form-pill-group@^1.1.1, @twilio-paste/form-pill-group@workspace:packages/paste-core/components/form-pill-group":
+"@twilio-paste/form-pill-group@^1.1.1, @twilio-paste/form-pill-group@^1.1.2, @twilio-paste/form-pill-group@workspace:packages/paste-core/components/form-pill-group":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/form-pill-group@workspace:packages/paste-core/components/form-pill-group"
   dependencies:
-    "@twilio-paste/animation-library": ^0.3.2
-    "@twilio-paste/box": ^4.2.4
-    "@twilio-paste/customization": ^2.1.1
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/icons": ^5.8.0
-    "@twilio-paste/reakit-library": ^0.8.1
-    "@twilio-paste/screen-reader-only": ^6.0.2
-    "@twilio-paste/style-props": ^3.1.0
-    "@twilio-paste/styling-library": ^0.3.4
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/types": ^3.1.2
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/animation-library": ^0.3.3
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/customization": ^2.1.2
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/reakit-library": ^0.8.2
+    "@twilio-paste/screen-reader-only": ^6.0.3
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12014,32 +12014,32 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/form@^6.0.2, @twilio-paste/form@workspace:packages/paste-core/components/form":
+"@twilio-paste/form@^6.0.3, @twilio-paste/form@workspace:packages/paste-core/components/form":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/form@workspace:packages/paste-core/components/form"
   dependencies:
-    "@twilio-paste/base-radio-checkbox": ^6.0.2
-    "@twilio-paste/box": ^4.0.3
-    "@twilio-paste/checkbox": ^6.0.2
-    "@twilio-paste/design-tokens": ^6.6.0
-    "@twilio-paste/flex": ^2.0.3
-    "@twilio-paste/help-text": ^6.0.2
-    "@twilio-paste/icons": ^5.1.2
-    "@twilio-paste/inline-control-group": ^6.0.2
-    "@twilio-paste/input": ^3.0.4
-    "@twilio-paste/input-box": ^4.0.3
-    "@twilio-paste/label": ^6.0.2
-    "@twilio-paste/radio-group": ^6.0.2
-    "@twilio-paste/screen-reader-only": ^6.0.2
-    "@twilio-paste/select": ^5.0.2
-    "@twilio-paste/sibling-box": ^3.0.3
-    "@twilio-paste/style-props": ^3.0.2
-    "@twilio-paste/styling-library": ^0.3.1
-    "@twilio-paste/text": ^4.0.2
-    "@twilio-paste/textarea": ^3.0.4
-    "@twilio-paste/theme": ^5.0.2
-    "@twilio-paste/types": ^3.1.1
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/base-radio-checkbox": ^6.0.5
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/checkbox": ^6.1.2
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/flex": ^2.1.1
+    "@twilio-paste/help-text": ^6.1.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/inline-control-group": ^6.1.1
+    "@twilio-paste/input": ^3.1.2
+    "@twilio-paste/input-box": ^4.1.2
+    "@twilio-paste/label": ^6.0.6
+    "@twilio-paste/radio-group": ^6.1.1
+    "@twilio-paste/screen-reader-only": ^6.0.3
+    "@twilio-paste/select": ^5.1.2
+    "@twilio-paste/sibling-box": ^3.0.5
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/text": ^4.1.5
+    "@twilio-paste/textarea": ^3.1.1
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12072,16 +12072,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/grid@^2.0.3, @twilio-paste/grid@^2.1.0, @twilio-paste/grid@workspace:packages/paste-core/layout/grid":
+"@twilio-paste/grid@^2.0.3, @twilio-paste/grid@^2.1.1, @twilio-paste/grid@workspace:packages/paste-core/layout/grid":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/grid@workspace:packages/paste-core/layout/grid"
   dependencies:
-    "@twilio-paste/box": ^4.0.5
-    "@twilio-paste/design-tokens": ^6.7.0
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/theme": ^5.1.0
-    "@twilio-paste/types": ^3.1.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12098,16 +12098,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/heading@^5.0.2, @twilio-paste/heading@^5.1.0, @twilio-paste/heading@workspace:packages/paste-core/components/heading":
+"@twilio-paste/heading@^5.0.2, @twilio-paste/heading@^5.1.1, @twilio-paste/heading@workspace:packages/paste-core/components/heading":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/heading@workspace:packages/paste-core/components/heading"
   dependencies:
-    "@twilio-paste/design-tokens": ^6.6.0
-    "@twilio-paste/style-props": ^3.0.2
-    "@twilio-paste/styling-library": ^0.3.1
-    "@twilio-paste/text": ^4.1.2
-    "@twilio-paste/theme": ^5.0.2
-    "@twilio-paste/types": ^3.1.1
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/text": ^4.1.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12124,18 +12124,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/help-text@^6.0.2, @twilio-paste/help-text@^6.0.3, @twilio-paste/help-text@^6.1.0, @twilio-paste/help-text@workspace:packages/paste-core/components/help-text":
+"@twilio-paste/help-text@^6.1.0, @twilio-paste/help-text@^6.1.1, @twilio-paste/help-text@workspace:packages/paste-core/components/help-text":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/help-text@workspace:packages/paste-core/components/help-text"
   dependencies:
-    "@twilio-paste/box": ^4.2.3
-    "@twilio-paste/design-tokens": ^6.11.2
-    "@twilio-paste/icons": ^5.5.0
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/theme": ^5.1.0
-    "@twilio-paste/types": ^3.1.1
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12154,17 +12154,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/icons@^5.1.2, @twilio-paste/icons@^5.3.1, @twilio-paste/icons@^5.5.0, @twilio-paste/icons@^5.6.0, @twilio-paste/icons@^5.7.0, @twilio-paste/icons@^5.8.0, @twilio-paste/icons@workspace:packages/paste-icons":
+"@twilio-paste/icons@^5.1.2, @twilio-paste/icons@^5.3.1, @twilio-paste/icons@^5.8.0, @twilio-paste/icons@^5.8.1, @twilio-paste/icons@workspace:packages/paste-icons":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/icons@workspace:packages/paste-icons"
   dependencies:
-    "@twilio-paste/box": ^4.2.4
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/style-props": ^3.0.2
-    "@twilio-paste/styling-library": ^0.3.1
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/types": ^3.1.2
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12182,23 +12182,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/inline-control-group@^6.0.2, @twilio-paste/inline-control-group@^6.0.3, @twilio-paste/inline-control-group@^6.0.4, @twilio-paste/inline-control-group@^6.1.0, @twilio-paste/inline-control-group@workspace:packages/paste-core/components/inline-control-group":
+"@twilio-paste/inline-control-group@^6.0.4, @twilio-paste/inline-control-group@^6.1.1, @twilio-paste/inline-control-group@workspace:packages/paste-core/components/inline-control-group":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/inline-control-group@workspace:packages/paste-core/components/inline-control-group"
   dependencies:
-    "@twilio-paste/box": ^4.2.4
-    "@twilio-paste/design-tokens": ^6.13.0
-    "@twilio-paste/flex": ^2.0.3
-    "@twilio-paste/help-text": ^6.0.2
-    "@twilio-paste/icons": ^5.7.0
-    "@twilio-paste/label": ^6.0.2
-    "@twilio-paste/screen-reader-only": ^6.0.2
-    "@twilio-paste/style-props": ^3.0.2
-    "@twilio-paste/styling-library": ^0.3.1
-    "@twilio-paste/text": ^4.1.3
-    "@twilio-paste/theme": ^5.0.2
-    "@twilio-paste/types": ^3.1.2
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/flex": ^2.1.1
+    "@twilio-paste/help-text": ^6.1.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/label": ^6.0.6
+    "@twilio-paste/screen-reader-only": ^6.0.3
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/text": ^4.1.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12222,17 +12222,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/input-box@^4.0.3, @twilio-paste/input-box@^4.0.6, @twilio-paste/input-box@^4.0.7, @twilio-paste/input-box@^4.1.0, @twilio-paste/input-box@^4.1.1, @twilio-paste/input-box@workspace:packages/paste-core/components/input-box":
+"@twilio-paste/input-box@^4.1.1, @twilio-paste/input-box@^4.1.2, @twilio-paste/input-box@workspace:packages/paste-core/components/input-box":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/input-box@workspace:packages/paste-core/components/input-box"
   dependencies:
-    "@twilio-paste/box": ^4.2.4
-    "@twilio-paste/design-tokens": ^6.12.0
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/theme": ^5.2.0
-    "@twilio-paste/types": ^3.1.2
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12250,18 +12250,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/input@^3.0.4, @twilio-paste/input@^3.0.7, @twilio-paste/input@^3.0.8, @twilio-paste/input@^3.1.1, @twilio-paste/input@workspace:packages/paste-core/components/input":
+"@twilio-paste/input@^3.1.1, @twilio-paste/input@^3.1.2, @twilio-paste/input@workspace:packages/paste-core/components/input":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/input@workspace:packages/paste-core/components/input"
   dependencies:
-    "@twilio-paste/box": ^4.2.2
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/input-box": ^4.1.0
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/types": ^3.1.1
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/input-box": ^4.1.2
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12280,19 +12280,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/label@^6.0.2, @twilio-paste/label@^6.0.3, @twilio-paste/label@^6.0.5, @twilio-paste/label@workspace:packages/paste-core/components/label":
+"@twilio-paste/label@^6.0.5, @twilio-paste/label@^6.0.6, @twilio-paste/label@workspace:packages/paste-core/components/label":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/label@workspace:packages/paste-core/components/label"
   dependencies:
-    "@twilio-paste/box": ^4.2.3
-    "@twilio-paste/design-tokens": ^6.11.2
-    "@twilio-paste/media-object": ^4.0.3
-    "@twilio-paste/screen-reader-only": ^6.0.2
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/theme": ^5.1.0
-    "@twilio-paste/types": ^3.1.1
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/media-object": ^4.1.1
+    "@twilio-paste/screen-reader-only": ^6.0.3
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12312,16 +12312,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/list@^2.0.2, @twilio-paste/list@^2.1.0, @twilio-paste/list@workspace:packages/paste-core/components/list":
+"@twilio-paste/list@^2.0.2, @twilio-paste/list@^2.1.1, @twilio-paste/list@workspace:packages/paste-core/components/list":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/list@workspace:packages/paste-core/components/list"
   dependencies:
-    "@twilio-paste/design-tokens": ^6.6.0
-    "@twilio-paste/style-props": ^3.0.2
-    "@twilio-paste/styling-library": ^0.3.1
-    "@twilio-paste/text": ^4.1.2
-    "@twilio-paste/theme": ^5.0.2
-    "@twilio-paste/types": ^3.1.1
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/text": ^4.1.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12338,16 +12338,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/media-object@^4.0.3, @twilio-paste/media-object@^4.1.0, @twilio-paste/media-object@workspace:packages/paste-core/layout/media-object":
+"@twilio-paste/media-object@^4.0.3, @twilio-paste/media-object@^4.1.1, @twilio-paste/media-object@workspace:packages/paste-core/layout/media-object":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/media-object@workspace:packages/paste-core/layout/media-object"
   dependencies:
-    "@twilio-paste/box": ^4.0.3
-    "@twilio-paste/design-tokens": ^6.6.0
-    "@twilio-paste/style-props": ^3.0.2
-    "@twilio-paste/styling-library": ^0.3.1
-    "@twilio-paste/theme": ^5.0.2
-    "@twilio-paste/types": ^3.1.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12364,11 +12364,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/menu-primitive@^0.2.5, @twilio-paste/menu-primitive@workspace:packages/paste-core/primitives/menu":
+"@twilio-paste/menu-primitive@^0.2.5, @twilio-paste/menu-primitive@^0.2.6, @twilio-paste/menu-primitive@workspace:packages/paste-core/primitives/menu":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/menu-primitive@workspace:packages/paste-core/primitives/menu"
   dependencies:
-    "@twilio-paste/reakit-library": ^0.8.1
+    "@twilio-paste/reakit-library": ^0.8.2
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -12378,26 +12378,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/menu@^7.0.4, @twilio-paste/menu@workspace:packages/paste-core/components/menu":
+"@twilio-paste/menu@^7.0.4, @twilio-paste/menu@^7.0.5, @twilio-paste/menu@workspace:packages/paste-core/components/menu":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/menu@workspace:packages/paste-core/components/menu"
   dependencies:
-    "@twilio-paste/anchor": ^5.1.1
-    "@twilio-paste/box": ^4.2.4
-    "@twilio-paste/button": ^7.0.10
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/icons": ^5.8.0
-    "@twilio-paste/media-object": ^4.0.3
-    "@twilio-paste/menu-primitive": ^0.2.5
-    "@twilio-paste/reakit-library": ^0.8.1
-    "@twilio-paste/separator": ^2.0.4
-    "@twilio-paste/spinner": ^7.2.1
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/text": ^4.1.4
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/types": ^3.1.2
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/anchor": ^5.1.2
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/button": ^7.0.11
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/media-object": ^4.1.1
+    "@twilio-paste/menu-primitive": ^0.2.6
+    "@twilio-paste/reakit-library": ^0.8.2
+    "@twilio-paste/separator": ^2.1.1
+    "@twilio-paste/spinner": ^7.2.2
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/text": ^4.1.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12424,7 +12424,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/modal-dialog-primitive@^0.2.1, @twilio-paste/modal-dialog-primitive@^0.2.2, @twilio-paste/modal-dialog-primitive@^0.2.3, @twilio-paste/modal-dialog-primitive@workspace:packages/paste-core/primitives/modal-dialog":
+"@twilio-paste/modal-dialog-primitive@^0.2.1, @twilio-paste/modal-dialog-primitive@^0.2.4, @twilio-paste/modal-dialog-primitive@workspace:packages/paste-core/primitives/modal-dialog":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/modal-dialog-primitive@workspace:packages/paste-core/primitives/modal-dialog"
   dependencies:
@@ -12437,26 +12437,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/modal@^7.1.3, @twilio-paste/modal@workspace:packages/paste-core/components/modal":
+"@twilio-paste/modal@^7.1.3, @twilio-paste/modal@^7.1.4, @twilio-paste/modal@workspace:packages/paste-core/components/modal":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/modal@workspace:packages/paste-core/components/modal"
   dependencies:
-    "@twilio-paste/animation-library": ^0.3.1
-    "@twilio-paste/box": ^4.2.4
-    "@twilio-paste/button": ^7.0.10
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/flex": ^2.0.3
-    "@twilio-paste/form": ^6.0.2
-    "@twilio-paste/heading": ^5.0.2
-    "@twilio-paste/icons": ^5.8.0
-    "@twilio-paste/modal-dialog-primitive": ^0.2.2
-    "@twilio-paste/spinner": ^7.2.1
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.3
-    "@twilio-paste/text": ^4.1.4
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/types": ^3.1.2
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/animation-library": ^0.3.3
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/button": ^7.0.11
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/flex": ^2.1.1
+    "@twilio-paste/form": ^6.0.3
+    "@twilio-paste/heading": ^5.1.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/modal-dialog-primitive": ^0.2.4
+    "@twilio-paste/spinner": ^7.2.2
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/text": ^4.1.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12487,8 +12487,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/nextjs-template@workspace:packages/paste-nextjs-template"
   dependencies:
-    "@twilio-paste/core": ^10.0.0
-    "@twilio-paste/icons": ^5.1.2
+    "@twilio-paste/core": ^10.16.0
+    "@twilio-paste/icons": ^5.8.1
     "@types/node": ^14.14.16
     next: 10.0.4
     prop-types: ^15.7.2
@@ -12498,11 +12498,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/non-modal-dialog-primitive@^0.3.4, @twilio-paste/non-modal-dialog-primitive@^0.3.5, @twilio-paste/non-modal-dialog-primitive@workspace:packages/paste-core/primitives/non-modal-dialog":
+"@twilio-paste/non-modal-dialog-primitive@^0.3.4, @twilio-paste/non-modal-dialog-primitive@^0.3.6, @twilio-paste/non-modal-dialog-primitive@workspace:packages/paste-core/primitives/non-modal-dialog":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/non-modal-dialog-primitive@workspace:packages/paste-core/primitives/non-modal-dialog"
   dependencies:
-    "@twilio-paste/reakit-library": ^0.8.1
+    "@twilio-paste/reakit-library": ^0.8.2
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -12512,19 +12512,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/pagination@^0.2.0, @twilio-paste/pagination@workspace:packages/paste-core/components/pagination":
+"@twilio-paste/pagination@^0.2.0, @twilio-paste/pagination@^0.2.1, @twilio-paste/pagination@workspace:packages/paste-core/components/pagination":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/pagination@workspace:packages/paste-core/components/pagination"
   dependencies:
-    "@twilio-paste/box": ^4.2.4
-    "@twilio-paste/design-tokens": ^6.12.0
-    "@twilio-paste/icons": ^5.6.0
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/text": ^4.1.3
-    "@twilio-paste/theme": ^5.1.0
-    "@twilio-paste/types": ^3.1.2
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/text": ^4.1.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12544,16 +12544,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/paragraph@^4.0.2, @twilio-paste/paragraph@^4.1.0, @twilio-paste/paragraph@workspace:packages/paste-core/components/paragraph":
+"@twilio-paste/paragraph@^4.0.2, @twilio-paste/paragraph@^4.1.1, @twilio-paste/paragraph@workspace:packages/paste-core/components/paragraph":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/paragraph@workspace:packages/paste-core/components/paragraph"
   dependencies:
-    "@twilio-paste/design-tokens": ^6.6.0
-    "@twilio-paste/style-props": ^3.0.2
-    "@twilio-paste/styling-library": ^0.3.1
-    "@twilio-paste/text": ^4.1.2
-    "@twilio-paste/theme": ^5.0.2
-    "@twilio-paste/types": ^3.1.1
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/text": ^4.1.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12570,23 +12570,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/popover@^6.1.1, @twilio-paste/popover@workspace:packages/paste-core/components/popover":
+"@twilio-paste/popover@^6.1.1, @twilio-paste/popover@^6.2.0, @twilio-paste/popover@workspace:packages/paste-core/components/popover":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/popover@workspace:packages/paste-core/components/popover"
   dependencies:
-    "@twilio-paste/box": ^4.1.1
-    "@twilio-paste/button": ^7.0.10
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/icons": ^5.8.0
-    "@twilio-paste/non-modal-dialog-primitive": ^0.3.5
-    "@twilio-paste/reakit-library": ^0.8.1
-    "@twilio-paste/spinner": ^7.2.1
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/text": ^4.1.4
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/types": ^3.1.1
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/button": ^7.0.11
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/non-modal-dialog-primitive": ^0.3.6
+    "@twilio-paste/reakit-library": ^0.8.2
+    "@twilio-paste/spinner": ^7.2.2
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/text": ^4.1.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12610,26 +12610,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/radio-group@^6.0.2, @twilio-paste/radio-group@^6.1.0, @twilio-paste/radio-group@workspace:packages/paste-core/components/radio-group":
+"@twilio-paste/radio-group@^6.1.0, @twilio-paste/radio-group@^6.1.1, @twilio-paste/radio-group@workspace:packages/paste-core/components/radio-group":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/radio-group@workspace:packages/paste-core/components/radio-group"
   dependencies:
-    "@twilio-paste/base-radio-checkbox": ^6.0.3
-    "@twilio-paste/box": ^4.0.5
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/flex": ^2.0.3
-    "@twilio-paste/help-text": ^6.0.3
-    "@twilio-paste/icons": ^5.8.0
-    "@twilio-paste/inline-control-group": ^6.0.3
-    "@twilio-paste/label": ^6.0.3
-    "@twilio-paste/screen-reader-only": ^6.0.2
-    "@twilio-paste/sibling-box": ^3.0.3
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/text": ^4.1.4
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/types": ^3.1.1
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/base-radio-checkbox": ^6.0.5
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/flex": ^2.1.1
+    "@twilio-paste/help-text": ^6.1.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/inline-control-group": ^6.1.1
+    "@twilio-paste/label": ^6.0.6
+    "@twilio-paste/screen-reader-only": ^6.0.3
+    "@twilio-paste/sibling-box": ^3.0.5
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/text": ^4.1.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12656,7 +12656,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/reakit-library@^0.8.1, @twilio-paste/reakit-library@workspace:packages/paste-libraries/reakit":
+"@twilio-paste/reakit-library@^0.8.1, @twilio-paste/reakit-library@^0.8.2, @twilio-paste/reakit-library@workspace:packages/paste-libraries/reakit":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/reakit-library@workspace:packages/paste-libraries/reakit"
   dependencies:
@@ -12671,17 +12671,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/screen-reader-only@^6.0.2, @twilio-paste/screen-reader-only@workspace:packages/paste-core/components/screen-reader-only":
+"@twilio-paste/screen-reader-only@^6.0.2, @twilio-paste/screen-reader-only@^6.0.3, @twilio-paste/screen-reader-only@workspace:packages/paste-core/components/screen-reader-only":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/screen-reader-only@workspace:packages/paste-core/components/screen-reader-only"
   dependencies:
-    "@twilio-paste/box": ^4.0.3
-    "@twilio-paste/design-tokens": ^6.6.0
-    "@twilio-paste/icons": ^5.1.2
-    "@twilio-paste/style-props": ^3.0.2
-    "@twilio-paste/styling-library": ^0.3.1
-    "@twilio-paste/theme": ^5.0.2
-    "@twilio-paste/types": ^3.1.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12699,19 +12699,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/select@^5.0.2, @twilio-paste/select@^5.1.1, @twilio-paste/select@workspace:packages/paste-core/components/select":
+"@twilio-paste/select@^5.1.1, @twilio-paste/select@^5.1.2, @twilio-paste/select@workspace:packages/paste-core/components/select":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/select@workspace:packages/paste-core/components/select"
   dependencies:
-    "@twilio-paste/box": ^4.2.4
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/icons": ^5.8.0
-    "@twilio-paste/input-box": ^4.1.1
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/types": ^3.1.2
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/input-box": ^4.1.2
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12731,16 +12731,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/separator@^2.0.3, @twilio-paste/separator@^2.0.4, @twilio-paste/separator@^2.1.0, @twilio-paste/separator@workspace:packages/paste-core/components/separator":
+"@twilio-paste/separator@^2.0.3, @twilio-paste/separator@^2.1.1, @twilio-paste/separator@workspace:packages/paste-core/components/separator":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/separator@workspace:packages/paste-core/components/separator"
   dependencies:
-    "@twilio-paste/box": ^4.2.1
-    "@twilio-paste/design-tokens": ^6.7.0
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/theme": ^5.1.0
-    "@twilio-paste/types": ^3.1.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12757,17 +12757,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/sibling-box@^3.0.3, @twilio-paste/sibling-box@^3.0.4, @twilio-paste/sibling-box@workspace:packages/paste-core/primitives/sibling-box":
+"@twilio-paste/sibling-box@^3.0.3, @twilio-paste/sibling-box@^3.0.5, @twilio-paste/sibling-box@workspace:packages/paste-core/primitives/sibling-box":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/sibling-box@workspace:packages/paste-core/primitives/sibling-box"
   dependencies:
-    "@twilio-paste/box": ^4.0.3
-    "@twilio-paste/design-tokens": ^6.11.1
-    "@twilio-paste/style-props": ^3.0.2
-    "@twilio-paste/styling-library": ^0.3.1
-    "@twilio-paste/theme": ^5.0.2
-    "@twilio-paste/types": ^3.1.1
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12785,17 +12785,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/skeleton-loader@^0.1.2, @twilio-paste/skeleton-loader@workspace:packages/paste-core/components/skeleton-loader":
+"@twilio-paste/skeleton-loader@^0.1.2, @twilio-paste/skeleton-loader@^0.1.3, @twilio-paste/skeleton-loader@workspace:packages/paste-core/components/skeleton-loader":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/skeleton-loader@workspace:packages/paste-core/components/skeleton-loader"
   dependencies:
-    "@twilio-paste/animation-library": ^0.3.1
-    "@twilio-paste/box": ^4.2.4
-    "@twilio-paste/design-tokens": ^6.12.0
-    "@twilio-paste/style-props": ^3.0.2
-    "@twilio-paste/styling-library": ^0.3.1
-    "@twilio-paste/theme": ^5.0.2
-    "@twilio-paste/types": ^3.1.2
+    "@twilio-paste/animation-library": ^0.3.3
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12813,18 +12813,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/spinner@^7.1.0, @twilio-paste/spinner@^7.2.0, @twilio-paste/spinner@^7.2.1, @twilio-paste/spinner@workspace:packages/paste-core/components/spinner":
+"@twilio-paste/spinner@^7.2.1, @twilio-paste/spinner@^7.2.2, @twilio-paste/spinner@workspace:packages/paste-core/components/spinner":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/spinner@workspace:packages/paste-core/components/spinner"
   dependencies:
-    "@twilio-paste/box": ^4.2.4
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/icons": ^5.8.0
-    "@twilio-paste/style-props": ^3.0.2
-    "@twilio-paste/styling-library": ^0.3.1
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/types": ^3.1.2
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12843,17 +12843,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/stack@^2.0.2, @twilio-paste/stack@^2.0.3, @twilio-paste/stack@^2.0.4, @twilio-paste/stack@^2.1.0, @twilio-paste/stack@workspace:packages/paste-core/layout/stack":
+"@twilio-paste/stack@^2.0.3, @twilio-paste/stack@^2.1.1, @twilio-paste/stack@workspace:packages/paste-core/layout/stack":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/stack@workspace:packages/paste-core/layout/stack"
   dependencies:
-    "@twilio-paste/box": ^4.0.3
-    "@twilio-paste/design-tokens": ^6.6.0
-    "@twilio-paste/style-props": ^3.0.2
-    "@twilio-paste/styling-library": ^0.3.1
-    "@twilio-paste/theme": ^5.0.2
-    "@twilio-paste/types": ^3.1.1
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12871,13 +12871,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/style-props@^3.0.1, @twilio-paste/style-props@^3.0.2, @twilio-paste/style-props@^3.0.4, @twilio-paste/style-props@^3.0.6, @twilio-paste/style-props@^3.1.0, @twilio-paste/style-props@workspace:packages/paste-style-props":
+"@twilio-paste/style-props@^3.0.2, @twilio-paste/style-props@^3.1.1, @twilio-paste/style-props@workspace:packages/paste-style-props":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/style-props@workspace:packages/paste-style-props"
   dependencies:
-    "@twilio-paste/design-tokens": ^6.7.0
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/theme": ^5.1.0
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
     csstype: ^2.6.10
     lodash.camelcase: ^4.3.0
     prop-types: ^15.7.2
@@ -12889,7 +12889,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/styling-library@^0.3.1, @twilio-paste/styling-library@^0.3.2, @twilio-paste/styling-library@^0.3.3, @twilio-paste/styling-library@^0.3.4, @twilio-paste/styling-library@workspace:packages/paste-libraries/styling":
+"@twilio-paste/styling-library@^0.3.1, @twilio-paste/styling-library@^0.3.5, @twilio-paste/styling-library@workspace:packages/paste-libraries/styling":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/styling-library@workspace:packages/paste-libraries/styling"
   dependencies:
@@ -12910,16 +12910,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/table@^2.1.1, @twilio-paste/table@workspace:packages/paste-core/components/table":
+"@twilio-paste/table@^2.1.1, @twilio-paste/table@^2.1.2, @twilio-paste/table@workspace:packages/paste-core/components/table":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/table@workspace:packages/paste-core/components/table"
   dependencies:
-    "@twilio-paste/box": ^4.2.4
-    "@twilio-paste/design-tokens": ^6.12.0
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/theme": ^5.1.0
-    "@twilio-paste/types": ^3.1.2
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12936,11 +12936,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/tabs-primitive@^0.2.3, @twilio-paste/tabs-primitive@workspace:packages/paste-core/primitives/tabs":
+"@twilio-paste/tabs-primitive@^0.2.3, @twilio-paste/tabs-primitive@^0.2.4, @twilio-paste/tabs-primitive@workspace:packages/paste-core/primitives/tabs":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/tabs-primitive@workspace:packages/paste-core/primitives/tabs"
   dependencies:
-    "@twilio-paste/reakit-library": ^0.8.1
+    "@twilio-paste/reakit-library": ^0.8.2
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -12950,19 +12950,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/tabs@^2.1.0, @twilio-paste/tabs@workspace:packages/paste-core/components/tabs":
+"@twilio-paste/tabs@^2.1.0, @twilio-paste/tabs@^2.1.1, @twilio-paste/tabs@workspace:packages/paste-core/components/tabs":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/tabs@workspace:packages/paste-core/components/tabs"
   dependencies:
-    "@twilio-paste/box": ^4.2.3
-    "@twilio-paste/design-tokens": ^6.11.2
-    "@twilio-paste/flex": ^2.0.3
-    "@twilio-paste/reakit-library": ^0.8.1
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/tabs-primitive": ^0.2.3
-    "@twilio-paste/theme": ^5.3.0
-    "@twilio-paste/types": ^3.1.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/flex": ^2.1.1
+    "@twilio-paste/reakit-library": ^0.8.2
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/tabs-primitive": ^0.2.4
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12982,17 +12982,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/text@^4.0.2, @twilio-paste/text@^4.1.2, @twilio-paste/text@^4.1.3, @twilio-paste/text@^4.1.4, @twilio-paste/text@workspace:packages/paste-core/primitives/text":
+"@twilio-paste/text@^4.1.4, @twilio-paste/text@^4.1.5, @twilio-paste/text@workspace:packages/paste-core/primitives/text":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/text@workspace:packages/paste-core/primitives/text"
   dependencies:
-    "@twilio-paste/animation-library": ^0.3.2
-    "@twilio-paste/customization": ^2.1.1
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/style-props": ^3.0.6
-    "@twilio-paste/styling-library": ^0.3.4
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/types": ^3.1.2
+    "@twilio-paste/animation-library": ^0.3.3
+    "@twilio-paste/customization": ^2.1.2
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
     csstype: ^2.6.10
     deepmerge: 4.2.2
     prop-types: ^15.7.2
@@ -13012,18 +13012,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/textarea@^3.0.4, @twilio-paste/textarea@^3.1.0, @twilio-paste/textarea@workspace:packages/paste-core/components/textarea":
+"@twilio-paste/textarea@^3.1.0, @twilio-paste/textarea@^3.1.1, @twilio-paste/textarea@workspace:packages/paste-core/components/textarea":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/textarea@workspace:packages/paste-core/components/textarea"
   dependencies:
-    "@twilio-paste/box": ^4.2.3
-    "@twilio-paste/design-tokens": ^6.11.2
-    "@twilio-paste/input-box": ^4.1.0
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/theme": ^5.1.0
-    "@twilio-paste/types": ^3.1.1
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/input-box": ^4.1.2
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-autosize-textarea: 7.1.0
@@ -13056,15 +13056,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/theme@^5.0.1, @twilio-paste/theme@^5.0.2, @twilio-paste/theme@^5.1.0, @twilio-paste/theme@^5.2.0, @twilio-paste/theme@^5.3.0, @twilio-paste/theme@^5.3.1, @twilio-paste/theme@workspace:packages/paste-theme":
+"@twilio-paste/theme@^5.3.1, @twilio-paste/theme@^5.3.2, @twilio-paste/theme@workspace:packages/paste-theme":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/theme@workspace:packages/paste-theme"
   dependencies:
-    "@twilio-paste/animation-library": ^0.3.1
+    "@twilio-paste/animation-library": ^0.3.3
     "@twilio-paste/color-contrast-utils": ^1.1.0
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/types": ^3.1.1
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/types": ^3.1.3
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -13078,19 +13078,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/time-picker@^0.2.0, @twilio-paste/time-picker@workspace:packages/paste-core/components/time-picker":
+"@twilio-paste/time-picker@^0.2.0, @twilio-paste/time-picker@^0.2.1, @twilio-paste/time-picker@workspace:packages/paste-core/components/time-picker":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/time-picker@workspace:packages/paste-core/components/time-picker"
   dependencies:
-    "@twilio-paste/box": ^4.2.3
-    "@twilio-paste/design-tokens": ^6.11.2
-    "@twilio-paste/input": ^3.0.8
-    "@twilio-paste/input-box": ^4.0.7
-    "@twilio-paste/style-props": ^3.0.1
-    "@twilio-paste/styling-library": ^0.3.1
-    "@twilio-paste/theme": ^5.0.1
-    "@twilio-paste/types": ^3.1.1
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/input": ^3.1.2
+    "@twilio-paste/input-box": ^4.1.2
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     date-fns: 2.21.3
     prop-types: ^15.7.2
     react: ^17.0.2
@@ -13111,24 +13111,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/toast@^5.2.0, @twilio-paste/toast@workspace:packages/paste-core/components/toast":
+"@twilio-paste/toast@^5.2.0, @twilio-paste/toast@^5.2.1, @twilio-paste/toast@workspace:packages/paste-core/components/toast":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/toast@workspace:packages/paste-core/components/toast"
   dependencies:
-    "@twilio-paste/animation-library": ^0.3.1
-    "@twilio-paste/box": ^4.2.3
-    "@twilio-paste/button": ^7.0.10
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/icons": ^5.8.0
-    "@twilio-paste/media-object": ^4.0.3
-    "@twilio-paste/reakit-library": ^0.8.1
-    "@twilio-paste/spinner": ^7.2.1
-    "@twilio-paste/stack": ^2.0.3
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/types": ^3.1.1
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/animation-library": ^0.3.3
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/button": ^7.0.11
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/media-object": ^4.1.1
+    "@twilio-paste/reakit-library": ^0.8.2
+    "@twilio-paste/spinner": ^7.2.2
+    "@twilio-paste/stack": ^2.1.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -13168,11 +13168,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/tooltip-primitive@^0.2.4, @twilio-paste/tooltip-primitive@workspace:packages/paste-core/primitives/tooltip":
+"@twilio-paste/tooltip-primitive@^0.2.4, @twilio-paste/tooltip-primitive@^0.2.5, @twilio-paste/tooltip-primitive@workspace:packages/paste-core/primitives/tooltip":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/tooltip-primitive@workspace:packages/paste-core/primitives/tooltip"
   dependencies:
-    "@twilio-paste/reakit-library": ^0.8.1
+    "@twilio-paste/reakit-library": ^0.8.2
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
@@ -13182,22 +13182,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/tooltip@^4.1.1, @twilio-paste/tooltip@workspace:packages/paste-core/components/tooltip":
+"@twilio-paste/tooltip@^4.1.1, @twilio-paste/tooltip@^4.1.2, @twilio-paste/tooltip@workspace:packages/paste-core/components/tooltip":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/tooltip@workspace:packages/paste-core/components/tooltip"
   dependencies:
-    "@twilio-paste/box": ^4.2.4
-    "@twilio-paste/design-tokens": ^6.14.0
-    "@twilio-paste/icons": ^5.8.0
-    "@twilio-paste/reakit-library": ^0.8.1
-    "@twilio-paste/spinner": ^7.2.1
-    "@twilio-paste/style-props": ^3.0.4
-    "@twilio-paste/styling-library": ^0.3.2
-    "@twilio-paste/text": ^4.1.4
-    "@twilio-paste/theme": ^5.3.1
-    "@twilio-paste/tooltip-primitive": ^0.2.4
-    "@twilio-paste/types": ^3.1.2
-    "@twilio-paste/uid-library": ^0.2.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/reakit-library": ^0.8.2
+    "@twilio-paste/spinner": ^7.2.2
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/text": ^4.1.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/tooltip-primitive": ^0.2.5
+    "@twilio-paste/types": ^3.1.3
+    "@twilio-paste/uid-library": ^0.2.2
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -13220,17 +13220,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/truncate@^7.0.0, @twilio-paste/truncate@workspace:packages/paste-core/components/truncate":
+"@twilio-paste/truncate@^7.0.0, @twilio-paste/truncate@^7.0.1, @twilio-paste/truncate@workspace:packages/paste-core/components/truncate":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/truncate@workspace:packages/paste-core/components/truncate"
   dependencies:
-    "@twilio-paste/box": ^4.0.3
-    "@twilio-paste/design-tokens": ^6.6.0
-    "@twilio-paste/icons": ^5.1.2
-    "@twilio-paste/style-props": ^3.0.2
-    "@twilio-paste/styling-library": ^0.3.1
-    "@twilio-paste/theme": ^5.0.2
-    "@twilio-paste/types": ^3.1.1
+    "@twilio-paste/box": ^4.2.5
+    "@twilio-paste/design-tokens": ^6.14.1
+    "@twilio-paste/icons": ^5.8.1
+    "@twilio-paste/style-props": ^3.1.1
+    "@twilio-paste/styling-library": ^0.3.5
+    "@twilio-paste/theme": ^5.3.2
+    "@twilio-paste/types": ^3.1.3
     prop-types: ^15.7.2
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -13248,7 +13248,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/types@^3.1.1, @twilio-paste/types@^3.1.2, @twilio-paste/types@workspace:packages/paste-types":
+"@twilio-paste/types@^3.1.2, @twilio-paste/types@^3.1.3, @twilio-paste/types@workspace:packages/paste-types":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/types@workspace:packages/paste-types"
   dependencies:
@@ -13264,7 +13264,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/uid-library@^0.2.1, @twilio-paste/uid-library@workspace:packages/paste-libraries/uid":
+"@twilio-paste/uid-library@^0.2.1, @twilio-paste/uid-library@^0.2.2, @twilio-paste/uid-library@workspace:packages/paste-libraries/uid":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/uid-library@workspace:packages/paste-libraries/uid"
   dependencies:
@@ -13277,11 +13277,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/utils@^1.1.0, @twilio-paste/utils@workspace:packages/paste-utils":
+"@twilio-paste/utils@^1.1.1, @twilio-paste/utils@workspace:packages/paste-utils":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/utils@workspace:packages/paste-utils"
   dependencies:
-    "@twilio-paste/types": ^3.1.2
+    "@twilio-paste/types": ^3.1.3
     lodash.debounce: ^4.0.8
     react: ^17.0.2
     react-dom: ^17.0.2
