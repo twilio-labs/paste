@@ -49,7 +49,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Run prerelease
-        run: yarn prerelase
+        run: yarn prerelease
 
       - name: Store build artifacts
         uses: actions/upload-artifact@v2
