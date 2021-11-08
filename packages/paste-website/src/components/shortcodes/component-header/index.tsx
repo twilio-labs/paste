@@ -96,10 +96,12 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
       <Box marginBottom="space50">
         <Anchor href={categoryRoute}>{getCategoryNameFromRoute(categoryRoute)}</Anchor>
       </Box>
-      <Stack spacing="space50" orientation="horizontal">
-        <Heading as="h1" variant="heading10" marginBottom="space0">
-          {getHumanizedNameFromPackageName(name)}
-        </Heading>
+      <Box display="flex" alignItems="center" flexWrap="wrap">
+        <Box marginRight="space50">
+          <Heading as="h1" variant="heading10" marginBottom="space0">
+            {getHumanizedNameFromPackageName(name)}
+          </Heading>
+        </Box>
         {showStatus ? (
           <PackageStatusLegend
             status={status}
@@ -108,7 +110,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
             engineerCommitteeStatus={engineerCommitteeStatus}
           />
         ) : null}
-      </Stack>
+      </Box>
       {description ? (
         <Text as="p" paddingTop="space70" paddingBottom="space70">
           {description}
