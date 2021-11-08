@@ -1,5 +1,17 @@
 # Change Log
 
+## 6.2.0
+
+### Minor Changes
+
+- [`847504d03`](https://github.com/twilio-labs/paste/commit/847504d0393706806c683a4ffb537796fccc5888) [#2011](https://github.com/twilio-labs/paste/pull/2011) Thanks [@TheSisb](https://github.com/TheSisb)! - [Popover] Removes the wrapping `<Box>` present in `PopoverContainer`, along with the ref passing. PopoverContainer is strictly a context provider now. This fixes issues around vertical alignment and inlining PopoverButtons.
+
+### Patch Changes
+
+- [`b7675915`](https://github.com/twilio-labs/paste/commit/b76759157a8c554863b6e37ddb6ea081c1c53258) [#1985](https://github.com/twilio-labs/paste/pull/1985) Thanks [@TheSisb](https://github.com/TheSisb)! - For debugging purposes we now ship a `filename.debug.js` unminified version of each component or library in Paste.
+
+* [`ed5c0a49c`](https://github.com/twilio-labs/paste/commit/ed5c0a49ced5c524607cac7166d3aa4c389f2e7f) [#1965](https://github.com/twilio-labs/paste/pull/1965) Thanks [@shleewhite](https://github.com/shleewhite)! - Upgrade Paste to use React 17 by default, but maintain React 16 support for consumers.
+
 ## 6.1.1
 
 ### Patch Changes

@@ -1,5 +1,93 @@
 # Change Log
 
+## 10.16.0
+
+### Minor Changes
+
+- [`847504d03`](https://github.com/twilio-labs/paste/commit/847504d0393706806c683a4ffb537796fccc5888) [#2011](https://github.com/twilio-labs/paste/pull/2011) Thanks [@TheSisb](https://github.com/TheSisb)! - [Popover] Removes the wrapping `<Box>` present in `PopoverContainer`, along with the ref passing. PopoverContainer is strictly a context provider now. This fixes issues around vertical alignment and inlining PopoverButtons.
+
+### Patch Changes
+
+- [`f381d8e7`](https://github.com/twilio-labs/paste/commit/f381d8e748ff45557bc166cbe024abdd6002d20e) [#2000](https://github.com/twilio-labs/paste/pull/2000) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button] Center-align button contents for vertical alignment
+
+* [`8f83a25d`](https://github.com/twilio-labs/paste/commit/8f83a25dec843518721597721606e80e37dbde97) [#1990](https://github.com/twilio-labs/paste/pull/1990) Thanks [@TheSisb](https://github.com/TheSisb)! - [Data Grid] Fixed broken 'striped' prop so it correctly toggles zebra striping on rows.
+
+- [`b7675915`](https://github.com/twilio-labs/paste/commit/b76759157a8c554863b6e37ddb6ea081c1c53258) [#1985](https://github.com/twilio-labs/paste/pull/1985) Thanks [@TheSisb](https://github.com/TheSisb)! - For debugging purposes we now ship a `filename.debug.js` unminified version of each component or library in Paste.
+
+* [`ed5c0a49c`](https://github.com/twilio-labs/paste/commit/ed5c0a49ced5c524607cac7166d3aa4c389f2e7f) [#1965](https://github.com/twilio-labs/paste/pull/1965) Thanks [@shleewhite](https://github.com/shleewhite)! - Upgrade Paste to use React 17 by default, but maintain React 16 support for consumers.
+
+- [`5c99798b`](https://github.com/twilio-labs/paste/commit/5c99798b551553c47c8ff2bbbb5661d430abdb21) [#1996](https://github.com/twilio-labs/paste/pull/1996) Thanks [@gloriliale](https://github.com/gloriliale)! - Updated and added link colors to the default theme and dark theme.
+
+- Updated dependencies [[`f381d8e7`](https://github.com/twilio-labs/paste/commit/f381d8e748ff45557bc166cbe024abdd6002d20e), [`8f83a25d`](https://github.com/twilio-labs/paste/commit/8f83a25dec843518721597721606e80e37dbde97), [`b7675915`](https://github.com/twilio-labs/paste/commit/b76759157a8c554863b6e37ddb6ea081c1c53258), [`ed5c0a49c`](https://github.com/twilio-labs/paste/commit/ed5c0a49ced5c524607cac7166d3aa4c389f2e7f), [`5c99798b`](https://github.com/twilio-labs/paste/commit/5c99798b551553c47c8ff2bbbb5661d430abdb21), [`847504d03`](https://github.com/twilio-labs/paste/commit/847504d0393706806c683a4ffb537796fccc5888)]:
+  - @twilio-paste/button@7.0.11
+  - @twilio-paste/data-grid@0.1.1
+  - @twilio-paste/alert@7.1.1
+  - @twilio-paste/alert-dialog@0.2.1
+  - @twilio-paste/anchor@5.1.2
+  - @twilio-paste/avatar@2.2.1
+  - @twilio-paste/badge@1.1.1
+  - @twilio-paste/base-radio-checkbox@6.0.5
+  - @twilio-paste/breadcrumb@4.1.1
+  - @twilio-paste/card@3.1.2
+  - @twilio-paste/checkbox@6.1.2
+  - @twilio-paste/combobox@8.1.1
+  - @twilio-paste/date-picker@0.2.1
+  - @twilio-paste/disclosure@5.1.2
+  - @twilio-paste/display-pill-group@1.1.2
+  - @twilio-paste/form-pill-group@1.1.2
+  - @twilio-paste/heading@5.1.1
+  - @twilio-paste/help-text@6.1.1
+  - @twilio-paste/inline-control-group@6.1.1
+  - @twilio-paste/input@3.1.2
+  - @twilio-paste/input-box@4.1.2
+  - @twilio-paste/label@6.0.6
+  - @twilio-paste/list@2.1.1
+  - @twilio-paste/menu@7.0.5
+  - @twilio-paste/modal@7.1.4
+  - @twilio-paste/pagination@0.2.1
+  - @twilio-paste/paragraph@4.1.1
+  - @twilio-paste/popover@6.2.0
+  - @twilio-paste/radio-group@6.1.1
+  - @twilio-paste/screen-reader-only@6.0.3
+  - @twilio-paste/select@5.1.2
+  - @twilio-paste/separator@2.1.1
+  - @twilio-paste/skeleton-loader@0.1.3
+  - @twilio-paste/spinner@7.2.2
+  - @twilio-paste/table@2.1.2
+  - @twilio-paste/tabs@2.1.1
+  - @twilio-paste/textarea@3.1.1
+  - @twilio-paste/time-picker@0.2.1
+  - @twilio-paste/toast@5.2.1
+  - @twilio-paste/tooltip@4.1.2
+  - @twilio-paste/truncate@7.0.1
+  - @twilio-paste/aspect-ratio@4.0.5
+  - @twilio-paste/flex@2.1.1
+  - @twilio-paste/grid@2.1.1
+  - @twilio-paste/media-object@4.1.1
+  - @twilio-paste/stack@2.1.1
+  - @twilio-paste/box@4.2.5
+  - @twilio-paste/combobox-primitive@0.3.1
+  - @twilio-paste/disclosure-primitive@0.3.5
+  - @twilio-paste/menu-primitive@0.2.6
+  - @twilio-paste/modal-dialog-primitive@0.2.4
+  - @twilio-paste/non-modal-dialog-primitive@0.3.6
+  - @twilio-paste/sibling-box@3.0.5
+  - @twilio-paste/tabs-primitive@0.2.4
+  - @twilio-paste/text@4.1.5
+  - @twilio-paste/tooltip-primitive@0.2.5
+  - @twilio-paste/customization@2.1.2
+  - @twilio-paste/animation-library@0.3.3
+  - @twilio-paste/clipboard-copy-library@1.0.1
+  - @twilio-paste/dropdown-library@1.1.2
+  - @twilio-paste/reakit-library@0.8.2
+  - @twilio-paste/styling-library@0.3.5
+  - @twilio-paste/uid-library@0.2.2
+  - @twilio-paste/style-props@3.1.1
+  - @twilio-paste/theme@5.3.2
+  - @twilio-paste/types@3.1.3
+  - @twilio-paste/utils@1.1.1
+  - @twilio-paste/design-tokens@6.14.1
+
 ## 10.15.0
 
 ### Minor Changes
