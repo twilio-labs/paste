@@ -10,16 +10,7 @@
  */
 
 // FIXME: these are all broken links we should do something about
-const IGNORE_LIST = [
-  // Left these in there because they're being called from the sidebar nav.
-  // That will need to be refactored to pull from AirTable instead of packages.
-  'primitives/sibling-box',
-  'components/badge',
-  'components/display-pill-group',
-  'components/form-pill-group',
-  'patterns/data-export', // this randomly started failing and the page doesn't exist.
-  '/__/', // I don't know where this is being picked up
-];
+const IGNORE_LIST = [];
 
 /*
  * This function determines whether the link should be visited in our crawl
@@ -38,7 +29,7 @@ describe('Broken link checker', () => {
   it('recursively check all website links for any broken links', () => {
     const VISITED_LINKS = new Set();
 
-    function crawlPageLinks(pagePath: string) {
+    function crawlPageLinks(pagePath: string, headers: {srcURL: string}) {
       // If the page is visited already, skip recrawling it
       if (VISITED_LINKS.has(pagePath)) return;
       // Add the link to the list of visited links
@@ -48,7 +39,7 @@ describe('Broken link checker', () => {
       // so it omits the need to wait for the JS to execute.
       // This makes this crawler much more performant, but it only
       // works because we SSR our website.
-      cy.request(pagePath)
+      cy.request({url: pagePath, headers})
         .its('body')
         .then((html) => {
           // Cyprus has a jQuery like syntax (called Cheerio) to traverse
@@ -60,18 +51,20 @@ describe('Broken link checker', () => {
           // to request it and scan for that page's anchors
           // until every link has been crawled. #recursion
           $anchors.each((index: number) => {
-            const href = $anchors[index].href;
+            // Gatsby or Cypress does some weird "/__/" routing. This removes that oddity.
+            const href = $anchors[index].href.replace('/__/', '/');
+
             // Remove the hash to prevent checking the same actual link multiple times
             const link = href.split('#')[0];
 
             if (shouldVisitLink(link)) {
-              crawlPageLinks(link);
+              crawlPageLinks(link, {srcURL: pagePath});
             }
           });
         });
     }
 
     // Start the recursive crawl on the homepage path
-    crawlPageLinks('/');
+    crawlPageLinks('/', {srcURL: '/'});
   });
 });
