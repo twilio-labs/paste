@@ -38,10 +38,10 @@ export const pageQuery = graphql`
   name="Codemods"
   categoryRoute={SidebarCategoryRoutes.LIBRARIES}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-codemods"
-  packageName={props.data.allPasteLibraries.edges[0].node.name}
-  version={props.data.allPasteLibraries.edges[0].node.version}
-  description={props.data.allPasteLibraries.edges[0].node.description}
-  status={props.data.allPasteLibraries.edges[0].node.status}
+  packageName={props.data.allPasteLibraries.edges[0]?.node.name}
+  version={props.data.allPasteLibraries.edges[0]?.node.version}
+  description={props.data.allPasteLibraries.edges[0]?.node.description}
+  status={props.data.allPasteLibraries.edges[0]?.node.status}
 />
 
 ---
