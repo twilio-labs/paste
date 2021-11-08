@@ -100,7 +100,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
       </Box>
       <Box display="flex" alignItems="center" flexWrap="wrap">
         <Box marginRight="space50">
-          <Heading as="h1" variant="heading10" marginBottom="space0">
+          <Heading as="h1" variant="heading10">
             {getHumanizedNameFromPackageName(name)}
           </Heading>
         </Box>
@@ -114,7 +114,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
         ) : null}
       </Box>
       {description ? (
-        <Text as="p" paddingTop="space70" paddingBottom="space70">
+        <Text as="p" paddingBottom="space70">
           {description}
         </Text>
       ) : null}
