@@ -62,3 +62,10 @@ export const SiteMetaDefaults = {
   DESCRIPTION:
     'Paste is the design system for designing and building consistent experiences at Twilio. It is made up of tokens and components, along with in-depth documentation to assist designers and developers faced with solving our customers’ problems. It is open source and contributions are welcome.',
 };
+
+export const StatusDescriptions = {
+  ALPHA:
+    'An experimental component that isn’t ready for use in production. API will likely change. This component may be removed if it doesn’t test well.',
+  BETA:
+    'Component is almost mature, but may have some bugs. Needs production feedback and will experience very minimal API changes.',
+};

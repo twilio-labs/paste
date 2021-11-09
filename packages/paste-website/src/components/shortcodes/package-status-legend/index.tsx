@@ -1,19 +1,15 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import type {BadgeVariant} from '@twilio-paste/badge';
 import {Badge} from '@twilio-paste/badge';
-import {Popover, PopoverContainer, PopoverButton} from '@twilio-paste/popover';
+import type {BadgeVariants} from '@twilio-paste/badge/src/types';
 import {useTheme} from '@twilio-paste/theme';
 
 import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
 import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
 
+import {BadgePopoverButton, BadgePopoverContainer, BadgePopover} from '../../badgePopover';
 import {sentenceCase} from '../../../utils/SentenceCase';
-
-const ALPHA_DESCRIPTION =
-  'An experimental component that isn’t ready for use in production. API will likely change. This component may be removed if it doesn’t test well.';
-const BETA_DESCRIPTION =
-  'Component is almost mature, but may have some bugs. Needs production feedback and will experience very minimal API changes.';
+import {StatusDescriptions} from '../../../constants';
 
 interface PackageStatusLegendProps {
   status?: string;
@@ -23,30 +19,31 @@ interface PackageStatusLegendProps {
 }
 
 const PackageStatusBadge: React.FC<{status: string}> = ({status}) => {
-  let badgeVariant: BadgeVariant;
-  let popoverContent: string;
+  let badgeVariant: BadgeVariants | undefined;
+  let popoverContent = '';
+
+  if (status === 'alpha') {
+    badgeVariant = 'new';
+    popoverContent = StatusDescriptions.ALPHA;
+  }
 
   if (status === 'beta') {
     badgeVariant = 'info';
-    popoverContent = BETA_DESCRIPTION;
-  }
-  if (status === 'alpha') {
-    badgeVariant = 'new';
-    popoverContent = ALPHA_DESCRIPTION;
+    popoverContent = StatusDescriptions.BETA;
   }
 
   return (
     <>
-      {badgeVariant && popoverContent ? (
-        <PopoverContainer>
-          <PopoverButton variant="reset">
-            <Badge as="span" variant={badgeVariant}>
+      {badgeVariant ? (
+        <BadgePopoverContainer baseId="status">
+          <BadgePopoverButton variant={badgeVariant}>
+            <>
               <NewIcon decorative />
-              <Box as="span">{sentenceCase(status)}</Box>
-            </Badge>
-          </PopoverButton>
-          <Popover aria-label={status}>{popoverContent}</Popover>
-        </PopoverContainer>
+              {sentenceCase(status)}
+            </>
+          </BadgePopoverButton>
+          <BadgePopover aria-label={status}>{popoverContent}</BadgePopover>
+        </BadgePopoverContainer>
       ) : null}
     </>
   );
