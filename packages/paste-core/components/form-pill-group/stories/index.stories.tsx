@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Text} from '@twilio-paste/text';
+import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
 import {useFormPillState, FormPillGroup, FormPill} from '../src';
@@ -26,6 +27,31 @@ export const Basic: React.FC = () => {
   );
 };
 
+export const OverflowWrapping: React.FC = () => {
+  const pillState = useFormPillState();
+
+  return (
+    <Box maxWidth="size40">
+      <form>
+        <FormPillGroup {...pillState} data-testid="form-pill-group" aria-label="Your favorite sports:">
+          <FormPill data-testid="form-pill" {...pillState}>
+            <CalendarIcon decorative size="sizeIcon10" />
+            Tennis
+          </FormPill>
+          <FormPill {...pillState} selected data-testid="form-pill-selected">
+            Baseball
+          </FormPill>
+          <FormPill {...pillState}>Football</FormPill>
+          <FormPill {...pillState}>Basketball and Volleyball and Swimming and Jumping</FormPill>
+          <FormPill {...pillState} selected>
+            Soccer
+          </FormPill>
+        </FormPillGroup>
+      </form>
+    </Box>
+  );
+};
+
 type Pills = string[];
 
 export const Selectable: React.FC = () => {
@@ -33,7 +59,6 @@ export const Selectable: React.FC = () => {
   const [selectedSet, updateSelectedSet] = React.useState<Set<string>>(new Set(['Football']));
   const pillState = useFormPillState();
 
-  console.log(selectedSet);
   return (
     <form>
       <FormPillGroup {...pillState} data-testid="form-pill-group" aria-label="Your favorite sports:">
@@ -151,7 +176,6 @@ export const CustomFormPillGroup: React.FC = () => {
               data-testid="form-pill"
               {...pillState}
               onDismiss={() => {
-                console.log('removed the first pill');
                 setShowTennis(false);
               }}
               onSelect={() => {}}
