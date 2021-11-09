@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Helmet} from 'react-helmet';
 import {Anchor} from '@twilio-paste/anchor';
+import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
@@ -39,14 +40,10 @@ const getCategoryNameFromRoute = (categoryRoute: string): string => {
   }
 };
 
-const IconAnchor: React.FC<{href: string; icon: React.ReactNode; children: React.ReactNode}> = ({
-  href,
-  icon,
-  children,
-}) => (
+const IconAnchor: React.FC<{href: string; icon: React.ReactNode; children: string}> = ({href, icon, children}) => (
   <Anchor href={href}>
-    <Box as="span" display="flex">
-      <Box as="span" display="inline-block" flexShrink={0} verticalAlign="middle" marginRight="space20">
+    <Box as="span">
+      <Box as="span" display="inline-block" marginRight="space20">
         {icon}
       </Box>
       {children}
@@ -88,6 +85,12 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
   const showStatus = status || figmaStatus || designCommitteeStatus || engineerCommitteeStatus;
   const theme = useTheme();
 
+  const sharedIconStyles = {
+    height: theme.space.space40,
+    width: theme.space.space40,
+    display: 'inline-block',
+  };
+
   return (
     <Box>
       {ogImagePath ? (
@@ -98,9 +101,9 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
       <Box marginBottom="space50">
         <Anchor href={categoryRoute}>{getCategoryNameFromRoute(categoryRoute)}</Anchor>
       </Box>
-      <Box display="flex" alignItems="center" flexWrap="wrap">
+      <Box display="flex" alignItems="center" flexWrap="wrap" marginBottom="space70">
         <Box marginRight="space50">
-          <Heading as="h1" variant="heading10">
+          <Heading as="h1" variant="heading10" marginBottom="space0">
             {getHumanizedNameFromPackageName(name)}
           </Heading>
         </Box>
@@ -125,27 +128,14 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
           </Text>
         ) : null}
         {githubUrl ? (
-          <IconAnchor
-            href={githubUrl}
-            icon={
-              <GithubIcon
-                css={{height: theme.space.space40, width: theme.space.space40, color: '#191717'}}
-                decorative
-              />
-            }
-          >
+          <IconAnchor href={githubUrl} icon={<GithubIcon css={{...sharedIconStyles, color: '#191717'}} decorative />}>
             Github
           </IconAnchor>
         ) : null}
         {storybookUrl ? (
           <IconAnchor
             href={`${STORYBOOK_DOMAIN}${storybookUrl}`}
-            icon={
-              <StorybookIcon
-                css={{height: theme.space.space40, width: theme.space.space40, color: '#FF4785'}}
-                decorative
-              />
-            }
+            icon={<StorybookIcon css={{...sharedIconStyles, color: '#FF4785'}} decorative />}
           >
             Storybook
           </IconAnchor>
