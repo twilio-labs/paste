@@ -41,11 +41,11 @@ const CustomizationProvider: React.FC<CustomizationProviderProps> = ({
   );
 
   const prefersReducedMotion = useReducedMotion();
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     AnimatedGlobals.assign({
       skipAnimation: disableAnimations || prefersReducedMotion,
     });
-  }, [prefersReducedMotion]);
+  }, [disableAnimations, prefersReducedMotion]);
 
   return (
     <StyledThemeProvider theme={customTheme}>
