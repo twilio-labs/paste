@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.4
+
+### Patch Changes
+
+- [`72dbca259`](https://github.com/twilio-labs/paste/commit/72dbca259f1ca602688f349bae2f5caf3dc6f4b9) [#1989](https://github.com/twilio-labs/paste/pull/1989) Thanks [@TheSisb](https://github.com/TheSisb)! - [Codemods] Updates the mapping file for newly added Paste components
+
 ## 0.2.3
 
 ### Patch Changes

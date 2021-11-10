@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.8.1
+
+### Patch Changes
+
+- [`ed5c0a49c`](https://github.com/twilio-labs/paste/commit/ed5c0a49ced5c524607cac7166d3aa4c389f2e7f) [#1965](https://github.com/twilio-labs/paste/pull/1965) Thanks [@shleewhite](https://github.com/shleewhite)! - Upgrade Paste to use React 17 by default, but maintain React 16 support for consumers.
+
 ## 5.8.0
 
 ### Minor Changes
