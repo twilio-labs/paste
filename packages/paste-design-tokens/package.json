@@ -13,7 +13,7 @@
     "types"
   ],
   "scripts": {
-    "build": "yarn clean && NODE_ENV=production gulp",
+    "build": "yarn clean &&  gulp",
     "build:js": "NODE_ENV=development gulp",
     "build:watch": "gulp dev",
     "clean": "rm -rf ./dist",
