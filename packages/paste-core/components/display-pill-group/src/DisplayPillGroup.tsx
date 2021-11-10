@@ -27,6 +27,8 @@ export const DisplayPillGroup = React.forwardRef<HTMLUListElement, DisplayPillGr
         margin="space0"
         padding="space0"
         display="flex"
+        flexWrap="wrap"
+        rowGap="space30"
         columnGap="space30"
       >
         {props.children}

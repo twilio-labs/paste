@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
 import {DisplayPillGroup} from '../src/DisplayPillGroup';
@@ -25,6 +26,33 @@ export const Basic: React.FC = () => {
       <DisplayPill>Basketball</DisplayPill>
       <DisplayPill>Soccer</DisplayPill>
     </DisplayPillGroup>
+  );
+};
+
+export const OverflowWrapping: React.FC = () => {
+  return (
+    <Box maxWidth="size40">
+      <DisplayPillGroup data-testid="display-pill-group" aria-label="Your favorite sports:">
+        <DisplayPill
+          data-testid="display-pill-anchor"
+          onFocus={() => {
+            console.log('Focused Tennis!');
+          }}
+          onBlur={() => {
+            console.log('Blurred Tennis!');
+          }}
+          href="https://google.com"
+        >
+          <CalendarIcon decorative size="sizeIcon10" />
+          Tennis
+        </DisplayPill>
+        <DisplayPill data-testid="display-pill-standard">Football</DisplayPill>
+        <DisplayPill href="/">Baseball</DisplayPill>
+        <DisplayPill>Basketball</DisplayPill>
+        <DisplayPill>Basketball and Volleyball and Swimming and Jumping</DisplayPill>
+        <DisplayPill>Soccer</DisplayPill>
+      </DisplayPillGroup>
+    </Box>
   );
 };
 
