@@ -7,12 +7,13 @@ import {DataGridContext} from './DataGridContext';
 import {updateTabIndexForActionable, isCell, ensureFocus} from './utils';
 import {Td} from './table/Td';
 import {Th} from './table/Th';
+import type {TdProps} from './table/Td';
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
 const isElement = require('lodash.iselement');
 
 type CellType = 'th' | 'td';
-export interface DataGridCellProps {
+export interface DataGridCellProps extends Pick<TdProps, 'textAlign'> {
   as?: CellType;
   element?: BoxElementProps['element'];
 }

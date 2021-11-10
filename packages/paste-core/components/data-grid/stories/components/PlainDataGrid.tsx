@@ -22,7 +22,9 @@ export const PlainDataGrid: React.FC<{element?: BoxProps['element']}> = ({elemen
             <DataGridHeader element={`${element}_HEADER`}>{TableHeaderData[1]}</DataGridHeader>
             <DataGridHeader element={`${element}_HEADER`}>{TableHeaderData[2]}</DataGridHeader>
             <DataGridHeader element={`${element}_HEADER`}>{TableHeaderData[3]}</DataGridHeader>
-            <DataGridHeader element={`${element}_HEADER`}>{TableHeaderData[4]}</DataGridHeader>
+            <DataGridHeader element={`${element}_HEADER`} textAlign="right">
+              {TableHeaderData[4]}
+            </DataGridHeader>
           </DataGridRow>
         </DataGridHead>
         <DataGridBody data-testid="data-grid-body" element={`${element}_BODY`}>
@@ -37,6 +39,7 @@ export const PlainDataGrid: React.FC<{element?: BoxProps['element']}> = ({elemen
                   element={`${element}_CELL`}
                   key={`col-${colIndex}`}
                   data-testid={rowIndex === 0 && colIndex === 0 ? 'data-grid-cell' : null}
+                  textAlign={colIndex === 4 ? 'right' : 'left'}
                 >
                   {col}
                 </DataGridCell>
@@ -50,7 +53,9 @@ export const PlainDataGrid: React.FC<{element?: BoxProps['element']}> = ({elemen
             <DataGridCell element={`${element}_CELL`}>{TableHeaderData[1]}</DataGridCell>
             <DataGridCell element={`${element}_CELL`}>{TableHeaderData[2]}</DataGridCell>
             <DataGridCell element={`${element}_CELL`}>{TableHeaderData[3]}</DataGridCell>
-            <DataGridCell element={`${element}_CELL`}>{TableHeaderData[4]}</DataGridCell>
+            <DataGridCell element={`${element}_CELL`} textAlign="right">
+              {TableHeaderData[4]}
+            </DataGridCell>
           </DataGridRow>
         </DataGridFoot>
       </DataGrid>
