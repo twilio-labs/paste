@@ -1,5 +1,15 @@
 # @twilio-paste/nextjs-template
 
+## 1.0.8
+
+### Patch Changes
+
+- [`ed5c0a49c`](https://github.com/twilio-labs/paste/commit/ed5c0a49ced5c524607cac7166d3aa4c389f2e7f) [#1965](https://github.com/twilio-labs/paste/pull/1965) Thanks [@shleewhite](https://github.com/shleewhite)! - Upgrade Paste to use React 17 by default, but maintain React 16 support for consumers.
+
+- Updated dependencies [[`f381d8e7`](https://github.com/twilio-labs/paste/commit/f381d8e748ff45557bc166cbe024abdd6002d20e), [`8f83a25d`](https://github.com/twilio-labs/paste/commit/8f83a25dec843518721597721606e80e37dbde97), [`b7675915`](https://github.com/twilio-labs/paste/commit/b76759157a8c554863b6e37ddb6ea081c1c53258), [`ed5c0a49c`](https://github.com/twilio-labs/paste/commit/ed5c0a49ced5c524607cac7166d3aa4c389f2e7f), [`5c99798b`](https://github.com/twilio-labs/paste/commit/5c99798b551553c47c8ff2bbbb5661d430abdb21), [`847504d03`](https://github.com/twilio-labs/paste/commit/847504d0393706806c683a4ffb537796fccc5888)]:
+  - @twilio-paste/core@10.16.0
+  - @twilio-paste/icons@5.8.1
+
 ## 1.0.7
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/styling-library",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "category": "library",
   "status": "production",
   "description": "Custom CSS-in-JS wrapper library for use in Paste.",

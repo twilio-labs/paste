@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.14.1
+
+### Patch Changes
+
+- [`5c99798b`](https://github.com/twilio-labs/paste/commit/5c99798b551553c47c8ff2bbbb5661d430abdb21) [#1996](https://github.com/twilio-labs/paste/pull/1996) Thanks [@gloriliale](https://github.com/gloriliale)! - Updated and added link colors to the default theme and dark theme.
+
 ## 6.14.0
 
 ### Minor Changes
