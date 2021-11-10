@@ -1,7 +1,5 @@
 import * as React from 'react';
-
-import {render} from 'react-dom';
-import {render as testRender, fireEvent, screen} from '@testing-library/react';
+import {render, fireEvent, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useUID} from '@twilio-paste/uid-library';
 import {Theme} from '@twilio-paste/theme';
@@ -71,14 +69,14 @@ describe('Select', () => {
   };
 
   it('should have the correct accessibility attributes on the container', () => {
-    const {getByTestId} = testRender(
+    const {getByTestId} = render(
       <MockWrappedSelect {...defaultProps}>
         <Option value="option-1">test</Option>
       </MockWrappedSelect>
     );
     expect(getByTestId('select').getAttribute('aria-invalid')).toEqual('false');
 
-    const {getByTestId: getByTestIdWithError} = testRender(
+    const {getByTestId: getByTestIdWithError} = render(
       <MockWrappedSelect {...defaultProps} dataPrefix="has-error" hasError>
         <Option value="option-1">test</Option>
       </MockWrappedSelect>
@@ -98,7 +96,7 @@ describe('Select', () => {
       draggable: true,
       accessKey: 't e s t',
     };
-    const {getByTestId} = testRender(
+    const {getByTestId} = render(
       <MockWrappedSelect {...defaultProps} {...nativeAttributes}>
         <Option value="option-1">test</Option>
       </MockWrappedSelect>
@@ -116,7 +114,7 @@ describe('Select', () => {
   });
 
   it('should filter blocklisted props', () => {
-    const {getByTestId} = testRender(
+    const {getByTestId} = render(
       <MockWrappedSelect {...defaultProps} dataPrefix="blocklisted" {...blockListedPropsMap}>
         <Option value="option-1">test</Option>
       </MockWrappedSelect>
@@ -134,7 +132,7 @@ describe('Select', () => {
       ...blockListedPropsMap,
       multiple: true,
     };
-    const {getByTestId: getByTestIdWithMultiple} = testRender(
+    const {getByTestId: getByTestIdWithMultiple} = render(
       <MockWrappedSelect {...defaultProps} dataPrefix="blocklisted-multiple" {...multipleRenderProps}>
         <Option value="option-1">test</Option>
       </MockWrappedSelect>
@@ -152,7 +150,7 @@ describe('Select', () => {
   });
 
   it('should call onChange when an option is selected', () => {
-    const {getByDisplayValue} = testRender(
+    const {getByDisplayValue} = render(
       <MockWrappedSelect {...defaultProps}>
         <Option value="option-1">Option 1</Option>
         <Option data-testid="option-2" value="option-2">
@@ -166,7 +164,7 @@ describe('Select', () => {
   });
 
   it('should set data-not-selectize="true" on the select element for console bootstrap overrides', () => {
-    const {getByTestId} = testRender(
+    const {getByTestId} = render(
       <MockWrappedSelect {...defaultProps}>
         <Option value="option-1">test</Option>
       </MockWrappedSelect>
@@ -175,27 +173,24 @@ describe('Select', () => {
   });
 
   it('should render with margin: space0', () => {
-    const {getByTestId} = testRender(<SelectElement data-testid="select-margin">child</SelectElement>);
+    const {getByTestId} = render(<SelectElement data-testid="select-margin">child</SelectElement>);
     expect(getByTestId('select-margin')).toHaveStyleRule('margin', 'space0');
   });
 
   it('should have no accessibility violations', async () => {
-    const container = document.createElement('div');
-    document.body.append(container);
-    render(
+    const {container} = render(
       <MockWrappedSelect {...defaultProps}>
         <Option value="option-1">test</Option>
-      </MockWrappedSelect>,
-      container
+      </MockWrappedSelect>
     );
-    const results = await axe(document.body);
+    const results = await axe(container);
 
     expect(results).toHaveNoViolations();
   });
 
   describe('HTML Attribute', () => {
     it('should set an element data attribute for Select (default)', () => {
-      testRender(
+      render(
         <MockWrappedSelect {...defaultProps} dataPrefix="default-data-attribute" hasError>
           <Option value="option-1">test</Option>
         </MockWrappedSelect>
@@ -207,7 +202,7 @@ describe('Select', () => {
     });
 
     it('should set an element data attribute for Select', () => {
-      testRender(
+      render(
         <MockWrappedSelect {...defaultProps} dataPrefix="unique-data-attribute" element="UNIQUE_NAME" hasError>
           <Option value="option-1">test</Option>
         </MockWrappedSelect>
@@ -291,7 +286,7 @@ describe('Select', () => {
     );
     it('should add custom styles to Select for default variant', () => {
       const dataPrefix = 'custom-styles';
-      testRender(
+      render(
         <CustomizationWrapper>
           <div data-testid={initTestId(dataPrefix)}>
             <ExampleSelect {...defaultProps} dataPrefix={dataPrefix}>
@@ -321,7 +316,7 @@ describe('Select', () => {
 
     it('should add custom styles to Select for inverse variant', () => {
       const dataPrefix = 'custom-styles';
-      testRender(
+      render(
         <CustomizationWrapper>
           <div data-testid={initTestId(dataPrefix)}>
             <ExampleSelect {...defaultProps} variant="inverse" dataPrefix={dataPrefix}>
@@ -351,7 +346,7 @@ describe('Select', () => {
 
     it('should add custom styles to Select with a custom element data attribute', () => {
       const dataPrefix = 'custom-styles-unique-name';
-      testRender(
+      render(
         <CustomizationWrapper>
           <div data-testid={initTestId(dataPrefix)}>
             <ExampleSelect {...defaultProps} dataPrefix={dataPrefix} element="HORSE">
@@ -381,7 +376,7 @@ describe('Select', () => {
 
     it('should add custom styles to Select inverse variant with a custom element data attribute', () => {
       const dataPrefix = 'custom-styles-unique-name';
-      testRender(
+      render(
         <CustomizationWrapper>
           <div data-testid={initTestId(dataPrefix)}>
             <ExampleSelect {...defaultProps} variant="inverse" dataPrefix={dataPrefix} element="HORSE">

@@ -21,7 +21,9 @@ const AnchoredHeading: React.FC<HeadingProps> = (props) => {
     return (
       <Heading {...props} id={id}>
         {props.children}
-        <StyledAnchorHyperlink href={`#${id}`}>#</StyledAnchorHyperlink>
+        <StyledAnchorHyperlink href={`#${id}`} data-cy={`anchored-heading-${props.as}`}>
+          #
+        </StyledAnchorHyperlink>
       </Heading>
     );
   }

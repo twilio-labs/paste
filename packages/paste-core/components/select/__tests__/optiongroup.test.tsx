@@ -1,7 +1,5 @@
 import * as React from 'react';
-import {render} from 'react-dom';
-
-import {render as testRender, screen} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
@@ -33,7 +31,7 @@ describe('OptionGroup', () => {
       draggable: true,
       accessKey: 't e s t',
     };
-    const {getByTestId} = testRender(<ExampleOptionGroup {...additionalAttributes} />);
+    const {getByTestId} = render(<ExampleOptionGroup {...additionalAttributes} />);
     const attributeMap = createAttributeMap(getByTestId('optgroup-1-test'));
 
     expect(attributeMap['data-attr']).toEqual('test-attribute');
@@ -53,7 +51,7 @@ describe('OptionGroup', () => {
       width: '2px',
       size: 2,
     };
-    const {getByTestId} = testRender(<ExampleOptionGroup {...blockListedPropsMap} />);
+    const {getByTestId} = render(<ExampleOptionGroup {...blockListedPropsMap} />);
     const attributeMap = createAttributeMap(getByTestId('optgroup-1-test'));
 
     expect(attributeMap.hasOwnProperty('style')).toBe(false);
@@ -65,24 +63,22 @@ describe('OptionGroup', () => {
   });
 
   it('should have no accessibility violations', async () => {
-    const container = document.createElement('div');
-    document.body.append(container);
-    render(<ExampleOptionGroup />, container);
-    const results = await axe(document.body);
+    const {container} = render(<ExampleOptionGroup />);
+    const results = await axe(container);
 
     expect(results).toHaveNoViolations();
   });
 
   describe('HTML Attribute', () => {
     it('should set an element data attribute for Option (default)', () => {
-      testRender(<ExampleOptionGroup groupSuffix="default-data-attribute" />);
+      render(<ExampleOptionGroup groupSuffix="default-data-attribute" />);
       expect(screen.getByTestId('optgroup-1-default-data-attribute').getAttribute('data-paste-element')).toEqual(
         'OPTION_GROUP'
       );
     });
 
     it('should set an element data attribute for Option', () => {
-      testRender(<ExampleOptionGroup groupSuffix="unique-data-attribute" element="UNIQUE_NAME" />);
+      render(<ExampleOptionGroup groupSuffix="unique-data-attribute" element="UNIQUE_NAME" />);
 
       expect(screen.getByTestId('optgroup-1-unique-data-attribute').getAttribute('data-paste-element')).toEqual(
         'UNIQUE_NAME'
@@ -92,7 +88,7 @@ describe('OptionGroup', () => {
 
   describe('Customization', () => {
     it('should add custom styles to OptionGroup', () => {
-      testRender(
+      render(
         <CustomizationProvider
           baseTheme="default"
           // @ts-expect-error global test variable
@@ -114,7 +110,7 @@ describe('OptionGroup', () => {
     });
 
     it('should add custom styles to OptionGroup with a custom element data attribute', () => {
-      testRender(
+      render(
         <CustomizationProvider
           baseTheme="default"
           // @ts-expect-error global test variable
