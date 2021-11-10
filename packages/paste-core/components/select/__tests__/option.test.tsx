@@ -1,7 +1,5 @@
 import * as React from 'react';
-import {render} from 'react-dom';
-
-import {render as testRender, screen} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
@@ -35,7 +33,7 @@ describe('Option', () => {
       draggable: true,
       accessKey: 't e s t',
     };
-    const {getByTestId} = testRender(
+    const {getByTestId} = render(
       <ExampleOption {...additionalAttributes} value="option-1">
         Option 1
       </ExampleOption>
@@ -61,7 +59,7 @@ describe('Option', () => {
       size: 2,
       selected: true,
     };
-    const {getByTestId} = testRender(
+    const {getByTestId} = render(
       <ExampleOption {...blockListedPropsMap} value="option-1">
         Option 1
       </ExampleOption>
@@ -78,17 +76,15 @@ describe('Option', () => {
   });
 
   it('should have no accessibility violations', async () => {
-    const container = document.createElement('div');
-    document.body.append(container);
-    render(<ExampleOption value="option-1">Option 1</ExampleOption>, container);
-    const results = await axe(document.body);
+    const {container} = render(<ExampleOption value="option-1">Option 1</ExampleOption>);
+    const results = await axe(container);
 
     expect(results).toHaveNoViolations();
   });
 
   describe('HTML Attribute', () => {
     it('should set an element data attribute for Option (default)', () => {
-      testRender(
+      render(
         <ExampleOption suffix="default-data-attribute" value="option-1">
           Option 1
         </ExampleOption>
@@ -97,7 +93,7 @@ describe('Option', () => {
     });
 
     it('should set an element data attribute for Option', () => {
-      testRender(
+      render(
         <ExampleOption suffix="unique-data-attribute" element="UNIQUE_NAME" value="option-1">
           Option 1
         </ExampleOption>
@@ -111,7 +107,7 @@ describe('Option', () => {
 
   describe('Customization', () => {
     it('should add custom styles to Option', () => {
-      testRender(
+      render(
         <CustomizationProvider
           // @ts-expect-error global test variable
           theme={TestTheme}
@@ -134,7 +130,7 @@ describe('Option', () => {
     });
 
     it('should add custom styles to Option with a custom element data attribute', () => {
-      testRender(
+      render(
         <CustomizationProvider
           // @ts-expect-error global test variable
           theme={TestTheme}

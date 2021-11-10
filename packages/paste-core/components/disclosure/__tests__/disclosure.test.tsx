@@ -9,27 +9,6 @@ import {Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState} fr
 import type {DisclosureHeadingProps, DisclosureProps, DisclosureStateReturn} from '../src';
 import {getIconHoverStyles} from '../src/utils';
 
-const mockStopAnimation = jest.fn();
-const mockSetAnimated = jest.fn();
-
-jest.mock('@twilio-paste/disclosure-primitive', () => {
-  const {useDisclosurePrimitiveState: useDisclosureStateActual, ...actual} = jest.requireActual(
-    '@twilio-paste/disclosure-primitive'
-  );
-  return {
-    ...actual,
-    useDisclosurePrimitiveState: (...args) => {
-      const actualResult = useDisclosureStateActual(...args);
-
-      return {
-        ...actualResult,
-        stopAnimation: mockStopAnimation,
-        setAnimated: mockSetAnimated,
-      };
-    },
-  };
-});
-
 const MockDisclosure: React.FC<{
   visible?: DisclosureProps['visible'];
   disabled?: DisclosureHeadingProps['disabled'];
@@ -307,10 +286,8 @@ describe('Disclosure', () => {
 
   describe('Accessibility', () => {
     it('should have no accessibility violations', async () => {
-      const {container} = render(<MockDisclosure visible />);
-
+      const {container} = render(<MockDisclosure />);
       const results = await axe(container);
-
       expect(results).toHaveNoViolations();
     });
   });

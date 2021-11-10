@@ -1,7 +1,5 @@
 import * as React from 'react';
-import {render} from 'react-dom';
-
-import {render as testRender, fireEvent, screen} from '@testing-library/react';
+import {render, fireEvent, screen} from '@testing-library/react';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import type {PasteCustomCSS} from '@twilio-paste/customization';
 // @ts-ignore typescript doesn't like js imports
@@ -36,12 +34,12 @@ const defaultGroupProps = {
 
 describe('Checkbox', () => {
   it('should render', () => {
-    const {getByRole} = testRender(<Checkbox {...defaultProps}>foo</Checkbox>);
+    const {getByRole} = render(<Checkbox {...defaultProps}>foo</Checkbox>);
     expect(getByRole('checkbox')).not.toBeNull();
   });
 
   it('should render as invalid', () => {
-    const {getByRole} = testRender(
+    const {getByRole} = render(
       <Checkbox {...defaultProps} hasError>
         foo
       </Checkbox>
@@ -50,7 +48,7 @@ describe('Checkbox', () => {
   });
 
   it('should render as checked', () => {
-    const {getByLabelText} = testRender(
+    const {getByLabelText} = render(
       <Checkbox {...defaultProps} checked onChange={NOOP}>
         foo
       </Checkbox>
@@ -59,7 +57,7 @@ describe('Checkbox', () => {
   });
 
   it('should render a required dot', () => {
-    const {getByText} = testRender(
+    const {getByText} = render(
       <Checkbox {...defaultProps} required onChange={NOOP}>
         foo
       </Checkbox>
@@ -68,7 +66,7 @@ describe('Checkbox', () => {
   });
 
   it('should render as indeterminate', () => {
-    const {getByLabelText} = testRender(
+    const {getByLabelText} = render(
       <Checkbox {...defaultProps} indeterminate onChange={NOOP}>
         foo
       </Checkbox>
@@ -77,7 +75,7 @@ describe('Checkbox', () => {
   });
 
   it('should render as disabled', () => {
-    const {getByLabelText} = testRender(
+    const {getByLabelText} = render(
       <Checkbox {...defaultProps} disabled>
         foo
       </Checkbox>
@@ -86,17 +84,17 @@ describe('Checkbox', () => {
   });
 
   it('should render an id', () => {
-    const {getByLabelText} = testRender(<Checkbox {...defaultProps}>foo</Checkbox>);
+    const {getByLabelText} = render(<Checkbox {...defaultProps}>foo</Checkbox>);
     expect(getByLabelText('foo').id).toBe('foo');
   });
 
   it('should render a name', () => {
-    const {getByLabelText} = testRender(<Checkbox {...defaultProps}>foo</Checkbox>);
+    const {getByLabelText} = render(<Checkbox {...defaultProps}>foo</Checkbox>);
     expect((getByLabelText('foo') as HTMLInputElement).name).toBe('foo');
   });
 
   it('should render aria attributes', () => {
-    const {getByLabelText} = testRender(
+    const {getByLabelText} = render(
       <Checkbox {...defaultProps} aria-label="foo" aria-labelledby="bar" aria-busy="true">
         foo
       </Checkbox>
@@ -108,7 +106,7 @@ describe('Checkbox', () => {
 
   it('renders a helpText message when helpText prop is present', () => {
     const helpText = 'I am a helpText message';
-    const {getByText} = testRender(
+    const {getByText} = render(
       <Checkbox {...defaultProps} helpText={helpText}>
         foo
       </Checkbox>
@@ -119,7 +117,7 @@ describe('Checkbox', () => {
 
 describe('Checkbox Group', () => {
   it('should render', () => {
-    const {container} = testRender(
+    const {container} = render(
       <CheckboxGroup {...defaultGroupProps}>
         <Checkbox {...defaultProps}>foo</Checkbox>
       </CheckboxGroup>
@@ -128,7 +126,7 @@ describe('Checkbox Group', () => {
   });
 
   it('should render a legend', () => {
-    const {getByText} = testRender(
+    const {getByText} = render(
       <CheckboxGroup {...defaultGroupProps}>
         <Checkbox {...defaultProps}>foo</Checkbox>
       </CheckboxGroup>
@@ -137,7 +135,7 @@ describe('Checkbox Group', () => {
   });
 
   it('should have a required a required dot in the legend', () => {
-    const {getByText} = testRender(
+    const {getByText} = render(
       <CheckboxGroup {...defaultGroupProps} required>
         <Checkbox {...defaultProps}>foo</Checkbox>
       </CheckboxGroup>
@@ -146,7 +144,7 @@ describe('Checkbox Group', () => {
   });
 
   it('should render a name', () => {
-    const {getByRole} = testRender(
+    const {getByRole} = render(
       <CheckboxGroup {...defaultGroupProps}>
         <Checkbox {...defaultProps}>foo</Checkbox>
       </CheckboxGroup>
@@ -155,7 +153,7 @@ describe('Checkbox Group', () => {
   });
 
   it('should render a disabled checkbox in the checkbox group', () => {
-    const {getByRole} = testRender(
+    const {getByRole} = render(
       <CheckboxGroup {...defaultGroupProps}>
         <Checkbox {...defaultProps} disabled>
           foo
@@ -167,7 +165,7 @@ describe('Checkbox Group', () => {
 
   it('renders a helpText message when helpText prop is present', () => {
     const helpText = 'I am a helpText message';
-    const {getByText} = testRender(
+    const {getByText} = render(
       <CheckboxGroup {...defaultGroupProps} helpText={helpText}>
         <Checkbox {...defaultProps}>foo</Checkbox>
       </CheckboxGroup>
@@ -177,7 +175,7 @@ describe('Checkbox Group', () => {
 
   it('renders an errorText message when errorText prop is present', () => {
     const errorText = 'I am an errorText message';
-    const {getByText} = testRender(
+    const {getByText} = render(
       <CheckboxGroup {...defaultGroupProps} errorText={errorText}>
         <Checkbox {...defaultProps}>foo</Checkbox>
       </CheckboxGroup>
@@ -192,7 +190,7 @@ describe('Checkbox event handlers', () => {
     const onFocusMock: jest.Mock = jest.fn();
     const onBlurMock: jest.Mock = jest.fn();
 
-    const {getByTestId} = testRender(
+    const {getByTestId} = render(
       <Checkbox
         data-testid="checkbox-button"
         id="foo"
@@ -232,7 +230,7 @@ describe('Checkbox event handlers', () => {
       );
     };
 
-    const {getByTestId} = testRender(<MockCheckBox />);
+    const {getByTestId} = render(<MockCheckBox />);
 
     fireEvent.click(getByTestId('checkbox-button'));
     expect((getByTestId('checkbox-button') as HTMLInputElement).checked).toBe(true);
@@ -241,7 +239,7 @@ describe('Checkbox event handlers', () => {
 
 describe('Customization', () => {
   it('Should set an element data attribute for Checkbox', (): void => {
-    const {container} = testRender(
+    const {container} = render(
       <CheckboxGroup data-testid="checkbox-group" {...defaultGroupProps} errorText="error">
         <Checkbox {...defaultProps} helpText="bar">
           foo
@@ -260,7 +258,7 @@ describe('Customization', () => {
     expect(container.querySelector('[data-paste-element="CHECKBOX_HELP_TEXT_WRAPPER"]')).toBeInTheDocument();
   });
   it('Should set a custom element data attribute on Checkbox', (): void => {
-    const {container} = testRender(
+    const {container} = render(
       <CheckboxGroup element="MY_CHECKBOX_GROUP" data-testid="checkbox-group" {...defaultGroupProps} errorText="error">
         <Checkbox element="SPECIAL_CHECKBOX" {...defaultProps} helpText="bar">
           foo
@@ -280,7 +278,7 @@ describe('Customization', () => {
   });
 
   it('should add custom styling to default Checkbox', (): void => {
-    const {container} = testRender(
+    const {container} = render(
       <CustomizationProvider
         // @ts-expect-error global test variable
         theme={TestTheme}
@@ -320,7 +318,7 @@ describe('Customization', () => {
   });
 
   it('should add custom styling to a custom named Checkbox', (): void => {
-    const {container} = testRender(
+    const {container} = render(
       <CustomizationProvider
         // @ts-expect-error global test variable
         theme={TestTheme}
@@ -373,15 +371,18 @@ describe('Customization', () => {
 
 describe('Accessibility', () => {
   it('Should have no accessibility violations', async () => {
-    const container = document.createElement('div');
-    document.body.append(container);
-    render(
-      <Checkbox id="foo" name="foo">
-        foo
-      </Checkbox>,
-      container
+    const {container} = render(
+      <CustomizationProvider
+        // @ts-expect-error global test variable
+        theme={TestTheme}
+        elements={getCustomizationStyles('MY_CHECKBOX')}
+      >
+        <Checkbox id="foo" name="foo">
+          foo
+        </Checkbox>
+      </CustomizationProvider>
     );
-    const results = await axe(document.body);
+    const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
 });

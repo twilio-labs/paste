@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {useUID} from '@twilio-paste/uid-library';
-import {render} from 'react-dom';
-import {render as testRender, fireEvent} from '@testing-library/react';
+import {render, fireEvent} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
@@ -99,26 +98,26 @@ const MockInitalFocusModal: React.FC = () => {
 
 describe('Modal', () => {
   it('should have the correct accessibility attributes on the container', () => {
-    const {getByTestId} = testRender(<MockModal />);
+    const {getByTestId} = render(<MockModal />);
     expect(getByTestId('modal').getAttribute('role')).toEqual('dialog');
     expect(getByTestId('modal').getAttribute('aria-modal')).toEqual('true');
   });
 
   it('should be labelled by the correct heading', () => {
-    const {getByTestId} = testRender(<MockModal />);
+    const {getByTestId} = render(<MockModal />);
     expect(getByTestId('modal').getAttribute('aria-labelledby')).toEqual(
       getByTestId('modal-heading').getAttribute('id')
     );
   });
 
   it('should be be able to take arbitrary html attributes on the container', () => {
-    const {getByTestId} = testRender(<MockModal />);
+    const {getByTestId} = render(<MockModal />);
     expect(getByTestId('modal').getAttribute('aria-busy')).toEqual('true');
     expect(getByTestId('modal').getAttribute('id')).toEqual('a-new-id');
   });
 
   it('should render with focusable elements in the modal content', () => {
-    const {getByTestId} = testRender(
+    const {getByTestId} = render(
       <MockModal>
         <button type="button">Button</button>
         <button type="button">Button</button>
@@ -137,27 +136,25 @@ describe('Modal', () => {
   });
 
   it('should focus on the first focusable element in the modal, the close button', () => {
-    const {getByTestId} = testRender(<MockModal />);
+    const {getByTestId} = render(<MockModal />);
     expect(document.activeElement).toEqual(getByTestId('modal-header').querySelector('button'));
   });
 
   it('should focus on the element provided as the initialFocus element in the modal', () => {
-    const {getByTestId} = testRender(<MockInitalFocusModal />);
+    const {getByTestId} = render(<MockInitalFocusModal />);
     expect(document.activeElement).toEqual(getByTestId('modal-body').querySelector('input'));
   });
 
   it('should call the onDismiss function when the close button is clicked', () => {
-    const {getByTestId} = testRender(<MockModal />);
+    const {getByTestId} = render(<MockModal />);
     fireEvent.click(getByTestId('modal-header').querySelector('button') as HTMLButtonElement);
     expect(handleCloseMock).toHaveBeenCalled();
   });
 
   describe('Accessibility', () => {
     it('Should have no accessibility violations', async () => {
-      const container = document.createElement('div');
-      document.body.append(container);
-      render(<MockModal />, container);
-      const results = await axe(document.body, {
+      const {container} = render(<MockModal />);
+      const results = await axe(container, {
         rules: {
           // ignore the tabindex of the focus trap helper
           tabindex: {enabled: false},
