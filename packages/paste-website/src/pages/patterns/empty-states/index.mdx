@@ -50,14 +50,10 @@ export const pageQuery = graphql`
 
 <content>
 
-<PatternHeader
+<NormalizePatternHeader
   description={props.pageContext.frontmatter.description}
   name={props.pageContext.frontmatter.title}
-  designCommitteeStatus={props.data.allAirtable.edges[0].node.data.Design_committee_review}
-  engineerCommitteeStatus={props.data.allAirtable.edges[0].node.data.Engineer_committee_review}
-  figmaStatus={props.data.allAirtable.edges[0].node.data.Figma}
-  status={props.data.allAirtable.edges[0].node.data.status}
-  products={props.data.allAirtable.edges[0].node.data.Product_suitability}
+  data={props.data}
 />
 
 </content>
