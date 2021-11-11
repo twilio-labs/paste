@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Button} from '@twilio-paste/button';
+import type {ButtonProps} from '@twilio-paste/button';
 import {safelySpreadBoxProps} from '@twilio-paste/box';
 import {useUIDSeed} from '@twilio-paste/uid-library';
 
@@ -41,7 +42,7 @@ export const useFocusableVariants = (
       styleProps: {...FOCUSABLE_STYLES} as FocusableStyleProps,
       // eslint-disable-next-line react/display-name
       wrapper: ({children}) => (
-        <Button variant="reset" size="reset" type="button" {...buttonProps}>
+        <Button variant="reset" size="reset" type="button" ref={ref} {...buttonProps}>
           {children}
         </Button>
       ),
@@ -54,7 +55,7 @@ export const useFocusableVariants = (
       styleProps: {...FOCUSABLE_STYLES} as FocusableStyleProps,
       // eslint-disable-next-line react/display-name
       wrapper: ({children}) => (
-        <Button variant="reset" size="reset" type="button" as="a" {...anchorProps}>
+        <Button variant="reset" size="reset" type="button" as="a" ref={ref} {...anchorProps}>
           {children}
         </Button>
       ),

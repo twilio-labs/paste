@@ -13,11 +13,11 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
     const resizedChildren = useResizeChildIcons(children);
     const {color, backgroundColor} = getVariantStyles(variant);
 
-    const {styleProps, wrapper: Wrapper, spanProps} = useFocusableVariants(props);
+    const {styleProps, wrapper: Wrapper, spanProps} = useFocusableVariants({...props, ref});
     const isFocusable = props.as !== 'span';
 
     return (
-      <Wrapper ref={isFocusable ? ref : null}>
+      <Wrapper>
         <Box
           {...spanProps}
           alignItems="center"
