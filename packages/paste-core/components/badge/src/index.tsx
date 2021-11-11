@@ -6,15 +6,18 @@ import {getVariantStyles} from './utils';
 import type {BadgeProps, BadgeVariants, BadgeChildren, BadgeBaseElements} from './types';
 import {useFocusableVariants, useResizeChildIcons} from './hooks';
 
+export {BadgeProps};
+
 export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
   ({variant, children, element = 'BADGE', ...props}, ref) => {
     const resizedChildren = useResizeChildIcons(children);
     const {color, backgroundColor} = getVariantStyles(variant);
 
     const {styleProps, wrapper: Wrapper, spanProps} = useFocusableVariants(props);
+    const isFocusable = props.as !== 'span';
 
     return (
-      <Wrapper>
+      <Wrapper ref={isFocusable ? ref : null}>
         <Box
           {...spanProps}
           alignItems="center"
@@ -33,7 +36,7 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
           paddingX="space30"
           paddingY="space20"
           variant={variant}
-          ref={ref}
+          ref={!isFocusable ? ref : null}
           {...styleProps}
         >
           {resizedChildren}
