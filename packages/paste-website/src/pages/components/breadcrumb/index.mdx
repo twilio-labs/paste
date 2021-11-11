@@ -58,18 +58,11 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name={props.pageContext.frontmatter.title}
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/breadcrumb"
   storybookUrl="/?path=/story/components-breadcrumb--anchors"
-  packageName={props.data.allPasteComponent.edges[0].node.name}
-  version={props.data.allPasteComponent.edges[0].node.version}
-  description={props.data.allPasteComponent.edges[0].node.description}
-  status={props.data.allPasteComponent.edges[0].node.status}
-  figmaStatus={props.data.allAirtable.edges[0].node.data.Figma}
-  designCommitteeStatus={props.data.allAirtable.edges[0].node.data.Design_committee_review}
-  engineerCommitteeStatus={props.data.allAirtable.edges[0].node.data.Engineer_committee_review}
+  data={props.data}
 />
 
 ---

@@ -6,21 +6,12 @@ slug: /libraries/uid-library/
 
 import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
+import PackageJSON from '@twilio-paste/uid-library/package.json';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 
 export const pageQuery = graphql`
   {
-    allPasteLibraries(filter: {name: {eq: "@twilio-paste/uid-library"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
     mdx(fields: {slug: {eq: "/libraries/uid-library/"}}) {
       fileAbsolutePath
       frontmatter {
@@ -40,10 +31,9 @@ export const pageQuery = graphql`
   categoryRoute={SidebarCategoryRoutes.LIBRARIES}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-libraries/uid"
   storybookUrl="/?path=/story/libraries-uid"
-  packageName={props.data.allPasteLibraries.edges[0].node.name}
-  version={props.data.allPasteLibraries.edges[0].node.version}
-  description={props.data.allPasteLibraries.edges[0].node.description}
-  status={props.data.allPasteLibraries.edges[0].node.status}
+  packageName={PackageJSON.name}
+  version={PackageJSON.version}
+  description={PackageJSON.description}
 />
 
 ---
