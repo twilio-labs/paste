@@ -42,7 +42,7 @@ export const useFocusableVariants = (
       styleProps: {...FOCUSABLE_STYLES} as FocusableStyleProps,
       // eslint-disable-next-line react/display-name
       wrapper: ({children}) => (
-        <Button variant="reset" size="reset" type="button" ref={ref} {...buttonProps}>
+        <Button variant="reset" size="reset" type="button" ref={buttonProps.ref} {...buttonProps}>
           {children}
         </Button>
       ),
@@ -55,7 +55,7 @@ export const useFocusableVariants = (
       styleProps: {...FOCUSABLE_STYLES} as FocusableStyleProps,
       // eslint-disable-next-line react/display-name
       wrapper: ({children}) => (
-        <Button variant="reset" size="reset" type="button" as="a" ref={ref} {...anchorProps}>
+        <Button variant="reset" size="reset" type="button" as="a" ref={anchorProps.ref} {...anchorProps}>
           {children}
         </Button>
       ),
