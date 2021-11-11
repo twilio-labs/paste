@@ -2,7 +2,7 @@ const spawnAsync = require('@expo/spawn-async');
 const chalk = require('chalk');
 
 /**
- * Simple wrapper for spawnSync to handel failures
+ * Simple wrapper for spawnSync to handle failures
  *
  * @param {string} cmd command
  * @param {Array<T>} args arguments for command
