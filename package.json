@@ -78,7 +78,7 @@
     "prettier-clean": "prettier --write '{.storybook,packages}/**/*.{ts,tsx}'",
     "lint": "yarn pre-test && eslint --ext .tsx,.ts ./packages",
     "type-check": "lerna run tsc",
-    "tsc": "echo Did you mean to run yarn type-check?",
+    "tsc": "echo 'Did you mean to run yarn type-check?'",
     "chromatic": "chromatic",
     "packages:check": "manypkg check",
     "packages:fix": "manypkg fix",
