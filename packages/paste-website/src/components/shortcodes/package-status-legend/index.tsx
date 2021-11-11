@@ -8,7 +8,6 @@ import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
 import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
 
 import {BadgePopoverButton, BadgePopoverContainer, BadgePopover} from '../../badgePopover';
-import {sentenceCase} from '../../../utils/SentenceCase';
 import {StatusDescriptions} from '../../../constants';
 
 interface PackageStatusLegendProps {
@@ -22,12 +21,12 @@ const PackageStatusBadge: React.FC<{status: string}> = ({status}) => {
   let badgeVariant: BadgeVariants | undefined;
   let popoverContent = '';
 
-  if (status === 'alpha') {
+  if (status === 'Alpha') {
     badgeVariant = 'new';
     popoverContent = StatusDescriptions.ALPHA;
   }
 
-  if (status === 'beta') {
+  if (status === 'Beta') {
     badgeVariant = 'info';
     popoverContent = StatusDescriptions.BETA;
   }
@@ -39,7 +38,7 @@ const PackageStatusBadge: React.FC<{status: string}> = ({status}) => {
           <BadgePopoverButton variant={badgeVariant}>
             <>
               <NewIcon decorative />
-              {sentenceCase(status)}
+              {status}
             </>
           </BadgePopoverButton>
           <BadgePopover aria-label={status}>{popoverContent}</BadgePopover>

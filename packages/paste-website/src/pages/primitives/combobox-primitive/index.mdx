@@ -64,18 +64,11 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name="Combobox Primitive"
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/combobox"
   storybookUrl="/?path=/story/primitives-combobox--dropdown-combobox"
-  packageName={props.data.allPastePrimitive.edges[0].node.name}
-  version={props.data.allPastePrimitive.edges[0].node.version}
-  description={props.data.allPastePrimitive.edges[0].node.description}
-  status={props.data.allPastePrimitive.edges[0].node.status}
-  figmaStatus={props.data.allAirtable.edges[0].node.data.Figma}
-  designCommitteeStatus={props.data.allAirtable.edges[0].node.data.Design_committee_review}
-  engineerCommitteeStatus={props.data.allAirtable.edges[0].node.data.Engineer_committee_review}
+  data={props.data}
 />
 
 ---

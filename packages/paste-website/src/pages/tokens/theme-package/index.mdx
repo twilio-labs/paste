@@ -37,13 +37,10 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name="Theme package"
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.TOKENS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-theme"
-  packageName={props.data.allPasteThemePackage.edges[0].node.name}
-  version={props.data.allPasteThemePackage.edges[0].node.version}
-  description={props.data.allPasteThemePackage.edges[0].node.description}
+  data={props.data}
 />
 
 ---

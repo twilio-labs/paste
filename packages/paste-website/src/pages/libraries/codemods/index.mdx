@@ -5,21 +5,12 @@ slug: /libraries/codemods/
 ---
 
 import {graphql} from 'gatsby';
+import PackageJSON from '@twilio-paste/codemods/package.json';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 
 export const pageQuery = graphql`
   {
-    allPasteLibraries(filter: {name: {eq: "@twilio-paste/codemods"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
     mdx(fields: {slug: {eq: "/libraries/codemods/"}}) {
       fileAbsolutePath
       frontmatter {
@@ -38,10 +29,9 @@ export const pageQuery = graphql`
   name="Codemods"
   categoryRoute={SidebarCategoryRoutes.LIBRARIES}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-codemods"
-  packageName={props.data.allPasteLibraries.edges[0]?.node.name}
-  version={props.data.allPasteLibraries.edges[0]?.node.version}
-  description={props.data.allPasteLibraries.edges[0]?.node.description}
-  status={props.data.allPasteLibraries.edges[0]?.node.status}
+  packageName={PackageJSON.name}
+  version={PackageJSON.version}
+  description={PackageJSON.description}
 />
 
 ---

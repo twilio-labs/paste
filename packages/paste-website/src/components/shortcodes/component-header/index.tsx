@@ -1,44 +1,17 @@
 import * as React from 'react';
 import {Helmet} from 'react-helmet';
 import {Anchor} from '@twilio-paste/anchor';
-import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {Heading} from '@twilio-paste/heading';
 import {useTheme} from '@twilio-paste/theme';
 import {PackageStatusLegend} from '../package-status-legend';
-import {SidebarCategoryRoutes, STORYBOOK_DOMAIN} from '../../../constants';
+import {STORYBOOK_DOMAIN} from '../../../constants';
+import type {SidebarCategoryRoutes} from '../../../constants';
 import GithubIcon from '../../icons/GithubIcon';
 import StorybookIcon from '../../icons/StorybookIcon';
-import {
-  getHumanizedNameFromPackageName,
-  getOpengraphServiceUrl,
-  getNameFromPackageName,
-} from '../../../utils/RouteUtils';
-
-const getCategoryNameFromRoute = (categoryRoute: string): string => {
-  switch (categoryRoute) {
-    case SidebarCategoryRoutes.COMPONENTS:
-      return 'Components';
-    case SidebarCategoryRoutes.PRIMITIVES:
-      return 'Primitives';
-    case SidebarCategoryRoutes.LAYOUT:
-      return 'Layout';
-    case SidebarCategoryRoutes.TOKENS:
-      return 'Tokens';
-    case SidebarCategoryRoutes.LIBRARIES:
-      return 'Libraries';
-    case SidebarCategoryRoutes.CUSTOMIZATION:
-      return 'Customization';
-    case SidebarCategoryRoutes.CORE:
-      return 'Core';
-    case SidebarCategoryRoutes.PATTERNS:
-      return 'Patterns';
-    default:
-      return 'Layout';
-  }
-};
+import {getOpengraphServiceUrl, getNameFromPackageName, getCategoryNameFromRoute} from '../../../utils/RouteUtils';
 
 const IconAnchor: React.FC<{href: string; icon: React.ReactNode; children: string}> = ({href, icon, children}) => (
   <Anchor href={href}>
@@ -51,7 +24,7 @@ const IconAnchor: React.FC<{href: string; icon: React.ReactNode; children: strin
   </Anchor>
 );
 
-interface ComponentHeaderProps {
+export interface ComponentHeaderProps {
   name: string;
   categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
   description?: string;
@@ -104,7 +77,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
       <Box display="flex" alignItems="center" flexWrap="wrap" marginBottom="space70">
         <Box marginRight="space50">
           <Heading as="h1" variant="heading10" marginBottom="space0">
-            {getHumanizedNameFromPackageName(name)}
+            {name}
           </Heading>
         </Box>
         {showStatus ? (
