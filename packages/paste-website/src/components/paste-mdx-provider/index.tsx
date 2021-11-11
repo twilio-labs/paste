@@ -17,7 +17,7 @@ import {AnchoredHeading} from '../Heading';
 import {InlineCode, Pre} from '../Typography';
 // Shortcode imports
 import {ComponentHeader} from '../shortcodes/component-header';
-import {PatternHeader} from '../shortcodes/pattern-header';
+import {NormalizePatternHeader} from '../shortcodes/normalize-pattern-header';
 import {LivePreview} from '../shortcodes/live-preview';
 import {TableOfContents} from '../shortcodes/table-of-contents';
 import {PageAside} from '../shortcodes/PageAside';
@@ -46,7 +46,7 @@ const shortcodes = {
   ComponentHeader,
   LivePreview,
   PageAside,
-  PatternHeader,
+  NormalizePatternHeader,
   TableOfContents,
   ArticleHeader,
   ArticleContent,

@@ -1,10 +1,14 @@
 import * as React from 'react';
+import * as _ from 'lodash';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {ProductBadge} from '../../ProductBadge';
 import {ComponentHeader} from '../component-header';
+import type {ComponentHeaderProps} from '../component-header';
 import {SidebarCategoryRoutes} from '../../../constants';
+import {getNormalizedHeaderData} from '../../../utils/GraphqlUtils';
+import type {GraphqlData} from '../../../utils/GraphqlUtils';
 
 const PackageValue: React.FC = ({children}) => {
   return (
@@ -22,25 +26,17 @@ const PackageLabel: React.FC = ({children}) => {
   );
 };
 
-interface PatternHeaderProps {
-  name: string;
-  description?: string;
-  designCommitteeStatus?: string;
-  engineerCommitteeStatus?: string;
-  figmaStatus?: string;
-  status?: string;
-  products?: string[];
+interface NormalizePatternHeaderProps extends ComponentHeaderProps {
+  data: GraphqlData;
 }
 
-const PatternHeader: React.FC<PatternHeaderProps> = ({
-  description,
-  name,
-  designCommitteeStatus,
-  engineerCommitteeStatus,
-  figmaStatus,
-  status,
-  products,
-}) => {
+const NormalizePatternHeader: React.FC<NormalizePatternHeaderProps> = ({data, ...props}) => {
+  const normalizedData = getNormalizedHeaderData(data);
+  const {name, description, status, figmaStatus, designCommitteeStatus, engineerCommitteeStatus, products} = _.merge(
+    normalizedData,
+    props
+  );
+
   return (
     <>
       <ComponentHeader
@@ -53,12 +49,12 @@ const PatternHeader: React.FC<PatternHeaderProps> = ({
         figmaStatus={figmaStatus}
       />
       {products && (
-        <Box marginBottom="space20">
+        <Box marginBottom="space20" marginTop="space70">
           <PackageLabel>Products</PackageLabel>
           <PackageValue>
             <Stack orientation="horizontal" spacing="space20">
-              {products.map((product) => (
-                <ProductBadge>{product}</ProductBadge>
+              {products.map((product: string) => (
+                <ProductBadge key={product}>{product}</ProductBadge>
               ))}
             </Stack>
           </PackageValue>
@@ -68,4 +64,4 @@ const PatternHeader: React.FC<PatternHeaderProps> = ({
   );
 };
 
-export {PatternHeader};
+export {NormalizePatternHeader};

@@ -56,6 +56,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
     : undefined;
 
   const showStatus = status || figmaStatus || designCommitteeStatus || engineerCommitteeStatus;
+  const showLinks = version || githubUrl || storybookUrl;
   const theme = useTheme();
 
   const sharedIconStyles = {
@@ -89,31 +90,34 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
           />
         ) : null}
       </Box>
-      {description ? (
-        <Text as="p" paddingBottom="space70">
-          {description}
-        </Text>
+      {description ? <Text as="p">{description}</Text> : null}
+      {showLinks ? (
+        <Box marginTop="space70">
+          <Stack orientation="horizontal" spacing="space70">
+            {version ? (
+              <Text as="span" color="colorTextWeak">
+                Version {version}
+              </Text>
+            ) : null}
+            {githubUrl ? (
+              <IconAnchor
+                href={githubUrl}
+                icon={<GithubIcon css={{...sharedIconStyles, color: '#191717'}} decorative />}
+              >
+                Github
+              </IconAnchor>
+            ) : null}
+            {storybookUrl ? (
+              <IconAnchor
+                href={`${STORYBOOK_DOMAIN}${storybookUrl}`}
+                icon={<StorybookIcon css={{...sharedIconStyles, color: '#FF4785'}} decorative />}
+              >
+                Storybook
+              </IconAnchor>
+            ) : null}
+          </Stack>
+        </Box>
       ) : null}
-      <Stack orientation="horizontal" spacing="space70">
-        {version ? (
-          <Text as="span" color="colorTextWeak">
-            Version {version}
-          </Text>
-        ) : null}
-        {githubUrl ? (
-          <IconAnchor href={githubUrl} icon={<GithubIcon css={{...sharedIconStyles, color: '#191717'}} decorative />}>
-            Github
-          </IconAnchor>
-        ) : null}
-        {storybookUrl ? (
-          <IconAnchor
-            href={`${STORYBOOK_DOMAIN}${storybookUrl}`}
-            icon={<StorybookIcon css={{...sharedIconStyles, color: '#FF4785'}} decorative />}
-          >
-            Storybook
-          </IconAnchor>
-        ) : null}
-      </Stack>
     </Box>
   );
 };

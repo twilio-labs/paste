@@ -26,7 +26,7 @@ const getPath = (key: string): string => {
     case 'allPastePattern':
     case 'allPastePrimitive':
     case 'allPasteThemePackage': {
-      return 'edges[0]?.node';
+      return 'edges[0].node';
     }
 
     case 'allAirtable': {
@@ -51,9 +51,8 @@ const getMutation = (key: string): MutationFunction => {
     case 'allPastePrimitive':
     case 'allPasteThemePackage': {
       return ({name: packageName, version, description}) => {
-        const name = packageName ? getHumanizedNameFromPackageName(packageName) : '';
         return {
-          name,
+          name: getHumanizedNameFromPackageName(packageName),
           packageName,
           version,
           description,
@@ -62,9 +61,10 @@ const getMutation = (key: string): MutationFunction => {
     }
 
     case 'allAirtable': {
-      return ({status, Figma, ...rest}) => ({
+      return ({status, Figma, Product_suitability, ...rest}) => ({
         status: sentenceCase(status),
         figmaStatus: Figma,
+        products: Product_suitability,
         ..._.mapKeys(rest, (_noop, objKey) => _.camelCase(objKey)),
       });
     }
