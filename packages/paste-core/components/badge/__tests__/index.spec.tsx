@@ -64,11 +64,41 @@ describe('Badge', () => {
           useResizeChildIcons(['test', <InformationIcon size="sizeIcon40" decorative />])
         );
 
-        const icon = result.current[1];
+        const icon = (result.current as ArrayLike<NamedChild>)[1];
 
         expect(icon.type.displayName).toEqual('InformationIcon');
         expect(icon.props.size).toEqual('sizeIcon10');
       });
+    });
+  });
+
+  describe('Refs', () => {
+    it('should set ref to a span element when rendered as a "span"', () => {
+      const badgeRef = React.createRef<HTMLElement>();
+      render(
+        <Badge as="span" variant="default" ref={badgeRef}>
+          Default
+        </Badge>
+      );
+      expect(badgeRef?.current?.tagName).toEqual('SPAN');
+    });
+    it('should set ref to a button element when rendered as a "button"', () => {
+      const badgeRef = React.createRef<HTMLElement>();
+      render(
+        <Badge as="button" onClick={() => {}} variant="default" ref={badgeRef}>
+          Default
+        </Badge>
+      );
+      expect(badgeRef?.current?.tagName).toEqual('BUTTON');
+    });
+    it('should set ref to an anchor element when rendered as a "a"', () => {
+      const badgeRef = React.createRef<HTMLElement>();
+      render(
+        <Badge as="a" href="#" variant="default" ref={badgeRef}>
+          Default
+        </Badge>
+      );
+      expect(badgeRef?.current?.tagName).toEqual('A');
     });
   });
 
