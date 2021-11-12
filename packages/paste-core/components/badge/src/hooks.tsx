@@ -1,75 +1,9 @@
 import * as React from 'react';
-import {Button} from '@twilio-paste/button';
-import type {ButtonProps} from '@twilio-paste/button';
-import {safelySpreadBoxProps} from '@twilio-paste/box';
 import {useUIDSeed} from '@twilio-paste/uid-library';
 
-import type {BadgeProps, BadgeChildren} from './types';
-import {hasValidAnchorVariantProps, hasValidButtonVariantProps, safelySpreadProps} from './utils';
-
-const BUTTON_DENY_LIST = ['fullWidth', 'as', 'size', 'type', 'variant', 'href'];
-const ANCHOR_DENY_LIST = ['variant', 'as', 'onHover'];
+import type {BadgeChildren} from './types';
 
 const DEFAULT_ICON_SIZE = 'sizeIcon10';
-const FOCUSABLE_STYLES = {
-  textDecoration: 'underline',
-  cursor: 'pointer',
-  _hover: {textDecoration: 'none'},
-  _focus: {boxShadow: 'shadowFocus', textDecoration: 'none'},
-};
-
-export type FocusableStyleProps = {
-  textDecoration: 'underline';
-  cursor: 'pointer';
-  _hover: {textDecoration: 'none'};
-  _focus: {boxShadow: 'shadowFocus'; textDecoration: 'none'};
-};
-export type Wrapper = React.FC<{children: React.ReactNode}>;
-export type StyleProps = FocusableStyleProps | Record<string, never>;
-
-export const useFocusableVariants = (
-  props: Omit<BadgeProps, 'variant' | 'children'>
-): {
-  wrapper: Wrapper;
-  styleProps: StyleProps;
-  spanProps: Partial<Omit<BadgeProps, 'variant' | 'children'>> | Omit<BadgeProps, 'variant' | 'children'>;
-} => {
-  const redactedProps = safelySpreadBoxProps(props);
-
-  if (hasValidButtonVariantProps(props)) {
-    const buttonProps = safelySpreadProps(redactedProps, BUTTON_DENY_LIST);
-    return {
-      styleProps: {...FOCUSABLE_STYLES} as FocusableStyleProps,
-      // eslint-disable-next-line react/display-name
-      wrapper: ({children}) => (
-        <Button variant="reset" size="reset" type="button" ref={buttonProps.ref} {...buttonProps}>
-          {children}
-        </Button>
-      ),
-      spanProps: {},
-    };
-  }
-  if (hasValidAnchorVariantProps(props)) {
-    const anchorProps = safelySpreadProps(redactedProps, ANCHOR_DENY_LIST);
-    return {
-      styleProps: {...FOCUSABLE_STYLES} as FocusableStyleProps,
-      // eslint-disable-next-line react/display-name
-      wrapper: ({children}) => (
-        <Button variant="reset" size="reset" type="button" as="a" ref={anchorProps.ref} {...anchorProps}>
-          {children}
-        </Button>
-      ),
-      spanProps: {},
-    };
-  }
-
-  return {
-    styleProps: {},
-    // eslint-disable-next-line react/display-name
-    wrapper: ({children}) => <>{children}</>,
-    spanProps: redactedProps,
-  };
-};
 
 export const useResizeChildIcons = (children: BadgeChildren): BadgeChildren => {
   const seed = useUIDSeed();
