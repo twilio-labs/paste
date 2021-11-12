@@ -1,5 +1,11 @@
 # @twilio-paste/display-pill-group
 
+## 1.1.3
+
+### Patch Changes
+
+- [`bcac9a339`](https://github.com/twilio-labs/paste/commit/bcac9a339ec8c99e15c7dac1446e315b58449fbf) [#2020](https://github.com/twilio-labs/paste/pull/2020) Thanks [@TheSisb](https://github.com/TheSisb)! - [DisplayPillGroup and FormPillGroup] Improved the group container elements so that they wrap correctly when having an overflow of pill children elements. (Thanks @rpresb)
+
 ## 1.1.2
 
 ### Patch Changes
