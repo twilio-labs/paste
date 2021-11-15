@@ -15,5 +15,6 @@ module.exports = function (componentName) {
     cy.checkDoDonts();
     cy.checkChangelogRevealer();
   });
-});`;
+});
+`;
 };
