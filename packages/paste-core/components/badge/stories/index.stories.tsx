@@ -48,10 +48,6 @@ export const AllBadges: React.FC = () => (
 
 export const DefaultBadge: React.FC = () => {
   const badgeRef = React.useRef(null);
-
-  React.useEffect(() => {
-    console.log('story ref', badgeRef.current);
-  });
   return (
     <Wrapper>
       <Badge as="span" variant="default" ref={badgeRef}>
@@ -71,10 +67,6 @@ export const DefaultBadge: React.FC = () => {
 
 export const DefaultBadgeAsAnchor: React.FC = () => {
   const badgeAnchor = React.useRef(null);
-
-  React.useEffect(() => {
-    console.log('story ref', badgeAnchor.current);
-  });
   return (
     <Wrapper>
       <Badge as="a" href="#" variant="default" ref={badgeAnchor}>
@@ -96,9 +88,6 @@ export const DefaultBadgeAsAnchor: React.FC = () => {
 
 export const DefaultBadgeAsButton: React.FC = () => {
   const badgeButton = React.useRef(null);
-  React.useEffect(() => {
-    console.log('story ref', badgeButton.current);
-  });
   return (
     <Box display="flex" flexDirection="column" alignContent="flex-start">
       <Wrapper>
