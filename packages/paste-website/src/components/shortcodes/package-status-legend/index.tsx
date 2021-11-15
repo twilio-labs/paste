@@ -13,8 +13,8 @@ import {StatusDescriptions} from '../../../constants';
 interface PackageStatusLegendProps {
   status?: string;
   figmaStatus?: string;
-  designCommitteeStatus?: string;
-  engineerCommitteeStatus?: string;
+  designCommitteeReview?: string;
+  engineerCommitteeReview?: string;
 }
 
 const PackageStatusBadge: React.FC<{status: string}> = ({status}) => {
@@ -37,7 +37,7 @@ const PackageStatusBadge: React.FC<{status: string}> = ({status}) => {
         <BadgePopoverContainer baseId="status">
           <BadgePopoverButton variant={badgeVariant}>
             <>
-              <NewIcon decorative />
+              <NewIcon decorative size="sizeIcon10" />
               {status}
             </>
           </BadgePopoverButton>
@@ -51,8 +51,8 @@ const PackageStatusBadge: React.FC<{status: string}> = ({status}) => {
 const PackageStatusLegend: React.FC<PackageStatusLegendProps> = ({
   status,
   figmaStatus,
-  designCommitteeStatus,
-  engineerCommitteeStatus,
+  designCommitteeReview,
+  engineerCommitteeReview,
 }) => {
   const isFigmaPending = figmaStatus === null;
   const theme = useTheme();
@@ -62,13 +62,13 @@ const PackageStatusLegend: React.FC<PackageStatusLegendProps> = ({
       {status ? <PackageStatusBadge status={status} /> : null}
       {isFigmaPending ? (
         <Badge as="span" variant="default">
-          <ProcessDraftIcon decorative />
+          <ProcessDraftIcon decorative size="sizeIcon10" />
           <Box>Design assets pending</Box>
         </Badge>
       ) : null}
-      {designCommitteeStatus === null || engineerCommitteeStatus === null ? (
+      {designCommitteeReview === null || engineerCommitteeReview === null ? (
         <Badge as="span" variant="default">
-          <ProcessDraftIcon decorative />
+          <ProcessDraftIcon decorative size="sizeIcon10" />
           <Box>Peer review pending</Box>
         </Badge>
       ) : null}

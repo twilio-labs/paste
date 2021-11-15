@@ -32,10 +32,15 @@ interface NormalizePatternHeaderProps extends ComponentHeaderProps {
 
 const NormalizePatternHeader: React.FC<NormalizePatternHeaderProps> = ({data, ...props}) => {
   const normalizedData = getNormalizedHeaderData(data);
-  const {name, description, status, figmaStatus, designCommitteeStatus, engineerCommitteeStatus, products} = _.merge(
-    normalizedData,
-    props
-  );
+  const {
+    name,
+    description,
+    status,
+    figmaStatus,
+    designCommitteeReview,
+    engineerCommitteeReview,
+    productSuitability,
+  } = _.merge(normalizedData, props);
 
   return (
     <>
@@ -44,16 +49,16 @@ const NormalizePatternHeader: React.FC<NormalizePatternHeaderProps> = ({data, ..
         description={description}
         categoryRoute={SidebarCategoryRoutes.PATTERNS}
         status={status}
-        designCommitteeStatus={designCommitteeStatus}
-        engineerCommitteeStatus={engineerCommitteeStatus}
+        designCommitteeReview={designCommitteeReview}
+        engineerCommitteeReview={engineerCommitteeReview}
         figmaStatus={figmaStatus}
       />
-      {products && (
+      {productSuitability && (
         <Box marginBottom="space20" marginTop="space70">
-          <PackageLabel>Products</PackageLabel>
+          <PackageLabel>Product</PackageLabel>
           <PackageValue>
             <Stack orientation="horizontal" spacing="space20">
-              {products.map((product: string) => (
+              {productSuitability.map((product: string) => (
                 <ProductBadge key={product}>{product}</ProductBadge>
               ))}
             </Stack>

@@ -18,8 +18,8 @@ export const NormalizeComponentHeader: React.FC<NormalizeComponentHeaderProps> =
     description,
     status,
     figmaStatus,
-    designCommitteeStatus,
-    engineerCommitteeStatus,
+    designCommitteeReview,
+    engineerCommitteeReview,
     categoryRoute,
     githubUrl,
     storybookUrl,
@@ -33,8 +33,8 @@ export const NormalizeComponentHeader: React.FC<NormalizeComponentHeaderProps> =
       description={description}
       status={status}
       figmaStatus={figmaStatus}
-      designCommitteeStatus={designCommitteeStatus}
-      engineerCommitteeStatus={engineerCommitteeStatus}
+      designCommitteeReview={designCommitteeReview}
+      engineerCommitteeReview={engineerCommitteeReview}
       categoryRoute={categoryRoute}
       githubUrl={githubUrl}
       storybookUrl={storybookUrl}
