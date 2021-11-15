@@ -85,13 +85,13 @@ const MDXPoviderComponents = {
   strong: (props: React.ComponentProps<'strong'>): React.ReactElement => <strong {...props} />,
   del: (props: React.ComponentProps<'del'>): React.ReactElement => <del {...props} />,
   hr: (props: SeparatorProps): React.ReactElement => (
-    <Separator {...props} orientation="horizontal" verticalSpacing="space70" />
+    <Separator {...props} orientation="horizontal" verticalSpacing="space100" />
   ),
   a: (props: AnchorProps): React.ReactElement => <MdxLink {...props} />, // eslint-disable-line jsx-a11y/anchor-has-content
   img: (props: React.ComponentProps<'img'>): React.ReactElement => <img {...props} />, // eslint-disable-line jsx-a11y/alt-text
   sup: (props: React.ComponentProps<'sup'>): React.ReactElement => <StyledSup {...props} />,
   content: (props: Omit<React.ComponentProps<'div'>, 'color' | 'ref'>): React.ReactElement => (
-    <Box as="div" maxWidth="size80" minWidth="0" {...props} />
+    <Box as="div" maxWidth={['none', 'none', 'size70']} minWidth="0" {...props} />
   ),
   contentwrapper: (props: Omit<React.ComponentProps<'div'>, 'color' | 'ref'>): React.ReactElement => (
     <Box as="div" display={['block', 'block', 'flex']} {...props} />

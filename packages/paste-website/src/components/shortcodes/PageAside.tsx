@@ -23,7 +23,7 @@ const PageAside: React.FC<PageAsideProps> = ({data}) => {
   return (
     <Box
       order={2}
-      marginLeft="space140"
+      marginLeft="space160"
       minWidth="size20"
       id="page-aside"
       display={['none', 'none', 'block']}
