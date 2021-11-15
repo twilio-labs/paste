@@ -31,9 +31,11 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
 
             const depthLevel = depth.toString();
 
+            const paddingLeftValue = depthLevel === '3' || depthLevel === '4' ? 'space140' : 'space90';
+
             return (
               <TableOfContentsListItem key={value} depth={depthLevel}>
-                <Anchor data-cy="page-aside-anchor" href={headingLink}>
+                <Anchor data-cy="page-aside-anchor" href={headingLink} paddingLeft={paddingLeftValue}>
                   {value}
                 </Anchor>
               </TableOfContentsListItem>

@@ -9,23 +9,16 @@ export const TableOfContentsList = styled(Scrollspy)`
   margin: 0;
   padding: 0;
   list-style: none;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: ${themeGet('borderColors.colorBorderWeak')};
 `;
 
 export const marginTopPartial = ({depth}: TableOfContentsListItemProps): string => {
   if (depth === '3' || depth === '4') {
-    return themeGet('space.space20');
-  }
-  return themeGet('space.space40');
-};
-
-export const marginLeftPartial = ({depth}: TableOfContentsListItemProps): string => {
-  if (depth === '3') {
     return themeGet('space.space30');
   }
-  if (depth === '4') {
-    return themeGet('space.space50');
-  }
-  return '0';
+  return themeGet('space.space50');
 };
 
 export const fontSizePartial = ({depth}: TableOfContentsListItemProps): string => {
@@ -35,13 +28,18 @@ export const fontSizePartial = ({depth}: TableOfContentsListItemProps): string =
   return themeGet('fontSizes.fontSize30');
 };
 
+export const lineHeightPartial = ({depth}: TableOfContentsListItemProps): string => {
+  if (depth === '3' || depth === '4') {
+    return themeGet('lineHeights.lineHeight20');
+  }
+  return themeGet('lineHeights.lineHeight40');
+};
+
 export const TableOfContentsListItem = styled.li<TableOfContentsListItemProps>`
   display: block;
   margin-top: ${marginTopPartial};
-  margin-left: ${marginLeftPartial};
-  padding-left: ${themeGet('space.space30')};
   font-size: ${fontSizePartial};
-  line-height: ${themeGet('lineHeights.lineHeight20')};
+  line-height: ${lineHeightPartial};
   color: ${themeGet('colors.colorGray80')};
   border-left-width: 2px;
   border-left-style: solid;
@@ -49,5 +47,15 @@ export const TableOfContentsListItem = styled.li<TableOfContentsListItemProps>`
 
   &.is-current {
     border-color: ${themeGet('borderColors.colorBorderPrimary')};
+    font-weight: ${themeGet('fontWeights.fontWeightSemibold')};
+  }
+
+  &:hover,
+  &:focus-within {
+    border-color: ${themeGet('borderColors.colorBorderPrimaryStronger')};
+  }
+
+  &:focus-within {
+    box-shadow: ${themeGet('boxShadows.shadowFocus')};
   }
 `;
