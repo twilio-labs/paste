@@ -8,10 +8,10 @@ export const ChangelogRevealer: React.FC<{children: NonNullable<React.ReactNode>
     <Box id="component-changelog">
       <Separator orientation="horizontal" verticalSpacing="space140" />
       <Disclosure>
-        <DisclosureHeading as="h2" variant="heading20">
+        <DisclosureHeading as="h2" variant="heading20" data-cy="changelog-revealer-heading">
           Changelog
         </DisclosureHeading>
-        <DisclosureContent>{children}</DisclosureContent>
+        <DisclosureContent data-cy="changelog-revealer-content">{children}</DisclosureContent>
       </Disclosure>
     </Box>
   );
