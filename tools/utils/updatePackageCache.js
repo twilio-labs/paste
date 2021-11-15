@@ -1,6 +1,7 @@
 const {resolve} = require('path');
 const {getRepoPackages} = require('./getRepoPackages');
 const {writeToFile} = require('./writeToFile');
+const chalk = require('chalk');
 
 const CACHE_FILE_PATH = resolve(__dirname, '../.cache/packages.json');
 
@@ -9,6 +10,7 @@ const CACHE_FILE_PATH = resolve(__dirname, '../.cache/packages.json');
  * repeatedly run this.
  */
 async function updatePackageCache() {
+  console.log(chalk.red.bold.underline('WTF hello'));
   const packagesList = await getRepoPackages();
 
   writeToFile(CACHE_FILE_PATH, packagesList, {
