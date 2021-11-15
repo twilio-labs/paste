@@ -28,8 +28,8 @@ export interface ComponentHeaderProps {
   name: string;
   categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
   description?: string;
-  designCommitteeStatus?: string;
-  engineerCommitteeStatus?: string;
+  designCommitteeReview?: string;
+  engineerCommitteeReview?: string;
   figmaStatus?: string;
   githubUrl?: string;
   packageName?: string;
@@ -42,8 +42,8 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
   name,
   categoryRoute,
   description,
-  designCommitteeStatus,
-  engineerCommitteeStatus,
+  designCommitteeReview,
+  engineerCommitteeReview,
   figmaStatus,
   githubUrl,
   packageName,
@@ -55,7 +55,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
     ? `${categoryRoute.replace('/', '')}/${getNameFromPackageName(packageName)}`
     : undefined;
 
-  const showStatus = status || figmaStatus || designCommitteeStatus || engineerCommitteeStatus;
+  const showStatus = status || figmaStatus || designCommitteeReview || engineerCommitteeReview;
   const showLinks = version || githubUrl || storybookUrl;
   const theme = useTheme();
 
@@ -85,8 +85,8 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
           <PackageStatusLegend
             status={status}
             figmaStatus={figmaStatus}
-            designCommitteeStatus={designCommitteeStatus}
-            engineerCommitteeStatus={engineerCommitteeStatus}
+            designCommitteeReview={designCommitteeReview}
+            engineerCommitteeReview={engineerCommitteeReview}
           />
         ) : null}
       </Box>
