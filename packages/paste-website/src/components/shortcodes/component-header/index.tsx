@@ -33,7 +33,7 @@ export interface ComponentHeaderProps {
   figmaStatus?: string;
   githubUrl?: string;
   packageName?: string;
-  status?: string;
+  packageStatus?: string;
   storybookUrl?: string;
   version?: string;
 }
@@ -47,7 +47,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
   figmaStatus,
   githubUrl,
   packageName,
-  status,
+  packageStatus,
   storybookUrl,
   version,
 }) => {
@@ -55,7 +55,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
     ? `${categoryRoute.replace('/', '')}/${getNameFromPackageName(packageName)}`
     : undefined;
 
-  const showStatus = status || figmaStatus || designCommitteeReview || engineerCommitteeReview;
+  const showStatus = packageStatus || figmaStatus || designCommitteeReview || engineerCommitteeReview;
   const showLinks = version || githubUrl || storybookUrl;
   const theme = useTheme();
 
@@ -83,7 +83,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
         </Box>
         {showStatus ? (
           <PackageStatusLegend
-            status={status}
+            packageStatus={packageStatus}
             figmaStatus={figmaStatus}
             designCommitteeReview={designCommitteeReview}
             engineerCommitteeReview={engineerCommitteeReview}
