@@ -8,7 +8,6 @@
 // https://on.cypress.io/custom-commands
 // ***********************************************
 //
-//
 // -- This is a parent command --
 // Cypress.Commands.add("login", (email, password) => { ... })
 //
@@ -25,18 +24,100 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 // eslint-disable-next-line @typescript-eslint/no-namespace
-declare namespace Cypress {
+https: declare namespace Cypress {
   interface Chainable<Subject> {
+    /**
+     * Gets page header and asserts it it exists, and is visible with correct text.
+     *
+     * @param {string} headerText
+     * @alias `contains`
+     * @alias `should`
+     */
     pageHeaderShouldBeVisible(headerText: string): void;
+    /**
+     * Asserts that element should be visible.
+     *
+     * @returns `Chainable<Subject>`
+     * @type child command
+     * @see https://on.cypress.io/custom-commands#child-commands
+     * @alias `should('be.visible')`
+     */
     shouldBeVisible(): Chainable<Subject>;
+    /**
+     * Asserts that element has correct attribute with expected value.
+     *
+     * @param {string} key
+     * @param {string} value
+     * @type child command
+     * @see https://on.cypress.io/custom-commands#child-commands
+     * @alias `should('have.attr')`
+     */
     shouldHaveAttribute(key: string, value: any): void;
+    /**
+     * Gets element by selector in a fixed container.
+     *
+     * @param {string} selector
+     * @returns `Chainable<Subject>`
+     * @alias `get`
+     * @alias `invoke('innerHeight')`
+     * @alias `scrollIntoView({offset: {top: height, left: 0}})`
+     * @see https://on.cypress.io/guides/core-concepts/interacting-with-elements#scrolling
+     */
     getInFixedContainer(selector: string): Chainable<Subject>;
+    /**
+     * Asserts the overview table component renders correctly.
+     * @type parent command
+     * @see https://on.cypress.io/custom-commands#parent-commands
+     */
     overviewTableRendersCorrectly(): void;
+    /**
+     * Asserts that:
+     * - anchored headings each have an `href` attribute that is prefixed by `#`
+     * - that only `h2` and `h3` headings have matching in-page navigation links.
+     * @type parent command
+     * @see https://on.cypress.io/custom-commands#parent-commands
+     */
     checkInPageNavigationLinks(): void;
+    /**
+     * Gets the docs side `main` tag and returns it's chainer.
+     * @type parent command
+     * @returns `Chainable<Subject>`
+     * @see https://on.cypress.io/custom-commands#parent-commands
+     * @example <caption>Find div with ID "meow" from the main element.</caption>
+     * // returns Chainer<HTMLDivElement>
+     * cy.getDocsPageContentArea().get('#meow');
+     */
     getDocsPageContentArea(): Chainable<Subject>;
+    /**
+     * Asserts that:
+     * - anchored headings each have an `href` attribute that is prefixed by `#`
+     * - that only `h2` and `h3` headings have matching in-page navigation links.
+     * @type parent command
+     * @see https://on.cypress.io/custom-commands#parent-commands
+     */
     checkPageAside(): void;
+    /**
+     * Asserts that:
+     * - at least one live preview is in page
+     * @type parent command
+     * @see https://on.cypress.io/custom-commands#parent-commands
+     */
     checkLivePreviews(): void;
+    /**
+     * Asserts that:
+     * - at least one do/don't container is in page
+     * @type parent command
+     * @see https://on.cypress.io/custom-commands#parent-commands
+     */
     checkDoDonts(): void;
+    /**
+     * Asserts that:
+     * - change log container is visible
+     * - change log header `h2` with text "Changlog" is visible
+     * - on click of header, the changelog content is visible.
+     * @type parent command
+     * @see https://on.cypress.io/custom-commands#parent-commands
+     */
     checkChangelogRevealer(): void;
   }
 }
