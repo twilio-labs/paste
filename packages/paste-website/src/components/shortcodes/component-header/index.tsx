@@ -92,7 +92,9 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
       </Box>
       {description ? (
         <Box maxWidth="size70">
-          <Text as="p">{description}</Text>
+          <Text as="p" fontSize="fontSize40">
+            {description}
+          </Text>
         </Box>
       ) : null}
       {showLinks ? (
