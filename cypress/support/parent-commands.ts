@@ -153,7 +153,6 @@ Cypress.Commands.add('checkChangelogRevealer', () => {
     .shouldBeVisible()
     .click();
 
-  // cy.get('@changelogContainer').find('[data-cy="changelog-revealer-content"]').should('be.visible');
   cy.get('@changelogContainer').find('[data-cy="changelog-revealer-content"]').shouldBeVisible();
 });
 
