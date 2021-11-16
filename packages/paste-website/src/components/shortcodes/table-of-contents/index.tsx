@@ -1,8 +1,9 @@
 import * as React from 'react';
-import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import type {TableOfContentsProps} from './types';
-import {TableOfContentsList, TableOfContentsListItem} from './styles';
+import {TableOfContentsList} from './TableOfContentsList';
+import {TableOfContentsListItem} from './TableOfContentsListItem';
+import {TableOfContentsAnchor} from './TableOfContentsAnchor';
 import {slugify} from '../../../utils/RouteUtils';
 
 // Table of contents should only include h2, h3, h4 headings
@@ -35,9 +36,9 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({headings}) => {
 
             return (
               <TableOfContentsListItem key={value} depth={depthLevel}>
-                <Anchor data-cy="page-aside-anchor" href={headingLink} paddingLeft={paddingLeftValue}>
+                <TableOfContentsAnchor href={headingLink} paddingLeft={paddingLeftValue}>
                   {value}
-                </Anchor>
+                </TableOfContentsAnchor>
               </TableOfContentsListItem>
             );
           })

@@ -1,18 +1,5 @@
-import Scrollspy from 'react-scrollspy';
 import {styled, themeGet} from '@twilio-paste/styling-library';
 import type {TableOfContentsListItemProps} from './types';
-
-export const TableOfContentsList = styled(Scrollspy)`
-  position: sticky;
-  top: 0;
-  right: 0;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border-left-width: 1px;
-  border-left-style: solid;
-  border-left-color: ${themeGet('borderColors.colorBorderWeak')};
-`;
 
 export const marginTopPartial = ({depth}: TableOfContentsListItemProps): string => {
   if (depth === '3' || depth === '4') {
@@ -40,22 +27,41 @@ export const TableOfContentsListItem = styled.li<TableOfContentsListItemProps>`
   margin-top: ${marginTopPartial};
   font-size: ${fontSizePartial};
   line-height: ${lineHeightPartial};
-  color: ${themeGet('colors.colorGray80')};
-  border-left-width: 2px;
-  border-left-style: solid;
-  border-left-color: transparent;
+  color: ${themeGet('textColors.colorTextWeak')};
+  border-radius: 2px;
+
+  a {
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-left-color: transparent;
+
+    &:focus {
+      outline: none;
+    }
+  }
 
   &.is-current {
-    border-color: ${themeGet('borderColors.colorBorderPrimary')};
     font-weight: ${themeGet('fontWeights.fontWeightSemibold')};
+    color: ${themeGet('textColors.colorTextLink')};
+
+    a {
+      border-color: ${themeGet('borderColors.colorBorderPrimary')};
+    }
   }
 
-  &:hover,
-  &:focus-within {
-    border-color: ${themeGet('borderColors.colorBorderPrimaryStronger')};
+  &:hover {
+    a {
+      border-color: ${themeGet('borderColors.colorBorderPrimaryStronger')};
+    }
+
+    color: ${themeGet('textColors.colorTextLinkStronger')};
   }
 
   &:focus-within {
-    box-shadow: ${themeGet('boxShadows.shadowFocus')};
+    a {
+      border-color: ${themeGet('borderColors.colorBorderPrimaryStronger')};
+    }
+    color: ${themeGet('textColors.colorTextLinkStronger')};
+    box-shadow: ${themeGet('shadows.shadowFocus')};
   }
 `;
