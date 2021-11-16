@@ -55,7 +55,6 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
     ? `${categoryRoute.replace('/', '')}/${getNameFromPackageName(packageName)}`
     : undefined;
 
-  const showStatus = packageStatus || figmaStatus || designCommitteeReview || engineerCommitteeReview;
   const showLinks = version || githubUrl || storybookUrl;
   const theme = useTheme();
 
@@ -81,14 +80,12 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
             {name}
           </Heading>
         </Box>
-        {showStatus ? (
-          <PackageStatusLegend
-            packageStatus={packageStatus}
-            figmaStatus={figmaStatus}
-            designCommitteeReview={designCommitteeReview}
-            engineerCommitteeReview={engineerCommitteeReview}
-          />
-        ) : null}
+        <PackageStatusLegend
+          packageStatus={packageStatus}
+          figmaStatus={figmaStatus}
+          designCommitteeReview={designCommitteeReview}
+          engineerCommitteeReview={engineerCommitteeReview}
+        />
       </Box>
       {description ? (
         <Box maxWidth="size70">

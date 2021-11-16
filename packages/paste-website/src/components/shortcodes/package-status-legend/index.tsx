@@ -54,25 +54,30 @@ const PackageStatusLegend: React.FC<PackageStatusLegendProps> = ({
   designCommitteeReview,
   engineerCommitteeReview,
 }) => {
-  const isFigmaPending = figmaStatus === null;
   const theme = useTheme();
 
+  const shouldShowStatus = packageStatus || figmaStatus || designCommitteeReview || engineerCommitteeReview;
+
   return (
-    <Box display="flex" alignItems="center" flexWrap="wrap" flexGrow={1} css={{gap: theme.space.space40}}>
-      {packageStatus ? <PackageStatusBadge status={packageStatus} /> : null}
-      {isFigmaPending ? (
-        <Badge as="span" variant="default">
-          <ProcessDraftIcon decorative size="sizeIcon10" />
-          <Box>Design assets pending</Box>
-        </Badge>
+    <>
+      {shouldShowStatus ? (
+        <Box display="flex" alignItems="center" flexWrap="wrap" flexGrow={1} css={{gap: theme.space.space40}}>
+          {packageStatus ? <PackageStatusBadge status={packageStatus} /> : null}
+          {figmaStatus === null ? (
+            <Badge as="span" variant="default">
+              <ProcessDraftIcon decorative size="sizeIcon10" />
+              <Box>Design assets pending</Box>
+            </Badge>
+          ) : null}
+          {designCommitteeReview === null || engineerCommitteeReview === null ? (
+            <Badge as="span" variant="default">
+              <ProcessDraftIcon decorative size="sizeIcon10" />
+              <Box>Peer review pending</Box>
+            </Badge>
+          ) : null}
+        </Box>
       ) : null}
-      {designCommitteeReview === null || engineerCommitteeReview === null ? (
-        <Badge as="span" variant="default">
-          <ProcessDraftIcon decorative size="sizeIcon10" />
-          <Box>Peer review pending</Box>
-        </Badge>
-      ) : null}
-    </Box>
+    </>
   );
 };
 
