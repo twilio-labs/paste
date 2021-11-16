@@ -201,7 +201,7 @@ jobs:
           path: packages/
 
       - name: Run tests
-        run: CI=true yarn test --ci
+        run: yarn test
 
   react16_tests:
     name: Test repository using React 16
@@ -249,7 +249,7 @@ jobs:
           path: packages/
 
       - name: Run tests
-        run: CI=true yarn test:react-16 --ci
+        run: yarn test:react-16
 
   prettier:
     name: Prettier checks
