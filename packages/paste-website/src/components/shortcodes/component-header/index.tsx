@@ -55,7 +55,7 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
     ? `${categoryRoute.replace('/', '')}/${getNameFromPackageName(packageName)}`
     : undefined;
 
-  const showLinks = version || githubUrl || storybookUrl;
+  const shouldShowSecondary = version || githubUrl || storybookUrl;
   const theme = useTheme();
 
   const sharedIconStyles = {
@@ -66,15 +66,15 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
 
   return (
     <Box>
-      {ogImagePath ? (
+      {ogImagePath && (
         <Helmet>
           <meta property="og:image" content={getOpengraphServiceUrl(ogImagePath)} />
         </Helmet>
-      ) : null}
+      )}
       <Box marginBottom="space50">
         <Anchor href={categoryRoute}>{getCategoryNameFromRoute(categoryRoute)}</Anchor>
       </Box>
-      <Box display="flex" alignItems="center" flexWrap="wrap" marginBottom="space70">
+      <Box display="flex" alignItems="center" flexWrap="wrap" marginBottom="space70" rowGap="space70" maxWidth="size70">
         <Box marginRight="space50">
           <Heading as="h1" variant="heading10" marginBottom="space0">
             {name}
@@ -87,40 +87,40 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
           engineerCommitteeReview={engineerCommitteeReview}
         />
       </Box>
-      {description ? (
+      {description && (
         <Box maxWidth="size70">
           <Text as="p" fontSize="fontSize40">
             {description}
           </Text>
         </Box>
-      ) : null}
-      {showLinks ? (
+      )}
+      {shouldShowSecondary && (
         <Box marginTop="space70">
           <Stack orientation="horizontal" spacing="space70">
-            {version ? (
+            {version && (
               <Text as="span" color="colorTextWeak">
                 Version {version}
               </Text>
-            ) : null}
-            {githubUrl ? (
+            )}
+            {githubUrl && (
               <IconAnchor
                 href={githubUrl}
                 icon={<GithubIcon css={{...sharedIconStyles, color: '#191717'}} decorative />}
               >
                 Github
               </IconAnchor>
-            ) : null}
-            {storybookUrl ? (
+            )}
+            {storybookUrl && (
               <IconAnchor
                 href={`${STORYBOOK_DOMAIN}${storybookUrl}`}
                 icon={<StorybookIcon css={{...sharedIconStyles, color: '#FF4785'}} decorative />}
               >
                 Storybook
               </IconAnchor>
-            ) : null}
+            )}
           </Stack>
         </Box>
-      ) : null}
+      )}
     </Box>
   );
 };

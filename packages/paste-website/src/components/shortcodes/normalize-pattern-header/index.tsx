@@ -35,7 +35,7 @@ const NormalizePatternHeader: React.FC<NormalizePatternHeaderProps> = ({data, ..
   const {
     name,
     description,
-    status,
+    packageStatus,
     figmaStatus,
     designCommitteeReview,
     engineerCommitteeReview,
@@ -48,7 +48,7 @@ const NormalizePatternHeader: React.FC<NormalizePatternHeaderProps> = ({data, ..
         name={name}
         description={description}
         categoryRoute={SidebarCategoryRoutes.PATTERNS}
-        status={status}
+        packageStatus={packageStatus}
         designCommitteeReview={designCommitteeReview}
         engineerCommitteeReview={engineerCommitteeReview}
         figmaStatus={figmaStatus}

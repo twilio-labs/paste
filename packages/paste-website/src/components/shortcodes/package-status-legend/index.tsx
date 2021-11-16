@@ -56,27 +56,27 @@ const PackageStatusLegend: React.FC<PackageStatusLegendProps> = ({
 }) => {
   const theme = useTheme();
 
-  const shouldShowStatus = packageStatus || figmaStatus || designCommitteeReview || engineerCommitteeReview;
+  const shouldShowStatus = packageStatus || !figmaStatus || !designCommitteeReview || !engineerCommitteeReview;
 
   return (
     <>
-      {shouldShowStatus ? (
+      {shouldShowStatus && (
         <Box display="flex" alignItems="center" flexWrap="wrap" flexGrow={1} css={{gap: theme.space.space40}}>
-          {packageStatus ? <PackageStatusBadge status={packageStatus} /> : null}
-          {figmaStatus === null ? (
+          {packageStatus && <PackageStatusBadge status={packageStatus} />}
+          {!figmaStatus && (
             <Badge as="span" variant="default">
               <ProcessDraftIcon decorative size="sizeIcon10" />
               <Box>Design assets pending</Box>
             </Badge>
-          ) : null}
-          {designCommitteeReview === null || engineerCommitteeReview === null ? (
+          )}
+          {!designCommitteeReview || !engineerCommitteeReview ? (
             <Badge as="span" variant="default">
               <ProcessDraftIcon decorative size="sizeIcon10" />
               <Box>Peer review pending</Box>
             </Badge>
           ) : null}
         </Box>
-      ) : null}
+      )}
     </>
   );
 };

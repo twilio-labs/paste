@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import {getHumanizedNameFromPackageName} from './RouteUtils';
+import {getHumanizedNameFromPackageName, getNameFromPackageName} from './RouteUtils';
 import {sentenceCase} from './SentenceCase';
 
 export type GraphqlData = Record<string, any>;
@@ -63,8 +63,12 @@ const getMutation = (key: string): MutationFunction => {
     case 'allAirtable': {
       return ({status, Figma, ...rest}) => ({
         packageStatus: sentenceCase(status),
-        figmaStatus: Figma,
-        ..._.mapKeys(rest, (_noop, objKey) => _.camelCase(objKey)),
+        figmaStatus: Figma === null ? undefined : Figma,
+        ..._.mapKeys(rest, (objValue, objKey) => {
+          if (objValue !== null) {
+            return _.camelCase(objKey);
+          }
+        }),
       });
     }
 
