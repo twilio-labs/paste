@@ -130,14 +130,24 @@ describe('Avatar', () => {
   });
 
   describe('ensure icon is a Paste Icon', () => {
-    it('should fail if icon is not a Paste Icon', () => {
-      // @ts-expect-error
-      expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon="UserIcon" />)).toThrow();
-      // @ts-expect-error
-      // eslint-disable-next-line react/jsx-boolean-value
-      expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon={true} />)).toThrow();
-      // @ts-expect-error
-      expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon={<Box />} />)).toThrow();
+    it('should throw if icon is not a paste  icon', () => {
+      expect(() =>
+        // @ts-expect-error testing error throw
+        render(<Avatar size="sizeIcon20" name="avatar example" icon="UserIcon" />)
+      ).toThrow();
+    });
+    it('should throw if icon a boolean', () => {
+      expect(() =>
+        // @ts-expect-error testing error throw
+        render(<Avatar size="sizeIcon20" name="avatar example" icon />)
+      ).toThrow();
+    });
+
+    it('should throw if icon is a JSX fragment', () => {
+      expect(() =>
+        // @ts-expect-error testing error throw
+        render(<Avatar size="sizeIcon20" name="avatar example" icon={<Box />} />)
+      ).toThrow();
     });
   });
 
