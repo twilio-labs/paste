@@ -24181,12 +24181,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.8.30":
-  version: 0.8.30
-  resolution: "esbuild@npm:0.8.30"
+"esbuild@npm:^0.10.2":
+  version: 0.10.2
+  resolution: "esbuild@npm:0.10.2"
   bin:
     esbuild: bin/esbuild
-  checksum: 599e0431e7614eb7e731410eabc967232b242262a50a692b1903ef3376ad71f4284167357c4cd61613d4d14e71ba3b14f2ae2cc3801378b984cc07b3a465ce2c
+  checksum: eff6deffa4d2b1734ad6ff9f0f6b66f3ee73d392c58798f1e4ee7390c0e1e7357ff975892de3f5173ebed8b670975952328247d745256050d76739236d84bba7
   languageName: node
   linkType: hard
 
@@ -38727,7 +38727,7 @@ is-whitespace@latest:
     emotion: 10.0.27
     enzyme: ^3.10.0
     enzyme-adapter-react-16: ^1.14.0
-    esbuild: ^0.8.30
+    esbuild: ^0.10.2
     eslint: 7.23.0
     eslint-config-airbnb-typescript: 12.0.0
     eslint-config-prettier: 6.11.0
