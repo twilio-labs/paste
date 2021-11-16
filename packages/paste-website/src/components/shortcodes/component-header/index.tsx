@@ -90,7 +90,11 @@ const ComponentHeader: React.FC<ComponentHeaderProps> = ({
           />
         ) : null}
       </Box>
-      {description ? <Text as="p">{description}</Text> : null}
+      {description ? (
+        <Box maxWidth="size70">
+          <Text as="p">{description}</Text>
+        </Box>
+      ) : null}
       {showLinks ? (
         <Box marginTop="space70">
           <Stack orientation="horizontal" spacing="space70">
