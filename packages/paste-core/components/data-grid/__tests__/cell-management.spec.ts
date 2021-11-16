@@ -5,7 +5,7 @@ import {
   delayedSetFocusable,
 } from '../src/utils/cell-management';
 
-describe('cell-management utils', () => {
+describe.skip('cell-management utils', () => {
   it('update tabIndex for actionable correctly', () => {
     const td = document.createElement('td');
     const input = document.createElement('input');

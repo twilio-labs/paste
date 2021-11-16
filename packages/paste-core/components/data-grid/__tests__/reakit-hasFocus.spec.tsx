@@ -19,7 +19,7 @@ const TestComponent: React.FC = () => {
   );
 };
 
-test('hasFocus', () => {
+test.skip('hasFocus', () => {
   render(<TestComponent />);
   const item1 = screen.getByLabelText('item1');
   expect(hasFocus(item1)).toBe(false);
