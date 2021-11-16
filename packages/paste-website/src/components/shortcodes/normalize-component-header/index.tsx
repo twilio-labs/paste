@@ -16,7 +16,7 @@ export const NormalizeComponentHeader: React.FC<NormalizeComponentHeaderProps> =
     packageName,
     version,
     description,
-    status,
+    packageStatus,
     figmaStatus,
     designCommitteeReview,
     engineerCommitteeReview,
@@ -31,7 +31,7 @@ export const NormalizeComponentHeader: React.FC<NormalizeComponentHeaderProps> =
       packageName={packageName}
       version={version}
       description={description}
-      status={status}
+      packageStatus={packageStatus}
       figmaStatus={figmaStatus}
       designCommitteeReview={designCommitteeReview}
       engineerCommitteeReview={engineerCommitteeReview}

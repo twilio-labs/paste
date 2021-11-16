@@ -11,7 +11,7 @@ import {BadgePopoverButton, BadgePopoverContainer, BadgePopover} from '../../bad
 import {StatusDescriptions} from '../../../constants';
 
 interface PackageStatusLegendProps {
-  status?: string;
+  packageStatus?: string;
   figmaStatus?: string;
   designCommitteeReview?: string;
   engineerCommitteeReview?: string;
@@ -49,7 +49,7 @@ const PackageStatusBadge: React.FC<{status: string}> = ({status}) => {
 };
 
 const PackageStatusLegend: React.FC<PackageStatusLegendProps> = ({
-  status,
+  packageStatus,
   figmaStatus,
   designCommitteeReview,
   engineerCommitteeReview,
@@ -59,7 +59,7 @@ const PackageStatusLegend: React.FC<PackageStatusLegendProps> = ({
 
   return (
     <Box display="flex" alignItems="center" flexWrap="wrap" flexGrow={1} css={{gap: theme.space.space40}}>
-      {status ? <PackageStatusBadge status={status} /> : null}
+      {packageStatus ? <PackageStatusBadge status={packageStatus} /> : null}
       {isFigmaPending ? (
         <Badge as="span" variant="default">
           <ProcessDraftIcon decorative size="sizeIcon10" />
