@@ -1,27 +1,28 @@
 import * as React from 'react';
-import {shallow} from 'enzyme';
+
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {render, screen} from '@testing-library/react';
 
 import {HelpText} from '../src';
 
 describe('HelpText variant prop', () => {
-  const container = shallow(<HelpText variant="error" />);
+  beforeEach(() => {
+    render(<HelpText data-testid="help-text" variant="error" />);
+  });
 
   it('should have an error icon', () => {
-    expect(container.find('ErrorIcon').length).toEqual(1);
+    expect(screen.getByTestId('help-text').firstChild.firstChild).toBeInTheDocument();
   });
 
   it('should have colorTextError', () => {
-    expect(container.prop('color')).toEqual('colorTextError');
+    expect(screen.getByTestId('help-text').firstChild.firstChild.getAttribute('color')).toEqual('colorTextError');
   });
 });
 
 describe('HelpText marginTop prop', () => {
-  const container = shallow(<HelpText marginTop="space0" />);
-
   it('should have marginTop: space0', () => {
-    expect(container.prop('marginTop')).toEqual('space0');
+    render(<HelpText data-testid="help-text" marginTop="space0" />);
+    expect(screen.getByTestId('help-text')).toHaveStyleRule('margin-top', 'space0');
   });
 });
 

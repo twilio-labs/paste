@@ -4,21 +4,24 @@ module.exports = {
   globals: {
     TestTheme,
   },
+  rootDir: './packages',
   verbose: true,
+  silent: process.env.CI ? true : false,
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: [
-    '<rootDir>/packages/(?:.+?)/dist/',
-    '<rootDir>/packages/(?:.+?)/.cache/',
-    '<rootDir>/cypress/',
-    '<rootDir>/packages/paste-cra-template/',
+    '<rootDir>/(?:.+?)/dist/',
+    '<rootDir>/(?:.+?)/.cache/',
+    '../cypress/',
+    '<rootDir>/paste-cra-template/',
   ],
   cacheDirectory: '.jest-cache',
   coverageDirectory: '.jest-coverage',
   coveragePathIgnorePatterns: [
-    '<rootDir>/packages/(?:.+?)/dist/',
-    '<rootDir>/packages/(?:.+?)/cjs/',
-    '<rootDir>/packages/(?:.+?)/esm/',
+    '<rootDir>/(?:.+?)/dist/',
+    '<rootDir>/(?:.+?)/.cache/',
+    '../cypress/',
+    '<rootDir>/paste-cra-template/',
   ],
   coverageReporters: ['html', 'text'],
   coverageThreshold: {
@@ -30,17 +33,17 @@ module.exports = {
     },
   },
   transformIgnorePatterns: ['node_modules/'],
-  resolver: '<rootDir>/.jest/resolver.js',
+  resolver: '../.jest/resolver.js',
   transform: {
-    '^.+\\.tsx?$': '<rootDir>/.jest/transform-typescript.js',
-    '^.+\\.js?$': '<rootDir>/.jest/transform-esm.js',
+    '^.+\\.tsx?$': '../.jest/transform-typescript.js',
+    '^.+\\.js?$': '../.jest/transform-esm.js',
   },
-  setupFilesAfterEnv: ['<rootDir>/.jest/setupFilesAfterEnv.js'],
+  setupFilesAfterEnv: ['../.jest/setupFilesAfterEnv.js'],
   snapshotSerializers: ['jest-emotion'],
 };
 
 if (process.env.USE_REACT_16 === 'true') {
-  module.exports.cacheDirectory = '.jest-cache-react-16';
+  module.exports.cacheDirectory = '../.jest-cache-react-16';
   module.exports.moduleNameMapper = {
     ...module.exports.moduleNameMapper,
     '^react-dom((\\/.*)?)$': 'react-dom-16$1',

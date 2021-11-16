@@ -170,7 +170,6 @@ describe('Tooltip', () => {
       );
       const tooltip = screen.getByTestId('tooltip-example');
       const tooltipText = screen.getByText('Welcome to Paste!');
-      screen.debug();
       expect(tooltip).toHaveStyleRule('background-color', 'rgb(254,236,236)');
       expect(tooltipText).toHaveStyleRule('color', 'rgb(173,17,17)');
     });
