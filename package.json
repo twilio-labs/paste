@@ -65,7 +65,7 @@
     "pre-test": "node ./tools/build/pre-test.js",
     "test": "yarn pre-test && concurrently \"yarn:test:packages\" \"yarn:test:tools\"",
     "test:react-16": "yarn pre-test && concurrently \"yarn:test:packages-16\" \"yarn:test:tools-16\"",
-    "test:packages": "jest --silent --no-cache --ci ./packages/",
+    "test:packages": "jest --silent ./packages/",
     "test:packages-16": "USE_REACT_16=true jest --silent ./packages/",
     "test:tools": "jest ./tools/ -c ./tools/jest.config.js",
     "test:tools-16": "USE_REACT_16=true jest ./tools/ -c ./tools/jest.config.js",
