@@ -16,19 +16,6 @@ import type {UseComboboxPrimitiveProps, UseMultiSelectPrimitiveProps} from '../s
 
 const {stateChangeTypes} = useMultiSelectPrimitive;
 
-jest.mock('@twilio-paste/dropdown-library', () => {
-  const {default: all, ...rest} = jest.requireActual('@twilio-paste/dropdown-library');
-
-  return {
-    ...rest,
-    default: {
-      ...all,
-      generateId: () => 'test-id',
-      useGetterPropsCalledChecker: () => all.noop,
-    },
-  };
-});
-
 const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
 
 const dataTestIds = {

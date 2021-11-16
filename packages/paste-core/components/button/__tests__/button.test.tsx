@@ -4,7 +4,7 @@ import {render as testRender} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {Theme} from '@twilio-paste/theme';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
-import {shallow} from 'enzyme';
+
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
@@ -115,7 +115,7 @@ describe('Button', () => {
   describe('Button Errors', () => {
     it('Throws an error when a href is passed but an "a" tag is not', () => {
       expect(() =>
-        shallow(
+        testRender(
           <Button variant="primary" href={HREF}>
             Go to Paste
           </Button>
@@ -125,7 +125,7 @@ describe('Button', () => {
 
     it('Throws an error when an "a" tag is passed but a href is not', () => {
       expect(() =>
-        shallow(
+        testRender(
           <Button as="a" variant="primary">
             Go to Paste
           </Button>
@@ -135,14 +135,14 @@ describe('Button', () => {
 
     it('Throws an error when the user should use an Anchor component instead', () => {
       expect(() =>
-        shallow(
+        testRender(
           <Button as="a" variant="link" href={HREF}>
             Go to Paste
           </Button>
         )
       ).toThrow();
       expect(() =>
-        shallow(
+        testRender(
           <Button as="a" variant="inverse_link" href={HREF}>
             Go to Paste
           </Button>
@@ -152,21 +152,21 @@ describe('Button', () => {
 
     it('Throws an error when an "a" tag is passed but not using correct variant', () => {
       expect(() =>
-        shallow(
+        testRender(
           <Button as="a" href="#" variant="destructive">
             Go to Paste
           </Button>
         )
       ).toThrow();
       expect(() =>
-        shallow(
+        testRender(
           <Button as="a" href="#" variant="destructive_secondary">
             Go to Paste
           </Button>
         )
       ).toThrow();
       expect(() =>
-        shallow(
+        testRender(
           <Button as="a" href="#" variant="inverse">
             Go to Paste
           </Button>
@@ -176,7 +176,7 @@ describe('Button', () => {
 
     it('Throws an error when an "a" tag is passed with disabled or loading state', () => {
       expect(() =>
-        shallow(
+        testRender(
           <Button as="a" href="#" variant="primary" disabled>
             Go to Paste
           </Button>
@@ -184,7 +184,7 @@ describe('Button', () => {
       ).toThrow();
 
       expect(() =>
-        shallow(
+        testRender(
           <Button as="a" href="#" variant="primary" loading>
             Go to Paste
           </Button>
@@ -194,7 +194,7 @@ describe('Button', () => {
 
     it('Throws an error when size=reset is not applied to variant=reset', () => {
       expect(() =>
-        shallow(
+        testRender(
           <Button variant="reset" size="small">
             Submit
           </Button>
@@ -204,7 +204,7 @@ describe('Button', () => {
 
     it('Throws an error when using fullWidth with an icon sizing', () => {
       expect(() =>
-        shallow(
+        testRender(
           <Button variant="primary" fullWidth size="icon">
             X
           </Button>
@@ -214,7 +214,7 @@ describe('Button', () => {
 
     it('Throws an error when using fullWidth with an icon_small sizing', () => {
       expect(() =>
-        shallow(
+        testRender(
           <Button variant="primary" fullWidth size="icon_small">
             X
           </Button>
@@ -224,14 +224,14 @@ describe('Button', () => {
 
     it('Throws an error when not passing children', () => {
       // @ts-expect-error
-      expect(() => shallow(<Button variant="primary" />)).toThrow();
+      expect(() => testRender(<Button variant="primary" />)).toThrow();
     });
 
     it('Throws an error when passing an invalid tabIndex', () => {
       const originalError = console.error;
       console.error = jest.fn();
       // @ts-expect-error
-      expect(() => shallow(<Button variant="primary" tabIndex="-2" />)).toThrow();
+      expect(() => testRender(<Button variant="primary" tabIndex="-2" />)).toThrow();
       expect(console.error).toHaveBeenCalled();
       console.error = originalError;
     });
