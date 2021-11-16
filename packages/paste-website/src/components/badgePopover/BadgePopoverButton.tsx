@@ -2,13 +2,12 @@ import * as React from 'react';
 import {NonModalDialogDisclosurePrimitive} from '@twilio-paste/non-modal-dialog-primitive';
 import type {ButtonProps} from '@twilio-paste/button';
 import {Badge} from '@twilio-paste/core/badge';
-import type {BadgeVariants, BadgeChildren} from '@twilio-paste/badge/src/types';
+import type {BadgeProps} from '@twilio-paste/badge';
 import {BadgePopoverContext} from './BadgePopoverContext';
 
-interface BadgePopoverButtonProps extends Omit<ButtonProps, 'variant'>, BadgeProps {
-  children: BadgeChildren;
-  variant: BadgeVariants;
-}
+interface BadgePopoverButtonProps
+  extends Omit<ButtonProps, 'variant' | 'children'>,
+    Pick<BadgeProps, 'children' | 'variant'> {}
 
 const ButtonBadge = React.forwardRef<HTMLButtonElement, BadgePopoverButtonProps>(
   ({variant, children, as, ...props}, ref) => (

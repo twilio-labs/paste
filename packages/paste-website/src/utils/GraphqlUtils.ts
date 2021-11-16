@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import {getHumanizedNameFromPackageName, getNameFromPackageName} from './RouteUtils';
+import {getHumanizedNameFromPackageName} from './RouteUtils';
 import {sentenceCase} from './SentenceCase';
 
 export type GraphqlData = Record<string, any>;
