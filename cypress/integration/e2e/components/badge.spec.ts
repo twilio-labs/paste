@@ -9,7 +9,6 @@ describe('Badge component documentation page', () => {
     cy.checkInPageNavigationLinks();
     cy.checkPageAside();
     cy.checkLivePreviews();
-    cy.checkDoDonts();
     cy.checkChangelogRevealer();
   });
 });

@@ -12,7 +12,6 @@ module.exports = function (componentName) {
     cy.checkInPageNavigationLinks();
     cy.checkPageAside();
     cy.checkLivePreviews();
-    cy.checkDoDonts();
     cy.checkChangelogRevealer();
   });
 });

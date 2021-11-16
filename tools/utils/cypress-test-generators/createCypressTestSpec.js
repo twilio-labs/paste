@@ -1,7 +1,7 @@
 const {readdirSync} = require('fs');
 const {resolve, join} = require('path');
 const difference = require('lodash.difference');
-const {writeToFile} = require('./writeToFile');
+const {writeToFile} = require('../writeToFile');
 const componentSpecTemplate = require('./TEMPLATE');
 
 const getRootDir = () => resolve(__dirname, process.cwd());
@@ -83,10 +83,11 @@ const getListOfWebsitePagesWithCypressSpec = () => {
  * getListOfWebsitePagesWithCypressSpec();
  */
 const addBasicSpecForUncoveredComponentPages = () => {
-  const listOfComponentsThatNeedCypressSpec = difference(
-    getListOfWebsiteComponentsWithDocsPage(),
-    getListOfWebsitePagesWithCypressSpec()
-  );
+  // const listOfComponentsThatNeedCypressSpec = difference(
+  //   getListOfWebsiteComponentsWithDocsPage(),
+  //   getListOfWebsitePagesWithCypressSpec()
+  // );
+  const listOfComponentsThatNeedCypressSpec = getListOfWebsiteComponentsWithDocsPage();
 
   listOfComponentsThatNeedCypressSpec.forEach(async (componentName) => {
     try {
