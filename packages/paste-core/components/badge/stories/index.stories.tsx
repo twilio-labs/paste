@@ -46,59 +46,68 @@ export const AllBadges: React.FC = () => (
   </Wrapper>
 );
 
-export const DefaultBadge: React.FC = () => (
-  <Wrapper>
-    <Badge as="span" variant="default">
-      Default
-    </Badge>
-    <Badge as="span" variant="default">
-      <InformationIcon decorative />
-      Default
-    </Badge>
-    <Badge as="span" variant="default">
-      Default
-      <InformationIcon decorative />
-    </Badge>
-  </Wrapper>
-);
-
-export const DefaultBadgeAsAnchor: React.FC = () => (
-  <Wrapper>
-    <Badge as="a" href="#" variant="default">
-      Default
-    </Badge>
-
-    <Badge as="a" href="#" variant="default">
-      <InformationIcon decorative />
-      Default
-    </Badge>
-
-    <Badge as="a" href="#" variant="default">
-      Default
-      <InformationIcon decorative />
-    </Badge>
-  </Wrapper>
-);
-
-export const DefaultBadgeAsButton: React.FC = () => (
-  <Box display="flex" flexDirection="column" alignContent="flex-start">
+export const DefaultBadge: React.FC = () => {
+  const badgeRef = React.useRef(null);
+  return (
     <Wrapper>
-      <Badge as="button" onClick={() => {}} variant="default">
+      <Badge as="span" variant="default" ref={badgeRef}>
         Default
       </Badge>
-
-      <Badge as="button" onClick={() => {}} variant="default">
+      <Badge as="span" variant="default">
         <InformationIcon decorative />
         Default
       </Badge>
-
-      <Badge as="button" onClick={() => {}} variant="default">
+      <Badge as="span" variant="default">
         Default
         <InformationIcon decorative />
       </Badge>
     </Wrapper>
-  </Box>
-);
+  );
+};
+
+export const DefaultBadgeAsAnchor: React.FC = () => {
+  const badgeAnchor = React.useRef(null);
+  return (
+    <Wrapper>
+      <Badge as="a" href="#" variant="default" ref={badgeAnchor}>
+        Default
+      </Badge>
+
+      <Badge as="a" href="#" variant="default">
+        <InformationIcon decorative />
+        Default
+      </Badge>
+
+      <Badge as="a" href="#" variant="default">
+        Default
+        <InformationIcon decorative />
+      </Badge>
+    </Wrapper>
+  );
+};
+
+export const DefaultBadgeAsButton: React.FC = () => {
+  const badgeButton = React.useRef(null);
+  return (
+    <Box display="flex" flexDirection="column" alignContent="flex-start">
+      <Wrapper>
+        <Badge as="button" onClick={() => {}} variant="default" ref={badgeButton}>
+          Default
+        </Badge>
+
+        <Badge as="button" onClick={() => {}} variant="default">
+          <InformationIcon decorative />
+          Default
+        </Badge>
+
+        <Badge as="button" onClick={() => {}} variant="default">
+          Default
+          <InformationIcon decorative />
+        </Badge>
+      </Wrapper>
+    </Box>
+  );
+};
 
 export const InfoBadge: React.FC = () => (
   <Wrapper>
