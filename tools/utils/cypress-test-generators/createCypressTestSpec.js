@@ -1,4 +1,6 @@
 const {readdirSync} = require('fs');
+const chalk = require('chalk');
+
 const {resolve, join} = require('path');
 const difference = require('lodash.difference');
 const {writeToFile} = require('../writeToFile');
@@ -51,8 +53,11 @@ const generateCypressSpecFromTemplate = async (componentName) => {
 const getListOfWebsiteComponentsWithDocsPage = () => {
   const pathToWebsitePages = join(getRootDir(), websiteComponentPagesFolder);
 
-  const componentNames = readdirSync(pathToWebsitePages);
-  return componentNames;
+  const result = readdirSync(pathToWebsitePages, {withFileTypes: true});
+
+  // component pages are in directories with component name
+  // filer out non-directory results
+  return result.filter((dirent) => dirent.isDirectory()).map(({name}) => name);
 };
 
 /**
@@ -83,20 +88,39 @@ const getListOfWebsitePagesWithCypressSpec = () => {
  * getListOfWebsitePagesWithCypressSpec();
  */
 const addBasicSpecForUncoveredComponentPages = () => {
-  // const listOfComponentsThatNeedCypressSpec = difference(
-  //   getListOfWebsiteComponentsWithDocsPage(),
-  //   getListOfWebsitePagesWithCypressSpec()
-  // );
-  const listOfComponentsThatNeedCypressSpec = getListOfWebsiteComponentsWithDocsPage();
+  const listOfComponentsThatNeedCypressSpec = difference(
+    getListOfWebsiteComponentsWithDocsPage(),
+    getListOfWebsitePagesWithCypressSpec()
+  );
 
-  listOfComponentsThatNeedCypressSpec.forEach(async (componentName) => {
-    try {
-      await generateCypressSpecFromTemplate(componentName);
-      console.log('success');
-    } catch (err) {
-      console.log(err); // do somthing with this.
-    }
-  });
+  if (listOfComponentsThatNeedCypressSpec.length !== 0) {
+    console.log(
+      chalk.magenta(
+        `[Info]: running generateCypressSpecFromTemplate for ${
+          listOfComponentsThatNeedCypressSpec.length
+        } components: ${listOfComponentsThatNeedCypressSpec.join(', ')}`
+      )
+    );
+
+    listOfComponentsThatNeedCypressSpec.forEach(async (componentName) => {
+      try {
+        await generateCypressSpecFromTemplate(componentName);
+        console.log(
+          chalk.green(`${chalk.green.bold('[Success]')} Generated cypress spec for component ${componentName}`)
+        );
+      } catch (err) {
+        console.log(
+          chalk.yellow(
+            `${chalk.yellow.bold('[Error]')}Unable to generate cypress spec for component ${componentName}: %o`,
+            err
+          )
+        );
+        throw err;
+      }
+    });
+  } else {
+    console.log(chalk.white(`${chalk.white.bold('[Info]')}: no specs to generate; exiting`));
+  }
 };
 
 addBasicSpecForUncoveredComponentPages();
