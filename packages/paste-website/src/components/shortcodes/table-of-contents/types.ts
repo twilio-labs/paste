@@ -1,12 +1,11 @@
 import type {BoxStyleProps} from '@twilio-paste/box';
 
+export type HeadingData = {
+  value: string;
+  depth: number;
+};
 export interface TableOfContentsProps {
-  headings?: [
-    {
-      value: string;
-      depth: number;
-    }
-  ];
+  headings?: HeadingData[];
 }
 
 export interface TableOfContentsListItemProps {
