@@ -44,18 +44,14 @@ describe('Data Grid', () => {
   });
 
   describe('Composable Cells functionality', () => {
-    it('has proper keyboard navigation behavior', () => {
+    it('has proper keyboard navigation behavior', async () => {
       const {getByTestId} = render(<ComposableCellsDataGrid />);
       const wrapper = getByTestId('data-grid');
       const headerCell = getByTestId('header-1');
-      const firstRowFirstInputCell = getByTestId('input-0-0');
-      const firstRowSecondInputCell = getByTestId('input-0-1');
-      const secondRowFirstInputCell = getByTestId('input-1-0');
+      const firstRowFirstInputCell = await getByTestId('input-0-0');
+      const firstRowSecondInputCell = await getByTestId('input-0-1');
+      const secondRowFirstInputCell = await getByTestId('input-1-0');
       const firstInputCell = firstRowFirstInputCell?.parentElement?.parentElement;
-
-      if (firstInputCell == null) {
-        throw new Error('cannot find firstInputCell');
-      }
 
       // TEST: moves with arrow keys in navigational mode
       headerCell.focus();
@@ -113,6 +109,22 @@ describe('Data Grid', () => {
       userEvent.keyboard('{enter}');
       userEvent.tab();
       expect(firstRowSecondInputCell).toHaveFocus();
+
+      // TEST: should change the focus correctly when swapping to and from actionable mode
+      // Focus doesnt change when no focusable children
+      headerCell.focus();
+      userEvent.keyboard('{enter}');
+      expect(headerCell).toHaveFocus();
+
+      // Down to input firstChild
+      userEvent.keyboard('{esc}');
+      userEvent.keyboard('{arrowdown}');
+      userEvent.keyboard('{enter}');
+      expect(firstRowFirstInputCell).toHaveFocus();
+
+      // Up back to cell
+      userEvent.keyboard('{esc}');
+      expect(firstRowFirstInputCell?.parentElement?.parentElement).toHaveFocus();
     });
 
     it('has one tab stop in navigational mode and remembers the last focus', async () => {
@@ -156,27 +168,6 @@ describe('Data Grid', () => {
       userEvent.tab({shift: true});
       expect(firstInputCell).toHaveFocus();
       expect(firstInputCell.getAttribute('tabindex')).toBe('0');
-    });
-
-    it('should change the focus correctly when swapping to and from actionable mode', async () => {
-      const {getByTestId} = render(<ComposableCellsDataGrid />);
-      const headerCell = getByTestId('header-1');
-      const firstRowFirstInputCell = getByTestId('input-0-0');
-
-      // Focus doesnt change when no focusable children
-      headerCell.focus();
-      userEvent.keyboard('{enter}');
-      expect(headerCell).toHaveFocus();
-
-      // Down to input firstChild
-      userEvent.keyboard('{esc}');
-      userEvent.keyboard('{arrowdown}');
-      userEvent.keyboard('{enter}');
-      expect(firstRowFirstInputCell).toHaveFocus();
-
-      // Up back to cell
-      userEvent.keyboard('{esc}');
-      expect(firstRowFirstInputCell?.parentElement?.parentElement).toHaveFocus();
     });
   });
 
