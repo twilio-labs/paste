@@ -12,6 +12,7 @@ export const TableOfContentsAnchor: React.FC<TableOfContentsAnchorProps> = ({hre
       color="inherit"
       textDecoration="none"
       display="inline-block"
+      width="100%"
     >
       {children}
     </Box>
