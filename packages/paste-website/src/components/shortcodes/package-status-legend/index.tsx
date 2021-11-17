@@ -39,6 +39,7 @@ const PackageStatusBadge: React.FC<{status: string}> = ({status}) => {
     return (
       <BadgePopoverContainer baseId="status">
         <BadgePopoverButton variant={badgeVariant}>
+          {/* fragment needed bc Badge expects one React node as child */}
           <>
             <NewIcon decorative size="sizeIcon10" />
             {status}
