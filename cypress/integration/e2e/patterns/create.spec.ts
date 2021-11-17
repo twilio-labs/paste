@@ -8,6 +8,5 @@ describe('Create patterns documentation page', () => {
 
     cy.checkInPageNavigationLinks();
     cy.checkPageAside();
-    cy.checkLivePreviews();
   });
 });

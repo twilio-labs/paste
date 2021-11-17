@@ -8,6 +8,5 @@ describe('Empty-states patterns documentation page', () => {
 
     cy.checkInPageNavigationLinks();
     cy.checkPageAside();
-    cy.checkLivePreviews();
   });
 });
