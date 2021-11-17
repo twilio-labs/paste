@@ -4,10 +4,9 @@ describe('Notifications-and-feedback patterns documentation page', () => {
   });
 
   it('should render the notifications-and-feedback patterns page correctly', () => {
-    cy.pageHeaderShouldBeVisible('Notifications And Feedback');
+    cy.pageHeaderShouldBeVisible('Notification and feedback patterns');
 
     cy.checkInPageNavigationLinks();
     cy.checkPageAside();
-    cy.checkLivePreviews();
   });
 });

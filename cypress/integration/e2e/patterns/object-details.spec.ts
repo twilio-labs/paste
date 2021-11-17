@@ -8,6 +8,5 @@ describe('Object-details patterns documentation page', () => {
 
     cy.checkInPageNavigationLinks();
     cy.checkPageAside();
-    cy.checkLivePreviews();
   });
 });

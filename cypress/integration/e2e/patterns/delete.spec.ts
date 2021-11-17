@@ -8,6 +8,5 @@ describe('Delete patterns documentation page', () => {
 
     cy.checkInPageNavigationLinks();
     cy.checkPageAside();
-    cy.checkLivePreviews();
   });
 });

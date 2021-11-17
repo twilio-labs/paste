@@ -8,6 +8,5 @@ describe('Data-export patterns documentation page', () => {
 
     cy.checkInPageNavigationLinks();
     cy.checkPageAside();
-    cy.checkLivePreviews();
   });
 });
