@@ -18,7 +18,7 @@ interface DoDontProps {
 
 const DoDont: React.FC<DoDontProps> = (props) => {
   return (
-    <StyledWrapper marginTop="space90" marginBottom="space130">
+    <StyledWrapper marginTop="space90" marginBottom="space130" data-cy="do-dont-container">
       {props.children}
     </StyledWrapper>
   );
@@ -53,7 +53,7 @@ const Item: React.FC<DoProps> = ({center = false, ...props}) => {
   }
 
   return (
-    <div>
+    <div data-cy={`${props.do ? 'do' : 'dont'}-box`}>
       <Box
         borderStyle="solid"
         borderTopWidth="borderWidth10"

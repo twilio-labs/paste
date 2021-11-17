@@ -10,12 +10,12 @@ const {resolve} = require('path');
 const {getRepoPackages} = require('./getRepoPackages');
 const {writeToFile} = require('./writeToFile');
 
-const isPasteDependency = packageName => packageName.includes('@twilio-paste/');
-const getPasteDependencyList = dependencyObject => Object.keys(dependencyObject).filter(isPasteDependency);
+const isPasteDependency = (packageName) => packageName.includes('@twilio-paste/');
+const getPasteDependencyList = (dependencyObject) => Object.keys(dependencyObject).filter(isPasteDependency);
 
 async function updatePackagePeerDependencies(packageJsonPath, peerDepsList = [], packageJsonData, packagesList) {
   const calibratedPeerDeps = {};
-  peerDepsList.forEach(peerDepName => {
+  peerDepsList.forEach((peerDepName) => {
     const latestVersion = `^${packagesList.find(({name}) => name === peerDepName).version}`;
     const currentVersion = packageJsonData.peerDependencies[peerDepName];
     if (latestVersion !== currentVersion) {
@@ -48,7 +48,7 @@ async function calibratePackagePeerDepsVersions() {
   // Use lerna to get all packages and their version info
   const packagesList = await getRepoPackages();
 
-  packagesList.forEach(async package => {
+  packagesList.forEach(async (package) => {
     const PACKAGE_JSON_PATH = resolve(package.location, 'package.json');
     // eslint-disable-next-line import/no-dynamic-require, global-require
     const packageJsonData = require(PACKAGE_JSON_PATH);

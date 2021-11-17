@@ -3,7 +3,8 @@ import {Box} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';
 import {FeedbackPopover} from '../shortcodes/feedback-popover';
 import {STICKY_COLUMN_OFFSET} from '../../constants';
-import {TableOfContentsList, TableOfContentsListItem} from '../shortcodes/table-of-contents/styles';
+import {TableOfContentsList} from '../shortcodes/table-of-contents/TableOfContentsList';
+import {TableOfContentsListItem} from '../shortcodes/table-of-contents/TableOfContentsListItem';
 import {slugify} from '../../utils/RouteUtils';
 import type {RoadmapProps} from './types';
 
