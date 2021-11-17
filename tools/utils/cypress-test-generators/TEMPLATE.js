@@ -1,13 +1,13 @@
 const {upperFirst, startCase} = require('lodash');
 
-module.exports = function (componentName) {
-  return `describe('${upperFirst(componentName)} component documentation page', () => {
+module.exports = function (targetName, targetType = 'component') {
+  return `describe('${upperFirst(targetName)} ${targetType} documentation page', () => {
   beforeEach(() => {
-    cy.visit('/components/${componentName.toLowerCase()}');
+    cy.visit('/${targetType}/${targetName.toLowerCase()}');
   });
 
-  it('should render the ${componentName} component page correctly', () => {
-    cy.pageHeaderShouldBeVisible('${startCase(componentName)}');
+  it('should render the ${targetName} ${targetType} page correctly', () => {
+    cy.pageHeaderShouldBeVisible('${startCase(targetName)}');
 
     cy.checkInPageNavigationLinks();
     cy.checkPageAside();
