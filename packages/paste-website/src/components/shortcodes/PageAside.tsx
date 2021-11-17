@@ -2,7 +2,6 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {TableOfContents} from './table-of-contents';
 import {FeedbackPopover} from './feedback-popover';
-import {STICKY_COLUMN_OFFSET} from '../../constants';
 
 interface PageAsideProps {
   data: {
@@ -27,10 +26,10 @@ const PageAside: React.FC<PageAsideProps> = ({data}) => {
       marginLeft="space140"
       minWidth="size20"
       id="page-aside"
-      data-cy="page-aside"
       display={['none', 'none', 'block']}
+      data-cy="page-aside"
     >
-      <Box position="sticky" top={STICKY_COLUMN_OFFSET}>
+      <Box position="sticky" top="space130">
         <FeedbackPopover />
         <TableOfContents headings={data.headings} />
       </Box>
