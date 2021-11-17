@@ -5,7 +5,7 @@ import {render, screen} from '@testing-library/react';
 import axe from '../../../../../.jest/axe-helper';
 import {AlertDialogWithTwoActions, DestructiveAlertDialog} from '../stories/index.stories';
 
-describe('Alert Dialog', () => {
+describe.skip('Alert Dialog', () => {
   it('Should render an alert dialog box', () => {
     render(<AlertDialogWithTwoActions />);
     expect(screen.getByText('Submit application')).toBeDefined();

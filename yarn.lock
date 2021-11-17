@@ -17152,7 +17152,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:^4.0.1, axe-core@npm:^4.0.2":
+"axe-core@npm:^4.0.2":
   version: 4.0.2
   resolution: "axe-core@npm:4.0.2"
   checksum: 56a0203d3e39091ff7886a8b22f7790187db88171863cbd487ee71b733143556ad2eb50c542dc1bd3f519de25cc3a238cf6627e5d00535483f2cd07aef7d27fb
@@ -17163,6 +17163,13 @@ __metadata:
   version: 4.2.0
   resolution: "axe-core@npm:4.2.0"
   checksum: 6ec6f3c2f8d613687e783a59758dbf75bf509cb133c4599ac99c6cbffb0e6a6d1e65dbd6db0b9790921443c9cd031fbd33508515438f6695339912482a27be93
+  languageName: node
+  linkType: hard
+
+"axe-core@npm:^4.2.1":
+  version: 4.3.5
+  resolution: "axe-core@npm:4.3.5"
+  checksum: 973c6a80f0aaa663820b209d4202de7a0c240a2dea2f3cff168b09c0f221b27179b1f0988f00ad11ed63cbc50535920f8ca779de1c60dc82090ab2d275f71fdd
   languageName: node
   linkType: hard
 
@@ -22839,6 +22846,13 @@ __metadata:
   version: 26.6.2
   resolution: "diff-sequences@npm:26.6.2"
   checksum: 79af871776ef149a7ff3345d6b1bf37fe6e81f68632aa5542787851f6f60fba19b0be22fdd1e06046f56ae7382763ccfe94a982c39ee72bd107aef435ecbc0cf
+  languageName: node
+  linkType: hard
+
+"diff-sequences@npm:^27.0.6":
+  version: 27.0.6
+  resolution: "diff-sequences@npm:27.0.6"
+  checksum: f35ad024d426cd1026d6c98a1f604c41966a0e89712b05a38812fc11e645ff0e915ec17bc8f4b6910fed6df0b309b255aa6c7c77728be452c6dbbfa30aa2067b
   languageName: node
   linkType: hard
 
@@ -32029,15 +32043,15 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"jest-axe@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "jest-axe@npm:4.1.0"
+"jest-axe@npm:5.0.0":
+  version: 5.0.0
+  resolution: "jest-axe@npm:5.0.0"
   dependencies:
-    axe-core: ^4.0.1
-    chalk: ^4.0.0
-    jest-matcher-utils: ^26.0.1
-    lodash.merge: ^4.6.2
-  checksum: fdbd26c480785868d0c15769d50ff1e4f743dc078d7a5a3870a17ba07004e3d3deec407972b9417752c550a2983e31c71f82eaf3f105f5ea7c81b351d9a3fb20
+    axe-core: ^4.2.1
+    chalk: 4.1.0
+    jest-matcher-utils: 27.0.2
+    lodash.merge: 4.6.2
+  checksum: 9cf0ac289b700beb3e643fb68ae1c00f16324299c23c97b8682cf03f2834740a3de145c976662a37b77dbcfa2b730e0bbfaa47e75664d16dee91ec21f53d199c
   languageName: node
   linkType: hard
 
@@ -32171,6 +32185,18 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
+"jest-diff@npm:^27.0.2":
+  version: 27.3.1
+  resolution: "jest-diff@npm:27.3.1"
+  dependencies:
+    chalk: ^4.0.0
+    diff-sequences: ^27.0.6
+    jest-get-type: ^27.3.1
+    pretty-format: ^27.3.1
+  checksum: 49231a4ac4bed1cce8f5135db2a26a83673d5cbe5716bca29900a45ae0ddf237099d9091acac436b9c60ab933b0e7ca086ce8cb71f44411b572b69adbe96128d
+  languageName: node
+  linkType: hard
+
 "jest-docblock@npm:^26.0.0":
   version: 26.0.0
   resolution: "jest-docblock@npm:26.0.0"
@@ -32255,6 +32281,13 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
+"jest-get-type@npm:^27.0.1, jest-get-type@npm:^27.3.1":
+  version: 27.3.1
+  resolution: "jest-get-type@npm:27.3.1"
+  checksum: b0b8db1d770c6332b4189bbf4073184489acbb1095410cf53add033daf911577ee6bd1c4f8d747dd2f3d63de42f7eb15c5527fc7288a2855a046f4a8957cd902
+  languageName: node
+  linkType: hard
+
 "jest-haste-map@npm:^26.6.2":
   version: 26.6.2
   resolution: "jest-haste-map@npm:26.6.2"
@@ -32316,7 +32349,19 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"jest-matcher-utils@npm:^26.0.1, jest-matcher-utils@npm:^26.6.0, jest-matcher-utils@npm:^26.6.2":
+"jest-matcher-utils@npm:27.0.2":
+  version: 27.0.2
+  resolution: "jest-matcher-utils@npm:27.0.2"
+  dependencies:
+    chalk: ^4.0.0
+    jest-diff: ^27.0.2
+    jest-get-type: ^27.0.1
+    pretty-format: ^27.0.2
+  checksum: 7c12409e42300199bc0a901e68f13846d86f171792798e6a93dde643cf1b752aff015a97b8db313aee59d02795f3ec540f6e54c075d0f6b41effc732fd0d5055
+  languageName: node
+  linkType: hard
+
+"jest-matcher-utils@npm:^26.6.0, jest-matcher-utils@npm:^26.6.2":
   version: 26.6.2
   resolution: "jest-matcher-utils@npm:26.6.2"
   dependencies:
@@ -34078,7 +34123,7 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"lodash.merge@npm:^4.4.0, lodash.merge@npm:^4.6.2":
+"lodash.merge@npm:4.6.2, lodash.merge@npm:^4.4.0, lodash.merge@npm:^4.6.2":
   version: 4.6.2
   resolution: "lodash.merge@npm:4.6.2"
   checksum: ad580b4bdbb7ca1f7abf7e1bce63a9a0b98e370cf40194b03380a46b4ed799c9573029599caebc1b14e3f24b111aef72b96674a56cfa105e0f5ac70546cdc005
@@ -38617,7 +38662,7 @@ is-whitespace@latest:
     husky: ^3.0.0
     immutable: ^4.0.0-rc.12
     jest: 26.6.0
-    jest-axe: ^4.1.0
+    jest-axe: 5.0.0
     jest-emotion: ^10.0.32
     lerna: ^4.0.0
     lodash: ^4.17.19
@@ -40328,7 +40373,7 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^27.0.2":
+"pretty-format@npm:^27.0.2, pretty-format@npm:^27.3.1":
   version: 27.3.1
   resolution: "pretty-format@npm:27.3.1"
   dependencies:

@@ -8,8 +8,6 @@ import {Toaster} from '../src/Toaster';
 import {ToasterProps, ToasterToast, useToaster} from '../src';
 import {ToastVariantObject} from '../src/constants';
 
-jest.useFakeTimers();
-
 const mockDismiss: jest.Mock = jest.fn();
 
 const mockToasterState: ToasterProps = {
@@ -46,6 +44,18 @@ const MockToasterTrigger: React.FC = () => {
 };
 
 describe('Toaster', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.runOnlyPendingTimers();
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+  });
+
   it('should render an empty toaster', () => {
     render(
       <Theme.Provider theme="default">

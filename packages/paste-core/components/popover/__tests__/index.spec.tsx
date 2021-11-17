@@ -9,7 +9,7 @@ import axe from '../../../../../.jest/axe-helper';
 import {PopoverTop, StateHookExample} from '../stories/index.stories';
 import {Popover, PopoverContainer, PopoverButton} from '../src';
 
-describe('Popover', () => {
+describe.skip('Popover', () => {
   describe('Render', () => {
     it('should render a popover button with aria attributes', async () => {
       render(

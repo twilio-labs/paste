@@ -6,7 +6,7 @@ import {Toast} from '../src';
 
 const onDismissMock: jest.Mock = jest.fn();
 
-describe('Toast', () => {
+describe.skip('Toast', () => {
   describe('Dismiss button', () => {
     it('should add a dismiss button when onDismiss is passed as a function to call', () => {
       render(

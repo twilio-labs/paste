@@ -5,15 +5,29 @@ const cachedPackages = require('./tools/.cache/packages.json');
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: './tsconfig.json',
+    project: './tsconfig.eslint.json',
   },
+  overrides: [
+    {
+      files: ['cypress/**/**/*'],
+      parserOptions: {
+        project: './cypress/tsconfig.json',
+      },
+      extends: ['plugin:cypress/recommended'],
+      rules: {
+        '@typescript-eslint/no-namespace': 0,
+      },
+    },
+    {
+      files: ['__tests__/**/*'],
+      extends: ['plugin:jest/recommended'],
+    },
+  ],
   plugins: ['@typescript-eslint', 'eslint-comments', 'jest', 'promise', 'unicorn', 'emotion', 'import'],
   extends: [
     'airbnb-typescript',
     'plugin:@typescript-eslint/recommended',
     'plugin:eslint-comments/recommended',
-    'plugin:cypress/recommended',
-    'plugin:jest/recommended',
     'plugin:promise/recommended',
     'plugin:unicorn/recommended',
     'prettier',

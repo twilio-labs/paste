@@ -40,9 +40,9 @@ describe('Avatar', () => {
         expect(getCorrespondingLineHeightFromSizeToken('sizeIcon110')).toEqual('lineHeight110');
       });
       it('should throw an error when non IconSize values are passed in', () => {
-        // @ts-expect-error
+        // @ts-expect-error testing error handling
         expect(() => getCorrespondingLineHeightFromSizeToken('size50')).toThrow();
-        // @ts-expect-error
+        // @ts-expect-error testing error handling
         expect(() => getCorrespondingLineHeightFromSizeToken(true)).toThrow();
       });
     });
@@ -62,9 +62,9 @@ describe('Avatar', () => {
         expect(getCorrespondingFontSizeFromSizeToken('sizeIcon110')).toEqual('fontSize70');
       });
       it('should throw an error when non IconSize values are passed in', () => {
-        // @ts-expect-error
+        // @ts-expect-error testing error handling
         expect(() => getCorrespondingFontSizeFromSizeToken('size50')).toThrow();
-        // @ts-expect-error
+        // @ts-expect-error testing error handling
         expect(() => getCorrespondingFontSizeFromSizeToken(true)).toThrow();
       });
     });
@@ -84,9 +84,9 @@ describe('Avatar', () => {
         expect(getCorrespondingIconSizeFromSizeToken('sizeIcon110')).toEqual('sizeIcon80');
       });
       it('should throw an error when non IconSize values are passed in', () => {
-        // @ts-expect-error
+        // @ts-expect-error testing error handling
         expect(() => getCorrespondingIconSizeFromSizeToken('size50')).toThrow();
-        // @ts-expect-error
+        // @ts-expect-error testing error handling
         expect(() => getCorrespondingIconSizeFromSizeToken(true)).toThrow();
       });
     });
@@ -131,12 +131,12 @@ describe('Avatar', () => {
 
   describe('ensure icon is a Paste Icon', () => {
     it('should fail if icon is not a Paste Icon', () => {
-      // @ts-expect-error
+      // @ts-expect-error testing error handling
       expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon="UserIcon" />)).toThrow();
-      // @ts-expect-error
+      // @ts-expect-error testing error handling
       // eslint-disable-next-line react/jsx-boolean-value
       expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon={true} />)).toThrow();
-      // @ts-expect-error
+      // @ts-expect-error testing error handling
       expect(() => render(<Avatar size="sizeIcon20" name="avatar example" icon={<Box />} />)).toThrow();
     });
   });

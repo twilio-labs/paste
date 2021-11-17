@@ -113,6 +113,17 @@ describe('Button', () => {
   });
 
   describe('Button Errors', () => {
+    let consoleErrorMethodSpy: jest.SpyInstance;
+
+    beforeEach(() => {
+      consoleErrorMethodSpy = jest.spyOn(console, 'error');
+    });
+
+    afterEach(() => {
+      consoleErrorMethodSpy.mockReset();
+    });
+
+    // THIS ONE.
     it('Throws an error when a href is passed but an "a" tag is not', () => {
       expect(() =>
         render(
@@ -121,6 +132,8 @@ describe('Button', () => {
           </Button>
         )
       ).toThrow();
+
+      expect(consoleErrorMethodSpy).toHaveBeenCalled();
     });
 
     it('Throws an error when an "a" tag is passed but a href is not', () => {
@@ -131,6 +144,7 @@ describe('Button', () => {
           </Button>
         )
       ).toThrow();
+      expect(consoleErrorMethodSpy).toHaveBeenCalled();
     });
 
     it('Throws an error when the user should use an Anchor component instead', () => {
@@ -141,6 +155,7 @@ describe('Button', () => {
           </Button>
         )
       ).toThrow();
+
       expect(() =>
         render(
           <Button as="a" variant="inverse_link" href={HREF}>
@@ -148,9 +163,37 @@ describe('Button', () => {
           </Button>
         )
       ).toThrow();
+      expect(consoleErrorMethodSpy).toHaveBeenCalled();
     });
+    // it('Throws an error when an "a" tag is passed and variant is destructive', () => {
+    //   expect(() =>
+    //     render(
+    //       <Button as="a" href="#" variant="destructive">
+    //         Go to Paste
+    //       </Button>
+    //     )
+    //   ).toThrow();
 
-    it('Throws an error when an "a" tag is passed but not using correct variant', () => {
+    //   expect(() =>
+    //     render(
+    //       <Button as="a" href="#" variant="destructive_secondary">
+    //         Go to Paste
+    //       </Button>
+    //     )
+    //   ).toThrow();
+
+    //   expect(() =>
+    //     render(
+    //       <Button as="a" href="#" variant="inverse">
+    //         Go to Paste
+    //       </Button>
+    //     )
+    //   ).toThrow();
+
+    //   expect(consoleErrorMethodSpy).toHaveBeenCalled();
+    // });
+
+    it('Throws an error when an "a" tag is passed and variant is destructive', () => {
       expect(() =>
         render(
           <Button as="a" href="#" variant="destructive">
@@ -158,6 +201,11 @@ describe('Button', () => {
           </Button>
         )
       ).toThrow();
+
+      expect(consoleErrorMethodSpy).toHaveBeenCalled();
+    });
+
+    it('Throws an error when an "a" tag is passed and variant is destructive_secondary', () => {
       expect(() =>
         render(
           <Button as="a" href="#" variant="destructive_secondary">
@@ -165,6 +213,11 @@ describe('Button', () => {
           </Button>
         )
       ).toThrow();
+
+      expect(consoleErrorMethodSpy).toHaveBeenCalled();
+    });
+
+    it('Throws an error when an "a" tag is passed and variant is inverse', () => {
       expect(() =>
         render(
           <Button as="a" href="#" variant="inverse">
@@ -172,6 +225,8 @@ describe('Button', () => {
           </Button>
         )
       ).toThrow();
+
+      expect(consoleErrorMethodSpy).toHaveBeenCalled();
     });
 
     it('Throws an error when an "a" tag is passed with disabled or loading state', () => {
@@ -190,6 +245,8 @@ describe('Button', () => {
           </Button>
         )
       ).toThrow();
+
+      expect(consoleErrorMethodSpy).toHaveBeenCalled();
     });
 
     it('Throws an error when size=reset is not applied to variant=reset', () => {
@@ -200,6 +257,7 @@ describe('Button', () => {
           </Button>
         )
       ).toThrow();
+      expect(consoleErrorMethodSpy).toHaveBeenCalled();
     });
 
     it('Throws an error when using fullWidth with an icon sizing', () => {
@@ -210,6 +268,7 @@ describe('Button', () => {
           </Button>
         )
       ).toThrow();
+      expect(consoleErrorMethodSpy).toHaveBeenCalled();
     });
 
     it('Throws an error when using fullWidth with an icon_small sizing', () => {
@@ -220,20 +279,19 @@ describe('Button', () => {
           </Button>
         )
       ).toThrow();
+      expect(consoleErrorMethodSpy).toHaveBeenCalled();
     });
 
     it('Throws an error when not passing children', () => {
-      // @ts-expect-error
+      // @ts-expect-error testing error case.
       expect(() => render(<Button variant="primary" />)).toThrow();
+      expect(consoleErrorMethodSpy).toHaveBeenCalled();
     });
 
     it('Throws an error when passing an invalid tabIndex', () => {
-      const originalError = console.error;
-      console.error = jest.fn();
-      // @ts-expect-error
+      // @ts-expect-error testing error case
       expect(() => render(<Button variant="primary" tabIndex="-2" />)).toThrow();
-      expect(console.error).toHaveBeenCalled();
-      console.error = originalError;
+      expect(consoleErrorMethodSpy).toHaveBeenCalled();
     });
   });
 

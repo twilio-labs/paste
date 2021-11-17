@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Design Tokens matches the Console theme 1`] = `
+exports[`wtf Design Tokens matches the Console theme 1`] = `
 "{
   \\"color-background-user\\": \\"rgb(200, 175, 240)\\",
   \\"color-background-trial\\": \\"rgb(199, 255, 226)\\",
@@ -375,7 +375,7 @@ exports[`Design Tokens matches the Console theme 1`] = `
 }"
 `;
 
-exports[`Design Tokens matches the Dark theme 1`] = `
+exports[`wtf Design Tokens matches the Dark theme 1`] = `
 "{
   \\"color-background-user\\": \\"rgb(88, 23, 189)\\",
   \\"color-background-trial\\": \\"rgb(13, 58, 31)\\",
@@ -682,7 +682,7 @@ exports[`Design Tokens matches the Dark theme 1`] = `
 }"
 `;
 
-exports[`Design Tokens matches the Global theme 1`] = `
+exports[`wtf Design Tokens matches the Global theme 1`] = `
 "{
   \\"color-background-primary-darker\\": \\"rgb(3, 11, 93)\\",
   \\"color-background-primary-lighter\\": \\"rgb(204, 228, 255)\\",
@@ -1057,7 +1057,7 @@ exports[`Design Tokens matches the Global theme 1`] = `
 }"
 `;
 
-exports[`Design Tokens matches the Sendgrid theme 1`] = `
+exports[`wtf Design Tokens matches the Sendgrid theme 1`] = `
 "{
   \\"color-background-user\\": \\"rgb(200, 175, 240)\\",
   \\"color-background-trial\\": \\"rgb(209, 250, 224)\\",

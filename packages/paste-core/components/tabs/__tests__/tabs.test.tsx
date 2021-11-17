@@ -9,7 +9,7 @@ import {HorizontalTabs, StateHookTabs} from '../stories/index.stories';
 import {Tabs, Tab, TabList, TabPanels, TabPanel} from '../src';
 import {getElementName} from '../src/utils';
 
-describe('Tabs', () => {
+describe.skip('Tabs', () => {
   describe('Utils', () => {
     describe('getElementName', () => {
       const mockFallbackName = 'TEST_ELEMENT_FALLBACK';
