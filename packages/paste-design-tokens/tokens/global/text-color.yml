@@ -299,7 +299,7 @@ props:
       - color-background-success-weakest
       - color-background-row-striped
   color-text-warning:
-    value: "{!palette-orange-80}"
+    value: "{!palette-orange-70}"
     comment: Color for warning text.
     text_contrast_pairing:
       - color-background
