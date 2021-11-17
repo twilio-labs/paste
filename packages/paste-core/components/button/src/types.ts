@@ -4,8 +4,11 @@ type ButtonTypes = 'submit' | 'button' | 'reset';
 export type ButtonSizes = 'small' | 'default' | 'icon' | 'icon_small' | 'reset';
 export type ButtonVariants =
   | 'primary'
+  | 'primary_icon'
   | 'secondary'
+  | 'secondary_icon'
   | 'destructive'
+  | 'destructive_icon'
   | 'destructive_link'
   | 'destructive_secondary'
   | 'link'

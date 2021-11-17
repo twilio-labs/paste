@@ -87,6 +87,42 @@ describe('Button', () => {
       expect(results).toHaveNoViolations();
     });
 
+    it('Primary Icon button has no accessibility violations', async () => {
+      const {container} = testRender(
+        <Theme.Provider theme="default">
+          <Button variant="primary_icon" size="reset" onClick={NOOP}>
+            <PlusIcon decorative={false} title="add more" />
+          </Button>
+        </Theme.Provider>
+      );
+      const results = await axe(container);
+      expect(results).toHaveNoViolations();
+    });
+
+    it('Secondary Icon button has no accessibility violations', async () => {
+      const {container} = testRender(
+        <Theme.Provider theme="default">
+          <Button variant="secondary_icon" size="reset" onClick={NOOP}>
+            <PlusIcon decorative={false} title="add more" />
+          </Button>
+        </Theme.Provider>
+      );
+      const results = await axe(container);
+      expect(results).toHaveNoViolations();
+    });
+
+    it('Destructive Icon button has no accessibility violations', async () => {
+      const {container} = testRender(
+        <Theme.Provider theme="default">
+          <Button variant="destructive_icon" size="reset" onClick={NOOP}>
+            <PlusIcon decorative={false} title="add more" />
+          </Button>
+        </Theme.Provider>
+      );
+      const results = await axe(container);
+      expect(results).toHaveNoViolations();
+    });
+
     it('Loading states have no accessibility violations', async () => {
       const {container} = testRender(
         <Theme.Provider theme="console">
@@ -409,6 +445,19 @@ describe('Button', () => {
       expect(getByText('Primary')).toHaveStyleRule('justify-content', 'center');
     });
 
+    it('should have the correct styles for the primary_icon variant', () => {
+      const {getByTestId} = testRender(
+        <Button variant="primary_icon" data-testid="primary-icon-styles" size="reset" onClick={NOOP}>
+          <PlusIcon decorative={false} title="add more" />
+        </Button>
+      );
+
+      const button = getByTestId('primary-icon-styles');
+
+      expect(button).not.toHaveStyleRule('text-align', 'left');
+      expect(button).toHaveStyleRule('color', 'colorTextLink');
+    });
+
     it('should have the correct styles for the secondary variant', () => {
       const {getByTestId, getByText} = testRender(
         <Button variant="secondary" data-testid="secondary-styles">
@@ -426,6 +475,19 @@ describe('Button', () => {
       expect(getByText('Secondary')).toHaveStyleRule('justify-content', 'center');
     });
 
+    it('should have the correct styles for the secondary_icon variant', () => {
+      const {getByTestId} = testRender(
+        <Button variant="secondary_icon" data-testid="secondary-icon-styles" size="reset" onClick={NOOP}>
+          <PlusIcon decorative={false} title="add more" />
+        </Button>
+      );
+
+      const button = getByTestId('secondary-icon-styles');
+
+      expect(button).not.toHaveStyleRule('text-align', 'left');
+      expect(button).toHaveStyleRule('color', 'colorTextIcon');
+    });
+
     it('should have the correct styles for the destructive variant', () => {
       const {getByTestId, getByText} = testRender(
         <Button variant="destructive" data-testid="destructive-styles">
@@ -441,6 +503,19 @@ describe('Button', () => {
       expect(button).toHaveStyleRule('box-shadow', 'shadowBorderDestructive');
 
       expect(getByText('Destructive')).toHaveStyleRule('justify-content', 'center');
+    });
+
+    it('should have the correct styles for the destructive_icon variant', () => {
+      const {getByTestId} = testRender(
+        <Button variant="destructive_icon" data-testid="destructive-icon-styles" size="reset" onClick={NOOP}>
+          <PlusIcon decorative={false} title="add more" />
+        </Button>
+      );
+
+      const button = getByTestId('destructive-icon-styles');
+
+      expect(button).not.toHaveStyleRule('text-align', 'left');
+      expect(button).toHaveStyleRule('color', 'colorTextLinkDestructive');
     });
 
     it('should have the correct styles for the destructive_secondary variant', () => {
