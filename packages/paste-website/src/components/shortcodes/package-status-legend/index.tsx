@@ -33,19 +33,19 @@ const PackageStatusBadge: React.FC<{status: string}> = ({status}) => {
     },
   };
 
-  const {badgeVariant, popoverContent} = statusMap[status];
+  const statusData = statusMap[status];
 
-  if (badgeVariant) {
+  if (statusData?.badgeVariant) {
     return (
       <BadgePopoverContainer baseId="status">
-        <BadgePopoverButton variant={badgeVariant}>
+        <BadgePopoverButton variant={statusData?.badgeVariant}>
           {/* fragment needed bc Badge expects one React node as child */}
           <>
             <NewIcon decorative size="sizeIcon10" />
             {status}
           </>
         </BadgePopoverButton>
-        <BadgePopover aria-label={status}>{popoverContent}</BadgePopover>
+        <BadgePopover aria-label={status}>{statusData?.popoverContent}</BadgePopover>
       </BadgePopoverContainer>
     );
   }
