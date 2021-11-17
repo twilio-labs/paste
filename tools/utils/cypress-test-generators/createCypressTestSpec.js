@@ -4,11 +4,11 @@ const chalk = require('chalk');
 const {resolve, join} = require('path');
 const difference = require('lodash.difference');
 const {writeToFile} = require('../writeToFile');
-const componentSpecTemplate = require('./TEMPLATE');
+const specTemplate = require('./TEMPLATE');
 
 const getRootDir = () => resolve(__dirname, process.cwd());
 const cypressFolder = './cypress/integration/e2e';
-const websiteComponentPagesFolder = './packages/paste-website/src/pages/components';
+const websiteComponentPagesFolder = './packages/paste-website/src/pages';
 const componentPageExcludeList = ['overview-page'];
 
 /**
@@ -18,40 +18,41 @@ const componentPageExcludeList = ['overview-page'];
 /**
  * Utility to generate file name from component name.
  *
- * @param {string} componentName
+ * @param {string} name
  * @returns {string} `fileName`
  * @example <caption>Example with component named "alert"</caption>
  * // returns "alert.spec.ts"
  * createFileName("alert");
  */
-const createFileName = (componentName) => `${componentName.toLowerCase()}.spec.ts`;
+const createFileName = (name) => `${name.toLowerCase()}.spec.ts`;
 
 /**
- * Async utility to create cypress test spec file for a component page from the template.
+ * Async utility to create cypress test spec file for a page from the template.
  *
- * @param {string} componentName
+ * @param {string} targetName
  * @async
  */
-const generateCypressSpecFromTemplate = async (componentName) => {
-  const componentSpecContent = await componentSpecTemplate(componentName);
+const generateCypressSpecFromTemplate = async (targetName, targetType) => {
+  const specContent = await specTemplate(targetName, targetType);
 
-  const componentTestsPath = join(getRootDir(), cypressFolder, '/components');
+  const directoryPath = join(getRootDir(), cypressFolder, `/${targetType}`);
 
-  const newFilePath = join(componentTestsPath, '/', createFileName(componentName));
+  const newFilePath = join(directoryPath, '/', createFileName(targetName));
 
-  writeToFile(newFilePath, componentSpecContent, {});
+  writeToFile(newFilePath, specContent, {});
 };
 
 /**
- * Utility to get list of components that have docs pages in the website package.
+ * Utility to get list of items (e.g. components) that have docs pages in the website package.
  *
- * @returns {string[]} `componentNames`
+ * @param {string} targetType
+ * @returns {string[]} [`name`]
  * @example <caption>Example for case where the only two files in `@paste-website/src/pages/components` are `alert.ts` and `alert-dialog.ts`</caption>
  * // returns ["alert", "alert-dialog"]
- * getListOfWebsiteComponentsWithDocsPage();
+ * getListOfWebsiteEntitiesWithDocsPage();
  */
-const getListOfWebsiteComponentsWithDocsPage = () => {
-  const pathToWebsitePages = join(getRootDir(), websiteComponentPagesFolder);
+const getListOfWebsiteEntitiesWithDocsPage = (targetType) => {
+  const pathToWebsitePages = join(getRootDir(), websiteComponentPagesFolder, `/${targetType}`);
 
   const result = readdirSync(pathToWebsitePages, {withFileTypes: true});
 
@@ -61,15 +62,16 @@ const getListOfWebsiteComponentsWithDocsPage = () => {
 };
 
 /**
- * Utility to get list of components that have cypress test specs.
+ * Utility to get list of items (e.g. components) that have cypress test specs.
  *
- * @returns {string[]} `componentNames`
+ * @param {string} targetType
+ * @returns {string[]} [`name`]
  * @example <caption>If the only three files in `cypress/integration/e2e/components` are `alert.spec.ts`, `alert-dialog.spec.ts`, and `select.spec.ts`</caption>
  * // returns ["alert", "alert-dialog", "select"]
  * getListOfWebsitePagesWithCypressSpec();
  */
-const getListOfWebsitePagesWithCypressSpec = () => {
-  const pathToWebsitePages = join(getRootDir(), cypressFolder, '/components');
+const getListOfWebsitePagesWithCypressSpec = (targetType) => {
+  const pathToWebsitePages = join(getRootDir(), cypressFolder, `/${targetType}`);
 
   const fileNames = readdirSync(pathToWebsitePages);
   return fileNames.reduce((accum, curr) => {
@@ -87,31 +89,30 @@ const getListOfWebsitePagesWithCypressSpec = () => {
  * // generates test specs named `alert-dialog.spec.ts` and `select.spec.ts` from template;
  * getListOfWebsitePagesWithCypressSpec();
  */
-const addBasicSpecForUncoveredComponentPages = () => {
-  const listOfComponentsThatNeedCypressSpec = difference(
-    getListOfWebsiteComponentsWithDocsPage(),
-    getListOfWebsitePagesWithCypressSpec()
+
+const addBasicSpecForUncoveredPages = (targetType = process.env.TARGET_TYPE) => {
+  const itemsThatNeedACypressSpec = difference(
+    getListOfWebsiteEntitiesWithDocsPage(targetType),
+    getListOfWebsitePagesWithCypressSpec(targetType)
   );
 
-  if (listOfComponentsThatNeedCypressSpec.length !== 0) {
+  if (itemsThatNeedACypressSpec.length !== 0) {
     console.log(
       chalk.magenta(
         `[Info]: running generateCypressSpecFromTemplate for ${
-          listOfComponentsThatNeedCypressSpec.length
-        } components: ${listOfComponentsThatNeedCypressSpec.join(', ')}`
+          itemsThatNeedACypressSpec.length
+        } ${targetType}: ${itemsThatNeedACypressSpec.join(', ')}`
       )
     );
 
-    listOfComponentsThatNeedCypressSpec.forEach(async (componentName) => {
+    itemsThatNeedACypressSpec.forEach(async (name) => {
       try {
-        await generateCypressSpecFromTemplate(componentName);
-        console.log(
-          chalk.green(`${chalk.green.bold('[Success]')} Generated cypress spec for component ${componentName}`)
-        );
+        await generateCypressSpecFromTemplate(name, targetType);
+        console.log(chalk.green(`${chalk.green.bold('[Success]')} Generated cypress spec for ${targetType} ${name}`));
       } catch (err) {
         console.log(
           chalk.yellow(
-            `${chalk.yellow.bold('[Error]')}Unable to generate cypress spec for component ${componentName}: %o`,
+            `${chalk.yellow.bold('[Error]')}Unable to generate cypress spec for ${targetType} ${name}: %o`,
             err
           )
         );
@@ -123,4 +124,4 @@ const addBasicSpecForUncoveredComponentPages = () => {
   }
 };
 
-addBasicSpecForUncoveredComponentPages();
+addBasicSpecForUncoveredPages();
