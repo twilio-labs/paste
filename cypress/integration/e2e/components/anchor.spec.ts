@@ -1,9 +1,10 @@
-describe('Anchor component documentation page', () => {
+describe('Anchor components documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('anchor');
     cy.visit('/components/anchor');
   });
 
-  it('should render the anchor component page correctly', () => {
+  it('should render the anchor components page correctly', () => {
     cy.pageHeaderShouldBeVisible('Anchor');
 
     cy.checkInPageNavigationLinks();

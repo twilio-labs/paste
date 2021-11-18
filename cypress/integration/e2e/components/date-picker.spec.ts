@@ -1,9 +1,10 @@
-describe('Date-picker component documentation page', () => {
+describe('Date-picker components documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('date-picker');
     cy.visit('/components/date-picker');
   });
 
-  it('should render the date-picker component page correctly', () => {
+  it('should render the date-picker components page correctly', () => {
     cy.pageHeaderShouldBeVisible('Date Picker');
 
     cy.checkInPageNavigationLinks();

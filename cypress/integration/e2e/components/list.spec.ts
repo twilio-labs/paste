@@ -1,9 +1,10 @@
-describe('List component documentation page', () => {
+describe('List components documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('list');
     cy.visit('/components/list');
   });
 
-  it('should render the list component page correctly', () => {
+  it('should render the list components page correctly', () => {
     cy.pageHeaderShouldBeVisible('List');
 
     cy.checkInPageNavigationLinks();

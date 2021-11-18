@@ -138,7 +138,7 @@ Cypress.Commands.add('abortPrefetchRequests', (target) => {
     url: '/**/**/page-data.json',
     onRequest: (xhr) => {
       if (!xhr.url.includes(target.toLowerCase())) {
-        console.log('aborting'); // @TODO add log here for cypress.
+        cy.log(`[Abort XHR]: ${xhr.url}`);
         xhr.xhr.abort();
       }
     },
@@ -171,13 +171,9 @@ Cypress.Commands.add('checkDoDonts', () => {
 });
 
 Cypress.Commands.add('checkChangelogRevealer', () => {
-  cy.getInFixedContainer('#component-changelog')
-    .as('changelogContainer')
-    .contains('h2', 'Changelog')
-    .shouldBeVisible()
-    .click();
+  cy.getInFixedContainer('#component-changelog').contains('h2', 'Changelog').shouldBeVisible().click();
 
-  cy.get('@changelogContainer').find('[data-cy="changelog-revealer-content"]').shouldBeVisible();
+  cy.getInFixedContainer('[data-cy="changelog-revealer-content"]').shouldBeVisible();
 });
 
 Cypress.Commands.add('getInFixedContainer', (selector) => {

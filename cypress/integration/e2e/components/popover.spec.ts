@@ -1,9 +1,10 @@
-describe('Popover component documentation page', () => {
+describe('Popover components documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('popover');
     cy.visit('/components/popover');
   });
 
-  it('should render the popover component page correctly', () => {
+  it('should render the popover components page correctly', () => {
     cy.pageHeaderShouldBeVisible('Popover');
 
     cy.checkInPageNavigationLinks();
