@@ -1,9 +1,10 @@
-describe('Avatar component documentation page', () => {
+describe('Avatar components documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('avatar');
     cy.visit('/components/avatar');
   });
 
-  it('should render the avatar component page correctly', () => {
+  it('should render the avatar components page correctly', () => {
     cy.pageHeaderShouldBeVisible('Avatar');
 
     cy.checkInPageNavigationLinks();

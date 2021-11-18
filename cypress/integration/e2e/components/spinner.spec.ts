@@ -1,9 +1,10 @@
-describe('Spinner component documentation page', () => {
+describe('Spinner components documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('spinner');
     cy.visit('/components/spinner');
   });
 
-  it('should render the spinner component page correctly', () => {
+  it('should render the spinner components page correctly', () => {
     cy.pageHeaderShouldBeVisible('Spinner');
 
     cy.checkInPageNavigationLinks();

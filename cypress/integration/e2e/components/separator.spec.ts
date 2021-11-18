@@ -1,9 +1,10 @@
-describe('Separator component documentation page', () => {
+describe('Separator components documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('separator');
     cy.visit('/components/separator');
   });
 
-  it('should render the separator component page correctly', () => {
+  it('should render the separator components page correctly', () => {
     cy.pageHeaderShouldBeVisible('Separator');
 
     cy.checkInPageNavigationLinks();

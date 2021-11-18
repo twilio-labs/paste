@@ -1,9 +1,10 @@
-describe('Label component documentation page', () => {
+describe('Label components documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('label');
     cy.visit('/components/label');
   });
 
-  it('should render the label component page correctly', () => {
+  it('should render the label components page correctly', () => {
     cy.pageHeaderShouldBeVisible('Label');
 
     cy.checkInPageNavigationLinks();

@@ -3,6 +3,7 @@ const {upperFirst, startCase} = require('lodash');
 module.exports = function (targetName, targetType = 'component') {
   return `describe('${upperFirst(targetName)} ${targetType} documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('${targetName.toLowerCase()}');
     cy.visit('/${targetType}/${targetName.toLowerCase()}');
   });
 
