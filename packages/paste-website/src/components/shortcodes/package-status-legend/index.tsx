@@ -66,7 +66,7 @@ const PackageStatusLegend: React.FC<PackageStatusLegendProps> = ({
 
   if (shouldShowStatus) {
     return (
-      <Box display="flex" alignItems="center" flexWrap="wrap" flexGrow={1} columnGap="space40">
+      <Box display="flex" alignItems="center" flexGrow={1} columnGap="space40">
         {packageStatus && <PackageStatusBadge status={packageStatus} />}
         {shouldShowFigma && (
           <Badge as="span" variant="default">
