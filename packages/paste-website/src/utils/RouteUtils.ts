@@ -1,5 +1,5 @@
 import {kebabCase, startCase, toLower} from 'lodash';
-import {PASTE_PACKAGE_PREFIX} from '../constants';
+import {PASTE_PACKAGE_PREFIX, SidebarCategoryRoutes} from '../constants';
 
 const hasWindowObject = (): boolean => typeof window !== `undefined` && window.location != null;
 
@@ -48,3 +48,26 @@ export function slugify(text: string): string {
 export function getOpengraphServiceUrl(path: string): string {
   return `${getCurrentOrigin()}/.netlify/functions/opengraph/${path}`;
 }
+
+export const getCategoryNameFromRoute = (categoryRoute: string): string => {
+  switch (categoryRoute) {
+    case SidebarCategoryRoutes.COMPONENTS:
+      return 'Components';
+    case SidebarCategoryRoutes.PRIMITIVES:
+      return 'Primitives';
+    case SidebarCategoryRoutes.LAYOUT:
+      return 'Layout';
+    case SidebarCategoryRoutes.TOKENS:
+      return 'Tokens';
+    case SidebarCategoryRoutes.LIBRARIES:
+      return 'Libraries';
+    case SidebarCategoryRoutes.CUSTOMIZATION:
+      return 'Customization';
+    case SidebarCategoryRoutes.CORE:
+      return 'Core';
+    case SidebarCategoryRoutes.PATTERNS:
+      return 'Patterns';
+    default:
+      return 'Layout';
+  }
+};

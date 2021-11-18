@@ -59,13 +59,11 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name="Media Object"
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.LAYOUT}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/media-object"
   storybookUrl="/?path=/story/layout-media-object--default"
-  data={props.data.allPasteLayout.edges}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 ---

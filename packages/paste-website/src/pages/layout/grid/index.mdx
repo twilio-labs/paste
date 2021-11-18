@@ -61,13 +61,11 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name="Grid"
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.LAYOUT}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/grid"
   storybookUrl="/?path=/story/layout-grid--grid-12-column-and-gutter-support"
-  data={props.data.allPasteLayout.edges}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 ---

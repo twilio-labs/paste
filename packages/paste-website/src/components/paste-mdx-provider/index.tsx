@@ -17,13 +17,14 @@ import {AnchoredHeading} from '../Heading';
 import {InlineCode, Pre} from '../Typography';
 // Shortcode imports
 import {ComponentHeader} from '../shortcodes/component-header';
-import {PatternHeader} from '../shortcodes/pattern-header';
+import {NormalizePatternHeader} from '../shortcodes/normalize-pattern-header';
 import {LivePreview} from '../shortcodes/live-preview';
 import {TableOfContents} from '../shortcodes/table-of-contents';
 import {PageAside} from '../shortcodes/PageAside';
 import {ChangelogRevealer} from '../shortcodes/ChangelogRevealer';
 import {ArticleHeader} from '../shortcodes/ArticleHeader';
 import {ArticleContent, ArticleAside} from '../shortcodes/ArticleLayouts';
+import {NormalizeComponentHeader} from '../shortcodes/normalize-component-header';
 
 interface PasteMDXProviderProps {
   children?: React.ReactElement;
@@ -45,11 +46,12 @@ const shortcodes = {
   ComponentHeader,
   LivePreview,
   PageAside,
-  PatternHeader,
+  NormalizePatternHeader,
   TableOfContents,
   ArticleHeader,
   ArticleContent,
   ArticleAside,
+  NormalizeComponentHeader,
 };
 
 const MDXPoviderComponents = {

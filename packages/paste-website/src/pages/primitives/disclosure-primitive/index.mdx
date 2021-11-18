@@ -62,13 +62,11 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name="Disclosure Primitive"
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/disclosure"
   storybookUrl="/?path=/story/primitives-disclosure"
-  data={props.data.allPastePrimitive.edges}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 ---

@@ -73,13 +73,11 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name="Menu Primitive"
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/menu"
   storybookUrl="/?path=/story/primitives-menu--simple-menu"
-  data={props.data.allPastePrimitive.edges}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 ---

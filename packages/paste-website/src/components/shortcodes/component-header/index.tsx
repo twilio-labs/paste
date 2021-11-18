@@ -2,160 +2,126 @@ import * as React from 'react';
 import {Helmet} from 'react-helmet';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {Heading} from '@twilio-paste/heading';
-import {Breadcrumb, BreadcrumbItem} from '../../breadcrumb';
+import {useTheme} from '@twilio-paste/theme';
 import {PackageStatusLegend} from '../package-status-legend';
-import {SidebarCategoryRoutes, STORYBOOK_DOMAIN} from '../../../constants';
-import {P, InlineCode} from '../../Typography';
-import {getHumanizedNameFromPackageName, getOpengraphServiceUrl} from '../../../utils/RouteUtils';
-import {sentenceCase} from '../../../utils/SentenceCase';
-import type {PackageStatusObject} from '../../../utils/types';
+import {STORYBOOK_DOMAIN} from '../../../constants';
+import type {SidebarCategoryRoutes} from '../../../constants';
+import GithubIcon from '../../icons/GithubIcon';
+import StorybookIcon from '../../icons/StorybookIcon';
+import {getOpengraphServiceUrl, getNameFromPackageName, getCategoryNameFromRoute} from '../../../utils/RouteUtils';
 
-const getCategoryNameFromRoute = (categoryRoute: string): string => {
-  switch (categoryRoute) {
-    case SidebarCategoryRoutes.COMPONENTS:
-      return 'Components';
-    case SidebarCategoryRoutes.PRIMITIVES:
-      return 'Primitives';
-    case SidebarCategoryRoutes.LAYOUT:
-      return 'Layout';
-    case SidebarCategoryRoutes.TOKENS:
-      return 'Tokens';
-    case SidebarCategoryRoutes.LIBRARIES:
-      return 'Libraries';
-    case SidebarCategoryRoutes.CUSTOMIZATION:
-      return 'Customization';
-    case SidebarCategoryRoutes.CORE:
-      return 'Core';
-    default:
-      return 'Layout';
-  }
-};
-
-const ComponentHeaderBasic: React.FC<{
-  name: string;
-  ogImagePath?: string;
-  categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
-}> = ({name, ogImagePath, categoryRoute}) => (
-  <>
-    {ogImagePath ? (
-      <Helmet>
-        <meta property="og:image" content={getOpengraphServiceUrl(ogImagePath)} />
-      </Helmet>
-    ) : null}
-    <Breadcrumb>
-      <BreadcrumbItem to="/">Home</BreadcrumbItem>
-      <BreadcrumbItem to={categoryRoute}>{getCategoryNameFromRoute(categoryRoute)}</BreadcrumbItem>
-    </Breadcrumb>
-    <Heading as="h1" variant="heading10">
-      {getHumanizedNameFromPackageName(name)}
-    </Heading>
-  </>
+const IconAnchor: React.FC<{href: string; icon: React.ReactNode; children: string}> = ({href, icon, children}) => (
+  <Anchor href={href}>
+    <Box as="span">
+      <Box as="span" display="inline-block" marginRight="space20">
+        {icon}
+      </Box>
+      {children}
+    </Box>
+  </Anchor>
 );
 
-interface ComponentHeaderProps {
-  children?: React.ReactElement;
+export interface ComponentHeaderProps {
   name: string;
   categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
-  githubUrl: string;
-  storybookUrl: string;
-  data?: [
-    {
-      node: {
-        name: string;
-        category: string;
-        description: string;
-        status: string;
-        sideEffects: boolean;
-        version: string;
-      };
-    }
-  ];
-  packageStatus: PackageStatusObject;
-  isCore?: boolean;
+  description?: string;
+  designCommitteeReview?: string;
+  engineerCommitteeReview?: string;
+  figmaStatus?: string;
+  githubUrl?: string;
+  packageName?: string;
+  packageStatus?: string;
+  storybookUrl?: string;
+  version?: string;
 }
-
-export const PackageValue: React.FC = ({children}) => {
-  return (
-    <Text as="dd" display="inline-block">
-      {children}
-    </Text>
-  );
-};
-
-export const PackageLabel: React.FC = ({children}) => {
-  return (
-    <Text as="dt" display="inline-block" color="colorTextWeak" css={{width: '80px'}}>
-      {children}
-    </Text>
-  );
-};
-
-const PackageInstallSnippet: React.FC = ({children}) => {
-  return <InlineCode>{children}</InlineCode>;
-};
 
 const ComponentHeader: React.FC<ComponentHeaderProps> = ({
   name,
   categoryRoute,
+  description,
+  designCommitteeReview,
+  engineerCommitteeReview,
+  figmaStatus,
   githubUrl,
-  storybookUrl,
-  data,
+  packageName,
   packageStatus,
-  isCore = false,
+  storybookUrl,
+  version,
 }) => {
-  if (data == null || data[0] == null || data[0].node == null) {
-    return <ComponentHeaderBasic categoryRoute={categoryRoute} name={name} />;
-  }
-  if (packageStatus == null || packageStatus[0] == null || packageStatus[0].node == null) {
-    return <ComponentHeaderBasic categoryRoute={categoryRoute} name={name} />;
-  }
+  const ogImagePath = packageName
+    ? `${categoryRoute.replace('/', '')}/${getNameFromPackageName(packageName)}`
+    : undefined;
 
-  const ogImagePath = `${categoryRoute.replace('/', '')}/${data[0].node.name.replace('@twilio-paste/', '')}`;
-  const {description, name: packageName, version} = data[0].node;
+  const shouldShowSecondary = version || githubUrl || storybookUrl;
+  const theme = useTheme();
+
+  const sharedIconStyles = {
+    height: theme.space.space40,
+    width: theme.space.space40,
+    display: 'inline-block',
+  };
+
   return (
-    <>
-      <ComponentHeaderBasic categoryRoute={categoryRoute} name={name} ogImagePath={ogImagePath} />
-      {categoryRoute.includes('/form/') ? null : <P variant="lead">{description}</P>}
-      <PackageStatusLegend packageStatus={packageStatus} />
-      <Box as="dl" marginBottom="space100">
-        {packageStatus[0].node.data.status && (
-          <Box marginBottom="space20">
-            <PackageLabel>Status</PackageLabel>
-            <PackageValue>{sentenceCase(packageStatus[0].node.data.status)}</PackageValue>
-          </Box>
-        )}
-        <Box marginBottom="space20">
-          <PackageLabel>Version</PackageLabel>
-          <PackageValue>{version}</PackageValue>
-        </Box>
-        <Box marginBottom="space20">
-          <PackageLabel>Sources</PackageLabel>
-          <PackageValue>
-            <Box display="inline" marginRight="space30">
-              <Anchor href={githubUrl}>Github</Anchor>
-            </Box>
-            {storybookUrl != null ? <Anchor href={`${STORYBOOK_DOMAIN}${storybookUrl}`}>Storybook</Anchor> : null}
-          </PackageValue>
-        </Box>
-        <Box marginBottom="space20">
-          <PackageLabel>Import from</PackageLabel>
-          <PackageValue>
-            {!isCore && (
-              <>
-                {' '}
-                <PackageInstallSnippet>
-                  {packageName.replace('@twilio-paste/', '@twilio-paste/core/')}
-                </PackageInstallSnippet>{' '}
-                &mdash; or &mdash;{' '}
-              </>
-            )}
-            <PackageInstallSnippet>{packageName}</PackageInstallSnippet>
-          </PackageValue>
-        </Box>
+    <Box>
+      {ogImagePath && (
+        <Helmet>
+          <meta property="og:image" content={getOpengraphServiceUrl(ogImagePath)} />
+        </Helmet>
+      )}
+      <Box marginBottom="space50">
+        <Anchor href={categoryRoute}>{getCategoryNameFromRoute(categoryRoute)}</Anchor>
       </Box>
-    </>
+      <Box display="flex" alignItems="center" flexWrap="wrap" marginBottom="space70" rowGap="space70" maxWidth="size70">
+        <Box marginRight="space50">
+          <Heading as="h1" variant="heading10" marginBottom="space0">
+            {name}
+          </Heading>
+        </Box>
+        <PackageStatusLegend
+          packageStatus={packageStatus}
+          figmaStatus={figmaStatus}
+          designCommitteeReview={designCommitteeReview}
+          engineerCommitteeReview={engineerCommitteeReview}
+        />
+      </Box>
+      {description && (
+        <Box maxWidth="size70">
+          <Text as="p" fontSize="fontSize40">
+            {description}
+          </Text>
+        </Box>
+      )}
+      {shouldShowSecondary && (
+        <Box marginTop="space70">
+          <Stack orientation="horizontal" spacing="space70">
+            {version && (
+              <Text as="span" color="colorTextWeak">
+                Version {version}
+              </Text>
+            )}
+            {githubUrl && (
+              <IconAnchor
+                href={githubUrl}
+                icon={<GithubIcon css={{...sharedIconStyles, color: '#191717'}} decorative />}
+              >
+                Github
+              </IconAnchor>
+            )}
+            {storybookUrl && (
+              <IconAnchor
+                href={`${STORYBOOK_DOMAIN}${storybookUrl}`}
+                icon={<StorybookIcon css={{...sharedIconStyles, color: '#FF4785'}} decorative />}
+              >
+                Storybook
+              </IconAnchor>
+            )}
+          </Stack>
+        </Box>
+      )}
+    </Box>
   );
 };
 

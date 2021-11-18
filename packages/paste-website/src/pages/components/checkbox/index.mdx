@@ -57,13 +57,11 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name="Checkbox"
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/checkbox"
   storybookUrl="/?path=/story/components-checkbox--checkbox"
-  data={props.data.allPasteComponent.edges}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 ---
@@ -345,7 +343,10 @@ There is no maximum number of checkboxes you can have in a group, but consider u
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Include a visible label on every checkbox. Include a visible legend for the entire group of checkboxes." />
+  <Do
+    title="Do"
+    body="Include a visible label on every checkbox. Include a visible legend for the entire group of checkboxes."
+  />
   <Dont title="Don't" body="Don't leave floating, unlabelled checkboxes." />
 </DoDont>
 
