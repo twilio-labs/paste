@@ -79,6 +79,8 @@ declare namespace Cypress {
      * - on click of header, the changelog content is visible.
      */
     checkChangelogRevealer(): void;
+
+    abortPrefetchRequests(target: string): void;
   }
 }
 
@@ -128,6 +130,28 @@ Cypress.Commands.add('checkInPageNavigationLinks', () => {
 
 // @TODO Check ComponentHeader <--- waiting for changes to this component to be merged.
 // Cypress.Commands.add('checkComponentHeader', () => {});
+
+Cypress.Commands.add('abortPrefetchRequests', (target) => {
+  cy.server();
+  cy.route({
+    method: 'GET',
+    url: '/**/**/page-data.json',
+    onRequest: (xhr) => {
+      if (!xhr.url.includes(target.toLowerCase())) {
+        console.log('aborting'); // @TODO add log here for cypress.
+        xhr.xhr.abort();
+      }
+    },
+  }).as('pageData');
+  cy.route({
+    method: 'GET',
+    url: '/**/**/app-data.json',
+    onRequest: (xhr) => {
+      xhr.xhr.abort();
+    },
+  }).as('appData');
+  cy.route('http://api.github.com/repos/twilio-labs/paste', {}).as('githubData');
+});
 
 Cypress.Commands.add('checkPageAside', () => {
   cy.getDocsPageContentArea().getInFixedContainer('[data-cy="page-aside"]').as('pageAside');
