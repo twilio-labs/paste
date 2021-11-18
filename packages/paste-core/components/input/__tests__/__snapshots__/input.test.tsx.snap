@@ -82,22 +82,6 @@ exports[`Input render should render 1`] = `
   font-style: italic;
 }
 
-.emotion-0:focus::-webkit-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus::-moz-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus:-ms-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus::placeholder {
-  color: rgb(112,117,120);
-}
-
 .emotion-0:disabled,
 .emotion-0:disabled:focus,
 .emotion-0:disabled:hover,
@@ -110,21 +94,13 @@ exports[`Input render should render 1`] = `
   -webkit-opacity: 1;
 }
 
-.emotion-0::-webkit-datetime-edit {
-  display: flex;
-}
-
-.emotion-0::-webkit-calendar-picker-indicator:hover {
-  cursor: pointer;
-}
-
 <div
     class="emotion-2"
   >
     <div
       class="emotion-1"
       cursor="text"
-      data-paste-element="INPUT"
+      data-paste-element="BOX"
       display="flex"
       width="100%"
     >
@@ -204,22 +180,6 @@ exports[`Input render should render with disabled 1`] = `
   font-style: italic;
 }
 
-.emotion-0:focus::-webkit-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus::-moz-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus:-ms-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus::placeholder {
-  color: rgb(112,117,120);
-}
-
 .emotion-0:disabled,
 .emotion-0:disabled:focus,
 .emotion-0:disabled:hover,
@@ -230,14 +190,6 @@ exports[`Input render should render with disabled 1`] = `
   cursor: not-allowed;
   -webkit-text-fill-color: rgb(200,204,207);
   -webkit-opacity: 1;
-}
-
-.emotion-0::-webkit-datetime-edit {
-  display: flex;
-}
-
-.emotion-0::-webkit-calendar-picker-indicator:hover {
-  cursor: default;
 }
 
 .emotion-1 {
@@ -271,7 +223,7 @@ exports[`Input render should render with disabled 1`] = `
     <div
       class="emotion-1"
       cursor="not-allowed"
-      data-paste-element="INPUT"
+      data-paste-element="BOX"
       display="flex"
       width="100%"
     >
@@ -352,22 +304,6 @@ exports[`Input render should render with hasError 1`] = `
   font-style: italic;
 }
 
-.emotion-0:focus::-webkit-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus::-moz-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus:-ms-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus::placeholder {
-  color: rgb(112,117,120);
-}
-
 .emotion-0:disabled,
 .emotion-0:disabled:focus,
 .emotion-0:disabled:hover,
@@ -378,14 +314,6 @@ exports[`Input render should render with hasError 1`] = `
   cursor: not-allowed;
   -webkit-text-fill-color: rgb(200,204,207);
   -webkit-opacity: 1;
-}
-
-.emotion-0::-webkit-datetime-edit {
-  display: flex;
-}
-
-.emotion-0::-webkit-calendar-picker-indicator:hover {
-  cursor: pointer;
 }
 
 .emotion-1 {
@@ -419,7 +347,7 @@ exports[`Input render should render with hasError 1`] = `
     <div
       class="emotion-1"
       cursor="text"
-      data-paste-element="INPUT"
+      data-paste-element="BOX"
       display="flex"
       width="100%"
     >
@@ -525,22 +453,6 @@ exports[`Input render should render with prefix 1`] = `
   font-style: italic;
 }
 
-.emotion-1:focus::-webkit-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-1:focus::-moz-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-1:focus:-ms-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-1:focus::placeholder {
-  color: rgb(112,117,120);
-}
-
 .emotion-1:disabled,
 .emotion-1:disabled:focus,
 .emotion-1:disabled:hover,
@@ -551,14 +463,6 @@ exports[`Input render should render with prefix 1`] = `
   cursor: not-allowed;
   -webkit-text-fill-color: rgb(200,204,207);
   -webkit-opacity: 1;
-}
-
-.emotion-1::-webkit-datetime-edit {
-  display: flex;
-}
-
-.emotion-1::-webkit-calendar-picker-indicator:hover {
-  cursor: pointer;
 }
 
 .emotion-0 {
@@ -584,13 +488,13 @@ exports[`Input render should render with prefix 1`] = `
     <div
       class="emotion-2"
       cursor="text"
-      data-paste-element="INPUT"
+      data-paste-element="BOX"
       display="flex"
       width="100%"
     >
       <div
         class="emotion-0"
-        data-paste-element="INPUT_PREFIX"
+        data-paste-element="BOX"
         display="flex"
       >
         <div>
@@ -625,31 +529,6 @@ exports[`Input render should render with readOnly 1`] = `
   line-height: 1.25rem;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
-}
-
-.emotion-1 {
-  box-sizing: border-box;
-  display: flex;
-  width: 100%;
-  background-color: rgb(248,248,249);
-  box-shadow: 0 0 0 1px #888c8e;
-  border-radius: 4px;
-  -webkit-transition: box-shadow 100ms ease-in;
-  transition: box-shadow 100ms ease-in;
-  cursor: text;
-}
-
-.emotion-1:hover {
-  box-shadow: 0 0 0 1px #888c8e;
-}
-
-.emotion-1:focus-within {
-  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
-}
-
-.emotion-1:active,
-.emotion-1[data-active=true] {
-  box-shadow: 0 0 0 1px #032c5e;
 }
 
 .emotion-0 {
@@ -698,22 +577,6 @@ exports[`Input render should render with readOnly 1`] = `
   font-style: italic;
 }
 
-.emotion-0:focus::-webkit-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus::-moz-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus:-ms-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus::placeholder {
-  color: rgb(112,117,120);
-}
-
 .emotion-0:disabled,
 .emotion-0:disabled:focus,
 .emotion-0:disabled:hover,
@@ -726,12 +589,29 @@ exports[`Input render should render with readOnly 1`] = `
   -webkit-opacity: 1;
 }
 
-.emotion-0::-webkit-datetime-edit {
+.emotion-1 {
+  box-sizing: border-box;
   display: flex;
+  width: 100%;
+  background-color: rgb(248,248,249);
+  box-shadow: 0 0 0 1px #888c8e;
+  border-radius: 4px;
+  -webkit-transition: box-shadow 100ms ease-in;
+  transition: box-shadow 100ms ease-in;
+  cursor: text;
 }
 
-.emotion-0::-webkit-calendar-picker-indicator:hover {
-  cursor: default;
+.emotion-1:hover {
+  box-shadow: 0 0 0 1px #888c8e;
+}
+
+.emotion-1:focus-within {
+  box-shadow: 0 0 0 4px rgba(2,122,197,0.8);
+}
+
+.emotion-1:active,
+.emotion-1[data-active=true] {
+  box-shadow: 0 0 0 1px #032c5e;
 }
 
 <div
@@ -740,7 +620,7 @@ exports[`Input render should render with readOnly 1`] = `
     <div
       class="emotion-1"
       cursor="text"
-      data-paste-element="INPUT"
+      data-paste-element="BOX"
       display="flex"
       width="100%"
     >
@@ -847,22 +727,6 @@ exports[`Input render should render with suffix 1`] = `
   font-style: italic;
 }
 
-.emotion-0:focus::-webkit-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus::-moz-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus:-ms-input-placeholder {
-  color: rgb(112,117,120);
-}
-
-.emotion-0:focus::placeholder {
-  color: rgb(112,117,120);
-}
-
 .emotion-0:disabled,
 .emotion-0:disabled:focus,
 .emotion-0:disabled:hover,
@@ -873,14 +737,6 @@ exports[`Input render should render with suffix 1`] = `
   cursor: not-allowed;
   -webkit-text-fill-color: rgb(200,204,207);
   -webkit-opacity: 1;
-}
-
-.emotion-0::-webkit-datetime-edit {
-  display: flex;
-}
-
-.emotion-0::-webkit-calendar-picker-indicator:hover {
-  cursor: pointer;
 }
 
 .emotion-1 {
@@ -906,7 +762,7 @@ exports[`Input render should render with suffix 1`] = `
     <div
       class="emotion-2"
       cursor="text"
-      data-paste-element="INPUT"
+      data-paste-element="BOX"
       display="flex"
       width="100%"
     >
@@ -926,7 +782,7 @@ exports[`Input render should render with suffix 1`] = `
       />
       <div
         class="emotion-1"
-        data-paste-element="INPUT_SUFFIX"
+        data-paste-element="BOX"
         display="flex"
       >
         <div>
