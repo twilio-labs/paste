@@ -57,13 +57,11 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name={props.pageContext.frontmatter.title}
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/truncate"
   storybookUrl="/?path=/story/components-truncate--default"
-  data={props.data.allPasteComponent.edges}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 ---

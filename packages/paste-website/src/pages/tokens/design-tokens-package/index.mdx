@@ -37,11 +37,10 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name="Design Tokens package"
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.TOKENS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/button"
-  data={props.data.allPasteDesignTokensPackage.edges}
+  data={props.data}
 />
 
 ---

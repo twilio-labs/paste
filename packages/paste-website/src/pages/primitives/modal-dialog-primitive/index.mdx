@@ -54,13 +54,11 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name="Modal Dialog Primitive"
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/modal-dialog"
   storybookUrl="/?path=/story/primitives-modaldialog--custom-overlay-and-content"
-  data={props.data.allPastePrimitive.edges}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 ---

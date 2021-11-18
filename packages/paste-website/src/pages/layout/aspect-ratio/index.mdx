@@ -61,13 +61,11 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name="Aspect Ratio"
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.LAYOUT}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/aspect-ratio"
   storybookUrl="/?path=/story/layout-aspect-ratio--default"
-  data={props.data.allPasteLayout.edges}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 ---

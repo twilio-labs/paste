@@ -49,10 +49,10 @@ export const pageQuery = graphql`
 
 <content>
 
-<PatternHeader
+<NormalizePatternHeader
   description={props.pageContext.frontmatter.description}
   name={props.pageContext.frontmatter.title}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 </content>

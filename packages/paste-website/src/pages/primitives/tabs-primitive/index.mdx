@@ -62,13 +62,11 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name="Tabs Primitive"
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/tabs"
   storybookUrl="/?path=/story/primitives-tabs--horizontal-tabs"
-  data={props.data.allPastePrimitive.edges}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 ---

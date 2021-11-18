@@ -31,29 +31,9 @@ export const pageQuery = graphql`
   categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-customization"
   storybookUrl="?path=/story/theme-customization--provider"
-  packageStatus={[
-    {
-      node: {
-        data: {
-          Documentation: true,
-          Figma: 'not applicable',
-          Design_committee_review: 'not applicable',
-          Engineer_committee_review: 'not applicable',
-          Code: 'yes',
-          status: 'production',
-        },
-      },
-    },
-  ]}
-  data={[
-    {
-      node: {
-        name: PackageJSON.name,
-        description: PackageJSON.description,
-        version: PackageJSON.version,
-      },
-    },
-  ]}
+  packageName={PackageJSON.name}
+  version={PackageJSON.version}
+  description={PackageJSON.description}
 />
 
 ---
