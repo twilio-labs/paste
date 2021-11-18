@@ -114,6 +114,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         backgroundColor={checkboxBackground}
         borderRadius={isSelectAll ? 'borderRadius10' : null}
         display="inline-flex"
+        position="relative"
         flexDirection="column"
         padding={isSelectAll ? 'space30' : null}
         paddingBottom={isSelectAll ? 'space20' : null}
