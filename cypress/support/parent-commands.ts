@@ -79,6 +79,8 @@ declare namespace Cypress {
      * - on click of header, the changelog content is visible.
      */
     checkChangelogRevealer(): void;
+
+    abortPrefetchRequests(target: string): void;
   }
 }
 
@@ -129,6 +131,28 @@ Cypress.Commands.add('checkInPageNavigationLinks', () => {
 // @TODO Check ComponentHeader <--- waiting for changes to this component to be merged.
 // Cypress.Commands.add('checkComponentHeader', () => {});
 
+Cypress.Commands.add('abortPrefetchRequests', (target) => {
+  cy.server();
+  cy.route({
+    method: 'GET',
+    url: '/**/**/page-data.json',
+    onRequest: (xhr) => {
+      if (!xhr.url.includes(target.toLowerCase())) {
+        cy.log(`[Abort XHR]: ${xhr.url}`);
+        xhr.xhr.abort();
+      }
+    },
+  }).as('pageData');
+  cy.route({
+    method: 'GET',
+    url: '/**/**/app-data.json',
+    onRequest: (xhr) => {
+      xhr.xhr.abort();
+    },
+  }).as('appData');
+  cy.route('http://api.github.com/repos/twilio-labs/paste', {}).as('githubData');
+});
+
 Cypress.Commands.add('checkPageAside', () => {
   cy.getDocsPageContentArea().getInFixedContainer('[data-cy="page-aside"]').as('pageAside');
   cy.get('@pageAside').find('[data-cy="table-of-contents"]').shouldBeVisible();
@@ -147,13 +171,9 @@ Cypress.Commands.add('checkDoDonts', () => {
 });
 
 Cypress.Commands.add('checkChangelogRevealer', () => {
-  cy.getInFixedContainer('#component-changelog')
-    .as('changelogContainer')
-    .contains('h2', 'Changelog')
-    .shouldBeVisible()
-    .click();
+  cy.getInFixedContainer('#component-changelog').contains('h2', 'Changelog').shouldBeVisible().click();
 
-  cy.get('@changelogContainer').find('[data-cy="changelog-revealer-content"]').shouldBeVisible();
+  cy.getInFixedContainer('[data-cy="changelog-revealer-content"]').shouldBeVisible();
 });
 
 Cypress.Commands.add('getInFixedContainer', (selector) => {

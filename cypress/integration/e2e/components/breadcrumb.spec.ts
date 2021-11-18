@@ -1,5 +1,6 @@
 describe('Breadcrumb component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('breadcrumb');
     cy.visit('/components/breadcrumb');
   });
 

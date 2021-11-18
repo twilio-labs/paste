@@ -1,5 +1,6 @@
 describe('Popover component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('popover');
     cy.visit('/components/popover');
   });
 

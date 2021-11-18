@@ -1,5 +1,6 @@
 describe('Label component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('label');
     cy.visit('/components/label');
   });
 

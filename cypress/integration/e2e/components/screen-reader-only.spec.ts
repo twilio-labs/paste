@@ -1,5 +1,6 @@
 describe('Screen-reader-only component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('screen-reader-only');
     cy.visit('/components/screen-reader-only');
   });
 

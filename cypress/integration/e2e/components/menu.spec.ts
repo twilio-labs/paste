@@ -1,5 +1,6 @@
 describe('Menu component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('menu');
     cy.visit('/components/menu');
   });
 

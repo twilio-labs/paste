@@ -1,5 +1,6 @@
 describe('Alert component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('alert');
     cy.visit('/components/alert');
   });
 

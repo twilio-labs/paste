@@ -1,5 +1,6 @@
 describe('Radio-group component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('radio-group');
     cy.visit('/components/radio-group');
   });
 

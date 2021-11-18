@@ -1,5 +1,6 @@
 describe('Checkbox component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('checkbox');
     cy.visit('/components/checkbox');
   });
 

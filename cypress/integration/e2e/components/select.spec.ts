@@ -1,5 +1,6 @@
 describe('Select component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('select');
     cy.visit('/components/select');
   });
 
