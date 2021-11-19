@@ -1,5 +1,6 @@
 describe('Data-grid component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('data-grid');
     cy.visit('/components/data-grid');
   });
 

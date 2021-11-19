@@ -1,5 +1,6 @@
 describe('Tooltip component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('tooltip');
     cy.visit('/components/tooltip');
   });
 

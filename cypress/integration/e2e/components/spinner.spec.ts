@@ -1,5 +1,6 @@
 describe('Spinner component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('spinner');
     cy.visit('/components/spinner');
   });
 

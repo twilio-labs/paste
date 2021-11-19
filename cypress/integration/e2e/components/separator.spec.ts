@@ -1,5 +1,6 @@
 describe('Separator component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('separator');
     cy.visit('/components/separator');
   });
 

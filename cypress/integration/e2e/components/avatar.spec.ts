@@ -1,5 +1,6 @@
 describe('Avatar component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('avatar');
     cy.visit('/components/avatar');
   });
 

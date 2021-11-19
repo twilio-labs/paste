@@ -1,5 +1,6 @@
 describe('Truncate component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('truncate');
     cy.visit('/components/truncate');
   });
 

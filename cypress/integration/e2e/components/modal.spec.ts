@@ -1,5 +1,6 @@
 describe('Modal component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('modal');
     cy.visit('/components/modal');
   });
 

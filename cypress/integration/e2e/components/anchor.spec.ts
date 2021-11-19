@@ -1,5 +1,6 @@
 describe('Anchor component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('anchor');
     cy.visit('/components/anchor');
   });
 

@@ -1,5 +1,6 @@
 describe('Pagination component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('pagination');
     cy.visit('/components/pagination');
   });
 

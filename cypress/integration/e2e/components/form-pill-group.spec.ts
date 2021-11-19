@@ -1,5 +1,6 @@
 describe('Form-pill-group component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('form-pill-group');
     cy.visit('/components/form-pill-group');
   });
 

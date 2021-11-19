@@ -1,5 +1,6 @@
 describe('Toast component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('toast');
     cy.visit('/components/toast');
   });
 

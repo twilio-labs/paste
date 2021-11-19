@@ -1,5 +1,6 @@
 describe('Skeleton-loader component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('skeleton-loader');
     cy.visit('/components/skeleton-loader');
   });
 
