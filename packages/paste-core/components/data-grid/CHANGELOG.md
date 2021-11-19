@@ -1,5 +1,11 @@
 # @twilio-paste/data-grid
 
+## 0.2.0
+
+### Minor Changes
+
+- [`ad741d15a`](https://github.com/twilio-labs/paste/commit/ad741d15a313c59ed8922d7515ecb1109b07e60a) [#2025](https://github.com/twilio-labs/paste/pull/2025) Thanks [@nkrantz](https://github.com/nkrantz)! - [Data-Grid] Add `textAlign` prop to `DataGridCell` for aligning cells and columns to the right.
+
 ## 0.1.1
 
 ### Patch Changes

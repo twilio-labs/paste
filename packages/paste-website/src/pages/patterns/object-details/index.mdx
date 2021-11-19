@@ -52,10 +52,10 @@ export const pageQuery = graphql`
 
 <content>
 
-<PatternHeader
+<NormalizePatternHeader
   description={props.pageContext.frontmatter.description}
   name={props.pageContext.frontmatter.title}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 </content>
@@ -127,11 +127,11 @@ export const pageQuery = graphql`
 // import all components for Object details patterns
 
 import {​ Heading } from "@twilio-paste/core/heading";
-import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@twilio-paste/core/tabs';
-import {​ Text } from "@twilio-paste/core/text;
-import { Box } from "@twilio-paste/core/box;
-import { Stack } from "@twilio-paste/core/stack;
-import { Grid, Column } from "@twilio-paste/core/grid;
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from "@twilio-paste/core/tabs";
+import {​ Text } from "@twilio-paste/core/text";
+import { Box } from "@twilio-paste/core/box";
+import { Stack } from "@twilio-paste/core/stack";
+import { Grid, Column } from "@twilio-paste/core/grid";
 ```
 
 ## Usage

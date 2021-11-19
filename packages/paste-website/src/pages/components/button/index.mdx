@@ -10,6 +10,8 @@ import {Button} from '@twilio-paste/button';
 import {Stack} from '@twilio-paste/stack';
 import Changelog from '@twilio-paste/button/CHANGELOG.md';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
+import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
+import {MinusIcon} from '@twilio-paste/icons/esm/MinusIcon';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -54,13 +56,11 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name="Button"
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/Button"
   storybookUrl="/?path=/story/components-Button--primary-Button"
-  data={props.data.allPasteComponent.edges}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 ---
@@ -130,7 +130,7 @@ screen readers and dictation software. Here are some quick tips:
 
 ### Examples
 
-<LivePreview scope={{Button, Stack}} language="jsx">
+<LivePreview scope={{Button, Stack, PlusIcon}} language="jsx">
   {`<Stack orientation="horizontal" spacing="space30">
   <Button variant="primary">
     ✊ Action
@@ -154,6 +154,15 @@ screen readers and dictation software. Here are some quick tips:
   <Button variant="destructive_link">Action</Button>
   <Button variant="reset" size="reset">
     Action
+  </Button>
+  <Button variant="primary_icon" size="reset">
+    <PlusIcon decorative={false}  title="Add to cart" />
+  </Button>
+  <Button variant="secondary_icon" size="reset">
+    <PlusIcon decorative={false} title="close" />
+  </Button>
+  <Button variant="destructive_icon" size="reset">
+    <PlusIcon decorative={false} title="remove" />
   </Button>
 </Stack>`}
 </LivePreview>
@@ -208,54 +217,6 @@ screen if that action is destructive and could be difficult to reverse.
   {`<Button variant="destructive">
   Delete
 </Button>`}
-</LivePreview>
-
-#### Icon-only Button
-
-Use icon-only Buttons sparingly.
-
-They should be used only in compact UI situations. Use an icon that can
-only convey a single action.
-
-<LivePreview scope={{Button, Stack, PlusIcon}} language="jsx">
-  {`<Stack orientation="horizontal" spacing="space30">
-  <Button variant="primary" size="icon">
-    <PlusIcon decorative={false} title="Add to cart" />
-  </Button>
-  <Button variant="secondary" size="icon">
-    <PlusIcon decorative={false} title="Add to cart" />
-  </Button>
-  <Button variant="link" size="icon">
-    <PlusIcon decorative={false} title="Add to cart" />
-  </Button>
-  <Button variant="destructive" size="icon">
-    <PlusIcon decorative={false} title="Add to cart" />
-  </Button>
-  <Button variant="destructive_secondary" size="icon">
-    <PlusIcon decorative={false} title="Add to cart" />
-  </Button>
-  <Button variant="destructive_link" size="icon">
-    <PlusIcon decorative={false} title="Add to cart" />
-  </Button>
-  <Button variant="primary" size="icon_small">
-    <PlusIcon decorative={false} title="Add to cart" />
-  </Button>
-  <Button variant="secondary" size="icon_small">
-    <PlusIcon decorative={false} title="Add to cart" />
-  </Button>
-  <Button variant="link" size="icon_small">
-    <PlusIcon decorative={false} title="Add to cart" />
-  </Button>
-  <Button variant="destructive" size="icon_small">
-    <PlusIcon decorative={false} title="Add to cart" />
-  </Button>
-  <Button variant="destructive_secondary" size="icon_small">
-    <PlusIcon decorative={false} title="Add to cart" />
-  </Button>
-  <Button variant="destructive_link" size="icon_small">
-    <PlusIcon decorative={false} title="Add to cart" />
-  </Button>
-</Stack>`}
 </LivePreview>
 
 #### Link-style Button
@@ -343,6 +304,65 @@ styles. No other Button functionality is reset.
   {`<Button variant="reset" size="reset">
   Edit
 </Button>`}
+</LivePreview>
+
+#### Icon Buttons
+
+Use primary icon, secondary icon, and destructive icon Button variants for buttons
+that, for a specific reason and purpose, can only have an icon in them, such as in
+compact UI situations. These variants do not have any border nor background color.
+When using these variants, use `size="reset"` in the Button component to remove
+any unnecessary padding. To change the size of an icon button, change the size of the Icon component itself.
+
+Use an icon that can only convey a single action.
+
+You can also create icon Buttons from other variants that have background colors and borders,
+like primary and secondary, by using that variant and changing the size of the Button
+component to `size="icon"` or `size="icon_small"`.
+
+Use icon-only Buttons sparingly. If there is any text in a button, do not use these icon-specific variants or sizes.
+
+<LivePreview scope={{Button, Stack, PlusIcon, MinusIcon, CloseIcon}} language="jsx">
+  {`
+<Stack orientation="vertical" spacing="space60">
+  <Stack orientation="horizontal" spacing="space60">
+    <Button variant="primary_icon" size="reset">
+      <PlusIcon decorative={false} size="sizeIcon10" title="Add to cart" />
+    </Button>
+    <Button variant="secondary_icon" size="reset">
+      <CloseIcon decorative={false} size="sizeIcon40" title="close" />
+    </Button>
+    <Button variant="destructive_icon" size="reset">
+      <MinusIcon decorative={false} size="sizeIcon80" title="remove" />
+    </Button>
+  </Stack>
+  <Stack orientation="horizontal" spacing="space60">
+    <Button variant="primary" size="icon">
+      <PlusIcon decorative={false} title="Add to cart" />
+    </Button>
+    <Button variant="secondary" size="icon">
+      <PlusIcon decorative={false} title="Add to cart" />
+    </Button>
+    <Button variant="destructive" size="icon">
+      <PlusIcon decorative={false} title="Add to cart" />
+    </Button>
+    <Button variant="destructive_secondary" size="icon">
+      <PlusIcon decorative={false} title="Add to cart" />
+    </Button>
+    <Button variant="primary" size="icon_small">
+      <PlusIcon decorative={false} title="Add to cart" />
+    </Button>
+    <Button variant="secondary" size="icon_small">
+      <PlusIcon decorative={false} title="Add to cart" />
+    </Button>
+    <Button variant="destructive" size="icon_small">
+      <PlusIcon decorative={false} title="Add to cart" />
+    </Button>
+    <Button variant="destructive_secondary" size="icon_small">
+      <PlusIcon decorative={false} title="Add to cart" />
+    </Button>
+  </Stack>
+</Stack>`}
 </LivePreview>
 
 ### States
@@ -522,23 +542,23 @@ const Component = () => (
 
 All the valid HTML attributes for `Button` are supported including the following props:
 
-| Prop          | Type                                     | Description                                                                                                                    | Default   |
-| ------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| as?           | `string`                                 | The HTML tag to replace the default `<button>` tag.                                                                            | 'button'  |
-| disabled?     | `boolean`                                | Prevent actions from firing on this Button                                                                                     | false     |
-| fullWidth     | `boolean`                                | Sets the Button width to 100% of the parent container.                                                                         | false     |
-| href?         | `string`                                 | A URL to route to. Must use `as="a"` for this prop to work.                                                                    | null      |
-| loading?      | `boolean`                                | Prevent actions and show a loading spinner                                                                                     | false     |
-| size?         | `ButtonSizes`                            | 'default', 'small', 'icon', 'icon_small', 'reset'                                                                              | 'default' |
-| type?         | `ButtonTypes`                            | 'button', 'submit', 'reset'. If the Button is inside a `<form>`: use 'submit'. Otherwise use 'button' (default).               | 'button'  |
-| variant?      | `ButtonVariants`                         | 'primary', 'secondary', 'inverse', 'destructive', 'destructive_secondary', 'destructive_link', 'link', 'inverse_link', 'reset' | 'primary' |
-| onClick?      | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                | null      |
-| onMouseDown?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                | null      |
-| onMouseUp?    | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                | null      |
-| onMouseEnter? | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                | null      |
-| onMouseLeave? | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                | null      |
-| onFocus?      | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                                | null      |
-| onBlur?       | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                                | null      |
+| Prop          | Type                                     | Description                                                                                                                                                                          | Default   |
+| ------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
+| as?           | `string`                                 | The HTML tag to replace the default `<button>` tag.                                                                                                                                  | 'button'  |
+| disabled?     | `boolean`                                | Prevent actions from firing on this Button                                                                                                                                           | false     |
+| fullWidth     | `boolean`                                | Sets the Button width to 100% of the parent container.                                                                                                                               | false     |
+| href?         | `string`                                 | A URL to route to. Must use `as="a"` for this prop to work.                                                                                                                          | null      |
+| loading?      | `boolean`                                | Prevent actions and show a loading spinner                                                                                                                                           | false     |
+| size?         | `ButtonSizes`                            | 'default', 'small', 'icon', 'icon_small', 'reset'                                                                                                                                    | 'default' |
+| type?         | `ButtonTypes`                            | 'button', 'submit', 'reset'. If the Button is inside a `<form>`: use 'submit'. Otherwise use 'button' (default).                                                                     | 'button'  |
+| variant?      | `ButtonVariants`                         | 'primary', 'secondary', 'inverse', 'destructive', 'destructive_secondary', 'destructive_link', 'link', 'inverse_link', 'reset', 'primary_icon', 'secondary_icon', 'destructive_icon' | 'primary' |
+| onClick?      | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null      |
+| onMouseDown?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null      |
+| onMouseUp?    | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null      |
+| onMouseEnter? | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null      |
+| onMouseLeave? | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null      |
+| onFocus?      | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                                                                                      | null      |
+| onBlur?       | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                                                                                      | null      |
 
 <ChangelogRevealer>
   <Changelog />

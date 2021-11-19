@@ -70,13 +70,11 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name="Time Picker"
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/time-picker"
   storybookUrl="/?path=/story/components-time-picker--default-time-picker"
-  data={props.data.allPasteComponent.edges}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 ---

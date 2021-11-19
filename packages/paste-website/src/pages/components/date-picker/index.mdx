@@ -71,13 +71,11 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name="Date Picker"
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/date-picker"
   storybookUrl="/?path=/story/components-date-picker--default-date-picker"
-  data={props.data.allPasteComponent.edges}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 ---

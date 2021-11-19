@@ -71,13 +71,11 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name="Skeleton Loader"
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/skeleton-loader"
   storybookUrl="/?path=/story/components-skeleton-loader--default"
-  data={props.data.allPasteComponent.edges}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 ---

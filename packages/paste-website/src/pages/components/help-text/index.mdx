@@ -64,13 +64,11 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name="Help Text"
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/help-text"
   storybookUrl="/?path=/story/components-help-text--default"
-  data={props.data.allPasteComponent.edges}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 ---

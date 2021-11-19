@@ -3,6 +3,7 @@ import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Stack} from '@twilio-paste/stack';
+import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {isRenderingOnServer} from '@twilio-paste/animation-library';
 import {Button} from '../src';
@@ -169,3 +170,62 @@ export const ButtonAsAnchor = (): React.ReactNode => {
     </>
   );
 };
+
+const IconSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
+  return (
+    <Stack orientation="vertical" spacing="space60">
+      <Box>
+        <Heading as="h2" variant="heading40">
+          Using size=&quot;reset&quot;
+        </Heading>
+        <Stack orientation="horizontal" spacing="space60">
+          <Button variant={variant} size="reset">
+            <CloseIcon decorative={false} title="close" />
+          </Button>
+          <Button variant={variant} size="reset" loading>
+            <CloseIcon decorative={false} title="close" />
+          </Button>
+          <Button variant={variant} size="reset" disabled>
+            <CloseIcon decorative={false} title="close" />
+          </Button>
+        </Stack>
+      </Box>
+      <Box>
+        <Heading as="h2" variant="heading40">
+          Using size=&quot;icon_small&quot;
+        </Heading>
+        <Stack orientation="horizontal" spacing="space60">
+          <Button variant={variant} size="icon_small">
+            <CloseIcon decorative={false} title="close" />
+          </Button>
+          <Button variant={variant} size="icon_small" loading>
+            <CloseIcon decorative={false} title="close" />
+          </Button>
+          <Button variant={variant} size="icon_small" disabled>
+            <CloseIcon decorative={false} title="close" />
+          </Button>
+        </Stack>
+      </Box>
+      <Box>
+        <Heading as="h2" variant="heading40">
+          Using size=&quot;icon&quot;
+        </Heading>
+        <Stack orientation="horizontal" spacing="space60">
+          <Button variant={variant} size="icon">
+            <CloseIcon decorative={false} title="close" />
+          </Button>
+          <Button variant={variant} size="icon" loading>
+            <CloseIcon decorative={false} title="close" />
+          </Button>
+          <Button variant={variant} size="icon" disabled>
+            <CloseIcon decorative={false} title="close" />
+          </Button>
+        </Stack>
+      </Box>
+    </Stack>
+  );
+};
+
+export const PrimaryIconButton = (): React.ReactNode => <IconSizeOptions variant="primary_icon" />;
+export const SecondaryIconButton = (): React.ReactNode => <IconSizeOptions variant="secondary_icon" />;
+export const DestructiveIconButton = (): React.ReactNode => <IconSizeOptions variant="destructive_icon" />;

@@ -1,5 +1,24 @@
 # Change Log
 
+## 10.17.0
+
+### Minor Changes
+
+- [`ad741d15a`](https://github.com/twilio-labs/paste/commit/ad741d15a313c59ed8922d7515ecb1109b07e60a) [#2025](https://github.com/twilio-labs/paste/pull/2025) Thanks [@nkrantz](https://github.com/nkrantz)! - [Data-Grid] Add `textAlign` prop to `DataGridCell` for aligning cells and columns to the right.
+
+### Patch Changes
+
+- [`bcac9a339`](https://github.com/twilio-labs/paste/commit/bcac9a339ec8c99e15c7dac1446e315b58449fbf) [#2020](https://github.com/twilio-labs/paste/pull/2020) Thanks [@TheSisb](https://github.com/TheSisb)! - [DisplayPillGroup and FormPillGroup] Improved the group container elements so that they wrap correctly when having an overflow of pill children elements. (Thanks @rpresb)
+
+* [`8bedb9fd`](https://github.com/twilio-labs/paste/commit/8bedb9fdc1996b0cabfef90d70b341dd1e384fe1) [#2021](https://github.com/twilio-labs/paste/pull/2021) Thanks [@TheSisb](https://github.com/TheSisb)! - [Theme and Customization] Slight tweak to prevent animations from running once on app load when they should be disabled from the beginning.
+
+* Updated dependencies [[`ad741d15a`](https://github.com/twilio-labs/paste/commit/ad741d15a313c59ed8922d7515ecb1109b07e60a), [`bcac9a339`](https://github.com/twilio-labs/paste/commit/bcac9a339ec8c99e15c7dac1446e315b58449fbf), [`8bedb9fd`](https://github.com/twilio-labs/paste/commit/8bedb9fdc1996b0cabfef90d70b341dd1e384fe1)]:
+  - @twilio-paste/data-grid@0.2.0
+  - @twilio-paste/display-pill-group@1.1.3
+  - @twilio-paste/form-pill-group@1.1.3
+  - @twilio-paste/customization@2.1.3
+  - @twilio-paste/theme@5.3.3
+
 ## 10.16.0
 
 ### Minor Changes

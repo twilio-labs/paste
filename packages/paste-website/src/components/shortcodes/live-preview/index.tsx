@@ -24,7 +24,7 @@ const LivePreview: React.FC<CodeblockProps> = ({
 }) => {
   const pasteTheme = useTheme();
   return (
-    <Box marginBottom="space110">
+    <Box marginBottom="space110" data-cy="live-preview">
       <LiveProvider
         code={children}
         scope={scope}

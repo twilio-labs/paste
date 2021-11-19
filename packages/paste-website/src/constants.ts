@@ -14,7 +14,6 @@ export const SITE_CONTENT_MAX_WIDTH = '1440px';
 export const HOMEPAGE_SECTION_OVERFLOW_OFFSET = 150;
 
 export const STICKY_COLUMN_OFFSET = 20 + PSA_ALERT_HEIGHT + SITE_MASTHEAD_HEIGHT;
-export const STICKY_SIDEBAR_OFFSET = PSA_ALERT_HEIGHT + SITE_MASTHEAD_HEIGHT;
 
 export const PASTE_PACKAGE_PREFIX = '@twilio-paste/';
 export const STORYBOOK_DOMAIN = 'https://paste-storybook.twilio.design';
@@ -61,4 +60,11 @@ export const SiteMetaDefaults = {
   TITLE: 'Paste: The Design System for building Twilio customer experiences',
   DESCRIPTION:
     'Paste is the design system for designing and building consistent experiences at Twilio. It is made up of tokens and components, along with in-depth documentation to assist designers and developers faced with solving our customers’ problems. It is open source and contributions are welcome.',
+};
+
+export const StatusDescriptions = {
+  ALPHA:
+    'An experimental component that isn’t ready for use in production. API will likely change. This component may be removed if it doesn’t test well.',
+  BETA:
+    'Component is almost mature, but may have some bugs. Needs production feedback and will experience very minimal API changes.',
 };

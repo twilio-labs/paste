@@ -8,163 +8,47 @@ import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import axe from '../../../../../.jest/axe-helper';
 import {Badge} from '../src';
 import type {NamedChild} from '../src/types';
-import {getVariantStyles, hasValidButtonVariantProps, hasValidAnchorVariantProps} from '../src/utils';
-import {useFocusableVariants, useResizeChildIcons} from '../src/hooks';
+import {isFocusableElement, getBadgeSpanProps} from '../src/utils';
+import {useResizeChildIcons} from '../src/hooks';
 
 describe('Badge', () => {
   describe('Utils', () => {
-    describe('getVariantStyles', () => {
-      it('should return the correct tokens when variant is "success"', () => {
-        expect(getVariantStyles('success')).toEqual({
-          backgroundColor: 'colorBackgroundSuccessWeakest',
-          color: 'colorTextSuccess',
-        });
+    describe('isFocusableElement', () => {
+      it('should return true for a button', () => {
+        expect(isFocusableElement({as: 'button'})).toBeTruthy();
       });
-
-      it('should return the correct tokens when variant is "info"', () => {
-        expect(getVariantStyles('info')).toEqual({
-          backgroundColor: 'colorBackgroundNeutralWeakest',
-          color: 'colorTextNeutral',
-        });
+      it('should return true for an anchor', () => {
+        expect(isFocusableElement({as: 'a'})).toBeTruthy();
       });
-
-      it('should return the correct tokens when variant is "error"', () => {
-        expect(getVariantStyles('error')).toEqual({
-          backgroundColor: 'colorBackgroundErrorWeakest',
-          color: 'colorTextError',
-        });
-      });
-
-      it('should return the correct tokens when variant is "warning"', () => {
-        expect(getVariantStyles('warning')).toEqual({
-          backgroundColor: 'colorBackgroundWarningWeakest',
-          color: 'colorTextWarningStrong',
-        });
-      });
-
-      it('should return the correct tokens when variant is "new"', () => {
-        expect(getVariantStyles('new')).toEqual({
-          backgroundColor: 'colorBackgroundNew',
-          color: 'colorTextNew',
-        });
-      });
-
-      it('should return the correct tokens when variant is "default"', () => {
-        expect(getVariantStyles('default')).toEqual({
-          backgroundColor: 'colorBackground',
-          color: 'colorTextWeak',
-        });
+      it('should return false for a span', () => {
+        expect(isFocusableElement({as: 'span'})).toBeFalsy();
       });
     });
 
-    describe('hasValidButtonVariantProps', () => {
-      it('should return "true" if props.as is "button" and the props.onClick is a function', () => {
-        expect(hasValidButtonVariantProps({as: 'button', onClick: () => null})).toBe(true);
+    describe('getBadgeSpanProps', () => {
+      it('should return safe props to spread on the badge span when it is a span element', () => {
+        expect(
+          // @ts-expect-error can't pass style props in typescript but you can in JS and we need to prove they get removed
+          getBadgeSpanProps({as: 'span', 'aria-labelledby': 'some-id', backgroundColor: 'colorBackgroundSuccess'})
+        ).toEqual({
+          'aria-labelledby': 'some-id',
+          as: 'span',
+        });
       });
-      it('should return "false" if props.as is not "button" and the props.onClick is a function', () => {
-        expect(hasValidButtonVariantProps({as: 'a', onClick: () => null})).toBe(false);
-        expect(hasValidButtonVariantProps({as: 'span', onClick: () => null})).toBe(false);
-      });
-      it('should return "false" if props.as is "button" and the props.onClick is not a function', () => {
-        // @ts-expect-error testing incorrectly typed inputs
-        expect(hasValidButtonVariantProps({as: 'button', onClick: true})).toBe(false);
-        expect(hasValidButtonVariantProps({as: 'button', onClick: undefined})).toBe(false);
-        // @ts-expect-error testing incorrectly typed inputs
-        expect(hasValidButtonVariantProps({as: 'button', onClick: {}})).toBe(false);
-        // @ts-expect-error testing incorrectly typed inputs
-        expect(hasValidButtonVariantProps({as: 'button', onClick: 'test'})).toBe(false);
-      });
-      it('should return "false" if props.as is not "button" and the props.onClick is not a function', () => {
-        // @ts-expect-error testing incorrectly typed inputs
-        expect(hasValidButtonVariantProps({as: 'a', onClick: true})).toBe(false);
-        expect(hasValidButtonVariantProps({as: 'span', onClick: undefined})).toBe(false);
-        // @ts-expect-error testing incorrectly typed inputs
-        expect(hasValidButtonVariantProps({as: 'span', onClick: {}})).toBe(false);
-        // @ts-expect-error testing incorrectly typed inputs
-        expect(hasValidButtonVariantProps({as: 'a', onClick: 'test'})).toBe(false);
-      });
-    });
-
-    describe('hasValidAnchorVariantProps', () => {
-      it('should return "true" if props.as is "a" and the props.href is a string', () => {
-        expect(hasValidAnchorVariantProps({as: 'a', href: '#test'})).toBe(true);
-      });
-      it('should return "false" if props.as is not "a" and the props.href is a string', () => {
-        expect(hasValidAnchorVariantProps({as: 'button', href: '#test'})).toBe(false);
-        expect(hasValidAnchorVariantProps({as: 'span', href: '#test'})).toBe(false);
-      });
-      it('should return "false" if props.as is "a" and the props.href is not a string', () => {
-        expect(hasValidAnchorVariantProps({as: 'a', href: undefined})).toBe(false);
-        // @ts-expect-error testing incorrectly typed inputs
-        expect(hasValidAnchorVariantProps({as: 'a', href: () => null})).toBe(false);
-        // @ts-expect-error testing incorrectly typed inputs
-        expect(hasValidAnchorVariantProps({as: 'a', href: true})).toBe(false);
-      });
-      it('should return "false" if props.as is not "a" and the props.href is not a string', () => {
-        expect(hasValidAnchorVariantProps({as: 'button', href: undefined})).toBe(false);
-        expect(hasValidAnchorVariantProps({as: 'span', href: undefined})).toBe(false);
+      it('should return no props to spread on the badge span when it is a button or anchor element as they should be spread on the parent', () => {
+        expect(
+          // @ts-expect-error can't pass style props in typescript but you can in JS and we need to prove they get removed
+          getBadgeSpanProps({as: 'button', 'aria-labelledby': 'some-id', backgroundColor: 'colorBackgroundSuccess'})
+        ).toEqual({});
+        expect(
+          // @ts-expect-error can't pass style props in typescript but you can in JS and we need to prove they get removed
+          getBadgeSpanProps({as: 'a', 'aria-labelledby': 'some-id', backgroundColor: 'colorBackgroundSuccess'})
+        ).toEqual({});
       });
     });
   });
 
   describe('Hooks', () => {
-    describe('useFocusableVariants', () => {
-      it('should return the focusable variant style props, no span props, and a button wrapper when "as" is "button" and "onClick" is a function', () => {
-        const {result} = renderHook(() => useFocusableVariants({as: 'button', onClick: () => null}));
-
-        const {wrapper: Wrapper, ...rest} = result.current;
-        expect(rest).toEqual({
-          styleProps: {
-            textDecoration: 'underline',
-            cursor: 'pointer',
-            _hover: {textDecoration: 'none'},
-            _focus: {boxShadow: 'shadowFocus', textDecoration: 'none'},
-          },
-          spanProps: {},
-        });
-
-        const {getByRole, getByText} = render(<Wrapper>Test</Wrapper>);
-        expect(getByRole('button')).toBeInTheDocument();
-        expect(getByText('Test')).toBeInTheDocument();
-      });
-
-      it('should return the focusable variant style props, no span props, and an anchor wrapper when "as" is "a" and "href" is a string', () => {
-        const {result} = renderHook(() => useFocusableVariants({as: 'a', href: '#test', onClick: () => null}));
-
-        const {wrapper: Wrapper, ...rest} = result.current;
-        expect(rest).toEqual({
-          styleProps: {
-            textDecoration: 'underline',
-            cursor: 'pointer',
-            _hover: {textDecoration: 'none'},
-            _focus: {boxShadow: 'shadowFocus', textDecoration: 'none'},
-          },
-          spanProps: {},
-        });
-
-        const {getByRole, getByText} = render(<Wrapper>Test</Wrapper>);
-
-        expect(getByRole('link')).toBeInTheDocument();
-        expect(getByText('Test')).toBeInTheDocument();
-      });
-
-      it('should return an props as span props, an empty style props object, and an react fragment wrapper by default', () => {
-        const {result} = renderHook(() => useFocusableVariants({as: 'span'}));
-
-        const {wrapper: Wrapper, ...rest} = result.current;
-        expect(rest).toEqual({
-          styleProps: {},
-          spanProps: {as: 'span'},
-        });
-
-        const {queryByRole, getByText} = render(<Wrapper>Test</Wrapper>);
-
-        expect(queryByRole('link')).not.toBeInTheDocument();
-        expect(queryByRole('a')).not.toBeInTheDocument();
-        expect(getByText('Test')).toBeInTheDocument();
-      });
-    });
-
     describe('useResizeChildIcons', () => {
       it('should return return no modifications when child icon size is default', () => {
         const {result} = renderHook(() => useResizeChildIcons(['test', <InformationIcon decorative />]));
@@ -185,6 +69,36 @@ describe('Badge', () => {
         expect(icon.type.displayName).toEqual('InformationIcon');
         expect(icon.props.size).toEqual('sizeIcon10');
       });
+    });
+  });
+
+  describe('Refs', () => {
+    it('should set ref to a span element when rendered as a "span"', () => {
+      const badgeRef = React.createRef<HTMLElement>();
+      render(
+        <Badge as="span" variant="default" ref={badgeRef}>
+          Default
+        </Badge>
+      );
+      expect(badgeRef?.current?.tagName).toEqual('SPAN');
+    });
+    it('should set ref to a button element when rendered as a "button"', () => {
+      const badgeRef = React.createRef<HTMLElement>();
+      render(
+        <Badge as="button" onClick={() => {}} variant="default" ref={badgeRef}>
+          Default
+        </Badge>
+      );
+      expect(badgeRef?.current?.tagName).toEqual('BUTTON');
+    });
+    it('should set ref to an anchor element when rendered as a "a"', () => {
+      const badgeRef = React.createRef<HTMLElement>();
+      render(
+        <Badge as="a" href="#" variant="default" ref={badgeRef}>
+          Default
+        </Badge>
+      );
+      expect(badgeRef?.current?.tagName).toEqual('A');
     });
   });
 
@@ -296,29 +210,7 @@ describe('Badge', () => {
     });
 
     describe('Render', () => {
-      it('should not render badge as button if "as" is equal to "button", but "onClick" is "undefined"', () => {
-        const {queryByRole} = render(
-          <Badge as="button" variant="success">
-            Not button
-          </Badge>
-        );
-        const buttonQueryResult = queryByRole('button');
-
-        expect(buttonQueryResult).not.toBeInTheDocument();
-      });
-
-      it('should not render badge as button if "onClick" is defined as a function, but "as" is not equal to "button"', () => {
-        const {queryByRole} = render(
-          <Badge as="span" onClick={() => null} variant="success">
-            Not button
-          </Badge>
-        );
-        const buttonQueryResult = queryByRole('button');
-
-        expect(buttonQueryResult).not.toBeInTheDocument();
-      });
-
-      it('should render badge as button only if "onClick" is defined as a function and "as" is "button"', () => {
+      it('should render badge as button if "as" is "button"', () => {
         const {getByRole} = render(
           <Badge as="button" onClick={() => null} variant="success">
             Button
@@ -349,21 +241,6 @@ describe('Badge', () => {
 
   describe('Badge as anchor', () => {
     describe('Event handlers', () => {
-      it('should handle onclick event', () => {
-        const onClickMock: jest.Mock = jest.fn();
-        const {getByRole} = render(
-          <Badge as="a" href="#" onClick={onClickMock} variant="success">
-            Anchor
-          </Badge>
-        );
-
-        const anchor = getByRole('link');
-
-        fireEvent.click(anchor);
-
-        expect(onClickMock).toBeCalledTimes(1);
-      });
-
       it('should handle mouseup event', () => {
         const onMouseUpMock: jest.Mock = jest.fn();
         const {getByRole} = render(
@@ -440,29 +317,7 @@ describe('Badge', () => {
     });
 
     describe('Render', () => {
-      it('should not render badge as anchor if "as" is "a" but "href" is not present', () => {
-        const {queryByRole} = render(
-          <Badge as="a" data-testid="invalid-anchor-1" variant="success">
-            Not anchor
-          </Badge>
-        );
-        const anchorQueryResult = queryByRole('link');
-
-        expect(anchorQueryResult).not.toBeInTheDocument();
-      });
-
-      it('should not render badge as anchor if "href" is present but "as" is not "a"', () => {
-        const {queryByRole} = render(
-          <Badge as="span" href="#test" variant="success">
-            Not anchor
-          </Badge>
-        );
-        const anchorQueryResult = queryByRole('link');
-
-        expect(anchorQueryResult).not.toBeInTheDocument();
-      });
-
-      it('should render badge as anchor only "href" is a string and "as" is "anchor"', () => {
+      it('should render badge as anchor if "as" is "anchor"', () => {
         const {getByRole} = render(
           <Badge as="a" href="#test" variant="success">
             Anchor
@@ -492,76 +347,15 @@ describe('Badge', () => {
 
   describe('Badge as span', () => {
     describe('Render', () => {
-      it('should render correctly when variant is "default"', () => {
+      it('should render as a span element if as is "span"', () => {
         const {getByTestId} = render(
-          <Badge as="span" data-testid="badge-1" variant="default">
-            test
-          </Badge>
-        );
-        const badgeElement = getByTestId('badge-1');
-
-        expect(badgeElement).toHaveStyleRule('color', 'colorTextWeak');
-        expect(badgeElement).toHaveStyleRule('background-color', 'colorBackground');
-      });
-
-      it('should render correctly when variant is "new"', () => {
-        const {getByTestId} = render(
-          <Badge as="span" data-testid="badge-2" variant="new">
-            test
-          </Badge>
-        );
-        const badgeElement = getByTestId('badge-2');
-
-        expect(badgeElement).toHaveStyleRule('color', 'colorTextNew');
-        expect(badgeElement).toHaveStyleRule('background-color', 'colorBackgroundNew');
-      });
-
-      it('should render correctly when variant is "info"', () => {
-        const {getByTestId} = render(
-          <Badge as="span" data-testid="badge-3" variant="info">
-            test
-          </Badge>
-        );
-        const badgeElement = getByTestId('badge-3');
-
-        expect(badgeElement).toHaveStyleRule('color', 'colorTextNeutral');
-        expect(badgeElement).toHaveStyleRule('background-color', 'colorBackgroundNeutralWeakest');
-      });
-
-      it('should render correctly when variant is "warning"', () => {
-        const {getByTestId} = render(
-          <Badge as="span" data-testid="badge-4" variant="warning">
-            test
-          </Badge>
-        );
-        const badgeElement = getByTestId('badge-4');
-
-        expect(badgeElement).toHaveStyleRule('color', 'colorTextWarningStrong');
-        expect(badgeElement).toHaveStyleRule('background-color', 'colorBackgroundWarningWeakest');
-      });
-
-      it('should render correctly when variant is "error"', () => {
-        const {getByTestId} = render(
-          <Badge as="span" data-testid="badge-5" variant="error">
-            test
-          </Badge>
-        );
-        const badgeElement = getByTestId('badge-5');
-
-        expect(badgeElement).toHaveStyleRule('color', 'colorTextError');
-        expect(badgeElement).toHaveStyleRule('background-color', 'colorBackgroundErrorWeakest');
-      });
-
-      it('should render correctly when variant is "success"', () => {
-        const {getByTestId} = render(
-          <Badge as="span" data-testid="badge-6" variant="success">
+          <Badge as="span" variant="default" data-testid="badge-6">
             test
           </Badge>
         );
         const badgeElement = getByTestId('badge-6');
 
-        expect(badgeElement).toHaveStyleRule('color', 'colorTextSuccess');
-        expect(badgeElement).toHaveStyleRule('background-color', 'colorBackgroundSuccessWeakest');
+        expect(badgeElement.tagName).toEqual('SPAN');
       });
     });
   });
@@ -569,9 +363,64 @@ describe('Badge', () => {
   describe('Accessibility', () => {
     it('Should have no accessibility violations', async () => {
       const {container} = render(
-        <Badge as="span" data-testid="badge-1" variant="default">
-          test
-        </Badge>
+        <>
+          <Badge as="span" data-testid="badge-1" variant="default">
+            test
+          </Badge>
+          <Badge as="span" data-testid="badge-1" variant="success">
+            test
+          </Badge>
+          <Badge as="span" data-testid="badge-1" variant="warning">
+            test
+          </Badge>
+          <Badge as="span" data-testid="badge-1" variant="error">
+            test
+          </Badge>
+          <Badge as="span" data-testid="badge-1" variant="info">
+            test
+          </Badge>
+          <Badge as="span" data-testid="badge-1" variant="new">
+            test
+          </Badge>
+
+          <Badge as="a" href="#" data-testid="badge-1" variant="default">
+            test
+          </Badge>
+          <Badge as="a" href="#" data-testid="badge-1" variant="success">
+            test
+          </Badge>
+          <Badge as="a" href="#" data-testid="badge-1" variant="warning">
+            test
+          </Badge>
+          <Badge as="a" href="#" data-testid="badge-1" variant="error">
+            test
+          </Badge>
+          <Badge as="a" href="#" data-testid="badge-1" variant="info">
+            test
+          </Badge>
+          <Badge as="a" href="#" data-testid="badge-1" variant="new">
+            test
+          </Badge>
+
+          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="default">
+            test
+          </Badge>
+          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="success">
+            test
+          </Badge>
+          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="warning">
+            test
+          </Badge>
+          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="error">
+            test
+          </Badge>
+          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="info">
+            test
+          </Badge>
+          <Badge as="button" onClick={() => null} data-testid="badge-1" variant="new">
+            test
+          </Badge>
+        </>
       );
       const results = await axe(container);
       expect(results).toHaveNoViolations();

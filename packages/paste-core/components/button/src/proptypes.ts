@@ -19,6 +19,9 @@ export const DirectButtonPropTypes = {
     'inverse_link',
     'inverse',
     'reset',
+    'primary_icon',
+    'secondary_icon',
+    'destructive_icon',
   ]) as any,
 };
 
@@ -42,5 +45,8 @@ export const ButtonPropTypes = {
     'inverse_link',
     'inverse',
     'reset',
+    'primary_icon',
+    'secondary_icon',
+    'destructive_icon',
   ]).isRequired as any,
 };

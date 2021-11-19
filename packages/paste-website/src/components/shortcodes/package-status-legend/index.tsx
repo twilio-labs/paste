@@ -1,71 +1,90 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {Stack} from '@twilio-paste/stack';
-import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
-import {AssetStatus} from '../../component-status/AssetStatus';
-import {PeerReviewStatus} from '../../component-status/PeerReviewStatus';
-import type {PackageStatusObject} from '../../../utils/types';
+import {Badge} from '@twilio-paste/badge';
+import type {BadgeVariants} from '@twilio-paste/badge/src/types';
+
+import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
+import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
+
+import {BadgePopoverButton, BadgePopoverContainer, BadgePopover} from '../../badge-popover';
+import {StatusDescriptions} from '../../../constants';
 
 interface PackageStatusLegendProps {
-  packageStatus: PackageStatusObject;
+  packageStatus?: string;
+  figmaStatus?: string;
+  designCommitteeReview?: string;
+  engineerCommitteeReview?: string;
 }
 
-const PackageStatusLegend: React.FC<PackageStatusLegendProps> = ({packageStatus}) => {
-  const {
-    Figma,
-    Documentation,
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    Design_committee_review,
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    Engineer_committee_review,
-    Code,
-  } = packageStatus[0].node.data;
+interface StatusData {
+  badgeVariant: BadgeVariants;
+  popoverContent: string;
+}
 
-  return (
-    <Box marginBottom="space70">
-      <Stack orientation="horizontal" spacing="space60">
-        <Box display="flex" alignItems="center">
-          <Text as="span" marginRight="space20">
-            Code ready:
-          </Text>
-          <AssetStatus label="Code done" status={Code} />
-        </Box>
-        <Box display="flex" alignItems="center">
-          <Text as="span" marginRight="space20">
-            Design assets:
-          </Text>
-          <AssetStatus label="Design assets done" status={Figma} />
-        </Box>
-        <Box display="flex" alignItems="center">
-          <Text as="span" marginRight="space20">
-            Documentation:
-          </Text>
-          {Documentation === true ? (
-            <Box display="flex" alignItems="center" justifyContent="center">
-              <SuccessIcon
-                display="inline-block"
-                decorative={false}
-                title="Documentation done"
-                color="colorTextSuccess"
-                size="sizeIcon30"
-              />
-            </Box>
-          ) : (
-            <Text as="span" color="colorTextWeak">
-              Pending
-            </Text>
-          )}
-        </Box>
-        <Box display="flex" alignItems="center">
-          <Text as="span" marginRight="space20">
-            Peer review:
-          </Text>
-          <PeerReviewStatus designStatus={Design_committee_review} engineerStatus={Engineer_committee_review} />
-        </Box>
-      </Stack>
-    </Box>
-  );
+const PackageStatusBadge: React.FC<{status: string}> = ({status}) => {
+  const statusMap: {[index: string]: StatusData} = {
+    Alpha: {
+      badgeVariant: 'new',
+      popoverContent: StatusDescriptions.ALPHA,
+    },
+    Beta: {
+      badgeVariant: 'info',
+      popoverContent: StatusDescriptions.BETA,
+    },
+  };
+
+  const statusData = statusMap[status];
+
+  if (statusData?.badgeVariant) {
+    return (
+      <BadgePopoverContainer baseId="status">
+        <BadgePopoverButton variant={statusData?.badgeVariant}>
+          {/* fragment needed bc Badge expects one React node as child */}
+          <>
+            <NewIcon decorative size="sizeIcon10" />
+            {status}
+          </>
+        </BadgePopoverButton>
+        <BadgePopover aria-label={status}>{statusData?.popoverContent}</BadgePopover>
+      </BadgePopoverContainer>
+    );
+  }
+
+  return null;
+};
+
+const PackageStatusLegend: React.FC<PackageStatusLegendProps> = ({
+  packageStatus,
+  figmaStatus,
+  designCommitteeReview,
+  engineerCommitteeReview,
+}) => {
+  const shouldShowFigma = figmaStatus === null;
+  const shouldShowPeerReview = designCommitteeReview === null || engineerCommitteeReview === null;
+
+  const shouldShowStatus = packageStatus || shouldShowFigma || shouldShowPeerReview;
+
+  if (shouldShowStatus) {
+    return (
+      <Box display="flex" alignItems="center" flexGrow={1} columnGap="space40">
+        {packageStatus && <PackageStatusBadge status={packageStatus} />}
+        {shouldShowFigma && (
+          <Badge as="span" variant="default">
+            <ProcessDraftIcon decorative size="sizeIcon10" />
+            <Box>Design assets pending</Box>
+          </Badge>
+        )}
+        {shouldShowPeerReview ? (
+          <Badge as="span" variant="default">
+            <ProcessDraftIcon decorative size="sizeIcon10" />
+            <Box>Peer review pending</Box>
+          </Badge>
+        ) : null}
+      </Box>
+    );
+  }
+
+  return null;
 };
 
 export {PackageStatusLegend};

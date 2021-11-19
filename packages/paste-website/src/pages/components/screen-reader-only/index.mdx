@@ -61,13 +61,11 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name="Screen Reader Only"
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/screen-reader-only"
   storybookUrl="/?path=/story/components-screen-reader-only--default"
-  data={props.data.allPasteComponent.edges}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 ---

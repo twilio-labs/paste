@@ -91,13 +91,11 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name="Card"
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/card/"
   storybookUrl="/?path=/story/components-card--default"
-  data={props.data.allPasteComponent.edges}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 ---

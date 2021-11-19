@@ -91,10 +91,10 @@ export const pageQuery = graphql`
 
 <content>
 
-<PatternHeader
+<NormalizePatternHeader
   description={props.pageContext.frontmatter.description}
   name={props.pageContext.frontmatter.title}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 </content>
@@ -139,14 +139,14 @@ export const pageQuery = graphql`
 // import all components for Status patterns
 
 import {​ Text } from "@twilio-paste/core/text";
-import { Box } from '@twilio-paste/core/box';
-import { ProcessDisabledIcon } from '@twilio-paste/icons/esm/ProcessDisabledIcon';
-import { ProcessDraftIcon } from '@twilio-paste/icons/esm/ProcessDraftIcon';
-import { ProcessErrorIcon } from '@twilio-paste/icons/esm/ProcessErrorIcon';
-import { ProcessInProgressIcon } from '@twilio-paste/icons/esm/ProcessInProgressIcon';
-import { ProcessNeutralIcon } from '@twilio-paste/icons/esm/ProcessNeutralIcon';
-import { ProcessSuccessIcon } from '@twilio-paste/icons/esm/ProcessSuccessIcon';
-import { ProcessWarningIcon } from '@twilio-paste/icons/esm/ProcessWarningIcon';
+import { Box } from "@twilio-paste/core/box";
+import { ProcessDisabledIcon } from "@twilio-paste/icons/esm/ProcessDisabledIcon";
+import { ProcessDraftIcon } from "@twilio-paste/icons/esm/ProcessDraftIcon";
+import { ProcessErrorIcon } from "@twilio-paste/icons/esm/ProcessErrorIcon";
+import { ProcessInProgressIcon } from "@twilio-paste/icons/esm/ProcessInProgressIcon";
+import { ProcessNeutralIcon } from "@twilio-paste/icons/esm/ProcessNeutralIcon";
+import { ProcessSuccessIcon } from "@twilio-paste/icons/esm/ProcessSuccessIcon";
+import { ProcessWarningIcon } from "@twilio-paste/icons/esm/ProcessWarningIcon";
 
 ```
 

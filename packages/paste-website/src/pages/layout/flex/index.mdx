@@ -54,13 +54,11 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name="Flex"
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.LAYOUT}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/flex"
   storybookUrl="/?path=/story/layout-flex--flex-alignment-options"
-  data={props.data.allPasteLayout.edges}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 ---
