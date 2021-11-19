@@ -17,20 +17,22 @@ interface PageAsideProps {
       }
     ];
   };
+  hideFeedback?: boolean;
 }
 
-const PageAside: React.FC<PageAsideProps> = ({data}) => {
+const PageAside: React.FC<PageAsideProps> = ({data, hideFeedback}) => {
   return (
     <Box
       order={2}
       marginLeft="space160"
       minWidth="size20"
+      maxWidth="size30"
       id="page-aside"
       display={['none', 'none', 'block']}
       data-cy="page-aside"
     >
       <Box position="sticky" top="space130">
-        <FeedbackPopover />
+        {hideFeedback ? null : <FeedbackPopover />}
         <TableOfContents headings={data.headings} />
       </Box>
     </Box>
