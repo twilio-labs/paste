@@ -6,10 +6,9 @@ slug: /layout/
 
 import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
-import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
-import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Box} from '@twilio-paste/box';
 import {SiteLink} from '../../components/SiteLink.tsx';
 import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
@@ -37,27 +36,27 @@ import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 
 <Callout>
   <CalloutTitle as="h4">Don't see a layout, component, or primitive you need listed here?</CalloutTitle>
-  <UnorderedList>
-    <ListItem>
+  <Box as="ul" margin="space0">
+    <Text as="li" marginBottom="space40" color="currentColor">
       First off, we recommend <SiteLink to="/roadmap">checking our roadmap</SiteLink>.
-    </ListItem>
-    <ListItem>
+    </Text>
+    <Text as="li" marginBottom="space40" color="currentColor">
       Secondly, we recommend{' '}
       <Anchor href="https://github.com/twilio-labs/paste/issues">creating an issue on GitHub</Anchor> with your
       component, primitive, or proposal.
-    </ListItem>
-    <ListItem>
+    </Text>
+    <Text as="li" marginBottom="space40" color="currentColor">
       While not all requests are accepted for the design system, we may be able to suggest suitable alternatives - for
       this, drop us a note on #help-design-system or join our Weekly Office hours.
-    </ListItem>
-    <ListItem>
+    </Text>
+    <Text as="li" color="currentColor">
       We've also written a guide for{' '}
       <Anchor href="/customization/composing-custom-components-with-design-tokens">
         how you can build custom components with Tokens
       </Anchor>{' '}
       and still benefit from Paste design updates
-    </ListItem>
-  </UnorderedList>
+    </Text>
+  </Box>
 </Callout>
 
 </content>
