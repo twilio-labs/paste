@@ -34,6 +34,7 @@ const SiteHeaderSearch: React.FC<SiteHeaderSearchProps> = ({value, onChange}) =>
     <Box minWidth={['size30', 'size30', 'size30', 'size40']}>
       <Input
         id={isMobileNav ? PASTE_DOCS_SEARCH_INPUT_MOBILE : PASTE_DOCS_SEARCH_INPUT}
+        data-cy={PASTE_DOCS_SEARCH_INPUT}
         type="text"
         placeholder={`Try "button" or "token"`}
         value={value}
