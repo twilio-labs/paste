@@ -87,7 +87,7 @@ declare namespace Cypress {
 Cypress.Commands.add('getDocsPageContentArea', () => cy.get('#paste-docs-content-area'));
 
 Cypress.Commands.add('pageHeaderShouldBeVisible', (headerText) => {
-  cy.contains('h1', headerText, {matchCase: false}).shouldBeVisible();
+  return cy.contains('h1', headerText, {matchCase: false}).should('be.visible');
 });
 
 Cypress.Commands.add('overviewTableRendersCorrectly', () => {
@@ -138,7 +138,6 @@ Cypress.Commands.add('abortPrefetchRequests', (target) => {
     url: '/**/**/page-data.json',
     onRequest: (xhr) => {
       if (!xhr.url.includes(target.toLowerCase())) {
-        cy.log(`[Abort XHR]: ${xhr.url}`);
         xhr.xhr.abort();
       }
     },
@@ -155,9 +154,9 @@ Cypress.Commands.add('abortPrefetchRequests', (target) => {
 
 Cypress.Commands.add('checkPageAside', () => {
   cy.getDocsPageContentArea().getInFixedContainer('[data-cy="page-aside"]').as('pageAside');
-  cy.get('@pageAside').find('[data-cy="table-of-contents"]').shouldBeVisible();
-  cy.get('@pageAside').contains('button', 'Rate this page').shouldBeVisible();
-  cy.get('@pageAside').find('[data-cy="page-aside-anchor"]').shouldBeVisible();
+  cy.get('@pageAside').find('[data-cy="table-of-contents"]').should('be.visible');
+  cy.get('@pageAside').contains('button', 'Rate this page').should('be.visible');
+  cy.get('@pageAside').find('[data-cy="page-aside-anchor"]').should('be.visible');
 });
 
 Cypress.Commands.add('checkLivePreviews', () => {
@@ -171,9 +170,9 @@ Cypress.Commands.add('checkDoDonts', () => {
 });
 
 Cypress.Commands.add('checkChangelogRevealer', () => {
-  cy.getInFixedContainer('#component-changelog').contains('h2', 'Changelog').shouldBeVisible().click();
+  cy.getInFixedContainer('#component-changelog').contains('h2', 'Changelog').should('be.visible').click();
 
-  cy.getInFixedContainer('[data-cy="changelog-revealer-content"]').shouldBeVisible();
+  cy.getInFixedContainer('[data-cy="changelog-revealer-content"]').should('be.visible');
 });
 
 Cypress.Commands.add('getInFixedContainer', (selector) => {
@@ -183,6 +182,6 @@ Cypress.Commands.add('getInFixedContainer', (selector) => {
     .get('@target')
     .invoke('innerHeight')
     .then((height) => {
-      return cy.get('@target').scrollIntoView({offset: {top: (height as number) / 2, left: 0}});
+      cy.get('@target').scrollIntoView({offset: {top: (height as number) / 2, left: 0}});
     });
 });
