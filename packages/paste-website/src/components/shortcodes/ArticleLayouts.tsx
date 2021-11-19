@@ -2,11 +2,7 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 
 export const ArticleContent: React.FC = ({children}) => {
-  return (
-    <Box maxWidth={['100%', '100%', 'size70']} minWidth="0">
-      {children}
-    </Box>
-  );
+  return <Box>{children}</Box>;
 };
 
 export const ArticleAside: React.FC = ({children}) => {
