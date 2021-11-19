@@ -27,7 +27,7 @@ const HTML: React.FC<HTMLProps> = ({
         <link rel="stylesheet" href="https://assets.twilio.com/public_assets/paste-fonts/main-1.2.0/fonts.css" />
         {headComponents}
       </head>
-      <body style={{overflow: 'hidden'}} {...bodyAttributes}>
+      <body {...bodyAttributes}>
         {preBodyComponents}
         <noscript key="noscript" id="gatsby-noscript">
           This app works best with JavaScript enabled.
