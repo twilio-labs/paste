@@ -362,6 +362,9 @@ jobs:
     name: Website tests
     needs: build
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        machines: [1, 2, 3, 4, 5]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
