@@ -1,10 +1,9 @@
-describe('Badge components documentation page', () => {
+describe('Badge component documentation page', () => {
   beforeEach(() => {
-    cy.abortPrefetchRequests('badge');
     cy.visit('/components/badge');
   });
 
-  it('should render the badge components page correctly', () => {
+  it('should render the badge component page correctly', () => {
     cy.pageHeaderShouldBeVisible('Badge');
 
     cy.checkInPageNavigationLinks();

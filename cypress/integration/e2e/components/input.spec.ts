@@ -1,10 +1,9 @@
-describe('Input components documentation page', () => {
+describe('Input component documentation page', () => {
   beforeEach(() => {
-    cy.abortPrefetchRequests('input');
     cy.visit('/components/input');
   });
 
-  it('should render the input components page correctly', () => {
+  it('should render the input component page correctly', () => {
     cy.pageHeaderShouldBeVisible('Input');
 
     cy.checkInPageNavigationLinks();

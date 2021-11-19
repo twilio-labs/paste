@@ -1,10 +1,9 @@
-describe('Data-grid components documentation page', () => {
+describe('Data-grid component documentation page', () => {
   beforeEach(() => {
-    cy.abortPrefetchRequests('data-grid');
     cy.visit('/components/data-grid');
   });
 
-  it('should render the data-grid components page correctly', () => {
+  it('should render the data-grid component page correctly', () => {
     cy.pageHeaderShouldBeVisible('Data Grid');
 
     cy.checkInPageNavigationLinks();

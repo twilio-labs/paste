@@ -1,10 +1,9 @@
-describe('Alert-dialog components documentation page', () => {
+describe('Alert-dialog component documentation page', () => {
   beforeEach(() => {
-    cy.abortPrefetchRequests('alert-dialog');
     cy.visit('/components/alert-dialog');
   });
 
-  it('should render the alert-dialog components page correctly', () => {
+  it('should render the alert-dialog component page correctly', () => {
     cy.pageHeaderShouldBeVisible('Alert Dialog');
 
     cy.checkInPageNavigationLinks();

@@ -1,10 +1,9 @@
-describe('Select components documentation page', () => {
+describe('Select component documentation page', () => {
   beforeEach(() => {
-    cy.abortPrefetchRequests('select');
     cy.visit('/components/select');
   });
 
-  it('should render the select components page correctly', () => {
+  it('should render the select component page correctly', () => {
     cy.pageHeaderShouldBeVisible('Select');
 
     cy.checkInPageNavigationLinks();

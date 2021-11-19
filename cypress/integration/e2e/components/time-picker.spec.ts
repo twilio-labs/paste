@@ -1,10 +1,9 @@
-describe('Time-picker components documentation page', () => {
+describe('Time-picker component documentation page', () => {
   beforeEach(() => {
-    cy.abortPrefetchRequests('time-picker');
     cy.visit('/components/time-picker');
   });
 
-  it('should render the time-picker components page correctly', () => {
+  it('should render the time-picker component page correctly', () => {
     cy.pageHeaderShouldBeVisible('Time Picker');
 
     cy.checkInPageNavigationLinks();

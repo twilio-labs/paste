@@ -1,10 +1,9 @@
-describe('Pagination components documentation page', () => {
+describe('Pagination component documentation page', () => {
   beforeEach(() => {
-    cy.abortPrefetchRequests('pagination');
     cy.visit('/components/pagination');
   });
 
-  it('should render the pagination components page correctly', () => {
+  it('should render the pagination component page correctly', () => {
     cy.pageHeaderShouldBeVisible('Pagination');
 
     cy.checkInPageNavigationLinks();

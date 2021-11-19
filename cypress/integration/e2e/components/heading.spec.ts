@@ -1,10 +1,9 @@
-describe('Heading components documentation page', () => {
+describe('Heading component documentation page', () => {
   beforeEach(() => {
-    cy.abortPrefetchRequests('heading');
     cy.visit('/components/heading');
   });
 
-  it('should render the heading components page correctly', () => {
+  it('should render the heading component page correctly', () => {
     cy.pageHeaderShouldBeVisible('Heading');
 
     cy.checkInPageNavigationLinks();

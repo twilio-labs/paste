@@ -1,10 +1,9 @@
-describe('Toast components documentation page', () => {
+describe('Toast component documentation page', () => {
   beforeEach(() => {
-    cy.abortPrefetchRequests('toast');
     cy.visit('/components/toast');
   });
 
-  it('should render the toast components page correctly', () => {
+  it('should render the toast component page correctly', () => {
     cy.pageHeaderShouldBeVisible('Toast');
 
     cy.checkInPageNavigationLinks();

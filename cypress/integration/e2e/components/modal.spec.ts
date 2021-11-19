@@ -1,10 +1,9 @@
-describe('Modal components documentation page', () => {
+describe('Modal component documentation page', () => {
   beforeEach(() => {
-    cy.abortPrefetchRequests('modal');
     cy.visit('/components/modal');
   });
 
-  it('should render the modal components page correctly', () => {
+  it('should render the modal component page correctly', () => {
     cy.pageHeaderShouldBeVisible('Modal');
 
     cy.checkInPageNavigationLinks();
