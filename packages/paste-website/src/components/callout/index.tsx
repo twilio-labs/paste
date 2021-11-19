@@ -12,13 +12,13 @@ interface CalloutTitleProps {
 }
 
 const CalloutTitle: React.FC<CalloutTitleProps> = ({as = 'h3', children}) => (
-  <Text as={as} color="currentColor" marginBottom="space30">
+  <Text as={as} color="currentColor" marginBottom="space30" lineHeight="lineHeight40">
     {children}
   </Text>
 );
 
 const CalloutText: React.FC = ({children}) => (
-  <Text as="p" color="currentColor" lineHeight="lineHeight40">
+  <Text as="p" color="currentColor" lineHeight="lineHeight40" marginBottom="space40">
     {children}
   </Text>
 );
@@ -50,7 +50,9 @@ const Callout: React.FC<CalloutProps> = ({variant, children}) => {
       backgroundColor={backgroundColor}
       color={color}
     >
-      <Box marginRight="space40">{icon}</Box>
+      <Box marginRight="space40" paddingTop="space10">
+        {icon}
+      </Box>
       <Box flex="1">{children}</Box>
     </Box>
   );
