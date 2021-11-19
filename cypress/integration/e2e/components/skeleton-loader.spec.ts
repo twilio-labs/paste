@@ -1,10 +1,9 @@
-describe('Skeleton-loader components documentation page', () => {
+describe('Skeleton-loader component documentation page', () => {
   beforeEach(() => {
-    cy.abortPrefetchRequests('skeleton-loader');
     cy.visit('/components/skeleton-loader');
   });
 
-  it('should render the skeleton-loader components page correctly', () => {
+  it('should render the skeleton-loader component page correctly', () => {
     cy.pageHeaderShouldBeVisible('Skeleton Loader');
 
     cy.checkInPageNavigationLinks();

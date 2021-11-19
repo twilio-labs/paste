@@ -1,10 +1,9 @@
-describe('Tooltip components documentation page', () => {
+describe('Tooltip component documentation page', () => {
   beforeEach(() => {
-    cy.abortPrefetchRequests('tooltip');
     cy.visit('/components/tooltip');
   });
 
-  it('should render the tooltip components page correctly', () => {
+  it('should render the tooltip component page correctly', () => {
     cy.pageHeaderShouldBeVisible('Tooltip');
 
     cy.checkInPageNavigationLinks();

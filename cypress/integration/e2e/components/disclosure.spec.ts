@@ -1,10 +1,9 @@
-describe('Disclosure components documentation page', () => {
+describe('Disclosure component documentation page', () => {
   beforeEach(() => {
-    cy.abortPrefetchRequests('disclosure');
     cy.visit('/components/disclosure');
   });
 
-  it('should render the disclosure components page correctly', () => {
+  it('should render the disclosure component page correctly', () => {
     cy.pageHeaderShouldBeVisible('Disclosure');
 
     cy.checkInPageNavigationLinks();

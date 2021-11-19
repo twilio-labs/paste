@@ -1,10 +1,9 @@
-describe('Alert components documentation page', () => {
+describe('Alert component documentation page', () => {
   beforeEach(() => {
-    cy.abortPrefetchRequests('alert');
     cy.visit('/components/alert');
   });
 
-  it('should render the alert components page correctly', () => {
+  it('should render the alert component page correctly', () => {
     cy.pageHeaderShouldBeVisible('Alert');
 
     cy.checkInPageNavigationLinks();

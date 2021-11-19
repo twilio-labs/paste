@@ -1,10 +1,9 @@
-describe('Card components documentation page', () => {
+describe('Card component documentation page', () => {
   beforeEach(() => {
-    cy.abortPrefetchRequests('card');
     cy.visit('/components/card');
   });
 
-  it('should render the card components page correctly', () => {
+  it('should render the card component page correctly', () => {
     cy.pageHeaderShouldBeVisible('Card');
 
     cy.checkInPageNavigationLinks();

@@ -1,10 +1,9 @@
-describe('Paragraph components documentation page', () => {
+describe('Paragraph component documentation page', () => {
   beforeEach(() => {
-    cy.abortPrefetchRequests('paragraph');
     cy.visit('/components/paragraph');
   });
 
-  it('should render the paragraph components page correctly', () => {
+  it('should render the paragraph component page correctly', () => {
     cy.pageHeaderShouldBeVisible('Paragraph');
 
     cy.checkInPageNavigationLinks();

@@ -1,10 +1,9 @@
-describe('Checkbox components documentation page', () => {
+describe('Checkbox component documentation page', () => {
   beforeEach(() => {
-    cy.abortPrefetchRequests('checkbox');
     cy.visit('/components/checkbox');
   });
 
-  it('should render the checkbox components page correctly', () => {
+  it('should render the checkbox component page correctly', () => {
     cy.pageHeaderShouldBeVisible('Checkbox');
 
     cy.checkInPageNavigationLinks();

@@ -1,10 +1,9 @@
-describe('Tabs components documentation page', () => {
+describe('Tabs component documentation page', () => {
   beforeEach(() => {
-    cy.abortPrefetchRequests('tabs');
     cy.visit('/components/tabs');
   });
 
-  it('should render the tabs components page correctly', () => {
+  it('should render the tabs component page correctly', () => {
     cy.pageHeaderShouldBeVisible('Tabs');
 
     cy.checkInPageNavigationLinks();

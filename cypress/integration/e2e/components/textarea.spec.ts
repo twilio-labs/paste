@@ -1,10 +1,9 @@
-describe('Textarea components documentation page', () => {
+describe('Textarea component documentation page', () => {
   beforeEach(() => {
-    cy.abortPrefetchRequests('textarea');
     cy.visit('/components/textarea');
   });
 
-  it('should render the textarea components page correctly', () => {
+  it('should render the textarea component page correctly', () => {
     cy.pageHeaderShouldBeVisible('Textarea');
 
     cy.checkInPageNavigationLinks();
