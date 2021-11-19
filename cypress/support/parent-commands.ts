@@ -79,6 +79,8 @@ declare namespace Cypress {
      * - on click of header, the changelog content is visible.
      */
     checkChangelogRevealer(): void;
+
+    verifyExpectedQuery(queryString: string, expectedParams: Record<string, string | boolean>): void;
   }
 }
 
@@ -152,37 +154,6 @@ Cypress.Commands.add('verifyExpectedQuery', (searchString, expectedQuery) => {
   expectedQueryParamKeys.forEach((key) => {
     cy.wrap(parsedParams.has(key)).should('eql', true);
     cy.wrap(parsedParams.get(key)).should('eql', expectedQuery[key]);
-  });
-});
-
-Cypress.Commands.add('watchDocSearchApi', (alias = 'searchRequest') => {
-  cy.server();
-
-  cy.route({
-    method: 'POST',
-    url: 'https://bh4d9od16a-dsn.algolia.net/1/indexes/*/**',
-  }).as(alias);
-});
-
-Cypress.Commands.add('testAutocompleteSearch', (inputString, alias = 'searchRequest') => {
-  cy.get('[data-cy="paste-docs-search-input"]')
-    .shouldBeVisible()
-    .focus()
-    .should('have.focus')
-    .clear()
-    .type(inputString);
-
-  cy.wait(`@${alias}`).then((data) => {
-    const searchParamString = Cypress._.get(data, 'body.requests[0].params');
-
-    cy.verifyExpectedQuery(searchParamString, {query: inputString});
-
-    const hits = Cypress._.get(data, 'response.body.results[0].hits');
-
-    cy.get('[id*="algolia-autocomplete-listbox"]')
-      .should('be.visible')
-      .find('[role="option"]')
-      .should('have.length', hits.length);
   });
 });
 
