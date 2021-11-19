@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.3.3
+
+### Patch Changes
+
+- [`8bedb9fd`](https://github.com/twilio-labs/paste/commit/8bedb9fdc1996b0cabfef90d70b341dd1e384fe1) [#2021](https://github.com/twilio-labs/paste/pull/2021) Thanks [@TheSisb](https://github.com/TheSisb)! - [Theme and Customization] Slight tweak to prevent animations from running once on app load when they should be disabled from the beginning.
+
 ## 5.3.2
 
 ### Patch Changes

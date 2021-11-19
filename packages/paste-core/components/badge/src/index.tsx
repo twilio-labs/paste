@@ -2,27 +2,31 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 
-import {getVariantStyles} from './utils';
-import type {BadgeProps, BadgeVariants, BadgeChildren, BadgeBaseElements} from './types';
-import {useFocusableVariants, useResizeChildIcons} from './hooks';
+import type {BadgeProps, BadgeVariants, BadgeChildren} from './types';
+import {useResizeChildIcons} from './hooks';
+import {badgeFocusableStyles, badgeVariantStyles} from './styles';
+import {getBadgeSpanProps, isFocusableElement} from './utils';
+import {BadgeWrapper} from './BadgeWrapper';
 
-export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
+export type {BadgeProps};
+
+export const Badge = React.forwardRef<HTMLElement, BadgeProps>(
   ({variant, children, element = 'BADGE', ...props}, ref) => {
     const resizedChildren = useResizeChildIcons(children);
-    const {color, backgroundColor} = getVariantStyles(variant);
 
-    const {styleProps, wrapper: Wrapper, spanProps} = useFocusableVariants(props);
+    const variantStyles = badgeVariantStyles[variant];
+    const spanProps = getBadgeSpanProps(props);
+    const isFocusable = isFocusableElement(props);
 
     return (
-      <Wrapper>
+      // @ts-expect-error we need to explore polymorphic types for this ref to work https://www.benmvp.com/blog/forwarding-refs-polymorphic-react-component-typescript/
+      <BadgeWrapper {...props} ref={isFocusable ? ref : null}>
         <Box
           {...spanProps}
           alignItems="center"
           as="span"
-          backgroundColor={backgroundColor}
           border="unset"
           borderRadius="borderRadius30"
-          color={color}
           columnGap="space10"
           display="flex"
           element={element}
@@ -33,12 +37,13 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
           paddingX="space30"
           paddingY="space20"
           variant={variant}
-          ref={ref}
-          {...styleProps}
+          ref={!isFocusable ? ref : null}
+          {...variantStyles}
+          {...(isFocusable && {...badgeFocusableStyles})}
         >
           {resizedChildren}
         </Box>
-      </Wrapper>
+      </BadgeWrapper>
     );
   }
 );
@@ -54,7 +59,9 @@ Badge.propTypes = {
   ]).isRequired as PropTypes.Validator<BadgeChildren>,
   element: PropTypes.string,
   variant: PropTypes.oneOf(['info', 'default', 'warning', 'error', 'success', 'new'] as BadgeVariants[]).isRequired,
-  as: PropTypes.oneOf(['span', 'button', 'a'] as BadgeBaseElements[]).isRequired,
+  // @ts-expect-error type unions are a little too much for prop types inferred types to handle
+  as: PropTypes.oneOf(['span', 'button', 'a']).isRequired,
   href: PropTypes.string,
+  // @ts-expect-error again type unions. This is required when a button but not when a span and banned when a link.
   onClick: PropTypes.func,
 };

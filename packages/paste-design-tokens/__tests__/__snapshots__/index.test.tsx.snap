@@ -646,7 +646,7 @@ exports[`Design Tokens matches the Dark theme 1`] = `
   \\"color-text-icon-brand-inverse\\": \\"rgb(255, 255, 255)\\",
   \\"color-text-success\\": \\"rgb(123, 234, 165)\\",
   \\"color-text-weak\\": \\"rgb(202, 205, 216)\\",
-  \\"color-text-icon\\": \\"rgb(244, 244, 246)\\",
+  \\"color-text-icon\\": \\"rgb(96, 107, 133)\\",
   \\"color-text-link\\": \\"rgb(0, 140, 255)\\",
   \\"color-text-icon-brand-highlight\\": \\"rgb(242, 47, 70)\\",
   \\"color-text-neutral\\": \\"rgb(102, 179, 255)\\",

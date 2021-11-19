@@ -56,13 +56,11 @@ export const pageQuery = graphql`
   }
 `;
 
-<ComponentHeader
-  name="Stack"
+<NormalizeComponentHeader
   categoryRoute={SidebarCategoryRoutes.LAYOUT}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/stack"
   storybookUrl="/?path=/story/layout-stack--stack"
-  data={props.data.allPasteLayout.edges}
-  packageStatus={props.data.allAirtable.edges}
+  data={props.data}
 />
 
 ---

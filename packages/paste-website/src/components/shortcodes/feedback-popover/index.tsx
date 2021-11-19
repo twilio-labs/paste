@@ -134,7 +134,7 @@ export const FeedbackPopover: React.FC = () => {
 
   return (
     <Box marginBottom="space90">
-      <PopoverContainer baseId={popoverId} placement="left-start">
+      <PopoverContainer baseId={popoverId} placement="left-start" data-cy="popover-container">
         <PopoverButton variant="secondary">
           <SupportIcon size="sizeIcon20" decorative /> Rate this page
         </PopoverButton>
