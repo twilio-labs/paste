@@ -14,6 +14,7 @@ const StyledSiteBody = styled.div`
   display: flex;
   min-width: 240px;
   overflow: auto;
+  position: relative;
 
   @supports (scroll-behavior: smooth) {
     scroll-behavior: smooth;
