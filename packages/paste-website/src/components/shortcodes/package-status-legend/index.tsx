@@ -6,7 +6,7 @@ import type {BadgeVariants} from '@twilio-paste/badge/src/types';
 import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
 import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
 
-import {BadgePopoverButton, BadgePopoverContainer, BadgePopover} from '../../badgePopover';
+import {BadgePopoverButton, BadgePopoverContainer, BadgePopover} from '../../badge-popover';
 import {StatusDescriptions} from '../../../constants';
 
 interface PackageStatusLegendProps {
