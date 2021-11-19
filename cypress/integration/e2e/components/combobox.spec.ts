@@ -1,5 +1,6 @@
 describe('Combobox component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('combobox');
     cy.visit('/components/combobox');
   });
 

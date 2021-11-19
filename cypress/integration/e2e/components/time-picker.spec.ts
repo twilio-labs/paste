@@ -1,5 +1,6 @@
 describe('Time-picker component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('time-picker');
     cy.visit('/components/time-picker');
   });
 

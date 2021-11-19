@@ -1,5 +1,6 @@
 describe('Input component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('input');
     cy.visit('/components/input');
   });
 

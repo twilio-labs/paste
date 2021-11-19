@@ -1,5 +1,6 @@
 describe('Textarea component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('textarea');
     cy.visit('/components/textarea');
   });
 

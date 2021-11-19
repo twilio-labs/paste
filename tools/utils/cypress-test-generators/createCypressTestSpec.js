@@ -91,12 +91,10 @@ const getListOfWebsitePagesWithCypressSpec = (targetType) => {
  */
 
 const addBasicSpecForUncoveredPages = (targetType = process.env.TARGET_TYPE) => {
-  // const itemsThatNeedACypressSpec = difference(
-  //   getListOfWebsiteEntitiesWithDocsPage(targetType),
-  //   getListOfWebsitePagesWithCypressSpec(targetType)
-  // );
-
-  const itemsThatNeedACypressSpec = getListOfWebsiteEntitiesWithDocsPage(targetType);
+  const itemsThatNeedACypressSpec = difference(
+    getListOfWebsiteEntitiesWithDocsPage(targetType),
+    getListOfWebsitePagesWithCypressSpec(targetType)
+  );
 
   if (itemsThatNeedACypressSpec.length !== 0) {
     console.log(

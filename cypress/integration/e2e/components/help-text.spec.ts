@@ -1,5 +1,6 @@
 describe('Help-text component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('help-text');
     cy.visit('/components/help-text');
   });
 

@@ -1,5 +1,6 @@
 describe('Table component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('table');
     cy.visit('/components/table');
   });
 

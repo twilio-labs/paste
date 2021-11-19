@@ -1,5 +1,6 @@
 describe('Date-picker component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('date-picker');
     cy.visit('/components/date-picker');
   });
 

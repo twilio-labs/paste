@@ -1,5 +1,6 @@
 describe('Heading component documentation page', () => {
   beforeEach(() => {
+    cy.abortPrefetchRequests('heading');
     cy.visit('/components/heading');
   });
 
