@@ -11,12 +11,12 @@ export const FullHeader = (): React.ReactNode => {
       name="Alert"
       categoryRoute="/components"
       description="This is an alert component."
-      designCommitteeStatus={null}
-      engineerCommitteeStatus={null}
+      designCommitteeReview={null}
+      engineerCommitteeReview={null}
       figmaStatus={null}
       githubUrl="https://google.com"
       packageName="@twilio-paste/alert"
-      status="alpha"
+      packageStatus="alpha"
       storybookUrl="https://google.com"
       version="1.0.0"
     />
