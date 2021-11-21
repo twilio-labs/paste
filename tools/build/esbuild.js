@@ -80,7 +80,8 @@ function build(packageJson) {
       ...config,
       minify: true,
       format: 'cjs',
-      outfile: outFileCJS,
+      // outfile: outFileCJS,
+      outdir: 'dist',
       // Needed to fix ES6 module import paths for CJS builds
       plugins: [PasteCJSResolverPlugin],
     })
@@ -91,7 +92,8 @@ function build(packageJson) {
       ...config,
       minify: true,
       format: 'esm',
-      outfile: outFileESM,
+      // outfile: outFileESM,
+      outdir: 'dist',
     })
     .catch(() => process.exit(1));
 
