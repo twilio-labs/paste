@@ -49,9 +49,7 @@ exports[`Avatar image should render responsive css with an image 1`] = `
 
 <div
     class="emotion-1"
-    color="colorText"
     data-paste-element="AVATAR"
-    overflow="hidden"
   >
     <img
       alt="avatar example"
@@ -119,17 +117,11 @@ exports[`Avatar intials should render responsive css 1`] = `
 
 <div
     class="emotion-1"
-    color="colorText"
     data-paste-element="AVATAR"
-    overflow="hidden"
   >
     <abbr
       class="emotion-0"
-      color="inherit"
       data-paste-element="TEXT"
-      display="block"
-      font-size="fontSize10,fontSize10,fontSize60"
-      font-weight="fontWeightBold"
       text-decoration="none"
       title="Simon Taggart"
     >

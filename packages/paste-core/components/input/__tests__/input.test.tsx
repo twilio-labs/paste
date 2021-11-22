@@ -218,7 +218,7 @@ describe('Input block props', () => {
     const {getByRole} = render(<Input {...initialProps} />);
     const RenderedInput = getByRole('textbox');
 
-    expect(RenderedInput.getAttribute('width')).toEqual('100%');
+    expect(RenderedInput.getAttribute('width')).toEqual(null);
 
     const classNames = RenderedInput.getAttribute('class');
     expect(classNames).toBeDefined();

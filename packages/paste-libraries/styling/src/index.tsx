@@ -1,5 +1,6 @@
 // Base styling system (emotion)
 import styled from '@emotion/styled';
+import shouldForwardProp from '@styled-system/should-forward-prop';
 
 export type {StyledComponent} from '@emotion/styled';
 export type {SerializedStyles} from '@emotion/core';
@@ -22,3 +23,4 @@ export type {
 export {css} from './css-function';
 export {themeGet} from '@styled-system/theme-get';
 export * from 'styled-system';
+export {shouldForwardProp};

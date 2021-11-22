@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {
+  shouldForwardProp,
   boxShadow,
   compose,
   display,
@@ -16,7 +17,7 @@ import type {TextProps, StyledTextProps} from './types';
 import {getPseudoStyles, PasteStyleProps, getCustomElementStyles} from './StyleFunctions';
 
 // @ts-ignore can't work out how to stop the styled div color prop from emotion clashing with our color style prop in TextProps
-export const StyledText = styled.div<StyledTextProps>(
+export const StyledText = styled<StyledTextProps>('div', {shouldForwardProp})(
   {
     margin: 0,
     padding: 0,

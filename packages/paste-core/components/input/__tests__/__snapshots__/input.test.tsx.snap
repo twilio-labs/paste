@@ -125,22 +125,14 @@ exports[`Input render should render 1`] = `
       class="emotion-1"
       cursor="text"
       data-paste-element="INPUT"
-      display="flex"
-      width="100%"
     >
       <input
         class="emotion-0"
-        color="inherit"
         cursor="auto"
         data-paste-element="INPUT_ELEMENT"
-        display="block"
-        font-family="inherit"
-        font-size="fontSize30"
-        font-weight="fontWeightMedium"
         id="input"
         type="text"
         value="test"
-        width="100%"
       />
     </div>
   </div>
@@ -272,23 +264,15 @@ exports[`Input render should render with disabled 1`] = `
       class="emotion-1"
       cursor="not-allowed"
       data-paste-element="INPUT"
-      display="flex"
-      width="100%"
     >
       <input
         class="emotion-0"
-        color="inherit"
         cursor="auto"
         data-paste-element="INPUT_ELEMENT"
         disabled=""
-        display="block"
-        font-family="inherit"
-        font-size="fontSize30"
-        font-weight="fontWeightMedium"
         id="input"
         type="text"
         value="test"
-        width="100%"
       />
     </div>
   </div>
@@ -420,23 +404,15 @@ exports[`Input render should render with hasError 1`] = `
       class="emotion-1"
       cursor="text"
       data-paste-element="INPUT"
-      display="flex"
-      width="100%"
     >
       <input
         aria-invalid="true"
         class="emotion-0"
-        color="inherit"
         cursor="auto"
         data-paste-element="INPUT_ELEMENT"
-        display="block"
-        font-family="inherit"
-        font-size="fontSize30"
-        font-weight="fontWeightMedium"
         id="input"
         type="text"
         value="test"
-        width="100%"
       />
     </div>
   </div>
@@ -585,13 +561,10 @@ exports[`Input render should render with prefix 1`] = `
       class="emotion-2"
       cursor="text"
       data-paste-element="INPUT"
-      display="flex"
-      width="100%"
     >
       <div
         class="emotion-0"
         data-paste-element="INPUT_PREFIX"
-        display="flex"
       >
         <div>
           prefix
@@ -599,17 +572,11 @@ exports[`Input render should render with prefix 1`] = `
       </div>
       <input
         class="emotion-1"
-        color="inherit"
         cursor="auto"
         data-paste-element="INPUT_ELEMENT"
-        display="block"
-        font-family="inherit"
-        font-size="fontSize30"
-        font-weight="fontWeightMedium"
         id="input"
         type="text"
         value="test"
-        width="100%"
       />
     </div>
   </div>
@@ -741,24 +708,16 @@ exports[`Input render should render with readOnly 1`] = `
       class="emotion-1"
       cursor="text"
       data-paste-element="INPUT"
-      display="flex"
-      width="100%"
     >
       <input
         aria-readonly="true"
         class="emotion-0"
-        color="inherit"
         cursor="auto"
         data-paste-element="INPUT_ELEMENT"
-        display="block"
-        font-family="inherit"
-        font-size="fontSize30"
-        font-weight="fontWeightMedium"
         id="input"
         readonly=""
         type="text"
         value="test"
-        width="100%"
       />
     </div>
   </div>
@@ -907,27 +866,18 @@ exports[`Input render should render with suffix 1`] = `
       class="emotion-2"
       cursor="text"
       data-paste-element="INPUT"
-      display="flex"
-      width="100%"
     >
       <input
         class="emotion-0"
-        color="inherit"
         cursor="auto"
         data-paste-element="INPUT_ELEMENT"
-        display="block"
-        font-family="inherit"
-        font-size="fontSize30"
-        font-weight="fontWeightMedium"
         id="input"
         type="text"
         value="test"
-        width="100%"
       />
       <div
         class="emotion-1"
         data-paste-element="INPUT_SUFFIX"
-        display="flex"
       >
         <div>
           suffix

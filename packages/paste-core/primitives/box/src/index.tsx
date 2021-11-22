@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {
   styled,
+  shouldForwardProp,
   compose,
   layout,
   space,
@@ -22,7 +23,7 @@ import type {BoxProps, StyledBoxProps} from './types';
 import {getPseudoStyles, PasteStyleProps, getCustomElementStyles} from './StyleFunctions';
 
 // @ts-ignore can't work out how to stop the styled div color prop from emotion clashing with our color style prop in BoxProps
-export const StyledBox = styled.div<StyledBoxProps>(
+export const StyledBox = styled<StyledBoxProps>('div', {shouldForwardProp})(
   {
     boxSizing: 'border-box',
   },

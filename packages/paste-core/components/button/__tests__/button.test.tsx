@@ -592,7 +592,7 @@ describe('Button', () => {
       expect(getByTestId('loading-link-styles')).toHaveStyleRule('text-align', 'left');
 
       expect(buttonContent).toHaveAttribute('aria-hidden', 'true');
-      expect(buttonContent).toHaveAttribute('opacity', '0');
+      expect(buttonContent).toHaveStyleRule('opacity', '0');
 
       expect(loadingIconWrapper).toHaveStyleRule('position', 'absolute');
       expect(loadingIconWrapper).toHaveStyleRule('top', '0');
