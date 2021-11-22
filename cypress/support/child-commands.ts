@@ -22,5 +22,5 @@ declare namespace Cypress {
 }
 
 Cypress.Commands.add('shouldHaveAttribute', {prevSubject: 'element'}, (subject, attribute, value) => {
-  return cy.wrap(subject).should('have.attr', attribute, value);
+  cy.wrap(subject).should('have.attr', attribute, value);
 });
