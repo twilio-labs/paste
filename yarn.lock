@@ -5772,7 +5772,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cypress/request@npm:^2.88.7":
+"@cypress/request@npm:^2.88.6":
   version: 2.88.7
   resolution: "@cypress/request@npm:2.88.7"
   dependencies:
@@ -21888,11 +21888,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "cypress@npm:9.0.0"
+"cypress@npm:8.4.0":
+  version: 8.4.0
+  resolution: "cypress@npm:8.4.0"
   dependencies:
-    "@cypress/request": ^2.88.7
+    "@cypress/request": ^2.88.6
     "@cypress/xvfb": ^1.2.4
     "@types/node": ^14.14.31
     "@types/sinonjs__fake-timers": ^6.0.2
@@ -21926,7 +21926,7 @@ __metadata:
     minimist: ^1.2.5
     ospath: ^1.2.2
     pretty-bytes: ^5.6.0
-    proxy-from-env: 1.0.0
+    ramda: ~0.27.1
     request-progress: ^3.0.0
     supports-color: ^8.1.1
     tmp: ~0.2.1
@@ -21935,7 +21935,7 @@ __metadata:
     yauzl: ^2.10.0
   bin:
     cypress: bin/cypress
-  checksum: ae481f26f6a51370bad6571b7edd525559c0b4e36fb9c33ac26c822610bd2f0b419614f12c1d87aff59c46afb3c2f06f7e167f924023da65fe2a3987927255c8
+  checksum: 744913389efde81d5c336952069acadf215b48eb628d380bdd9d3bc1c2a1c1804e3fc710e094911d4ba6f700dde0469b5d4ccbd0fe13bd525f4a1507836d4a48
   languageName: node
   linkType: hard
 
@@ -38793,7 +38793,7 @@ is-whitespace@latest:
     concurrently: ^4.1.1
     cross-env: ^5.2.0
     csstype: ^2.6.10
-    cypress: ^9.0.0
+    cypress: 8.4.0
     danger: ^10.6.6
     del: ^5.1.0
     directory-named-webpack-plugin: ^4.0.1
@@ -40856,13 +40856,6 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-"proxy-from-env@npm:1.0.0":
-  version: 1.0.0
-  resolution: "proxy-from-env@npm:1.0.0"
-  checksum: 292e28d1de0c315958d71d8315eb546dd3cd8c8cbc2dab7c54eeb9f5c17f421771964ad0b5e1f77011bab2305bdae42e1757ce33bdb1ccc3e87732322a8efcf1
-  languageName: node
-  linkType: hard
-
 "proxy-from-env@npm:1.1.0":
   version: 1.1.0
   resolution: "proxy-from-env@npm:1.1.0"
@@ -41163,6 +41156,13 @@ is-whitespace@latest:
   version: 0.21.0
   resolution: "ramda@npm:0.21.0"
   checksum: e08d63c12ed4bab70bfd700a843901d9fa340d1a88c50085a6ef0ecf25f528e5ac7c71848481270923491e7315a34301bb35905d45861cb13cc75b8ca05add32
+  languageName: node
+  linkType: hard
+
+"ramda@npm:~0.27.1":
+  version: 0.27.1
+  resolution: "ramda@npm:0.27.1"
+  checksum: 31a0c0ef739b2525d7615f84cbb5d3cb89ee0c795469b711f729ea1d8df0dccc3cd75d3717a1e9742d42315ce86435680b7c87743eb7618111c60c144a5b8059
   languageName: node
   linkType: hard
 

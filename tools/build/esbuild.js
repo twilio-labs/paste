@@ -81,14 +81,11 @@ function build(packageJson) {
       minify: true,
       format: 'cjs',
       outfile: outFileCJS,
-      // outdir: 'dist',
+
       // Needed to fix ES6 module import paths for CJS builds
       plugins: [PasteCJSResolverPlugin],
     })
-    .catch((error) => {
-      console.log(error);
-      process.exit(1);
-    });
+    .catch(() => process.exit(1));
 
   esbuild
     .build({
