@@ -45,7 +45,7 @@ const Roadmap: React.FC<RoadmapProps> = ({data}) => {
             <Box key={useUID()} id={releaseSlug} data-cy={`release-container-#${releaseSlug}`}>
               <Heading as="h2" variant="heading20">
                 <Box as="span" display="flex" alignItems="center">
-                  Release - {`${release.release}`}
+                  Release - {release.release}
                   <StyledAnchorHyperlink href={`#${releaseSlug}`} data-cy="anchored-heading-h2">
                     #
                   </StyledAnchorHyperlink>
