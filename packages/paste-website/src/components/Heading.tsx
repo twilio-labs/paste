@@ -3,7 +3,7 @@ import {Heading, HeadingProps} from '@twilio-paste/heading';
 import {styled, themeGet} from '@twilio-paste/styling-library';
 import {slugify} from '../utils/RouteUtils';
 
-const StyledAnchorHyperlink = styled.a`
+export const StyledAnchorHyperlink = styled.a`
   text-decoration: none;
   margin-left: ${themeGet('space.space30')};
   color: ${themeGet('textColors.colorTextWeak')};
