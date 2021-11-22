@@ -2,10 +2,11 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Badge} from '@twilio-paste/badge';
+import {Anchor} from '@twilio-paste/anchor';
+import {LinkIcon} from '@twilio-paste/icons/esm/LinkIcon';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
 import {Stack} from '@twilio-paste/stack';
 import {useUID} from '@twilio-paste/uid-library';
-import {StyledAnchorHyperlink} from '../Heading';
 import {Statuses} from './constants';
 import type {RoadmapProps} from './types';
 import {slugify} from '../../utils/RouteUtils';
@@ -46,9 +47,14 @@ const Roadmap: React.FC<RoadmapProps> = ({data}) => {
               <Heading as="h2" variant="heading20">
                 <Box as="span" display="flex" alignItems="center">
                   Release - {release.release}
-                  <StyledAnchorHyperlink href={`#${releaseSlug}`} data-cy="anchored-heading-h2">
-                    #
-                  </StyledAnchorHyperlink>
+                  <Anchor data-cy="anchored-heading-h2" href={`#${releaseSlug}`}>
+                    <LinkIcon
+                      color="colorTextIcon"
+                      decorative={false}
+                      title={`${release.release} page anchor`}
+                      size="sizeIcon40"
+                    />
+                  </Anchor>
                 </Box>
               </Heading>
               <Table>
