@@ -17,7 +17,7 @@ declare namespace Cypress {
      * @alias `should('have.attr')`
      * @example cy.get('[data-cy="my-selector"]').shouldHaveAttribute('href', '#overview');
      */
-    shouldHaveAttribute(subject: Chainable<Subject>, key: string, value: any): void;
+    shouldHaveAttribute(key: string, value: any): void;
   }
 }
 
