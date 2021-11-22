@@ -49,7 +49,8 @@ export const TableOfContentsListItem = styled.li<TableOfContentsListItemProps>`
     }
   }
 
-  &:hover {
+  &:hover,
+  &:focus-within {
     a {
       border-color: ${themeGet('borderColors.colorBorderPrimaryStronger')};
     }
@@ -58,10 +59,6 @@ export const TableOfContentsListItem = styled.li<TableOfContentsListItemProps>`
   }
 
   &:focus-within {
-    a {
-      border-color: ${themeGet('borderColors.colorBorderPrimaryStronger')};
-    }
-    color: ${themeGet('textColors.colorTextLinkStronger')};
     box-shadow: ${themeGet('shadows.shadowFocus')};
   }
 `;
