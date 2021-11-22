@@ -87,7 +87,7 @@ declare namespace Cypress {
 Cypress.Commands.add('getDocsPageContentArea', () => cy.get('#paste-docs-content-area'));
 
 Cypress.Commands.add('pageHeaderShouldBeVisible', (headerText) => {
-  return cy.contains('h1', headerText, {matchCase: false}).should('be.visible');
+  cy.contains('h1', headerText, {matchCase: false}).should('be.visible');
 });
 
 Cypress.Commands.add('overviewTableRendersCorrectly', () => {
