@@ -59,6 +59,30 @@ jobs:
             packages/paste-design-tokens/types/**/*
             packages/paste-codemods/tools/.cache/mappings.json
 
+  build_website:
+    name: Build website
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Dependencies
+        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: yarn install --immutable
+
+      - name: Build website
+        run: yarn build:website
+        env:
+          AIRTABLE_APIKEY: ${{ secrets.AIRTABLE_APIKEY }}
+          AIRTABLE_BASEID: ${{ secrets.AIRTABLE_BASEID }}
+          GATSBY_DOCSEARCH_APIKEY: ${{ secrets.GATSBY_DOCSEARCH_APIKEY }}
+
+      - name: Store build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: compiled-website
+          path: |
+            packages/paste-website/dist/**/*
+
   type_check:
     name: Type check
     needs: build
@@ -360,7 +384,7 @@ jobs:
 
   cypress:
     name: Website tests
-    needs: build
+    needs: [build, build_website]
     runs-on: ubuntu-latest
     strategy:
       # when one test fails, DO NOT cancel the other
@@ -402,10 +426,6 @@ jobs:
             */*/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Install Dependencies
-        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --immutable
-
       # Cypress won't cache it's binary so you always have to run yarn install
       - name: Install Dependencies
         run: yarn install --immutable
@@ -416,12 +436,25 @@ jobs:
           name: compiled-js-and-types
           path: packages/
 
-      - name: Build website
-        run: yarn build:website
+      - name: Download website build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: compiled-website
+          path: packages/paste-website/
+
+      - name: Verify Cypress
         env:
-          AIRTABLE_APIKEY: ${{ secrets.AIRTABLE_APIKEY }}
-          AIRTABLE_BASEID: ${{ secrets.AIRTABLE_BASEID }}
-          GATSBY_DOCSEARCH_APIKEY: ${{ secrets.GATSBY_DOCSEARCH_APIKEY }}
+          # make sure every Cypress install prints minimal information
+          CI: 1
+        # print Cypress and OS info
+        run: |
+          yarn cypress verify
+          yarn cypress info
+          yarn cypress version
+          yarn cypress version --component package
+          yarn cypress version --component binary
+          yarn cypress version --component electron
+          yarn cypress version --component node
 
       - name: Run cypress
         run: yarn test:website
