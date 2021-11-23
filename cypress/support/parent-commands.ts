@@ -170,7 +170,10 @@ Cypress.Commands.add('checkDoDonts', () => {
 });
 
 Cypress.Commands.add('checkChangelogRevealer', () => {
-  cy.getInFixedContainer('#component-changelog').contains('h2', 'Changelog').should('be.visible').click();
+  cy.getInFixedContainer('#component-changelog')
+    .contains('h2', 'Changelog')
+    .should('be.visible')
+    .click({scrollBehavior: 'center'});
 
   cy.getInFixedContainer('[data-cy="changelog-revealer-content"]').should('be.visible');
 });
@@ -180,8 +183,10 @@ Cypress.Commands.add('getInFixedContainer', (selector) => {
 
   return cy
     .get('@target')
+    .scrollIntoView()
     .invoke('innerHeight')
+    .should('be.a', 'number')
     .then((height) => {
-      cy.get('@target').scrollIntoView({offset: {top: (height as number) / 2, left: 0}});
+      cy.get('@target').scrollIntoView({offset: {top: (height as number) / 2, left: 0}, ensureScrollable: true});
     });
 });
