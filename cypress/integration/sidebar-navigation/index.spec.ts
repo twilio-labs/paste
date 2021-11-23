@@ -1,6 +1,10 @@
 describe('Sidebar navigation', () => {
   beforeEach(() => {
+    // The sidebar navigation requires this endpoint's data to load in order for the expected behavior to be functional.
+    cy.intercept('/page-data/index/page-data.json').as('indexPageData');
     cy.visit('/');
+    // waiting for the data to load ensures that our tests only run when the page is ready to be interacted with.
+    cy.wait('@indexPageData');
   });
 
   it('opens the sidebar disclosures', () => {
