@@ -84,7 +84,11 @@ function build(packageJson) {
       // Needed to fix ES6 module import paths for CJS builds
       plugins: [PasteCJSResolverPlugin],
     })
-    .catch(() => process.exit(1));
+    .catch((error) => {
+      console.error(error);
+      // eslint-disable-next-line unicorn/no-process-exit
+      return process.exit(1);
+    });
 
   esbuild
     .build({
@@ -93,7 +97,11 @@ function build(packageJson) {
       format: 'esm',
       outfile: outFileESM,
     })
-    .catch(() => process.exit(1));
+    .catch((error) => {
+      console.error(error);
+      // eslint-disable-next-line unicorn/no-process-exit
+      return process.exit(1);
+    });
 
   // Debug
   esbuild
@@ -104,7 +112,11 @@ function build(packageJson) {
       // Needed to fix ES6 module import paths for CJS builds
       plugins: [PasteCJSResolverPlugin],
     })
-    .catch(() => process.exit(1));
+    .catch((error) => {
+      console.error(error);
+      // eslint-disable-next-line unicorn/no-process-exit
+      return process.exit(1);
+    });
 
   esbuild
     .build({
@@ -112,7 +124,11 @@ function build(packageJson) {
       format: 'esm',
       outfile: outFileESM.replace('.es.js', '.debug.es.js'),
     })
-    .catch(() => process.exit(1));
+    .catch((error) => {
+      console.error(error);
+      // eslint-disable-next-line unicorn/no-process-exit
+      return process.exit(1);
+    });
 }
 
 module.exports = {build};
