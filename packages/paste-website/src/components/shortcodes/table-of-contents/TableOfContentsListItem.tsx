@@ -27,35 +27,15 @@ export const TableOfContentsListItem = styled.li<TableOfContentsListItemProps>`
   margin-top: ${marginTopPartial};
   font-size: ${fontSizePartial};
   line-height: ${lineHeightPartial};
-  color: ${themeGet('textColors.colorTextWeak')};
   border-radius: 2px;
-
-  a {
-    border-left-width: 2px;
-    border-left-style: solid;
-    border-left-color: transparent;
-
-    &:focus {
-      outline: none;
-    }
-  }
 
   &.is-current {
     font-weight: ${themeGet('fontWeights.fontWeightSemibold')};
-    color: ${themeGet('textColors.colorTextLink')};
 
     a {
+      color: ${themeGet('textColors.colorTextLink')};
       border-color: ${themeGet('borderColors.colorBorderPrimary')};
     }
-  }
-
-  &:hover,
-  &:focus-within {
-    a {
-      border-color: ${themeGet('borderColors.colorBorderPrimaryStronger')};
-    }
-
-    color: ${themeGet('textColors.colorTextLinkStronger')};
   }
 
   &:focus-within {
