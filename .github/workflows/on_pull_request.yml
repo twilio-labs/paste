@@ -104,6 +104,7 @@ jobs:
         with:
           name: compiled-js-and-types
           path: packages/
+          if-no-files-found: error
 
       - name: Build website
         run: yarn build:website
@@ -116,7 +117,9 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: compiled-website
-          path: packages/paste-website/public/**/*
+          path: |
+            packages/paste-website/.cache/mappings.json
+            packages/paste-website/public/**/*
 
   # type_check:
   #   name: Type check
@@ -429,7 +432,8 @@ jobs:
       fail-fast: false
       matrix:
         # run 3 copies of the current job in parallel, all load-balanced
-        machines: [1, 2, 3]
+        machines: [1]
+        #machines: [1, 2, 3]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -469,6 +473,7 @@ jobs:
         with:
           name: compiled-website
           path: packages/paste-website/
+          if-no-files-found: error
 
       - name: Verify Cypress
         env:
