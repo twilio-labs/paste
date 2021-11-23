@@ -59,6 +59,67 @@ jobs:
             packages/paste-design-tokens/types/**/*
             packages/paste-codemods/tools/.cache/mappings.json
 
+  build_website:
+    name: Build website
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js 12.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - name: Load Yarn cache
+        uses: actions/cache@v2
+        id: yarn_cache_id
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn
+      - name: Node modules cache
+        uses: actions/cache@v2
+        id: node_modules_cache_id
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Dependencies
+        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: yarn install --immutable
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: compiled-js-and-types
+          path: packages/
+          if-no-files-found: error
+
+      - name: Build website
+        run: yarn build:website
+        env:
+          AIRTABLE_APIKEY: ${{ secrets.AIRTABLE_APIKEY }}
+          AIRTABLE_BASEID: ${{ secrets.AIRTABLE_BASEID }}
+          GATSBY_DOCSEARCH_APIKEY: ${{ secrets.GATSBY_DOCSEARCH_APIKEY }}
+
+      - name: Store build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: compiled-website
+          path: |
+            packages/paste-website/.cache/mappings.json
+            packages/paste-website/public/**/*
+
   type_check:
     name: Type check
     needs: build
@@ -360,7 +421,7 @@ jobs:
 
   cypress:
     name: Website tests
-    needs: build
+    needs: [build, build_website]
     runs-on: ubuntu-latest
     strategy:
       # when one test fails, DO NOT cancel the other
@@ -410,18 +471,26 @@ jobs:
       - name: Install Dependencies
         run: yarn install --immutable
 
-      - name: Download build artifacts
+      - name: Download website build artifact
         uses: actions/download-artifact@v2
         with:
-          name: compiled-js-and-types
-          path: packages/
+          name: compiled-website
+          path: packages/paste-website/
+          if-no-files-found: error
 
-      - name: Build website
-        run: yarn build:website
+      - name: Verify Cypress
         env:
-          AIRTABLE_APIKEY: ${{ secrets.AIRTABLE_APIKEY }}
-          AIRTABLE_BASEID: ${{ secrets.AIRTABLE_BASEID }}
-          GATSBY_DOCSEARCH_APIKEY: ${{ secrets.GATSBY_DOCSEARCH_APIKEY }}
+          # make sure every Cypress install prints minimal information
+          CI: 1
+        # print Cypress and OS info
+        run: |
+          yarn cypress verify
+          yarn cypress info
+          yarn cypress version
+          yarn cypress version --component package
+          yarn cypress version --component binary
+          yarn cypress version --component electron
+          yarn cypress version --component node
 
       - name: Run cypress
         run: yarn test:website
