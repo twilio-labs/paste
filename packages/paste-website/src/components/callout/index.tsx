@@ -12,13 +12,29 @@ interface CalloutTitleProps {
 }
 
 const CalloutTitle: React.FC<CalloutTitleProps> = ({as = 'h3', children}) => (
-  <Text as={as} color="currentColor" marginBottom="space30" lineHeight="lineHeight40">
+  <Text as={as} color="currentColor" lineHeight="lineHeight40">
     {children}
   </Text>
 );
 
 const CalloutText: React.FC = ({children}) => (
-  <Text as="p" color="currentColor" lineHeight="lineHeight40" marginBottom="space40">
+  <Text as="p" color="currentColor" lineHeight="lineHeight40">
+    {children}
+  </Text>
+);
+
+interface CalloutListProps {
+  as: 'ul' | 'ol';
+}
+
+const CalloutList: React.FC<CalloutListProps> = ({as = 'ul', children}) => (
+  <Box as={as} margin="space0" display="flex" flexDirection="column" rowGap="space30" paddingLeft="space60">
+    {children}
+  </Box>
+);
+
+const CalloutListItem: React.FC = ({children}) => (
+  <Text as="li" color="currentColor">
     {children}
   </Text>
 );
@@ -53,7 +69,9 @@ const Callout: React.FC<CalloutProps> = ({variant, children}) => {
       <Box marginRight="space40" paddingTop="space10">
         {icon}
       </Box>
-      <Box flex="1">{children}</Box>
+      <Box display="flex" flexDirection="column" rowGap="space30" flex="1">
+        {children}
+      </Box>
     </Box>
   );
 };
@@ -62,4 +80,4 @@ Callout.defaultProps = {
   variant: 'info',
 };
 
-export {Callout, CalloutTitle, CalloutText};
+export {Callout, CalloutTitle, CalloutText, CalloutList, CalloutListItem};

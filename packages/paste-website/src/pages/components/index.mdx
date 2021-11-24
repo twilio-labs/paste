@@ -13,7 +13,7 @@ import {SiteLink} from '../../components/SiteLink.tsx';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
 import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {Callout, CalloutTitle, CalloutText, CalloutList, CalloutListItem} from '../../components/callout';
 
 <content>
 
@@ -39,27 +39,27 @@ import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 
 <Callout>
   <CalloutTitle as="h2">Don't see a component, primitive, or layout you need listed here?</CalloutTitle>
-  <Box as="ul" margin="space0">
-    <Text as="li" marginBottom="space40" color="currentColor">
+  <CalloutList>
+    <CalloutListItem>
       First off, we recommend <SiteLink to="/roadmap">checking our roadmap</SiteLink>.
-    </Text>
-    <Text as="li" marginBottom="space40" color="currentColor">
+    </CalloutListItem>
+    <CalloutListItem>
       Secondly, we recommend{' '}
       <Anchor href="https://github.com/twilio-labs/paste/issues">creating an issue on GitHub</Anchor> with your
       component, primitive, or proposal.
-    </Text>
-    <Text as="li" marginBottom="space40" color="currentColor">
+    </CalloutListItem>
+    <CalloutListItem>
       While not all requests are accepted for the design system, we may be able to suggest suitable alternatives - for
       this, drop us a note on #help-design-system or join our Weekly Office hours.
-    </Text>
-    <Text as="li" color="currentColor">
+    </CalloutListItem>
+    <CalloutListItem>
       We've also written a guide for{' '}
       <Anchor href="/customization/composing-custom-components-with-design-tokens">
         how you can build custom components with Tokens
       </Anchor>{' '}
       and still benefit from Paste design updates
-    </Text>
-  </Box>
+    </CalloutListItem>
+  </CalloutList>
 </Callout>
 
 </content>
