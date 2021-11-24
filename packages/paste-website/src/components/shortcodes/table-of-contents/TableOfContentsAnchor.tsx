@@ -9,10 +9,22 @@ export const TableOfContentsAnchor: React.FC<TableOfContentsAnchorProps> = ({hre
       as="a"
       href={href}
       data-cy="page-aside-anchor"
-      color="inherit"
+      color="colorTextWeak"
       textDecoration="none"
       display="inline-block"
       width="100%"
+      borderLeftColor="transparent"
+      borderLeftStyle="solid"
+      borderLeftWidth="borderWidth20"
+      _focus={{
+        outline: 'none',
+        borderLeftColor: 'colorBorderPrimaryStronger',
+        color: 'colorTextLinkStronger',
+      }}
+      _hover={{
+        borderLeftColor: 'colorBorderPrimaryStronger',
+        color: 'colorTextLinkStronger',
+      }}
     >
       {children}
     </Box>

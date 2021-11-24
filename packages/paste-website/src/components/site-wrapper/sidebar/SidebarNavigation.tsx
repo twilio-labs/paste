@@ -202,6 +202,11 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
                   Upgrade Guide
                 </SidebarAnchor>
               </SidebarNestedItem>
+              <SidebarNestedItem>
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.CORE}/changing-theme`}>
+                  Changing the Theme
+                </SidebarAnchor>
+              </SidebarNestedItem>
             </SidebarNestedList>
           </DisclosurePrimitiveContent>
         </SidebarItem>

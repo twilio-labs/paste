@@ -14,6 +14,8 @@ const StyledSiteBody = styled.div`
   display: flex;
   min-width: 240px;
   overflow: auto;
+  /* note: needed for scrollspy, removing position breaks site layout  */
+  position: relative;
 
   @supports (scroll-behavior: smooth) {
     scroll-behavior: smooth;
