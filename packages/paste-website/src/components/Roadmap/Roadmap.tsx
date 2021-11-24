@@ -40,13 +40,14 @@ const Roadmap: React.FC<RoadmapProps> = ({data}) => {
     <Box width="100%">
       <Stack orientation="vertical" spacing="space190">
         {data.map((release) => {
-          const releaseSlug = `#${slugify(release.release)}`;
+          const releaseSlug = slugify(release.release);
+
           return (
-            <Box key={useUID()} id={releaseSlug} data-cy={`release-container-${releaseSlug}`}>
+            <Box key={useUID()} id={releaseSlug} data-cy={`release-container-#${releaseSlug}`}>
               <Heading as="h2" variant="heading20">
                 <Box as="span" display="flex" alignItems="center">
-                  Release - {release.release}{' '}
-                  <Anchor data-cy="anchored-heading-h2" href={releaseSlug}>
+                  Release - {release.release}
+                  <Anchor data-cy="anchored-heading-h2" href={`#${releaseSlug}`}>
                     <LinkIcon
                       color="colorTextIcon"
                       decorative={false}

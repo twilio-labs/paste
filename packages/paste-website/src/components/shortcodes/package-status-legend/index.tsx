@@ -6,7 +6,7 @@ import type {BadgeVariants} from '@twilio-paste/badge/src/types';
 import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
 import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
 
-import {BadgePopoverButton, BadgePopoverContainer, BadgePopover} from '../../badgePopover';
+import {BadgePopoverButton, BadgePopoverContainer, BadgePopover} from '../../badge-popover';
 import {StatusDescriptions} from '../../../constants';
 
 interface PackageStatusLegendProps {
@@ -59,19 +59,22 @@ const PackageStatusLegend: React.FC<PackageStatusLegendProps> = ({
   designCommitteeReview,
   engineerCommitteeReview,
 }) => {
-  const shouldShowStatus = packageStatus || !figmaStatus || !designCommitteeReview || !engineerCommitteeReview;
+  const shouldShowFigma = figmaStatus === null;
+  const shouldShowPeerReview = designCommitteeReview === null || engineerCommitteeReview === null;
+
+  const shouldShowStatus = packageStatus || shouldShowFigma || shouldShowPeerReview;
 
   if (shouldShowStatus) {
     return (
-      <Box display="flex" alignItems="center" flexWrap="wrap" flexGrow={1} columnGap="space40">
+      <Box display="flex" alignItems="center" flexGrow={1} columnGap="space40">
         {packageStatus && <PackageStatusBadge status={packageStatus} />}
-        {!figmaStatus && (
+        {shouldShowFigma && (
           <Badge as="span" variant="default">
             <ProcessDraftIcon decorative size="sizeIcon10" />
             <Box>Design assets pending</Box>
           </Badge>
         )}
-        {!designCommitteeReview || !engineerCommitteeReview ? (
+        {shouldShowPeerReview ? (
           <Badge as="span" variant="default">
             <ProcessDraftIcon decorative size="sizeIcon10" />
             <Box>Peer review pending</Box>
