@@ -6,7 +6,7 @@ import type {TextAlign} from '@twilio-paste/style-props';
 
 export interface TdProps {
   textAlign?: TextAlign;
-  onMouseDown?: React.MouseEventHandler;
+  onClick?: React.MouseEventHandler;
   element?: BoxElementProps['element'];
 }
 
@@ -43,6 +43,6 @@ export const Td = React.forwardRef<HTMLTableCellElement, TdProps>(
 
 Td.displayName = 'Td';
 Td.propTypes = {
-  onMouseDown: PropTypes.func,
+  onClick: PropTypes.func,
   element: PropTypes.string,
 };
