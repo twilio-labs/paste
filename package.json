@@ -116,7 +116,6 @@
     "@storybook/addons": "^6.2.9",
     "@storybook/core": "^6.2.9",
     "@storybook/react": "^6.2.9",
-    "@styled-system/should-forward-prop": "^5.1.5",
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.2",
     "@testing-library/react-hooks": "^3.4.2",

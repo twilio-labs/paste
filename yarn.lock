@@ -10660,7 +10660,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@styled-system/should-forward-prop@npm:^5.1.5":
+"@styled-system/should-forward-prop@npm:5.1.5":
   version: 5.1.5
   resolution: "@styled-system/should-forward-prop@npm:5.1.5"
   dependencies:
@@ -12914,6 +12914,7 @@ __metadata:
     "@emotion/core": 10.0.28
     "@emotion/styled": 10.0.27
     "@styled-system/css": 5.1.5
+    "@styled-system/should-forward-prop": 5.1.5
     "@styled-system/theme-get": 5.1.2
     "@types/styled-system": ^5.1.9
     "@types/styled-system__css": ^5.0.5
@@ -38699,7 +38700,6 @@ is-whitespace@latest:
     "@storybook/addons": ^6.2.9
     "@storybook/core": ^6.2.9
     "@storybook/react": ^6.2.9
-    "@styled-system/should-forward-prop": ^5.1.5
     "@testing-library/jest-dom": ^5.11.5
     "@testing-library/react": ^11.1.2
     "@testing-library/react-hooks": ^3.4.2
