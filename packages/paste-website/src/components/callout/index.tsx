@@ -33,6 +33,10 @@ const CalloutList: React.FC<CalloutListProps> = ({as = 'ul', children}) => (
   </Box>
 );
 
+CalloutList.defaultProps = {
+  as: 'ul',
+};
+
 const CalloutListItem: React.FC = ({children}) => (
   <Text as="li" color="currentColor">
     {children}
