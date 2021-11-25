@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/checkbox",
-  "version": "6.1.2",
+  "version": "6.1.3",
   "category": "user input",
   "status": "production",
   "description": "A Checkbox is a form element that enables a binary choice and a Checkbox Group is a collection of Checkboxes.",
@@ -48,9 +48,9 @@
   "devDependencies": {
     "@twilio-paste/base-radio-checkbox": "^6.0.5",
     "@twilio-paste/box": "^4.2.5",
-    "@twilio-paste/design-tokens": "^6.14.1",
+    "@twilio-paste/design-tokens": "^6.14.2",
     "@twilio-paste/help-text": "^6.1.1",
-    "@twilio-paste/icons": "^5.8.1",
+    "@twilio-paste/icons": "^5.9.0",
     "@twilio-paste/inline-control-group": "^6.1.1",
     "@twilio-paste/label": "^6.0.6",
     "@twilio-paste/media-object": "^4.1.1",

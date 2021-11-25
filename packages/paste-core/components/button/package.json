@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/button",
-  "version": "7.0.11",
+  "version": "7.1.0",
   "category": "interaction",
   "status": "production",
   "description": "A Button is a clickable element which communicates that users can trigger an action.",
@@ -48,8 +48,8 @@
     "@twilio-paste/anchor": "^5.1.2",
     "@twilio-paste/animation-library": "^0.3.3",
     "@twilio-paste/box": "^4.2.5",
-    "@twilio-paste/design-tokens": "^6.14.1",
-    "@twilio-paste/icons": "^5.8.1",
+    "@twilio-paste/design-tokens": "^6.14.2",
+    "@twilio-paste/icons": "^5.9.0",
     "@twilio-paste/spinner": "^7.2.2",
     "@twilio-paste/stack": "^2.1.1",
     "@twilio-paste/style-props": "^3.1.1",

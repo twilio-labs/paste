@@ -1,5 +1,28 @@
 # Change Log
 
+## 10.18.0
+
+### Minor Changes
+
+- [`1b6b78fa`](https://github.com/twilio-labs/paste/commit/1b6b78fa416bf15903493cc570275d94e08a8636) [#2013](https://github.com/twilio-labs/paste/pull/2013) Thanks [@gloriliale](https://github.com/gloriliale)! - [Button] Add variants to be used specifically with icons.
+
+### Patch Changes
+
+- [`be59394d2`](https://github.com/twilio-labs/paste/commit/be59394d282ed46dfe7c41ef2dc16372d1da3947) [#2057](https://github.com/twilio-labs/paste/pull/2057) Thanks [@zahnster](https://github.com/zahnster)! - [Checkbox] Declare relative position on checkbox to fix focus position bug
+
+* [`0f0a9bdd1`](https://github.com/twilio-labs/paste/commit/0f0a9bdd1392db27377c3c1e2f9881ac5afc85b8) [#2075](https://github.com/twilio-labs/paste/pull/2075) Thanks [@TheSisb](https://github.com/TheSisb)! - [Data-grid] Fixes issue where inner links would at times not be clickable.
+
+- [`97da2b6b7`](https://github.com/twilio-labs/paste/commit/97da2b6b79eb7b5667f39aac483f83474ba6189e) [#2028](https://github.com/twilio-labs/paste/pull/2028) Thanks [@gloriliale](https://github.com/gloriliale)! - [design-tokens] Changed the alias that Dark mode's color-text-icon points to from gray-10 to gray-60
+
+* [`1b77d45b`](https://github.com/twilio-labs/paste/commit/1b77d45b598b5924893e26a770798a1e1df73f2e) [#2029](https://github.com/twilio-labs/paste/pull/2029) Thanks [@shleewhite](https://github.com/shleewhite)! - Export the BadgeProps type and correctly pass the ref to the wrapper element when the Badge is focusable.
+
+* Updated dependencies [[`be59394d2`](https://github.com/twilio-labs/paste/commit/be59394d282ed46dfe7c41ef2dc16372d1da3947), [`1b6b78fa`](https://github.com/twilio-labs/paste/commit/1b6b78fa416bf15903493cc570275d94e08a8636), [`0f0a9bdd1`](https://github.com/twilio-labs/paste/commit/0f0a9bdd1392db27377c3c1e2f9881ac5afc85b8), [`97da2b6b7`](https://github.com/twilio-labs/paste/commit/97da2b6b79eb7b5667f39aac483f83474ba6189e), [`1b77d45b`](https://github.com/twilio-labs/paste/commit/1b77d45b598b5924893e26a770798a1e1df73f2e)]:
+  - @twilio-paste/checkbox@6.1.3
+  - @twilio-paste/button@7.1.0
+  - @twilio-paste/data-grid@0.2.1
+  - @twilio-paste/design-tokens@6.14.2
+  - @twilio-paste/badge@1.1.2
+
 ## 10.17.0
 
 ### Minor Changes
