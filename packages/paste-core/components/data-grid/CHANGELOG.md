@@ -1,5 +1,11 @@
 # @twilio-paste/data-grid
 
+## 0.2.1
+
+### Patch Changes
+
+- [`0f0a9bdd1`](https://github.com/twilio-labs/paste/commit/0f0a9bdd1392db27377c3c1e2f9881ac5afc85b8) [#2075](https://github.com/twilio-labs/paste/pull/2075) Thanks [@TheSisb](https://github.com/TheSisb)! - [Data-grid] Fixes issue where inner links would at times not be clickable.
+
 ## 0.2.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @twilio-paste/badge
 
+## 1.1.2
+
+### Patch Changes
+
+- [`1b77d45b`](https://github.com/twilio-labs/paste/commit/1b77d45b598b5924893e26a770798a1e1df73f2e) [#2029](https://github.com/twilio-labs/paste/pull/2029) Thanks [@shleewhite](https://github.com/shleewhite)! - Export the BadgeProps type and correctly pass the ref to the wrapper element when the Badge is focusable.
+
 ## 1.1.1
 
 ### Patch Changes
