@@ -91,7 +91,7 @@ const MDXPoviderComponents = {
   img: (props: React.ComponentProps<'img'>): React.ReactElement => <img {...props} />, // eslint-disable-line jsx-a11y/alt-text
   sup: (props: React.ComponentProps<'sup'>): React.ReactElement => <StyledSup {...props} />,
   content: (props: Omit<React.ComponentProps<'div'>, 'color' | 'ref'>): React.ReactElement => (
-    <Box as="div" maxWidth="size70" {...props} />
+    <Box as="div" maxWidth="size70" minWidth="0" {...props} />
   ),
   contentwrapper: (props: Omit<React.ComponentProps<'div'>, 'color' | 'ref'>): React.ReactElement => (
     <Box as="div" display={['block', 'block', 'flex']} {...props} />
