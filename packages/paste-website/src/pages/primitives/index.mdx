@@ -15,8 +15,6 @@ import {ComponentOverviewTable} from '../../components/component-overview-table'
 import {SidebarCategoryRoutes} from '../../constants';
 import {Callout, CalloutTitle, CalloutText, CalloutList, CalloutListItem} from '../../components/callout';
 
-<content>
-
 <Breadcrumb>
   <BreadcrumbItem to="/">Home</BreadcrumbItem>
 </Breadcrumb>
@@ -24,13 +22,7 @@ import {Callout, CalloutTitle, CalloutText, CalloutList, CalloutListItem} from '
   Primitives
 </Heading>
 
-</content>
-
 ---
-
-<contentwrapper>
-
-<content>
 
 <ComponentOverviewTable
   categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
@@ -61,10 +53,6 @@ import {Callout, CalloutTitle, CalloutText, CalloutList, CalloutListItem} from '
     </CalloutListItem>
   </CalloutList>
 </Callout>
-
-</content>
-
-</contentwrapper>
 
 export const pageQuery = graphql`
   {

@@ -15,8 +15,6 @@ import {ComponentOverviewTable} from '../../components/component-overview-table'
 import {SidebarCategoryRoutes} from '../../constants';
 import {Callout, CalloutTitle, CalloutText, CalloutList, CalloutListItem} from '../../components/callout';
 
-<content>
-
 <Breadcrumb>
   <BreadcrumbItem to="/">Home</BreadcrumbItem>
 </Breadcrumb>
@@ -24,13 +22,7 @@ import {Callout, CalloutTitle, CalloutText, CalloutList, CalloutListItem} from '
   Layout
 </Heading>
 
-</content>
-
 ---
-
-<contentwrapper>
-
-<content>
 
 <ComponentOverviewTable categoryRoute={SidebarCategoryRoutes.LAYOUT} componentsList={props.data.allAirtable.edges} />
 
@@ -58,10 +50,6 @@ import {Callout, CalloutTitle, CalloutText, CalloutList, CalloutListItem} from '
     </CalloutListItem>
   </CalloutList>
 </Callout>
-
-</content>
-
-</contentwrapper>
 
 export const pageQuery = graphql`
   {
