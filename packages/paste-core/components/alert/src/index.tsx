@@ -112,12 +112,12 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
           <MediaBody as="div">{children}</MediaBody>
           {onDismiss && typeof onDismiss === 'function' && (
             <MediaFigure align="end" spacing="space60">
-              <Button onClick={onDismiss} variant="link" size="reset" element={`${element}_DISMISS_BUTTON`}>
+              <Button onClick={onDismiss} variant="secondary_icon" size="reset" element={`${element}_DISMISS_BUTTON`}>
                 <CloseIcon
                   element={`${element}_DISMISS_ICON`}
                   color="colorTextIcon"
                   decorative={false}
-                  title="dismiss this alert"
+                  title="Dismiss alert"
                   size="sizeIcon20"
                 />
               </Button>

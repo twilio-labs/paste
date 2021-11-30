@@ -89,7 +89,7 @@ const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
             <MediaFigure align="end" spacing="space40">
               <Button
                 onClick={onDismiss}
-                variant="link"
+                variant="secondary_icon"
                 ref={buttonRef}
                 size="reset"
                 element={`${element}_CLOSE_BUTTON`}
@@ -97,7 +97,7 @@ const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
                 <CloseIcon
                   color="colorTextIcon"
                   decorative={false}
-                  title="dismiss this toast"
+                  title="Dismiss toast"
                   size="sizeIcon20"
                   element={`${element}_CLOSE_ICON`}
                 />

@@ -73,7 +73,7 @@ describe('Toaster', () => {
           <Toaster {...mockToasterState} data-testid="toaster" />
         </Theme.Provider>
       );
-      const dismissButton = screen.getByRole('button', {name: /dismiss this toast/i});
+      const dismissButton = screen.getByRole('button', {name: /dismiss toast/i});
       expect(document.activeElement).toEqual(dismissButton);
     });
 
@@ -100,7 +100,7 @@ describe('Toaster', () => {
           <Toaster {...mockToasterState} data-testid="toaster" />
         </Theme.Provider>
       );
-      const dismissButton = screen.getByText('dismiss this toast');
+      const dismissButton = screen.getByText('Dismiss toast');
       fireEvent.click(dismissButton);
       expect(mockDismiss).toHaveBeenCalledWith('custom_id');
     });
@@ -157,7 +157,7 @@ describe('Toaster', () => {
       fireEvent.click(triggerButton);
       const renderedToasts = screen.getAllByRole('status');
       expect(renderedToasts.length).toEqual(1);
-      expect(document.activeElement).toEqual(screen.getByRole('button', {name: /dismiss this toast/i}));
+      expect(document.activeElement).toEqual(screen.getByRole('button', {name: /dismiss toast/i}));
     });
 
     it('should handle clicking the dismiss button', async () => {
@@ -165,7 +165,7 @@ describe('Toaster', () => {
       const triggerButton = screen.getByText('Add toast');
       fireEvent.click(triggerButton);
       rerender(<MockToasterTrigger />);
-      const dismissButton = screen.getByRole('button', {name: /dismiss this toast/i});
+      const dismissButton = screen.getByRole('button', {name: /dismiss toast/i});
       fireEvent.click(dismissButton);
       rerender(<MockToasterTrigger />);
       await waitFor(() => {
