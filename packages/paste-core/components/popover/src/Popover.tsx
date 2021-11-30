@@ -46,7 +46,7 @@ const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(({children, eleme
           <Box position="absolute" right={8} top={8}>
             <Button
               element={`${element}_CLOSE_BUTTON`}
-              variant="reset"
+              variant="secondary_icon"
               size="reset"
               // @ts-ignore
               // Property 'hide' does not exist on type 'Partial<PopoverState>'
