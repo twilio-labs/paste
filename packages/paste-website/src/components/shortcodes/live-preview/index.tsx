@@ -1,12 +1,18 @@
 // https://github.com/FormidableLabs/react-live
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
 import {LiveProvider, LiveEditor, LiveError, LivePreview as ReactLivePreview} from 'react-live';
+import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
 import {useTheme} from '@twilio-paste/theme';
+import {useUID} from '@twilio-paste/uid-library';
+import {ShowIcon} from '@twilio-paste/icons/esm/ShowIcon';
+import {HideIcon} from '@twilio-paste/icons/esm/HideIcon';
 import {CodeblockTheme} from './theme';
+import {CodeBlockOverlayShadow} from './CodeBlockOverlayShadow';
 import type {Language} from '../../codeblock';
+import {CopyButton} from '../../CopyButton';
 
-interface CodeblockProps {
+interface LivePreviewProps {
   children: string;
   scope: {[key: string]: any};
   language?: Language;
@@ -14,15 +20,25 @@ interface CodeblockProps {
   noInline?: boolean;
 }
 
-// FIXME use tokens for theme and LiveEditor
-const LivePreview: React.FC<CodeblockProps> = ({
+const LivePreview: React.FC<LivePreviewProps> = ({
   children,
   language = 'jsx',
-  scope,
   disabled = false,
   noInline = false,
+  scope,
 }) => {
+  const [viewCode, setViewCode] = React.useState(false);
+  const id = useUID();
+
   const pasteTheme = useTheme();
+
+  // Display different UI if codeblock is small
+  const isSmallCodeVariant = (children.match(/\n/g) || '').length + 1 <= 3;
+
+  const handleToggleCodeEditor = (): void => {
+    setViewCode(!viewCode);
+  };
+
   return (
     <Box marginBottom="space110" data-cy="live-preview">
       <LiveProvider
@@ -30,26 +46,26 @@ const LivePreview: React.FC<CodeblockProps> = ({
         scope={scope}
         language={language}
         theme={CodeblockTheme}
-        disabled={disabled}
         noInline={noInline}
+        disabled={disabled}
       >
         <Box
-          paddingLeft="space50"
-          paddingRight="space50"
-          paddingTop="space80"
-          paddingBottom="space80"
+          padding="space70"
           borderColor="colorBorderWeak"
           borderStyle="solid"
           borderWidth="borderWidth20"
-          borderBottomWidth="borderWidth0"
           backgroundColor="colorBackgroundBody"
           borderTopLeftRadius="borderRadius20"
           borderTopRightRadius="borderRadius20"
+          position="relative"
+          overflowX="auto"
         >
           <ReactLivePreview />
         </Box>
         <Box
-          css={{padding: '2px 10px', backgroundColor: '#011627'}}
+          backgroundColor="colorBackgroundBodyInverse"
+          paddingY="space110"
+          paddingX="space70"
           borderBottomLeftRadius="borderRadius20"
           borderBottomRightRadius="borderRadius20"
           borderColor="colorBorderWeak"
@@ -57,8 +73,49 @@ const LivePreview: React.FC<CodeblockProps> = ({
           borderWidth="borderWidth20"
           borderTopWidth="borderWidth0"
           fontSize="fontSize20"
+          position="relative"
+          height={isSmallCodeVariant || viewCode ? 'auto' : '112px'}
+          overflow="hidden"
         >
-          <LiveEditor style={{fontFamily: pasteTheme.fonts.fontFamilyCode}} />
+          {isSmallCodeVariant ? null : (
+            <Box position="absolute" top="space40" right="space40" zIndex="zIndex10">
+              <Button
+                variant="secondary"
+                size="small"
+                onClick={handleToggleCodeEditor}
+                aria-label="View Code"
+                aria-expanded={viewCode}
+                aria-controls={id}
+              >
+                {viewCode ? (
+                  <>
+                    <HideIcon decorative />
+                    <span>Hide code</span>
+                  </>
+                ) : (
+                  <>
+                    <ShowIcon decorative />
+                    <span>View code</span>
+                  </>
+                )}
+              </Button>
+            </Box>
+          )}
+          {/* corrects an inbuilt 10px margin style so we can accurately use token values */}
+          <LiveEditor
+            id={id}
+            style={{
+              margin: '-10px',
+              fontFamily: pasteTheme.fonts.fontFamilyCode,
+              backgroundColor: pasteTheme.backgroundColors.colorBackgroundBodyInverse,
+            }}
+          />
+          {isSmallCodeVariant || viewCode ? null : <CodeBlockOverlayShadow />}
+          {isSmallCodeVariant || viewCode ? (
+            <Box position="absolute" bottom="space40" right="space40">
+              <CopyButton text={children} />
+            </Box>
+          ) : null}
         </Box>
         <LiveError />
       </LiveProvider>

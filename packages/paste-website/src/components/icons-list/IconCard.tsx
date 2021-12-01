@@ -1,14 +1,11 @@
 import * as React from 'react';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
-import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
-import {useClipboard} from '@twilio-paste/clipboard-copy-library';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
-import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {Codeblock} from '../codeblock';
+import {CopyButton} from '../CopyButton';
 import {SiteLink} from '../SiteLink';
 import type {IconObject} from './types';
 
@@ -24,14 +21,7 @@ export interface IconCardProps {
 
 const IconCard: React.FC<IconCardProps> = ({selectedIcon}) => {
   if (selectedIcon === null) return null;
-  const clipboard = useClipboard({
-    copiedTimeout: 600,
-  });
   const Icon = selectedIcon.Component;
-
-  const handleClick = React.useCallback(() => {
-    clipboard.copy(iconSnippet(selectedIcon.name)); // programmatically copying a value
-  }, [clipboard.copy, selectedIcon.name]);
 
   return (
     <>
@@ -50,13 +40,7 @@ const IconCard: React.FC<IconCardProps> = ({selectedIcon}) => {
         <Box marginBottom="space70" position="relative">
           <Codeblock>{iconSnippet(selectedIcon.name)}</Codeblock>
           <Box bottom="10px" position="absolute" right="10px">
-            <Button onClick={handleClick} variant="secondary" size="small">
-              <CopyIcon decorative />
-              <span aria-live="polite">
-                {clipboard.copied ? 'Copied' : 'Copy'}
-                <ScreenReaderOnly>code snippet</ScreenReaderOnly>
-              </span>
-            </Button>
+            <CopyButton text={iconSnippet(selectedIcon.name)} />
           </Box>
         </Box>
         <Paragraph marginBottom="space0">
