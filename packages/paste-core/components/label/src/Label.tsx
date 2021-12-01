@@ -27,6 +27,14 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
     } else if (variant === 'inverse') {
       textColor = 'colorTextInverse';
     }
+
+    let cursor = 'pointer';
+    if (disabled) {
+      cursor = 'not-allowed';
+    } else if (as === 'legend') {
+      cursor = 'default';
+    }
+
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -44,7 +52,7 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
         fontWeight="fontWeightBold"
         lineHeight="lineHeight30"
         color={textColor}
-        cursor={disabled ? 'not-allowed' : 'pointer'}
+        cursor={cursor}
         ref={ref}
       >
         <MediaObject verticalAlign="top">
