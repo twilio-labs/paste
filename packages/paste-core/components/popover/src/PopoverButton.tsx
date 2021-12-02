@@ -24,9 +24,14 @@ const PopoverButton = React.forwardRef<HTMLButtonElement, PopoverButtonProps>(
       ButtonComponent = ButtonBadge;
     }
 
+    let computedElement = element;
+    if (as === 'badge' && element === 'POPOVER_BUTTON') {
+      computedElement = 'POPOVER_BADGE';
+    }
+
     return (
       <NonModalDialogDisclosurePrimitive
-        element={element}
+        element={computedElement}
         {...(popover as any)}
         {...popoverButtonProps}
         as={ButtonComponent}
