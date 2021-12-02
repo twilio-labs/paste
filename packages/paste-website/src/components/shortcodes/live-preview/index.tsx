@@ -58,7 +58,6 @@ const LivePreview: React.FC<LivePreviewProps> = ({
           borderTopLeftRadius="borderRadius20"
           borderTopRightRadius="borderRadius20"
           position="relative"
-          overflowX="auto"
         >
           <ReactLivePreview />
         </Box>
