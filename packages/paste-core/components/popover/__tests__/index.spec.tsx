@@ -6,7 +6,7 @@ import {CustomizationProvider} from '@twilio-paste/customization';
 import {Text} from '@twilio-paste/text';
 // @ts-ignore typescript doesn't like js imports
 import axe from '../../../../../.jest/axe-helper';
-import {PopoverTop, StateHookExample} from '../stories/index.stories';
+import {PopoverTop, StateHookExample, BadgePopover} from '../stories/index.stories';
 import {Popover, PopoverContainer, PopoverButton} from '../src';
 
 describe('Popover', () => {
@@ -68,6 +68,49 @@ describe('Popover', () => {
         return;
       }
       expect(popover).not.toBeVisible();
+    });
+  });
+
+  describe('PopoverButton render as', () => {
+    it('renders PopoverButton as a Button by default', () => {
+      render(
+        <Theme.Provider theme="default">
+          <PopoverTop />
+        </Theme.Provider>
+      );
+
+      const popoverButton = screen.getByRole('button', {name: 'Open popover'});
+      expect(popoverButton).toHaveAttribute('data-paste-element', 'POPOVER_BUTTON');
+    });
+
+    it('renders PopoverButton as a Button', () => {
+      render(
+        <Theme.Provider theme="default">
+          <PopoverContainer baseId="test-id">
+            <PopoverButton variant="primary" as="button">
+              Open popover
+            </PopoverButton>
+            <Popover aria-label="Popover">
+              <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
+            </Popover>
+          </PopoverContainer>
+        </Theme.Provider>
+      );
+
+      const popoverButton = screen.getByRole('button', {name: 'Open popover'});
+      expect(popoverButton).toHaveAttribute('data-paste-element', 'POPOVER_BUTTON');
+    });
+
+    it('renders PopoverButton as a Badge', () => {
+      render(
+        <Theme.Provider theme="default">
+          <BadgePopover />
+        </Theme.Provider>
+      );
+      const popoverButton = screen.getByRole('button', {name: 'Open popover'});
+      expect(popoverButton).toHaveAttribute('data-paste-element', 'BUTTON');
+
+      expect(popoverButton.querySelector('[data-paste-element="POPOVER_BADGE"]')).toBeInTheDocument();
     });
   });
 
