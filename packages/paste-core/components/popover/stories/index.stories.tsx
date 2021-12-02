@@ -78,6 +78,21 @@ export const PopoverBottom: React.FC = () => {
   );
 };
 
+export const BadgePopover: React.FC = () => {
+  return (
+    <Box height="300px">
+      <PopoverContainer baseId="test-id" visible>
+        <PopoverButton as="badge" variant="default">
+          Open popover
+        </PopoverButton>
+        <Popover aria-label="Popover">
+          <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
+        </Popover>
+      </PopoverContainer>
+    </Box>
+  );
+};
+
 export const StateHookExample: React.FC = () => {
   const popover = usePopoverState({baseId: 'test-id'});
   return (
