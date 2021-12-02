@@ -1,26 +1,35 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import type {ButtonProps} from '@twilio-paste/button';
-import type {BoxProps} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
+import {Badge} from '@twilio-paste/badge';
 import {NonModalDialogDisclosurePrimitive} from '@twilio-paste/non-modal-dialog-primitive';
+import type {PopoverButtonProps, ButtonBadgeProps} from './types';
 import {PopoverContext} from './PopoverContext';
 
-export interface PopoverButtonProps extends ButtonProps, Pick<BoxProps, 'element'> {
-  id?: string;
-  children: React.ReactNode;
-  toggle?: () => void;
-}
+// eslint-disable-next-line react/display-name
+const ButtonBadge = React.forwardRef<HTMLButtonElement, ButtonBadgeProps>(({children, ...props}, ref) => (
+  <Badge {...props} as="button" ref={ref}>
+    {children}
+  </Badge>
+));
 
 const PopoverButton = React.forwardRef<HTMLButtonElement, PopoverButtonProps>(
-  ({children, element = 'POPOVER_BUTTON', ...popoverButtonProps}, ref) => {
+  ({as = 'button', children, element = 'POPOVER_BUTTON', ...popoverButtonProps}, ref) => {
     const popover = React.useContext(PopoverContext);
+    let ButtonComponent;
+
+    if (as === 'button') {
+      ButtonComponent = Button;
+    } else if (as === 'badge') {
+      ButtonComponent = ButtonBadge;
+    }
+
     return (
       <NonModalDialogDisclosurePrimitive
         element={element}
         {...(popover as any)}
         {...popoverButtonProps}
-        as={Button}
+        as={ButtonComponent}
         ref={ref}
       >
         {children}
