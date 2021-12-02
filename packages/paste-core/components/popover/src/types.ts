@@ -9,7 +9,7 @@ type PopoverButtonBaseProps = Pick<BoxProps, 'element'> & {
   toggle?: () => void;
 };
 
-type PopoverButtonAsButtonProps = ButtonProps & {as?: 'button'};
+type PopoverButtonAsButtonProps = Omit<ButtonProps, 'as'> & {as?: 'button'};
 type PopoverButtonAsBadgeProps = Omit<BadgeProps, 'as'> & {as: 'badge'};
 
 export type PopoverButtonProps = (PopoverButtonAsBadgeProps | PopoverButtonAsButtonProps) & PopoverButtonBaseProps;
