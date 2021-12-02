@@ -1,4 +1,4 @@
-const ComponentLookup = require('../tools/.cache/mappings.json');
+const ComponentLookup = require('../component-package-mappings.json');
 
 module.exports = function barreledToUnbarreled(fileInfo, api, options) {
   const j = api.jscodeshift;

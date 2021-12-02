@@ -60,7 +60,7 @@ jobs:
             packages/paste-icons/cjs/**/*
             packages/paste-icons/esm/**/*
             packages/paste-design-tokens/types/**/*
-            packages/paste-codemods/tools/.cache/mappings.json
+            packages/paste-codemods/component-package-mappings.json
 
   version_or_publish:
     name: Version or publish the packages

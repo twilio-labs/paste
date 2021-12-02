@@ -1,7 +1,17 @@
 const {getRepoPackages} = require('../../../tools/utils/getRepoPackages');
 
 // We don't want to use the 'form' or 'typography' packages because they are deprecated
-const DEPRECATED_PACKAGES = ['@twilio-paste/form'];
+const DEPRECATED_PACKAGES = new Set(['@twilio-paste/form']);
+// We don't want to unbarrel these non-component packages
+const IGNORED_PACKAGES = new Set([
+  '@twilio-paste/codemods',
+  '@twilio-paste/core',
+  '@twilio-paste/cra-template',
+  '@twilio-paste/nextjs-template',
+  '@twilio-paste/icons',
+  '@twilio-paste/theme-designer',
+  '@twilio-paste/website',
+]);
 
 async function generatePackageExportsMap(getPackages = getRepoPackages) {
   // Object to store all the generated mappings for our codemod
@@ -13,9 +23,8 @@ async function generatePackageExportsMap(getPackages = getRepoPackages) {
   // Remove irrelevant packages
   const filteredPastePackages = allPastePackages.filter((pkg) => {
     if (pkg.private) return false;
-    if (DEPRECATED_PACKAGES.includes(pkg.name)) return false;
-    // Only include Paste core packages (except core-bundle!)
-    if (!pkg.location.includes('/paste-core/') || pkg.location.includes('/paste-core/core-bundle')) return false;
+    if (DEPRECATED_PACKAGES.has(pkg.name)) return false;
+    if (IGNORED_PACKAGES.has(pkg.name)) return false;
     return true;
   });
 
@@ -28,9 +37,9 @@ async function generatePackageExportsMap(getPackages = getRepoPackages) {
     try {
       // eslint-disable-next-line global-require, import/no-dynamic-require
       packageExports = require(name);
-    } catch (err) {
-      console.log(`Failed to dynamically require package: ${name}`, err);
-      throw err;
+    } catch (error) {
+      console.log(`Failed to dynamically require package: ${name}`, error);
+      throw error;
     }
 
     // Now we create a mapping for every export to the core-bundle unbarreled package

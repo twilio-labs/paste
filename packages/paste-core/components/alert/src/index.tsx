@@ -42,13 +42,14 @@ export type AlertBorderColors = ValueOf<typeof AlertBorderColors>;
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export type AlertRoles = ValueOf<typeof AlertRoles>;
 
-export interface AlertProps extends Pick<BoxProps, 'element'> {
+export interface AlertProps {
   id?: never;
   className?: never;
   children: NonNullable<React.ReactNode>;
   onDismiss?: () => void;
   role?: string;
   variant: AlertVariants;
+  element?: BoxProps['element'];
 }
 
 const renderAlertIcon = (variant: AlertVariants, element: string): React.ReactElement => {

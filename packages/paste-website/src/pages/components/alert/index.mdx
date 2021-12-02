@@ -15,6 +15,7 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {Neutral} from '@twilio-paste/alert/stories/Neutral';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Blockquote} from '../../../components/Blockquote';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
@@ -76,6 +77,8 @@ export const pageQuery = graphql`
 <PageAside data={props.data.mdx} />
 
 <content>
+
+<Neutral />
 
 <LivePreview scope={{Alert, Text}} language="jsx">
   {`<Alert variant="warning">
