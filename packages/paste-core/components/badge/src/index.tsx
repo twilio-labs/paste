@@ -33,6 +33,7 @@ export const Badge = React.forwardRef<HTMLElement, BadgeProps>(
           fontSize="fontSize20"
           fontWeight="fontWeightSemibold"
           lineHeight="lineHeight10"
+          maxWidth="max-content"
           paddingX="space30"
           paddingY="space20"
           variant={variant}

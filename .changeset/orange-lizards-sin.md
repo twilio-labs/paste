@@ -3,4 +3,4 @@
 '@twilio-paste/core': patch
 ---
 
-[Badge] Remove maxWidth
+[Badge] Update the maxWidth
